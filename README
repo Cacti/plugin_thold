@@ -1,0 +1,125 @@
+/*******************************************************************************
+
+    Author ......... Jimmy Conner
+    Contact ........ jimmy@sqmail.org
+    Home Site ...... http://cactiusers.org
+    Program ........ Thold for Cacti
+    Version ........ 0.3.2
+    Purpose ........ Threshold Alert module
+
+*******************************************************************************/
+
+
+----[ Purpose
+
+	This version contains many bug fixes not in the original Threshold module. 
+	It will also auto-create the database tables if they are not found, and you do not 
+	need to setup a cron job or scheduele, as it runs immediately after the normal 
+	poller automatically.
+
+----[ Features
+
+	Templating system for quick and consistant threshold set up.
+	Threshold Tab displays current thresholds, current value, triggered status, and host status
+	High/Low settings as well as adjustable baseline monitoring.
+	Global and individual email notification for triggered thresholds.
+	Auto-create thresholds link on Create-Graphs page will create thresholds for any matching threshold template.
+		
+----[ Installation
+
+	Install just like any other plugin, just throw it in the plugin directory,
+	in a folder called thold.
+	Edit your includes/config.php and add it to your $plugins list, and you are rolling
+    
+----[ Possible Bugs?
+   
+	If you find a problem, let me know!!! http://cactiusers.org/bugs/
+
+----[ Future Changes
+    
+	Got any ideas or complaints, please e-mail me!
+
+----[ Changelog
+
+	--- 0.3.2 ---
+		Fix an index error message displayed when clicking the auto-creation link
+		Fix an issue with thresholds not switching into "is still down" mode when alerting
+		Fix a rare error where under certain conditions no data is passed back to threshold during polling
+			
+	--- 0.3.1 ---
+		Patch from William Riley to allow the threshold management page to be split into separate pages	
+		Fix a php short tag issue on graph_thold.php
+		Major rewrite of thold processing, now we pull from the poller output table instead of directly from the rrd files
+		Major code cleanup in a few files
+		Remove the tholdset table
+		Remove the thold table
+		Add an option for the priority level used when syslogging
+		Add the option allow applying thresholds to multiple hosts at once through the Devices page
+		#0000035 - Does not handle INDEXED data sources correctly
+		#0000038 - Thresholding non-integer does not seem to work
+		#0000041 - Subject of mail message now reflects the data source item (also #0000066)
+		#0000059 - Thold always displays and assigns only one associated graph with the lowest graph_id
+		#0000060 - Issue with "nan" values in the RRD File
+		#0000062 - Step value of the rra is not considered for fetching rrd values
+		#0000063 - CDEF function error (100 -DS)
+	
+	--- 0.3.0 ---
+		#0000040 - Fix issue with invalid link in Navigation panel under certain circumstances
+		#0000048 - Fix improper notification of global address when Threshold set to "Force: Off"
+		#0000042 - Add ability to apply a CDEF to the threshold before using the data
+		#0000054 - Fix issue with CDEFs on manual threshold creating page
+	
+	--- 0.2.9 ---
+		#0000021 - Fix for rare SQL errors when auto-creating Thresholds when no Graph is associated with a Datasource
+		#0000024 - Thold Templates not allowing for NULL Upper or Lower Baselines
+		#0000031 - When creating Thresholds and Templates, default values were not provided
+		#0000032 - Validation Error on listthold.php when selecting "Show All"
+		Added some more POST validation to Threshold Templates
+		Fix for Undefined offset in thold.php
+		Changed the font size for the Auto-Create Thold Messages
+
+	--- 0.2.8 ---
+		#0000013 - Fix issues with database names with uncommon characters by enclosing in back-ticks.
+		#0000030 - Allow use of decimal values in thresholds up to 4 decimal places
+		#0000005 - Fix for threshold values not matching the graph values
+		Change "Thresholds" to "Threshold Templates"
+		
+	--- 0.2.7 ---
+		Fixes for "are you sure you meant month 899" errors
+		Fixes for table tholdset being empty causes poller to not function
+		Resolved issue with Base URL auto generation pointing to the plugin directory
+		Code Cleanup of Threshold Management Page
+		"Instructions" rewording on Threshold Management Page
+		Can now select multiple Thresholds to delete
+		Orphan thresholds are now cleaned up automatically
+		Fixed Guest account access to View Thresholds
+
+	--- 0.2.6 ---
+		Fixes for HI and Low thresholds limiting the max characters
+		Fixed wrong data reported to thold.log
+		Fix for the error: "sh: line 1: -e: command not found" during thold checks
+		Added command line switch /show for check-thold.php, which will show the output of all thresholds
+		Added command line switch /debug to allow it to log to file (to make it permanent, just set debug=1 in the file)
+		Fixed the Test Email link for IE
+
+	--- 0.2.5 ---
+		Test Link Created to help debug mail sending issues
+		Several fixes to the Threshold Mailing (SMTP especially was broken)
+		Several fixes to the Down Host Notification
+
+	--- 0.2.4 ---
+		Added Threshold Templates
+		A few other minor interface fixes
+
+	--- 0.2.3 ---
+		 Emails now use embedded PNG images (instead of links)
+		 Option to send mail via PHP Mail function, Sendmail, or SMTP (even authenicated)
+		 Set the from email address and name
+		 Fixed the Host Down Notification
+		 
+	--- 0.2.0 ---
+		 Auto-create the database if it doesn't exist
+		 Better sorting on threshold tables
+		 Does not require its own cron job anymore
+		 Lots of bug fixes for issues in the original threshold module
+
