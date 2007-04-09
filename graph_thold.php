@@ -30,7 +30,7 @@ $show_hosts = (read_config_option("alert_show_host_status") == "on");
 
 print '<center> Last Poll: ';
 
-$thold_last_poll = read_config_option("thold_last_poll");
+$thold_last_poll = read_config_option("thold_last_poll", true);
 
 if ($thold_last_poll > 0 && $thold_last_poll != '') {
 	echo $thold_last_poll;
