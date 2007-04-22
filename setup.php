@@ -171,7 +171,7 @@ function thold_show_tab () {
 		from user_auth_realm where user_auth_realm.user_id='" . $_SESSION["sess_user_id"] . "'
 		and user_auth_realm.realm_id='$realm_id2'")) || (empty($realm_id2))) {
 
-		print '<a href="' . $config['url_path'] . 'plugins/thold/graph_thold.php"><img src="' . $config['url_path'] . 'plugins/thold/images/tab_thold.gif" alt="thold" align="absmiddle" border="0"></a>';
+		print '<a href="' . $config['url_path'] . 'plugins/thold/graph_thold.php"><img src="' . $config['url_path'] . 'plugins/thold/images/tab_thold' . ((substr(basename($_SERVER["PHP_SELF"]),0,11) == "graph_thold") ? "_down": "") . '.gif" alt="thold" align="absmiddle" border="0"></a>';
 	}
 	thold_setup_table();
 }
@@ -222,7 +222,7 @@ function thold_setup_table () {
 	global $config, $database_default;
 	include_once($config["library_path"] . "/database.php");
 	$sql = "show tables from `" . $database_default . "`";
-	
+
 	$result = db_fetch_assoc($sql) or die (mysql_error());
 
 	$tables = array();
@@ -366,7 +366,7 @@ function thold_config_settings () {
       w = 420;
       h = 350;
       email = window.open("plugins/thold/email-test.php", "EmailTest", "width=" + w + ",height=" + h + ",resizable=0,status=0");
-      email.moveTo((screen.width - w) /2 ,(screen.height - h) /2 );      
+      email.moveTo((screen.width - w) /2 , (screen.height - h) /2 );
    }
 //-->
 </script>';
