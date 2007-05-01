@@ -196,7 +196,6 @@ function list_tholds() {
 	print "<input type=hidden name=hostid value=$hostid>";
 	print "</form>\n";
 	print "<br><br><center>For default alerting settings please click <a href='" . $config['url_path'] . "settings.php?tab=alerts'>here</a></center>";
-	include_once("./include/bottom_footer.php");
 	include_once($config["include_path"] . "/bottom_footer.php");
 }
 

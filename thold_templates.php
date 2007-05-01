@@ -306,7 +306,7 @@ function template_edit() {
 	/* ==================================================== */
 //	if (isset($_GET['id']))
 		$id = $_GET['id'];
-	$thold_item_data = db_fetch_assoc("select * from thold_template where id = " . $_GET["id"]);
+	$thold_item_data = db_fetch_assoc("select * from thold_template where id = " . $id);
 
 	$thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_item_data;
 
