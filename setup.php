@@ -39,7 +39,7 @@ function thold_version () {
 function thold_device_action_execute ($action) {
 	global $config;
 	if ($action != 'thold')
-		return;
+		return $action;
 
 	include_once($config["base_path"] . "/plugins/thold/thold-functions.php");
 
@@ -50,10 +50,14 @@ function thold_device_action_execute ($action) {
 
 		autocreate($selected_items[$i]);
 	}
+	return $action;
 }
 
 function thold_device_action_prepare ($save) {
 	global $colors, $host_list;
+	if ($save['drp_action'] != 'thold')
+		return $save;
+
 	print "	<tr>
 			<td colspan='2' class='textArea' bgcolor='#" . $colors["form_alternate1"]. "'>
 				<p>To apply all appropriate thresholds to these hosts, press the \"yes\" button below.</p>

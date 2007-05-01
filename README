@@ -42,7 +42,8 @@
 ----[ Changelog
 
 	--- 0.3.3 ---
-		Fix to speed up processing of thresholds
+		#0000076 - Fix to speed up processing of thresholds (thanks mikv!)
+		#0000079 - Bug causing thold to not respect the others plugins device page actions
 
 	--- 0.3.2 ---
 		Fix an index error message displayed when clicking the auto-creation link
