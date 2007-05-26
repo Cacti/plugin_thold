@@ -566,7 +566,7 @@ function templates() {
 			</td>
 
 			<td style="<?php print get_checkbox_style();?>" width="1%" align="right">
-				<input type='checkbox' style='margin: 0px;' name='chk_<?php print $template["id"];?>' title="<?php print $template["name"];?>">
+				<input type='checkbox' style='margin: 0px;' name='chk_<?php print $template["id"];?>' title="<?php print $template["data_template_name"];?>">
 			</td>
 		</tr>
 		<?php
