@@ -18,7 +18,7 @@ function plugin_init_thold() {
 	$plugin_hooks['data_sources_table']['thold'] = 'thold_data_sources_table';
 	$plugin_hooks['graphs_new_top_links']['thold'] = 'thold_graphs_new';
 	$plugin_hooks['api_device_save']['thold'] = 'thold_api_device_save';
-	$plugin_hooks['update_host_status']['thold'] = 'thold_update_host_status';
+	$plugin_hooks['poller_bottom']['thold'] = 'thold_update_host_status';
 	$plugin_hooks['poller_output']['thold'] = 'thold_poller_output';
 	$plugin_hooks['device_action_array']['thold'] = 'thold_device_action_array';
 	$plugin_hooks['device_action_execute']['thold'] = 'thold_device_action_execute';
@@ -26,12 +26,12 @@ function plugin_init_thold() {
 }
 
 function thold_version () {
-	return array( 	'name' 		=> 'thold',
-			'version' 	=> '0.3.2',
+	return array(	'name'		=> 'thold',
+			'version' 	=> '0.3.3',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',
-			'email'		=> 'jimmy@sqmail.org',
+			'email'	=> 'jimmy@sqmail.org',
 			'url'		=> 'http://cactiusers.org/cacti/versions.php'
 			);
 }
@@ -122,32 +122,63 @@ function thold_poller_output ($rrd_update_array) {
 	return $rrd_update_array;
 }
 
-function thold_update_host_status ($update) {
+function thold_update_host_status () {
 	global $config;
+
+	// Return if we aren't set to notify
 	$deadnotify = (read_config_option("alert_deadnotify") == "on");
 	if (!$deadnotify) return;
-	if (!$update['issue_log_message']) return;
 
 	include_once($config["base_path"] . '/plugins/thold/thold-functions.php');
 
-	$host_id = $update['host_id'];
-	$hosts = $update['hosts'];
-	$status = $update['status'];
-
 	$alert_email = read_config_option("alert_email");
-
-	if ($alert_email == '')
-		cacti_log("THOLD: Can not send Host Down email since the 'Alert e-mail' setting is not set!", true, "POLLER");
-
-	if ($status != HOST_DOWN) {
-		$subject = "Host Notice : " . $hosts[$host_id]["hostname"] . " returned from DOWN state";
-		$msg= $subject;
-		thold_mail($alert_email, '', $subject, $msg, '');
-	} else {
-		$subject = "Host Error : " . $hosts[$host_id]["hostname"] . " is DOWN";
-		$msg ="Host Error : " . $hosts[$host_id]["hostname"] . " is DOWN<br>Message : " . $hosts[$host_id]["status_last_error"];
-		thold_mail($alert_email, '', $subject, $msg, '');
+	$ping_failure_count = read_config_option('ping_failure_count');
+		
+	// Lets find hosts that were down, but are now back up
+	$failed = read_config_option('thold_failed_hosts', true);
+	$failed = explode(',', $failed);
+	if (!empty($failed)) {
+		foreach($failed as $id) {
+			if ($id != '') {
+				$host = db_fetch_row('SELECT id, status, description, hostname FROM host WHERE id = ' . $id);
+				if ($host['status'] == HOST_UP) {
+					$subject = 'Host Notice : ' . $host['description'] . ' (' . $host['hostname'] . ') returned from DOWN state';
+					$msg = $subject;
+					if ($alert_email == '') {
+						cacti_log("THOLD: Can not send Host Recovering email since the 'Alert e-mail' setting is not set!", true, "POLLER");
+					} else {
+						thold_mail($alert_email, '', $subject, $msg, '');
+					}
+				}
+			}
+		}
 	}
+	
+	// Lets find hosts that are down
+	$hosts = db_fetch_assoc('SELECT id, description, hostname, status_last_error FROM host WHERE status = ' . HOST_DOWN . ' AND status_event_count = ' . $ping_failure_count);
+	if (count($hosts)) {
+		foreach($hosts as $host) {
+			$subject = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN';
+			$msg = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN<br>Message : ' . $host['status_last_error'];
+			if ($alert_email == '') {
+				cacti_log("THOLD: Can not send Host Down email since the 'Alert e-mail' setting is not set!", true, "POLLER");
+			} else {
+				thold_mail($alert_email, '', $subject, $msg, '');
+			}
+		}
+	}
+
+	// Now lets record all failed hosts
+	$hosts = db_fetch_assoc('SELECT id FROM host WHERE status != ' . HOST_UP);
+	$failed = array();
+	if (!empty($hosts)) {
+		foreach ($hosts as $host) {
+			$failed[] = $host['id'];
+		}
+	}
+	$failed = implode(',', $failed);
+	db_execute("REPLACE INTO settings (name, value) VALUES ('thold_failed_hosts', '$failed')");
+	return;
 }
 
 function thold_api_device_save ($save) {
