@@ -102,7 +102,7 @@ function thold_check_treshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		$item["thold_fail_count"]++;
 
 		// Re-Alert?
-		$ra = ($item["thold_fail_count"] > $trigger && ($item["thold_fail_count"] % ($item["repeat_alert"] == "" ? $realert : $item["repeat_alert"])) == 0);
+		$ra = ($item['thold_fail_count'] > $trigger && $item['repeat_alert'] != 0 && ($item['thold_fail_count'] % ($item['repeat_alert'] == '' ? $realert : $item['repeat_alert'])) == 0);
 		if($item["thold_fail_count"] == $trigger || $ra) {
 			if ($logset == 1) {
 				logger($desc, $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $trigger, $item["thold_fail_count"]);
