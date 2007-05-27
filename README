@@ -41,6 +41,9 @@
 
 ----[ Changelog
 
+	--- 0.3.4 ---
+		Host Down messages are now sent as text only emails
+
 	--- 0.3.3 ---
 		#0000076 - Fix to speed up processing of thresholds (thanks mikv!)
 		#0000079 - Bug causing thold to not respect the others plugins device page actions

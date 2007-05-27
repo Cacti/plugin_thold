@@ -714,98 +714,102 @@ function autocreate($hostid) {
 /* Sends a group of graphs to a user, also used for thresholds */
 
 function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
-    global $config;
-    include_once($config["base_path"] . "/plugins/thold/class.phpmailer.php");
-    $mail = new PHPMailer();
-    $mail->SetLanguage("en",'plugins/thold/language/');
-    // Add config option for this!
+	global $config;
+	include_once($config["base_path"] . "/plugins/thold/class.phpmailer.php");
+	$mail = new PHPMailer();
+	$mail->SetLanguage("en",'plugins/thold/language/');
+	// Add config option for this!
 
-    $how = read_config_option("thold_how");
-    if ($how < 0 && $how > 2)
-        $how = 0;
-    if ($how == 0) {
-        $mail->IsMail();                                      // set mailer to use PHPs Mailer Class
-    } else if ($how == 1) {
-        $mail->IsSendmail();                                  // set mailer to use Sendmail
-        $sendmail = read_config_option("thold_sendmail_path");
-        if ($sendmail != '')
-            $mail->Sendmail = $sendmail;
-    } else if ($how == 2) {
-        $mail->IsSMTP();                                      // set mailer to use SMTP
-        $smtp_host = read_config_option("thold_smtp_host");
-        $smtp_port = read_config_option("thold_smtp_port");
-        $smtp_username = read_config_option("thold_smtp_username");
-        $smtp_password = read_config_option("thold_smtp_password");
-	if ($smtp_username != '' && $smtp_password != '') {
-            $mail->SMTPAuth = true;
-            $mail->Username = $smtp_username;
-            $mail->Password = $smtp_password;
-        } else {
-            $mail->SMTPAuth = false;
+	$how = read_config_option("thold_how");
+	if ($how < 0 && $how > 2)
+		$how = 0;
+	if ($how == 0) {
+		$mail->IsMail();                                      // set mailer to use PHPs Mailer Class
+	} else if ($how == 1) {
+		$mail->IsSendmail();                                  // set mailer to use Sendmail
+		$sendmail = read_config_option("thold_sendmail_path");
+		if ($sendmail != '') {
+			$mail->Sendmail = $sendmail;
+		}
+	} else if ($how == 2) {
+		$mail->IsSMTP();                                      // set mailer to use SMTP
+		$smtp_host = read_config_option("thold_smtp_host");
+		$smtp_port = read_config_option("thold_smtp_port");
+		$smtp_username = read_config_option("thold_smtp_username");
+		$smtp_password = read_config_option("thold_smtp_password");
+		if ($smtp_username != '' && $smtp_password != '') {
+			$mail->SMTPAuth = true;
+			$mail->Username = $smtp_username;
+			$mail->Password = $smtp_password;
+		} else {
+			$mail->SMTPAuth = false;
+		}
+		$mail->Host = $smtp_host;
+		$mail->Port = $smtp_port;
 	}
-	$mail->Host = $smtp_host;
-	$mail->Port = $smtp_port;
-    }
 
-    if ($from == '') {
-        $from = read_config_option("thold_from_email");
-        $fromname = read_config_option("thold_from_name");
-	if ($from == "") {
-		if (isset($_SERVER['HOSTNAME']))
-			$from = "Cacti@" . $_SERVER['HOSTNAME'];
-		else
-			$from = "Cacti@cactiusers.org";
-	}
-	if ($fromname == "")
-            $fromname = "Cacti";
+	if ($from == '') {
+		$from = read_config_option("thold_from_email");
+		$fromname = read_config_option("thold_from_name");
+		if ($from == "") {
+			if (isset($_SERVER['HOSTNAME'])) {
+				$from = "Cacti@" . $_SERVER['HOSTNAME'];
+			} else {
+				$from = "Cacti@cactiusers.org";
+			}
+		}
+		if ($fromname == "")
+			$fromname = "Cacti";
 
-        $mail->From = $from;
-        $mail->FromName = $fromname;
-    } else {
+		$mail->From = $from;
+		$mail->FromName = $fromname;
+	} else {
 		$mail->From = $from;
 		$mail->FromName = "Cacti";
-    }
+	}
 
-    if ($to == '')
-	return "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting.";
-    $to = explode(',',$to);
+	if ($to == '')
+		return "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting.";
+	$to = explode(',',$to);
 
-    foreach($to as $t)
-        $mail->AddAddress($t);
+	foreach($to as $t) {
+		$mail->AddAddress($t);
+	}
 
+	$mail->WordWrap = 70;                                 // set word wrap to 50 characters
 
-    $mail->WordWrap = 50;                                 // set word wrap to 50 characters
-    $mail->IsHTML(true);                                  // set email format to HTML
+	if ($filename == '') {
+		$mail->IsHTML(false);
+	} else {
+		$mail->IsHTML(true);
+	}
 
-    $mail->Subject = $subject;
-    $mail->Body    = $message . '<br>';
-    $mail->AltBody = strip_tags($message);
-    $mail->CreateHeader();
-    if (is_array($filename)) {
-        foreach($filename as $val) {
-            $graph_data_array = array("output_flag"=> RRDTOOL_OUTPUT_STDOUT);
-            $data = rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array);
-            if ($data != "") {
-                $cid = md5(uniqid(time()));
-                $mail->AddStringEmbedAttachment($data, $val['filename'].'.png', $cid, 'base64', $val['mimetype']);    // optional name
-                $mail->Body .= "<br><br><img src='cid:$cid'>";
-            } else {
-                $mail->Body .= "<br><img src='" . $val['file'] . "'>";
-                $mail->Body .= "<br>Could not open!<br>" . $val['file'];
-            }
-        }
-        $mail->AttachAll();
-    }
+	$mail->Subject = $subject;
+	$mail->Body    = $message . '<br>';
+	$mail->AltBody = strip_tags($message);
+	$mail->CreateHeader();
+	if (is_array($filename) && !empty($filename)) {
+		foreach($filename as $val) {
+			$graph_data_array = array("output_flag"=> RRDTOOL_OUTPUT_STDOUT);
+  			$data = rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array);
+			if ($data != "") {
+				$cid = md5(uniqid(time()));
+				$mail->AddStringEmbedAttachment($data, $val['filename'].'.png', $cid, 'base64', $val['mimetype']);    // optional name
+				$mail->Body .= "<br><br><img src='cid:$cid'>";
+			} else {
+ 				$mail->Body .= "<br><img src='" . $val['file'] . "'>";
+				$mail->Body .= "<br>Could not open!<br>" . $val['file'];
+			}
+		}
+		$mail->AttachAll();
+	}
 
-    if(!$mail->Send()) {
-//        echo "Message could not be sent. <p>";
-//        echo "Mailer Error: " . $mail->ErrorInfo;
-        return $mail->ErrorInfo;
-    }
-
-    if ($mail->ErrorInfo != '')
+	if(!$mail->Send()) {
 		return $mail->ErrorInfo;
-    return '';
+	}
+
+	if ($mail->ErrorInfo != '')
+		return $mail->ErrorInfo;
+	return '';
 }
 
-?>
