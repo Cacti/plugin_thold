@@ -452,6 +452,12 @@ function thold_config_settings () {
 			"method" => "checkbox",
 			"default" => "off"
 			),
+		"thold_send_text_only" => array(
+			"friendly_name" => "Send alerts as text",
+			"description" => "If checked, this will cause all alerts to be sent as plain text emails with no graph.  The default is HTML emails with the graph embedded in the email.",
+			"method" => "checkbox",
+			"default" => "off"
+			),
 		"alert_show_host_status" => array(
 			"friendly_name" => "Display Host Status",
 			"description" => "If checked, host status will be displayed together with the thresholds",

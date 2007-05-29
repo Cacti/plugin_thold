@@ -759,6 +759,7 @@ class PHPMailer
      * @return string
      */
     function CreateHeader() {
+	global $config;
         $result = "";
         
         // Set the boundaries
@@ -801,7 +802,9 @@ class PHPMailer
 
         $result .= sprintf("Message-ID: <%s@%s>%s", $uniq_id, $this->ServerHostname(), $this->LE);
         $result .= $this->HeaderLine("X-Priority", $this->Priority);
-        $result .= $this->HeaderLine("X-Mailer", "PHPMailer [version " . $this->Version . "]");
+//        $result .= $this->HeaderLine("X-Mailer", "PHPMailer [version " . $this->Version . "]");
+        $result .= $this->HeaderLine("X-Mailer", "Cacti v" . $config["cacti_version"]);
+
         
         if($this->ConfirmReadingTo != "")
         {

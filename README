@@ -42,13 +42,17 @@
 ----[ Changelog
 
 	--- 0.3.4 ---
-		Host Down messages are now sent as text only emails
+		Allow text only threshold alerts (no graph!)
+		Add some text to the alerts, including the hostname
+		Change the email to be sent as "Cacti" instead of PHPMailer
+		Fix issue with host alerts still being sent multipart
 
 	--- 0.3.3 ---
 		#0000076 - Fix to speed up processing of thresholds (thanks mikv!)
 		#0000079 - Bug causing thold to not respect the others plugins device page actions
 		Fix an issue with re-alert set to 0 still alerting
 		Fix the host down messages, this will work with cactid also
+		Host Down messages are now sent as text only emails
 
 	--- 0.3.2 ---
 		Fix an index error message displayed when clicking the auto-creation link

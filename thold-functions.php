@@ -46,6 +46,8 @@ function thold_check_treshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$alert_exempt = read_config_option("alert_exempt");
 	$httpurl = read_config_option("alert_base_url");
 	$thold_show_datasource = read_config_option("thold_show_datasource");
+	$thold_send_text_only = read_config_option("thold_send_text_only");
+
 
 	// Remove this after adding an option for it
 	$thold_show_datasource = true;
@@ -82,14 +84,18 @@ function thold_check_treshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		print "     Data Source : " . $name;
 	}
 
-//	$rrdsql = db_fetch_row("SELECT id FROM data_template_rrd WHERE local_data_id=$rra_id ORDER BY id ASC LIMIT 1");
-//	$grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_item WHERE task_item_id=" . $rrdsql["id"]);
 	$grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_item WHERE task_item_id=" . $data_id);
 	$graph_id = $grapharr[0]['local_graph_id'];
 
-	$msg = "<html><body><a href=$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1>$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1</a><br>";
-	$file_array = array(0 => array('local_graph_id' => $graph_id, 'rra_id' => 0, 'file' => "$httpurl/graph_image.php?local_graph_id=$graph_id&rra_id=0&view_type=tree",'mimetype'=>'image/png','filename'=>"$graph_id"));
-
+	$hostname = db_fetch_assoc('SELECT hostname, description from host where id = ' . $item['host_id']);
+	$hostname = $hostname[0];
+	if ($thold_send_text_only == 'on') {
+		$file_array = '';
+		$msg = "A threshold has been breached and requires your attention.\n\nHost: " . $hostname['description'] . " (" . $hostname['hostname'] . ")\nURL: $httpurl/graph.php?local_graph_id=$graph_id&rra_id=1\nMessage: ";
+	} else {
+		$file_array = array(0 => array('local_graph_id' => $graph_id, 'rra_id' => 0, 'file' => "$httpurl/graph_image.php?local_graph_id=$graph_id&rra_id=0&view_type=tree",'mimetype'=>'image/png','filename'=>"$graph_id"));
+		$msg = "<html><body>A threshold has been breached and requires your attention.<br><br><strong>Host</strong>: " . $hostname['description'] . " (" . $hostname['hostname'] . ")<br><strong>URL</strong>: <a href=$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1>$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1</a><br><strong>Message</strong>: ";
+	}
 	$breach_up = ($item["thold_hi"] != "" && $currentval > $item["thold_hi"]);
 	$breach_down = ($item["thold_low"] != "" && $currentval < $item["thold_low"]);
 		
@@ -108,6 +114,7 @@ function thold_check_treshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				logger($desc, $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $trigger, $item["thold_fail_count"]);
 			}
 			$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " " . ($ra ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval";
+			$msg .= $subject;
 			if ($show)
 				print " " . ($ra ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval\n";
 			if (($global_notify_enabled && $item["notify_default"] != "off") || $item["notify_default"] == "on" )
@@ -129,6 +136,7 @@ function thold_check_treshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				logger($desc, "ok", 0, $currentval, $trigger, $item["thold_fail_count"]);
 			if ($item["thold_fail_count"] >= $trigger) {
 				$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+				$msg .= $subject;
 				if ($show)
 					print " restored to normal threshold with value $currentval\n";
 				if (($global_notify_enabled && $item["notify_default"] != "off") || $item["notify_default"] == "on" )
@@ -161,6 +169,7 @@ function thold_check_treshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				case 0:		// All clear
 					if ($global_bl_notify_enabled && $item["bl_fail_count"] >= $bl_fail_trigger) {
 						$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+						$msg .= $subject;
 						if ($show)
 							print " restored to normal threshold with value $currentval\n";
 						if (($global_notify_enabled && $item["notify_default"] != "off") || $item["notify_default"] == "on" )
@@ -182,6 +191,7 @@ function thold_check_treshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 							logger($desc, $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $item["thold_fail_trigger"], $item["thold_fail_count"]);
 						}
 						$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " " . ($ra ? "is still" : "went") . " " . ($item["bl_alert"] == 2 ? "above" : "below") . " calculated baseline threshold with $currentval";
+						$msg .= $subject;
 						if ($show)
 							print " " . ($ra ? "is still" : "went") . " " . ($item["bl_alert"] == 2 ? "above" : "below") . " calculated baseline threshold with $currentval\n";;
 						if (($global_notify_enabled && $item["notify_default"] != "off") || $item["notify_default"] == "on" )
@@ -780,13 +790,15 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 
 	if ($filename == '') {
 		$mail->IsHTML(false);
+		$mail->Body    = $message;
 	} else {
 		$mail->IsHTML(true);
+		$mail->Body    = $message . '<br>';
+		$mail->AltBody = strip_tags(str_replace('<br>', "\n", $message));
 	}
 
 	$mail->Subject = $subject;
-	$mail->Body    = $message . '<br>';
-	$mail->AltBody = strip_tags($message);
+
 	$mail->CreateHeader();
 	if (is_array($filename) && !empty($filename)) {
 		foreach($filename as $val) {
