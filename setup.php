@@ -414,12 +414,6 @@ function thold_config_settings () {
 			"friendly_name" => "General",
 			"method" => "spacer",
 			),
-		"alert_email" => array(
-			"friendly_name" => "Alert e-mail",
-			"description" => "Email address(es) to send alerts to: (use commas to for multiple addresses)",
-			"method" => "textbox",
-			"max_length" => 255,
-			),
 		"alert_base_url" => array(
 			"friendly_name" => "Base URL",
 			"description" => "Cacti base URL",
@@ -428,33 +422,9 @@ function thold_config_settings () {
 			"default" => ((isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["PHP_SELF"]) && basename($_SERVER["PHP_SELF"]) == "settings.php") ? ("http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]) . "/") : ""),
 			"max_length" => 255,
 			),
-		"alert_notify_default" => array(
-			"friendly_name" => "Send notifications",
-			"description" => "Enable sending alert notification",
-			"method" => "checkbox",
-			"default" => "on"
-			),
-		"alert_notify_bl" => array(
-			"friendly_name" => "Baseline notifications",
-			"description" => "Enable sending alert for baseline notifications",
-			"method" => "checkbox",
-			"default" => "on"
-			),
-		"alert_deadnotify" => array(
-			"friendly_name" => "Dead Hosts notifications",
-			"description" => "Enable Dead/Recovering host notification",
-			"method" => "checkbox",
-			"default" => "on"
-			),
 		"alert_show_alerts_only" => array(
 			"friendly_name" => "Display Alerts Only",
 			"description" => "If checked, only hosts and data sources that have an alert active will be displayed",
-			"method" => "checkbox",
-			"default" => "off"
-			),
-		"thold_send_text_only" => array(
-			"friendly_name" => "Send alerts as text",
-			"description" => "If checked, this will cause all alerts to be sent as plain text emails with no graph.  The default is HTML emails with the graph embedded in the email.",
 			"method" => "checkbox",
 			"default" => "off"
 			),
@@ -463,11 +433,6 @@ function thold_config_settings () {
 			"description" => "If checked, host status will be displayed together with the thresholds",
 			"method" => "checkbox",
 			"default" => "on"
-			),
-		"alert_exempt" => array(
-			"friendly_name" => "Weekend exemptions",
-			"description" => "If this is checked, thold will not run on weekends.",
-			"method" => "checkbox",
 			),
 		"alert_syslog" => array(
 			"friendly_name" => "Syslogging",
@@ -489,6 +454,39 @@ function thold_config_settings () {
 			"max_length" => 4,
 			"default" => 30
 			),
+		"thold_alerting_header" => array(
+			"friendly_name" => "Default Alerting Options",
+			"method" => "spacer",
+			),
+		"alert_notify_default" => array(
+			"friendly_name" => "Send notifications",
+			"description" => "Enable sending alert notification",
+			"method" => "checkbox",
+			"default" => "on"
+			),
+		"alert_deadnotify" => array(
+			"friendly_name" => "Dead Hosts notifications",
+			"description" => "Enable Dead/Recovering host notification",
+			"method" => "checkbox",
+			"default" => "on"
+			),
+		"alert_email" => array(
+			"friendly_name" => "Alert e-mail",
+			"description" => "Default Email address(es) to send alerts to: (use commas to for multiple addresses)",
+			"method" => "textbox",
+			"max_length" => 255,
+			),
+		"thold_send_text_only" => array(
+			"friendly_name" => "Send alerts as text",
+			"description" => "If checked, this will cause all alerts to be sent as plain text emails with no graph.  The default is HTML emails with the graph embedded in the email.",
+			"method" => "checkbox",
+			"default" => "off"
+			),
+		"alert_exempt" => array(
+			"friendly_name" => "Weekend exemptions",
+			"description" => "If this is checked, thold will not run on weekends.",
+			"method" => "checkbox",
+			),
 		"alert_trigger" => array(
 			"friendly_name" => "Default Trigger Count",
 			"description" => "Number of consecutive times the data source must be in breach of the threshold for an alert to be raised",
@@ -497,14 +495,6 @@ function thold_config_settings () {
 			"max_length" => 4,
 			"default" => 1
 			),
-		"alert_bl_trigger" => array(
-			"friendly_name" => "Default Baseline Trigger Count",
-			"description" => "Number of consecutive times the data source must be in breach of the calculated baseline threshold for an alert to be raised",
-			"method" => "textbox",
-			"size" => 4,
-			"max_length" => 4,
-			"default" => 2
-			),
 		"alert_repeat" => array(
 			"friendly_name" => "Re-Alerting",
 			"description" => "Repeat alert after specified number of cycles.",
@@ -512,6 +502,32 @@ function thold_config_settings () {
 			"size" => 4,
 			"max_length" => 4,
 			"default" => 12
+			),
+		"thold_alert_text" => array(
+			"friendly_name" => "Alert Text Message",
+			"description" => "This is the message that will be displayed at the top of all threshold alerts (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062",
+			"method" => "textarea",
+			"textarea_rows" => "3",
+			"textarea_cols" => "60",
+			"default" => '<html><body>An alert has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>',
+			),
+		"thold_baseline_header" => array(
+			"friendly_name" => "Default Baseline Options",
+			"method" => "spacer",
+			),
+		"alert_notify_bl" => array(
+			"friendly_name" => "Baseline notifications",
+			"description" => "Enable sending alert for baseline notifications",
+			"method" => "checkbox",
+			"default" => "on"
+			),
+		"alert_bl_trigger" => array(
+			"friendly_name" => "Default Baseline Trigger Count",
+			"description" => "Number of consecutive times the data source must be in breach of the calculated baseline threshold for an alert to be raised",
+			"method" => "textbox",
+			"size" => 4,
+			"max_length" => 4,
+			"default" => 2
 			),
 		"alert_bl_past_default" => array(
 			"friendly_name" => "Baseline reference in the past default",
