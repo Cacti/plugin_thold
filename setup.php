@@ -27,7 +27,7 @@ function plugin_init_thold() {
 
 function thold_version () {
 	return array(	'name'		=> 'thold',
-			'version' 	=> '0.3.3',
+			'version' 	=> '0.3.4',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',
