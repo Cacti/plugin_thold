@@ -446,7 +446,7 @@ if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') 
 ?>
 
 </script>
-
+<?php
 
 include_once($config["include_path"] . "/bottom_footer.php");
 ?>
