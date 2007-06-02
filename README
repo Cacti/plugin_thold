@@ -49,6 +49,7 @@
 		Add the ability to completely customize the threshold alert (allow descriptors)
 		Re-arrange the Settings page to group like options
 		Fix an issue when applying thresholds to a device with no datasources / dataqueries
+		Add the ability for template changes to propagate back to the thresholds (with the ability to disable per threshold)
 
 	--- 0.3.3 ---
 		#0000076 - Fix to speed up processing of thresholds (thanks mikv!)

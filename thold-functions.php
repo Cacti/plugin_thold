@@ -26,7 +26,7 @@ if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["PHP_SELF"]) && read_config_o
 	kill_session_var("sess_config_array");
 }
 
-function thold_check_treshold ($rra_id, $data_id, $name, $currentval, $cdef) {
+function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	global $config;
 	include_once($config["base_path"] . "/plugins/thold/thold-functions.php");
 
@@ -537,13 +537,26 @@ function &thold_check_baseline($rra_id, $ds, $ref_time, $ref_range, $current_val
 }
 
 function save_thold() {
-        global $rra;
-        global $banner;
-	global $hostid;
+	global $rra, $banner, $hostid;
+
+	$template_enabled = isset($_POST["template_enabled"]) && $_POST["template_enabled"] == 'on' ? $_POST["template_enabled"] : "off";
+	if ($template_enabled == 'on') {
+		input_validate_input_number($_POST['rra']);
+		input_validate_input_number($_POST['data_template_rrd_id']);
+
+		$rra_id = $_POST["rra"];
+		$data_id = $_POST["data_template_rrd_id"];
+		$data = db_fetch_row("SELECT id, template FROM thold_data WHERE rra_id = $rra_id AND data_id = $data_id");
+		thold_template_update_threshold ($data['id'], $data['template']);
+		$banner="<font color=green><strong>Record Updated</strong></font>";
+		return true;
+	}
 
         // Make sure this is defined
-        $_POST["bl_enabled"] = isset($_POST["bl_enabled"]) ? $_POST["bl_enabled"] : "off";
-        $_POST["thold_enabled"] = isset($_POST["thold_enabled"]) ? $_POST["thold_enabled"] : "off";
+        $_POST["bl_enabled"] = isset($_POST["bl_enabled"]) ? 'on' : "off";
+        $_POST["thold_enabled"] = isset($_POST["thold_enabled"]) ? 'on' : "off";
+        $_POST["template_enabled"] = isset($_POST["template_enabled"]) ? 'on' : "off";
+
 
         // --------------------------------------------------------------------------------
         // Perform checks (to prevent having people wake up at night due to wrong settings)
@@ -615,6 +628,7 @@ function save_thold() {
                 $sql .= ", repeat_alert=" . (trim($_POST["repeat_alert"]) == "" ? "NULL" : ("'" . $_POST["repeat_alert"] . "'"));
                 $sql .= ", notify_default=" . ($_POST["notify_default"] == "NULL" ? "NULL" : ("'" . $_POST["notify_default"] . "'"));
                 $sql .= ", notify_extra=" . (trim($_POST["notify_extra"]) == "" ? "NULL" : ("'" . $_POST["notify_extra"] . "'"));
+                $sql .= ", template_enabled='" . $_POST["template_enabled"] . "'";
                 $sql .= ", cdef=" . $_POST["cdef"];
                 if($_POST["bl_enabled"] == "on") {
                         $sql .= ", bl_ref_time='" . $_POST["bl_ref_time"] . "'";
@@ -691,6 +705,9 @@ function autocreate($hostid) {
 					$insert['notify_default'] = $template[$y]['notify_default'];
 					$insert['notify_extra'] = $template[$y]['notify_extra'];
 					$insert['cdef'] = $template[$y]['cdef'];
+					$insert['template'] = $template[$y]['id'];
+					$insert['template_enabled'] = 'on';
+
 
 					$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name = '$data_source_name'") or die(mysql_error());
 
@@ -855,4 +872,44 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 		return $mail->ErrorInfo;
 	return '';
 }
+
+function thold_template_update_threshold ($id, $template) {
+	db_execute("UPDATE thold_data, thold_template
+		SET thold_data.thold_hi = thold_template.thold_hi,
+		thold_data.template_enabled = 'on',
+		thold_data.thold_low = thold_template.thold_low,
+		thold_data.thold_fail_trigger = thold_template.thold_fail_trigger,
+		thold_data.thold_enabled = thold_template.thold_enabled,
+		thold_data.bl_enabled = thold_template.bl_enabled,
+		thold_data.bl_ref_time = thold_template.bl_ref_time,
+		thold_data.bl_ref_time_range = thold_template.bl_ref_time_range,
+		thold_data.bl_pct_down = thold_template.bl_pct_down,
+		thold_data.bl_fail_trigger = thold_template.bl_fail_trigger,
+		thold_data.bl_alert = thold_template.bl_alert,
+		thold_data.repeat_alert = thold_template.repeat_alert,
+		thold_data.notify_default = thold_template.notify_default,
+		thold_data.notify_extra = thold_template.notify_extra,
+		thold_data.cdef = thold_template.cdef
+		WHERE thold_data.id=$id AND thold_template.id=$template");
+}
+
+function thold_template_update_thresholds ($id) {
+	db_execute("UPDATE thold_data, thold_template
+		SET thold_data.thold_hi = thold_template.thold_hi,
+		thold_data.thold_low = thold_template.thold_low,
+		thold_data.thold_fail_trigger = thold_template.thold_fail_trigger,
+		thold_data.thold_enabled = thold_template.thold_enabled,
+		thold_data.bl_enabled = thold_template.bl_enabled,
+		thold_data.bl_ref_time = thold_template.bl_ref_time,
+		thold_data.bl_ref_time_range = thold_template.bl_ref_time_range,
+		thold_data.bl_pct_down = thold_template.bl_pct_down,
+		thold_data.bl_fail_trigger = thold_template.bl_fail_trigger,
+		thold_data.bl_alert = thold_template.bl_alert,
+		thold_data.repeat_alert = thold_template.repeat_alert,
+		thold_data.notify_default = thold_template.notify_default,
+		thold_data.notify_extra = thold_template.notify_extra,
+		thold_data.cdef = thold_template.cdef
+		WHERE thold_data.template=$id AND thold_data.template_enabled='on'");
+}
+
 

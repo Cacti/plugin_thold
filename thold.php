@@ -222,6 +222,17 @@ print "	<tr>
 
 
 $form_array = array(
+		"template_header" => array(
+			"friendly_name" => "Template settings",
+			"method" => "spacer",
+		),
+		"template_enabled" => array(
+			"friendly_name" => "Enabled",
+			"method" => "checkbox",
+			"default" => "",
+			"description" => "Whether or not these settings will be propigates from the threshold template.",
+			"value" => isset($thold_item_data["template_enabled"]) ? $thold_item_data["template_enabled"] : "",
+		),
 		"general_header" => array(
 			"friendly_name" => "Mandatory settings",
 			"method" => "spacer",
@@ -392,6 +403,8 @@ function BL_EnableDisable()
 {
 	var _f = document.THold;
 	var status = !_f.bl_enabled.checked;
+	if (_f.bl_enabled.disabled)
+		status = true;
 	
 	_f.bl_ref_time.disabled = status;
 	_f.bl_ref_time_range.disabled = status;
@@ -403,8 +416,38 @@ function BL_EnableDisable()
 BL_EnableDisable();
 document.THold.bl_enabled.onclick = BL_EnableDisable;
 
-</script>
+function Template_EnableDisable()
+{
+	var _f = document.THold;
+	var status = _f.template_enabled.checked;
+
+	_f.thold_hi.disabled = status;
+	_f.thold_low.disabled = status;
+	_f.thold_fail_trigger.disabled = status;
+	_f.bl_enabled.disabled = status;
+	_f.repeat_alert.disabled = status;
+	_f.notify_default.disabled = status;
+	_f.notify_extra.disabled = status;
+	_f.cdef.disabled = status;
+	_f.thold_enabled.disabled = status;
+	BL_EnableDisable();
+}
+
+Template_EnableDisable();
+document.THold.template_enabled.onclick = Template_EnableDisable;
+
 <?php
+if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') {
+?>
+	document.THold.template_enabled.disabled = true;
+
+<?php
+}
+?>
+
+</script>
+
+
 include_once($config["include_path"] . "/bottom_footer.php");
 ?>
 

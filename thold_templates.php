@@ -286,6 +286,7 @@ function template_save_edit() {
 			$id = sql_save($save, "thold_template");
 			if ($id) {
 				raise_message(1);
+				thold_template_update_thresholds ($id);
 			}else{
 				raise_message(2);
 			}

@@ -25,8 +25,14 @@ CREATE TABLE `thold_data` (
   `host_id` int(10) default NULL,
   `syslog_priority` int(2) default '3',
   `cdef` int(11) NOT NULL default '0',
+  `template` int(11) NOT NULL default '0',
+  `template_enabled` char(3) NOT NULL default '',
   PRIMARY KEY  (`id`),
-  KEY `rra_id` (`rra_id`)
+  KEY `rra_id` (`rra_id`),
+  KEY `template` (`template`),
+  KEY `template_enabled` (`template_enabled`),
+  KEY `data_id` (`data_id`),
+  KEY `thold_enabled` (`thold_enabled`)
 ) TYPE=MyISAM;
 
 DROP TABLE IF EXISTS `thold_template`;
