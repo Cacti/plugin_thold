@@ -650,7 +650,13 @@ function autocreate($hostid) {
 	$c = 0;
 	$message = "";
 
-	$rralist = db_fetch_assoc("SELECT id, data_template_id FROM data_local where host_id='$hostid'") or die(mysql_error());
+	$rralist = db_fetch_assoc("SELECT id, data_template_id FROM data_local where host_id='$hostid'");
+
+	if (!count($rralist)) {
+		$_SESSION['thold_message'] = "<font size=-2>No thresholds were created.</font>";
+		return 0;
+	}
+
 	foreach ($rralist as $row) {
 		$local_data_id = $row["id"];
 		$data_template_id = $row['data_template_id'];

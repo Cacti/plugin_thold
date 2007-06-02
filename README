@@ -48,6 +48,7 @@
 		Fix issue with host alerts still being sent as multipart messages
 		Add the ability to completely customize the threshold alert (allow descriptors)
 		Re-arrange the Settings page to group like options
+		Fix an issue when applying thresholds to a device with no datasources / dataqueries
 
 	--- 0.3.3 ---
 		#0000076 - Fix to speed up processing of thresholds (thanks mikv!)
