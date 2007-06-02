@@ -316,7 +316,7 @@ function thold_setup_table () {
 		$sql[] = "INSERT INTO settings VALUES ('alert_bl_trigger',3);";
 	}
 
-	if (!in_array('thold_templates', $tables)) {
+	if (!in_array('thold_template', $tables)) {
 		$sql[] = "CREATE TABLE thold_template (
 		  id int(11) NOT NULL auto_increment,
 		  data_template_id int(32) NOT NULL default '0',
