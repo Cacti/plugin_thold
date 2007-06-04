@@ -20,6 +20,12 @@ include_once("./include/auth.php");
 include_once($config["include_path"] . "/top_graph_header.php");
 include_once($config["base_path"] . "/plugins/thold/thold-functions.php");
 
+if (!thold_check_dependencies()) {
+	cacti_log("THOLD: You are missing a required dependency, please install the '<a href='http://cactiusers.org/'>Settings'</a> plugin.", true, "POLLER");
+	print "<br><br><center><font color=red>You are missing a dependency for thold, please install the '<a href='http://cactiusers.org'>Settings</a>' plugin.</font></color>";
+	exit;
+}
+
 delete_old_thresholds();
 
 $sql = "SELECT thold_data.*, host.description FROM thold_data LEFT JOIN host ON thold_data.host_id=host.id WHERE thold_enabled='on' ORDER BY thold_alert DESC, bl_alert DESC, host.description ASC, rra_id ASC";

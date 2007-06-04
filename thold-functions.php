@@ -762,30 +762,30 @@ function autocreate($hostid) {
 
 function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	global $config;
-	include_once($config["base_path"] . "/plugins/thold/class.phpmailer.php");
+	include_once($config["base_path"] . "/plugins/settings/class.phpmailer.php");
 	$mail = new PHPMailer();
-	$mail->SetLanguage("en",'plugins/thold/language/');
+	$mail->SetLanguage("en",'plugins/settings/language/');
 	// Add config option for this!
 
 	$message = str_replace('<SUBJECT>', $subject, $message);
 
-	$how = read_config_option("thold_how");
+	$how = read_config_option("settings_how");
 	if ($how < 0 && $how > 2)
 		$how = 0;
 	if ($how == 0) {
 		$mail->IsMail();                                      // set mailer to use PHPs Mailer Class
 	} else if ($how == 1) {
 		$mail->IsSendmail();                                  // set mailer to use Sendmail
-		$sendmail = read_config_option("thold_sendmail_path");
+		$sendmail = read_config_option("settings_sendmail_path");
 		if ($sendmail != '') {
 			$mail->Sendmail = $sendmail;
 		}
 	} else if ($how == 2) {
 		$mail->IsSMTP();                                      // set mailer to use SMTP
-		$smtp_host = read_config_option("thold_smtp_host");
-		$smtp_port = read_config_option("thold_smtp_port");
-		$smtp_username = read_config_option("thold_smtp_username");
-		$smtp_password = read_config_option("thold_smtp_password");
+		$smtp_host = read_config_option("settings_smtp_host");
+		$smtp_port = read_config_option("settings_smtp_port");
+		$smtp_username = read_config_option("settings_smtp_username");
+		$smtp_password = read_config_option("settings_smtp_password");
 		if ($smtp_username != '' && $smtp_password != '') {
 			$mail->SMTPAuth = true;
 			$mail->Username = $smtp_username;
@@ -827,8 +827,6 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 
 	$mail->WordWrap = 70;                                 // set word wrap to 50 characters
 
-
-
 	$mail->Subject = $subject;
 
 	$mail->CreateHeader();
@@ -862,7 +860,6 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 		$mail->Body    = $message . '<br>';
 		$mail->AltBody = strip_tags(str_replace('<br>', "\n", $message));
 	}
-
 
 	if(!$mail->Send()) {
 		return $mail->ErrorInfo;

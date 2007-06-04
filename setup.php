@@ -10,11 +10,14 @@
 
 function plugin_init_thold() {
 	global $plugin_hooks;
-	$plugin_hooks['top_header_tabs']['thold'] = 'thold_show_tab';
-	$plugin_hooks['top_graph_header_tabs']['thold'] = 'thold_show_tab';
+
 	$plugin_hooks['config_arrays']['thold'] = 'thold_config_arrays';
 	$plugin_hooks['config_settings']['thold'] = 'thold_config_settings';
+	$plugin_hooks['top_header_tabs']['thold'] = 'thold_show_tab';
+	$plugin_hooks['top_graph_header_tabs']['thold'] = 'thold_show_tab';
 	$plugin_hooks['draw_navigation_text']['thold'] = 'thold_draw_navigation_text';
+	if (!thold_check_dependencies())
+		return;
 	$plugin_hooks['data_sources_table']['thold'] = 'thold_data_sources_table';
 	$plugin_hooks['graphs_new_top_links']['thold'] = 'thold_graphs_new';
 	$plugin_hooks['api_device_save']['thold'] = 'thold_api_device_save';
@@ -23,6 +26,13 @@ function plugin_init_thold() {
 	$plugin_hooks['device_action_array']['thold'] = 'thold_device_action_array';
 	$plugin_hooks['device_action_execute']['thold'] = 'thold_device_action_execute';
 	$plugin_hooks['device_action_prepare']['thold'] = 'thold_device_action_prepare';
+}
+
+function thold_check_dependencies() {
+	global $plugins, $config;
+	if (in_array('settings', $plugins))
+		return true;
+	return false;
 }
 
 function thold_version () {
@@ -411,16 +421,6 @@ function thold_config_settings () {
 	define_syslog_variables();
 
 	$tabs["alerts"] = "Alerting/Thold";
-      $javascript = '<script type="text/javascript">
-<!--
-   function emailtest() {
-      w = 420;
-      h = 350;
-      email = window.open("plugins/thold/email-test.php", "EmailTest", "width=" + w + ",height=" + h + ",resizable=0,status=0");
-      email.moveTo((screen.width - w) /2 , (screen.height - h) /2 );
-   }
-//-->
-</script>';
 	$settings["alerts"] = array(
 		"general_header" => array(
 			"friendly_name" => "General",
@@ -566,15 +566,8 @@ function thold_config_settings () {
 			"default" => 15
 			),
 		"thold_email_header" => array(
-			"friendly_name" => "\n$javascript\n<table width='99%' cellspacing=0 cellpadding=0 align=left><tr><td class='textSubHeaderDark'>Emailing Options</td><td align=right class='textSubHeaderDark'><a href='javascript:emailtest();' class='textSubHeaderDark'><font color=white>Send a Test Email</font></a></td></tr></table>",
+			"friendly_name" => "Emailing Options",
 			"method" => "spacer",
-			),
-		"thold_how" => array(
-			"friendly_name" => "Mail Services",
-			"description" => "Which mail service to use in order to send mail",
-			"method" => "drop_array",
-			"default" => "PHP Mail() Function",
-			"array" => array("PHP Mail() Function", "Sendmail", "SMTP"),
 			),
 		"thold_from_email" => array(
 			"friendly_name" => "From Email Address",
@@ -586,47 +579,6 @@ function thold_config_settings () {
 			"friendly_name" => "From Name",
 			"description" => "This is the actual name that the threshold will appear from.",
 			"method" => "textbox",
-			"max_length" => 255,
-			),
-		"thold_sendmail_header" => array(
-			"friendly_name" => "Sendmail Options",
-			"method" => "spacer",
-			),
-		"thold_sendmail_path" => array(
-			"friendly_name" => "Sendmail Path",
-			"description" => "This is the path to sendmail on your server. (Only used if Sendmail is selected as the Mail Service)",
-			"method" => "textbox",
-			"max_length" => 255,
-			"default" => "/usr/sbin/sendmail",
-			),
-		"thold_smtp_header" => array(
-			"friendly_name" => "SMTP Options",
-			"method" => "spacer",
-			),
-		"thold_smtp_host" => array(
-			"friendly_name" => "SMTP Hostname",
-			"description" => "This is the hostname/IP of the SMTP Server you will send the email to.",
-			"method" => "textbox",
-			"default" => "localhost",
-			"max_length" => 255,
-			),
-		"thold_smtp_port" => array(
-			"friendly_name" => "SMTP Port",
-			"description" => "This is the port on the SMTP Server that SMTP uses.",
-			"method" => "textbox",
-			"max_length" => 255,
-			"default" => 25,
-			),
-		"thold_smtp_username" => array(
-			"friendly_name" => "SMTP Username",
-			"description" => "This is the username to authenticate with when sending via SMTP. (Leave blank if you do not require authentication.)",
-			"method" => "textbox",
-			"max_length" => 255,
-			),
-		"thold_smtp_password" => array(
-			"friendly_name" => "SMTP Password",
-			"description" => "This is the password to authenticate with when sending via SMTP. (Leave blank if you do not require authentication.)",
-			"method" => "textbox_password",
 			"max_length" => 255,
 			),
 		);
