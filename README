@@ -41,6 +41,10 @@
 
 ----[ Changelog
 
+	--- 0.3.5 ---
+		Update plugin to use the Settings plugin for mail functionality
+
+
 	--- 0.3.4 ---
 		Allow text only threshold alerts (aka no graph!)
 		Add some text to the alerts, including the hostname
