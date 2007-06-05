@@ -825,7 +825,14 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 		$mail->AddAddress($t);
 	}
 
-	$mail->WordWrap = 70;                                 // set word wrap to 50 characters
+	$wordwrap = read_config_option("settings_wordwrap");
+	if ($wordwrap == '')
+		$wordwrap = 120;
+	if ($wordwrap > 9999)
+		$wordwrap = 9999;
+	if ($wordwrap < 0)
+		$wordwrap = 0;
+	$mail->WordWrap = $wordwrap;
 
 	$mail->Subject = $subject;
 
