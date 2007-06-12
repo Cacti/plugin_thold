@@ -37,7 +37,7 @@ function thold_check_dependencies() {
 
 function thold_version () {
 	return array(	'name'		=> 'thold',
-			'version' 	=> '0.3.5',
+			'version' 	=> '0.3.4',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',
@@ -272,6 +272,12 @@ function thold_data_sources_table ($ds) {
 
 function thold_setup_table () {
 	global $config;
+
+	$files = array('thold.php', 'graph_thold.php', 'thold_templates.php', 'listthold.php', 'poller.php');
+
+	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files))
+		return;
+
 	include_once($config["library_path"] . "/database.php");
 	$sql = 'show tables';
 
@@ -289,8 +295,6 @@ function thold_setup_table () {
 	}
 
 	if (!in_array('thold_data', $tables)) {
-print_r($tables);
-exit;
 		$sql[] = "CREATE TABLE `thold_data` (
  			  `id` int(11) NOT NULL auto_increment,
 			  `rra_id` int(11) NOT NULL default '0',
@@ -425,6 +429,9 @@ function thold_graphs_new () {
 
 function thold_config_settings () {
 	global $tabs, $settings;
+
+	if (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF']) != 'settings.php')
+		return;
 
 	define_syslog_variables();
 
