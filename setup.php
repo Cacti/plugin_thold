@@ -213,16 +213,8 @@ function thold_api_device_save ($save) {
 }
 
 function thold_show_tab () {
-	global $config, $user_auth_realms, $user_auth_realm_filenames;
-	$realm_id2 = 0;
-
-	if (isset($user_auth_realm_filenames{basename('graph_thold.php')})) {
-		$realm_id2 = $user_auth_realm_filenames{basename('graph_thold.php')};
-	}
-	if ((db_fetch_assoc("select user_auth_realm.realm_id
-		from user_auth_realm where user_auth_realm.user_id='" . $_SESSION["sess_user_id"] . "'
-		and user_auth_realm.realm_id='$realm_id2'")) || (empty($realm_id2))) {
-
+	global $config;
+	if (api_user_realm_auth('graph_thold.php')) {
 		print '<a href="' . $config['url_path'] . 'plugins/thold/graph_thold.php"><img src="' . $config['url_path'] . 'plugins/thold/images/tab_thold' . ((substr(basename($_SERVER["PHP_SELF"]),0,11) == "graph_thold") ? "_down": "") . '.gif" alt="thold" align="absmiddle" border="0"></a>';
 	}
 	thold_setup_table();
