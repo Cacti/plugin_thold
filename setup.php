@@ -267,22 +267,26 @@ function thold_data_sources_table ($ds) {
 }
 
 function thold_setup_table () {
-	global $config, $database_default;
+	global $config;
 	include_once($config["library_path"] . "/database.php");
-	$sql = "show tables from `" . $database_default . "`";
+	$sql = 'show tables';
 
-	$result = db_fetch_assoc($sql) or die (mysql_error());
+	$result = db_fetch_assoc($sql);
 
 	$tables = array();
 	$sql = array();
 
-	foreach($result as $index => $arr) {
-		foreach ($arr as $t) {
-			$tables[] = $t;
+	if (count($result) > 1) {
+		foreach($result as $index => $arr) {
+			foreach ($arr as $t) {
+				$tables[] = $t;
+			}
 		}
 	}
 
 	if (!in_array('thold_data', $tables)) {
+print_r($tables);
+exit;
 		$sql[] = "CREATE TABLE `thold_data` (
  			  `id` int(11) NOT NULL auto_increment,
 			  `rra_id` int(11) NOT NULL default '0',
@@ -365,7 +369,7 @@ function thold_setup_table () {
 	$found3 = false;
 	$found4 = false;
 
-	$result = db_fetch_assoc("show columns from thold_data from `" . $database_default . "`");
+	$result = db_fetch_assoc('show columns from thold_data');
 
 	foreach($result as $row) {
 		if ($row['Field'] == 'thold_enabled')
@@ -399,7 +403,7 @@ function thold_setup_table () {
 		db_execute("ALTER TABLE `thold_data` ADD INDEX `thold_enabled`(`thold_enabled`)");
 	}
 
-	$result = db_fetch_assoc("show columns from thold_template from `" . $database_default . "`");
+	$result = db_fetch_assoc('show columns from thold_template');
 	$found = false;
 	foreach($result as $row) {
 		if ($row['Field'] == 'cdef')

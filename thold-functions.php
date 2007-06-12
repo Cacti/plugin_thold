@@ -762,7 +762,7 @@ function autocreate($hostid) {
 
 function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	global $config;
-	include_once($config["base_path"] . "/plugins/settings/class.phpmailer.php");
+	include_once($config["base_path"] . "/plugins/settings/include/class.phpmailer.php");
 	$mail = new PHPMailer();
 	$mail->SetLanguage("en",'plugins/settings/language/');
 	// Add config option for this!
