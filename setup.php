@@ -37,7 +37,7 @@ function thold_check_dependencies() {
 
 function thold_version () {
 	return array(	'name'		=> 'thold',
-			'version' 	=> '0.3.4',
+			'version' 	=> '0.3.5',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',
@@ -91,6 +91,10 @@ function thold_poller_output ($rrd_update_array) {
 			$rrd_update_array_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
 		} 
 	}
+	$polling_interval = read_config_option("poller_interval");
+	if (!isset($polling_interval) || $polling_interval < 1) {
+		$polling_interval = 300;
+	}
 
 	foreach ($thold_items as $t_item) {
 		if (isset($rrd_update_array_reindexed[$t_item['rra_id']])) {
@@ -109,15 +113,15 @@ function thold_poller_output ($rrd_update_array) {
 								$currentval = (4294967295 - $t_item['oldvalue']) + $item[$t_item['name']];
 							}
 						}
-						$currentval = $currentval / 300;
+						$currentval = $currentval / $polling_interval;
 						db_execute("UPDATE thold_data SET oldvalue = '" . $item[$t_item['name']] . "' where data_id = " . $t_item['data_id']);
 						break;
 					case 3:	// DERIVE
-						$currentval = ($item[$t_item['name']] - $t_item['oldvalue']) / 300;
+						$currentval = ($item[$t_item['name']] - $t_item['oldvalue']) / $polling_interval;
 						db_execute("UPDATE thold_data SET oldvalue = '" . $item[$t_item['name']] . "' where data_id = " . $t_item['data_id']);
 						break;
 					case 4:	// ABSOLUTE
-						$currentval = $item[$t_item['name']] / 300;
+						$currentval = $item[$t_item['name']] / $polling_interval;
 						break;
 					case 1:	// GAUGE
 					default:

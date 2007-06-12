@@ -381,9 +381,14 @@ function get_current_value($rra, $ds, $cdef = 0) {
 	if ($last_time_entry == -1)
 		$last_time_entry = time();
 
+	$polling_interval = read_config_option("poller_interval");
+	if (!isset($polling_interval) || $polling_interval < 1) {
+		$polling_interval = 300;
+	}
+
 	// Round down to the nearest 100
-	$last_time_entry = (intval($last_time_entry /100) * 100) - 300;
-	$last_needed = $last_time_entry + 300;
+	$last_time_entry = (intval($last_time_entry /100) * 100) - $polling_interval;
+	$last_needed = $last_time_entry + $polling_interval;
 
 	$result = rrdtool_function_fetch($rra, trim($last_time_entry), trim($last_needed));
 
