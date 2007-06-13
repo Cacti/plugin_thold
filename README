@@ -43,8 +43,8 @@
 
 	--- 0.3.5 ---
 		Update plugin to use the Settings plugin for mail functionality
+		Fix for thold values being off when using different polling intervals
 		Use new "api_user_realm_auth" from Plugin Architecture
-
 
 	--- 0.3.4 ---
 		Allow text only threshold alerts (aka no graph!)
