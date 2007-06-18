@@ -679,7 +679,7 @@ function autocreate($hostid) {
 	foreach ($rralist as $row) {
 		$local_data_id = $row["id"];
 		$data_template_id = $row['data_template_id'];
-		$existing = db_fetch_assoc("SELECT id FROM thold_data WHERE rra_id = " . $local_data_id);
+		$existing = db_fetch_assoc("SELECT id FROM thold_data WHERE rra_id = " . $local_data_id . " AND data_id = " . $data_template_id);
 		$template = db_fetch_assoc("SELECT * FROM thold_template WHERE data_template_id = " . $data_template_id);
 		if (count($existing) == 0 && count($template)) {
 			$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id order by id LIMIT 1");
