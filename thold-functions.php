@@ -918,7 +918,7 @@ function thold_template_update_thresholds ($id) {
 		thold_data.notify_default = thold_template.notify_default,
 		thold_data.notify_extra = thold_template.notify_extra,
 		thold_data.cdef = thold_template.cdef
-		WHERE thold_data.template=$id AND thold_data.template_enabled='on'");
+		WHERE thold_data.template=$id AND thold_data.template_enabled='on' AND thold_template.id=$id");
 }
 
 
