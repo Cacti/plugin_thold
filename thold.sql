@@ -20,7 +20,6 @@ CREATE TABLE `thold_data` (
   `lastread` varchar(100) default NULL,
   `oldvalue` varchar(100) NOT NULL default '',
   `repeat_alert` int(10) unsigned default NULL,
-  `notify_default` enum('on','off') default NULL,
   `notify_extra` varchar(255) default NULL,
   `host_id` int(10) default NULL,
   `syslog_priority` int(2) default '3',
@@ -55,13 +54,38 @@ CREATE TABLE thold_template (
   bl_fail_trigger int(10) default NULL,
   bl_alert int(2) default NULL,
   repeat_alert int(10) NOT NULL default '12',
-  notify_default enum('on','off') default NULL,
   notify_extra varchar(255) NOT NULL default '',
   cdef int(11) NOT NULL default '0',
   UNIQUE KEY data_source_id (data_source_id),
   KEY id (id)
 ) TYPE=MyISAM COMMENT='Table of thresholds defaults for graphs';
 
+DROP TABLE IF EXISTS `plugin_thold_template_contact`;
+CREATE TABLE plugin_thold_template_contact (
+  template_id int(12) NOT NULL,
+  contact_id int(12) NOT NULL,
+  KEY template_id (template_id),
+  KEY contact_id (contact_id)
+) TYPE=MyISAM COMMENT='Table of Tholds Template Contacts';
+
+DROP TABLE IF EXISTS `plugin_thold_threshold_contact`;
+CREATE TABLE plugin_thold_threshold_contact (
+  thold_id int(12) NOT NULL,
+  contact_id int(12) NOT NULL,
+  KEY thold_id (thold_id),
+  KEY contact_id (contact_id)
+) TYPE=MyISAM COMMENT='Table of Tholds Threshold Contacts';
+
+DROP TABLE IF EXISTS `plugin_thold_contacts`;
+CREATE TABLE plugin_thold_contacts (
+  `id` int(12) NOT NULL auto_increment,
+  `user_id` int(12) NOT NULL,
+  `type` varchar(32) NOT NULL,
+  `data` text NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `type` (`type`),
+  KEY `user_id` (`user_id`)
+) TYPE=MyISAM;"
 
 INSERT INTO `user_auth_realm` VALUES (18, 1);
 INSERT INTO `user_auth_realm` VALUES (19, 1);

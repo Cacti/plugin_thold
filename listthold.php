@@ -45,7 +45,8 @@ function do_thold() {
 			$rra = $matches[2];
 			input_validate_input_number($del);
 			input_validate_input_number($rra);
-			db_execute("DELETE FROM thold_data WHERE id='$del'");
+			db_execute("DELETE FROM thold_data WHERE id=$del");
+			db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $del);
 		}
 	}
 	if (isset($hostid) && $hostid != '')

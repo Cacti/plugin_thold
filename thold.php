@@ -219,7 +219,20 @@ print "	<tr>
         "]</td>
 	</tr>\n";
 
+$send_notification_array = array();
 
+$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data, plugin_thold_contacts.type, user_auth.full_name FROM plugin_thold_contacts, user_auth WHERE user_auth.id = plugin_thold_contacts.user_id AND plugin_thold_contacts.data != '' ORDER BY user_auth.full_name ASC, plugin_thold_contacts.type ASC");
+if (!empty($users)) {
+	foreach ($users as $user) {
+		$send_notification_array[$user['id']] = $user['full_name'] . ' - ' . ucfirst($user['type']);
+	}
+}
+
+if (isset($thold_item_data['id'])) {
+	$sql = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=' . $thold_item_data['id'];
+} else {
+	$sql = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=0';
+}
 
 $form_array = array(
 		"template_header" => array(
@@ -352,20 +365,15 @@ $form_array = array(
 			"description" => "Repeat alert after specified number of cycles.<br>Leave empty to use default value (<b>Default: " . read_config_option("alert_repeat") . " cycles</b>)",
 			"value" => isset($thold_item_data["repeat_alert"]) ? $thold_item_data["repeat_alert"] : ""
 		),
-		
-		"notify_default" => array(
-			"friendly_name" => "Send notifications to default alert address",
-			"method" => "drop_array",
-			"default" => "NULL",
-			"description" => "Determines if the notifications will be sent to e-mail address specified in global settings.",
-			"value" => isset($thold_item_data["notify_default"]) ? $thold_item_data["notify_default"] : "",
-			"array" => array("NULL" => "Use global control: " . (read_config_option("alert_notify_default") == "on" ? "On" : "Off"),
-					"on" => "Force: On",
-					"off" => "Force: Off")
+		"notify_accounts" => array(
+			"friendly_name" => "Notify accounts",
+			"method" => "drop_multi",
+			"description" => "This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>",
+			"array" => $send_notification_array,
+			"sql" => $sql,
 		),
-		
 		"notify_extra" => array(
-			"friendly_name" => "Alert E-Mail",
+			"friendly_name" => "Extra Alert Emails",
 			"method" => "textbox",
 			"max_length" => 255,
 			"description" => "You may specify here extra e-mails to receive alerts for this data source (comma separated)",
@@ -420,22 +428,21 @@ function Template_EnableDisable()
 {
 	var _f = document.THold;
 	var status = _f.template_enabled.checked;
-
 	_f.thold_hi.disabled = status;
 	_f.thold_low.disabled = status;
 	_f.thold_fail_trigger.disabled = status;
 	_f.bl_enabled.disabled = status;
 	_f.repeat_alert.disabled = status;
-	_f.notify_default.disabled = status;
 	_f.notify_extra.disabled = status;
 	_f.cdef.disabled = status;
 	_f.thold_enabled.disabled = status;
+	_f["notify_accounts[]"].disabled = status;
 	BL_EnableDisable();
+
 }
 
 Template_EnableDisable();
 document.THold.template_enabled.onclick = Template_EnableDisable;
-
 <?php
 if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') {
 ?>

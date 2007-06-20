@@ -46,7 +46,10 @@
 		Fix for thold values being off when using different polling intervals
 		Use new "api_user_realm_auth" from Plugin Architecture
 		Fix for creating multiple thresholds via templates from the same DataSource
-		Fix for threshold template data propagating to the an incorrect threshold
+		Fix for threshold template data propagating to an incorrect threshold
+		Removed Default Notify address, as its unnecessary when using templates
+		Added Email Address field to User's Profiles
+		Added ability to select a user to alert for a threshold instead of having to type in their email address
 
 	--- 0.3.4 ---
 		Allow text only threshold alerts (aka no graph!)

@@ -33,6 +33,8 @@ function plugin_init_thold() {
 	if (!thold_check_dependencies())
 		return;
 	$plugin_hooks['data_sources_table']['thold'] = 'thold_data_sources_table';
+	$plugin_hooks['user_admin_setup_sql_save']['thold'] = 'thold_user_admin_setup_sql_save';
+	$plugin_hooks['config_form']['thold'] = 'thold_config_form';
 	$plugin_hooks['graphs_new_top_links']['thold'] = 'thold_graphs_new';
 	$plugin_hooks['api_device_save']['thold'] = 'thold_api_device_save';
 	$plugin_hooks['poller_bottom']['thold'] = 'thold_update_host_status';
@@ -40,6 +42,19 @@ function plugin_init_thold() {
 	$plugin_hooks['device_action_array']['thold'] = 'thold_device_action_array';
 	$plugin_hooks['device_action_execute']['thold'] = 'thold_device_action_execute';
 	$plugin_hooks['device_action_prepare']['thold'] = 'thold_device_action_prepare';
+}
+
+function thold_check_upgrade () {
+	// Let's only run this check if we are on a page that actually needs the data
+	$files = array('thold.php', 'graph_thold.php', 'thold_templates.php', 'listthold.php', 'poller.php');
+	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files))
+		return;
+
+	$current = thold_version ();
+	$current = $current['version'];
+	$old = read_config_option('plugin_thold_version');
+	if ($current != $old)
+		thold_setup_table ();
 }
 
 function thold_check_dependencies() {
@@ -143,7 +158,7 @@ function thold_poller_output ($rrd_update_array) {
 						break;
 				}
 				thold_check_threshold ($t_item['rra_id'], $t_item['data_id'], $t_item['name'], $currentval, $t_item['cdef']);
-			} 
+			}
 		}
 	}
 	return $rrd_update_array;
@@ -231,7 +246,19 @@ function thold_show_tab () {
 	if (api_user_realm_auth('graph_thold.php')) {
 		print '<a href="' . $config['url_path'] . 'plugins/thold/graph_thold.php"><img src="' . $config['url_path'] . 'plugins/thold/images/tab_thold' . ((substr(basename($_SERVER["PHP_SELF"]),0,11) == "graph_thold") ? "_down": "") . '.gif" alt="thold" align="absmiddle" border="0"></a>';
 	}
-	thold_setup_table();
+	thold_check_upgrade ();
+}
+
+function thold_config_form () {
+	global $fields_user_user_edit_host;
+	$fields_user_user_edit_host['email'] = array(
+				"method" => "textbox",
+				"value" => "|arg1:email|",
+				"friendly_name" => "Email Address",
+				"form_id" => "|arg1:id|",
+				"default" => "",
+				"max_length" => 255
+				);
 }
 
 function thold_config_arrays () {
@@ -279,15 +306,14 @@ function thold_data_sources_table ($ds) {
 function thold_setup_table () {
 	global $config;
 
-	$files = array('thold.php', 'graph_thold.php', 'thold_templates.php', 'listthold.php', 'poller.php');
-
-	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files))
-		return;
-
 	include_once($config["library_path"] . "/database.php");
-	$sql = 'show tables';
 
-	$result = db_fetch_assoc($sql);
+	// Set the new version
+	$new = thold_version();
+	$new = $new['version'];
+	db_execute("REPLACE INTO settings (name, value) VALUES ('plugin_thold_version', '$new')");
+
+	$result = db_fetch_assoc('show tables');
 
 	$tables = array();
 	$sql = array();
@@ -322,7 +348,6 @@ function thold_setup_table () {
 			  `lastread` varchar(100) default NULL,
 			  `oldvalue` varchar(100) NOT NULL default '',
 			  `repeat_alert` int(10) unsigned default NULL,
-			  `notify_default` enum('on','off') default NULL,
 			  `notify_extra` varchar(255) default NULL,
 			  `host_id` int(10) default NULL,
 			  `syslog_priority` int(2) default '3',
@@ -346,30 +371,59 @@ function thold_setup_table () {
 
 	if (!in_array('thold_template', $tables)) {
 		$sql[] = "CREATE TABLE thold_template (
-		  id int(11) NOT NULL auto_increment,
-		  data_template_id int(32) NOT NULL default '0',
-		  data_template_name varchar(100) NOT NULL default '',
-		  data_source_id int(10) NOT NULL default '0',
-		  data_source_name varchar(100) NOT NULL default '',
-		  data_source_friendly varchar(100) NOT NULL default '',
-		  thold_hi varchar(100) default NULL,
-		  thold_low varchar(100) default NULL,
-		  thold_fail_trigger int(10) default '1',
-		  thold_enabled enum('on','off') NOT NULL default 'on',
-		  bl_enabled enum('on','off') NOT NULL default 'off',
-		  bl_ref_time int(50) default NULL,
-		  bl_ref_time_range int(10) default NULL,
-		  bl_pct_down int(10) default NULL,
-		  bl_pct_up int(10) default NULL,
-		  bl_fail_trigger int(10) default NULL,
-		  bl_alert int(2) default NULL,
-		  repeat_alert int(10) NOT NULL default '12',
-		  notify_default enum('on','off') default NULL,
-		  notify_extra varchar(255) NOT NULL default '',
-		  cdef int(11) NOT NULL default '0',
-		  UNIQUE KEY data_source_id (data_source_id),
-		  KEY id (id)
-		) TYPE=MyISAM COMMENT='Table of thresholds defaults for graphs';";
+				  id int(11) NOT NULL auto_increment,
+				  data_template_id int(32) NOT NULL default '0',
+				  data_template_name varchar(100) NOT NULL default '',
+				  data_source_id int(10) NOT NULL default '0',
+				  data_source_name varchar(100) NOT NULL default '',
+				  data_source_friendly varchar(100) NOT NULL default '',
+				  thold_hi varchar(100) default NULL,
+				  thold_low varchar(100) default NULL,
+				  thold_fail_trigger int(10) default '1',
+				  thold_enabled enum('on','off') NOT NULL default 'on',
+				  bl_enabled enum('on','off') NOT NULL default 'off',
+				  bl_ref_time int(50) default NULL,
+				  bl_ref_time_range int(10) default NULL,
+				  bl_pct_down int(10) default NULL,
+				  bl_pct_up int(10) default NULL,
+				  bl_fail_trigger int(10) default NULL,
+				  bl_alert int(2) default NULL,
+				  repeat_alert int(10) NOT NULL default '12',
+				  notify_extra varchar(255) NOT NULL default '',
+				  cdef int(11) NOT NULL default '0',
+				  UNIQUE KEY data_source_id (data_source_id),
+				  KEY id (id)
+				) TYPE=MyISAM COMMENT='Table of thresholds defaults for graphs';";
+	}
+
+	if (!in_array('plugin_thold_template_contact', $tables)) {
+		$sql[] = "CREATE TABLE plugin_thold_template_contact (
+				  template_id int(12) NOT NULL,
+				  contact_id int(12) NOT NULL,
+				  KEY template_id (template_id),
+				  KEY contact_id (contact_id)
+				) TYPE=MyISAM COMMENT='Table of Tholds Template Contacts';";
+	}
+
+	if (!in_array('plugin_thold_threshold_contact', $tables)) {
+		$sql[] = "CREATE TABLE plugin_thold_threshold_contact (
+				  thold_id int(12) NOT NULL,
+				  contact_id int(12) NOT NULL,
+				  KEY thold_id (thold_id),
+				  KEY contact_id (contact_id)
+				) TYPE=MyISAM COMMENT='Table of Tholds Threshold Contacts';";
+	}
+
+	if (!in_array('plugin_thold_contacts', $tables)) {
+		$sql[] = "CREATE TABLE plugin_thold_contacts (
+				  `id` int(12) NOT NULL auto_increment,
+				  `user_id` int(12) NOT NULL,
+				  `type` varchar(32) NOT NULL,
+				  `data` text NOT NULL,
+				  PRIMARY KEY  (`id`),
+				  KEY `type` (`type`),
+				  KEY `user_id` (`user_id`)
+				) TYPE=MyISAM;";
 	}
 
 	if (!empty($sql)) {
@@ -433,6 +487,28 @@ function thold_graphs_new () {
 	print '<span style="color: #c16921;">*</span><a href="' . $config['url_path'] . 'plugins/thold/thold.php?action=autocreate&hostid=' . $_REQUEST["host_id"] . '">Auto-create thresholds</a><br>';
 }
 
+function thold_user_admin_setup_sql_save ($save) {
+	global $database_default, $database_type, $database_port, $database_password, $database_username, $database_hostname, $config;
+	if (is_error_message()) {
+		return $save;
+	}
+	if (isset($_POST['email'])) {
+		$email = form_input_validate($_POST["email"], "email", "", true, 3);
+
+		if ($save['id'] == 0) {
+			$save['id'] = sql_save($save, "user_auth");
+		}
+
+		$cid = db_fetch_cell("SELECT id FROM plugin_thold_contacts WHERE type = 'email' AND user_id = " . $save['id'], false);
+		if ($cid) {
+			db_execute("REPLACE INTO plugin_thold_contacts (id, user_id, type, data) VALUES ($cid, " . $save['id'] . ", 'email', '$email')");
+		}else{
+			db_execute("REPLACE INTO plugin_thold_contacts (user_id, type, data) VALUES (" . $save['id'] . ", 'email', '$email')");
+		}
+	}
+	return $save;
+}
+
 function thold_config_settings () {
 	global $tabs, $settings;
 
@@ -491,23 +567,11 @@ function thold_config_settings () {
 			"friendly_name" => "Default Alerting Options",
 			"method" => "spacer",
 			),
-		"alert_notify_default" => array(
-			"friendly_name" => "Send notifications",
-			"description" => "Enable sending alert notification",
-			"method" => "checkbox",
-			"default" => "on"
-			),
 		"alert_deadnotify" => array(
 			"friendly_name" => "Dead Hosts notifications",
 			"description" => "Enable Dead/Recovering host notification",
 			"method" => "checkbox",
 			"default" => "on"
-			),
-		"alert_email" => array(
-			"friendly_name" => "Alert e-mail",
-			"description" => "Default Email address(es) to send alerts to: (use commas to for multiple addresses)",
-			"method" => "textbox",
-			"max_length" => 255,
 			),
 		"thold_send_text_only" => array(
 			"friendly_name" => "Send alerts as text",

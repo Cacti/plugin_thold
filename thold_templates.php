@@ -73,6 +73,9 @@ function template_delete() {
 		if (substr($t, 0,4) == "chk_") {
 			$id = substr($t, 4);
 			db_fetch_assoc("delete from thold_template where id = $id LIMIT 1");
+			db_execute('DELETE FROM plugin_thold_template_contact WHERE template_id=' . $id);
+			db_execute("UPDATE thold_data SET template = '', template_enabled = 'off' WHERE template = $id");
+
 		}
 	}
 
@@ -186,17 +189,10 @@ function template_add() {
 		else
 			$temp2[0]['name'] = $temp[0]['data_source_name'];
 
-
 		$save["data_source_friendly"] = $temp2[0]['name'];
-//		$save["thold_hi"] = $_POST["thold_hi"];
-//		$save["thold_low"] = $_POST["thold_low"];
-//		$save["thold_fail_trigger"] = $_POST["thold_fail_trigger"];
-
 		$save["thold_enabled"] = 'on';
 		$save["bl_enabled"] = 'off';
 		$save["repeat_alert"] = read_config_option("alert_repeat");
-//		$save["notify_extra"] = "";
-		$save["notify_default"] = "NULL";
 		$id = sql_save($save, "thold_template");
 
 		if ($id) {
@@ -208,7 +204,6 @@ function template_add() {
 			exit;
 		}
 	}
-
 }
 
 function template_save_edit() {
@@ -292,7 +287,6 @@ function template_save_edit() {
 				$save["repeat_alert"] = 12;
 		}
 
-		$save["notify_default"] = $_POST["notify_default"];
 		$save["notify_extra"] = $_POST["notify_extra"];
 		$save["cdef"] = $_POST["cdef"];
 
@@ -300,6 +294,9 @@ function template_save_edit() {
 			$id = sql_save($save, "thold_template");
 			if ($id) {
 				raise_message(1);
+				if (isset($_POST['notify_accounts'])) {
+					thold_save_template_contacts ($id, $_POST['notify_accounts']);
+				}
 				thold_template_update_thresholds ($id);
 			}else{
 				raise_message(2);
@@ -345,6 +342,21 @@ function template_edit() {
 		$data_fields[$temp[0]['id']]= $temp[0]['data_source_name'];
 	}
 
+	$send_notification_array = array();
+
+	$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data, plugin_thold_contacts.type, user_auth.full_name FROM plugin_thold_contacts, user_auth WHERE user_auth.id = plugin_thold_contacts.user_id AND plugin_thold_contacts.data != '' ORDER BY user_auth.full_name ASC, plugin_thold_contacts.type ASC");
+	if (!empty($users)) {
+		foreach ($users as $user) {
+			$send_notification_array[$user['id']] = $user['full_name'] . ' - ' . ucfirst($user['type']);
+		}
+	}
+
+	if (isset($thold_item_data['id'])) {
+		$sql = 'SELECT contact_id as id FROM plugin_thold_template_contact WHERE template_id=' . $thold_item_data['id'];
+	} else {
+		$sql = 'SELECT contact_id as id FROM plugin_thold_template_contact WHERE template_id=0';
+	}
+
 
 	html_start_box("", "98%", $colors["header"], "3", "center", "");
 	print "<form name='THold' action=thold_templates.php method=post><input type='hidden' name='save' value='edit'><input type='hidden' name='id' value='$id'>";
@@ -383,7 +395,6 @@ function template_edit() {
 			"description" => "If set and data source value goes above this number, alert will be triggered",
 			"value" => isset($thold_item_data["thold_hi"]) ? $thold_item_data["thold_hi"] : ""
 		),
-		
 		"thold_low" => array(
 			"friendly_name" => "Low Threshold",
 			"method" => "textbox",
@@ -391,7 +402,6 @@ function template_edit() {
 			"description" => "If set and data source value goes below this number, alert will be triggered",
 			"value" => isset($thold_item_data["thold_low"]) ? $thold_item_data["thold_low"] : ""
 		),
-		
 		"thold_fail_trigger" => array(
 			"friendly_name" => "Trigger Count",
 			"method" => "textbox",
@@ -401,12 +411,10 @@ function template_edit() {
 			"description" => "Number of consecutive times the data source must be in breach of the threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: " . read_config_option("alert_trigger") . " cycles</b>)",
 			"value" => isset($thold_item_data["thold_fail_trigger"]) ? $thold_item_data["thold_fail_trigger"] : ""
 		),
-		
 		"baseline_header" => array(
 			"friendly_name" => "Baseline monitoring",
 			"method" => "spacer",
 		),
-		
 		"bl_enabled" => array(
 			"friendly_name" => "Baseline monitoring",
 			"method" => "checkbox",
@@ -414,7 +422,6 @@ function template_edit() {
 			"description" => "When enabled, baseline monitoring checks the current data source value against a value in the past. The available range of values is retrieved and a minimum and maximum values are taken as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.",
 			"value" => isset($thold_item_data["bl_enabled"]) ? $thold_item_data["bl_enabled"] : ""
 		),
-		
 		"bl_ref_time" => array(
 			"friendly_name" => "Reference in the past",
 			"method" => "textbox",
@@ -423,7 +430,6 @@ function template_edit() {
 			"description" => "Specifies the relative point in the past that will be used as a reference. The value represents seconds, so for a day you would specify 86400, for a week 604800, etc.",
 			"value" => isset($thold_item_data["bl_ref_time"]) ? $thold_item_data["bl_ref_time"] : ""
 		),
-		
 		"bl_ref_time_range" => array(
 			"friendly_name" => "Time range",
 			"method" => "textbox",
@@ -432,7 +438,6 @@ function template_edit() {
 			"description" => "Specifies the time range of values in seconds to be taken from the reference in the past",
 			"value" => isset($thold_item_data["bl_ref_time_range"]) ? $thold_item_data["bl_ref_time_range"] : ""
 		),
-		
 		"bl_pct_up" => array(
 			"friendly_name" => "Baseline deviation UP",
 			"method" => "textbox",
@@ -441,7 +446,6 @@ function template_edit() {
 			"description" => "Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.",
 			"value" => isset($thold_item_data["bl_pct_up"]) ? $thold_item_data["bl_pct_up"] : ""
 		),
-		
 		"bl_pct_down" => array(
 			"friendly_name" => "Baseline deviation DOWN",
 			"method" => "textbox",
@@ -450,7 +454,6 @@ function template_edit() {
 			"description" => "Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.",
 			"value" => isset($thold_item_data["bl_pct_down"]) ? $thold_item_data["bl_pct_down"] : ""
 		),
-		
 		"bl_fail_trigger" => array(
 			"friendly_name" => "Baseline Trigger Count",
 			"method" => "textbox",
@@ -460,12 +463,10 @@ function template_edit() {
 			"description" => "Number of consecutive times the data source must be in breach of the baseline threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: " . read_config_option("alert_bl_trigger") . " cycles</b>)",
 			"value" => isset($thold_item_data["bl_fail_trigger"]) ? $thold_item_data["bl_fail_trigger"] : ""
 		),
-		
 		"other_header" => array(
 			"friendly_name" => "Other setting",
 			"method" => "spacer",
 		),
-
 		"cdef" => array(
 			"friendly_name" => "Threshold CDEF",
 			"method" => "drop_array",
@@ -474,7 +475,6 @@ function template_edit() {
 			"value" => isset($thold_item_data["cdef"]) ? $thold_item_data["cdef"] : 0,
 			"array" => thold_cdef_select_usable_names()
 		),
-		
 		"repeat_alert" => array(
 			"friendly_name" => "Re-Alert Cycle",
 			"method" => "textbox",
@@ -484,18 +484,13 @@ function template_edit() {
 			"description" => "Repeat alert after specified number of cycles.<br>Leave empty to use default value (<b>Default: " . read_config_option("alert_repeat") . " cycles</b>)",
 			"value" => isset($thold_item_data["repeat_alert"]) ? $thold_item_data["repeat_alert"] : ""
 		),
-		
-		"notify_default" => array(
-			"friendly_name" => "Send notifications to default alert address",
-			"method" => "drop_array",
-			"default" => "NULL",
-			"description" => "Determines if the notifications will be sent to e-mail address specified in global settings.",
-			"value" => isset($thold_item_data["notify_default"]) ? $thold_item_data["notify_default"] : "",
-			"array" => array("NULL" => "Use global control: " . (read_config_option("alert_notify_default") == "on" ? "On" : "Off"),
-					"on" => "Force: On",
-					"off" => "Force: Off")
+		"notify_accounts" => array(
+			"friendly_name" => "Notify accounts",
+			"method" => "drop_multi",
+			"description" => "This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>",
+			"array" => $send_notification_array,
+			"sql" => $sql,
 		),
-		
 		"notify_extra" => array(
 			"friendly_name" => "Alert E-Mail",
 			"method" => "textbox",
@@ -503,7 +498,6 @@ function template_edit() {
 			"description" => "You may specify here extra e-mails to receive alerts for this data source (comma separated)",
 			"value" => isset($thold_item_data["notify_extra"]) ? $thold_item_data["notify_extra"] : ""
 		),
-		
 	);
 
 	draw_edit_form(
