@@ -63,11 +63,18 @@ function list_tholds() {
 
 	load_current_session_value("page", "sess_thold_current_page", "1");
 
+	$alert_num_rows = read_config_option("alert_num_rows");
+	if ($alert_num_rows < 1 || $alert_num_rows > 999) {
+		db_execute("REPLACE INTO settings VALUES ('alert_num_rows', 30)");
+		/* pull it again so it updates the cache */
+		$alert_num_rows = read_config_option("alert_num_rows", true);
+	}
+
 	include($config["include_path"] . "/top_header.php");
 	if (isset($_REQUEST["search"]) && $hostid != "ALL") {
-		$sql = "SELECT * FROM thold_data WHERE host_id='$hostid' ORDER BY thold_alert DESC, bl_alert DESC, rra_id ASC limit " . (read_config_option("alert_num_rows")*($_REQUEST["page"]-1)) . "," . read_config_option("alert_num_rows");
+		$sql = "SELECT * FROM thold_data WHERE host_id='$hostid' ORDER BY thold_alert DESC, bl_alert DESC, rra_id ASC limit " . ($alert_num_rows*($_REQUEST["page"]-1)) . ",$alert_num_rows";
 	} else {
-		$sql = "SELECT thold_data.*, host.description FROM thold_data left join host on thold_data.host_id=host.id ORDER BY thold_alert DESC, bl_alert DESC, host.description, rra_id ASC limit " . (read_config_option("alert_num_rows")*($_REQUEST["page"]-1)) . "," . read_config_option("alert_num_rows");
+		$sql = "SELECT thold_data.*, host.description FROM thold_data left join host on thold_data.host_id=host.id ORDER BY thold_alert DESC, bl_alert DESC, host.description, rra_id ASC limit " . ($alert_num_rows*($_REQUEST["page"]-1)) . ",$alert_num_rows";
 	}
 
 	$result = db_fetch_assoc($sql);
@@ -112,7 +119,7 @@ function list_tholds() {
     
 	define("MAX_DISPLAY_PAGES", 21);
 	$total_rows = db_fetch_cell("SELECT COUNT(thold_data.id) FROM `thold_data`");
-	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, read_config_option("alert_num_rows"), $total_rows, "listthold.php?");
+	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $alert_num_rows, $total_rows, "listthold.php?");
 
 	html_start_box("", "98%", $colors["header"], "4", "center", "");
 	$nav = "<tr bgcolor='#" . $colors["header"] . "'>
@@ -123,10 +130,10 @@ function list_tholds() {
 							<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
 						</td>\n
 						<td align='center' class='textHeaderDark'>
-							Showing Rows " . ((read_config_option("alert_num_rows")*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("alert_num_rows")) || ($total_rows < (read_config_option("alert_num_rows")*$_REQUEST["page"]))) ? $total_rows : (read_config_option("alert_num_rows")*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
+							Showing Rows " . (($alert_num_rows*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < $alert_num_rows) || ($total_rows < ($alert_num_rows*$_REQUEST["page"]))) ? $total_rows : ($alert_num_rows*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
 						</td>\n
 						<td align='right' class='textHeaderDark'>
-							<strong>"; if (($_REQUEST["page"] * read_config_option("alert_num_rows")) < $total_rows) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * read_config_option("alert_num_rows")) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+							<strong>"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
 						</td>\n
 					</tr>
 				</table>

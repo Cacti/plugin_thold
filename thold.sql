@@ -85,12 +85,12 @@ CREATE TABLE plugin_thold_contacts (
   PRIMARY KEY  (`id`),
   KEY `type` (`type`),
   KEY `user_id` (`user_id`)
-) TYPE=MyISAM;"
+) TYPE=MyISAM;
 
-INSERT INTO `user_auth_realm` VALUES (18, 1);
-INSERT INTO `user_auth_realm` VALUES (19, 1);
+REPLACE INTO user_auth_realm VALUES (18, 1);
+REPLACE INTO user_auth_realm VALUES (19, 1);
 
-INSERT INTO settings VALUES ('alert_bl_past_default',86400);
-INSERT INTO settings VALUES ('alert_bl_timerange_def',10800);
-INSERT INTO settings VALUES ('alert_bl_percent_def',20);
-INSERT INTO settings VALUES ('alert_bl_trigger',3);
+REPLACE INTO settings VALUES ('alert_bl_past_default',86400);
+REPLACE INTO settings VALUES ('alert_bl_timerange_def',10800);
+REPLACE INTO settings VALUES ('alert_bl_percent_def',20);
+REPLACE INTO settings VALUES ('alert_bl_trigger',3);
