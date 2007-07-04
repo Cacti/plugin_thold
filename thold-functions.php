@@ -487,7 +487,7 @@ function &thold_check_baseline($rra_id, $ds, $ref_time, $ref_range, $current_val
 		// if($debug) echo "Baseline reference value not yet established!\n";
 		return -1; // Baseline reference value not yet established
 	}
-	
+	$current_value = get_current_value($rra_id,$ds);
 	$ref_value_max = round(max($ref_values));
 	$ref_value_min = round(min($ref_values));
 	
