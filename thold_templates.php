@@ -296,6 +296,8 @@ function template_save_edit() {
 				raise_message(1);
 				if (isset($_POST['notify_accounts'])) {
 					thold_save_template_contacts ($id, $_POST['notify_accounts']);
+				} else {
+					thold_save_template_contacts ($id, array());
 				}
 				thold_template_update_thresholds ($id);
 			}else{

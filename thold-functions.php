@@ -643,8 +643,10 @@ function save_thold() {
 function thold_save_template_contacts ($id, $contacts) {
 	db_execute('DELETE FROM plugin_thold_template_contact WHERE template_id = ' . $id);
 	// ADD SOME SECURITY!!
-	foreach ($contacts as $contact) {
-		db_execute("INSERT INTO plugin_thold_template_contact (template_id, contact_id) VALUES ($id, $contact)");
+	if (!empty($contacts)) {
+		foreach ($contacts as $contact) {
+			db_execute("INSERT INTO plugin_thold_template_contact (template_id, contact_id) VALUES ($id, $contact)");
+		}
 	}
 }
 
@@ -879,7 +881,6 @@ function thold_template_update_threshold ($id, $template) {
 		thold_data.bl_fail_trigger = thold_template.bl_fail_trigger,
 		thold_data.bl_alert = thold_template.bl_alert,
 		thold_data.repeat_alert = thold_template.repeat_alert,
-		thold_data.notify_default = thold_template.notify_default,
 		thold_data.notify_extra = thold_template.notify_extra,
 		thold_data.cdef = thold_template.cdef
 		WHERE thold_data.id=$id AND thold_template.id=$template");
@@ -900,14 +901,13 @@ function thold_template_update_thresholds ($id) {
 		thold_data.bl_fail_trigger = thold_template.bl_fail_trigger,
 		thold_data.bl_alert = thold_template.bl_alert,
 		thold_data.repeat_alert = thold_template.repeat_alert,
-		thold_data.notify_default = thold_template.notify_default,
 		thold_data.notify_extra = thold_template.notify_extra,
 		thold_data.cdef = thold_template.cdef
 		WHERE thold_data.template=$id AND thold_data.template_enabled='on' AND thold_template.id=$id");
 	$rows = db_fetch_assoc("SELECT id, template FROM thold_data WHERE thold_data.template=$id AND thold_data.template_enabled='on'");
 	foreach ($rows as $row) {
 		db_execute('DELETE FROM plugin_thold_threshold_contact where thold_id = ' . $row['id']);
-		db_execute('INSERT INTO plugin_thold_threshold_contact (thold_id, contact_id) SELECT ' . $row['id'] . ', contact_id FROM plugin_thold_template_contact WHERE template_id = ' . $row['id']);
+		db_execute('INSERT INTO plugin_thold_threshold_contact (thold_id, contact_id) SELECT ' . $row['id'] . ', contact_id FROM plugin_thold_template_contact WHERE template_id = ' . $row['template']);
 	}
 }
 
