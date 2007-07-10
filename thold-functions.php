@@ -26,6 +26,11 @@ if (isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["PHP_SELF"]) && read_config_o
 	kill_session_var("sess_config_array");
 }
 
+function thold_log($save){
+	$save['id'] = 0;
+	$id = sql_save($save, 'plugin_thold_log');
+}
+
 function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	global $config;
 	include_once($config["base_path"] . "/plugins/thold/thold-functions.php");
@@ -146,6 +151,17 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				print " " . ($ra ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval\n";
 			if (trim($alert_emails) != "")
 				thold_mail($alert_emails, '', $subject, $msg, $file_array);
+			thold_log(array(
+				'type' => 0, 
+				'time' => time(), 
+				'host_id' => $item['host_id'],
+				'graph_id' => $graph_id,
+				'threshold_id' => $item['id'], 
+				'threshold_value' => ($breach_up ? $item["thold_hi"] : $item["thold_low"]), 
+				'current' => $currentval,
+				'status' => 1,
+				'description' => $subject
+				));
 		} elseif ($show) {
 				print " " . ($ra ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval\n";
 		}
@@ -165,6 +181,17 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					print " restored to normal threshold with value $currentval\n";
 				if (trim($alert_emails) != "")
 					thold_mail($alert_emails, '', $subject, $msg, $file_array);
+				thold_log(array(
+					'type' => 0, 
+					'time' => time(), 
+					'host_id' => $item['host_id'],
+					'graph_id' => $graph_id,
+					'threshold_id' => $item['id'], 
+					'threshold_value' => '', 
+					'current' => $currentval,
+					'status' => 0,
+					'description' => $subject
+					));
 			} elseif ($show) {
 				print "\n";
 			}
@@ -195,6 +222,17 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 							print " restored to normal threshold with value $currentval\n";
 						if (trim($alert_emails) != "")
 							thold_mail($alert_emails, '', $subject, $msg, $file_array);
+						thold_log(array(
+							'type' => 0, 
+							'time' => time(), 
+							'host_id' => $item['host_id'],
+							'graph_id' => $graph_id,
+							'threshold_id' => $item['id'], 
+							'threshold_value' => '', 
+							'current' => $currentval,
+							'status' => 0,
+							'description' => $subject
+							));
 					}
 					$item["bl_fail_count"] = 0;
 					break;
@@ -214,6 +252,17 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 							print " " . ($ra ? "is still" : "went") . " " . ($item["bl_alert"] == 2 ? "above" : "below") . " calculated baseline threshold with $currentval\n";;
 						if (trim($alert_emails) != "")
 							thold_mail($alert_emails, '', $subject, $msg, $file_array);
+						thold_log(array(
+							'type' => 0, 
+							'time' => time(), 
+							'host_id' => $item['host_id'],
+							'graph_id' => $graph_id,
+							'threshold_id' => $item['id'], 
+							'threshold_value' => '', 
+							'current' => $currentval,
+							'status' => 1,
+							'description' => $subject
+							));
 					}
 					break;
 			}
@@ -810,12 +859,18 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 		return "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting.";
 	$to = explode(',', $to);
 
+	$x = 0;
 	foreach($to as $t) {
-		if (trim($t) != '' && !$Mailer->header_set("To", $t)) {
-			print "ERROR: " . $Mailer->error() . "\n";
-			return $Mailer->error();
+		if (trim($t) != '') {
+			$x++;
+			if (!$Mailer->header_set("To", $t)) {
+				print "ERROR: " . $Mailer->error() . "\n";
+				return $Mailer->error();
+			}
 		}
 	}
+	if (!$x)
+		return "ERROR: No TO address was defined!";
 
 	$wordwrap = read_config_option("settings_wordwrap");
 	if ($wordwrap == '')

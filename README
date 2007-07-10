@@ -50,6 +50,8 @@
 		Added Email Address field to User's Profiles
 		Added ability to select a user to alert for a threshold instead of having to type in their email address
 		Change to using the Settings plugin for mail functionality
+		Log all thresholds to a SQL Database
+		Allow on the fly toggling of Threshold breaching as lines on the graphs
 
 	--- 0.3.4 ---
 		Allow text only threshold alerts (aka no graph!)

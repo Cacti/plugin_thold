@@ -42,6 +42,8 @@ function plugin_init_thold() {
 	$plugin_hooks['device_action_array']['thold'] = 'thold_device_action_array';
 	$plugin_hooks['device_action_execute']['thold'] = 'thold_device_action_execute';
 	$plugin_hooks['device_action_prepare']['thold'] = 'thold_device_action_prepare';
+	$plugin_hooks['rrd_graph_graph_options']['thold'] = 'thold_rrd_graph_graph_options';
+	$plugin_hooks['graph_buttons']['thold'] = 'thold_graph_button';
 }
 
 function thold_check_upgrade () {
@@ -76,6 +78,64 @@ function thold_version () {
 			'email'	=> 'jimmy@sqmail.org',
 			'url'		=> 'http://cactiusers.org/cacti/versions.php'
 			);
+}
+
+function thold_graph_button ($data) {
+	global $config;
+
+	$local_graph_id = $data[1]['local_graph_id'];
+	$rra_id = $data[1]['rra'];
+	if ((isset($_REQUEST["view_type"])) && (!empty($_REQUEST["view_type"])))
+	{
+		$view_type = $_REQUEST["view_type"];
+	} else {
+		$_REQUEST["view_type"] = "";
+		$view_type = read_config_option('dataquery_type');
+	}
+	if ((isset($_REQUEST["graph_start"])) && (!empty($_REQUEST["graph_start"]))) 
+	{
+		$start=$_REQUEST["graph_start"];
+	} else {
+		$_REQUEST["graph_start"] = "";
+		$start = time() - 3600;
+	}
+
+	if ((isset($_REQUEST["graph_end"])) && (!empty($_REQUEST["graph_end"])))
+	{
+		$end=$_REQUEST["graph_end"];
+	} else {
+		$_REQUEST["graph_end"] = "";
+		$end = time();
+	}
+	$url = $_SERVER['REQUEST_URI'];
+	$url = str_replace('&thold_vrule=on', '', $url);
+	$url = str_replace('&thold_vrule=off', '', $url);
+	print '<a href="' .  $url . '&thold_vrule=' . (isset($_SESSION['sess_config_array']['thold_draw_vrules']) && $_SESSION['sess_config_array']['thold_draw_vrules'] == 'on' ? 'off' : 'on') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/reddot.png" border="0" alt="Thresholds" title="Thresholds" style="padding: 3px;"></a><br>';
+}
+
+function thold_rrd_graph_graph_options ($g) {
+	if (read_config_option('thold_draw_vrules') != 'on') {
+		return $g;
+	}
+	$id = $g['graph_id'];
+
+	$end = $g['end'];
+	if ($end < 0)
+		$end = time() + $end;
+	$end++;
+
+	$start = $g['start'];
+	if ($start < 0)
+		$start = $end + $start;
+	$start--;
+
+	$rows = db_fetch_assoc("SELECT time, status FROM plugin_thold_log WHERE graph_id = $id AND type = 0 and time > $start and time < $end");
+	if (!empty($rows)) {
+		foreach ($rows as $row) {
+			$g['graph_defs'] .= 'VRULE:' . $row['time'] . ($row['status'] == 0 ? '#00FF21' : '#FF0000') . ' \\' . "\n";
+		}
+	}
+	return $g;
 }
 
 function thold_device_action_execute ($action) {
@@ -278,7 +338,14 @@ function thold_config_arrays () {
 		$messages['thold_created'] = array("message" => $_SESSION['thold_message'], "type" => "info");
 //		$_SESSION['thold_message'] = '';
 	}
-
+	if (isset($_GET['thold_vrule'])) {
+		if ($_GET['thold_vrule'] == 'on') {
+			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'on';
+			$_SESSION['sess_config_array']['boost_png_cache_enable'] = false;
+		} elseif ($_GET['thold_vrule'] == 'off') {
+			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'off';
+		}
+	}
 }
 
 function thold_draw_navigation_text ($nav) {
@@ -393,6 +460,28 @@ function thold_setup_table () {
 				  UNIQUE KEY data_source_id (data_source_id),
 				  KEY id (id)
 				) TYPE=MyISAM COMMENT='Table of thresholds defaults for graphs';";
+	}
+
+	if (!in_array('plugin_thold_log', $tables)) {
+		$sql[] = "CREATE TABLE plugin_thold_log (
+				  id int(10) NOT NULL auto_increment,
+				  `time` int(32) NOT NULL,
+				  host_id int(10) NOT NULL,
+				  graph_id int(10) NOT NULL,
+				  threshold_id int(10) NOT NULL,
+				  threshold_value varchar(64) NOT NULL,
+				  current varchar(64) NOT NULL,
+				  `status` int(5) NOT NULL,
+				  `type` int(5) NOT NULL,
+				  description varchar(255) NOT NULL,
+				  PRIMARY KEY  (id),
+				  KEY `time` (`time`),
+				  KEY host_id (host_id),
+				  KEY graph_id (graph_id),
+				  KEY `status` (`status`),
+				  KEY `type` (`type`),
+				  KEY threshold_id (threshold_id)
+			) TYPE=MyISAM;";
 	}
 
 	if (!in_array('plugin_thold_template_contact', $tables)) {

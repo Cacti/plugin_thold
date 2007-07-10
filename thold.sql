@@ -87,6 +87,27 @@ CREATE TABLE plugin_thold_contacts (
   KEY `user_id` (`user_id`)
 ) TYPE=MyISAM;
 
+DROP TABLE IF EXISTS `plugin_thold_log`;
+CREATE TABLE plugin_thold_log (
+  id int(10) NOT NULL auto_increment,
+  `time` int(32) NOT NULL,
+  host_id int(10) NOT NULL,
+  graph_id int(10) NOT NULL,
+  threshold_id int(10) NOT NULL,
+  threshold_value varchar(64) NOT NULL,
+  current varchar(64) NOT NULL,
+  `status` int(5) NOT NULL,
+  `type` int(5) NOT NULL,
+  description varchar(255) NOT NULL,
+  PRIMARY KEY  (id),
+  KEY `time` (`time`),
+  KEY host_id (host_id),
+  KEY graph_id (graph_id),
+  KEY `status` (`status`),
+  KEY `type` (`type`),
+  KEY threshold_id (threshold_id)
+) TYPE=MyISAM;
+
 REPLACE INTO user_auth_realm VALUES (18, 1);
 REPLACE INTO user_auth_realm VALUES (19, 1);
 
