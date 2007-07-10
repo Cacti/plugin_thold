@@ -59,9 +59,12 @@ function thold_check_upgrade () {
 
 function thold_check_dependencies() {
 	global $plugins, $config;
-	if (in_array('settings', $plugins))
-		return true;
-	return false;
+	if (!in_array('settings', $plugins))
+		return false;
+	$v = settings_version();
+	if ($v['version'] < 0.2)
+		return false;
+	return true;
 }
 
 function thold_version () {
@@ -170,12 +173,10 @@ function thold_update_host_status () {
 	// Return if we aren't set to notify
 	$deadnotify = (read_config_option("alert_deadnotify") == "on");
 	if (!$deadnotify) return;
-
 	include_once($config["base_path"] . '/plugins/thold/thold-functions.php');
 
 	$alert_email = read_config_option("alert_email");
 	$ping_failure_count = read_config_option('ping_failure_count');
-		
 	// Lets find hosts that were down, but are now back up
 	$failed = read_config_option('thold_failed_hosts', true);
 	$failed = explode(',', $failed);
@@ -224,8 +225,7 @@ function thold_update_host_status () {
 }
 
 function thold_api_device_save ($save) {
-
-	$sql = "select disabled from host where id = " . $save['id'];
+	$sql = 'select disabled from host where id = ' . $save['id'];
 	$result = db_fetch_assoc($sql);
 	if (!isset($result[0]['disabled']))
 		return $save;
@@ -237,7 +237,6 @@ function thold_api_device_save ($save) {
 			$sql = "update thold_data set thold_enabled = 'off' where host_id=" . $save['id'];
 		$result = mysql_query($sql) or die (mysql_error());
 	}
-
 	return $save;
 }
 
@@ -568,10 +567,16 @@ function thold_config_settings () {
 			"method" => "spacer",
 			),
 		"alert_deadnotify" => array(
-			"friendly_name" => "Dead Hosts notifications",
+			"friendly_name" => "Dead Hosts Notifications",
 			"description" => "Enable Dead/Recovering host notification",
 			"method" => "checkbox",
 			"default" => "on"
+			),
+		"alert_email" => array(
+			"friendly_name" => "Dead Host Notifications Email",
+			"description" => "This is the email address that the dead host notifications will be sent to.",
+			"method" => "textbox",
+			"max_length" => 255,
 			),
 		"thold_send_text_only" => array(
 			"friendly_name" => "Send alerts as text",
@@ -669,4 +674,3 @@ function thold_config_settings () {
 		);
 }
 
-?>

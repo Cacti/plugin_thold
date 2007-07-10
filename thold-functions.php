@@ -749,13 +749,9 @@ function autocreate($hostid) {
 }
 
 /* Sends a group of graphs to a user */
-
 function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	global $config;
-	include_once($config["base_path"] . "/plugins/settings/include/class.phpmailer.php");
-	$mail = new PHPMailer();
-	$mail->SetLanguage("en",'plugins/settings/language/');
-	// Add config option for this!
+	include_once($config["base_path"] . "/plugins/settings/include/mailer.php");
 
 	$message = str_replace('<SUBJECT>', $subject, $message);
 
@@ -763,28 +759,25 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	if ($how < 0 && $how > 2)
 		$how = 0;
 	if ($how == 0) {
-		$mail->IsMail();                                      // set mailer to use PHPs Mailer Class
+		$Mailer = new Mailer(array(
+			'Type' => 'PHP'));
 	} else if ($how == 1) {
-		$mail->IsSendmail();                                  // set mailer to use Sendmail
-		$sendmail = read_config_option("settings_sendmail_path");
-		if ($sendmail != '') {
-			$mail->Sendmail = $sendmail;
-		}
+		$sendmail = read_config_option('settings_sendmail_path');
+		$Mailer = new Mailer(array(
+			'Type' => 'DirectInject',
+			'DirectInject_Path' => $sendmail));
 	} else if ($how == 2) {
-		$mail->IsSMTP();                                      // set mailer to use SMTP
 		$smtp_host = read_config_option("settings_smtp_host");
 		$smtp_port = read_config_option("settings_smtp_port");
 		$smtp_username = read_config_option("settings_smtp_username");
 		$smtp_password = read_config_option("settings_smtp_password");
-		if ($smtp_username != '' && $smtp_password != '') {
-			$mail->SMTPAuth = true;
-			$mail->Username = $smtp_username;
-			$mail->Password = $smtp_password;
-		} else {
-			$mail->SMTPAuth = false;
-		}
-		$mail->Host = $smtp_host;
-		$mail->Port = $smtp_port;
+
+		$Mailer = new Mailer(array(
+			'Type' => 'SMTP',
+			'SMTP_Host' => $smtp_host,
+			'SMTP_Port' => $smtp_port,
+			'SMTP_Username' => $smtp_username,
+			'SMTP_Password' => $smtp_password));
 	}
 
 	if ($from == '') {
@@ -800,11 +793,17 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 		if ($fromname == "")
 			$fromname = "Cacti";
 
-		$mail->From = $from;
-		$mail->FromName = $fromname;
+		$from = $Mailer->email_format($fromname, $from);
+		if ($Mailer->header_set('From', $from) === false) {
+			print "ERROR: " . $Mailer->error() . "\n";
+			return $Mailer->error();
+		}
 	} else {
-		$mail->From = $from;
-		$mail->FromName = 'Cacti';
+		$from = $Mailer->email_format('Cacti', $from);
+		if ($Mailer->header_set('From', $from) === false) {
+			print "ERROR: " . $Mailer->error() . "\n";
+			return $Mailer->error();
+		}
 	}
 
 	if ($to == '')
@@ -812,58 +811,63 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	$to = explode(',', $to);
 
 	foreach($to as $t) {
-		$mail->AddAddress($t);
+		if (trim($t) != '' && !$Mailer->header_set("To", $t)) {
+			print "ERROR: " . $Mailer->error() . "\n";
+			return $Mailer->error();
+		}
 	}
 
 	$wordwrap = read_config_option("settings_wordwrap");
 	if ($wordwrap == '')
-		$wordwrap = 120;
+		$wordwrap = 76;
 	if ($wordwrap > 9999)
 		$wordwrap = 9999;
 	if ($wordwrap < 0)
-		$wordwrap = 0;
-	$mail->WordWrap = $wordwrap;
+		$wordwrap = 76;
 
-	$mail->Subject = $subject;
+	$Mailer->Config["Mail"]["WordWrap"] = $wordwrap;
 
-	$mail->CreateHeader();
+	if (! $Mailer->header_set("Subject", $subject)) {
+		print "ERROR: " . $Mailer->error() . "\n";
+		return $Mailer->error();
+	}
+
 	if (is_array($filename) && !empty($filename) && strstr($message, '<GRAPH>') !==0) {
 		foreach($filename as $val) {
 			$graph_data_array = array("output_flag"=> RRDTOOL_OUTPUT_STDOUT);
   			$data = rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array);
 			if ($data != "") {
-				$cid = md5(uniqid(time()));
-				$mail->AddStringEmbedAttachment($data, $val['filename'].'.png', $cid, 'base64', $val['mimetype']);    // optional name
+				$cid = $Mailer->content_id();
+				if ($Mailer->attach($data, $val['filename'].'.png', "image/png", "inline", $cid) == false) {
+					print "ERROR: " . $Mailer->error() . "\n";
+					return $Mailer->error();
+				}
 				$message = str_replace('<GRAPH>', "<br><br><img src='cid:$cid'>", $message);
-				//$mail->Body .= "<br><br><img src='cid:$cid'>";
 			} else {
 				$message = str_replace('<GRAPH>', "<br><img src='" . $val['file'] . "'><br>Could not open!<br>" . $val['file'], $message);
-
- 				//$mail->Body .= "<br><img src='" . $val['file'] . "'>";
-				//$mail->Body .= "<br>Could not open!<br>" . $val['file'];
 			}
 		}
-		$mail->AttachAll();
 	}
-
+	$text = array('text' => '', $html => '');
 	if ($filename == '') {
-		$mail->IsHTML(false);
 		$message = str_replace('<br>',  "\n", $message);
 		$message = str_replace('<BR>',  "\n", $message);
 		$message = str_replace('</BR>', "\n", $message);
-		$mail->Body    = strip_tags($message);
+		$text['text'] = strip_tags($message);
 	} else {
-		$mail->IsHTML(true);
-		$mail->Body    = $message . '<br>';
-		$mail->AltBody = strip_tags(str_replace('<br>', "\n", $message));
+		$text['html'] = $message . '<br>';
+		$text['text'] = strip_tags(str_replace('<br>', "\n", $message));
 	}
 
-	if(!$mail->Send()) {
-		return $mail->ErrorInfo;
+	$v = thold_version();
+	$Mailer->header_set("X-Mailer", 'Cacti-Thold-v' . $v['version']);
+	$Mailer->header_set("User-Agent", 'Cacti-Thold-v' . $v['version']);
+
+	if ($Mailer->send($text) == false) {
+		print "ERROR: " . $Mailer->error() . "\n";
+		return $Mailer->error();
 	}
 
-	if ($mail->ErrorInfo != '')
-		return $mail->ErrorInfo;
 	return '';
 }
 
@@ -905,6 +909,7 @@ function thold_template_update_thresholds ($id) {
 		thold_data.cdef = thold_template.cdef
 		WHERE thold_data.template=$id AND thold_data.template_enabled='on' AND thold_template.id=$id");
 	$rows = db_fetch_assoc("SELECT id, template FROM thold_data WHERE thold_data.template=$id AND thold_data.template_enabled='on'");
+
 	foreach ($rows as $row) {
 		db_execute('DELETE FROM plugin_thold_threshold_contact where thold_id = ' . $row['id']);
 		db_execute('INSERT INTO plugin_thold_threshold_contact (thold_id, contact_id) SELECT ' . $row['id'] . ', contact_id FROM plugin_thold_template_contact WHERE template_id = ' . $row['template']);
