@@ -52,6 +52,7 @@
 		Change to using the Settings plugin for mail functionality
 		Log all thresholds to a SQL Database
 		Allow on the fly toggling of Threshold breaching as lines on the graphs
+		Redesign the Thold Viewing Interface to have Multiple Views
 
 	--- 0.3.4 ---
 		Allow text only threshold alerts (aka no graph!)

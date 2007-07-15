@@ -303,7 +303,11 @@ function thold_api_device_save ($save) {
 function thold_show_tab () {
 	global $config;
 	if (api_user_realm_auth('graph_thold.php')) {
-		print '<a href="' . $config['url_path'] . 'plugins/thold/graph_thold.php"><img src="' . $config['url_path'] . 'plugins/thold/images/tab_thold' . ((substr(basename($_SERVER["PHP_SELF"]),0,11) == "graph_thold") ? "_down": "") . '.gif" alt="thold" align="absmiddle" border="0"></a>';
+		$cp = false;
+		if (basename($_SERVER["PHP_SELF"]) == "graph_thold.php" || basename($_SERVER["PHP_SELF"]) == "thold_view_failures.php" || basename($_SERVER["PHP_SELF"]) == "thold_view_normal.php")
+			$cp = true;
+
+		print '<a href="' . $config['url_path'] . 'plugins/thold/graph_thold.php"><img src="' . $config['url_path'] . 'plugins/thold/images/tab_thold' . ($cp ? "_down": "") . '.gif" alt="thold" align="absmiddle" border="0"></a>';
 	}
 	thold_check_upgrade ();
 }
@@ -321,7 +325,7 @@ function thold_config_form () {
 }
 
 function thold_config_arrays () {
-	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages;
+	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages, $thold_menu;
 	$user_auth_realms[18]='Configure Thresholds';
 	$user_auth_realm_filenames['thold.php'] = 18;
 	$user_auth_realm_filenames['listthold.php'] = 18;
@@ -329,6 +333,10 @@ function thold_config_arrays () {
 	$user_auth_realm_filenames['email-test.php'] = 18;
 	$user_auth_realms[19]='View Thresholds';
 	$user_auth_realm_filenames['graph_thold.php'] = 19;
+	$user_auth_realm_filenames['thold_view_failures.php'] = 19;
+	$user_auth_realm_filenames['thold_view_normal.php'] = 19;
+	$user_auth_realm_filenames['thold_view_recover.php'] = 19;
+
 	$menu["Management"]['plugins/thold/listthold.php'] = "Thresholds";
 	$menu["Templates"]['plugins/thold/thold_templates.php'] = "Threshold Templates";
 	$messages['thold_save'] = array(
@@ -346,6 +354,21 @@ function thold_config_arrays () {
 			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'off';
 		}
 	}
+	$thold_menu = array(
+		"Thresholds" => array(
+			"plugins/thold/graph_thold.php" => "All",
+			"plugins/thold/thold_view_failures.php" => "Current Failures",
+			"plugins/thold/thold_view_recover.php" => "Current Recovering",
+			"plugins/thold/thold_view_normal.php" => "Current Normal",
+			"" => "",
+
+			),
+		"Reports" => array(
+			"plugins/thold/graph_thold.php?show=report-all" => "All Activity",
+			"plugins/thold/graph_thold.php?show=report-threshold" => "All Threshold Alerts",
+			"plugins/thold/graph_thold.php?show=report-hostdown" => "All Host Down Alerts",
+			),
+		);
 }
 
 function thold_draw_navigation_text ($nav) {
@@ -355,6 +378,10 @@ function thold_draw_navigation_text ($nav) {
 	$nav["listthold.php:"] = array("title" => "Thresholds", "mapping" => "index.php:", "url" => "listthold.php", "level" => "1");
 	$nav["listthold.php:actions"] = array("title" => "Thresholds", "mapping" => "index.php:", "url" => "listthold.php", "level" => "1");
 	$nav["graph_thold.php:"] = array("title" => "Thresholds", "mapping" => "index.php:", "url" => "graph_thold.php", "level" => "1");
+	$nav["thold_view_failures.php:"] = array("title" => "Thresholds - Failures", "mapping" => "index.php:", "url" => "thold_view_failures.php", "level" => "1");
+	$nav["thold_view_normal.php:"] = array("title" => "Thresholds - Normal", "mapping" => "index.php:", "url" => "thold_view_normal.php", "level" => "1");
+	$nav["thold_view_recover.php:"] = array("title" => "Thresholds - Recovering", "mapping" => "index.php:", "url" => "thold_view_recover.php", "level" => "1");
+
 	$nav["thold_templates.php:"] = array("title" => "Threshold Templates", "mapping" => "index.php:", "url" => "thold_templates.php", "level" => "1");
 	$nav["thold_templates.php:edit"] = array("title" => "Threshold Templates", "mapping" => "index.php:", "url" => "thold_templates.php", "level" => "1");
 	$nav["thold_templates.php:save"] = array("title" => "Threshold Templates", "mapping" => "index.php:", "url" => "thold_templates.php", "level" => "1");
@@ -618,18 +645,6 @@ function thold_config_settings () {
 			// Set the default only if called from "settings.php"
 			"default" => ((isset($_SERVER["HTTP_HOST"]) && isset($_SERVER["PHP_SELF"]) && basename($_SERVER["PHP_SELF"]) == "settings.php") ? ("http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]) . "/") : ""),
 			"max_length" => 255,
-			),
-		"alert_show_alerts_only" => array(
-			"friendly_name" => "Display Alerts Only",
-			"description" => "If checked, only hosts and data sources that have an alert active will be displayed",
-			"method" => "checkbox",
-			"default" => "off"
-			),
-		"alert_show_host_status" => array(
-			"friendly_name" => "Display Host Status",
-			"description" => "If checked, host status will be displayed together with the thresholds",
-			"method" => "checkbox",
-			"default" => "on"
 			),
 		"alert_syslog" => array(
 			"friendly_name" => "Syslogging",
