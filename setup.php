@@ -336,6 +336,8 @@ function thold_config_arrays () {
 	$user_auth_realm_filenames['thold_view_failures.php'] = 19;
 	$user_auth_realm_filenames['thold_view_normal.php'] = 19;
 	$user_auth_realm_filenames['thold_view_recover.php'] = 19;
+	$user_auth_realm_filenames['thold_view_recent.php'] = 19;
+	$user_auth_realm_filenames['thold_view_host.php'] = 19;
 
 	$menu["Management"]['plugins/thold/listthold.php'] = "Thresholds";
 	$menu["Templates"]['plugins/thold/thold_templates.php'] = "Threshold Templates";
@@ -364,9 +366,8 @@ function thold_config_arrays () {
 
 			),
 		"Reports" => array(
-			"plugins/thold/graph_thold.php?show=report-all" => "All Activity",
-			"plugins/thold/graph_thold.php?show=report-threshold" => "All Threshold Alerts",
-			"plugins/thold/graph_thold.php?show=report-hostdown" => "All Host Down Alerts",
+			"plugins/thold/thold_view_recent.php" => "All Threshold Alerts",
+			"plugins/thold/thold_view_host.php" => "All Host Down Alerts",
 			),
 		);
 }
@@ -381,6 +382,8 @@ function thold_draw_navigation_text ($nav) {
 	$nav["thold_view_failures.php:"] = array("title" => "Thresholds - Failures", "mapping" => "index.php:", "url" => "thold_view_failures.php", "level" => "1");
 	$nav["thold_view_normal.php:"] = array("title" => "Thresholds - Normal", "mapping" => "index.php:", "url" => "thold_view_normal.php", "level" => "1");
 	$nav["thold_view_recover.php:"] = array("title" => "Thresholds - Recovering", "mapping" => "index.php:", "url" => "thold_view_recover.php", "level" => "1");
+	$nav["thold_view_recent.php:"] = array("title" => "Recent Thresholds", "mapping" => "index.php:", "url" => "thold_view_recent.php", "level" => "1");
+	$nav["thold_view_host.php:"] = array("title" => "Recent Host Failures", "mapping" => "index.php:", "url" => "thold_view_host.php", "level" => "1");
 
 	$nav["thold_templates.php:"] = array("title" => "Threshold Templates", "mapping" => "index.php:", "url" => "thold_templates.php", "level" => "1");
 	$nav["thold_templates.php:edit"] = array("title" => "Threshold Templates", "mapping" => "index.php:", "url" => "thold_templates.php", "level" => "1");
