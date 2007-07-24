@@ -108,6 +108,19 @@ CREATE TABLE plugin_thold_log (
   KEY threshold_id (threshold_id)
 ) TYPE=MyISAM;
 
+CREATE TABLE plugin_thold_alerts (
+  id int(12) NOT NULL auto_increment,
+  threshold_id int(12) NOT NULL,
+  repeat_fail int(11) NOT NULL,
+  repeat_alert int(12) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `data` text NOT NULL,
+  PRIMARY KEY  (id),
+  KEY threshold_id (threshold_id,`type`),
+  KEY repeat_fail (repeat_fail),
+  KEY repeat_alert (repeat_alert)
+) TYPE=MyISAM;
+
 REPLACE INTO user_auth_realm VALUES (18, 1);
 REPLACE INTO user_auth_realm VALUES (19, 1);
 

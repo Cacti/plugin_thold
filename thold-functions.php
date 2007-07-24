@@ -63,15 +63,11 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		return;
 	}
 
-	/* Pull the cached name, if not present, it means that the graph hasn't polled yet */
-	$t = db_fetch_assoc("select id,name,name_cache from data_template_data where local_data_id=" . $rra_id . " order by id LIMIT 1");
-	if (isset($t[0]["name_cache"]))
-		$desc = $t[0]["name_cache"];
-	else
-		return;
-
 	/* Get all the info about the item from the database */
-	$item = db_fetch_assoc("select * from thold_data where thold_enabled='on' AND data_id = " . $data_id);
+	$item = db_fetch_assoc("SELECT DISTINCT graph_templates_item.local_graph_id, thold_data.*, data_template_data.name_cache, host.description, host.hostname
+				   FROM thold_data, data_template_data, graph_templates_item, host
+				   WHERE thold_data.thold_enabled='on' AND thold_data.data_id = $data_id AND thold_data.rra_id = data_template_data.local_data_id AND graph_templates_item.task_item_id = thold_data.data_id AND host.id = thold_data.host_id"
+				  );
 
 	/* Return if the item doesn't exist, which means its disabled */	
 	if (!isset($item[0]))
@@ -82,15 +78,17 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		$currentval = thold_build_cdef($cdef, $currentval, $rra_id, $data_id);
 	$currentval = round($currentval, 4);
 
-	$trigger = ($item["thold_fail_trigger"] == "" ? $alert_trigger : $item["thold_fail_trigger"]);
-
+	$trigger = db_fetch_cell("SELECT repeat_fail FROM plugin_thold_alerts WHERE threshold_id = " . $item['id'] . " AND repeat_fail > 0 ORDER BY repeat_fail ASC");
+	$temp = db_fetch_assoc('SELECT id FROM plugin_thold_alerts WHERE threshold_id = ' . $item['id'] . ' AND repeat_fail < ' . ($item["thold_fail_count"]+1) . ' AND MOD(' . ($item['thold_fail_count']+1) . ', repeat_alert) = 0');
+	$repeat = 0;
+	if (count($temp)) {
+		$repeat = 1;
+	}
 	if ($show) {
-		print "Checking Threshold : \"$desc\"\n";
+		print "Checking Threshold : \"" . $item['name_cache'] . "\"\n";
 		print "     Data Source : " . $name;
 	}
-
-	$grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_item WHERE task_item_id=" . $data_id);
-	$graph_id = $grapharr[0]['local_graph_id'];
+	$graph_id = $item['local_graph_id'];
 
 	$breach_up = ($item["thold_hi"] != "" && $currentval > $item["thold_hi"]);
 	$breach_down = ($item["thold_low"] != "" && $currentval < $item["thold_low"]);
@@ -103,18 +101,14 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		$thold_alert_text = "<html><body>An alert has been issued that requires your attention.<br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>";
 	}
 
-	$hostname = db_fetch_assoc('SELECT description, hostname from host WHERE id = ' . $item['host_id']);
-	$hostname = $hostname[0];
-
-
 	// Do some replacement of variables
-	$thold_alert_text = str_replace('<DESCRIPTION>', $hostname['description'], $thold_alert_text);
-	$thold_alert_text = str_replace('<HOSTNAME>', $hostname['hostname'], $thold_alert_text);
+	$thold_alert_text = str_replace('<DESCRIPTION>', $item['description'], $thold_alert_text);
+	$thold_alert_text = str_replace('<HOSTNAME>', $item['hostname'], $thold_alert_text);
 	$thold_alert_text = str_replace('<TIME>', time(), $thold_alert_text);
 	$thold_alert_text = str_replace('<GRAPHID>', $graph_id, $thold_alert_text);
 	$thold_alert_text = str_replace('<URL>', "<a href='$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1'>$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1</a>", $thold_alert_text);
 	$thold_alert_text = str_replace('<CURRENTVALUE>', $currentval, $thold_alert_text);
-	$thold_alert_text = str_replace('<THRESHOLDNAME>', $desc, $thold_alert_text);
+	$thold_alert_text = str_replace('<THRESHOLDNAME>', $item['name_cache'], $thold_alert_text);
 	$thold_alert_text = str_replace('<DSNAME>', $name, $thold_alert_text);
 
 	$msg = $thold_alert_text;
@@ -139,18 +133,19 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 	if ( $breach_up || $breach_down) {
 		$item["thold_fail_count"]++;
-
-		// Re-Alert?
-		$ra = ($item['thold_fail_count'] > $trigger && $item['repeat_alert'] != 0 && ($item['thold_fail_count'] % ($item['repeat_alert'] == '' ? $realert : $item['repeat_alert'])) == 0);
-		if($item["thold_fail_count"] == $trigger || $ra) {
+		if($item["thold_fail_count"] == $trigger || $repeat) {
 			if ($logset == 1) {
-				logger($desc, $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $trigger, $item["thold_fail_count"]);
+				logger($item['name_cache'], $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $trigger, $item["thold_fail_count"]);
 			}
-			$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " " . ($ra ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval";
+			$subject = $item['name_cache'] . ($thold_show_datasource ? " [$name]" : '') . " " . ($item["thold_fail_count"] > $trigger ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval";
 			if ($show)
-				print " " . ($ra ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval\n";
-			if (trim($alert_emails) != "")
-				thold_mail($alert_emails, '', $subject, $msg, $file_array);
+				print " " . ($item["thold_fail_count"] > $trigger ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval\n";
+			$item['alert_emails'] = $alert_emails;
+			$item['subject'] = $subject;
+			$item['msg'] = $msg;
+			$item['file_array'] = $file_array;
+			thold_send_alert($item);
+
 			thold_log(array(
 				'type' => 0, 
 				'time' => time(), 
@@ -163,7 +158,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				'description' => $subject
 				));
 		} elseif ($show) {
-				print " " . ($ra ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval\n";
+				print " " . ($item["thold_fail_count"] > $trigger ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval\n";
 		}
 		$sql = "UPDATE thold_data SET lastread='$currentval'";
 		$sql .= ", thold_alert='" . $item["thold_alert"] . "'";
@@ -174,13 +169,18 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	} else {
 		if ($alertstat != 0) {
 			if ($logset == 1)
-				logger($desc, "ok", 0, $currentval, $trigger, $item["thold_fail_count"]);
+				logger($item['name_cache'], "ok", 0, $currentval, $trigger, $item["thold_fail_count"]);
 			if ($item["thold_fail_count"] >= $trigger) {
-				$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+				$subject = $item['name_cache'] . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 				if ($show)
 					print " restored to normal threshold with value $currentval\n";
-				if (trim($alert_emails) != "")
-					thold_mail($alert_emails, '', $subject, $msg, $file_array);
+
+				$item['alert_emails'] = $alert_emails;
+				$item['subject'] = $subject;
+				$item['msg'] = $msg;
+				$item['file_array'] = $file_array;
+				thold_send_alert($item);
+
 				thold_log(array(
 					'type' => 0, 
 					'time' => time(), 
@@ -217,11 +217,16 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 			
 				case 0:		// All clear
 					if ($global_bl_notify_enabled && $item["bl_fail_count"] >= $bl_fail_trigger) {
-						$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+						$subject = $item['name_cache'] . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 						if ($show)
 							print " restored to normal threshold with value $currentval\n";
-						if (trim($alert_emails) != "")
-							thold_mail($alert_emails, '', $subject, $msg, $file_array);
+
+						$item['alert_emails'] = $alert_emails;
+						$item['subject'] = $subject;
+						$item['msg'] = $msg;
+						$item['file_array'] = $file_array;
+						thold_send_alert($item);
+
 						thold_log(array(
 							'type' => 0, 
 							'time' => time(), 
@@ -242,16 +247,20 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					$item["bl_fail_count"]++;
 
 					// Re-Alert?
-					$ra = ($item["bl_fail_count"] > $bl_fail_trigger && ($item["bl_fail_count"] % ($item["repeat_alert"] == "" ? $realert : $item["repeat_alert"])) == 0);
-					if($global_bl_notify_enabled && ($item["bl_fail_count"] ==  $bl_fail_trigger || $ra)) {
+					if($global_bl_notify_enabled && ($item["bl_fail_count"] ==  $bl_fail_trigger || $repeat)) {
 						if ($logset == 1) {
-							logger($desc, $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $item["thold_fail_trigger"], $item["thold_fail_count"]);
+							logger($item['name_cache'], $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $item["thold_fail_trigger"], $item["thold_fail_count"]);
 						}
-						$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " " . ($ra ? "is still" : "went") . " " . ($item["bl_alert"] == 2 ? "above" : "below") . " calculated baseline threshold with $currentval";
+						$subject = $item['name_cache'] . ($thold_show_datasource ? " [$name]" : '') . " " . ($item["thold_fail_count"] > $trigger ? "is still" : "went") . " " . ($item["bl_alert"] == 2 ? "above" : "below") . " calculated baseline threshold with $currentval";
 						if ($show)
-							print " " . ($ra ? "is still" : "went") . " " . ($item["bl_alert"] == 2 ? "above" : "below") . " calculated baseline threshold with $currentval\n";;
-						if (trim($alert_emails) != "")
-							thold_mail($alert_emails, '', $subject, $msg, $file_array);
+							print " " . ($item["thold_fail_count"] > $trigger ? "is still" : "went") . " " . ($item["bl_alert"] == 2 ? "above" : "below") . " calculated baseline threshold with $currentval\n";
+
+						$item['alert_emails'] = $alert_emails;
+						$item['subject'] = $subject;
+						$item['msg'] = $msg;
+						$item['file_array'] = $file_array;
+						thold_send_alert($item);
+
 						thold_log(array(
 							'type' => 0, 
 							'time' => time(), 
@@ -285,11 +294,48 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				continue;
 			}
 			$logdate = date("m-d-y.H:i:s");
-			$logout = "$logdate element: $desc alertstat: $alertstat graph_id: $graph_id thold_low: " . $item["thold_low"] . " thold_hi: " . $item["thold_hi"] . " rra: $rra trigger: " . $trigger . " triggerct: " . $item["thold_fail_count"] . " current: $currentval logset: $logset\n";
+			$logout = "$logdate element: " . $item['name_cache'] ." alertstat: $alertstat graph_id: $graph_id thold_low: " . $item["thold_low"] . " thold_hi: " . $item["thold_hi"] . " rra: $rra trigger: " . $trigger . " triggerct: " . $item["thold_fail_count"] . " current: $currentval logset: $logset\n";
 			fwrite($handle, $logout);
 			fclose($handle);
 		}
 	}
+}
+
+function thold_delete_alert($id) {
+	db_execute("DELETE FROM plugin_thold_alerts WHERE id = $id");
+}
+
+function thold_add_alert($type, $id) {
+	db_execute("INSERT INTO plugin_thold_alerts (threshold_id, type) VALUES ($id, '$type')");
+}
+
+function thold_send_alert($item) {
+	$rows = db_fetch_assoc('SELECT * FROM plugin_thold_alerts WHERE threshold_id = ' . $item['id'] . ' AND (repeat_fail = ' . $item['thold_fail_count'] . ' OR MOD(' . $item['thold_fail_count'] . ', repeat_alert) = 0)');
+	if (count($rows)) {
+		foreach($rows as $row) {
+			switch ($row['type']) {
+				case 'email':
+					print "     Sending email to " . $row['data'] . "\n";;
+					thold_mail($row['data'], '', $item['subject'], $item['msg'], $item['file_array']);
+					break;
+				case 'snmp-write':
+					print "     Sending SNMP Write\n";;
+					thold_snmp_write ($item);
+					break;
+				case 'script':
+
+					break;
+				default:
+					// Method is not yet supported
+				break;
+			}
+		}
+	}
+}
+
+function thold_snmp_write ($item) {
+
+
 }
 
 function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct) {
@@ -659,11 +705,11 @@ function save_thold() {
 	$save['rra_id'] = $_POST["rra"];
 	$save['thold_hi'] = (trim($_POST['thold_hi'])) == '' ? '' : round($_POST['thold_hi'],4);
 	$save['thold_low'] = (trim($_POST['thold_low'])) == '' ? '' : round($_POST['thold_low'],4);
-	$save['thold_fail_trigger'] = (trim($_POST['thold_fail_trigger'])) == '' ? '' : $_POST['thold_fail_trigger'];
+//	$save['thold_fail_trigger'] = (trim($_POST['thold_fail_trigger'])) == '' ? '' : $_POST['thold_fail_trigger'];
 	$save['thold_enabled'] = isset($_POST['thold_enabled']) ? $_POST['thold_enabled'] : '';
 	$save['bl_enabled'] = isset($_POST['bl_enabled']) ? $_POST['bl_enabled'] : '';
-	$save['repeat_alert'] = (trim($_POST['repeat_alert'])) == '' ? '' : $_POST['repeat_alert'];
-	$save['notify_extra'] = (trim($_POST['notify_extra'])) == '' ? '' : $_POST['notify_extra'];
+//	$save['repeat_alert'] = (trim($_POST['repeat_alert'])) == '' ? '' : $_POST['repeat_alert'];
+//	$save['notify_extra'] = (trim($_POST['notify_extra'])) == '' ? '' : $_POST['notify_extra'];
 	$save['cdef'] = (trim($_POST['cdef'])) == '' ? '' : $_POST['cdef'];
 	$save['template_enabled'] = $_POST['template_enabled'];
 
@@ -681,10 +727,73 @@ function save_thold() {
 	}
 
 	$id = sql_save($save , 'thold_data');
-
+/*
 	if (isset($_POST['notify_accounts'])) {
 		thold_save_threshold_contacts ($id, $_POST['notify_accounts']);
 	}
+*/
+	$alerts = array();
+	foreach ($_POST as $p => $v) {
+		if (substr($p, 0, 13) == 'repeat_alert_') {
+			$alerts[substr($p, 13)]['repeat_alert'] = $v;
+		}
+		if (substr($p, 0, 13) == 'notify_extra_') {
+			$alerts[substr($p, 13)]['notify_extra'] = $v;
+		}
+		if (substr($p, 0, 12) == 'repeat_fail_') {
+			$alerts[substr($p, 12)]['repeat_fail'] = $v;
+		}
+		if (substr($p, 0, 5) == 'type_') {
+			$alerts[substr($p, 5)]['type'] = $v;
+		}
+		if (substr($p, 0, 4) == 'oid_') {
+			$alerts[substr($p, 4)]['oid'] = $v;
+		}
+		if (substr($p, 0, 10) == 'community_') {
+			$alerts[substr($p, 10)]['community'] = $v;
+		}
+		if (substr($p, 0, 5) == 'path_') {
+			$alerts[substr($p, 5)]['path'] = $v;
+		}
+		if (substr($p, 0, 5) == 'args_') {
+			$alerts[substr($p, 5)]['args'] = $v;
+		}
+	}
+	if (count($alerts)) {
+		foreach ($alerts as $p => $v) {
+			switch ($v['type']) {
+				case 'email':
+					$save = array();
+					$save['id'] = $p;
+					$save['threshold_id'] = $id;
+					$save['repeat_alert'] = $v['repeat_alert'];
+					$save['repeat_fail'] = $v['repeat_fail'];
+					$save['data'] = $v['notify_extra'];
+					$aid = sql_save($save , 'plugin_thold_alerts');
+					break;
+				case 'snmp-write':
+					$save = array();
+					$save['id'] = $p;
+					$save['threshold_id'] = $id;
+					$save['repeat_alert'] = $v['repeat_alert'];
+					$save['repeat_fail'] = $v['repeat_fail'];
+					$save['data'] = base64_encode(serialize(array('oid' => $v['oid'], 'community' => $v['community'])));
+					$aid = sql_save($save , 'plugin_thold_alerts');
+					break;
+				case 'script':
+					$save = array();
+					$save['id'] = $p;
+					$save['threshold_id'] = $id;
+					$save['repeat_alert'] = $v['repeat_alert'];
+					$save['repeat_fail'] = $v['repeat_fail'];
+					$save['data'] = base64_encode(serialize(array('args' => $v['args'], 'path' => basename($v['path']))));
+					$aid = sql_save($save , 'plugin_thold_alerts');
+					break;
+			}
+		}
+	}
+
+	do_hook('thold_alert_save');
 
 	$banner="<font color=green><strong>Record Updated</strong></font>";
 }
@@ -903,7 +1012,7 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 			}
 		}
 	}
-	$text = array('text' => '', $html => '');
+	$text = array('text' => '', 'html' => '');
 	if ($filename == '') {
 		$message = str_replace('<br>',  "\n", $message);
 		$message = str_replace('<BR>',  "\n", $message);
