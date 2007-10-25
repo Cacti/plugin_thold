@@ -389,29 +389,32 @@ function thold_build_cdef ($id, $value, $rra, $ds) {
 	$cdefs = db_fetch_assoc("select * from cdef_items where cdef_id = $id order by sequence");
 	if (sizeof($cdefs) > 0) {
 		foreach ($cdefs as $cdef) {
-		        if ($cdef['type'] == 4) {
-			    $cdef['type'] = 6;
-			      switch ($cdef['value']) {
-			       case 'CURRENT_DATA_SOURCE':
-				  $cdef['value'] = $oldvalue; // get_current_value($rra, $ds, 0);
-				  break;
-			       case 'CURRENT_GRAPH_MAXIMUM_VALUE':
-				  $cdef['value'] = get_current_value($rra, 'upper_limit', 0);
-				  break;
-			       case 'CURRENT_GRAPH_MINIMUM_VALUE':
-				  $cdef['value'] = get_current_value($rra, 'lower_limit', 0);
-				  break;
-			       case 'CURRENT_DS_MINIMUM_VALUE':
-				  $cdef['value'] = get_current_value($rra, 'rrd_minimum', 0);
-				  break;
-			       case 'CURRENT_DS_MAXIMUM_VALUE':
-				  $cdef['value'] = get_current_value($rra, 'rrd_maximum', 0);
-				  break;
-			       default:
-				  print "CDEF property not implemented yet: " . $cdef['value'];
-				  return $oldvalue;
-				  break;
-			      }
+			if ($cdef['type'] == 4) {
+				$cdef['type'] = 6;
+				switch ($cdef['value']) {
+					case 'CURRENT_DATA_SOURCE':
+						$cdef['value'] = $oldvalue; // get_current_value($rra, $ds, 0);
+						break;
+					case 'CURRENT_GRAPH_MAXIMUM_VALUE':
+						$cdef['value'] = get_current_value($rra, 'upper_limit', 0);
+						break;
+					case 'CURRENT_GRAPH_MINIMUM_VALUE':
+						$cdef['value'] = get_current_value($rra, 'lower_limit', 0);
+						break;
+					case 'CURRENT_DS_MINIMUM_VALUE':
+						$cdef['value'] = get_current_value($rra, 'rrd_minimum', 0);
+						break;
+					case 'CURRENT_DS_MAXIMUM_VALUE':
+						$cdef['value'] = get_current_value($rra, 'rrd_maximum', 0);
+						break;
+					case 'VALUE_OF_HDD_TOTAL':
+						$cdef['value'] = get_current_value($rra, 'hdd_total', 0);
+						break; 
+					default:
+						print "CDEF property not implemented yet: " . $cdef['value'];
+						return $oldvalue;
+						break;
+ 				}
 			}
 			$cdef_array[] = $cdef;
 		}

@@ -395,7 +395,11 @@ function thold_draw_navigation_text ($nav) {
 
 function thold_data_sources_table ($ds) {
 	global $config;
-	$ds['template_name'] = "<a href='plugins/thold/thold.php?rra=" . $ds['data_source']['local_data_id'] . '&hostid=' . $ds['data_source']['host_id'] . "'>" . ((empty($ds['data_source']["data_template_name"])) ? "<em>None</em>" : $ds['data_source']['data_template_name']) . '</a>';
+	if (!isset($ds['data_source'])) {
+		$ds['data_template_name'] = "<a href='plugins/thold/thold.php?rra=" . $ds['local_data_id'] . '&hostid=' . $ds['host_id'] . "'>" . ((empty($ds["data_template_name"])) ? "<em>None</em>" : $ds['data_template_name']) . '</a>';
+	} else {
+		$ds['template_name'] = "<a href='plugins/thold/thold.php?rra=" . $ds['data_source']['local_data_id'] . '&hostid=' . $ds['data_source']['host_id'] . "'>" . ((empty($ds['data_source']["data_template_name"])) ? "<em>None</em>" : $ds['data_source']['data_template_name']) . '</a>';
+	}
 	return $ds;
 }
 
