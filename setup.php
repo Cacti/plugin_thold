@@ -41,7 +41,7 @@ function plugin_init_thold() {
 	$plugin_hooks['device_action_array']['thold'] = 'thold_device_action_array';
 	$plugin_hooks['device_action_execute']['thold'] = 'thold_device_action_execute';
 	$plugin_hooks['device_action_prepare']['thold'] = 'thold_device_action_prepare';
-	$plugin_hooks['rrd_graph_graph_options']['thold'] = 'thold_rrd_graph_graph_options';
+//	$plugin_hooks['rrd_graph_graph_options']['thold'] = 'thold_rrd_graph_graph_options';
 //	$plugin_hooks['graph_buttons']['thold'] = 'thold_graph_button';
 	$plugin_hooks['user_admin_edit']['thold'] = 'thold_user_admin_edit';
 }
@@ -63,15 +63,24 @@ function thold_check_dependencies() {
 	global $plugins, $config;
 	if (!in_array('settings', $plugins))
 		return false;
+	if (!function_exists('settings_version')) {
+		if (file_exists($config['base_path'] . '/plugins/settings/setup.php')) {
+			include_once($config['base_path'] . '/plugins/settings/setup.php');
+			if (!function_exists('settings_version')) {
+				return false;
+			}
+		}
+	}
 	$v = settings_version();
-	if ($v['version'] < 0.2)
+	if (!isset($v['version']) || $v['version'] < 0.2) {
 		return false;
+	}
 	return true;
 }
 
 function thold_version () {
 	return array(	'name'		=> 'thold',
-			'version' 	=> '0.3.6',
+			'version' 	=> '0.3.7',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',

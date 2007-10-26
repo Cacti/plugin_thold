@@ -4,7 +4,7 @@
     Contact ........ jimmy@sqmail.org
     Home Site ...... http://cactiusers.org
     Program ........ Thold for Cacti
-    Version ........ 0.3.5
+    Version ........ 0.3.7
     Purpose ........ Threshold Alert module
 
 *******************************************************************************/
@@ -44,6 +44,10 @@
 
 ----[ Changelog
 
+	--- 0.3.7 ---
+		Fix issue with thold.php not correctly saving the host id
+		Fix issue with Setting plugin having to be before thold in the plugins array
+		
 	--- 0.3.6 ---
 		Compatible with Cacti v0.8.7 (not backwards compatible with previous versions)
 		Fixed issue with saving user email addresses

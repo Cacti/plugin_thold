@@ -23,38 +23,40 @@ input_validate_input_number(get_request_var("view_rra"));
 input_validate_input_number(get_request_var("hostid"));
 input_validate_input_number(get_request_var("rra"));
 
-if (isset($_REQUEST["hostid"])) {
-	$hostid=$_REQUEST["hostid"];
-	$_SESSION['hostid'] = $hostid;
-} else {
-	$_REQUEST["hostid"] = "";
-	if (isset($_SESSION['hostid'])) {
-		$hostid=$_SESSION['hostid'];
-	}
-	if (isset($_GET['hostid'])) {
-		$hostid=$_GET['hostid'];
-		$_SESSION['hostid'] = $hostid;
-	}
-	if (isset($_POST['hostid'])) {
-		$hostid=$_POST['hostid'];
-		$_SESSION['hostid'] = $hostid;
-	}
-}
-
+$hostid = '';
 if (isset($_REQUEST["rra"])) {  
-	$rra=$_REQUEST['rra'];
-} else {
-	$_REQUEST["rra"] = ""; 
-	$rra = "";
-}
-
-if (!isset($hostid)) {
+	$rra = $_REQUEST['rra'];
 	$hostid = db_fetch_assoc("select host_id from thold_data where rra_id = '" . $rra . "'");
-	$hostid = $hostid[0]['host_id'];
-	$_SESSION['hostid'] = $hostid;
+	if (isset($hostid[0]['host_id'])) {
+		$hostid = $hostid[0]['host_id'];
+	} else {
+		$hostid = db_fetch_assoc("select host_id from poller_item where local_data_id = '" . $rra . "'");
+		if (isset($hostid[0]['host_id'])) {
+			$hostid = $hostid[0]['host_id'];
+		}
+	}
+	if (is_array($hostid)) {
+		$hostid = '';
+	}
+} else {
+	$_REQUEST["rra"] = "";
+	$rra = "";
+	if (isset($_REQUEST["hostid"])) {
+		$hostid = $_REQUEST["hostid"];
+	} else {
+		$_REQUEST["hostid"] = "";
+		if (isset($_GET['hostid'])) {
+			$hostid=$_GET['hostid'];
+		}
+		if (isset($_POST['hostid'])) {
+			$hostid=$_POST['hostid'];
+		}
+	}
 }
 
-if (!isset($_REQUEST["action"])) {  $_REQUEST["action"] = ""; }
+if (!isset($_REQUEST["action"])) {
+	$_REQUEST["action"] = "";
+}
 
 switch($_REQUEST["action"]) {
 	case "save":
