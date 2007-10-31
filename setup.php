@@ -80,7 +80,7 @@ function thold_check_dependencies() {
 
 function thold_version () {
 	return array(	'name'		=> 'thold',
-			'version' 	=> '0.3.7',
+			'version' 	=> '0.3.8',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',

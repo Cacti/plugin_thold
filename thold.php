@@ -110,8 +110,6 @@ $graph = (isset($grapharr[0]["local_graph_id"]) ? $grapharr[0]["local_graph_id"]
 		}; ?>
 
 <form name="THold" action=thold.php method=post>
-	<input type='hidden' name='rra' value='<?php echo $rra?>'>
-	<input type='hidden' name='hostid' value='<?php echo $hostid?>'>
 	Data Source Description: <br><strong><?php echo $desc?></strong><br><br>
 	Associated Graph (graphs that use this RRD): <br>
 	<select name='element'>
@@ -396,11 +394,15 @@ draw_edit_form(
 			),
 			"hostid" => array(
 				"method" => "hidden",
-				"value" => $_SESSION['hostid']
+				"value" => $hostid
+			),
+			"rra" => array(
+				"method" => "hidden",
+				"value" => $rra
 			)
 		)
-		)
-	);
+	)
+);
 
 html_end_box();
 form_save_button("thold.php?rra=" . $rra . "&view_rrd=" . $_GET["view_rrd"], "save");

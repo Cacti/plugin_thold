@@ -4,7 +4,7 @@
     Contact ........ jimmy@sqmail.org
     Home Site ...... http://cactiusers.org
     Program ........ Thold for Cacti
-    Version ........ 0.3.7
+    Version ........ 0.3.8
     Purpose ........ Threshold Alert module
 
 *******************************************************************************/
@@ -43,6 +43,10 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
+
+
+	--- 0.3.8 ---
+		Fix undefined variable error on thold.php
 
 	--- 0.3.7 ---
 		Fix issue with thold.php not correctly saving the host id
