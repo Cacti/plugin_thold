@@ -80,12 +80,12 @@ function thold_check_dependencies() {
 
 function thold_version () {
 	return array(	'name'		=> 'thold',
-			'version' 	=> '0.3.8',
+			'version' 	=> '0.3.9',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',
 			'email'	=> 'jimmy@sqmail.org',
-			'url'		=> 'http://cactiusers.org/cacti/versions.php'
+			'url'		=> 'http://versions.cactiusers.org/'
 			);
 }
 
@@ -184,14 +184,25 @@ function thold_device_action_array($device_action_array) {
 function thold_poller_output ($rrd_update_array) {
 	global $config;
 	include_once($config["base_path"] . "/plugins/thold/thold_functions.php");
-	$thold_items = db_fetch_assoc("select thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue,
-	data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id from thold_data LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)");
+
 	$rrd_update_array_reindexed = array();
+	$rra_ids = '';
+	$x = 0;
 	foreach($rrd_update_array as $item) {
 		if (isset($item['times'][key($item['times'])])) {
+			if ($x) {
+				$rra_ids .= ' OR ';
+			}
+			$rra_ids .= "thold_data.rra_id = " . $item['local_data_id'];
 			$rrd_update_array_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
-		} 
+			$x++;
+		}
 	}
+
+	$thold_items = db_fetch_assoc("select thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue, data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id from thold_data
+						 LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
+						 WHERE data_template_rrd.data_source_name != '' AND $rra_ids");
+
 	$polling_interval = read_config_option("poller_interval");
 	if (!isset($polling_interval) || $polling_interval < 1) {
 		$polling_interval = 300;
