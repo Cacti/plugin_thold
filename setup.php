@@ -72,7 +72,7 @@ function thold_check_dependencies() {
 		}
 	}
 	$v = settings_version();
-	if (!isset($v['version']) || $v['version'] < 0.2) {
+	if (!isset($v['version']) || $v['version'] < 0.3) {
 		return false;
 	}
 	return true;
@@ -641,6 +641,19 @@ function thold_setup_table () {
 	if (!$found) {
 		db_execute("alter table thold_template ADD cdef INT(11) NOT NULL");
 	}
+
+	// Added in thold v0.3.9
+	$result = db_fetch_assoc('SHOW INDEXES FROM graph_templates_item');
+	$found = false;
+	foreach($result as $row) {
+		if ($row['Column_name'] == 'task_item_id')
+			$found = true;
+	}
+	if (!$found) {
+		db_execute("ALTER TABLE `graph_templates_item` ADD INDEX ( `task_item_id` )");
+	}
+
+
 }
 
 function thold_graphs_new () {
