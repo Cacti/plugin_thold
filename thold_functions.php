@@ -314,7 +314,18 @@ function thold_build_cdef ($id, $value, $rra, $ds) {
 					break;
 				case 'VALUE_OF_HDD_TOTAL':
 					$cdef['value'] = get_current_value($rra, 'hdd_total', 0);
-					break; 
+					break;
+				case 'ALL_DATA_SOURCES_NODUPS': // you can't have DUPs in a single data source, really...
+				case 'ALL_DATA_SOURCES_DUPS':
+					$cdef['value'] = 0;
+					$all_dsns = array();
+					$all_dsns = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE local_data_id = $rra");
+					if(is_array($all_dsns)) {
+						foreach ($all_dsns as $dsn) {
+							$cdef['value'] += get_current_value($rra, $dsn['data_source_name'], 0);
+						}
+					}
+					break;
 				default:
 					print "CDEF property not implemented yet: " . $cdef['value'];
 					return $oldvalue;
@@ -328,13 +339,31 @@ function thold_build_cdef ($id, $value, $rra, $ds) {
 
 	if ($x == 0) return $oldvalue;
 
-	$value = thold_rpn($cdef_array[0]['value'], $cdef_array[1]['value'], $cdef_array[2]['value']);
+	$stack = array(); // operation stack for RPN
+	array_push($stack, $cdef_array[0]); // first one always goes on
+	$cursor = 1; // current pointer through RPN operations list
 
-	$x--;
-	$cur = 3;
-	while ($cur < $x) {
-		$value = thold_rpn($value, $cdef_array[$cur]['value'], $cdef_array[$cur+1]['value']);
-		$cur = $cur + 2;
+	while($cursor < $x) {
+		$type = $cdef_array[$cursor]['type'];
+		switch($type) {
+			case 6:
+				array_push($stack, $cdef_array[$cursor]);
+				break;
+			case 2:
+				// this is a binary operation. pop two values, and then use them.
+				$v1 = array_pop($stack);
+				$v2 = array_pop($stack);
+				$result = thold_rpn($v2['value'], $v1['value'], $cdef_array[$cursor]['value']);
+				// put the result back on the stack.
+				array_push($stack, array('type'=>6,'value'=>$result));
+				break;
+			default:
+				print "Unknown RPN type: ";
+				print $cdef_array[$cursor]['type'];
+				return($oldvalue);
+				break;
+		}
+		$cursor++;
 	}
 
 	return $value;
