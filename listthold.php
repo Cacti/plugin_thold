@@ -29,6 +29,20 @@ if (isset($_REQUEST["hostid"])) {
 	}
 }
 
+$statefilter="";
+if (isset($_REQUEST["state"])) {
+	if ($_REQUEST["state"] == 'ALL') {
+		$statefilter = '';
+	} else {
+		if($_REQUEST["state"]=='Disabled') { $statefilter = "thold_data.thold_enabled='off'"; }
+		if($_REQUEST["state"]=='Enabled') { $statefilter = "thold_data.thold_enabled='on'"; }
+		if($_REQUEST["state"]=='Triggered') { $statefilter = "thold_data.thold_alert=2"; }
+	}
+}
+
+
+
+
 if (isset($_POST['drp_action'])) {
 	do_thold();
 } else {
@@ -58,6 +72,7 @@ function do_thold() {
 
 function list_tholds() {
 	global $colors, $config, $hostid;
+	global $statefilter;
 
 	$ds_actions = array(1 => "Delete");
 
@@ -71,10 +86,14 @@ function list_tholds() {
 	}
 
 	include($config["include_path"] . "/top_header.php");
+
+	$extra_where = "";
+	if($statefilter != '') $extra_where .= "AND $statefilter ";
+
 	if (isset($_REQUEST["search"]) && $hostid != "ALL") {
-		$sql = "SELECT * FROM thold_data WHERE host_id='$hostid' ORDER BY thold_alert DESC, bl_alert DESC, rra_id ASC limit " . ($alert_num_rows*($_REQUEST["page"]-1)) . ",$alert_num_rows";
+		$sql = "SELECT * FROM thold_data WHERE host_id='$hostid' $extra_where ORDER BY thold_alert DESC, bl_alert DESC, rra_id ASC limit " . ($alert_num_rows*($_REQUEST["page"]-1)) . ",$alert_num_rows";
 	} else {
-		$sql = "SELECT thold_data.*, host.description FROM thold_data left join host on thold_data.host_id=host.id ORDER BY thold_alert DESC, bl_alert DESC, host.description, rra_id ASC limit " . ($alert_num_rows*($_REQUEST["page"]-1)) . ",$alert_num_rows";
+		$sql = "SELECT thold_data.*, host.description FROM thold_data left join host on thold_data.host_id=host.id WHERE (1=1) $extra_where ORDER BY thold_alert DESC, bl_alert DESC, host.description, rra_id ASC limit " . ($alert_num_rows*($_REQUEST["page"]-1)) . ",$alert_num_rows";
 	}
 
 	$result = db_fetch_assoc($sql);
@@ -95,14 +114,22 @@ function list_tholds() {
         	<td class='textSubHeaderDark'><Br> &nbsp; <b>  To edit an existing element, click the Description below</td>
         </tr>	";
 
-	$hostresult = db_fetch_assoc("SELECT id, description, hostname from host order by description");
+	$hostresult = db_fetch_assoc("SELECT distinctrow host.id, host.description, host.hostname from host, thold_data where thold_data.host_id=host.id order by host.description");
 
 	echo "<tr><td align=center><form action=listthold.php method=post><input type=hidden name=search value=search>Filter by host:	<select name=hostid>";
 	echo "<option value=ALL>Show All</option>";
 	foreach ($hostresult as $row) { 
 		echo "<option value='" . $row["id"] . "'" . ($row["id"] == $hostid ? " selected" : "") . ">" . $row["description"] . " - (" . $row["hostname"] . ")" . "</option>";
 	}
-	echo "	</select><input type=image src='" . $config['url_path'] . "images/button_go.gif' alt='GO' align='top' action='submit'></form></td></tr>";
+
+	echo "</select> Filter by state:	<select name=state>";
+	echo "<option value=ALL>Show All</option>";
+	foreach (array('Disabled','Enabled','Triggered') as $row) { 
+
+		echo "<option value='" . $row . "'" . ($row == $_REQUEST["state"] ? " selected" : "") . ">" . $row . "</option>";
+	}
+	echo "	</select> <input type=image src='" . $config['url_path'] . "images/button_go.gif' alt='GO' align='top' action='submit'></form></td></tr>";
+
 	html_end_box();
 
 	print "<br><center><b>Last Poll: </b>";
