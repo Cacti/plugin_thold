@@ -46,6 +46,58 @@ function plugin_init_thold() {
 	$plugin_hooks['user_admin_edit']['thold'] = 'thold_user_admin_edit';
 }
 
+function plugin_thold_install () {
+
+	api_plugin_register_hook('thold', 'top_header_tabs', 'thold_show_tab', 'includes/tab.php');
+	api_plugin_register_hook('thold', 'top_graph_header_tabs', 'thold_show_tab', 'includes/tab.php');
+	api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'setup.php');
+	api_plugin_register_hook('thold', 'config_settings', 'thold_config_settings', 'setup.php');
+	api_plugin_register_hook('thold', 'draw_navigation_text', 'thold_draw_navigation_text', 'setup.php');
+	api_plugin_register_hook('thold', 'data_sources_table', 'thold_data_sources_table', 'setup.php');
+	api_plugin_register_hook('thold', 'graphs_new_top_links', 'thold_graphs_new', 'setup.php');
+	api_plugin_register_hook('thold', 'api_device_save', 'thold_api_device_save', 'setup.php');
+	api_plugin_register_hook('thold', 'update_host_status', 'thold_update_host_status', 'includes/polling.php');
+	api_plugin_register_hook('thold', 'poller_output', 'thold_poller_output', 'includes/polling.php');
+	api_plugin_register_hook('thold', 'device_action_array', 'thold_device_action_array', 'setup.php');
+	api_plugin_register_hook('thold', 'device_action_execute', 'thold_device_action_execute', 'setup.php');
+	api_plugin_register_hook('thold', 'device_action_prepare', 'thold_device_action_prepare', 'setup.php');
+
+	api_plugin_register_hook('thold', 'user_admin_setup_sql_save', 'thold_user_admin_setup_sql_save', 'setup.php');
+	api_plugin_register_hook('thold', 'poller_bottom', 'thold_update_host_status', 'setup.php');
+	api_plugin_register_hook('thold', 'user_admin_edit', 'thold_user_admin_edit', 'setup.php');
+//	api_plugin_register_hook('thold', 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
+//	api_plugin_register_hook('thold', 'graph_buttons', 'thold_graph_button', 'setup.php');
+
+	api_plugin_register_realm('thold', 'thold.php,listthold.php,thold_templates.php,email-test.php', 'Configure Thresholds', 1);
+	api_plugin_register_realm('thold', 'graph_thold.php', 'View Thresholds', 1);
+	
+	thold_setup_table_new ();
+}
+
+
+
+function plugin_thold_uninstall () {
+	// Do any extra Uninstall stuff here
+}
+
+function plugin_thold_check_config () {
+	// Here we will check to ensure everything is configured
+	thold_check_upgrade ();
+
+	return true;
+
+}
+
+function plugin_thold_upgrade () {
+	// Here we will upgrade to the newest version
+	thold_check_upgrade ();
+	return false;
+}
+
+function thold_version () {
+	return plugin_thold_version();
+}
+
 function thold_check_upgrade () {
 	// Let's only run this check if we are on a page that actually needs the data
 	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'listthold.php', 'poller.php');
@@ -76,6 +128,85 @@ function thold_check_dependencies() {
 		return false;
 	}
 	return true;
+}
+
+
+function thold_setup_table_new () {
+	global $config, $database_default;
+	include_once($config["library_path"] . "/database.php");
+
+	$data = array();
+	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
+	$data['columns'][] = array('name' => 'rra_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'data_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'thold_hi', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'thold_low', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'thold_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'thold_fail_count', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'thold_alert', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'thold_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'on');
+	$data['columns'][] = array('name' => 'bl_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'off');
+	$data['columns'][] = array('name' => 'bl_ref_time', 'type' => 'int(50)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_ref_time_range', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_pct_down', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_pct_up', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_fail_count', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_alert', 'type' => 'int(2)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'lastread', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'oldvalue', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'notify_default', 'type' => "enum('on','off')", 'NULL' => true);
+	$data['columns'][] = array('name' => 'notify_extra', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(10)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'syslog_priority', 'type' => 'int(2)', 'NULL' => false, 'default' => '3');
+	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['primary'] = 'id';
+	$data['keys'][] = array('name' => 'rra_id', 'columns' => 'rra_id');
+	$data['type'] = 'MyISAM';
+	$data['comment'] = 'Threshold data';
+	api_plugin_db_table_create ('thold', 'thold_data', $data);
+
+	$data = array();
+	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
+	$data['columns'][] = array('name' => 'data_template_id', 'type' => 'int(10)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'data_template_name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'data_source_id', 'type' => 'int(10)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'data_source_name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'data_source_friendly', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'thold_hi', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'thold_low', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'thold_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'thold_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'on');
+	$data['columns'][] = array('name' => 'bl_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'off');
+	$data['columns'][] = array('name' => 'bl_ref_time', 'type' => 'int(50)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_ref_time_range', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_pct_down', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_pct_up', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_fail_count', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_alert', 'type' => 'int(2)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'notify_default', 'type' => "enum('on','off')", 'NULL' => true);
+	$data['columns'][] = array('name' => 'notify_extra', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['unique'] = array('name' => 'id', 'columns' => 'id');
+	$data['keys'][] = array('name' => 'id', 'columns' => 'id');
+	$data['type'] = 'MyISAM';
+	$data['comment'] = 'Table of thresholds defaults for graphs';
+	api_plugin_db_table_create ('thold', 'thold_template', $data);
+
+	// Added in thold v0.3.9
+	$result = db_fetch_assoc('SHOW INDEXES FROM graph_templates_item');
+	$found = false;
+	foreach($result as $row) {
+		if ($row['Column_name'] == 'task_item_id')
+			$found = true;
+	}
+	if (!$found) {
+		db_execute("ALTER TABLE `graph_templates_item` ADD INDEX ( `task_item_id` )");
+	}
+
 }
 
 function thold_version () {
@@ -201,7 +332,7 @@ function thold_poller_output ($rrd_update_array) {
 
 	$thold_items = db_fetch_assoc("select thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue, data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id from thold_data
 						 LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
-						 WHERE data_template_rrd.data_source_name != '' AND $rra_ids");
+						 WHERE data_template_rrd.data_source_name != '' AND $rra_ids", false);
 
 	$polling_interval = read_config_option("poller_interval");
 	if (!isset($polling_interval) || $polling_interval < 1) {
