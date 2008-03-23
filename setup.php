@@ -330,9 +330,13 @@ function thold_poller_output ($rrd_update_array) {
 		}
 	}
 
-	$thold_items = db_fetch_assoc("select thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue, data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id from thold_data
+	if ($rra_ids != '') {
+		$thold_items = db_fetch_assoc("select thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue, data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id from thold_data
 						 LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
 						 WHERE data_template_rrd.data_source_name != '' AND $rra_ids", false);
+	} else {
+		return $rrd_update_array;
+	}
 
 	$polling_interval = read_config_option("poller_interval");
 	if (!isset($polling_interval) || $polling_interval < 1) {
