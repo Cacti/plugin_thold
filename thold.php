@@ -230,8 +230,21 @@ if (!empty($users)) {
 
 if (isset($thold_item_data['id'])) {
 	$sql = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=' . $thold_item_data['id'];
+	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $thold_item_data['rra_id'], FALSE);
 } else {
 	$sql = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=0';
+	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $rra, FALSE);
+}
+
+if ($step == 60) {
+	$repeatarray = array(0 => 'Never', 1 => 'Every Minute', 2 => 'Every 2 Minutes', 3 => 'Every 3 Minutes', 4 => 'Every 4 Minutes', 5 => 'Every 5 Minutes', 10 => 'Every 10 Minutes', 15 => 'Every 15 Minutes', 20 => 'Every 20 Minutes', 30 => 'Every 30 Minutes', 45 => 'Every 45 Minutes', 60 => 'Every Hour', 120 => 'Every 2 Hours', 180 => 'Every 3 Hours', 240 => 'Every 4 Hours', 360 => 'Every 6 Hours', 480 => 'Every 8 Hours', 720 => 'Every 12 Hours', 1440 => 'Every Day', 2880 => 'Every 2 Days', 10080 => 'Every Week', 20160 => 'Every 2 Weeks', 43200 => 'Every Month');
+	$alertarray = array(0 => 'Never', 1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 10 => '10 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
+} else if ($step == 300) {
+	$repeatarray = array(0 => 'Never', 1 => 'Every 5 Minutes', 2 => 'Every 10 Minutes', 3 => 'Every 15 Minutes', 4 => 'Every 20 Minutes', 6 => 'Every 30 Minutes', 8 => 'Every 45 Minutes', 12 => 'Every Hour', 24 => 'Every 2 Hours', 36 => 'Every 3 Hours', 48 => 'Every 4 Hours', 72 => 'Every 6 Hours', 96 => 'Every 8 Hours', 144 => 'Every 12 Hours', 288 => 'Every Day', 576 => 'Every 2 Days', 2016 => 'Every Week', 4032 => 'Every 2 Weeks', 8640 => 'Every Month');
+	$alertarray = array(0 => 'Never', 1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => 'Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
+} else {
+	$repeatarray = array(0 => 'Never', 1 => 'Every Polling', 2 => 'Every 2 Pollings', 3 => 'Every 3 Pollings', 4 => 'Every 4 Pollings', 6 => 'Every 6 Pollings', 8 => 'Every 8 Pollings', 12 => 'Every 12 Pollings', 24 => 'Every 24 Pollings', 36 => 'Every 36 Pollings', 48 => 'Every 48 Pollings', 72 => 'Every 72 Pollings', 96 => 'Every 96 Pollings', 144 => 'Every 144 Pollings', 288 => 'Every 288 Pollings', 576 => 'Every 576 Pollings', 2016 => 'Every 2016 Pollings');
+	$alertarray = array(0 => 'Never', 1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
 }
 
 $form_array = array(
@@ -264,7 +277,6 @@ $form_array = array(
 			"description" => "If set and data source value goes above this number, alert will be triggered",
 			"value" => isset($thold_item_data["thold_hi"]) ? $thold_item_data["thold_hi"] : ""
 		),
-		
 		"thold_low" => array(
 			"friendly_name" => "Low Threshold",
 			"method" => "textbox",
@@ -272,22 +284,18 @@ $form_array = array(
 			"description" => "If set and data source value goes below this number, alert will be triggered",
 			"value" => isset($thold_item_data["thold_low"]) ? $thold_item_data["thold_low"] : ""
 		),
-		
 		"thold_fail_trigger" => array(
 			"friendly_name" => "Trigger Count",
-			"method" => "textbox",
-			"max_length" => 3,
-			"size" => 3,
+			'method' => 'drop_array',
+			'array' => $alertarray,
 			"default" => read_config_option("alert_trigger"),
-			"description" => "Number of consecutive times the data source must be in breach of the threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: " . read_config_option("alert_trigger") . " cycles</b>)",
+			"description" => "The amount of time the data source must be in breach of the threshold for an alert to be raised.",
 			"value" => isset($thold_item_data["thold_fail_trigger"]) ? $thold_item_data["thold_fail_trigger"] : ""
-		),
-		
+		),		
 		"baseline_header" => array(
 			"friendly_name" => "Baseline monitoring",
 			"method" => "spacer",
 		),
-		
 		"bl_enabled" => array(
 			"friendly_name" => "Baseline monitoring",
 			"method" => "checkbox",
@@ -295,7 +303,6 @@ $form_array = array(
 			"description" => "When enabled, baseline monitoring checks the current data source value against a value in the past. The available range of values is retrieved and a minimum and maximum values are taken as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.",
 			"value" => isset($thold_item_data["bl_enabled"]) ? $thold_item_data["bl_enabled"] : ""
 		),
-		
 		"bl_ref_time" => array(
 			"friendly_name" => "Reference in the past",
 			"method" => "textbox",
@@ -304,7 +311,6 @@ $form_array = array(
 			"description" => "Specifies the relative point in the past that will be used as a reference. The value represents seconds, so for a day you would specify 86400, for a week 604800, etc.",
 			"value" => isset($thold_item_data["bl_ref_time"]) ? $thold_item_data["bl_ref_time"] : ""
 		),
-		
 		"bl_ref_time_range" => array(
 			"friendly_name" => "Time range",
 			"method" => "textbox",
@@ -313,7 +319,6 @@ $form_array = array(
 			"description" => "Specifies the time range of values in seconds to be taken from the reference in the past",
 			"value" => isset($thold_item_data["bl_ref_time_range"]) ? $thold_item_data["bl_ref_time_range"] : ""
 		),
-		
 		"bl_pct_up" => array(
 			"friendly_name" => "Baseline deviation UP",
 			"method" => "textbox",
@@ -322,7 +327,6 @@ $form_array = array(
 			"description" => "Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.",
 			"value" => isset($thold_item_data["bl_pct_up"]) ? $thold_item_data["bl_pct_up"] : ""
 		),
-		
 		"bl_pct_down" => array(
 			"friendly_name" => "Baseline deviation DOWN",
 			"method" => "textbox",
@@ -331,7 +335,6 @@ $form_array = array(
 			"description" => "Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.",
 			"value" => isset($thold_item_data["bl_pct_down"]) ? $thold_item_data["bl_pct_down"] : ""
 		),
-		
 		"bl_fail_trigger" => array(
 			"friendly_name" => "Baseline Trigger Count",
 			"method" => "textbox",
@@ -341,12 +344,10 @@ $form_array = array(
 			"description" => "Number of consecutive times the data source must be in breach of the baseline threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: " . read_config_option("alert_bl_trigger") . " cycles</b>)",
 			"value" => isset($thold_item_data["bl_fail_trigger"]) ? $thold_item_data["bl_fail_trigger"] : ""
 		),
-		
 		"other_header" => array(
 			"friendly_name" => "Other setting",
 			"method" => "spacer",
 		),
-
 		"cdef" => array(
 			"friendly_name" => "Threshold CDEF",
 			"method" => "drop_array",
@@ -355,14 +356,12 @@ $form_array = array(
 			"value" => isset($thold_item_data["cdef"]) ? $thold_item_data["cdef"] : 0,
 			"array" => thold_cdef_select_usable_names()
 		),
-
 		"repeat_alert" => array(
 			"friendly_name" => "Re-Alert Cycle",
-			"method" => "textbox",
-			"max_length" => 3,
-			"size" => 3,
+			"method" => "drop_array",
+			'array' => $repeatarray,
 			"default" => read_config_option("alert_repeat"),
-			"description" => "Repeat alert after specified number of cycles.<br>Leave empty to use default value (<b>Default: " . read_config_option("alert_repeat") . " cycles</b>)",
+			"description" => "Repeat alert after this amount of time has pasted since the last alert.",
 			"value" => isset($thold_item_data["repeat_alert"]) ? $thold_item_data["repeat_alert"] : ""
 		),
 		"notify_accounts" => array(

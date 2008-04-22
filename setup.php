@@ -331,19 +331,17 @@ function thold_poller_output ($rrd_update_array) {
 	}
 
 	if ($rra_ids != '') {
-		$thold_items = db_fetch_assoc("select thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue, data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id from thold_data
-						 LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
-						 WHERE data_template_rrd.data_source_name != '' AND $rra_ids", false);
+		$thold_items = db_fetch_assoc("SELECT thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue, data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id, data_template_data.rrd_step
+							FROM thold_data
+							LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
+							LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id ) 
+							WHERE data_template_rrd.data_source_name != '' AND $rra_ids", false);
 	} else {
 		return $rrd_update_array;
 	}
 
-	$polling_interval = read_config_option("poller_interval");
-	if (!isset($polling_interval) || $polling_interval < 1) {
-		$polling_interval = 300;
-	}
-
 	foreach ($thold_items as $t_item) {
+		$polling_interval = $t_item['rrd_step'];
 		if (isset($rrd_update_array_reindexed[$t_item['rra_id']])) {
 			$item = $rrd_update_array_reindexed[$t_item['rra_id']];
 			if (isset($item[$t_item['name']])) {

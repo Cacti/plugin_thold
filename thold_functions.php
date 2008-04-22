@@ -34,6 +34,37 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$show = true;
 	$debug = false;
 
+	$alert_exempt = read_config_option("alert_exempt");
+	/* check for exemptions */
+	$weekday=date("l");
+	if (($weekday == "Saturday" || $weekday == "Sunday") && $alert_exempt == "on") {
+		return;
+	}
+
+	/* Get the graph ID - If not found, something is wrong so exit */
+	$grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_item WHERE task_item_id=" . $data_id);
+	if (isset($grapharr[0]['local_graph_id']) && $grapharr[0]['local_graph_id'] > 0) {
+		$graph_id = $grapharr[0]['local_graph_id'];
+	} else {
+		//cacti_log("THOLD ERROR: No graph? - HOST: " . $item['host_id'] . " - SQL: SELECT DISTINCT local_graph_id FROM graph_templates_item WHERE task_item_id=$data_id", TRUE);
+		return;
+	}
+
+	/* Get all the info about the item from the database */
+	$item = db_fetch_assoc("select * from thold_data where thold_enabled='on' AND data_id = " . $data_id);
+
+	/* Return if the item doesn't exist, which means its disabled */	
+	if (!isset($item[0]))
+		return;
+	$item = $item[0];
+
+	/* Pull the cached name, if not present, it means that the graph hasn't polled yet */
+	$t = db_fetch_assoc("select id,name,name_cache from data_template_data where local_data_id=" . $rra_id . " order by id LIMIT 1");
+	if (isset($t[0]["name_cache"]))
+		$desc = $t[0]["name_cache"];
+	else
+		return;
+
 	/* Pull a few default settings */
 	$global_alert_address = read_config_option("alert_email");
 	$global_notify_enabled = (read_config_option("alert_notify_default") == "on");
@@ -43,7 +74,6 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$realert = read_config_option("alert_repeat");
 	$alert_trigger = read_config_option("alert_trigger");
 	$alert_bl_trigger = read_config_option("alert_bl_trigger");
-	$alert_exempt = read_config_option("alert_exempt");
 	$httpurl = read_config_option("alert_base_url");
 	$thold_show_datasource = read_config_option("thold_show_datasource");
 	$thold_send_text_only = read_config_option("thold_send_text_only");
@@ -51,27 +81,6 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 	// Remove this after adding an option for it
 	$thold_show_datasource = true;
-
-	/* check for exemptions */
-	$weekday=date("l");
-	if (($weekday == "Saturday" || $weekday == "Sunday") && $alert_exempt == "on") {
-		return;
-	}
-
-	/* Pull the cached name, if not present, it means that the graph hasn't polled yet */
-	$t = db_fetch_assoc("select id,name,name_cache from data_template_data where local_data_id=" . $rra_id . " order by id LIMIT 1");
-	if (isset($t[0]["name_cache"]))
-		$desc = $t[0]["name_cache"];
-	else
-		return;
-
-	/* Get all the info about the item from the database */
-	$item = db_fetch_assoc("select * from thold_data where thold_enabled='on' AND data_id = " . $data_id);
-
-	/* Return if the item doesn't exist, which means its disabled */	
-	if (!isset($item[0]))
-		return;
-	$item = $item[0];
 
 	if ($cdef != 0)
 		$currentval = thold_build_cdef($cdef, $currentval, $rra_id, $data_id);
@@ -84,8 +93,6 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		print "     Data Source : " . $name;
 	}
 
-	$grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_item WHERE task_item_id=" . $data_id);
-	$graph_id = $grapharr[0]['local_graph_id'];
 
 	$breach_up = ($item["thold_hi"] != "" && $currentval > $item["thold_hi"]);
 	$breach_down = ($item["thold_low"] != "" && $currentval < $item["thold_low"]);
@@ -415,20 +422,19 @@ function get_current_value($rra, $ds, $cdef = 0) {
 	if ($last_time_entry == -1)
 		$last_time_entry = time();
 
-	$polling_interval = read_config_option("poller_interval");
-	if (!isset($polling_interval) || $polling_interval < 1) {
-		$polling_interval = 300;
-	}
+	$data_template_data = db_fetch_row("SELECT * FROM data_template_data WHERE local_data_id = $rra");
+
+	$step = $data_template_data['rrd_step'];
 
 	// Round down to the nearest 100
-	$last_time_entry = (intval($last_time_entry /100) * 100) - $polling_interval;
-	$last_needed = $last_time_entry + $polling_interval;
+	$last_time_entry = (intval($last_time_entry /100) * 100) - $step;
+	$last_needed = $last_time_entry + $step;
 
 	$result = rrdtool_function_fetch($rra, trim($last_time_entry), trim($last_needed));
 
 	// Return Blank if the data source is not found (Newly created?)
 	if (!isset( $result["data_source_names"])) return "";
-	
+
 	$idx = array_search($ds, $result["data_source_names"]);
 
 	// Return Blank if the value was not found (Cache Cleared?)
@@ -784,6 +790,8 @@ function autocreate($hostid) {
 function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	global $config;
 	include_once($config["base_path"] . "/plugins/settings/include/mailer.php");
+
+	$subject = trim($subject);
 
 	$message = str_replace('<SUBJECT>', $subject, $message);
 
