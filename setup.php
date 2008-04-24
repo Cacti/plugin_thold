@@ -209,7 +209,7 @@ function thold_setup_table_new () {
 
 }
 
-function thold_version () {
+function plugin_thold_version () {
 	return array(	'name'		=> 'thold',
 			'version' 	=> '0.3.9',
 			'longname'	=> 'Thresholds',
