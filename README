@@ -47,6 +47,8 @@
 		Add filtering to listthold.php (thanks Howie!)
 		Fix for multiple poller intervals, use RRD Step of Data Source instead of Polling Interval
 		Use time periods instead of number of pollings when specifying Repeat Alerts and Fail Triggers
+		Add syslog message for down and recovering hosts
+		Fix for thresholds with CDEF values
 
 	--- 0.3.9 ---
 		Major poller speed increase when using large numbers of thresholds

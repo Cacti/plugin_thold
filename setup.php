@@ -22,30 +22,6 @@
  +-------------------------------------------------------------------------+
 */
 
-function plugin_init_thold() {
-	global $plugin_hooks;
-
-	$plugin_hooks['config_arrays']['thold'] = 'thold_config_arrays';
-	$plugin_hooks['config_settings']['thold'] = 'thold_config_settings';
-	$plugin_hooks['top_header_tabs']['thold'] = 'thold_show_tab';
-	$plugin_hooks['top_graph_header_tabs']['thold'] = 'thold_show_tab';
-	$plugin_hooks['draw_navigation_text']['thold'] = 'thold_draw_navigation_text';
-	if (!thold_check_dependencies())
-		return;
-	$plugin_hooks['data_sources_table']['thold'] = 'thold_data_sources_table';
-	$plugin_hooks['user_admin_setup_sql_save']['thold'] = 'thold_user_admin_setup_sql_save';
-	$plugin_hooks['graphs_new_top_links']['thold'] = 'thold_graphs_new';
-	$plugin_hooks['api_device_save']['thold'] = 'thold_api_device_save';
-	$plugin_hooks['poller_bottom']['thold'] = 'thold_update_host_status';
-	$plugin_hooks['poller_output']['thold'] = 'thold_poller_output';
-	$plugin_hooks['device_action_array']['thold'] = 'thold_device_action_array';
-	$plugin_hooks['device_action_execute']['thold'] = 'thold_device_action_execute';
-	$plugin_hooks['device_action_prepare']['thold'] = 'thold_device_action_prepare';
-//	$plugin_hooks['rrd_graph_graph_options']['thold'] = 'thold_rrd_graph_graph_options';
-//	$plugin_hooks['graph_buttons']['thold'] = 'thold_graph_button';
-	$plugin_hooks['user_admin_edit']['thold'] = 'thold_user_admin_edit';
-}
-
 function plugin_thold_install () {
 
 	api_plugin_register_hook('thold', 'top_header_tabs', 'thold_show_tab', 'includes/tab.php');
@@ -68,8 +44,8 @@ function plugin_thold_install () {
 //	api_plugin_register_hook('thold', 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
 //	api_plugin_register_hook('thold', 'graph_buttons', 'thold_graph_button', 'setup.php');
 
-	api_plugin_register_realm('thold', 'thold.php,listthold.php,thold_templates.php,email-test.php', 'Configure Thresholds', 1);
-	api_plugin_register_realm('thold', 'graph_thold.php', 'View Thresholds', 1);
+	api_plugin_register_realm('thold', 'thold.php,listthold.php,thold_templates.php', 'Configure Thresholds', 1);
+	api_plugin_register_realm('thold', 'thold_graph.php,graph_thold.php,thold_view_failures.php,thold_view_normal.php,thold_view_recover.php,thold_view_recent.php,thold_view_host.php', 'View Thresholds', 1);
 	
 	thold_setup_table_new ();
 }
@@ -211,7 +187,7 @@ function thold_setup_table_new () {
 
 function plugin_thold_version () {
 	return array(	'name'		=> 'thold',
-			'version' 	=> '0.3.9',
+			'version' 	=> '0.4',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',
@@ -385,9 +361,11 @@ function thold_update_host_status () {
 
 	// Return if we aren't set to notify
 	$deadnotify = (read_config_option("alert_deadnotify") == "on");
+
 	if (!$deadnotify) return;
 	include_once($config["base_path"] . '/plugins/thold/thold_functions.php');
 
+	$logset = (read_config_option("alert_syslog") == "on");
 	$alert_email = read_config_option("alert_email");
 	$ping_failure_count = read_config_option('ping_failure_count');
 	// Lets find hosts that were down, but are now back up
@@ -400,6 +378,9 @@ function thold_update_host_status () {
 				if ($host['status'] == HOST_UP) {
 					$subject = 'Host Notice : ' . $host['description'] . ' (' . $host['hostname'] . ') returned from DOWN state';
 					$msg = $subject;
+					if ($logset) {
+						plugin_thold_syslog_host_status($subject);
+					}
 					if ($alert_email == '') {
 						cacti_log("THOLD: Can not send Host Recovering email since the 'Alert e-mail' setting is not set!", true, "POLLER");
 					} else {
@@ -416,6 +397,9 @@ function thold_update_host_status () {
 		foreach($hosts as $host) {
 			$subject = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN';
 			$msg = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN<br>Message : ' . $host['status_last_error'];
+			if ($logset) {
+				plugin_thold_syslog_host_status($subject);
+			}
 			if ($alert_email == '') {
 				cacti_log("THOLD: Can not send Host Down email since the 'Alert e-mail' setting is not set!", true, "POLLER");
 			} else {
@@ -487,19 +471,7 @@ function thold_user_admin_edit ($user) {
 }
 
 function thold_config_arrays () {
-	global $user_auth_realms, $user_auth_realm_filenames, $menu, $messages, $thold_menu;
-	$user_auth_realms[18]='Configure Thresholds';
-	$user_auth_realm_filenames['thold.php'] = 18;
-	$user_auth_realm_filenames['listthold.php'] = 18;
-	$user_auth_realm_filenames['thold_templates.php'] = 18;
-	$user_auth_realm_filenames['email-test.php'] = 18;
-	$user_auth_realms[19]='View Thresholds';
-	$user_auth_realm_filenames['thold_graph.php'] = 19;
-	$user_auth_realm_filenames['thold_view_failures.php'] = 19;
-	$user_auth_realm_filenames['thold_view_normal.php'] = 19;
-	$user_auth_realm_filenames['thold_view_recover.php'] = 19;
-	$user_auth_realm_filenames['thold_view_recent.php'] = 19;
-	$user_auth_realm_filenames['thold_view_host.php'] = 19;
+	global $menu, $messages, $thold_menu;
 
 	$menu["Management"]['plugins/thold/listthold.php'] = "Thresholds";
 	$menu["Templates"]['plugins/thold/thold_templates.php'] = "Threshold Templates";

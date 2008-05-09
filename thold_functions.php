@@ -146,7 +146,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		$ra = ($item['thold_fail_count'] > $trigger && $item['repeat_alert'] != 0 && ($item['thold_fail_count'] % ($item['repeat_alert'] == '' ? $realert : $item['repeat_alert'])) == 0);
 		if($item["thold_fail_count"] == $trigger || $ra) {
 			if ($logset == 1) {
-				logger($desc, $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $trigger, $item["thold_fail_count"]);
+				plugin_thold_syslog_alert_status($desc, $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $trigger, $item["thold_fail_count"]);
 			}
 			$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " " . ($ra ? "is still" : "went") . " " . ($breach_up ? "above" : "below") . " threshold of " . ($breach_up ? $item["thold_hi"] : $item["thold_low"]) . " with $currentval";
 			if ($show)
@@ -165,7 +165,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	} else {
 		if ($alertstat != 0) {
 			if ($logset == 1)
-				logger($desc, "ok", 0, $currentval, $trigger, $item["thold_fail_count"]);
+				plugin_thold_syslog_alert_status($desc, "ok", 0, $currentval, $trigger, $item["thold_fail_count"]);
 			if ($item["thold_fail_count"] >= $trigger) {
 				$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 				if ($show)
@@ -214,7 +214,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					$ra = ($item["bl_fail_count"] > $bl_fail_trigger && ($item["bl_fail_count"] % ($item["repeat_alert"] == "" ? $realert : $item["repeat_alert"])) == 0);
 					if($global_bl_notify_enabled && ($item["bl_fail_count"] ==  $bl_fail_trigger || $ra)) {
 						if ($logset == 1) {
-							logger($desc, $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $item["thold_fail_trigger"], $item["thold_fail_count"]);
+							plugin_thold_syslog_alert_status($desc, $breach_up, ($breach_up ? $item["thold_hi"] : $item["thold_low"]), $currentval, $item["thold_fail_trigger"], $item["thold_fail_count"]);
 						}
 						$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " " . ($ra ? "is still" : "went") . " " . ($item["bl_alert"] == 2 ? "above" : "below") . " calculated baseline threshold with $currentval";
 						if ($show)
@@ -250,7 +250,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	}
 }
 
-function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct) {
+function plugin_thold_syslog_alert_status ($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct) {
 	define_syslog_variables();
 	openlog("CactiTholdLog", LOG_PID | LOG_PERROR, LOG_LOCAL0);
 
@@ -261,11 +261,24 @@ function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct)
 		$syslog_level = LOG_WARNING;
 	}
 
-	if(strval($breach_up) == "ok") {
+	if (strval($breach_up) == "ok") {
 		syslog($syslog_level, $desc . " restored to normal with " . $currentval . " at trigger " . $trigger . " out of " . $triggerct);
 	} else {
 		syslog($syslog_level, $desc . " went " . ($breach_up ? "above" : "below") . " threshold of " . $threshld . " with " . $currentval . " at trigger " . $trigger . " out of " . $triggerct);
 	}
+}
+
+function plugin_thold_syslog_host_status ($message) {
+	define_syslog_variables();
+	openlog('CactiTholdLog', LOG_PID | LOG_PERROR, LOG_LOCAL0);
+
+	$syslog_level = read_config_option('thold_syslog_level');
+	if (!isset($syslog_level)) {
+		$syslog_level = LOG_WARNING;
+	} else if (isset($syslog_level) && ($syslog_level > 7 || $syslog_level < 0)) {
+		$syslog_level = LOG_WARNING;
+	}
+	syslog($syslog_level, $message);
 }
 
 function thold_cdef_get_usable () {
@@ -367,13 +380,12 @@ function thold_build_cdef ($id, $value, $rra, $ds) {
 			default:
 				print "Unknown RPN type: ";
 				print $cdef_array[$cursor]['type'];
-				return($oldvalue);
+				return $oldvalue;
 				break;
 		}
 		$cursor++;
 	}
-
-	return $value;
+	return $result;
 }
 
 function thold_rpn ($x, $y, $z) {
