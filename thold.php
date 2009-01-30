@@ -1,36 +1,47 @@
 <?php
-/*******************************************************************************
-
-    Author ......... Aurelio DeSimone (Copyright 2005)
-    Home Site ...... http://www.ciscoconfigbuilder.com
-
-    Modified By .... Jimmy Conner
-    Contact ........ jimmy@sqmail.org
-    Home Site ...... http://cactiusers.org
-    Program ........ Thresholds for Cacti
-
-    Many contributions from Ranko Zivojnovic <ranko@spidernet.net>
-
-*******************************************************************************/
+/*
+ ex: set tabstop=4 shiftwidth=4 autoindent:
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2008 The Cacti Group                                      |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
+*/
 
 chdir('../../');
 
-include_once("./include/auth.php");
-include_once($config["library_path"] . "/rrd.php");
-include_once($config["base_path"] . "/plugins/thold/thold_functions.php");
+include_once('./include/auth.php');
+include_once($config['library_path'] . '/rrd.php');
+include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-input_validate_input_number(get_request_var("view_rra"));
-input_validate_input_number(get_request_var("hostid"));
-input_validate_input_number(get_request_var("rra"));
+input_validate_input_number(get_request_var('view_rra'));
+input_validate_input_number(get_request_var('hostid'));
+input_validate_input_number(get_request_var('rra'));
+input_validate_input_number(get_request_var('id'));
 
 $hostid = '';
-if (isset($_REQUEST["rra"])) {  
+if (isset($_REQUEST['rra'])) {
 	$rra = $_REQUEST['rra'];
-	$hostid = db_fetch_assoc("select host_id from thold_data where rra_id = '" . $rra . "'");
+	$hostid = db_fetch_assoc('select host_id from thold_data where rra_id = ' . $rra);
 	if (isset($hostid[0]['host_id'])) {
 		$hostid = $hostid[0]['host_id'];
 	} else {
-		$hostid = db_fetch_assoc("select host_id from poller_item where local_data_id = '" . $rra . "'");
+		$hostid = db_fetch_assoc('select host_id from poller_item where local_data_id = ' . $rra);
 		if (isset($hostid[0]['host_id'])) {
 			$hostid = $hostid[0]['host_id'];
 		}
@@ -38,13 +49,19 @@ if (isset($_REQUEST["rra"])) {
 	if (is_array($hostid)) {
 		$hostid = '';
 	}
+	if (!thold_user_auth_threshold ($rra)) {
+		include_once($config['include_path'] . '/top_header.php');
+		print '<font size=+1 color=red>Access Denied - You do not have permissions to access that threshold.</font>';
+		include_once($config['include_path'] . '/bottom_footer.php');
+		exit;
+	}
 } else {
-	$_REQUEST["rra"] = "";
-	$rra = "";
-	if (isset($_REQUEST["hostid"])) {
-		$hostid = $_REQUEST["hostid"];
+	$_REQUEST['rra'] = '';
+	$rra = '';
+	if (isset($_REQUEST['hostid'])) {
+		$hostid = $_REQUEST['hostid'];
 	} else {
-		$_REQUEST["hostid"] = "";
+		$_REQUEST['hostid'] = '';
 		if (isset($_GET['hostid'])) {
 			$hostid=$_GET['hostid'];
 		}
@@ -54,30 +71,61 @@ if (isset($_REQUEST["rra"])) {
 	}
 }
 
-if (!isset($_REQUEST["action"])) {
-	$_REQUEST["action"] = "";
+if (!isset($_REQUEST['action'])) {
+	$_REQUEST['action'] = '';
 }
 
-switch($_REQUEST["action"]) {
-	case "save":
-		include_once($config["include_path"] . "/top_header.php");
+if ((substr_count($_SERVER["HTTP_REFERER"], "graph_view.php")) || (substr_count($_SERVER["HTTP_REFERER"], "graph.php"))) {
+	$_SESSION["graph_return"] = $_SERVER["HTTP_REFERER"];
+}
+
+switch($_REQUEST['action']) {
+	case 'save':
 		save_thold();
+
+
+		if (isset($_SESSION["graph_return"])) {
+			$return_to = $_SESSION["graph_return"];
+			unset($_SESSION["graph_return"]);
+			kill_session_var("graph_return");
+			header('Location: ' . $return_to);
+		}else{
+			include_once($config['include_path'] . '/top_header.php');
+		}
+
 		break;
-	case "autocreate":
+	case 'autocreate':
 		$c = autocreate($hostid);
 		if ($c == 0) {
-			$_SESSION['thold_message'] = "<font size=-1>No thresholds were created.</font>";
+			$_SESSION['thold_message'] = '<font size=-1>Either No Templates or Threshold(s) Already Exists - No thresholds were created.</font>';
 		}
 		raise_message('thold_created');
-		Header("Location: ../../graphs_new.php?host_id=" . $hostid);
+
+		if (isset($_SESSION["graph_return"])) {
+			$return_to = $_SESSION["graph_return"];
+			unset($_SESSION["graph_return"]);
+			kill_session_var("graph_return");
+			header('Location: ' . $return_to);
+		}else{
+			Header('Location: ../../graphs_new.php?host_id=' . $hostid);
+		}
 		exit;
+
 		break;
+	case 'disable':
+		thold_threshold_disable($_REQUEST["id"]);
+		Header('Location: ' . $_SERVER["HTTP_REFERER"]);
+		exit;
+	case 'enable':
+		thold_threshold_enable($_REQUEST["id"]);
+		Header('Location: ' . $_SERVER["HTTP_REFERER"]);
+		exit;
 }
 
-include_once($config["include_path"] . "/top_header.php");
+include_once($config['include_path'] . '/top_header.php');
 
-$t = db_fetch_assoc("SELECT id, name, name_cache FROM data_template_data WHERE local_data_id=" . $rra . " LIMIT 1");
-$desc = $t[0]["name_cache"];
+$t = db_fetch_assoc('SELECT id, name, name_cache FROM data_template_data WHERE local_data_id=' . $rra . ' LIMIT 1');
+$desc = $t[0]['name_cache'];
 unset($t);
 
 $rrdsql = db_fetch_assoc("SELECT id FROM data_template_rrd WHERE local_data_id=$rra ORDER BY id");
@@ -101,46 +149,50 @@ $graph = (isset($grapharr[0]["local_graph_id"]) ? $grapharr[0]["local_graph_id"]
 
 ?>
 <table width="98%" align="center">
-        <tr>
-                <td class="textArea">
-	<?php 
-		if (isset($banner)) { 
+	<tr>
+		<td class="textArea">
+	<?php
+		if (isset($banner)) {
 			echo $banner . "<br><br>";
-			
+
 		}; ?>
 
 <form name="THold" action=thold.php method=post>
-	Data Source Description: <br><strong><?php echo $desc?></strong><br><br>
+	Data Source Description: <br><strong><?php echo $desc; ?></strong><br><br>
 	Associated Graph (graphs that use this RRD): <br>
 	<select name='element'>
 <?php
 foreach($grapharr as $g) {
-	$graph_desc = db_fetch_assoc("SELECT local_graph_id, title, title_cache FROM graph_templates_graph WHERE local_graph_id = " . $g["local_graph_id"]);
+	$graph_desc = db_fetch_assoc("SELECT local_graph_id,
+		title,
+		title_cache
+		FROM graph_templates_graph
+		WHERE local_graph_id = " . $g["local_graph_id"]);
 
 	echo "<option value=" . $graph_desc[0]["local_graph_id"];
 	if($graph_desc[0]["local_graph_id"] == $graph) echo " selected";
 	echo "> " . $graph_desc[0]["local_graph_id"] . " - " . $graph_desc[0]["title_cache"] . " </option>\n";
-
 }
 ?>
 	</select>
 	<br>
-<br>
-                </td>
-	<td>
-	<img id=graphimage src="<?php echo $config["url_path"]; ?>graph_image.php?local_graph_id=<?php echo $graph ?>&rra_id=0&graph_start=-32400&graph_height=100&graph_width=300&graph_nolegend=true">
-	</td>
-        </tr>
+	<br>
+		</td>
+		<td>
+			<img id=graphimage src="<?php echo $config["url_path"]; ?>graph_image.php?local_graph_id=<?php echo $graph ?>&rra_id=0&graph_start=-32400&graph_height=100&graph_width=300&graph_nolegend=true">
+		</td>
+	</tr>
 </table>
 <?php
+
 /* select the first "rrd" of this data source by default */
 if (empty($_GET["view_rrd"])) {
 	if(isset($_POST["data_template_rrd_id"])) {
 		$_GET["view_rrd"] = $_POST["data_template_rrd_id"];
 	} else {
-
 		/* Check and see if we already have a threshold set, and use that if so */
 		$thold_data = db_fetch_cell("SELECT data_id FROM thold_data WHERE rra_id = $rra ORDER BY data_id");
+
 		if ($thold_data) {
 			$_GET["view_rrd"] = $thold_data;
 		} else {
@@ -164,13 +216,13 @@ if (isset($template_data_rrds)) {
 		/* draw the data source tabs on the top of the page */
 		print "	<table class='tabs' width='98%' cellspacing='0' cellpadding='3' align='center'>
 		<tr>\n";
-		
+
 		foreach ($template_data_rrds as $template_data_rrd) {
 			if($template_data_rrd["id"] == $_GET["view_rrd"]) $ds = $template_data_rrd["data_source_name"];
 
 			$item = db_fetch_assoc("select * from thold_data where data_id = " . $template_data_rrd["id"]);
 			$item = count($item) > 0 ? $item[0] : $item;
-			
+
 			if(count($item) == 0) {
 				$cur_setting = "n/a";
 			} else {
@@ -189,12 +241,12 @@ if (isset($template_data_rrds)) {
 			echo "</span>\n</td>\n<td width='1'></td>\n";
 			unset($thold_item_data);
 		}
-		
+
 		print "
 		<td></td>\n
 		</tr>
 		</table>\n";
-		
+
 	}elseif (sizeof($template_data_rrds) == 1) {
 		$_GET["view_rrd"] = $template_data_rrds[0]["id"];
 	}
@@ -216,7 +268,7 @@ print "	<tr>
 	<td colspan=2 bgcolor='#" . $colors["header"] . "' class='textHeaderDark'>
 	<strong>Data Source Item</strong> [" . (isset($template_rrd) ? $template_rrd["data_source_name"] : "") . "] " .
 	" - <strong>Current value: </strong>[" . get_current_value($rra, $ds, $thold_item_data_cdef) .
-        "]</td>
+	"]</td>
 	</tr>\n";
 
 $send_notification_array = array();
@@ -238,173 +290,298 @@ if (isset($thold_item_data['id'])) {
 
 if ($step == 60) {
 	$repeatarray = array(0 => 'Never', 1 => 'Every Minute', 2 => 'Every 2 Minutes', 3 => 'Every 3 Minutes', 4 => 'Every 4 Minutes', 5 => 'Every 5 Minutes', 10 => 'Every 10 Minutes', 15 => 'Every 15 Minutes', 20 => 'Every 20 Minutes', 30 => 'Every 30 Minutes', 45 => 'Every 45 Minutes', 60 => 'Every Hour', 120 => 'Every 2 Hours', 180 => 'Every 3 Hours', 240 => 'Every 4 Hours', 360 => 'Every 6 Hours', 480 => 'Every 8 Hours', 720 => 'Every 12 Hours', 1440 => 'Every Day', 2880 => 'Every 2 Days', 10080 => 'Every Week', 20160 => 'Every 2 Weeks', 43200 => 'Every Month');
-	$alertarray = array(0 => 'Never', 1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 10 => '10 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
+	$alertarray  = array(0 => 'Never', 1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 10 => '10 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
+	$timearray   = array(1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 10 => '10 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
 } else if ($step == 300) {
 	$repeatarray = array(0 => 'Never', 1 => 'Every 5 Minutes', 2 => 'Every 10 Minutes', 3 => 'Every 15 Minutes', 4 => 'Every 20 Minutes', 6 => 'Every 30 Minutes', 8 => 'Every 45 Minutes', 12 => 'Every Hour', 24 => 'Every 2 Hours', 36 => 'Every 3 Hours', 48 => 'Every 4 Hours', 72 => 'Every 6 Hours', 96 => 'Every 8 Hours', 144 => 'Every 12 Hours', 288 => 'Every Day', 576 => 'Every 2 Days', 2016 => 'Every Week', 4032 => 'Every 2 Weeks', 8640 => 'Every Month');
-	$alertarray = array(0 => 'Never', 1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => 'Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
+	$alertarray  = array(0 => 'Never', 1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => 'Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
+	$timearray   = array(1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => 'Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
 } else {
 	$repeatarray = array(0 => 'Never', 1 => 'Every Polling', 2 => 'Every 2 Pollings', 3 => 'Every 3 Pollings', 4 => 'Every 4 Pollings', 6 => 'Every 6 Pollings', 8 => 'Every 8 Pollings', 12 => 'Every 12 Pollings', 24 => 'Every 24 Pollings', 36 => 'Every 36 Pollings', 48 => 'Every 48 Pollings', 72 => 'Every 72 Pollings', 96 => 'Every 96 Pollings', 144 => 'Every 144 Pollings', 288 => 'Every 288 Pollings', 576 => 'Every 576 Pollings', 2016 => 'Every 2016 Pollings');
-	$alertarray = array(0 => 'Never', 1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
+	$alertarray  = array(0 => 'Never', 1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
+	$timearray   = array(1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
+}
+
+$thold_types = array (
+	0 => 'High / Low Values',
+	1 => 'Baseline',
+	2 => 'Time Based',
+	);
+
+$data_types = array (
+	0 => 'Exact Value',
+	1 => 'CDEF',
+	2 => 'Percentage',
+);
+
+$data_fields = array();
+
+if (isset($thold_item_data['data_template_id'])) {
+	$temp = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where local_data_id = ' . $thold_item_data['rra_id']);
+} else {
+	$temp = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where local_data_id = ' . $rra);
+}
+
+foreach ($temp as $d) {
+	if ($d['data_input_field_id'] != 0) {
+		$temp2 = db_fetch_assoc('select name from data_input_fields where id = ' . $d['data_input_field_id']);
+	} else {
+		$temp2[0]['name'] = $d['data_source_name'];
+	}
+	if ((isset($_GET['view_rrd']) && $d['id'] != $_GET['view_rrd']) || (isset($thold_item_data['data_id']) && $d['id'] != $thold_item_data['data_id'])) {
+		$data_fields[$d['data_source_name']] = $temp2[0]['name'];
+	}
 }
 
 $form_array = array(
-		"template_header" => array(
-			"friendly_name" => "Template settings",
-			"method" => "spacer",
+		'template_header' => array(
+			'friendly_name' => 'Template settings',
+			'method' => 'spacer',
 		),
-		"template_enabled" => array(
-			"friendly_name" => "Enabled",
-			"method" => "checkbox",
-			"default" => "",
-			"description" => "Whether or not these settings will be propigates from the threshold template.",
-			"value" => isset($thold_item_data["template_enabled"]) ? $thold_item_data["template_enabled"] : "",
+		'template_enabled' => array(
+			'friendly_name' => 'Template Propagation Enabled',
+			'method' => 'checkbox',
+			'default' => '',
+			'description' => 'Whether or not these settings will be propagates from the threshold template.',
+			'value' => isset($thold_item_data['template_enabled']) ? $thold_item_data['template_enabled'] : '',
 		),
-		"general_header" => array(
-			"friendly_name" => "Mandatory settings",
-			"method" => "spacer",
+		'general_header' => array(
+			'friendly_name' => 'Mandatory settings',
+			'method' => 'spacer',
 		),
-		"thold_enabled" => array(
-			"friendly_name" => "Enabled",
-			"method" => "checkbox",
-			"default" => "on",
-			"description" => "Whether or not this threshold will be checked and alerted upon.",
-			"value" => isset($thold_item_data["thold_enabled"]) ? $thold_item_data["thold_enabled"] : ""
+		'name' => array(
+			'friendly_name' => 'Threshold Name',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'default' => $desc . ' [' . $template_rrd['data_source_name'] . ']',
+			'description' => 'Provide the THold a meaningful name',
+			'value' => isset($thold_item_data['name']) ? $thold_item_data['name'] : ''
 		),
-		"thold_hi" => array(
-			"friendly_name" => "High Threshold",
-			"method" => "textbox",
-			"max_length" => 100,
-			"description" => "If set and data source value goes above this number, alert will be triggered",
-			"value" => isset($thold_item_data["thold_hi"]) ? $thold_item_data["thold_hi"] : ""
+		'thold_enabled' => array(
+			'friendly_name' => 'Threshold Enabled',
+			'method' => 'checkbox',
+			'default' => 'on',
+			'description' => 'Whether or not this threshold will be checked and alerted upon.',
+			'value' => isset($thold_item_data['thold_enabled']) ? $thold_item_data['thold_enabled'] : ''
 		),
-		"thold_low" => array(
-			"friendly_name" => "Low Threshold",
-			"method" => "textbox",
-			"max_length" => 100,
-			"description" => "If set and data source value goes below this number, alert will be triggered",
-			"value" => isset($thold_item_data["thold_low"]) ? $thold_item_data["thold_low"] : ""
+		'exempt' => array(
+			'friendly_name' => 'Weekend Exemption',
+			'description' => 'If this is checked, this Threshold will not alert on weekends.',
+			'method' => 'checkbox',
+			'default' => 'off',
+			'value' => isset($thold_item_data['exempt']) ? $thold_item_data['exempt'] : ''
+			),
+		'restored_alert' => array(
+			'friendly_name' => 'Disable Restoration Email',
+			'description' => 'If this is checked, Thold will not send an alert when the threshold has returned to normal status.',
+			'method' => 'checkbox',
+			'default' => 'off',
+			'value' => isset($thold_item_data['restored_alert']) ? $thold_item_data['restored_alert'] : ''
+			),
+		'thold_type' => array(
+			'friendly_name' => 'Threshold Type',
+			'method' => 'drop_array',
+			'on_change' => 'changeTholdType()',
+			'array' => $thold_types,
+			'default' => read_config_option('thold_type'),
+			'description' => 'The type of Threshold that will be monitored.',
+			'value' => isset($thold_item_data['thold_type']) ? $thold_item_data['thold_type'] : ''
 		),
-		"thold_fail_trigger" => array(
-			"friendly_name" => "Trigger Count",
+		'thold_header' => array(
+			'friendly_name' => 'High / Low Settings',
+			'method' => 'spacer',
+		),
+		'thold_hi' => array(
+			'friendly_name' => 'High Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes above this number, alert will be triggered',
+			'value' => isset($thold_item_data['thold_hi']) ? $thold_item_data['thold_hi'] : ''
+		),
+		'thold_low' => array(
+			'friendly_name' => 'Low Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes below this number, alert will be triggered',
+			'value' => isset($thold_item_data['thold_low']) ? $thold_item_data['thold_low'] : ''
+		),
+		'thold_fail_trigger' => array(
+			'friendly_name' => 'Breach Duration',
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			"default" => read_config_option("alert_trigger"),
-			"description" => "The amount of time the data source must be in breach of the threshold for an alert to be raised.",
-			"value" => isset($thold_item_data["thold_fail_trigger"]) ? $thold_item_data["thold_fail_trigger"] : ""
-		),		
-		"baseline_header" => array(
-			"friendly_name" => "Baseline monitoring",
-			"method" => "spacer",
+			'default' => read_config_option('alert_trigger'),
+			'description' => 'The amount of time the data source must be in breach of the threshold for an alert to be raised.',
+			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : ''
 		),
-		"bl_enabled" => array(
-			"friendly_name" => "Baseline monitoring",
-			"method" => "checkbox",
-			"default" => "off",
-			"description" => "When enabled, baseline monitoring checks the current data source value against a value in the past. The available range of values is retrieved and a minimum and maximum values are taken as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.",
-			"value" => isset($thold_item_data["bl_enabled"]) ? $thold_item_data["bl_enabled"] : ""
+		'time_header' => array(
+			'friendly_name' => 'Time Based Settings',
+			'method' => 'spacer',
 		),
-		"bl_ref_time" => array(
-			"friendly_name" => "Reference in the past",
-			"method" => "textbox",
-			"max_length" => 20,
-			"default" => read_config_option("alert_bl_past_default"),
-			"description" => "Specifies the relative point in the past that will be used as a reference. The value represents seconds, so for a day you would specify 86400, for a week 604800, etc.",
-			"value" => isset($thold_item_data["bl_ref_time"]) ? $thold_item_data["bl_ref_time"] : ""
+		'time_hi' => array(
+			'friendly_name' => 'High Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes above this number, alert will be triggered',
+			'value' => isset($thold_item_data['time_hi']) ? $thold_item_data['time_hi'] : ''
 		),
-		"bl_ref_time_range" => array(
-			"friendly_name" => "Time range",
-			"method" => "textbox",
-			"max_length" => 20,
-			"default" => read_config_option("alert_bl_timerange_def"),
-			"description" => "Specifies the time range of values in seconds to be taken from the reference in the past",
-			"value" => isset($thold_item_data["bl_ref_time_range"]) ? $thold_item_data["bl_ref_time_range"] : ""
+		'time_low' => array(
+			'friendly_name' => 'Low Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes below this number, alert will be triggered',
+			'value' => isset($thold_item_data['time_low']) ? $thold_item_data['time_low'] : ''
 		),
-		"bl_pct_up" => array(
-			"friendly_name" => "Baseline deviation UP",
-			"method" => "textbox",
-			"max_length" => 3,
-			"size" => 3,
-			"description" => "Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.",
-			"value" => isset($thold_item_data["bl_pct_up"]) ? $thold_item_data["bl_pct_up"] : ""
+		'time_fail_trigger' => array(
+			'friendly_name' => 'Breach Count',
+			'method' => 'textbox',
+			'max_length' => 5,
+			'default' => read_config_option('thold_time_fail_trigger'),
+			'description' => 'The number of times the data source must be in breach of the threshold.',
+			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : ''
 		),
-		"bl_pct_down" => array(
-			"friendly_name" => "Baseline deviation DOWN",
-			"method" => "textbox",
-			"max_length" => 3,
-			"size" => 3,
-			"description" => "Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.",
-			"value" => isset($thold_item_data["bl_pct_down"]) ? $thold_item_data["bl_pct_down"] : ""
+		'time_fail_length' => array(
+			'friendly_name' => 'Breach Window',
+			'method' => 'drop_array',
+			'array' => $timearray,
+			'default' => (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 1),
+			'description' => 'The amount of time in the past to check for threshold breaches.',
+			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : ''
 		),
-		"bl_fail_trigger" => array(
-			"friendly_name" => "Baseline Trigger Count",
-			"method" => "textbox",
-			"max_length" => 3,
-			"size" => 3,
-			"default" => read_config_option("alert_bl_trigger"),
-			"description" => "Number of consecutive times the data source must be in breach of the baseline threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: " . read_config_option("alert_bl_trigger") . " cycles</b>)",
-			"value" => isset($thold_item_data["bl_fail_trigger"]) ? $thold_item_data["bl_fail_trigger"] : ""
+		'baseline_header' => array(
+			'friendly_name' => 'Baseline Settings',
+			'method' => 'spacer',
 		),
-		"other_header" => array(
-			"friendly_name" => "Other setting",
-			"method" => "spacer",
+		'bl_enabled' => array(
+			'friendly_name' => 'Baseline monitoring',
+			'method' => 'checkbox',
+			'default' => 'off',
+			'description' => 'When enabled, baseline monitoring checks the current data source value against a value in the past. The available range of values is retrieved and a minimum and maximum values are taken as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.',
+			'value' => isset($thold_item_data['bl_enabled']) ? $thold_item_data['bl_enabled'] : ''
 		),
-		"cdef" => array(
-			"friendly_name" => "Threshold CDEF",
-			"method" => "drop_array",
-			"default" => "NULL",
-			"description" => "Apply this CDEF before returning the data.",
-			"value" => isset($thold_item_data["cdef"]) ? $thold_item_data["cdef"] : 0,
-			"array" => thold_cdef_select_usable_names()
+		'bl_ref_time' => array(
+			'friendly_name' => 'Reference in the past',
+			'method' => 'textbox',
+			'max_length' => 20,
+			'default' => read_config_option('alert_bl_past_default'),
+			'description' => 'Specifies the relative point in the past that will be used as a reference. The value represents seconds, so for a day you would specify 86400, for a week 604800, etc.',
+			'value' => isset($thold_item_data['bl_ref_time']) ? $thold_item_data['bl_ref_time'] : ''
 		),
-		"repeat_alert" => array(
-			"friendly_name" => "Re-Alert Cycle",
-			"method" => "drop_array",
+		'bl_ref_time_range' => array(
+			'friendly_name' => 'Time range',
+			'method' => 'textbox',
+			'max_length' => 20,
+			'default' => read_config_option('alert_bl_timerange_def'),
+			'description' => 'Specifies the time range of values in seconds to be taken from the reference in the past',
+			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : ''
+		),
+		'bl_pct_up' => array(
+			'friendly_name' => 'Baseline deviation UP',
+			'method' => 'textbox',
+			'max_length' => 3,
+			'size' => 3,
+			'description' => 'Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.',
+			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : ''
+		),
+		'bl_pct_down' => array(
+			'friendly_name' => 'Baseline deviation DOWN',
+			'method' => 'textbox',
+			'max_length' => 3,
+			'size' => 3,
+			'description' => 'Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.',
+			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : ''
+		),
+		'bl_fail_trigger' => array(
+			'friendly_name' => 'Baseline Trigger Count',
+			'method' => 'textbox',
+			'max_length' => 3,
+			'size' => 3,
+			'default' => read_config_option('alert_bl_trigger'),
+			'description' => 'Number of consecutive times the data source must be in breach of the baseline threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: ' . read_config_option('alert_bl_trigger') . ' cycles</b>)',
+			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : ''
+		),
+		'data_manipulation' => array(
+			'friendly_name' => 'Data Manipulation',
+			'method' => 'spacer',
+		),
+		'data_type' => array(
+			'friendly_name' => 'Data Type',
+			'method' => 'drop_array',
+			'on_change' => 'changeDataType()',
+			'array' => $data_types,
+			'default' => read_config_option('data_type'),
+			'description' => 'Special formatting for the given data.',
+			'value' => isset($thold_item_data['data_type']) ? $thold_item_data['data_type'] : ''
+		),
+		'cdef' => array(
+			'friendly_name' => 'Threshold CDEF',
+			'method' => 'drop_array',
+			'default' => 'NULL',
+			'description' => 'Apply this CDEF before returning the data.',
+			'value' => isset($thold_item_data['cdef']) ? $thold_item_data['cdef'] : 0,
+			'array' => thold_cdef_select_usable_names()
+		),
+		'percent_ds' => array(
+			'friendly_name' => 'Percent Datasource',
+			'method' => 'drop_array',
+			'default' => 'NULL',
+			'description' => 'Second Datasource Item to use as total value to calculate percentage from.',
+			'value' => isset($thold_item_data['percent_ds']) ? $thold_item_data['percent_ds'] : 0,
+			'array' => $data_fields,
+		),
+		'other_header' => array(
+			'friendly_name' => 'Other setting',
+			'method' => 'spacer',
+		),
+		'repeat_alert' => array(
+			'friendly_name' => 'Re-Alert Cycle',
+			'method' => 'drop_array',
 			'array' => $repeatarray,
-			"default" => read_config_option("alert_repeat"),
-			"description" => "Repeat alert after this amount of time has pasted since the last alert.",
-			"value" => isset($thold_item_data["repeat_alert"]) ? $thold_item_data["repeat_alert"] : ""
+			'default' => read_config_option('alert_repeat'),
+			'description' => 'Repeat alert after this amount of time has pasted since the last alert.',
+			'value' => isset($thold_item_data['repeat_alert']) ? $thold_item_data['repeat_alert'] : ''
 		),
-		"notify_accounts" => array(
-			"friendly_name" => "Notify accounts",
-			"method" => "drop_multi",
-			"description" => "This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>",
-			"array" => $send_notification_array,
-			"sql" => $sql,
+		'notify_accounts' => array(
+			'friendly_name' => 'Notify accounts',
+			'method' => 'drop_multi',
+			'description' => 'This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>',
+			'array' => $send_notification_array,
+			'sql' => $sql,
 		),
-		"notify_extra" => array(
-			"friendly_name" => "Extra Alert Emails",
-			"method" => "textbox",
-			"max_length" => 255,
-			"description" => "You may specify here extra e-mails to receive alerts for this data source (comma separated)",
-			"value" => isset($thold_item_data["notify_extra"]) ? $thold_item_data["notify_extra"] : ""
+		'notify_extra' => array(
+			'friendly_name' => 'Extra Alert Emails',
+			'method' => 'textarea',
+			'textarea_rows' => 3,
+			'textarea_cols' => 50,
+			'description' => 'You may specify here extra e-mails to receive alerts for this data source (comma separated)',
+			'value' => isset($thold_item_data['notify_extra']) ? $thold_item_data['notify_extra'] : ''
 		),
-		
+
 	);
 
 draw_edit_form(
 	array(
-		"config" => array(
-			"no_form_tag" => true
+		'config' => array(
+			'no_form_tag' => true
 			),
-		"fields" => $form_array + array(
-			"data_template_rrd_id" => array(
-				"method" => "hidden",
-				"value" => (isset($template_rrd) ? $template_rrd["id"] : "0")
+		'fields' => $form_array + array(
+			'data_template_rrd_id' => array(
+				'method' => 'hidden',
+				'value' => (isset($template_rrd) ? $template_rrd['id'] : '0')
 			),
-			"hostid" => array(
-				"method" => "hidden",
-				"value" => $hostid
+			'hostid' => array(
+				'method' => 'hidden',
+				'value' => $hostid
 			),
-			"rra" => array(
-				"method" => "hidden",
-				"value" => $rra
+			'rra' => array(
+				'method' => 'hidden',
+				'value' => $rra
 			)
 		)
 	)
 );
 
 html_end_box();
-form_save_button("thold.php?rra=" . $rra . "&view_rrd=" . $_GET["view_rrd"], "save");
+form_save_button('thold.php?rra=' . $rra . '&view_rrd=' . $_GET['view_rrd'], 'save');
 
 unset($template_data_rrds);
 ?>
@@ -416,7 +593,7 @@ function BL_EnableDisable()
 	var status = !_f.bl_enabled.checked;
 	if (_f.bl_enabled.disabled)
 		status = true;
-	
+
 	_f.bl_ref_time.disabled = status;
 	_f.bl_ref_time_range.disabled = status;
 	_f.bl_pct_down.disabled = status;
@@ -431,6 +608,8 @@ function Template_EnableDisable()
 {
 	var _f = document.THold;
 	var status = _f.template_enabled.checked;
+	_f.name.disabled = status;
+	_f.thold_type.disabled = status;
 	_f.thold_hi.disabled = status;
 	_f.thold_low.disabled = status;
 	_f.thold_fail_trigger.disabled = status;
@@ -440,6 +619,15 @@ function Template_EnableDisable()
 	_f.cdef.disabled = status;
 	_f.thold_enabled.disabled = status;
 	_f["notify_accounts[]"].disabled = status;
+	_f.time_hi.disabled = status;
+	_f.time_low.disabled = status;
+	_f.time_fail_trigger.disabled = status;
+	_f.time_fail_length.disabled = status;
+	_f.data_type.disabled = status;
+	_f.percent_ds.disabled = status;
+	_f.exempt.disabled = status;
+	_f.restored_alert.disabled = status;
+
 	BL_EnableDisable();
 
 }
@@ -454,6 +642,74 @@ if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') 
 <?php
 }
 ?>
+
+
+	function changeTholdType () {
+		type = document.getElementById('thold_type').value;
+		switch(type) {
+		case '0':
+			thold_toggle_hilow ('');
+			thold_toggle_baseline ('none');
+			thold_toggle_time ('none');
+			break;
+		case '1':
+			thold_toggle_hilow ('none');
+			thold_toggle_baseline ('');
+			thold_toggle_time ('none');
+			break;
+		case '2':
+			thold_toggle_hilow ('none');
+			thold_toggle_baseline ('none');
+			thold_toggle_time ('');
+			break;
+		}
+	}
+
+	function changeDataType () {
+		type = document.getElementById('data_type').value;
+		switch(type) {
+		case '0':
+			document.getElementById('row_cdef').style.display  = 'none';
+			document.getElementById('row_percent_ds').style.display  = 'none';
+			break;
+		case '1':
+			document.getElementById('row_cdef').style.display  = '';
+			document.getElementById('row_percent_ds').style.display  = 'none';
+			break;
+		case '2':
+			document.getElementById('row_cdef').style.display  = 'none';
+			document.getElementById('row_percent_ds').style.display  = '';
+			break;
+		}
+	}
+
+	function thold_toggle_hilow (status) {
+		document.getElementById('row_thold_header').style.display  = status;
+		document.getElementById('row_thold_hi').style.display  = status;
+		document.getElementById('row_thold_low').style.display  = status;
+		document.getElementById('row_thold_fail_trigger').style.display  = status;
+	}
+
+	function thold_toggle_baseline (status) {
+		document.getElementById('row_baseline_header').style.display  = status;
+		document.getElementById('row_bl_enabled').style.display  = status;
+		document.getElementById('row_bl_ref_time').style.display  = status;
+		document.getElementById('row_bl_ref_time_range').style.display  = status;
+		document.getElementById('row_bl_pct_up').style.display  = status;
+		document.getElementById('row_bl_pct_down').style.display  = status;
+		document.getElementById('row_bl_fail_trigger').style.display  = status;
+	}
+
+	function thold_toggle_time (status) {
+		document.getElementById('row_time_header').style.display  = status;
+		document.getElementById('row_time_hi').style.display  = status;
+		document.getElementById('row_time_low').style.display  = status;
+		document.getElementById('row_time_fail_trigger').style.display  = status;
+		document.getElementById('row_time_fail_length').style.display  = status;
+	}
+
+	changeTholdType ();
+	changeDataType ();
 
 </script>
 <?php

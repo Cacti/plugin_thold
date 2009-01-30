@@ -1,8 +1,12 @@
 DROP TABLE IF EXISTS `thold_data`;
 CREATE TABLE `thold_data` (
   `id` int(11) NOT NULL auto_increment,
+  `name` varchar(100) NOT NULL default '',
   `rra_id` int(11) NOT NULL default '0',
   `data_id` int(11) NOT NULL default '0',
+  `graph_id` int(11) NOT NULL default '0',
+  `graph_template` int(11) NOT NULL default '0',
+  `data_template` int(11) NOT NULL default '0',
   `thold_hi` varchar(100) default NULL,
   `thold_low` varchar(100) default NULL,
   `thold_fail_trigger` int(10) unsigned default NULL,
@@ -23,20 +27,30 @@ CREATE TABLE `thold_data` (
   `notify_extra` varchar(255) default NULL,
   `host_id` int(10) default NULL,
   `syslog_priority` int(2) default '3',
+  `data_type` int(3) NOT NULL default '0',
   `cdef` int(11) NOT NULL default '0',
+  `percent_ds` varchar(64) NOT NULL,
   `template` int(11) NOT NULL default '0',
   `template_enabled` char(3) NOT NULL default '',
+  `tcheck` int(1) NOT NULL default '0',
+  `exempt` char(3) NOT NULL default 'off',
+  `restored_alert` char(3) NOT NULL default 'off',
   PRIMARY KEY  (`id`),
+  KEY `host_id` (`host_id`),
   KEY `rra_id` (`rra_id`),
+  KEY `data_id` (`data_id`),
+  KEY `graph_id` (`graph_id`),
+  KEY `graph_template` (`graph_template`),
+  KEY `data_template` (`data_template`),
   KEY `template` (`template`),
   KEY `template_enabled` (`template_enabled`),
-  KEY `data_id` (`data_id`),
   KEY `thold_enabled` (`thold_enabled`)
 ) TYPE=MyISAM;
 
 DROP TABLE IF EXISTS `thold_template`;
 CREATE TABLE thold_template (
   id int(11) NOT NULL auto_increment,
+  name varchar(100) NOT NULL default '',
   data_template_id int(32) NOT NULL default '0',
   data_template_name varchar(100) NOT NULL default '',
   data_source_id int(10) NOT NULL default '0',
@@ -55,9 +69,14 @@ CREATE TABLE thold_template (
   bl_alert int(2) default NULL,
   repeat_alert int(10) NOT NULL default '12',
   notify_extra varchar(255) NOT NULL default '',
+  data_type int(3) NOT NULL default '0',
   cdef int(11) NOT NULL default '0',
-  UNIQUE KEY data_source_id (data_source_id),
-  KEY id (id)
+  percent_ds varchar(64) NOT NULL,
+  exempt char(3) NOT NULL default 'off',
+  restored_alert char(3) NOT NULL default 'off',
+  PRIMARY KEY  (id),
+  KEY `data_template_id` (`data_template_id`),
+  KEY `data_source_id` (`data_source_id`)
 ) TYPE=MyISAM COMMENT='Table of thresholds defaults for graphs';
 
 DROP TABLE IF EXISTS `plugin_thold_template_contact`;
@@ -86,6 +105,26 @@ CREATE TABLE plugin_thold_contacts (
   KEY `type` (`type`),
   KEY `user_id` (`user_id`)
 ) TYPE=MyISAM;
+
+CREATE TABLE `plugin_thold_log` (
+  `id` int(12) NOT NULL auto_increment,
+  `time` int(24) NOT NULL,
+  `host_id` int(10) NOT NULL,
+  `graph_id` int(10) NOT NULL,
+  `threshold_id` int(10) NOT NULL,
+  `threshold_value` varchar(64) NOT NULL,
+  `current` varchar(64) NOT NULL,
+  `status` int(5) NOT NULL,
+  `type` int(5) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `time` (`time`),
+  KEY `host_id` (`host_id`),
+  KEY `graph_id` (`graph_id`),
+  KEY `threshold_id` (`threshold_id`),
+  KEY `status` (`status`),
+  KEY `type` (`type`)
+) ENGINE=MyISAM COMMENT='Table of All Threshold Breaches';
 
 REPLACE INTO user_auth_realm VALUES (18, 1);
 REPLACE INTO user_auth_realm VALUES (19, 1);

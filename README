@@ -11,45 +11,53 @@
 
 ----[ Purpose
 
-	This version contains many bug fixes not in the original Threshold module. 
-	It will also auto-create the database tables if they are not found, and you do not 
-	need to setup a cron job or scheduele, as it runs immediately after the normal 
-	poller automatically.
+	This plugin is for the alerting of data found within any graph within Cacti.
 
-----[ Features
-
-	Templating system for quick and consistant threshold set up.
-	Threshold Tab displays current thresholds, current value, triggered status, and host status
-	High/Low settings as well as adjustable baseline monitoring.
-	Global and individual email notification for triggered thresholds.
-	Auto-create thresholds link on Create-Graphs page will create thresholds for any matching threshold template.
-		
 ----[ Installation
 
-	Install just like any other plugin, just throw it in the plugin directory,
-	in a folder called thold.
-	Edit your includes/config.php and add it to your $plugins list, and you are rolling
+	To install the plugin, please refer to the Plugin Installation Documentation
 
-	Thold requires the Settings plugin to be installed.  It must be before thold in the plugins array
-	for thold to be able to find it.
+	Thold requires the Settings plugin to be installed.
     
 ----[ Possible Bugs?
    
 	If you find a problem, let me know!!! http://cactiusers.org/bugs/
 
 ----[ Future Changes
-    
+
+	Threshold Escalation
+	Add feature to run scripts or do other things besides email
+
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
 
 	--- 0.4.0 ---
-		Add filtering to listthold.php (thanks Howie!)
-		Fix for multiple poller intervals, use RRD Step of Data Source instead of Polling Interval
-		Use time periods instead of number of pollings when specifying Repeat Alerts and Fail Triggers
-		Add syslog message for down and recovering hosts
-		Fix for thresholds with CDEF values
-
+		Bug:     Fix for multiple poller intervals, use RRD Step of Data Source instead of Polling Interval
+		Feature: Add filtering to listthold.php
+		Feature: Use time periods instead of number of pollings when specifying Repeat Alerts and Fail Triggers
+		Feature: Time Based Threshold Checking
+		Feature: Percentage Calculation
+		Feature: Add Threshold Sub Tabs with Both Threshold and Host Status
+		Feature: Allow Naming of Threshold Templates and Thresholds
+		Feature: Allow Thresholds to be added in mass via a Data Sources dropdown
+		Feature: Allow Thresholds to be added in mass via a Graph Management dropdown
+		Feature: Added Background Color Legend for Multiple Interfaces
+		Feature: Add Threshold creation Wizard
+		Feature: Make Wizard Design Consistent
+		Feature: Add Filtering to User Threshold View and Host Status View
+		Feature: Allow Disable/Enable/Edit/View Graph Actions from Main Page
+		Feature: Allow Edit Host from Host Status
+		Feature: Enable Toggle VRULE On/Off to show breached Thresholds on the graph images
+		Feature: Allow Adding Thresholds from Graphs Page
+		Feature: Use Cacti User Permissions when viewing and editing Thresholds
+		Feature: Allow Weekend Exemptions per Threshold
+		Feature: Allow the disabling of the Restoration Email per Threshold
+		Feature: Allow logging of all Threshold Breaches to Cacti Log File
+		Feature: Allow logging of all Threshold creations / changing / deletions to Cacti Log File
+		Feature: Allow global disabling of all Thresholds
+		Feature: Allow setting of Syslog Facility for Syslog Logging
+		
 	--- 0.3.9 ---
 		Major poller speed increase when using large numbers of thresholds
 
