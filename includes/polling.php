@@ -135,7 +135,7 @@ function thold_update_host_status () {
 	}
 
 	// Lets find hosts that are down
-	$hosts = db_fetch_assoc('SELECT id, description, hostname, status_last_error FROM host WHERE disabled = '' status = ' . HOST_DOWN . ' AND status_event_count = ' . $ping_failure_count);
+	$hosts = db_fetch_assoc('SELECT id, description, hostname, status_last_error FROM host WHERE disabled = "" status = ' . HOST_DOWN . ' AND status_event_count = ' . $ping_failure_count);
 	if (count($hosts)) {
 		foreach($hosts as $host) {
 			$subject = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN';
