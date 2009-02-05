@@ -31,9 +31,9 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
-
 	--- 0.4.0 ---
 		Bug:     Fix for multiple poller intervals, use RRD Step of Data Source instead of Polling Interval
+		Bug:     Fix for down host alerting on disabled hosts
 		Feature: Add filtering to listthold.php
 		Feature: Use time periods instead of number of pollings when specifying Repeat Alerts and Fail Triggers
 		Feature: Time Based Threshold Checking
