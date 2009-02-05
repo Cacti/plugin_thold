@@ -96,6 +96,7 @@ function thold_poller_output ($rrd_update_array) {
 }
 
 function thold_check_all_thresholds () {
+	global $config;
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 	$tholds = do_hook_function('thold_get_live_hosts', db_fetch_assoc("SELECT * FROM thold_data WHERE thold_enabled = 'on' AND tcheck = 1"));
 	foreach ($tholds as $thold) {
