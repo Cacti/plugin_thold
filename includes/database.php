@@ -42,6 +42,8 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'graph_id', 'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'data_id'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'graph_template', 'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_id'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_template', 'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_template'));
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
+
 
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_hi', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_fail_trigger'));
@@ -52,6 +54,8 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'data_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'syslog_priority'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => 0, 'after' => 'cdef'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
+
 
 		// Update our hooks
 		db_execute('UPDATE plugin_hooks SET file = "includes/settings.php" WHERE name = "thold" AND hook = "config_arrays"');
