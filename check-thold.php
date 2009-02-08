@@ -36,8 +36,13 @@ include_once($config["base_path"] . "/plugins/thold/thold_functions.php");
 cacti_log("Checking Thresholds", true, "THOLD");
 
 function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct) {
-        define_syslog_variables();
-        openlog("CactiTholdLog", LOG_PID | LOG_PERROR, LOG_LOCAL0);
+	global $config;
+	define_syslog_variables();
+
+	if ($config["cacti_server_os"] == "unix") {
+		openlog("CactiTholdLog", LOG_PID | LOG_PERROR, LOG_LOCAL0);
+	}else{		openlog("CactiTholdLog", LOG_PID | LOG_PERROR, LOG_USER);
+	}
 
 	$syslog_level = read_config_option('thold_syslog_level');
 	if (!isset($syslog_level)) {
@@ -98,7 +103,7 @@ $queryrows=db_fetch_assoc($tholdarray) or die (mysql_error() );
 
 
 foreach ($queryrows as $q_row) {
-	
+
 	$graph_id = $q_row["element"];
 	//$threshld = $q_row["threshold"];
 	$rra = $q_row["rra"];
@@ -107,7 +112,7 @@ foreach ($queryrows as $q_row) {
 	if (isset($t[0]["name_cache"])) {
 		$desc_rra = $t[0]["name_cache"];
 		unset($t);
-	
+
 		$items = db_fetch_assoc("select * from thold_data where thold_enabled='on' AND rra_id = " . $rra);
 
 		foreach($items as $item) {
@@ -122,10 +127,10 @@ foreach ($queryrows as $q_row) {
 			$msg = "<a href=$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1>$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1</a><Br>";
 			$file_array = array(0 => array('local_graph_id' => $graph_id, 'rra_id' => 0, 'file' => "$httpurl/graph_image.php?local_graph_id=$graph_id&rra_id=0&view_type=tree",'mimetype'=>'image/png','filename'=>"$graph_id"));
 
-		
+
 			$breach_up = ($item["thold_hi"] != "" && $currentval > $item["thold_hi"]);
 			$breach_down = ($item["thold_low"] != "" && $currentval < $item["thold_low"]);
-		
+
 			$alertstat = $item["thold_alert"];
 			$item["thold_alert"] = ($breach_up ? 2 : ($breach_down ? 1 : 0));
 
@@ -159,7 +164,7 @@ foreach ($queryrows as $q_row) {
 				$sql .= ", bl_alert='0'";
 				$sql .= "WHERE rra_id='$rra' AND data_id=" . $item["data_id"];
 				mysql_query($sql) or die (mysql_error() );
-			
+
 			} else {
 				if ($alertstat != 0) {
 					if ($logset == 1)
@@ -185,7 +190,7 @@ foreach ($queryrows as $q_row) {
 					$bl_alert_prev = $item["bl_alert"];
 					$bl_count_prev = $item["bl_fail_count"];
 					$bl_fail_trigger = ($item["bl_fail_trigger"] == "" ? $alert_bl_trigger : $item["bl_fail_trigger"]);
-				
+
 					$item["bl_alert"] = thold_check_baseline($rra, $ds_item_desc[0]["data_source_name"], $item["bl_ref_time"], $item["bl_ref_time_range"], $currentval, $item["bl_pct_down"], $item["bl_pct_up"]);
 					//echo "bl_alert: " . $item["bl_alert"] . "\n";
 					switch($item["bl_alert"]) {
@@ -194,7 +199,7 @@ foreach ($queryrows as $q_row) {
 							break;
 						case -1:	// Reference value not available
 							break;
-					
+
 						case 0:		// All clear
 							if ($global_bl_notify_enabled && $item["bl_fail_count"] >= $bl_fail_trigger) {
 								$subject = "$desc restored to normal threshold with value $currentval";
@@ -207,11 +212,11 @@ foreach ($queryrows as $q_row) {
 							}
 						$item["bl_fail_count"] = 0;
 						break;
-						
+
 						case 1:		// Value is below calculated threshold
 						case 2:		// Value is above calculated threshold
 							$item["bl_fail_count"]++;
-					
+
 							// Re-Alert?
 							$ra = ($item["bl_fail_count"] > $bl_fail_trigger && ($item["bl_fail_count"] % ($item["repeat_alert"] == "" ? $realert : $item["repeat_alert"])) == 0);
 							if($global_bl_notify_enabled && ($item["bl_fail_count"] ==  $bl_fail_trigger || $ra)) {
@@ -234,7 +239,7 @@ foreach ($queryrows as $q_row) {
 				$sql .= " WHERE rra_id='$rra' AND data_id=" . $item["data_id"];
 				mysql_query($sql) or die (mysql_error() );
 
-			
+
 				// debugging output
 				if ($debug == 1) {
 					$filename = "$cactibasedir/log/thold.log";
