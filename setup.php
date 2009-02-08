@@ -100,8 +100,11 @@ function thold_check_upgrade () {
 
 function thold_check_dependencies() {
 	global $plugins, $config;
-	if (!in_array('settings', $plugins))
+	if ((!in_array('settings', $plugins)) &&
+		(db_fetch_cell("SELECT directory FROM plugin_config WHERE directory='settings' AND status=1") == "")) {
 		return false;
+	}
+
 	if (!function_exists('settings_version')) {
 		if (file_exists($config['base_path'] . '/plugins/settings/setup.php')) {
 			include_once($config['base_path'] . '/plugins/settings/setup.php');
