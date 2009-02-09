@@ -526,6 +526,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$thold_alert_text = str_replace('<TRIGGER>', ($item['thold_type'] == 0 ? $item['thold_fail_trigger'] : ($item['thold_type'] == 2 ? $item['time_fail_trigger'] : '')), $thold_alert_text);
 	$thold_alert_text = str_replace('<DURATION>', ($item['thold_type'] == 2 ? plugin_thold_duration_convert($item['rra_id'], $item['time_fail_length'], 'time') : ''), $thold_alert_text);
 	$thold_alert_text = str_replace('<DATE_RFC822>', date(DATE_RFC822), $thold_alert_text);
+	$thold_alert_text = str_replace('<DEVICENOTE>', $h['notes'], $thold_alert_text);
 
 	$msg = $thold_alert_text;
 
