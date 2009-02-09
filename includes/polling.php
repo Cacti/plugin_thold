@@ -1,9 +1,21 @@
 <?php
 
 function thold_poller_bottom () {
-	thold_check_all_thresholds ();
-	thold_update_host_status ();
+	/* record the start time */
+	list($micro,$seconds) = split(" ", microtime());
+	$start = $seconds + $micro;
+
+	/* perform all thold checks */
+	$tholds = thold_check_all_thresholds ();
+	$hosts  = thold_update_host_status ();
 	thold_cleanup_log ();
+
+	/* record the end time */
+	list($micro,$seconds) = split(" ", microtime());
+	$end = $seconds + $micro;
+
+	/* log statistics */
+	cacti_log("THOLD STATS: Time:" . round($end-$start,2) . " Tholds:" . $tholds . " Hosts:" . $hosts, false, "SYSTEM");
 }
 
 function thold_cleanup_log () {
@@ -99,11 +111,14 @@ function thold_check_all_thresholds () {
 	global $config;
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 	$tholds = do_hook_function('thold_get_live_hosts', db_fetch_assoc("SELECT * FROM thold_data WHERE thold_enabled = 'on' AND tcheck = 1"));
+	$total_tholds = sizeof($tholds);
 	foreach ($tholds as $thold) {
 		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
 		thold_check_threshold ($thold['rra_id'], $thold['data_id'], $ds, $thold['lastread'], $thold['cdef']);
 	}
 	db_execute('UPDATE thold_data SET tcheck = 0');
+
+	return $total_tholds;
 }
 
 function thold_update_host_status () {
@@ -137,6 +152,7 @@ function thold_update_host_status () {
 
 	// Lets find hosts that are down
 	$hosts = db_fetch_assoc('SELECT id, description, hostname, status_last_error FROM host WHERE disabled="" AND status=' . HOST_DOWN . ' AND status_event_count=' . $ping_failure_count);
+	$total_hosts = sizeof($hosts);
 	if (count($hosts)) {
 		foreach($hosts as $host) {
 			$subject = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN';
@@ -159,5 +175,6 @@ function thold_update_host_status () {
 	}
 	$failed = implode(',', $failed);
 	db_execute("REPLACE INTO settings (name, value) VALUES ('thold_failed_hosts', '$failed')");
-	return;
+
+	return $total_hosts;
 }
