@@ -132,7 +132,7 @@ function template_add() {
 						}?>
 					</select>
 				</td>
-			</tr><?
+			</tr><?php
 
 		if ($_REQUEST['data_template_id'] != '') {
 			$data_template_id = $_REQUEST['data_template_id'];
