@@ -446,7 +446,7 @@ function thold_add_select_host() {
 					}?>
 				</select>
 			</td>
-		</tr><?
+		</tr><?php
 
 	if ($host != '') {
 		$graphs = db_fetch_assoc("SELECT
