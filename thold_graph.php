@@ -108,6 +108,9 @@ print '
 </tbody>
 </table>';
 
+// Clear the Nav Cache, so that it doesn't know we came from Thold
+$_SESSION["sess_nav_level_cache"] = '';
+
 function form_thold_filter() {
 	global $item_rows, $config, $colors;
 
