@@ -50,7 +50,7 @@ function thold_poller_output ($rrd_update_array) {
 	} else {
 		return $rrd_update_array;
 	}
-
+	if (sizeof($thold_items)) {
 	foreach ($thold_items as $t_item) {
 		$polling_interval = $t_item['rrd_step'];
 		if (isset($rrd_update_array_reindexed[$t_item['rra_id']])) {
@@ -104,6 +104,8 @@ function thold_poller_output ($rrd_update_array) {
 			}
 		}
 	}
+	}
+
 	return $rrd_update_array;
 }
 
