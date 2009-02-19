@@ -61,8 +61,6 @@ switch ($action) {
 				unset($_SESSION["graph_return"]);
 				kill_session_var("graph_return");
 				header('Location: ' . $return_to);
-			}else{
-				Header('Location: ../../graphs_new.php?host_id=' . $hostid);
 			}
 		} else if (isset($_POST['save']) && $_POST['save'] == 'add') {
 
