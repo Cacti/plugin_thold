@@ -238,8 +238,8 @@ function tholds() {
 	load_current_session_value("triggered", "sess_thold_thold_triggered", "1");
 	load_current_session_value("data_template_id", "sess_thold_thold_data_template_id", "-1");
 	load_current_session_value("rows", "sess_thold_thold_rows", read_config_option("alert_num_rows"));
-	load_current_session_value("sort_column", "sess_host_sort_column", "name");
-	load_current_session_value("sort_direction", "sess_host_sort_direction", "ASC");
+	load_current_session_value("sort_column", "sess_thold_host_sort_column", "name");
+	load_current_session_value("sort_direction", "sess_thold_host_sort_direction", "ASC");
 
 	/* if the number of rows is -1, set it to the default */
 	if ($_REQUEST["rows"] == -1) {
