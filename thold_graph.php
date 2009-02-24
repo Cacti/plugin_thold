@@ -128,12 +128,10 @@ function form_thold_filter() {
 							<option value="-1"<?php if ($_REQUEST["data_template_id"] == "-1") {?> selected<?php }?>>All</option>
 							<option value="0"<?php if ($_REQUEST["data_template_id"] == "0") {?> selected<?php }?>>None</option>
 							<?php
-							$data_templates = db_fetch_assoc("SELECT DISTINCT data_template.id, data_template.name
-								FROM (graph_templates_graph, host)
-								INNER JOIN thold_data ON (thold_data.host_id=host.id)
-								INNER JOIN data_local ON (data_local.id=thold_data.rra_id)
-								INNER JOIN data_template ON (data_template.id=data_local.data_template_id)
-								ORDER BY hostname");
+							$data_templates = db_fetch_assoc("SELECT DISTINCT data_template.id, data_template.name ".
+								"FROM thold_data ".
+								"LEFT JOIN data_template ON thold_data.data_template=data_template.id ".
+								"ORDER by data_template.name");
 
 							if (sizeof($data_templates) > 0) {
 								foreach ($data_templates as $data_template) {
