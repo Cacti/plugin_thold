@@ -129,7 +129,7 @@ function thold_update_host_status () {
 	global $config;
 	// Return if we aren't set to notify
 	$deadnotify = (read_config_option('alert_deadnotify') == 'on');
-	if (!$deadnotify) return;
+	if (!$deadnotify) return 0;
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	$alert_email = read_config_option('alert_email');
