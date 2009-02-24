@@ -15,7 +15,9 @@ function thold_poller_bottom () {
 	$end = $seconds + $micro;
 
 	/* log statistics */
-	cacti_log("THOLD STATS: Time:" . round($end-$start,2) . " Tholds:" . $tholds . " Hosts:" . $hosts, false, "SYSTEM");
+	$thold_stats = sprintf("Time:%01.4f Tholds:%s Hosts:%s", $end - $start, $tholds, $hosts);
+	cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
+	db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold', '$thold_stats')");
 }
 
 function thold_cleanup_log () {

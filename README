@@ -31,6 +31,10 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
+	--- 0.4.1 --
+		Feature: Add thold statistics to settings table to allow graphing the results
+
+		
 	--- 0.4.0 ---
 		Bug:     Fix for multiple poller intervals, use RRD Step of Data Source instead of Polling Interval
 		Bug:     Fix for down host alerting on disabled hosts
