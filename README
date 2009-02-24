@@ -35,6 +35,7 @@
 		Feature: Add thold statistics to settings table to allow graphing the results
 		Bug:	 Return False from host status check function if it is disabled
 		Bug:	 Speed up Datasource Query on Told Tab
+		Bug:	 Fix CDEF usage
 
 	--- 0.4.0 ---
 		Bug:     Fix for multiple poller intervals, use RRD Step of Data Source instead of Polling Interval

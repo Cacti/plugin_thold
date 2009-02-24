@@ -878,7 +878,7 @@ function thold_build_cdef ($id, $value, $rra, $ds) {
 		$cursor++;
 	}
 
-	return $value;
+	return $stack[0]['value'];
 }
 
 function thold_rpn ($x, $y, $z) {
