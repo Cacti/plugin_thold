@@ -503,7 +503,7 @@ function thold_add_select_host() {
 				&nbsp;<b>Data Source:</b>
 			</td>
 			<td>
-				<input type=hidden name=dt value="<?php print $dt;?>"
+				<input type=hidden name=dt value="<?php print $dt;?>">
 				<select name=dsid onChange="applyTholdFilterChange(document.tholdform, 'ds')">
 					<option value=""></option><?php
 					foreach ($dss as $row) {
