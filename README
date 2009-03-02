@@ -38,6 +38,7 @@
 		Bug:	 Fix CDEF usage
 		Bug:	 Fix Thold Add Wizard Bug with IE6/7
 		Bug:	 Fix HTTP_REFERER error
+		Bug:	 Fix duplicate function names (when improperly installing plugin)
 
 	--- 0.4.0 ---
 		Bug:     Fix for multiple poller intervals, use RRD Step of Data Source instead of Polling Interval

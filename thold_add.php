@@ -87,16 +87,16 @@ if (isset($_REQUEST['usetemplate']) && $_REQUEST['usetemplate'] != '') {
 		if ($_REQUEST['thold_template_id'] == '0') {
 			thold_add_select_host();
 		} else {
-			thold_graphs_action_execute();
+			thold_add_graphs_action_execute();
 		}
 	} else {
-		thold_graphs_action_prepare($graph);
+		thold_add_graphs_action_prepare($graph);
 	}
 } else {
 	thold_add_select_host();
 }
 
-function thold_graphs_action_execute() {
+function thold_add_graphs_action_execute() {
 	global $config, $host, $graph;
 
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
@@ -199,7 +199,7 @@ function thold_graphs_action_execute() {
 	}
 }
 
-function thold_graphs_action_prepare($graph) {
+function thold_add_graphs_action_prepare($graph) {
 	global $colors, $config;
 
 	include($config['include_path'] . '/top_header.php');
@@ -394,7 +394,7 @@ function thold_graphs_action_prepare($graph) {
 	include_once("./include/bottom_footer.php");
 }
 
-function thold_graphs_action_array($action) {
+function thold_add_graphs_action_array($action) {
 	$action['plugin_thold_create'] = 'Create Threshold from Template';
 	return $action;
 }
