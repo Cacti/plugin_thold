@@ -37,6 +37,7 @@
 		Bug:	 Speed up Datasource Query on Told Tab
 		Bug:	 Fix CDEF usage
 		Bug:	 Fix Thold Add Wizard Bug with IE6/7
+		Bug:	 Fix HTTP_REFERER error
 
 	--- 0.4.0 ---
 		Bug:     Fix for multiple poller intervals, use RRD Step of Data Source instead of Polling Interval

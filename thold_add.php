@@ -35,7 +35,7 @@ if (isset($_REQUEST['hostid']) && $_REQUEST['hostid'] != '') {
 	$host = 0;
 }
 
-if ((substr_count($_SERVER["HTTP_REFERER"], "graph_view.php")) || (substr_count($_SERVER["HTTP_REFERER"], "graph.php"))) {
+if (isset($_SERVER["HTTP_REFERER"]) && (substr_count($_SERVER["HTTP_REFERER"], "graph_view.php") || substr_count($_SERVER["HTTP_REFERER"], "graph.php"))) {
 	$_SESSION["graph_return"] = $_SERVER["HTTP_REFERER"];
 }
 
