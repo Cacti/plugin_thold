@@ -33,6 +33,7 @@
 ----[ Changelog
 	--- 0.4.2 ---
 		Bug:	Fix for compatibility with other plugins using datasource action hook
+		Bug:	Fixed a few minor issues
 	
 	--- 0.4.1 ---
 		Feature: Add thold statistics to settings table to allow graphing the results

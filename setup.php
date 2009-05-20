@@ -86,7 +86,7 @@ function thold_version () {
 function thold_check_upgrade () {
 	global $config;
 	// Let's only run this check if we are on a page that actually needs the data
-	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'listthold.php', 'poller.php');
+	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'listthold.php', 'poller.php', 'plugins.php');
 	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files))
 		return;
 	$current = plugin_thold_version ();
