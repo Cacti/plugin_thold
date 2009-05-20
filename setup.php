@@ -495,6 +495,7 @@ function thold_data_source_action_prepare($save) {
 			}
 		}
 	}
+	return $save;
 }
 
 function thold_data_source_action_array($action) {

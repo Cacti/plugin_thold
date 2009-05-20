@@ -31,7 +31,10 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
-	--- 0.4.1 --
+	--- 0.4.2 ---
+		Bug:	Fix for compatibility with other plugins using datasource action hook
+	
+	--- 0.4.1 ---
 		Feature: Add thold statistics to settings table to allow graphing the results
 		Bug:	 Return False from host status check function if it is disabled
 		Bug:	 Speed up Datasource Query on Told Tab
