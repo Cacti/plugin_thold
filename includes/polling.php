@@ -167,6 +167,9 @@ function thold_update_host_status () {
 				if ($host['status'] == HOST_UP) {
 					$subject = 'Host Notice : ' . $host['description'] . ' (' . $host['hostname'] . ') returned from DOWN state';
 					$msg = $subject;
+					if ($logset) {
+						plugin_thold_syslog_host_status($subject);
+					}
 					if ($alert_email == '') {
 						cacti_log('THOLD: Can not send Host Recovering email since the \'Alert e-mail\' setting is not set!', true, 'POLLER');
 					} else {
@@ -184,6 +187,9 @@ function thold_update_host_status () {
 		foreach($hosts as $host) {
 			$subject = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN';
 			$msg = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN<br>Message : ' . $host['status_last_error'];
+			if ($logset) {
+				plugin_thold_syslog_host_status($subject);
+			}
 			if ($alert_email == '') {
 				cacti_log('THOLD: Can not send Host Down email since the \'Alert e-mail\' setting is not set!', true, 'POLLER');
 			} else {

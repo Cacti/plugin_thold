@@ -33,6 +33,7 @@
 ----[ Changelog
 	--- 0.4.2 ---
 		Bug:	Fix for compatibility with other plugins using datasource action hook
+		Bug: Re-add syslog messages for down hosts
 		Bug:	Fixed a few minor issues
 	
 	--- 0.4.1 ---
