@@ -843,6 +843,12 @@ function thold_build_cdef ($id, $value, $rra, $ds) {
 					return $oldvalue;
 					break;
 				}
+			} else if ($cdef['type'] == 6) {
+				$regresult = preg_match('/^\|query_(.*)\|$/', $cdef['value'], $matches);
+				if($regresult > 0) {
+					// Grab result for query
+					$cdef['value'] = db_fetch_cell("SELECT `h`.`field_value` FROM `poller_item` p, `host_snmp_cache` h where `p`.`local_data_id` = '" . $rra . "' and `p`.`host_id` = `h`.`host_id` and `h`.`field_name` = '" . $matches[1] . "' and `p`.`rrd_name` = 'traffic_in' and SUBSTRING_INDEX(`p`.`arg1`, '.', -1 ) = `h`.`snmp_index`", FALSE);
+				}
 			}
 			$cdef_array[] = $cdef;
 		}
@@ -893,6 +899,7 @@ function thold_rpn ($x, $y, $z) {
 			return $x * $y;
 			break;
 		case 4:
+			if ($y == 0) return (-1); 
 			return $x / $y;
 			break;
 		case 5:

@@ -35,6 +35,7 @@
 		Bug:	Fix for compatibility with other plugins using datasource action hook
 		Bug: Re-add syslog messages for down hosts
 		Bug:	Fixed a few minor issues
+		Bug: Allow the use of query_XYZ in CDEFs
 	
 	--- 0.4.1 ---
 		Feature: Add thold statistics to settings table to allow graphing the results
