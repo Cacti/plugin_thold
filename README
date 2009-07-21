@@ -37,6 +37,7 @@
 		Bug:	Fixed a few minor issues
 		Bug: Allow the use of query_XYZ in CDEFs
 		Bug: Fix host status page to only allow users to see hosts they have access to
+		Bug: Fix ru_nswap errors on Windows
 	
 	--- 0.4.1 ---
 		Feature: Add thold statistics to settings table to allow graphing the results

@@ -42,8 +42,8 @@ function thold_display_rusage() {
 		html_start_box("", "100%", $colors["header"], "3", "left", "");
 		print "<tr>";
 
-		if (!isset($thold_start_rusage)) {
-			print "<td colspan='10'>ERROR: Can not display RUSAGE please call thold_initialize_rusage first</td>";
+		if (!isset($thold_start_rusage["ru_nswap"])) {
+			//print "<td colspan='10'>ERROR: Can not display RUSAGE please call thold_initialize_rusage first</td>";
 		}else{
 			$i_u_time = $thold_start_rusage["ru_utime.tv_sec"] + ($thold_start_rusage["ru_utime.tv_usec"] * 1E-6);
 			$i_s_time = $thold_start_rusage["ru_stime.tv_sec"] + ($thold_start_rusage["ru_stime.tv_usec"] * 1E-6);
