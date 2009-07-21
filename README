@@ -36,6 +36,7 @@
 		Bug: Re-add syslog messages for down hosts
 		Bug:	Fixed a few minor issues
 		Bug: Allow the use of query_XYZ in CDEFs
+		Bug: Fix host status page to only allow users to see hosts they have access to
 	
 	--- 0.4.1 ---
 		Feature: Add thold statistics to settings table to allow graphing the results

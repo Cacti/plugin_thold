@@ -563,10 +563,6 @@ function hosts() {
 
 	html_start_box("", "100%", $colors["header"], "3", "center", "");
 
-	$total_rows = db_fetch_cell("select
-		COUNT(host.id)
-		from host
-		$sql_where");
 
 	$sortby = $_REQUEST["sort_column"];
 	if ($sortby=="hostname") {
@@ -576,8 +572,18 @@ function hosts() {
 	$host_graphs       = array_rekey(db_fetch_assoc("SELECT host_id, count(*) as graphs FROM graph_local GROUP BY host_id"), "host_id", "graphs");
 	$host_data_sources = array_rekey(db_fetch_assoc("SELECT host_id, count(*) as data_sources FROM data_local GROUP BY host_id"), "host_id", "data_sources");
 
+	$current_user = db_fetch_row('SELECT * FROM user_auth WHERE id=' . $_SESSION['sess_user_id']);
+	$sql_where    .= ' AND ' . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
+
+	$total_rows = db_fetch_cell("select
+		COUNT(host.id)
+		from host
+		LEFT JOIN user_auth_perms on (host.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		$sql_where");
+
 	$sql_query = "SELECT *
 		FROM host
+		LEFT JOIN user_auth_perms on (host.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
 		$sql_where
 		ORDER BY " . $sortby . " " . $_REQUEST["sort_direction"] . "
 		LIMIT " . ($_REQUEST["rows"]*($_REQUEST["page"]-1)) . "," . $_REQUEST["rows"];
