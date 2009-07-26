@@ -93,7 +93,8 @@ function thold_config_settings () {
 	if ($config["cacti_server_os"] == "unix") {
 		$syslog_facil_array = array(LOG_AUTH => 'Auth', LOG_AUTHPRIV => 'Auth Private', LOG_CRON => 'Cron', LOG_DAEMON => 'Daemon', LOG_KERN => 'Kernel', LOG_LOCAL0 => 'Local 0', LOG_LOCAL1 => 'Local 1', LOG_LOCAL2 => 'Local 2', LOG_LOCAL3 => 'Local 3', LOG_LOCAL4 => 'Local 4', LOG_LOCAL5 => 'Local 5', LOG_LOCAL6 => 'Local 6', LOG_LOCAL7 => 'Local 7', LOG_LPR => 'LPR', LOG_MAIL => 'Mail', LOG_NEWS => 'News', LOG_SYSLOG => 'Syslog', LOG_USER => 'User', LOG_UUCP => 'UUCP');
 		$default_facility = LOG_DAEMON;
-	} else {		$syslog_facil_array = array(LOG_USER => 'User');
+	} else {
+		$syslog_facil_array = array(LOG_USER => 'User');
 		$default_facility = LOG_USER;
 	}
 
