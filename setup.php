@@ -412,6 +412,8 @@ function thold_data_source_action_execute($action) {
 			$_SESSION['thold_message'] = "<font size=-2>Threshold(s) Already Exist - No Thresholds Created</font>";
 		}
 		raise_message('thold_created');
+	}else{
+		return $action;
 	}
 }
 
@@ -605,6 +607,8 @@ function thold_graphs_action_execute($action) {
 			$_SESSION['thold_message'] = "<font size=-2>Threshold(s) Already Exist - No Thresholds Created</font>";
 		}
 		raise_message('thold_created');
+	}else{
+		return $action;
 	}
 }
 
@@ -691,6 +695,8 @@ function thold_graphs_action_prepare($save) {
 				print "<p>" . $not_found . "</p>";
 			}
 		}
+	}else{
+		return $save;
 	}
 }
 
