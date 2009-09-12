@@ -58,9 +58,9 @@ function thold_poller_output ($rrd_update_array) {
 	foreach($rrd_update_array as $item) {
 		if (isset($item['times'][key($item['times'])])) {
 			if ($x) {
-				$rra_ids .= ' OR ';
+				$rra_ids .= ', ';
 			}
-			$rra_ids .= 'thold_data.rra_id = ' . $item['local_data_id'];
+			$rra_ids .= $item['local_data_id'];
 			$rrd_update_array_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
 			$x++;
 		}
@@ -74,7 +74,7 @@ function thold_poller_output ($rrd_update_array) {
 					FROM thold_data
 					LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
 					LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
-					WHERE data_template_rrd.data_source_name != '' AND $rra_ids", false);
+					WHERE data_template_rrd.data_source_name != '' AND thold_data.rra_id IN($rra_ids)", false);
 	} else {
 		return $rrd_update_array;
 	}
