@@ -67,11 +67,14 @@ function thold_poller_output ($rrd_update_array) {
 	}
 
 	if ($rra_ids != '') {
-		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.data_type, thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue, data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id, data_template_data.rrd_step
-							FROM thold_data
-							LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
-							LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
-							WHERE data_template_rrd.data_source_name != '' AND $rra_ids", false);
+		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.expression, thold_data.data_type, 
+					thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, 
+					thold_data.oldvalue, data_template_rrd.data_source_name as name, 
+					data_template_rrd.data_source_type_id, data_template_data.rrd_step
+					FROM thold_data
+					LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
+					LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
+					WHERE data_template_rrd.data_source_name != '' AND $rra_ids", false);
 	} else {
 		return $rrd_update_array;
 	}
@@ -120,6 +123,12 @@ function thold_poller_output ($rrd_update_array) {
 					case 2:
 						if ($t_item['percent_ds'] != '') {
 							$currentval = thold_calculate_percent($t_item, $currentval, $rrd_update_array_reindexed);
+						}
+						$currentval = round($currentval, 4);
+						break;
+					case 3:
+						if ($t_item['expression'] != '') {
+							$currentval = thold_calculate_expression($t_item, $currentval, $rrd_update_array_reindexed);
 						}
 						$currentval = round($currentval, 4);
 						break;

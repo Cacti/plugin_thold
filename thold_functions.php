@@ -116,6 +116,467 @@ if (isset($_SERVER['HTTP_HOST']) && isset($_SERVER['PHP_SELF']) && read_config_o
 	kill_session_var('sess_config_array');
 }
 
+function thold_expression_rpn_pop(&$stack) {
+	global $rpn_error;
+
+	if (sizeof($stack)) {
+		return array_pop($stack);
+	}else{
+		$rpn_error = true;
+		return false;
+	}
+}
+
+function thold_expression_math_rpn($operator, &$stack) {
+	global $rpn_error;
+
+	switch($operator) {
+	case '+':
+	case '-':
+	case '/':
+	case '*':
+	case '%':
+	case '^':
+		$v1 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+
+		if (!$rpn_error) {
+			eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
+			array_push($stack, $v3);
+		}
+		break;
+	case 'SIN':
+	case 'COS':
+	case 'TAN':
+	case 'ATAN':
+	case 'SQRT':
+	case 'FLOOR':
+	case 'CEIL':
+	case 'DEG2RAD':
+	case 'RAD2DEG':
+	case 'ABS':
+	case 'EXP':
+	case 'LOG':
+		$v1 = thold_expression_rpn_pop($stack);
+
+		if (!$rpn_error) {
+			eval("\$v2 = " . $operator . "(" . $v1 . ");");
+			array_push($stack, $v2);
+		}
+		break;
+	case 'ATAN2':
+		$v1 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+
+		if (!$rpn_error) {
+			$v3 = atan2($v1, $v2);
+			array_push($stack, $v3);
+		}
+		break;
+	case 'ADDNAN':
+		$v1 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+
+		if (!$rpn_error) {
+			if ($v1 == 'NAN' || $v1 == 'U') $v1 = 0;
+			if ($v2 == 'NAN' || $v2 == 'U') $v2 = 0;
+			array_push($stack, $v1 + $v2);
+		}
+		break;
+	}
+}
+
+function thold_expression_boolean_rpn($operator, &$stack) {
+	global $rpn_error;
+
+	if ($operator == 'UN') {
+		$v1 = thold_expression_rpn_pop($stack);
+		if ($v1 == 'U' || $v1 == 'NAN') {
+			array_push($stack, '1');
+		}else{
+			array_push($stack, '0');
+		}
+	}elseif ($operator == 'ISINF') {
+		$v1 = thold_expression_rpn_pop($stack);
+		if ($v1 == 'INF' || $v1 == 'NEGINF') {
+			array_push($stack, '1');
+		}else{
+			array_push($stack, '0');
+		}
+	}elseif ($operator == 'IF') {
+		$v1 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+		$v3 = thold_expression_rpn_pop($stack);
+
+		if ($v3 == 0) {
+			array_push($stack, $v1);
+		}else{
+			array_push($stack, $v2);
+		}
+	}else{
+		$v1 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+
+		/* deal with unknown or infinite data */
+		if (($v1 == 'INF' || $v2 == 'INF') ||
+			($v1 == 'NAN' || $v2 == 'NAN') ||
+			($v1 == 'U' || $v2 == 'U') ||
+			($v1 == 'NEGINF' || $v2 == 'NEGINF')) {
+			array_push($stack, '0');
+		}
+
+		switch($operator) {
+		case 'LT':
+			if ($v1 < $v2) {
+				array_push($stack, '1');
+			}else{
+				array_push($stack, '0');
+			}
+			break;
+		case 'GT':
+			if ($v1 > $v2) {
+				array_push($stack, '1');
+			}else{
+				array_push($stack, '0');
+			}
+			break;
+		case 'LE':
+			if ($v1 <= $v2) {
+			array_push($stack, '1');
+			}else{
+				array_push($stack, '0');
+			}
+			break;
+		case 'GE':
+			if ($v1 >= $v2) {
+				array_push($stack, '1');
+			}else{
+				array_push($stack, '0');
+			}
+			break;
+		case 'EQ':
+			if ($v1 == $v2) {
+				array_push($stack, '1');
+			}else{
+				array_push($stack, '0');
+			}
+			break;
+		case 'NE':
+			if ($v1 != $v2) {
+				array_push($stack, '1');
+			}else{
+				array_push($stack, '0');
+			}
+			break;
+		}
+	}
+}
+
+function thold_expression_compare_rpn($operator, &$stack) {
+	global $rpn_error;
+
+	if ($operator == 'MAX' || $operator == 'MIN') {
+		$v[0] = thold_expression_rpn_pop($stack);
+		$v[1] = thold_expression_rpn_pop($stack);
+
+		if (in_array('INF', $v)) {
+			array_push($stack, 'INF');
+		}elseif (in_array('NEGINF', $v)) {
+			array_push($stack, 'NEGINF');
+		}elseif (in_array('U', $v)) {
+			array_push($stack, 'U');
+		}elseif (in_array('NAN', $v)) {
+			array_push($stack, 'NAN');
+		}elseif ($operator == 'MAX') {
+			array_push($stack, max($v));
+		}else{
+			array_push($stack, min($v));
+		}
+	}else{
+		$v1 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+
+		if (($v1 == 'U' || $v1 == 'NAN') ||
+			($v2 == 'U' || $v2 == 'NAN') ||
+			($v3 == 'U' || $v3 == 'NAN')) {
+			array_push($stack, 'U');
+		}elseif (($v1 == 'INF' || $v1 == 'NEGINF') ||
+			($v2 == 'INF' || $v2 == 'NEGINF') ||
+			($v3 == 'INF' || $v3 == 'NEGINF')) {
+			array_push($stack, 'U');
+		}elseif ($v1 < $v2) {
+			if ($v3 >= $v1 && $v3 <= $v2) {
+				array_push($stack, $v3);
+			}else{
+				array_push($stack, 'U');
+			}
+		}else{
+			if ($v3 >= $v2 && $v3 <= $v1) {
+				array_push($stack, $v3);
+			}else{
+				array_push($stack, 'U');
+			}
+		}
+	}
+}
+
+function thold_expression_specvals_rpn($operator, &$stack, $count) {
+	global $rpn_error;
+
+	if ($operator == 'UNKN') {
+		array_push($stack, 'U');
+	}elseif ($operator == 'INF') {
+		array_push($stack, 'INF');
+	}elseif ($operator == 'NEGINF') {
+		array_push($stack, 'NEGINF');
+	}elseif ($operator == 'COUNT') {
+		array_push($stack, $count);
+	}elseif ($operator == 'PREV') {
+		/* still have to figure this out */
+	}
+}
+
+function thold_expression_stackops_rpn($operator, &$stack) {
+	global $rpn_error;
+
+	if ($operator == 'DUP') {
+		$v1 = thold_expression_rpn_pop($stack);
+		array_push($stack, $v1);
+		array_push($stack, $v1);
+	}elseif ($operator == 'POP') {
+		thold_expression_rpn_pop($stack);
+	}else{
+		$v1 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+		array_push($stack, $v2);
+		array_push($stack, $v1);
+	}
+}
+
+function thold_expression_time_rpn($operator, &$stack) {
+	global $rpn_error;
+
+	if ($operator == 'NOW') {
+		array_push($stack, time());
+	}elseif ($operator == 'TIME') {
+		/* still need to figure this one out */
+	}elseif ($operator == 'LTIME') {
+		/* still need to figure this one out */
+	}
+}
+
+function thold_expression_setops_rpn($operator, &$stack) {
+	global $rpn_error;
+
+	if ($operator == 'SORT') {
+		$count = thold_expression_rpn_pop($stack);
+		$v     = array();
+		if ($count > 0) {
+			for($i = 0; $i < $count; $i++) {
+				$v[] = thold_expression_rpn_pop($stack);
+			}
+
+			sort($v, SORT_NUMERIC);
+
+			foreach($v as $val) {
+				array_push($stack, $val);
+			}
+		}
+	}elseif ($operator == 'REV') {
+		$count = thold_expression_rpn_pop($stack);
+		$v     = array();
+		if ($count > 0) {
+			for($i = 0; $i < $count; $i++) {
+				$v[] = thold_expression_rpn_pop($stack);
+			}
+
+			$v = array_reverse($v);
+
+			foreach($v as $val) {
+				array_push($stack, $val);
+			}
+		}
+	}elseif ($operator == 'AVG') {
+		$count = thold_expression_rpn_pop($stack);
+		if ($count > 0) {
+			$total  = 0;
+			$inf    = false;
+			$neginf = false;
+			for($i = 0; $i < $count; $i++) {
+				$v = thold_expression_rpn_pop($stack);
+				if ($v == 'INF') {
+					$inf = true;
+				}elseif ($v == 'NEGINF') {
+					$neginf = true;
+				}else{
+					$total += $v;
+				}
+			}
+
+			if ($inf) {
+				array_push($stack, 'INF');
+			}elseif ($neginf) {
+				array_push($stack, 'NEGINF');
+			}else{
+				array_push($stack, $total/$count);
+			}
+		}
+	}
+}
+
+function thold_expression_ds_value($operator, &$stack, $data_sources) {
+	global $rpn_error;
+
+	if (sizeof($data_sources)) {
+	foreach($data_sources as $rrd_name => $value) {
+		if (strtoupper($rrd_name) == $operator) {
+			array_push($stack, $value);
+			return;
+		}
+	}
+	}
+
+	array_push($stack, 0);
+}
+
+function thold_expression_specialtype_rpn($operator, &$stack, $rra_id, $currentval) {
+	switch ($operator) {
+	case 'CURRENT_DATA_SOURCE':
+		array_push($stack, $currentval);
+		break;
+	case 'CURRENT_GRAPH_MAXIMUM_VALUE':
+		array_push(get_current_value($rra_id, 'upper_limit', 0));
+		break;
+	case 'CURRENT_GRAPH_MINIMUM_VALUE':
+		array_push(get_current_value($rra_id, 'lower_limit', 0));
+		break;
+	case 'CURRENT_DS_MINIMUM_VALUE':
+		array_push(get_current_value($rra_id, 'rrd_minimum', 0));
+		break;
+	case 'CURRENT_DS_MAXIMUM_VALUE':
+		array_push($stack, get_current_value($rra_id, 'rrd_maximum', 0));
+		break;
+	case 'VALUE_OF_HDD_TOTAL':
+		array_push($stack, get_current_value($rra_id, 'hdd_total', 0));
+		break;
+	case 'ALL_DATA_SOURCES_NODUPS':
+	case 'ALL_DATA_SOURCES_DUPS':
+		$v1 = 0;
+		$all_dsns = array();
+		$all_dsns = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE local_data_id = " . $rra_id);
+		if (is_array($all_dsns)) {
+			foreach ($all_dsns as $dsn) {
+				$v1 += get_current_value($rra_id, $dsn['data_source_name'], 0);
+			}
+		}
+
+		array_push($stack, $v1);
+		break;
+	default:
+		cacti_log('WARNING: CDEF property not implemented yet: ' . $operator, false, 'THOLD');
+		array_push($stack, $oldvalue);
+		break;
+	}
+}
+
+function thold_calculate_expression($thold, $currentval, $rrd_update_array_reindexed) {
+	global $rpn_error;
+
+	/* set an rpn error flag */
+	$rpn_error = false;
+
+	/* operators to support */
+	$math       = array('+', '-', '*', '/', '%', '^', 'ADDNAN', 'SIN', 'COS', 'LOG', 'EXP',
+		'SQRT', 'ATAN', 'ATAN2', 'FLOOR', 'CEIL', 'DEG2RAD', 'RAD2DEG', 'ABS');
+	$boolean    = array('LT', 'LE', 'GT', 'GE', 'EQ', 'NE', 'UN', 'ISNF', 'IF');
+	$comparison = array('MIN', 'MAX', 'LIMIT');
+	$setops     = array('SORT', 'REV', 'AVG');
+	$specvals   = array('UNKN', 'INF', 'NEGINF', 'PREV', 'COUNT');
+	$stackops   = array('DUP', 'POP', 'EXC');
+	$time       = array('NOW', 'TIME', 'LTIME');
+	$spectypes  = array('CURRENT_DATA_SOURCE','CURRENT_GRAPH_MINIMUM_VALUE',
+		'CURRENT_GRAPH_MINIMUM_VALUE','CURRENT_DS_MINIMUM_VALUE',
+		'CURRENT_DS_MAXIMUM_VALUE','VALUE_OF_HDD_TOTAL',
+		'ALL_DATA_SOURCES_NODUPS','ALL_DATA_SOURCES_DUPS');
+
+	/* our expression array */
+	$expression = explode(',', $thold['expression']);
+
+	/* out current data sources */
+	$data_sources = $rrd_update_array_reindexed[$thold['rra_id']];
+	if (sizeof($data_sources)) {
+		foreach($data_sources as $key => $value) {
+			$key = strtoupper($key);
+			$nds[$key] = $value;
+		}
+		$data_sources = $nds;
+	}
+
+	/* now let's process the RPN stack */
+	$x = count($expression);
+
+	if ($x == 0) return $currentval;
+
+	/* operation stack for RPN */
+	$stack = array();
+
+	/* the current DS values goes on first */
+	array_push($stack, $currentval);
+
+	/* current pointer in the RPN operations list */
+	$cursor = 0;
+
+	while($cursor < $x) {
+		$operator = strtoupper(trim($expression[$cursor]));
+
+		/* is the operator a data source */
+		if (is_numeric($operator)) {
+			//cacti_log("NOTE: Numeric '$operator'", false, "THOLD");
+			array_push($stack, $operator);
+		}elseif (array_key_exists($operator, $data_sources)) {
+			//cacti_log("NOTE: DS Value '$operator'", false, "THOLD");
+			thold_expression_ds_value($operator, $stack, $data_sources);
+		}elseif (in_array($operator, $comparison)) {
+			//cacti_log("NOTE: Compare '$operator'", false, "THOLD");
+			thold_expression_compare_rpn($operator, $stack);
+		}elseif (in_array($operator, $boolean)) {
+			//cacti_log("NOTE: Boolean '$operator'", false, "THOLD");
+			thold_expression_boolean_rpn($operator, $stack);
+		}elseif (in_array($operator, $math)) {
+			//cacti_log("NOTE: Math '$operator'", false, "THOLD");
+			thold_expression_math_rpn($operator, $stack);
+		}elseif (in_array($operator, $setops)) {
+			//cacti_log("NOTE: SetOps '$operator'", false, "THOLD");
+			thold_expression_setops_rpn($operator, $stack);
+		}elseif (in_array($operator, $specvals)) {
+			//cacti_log("NOTE: SpecVals '$operator'", false, "THOLD");
+			thold_expression_specvals_rpn($operator, $stack, $cursor + 2);
+		}elseif (in_array($operator, $stackops)) {
+			//cacti_log("NOTE: StackOps '$operator'", false, "THOLD");
+			thold_expression_stackops_rpn($operator, $stack);
+		}elseif (in_array($operator, $time)) {
+			//cacti_log("NOTE: Time '$operator'", false, "THOLD");
+			thold_expression_time_rpn($operator, $stack);
+		}elseif (in_array($operator, $spectypes)) {
+			//cacti_log("NOTE: SpecialTypes '$operator'", false, "THOLD");
+			thold_expression_specialtype_rpn($operator, $stack, $thold['rra_id'], $currentval);
+		}else{
+			cacti_log("WARNING: Unsupported Field '$operator'", false, "THOLD");
+			$rpn_error = true;
+		}
+
+		$cursor++;
+
+		if ($rpn_error) {
+			cacti_log("ERROR: RPN Expression is invalid '" . $currentval . "," . $thold['expression'] . "'", false, 'THOLD');
+			return 0;
+		}
+	}
+
+	return $stack[0];
+}
+
 function thold_calculate_percent($thold, $currentval, $rrd_update_array_reindexed) {
 	$ds = $thold['percent_ds'];
 	if (isset($rrd_update_array_reindexed[$thold['rra_id']][$ds])) {
@@ -347,7 +808,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 						$desc .= '  Reference: ' . $message['bl_ref_time'];
 						$desc .= '  Range: ' . $message['bl_ref_time_range'];
 						$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" );
-						$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" ); 
+						$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" );
 						$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
 						break;
 					case 2:
@@ -401,8 +862,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 					$desc .= '  Enabled: ' . $message['bl_enabled'];
 					$desc .= '  Reference: ' . $message['bl_ref_time'];
 					$desc .= '  Range: ' . $message['bl_ref_time_range'];
-					$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" ); 
-					$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" ); 
+					$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" );
+					$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" );
 					$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
 					break;
 				case 2:
@@ -847,7 +1308,13 @@ function thold_build_cdef ($id, $value, $rra, $ds) {
 				$regresult = preg_match('/^\|query_(.*)\|$/', $cdef['value'], $matches);
 				if($regresult > 0) {
 					// Grab result for query
-					$cdef['value'] = db_fetch_cell("SELECT `h`.`field_value` FROM `poller_item` p, `host_snmp_cache` h where `p`.`local_data_id` = '" . $rra . "' and `p`.`host_id` = `h`.`host_id` and `h`.`field_name` = '" . $matches[1] . "' and `p`.`rrd_name` = 'traffic_in' and SUBSTRING_INDEX(`p`.`arg1`, '.', -1 ) = `h`.`snmp_index`", FALSE);
+					$cdef['value'] = db_fetch_cell("SELECT `h`.`field_value`
+						FROM `poller_item` p, `host_snmp_cache` h
+						WHERE `p`.`local_data_id` = '" . $rra . "'
+						AND `p`.`host_id` = `h`.`host_id`
+						AND `h`.`field_name` = '" . $matches[1] . "'
+						AND `p`.`rrd_name` = 'traffic_in'
+						AND SUBSTRING_INDEX(`p`.`arg1`, '.', -1 ) = `h`.`snmp_index`", FALSE);
 				}
 			}
 			$cdef_array[] = $cdef;
@@ -869,8 +1336,8 @@ function thold_build_cdef ($id, $value, $rra, $ds) {
 				break;
 			case 2:
 				// this is a binary operation. pop two values, and then use them.
-				$v1 = array_pop($stack);
-				$v2 = array_pop($stack);
+				$v1 = thold_expression_rpn_pop($stack);
+				$v2 = thold_expression_rpn_pop($stack);
 				$result = thold_rpn($v2['value'], $v1['value'], $cdef_array[$cursor]['value']);
 				// put the result back on the stack.
 				array_push($stack, array('type'=>6,'value'=>$result));
@@ -899,7 +1366,7 @@ function thold_rpn ($x, $y, $z) {
 			return $x * $y;
 			break;
 		case 4:
-			if ($y == 0) return (-1); 
+			if ($y == 0) return (-1);
 			return $x / $y;
 			break;
 		case 5:
@@ -1195,6 +1662,12 @@ function save_thold() {
 		$save['percent_ds'] = $_POST['percent_ds'];
 	} else {
 		$save['percent_ds'] = '';
+	}
+
+	if (isset($_POST['expression'])) {
+		$save['expression'] = $_POST['expression'];
+	} else {
+		$save['expression'] = '';
 	}
 
 	/* Get the Data Template, Graph Template, and Graph */
@@ -1502,6 +1975,7 @@ function thold_template_update_threshold ($id, $template) {
 		thold_data.data_type = thold_template.data_type,
 		thold_data.cdef = thold_template.cdef,
 		thold_data.percent_ds = thold_template.percent_ds,
+		thold_data.expression = thold_template.expression,
 		thold_data.exempt = thold_template.exempt,
 		thold_data.data_template = thold_template.data_template_id,
 		thold_data.restored_alert = thold_template.restored_alert
@@ -1532,6 +2006,7 @@ function thold_template_update_thresholds ($id) {
 		thold_data.data_type = thold_template.data_type,
 		thold_data.cdef = thold_template.cdef,
 		thold_data.percent_ds = thold_template.percent_ds,
+		thold_data.expression = thold_template.expression,
 		thold_data.exempt = thold_template.exempt,
 		thold_data.data_template = thold_template.data_template_id,
 		thold_data.restored_alert = thold_template.restored_alert

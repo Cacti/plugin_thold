@@ -32,7 +32,7 @@
 
 ----[ Changelog
   --- SVN ---
-    Bug: Actions did not work with other plugins from Graphs and Data Sources pages
+    
 
 	--- 0.4.2 ---
     Bug: Fix for compatibility with other plugins using datasource action hook
@@ -41,6 +41,8 @@
     Bug: Allow the use of query_XYZ in CDEFs
     Bug: Fix host status page to only allow users to see hosts they have access to
     Bug: Fix ru_nswap errors on Windows
+    Bug: Actions did not work with other plugins from Graphs and Data Sources pages
+    Feature: Add support for RPN Expressions
 	
 	--- 0.4.1 ---
     Feature: Add thold statistics to settings table to allow graphing the results
