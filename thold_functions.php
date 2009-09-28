@@ -2168,7 +2168,8 @@ function thold_template_update_threshold ($id, $template) {
 		thold_data.percent_ds = thold_template.percent_ds,
 		thold_data.exempt = thold_template.exempt,
 		thold_data.data_template = thold_template.data_template_id,
-		thold_data.restored_alert = thold_template.restored_alert
+		thold_data.restored_alert = thold_template.restored_alert,
+		thold_data.expression = thold_template.expression
 		WHERE thold_data.id=$id AND thold_template.id=$template");
 	db_execute('DELETE FROM plugin_thold_alerts where threshold_id = ' . $id);
 	db_execute("INSERT INTO plugin_thold_alerts (threshold_id, repeat_fail, repeat_alert, type, data) SELECT $id, repeat_fail, repeat_alert, type, data FROM plugin_thold_template_alerts WHERE template_id = $template");
@@ -2198,7 +2199,8 @@ function thold_template_update_thresholds ($id) {
 		thold_data.exempt = thold_template.exempt,
 		thold_data.data_template = thold_template.data_template_id,
 		thold_data.restored_alert = thold_template.restored_alert,
-		thold_data.data_source_name = thold_template.data_source_name
+		thold_data.data_source_name = thold_template.data_source_name,
+		thold_data.expression = thold_template.expression
 		WHERE thold_data.template=$id AND thold_data.template_enabled='on' AND thold_template.id=$id");
 
 	$rows = db_fetch_assoc("SELECT id, template FROM thold_data WHERE thold_data.template=$id AND thold_data.template_enabled='on'");

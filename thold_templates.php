@@ -261,24 +261,14 @@ function template_save_edit() {
 	// High / Low
 	$save['thold_hi'] = $_POST['thold_hi'];
 	$save['thold_low'] = $_POST['thold_low'];
-	$save['thold_fail_trigger'] = $_POST['thold_fail_trigger'];
+
 	// Time Based
 	$save['time_hi'] = $_POST['time_hi'];
 	$save['time_low'] = $_POST['time_low'];
 
 	$save['time_fail_trigger'] = $_POST['time_fail_trigger'];
 	$save['time_fail_length'] = $_POST['time_fail_length'];
-/*
-	if (isset($_POST['thold_fail_trigger']) && $_POST['thold_fail_trigger'] != '')
-		$save['thold_fail_trigger'] = $_POST['thold_fail_trigger'];
-	else {
-		$alert_trigger = read_config_option('alert_trigger');
-		if ($alert_trigger != '' && is_numeric($alert_trigger))
-			$save['thold_fail_trigger'] = $alert_trigger;
-		else
-			$save['thold_fail_trigger'] = 5;
-	}
-*/
+
 	if (isset($_POST['thold_enabled']))
 		$save['thold_enabled'] = 'on';
 	else
@@ -326,22 +316,8 @@ function template_save_edit() {
 		else
 			$save['bl_fail_trigger'] = 3;
 	}
-/*
-	if (isset($_POST['repeat_alert']) && $_POST['repeat_alert'] != '')
-		$save['repeat_alert'] = $_POST['repeat_alert'];
-	else {
-		$alert_repeat = read_config_option('alert_repeat');
-		if ($alert_repeat != '' && is_numeric($alert_repeat))
-			$save['repeat_alert'] = $alert_repeat;
-		else
-			$save['repeat_alert'] = 12;
-	}
 
-	$save['notify_extra'] = $_POST['notify_extra'];
-*/
 	$save['cdef'] = $_POST['cdef'];
-
-
 	$save['data_type'] = $_POST['data_type'];
 	$save['percent_ds'] = $_POST['percent_ds'];
 	$save['expression'] = $_POST['expression'];
@@ -350,7 +326,6 @@ function template_save_edit() {
 		$id = sql_save($save, 'thold_template');
 		if ($id) {
 			raise_message(1);
-			thold_template_update_thresholds ($id);
 			plugin_thold_log_changes($id, 'modified_template', $save);
 		} else {
 			raise_message(2);
@@ -448,6 +423,7 @@ function template_save_edit() {
 	if ((is_error_message()) || (empty($_POST['id']))) {
 		header('Location: thold_templates.php?action=edit&id=' . (empty($id) ? $_POST['id'] : $id));
 	}else{
+		thold_template_update_thresholds ($id);
 		header('Location: thold_templates.php');
 	}
 }
@@ -1040,21 +1016,8 @@ if (isset($thold_item_data['id'])) {
 
 	form_save_button("thold_templates.php?id=" . $thold_item_data['id'], "save");
 }
-unset($template_data_rrds);
 
-/*
-	draw_edit_form(
-		array(
-			'config' => array(
-				'no_form_tag' => true
-				),
-			'fields' => $form_array
-			)
-	);
 
-	html_end_box();
-	form_save_button('thold_templates.php?id=' . $id, 'save');
-*/
 	?>
 	<!-- Make it look intelligent :) -->
 	<script language="JavaScript">
@@ -1156,7 +1119,7 @@ function templates() {
 
 	html_start_box('<strong>Threshold Templates</strong>', '100%', $colors['header'], '3', 'center', 'thold_templates.php?action=add');
 
-	html_header_checkbox(array('Name', 'Data Template', 'DS Name', 'Type', 'High', 'Low', 'Trigger', 'Duration', 'Repeat'));
+	html_header_checkbox(array('Name', 'Data Template', 'DS Name', 'Type', 'High', 'Low', 'Duration'));
 
 	$template_list = db_fetch_assoc('SELECT *
 		FROM thold_template
@@ -1173,9 +1136,7 @@ function templates() {
 			form_selectable_cell($types[$template['thold_type']], $template["id"]);
 			form_selectable_cell(($template['thold_type'] == 0 ? $template['thold_hi'] : $template['time_hi']), $template["id"]);
 			form_selectable_cell(($template['thold_type'] == 0 ? $template['thold_low'] : $template['time_low']), $template["id"]);
-			form_selectable_cell("<i><span style='white-space:nowrap;'>" . ($template['thold_type'] == 0 ? plugin_thold_duration_convert($template['data_template_id'], $template['thold_fail_trigger'], 'alert', 'data_template_id') : $template['time_fail_trigger']) . "</span></i>", $template["id"]);
 			form_selectable_cell(($template['thold_type'] == 2 ? plugin_thold_duration_convert($template['data_template_id'], $template['time_fail_length'], 'time', 'data_template_id') : ''), $template["id"]);
-			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id']);
 			form_checkbox_cell($template['data_template_name'], $template["id"]);
 			form_end_row();
 		}
