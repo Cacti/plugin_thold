@@ -25,16 +25,11 @@
 
 ----[ Future Changes
 
-	Threshold Escalation
-	Add feature to run scripts or do other things besides email
-
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
-  --- SVN ---
-    
 
-	--- 0.4.2 ---
+	--- 0.5 ---
     Bug: Fix for compatibility with other plugins using datasource action hook
     Bug: Re-add syslog messages for down hosts
     Bug: Fixed a few minor issues
@@ -43,6 +38,9 @@
     Bug: Fix ru_nswap errors on Windows
     Bug: Actions did not work with other plugins from Graphs and Data Sources pages
     Feature: Add support for RPN Expressions
+    Feature: Add support for Alert Escalation (Multiple Alerts per Threshold)
+    Feature: Add support for Alerts via Script Execution
+    Feature: Add support for Alerts via SNMP Writes
 	
 	--- 0.4.1 ---
     Feature: Add thold statistics to settings table to allow graphing the results

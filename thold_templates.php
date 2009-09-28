@@ -32,6 +32,8 @@ $ds_actions = array(
 	1 => 'Delete'
 	);
 
+$new_alerts = do_hook_function('thold_alert_array', array('email' => 'Email', 'snmp-write' => 'Snmp Write', 'script' => 'Script'));
+
 $action = '';
 if (isset($_POST['action'])) {
 	$action = $_POST['action'];
@@ -41,6 +43,12 @@ if (isset($_POST['action'])) {
 
 if (isset($_POST['drp_action']) && $_POST['drp_action'] == 1) {
 	$action = 'delete';
+}
+
+if (isset($_REQUEST['delete_alert']) && intval($_REQUEST['delete_alert']) > 0 && isset($_REQUEST['id']) && intval($_REQUEST['id']) > 0) {
+	thold_template_delete_alert($_REQUEST['delete_alert']);
+	header("Location: thold_templates.php?action=edit&id=" . $_REQUEST['id'] . "#alerts\n\n");
+	exit;
 }
 
 switch ($action) {
@@ -54,13 +62,19 @@ switch ($action) {
 		break;
 	case 'save':
 		if (isset($_POST['save']) && $_POST['save'] == 'edit') {
-			template_save_edit();
-
 			if (isset($_SESSION["graph_return"])) {
 				$return_to = $_SESSION["graph_return"];
 				unset($_SESSION["graph_return"]);
 				kill_session_var("graph_return");
 				header('Location: ' . $return_to);
+			} else if (isset($_REQUEST['new_alert']) && isset($_REQUEST['id']) && intval($_REQUEST['id']) > 0) {
+				if (isset($new_alerts[$_REQUEST['new_alert']])) {
+					thold_template_add_alert($_REQUEST['new_alert'], $_REQUEST['id']);
+					header("Location: thold_templates.php?action=edit&id=" . $_REQUEST['id'] . "#alerts\n\n");
+					exit;
+				}
+			} else {
+				template_save_edit();
 			}
 		} else if (isset($_POST['save']) && $_POST['save'] == 'add') {
 
@@ -83,7 +97,7 @@ function template_delete() {
 			input_validate_input_number($id);
 			plugin_thold_log_changes($id, 'deleted_template', array('id' => $id));
 			db_fetch_assoc("delete from thold_template where id = $id LIMIT 1");
-			db_execute('DELETE FROM plugin_thold_template_contact WHERE template_id=' . $id);
+			db_execute('DELETE FROM plugin_thold_template_alerts WHERE template_id=' . $id);
 			db_execute("UPDATE thold_data SET template = '', template_enabled = 'off' WHERE template = $id");
 		}
 	}
@@ -254,7 +268,7 @@ function template_save_edit() {
 
 	$save['time_fail_trigger'] = $_POST['time_fail_trigger'];
 	$save['time_fail_length'] = $_POST['time_fail_length'];
-
+/*
 	if (isset($_POST['thold_fail_trigger']) && $_POST['thold_fail_trigger'] != '')
 		$save['thold_fail_trigger'] = $_POST['thold_fail_trigger'];
 	else {
@@ -264,7 +278,7 @@ function template_save_edit() {
 		else
 			$save['thold_fail_trigger'] = 5;
 	}
-
+*/
 	if (isset($_POST['thold_enabled']))
 		$save['thold_enabled'] = 'on';
 	else
@@ -312,7 +326,7 @@ function template_save_edit() {
 		else
 			$save['bl_fail_trigger'] = 3;
 	}
-
+/*
 	if (isset($_POST['repeat_alert']) && $_POST['repeat_alert'] != '')
 		$save['repeat_alert'] = $_POST['repeat_alert'];
 	else {
@@ -324,6 +338,7 @@ function template_save_edit() {
 	}
 
 	$save['notify_extra'] = $_POST['notify_extra'];
+*/
 	$save['cdef'] = $_POST['cdef'];
 
 
@@ -335,18 +350,100 @@ function template_save_edit() {
 		$id = sql_save($save, 'thold_template');
 		if ($id) {
 			raise_message(1);
-			if (isset($_POST['notify_accounts'])) {
-				thold_save_template_contacts ($id, $_POST['notify_accounts']);
-			} else {
-				thold_save_template_contacts ($id, array());
-			}
 			thold_template_update_thresholds ($id);
-
 			plugin_thold_log_changes($id, 'modified_template', $save);
-		}else{
+		} else {
 			raise_message(2);
 		}
 	}
+
+	$alerts = array();
+	foreach ($_POST as $p => $v) {
+		if (substr($p, 0, 13) == 'repeat_alert_') {
+			$alerts[substr($p, 13)]['repeat_alert'] = $v;
+		}
+		if (substr($p, 0, 13) == 'notify_extra_') {
+			$alerts[substr($p, 13)]['notify_extra'] = $v;
+		}
+		if (substr($p, 0, 16) == 'notify_accounts_') {
+			$v = implode($v, ',');
+			$alerts[substr($p, 16)]['notify_accounts'] = $v;
+		}
+		if (substr($p, 0, 12) == 'repeat_fail_') {
+			$alerts[substr($p, 12)]['repeat_fail'] = $v;
+		}
+		if (substr($p, 0, 5) == 'type_') {
+			$alerts[substr($p, 5)]['type'] = $v;
+		}
+		if (substr($p, 0, 8) == 'oid_num_') {
+			$alerts[substr($p, 8)]['oid_num'] = $v;
+		}
+		if (substr($p, 0, 10) == 'community_') {
+			$alerts[substr($p, 10)]['community'] = $v;
+		}
+		if (substr($p, 0, 9) == 'oid_type_') {
+			$alerts[substr($p, 9)]['oid_type'] = $v;
+		}
+		if (substr($p, 0, 10) == 'oid_value_') {
+			$alerts[substr($p, 10)]['oid_value'] = $v;
+		}
+		if (substr($p, 0, 5) == 'path_') {
+			$alerts[substr($p, 5)]['path'] = $v;
+		}
+		if (substr($p, 0, 5) == 'args_') {
+			$alerts[substr($p, 5)]['args'] = $v;
+		}
+	}
+
+	$p = $config['base_path'] . '/plugins/thold/scripts/';
+	if ($handle = opendir($p)) {
+	    while (false !== ($file = readdir($handle))) {
+	        if ($file != "." && $file != ".." && $file != strtolower('index.php') && $file != strtolower('.htaccess') && !is_dir("$p$file")) {
+	            $scripts[] = $file;
+	        }
+	    }
+	    closedir($handle);
+	}
+
+	if (count($alerts)) {
+		foreach ($alerts as $p => $v) {
+			switch ($v['type']) {
+				case 'email':
+					$save = array();
+					$save['id'] = $p;
+					$save['template_id'] = $id;
+					$save['repeat_alert'] = $v['repeat_alert'];
+					$save['repeat_fail'] = $v['repeat_fail'];
+					$save['data'] = base64_encode(serialize(array('notify_accounts' => $v['notify_accounts'], 'notify_extra' => $v['notify_extra'])));
+					$aid = sql_save($save , 'plugin_thold_template_alerts');
+					break;
+				case 'snmp-write':
+					$save = array();
+					$save['id'] = $p;
+					$save['template_id'] = $id;
+					$save['repeat_alert'] = $v['repeat_alert'];
+					$save['repeat_fail'] = $v['repeat_fail'];
+					if (!isset($v['oid_host'])) $v['oid_host'] = '';
+					$save['data'] = base64_encode(serialize(array('oid_host' => $v['oid_host'], 'oid_num' => $v['oid_num'], 'community' => $v['community'], 'oid_type' => $v['oid_type'], 'oid_value' => $v['oid_value'])));
+					$aid = sql_save($save , 'plugin_thold_template_alerts');
+					break;
+				case 'script':
+					$save = array();
+					$save['id'] = $p;
+					$save['template_id'] = $id;
+					$save['repeat_alert'] = $v['repeat_alert'];
+					$save['repeat_fail'] = $v['repeat_fail'];
+					if (in_array($v['path'], $scripts)) {
+						$v['args'] = str_replace(array('|'), '', $v['args']);
+						$save['data'] = base64_encode(serialize(array('args' => $v['args'], 'path' => basename($v['path']))));
+					}
+					$aid = sql_save($save , 'plugin_thold_template_alerts');
+					break;
+			}
+		}
+	}
+
+	do_hook('thold_template_alert_save');
 
 	if ((is_error_message()) || (empty($_POST['id']))) {
 		header('Location: thold_templates.php?action=edit&id=' . (empty($id) ? $_POST['id'] : $id));
@@ -356,7 +453,7 @@ function template_save_edit() {
 }
 
 function template_edit() {
-	global $colors;
+	global $colors, $config, $new_alerts;
 
 	/* ================= input validation ================= */
 	input_validate_input_number(get_request_var('id'));
@@ -440,7 +537,7 @@ function template_edit() {
 		}
 	}
 
-	html_start_box('', '100%', $colors['header'], '3', 'center', '');
+	html_start_box('', '98%', $colors['header'], '3', 'center', '');
 	print "<form name='THold' action=thold_templates.php method=post><input type='hidden' name='save' value='edit'><input type='hidden' name='id' value='$id'>";
 	$form_array = array(
 		'general_header' => array(
@@ -518,14 +615,6 @@ function template_edit() {
 			'max_length' => 100,
 			'description' => 'If set and data source value goes below this number, alert will be triggered',
 			'value' => isset($thold_item_data['thold_low']) ? $thold_item_data['thold_low'] : ''
-		),
-		'thold_fail_trigger' => array(
-			'friendly_name' => 'Min Trigger Duration',
-			'method' => 'drop_array',
-			'array' => $alertarray,
-			'default' => read_config_option('alert_trigger'),
-			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
-			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : ''
 		),
 		'time_header' => array(
 			'friendly_name' => 'Time Based Settings',
@@ -651,38 +740,309 @@ function template_edit() {
 			RRDfile.  However, in all cases the selected Data Source is loaded on the stack first.',
 			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',
 			'width' => '255',
+			'max_length' => 70,
 			'size' => '80'
-		),
-		'other_header' => array(
-			'friendly_name' => 'Other setting',
-			'method' => 'spacer',
-		),
-
-		'repeat_alert' => array(
-			'friendly_name' => 'Re-Alert Cycle',
-			'method' => 'drop_array',
-			'array' => $repeatarray,
-			'default' => read_config_option('alert_repeat'),
-			'description' => 'Repeat alert after this amount of time has pasted since the last alert.',
-			'value' => isset($thold_item_data['repeat_alert']) ? $thold_item_data['repeat_alert'] : ''
-		),
-		'notify_accounts' => array(
-			'friendly_name' => 'Notify accounts',
-			'method' => 'drop_multi',
-			'description' => 'This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>',
-			'array' => $send_notification_array,
-			'sql' => $sql,
-		),
-		'notify_extra' => array(
-			'friendly_name' => 'Alert E-Mail',
-			'method' => 'textarea',
-			'textarea_rows' => 3,
-			'textarea_cols' => 50,
-			'description' => 'You may specify here extra e-mails to receive alerts for this data source (comma separated)',
-			'value' => isset($thold_item_data['notify_extra']) ? $thold_item_data['notify_extra'] : ''
 		),
 	);
 
+draw_edit_form(
+	array(
+		'config' => array(
+			'no_form_tag' => true
+			),
+		'fields' => $form_array + array(
+			'data_template_rrd_id' => array(
+				'method' => 'hidden',
+				'value' => (isset($template_rrd) ? $template_rrd['id'] : '0')
+			),
+		)
+	)
+);
+
+html_end_box();
+
+if (isset($thold_item_data['id'])) {
+	$template_id = $thold_item_data['id'];
+
+	print "<br><center><h1>Alerts</h1></center><a name='alerts'></a>";
+	$alerts = db_fetch_assoc('SELECT * FROM plugin_thold_template_alerts WHERE template_id = ' . $thold_item_data['id'] . ' ORDER BY repeat_fail, repeat_alert ASC');
+/*
+	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $thold_item_data['rra_id']);
+	$step = intval($step/60);
+	if ($step == 1) {
+		$repeatarray = array(0 => 'Never', 1 => 'Every Minute', 2 => 'Every 2 Minutes', 3 => 'Every 3 Minutes', 4 => 'Every 4 Minutes', 5 => 'Every 5 Minutes', 10 => 'Every 10 Minutes', 15 => 'Every 15 Minutes', 20 => 'Every 20 Minutes', 30 => 'Every 30 Minutes', 45 => 'Every 45 Minutes', 60 => 'Every Hour', 120 => 'Every 2 Hours', 180 => 'Every 3 Hours', 240 => 'Every 4 Hours', 360 => 'Every 6 Hours', 480 => 'Every 8 Hours', 720 => 'Every 12 Hours', 1440 => 'Every Day', 2880 => 'Every 2 Days', 10080 => 'Every Week', 20160 => 'Every 2 Weeks', 43200 => 'Every Month');
+	} else if ($step == 5) {
+		$repeatarray = array(0 => 'Never', 1 => 'Every 5 Minutes', 2 => 'Every 10 Minutes', 3 => 'Every 15 Minutes', 4 => 'Every 20 Minutes', 6 => 'Every 30 Minutes', 8 => 'Every 45 Minutes', 12 => 'Every Hour', 24 => 'Every 2 Hours', 36 => 'Every 3 Hours', 48 => 'Every 4 Hours', 72 => 'Every 6 Hours', 96 => 'Every 8 Hours', 144 => 'Every 12 Hours', 288 => 'Every Day', 576 => 'Every 2 Days', 2016 => 'Every Week', 4032 => 'Every 2 Weeks', 8640 => 'Every Month');
+	} else {
+		$repeatarray = array(0 => 'Never', 1 => 'Every Polling', 2 => 'Every 2 Pollings', 3 => 'Every 3 Pollings', 4 => 'Every 4 Pollings', 6 => 'Every 6 Pollings', 8 => 'Every 8 Pollings', 12 => 'Every 12 Pollings', 24 => 'Every 24 Pollings', 36 => 'Every 36 Pollings', 48 => 'Every 48 Pollings', 72 => 'Every 72 Pollings', 96 => 'Every 96 Pollings', 144 => 'Every 144 Pollings', 288 => 'Every 288 Pollings', 576 => 'Every 576 Pollings', 2016 => 'Every 2016 Pollings');
+	}
+	if ($step == 1) {
+		$alertarray = array(0 => 'Never', 1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 10 => '10 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
+	} else if ($step == 5) {
+		$alertarray = array(0 => 'Never', 1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => 'Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
+	} else {
+		$alertarray = array(0 => 'Never', 1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
+	}
+*/
+	if (count($alerts)) {
+		$p = $config['base_path'] . '/plugins/thold/scripts/';
+		if ($handle = opendir($p)) {
+		    while (false !== ($file = readdir($handle))) {
+		        if ($file != "." && $file != ".." && $file != strtolower('index.php') && $file != strtolower('.htaccess') && !is_dir("$p$file") && is_executable("$p$file")) {
+		            $scripts[$file] = $file;
+		        }
+		    }
+		    closedir($handle);
+		}
+
+		foreach ($alerts as $alert) {
+			switch ($alert['type']) {
+				case 'email':
+					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					$id = $alert['id'];
+					$alert['data'] = unserialize(base64_decode($alert['data']));
+					$alert['notify_extra'] = $alert['data']['notify_extra'];
+					if ($alert['data']['notify_accounts'] != '') {
+						$sql = 'SELECT id FROM plugin_thold_contacts WHERE id IN (' . $alert['data']['notify_accounts'] .')';
+					} else {
+						$sql = 'SELECT id FROM plugin_thold_contacts WHERE id = 0';
+					}
+					$form_array = array(
+						"alert_header_$id" => array(
+							"friendly_name" => "<table width='100%' cellpadding=0 cellspacing=0><tr><td><font color=white size=2><b>Email</b></font></td><td align=right><a href='thold_templates.php?delete_alert=$id&id=$template_id'><font color=white size=2><b>X</b></font></a></td></tr></table>",
+							"method" => "spacer",
+						),
+						"type_$id" => array(
+							"method" => "hidden",
+							"value" => 'email',
+						),
+						"repeat_fail_$id" => array(
+							"friendly_name" => "Alert After",
+							"method" => "drop_array",
+							"default" => '1',
+							"description" => "Alert after this number of failed polling intervals.",
+							"value" => isset($alert["repeat_fail"]) ? $alert["repeat_fail"] : "",
+							'array' => $alertarray,
+						),
+						"repeat_alert_$id" => array(
+							"friendly_name" => "Re-Alert Cycle",
+							"method" => "drop_array",
+							"default" => read_config_option("alert_repeat"),
+							"description" => "Repeat alert after specified number of cycles.",
+							"value" => isset($alert["repeat_alert"]) ? $alert["repeat_alert"] : "",
+							'array' => $repeatarray,
+						),
+						"notify_accounts_$id" => array(
+							"friendly_name" => "Notify accounts",
+							"method" => "drop_multi",
+							"description" => "This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>",
+							"array" => $send_notification_array,
+							"sql" => $sql,
+						),
+						"notify_extra_$id" => array(
+							"friendly_name" => "Extra Alert Emails",
+							"method" => "textbox",
+							"max_length" => 255,
+							"description" => "You may specify here extra e-mails to receive alerts for this data source (comma separated)",
+							"value" => isset($alert["notify_extra"]) ? $alert["notify_extra"] : ""
+						),
+					);
+					draw_edit_form(
+						array(
+							"config" => array(
+							"no_form_tag" => true
+							),
+						"fields" => $form_array,
+						)
+					);
+					html_end_box();
+					break;
+				case 'snmp-write':
+					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					$id = $alert['id'];
+					$data = $alert['data'];
+					$data = unserialize(base64_decode($data));
+					$form_array = array(
+						"alert_header_$id" => array(
+							"friendly_name" => "<table width='100%' cellpadding=0 cellspacing=0><tr><td><font color=white size=2><b>SNMP Write</b></font></td><td align=right><a href='thold_templates.php?delete_alert=$id&id=$template_id'><font color=white size=2><b>X</b></font></a></td></tr></table>",
+							"method" => "spacer",
+						),
+						"type_$id" => array(
+							"method" => "hidden",
+							"value" => 'snmp-write',
+						),
+						"repeat_fail_$id" => array(
+							"friendly_name" => "Alert After",
+							"method" => "drop_array",
+							"default" => '1',
+							"description" => "Alert after this number of failed polling intervals.",
+							"value" => isset($alert["repeat_fail"]) ? $alert["repeat_fail"] : "",
+							'array' => $alertarray,
+						),
+						"repeat_alert_$id" => array(
+							"friendly_name" => "Re-Alert Cycle",
+							"method" => "drop_array",
+							"default" => read_config_option("alert_repeat"),
+							"description" => "Repeat alert after specified number of cycles.",
+							"value" => isset($alert["repeat_alert"]) ? $alert["repeat_alert"] : "",
+							'array' => $repeatarray,
+						),
+/*
+						"oid_host_$id" => array(
+							"friendly_name" => "Host",
+							"method" => "textbox",
+							"max_length" => 255,
+							"description" => "The host to send the SNMP Write to (leave blank for current).",
+							"value" => isset($data["oid_host"]) ? stripslashes($data["oid_host"]) : ""
+						),
+*/
+						"community_$id" => array(
+							"friendly_name" => "Community",
+							"method" => "textbox",
+							"max_length" => 255,
+							"description" => "Specify the community name to use.",
+							"value" => isset($data["community"]) ? stripslashes($data["community"]) : ""
+						),
+						"oid_num_$id" => array(
+							"friendly_name" => "OID",
+							"method" => "textbox",
+							"max_length" => 255,
+							"description" => "Specify the OID to write to.",
+							"value" => isset($data["oid_num"]) ? stripslashes($data["oid_num"]) : ""
+						),
+						"oid_type_$id" => array(
+							"friendly_name" => "OID Type",
+							"method" => "drop_array",
+							"default" => '',
+							"description" => "Type of value to write to the OID.",
+							"value" => isset($data["oid_type"]) ? $data["oid_type"] : "",
+							'array' => array('i' => 'Integer', 'u' => 'Unsigned Integer', 't' => 'Timeticks', 'a' => 'IP Address', 'o' => 'OID', 's' => 'String', 'x' => 'Hex String', 'd' => 'Decimal String'),
+						),
+						"oid_value_$id" => array(
+							"friendly_name" => "Value",
+							"method" => "textbox",
+							"max_length" => 255,
+							"description" => "This is the value to send (Leave blank to send the current threshold value).",
+							"value" => isset($data["oid_value"]) ? stripslashes($data["oid_value"]) : ""
+						),
+
+					);
+					draw_edit_form(
+						array(
+							"config" => array(
+							"no_form_tag" => true
+							),
+						"fields" => $form_array,
+						)
+					);
+					html_end_box();
+
+					break;
+				case 'script':
+					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					$id = $alert['id'];
+					$data = $alert['data'];
+					$data = unserialize(base64_decode($data));
+					$form_array = array(
+						"alert_header_$id" => array(
+							"friendly_name" => "<table width='100%' cellpadding=0 cellspacing=0><tr><td><font color=white size=2><b>Script</b></font></td><td align=right><a href='thold_templates.php?delete_alert=$id&id=$template_id'><font color=white size=2><b>X</b></font></a></td></tr></table>",
+							"method" => "spacer",
+						),
+						"type_$id" => array(
+							"method" => "hidden",
+							"value" => 'script',
+						),
+						"repeat_fail_$id" => array(
+							"friendly_name" => "Alert After",
+							"method" => "drop_array",
+							"default" => '1',
+							"description" => "Alert after this number of failed polling intervals.",
+							"value" => isset($alert["repeat_fail"]) ? $alert["repeat_fail"] : "",
+							'array' => $alertarray,
+						),
+						"repeat_alert_$id" => array(
+							"friendly_name" => "Re-Alert Cycle",
+							"method" => "drop_array",
+							"default" => read_config_option("alert_repeat"),
+							"description" => "Repeat alert after specified number of cycles.",
+							"value" => isset($alert["repeat_alert"]) ? $alert["repeat_alert"] : "",
+							'array' => $repeatarray,
+						),
+						"path_$id" => array(
+							"friendly_name" => "Script Name",
+							"method" => "drop_array",
+							"description" => "Specify the name of the script.  It must reside in the thold/scripts/ directory.",
+							"value" => isset($data["path"]) ? stripslashes($data["path"]) : "",
+							'array' => $scripts,
+						),
+						"args_$id" => array(
+							"friendly_name" => "Script Arguments",
+							"method" => "textbox",
+							"max_length" => 255,
+							"description" => "Specify the extra arguments to pass to the script.",
+							"value" => isset($data["args"]) ? stripslashes($data["args"]) : ""
+						),
+					);
+					draw_edit_form(
+						array(
+							"config" => array(
+							"no_form_tag" => true
+							),
+						"fields" => $form_array,
+						)
+					);
+					html_end_box();
+
+					break;
+				default:
+					do_hook_function('thold_alert_show', array($item));
+					break;
+			}
+		}
+	}
+
+	form_save_button("thold_templates.php?id=" . $id, "save");
+	print "<br><center><h1>Add New Alerts</h1></center><a name='newalerts'></a>";
+
+	print '<form action=thold_templates.php method=post>';
+	print "<input type='hidden' name='id' value='" . $thold_item_data['id'] . "'>";
+	print "<input type='hidden' name='save' value='edit'>";
+
+	html_start_box("", "98%", $colors["header"], "3", "center", "");
+
+	$form_array = array(
+		"alert_header" => array(
+			"friendly_name" => "Email Alert",
+			"method" => "spacer",
+			),
+			"new_alert" => array(
+				"friendly_name" => "Add new alert",
+				"method" => "drop_array",
+				"default" => "NULL",
+				"description" => "",
+				"value" => 0,
+				"array" => $new_alerts
+			),
+	);
+
+	draw_edit_form(
+		array(
+			"config" => array(
+			"no_form_tag" => true
+			),
+			"fields" => $form_array,
+		)
+	);
+
+	html_end_box();
+	form_save_button("thold_templates.php?id=" . $thold_item_data['id'], "create");
+} else {
+
+	form_save_button("thold_templates.php?id=" . $thold_item_data['id'], "save");
+}
+unset($template_data_rrds);
+
+/*
 	draw_edit_form(
 		array(
 			'config' => array(
@@ -694,7 +1054,7 @@ function template_edit() {
 
 	html_end_box();
 	form_save_button('thold_templates.php?id=' . $id, 'save');
-
+*/
 	?>
 	<!-- Make it look intelligent :) -->
 	<script language="JavaScript">
@@ -707,7 +1067,6 @@ function template_edit() {
 		_f.bl_ref_time_range.disabled = status;
 		_f.bl_pct_down.disabled = status;
 		_f.bl_pct_up.disabled = status;
-		_f.bl_fail_trigger.disabled = status;
 	}
 
 	BL_EnableDisable();
@@ -764,7 +1123,6 @@ function template_edit() {
 		document.getElementById('row_thold_header').style.display  = status;
 		document.getElementById('row_thold_hi').style.display  = status;
 		document.getElementById('row_thold_low').style.display  = status;
-		document.getElementById('row_thold_fail_trigger').style.display  = status;
 	}
 
 	function thold_toggle_baseline (status) {

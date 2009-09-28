@@ -127,6 +127,7 @@ function thold_add_graphs_action_execute() {
 			$grapharr = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup and local_graph_id = $graph");
 
 			$desc = db_fetch_cell('SELECT name_cache FROM data_template_data WHERE local_data_id=' . $local_data_id . ' LIMIT 1');
+			$ds = db_fetch_row('SELECT data_source_type_id, rrd_heartbeat FROM data_template_rrd WHERE local_data_id = ' . $local_data_id . ' AND local_data_template_rrd_id = ' . $template['data_source_id'] );
 
 			$data_source_name = $template['data_source_name'];
 			$insert = array();
@@ -139,7 +140,7 @@ function thold_add_graphs_action_execute() {
 			$insert['graph_template']	  = $grapharr['graph_template_id'];
 			$insert['thold_hi']           = $template['thold_hi'];
 			$insert['thold_low']          = $template['thold_low'];
-			$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
+//			$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
 			$insert['thold_enabled']      = $template['thold_enabled'];
 			$insert['bl_enabled']         = $template['bl_enabled'];
 			$insert['bl_ref_time']        = $template['bl_ref_time'];
@@ -148,11 +149,14 @@ function thold_add_graphs_action_execute() {
 			$insert['bl_pct_up']          = $template['bl_pct_up'];
 			$insert['bl_fail_trigger']    = $template['bl_fail_trigger'];
 			$insert['bl_alert']           = $template['bl_alert'];
-			$insert['repeat_alert']       = $template['repeat_alert'];
-			$insert['notify_extra']       = $template['notify_extra'];
+//			$insert['repeat_alert']       = $template['repeat_alert'];
+//			$insert['notify_extra']       = $template['notify_extra'];
 			$insert['cdef']               = $template['cdef'];
 			$insert['template']           = $template['id'];
 			$insert['template_enabled']   = 'on';
+			$insert['data_source_name']   = 'on';
+			$insert['rrd_step']           = $ds['rrd_heartbeat'];
+			$insert['data_source_type_id'] = $ds['data_source_type_id'];
 
 			$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name='$data_source_name'");
 			$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
