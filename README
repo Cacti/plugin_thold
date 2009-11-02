@@ -41,6 +41,7 @@
     Feature: Add support for Alert Escalation (Multiple Alerts per Threshold)
     Feature: Add support for Alerts via Script Execution
     Feature: Add support for Alerts via SNMP Writes
+    Feature: Sort current values numerically on THold tab
 	
 	--- 0.4.1 ---
     Feature: Add thold statistics to settings table to allow graphing the results
