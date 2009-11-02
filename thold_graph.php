@@ -265,7 +265,11 @@ function tholds() {
 	html_end_box();
 
 	/* build the SQL query and WHERE clause */
-	$sort = $_REQUEST['sort_column'];
+	if ($_REQUEST['sort_column'] == 'lastread') {
+		$sort = $_REQUEST['sort_column'] . "/1";
+	}else{
+		$sort = $_REQUEST['sort_column'];
+	}
 	$limit = ' LIMIT ' . ($_REQUEST["rows"]*($_REQUEST['page']-1)) . "," . $_REQUEST["rows"];
 	$sql_where = '';
 
