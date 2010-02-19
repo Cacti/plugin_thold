@@ -1,33 +1,37 @@
 <?php
-/*******************************************************************************
-
-    Author ......... Aurelio DeSimone (Copyright 2005)
-    Home Site ...... http://www.ciscoconfigbuilder.com
-
-    Modified By .... Jimmy Conner
-    Contact ........ jimmy@sqmail.org
-    Home Site ...... http://cactiusers.org
-    Program ........ Thresholds for Cacti
-
-    Many contributions from Ranko Zivojnovic <ranko@spidernet.net>
-
-*******************************************************************************/
+/*
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2009 The Cacti Group                                      |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ |                                                                         |
+ | This program is distributed in the hope that it will be useful,         |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+ | GNU General Public License for more details.                            |
+ +-------------------------------------------------------------------------+
+ | Cacti: The Complete RRDTool-based Graphing Solution                     |
+ +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
+*/
 
 chdir('../../');
-include_once("./include/auth.php");
-include_once($config["base_path"] . "/plugins/thold/thold-functions.php");
+include_once('./include/auth.php');
+include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-
-
-$hostid="";
-if (isset($_REQUEST["hostid"])) {
-	if ($_REQUEST["hostid"] == 'ALL') {
-		$hostid = 'ALL';
-	} else {
-		input_validate_input_number(get_request_var_request("hostid"));
-		$hostid = $_REQUEST["hostid"];
-	}
-}
+/* global colors */
+$thold_bgcolors = array('red' => 'FF6044',
+	'yellow' => 'FAFD9E',
+	'orange' => 'FF7D00',
+	'green'  => 'CCFFCC',
+	'grey'   => 'CDCFC4');
 
 if (isset($_POST['drp_action'])) {
 	do_thold();
@@ -36,94 +40,283 @@ if (isset($_POST['drp_action'])) {
 	list_tholds();
 }
 
-
 function do_thold() {
 	global $hostid;
+
+	$tholds = array();
 	while (list($var,$val) = each($_POST)) {
-		if (ereg("^chk_(.*)_(.*)$", $var, $matches)) {
+		if (ereg("^chk_(.*)$", $var, $matches)) {
 			$del = $matches[1];
-			$rra = $matches[2];
+			$rra = db_fetch_cell("SELECT rra_id FROM thold_data WHERE id=$del");
+
 			input_validate_input_number($del);
-			input_validate_input_number($rra);
-			db_execute("DELETE FROM thold_data WHERE id=$del");
-			db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $del);
+			$tholds[$del] = $rra;
 		}
 	}
+
+	switch ($_POST['drp_action']) {
+		case 1:	// Delete
+			foreach ($tholds as $del => $rra) {
+				if (thold_user_auth_threshold ($rra)) {
+					plugin_thold_log_changes($del, 'deleted', array('id' => $del));
+					db_execute("DELETE FROM thold_data WHERE id=$del");
+					db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $del);
+				}
+			}
+			break;
+		case 2:	// Disabled
+			foreach ($tholds as $del => $rra) {
+				if (thold_user_auth_threshold ($rra)) {
+					plugin_thold_log_changes($del, 'disabled_threshold', array('id' => $del));
+					db_execute("UPDATE thold_data SET thold_enabled = 'off' WHERE id = $del");
+				}
+			}
+			break;
+		case 3:	// Enabled
+			foreach ($tholds as $del => $rra) {
+				if (thold_user_auth_threshold ($rra)) {
+					plugin_thold_log_changes($del, 'enabled_threshold', array('id' => $del));
+					db_execute("UPDATE thold_data SET thold_enabled = 'on' WHERE id = $del");
+				}
+			}
+			break;
+	}
+
 	if (isset($hostid) && $hostid != '')
-		Header("Location:listthold.php?hostid=$hostid");
+		Header('Location:listthold.php?hostid=$hostid');
 	else
-		Header("Location:listthold.php");
+		Header('Location:listthold.php');
+
 	exit;
 }
 
+/** 
+ *  This is a generic funtion for this page that makes sure that
+ *  we have a good request.  We want to protect against people who
+ *  like to create issues with Cacti.
+*/
+function thold_request_validation() {
+	global $title, $colors, $rows_selector, $config, $reset_multi;
+
+	/* ================= input validation ================= */
+	input_validate_input_number(get_request_var_request('rows'));
+	input_validate_input_number(get_request_var_request('page'));
+	/* ==================================================== */
+
+	/* clean up sort solumn */
+	if (isset($_REQUEST['sort_column'])) {
+		$_REQUEST['sort_column'] = sanitize_search_string(get_request_var('sort_column'));
+	}
+
+	/* clean up sort direction */
+	if (isset($_REQUEST['sort_direction'])) {
+		$_REQUEST['sort_direction'] = sanitize_search_string(get_request_var('sort_direction'));
+	}
+
+	/* if the user pushed the 'clear' button */
+	if (isset($_REQUEST['button_clear_x'])) {
+		kill_session_var('sess_thold_rows');
+		kill_session_var('sess_thold_page');
+		kill_session_var('sess_thold_sort_column');
+		kill_session_var('sess_thold_sort_direction');
+		kill_session_var('sess_thold_hostid');
+		kill_session_var('sess_thold_state');
+		kill_session_var('sess_thold_template');
+
+		$_REQUEST['page'] = 1;
+		unset($_REQUEST['rows']);
+		unset($_REQUEST['page']);
+		unset($_REQUEST['sort_column']);
+		unset($_REQUEST['sort_direction']);
+		unset($_REQUEST['hostid']);
+		unset($_REQUEST['template']);
+		unset($_REQUEST['state']);
+		$reset_multi = true;
+	}else{
+		/* if any of the settings changed, reset the page number */
+		$changed = 0;
+		$changed += thold_request_check_changed('rows', 'sess_thold_rows');
+		$changed += thold_request_check_changed('page', 'sess_thold_page');
+		$changed += thold_request_check_changed('sort_column', 'sess_thold_sort_column');
+		$changed += thold_request_check_changed('sort_direction', 'sess_thold_sort_direction');
+		$changed += thold_request_check_changed('hostid', 'sess_thold_hostid');
+		$changed += thold_request_check_changed('state', 'sess_thold_state');
+		$changed += thold_request_check_changed('template', 'sess_thold_template');
+		if ($changed) {
+			$_REQUEST['page'] = '1';
+		}
+
+		$reset_multi = false;
+	}
+
+	/* remember search fields in session vars */
+	load_current_session_value('rows', 'sess_thold_rows', read_config_option('num_rows_thold'));
+	load_current_session_value('page', 'sess_thold_current_page', '1');
+	load_current_session_value('sort_column', 'sess_thold_sort_column', 'thold_alert');
+	load_current_session_value('sort_direction', 'sess_thold_sort_direction', 'DESC');
+	load_current_session_value('state', 'sess_thold_state', 'Triggered');
+	load_current_session_value('hostid', 'sess_thold_hostid', '');
+	load_current_session_value('template', 'sess_thold_template', '');
+}
+
+function thold_request_check_changed($request, $session) {
+	if ((isset($_REQUEST[$request])) && (isset($_SESSION[$session]))) {
+		if ($_REQUEST[$request] != $_SESSION[$session]) {
+			return 1;
+		}
+	}
+}
+
 function list_tholds() {
-	global $colors, $config, $hostid;
+	global $colors, $thold_bgcolors, $config, $hostid;
 
-	$ds_actions = array(1 => "Delete");
+	$ds_actions = array(1 => 'Delete', 2 => 'Disable', 3 => 'Enable');
 
-	load_current_session_value("page", "sess_thold_current_page", "1");
+	thold_request_validation();
 
-	$alert_num_rows = read_config_option("alert_num_rows");
+	$statefilter='';
+	if (isset($_REQUEST['state'])) {
+		if ($_REQUEST['state'] == 'ALL') {
+			$statefilter = '';
+		} else {
+			if($_REQUEST['state'] == 'Disabled') { $statefilter = "thold_data.thold_enabled='off'"; }
+			if($_REQUEST['state'] == 'Enabled') { $statefilter = "thold_data.thold_enabled='on'"; }
+			if($_REQUEST['state'] == 'Triggered') { $statefilter = 'thold_data.thold_alert!=0'; }
+		}
+	}
+
+	$alert_num_rows = read_config_option('alert_num_rows');
 	if ($alert_num_rows < 1 || $alert_num_rows > 999) {
 		db_execute("REPLACE INTO settings VALUES ('alert_num_rows', 30)");
 		/* pull it again so it updates the cache */
-		$alert_num_rows = read_config_option("alert_num_rows", true);
+		$alert_num_rows = read_config_option('alert_num_rows', true);
 	}
 
-	include($config["include_path"] . "/top_header.php");
-	if (isset($_REQUEST["search"]) && $hostid != "ALL") {
-		$sql = "SELECT * FROM thold_data WHERE host_id='$hostid' ORDER BY thold_alert DESC, bl_alert DESC, rra_id ASC limit " . ($alert_num_rows*($_REQUEST["page"]-1)) . ",$alert_num_rows";
-	} else {
-		$sql = "SELECT thold_data.*, host.description FROM thold_data left join host on thold_data.host_id=host.id ORDER BY thold_alert DESC, bl_alert DESC, host.description, rra_id ASC limit " . ($alert_num_rows*($_REQUEST["page"]-1)) . ",$alert_num_rows";
+	include($config['include_path'] . '/top_header.php');
+
+	$sql_where = '';
+
+	$sort = $_REQUEST['sort_column'];
+	$limit = ' LIMIT ' . ($alert_num_rows*($_REQUEST['page']-1)) . ",$alert_num_rows";
+
+	if (!empty($_REQUEST['hostid']) && $_REQUEST['hostid'] != 'ALL') {
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_data.host_id = " . $_REQUEST['hostid'];
+	}
+	if (!empty($_REQUEST['template']) && $_REQUEST['template'] != 'ALL') {
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_data.data_template = " . $_REQUEST['template'];
+	}
+	if($statefilter != '') {
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "$statefilter";
 	}
 
+	$current_user = db_fetch_row('SELECT * FROM user_auth WHERE id=' . $_SESSION['sess_user_id']);
+	$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
+
+	$sql = "SELECT * FROM thold_data
+		LEFT JOIN user_auth_perms on ((thold_data.graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.host_id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.graph_template=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
+		$sql_where
+		ORDER BY $sort " . $_REQUEST['sort_direction'] .
+		$limit;
 	$result = db_fetch_assoc($sql);
 
-	html_start_box("<strong>Threshold Management</strong>" , "98%", $colors["header"], "3", "center", "");
-	print "<tr bgcolor='#" . $colors["header_panel"] . "'>
-		<td class='textSubHeaderDark'><Br> &nbsp; <b> To add more elements - go to:<br>
-			&nbsp; &nbsp; &nbsp; 'Data Sources' -> 'select a host' (on top) -> and click the 'Template Name / Click for THold' section for the desired element
-		</td>
-	 </tr>
-        <tr bgcolor='#" . $colors["header_panel"] . "'>
-                <td class='textSubHeaderDark'><Br> &nbsp; <b> You can also auto-create thresholds per device - go to:<br>
-		&nbsp; &nbsp; &nbsp; '<a href=\"thold_templates.php\">Templates</a>' -> Click on '<a href=\"thold_templates.php?action=add\">Add</a>' in the upper right corner -> Now select a graph, and setup your threshold template<br>
-		&nbsp; &nbsp; &nbsp; 'Devices' -> Click on the desired device -> Click on 'Create graphs for this host' -> Click on 'Auto-create thresholds'
-		</td>
-        </tr>
-	 <tr bgcolor='#" . $colors["header_panel"] . "'>
-        	<td class='textSubHeaderDark'><Br> &nbsp; <b>  To edit an existing element, click the Description below</td>
-        </tr>	";
+	$sql_where_hid    = 'WHERE ' . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
+	$hostresult = db_fetch_assoc("SELECT DISTINCT host.id, host.description, host.hostname
+		FROM host
+		INNER JOIN thold_data ON (host.id = thold_data.host_id)
+		LEFT JOIN user_auth_perms on (thold_data.host_id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		$sql_where_hid
+		ORDER BY description");
 
-	$hostresult = db_fetch_assoc("SELECT id, description, hostname from host order by description");
+	$data_templates = db_fetch_assoc("SELECT DISTINCT data_template.id, data_template.name
+		FROM data_template
+		INNER JOIN thold_data ON (thold_data.data_template = data_template.id)
+		ORDER BY data_template.name");
 
-	echo "<tr><td align=center><form action=listthold.php method=post><input type=hidden name=search value=search>Filter by host:	<select name=hostid>";
-	echo "<option value=ALL>Show All</option>";
-	foreach ($hostresult as $row) { 
-		echo "<option value='" . $row["id"] . "'" . ($row["id"] == $hostid ? " selected" : "") . ">" . $row["description"] . " - (" . $row["hostname"] . ")" . "</option>";
+	?>
+	<script type="text/javascript">
+	<!--
+
+	function applyTHoldFilterChange(objForm) {
+		strURL = '?hostid=' + objForm.hostid.value;
+		strURL = strURL + '&state=' + objForm.state.value;
+		strURL = strURL + '&template=' + objForm.template.value;
+		document.location = strURL;
 	}
-	echo "	</select><input type=image src='" . $config['url_path'] . "images/button_go.gif' alt='GO' align='top' action='submit'></form></td></tr>";
+
+	-->
+	</script>
+	<?php
+
+	html_start_box('<strong>Threshold Management</strong>' , '100%', $colors['header'], '3', 'center', 'thold_add.php');
+	?>
+	<tr bgcolor="<?php print $colors["panel"];?>" class="noprint">
+		<form name="listthold" action=listthold.php method=post>
+		<input type=hidden name=search value=search>
+		<td class="noprint">
+			<table cellpadding="0" cellspacing="0">
+				<tr class="noprint">
+					<td nowrap style='white-space: nowrap;' width="1">
+						Host:&nbsp;
+					</td>
+					<td width='1'>
+						<select name='hostid' onChange='applyTHoldFilterChange(document.listthold)'>
+							<option value=ALL>Any</option>
+							<?php
+							foreach ($hostresult as $row) {
+								echo "<option value='" . $row['id'] . "'" . (isset($_REQUEST['hostid']) && $row['id'] == $_REQUEST['hostid'] ? ' selected' : '') . '>' . $row['description'] . ' - (' . $row['hostname'] . ')' . '</option>';
+							}
+							?>
+						</select>
+					</td>
+					<td nowrap style='white-space: nowrap;' width="1">
+						&nbsp;Template:&nbsp;
+					</td>
+					<td width='1'>
+						<select name=template onChange='applyTHoldFilterChange(document.listthold)'>
+							<option value=ALL>Any</option>
+							<?php
+							foreach ($data_templates as $row) {
+								echo "<option value='" . $row['id'] . "'" . (isset($_REQUEST['template']) && $row['id'] == $_REQUEST['template'] ? ' selected' : '') . '>' . $row['name'] . '</option>';
+							}
+							?>
+						</select>
+					</td>
+					<td nowrap style='white-space: nowrap;' width="1">
+						&nbsp;State:&nbsp;
+					</td>
+					<td width='1'>
+						<select name=state onChange='applyTHoldFilterChange(document.listthold)'>
+							<option value=ALL>Any</option>
+							<?php
+							foreach (array('Disabled','Enabled','Triggered') as $row) {
+								echo "<option value='" . $row . "'" . (isset($_REQUEST['state']) && $row == $_REQUEST['state'] ? ' selected' : '') . '>' . $row . '</option>';
+							}
+							?>
+						</select>
+					</td>
+					<td nowrap style='white-space: nowrap;'>
+						&nbsp;<input type='image' name='button_clear' src='<?php print $config["url_path"];?>images/button_clear.gif' alt='Return to the default time span' border='0' align='absmiddle' action='submit'>
+					</td>
+				</tr>
+			</table>
+		</td>
+		</form>
+	</tr>
+	<?php
+
 	html_end_box();
 
-	print "<br><center><b>Last Poll: </b>";
+	define('MAX_DISPLAY_PAGES', 21);
 
-	$thold_last_poll = read_config_option("thold_last_poll");
+	$total_rows = count(db_fetch_assoc("SELECT thold_data.id FROM thold_data
+		LEFT JOIN user_auth_perms on ((thold_data.graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.host_id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.graph_template=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
+		$sql_where"));
 
-	if ($thold_last_poll > 0 && $thold_last_poll != '') {
-		echo $thold_last_poll;
-	} else {
-		echo "Poller has not yet ran!";
-	}
+	$url_page_select = get_page_list($_REQUEST['page'], MAX_DISPLAY_PAGES, $alert_num_rows, $total_rows, 'listthold.php?');
 
-	print "</center><br>";
-    
-	define("MAX_DISPLAY_PAGES", 21);
-	$total_rows = db_fetch_cell("SELECT COUNT(thold_data.id) FROM `thold_data`");
-	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $alert_num_rows, $total_rows, "listthold.php?");
-
-	html_start_box("", "98%", $colors["header"], "4", "center", "");
-	$nav = "<tr bgcolor='#" . $colors["header"] . "'>
-			<td colspan='10'>
+	html_start_box('', '100%', $colors['header'], '4', 'center', '');
+	$nav = "<tr bgcolor='#" . $colors['header'] . "'>
+			<td colspan='12'>
 				<table width='100%' cellspacing='0' cellpadding='0' border='0'>
 					<tr>
 						<td align='left' class='textHeaderDark'>
@@ -141,69 +334,81 @@ function list_tholds() {
 		</tr>\n";
 
 	print $nav;
-	html_header_checkbox(array("Description", "High Threshold", "Low Threshold", "Trigger", "Repeat", "Baselining", "Current", "Currently Triggered", "Enabled"));
+
+	$display_text = array(
+		'name' => array('Name', 'ASC'),
+		'thold_type' => array('Type', 'ASC'),
+		'thold_hi' => array('High', 'ASC'),
+		'thold_low' => array('Low', 'ASC'),
+		'time_fail_length' => array('Duration', 'ASC'),
+		'lastread' => array('Current', 'ASC'),
+		'thold_alert' => array('Triggered', 'ASC'),
+		'thold_enabled' => array('Enabled', 'ASC'));
+
+	html_header_sort_checkbox($display_text, $_REQUEST['sort_column'], $_REQUEST['sort_direction']);
 
 	$c=0;
 	$i=0;
-	foreach ($result as $row) {
-		$c++;
-		$t = db_fetch_assoc("select id,name,name_cache from data_template_data where local_data_id=" . $row["rra_id"] . " LIMIT 1");
+	$types = array('High/Low', 'Baseline', 'Time Based');
+	if (count($result)) {
+		foreach ($result as $row) {
+			$c++;
 
-		if (isset($t[0]["name_cache"]))
-			$desc_rra = $t[0]["name_cache"];
-		else
-			$desc_rra = "";	
-		unset($t);
-		$ds_item_desc = db_fetch_assoc("select id,data_source_name from data_template_rrd where id = " . $row["data_id"]);
+			$grapharr = db_fetch_row('SELECT DISTINCT graph_templates_item.local_graph_id
+						FROM graph_templates_item, data_template_rrd
+						where (data_template_rrd.local_data_id=' . $row['rra_id'] . ' AND data_template_rrd.id=graph_templates_item.task_item_id)');
+			$graph_id = $grapharr['local_graph_id'];
 
-		$grapharr = db_fetch_row("SELECT DISTINCT graph_templates_item.local_graph_id
-					FROM graph_templates_item, data_template_rrd
-					where (data_template_rrd.local_data_id=" . $row["rra_id"] . " AND data_template_rrd.id=graph_templates_item.task_item_id)");
-		$graph_id = $grapharr['local_graph_id'];
-
-		if ($row["thold_alert"] != 0) {
-			$alertstat="yes";
-			$bgcolor=($row["thold_fail_count"] >= $row["thold_fail_trigger"] ? "red" : "yellow");
-		} else {
-			$alertstat="no";
-			$bgcolor="green";
-			if($row["bl_enabled"] == "on") {
-				if($row["bl_alert"] == 1) {
-					$alertstat="baseline-LOW";
-					$bgcolor=($row["bl_fail_count"] >= $row["bl_fail_trigger"] ? "orange" : "yellow");
-					} elseif ($row["bl_alert"] == 2)  {
-					$alertstat="baseline-HIGH";
-					$bgcolor=($row["bl_fail_count"] >= $row["bl_fail_trigger"] ? "orange" : "yellow");
+			if ($row['thold_alert'] != 0) {
+				$alertstat='yes';
+				$bgcolor=($row['thold_fail_count'] >= $row['thold_fail_trigger'] ? 'red' : 'yellow');
+			} else {
+				$alertstat='no';
+				$bgcolor='green';
+				if($row['bl_enabled'] == 'on') {
+					if($row['bl_alert'] == 1) {
+						$alertstat='baseline-LOW';
+						$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
+					} elseif ($row['bl_alert'] == 2)  {
+						$alertstat='baseline-HIGH';
+						$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
+					}
 				}
-			}
-		};
-		if (!isset($ds_item_desc[0]["data_source_name"]))
-			$ds_item_desc[0]["data_source_name"] = "Unknown Data Source";	
-		form_alternate_row_color($colors["alternate"],$colors["light"],$i); $i++;
-?>
-       	<td><a href="thold.php?rra=<?php echo $row["rra_id"]; ?>&view_rrd=<?php echo $row["data_id"]; ?>"><b><?php echo $desc_rra; ?> [<?php echo $ds_item_desc[0]["data_source_name"]; ?>]</b></a></td>
-		<td<?php echo ($row["thold_alert"] == 2 ? (" bgcolor='" . $bgcolor . "'") : ""); ?>><?php echo ($row["thold_hi"] == "" ? "n/a" : $row["thold_hi"]); ?></td>
-		<td<?php echo ($row["thold_alert"] == 1 ? (" bgcolor='" . $bgcolor . "'") : ""); ?>><?php echo ($row["thold_low"] == "" ? "n/a" : $row["thold_low"]); ?></td>
-		<td><?php echo ($row["thold_fail_trigger"] == "" ? 'n/a' : $row["thold_fail_trigger"]); ?></td>
-		<td><?php echo ($row["repeat_alert"] == "" ? 'n/a' : $row["repeat_alert"]); ?></td>
-		<td<?php echo (($row["bl_enabled"] == "on" && $row["bl_alert"] > 0) ? (" bgcolor='" . $bgcolor . "'") : ""); ?>><?php echo $row["bl_enabled"]; ?></td>
-		<td<?php echo ($bgcolor != "green" ? (" bgcolor='" . $bgcolor . "'") : ""); ?>><?php echo $row["lastread"]; ?></td>
-		<td<?php echo ($bgcolor != "green" ? (" bgcolor='" . $bgcolor . "'") : ""); ?>>
-		<?php echo $alertstat ?> 
-		</td>
-		<td><?php echo (($row["thold_enabled"] == "off") ? ("<font color='red'><b>") : ""); echo $row["thold_enabled"]; echo (($row["thold_enabled"] == "off") ? ("</b></font>") : "");?></td>
-		<td style="<?php print get_checkbox_style();?>" width="1%" align="right">
-			<input type='checkbox' style='margin: 0px;' name='chk_<?php print $row["id"];?>_<?php print $row["rra_id"];?>' title="<?php print $row["id"];?>">
-		</td>
-		</tr>
-<?php
-	}
-	html_end_box(false);
-	draw_actions_dropdown($ds_actions);
-	if (isset($hostid) && $hostid != '')
-	print "<input type=hidden name=hostid value=$hostid>";
-	print "</form>\n";
-	print "<br><br><center>For default alerting settings please click <a href='" . $config['url_path'] . "settings.php?tab=alerts'>here</a></center>";
-	include_once($config["include_path"] . "/bottom_footer.php");
-}
+			};
 
+			if ($row['thold_enabled'] == 'off') {
+				form_alternate_row_color($thold_bgcolors['grey'], $thold_bgcolors['grey'], $i, 'line' . $row["id"]); $i++;
+			}else{
+				form_alternate_row_color($thold_bgcolors[$bgcolor], $thold_bgcolors[$bgcolor], $i, 'line' . $row["id"]); $i++;
+			}
+			form_selectable_cell("<a class='linkEditMain' href='thold.php?rra=" . $row['rra_id'] . "&view_rrd=" . $row['data_id'] . "'><b>" . ($row['name'] != '' ? $row['name'] : $row['name_cache'] . " [" . $row['data_source_name'] . ']') . '</b></a>', $row['id']);
+			form_selectable_cell($types[$row['thold_type']], $row["id"]);
+			form_selectable_cell(($row['thold_type'] == 0 ? $row['thold_hi'] : ($row['thold_type'] == 2 ? $row['time_hi'] : '')), $row["id"]);
+			form_selectable_cell(($row['thold_type'] == 0 ? $row['thold_low'] : ($row['thold_type'] == 2 ? $row['time_low'] : '')), $row["id"]);
+//			form_selectable_cell(($row['thold_type'] == 0 ? ("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i>") : ($row['thold_type'] == 2 ? ("<i>" . $row['time_fail_trigger'] . "</i>") : '')), $row["id"]);
+			form_selectable_cell(($row['thold_type'] == 2 ? plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time') : ''), $row["id"]);
+//			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')), $row["id"]);
+			form_selectable_cell($row['lastread'], $row["id"]);
+			form_selectable_cell($alertstat, $row["id"]);
+			form_selectable_cell((($row['thold_enabled'] == 'off') ? "Disabled": "Enabled"), $row["id"]);
+			form_checkbox_cell($row['name'], $row['id']);
+			form_end_row();
+		}
+	} else {
+		form_alternate_row_color($colors['alternate'],$colors['light'],0);
+		print '<td colspan=12><center>No Thresholds</center></td></tr>';
+	}
+	print $nav;
+
+	html_end_box(false);
+
+	thold_legend();
+
+	draw_actions_dropdown($ds_actions);
+
+	if (isset($hostid) && $hostid != '')
+		print "<input type=hidden name=hostid value=$hostid>";
+	print "</form>\n";
+
+	include_once($config['include_path'] . '/bottom_footer.php');
+}
