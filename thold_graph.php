@@ -359,7 +359,7 @@ function tholds() {
 			$bgcolor = 'green';
 			if ($row['thold_alert'] != 0) {
 				$alertstat='yes';
-				$bgcolor=($row['thold_fail_count'] >= $row['thold_fail_trigger'] ? 'red' : 'yellow');
+				$bgcolor='red';	// ($row['thold_fail_count'] >= $row['thold_fail_trigger'] ? 'red' : 'yellow');
 			} else {
 				$alertstat='no';
 				$bgcolor='green';
