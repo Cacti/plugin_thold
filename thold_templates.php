@@ -208,7 +208,7 @@ function template_add() {
 		$data_template_id = $_REQUEST['data_template_id'];
 		$data_source_id = $_REQUEST['data_source_id'];
 
-		$save['id'] = '';
+		$save['id'] = 0;
 		$save['data_template_id'] = $data_template_id;
 
 		$temp = db_fetch_assoc('select id, name from data_template where id=' . $data_template_id);
@@ -230,7 +230,7 @@ function template_add() {
 		$save['thold_enabled'] = 'on';
 		$save['thold_type'] = 0;
 		$save['bl_enabled'] = 'off';
-		$save['repeat_alert'] = read_config_option('alert_repeat');
+
 		$id = sql_save($save, 'thold_template');
 
 		if ($id) {
