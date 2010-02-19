@@ -197,6 +197,9 @@ function list_tholds() {
 	$sql_where = '';
 
 	$sort = $_REQUEST['sort_column'];
+	if ($sort == "lastread" || $sort == "thold_hi" || $sort == "thold_low") {
+		$sort = "($sort + 0)";
+	}
 	$limit = ' LIMIT ' . ($alert_num_rows*($_REQUEST['page']-1)) . ",$alert_num_rows";
 
 	if (!empty($_REQUEST['hostid']) && $_REQUEST['hostid'] != 'ALL') {
