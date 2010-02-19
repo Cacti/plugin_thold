@@ -2088,7 +2088,6 @@ function autocreate($hostid) {
 
 					$insert['thold_hi'] = $template[$y]['thold_hi'];
 					$insert['thold_low'] = $template[$y]['thold_low'];
-					$insert['thold_fail_trigger'] = $template[$y]['thold_fail_trigger'];
 					$insert['thold_enabled'] = $template[$y]['thold_enabled'];
 					$insert['bl_enabled'] = $template[$y]['bl_enabled'];
 					$insert['bl_ref_time'] = $template[$y]['bl_ref_time'];
@@ -2097,8 +2096,6 @@ function autocreate($hostid) {
 					$insert['bl_pct_up'] = $template[$y]['bl_pct_up'];
 					$insert['bl_fail_trigger'] = $template[$y]['bl_fail_trigger'];
 					$insert['bl_alert'] = $template[$y]['bl_alert'];
-					$insert['repeat_alert'] = $template[$y]['repeat_alert'];
-					$insert['notify_extra'] = $template[$y]['notify_extra'];
 					$insert['cdef'] = $template[$y]['cdef'];
 					$insert['template'] = $template[$y]['id'];
 					$insert['template_enabled'] = 'on';
