@@ -873,13 +873,6 @@ function display_thold_logs () {
 	$limit = ' LIMIT ' . ($_REQUEST["rows"]*($_REQUEST['page']-1)) . "," . $_REQUEST["rows"];
 	$sql_where = 'WHERE thold_data.id = plugin_thold_log.threshold_id ';
 
-	/* triggered filter */
-	if ($_REQUEST['triggered'] == '-1') {
-		/* return all rows */
-	} else {
-		if($_REQUEST['triggered'] == '1') { $sql_where = "WHERE plugin_thold_log.status!=0"; } /* triggered */
-	}
-
 	if (strlen($_REQUEST["filter"])) {
 		$sql_where .= (strlen($sql_where) ? " AND": "WHERE") . " thold_data.name like '%%" . $_REQUEST["filter"] . "%%'";
 	}
@@ -902,10 +895,11 @@ function display_thold_logs () {
 	$sql = "SELECT plugin_thold_log.*, thold_data.rra_id, thold_data.data_id ,thold_data.name, thold_data.thold_hi, thold_data.thold_low, thold_data.thold_type FROM thold_data, plugin_thold_log
 		LEFT JOIN user_auth_perms ON ((plugin_thold_log.graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (plugin_thold_log.host_id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
 		$sql_where
-		ORDER BY $sort " . $_REQUEST['sort_direction'] .
-		$limit;
+		ORDER BY plugin_thold_log.time DESC
+		$limit ";
 
 	$result = db_fetch_assoc($sql);
+
 
 	html_start_box('', '100%', $colors['header'], '4', 'center', '');
 
@@ -933,15 +927,16 @@ function display_thold_logs () {
 	print $nav;
 
 	$display_text = array(
-		'nosort' => array('Actions', ''),
-		'name' => array('Name', 'ASC'),
-		'id' => array('ID', 'ASC'),
-		'thold_type' => array('Type', 'ASC'),
-		'thold_hi' => array('High', 'ASC'),
-		'thold_low' => array('Low', 'ASC'),
-		'lastread' => array('Current', 'ASC'));
+		'Date', 
+		'Actions',
+		'Name',
+		'ID',
+		'Type',
+		'High',
+		'Low',
+		'Current');
 
-	html_header_sort($display_text, $_REQUEST['sort_column'], $_REQUEST['sort_direction']);
+	html_header($display_text);
 
 	$c=0;
 	$i=0;
@@ -968,6 +963,7 @@ function display_thold_logs () {
 			print "<a href='". $config['url_path'] . "graph.php?local_graph_id=" . $row['graph_id'] . "&rra_id=all'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='View Graph' title='View Graph'></a>";
 
 			print "</td>";
+			print "<td>" . date("m/j/y h:i:s", $row['time']) . "</td>";
 			print "<td>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
 			print "<td width='10'>" . $row["threshold_id"] . "</td>";
 			print "<td width='80'>" . $types[$row['thold_type']] . "</td>";

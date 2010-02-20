@@ -256,7 +256,7 @@ function thold_send_alert($item, $status = true) {
 	if ($status) {
 		$rows = db_fetch_assoc('SELECT * FROM plugin_thold_alerts WHERE threshold_id = ' . $item['id'] . ' AND (repeat_fail = ' . $item['thold_fail_count'] . ' OR MOD(' . $item['thold_fail_count'] . ', repeat_alert) = 0)');
 	} else {
-		$rows = db_fetch_assoc('SELECT * FROM plugin_thold_alerts WHERE threshold_id = ' . $item['id'] . ' AND repeat_alert < ' . ($item['thold_fail_count'] + 1));
+		$rows = db_fetch_assoc('SELECT * FROM plugin_thold_alerts WHERE threshold_id = ' . $item['id'] . ' AND repeat_fail < ' . ($item['thold_fail_count'] + 1));
 	}
 
 	if (count($rows)) {
@@ -1093,13 +1093,13 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			} else {
 				$alert_emails = $thold['notify_extra'];
 			}
-
+*/
 			if ($message['id'] > 0) {
 				$desc = "Modified Threshold  User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
 			} else {
 				$desc = "Created Threshold  User: $user  ID:  <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
 			}
-*/
+
 			$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template']);
 
 			$desc .= '  DataTemplate: ' . $tname;
@@ -1342,11 +1342,12 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				db_execute('UPDATE thold_data SET thold_alert=' . $item['thold_alert'] . ', thold_fail_count=' . $item['thold_fail_count'] . ' WHERE id = ' . $item['id']);
 			} else {
 				if ($alertstat != 0) {
-					if ($logset == 1)
+					if ($logset == 1) {
 						logger($desc, 'ok', 0, $currentval, $trigger, $item['thold_fail_count']);
+					}
+
 					if ($item['thold_fail_count'] >= $trigger) {
 						$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
-
 						if ($item['restored_alert'] != 'on') {
 							$item['subject'] = $subject;
 							$item['msg'] = $msg;
