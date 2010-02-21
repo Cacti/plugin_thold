@@ -912,9 +912,9 @@ function template_alert_edit () {
 					$alert['data'] = unserialize(base64_decode($alert['data']));
 					$alert['notify_extra'] = $alert['data']['notify_extra'];
 					if ($alert['data']['notify_accounts'] != '') {
-						$sql = 'SELECT id FROM plugin_thold_threshold_contacts WHERE id IN (' . $alert['data']['notify_accounts'] .')';
+						$sql = 'SELECT id FROM plugin_thold_contacts WHERE id IN (' . $alert['data']['notify_accounts'] .')';
 					} else {
-						$sql = 'SELECT id FROM plugin_thold_threshold_contacts WHERE id = 0';
+						$sql = 'SELECT id FROM plugin_thold_contacts WHERE id = 0';
 					}
 					$form_array = array(
 						"alert_header_$id" => array(
