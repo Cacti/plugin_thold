@@ -295,10 +295,10 @@ function template_save_edit() {
 		$save['exempt'] = 'on';
 	else
 		$save['exempt'] = 'off';
-	if (isset($_POST['restored_alert']))
-		$save['restored_alert'] = 'on';
-	else
-		$save['restored_alert'] = 'off';
+//	if (isset($_POST['restored_alert']))
+//		$save['restored_alert'] = 'on';
+//	else
+//		$save['restored_alert'] = 'off';
 	if (isset($_POST['bl_enabled']))
 		$save['bl_enabled'] = 'on';
 	else
@@ -487,13 +487,6 @@ function template_edit() {
 			'method' => 'checkbox',
 			'default' => 'off',
 			'value' => isset($thold_item_data['exempt']) ? $thold_item_data['exempt'] : ''
-			),
-		'restored_alert' => array(
-			'friendly_name' => 'Disable Restoration Email',
-			'description' => 'If this is checked, Thold will not send an alert when the threshold has returned to normal status.',
-			'method' => 'checkbox',
-			'default' => 'off',
-			'value' => isset($thold_item_data['restored_alert']) ? $thold_item_data['restored_alert'] : ''
 			),
 		'thold_type' => array(
 			'friendly_name' => 'Threshold Type',
@@ -693,7 +686,7 @@ if (isset($thold_item_data['id'])) {
 */
 
 	html_start_box('<strong>Alerts</strong>', '98%', $colors['header'], '3', 'center', 'thold_templates.php?action=addalert&id='. $thold_item_data['id']);
-	html_header(array('Type', 'Alert After', 'Repeat', 'Action', ''));	
+	html_header(array('Type', 'Alert After', 'Repeat', 'Send Restored Alert', 'Action', ''));	
 
 	if (count($alerts)) {
 		$p = $config['base_path'] . '/plugins/thold/scripts/';
@@ -707,12 +700,13 @@ if (isset($thold_item_data['id'])) {
 		}
 
 		$i = 0;
-
+		$restored = array('on' => 'No', 'off' => 'Yes', '' => 'Yes');
 		foreach ($alerts as $alert) {
 			form_alternate_row_color($colors["alternate"], $colors["light"], $i, 'line' . $alert["id"]); $i++;
 			form_selectable_cell('<a class="linkEditMain" href="thold_templates.php?action=editalert&id='. $alert['id'] . '">' . ucfirst($alert['type']) . '</a>', $alert["id"]);
 			form_selectable_cell($alertarray[$alert['repeat_fail']], $alert["id"]);
 			form_selectable_cell($repeatarray[$alert['repeat_alert']], $alert["id"]);
+			form_selectable_cell($restored[$alert['restored_alert']], $alert["id"]);
 			$id = $alert['id'];
 			switch ($alert['type']) {
 				case 'email':
@@ -947,6 +941,13 @@ function template_alert_edit () {
 							"value" => isset($alert["repeat_alert"]) ? $alert["repeat_alert"] : "",
 							'array' => $repeatarray,
 						),
+						"restored_alert_$id" => array(
+							'friendly_name' => 'Disable Restoration Alert',
+							'description' => 'If this is checked, Thold will not send an alert when the threshold has returned to normal status.',
+							'method' => 'checkbox',
+							'default' => 'off',
+							'value' => isset($alert['restored_alert']) ? $alert['restored_alert'] : ''
+						),
 						"notify_accounts_$id" => array(
 							"friendly_name" => "Notify accounts",
 							"method" => "drop_multi",
@@ -1001,6 +1002,13 @@ function template_alert_edit () {
 							"description" => "Repeat alert after specified number of cycles.",
 							"value" => isset($alert["repeat_alert"]) ? $alert["repeat_alert"] : "",
 							'array' => $repeatarray,
+						),
+						"restored_alert_$id" => array(
+							'friendly_name' => 'Disable Restoration Alert',
+							'description' => 'If this is checked, Thold will not send an alert when the threshold has returned to normal status.',
+							'method' => 'checkbox',
+							'default' => 'off',
+							'value' => isset($alert['restored_alert']) ? $alert['restored_alert'] : ''
 						),
 /*
 						"oid_host_$id" => array(
@@ -1082,6 +1090,13 @@ function template_alert_edit () {
 							"description" => "Repeat alert after specified number of cycles.",
 							"value" => isset($alert["repeat_alert"]) ? $alert["repeat_alert"] : "",
 							'array' => $repeatarray,
+						),
+						"restored_alert_$id" => array(
+							'friendly_name' => 'Disable Restoration Alert',
+							'description' => 'If this is checked, Thold will not send an alert when the threshold has returned to normal status.',
+							'method' => 'checkbox',
+							'default' => 'off',
+							'value' => isset($alert['restored_alert']) ? $alert['restored_alert'] : ''
 						),
 						"path_$id" => array(
 							"friendly_name" => "Script Name",
