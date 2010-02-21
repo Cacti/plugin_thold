@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2009 The Cacti Group                                      |
+ | Copyright (C) 2010 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -982,7 +982,6 @@ function thold_log($save){
 				$desc .= '  Time: ' . plugin_thold_duration_convert($thold['rra_id'], $thold['time_fail_length'], 'time');
 				break;
 		}
-//		$desc .= '  SentTo: ' . $save['emails'];
 		if ($save['status'] != 1) {
 			thold_cacti_log($desc);
 		}
@@ -1148,7 +1147,6 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 						break;
 				}
 				$desc .= '  CDEF: ' . $message['cdef'];
-//				$desc .= '  ReAlert: ' . plugin_thold_duration_convert($thold['rra_id'], $message['repeat_alert'], 'alert');
 //				$desc .= '  Emails: ' . $alert_emails;
 			}
 			break;
@@ -1323,7 +1321,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 				// Re-Alert?
 
-// FIXME - Need to fix re-alert!!!
+// FIXME - Need to fix re-alert message for individual emails!!!
 				$ra = false;
 				$status = 1;
 				$rows = db_fetch_assoc('SELECT * FROM plugin_thold_alerts WHERE threshold_id = ' . $item['id'] . ' AND (repeat_fail = ' . $item['thold_fail_count'] . ' OR MOD(' . $item['thold_fail_count'] . ', repeat_alert) = 0)');
@@ -1764,8 +1762,6 @@ function thold_get_ref_value($rra_id, $ds, $ref_time, $time_range) {
 
 	$result = rrdtool_function_fetch($rra_id, $real_ref_time - ($time_range / 2), $real_ref_time + ($time_range / 2));
 
-	//print_r($result);
-	//echo "\n";
 	$idx = array_search($ds, $result['data_source_names']);
 	if(count($result['values'][$idx]) == 0) {
 		return false;
@@ -1951,8 +1947,6 @@ function save_thold() {
 
 	input_validate_input_number(get_request_var('thold_hi'));
 	input_validate_input_number(get_request_var('thold_low'));
-//	input_validate_input_number(get_request_var('thold_fail_trigger'));
-//	input_validate_input_number(get_request_var('repeat_alert'));
 	input_validate_input_number(get_request_var('cdef'));
 	input_validate_input_number($_POST['rra']);
 	input_validate_input_number($_POST['data_template_rrd_id']);
@@ -1970,12 +1964,10 @@ function save_thold() {
 	$save['rra_id'] = $_POST['rra'];
 	$save['thold_enabled'] = isset($_POST['thold_enabled']) ? $_POST['thold_enabled'] : '';
 	$save['exempt'] = isset($_POST['exempt']) ? $_POST['exempt'] : 'off';
-//	$save['restored_alert'] = isset($_POST['restored_alert']) ? $_POST['restored_alert'] : 'off';
 	$save['thold_type'] = $_POST['thold_type'];
 	// High / Low
 	$save['thold_hi'] = (trim($_POST['thold_hi'])) == '' ? '' : round($_POST['thold_hi'],4);
 	$save['thold_low'] = (trim($_POST['thold_low'])) == '' ? '' : round($_POST['thold_low'],4);
-//	$save['thold_fail_trigger'] = (trim($_POST['thold_fail_trigger'])) == '' ? '' : $_POST['thold_fail_trigger'];
 	// Time Based
 	$save['time_hi'] = (trim($_POST['time_hi'])) == '' ? '' : round($_POST['time_hi'],4);
 	$save['time_low'] = (trim($_POST['time_low'])) == '' ? '' : round($_POST['time_low'],4);
@@ -1983,8 +1975,6 @@ function save_thold() {
 	$save['time_fail_length'] = (trim($_POST['time_fail_length'])) == '' ? '' : $_POST['time_fail_length'];
 	// Baseline
 	$save['bl_enabled'] = isset($_POST['bl_enabled']) ? $_POST['bl_enabled'] : '';
-//	$save['repeat_alert'] = (trim($_POST['repeat_alert'])) == '' ? '' : $_POST['repeat_alert'];
-//	$save['notify_extra'] = (trim($_POST['notify_extra'])) == '' ? '' : $_POST['notify_extra'];
 	$save['cdef'] = (trim($_POST['cdef'])) == '' ? '' : $_POST['cdef'];
 	$save['template_enabled'] = $_POST['template_enabled'];
 
@@ -2023,10 +2013,6 @@ function save_thold() {
 	}
 
 	$id = sql_save($save , 'thold_data');
-
-//	if (isset($_POST['notify_accounts'])) {
-//		thold_save_threshold_contacts ($id, $_POST['notify_accounts']);
-//	}
 
 	if ($id) {
 		plugin_thold_log_changes($id, 'modified', $save);
@@ -2251,7 +2237,7 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 					print 'ERROR: ' . $Mailer->error() . "\n";
 					return $Mailer->error();
 				}
-				$message = str_replace('<GRAPH>', "<br><br><img src='cid:$cid'>", $message);
+				$message = str_replace('<GRAPH>', "<br><img src='cid:$cid'>", $message);
 			} else {
 				$message = str_replace('<GRAPH>', "<br><img src='" . $val['file'] . "'><br>Could not open!<br>" . $val['file'], $message);
 			}
