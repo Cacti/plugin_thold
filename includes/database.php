@@ -64,8 +64,6 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'graph_id', 'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'data_id'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'graph_template', 'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_id'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_template', 'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_template'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
-
 
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_hi', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_fail_trigger'));
@@ -76,8 +74,6 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'data_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'notify_extra'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => 0, 'after' => 'cdef'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
-
 
 		// Update our hooks
 		db_execute('UPDATE plugin_hooks SET file = "includes/settings.php" WHERE name = "thold" AND hook = "config_arrays"');
@@ -128,6 +124,9 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_source_name', 'type' => 'varchar(19)', 'NULL' => false, 'default' => '', 'after' => 'rrd_step'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_source_type_id', 'type' => 'smallint(5)', 'NULL' => false, 'default' => '0', 'after' => 'rrd_step'));
 
+		api_plugin_db_add_column ('thold', 'plugin_thold_alerts', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
+		api_plugin_db_add_column ('thold', 'plugin_thold_template_alerts', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
+
 		# Add new data to thold_data table (for speeding up polling)
 		db_execute('UPDATE thold_data, data_template_rrd
 			 SET thold_data.rrd_step = data_template_rrd.rrd_heartbeat,
@@ -151,6 +150,7 @@ function thold_upgrade_database () {
 			$save['template_id'] = $t['id'];
 			$save['repeat_alert'] = $t['repeat_alert'];
 			$save['repeat_fail'] = $t['thold_fail_trigger'];
+			$save['restored_alert'] = $t['restored_alert'];
 			$save['data'] = base64_encode(serialize(array('notify_accounts' => $contacts, 'notify_extra' => $t['notify_extra'])));
 			$aid = sql_save($save , 'plugin_thold_template_alerts');
 		}
@@ -170,6 +170,7 @@ function thold_upgrade_database () {
 			$save['threshold_id'] = $t['id'];
 			$save['repeat_alert'] = $t['repeat_alert'];
 			$save['repeat_fail'] = $t['thold_fail_trigger'];
+			$save['restored_alert'] = $t['restored_alert'];
 			$save['data'] = base64_encode(serialize(array('notify_accounts' => $contacts, 'notify_extra' => $t['notify_extra'])));
 			$aid = sql_save($save , 'plugin_thold_alerts');
 		}
@@ -224,7 +225,6 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'template_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'tcheck', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
-	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
 	$data['primary'] = 'id';
 	$data['keys'][] = array('name' => 'host_id', 'columns' => 'host_id');
 	$data['keys'][] = array('name' => 'rra_id', 'columns' => 'rra_id');
@@ -269,7 +269,6 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'expression', 'type' => 'varchar(70)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
-	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
 	$data['primary'] = 'id';
 	$data['keys'][] = array('name' => 'id', 'columns' => 'id');
 	$data['keys'][] = array('name' => 'data_source_id', 'columns' => 'data_source_id');
@@ -295,6 +294,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'threshold_id', 'type' => 'int(12)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'repeat_fail', 'type' => 'int(12)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(12)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
 	$data['columns'][] = array('name' => 'type', 'type' => 'varchar(64)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'data', 'type' => 'text', 'NULL' => false);
 	$data['primary'] = 'id';
@@ -310,6 +310,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(12)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'repeat_fail', 'type' => 'int(12)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(12)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
 	$data['columns'][] = array('name' => 'type', 'type' => 'varchar(64)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'data', 'type' => 'text', 'NULL' => false);
 	$data['primary'] = 'id';
