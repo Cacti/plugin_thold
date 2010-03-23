@@ -417,7 +417,7 @@ function thold_legend() {
 	html_start_box("", "100%", $colors["header"], "3", "center", "");
 	print "<tr>";
 	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['red'] . ";'><b>Alarm</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['orange'] . ";'><b>Warning</b></td>";
+	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['orange'] . ";'><b>Baseline Alarm</b></td>";
 	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['yellow'] . ";'><b>Notice</b></td>";
 	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['green'] . ";'><b>Ok</b></td>";
 	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['grey'] . ";'><b>Disabled</b></td>";
