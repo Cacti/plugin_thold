@@ -132,7 +132,7 @@ function thold_config_settings () {
 			'description' => 'This is the priority level that your syslog messages will be sent as.',
 			'method' => 'drop_array',
 			'default' => LOG_WARNING,
-			'array' => array(LOG_EMERG => 'Emergency', LOG_ALERT => 'Alert', LOG_CRIT => 'Critical', LOG_ERR => 'Error', LOG_WARNING => 'Warning', LOG_NOTICE => 'Notice', LOG_INFO => 'Info', LOG_DEBUG => 'Debug'),
+			'array' => array(LOG_EMERG => 'Emergency', LOG_ALERT => 'Alert', LOG_CRIT => 'Critical', LOG_ERR => 'Error', LOG_WARNING => 'Baseline Alarm', LOG_NOTICE => 'Notice', LOG_INFO => 'Info', LOG_DEBUG => 'Debug'),
 			),
 		'thold_syslog_facility' => array(
 			'friendly_name' => 'Syslog Facility',
