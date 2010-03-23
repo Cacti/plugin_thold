@@ -388,7 +388,7 @@ function thold_add_graphs_action_prepare($graph) {
 		$save_html = "<input type='submit' name='save' value='Save'>";
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
-					input type='button' name='cancel' value='Cancel' onclick='javascript:history.go(-1)'>
+					<input type='button' name='cancel' value='Cancel' onclick='javascript:history.go(-1)'>
 					$save_html
 				</td>
 			</tr>";
