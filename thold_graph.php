@@ -286,7 +286,7 @@ function tholds() {
 	} else {
 		if($_REQUEST['triggered'] == '0') { $sql_where = "WHERE thold_data.thold_enabled='off'"; } /*disabled*/
 		if($_REQUEST['triggered'] == '2') { $sql_where = "WHERE thold_data.thold_enabled='on'"; } /* enabled */
-		if($_REQUEST['triggered'] == '1') { $sql_where = "WHERE thold_data.thold_alert!=0"; } /* triggered */
+		if($_REQUEST['triggered'] == '1') { $sql_where = "WHERE thold_data.thold_enabled='on' AND (thold_data.thold_alert!=0 OR thold_data.bl_alert !=0)"; } /* triggered */
 	}
 
 	if (strlen($_REQUEST["filter"])) {
