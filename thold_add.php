@@ -375,7 +375,7 @@ function thold_add_graphs_action_prepare($graph) {
 	}
 
 	if (!strlen($not_found)) {
-		$save_html = "<input type='image' src='" . $config['url_path'] . "images/button_yes.gif' alt='Save' align='absmiddle'>";
+		$save_html = "<input type='submit' name='yes' value='Yes'>";
 
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
@@ -526,7 +526,7 @@ function thold_add_select_host() {
 	}
 
 	if ($ds != '') {
-		echo '<tr><td colspan=2><input type=hidden name=save value="save"><br><center><input type=image src="../../images/button_create.gif" alt="Create"></center></td></tr>';
+		echo '<tr><td colspan=2><input type=hidden name=save value="save"><br><center><input type="submit" name="create" value="Create"></center></td></tr>';
 	} else {
 		echo '<tr><td colspan=2><br><br><br></td></tr>';
 	}

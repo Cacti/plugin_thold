@@ -298,7 +298,7 @@ function list_tholds() {
 						</select>
 					</td>
 					<td nowrap style='white-space: nowrap;'>
-						&nbsp;<input type='image' name='button_clear' src='<?php print $config["url_path"];?>images/button_clear.gif' alt='Return to the default time span' border='0' align='absmiddle' action='submit'>
+						&nbsp;<input type='submit' name='button_clear_x' value='Clear' title='Return to the default time span'>
 					</td>
 				</tr>
 			</table>
