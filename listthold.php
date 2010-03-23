@@ -90,7 +90,7 @@ function do_thold() {
 	exit;
 }
 
-/** 
+/**
  *  This is a generic funtion for this page that makes sure that
  *  we have a good request.  We want to protect against people who
  *  like to create issues with Cacti.
@@ -407,7 +407,7 @@ function list_tholds() {
 
 	thold_legend();
 
-	draw_actions_dropdown($ds_actions);
+	thold_actions_dropdown($ds_actions);
 
 	if (isset($hostid) && $hostid != '')
 		print "<input type=hidden name=hostid value=$hostid>";

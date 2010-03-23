@@ -180,7 +180,7 @@ $grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_
 $graph = (isset($grapharr[0]["local_graph_id"]) ? $grapharr[0]["local_graph_id"] : "");
 
 ?>
-<table width="98%" align="center">
+<table width="100%" align="center">
 	<tr>
 		<td class="textArea">
 	<?php
@@ -246,7 +246,7 @@ $ds = 0;
 if (isset($template_data_rrds)) {
 	if (sizeof($template_data_rrds) > 1) {
 		/* draw the data source tabs on the top of the page */
-		print "	<table class='tabs' width='98%' cellspacing='0' cellpadding='3' align='center'>
+		print "	<table class='tabs' width='100%' cellspacing='0' cellpadding='3' align='center'>
 		<tr>\n";
 
 		foreach ($template_data_rrds as $template_data_rrd) {
@@ -292,7 +292,7 @@ $thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_it
 $thold_item_data_cdef = (isset($thold_item_data['cdef']) ? $thold_item_data['cdef'] : 0);
 
 
-html_start_box("", "98%", $colors["header"], "3", "center", "");
+html_start_box("", "100%", $colors["header"], "3", "center", "");
 //------------------------
 // Data Source Item header
 //------------------------
@@ -379,13 +379,14 @@ $form_array = array(
 			'value' => isset($thold_item_data['template_enabled']) ? $thold_item_data['template_enabled'] : '',
 		),
 		'general_header' => array(
-			'friendly_name' => 'Mandatory settings',
+			'friendly_name' => 'Mandatory Settings',
 			'method' => 'spacer',
 		),
 		'name' => array(
 			'friendly_name' => 'Threshold Name',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 70,
 			'default' => $desc . ' [' . $template_rrd['data_source_name'] . ']',
 			'description' => 'Provide the THold a meaningful name',
 			'value' => isset($thold_item_data['name']) ? $thold_item_data['name'] : ''
@@ -583,7 +584,7 @@ draw_edit_form(
 );
 
 html_end_box();
-form_save_button("thold.php?rra=" . $rra . "&view_rrd=" . $_REQUEST["view_rrd"], "save");
+thold_save_button("thold.php?rra=" . $rra . "&view_rrd=" . $_REQUEST["view_rrd"], "save");
 print "<br>";
 
 if (isset($thold_item_data['id'])) {
@@ -608,11 +609,11 @@ if (isset($thold_item_data['id'])) {
 	}
 
 	if ($thold_item_data['template_enabled'] == 'on') {
-		html_start_box('<strong>Alerts</strong>', '98%', $colors['header'], '3', 'center', '');
+		html_start_box('<strong>Alerts</strong>', '100%', $colors['header'], '3', 'center', '');
 	} else {
-		html_start_box('<strong>Alerts</strong>', '98%', $colors['header'], '3', 'center', 'thold.php?action=addalert&view_rrd='. $_REQUEST['view_rrd'] . "&rra=$rra");
+		html_start_box('<strong>Alerts</strong>', '100%', $colors['header'], '3', 'center', 'thold.php?action=addalert&view_rrd='. $_REQUEST['view_rrd'] . "&rra=$rra");
 	}
-	html_header(array('Type', 'Alert After', 'Repeat', 'Send Restored Alert', 'Action', ''));	
+	html_header(array('Type', 'Alert After', 'Repeat', 'Send Restored Alert', 'Action', ''));
 
 
 
@@ -887,7 +888,7 @@ function thold_edit_alert($id) {
 	} else {
 		$alertarray = array(0 => 'Never', 1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
 	}
-	
+
 	$p = $config['base_path'] . '/plugins/thold/scripts/';
 	if ($handle = opendir($p)) {
 	    while (false !== ($file = readdir($handle))) {
@@ -900,7 +901,7 @@ function thold_edit_alert($id) {
 
 	switch ($alert['type']) {
 		case 'email':
-			html_start_box("", "98%", $colors["header"], "3", "center", "");
+			html_start_box("", "100%", $colors["header"], "3", "center", "");
 			$id = $alert['id'];
 			$alert['data'] = unserialize(base64_decode($alert['data']));
 			$alert['notify_extra'] = $alert['data']['notify_extra'];
@@ -967,7 +968,7 @@ function thold_edit_alert($id) {
 			html_end_box();
 			break;
 		case 'snmp-write':
-			html_start_box("", "98%", $colors["header"], "3", "center", "");
+			html_start_box("", "100%", $colors["header"], "3", "center", "");
 			$id = $alert['id'];
 			$data = $alert['data'];
 			$data = unserialize(base64_decode($data));
@@ -1053,7 +1054,7 @@ function thold_edit_alert($id) {
 			html_end_box();
 			break;
 		case 'script':
-			html_start_box("", "98%", $colors["header"], "3", "center", "");
+			html_start_box("", "100%", $colors["header"], "3", "center", "");
 			$id = $alert['id'];
 			$data = $alert['data'];
 			$data = unserialize(base64_decode($data));
@@ -1118,7 +1119,7 @@ function thold_edit_alert($id) {
 			do_hook_function('thold_alert_show', array($item));
 			break;
 	}
-	form_save_button("thold.php?edit_alert=" . $alert['id'] . "&rra=" . $rra . "&view_rrd=" . $_REQUEST["view_rrd"], "save");
+	thold_save_button("thold.php?edit_alert=" . $alert['id'] . "&rra=" . $rra . "&view_rrd=" . $_REQUEST["view_rrd"], "save");
 }
 
 function thold_add_alert_form () {
@@ -1137,7 +1138,7 @@ function thold_add_alert_form () {
 		<input type='hidden' name='view_rrd' value='" . $_GET["view_rrd"] . "'>
 		<input type='hidden' name='thold_id' value='" . $thold_item_data['id'] . "'>";
 
-	html_start_box("", "98%", $colors["header"], "3", "center", "");
+	html_start_box("", "100%", $colors["header"], "3", "center", "");
 
 	$form_array = array(
 		"alert_header" => array(
@@ -1164,8 +1165,8 @@ function thold_add_alert_form () {
 	);
 
 	html_end_box();
-	form_save_button("thold.php", "create");
-}	
+	thold_save_button("thold.php", "create");
+}
 
 
 

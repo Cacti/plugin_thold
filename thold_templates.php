@@ -443,7 +443,7 @@ function template_edit() {
 		}
 	}
 
-	html_start_box('', '98%', $colors['header'], '3', 'center', '');
+	html_start_box('', '100%', $colors['header'], '3', 'center', '');
 	print "<form name='THold' action=thold_templates.php method=post><input type='hidden' name='save' value='edit'><input type='hidden' name='id' value='$id'>";
 	$form_array = array(
 		'general_header' => array(
@@ -454,6 +454,7 @@ function template_edit() {
 			'friendly_name' => 'Template Name',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 70,
 			'default' => $thold_item_data['data_template_name'] . ' [' . $thold_item_data['data_source_name'] . ']',
 			'description' => 'Provide the THold Template a meaningful name',
 			'value' => isset($thold_item_data['name']) ? $thold_item_data['name'] : ''
@@ -634,8 +635,8 @@ function template_edit() {
 			'friendly_name' => 'RPN Expression',
 			'method' => 'textbox',
 			'default' => '',
-			'description' => 'An RPM Expression that assumes that the selected Data Source is already in the 
-			RPN stack.  This RPN expression can include any additional Data Sources names in the current 
+			'description' => 'An RPM Expression that assumes that the selected Data Source is already in the
+			RPN stack.  This RPN expression can include any additional Data Sources names in the current
 			RRDfile.  However, in all cases the selected Data Source is loaded on the stack first.',
 			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',
 			'width' => '255',
@@ -659,7 +660,7 @@ draw_edit_form(
 );
 
 html_end_box();
-form_save_button("thold_templates.php?id=" . $id, "save");
+thold_save_button("thold_templates.php?id=" . $id, "save");
 print "<br>";
 
 if (isset($thold_item_data['id'])) {
@@ -685,8 +686,8 @@ if (isset($thold_item_data['id'])) {
 	}
 */
 
-	html_start_box('<strong>Alerts</strong>', '98%', $colors['header'], '3', 'center', 'thold_templates.php?action=addalert&id='. $thold_item_data['id']);
-	html_header(array('Type', 'Alert After', 'Repeat', 'Send Restored Alert', 'Action', ''));	
+	html_start_box('<strong>Alerts</strong>', '100%', $colors['header'], '3', 'center', 'thold_templates.php?action=addalert&id='. $thold_item_data['id']);
+	html_header(array('Type', 'Alert After', 'Repeat', 'Send Restored Alert', 'Action', ''));
 
 	if (count($alerts)) {
 		$p = $config['base_path'] . '/plugins/thold/scripts/';
@@ -754,7 +755,7 @@ if (isset($thold_item_data['id'])) {
 	html_end_box(false);
 } else {
 
-	form_save_button("thold_templates.php?id=" . $thold_item_data['id'], "save");
+	thold_save_button("thold_templates.php?id=" . $thold_item_data['id'], "save");
 }
 
 
@@ -907,7 +908,7 @@ function template_alert_edit () {
 
 		switch ($alert['type']) {
 				case 'email':
-					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					html_start_box("", "100%", $colors["header"], "3", "center", "");
 					$id = $alert['id'];
 					$alert['data'] = unserialize(base64_decode($alert['data']));
 					$alert['notify_extra'] = $alert['data']['notify_extra'];
@@ -974,7 +975,7 @@ function template_alert_edit () {
 					html_end_box();
 					break;
 				case 'snmp-write':
-					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					html_start_box("", "100%", $colors["header"], "3", "center", "");
 					$id = $alert['id'];
 					$data = $alert['data'];
 					$data = unserialize(base64_decode($data));
@@ -1062,7 +1063,7 @@ function template_alert_edit () {
 
 					break;
 				case 'script':
-					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					html_start_box("", "100%", $colors["header"], "3", "center", "");
 					$id = $alert['id'];
 					$data = $alert['data'];
 					$data = unserialize(base64_decode($data));
@@ -1130,7 +1131,7 @@ function template_alert_edit () {
 			}
 	}
 
-	form_save_button("thold_templates.php", "save");
+	thold_save_button("thold_templates.php", "save");
 }
 
 function templates() {
@@ -1165,7 +1166,7 @@ function templates() {
 	html_end_box(false);
 
 	/* draw the dropdown containing a list of available actions for this form */
-	draw_actions_dropdown($ds_actions);
+	thold_actions_dropdown($ds_actions);
 
 	print "</form>\n";
 }
@@ -1187,7 +1188,7 @@ function thold_template_add_alert_form () {
 	print "<input type='hidden' name='save' value='edit'>";
 
 
-	html_start_box("", "98%", $colors["header"], "3", "center", "");
+	html_start_box("", "100%", $colors["header"], "3", "center", "");
 
 	$form_array = array(
 		"alert_header" => array(
@@ -1214,8 +1215,8 @@ function thold_template_add_alert_form () {
 	);
 
 	html_end_box();
-	form_save_button("thold_templates.php?id=" . $thold_item_data['id'], "create");
-}	
+	thold_save_button("thold_templates.php?id=" . $thold_item_data['id'], "create");
+}
 
 
 	?>

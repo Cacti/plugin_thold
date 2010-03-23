@@ -306,7 +306,7 @@ function thold_send_alert($item, $status = true) {
 						if (trim($row['data']['oid_value']) == '') {
 							$row['data']['oid_value'] = $item['lastread'];
 						}
-						snmpset($row['data']['oid_host'], $row['data']['community'], $row['data']['oid_num'], $row['data']['oid_type'], $row['data']['oid_value']); 
+						snmpset($row['data']['oid_host'], $row['data']['community'], $row['data']['oid_num'], $row['data']['oid_type'], $row['data']['oid_value']);
 					}
 					break;
 				case 'script':
@@ -1136,7 +1136,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 						$desc .= '  Reference: ' . $message['bl_ref_time'];
 						$desc .= '  Range: ' . $message['bl_ref_time_range'];
 						$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" );
-						$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" ); 
+						$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" );
 						$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
 						break;
 					case 2:
@@ -1189,8 +1189,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 					$desc .= '  Enabled: ' . $message['bl_enabled'];
 					$desc .= '  Reference: ' . $message['bl_ref_time'];
 					$desc .= '  Range: ' . $message['bl_ref_time_range'];
-					$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" ); 
-					$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" ); 
+					$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" );
+					$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" );
 					$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
 					break;
 				case 2:
@@ -2403,4 +2403,67 @@ function thold_threshold_enable($id) {
 
 function thold_threshold_disable($id) {
 	db_execute("UPDATE thold_data SET thold_enabled='off' WHERE id=$id");
+}
+
+/* thold_save_button - draws a (save|create) and cancel button at the bottom of
+     an html edit form
+   @arg $cancel_url - the url to go to when the user clicks 'cancel'
+   @arg $force_type - if specified, will force the 'action' button to be either
+     'save' or 'create'. otherwise this field should be properly auto-detected */
+function thold_save_button($cancel_url, $force_type = "", $key_field = "id") {
+	global $config;
+
+	if (empty($force_type)) {
+		if (empty($_GET[$key_field])) {
+			$value = "Create";
+		}else{
+			$value = "Save";
+		}
+	}elseif ($force_type == "save") {
+		$value = "Save";
+	}elseif ($force_type == "create") {
+		$value = "Create";
+	}
+	?>
+	<script type="text/javascript">
+	<!--
+	function th_returnTo(location) {
+		document.location = location;
+	}
+	-->
+	</script>
+	<table align='center' width='100%' style='background-color: #ffffff; border: 1px solid #bbbbbb;'>
+		<tr>
+			<td bgcolor="#f5f5f5" align="right">
+				<input type='hidden' name='action' value='save'>
+				<input type='button' onClick='th_returnTo("<?php print $cancel_url;?>")' value='Cancel'>
+				<input type='submit' value='<?php print $value;?>'>
+			</td>
+		</tr>
+	</table>
+	</form>
+	<?php
+}
+
+function thold_actions_dropdown($actions_array) {
+	global $config;
+
+	?>
+	<table align='center' width='100%'>
+		<tr>
+			<td width='1' valign='top'>
+				<img src='<?php echo $config['url_path']; ?>images/arrow.gif' alt='' align='absmiddle'>&nbsp;
+			</td>
+			<td align='right'>
+				Choose an action:
+				<?php form_dropdown("drp_action",$actions_array,"","","1","","");?>
+			</td>
+			<td width='1' align='right'>
+				<input type='submit' name='go' value='Go'>
+			</td>
+		</tr>
+	</table>
+
+	<input type='hidden' name='action' value='actions'>
+	<?php
 }
