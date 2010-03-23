@@ -274,6 +274,9 @@ function tholds() {
 
 	/* build the SQL query and WHERE clause */
 	$sort = $_REQUEST['sort_column'];
+	if ($sort == "lastread" || $sort == "thold_hi" || $sort == "thold_low") {
+		$sort = "($sort + 0)";
+	}
 	$limit = ' LIMIT ' . ($_REQUEST["rows"]*($_REQUEST['page']-1)) . "," . $_REQUEST["rows"];
 	$sql_where = '';
 
