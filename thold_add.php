@@ -380,15 +380,15 @@ function thold_add_graphs_action_prepare($graph) {
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
 					<input type='hidden' name='action' value='actions'>
-					<a href='javascript:history.go(-1)'><img src='" . $config['url_path'] . "images/button_no.gif' alt='Cancel' align='absmiddle' border='0'></a>
+					<input type='button' name='cancel' value='Cancel' onclick='javascript:history.go(-1)'>
 					$save_html
 				</td>
 			</tr>";
 	} else {
-		$save_html = "<input type='image' src='" . $config['url_path'] . "images/button_go.gif' alt='Save' align='absmiddle'>";
+		$save_html = "<input type='submit' name='save' value='Save'>";
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
-					<a href='javascript:history.go(-1)'><img src='" . $config['url_path'] . "images/button_cancel2.gif' alt='Cancel' align='absmiddle' border='0'></a>
+					input type='button' name='cancel' value='Cancel' onclick='javascript:history.go(-1)'>
 					$save_html
 				</td>
 			</tr>";
