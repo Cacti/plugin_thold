@@ -1738,7 +1738,7 @@ function get_current_value($rra, $ds, $cdef = 0) {
 	$last_time_entry = (intval($last_time_entry /100) * 100) - $step;
 	$last_needed = $last_time_entry + $step;
 
-	$result = rrdtool_function_fetch($rra, trim($last_time_entry), trim($last_needed));
+	$result = @rrdtool_function_fetch($rra, trim($last_time_entry), trim($last_needed));
 
 	// Return Blank if the data source is not found (Newly created?)
 	if (!isset( $result['data_source_names'])) return '';
@@ -1760,7 +1760,7 @@ function thold_get_ref_value($rra_id, $ds, $ref_time, $time_range) {
 
 	$real_ref_time = time() - $ref_time;
 
-	$result = rrdtool_function_fetch($rra_id, $real_ref_time - ($time_range / 2), $real_ref_time + ($time_range / 2));
+	$result = @rrdtool_function_fetch($rra_id, $real_ref_time - ($time_range / 2), $real_ref_time + ($time_range / 2));
 
 	$idx = array_search($ds, $result['data_source_names']);
 	if(count($result['values'][$idx]) == 0) {
