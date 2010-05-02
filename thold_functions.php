@@ -82,7 +82,7 @@ function thold_send_alert($item, $status = true) {
 						$row['data']['oid_value'] = $item['lastread'];
 					}
 
-					snmpset($row['data']['oid_host'], $row['data']['community'], $row['data']['oid_num'], $row['data']['oid_type'], $row['data']['oid_value']); 
+					snmpset($row['data']['oid_host'], $row['data']['community'], $row['data']['oid_num'], $row['data']['oid_type'], $row['data']['oid_value']);
 					break;
 				case 'script':
 
@@ -911,7 +911,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 						$desc .= '  Reference: ' . $message['bl_ref_time'];
 						$desc .= '  Range: ' . $message['bl_ref_time_range'];
 						$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" );
-						$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" ); 
+						$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" );
 						$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
 						break;
 					case 2:
@@ -965,8 +965,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 					$desc .= '  Enabled: ' . $message['bl_enabled'];
 					$desc .= '  Reference: ' . $message['bl_ref_time'];
 					$desc .= '  Range: ' . $message['bl_ref_time_range'];
-					$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" ); 
-					$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" ); 
+					$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" );
+					$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" );
 					$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
 					break;
 				case 2:
@@ -1515,7 +1515,7 @@ function get_current_value($rra, $ds, $cdef = 0) {
 	$last_time_entry = (intval($last_time_entry /100) * 100) - $step;
 	$last_needed = $last_time_entry + $step;
 
-	$result = rrdtool_function_fetch($rra, trim($last_time_entry), trim($last_needed));
+	$result = @rrdtool_function_fetch($rra, trim($last_time_entry), trim($last_needed));
 
 	// Return Blank if the data source is not found (Newly created?)
 	if (!isset( $result['data_source_names'])) return '';
@@ -1537,7 +1537,7 @@ function thold_get_ref_value($rra_id, $ds, $ref_time, $time_range) {
 
 	$real_ref_time = time() - $ref_time;
 
-	$result = rrdtool_function_fetch($rra_id, $real_ref_time - ($time_range / 2), $real_ref_time + ($time_range / 2));
+	$result = @rrdtool_function_fetch($rra_id, $real_ref_time - ($time_range / 2), $real_ref_time + ($time_range / 2));
 
 	//print_r($result);
 	//echo "\n";
@@ -2110,7 +2110,7 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	if (is_array($filename) && !empty($filename) && strstr($message, '<GRAPH>') !==0) {
 		foreach($filename as $val) {
 			$graph_data_array = array('output_flag'=> RRDTOOL_OUTPUT_STDOUT);
-  			$data = rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array);
+  			$data = @rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array);
 			if ($data != '') {
 				$cid = $Mailer->content_id();
 				if ($Mailer->attach($data, $val['filename'].'.png', 'image/png', 'inline', $cid) == false) {
