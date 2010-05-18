@@ -161,7 +161,7 @@ $grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_
 $graph = (isset($grapharr[0]["local_graph_id"]) ? $grapharr[0]["local_graph_id"] : "");
 
 ?>
-<table width="98%" align="center">
+<table width="100%" align="center">
 	<tr>
 		<td class="textArea">
 	<?php
@@ -227,7 +227,7 @@ $ds = 0;
 if (isset($template_data_rrds)) {
 	if (sizeof($template_data_rrds) > 1) {
 		/* draw the data source tabs on the top of the page */
-		print "	<table class='tabs' width='98%' cellspacing='0' cellpadding='3' align='center'>
+		print "	<table class='tabs' width='100%' cellspacing='0' cellpadding='3' align='center'>
 		<tr>\n";
 
 		foreach ($template_data_rrds as $template_data_rrd) {
@@ -273,7 +273,7 @@ $thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_it
 $thold_item_data_cdef = (isset($thold_item_data['cdef']) ? $thold_item_data['cdef'] : 0);
 
 
-html_start_box("", "98%", $colors["header"], "3", "center", "");
+html_start_box("", "100%", $colors["header"], "3", "center", "");
 //------------------------
 // Data Source Item header
 //------------------------
@@ -608,7 +608,7 @@ if (isset($thold_item_data['id'])) {
 		foreach ($alerts as $alert) {
 			switch ($alert['type']) {
 				case 'email':
-					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					html_start_box("", "100%", $colors["header"], "3", "center", "");
 					$id = $alert['id'];
 					$alert['data'] = unserialize(base64_decode($alert['data']));
 					$alert['notify_extra'] = $alert['data']['notify_extra'];
@@ -668,7 +668,7 @@ if (isset($thold_item_data['id'])) {
 					html_end_box();
 					break;
 				case 'snmp-write':
-					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					html_start_box("", "100%", $colors["header"], "3", "center", "");
 					$id = $alert['id'];
 					$data = $alert['data'];
 					$data = unserialize(base64_decode($data));
@@ -749,7 +749,7 @@ if (isset($thold_item_data['id'])) {
 
 					break;
 				case 'script':
-					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					html_start_box("", "100%", $colors["header"], "3", "center", "");
 					$id = $alert['id'];
 					$data = $alert['data'];
 					$data = unserialize(base64_decode($data));
@@ -820,7 +820,7 @@ if (isset($thold_item_data['id'])) {
 		<input type='hidden' name='view_rrd' value='" . $_GET["view_rrd"] . "'>
 		<input type='hidden' name='thold_id' value='" . $thold_item_data['id'] . "'>";
 
-	html_start_box("", "98%", $colors["header"], "3", "center", "");
+	html_start_box("", "100%", $colors["header"], "3", "center", "");
 
 	$form_array = array(
 		"alert_header" => array(

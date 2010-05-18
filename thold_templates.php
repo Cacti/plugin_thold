@@ -513,7 +513,7 @@ function template_edit() {
 		}
 	}
 
-	html_start_box('', '98%', $colors['header'], '3', 'center', '');
+	html_start_box('', '100%', $colors['header'], '3', 'center', '');
 	print "<form name='THold' action=thold_templates.php method=post><input type='hidden' name='save' value='edit'><input type='hidden' name='id' value='$id'>";
 	$form_array = array(
 		'general_header' => array(
@@ -774,7 +774,7 @@ if (isset($thold_item_data['id'])) {
 		foreach ($alerts as $alert) {
 			switch ($alert['type']) {
 				case 'email':
-					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					html_start_box("", "100%", $colors["header"], "3", "center", "");
 					$id = $alert['id'];
 					$alert['data'] = unserialize(base64_decode($alert['data']));
 					$alert['notify_extra'] = $alert['data']['notify_extra'];
@@ -834,7 +834,7 @@ if (isset($thold_item_data['id'])) {
 					html_end_box();
 					break;
 				case 'snmp-write':
-					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					html_start_box("", "100%", $colors["header"], "3", "center", "");
 					$id = $alert['id'];
 					$data = $alert['data'];
 					$data = unserialize(base64_decode($data));
@@ -915,7 +915,7 @@ if (isset($thold_item_data['id'])) {
 
 					break;
 				case 'script':
-					html_start_box("", "98%", $colors["header"], "3", "center", "");
+					html_start_box("", "100%", $colors["header"], "3", "center", "");
 					$id = $alert['id'];
 					$data = $alert['data'];
 					$data = unserialize(base64_decode($data));
@@ -984,7 +984,7 @@ if (isset($thold_item_data['id'])) {
 	print "<input type='hidden' name='id' value='" . $thold_item_data['id'] . "'>";
 	print "<input type='hidden' name='save' value='edit'>";
 
-	html_start_box("", "98%", $colors["header"], "3", "center", "");
+	html_start_box("", "100%", $colors["header"], "3", "center", "");
 
 	$form_array = array(
 		"alert_header" => array(
