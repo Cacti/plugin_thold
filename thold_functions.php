@@ -1495,7 +1495,7 @@ function delete_old_thresholds () {
 
 function thold_rrd_last($rra, $cf) {
 	global $config;
-	$last_time_entry = rrdtool_execute('last ' . trim(get_data_source_path($rra, true)) . ' ' . trim($cf), false, RRDTOOL_OUTPUT_STDOUT);
+	$last_time_entry = @rrdtool_execute('last ' . trim(get_data_source_path($rra, true)) . ' ' . trim($cf), false, RRDTOOL_OUTPUT_STDOUT);
 	return trim($last_time_entry);
 }
 
