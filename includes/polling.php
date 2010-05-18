@@ -50,7 +50,6 @@ function thold_cleanup_log () {
 
 function thold_poller_output ($rrd_update_array) {
 	global $config;
-
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	$rrd_update_array_reindexed = array();
@@ -59,7 +58,7 @@ function thold_poller_output ($rrd_update_array) {
 	foreach($rrd_update_array as $item) {
 		if (isset($item['times'][key($item['times'])])) {
 			if ($x) {
-				$rra_ids .= ',';
+				$rra_ids .= ', ';
 			}
 			$rra_ids .= $item['local_data_id'];
 			$rrd_update_array_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
@@ -68,7 +67,15 @@ function thold_poller_output ($rrd_update_array) {
 	}
 
 	if ($rra_ids != '') {
-		$thold_items = db_fetch_assoc("SELECT * FROM thold_data WHERE rra_id IN($rra_ids)", false);
+		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.expression, thold_data.data_type, 
+					thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, 
+					thold_data.oldvalue, data_template_rrd.data_source_name as name, 
+					data_template_rrd.data_source_type_id, data_template_data.rrd_step, 
+					data_template_rrd.rrd_maximum
+					FROM thold_data
+					LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
+					LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
+					WHERE data_template_rrd.data_source_name != '' AND thold_data.rra_id IN($rra_ids)", false);
 	} else {
 		return $rrd_update_array;
 	}
@@ -77,31 +84,42 @@ function thold_poller_output ($rrd_update_array) {
 		$polling_interval = $t_item['rrd_step'];
 		if (isset($rrd_update_array_reindexed[$t_item['rra_id']])) {
 			$item = $rrd_update_array_reindexed[$t_item['rra_id']];
-			if (isset($item[$t_item['data_source_name']])) {
+			if (isset($item[$t_item['name']])) {
 				switch ($t_item['data_source_type_id']) {
 					case 2:	// COUNTER
-						if ($item[$t_item['data_source_name']] >= $t_item['oldvalue']) {
-							// Everything is normal
-							$currentval = $item[$t_item['data_source_name']] - $t_item['oldvalue'];
-						} else {
-							// Possible overflow, see if its 32bit or 64bit
-							if ($t_item['oldvalue'] > 4294967295) {
-								$currentval = (18446744073709551615 - $t_item['oldvalue']) + $item[$t_item['data_source_name']];
+						if ($t_item['oldvalue'] != 0) {
+							if ($item[$t_item['name']] >= $t_item['oldvalue']) {
+								// Everything is normal
+								$currentval = $item[$t_item['name']] - $t_item['oldvalue'];
 							} else {
-								$currentval = (4294967295 - $t_item['oldvalue']) + $item[$t_item['data_source_name']];
+								// Possible overflow, see if its 32bit or 64bit
+								if ($t_item['oldvalue'] > 4294967295) {
+									$currentval = (18446744073709551615 - $t_item['oldvalue']) + $item[$t_item['name']];
+								} else {
+									$currentval = (4294967295 - $t_item['oldvalue']) + $item[$t_item['name']];
+								}
 							}
+							$currentval = $currentval / $polling_interval;
+
+							/* assume counter reset if greater than max value */
+							if ($t_item['rrd_maximum'] > 0 && $currentval > $t_item['rrd_maximum']) {
+								$currentval = $item[$t_item['name']] / $polling_interval;
+							}elseif ($t_item['rrd_maximum'] == 0 && $currentval > 1.0E+9) {
+								$currentval = $item[$t_item['name']] / $polling_interval;
+							}
+						}else{
+							$currentval = 0;
 						}
-						$currentval = $currentval / $polling_interval;
 						break;
 					case 3:	// DERIVE
-						$currentval = ($item[$t_item['data_source_name']] - $t_item['oldvalue']) / $polling_interval;
+						$currentval = ($item[$t_item['name']] - $t_item['oldvalue']) / $polling_interval;
 						break;
 					case 4:	// ABSOLUTE
-						$currentval = $item[$t_item['data_source_name']] / $polling_interval;
+						$currentval = $item[$t_item['name']] / $polling_interval;
 						break;
 					case 1:	// GAUGE
 					default:
-						$currentval = $item[$t_item['data_source_name']];
+						$currentval = $item[$t_item['name']];
 						break;
 				}
 				switch ($t_item['data_type']) {
@@ -127,7 +145,8 @@ function thold_poller_output ($rrd_update_array) {
 						$currentval = round($currentval, 4);
 						break;
 				}
-				db_execute("UPDATE thold_data SET tcheck = 1, lastread = '$currentval', oldvalue = '" . $item[$t_item['data_source_name']] . "' WHERE id = " . $t_item['id']);
+
+				db_execute("UPDATE thold_data SET tcheck = 1, lastread = '$currentval', oldvalue = '" . $item[$t_item['name']] . "' WHERE rra_id = " . $t_item['rra_id'] . " AND data_id = " . $t_item['data_id']);
 			}
 		}
 	}
