@@ -375,21 +375,18 @@ function thold_add_graphs_action_prepare($graph) {
 	}
 
 	if (!strlen($not_found)) {
-		$save_html = "<input type='image' src='" . $config['url_path'] . "images/button_yes.gif' alt='Save' align='absmiddle'>";
-
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
 					<input type='hidden' name='action' value='actions'>
-					<a href='javascript:history.go(-1)'><img src='" . $config['url_path'] . "images/button_no.gif' alt='Cancel' align='absmiddle' border='0'></a>
-					$save_html
+					<input type='button' value='Cancel' onClick='javascript:history.go(-1)' title='Return to Previous Menu'>
+					<input type='submit' value='Save' name='save'>
 				</td>
 			</tr>";
 	} else {
-		$save_html = "<input type='image' src='" . $config['url_path'] . "images/button_go.gif' alt='Save' align='absmiddle'>";
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
-					<a href='javascript:history.go(-1)'><img src='" . $config['url_path'] . "images/button_cancel2.gif' alt='Cancel' align='absmiddle' border='0'></a>
-					$save_html
+					<input type='button' value='Cancel' onClick='javascript:history.go(-1)' title='Return to Previous Menu'>
+					<input type='submit' value='Save' name='save'>
 				</td>
 			</tr>";
 	}
@@ -526,7 +523,7 @@ function thold_add_select_host() {
 	}
 
 	if ($ds != '') {
-		echo '<tr><td colspan=2><input type=hidden name=save value="save"><br><center><input type=image src="../../images/button_create.gif" alt="Create"></center></td></tr>';
+		echo '<tr><td colspan=2><input type=hidden name=save value="save"><br><center><input type="submit" value="Create"></center></td></tr>';
 	} else {
 		echo '<tr><td colspan=2><br><br><br></td></tr>';
 	}

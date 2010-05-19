@@ -433,17 +433,17 @@ function thold_data_source_action_prepare($save) {
 
 			if ($data_template_id != "") {
 				if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-					$found_list .= "<li>" . get_data_source_title($item) . "<br>";
+					$found_list .= "<li>" . get_data_source_title($item) . "</li>";
 					if (strlen($templates)) {
 						$templates .= ", $data_template_id";
 					}else{
 						$templates  = "$data_template_id";
 					}
 				}else{
-					$not_found .= "<li>" . get_data_source_title($item) . "<br>";
+					$not_found .= "<li>" . get_data_source_title($item) . "</li>";
 				}
 			}else{
-				$not_found .= "<li>" . get_data_source_title($item) . "<br>";
+				$not_found .= "<li>" . get_data_source_title($item) . "</li>";
 			}
 		}
 		}
@@ -632,17 +632,17 @@ function thold_graphs_action_prepare($save) {
 								 WHERE graph_local.id=$item");
 			if ($data_template_id != "") {
 				if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-					$found_list .= "<li>" . get_graph_title($item) . "<br>";
+					$found_list .= "<li>" . get_graph_title($item) . "</li>";
 					if (strlen($templates)) {
 						$templates .= ", $data_template_id";
 					}else{
 						$templates  = "$data_template_id";
 					}
 				}else{
-					$not_found .= "<li>" . get_graph_title($item) . "<br>";
+					$not_found .= "<li>" . get_graph_title($item) . "</li>";
 				}
 			}else{
-				$not_found .= "<li>" . get_graph_title($item) . "<br>";
+				$not_found .= "<li>" . get_graph_title($item) . "</li>";
 			}
 		}
 		}
@@ -659,11 +659,11 @@ function thold_graphs_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print "<p>The following Graphs have no Threshold Templates associated with them</p>";
-				print "<p>" . $not_found . "</p>";
+				print "<ul>" . $not_found . "</ul>";
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Graphs?
-					<p>" . $found_list . "</p>
+					<ul>" . $found_list . "</ul>
 					</td>
 				</tr>\n
 				";
@@ -692,7 +692,7 @@ function thold_graphs_action_prepare($save) {
 		}else{
 			if (strlen($not_found)) {
 				print "<p>There are no Threshold Templates associated with the following Graphs</p>";
-				print "<p>" . $not_found . "</p>";
+				print "<ul>" . $not_found . "</ul>";
 			}
 		}
 	}else{

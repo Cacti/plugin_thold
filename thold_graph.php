@@ -174,8 +174,8 @@ function form_thold_filter() {
 						<input type="text" name="filter" size="20" value="<?php print $_REQUEST["filter"];?>">
 					</td>
 					<td nowrap>
-						&nbsp;<input type="image" src="<?php print $config['url_path'];?>images/button_go.gif" alt="Go" border="0" align="absmiddle">
-						<input type="image" src="<?php print $config['url_path'];?>images/button_clear.gif" name="clear" alt="Clear" border="0" align="absmiddle">
+						&nbsp;<input type='submit' name='got' value='Go'>
+						<input type="submit" name="clear_x" value="Clear">
 					</td>
 				</tr>
 			</table>
@@ -777,8 +777,8 @@ function form_host_filter() {
 						<input type="text" name="filter" size="20" value="<?php print $_REQUEST["filter"];?>">
 					</td>
 					<td nowrap>
-						&nbsp;<input type="image" src="<?php print $config['url_path'];?>images/button_go.gif" alt="Go" border="0" align="absmiddle">
-						<input type="image" src="<?php print $config['url_path'];?>images/button_clear.gif" name="clear" alt="Clear" border="0" align="absmiddle">
+						&nbsp;<input type="submit" value="Go" name="go">
+						<input type="submit" name="clear_x" value="Clear">
 					</td>
 				</tr>
 			</table>

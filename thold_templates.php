@@ -180,7 +180,7 @@ function template_add() {
 		}
 
 		if ($_REQUEST["data_source_id"] != '') {
-			echo '<tr><td colspan=2><input type=hidden name=action value="add"><input id="save" type=hidden name="save" value="save"><br><center><input type=image src="../../images/button_create.gif" alt="Create"></center></td></tr>';
+			echo '<tr><td colspan=2><input type=hidden name=action value="add"><input id="save" type=hidden name="save" value="save"><br><center><input type="submit" value="Create"></center></td></tr>';
 		} else {
 			echo '<tr><td colspan=2><input type=hidden name=action value="add"><br><br><br></td></tr>';
 		}
@@ -711,8 +711,8 @@ function template_edit() {
 			'friendly_name' => 'RPN Expression',
 			'method' => 'textbox',
 			'default' => '',
-			'description' => 'An RPM Expression that assumes that the selected Data Source is already in the 
-			RPN stack.  This RPN expression can include any additional Data Sources names in the current 
+			'description' => 'An RPM Expression that assumes that the selected Data Source is already in the
+			RPN stack.  This RPN expression can include any additional Data Sources names in the current
 			RRDfile.  However, in all cases the selected Data Source is loaded on the stack first.',
 			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',
 			'width' => '255',
