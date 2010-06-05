@@ -30,6 +30,7 @@
 ----[ Changelog
 
 	--- 0.5 ---
+    compat: Use general header to not display graph information
     Bug: Fix for compatibility with other plugins using datasource action hook
     Bug: Re-add syslog messages for down hosts
     Bug: Fixed a few minor issues
@@ -37,6 +38,8 @@
     Bug: Fix host status page to only allow users to see hosts they have access to
     Bug: Fix ru_nswap errors on Windows
     Bug: Actions did not work with other plugins from Graphs and Data Sources pages
+    Bug: Sometimes Thresholds would have false positives on non-polls and counter rolls
+    Bug: Don't show the console breadcrum for while on the THold tab
     Feature: Add support for RPN Expressions
     Feature: Add support for Alert Escalation (Multiple Alerts per Threshold)
     Feature: Add support for Alerts via Script Execution
