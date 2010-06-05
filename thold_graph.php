@@ -38,7 +38,7 @@ thold_initialize_rusage();
 
 plugin_thold_upgrade ();
 
-include_once($config['include_path'] . '/top_graph_header.php');
+include_once(dirname(__FILE__) . '/general_header.php');
 
 if (!thold_check_dependencies()) {
 	cacti_log("THOLD: You are missing a required dependency, please install and enable the '<a href='http://cactiusers.org/'>Settings'</a> plugin.", true, 'POLLER');

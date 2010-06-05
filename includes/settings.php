@@ -29,7 +29,7 @@ function thold_draw_navigation_text ($nav) {
 	$nav['thold.php:autocreate'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '1');
 	$nav['listthold.php:'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'listthold.php', 'level' => '1');
 	$nav['listthold.php:actions'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'listthold.php', 'level' => '1');
-	$nav['thold_graph.php:'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'thold_graph.php', 'level' => '1');
+	$nav['thold_graph.php:'] = array('title' => 'Thresholds', 'mapping' => '', 'url' => 'thold_graph.php', 'level' => '1');
 	$nav['thold_view_failures.php:'] = array('title' => 'Thresholds - Failures', 'mapping' => 'index.php:', 'url' => 'thold_view_failures.php', 'level' => '1');
 	$nav['thold_view_normal.php:'] = array('title' => 'Thresholds - Normal', 'mapping' => 'index.php:', 'url' => 'thold_view_normal.php', 'level' => '1');
 	$nav['thold_view_recover.php:'] = array('title' => 'Thresholds - Recovering', 'mapping' => 'index.php:', 'url' => 'thold_view_recover.php', 'level' => '1');
