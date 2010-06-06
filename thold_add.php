@@ -227,17 +227,17 @@ function thold_add_graphs_action_prepare($graph) {
 						 WHERE graph_local.id=$graph");
 	if ($data_template_id != "") {
 		if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-			$found_list .= "<li>" . get_graph_title($graph) . "<br>";
+			$found_list .= "<li>" . get_graph_title($graph) . "</li>";
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
 			}else{
 				$templates  = "$data_template_id";
 			}
 		}else{
-			$not_found .= "<li>" . get_graph_title($graph) . "<br>";
+			$not_found .= "<li>" . get_graph_title($graph) . "</li>";
 		}
 	}else{
-		$not_found .= "<li>" . get_graph_title($item) . "<br>";
+		$not_found .= "<li>" . get_graph_title($item) . "</li>";
 	}
 
 	if (strlen($templates)) {
@@ -252,11 +252,11 @@ function thold_add_graphs_action_prepare($graph) {
 	if (strlen($found_list)) {
 		if (strlen($not_found)) {
 			print "<p>The following Graph has no Threshold Templates associated with them</p>";
-			print "<p>" . $not_found . "</p>";
+			print "<ul>" . $not_found . "</ul>";
 		}
 
 		print "<p>Are you sure you wish to create Thresholds for this Graph?
-				<p>" . $found_list . "</p>
+				<ul>" . $found_list . "</ul>
 				</td>
 			</tr>\n
 			";

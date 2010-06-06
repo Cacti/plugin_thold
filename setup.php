@@ -460,11 +460,11 @@ function thold_data_source_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print "<p>The following Data Sources have no Threshold Templates associated with them</p>";
-				print "<p>" . $not_found . "</p>";
+				print "<ul>" . $not_found . "</ul>";
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Data Sources?
-					<p>" . $found_list . "</p>
+					<ul>" . $found_list . "</ul>
 					</td>
 				</tr>\n
 				";
@@ -493,7 +493,7 @@ function thold_data_source_action_prepare($save) {
 		}else{
 			if (strlen($not_found)) {
 				print "<p>There are no Threshold Templates associated with the following Data Sources</p>";
-				print "<p>" . $not_found . "</p>";
+				print "<ul>" . $not_found . "</ul>";
 			}
 		}
 	}
