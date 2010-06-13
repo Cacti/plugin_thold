@@ -86,7 +86,7 @@ function thold_version () {
 function thold_check_upgrade () {
 	global $config;
 	// Let's only run this check if we are on a page that actually needs the data
-	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'listthold.php', 'poller.php', 'plugins.php');
+	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'listthold.php', 'poller.php');
 	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files))
 		return;
 	$current = plugin_thold_version ();
@@ -117,12 +117,21 @@ function thold_check_dependencies() {
 	if (!isset($v['version']) || $v['version'] < 0.3) {
 		return false;
 	}
+
+	return true;
+}
+
+function plugin_thold_check_strict () {
+	$mode = db_fetch_cell("select @@global.sql_mode", false);
+	if (stristr($mode, 'strict') !== FALSE) {
+		return false;
+	}
 	return true;
 }
 
 function plugin_thold_version () {
 	return array(	'name'		=> 'thold',
-			'version' 	=> '0.5',
+			'version' 	=> '0.4.2',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',
@@ -412,8 +421,6 @@ function thold_data_source_action_execute($action) {
 			$_SESSION['thold_message'] = "<font size=-2>Threshold(s) Already Exist - No Thresholds Created</font>";
 		}
 		raise_message('thold_created');
-	}else{
-		return $action;
 	}
 }
 
@@ -433,17 +440,17 @@ function thold_data_source_action_prepare($save) {
 
 			if ($data_template_id != "") {
 				if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-					$found_list .= "<li>" . get_data_source_title($item) . "</li>";
+					$found_list .= "<li>" . get_data_source_title($item) . "<br>";
 					if (strlen($templates)) {
 						$templates .= ", $data_template_id";
 					}else{
 						$templates  = "$data_template_id";
 					}
 				}else{
-					$not_found .= "<li>" . get_data_source_title($item) . "</li>";
+					$not_found .= "<li>" . get_data_source_title($item) . "<br>";
 				}
 			}else{
-				$not_found .= "<li>" . get_data_source_title($item) . "</li>";
+				$not_found .= "<li>" . get_data_source_title($item) . "<br>";
 			}
 		}
 		}
@@ -460,11 +467,11 @@ function thold_data_source_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print "<p>The following Data Sources have no Threshold Templates associated with them</p>";
-				print "<ul>" . $not_found . "</ul>";
+				print "<p>" . $not_found . "</p>";
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Data Sources?
-					<ul>" . $found_list . "</ul>
+					<p>" . $found_list . "</p>
 					</td>
 				</tr>\n
 				";
@@ -493,11 +500,10 @@ function thold_data_source_action_prepare($save) {
 		}else{
 			if (strlen($not_found)) {
 				print "<p>There are no Threshold Templates associated with the following Data Sources</p>";
-				print "<ul>" . $not_found . "</ul>";
+				print "<p>" . $not_found . "</p>";
 			}
 		}
 	}
-	return $save;
 }
 
 function thold_data_source_action_array($action) {
@@ -607,8 +613,6 @@ function thold_graphs_action_execute($action) {
 			$_SESSION['thold_message'] = "<font size=-2>Threshold(s) Already Exist - No Thresholds Created</font>";
 		}
 		raise_message('thold_created');
-	}else{
-		return $action;
 	}
 }
 
@@ -632,17 +636,17 @@ function thold_graphs_action_prepare($save) {
 								 WHERE graph_local.id=$item");
 			if ($data_template_id != "") {
 				if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-					$found_list .= "<li>" . get_graph_title($item) . "</li>";
+					$found_list .= "<li>" . get_graph_title($item) . "<br>";
 					if (strlen($templates)) {
 						$templates .= ", $data_template_id";
 					}else{
 						$templates  = "$data_template_id";
 					}
 				}else{
-					$not_found .= "<li>" . get_graph_title($item) . "</li>";
+					$not_found .= "<li>" . get_graph_title($item) . "<br>";
 				}
 			}else{
-				$not_found .= "<li>" . get_graph_title($item) . "</li>";
+				$not_found .= "<li>" . get_graph_title($item) . "<br>";
 			}
 		}
 		}
@@ -659,11 +663,11 @@ function thold_graphs_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print "<p>The following Graphs have no Threshold Templates associated with them</p>";
-				print "<ul>" . $not_found . "</ul>";
+				print "<p>" . $not_found . "</p>";
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Graphs?
-					<ul>" . $found_list . "</ul>
+					<p>" . $found_list . "</p>
 					</td>
 				</tr>\n
 				";
@@ -692,11 +696,9 @@ function thold_graphs_action_prepare($save) {
 		}else{
 			if (strlen($not_found)) {
 				print "<p>There are no Threshold Templates associated with the following Graphs</p>";
-				print "<ul>" . $not_found . "</ul>";
+				print "<p>" . $not_found . "</p>";
 			}
 		}
-	}else{
-		return $save;
 	}
 }
 

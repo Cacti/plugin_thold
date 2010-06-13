@@ -127,7 +127,6 @@ function thold_add_graphs_action_execute() {
 			$grapharr = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup and local_graph_id = $graph");
 
 			$desc = db_fetch_cell('SELECT name_cache FROM data_template_data WHERE local_data_id=' . $local_data_id . ' LIMIT 1');
-			$ds = db_fetch_row('SELECT data_source_type_id, rrd_heartbeat FROM data_template_rrd WHERE local_data_id = ' . $local_data_id . ' AND local_data_template_rrd_id = ' . $template['data_source_id'] );
 
 			$data_source_name = $template['data_source_name'];
 			$insert = array();
@@ -140,7 +139,7 @@ function thold_add_graphs_action_execute() {
 			$insert['graph_template']	  = $grapharr['graph_template_id'];
 			$insert['thold_hi']           = $template['thold_hi'];
 			$insert['thold_low']          = $template['thold_low'];
-//			$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
+			$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
 			$insert['thold_enabled']      = $template['thold_enabled'];
 			$insert['bl_enabled']         = $template['bl_enabled'];
 			$insert['bl_ref_time']        = $template['bl_ref_time'];
@@ -149,14 +148,11 @@ function thold_add_graphs_action_execute() {
 			$insert['bl_pct_up']          = $template['bl_pct_up'];
 			$insert['bl_fail_trigger']    = $template['bl_fail_trigger'];
 			$insert['bl_alert']           = $template['bl_alert'];
-//			$insert['repeat_alert']       = $template['repeat_alert'];
-//			$insert['notify_extra']       = $template['notify_extra'];
+			$insert['repeat_alert']       = $template['repeat_alert'];
+			$insert['notify_extra']       = $template['notify_extra'];
 			$insert['cdef']               = $template['cdef'];
 			$insert['template']           = $template['id'];
 			$insert['template_enabled']   = 'on';
-			$insert['data_source_name']   = 'on';
-			$insert['rrd_step']           = $ds['rrd_heartbeat'];
-			$insert['data_source_type_id'] = $ds['data_source_type_id'];
 
 			$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name='$data_source_name'");
 			$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
@@ -227,17 +223,17 @@ function thold_add_graphs_action_prepare($graph) {
 						 WHERE graph_local.id=$graph");
 	if ($data_template_id != "") {
 		if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-			$found_list .= "<li>" . get_graph_title($graph) . "</li>";
+			$found_list .= "<li>" . get_graph_title($graph) . "<br>";
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
 			}else{
 				$templates  = "$data_template_id";
 			}
 		}else{
-			$not_found .= "<li>" . get_graph_title($graph) . "</li>";
+			$not_found .= "<li>" . get_graph_title($graph) . "<br>";
 		}
 	}else{
-		$not_found .= "<li>" . get_graph_title($item) . "</li>";
+		$not_found .= "<li>" . get_graph_title($item) . "<br>";
 	}
 
 	if (strlen($templates)) {
@@ -252,11 +248,11 @@ function thold_add_graphs_action_prepare($graph) {
 	if (strlen($found_list)) {
 		if (strlen($not_found)) {
 			print "<p>The following Graph has no Threshold Templates associated with them</p>";
-			print "<ul>" . $not_found . "</ul>";
+			print "<p>" . $not_found . "</p>";
 		}
 
 		print "<p>Are you sure you wish to create Thresholds for this Graph?
-				<ul>" . $found_list . "</ul>
+				<p>" . $found_list . "</p>
 				</td>
 			</tr>\n
 			";
@@ -375,18 +371,21 @@ function thold_add_graphs_action_prepare($graph) {
 	}
 
 	if (!strlen($not_found)) {
+		$save_html = "<input type='image' src='" . $config['url_path'] . "images/button_yes.gif' alt='Save' align='absmiddle'>";
+
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
 					<input type='hidden' name='action' value='actions'>
-					<input type='button' value='Cancel' onClick='javascript:history.go(-1)' title='Return to Previous Menu'>
-					<input type='submit' value='Save' name='save'>
+					<a href='javascript:history.go(-1)'><img src='" . $config['url_path'] . "images/button_no.gif' alt='Cancel' align='absmiddle' border='0'></a>
+					$save_html
 				</td>
 			</tr>";
 	} else {
+		$save_html = "<input type='image' src='" . $config['url_path'] . "images/button_go.gif' alt='Save' align='absmiddle'>";
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
-					<input type='button' value='Cancel' onClick='javascript:history.go(-1)' title='Return to Previous Menu'>
-					<input type='submit' value='Save' name='save'>
+					<a href='javascript:history.go(-1)'><img src='" . $config['url_path'] . "images/button_cancel2.gif' alt='Cancel' align='absmiddle' border='0'></a>
+					$save_html
 				</td>
 			</tr>";
 	}
@@ -523,7 +522,7 @@ function thold_add_select_host() {
 	}
 
 	if ($ds != '') {
-		echo '<tr><td colspan=2><input type=hidden name=save value="save"><br><center><input type="submit" value="Create"></center></td></tr>';
+		echo '<tr><td colspan=2><input type=hidden name=save value="save"><br><center><input type=image src="../../images/button_create.gif" alt="Create"></center></td></tr>';
 	} else {
 		echo '<tr><td colspan=2><br><br><br></td></tr>';
 	}

@@ -225,7 +225,7 @@ function list_tholds() {
 		INNER JOIN thold_data ON (host.id = thold_data.host_id)
 		LEFT JOIN user_auth_perms on (thold_data.host_id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
 		$sql_where_hid
-		ORDER BY description");
+		ORDER BY hostname");
 
 	$data_templates = db_fetch_assoc("SELECT DISTINCT data_template.id, data_template.name
 		FROM data_template
@@ -340,7 +340,9 @@ function list_tholds() {
 		'thold_type' => array('Type', 'ASC'),
 		'thold_hi' => array('High', 'ASC'),
 		'thold_low' => array('Low', 'ASC'),
+		'thold_fail_trigger' => array('Trigger', 'ASC'),
 		'time_fail_length' => array('Duration', 'ASC'),
+		'repeat_alert' => array('Repeat', 'ASC'),
 		'lastread' => array('Current', 'ASC'),
 		'thold_alert' => array('Triggered', 'ASC'),
 		'thold_enabled' => array('Enabled', 'ASC'));
@@ -385,9 +387,9 @@ function list_tholds() {
 			form_selectable_cell($types[$row['thold_type']], $row["id"]);
 			form_selectable_cell(($row['thold_type'] == 0 ? $row['thold_hi'] : ($row['thold_type'] == 2 ? $row['time_hi'] : '')), $row["id"]);
 			form_selectable_cell(($row['thold_type'] == 0 ? $row['thold_low'] : ($row['thold_type'] == 2 ? $row['time_low'] : '')), $row["id"]);
-//			form_selectable_cell(($row['thold_type'] == 0 ? ("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i>") : ($row['thold_type'] == 2 ? ("<i>" . $row['time_fail_trigger'] . "</i>") : '')), $row["id"]);
+			form_selectable_cell(($row['thold_type'] == 0 ? ("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i>") : ($row['thold_type'] == 2 ? ("<i>" . $row['time_fail_trigger'] . "</i>") : '')), $row["id"]);
 			form_selectable_cell(($row['thold_type'] == 2 ? plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time') : ''), $row["id"]);
-//			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')), $row["id"]);
+			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')), $row["id"]);
 			form_selectable_cell($row['lastread'], $row["id"]);
 			form_selectable_cell($alertstat, $row["id"]);
 			form_selectable_cell((($row['thold_enabled'] == 'off') ? "Disabled": "Enabled"), $row["id"]);

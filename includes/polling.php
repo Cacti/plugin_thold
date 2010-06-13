@@ -58,16 +58,20 @@ function thold_poller_output ($rrd_update_array) {
 	foreach($rrd_update_array as $item) {
 		if (isset($item['times'][key($item['times'])])) {
 			if ($x) {
-				$rra_ids .= ', ';
+				$rra_ids .= ' OR ';
 			}
-			$rra_ids .= $item['local_data_id'];
+			$rra_ids .= 'thold_data.rra_id = ' . $item['local_data_id'];
 			$rrd_update_array_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
 			$x++;
 		}
 	}
 
 	if ($rra_ids != '') {
-		$thold_items = db_fetch_assoc("SELECT * FROM thold_data WHERE rra_id IN($rra_ids)", false);
+		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.data_type, thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue, data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id, data_template_data.rrd_step
+							FROM thold_data
+							LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
+							LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
+							WHERE data_template_rrd.data_source_name != '' AND $rra_ids", false);
 	} else {
 		return $rrd_update_array;
 	}
@@ -76,42 +80,31 @@ function thold_poller_output ($rrd_update_array) {
 		$polling_interval = $t_item['rrd_step'];
 		if (isset($rrd_update_array_reindexed[$t_item['rra_id']])) {
 			$item = $rrd_update_array_reindexed[$t_item['rra_id']];
-			if (isset($item[$t_item['data_source_name']])) {
+			if (isset($item[$t_item['name']])) {
 				switch ($t_item['data_source_type_id']) {
 					case 2:	// COUNTER
-						if ($t_item['oldvalue'] != 0) {
-							if ($item[$t_item['data_source_name']] >= $t_item['oldvalue']) {
-								// Everything is normal
-								$currentval = $item[$t_item['data_source_name']] - $t_item['oldvalue'];
+						if ($item[$t_item['name']] >= $t_item['oldvalue']) {
+							// Everything is normal
+							$currentval = $item[$t_item['name']] - $t_item['oldvalue'];
+						} else {
+							// Possible overflow, see if its 32bit or 64bit
+							if ($t_item['oldvalue'] > 4294967295) {
+								$currentval = (18446744073709551615 - $t_item['oldvalue']) + $item[$t_item['name']];
 							} else {
-								// Possible overflow, see if its 32bit or 64bit
-								if ($t_item['oldvalue'] > 4294967295) {
-									$currentval = (18446744073709551615 - $t_item['oldvalue']) + $item[$t_item['data_source_name']];
-								} else {
-									$currentval = (4294967295 - $t_item['oldvalue']) + $item[$t_item['data_source_name']];
-								}
+								$currentval = (4294967295 - $t_item['oldvalue']) + $item[$t_item['name']];
 							}
-							$currentval = $currentval / $polling_interval;
-
-							/* assume counter reset if greater than max value */
-							if ($t_item['rrd_maximum'] > 0 && $currentval > $t_item['rrd_maximum']) {
-								$currentval = $item[$t_item['data_source_name']] / $polling_interval;
-							}elseif ($t_item['rrd_maximum'] == 0 && $currentval > 1.0E+9) {
-								$currentval = $item[$t_item['data_source_name']] / $polling_interval;
-							}
-						}else{
-							$currentval = 0;
 						}
+						$currentval = $currentval / $polling_interval;
 						break;
 					case 3:	// DERIVE
-						$currentval = ($item[$t_item['data_source_name']] - $t_item['oldvalue']) / $polling_interval;
+						$currentval = ($item[$t_item['name']] - $t_item['oldvalue']) / $polling_interval;
 						break;
 					case 4:	// ABSOLUTE
-						$currentval = $item[$t_item['data_source_name']] / $polling_interval;
+						$currentval = $item[$t_item['name']] / $polling_interval;
 						break;
 					case 1:	// GAUGE
 					default:
-						$currentval = $item[$t_item['data_source_name']];
+						$currentval = $item[$t_item['name']];
 						break;
 				}
 				switch ($t_item['data_type']) {
@@ -130,15 +123,9 @@ function thold_poller_output ($rrd_update_array) {
 						}
 						$currentval = round($currentval, 4);
 						break;
-					case 3:
-						if ($t_item['expression'] != '') {
-							$currentval = thold_calculate_expression($t_item, $currentval, $rrd_update_array_reindexed);
-						}
-						$currentval = round($currentval, 4);
-						break;
 				}
-
 				db_execute("UPDATE thold_data SET tcheck = 1, lastread = '$currentval', oldvalue = '" . $item[$t_item['name']] . "' WHERE rra_id = " . $t_item['rra_id'] . " AND data_id = " . $t_item['data_id']);
+				//thold_check_threshold ($t_item['rra_id'], $t_item['data_id'], $t_item['name'], $currentval, $t_item['cdef']);
 			}
 		}
 	}
@@ -180,9 +167,6 @@ function thold_update_host_status () {
 				if ($host['status'] == HOST_UP) {
 					$subject = 'Host Notice : ' . $host['description'] . ' (' . $host['hostname'] . ') returned from DOWN state';
 					$msg = $subject;
-					if ($logset) {
-						plugin_thold_syslog_host_status($subject);
-					}
 					if ($alert_email == '') {
 						cacti_log('THOLD: Can not send Host Recovering email since the \'Alert e-mail\' setting is not set!', true, 'POLLER');
 					} else {
@@ -200,9 +184,6 @@ function thold_update_host_status () {
 		foreach($hosts as $host) {
 			$subject = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN';
 			$msg = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN<br>Message : ' . $host['status_last_error'];
-			if ($logset) {
-				plugin_thold_syslog_host_status($subject);
-			}
 			if ($alert_email == '') {
 				cacti_log('THOLD: Can not send Host Down email since the \'Alert e-mail\' setting is not set!', true, 'POLLER');
 			} else {
