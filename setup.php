@@ -27,7 +27,7 @@ function plugin_thold_install () {
 	global $config;
 	api_plugin_register_hook('thold', 'top_header_tabs', 'thold_show_tab', 'includes/tab.php');
 	api_plugin_register_hook('thold', 'top_graph_header_tabs', 'thold_show_tab', 'includes/tab.php');
-	api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'includes/settings.php');
+	api_plugin_register_hook('thold', 'config_insert', 'thold_config_arrays', 'includes/settings.php');
 	api_plugin_register_hook('thold', 'config_settings', 'thold_config_settings', 'includes/settings.php');
 	api_plugin_register_hook('thold', 'draw_navigation_text', 'thold_draw_navigation_text', 'includes/settings.php');
 	api_plugin_register_hook('thold', 'data_sources_table', 'thold_data_sources_table', 'setup.php');
