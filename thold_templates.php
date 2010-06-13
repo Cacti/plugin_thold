@@ -172,6 +172,7 @@ function template_add() {
 		}
 		echo '</table></form></td></tr>';
 		html_end_box();
+		include_once('./include/bottom_footer.php');
 	}else{
 		$data_template_id = $_REQUEST['data_template_id'];
 		$data_source_id = $_REQUEST['data_source_id'];
