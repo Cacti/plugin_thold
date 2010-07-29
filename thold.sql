@@ -45,7 +45,7 @@ CREATE TABLE `thold_data` (
   KEY `template` (`template`),
   KEY `template_enabled` (`template_enabled`),
   KEY `thold_enabled` (`thold_enabled`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `thold_template`;
 CREATE TABLE thold_template (
@@ -74,7 +74,7 @@ CREATE TABLE thold_template (
   PRIMARY KEY  (id),
   KEY `data_template_id` (`data_template_id`),
   KEY `data_source_id` (`data_source_id`)
-) TYPE=MyISAM COMMENT='Table of thresholds defaults for graphs';
+) ENGINE=MyISAM COMMENT='Table of thresholds defaults for graphs';
 
 DROP TABLE IF EXISTS `plugin_thold_alerts`;
 CREATE TABLE IF NOT EXISTS `plugin_thold_alerts` (
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `plugin_thold_alerts` (
   KEY `threshold_id` (`threshold_id`),
   KEY `repeat_fail` (`repeat_fail`),
   KEY `repeat_alert` (`repeat_alert`)
-) TYPE=MyISAM COMMENT='Table of Tholds Alerts';
+) ENGINE=MyISAM COMMENT='Table of Tholds Alerts';
 
 DROP TABLE IF EXISTS `plugin_thold_template_alerts`;
 CREATE TABLE IF NOT EXISTS `plugin_thold_template_alerts` (
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `plugin_thold_template_alerts` (
   KEY `template_id` (`template_id`),
   KEY `repeat_fail` (`repeat_fail`),
   KEY `repeat_alert` (`repeat_alert`)
-) TYPE=MyISAM COMMENT='Table of Tholds Template Alerts';
+) ENGINE=MyISAM COMMENT='Table of Tholds Template Alerts';
 
 DROP TABLE IF EXISTS `plugin_thold_contacts`;
 CREATE TABLE plugin_thold_contacts (
@@ -115,7 +115,7 @@ CREATE TABLE plugin_thold_contacts (
   PRIMARY KEY  (`id`),
   KEY `type` (`type`),
   KEY `user_id` (`user_id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE `plugin_thold_log` (
   `id` int(12) NOT NULL auto_increment,
