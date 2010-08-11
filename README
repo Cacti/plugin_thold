@@ -32,6 +32,7 @@
 
 ----[ Changelog
   --- SVN ---
+    Bug#0001753: Lotus Notes are unable to render inline png pictures 
     Bug#0001810: Thold: RRDTool 1.4.x error while determining last RRD value 
 
 	--- 0.4.1 ---
