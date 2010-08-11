@@ -31,7 +31,10 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
-	--- 0.4.1 --
+  --- SVN ---
+    Bug#0001810: Thold: RRDTool 1.4.x error while determining last RRD value 
+
+	--- 0.4.1 ---
 		Feature: Add thold statistics to settings table to allow graphing the results
 		Bug:	 Return False from host status check function if it is disabled
 		Bug:	 Speed up Datasource Query on Told Tab
