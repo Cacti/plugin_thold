@@ -1716,15 +1716,15 @@ function delete_old_thresholds () {
 	}
 }
 
-function thold_rrd_last($rra, $cf) {
+function thold_rrd_last($rra) {
 	global $config;
-	$last_time_entry = rrdtool_execute('last ' . trim(get_data_source_path($rra, true)) . ' ' . trim($cf), false, RRDTOOL_OUTPUT_STDOUT);
+	$last_time_entry = @rrdtool_execute('last ' . trim(get_data_source_path($rra, true)), false, RRDTOOL_OUTPUT_STDOUT);
 	return trim($last_time_entry);
 }
 
 function get_current_value($rra, $ds, $cdef = 0) {
 	global $config;
-	$last_time_entry = thold_rrd_last($rra, 'AVERAGE');
+	$last_time_entry = thold_rrd_last($rra);
 
 	// This should fix and 'did you really mean month 899 errors', this is because your RRD has not polled yet
 	if ($last_time_entry == -1)
