@@ -30,6 +30,7 @@
 ----[ Changelog
 
 	--- 0.5 ---
+    Bug#0001753: Lotus Notes are unable to render inline png pictures 
     Bug#0001810: Thold: RRDTool 1.4.x error while determining last RRD value 
     Bug: Fix for compatibility with other plugins using datasource action hook
     Bug: Re-add syslog messages for down hosts
