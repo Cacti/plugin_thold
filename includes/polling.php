@@ -155,6 +155,11 @@ function thold_update_host_status () {
 	if (!$deadnotify) return 0;
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
+
+	if (api_plugin_is_enabled('maint')) {
+		include_once($config["base_path"] . '/plugins/maint/functions.php');
+	}
+
 	$alert_email = read_config_option('alert_email');
 	$ping_failure_count = read_config_option('ping_failure_count');
 	// Lets find hosts that were down, but are now back up
@@ -163,6 +168,11 @@ function thold_update_host_status () {
 	if (!empty($failed)) {
 		foreach($failed as $id) {
 			if ($id != '') {
+				if (api_plugin_is_enabled('maint')) {
+					if (plugin_maint_check_cacti_host ($id)) {
+						continue;
+					}
+				}
 				$host = db_fetch_row('SELECT id, status, description, hostname FROM host WHERE id = ' . $id);
 				if ($host['status'] == HOST_UP) {
 					$subject = 'Host Notice : ' . $host['description'] . ' (' . $host['hostname'] . ') returned from DOWN state';
@@ -182,6 +192,12 @@ function thold_update_host_status () {
 	$total_hosts = sizeof($hosts);
 	if (count($hosts)) {
 		foreach($hosts as $host) {
+			if (api_plugin_is_enabled('maint')) {
+				if (plugin_maint_check_cacti_host ($host['id'])) {
+					continue;
+				}
+			}
+
 			$subject = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN';
 			$msg = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN<br>Message : ' . $host['status_last_error'];
 			if ($alert_email == '') {
@@ -197,6 +213,11 @@ function thold_update_host_status () {
 	$failed = array();
 	if (!empty($hosts)) {
 		foreach ($hosts as $host) {
+			if (api_plugin_is_enabled('maint')) {
+				if (plugin_maint_check_cacti_host ($host['id'])) {
+					continue;
+				}
+			}
 			$failed[] = $host['id'];
 		}
 	}
