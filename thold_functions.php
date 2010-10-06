@@ -424,7 +424,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 }
 
 function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
-	global $config;
+	global $config, $plugins;
 
 	// Maybe set an option for these?
 	$debug = false;
@@ -453,6 +453,14 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	if (($weekday == 'Saturday' || $weekday == 'Sunday') && $item['exempt'] == 'on') {
 		return;
 	}
+
+	if (api_plugin_is_enabled('maint') || in_array('maint', $plugins)) {
+		include_once($config["base_path"] . '/plugins/maint/functions.php');
+		if (plugin_maint_check_cacti_host ($item['host_id'])) {
+			return;
+		}
+	}
+
 
 	$graph_id = $item['graph_id'];
 
