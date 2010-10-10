@@ -104,6 +104,11 @@ function thold_request_validation() {
 	/* ==================================================== */
 
 	/* clean up sort solumn */
+	if (isset($_REQUEST['filter'])) {
+		$_REQUEST['filter'] = sanitize_search_string(get_request_var_request('filter'));
+	}
+
+	/* clean up sort solumn */
 	if (isset($_REQUEST['sort_column'])) {
 		$_REQUEST['sort_column'] = sanitize_search_string(get_request_var('sort_column'));
 	}
@@ -114,9 +119,10 @@ function thold_request_validation() {
 	}
 
 	/* if the user pushed the 'clear' button */
-	if (isset($_REQUEST['button_clear_x'])) {
+	if (isset($_REQUEST['clear'])) {
 		kill_session_var('sess_thold_rows');
 		kill_session_var('sess_thold_page');
+		kill_session_var('sess_thold_filter');
 		kill_session_var('sess_thold_sort_column');
 		kill_session_var('sess_thold_sort_direction');
 		kill_session_var('sess_thold_hostid');
@@ -126,6 +132,7 @@ function thold_request_validation() {
 		$_REQUEST['page'] = 1;
 		unset($_REQUEST['rows']);
 		unset($_REQUEST['page']);
+		unset($_REQUEST['filter']);
 		unset($_REQUEST['sort_column']);
 		unset($_REQUEST['sort_direction']);
 		unset($_REQUEST['hostid']);
@@ -137,6 +144,7 @@ function thold_request_validation() {
 		$changed = 0;
 		$changed += thold_request_check_changed('rows', 'sess_thold_rows');
 		$changed += thold_request_check_changed('page', 'sess_thold_page');
+		$changed += thold_request_check_changed('filter', 'sess_thold_filter');
 		$changed += thold_request_check_changed('sort_column', 'sess_thold_sort_column');
 		$changed += thold_request_check_changed('sort_direction', 'sess_thold_sort_direction');
 		$changed += thold_request_check_changed('hostid', 'sess_thold_hostid');
@@ -152,6 +160,7 @@ function thold_request_validation() {
 	/* remember search fields in session vars */
 	load_current_session_value('rows', 'sess_thold_rows', read_config_option('num_rows_thold'));
 	load_current_session_value('page', 'sess_thold_current_page', '1');
+	load_current_session_value('filter', 'sess_thold_filter', '');
 	load_current_session_value('sort_column', 'sess_thold_sort_column', 'thold_alert');
 	load_current_session_value('sort_direction', 'sess_thold_sort_direction', 'DESC');
 	load_current_session_value('state', 'sess_thold_state', 'Triggered');
@@ -211,6 +220,9 @@ function list_tholds() {
 	if($statefilter != '') {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "$statefilter";
 	}
+	if($_REQUEST["filter"] != '') {
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_data.name LIKE '%" . $_REQUEST["filter"] . "%'";
+	}
 
 	$current_user = db_fetch_row('SELECT * FROM user_auth WHERE id=' . $_SESSION['sess_user_id']);
 	$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
@@ -242,6 +254,7 @@ function list_tholds() {
 	function applyTHoldFilterChange(objForm) {
 		strURL = '?hostid=' + objForm.hostid.value;
 		strURL = strURL + '&state=' + objForm.state.value;
+		strURL = strURL + '&filter=' + objForm.filter.value;
 		strURL = strURL + '&template=' + objForm.template.value;
 		document.location = strURL;
 	}
@@ -297,8 +310,15 @@ function list_tholds() {
 							?>
 						</select>
 					</td>
+					<td nowrap style='white-space: nowrap;' width="1">
+						&nbsp;Search:&nbsp;
+					</td>
+					<td>
+						<input type="text" name="filter" size="20" value="<?php print $_REQUEST["filter"];?>">
+					</td>
 					<td nowrap style='white-space: nowrap;'>
-						&nbsp;<input type='submit' name='button_clear_x' value='Clear' title='Return to the default time span'>
+						&nbsp;<input type='submit' name='go' value='Go' title='Set Filter'>
+						<input type='submit' name='clear' value='Clear' title='Return to the default time span'>
 					</td>
 				</tr>
 			</table>
@@ -318,23 +338,38 @@ function list_tholds() {
 	$url_page_select = get_page_list($_REQUEST['page'], MAX_DISPLAY_PAGES, $alert_num_rows, $total_rows, 'listthold.php?');
 
 	html_start_box('', '100%', $colors['header'], '4', 'center', '');
-	$nav = "<tr bgcolor='#" . $colors['header'] . "'>
-			<td colspan='12'>
-				<table width='100%' cellspacing='0' cellpadding='0' border='0'>
-					<tr>
-						<td align='left' class='textHeaderDark'>
-							<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
-						</td>\n
-						<td align='center' class='textHeaderDark'>
-							Showing Rows " . (($alert_num_rows*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < $alert_num_rows) || ($total_rows < ($alert_num_rows*$_REQUEST["page"]))) ? $total_rows : ($alert_num_rows*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
-						</td>\n
-						<td align='right' class='textHeaderDark'>
-							<strong>"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
-						</td>\n
-					</tr>
-				</table>
-			</td>
-		</tr>\n";
+
+	if ($total_rows > 0) {
+		$nav = "<tr bgcolor='#" . $colors['header'] . "'>
+				<td colspan='12'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='left' class='textHeaderDark'>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+							</td>\n
+							<td align='center' class='textHeaderDark'>
+								Showing Rows " . (($alert_num_rows*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < $alert_num_rows) || ($total_rows < ($alert_num_rows*$_REQUEST["page"]))) ? $total_rows : ($alert_num_rows*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
+							</td>\n
+							<td align='right' class='textHeaderDark'>
+								<strong>"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}else{
+		$nav = "<tr bgcolor='#" . $colors['header'] . "'>
+				<td colspan='12'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='center' class='textHeaderDark'>
+								No Rows Found
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}
 
 	print $nav;
 
@@ -397,11 +432,12 @@ function list_tholds() {
 			form_checkbox_cell($row['name'], $row['id']);
 			form_end_row();
 		}
+
+		print $nav;
 	} else {
 		form_alternate_row_color($colors['alternate'],$colors['light'],0);
 		print '<td colspan=12><center>No Thresholds</center></td></tr>';
 	}
-	print $nav;
 
 	html_end_box(false);
 
