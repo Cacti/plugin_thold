@@ -21,7 +21,7 @@
     
 ----[ Possible Bugs?
    
-	If you find a problem, let me know!!! http://cactiusers.org/bugs/
+	If you find a problem, let me know!!! http://bugs.cacti.net
 
 ----[ Future Changes
 
@@ -31,8 +31,11 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
-	--- SVN ---
+	--- 0.4.3 ---
 		Add support for maint plugin
+		Fix to allow Add Wizard to show all datasources belonging to a graph (even when in separate data templates)
+		Re-apply SQL speed up when polling
+		Several fixes to Baselining
 
   --- 0.4.2 ---
 		Fixed Cacti 0.8.7g compatibility
