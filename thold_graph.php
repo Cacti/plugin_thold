@@ -248,6 +248,7 @@ function tholds() {
 	/* if the number of rows is -1, set it to the default */
 	if ($_REQUEST["rows"] == -1) {
 		$_REQUEST["rows"] = read_config_option("alert_num_rows");
+		if ($_REQUEST["rows"] < 2) $_REQUEST["rows"] = 30;
 	}
 
 	?>
