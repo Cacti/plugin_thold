@@ -36,6 +36,7 @@
 		Fix to allow Add Wizard to show all datasources belonging to a graph (even when in separate data templates)
 		Re-apply SQL speed up when polling
 		Several fixes to Baselining
+		Fix for negative values in baselining
 
   --- 0.4.2 ---
 		Fixed Cacti 0.8.7g compatibility
