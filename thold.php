@@ -140,12 +140,19 @@ foreach ($rrdsql as $r) {
 
 $rrdlookup = $rrdsql[0]["id"];
 
-$template_data_rrds = db_fetch_assoc("SELECT id, data_source_name FROM data_template_rrd WHERE local_data_id=" . $rra . " ORDER BY id");
 
 $grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_item WHERE $sql");
 
 // Take the first one available
 $graph = (isset($grapharr[0]["local_graph_id"]) ? $grapharr[0]["local_graph_id"] : "");
+
+$dt_sql = 'SELECT DISTINCT data_template_rrd.local_data_id
+		FROM data_template_rrd
+		LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
+		LEFT JOIN graph_local ON graph_local.id=graph_templates_item.local_graph_id
+		WHERE graph_local.id = ' . $graph;
+
+$template_data_rrds = db_fetch_assoc("SELECT id, data_source_name, local_data_id FROM data_template_rrd WHERE local_data_id IN ($dt_sql) ORDER BY id");
 
 ?>
 <table width="98%" align="center">
@@ -236,7 +243,7 @@ if (isset($template_data_rrds)) {
 			$i++;
 			echo "	<td bgcolor=" . (($template_data_rrd["id"] == $_GET["view_rrd"]) ? "'silver'" : "'#DFDFDF'");
 			echo " nowrap='nowrap' width='" . (($tab_len * 8) + 30) . "' align='center' class='tab'>";
-			echo "<span class='textHeader'><a href='thold.php?rra=" . $rra . "&view_rrd=" . $template_data_rrd["id"] . "'>$i: " . $template_data_rrd["data_source_name"] . "</a><br>";
+			echo "<span class='textHeader'><a href='thold.php?rra=" . $template_data_rrd["local_data_id"] . "&view_rrd=" . $template_data_rrd["id"] . "'>$i: " . $template_data_rrd["data_source_name"] . "</a><br>";
 			echo $cur_setting;
 			echo "</span>\n</td>\n<td width='1'></td>\n";
 			unset($thold_item_data);

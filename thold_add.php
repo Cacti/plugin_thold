@@ -73,8 +73,13 @@ if (isset($_REQUEST['dsid']) && $_REQUEST['dsid'] != '') {
 }
 
 if (isset($_REQUEST['dt']) && $_REQUEST['dt'] != '') {
-	input_validate_input_number($_REQUEST['dt']);
-	$dt = $_REQUEST['dt'];
+	// Correct the data template if we have a datasource
+	if ($ds) {
+		$dt = db_fetch_cell("SELECT local_data_id FROM data_template_rrd WHERE id = $ds");
+	} else {
+		input_validate_input_number($_REQUEST['dt']);
+		$dt = $_REQUEST['dt'];
+	}
 }
 
 if (isset($_POST['save']) && $_POST['save'] == 'save') {
