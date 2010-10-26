@@ -401,8 +401,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 					$desc .= '  Enabled: ' . $message['bl_enabled'];
 					$desc .= '  Reference: ' . $message['bl_ref_time'];
 					$desc .= '  Range: ' . $message['bl_ref_time_range'];
-					$desc .= '  Dev Up: ' . $message['bl_pct_down'];
-					$desc .= '  Dev Down: ' . $message['bl_pct_up'];
+					$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" );
+					$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" );
 					$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
 					break;
 				case 2:
