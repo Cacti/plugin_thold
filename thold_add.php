@@ -488,14 +488,15 @@ function thold_add_select_host() {
 	}
 
 	if ($graph != '') {
-		$dt = db_fetch_cell('SELECT DISTINCT data_template_rrd.local_data_id
+		$dt_sql = 'SELECT DISTINCT data_template_rrd.local_data_id
 				FROM data_template_rrd
 				LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
 				LEFT JOIN graph_local ON graph_local.id=graph_templates_item.local_graph_id
-				WHERE graph_local.id = ' . $graph);
+				WHERE graph_local.id = ' . $graph;
+		$dt = db_fetch_cell($dt_sql);
 		$dss = db_fetch_assoc('SELECT DISTINCT id, data_source_name
 				FROM data_template_rrd
-				WHERE local_data_id = ' . $dt . ' ORDER BY data_source_name');
+				WHERE local_data_id IN (' . $dt_sql . ') ORDER BY data_source_name');
 		/* show the data source options */
 		?>
 		<tr>
