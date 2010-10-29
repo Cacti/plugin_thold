@@ -957,7 +957,7 @@ function get_current_value($rra, $ds, $cdef = 0) {
 	$value = $result['values'][$idx][0];
 	if ($cdef != 0)
 		$value = thold_build_cdef($cdef, $value, $rra, $ds);
-	return round($value, 4);
+	return round($value, 2);
 }
 
 function thold_get_ref_value($rra_id, $ds, $ref_time, $time_range) {
@@ -1046,11 +1046,11 @@ function &thold_check_baseline($rra_id, $ds, $ref_time, $ref_range, $current_val
 	$blt_high = false;
 
 	if($pct_down != '') {
-		$blt_low = $ref_value_min - abs($ref_value_min * $pct_down / 100);
+		$blt_low = round($ref_value_min - abs($ref_value_min * $pct_down / 100),2);
 	}
 
 	if($pct_up != '') {
-		$blt_high = $ref_value_max + abs($ref_value_max * $pct_up / 100);
+		$blt_high = round($ref_value_max + abs($ref_value_max * $pct_up / 100),2);
 	}
 
 	$failed = 0;
