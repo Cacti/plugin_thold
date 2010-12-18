@@ -77,7 +77,7 @@ $page_title = api_plugin_hook_function('page_title', 'Cacti');
 		<td colspan="2" valign="bottom" nowrap>
 			<table width="100%" cellspacing="0" cellpadding="0">
 				<tr style="background: transparent url('<?php print $config['url_path'];?>images/cacti_backdrop2.gif') no-repeat center right;">
-					<td nowrap>
+					<td id="tabs" valign="bottom" nowrap>
 						&nbsp;<?php if ($show_console_tab == true) {?><a href="<?php echo $config['url_path']; ?>index.php"><img src="<?php echo $config['url_path']; ?>images/tab_console.gif" alt="Console" align="absmiddle" border="0"></a><?php }?><a href="<?php echo $config['url_path']; ?>graph_view.php"><img src="<?php echo $config['url_path']; ?>images/tab_graphs<?php if ((substr(basename($_SERVER["PHP_SELF"]),0,5) == "graph") || (basename($_SERVER["PHP_SELF"]) == "graph_settings.php")) { print "_down"; } print ".gif";?>" alt="Graphs" align="absmiddle" border="0"></a><?php
 						api_plugin_hook('top_graph_header_tabs');
 					?>&nbsp;
