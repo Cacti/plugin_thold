@@ -118,25 +118,6 @@ function thold_config_settings () {
 			'default' => ((isset($_SERVER['HTTP_HOST']) && isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF']) == 'settings.php') ? ('http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/') : ''),
 			'max_length' => 255,
 			),
-		'alert_syslog' => array(
-			'friendly_name' => 'Syslogging',
-			'description' => 'These messages will be sent to your local syslog. If you would like these sent to a remote box, you must setup your local syslog to do so',
-			'method' => 'checkbox'
-			),
-		'thold_syslog_level' => array(
-			'friendly_name' => 'Syslog Level',
-			'description' => 'This is the priority level that your syslog messages will be sent as.',
-			'method' => 'drop_array',
-			'default' => LOG_WARNING,
-			'array' => array(LOG_EMERG => 'Emergency', LOG_ALERT => 'Alert', LOG_CRIT => 'Critical', LOG_ERR => 'Error', LOG_WARNING => 'Warning', LOG_NOTICE => 'Notice', LOG_INFO => 'Info', LOG_DEBUG => 'Debug'),
-			),
-		'thold_syslog_facility' => array(
-			'friendly_name' => 'Syslog Facility',
-			'description' => 'This is the facility level that your syslog messages will be sent as.',
-			'method' => 'drop_array',
-			'default' => $default_facility,
-			'array' => $syslog_facil_array,
-			),
 		'alert_num_rows' => array(
 			'friendly_name' => 'Thresholds per page',
 			'description' => 'Number of thresholds to display per page',
@@ -161,24 +142,6 @@ function thold_config_settings () {
 			'friendly_name' => 'Default Alerting Options',
 			'method' => 'spacer',
 			),
-		'alert_deadnotify' => array(
-			'friendly_name' => 'Dead Hosts Notifications',
-			'description' => 'Enable Dead/Recovering host notification',
-			'method' => 'checkbox',
-			'default' => 'on'
-			),
-		'alert_email' => array(
-			'friendly_name' => 'Dead Host Notifications Email',
-			'description' => 'This is the email address that the dead host notifications will be sent to.',
-			'method' => 'textbox',
-			'max_length' => 255,
-			),
-		'thold_send_text_only' => array(
-			'friendly_name' => 'Send alerts as text',
-			'description' => 'If checked, this will cause all alerts to be sent as plain text emails with no graph.  The default is HTML emails with the graph embedded in the email.',
-			'method' => 'checkbox',
-			'default' => 'off'
-			),
 		'alert_exempt' => array(
 			'friendly_name' => 'Weekend exemptions',
 			'description' => 'If this is checked, thold will not run on weekends.',
@@ -200,27 +163,54 @@ function thold_config_settings () {
 			'max_length' => 4,
 			'default' => 12
 			),
-		'thold_alert_text' => array(
-			'friendly_name' => 'Threshold Alert Message',
-			'description' => 'This is the message that will be displayed at the top of all threshold alerts (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
-			'method' => 'textarea',
-			'textarea_rows' => '5',
-			'textarea_cols' => '80',
-			'default' => 'An alert has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
+		'alert_syslog' => array(
+			'friendly_name' => 'Syslogging',
+			'description' => 'These messages will be sent to your local syslog. If you would like these sent to a remote box, you must setup your local syslog to do so',
+			'method' => 'checkbox'
+			),
+		'thold_syslog_level' => array(
+			'friendly_name' => 'Syslog Level',
+			'description' => 'This is the priority level that your syslog messages will be sent as.',
+			'method' => 'drop_array',
+			'default' => LOG_WARNING,
+			'array' => array(LOG_EMERG => 'Emergency', LOG_ALERT => 'Alert', LOG_CRIT => 'Critical', LOG_ERR => 'Error', LOG_WARNING => 'Warning', LOG_NOTICE => 'Notice', LOG_INFO => 'Info', LOG_DEBUG => 'Debug'),
+			),
+		'thold_syslog_facility' => array(
+			'friendly_name' => 'Syslog Facility',
+			'description' => 'This is the facility level that your syslog messages will be sent as.',
+			'method' => 'drop_array',
+			'default' => $default_facility,
+			'array' => $syslog_facil_array,
+			),
+		'thold_email_header' => array(
+			'friendly_name' => 'Emailing Options',
+			'method' => 'spacer',
+			),
+		'alert_deadnotify' => array(
+			'friendly_name' => 'Dead Hosts Notifications',
+			'description' => 'Enable Dead/Recovering host notification',
+			'method' => 'checkbox',
+			'default' => 'on'
+			),
+		'alert_email' => array(
+			'friendly_name' => 'Dead Host Notifications Email',
+			'description' => 'This is the email address that the dead host notifications will be sent to.',
+			'method' => 'textbox',
+			'max_length' => 255,
 			),
 		'thold_down_subject' => array(
 			'friendly_name' => 'Down Host Subject',
 			'description' => 'This is the email subject that will be used for Down Host Messages.',
 			'method' => 'textbox',
 			'max_length' => 255,
-			'default' => 'Host Error: <HOSTNAME> (<DESCRIPTION>) is DOWN',
+			'default' => 'Host Error: <DESCRIPTION> (<HOSTNAME>) is DOWN',
 			),
 		'thold_up_subject' => array(
 			'friendly_name' => 'Recovering Host Subject',
 			'description' => 'This is the email subject that will be used for Recovering Host Messages.',
 			'method' => 'textbox',
 			'max_length' => 255,
-			'default' => 'Host Notice: <HOSTNAME> (<DESCRIPTION>) returned from DOWN state',
+			'default' => 'Host Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state',
 			),
 		'thold_down_text' => array(
 			'friendly_name' => 'Down Host Message',
@@ -229,6 +219,32 @@ function thold_config_settings () {
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
 			'default' => 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIME> (<UPTIMETEXT>)<br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>',
+			),
+		'thold_from_email' => array(
+			'friendly_name' => 'From Email Address',
+			'description' => 'This is the email address that the threshold will appear from.',
+			'method' => 'textbox',
+			'max_length' => 255,
+			),
+		'thold_from_name' => array(
+			'friendly_name' => 'From Name',
+			'description' => 'This is the actual name that the threshold will appear from.',
+			'method' => 'textbox',
+			'max_length' => 255,
+			),
+		'thold_alert_text' => array(
+			'friendly_name' => 'Threshold Alert Message',
+			'description' => 'This is the message that will be displayed at the top of all threshold alerts (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
+			'method' => 'textarea',
+			'textarea_rows' => '5',
+			'textarea_cols' => '80',
+			'default' => 'An alert has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
+			),
+		'thold_send_text_only' => array(
+			'friendly_name' => 'Send alerts as text',
+			'description' => 'If checked, this will cause all alerts to be sent as plain text emails with no graph.  The default is HTML emails with the graph embedded in the email.',
+			'method' => 'checkbox',
+			'default' => 'off'
 			),
 		'thold_baseline_header' => array(
 			'friendly_name' => 'Default Baseline Options',
@@ -271,22 +287,6 @@ function thold_config_settings () {
 			'size' => 3,
 			'max_length' => 3,
 			'default' => 15
-			),
-		'thold_email_header' => array(
-			'friendly_name' => 'Emailing Options',
-			'method' => 'spacer',
-			),
-		'thold_from_email' => array(
-			'friendly_name' => 'From Email Address',
-			'description' => 'This is the email address that the threshold will appear from.',
-			'method' => 'textbox',
-			'max_length' => 255,
-			),
-		'thold_from_name' => array(
-			'friendly_name' => 'From Name',
-			'description' => 'This is the actual name that the threshold will appear from.',
-			'method' => 'textbox',
-			'max_length' => 255,
-			),
+			)
 		);
 }
