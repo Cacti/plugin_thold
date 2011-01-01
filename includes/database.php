@@ -101,9 +101,6 @@ function thold_upgrade_database () {
 		db_execute('UPDATE plugin_realms SET file = "thold.php,listthold.php,thold_add.php" WHERE display = "Configure Thresholds"');
 		api_plugin_register_realm('thold', 'thold_templates.php', 'Configure Threshold Templates', 1);
 
-		db_execute('UPDATE plugin_config SET version = "' . $v['version'] . '" WHERE directory = "thold"');
-		db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
-
 		db_execute('ALTER TABLE `data_template_rrd` ADD INDEX ( `data_source_name` )', FALSE);
 		db_execute('ALTER TABLE `thold_data` ADD INDEX ( `tcheck` )', FALSE);
 		db_execute('ALTER TABLE `thold_data` ADD INDEX ( `graph_id` )', FALSE);
@@ -133,7 +130,13 @@ function thold_upgrade_database () {
 		api_plugin_register_hook('thold', 'config_insert', 'thold_config_insert', 'includes/settings.php');
 		api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'includes/settings.php');
 		db_execute('UPDATE plugin_hooks SET status = 1 WHERE name=\'thold\'');
+		$e = strtolower(db_fetch_cell("SELECT `value` FROM settings WHERE `name` = 'thold_from_email'"));
+		if ($e == 'cacti@cactiusers.org') {
+			db_execute("UPDATE settings SET `value`='cacti@localhost' WHERE `name`='thold_from_email'");
+		}
 	}
+	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
+	db_execute('UPDATE plugin_config SET version = "' . $v['version'] . '" WHERE directory = "thold"');
 }
 
 function thold_setup_database () {
