@@ -306,7 +306,7 @@ function thold_update_host_status () {
 				$downtimemsg = $downtime_seconds . "s ";
 			}
 
-			$subject = read_config_option('thold_up_subject');
+			$subject = read_config_option('thold_down_subject');
 			if ($subject == '') {
 				$subject = 'Host Error: <DESCRIPTION> (<HOSTNAME>) is DOWN';
 			}
