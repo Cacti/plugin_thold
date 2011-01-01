@@ -98,7 +98,7 @@ function thold_config_settings () {
 		$default_facility = LOG_USER;
 	}
 
-	$tabs['alerts'] = 'Alerting/Thold';
+	$tabs['alerts'] = 'Thresholds';
 	$settings['alerts'] = array(
 		'general_header' => array(
 			'friendly_name' => 'General',
