@@ -47,17 +47,11 @@ function thold_draw_navigation_text ($nav) {
 	return $nav;
 }
 
-function thold_config_arrays () {
-	global $menu, $messages, $thold_menu;
+function thold_config_insert () {
+	global $menu;
 
 	$menu['Management']['plugins/thold/listthold.php'] = 'Thresholds';
 	$menu['Templates']['plugins/thold/thold_templates.php'] = 'Threshold Templates';
-	$messages['thold_save'] = array(
-		'message' => 'A template with that Data Source already exists!',
-		'type' => 'error');
-	if (isset($_SESSION['thold_message']) && $_SESSION['thold_message'] != '') {
-		$messages['thold_created'] = array('message' => $_SESSION['thold_message'], 'type' => 'info');
-	}
 	if (isset($_GET['thold_vrule'])) {
 		if ($_GET['thold_vrule'] == 'on') {
 			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'on';
@@ -66,20 +60,16 @@ function thold_config_arrays () {
 			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'off';
 		}
 	}
-	$thold_menu = array(
-		'Thresholds' => array(
-			'plugins/thold/thold_graph.php' => 'All',
-			'plugins/thold/thold_view_failures.php' => 'Current Failures',
-			'plugins/thold/thold_view_recover.php' => 'Current Recovering',
-			'plugins/thold/thold_view_normal.php' => 'Current Normal',
-			'' => '',
+}
 
-			),
-		'Reports' => array(
-			'plugins/thold/thold_view_recent.php' => 'All Threshold Alerts',
-			'plugins/thold/thold_view_host.php' => 'All Host Down Alerts',
-			),
-		);
+function thold_config_arrays () {
+	global $messages;
+	$messages['thold_save'] = array(
+		'message' => 'A template with that Data Source already exists!',
+		'type' => 'error');
+	if (isset($_SESSION['thold_message']) && $_SESSION['thold_message'] != '') {
+		$messages['thold_created'] = array('message' => $_SESSION['thold_message'], 'type' => 'info');
+	}
 }
 
 function thold_config_settings () {

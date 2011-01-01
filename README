@@ -36,12 +36,12 @@
 		Fix to allow Add Wizard to show all datasources belonging to a graph (even when in separate data templates)
 		Re-apply SQL speed up when polling
 		Several fixes to Baselining
-		Fix for negative values in baselining
+		Add customizable subjects and message body for down host alerts
 
-  --- 0.4.2 ---
+	--- 0.4.2 ---
 		Fixed Cacti 0.8.7g compatibility
-    Bug#0001753: Lotus Notes are unable to render inline png pictures 
-    Bug#0001810: Thold: RRDTool 1.4.x error while determining last RRD value 
+		Bug#0001753: Lotus Notes are unable to render inline png pictures 
+		Bug#0001810: Thold: RRDTool 1.4.x error while determining last RRD value 
 
 	--- 0.4.1 ---
 		Feature: Add thold statistics to settings table to allow graphing the results

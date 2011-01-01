@@ -124,6 +124,16 @@ function thold_upgrade_database () {
 
 	}
 	// End 0.4 Upgrade
+
+
+	if (version_compare($oldv, '0.4.3', '<')) {
+		// Fix a few hooks
+		db_execute('DELETE FROM plugin_hooks WHERE name = "thold" AND hook = "config_insert"');
+		db_execute('DELETE FROM plugin_hooks WHERE name = "thold" AND hook = "config_arrays"');
+		api_plugin_register_hook('thold', 'config_insert', 'thold_config_insert', 'includes/settings.php');
+		api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'includes/settings.php');
+		db_execute('UPDATE plugin_hooks SET status = 1 WHERE name=\'thold\'');
+	}
 }
 
 function thold_setup_database () {
