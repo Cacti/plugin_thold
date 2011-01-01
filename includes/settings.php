@@ -93,7 +93,8 @@ function thold_config_settings () {
 	if ($config["cacti_server_os"] == "unix") {
 		$syslog_facil_array = array(LOG_AUTH => 'Auth', LOG_AUTHPRIV => 'Auth Private', LOG_CRON => 'Cron', LOG_DAEMON => 'Daemon', LOG_KERN => 'Kernel', LOG_LOCAL0 => 'Local 0', LOG_LOCAL1 => 'Local 1', LOG_LOCAL2 => 'Local 2', LOG_LOCAL3 => 'Local 3', LOG_LOCAL4 => 'Local 4', LOG_LOCAL5 => 'Local 5', LOG_LOCAL6 => 'Local 6', LOG_LOCAL7 => 'Local 7', LOG_LPR => 'LPR', LOG_MAIL => 'Mail', LOG_NEWS => 'News', LOG_SYSLOG => 'Syslog', LOG_USER => 'User', LOG_UUCP => 'UUCP');
 		$default_facility = LOG_DAEMON;
-	} else {		$syslog_facil_array = array(LOG_USER => 'User');
+	} else {
+		$syslog_facil_array = array(LOG_USER => 'User');
 		$default_facility = LOG_USER;
 	}
 
@@ -200,12 +201,34 @@ function thold_config_settings () {
 			'default' => 12
 			),
 		'thold_alert_text' => array(
-			'friendly_name' => 'Alert Text Message',
+			'friendly_name' => 'Threshold Alert Message',
 			'description' => 'This is the message that will be displayed at the top of all threshold alerts (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
 			'method' => 'textarea',
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
-			'default' => '<html><body>An alert has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>',
+			'default' => 'An alert has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
+			),
+		'thold_down_subject' => array(
+			'friendly_name' => 'Down Host Subject',
+			'description' => 'This is the email subject that will be used for Down Host Messages.',
+			'method' => 'textbox',
+			'max_length' => 255,
+			'default' => 'Host Error: <HOSTNAME> (<DESCRIPTION>) is DOWN',
+			),
+		'thold_up_subject' => array(
+			'friendly_name' => 'Recovering Host Subject',
+			'description' => 'This is the email subject that will be used for Recovering Host Messages.',
+			'method' => 'textbox',
+			'max_length' => 255,
+			'default' => 'Host Notice: <HOSTNAME> (<DESCRIPTION>) returned from DOWN state',
+			),
+		'thold_down_text' => array(
+			'friendly_name' => 'Down Host Message',
+			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062',
+			'method' => 'textarea',
+			'textarea_rows' => '5',
+			'textarea_cols' => '80',
+			'default' => 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIME> (<UPTIMETEXT>)<br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>',
 			),
 		'thold_baseline_header' => array(
 			'friendly_name' => 'Default Baseline Options',

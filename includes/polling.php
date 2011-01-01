@@ -175,13 +175,16 @@ function thold_update_host_status () {
 				}
 				$host = db_fetch_row('SELECT * FROM host WHERE id = ' . $id);
 				if ($host['status'] == HOST_UP) {
-					$subject = 'Host Notice : ' . $host['description'] . ' (' . $host['hostname'] . ') returned from DOWN state';
-					$msg = $subject . '<br>System Availability : ' . $host['availability'] . '%<br>';
-					$msg .= 'Average response time: ' . $host['avg_time']  . ' ms<br>';
-					$msg .= 'Current response time: ' . $host['cur_time'] . ' ms<br><br>';
-					$msg .= '---- SNMP Info ---- <br>';
+					$snmp_system = '';
+					$snmp_hostname = '';
+					$snmp_location = '';
+					$snmp_contact = '';
+					$uptimelong = '';
+					$downtimemsg = '';
+
 					if (($host["snmp_community"] == "" && $host["snmp_username"] == "") || $host["snmp_version"] == 0) {
-						$msg = $msg . 'SNMP not in use';
+						// SNMP not in use
+						$snmp_system = 'SNMP not in use';
 					} else {
 						$snmp_system = cacti_snmp_get($host["hostname"], $host["snmp_community"], ".1.3.6.1.2.1.1.1.0", $host["snmp_version"],
 										$host["snmp_username"], $host["snmp_password"],
@@ -192,9 +195,7 @@ function thold_update_host_status () {
 							$snmp_system = str_replace("00:", "", $snmp_system);
 							$snmp_system = str_replace(":", " ", $snmp_system);
 						}
-						if ($snmp_system == "") {
-							$msg = $msg . 'SNMP error';
-						} else {
+						if ($snmp_system != "") {
 							$snmp_uptime   = cacti_snmp_get($host['hostname'], $host['snmp_community'], ".1.3.6.1.2.1.1.3.0", $host['snmp_version'],
 											$host['snmp_username'], $host['snmp_password'],
 											$host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'],
@@ -211,19 +212,12 @@ function thold_update_host_status () {
 											$host["snmp_username"], $host["snmp_password"],
 											$host["snmp_auth_protocol"], $host["snmp_priv_passphrase"], $host["snmp_priv_protocol"],
 											$host["snmp_context"], $host["snmp_port"], $host["snmp_timeout"], read_config_option("snmp_retries"), SNMP_WEBUI);
-							$msg = $msg . "System:" . html_split_string($snmp_system) . "<br><br>";
 							$days      = intval($snmp_uptime / (60*60*24*100));
 							$remainder = $snmp_uptime % (60*60*24*100);
 							$hours     = intval($remainder / (60*60*100));
 							$remainder = $remainder % (60*60*100);
 							$minutes   = intval($remainder / (60*100));
-							$msg = $msg . "Uptime: $snmp_uptime";
-							$msg = $msg . " ($days days, $hours hours, $minutes minutes)<br>";
-							$msg = $msg . "Hostname: $snmp_hostname<br>";
-							$msg = $msg . "Location: $snmp_location<br>";
-							$msg = $msg . "Contact:  $snmp_contact<br>";
-
-
+							$uptimelong = $days . "d " . $hours . "h " . $minutes . "m";
 						}
 						$downtime = time() - strtotime($host['status_fail_date']);
 						$downtime_days = floor($downtime/86400);
@@ -232,16 +226,49 @@ function thold_update_host_status () {
 						$downtime_seconds = $downtime - ($downtime_days * 86400) - ($downtime_hours * 3600) - ($downtime_minutes * 60);
 						$msg = $msg . "<br><br>Host was down for ";
 						if ($downtime_days > 0 ) {
-							$msg = $msg . $downtime_days . " days, " . $downtime_hours . " hours, " . $downtime_minutes . " minutes, " . $downtime_seconds . " seconds ";
+							$downtimemsg = $downtime_days . "d " . $downtime_hours . "h " . $downtime_minutes . "m " . $downtime_seconds . "s ";
 						} elseif ($downtime_hours > 0 ) {
-							$msg = $msg . $downtime_hours . " hours, " . $downtime_minutes . " minutes, " . $downtime_seconds . " seconds ";
+							$downtimemsg = $downtime_hours . "h " . $downtime_minutes . "m " . $downtime_seconds . "s";
 						} elseif ($downtime_minutes > 0 ) {
-							$msg = $msg . $downtime_minutes . " minutes, " . $downtime_seconds . " seconds ";
+							$downtimemsg = $downtime_minutes . "m " . $downtime_seconds . "s";
 						} else {
-							$msg = $msg . $downtime_seconds . " seconds ";
+							$downtimemsg = $downtime_seconds . "s ";
 						}
-						$msg = $msg . "since " . $host["status_fail_date"] . ".";
 					}
+
+
+					$subject = read_config_option('thold_up_subject');
+					if ($subject == '') {
+						$subject = 'Host Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state';
+					}
+					$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
+					$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
+					$subject = str_replace('<DOWN/UP>', 'UP', $subject);
+
+					$msg = read_config_option('thold_down_text');
+					if ($msg == '') {
+						$msg = 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIMETEXT><br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>';
+					}
+					$msg = str_replace('<SUBJECT>', $subject, $msg);
+					$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
+					$msg = str_replace('<DESCRIPTION>', $host['description'], $msg);
+					$msg = str_replace('<UPTIME>', $snmp_uptime, $msg);
+					$msg = str_replace('<UPTIMETEXT>', $uptimelong, $msg);
+
+					$msg = str_replace('<DOWNTIME>', $downtimemsg, $msg);
+					$msg = str_replace('<MESSAGE>', '', $msg);
+					$msg = str_replace('<DOWN/UP>', 'UP', $msg);
+
+					$msg = str_replace('<SNMP_HOSTNAME>', $snmp_hostname, $msg);
+					$msg = str_replace('<SNMP_LOCATION>', $snmp_location, $msg);
+					$msg = str_replace('<SNMP_CONTACT>', $snmp_contact, $msg);
+					$msg = str_replace('<SNMP_SYSTEM>', html_split_string($snmp_system), $msg);
+					$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
+					$msg = str_replace('<AVAILABILITY>', $host["availability"] . '%', $msg);
+					$msg = str_replace('<CUR_TIME>', $host["cur_time"], $msg);
+					$msg = str_replace('<AVR_TIME>', $host["avg_time"], $msg);
+					$msg = str_replace('<NOTES>', $host["notes"], $msg);
+					$msg = str_replace("\n", '<br>', $msg);
 					if ($alert_email == '') {
 						cacti_log('THOLD: Can not send Host Recovering email since the \'Alert e-mail\' setting is not set!', true, 'POLLER');
 					} else {
@@ -263,24 +290,50 @@ function thold_update_host_status () {
 				}
 			}
 
-			$subject = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN';
-			$msg = 'Host Error : ' . $host['description'] . ' (' . $host['hostname'] . ') is DOWN<br>Message : ' . $host['status_last_error'];
 			$downtime = time() - strtotime($host['status_rec_date']);
 			$downtime_days = floor($downtime/86400);
 			$downtime_hours = floor(($downtime - ($downtime_days * 86400))/3600);
 			$downtime_minutes = floor(($downtime - ($downtime_days * 86400) - ($downtime_hours * 3600))/60);
 			$downtime_seconds = $downtime - ($downtime_days * 86400) - ($downtime_hours * 3600) - ($downtime_minutes * 60);
-			$msg = $msg . ".<br><br>Previous Uptime: ";
 			if ($downtime_days > 0 ) {
-				$msg = $msg . $downtime_days . " days, " . $downtime_hours . " hours, " . $downtime_minutes . " minutes, " . $downtime_seconds . " seconds ";
+				$downtimemsg = $downtime_days . "d " . $downtime_hours . "h " . $downtime_minutes . "m " . $downtime_seconds . "s ";
 			} elseif ($downtime_hours > 0 ) {
-				$msg = $msg . $downtime_hours . " hours, " . $downtime_minutes . " minutes, " . $downtime_seconds . " seconds ";
+				$downtimemsg = $downtime_hours . "h " . $downtime_minutes . "m " . $downtime_seconds . "s";
 			} elseif ($downtime_minutes > 0 ) {
-				$msg = $msg . $downtime_minutes . " minutes, " . $downtime_seconds . " seconds ";
+				$downtimemsg = $downtime_minutes . "m " . $downtime_seconds . "s";
 			} else {
-				$msg = $msg . $downtime_seconds . " seconds ";
+				$downtimemsg = $downtime_seconds . "s ";
 			}
 
+			$subject = read_config_option('thold_up_subject');
+			if ($subject == '') {
+				$subject = 'Host Error: <DESCRIPTION> (<HOSTNAME>) is DOWN';
+			}
+			$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
+			$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
+			$subject = str_replace('<DOWN/UP>', 'UP', $subject);
+
+			$msg = read_config_option('thold_down_text');
+			if ($msg == '') {
+				$msg = 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime:<UPTIMETEXT><br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>';
+			}
+			$msg = str_replace('<SUBJECT>', $subject, $msg);
+			$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
+			$msg = str_replace('<DESCRIPTION>', $host['description'], $msg);
+			$msg = str_replace('<UPTIME>', '', $msg);
+			$msg = str_replace('<DOWNTIME>', $downtimemsg, $msg);
+			$msg = str_replace('<MESSAGE>', $host['status_last_error'], $msg);
+			$msg = str_replace('<DOWN/UP>', 'DOWN', $msg);
+			$msg = str_replace('<SNMP_HOSTNAME>', '', $msg);
+			$msg = str_replace('<SNMP_LOCATION>', '', $msg);
+			$msg = str_replace('<SNMP_CONTACT>', '', $msg);
+			$msg = str_replace('<SNMP_SYSTEM>', '', $msg);
+			$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
+			$msg = str_replace('<AVAILABILITY>', $host["availability"], $msg);
+			$msg = str_replace('<CUR_TIME>', '', $msg);
+			$msg = str_replace('<AVR_TIME>', $host["avg_time"], $msg);
+			$msg = str_replace('<NOTES>', $host["notes"], $msg);
+			$msg = str_replace("\n", '<br>', $msg);
 			if ($alert_email == '') {
 				cacti_log('THOLD: Can not send Host Down email since the \'Alert e-mail\' setting is not set!', true, 'POLLER');
 			} else {
