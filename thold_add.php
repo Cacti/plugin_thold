@@ -376,20 +376,20 @@ function thold_add_graphs_action_prepare($graph) {
 	}
 
 	if (!strlen($not_found)) {
-		$save_html = "<input type='image' src='" . $config['url_path'] . "images/button_yes.gif' alt='Save' align='absmiddle'>";
+		$save_html = "<input type='submit' value='Yes'>";
 
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
 					<input type='hidden' name='action' value='actions'>
-					<a href='javascript:history.go(-1)'><img src='" . $config['url_path'] . "images/button_no.gif' alt='Cancel' align='absmiddle' border='0'></a>
+					<input type='button' onClick='javascript:history.go(-1)' value='No' title='Cancel'>
 					$save_html
 				</td>
 			</tr>";
 	} else {
-		$save_html = "<input type='image' src='" . $config['url_path'] . "images/button_go.gif' alt='Save' align='absmiddle'>";
+		$save_html = "<input type='submit' value='Go'>";
 		print "	<tr>
 				<td align='right' bgcolor='#eaeaea'>
-					<a href='javascript:history.go(-1)'><img src='" . $config['url_path'] . "images/button_cancel2.gif' alt='Cancel' align='absmiddle' border='0'></a>
+					<input type='button' onClick='javascript:history.go(-1)' value='Cancel' title='Cancel'>
 					$save_html
 				</td>
 			</tr>";
@@ -528,7 +528,7 @@ function thold_add_select_host() {
 	}
 
 	if ($ds != '') {
-		echo '<tr><td colspan=2><input type=hidden name=save value="save"><br><center><input type=image src="../../images/button_create.gif" alt="Create"></center></td></tr>';
+		echo '<tr><td colspan=2><input type=hidden name=save value="save"><br><center><input type="submit" value="Create" title="Create Threshold"></center></td></tr>';
 	} else {
 		echo '<tr><td colspan=2><br><br><br></td></tr>';
 	}

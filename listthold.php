@@ -90,7 +90,7 @@ function do_thold() {
 	exit;
 }
 
-/** 
+/**
  *  This is a generic funtion for this page that makes sure that
  *  we have a good request.  We want to protect against people who
  *  like to create issues with Cacti.
@@ -114,7 +114,7 @@ function thold_request_validation() {
 	}
 
 	/* if the user pushed the 'clear' button */
-	if (isset($_REQUEST['button_clear_x'])) {
+	if (isset($_REQUEST['clear'])) {
 		kill_session_var('sess_thold_rows');
 		kill_session_var('sess_thold_page');
 		kill_session_var('sess_thold_sort_column');
@@ -295,7 +295,7 @@ function list_tholds() {
 						</select>
 					</td>
 					<td nowrap style='white-space: nowrap;'>
-						&nbsp;<input type='image' name='button_clear' src='<?php print $config["url_path"];?>images/button_clear.gif' alt='Return to the default time span' border='0' align='absmiddle' action='submit'>
+						&nbsp;<input type='submit' name='clear' value='Clear' title='Return to the default time span'>
 					</td>
 				</tr>
 			</table>

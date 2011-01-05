@@ -54,6 +54,7 @@ function thold_poller_output ($rrd_update_array) {
 	include_once($config['library_path'] . '/snmp.php');
 
 	$rrd_update_array_reindexed = array();
+	$rrd_update_time_array_reindexed = array();
 	$rra_ids = '';
 	$x = 0;
 	foreach($rrd_update_array as $item) {
@@ -63,39 +64,64 @@ function thold_poller_output ($rrd_update_array) {
 			}
 			$rra_ids .= $item['local_data_id'];
 			$rrd_update_array_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
+			$rrd_update_time_array_reindexed[$item['local_data_id']] = key($item['times']);
 			$x++;
 		}
 	}
 
 	if ($rra_ids != '') {
-		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.data_type, thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, thold_data.oldvalue, data_template_rrd.data_source_name as name, data_template_rrd.data_source_type_id, data_template_data.rrd_step
-							FROM thold_data
-							LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
-							LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
-							WHERE data_template_rrd.data_source_name != '' AND thold_data.rra_id IN ($rra_ids)", false);
+		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.expression, thold_data.data_type, 
+					thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, 
+					UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue, data_template_rrd.data_source_name as name, 
+					data_template_rrd.data_source_type_id, data_template_data.rrd_step, 
+					data_template_rrd.rrd_maximum
+					FROM thold_data
+					LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
+					LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
+					WHERE data_template_rrd.data_source_name != '' AND thold_data.rra_id IN($rra_ids)", false);
 	} else {
 		return $rrd_update_array;
 	}
+
 	if (sizeof($thold_items)) {
 	foreach ($thold_items as $t_item) {
-		$polling_interval = $t_item['rrd_step'];
+		/* adjust the polling interval by the last read, if applicable */
+		$currenttime = $rrd_update_time_array_reindexed[$t_item['rra_id']];
+		if ($t_item['lasttime'] > 0) {
+			$polling_interval = $currenttime - $t_item['lasttime'];
+		} else {
+			$polling_interval = $t_item['rrd_step'];
+		}
+
 		if (isset($rrd_update_array_reindexed[$t_item['rra_id']])) {
 			$item = $rrd_update_array_reindexed[$t_item['rra_id']];
 			if (isset($item[$t_item['name']])) {
 				switch ($t_item['data_source_type_id']) {
 					case 2:	// COUNTER
-						if ($item[$t_item['name']] >= $t_item['oldvalue']) {
-							// Everything is normal
-							$currentval = $item[$t_item['name']] - $t_item['oldvalue'];
-						} else {
-							// Possible overflow, see if its 32bit or 64bit
-							if ($t_item['oldvalue'] > 4294967295) {
-								$currentval = (18446744073709551615 - $t_item['oldvalue']) + $item[$t_item['name']];
+						if ($t_item['oldvalue'] != 0) {
+							if ($item[$t_item['name']] >= $t_item['oldvalue']) {
+								// Everything is normal
+								$currentval = $item[$t_item['name']] - $t_item['oldvalue'];
 							} else {
-								$currentval = (4294967295 - $t_item['oldvalue']) + $item[$t_item['name']];
+								// Possible overflow, see if its 32bit or 64bit
+								if ($t_item['oldvalue'] > 4294967295) {
+									$currentval = (18446744073709551615 - $t_item['oldvalue']) + $item[$t_item['name']];
+								} else {
+									$currentval = (4294967295 - $t_item['oldvalue']) + $item[$t_item['name']];
+								}
 							}
+
+							$currentval = $currentval / $polling_interval;
+
+							/* assume counter reset if greater than max value */
+							if ($t_item['rrd_maximum'] > 0 && $currentval > $t_item['rrd_maximum']) {
+								$currentval = $item[$t_item['name']] / $polling_interval;
+							}elseif ($t_item['rrd_maximum'] == 0 && $currentval > 4.25E+9) {
+								$currentval = $item[$t_item['name']] / $polling_interval;
+							}
+						}else{
+							$currentval = 0;
 						}
-						$currentval = $currentval / $polling_interval;
 						break;
 					case 3:	// DERIVE
 						$currentval = ($item[$t_item['name']] - $t_item['oldvalue']) / $polling_interval;
@@ -121,6 +147,12 @@ function thold_poller_output ($rrd_update_array) {
 					case 2:
 						if ($t_item['percent_ds'] != '') {
 							$currentval = thold_calculate_percent($t_item, $currentval, $rrd_update_array_reindexed);
+						}
+						$currentval = round($currentval, 4);
+						break;
+					case 3:
+						if ($t_item['expression'] != '') {
+							$currentval = thold_calculate_expression($t_item, $currentval, $rrd_update_array_reindexed);
 						}
 						$currentval = round($currentval, 4);
 						break;

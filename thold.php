@@ -319,6 +319,7 @@ $data_types = array (
 	0 => 'Exact Value',
 	1 => 'CDEF',
 	2 => 'Percentage',
+	3 => 'RPN Expression'
 );
 
 $data_fields = array();
@@ -535,6 +536,18 @@ $form_array = array(
 			'value' => isset($thold_item_data['percent_ds']) ? $thold_item_data['percent_ds'] : 0,
 			'array' => $data_fields,
 		),
+		'expression' => array(
+			'friendly_name' => 'RPN Expression',
+			'method' => 'textbox',
+			'default' => '',
+			'description' => 'An RPM Expression that assumes that the selected Data Source is already in the
+			RPN stack.  This RPN expression can include any additional Data Sources names in the current
+			RRDfile.  However, in all cases the selected Data Source is loaded on the stack first.',
+			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',
+			'max_length' => '255',
+			'size' => '80'
+		),
+
 		'other_header' => array(
 			'friendly_name' => 'Other setting',
 			'method' => 'spacer',
@@ -632,6 +645,7 @@ function Template_EnableDisable()
 	_f.time_fail_length.disabled = status;
 	_f.data_type.disabled = status;
 	_f.percent_ds.disabled = status;
+	_f.expression.disabled = status;
 	_f.exempt.disabled = status;
 	_f.restored_alert.disabled = status;
 
@@ -678,14 +692,22 @@ if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') 
 		case '0':
 			document.getElementById('row_cdef').style.display  = 'none';
 			document.getElementById('row_percent_ds').style.display  = 'none';
+			document.getElementById('row_expression').style.display  = 'none';
 			break;
 		case '1':
 			document.getElementById('row_cdef').style.display  = '';
 			document.getElementById('row_percent_ds').style.display  = 'none';
+			document.getElementById('row_expression').style.display  = 'none';
 			break;
 		case '2':
 			document.getElementById('row_cdef').style.display  = 'none';
 			document.getElementById('row_percent_ds').style.display  = '';
+			document.getElementById('row_expression').style.display  = 'none';
+			break;
+		case '3':
+			document.getElementById('row_expression').style.display  = '';
+			document.getElementById('row_cdef').style.display  = 'none';
+			document.getElementById('row_percent_ds').style.display  = 'none';
 			break;
 		}
 	}

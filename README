@@ -42,6 +42,12 @@
 		Fixed Cacti 0.8.7g compatibility
 		Bug#0001753: Lotus Notes are unable to render inline png pictures 
 		Bug#0001810: Thold: RRDTool 1.4.x error while determining last RRD value 
+		Bug: Fix for compatibility with other plugins using datasource action hook
+		Bug: Re-add syslog messages for down hosts
+		Bug: Fixed a few minor issues
+		Bug: Allow the use of query_XYZ in CDEFs
+		Bug: Fix host status page to only allow users to see hosts they have access to
+		Bug: Fix ru_nswap errors on Windows
 
 	--- 0.4.1 ---
 		Feature: Add thold statistics to settings table to allow graphing the results

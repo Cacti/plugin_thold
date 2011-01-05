@@ -180,8 +180,8 @@ function form_thold_filter() {
 						<input type="text" name="filter" size="20" value="<?php print $_REQUEST["filter"];?>">
 					</td>
 					<td nowrap>
-						&nbsp;<input type="image" src="<?php print $config['url_path'];?>images/button_go.gif" alt="Go" border="0" align="absmiddle">
-						<input type="image" src="<?php print $config['url_path'];?>images/button_clear.gif" name="clear" alt="Clear" border="0" align="absmiddle">
+						&nbsp;<input type="submit" value="Go">
+						<input type="submit" value="Clear">
 					</td>
 				</tr>
 			</table>
@@ -218,7 +218,7 @@ function tholds() {
 	}
 
 	/* if the user pushed the 'clear' button */
-	if (isset($_REQUEST["clear_x"])) {
+	if (isset($_REQUEST["clear"])) {
 		kill_session_var("sess_thold_thold_current_page");
 		kill_session_var("sess_thold_thold_filter");
 		kill_session_var("sess_thold_thold_data_template_id");
@@ -272,7 +272,11 @@ function tholds() {
 	html_end_box();
 
 	/* build the SQL query and WHERE clause */
-	$sort = $_REQUEST['sort_column'];
+	if ($_REQUEST['sort_column'] == 'lastread') {
+		$sort = $_REQUEST['sort_column'] . "/1";
+	}else{
+		$sort = $_REQUEST['sort_column'];
+	}
 	$limit = ' LIMIT ' . ($_REQUEST["rows"]*($_REQUEST['page']-1)) . "," . $_REQUEST["rows"];
 	$sql_where = '';
 
@@ -483,7 +487,7 @@ function hosts() {
 	}
 
 	/* if the user pushed the 'clear' button */
-	if (isset($_REQUEST["clear_x"])) {
+	if (isset($_REQUEST["clear"])) {
 		kill_session_var("sess_status_current_page");
 		kill_session_var("sess_status_filter");
 		kill_session_var("sess_status_host_template_id");
@@ -570,10 +574,6 @@ function hosts() {
 
 	html_start_box("", "100%", $colors["header"], "3", "center", "");
 
-	$total_rows = db_fetch_cell("select
-		COUNT(host.id)
-		from host
-		$sql_where");
 
 	$sortby = $_REQUEST["sort_column"];
 	if ($sortby=="hostname") {
@@ -583,8 +583,18 @@ function hosts() {
 	$host_graphs       = array_rekey(db_fetch_assoc("SELECT host_id, count(*) as graphs FROM graph_local GROUP BY host_id"), "host_id", "graphs");
 	$host_data_sources = array_rekey(db_fetch_assoc("SELECT host_id, count(*) as data_sources FROM data_local GROUP BY host_id"), "host_id", "data_sources");
 
+	$current_user = db_fetch_row('SELECT * FROM user_auth WHERE id=' . $_SESSION['sess_user_id']);
+	$sql_where    .= ' AND ' . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
+
+	$total_rows = db_fetch_cell("select
+		COUNT(host.id)
+		from host
+		LEFT JOIN user_auth_perms on (host.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		$sql_where");
+
 	$sql_query = "SELECT *
 		FROM host
+		LEFT JOIN user_auth_perms on (host.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
 		$sql_where
 		ORDER BY " . $sortby . " " . $_REQUEST["sort_direction"] . "
 		LIMIT " . ($_REQUEST["rows"]*($_REQUEST["page"]-1)) . "," . $_REQUEST["rows"];
@@ -774,8 +784,8 @@ function form_host_filter() {
 						<input type="text" name="filter" size="20" value="<?php print $_REQUEST["filter"];?>">
 					</td>
 					<td nowrap>
-						&nbsp;<input type="image" src="<?php print $config['url_path'];?>images/button_go.gif" alt="Go" border="0" align="absmiddle">
-						<input type="image" src="<?php print $config['url_path'];?>images/button_clear.gif" name="clear" alt="Clear" border="0" align="absmiddle">
+						&nbsp;<input type="submit" value="Go">
+						<input type="submit" value="Clear">
 					</td>
 				</tr>
 			</table>
