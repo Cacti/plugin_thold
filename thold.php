@@ -146,11 +146,13 @@ $grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_
 // Take the first one available
 $graph = (isset($grapharr[0]["local_graph_id"]) ? $grapharr[0]["local_graph_id"] : "");
 
-$dt_sql = 'SELECT DISTINCT data_template_rrd.local_data_id
-		FROM data_template_rrd
-		LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
-		LEFT JOIN graph_local ON graph_local.id=graph_templates_item.local_graph_id
-		WHERE graph_local.id = ' . $graph;
+$dt_sql = 'SELECT DISTINCT dtr.local_data_id
+		FROM data_template_rrd AS dtr
+		LEFT JOIN graph_templates_item AS gti
+		ON gti.task_item_id=dtr.id
+		LEFT JOIN graph_local AS gl
+		ON gl.id=gti.local_graph_id
+		WHERE gl.id=' . $graph;
 
 $template_data_rrds = db_fetch_assoc("SELECT id, data_source_name, local_data_id FROM data_template_rrd WHERE local_data_id IN ($dt_sql) ORDER BY id");
 

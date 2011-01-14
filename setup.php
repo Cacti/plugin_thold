@@ -443,17 +443,17 @@ function thold_data_source_action_prepare($save) {
 
 			if ($data_template_id != "") {
 				if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-					$found_list .= "<li>" . get_data_source_title($item) . "<br>";
+					$found_list .= "<li>" . get_data_source_title($item) . "</li>";
 					if (strlen($templates)) {
 						$templates .= ", $data_template_id";
 					}else{
 						$templates  = "$data_template_id";
 					}
 				}else{
-					$not_found .= "<li>" . get_data_source_title($item) . "<br>";
+					$not_found .= "<li>" . get_data_source_title($item) . "</li>";
 				}
 			}else{
-				$not_found .= "<li>" . get_data_source_title($item) . "<br>";
+				$not_found .= "<li>" . get_data_source_title($item) . "</li>";
 			}
 		}
 		}
@@ -470,11 +470,11 @@ function thold_data_source_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print "<p>The following Data Sources have no Threshold Templates associated with them</p>";
-				print "<p>" . $not_found . "</p>";
+				print "<p><ul>" . $not_found . "</ul></p>";
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Data Sources?
-					<p>" . $found_list . "</p>
+					<p><ul>" . $found_list . "</ul></p>
 					</td>
 				</tr>\n
 				";
@@ -535,12 +535,13 @@ function thold_graphs_action_execute($action) {
 
 			$graph    = $selected_items[$i];
 
-			$temp = db_fetch_row("SELECT data_template_rrd.*
-								 FROM
-								 data_template_rrd
-								 LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
-								 LEFT JOIN graph_local ON graph_local.id = graph_templates_item.local_graph_id
-								 WHERE graph_local.id=$graph");
+			$temp = db_fetch_row("SELECT dtr.*
+				 FROM data_template_rrd AS dtr
+				 LEFT JOIN graph_templates_item AS gti
+				 ON gti.task_item_id=dtr.id
+				 LEFT JOIN graph_local AS gl
+				 ON gl.id=gti.local_graph_id
+				 WHERE gl.id=$graph");
 			$data_template_id = $temp['data_template_id'];
 			$local_data_id = $temp['local_data_id'];
 
@@ -635,25 +636,26 @@ function thold_graphs_action_prepare($save) {
 		$not_found  = "";
 		if (sizeof($save["graph_array"])) {
 		foreach($save["graph_array"] as $item) {
-			$data_template_id = db_fetch_cell("SELECT data_template_rrd.data_template_id
-								 FROM
-								 data_template_rrd
-								 LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
-								 LEFT JOIN graph_local ON graph_local.id = graph_templates_item.local_graph_id
-								 WHERE graph_local.id=$item");
+			$data_template_id = db_fetch_cell("SELECT dtr.data_template_id
+				 FROM data_template_rrd AS dtr
+				 LEFT JOIN graph_templates_item AS gti
+				 ON gti.task_item_id=dtr.id
+				 LEFT JOIN graph_local AS gl
+				 ON gl.id=gti.local_graph_id
+				 WHERE gl.id=$item");
 			if ($data_template_id != "") {
 				if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-					$found_list .= "<li>" . get_graph_title($item) . "<br>";
+					$found_list .= "<li>" . get_graph_title($item) . "</li>";
 					if (strlen($templates)) {
 						$templates .= ", $data_template_id";
 					}else{
 						$templates  = "$data_template_id";
 					}
 				}else{
-					$not_found .= "<li>" . get_graph_title($item) . "<br>";
+					$not_found .= "<li>" . get_graph_title($item) . "</li>";
 				}
 			}else{
-				$not_found .= "<li>" . get_graph_title($item) . "<br>";
+				$not_found .= "<li>" . get_graph_title($item) . "</li>";
 			}
 		}
 		}
@@ -670,11 +672,11 @@ function thold_graphs_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print "<p>The following Graphs have no Threshold Templates associated with them</p>";
-				print "<p>" . $not_found . "</p>";
+				print "<p><ul>" . $not_found . "</ul></p>";
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Graphs?
-					<p>" . $found_list . "</p>
+					<p><ul>" . $found_list . "</ul></p>
 					</td>
 				</tr>\n
 				";

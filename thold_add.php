@@ -55,12 +55,13 @@ if (isset($_REQUEST['doaction']) && $_REQUEST['doaction'] != '') {
 	if ($_REQUEST['doaction'] == 1) {
 		Header("Location:" . $config['url_path'] . "plugins/thold/thold_add.php?graphid=$graph\n\n");
 	} else {
-		$temp = db_fetch_row("SELECT data_template_rrd.*
-					 FROM
-					 data_template_rrd
-					 LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
-					 LEFT JOIN graph_local ON graph_local.id = graph_templates_item.local_graph_id
-					 WHERE graph_local.id=$graph");
+		$temp = db_fetch_row("SELECT dtr.*
+			 FROM data_template_rrd AS dtr
+			 LEFT JOIN graph_templates_item AS gti
+			 ON gti.task_item_id=dtr.id
+			 LEFT JOIN graph_local AS gl
+			 ON gl.id=gti.local_graph_id
+			 WHERE gl.id=$graph");
 		$dt = $temp['data_template_id'];
 		Header("Location:" . $config['url_path'] . "plugins/thold/thold_templates.php?action=add&data_template_id=$dt\n\n");
 	}
@@ -111,16 +112,16 @@ function thold_add_graphs_action_execute() {
 
 	$template = db_fetch_row("SELECT * FROM thold_template WHERE id=" . $_REQUEST["thold_template_id"]);
 
-	$temp = db_fetch_row("SELECT data_template_rrd.*
-						 FROM
-						 data_template_rrd
-						 LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
-						 LEFT JOIN graph_local ON graph_local.id = graph_templates_item.local_graph_id
-						 WHERE graph_local.id=$graph");
+	$temp = db_fetch_row("SELECT dtr.*
+		 FROM data_template_rrd AS dtr
+		 LEFT JOIN graph_templates_item AS gti
+		 ON gti.task_item_id=dtr.id
+		 LEFT JOIN graph_local AS gl
+		 ON gl.id=gti.local_graph_id
+		 WHERE gl.id=$graph");
 
 	$data_template_id = $temp['data_template_id'];
 	$local_data_id = $temp['local_data_id'];
-
 
 	$data_source      = db_fetch_row("SELECT * FROM data_local WHERE id=" . $local_data_id);
 	$data_template_id = $data_source['data_template_id'];
@@ -220,25 +221,26 @@ function thold_add_graphs_action_prepare($graph) {
 	$found_list = "";
 	$not_found  = "";
 
-	$data_template_id = db_fetch_cell("SELECT data_template_rrd.data_template_id
-						 FROM
-						 data_template_rrd
-						 LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
-						 LEFT JOIN graph_local ON graph_local.id = graph_templates_item.local_graph_id
-						 WHERE graph_local.id=$graph");
+	$data_template_id = db_fetch_cell("SELECT dtr.data_template_id
+		 FROM data_template_rrd AS dtr
+		 LEFT JOIN graph_templates_item AS gti
+		 ON gti.task_item_id=dtr.id
+		 LEFT JOIN graph_local AS gl
+		 ON gl.id=gti.local_graph_id
+		 WHERE gl.id=$graph");
 	if ($data_template_id != "") {
 		if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-			$found_list .= "<li>" . get_graph_title($graph) . "<br>";
+			$found_list .= "<li>" . get_graph_title($graph) . "</li>";
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
 			}else{
 				$templates  = "$data_template_id";
 			}
 		}else{
-			$not_found .= "<li>" . get_graph_title($graph) . "<br>";
+			$not_found .= "<li>" . get_graph_title($graph) . "</li>";
 		}
 	}else{
-		$not_found .= "<li>" . get_graph_title($item) . "<br>";
+		$not_found .= "<li>" . get_graph_title($item) . "</li>";
 	}
 
 	if (strlen($templates)) {
@@ -253,11 +255,11 @@ function thold_add_graphs_action_prepare($graph) {
 	if (strlen($found_list)) {
 		if (strlen($not_found)) {
 			print "<p>The following Graph has no Threshold Templates associated with them</p>";
-			print "<p>" . $not_found . "</p>";
+			print "<p><ul>" . $not_found . "</ul></p>";
 		}
 
 		print "<p>Are you sure you wish to create Thresholds for this Graph?
-				<p>" . $found_list . "</p>
+				<p><ul>" . $found_list . "</ul></p>
 				</td>
 			</tr>\n
 			";
@@ -493,11 +495,13 @@ function thold_add_select_host() {
 	}
 
 	if ($graph != '') {
-		$dt_sql = 'SELECT DISTINCT data_template_rrd.local_data_id
-				FROM data_template_rrd
-				LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
-				LEFT JOIN graph_local ON graph_local.id=graph_templates_item.local_graph_id
-				WHERE graph_local.id = ' . $graph;
+		$dt_sql = 'SELECT DISTINCT dtr.local_data_id
+				FROM data_template_rrd AS dtr
+				LEFT JOIN graph_templates_item AS gti
+				ON gti.task_item_id=dtr.id
+				LEFT JOIN graph_local AS gl
+				ON gl.id=gti.local_graph_id
+				WHERE gl.id = ' . $graph;
 		$dt = db_fetch_cell($dt_sql);
 		$dss = db_fetch_assoc('SELECT DISTINCT id, data_source_name
 				FROM data_template_rrd

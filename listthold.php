@@ -358,7 +358,7 @@ function list_tholds() {
 
 			$grapharr = db_fetch_row('SELECT DISTINCT graph_templates_item.local_graph_id
 						FROM graph_templates_item, data_template_rrd
-						where (data_template_rrd.local_data_id=' . $row['rra_id'] . ' AND data_template_rrd.id=graph_templates_item.task_item_id)');
+						WHERE (data_template_rrd.local_data_id=' . $row['rra_id'] . ' AND data_template_rrd.id=graph_templates_item.task_item_id)');
 			$graph_id = $grapharr['local_graph_id'];
 
 			if ($row['thold_alert'] != 0) {

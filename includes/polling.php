@@ -157,8 +157,7 @@ function thold_poller_output ($rrd_update_array) {
 						$currentval = round($currentval, 4);
 						break;
 				}
-				db_execute("UPDATE thold_data SET tcheck = 1, lastread = '$currentval', oldvalue = '" . $item[$t_item['name']] . "' WHERE rra_id = " . $t_item['rra_id'] . " AND data_id = " . $t_item['data_id']);
-				//thold_check_threshold ($t_item['rra_id'], $t_item['data_id'], $t_item['name'], $currentval, $t_item['cdef']);
+				db_execute("UPDATE thold_data SET tcheck = 1, lastread = '$currentval', lasttime = '" . date("Y-m-d H:i:s", $currenttime) . "', oldvalue = '" . $item[$t_item['name']] . "' WHERE rra_id = " . $t_item['rra_id'] . " AND data_id = " . $t_item['data_id']);
 			}
 		}
 	}
