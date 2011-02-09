@@ -1602,8 +1602,8 @@ function save_thold() {
 //		return;
 //	}
 
-	if ($_POST['thold_type'] == 0 && isset($_POST['thold_hi']) && isset($_POST['thold_low']) && trim($_POST['thold_hi']) != '' && trim($_POST['thold_low']) != '' && round($_POST['thold_low'],4) >= round($_POST['thold_hi'],4)) {
-		$banner .= 'Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</strong></font>';
+	if ($_POST['thold_type'] == 0 && isset($_POST['thold_hi']) && isset($_POST['thold_low']) && trim($_POST['thold_hi']) != '' && trim($_POST['thold_low']) != '' && round($_POST['thold_low'],4) > round($_POST['thold_hi'],4)) {
+		$banner .= 'Impossible thresholds: &quot;High Threshold&quot; smaller than &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</strong></font>';
 		return;
 	}
 
