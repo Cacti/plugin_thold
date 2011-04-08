@@ -128,6 +128,12 @@ function thold_config_settings () {
 			'method' => 'checkbox',
 			'default' => 'off'
 			),
+		'thold_log_debug' => array(
+			'friendly_name' => 'Debug Log',
+			'description' => 'Enable logging of debug messages with Thold',
+			'method' => 'checkbox',
+			'default' => 'off'
+			),
 		'thold_alerting_header' => array(
 			'friendly_name' => 'Default Alerting Options',
 			'method' => 'spacer',

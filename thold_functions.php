@@ -23,6 +23,12 @@
  +-------------------------------------------------------------------------+
 */
 
+function thold_debug($txt) {
+	if (read_config_option('thold_log_debug') == 'on') {
+		thold_cacti_log($txt);
+	}
+}
+
 function thold_initialize_rusage() {
 	global $thold_start_rusage;
 
@@ -888,11 +894,13 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	global $config, $plugins;
 
+	thold_debug("Checking Threshold:  DS:$name RRA_ID:$rra_id DATA_ID:$data_id VALUE:$currentval");
 	// Maybe set an option for these?
 	$debug = false;
 
 	// Do not proceed if we have chosen to globally disable all alerts
 	if (read_config_option('thold_disable_all') == 'on') {
+		thold_debug('Threshold checking is disabled globally');
 		return;
 	}
 
@@ -900,6 +908,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	/* check for exemptions */
 	$weekday = date('l');
 	if (($weekday == 'Saturday' || $weekday == 'Sunday') && $alert_exempt == 'on') {
+		thold_debug('Threshold checking is disabled by global weekend exemption');
 		return;
 	}
 
@@ -907,18 +916,22 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$item = db_fetch_assoc("SELECT * FROM thold_data WHERE thold_enabled = 'on' AND data_id = " . $data_id);
 
 	/* Return if the item doesn't exist, which means its disabled */
-	if (!isset($item[0]))
+	if (!isset($item[0])) {
+		thold_debug('Threshold is disabled');
 		return;
+	}
 	$item = $item[0];
 
 	/* Check for the weekend exemption on the threshold level */
 	if (($weekday == 'Saturday' || $weekday == 'Sunday') && $item['exempt'] == 'on') {
+		thold_debug('Threshold checking is disabled by global weekend exemption');
 		return;
 	}
 
 	if (api_plugin_is_enabled('maint') || in_array('maint', $plugins)) {
 		include_once($config["base_path"] . '/plugins/maint/functions.php');
 		if (plugin_maint_check_cacti_host ($item['host_id'])) {
+			thold_debug('Threshold checking is disabled by maintenance schedule');
 			return;
 		}
 	}
@@ -929,15 +942,18 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	// Only alert if Host is in UP mode (not down, unknown, or recovering)
 	$h = db_fetch_row('SELECT * FROM host WHERE id = ' . $item['host_id']);
 	if ($h['status'] != 3) {
+		thold_debug('Threshold checking halted by Host Status (' . $h['status'] . ')' );
 		return;
 	}
 
 	/* Pull the cached name, if not present, it means that the graph hasn't polled yet */
 	$t = db_fetch_assoc('SELECT id, name, name_cache FROM data_template_data WHERE local_data_id = ' . $rra_id . ' ORDER BY id LIMIT 1');
-	if (isset($t[0]['name_cache']))
+	if (isset($t[0]['name_cache'])) {
 		$desc = $t[0]['name_cache'];
-	else
+	} else {
+		thold_debug('Threshold checking halted by Graph Name Cache');
 		return;
+	}
 	/* Pull a few default settings */
 	$global_alert_address = read_config_option('alert_email');
 	$global_notify_enabled = (read_config_option('alert_notify_default') == 'on');
@@ -1003,7 +1019,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	if ($thold_send_text_only == 'on') {
 		$file_array = '';
 	} else {
-		$file_array = array(0 => array('local_graph_id' => $graph_id, 'rra_id' => 0, 'file' => "$httpurl/graph_image.php?local_graph_id=$graph_id&rra_id=0&view_type=tree",'mimetype'=>'image/png','filename'=>$graph_id));
+		$file_array = array(0 => array('local_graph_id' => $graph_id, 'rra_id' => 0, 'file' => "$httpurl/graph_image.php?local_graph_id=$graph_id&rra_id=0&view_type=tree",'filename'=>$graph_id));
 	}
 
 	switch ($item['thold_type']) {
@@ -1011,6 +1027,8 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 			$breach_up = ($item['thold_hi'] != '' && $currentval > $item['thold_hi']);
 			$breach_down = ($item['thold_low'] != '' && $currentval < $item['thold_low']);
 			if ( $breach_up || $breach_down) {
+				thold_debug('Threshold HI / Low check breached HI:' . $item['thold_hi'] . '  LOW:' . $item['thold_low'] . ' VALUE:' . $currentval);
+
 				$item['thold_fail_count']++;
 				$item['thold_alert'] = ($breach_up ? 2 : 1);
 
@@ -1022,6 +1040,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				}
 				$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $item['thold_hi'] : $item['thold_low']) . " with $currentval";
 				if($status == 2) {
+					thold_debug('Alerting is necessary');
 					if ($logset == 1) {
 						logger($desc, $breach_up, ($breach_up ? $item['thold_hi'] : $item['thold_low']), $currentval, $trigger, $item['thold_fail_count']);
 					}
@@ -1047,10 +1066,13 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				$sql .= " WHERE rra_id=$rra_id AND data_id=" . $item['data_id'];
 				db_execute($sql);
 			} else {
+				thold_debug('Threshold HI / Low check is normal HI:' . $item['thold_hi'] . '  LOW:' . $item['thold_low'] . ' VALUE:' . $currentval);
 				if ($alertstat != 0) {
 					if ($logset == 1)
 						logger($desc, 'ok', 0, $currentval, $trigger, $item['thold_fail_count']);
 					if ($item['thold_fail_count'] >= $trigger) {
+						thold_debug('Threshold HI / Low check restored to normal HI:' . $item['thold_hi'] . '  LOW:' . $item['thold_low'] . ' VALUE:' . $currentval);
+
 						$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 						if (trim($alert_emails) != '' && $item['restored_alert'] != 'on')
 							thold_mail($alert_emails, '', $subject, $msg, $file_array);
@@ -1087,7 +1109,9 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					break;
 
 				case 0:		// All clear
+					thold_debug('Threshold Baseline check is normal');
 					if ($global_bl_notify_enabled && $item['bl_fail_count'] >= $bl_fail_trigger && $item['restored_alert'] != 'on') {
+						thold_debug('Threshold Baseline check returned to normal');
 						$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 						if (trim($alert_emails) != '')
 							thold_mail($alert_emails, '', $subject, $msg, $file_array);
@@ -1098,10 +1122,12 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				case 1:		// Value is below calculated threshold
 				case 2:		// Value is above calculated threshold
 					$item['bl_fail_count']++;
+					thold_debug('Threshold Baseline check breached');
 
 					// Re-Alert?
 					$ra = ($item['bl_fail_count'] > $bl_fail_trigger && ($item['bl_fail_count'] % ($item['repeat_alert'] == '' ? $realert : $item['repeat_alert'])) == 0);
 					if($global_bl_notify_enabled && ($item['bl_fail_count'] ==  $bl_fail_trigger || $ra)) {
+						thold_debug('Alerting is necessary');
 						if ($logset == 1) {
 							logger($desc, $breach_up, ($breach_up ? $item['thold_hi'] : $item['thold_low']), $currentval, $item['thold_fail_trigger'], $item['thold_fail_count']);
 						}
@@ -1129,6 +1155,8 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 			$time = time() - ($item['time_fail_length'] * $step);
 			$failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id = ' . $item['id'] . ' AND status > 0 AND time > ' . $time);
 			if ($breach_up || $breach_down) {
+				thold_debug('Threshold Time Based check breached HI:' . $item['time_hi'] . ' LOW:' . $item['time_low'] . ' VALUE:'.$currentvalue);
+
 				$item['thold_fail_count'] = $failures;
 				// We should only re-alert X minutes after last email, not every 5 pollings, etc...
 				// Re-Alert?
@@ -1148,6 +1176,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				}
 				$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($failures > $trigger ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $item['time_hi'] : $item['time_low']) . " with $currentval";
 				if ($status == 2) {
+					thold_debug('Alerting is necessary');
 					if ($logset == 1) {
 						logger($desc, $breach_up, ($breach_up ? $item['time_hi'] : $item['time_low']), $currentval, $trigger, $failures);
 					}
@@ -1172,7 +1201,10 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				$sql .= " WHERE rra_id=$rra_id AND data_id=" . $item['data_id'];
 				db_execute($sql);
 			} else {
+				thold_debug('Threshold Time Based check is normal HI:' . $item['time_hi'] . ' LOW:' . $item['time_low'] . ' VALUE:'.$currentvalue);
 				if ($alertstat != 0 && $failures < $trigger) {
+					thold_debug('Threshold Time Based check restored to normal');
+
 					if ($logset == 1)
 						logger($desc, 'ok', 0, $currentval, $trigger, $item['thold_fail_count']);
 					$subject = $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
@@ -1838,6 +1870,7 @@ function autocreate($hostid) {
 /* Sends a group of graphs to a user */
 function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	global $config;
+	thold_debug('Preparing to send email');
 	include_once($config['base_path'] . '/plugins/settings/include/mailer.php');
 	include_once($config['base_path'] . '/plugins/thold/setup.php');
 
@@ -1926,10 +1959,10 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 		foreach($filename as $val) {
 			$graph_data_array = array('output_flag'=> RRDTOOL_OUTPUT_STDOUT);
 			if (function_exists('imagecreatefrompng') && function_exists('imagejpeg')) {
-				$data = png2jpeg(rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array));
+				$data = @png2jpeg(rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array));
 				$ext = 'jpg';
 			} else {
-				$data = rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array);
+				$data = @rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array);
 				$ext = 'png';
 			}
 			if ($data != '') {
@@ -1958,7 +1991,7 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	$v = thold_version();
 	$Mailer->header_set('X-Mailer', 'Cacti-Thold-v' . $v['version']);
 	$Mailer->header_set('User-Agent', 'Cacti-Thold-v' . $v['version']);
-
+	thold_debug('Sending email');
 	if ($Mailer->send($text) == false) {
 		print 'ERROR: ' . $Mailer->error() . "\n";
 		return $Mailer->error();
