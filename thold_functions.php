@@ -1925,10 +1925,16 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	if (is_array($filename) && !empty($filename) && strstr($message, '<GRAPH>') !==0) {
 		foreach($filename as $val) {
 			$graph_data_array = array('output_flag'=> RRDTOOL_OUTPUT_STDOUT);
-			$data = png2jpeg(rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array));
+			if (function_exists('imagecreatefrompng') && function_exists('imagejpeg')) {
+				$data = png2jpeg(rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array));
+				$ext = 'jpg';
+			} else {
+				$data = rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array);
+				$ext = 'png';
+			}
 			if ($data != '') {
 				$cid = $Mailer->content_id();
-				if ($Mailer->attach($data, $val['filename'].'.jpg', 'image/jpg', 'inline', $cid) == false) {
+				if ($Mailer->attach($data, $val['filename'].".$ext", "image/$ext", 'inline', $cid) == false) {
 					print 'ERROR: ' . $Mailer->error() . "\n";
 					return $Mailer->error();
 				}
@@ -2114,7 +2120,7 @@ function thold_threshold_disable($id) {
  */
 function png2jpeg ($png_data) {
 	global $config;
-
+	$ImageData = '';
 	if ($png_data != "") {
 		$fn = "/tmp/" . time() . '.png';
 
