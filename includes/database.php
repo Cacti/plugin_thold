@@ -135,6 +135,11 @@ function thold_upgrade_database () {
 			db_execute("UPDATE settings SET `value`='cacti@localhost' WHERE `name`='thold_from_email'");
 		}
 	}
+
+	if (version_compare($oldv, '0.4.4', '<')) {
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'lasttime', 'type' => 'TIMESTAMP', 'NULL' => false, 'after' => 'lastread'));
+	}
+
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
 	db_execute('UPDATE plugin_config SET version = "' . $v['version'] . '" WHERE directory = "thold"');
 }
