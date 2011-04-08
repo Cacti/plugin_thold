@@ -31,6 +31,12 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
+	--- 0.4.4 ---
+		Fix emailing of alerts when PHP-GD is not available
+		Add Debug logging
+		Sort Threshold drop down list by Description
+		Add missing column to upgrade script
+
 	--- 0.4.3 ---
 		Add support for maint plugin
 		Fix to allow Add Wizard to show all datasources belonging to a graph (even when in separate data templates)

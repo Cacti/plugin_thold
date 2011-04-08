@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2009 The Cacti Group                                      |
+ | Copyright (C) 2011 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -132,7 +132,7 @@ function plugin_thold_check_strict () {
 
 function plugin_thold_version () {
 	return array(	'name'		=> 'thold',
-			'version' 	=> '0.4.3',
+			'version' 	=> '0.4.4',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://cactiusers.org',
