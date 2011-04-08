@@ -225,7 +225,7 @@ function list_tholds() {
 		INNER JOIN thold_data ON (host.id = thold_data.host_id)
 		LEFT JOIN user_auth_perms on (thold_data.host_id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
 		$sql_where_hid
-		ORDER BY hostname");
+		ORDER BY description");
 
 	$data_templates = db_fetch_assoc("SELECT DISTINCT data_template.id, data_template.name
 		FROM data_template
