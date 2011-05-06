@@ -25,10 +25,8 @@
 $using_guest_account = false;
 $show_console_tab = true;
 
-$oper_mode = api_plugin_hook_function('top_header', OPER_MODE_NATIVE);
-if ($oper_mode == OPER_MODE_RESKIN) {
-	return;
-}
+$oper_mode = api_plugin_hook_function('general_header', OPER_MODE_NATIVE);
+if ($oper_mode != OPER_MODE_RESKIN) {
 
 if (read_config_option("auth_method") != 0) {
 	/* at this point this user is good to go... so get some setting about this
@@ -118,3 +116,4 @@ $page_title = api_plugin_hook_function('page_title', 'Cacti');
 <?php } ?>
 	<tr>
 		<td valign="top" style="padding: 5px; border-right: #aaaaaa 1px solid;">
+<?php } ?>
