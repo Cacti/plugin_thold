@@ -277,7 +277,7 @@ function thold_update_host_status () {
 					$subject = str_replace('<DOWN/UP>', 'UP', $subject);
 					$subject = strip_tags($subject);
 
-					$msg = read_config_option('thold_down_text');
+					$msg = read_config_option('thold_up_text');
 					if ($msg == '') {
 						$msg = 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIMETEXT><br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>';
 					}
@@ -286,19 +286,17 @@ function thold_update_host_status () {
 					$msg = str_replace('<DESCRIPTION>', $host['description'], $msg);
 					$msg = str_replace('<UPTIME>', $snmp_uptime, $msg);
 					$msg = str_replace('<UPTIMETEXT>', $uptimelong, $msg);
-
 					$msg = str_replace('<DOWNTIME>', $downtimemsg, $msg);
 					$msg = str_replace('<MESSAGE>', '', $msg);
 					$msg = str_replace('<DOWN/UP>', 'UP', $msg);
-
 					$msg = str_replace('<SNMP_HOSTNAME>', $snmp_hostname, $msg);
 					$msg = str_replace('<SNMP_LOCATION>', $snmp_location, $msg);
 					$msg = str_replace('<SNMP_CONTACT>', $snmp_contact, $msg);
 					$msg = str_replace('<SNMP_SYSTEM>', html_split_string($snmp_system), $msg);
 					$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
-					$msg = str_replace('<AVAILABILITY>', $host["availability"] . '%', $msg);
-					$msg = str_replace('<CUR_TIME>', $host["cur_time"], $msg);
-					$msg = str_replace('<AVR_TIME>', $host["avg_time"], $msg);
+					$msg = str_replace('<AVAILABILITY>', round(($host["availability"]), 2) . ' %', $msg);
+					$msg = str_replace('<CUR_TIME>', round(($host["cur_time"]), 2), $msg);
+					$msg = str_replace('<AVG_TIME>', round(($host["avg_time"]), 2), $msg);
 					$msg = str_replace('<NOTES>', $host["notes"], $msg);
 					$msg = str_replace("\n", '<br>', $msg);
 					if ($alert_email == '') {
@@ -362,9 +360,9 @@ function thold_update_host_status () {
 			$msg = str_replace('<SNMP_CONTACT>', '', $msg);
 			$msg = str_replace('<SNMP_SYSTEM>', '', $msg);
 			$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
-			$msg = str_replace('<AVAILABILITY>', $host["availability"], $msg);
-			$msg = str_replace('<CUR_TIME>', '', $msg);
-			$msg = str_replace('<AVR_TIME>', $host["avg_time"], $msg);
+			$msg = str_replace('<AVAILABILITY>', round(($host["availability"]), 2) . ' %', $msg);
+			$msg = str_replace('<CUR_TIME>', round(($host["cur_time"]), 2), $msg);
+			$msg = str_replace('<AVG_TIME>', round(($host["avg_time"]), 2), $msg);
 			$msg = str_replace('<NOTES>', $host["notes"], $msg);
 			$msg = str_replace("\n", '<br>', $msg);
 			if ($alert_email == '') {

@@ -90,7 +90,7 @@ function do_thold() {
 	exit;
 }
 
-/**
+/** 
  *  This is a generic funtion for this page that makes sure that
  *  we have a good request.  We want to protect against people who
  *  like to create issues with Cacti.
@@ -114,7 +114,7 @@ function thold_request_validation() {
 	}
 
 	/* if the user pushed the 'clear' button */
-	if (isset($_REQUEST['clear'])) {
+	if (isset($_REQUEST['button_clear_x'])) {
 		kill_session_var('sess_thold_rows');
 		kill_session_var('sess_thold_page');
 		kill_session_var('sess_thold_sort_column');
@@ -181,7 +181,8 @@ function list_tholds() {
 		} else {
 			if($_REQUEST['state'] == 'Disabled') { $statefilter = "thold_data.thold_enabled='off'"; }
 			if($_REQUEST['state'] == 'Enabled') { $statefilter = "thold_data.thold_enabled='on'"; }
-			if($_REQUEST['state'] == 'Triggered') { $statefilter = 'thold_data.thold_alert!=0'; }
+			if($_REQUEST['state'] == 'Breached') { $statefilter = 'thold_data.thold_alert!=0 OR thold_data.bl_alert>0'; }
+			if($_REQUEST['state'] == 'Triggered') { $statefilter = '(thold_data.thold_alert!=0 AND thold_data.thold_fail_count >= thold_data.thold_fail_trigger) OR (thold_data.bl_alert>0 AND thold_data.bl_fail_count >= thold_data.bl_fail_trigger)'; }
 		}
 	}
 
@@ -288,7 +289,7 @@ function list_tholds() {
 						<select name=state onChange='applyTHoldFilterChange(document.listthold)'>
 							<option value=ALL>Any</option>
 							<?php
-							foreach (array('Disabled','Enabled','Triggered') as $row) {
+							foreach (array('Disabled','Enabled','Breached','Triggered') as $row) {
 								echo "<option value='" . $row . "'" . (isset($_REQUEST['state']) && $row == $_REQUEST['state'] ? ' selected' : '') . '>' . $row . '</option>';
 							}
 							?>
@@ -385,9 +386,27 @@ function list_tholds() {
 			}
 			form_selectable_cell("<a class='linkEditMain' href='thold.php?rra=" . $row['rra_id'] . "&view_rrd=" . $row['data_id'] . "'><b>" . ($row['name'] != '' ? $row['name'] : $row['name_cache'] . " [" . $row['data_source_name'] . ']') . '</b></a>', $row['id']);
 			form_selectable_cell($types[$row['thold_type']], $row["id"]);
-			form_selectable_cell(($row['thold_type'] == 0 ? $row['thold_hi'] : ($row['thold_type'] == 2 ? $row['time_hi'] : '')), $row["id"]);
-			form_selectable_cell(($row['thold_type'] == 0 ? $row['thold_low'] : ($row['thold_type'] == 2 ? $row['time_low'] : '')), $row["id"]);
-			form_selectable_cell(($row['thold_type'] == 0 ? ("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i>") : ($row['thold_type'] == 2 ? ("<i>" . $row['time_fail_trigger'] . "</i>") : '')), $row["id"]);
+			switch($row['thold_type']) {
+				case 0:
+					form_selectable_cell($row['thold_hi'], $row["id"]);
+					form_selectable_cell($row['thold_low'], $row["id"]);
+					form_selectable_cell("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i>", $row["id"]);
+					break;
+				case 1:
+					form_selectable_cell($row['thold_hi'], $row["id"]);
+					form_selectable_cell($row['thold_low'], $row["id"]);
+					form_selectable_cell("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . "</i>", $row["id"]);
+					break;
+				case 2:
+					form_selectable_cell($row['time_hi'], $row["id"]);
+					form_selectable_cell($row['time_low'], $row["id"]);
+					form_selectable_cell("<i>" . $row['time_fail_trigger'] . "</i>",  $row["id"]);
+					break;
+				default:
+					form_selectable_cell("",  $row["id"]);
+					form_selectable_cell("",  $row["id"]);
+					form_selectable_cell("",  $row["id"]);
+			}
 			form_selectable_cell(($row['thold_type'] == 2 ? plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time') : ''), $row["id"]);
 			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')), $row["id"]);
 			form_selectable_cell($row['lastread'], $row["id"]);

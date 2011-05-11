@@ -153,7 +153,8 @@ function form_thold_filter() {
 					<td width="1">
 						<select name="triggered" onChange="applyTHoldFilterChange(document.form_thold)">
 							<option value="-1"<?php if ($_REQUEST["triggered"] == "-1") {?> selected<?php }?>>All</option>
-							<option value="1"<?php if ($_REQUEST["triggered"] == "1") {?> selected<?php }?>>Triggered</option>
+							<option value="1"<?php if ($_REQUEST["triggered"] == "1") {?> selected<?php }?>>Breached</option>
+							<option value="3"<?php if ($_REQUEST["triggered"] == "3") {?> selected<?php }?>>Triggered</option>
 							<option value="2"<?php if ($_REQUEST["triggered"] == "2") {?> selected<?php }?>>Enabled</option>
 							<option value="0"<?php if ($_REQUEST["triggered"] == "0") {?> selected<?php }?>>Disabled</option>
 						</select>
@@ -286,7 +287,8 @@ function tholds() {
 	} else {
 		if($_REQUEST['triggered'] == '0') { $sql_where = "WHERE thold_data.thold_enabled='off'"; } /*disabled*/
 		if($_REQUEST['triggered'] == '2') { $sql_where = "WHERE thold_data.thold_enabled='on'"; } /* enabled */
-		if($_REQUEST['triggered'] == '1') { $sql_where = "WHERE thold_data.thold_alert!=0"; } /* triggered */
+		if($_REQUEST['triggered'] == '1') { $sql_where = "WHERE thold_data.thold_alert!=0 OR thold_data.bl_alert>0"; } /* breached */
+		if($_REQUEST['triggered'] == '3') { $sql_where = "WHERE (thold_data.thold_alert!=0 AND thold_data.thold_fail_count >= thold_data.thold_fail_trigger) OR (thold_data.bl_alert>0 AND thold_data.bl_fail_count >= thold_data.bl_fail_trigger)"; } /* triggered */
 	}
 
 	if (strlen($_REQUEST["filter"])) {
@@ -398,8 +400,8 @@ function tholds() {
 			print "<td>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
 			print "<td width='10'>" . $row["id"] . "</td>";
 			print "<td width='80'>" . $types[$row['thold_type']] . "</td>";
-			print "<td width='50'>" . ($row['thold_type'] == 0 ? $row['thold_hi'] : ($row['thold_type'] == 2 ? $row['time_hi'] : '')) . "</td>";
-			print "<td width='50'>" . ($row['thold_type'] == 0 ? $row['thold_low'] : ($row['thold_type'] == 2 ? $row['time_low'] : '')) . "</td>";
+			print "<td width='50'>" . ($row['thold_type'] == 2 ? $row['time_hi'] : $row['thold_hi']) . "</td>";
+			print "<td width='50'>" . ($row['thold_type'] == 2 ? $row['time_low'] : $row['thold_low']) . "</td>";
 			print "<td width='80'>" . $row['lastread'] . "</td>";
 			if ($row['thold_enabled'] == 'off') {
 				print "<td width='40'><b>Disabled</b></td>";

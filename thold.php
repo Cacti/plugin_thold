@@ -326,6 +326,17 @@ $data_types = array (
 
 $data_fields = array();
 
+$rra_steps = db_fetch_assoc(
+	"select rra.steps from data_template_data d join data_template_data_rra a 
+	on d.id = a.data_template_data_id join rra on a.rra_id = rra.id 
+	where rra.steps > 1 and d.local_data_id = $rra order by steps");
+
+$reference_types = array();
+foreach($rra_steps as $rra_step) {
+	$seconds = $step * $rra_step['steps'];
+	$reference_types[$seconds] = $timearray[$rra_step['steps']] . " Average" ;
+}
+
 if (isset($thold_item_data['data_template_id'])) {
 	$temp = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where local_data_id = ' . $thold_item_data['rra_id']);
 } else {
@@ -468,20 +479,12 @@ $form_array = array(
 			'description' => 'When enabled, baseline monitoring checks the current data source value against a value in the past. The available range of values is retrieved and a minimum and maximum values are taken as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.',
 			'value' => isset($thold_item_data['bl_enabled']) ? $thold_item_data['bl_enabled'] : ''
 		),
-		'bl_ref_time' => array(
-			'friendly_name' => 'Reference in the past',
-			'method' => 'textbox',
-			'max_length' => 20,
-			'default' => read_config_option('alert_bl_past_default'),
-			'description' => 'Specifies the relative point in the past that will be used as a reference. The value represents seconds, so for a day you would specify 86400, for a week 604800, etc.',
-			'value' => isset($thold_item_data['bl_ref_time']) ? $thold_item_data['bl_ref_time'] : ''
-		),
 		'bl_ref_time_range' => array(
 			'friendly_name' => 'Time range',
-			'method' => 'textbox',
-			'max_length' => 20,
+			'method' => 'drop_array',
+			'array' => $reference_types,
 			'default' => read_config_option('alert_bl_timerange_def'),
-			'description' => 'Specifies the time range of values in seconds to be taken from the reference in the past',
+			'description' => 'Specifies the point in the past (based on rrd resolution) that will be used as a reference',
 			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : ''
 		),
 		'bl_pct_up' => array(
@@ -616,7 +619,6 @@ function BL_EnableDisable()
 	if (_f.bl_enabled.disabled)
 		status = true;
 
-	_f.bl_ref_time.disabled = status;
 	_f.bl_ref_time_range.disabled = status;
 	_f.bl_pct_down.disabled = status;
 	_f.bl_pct_up.disabled = status;
@@ -724,7 +726,6 @@ if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') 
 	function thold_toggle_baseline (status) {
 		document.getElementById('row_baseline_header').style.display  = status;
 		document.getElementById('row_bl_enabled').style.display  = status;
-		document.getElementById('row_bl_ref_time').style.display  = status;
 		document.getElementById('row_bl_ref_time_range').style.display  = status;
 		document.getElementById('row_bl_pct_up').style.display  = status;
 		document.getElementById('row_bl_pct_down').style.display  = status;

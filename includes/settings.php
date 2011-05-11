@@ -201,6 +201,14 @@ function thold_config_settings () {
 			'max_length' => 255,
 			'default' => 'Host Error: <DESCRIPTION> (<HOSTNAME>) is DOWN',
 			),
+		'thold_down_text' => array(
+			'friendly_name' => 'Down Host Message',
+			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060CUR_TIME&#062 &#060AVR_TIME&#062 &#060NOTES&#062',
+			'method' => 'textarea',
+			'textarea_rows' => '5',
+			'textarea_cols' => '80',
+			'default' => 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIME> (<UPTIMETEXT>)<br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>',
+			),
 		'thold_up_subject' => array(
 			'friendly_name' => 'Recovering Host Subject',
 			'description' => 'This is the email subject that will be used for Recovering Host Messages.',
@@ -208,14 +216,14 @@ function thold_config_settings () {
 			'max_length' => 255,
 			'default' => 'Host Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state',
 			),
-		'thold_down_text' => array(
-			'friendly_name' => 'Down Host Message',
-			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062',
+		'thold_up_text' => array(
+			'friendly_name' => 'Recovering Host Message',
+			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060CUR_TIME&#062 &#060AVR_TIME&#062 &#060NOTES&#062',
 			'method' => 'textarea',
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
 			'default' => 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIME> (<UPTIMETEXT>)<br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>',
-			),
+		),
 		'thold_from_email' => array(
 			'friendly_name' => 'From Email Address',
 			'description' => 'This is the email address that the threshold will appear from.',
@@ -286,3 +294,4 @@ function thold_config_settings () {
 			)
 		);
 }
+

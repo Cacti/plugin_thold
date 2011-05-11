@@ -166,7 +166,7 @@ function template_add() {
 		}
 
 		if ($_REQUEST["data_source_id"] != '') {
-			echo '<tr><td colspan=2><input type=hidden name=action value="add"><input id="save" type=hidden name="save" value="save"><br><center><input type="submit" value="Create" title="Create Threshold Template"></center></td></tr>';
+			echo '<tr><td colspan=2><input type=hidden name=action value="add"><input id="save" type=hidden name="save" value="save"><br><center><input type=image src="../../images/button_create.gif" alt="Create"></center></td></tr>';
 		} else {
 			echo '<tr><td colspan=2><input type=hidden name=action value="add"><br><br><br></td></tr>';
 		}
@@ -225,7 +225,6 @@ function template_save_edit() {
 	input_validate_input_number(get_request_var_post('time_low'));
 	input_validate_input_number(get_request_var_post('time_fail_trigger'));
 	input_validate_input_number(get_request_var_post('time_fail_length'));
-	input_validate_input_number(get_request_var_post('bl_ref_time'));
 	input_validate_input_number(get_request_var_post('bl_ref_time_range'));
 	input_validate_input_number(get_request_var_post('bl_pct_down'));
 	input_validate_input_number(get_request_var_post('bl_pct_up'));
@@ -282,15 +281,6 @@ function template_save_edit() {
 		$save['bl_enabled'] = 'on';
 	else
 		$save['bl_enabled'] = 'off';
-	if (isset($_POST['bl_ref_time'])  && $_POST['bl_ref_time'] != '')
-		$save['bl_ref_time'] = $_POST['bl_ref_time'];
-	else {
-		$alert_bl_past_default = read_config_option('alert_bl_past_default');
-		if ($alert_bl_past_default != '' && is_numeric($alert_bl_past_default))
-			$save['bl_ref_time'] = $alert_bl_past_default;
-		else
-			$save['bl_ref_time'] = 86400;
-	}
 	if (isset($_POST['bl_ref_time_range']) && $_POST['bl_ref_time_range'] != '')
 		$save['bl_ref_time_range'] = $_POST['bl_ref_time_range'];
 	else {
@@ -300,10 +290,10 @@ function template_save_edit() {
 		else
 			$save['bl_ref_time_range'] = 10800;
 	}
-	if (isset($_POST['bl_pct_down']) && $_POST['bl_pct_down'] != '')
-		$save['bl_pct_down'] = $_POST['bl_pct_down'];
-	if (isset($_POST['bl_pct_up']) && $_POST['bl_pct_up'] != '')
-		$save['bl_pct_up'] = $_POST['bl_pct_up'];
+
+	$save['bl_pct_down'] = $_POST['bl_pct_down'];
+	$save['bl_pct_up'] = $_POST['bl_pct_up'];
+	
 	if (isset($_POST['bl_fail_trigger']) && $_POST['bl_fail_trigger'] != '')
 		$save['bl_fail_trigger'] = $_POST['bl_fail_trigger'];
 	else {
@@ -428,6 +418,18 @@ function template_edit() {
 		2 => 'Percentage',
 		3 => 'RPN Expression'
 	);
+
+	$rra_steps = db_fetch_assoc(
+	    "select rra.steps from data_template_data d join data_template_data_rra a 
+	    on d.id = a.data_template_data_id join rra on a.rra_id = rra.id 
+	    where rra.steps > 1 and d.data_template_id = " . $thold_item_data['data_template_id']. 
+	    " and d.local_data_template_data_id = 0 order by steps");
+
+	$reference_types = array();
+	foreach($rra_steps as $rra_step) {
+	    $seconds = $step * $rra_step['steps'];
+	    $reference_types[$seconds] = $timearray[$rra_step['steps']] . " Average" ;
+	}
 
 	$data_fields2 = array();
 	$temp = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where local_data_template_rrd_id = 0 and data_template_id = ' . $thold_item_data['data_template_id']);
@@ -570,23 +572,15 @@ function template_edit() {
 			'friendly_name' => 'Baseline monitoring',
 			'method' => 'checkbox',
 			'default' => 'off',
-			'description' => 'When enabled, baseline monitoring checks the current data source value against a value in the past. The available range of values is retrieved and a minimum and maximum values are taken as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.',
+			'description' => 'When enabled, baseline monitoring checks the current data source value against a reference in the past. This value is read from the RRA. The calculated average is stored in the database and is used as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.',
 			'value' => isset($thold_item_data['bl_enabled']) ? $thold_item_data['bl_enabled'] : ''
 		),
-		'bl_ref_time' => array(
-			'friendly_name' => 'Reference in the past',
-			'method' => 'textbox',
-			'max_length' => 20,
-			'default' => read_config_option('alert_bl_past_default'),
-			'description' => 'Specifies the relative point in the past that will be used as a reference. The value represents seconds, so for a day you would specify 86400, for a week 604800, etc.',
-			'value' => isset($thold_item_data['bl_ref_time']) ? $thold_item_data['bl_ref_time'] : ''
-		),
 		'bl_ref_time_range' => array(
-			'friendly_name' => 'Time range',
-			'method' => 'textbox',
-			'max_length' => 20,
+			'friendly_name' => 'Time reference in the past',
+			'method' => 'drop_array',
+			'array' => $reference_types,
 			'default' => read_config_option('alert_bl_timerange_def'),
-			'description' => 'Specifies the time range of values in seconds to be taken from the reference in the past',
+			'description' => 'Specifies the point in the past (based on rrd resolution) that will be used as a reference',
 			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : ''
 		),
 		'bl_pct_up' => array(
@@ -703,7 +697,6 @@ function template_edit() {
 		var _f = document.THold;
 		var status = !_f.bl_enabled.checked;
 
-		_f.bl_ref_time.disabled = status;
 		_f.bl_ref_time_range.disabled = status;
 		_f.bl_pct_down.disabled = status;
 		_f.bl_pct_up.disabled = status;
@@ -770,7 +763,6 @@ function template_edit() {
 	function thold_toggle_baseline (status) {
 		document.getElementById('row_baseline_header').style.display  = status;
 		document.getElementById('row_bl_enabled').style.display  = status;
-		document.getElementById('row_bl_ref_time').style.display  = status;
 		document.getElementById('row_bl_ref_time_range').style.display  = status;
 		document.getElementById('row_bl_pct_up').style.display  = status;
 		document.getElementById('row_bl_pct_down').style.display  = status;
@@ -798,7 +790,7 @@ function templates() {
 
 	html_start_box('<strong>Threshold Templates</strong>', '100%', $colors['header'], '3', 'center', 'thold_templates.php?action=add');
 
-	html_header_checkbox(array('Name', 'Data Template', 'DS Name', 'Type', 'High', 'Low', 'Trigger', 'Duration', 'Repeat'));
+	html_header_checkbox(array('Name', 'Data Template', 'DS Name', 'Type', 'High/Up', 'Low/Down', 'Trigger', 'Duration', 'Repeat'));
 
 	$template_list = db_fetch_assoc('SELECT *
 		FROM thold_template
@@ -808,15 +800,35 @@ function templates() {
 	$types = array('High/Low', 'Baseline', 'Time Based');
 	if (sizeof($template_list) > 0) {
 		foreach ($template_list as $template) {
+			switch ($template['thold_type']) {
+				case 0:					# hi/lo
+					$value_hi = $template['thold_hi'];
+					$value_lo= $template['thold_low'];
+					$value_trig = $template['thold_fail_trigger'];
+					$value_duration = '';
+					break;
+				case 1:					# baseline
+					$value_hi = $template['bl_pct_up'] . '%';
+					$value_lo= $template['bl_pct_down'] . '%';
+					$value_trig = $template['bl_fail_trigger'];
+					$value_duration = '';
+					break;
+				case 2:					#time
+					$value_hi = $template['time_hi'];
+					$value_lo= $template['time_low'];
+					$value_trig = $template['time_fail_trigger'];
+					$value_duration = $template['time_fail_length'];
+					break;
+			}
 			form_alternate_row_color($colors["alternate"], $colors["light"], $i, 'line' . $template["id"]); $i++;
 			form_selectable_cell('<a class="linkEditMain" href="thold_templates.php?action=edit&id=' . $template['id'] . '">' . ($template['name'] == '' ? $template['data_template_name'] . ' [' . $template['data_source_name'] . ']' : $template['name']) . '</a>', $template["id"]);
 			form_selectable_cell($template['data_template_name'], $template["id"]);
 			form_selectable_cell($template['data_source_name'], $template["id"]);
 			form_selectable_cell($types[$template['thold_type']], $template["id"]);
-			form_selectable_cell(($template['thold_type'] == 0 ? $template['thold_hi'] : $template['time_hi']), $template["id"]);
-			form_selectable_cell(($template['thold_type'] == 0 ? $template['thold_low'] : $template['time_low']), $template["id"]);
-			form_selectable_cell("<i><span style='white-space:nowrap;'>" . ($template['thold_type'] == 0 ? plugin_thold_duration_convert($template['data_template_id'], $template['thold_fail_trigger'], 'alert', 'data_template_id') : $template['time_fail_trigger']) . "</span></i>", $template["id"]);
-			form_selectable_cell(($template['thold_type'] == 2 ? plugin_thold_duration_convert($template['data_template_id'], $template['time_fail_length'], 'time', 'data_template_id') : ''), $template["id"]);
+			form_selectable_cell($value_hi, $template["id"]);
+			form_selectable_cell($value_lo, $template["id"]);
+			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $value_trig, 'alert', 'data_template_id'), $template["id"]);
+			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $value_duration, 'time', 'data_template_id'), $template["id"]);
 			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id']);
 			form_checkbox_cell($template['data_template_name'], $template["id"]);
 			form_end_row();

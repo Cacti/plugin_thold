@@ -138,8 +138,14 @@ function thold_upgrade_database () {
 
 	if (version_compare($oldv, '0.4.4', '<')) {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'lasttime', 'type' => 'TIMESTAMP', 'NULL' => false, 'after' => 'lastread'));
+		db_execute('ALTER TABLE thold_data ADD COLUMN bl_thold_valid INT UNSIGNED NOT NULL DEFAULT 0');
+		db_execute('ALTER TABLE thold_data MODIFY name varchar(150) default NULL');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_down varchar(100)');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_up varchar(100)');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN bl_pct_down varchar(100)');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN bl_pct_up varchar(100)');
 	}
-
+	
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
 	db_execute('UPDATE plugin_config SET version = "' . $v['version'] . '" WHERE directory = "thold"');
 }
@@ -165,10 +171,9 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'thold_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'on');
 	$data['columns'][] = array('name' => 'thold_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0);
 	$data['columns'][] = array('name' => 'bl_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'off');
-	$data['columns'][] = array('name' => 'bl_ref_time', 'type' => 'int(50)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_ref_time_range', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
-	$data['columns'][] = array('name' => 'bl_pct_down', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
-	$data['columns'][] = array('name' => 'bl_pct_up', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_pct_down', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'bl_pct_up', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'bl_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_fail_count', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_alert', 'type' => 'int(2)', 'NULL' => false, 'default' => '0');
@@ -189,6 +194,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'tcheck', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
 	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
+	$data['columns'][] = array('name' => 'bl_thold_valid', 'type' => 'int(10)', 'NULL' => false, 'default' => '0', 'unsigned' => true);
 	$data['primary'] = 'id';
 	$data['keys'][] = array('name' => 'host_id', 'columns' => 'host_id');
 	$data['keys'][] = array('name' => 'rra_id', 'columns' => 'rra_id');
@@ -221,10 +227,9 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'thold_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'on');
 	$data['columns'][] = array('name' => 'thold_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0);
 	$data['columns'][] = array('name' => 'bl_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'off');
-	$data['columns'][] = array('name' => 'bl_ref_time', 'type' => 'int(50)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_ref_time_range', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
-	$data['columns'][] = array('name' => 'bl_pct_down', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
-	$data['columns'][] = array('name' => 'bl_pct_up', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_pct_down', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'bl_pct_up', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'bl_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_fail_count', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_alert', 'type' => 'int(2)', 'NULL' => false, 'default' => '0');

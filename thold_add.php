@@ -148,7 +148,6 @@ function thold_add_graphs_action_execute() {
 			$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
 			$insert['thold_enabled']      = $template['thold_enabled'];
 			$insert['bl_enabled']         = $template['bl_enabled'];
-			$insert['bl_ref_time']        = $template['bl_ref_time'];
 			$insert['bl_ref_time_range']  = $template['bl_ref_time_range'];
 			$insert['bl_pct_down']        = $template['bl_pct_down'];
 			$insert['bl_pct_up']          = $template['bl_pct_up'];
@@ -161,7 +160,7 @@ function thold_add_graphs_action_execute() {
 			$insert['template_enabled']   = 'on';
 
 			$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name='$data_source_name'");
-			$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
+			$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
 			foreach ($rrdlist as $rrdrow) {
 				$data_rrd_id=$rrdrow['id'];
 				$insert['data_id'] = $data_rrd_id;
