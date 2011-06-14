@@ -298,7 +298,7 @@ function thold_update_host_status () {
 					$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
 					$msg = str_replace('<AVAILABILITY>', $host["availability"] . '%', $msg);
 					$msg = str_replace('<CUR_TIME>', $host["cur_time"], $msg);
-					$msg = str_replace('<AVR_TIME>', $host["avg_time"], $msg);
+					$msg = str_replace('<AVG_TIME>', $host["avg_time"], $msg);
 					$msg = str_replace('<NOTES>', $host["notes"], $msg);
 					$msg = str_replace("\n", '<br>', $msg);
 					if ($alert_email == '') {
@@ -364,7 +364,7 @@ function thold_update_host_status () {
 			$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
 			$msg = str_replace('<AVAILABILITY>', $host["availability"], $msg);
 			$msg = str_replace('<CUR_TIME>', '', $msg);
-			$msg = str_replace('<AVR_TIME>', $host["avg_time"], $msg);
+			$msg = str_replace('<AVG_TIME>', $host["avg_time"], $msg);
 			$msg = str_replace('<NOTES>', $host["notes"], $msg);
 			$msg = str_replace("\n", '<br>', $msg);
 			if ($alert_email == '') {
