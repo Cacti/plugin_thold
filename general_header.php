@@ -49,6 +49,7 @@ $page_title = api_plugin_hook_function('page_title', 'Cacti');
 ?>
 <html>
 <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title><?php echo $page_title; ?></title>
 	<?php
 	if (isset($_SESSION["custom"]) && ($_SESSION["custom"])) {
