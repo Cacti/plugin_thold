@@ -114,7 +114,7 @@ function thold_request_validation() {
 	}
 
 	/* if the user pushed the 'clear' button */
-	if (isset($_REQUEST['button_clear_x'])) {
+	if (isset($_REQUEST['clear'])) {
 		kill_session_var('sess_thold_rows');
 		kill_session_var('sess_thold_page');
 		kill_session_var('sess_thold_sort_column');
@@ -316,23 +316,38 @@ function list_tholds() {
 	$url_page_select = get_page_list($_REQUEST['page'], MAX_DISPLAY_PAGES, $alert_num_rows, $total_rows, 'listthold.php?');
 
 	html_start_box('', '100%', $colors['header'], '4', 'center', '');
-	$nav = "<tr bgcolor='#" . $colors['header'] . "'>
-			<td colspan='12'>
-				<table width='100%' cellspacing='0' cellpadding='0' border='0'>
-					<tr>
-						<td align='left' class='textHeaderDark'>
-							<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
-						</td>\n
-						<td align='center' class='textHeaderDark'>
-							Showing Rows " . (($alert_num_rows*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < $alert_num_rows) || ($total_rows < ($alert_num_rows*$_REQUEST["page"]))) ? $total_rows : ($alert_num_rows*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
-						</td>\n
-						<td align='right' class='textHeaderDark'>
-							<strong>"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
-						</td>\n
-					</tr>
-				</table>
-			</td>
-		</tr>\n";
+
+	if ($total_rows) {
+		$nav = "<tr bgcolor='#" . $colors['header'] . "'>
+				<td colspan='12'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='left' class='textHeaderDark'>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+							</td>\n
+							<td align='center' class='textHeaderDark'>
+								Showing Rows " . (($alert_num_rows*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < $alert_num_rows) || ($total_rows < ($alert_num_rows*$_REQUEST["page"]))) ? $total_rows : ($alert_num_rows*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
+							</td>\n
+							<td align='right' class='textHeaderDark'>
+								<strong>"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}else{
+		$nav = "<tr bgcolor='#" . $colors['header'] . "'>
+				<td colspan='12'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='center' class='textHeaderDark'>
+								No Rows Found
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}
 
 	print $nav;
 
