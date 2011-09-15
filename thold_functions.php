@@ -1783,6 +1783,9 @@ function save_thold() {
 
 	if ($id) {
 		plugin_thold_log_changes($id, 'modified', $save);
+		$thold = db_fetch_row("SELECT * FROM thold_data WHERE id=$id");
+		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
+		thold_check_threshold ($thold['rra_id'], $thold['data_id'], $ds, $thold['lastread'], $thold['cdef']);
 	}
 
 	$banner = '<font color=green><strong>Record Updated</strong></font>';

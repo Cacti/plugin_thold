@@ -166,7 +166,7 @@ function template_add() {
 		}
 
 		if ($_REQUEST["data_source_id"] != '') {
-			echo '<tr><td colspan=2><input type=hidden name=action value="add"><input id="save" type=hidden name="save" value="save"><br><center><input type=image src="../../images/button_create.gif" alt="Create"></center></td></tr>';
+			echo '<tr><td colspan=2><input type=hidden name=action value="add"><input id="save" type=hidden name="save" value="save"><br><center><input type="submit" value="Create"></center></td></tr>';
 		} else {
 			echo '<tr><td colspan=2><input type=hidden name=action value="add"><br><br><br></td></tr>';
 		}
