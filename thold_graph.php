@@ -426,7 +426,7 @@ function tholds() {
 					break;
 				case 1:
 					print "<td width='80'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . "</i></td>";
-					print "<td width='80'>" . $timearray[$row['bl_ref_time_range']/3600]. "</td>";;
+					print "<td width='80'>" . $timearray[$row['bl_ref_time_range']/300]. "</td>";;
 					break;
 				case 2:
 					print "<td width='80'><i>" . $row['time_fail_trigger'] . "</i></td>";

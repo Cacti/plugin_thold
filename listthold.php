@@ -369,7 +369,7 @@ function list_tholds() {
 
 	$c=0;
 	$i=0;
-	$types = array('High/Low', 'Baseline', 'Time Based');
+	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 	if (count($result)) {
 		foreach ($result as $row) {
 			$c++;
@@ -414,7 +414,7 @@ function list_tholds() {
 					form_selectable_cell($row['thold_hi'], $row["id"]);
 					form_selectable_cell($row['thold_low'], $row["id"]);
 					form_selectable_cell("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . "</i>", $row["id"]);
-					form_selectable_cell($timearray[$row['bl_ref_time_range']/3600], $row["id"]);
+					form_selectable_cell($timearray[$row['bl_ref_time_range']/300], $row["id"]);
 					break;
 				case 2:
 					form_selectable_cell($row['time_hi'], $row["id"]);
