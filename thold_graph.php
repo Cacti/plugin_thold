@@ -38,7 +38,7 @@ thold_initialize_rusage();
 
 plugin_thold_upgrade ();
 
-include_once($config['include_path'] . '/top_graph_header.php');
+include_once('./plugins/thold/general_header.php');
 
 if (!thold_check_dependencies()) {
 	cacti_log("THOLD: You are missing a required dependency, please install and enable the '<a href='http://cactiusers.org/'>Settings'</a> plugin.", true, 'POLLER');
@@ -159,7 +159,7 @@ function form_thold_filter() {
 							<option value="0"<?php if ($_REQUEST["triggered"] == "0") {?> selected<?php }?>>Disabled</option>
 						</select>
 					</td>
-					<td nowrap style='white-space:nowrap;' width="50">
+					<td nowrap style='white-space:nowrap;' width="1">
 						&nbsp;Rows:&nbsp;
 					</td>
 					<td width="1">
@@ -182,7 +182,7 @@ function form_thold_filter() {
 					</td>
 					<td nowrap>
 						&nbsp;<input type="submit" value="Go">
-						<input type="submit" value="Clear">
+						<input id="clear" name="clear" type="submit" value="Clear">
 					</td>
 				</tr>
 			</table>
@@ -323,23 +323,37 @@ function tholds() {
 	/* generate page list */
 	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_graph.php?filter=" . $_REQUEST["filter"]);
 
-	$nav = "<tr bgcolor='#" . $colors["header"] . "'>
-			<td colspan='11'>
-				<table width='100%' cellspacing='0' cellpadding='0' border='0'>
-					<tr>
-						<td align='left' class='textHeaderDark'>
-							<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
-						</td>\n
-						<td align='center' class='textHeaderDark'>
-							Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
-						</td>\n
-						<td align='right' class='textHeaderDark'>
-							<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
-						</td>\n
-					</tr>
-				</table>
-			</td>
-		</tr>\n";
+	if ($total_rows) {
+		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
+				<td colspan='12'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='left' class='textHeaderDark'>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+							</td>\n
+							<td align='center' class='textHeaderDark'>
+								Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
+							</td>\n
+							<td align='right' class='textHeaderDark'>
+								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}else{
+		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
+				<td colspan='11'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='center' class='textHeaderDark'>
+								No Rows Found
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}
 
 	print $nav;
 
@@ -348,6 +362,9 @@ function tholds() {
 		'name' => array('Name', 'ASC'),
 		'id' => array('ID', 'ASC'),
 		'thold_type' => array('Type', 'ASC'),
+		'nosort2' => array('Trigger', 'ASC'),
+		'nosort3' => array('Duration', 'ASC'),
+		'nosort4' => array('BL High/Low', 'ASC'),
 		'thold_hi' => array('High', 'ASC'),
 		'thold_low' => array('Low', 'ASC'),
 		'lastread' => array('Current', 'ASC'),
@@ -355,9 +372,11 @@ function tholds() {
 
 	html_header_sort($display_text, $_REQUEST['sort_column'], $_REQUEST['sort_direction']);
 
+	$timearray   = array(1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => 'Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
+
 	$c=0;
 	$i=0;
-	$types = array('High/Low', 'Baseline', 'Time Based');
+	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 	if (count($result)) {
 		foreach ($result as $row) {
 			$c++;
@@ -399,7 +418,26 @@ function tholds() {
 			print "</td>";
 			print "<td>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
 			print "<td width='10'>" . $row["id"] . "</td>";
-			print "<td width='80'>" . $types[$row['thold_type']] . "</td>";
+			print "<td width='120'>" . $types[$row['thold_type']] . "</td>";
+			switch($row['thold_type']) {
+				case 0:
+					print "<td width='80'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i></td";
+					print "<td width='80'>N/A</td>";
+					break;
+				case 1:
+					print "<td width='80'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . "</i></td>";
+					print "<td width='80'>" . $timearray[$row['bl_ref_time_range']/3600]. "</td>";;
+					break;
+				case 2:
+					print "<td width='80'><i>" . $row['time_fail_trigger'] . "</i></td>";
+					print "<td width='80'>" . plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time') . "</td>";;
+					break;
+				default:
+					print "<td width='80'>N/A</td>";
+					print "<td width='80'>N/A</td>";
+			}
+
+			print "<td width='80'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . '% / ' . $row['bl_pct_down'] . '%': 'N/A') . "</td>";
 			print "<td width='50'>" . ($row['thold_type'] == 2 ? $row['time_hi'] : $row['thold_hi']) . "</td>";
 			print "<td width='50'>" . ($row['thold_type'] == 2 ? $row['time_low'] : $row['thold_low']) . "</td>";
 			print "<td width='80'>" . $row['lastread'] . "</td>";
@@ -608,23 +646,37 @@ function hosts() {
 	/* generate page list */
 	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"]);
 
-	$nav = "<tr bgcolor='#" . $colors["header"] . "'>
-			<td colspan='11'>
-				<table width='100%' cellspacing='0' cellpadding='0' border='0'>
-					<tr>
-						<td align='left' class='textHeaderDark'>
-							<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
-						</td>\n
-						<td align='center' class='textHeaderDark'>
-							Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
-						</td>\n
-						<td align='right' class='textHeaderDark'>
-							<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
-						</td>\n
-					</tr>
-				</table>
-			</td>
-		</tr>\n";
+	if ($total_rows) {
+		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
+				<td colspan='11'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='left' class='textHeaderDark'>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+							</td>\n
+							<td align='center' class='textHeaderDark'>
+								Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
+							</td>\n
+							<td align='right' class='textHeaderDark'>
+								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}else{
+		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
+				<td colspan='11'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='center' class='textHeaderDark'>
+								No Rows Found
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}
 
 	print $nav;
 
@@ -787,7 +839,7 @@ function form_host_filter() {
 					</td>
 					<td nowrap>
 						&nbsp;<input type="submit" value="Go">
-						<input type="submit" value="Clear">
+						<input id="clear" name="clear" type="submit" value="Clear">
 					</td>
 				</tr>
 			</table>

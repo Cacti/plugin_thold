@@ -54,9 +54,9 @@ function plugin_thold_install () {
 	api_plugin_register_hook('thold', 'graphs_action_prepare', 'thold_graphs_action_prepare', 'setup.php');
 	api_plugin_register_hook('thold', 'graphs_action_execute', 'thold_graphs_action_execute', 'setup.php');
 
-	api_plugin_register_realm('thold', 'thold_add.php,thold.php,listthold.php', 'Configure Thresholds', 1);
-	api_plugin_register_realm('thold', 'thold_templates.php', 'Configure Threshold Templates', 1);
-	api_plugin_register_realm('thold', 'thold_graph.php,graph_thold.php,thold_view_failures.php,thold_view_normal.php,thold_view_recover.php,thold_view_recent.php,thold_view_host.php', 'View Thresholds', 1);
+	api_plugin_register_realm('thold', 'thold_add.php,thold.php,listthold.php', 'Plugin -> Configure Thresholds', 1);
+	api_plugin_register_realm('thold', 'thold_templates.php', 'Plugin -> Configure Threshold Templates', 1);
+	api_plugin_register_realm('thold', 'thold_graph.php,graph_thold.php,thold_view_failures.php,thold_view_normal.php,thold_view_recover.php,thold_view_recent.php,thold_view_host.php', 'Plugin -> View Thresholds', 1);
 
 	include_once($config['base_path'] . '/plugins/thold/includes/database.php');
 	thold_setup_database ();
@@ -131,7 +131,8 @@ function plugin_thold_check_strict () {
 }
 
 function plugin_thold_version () {
-	return array(	'name'		=> 'thold',
+	return array(
+			'name'		=> 'thold',
 			'version' 	=> '0.4.4',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',

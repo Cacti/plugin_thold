@@ -157,7 +157,7 @@ $dt_sql = 'SELECT DISTINCT dtr.local_data_id
 $template_data_rrds = db_fetch_assoc("SELECT id, data_source_name, local_data_id FROM data_template_rrd WHERE local_data_id IN ($dt_sql) ORDER BY id");
 
 ?>
-<table width="98%" align="center">
+<table width="100%" align="center">
 	<tr>
 		<td class="textArea">
 	<?php
@@ -223,7 +223,7 @@ $ds = 0;
 if (isset($template_data_rrds)) {
 	if (sizeof($template_data_rrds) > 1) {
 		/* draw the data source tabs on the top of the page */
-		print "	<table class='tabs' width='98%' cellspacing='0' cellpadding='3' align='center'>
+		print "	<table class='tabs' width='100%' cellspacing='0' cellpadding='3' align='center'>
 		<tr>\n";
 
 		foreach ($template_data_rrds as $template_data_rrd) {
@@ -269,7 +269,7 @@ $thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_it
 $thold_item_data_cdef = (isset($thold_item_data['cdef']) ? $thold_item_data['cdef'] : 0);
 
 
-html_start_box("", "98%", $colors["header"], "3", "center", "");
+html_start_box("", "100%", $colors["header"], "3", "center", "");
 //------------------------
 // Data Source Item header
 //------------------------

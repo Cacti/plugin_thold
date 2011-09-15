@@ -32,6 +32,8 @@
 
 ----[ Changelog
 	--- 0.4.4 ---
+		Convert to General Header to save real-estate
+		Fix Baseline Alarm Reporting UI so that it's readable
 		Fix emailing of alerts when PHP-GD is not available
 		Add Debug logging
 		Sort Threshold drop down list by Description

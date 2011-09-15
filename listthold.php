@@ -350,6 +350,8 @@ function list_tholds() {
 
 	html_header_sort_checkbox($display_text, $_REQUEST['sort_column'], $_REQUEST['sort_direction']);
 
+	$timearray   = array(1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => 'Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
+
 	$c=0;
 	$i=0;
 	$types = array('High/Low', 'Baseline', 'Time Based');
@@ -391,23 +393,26 @@ function list_tholds() {
 					form_selectable_cell($row['thold_hi'], $row["id"]);
 					form_selectable_cell($row['thold_low'], $row["id"]);
 					form_selectable_cell("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i>", $row["id"]);
+					form_selectable_cell("",  $row["id"]);
 					break;
 				case 1:
 					form_selectable_cell($row['thold_hi'], $row["id"]);
 					form_selectable_cell($row['thold_low'], $row["id"]);
 					form_selectable_cell("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . "</i>", $row["id"]);
+					form_selectable_cell($timearray[$row['bl_ref_time_range']/3600], $row["id"]);
 					break;
 				case 2:
 					form_selectable_cell($row['time_hi'], $row["id"]);
 					form_selectable_cell($row['time_low'], $row["id"]);
 					form_selectable_cell("<i>" . $row['time_fail_trigger'] . "</i>",  $row["id"]);
+					form_selectable_cell(plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time'), $row["id"]);
 					break;
 				default:
 					form_selectable_cell("",  $row["id"]);
 					form_selectable_cell("",  $row["id"]);
 					form_selectable_cell("",  $row["id"]);
+					form_selectable_cell("",  $row["id"]);
 			}
-			form_selectable_cell(($row['thold_type'] == 2 ? plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time') : ''), $row["id"]);
 			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')), $row["id"]);
 			form_selectable_cell($row['lastread'], $row["id"]);
 			form_selectable_cell($alertstat, $row["id"]);
