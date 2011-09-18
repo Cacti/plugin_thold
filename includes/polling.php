@@ -256,6 +256,7 @@ function thold_update_host_status () {
 						$downtime_hours = floor(($downtime - ($downtime_days * 86400))/3600);
 						$downtime_minutes = floor(($downtime - ($downtime_days * 86400) - ($downtime_hours * 3600))/60);
 						$downtime_seconds = $downtime - ($downtime_days * 86400) - ($downtime_hours * 3600) - ($downtime_minutes * 60);
+						$msg = $msg . "<br><br>Host was down for ";
 						if ($downtime_days > 0 ) {
 							$downtimemsg = $downtime_days . "d " . $downtime_hours . "h " . $downtime_minutes . "m " . $downtime_seconds . "s ";
 						} elseif ($downtime_hours > 0 ) {
@@ -277,7 +278,7 @@ function thold_update_host_status () {
 					$subject = str_replace('<DOWN/UP>', 'UP', $subject);
 					$subject = strip_tags($subject);
 
-					$msg = read_config_option('thold_down_text');
+					$msg = read_config_option('thold_up_text');
 					if ($msg == '') {
 						$msg = 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIMETEXT><br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>';
 					}
@@ -296,9 +297,9 @@ function thold_update_host_status () {
 					$msg = str_replace('<SNMP_CONTACT>', $snmp_contact, $msg);
 					$msg = str_replace('<SNMP_SYSTEM>', html_split_string($snmp_system), $msg);
 					$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
-					$msg = str_replace('<AVAILABILITY>', $host["availability"] . '%', $msg);
-					$msg = str_replace('<CUR_TIME>', $host["cur_time"], $msg);
-					$msg = str_replace('<AVG_TIME>', $host["avg_time"], $msg);
+					$msg = str_replace('<AVAILABILITY>', round(($host["availability"]), 2) . ' %', $msg);
+					$msg = str_replace('<CUR_TIME>', round(($host["cur_time"]), 2), $msg);
+					$msg = str_replace('<AVG_TIME>', round(($host["avg_time"]), 2), $msg);
 					$msg = str_replace('<NOTES>', $host["notes"], $msg);
 					$msg = str_replace("\n", '<br>', $msg);
 					if ($alert_email == '') {
@@ -362,9 +363,9 @@ function thold_update_host_status () {
 			$msg = str_replace('<SNMP_CONTACT>', '', $msg);
 			$msg = str_replace('<SNMP_SYSTEM>', '', $msg);
 			$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
-			$msg = str_replace('<AVAILABILITY>', $host["availability"], $msg);
-			$msg = str_replace('<CUR_TIME>', '', $msg);
-			$msg = str_replace('<AVG_TIME>', $host["avg_time"], $msg);
+			$msg = str_replace('<AVAILABILITY>', round(($host["availability"]), 2) . ' %', $msg);
+			$msg = str_replace('<CUR_TIME>', round(($host["cur_time"]), 2), $msg);
+			$msg = str_replace('<AVG_TIME>', round(($host["avg_time"]), 2), $msg);
 			$msg = str_replace('<NOTES>', $host["notes"], $msg);
 			$msg = str_replace("\n", '<br>', $msg);
 			if ($alert_email == '') {

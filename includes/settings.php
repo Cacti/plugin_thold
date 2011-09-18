@@ -244,6 +244,14 @@ function thold_config_settings () {
 			'textarea_cols' => '80',
 			'default' => 'An alert has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
 			),
+		'thold_warning_text' => array(
+			'friendly_name' => 'Threshold Warning Message',
+			'description' => 'This is the message that will be displayed at the top of all threshold warnings (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
+			'method' => 'textarea',
+			'textarea_rows' => '5',
+			'textarea_cols' => '80',
+			'default' => 'A warning has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
+			),
 		'thold_send_text_only' => array(
 			'friendly_name' => 'Send alerts as text',
 			'description' => 'If checked, this will cause all alerts to be sent as plain text emails with no graph.  The default is HTML emails with the graph embedded in the email.',

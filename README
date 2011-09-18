@@ -31,6 +31,9 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
+	--- 0.4.6 ---
+		Add Warning Support Curtesy (Thomas Urban)
+
 	--- 0.4.4 ---
 		Fix emailing of alerts when PHP-GD is not available
 		Add Debug logging
@@ -44,6 +47,7 @@
 		Fix to allow Add Wizard to show all datasources belonging to a graph (even when in separate data templates)
 		Re-apply SQL speed up when polling
 		Several fixes to Baselining
+		Several fixes to CDEFs
 		Add customizable subjects and message body for down host alerts
 
 	--- 0.4.2 ---

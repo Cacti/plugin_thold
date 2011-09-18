@@ -27,11 +27,13 @@ include_once('./include/auth.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 /* global colors */
-$thold_bgcolors = array('red' => 'FF6044',
-	'yellow' => 'FAFD9E',
-	'orange' => 'FF7D00',
-	'green'  => 'CCFFCC',
-	'grey'   => 'CDCFC4');
+$thold_bgcolors = array(
+	'red'     => 'F21924',
+	'orange'  => 'FB4A14',
+	'warning' => 'FF7A30',
+	'yellow'  => 'FAFD9E',
+	'green'   => 'CCFFCC',
+	'grey'    => 'CDCFC4');
 
 if (isset($_POST['drp_action'])) {
 	do_thold();
@@ -236,32 +238,29 @@ function list_tholds() {
 	?>
 	<script type="text/javascript">
 	<!--
-
 	function applyTHoldFilterChange(objForm) {
 		strURL = '?hostid=' + objForm.hostid.value;
 		strURL = strURL + '&state=' + objForm.state.value;
 		strURL = strURL + '&template=' + objForm.template.value;
 		document.location = strURL;
 	}
-
 	-->
 	</script>
 	<?php
 
 	html_start_box('<strong>Threshold Management</strong>' , '100%', $colors['header'], '3', 'center', 'thold_add.php');
 	?>
-	<tr bgcolor="<?php print $colors["panel"];?>" class="noprint">
-		<form name="listthold" action=listthold.php method=post>
-		<input type=hidden name=search value=search>
-		<td class="noprint">
-			<table cellpadding="0" cellspacing="0">
-				<tr class="noprint">
-					<td nowrap style='white-space: nowrap;' width="1">
-						Host:&nbsp;
+	<tr bgcolor='#<?php print $colors["panel"];?>' class='noprint'>
+		<td class='noprint'>
+			<form name='listthold' action='listthold.php' method='post'>
+			<table cellpadding='0' cellspacing='0'>
+				<tr class='noprint'>
+					<td width='1'>
+						&nbsp;Host:&nbsp;
 					</td>
 					<td width='1'>
 						<select name='hostid' onChange='applyTHoldFilterChange(document.listthold)'>
-							<option value=ALL>Any</option>
+							<option value='ALL'>Any</option>
 							<?php
 							foreach ($hostresult as $row) {
 								echo "<option value='" . $row['id'] . "'" . (isset($_REQUEST['hostid']) && $row['id'] == $_REQUEST['hostid'] ? ' selected' : '') . '>' . $row['description'] . ' - (' . $row['hostname'] . ')' . '</option>';
@@ -269,12 +268,12 @@ function list_tholds() {
 							?>
 						</select>
 					</td>
-					<td nowrap style='white-space: nowrap;' width="1">
+					<td width='1'>
 						&nbsp;Template:&nbsp;
 					</td>
 					<td width='1'>
-						<select name=template onChange='applyTHoldFilterChange(document.listthold)'>
-							<option value=ALL>Any</option>
+						<select name='template' onChange='applyTHoldFilterChange(document.listthold)'>
+							<option value='ALL'>Any</option>
 							<?php
 							foreach ($data_templates as $row) {
 								echo "<option value='" . $row['id'] . "'" . (isset($_REQUEST['template']) && $row['id'] == $_REQUEST['template'] ? ' selected' : '') . '>' . $row['name'] . '</option>';
@@ -282,12 +281,12 @@ function list_tholds() {
 							?>
 						</select>
 					</td>
-					<td nowrap style='white-space: nowrap;' width="1">
+					<td width='1'>
 						&nbsp;State:&nbsp;
 					</td>
 					<td width='1'>
-						<select name=state onChange='applyTHoldFilterChange(document.listthold)'>
-							<option value=ALL>Any</option>
+						<select name='state' onChange='applyTHoldFilterChange(document.listthold)'>
+							<option value='ALL'>Any</option>
 							<?php
 							foreach (array('Disabled','Enabled','Breached','Triggered') as $row) {
 								echo "<option value='" . $row . "'" . (isset($_REQUEST['state']) && $row == $_REQUEST['state'] ? ' selected' : '') . '>' . $row . '</option>';
@@ -300,8 +299,9 @@ function list_tholds() {
 					</td>
 				</tr>
 			</table>
+			<input type='hidden' name='search' value='search'>
+			</form>
 		</td>
-		</form>
 	</tr>
 	<?php
 
@@ -315,6 +315,9 @@ function list_tholds() {
 
 	$url_page_select = get_page_list($_REQUEST['page'], MAX_DISPLAY_PAGES, $alert_num_rows, $total_rows, 'listthold.php?');
 
+	/* print checkbox form for validation */
+	print "<form name='chk' method='post' action='host.php'>\n";
+
 	html_start_box('', '100%', $colors['header'], '4', 'center', '');
 
 	if ($total_rows) {
@@ -323,13 +326,13 @@ function list_tholds() {
 					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
 						<tr>
 							<td align='left' class='textHeaderDark'>
-								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("listthold.php?page=" . ($_REQUEST["page"]-1)) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
 							</td>\n
 							<td align='center' class='textHeaderDark'>
 								Showing Rows " . (($alert_num_rows*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < $alert_num_rows) || ($total_rows < ($alert_num_rows*$_REQUEST["page"]))) ? $total_rows : ($alert_num_rows*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
 							</td>\n
 							<td align='right' class='textHeaderDark'>
-								<strong>"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "<a class='linkOverDark' href='listthold.php?page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+								<strong>"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("listthold.php?page=" . ($_REQUEST["page"]+1)) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $alert_num_rows) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
 							</td>\n
 						</tr>
 					</table>
@@ -363,7 +366,7 @@ function list_tholds() {
 		'thold_alert' => array('Triggered', 'ASC'),
 		'thold_enabled' => array('Enabled', 'ASC'));
 
-	html_header_sort_checkbox($display_text, $_REQUEST['sort_column'], $_REQUEST['sort_direction']);
+	html_header_sort_checkbox($display_text, $_REQUEST['sort_column'], $_REQUEST['sort_direction'], false);
 
 	$timearray   = array(1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => 'Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
 
@@ -381,7 +384,14 @@ function list_tholds() {
 
 			if ($row['thold_alert'] != 0) {
 				$alertstat='yes';
-				$bgcolor=($row['thold_fail_count'] >= $row['thold_fail_trigger'] ? 'red' : 'yellow');
+				if ($row['thold_fail_count'] >= $row['thold_fail_trigger']) {
+					$bgcolor = 'red';
+				} elseif ($row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger']) {
+					$bgcolor = 'warning';
+				} else {
+					$bgcolor = 'yellow';
+				}
+				//$bgcolor=($row['thold_fail_count'] >= $row['thold_fail_trigger'] ? 'red' : 'yellow');
 			} else {
 				$alertstat='no';
 				$bgcolor='green';
@@ -401,7 +411,7 @@ function list_tholds() {
 			}else{
 				form_alternate_row_color($thold_bgcolors[$bgcolor], $thold_bgcolors[$bgcolor], $i, 'line' . $row["id"]); $i++;
 			}
-			form_selectable_cell("<a class='linkEditMain' href='thold.php?rra=" . $row['rra_id'] . "&view_rrd=" . $row['data_id'] . "'><b>" . ($row['name'] != '' ? $row['name'] : $row['name_cache'] . " [" . $row['data_source_name'] . ']') . '</b></a>', $row['id']);
+			form_selectable_cell("<a class='linkEditMain' href='" . htmlspecialchars("thold.php?rra=" . $row['rra_id'] . "&view_rrd=" . $row['data_id']) . "'><b>" . ($row['name'] != '' ? $row['name'] : $row['name_cache'] . " [" . $row['data_source_name'] . ']') . '</b></a>', $row['id']);
 			form_selectable_cell($types[$row['thold_type']], $row["id"]);
 			switch($row['thold_type']) {
 				case 0:

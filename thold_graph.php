@@ -53,9 +53,11 @@ if (!plugin_thold_check_strict()) {
 }
 
 /* global colors */
-$thold_bgcolors = array('red' => 'FF6666',
+$thold_bgcolors = array(
+	'red'    => 'F21924',
 	'yellow' => 'FAFD9E',
-	'orange' => 'FF7D00',
+	'orange' => 'FB4A14',
+	'warning' => 'FF7A30',
 	'green'  => 'CCFFCC',
 	'grey'   => 'CDCFC4');
 
@@ -75,6 +77,7 @@ delete_old_thresholds();
 /* present a tabbed interface */
 $tabs_thold = array(
 	"thold" => "Thresholds",
+	"log" => "Log",
 	"hoststat" => "Host Status");
 
 /* set the default tab */
@@ -84,15 +87,15 @@ $current_tab = $_REQUEST["tab"];
 /* draw the tabs */
 print "<table class='tabs' width='100%' cellspacing='0' cellpadding='3' align='center'><tr>\n";
 
-if (sizeof($tabs_thold) > 0) {
+if (sizeof($tabs_thold)) {
 foreach (array_keys($tabs_thold) as $tab_short_name) {
 	print "<td style='padding:3px 10px 2px 5px;background-color:" . (($tab_short_name == $current_tab) ? "silver;" : "#DFDFDF;") .
 		"white-space:nowrap;'" .
-		" nowrap width='1%'" .
-		"' align='center' class='tab'>
-		<span class='textHeader'><a href='" . $config['url_path'] .
+		" width='1%' " .
+		" align='center' class='tab'>
+		<span class='textHeader'><a href='" . htmlspecialchars($config['url_path'] .
 		"plugins/thold/thold_graph.php?" .
-		"tab=" . $tab_short_name .
+		"tab=" . $tab_short_name) .
 		"'>$tabs_thold[$tab_short_name]</a></span>
 	</td>\n
 	<td width='1'></td>\n";
@@ -102,17 +105,13 @@ print "<td></td>\n</tr></table>\n";
 
 if ($current_tab == 'thold') {
 	tholds();
-}else{
+}elseif ($current_tab == 'hoststat') {
 	hosts();
+}else{
+	thold_show_log();
 }
 
-print '
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>';
+include_once("./include/bottom_footer.php");
 
 // Clear the Nav Cache, so that it doesn't know we came from Thold
 $_SESSION["sess_nav_level_cache"] = '';
@@ -121,25 +120,26 @@ function form_thold_filter() {
 	global $item_rows, $config, $colors;
 
 	?>
-	<tr bgcolor="<?php print $colors["panel"];?>">
-		<form name="form_thold">
+	<tr bgcolor='#<?php print $colors["panel"];?>'>
 		<td>
-			<table width="100%" cellpadding="0" cellspacing="0">
+		<form name='form_thold' action='thold_graph.php'>
+			<table cellpadding='0' cellspacing='0'>
 				<tr>
-					<td nowrap style='white-space: nowrap;' width="50">
-						Template:&nbsp;
+					<td width='50'>
+						&nbsp;Template:&nbsp;
 					</td>
-					<td width="1">
-						<select name="data_template_id" onChange="applyTHoldFilterChange(document.form_thold)">
-							<option value="-1"<?php if ($_REQUEST["data_template_id"] == "-1") {?> selected<?php }?>>All</option>
-							<option value="0"<?php if ($_REQUEST["data_template_id"] == "0") {?> selected<?php }?>>None</option>
+					<td width='1'>
+						<select name='data_template_id' onChange='applyTHoldFilterChange(document.form_thold)'>
+							<option value='-1'<?php if ($_REQUEST["data_template_id"] == "-1") {?> selected<?php }?>>All</option>
+							<option value='0'<?php if ($_REQUEST["data_template_id"] == "0") {?> selected<?php }?>>None</option>
 							<?php
-							$data_templates = db_fetch_assoc("SELECT DISTINCT data_template.id, data_template.name ".
-								"FROM thold_data ".
-								"LEFT JOIN data_template ON thold_data.data_template=data_template.id ".
-								"ORDER by data_template.name");
+							$data_templates = db_fetch_assoc("SELECT DISTINCT data_template.id, data_template.name " .
+								"FROM thold_data " .
+								"LEFT JOIN data_template ON thold_data.data_template=data_template.id " .
+								($_REQUEST["host_id"] > 0 ? "WHERE thold_data.host_id=" . $_REQUEST["host_id"]:"") .
+								" ORDER by data_template.name");
 
-							if (sizeof($data_templates) > 0) {
+							if (sizeof($data_templates)) {
 								foreach ($data_templates as $data_template) {
 									print "<option value='" . $data_template["id"] . "'"; if ($_REQUEST["data_template_id"] == $data_template["id"]) { print " selected"; } print ">" . $data_template["name"] . "</option>\n";
 								}
@@ -147,26 +147,49 @@ function form_thold_filter() {
 							?>
 						</select>
 					</td>
-					<td nowrap style='white-space: nowrap;' width="50">
-						&nbsp;Status:&nbsp;
+					<td width='50'>
+						&nbsp;Host:&nbsp;
 					</td>
-					<td width="1">
-						<select name="triggered" onChange="applyTHoldFilterChange(document.form_thold)">
-							<option value="-1"<?php if ($_REQUEST["triggered"] == "-1") {?> selected<?php }?>>All</option>
-							<option value="1"<?php if ($_REQUEST["triggered"] == "1") {?> selected<?php }?>>Breached</option>
-							<option value="3"<?php if ($_REQUEST["triggered"] == "3") {?> selected<?php }?>>Triggered</option>
-							<option value="2"<?php if ($_REQUEST["triggered"] == "2") {?> selected<?php }?>>Enabled</option>
-							<option value="0"<?php if ($_REQUEST["triggered"] == "0") {?> selected<?php }?>>Disabled</option>
+					<td width='1'>
+						<select name='host_id' onChange='applyTHoldFilterChange(document.form_thold)'>
+							<option value='-1'<?php if ($_REQUEST["host_id"] == "-1") {?> selected<?php }?>>All</option>
+							<option value='0'<?php if ($_REQUEST["host_id"] == "0") {?> selected<?php }?>>None</option>
+							<?php
+							$ids = db_fetch_assoc("SELECT DISTINCT host.id, host.description " .
+								"FROM host " . 
+								"INNER JOIN thold_data ON host.id=thold_data.host_id " .
+								"LEFT JOIN data_template ON thold_data.data_template=data_template.id " .
+								($_REQUEST["data_template_id"] >= 0 ? "WHERE thold_data.data_template=" . $_REQUEST["data_template_id"]:"") .
+								" ORDER by data_template.name");
+
+							if (sizeof($ids)) {
+								foreach ($ids as $id) {
+									print "<option value='" . $id["id"] . "'"; if ($_REQUEST["host_id"] == $id["id"]) { print " selected"; } print ">" . $id["description"] . "</option>\n";
+								}
+							}
+							?>
 						</select>
 					</td>
-					<td nowrap style='white-space:nowrap;' width="1">
+					<td width='50'>
+						&nbsp;Status:&nbsp;
+					</td>
+					<td width='1'>
+						<select name='triggered' onChange='applyTHoldFilterChange(document.form_thold)'>
+							<option value='-1'<?php if ($_REQUEST["triggered"] == "-1") {?> selected<?php }?>>All</option>
+							<option value='1'<?php if ($_REQUEST["triggered"] == "1") {?> selected<?php }?>>Breached</option>
+							<option value='3'<?php if ($_REQUEST["triggered"] == "3") {?> selected<?php }?>>Triggered</option>
+							<option value='2'<?php if ($_REQUEST["triggered"] == "2") {?> selected<?php }?>>Enabled</option>
+							<option value='0'<?php if ($_REQUEST["triggered"] == "0") {?> selected<?php }?>>Disabled</option>
+						</select>
+					</td>
+					<td width='1'>
 						&nbsp;Rows:&nbsp;
 					</td>
-					<td width="1">
-						<select name="rows" onChange="applyTHoldFilterChange(document.form_thold)">
-							<option value="-1"<?php if ($_REQUEST["rows"] == "-1") {?> selected<?php }?>>Default</option>
+					<td width='1'>
+						<select name='rows' onChange='applyTHoldFilterChange(document.form_thold)'>
+							<option value='-1'<?php if ($_REQUEST["rows"] == "-1") {?> selected<?php }?>>Default</option>
 							<?php
-							if (sizeof($item_rows) > 0) {
+							if (sizeof($item_rows)) {
 							foreach ($item_rows as $key => $value) {
 								print "<option value='" . $key . "'"; if ($_REQUEST["rows"] == $key) { print " selected"; } print ">" . $value . "</option>\n";
 							}
@@ -174,21 +197,23 @@ function form_thold_filter() {
 							?>
 						</select>
 					</td>
-					<td nowrap style='white-space: nowrap;' width="20">
+					<td width='20'>
 						&nbsp;Search:&nbsp;
 					</td>
-					<td width="1">
-						<input type="text" name="filter" size="20" value="<?php print $_REQUEST["filter"];?>">
+					<td width='144'>
+						<input type='text' name='filter' size='20' value='<?php print $_REQUEST["filter"];?>'>
 					</td>
-					<td nowrap>
-						&nbsp;<input type="submit" value="Go">
+					<td width='1'>
+						<input type="submit" value="Go">
+					</td>
+					<td width='1'>
 						<input id="clear" name="clear" type="submit" value="Clear">
 					</td>
 				</tr>
 			</table>
-		</td>
-		<input type='hidden' name='page' value='1'>
+			<input type='hidden' name='page' value='1'>
 		</form>
+		</td>
 	</tr>
 	<?php
 }
@@ -198,6 +223,7 @@ function tholds() {
 
 	/* ================= input validation ================= */
 	input_validate_input_number(get_request_var_request("data_template_id"));
+	input_validate_input_number(get_request_var_request("host_id"));
 	input_validate_input_number(get_request_var_request("page"));
 	input_validate_input_number(get_request_var_request("triggered"));
 	input_validate_input_number(get_request_var_request("rows"));
@@ -220,17 +246,19 @@ function tholds() {
 
 	/* if the user pushed the 'clear' button */
 	if (isset($_REQUEST["clear"])) {
-		kill_session_var("sess_thold_thold_current_page");
-		kill_session_var("sess_thold_thold_filter");
-		kill_session_var("sess_thold_thold_data_template_id");
-		kill_session_var("sess_thold_thold_rows");
-		kill_session_var("sess_thold_thold_triggered");
-		kill_session_var("sess_thold_thold_sort_column");
-		kill_session_var("sess_thold_thold_sort_direction");
+		kill_session_var("sess_thold_current_page");
+		kill_session_var("sess_thold_filter");
+		kill_session_var("sess_thold_data_template_id");
+		kill_session_var("sess_thold_host_id");
+		kill_session_var("sess_thold_rows");
+		kill_session_var("sess_thold_triggered");
+		kill_session_var("sess_thold_sort_column");
+		kill_session_var("sess_thold_sort_direction");
 
 		unset($_REQUEST["page"]);
 		unset($_REQUEST["filter"]);
 		unset($_REQUEST["data_template_id"]);
+		unset($_REQUEST["host_id"]);
 		unset($_REQUEST["rows"]);
 		unset($_REQUEST["triggered"]);
 		unset($_REQUEST["sort_column"]);
@@ -238,13 +266,14 @@ function tholds() {
 	}
 
 	/* remember these search fields in session vars so we don't have to keep passing them around */
-	load_current_session_value("page", "sess_thold_thold_current_page", "1");
-	load_current_session_value("filter", "sess_thold_thold_filter", "");
-	load_current_session_value("triggered", "sess_thold_thold_triggered", "1");
-	load_current_session_value("data_template_id", "sess_thold_thold_data_template_id", "-1");
-	load_current_session_value("rows", "sess_thold_thold_rows", read_config_option("alert_num_rows"));
-	load_current_session_value("sort_column", "sess_thold_host_sort_column", "name");
-	load_current_session_value("sort_direction", "sess_thold_host_sort_direction", "ASC");
+	load_current_session_value("page", "sess_thold_current_page", "1");
+	load_current_session_value("filter", "sess_thold_filter", "");
+	load_current_session_value("triggered", "sess_thold_triggered", "1");
+	load_current_session_value("data_template_id", "sess_thold_data_template_id", "-1");
+	load_current_session_value("host_id", "sess_thold_host_id", "-1");
+	load_current_session_value("rows", "sess_thold_rows", read_config_option("alert_num_rows"));
+	load_current_session_value("sort_column", "sess_thold_sort_column", "time");
+	load_current_session_value("sort_direction", "sess_thold_sort_direction", "DESC");
 
 	/* if the number of rows is -1, set it to the default */
 	if ($_REQUEST["rows"] == -1) {
@@ -259,6 +288,7 @@ function tholds() {
 	function applyTHoldFilterChange(objForm) {
 		strURL = '?triggered=' + objForm.triggered.value;
 		strURL = strURL + '&data_template_id=' + objForm.data_template_id.value;
+		strURL = strURL + '&host_id=' + objForm.host_id.value;
 		strURL = strURL + '&rows=' + objForm.rows.value;
 		strURL = strURL + '&filter=' + objForm.filter.value;
 		document.location = strURL;
@@ -300,18 +330,42 @@ function tholds() {
 		$sql_where .= (strlen($sql_where) ? " AND": "WHERE") . " thold_data.data_template=" . $_REQUEST['data_template_id'];
 	}
 
+	/* host id filter */
+	if ($_REQUEST['host_id'] != '-1') {
+		$sql_where .= (strlen($sql_where) ? " AND": "WHERE") . " thold_data.host_id=" . $_REQUEST['host_id'];
+	}
+
 	/* thold permissions */
 	$current_user = db_fetch_row('SELECT * FROM user_auth WHERE id=' . $_SESSION['sess_user_id']);
 	$sql_where .= (strlen($sql_where) ? " AND ":"WHERE ") . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
 
 	$total_rows_sql = "SELECT * FROM thold_data
-		LEFT JOIN user_auth_perms on ((thold_data.graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.host_id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.graph_template=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
+		LEFT JOIN user_auth_perms 
+		ON ((thold_data.graph_id=user_auth_perms.item_id 
+		AND user_auth_perms.type=1 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
+		OR (thold_data.host_id=user_auth_perms.item_id 
+		AND user_auth_perms.type=3 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
+		OR (thold_data.graph_template=user_auth_perms.item_id 
+		AND user_auth_perms.type=4 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
 		$sql_where";
+
 	$total_rows = sizeof(db_fetch_assoc($total_rows_sql));
 
 	/* get the thold records */
 	$sql = "SELECT * FROM thold_data
-		LEFT JOIN user_auth_perms ON ((thold_data.graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.host_id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.graph_template=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
+		LEFT JOIN user_auth_perms 
+		ON ((thold_data.graph_id=user_auth_perms.item_id 
+		AND user_auth_perms.type=1 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
+		OR (thold_data.host_id=user_auth_perms.item_id 
+		AND user_auth_perms.type=3 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
+		OR (thold_data.graph_template=user_auth_perms.item_id 
+		AND user_auth_perms.type=4 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
 		$sql_where
 		ORDER BY $sort " . $_REQUEST['sort_direction'] .
 		$limit;
@@ -321,7 +375,7 @@ function tholds() {
 	html_start_box('', '100%', $colors['header'], '4', 'center', '');
 
 	/* generate page list */
-	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_graph.php?filter=" . $_REQUEST["filter"]);
+	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_graph.php?tab=thold");
 
 	if ($total_rows) {
 		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
@@ -329,13 +383,13 @@ function tholds() {
 					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
 						<tr>
 							<td align='left' class='textHeaderDark'>
-								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]-1)) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
 							</td>\n
 							<td align='center' class='textHeaderDark'>
 								Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
 							</td>\n
 							<td align='right' class='textHeaderDark'>
-								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]+1)) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
 							</td>\n
 						</tr>
 					</table>
@@ -383,7 +437,13 @@ function tholds() {
 			$bgcolor = 'green';
 			if ($row['thold_alert'] != 0) {
 				$alertstat='yes';
-				$bgcolor=($row['thold_fail_count'] >= $row['thold_fail_trigger'] ? 'red' : 'yellow');
+				if ( $row['thold_fail_count'] >= $row['thold_fail_trigger'] ) {
+					$bgcolor = 'red';
+				} elseif ( $row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger'] ) {
+					$bgcolor = 'warning';
+				} else {
+					$bgcolor = 'yellow';
+				}
 			} else {
 				$alertstat='no';
 				$bgcolor='green';
@@ -406,14 +466,15 @@ function tholds() {
 
 			print "<td width='1%' style='white-space:nowrap;' nowrap>";
 			if (api_user_realm_auth('thold_add.php')) {
-				print '<a href="' .  $config['url_path'] . 'plugins/thold/thold.php?rra=' . $row["rra_id"] . '&view_rrd=' . $row["data_id"] .'"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="Edit Threshold" title="Edit Threshold"></a>';
+				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?rra=' . $row["rra_id"] . '&view_rrd=' . $row["data_id"]) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="Edit Threshold"></a>';
 			}
 			if ($row["thold_enabled"] == 'on') {
-				print '<a href="' .  $config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] .'&action=disable"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" border="0" alt="Disable Threshold" title="Disable Threshold"></a>';
+				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] .'&action=disable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" border="0" alt="" title="Disable Threshold"></a>';
 			}else{
-				print '<a href="' .  $config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] . '&action=enable"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" border="0" alt="Enable Threshold" title="Enable Threshold"></a>';
+				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] . '&action=enable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" border="0" alt="" title="Enable Threshold"></a>';
 			}
-			print "<a href='". $config['url_path'] . "graph.php?local_graph_id=" . $row['graph_id'] . "&rra_id=all'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='View Graph' title='View Graph'></a>";
+			print "<a href='". htmlspecialchars($config['url_path'] . "graph.php?local_graph_id=" . $row['graph_id'] . "&rra_id=all") . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graph'></a>";
+			print "<a href='". htmlspecialchars($config['url_path'] . "plugins/thold/thold_graph.php?tab=log&threshold_id=" . $row["id"]) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
 
 			print "</td>";
 			print "<td>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
@@ -438,9 +499,9 @@ function tholds() {
 			}
 
 			print "<td width='80'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . '% / ' . $row['bl_pct_down'] . '%': 'N/A') . "</td>";
-			print "<td width='50'>" . ($row['thold_type'] == 2 ? $row['time_hi'] : $row['thold_hi']) . "</td>";
-			print "<td width='50'>" . ($row['thold_type'] == 2 ? $row['time_low'] : $row['thold_low']) . "</td>";
-			print "<td width='80'>" . $row['lastread'] . "</td>";
+			print "<td width='50'>" . ($row['thold_type'] == 2 ? number_format($row['time_hi']) : number_format($row['thold_hi'])) . "</td>";
+			print "<td width='50'>" . ($row['thold_type'] == 2 ? number_format($row['time_low']) : number_format($row['thold_low'])) . "</td>";
+			print "<td width='80'>" . number_format($row['lastread']) . "</td>";
 			if ($row['thold_enabled'] == 'off') {
 				print "<td width='40'><b>Disabled</b></td>";
 			}else{
@@ -528,13 +589,13 @@ function hosts() {
 
 	/* if the user pushed the 'clear' button */
 	if (isset($_REQUEST["clear"])) {
-		kill_session_var("sess_status_current_page");
-		kill_session_var("sess_status_filter");
-		kill_session_var("sess_status_host_template_id");
-		kill_session_var("sess_host_status");
-		kill_session_var("sess_rows");
-		kill_session_var("sess_host_sort_column");
-		kill_session_var("sess_host_sort_direction");
+		kill_session_var("sess_thold_host_current_page");
+		kill_session_var("sess_thold_host_filter");
+		kill_session_var("sess_thold_host_host_template_id");
+		kill_session_var("sess_thold_host_status");
+		kill_session_var("sess_thold_host_rows");
+		kill_session_var("sess_thold_host_sort_column");
+		kill_session_var("sess_thold_host_sort_direction");
 
 		unset($_REQUEST["page"]);
 		unset($_REQUEST["filter"]);
@@ -545,20 +606,20 @@ function hosts() {
 		unset($_REQUEST["sort_direction"]);
 	}
 
-	if ((!empty($_SESSION["sess_host_status"])) && (!empty($_REQUEST["host_status"]))) {
-		if ($_SESSION["sess_host_status"] != $_REQUEST["host_status"]) {
+	if ((!empty($_SESSION["sess_thold_host_status"])) && (!empty($_REQUEST["host_status"]))) {
+		if ($_SESSION["sess_thold_host_status"] != $_REQUEST["host_status"]) {
 			$_REQUEST["page"] = 1;
 		}
 	}
 
 	/* remember these search fields in session vars so we don't have to keep passing them around */
-	load_current_session_value("page", "sess_status_current_page", "1");
-	load_current_session_value("filter", "sess_status_filter", "");
-	load_current_session_value("host_template_id", "sess_status_host_template_id", "-1");
-	load_current_session_value("host_status", "sess_host_status", "-4");
-	load_current_session_value("rows", "sess_rows", read_config_option("num_rows_device"));
-	load_current_session_value("sort_column", "sess_host_sort_column", "description");
-	load_current_session_value("sort_direction", "sess_host_sort_direction", "ASC");
+	load_current_session_value("page", "sess_thold_host_current_page", "1");
+	load_current_session_value("filter", "sess_thold_host_filter", "");
+	load_current_session_value("host_template_id", "sess_thold_host_host_template_id", "-1");
+	load_current_session_value("host_status", "sess_thold_host_status", "-4");
+	load_current_session_value("rows", "sess_thold_host_rows", read_config_option("num_rows_device"));
+	load_current_session_value("sort_column", "sess_thold_host_sort_column", "description");
+	load_current_session_value("sort_direction", "sess_thold_host_sort_direction", "ASC");
 
 	/* if the number of rows is -1, set it to the default */
 	if ($_REQUEST["rows"] == -1) {
@@ -626,15 +687,21 @@ function hosts() {
 	$current_user = db_fetch_row('SELECT * FROM user_auth WHERE id=' . $_SESSION['sess_user_id']);
 	$sql_where    .= ' AND ' . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
 
-	$total_rows = db_fetch_cell("select
+	$total_rows = db_fetch_cell("SELECT
 		COUNT(host.id)
-		from host
-		LEFT JOIN user_auth_perms on (host.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		FROM host
+		LEFT JOIN user_auth_perms 
+		ON (host.id=user_auth_perms.item_id 
+		AND user_auth_perms.type=3 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
 		$sql_where");
 
 	$sql_query = "SELECT *
 		FROM host
-		LEFT JOIN user_auth_perms on (host.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		LEFT JOIN user_auth_perms 
+		ON (host.id=user_auth_perms.item_id 
+		AND user_auth_perms.type=3 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
 		$sql_where
 		ORDER BY " . $sortby . " " . $_REQUEST["sort_direction"] . "
 		LIMIT " . ($_REQUEST["rows"]*($_REQUEST["page"]-1)) . "," . $_REQUEST["rows"];
@@ -644,7 +711,7 @@ function hosts() {
 	$hosts = db_fetch_assoc($sql_query);
 
 	/* generate page list */
-	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"]);
+	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_graph.php?tab=hoststat");
 
 	if ($total_rows) {
 		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
@@ -652,13 +719,13 @@ function hosts() {
 					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
 						<tr>
 							<td align='left' class='textHeaderDark'>
-								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]-1) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]-1)) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
 							</td>\n
 							<td align='center' class='textHeaderDark'>
 								Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
 							</td>\n
 							<td align='right' class='textHeaderDark'>
-								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]+1) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]+1)) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
 							</td>\n
 						</tr>
 					</table>
@@ -697,7 +764,7 @@ function hosts() {
 	html_header_sort($display_text, $_REQUEST["sort_column"], $_REQUEST["sort_direction"]);
 
 	$i = 0;
-	if (sizeof($hosts) > 0) {
+	if (sizeof($hosts)) {
 		foreach ($hosts as $host) {
 			if (isset($host_graphs[$host["id"]])) {
 				$graphs = $host_graphs[$host["id"]];
@@ -715,45 +782,45 @@ function hosts() {
 				form_host_status_row_color($host["status"], $host["disabled"]); $i++;
 				print "<td width='1%' style='white-space:nowrap'>";
 				if (api_user_realm_auth('host.php')) {
-					print '<a href="' .  $config['url_path'] . 'host.php?action=edit&id=' . $host["id"] . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="Edit Host" title="Edit Host"></a>';
+					print '<a href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host["id"]) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="Edit Host"></a>';
 				}
-				print "<a href='". $config['url_path'] . "graph_view.php?action=preview&graph_template_id=0&filter=&host_id=" . $host["id"] . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='View Graphs' title='View Graphs'></a>";
+				print "<a href='" . htmlspecialchars($config['url_path'] . "graph_view.php?action=preview&graph_template_id=0&filter=&host_id=" . $host["id"]) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graphs'></a>";
 				print "</td>";
 				?>
 				<td>
 					<?php print (strlen($_REQUEST["filter"]) ? eregi_replace("(" . preg_quote($_REQUEST["filter"]) . ")", "<span style='background-color: #F8D93D;'>\\1</span>", $host["description"]) : $host["description"]);?>
 				</td>
-				<td width='40'><?php print round(($host["id"]), 2);?></td>
-				<td width='40'><i><?php print $graphs;?></i></td>
-				<td width='40'><i><?php print $ds;?></i></td>
+				<td width='80'><?php print round(($host["id"]), 2);?></td>
+				<td width='80'><i><?php print $graphs;?></i></td>
+				<td width='80'><i><?php print $ds;?></i></td>
 				<td width='140'><?php print get_uncolored_device_status(($host["disabled"] == "on" ? true : false), $host["status"]);?></td>
-				<td width='60'><?php print round(($host["status_event_count"]), 2);?></td>
+				<td width='100'><?php print round(($host["status_event_count"]), 2);?></td>
 				<td><?php print (strlen($_REQUEST["filter"]) ? eregi_replace("(" . preg_quote($_REQUEST["filter"]) . ")", "<span style='background-color: #F8D93D;'>\\1</span>", $host["hostname"]) : $host["hostname"]);?></td>
-				<td width='60'><?php print round(($host["cur_time"]), 2);?></td>
-				<td width='60'><?php print round(($host["avg_time"]), 2);?></td>
-				<td width='40'><?php print round($host["availability"], 2);?></td>
+				<td width='100'><?php print round(($host["cur_time"]), 2);?></td>
+				<td width='100'><?php print round(($host["avg_time"]), 2);?></td>
+				<td width='100'><?php print round($host["availability"], 2);?></td>
 				<?php
 			}else{
 				form_alternate_row_color($notmon_color,$notmon_color,$i); $i++;
 				print "<td width='1%' style='white-space:nowrap'>";
 				if (api_user_realm_auth('host.php')) {
-					print '<a href="' .  $config['url_path'] . 'host.php?action=edit&id=' . $host["id"] . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="Edit Host" title="Edit Host"></a>';
+					print '<a href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host["id"]) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="Edit Host"></a>';
 				}
-				print "<a href='". $config['url_path'] . "graph_view.php?action=preview&graph_template_id=0&filter=&host_id=" . $host["id"] . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='View Graphs' title='View Graphs'></a>";
+				print "<a href='" . htmlspecialchars($config['url_path'] . "graph_view.php?action=preview&graph_template_id=0&filter=&host_id=" . $host["id"]) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graphs'></a>";
 				print "</td>";
 				?>
 				<td>
 					<?php print (strlen($_REQUEST["filter"]) ? eregi_replace("(" . preg_quote($_REQUEST["filter"]) . ")", "<span style='background-color: #F8D93D;'>\\1</span>", $host["description"]) : $host["description"]);?>
 				</td>
-				<td width='40'><?php print round(($host["id"]), 2);?></td>
-				<td width='40'><i><?php print $graphs;?></i></td>
-				<td width='40'><i><?php print $ds;?></i></td>
+				<td width='80'><?php print round(($host["id"]), 2);?></td>
+				<td width='80'><i><?php print $graphs;?></i></td>
+				<td width='80'><i><?php print $ds;?></i></td>
 				<td width='140'><?php print "Not Monitored";?></td>
-				<td width='60'><?php print "N/A";?></td>
+				<td width='100'><?php print "N/A";?></td>
 				<td><?php print (strlen($_REQUEST["filter"]) ? eregi_replace("(" . preg_quote($_REQUEST["filter"]) . ")", "<span style='background-color: #F8D93D;'>\\1</span>", $host["hostname"]) : $host["hostname"]);?></td>
-				<td width='60'><?php print "N/A";?></td>
-				<td width='60'><?php print "N/A";?></td>
-				<td width='40'><?php print "N/A";?></td>
+				<td width='100'><?php print "N/A";?></td>
+				<td width='100'><?php print "N/A";?></td>
+				<td width='100'><?php print "N/A";?></td>
 				<?php
 			}
 
@@ -777,22 +844,22 @@ function form_host_filter() {
 	global $item_rows, $config, $colors;
 
 	?>
-	<tr bgcolor="<?php print $colors["panel"];?>">
-		<form name="form_devices">
+	<tr bgcolor='#<?php print $colors["panel"];?>'>
 		<td>
-			<table width="100%" cellpadding="0" cellspacing="0">
+		<form name='form_devices' action='thold_graphs.php?tab=hoststat'>
+			<table cellpadding='0' cellspacing='0'>
 				<tr>
-					<td nowrap style='white-space: nowrap;' width='1'>
-						Type:&nbsp;
+					<td width='1'>
+						&nbsp;Type:&nbsp;
 					</td>
-					<td width="1">
-						<select name="host_template_id" onChange="applyViewDeviceFilterChange(document.form_devices)">
-							<option value="-1"<?php if ($_REQUEST["host_template_id"] == "-1") {?> selected<?php }?>>All</option>
-							<option value="0"<?php if ($_REQUEST["host_template_id"] == "0") {?> selected<?php }?>>None</option>
+					<td width='1'>
+						<select name='host_template_id' onChange='applyViewDeviceFilterChange(document.form_devices)'>
+							<option value='-1'<?php if ($_REQUEST["host_template_id"] == "-1") {?> selected<?php }?>>All</option>
+							<option value='0'<?php if ($_REQUEST["host_template_id"] == "0") {?> selected<?php }?>>None</option>
 							<?php
 							$host_templates = db_fetch_assoc("select id,name from host_template order by name");
 
-							if (sizeof($host_templates) > 0) {
+							if (sizeof($host_templates)) {
 							foreach ($host_templates as $host_template) {
 								print "<option value='" . $host_template["id"] . "'"; if ($_REQUEST["host_template_id"] == $host_template["id"]) { print " selected"; } print ">" . $host_template["name"] . "</option>\n";
 							}
@@ -800,30 +867,30 @@ function form_host_filter() {
 							?>
 						</select>
 					</td>
-					<td nowrap style='white-space: nowrap;' width='1'>
+					<td width='1'>
 						&nbsp;Status:&nbsp;
 					</td>
-					<td width="1">
-						<select name="host_status" onChange="applyViewDeviceFilterChange(document.form_devices)">
-							<option value="-1"<?php if ($_REQUEST["host_status"] == "-1") {?> selected<?php }?>>All</option>
-							<option value="-3"<?php if ($_REQUEST["host_status"] == "-3") {?> selected<?php }?>>Enabled</option>
-							<option value="-2"<?php if ($_REQUEST["host_status"] == "-2") {?> selected<?php }?>>Disabled</option>
-							<option value="-4"<?php if ($_REQUEST["host_status"] == "-4") {?> selected<?php }?>>Not Up</option>
-							<option value="-5"<?php if ($_REQUEST["host_status"] == "-5") {?> selected<?php }?>>Not Monitored</option>
-							<option value="3"<?php if ($_REQUEST["host_status"] == "3") {?> selected<?php }?>>Up</option>
-							<option value="1"<?php if ($_REQUEST["host_status"] == "1") {?> selected<?php }?>>Down</option>
-							<option value="2"<?php if ($_REQUEST["host_status"] == "2") {?> selected<?php }?>>Recovering</option>
-							<option value="0"<?php if ($_REQUEST["host_status"] == "0") {?> selected<?php }?>>Unknown</option>
+					<td width='1'>
+						<select name='host_status' onChange="applyViewDeviceFilterChange(document.form_devices)">
+							<option value='-1'<?php if ($_REQUEST["host_status"] == "-1") {?> selected<?php }?>>All</option>
+							<option value='-3'<?php if ($_REQUEST["host_status"] == "-3") {?> selected<?php }?>>Enabled</option>
+							<option value='-2'<?php if ($_REQUEST["host_status"] == "-2") {?> selected<?php }?>>Disabled</option>
+							<option value='-4'<?php if ($_REQUEST["host_status"] == "-4") {?> selected<?php }?>>Not Up</option>
+							<option value='-5'<?php if ($_REQUEST["host_status"] == "-5") {?> selected<?php }?>>Not Monitored</option>
+							<option value='3'<?php if ($_REQUEST["host_status"] == "3") {?> selected<?php }?>>Up</option>
+							<option value='1'<?php if ($_REQUEST["host_status"] == "1") {?> selected<?php }?>>Down</option>
+							<option value='2'<?php if ($_REQUEST["host_status"] == "2") {?> selected<?php }?>>Recovering</option>
+							<option value='0'<?php if ($_REQUEST["host_status"] == "0") {?> selected<?php }?>>Unknown</option>
 						</select>
 					</td>
-					<td nowrap style='white-space:nowrap;' width='1'>
+					<td width='1'>
 						&nbsp;Rows:&nbsp;
 					</td>
 					<td width='1'>
-						<select name="rows" onChange="applyViewDeviceFilterChange(document.form_devices)">
-							<option value="-1"<?php if ($_REQUEST["rows"] == "-1") {?> selected<?php }?>>Default</option>
+						<select name='rows' onChange='applyViewDeviceFilterChange(document.form_devices)'>
+							<option value='-1'<?php if ($_REQUEST["rows"] == "-1") {?> selected<?php }?>>Default</option>
 							<?php
-							if (sizeof($item_rows) > 0) {
+							if (sizeof($item_rows)) {
 							foreach ($item_rows as $key => $value) {
 								print "<option value='" . $key . "'"; if ($_REQUEST["rows"] == $key) { print " selected"; } print ">" . $value . "</option>\n";
 							}
@@ -831,21 +898,370 @@ function form_host_filter() {
 							?>
 						</select>
 					</td>
-					<td nowrap style='white-space: nowrap;' width='1'>
+					<td width='1'>
 						&nbsp;Search:&nbsp;
 					</td>
-					<td width='1'>
-						<input type="text" name="filter" size="20" value="<?php print $_REQUEST["filter"];?>">
+					<td width='144'>
+						<input type='text' name='filter' size='20' value='<?php print $_REQUEST["filter"];?>'>
 					</td>
-					<td nowrap>
-						&nbsp;<input type="submit" value="Go">
+					<td>
+						<input type="submit" value="Go">
+					</td>
+					<td>
 						<input id="clear" name="clear" type="submit" value="Clear">
 					</td>
 				</tr>
 			</table>
-		</td>
-		<input type='hidden' name='page' value='1'>
+			<input type='hidden' name='page' value='1'>
 		</form>
+		</td>
+	</tr>
+	<?php
+}
+
+function thold_show_log() {
+	global $config, $colors, $item_rows;
+
+	$thold_log = array(
+		'alarm'     => 'F21924',
+		'warning'   => 'FB4A14',
+		'retrigger' => 'FF7A30',
+		'trigger'   => 'FAFD9E',
+		'restoral'  => 'CCFFCC',
+		'restore'   => 'CDCFC4');
+
+	$thold_status = array(
+		'0' => 'restore',
+		'1' => 'trigger',
+		'2' => 'retrigger',
+		'3' => 'warning',
+		'4' => 'alarm',
+		'5' => 'restoral');
+
+	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
+
+	/* ================= input validation ================= */
+	input_validate_input_number(get_request_var_request("threshold_id"));
+	input_validate_input_number(get_request_var_request("host_id"));
+	input_validate_input_number(get_request_var_request("page"));
+	input_validate_input_number(get_request_var_request("status"));
+	input_validate_input_number(get_request_var_request("rows"));
+	/* ==================================================== */
+
+	/* clean up search string */
+	if (isset($_REQUEST["filter"])) {
+		$_REQUEST["filter"] = sanitize_search_string(get_request_var("filter"));
+	}
+
+	/* clean up sort_column */
+	if (isset($_REQUEST["sort_column"])) {
+		$_REQUEST["sort_column"] = sanitize_search_string(get_request_var("sort_column"));
+	}
+
+	/* clean up search string */
+	if (isset($_REQUEST["sort_direction"])) {
+		$_REQUEST["sort_direction"] = sanitize_search_string(get_request_var("sort_direction"));
+	}
+
+	/* if the user pushed the 'clear' button */
+	if (isset($_REQUEST["clear"])) {
+		kill_session_var("sess_thold_log_current_page");
+		kill_session_var("sess_thold_log_filter");
+		kill_session_var("sess_thold_log_threshold_id");
+		kill_session_var("sess_thold_log_host_id");
+		kill_session_var("sess_thold_log_status");
+		kill_session_var("sess_thold_log_rows");
+		kill_session_var("sess_thold_log_sort_column");
+		kill_session_var("sess_thold_log_sort_direction");
+
+		unset($_REQUEST["page"]);
+		unset($_REQUEST["filter"]);
+		unset($_REQUEST["host_id"]);
+		unset($_REQUEST["threshold_id"]);
+		unset($_REQUEST["status"]);
+		unset($_REQUEST["rows"]);
+		unset($_REQUEST["sort_column"]);
+		unset($_REQUEST["sort_direction"]);
+	}
+
+	/* remember these search fields in session vars so we don't have to keep passing them around */
+	load_current_session_value("page", "sess_thold_log_current_page", "1");
+	load_current_session_value("filter", "sess_thold_log_filter", "");
+	load_current_session_value("threshold_id", "sess_thold_log_threshold_id", "-1");
+	load_current_session_value("host_id", "sess_thold_log_host_id", "-1");
+	load_current_session_value("status", "sess_thold_log_status", "-4");
+	load_current_session_value("rows", "sess_thold_log_rows", read_config_option("num_rows_device"));
+	load_current_session_value("sort_column", "sess_thold_log_sort_column", "description");
+	load_current_session_value("sort_direction", "sess_thold_log_sort_direction", "ASC");
+
+	/* if the number of rows is -1, set it to the default */
+	if ($_REQUEST["rows"] == -1) {
+		$_REQUEST["rows"] = read_config_option("num_rows_device");
+	}
+
+	?>
+	<script type="text/javascript">
+	<!--
+	function filterChange(objForm) {
+		strURL = '?status=' + objForm.status.value;
+		strURL = strURL + '&threshold_id=' + objForm.threshold_id.value;
+		strURL = strURL + '&host_id=' + objForm.host_id.value;
+		strURL = strURL + '&rows=' + objForm.rows.value;
+		strURL = strURL + '&filter=' + objForm.filter.value;
+		document.location = strURL;
+	}
+	-->
+	</script>
+	<?php
+
+	html_start_box("<strong>Threshold Log</strong>", "100%", $colors["header"], "3", "center", "");
+	form_thold_log_filter();
+	html_end_box();
+
+	$sql_where = '';
+
+	if ($_REQUEST["host_id"] == "-1") {
+		/* Show all items */
+	}elseif ($_REQUEST["host_id"] == "0") {
+		$sql_where .= (strlen($sql_where) ? " AND":"WHERE") . " host.id IS NULL";
+	}elseif (!empty($_REQUEST["host_id"])) {
+		$sql_where .= (strlen($sql_where) ? " AND":"WHERE") . " plugin_thold_log.host_id=" . $_REQUEST["host_id"];
+	}
+
+	if ($_REQUEST["threshold_id"] == "-1") {
+		/* Show all items */
+	}elseif ($_REQUEST["threshold_id"] == "0") {
+		$sql_where .= (strlen($sql_where) ? " AND":"WHERE") . " thold_data.id IS NULL";
+	}elseif (!empty($_REQUEST["threshold_id"])) {
+		$sql_where .= (strlen($sql_where) ? " AND":"WHERE") . " plugin_thold_log.threshold_id=" . $_REQUEST["threshold_id"];
+	}
+
+	if ($_REQUEST["status"] == "-1") {
+		/* Show all items */
+	}else{
+		$sql_where .= (strlen($sql_where) ? " AND":"WHERE") . " plugin_thold_log.status=" . $_REQUEST["status"];
+	}
+
+	if (strlen($_REQUEST["filter"])) {
+		$sql_where .= (strlen($sql_where) ? " AND":"WHERE") . " plugin_thold_log.description LIKE '%" . $_REQUEST["filter"] . "%'";
+	}
+
+	html_start_box("", "100%", $colors["header"], "3", "center", "");
+
+	$sortby = $_REQUEST["sort_column"];
+
+	$current_user = db_fetch_row('SELECT * FROM user_auth WHERE id=' . $_SESSION['sess_user_id']);
+
+	$sql_where .= ' AND ' . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
+
+	$total_rows = db_fetch_cell("SELECT
+		COUNT(*)
+		FROM plugin_thold_log
+		LEFT JOIN host ON plugin_thold_log.host_id=host.id
+		LEFT JOIN thold_data ON plugin_thold_log.threshold_id=thold_data.id
+		LEFT JOIN graph_templates_graph AS gtg ON plugin_thold_log.graph_id=gtg.local_graph_id
+		LEFT JOIN user_auth_perms 
+		ON (host.id=user_auth_perms.item_id 
+		AND user_auth_perms.type=3 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		$sql_where");
+
+	$sql_query = "SELECT plugin_thold_log.*, host.description AS hdescription, thold_data.name AS name, gtg.title_cache
+		FROM plugin_thold_log
+		LEFT JOIN host ON plugin_thold_log.host_id=host.id
+		LEFT JOIN thold_data ON plugin_thold_log.threshold_id=thold_data.id
+		LEFT JOIN graph_templates_graph AS gtg ON plugin_thold_log.graph_id=gtg.local_graph_id
+		LEFT JOIN user_auth_perms 
+		ON (host.id=user_auth_perms.item_id 
+		AND user_auth_perms.type=3 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		$sql_where
+		ORDER BY " . $sortby . " " . $_REQUEST["sort_direction"] . "
+		LIMIT " . ($_REQUEST["rows"]*($_REQUEST["page"]-1)) . "," . $_REQUEST["rows"];
+
+	//print $sql_query;
+
+	$logs = db_fetch_assoc($sql_query);
+
+	/* generate page list */
+	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_graph.php?tab=log");
+
+	if ($total_rows) {
+		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
+				<td colspan='11'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='left' class='textHeaderDark'>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]-1)) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+							</td>\n
+							<td align='center' class='textHeaderDark'>
+								Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
+							</td>\n
+							<td align='right' class='textHeaderDark'>
+								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]+1)) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}else{
+		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
+				<td colspan='11'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='center' class='textHeaderDark'>
+								No Rows Found
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}
+
+	print $nav;
+
+	$display_text = array(
+		"hdescription" => array("<br>Host", "ASC"),
+		"name" => array("<br>Threshold", "ASC"),
+		"time" => array("<br>Time", "ASC"),
+		"threshold_value" => array("Alarm<br>Value", "ASC"),
+		"current" => array("Current<br>Value", "ASC"),
+		"status" => array("<br>Status", "DESC"),
+		"type" => array("<br>Type", "DESC"),
+		"description" => array("<br>Event Description", "ASC"));
+
+	html_header_sort($display_text, $_REQUEST["sort_column"], $_REQUEST["sort_direction"]);
+
+	$i = 0;
+	if (sizeof($logs)) {
+		foreach ($logs as $l) {
+			?>
+			<tr style='background-color:#<?php print $thold_log[$thold_status[$l['status']]];?>'>
+			<td style='white-space:nowrap;'><?php print $l["hdescription"];?></td>
+			<td style='white-space:nowrap;'><?php print $l["name"];?></td>
+			<td style='white-space:nowrap;'><?php print date("Y-m-d H:i:s", $l["time"]);?></td>
+			<td><?php print ($l["threshold_value"] != '' ? number_format($l["threshold_value"]):'-');?></td>
+			<td><?php print number_format($l["current"]);?></td>
+			<td><?php print ucfirst($thold_status[$l["status"]]);?></td>
+			<td><?php print $types[$l["type"]];?></td>
+			<td style='white-space:nowrap;'><?php print $l["description"];?></td>
+			<?php
+
+			form_end_row();
+		}
+	}else{
+		print "<tr><td><em>No Threshold Logs Found</em></td></tr>";
+	}
+
+	/* put the nav bar on the bottom as well */
+	print $nav;
+
+	html_end_box(false);
+
+	log_legend();
+
+	thold_display_rusage();
+}
+
+function form_thold_log_filter() {
+	global $item_rows, $config, $colors;
+
+	?>
+	<tr bgcolor='#<?php print $colors["panel"];?>'>
+		<td>
+		<form name='form_thold_log' action='thold_graph.php?tab=log'>
+			<table cellpadding='0' cellspacing='0'>
+				<tr>
+					<td width='50'>
+						&nbsp;Threshold:&nbsp;
+					</td>
+					<td width='1'>
+						<select name='threshold_id' onChange='filterChange(document.form_thold_log)'>
+							<option value='-1'<?php if ($_REQUEST["threshold_id"] == "-1") {?> selected<?php }?>>All</option>
+							<option value='0'<?php if ($_REQUEST["threshold_id"] == "0") {?> selected<?php }?>>None</option>
+							<?php
+							$tholds = db_fetch_assoc("SELECT DISTINCT thold_data.id, thold_data.name " .
+								"FROM thold_data " .
+								"INNER JOIN plugin_thold_log ON thold_data.id=plugin_thold_log.threshold_id " .
+								($_REQUEST["host_id"] > 0 ? "WHERE thold_data.host_id=" . $_REQUEST["host_id"]:"") .
+								" ORDER by thold_data.name");
+
+							if (sizeof($tholds)) {
+								foreach ($tholds as $thold) {
+									print "<option value='" . $thold["id"] . "'"; if ($_REQUEST["threshold_id"] == $thold["id"]) { print " selected"; } print ">" . $thold["name"] . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td width='50'>
+						&nbsp;Host:&nbsp;
+					</td>
+					<td width='1'>
+						<select name='host_id' onChange='filterChange(document.form_thold_log)'>
+							<option value='-1'<?php if ($_REQUEST["host_id"] == "-1") {?> selected<?php }?>>All</option>
+							<option value='0'<?php if ($_REQUEST["host_id"] == "0") {?> selected<?php }?>>None</option>
+							<?php
+							$ids = db_fetch_assoc("SELECT DISTINCT host.id, host.description " .
+								"FROM host " . 
+								"INNER JOIN plugin_thold_log ON host.id=plugin_thold_log.host_id " .
+								($_REQUEST["threshold_id"] >= 0 ? "WHERE plugin_thold_log.threshold_id=" . $_REQUEST["threshold_id"]:"") .
+								" ORDER by host.description");
+
+							if (sizeof($ids)) {
+								foreach ($ids as $id) {
+									print "<option value='" . $id["id"] . "'"; if ($_REQUEST["host_id"] == $id["id"]) { print " selected"; } print ">" . $id["description"] . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td width='50'>
+						&nbsp;Status:&nbsp;
+					</td>
+					<td width='1'>
+						<select name='status' onChange='filterChange(document.form_thold_log)'>
+							<option value='-1'<?php if ($_REQUEST["status"] == "-1") {?> selected<?php }?>>All</option>
+							<option value='0'<?php if ($_REQUEST["status"] == "0") {?> selected<?php }?>>Restorals</option>
+							<option value='1'<?php if ($_REQUEST["status"] == "1") {?> selected<?php }?>>Triggers</option>
+							<option value='2'<?php if ($_REQUEST["status"] == "2") {?> selected<?php }?>>Re-Triggers</option>
+							<option value='3'<?php if ($_REQUEST["status"] == "3") {?> selected<?php }?>>Notify - Warning</option>
+							<option value='4'<?php if ($_REQUEST["status"] == "4") {?> selected<?php }?>>Notify - Alarm</option>
+							<option value='5'<?php if ($_REQUEST["status"] == "5") {?> selected<?php }?>>Notify - Restoral</option>
+						</select>
+					</td>
+					<td width='1'>
+						&nbsp;Rows:&nbsp;
+					</td>
+					<td width='1'>
+						<select name='rows' onChange='filterChange(document.form_thold_log)'>
+							<option value='-1'<?php if ($_REQUEST["rows"] == "-1") {?> selected<?php }?>>Default</option>
+							<?php
+							if (sizeof($item_rows)) {
+							foreach ($item_rows as $key => $value) {
+								print "<option value='" . $key . "'"; if ($_REQUEST["rows"] == $key) { print " selected"; } print ">" . $value . "</option>\n";
+							}
+							}
+							?>
+						</select>
+					</td>
+					<td width='20'>
+						&nbsp;Search:&nbsp;
+					</td>
+					<td width='144'>
+						<input type='text' name='filter' size='20' value='<?php print $_REQUEST["filter"];?>'>
+					</td>
+					<td width='1'>
+						<input type="submit" value="Go">
+					</td>
+					<td width='1'>
+						<input id="clear" name="clear" type="submit" value="Clear">
+					</td>
+				</tr>
+			</table>
+			<input type='hidden' name='page' value='1'>
+		</form>
+		</td>
 	</tr>
 	<?php
 }

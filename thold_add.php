@@ -147,6 +147,9 @@ function thold_add_graphs_action_execute() {
 			$insert['thold_low']          = $template['thold_low'];
 			$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
 			$insert['thold_enabled']      = $template['thold_enabled'];
+			$insert['thold_warning_hi']           = $template['thold_warning_hi'];
+			$insert['thold_warning_low']          = $template['thold_warning_low'];
+			$insert['thold_warning_fail_trigger'] = $template['thold_warning_fail_trigger'];
 			$insert['bl_enabled']         = $template['bl_enabled'];
 			$insert['bl_ref_time_range']  = $template['bl_ref_time_range'];
 			$insert['bl_pct_down']        = $template['bl_pct_down'];
@@ -254,11 +257,11 @@ function thold_add_graphs_action_prepare($graph) {
 	if (strlen($found_list)) {
 		if (strlen($not_found)) {
 			print "<p>The following Graph has no Threshold Templates associated with them</p>";
-			print "<p><ul>" . $not_found . "</ul></p>";
+			print "<ul>" . $not_found . "</ul>";
 		}
 
 		print "<p>Are you sure you wish to create Thresholds for this Graph?
-				<p><ul>" . $found_list . "</ul></p>
+				<ul>" . $found_list . "</ul>
 				</td>
 			</tr>\n
 			";

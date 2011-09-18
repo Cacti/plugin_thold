@@ -225,6 +225,14 @@ function template_save_edit() {
 	input_validate_input_number(get_request_var_post('time_low'));
 	input_validate_input_number(get_request_var_post('time_fail_trigger'));
 	input_validate_input_number(get_request_var_post('time_fail_length'));
+	input_validate_input_number(get_request_var_post('thold_warning_type'));
+	input_validate_input_number(get_request_var_post('thold_warning_hi'));
+	input_validate_input_number(get_request_var_post('thold_warning_low'));
+	input_validate_input_number(get_request_var_post('thold_warning_fail_trigger'));
+	input_validate_input_number(get_request_var_post('time_warning_hi'));
+	input_validate_input_number(get_request_var_post('time_warning_low'));
+	input_validate_input_number(get_request_var_post('time_warning_fail_trigger'));
+	input_validate_input_number(get_request_var_post('time_warning_fail_length'));
 	input_validate_input_number(get_request_var_post('bl_ref_time_range'));
 	input_validate_input_number(get_request_var_post('bl_pct_down'));
 	input_validate_input_number(get_request_var_post('bl_pct_up'));
@@ -264,6 +272,30 @@ function template_save_edit() {
 		else
 			$save['thold_fail_trigger'] = 5;
 	}
+	
+	
+	/***  Warnings  ***/
+	 // High / Low Warnings
+	$save['thold_warning_hi'] = $_POST['thold_warning_hi'];
+	$save['thold_warning_low'] = $_POST['thold_warning_low'];
+	$save['thold_warning_fail_trigger'] = $_POST['thold_warning_fail_trigger'];
+	// Time Based Warnings
+	$save['time_warning_hi'] = $_POST['time_warning_hi'];
+	$save['time_warning_low'] = $_POST['time_warning_low'];
+
+	$save['time_warning_fail_trigger'] = $_POST['time_warning_fail_trigger'];
+	$save['time_warning_fail_length'] = $_POST['time_warning_fail_length'];
+
+	if (isset($_POST['thold_warning_fail_trigger']) && $_POST['thold_warning_fail_trigger'] != '')
+		$save['thold_warning_fail_trigger'] = $_POST['thold_warning_fail_trigger'];
+	else {
+		$alert_trigger = read_config_option('alert_trigger');
+		if ($alert_trigger != '' && is_numeric($alert_trigger))
+			$save['thold_warning_fail_trigger'] = $alert_trigger;
+		else
+			$save['thold_warning_fail_trigger'] = 5;
+	}	
+
 
 	if (isset($_POST['thold_enabled']))
 		$save['thold_enabled'] = 'on';
@@ -315,6 +347,7 @@ function template_save_edit() {
 	}
 
 	$save['notify_extra'] = $_POST['notify_extra'];
+	$save['notify_warning_extra'] = $_POST['notify_warning_extra'];
 	$save['cdef'] = $_POST['cdef'];
 
 
@@ -408,7 +441,7 @@ function template_edit() {
 
 	$thold_types = array (
 		0 => 'High / Low Values',
-		1 => 'Baseline',
+		1 => 'Baseline Deviation',
 		2 => 'Time Based',
 	);
 
@@ -530,6 +563,32 @@ function template_edit() {
 			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
 			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : ''
 		),
+		'thold_warning_header' => array(
+			'friendly_name' => 'High / Low Warning Settings',
+			'method' => 'spacer',
+		),
+		'thold_warning_hi' => array(
+			'friendly_name' => 'High Warning Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes above this number, alert will be triggered',
+			'value' => isset($thold_item_data['thold_warning_hi']) ? $thold_item_data['thold_warning_hi'] : ''
+		),
+		'thold_warning_low' => array(
+			'friendly_name' => 'Low Warning Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes below this number, alert will be triggered',
+			'value' => isset($thold_item_data['thold_warning_low']) ? $thold_item_data['thold_warning_low'] : ''
+		),
+		'thold_warning_fail_trigger' => array(
+			'friendly_name' => 'Min Warning Trigger Duration',
+			'method' => 'drop_array',
+			'array' => $alertarray,
+			'default' => read_config_option('alert_trigger'),
+			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
+			'value' => isset($thold_item_data['thold_warning_fail_trigger']) ? $thold_item_data['thold_warning_fail_trigger'] : ''
+		),
 		'time_header' => array(
 			'friendly_name' => 'Time Based Settings',
 			'method' => 'spacer',
@@ -564,15 +623,49 @@ function template_edit() {
 			'description' => 'The amount of time in the past to check for threshold breaches.',
 			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : ''
 		),
+		'time_warning_header' => array(
+			'friendly_name' => 'Time Based Warning Settings',
+			'method' => 'spacer',
+		),
+		'time_warning_hi' => array(
+			'friendly_name' => 'High Warning Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes above this number, warning will be triggered',
+			'value' => isset($thold_item_data['time_warning_hi']) ? $thold_item_data['time_warning_hi'] : ''
+		),
+		'time_warning_low' => array(
+			'friendly_name' => 'Low Warning Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes below this number, warning will be triggered',
+			'value' => isset($thold_item_data['time_warning_low']) ? $thold_item_data['time_warning_low'] : ''
+		),
+		'time_warning_fail_trigger' => array(
+			'friendly_name' => 'Warning Trigger Count',
+			'method' => 'textbox',
+			'max_length' => 5,
+			'default' => read_config_option('thold_warning_time_fail_trigger'),
+			'description' => 'The number of times the data source must be in breach condition prior to issuing a warning.',
+			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : ''
+		),
+		'time_warning_fail_length' => array(
+			'friendly_name' => 'Warning Time Period Length',
+			'method' => 'drop_array',
+			'array' => $timearray,
+			'default' => (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1),
+			'description' => 'The amount of time in the past to check for threshold breaches.',
+			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : ''
+		),		
 		'baseline_header' => array(
-			'friendly_name' => 'Baseline monitoring',
+			'friendly_name' => 'Baseline Monitoring',
 			'method' => 'spacer',
 		),
 		'bl_enabled' => array(
-			'friendly_name' => 'Baseline monitoring',
+			'friendly_name' => 'Baseline Monitoring',
 			'method' => 'checkbox',
 			'default' => 'off',
-			'description' => 'When enabled, baseline monitoring checks the current data source value against a reference in the past. This value is read from the RRA. The calculated average is stored in the database and is used as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.',
+			'description' => 'When enabled, Baseline Monitoring checks the current data source value against a reference in the past. This value is read from the RRA. The calculated average is stored in the database and is used as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.',
 			'value' => isset($thold_item_data['bl_enabled']) ? $thold_item_data['bl_enabled'] : ''
 		),
 		'bl_ref_time_range' => array(
@@ -584,7 +677,7 @@ function template_edit() {
 			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : ''
 		),
 		'bl_pct_up' => array(
-			'friendly_name' => 'Baseline deviation UP',
+			'friendly_name' => 'Baseline Deviation UP',
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 3,
@@ -592,7 +685,7 @@ function template_edit() {
 			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : ''
 		),
 		'bl_pct_down' => array(
-			'friendly_name' => 'Baseline deviation DOWN',
+			'friendly_name' => 'Baseline Deviation DOWN',
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 3,
@@ -675,6 +768,14 @@ function template_edit() {
 			'description' => 'You may specify here extra e-mails to receive alerts for this data source (comma separated)',
 			'value' => isset($thold_item_data['notify_extra']) ? $thold_item_data['notify_extra'] : ''
 		),
+		'notify_warning_extra' => array(
+			'friendly_name' => 'Warning E-Mail',
+			'method' => 'textarea',
+			'textarea_rows' => 3,
+			'textarea_cols' => 50,
+			'description' => 'You may specify here extra e-mails to receive warnings for this data source (comma separated)',
+			'value' => isset($thold_item_data['notify_warning_extra']) ? $thold_item_data['notify_warning_extra'] : ''
+		),		
 	);
 
 	draw_edit_form(
@@ -758,6 +859,10 @@ function template_edit() {
 		document.getElementById('row_thold_hi').style.display  = status;
 		document.getElementById('row_thold_low').style.display  = status;
 		document.getElementById('row_thold_fail_trigger').style.display  = status;
+		document.getElementById('row_thold_warning_header').style.display  = status;
+		document.getElementById('row_thold_warning_hi').style.display  = status;
+		document.getElementById('row_thold_warning_low').style.display  = status;
+		document.getElementById('row_thold_warning_fail_trigger').style.display  = status;
 	}
 
 	function thold_toggle_baseline (status) {
@@ -775,6 +880,11 @@ function template_edit() {
 		document.getElementById('row_time_low').style.display  = status;
 		document.getElementById('row_time_fail_trigger').style.display  = status;
 		document.getElementById('row_time_fail_length').style.display  = status;
+		document.getElementById('row_time_warning_header').style.display  = status;
+		document.getElementById('row_time_warning_hi').style.display  = status;
+		document.getElementById('row_time_warning_low').style.display  = status;
+		document.getElementById('row_time_warning_fail_trigger').style.display  = status;
+		document.getElementById('row_time_warning_fail_length').style.display  = status;
 	}
 
 	changeTholdType ();
@@ -798,7 +908,7 @@ function templates() {
 
 	$i = 0;
 	$types = array('High/Low', 'Baseline', 'Time Based');
-	if (sizeof($template_list) > 0) {
+	if (sizeof($template_list)) {
 		foreach ($template_list as $template) {
 			switch ($template['thold_type']) {
 				case 0:					# hi/lo
@@ -806,6 +916,10 @@ function templates() {
 					$value_lo= $template['thold_low'];
 					$value_trig = $template['thold_fail_trigger'];
 					$value_duration = '';
+					$value_warning_hi = $template['thold_warning_hi'];
+					$value_warning_lo= $template['thold_warning_low'];
+					$value_warning_trig = $template['thold_warning_fail_trigger'];
+					$value_warning_duration = '';
 					break;
 				case 1:					# baseline
 					$value_hi = $template['bl_pct_up'] . '%';

@@ -133,12 +133,12 @@ function plugin_thold_check_strict () {
 function plugin_thold_version () {
 	return array(
 			'name'		=> 'thold',
-			'version' 	=> '0.4.4',
+			'version' 	=> '0.4.6',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
-			'homepage'	=> 'http://cactiusers.org',
+			'homepage'	=> 'http://docs.cacti.net/plugin:thold',
 			'email'	=> 'jimmy@sqmail.org',
-			'url'		=> 'http://versions.cactiusers.org/'
+			'url'		=> 'http://docs.cacti.net/plugin:thold'
 			);
 }
 
@@ -471,7 +471,7 @@ function thold_data_source_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print "<p>The following Data Sources have no Threshold Templates associated with them</p>";
-				print "<p><ul>" . $not_found . "</ul></p>";
+				print "<ul>" . $not_found . "</ul>";
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Data Sources?
@@ -673,7 +673,7 @@ function thold_graphs_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print "<p>The following Graphs have no Threshold Templates associated with them</p>";
-				print "<p><ul>" . $not_found . "</ul></p>";
+				print "<ul>" . $not_found . "</ul>";
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Graphs?
