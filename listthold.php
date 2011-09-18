@@ -63,6 +63,7 @@ function do_thold() {
 					plugin_thold_log_changes($del, 'deleted', array('id' => $del));
 					db_execute("DELETE FROM thold_data WHERE id=$del");
 					db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $del);
+					db_execute('DELETE FROM plugin_thold_log WHERE threshold_id=' . $del);
 				}
 			}
 			break;
@@ -70,7 +71,7 @@ function do_thold() {
 			foreach ($tholds as $del => $rra) {
 				if (thold_user_auth_threshold ($rra)) {
 					plugin_thold_log_changes($del, 'disabled_threshold', array('id' => $del));
-					db_execute("UPDATE thold_data SET thold_enabled = 'off' WHERE id = $del");
+					db_execute("UPDATE thold_data SET thold_enabled='off' WHERE id=$del");
 				}
 			}
 			break;
@@ -78,7 +79,7 @@ function do_thold() {
 			foreach ($tholds as $del => $rra) {
 				if (thold_user_auth_threshold ($rra)) {
 					plugin_thold_log_changes($del, 'enabled_threshold', array('id' => $del));
-					db_execute("UPDATE thold_data SET thold_enabled = 'on' WHERE id = $del");
+					db_execute("UPDATE thold_data SET thold_enabled='on' WHERE id=$del");
 				}
 			}
 			break;
@@ -316,7 +317,7 @@ function list_tholds() {
 	$url_page_select = get_page_list($_REQUEST['page'], MAX_DISPLAY_PAGES, $alert_num_rows, $total_rows, 'listthold.php?');
 
 	/* print checkbox form for validation */
-	print "<form name='chk' method='post' action='host.php'>\n";
+	print "<form name='chk' method='post' action='listthold.php'>\n";
 
 	html_start_box('', '100%', $colors['header'], '4', 'center', '');
 

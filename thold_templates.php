@@ -173,7 +173,7 @@ function template_add() {
 		echo '</table></form></td></tr>';
 		html_end_box();
 		include_once('./include/bottom_footer.php');
-	}else{
+	} else {
 		$data_template_id = $_REQUEST['data_template_id'];
 		$data_source_id = $_REQUEST['data_source_id'];
 
@@ -190,10 +190,11 @@ function template_add() {
 		$save['data_source_name'] = $temp[0]['data_source_name'];
 		$save['name'] .= ' [' . $temp[0]['data_source_name'] . ']';
 
-		if ($temp[0]['data_input_field_id'] != 0)
+		if ($temp[0]['data_input_field_id'] != 0) {
 			$temp2 = db_fetch_assoc('select name from data_input_fields where id = ' . $temp[0]['data_input_field_id']);
-		else
+		} else {
 			$temp2[0]['name'] = $temp[0]['data_source_name'];
+		}
 
 		$save['data_source_friendly'] = $temp2[0]['name'];
 		$save['thold_enabled'] = 'on';
@@ -296,62 +297,71 @@ function template_save_edit() {
 			$save['thold_warning_fail_trigger'] = 5;
 	}	
 
-
-	if (isset($_POST['thold_enabled']))
+	if (isset($_POST['thold_enabled'])) {
 		$save['thold_enabled'] = 'on';
-	else
+	} else {
 		$save['thold_enabled'] = 'off';
-	if (isset($_POST['exempt']))
+	}
+
+	if (isset($_POST['exempt'])) {
 		$save['exempt'] = 'on';
-	else
+	} else {
 		$save['exempt'] = 'off';
-	if (isset($_POST['restored_alert']))
+	}
+
+	if (isset($_POST['restored_alert'])) {
 		$save['restored_alert'] = 'on';
-	else
+	} else {
 		$save['restored_alert'] = 'off';
-	if (isset($_POST['bl_enabled']))
+	}
+
+	if ($_POST['thold_type'] == 1) {
 		$save['bl_enabled'] = 'on';
-	else
+	} else {
 		$save['bl_enabled'] = 'off';
-	if (isset($_POST['bl_ref_time_range']) && $_POST['bl_ref_time_range'] != '')
+	}
+
+	if (isset($_POST['bl_ref_time_range']) && $_POST['bl_ref_time_range'] != '') {
 		$save['bl_ref_time_range'] = $_POST['bl_ref_time_range'];
-	else {
+	} else {
 		$alert_bl_timerange_def = read_config_option('alert_bl_timerange_def');
-		if ($alert_bl_timerange_def != '' && is_numeric($alert_bl_timerange_def))
+		if ($alert_bl_timerange_def != '' && is_numeric($alert_bl_timerange_def)) {
 			$save['bl_ref_time_range'] = $alert_bl_timerange_def;
-		else
+		} else {
 			$save['bl_ref_time_range'] = 10800;
+		}
 	}
 
 	$save['bl_pct_down'] = $_POST['bl_pct_down'];
 	$save['bl_pct_up'] = $_POST['bl_pct_up'];
 	
-	if (isset($_POST['bl_fail_trigger']) && $_POST['bl_fail_trigger'] != '')
+	if (isset($_POST['bl_fail_trigger']) && $_POST['bl_fail_trigger'] != '') {
 		$save['bl_fail_trigger'] = $_POST['bl_fail_trigger'];
-	else {
+	} else {
 		$alert_bl_trigger = read_config_option('alert_bl_trigger');
-		if ($alert_bl_trigger != '' && is_numeric($alert_bl_trigger))
+		if ($alert_bl_trigger != '' && is_numeric($alert_bl_trigger)) {
 			$save['bl_fail_trigger'] = $alert_bl_trigger;
-		else
+		} else {
 			$save['bl_fail_trigger'] = 3;
+		}
 	}
 
-	if (isset($_POST['repeat_alert']) && $_POST['repeat_alert'] != '')
+	if (isset($_POST['repeat_alert']) && $_POST['repeat_alert'] != '') {
 		$save['repeat_alert'] = $_POST['repeat_alert'];
-	else {
+	} else {
 		$alert_repeat = read_config_option('alert_repeat');
-		if ($alert_repeat != '' && is_numeric($alert_repeat))
+		if ($alert_repeat != '' && is_numeric($alert_repeat)) {
 			$save['repeat_alert'] = $alert_repeat;
-		else
+		} else {
 			$save['repeat_alert'] = 12;
+		}
 	}
 
 	$save['notify_extra'] = $_POST['notify_extra'];
 	$save['notify_warning_extra'] = $_POST['notify_warning_extra'];
 	$save['cdef'] = $_POST['cdef'];
 
-
-	$save['data_type'] = $_POST['data_type'];
+	$save['data_type']  = $_POST['data_type'];
 	$save['percent_ds'] = $_POST['percent_ds'];
 	$save['expression'] = $_POST['expression'];
 
@@ -367,14 +377,14 @@ function template_save_edit() {
 			thold_template_update_thresholds ($id);
 
 			plugin_thold_log_changes($id, 'modified_template', $save);
-		}else{
+		} else {
 			raise_message(2);
 		}
 	}
 
 	if ((is_error_message()) || (empty($_POST['id']))) {
 		header('Location: thold_templates.php?action=edit&id=' . (empty($id) ? $_POST['id'] : $id));
-	}else{
+	} else {
 		header('Location: thold_templates.php');
 	}
 }
@@ -488,7 +498,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'default' => $thold_item_data['data_template_name'] . ' [' . $thold_item_data['data_source_name'] . ']',
-			'description' => 'Provide the THold Template a meaningful name',
+			'description' => 'Provide the THold Template a meaningful name.  Host Substritution and Data Query Substitution variables can be used as well as |graph_title| for the Graph Title',
 			'value' => isset($thold_item_data['name']) ? $thold_item_data['name'] : ''
 		),
 		'data_template_name' => array(
@@ -661,13 +671,6 @@ function template_edit() {
 			'friendly_name' => 'Baseline Monitoring',
 			'method' => 'spacer',
 		),
-		'bl_enabled' => array(
-			'friendly_name' => 'Baseline Monitoring',
-			'method' => 'checkbox',
-			'default' => 'off',
-			'description' => 'When enabled, Baseline Monitoring checks the current data source value against a reference in the past. This value is read from the RRA. The calculated average is stored in the database and is used as a respective baseline reference. The precedence however is on the &quot;hard&quot; thresholds above.',
-			'value' => isset($thold_item_data['bl_enabled']) ? $thold_item_data['bl_enabled'] : ''
-		),
 		'bl_ref_time_range' => array(
 			'friendly_name' => 'Time reference in the past',
 			'method' => 'drop_array',
@@ -734,7 +737,7 @@ function template_edit() {
 			'friendly_name' => 'RPN Expression',
 			'method' => 'textbox',
 			'default' => '',
-			'description' => 'An RPM Expression that assumes that the selected Data Source is already in the
+			'description' => 'An RPN Expression that assumes that the selected Data Source is already in the
 			RPN stack.  This RPN expression can include any additional Data Sources names in the current
 			RRDfile.  However, in all cases the selected Data Source is loaded on the stack first.',
 			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',
@@ -793,42 +796,28 @@ function template_edit() {
 	?>
 	<!-- Make it look intelligent :) -->
 	<script language="JavaScript">
-	function BL_EnableDisable()
-	{
-		var _f = document.THold;
-		var status = !_f.bl_enabled.checked;
-
-		_f.bl_ref_time_range.disabled = status;
-		_f.bl_pct_down.disabled = status;
-		_f.bl_pct_up.disabled = status;
-		_f.bl_fail_trigger.disabled = status;
-	}
-
-	BL_EnableDisable();
-	document.THold.bl_enabled.onclick = BL_EnableDisable;
-
-	function changeTholdType () {
+	function changeTholdType() {
 		type = document.getElementById('thold_type').value;
 		switch(type) {
-		case '0':
-			thold_toggle_hilow ('');
-			thold_toggle_baseline ('none');
-			thold_toggle_time ('none');
+		case '0': // Hi/Low
+			thold_toggle_hilow('');
+			thold_toggle_baseline('none');
+			thold_toggle_time('none');
 			break;
-		case '1':
-			thold_toggle_hilow ('none');
-			thold_toggle_baseline ('');
-			thold_toggle_time ('none');
+		case '1': // Baseline
+			thold_toggle_hilow('none');
+			thold_toggle_baseline('');
+			thold_toggle_time('none');
 			break;
-		case '2':
-			thold_toggle_hilow ('none');
-			thold_toggle_baseline ('none');
-			thold_toggle_time ('');
+		case '2': // Time Based
+			thold_toggle_hilow('none');
+			thold_toggle_baseline('none');
+			thold_toggle_time('');
 			break;
 		}
 	}
 
-	function changeDataType () {
+	function changeDataType() {
 		type = document.getElementById('data_type').value;
 		switch(type) {
 		case '0':
@@ -854,7 +843,7 @@ function template_edit() {
 		}
 	}
 
-	function thold_toggle_hilow (status) {
+	function thold_toggle_hilow(status) {
 		document.getElementById('row_thold_header').style.display  = status;
 		document.getElementById('row_thold_hi').style.display  = status;
 		document.getElementById('row_thold_low').style.display  = status;
@@ -865,16 +854,15 @@ function template_edit() {
 		document.getElementById('row_thold_warning_fail_trigger').style.display  = status;
 	}
 
-	function thold_toggle_baseline (status) {
+	function thold_toggle_baseline(status) {
 		document.getElementById('row_baseline_header').style.display  = status;
-		document.getElementById('row_bl_enabled').style.display  = status;
 		document.getElementById('row_bl_ref_time_range').style.display  = status;
 		document.getElementById('row_bl_pct_up').style.display  = status;
 		document.getElementById('row_bl_pct_down').style.display  = status;
 		document.getElementById('row_bl_fail_trigger').style.display  = status;
 	}
 
-	function thold_toggle_time (status) {
+	function thold_toggle_time(status) {
 		document.getElementById('row_time_header').style.display  = status;
 		document.getElementById('row_time_hi').style.display  = status;
 		document.getElementById('row_time_low').style.display  = status;
@@ -947,7 +935,7 @@ function templates() {
 			form_checkbox_cell($template['data_template_name'], $template["id"]);
 			form_end_row();
 		}
-	}else{
+	} else {
 		print "<tr><td><em>No Data Templates</em></td></tr>\n";
 	}
 	html_end_box(false);

@@ -35,6 +35,7 @@
 		Add Warning Support Curtesy (Thomas Urban)
 		Improve display of Baseline Alarms
 		Add Log Tab and new Events for Readablilty
+		Allow a THold Template to Apply Naming Rules to THolds
 
 	--- 0.4.4 ---
 		Fix emailing of alerts when PHP-GD is not available

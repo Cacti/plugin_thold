@@ -237,9 +237,13 @@ if (isset($template_data_rrds)) {
 			} else {
 				$cur_setting = "Hi: " . ($item["thold_hi"] == "" ? "n/a" : $item["thold_hi"]);
 				$cur_setting .= " Lo: " . ($item["thold_low"] == "" ? "n/a" : $item["thold_low"]);
-				$cur_setting = "WHi: " . ($item["thold_warning_hi"] == "" ? "n/a" : $item["thold_warning_hi"]);
-				$cur_setting .= "WLo: " . ($item["thold_warning_low"] == "" ? "n/a" : $item["thold__warninglow"]);
-				$cur_setting .= " BL: " . $item["bl_enabled"];
+
+				if ($item["thold_type"] != 1) {
+					$cur_setting .= " WHi: " . ($item["thold_warning_hi"] == "" ? "n/a" : $item["thold_warning_hi"]);
+					$cur_setting .= " WLo: " . ($item["thold_warning_low"] == "" ? "n/a" : $item["thold_warning_low"]);
+				}else{
+					$cur_setting .= " BL: " . $item["bl_enabled"];
+				}
 			}
 			$tab_len = max(strlen($cur_setting), strlen($template_data_rrd["data_source_name"]));
 			if($cur_setting == "n/a") { $cur_setting = "<font color='red'>" . $cur_setting . "</font>"; }
@@ -609,7 +613,7 @@ $form_array = array(
 			'friendly_name' => 'RPN Expression',
 			'method' => 'textbox',
 			'default' => '',
-			'description' => 'An RPM Expression that assumes that the selected Data Source is already in the
+			'description' => 'An RPN Expression that assumes that the selected Data Source is already in the
 			RPN stack.  This RPN expression can include any additional Data Sources names in the current
 			RRDfile.  However, in all cases the selected Data Source is loaded on the stack first.',
 			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',

@@ -1745,6 +1745,28 @@ function format_number($value, $digits=2) {
 	}
 }
 
+function thold_format_name($template, $local_graph_id, $local_data_id, $data_source_name) {
+	$desc = db_fetch_cell('SELECT name_cache 
+		FROM data_template_data 
+		WHERE local_data_id=' . $local_data_id . ' 
+		LIMIT 1');
+
+	if (substr_count($template["name"], '|')) {
+		$gl = db_fetch_row("SELECT * FROM graph_local WHERE id=$local_graph_id");
+
+		if (sizeof($gl)) {
+			$name = expand_title($gl["host_id"], $gl["snmp_query_id"], $gl["snmp_index"], $template["name"]);
+			$name = str_replace("|graph_title|", get_graph_title($gl["id"]), $name);
+		}else{
+			$name = $desc . ' [' . $data_source_name . ']';
+		}
+	}else{
+		$name = $desc . ' [' . $data_source_name . ']';
+	}
+
+	return $name;
+}
+
 function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct, $urlbreach) {
 	define_syslog_variables();
 

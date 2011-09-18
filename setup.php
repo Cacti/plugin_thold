@@ -355,16 +355,27 @@ function thold_data_source_action_execute($action) {
 			$existing         = db_fetch_assoc('SELECT id FROM thold_data WHERE rra_id=' . $local_data_id . ' AND data_id=' . $data_template_id);
 
 			if (count($existing) == 0 && count($template)) {
-				$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id order by id LIMIT 1");
-				$grapharr  = db_fetch_row("SELECT local_graph_id, graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup and local_graph_id <> '' LIMIT 1");
+				$rrdlookup = db_fetch_cell("SELECT id 
+					FROM data_template_rrd 
+					WHERE local_data_id=$local_data_id 
+					ORDER BY id 
+					LIMIT 1");
+
+				$grapharr  = db_fetch_row("SELECT local_graph_id, graph_template_id 
+					FROM graph_templates_item 
+					WHERE task_item_id=$rrdlookup 
+					AND local_graph_id<>'' 
+					LIMIT 1");
+
 				$graph     = (isset($grapharr['local_graph_id']) ? $grapharr['local_graph_id'] : '');
 
 				if ($graph) {
-					$desc = db_fetch_cell('SELECT name_cache FROM data_template_data WHERE local_data_id=' . $local_data_id . ' LIMIT 1');
 					$data_source_name = $template['data_source_name'];
 					$insert = array();
 
-					$insert['name']               = $desc . ' [' . $data_source_name . ']';
+					$name = thold_format_name($template, $graph, $local_data_id, $data_source_name);
+
+					$insert['name']               = $name;
 					$insert['host_id']            = $data_source['host_id'];
 					$insert['rra_id']             = $local_data_id;
 					$insert['graph_id']           = $graph;
@@ -375,7 +386,6 @@ function thold_data_source_action_execute($action) {
 					$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
 					$insert['thold_enabled']      = $template['thold_enabled'];
 					$insert['bl_enabled']         = $template['bl_enabled'];
-					$insert['bl_ref_time']        = $template['bl_ref_time'];
 					$insert['bl_ref_time_range']  = $template['bl_ref_time_range'];
 					$insert['bl_pct_down']        = $template['bl_pct_down'];
 					$insert['bl_pct_up']          = $template['bl_pct_up'];
@@ -389,7 +399,7 @@ function thold_data_source_action_execute($action) {
 
 					$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name='$data_source_name'");
 
-					$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
+					$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
 					foreach ($rrdlist as $rrdrow) {
 						$data_rrd_id=$rrdrow['id'];
 						$insert['data_id'] = $data_rrd_id;
@@ -475,7 +485,7 @@ function thold_data_source_action_prepare($save) {
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Data Sources?
-					<p><ul>" . $found_list . "</ul></p>
+					<ul>" . $found_list . "</ul>
 					</td>
 				</tr>\n
 				";
@@ -504,7 +514,7 @@ function thold_data_source_action_prepare($save) {
 		}else{
 			if (strlen($not_found)) {
 				print "<p>There are no Threshold Templates associated with the following Data Sources</p>";
-				print "<p>" . $not_found . "</p>";
+				print "<ul>" . $not_found . "</ul>";
 			}
 		}
 	}else{
@@ -546,22 +556,29 @@ function thold_graphs_action_execute($action) {
 			$data_template_id = $temp['data_template_id'];
 			$local_data_id = $temp['local_data_id'];
 
-
 			$data_source      = db_fetch_row("SELECT * FROM data_local WHERE id=" . $local_data_id);
 			$data_template_id = $data_source['data_template_id'];
 			$existing         = db_fetch_assoc('SELECT id FROM thold_data WHERE rra_id=' . $local_data_id . ' AND data_id=' . $data_template_id);
 
 			if (count($existing) == 0 && count($template)) {
 				if ($graph) {
-					$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id order by id LIMIT 1");
-					$grapharr = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup and local_graph_id = $graph");
+					$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd 
+						WHERE local_data_id=$local_data_id 
+						ORDER BY id 
+						LIMIT 1");
 
-					$desc = db_fetch_cell('SELECT name_cache FROM data_template_data WHERE local_data_id=' . $local_data_id . ' LIMIT 1');
+					$grapharr = db_fetch_row("SELECT graph_template_id 
+						FROM graph_templates_item 
+						WHERE task_item_id=$rrdlookup 
+						AND local_graph_id=$graph");
 
 					$data_source_name = $template['data_source_name'];
+
 					$insert = array();
 
-					$insert['name']               = $desc . ' [' . $data_source_name . ']';
+					$name = thold_format_name($template, $graph, $local_data_id, $data_source_name);
+
+					$insert['name']               = $name;
 					$insert['host_id']            = $data_source['host_id'];
 					$insert['rra_id']             = $local_data_id;
 					$insert['graph_id']           = $graph;
@@ -572,7 +589,6 @@ function thold_graphs_action_execute($action) {
 					$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
 					$insert['thold_enabled']      = $template['thold_enabled'];
 					$insert['bl_enabled']         = $template['bl_enabled'];
-					$insert['bl_ref_time']        = $template['bl_ref_time'];
 					$insert['bl_ref_time_range']  = $template['bl_ref_time_range'];
 					$insert['bl_pct_down']        = $template['bl_pct_down'];
 					$insert['bl_pct_up']          = $template['bl_pct_up'];
@@ -586,7 +602,7 @@ function thold_graphs_action_execute($action) {
 
 					$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name='$data_source_name'");
 
-					$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
+					$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
 					foreach ($rrdlist as $rrdrow) {
 						$data_rrd_id=$rrdrow['id'];
 						$insert['data_id'] = $data_rrd_id;
@@ -677,7 +693,7 @@ function thold_graphs_action_prepare($save) {
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Graphs?
-					<p><ul>" . $found_list . "</ul></p>
+					<ul>" . $found_list . "</ul>
 					</td>
 				</tr>\n
 				";
@@ -706,7 +722,7 @@ function thold_graphs_action_prepare($save) {
 		}else{
 			if (strlen($not_found)) {
 				print "<p>There are no Threshold Templates associated with the following Graphs</p>";
-				print "<p>" . $not_found . "</p>";
+				print "<ul>" . $not_found . "</ul>";
 			}
 		}
 	}else{
