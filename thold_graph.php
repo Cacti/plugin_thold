@@ -499,9 +499,9 @@ function tholds() {
 			}
 
 			print "<td width='80'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . '% / ' . $row['bl_pct_down'] . '%': 'N/A') . "</td>";
-			print "<td width='50'>" . ($row['thold_type'] == 2 ? number_format($row['time_hi']) : number_format($row['thold_hi'])) . "</td>";
-			print "<td width='50'>" . ($row['thold_type'] == 2 ? number_format($row['time_low']) : number_format($row['thold_low'])) . "</td>";
-			print "<td width='80'>" . number_format($row['lastread']) . "</td>";
+			print "<td width='50'>" . ($row['thold_type'] == 2 ? format_number($row['time_hi']) : format_number($row['thold_hi'])) . "</td>";
+			print "<td width='50'>" . ($row['thold_type'] == 2 ? format_number($row['time_low']) : format_number($row['thold_low'])) . "</td>";
+			print "<td width='80'>" . format_number($row['lastread']) . "</td>";
 			if ($row['thold_enabled'] == 'off') {
 				print "<td width='40'><b>Disabled</b></td>";
 			}else{
@@ -1140,8 +1140,8 @@ function thold_show_log() {
 			<td style='white-space:nowrap;'><?php print $l["hdescription"];?></td>
 			<td style='white-space:nowrap;'><?php print $l["name"];?></td>
 			<td style='white-space:nowrap;'><?php print date("Y-m-d H:i:s", $l["time"]);?></td>
-			<td><?php print ($l["threshold_value"] != '' ? number_format($l["threshold_value"]):'-');?></td>
-			<td><?php print number_format($l["current"]);?></td>
+			<td><?php print ($l["threshold_value"] != '' ? format_number($l["threshold_value"]):'-');?></td>
+			<td><?php print format_number($l["current"]);?></td>
 			<td><?php print ucfirst($thold_status[$l["status"]]);?></td>
 			<td><?php print $types[$l["type"]];?></td>
 			<td style='white-space:nowrap;'><?php print $l["description"];?></td>

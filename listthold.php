@@ -415,20 +415,20 @@ function list_tholds() {
 			form_selectable_cell($types[$row['thold_type']], $row["id"]);
 			switch($row['thold_type']) {
 				case 0:
-					form_selectable_cell($row['thold_hi'], $row["id"]);
-					form_selectable_cell($row['thold_low'], $row["id"]);
+					form_selectable_cell(format_number($row['thold_hi']), $row["id"]);
+					form_selectable_cell(format_number($row['thold_low']), $row["id"]);
 					form_selectable_cell("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i>", $row["id"]);
 					form_selectable_cell("",  $row["id"]);
 					break;
 				case 1:
-					form_selectable_cell($row['thold_hi'], $row["id"]);
-					form_selectable_cell($row['thold_low'], $row["id"]);
+					form_selectable_cell(format_number($row['thold_hi']), $row["id"]);
+					form_selectable_cell(format_number($row['thold_low']), $row["id"]);
 					form_selectable_cell("<i>" . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . "</i>", $row["id"]);
 					form_selectable_cell($timearray[$row['bl_ref_time_range']/300], $row["id"]);
 					break;
 				case 2:
-					form_selectable_cell($row['time_hi'], $row["id"]);
-					form_selectable_cell($row['time_low'], $row["id"]);
+					form_selectable_cell(format_number($row['time_hi']), $row["id"]);
+					form_selectable_cell(format_number($row['time_low']), $row["id"]);
 					form_selectable_cell("<i>" . $row['time_fail_trigger'] . "</i>",  $row["id"]);
 					form_selectable_cell(plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time'), $row["id"]);
 					break;
@@ -439,7 +439,7 @@ function list_tholds() {
 					form_selectable_cell("",  $row["id"]);
 			}
 			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')), $row["id"]);
-			form_selectable_cell($row['lastread'], $row["id"]);
+			form_selectable_cell(format_number($row['lastread']), $row["id"]);
 			form_selectable_cell($alertstat, $row["id"]);
 			form_selectable_cell((($row['thold_enabled'] == 'off') ? "Disabled": "Enabled"), $row["id"]);
 			form_checkbox_cell($row['name'], $row['id']);

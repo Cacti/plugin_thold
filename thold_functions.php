@@ -1737,6 +1737,14 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	}
 }
 
+function format_number($value, $digits=2) {
+	if (strlen(round($value,0)) == strlen($value)) {
+		return $value;
+	}else{
+		return number_format($value, $digits);
+	}
+}
+
 function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct, $urlbreach) {
 	define_syslog_variables();
 

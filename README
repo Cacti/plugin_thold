@@ -33,6 +33,8 @@
 ----[ Changelog
 	--- 0.4.6 ---
 		Add Warning Support Curtesy (Thomas Urban)
+		Improve display of Baseline Alarms
+		Add Log Tab and new Events for Readablilty
 
 	--- 0.4.4 ---
 		Fix emailing of alerts when PHP-GD is not available
