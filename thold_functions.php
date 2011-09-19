@@ -857,8 +857,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 				break;
 			case 1:
 				$desc .= '  Range: ' . $message['bl_ref_time_range'];
-				$desc .= '  Dev Up: ' . $message['bl_pct_down'];
-				$desc .= '  Dev Down: ' . $message['bl_pct_up'];
+				$desc .= '  Dev Up: ' . $message['bl_pct_up'];
+				$desc .= '  Dev Down: ' . $message['bl_pct_down'];
 				$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
 
 				break;
