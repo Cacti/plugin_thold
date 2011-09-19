@@ -676,21 +676,6 @@ unset($template_data_rrds);
 ?>
 <!-- Make it look intelligent :) -->
 <script language="JavaScript">
-function BL_EnableDisable()
-{
-	var _f = document.THold;
-	var status = !_f.bl_enabled.checked;
-	if (_f.bl_enabled.disabled)
-		status = true;
-
-	_f.bl_ref_time_range.disabled = status;
-	_f.bl_pct_down.disabled = status;
-	_f.bl_pct_up.disabled = status;
-	_f.bl_fail_trigger.disabled = status;
-}
-
-BL_EnableDisable();
-document.THold.bl_enabled.onclick = BL_EnableDisable;
 
 function Template_EnableDisable()
 {
@@ -704,7 +689,6 @@ function Template_EnableDisable()
 	_f.thold_warning_hi.disabled = status;
 	_f.thold_warning_low.disabled = status;
 	_f.thold_warning_fail_trigger.disabled = status;
-	_f.bl_enabled.disabled = status;
 	_f.repeat_alert.disabled = status;
 	_f.notify_extra.disabled = status;
 	_f.notify_warning_extra.disabled = status;
@@ -724,8 +708,6 @@ function Template_EnableDisable()
 	_f.expression.disabled = status;
 	_f.exempt.disabled = status;
 	_f.restored_alert.disabled = status;
-
-	BL_EnableDisable();
 
 }
 
@@ -802,7 +784,6 @@ if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') 
 
 	function thold_toggle_baseline (status) {
 		document.getElementById('row_baseline_header').style.display  = status;
-		document.getElementById('row_bl_enabled').style.display  = status;
 		document.getElementById('row_bl_ref_time_range').style.display  = status;
 		document.getElementById('row_bl_pct_up').style.display  = status;
 		document.getElementById('row_bl_pct_down').style.display  = status;

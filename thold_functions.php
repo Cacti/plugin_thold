@@ -856,7 +856,6 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 				break;
 			case 1:
-				$desc .= '  Enabled: ' . $message['bl_enabled'];
 				$desc .= '  Range: ' . $message['bl_ref_time_range'];
 				$desc .= '  Dev Up: ' . $message['bl_pct_down'];
 				$desc .= '  Dev Down: ' . $message['bl_pct_up'];
@@ -926,7 +925,6 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 			break;
 		case 1:
-			$desc .= '  Enabled: ' . $message['bl_enabled'];
 			$desc .= '  Range: ' . $message['bl_ref_time_range'];
 			$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : "" );
 			$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : "" );
@@ -1325,34 +1323,10 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 						'description' => $subject,
 						'emails' => $alert_emails));
 
-					thold_log(array(
-						'type' => 0,
-						'time' => time(),
-						'host_id' => $item['host_id'],
-						'graph_id' => $graph_id,
-						'threshold_id' => $item['id'],
-						'threshold_value' => '',
-						'current' => $currentval,
-						'status' => 5,
-						'description' => $subject,
-						'emails' => $alert_emails));
-
 					db_execute("UPDATE thold_data 
 						SET thold_fail_count=0 
 						WHERE rra_id=$rra_id AND data_id=" . $item['data_id']);
 				}
-			} else {
-				thold_log(array(
-					'type' => 0,
-					'time' => time(),
-					'host_id' => $item['host_id'],
-					'graph_id' => $graph_id,
-					'threshold_id' => $item['id'],
-					'threshold_value' => '',
-					'current' => $currentval,
-					'status' => 0,
-					'description' => $subject,
-					'emails' => $alert_emails));					
 			}
 		}
 
@@ -2288,7 +2262,6 @@ function save_thold() {
 	}
 
 	// Make sure this is defined
-	$_POST['bl_enabled'] = isset($_POST['bl_enabled']) ? 'on' : 'off';
 	$_POST['thold_enabled'] = isset($_POST['thold_enabled']) ? 'on' : 'off';
 	$_POST['template_enabled'] = isset($_POST['template_enabled']) ? 'on' : 'off';
 
@@ -2304,7 +2277,7 @@ function save_thold() {
 		return;
 	}
 
-	if($_POST['thold_type'] == 1 && $_POST['bl_enabled'] == 'on') {
+	if($_POST['thold_type'] == 1) {
 		$banner .= 'With baseline thresholds enabled ';
 		if(!thold_mandatory_field_ok('bl_ref_time_range', 'Time reference in the past')) {
 			return;
@@ -2344,6 +2317,10 @@ function save_thold() {
 	input_validate_input_number(get_request_var('time_warning_fail_trigger'));
 	input_validate_input_number(get_request_var('time_warning_fail_length'));
 	input_validate_input_number(get_request_var('data_type'));
+	input_validate_input_number(get_request_var('bl_ref_time_range'));
+	input_validate_input_number(get_request_var('bl_pct_down'));
+	input_validate_input_number(get_request_var('bl_pct_up'));
+	input_validate_input_number(get_request_var('bl_fail_trigger'));
 
 	$_POST['name'] = str_replace(array("\\", '"', "'"), '', $_POST['name']);
 	$save['name'] = (trim($_POST['name'])) == '' ? '' : $_POST['name'];
@@ -2373,8 +2350,12 @@ function save_thold() {
 	$save['time_warning_fail_trigger'] = (trim($_POST['time_warning_fail_trigger'])) == '' ? '' : $_POST['time_warning_fail_trigger'];
 	$save['time_warning_fail_length'] = (trim($_POST['time_warning_fail_length'])) == '' ? '' : $_POST['time_warning_fail_length'];
 	// Baseline
-	$save['bl_enabled'] = isset($_POST['bl_enabled']) ? $_POST['bl_enabled'] : '';
 	$save['bl_thold_valid'] = '0';
+	$save['bl_ref_time_range'] = (trim($_POST['bl_ref_time_range'])) == '' ? '' : $_POST['bl_ref_time_range'];
+	$save['bl_pct_down'] = (trim($_POST['bl_pct_down'])) == '' ? '' : $_POST['bl_pct_down'];
+	$save['bl_pct_up'] = (trim($_POST['bl_pct_up'])) == '' ? '' : $_POST['bl_pct_up'];
+	$save['bl_fail_trigger'] = (trim($_POST['bl_fail_trigger'])) == '' ? '' : $_POST['bl_fail_trigger'];
+
 	$save['repeat_alert'] = (trim($_POST['repeat_alert'])) == '' ? '' : $_POST['repeat_alert'];
 	$save['notify_extra'] = (trim($_POST['notify_extra'])) == '' ? '' : $_POST['notify_extra'];
 	$save['notify_warning_extra'] = (trim($_POST['notify_warning_extra'])) == '' ? '' : $_POST['notify_warning_extra'];
@@ -2406,17 +2387,6 @@ function save_thold() {
 	if (!thold_user_auth_threshold ($save['rra_id'])) {
 		$banner = '<font color=red><strong>Permission Denied</strong></font>';
 		return;
-	}
-
-	if($_POST['bl_enabled'] == 'on') {
-		input_validate_input_number(get_request_var('bl_ref_time_range'));
-		input_validate_input_number(get_request_var('bl_pct_down'));
-		input_validate_input_number(get_request_var('bl_pct_up'));
-		input_validate_input_number(get_request_var('bl_fail_trigger'));
-		$save['bl_ref_time_range'] = (trim($_POST['bl_ref_time_range'])) == '' ? '' : $_POST['bl_ref_time_range'];
-		$save['bl_pct_down'] = (trim($_POST['bl_pct_down'])) == '' ? '' : $_POST['bl_pct_down'];
-		$save['bl_pct_up'] = (trim($_POST['bl_pct_up'])) == '' ? '' : $_POST['bl_pct_up'];
-		$save['bl_fail_trigger'] = (trim($_POST['bl_fail_trigger'])) == '' ? '' : $_POST['bl_fail_trigger'];
 	}
 
 	$id = sql_save($save , 'thold_data');
@@ -2506,7 +2476,6 @@ function autocreate($hostid) {
 					$insert['thold_low']          = $template[$y]['thold_low'];
 					$insert['thold_fail_trigger'] = $template[$y]['thold_fail_trigger'];
 					$insert['thold_enabled']      = $template[$y]['thold_enabled'];
-					$insert['bl_enabled']         = $template[$y]['bl_enabled'];
 					$insert['bl_ref_time_range']  = $template[$y]['bl_ref_time_range'];
 					$insert['bl_pct_down']        = $template[$y]['bl_pct_down'];
 					$insert['bl_pct_up']          = $template[$y]['bl_pct_up'];
@@ -2718,7 +2687,6 @@ function thold_template_update_threshold ($id, $template) {
 		thold_data.time_warning_fail_length = thold_template.time_warning_fail_length,
 		thold_data.thold_enabled = thold_template.thold_enabled,
 		thold_data.thold_type = thold_template.thold_type,
-		thold_data.bl_enabled = thold_template.bl_enabled,
 		thold_data.bl_ref_time_range = thold_template.bl_ref_time_range,
 		thold_data.bl_pct_down = thold_template.bl_pct_down,
 		thold_data.bl_pct_up = thold_template.bl_pct_up,
@@ -2757,7 +2725,6 @@ function thold_template_update_thresholds ($id) {
 		thold_data.time_warning_fail_length = thold_template.time_warning_fail_length,
 		thold_data.thold_enabled = thold_template.thold_enabled,
 		thold_data.thold_type = thold_template.thold_type,
-		thold_data.bl_enabled = thold_template.bl_enabled,
 		thold_data.bl_ref_time_range = thold_template.bl_ref_time_range,
 		thold_data.bl_pct_up = thold_template.bl_pct_up,
 		thold_data.bl_pct_down = thold_template.bl_pct_down,
