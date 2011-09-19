@@ -118,13 +118,13 @@ function thold_request_validation() {
 
 	/* if the user pushed the 'clear' button */
 	if (isset($_REQUEST['clear'])) {
-		kill_session_var('sess_thold_rows');
-		kill_session_var('sess_thold_page');
-		kill_session_var('sess_thold_sort_column');
-		kill_session_var('sess_thold_sort_direction');
-		kill_session_var('sess_thold_hostid');
-		kill_session_var('sess_thold_state');
-		kill_session_var('sess_thold_template');
+		kill_session_var('sess_thold_list_rows');
+		kill_session_var('sess_thold_list_page');
+		kill_session_var('sess_thold_list_sort_column');
+		kill_session_var('sess_thold_list_sort_direction');
+		kill_session_var('sess_thold_list_hostid');
+		kill_session_var('sess_thold_list_state');
+		kill_session_var('sess_thold_list_template');
 
 		$_REQUEST['page'] = 1;
 		unset($_REQUEST['rows']);
@@ -138,13 +138,12 @@ function thold_request_validation() {
 	}else{
 		/* if any of the settings changed, reset the page number */
 		$changed = 0;
-		$changed += thold_request_check_changed('rows', 'sess_thold_rows');
-		$changed += thold_request_check_changed('page', 'sess_thold_page');
-		$changed += thold_request_check_changed('sort_column', 'sess_thold_sort_column');
-		$changed += thold_request_check_changed('sort_direction', 'sess_thold_sort_direction');
-		$changed += thold_request_check_changed('hostid', 'sess_thold_hostid');
-		$changed += thold_request_check_changed('state', 'sess_thold_state');
-		$changed += thold_request_check_changed('template', 'sess_thold_template');
+		$changed += thold_request_check_changed('rows', 'sess_thold_list_rows');
+		$changed += thold_request_check_changed('sort_column', 'sess_thold_list_sort_column');
+		$changed += thold_request_check_changed('sort_direction', 'sess_thold_list_sort_direction');
+		$changed += thold_request_check_changed('hostid', 'sess_thold_list_hostid');
+		$changed += thold_request_check_changed('state', 'sess_thold_list_state');
+		$changed += thold_request_check_changed('template', 'sess_thold_list_template');
 		if ($changed) {
 			$_REQUEST['page'] = '1';
 		}
@@ -153,21 +152,13 @@ function thold_request_validation() {
 	}
 
 	/* remember search fields in session vars */
-	load_current_session_value('rows', 'sess_thold_rows', read_config_option('num_rows_thold'));
-	load_current_session_value('page', 'sess_thold_current_page', '1');
-	load_current_session_value('sort_column', 'sess_thold_sort_column', 'thold_alert');
-	load_current_session_value('sort_direction', 'sess_thold_sort_direction', 'DESC');
-	load_current_session_value('state', 'sess_thold_state', 'Triggered');
-	load_current_session_value('hostid', 'sess_thold_hostid', '');
-	load_current_session_value('template', 'sess_thold_template', '');
-}
-
-function thold_request_check_changed($request, $session) {
-	if ((isset($_REQUEST[$request])) && (isset($_SESSION[$session]))) {
-		if ($_REQUEST[$request] != $_SESSION[$session]) {
-			return 1;
-		}
-	}
+	load_current_session_value('rows', 'sess_thold_list_rows', read_config_option('num_rows_thold'));
+	load_current_session_value('page', 'sess_thold_list_current_page', '1');
+	load_current_session_value('sort_column', 'sess_thold_list_sort_column', 'thold_alert');
+	load_current_session_value('sort_direction', 'sess_thold_list_sort_direction', 'DESC');
+	load_current_session_value('state', 'sess_thold_list_state', read_config_option('thold_filter_default'));
+	load_current_session_value('hostid', 'sess_thold_list_hostid', '');
+	load_current_session_value('template', 'sess_thold_list_template', '');
 }
 
 function list_tholds() {
@@ -179,13 +170,13 @@ function list_tholds() {
 
 	$statefilter='';
 	if (isset($_REQUEST['state'])) {
-		if ($_REQUEST['state'] == 'ALL') {
+		if ($_REQUEST['state'] == '-1') {
 			$statefilter = '';
 		} else {
-			if($_REQUEST['state'] == 'Disabled') { $statefilter = "thold_data.thold_enabled='off'"; }
-			if($_REQUEST['state'] == 'Enabled') { $statefilter = "thold_data.thold_enabled='on'"; }
-			if($_REQUEST['state'] == 'Breached') { $statefilter = 'thold_data.thold_alert!=0 OR thold_data.bl_alert>0'; }
-			if($_REQUEST['state'] == 'Triggered') { $statefilter = '(thold_data.thold_alert!=0 AND thold_data.thold_fail_count >= thold_data.thold_fail_trigger) OR (thold_data.bl_alert>0 AND thold_data.bl_fail_count >= thold_data.bl_fail_trigger)'; }
+			if($_REQUEST['state'] == '0') { $statefilter = "thold_data.thold_enabled='off'"; }
+			if($_REQUEST['state'] == '2') { $statefilter = "thold_data.thold_enabled='on'"; }
+			if($_REQUEST['state'] == '1') { $statefilter = 'thold_data.thold_alert!=0 OR thold_data.bl_alert>0'; }
+			if($_REQUEST['state'] == '3') { $statefilter = '(thold_data.thold_alert!=0 AND thold_data.thold_fail_count >= thold_data.thold_fail_trigger) OR (thold_data.bl_alert>0 AND thold_data.bl_fail_count >= thold_data.bl_fail_trigger)'; }
 		}
 	}
 
@@ -287,12 +278,11 @@ function list_tholds() {
 					</td>
 					<td width='1'>
 						<select name='state' onChange='applyTHoldFilterChange(document.listthold)'>
-							<option value='ALL'>Any</option>
-							<?php
-							foreach (array('Disabled','Enabled','Breached','Triggered') as $row) {
-								echo "<option value='" . $row . "'" . (isset($_REQUEST['state']) && $row == $_REQUEST['state'] ? ' selected' : '') . '>' . $row . '</option>';
-							}
-							?>
+							<option value='-1'<?php if ($_REQUEST["state"] == "-1") {?> selected<?php }?>>All</option>
+							<option value='1'<?php if ($_REQUEST["state"] == "1") {?> selected<?php }?>>Breached</option>
+							<option value='3'<?php if ($_REQUEST["state"] == "3") {?> selected<?php }?>>Triggered</option>
+							<option value='2'<?php if ($_REQUEST["state"] == "2") {?> selected<?php }?>>Enabled</option>
+							<option value='0'<?php if ($_REQUEST["state"] == "0") {?> selected<?php }?>>Disabled</option>
 						</select>
 					</td>
 					<td nowrap style='white-space: nowrap;'>

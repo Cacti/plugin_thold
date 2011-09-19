@@ -685,7 +685,8 @@ function template_edit() {
 			'max_length' => 3,
 			'size' => 3,
 			'description' => 'Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.',
-			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : ''
+			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : '',
+			'default' => read_config_option("alert_bl_percent_def")
 		),
 		'bl_pct_down' => array(
 			'friendly_name' => 'Baseline Deviation DOWN',
@@ -693,7 +694,8 @@ function template_edit() {
 			'max_length' => 3,
 			'size' => 3,
 			'description' => 'Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.',
-			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : ''
+			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : '',
+			'default' => read_config_option("alert_bl_percent_def")
 		),
 		'bl_fail_trigger' => array(
 			'friendly_name' => 'Baseline Trigger Count',
@@ -702,7 +704,8 @@ function template_edit() {
 			'size' => 3,
 			'default' => read_config_option('alert_bl_trigger'),
 			'description' => 'Number of consecutive times the data source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (<b>Default: ' . read_config_option('alert_bl_trigger') . ' cycles</b>)',
-			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : ''
+			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : '',
+			'default' => read_config_option("alert_bl_trigger")
 		),
 		'data_manipulation' => array(
 			'friendly_name' => 'Data Manipulation',
@@ -901,23 +904,23 @@ function templates() {
 			switch ($template['thold_type']) {
 				case 0:					# hi/lo
 					$value_hi = $template['thold_hi'];
-					$value_lo= $template['thold_low'];
+					$value_lo = $template['thold_low'];
 					$value_trig = $template['thold_fail_trigger'];
 					$value_duration = '';
 					$value_warning_hi = $template['thold_warning_hi'];
-					$value_warning_lo= $template['thold_warning_low'];
+					$value_warning_lo = $template['thold_warning_low'];
 					$value_warning_trig = $template['thold_warning_fail_trigger'];
 					$value_warning_duration = '';
 					break;
 				case 1:					# baseline
 					$value_hi = $template['bl_pct_up'] . '%';
-					$value_lo= $template['bl_pct_down'] . '%';
+					$value_lo = $template['bl_pct_down'] . '%';
 					$value_trig = $template['bl_fail_trigger'];
 					$value_duration = '';
 					break;
 				case 2:					#time
 					$value_hi = $template['time_hi'];
-					$value_lo= $template['time_low'];
+					$value_lo = $template['time_low'];
 					$value_trig = $template['time_fail_trigger'];
 					$value_duration = $template['time_fail_length'];
 					break;

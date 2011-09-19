@@ -263,6 +263,19 @@ function tholds() {
 		unset($_REQUEST["triggered"]);
 		unset($_REQUEST["sort_column"]);
 		unset($_REQUEST["sort_direction"]);
+	} else {
+		/* if any of the settings changed, reset the page number */
+		$changed = 0;
+		$changed += thold_request_check_changed('filter', 'sess_thold_filter');
+		$changed += thold_request_check_changed('data_template_id', 'sess_thold_data_template_id');
+		$changed += thold_request_check_changed('host_id', 'sess_thold_log_host_id');
+		$changed += thold_request_check_changed('rows', 'sess_thold_log_rows');
+		$changed += thold_request_check_changed('triggered', 'sess_thold_log_triggered');
+		$changed += thold_request_check_changed('sort_column', 'sess_thold_log_sort_column');
+		$changed += thold_request_check_changed('sort_direction', 'sess_thold_log_sort_direction');
+		if ($changed) {
+			$_REQUEST['page'] = '1';
+		}
 	}
 
 	/* remember these search fields in session vars so we don't have to keep passing them around */
@@ -272,8 +285,8 @@ function tholds() {
 	load_current_session_value("data_template_id", "sess_thold_data_template_id", "-1");
 	load_current_session_value("host_id", "sess_thold_host_id", "-1");
 	load_current_session_value("rows", "sess_thold_rows", read_config_option("alert_num_rows"));
-	load_current_session_value("sort_column", "sess_thold_sort_column", "time");
-	load_current_session_value("sort_direction", "sess_thold_sort_direction", "DESC");
+	load_current_session_value("sort_column", "sess_thold_sort_column", "name");
+	load_current_session_value("sort_direction", "sess_thold_sort_direction", "ASC");
 
 	/* if the number of rows is -1, set it to the default */
 	if ($_REQUEST["rows"] == -1) {
@@ -482,7 +495,7 @@ function tholds() {
 			print "<td width='120'>" . $types[$row['thold_type']] . "</td>";
 			switch($row['thold_type']) {
 				case 0:
-					print "<td width='80'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i></td";
+					print "<td width='80'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i></td>";
 					print "<td width='80'>N/A</td>";
 					break;
 				case 1:
@@ -604,6 +617,18 @@ function hosts() {
 		unset($_REQUEST["rows"]);
 		unset($_REQUEST["sort_column"]);
 		unset($_REQUEST["sort_direction"]);
+	} else {
+		/* if any of the settings changed, reset the page number */
+		$changed = 0;
+		$changed += thold_request_check_changed('filter', 'sess_thold_host_filter');
+		$changed += thold_request_check_changed('host_template_id', 'sess_thold_host_template_id');
+		$changed += thold_request_check_changed('host_status', 'sess_thold_host_status');
+		$changed += thold_request_check_changed('rows', 'sess_thold_host_rows');
+		$changed += thold_request_check_changed('sort_column', 'sess_thold_log_sort_column');
+		$changed += thold_request_check_changed('sort_direction', 'sess_thold_log_sort_direction');
+		if ($changed) {
+			$_REQUEST['page'] = '1';
+		}
 	}
 
 	if ((!empty($_SESSION["sess_thold_host_status"])) && (!empty($_REQUEST["host_status"]))) {
@@ -982,6 +1007,19 @@ function thold_show_log() {
 		unset($_REQUEST["rows"]);
 		unset($_REQUEST["sort_column"]);
 		unset($_REQUEST["sort_direction"]);
+	} else {
+		/* if any of the settings changed, reset the page number */
+		$changed = 0;
+		$changed += thold_request_check_changed('filter', 'sess_thold_log_filter');
+		$changed += thold_request_check_changed('threshold_id', 'sess_thold_log_threshold_id');
+		$changed += thold_request_check_changed('host_id', 'sess_thold_log_host_id');
+		$changed += thold_request_check_changed('status', 'sess_thold_log_status');
+		$changed += thold_request_check_changed('rows', 'sess_thold_log_rows');
+		$changed += thold_request_check_changed('sort_column', 'sess_thold_log_sort_column');
+		$changed += thold_request_check_changed('sort_direction', 'sess_thold_log_sort_direction');
+		if ($changed) {
+			$_REQUEST['page'] = '1';
+		}
 	}
 
 	/* remember these search fields in session vars so we don't have to keep passing them around */
@@ -1092,13 +1130,13 @@ function thold_show_log() {
 					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
 						<tr>
 							<td align='left' class='textHeaderDark'>
-								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]-1)) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?tab=log&page=" . ($_REQUEST["page"]-1)) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
 							</td>\n
 							<td align='center' class='textHeaderDark'>
 								Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
 							</td>\n
 							<td align='right' class='textHeaderDark'>
-								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?filter=" . $_REQUEST["filter"] . "&host_template_id=" . $_REQUEST["host_template_id"] . "&host_status=" . $_REQUEST["host_status"] . "&page=" . ($_REQUEST["page"]+1)) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_graph.php?tab=log&page=" . ($_REQUEST["page"]+1)) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
 							</td>\n
 						</tr>
 					</table>
@@ -1140,11 +1178,11 @@ function thold_show_log() {
 			<td style='white-space:nowrap;'><?php print $l["hdescription"];?></td>
 			<td style='white-space:nowrap;'><?php print $l["name"];?></td>
 			<td style='white-space:nowrap;'><?php print date("Y-m-d H:i:s", $l["time"]);?></td>
-			<td><?php print ($l["threshold_value"] != '' ? format_number($l["threshold_value"]):'-');?></td>
-			<td><?php print format_number($l["current"]);?></td>
+			<td><?php print ($l["threshold_value"] != '' ? format_number($l["threshold_value"]):'N/A');?></td>
+			<td><?php print ($l["current"] != '' ? format_number($l["current"]):'N/A');?></td>
 			<td><?php print ucfirst($thold_status[$l["status"]]);?></td>
 			<td><?php print $types[$l["type"]];?></td>
-			<td style='white-space:nowrap;'><?php print $l["description"];?></td>
+			<td style='white-space:nowrap;'><?php print (strlen($l["description"]) ? $l["description"]:"Restoral Event");?></td>
 			<?php
 
 			form_end_row();

@@ -1028,7 +1028,6 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	/* Pull a few default settings */
 	$global_alert_address = read_config_option('alert_email');
 	$global_notify_enabled = (read_config_option('alert_notify_default') == 'on');
-	$global_bl_notify_enabled = (read_config_option('alert_notify_bl') == 'on');
 	$logset = (read_config_option('alert_syslog') == 'on');
 	$deadnotify = (read_config_option('alert_deadnotify') == 'on');
 	$realert = read_config_option('alert_repeat');
@@ -1128,10 +1127,15 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 	switch ($item['thold_type']) {
 	case 0:	// HI/Low
-		$breach_up = ($item['thold_hi'] != '' && $currentval > $item['thold_hi']);
-		$breach_down = ($item['thold_low'] != '' && $currentval < $item['thold_low']);
-		$warning_breach_up = ($item['thold_warning_hi'] != '' && $currentval > $item['thold_warning_hi']);
-		$warning_breach_down = ($item['thold_warning_low'] != '' && $currentval < $item['thold_warning_low']);
+		if ($currentval != '') {
+			$breach_up = ($item['thold_hi'] != '' && $currentval > $item['thold_hi']);
+			$breach_down = ($item['thold_low'] != '' && $currentval < $item['thold_low']);
+			$warning_breach_up = ($item['thold_warning_hi'] != '' && $currentval > $item['thold_warning_hi']);
+			$warning_breach_down = ($item['thold_warning_low'] != '' && $currentval < $item['thold_warning_low']);
+		} else {
+			$breach_up = $breach_down = $warning_breach_up = $warning_breach_down = false;
+		}
+
 		if ($breach_up || $breach_down) {
 			thold_debug('Threshold HI / Low check breached HI:' . $item['thold_hi'] . '  LOW:' . $item['thold_low'] . ' VALUE:' . $currentval);
 
@@ -1370,7 +1374,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		case 0:		// All clear
 			thold_debug('Threshold Baseline check is normal');
 
-			if ($global_bl_notify_enabled && $item['bl_fail_count'] >= $bl_fail_trigger && $item['restored_alert'] != 'on') {
+			if ($item['bl_fail_count'] >= $bl_fail_trigger && $item['restored_alert'] != 'on') {
 				thold_debug('Threshold Baseline check returned to normal');
 
 				if ($logset == 1) {
@@ -1421,7 +1425,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 			// Re-Alert?
 			$ra = ($item['bl_fail_count'] > $bl_fail_trigger && ($item['bl_fail_count'] % ($item['repeat_alert'] == '' ? $realert : $item['repeat_alert'])) == 0);
 
-			if ($global_bl_notify_enabled && ($item['bl_fail_count'] ==  $bl_fail_trigger || $ra)) {
+			if (($item['bl_fail_count'] ==  $bl_fail_trigger || $ra)) {
 				thold_debug('Alerting is necessary');
 
 				$subject = "ALERT: " . $desc . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . " calculated baseline threshold " . ($breach_up ? $item['thold_hi'] : $item['thold_low']) . " with $currentval";
@@ -1765,6 +1769,113 @@ function thold_format_name($template, $local_graph_id, $local_data_id, $data_sou
 	}
 
 	return $name;
+}
+
+function get_reference_types($rra = 0, $step = 300) {
+	if ($step == 60) {
+		$timearray = array(
+			1 => '1 Minute', 
+			2 => '2 Minutes', 
+			3 => '3 Minutes', 
+			4 => '4 Minutes', 
+			5 => '5 Minutes', 
+			6 => '6 Minutes', 
+			7 => '7 Minutes', 
+			8 => '8 Minutes', 
+			9 => '9 Minutes', 
+			10 => '10 Minutes', 
+			12 => '12 Minutes', 
+			15 => '15 Minutes', 
+			20 => '20 Minutes', 
+			24 => '24 Minutes', 
+			30 => '30 Minutes', 
+			45 => '45 Minutes', 
+			60 => '1 Hour', 
+			120 => '2 Hours', 
+			180 => '3 Hours', 
+			240 => '4 Hours', 
+			288 => '4.8 Hours', 
+			360 => '6 Hours', 
+			480 => '8 Hours', 
+			720 => '12 Hours', 
+			1440 => '1 Day', 
+			2880 => '2 Days', 
+			10080 => '1 Week', 
+			20160 => '2 Weeks', 
+			43200 => '1 Month'
+		);
+	} else if ($step == 300) {
+		$timearray = array(
+			1 => '5 Minutes', 
+			2 => '10 Minutes', 
+			3 => '15 Minutes', 
+			4 => '20 Minutes', 
+			6 => '30 Minutes', 
+			8 => '45 Minutes', 
+			12 => 'Hour', 
+			24 => '2 Hours', 
+			36 => '3 Hours', 
+			48 => '4 Hours', 
+			72 => '6 Hours', 
+			96 => '8 Hours', 
+			144 => '12 Hours', 
+			288 => '1 Day', 
+			576 => '2 Days', 
+			2016 => '1 Week', 
+			4032 => '2 Weeks', 
+			8640 => '1 Month'
+		);
+	} else {
+		$timearray = array(
+			1 => '1 Polling', 
+			2 => '2 Pollings', 
+			3 => '3 Pollings', 
+			4 => '4 Pollings', 
+			5 => '5 Pollings', 
+			6 => '6 Pollings', 
+			8 => '8 Pollings', 
+			12 => '12 Pollings', 
+			24 => '24 Pollings', 
+			36 => '36 Pollings', 
+			48 => '48 Pollings', 
+			72 => '72 Pollings', 
+			96 => '96 Pollings', 
+			144 => '144 Pollings', 
+			288 => '288 Pollings', 
+			576 => '576 Pollings', 
+			2016 => '2016 Pollings'
+		);
+	}
+
+	$rra_steps = db_fetch_assoc("SELECT DISTINCT rra.steps 
+		FROM data_template_data d 
+		JOIN data_template_data_rra a
+		ON d.id=a.data_template_data_id 
+		JOIN rra 
+		ON a.rra_id=rra.id
+		WHERE rra.steps>1 " . 
+		($rra > 0 ? "AND d.local_data_id=$rra":"") . "
+		ORDER BY steps");
+
+	$reference_types = array();
+	if (sizeof($rra_steps)) {
+	foreach($rra_steps as $rra_step) {
+		$seconds = $step * $rra_step['steps'];
+		if (isset($timearray[$rra_step['steps']])) {
+			$reference_types[$seconds] = $timearray[$rra_step['steps']] . " Average" ;
+		}
+	}
+	}
+
+	return $reference_types;
+}
+
+function thold_request_check_changed($request, $session) {
+	if ((isset($_REQUEST[$request])) && (isset($_SESSION[$session]))) {
+		if ($_REQUEST[$request] != $_SESSION[$session]) {
+			return 1;
+		}
+	}
 }
 
 function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct, $urlbreach) {

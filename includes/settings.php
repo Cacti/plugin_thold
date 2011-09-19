@@ -73,10 +73,11 @@ function thold_config_arrays () {
 }
 
 function thold_config_settings () {
-	global $tabs, $settings, $config;
+	global $tabs, $settings, $item_rows, $config;
 
-	if (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF']) != 'settings.php')
-		return;
+	if (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF']) != 'settings.php') return;
+
+	include_once("./plugins/thold/thold_functions.php");
 
 	define_syslog_variables();
 
@@ -100,6 +101,13 @@ function thold_config_settings () {
 			'method' => 'checkbox',
 			'default' => 'off'
 			),
+		'thold_filter_default' => array(
+			'friendly_name' => 'Default Status',
+			'description' => 'Default Threshold Filter Status',
+			'method' => 'drop_array',
+			'array' => array("-1" => "Any", "0" => "Disabled", "2" => "Enabled", "1" => "Breached", "3" => "Triggered"),
+			'default' => 20 
+			),
 		'alert_base_url' => array(
 			'friendly_name' => 'Base URL',
 			'description' => 'Cacti base URL',
@@ -109,12 +117,11 @@ function thold_config_settings () {
 			'max_length' => 255,
 			),
 		'alert_num_rows' => array(
-			'friendly_name' => 'Thresholds per page',
+			'friendly_name' => 'Thresholds Per Page',
 			'description' => 'Number of thresholds to display per page',
-			'method' => 'textbox',
-			'size' => 4,
-			'max_length' => 4,
-			'default' => 30
+			'method' => 'drop_array',
+			'array' => $item_rows,
+			'default' => 20 
 			),
 		'thold_log_cacti' => array(
 			'friendly_name' => 'Log Threshold Breaches',
@@ -192,12 +199,14 @@ function thold_config_settings () {
 			'friendly_name' => 'Dead Host Notifications Email',
 			'description' => 'This is the email address that the dead host notifications will be sent to.',
 			'method' => 'textbox',
+			'size' => 80,
 			'max_length' => 255,
 			),
 		'thold_down_subject' => array(
 			'friendly_name' => 'Down Host Subject',
 			'description' => 'This is the email subject that will be used for Down Host Messages.',
 			'method' => 'textbox',
+			'size' => 80,
 			'max_length' => 255,
 			'default' => 'Host Error: <DESCRIPTION> (<HOSTNAME>) is DOWN',
 			),
@@ -205,6 +214,7 @@ function thold_config_settings () {
 			'friendly_name' => 'Down Host Message',
 			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060CUR_TIME&#062 &#060AVR_TIME&#062 &#060NOTES&#062',
 			'method' => 'textarea',
+			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
 			'default' => 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIME> (<UPTIMETEXT>)<br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>',
@@ -213,6 +223,7 @@ function thold_config_settings () {
 			'friendly_name' => 'Recovering Host Subject',
 			'description' => 'This is the email subject that will be used for Recovering Host Messages.',
 			'method' => 'textbox',
+			'size' => 80,
 			'max_length' => 255,
 			'default' => 'Host Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state',
 			),
@@ -220,6 +231,7 @@ function thold_config_settings () {
 			'friendly_name' => 'Recovering Host Message',
 			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060CUR_TIME&#062 &#060AVR_TIME&#062 &#060NOTES&#062',
 			'method' => 'textarea',
+			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
 			'default' => 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIME> (<UPTIMETEXT>)<br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>',
@@ -228,18 +240,21 @@ function thold_config_settings () {
 			'friendly_name' => 'From Email Address',
 			'description' => 'This is the email address that the threshold will appear from.',
 			'method' => 'textbox',
+			'default' => read_config_option("settings_from_email"),
 			'max_length' => 255,
 			),
 		'thold_from_name' => array(
 			'friendly_name' => 'From Name',
 			'description' => 'This is the actual name that the threshold will appear from.',
 			'method' => 'textbox',
+			'default' => read_config_option("settings_from_name"),
 			'max_length' => 255,
 			),
 		'thold_alert_text' => array(
 			'friendly_name' => 'Threshold Alert Message',
 			'description' => 'This is the message that will be displayed at the top of all threshold alerts (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
 			'method' => 'textarea',
+			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
 			'default' => 'An alert has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
@@ -248,6 +263,7 @@ function thold_config_settings () {
 			'friendly_name' => 'Threshold Warning Message',
 			'description' => 'This is the message that will be displayed at the top of all threshold warnings (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
 			'method' => 'textarea',
+			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
 			'default' => 'A warning has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
@@ -259,46 +275,33 @@ function thold_config_settings () {
 			'default' => 'off'
 			),
 		'thold_baseline_header' => array(
-			'friendly_name' => 'Default Baseline Options',
+			'friendly_name' => 'Default Baseline Settings',
 			'method' => 'spacer',
 			),
-		'alert_notify_bl' => array(
-			'friendly_name' => 'Baseline notifications',
-			'description' => 'Enable sending alert for baseline notifications',
-			'method' => 'checkbox',
-			'default' => 'on'
+		'alert_bl_timerange_def' => array(
+			'friendly_name' => 'Baseline Time Range Default',
+			'description' => 'This is the default value used in creating thresholds or templates.',
+			'method' => 'drop_array',
+			'array' => get_reference_types(),
+			'size' => 12,
+			'max_length' => 12,
+			'default' => 86400
 			),
 		'alert_bl_trigger' => array(
-			'friendly_name' => 'Default Baseline Trigger Count',
+			'friendly_name' => 'Baseline Trigger Count',
 			'description' => 'Number of consecutive times the data source must be in breach of the calculated baseline threshold for an alert to be raised',
 			'method' => 'textbox',
 			'size' => 4,
 			'max_length' => 4,
 			'default' => 2
 			),
-		'alert_bl_past_default' => array(
-			'friendly_name' => 'Baseline reference in the past default',
-			'description' => 'This is the default value used in creating thresholds or templates.',
-			'method' => 'textbox',
-			'size' => 12,
-			'max_length' => 12,
-			'default' => 86400
-			),
-		'alert_bl_timerange_def' => array(
-				'friendly_name' => 'Baseline time range default',
-			'description' => 'This is the default value used in creating thresholds or templates.',
-			'method' => 'textbox',
-			'size' => 12,
-			'max_length' => 12,
-			'default' => 10800
-			),
 		'alert_bl_percent_def' => array(
-			'friendly_name' => 'Baseline deviation percentage',
+			'friendly_name' => 'Baseline Deviation Percentage',
 			'description' => 'This is the default value used in creating thresholds or templates.',
 			'method' => 'textbox',
 			'size' => 3,
 			'max_length' => 3,
-			'default' => 15
+			'default' => 20
 			)
 		);
 }

@@ -321,7 +321,7 @@ $thold_types = array (
 	0 => 'High / Low Values',
 	1 => 'Baseline Deviation',
 	2 => 'Time Based',
-	);
+);
 
 $data_types = array (
 	0 => 'Exact Value',
@@ -332,28 +332,21 @@ $data_types = array (
 
 $data_fields = array();
 
-$rra_steps = db_fetch_assoc(
-	"select rra.steps from data_template_data d join data_template_data_rra a 
-	on d.id = a.data_template_data_id join rra on a.rra_id = rra.id 
-	where rra.steps > 1 and d.local_data_id = $rra order by steps");
-
-$reference_types = array();
-foreach($rra_steps as $rra_step) {
-	$seconds = $step * $rra_step['steps'];
-	if (isset($timearray[$rra_step['steps']])) {
-		$reference_types[$seconds] = $timearray[$rra_step['steps']] . " Average" ;
-	}
-}
+$reference_types = get_reference_types($rra, $step, $timearray);
 
 if (isset($thold_item_data['data_template_id'])) {
-	$temp = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where local_data_id = ' . $thold_item_data['rra_id']);
+	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, data_input_field_id 
+		FROM data_template_rrd 
+		WHERE local_data_id=' . $thold_item_data['rra_id']);
 } else {
-	$temp = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where local_data_id = ' . $rra);
+	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, data_input_field_id 
+		FROM data_template_rrd 
+		WHERE local_data_id=' . $rra);
 }
 
 foreach ($temp as $d) {
 	if ($d['data_input_field_id'] != 0) {
-		$temp2 = db_fetch_assoc('select name from data_input_fields where id = ' . $d['data_input_field_id']);
+		$temp2 = db_fetch_assoc('SELECT name FROM data_input_fields WHERE id=' . $d['data_input_field_id']);
 	} else {
 		$temp2[0]['name'] = $d['data_source_name'];
 	}
@@ -540,13 +533,6 @@ $form_array = array(
 			'friendly_name' => 'Baseline Settings',
 			'method' => 'spacer',
 		),
-		'bl_enabled' => array(
-			'friendly_name' => 'Baseline Monitoring',
-			'method' => 'checkbox',
-			'default' => 'off',
-			'description' => 'When enabled, Baseline Monitoring checks the current data source value against a value in the past and will alert based upon a percent deviation.',
-			'value' => isset($thold_item_data['bl_enabled']) ? $thold_item_data['bl_enabled'] : ''
-		),
 		'bl_ref_time_range' => array(
 			'friendly_name' => 'Time range',
 			'method' => 'drop_array',
@@ -561,7 +547,8 @@ $form_array = array(
 			'max_length' => 3,
 			'size' => 3,
 			'description' => 'Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.',
-			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : ''
+			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : '',
+			'default' => read_config_option("alert_bl_percent_def")
 		),
 		'bl_pct_down' => array(
 			'friendly_name' => 'Baseline Deviation DOWN',
@@ -569,7 +556,8 @@ $form_array = array(
 			'max_length' => 3,
 			'size' => 3,
 			'description' => 'Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.',
-			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : ''
+			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : '',
+			'default' => read_config_option("alert_bl_percent_def")
 		),
 		'bl_fail_trigger' => array(
 			'friendly_name' => 'Baseline Trigger Count',
@@ -578,7 +566,8 @@ $form_array = array(
 			'size' => 3,
 			'default' => read_config_option('alert_bl_trigger'),
 			'description' => 'Number of consecutive times the data source must be in breach of the baseline threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: ' . read_config_option('alert_bl_trigger') . ' cycles</b>)',
-			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : ''
+			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : '',
+			'default' => read_config_option("alert_bl_trigger")
 		),
 		'data_manipulation' => array(
 			'friendly_name' => 'Data Manipulation',

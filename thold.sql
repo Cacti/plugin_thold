@@ -160,7 +160,6 @@ CREATE TABLE `plugin_thold_log` (
 REPLACE INTO user_auth_realm VALUES (18, 1);
 REPLACE INTO user_auth_realm VALUES (19, 1);
 
-REPLACE INTO settings VALUES ('alert_bl_past_default',86400);
-REPLACE INTO settings VALUES ('alert_bl_timerange_def',10800);
+REPLACE INTO settings VALUES ('alert_bl_timerange_def',86400);
 REPLACE INTO settings VALUES ('alert_bl_percent_def',20);
 REPLACE INTO settings VALUES ('alert_bl_trigger',3);
