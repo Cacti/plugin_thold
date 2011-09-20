@@ -300,8 +300,18 @@ function list_tholds() {
 
 	define('MAX_DISPLAY_PAGES', 21);
 
-	$total_rows = count(db_fetch_assoc("SELECT thold_data.id FROM thold_data
-		LEFT JOIN user_auth_perms on ((thold_data.graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.host_id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") OR (thold_data.graph_template=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
+	$total_rows = count(db_fetch_assoc("SELECT thold_data.id 
+		FROM thold_data
+		LEFT JOIN user_auth_perms 
+		ON ((thold_data.graph_id=user_auth_perms.item_id 
+		AND user_auth_perms.type=1 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
+		OR (thold_data.host_id=user_auth_perms.item_id 
+		AND user_auth_perms.type=3 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
+		OR (thold_data.graph_template=user_auth_perms.item_id 
+		AND user_auth_perms.type=4 
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
 		$sql_where"));
 
 	$url_page_select = get_page_list($_REQUEST['page'], MAX_DISPLAY_PAGES, $alert_num_rows, $total_rows, 'listthold.php?');
@@ -359,7 +369,25 @@ function list_tholds() {
 
 	html_header_sort_checkbox($display_text, $_REQUEST['sort_column'], $_REQUEST['sort_direction'], false);
 
-	$timearray   = array(1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => 'Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
+	$timearray = array(
+		1 => '5 Minutes', 
+		2 => '10 Minutes', 
+		3 => '15 Minutes', 
+		4 => '20 Minutes', 
+		6 => '30 Minutes', 
+		8 => '45 Minutes', 
+		12 => 'Hour', 
+		24 => '2 Hours', 
+		36 => '3 Hours', 
+		48 => '4 Hours', 
+		72 => '6 Hours', 
+		96 => '8 Hours', 
+		144 => '12 Hours', 
+		288 => '1 Day', 
+		576 => '2 Days', 
+		2016 => '1 Week', 
+		4032 => '2 Weeks', 
+		8640 => '1 Month');
 
 	$c=0;
 	$i=0;

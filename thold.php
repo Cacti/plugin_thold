@@ -221,7 +221,7 @@ if (!empty($_GET["view_rrd"])) {
 $i = 0;
 $ds = 0;
 if (isset($template_data_rrds)) {
-	if (sizeof($template_data_rrds) > 1) {
+	if (sizeof($template_data_rrds)) {
 		/* draw the data source tabs on the top of the page */
 		print "	<table class='tabs' width='100%' cellspacing='0' cellpadding='3' align='center'>
 		<tr>\n";
@@ -270,10 +270,12 @@ if (isset($template_data_rrds)) {
 //----------------------
 // Data Source Item Form
 //----------------------
-$thold_item_data = db_fetch_assoc("select * from thold_data where data_id = " . $_GET["view_rrd"]);
+$thold_item_data = db_fetch_assoc("SELECT * 
+	FROM thold_data 
+	WHERE data_id = " . $_GET["view_rrd"]);
+
 $thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_item_data;
 $thold_item_data_cdef = (isset($thold_item_data['cdef']) ? $thold_item_data['cdef'] : 0);
-
 
 html_start_box("", "100%", $colors["header"], "3", "center", "");
 //------------------------
@@ -288,7 +290,13 @@ print "	<tr>
 
 $send_notification_array = array();
 
-$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data, plugin_thold_contacts.type, user_auth.full_name FROM plugin_thold_contacts, user_auth WHERE user_auth.id = plugin_thold_contacts.user_id AND plugin_thold_contacts.data != '' ORDER BY user_auth.full_name ASC, plugin_thold_contacts.type ASC");
+$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data, 
+	plugin_thold_contacts.type, user_auth.full_name 
+	FROM plugin_thold_contacts, user_auth 
+	WHERE user_auth.id=plugin_thold_contacts.user_id 
+	AND plugin_thold_contacts.data!='' 
+	ORDER BY user_auth.full_name ASC, plugin_thold_contacts.type ASC");
+
 if (!empty($users)) {
 	foreach ($users as $user) {
 		$send_notification_array[$user['id']] = $user['full_name'] . ' - ' . ucfirst($user['type']);
@@ -296,10 +304,10 @@ if (!empty($users)) {
 }
 
 if (isset($thold_item_data['id'])) {
-	$sql = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=' . $thold_item_data['id'];
+	$sql  = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=' . $thold_item_data['id'];
 	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $thold_item_data['rra_id'], FALSE);
 } else {
-	$sql = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=0';
+	$sql  = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=0';
 	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $rra, FALSE);
 }
 
