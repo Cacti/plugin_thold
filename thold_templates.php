@@ -742,7 +742,7 @@ function template_edit() {
 			'default' => '',
 			'description' => 'An RPN Expression that assumes that the selected Data Source is already in the
 			RPN stack.  This RPN expression can include any additional Data Sources names in the current
-			RRDfile.  However, in all cases the selected Data Source is loaded on the stack first.',
+			RRDfile.  However, in all cases the selected Data Source is loaded on the stack first.<br>Math Operators: <span style="color:blue;">+, -, /, *, %, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>',
 			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',
 			'max_length' => '255',
 			'size' => '80'
