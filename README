@@ -39,6 +39,7 @@
 		Fix several GUI and polling issues
 		Don't alarm on blank data output
 		Remove old ununsed variables
+		Fix thold messages on restorals
 
 	--- 0.4.4 ---
 		Fix emailing of alerts when PHP-GD is not available

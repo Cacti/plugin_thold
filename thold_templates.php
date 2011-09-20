@@ -28,7 +28,7 @@ chdir('../../');
 include_once('./include/auth.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-$ds_actions = array(
+$thold_actions = array(
 	1 => 'Delete'
 	);
 
@@ -887,7 +887,7 @@ function template_edit() {
 }
 
 function templates() {
-	global $colors, $ds_actions;
+	global $colors, $thold_actions;
 
 	html_start_box('<strong>Threshold Templates</strong>', '100%', $colors['header'], '3', 'center', 'thold_templates.php?action=add');
 
@@ -898,17 +898,17 @@ function templates() {
 		ORDER BY data_template_name');
 
 	$i = 0;
-	$types = array('High/Low', 'Baseline', 'Time Based');
+	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 	if (sizeof($template_list)) {
 		foreach ($template_list as $template) {
 			switch ($template['thold_type']) {
 				case 0:					# hi/lo
-					$value_hi = $template['thold_hi'];
-					$value_lo = $template['thold_low'];
+					$value_hi = format_number($template['thold_hi']);
+					$value_lo = format_number($template['thold_low']);
 					$value_trig = $template['thold_fail_trigger'];
 					$value_duration = '';
-					$value_warning_hi = $template['thold_warning_hi'];
-					$value_warning_lo = $template['thold_warning_low'];
+					$value_warning_hi = format_number($template['thold_warning_hi']);
+					$value_warning_lo = format_number($template['thold_warning_low']);
 					$value_warning_trig = $template['thold_warning_fail_trigger'];
 					$value_warning_duration = '';
 					break;
@@ -916,11 +916,15 @@ function templates() {
 					$value_hi = $template['bl_pct_up'] . '%';
 					$value_lo = $template['bl_pct_down'] . '%';
 					$value_trig = $template['bl_fail_trigger'];
-					$value_duration = '';
+					$step = db_fetch_cell("SELECT rrd_step 
+						FROM data_template_data 
+						WHERE data_template_id=" . $template['data_template_id'] . "
+						LIMIT 1");
+					$value_duration = $template['bl_ref_time_range'] / $step;;
 					break;
 				case 2:					#time
-					$value_hi = $template['time_hi'];
-					$value_lo = $template['time_low'];
+					$value_hi = format_number($template['time_hi']);
+					$value_lo = format_number($template['time_low']);
 					$value_trig = $template['time_fail_trigger'];
 					$value_duration = $template['time_fail_length'];
 					break;
@@ -939,12 +943,12 @@ function templates() {
 			form_end_row();
 		}
 	} else {
-		print "<tr><td><em>No Data Templates</em></td></tr>\n";
+		print "<tr><td><em>No Threshold Templates</em></td></tr>\n";
 	}
 	html_end_box(false);
 
 	/* draw the dropdown containing a list of available actions for this form */
-	draw_actions_dropdown($ds_actions);
+	draw_actions_dropdown($thold_actions);
 
 	print "</form>\n";
 }

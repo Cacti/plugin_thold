@@ -711,7 +711,8 @@ function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_
 		return '';
 	}
 
-	$step = db_fetch_cell("SELECT rrd_step FROM data_template_data WHERE $field = $rra");
+	$step = db_fetch_cell("SELECT rrd_step FROM data_template_data WHERE $field=$rra");
+
 	if ($step == 60) {
 		$repeatarray = array(0 => 'Never', 1 => 'Every Minute', 2 => 'Every 2 Minutes', 3 => 'Every 3 Minutes', 4 => 'Every 4 Minutes', 5 => 'Every 5 Minutes', 10 => 'Every 10 Minutes', 15 => 'Every 15 Minutes', 20 => 'Every 20 Minutes', 30 => 'Every 30 Minutes', 45 => 'Every 45 Minutes', 60 => 'Every Hour', 120 => 'Every 2 Hours', 180 => 'Every 3 Hours', 240 => 'Every 4 Hours', 360 => 'Every 6 Hours', 480 => 'Every 8 Hours', 720 => 'Every 12 Hours', 1440 => 'Every Day', 2880 => 'Every 2 Days', 10080 => 'Every Week', 20160 => 'Every 2 Weeks', 43200 => 'Every Month');
 		$alertarray  = array(0 => 'Never', 1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 10 => '10 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
@@ -1716,7 +1717,9 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 }
 
 function format_number($value, $digits=2) {
-	if (strlen(round($value,0)) == strlen($value)) {
+	if ($value == '') {
+		return '-';
+	}elseif (strlen(round($value,0)) == strlen($value)) {
 		return $value;
 	}else{
 		return number_format($value, $digits);
