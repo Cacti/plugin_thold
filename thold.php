@@ -547,8 +547,7 @@ $form_array = array(
 			'max_length' => 3,
 			'size' => 3,
 			'description' => 'Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.',
-			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : '',
-			'default' => read_config_option("alert_bl_percent_def")
+			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : ''
 		),
 		'bl_pct_down' => array(
 			'friendly_name' => 'Baseline Deviation DOWN',
@@ -556,8 +555,7 @@ $form_array = array(
 			'max_length' => 3,
 			'size' => 3,
 			'description' => 'Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.',
-			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : '',
-			'default' => read_config_option("alert_bl_percent_def")
+			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : ''
 		),
 		'bl_fail_trigger' => array(
 			'friendly_name' => 'Baseline Trigger Count',
