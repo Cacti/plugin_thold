@@ -281,7 +281,7 @@ function tholds() {
 	/* remember these search fields in session vars so we don't have to keep passing them around */
 	load_current_session_value("page", "sess_thold_current_page", "1");
 	load_current_session_value("filter", "sess_thold_filter", "");
-	load_current_session_value("triggered", "sess_thold_triggered", "1");
+	load_current_session_value("triggered", "sess_thold_triggered", read_config_option("thold_filter_default"));
 	load_current_session_value("data_template_id", "sess_thold_data_template_id", "-1");
 	load_current_session_value("host_id", "sess_thold_host_id", "-1");
 	load_current_session_value("rows", "sess_thold_rows", read_config_option("alert_num_rows"));
@@ -487,7 +487,7 @@ function tholds() {
 				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] . '&action=enable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" border="0" alt="" title="Enable Threshold"></a>';
 			}
 			print "<a href='". htmlspecialchars($config['url_path'] . "graph.php?local_graph_id=" . $row['graph_id'] . "&rra_id=all") . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graph'></a>";
-			print "<a href='". htmlspecialchars($config['url_path'] . "plugins/thold/thold_graph.php?tab=log&threshold_id=" . $row["id"]) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
+			print "<a href='". htmlspecialchars($config['url_path'] . "plugins/thold/thold_graph.php?tab=log&threshold_id=" . $row["id"]) . "&status=-1'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
 
 			print "</td>";
 			print "<td>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
@@ -1027,7 +1027,7 @@ function thold_show_log() {
 	load_current_session_value("filter", "sess_thold_log_filter", "");
 	load_current_session_value("threshold_id", "sess_thold_log_threshold_id", "-1");
 	load_current_session_value("host_id", "sess_thold_log_host_id", "-1");
-	load_current_session_value("status", "sess_thold_log_status", "-4");
+	load_current_session_value("status", "sess_thold_log_status", "-1");
 	load_current_session_value("rows", "sess_thold_log_rows", read_config_option("num_rows_device"));
 	load_current_session_value("sort_column", "sess_thold_log_sort_column", "description");
 	load_current_session_value("sort_direction", "sess_thold_log_sort_direction", "ASC");
@@ -1260,12 +1260,12 @@ function form_thold_log_filter() {
 					<td width='1'>
 						<select name='status' onChange='filterChange(document.form_thold_log)'>
 							<option value='-1'<?php if ($_REQUEST["status"] == "-1") {?> selected<?php }?>>All</option>
-							<option value='0'<?php if ($_REQUEST["status"] == "0") {?> selected<?php }?>>Restorals</option>
-							<option value='1'<?php if ($_REQUEST["status"] == "1") {?> selected<?php }?>>Triggers</option>
-							<option value='2'<?php if ($_REQUEST["status"] == "2") {?> selected<?php }?>>Re-Triggers</option>
-							<option value='3'<?php if ($_REQUEST["status"] == "3") {?> selected<?php }?>>Notify - Warning</option>
 							<option value='4'<?php if ($_REQUEST["status"] == "4") {?> selected<?php }?>>Notify - Alarm</option>
+							<option value='3'<?php if ($_REQUEST["status"] == "3") {?> selected<?php }?>>Notify - Warning</option>
+							<option value='2'<?php if ($_REQUEST["status"] == "2") {?> selected<?php }?>>Notify - ReTriggers</option>
 							<option value='5'<?php if ($_REQUEST["status"] == "5") {?> selected<?php }?>>Notify - Restoral</option>
+							<option value='1'<?php if ($_REQUEST["status"] == "1") {?> selected<?php }?>>Triggers</option>
+							<option value='0'<?php if ($_REQUEST["status"] == "0") {?> selected<?php }?>>Restorals</option>
 						</select>
 					</td>
 					<td width='1'>

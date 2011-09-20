@@ -2584,9 +2584,7 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 			}
 		}
 		if ($fromname == '')
-			$fromname = 'Cacti';
-
-		$from = $Mailer->email_format($fromname, $from);
+			$fromname = 'Cacti'; $from = $Mailer->email_format($fromname, $from);
 		if ($Mailer->header_set('From', $from) === false) {
 			print 'ERROR: ' . $Mailer->error() . "\n";
 			return $Mailer->error();
@@ -2661,7 +2659,7 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	$v = thold_version();
 	$Mailer->header_set('X-Mailer', 'Cacti-Thold-v' . $v['version']);
 	$Mailer->header_set('User-Agent', 'Cacti-Thold-v' . $v['version']);
-	thold_debug('Sending email');
+	thold_debug("Sending email to '" . trim(implode(',',$to),',') . "'");
 	if ($Mailer->send($text) == false) {
 		print 'ERROR: ' . $Mailer->error() . "\n";
 		return $Mailer->error();
