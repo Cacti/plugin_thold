@@ -83,6 +83,20 @@ function do_thold() {
 				}
 			}
 			break;
+		case 4:	// Reapply Suggested Name
+			foreach ($tholds as $del => $rra) {
+				if (thold_user_auth_threshold ($rra)) {
+					$thold = db_fetch_row("SELECT * FROM thold_data WHERE id=$del");
+					/* check if thold templated */
+					if ($thold['template_enabled'] == "on") {
+						$template = db_fetch_row("SELECT * FROM thold_template WHERE id=" . $thold["template"]);
+						$name = thold_format_name($template, $thold["graph_id"], $thold["data_id"], $template['data_source_name']);
+						plugin_thold_log_changes($del, 'reapply_name', array('id' => $del));
+						db_execute("UPDATE thold_data SET name='$name' WHERE id=$del");
+					}
+				}
+			}
+			break;
 	}
 
 	if (isset($hostid) && $hostid != '')
@@ -164,7 +178,7 @@ function thold_request_validation() {
 function list_tholds() {
 	global $colors, $thold_bgcolors, $config, $hostid;
 
-	$ds_actions = array(1 => 'Delete', 2 => 'Disable', 3 => 'Enable');
+	$thold_actions = array(1 => 'Delete', 2 => 'Disable', 3 => 'Enable', 4 => 'Reapply Suggested Names');
 
 	thold_request_validation();
 
@@ -474,7 +488,7 @@ function list_tholds() {
 
 	thold_legend();
 
-	draw_actions_dropdown($ds_actions);
+	draw_actions_dropdown($thold_actions);
 
 	if (isset($hostid) && $hostid != '')
 		print "<input type=hidden name=hostid value=$hostid>";

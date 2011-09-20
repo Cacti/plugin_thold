@@ -335,7 +335,7 @@ function tholds() {
 	}
 
 	if (strlen($_REQUEST["filter"])) {
-		$sql_where .= (strlen($sql_where) ? " AND": "WHERE") . " thold_data.name like '%%" . $_REQUEST["filter"] . "%%'";
+		$sql_where .= (strlen($sql_where) ? " AND": "WHERE") . " thold_data.name LIKE '%%" . $_REQUEST["filter"] . "%%'";
 	}
 
 	/* data template id filter */
@@ -511,7 +511,7 @@ function tholds() {
 					print "<td width='80'>N/A</td>";
 			}
 
-			print "<td width='80'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . '% / ' . $row['bl_pct_down'] . '%': 'N/A') . "</td>";
+			print "<td width='80'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . ' / ' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): 'N/A') . "</td>";
 			print "<td width='50'>" . ($row['thold_type'] == 2 ? format_number($row['time_hi']) : format_number($row['thold_hi'])) . "</td>";
 			print "<td width='50'>" . ($row['thold_type'] == 2 ? format_number($row['time_low']) : format_number($row['thold_low'])) . "</td>";
 			print "<td width='80'>" . format_number($row['lastread']) . "</td>";
@@ -672,7 +672,7 @@ function hosts() {
 	html_end_box();
 
 	/* form the 'where' clause for our main sql query */
-	$sql_where = "where (host.hostname like '%%" . $_REQUEST["filter"] . "%%' OR host.description like '%%" . $_REQUEST["filter"] . "%%')";
+	$sql_where = "where (host.hostname LIKE '%%" . $_REQUEST["filter"] . "%%' OR host.description LIKE '%%" . $_REQUEST["filter"] . "%%')";
 
 	if ($_REQUEST["host_status"] == "-1") {
 		/* Show all items */

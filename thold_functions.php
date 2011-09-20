@@ -773,6 +773,14 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		$desc .= '  DataTemplate: ' . $tname;
 		$desc .= '  DataSource: ' . $ds;
 		break;
+	case 'reapply_name':
+		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id=' . $id, FALSE);
+		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template']);
+		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
+		$desc = "Reapply Threshold Name User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
+		$desc .= '  DataTemplate: ' . $tname;
+		$desc .= '  DataSource: ' . $ds;
+		break;
 	case 'enabled_host':
 		$host = db_fetch_row('SELECT * FROM host WHERE id = ' . $id);
 		$desc = "User: $user  Enabled Host[$id] - " . $host['description'] . ' (' . $host['hostname'] . ')';

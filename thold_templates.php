@@ -913,8 +913,8 @@ function templates() {
 					$value_warning_duration = '';
 					break;
 				case 1:					# baseline
-					$value_hi = $template['bl_pct_up'] . '%';
-					$value_lo = $template['bl_pct_down'] . '%';
+					$value_hi = $template['bl_pct_up'] . (strlen($template['bl_pct_up']) ? '%':'-');
+					$value_lo = $template['bl_pct_down'] . (strlen($template['bl_pct_down']) ? '%':'-');
 					$value_trig = $template['bl_fail_trigger'];
 					$step = db_fetch_cell("SELECT rrd_step 
 						FROM data_template_data 
