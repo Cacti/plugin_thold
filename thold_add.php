@@ -322,7 +322,7 @@ function thold_add_graphs_action_prepare($graph) {
 	}else{
 		if (strlen($not_found)) {
 			print "<p>There are no Threshold Templates associated with the following Graph</p>";
-			print "<p>" . $not_found . "</p>";
+			print "<ul>" . $not_found . "</ul>";
 		}
 
 		if (isset($_REQUEST["tree_id"])) {
