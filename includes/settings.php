@@ -82,7 +82,7 @@ function thold_config_form () {
 			$fields_host_edit3['thold_send_email'] = array(
 				'method' => 'checkbox',
 				'friendly_name' => 'Thold Email Host',
-				'description' => 'Check this box to send Email for Host/Up.',
+				'description' => 'Check this box to send Email for Host Up/Down events.',
 				'value' => '|arg1:thold_send_email|',
 				'default' => '',
 				'form_id' => false
@@ -137,7 +137,7 @@ function thold_config_settings () {
 			'description' => 'Default Threshold Filter Status',
 			'method' => 'drop_array',
 			'array' => array("-1" => "Any", "0" => "Disabled", "2" => "Enabled", "1" => "Breached", "3" => "Triggered"),
-			'default' => 20 
+			'default' => 20
 			),
 		'alert_base_url' => array(
 			'friendly_name' => 'Base URL',
@@ -152,7 +152,7 @@ function thold_config_settings () {
 			'description' => 'Number of thresholds to display per page',
 			'method' => 'drop_array',
 			'array' => $item_rows,
-			'default' => 20 
+			'default' => 20
 			),
 		'thold_log_cacti' => array(
 			'friendly_name' => 'Log Threshold Breaches',
@@ -227,8 +227,8 @@ function thold_config_settings () {
 			'default' => 'on'
 			),
 		'thold_email_prio' => array(
-			'friendly_name' => 'Set e-mail prio to 1',
-			'description' => 'Allows you to set e-mail priority to 1',
+			'friendly_name' => 'Send E-Mails with Urgent Priority',
+			'description' => 'Allows you to set e-mails with urgent priority',
 			'method' => 'checkbox',
 			'default' => 'off'
 			),
