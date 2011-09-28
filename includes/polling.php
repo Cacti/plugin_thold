@@ -256,7 +256,6 @@ function thold_update_host_status () {
 						$downtime_hours = floor(($downtime - ($downtime_days * 86400))/3600);
 						$downtime_minutes = floor(($downtime - ($downtime_days * 86400) - ($downtime_hours * 3600))/60);
 						$downtime_seconds = $downtime - ($downtime_days * 86400) - ($downtime_hours * 3600) - ($downtime_minutes * 60);
-						$msg = $msg . "<br><br>Host was down for ";
 						if ($downtime_days > 0 ) {
 							$downtimemsg = $downtime_days . "d " . $downtime_hours . "h " . $downtime_minutes . "m " . $downtime_seconds . "s ";
 						} elseif ($downtime_hours > 0 ) {
