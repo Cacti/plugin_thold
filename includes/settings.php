@@ -72,6 +72,37 @@ function thold_config_arrays () {
 	}
 }
 
+function thold_config_form () {
+	global $fields_host_edit;
+	$fields_host_edit2 = $fields_host_edit;
+	$fields_host_edit3 = array();
+	foreach ($fields_host_edit2 as $f => $a) {
+		$fields_host_edit3[$f] = $a;
+		if ($f == 'disabled') {
+			$fields_host_edit3['thold_send_email'] = array(
+				'method' => 'checkbox',
+				'friendly_name' => 'Thold Email Host',
+				'description' => 'Check this box to send Email for Host/Up.',
+				'value' => '|arg1:thold_send_email|',
+				'default' => '',
+				'form_id' => false
+			);
+			$fields_host_edit3['thold_host_email'] = array(
+				'friendly_name' => 'Additional Email address',
+				'description' => 'Additional Email address, separated by commas for multi Emails.',
+				'method' => 'textarea',
+				'class' => 'textAreaNotes',
+				'max_length' => 1000,
+				'textarea_rows' => 1,
+				'textarea_cols' => 30,
+				'value' => '|arg1:thold_host_email|',
+				'default' => '',
+			);
+		}
+	}
+	$fields_host_edit = $fields_host_edit3;
+}
+
 function thold_config_settings () {
 	global $tabs, $settings, $item_rows, $config;
 
@@ -195,6 +226,12 @@ function thold_config_settings () {
 			'method' => 'checkbox',
 			'default' => 'on'
 			),
+		'thold_email_prio' => array(
+			'friendly_name' => 'Set e-mail prio to 1',
+			'description' => 'Allows you to set e-mail priority to 1',
+			'method' => 'checkbox',
+			'default' => 'off'
+			),
 		'alert_email' => array(
 			'friendly_name' => 'Dead Host Notifications Email',
 			'description' => 'This is the email address that the dead host notifications will be sent to.',
@@ -212,12 +249,12 @@ function thold_config_settings () {
 			),
 		'thold_down_text' => array(
 			'friendly_name' => 'Down Host Message',
-			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060CUR_TIME&#062 &#060AVR_TIME&#062 &#060NOTES&#062',
+			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062',
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
-			'default' => 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIME> (<UPTIMETEXT>)<br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>',
+			'default' => 'System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>System total pollings check: <TOT_POLL><br>System failds pollings check: <FAIL_POLL><br>Last date going DOWN : <LAST_FAIL><br>Host had been up for: <DOWNTIME><br>NOTE: <NOTES>',
 			),
 		'thold_up_subject' => array(
 			'friendly_name' => 'Recovering Host Subject',
@@ -229,12 +266,12 @@ function thold_config_settings () {
 			),
 		'thold_up_text' => array(
 			'friendly_name' => 'Recovering Host Message',
-			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060CUR_TIME&#062 &#060AVR_TIME&#062 &#060NOTES&#062',
+			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062',
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
-			'default' => 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIME> (<UPTIMETEXT>)<br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>',
+			'default' => '<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>System total pollings check: <TOT_POLL><br>System failds pollings check: <FAIL_POLL><br>Last time see system UP: <LAST_FAIL><br>Host had been down for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>',
 		),
 		'thold_from_email' => array(
 			'friendly_name' => 'From Email Address',

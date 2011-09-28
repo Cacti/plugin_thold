@@ -70,10 +70,10 @@ function thold_poller_output ($rrd_update_array) {
 	}
 
 	if ($rra_ids != '') {
-		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.expression, thold_data.data_type, 
-					thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, 
-					UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue, data_template_rrd.data_source_name as name, 
-					data_template_rrd.data_source_type_id, data_template_data.rrd_step, 
+		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.expression, thold_data.data_type,
+					thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread,
+					UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue, data_template_rrd.data_source_name as name,
+					data_template_rrd.data_source_type_id, data_template_data.rrd_step,
 					data_template_rrd.rrd_maximum
 					FROM thold_data
 					LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
@@ -280,7 +280,7 @@ function thold_update_host_status () {
 
 					$msg = read_config_option('thold_up_text');
 					if ($msg == '') {
-						$msg = 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime: <UPTIMETEXT><br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>';
+						$msg = '<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>System total pollings check: <TOT_POLL><br>System failds pollings check: <FAIL_POLL><br>Last time see system UP: <LAST_FAIL><br>Host had been down for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>';
 					}
 					$msg = str_replace('<SUBJECT>', $subject, $msg);
 					$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
@@ -298,13 +298,23 @@ function thold_update_host_status () {
 					$msg = str_replace('<SNMP_SYSTEM>', html_split_string($snmp_system), $msg);
 					$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
 					$msg = str_replace('<AVAILABILITY>', round(($host["availability"]), 2) . ' %', $msg);
+					$msg = str_replace('<TOT_POLL>', $host["total_polls"], $msg);
+					$msg = str_replace('<FAIL_POLL>', $host["failed_polls"], $msg);
 					$msg = str_replace('<CUR_TIME>', round(($host["cur_time"]), 2), $msg);
 					$msg = str_replace('<AVG_TIME>', round(($host["avg_time"]), 2), $msg);
 					$msg = str_replace('<NOTES>', $host["notes"], $msg);
 					$msg = str_replace("\n", '<br>', $msg);
-					if ($alert_email == '') {
-						cacti_log('THOLD: Can not send Host Recovering email since the \'Alert e-mail\' setting is not set!', true, 'POLLER');
-					} else {
+					if ($host['thold_send_email'] == 'on' && $host['thold_host_email'] != '') {
+						$alert_email = $alert_email . ',' . $host['thold_host_email'];
+					}
+					if ($host['thold_send_email'] != 'on' && $host['thold_host_email'] != '') {
+						$alert_email = $host['thold_host_email'];
+					}
+ 					if ($alert_email == '') {
+						cacti_log('THOLD: Can not send a Host Recovering email since the \'Alert e-mail\' setting is not set !', true, 'POLLER');
+					} elseif ($host['thold_send_email'] != 'on' && $host['thold_host_email'] == '') {
+						cacti_log('THOLD: Did not send a Host Recovering email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
+ 					} else {
 						thold_mail($alert_email, '', $subject, $msg, '');
 					}
 				}
@@ -344,12 +354,12 @@ function thold_update_host_status () {
 			}
 			$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
 			$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
-			$subject = str_replace('<DOWN/UP>', 'UP', $subject);
+			$subject = str_replace('<DOWN/UP>', 'DOWN', $subject);
 			$subject = strip_tags($subject);
 
 			$msg = read_config_option('thold_down_text');
 			if ($msg == '') {
-				$msg = 'Host: <DESCRIPTION> (<HOSTNAME>)<br>Status: <DOWN/UP><br>Message: <MESSAGE><br><br>Uptime:<UPTIMETEXT><br>Availiability: <AVAILABILITY><br>Response: <CUR_TIME> ms<br>Down Since: <LAST_FAIL><br>NOTE: <NOTES>';
+				$msg = 'System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>System total pollings check: <TOT_POLL><br>System failds pollings check: <FAIL_POLL><br>Last date going DOWN : <LAST_FAIL><br>Host had been up for: <DOWNTIME><br>NOTE: <NOTES>';
 			}
 			$msg = str_replace('<SUBJECT>', $subject, $msg);
 			$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
@@ -365,12 +375,22 @@ function thold_update_host_status () {
 			$msg = str_replace('<LAST_FAIL>', $host["status_fail_date"], $msg);
 			$msg = str_replace('<AVAILABILITY>', round(($host["availability"]), 2) . ' %', $msg);
 			$msg = str_replace('<CUR_TIME>', round(($host["cur_time"]), 2), $msg);
+			$msg = str_replace('<TOT_POLL>', $host["total_polls"], $msg);
+			$msg = str_replace('<FAIL_POLL>', $host["failed_polls"], $msg);
 			$msg = str_replace('<AVG_TIME>', round(($host["avg_time"]), 2), $msg);
 			$msg = str_replace('<NOTES>', $host["notes"], $msg);
 			$msg = str_replace("\n", '<br>', $msg);
-			if ($alert_email == '') {
-				cacti_log('THOLD: Can not send Host Down email since the \'Alert e-mail\' setting is not set!', true, 'POLLER');
-			} else {
+			if ($host['thold_send_email'] == 'on' && $host['thold_host_email'] != '') {
+				$alert_email = $alert_email . ',' . $host['thold_host_email'];
+			}
+			if ($host['thold_send_email'] != 'on' && $host['thold_host_email'] != '') {
+				$alert_email = $host['thold_host_email'];
+			}
+ 			if ($alert_email == '') {
+				cacti_log('THOLD: Can not send a Host Recovering email since the \'Alert e-mail\' setting is not set !', true, 'POLLER');
+			} elseif ($host['thold_send_email'] != 'on' && $host['thold_host_email'] == '' ) {
+				cacti_log('THOLD: Did not send a Host Recovering email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
+ 			} else {
 				thold_mail($alert_email, '', $subject, $msg, '');
 			}
 		}

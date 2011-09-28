@@ -29,6 +29,7 @@ function plugin_thold_install () {
 	api_plugin_register_hook('thold', 'top_graph_header_tabs', 'thold_show_tab', 'includes/tab.php');
 	api_plugin_register_hook('thold', 'config_insert', 'thold_config_insert', 'includes/settings.php');
 	api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'includes/settings.php');
+	api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php');
 	api_plugin_register_hook('thold', 'config_settings', 'thold_config_settings', 'includes/settings.php');
 	api_plugin_register_hook('thold', 'draw_navigation_text', 'thold_draw_navigation_text', 'includes/settings.php');
 	api_plugin_register_hook('thold', 'data_sources_table', 'thold_data_sources_table', 'setup.php');
@@ -275,6 +276,19 @@ function thold_api_device_save ($save) {
 		}
 		$result = db_execute($sql);
 	}
+
+	if (isset($_POST['thold_send_email'])) {
+		$save['thold_send_email'] = form_input_validate($_POST['thold_send_email'], 'thold_send_email', '', true, 3);
+	} else {
+		$save['thold_send_email'] = form_input_validate('', 'thold_send_email', '', true, 3);
+	}
+
+	if (isset($_POST['thold_host_email'])) {
+		$save['thold_host_email'] = form_input_validate($_POST['thold_host_email'], 'thold_host_email', '', true, 3);
+	} else {
+		$save['thold_host_email'] = form_input_validate('', 'thold_host_email', '', true, 3);
+	}
+
 	return $save;
 }
 
@@ -329,6 +343,7 @@ function thold_user_admin_setup_sql_save ($save) {
 			db_execute("REPLACE INTO plugin_thold_contacts (user_id, type, data) VALUES (" . $save['id'] . ", 'email', '$email')");
 		}
 	}
+
 	return $save;
 }
 

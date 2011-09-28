@@ -41,6 +41,8 @@
 		Remove old ununsed variables
 		Fix thold messages on restorals
 		Reapply Suggested Name for Tholds
+		Add E-Mail Priority per 'dragossto'
+		Add Per Host E-Mail overrides per 'dragossto'
 
 	--- 0.4.4 ---
 		Fix emailing of alerts when PHP-GD is not available

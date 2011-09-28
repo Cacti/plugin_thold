@@ -109,7 +109,7 @@ function thold_upgrade_database () {
 
 		/* Set the default names on threshold and templates */
 		db_execute("UPDATE thold_data,data_template_data,data_template_rrd SET
-			 thold_data.name = CONCAT_WS('',data_template_data.name_cache, ' [', data_template_rrd.data_source_name, ']', '') 
+			 thold_data.name = CONCAT_WS('',data_template_data.name_cache, ' [', data_template_rrd.data_source_name, ']', '')
 			 WHERE data_template_data.local_data_id = thold_data.rra_id AND data_template_rrd.id = thold_data.data_id AND thold_data.name = ''");
 		db_execute("UPDATE thold_template SET name = CONCAT_WS('', data_template_name, ' [', data_source_name, ']', '') WHERE name = ''");
 
@@ -121,7 +121,6 @@ function thold_upgrade_database () {
 
 	}
 	// End 0.4 Upgrade
-
 
 	if (version_compare($oldv, '0.4.3', '<')) {
 		// Fix a few hooks
@@ -157,7 +156,7 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'notify_warning_extra', 'type' => 'text', 'NULL' => true) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
-		
+
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_warning_hi', 'type' => 'varchar(100)', 'NULL' => true) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_warning_low', 'type' => 'varchar(100)', 'NULL' => true) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_warning_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true) );
@@ -167,9 +166,14 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'notify_warning_extra', 'type' => 'text', 'NULL' => true) );
-		
+
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN notify_extra text');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN notify_extra text');
+
+		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'char(3)', 'NULL' => false, 'default' => '', 'after' => 'disabled'));
+		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'varchar(512)', 'NULL' => false, 'after' => 'thold_send_email'));
+
+		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php');
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
@@ -279,7 +283,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'notify_default', 'type' => "enum('on','off')", 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_extra', 'type' => 'varchar(512)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'notify_warning_extra', 'type' => 'varchar(512)', 'NULL' => true);	
+	$data['columns'][] = array('name' => 'notify_warning_extra', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'data_type', 'type' => 'int(12)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
@@ -346,4 +350,6 @@ function thold_setup_database () {
 	$data['comment'] = 'Table of All Threshold Breaches';
 	api_plugin_db_table_create ('thold', 'plugin_thold_log', $data);
 
+	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'char(3)', 'NULL' => false, 'default' => '', 'after' => 'disabled'));
+	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'varchar(512)', 'NULL' => false, 'after' => 'thold_send_email'));
 }

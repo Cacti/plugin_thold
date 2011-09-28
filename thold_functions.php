@@ -2667,6 +2667,9 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 	$v = thold_version();
 	$Mailer->header_set('X-Mailer', 'Cacti-Thold-v' . $v['version']);
 	$Mailer->header_set('User-Agent', 'Cacti-Thold-v' . $v['version']);
+	if (read_config_option('thold_email_prio') == 'on') {
+		$Mailer->header_set('X-Priority', '1');
+	}
 	thold_debug("Sending email to '" . trim(implode(',',$to),',') . "'");
 	if ($Mailer->send($text) == false) {
 		print 'ERROR: ' . $Mailer->error() . "\n";
