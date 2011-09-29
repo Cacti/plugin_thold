@@ -170,7 +170,7 @@ function thold_upgrade_database () {
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN notify_extra text');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN notify_extra text');
 
-		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'char(3)', 'NULL' => false, 'default' => '', 'after' => 'disabled'));
+		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
 		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'varchar(512)', 'NULL' => false, 'after' => 'thold_send_email'));
 
 		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php');

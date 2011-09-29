@@ -80,15 +80,16 @@ function thold_config_form () {
 		$fields_host_edit3[$f] = $a;
 		if ($f == 'disabled') {
 			$fields_host_edit3['thold_send_email'] = array(
-				'method' => 'checkbox',
-				'friendly_name' => 'Thold Email Host',
-				'description' => 'Check this box to send Email for Host Up/Down events.',
+				'method' => 'drop_array',
+				'array' =>  array('0' => 'Disabled', '1' => 'Global Emails', '2' => 'Host Emails', '3' => 'Global and Host Emails'),
+				'friendly_name' => 'Thold Up/Down Email Notification',
+				'description' => 'Which list(s) of Emails should be used for sending Host Up/Down notifications?',
 				'value' => '|arg1:thold_send_email|',
-				'default' => '',
+				'default' => '0',
 				'form_id' => false
 			);
 			$fields_host_edit3['thold_host_email'] = array(
-				'friendly_name' => 'Additional Email address',
+				'friendly_name' => 'Host Specific Email Addresses',
 				'description' => 'Additional Email address, separated by commas for multi Emails.',
 				'method' => 'textarea',
 				'class' => 'textAreaNotes',
