@@ -387,17 +387,25 @@ function thold_update_host_status () {
 			$msg = str_replace('<AVG_TIME>', round(($host["avg_time"]), 2), $msg);
 			$msg = str_replace('<NOTES>', $host["notes"], $msg);
 			$msg = str_replace("\n", '<br>', $msg);
-			if ($host['thold_send_email'] == 'on' && $host['thold_host_email'] != '') {
-				$alert_email = $alert_email . ',' . $host['thold_host_email'];
+			switch($host['thold_send_email']) {
+				case '0': // Disabled
+					$alert_email = '';
+					break;
+				case '1': // Global List
+					break;
+				case '2': // Host List Only
+					$alert_email = $host['thold_host_email'];
+					break;
+				case '3': // Global and Host List
+					$alert_email = $alert_email . ',' . $host['thold_host_email'];
+					break;
 			}
-			if ($host['thold_send_email'] != 'on' && $host['thold_host_email'] != '') {
-				$alert_email = $host['thold_host_email'];
-			}
- 			if ($alert_email == '') {
-				cacti_log('THOLD: Can not send a Host Recovering email since the \'Alert e-mail\' setting is not set !', true, 'POLLER');
-			} elseif ($host['thold_send_email'] != 'on' && $host['thold_host_email'] == '' ) {
-				cacti_log('THOLD: Did not send a Host Recovering email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
- 			} else {
+
+			if ($alert_email == '' && $host['thold_send_email'] > 0) {
+				cacti_log('THOLD: Can not send a Host Down email since the \'Alert e-mail\' setting is not set !', true, 'POLLER');
+			} elseif ($host['thold_send_email'] == '0') {
+				cacti_log('THOLD: Did not send a Host Down email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
+			} elseif ($alert_email != '') {
 				thold_mail($alert_email, '', $subject, $msg, '');
 			}
 		}
