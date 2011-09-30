@@ -89,6 +89,7 @@ function thold_config_form () {
 				'friendly_name' => 'Thold Up/Down Email Notification',
 				'description' => 'Which Notification List(s) of should be notified about Host Up/Down events?',
 				'value' => '|arg1:thold_send_email|',
+				'on_change' => 'changeNotify()',
 				'default' => '0',
 				'form_id' => false
 			);

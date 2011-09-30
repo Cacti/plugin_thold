@@ -40,6 +40,7 @@ function plugin_thold_install () {
 	api_plugin_register_hook('thold', 'device_action_array', 'thold_device_action_array', 'setup.php');
 	api_plugin_register_hook('thold', 'device_action_execute', 'thold_device_action_execute', 'setup.php');
 	api_plugin_register_hook('thold', 'device_action_prepare', 'thold_device_action_prepare', 'setup.php');
+	api_plugin_register_hook('thold', 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php');
 
 	api_plugin_register_hook('thold', 'user_admin_setup_sql_save', 'thold_user_admin_setup_sql_save', 'setup.php');
 	api_plugin_register_hook('thold', 'poller_bottom', 'thold_poller_bottom', 'includes/polling.php');
@@ -749,4 +750,21 @@ function thold_graphs_action_prepare($save) {
 function thold_graphs_action_array($action) {
 	$action['plugin_thold_create'] = 'Create Threshold from Template';
 	return $action;
+}
+
+function thold_host_edit_bottom() {
+	?>
+	<script type='text/javascript'>
+	<!--
+	changeNotify();
+	function changeNotify() {
+		if (document.getElementById('thold_send_email').value < 2) {
+			document.getElementById('row_thold_host_email').style.display = "none";
+		}else{
+			document.getElementById('row_thold_host_email').style.display = "";
+		}
+	}
+	-->
+	</script>
+	<?php
 }
