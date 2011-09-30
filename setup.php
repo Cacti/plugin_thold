@@ -57,6 +57,7 @@ function plugin_thold_install () {
 
 	api_plugin_register_realm('thold', 'thold_add.php,thold.php,listthold.php', 'Plugin -> Configure Thresholds', 1);
 	api_plugin_register_realm('thold', 'thold_templates.php', 'Plugin -> Configure Threshold Templates', 1);
+	api_plugin_register_realm('thold', 'notify_lists.php', 'Plugin -> Manage Notification Lists', 1);
 	api_plugin_register_realm('thold', 'thold_graph.php,graph_thold.php,thold_view_failures.php,thold_view_normal.php,thold_view_recover.php,thold_view_recent.php,thold_view_host.php', 'Plugin -> View Thresholds', 1);
 
 	include_once($config['base_path'] . '/plugins/thold/includes/database.php');

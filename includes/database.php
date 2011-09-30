@@ -78,7 +78,6 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
 
-
 		// Update our hooks
 		db_execute('UPDATE plugin_hooks SET file = "includes/settings.php" WHERE name = "thold" AND hook = "config_arrays"');
 		db_execute('UPDATE plugin_hooks SET file = "includes/settings.php" WHERE name = "thold" AND hook = "config_settings"');
@@ -117,8 +116,6 @@ function thold_upgrade_database () {
 		db_execute('UPDATE thold_data, graph_templates_item, data_template_rrd
 			 SET thold_data.graph_id = graph_templates_item.local_graph_id, thold_data.graph_template = graph_templates_item.graph_template_id, thold_data.data_template = data_template_rrd.data_template_id
 			 WHERE data_template_rrd.local_data_id=thold_data.rra_id AND data_template_rrd.id=graph_templates_item.task_item_id');
-
-
 	}
 	// End 0.4 Upgrade
 
@@ -170,10 +167,21 @@ function thold_upgrade_database () {
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN notify_extra text');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN notify_extra text');
 
+		$data = array();
+		$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
+		$data['columns'][] = array('name' => 'name', 'type' => 'varchar(128)', 'NULL' => false);
+		$data['columns'][] = array('name' => 'description', 'type' => 'varchar(512)', 'NULL' => false);
+		$data['columns'][] = array('name' => 'emails', 'type' => 'varchar(512)', 'NULL' => false);
+		$data['primary'] = 'id';
+		$data['type'] = 'MyISAM';
+		$data['comment'] = 'Table of Notification Lists';
+		api_plugin_db_table_create ('thold', 'plugin_notification_lists', $data);
+
 		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
-		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'varchar(512)', 'NULL' => false, 'after' => 'thold_send_email'));
+		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => false, 'after' => 'thold_send_email'));
 
 		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php');
+		api_plugin_register_realm('thold', 'notify_lists.php', 'Plugin -> Manage Notification Lists', 1);
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
@@ -350,6 +358,16 @@ function thold_setup_database () {
 	$data['comment'] = 'Table of All Threshold Breaches';
 	api_plugin_db_table_create ('thold', 'plugin_thold_log', $data);
 
-	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'char(3)', 'NULL' => false, 'default' => '', 'after' => 'disabled'));
-	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'varchar(512)', 'NULL' => false, 'after' => 'thold_send_email'));
+	$data = array();
+	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
+	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(128)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(512)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'emails', 'type' => 'varchar(512)', 'NULL' => false);
+	$data['primary'] = 'id';
+	$data['type'] = 'MyISAM';
+	$data['comment'] = 'Table of Notification Lists';
+	api_plugin_db_table_create ('thold', 'plugin_notification_lists', $data);
+
+	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
+	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => false, 'after' => 'thold_send_email'));
 }

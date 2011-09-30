@@ -310,10 +310,10 @@ function thold_update_host_status () {
 						case '1': // Global List
 							break;
 						case '2': // Host List Only
-							$alert_email = $host['thold_host_email'];
+							$alert_email = get_thold_host_emails($host['thold_host_email']);
 							break;
 						case '3': // Global and Host List
-							$alert_email = $alert_email . ',' . $host['thold_host_email'];
+							$alert_email = $alert_email . ',' . get_thold_host_emails($host['thold_host_email']);
 							break;
 					}
 
@@ -394,10 +394,10 @@ function thold_update_host_status () {
 				case '1': // Global List
 					break;
 				case '2': // Host List Only
-					$alert_email = $host['thold_host_email'];
+					$alert_email = get_thold_host_emails($host['thold_host_email']);
 					break;
 				case '3': // Global and Host List
-					$alert_email = $alert_email . ',' . $host['thold_host_email'];
+					$alert_email = $alert_email . ',' . get_thold_host_emails($host['thold_host_email']);
 					break;
 			}
 
@@ -428,4 +428,12 @@ function thold_update_host_status () {
 	db_execute("REPLACE INTO settings (name, value) VALUES ('thold_failed_hosts', '$failed')");
 
 	return $total_hosts;
+}
+
+function get_thold_host_emails($id) {
+	if (!empty($id)) {
+		return(db_fetch_cell('SELECT emails FROM plugin_notification_lists WHERE id=' . $id));
+	}else{
+		return '';
+	}
 }

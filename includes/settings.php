@@ -43,6 +43,9 @@ function thold_draw_navigation_text ($nav) {
 	$nav['thold_templates.php:actions'] = array('title' => 'Threshold Templates', 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
 
 	$nav['thold_add.php:'] = array('title' => 'Create Threshold', 'mapping' => 'index.php:', 'url' => 'thold_add.php', 'level' => '1');
+	$nav['notify_lists.php:'] = array('title' => 'Notification Lists', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
+	$nav['notify_lists.php:edit'] = array('title' => 'Notification Lists (edit)', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
+	$nav['notify_lists.php:save'] = array('title' => 'Notification Lists', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
 
 	return $nav;
 }
@@ -50,6 +53,7 @@ function thold_draw_navigation_text ($nav) {
 function thold_config_insert () {
 	global $menu;
 
+	$menu['Management']['plugins/thold/notify_lists.php'] = 'Notification Lists';
 	$menu['Management']['plugins/thold/listthold.php'] = 'Thresholds';
 	$menu['Templates']['plugins/thold/thold_templates.php'] = 'Threshold Templates';
 	if (isset($_GET['thold_vrule'])) {
@@ -81,23 +85,21 @@ function thold_config_form () {
 		if ($f == 'disabled') {
 			$fields_host_edit3['thold_send_email'] = array(
 				'method' => 'drop_array',
-				'array' =>  array('0' => 'Disabled', '1' => 'Global Emails', '2' => 'Host Emails', '3' => 'Global and Host Emails'),
+				'array' =>  array('0' => 'Disabled', '1' => 'Global List', '2' => 'List Below', '3' => 'Global and List Below'),
 				'friendly_name' => 'Thold Up/Down Email Notification',
-				'description' => 'Which list(s) of Emails should be used for sending Host Up/Down notifications?',
+				'description' => 'Which Notification List(s) of should be notified about Host Up/Down events?',
 				'value' => '|arg1:thold_send_email|',
 				'default' => '0',
 				'form_id' => false
 			);
 			$fields_host_edit3['thold_host_email'] = array(
-				'friendly_name' => 'Host Specific Email Addresses',
+				'friendly_name' => 'Notification List',
 				'description' => 'Additional Email address, separated by commas for multi Emails.',
-				'method' => 'textarea',
-				'class' => 'textAreaNotes',
-				'max_length' => 1000,
-				'textarea_rows' => 1,
-				'textarea_cols' => 30,
+				'method' => 'drop_sql',
+				'sql' => "SELECT id,name FROM plugin_notification_lists ORDER BY name",
 				'value' => '|arg1:thold_host_email|',
 				'default' => '',
+				'none_value' => 'None'
 			);
 		}
 	}

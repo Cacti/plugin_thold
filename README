@@ -42,7 +42,7 @@
 		Fix thold messages on restorals
 		Reapply Suggested Name for Tholds
 		Add E-Mail Priority per 'dragossto'
-		Add Per Host E-Mail overrides per 'dragossto'
+		Add E-Mail Notification Lists for Hosts
 
 	--- 0.4.4 ---
 		Fix emailing of alerts when PHP-GD is not available
