@@ -250,7 +250,7 @@ function thold_device_action_prepare ($save) {
 	print "	<tr>
 			<td colspan='2' class='textArea' bgcolor='#" . $colors['form_alternate1']. "'>
 				<p>To apply all appropriate thresholds to these hosts, press the \"yes\" button below.</p>
-				<p>" . $save['host_list'] . "</p>
+				<ul>" . $save['host_list'] . "</ul>
 			</td>
 			</tr>";
 }
@@ -501,7 +501,7 @@ function thold_data_source_action_prepare($save) {
 				print "<ul>" . $not_found . "</ul>";
 			}
 
-			print "<p>Are you sure you wish to create Thresholds for these Data Sources?
+			print "<p>Are you sure you wish to create Thresholds for these Data Sources?</p>
 					<ul>" . $found_list . "</ul>
 					</td>
 				</tr>\n
@@ -709,7 +709,7 @@ function thold_graphs_action_prepare($save) {
 				print "<ul>" . $not_found . "</ul>";
 			}
 
-			print "<p>Are you sure you wish to create Thresholds for these Graphs?
+			print "<p>Are you sure you wish to create Thresholds for these Graphs?</p>
 					<ul>" . $found_list . "</ul>
 					</td>
 				</tr>\n

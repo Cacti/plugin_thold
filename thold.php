@@ -37,11 +37,11 @@ input_validate_input_number(get_request_var('id'));
 $hostid = '';
 if (isset($_REQUEST['rra'])) {
 	$rra = $_REQUEST['rra'];
-	$hostid = db_fetch_assoc('select host_id from thold_data where rra_id = ' . $rra);
+	$hostid = db_fetch_assoc('select host_id from thold_data where rra_id=' . $rra);
 	if (isset($hostid[0]['host_id'])) {
 		$hostid = $hostid[0]['host_id'];
 	} else {
-		$hostid = db_fetch_assoc('select host_id from poller_item where local_data_id = ' . $rra);
+		$hostid = db_fetch_assoc('select host_id from poller_item where local_data_id=' . $rra);
 		if (isset($hostid[0]['host_id'])) {
 			$hostid = $hostid[0]['host_id'];
 		}
@@ -83,7 +83,6 @@ switch($_REQUEST['action']) {
 	case 'save':
 		save_thold();
 
-
 		if (isset($_SESSION["graph_return"])) {
 			$return_to = $_SESSION["graph_return"];
 			unset($_SESSION["graph_return"]);
@@ -107,18 +106,18 @@ switch($_REQUEST['action']) {
 			kill_session_var("graph_return");
 			header('Location: ' . $return_to);
 		}else{
-			Header('Location: ../../graphs_new.php?host_id=' . $hostid);
+			header('Location: ../../graphs_new.php?host_id=' . $hostid);
 		}
 		exit;
 
 		break;
 	case 'disable':
 		thold_threshold_disable($_REQUEST["id"]);
-		Header('Location: ' . $_SERVER["HTTP_REFERER"]);
+		header('Location: ' . $_SERVER["HTTP_REFERER"]);
 		exit;
 	case 'enable':
 		thold_threshold_enable($_REQUEST["id"]);
-		Header('Location: ' . $_SERVER["HTTP_REFERER"]);
+		header('Location: ' . $_SERVER["HTTP_REFERER"]);
 		exit;
 }
 
@@ -139,7 +138,6 @@ foreach ($rrdsql as $r) {
 }
 
 $rrdlookup = $rrdsql[0]["id"];
-
 
 $grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_item WHERE $sql");
 
@@ -188,7 +186,7 @@ foreach($grapharr as $g) {
 	<br>
 		</td>
 		<td>
-			<img id=graphimage src="<?php echo $config["url_path"]; ?>graph_image.php?local_graph_id=<?php echo $graph ?>&rra_id=0&graph_start=-32400&graph_height=100&graph_width=300&graph_nolegend=true">
+			<img id="graphimage" src="<?php echo $config["url_path"]; ?>graph_image.php?local_graph_id=<?php echo $graph ?>&rra_id=0&graph_start=-32400&graph_height=100&graph_width=300&graph_nolegend=true">
 		</td>
 	</tr>
 </table>
@@ -223,36 +221,40 @@ $ds = 0;
 if (isset($template_data_rrds)) {
 	if (sizeof($template_data_rrds)) {
 		/* draw the data source tabs on the top of the page */
-		print "	<table class='tabs' width='100%' cellspacing='0' cellpadding='3' align='center'>
+		print "<table class='tabs' cellspacing='0' cellpadding='3' align='left'>
 		<tr>\n";
 
 		foreach ($template_data_rrds as $template_data_rrd) {
 			if($template_data_rrd["id"] == $_GET["view_rrd"]) $ds = $template_data_rrd["data_source_name"];
 
-			$item = db_fetch_assoc("select * from thold_data where data_id = " . $template_data_rrd["id"]);
-			$item = count($item) > 0 ? $item[0] : $item;
+			$item = db_fetch_assoc("SELECT * FROM thold_data WHERE data_id=" . $template_data_rrd["id"]);
+			$item = count($item) > 0 ? $item[0]: $item;
 
+			$cur_setting = '';
 			if(count($item) == 0) {
-				$cur_setting = "n/a";
+				$cur_setting .= "<span style='color:red;'>n/a</span>";
 			} else {
-				$cur_setting = "Hi: " . ($item["thold_hi"] == "" ? "n/a" : $item["thold_hi"]);
-				$cur_setting .= " Lo: " . ($item["thold_low"] == "" ? "n/a" : $item["thold_low"]);
-
+				$cur_setting = "Last: " . ($item["lastread"] == "" ? "<span style='color:red;'>n/a</span>":"<span style='color:blue;'>" . number_format($item["lastread"],2) . "</span>");
 				if ($item["thold_type"] != 1) {
-					$cur_setting .= " WHi: " . ($item["thold_warning_hi"] == "" ? "n/a" : $item["thold_warning_hi"]);
-					$cur_setting .= " WLo: " . ($item["thold_warning_low"] == "" ? "n/a" : $item["thold_warning_low"]);
+					$cur_setting .= " WHi: " . ($item["thold_warning_hi"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_warning_hi"],2) . "</span>");
+					$cur_setting .= " WLo: " . ($item["thold_warning_low"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_warning_low"],2) . "</span>");
+					$cur_setting .= " AHi: " . ($item["thold_hi"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_hi"],2) . "</span>");
+					$cur_setting .= " ALo: " . ($item["thold_low"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_low"],2) . "</span>");
+
 				}else{
-					$cur_setting .= " BL: " . $item["bl_enabled"];
+					$cur_setting .= " AHi: " . ($item["thold_hi"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_hi"],2) . "</span>");
+					$cur_setting .= " ALo: " . ($item["thold_low"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_low"],2) . "</span>");
+					$cur_setting .= " BL: (Up " . $item["bl_pct_up"] . "%/Down " . $item["bl_pct_down"] . "%)";
 				}
 			}
 			$tab_len = max(strlen($cur_setting), strlen($template_data_rrd["data_source_name"]));
-			if($cur_setting == "n/a") { $cur_setting = "<font color='red'>" . $cur_setting . "</font>"; }
+			//if($cur_setting == "n/a") { $cur_setting = "<font color='red'>" . $cur_setting . "</font>"; }
 
 			$i++;
 			echo "	<td bgcolor=" . (($template_data_rrd["id"] == $_GET["view_rrd"]) ? "'silver'" : "'#DFDFDF'");
-			echo " nowrap='nowrap' width='" . (($tab_len * 8) + 30) . "' align='center' class='tab'>";
+			echo " nowrap='nowrap' align='center' class='tab'>";
 			echo "<span class='textHeader'><a href='thold.php?rra=" . $template_data_rrd["local_data_id"] . "&view_rrd=" . $template_data_rrd["id"] . "'>$i: " . $template_data_rrd["data_source_name"] . "</a><br>";
-			echo $cur_setting;
+			echo "<span style='white-space:nowrap;'>" . $cur_setting . "</span>";
 			echo "</span>\n</td>\n<td width='1'></td>\n";
 			unset($thold_item_data);
 		}
@@ -417,32 +419,6 @@ $form_array = array(
 			'description' => 'The type of Threshold that will be monitored.',
 			'value' => isset($thold_item_data['thold_type']) ? $thold_item_data['thold_type'] : ''
 		),
-		'thold_header' => array(
-			'friendly_name' => 'High / Low Settings',
-			'method' => 'spacer',
-		),
-		'thold_hi' => array(
-			'friendly_name' => 'High Threshold',
-			'method' => 'textbox',
-			'max_length' => 100,
-			'description' => 'If set and data source value goes above this number, alert will be triggered',
-			'value' => isset($thold_item_data['thold_hi']) ? $thold_item_data['thold_hi'] : ''
-		),
-		'thold_low' => array(
-			'friendly_name' => 'Low Threshold',
-			'method' => 'textbox',
-			'max_length' => 100,
-			'description' => 'If set and data source value goes below this number, alert will be triggered',
-			'value' => isset($thold_item_data['thold_low']) ? $thold_item_data['thold_low'] : ''
-		),
-		'thold_fail_trigger' => array(
-			'friendly_name' => 'Breach Duration',
-			'method' => 'drop_array',
-			'array' => $alertarray,
-			'default' => read_config_option('alert_trigger'),
-			'description' => 'The amount of time the data source must be in breach of the threshold for an alert to be raised.',
-			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : ''
-		),
 		'thold_warning_header' => array(
 			'friendly_name' => 'Warning High / Low Settings',
 			'method' => 'spacer',
@@ -468,7 +444,33 @@ $form_array = array(
 			'default' => read_config_option('alert_trigger'),
 			'description' => 'The amount of time the data source must be in breach of the threshold for a warning to be raised.',
 			'value' => isset($thold_item_data['thold_warning_fail_trigger']) ? $thold_item_data['thold_warning_fail_trigger'] : ''
-		),		
+		),
+		'thold_header' => array(
+			'friendly_name' => 'Alert High / Low Settings',
+			'method' => 'spacer',
+		),
+		'thold_hi' => array(
+			'friendly_name' => 'High Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes above this number, alert will be triggered',
+			'value' => isset($thold_item_data['thold_hi']) ? $thold_item_data['thold_hi'] : ''
+		),
+		'thold_low' => array(
+			'friendly_name' => 'Low Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes below this number, alert will be triggered',
+			'value' => isset($thold_item_data['thold_low']) ? $thold_item_data['thold_low'] : ''
+		),
+		'thold_fail_trigger' => array(
+			'friendly_name' => 'Breach Duration',
+			'method' => 'drop_array',
+			'array' => $alertarray,
+			'default' => read_config_option('alert_trigger'),
+			'description' => 'The amount of time the data source must be in breach of the threshold for an alert to be raised.',
+			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : ''
+		),
 		'time_header' => array(
 			'friendly_name' => 'Time Based Settings',
 			'method' => 'spacer',
@@ -617,7 +619,7 @@ $form_array = array(
 		),
 
 		'other_header' => array(
-			'friendly_name' => 'Other setting',
+			'friendly_name' => 'Other Settings',
 			'method' => 'spacer',
 		),
 		'repeat_alert' => array(

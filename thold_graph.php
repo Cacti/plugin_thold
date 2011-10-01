@@ -447,27 +447,26 @@ function tholds() {
 	if (count($result)) {
 		foreach ($result as $row) {
 			$c++;
-			$bgcolor = 'green';
-			if ($row['thold_alert'] != 0) {
-				$alertstat='yes';
-				if ( $row['thold_fail_count'] >= $row['thold_fail_trigger'] ) {
-					$bgcolor = 'red';
-				} elseif ( $row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger'] ) {
-					$bgcolor = 'warning';
-				} else {
-					$bgcolor = 'yellow';
+			$alertstat = 'no';
+			$bgcolor   = 'green';
+			if ($row['thold_type'] != 1) {
+				if ($row['thold_alert'] != 0) {
+					$alertstat='yes';
+					if ( $row['thold_fail_count'] >= $row['thold_fail_trigger'] ) {
+						$bgcolor = 'red';
+					} elseif ( $row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger'] ) {
+						$bgcolor = 'warning';
+					} else {
+						$bgcolor = 'yellow';
+					}
 				}
 			} else {
-				$alertstat='no';
-				$bgcolor='green';
-				if($row['bl_enabled'] == 'on') {
-					if($row['bl_alert'] == 1) {
-						$alertstat='baseline-LOW';
-						$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
-					} elseif ($row['bl_alert'] == 2)  {
-						$alertstat='baseline-HIGH';
-						$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
-					}
+				if($row['bl_alert'] == 1) {
+					$alertstat='baseline-LOW';
+					$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
+				} elseif ($row['bl_alert'] == 2)  {
+					$alertstat='baseline-HIGH';
+					$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
 				}
 			};
 
@@ -531,7 +530,7 @@ function tholds() {
 
 	thold_legend();
 
-	thold_display_rusage();
+	//thold_display_rusage();
 }
 
 
@@ -862,7 +861,7 @@ function hosts() {
 
 	host_legend();
 
-	thold_display_rusage();
+	//thold_display_rusage();
 }
 
 function form_host_filter() {
@@ -1198,7 +1197,7 @@ function thold_show_log() {
 
 	log_legend();
 
-	thold_display_rusage();
+	//thold_display_rusage();
 }
 
 function form_thold_log_filter() {

@@ -415,27 +415,26 @@ function list_tholds() {
 						WHERE (data_template_rrd.local_data_id=' . $row['rra_id'] . ' AND data_template_rrd.id=graph_templates_item.task_item_id)');
 			$graph_id = $grapharr['local_graph_id'];
 
-			if ($row['thold_alert'] != 0) {
-				$alertstat='yes';
-				if ($row['thold_fail_count'] >= $row['thold_fail_trigger']) {
-					$bgcolor = 'red';
-				} elseif ($row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger']) {
-					$bgcolor = 'warning';
-				} else {
-					$bgcolor = 'yellow';
-				}
-				//$bgcolor=($row['thold_fail_count'] >= $row['thold_fail_trigger'] ? 'red' : 'yellow');
-			} else {
-				$alertstat='no';
-				$bgcolor='green';
-				if($row['bl_enabled'] == 'on') {
-					if($row['bl_alert'] == 1) {
-						$alertstat='baseline-LOW';
-						$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
-					} elseif ($row['bl_alert'] == 2)  {
-						$alertstat='baseline-HIGH';
-						$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
+			$alertstat='no';
+			$bgcolor='green';
+			if ($row['thold_type'] != 1) {
+				if ($row['thold_alert'] != 0) {
+					$alertstat='yes';
+					if ($row['thold_fail_count'] >= $row['thold_fail_trigger']) {
+						$bgcolor = 'red';
+					} elseif ($row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger']) {
+						$bgcolor = 'warning';
+					} else {
+						$bgcolor = 'yellow';
 					}
+				}
+			} else {
+				if($row['bl_alert'] == 1) {
+					$alertstat='baseline-LOW';
+					$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
+				} elseif ($row['bl_alert'] == 2)  {
+					$alertstat='baseline-HIGH';
+					$bgcolor=($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
 				}
 			};
 
