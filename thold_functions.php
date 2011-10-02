@@ -1760,13 +1760,13 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	}
 }
 
-function format_number($value, $digits=2) {
+function format_number($value, $digits=5) {
 	if ($value == '') {
 		return '-';
 	}elseif (strlen(round($value,0)) == strlen($value)) {
 		return $value;
 	}else{
-		return number_format($value, $digits);
+		return rtrim(number_format($value, $digits), "0");
 	}
 }
 
@@ -2445,8 +2445,10 @@ function save_thold() {
 
 	$id = sql_save($save , 'thold_data');
 
-	if (isset($_POST['notify_accounts'])) {
+	if (isset($_POST['notify_accounts']) && is_array($_POST['notify_accounts'])) {
 		thold_save_threshold_contacts ($id, $_POST['notify_accounts']);
+	} elseif (!isset($_POST['notify_accounts'])) {
+		thold_save_threshold_contacts ($id, array());
 	}
 
 	if ($id) {

@@ -366,9 +366,9 @@ function template_save_edit() {
 		$id = sql_save($save, 'thold_template');
 		if ($id) {
 			raise_message(1);
-			if (isset($_POST['notify_accounts'])) {
+			if (isset($_POST['notify_accounts']) && is_array($_POST['notify_accounts'])) {
 				thold_save_template_contacts ($id, $_POST['notify_accounts']);
-			} else {
+			} elseif (!isset($_POST['notify_accounts'])) {
 				thold_save_template_contacts ($id, array());
 			}
 			thold_template_update_thresholds ($id);
@@ -565,6 +565,14 @@ function template_edit() {
 			'default' => read_config_option('thold_type'),
 			'description' => 'The type of Threshold that will be monitored.',
 			'value' => isset($thold_item_data['thold_type']) ? $thold_item_data['thold_type'] : ''
+		),
+		'repeat_alert' => array(
+			'friendly_name' => 'Re-Alert Cycle',
+			'method' => 'drop_array',
+			'array' => $repeatarray,
+			'default' => read_config_option('alert_repeat'),
+			'description' => 'Repeat alert after this amount of time has pasted since the last alert.',
+			'value' => isset($thold_item_data['repeat_alert']) ? $thold_item_data['repeat_alert'] : ''
 		),
 		'thold_warning_header' => array(
 			'friendly_name' => 'High / Low Warning Settings',
@@ -770,21 +778,6 @@ function template_edit() {
 			'friendly_name' => 'Other setting',
 			'method' => 'spacer',
 		),
-		'repeat_alert' => array(
-			'friendly_name' => 'Re-Alert Cycle',
-			'method' => 'drop_array',
-			'array' => $repeatarray,
-			'default' => read_config_option('alert_repeat'),
-			'description' => 'Repeat alert after this amount of time has pasted since the last alert.',
-			'value' => isset($thold_item_data['repeat_alert']) ? $thold_item_data['repeat_alert'] : ''
-		),
-		'notify_accounts' => array(
-			'friendly_name' => 'Notify accounts',
-			'method' => 'drop_multi',
-			'description' => 'This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>',
-			'array' => $send_notification_array,
-			'sql' => $sql,
-		),
         'notify_warning' => array(
             'friendly_name' => 'Warning Notification List',
             'method' => 'drop_sql',
@@ -801,23 +794,54 @@ function template_edit() {
             'none_value' => 'None',
             'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
         ),
-		'notify_extra' => array(
-			'friendly_name' => 'Alert Email',
-			'method' => 'textarea',
-			'textarea_rows' => 3,
-			'textarea_cols' => 50,
-			'description' => 'You may specify here extra e-mails to receive alerts for this data source (comma separated)',
-			'value' => isset($thold_item_data['notify_extra']) ? $thold_item_data['notify_extra'] : ''
-		),
-		'notify_warning_extra' => array(
-			'friendly_name' => 'Warning Email',
-			'method' => 'textarea',
-			'textarea_rows' => 3,
-			'textarea_cols' => 50,
-			'description' => 'You may specify here extra e-mails to receive warnings for this data source (comma separated)',
-			'value' => isset($thold_item_data['notify_warning_extra']) ? $thold_item_data['notify_warning_extra'] : ''
-		),		
 	);
+
+	if (read_config_option("thold_disable_legacy") != 'on') {
+		$extra = array(
+			'notify_accounts' => array(
+				'friendly_name' => 'Notify accounts',
+				'method' => 'drop_multi',
+				'description' => 'This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>',
+				'array' => $send_notification_array,
+				'sql' => $sql,
+			),
+			'notify_extra' => array(
+				'friendly_name' => 'Alert Emails',
+				'method' => 'textarea',
+				'textarea_rows' => 3,
+				'textarea_cols' => 50,
+				'description' => 'You may specify here extra Emails to receive alerts for this data source (comma separated)',
+				'value' => isset($thold_item_data['notify_extra']) ? $thold_item_data['notify_extra'] : ''
+			),
+			'notify_warning_extra' => array(
+				'friendly_name' => 'Warning Emails',
+				'method' => 'textarea',
+				'textarea_rows' => 3,
+				'textarea_cols' => 50,
+				'description' => 'You may specify here extra Emails to receive warnings for this data source (comma separated)',
+				'value' => isset($thold_item_data['notify_warning_extra']) ? $thold_item_data['notify_warning_extra'] : ''
+			)
+		);
+
+		$form_array += $extra;
+	}else{
+		$extra = array(
+			'notify_accounts' => array(
+				'method' => 'hidden',
+				'value' => 'ignore',
+			),
+			'notify_extra' => array(
+				'method' => 'hidden',
+				'value' => isset($thold_item_data['notify_extra']) ? $thold_item_data['notify_extra'] : ''
+			),
+			'notify_warning_extra' => array(
+				'method' => 'hidden',
+				'value' => isset($thold_item_data['notify_warning_extra']) ? $thold_item_data['notify_warning_extra'] : ''
+			)
+		);
+
+		$form_array += $extra;
+	}
 
 	draw_edit_form(
 		array(
