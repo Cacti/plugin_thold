@@ -199,7 +199,6 @@ function template_add() {
 		$save['data_source_friendly'] = $temp2[0]['name'];
 		$save['thold_enabled'] = 'on';
 		$save['thold_type'] = 0;
-		$save['bl_enabled'] = 'off';
 		$save['repeat_alert'] = read_config_option('alert_repeat');
 		$id = sql_save($save, 'thold_template');
 
@@ -315,12 +314,6 @@ function template_save_edit() {
 		$save['restored_alert'] = 'on';
 	} else {
 		$save['restored_alert'] = 'off';
-	}
-
-	if ($_POST['thold_type'] == 1) {
-		$save['bl_enabled'] = 'on';
-	} else {
-		$save['bl_enabled'] = 'off';
 	}
 
 	if (isset($_POST['bl_ref_time_range']) && $_POST['bl_ref_time_range'] != '') {
@@ -990,7 +983,7 @@ function templates() {
 			form_selectable_cell($types[$template['thold_type']], $template["id"]);
 			form_selectable_cell($value_hi, $template["id"]);
 			form_selectable_cell($value_lo, $template["id"]);
-			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $value_trig, 'alert', 'data_template_id'), $template["id"]);
+			form_selectable_cell("<i>" . plugin_thold_duration_convert($template['data_template_id'], $value_trig, 'alert', 'data_template_id') . "</i>", $template["id"]);
 			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $value_duration, 'time', 'data_template_id'), $template["id"]);
 			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id']);
 			form_checkbox_cell($template['data_template_name'], $template["id"]);

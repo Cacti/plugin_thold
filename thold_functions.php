@@ -1915,7 +1915,7 @@ function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct,
 
 	openlog('CactiTholdLog', LOG_PID | LOG_PERROR, $syslog_facility);
 
-	if(strval($breach_up) == 'ok') {
+	if (strval($breach_up) == 'ok') {
 		syslog($syslog_level, $desc . ' restored to normal with ' . $currentval . ' at trigger ' . $trigger . ' out of ' . $triggerct . " - ". $urlbreach);
 	} else {
 		syslog($syslog_level, $desc . ' went ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . $threshld . ' with ' . $currentval . ' at trigger ' . $trigger . ' out of ' . $triggerct . " - ". $urlbreach);
@@ -2142,7 +2142,7 @@ function thold_get_ref_value($rra_id, $ds, $ref_time, $time_range) {
 	$result = rrdtool_function_fetch($rra_id, $ref_time-$time_range, $ref_time-1, $time_range);
 
 	$idx = array_search($ds, $result['data_source_names']);
-	if(count($result['values'][$idx]) == 0) {
+	if (count($result['values'][$idx]) == 0) {
 		return false;
 	}
 
@@ -2202,7 +2202,7 @@ function thold_check_baseline($rra_id, $ds, $current_value, &$item) {
 	
 	// See if we have a valid cached thold_high and thold_low value
 	if ($item['bl_thold_valid'] && $now < $item['bl_thold_valid']) {
-		if($item['thold_hi'] && $current_value > $item['thold_hi']) {
+		if ($item['thold_hi'] && $current_value > $item['thold_hi']) {
 			$failed = 2;
 		} elseif ($item['thold_low'] && $current_value < $item['thold_low']) {
 			$failed = 1;
@@ -2215,8 +2215,8 @@ function thold_check_baseline($rra_id, $ds, $current_value, &$item) {
 
 		$ref_values = thold_get_ref_value($rra_id, $ds, $t0, $item['bl_ref_time_range']);
 
-		if(!is_array($ref_values) || sizeof($ref_values) == 0) {
-			// if($debug) echo "Baseline reference value not yet established!\n";
+		if (!is_array($ref_values) || sizeof($ref_values) == 0) {
+			// if ($debug) echo "Baseline reference value not yet established!\n";
 			$item['thold_low'] = '';
 			$item['thold_hi'] = '';
 			$item['bl_thold_valid'] = $now;
@@ -2248,17 +2248,17 @@ function thold_check_baseline($rra_id, $ds, $current_value, &$item) {
 		$failed = 0;
 
 		// Check low boundary
-		if($blt_low != '' && $current_value < $blt_low) {
+		if ($blt_low != '' && $current_value < $blt_low) {
 			$failed = 1;
 		}
 
 		// Check up boundary
-		if($failed == 0 && $blt_high != '' && $current_value > $blt_high) {
+		if ($failed == 0 && $blt_high != '' && $current_value > $blt_high) {
 			$failed = 2;
 		}
 	}
 
-	if($debug) {
+	if ($debug) {
 		echo "RRA: $rra_id : $ds\n";
 		echo 'Ref. values count: ' . (isset($ref_values) ? count($ref_values):"N/A") . "\n";
 		echo "Ref. value (min): " . (isset($ref_value_min) ? $ref_value_min:"N/A") . "\n";
@@ -2308,28 +2308,31 @@ function save_thold() {
 		return true;
 	}
 
-	// Make sure this is defined
+	/* Make sure this is defined */
 	$_POST['thold_enabled'] = isset($_POST['thold_enabled']) ? 'on' : 'off';
 	$_POST['template_enabled'] = isset($_POST['template_enabled']) ? 'on' : 'off';
 
-
+	/* Do Some error Checks */
 	$banner = '<font color=red><strong>';
-//	if (($_POST['thold_type'] == 0 && !isset($_POST['thold_hi']) || trim($_POST['thold_hi']) == '') && ($_POST['thold_type'] == 0 && !isset($_POST['thold_low']) || trim($_POST['thold_low']) == '') && (!isset($_POST['bl_ref_time']) || trim($_POST['bl_ref_time'])  == '')) {
-//		$banner .= 'You must specify either &quot;High Threshold&quot; or &quot;Low Threshold&quot; or both!<br>RECORD NOT UPDATED!</strong></font>';
-//		return;
-//	}
+	if (($_POST['thold_type'] == 0 && !isset($_POST['thold_hi']) || trim($_POST['thold_hi']) == '') && 
+		($_POST['thold_type'] == 0 && !isset($_POST['thold_low']) || trim($_POST['thold_low']) == '')) {
+		$banner .= 'You must specify either &quot;High Threshold&quot; or &quot;Low Threshold&quot; or both!<br>RECORD NOT UPDATED!</strong></font>';
+		return;
+	}
 
-	if ($_POST['thold_type'] == 0 && isset($_POST['thold_hi']) && isset($_POST['thold_low']) && trim($_POST['thold_hi']) != '' && trim($_POST['thold_low']) != '' && round($_POST['thold_low'],4) >= round($_POST['thold_hi'],4)) {
+	if (($_POST['thold_type'] == 0) && (isset($_POST['thold_hi'])) && 
+		(isset($_POST['thold_low'])) && (trim($_POST['thold_hi']) != '') && 
+		(trim($_POST['thold_low']) != '') && (round($_POST['thold_low'],4) >= round($_POST['thold_hi'],4))) {
 		$banner .= 'Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</strong></font>';
 		return;
 	}
 
-	if($_POST['thold_type'] == 1) {
+	if ($_POST['thold_type'] == 1) {
 		$banner .= 'With baseline thresholds enabled ';
-		if(!thold_mandatory_field_ok('bl_ref_time_range', 'Time reference in the past')) {
+		if (!thold_mandatory_field_ok('bl_ref_time_range', 'Time reference in the past')) {
 			return;
 		}
-		if((!isset($_POST['bl_pct_down']) || trim($_POST['bl_pct_down']) == '') && (!isset($_POST['bl_pct_up']) || trim($_POST['bl_pct_up']) == '')) {
+		if ((!isset($_POST['bl_pct_down']) || trim($_POST['bl_pct_down']) == '') && (!isset($_POST['bl_pct_up']) || trim($_POST['bl_pct_up']) == '')) {
 			$banner .= 'You must specify either &quot;Baseline Deviation UP&quot; or &quot;Baseline Deviation DOWN&quot; or both!<br>RECORD NOT UPDATED!</strong></font>';
 			return;
 		}
@@ -2450,7 +2453,10 @@ function save_thold() {
 		plugin_thold_log_changes($id, 'modified', $save);
 		$thold = db_fetch_row("SELECT * FROM thold_data WHERE id=$id");
 		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
-		thold_check_threshold ($thold['rra_id'], $thold['data_id'], $ds, $thold['lastread'], $thold['cdef']);
+
+		if ($thold["thold_type"] == 1) {
+			thold_check_threshold ($thold['rra_id'], $thold['data_id'], $ds, $thold['lastread'], $thold['cdef']);
+		}
 	}
 
 	$banner = '<font color=green><strong>Record Updated</strong></font>';
@@ -2476,7 +2482,7 @@ function thold_save_threshold_contacts ($id, $contacts) {
 
 function thold_mandatory_field_ok($name, $friendly_name) {
 	global $banner;
-	if(!isset($_POST[$name]) || (isset($_POST[$name]) && (trim($_POST[$name]) == '' || $_POST[$name] <= 0))) {
+	if (!isset($_POST[$name]) || (isset($_POST[$name]) && (trim($_POST[$name]) == '' || $_POST[$name] <= 0))) {
 		$banner .= '&quot;' . $friendly_name . '&quot; must be set to positive integer value!<br>RECORD NOT UPDATED!</strong></font>';
 		return false;
 	}
@@ -2568,7 +2574,7 @@ function autocreate($hostid) {
 								$id = $r['id'];
 								$l = db_fetch_assoc("SELECT name FROM thold_data WHERE id=$id");
 								$name = $l[0]['name'];
-								if($name != $insert['name']) {
+								if ($name != $insert['name']) {
 									db_execute("UPDATE thold_data SET name = '" . $insert['name'] . "' WHERE id=$id");
 									plugin_thold_log_changes($id, "updated_name: $name => " . $insert['name']);
 									$message .= "Updated threshold $id: changed name from '<i>$name</i>' to '<i>" . $insert['name'] . "</i>'<br>";

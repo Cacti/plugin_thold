@@ -156,7 +156,6 @@ function thold_add_graphs_action_execute() {
 			$insert['thold_warning_hi']           = $template['thold_warning_hi'];
 			$insert['thold_warning_low']          = $template['thold_warning_low'];
 			$insert['thold_warning_fail_trigger'] = $template['thold_warning_fail_trigger'];
-			$insert['bl_enabled']         = $template['bl_enabled'];
 			$insert['bl_ref_time_range']  = $template['bl_ref_time_range'];
 			$insert['bl_pct_down']        = $template['bl_pct_down'];
 			$insert['bl_pct_up']          = $template['bl_pct_up'];

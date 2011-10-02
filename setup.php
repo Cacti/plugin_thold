@@ -402,7 +402,6 @@ function thold_data_source_action_execute($action) {
 					$insert['thold_low']          = $template['thold_low'];
 					$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
 					$insert['thold_enabled']      = $template['thold_enabled'];
-					$insert['bl_enabled']         = $template['bl_enabled'];
 					$insert['bl_ref_time_range']  = $template['bl_ref_time_range'];
 					$insert['bl_pct_down']        = $template['bl_pct_down'];
 					$insert['bl_pct_up']          = $template['bl_pct_up'];
@@ -605,7 +604,6 @@ function thold_graphs_action_execute($action) {
 					$insert['thold_low']          = $template['thold_low'];
 					$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
 					$insert['thold_enabled']      = $template['thold_enabled'];
-					$insert['bl_enabled']         = $template['bl_enabled'];
 					$insert['bl_ref_time_range']  = $template['bl_ref_time_range'];
 					$insert['bl_pct_down']        = $template['bl_pct_down'];
 					$insert['bl_pct_up']          = $template['bl_pct_up'];
