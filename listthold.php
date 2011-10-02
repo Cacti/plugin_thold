@@ -443,7 +443,7 @@ function list_tholds() {
 			}else{
 				form_alternate_row_color($thold_bgcolors[$bgcolor], $thold_bgcolors[$bgcolor], $i, 'line' . $row["id"]); $i++;
 			}
-			form_selectable_cell("<a class='linkEditMain' href='" . htmlspecialchars("thold.php?rra=" . $row['rra_id'] . "&view_rrd=" . $row['data_id']) . "'><b>" . ($row['name'] != '' ? $row['name'] : $row['name_cache'] . " [" . $row['data_source_name'] . ']') . '</b></a>', $row['id']);
+			form_selectable_cell("<a class='linkEditMain' href='" . htmlspecialchars("thold.php?rra=" . $row['rra_id'] . "&view_rrd=" . $row['data_id']) . "'>" . ($row['name'] != '' ? $row['name'] : $row['name_cache'] . " [" . $row['data_source_name'] . ']') . '</a>', $row['id']);
 			form_selectable_cell($types[$row['thold_type']], $row["id"]);
 			switch($row['thold_type']) {
 				case 0:

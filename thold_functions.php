@@ -822,18 +822,32 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 	case 'modified':
 		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $id, FALSE);
 
-		$rows = db_fetch_assoc('SELECT plugin_thold_contacts.data FROM plugin_thold_contacts, plugin_thold_threshold_contact WHERE plugin_thold_contacts.id = plugin_thold_threshold_contact.contact_id AND plugin_thold_threshold_contact.thold_id = ' . $id);
-		$alert_emails = array();
-		if (count($rows)) {
-			foreach ($rows as $row) {
-			$alert_emails[] = $row['data'];
+		$rows = db_fetch_assoc('SELECT plugin_thold_contacts.data 
+			FROM plugin_thold_contacts, plugin_thold_threshold_contact 
+			WHERE plugin_thold_contacts.id=plugin_thold_threshold_contact.contact_id 
+			AND plugin_thold_threshold_contact.thold_id=' . $id);
+
+		$alert_emails = '';
+		if (read_config_option('thold_disable_legacy') != 'on') {
+			$alert_emails = array();
+			if (count($rows)) {
+				foreach ($rows as $row) {
+				$alert_emails[] = $row['data'];
+				}
+			}
+			$alert_emails = implode(',', $alert_emails);
+			if ($alert_emails != '') {
+				$alert_emails .= ',' . $thold['notify_extra'];
+			} else {
+				$alert_emails = $thold['notify_extra'];
 			}
 		}
-		$alert_emails = implode(',', $alert_emails);
-		if ($alert_emails != '') {
-			$alert_emails .= ',' . $thold['notify_extra'];
-		} else {
-			$alert_emails = $thold['notify_extra'];
+
+		$alert_emails .= (strlen($alert_emails) ? ",":"") . get_thold_notification_emails($thold['notify_alert']);
+
+		$warning_emails = '';
+		if (read_config_option('thold_disable_legacy') != 'on') {
+			$warning_emails = $item['notify_warning_extra'];
 		}
 
 		if ($message['id'] > 0) {
@@ -885,7 +899,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			}
 			$desc .= '  CDEF: ' . $message['cdef'];
 			$desc .= '  ReAlert: ' . plugin_thold_duration_convert($thold['rra_id'], $message['repeat_alert'], 'alert');
-			$desc .= '  Emails: ' . $alert_emails;
+			$desc .= '  Alert Emails: ' . $alert_emails;
+			$desc .= '  Warning Emails: ' . $warning_emails;
 		}
 
 		break;
@@ -897,17 +912,27 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE plugin_thold_contacts.id=plugin_thold_template_contact.contact_id 
 			AND plugin_thold_template_contact.template_id=' . $id);
 
-		$alert_emails = array();
-		if (count($rows)) {
-			foreach ($rows as $row) {
-			$alert_emails[] = $row['data'];
+		$alert_emails = '';
+		if (read_config_option('thold_disable_legacy') != 'on') {
+			$alert_emails = array();
+			if (count($rows)) {
+				foreach ($rows as $row) {
+				$alert_emails[] = $row['data'];
+				}
+			}
+			$alert_emails = implode(',', $alert_emails);
+			if ($alert_emails != '') {
+				$alert_emails .= ',' . $thold['notify_extra'];
+			} else {
+				$alert_emails = $thold['notify_extra'];
 			}
 		}
-		$alert_emails = implode(',', $alert_emails);
-		if ($alert_emails != '') {
-			$alert_emails .= ',' . $thold['notify_extra'];
-		} else {
-			$alert_emails = $thold['notify_extra'];
+
+		$alert_emails .= (strlen($alert_emails) ? ",":"") . get_thold_notification_emails($thold['notify_alert']);
+
+		$warning_emails = '';
+		if (read_config_option('thold_disable_legacy') != 'on') {
+			$warning_emails = $item['notify_warning_extra'];
 		}
 
 		if ($message['id'] > 0) {
@@ -955,7 +980,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		$desc .= '  CDEF: ' . (isset($message['cdef']) ? $message['cdef']: '');
 		$desc .= '  ReAlert: ' . plugin_thold_duration_convert($thold['data_template_id'], $message['repeat_alert'], 'alert', 'data_template_id');
-		$desc .= '  Emails: ' . $alert_emails;
+		$desc .= '  Alert Emails: ' . $alert_emails;
+		$desc .= '  Warning Emails: ' . $warning_emails;
 
 		break;
 	}
@@ -1069,21 +1095,31 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		WHERE plugin_thold_contacts.id=plugin_thold_threshold_contact.contact_id 
 		AND plugin_thold_threshold_contact.thold_id = ' . $item['id']);
 
-	$alert_emails = array();
-	if (count($rows)) {
-		foreach ($rows as $row) {
-			$alert_emails[] = $row['data'];
+	$alert_emails = '';
+	if (read_config_option('thold_disable_legacy') != 'on') {
+		$alert_emails = array();
+		if (count($rows)) {
+			foreach ($rows as $row) {
+				$alert_emails[] = $row['data'];
+			}
+		}
+
+		$alert_emails = implode(',', $alert_emails);
+		if ($alert_emails != '') {
+			$alert_emails .= ',' . $item['notify_extra'];
+		} else {
+			$alert_emails = $item['notify_extra'];
 		}
 	}
 
-	$alert_emails = implode(',', $alert_emails);
-	if ($alert_emails != '') {
-		$alert_emails .= ',' . $item['notify_extra'];
-	} else {
-		$alert_emails = $item['notify_extra'];
+	$alert_emails .= (strlen($alert_emails) ? ",":"") . get_thold_notification_emails($thold['notify_alert']);
+
+	$warning_emails = '';
+	if (read_config_option('thold_disable_legacy') != 'on') {
+		$warning_emails = $item['notify_warning_extra'];
 	}
-	
-	$warning_emails = $item['notify_warning_extra'];
+
+	$warning_emails .= (strlen($warning_emails) ? ",":"") . get_thold_notification_emails($thold['notify_warning']);
 
 	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 
@@ -2328,6 +2364,8 @@ function save_thold() {
 	input_validate_input_number(get_request_var('time_warning_fail_trigger'));
 	input_validate_input_number(get_request_var('time_warning_fail_length'));
 	input_validate_input_number(get_request_var('data_type'));
+	input_validate_input_number(get_request_var('notify_warning'));
+	input_validate_input_number(get_request_var('notify_alert'));
 	input_validate_input_number(get_request_var('bl_ref_time_range'));
 	input_validate_input_number(get_request_var('bl_pct_down'));
 	input_validate_input_number(get_request_var('bl_pct_up'));
@@ -2370,6 +2408,8 @@ function save_thold() {
 	$save['repeat_alert'] = (trim($_POST['repeat_alert'])) == '' ? '' : $_POST['repeat_alert'];
 	$save['notify_extra'] = (trim($_POST['notify_extra'])) == '' ? '' : $_POST['notify_extra'];
 	$save['notify_warning_extra'] = (trim($_POST['notify_warning_extra'])) == '' ? '' : $_POST['notify_warning_extra'];
+	$save['notify_warning'] = $_POST['notify_warning'];
+	$save['notify_alert'] = $_POST['notify_alert'];
 	$save['cdef'] = (trim($_POST['cdef'])) == '' ? '' : $_POST['cdef'];
 	$save['template_enabled'] = $_POST['template_enabled'];
 
@@ -2878,4 +2918,12 @@ function png2jpeg ($png_data) {
 		unlink($fn); // delete scratch file
 	}
 	return $ImageData;
+}
+
+function get_thold_notification_emails($id) {
+	if (!empty($id)) {
+		return trim(db_fetch_cell('SELECT emails FROM plugin_notification_lists WHERE id=' . $id));
+	}else{
+		return '';
+	}
 }

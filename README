@@ -41,8 +41,9 @@
 		Remove old ununsed variables
 		Fix thold messages on restorals
 		Reapply Suggested Name for Tholds
-		Add E-Mail Priority per 'dragossto'
-		Add E-Mail Notification Lists for Hosts
+		Add Email Priority per 'dragossto'
+		Add Email Notification Lists for Thresholds, Templates and Dead Hosts
+		Add Ability to Disable Legacy Alerting
 
 	--- 0.4.4 ---
 		Fix emailing of alerts when PHP-GD is not available

@@ -133,7 +133,7 @@ foreach ($rrdsql as $r) {
 	if ($sql == '') {
 		$sql = ' task_item_id = ' . $r['id'];
 	} else {
-		$sql .= ' or task_item_id = ' . $r['id'];
+		$sql .= ' OR task_item_id = ' . $r['id'];
 	}
 }
 
@@ -155,38 +155,35 @@ $dt_sql = 'SELECT DISTINCT dtr.local_data_id
 $template_data_rrds = db_fetch_assoc("SELECT id, data_source_name, local_data_id FROM data_template_rrd WHERE local_data_id IN ($dt_sql) ORDER BY id");
 
 ?>
+<form name="THold" action="thold.php" method="post">
 <table width="100%" align="center">
 	<tr>
 		<td class="textArea">
-	<?php
-		if (isset($banner)) {
-			echo $banner . "<br><br>";
+			<?php
+			if (isset($banner)) {
+				echo $banner . "<br><br>";
+			}; ?>
+			Data Source Description: <br><strong><?php echo $desc; ?></strong><br><br>
+			Associated Graph (graphs that use this RRD): <br>
+			<select name='element'>
+				<?php
+				foreach($grapharr as $g) {
+					$graph_desc = db_fetch_assoc("SELECT local_graph_id,
+						title,
+						title_cache
+						FROM graph_templates_graph
+						WHERE local_graph_id = " . $g["local_graph_id"]);
 
-		}; ?>
-
-<form name="THold" action=thold.php method=post>
-	Data Source Description: <br><strong><?php echo $desc; ?></strong><br><br>
-	Associated Graph (graphs that use this RRD): <br>
-	<select name='element'>
-<?php
-foreach($grapharr as $g) {
-	$graph_desc = db_fetch_assoc("SELECT local_graph_id,
-		title,
-		title_cache
-		FROM graph_templates_graph
-		WHERE local_graph_id = " . $g["local_graph_id"]);
-
-	echo "<option value=" . $graph_desc[0]["local_graph_id"];
-	if($graph_desc[0]["local_graph_id"] == $graph) echo " selected";
-	echo "> " . $graph_desc[0]["local_graph_id"] . " - " . $graph_desc[0]["title_cache"] . " </option>\n";
-}
-?>
-	</select>
-	<br>
-	<br>
+					echo "<option value=" . $graph_desc[0]["local_graph_id"];
+					if($graph_desc[0]["local_graph_id"] == $graph) echo " selected";
+					echo "> " . $graph_desc[0]["local_graph_id"] . " - " . $graph_desc[0]["title_cache"] . " </option>\n";
+				} ?>
+			</select>
+			<br>
+			<br>
 		</td>
 		<td>
-			<img id="graphimage" src="<?php echo $config["url_path"]; ?>graph_image.php?local_graph_id=<?php echo $graph ?>&rra_id=0&graph_start=-32400&graph_height=100&graph_width=300&graph_nolegend=true">
+			<img id="graphimage" src="<?php echo htmlspecialchars($config["url_path"] . 'graph_image.php?local_graph_id=' . $graph . '&rra_id=0&graph_start=-32400&graph_height=100&graph_width=300&graph_nolegend=true');?>">
 		</td>
 	</tr>
 </table>
@@ -253,7 +250,7 @@ if (isset($template_data_rrds)) {
 			$i++;
 			echo "	<td bgcolor=" . (($template_data_rrd["id"] == $_GET["view_rrd"]) ? "'silver'" : "'#DFDFDF'");
 			echo " nowrap='nowrap' align='center' class='tab'>";
-			echo "<span class='textHeader'><a href='thold.php?rra=" . $template_data_rrd["local_data_id"] . "&view_rrd=" . $template_data_rrd["id"] . "'>$i: " . $template_data_rrd["data_source_name"] . "</a><br>";
+			echo "<span class='textHeader'><a href='" . htmlspecialchars("thold.php?rra=" . $template_data_rrd["local_data_id"] . "&view_rrd=" . $template_data_rrd["id"]) . "'>$i: " . $template_data_rrd["data_source_name"] . "</a><br>";
 			echo "<span style='white-space:nowrap;'>" . $cur_setting . "</span>";
 			echo "</span>\n</td>\n<td width='1'></td>\n";
 			unset($thold_item_data);
@@ -471,40 +468,6 @@ $form_array = array(
 			'description' => 'The amount of time the data source must be in breach of the threshold for an alert to be raised.',
 			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : ''
 		),
-		'time_header' => array(
-			'friendly_name' => 'Time Based Settings',
-			'method' => 'spacer',
-		),
-		'time_hi' => array(
-			'friendly_name' => 'High Threshold',
-			'method' => 'textbox',
-			'max_length' => 100,
-			'description' => 'If set and data source value goes above this number, alert will be triggered',
-			'value' => isset($thold_item_data['time_hi']) ? $thold_item_data['time_hi'] : ''
-		),
-		'time_low' => array(
-			'friendly_name' => 'Low Threshold',
-			'method' => 'textbox',
-			'max_length' => 100,
-			'description' => 'If set and data source value goes below this number, alert will be triggered',
-			'value' => isset($thold_item_data['time_low']) ? $thold_item_data['time_low'] : ''
-		),
-		'time_fail_trigger' => array(
-			'friendly_name' => 'Breach Count',
-			'method' => 'textbox',
-			'max_length' => 5,
-			'default' => read_config_option('thold_time_fail_trigger'),
-			'description' => 'The number of times the data source must be in breach of the threshold.',
-			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : ''
-		),
-		'time_fail_length' => array(
-			'friendly_name' => 'Breach Window',
-			'method' => 'drop_array',
-			'array' => $timearray,
-			'default' => (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 1),
-			'description' => 'The amount of time in the past to check for threshold breaches.',
-			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : ''
-		),
 		'time_warning_header' => array(
 			'friendly_name' => 'Warning Time Based Settings',
 			'method' => 'spacer',
@@ -539,6 +502,40 @@ $form_array = array(
 			'description' => 'The amount of time in the past to check for threshold breaches.',
 			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : ''
 		),		
+		'time_header' => array(
+			'friendly_name' => 'Time Based Settings',
+			'method' => 'spacer',
+		),
+		'time_hi' => array(
+			'friendly_name' => 'High Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes above this number, alert will be triggered',
+			'value' => isset($thold_item_data['time_hi']) ? $thold_item_data['time_hi'] : ''
+		),
+		'time_low' => array(
+			'friendly_name' => 'Low Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes below this number, alert will be triggered',
+			'value' => isset($thold_item_data['time_low']) ? $thold_item_data['time_low'] : ''
+		),
+		'time_fail_trigger' => array(
+			'friendly_name' => 'Breach Count',
+			'method' => 'textbox',
+			'max_length' => 5,
+			'default' => read_config_option('thold_time_fail_trigger'),
+			'description' => 'The number of times the data source must be in breach of the threshold.',
+			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : ''
+		),
+		'time_fail_length' => array(
+			'friendly_name' => 'Breach Window',
+			'method' => 'drop_array',
+			'array' => $timearray,
+			'default' => (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 1),
+			'description' => 'The amount of time in the past to check for threshold breaches.',
+			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : ''
+		),
 		'baseline_header' => array(
 			'friendly_name' => 'Baseline Settings',
 			'method' => 'spacer',
@@ -617,7 +614,6 @@ $form_array = array(
 			'max_length' => '255',
 			'size' => '80'
 		),
-
 		'other_header' => array(
 			'friendly_name' => 'Other Settings',
 			'method' => 'spacer',
@@ -636,6 +632,22 @@ $form_array = array(
 			'description' => 'This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>',
 			'array' => $send_notification_array,
 			'sql' => $sql,
+		),
+		'notify_warning' => array(
+			'friendly_name' => 'Warning Notification List',
+			'method' => 'drop_sql',
+			'description' => 'You may specify choose a Notification List to receive Warnings for this Data Source',
+			'value' => isset($thold_item_data['notify_warning']) ? $thold_item_data['notify_warning'] : '',
+			'none_value' => 'None',
+			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
+		),
+		'notify_alert' => array(
+			'friendly_name' => 'Alert Notification List',
+			'method' => 'drop_sql',
+			'description' => 'You may specify choose a Notification List to receive Alerts for this Data Source',
+			'value' => isset($thold_item_data['notify_alert']) ? $thold_item_data['notify_alert'] : '',
+			'none_value' => 'None',
+			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
 		),
 		'notify_extra' => array(
 			'friendly_name' => 'Extra Alert Emails',
@@ -683,53 +695,58 @@ form_save_button('thold.php?rra=' . $rra . '&view_rrd=' . $_GET['view_rrd'], 'sa
 unset($template_data_rrds);
 ?>
 <!-- Make it look intelligent :) -->
-<script language="JavaScript">
+<script type="text/javascript">
+	function Template_EnableDisable() {
+		var _f = document.THold;
+		var status = _f.template_enabled.checked;
+		_f.name.disabled = status;
+		_f.thold_type.disabled = status;
+		_f.thold_hi.disabled = status;
+		_f.thold_low.disabled = status;
+		_f.thold_fail_trigger.disabled = status;
+		_f.thold_warning_hi.disabled = status;
+		_f.thold_warning_low.disabled = status;
+			_f.thold_warning_fail_trigger.disabled = status;
+		_f.repeat_alert.disabled = status;
+		_f.notify_extra.disabled = status;
+		_f.notify_warning_extra.disabled = status;
+		_f.notify_warning.disabled = status;
+		_f.notify_alert.disabled = status;
+		_f.cdef.disabled = status;
+		_f.thold_enabled.disabled = status;
+		_f["notify_accounts[]"].disabled = status;
+		_f.time_hi.disabled = status;
+		_f.time_low.disabled = status;
+		_f.time_fail_trigger.disabled = status;
+		_f.time_fail_length.disabled = status;
+		_f.time_warning_hi.disabled = status;
+		_f.time_warning_low.disabled = status;
+		_f.time_warning_fail_trigger.disabled = status;
+		_f.time_warning_fail_length.disabled = status;
+		_f.data_type.disabled = status;
+		_f.percent_ds.disabled = status;
+		_f.expression.disabled = status;
+		_f.exempt.disabled = status;
+		_f.restored_alert.disabled = status;
+	}
 
-function Template_EnableDisable()
-{
-	var _f = document.THold;
-	var status = _f.template_enabled.checked;
-	_f.name.disabled = status;
-	_f.thold_type.disabled = status;
-	_f.thold_hi.disabled = status;
-	_f.thold_low.disabled = status;
-	_f.thold_fail_trigger.disabled = status;
-	_f.thold_warning_hi.disabled = status;
-	_f.thold_warning_low.disabled = status;
-	_f.thold_warning_fail_trigger.disabled = status;
-	_f.repeat_alert.disabled = status;
-	_f.notify_extra.disabled = status;
-	_f.notify_warning_extra.disabled = status;
-	_f.cdef.disabled = status;
-	_f.thold_enabled.disabled = status;
-	_f["notify_accounts[]"].disabled = status;
-	_f.time_hi.disabled = status;
-	_f.time_low.disabled = status;
-	_f.time_fail_trigger.disabled = status;
-	_f.time_fail_length.disabled = status;
-	_f.time_warning_hi.disabled = status;
-	_f.time_warning_low.disabled = status;
-	_f.time_warning_fail_trigger.disabled = status;
-	_f.time_warning_fail_length.disabled = status;
-	_f.data_type.disabled = status;
-	_f.percent_ds.disabled = status;
-	_f.expression.disabled = status;
-	_f.exempt.disabled = status;
-	_f.restored_alert.disabled = status;
+	if (document.THold["notify_accounts[]"].length == 0) {
+		document.getElementById('row_notify_accounts').style.display='none';
+	}
 
-}
+	if (document.THold.notify_warning.length == 1) {
+		document.getElementById('row_notify_warning').style.display='none';
+	}
 
-Template_EnableDisable();
-document.THold.template_enabled.onclick = Template_EnableDisable;
-<?php
-if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') {
-?>
+	if (document.THold.notify_alert.length == 1) {
+		document.getElementById('row_notify_alert').style.display='none';
+	}
+
+	Template_EnableDisable();
+	document.THold.template_enabled.onclick = Template_EnableDisable;
+	<?php if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') { ?>
 	document.THold.template_enabled.disabled = true;
-
-<?php
-}
-?>
-
+	<?php } ?>
 
 	function changeTholdType () {
 		type = document.getElementById('thold_type').value;
@@ -812,23 +829,17 @@ if (!isset($thold_item_data['template']) || $thold_item_data['template'] == '') 
 		document.getElementById('row_time_warning_fail_length').style.display  = status;
 	}
 
+	function GraphImage() {
+		var _f = document.THold;
+		var id = _f.element.options[_f.element.selectedIndex].value;
+		document.graphimage.src = "../../graph_image.php?local_graph_id=" + id + "&rra_id=0&graph_start=-32400&graph_height=100&graph_width=300&graph_nolegend=true";
+	}
+
 	changeTholdType ();
 	changeDataType ();
 
+	document.THold.element.onchange = GraphImage;
 </script>
 <?php
 
 include_once($config["include_path"] . "/bottom_footer.php");
-?>
-
-<script language="JavaScript">
-function GraphImage()
-{
-	var _f = document.THold;
-	var id = _f.element.options[_f.element.selectedIndex].value;
-	document.graphimage.src = "../../graph_image.php?local_graph_id=" + id + "&rra_id=0&graph_start=-32400&graph_height=100&graph_width=300&graph_nolegend=true";
-}
-
-document.THold.element.onchange = GraphImage;
-
-</script>

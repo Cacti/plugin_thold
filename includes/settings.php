@@ -131,10 +131,16 @@ function thold_config_settings () {
 			'method' => 'spacer',
 			),
 		'thold_disable_all' => array(
-			'friendly_name' => 'Disable all thresholds',
+			'friendly_name' => 'Disable All Thresholds',
 			'description' => 'Checking this box will disable alerting on all thresholds.  This can be used when it is necessary to perform maintenance on your network.',
 			'method' => 'checkbox',
 			'default' => 'off'
+			),
+		'thold_disable_legacy' => array(
+			'friendly_name' => 'Disable Legacy Notifications',
+			'description' => 'Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List.',
+			'method' => 'checkbox',
+			'default' => ''
 			),
 		'thold_filter_default' => array(
 			'friendly_name' => 'Default Status',
@@ -202,7 +208,7 @@ function thold_config_settings () {
 			'default' => 12
 			),
 		'alert_syslog' => array(
-			'friendly_name' => 'Syslogging',
+			'friendly_name' => 'Syslog Support',
 			'description' => 'These messages will be sent to your local syslog. If you would like these sent to a remote box, you must setup your local syslog to do so',
 			'method' => 'checkbox'
 			),
@@ -224,28 +230,28 @@ function thold_config_settings () {
 			'friendly_name' => 'Emailing Options',
 			'method' => 'spacer',
 			),
+		'thold_email_prio' => array(
+			'friendly_name' => 'Send Emails with Urgent Priority',
+			'description' => 'Allows you to set e-mails with urgent priority',
+			'method' => 'checkbox',
+			'default' => 'off'
+			),
 		'alert_deadnotify' => array(
 			'friendly_name' => 'Dead Hosts Notifications',
 			'description' => 'Enable Dead/Recovering host notification',
 			'method' => 'checkbox',
 			'default' => 'on'
 			),
-		'thold_email_prio' => array(
-			'friendly_name' => 'Send E-Mails with Urgent Priority',
-			'description' => 'Allows you to set e-mails with urgent priority',
-			'method' => 'checkbox',
-			'default' => 'off'
-			),
 		'alert_email' => array(
 			'friendly_name' => 'Dead Host Notifications Email',
-			'description' => 'This is the email address that the dead host notifications will be sent to.',
+			'description' => 'This is the Email Address that the Dead Host Notifications will be sent to if the Global Notification List is selected.',
 			'method' => 'textbox',
 			'size' => 80,
 			'max_length' => 255,
 			),
 		'thold_down_subject' => array(
 			'friendly_name' => 'Down Host Subject',
-			'description' => 'This is the email subject that will be used for Down Host Messages.',
+			'description' => 'This is the Email subject that will be used for Down Host Messages.',
 			'method' => 'textbox',
 			'size' => 80,
 			'max_length' => 255,
@@ -253,7 +259,7 @@ function thold_config_settings () {
 			),
 		'thold_down_text' => array(
 			'friendly_name' => 'Down Host Message',
-			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062',
+			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062',
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
@@ -262,7 +268,7 @@ function thold_config_settings () {
 			),
 		'thold_up_subject' => array(
 			'friendly_name' => 'Recovering Host Subject',
-			'description' => 'This is the email subject that will be used for Recovering Host Messages.',
+			'description' => 'This is the Email subject that will be used for Recovering Host Messages.',
 			'method' => 'textbox',
 			'size' => 80,
 			'max_length' => 255,
@@ -270,7 +276,7 @@ function thold_config_settings () {
 			),
 		'thold_up_text' => array(
 			'friendly_name' => 'Recovering Host Message',
-			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062',
+			'description' => 'This is the message that will be displayed as the message body of all UP / Down Host Messages (255 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060HOSTNAME&#062  &#060DESCRIPTION&#062 &#060UPTIME&#062  &#060UPTIMETEXT&#062  &#060DOWNTIME&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062',
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
@@ -279,7 +285,7 @@ function thold_config_settings () {
 		),
 		'thold_from_email' => array(
 			'friendly_name' => 'From Email Address',
-			'description' => 'This is the email address that the threshold will appear from.',
+			'description' => 'This is the Email address that the threshold will appear from.',
 			'method' => 'textbox',
 			'default' => read_config_option("settings_from_email"),
 			'max_length' => 255,
@@ -293,7 +299,7 @@ function thold_config_settings () {
 			),
 		'thold_alert_text' => array(
 			'friendly_name' => 'Threshold Alert Message',
-			'description' => 'This is the message that will be displayed at the top of all threshold alerts (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
+			'description' => 'This is the message that will be displayed at the top of all threshold alerts (255 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
@@ -302,7 +308,7 @@ function thold_config_settings () {
 			),
 		'thold_warning_text' => array(
 			'friendly_name' => 'Threshold Warning Message',
-			'description' => 'This is the message that will be displayed at the top of all threshold warnings (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
+			'description' => 'This is the message that will be displayed at the top of all threshold warnings (255 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
@@ -311,7 +317,7 @@ function thold_config_settings () {
 			),
 		'thold_send_text_only' => array(
 			'friendly_name' => 'Send alerts as text',
-			'description' => 'If checked, this will cause all alerts to be sent as plain text emails with no graph.  The default is HTML emails with the graph embedded in the email.',
+			'description' => 'If checked, this will cause all alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email.',
 			'method' => 'checkbox',
 			'default' => 'off'
 			),

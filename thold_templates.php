@@ -241,6 +241,8 @@ function template_save_edit() {
 	input_validate_input_number(get_request_var_post('repeat_alert'));
 	input_validate_input_number(get_request_var_post('data_type'));
 	input_validate_input_number(get_request_var_post('cdef'));
+	input_validate_input_number(get_request_var_post('notify_warning'));
+	input_validate_input_number(get_request_var_post('notify_alert'));
 	/* ==================================================== */
 
 	/* clean up date1 string */
@@ -359,6 +361,8 @@ function template_save_edit() {
 
 	$save['notify_extra'] = $_POST['notify_extra'];
 	$save['notify_warning_extra'] = $_POST['notify_warning_extra'];
+	$save['notify_warning'] = $_POST['notify_warning'];
+	$save['notify_alert'] = $_POST['notify_alert'];
 	$save['cdef'] = $_POST['cdef'];
 
 	$save['data_type']  = $_POST['data_type'];
@@ -395,24 +399,26 @@ function template_edit() {
 	/* ================= input validation ================= */
 	input_validate_input_number(get_request_var('id'));
 	/* ==================================================== */
-//	if (isset($_GET['id']))
-		$id = $_GET['id'];
-	$thold_item_data = db_fetch_assoc('select * from thold_template where id = ' . $id);
+	$id = $_GET['id'];
+	$thold_item_data = db_fetch_assoc('SELECT * FROM thold_template WHERE id=' . $id);
 
 	$thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_item_data;
 
 
-	$temp = db_fetch_assoc('select id, name from data_template where id = ' . $thold_item_data['data_template_id']);
+	$temp = db_fetch_assoc('SELECT id, name FROM data_template WHERE id=' . $thold_item_data['data_template_id']);
 
 	foreach ($temp as $d) {
 		$data_templates[$d['id']] = $d['name'];
 	}
 
-	$temp = db_fetch_assoc('select id, data_source_name, data_input_field_id from data_template_rrd where id = ' . $thold_item_data['data_source_id']);
+	$temp = db_fetch_assoc('SELECT id, data_source_name, data_input_field_id 
+		FROM data_template_rrd 
+		WHERE id=' . $thold_item_data['data_source_id']);
+
 	$source_id = $temp[0]['data_input_field_id'];
 
 	if ($source_id != 0) {
-		$temp2 = db_fetch_assoc('select id, name from data_input_fields where id = ' . $source_id);
+		$temp2 = db_fetch_assoc('SELECT id, name FROM data_input_fields WHERE id=' . $source_id);
 		foreach ($temp2 as $d) {
 			$data_fields[$d['id']] = $d['name'];
 		}
@@ -422,7 +428,13 @@ function template_edit() {
 
 	$send_notification_array = array();
 
-	$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data, plugin_thold_contacts.type, user_auth.full_name FROM plugin_thold_contacts, user_auth WHERE user_auth.id = plugin_thold_contacts.user_id AND plugin_thold_contacts.data != '' ORDER BY user_auth.full_name ASC, plugin_thold_contacts.type ASC");
+	$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data, 
+		plugin_thold_contacts.type, user_auth.full_name 
+		FROM plugin_thold_contacts, user_auth 
+		WHERE user_auth.id=plugin_thold_contacts.user_id 
+		AND plugin_thold_contacts.data!='' 
+		ORDER BY user_auth.full_name ASC, plugin_thold_contacts.type ASC");
+
 	if (!empty($users)) {
 		foreach ($users as $user) {
 			$send_notification_array[$user['id']] = $user['full_name'] . ' - ' . ucfirst($user['type']);
@@ -462,11 +474,16 @@ function template_edit() {
 		3 => 'RPN Expression'
 	);
 
-	$rra_steps = db_fetch_assoc(
-	    "select rra.steps from data_template_data d join data_template_data_rra a 
-	    on d.id = a.data_template_data_id join rra on a.rra_id = rra.id 
-	    where rra.steps > 1 and d.data_template_id = " . $thold_item_data['data_template_id']. 
-	    " and d.local_data_template_data_id = 0 order by steps");
+	$rra_steps = db_fetch_assoc("SELECT rra.steps 
+		FROM data_template_data d 
+		JOIN data_template_data_rra a 
+	    ON d.id=a.data_template_data_id 
+		JOIN rra 
+		ON a.rra_id=rra.id 
+	    WHERE rra.steps>1 
+		AND d.data_template_id=" . $thold_item_data['data_template_id'] . "
+	    AND d.local_data_template_data_id=0 
+		ORDER BY steps");
 
 	$reference_types = array();
 	foreach($rra_steps as $rra_step) {
@@ -475,10 +492,19 @@ function template_edit() {
 	}
 
 	$data_fields2 = array();
-	$temp = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where local_data_template_rrd_id = 0 and data_template_id = ' . $thold_item_data['data_template_id']);
+	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, 
+		data_input_field_id 
+		FROM data_template_rrd 
+		WHERE local_data_template_rrd_id=0 
+		AND data_template_id=' . $thold_item_data['data_template_id']);
+
 	foreach ($temp as $d) {
 		if ($d['data_input_field_id'] != 0) {
-			$temp2 = db_fetch_assoc('select id, name, data_name from data_input_fields where id = ' . $d['data_input_field_id'] . ' order by data_name');
+			$temp2 = db_fetch_assoc('SELECT id, name, data_name 
+				FROM data_input_fields 
+				WHERE id=' . $d['data_input_field_id'] . '
+				ORDER BY data_name');
+
 			$data_fields2[$d['data_source_name']] = $temp2[0]['data_name'] . ' (' . $temp2[0]['name'] . ')';
 		} else {
 			$temp2[0]['name'] = $d['data_source_name'];
@@ -547,6 +573,32 @@ function template_edit() {
 			'description' => 'The type of Threshold that will be monitored.',
 			'value' => isset($thold_item_data['thold_type']) ? $thold_item_data['thold_type'] : ''
 		),
+		'thold_warning_header' => array(
+			'friendly_name' => 'High / Low Warning Settings',
+			'method' => 'spacer',
+		),
+		'thold_warning_hi' => array(
+			'friendly_name' => 'High Warning Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes above this number, alert will be triggered',
+			'value' => isset($thold_item_data['thold_warning_hi']) ? $thold_item_data['thold_warning_hi'] : ''
+		),
+		'thold_warning_low' => array(
+			'friendly_name' => 'Low Warning Threshold',
+			'method' => 'textbox',
+			'max_length' => 100,
+			'description' => 'If set and data source value goes below this number, alert will be triggered',
+			'value' => isset($thold_item_data['thold_warning_low']) ? $thold_item_data['thold_warning_low'] : ''
+		),
+		'thold_warning_fail_trigger' => array(
+			'friendly_name' => 'Min Warning Trigger Duration',
+			'method' => 'drop_array',
+			'array' => $alertarray,
+			'default' => read_config_option('alert_trigger'),
+			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
+			'value' => isset($thold_item_data['thold_warning_fail_trigger']) ? $thold_item_data['thold_warning_fail_trigger'] : ''
+		),
 		'thold_header' => array(
 			'friendly_name' => 'High / Low Settings',
 			'method' => 'spacer',
@@ -573,31 +625,39 @@ function template_edit() {
 			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
 			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : ''
 		),
-		'thold_warning_header' => array(
-			'friendly_name' => 'High / Low Warning Settings',
+		'time_warning_header' => array(
+			'friendly_name' => 'Time Based Warning Settings',
 			'method' => 'spacer',
 		),
-		'thold_warning_hi' => array(
+		'time_warning_hi' => array(
 			'friendly_name' => 'High Warning Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
-			'description' => 'If set and data source value goes above this number, alert will be triggered',
-			'value' => isset($thold_item_data['thold_warning_hi']) ? $thold_item_data['thold_warning_hi'] : ''
+			'description' => 'If set and data source value goes above this number, warning will be triggered',
+			'value' => isset($thold_item_data['time_warning_hi']) ? $thold_item_data['time_warning_hi'] : ''
 		),
-		'thold_warning_low' => array(
+		'time_warning_low' => array(
 			'friendly_name' => 'Low Warning Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
-			'description' => 'If set and data source value goes below this number, alert will be triggered',
-			'value' => isset($thold_item_data['thold_warning_low']) ? $thold_item_data['thold_warning_low'] : ''
+			'description' => 'If set and data source value goes below this number, warning will be triggered',
+			'value' => isset($thold_item_data['time_warning_low']) ? $thold_item_data['time_warning_low'] : ''
 		),
-		'thold_warning_fail_trigger' => array(
-			'friendly_name' => 'Min Warning Trigger Duration',
+		'time_warning_fail_trigger' => array(
+			'friendly_name' => 'Warning Trigger Count',
+			'method' => 'textbox',
+			'max_length' => 5,
+			'default' => read_config_option('thold_warning_time_fail_trigger'),
+			'description' => 'The number of times the data source must be in breach condition prior to issuing a warning.',
+			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : ''
+		),
+		'time_warning_fail_length' => array(
+			'friendly_name' => 'Warning Time Period Length',
 			'method' => 'drop_array',
-			'array' => $alertarray,
-			'default' => read_config_option('alert_trigger'),
-			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
-			'value' => isset($thold_item_data['thold_warning_fail_trigger']) ? $thold_item_data['thold_warning_fail_trigger'] : ''
+			'array' => $timearray,
+			'default' => (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1),
+			'description' => 'The amount of time in the past to check for threshold breaches.',
+			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : ''
 		),
 		'time_header' => array(
 			'friendly_name' => 'Time Based Settings',
@@ -633,40 +693,6 @@ function template_edit() {
 			'description' => 'The amount of time in the past to check for threshold breaches.',
 			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : ''
 		),
-		'time_warning_header' => array(
-			'friendly_name' => 'Time Based Warning Settings',
-			'method' => 'spacer',
-		),
-		'time_warning_hi' => array(
-			'friendly_name' => 'High Warning Threshold',
-			'method' => 'textbox',
-			'max_length' => 100,
-			'description' => 'If set and data source value goes above this number, warning will be triggered',
-			'value' => isset($thold_item_data['time_warning_hi']) ? $thold_item_data['time_warning_hi'] : ''
-		),
-		'time_warning_low' => array(
-			'friendly_name' => 'Low Warning Threshold',
-			'method' => 'textbox',
-			'max_length' => 100,
-			'description' => 'If set and data source value goes below this number, warning will be triggered',
-			'value' => isset($thold_item_data['time_warning_low']) ? $thold_item_data['time_warning_low'] : ''
-		),
-		'time_warning_fail_trigger' => array(
-			'friendly_name' => 'Warning Trigger Count',
-			'method' => 'textbox',
-			'max_length' => 5,
-			'default' => read_config_option('thold_warning_time_fail_trigger'),
-			'description' => 'The number of times the data source must be in breach condition prior to issuing a warning.',
-			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : ''
-		),
-		'time_warning_fail_length' => array(
-			'friendly_name' => 'Warning Time Period Length',
-			'method' => 'drop_array',
-			'array' => $timearray,
-			'default' => (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1),
-			'description' => 'The amount of time in the past to check for threshold breaches.',
-			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : ''
-		),		
 		'baseline_header' => array(
 			'friendly_name' => 'Baseline Monitoring',
 			'method' => 'spacer',
@@ -766,8 +792,24 @@ function template_edit() {
 			'array' => $send_notification_array,
 			'sql' => $sql,
 		),
+        'notify_warning' => array(
+            'friendly_name' => 'Warning Notification List',
+            'method' => 'drop_sql',
+            'description' => 'You may specify choose a Notification List to receive Warnings for this Data Source',
+            'value' => isset($thold_item_data['notify_warning']) ? $thold_item_data['notify_warning'] : '',
+            'none_value' => 'None',
+            'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
+        ),
+        'notify_alert' => array(
+            'friendly_name' => 'Alert Notification List',
+            'method' => 'drop_sql',
+            'description' => 'You may specify choose a Notification List to receive Alerts for this Data Source',
+            'value' => isset($thold_item_data['notify_alert']) ? $thold_item_data['notify_alert'] : '',
+            'none_value' => 'None',
+            'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
+        ),
 		'notify_extra' => array(
-			'friendly_name' => 'Alert E-Mail',
+			'friendly_name' => 'Alert Email',
 			'method' => 'textarea',
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
@@ -775,7 +817,7 @@ function template_edit() {
 			'value' => isset($thold_item_data['notify_extra']) ? $thold_item_data['notify_extra'] : ''
 		),
 		'notify_warning_extra' => array(
-			'friendly_name' => 'Warning E-Mail',
+			'friendly_name' => 'Warning Email',
 			'method' => 'textarea',
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
@@ -880,6 +922,18 @@ function template_edit() {
 
 	changeTholdType ();
 	changeDataType ();
+
+	if (document.THold["notify_accounts[]"].length == 0) {
+		document.getElementById('row_notify_accounts').style.display='none';
+	}
+
+	if (document.THold.notify_warning.length == 1) {
+		document.getElementById('row_notify_warning').style.display='none';
+	}
+
+	if (document.THold.notify_alert.length == 1) {
+		document.getElementById('row_notify_alert').style.display='none';
+	}
 
 	</script>
 	<?php

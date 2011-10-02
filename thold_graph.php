@@ -486,7 +486,7 @@ function tholds() {
 				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] . '&action=enable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" border="0" alt="" title="Enable Threshold"></a>';
 			}
 			print "<a href='". htmlspecialchars($config['url_path'] . "graph.php?local_graph_id=" . $row['graph_id'] . "&rra_id=all") . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graph'></a>";
-			print "<a href='". htmlspecialchars($config['url_path'] . "plugins/thold/thold_graph.php?tab=log&threshold_id=" . $row["id"]) . "&status=-1'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
+			print "<a href='". htmlspecialchars($config['url_path'] . "plugins/thold/thold_graph.php?tab=log&threshold_id=" . $row["id"] . "&status=-1") . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
 
 			print "</td>";
 			print "<td>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
