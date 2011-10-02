@@ -1028,8 +1028,8 @@ function thold_show_log() {
 	load_current_session_value("host_id", "sess_thold_log_host_id", "-1");
 	load_current_session_value("status", "sess_thold_log_status", "-1");
 	load_current_session_value("rows", "sess_thold_log_rows", read_config_option("num_rows_device"));
-	load_current_session_value("sort_column", "sess_thold_log_sort_column", "description");
-	load_current_session_value("sort_direction", "sess_thold_log_sort_direction", "ASC");
+	load_current_session_value("sort_column", "sess_thold_log_sort_column", "time");
+	load_current_session_value("sort_direction", "sess_thold_log_sort_direction", "DESC");
 
 	/* if the number of rows is -1, set it to the default */
 	if ($_REQUEST["rows"] == -1) {

@@ -45,7 +45,7 @@ function thold_poller_bottom () {
 
 function thold_cleanup_log () {
 	$t = time() - (86400 * 31); // Delete Logs over a month old
-	db_execute("DELETE FROM plugin_thold_log WHERE time < $t");
+	db_execute("DELETE FROM plugin_thold_log WHERE time<$t");
 }
 
 function thold_poller_output ($rrd_update_array) {
@@ -70,15 +70,20 @@ function thold_poller_output ($rrd_update_array) {
 	}
 
 	if ($rra_ids != '') {
-		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.expression, thold_data.data_type,
-					thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread,
-					UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue, data_template_rrd.data_source_name as name,
-					data_template_rrd.data_source_type_id, data_template_data.rrd_step,
-					data_template_rrd.rrd_maximum
-					FROM thold_data
-					LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
-					LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
-					WHERE data_template_rrd.data_source_name != '' AND thold_data.rra_id IN($rra_ids)", false);
+		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.expression, 
+			thold_data.data_type, thold_data.cdef, thold_data.rra_id, 
+			thold_data.data_id, thold_data.lastread,
+			UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue, 
+			data_template_rrd.data_source_name as name,
+			data_template_rrd.data_source_type_id, data_template_data.rrd_step,
+			data_template_rrd.rrd_maximum
+			FROM thold_data
+			LEFT JOIN data_template_rrd 
+			ON (data_template_rrd.id = thold_data.data_id)
+			LEFT JOIN data_template_data 
+			ON ( data_template_data.local_data_id = thold_data.rra_id )
+			WHERE data_template_rrd.data_source_name!='' 
+			AND thold_data.rra_id IN($rra_ids)", false);
 	} else {
 		return $rrd_update_array;
 	}
@@ -157,7 +162,12 @@ function thold_poller_output ($rrd_update_array) {
 						$currentval = round($currentval, 4);
 						break;
 				}
-				db_execute("UPDATE thold_data SET tcheck = 1, lastread = '$currentval', lasttime = '" . date("Y-m-d H:i:s", $currenttime) . "', oldvalue = '" . $item[$t_item['name']] . "' WHERE rra_id = " . $t_item['rra_id'] . " AND data_id = " . $t_item['data_id']);
+
+				db_execute("UPDATE thold_data SET tcheck=1, lastread='$currentval', 
+					lasttime='" . date("Y-m-d H:i:s", $currenttime) . "', 
+					oldvalue='" . $item[$t_item['name']] . "' 
+					WHERE rra_id = " . $t_item['rra_id'] . " 
+					AND data_id = " . $t_item['data_id']);
 			}
 		}
 	}
@@ -169,13 +179,13 @@ function thold_poller_output ($rrd_update_array) {
 function thold_check_all_thresholds () {
 	global $config;
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
-	$tholds = do_hook_function('thold_get_live_hosts', db_fetch_assoc("SELECT * FROM thold_data WHERE thold_enabled = 'on' AND tcheck = 1"));
+	$tholds = do_hook_function('thold_get_live_hosts', db_fetch_assoc("SELECT * FROM thold_data WHERE thold_enabled='on' AND tcheck=1"));
 	$total_tholds = sizeof($tholds);
 	foreach ($tholds as $thold) {
 		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
 		thold_check_threshold ($thold['rra_id'], $thold['data_id'], $ds, $thold['lastread'], $thold['cdef']);
 	}
-	db_execute('UPDATE thold_data SET tcheck = 0');
+	db_execute('UPDATE thold_data SET tcheck=0');
 
 	return $total_tholds;
 }
@@ -330,7 +340,12 @@ function thold_update_host_status () {
 	}
 
 	// Lets find hosts that are down
-	$hosts = db_fetch_assoc('SELECT * FROM host WHERE disabled="" AND status=' . HOST_DOWN . ' AND status_event_count=' . $ping_failure_count);
+	$hosts = db_fetch_assoc('SELECT * 
+		FROM host 
+		WHERE disabled="" 
+		AND status=' . HOST_DOWN . ' 
+		AND status_event_count=' . $ping_failure_count);
+
 	$total_hosts = sizeof($hosts);
 	if (count($hosts)) {
 		foreach($hosts as $host) {
@@ -412,7 +427,10 @@ function thold_update_host_status () {
 	}
 
 	// Now lets record all failed hosts
-	$hosts = db_fetch_assoc('SELECT id FROM host WHERE status != ' . HOST_UP);
+	$hosts = db_fetch_assoc('SELECT id 
+		FROM host 
+		WHERE status!=' . HOST_UP);
+
 	$failed = array();
 	if (!empty($hosts)) {
 		foreach ($hosts as $host) {
