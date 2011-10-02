@@ -1532,7 +1532,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				}
 			}
 
-			$subject = "ALERT: " . $desc . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($failures > $trigger ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $item['time_hi'] : $item['time_low']) . " with $currentval";
+			$subject = ($status == 2 ? "ALERT: ":"TRIGGER: ") . $desc . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($failures > $trigger ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $item['time_hi'] : $item['time_low']) . " with $currentval";
 
 			if ($status == 2) {
 				thold_debug('Alerting is necessary');
@@ -1609,7 +1609,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				}
 			}
 
-			$subject = "WARNING: ". $desc . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($warning_failures > $warning_trigger ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $item['time_hi'] : $item['time_low']) . " with $currentval";
+			$subject = ($status == 2 ? "WARNING: ":"TRIGGER: ") . $desc . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($warning_failures > $warning_trigger ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $item['time_hi'] : $item['time_low']) . " with $currentval";
 
 			if ($status == 2) {
 				if ($logset == 1) {
@@ -1686,7 +1686,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					logger($desc, 'ok', 0, $currentval, $warning_trigger, $item['thold_warning_fail_count'], $url);
 				}
 
-				$subject = "WARNING -> NORMAL: ". $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+				$subject = "NORMAL: ". $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 
 				thold_log(array(
 					'type' => 2,
@@ -1712,7 +1712,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					logger($desc, 'warning', 0, $currentval, $trigger, $item['thold_fail_count'], $url);
 				}
 
-				$subject = "ALERT -> NORMAL: ". $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to warning threshold with value $currentval";
+				$subject = "NORMAL: ". $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to warning threshold with value $currentval";
 
 				thold_log(array(
 					'type' => 2,
