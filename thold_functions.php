@@ -2314,8 +2314,8 @@ function save_thold() {
 
 	/* Do Some error Checks */
 	$banner = '<font color=red><strong>';
-	if (($_POST['thold_type'] == 0 && !isset($_POST['thold_hi']) || trim($_POST['thold_hi']) == '') && 
-		($_POST['thold_type'] == 0 && !isset($_POST['thold_low']) || trim($_POST['thold_low']) == '')) {
+	if (($_POST['thold_type'] == 0 && (!isset($_POST['thold_hi']) || trim($_POST['thold_hi']) == '')) && 
+		($_POST['thold_type'] == 0 && (!isset($_POST['thold_low']) || trim($_POST['thold_low']) == ''))) {
 		$banner .= 'You must specify either &quot;High Threshold&quot; or &quot;Low Threshold&quot; or both!<br>RECORD NOT UPDATED!</strong></font>';
 		return;
 	}

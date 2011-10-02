@@ -245,13 +245,12 @@ if (isset($template_data_rrds)) {
 				}
 			}
 			$tab_len = max(strlen($cur_setting), strlen($template_data_rrd["data_source_name"]));
-			//if($cur_setting == "n/a") { $cur_setting = "<font color='red'>" . $cur_setting . "</font>"; }
 
 			$i++;
 			echo "	<td bgcolor=" . (($template_data_rrd["id"] == $_GET["view_rrd"]) ? "'silver'" : "'#DFDFDF'");
 			echo " nowrap='nowrap' align='center' class='tab'>";
 			echo "<span class='textHeader'><a href='" . htmlspecialchars("thold.php?rra=" . $template_data_rrd["local_data_id"] . "&view_rrd=" . $template_data_rrd["id"]) . "'>$i: " . $template_data_rrd["data_source_name"] . "</a><br>";
-			echo "<span style='white-space:nowrap;'>" . $cur_setting . "</span>";
+			echo "<span style='white-space:nowrap;color:black;'>" . $cur_setting . "</span>";
 			echo "</span>\n</td>\n<td width='1'></td>\n";
 			unset($thold_item_data);
 		}
