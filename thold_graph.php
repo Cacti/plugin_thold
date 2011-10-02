@@ -81,8 +81,7 @@ $tabs_thold = array(
 	"hoststat" => "Host Status");
 
 /* set the default tab */
-load_current_session_value("tab", "sess_thold_tab", "thold");
-$current_tab = $_REQUEST["tab"];
+$current_tab = (isset($_REQUEST["tab"]) ? $_REQUEST["tab"]:"thold");
 
 /* draw the tabs */
 print "<table class='tabs' width='100%' cellspacing='0' cellpadding='3' align='center'><tr>\n";
@@ -212,6 +211,7 @@ function form_thold_filter() {
 				</tr>
 			</table>
 			<input type='hidden' name='page' value='1'>
+			<input type='hidden' name='tab' value='thold'>
 		</form>
 		</td>
 	</tr>
@@ -299,7 +299,7 @@ function tholds() {
 	<!--
 
 	function applyTHoldFilterChange(objForm) {
-		strURL = '?triggered=' + objForm.triggered.value;
+		strURL = '?tab=thold&triggered=' + objForm.triggered.value;
 		strURL = strURL + '&data_template_id=' + objForm.data_template_id.value;
 		strURL = strURL + '&host_id=' + objForm.host_id.value;
 		strURL = strURL + '&rows=' + objForm.rows.value;
@@ -449,7 +449,18 @@ function tholds() {
 			$c++;
 			$alertstat = 'no';
 			$bgcolor   = 'green';
-			if ($row['thold_type'] != 1) {
+			if ($row['thold_type'] == 0) {
+				if ($row['thold_alert'] != 0) {
+					$alertstat='yes';
+					if ( $row['thold_fail_count'] >= $row['thold_fail_trigger'] ) {
+						$bgcolor = 'red';
+					} elseif ( $row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger'] ) {
+						$bgcolor = 'warning';
+					} else {
+						$bgcolor = 'yellow';
+					}
+				}
+			} elseif ($row['thold_type'] == 2) {
 				if ($row['thold_alert'] != 0) {
 					$alertstat='yes';
 					if ( $row['thold_fail_count'] >= $row['thold_fail_trigger'] ) {
@@ -655,7 +666,7 @@ function hosts() {
 	<!--
 
 	function applyViewDeviceFilterChange(objForm) {
-		strURL = '?host_status=' + objForm.host_status.value;
+		strURL = '?tab=hoststat&host_status=' + objForm.host_status.value;
 		strURL = strURL + '&host_template_id=' + objForm.host_template_id.value;
 		strURL = strURL + '&rows=' + objForm.rows.value;
 		strURL = strURL + '&filter=' + objForm.filter.value;
@@ -870,7 +881,7 @@ function form_host_filter() {
 	?>
 	<tr bgcolor='#<?php print $colors["panel"];?>'>
 		<td>
-		<form name='form_devices' action='thold_graphs.php?tab=hoststat'>
+		<form name='form_devices' action='thold_graph.php?tab=hoststat'>
 			<table cellpadding='0' cellspacing='0'>
 				<tr>
 					<td width='1'>
@@ -937,6 +948,7 @@ function form_host_filter() {
 				</tr>
 			</table>
 			<input type='hidden' name='page' value='1'>
+			<input type='hidden' name='tab' value='hoststat'>
 		</form>
 		</td>
 	</tr>
@@ -1040,7 +1052,7 @@ function thold_show_log() {
 	<script type="text/javascript">
 	<!--
 	function filterChange(objForm) {
-		strURL = '?status=' + objForm.status.value;
+		strURL = '?tab=log&status=' + objForm.status.value;
 		strURL = strURL + '&threshold_id=' + objForm.threshold_id.value;
 		strURL = strURL + '&host_id=' + objForm.host_id.value;
 		strURL = strURL + '&rows=' + objForm.rows.value;
@@ -1297,6 +1309,7 @@ function form_thold_log_filter() {
 				</tr>
 			</table>
 			<input type='hidden' name='page' value='1'>
+			<input type='hidden' name='tab' value='log'>
 		</form>
 		</td>
 	</tr>

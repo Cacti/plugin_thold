@@ -231,16 +231,16 @@ if (isset($template_data_rrds)) {
 			if(count($item) == 0) {
 				$cur_setting .= "<span style='color:red;'>n/a</span>";
 			} else {
-				$cur_setting = "Last: " . ($item["lastread"] == "" ? "<span style='color:red;'>n/a</span>":"<span style='color:blue;'>" . number_format($item["lastread"],2) . "</span>");
+				$cur_setting = "Last: " . ($item["lastread"] == "" ? "<span style='color:red;'>n/a</span>":"<span style='color:blue;'>" . format_number($item["lastread"],2) . "</span>");
 				if ($item["thold_type"] != 1) {
-					$cur_setting .= " WHi: " . ($item["thold_warning_hi"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_warning_hi"],2) . "</span>");
-					$cur_setting .= " WLo: " . ($item["thold_warning_low"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_warning_low"],2) . "</span>");
-					$cur_setting .= " AHi: " . ($item["thold_hi"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_hi"],2) . "</span>");
-					$cur_setting .= " ALo: " . ($item["thold_low"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_low"],2) . "</span>");
+					$cur_setting .= " WHi: " . ($item["thold_warning_hi"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . format_number($item["thold_warning_hi"],2) . "</span>");
+					$cur_setting .= " WLo: " . ($item["thold_warning_low"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . format_number($item["thold_warning_low"],2) . "</span>");
+					$cur_setting .= " AHi: " . ($item["thold_hi"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . format_number($item["thold_hi"],2) . "</span>");
+					$cur_setting .= " ALo: " . ($item["thold_low"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . format_number($item["thold_low"],2) . "</span>");
 
 				}else{
-					$cur_setting .= " AHi: " . ($item["thold_hi"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_hi"],2) . "</span>");
-					$cur_setting .= " ALo: " . ($item["thold_low"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . number_format($item["thold_low"],2) . "</span>");
+					$cur_setting .= " AHi: " . ($item["thold_hi"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . format_number($item["thold_hi"],2) . "</span>");
+					$cur_setting .= " ALo: " . ($item["thold_low"] == "" ? "<span style='color:red;'>n/a</span>" : "<span style='color:green;'>" . format_number($item["thold_low"],2) . "</span>");
 					$cur_setting .= " BL: (Up " . $item["bl_pct_up"] . "%/Down " . $item["bl_pct_down"] . "%)";
 				}
 			}

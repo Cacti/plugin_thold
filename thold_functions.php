@@ -1112,14 +1112,14 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		}
 	}
 
-	$alert_emails .= (strlen($alert_emails) ? ",":"") . get_thold_notification_emails($thold['notify_alert']);
+	$alert_emails .= (strlen($alert_emails) ? ",":"") . get_thold_notification_emails($item['notify_alert']);
 
 	$warning_emails = '';
 	if (read_config_option('thold_disable_legacy') != 'on') {
 		$warning_emails = $item['notify_warning_extra'];
 	}
 
-	$warning_emails .= (strlen($warning_emails) ? ",":"") . get_thold_notification_emails($thold['notify_warning']);
+	$warning_emails .= (strlen($warning_emails) ? ",":"") . get_thold_notification_emails($item['notify_warning']);
 
 	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 
@@ -1246,7 +1246,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				$status = 2;
 			}
 
-			$subject = "WARNING: ". $desc . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $item['thold_warning_hi'] : $item['thold_warning_low']) . " with $currentval";
+			$subject = ($status == 2 ? "WARNING: ":"TRIGGER: ") . $desc . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $item['thold_warning_hi'] : $item['thold_warning_low']) . " with $currentval";
 
 			if ($status == 2) {
 				thold_debug('Alerting is necessary');
@@ -1501,7 +1501,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		$warning_failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id = ' . $item['id'] . ' AND status > 0 AND time > ' . $warning_time);
 
 		if ($breach_up || $breach_down) {
-			thold_debug('Threshold Time Based check breached HI:' . $item['time_hi'] . ' LOW:' . $item['time_low'] . ' VALUE:'.$currentvalue);
+			thold_debug('Threshold Time Based check breached HI:' . $item['time_hi'] . ' LOW:' . $item['time_low'] . ' VALUE:'.$currentval);
 
 			$item['thold_alert'] = ($breach_up ? 2 : ($breach_down ? 1 : 0));
 			
@@ -1679,7 +1679,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				thold_fail_count=$failures
 				WHERE rra_id=$rra_id AND data_id=" . $item['data_id']);
 		} else {
-			thold_debug('Threshold Time Based check is normal HI:' . $item['time_hi'] . ' LOW:' . $item['time_low'] . ' VALUE:'.$currentvalue);
+			thold_debug('Threshold Time Based check is normal HI:' . $item['time_hi'] . ' LOW:' . $item['time_low'] . ' VALUE:'.$currentval);
 
 			if ($alertstat != 0 && $warning_failures < $warning_trigger) {
 				if ($logset == 1) {
