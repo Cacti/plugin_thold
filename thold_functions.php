@@ -242,6 +242,22 @@ function thold_expression_boolean_rpn($operator, &$stack) {
 		}else{
 			array_push($stack, '0');
 		}
+	}elseif ($operator == 'AND') {
+		$v1 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+		if ($v1 > 0 && $v2 > 0) {
+			array_push($stack, '1');
+		}else{
+			array_push($stack, '0');
+		}
+	}elseif ($operator == 'OR') {
+		$v1 = thold_expression_rpn_pop($stack);
+		$v2 = thold_expression_rpn_pop($stack);
+		if ($v1 > 0 || $v2 > 0) {
+			array_push($stack, '1');
+		}else{
+			array_push($stack, '0');
+		}
 	}elseif ($operator == 'IF') {
 		$v1 = thold_expression_rpn_pop($stack);
 		$v2 = thold_expression_rpn_pop($stack);
@@ -519,7 +535,65 @@ function thold_expression_specialtype_rpn($operator, &$stack, $rra_id, $currentv
 	}
 }
 
-function thold_calculate_expression($thold, $currentval, $rrd_update_array_reindexed) {
+function thold_get_currentval(&$t_item, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
+	/* adjust the polling interval by the last read, if applicable */
+	$currenttime = $rrd_time_reindexed[$t_item['rra_id']];
+	if ($t_item['lasttime'] > 0) {
+		$polling_interval = $currenttime - $t_item['lasttime'];
+	} else {
+		$polling_interval = $t_item['rrd_step'];
+	}
+
+	$currentval = 0;
+
+	if (isset($rrd_reindexed[$t_item['rra_id']])) {
+		$item = $rrd_reindexed[$t_item['rra_id']];
+		if (isset($item[$t_item['name']])) {
+			switch ($t_item['data_source_type_id']) {
+			case 2:	// COUNTER
+				if ($t_item['oldvalue'] != 0) {
+					if ($item[$t_item['name']] >= $t_item['oldvalue']) {
+						// Everything is normal
+						$currentval = $item[$t_item['name']] - $t_item['oldvalue'];
+					} else {
+						// Possible overflow, see if its 32bit or 64bit
+						if ($t_item['oldvalue'] > 4294967295) {
+							$currentval = (18446744073709551615 - $t_item['oldvalue']) + $item[$t_item['name']];
+						} else {
+							$currentval = (4294967295 - $t_item['oldvalue']) + $item[$t_item['name']];
+						}
+					}
+
+					$currentval = $currentval / $polling_interval;
+
+					/* assume counter reset if greater than max value */
+					if ($t_item['rrd_maximum'] > 0 && $currentval > $t_item['rrd_maximum']) {
+						$currentval = $item[$t_item['name']] / $polling_interval;
+					}elseif ($t_item['rrd_maximum'] == 0 && $currentval > 4.25E+9) {
+						$currentval = $item[$t_item['name']] / $polling_interval;
+					}
+				}else{
+					$currentval = 0;
+				}
+				break;
+			case 3:	// DERIVE
+				$currentval = ($item[$t_item['name']] - $t_item['oldvalue']) / $polling_interval;
+				break;
+			case 4:	// ABSOLUTE
+				$currentval = $item[$t_item['name']] / $polling_interval;
+				break;
+			case 1:	// GAUGE
+			default:
+				$currentval = $item[$t_item['name']];
+				break;
+			}
+		}
+	}
+
+	return $currentval;
+}
+
+function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_time_reindexed) {
 	global $rpn_error;
 
 	/* set an rpn error flag */
@@ -528,7 +602,7 @@ function thold_calculate_expression($thold, $currentval, $rrd_update_array_reind
 	/* operators to support */
 	$math       = array('+', '-', '*', '/', '%', '^', 'ADDNAN', 'SIN', 'COS', 'LOG', 'EXP',
 		'SQRT', 'ATAN', 'ATAN2', 'FLOOR', 'CEIL', 'DEG2RAD', 'RAD2DEG', 'ABS');
-	$boolean    = array('LT', 'LE', 'GT', 'GE', 'EQ', 'NE', 'UN', 'ISNF', 'IF');
+	$boolean    = array('LT', 'LE', 'GT', 'GE', 'EQ', 'NE', 'UN', 'ISNF', 'IF', 'AND', 'OR');
 	$comparison = array('MIN', 'MAX', 'LIMIT');
 	$setops     = array('SORT', 'REV', 'AVG');
 	$specvals   = array('UNKN', 'INF', 'NEGINF', 'PREV', 'COUNT');
@@ -543,14 +617,67 @@ function thold_calculate_expression($thold, $currentval, $rrd_update_array_reind
 	$expression = explode(',', $thold['expression']);
 
 	/* out current data sources */
-	$data_sources = $rrd_update_array_reindexed[$thold['rra_id']];
+	$data_sources = $rrd_reindexed[$thold['rra_id']];
 	if (sizeof($data_sources)) {
 		foreach($data_sources as $key => $value) {
-			$key = strtoupper($key);
+			$key = strtolower($key);
 			$nds[$key] = $value;
 		}
 		$data_sources = $nds;
 	}
+
+	/* replace all data tabs in the rpn with values */
+	if (sizeof($expression)) {
+	foreach($expression as $key => $item) {
+		if (substr_count($item, "|ds:")) {
+			$dsname = strtolower(trim(str_replace("|ds:", "", $item), " |\n\r"));
+
+			$thold_item = db_fetch_row("SELECT thold_data.id, thold_data.graph_id,
+				thold_data.percent_ds, thold_data.expression,
+				thold_data.data_type, thold_data.cdef, thold_data.rra_id,
+				thold_data.data_id, thold_data.lastread,
+				UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue,
+				data_template_rrd.data_source_name as name,
+				data_template_rrd.data_source_type_id, data_template_data.rrd_step,
+				data_template_rrd.rrd_maximum
+				FROM thold_data
+				LEFT JOIN data_template_rrd
+				ON (data_template_rrd.id = thold_data.data_id)
+				LEFT JOIN data_template_data
+				ON (data_template_data.local_data_id=thold_data.rra_id)
+				WHERE data_template_rrd.data_source_name='$dsname'
+				AND thold_data.rra_id=" . $thold['rra_id'], false);
+
+			if (sizeof($thold_item)) {
+				$item = array();
+				$currenttime = 0;
+				$expression[$key] = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
+			}else{
+				$expression[$key] = get_current_value($thold['rra_id'], $dsname);
+				//cacti_log($expression[$key]);
+			}
+
+			if ($expression[$key] == '') $expression[$key] = '0';
+		}elseif (substr_count($item, "|")) {
+			$gl = db_fetch_row("SELECT * FROM graph_local WHERE id=" . $thold["graph_id"]);
+
+			if (sizeof($gl)) {
+				$expression[$key] = expand_title($gl["host_id"], $gl["snmp_query_id"], $gl["snmp_index"], $item);
+			}else{
+				$expression[$key] = '0';
+				cacti_log("WARNING: Query Replacement for '$item' Does Not Exist");
+			}
+
+			if ($expression[$key] == '') $expression[$key] = '0';
+		}else{
+			/* normal operator */
+		}
+	}
+	}
+
+	//cacti_log(implode(",", array_keys($data_sources)));
+	//cacti_log(implode(",", $data_sources));
+	//cacti_log(implode(",", $expression));
 
 	/* now let's process the RPN stack */
 	$x = count($expression);
@@ -559,9 +686,6 @@ function thold_calculate_expression($thold, $currentval, $rrd_update_array_reind
 
 	/* operation stack for RPN */
 	$stack = array();
-
-	/* the current DS values goes on first */
-	array_push($stack, $currentval);
 
 	/* current pointer in the RPN operations list */
 	$cursor = 0;
@@ -616,10 +740,10 @@ function thold_calculate_expression($thold, $currentval, $rrd_update_array_reind
 	return $stack[0];
 }
 
-function thold_calculate_percent($thold, $currentval, $rrd_update_array_reindexed) {
+function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 	$ds = $thold['percent_ds'];
-	if (isset($rrd_update_array_reindexed[$thold['rra_id']][$ds])) {
-		$t = $rrd_update_array_reindexed[$thold['rra_id']][$thold['percent_ds']];
+	if (isset($rrd_reindexed[$thold['rra_id']][$ds])) {
+		$t = $rrd_reindexed[$thold['rra_id']][$thold['percent_ds']];
 		if ($t != 0) {
 			$currentval = ($currentval / $t) * 100;
 		} else {
@@ -2089,6 +2213,12 @@ function thold_rrd_last($rra) {
 
 function get_current_value($rra, $ds, $cdef = 0) {
 	global $config;
+
+    /* get the information to populate into the rrd files */
+	if (function_exists("boost_check_correct_enabled") && boost_check_correct_enabled()) {
+		boost_process_poller_output(TRUE, $rra);
+	}
+
 	$last_time_entry = thold_rrd_last($rra);
 
 	// This should fix and 'did you really mean month 899 errors', this is because your RRD has not polled yet
@@ -2096,7 +2226,7 @@ function get_current_value($rra, $ds, $cdef = 0) {
 		$last_time_entry = time();
 	}
 
-	$data_template_data = db_fetch_row("SELECT * FROM data_template_data WHERE local_data_id = $rra");
+	$data_template_data = db_fetch_row("SELECT * FROM data_template_data WHERE local_data_id=$rra");
 
 	$step = $data_template_data['rrd_step'];
 

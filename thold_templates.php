@@ -583,6 +583,7 @@ function template_edit() {
 			'friendly_name' => 'High Warning Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 10,
 			'description' => 'If set and data source value goes above this number, alert will be triggered',
 			'value' => isset($thold_item_data['thold_warning_hi']) ? $thold_item_data['thold_warning_hi'] : ''
 		),
@@ -590,6 +591,7 @@ function template_edit() {
 			'friendly_name' => 'Low Warning Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 10,
 			'description' => 'If set and data source value goes below this number, alert will be triggered',
 			'value' => isset($thold_item_data['thold_warning_low']) ? $thold_item_data['thold_warning_low'] : ''
 		),
@@ -608,6 +610,7 @@ function template_edit() {
 			'friendly_name' => 'High Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 10,
 			'description' => 'If set and data source value goes above this number, alert will be triggered',
 			'value' => isset($thold_item_data['thold_hi']) ? $thold_item_data['thold_hi'] : ''
 		),
@@ -615,6 +618,7 @@ function template_edit() {
 			'friendly_name' => 'Low Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 10,
 			'description' => 'If set and data source value goes below this number, alert will be triggered',
 			'value' => isset($thold_item_data['thold_low']) ? $thold_item_data['thold_low'] : ''
 		),
@@ -633,6 +637,7 @@ function template_edit() {
 			'friendly_name' => 'High Warning Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 10,
 			'description' => 'If set and data source value goes above this number, warning will be triggered',
 			'value' => isset($thold_item_data['time_warning_hi']) ? $thold_item_data['time_warning_hi'] : ''
 		),
@@ -640,6 +645,7 @@ function template_edit() {
 			'friendly_name' => 'Low Warning Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 10,
 			'description' => 'If set and data source value goes below this number, warning will be triggered',
 			'value' => isset($thold_item_data['time_warning_low']) ? $thold_item_data['time_warning_low'] : ''
 		),
@@ -647,6 +653,7 @@ function template_edit() {
 			'friendly_name' => 'Warning Trigger Count',
 			'method' => 'textbox',
 			'max_length' => 5,
+			'size' => 10,
 			'default' => read_config_option('thold_warning_time_fail_trigger'),
 			'description' => 'The number of times the data source must be in breach condition prior to issuing a warning.',
 			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : read_config_option('alert_trigger')
@@ -666,6 +673,7 @@ function template_edit() {
 			'friendly_name' => 'High Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 10,
 			'description' => 'If set and data source value goes above this number, alert will be triggered',
 			'value' => isset($thold_item_data['time_hi']) ? $thold_item_data['time_hi'] : ''
 		),
@@ -673,6 +681,7 @@ function template_edit() {
 			'friendly_name' => 'Low Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => 10,
 			'description' => 'If set and data source value goes below this number, alert will be triggered',
 			'value' => isset($thold_item_data['time_low']) ? $thold_item_data['time_low'] : ''
 		),
@@ -680,6 +689,7 @@ function template_edit() {
 			'friendly_name' => 'Trigger Count',
 			'method' => 'textbox',
 			'max_length' => 5,
+			'size' => 10,
 			'description' => 'The number of times the data source must be in breach condition prior to issuing an alert.',
 			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
 		),
@@ -705,7 +715,7 @@ function template_edit() {
 			'friendly_name' => 'Baseline Deviation UP',
 			'method' => 'textbox',
 			'max_length' => 3,
-			'size' => 3,
+			'size' => 10,
 			'description' => 'Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.',
 			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : read_config_option("alert_bl_percent_def")
 		),
@@ -713,7 +723,7 @@ function template_edit() {
 			'friendly_name' => 'Baseline Deviation DOWN',
 			'method' => 'textbox',
 			'max_length' => 3,
-			'size' => 3,
+			'size' => 10,
 			'description' => 'Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.',
 			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : read_config_option("alert_bl_percent_def")
 		),
@@ -721,7 +731,7 @@ function template_edit() {
 			'friendly_name' => 'Baseline Trigger Count',
 			'method' => 'textbox',
 			'max_length' => 3,
-			'size' => 3,
+			'size' => 10,
 			'description' => 'Number of consecutive times the data source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (<b>Default: ' . read_config_option('alert_bl_trigger') . ' cycles</b>)',
 			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : read_config_option("alert_bl_trigger")
 		),
@@ -757,9 +767,10 @@ function template_edit() {
 			'friendly_name' => 'RPN Expression',
 			'method' => 'textbox',
 			'default' => '',
-			'description' => 'An RPN Expression that assumes that the selected Data Source is already in the
-			RPN stack.  This RPN expression can include any additional Data Sources names in the current
-			RRDfile.  However, in all cases the selected Data Source is loaded on the stack first.<br>Math Operators: <span style="color:blue;">+, -, /, *, %, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>',
+			'description' => 'An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes
+            all functions below in addition to both Host and Data Query replacement expressions such as
+            <span style="color:blue;">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style="color:blue;">|ds:dsname|</span>.  For example, <span style="color:blue;">|ds:traffic_in|</span> will get the current value
+            of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style="color:blue;">+, -, /, *, %, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>',
 			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',
 			'max_length' => '255',
 			'size' => '80'

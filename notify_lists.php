@@ -890,9 +890,9 @@ function hosts($header_label) {
 	}
 	html_end_box(false);
 
-	form_hidden_box("action", "edit");
-	form_hidden_box("id", get_request_var_request("id"));
-	form_hidden_box("save_associate", "1");
+	form_hidden_box("action", "edit", "");
+	form_hidden_box("id", get_request_var_request("id"), "");
+	form_hidden_box("save_associate", "1", "");
 
 	/* draw the dropdown containing a list of available actions for this form */
 	draw_actions_dropdown($assoc_actions);
@@ -1233,10 +1233,10 @@ function tholds($header_label) {
 
 	html_end_box(false);
 
-	form_hidden_box("action", "edit");
-	form_hidden_box("tab", "tholds");
-	form_hidden_box("id", get_request_var_request("id"));
-	form_hidden_box("save_tholds", "1");
+	form_hidden_box("action", "edit", "");
+	form_hidden_box("tab", "tholds", "");
+	form_hidden_box("id", get_request_var_request("id"), "");
+	form_hidden_box("save_tholds", "1", "");
 
 	draw_actions_dropdown($thold_actions);
 
@@ -1478,10 +1478,10 @@ function templates($header_label) {
 
 	html_end_box(false);
 
-	form_hidden_box("action", "edit");
-	form_hidden_box("tab", "templates");
-	form_hidden_box("id", get_request_var_request("id"));
-	form_hidden_box("save_templates", "1");
+	form_hidden_box("action", "edit", "");
+	form_hidden_box("tab", "templates", "");
+	form_hidden_box("id", get_request_var_request("id"), "");
+	form_hidden_box("save_templates", "1", "");
 
 	draw_actions_dropdown($thold_actions);
 
