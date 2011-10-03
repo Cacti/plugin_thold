@@ -265,19 +265,19 @@ function template_save_edit() {
 	$save['time_fail_trigger'] = $_POST['time_fail_trigger'];
 	$save['time_fail_length'] = $_POST['time_fail_length'];
 
-	if (isset($_POST['thold_fail_trigger']) && $_POST['thold_fail_trigger'] != '')
+	if (isset($_POST['thold_fail_trigger']) && $_POST['thold_fail_trigger'] != '') {
 		$save['thold_fail_trigger'] = $_POST['thold_fail_trigger'];
-	else {
+	} else {
 		$alert_trigger = read_config_option('alert_trigger');
-		if ($alert_trigger != '' && is_numeric($alert_trigger))
+		if ($alert_trigger != '' && is_numeric($alert_trigger)) {
 			$save['thold_fail_trigger'] = $alert_trigger;
-		else
+		} else {
 			$save['thold_fail_trigger'] = 5;
+		}
 	}
 	
-	
 	/***  Warnings  ***/
-	 // High / Low Warnings
+	// High / Low Warnings
 	$save['thold_warning_hi'] = $_POST['thold_warning_hi'];
 	$save['thold_warning_low'] = $_POST['thold_warning_low'];
 	$save['thold_warning_fail_trigger'] = $_POST['thold_warning_fail_trigger'];
@@ -288,14 +288,15 @@ function template_save_edit() {
 	$save['time_warning_fail_trigger'] = $_POST['time_warning_fail_trigger'];
 	$save['time_warning_fail_length'] = $_POST['time_warning_fail_length'];
 
-	if (isset($_POST['thold_warning_fail_trigger']) && $_POST['thold_warning_fail_trigger'] != '')
+	if (isset($_POST['thold_warning_fail_trigger']) && $_POST['thold_warning_fail_trigger'] != '') {
 		$save['thold_warning_fail_trigger'] = $_POST['thold_warning_fail_trigger'];
-	else {
+	} else {
 		$alert_trigger = read_config_option('alert_trigger');
-		if ($alert_trigger != '' && is_numeric($alert_trigger))
+		if ($alert_trigger != '' && is_numeric($alert_trigger)) {
 			$save['thold_warning_fail_trigger'] = $alert_trigger;
-		else
+		} else {
 			$save['thold_warning_fail_trigger'] = 5;
+		}
 	}	
 
 	if (isset($_POST['thold_enabled'])) {
@@ -596,9 +597,8 @@ function template_edit() {
 			'friendly_name' => 'Min Warning Trigger Duration',
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'default' => read_config_option('alert_trigger'),
 			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
-			'value' => isset($thold_item_data['thold_warning_fail_trigger']) ? $thold_item_data['thold_warning_fail_trigger'] : ''
+			'value' => isset($thold_item_data['thold_warning_fail_trigger']) ? $thold_item_data['thold_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'thold_header' => array(
 			'friendly_name' => 'High / Low Settings',
@@ -622,9 +622,8 @@ function template_edit() {
 			'friendly_name' => 'Min Trigger Duration',
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'default' => read_config_option('alert_trigger'),
 			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
-			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : ''
+			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_header' => array(
 			'friendly_name' => 'Time Based Warning Settings',
@@ -650,15 +649,14 @@ function template_edit() {
 			'max_length' => 5,
 			'default' => read_config_option('thold_warning_time_fail_trigger'),
 			'description' => 'The number of times the data source must be in breach condition prior to issuing a warning.',
-			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : ''
+			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_fail_length' => array(
 			'friendly_name' => 'Warning Time Period Length',
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'default' => (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1),
 			'description' => 'The amount of time in the past to check for threshold breaches.',
-			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : ''
+			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) 
 		),
 		'time_header' => array(
 			'friendly_name' => 'Time Based Settings',
@@ -682,17 +680,15 @@ function template_edit() {
 			'friendly_name' => 'Trigger Count',
 			'method' => 'textbox',
 			'max_length' => 5,
-			'default' => read_config_option('thold_time_fail_trigger'),
 			'description' => 'The number of times the data source must be in breach condition prior to issuing an alert.',
-			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : ''
+			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
 		),
 		'time_fail_length' => array(
 			'friendly_name' => 'Time Period Length',
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'default' => (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 1),
 			'description' => 'The amount of time in the past to check for threshold breaches.',
-			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : ''
+			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 2)
 		),
 		'baseline_header' => array(
 			'friendly_name' => 'Baseline Monitoring',
@@ -702,9 +698,8 @@ function template_edit() {
 			'friendly_name' => 'Time reference in the past',
 			'method' => 'drop_array',
 			'array' => $reference_types,
-			'default' => read_config_option('alert_bl_timerange_def'),
 			'description' => 'Specifies the point in the past (based on rrd resolution) that will be used as a reference',
-			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : ''
+			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def') 
 		),
 		'bl_pct_up' => array(
 			'friendly_name' => 'Baseline Deviation UP',
@@ -712,8 +707,7 @@ function template_edit() {
 			'max_length' => 3,
 			'size' => 3,
 			'description' => 'Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.',
-			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : '',
-			'default' => read_config_option("alert_bl_percent_def")
+			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : read_config_option("alert_bl_percent_def")
 		),
 		'bl_pct_down' => array(
 			'friendly_name' => 'Baseline Deviation DOWN',
@@ -721,18 +715,15 @@ function template_edit() {
 			'max_length' => 3,
 			'size' => 3,
 			'description' => 'Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.',
-			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : '',
-			'default' => read_config_option("alert_bl_percent_def")
+			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : read_config_option("alert_bl_percent_def")
 		),
 		'bl_fail_trigger' => array(
 			'friendly_name' => 'Baseline Trigger Count',
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 3,
-			'default' => read_config_option('alert_bl_trigger'),
 			'description' => 'Number of consecutive times the data source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (<b>Default: ' . read_config_option('alert_bl_trigger') . ' cycles</b>)',
-			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : '',
-			'default' => read_config_option("alert_bl_trigger")
+			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : read_config_option("alert_bl_trigger")
 		),
 		'data_manipulation' => array(
 			'friendly_name' => 'Data Manipulation',
@@ -743,9 +734,8 @@ function template_edit() {
 			'method' => 'drop_array',
 			'on_change' => 'changeDataType()',
 			'array' => $data_types,
-			'default' => read_config_option('data_type'),
 			'description' => 'Special formatting for the given data.',
-			'value' => isset($thold_item_data['data_type']) ? $thold_item_data['data_type'] : ''
+			'value' => isset($thold_item_data['data_type']) ? $thold_item_data['data_type'] : read_config_option('data_type')
 		),
 		'cdef' => array(
 			'friendly_name' => 'Threshold CDEF',
@@ -824,7 +814,7 @@ function template_edit() {
 		);
 
 		$form_array += $extra;
-	}else{
+	} else {
 		$extra = array(
 			'notify_accounts' => array(
 				'method' => 'hidden',

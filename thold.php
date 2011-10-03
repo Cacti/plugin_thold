@@ -445,9 +445,8 @@ $form_array = array(
 			'friendly_name' => 'Warning Breach Duration',
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'default' => read_config_option('alert_trigger'),
 			'description' => 'The amount of time the data source must be in breach of the threshold for a warning to be raised.',
-			'value' => isset($thold_item_data['thold_warning_fail_trigger']) ? $thold_item_data['thold_warning_fail_trigger'] : ''
+			'value' => isset($thold_item_data['thold_warning_fail_trigger']) ? $thold_item_data['thold_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'thold_header' => array(
 			'friendly_name' => 'Alert High / Low Settings',
@@ -471,9 +470,8 @@ $form_array = array(
 			'friendly_name' => 'Breach Duration',
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'default' => read_config_option('alert_trigger'),
 			'description' => 'The amount of time the data source must be in breach of the threshold for an alert to be raised.',
-			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : ''
+			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_header' => array(
 			'friendly_name' => 'Warning Time Based Settings',
@@ -497,17 +495,15 @@ $form_array = array(
 			'friendly_name' => 'Warning Breach Count',
 			'method' => 'textbox',
 			'max_length' => 5,
-			'default' => read_config_option('thold_warning_time_fail_trigger'),
 			'description' => 'The number of times the data source must be in breach of the threshold.',
-			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : ''
+			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : read_config_option('thold_warning_time_fail_trigger') 
 		),
 		'time_warning_fail_length' => array(
 			'friendly_name' => 'Warning Breach Window',
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'default' => (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1),
 			'description' => 'The amount of time in the past to check for threshold breaches.',
-			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : ''
+			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) 
 		),		
 		'time_header' => array(
 			'friendly_name' => 'Time Based Settings',
@@ -533,15 +529,14 @@ $form_array = array(
 			'max_length' => 5,
 			'default' => read_config_option('thold_time_fail_trigger'),
 			'description' => 'The number of times the data source must be in breach of the threshold.',
-			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : ''
+			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger') 
 		),
 		'time_fail_length' => array(
 			'friendly_name' => 'Breach Window',
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'default' => (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 1),
 			'description' => 'The amount of time in the past to check for threshold breaches.',
-			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : ''
+			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 1) 
 		),
 		'baseline_header' => array(
 			'friendly_name' => 'Baseline Settings',
@@ -551,9 +546,8 @@ $form_array = array(
 			'friendly_name' => 'Time range',
 			'method' => 'drop_array',
 			'array' => $reference_types,
-			'default' => read_config_option('alert_bl_timerange_def'),
 			'description' => 'Specifies the point in the past (based on rrd resolution) that will be used as a reference',
-			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : ''
+			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
 		),
 		'bl_pct_up' => array(
 			'friendly_name' => 'Baseline Deviation UP',
@@ -576,10 +570,8 @@ $form_array = array(
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 3,
-			'default' => read_config_option('alert_bl_trigger'),
 			'description' => 'Number of consecutive times the data source must be in breach of the baseline threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: ' . read_config_option('alert_bl_trigger') . ' cycles</b>)',
-			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : '',
-			'default' => read_config_option("alert_bl_trigger")
+			'value' => isset($thold_item_data['bl_fail_trigger']) ? $thold_item_data['bl_fail_trigger'] : read_config_option("alert_bl_trigger")
 		),
 		'data_manipulation' => array(
 			'friendly_name' => 'Data Manipulation',
@@ -729,7 +721,7 @@ unset($template_data_rrds);
 		_f.thold_fail_trigger.disabled = status;
 		_f.thold_warning_hi.disabled = status;
 		_f.thold_warning_low.disabled = status;
-			_f.thold_warning_fail_trigger.disabled = status;
+		_f.thold_warning_fail_trigger.disabled = status;
 		_f.repeat_alert.disabled = status;
 		_f.notify_extra.disabled = status;
 		_f.notify_warning_extra.disabled = status;

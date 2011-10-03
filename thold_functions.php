@@ -1171,10 +1171,10 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	switch ($item['thold_type']) {
 	case 0:	// HI/Low
 		if ($currentval != '') {
-			$breach_up = ($item['thold_hi'] != '' && $currentval > $item['thold_hi']);
-			$breach_down = ($item['thold_low'] != '' && $currentval < $item['thold_low']);
-			$warning_breach_up = ($item['thold_warning_hi'] != '' && $currentval > $item['thold_warning_hi']);
-			$warning_breach_down = ($item['thold_warning_low'] != '' && $currentval < $item['thold_warning_low']);
+			$breach_up = ($item['thold_hi'] != '' && $currentval >= $item['thold_hi']);
+			$breach_down = ($item['thold_low'] != '' && $currentval <= $item['thold_low']);
+			$warning_breach_up = ($item['thold_warning_hi'] != '' && $currentval >= $item['thold_warning_hi']);
+			$warning_breach_down = ($item['thold_warning_low'] != '' && $currentval <= $item['thold_warning_low']);
 		} else {
 			$breach_up = $breach_down = $warning_breach_up = $warning_breach_down = false;
 		}
@@ -1240,7 +1240,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 			// Re-Alert?
 			$ra = ($item['thold_warning_fail_count'] > $warning_trigger && $item['repeat_alert'] != 0 && ($item['thold_warning_fail_count'] % ($item['repeat_alert'] == '' ? $realert : $item['repeat_alert'])) == 0);
-			$status = 1;
+			$status = 6;
 
 			if ($item['thold_warning_fail_count'] == $warning_trigger || $ra) {
 				$status = 2;
@@ -1320,7 +1320,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 			thold_debug('Threshold HI / Low check is normal HI:' . $item['thold_hi'] . '  LOW:' . $item['thold_low'] . ' VALUE:' . $currentval);
 			if ($alertstat != 0) {
 				if ($item['thold_warning_fail_count'] >= $warning_trigger) {
-					$subject = "WARNING -> NORMAL: ". $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+					$subject = "NORMAL: ". $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 
 					if ($logset == 1) {
 						logger($desc, 'ok', 0, $currentval, $warning_trigger, $item['thold_warning_fail_count'], $url);
@@ -1346,7 +1346,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 						SET thold_alert=0, thold_warning_fail_count=0, thold_fail_count=0 
 						WHERE rra_id=$rra_id AND data_id=" . $item['data_id']);
 				} elseif ($item['thold_fail_count'] >= $trigger) {
-					$subject = "ALERT -> NORMAL: " . $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+					$subject = "NORMAL: " . $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 
 					if ($logset == 1) {
 						logger($desc, 'warning', 0, $currentval, $trigger, $item['thold_fail_count'], $url);
@@ -1400,7 +1400,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					logger($desc, 'ok', 0, $currentval, $item['bl_fail_trigger'], $item['bl_fail_count'], $url);
 				}
 
-				$subject = "ALERT -> NORMAL: " . $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+				$subject = "NORMAL: " . $desc . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 
 				if (trim($alert_emails) != '') {
 					thold_mail($alert_emails, '', $subject, $msg, $file_array);
@@ -1483,22 +1483,26 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 		break;
 	case 2:	// Time Based
-		$breach_up = ($item['time_hi'] != '' && $currentval > $item['time_hi']);
-		$breach_down = ($item['time_low'] != '' && $currentval < $item['time_low']);
-		$warning_breach_up = ($item['time_warning_hi'] != '' && $currentval > $item['time_warning_hi']);
-		$warning_breach_down = ($item['time_warning_low'] != '' && $currentval < $item['time_warning_low']);
+		if ($currentval != '') {
+			$breach_up = ($item['time_hi'] != '' && $currentval >= $item['time_hi']);
+			$breach_down = ($item['time_low'] != '' && $currentval <= $item['time_low']);
+			$warning_breach_up = ($item['time_warning_hi'] != '' && $currentval >= $item['time_warning_hi']);
+			$warning_breach_down = ($item['time_warning_low'] != '' && $currentval <= $item['time_warning_low']);
+		}else{
+			$breach_up = $breach_down = $warning_breach_up = $warning_breach_down = false;
+		}
 
 		$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $rra_id, FALSE);
 
 		// Alerts
 		$trigger = $item['time_fail_trigger'];
 		$time = time() - ($item['time_fail_length'] * $step);
-		$failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id = ' . $item['id'] . ' AND status > 0 AND time > ' . $time);
+		$failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id=' . $item['id'] . ' AND status=1 AND time>' . $time);
 
 		// Warnings
 		$warning_trigger = $item['time_warning_fail_trigger'];
 		$warning_time = time() - ($item['time_warning_fail_length'] * $step);
-		$warning_failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id = ' . $item['id'] . ' AND status > 0 AND time > ' . $warning_time);
+		$warning_failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id=' . $item['id'] . ' AND status=6 AND time>' . $warning_time);
 
 		if ($breach_up || $breach_down) {
 			thold_debug('Threshold Time Based check breached HI:' . $item['time_hi'] . ' LOW:' . $item['time_low'] . ' VALUE:'.$currentval);
@@ -1590,7 +1594,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				LIMIT 1', FALSE);
 
 			$ra = ($failures > $warning_trigger && $item['repeat_alert'] != 0 && $lastemailtime > 1 && ($lastemailtime < $realerttime));
-			$status = 1;
+			$status = 6;
 			$warning_failures++;
 
 			if ($warning_failures == $warning_trigger || $ra) {
@@ -1605,7 +1609,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					DESC LIMIT 1');
 
 				if ($lastalert['status'] > 1 && $time > $lastalert['time']) {
-					$status = 1;
+					$status = 6;
 				}
 			}
 
@@ -1644,7 +1648,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					'threshold_id' => $item['id'],
 					'threshold_value' => ($warning_breach_up ? $item['time_hi'] : $item['time_low']),
 					'current' => $currentval,
-					'status' => 1,
+					'status' => $status,
 					'description' => $subject,
 					'emails' => $alert_emails));
 
@@ -1665,7 +1669,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				'threshold_id' => $item['id'],
 				'threshold_value' => ($warning_breach_up ? $item['time_hi'] : $item['time_low']),
 				'current' => $currentval,
-				'status' => 1,
+				'status' => $status,
 				'description' => $subject,
 				'emails' => $warning_emails));
 
@@ -1737,26 +1741,6 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		}
 
 		break;
-	}
-
-	// debugging output
-	if ($debug) {
-		$filename = $config['base_path'] . '/log/thold.log';
-		if (is_writable($filename)) {
-			if (!$handle = fopen($filename, 'a')) {
-				echo "Cannot open file ($filename)";
-				continue;
-			}
-		} else {
-			echo "The file $filename is not writable";
-			continue;
-		}
-		$logdate = date('m-d-y.H:i:s');
-		$logout = "$logdate element: $desc alertstat: $alertstat graph_id: $graph_id thold_low: " . $item['thold_low'] . ' thold_hi: ' . $item['thold_hi'] . " rra: $rra_id trigger: " . $trigger . ' triggerct: ' . $item['thold_fail_count'] . " current: $currentval logset: $logset";
-		fwrite($handle, $logout);
-		$logout = "$logdate element: $desc alertstat: $alertstat graph_id: $graph_id thold_warning_low: " . $item['thold_warning_low'] . ' thold_warning_hi: ' . $item['thold_warning_hi'] . " rra: $rra_id warning_trigger: " . $warning_trigger . ' trigger_warningct: ' . $item['thold_warning_fail_count'] . " current: $currentval logset: $logset";
-		fwrite($handle, $logout);
-		fclose($handle);
 	}
 }
 
@@ -2216,7 +2200,6 @@ function thold_check_baseline($rra_id, $ds, $current_value, &$item) {
 		$ref_values = thold_get_ref_value($rra_id, $ds, $t0, $item['bl_ref_time_range']);
 
 		if (!is_array($ref_values) || sizeof($ref_values) == 0) {
-			// if ($debug) echo "Baseline reference value not yet established!\n";
 			$item['thold_low'] = '';
 			$item['thold_hi'] = '';
 			$item['bl_thold_valid'] = $now;
@@ -2386,27 +2369,27 @@ function save_thold() {
 	// High / Low
 	$save['thold_hi'] = (trim($_POST['thold_hi'])) == '' ? '' : round($_POST['thold_hi'],4);
 	$save['thold_low'] = (trim($_POST['thold_low'])) == '' ? '' : round($_POST['thold_low'],4);
-	$save['thold_fail_trigger'] = (trim($_POST['thold_fail_trigger'])) == '' ? '' : $_POST['thold_fail_trigger'];
+	$save['thold_fail_trigger'] = (trim($_POST['thold_fail_trigger'])) == '' ? read_config_option('alert_trigger') : $_POST['thold_fail_trigger'];
 	// Time Based
 	$save['time_hi'] = (trim($_POST['time_hi'])) == '' ? '' : round($_POST['time_hi'],4);
 	$save['time_low'] = (trim($_POST['time_low'])) == '' ? '' : round($_POST['time_low'],4);
-	$save['time_fail_trigger'] = (trim($_POST['time_fail_trigger'])) == '' ? '' : $_POST['time_fail_trigger'];
-	$save['time_fail_length'] = (trim($_POST['time_fail_length'])) == '' ? '' : $_POST['time_fail_length'];
+	$save['time_fail_trigger'] = (trim($_POST['time_fail_trigger'])) == '' ? read_config_option('thold_warning_time_fail_trigger') : $_POST['time_fail_trigger'];
+	$save['time_fail_length'] = (trim($_POST['time_fail_length'])) == '' ? (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) : $_POST['time_fail_length'];
 	// Warning High / Low
 	$save['thold_warning_hi'] = (trim($_POST['thold_warning_hi'])) == '' ? '' : round($_POST['thold_warning_hi'],4);
 	$save['thold_warning_low'] = (trim($_POST['thold_warning_low'])) == '' ? '' : round($_POST['thold_warning_low'],4);
-	$save['thold_warning_fail_trigger'] = (trim($_POST['thold_warning_fail_trigger'])) == '' ? '' : $_POST['thold_warning_fail_trigger'];
+	$save['thold_warning_fail_trigger'] = (trim($_POST['thold_warning_fail_trigger'])) == '' ? read_config_option('alert_trigger') : $_POST['thold_warning_fail_trigger'];
 	// Warning Time Based
 	$save['time_warning_hi'] = (trim($_POST['time_warning_hi'])) == '' ? '' : round($_POST['time_warning_hi'],4);
 	$save['time_warning_low'] = (trim($_POST['time_warning_low'])) == '' ? '' : round($_POST['time_warning_low'],4);
-	$save['time_warning_fail_trigger'] = (trim($_POST['time_warning_fail_trigger'])) == '' ? '' : $_POST['time_warning_fail_trigger'];
-	$save['time_warning_fail_length'] = (trim($_POST['time_warning_fail_length'])) == '' ? '' : $_POST['time_warning_fail_length'];
+	$save['time_warning_fail_trigger'] = (trim($_POST['time_warning_fail_trigger'])) == '' ? read_config_option('thold_warning_time_fail_trigger') : $_POST['time_warning_fail_trigger'];
+	$save['time_warning_fail_length'] = (trim($_POST['time_warning_fail_length'])) == '' ? (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) : $_POST['time_warning_fail_length'];
 	// Baseline
 	$save['bl_thold_valid'] = '0';
-	$save['bl_ref_time_range'] = (trim($_POST['bl_ref_time_range'])) == '' ? '' : $_POST['bl_ref_time_range'];
+	$save['bl_ref_time_range'] = (trim($_POST['bl_ref_time_range'])) == '' ? read_config_option('alert_bl_timerange_def') : $_POST['bl_ref_time_range'];
 	$save['bl_pct_down'] = (trim($_POST['bl_pct_down'])) == '' ? '' : $_POST['bl_pct_down'];
 	$save['bl_pct_up'] = (trim($_POST['bl_pct_up'])) == '' ? '' : $_POST['bl_pct_up'];
-	$save['bl_fail_trigger'] = (trim($_POST['bl_fail_trigger'])) == '' ? '' : $_POST['bl_fail_trigger'];
+	$save['bl_fail_trigger'] = (trim($_POST['bl_fail_trigger'])) == '' ? read_config_option("alert_bl_trigger") : $_POST['bl_fail_trigger'];
 
 	$save['repeat_alert'] = (trim($_POST['repeat_alert'])) == '' ? '' : $_POST['repeat_alert'];
 	$save['notify_extra'] = (trim($_POST['notify_extra'])) == '' ? '' : $_POST['notify_extra'];

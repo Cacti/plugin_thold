@@ -132,7 +132,7 @@ function thold_config_settings () {
 			),
 		'thold_disable_all' => array(
 			'friendly_name' => 'Disable All Thresholds',
-			'description' => 'Checking this box will disable alerting on all thresholds.  This can be used when it is necessary to perform maintenance on your network.',
+			'description' => 'Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network.',
 			'method' => 'checkbox',
 			'default' => 'off'
 			),
@@ -193,7 +193,7 @@ function thold_config_settings () {
 			),
 		'alert_trigger' => array(
 			'friendly_name' => 'Default Trigger Count',
-			'description' => 'Number of consecutive times the data source must be in breach of the threshold for an alert to be raised',
+			'description' => 'Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised',
 			'method' => 'textbox',
 			'size' => 4,
 			'max_length' => 4,
@@ -201,7 +201,7 @@ function thold_config_settings () {
 			),
 		'alert_repeat' => array(
 			'friendly_name' => 'Re-Alerting',
-			'description' => 'Repeat alert after specified number of cycles.',
+			'description' => 'Repeat Alert after specified number of poller cycles.',
 			'method' => 'textbox',
 			'size' => 4,
 			'max_length' => 4,
@@ -299,12 +299,12 @@ function thold_config_settings () {
 			),
 		'thold_alert_text' => array(
 			'friendly_name' => 'Threshold Alert Message',
-			'description' => 'This is the message that will be displayed at the top of all threshold alerts (255 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
+			'description' => 'This is the message that will be displayed at the top of all Threshold Alerts (255 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062',
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
 			'textarea_cols' => '80',
-			'default' => 'An alert has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
+			'default' => 'An Alert has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
 			),
 		'thold_warning_text' => array(
 			'friendly_name' => 'Threshold Warning Message',
@@ -316,8 +316,8 @@ function thold_config_settings () {
 			'default' => 'A warning has been issued that requires your attention. <br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>',
 			),
 		'thold_send_text_only' => array(
-			'friendly_name' => 'Send alerts as text',
-			'description' => 'If checked, this will cause all alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email.',
+			'friendly_name' => 'Send Alerts as Text',
+			'description' => 'If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email.',
 			'method' => 'checkbox',
 			'default' => 'off'
 			),
@@ -336,7 +336,7 @@ function thold_config_settings () {
 			),
 		'alert_bl_trigger' => array(
 			'friendly_name' => 'Baseline Trigger Count',
-			'description' => 'Number of consecutive times the data source must be in breach of the calculated baseline threshold for an alert to be raised',
+			'description' => 'Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised',
 			'method' => 'textbox',
 			'size' => 4,
 			'max_length' => 4,

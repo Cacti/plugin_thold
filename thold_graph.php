@@ -959,20 +959,22 @@ function thold_show_log() {
 	global $config, $colors, $item_rows;
 
 	$thold_log = array(
-		'alarm'     => 'F21924',
-		'warning'   => 'FB4A14',
-		'retrigger' => 'FF7A30',
-		'trigger'   => 'FAFD9E',
-		'restoral'  => 'CCFFCC',
-		'restore'   => 'CDCFC4');
+		'Alarm'     => 'F21924',
+		'Warning'   => 'FB4A14',
+		'Re-Trigger' => 'FF7A30',
+		'Alert Trigger'   => 'FAFD9E',
+		'Warn Trigger'  => 'FAFD9E',
+		'Restoral'  => 'CCFFCC',
+		'Restore'   => 'CDCFC4');
 
 	$thold_status = array(
-		'0' => 'restore',
-		'1' => 'trigger',
-		'2' => 'retrigger',
-		'3' => 'warning',
-		'4' => 'alarm',
-		'5' => 'restoral');
+		'0' => 'Restore',
+		'1' => 'Alert Trigger',
+		'2' => 'Re-Trigger',
+		'3' => 'Warning',
+		'4' => 'Alarm',
+		'5' => 'Restoral',
+		'6' => 'Warn Trigger');
 
 	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 
@@ -1191,7 +1193,7 @@ function thold_show_log() {
 			<td style='white-space:nowrap;'><?php print date("Y-m-d H:i:s", $l["time"]);?></td>
 			<td><?php print ($l["threshold_value"] != '' ? format_number($l["threshold_value"]):'N/A');?></td>
 			<td><?php print ($l["current"] != '' ? format_number($l["current"]):'N/A');?></td>
-			<td><?php print ucfirst($thold_status[$l["status"]]);?></td>
+			<td><?php print $thold_status[$l["status"]];?></td>
 			<td><?php print $types[$l["type"]];?></td>
 			<td style='white-space:nowrap;'><?php print (strlen($l["description"]) ? $l["description"]:"Restoral Event");?></td>
 			<?php
@@ -1275,7 +1277,8 @@ function form_thold_log_filter() {
 							<option value='3'<?php if ($_REQUEST["status"] == "3") {?> selected<?php }?>>Notify - Warning</option>
 							<option value='2'<?php if ($_REQUEST["status"] == "2") {?> selected<?php }?>>Notify - ReTriggers</option>
 							<option value='5'<?php if ($_REQUEST["status"] == "5") {?> selected<?php }?>>Notify - Restoral</option>
-							<option value='1'<?php if ($_REQUEST["status"] == "1") {?> selected<?php }?>>Triggers</option>
+							<option value='1'<?php if ($_REQUEST["status"] == "1") {?> selected<?php }?>>Triggers - Alert</option>
+							<option value='6'<?php if ($_REQUEST["status"] == "1") {?> selected<?php }?>>Triggers - Warning</option>
 							<option value='0'<?php if ($_REQUEST["status"] == "0") {?> selected<?php }?>>Restorals</option>
 						</select>
 					</td>
