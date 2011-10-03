@@ -431,9 +431,9 @@ function list_tholds() {
 			} elseif ($row['thold_type'] == 2) {
 				if ($row['thold_alert'] != 0) {
 					$alertstat='yes';
-					if ($row['time_fail_count'] >= $row['time_fail_trigger']) {
+					if ($row['time_fail_length'] >= $row['time_fail_trigger']) {
 						$bgcolor = 'red';
-					} elseif ($row['time_warning_fail_count'] >= $row['time_warning_fail_trigger']) {
+					} elseif ($row['time_warning_fail_length'] >= $row['time_warning_fail_trigger']) {
 						$bgcolor = 'warning';
 					} else {
 						$bgcolor = 'yellow';
