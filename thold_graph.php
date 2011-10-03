@@ -1065,7 +1065,7 @@ function thold_show_log() {
 	</script>
 	<?php
 
-	html_start_box("<strong>Threshold Log</strong>", "100%", $colors["header"], "3", "center", "");
+	html_start_box("<strong>Threshold Log</strong> [last 30 days]", "100%", $colors["header"], "3", "center", "");
 	form_thold_log_filter();
 	html_end_box();
 
