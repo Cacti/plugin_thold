@@ -81,6 +81,11 @@ $tabs_thold = array(
 	"hoststat" => "Host Status");
 
 /* set the default tab */
+if (isset($_REQUEST["tab"])) {
+	$_SESSION['sess_thold_tab'] = $_REQUEST["tab"];
+}elseif (isset($_SESSION['sess_thold_tab'])) {
+	$_REQUEST['tab'] = $_SESSION['sess_thold_tab'];
+}
 $current_tab = (isset($_REQUEST["tab"]) ? $_REQUEST["tab"]:"thold");
 
 /* draw the tabs */
