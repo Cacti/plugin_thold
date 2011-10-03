@@ -2529,6 +2529,9 @@ function autocreate($hostid) {
 					$insert['bl_alert']           = $template[$y]['bl_alert'];
 					$insert['repeat_alert']       = $template[$y]['repeat_alert'];
 					$insert['notify_extra']       = $template[$y]['notify_extra'];
+					$insert['notify_warning_extra'] = $template[$y]['notify_warning_extra'];
+					$insert['notify_warning']     = $template[$y]['notify_warning'];
+					$insert['notify_alert']       = $template[$y]['notify_alert'];
 					$insert['cdef']               = $template[$y]['cdef'];
 					$insert['template']           = $template[$y]['id'];
 					$insert['template_enabled']   = 'on';
@@ -2742,6 +2745,9 @@ function thold_template_update_threshold ($id, $template) {
 		thold_data.bl_thold_valid = 0,
 		thold_data.repeat_alert = thold_template.repeat_alert,
 		thold_data.notify_extra = thold_template.notify_extra,
+		thold_data.notify_warning_extra = thold_template.notify_warning_extra,
+		thold_data.notify_warning = thold_template.notify_warning,
+		thold_data.notify_alert = thold_template.notify_alert,
 		thold_data.data_type = thold_template.data_type,
 		thold_data.cdef = thold_template.cdef,
 		thold_data.percent_ds = thold_template.percent_ds,
@@ -2781,6 +2787,9 @@ function thold_template_update_thresholds ($id) {
 		thold_data.bl_thold_valid = 0,
 		thold_data.repeat_alert = thold_template.repeat_alert,
 		thold_data.notify_extra = thold_template.notify_extra,
+		thold_data.notify_warning_extra = thold_template.notify_warning_extra,
+		thold_data.notify_warning = thold_template.notify_warning,
+		thold_data.notify_alert = thold_template.notify_alert,
 		thold_data.data_type = thold_template.data_type,
 		thold_data.cdef = thold_template.cdef,
 		thold_data.percent_ds = thold_template.percent_ds,
