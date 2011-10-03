@@ -1497,12 +1497,12 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		// Alerts
 		$trigger = $item['time_fail_trigger'];
 		$time = time() - ($item['time_fail_length'] * $step);
-		$failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id=' . $item['id'] . ' AND status=1 AND time>' . $time);
+		$failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id=' . $item['id'] . ' AND status IN (1,2) AND time>' . $time);
 
 		// Warnings
 		$warning_trigger = $item['time_warning_fail_trigger'];
 		$warning_time = time() - ($item['time_warning_fail_length'] * $step);
-		$warning_failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id=' . $item['id'] . ' AND status=6 AND time>' . $warning_time);
+		$warning_failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id=' . $item['id'] . ' AND status IN (2,6) AND time>' . $warning_time) + $failures;
 
 		if ($breach_up || $breach_down) {
 			thold_debug('Threshold Time Based check breached HI:' . $item['time_hi'] . ' LOW:' . $item['time_low'] . ' VALUE:'.$currentval);
@@ -1511,15 +1511,19 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 			
 			$trigger = $item['time_fail_trigger'];
 			$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $rra_id, FALSE);
-			$time = time() - ($item['time_fail_length'] * $step);
-			$failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id = ' . $item['id'] . ' AND status > 0 AND time > ' . $time);
 
 			$item['thold_fail_count'] = $failures;
 
 			// We should only re-alert X minutes after last email, not every 5 pollings, etc...
 			// Re-Alert?
 			$realerttime = time() - (($item['repeat_alert'] - 1) * $step);
-			$lastemailtime = db_fetch_cell('SELECT time FROM plugin_thold_log WHERE threshold_id = ' . $item['id'] . ' AND status = 2 ORDER BY time DESC LIMIT 1', FALSE);
+			$lastemailtime = db_fetch_cell('SELECT time 
+				FROM plugin_thold_log 
+				WHERE threshold_id=' . $item['id'] . ' 
+				AND status=2 
+				ORDER BY time DESC 
+				LIMIT 1', FALSE);
+
 			$ra = ($failures > $trigger && $item['repeat_alert'] != 0 && $lastemailtime > 1 && ($lastemailtime < $realerttime));
 			$status = 1;
 			$failures++;
@@ -1593,7 +1597,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				ORDER BY time DESC 
 				LIMIT 1', FALSE);
 
-			$ra = ($failures > $warning_trigger && $item['repeat_alert'] != 0 && $lastemailtime > 1 && ($lastemailtime < $realerttime));
+			$ra = ($failures > $warning_trigger && $item['repeat_alert'] != 0 && (!empty($lastemailtime) && $lastemailtime > 1 && ($lastemailtime < $realerttime)));
 			$status = 6;
 			$warning_failures++;
 
@@ -2330,60 +2334,60 @@ function save_thold() {
 		$save['template'] = '';
 	}
 
-	input_validate_input_number(get_request_var('thold_hi'));
-	input_validate_input_number(get_request_var('thold_low'));
-	input_validate_input_number(get_request_var('thold_fail_trigger'));
-	input_validate_input_number(get_request_var('thold_warning_hi'));
-	input_validate_input_number(get_request_var('thold_warning_low'));
-	input_validate_input_number(get_request_var('thold_warning_fail_trigger'));
-	input_validate_input_number(get_request_var('repeat_alert'));
-	input_validate_input_number(get_request_var('cdef'));
+	input_validate_input_number(get_request_var_post('thold_hi'));
+	input_validate_input_number(get_request_var_post('thold_low'));
+	input_validate_input_number(get_request_var_post('thold_fail_trigger'));
+	input_validate_input_number(get_request_var_post('thold_warning_hi'));
+	input_validate_input_number(get_request_var_post('thold_warning_low'));
+	input_validate_input_number(get_request_var_post('thold_warning_fail_trigger'));
+	input_validate_input_number(get_request_var_post('repeat_alert'));
+	input_validate_input_number(get_request_var_post('cdef'));
 	input_validate_input_number($_POST['rra']);
 	input_validate_input_number($_POST['data_template_rrd_id']);
-	input_validate_input_number(get_request_var('thold_type'));
-	input_validate_input_number(get_request_var('time_hi'));
-	input_validate_input_number(get_request_var('time_low'));
-	input_validate_input_number(get_request_var('time_fail_trigger'));
-	input_validate_input_number(get_request_var('time_fail_length'));
-	input_validate_input_number(get_request_var('time_warning_hi'));
-	input_validate_input_number(get_request_var('time_warning_low'));
-	input_validate_input_number(get_request_var('time_warning_fail_trigger'));
-	input_validate_input_number(get_request_var('time_warning_fail_length'));
-	input_validate_input_number(get_request_var('data_type'));
-	input_validate_input_number(get_request_var('notify_warning'));
-	input_validate_input_number(get_request_var('notify_alert'));
-	input_validate_input_number(get_request_var('bl_ref_time_range'));
-	input_validate_input_number(get_request_var('bl_pct_down'));
-	input_validate_input_number(get_request_var('bl_pct_up'));
-	input_validate_input_number(get_request_var('bl_fail_trigger'));
+	input_validate_input_number(get_request_var_post('thold_type'));
+	input_validate_input_number(get_request_var_post('time_hi'));
+	input_validate_input_number(get_request_var_post('time_low'));
+	input_validate_input_number(get_request_var_post('time_fail_trigger'));
+	input_validate_input_number(get_request_var_post('time_fail_length'));
+	input_validate_input_number(get_request_var_post('time_warning_hi'));
+	input_validate_input_number(get_request_var_post('time_warning_low'));
+	input_validate_input_number(get_request_var_post('time_warning_fail_trigger'));
+	input_validate_input_number(get_request_var_post('time_warning_fail_length'));
+	input_validate_input_number(get_request_var_post('data_type'));
+	input_validate_input_number(get_request_var_post('notify_warning'));
+	input_validate_input_number(get_request_var_post('notify_alert'));
+	input_validate_input_number(get_request_var_post('bl_ref_time_range'));
+	input_validate_input_number(get_request_var_post('bl_pct_down'));
+	input_validate_input_number(get_request_var_post('bl_pct_up'));
+	input_validate_input_number(get_request_var_post('bl_fail_trigger'));
 
-	$_POST['name'] = str_replace(array("\\", '"', "'"), '', $_POST['name']);
-	$save['name'] = (trim($_POST['name'])) == '' ? '' : $_POST['name'];
-	$save['host_id'] = $hostid;
-	$save['data_id'] = $_POST['data_template_rrd_id'];
-	$save['rra_id'] = $_POST['rra'];
-	$save['thold_enabled'] = isset($_POST['thold_enabled']) ? $_POST['thold_enabled'] : '';
-	$save['exempt'] = isset($_POST['exempt']) ? $_POST['exempt'] : 'off';
+	$_POST['name']          = str_replace(array("\\", '"', "'"), '', $_POST['name']);
+	$save['name']           = (trim($_POST['name'])) == '' ? '' : $_POST['name'];
+	$save['host_id']        = $hostid;
+	$save['data_id']        = $_POST['data_template_rrd_id'];
+	$save['rra_id']         = $_POST['rra'];
+	$save['thold_enabled']  = isset($_POST['thold_enabled']) ? $_POST['thold_enabled'] : '';
+	$save['exempt']         = isset($_POST['exempt']) ? $_POST['exempt'] : 'off';
 	$save['restored_alert'] = isset($_POST['restored_alert']) ? $_POST['restored_alert'] : 'off';
-	$save['thold_type'] = $_POST['thold_type'];
+	$save['thold_type']     = $_POST['thold_type'];
 	// High / Low
-	$save['thold_hi'] = (trim($_POST['thold_hi'])) == '' ? '' : round($_POST['thold_hi'],4);
-	$save['thold_low'] = (trim($_POST['thold_low'])) == '' ? '' : round($_POST['thold_low'],4);
+	$save['thold_hi']           = (trim($_POST['thold_hi'])) == '' ? '' : round($_POST['thold_hi'],4);
+	$save['thold_low']          = (trim($_POST['thold_low'])) == '' ? '' : round($_POST['thold_low'],4);
 	$save['thold_fail_trigger'] = (trim($_POST['thold_fail_trigger'])) == '' ? read_config_option('alert_trigger') : $_POST['thold_fail_trigger'];
 	// Time Based
-	$save['time_hi'] = (trim($_POST['time_hi'])) == '' ? '' : round($_POST['time_hi'],4);
-	$save['time_low'] = (trim($_POST['time_low'])) == '' ? '' : round($_POST['time_low'],4);
+	$save['time_hi']           = (trim($_POST['time_hi'])) == '' ? '' : round($_POST['time_hi'],4);
+	$save['time_low']          = (trim($_POST['time_low'])) == '' ? '' : round($_POST['time_low'],4);
 	$save['time_fail_trigger'] = (trim($_POST['time_fail_trigger'])) == '' ? read_config_option('thold_warning_time_fail_trigger') : $_POST['time_fail_trigger'];
-	$save['time_fail_length'] = (trim($_POST['time_fail_length'])) == '' ? (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) : $_POST['time_fail_length'];
+	$save['time_fail_length']  = (trim($_POST['time_fail_length'])) == '' ? (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) : $_POST['time_fail_length'];
 	// Warning High / Low
-	$save['thold_warning_hi'] = (trim($_POST['thold_warning_hi'])) == '' ? '' : round($_POST['thold_warning_hi'],4);
+	$save['thold_warning_hi']  = (trim($_POST['thold_warning_hi'])) == '' ? '' : round($_POST['thold_warning_hi'],4);
 	$save['thold_warning_low'] = (trim($_POST['thold_warning_low'])) == '' ? '' : round($_POST['thold_warning_low'],4);
 	$save['thold_warning_fail_trigger'] = (trim($_POST['thold_warning_fail_trigger'])) == '' ? read_config_option('alert_trigger') : $_POST['thold_warning_fail_trigger'];
 	// Warning Time Based
-	$save['time_warning_hi'] = (trim($_POST['time_warning_hi'])) == '' ? '' : round($_POST['time_warning_hi'],4);
+	$save['time_warning_hi']  = (trim($_POST['time_warning_hi'])) == '' ? '' : round($_POST['time_warning_hi'],4);
 	$save['time_warning_low'] = (trim($_POST['time_warning_low'])) == '' ? '' : round($_POST['time_warning_low'],4);
 	$save['time_warning_fail_trigger'] = (trim($_POST['time_warning_fail_trigger'])) == '' ? read_config_option('thold_warning_time_fail_trigger') : $_POST['time_warning_fail_trigger'];
-	$save['time_warning_fail_length'] = (trim($_POST['time_warning_fail_length'])) == '' ? (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) : $_POST['time_warning_fail_length'];
+	$save['time_warning_fail_length']  = (trim($_POST['time_warning_fail_length'])) == '' ? (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) : $_POST['time_warning_fail_length'];
 	// Baseline
 	$save['bl_thold_valid'] = '0';
 	$save['bl_ref_time_range'] = (trim($_POST['bl_ref_time_range'])) == '' ? read_config_option('alert_bl_timerange_def') : $_POST['bl_ref_time_range'];
@@ -2395,8 +2399,8 @@ function save_thold() {
 	$save['notify_extra'] = (trim($_POST['notify_extra'])) == '' ? '' : $_POST['notify_extra'];
 	$save['notify_warning_extra'] = (trim($_POST['notify_warning_extra'])) == '' ? '' : $_POST['notify_warning_extra'];
 	$save['notify_warning'] = $_POST['notify_warning'];
-	$save['notify_alert'] = $_POST['notify_alert'];
-	$save['cdef'] = (trim($_POST['cdef'])) == '' ? '' : $_POST['cdef'];
+	$save['notify_alert']   = $_POST['notify_alert'];
+	$save['cdef']           = (trim($_POST['cdef'])) == '' ? '' : $_POST['cdef'];
 	$save['template_enabled'] = $_POST['template_enabled'];
 
 	$save['data_type'] = $_POST['data_type'];
@@ -2417,9 +2421,9 @@ function save_thold() {
 	$rrdlookup = $rrdsql['id'];
 	$grapharr = db_fetch_row("SELECT local_graph_id, graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup and local_graph_id <> '' LIMIT 1");
 
-	$save['graph_id'] = $grapharr['local_graph_id'];
+	$save['graph_id']       = $grapharr['local_graph_id'];
 	$save['graph_template'] = $grapharr['graph_template_id'];
-	$save['data_template'] = $rrdsql['data_template_id'];
+	$save['data_template']  = $rrdsql['data_template_id'];
 
 	if (!thold_user_auth_threshold ($save['rra_id'])) {
 		$banner = '<font color=red><strong>Permission Denied</strong></font>';

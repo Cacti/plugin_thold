@@ -417,12 +417,23 @@ function list_tholds() {
 
 			$alertstat='no';
 			$bgcolor='green';
-			if ($row['thold_type'] != 1) {
+			if ($row['thold_type'] == 0) {
 				if ($row['thold_alert'] != 0) {
 					$alertstat='yes';
 					if ($row['thold_fail_count'] >= $row['thold_fail_trigger']) {
 						$bgcolor = 'red';
 					} elseif ($row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger']) {
+						$bgcolor = 'warning';
+					} else {
+						$bgcolor = 'yellow';
+					}
+				}
+			} elseif ($row['thold_type'] == 2) {
+				if ($row['thold_alert'] != 0) {
+					$alertstat='yes';
+					if ($row['time_fail_count'] >= $row['time_fail_trigger']) {
+						$bgcolor = 'red';
+					} elseif ($row['time_warning_fail_count'] >= $row['time_warning_fail_trigger']) {
 						$bgcolor = 'warning';
 					} else {
 						$bgcolor = 'yellow';
