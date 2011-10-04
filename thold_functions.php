@@ -983,7 +983,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		$warning_emails = '';
 		if (read_config_option('thold_disable_legacy') != 'on') {
-			$warning_emails = $item['notify_warning_extra'];
+			$warning_emails = $thold['notify_warning_extra'];
 		}
 
 		if ($message['id'] > 0) {
