@@ -580,6 +580,7 @@ function edit() {
 		$list = db_fetch_row('SELECT * FROM plugin_notification_lists WHERE id=' . $_REQUEST['id']);
 	} else {
 		$list = array();
+		$current_tab = 'general';
 	}
 
 	if ($current_tab == "general") {
