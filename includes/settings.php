@@ -47,6 +47,7 @@ function thold_draw_navigation_text ($nav) {
 	$nav['notify_lists.php:'] = array('title' => 'Notification Lists', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
 	$nav['notify_lists.php:edit'] = array('title' => 'Notification Lists (edit)', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
 	$nav['notify_lists.php:save'] = array('title' => 'Notification Lists', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
+	$nav['notify_lists.php:actions'] = array('title' => 'Notification Lists', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
 
 	return $nav;
 }

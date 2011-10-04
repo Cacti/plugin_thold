@@ -576,7 +576,11 @@ function edit() {
 
 	$header_label = get_notification_header_label();
 
-	$list = db_fetch_row("SELECT * FROM plugin_notification_lists WHERE id=" . $_REQUEST["id"]);
+	if (isset($_REQUEST['id'])) {
+		$list = db_fetch_row('SELECT * FROM plugin_notification_lists WHERE id=' . $_REQUEST['id']);
+	} else {
+		$list = array();
+	}
 
 	if ($current_tab == "general") {
 		html_start_box("<strong>General Settings</strong> " . htmlspecialchars($header_label), "100%", $colors["header"], "3", "center", "");
@@ -1072,8 +1076,6 @@ function tholds($header_label) {
 
 	html_end_box();
 
-	define('MAX_DISPLAY_PAGES', 21);
-
 	$total_rows = count(db_fetch_assoc("SELECT thold_data.id 
 		FROM thold_data
 		LEFT JOIN user_auth_perms 
@@ -1349,8 +1351,6 @@ function templates($header_label) {
 	<?php
 
 	html_end_box();
-
-	define('MAX_DISPLAY_PAGES', 21);
 
 	$total_rows = db_fetch_cell("SELECT count(*)
 		FROM thold_template
@@ -2055,7 +2055,7 @@ function lists() {
 	}
 	html_end_box(false);
 
-	form_hidden_box("save_list", "1");
+	form_hidden_box('save_list', '1', '');
 
 	/* draw the dropdown containing a list of available actions for this form */
 	draw_actions_dropdown($actions);
