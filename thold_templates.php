@@ -1029,7 +1029,7 @@ function template_edit() {
 	changeTholdType ();
 	changeDataType ();
 
-	if (document.THold["notify_accounts[]"].length == 0) {
+	if (document.THold["notify_accounts[]"] && document.THold["notify_accounts[]"].length == 0) {
 		document.getElementById('row_notify_accounts').style.display='none';
 	}
 
