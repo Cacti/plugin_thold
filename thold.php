@@ -741,7 +741,7 @@ unset($template_data_rrds);
 		_f.notify_alert.disabled = status;
 		_f.cdef.disabled = status;
 		_f.thold_enabled.disabled = status;
-		_f["notify_accounts[]"].disabled = status;
+		if (document.THold["notify_accounts[]"]) _f["notify_accounts[]"].disabled = status;
 		_f.time_hi.disabled = status;
 		_f.time_low.disabled = status;
 		_f.time_fail_trigger.disabled = status;
@@ -757,7 +757,7 @@ unset($template_data_rrds);
 		_f.restored_alert.disabled = status;
 	}
 
-	if (document.THold["notify_accounts[]"].length == 0) {
+	if (document.THold["notify_accounts[]"] && document.THold["notify_accounts[]"].length == 0) {
 		document.getElementById('row_notify_accounts').style.display='none';
 	}
 
