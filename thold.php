@@ -361,6 +361,39 @@ foreach ($temp as $d) {
 	}
 }
 
+$replacements = db_fetch_assoc("SELECT DISTINCT field_name 
+	FROM data_local AS dl
+	INNER JOIN host_snmp_cache AS hsc
+	ON dl.snmp_query_id=hsc.snmp_query_id
+	WHERE dl.data_template_id=" . $thold_item_data['data_template_id'] . "
+	AND dl.host_id=" . $d["host_id"]);
+
+$nr = array();
+if (sizeof($replacements)) {
+foreach($replacements as $r) {
+	$nr[] = "<span style='color:blue;'>|query_" . $r['field_name'] . "|</span>";
+}
+}
+
+$vhf = explode("|", trim(VALID_HOST_FIELDS, "()"));
+if (sizeof($vhf)) {
+foreach($vhf as $r) {
+	$nr[] = "<span style='color:blue;'>|" . $r . "|</span>";
+}
+}
+
+$replacements = "<br><b>Replacement Fields:</b> " . implode(", ", $nr);
+
+$dss = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE local_data_id=" . $rra);
+
+if (sizeof($dss)) {
+foreach($dss as $ds) {
+	$dsname[] = "<span style='color:blue;'>|ds:" . $ds["data_source_name"] . "|</span>";
+}
+}
+
+$datasources = "<br><b>Data Sources:</b> " . implode(", ", $dsname);
+
 $form_array = array(
 		'template_header' => array(
 			'friendly_name' => 'Template settings',
@@ -615,12 +648,14 @@ $form_array = array(
 		),
 		'expression' => array(
 			'friendly_name' => 'RPN Expression',
-			'method' => 'textbox',
+			'method' => 'textarea',
+			'textarea_rows' => 3,
+			'textarea_cols' => 80,
 			'default' => '',
 			'description' => 'An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes
 			all functions below in addition to both Host and Data Query replacement expressions such as
 			<span style="color:blue;">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style="color:blue;">|ds:dsname|</span>.  For example, <span style="color:blue;">|ds:traffic_in|</span> will get the current value
-			of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><b>Math Operators:</b> <span style="color:blue;">+, -, /, *, %, ^</span><br><b>Functions:</b> <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br><b>Flow Operators:</b> <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br><b>Comparison Functions:</b> <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>',
+			of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><b>Math Operators:</b> <span style="color:blue;">+, -, /, *, %, ^</span><br><b>Functions:</b> <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br><b>Flow Operators:</b> <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br><b>Comparison Functions:</b> <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>'.$replacements.$datasources,
 			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',
 			'max_length' => '255',
 			'size' => '80'
