@@ -185,7 +185,7 @@ function form_actions() {
 							/* set the notification list */
 							db_execute("UPDATE thold_template SET notify_warning=" . get_request_var_request("id") . " WHERE id=" . $selected_items[$i]);
 							/* clear other items */
-							db_execute("UPDATE thold_template SET notify_warnings_extra='' WHERE id=" . $selected_items[$i]);
+							db_execute("UPDATE thold_template SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
 						}else{
 							/* set the notification list */
 							db_execute("UPDATE thold_template SET notify_warning=" . get_request_var_request("id") . " WHERE id=" . $selected_items[$i]);
@@ -242,7 +242,7 @@ function form_actions() {
 							/* set the notification list */
 							db_execute("UPDATE thold_data SET notify_warning=" . get_request_var_request("id") . " WHERE id=" . $selected_items[$i]);
 							/* clear other items */
-							db_execute("UPDATE thold_data SET notify_warnings_extra='' WHERE id=" . $selected_items[$i]);
+							db_execute("UPDATE thold_data SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
 						}else{
 							/* set the notification list */
 							db_execute("UPDATE thold_data SET notify_warning=" . get_request_var_request("id") . " WHERE id=" . $selected_items[$i]);
