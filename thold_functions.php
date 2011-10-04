@@ -661,7 +661,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 						AND rrd_name='$dsname'");
 				}
 
-				if (empty($value)) {
+				if (empty($value) || $value == '-90909090909') {
 					$expression[$key] = get_current_value($thold['rra_id'], $dsname);
 				} else {
 					$expression[$key] = $value;
