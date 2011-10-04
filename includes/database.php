@@ -186,8 +186,22 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'notify_warning', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_extra_warning'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'notify_alert', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_extra_warning'));
 
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'hash', 'type' => 'varchar(32)', 'NULL' => true, 'after' => 'id'));
+
+		db_execute("ALTER TABLE thold_data REMOVE COLUMN bl_enabled");
+		db_execute("ALTER TABLE thold_template REMOVE COLUMN bl_enabled");
+
 		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php');
 		api_plugin_register_realm('thold', 'notify_lists.php', 'Plugin -> Manage Notification Lists', 1);
+
+		/* set unique hash values for all thold templates */
+		$templates = db_fetch_assoc("SELECT id FROM thold_template");
+		if (sizeof($templates)) {
+		foreach($templates as $t) {
+			$hash = get_hash_thold_template($t['id']);
+			db_execute("UPDATE thold_template SET hash='$hash' WHERE id=" . $t['id']);
+		}
+		}
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
@@ -265,6 +279,7 @@ function thold_setup_database () {
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
+	$data['columns'][] = array('name' => 'hash', 'type' => 'varchar(32)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_template_id', 'type' => 'int(10)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_template_name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
@@ -380,7 +395,4 @@ function thold_setup_database () {
 
 	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
 	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => false, 'after' => 'thold_send_email'));
-
-	db_execute("ALTER TABLE thold_data REMOVE COLUMN bl_enabled");
-	db_execute("ALTER TABLE thold_template REMOVE COLUMN bl_enabled");
 }

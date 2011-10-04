@@ -273,11 +273,11 @@ function tholds() {
 		$changed = 0;
 		$changed += thold_request_check_changed('filter', 'sess_thold_filter');
 		$changed += thold_request_check_changed('data_template_id', 'sess_thold_data_template_id');
-		$changed += thold_request_check_changed('host_id', 'sess_thold_log_host_id');
-		$changed += thold_request_check_changed('rows', 'sess_thold_log_rows');
-		$changed += thold_request_check_changed('triggered', 'sess_thold_log_triggered');
-		$changed += thold_request_check_changed('sort_column', 'sess_thold_log_sort_column');
-		$changed += thold_request_check_changed('sort_direction', 'sess_thold_log_sort_direction');
+		$changed += thold_request_check_changed('host_id', 'sess_thold_host_id');
+		$changed += thold_request_check_changed('rows', 'sess_thold_rows');
+		$changed += thold_request_check_changed('triggered', 'sess_thold_triggered');
+		$changed += thold_request_check_changed('sort_column', 'sess_thold_sort_column');
+		$changed += thold_request_check_changed('sort_direction', 'sess_thold_sort_direction');
 		if ($changed) {
 			$_REQUEST['page'] = '1';
 		}
@@ -392,10 +392,10 @@ function tholds() {
 
 	html_start_box('', '100%', $colors['header'], '4', 'center', '');
 
-	/* generate page list */
-	$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_graph.php?tab=thold");
-
 	if ($total_rows) {
+		/* generate page list */
+		$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_graph.php?tab=thold");
+
 		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
 				<td colspan='12'>
 					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
@@ -800,7 +800,6 @@ function hosts() {
 		"avg_time" => array("<br>Average (ms)", "DESC"),
 		"availability" => array("<br>Availability", "ASC"));
 
-	//html_header_sort_checkbox($display_text, $_REQUEST["sort_column"], $_REQUEST["sort_direction"]);
 	html_header_sort($display_text, $_REQUEST["sort_column"], $_REQUEST["sort_direction"]);
 
 	$i = 0;

@@ -300,7 +300,7 @@ function list_tholds() {
 						</select>
 					</td>
 					<td nowrap style='white-space: nowrap;'>
-						&nbsp;<input type='submit' name='clear' value='Clear' title='Return to the default time span'>
+						&nbsp;<input type='submit' name='clear' value='Clear' title='Return to Defaults'>
 					</td>
 				</tr>
 			</table>

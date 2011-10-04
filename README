@@ -47,6 +47,7 @@
 		Add Ability to use |ds:dsname| and |query_ifSpeed| in RPN Expression
 		Add RPN Expressions 'AND' and 'OR'
 		Add Support for Boost to Baseline Tholds
+		Add Template Export/Import Functionality
 
 	--- 0.4.4 ---
 		Fix emailing of alerts when PHP-GD is not available

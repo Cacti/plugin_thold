@@ -29,31 +29,37 @@ include_once('./include/auth.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 $thold_actions = array(
-	1 => 'Delete'
-	);
+	1 => 'Export',
+	2 => 'Delete'
+);
 
 $action = '';
 if (isset($_POST['action'])) {
 	$action = $_POST['action'];
-} else if (isset($_GET['action'])) {
+} elseif (isset($_GET['action'])) {
 	$action = $_GET['action'];
 }
 
-if (isset($_POST['drp_action']) && $_POST['drp_action'] == 1) {
+if (isset($_POST['drp_action']) && $_POST['drp_action'] == 2) {
 	$action = 'delete';
+}
+
+if (isset($_POST['drp_action']) && $_POST['drp_action'] == 1) {
+	$action = 'export';
+}
+
+if (isset($_REQUEST['import'])) {
+	$action = 'import';
 }
 
 switch ($action) {
 	case 'add':
 		template_add();
 		break;
-	case 'edit':
-		include_once('./include/top_header.php');
-		template_edit();
-		include_once('./include/bottom_footer.php');
-		break;
 	case 'save':
-		if (isset($_POST['save']) && $_POST['save'] == 'edit') {
+		if (isset($_POST["save_component_import"])) {
+			template_import();
+		}elseif (isset($_POST['save']) && $_POST['save'] == 'edit') {
 			template_save_edit();
 
 			if (isset($_SESSION["graph_return"])) {
@@ -62,18 +68,75 @@ switch ($action) {
 				kill_session_var("graph_return");
 				header('Location: ' . $return_to);
 			}
-		} else if (isset($_POST['save']) && $_POST['save'] == 'add') {
+		} elseif (isset($_POST['save']) && $_POST['save'] == 'add') {
 
 		}
+
 		break;
 	case 'delete':
 		template_delete();
+
+		break;
+	case 'export':
+		template_export();
+
+		break;
+	case 'import':
+		include_once('./include/top_header.php');
+		import();
+		include_once('./include/bottom_footer.php');
+
+		break;
+	case 'edit':
+		include_once('./include/top_header.php');
+		template_edit();
+		include_once('./include/bottom_footer.php');
+
 		break;
 	default:
 		include_once('./include/top_header.php');
 		templates();
 		include_once('./include/bottom_footer.php');
+
 		break;
+}
+
+function template_export() {
+	$output = "<templates>\n";
+	if (sizeof($_POST)) {
+	foreach($_POST as $t=>$v) {
+		if (substr($t, 0,4) == 'chk_') {
+			$id = substr($t, 4);
+
+			if (is_numeric($id)) {
+				$data = db_fetch_row("SELECT * FROM thold_template WHERE id=$id");
+				if (sizeof($data)) {
+					$data_template_hash = db_fetch_cell("SELECT hash 
+						FROM data_template 
+						WHERE id=" . $data["data_template_id"]);
+
+					$data_source_hash   = db_fetch_cell("SELECT hash 
+						FROM data_template_rrd 
+						WHERE id=" . $data["data_source_id"]);
+
+					unset($data['id']);
+					$data['data_template_id'] = $data_template_hash;
+					$data['data_source_id']   = $data_source_hash;
+					$output .= array2xml($data);
+				}
+			}
+		}
+	}
+	}
+
+	$output .= "</templates>";
+
+	header("Content-type: application/xml");
+	header("Content-Disposition: attachment; filename=thold_template_export.xml");
+
+	print $output;
+
+	exit;
 }
 
 function template_delete() {
@@ -100,6 +163,24 @@ function template_add() {
 
 		include_once('./include/top_header.php');
 
+		?>
+		<script type="text/javascript">
+		<!--
+		function applyTholdFilterChange(objForm, type) {
+			if ((type == 'dt') && (document.getElementById("data_source_id"))) {
+				document.getElementById("data_source_id").value = "";
+			}
+
+			if (document.getElementById("save")) {
+				document.getElementById("save").value = "";
+			}
+
+			document.tholdform.submit();
+		}
+		-->
+		</script>
+		<?php
+
 		html_start_box('<strong>Threshold Template Creation Wizard</strong>', '50%', $colors['header'], '3', 'center', '');
 
 		print "<tr><td><form action=thold_templates.php method='post' name='tholdform'>";
@@ -117,14 +198,14 @@ function template_add() {
 
 		/* display the data template dropdown */
 		?>
-		<center><table>
+		<table align='center'>
 			<tr>
 				<td width='70' style='white-space:nowrap;'>
 					&nbsp;<b>Data Template:</b>
 				</td>
 				<td style='width:1;'>
 					<select name=data_template_id onChange="applyTholdFilterChange(document.tholdform, 'dt')">
-						<option value=""></option><?php
+						<option value="">None</option><?php
 						foreach ($data_templates as $id => $name) {
 							echo "<option value='" . $id . "'" . ($id == $_REQUEST['data_template_id'] ? ' selected' : '') . '>' . $name . '</option>';
 						}?>
@@ -155,7 +236,7 @@ function template_add() {
 				</td>
 				<td>
 					<select id='data_source_id' name='data_source_id' onChange="applyTholdFilterChange(document.tholdform, 'ds')">
-						<option value=""></option><?php
+						<option value="">None</option><?php
 						foreach ($data_fields as $id => $name) {
 							echo "<option value='" . $id . "'" . ($id == $_REQUEST['data_source_id'] ? ' selected' : '') . '>' . $name . '</option>';
 						}?>
@@ -178,6 +259,7 @@ function template_add() {
 		$data_source_id = $_REQUEST['data_source_id'];
 
 		$save['id'] = '';
+		$save['hash'] = get_hash_thold_template(0);
 		$save['data_template_id'] = $data_template_id;
 
 		$temp = db_fetch_assoc('select id, name from data_template where id=' . $data_template_id);
@@ -251,6 +333,7 @@ function template_save_edit() {
 
 	/* save: data_template */
 	$save['id'] = $_POST['id'];
+	$save['hash'] = get_hash_thold_template($save['id']);
 	$save['name'] = $_POST['name'];
 	$save['thold_type'] = $_POST['thold_type'];
 
@@ -506,8 +589,9 @@ function template_edit() {
 		}
 	}
 
+	print "<form name='THold' action='thold_templates.php' method='post'>\n";
+
 	html_start_box('', '100%', $colors['header'], '3', 'center', '');
-	print "<form name='THold' action=thold_templates.php method=post><input type='hidden' name='save' value='edit'><input type='hidden' name='id' value='$id'>";
 	$form_array = array(
 		'general_header' => array(
 			'friendly_name' => 'Mandatory settings',
@@ -853,7 +937,11 @@ function template_edit() {
 			)
 	);
 
+	form_hidden_box("save", "edit", "");
+	form_hidden_box("id", $id, "");
+
 	html_end_box();
+
 	form_save_button('thold_templates.php?id=' . $id, 'save');
 
 	?>
@@ -958,16 +1046,199 @@ function template_edit() {
 
 }
 
+function template_request_validation() {
+	/* ================= input validation ================= */
+	input_validate_input_number(get_request_var_request("page"));
+	input_validate_input_number(get_request_var_request("rows"));
+	/* ==================================================== */
+
+	/* clean up search string */
+	if (isset($_REQUEST["filter"])) {
+		$_REQUEST["filter"] = sanitize_search_string(get_request_var("filter"));
+	}
+
+    /* clean up sort_column */
+    if (isset($_REQUEST["sort_column"])) {
+        $_REQUEST["sort_column"] = sanitize_search_string(get_request_var("sort_column"));
+    }
+
+    /* clean up search string */
+    if (isset($_REQUEST["sort_direction"])) {
+        $_REQUEST["sort_direction"] = sanitize_search_string(get_request_var("sort_direction"));
+    }
+
+    /* if the user pushed the 'clear' button */
+    if (isset($_REQUEST["clear"])) {
+        kill_session_var("sess_tt_current_page");
+        kill_session_var("sess_tt_filter");
+        kill_session_var("sess_tt_rows");
+        kill_session_var("sess_tt_sort_column");
+        kill_session_var("sess_tt_sort_direction");
+
+        unset($_REQUEST["page"]);
+        unset($_REQUEST["filter"]);
+        unset($_REQUEST["rows"]);
+        unset($_REQUEST["sort_column"]);
+        unset($_REQUEST["sort_direction"]);
+    } else {
+        /* if any of the settings changed, reset the page number */
+        $changed = 0;
+        $changed += thold_request_check_changed('filter', 'sess_tt_filter');
+        $changed += thold_request_check_changed('rows', 'sess_tt_rows');
+        $changed += thold_request_check_changed('sort_column', 'sess_tt_sort_column');
+        $changed += thold_request_check_changed('sort_direction', 'sess_tt_sort_direction');
+        if ($changed) {
+            $_REQUEST['page'] = '1';
+        }
+    }
+
+    /* remember these search fields in session vars so we don't have to keep passing them around */
+    load_current_session_value("page", "sess_tt_current_page", "1");
+    load_current_session_value("filter", "sess_tt_filter", "");
+    load_current_session_value("rows", "sess_tt_rows", read_config_option("alert_num_rows"));
+    load_current_session_value("sort_column", "sess_tt_sort_column", "name");
+    load_current_session_value("sort_direction", "sess_tt_sort_direction", "ASC");
+
+    /* if the number of rows is -1, set it to the default */
+    if ($_REQUEST["rows"] == -1) {
+        $_REQUEST["rows"] = read_config_option("alert_num_rows");
+        if ($_REQUEST["rows"] < 2) $_REQUEST["rows"] = 30;
+    }
+}
+
 function templates() {
-	global $colors, $thold_actions;
+	global $colors, $thold_actions, $item_rows;
+
+	template_request_validation();
+
+	?>
+	<script type="text/javascript">
+	<!--
+	function applyTHoldFilterChange(objForm) {
+		strURL = '?rows=' + objForm.rows.value;
+		strURL = strURL + '&filter=' + objForm.filter.value;
+		document.location = strURL;
+	}
+
+	function importTemplate() {
+		strURL = '?action=import';
+		document.location = strURL;
+	}
+	-->
+	</script>
+	<?php
 
 	html_start_box('<strong>Threshold Templates</strong>', '100%', $colors['header'], '3', 'center', 'thold_templates.php?action=add');
 
-	html_header_checkbox(array('Name', 'Data Template', 'DS Name', 'Type', 'High/Up', 'Low/Down', 'Trigger', 'Duration', 'Repeat'));
+	?>
+	<tr bgcolor='#<?php print $colors["panel"];?>' class='noprint'>
+		<td class='noprint'>
+			<form name='listthold' action='thold_templates.php'>
+			<table cellpadding='0' cellspacing='0'>
+				<tr class='noprint'>
+					<td width='20'>
+						&nbsp;Search:&nbsp;
+					</td>
+					<td width='144'>
+						<input type='text' name='filter' size='20' value='<?php print $_REQUEST["filter"];?>'>
+					</td>
+					<td width='1'>
+						&nbsp;Rows:&nbsp;
+					</td>
+					<td width='1'>
+						<select name='rows' onChange='applyTHoldFilterChange(document.listthold)'>
+							<option value='-1'<?php if ($_REQUEST["rows"] == "-1") {?> selected<?php }?>>Default</option>
+							<?php
+							if (sizeof($item_rows)) {
+							foreach ($item_rows as $key => $value) {
+								print "<option value='" . $key . "'"; if ($_REQUEST["rows"] == $key) { print " selected"; } print ">" . $value . "</option>\n";
+							}
+							}
+							?>
+						</select>
+					</td>
+					<td width='1'>
+						<input type="submit" value="Go">
+					</td>
+					<td width='1'>
+						<input id="clear" name="clear" type="submit" value="Clear">
+					</td>
+					<td width='1'>
+						<input id="import" name="import" type="button" value="Import" onClick="importTemplate()">
+					</td>
+				</tr>
+			</table>
+			</form>
+		</td>
+	</tr>
+	<?php
 
-	$template_list = db_fetch_assoc('SELECT *
-		FROM thold_template
-		ORDER BY data_template_name');
+	html_end_box();
+
+	$sql_where = '';
+	$limit = ' LIMIT ' . ($_REQUEST["rows"]*($_REQUEST['page']-1)) . "," . $_REQUEST["rows"];
+	$order = "ORDER BY " . $_REQUEST['sort_column'] . " " . $_REQUEST['sort_direction'];
+	if (strlen($_REQUEST["filter"])) {
+		$sql_where .= (strlen($sql_where) ? " AND": "WHERE") . " thold_template.name LIKE '%%" . $_REQUEST["filter"] . "%%'";
+	}
+
+	define('MAX_DISPLAY_PAGES', 21);
+
+	$total_rows    = db_fetch_cell("SELECT count(*) FROM thold_template");
+	$template_list = db_fetch_assoc("SELECT * FROM thold_template $sql_where $order $limit");
+
+	if ($total_rows) {
+		/* generate page list */
+		$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_templates.php?tab=thold");
+
+		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
+				<td colspan='10'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='left' class='textHeaderDark'>
+								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_templates.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]-1)) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
+							</td>\n
+							<td align='center' class='textHeaderDark'>
+								Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
+							</td>\n
+							<td align='right' class='textHeaderDark'>
+								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_templates.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]+1)) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}else{
+		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
+				<td colspan='10'>
+					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
+						<tr>
+							<td align='center' class='textHeaderDark'>
+								No Rows Found
+							</td>\n
+						</tr>
+					</table>
+				</td>
+			</tr>\n";
+	}
+
+    /* print checkbox form for validation */
+    print "<form name='chk' method='post' action='thold_templates.php'>\n";
+
+	html_start_box('' , '100%', $colors['header'], '3', 'center', '');
+
+	print $nav;
+
+	html_header_sort_checkbox(array(
+		'name' => array('Name', 'ASC'), 
+		'data_template_name' => array('Data Template', 'ASC'), 
+		'data_source_name' => array('DS Name', 'ASC'), 
+		'thold_type' => array('Type', 'ASC'), 
+		'nosort1' => array('High/Up', ''),
+		'nosort2' => array('Low/Down', ''), 
+		'nosort3' => array('Trigger', ''), 
+		'nosort4' => array('Duration', ''), 
+		'nosort5' => array('Repeat', '')), $_REQUEST['sort_column'], $_REQUEST['sort_direction'], false);
 
 	$i = 0;
 	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
@@ -1002,18 +1273,24 @@ function templates() {
 					break;
 			}
 			form_alternate_row_color($colors["alternate"], $colors["light"], $i, 'line' . $template["id"]); $i++;
-			form_selectable_cell('<a class="linkEditMain" href="thold_templates.php?action=edit&id=' . $template['id'] . '">' . ($template['name'] == '' ? $template['data_template_name'] . ' [' . $template['data_source_name'] . ']' : $template['name']) . '</a>', $template["id"]);
+			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('thold_templates.php?action=edit&id=' . $template['id']) . '">' . ($template['name'] == '' ? $template['data_template_name'] . ' [' . $template['data_source_name'] . ']' : $template['name']) . '</a>', $template["id"]);
 			form_selectable_cell($template['data_template_name'], $template["id"]);
 			form_selectable_cell($template['data_source_name'], $template["id"]);
 			form_selectable_cell($types[$template['thold_type']], $template["id"]);
 			form_selectable_cell($value_hi, $template["id"]);
 			form_selectable_cell($value_lo, $template["id"]);
-			form_selectable_cell("<i>" . plugin_thold_duration_convert($template['data_template_id'], $value_trig, 'alert', 'data_template_id') . "</i>", $template["id"]);
-			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $value_duration, 'time', 'data_template_id'), $template["id"]);
+
+			$trigger =  plugin_thold_duration_convert($template['data_template_id'], $value_trig, 'alert', 'data_template_id');
+			form_selectable_cell((strlen($trigger) ? "<i>" . $trigger . "</i>":"-"), $template["id"]);
+
+			$duration = plugin_thold_duration_convert($template['data_template_id'], $value_duration, 'time', 'data_template_id');
+			form_selectable_cell((strlen($duration) ? $duration:"-"), $template["id"]);
 			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id']);
 			form_checkbox_cell($template['data_template_name'], $template["id"]);
 			form_end_row();
 		}
+
+		print $nav;
 	} else {
 		print "<tr><td><em>No Threshold Templates</em></td></tr>\n";
 	}
@@ -1025,21 +1302,152 @@ function templates() {
 	print "</form>\n";
 }
 
+function import() {
+	global $colors;
+
+	$form_data = array(
+		"import_file" => array(
+			"friendly_name" => "Import Template from Local File",
+			"description" => "If the XML file containing Threshold Template data is located on your local 
+			machine, select it here.",
+			"method" => "file"
+		),
+		"import_text" => array(
+			"method" => "textarea",
+			"friendly_name" => "Import Template from Text",
+			"description" => "If you have the XML file containing Threshold Template data as text, you can paste 
+			it into this box to import it.",
+			"value" => "",
+			"default" => "",
+			"textarea_rows" => "10",
+			"textarea_cols" => "80",
+			"class" => "textAreaNotes"
+		)
+	);
+
 	?>
-	<script type="text/javascript">
-	<!--
+	<form method="post" action="thold_templates.php" enctype="multipart/form-data">
+	<?php
 
-	function applyTholdFilterChange(objForm, type) {
-		if ((type == 'dt') && (document.getElementById("data_source_id"))) {
-			document.getElementById("data_source_id").value = "";
+	if ((isset($_SESSION["import_debug_info"])) && (is_array($_SESSION["import_debug_info"]))) {
+		html_start_box("<strong>Import Results</strong>", "100%", $colors["header"], "3", "center", "");
+
+		print "<tr><td>Cacti has imported the following items:</td></tr>";
+		foreach($_SESSION["import_debug_info"] as $line) {
+			print "<tr><td>" . $line . "</td></tr>";
 		}
 
-		if (document.getElementById("save")) {
-			document.getElementById("save").value = "";
-		}
+		html_end_box();
 
-		document.tholdform.submit();
+		kill_session_var("import_debug_info");
 	}
 
-	-->
-	</script>
+	html_start_box("<strong>Import Threshold Templates</strong>", "100%", $colors["header"], "3", "center", "");
+
+	draw_edit_form(array(
+		"config" => array("no_form_tag" => true),
+		"fields" => $form_data
+		));
+
+	html_end_box();
+	form_hidden_box("save_component_import","1","");
+	form_save_button("", "import");
+}
+
+function template_import() {
+	include_once("./lib/xml.php");
+
+	if (trim($_POST["import_text"] != "")) {
+		/* textbox input */
+		$xml_data = $_POST["import_text"];
+	}elseif (($_FILES["import_file"]["tmp_name"] != "none") && ($_FILES["import_file"]["tmp_name"] != "")) {
+		/* file upload */
+		$fp = fopen($_FILES["import_file"]["tmp_name"],"r");
+		$xml_data = fread($fp,filesize($_FILES["import_file"]["tmp_name"]));
+		fclose($fp);
+	}else{
+		header("Location: thold_templates.php"); exit;
+	}
+
+	/* obtain debug information if it's set */
+	$xml_array = xml2array($xml_data);
+
+	$debug_data = array();
+
+	if (sizeof($xml_array)) {
+	foreach($xml_array as $template => $contents) {
+		$error = false;
+		$save  = array();
+		if (sizeof($contents)) {
+		foreach($contents as $name => $value) {
+			$value = htmlentities($value);
+			switch($name) {
+			case 'data_template_id':
+				// See if the hash exists, if it doesn't, Error Out
+				$found = db_fetch_cell("SELECT id FROM data_template WHERE hash='$value'");
+
+				if (!empty($found)) {
+					$save['data_template_id'] = $found;
+				}else{
+					$error = true;
+					$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template Subordinate Data Template Not Found!";
+				}
+
+				break;
+			case 'data_source_id':
+				// See if the hash exists, if it doesn't, Error Out
+				$found = db_fetch_cell("SELECT id FROM data_template_rrd WHERE hash='$value'");
+
+				if (!empty($found)) {
+					$save['data_source_id'] = $found;
+				}else{
+					$error = true;
+					$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template Subordinate Data Source Not Found!";
+				}
+
+				break;
+			case 'hash':
+				// See if the hash exists, if it does, update the thold
+				$found = db_fetch_cell("SELECT id FROM thold_template WHERE hash='$value'");
+
+				if (!empty($found)) {
+					$save['hash'] = $value;
+					$save['id']   = $found;
+				}else{
+					$save['hash'] = $value;
+					$save['id']   = 0;
+				}
+
+				break;
+			case 'name':
+				$tname = $value;
+				$save['name'] = $value;
+
+				break;
+			default:
+				$save[$name] = $value;
+
+				break;
+			}
+		}
+		}
+
+		if (!$error) {
+			$id = sql_save($save, 'thold_template');
+			
+			if ($id) {
+				$debug_data[] = "<span style='font-weight:bold;color:green;'>NOTE:</span> Threshold Template '<b>$tname</b>' " . ($save['id'] > 0 ? "Updated":"Imported") . "!";
+			}else{
+				$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template '<b>$tname</b>' " . ($save['id'] > 0 ? "Update":"Import") . " Failed!";
+			}
+		}
+	}
+	}
+
+	if(sizeof($debug_data) > 0) {
+		$_SESSION["import_debug_info"] = $debug_data;
+	}
+
+	header("Location: thold_templates.php?action=import");
+}
+

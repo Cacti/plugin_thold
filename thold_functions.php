@@ -3061,3 +3061,40 @@ function get_thold_notification_emails($id) {
 		return '';
 	}
 }
+
+/* get_hash_thold_template - returns the current unique hash for a thold_template
+   @arg $id - (int) the ID of the thold template to return a hash for
+   @returns - a 128-bit, hexadecimal hash */
+function get_hash_thold_template($id) {
+    $hash = db_fetch_cell("SELECT hash FROM thold_template WHERE id=$id");
+
+    if (preg_match("/[a-fA-F0-9]{32}/", $hash)) {
+        return $hash;
+    }else{
+        return generate_hash();
+    }
+}
+
+function ia2xml($array) {
+	$xml = "";
+	if (sizeof($array)) {
+	foreach ($array as $key=>$value) {
+		if (is_array($value)) {
+			$xml .= "\t<$key>" . ia2xml($value) . "</$key>\n";
+		} else {
+			$xml .= "\t<$key>" . htmlspecialchars($value) . "</$key>\n";
+		}
+	}
+	}
+	return $xml;
+}
+
+function array2xml($array, $tag = 'template') {
+	static $index = 1;
+
+	$xml = "<$tag$index>\n" . ia2xml($array) . "</$tag$index>\n";
+
+	$index++;
+
+	return $xml;
+}

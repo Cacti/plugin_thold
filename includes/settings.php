@@ -41,6 +41,7 @@ function thold_draw_navigation_text ($nav) {
 	$nav['thold_templates.php:save'] = array('title' => 'Threshold Templates', 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
 	$nav['thold_templates.php:add'] = array('title' => 'Threshold Templates', 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
 	$nav['thold_templates.php:actions'] = array('title' => 'Threshold Templates', 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
+	$nav['thold_templates.php:import'] = array('title' => 'Threshold Template Import', 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '2');
 
 	$nav['thold_add.php:'] = array('title' => 'Create Threshold', 'mapping' => 'index.php:', 'url' => 'thold_add.php', 'level' => '1');
 	$nav['notify_lists.php:'] = array('title' => 'Notification Lists', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
