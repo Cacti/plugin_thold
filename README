@@ -48,6 +48,7 @@
 		Add RPN Expressions 'AND' and 'OR'
 		Add Support for Boost to Baseline Tholds
 		Add Template Export/Import Functionality
+		Add DSStats functionality to RPN Expressions save on Disk I/O
 
 	--- 0.4.4 ---
 		Fix emailing of alerts when PHP-GD is not available

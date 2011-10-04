@@ -653,7 +653,19 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 				$currenttime = 0;
 				$expression[$key] = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
 			}else{
-				$expression[$key] = get_current_value($thold['rra_id'], $dsname);
+				$value = '';
+				if (api_plugin_is_enabled('dsstats') && read_config_option("dsstats_enable") == "on") {
+					$value = db_fetch_cell("SELECT calculated 
+						FROM data_source_stats_hourly_last 
+						WHERE local_data_id=" . $thold['rrd_id'] . " 
+						AND rrd_name='$dsname'");
+				}
+
+				if (empty($value)) {
+					$expression[$key] = get_current_value($thold['rra_id'], $dsname);
+				} else {
+					$expression[$key] = $value;
+				}
 				//cacti_log($expression[$key]);
 			}
 
