@@ -287,8 +287,10 @@ function form_actions() {
 	}
 
 	/* setup some variables */
-	$list = ""; $array = array();
-	$list_name = db_fetch_cell("SELECT name FROM plugin_notification_lists WHERE id=" . $_POST["id"]);
+	$list = ""; $array = array(); $list_name = "";
+	if (isset($_POST["id"])) {
+		$list_name = db_fetch_cell("SELECT name FROM plugin_notification_lists WHERE id=" . $_POST["id"]);
+	}
 
 	if (isset($_POST["save_list"])) {
 		/* loop through each of the notification lists selected on the previous page and get more info about them */
