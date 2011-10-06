@@ -121,14 +121,9 @@ function form_actions() {
 
 			if ($_POST["drp_action"] == "1") { /* delete */
 				db_execute("DELETE FROM plugin_notification_lists WHERE " . array_to_sql_or($selected_items, "id"));
-
-				$hosts = db_fetch_assoc("SELECT id FROM host WHERE " . array_to_sql_or($selected_items, "thold_email_notify"));
-
-				if (sizeof($hosts)) {
-				foreach ($hosts as $host) {
-					db_execute("UPDATE host SET thold_email_notify=1 WHERE id=" . $host["id"]);
-				}
-				}
+				db_execute("UPDATE host SET thold_send_email=0 WHERE thold_send_email=2 AND " . array_to_sql_or($selected_items, "thold_host_email"));
+				db_execute("UPDATE host SET thold_send_email=1 WHERE thold_send_email=3 AND " . array_to_sql_or($selected_items, "thold_host_email"));
+				db_execute("UPDATE host SET thold_host_email=0 WHERE " . array_to_sql_or($selected_items, "thold_host_email"));
 			}elseif ($_POST["drp_action"] == "2") { /* duplicate */
 				for ($i=0;($i<count($selected_items));$i++) {
 					/* ================= input validation ================= */
