@@ -30,6 +30,7 @@ function thold_upgrade_database () {
 	thold_setup_database ();
 
 	include_once($config['base_path'] . '/plugins/thold/setup.php');
+	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 	$v = plugin_thold_version();
 
 	$oldv = read_config_option('plugin_thold_version');
