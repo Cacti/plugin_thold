@@ -270,7 +270,7 @@ if (isset($template_data_rrds)) {
 //----------------------
 $thold_item_data = db_fetch_assoc("SELECT * 
 	FROM thold_data 
-	WHERE data_id = " . $_GET["view_rrd"]);
+	WHERE data_id=" . $_GET["view_rrd"]);
 
 $thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_item_data;
 $thold_item_data_cdef = (isset($thold_item_data['cdef']) ? $thold_item_data['cdef'] : 0);
@@ -365,8 +365,7 @@ $replacements = db_fetch_assoc("SELECT DISTINCT field_name
 	FROM data_local AS dl
 	INNER JOIN host_snmp_cache AS hsc
 	ON dl.snmp_query_id=hsc.snmp_query_id
-	WHERE dl.data_template_id=" . $thold_item_data['data_template_id'] . "
-	AND dl.host_id=" . $d["host_id"]);
+	WHERE dl.id=" . (isset($thold_item_data['data_template_id']) ? $thold_item_data['rra_id']:$rra));
 
 $nr = array();
 if (sizeof($replacements)) {
