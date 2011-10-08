@@ -210,6 +210,9 @@ function thold_upgrade_database () {
 		if (!array_key_exists("data_template_id", $indexes)) {
 			db_execute("ALTER TABLE data_local ADD INDEX data_template_id(data_template_id)");
 		}
+		if (!array_key_exists("snmp_query_id", $indexes)) {
+			db_execute("ALTER TABLE data_local ADD INDEX snmp_query_id(snmp_query_id)");
+		}
 
 		$data = array();
 		$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
@@ -425,5 +428,8 @@ function thold_setup_database () {
 	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM data_local"),"Key_name", "Key_name");
 	if (!array_key_exists("data_template_id", $indexes)) {
 		db_execute("ALTER TABLE data_local ADD INDEX data_template_id(data_template_id)");
+	}
+	if (!array_key_exists("snmp_query_id", $indexes)) {
+		db_execute("ALTER TABLE data_local ADD INDEX snmp_query_id(snmp_query_id)");
 	}
 }
