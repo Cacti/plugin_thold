@@ -157,12 +157,12 @@ function thold_update_host_status () {
 
 	$alert_email = read_config_option('alert_email');
 	$ping_failure_count = read_config_option('ping_failure_count');
+
 	// Lets find hosts that were down, but are now back up
-	$failed = read_config_option('thold_failed_hosts', true);
-	$failed = explode(',', $failed);
-	if (!empty($failed)) {
-		foreach($failed as $id) {
-			if ($id != '') {
+	$failed = db_fetch_assoc("SELECT * FROM plugin_thold_host_failed");
+	if (sizeof($failed)) {
+		foreach($failed['host_id'] as $id) {
+			if (!empty($id)) {
 				if (api_plugin_is_enabled('maint')) {
 					if (plugin_maint_check_cacti_host ($id)) {
 						continue;
@@ -381,23 +381,26 @@ function thold_update_host_status () {
 	}
 
 	// Now lets record all failed hosts
+	db_execute("TRUNCATE TABLE plugin_thold_host_failed");
 	$hosts = db_fetch_assoc('SELECT id 
 		FROM host 
-		WHERE status!=' . HOST_UP);
+		WHERE disabled="" 
+		AND status!=' . HOST_UP);
 
-	$failed = array();
-	if (!empty($hosts)) {
-		foreach ($hosts as $host) {
+	$failed = '';
+	if (sizeof($hosts)) {
+		foreach ($hosts['id'] as $id) {
 			if (api_plugin_is_enabled('maint')) {
-				if (plugin_maint_check_cacti_host ($host['id'])) {
+				if (plugin_maint_check_cacti_host ($id)) {
 					continue;
 				}
 			}
-			$failed[] = $host['id'];
+			$failed .= (strlen($failed) ? "), (":"(") . $id;
 		}
+		$failed .= ")";
+
+		db_execute("INSERT INTO plugin_thold_host_failed (host_id) VALUES $failed");
 	}
-	$failed = implode(',', $failed);
-	db_execute("REPLACE INTO settings (name, value) VALUES ('thold_failed_hosts', '$failed')");
 
 	return $total_hosts;
 }

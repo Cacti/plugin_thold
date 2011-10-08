@@ -31,6 +31,10 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
+	--- 0.4.7 ---
+		feature: Add index to optimize page loads
+		feature: Allow more hosts to be reported as down
+
 	--- 0.4.6 ---
 		Add Warning Support Curtesy (Thomas Urban)
 		Improve display of Baseline Alarms

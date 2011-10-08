@@ -365,6 +365,7 @@ $replacements = db_fetch_assoc("SELECT DISTINCT field_name
 	FROM data_local AS dl
 	INNER JOIN host_snmp_cache AS hsc
 	ON dl.snmp_query_id=hsc.snmp_query_id
+	AND dl.host_id=hsc.host_id
 	WHERE dl.id=" . (isset($thold_item_data['data_template_id']) ? $thold_item_data['rra_id']:$rra));
 
 $nr = array();

@@ -205,6 +205,23 @@ function thold_upgrade_database () {
 		}
 	}
 
+	if (version_compare($oldv, '0.4.7', '<')) {
+		$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM data_local"),"Key_name", "Key_name");
+		if (!array_key_exists("data_template_id", $indexes)) {
+			db_execute("ALTER TABLE data_local ADD INDEX data_template_id(data_template_id)");
+		}
+
+		$data = array();
+		$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
+		$data['columns'][] = array('name' => 'host_id', 'type' => 'int(12)', 'unsigned' => true, 'NULL' => false);
+		$data['primary'] = 'id';
+		$data['type'] = 'MyISAM';
+		$data['comment'] = 'Table of Hosts in a Down State';
+		api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
+
+		db_execute("DELETE FROM settings WHERE name='thold_failed_hosts'");
+	}
+
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
 	db_execute('UPDATE plugin_config SET version = "' . $v['version'] . '" WHERE directory = "thold"');
 }
@@ -396,4 +413,17 @@ function thold_setup_database () {
 
 	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
 	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => false, 'after' => 'thold_send_email'));
+
+	$data = array();
+	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
+	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(12)', 'unsigned' => true, 'NULL' => false);
+	$data['primary'] = 'id';
+	$data['type'] = 'MyISAM';
+	$data['comment'] = 'Table of Hosts in a Down State';
+	api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
+
+	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM data_local"),"Key_name", "Key_name");
+	if (!array_key_exists("data_template_id", $indexes)) {
+		db_execute("ALTER TABLE data_local ADD INDEX data_template_id(data_template_id)");
+	}
 }
