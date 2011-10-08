@@ -155,6 +155,13 @@ CREATE TABLE `plugin_thold_log` (
   KEY `type` (`type`)
 ) ENGINE=MyISAM COMMENT='Table of All Threshold Breaches';
 
+DROP TABLE `plugin_thold_host_failed`;
+CREATE TABLE `plugin_thold_host_failed` (
+  `id` int(12) unsigned NOT NULL auto_increment,
+  `host_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY  (`id`),
+) ENGINE=MyISAM COMMENT='Table of Hosts in a Down State';
+
 REPLACE INTO user_auth_realm VALUES (18, 1);
 REPLACE INTO user_auth_realm VALUES (19, 1);
 
