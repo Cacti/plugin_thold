@@ -214,6 +214,11 @@ function thold_upgrade_database () {
 			db_execute("ALTER TABLE data_local ADD INDEX snmp_query_id(snmp_query_id)");
 		}
 
+		$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM host_snmp_cache"),"Key_name", "Key_name");
+		if (!array_key_exists("snmp_query_id", $indexes)) {
+			db_execute("ALTER TABLE host_snmp_cache ADD INDEX snmp_query_id(snmp_query_id)");
+		}
+
 		$data = array();
 		$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
 		$data['columns'][] = array('name' => 'host_id', 'type' => 'int(12)', 'unsigned' => true, 'NULL' => false);
@@ -431,5 +436,10 @@ function thold_setup_database () {
 	}
 	if (!array_key_exists("snmp_query_id", $indexes)) {
 		db_execute("ALTER TABLE data_local ADD INDEX snmp_query_id(snmp_query_id)");
+	}
+
+	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM host_snmp_cache"),"Key_name", "Key_name");
+	if (!array_key_exists("snmp_query_id", $indexes)) {
+		db_execute("ALTER TABLE host_snmp_cache ADD INDEX snmp_query_id(snmp_query_id)");
 	}
 }
