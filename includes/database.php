@@ -228,6 +228,9 @@ function thold_upgrade_database () {
 		api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
 
 		db_execute("DELETE FROM settings WHERE name='thold_failed_hosts'");
+
+		/* increase the size of the settings table */
+		db_execute("ALTER TABLE settings MODIFY column `value` varchar(1024) not null default ''");
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
@@ -442,4 +445,7 @@ function thold_setup_database () {
 	if (!array_key_exists("snmp_query_id", $indexes)) {
 		db_execute("ALTER TABLE host_snmp_cache ADD INDEX snmp_query_id(snmp_query_id)");
 	}
+
+	/* increase the size of the settings table */
+	db_execute("ALTER TABLE settings MODIFY column `value` varchar(1024) not null default ''");
 }
