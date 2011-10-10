@@ -591,7 +591,7 @@ function template_edit() {
 
 	$replacements = db_fetch_assoc("SELECT DISTINCT field_name
 		FROM data_local AS dl
-		INNER JOIN host_snmp_cache AS hsc
+		INNER JOIN (SELECT DISTINCT field_name, snmp_query_id FROM host_snmp_cache) AS hsc
 		ON dl.snmp_query_id=hsc.snmp_query_id
 		WHERE dl.data_template_id=" . $thold_item_data['data_template_id']);
 
