@@ -527,7 +527,6 @@ function form_actions() {
    Notification List Edit
    ---------------------------- */
 
-
 function get_notification_header_label() {
 	if (!empty($_REQUEST["id"])) {
 		$_GET["id"] = $_REQUEST["id"];
