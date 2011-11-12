@@ -67,18 +67,19 @@ function thold_poller_output ($rrd_update_array) {
 	}
 
 	if ($rra_ids != '') {
-		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.expression, thold_data.data_type, 
-					thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread, 
-					thold_data.oldvalue, data_template_rrd.data_source_name as name, 
-					data_template_rrd.data_source_type_id, data_template_data.rrd_step, 
-					data_template_rrd.rrd_maximum
-					FROM thold_data
-					LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
-					LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
-					WHERE data_template_rrd.data_source_name != '' AND thold_data.rra_id IN($rra_ids)", false);
+		$thold_items = db_fetch_assoc("SELECT thold_data.percent_ds, thold_data.expression, thold_data.data_type,
+			thold_data.cdef, thold_data.rra_id, thold_data.data_id, thold_data.lastread,
+			thold_data.oldvalue, data_template_rrd.data_source_name as name,
+			data_template_rrd.data_source_type_id, data_template_data.rrd_step,
+			data_template_rrd.rrd_maximum
+			FROM thold_data
+			LEFT JOIN data_template_rrd on (data_template_rrd.id = thold_data.data_id)
+			LEFT JOIN data_template_data ON ( data_template_data.local_data_id = thold_data.rra_id )
+			WHERE data_template_rrd.data_source_name != '' AND thold_data.rra_id IN($rra_ids)", false);
 	} else {
 		return $rrd_update_array;
 	}
+
 	if (sizeof($thold_items)) {
 	foreach ($thold_items as $t_item) {
 		$polling_interval = $t_item['rrd_step'];
@@ -122,28 +123,31 @@ function thold_poller_output ($rrd_update_array) {
 						$currentval = $item[$t_item['name']];
 						break;
 				}
+
 				switch ($t_item['data_type']) {
 					case 0:
-						$currentval = round($currentval, 4);
 						break;
 					case 1:
 						if ($t_item['cdef'] != 0) {
 							$currentval = thold_build_cdef($t_item['cdef'], $currentval, $t_item['rra_id'], $t_item['data_id']);
 						}
-						$currentval = round($currentval, 4);
 						break;
 					case 2:
 						if ($t_item['percent_ds'] != '') {
 							$currentval = thold_calculate_percent($t_item, $currentval, $rrd_update_array_reindexed);
 						}
-						$currentval = round($currentval, 4);
 						break;
 					case 3:
 						if ($t_item['expression'] != '') {
 							$currentval = thold_calculate_expression($t_item, $currentval, $rrd_update_array_reindexed);
 						}
-						$currentval = round($currentval, 4);
 						break;
+				}
+
+				if (is_numeric($currentval)) {
+					$currentval = round($currentval, 4);
+				}else{
+					$currentval = '';
 				}
 
 				db_execute("UPDATE thold_data SET tcheck = 1, lastread = '$currentval', oldvalue = '" . $item[$t_item['name']] . "' WHERE rra_id = " . $t_item['rra_id'] . " AND data_id = " . $t_item['data_id']);
