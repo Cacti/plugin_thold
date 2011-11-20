@@ -271,6 +271,7 @@ function thold_send_alert($item, $status = true) {
 		$rows = db_fetch_assoc('SELECT * FROM plugin_thold_alerts WHERE threshold_id = ' . $item['id'] . ' AND repeat_fail < ' . ($item['thold_fail_count'] + 1));
 	}
 
+	$types = array('High/Low', 'Baseline', 'Time Based');
 	if (count($rows)) {
 		foreach($rows as $row) {
 			switch ($row['type']) {
@@ -284,7 +285,7 @@ function thold_send_alert($item, $status = true) {
 						}
 						$emails = implode(',', $emails);
 						if (trim($row['data']['notify_extra']) != '') {
-							$emails .= ($email == '' ? '' : ',') . $row['data']['notify_extra'];
+							$emails .= ($emails == '' ? '' : ',') . $row['data']['notify_extra'];
 						}
 						cacti_log("Sending email (" . $item['thold_fail_count'] . ") to " . $emails);
 						thold_mail($emails, '', $item['subject'], $item['msg'], $item['file_array']);
@@ -475,6 +476,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 	case '^':
 		$v1 = thold_expression_rpn_pop($stack);
 		$v2 = thold_expression_rpn_pop($stack);
+		$v3 = '';
 
 		if (!$rpn_error) {
 			eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
@@ -631,7 +633,7 @@ function thold_expression_compare_rpn($operator, &$stack) {
 	}else{
 		$v1 = thold_expression_rpn_pop($stack);
 		$v2 = thold_expression_rpn_pop($stack);
-		$v2 = thold_expression_rpn_pop($stack);
+		$v3 = thold_expression_rpn_pop($stack);
 
 		if (($v1 == 'U' || $v1 == 'NAN') ||
 			($v2 == 'U' || $v2 == 'NAN') ||
@@ -811,7 +813,7 @@ function thold_expression_specialtype_rpn($operator, &$stack, $rra_id, $currentv
 		break;
 	default:
 		cacti_log('WARNING: CDEF property not implemented yet: ' . $operator, false, 'THOLD');
-		array_push($stack, $oldvalue);
+		array_push($stack, $currentval);
 		break;
 	}
 }
