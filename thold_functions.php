@@ -476,7 +476,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 	case '^':
 		$v1 = thold_expression_rpn_pop($stack);
 		$v2 = thold_expression_rpn_pop($stack);
-		$v3 = '';
+		$v3 = 'U';
 
 		if (!$rpn_error) {
 			eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
