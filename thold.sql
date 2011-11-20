@@ -66,6 +66,7 @@ CREATE TABLE thold_template (
   bl_pct_up int(10) default NULL,
   bl_fail_trigger int(10) default NULL,
   bl_alert int(2) default NULL,
+  thold_type int(3) NOT NULL default '0',
   data_type int(3) NOT NULL default '0',
   cdef int(11) NOT NULL default '0',
   percent_ds varchar(64) NOT NULL,
