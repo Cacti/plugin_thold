@@ -433,17 +433,17 @@ function thold_data_source_action_prepare($save) {
 
 			if ($data_template_id != "") {
 				if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-					$found_list .= "<li>" . get_data_source_title($item) . "<br>";
+					$found_list .= "<li>" . get_data_source_title($item) . "</li>";
 					if (strlen($templates)) {
 						$templates .= ", $data_template_id";
 					}else{
 						$templates  = "$data_template_id";
 					}
 				}else{
-					$not_found .= "<li>" . get_data_source_title($item) . "<br>";
+					$not_found .= "<li>" . get_data_source_title($item) . "</li>";
 				}
 			}else{
-				$not_found .= "<li>" . get_data_source_title($item) . "<br>";
+				$not_found .= "<li>" . get_data_source_title($item) . "</li>";
 			}
 		}
 		}
@@ -460,11 +460,11 @@ function thold_data_source_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print "<p>The following Data Sources have no Threshold Templates associated with them</p>";
-				print "<p>" . $not_found . "</p>";
+				print "<p><ul>" . $not_found . "</ul></p>";
 			}
 
 			print "<p>Are you sure you wish to create Thresholds for these Data Sources?
-					<p>" . $found_list . "</p>
+					<p><ul>" . $found_list . "</ul></p>
 					</td>
 				</tr>\n
 				";
