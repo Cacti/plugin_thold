@@ -205,7 +205,7 @@ function thold_add_graphs_action_execute() {
 
 function thold_add_graphs_action_prepare($graph) {
 	global $colors, $config;
-
+cacti_log(__FUNCTION__ . " graph: $graph", false, "TEST");
 	include($config['include_path'] . '/top_header.php');
 
 	html_start_box("<strong>Create Threshold from Template</strong>", "60%", $colors["header_panel"], "3", "center", "");
@@ -227,17 +227,17 @@ function thold_add_graphs_action_prepare($graph) {
 						 WHERE graph_local.id=$graph");
 	if ($data_template_id != "") {
 		if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-			$found_list .= "<li>" . get_graph_title($graph) . "<br>";
+			$found_list .= "<li>" . get_graph_title($graph) . "</li>";
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
 			}else{
 				$templates  = "$data_template_id";
 			}
 		}else{
-			$not_found .= "<li>" . get_graph_title($graph) . "<br>";
+			$not_found .= "<li>" . get_graph_title($graph) . "</li>";
 		}
 	}else{
-		$not_found .= "<li>" . get_graph_title($item) . "<br>";
+		$not_found .= "<li>" . get_graph_title($graph) . "</li>";
 	}
 
 	if (strlen($templates)) {
@@ -251,12 +251,12 @@ function thold_add_graphs_action_prepare($graph) {
 
 	if (strlen($found_list)) {
 		if (strlen($not_found)) {
-			print "<p>The following Graph has no Threshold Templates associated with them</p>";
-			print "<p>" . $not_found . "</p>";
+			print "<p>The following Graphs have no Threshold Templates associated with them</p>";
+			print "<p><ul>" . $not_found . "</ul></p>";
 		}
 
-		print "<p>Are you sure you wish to create Thresholds for this Graph?
-				<p>" . $found_list . "</p>
+		print "<p>Are you sure you wish to create Thresholds for this Graph?</p>
+				<p><ul>" . $found_list . "</ul></p>
 				</td>
 			</tr>\n
 			";
@@ -404,7 +404,7 @@ function thold_add_graphs_action_array($action) {
 }
 
 function thold_add_select_host() {
-	global $config, $host, $graph, $ds;
+	global $colors, $config, $host, $graph, $ds;
 
 	/* get policy information for the sql where clause */
 	$current_user = db_fetch_row("SELECT * FROM user_auth WHERE id=" . $_SESSION["sess_user_id"]);
