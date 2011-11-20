@@ -117,6 +117,7 @@ CREATE TABLE plugin_thold_contacts (
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM;
 
+DROP TABLE IF EXISTS `plugin_thold_log`;
 CREATE TABLE `plugin_thold_log` (
   `id` int(12) NOT NULL auto_increment,
   `time` int(24) NOT NULL,
