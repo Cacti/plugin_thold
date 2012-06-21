@@ -31,10 +31,11 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
-	--- SVN ---
+	--- 0.5 ---
 		feature: Allow threshold log retention to be configurable
 		bug: Thold Suggested Names not applied in all cases
 		bug: Use of Aggregate breaks Thold edit UI and new Tholds
+		bug: #0002247 - SQL Injection in thold.php (must be authenticated first) Thanks Primož!!
 
 	--- 0.4.9 ---
 		feature: Allow HRULES based upon HI/LOW Value portions courtesy of Barnaby Puttick

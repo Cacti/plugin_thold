@@ -34,6 +34,11 @@ input_validate_input_number(get_request_var('hostid'));
 input_validate_input_number(get_request_var('rra'));
 input_validate_input_number(get_request_var('id'));
 
+input_validate_input_number(get_request_var('view_rrd')); 
+input_validate_input_number(get_request_var_post('data_template_rrd_id')); 
+input_validate_input_number(get_request_var_post('rra')); 
+
+
 $hostid = '';
 if (isset($_REQUEST['rra'])) {
 	$rra = $_REQUEST['rra'];

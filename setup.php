@@ -136,7 +136,7 @@ function plugin_thold_check_strict () {
 function plugin_thold_version () {
 	return array(
 			'name'		=> 'thold',
-			'version' 	=> '0.4.9',
+			'version' 	=> '0.5',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://docs.cacti.net/plugin:thold',
