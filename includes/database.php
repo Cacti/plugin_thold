@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2011 The Cacti Group                                      |
+ | Copyright (C) 2012 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -37,17 +37,31 @@ function thold_upgrade_database () {
 
 	if ($oldv < .1) {
 		db_execute('INSERT INTO settings (name, value) VALUES ("plugin_thold_version", "' . $v['version'] . '")');
+		$oldv = $v['version'];
 	}
 
-	// Added in thold v0.3.9
-	$result = db_fetch_assoc('SHOW INDEXES FROM graph_templates_item');
-	$found = false;
-	foreach($result as $row) {
-		if ($row['Column_name'] == 'task_item_id')
-			$found = true;
+	// Check for needed Cacti Indexes
+	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM graph_templates_item"),"Key_name", "Key_name");
+	if (!array_key_exists("task_item_id", $indexes)) {
+		db_execute("ALTER TABLE graph_templates_item ADD INDEX task_item_id(task_item_id)");
 	}
-	if (!$found) {
-		db_execute('ALTER TABLE `graph_templates_item` ADD INDEX ( `task_item_id` )');
+
+	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM data_local"),"Key_name", "Key_name");
+	if (!array_key_exists("data_template_id", $indexes)) {
+		db_execute("ALTER TABLE data_local ADD INDEX data_template_id(data_template_id)");
+	}
+	if (!array_key_exists("snmp_query_id", $indexes)) {
+		db_execute("ALTER TABLE data_local ADD INDEX snmp_query_id(snmp_query_id)");
+	}
+
+	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM host_snmp_cache"),"Key_name", "Key_name");
+	if (!array_key_exists("snmp_query_id", $indexes)) {
+		db_execute("ALTER TABLE host_snmp_cache ADD INDEX snmp_query_id(snmp_query_id)");
+	}
+
+	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM data_template_rrd"),"Key_name", "Key_name");
+	if (!array_key_exists("data_source_name", $indexes)) {
+		db_execute("ALTER TABLE data_template_rrd ADD INDEX data_source_name(data_source_name)");
 	}
 
 	// Added in thold v0.4
@@ -101,7 +115,6 @@ function thold_upgrade_database () {
 		db_execute('UPDATE plugin_realms SET file = "thold.php,listthold.php,thold_add.php" WHERE display = "Configure Thresholds"');
 		api_plugin_register_realm('thold', 'thold_templates.php', 'Configure Threshold Templates', 1);
 
-		db_execute('ALTER TABLE `data_template_rrd` ADD INDEX ( `data_source_name` )', FALSE);
 		db_execute('ALTER TABLE `thold_data` ADD INDEX ( `tcheck` )', FALSE);
 		db_execute('ALTER TABLE `thold_data` ADD INDEX ( `graph_id` )', FALSE);
 		db_execute('ALTER TABLE `thold_data` ADD INDEX ( `graph_template` )', FALSE);
@@ -198,27 +211,14 @@ function thold_upgrade_database () {
 		/* set unique hash values for all thold templates */
 		$templates = db_fetch_assoc("SELECT id FROM thold_template");
 		if (sizeof($templates)) {
-		foreach($templates as $t) {
-			$hash = get_hash_thold_template($t['id']);
-			db_execute("UPDATE thold_template SET hash='$hash' WHERE id=" . $t['id']);
-		}
+			foreach($templates as $t) {
+				$hash = get_hash_thold_template($t['id']);
+				db_execute("UPDATE thold_template SET hash='$hash' WHERE id=" . $t['id']);
+			}
 		}
 	}
 
 	if (version_compare($oldv, '0.4.7', '<')) {
-		$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM data_local"),"Key_name", "Key_name");
-		if (!array_key_exists("data_template_id", $indexes)) {
-			db_execute("ALTER TABLE data_local ADD INDEX data_template_id(data_template_id)");
-		}
-		if (!array_key_exists("snmp_query_id", $indexes)) {
-			db_execute("ALTER TABLE data_local ADD INDEX snmp_query_id(snmp_query_id)");
-		}
-
-		$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM host_snmp_cache"),"Key_name", "Key_name");
-		if (!array_key_exists("snmp_query_id", $indexes)) {
-			db_execute("ALTER TABLE host_snmp_cache ADD INDEX snmp_query_id(snmp_query_id)");
-		}
-
 		$data = array();
 		$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
 		$data['columns'][] = array('name' => 'host_id', 'type' => 'int(12)', 'unsigned' => true, 'NULL' => false);
