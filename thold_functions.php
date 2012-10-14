@@ -2195,15 +2195,12 @@ function thold_rpn ($x, $y, $z) {
 }
 
 function delete_old_thresholds () {
-	$result = db_fetch_assoc('SELECT id, data_id, rra_id FROM thold_data');
+	$result = db_fetch_assoc('SELECT a.id, data_id, rra_id FROM thold_data a  LEFT JOIN data_template_rrd b  ON (b.id=a.data_id) WHERE data_source_name is null');
 	if (sizeof($result)) {
-	foreach ($result as $row) {
-		$ds_item_desc = db_fetch_assoc('select id, data_source_name from data_template_rrd where id = ' . $row['data_id']);
-		if (!isset($ds_item_desc[0]['data_source_name'])) {
+		foreach ($result as $row) {
 			db_execute('DELETE FROM thold_data WHERE id=' . $row['id']);
 			db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $row['id']);
 		}
-	}
 	}
 }
 
