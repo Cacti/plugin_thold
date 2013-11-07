@@ -201,6 +201,11 @@ function thold_graph_button ($data) {
 	}
 }
 
+function thold_multiexplode ($delimiters, $string) {
+	$ready = str_replace($delimiters, $delimiters[0], $string);
+	return  explode($delimiters[0], $ready);
+}
+
 function thold_rrd_graph_graph_options ($g) {
 	/* handle thold replacement variables */
 	$needles      = array();
@@ -211,7 +216,7 @@ function thold_rrd_graph_graph_options ($g) {
 	if (is_array($defs)) {
 		foreach ($defs as $def) {
 			if (!substr_count($def, "CDEF") && !substr_count($def, "VDEF")) {
-				$ddef   = explode('"', $def);
+				$ddef   = thold_multiexplode(array('"', "'"), array($def));
 				$kdef   = explode(':', $def);
 				$dsname = $kdef[2];
 				$temp1  = str_replace(".rrd", "", basename($ddef[1]));
@@ -425,6 +430,7 @@ function thold_user_admin_edit ($user) {
 				'default' => '',
 				'max_length' => 255
 				);
+	return $user;
 }
 
 function thold_data_sources_table ($ds) {
