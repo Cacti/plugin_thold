@@ -247,6 +247,35 @@ function thold_config_settings () {
 			'default' => $default_facility,
 			'array' => $syslog_facil_array,
 			),
+		'thold_alerting_header3' => array(
+			'friendly_name' => 'SNMP Notification Options',
+			'method' => 'spacer',
+			),
+		'thold_alert_snmp' => array(
+			'friendly_name' => 'SNMP Notifications',
+			'description' => 'Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes alarms, warnings and restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin.',
+			'method' => 'checkbox',
+			'default' => '0',
+			),
+		'thold_alert_snmp_warning' => array(
+			'friendly_name' => 'Disable Warning Notifications',
+			'description' => 'If this is checked, Thold will not send a notification when a warning threshold has been breached.',
+			'method' => 'checkbox'
+			),
+		'thold_alert_snmp_normal' => array(
+			'friendly_name' => 'Disable Restoration Notifications',
+			'description' => 'If this is checked, Thold will not send a notfication when the threshold has returned to normal status.',
+			'method' => 'checkbox'
+			),
+		'thold_snmp_event_description' => array(
+			'friendly_name' => 'SNMP Event Description',
+			'description' => 'You can customize the event description being sent out to the SNMP notification receivers by using additional varbinds. Following variable bindings will be supported:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;',
+			'method' => 'textarea',
+			'class' => 'textAreaNotes',
+			'textarea_rows' => '5',
+			'textarea_cols' => '80',
+			'default' => '',
+			),
 		'thold_email_header' => array(
 			'friendly_name' => 'Emailing Options',
 			'method' => 'spacer',

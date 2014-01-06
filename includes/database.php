@@ -233,6 +233,16 @@ function thold_upgrade_database () {
 		db_execute("ALTER TABLE settings MODIFY column `value` varchar(1024) not null default ''");
 	}
 
+	if (version_compare($oldv, '0.5.1', '<')) {
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_category',	'type' => 'varchar(255)', 'NULL' => true) );
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3') );
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_warning_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2') );
+
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'snmp_event_category',	'type' => 'varchar(255)', 'NULL' => true) );
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'snmp_event_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3') );
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'snmp_event_warning_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2') );
+	}
+
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
 	db_execute('UPDATE plugin_config SET version = "' . $v['version'] . '" WHERE directory = "thold"');
 }
@@ -292,6 +302,9 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
 	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
 	$data['columns'][] = array('name' => 'bl_thold_valid', 'type' => 'int(10)', 'NULL' => false, 'default' => '0', 'unsigned' => true);
+	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3');
+	$data['columns'][] = array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2');
 	$data['primary'] = 'id';
 	$data['keys'][] = array('name' => 'host_id', 'columns' => 'host_id');
 	$data['keys'][] = array('name' => 'rra_id', 'columns' => 'rra_id');
@@ -350,6 +363,9 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'expression', 'type' => 'varchar(70)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
 	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
+	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3');
+	$data['columns'][] = array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2');
 	$data['primary'] = 'id';
 	$data['keys'][] = array('name' => 'id', 'columns' => 'id');
 	$data['keys'][] = array('name' => 'data_source_id', 'columns' => 'data_source_id');

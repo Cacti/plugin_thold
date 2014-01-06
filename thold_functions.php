@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2011 The Cacti Group                                      |
+ | Copyright (C) 2014 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -1258,6 +1258,12 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$thold_alert_text = read_config_option('thold_alert_text');
 	$thold_warning_text = read_config_option('thold_warning_text');
 
+	$thold_snmp_traps = (read_config_option('thold_alert_snmp') == 'on');
+	$thold_snmp_warning_traps = (read_config_option('thold_alert_snmp_warning') != 'on');
+	$thold_snmp_normal_traps = (read_config_option('thold_alert_snmp_normal') != 'on');
+	$thold_snmp_event_description = read_config_option('thold_snmp_event_description');
+	$cacti_polling_interval = read_config_option('poller_interval');
+
 	/* remove this after adding an option for it */
 	$thold_show_datasource = true;
 
@@ -1343,6 +1349,41 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$thold_warning_text = str_replace('<DATE_RFC822>', date(DATE_RFC822), $thold_warning_text);
 	$thold_warning_text = str_replace('<DEVICENOTE>', $h['notes'], $thold_warning_text);
 
+	// Do some replacement of variables
+	$thold_snmp_data = array(
+		"eventDateRFC822"			=> date(DATE_RFC822),
+		"eventClass"				=> 3,						// default - see CACTI-THOLD-MIB
+		"eventSeverity"				=> 3,						// default - see CACTI-THOLD-MIB
+		"eventCategory"				=> ($item['snmp_event_category'] ? $item['snmp_event_category'] : ''),
+		"eventSource"				=> $item['name'],
+		"eventDescription"			=> '',						// default - see CACTI-THOLD-MIB
+		"eventDevice"				=> $hostname['hostname'],
+		"eventDeviceIp"				=> gethostbyname($hostname['hostname']),
+		"eventDataSource"			=> $name,
+		"eventCurrentValue"			=> $currentval,
+		"eventHigh"					=> ($item['thold_type'] == 0 ? $item['thold_hi'] : ($item['thold_type'] == 2 ? $item['time_warning_hi'] : '')),
+		"eventLow"					=> ($item['thold_type'] == 0 ? $item['thold_low'] : ($item['thold_type'] == 2 ? $item['time_warning_low'] : '')),
+		"eventThresholdType"		=> $types[$item['thold_type']] + 1,
+		"eventNotificationType"		=> 5,						// default - see CACTI-THOLD-MIB
+		"eventStatus"				=> 3,						// default - see CACTI-THOLD-MIB
+		"eventRealertStatus"		=> 1,						// default - see CACTI-THOLD-MIB
+		"eventFailDuration"			=> 0,						// default - see CACTI-THOLD-MIB
+		"eventFailCount"			=> 0,						// default - see CACTI-THOLD-MIB
+		"eventFailDurationTrigger"	=> 0,						// default - see CACTI-THOLD-MIB
+		"eventFailCountTrigger"		=> 0,						// default - see CACTI-THOLD-MIB
+	);
+	$thold_snmp_event_description = str_replace('<THRESHOLDNAME>', $thold_snmp_data["eventSource"], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<HOSTNAME>', $thold_snmp_data["eventDevice"], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<HOSTIP>', $thold_snmp_data["eventDeviceIp"], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<TEMPLATE_ID>', ($item['template'] ? $item['template'] : 'none'), $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<TEMPLATE_NAME>', (isset($item_template['name']) ? $item_template['name'] : 'none'), $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<THR_TYPE>', $thold_snmp_data["eventThresholdType"], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<DS_NAME>', $thold_snmp_data["eventDataSource"], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<HI>', $thold_snmp_data["eventHigh"], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<LOW>', $thold_snmp_data["eventLow"], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<EVENT_CATEGORY>', $thold_snmp_data["eventCategory"], $thold_snmp_event_description);
+	$thold_snmp_data["eventDescription"] = $thold_snmp_event_description;
+
 	$msg = $thold_alert_text;
 	$warn_msg = $thold_warning_text;
 
@@ -1393,6 +1434,23 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					thold_mail($alert_emails, '', $subject, $msg, $file_array);
 				}
 
+				if ($thold_snmp_traps) {
+					$thold_snmp_data["eventClass"] = 3;
+					$thold_snmp_data["eventSeverity"] = $item['snmp_event_severity'];
+					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
+					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($breach_up ? 3:2) :1);
+					$thold_snmp_data["eventNotificationType"] = ($ra ? ST_NOTIFYRA:ST_NOTIFYAL)+1;
+					$thold_snmp_data["eventFailCount"] = $item['thold_fail_count'];
+					$thold_snmp_data["eventFailDuration"] = $item['thold_fail_count'] * $cacti_polling_interval;
+					$thold_snmp_data["eventFailDurationTrigger"] = $trigger * $cacti_polling_interval;
+
+					$thold_snmp_data["eventDescription"] = str_replace(
+					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
+					    array($thold_snmp_data["eventFailCount"], $thold_snmp_data["eventFailDuration"]),
+					    $thold_snmp_data["eventDescription"]
+					);
+					thold_snmptrap($thold_snmp_data);
+				}
 				thold_log(array(
 					'type' => 0,
 					'time' => time(),
@@ -1439,6 +1497,24 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					thold_mail($warning_emails, '', $subject, $warn_msg, $file_array);
 				}
 
+				if ($thold_snmp_traps && $thold_snmp_warning_traps) {
+					$thold_snmp_data["eventClass"] = 2;
+					$thold_snmp_data["eventSeverity"] = $item['snmp_event_warning_severity'];
+					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
+					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($warning_breach_up ? 3:2) :1);
+					$thold_snmp_data["eventNotificationType"] = ($ra ? ST_NOTIFYRA:ST_NOTIFYWA)+1;
+					$thold_snmp_data["eventFailCount"] = $item['thold_warning_fail_count'];
+					$thold_snmp_data["eventFailDuration"] = $item['thold_warning_fail_count'] * $cacti_polling_interval;
+					$thold_snmp_data["eventFailDurationTrigger"] = $warning_trigger * $cacti_polling_interval;
+
+					$thold_snmp_data["eventDescription"] = str_replace(
+					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
+					    array($thold_snmp_data["eventFailCount"], $thold_snmp_data["eventFailDuration"]),
+					    $thold_snmp_data["eventDescription"]
+					);
+					thold_snmptrap($thold_snmp_data);
+				}
+
 				thold_log(array(
 					'type' => 0,
 					'time' => time(),
@@ -1455,6 +1531,24 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 				if (trim($alert_emails) != '') {
 					thold_mail($alert_emails, '', $subject, $warn_msg, $file_array);
+				}
+
+				if ($thold_snmp_traps && $thold_snmp_warning_traps) {
+					$thold_snmp_data["eventClass"] = 2;
+					$thold_snmp_data["eventSeverity"] = $item['snmp_event_warning_severity'];
+					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
+					$thold_snmp_data["eventNotificationType"] = ST_NOTIFYAW+1;
+					$thold_snmp_data["eventFailCount"] = $item['thold_warning_fail_count'];
+					$thold_snmp_data["eventFailDuration"] = $item['thold_warning_fail_count'] * $cacti_polling_interval;
+					$thold_snmp_data["eventFailDurationTrigger"] = $trigger * $cacti_polling_interval;
+
+					$thold_snmp_data["eventDescription"] = str_replace(
+					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
+					    array($thold_snmp_data["eventFailCount"], $thold_snmp_data["eventFailDuration"]),
+					    $thold_snmp_data["eventDescription"]
+					);
+
+					thold_snmptrap($thold_snmp_data);
 				}
 
 				thold_log(array(
@@ -1495,6 +1589,14 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 						thold_mail($warning_emails, '', $subject, $warn_msg, $file_array);
 					}
 
+					if ($thold_snmp_traps && $thold_snmp_normal_traps) {
+						$thold_snmp_data["eventClass"] = 1;
+						$thold_snmp_data["eventSeverity"] = 1;
+						$thold_snmp_data["eventStatus"] = 1;
+						$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+						thold_snmptrap($thold_snmp_data);
+					}
+
 					thold_log(array(
 						'type' => 0,
 						'time' => time(),
@@ -1513,6 +1615,14 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 					if (trim($alert_emails) != '' && $item['restored_alert'] != 'on') {
 						thold_mail($alert_emails, '', $subject, $msg, $file_array);
+					}
+
+					if ($thold_snmp_traps && $thold_snmp_normal_traps) {
+						$thold_snmp_data["eventClass"] = 1;
+						$thold_snmp_data["eventSeverity"] = 1;
+						$thold_snmp_data["eventStatus"] = 1;
+						$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+						thold_snmptrap($thold_snmp_data);
 					}
 
 					thold_log(array(
@@ -1560,6 +1670,15 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 						thold_mail($alert_emails, '', $subject, $msg, $file_array);
 					}
 
+					if ($thold_snmp_traps && $thold_snmp_normal_traps) {
+						$thold_snmp_data["eventClass"] = 1;
+						$hold_snmp_data["eventSeverity"] = 1;
+						$thold_snmp_data["eventStatus"] = 1;
+						$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+
+						thold_snmptrap($thold_snmp_data);
+					}
+
 					thold_log(array(
 						'type' => 1,
 						'time' => time(),
@@ -1599,6 +1718,26 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 				if (trim($alert_emails) != '') {
 					thold_mail($alert_emails, '', $subject, $msg, $file_array);
+				}
+
+				if ($thold_snmp_traps) {
+					$thold_snmp_data["eventClass"] = 3;
+					$thold_snmp_data["eventSeverity"] = $item['snmp_event_severity'];
+					$thold_snmp_data["eventStatus"] = $item['bl_alert']+1;
+					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($breach_up ? 3:2) :1);
+					$thold_snmp_data["eventNotificationType"] = ($ra ? ST_NOTIFYRA:ST_NOTIFYAL)+1;
+					$thold_snmp_data["eventFailCount"] = $item['bl_fail_count'];
+					$thold_snmp_data["eventFailDuration"] = $item['bl_fail_count'] * $cacti_polling_interval;
+					$thold_snmp_data["eventFailCountTrigger"] = $bl_fail_trigger;
+
+					$thold_snmp_data["eventDescription"] = str_replace(
+					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
+					    array($thold_snmp_data["eventFailCount"], $thold_snmp_data["eventFailDuration"]),
+					    $thold_snmp_data["eventDescription"]
+					);
+
+
+					thold_snmptrap($thold_snmp_data);
 				}
 
 				thold_log(array(
@@ -1702,6 +1841,19 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					thold_mail($alert_emails, '', $subject, $msg, $file_array);
 				}
 
+				if ($thold_snmp_traps) {
+					$thold_snmp_data["eventClass"] = 3;
+					$thold_snmp_data["eventSeverity"] = $item['snmp_event_severity'];
+					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
+					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($breach_up ? 3:2) :1);
+					$thold_snmp_data["eventNotificationType"] = ($failures > $trigger ? ST_NOTIFYAL:ST_NOTIFYRA)+1;
+					$thold_snmp_data["eventFailCount"] = $failures;
+					$thold_snmp_data["eventFailCountTrigger"] = $trigger;
+
+					$thold_snmp_data["eventDescription"] = str_replace('<FAIL_COUNT>', $thold_snmp_data["eventFailCount"], $thold_snmp_data["eventDescription"]);
+					thold_snmptrap($thold_snmp_data);
+				}
+
 				thold_log(array(
 					'type' => 2,
 					'time' => time(),
@@ -1768,6 +1920,19 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					thold_mail($warning_emails, '', $subject, $warn_msg, $file_array);
 				}
 
+				if ($thold_snmp_traps && $thold_snmp_warning_traps) {
+					$thold_snmp_data["eventClass"] = 2;
+					$thold_snmp_data["eventSeverity"] = $item['snmp_event_warning_severity'];
+					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
+					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($warning_breach_up ? 3:2) :1);
+					$thold_snmp_data["eventNotificationType"] = ($warning_failures > $warning_trigger ? ST_NOTIFYRA:ST_NOTIFYWA)+1;
+					$thold_snmp_data["eventFailCount"] = $warning_failures;
+					$thold_snmp_data["eventFailCountTrigger"] = $warning_trigger;
+
+					$thold_snmp_data["eventDescription"] = str_replace('<FAIL_COUNT>', $thold_snmp_data["eventFailCount"], $thold_snmp_data["eventDescription"]);
+					thold_snmptrap($thold_snmp_data);
+				}
+
 				thold_log(array(
 					'type' => 2,
 					'time' => time(),
@@ -1826,6 +1991,14 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					thold_mail($warning_emails, '', $subject, $msg, $file_array);
 				}
 
+				if ($thold_snmp_traps && $thold_snmp_normal_traps) {
+					$thold_snmp_data["eventClass"] = 1;
+					$thold_snmp_data["eventSeverity"] = 1;
+					$thold_snmp_data["eventStatus"] = 1;
+					$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+					thold_snmptrap($thold_snmp_data);
+				}
+
 				thold_log(array(
 					'type' => 2,
 					'time' => time(),
@@ -1850,6 +2023,14 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 				if (trim($alert_emails) != '' && $item['restored_alert'] != 'on') {
 					thold_mail($alert_emails, '', $subject, $msg, $file_array);
+				}
+
+				if ($thold_snmp_traps && $thold_snmp_normal_traps) {
+					$thold_snmp_data["eventClass"] = 1;
+					$thold_snmp_data["eventSeverity"] = 1;
+					$thold_snmp_data["eventStatus"] = 1;
+					$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+					thold_snmptrap($thold_snmp_data);
 				}
 
 				thold_log(array(
@@ -2492,6 +2673,16 @@ function save_thold() {
 	input_validate_input_number(get_request_var_post('bl_pct_up'));
 	input_validate_input_number(get_request_var_post('bl_fail_trigger'));
 
+	if (isset($_POST['snmp_event_category'])) {
+		$_POST['snmp_event_category'] = trim(str_replace(array("\\", "'", '"'), '', get_request_var_post('snmp_event_category')));
+	}
+	if (isset($_POST['snmp_event_severity'])) {
+		input_validate_input_number(get_request_var_post('snmp_event_severity'));
+	}
+	if (isset($_POST['snmp_event_warning_severity'])) {
+		input_validate_input_number(get_request_var_post('snmp_event_warning_severity'));
+	}
+
 	$_POST['name']          = str_replace(array("\\", '"', "'"), '', $_POST['name']);
 	$save['name']           = (trim($_POST['name'])) == '' ? '' : $_POST['name'];
 	$save['host_id']        = $hostid;
@@ -2533,6 +2724,10 @@ function save_thold() {
 	$save['notify_alert']   = $_POST['notify_alert'];
 	$save['cdef']           = (trim($_POST['cdef'])) == '' ? '' : $_POST['cdef'];
 	$save['template_enabled'] = $_POST['template_enabled'];
+
+	$save['snmp_event_category'] = isset($_POST['snmp_event_category']) ? $_POST['snmp_event_category'] : '';
+	$save['snmp_event_severity'] = isset($_POST['snmp_event_severity']) ? $_POST['snmp_event_severity'] : 4;
+	$save['snmp_event_warning_severity'] = isset($_POST['snmp_event_warning_severity']) ? $_POST['snmp_event_warning_severity'] : 3;
 
 	$save['data_type'] = $_POST['data_type'];
 	if (isset($_POST['percent_ds'])) {
@@ -2885,7 +3080,10 @@ function thold_template_update_threshold ($id, $template) {
 		thold_data.expression = thold_template.expression,
 		thold_data.exempt = thold_template.exempt,
 		thold_data.data_template = thold_template.data_template_id,
-		thold_data.restored_alert = thold_template.restored_alert
+		thold_data.restored_alert = thold_template.restored_alert,
+		thold_data.snmp_event_category = thold_template.snmp_event_category,
+		thold_data.snmp_event_severity = thold_template.snmp_event_severity,
+		thold_data.snmp_event_warning_severity = thold_template.snmp_event_warning_severity
 		WHERE thold_data.id=$id AND thold_template.id=$template");
 	db_execute('DELETE FROM plugin_thold_threshold_contact where thold_id = ' . $id);
 	db_execute("INSERT INTO plugin_thold_threshold_contact (thold_id, contact_id) SELECT $id, contact_id FROM plugin_thold_template_contact WHERE template_id = $template");
@@ -2927,7 +3125,10 @@ function thold_template_update_thresholds ($id) {
 		thold_data.expression = thold_template.expression,
 		thold_data.exempt = thold_template.exempt,
 		thold_data.data_template = thold_template.data_template_id,
-		thold_data.restored_alert = thold_template.restored_alert
+		thold_data.restored_alert = thold_template.restored_alert,
+		thold_data.snmp_event_category = thold_template.snmp_event_category,
+		thold_data.snmp_event_severity = thold_template.snmp_event_severity,
+		thold_data.snmp_event_warning_severity = thold_template.snmp_event_warning_severity
 		WHERE thold_data.template=$id AND thold_data.template_enabled='on' AND thold_template.id=$id");
 	$rows = db_fetch_assoc("SELECT id, template FROM thold_data WHERE thold_data.template=$id AND thold_data.template_enabled='on'");
 
@@ -3096,4 +3297,13 @@ function array2xml($array, $tag = 'template') {
 	$index++;
 
 	return $xml;
+}
+
+function thold_snmptrap($varbinds){
+	global $config;
+	if (function_exists('snmpagent_notification')) {
+		snmpagent_notification('tholdNotify', 'CACTI-THOLD-MIB', $varbinds);
+	}else {
+		cacti_log("ERROR: THOLD was unable to generate SNMP notifications. Cacti SNMPAgent plugin is current missing or inactive.");
+	}
 }

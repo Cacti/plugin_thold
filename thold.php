@@ -34,9 +34,9 @@ input_validate_input_number(get_request_var('hostid'));
 input_validate_input_number(get_request_var('rra'));
 input_validate_input_number(get_request_var('id'));
 
-input_validate_input_number(get_request_var('view_rrd')); 
-input_validate_input_number(get_request_var_post('data_template_rrd_id')); 
-input_validate_input_number(get_request_var_post('rra')); 
+input_validate_input_number(get_request_var('view_rrd'));
+input_validate_input_number(get_request_var_post('data_template_rrd_id'));
+input_validate_input_number(get_request_var_post('rra'));
 
 
 $hostid = '';
@@ -263,14 +263,14 @@ if (isset($template_data_rrds)) {
 //----------------------
 // Data Source Item Form
 //----------------------
-$thold_item_data = db_fetch_assoc("SELECT * 
-	FROM thold_data 
+$thold_item_data = db_fetch_assoc("SELECT *
+	FROM thold_data
 	WHERE data_id=" . $_GET["view_rrd"]);
 
 $thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_item_data;
 $thold_item_data_cdef = (isset($thold_item_data['cdef']) ? $thold_item_data['cdef'] : 0);
 
-if ($thold_item_data['template']) {
+if (isset($thold_item_data['template'])) {
 	$thold_item_data['template_name'] = db_fetch_cell('SELECT name FROM thold_template WHERE id = ' . $thold_item_data['template']);
 }
 
@@ -287,11 +287,11 @@ print "	<tr>
 
 $send_notification_array = array();
 
-$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data, 
-	plugin_thold_contacts.type, user_auth.full_name 
-	FROM plugin_thold_contacts, user_auth 
-	WHERE user_auth.id=plugin_thold_contacts.user_id 
-	AND plugin_thold_contacts.data!='' 
+$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data,
+	plugin_thold_contacts.type, user_auth.full_name
+	FROM plugin_thold_contacts, user_auth
+	WHERE user_auth.id=plugin_thold_contacts.user_id
+	AND plugin_thold_contacts.data!=''
 	ORDER BY user_auth.full_name ASC, plugin_thold_contacts.type ASC");
 
 if (!empty($users)) {
@@ -340,12 +340,12 @@ $data_fields = array();
 $reference_types = get_reference_types($rra, $step, $timearray);
 
 if (isset($thold_item_data['data_template_id'])) {
-	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, data_input_field_id 
-		FROM data_template_rrd 
+	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, data_input_field_id
+		FROM data_template_rrd
 		WHERE local_data_id=' . $thold_item_data['rra_id']);
 } else {
-	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, data_input_field_id 
-		FROM data_template_rrd 
+	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, data_input_field_id
+		FROM data_template_rrd
 		WHERE local_data_id=' . $rra);
 }
 
@@ -360,7 +360,7 @@ foreach ($temp as $d) {
 	}
 }
 
-$replacements = db_fetch_assoc("SELECT DISTINCT field_name 
+$replacements = db_fetch_assoc("SELECT DISTINCT field_name
 	FROM data_local AS dl
 	INNER JOIN host_snmp_cache AS hsc
 	ON dl.snmp_query_id=hsc.snmp_query_id
@@ -543,15 +543,15 @@ $form_array = array(
 			'max_length' => 5,
 			'size' => 10,
 			'description' => 'The number of times the data source must be in breach of the threshold.',
-			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : read_config_option('thold_warning_time_fail_trigger') 
+			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : read_config_option('thold_warning_time_fail_trigger')
 		),
 		'time_warning_fail_length' => array(
 			'friendly_name' => 'Warning Breach Window',
 			'method' => 'drop_array',
 			'array' => $timearray,
 			'description' => 'The amount of time in the past to check for threshold breaches.',
-			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) 
-		),		
+			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1)
+		),
 		'time_header' => array(
 			'friendly_name' => 'Time Based Settings',
 			'method' => 'spacer',
@@ -579,14 +579,14 @@ $form_array = array(
 			'size' => 10,
 			'default' => read_config_option('thold_time_fail_trigger'),
 			'description' => 'The number of times the data source must be in breach of the threshold.',
-			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger') 
+			'value' => isset($thold_item_data['time_fail_trigger']) ? $thold_item_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
 		),
 		'time_fail_length' => array(
 			'friendly_name' => 'Breach Window',
 			'method' => 'drop_array',
 			'array' => $timearray,
 			'description' => 'The amount of time in the past to check for threshold breaches.',
-			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 1) 
+			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 1)
 		),
 		'baseline_header' => array(
 			'friendly_name' => 'Baseline Settings',
@@ -688,6 +688,41 @@ $form_array = array(
 		)
 	);
 
+	if (read_config_option("thold_alert_snmp") == 'on') {
+		$extra = array(
+				'snmp_event_category' => array(
+					'friendly_name' => 'SNMP Notification - Event Category',
+					'method' => 'textbox',
+					'description' => 'To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: "disk_usage", "link_utilization", "ping_test", "nokia_firewall_cpu_utilization" ...',
+					'value' => isset($thold_item_data['snmp_event_category']) ? $thold_item_data['snmp_event_category'] : '',
+					'default' => '',
+					'max_length' => '255',
+				),
+				'snmp_event_severity' => array(
+					'friendly_name' => 'SNMP Notification - Alert Event Severity',
+					'method' => 'drop_array',
+					'default' => '3',
+					'description' => 'Severity to be used for alerts. (low impact -> critical impact)',
+					'value' => isset($thold_item_data['snmp_event_severity']) ? $thold_item_data['snmp_event_severity'] : 3,
+					'array' => array( 1=>"low", 2=> "medium", 3=> "high", 4=> "critical"),
+				),
+			);
+		$form_array += $extra;
+
+		if(read_config_option("thold_alert_snmp_warning") != "on") {
+			$extra = array(
+				'snmp_event_warning_severity' => array(
+					'friendly_name' => 'SNMP Notification - Warning Event Severity',
+					'method' => 'drop_array',
+					'default' => '2',
+					'description' => 'Severity to be used for warnings. (low impact -> critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts.',
+					'value' => isset($thold_item_data['snmp_event_warning_severity']) ? $thold_item_data['snmp_event_warning_severity'] : 2,
+					'array' => array( 1=>"low", 2=> "medium", 3=> "high", 4=> "critical"),
+				),
+			);
+		}
+		$form_array += $extra;
+	}
 	if (read_config_option("thold_disable_legacy") != 'on') {
 		$extra = array(
 			'notify_accounts' => array(
@@ -796,6 +831,9 @@ unset($template_data_rrds);
 		_f.expression.disabled = status;
 		_f.exempt.disabled = status;
 		_f.restored_alert.disabled = status;
+		if (_f.snmp_event_category) _f.snmp_event_category.disabled = status;
+		if (_f.snmp_event_severity) _f.snmp_event_severity.disabled = status;
+		if (_f.snmp_event_warning_severity) _f.snmp_event_warning_severity.disabled = status;
 	}
 
 	if (document.THold["notify_accounts[]"] && document.THold["notify_accounts[]"].length == 0) {

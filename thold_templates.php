@@ -111,12 +111,12 @@ function template_export() {
 			if (is_numeric($id)) {
 				$data = db_fetch_row("SELECT * FROM thold_template WHERE id=$id");
 				if (sizeof($data)) {
-					$data_template_hash = db_fetch_cell("SELECT hash 
-						FROM data_template 
+					$data_template_hash = db_fetch_cell("SELECT hash
+						FROM data_template
 						WHERE id=" . $data["data_template_id"]);
 
-					$data_source_hash   = db_fetch_cell("SELECT hash 
-						FROM data_template_rrd 
+					$data_source_hash   = db_fetch_cell("SELECT hash
+						FROM data_template_rrd
 						WHERE id=" . $data["data_source_id"]);
 
 					unset($data['id']);
@@ -324,11 +324,17 @@ function template_save_edit() {
 	input_validate_input_number(get_request_var_post('cdef'));
 	input_validate_input_number(get_request_var_post('notify_warning'));
 	input_validate_input_number(get_request_var_post('notify_alert'));
+	input_validate_input_number(get_request_var_post('snmp_event_severity'));
+	input_validate_input_number(get_request_var_post('snmp_event_warning_severity'));
 	/* ==================================================== */
 
 	/* clean up date1 string */
 	if (isset($_POST['name'])) {
 		$_POST['name'] = trim(str_replace(array("\\", "'", '"'), '', get_request_var_post('name')));
+	}
+
+	if (isset($_POST['snmp_trap_category'])) {
+		$_POST['snmp_event_category'] = mysql_real_escape_string( trim ( str_replace(array("\\", "'", '"'), '', get_request_var_post('snmp_event_category')) ) );
 	}
 
 	/* save: data_template */
@@ -358,7 +364,7 @@ function template_save_edit() {
 			$save['thold_fail_trigger'] = 5;
 		}
 	}
-	
+
 	/***  Warnings  ***/
 	// High / Low Warnings
 	$save['thold_warning_hi'] = $_POST['thold_warning_hi'];
@@ -380,7 +386,7 @@ function template_save_edit() {
 		} else {
 			$save['thold_warning_fail_trigger'] = 5;
 		}
-	}	
+	}
 
 	if (isset($_POST['thold_enabled'])) {
 		$save['thold_enabled'] = 'on';
@@ -413,7 +419,7 @@ function template_save_edit() {
 
 	$save['bl_pct_down'] = $_POST['bl_pct_down'];
 	$save['bl_pct_up'] = $_POST['bl_pct_up'];
-	
+
 	if (isset($_POST['bl_fail_trigger']) && $_POST['bl_fail_trigger'] != '') {
 		$save['bl_fail_trigger'] = $_POST['bl_fail_trigger'];
 	} else {
@@ -436,6 +442,18 @@ function template_save_edit() {
 		}
 	}
 
+	if (isset($_POST['snmp_event_category'])) {
+		$save['snmp_event_category'] = $_POST['snmp_event_category'];
+		$save['snmp_event_severity'] = $_POST['snmp_event_severity'];
+	}
+	if (isset($_POST["snmp_event_warning_severity"])) {
+		if($_POST['snmp_event_warning_severity'] > $_POST['snmp_event_severity']) {
+			$save['snmp_event_warning_severity'] = $_POST['snmp_event_severity'];
+		}else {
+			$save['snmp_event_warning_severity'] = $_POST['snmp_event_warning_severity'];
+		}
+	}
+
 	$save['notify_extra'] = $_POST['notify_extra'];
 	$save['notify_warning_extra'] = $_POST['notify_warning_extra'];
 	$save['notify_warning'] = $_POST['notify_warning'];
@@ -445,6 +463,8 @@ function template_save_edit() {
 	$save['data_type']  = $_POST['data_type'];
 	$save['percent_ds'] = $_POST['percent_ds'];
 	$save['expression'] = $_POST['expression'];
+
+
 
 	if (!is_error_message()) {
 		$id = sql_save($save, 'thold_template');
@@ -488,8 +508,8 @@ function template_edit() {
 		$data_templates[$d['id']] = $d['name'];
 	}
 
-	$temp = db_fetch_assoc('SELECT id, data_source_name, data_input_field_id 
-		FROM data_template_rrd 
+	$temp = db_fetch_assoc('SELECT id, data_source_name, data_input_field_id
+		FROM data_template_rrd
 		WHERE id=' . $thold_item_data['data_source_id']);
 
 	$source_id = $temp[0]['data_input_field_id'];
@@ -505,11 +525,11 @@ function template_edit() {
 
 	$send_notification_array = array();
 
-	$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data, 
-		plugin_thold_contacts.type, user_auth.full_name 
-		FROM plugin_thold_contacts, user_auth 
-		WHERE user_auth.id=plugin_thold_contacts.user_id 
-		AND plugin_thold_contacts.data!='' 
+	$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data,
+		plugin_thold_contacts.type, user_auth.full_name
+		FROM plugin_thold_contacts, user_auth
+		WHERE user_auth.id=plugin_thold_contacts.user_id
+		AND plugin_thold_contacts.data!=''
 		ORDER BY user_auth.full_name ASC, plugin_thold_contacts.type ASC");
 
 	if (!empty($users)) {
@@ -551,15 +571,15 @@ function template_edit() {
 		3 => 'RPN Expression'
 	);
 
-	$rra_steps = db_fetch_assoc("SELECT rra.steps 
-		FROM data_template_data d 
-		JOIN data_template_data_rra a 
-	    ON d.id=a.data_template_data_id 
-		JOIN rra 
-		ON a.rra_id=rra.id 
-	    WHERE rra.steps>1 
+	$rra_steps = db_fetch_assoc("SELECT rra.steps
+		FROM data_template_data d
+		JOIN data_template_data_rra a
+	    ON d.id=a.data_template_data_id
+		JOIN rra
+		ON a.rra_id=rra.id
+	    WHERE rra.steps>1
 		AND d.data_template_id=" . $thold_item_data['data_template_id'] . "
-	    AND d.local_data_template_data_id=0 
+	    AND d.local_data_template_data_id=0
 		ORDER BY steps");
 
 	$reference_types = array();
@@ -569,16 +589,16 @@ function template_edit() {
 	}
 
 	$data_fields2 = array();
-	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, 
-		data_input_field_id 
-		FROM data_template_rrd 
-		WHERE local_data_template_rrd_id=0 
+	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name,
+		data_input_field_id
+		FROM data_template_rrd
+		WHERE local_data_template_rrd_id=0
 		AND data_template_id=' . $thold_item_data['data_template_id']);
 
 	foreach ($temp as $d) {
 		if ($d['data_input_field_id'] != 0) {
-			$temp2 = db_fetch_assoc('SELECT id, name, data_name 
-				FROM data_input_fields 
+			$temp2 = db_fetch_assoc('SELECT id, name, data_name
+				FROM data_input_fields
 				WHERE id=' . $d['data_input_field_id'] . '
 				ORDER BY data_name');
 
@@ -779,7 +799,7 @@ function template_edit() {
 			'method' => 'drop_array',
 			'array' => $timearray,
 			'description' => 'The amount of time in the past to check for threshold breaches.',
-			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) 
+			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1)
 		),
 		'time_header' => array(
 			'friendly_name' => 'Time Based Settings',
@@ -825,7 +845,7 @@ function template_edit() {
 			'method' => 'drop_array',
 			'array' => $reference_types,
 			'description' => 'Specifies the point in the past (based on rrd resolution) that will be used as a reference',
-			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def') 
+			'value' => isset($thold_item_data['bl_ref_time_range']) ? $thold_item_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
 		),
 		'bl_pct_up' => array(
 			'friendly_name' => 'Baseline Deviation UP',
@@ -892,7 +912,7 @@ function template_edit() {
 			'size' => '80'
 		),
 		'other_header' => array(
-			'friendly_name' => 'Other setting',
+			'friendly_name' => 'Other Settings',
 			'method' => 'spacer',
 		),
 		'notify_warning' => array(
@@ -910,8 +930,44 @@ function template_edit() {
 			'value' => isset($thold_item_data['notify_alert']) ? $thold_item_data['notify_alert'] : '',
 			'none_value' => 'None',
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
-		),
+		)
 	);
+
+	if (read_config_option("thold_alert_snmp") == 'on') {
+		$extra = array(
+			'snmp_event_category' => array(
+				'friendly_name' => 'SNMP Notification - Event Category',
+				'method' => 'textbox',
+				'description' => 'To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: "disk_usage", "link_utilization", "ping_test", "nokia_firewall_cpu_utilization" ...',
+				'value' => isset($thold_item_data['snmp_event_category']) ? $thold_item_data['snmp_event_category'] : '',
+				'default' => '',
+				'max_length' => '255',
+			),
+			'snmp_event_severity' => array(
+				'friendly_name' => 'SNMP Notification - Alert Event Severity',
+				'method' => 'drop_array',
+				'default' => '3',
+				'description' => 'Severity to be used for alerts. (low impact -> critical impact)',
+				'value' => isset($thold_item_data['snmp_event_severity']) ? $thold_item_data['snmp_event_severity'] : 3,
+				'array' => array( 1=>"low", 2=> "medium", 3=> "high", 4=> "critical"),
+			),
+		);
+		$form_array += $extra;
+
+		if(read_config_option("thold_alert_snmp_warning") != "on") {
+			$extra = array(
+				'snmp_event_warning_severity' => array(
+					'friendly_name' => 'SNMP Notification - Warning Event Severity',
+					'method' => 'drop_array',
+					'default' => '2',
+					'description' => 'Severity to be used for warnings. (low impact -> critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts.',
+					'value' => isset($thold_item_data['snmp_event_warning_severity']) ? $thold_item_data['snmp_event_warning_severity'] : 2,
+					'array' => array( 1=>"low", 2=> "medium", 3=> "high", 4=> "critical"),
+				),
+			);
+		}
+		$form_array += $extra;
+	}
 
 	if (read_config_option("thold_disable_legacy") != 'on') {
 		$extra = array(
@@ -1262,14 +1318,14 @@ function templates() {
 	print $nav;
 
 	html_header_sort_checkbox(array(
-		'name' => array('Name', 'ASC'), 
-		'data_template_name' => array('Data Template', 'ASC'), 
-		'data_source_name' => array('DS Name', 'ASC'), 
-		'thold_type' => array('Type', 'ASC'), 
+		'name' => array('Name', 'ASC'),
+		'data_template_name' => array('Data Template', 'ASC'),
+		'data_source_name' => array('DS Name', 'ASC'),
+		'thold_type' => array('Type', 'ASC'),
 		'nosort1' => array('High/Up', ''),
-		'nosort2' => array('Low/Down', ''), 
-		'nosort3' => array('Trigger', ''), 
-		'nosort4' => array('Duration', ''), 
+		'nosort2' => array('Low/Down', ''),
+		'nosort3' => array('Trigger', ''),
+		'nosort4' => array('Duration', ''),
 		'nosort5' => array('Repeat', '')), $_REQUEST['sort_column'], $_REQUEST['sort_direction'], false);
 
 	$i = 0;
@@ -1291,8 +1347,8 @@ function templates() {
 					$value_hi = $template['bl_pct_up'] . (strlen($template['bl_pct_up']) ? '%':'-');
 					$value_lo = $template['bl_pct_down'] . (strlen($template['bl_pct_down']) ? '%':'-');
 					$value_trig = $template['bl_fail_trigger'];
-					$step = db_fetch_cell("SELECT rrd_step 
-						FROM data_template_data 
+					$step = db_fetch_cell("SELECT rrd_step
+						FROM data_template_data
 						WHERE data_template_id=" . $template['data_template_id'] . "
 						LIMIT 1");
 					$value_duration = $template['bl_ref_time_range'] / $step;;
@@ -1340,14 +1396,14 @@ function import() {
 	$form_data = array(
 		"import_file" => array(
 			"friendly_name" => "Import Template from Local File",
-			"description" => "If the XML file containing Threshold Template data is located on your local 
+			"description" => "If the XML file containing Threshold Template data is located on your local
 			machine, select it here.",
 			"method" => "file"
 		),
 		"import_text" => array(
 			"method" => "textarea",
 			"friendly_name" => "Import Template from Text",
-			"description" => "If you have the XML file containing Threshold Template data as text, you can paste 
+			"description" => "If you have the XML file containing Threshold Template data as text, you can paste
 			it into this box to import it.",
 			"value" => "",
 			"default" => "",
@@ -1466,7 +1522,7 @@ function template_import() {
 
 		if (!$error) {
 			$id = sql_save($save, 'thold_template');
-			
+
 			if ($id) {
 				$debug_data[] = "<span style='font-weight:bold;color:green;'>NOTE:</span> Threshold Template '<b>$tname</b>' " . ($save['id'] > 0 ? "Updated":"Imported") . "!";
 			}else{

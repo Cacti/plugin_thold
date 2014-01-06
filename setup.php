@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2011 The Cacti Group                                      |
+ | Copyright (C) 2014 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -48,6 +48,8 @@ function plugin_thold_install () {
 	api_plugin_register_hook('thold', 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
 	api_plugin_register_hook('thold', 'graph_buttons', 'thold_graph_button', 'setup.php');
 
+	api_plugin_register_hook('thold', 'snmpagent_cache_install', 'thold_snmpagent_cache_install', 'setup.php');
+
 	/* hooks to add dropdown to allow the assignment of a cluster resource */
 	api_plugin_register_hook('thold', 'data_source_action_array', 'thold_data_source_action_array', 'setup.php');
 	api_plugin_register_hook('thold', 'data_source_action_prepare', 'thold_data_source_action_prepare', 'setup.php');
@@ -63,10 +65,12 @@ function plugin_thold_install () {
 
 	include_once($config['base_path'] . '/plugins/thold/includes/database.php');
 	thold_setup_database ();
+	thold_snmpagent_cache_install();
 }
 
 function plugin_thold_uninstall () {
 	// Do any extra Uninstall stuff here
+	thold_snmpagent_cache_uninstall();
 }
 
 function plugin_thold_check_config () {
@@ -136,11 +140,11 @@ function plugin_thold_check_strict () {
 function plugin_thold_version () {
 	return array(
 			'name'		=> 'thold',
-			'version' 	=> '0.5',
+			'version' 	=> '0.5.1',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://docs.cacti.net/plugin:thold',
-			'email'	=> 'jimmy@sqmail.org',
+			'email'		=> 'jimmy@sqmail.org',
 			'url'		=> 'http://docs.cacti.net/plugin:thold'
 			);
 }
@@ -203,7 +207,7 @@ function thold_graph_button ($data) {
 
 function thold_multiexplode ($delimiters, $string) {
 	$ready = str_replace($delimiters, $delimiters[0], $string);
-	return  explode($delimiters[0], $ready);
+	return  @explode($delimiters[0], $ready);
 }
 
 function thold_rrd_graph_graph_options ($g) {
@@ -888,4 +892,20 @@ function thold_host_edit_bottom() {
 	-->
 	</script>
 	<?php
+}
+
+function thold_snmpagent_cache_install() {
+	global $config;
+	if (class_exists("MibCache")) {
+		$mc = new MibCache("CACTI-THOLD-MIB");
+		$mc->install($config["base_path"] . '/plugins/thold/CACTI-THOLD-MIB', true);
+	}
+}
+
+function thold_snmpagent_cache_uninstall(){
+	global $config;
+	if (class_exists("MibCache")) {
+		$mc = new MibCache("CACTI-THOLD-MIB");
+		$mc->uninstall();
+	}
 }
