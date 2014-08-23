@@ -143,6 +143,20 @@ function thold_config_settings () {
 			'friendly_name' => 'General',
 			'method' => 'spacer',
 			),
+		'thold_daemon_enable' => array(
+			'friendly_name' => 'Enable Threshold Daemon',
+			'description' => 'Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performace and/or to distribute threshold monitoring to a separate server.',
+			'method' => 'checkbox',
+			'default' => 'off'
+			),
+		'thold_max_concurrent_processes' => array(
+			'friendly_name' => 'Maximum Concurrent Thold Processes',
+			'description' => 'The max. number of concurrent processes to be handled by the Thold Daemon.',
+			'method' => 'textbox',
+			'size' => 2,
+			'max_length' => 2,
+			'default' => read_config_option("concurrent_processes")
+			),
 		'thold_disable_all' => array(
 			'friendly_name' => 'Disable All Thresholds',
 			'description' => 'Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network.',

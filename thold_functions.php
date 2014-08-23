@@ -2245,10 +2245,9 @@ function thold_cdef_select_usable_names () {
 	return $cdef_names;
 }
 
-function thold_build_cdef ($id, $value, $rra, $ds) {
+function thold_build_cdef (&$cdefs, $value, $rra, $ds) {
 	$oldvalue = $value;
 
-	$cdefs = db_fetch_assoc("select * from cdef_items where cdef_id = $id order by sequence");
 	if (sizeof($cdefs)) {
 	foreach ($cdefs as $cdef) {
 		if ($cdef['type'] == 4) {
@@ -2290,17 +2289,21 @@ function thold_build_cdef ($id, $value, $rra, $ds) {
 				break;
 			}
 		} elseif ($cdef['type'] == 6) {
-			$regresult = preg_match('/^\|query_(.*)\|$/', $cdef['value'], $matches);
+			$regresult = preg_match('/^\|query_([A-Za-z0-9_]+)\|$/', $cdef['value'], $matches);
 
 			if ($regresult > 0) {
-				// Grab result for query
-				$cdef['value'] = db_fetch_cell("SELECT `h`.`field_value`
-					FROM `poller_item` p, `host_snmp_cache` h
-					WHERE `p`.`local_data_id` = '" . $rra . "'
-					AND `p`.`host_id` = `h`.`host_id`
-					AND `h`.`field_name` = '" . $matches[1] . "'
-					AND `p`.`rrd_name` = 'traffic_in'
-					AND SUBSTRING_INDEX(`p`.`arg1`, '.', -1 ) = `h`.`snmp_index`", FALSE);
+			
+					$sql_query = "SELECT `host_snmp_cache`.`field_value` FROM `data_local` INNER JOIN `host_snmp_cache` ON 
+							(
+								`host_snmp_cache`.`host_id` = `data_local`.`host_id`
+									AND
+								`host_snmp_cache`.`snmp_query_id` = `data_local`.`snmp_query_id`
+									AND 
+								`host_snmp_cache`.`snmp_index` = `data_local`.`snmp_index`
+							) 
+							WHERE `data_local`.`id` = $rra AND `host_snmp_cache`.`field_name` = '" . $matches[1] . "'";
+					
+					$cdef['value'] = db_fetch_cell($sql_query);
 			}
 		}
 		$cdef_array[] = $cdef;

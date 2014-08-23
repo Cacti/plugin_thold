@@ -233,7 +233,7 @@ function thold_upgrade_database () {
 		db_execute("ALTER TABLE settings MODIFY column `value` varchar(1024) not null default ''");
 	}
 
-	if (version_compare($oldv, '0.5.1', '<')) {
+	if (version_compare($oldv, '0.6', '<')) {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_category',	'type' => 'varchar(255)', 'NULL' => true) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3') );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_warning_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2') );

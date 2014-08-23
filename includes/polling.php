@@ -24,6 +24,8 @@
 */
 
 function thold_poller_bottom () {
+	if(!read_config_option("thold_daemon_enable")) {
+	
 	/* record the start time */
 	list($micro,$seconds) = split(" ", microtime());
 	$start = $seconds + $micro;
@@ -44,6 +46,36 @@ function thold_poller_bottom () {
 	$thold_stats = sprintf("Time:%01.4f Tholds:%s TotalHosts:%s DownHosts:%s NewDownHosts:%s", $end - $start, $tholds, $total_hosts, $down_hosts, $nhosts);
 	cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
 	db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold', '$thold_stats')");
+	}else {
+		/* collect some stats */
+		$current_time = time();
+		$max_concurrent_processes = read_config_option("thold_max_concurrent_processes");
+		$stats = db_fetch_row("SELECT 
+									COUNT(*) as completed, 
+									SUM(processed_items) as processed_items, 
+									MAX(`end`-`start`) as max_processing_time,
+									SUM(`end`-`start`) as total_processing_time 
+								FROM `plugin_thold_daemon_processes` 
+								WHERE `start` != 0 AND `end` != 0 AND `end` <=" . $current_time . " AND `processed_items` != '-1'");
+								
+		$broken_processes = db_fetch_cell("SELECT COUNT(*) FROM `plugin_thold_daemon_processes` WHERE `processed_items` = '-1'");
+		$running_processes = db_fetch_cell("SELECT COUNT(*) FROM `plugin_thold_daemon_processes` WHERE `start` != 0 AND `end` = 0");
+
+		/* system clean up */
+		db_execute("DELETE FROM `plugin_thold_daemon_processes` WHERE `end` != 0 AND `end` <=" . $current_time);
+		
+		/* host_status processed by thold server */
+		$nhosts = thold_update_host_status ();
+		thold_cleanup_log ();
+		
+		$total_hosts = db_fetch_cell("SELECT count(*) FROM host WHERE disabled=''");
+		$down_hosts  = db_fetch_cell("SELECT count(*) FROM host WHERE status=1 AND disabled=''");
+		
+		/* log statistics */
+		$thold_stats = sprintf("CPUTime:%u MaxRuntime:%u Tholds:%u TotalHosts:%u DownHosts:%u NewDownHosts:%u Processes: %u completed, %u running, %u broken", $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $total_hosts, $down_hosts, $nhosts, $stats['completed'], $running_processes, $broken_processes);
+		cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
+		db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold', '$thold_stats')");
+	}
 }
 
 function thold_cleanup_log () {
@@ -52,7 +84,7 @@ function thold_cleanup_log () {
 	db_execute("DELETE FROM plugin_thold_log WHERE time<$t");
 }
 
-function thold_poller_output ($rrd_update_array) {
+function thold_poller_output (&$rrd_update_array) {
 	global $config, $debug;
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 	include_once($config['library_path'] . '/snmp.php');
@@ -74,6 +106,48 @@ function thold_poller_output ($rrd_update_array) {
 	}
 
 	if ($rra_ids != '') {
+
+		if(read_config_option("thold_daemon_enable")) {
+		
+			/* assign a new process id */
+			$thold_pid = time() . '_' . rand();
+		
+			$thold_items = db_fetch_assoc("SELECT id, rra_id FROM thold_data WHERE thold_daemon_pid = '' AND thold_data.rra_id IN ($rra_ids)");
+
+			if($thold_items) {
+				/* avoid that concurrent processes will work on the same thold items */
+				db_execute("UPDATE thold_data SET thold_data.thold_daemon_pid = '$thold_pid' WHERE thold_daemon_pid = '' AND thold_data.rra_id IN ($rra_ids);");
+			
+				/* cache required polling data. prefer bulk inserts for performance reasons - start with chunks of 1000 items*/
+				$sql_max_inserts = 1000;
+				$thold_items = array_chunk($thold_items, $sql_max_inserts);
+				
+				$sql_insert = "INSERT INTO `plugin_thold_daemon_data` ( id, pid, rrd_reindexed, rrd_time_reindexed ) VALUES ";
+				$sql_values = "";
+				foreach($thold_items as $packet) {
+					foreach($packet as $thold_item) {
+						$sql_values .= "('" . $thold_item['id'] . "','" . $thold_pid . "','" . serialize($rrd_reindexed[$thold_item['rra_id']]) . "','" . $rrd_time_reindexed[$thold_item['rra_id']] . "'),";
+					}
+					db_execute($sql_insert . substr($sql_values, 0, -1));
+					$sql_values = "";
+				}
+
+				/* queue a new thold process */
+				db_execute("INSERT INTO `plugin_thold_daemon_processes` ( pid ) VALUES('$thold_pid')");	
+			}
+			return $rrd_update_array;
+		}
+	
+		/* hold data of all CDEFs in memory to reduce the number of SQL queries to minimum */
+		$cdefs = array();
+		$cdefs_tmp = db_fetch_assoc("SELECT cdef_id, sequence, type, value FROM cdef_items ORDER BY cdef_id, sequence");
+		if($cdefs_tmp & sizeof($cdefs_tmp)>0) {
+			foreach($cdefs_tmp as $cdef_tmp) {
+				$cdefs[$cdef_tmp["cdef_id"]][] = $cdef_tmp;
+			}
+		}
+		unset($cdefs_tmp);
+	
 		$thold_items = db_fetch_assoc("SELECT thold_data.id, thold_data.name AS thold_name, thold_data.graph_id,
 			thold_data.percent_ds, thold_data.expression,
 			thold_data.data_type, thold_data.cdef, thold_data.rra_id,
@@ -105,7 +179,7 @@ function thold_poller_output ($rrd_update_array) {
 			break;
 		case 1:
 			if ($t_item['cdef'] != 0) {
-				$currentval = thold_build_cdef($t_item['cdef'], $currentval, $t_item['rra_id'], $t_item['data_id']);
+					$currentval = thold_build_cdef( $cdefs[$t_item['cdef']], $currentval, $t_item['rra_id'], $t_item['data_id']);
 			}
 			break;
 		case 2:
@@ -140,11 +214,22 @@ function thold_poller_output ($rrd_update_array) {
 function thold_check_all_thresholds () {
 	global $config;
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
-	$tholds = do_hook_function('thold_get_live_hosts', db_fetch_assoc("SELECT data_id, rra_id, lastread, cdef FROM thold_data WHERE thold_enabled='on' AND tcheck=1"));
+
+	$sql_query = "SELECT
+					thold_data.data_id,
+					thold_data.rra_id,
+					thold_data.lastread,
+					thold_data.cdef,
+					data_template_rrd.data_source_name
+				FROM thold_data
+				LEFT JOIN data_template_rrd ON
+					data_template_rrd.id = thold_data.data_id
+				WHERE thold_data.thold_enabled='on' AND thold_data.tcheck=1";
+
+	$tholds = do_hook_function('thold_get_live_hosts', db_fetch_assoc($sql_query));
 	$total_tholds = sizeof($tholds);
 	foreach ($tholds as $thold) {
-		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
-		thold_check_threshold ($thold['rra_id'], $thold['data_id'], $ds, $thold['lastread'], $thold['cdef']);
+		thold_check_threshold ($thold['rra_id'], $thold['data_id'], $thold['data_source_name'], $thold['lastread'], $thold['cdef']);
 	}
 	db_execute('UPDATE thold_data SET tcheck=0');
 

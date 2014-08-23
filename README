@@ -31,7 +31,8 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
-	--- 0.5.1 ---
+	--- 0.6 ---
+		feature: Reduce influence upon Cacti's poller runtime to a minimum by introducing a Thold daemon (also allows distribution)
 		feature: Support of SNMP traps and informs ( requires the CACTI SNMPAgent plugin v0.2 or above )
 		feature: CACTI-THOLD-MIB added. Yep, Thold got its own MIB. ;)
 		Bug#0002371: Thold plugin - Undefined index: template in /var/www/html/plugins/thold/thold.php on line 273
