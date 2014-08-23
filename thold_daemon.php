@@ -2,7 +2,7 @@
 <?php
 /*
    +-------------------------------------------------------------------------+
-   | Copyright (C) 2004-2014 The Cacti Group                                 |
+   | Copyright (C) 2014 The Cacti Group                                      |
    |                                                                         |
    | This program is free software; you can redistribute it and/or           |
    | modify it under the terms of the GNU General Public License             |
@@ -85,7 +85,7 @@ while(1) {
 			$thold_max_concurrent_processes = read_config_option("thold_max_concurrent_processes");
 		$running_processes = db_fetch_cell("SELECT COUNT(*) FROM `plugin_thold_daemon_processes` WHERE start != 0 AND end = 0");
 		$free_processes = $thold_max_concurrent_processes - $running_processes;
-		
+
 			if($free_processes>0) {
 			for($i=0; $i<$free_processes; $i++) {
 				if(isset($queue[$i])) {
@@ -97,14 +97,14 @@ while(1) {
 			}
 		}
 		}
-		
+
 	}else {
 		/* try to reconnect */
 		thold_db_reconnect();
 	}
 	sleep(2);
 }
-	
+
 function thold_db_connection(){
 	global $cnn_id;
 	if($cnn_id) {

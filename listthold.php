@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2011 The Cacti Group                                      |
+ | Copyright (C) 2014 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -103,7 +103,7 @@ function do_thold() {
 					$template = db_fetch_row("SELECT td.template id, td.template_enabled enabled
 						FROM thold_data td
 						INNER JOIN thold_template tt ON tt.id = td.template
-						WHERE td.id = $thold_id"); 
+						WHERE td.id = $thold_id");
 					if (isset($template['id']) && $template['id'] != 0 && $template['enabled'] != 'on') {
 						thold_template_update_threshold($thold_id, $template['id']);
 						plugin_thold_log_changes($thold_id, 'modified', array('id' => $thold_id, 'template_enabled' => 'on'));

@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2011 The Cacti Group                                      |
+ | Copyright (C) 2014 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -25,7 +25,7 @@
 
 function thold_poller_bottom () {
 	if(!read_config_option("thold_daemon_enable")) {
-	
+
 	/* record the start time */
 	list($micro,$seconds) = split(" ", microtime());
 	$start = $seconds + $micro;
@@ -50,27 +50,27 @@ function thold_poller_bottom () {
 		/* collect some stats */
 		$current_time = time();
 		$max_concurrent_processes = read_config_option("thold_max_concurrent_processes");
-		$stats = db_fetch_row("SELECT 
-									COUNT(*) as completed, 
-									SUM(processed_items) as processed_items, 
+		$stats = db_fetch_row("SELECT
+									COUNT(*) as completed,
+									SUM(processed_items) as processed_items,
 									MAX(`end`-`start`) as max_processing_time,
-									SUM(`end`-`start`) as total_processing_time 
-								FROM `plugin_thold_daemon_processes` 
+									SUM(`end`-`start`) as total_processing_time
+								FROM `plugin_thold_daemon_processes`
 								WHERE `start` != 0 AND `end` != 0 AND `end` <=" . $current_time . " AND `processed_items` != '-1'");
-								
+
 		$broken_processes = db_fetch_cell("SELECT COUNT(*) FROM `plugin_thold_daemon_processes` WHERE `processed_items` = '-1'");
 		$running_processes = db_fetch_cell("SELECT COUNT(*) FROM `plugin_thold_daemon_processes` WHERE `start` != 0 AND `end` = 0");
 
 		/* system clean up */
 		db_execute("DELETE FROM `plugin_thold_daemon_processes` WHERE `end` != 0 AND `end` <=" . $current_time);
-		
+
 		/* host_status processed by thold server */
 		$nhosts = thold_update_host_status ();
 		thold_cleanup_log ();
-		
+
 		$total_hosts = db_fetch_cell("SELECT count(*) FROM host WHERE disabled=''");
 		$down_hosts  = db_fetch_cell("SELECT count(*) FROM host WHERE status=1 AND disabled=''");
-		
+
 		/* log statistics */
 		$thold_stats = sprintf("CPUTime:%u MaxRuntime:%u Tholds:%u TotalHosts:%u DownHosts:%u NewDownHosts:%u Processes: %u completed, %u running, %u broken", $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $total_hosts, $down_hosts, $nhosts, $stats['completed'], $running_processes, $broken_processes);
 		cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
@@ -108,20 +108,20 @@ function thold_poller_output (&$rrd_update_array) {
 	if ($rra_ids != '') {
 
 		if(read_config_option("thold_daemon_enable")) {
-		
+
 			/* assign a new process id */
 			$thold_pid = time() . '_' . rand();
-		
+
 			$thold_items = db_fetch_assoc("SELECT id, rra_id FROM thold_data WHERE thold_daemon_pid = '' AND thold_data.rra_id IN ($rra_ids)");
 
 			if($thold_items) {
 				/* avoid that concurrent processes will work on the same thold items */
 				db_execute("UPDATE thold_data SET thold_data.thold_daemon_pid = '$thold_pid' WHERE thold_daemon_pid = '' AND thold_data.rra_id IN ($rra_ids);");
-			
+
 				/* cache required polling data. prefer bulk inserts for performance reasons - start with chunks of 1000 items*/
 				$sql_max_inserts = 1000;
 				$thold_items = array_chunk($thold_items, $sql_max_inserts);
-				
+
 				$sql_insert = "INSERT INTO `plugin_thold_daemon_data` ( id, pid, rrd_reindexed, rrd_time_reindexed ) VALUES ";
 				$sql_values = "";
 				foreach($thold_items as $packet) {
@@ -133,11 +133,11 @@ function thold_poller_output (&$rrd_update_array) {
 				}
 
 				/* queue a new thold process */
-				db_execute("INSERT INTO `plugin_thold_daemon_processes` ( pid ) VALUES('$thold_pid')");	
+				db_execute("INSERT INTO `plugin_thold_daemon_processes` ( pid ) VALUES('$thold_pid')");
 			}
 			return $rrd_update_array;
 		}
-	
+
 		/* hold data of all CDEFs in memory to reduce the number of SQL queries to minimum */
 		$cdefs = array();
 		$cdefs_tmp = db_fetch_assoc("SELECT cdef_id, sequence, type, value FROM cdef_items ORDER BY cdef_id, sequence");
@@ -147,7 +147,7 @@ function thold_poller_output (&$rrd_update_array) {
 			}
 		}
 		unset($cdefs_tmp);
-	
+
 		$thold_items = db_fetch_assoc("SELECT thold_data.id, thold_data.name AS thold_name, thold_data.graph_id,
 			thold_data.percent_ds, thold_data.expression,
 			thold_data.data_type, thold_data.cdef, thold_data.rra_id,

@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2011 The Cacti Group                                 |
+ | Copyright (C) 2014 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -621,14 +621,14 @@ function edit() {
 				"value" => "1"
 			)
 		);
-	
+
 		draw_edit_form(array(
 			"config" => array(),
 			"fields" => inject_form_variables($fields_notification, (isset($list) ? $list : array()))
 			));
-	
+
 		html_end_box();
-	
+
 		form_save_button("notify_lists.php", "return");
 	}elseif ($current_tab == "hosts") {
 		hosts($header_label);
@@ -812,8 +812,8 @@ function hosts($header_label) {
 	$host_graphs       = array_rekey(db_fetch_assoc("SELECT host_id, count(*) as graphs FROM graph_local GROUP BY host_id"), "host_id", "graphs");
 	$host_data_sources = array_rekey(db_fetch_assoc("SELECT host_id, count(*) as data_sources FROM data_local GROUP BY host_id"), "host_id", "data_sources");
 
-	$sql_query = "SELECT * 
-		FROM host $sql_where 
+	$sql_query = "SELECT *
+		FROM host $sql_where
 		LIMIT " . (get_request_var_request("rows")*(get_request_var_request("page")-1)) . "," . get_request_var_request("rows");
 
 	$hosts = db_fetch_assoc($sql_query);
@@ -956,15 +956,15 @@ function tholds($header_label) {
 	$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
 
 	$sql = "SELECT * FROM thold_data
-		LEFT JOIN user_auth_perms 
-		ON ((thold_data.graph_id=user_auth_perms.item_id 
-		AND user_auth_perms.type=1 
-		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
-		OR (thold_data.host_id=user_auth_perms.item_id 
-		AND user_auth_perms.type=3 
-		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
-		OR (thold_data.graph_template=user_auth_perms.item_id 
-		AND user_auth_perms.type=4 
+		LEFT JOIN user_auth_perms
+		ON ((thold_data.graph_id=user_auth_perms.item_id
+		AND user_auth_perms.type=1
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		OR (thold_data.host_id=user_auth_perms.item_id
+		AND user_auth_perms.type=3
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		OR (thold_data.graph_template=user_auth_perms.item_id
+		AND user_auth_perms.type=4
 		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
 		$sql_where
 		ORDER BY $sort " . $_REQUEST['sort_direction'] .
@@ -1077,17 +1077,17 @@ function tholds($header_label) {
 
 	html_end_box();
 
-	$total_rows = count(db_fetch_assoc("SELECT thold_data.id 
+	$total_rows = count(db_fetch_assoc("SELECT thold_data.id
 		FROM thold_data
-		LEFT JOIN user_auth_perms 
-		ON ((thold_data.graph_id=user_auth_perms.item_id 
-		AND user_auth_perms.type=1 
-		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
-		OR (thold_data.host_id=user_auth_perms.item_id 
-		AND user_auth_perms.type=3 
-		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ") 
-		OR (thold_data.graph_template=user_auth_perms.item_id 
-		AND user_auth_perms.type=4 
+		LEFT JOIN user_auth_perms
+		ON ((thold_data.graph_id=user_auth_perms.item_id
+		AND user_auth_perms.type=1
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		OR (thold_data.host_id=user_auth_perms.item_id
+		AND user_auth_perms.type=3
+		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . ")
+		OR (thold_data.graph_template=user_auth_perms.item_id
+		AND user_auth_perms.type=4
 		AND user_auth_perms.user_id=" . $_SESSION['sess_user_id'] . "))
 		$sql_where"));
 
@@ -1182,7 +1182,7 @@ function tholds($header_label) {
 					$alert_stat .= (strlen($alert_stat) ? ", ":"") . "<span style='font-weight:bold;color:red;'>" . $alert_list . "</span>";
 				}
 			}
-			
+
 			if (!strlen($alert_stat)) {
 				$alert_stat = "<span style='font-weight:bold;color:blue;'>Log Only</span>";
 			}
@@ -1201,8 +1201,8 @@ function tholds($header_label) {
 					$warn_stat .= (strlen($warn_stat) ? ", ":"") . "<span style='font-weight:bold;color:red;'>" . $warn_list . "</span>";
 				}
 			}
-			
-			if ((!strlen($warn_stat)) && 
+
+			if ((!strlen($warn_stat)) &&
 				(($row["thold_type"] == 0 && $row["thold_warning_hi"] == '' && $row["thold_warning_low"] == '') ||
 				($row["thold_type"] == 2 && $row["time_warning_hi"] == '' && $row["time_warning_low"] == ''))) {
 				$warn_stat  = "<span style='font-weight:bold;color:red;'>None</span>";
@@ -1433,7 +1433,7 @@ function templates($header_label) {
 					$alert_stat .= (strlen($alert_stat) ? ", ":"") . "<span style='font-weight:bold;color:red;'>" . $alert_list . "</span>";
 				}
 			}
-			
+
 			if (!strlen($alert_stat)) {
 				$alert_stat = "<span style='font-weight:bold;color:blue;'>Log Only</span>";
 			}
@@ -1452,8 +1452,8 @@ function templates($header_label) {
 					$warn_stat .= (strlen($warn_stat) ? ", ":"") . "<span style='font-weight:bold;color:red;'>" . $warn_list . "</span>";
 				}
 			}
-			
-			if ((!strlen($warn_stat)) && 
+
+			if ((!strlen($warn_stat)) &&
 				(($row["thold_type"] == 0 && $row["thold_warning_hi"] == '' && $row["thold_warning_low"] == '') ||
 				($row["thold_type"] == 2 && $row["thold_time_warning_hi"] == '' && $row["thold_time_warning_low"] == ''))) {
 				$warn_stat  = "<span style='font-weight:bold;color:red;'>None</span>";
@@ -1808,8 +1808,8 @@ function tholds_old() {
 	$host_graphs       = array_rekey(db_fetch_assoc("SELECT host_id, count(*) as graphs FROM graph_local GROUP BY host_id"), "host_id", "graphs");
 	$host_data_sources = array_rekey(db_fetch_assoc("SELECT host_id, count(*) as data_sources FROM data_local GROUP BY host_id"), "host_id", "data_sources");
 
-	$sql_query = "SELECT * 
-		FROM host $sql_where 
+	$sql_query = "SELECT *
+		FROM host $sql_where
 		LIMIT " . (get_request_var_request("rows")*(get_request_var_request("page")-1)) . "," . get_request_var_request("rows");
 
 	$hosts = db_fetch_assoc($sql_query);

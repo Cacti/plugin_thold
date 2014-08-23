@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2011 The Cacti Group                                      |
+ | Copyright (C) 2014 The Cacti Group                                      |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -127,9 +127,9 @@ function thold_add_graphs_action_execute() {
 	$data_template_id = $data_source['data_template_id'];
 
 	/* allow duplicate thresholds, but only from differing templates */
-	$existing = db_fetch_assoc('SELECT id 
-		FROM thold_data 
-		WHERE rra_id=' . $local_data_id . ' 
+	$existing = db_fetch_assoc('SELECT id
+		FROM thold_data
+		WHERE rra_id=' . $local_data_id . '
 		AND data_id=' . $data_template_id . '
 		AND template=' . $template['id'] . " AND template_enabled='on'");
 
@@ -169,9 +169,9 @@ function thold_add_graphs_action_execute() {
 			$insert['template']           = $template['id'];
 			$insert['template_enabled']   = 'on';
 
-			$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id 
-				FROM data_template_rrd 
-				WHERE local_data_id='$local_data_id' 
+			$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id
+				FROM data_template_rrd
+				WHERE local_data_id='$local_data_id'
 				AND data_source_name='$data_source_name'");
 
 			$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
@@ -180,9 +180,9 @@ function thold_add_graphs_action_execute() {
 				$data_rrd_id = $rrdrow['id'];
 				$insert['data_id'] = $data_rrd_id;
 
-				$existing = db_fetch_assoc("SELECT id 
-					FROM thold_data 
-					WHERE rra_id='$local_data_id' 
+				$existing = db_fetch_assoc("SELECT id
+					FROM thold_data
+					WHERE rra_id='$local_data_id'
 					AND data_id='$data_rrd_id'
 					AND template='" . $template['id'] . "' AND template_enabled='on'");
 
