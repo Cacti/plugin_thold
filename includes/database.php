@@ -237,10 +237,31 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_category',	'type' => 'varchar(255)', 'NULL' => true) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3') );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_warning_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2') );
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_daemon_pid',	'type' => 'varchar(25)', 'NULL' => false, 'default' => '') );
 
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'snmp_event_category',	'type' => 'varchar(255)', 'NULL' => true) );
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'snmp_event_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3') );
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'snmp_event_warning_severity',	'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2') );
+
+		$data = array();
+		$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false);
+		$data['columns'][] = array('name' => 'pid', 'type' => 'varchar(25)', 'NULL' => false);
+		$data['columns'][] = array('name' => 'rrd_reindexed', 'type' => 'varchar(600)', 'NULL' => false);
+		$data['columns'][] = array('name' => 'rrd_time_reindexed', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false);
+		$data['keys'][] = array('name' => 'id', 'columns' => 'id`, `pid');
+		$data['type'] = 'MyISAM';
+		$data['comment'] = 'Table of Poller Outdata needed for queued daemon processes';
+		api_plugin_db_table_create ('thold', '`plugin_thold_daemon_data` ', $data);
+
+		$data = array();
+		$data['columns'][] = array('name' => 'pid', 'type' => 'varchar(25)', 'NULL' => false);
+		$data['columns'][] = array('name' => 'start', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+		$data['columns'][] = array('name' => 'end', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+		$data['columns'][] = array('name' => 'processed_items', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
+		$data['primary'] = 'pid';
+		$data['type'] = 'MyISAM';
+		$data['comment'] = 'Table of Thold Daemon Processes being queued';
+		api_plugin_db_table_create ('thold', 'plugin_thold_daemon_processes', $data);
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
@@ -305,6 +326,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3');
 	$data['columns'][] = array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2');
+	$data['columns'][] = array('name' => 'thold_daemon_pid', 'type' => 'varchar(25)', 'NULL' => false, 'default' => '');
 	$data['primary'] = 'id';
 	$data['keys'][] = array('name' => 'host_id', 'columns' => 'host_id');
 	$data['keys'][] = array('name' => 'rra_id', 'columns' => 'rra_id');
@@ -448,6 +470,26 @@ function thold_setup_database () {
 	$data['type'] = 'MyISAM';
 	$data['comment'] = 'Table of Hosts in a Down State';
 	api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
+
+	$data = array();
+	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'pid', 'type' => 'varchar(25)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'rrd_reindexed', 'type' => 'varchar(600)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'rrd_time_reindexed', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false);
+	$data['keys'][] = array('name' => 'id', 'columns' => 'id`, `pid');
+	$data['type'] = 'MyISAM';
+	$data['comment'] = 'Table of Poller Outdata needed for queued daemon processes';
+	api_plugin_db_table_create ('thold', '`plugin_thold_daemon_data` ', $data);
+
+	$data = array();
+	$data['columns'][] = array('name' => 'pid', 'type' => 'varchar(25)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'start', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'end', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'processed_items', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
+	$data['primary'] = 'pid';
+	$data['type'] = 'MyISAM';
+	$data['comment'] = 'Table of Thold Daemon Processes being queued';
+	api_plugin_db_table_create ('thold', 'plugin_thold_daemon_processes', $data);
 
 	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM data_local"),"Key_name", "Key_name");
 	if (!array_key_exists("data_template_id", $indexes)) {
