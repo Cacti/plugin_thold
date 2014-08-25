@@ -251,7 +251,7 @@ function thold_upgrade_database () {
 		$data['keys'][] = array('name' => 'id', 'columns' => 'id`, `pid');
 		$data['type'] = 'MyISAM';
 		$data['comment'] = 'Table of Poller Outdata needed for queued daemon processes';
-		api_plugin_db_table_create ('thold', '`plugin_thold_daemon_data` ', $data);
+		api_plugin_db_table_create ('thold', 'plugin_thold_daemon_data', $data);
 
 		$data = array();
 		$data['columns'][] = array('name' => 'pid', 'type' => 'varchar(25)', 'NULL' => false);
@@ -479,7 +479,7 @@ function thold_setup_database () {
 	$data['keys'][] = array('name' => 'id', 'columns' => 'id`, `pid');
 	$data['type'] = 'MyISAM';
 	$data['comment'] = 'Table of Poller Outdata needed for queued daemon processes';
-	api_plugin_db_table_create ('thold', '`plugin_thold_daemon_data` ', $data);
+	api_plugin_db_table_create ('thold', 'plugin_thold_daemon_data', $data);
 
 	$data = array();
 	$data['columns'][] = array('name' => 'pid', 'type' => 'varchar(25)', 'NULL' => false);
