@@ -31,6 +31,9 @@
 	Got any ideas or complaints, please e-mail me!
 
 ----[ Changelog
+	--- 1.0 ---
+		feature: Initial Support for Cacti 1.0
+
 	--- 0.6 ---
 		feature: Reduce influence upon Cacti's poller runtime to a minimum by introducing a Thold daemon (also allows distribution)
 		feature: Support of SNMP traps and informs ( requires the CACTI SNMPAgent plugin v0.2 or above )

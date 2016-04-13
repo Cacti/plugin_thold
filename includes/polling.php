@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2014 The Cacti Group                                      |
+ | Copyright (C) 2006-2016 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -43,7 +43,7 @@ function thold_poller_bottom () {
 	$down_hosts  = db_fetch_cell("SELECT count(*) FROM host WHERE status=1 AND disabled=''");
 
 	/* log statistics */
-	$thold_stats = sprintf("Time:%01.4f Tholds:%s TotalHosts:%s DownHosts:%s NewDownHosts:%s", $end - $start, $tholds, $total_hosts, $down_hosts, $nhosts);
+	$thold_stats = sprintf("Time:%01.4f Tholds:%s TotalDevices:%s DownDevices:%s NewDownDevices:%s", $end - $start, $tholds, $total_hosts, $down_hosts, $nhosts);
 	cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
 	db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold', '$thold_stats')");
 	}else {
@@ -72,7 +72,7 @@ function thold_poller_bottom () {
 		$down_hosts  = db_fetch_cell("SELECT count(*) FROM host WHERE status=1 AND disabled=''");
 
 		/* log statistics */
-		$thold_stats = sprintf("CPUTime:%u MaxRuntime:%u Tholds:%u TotalHosts:%u DownHosts:%u NewDownHosts:%u Processes: %u completed, %u running, %u broken", $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $total_hosts, $down_hosts, $nhosts, $stats['completed'], $running_processes, $broken_processes);
+		$thold_stats = sprintf("CPUTime:%u MaxRuntime:%u Tholds:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u Processes: %u completed, %u running, %u broken", $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $total_hosts, $down_hosts, $nhosts, $stats['completed'], $running_processes, $broken_processes);
 		cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
 		db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold', '$thold_stats')");
 	}
@@ -326,7 +326,7 @@ function thold_update_host_status () {
 
 					$subject = read_config_option('thold_up_subject');
 					if ($subject == '') {
-						$subject = 'Host Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state';
+						$subject = 'Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state';
 					}
 					$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
 					$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
@@ -335,7 +335,7 @@ function thold_update_host_status () {
 
 					$msg = read_config_option('thold_up_text');
 					if ($msg == '') {
-						$msg = '<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Host Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>';
+						$msg = '<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>';
 					}
 					$msg = str_replace('<SUBJECT>', $subject, $msg);
 					$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
@@ -365,18 +365,18 @@ function thold_update_host_status () {
 							break;
 						case '1': // Global List
 							break;
-						case '2': // Host List Only
+						case '2': // Devices List Only
 							$alert_email = get_thold_notification_emails($host['thold_host_email']);
 							break;
-						case '3': // Global and Host List
+						case '3': // Global and Devices List
 							$alert_email = $alert_email . ',' . get_thold_notification_emails($host['thold_host_email']);
 							break;
 					}
 
 					if ($alert_email == '' && $host['thold_send_email'] > 0) {
-						cacti_log('THOLD: Can not send a Host Recovering Email since the \'Alert Email\' setting is not set !', true, 'POLLER');
+						cacti_log('THOLD: Can not send a Devices Recovering Email since the \'Alert Email\' setting is not set !', true, 'POLLER');
 					} elseif ($host['thold_send_email'] == '0') {
-						cacti_log('THOLD: Did not send a Host Recovering Email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
+						cacti_log('THOLD: Did not send a Devices Recovering Email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
 					} elseif ($alert_email != '') {
 						thold_mail($alert_email, '', $subject, $msg, '');
 					}
@@ -418,7 +418,7 @@ function thold_update_host_status () {
 
 			$subject = read_config_option('thold_down_subject');
 			if ($subject == '') {
-				$subject = 'Host Error: <DESCRIPTION> (<HOSTNAME>) is DOWN';
+				$subject = 'Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN';
 			}
 			$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
 			$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
@@ -427,7 +427,7 @@ function thold_update_host_status () {
 
 			$msg = read_config_option('thold_down_text');
 			if ($msg == '') {
-				$msg = 'System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Host Previously UP for: <DOWNTIME><br>NOTE: <NOTES>';
+				$msg = 'System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>';
 			}
 			$msg = str_replace('<SUBJECT>', $subject, $msg);
 			$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
@@ -454,18 +454,18 @@ function thold_update_host_status () {
 					break;
 				case '1': // Global List
 					break;
-				case '2': // Host List Only
+				case '2': // Devices List Only
 					$alert_email = get_thold_notification_emails($host['thold_host_email']);
 					break;
-				case '3': // Global and Host List
+				case '3': // Global and Devices List
 					$alert_email = $alert_email . ',' . get_thold_notification_emails($host['thold_host_email']);
 					break;
 			}
 
 			if ($alert_email == '' && $host['thold_send_email'] > 0) {
-				cacti_log('THOLD: Can not send a Host Down Email since the \'Alert Email\' setting is not set !', true, 'POLLER');
+				cacti_log('THOLD: Can not send a Devices Down Email since the \'Alert Email\' setting is not set !', true, 'POLLER');
 			} elseif ($host['thold_send_email'] == '0') {
-				cacti_log('THOLD: Did not send a Host Down Email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
+				cacti_log('THOLD: Did not send a Devices Down Email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
 			} elseif ($alert_email != '') {
 				thold_mail($alert_email, '', $subject, $msg, '');
 			}

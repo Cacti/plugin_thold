@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2014 The Cacti Group                                      |
+ | Copyright (C) 2006-2016 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -32,10 +32,7 @@ function sig_handler($signo) {
 	switch ($signo) {
 		case SIGTERM:
 		case SIGINT:
-			cacti_log("WARNING: Thold Sub Process terminated by user", FALSE, "thold");
-
-			/* tell the main poller that we are done */
-			//db_execute("REPLACE INTO settings (name, value) VALUES ('dsstats_poller_status', 'terminated - end time:" . date("Y-m-d G:i:s") ."')");
+			cacti_log('WARNING: Thold Sub Process terminated by user', FALSE, 'thold');
 
 			exit;
 			break;
@@ -45,8 +42,8 @@ function sig_handler($signo) {
 }
 
 /* do NOT run this script through a web browser */
-if (!isset($_SERVER["argv"][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($_SERVER['REMOTE_ADDR'])) {
-	die("<br><strong>This script is only meant to run at the command line.</strong>");
+if (!isset($_SERVER['argv'][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($_SERVER['REMOTE_ADDR'])) {
+	die('<br><strong>This script is only meant to run at the command line.</strong>');
 }
 
 /* We are not talking to the browser */
@@ -55,60 +52,60 @@ $no_http_headers = TRUE;
 chdir(dirname(__FILE__));
 chdir('../../');
 
-require_once("./include/global.php");
+require_once('./include/global.php');
 require_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 require_once($config['library_path'] . '/snmp.php');
 
 /* process calling arguments */
-$parms = $_SERVER["argv"];
+$parms = $_SERVER['argv'];
 array_shift($parms);
 
 
 /* install signal handlers for UNIX only */
-if (function_exists("pcntl_signal")) {
-	pcntl_signal(SIGTERM, "sig_handler");
-	pcntl_signal(SIGINT, "sig_handler");
+if (function_exists('pcntl_signal')) {
+	pcntl_signal(SIGTERM, 'sig_handler');
+	pcntl_signal(SIGINT, 'sig_handler');
 }
 
 /* take time and log performance data */
-list($micro,$seconds) = split(" ", microtime());
+list($micro,$seconds) = split(' ', microtime());
 $start = $seconds + $micro;
 
 /* process calling arguments */
-$parms = $_SERVER["argv"];
+$parms = $_SERVER['argv'];
 array_shift($parms);
 $pid			= false;
 $debug          = false;
 
 foreach($parms as $parameter) {
-	@list($arg, $value) = @explode("=", $parameter);
+	@list($arg, $value) = @explode('=', $parameter);
 
 	switch ($arg) {
-	case "-d":
-	case "--debug":
+	case '-d':
+	case '--debug':
 		$debug = TRUE;
 		break;
-	case "-pid":
-	case "--pid":
-		@list($partA, $partB) = @explode("_", $value);
+	case '-pid':
+	case '--pid':
+		@list($partA, $partB) = @explode('_', $value);
 		if(is_numeric($partA) && is_numeric($partB)) {
 			$pid = $value;
 		}else {
-			print "ERROR: Invalid Process ID " . $arg . "\n\n";
+			print 'ERROR: Invalid Process ID ' . $arg . "\n\n";
 			display_help();
 			exit;
 		}
 		break;
-	case "-v":
-	case "--version":
-	case "-V":
-	case "--help":
-	case "-h":
-	case "-H":
+	case '-v':
+	case '--version':
+	case '-V':
+	case '--help':
+	case '-h':
+	case '-H':
 		//display_help();
 		exit;
 	default:
-		print "ERROR: Invalid Parameter " . $parameter . "\n\n";
+		print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
 		display_help();
 	}
 }
@@ -119,25 +116,25 @@ if($pid === false) {
 	db_execute("UPDATE `plugin_thold_daemon_processes` SET `start` = " . time() . " WHERE `pid` = '" . $pid . "'");
 }
 
-$sql_query = "SELECT plugin_thold_daemon_data.id, plugin_thold_daemon_data.rrd_reindexed, plugin_thold_daemon_data.rrd_time_reindexed,
-					thold_data.name AS thold_name, thold_data.graph_id,
-					thold_data.percent_ds, thold_data.expression,
-					thold_data.data_type, thold_data.cdef, thold_data.rra_id,
-					thold_data.data_id, thold_data.lastread,
-					UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue,
-					data_template_rrd.data_source_name as name,
-					data_template_rrd.data_source_type_id, data_template_data.rrd_step,
-					data_template_rrd.rrd_maximum
-				FROM plugin_thold_daemon_data
-				INNER JOIN
-					thold_data
-					ON ( thold_data.id = plugin_thold_daemon_data.id)
-				LEFT JOIN data_template_rrd
-					ON (data_template_rrd.id = thold_data.data_id)
-				LEFT JOIN data_template_data
-					ON ( data_template_data.local_data_id = thold_data.rra_id )
-				WHERE plugin_thold_daemon_data.pid = '$pid'
-					AND data_template_rrd.data_source_name!=''";
+$sql_query = "SELECT plugin_thold_daemon_data.id, plugin_thold_daemon_data.rrd_reindexed, 
+	plugin_thold_daemon_data.rrd_time_reindexed,
+	thold_data.name AS thold_name, thold_data.graph_id,
+	thold_data.percent_ds, thold_data.expression,
+	thold_data.data_type, thold_data.cdef, thold_data.rra_id,
+	thold_data.data_id, thold_data.lastread,
+	UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue,
+	data_template_rrd.data_source_name as name,
+	data_template_rrd.data_source_type_id, data_template_data.rrd_step,
+	data_template_rrd.rrd_maximum
+	FROM plugin_thold_daemon_data
+	INNER JOIN thold_data
+	ON thold_data.id = plugin_thold_daemon_data.id
+	LEFT JOIN data_template_rrd
+	ON data_template_rrd.id = thold_data.data_id
+	LEFT JOIN data_template_data
+	ON data_template_data.local_data_id = thold_data.rra_id
+	WHERE plugin_thold_daemon_data.pid = '$pid'
+	AND data_template_rrd.data_source_name!=''";
 
 $thold_items = db_fetch_assoc($sql_query, false);
 
@@ -145,10 +142,10 @@ if (sizeof($thold_items)) {
 
 	/* hold data of all CDEFs in memory to reduce the number of SQL queries to minimum */
 	$cdefs = array();
-	$cdefs_tmp = db_fetch_assoc("SELECT cdef_id, sequence, type, value FROM cdef_items ORDER BY cdef_id, sequence");
+	$cdefs_tmp = db_fetch_assoc('SELECT cdef_id, sequence, type, value FROM cdef_items ORDER BY cdef_id, sequence');
 	if($cdefs_tmp & sizeof($cdefs_tmp)>0) {
 		foreach($cdefs_tmp as $cdef_tmp) {
-			$cdefs[$cdef_tmp["cdef_id"]][] = $cdef_tmp;
+			$cdefs[$cdef_tmp['cdef_id']][] = $cdef_tmp;
 		}
 	}
 	unset($cdefs_tmp);
@@ -157,7 +154,7 @@ if (sizeof($thold_items)) {
 	$rrd_time_reindexed = array();
 
 	foreach ($thold_items as $t_item) {
-		thold_debug("Checking Threshold:'" . $t_item["thold_name"] . "', Graph:'" . $t_item["graph_id"] . "'");
+		thold_debug("Checking Threshold:'" . $t_item['thold_name'] . "', Graph:'" . $t_item['graph_id'] . "'");
 		$item = array();
 		$rrd_reindexed[$t_item['rra_id']] = unserialize($t_item['thold_server_rrd_reindexed']);
 		$rrd_time_reindexed[$t_item['rra_id']] = $t_item['thold_server_rrd_time_reindexed'];
@@ -198,18 +195,16 @@ if (sizeof($thold_items)) {
 	}
 
 	/* check all thresholds */
-	$sql_query = "SELECT
-						thold_data.data_id,
-						thold_data.rra_id,
-						thold_data.lastread,
-						thold_data.cdef,
-						data_template_rrd.data_source_name
-					FROM plugin_thold_daemon_data
-					INNER JOIN thold_data
-						ON ( thold_data.id = plugin_thold_daemon_data.id)
-					LEFT JOIN data_template_rrd ON
-						data_template_rrd.id = thold_data.data_id
-					WHERE plugin_thold_daemon_data.pid = '$pid' AND thold_data.thold_enabled='on' AND thold_data.tcheck=1";
+	$sql_query = "SELECT thold_data.data_id, thold_data.rra_id, thold_data.lastread,
+		thold_data.cdef, data_template_rrd.data_source_name
+		FROM plugin_thold_daemon_data
+		INNER JOIN thold_data
+		ON thold_data.id = plugin_thold_daemon_data.id
+		LEFT JOIN data_template_rrd 
+		ON data_template_rrd.id = thold_data.data_id
+		WHERE plugin_thold_daemon_data.pid = '$pid' 
+		AND thold_data.thold_enabled='on' 
+		AND thold_data.tcheck=1";
 
 	$tholds = do_hook_function('thold_get_live_hosts', db_fetch_assoc($sql_query));
 

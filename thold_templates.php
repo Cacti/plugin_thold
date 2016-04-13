@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2014 The Cacti Group                                      |
+ | Copyright (C) 2006-2016 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -33,22 +33,17 @@ $thold_actions = array(
 	2 => 'Delete'
 );
 
-$action = '';
-if (isset($_POST['action'])) {
-	$action = $_POST['action'];
-} elseif (isset($_GET['action'])) {
-	$action = $_GET['action'];
-}
+$action = get_nfilter_request_var('action');
 
-if (isset($_POST['drp_action']) && $_POST['drp_action'] == 2) {
+if (isset_request_var('drp_action') && get_filter_request_var('drp_action') == 2) {
 	$action = 'delete';
 }
 
-if (isset($_POST['drp_action']) && $_POST['drp_action'] == 1) {
+if (isset_request_var('drp_action') && get_filter_request_var('drp_action') == 1) {
 	$action = 'export';
 }
 
-if (isset($_REQUEST['import'])) {
+if (isset_request_var('import')) {
 	$action = 'import';
 }
 
@@ -57,18 +52,18 @@ switch ($action) {
 		template_add();
 		break;
 	case 'save':
-		if (isset($_POST["save_component_import"])) {
+		if (isset_request_var('save_component_import')) {
 			template_import();
-		}elseif (isset($_POST['save']) && $_POST['save'] == 'edit') {
+		}elseif (isset_request_var('save') && get_nfilter_request_var('save') == 'edit') {
 			template_save_edit();
 
-			if (isset($_SESSION["graph_return"])) {
-				$return_to = $_SESSION["graph_return"];
-				unset($_SESSION["graph_return"]);
-				kill_session_var("graph_return");
+			if (isset($_SESSION['graph_return'])) {
+				$return_to = $_SESSION['graph_return'];
+				unset($_SESSION['graph_return']);
+				kill_session_var('graph_return');
 				header('Location: ' . $return_to);
 			}
-		} elseif (isset($_POST['save']) && $_POST['save'] == 'add') {
+		} elseif (isset_request_var('save') && get_nfilter_request_var('save') == 'add') {
 
 		}
 
@@ -82,21 +77,21 @@ switch ($action) {
 
 		break;
 	case 'import':
-		include_once('./include/top_header.php');
+		top_header();
 		import();
-		include_once('./include/bottom_footer.php');
+		bottom_footer();
 
 		break;
 	case 'edit':
-		include_once('./include/top_header.php');
+		top_header();
 		template_edit();
-		include_once('./include/bottom_footer.php');
+		bottom_footer();
 
 		break;
 	default:
-		include_once('./include/top_header.php');
+		top_header();
 		templates();
-		include_once('./include/bottom_footer.php');
+		bottom_footer();
 
 		break;
 }
@@ -104,35 +99,35 @@ switch ($action) {
 function template_export() {
 	$output = "<templates>\n";
 	if (sizeof($_POST)) {
-	foreach($_POST as $t=>$v) {
-		if (substr($t, 0,4) == 'chk_') {
-			$id = substr($t, 4);
+		foreach($_POST as $t => $v) {
+			if (substr($t, 0,4) == 'chk_') {
+				$id = substr($t, 4);
 
-			if (is_numeric($id)) {
-				$data = db_fetch_row("SELECT * FROM thold_template WHERE id=$id");
-				if (sizeof($data)) {
-					$data_template_hash = db_fetch_cell("SELECT hash
-						FROM data_template
-						WHERE id=" . $data["data_template_id"]);
+				if (is_numeric($id)) {
+					$data = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($id));
+					if (sizeof($data)) {
+						$data_template_hash = db_fetch_cell_prepared('SELECT hash
+							FROM data_template
+							WHERE id = ?', array($data['data_template_id']));
 
-					$data_source_hash   = db_fetch_cell("SELECT hash
-						FROM data_template_rrd
-						WHERE id=" . $data["data_source_id"]);
+						$data_source_hash   = db_fetch_cell_prepared('SELECT hash
+							FROM data_template_rrd
+							WHERE id = ?', array($data['data_source_id']));
 
-					unset($data['id']);
-					$data['data_template_id'] = $data_template_hash;
-					$data['data_source_id']   = $data_source_hash;
-					$output .= array2xml($data);
+						unset($data['id']);
+						$data['data_template_id'] = $data_template_hash;
+						$data['data_source_id']   = $data_source_hash;
+						$output .= array2xml($data);
+					}
 				}
 			}
 		}
 	}
-	}
 
-	$output .= "</templates>";
+	$output .= "</templates>\n";
 
-	header("Content-type: application/xml");
-	header("Content-Disposition: attachment; filename=thold_template_export.xml");
+	header('Content-type: application/xml');
+	header('Content-Disposition: attachment; filename=thold_template_export.xml');
 
 	print $output;
 
@@ -145,52 +140,50 @@ function template_delete() {
 			$id = substr($t, 4);
 			input_validate_input_number($id);
 			plugin_thold_log_changes($id, 'deleted_template', array('id' => $id));
-			db_fetch_assoc("delete from thold_template where id = $id LIMIT 1");
-			db_execute('DELETE FROM plugin_thold_template_contact WHERE template_id=' . $id);
-			db_execute("UPDATE thold_data SET template = '', template_enabled = 'off' WHERE template = $id");
+			db_fetch_assoc('DELETE FROM thold_template WHERE id = ? LIMIT 1', array($id));
+			db_execute_prepared('DELETE FROM plugin_thold_template_contact WHERE template_id = ?', array($id));
+			db_execute_prepared("UPDATE thold_data SET template = '', template_enabled = 'off' WHERE template = ?", array($id));
 		}
 	}
 
-	Header('Location: thold_templates.php');
+	header('Location: thold_templates.php?header=false');
 	exit;
 }
 
 function template_add() {
-	global $colors;
+	if ((!isset_request_var('save')) || (get_nfilter_request_var('save') == '')) {
+		$data_templates = array_rekey(db_fetch_assoc('select id, name from data_template order by name'), 'id', 'name');
 
-	if ((!isset($_REQUEST['save'])) || ($_REQUEST['save'] == '')) {
-		$data_templates = array_rekey(db_fetch_assoc('select id, name from data_template order by name'), "id", "name");
-
-		include_once('./include/top_header.php');
+		top_header();
 
 		?>
-		<script type="text/javascript">
-		<!--
-		function applyTholdFilterChange(objForm, type) {
-			if ((type == 'dt') && (document.getElementById("data_source_id"))) {
-				document.getElementById("data_source_id").value = "";
+		<script type='text/javascript'>
+
+		function applyFilter(type) {
+			if (type == 'dt' && $('#data_source_id')) {
+				$('#data_source_id').val('');
 			}
 
-			if (document.getElementById("save")) {
-				document.getElementById("save").value = "";
+			if ($('#save')) {
+				$('#save').val('');
 			}
 
 			document.tholdform.submit();
 		}
-		-->
+
 		</script>
 		<?php
 
-		html_start_box('<strong>Threshold Template Creation Wizard</strong>', '50%', $colors['header'], '3', 'center', '');
+		html_start_box('Threshold Template Creation Wizard', '50%', '', '3', 'center', '');
 
 		print "<tr><td><form action=thold_templates.php method='post' name='tholdform'>";
 
-		if (!isset($_REQUEST["data_template_id"])) $_REQUEST["data_template_id"] = '';
-		if (!isset($_REQUEST["data_source_id"])) $_REQUEST["data_source_id"] = '';
+		if (!isset_request_var('data_template_id')) set_request_var('data_template_id', '');
+		if (!isset_request_var('data_source_id'))   set_request_var('data_source_id', '');
 
-		if ($_REQUEST["data_template_id"] == '') {
+		if (get_fitler_request_var('data_template_id') == '') {
 			print '<center><h3>Please select a Data Template</h3></center>';
-		} else if ($_REQUEST["data_source_id"] == '') {
+		} else if (get_filter_request_var('data_source_id') == '') {
 			print '<center><h3>Please select a Data Source</h3></center>';
 		} else {
 			print '<center><h3>Please press "Create" to create your Threshold Template</h3></center>';
@@ -198,23 +191,23 @@ function template_add() {
 
 		/* display the data template dropdown */
 		?>
-		<table align='center'>
+		<table class='filterTable'>
 			<tr>
-				<td width='70' style='white-space:nowrap;'>
-					&nbsp;<b>Data Template:</b>
+				<td>
+					Data Template
 				</td>
-				<td style='width:1;'>
-					<select name=data_template_id onChange="applyTholdFilterChange(document.tholdform, 'dt')">
-						<option value="">None</option><?php
+				<td>
+					<select id=data_template_id onChange="applyFilter('dt')">
+						<option value=''>None</option><?php
 						foreach ($data_templates as $id => $name) {
-							echo "<option value='" . $id . "'" . ($id == $_REQUEST['data_template_id'] ? ' selected' : '') . '>' . $name . '</option>';
+							echo "<option value='" . $id . "'" . ($id == get_request_var('data_template_id') ? ' selected' : '') . '>' . $name . '</option>';
 						}?>
 					</select>
 				</td>
 			</tr><?php
 
-		if ($_REQUEST['data_template_id'] != '') {
-			$data_template_id = $_REQUEST['data_template_id'];
+		if (get_request_var('data_template_id') != '') {
+			$data_template_id = get_request_var('data_template_id');
 			$data_fields      = array();
 			$temp             = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where local_data_template_rrd_id = 0 and data_template_id = ' . $data_template_id);
 
@@ -231,14 +224,14 @@ function template_add() {
 			/* display the data source dropdown */
 			?>
 			<tr>
-				<td width='70' style='white-space:nowrap;'>
-					&nbsp;<b>Data Source:</b>
+				<td>
+					Data Source
 				</td>
 				<td>
 					<select id='data_source_id' name='data_source_id' onChange="applyTholdFilterChange(document.tholdform, 'ds')">
-						<option value="">None</option><?php
+						<option value=''>None</option><?php
 						foreach ($data_fields as $id => $name) {
-							echo "<option value='" . $id . "'" . ($id == $_REQUEST['data_source_id'] ? ' selected' : '') . '>' . $name . '</option>';
+							echo "<option value='" . $id . "'" . ($id == get_request_var('data_source_id') ? ' selected' : '') . '>' . $name . '</option>';
 						}?>
 					</select>
 				</td>
@@ -246,42 +239,49 @@ function template_add() {
 			<?php
 		}
 
-		if ($_REQUEST["data_source_id"] != '') {
+		if (get_request_var('data_source_id') != '') {
 			echo '<tr><td colspan=2><input type=hidden name=action value="add"><input id="save" type=hidden name="save" value="save"><br><center><input type="submit" value="Create"></center></td></tr>';
 		} else {
 			echo '<tr><td colspan=2><input type=hidden name=action value="add"><br><br><br></td></tr>';
 		}
 		echo '</table></form></td></tr>';
+
 		html_end_box();
-		include_once('./include/bottom_footer.php');
+
+		bottom_footer();
 	} else {
-		$data_template_id = $_REQUEST['data_template_id'];
-		$data_source_id = $_REQUEST['data_source_id'];
+		$data_template_id = get_filter_request_var('data_template_id');
+		$data_source_id   = get_filter_request_var('data_source_id');
 
-		$save['id'] = '';
-		$save['hash'] = get_hash_thold_template(0);
-		$save['data_template_id'] = $data_template_id;
+		$save['id']       = '';
+		$save['hash']     = get_hash_thold_template(0);
+		$temp             = db_fetch_row('SELECT id, name FROM data_template WHERE id=' . $data_template_id . ' LIMIT 1');
+		$save['name']     = $temp['name'];
 
-		$temp = db_fetch_assoc('select id, name from data_template where id=' . $data_template_id);
-		$save['name'] = $temp[0]['name'];
-		$save['data_template_name'] = $temp[0]['name'];
-		$save['data_source_id'] = $data_source_id;
+		$save['data_template_id']   = $data_template_id;
+		$save['data_template_name'] = $temp['name'];
+		$save['data_source_id']     = $data_source_id;
 
-		$temp = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where id = ' . $data_source_id);
+		$temp = db_fetch_row('SELECT id, local_data_template_rrd_id, 
+			data_source_name, data_input_field_id 
+			FROM data_template_rrd 
+			WHERE id = ' . $data_source_id . ' 
+			LIMIT 1');
 
-		$save['data_source_name'] = $temp[0]['data_source_name'];
-		$save['name'] .= ' [' . $temp[0]['data_source_name'] . ']';
+		$save['data_source_name']  = $temp['data_source_name'];
+		$save['name']             .= ' [' . $temp['data_source_name'] . ']';
 
-		if ($temp[0]['data_input_field_id'] != 0) {
-			$temp2 = db_fetch_assoc('select name from data_input_fields where id = ' . $temp[0]['data_input_field_id']);
+		if ($temp['data_input_field_id'] != 0) {
+			$temp2 = db_fetch_row('SELECT name FROM data_input_fields WHERE id = ' . $temp['data_input_field_id'] . ' LIMIT 1');
 		} else {
-			$temp2[0]['name'] = $temp[0]['data_source_name'];
+			$temp2['name'] = $temp['data_source_name'];
 		}
 
-		$save['data_source_friendly'] = $temp2[0]['name'];
-		$save['thold_enabled'] = 'on';
-		$save['thold_type'] = 0;
-		$save['repeat_alert'] = read_config_option('alert_repeat');
+		$save['data_source_friendly'] = $temp2['name'];
+		$save['thold_enabled']        = 'on';
+		$save['thold_type']           = 0;
+		$save['repeat_alert']         = read_config_option('alert_repeat');
+
 		$id = sql_save($save, 'thold_template');
 
 		if ($id) {
@@ -298,64 +298,64 @@ function template_add() {
 
 function template_save_edit() {
 	/* ================= input validation ================= */
-	input_validate_input_number(get_request_var_post('id'));
-	input_validate_input_number(get_request_var_post('thold_type'));
-	input_validate_input_number(get_request_var_post('thold_hi'));
-	input_validate_input_number(get_request_var_post('thold_low'));
-	input_validate_input_number(get_request_var_post('thold_fail_trigger'));
-	input_validate_input_number(get_request_var_post('time_hi'));
-	input_validate_input_number(get_request_var_post('time_low'));
-	input_validate_input_number(get_request_var_post('time_fail_trigger'));
-	input_validate_input_number(get_request_var_post('time_fail_length'));
-	input_validate_input_number(get_request_var_post('thold_warning_type'));
-	input_validate_input_number(get_request_var_post('thold_warning_hi'));
-	input_validate_input_number(get_request_var_post('thold_warning_low'));
-	input_validate_input_number(get_request_var_post('thold_warning_fail_trigger'));
-	input_validate_input_number(get_request_var_post('time_warning_hi'));
-	input_validate_input_number(get_request_var_post('time_warning_low'));
-	input_validate_input_number(get_request_var_post('time_warning_fail_trigger'));
-	input_validate_input_number(get_request_var_post('time_warning_fail_length'));
-	input_validate_input_number(get_request_var_post('bl_ref_time_range'));
-	input_validate_input_number(get_request_var_post('bl_pct_down'));
-	input_validate_input_number(get_request_var_post('bl_pct_up'));
-	input_validate_input_number(get_request_var_post('bl_fail_trigger'));
-	input_validate_input_number(get_request_var_post('repeat_alert'));
-	input_validate_input_number(get_request_var_post('data_type'));
-	input_validate_input_number(get_request_var_post('cdef'));
-	input_validate_input_number(get_request_var_post('notify_warning'));
-	input_validate_input_number(get_request_var_post('notify_alert'));
-	input_validate_input_number(get_request_var_post('snmp_event_severity'));
-	input_validate_input_number(get_request_var_post('snmp_event_warning_severity'));
+	get_filter_request_var('id');
+	get_filter_request_var('thold_type');
+	get_filter_request_var('thold_hi');
+	get_filter_request_var('thold_low');
+	get_filter_request_var('thold_fail_trigger');
+	get_filter_request_var('time_hi');
+	get_filter_request_var('time_low');
+	get_filter_request_var('time_fail_trigger');
+	get_filter_request_var('time_fail_length');
+	get_filter_request_var('thold_warning_type');
+	get_filter_request_var('thold_warning_hi');
+	get_filter_request_var('thold_warning_low');
+	get_filter_request_var('thold_warning_fail_trigger');
+	get_filter_request_var('time_warning_hi');
+	get_filter_request_var('time_warning_low');
+	get_filter_request_var('time_warning_fail_trigger');
+	get_filter_request_var('time_warning_fail_length');
+	get_filter_request_var('bl_ref_time_range');
+	get_filter_request_var('bl_pct_down');
+	get_filter_request_var('bl_pct_up');
+	get_filter_request_var('bl_fail_trigger');
+	get_filter_request_var('repeat_alert');
+	get_filter_request_var('data_type');
+	get_filter_request_var('cdef');
+	get_filter_request_var('notify_warning');
+	get_filter_request_var('notify_alert');
+	get_filter_request_var('snmp_event_severity');
+	get_filter_request_var('snmp_event_warning_severity');
 	/* ==================================================== */
 
 	/* clean up date1 string */
-	if (isset($_POST['name'])) {
-		$_POST['name'] = trim(str_replace(array("\\", "'", '"'), '', get_request_var_post('name')));
+	if (isset_request_var('name')) {
+		set_request_var('name', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('name'))));
 	}
 
-	if (isset($_POST['snmp_trap_category'])) {
-		$_POST['snmp_event_category'] = mysql_real_escape_string( trim ( str_replace(array("\\", "'", '"'), '', get_request_var_post('snmp_event_category')) ) );
+	if (isset_request_var('snmp_trap_category')) {
+		set_request_var('snmp_event_category', db_qstr(trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_category')))));
 	}
 
 	/* save: data_template */
-	$save['id'] = $_POST['id'];
-	$save['hash'] = get_hash_thold_template($save['id']);
-	$save['name'] = $_POST['name'];
-	$save['thold_type'] = $_POST['thold_type'];
+	$save['id']                 = get_request_var('id');
+	$save['hash']               = get_hash_thold_template($save['id']);
+	$save['name']               = get_request_var('name');
+	$save['thold_type']         = get_request_var('thold_type');
 
 	// High / Low
-	$save['thold_hi'] = $_POST['thold_hi'];
-	$save['thold_low'] = $_POST['thold_low'];
-	$save['thold_fail_trigger'] = $_POST['thold_fail_trigger'];
+	$save['thold_hi']           = get_request_var('thold_hi');
+	$save['thold_low']          = get_request_var('thold_low');
+	$save['thold_fail_trigger'] = get_request_var('thold_fail_trigger');
 	// Time Based
-	$save['time_hi'] = $_POST['time_hi'];
-	$save['time_low'] = $_POST['time_low'];
+	$save['time_hi']            = get_request_var('time_hi');
+	$save['time_low']           = get_request_var('time_low');
 
-	$save['time_fail_trigger'] = $_POST['time_fail_trigger'];
-	$save['time_fail_length'] = $_POST['time_fail_length'];
+	$save['time_fail_trigger']  = get_request_var('time_fail_trigger');
+	$save['time_fail_length']   = get_request_var('time_fail_length');
 
-	if (isset($_POST['thold_fail_trigger']) && $_POST['thold_fail_trigger'] != '') {
-		$save['thold_fail_trigger'] = $_POST['thold_fail_trigger'];
+	if (isset_request_var('thold_fail_trigger') && get_request_var('thold_fail_trigger') != '') {
+		$save['thold_fail_trigger'] = get_request_var('thold_fail_trigger');
 	} else {
 		$alert_trigger = read_config_option('alert_trigger');
 		if ($alert_trigger != '' && is_numeric($alert_trigger)) {
@@ -367,18 +367,19 @@ function template_save_edit() {
 
 	/***  Warnings  ***/
 	// High / Low Warnings
-	$save['thold_warning_hi'] = $_POST['thold_warning_hi'];
-	$save['thold_warning_low'] = $_POST['thold_warning_low'];
-	$save['thold_warning_fail_trigger'] = $_POST['thold_warning_fail_trigger'];
+	$save['thold_warning_hi']           = get_request_var('thold_warning_hi');
+	$save['thold_warning_low']          = get_request_var('thold_warning_low');
+	$save['thold_warning_fail_trigger'] = get_request_var('thold_warning_fail_trigger');
+
 	// Time Based Warnings
-	$save['time_warning_hi'] = $_POST['time_warning_hi'];
-	$save['time_warning_low'] = $_POST['time_warning_low'];
+	$save['time_warning_hi']            = get_request_var('time_warning_hi');
+	$save['time_warning_low']           = get_request_var('time_warning_low');
 
-	$save['time_warning_fail_trigger'] = $_POST['time_warning_fail_trigger'];
-	$save['time_warning_fail_length'] = $_POST['time_warning_fail_length'];
+	$save['time_warning_fail_trigger']  = get_request_var('time_warning_fail_trigger');
+	$save['time_warning_fail_length']   = get_request_var('time_warning_fail_length');
 
-	if (isset($_POST['thold_warning_fail_trigger']) && $_POST['thold_warning_fail_trigger'] != '') {
-		$save['thold_warning_fail_trigger'] = $_POST['thold_warning_fail_trigger'];
+	if (isset_request_var('thold_warning_fail_trigger') && get_request_var('thold_warning_fail_trigger') != '') {
+		$save['thold_warning_fail_trigger'] = get_request_var('thold_warning_fail_trigger');
 	} else {
 		$alert_trigger = read_config_option('alert_trigger');
 		if ($alert_trigger != '' && is_numeric($alert_trigger)) {
@@ -388,26 +389,12 @@ function template_save_edit() {
 		}
 	}
 
-	if (isset($_POST['thold_enabled'])) {
-		$save['thold_enabled'] = 'on';
-	} else {
-		$save['thold_enabled'] = 'off';
-	}
+	$save['thold_enabled']  = isset_request_var('thold_enabled')  ? 'on' : 'off';
+	$save['exempt']         = isset_request_var('exempt')         ? 'on' : 'off';
+	$save['restored_alert'] = isset_request_var('restored_alert') ? 'on' : 'off';
 
-	if (isset($_POST['exempt'])) {
-		$save['exempt'] = 'on';
-	} else {
-		$save['exempt'] = 'off';
-	}
-
-	if (isset($_POST['restored_alert'])) {
-		$save['restored_alert'] = 'on';
-	} else {
-		$save['restored_alert'] = 'off';
-	}
-
-	if (isset($_POST['bl_ref_time_range']) && $_POST['bl_ref_time_range'] != '') {
-		$save['bl_ref_time_range'] = $_POST['bl_ref_time_range'];
+	if (isset_request_var('bl_ref_time_range') && get_request_var('bl_ref_time_range') != '') {
+		$save['bl_ref_time_range'] = get_request_var('bl_ref_time_range');
 	} else {
 		$alert_bl_timerange_def = read_config_option('alert_bl_timerange_def');
 		if ($alert_bl_timerange_def != '' && is_numeric($alert_bl_timerange_def)) {
@@ -417,11 +404,11 @@ function template_save_edit() {
 		}
 	}
 
-	$save['bl_pct_down'] = $_POST['bl_pct_down'];
-	$save['bl_pct_up'] = $_POST['bl_pct_up'];
+	$save['bl_pct_down'] = get_request_var('bl_pct_down');
+	$save['bl_pct_up']   = get_request_var('bl_pct_up');
 
-	if (isset($_POST['bl_fail_trigger']) && $_POST['bl_fail_trigger'] != '') {
-		$save['bl_fail_trigger'] = $_POST['bl_fail_trigger'];
+	if (isset_request_var('bl_fail_trigger') && get_request_var('bl_fail_trigger') != '') {
+		$save['bl_fail_trigger'] = get_request_var('bl_fail_trigger');
 	} else {
 		$alert_bl_trigger = read_config_option('alert_bl_trigger');
 		if ($alert_bl_trigger != '' && is_numeric($alert_bl_trigger)) {
@@ -431,8 +418,8 @@ function template_save_edit() {
 		}
 	}
 
-	if (isset($_POST['repeat_alert']) && $_POST['repeat_alert'] != '') {
-		$save['repeat_alert'] = $_POST['repeat_alert'];
+	if (isset_request_var('repeat_alert') && get_request_var('repeat_alert') != '') {
+		$save['repeat_alert'] = get_request_var('repeat_alert');
 	} else {
 		$alert_repeat = read_config_option('alert_repeat');
 		if ($alert_repeat != '' && is_numeric($alert_repeat)) {
@@ -442,38 +429,36 @@ function template_save_edit() {
 		}
 	}
 
-	if (isset($_POST['snmp_event_category'])) {
-		$save['snmp_event_category'] = $_POST['snmp_event_category'];
-		$save['snmp_event_severity'] = $_POST['snmp_event_severity'];
+	if (isset_request_var('snmp_event_category')) {
+		$save['snmp_event_category'] = get_request_var('snmp_event_category');
+		$save['snmp_event_severity'] = get_request_var('snmp_event_severity');
 	}
-	if (isset($_POST["snmp_event_warning_severity"])) {
-		if($_POST['snmp_event_warning_severity'] > $_POST['snmp_event_severity']) {
-			$save['snmp_event_warning_severity'] = $_POST['snmp_event_severity'];
+	if (isset_request_var('snmp_event_warning_severity')) {
+		if (get_request_var('snmp_event_warning_severity') > get_request_var('snmp_event_severity')) {
+			$save['snmp_event_warning_severity'] = get_request_var('snmp_event_severity');
 		}else {
-			$save['snmp_event_warning_severity'] = $_POST['snmp_event_warning_severity'];
+			$save['snmp_event_warning_severity'] = get_request_var('snmp_event_warning_severity');
 		}
 	}
 
-	$save['notify_extra'] = $_POST['notify_extra'];
-	$save['notify_warning_extra'] = $_POST['notify_warning_extra'];
-	$save['notify_warning'] = $_POST['notify_warning'];
-	$save['notify_alert'] = $_POST['notify_alert'];
-	$save['cdef'] = $_POST['cdef'];
+	$save['notify_extra']         = get_request_var('notify_extra');
+	$save['notify_warning_extra'] = get_request_var('notify_warning_extra');
+	$save['notify_warning']       = get_request_var('notify_warning');
+	$save['notify_alert']         = get_request_var('notify_alert');
+	$save['cdef']                 = get_request_var('cdef');
 
-	$save['data_type']  = $_POST['data_type'];
-	$save['percent_ds'] = $_POST['percent_ds'];
-	$save['expression'] = $_POST['expression'];
-
-
+	$save['data_type']            = get_request_var('data_type');
+	$save['percent_ds']           = get_request_var('percent_ds');
+	$save['expression']           = get_request_var('expression');
 
 	if (!is_error_message()) {
 		$id = sql_save($save, 'thold_template');
 		if ($id) {
 			raise_message(1);
-			if (isset($_POST['notify_accounts']) && is_array($_POST['notify_accounts'])) {
-				thold_save_template_contacts ($id, $_POST['notify_accounts']);
-			} elseif (!isset($_POST['notify_accounts'])) {
-				thold_save_template_contacts ($id, array());
+			if (isset_request_var('notify_accounts') && is_array(get_nfilter_request_var('notify_accounts'))) {
+				thold_save_template_contacts($id, get_nfilter_request_var('notify_accounts'));
+			} elseif (!isset_request_var('notify_accounts')) {
+				thold_save_template_contacts($id, array());
 			}
 			thold_template_update_thresholds ($id);
 
@@ -483,36 +468,41 @@ function template_save_edit() {
 		}
 	}
 
-	if ((is_error_message()) || (empty($_POST['id']))) {
-		header('Location: thold_templates.php?action=edit&id=' . (empty($id) ? $_POST['id'] : $id));
+	if ((is_error_message()) || (isempty_request_var('id'))) {
+		header('Location: thold_templates.php?header=false&action=edit&id=' . (empty($id) ? get_request_var('id') : $id));
 	} else {
-		header('Location: thold_templates.php');
+		header('Location: thold_templates.php?header=false');
 	}
 }
 
 function template_edit() {
-	global $colors;
+	global $config;
 
 	/* ================= input validation ================= */
-	input_validate_input_number(get_request_var('id'));
+	get_filter_request_var('id');
 	/* ==================================================== */
-	$id = $_GET['id'];
-	$thold_item_data = db_fetch_assoc('SELECT * FROM thold_template WHERE id=' . $id);
 
-	$thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_item_data;
+	$id = get_request_var('id');
 
+	$thold_item_data = db_fetch_row('SELECT * 
+		FROM thold_template 
+		WHERE id=' . $id . ' 
+		LIMIT 1');
 
-	$temp = db_fetch_assoc('SELECT id, name FROM data_template WHERE id=' . $thold_item_data['data_template_id']);
+	$temp = db_fetch_assoc('SELECT id, name 
+		FROM data_template 
+		WHERE id=' . $thold_item_data['data_template_id']);
 
 	foreach ($temp as $d) {
 		$data_templates[$d['id']] = $d['name'];
 	}
 
-	$temp = db_fetch_assoc('SELECT id, data_source_name, data_input_field_id
+	$temp = db_fetch_row('SELECT id, data_source_name, data_input_field_id
 		FROM data_template_rrd
-		WHERE id=' . $thold_item_data['data_source_id']);
+		WHERE id=' . $thold_item_data['data_source_id'] . ' 
+		LIMIT 1');
 
-	$source_id = $temp[0]['data_input_field_id'];
+	$source_id = $temp['data_input_field_id'];
 
 	if ($source_id != 0) {
 		$temp2 = db_fetch_assoc('SELECT id, name FROM data_input_fields WHERE id=' . $source_id);
@@ -520,7 +510,7 @@ function template_edit() {
 			$data_fields[$d['id']] = $d['name'];
 		}
 	} else {
-		$data_fields[$temp[0]['id']]= $temp[0]['data_source_name'];
+		$data_fields[$temp['id']]= $temp['data_source_name'];
 	}
 
 	$send_notification_array = array();
@@ -544,42 +534,18 @@ function template_edit() {
 	}
 
 	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE data_template_id = ' . $thold_item_data['data_template_id'], FALSE);
-	if ($step == 60) {
-		$repeatarray = array(0 => 'Never', 1 => 'Every Minute', 2 => 'Every 2 Minutes', 3 => 'Every 3 Minutes', 4 => 'Every 4 Minutes', 5 => 'Every 5 Minutes', 10 => 'Every 10 Minutes', 15 => 'Every 15 Minutes', 20 => 'Every 20 Minutes', 30 => 'Every 30 Minutes', 45 => 'Every 45 Minutes', 60 => 'Every Hour', 120 => 'Every 2 Hours', 180 => 'Every 3 Hours', 240 => 'Every 4 Hours', 360 => 'Every 6 Hours', 480 => 'Every 8 Hours', 720 => 'Every 12 Hours', 1440 => 'Every Day', 2880 => 'Every 2 Days', 10080 => 'Every Week', 20160 => 'Every 2 Weeks', 43200 => 'Every Month');
-		$alertarray  = array(0 => 'Never', 1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 10 => '10 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
-		$timearray   = array(1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 6 => '6 Minutes', 7 => '7 Minutes', 8 => '8 Minutes', 9 => '9 Minutes', 10 => '10 Minutes', 12 => '12 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 24 => '24 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 288 => '4.8 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
-	} else if ($step == 300) {
-		$repeatarray = array(0 => 'Never', 1 => 'Every 5 Minutes', 2 => 'Every 10 Minutes', 3 => 'Every 15 Minutes', 4 => 'Every 20 Minutes', 6 => 'Every 30 Minutes', 8 => 'Every 45 Minutes', 12 => 'Every Hour', 24 => 'Every 2 Hours', 36 => 'Every 3 Hours', 48 => 'Every 4 Hours', 72 => 'Every 6 Hours', 96 => 'Every 8 Hours', 144 => 'Every 12 Hours', 288 => 'Every Day', 576 => 'Every 2 Days', 2016 => 'Every Week', 4032 => 'Every 2 Weeks', 8640 => 'Every Month');
-		$alertarray  = array(0 => 'Never', 1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => '1 Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
-		$timearray   = array(1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => '1 Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
-	} else {
-		$repeatarray = array(0 => 'Never', 1 => 'Every Polling', 2 => 'Every 2 Pollings', 3 => 'Every 3 Pollings', 4 => 'Every 4 Pollings', 6 => 'Every 6 Pollings', 8 => 'Every 8 Pollings', 12 => 'Every 12 Pollings', 24 => 'Every 24 Pollings', 36 => 'Every 36 Pollings', 48 => 'Every 48 Pollings', 72 => 'Every 72 Pollings', 96 => 'Every 96 Pollings', 144 => 'Every 144 Pollings', 288 => 'Every 288 Pollings', 576 => 'Every 576 Pollings', 2016 => 'Every 2016 Pollings');
-		$alertarray  = array(0 => 'Never', 1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
-		$timearray   = array(1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
-	}
 
-	$thold_types = array (
-		0 => 'High / Low Values',
-		1 => 'Baseline Deviation',
-		2 => 'Time Based',
-	);
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
-	$data_types = array (
-		0 => 'Exact Value',
-		1 => 'CDEF',
-		2 => 'Percentage',
-		3 => 'RPN Expression'
-	);
-
-	$rra_steps = db_fetch_assoc("SELECT rra.steps
-		FROM data_template_data d
-		JOIN data_template_data_rra a
-	    ON d.id=a.data_template_data_id
-		JOIN rra
-		ON a.rra_id=rra.id
-	    WHERE rra.steps>1
-		AND d.data_template_id=" . $thold_item_data['data_template_id'] . "
-	    AND d.local_data_template_data_id=0
+	$rra_steps = db_fetch_assoc("SELECT dspr.steps
+		FROM data_template_data AS dtd
+		INNER JOIN data_source_profiles AS dsp
+	    ON dsp.id=dtd.data_source_profile_id
+		INNER JOIN data_source_profiles_rra AS dspr
+		ON dsp.id=dspr.data_source_profile_id
+	    WHERE dspr.steps>1
+		AND dtd.data_template_id=" . $thold_item_data['data_template_id'] . "
+	    AND dtd.local_data_template_data_id=0
 		ORDER BY steps");
 
 	$reference_types = array();
@@ -643,10 +609,10 @@ function template_edit() {
 
 	print "<form name='THold' action='thold_templates.php' method='post'>\n";
 
-	html_start_box('', '100%', $colors['header'], '3', 'center', '');
+	html_start_box('', '100%', '', '3', 'center', '');
 	$form_array = array(
 		'general_header' => array(
-			'friendly_name' => 'Mandatory settings',
+			'friendly_name' => 'General Settings',
 			'method' => 'spacer',
 		),
 		'name' => array(
@@ -654,7 +620,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'default' => $thold_item_data['data_template_name'] . ' [' . $thold_item_data['data_source_name'] . ']',
-			'description' => 'Provide the THold Template a meaningful name.  Host Substritution and Data Query Substitution variables can be used as well as |graph_title| for the Graph Title',
+			'description' => 'Provide the Threshold Template a meaningful name.  Device Substritution and Data Query Substitution variables can be used as well as |graph_title| for the Graph Title',
 			'value' => isset($thold_item_data['name']) ? $thold_item_data['name'] : ''
 		),
 		'data_template_name' => array(
@@ -677,7 +643,7 @@ function template_edit() {
 			'friendly_name' => 'Enabled',
 			'method' => 'checkbox',
 			'default' => 'on',
-			'description' => 'Whether or not this threshold will be checked and alerted upon.',
+			'description' => 'Whether or not this Threshold will be checked and alerted upon.',
 			'value' => isset($thold_item_data['thold_enabled']) ? $thold_item_data['thold_enabled'] : ''
 		),
 		'exempt' => array(
@@ -689,7 +655,7 @@ function template_edit() {
 			),
 		'restored_alert' => array(
 			'friendly_name' => 'Disable Restoration Email',
-			'description' => 'If this is checked, Thold will not send an alert when the threshold has returned to normal status.',
+			'description' => 'If this is checked, Thold will not send an alert when the Threshold has returned to normal status.',
 			'method' => 'checkbox',
 			'default' => 'off',
 			'value' => isset($thold_item_data['restored_alert']) ? $thold_item_data['restored_alert'] : ''
@@ -712,11 +678,11 @@ function template_edit() {
 			'value' => isset($thold_item_data['repeat_alert']) ? $thold_item_data['repeat_alert'] : ''
 		),
 		'thold_warning_header' => array(
-			'friendly_name' => 'High / Low Warning Settings',
+			'friendly_name' => 'Warning - High / Low Settings',
 			'method' => 'spacer',
 		),
 		'thold_warning_hi' => array(
-			'friendly_name' => 'High Warning Threshold',
+			'friendly_name' => 'High Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
@@ -724,7 +690,7 @@ function template_edit() {
 			'value' => isset($thold_item_data['thold_warning_hi']) ? $thold_item_data['thold_warning_hi'] : ''
 		),
 		'thold_warning_low' => array(
-			'friendly_name' => 'Low Warning Threshold',
+			'friendly_name' => 'Low Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
@@ -732,14 +698,14 @@ function template_edit() {
 			'value' => isset($thold_item_data['thold_warning_low']) ? $thold_item_data['thold_warning_low'] : ''
 		),
 		'thold_warning_fail_trigger' => array(
-			'friendly_name' => 'Min Warning Trigger Duration',
+			'friendly_name' => 'Min Trigger Duration',
 			'method' => 'drop_array',
 			'array' => $alertarray,
 			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
 			'value' => isset($thold_item_data['thold_warning_fail_trigger']) ? $thold_item_data['thold_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'thold_header' => array(
-			'friendly_name' => 'High / Low Settings',
+			'friendly_name' => 'Alert - High / Low Settings',
 			'method' => 'spacer',
 		),
 		'thold_hi' => array(
@@ -766,11 +732,11 @@ function template_edit() {
 			'value' => isset($thold_item_data['thold_fail_trigger']) ? $thold_item_data['thold_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_header' => array(
-			'friendly_name' => 'Time Based Warning Settings',
+			'friendly_name' => 'Warning - Time Based Settings',
 			'method' => 'spacer',
 		),
 		'time_warning_hi' => array(
-			'friendly_name' => 'High Warning Threshold',
+			'friendly_name' => 'High Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
@@ -778,7 +744,7 @@ function template_edit() {
 			'value' => isset($thold_item_data['time_warning_hi']) ? $thold_item_data['time_warning_hi'] : ''
 		),
 		'time_warning_low' => array(
-			'friendly_name' => 'Low Warning Threshold',
+			'friendly_name' => 'Low Threshold',
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
@@ -786,7 +752,7 @@ function template_edit() {
 			'value' => isset($thold_item_data['time_warning_low']) ? $thold_item_data['time_warning_low'] : ''
 		),
 		'time_warning_fail_trigger' => array(
-			'friendly_name' => 'Warning Trigger Count',
+			'friendly_name' => 'Trigger Count',
 			'method' => 'textbox',
 			'max_length' => 5,
 			'size' => 10,
@@ -795,14 +761,14 @@ function template_edit() {
 			'value' => isset($thold_item_data['time_warning_fail_trigger']) ? $thold_item_data['time_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_fail_length' => array(
-			'friendly_name' => 'Warning Time Period Length',
+			'friendly_name' => 'Time Period Length',
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'description' => 'The amount of time in the past to check for threshold breaches.',
+			'description' => 'The amount of time in the past to check for Threshold breaches.',
 			'value' => isset($thold_item_data['time_warning_fail_length']) ? $thold_item_data['time_warning_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1)
 		),
 		'time_header' => array(
-			'friendly_name' => 'Time Based Settings',
+			'friendly_name' => 'Alert - Time Based Settings',
 			'method' => 'spacer',
 		),
 		'time_hi' => array(
@@ -833,7 +799,7 @@ function template_edit() {
 			'friendly_name' => 'Time Period Length',
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'description' => 'The amount of time in the past to check for threshold breaches.',
+			'description' => 'The amount of time in the past to check for Threshold breaches.',
 			'value' => isset($thold_item_data['time_fail_length']) ? $thold_item_data['time_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 2)
 		),
 		'baseline_header' => array(
@@ -852,7 +818,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 10,
-			'description' => 'Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.',
+			'description' => 'Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.',
 			'value' => isset($thold_item_data['bl_pct_up']) ? $thold_item_data['bl_pct_up'] : read_config_option("alert_bl_percent_def")
 		),
 		'bl_pct_down' => array(
@@ -860,7 +826,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 10,
-			'description' => 'Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.',
+			'description' => 'Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.',
 			'value' => isset($thold_item_data['bl_pct_down']) ? $thold_item_data['bl_pct_down'] : read_config_option("alert_bl_percent_def")
 		),
 		'bl_fail_trigger' => array(
@@ -904,7 +870,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'default' => '',
 			'description' => 'An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes
-			all functions below in addition to both Host and Data Query replacement expressions such as
+			all functions below in addition to both Device and Data Query replacement expressions such as
 			<span style="color:blue;">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style="color:blue;">|ds:dsname|</span>.  For example, <span style="color:blue;">|ds:traffic_in|</span> will get the current value
 			of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style="color:blue;">+, -, /, *, %, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>'.$replacements.$datasources,
 			'value' => isset($thold_item_data['expression']) ? $thold_item_data['expression'] : '',
@@ -974,7 +940,7 @@ function template_edit() {
 			'notify_accounts' => array(
 				'friendly_name' => 'Notify accounts',
 				'method' => 'drop_multi',
-				'description' => 'This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>',
+				'description' => 'This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>',
 				'array' => $send_notification_array,
 				'sql' => $sql,
 			),
@@ -1033,8 +999,8 @@ function template_edit() {
 	form_save_button('thold_templates.php?id=' . $id, 'save');
 
 	?>
-	<!-- Make it look intelligent :) -->
-	<script language="JavaScript">
+
+	<script type='text/javascript'>
 	function changeTholdType() {
 		type = document.getElementById('thold_type').value;
 		switch(type) {
@@ -1057,61 +1023,64 @@ function template_edit() {
 	}
 
 	function changeDataType() {
-		type = document.getElementById('data_type').value;
+		type = $('#data_type').val();
 		switch(type) {
 		case '0':
-			document.getElementById('row_cdef').style.display  = 'none';
-			document.getElementById('row_percent_ds').style.display  = 'none';
-			document.getElementById('row_expression').style.display  = 'none';
+			$('#row_cdef, #row_percent_ds, #row_expression').hide();
+
 			break;
 		case '1':
-			document.getElementById('row_cdef').style.display  = '';
-			document.getElementById('row_percent_ds').style.display  = 'none';
-			document.getElementById('row_expression').style.display  = 'none';
+			$('#row_cdef').show();
+			$('#row_percent_ds, #row_expression').hide();
+
 			break;
 		case '2':
-			document.getElementById('row_cdef').style.display  = 'none';
-			document.getElementById('row_percent_ds').style.display  = '';
-			document.getElementById('row_expression').style.display  = 'none';
+			$('#row_cdef').hide();
+			$('#row_percent_ds, #row_expression').show();
+
 			break;
 		case '3':
-			document.getElementById('row_expression').style.display  = '';
-			document.getElementById('row_cdef').style.display  = 'none';
-			document.getElementById('row_percent_ds').style.display  = 'none';
+			$('#row_cdef').hide();
+			$('#row_percent_ds').hide();
+			$('#row_expression').show();
 			break;
 		}
 	}
 
 	function thold_toggle_hilow(status) {
-		document.getElementById('row_thold_header').style.display  = status;
-		document.getElementById('row_thold_hi').style.display  = status;
-		document.getElementById('row_thold_low').style.display  = status;
-		document.getElementById('row_thold_fail_trigger').style.display  = status;
-		document.getElementById('row_thold_warning_header').style.display  = status;
-		document.getElementById('row_thold_warning_hi').style.display  = status;
-		document.getElementById('row_thold_warning_low').style.display  = status;
-		document.getElementById('row_thold_warning_fail_trigger').style.display  = status;
+		if (status == '') {
+			$('#row_thold_header, #row_thold_hi, #row_thold_low, #row_thold_fail_trigger').show();
+			$('#row_thold_warning_header, #row_thold_warning_hi').show();
+			$('#row_thold_warning_low, #row_thold_warning_fail_trigger').show();
+		}else{
+			$('#row_thold_header, #row_thold_hi, #row_thold_low, #row_thold_fail_trigger').hide();
+			$('#row_thold_warning_header, #row_thold_warning_hi').hide();
+			$('#row_thold_warning_low, #row_thold_warning_fail_trigger').hide();
+		}
 	}
 
 	function thold_toggle_baseline(status) {
-		document.getElementById('row_baseline_header').style.display  = status;
-		document.getElementById('row_bl_ref_time_range').style.display  = status;
-		document.getElementById('row_bl_pct_up').style.display  = status;
-		document.getElementById('row_bl_pct_down').style.display  = status;
-		document.getElementById('row_bl_fail_trigger').style.display  = status;
+		if (status == '') {
+			$('#row_baseline_header, #row_bl_ref_time_range').show();
+			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').show();
+		}else{
+			$('#row_baseline_header, #row_bl_ref_time_range').hide();
+			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').hide();
+		}
 	}
 
 	function thold_toggle_time(status) {
-		document.getElementById('row_time_header').style.display  = status;
-		document.getElementById('row_time_hi').style.display  = status;
-		document.getElementById('row_time_low').style.display  = status;
-		document.getElementById('row_time_fail_trigger').style.display  = status;
-		document.getElementById('row_time_fail_length').style.display  = status;
-		document.getElementById('row_time_warning_header').style.display  = status;
-		document.getElementById('row_time_warning_hi').style.display  = status;
-		document.getElementById('row_time_warning_low').style.display  = status;
-		document.getElementById('row_time_warning_fail_trigger').style.display  = status;
-		document.getElementById('row_time_warning_fail_length').style.display  = status;
+		if (status == '') {
+			$('#row_time_header, #row_time_hi, #row_time_low').show();
+			$('#row_time_fail_trigger, #row_time_fail_length, #row_time_warning_header').show();
+			$('#row_time_warning_hi, #row_time_warning_low').show();
+			$('#row_time_warning_fail_trigger, #row_time_warning_fail_length').show();
+		}else{
+			$('#row_time_header, #row_time_hi, #row_time_low').hide();
+			$('#row_time_fail_trigger, #row_time_fail_length, #row_time_warning_header').hide();
+			$('#row_time_warning_hi, #row_time_warning_low').hide();
+			$('#row_time_warning_fail_trigger, #row_time_warning_fail_length').hide();
+		}
 	}
 
 	changeTholdType ();
@@ -1135,128 +1104,123 @@ function template_edit() {
 }
 
 function template_request_validation() {
+    /* ================= input validation and session storage ================= */
+    $filters = array(
+		'rows' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
+		'page' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => '1'
+			),
+		'filter' => array(
+			'filter' => FILTER_CALLBACK,
+			'pageset' => true,
+			'default' => '',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_column' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'name',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'sort_direction' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'ASC',
+			'options' => array('options' => 'sanitize_search_string')
+			),
+		'associated' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'true',
+			'options' => array('options' => 'sanitize_search_string')
+			)
+	);
+
+	validate_store_request_vars($filters, 'sess_tt');
 	/* ================= input validation ================= */
-	input_validate_input_number(get_request_var_request("page"));
-	input_validate_input_number(get_request_var_request("rows"));
-	/* ==================================================== */
-
-	/* clean up search string */
-	if (isset($_REQUEST["filter"])) {
-		$_REQUEST["filter"] = sanitize_search_string(get_request_var("filter"));
-	}
-
-	/* clean up sort_column */
-	if (isset($_REQUEST["sort_column"])) {
-		$_REQUEST["sort_column"] = sanitize_search_string(get_request_var("sort_column"));
-	}
-
-	/* clean up search string */
-	if (isset($_REQUEST["sort_direction"])) {
-		$_REQUEST["sort_direction"] = sanitize_search_string(get_request_var("sort_direction"));
-	}
-
-	/* if the user pushed the 'clear' button */
-	if (isset($_REQUEST["clear"])) {
-		kill_session_var("sess_tt_current_page");
-		kill_session_var("sess_tt_filter");
-		kill_session_var("sess_tt_rows");
-		kill_session_var("sess_tt_sort_column");
-		kill_session_var("sess_tt_sort_direction");
-
-		unset($_REQUEST["page"]);
-		unset($_REQUEST["filter"]);
-		unset($_REQUEST["rows"]);
-		unset($_REQUEST["sort_column"]);
-		unset($_REQUEST["sort_direction"]);
-	} else {
-		/* if any of the settings changed, reset the page number */
-		$changed = 0;
-		$changed += thold_request_check_changed('filter', 'sess_tt_filter');
-		$changed += thold_request_check_changed('rows', 'sess_tt_rows');
-		$changed += thold_request_check_changed('sort_column', 'sess_tt_sort_column');
-		$changed += thold_request_check_changed('sort_direction', 'sess_tt_sort_direction');
-		if ($changed) {
-		$_REQUEST['page'] = '1';
-		}
-	}
-
-	/* remember these search fields in session vars so we don't have to keep passing them around */
-	load_current_session_value("page", "sess_tt_current_page", "1");
-	load_current_session_value("filter", "sess_tt_filter", "");
-	load_current_session_value("rows", "sess_tt_rows", read_config_option("alert_num_rows"));
-	load_current_session_value("sort_column", "sess_tt_sort_column", "name");
-	load_current_session_value("sort_direction", "sess_tt_sort_direction", "ASC");
-
-	/* if the number of rows is -1, set it to the default */
-	if ($_REQUEST["rows"] == -1) {
-		$_REQUEST["rows"] = read_config_option("alert_num_rows");
-		if ($_REQUEST["rows"] < 2) $_REQUEST["rows"] = 30;
-	}
 }
 
 function templates() {
-	global $colors, $thold_actions, $item_rows;
+	global $thold_actions, $item_rows;
 
 	template_request_validation();
 
-	?>
-	<script type="text/javascript">
-	<!--
-	function applyTHoldFilterChange(objForm) {
-		strURL = '?rows=' + objForm.rows.value;
-		strURL = strURL + '&filter=' + objForm.filter.value;
-		document.location = strURL;
+	/* if the number of rows is -1, set it to the default */
+	if (get_request_var('rows') == -1) {
+		$rows = read_config_option('num_rows_table');
+	}else{
+		$rows = get_request_var('rows');
 	}
 
-	function importTemplate() {
-		strURL = '?action=import';
-		document.location = strURL;
-	}
-	-->
-	</script>
-	<?php
-
-	html_start_box('<strong>Threshold Templates</strong>', '100%', $colors['header'], '3', 'center', 'thold_templates.php?action=add');
+	html_start_box('Threshold Templates', '100%', '', '3', 'center', 'thold_templates.php?action=add');
 
 	?>
-	<tr bgcolor='#<?php print $colors["panel"];?>' class='noprint'>
-		<td class='noprint'>
-			<form name='listthold' action='thold_templates.php'>
-			<table cellpadding='0' cellspacing='0'>
-				<tr class='noprint'>
-					<td width='20'>
-						&nbsp;Search:&nbsp;
+	<tr class='even'>
+		<td>
+			<form id='listthold' action='thold_templates.php'>
+			<table class='filterTable'>
+				<tr>
+					<td>
+						Search
 					</td>
-					<td width='144'>
-						<input type='text' name='filter' size='20' value='<?php print $_REQUEST["filter"];?>'>
+					<td>
+						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
-					<td width='1'>
-						&nbsp;Rows:&nbsp;
+					<td>
+						Rows
 					</td>
-					<td width='1'>
-						<select name='rows' onChange='applyTHoldFilterChange(document.listthold)'>
-							<option value='-1'<?php if ($_REQUEST["rows"] == "-1") {?> selected<?php }?>>Default</option>
+					<td>
+						<select id='rows' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>>Default</option>
 							<?php
 							if (sizeof($item_rows)) {
 							foreach ($item_rows as $key => $value) {
-								print "<option value='" . $key . "'"; if ($_REQUEST["rows"] == $key) { print " selected"; } print ">" . $value . "</option>\n";
+								print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
 							}
 							}
 							?>
 						</select>
 					</td>
-					<td width='1'>
-						<input type="submit" value="Go">
+					<td>
+						<input id='refresh' type='button' value='Go' onClick='applyFilter()'>
 					</td>
-					<td width='1'>
-						<input id="clear" name="clear" type="submit" value="Clear">
+					<td>
+						<input id='clear' type='button' value='Clear' onClick='clearFilter()'>
 					</td>
-					<td width='1'>
-						<input id="import" name="import" type="button" value="Import" onClick="importTemplate()">
+					<td>
+						<input id='import' type='button' value='Import' onClick='importTemplate()'>
 					</td>
 				</tr>
 			</table>
 			</form>
+			<script type='text/javascript'>
+
+			function applyFilter() {
+				strURL  = 'thold_templates.php?header=false&rows=' + $('#rows').val();
+				strURL += '&filter=' + $('#filter').val();
+				loadPageNoHeader(strURL);
+			}
+
+			function clearFilter() {
+				strURL  = 'thold_templates.php?header=false&clear=1';
+				loadPageNoHeader(strURL);
+			}
+
+			function importTemplate() {
+				strURL = 'thold_templates.php?header=false&action=import';
+				loadPageNoHeader(strURL);
+			}
+
+			$(function() {
+				$('#listthold').submit(function(event) {
+					event.preventDefault();
+					applyFilter();
+				});
+			});
+
+			</script>
 		</td>
 	</tr>
 	<?php
@@ -1264,117 +1228,95 @@ function templates() {
 	html_end_box();
 
 	$sql_where = '';
-	$limit = ' LIMIT ' . ($_REQUEST["rows"]*($_REQUEST['page']-1)) . "," . $_REQUEST["rows"];
-	$order = "ORDER BY " . $_REQUEST['sort_column'] . " " . $_REQUEST['sort_direction'];
-	if (strlen($_REQUEST["filter"])) {
-		$sql_where .= (strlen($sql_where) ? " AND": "WHERE") . " thold_template.name LIKE '%%" . $_REQUEST["filter"] . "%%'";
+
+	$limit = ' LIMIT ' . ($rows * (get_request_var('page')-1)) . ',' . $rows;
+	$order = 'ORDER BY ' . get_request_var('sort_column') . ' ' . get_request_var('sort_direction');
+
+	if (strlen(get_request_var('filter'))) {
+		$sql_where .= (strlen($sql_where) ? ' AND': 'WHERE') . " thold_template.name LIKE '%" . get_request_var('filter') . "%'";
 	}
 
-	define('MAX_DISPLAY_PAGES', 21);
-
-	$total_rows    = db_fetch_cell("SELECT count(*) FROM thold_template");
+	$total_rows    = db_fetch_cell('SELECT count(*) FROM thold_template');
 	$template_list = db_fetch_assoc("SELECT * FROM thold_template $sql_where $order $limit");
 
-	if ($total_rows) {
-		/* generate page list */
-		$url_page_select = get_page_list($_REQUEST["page"], MAX_DISPLAY_PAGES, $_REQUEST["rows"], $total_rows, "thold_templates.php?tab=thold");
+	form_start('thold_templates.php', 'chk');
 
-		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
-				<td colspan='10'>
-					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
-						<tr>
-							<td align='left' class='textHeaderDark'>
-								<strong>&lt;&lt; "; if ($_REQUEST["page"] > 1) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_templates.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]-1)) . "'>"; } $nav .= "Previous"; if ($_REQUEST["page"] > 1) { $nav .= "</a>"; } $nav .= "</strong>
-							</td>\n
-							<td align='center' class='textHeaderDark'>
-								Showing Rows " . (($_REQUEST["rows"]*($_REQUEST["page"]-1))+1) . " to " . ((($total_rows < read_config_option("num_rows_device")) || ($total_rows < ($_REQUEST["rows"]*$_REQUEST["page"]))) ? $total_rows : ($_REQUEST["rows"]*$_REQUEST["page"])) . " of $total_rows [$url_page_select]
-							</td>\n
-							<td align='right' class='textHeaderDark'>
-								<strong>"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "<a class='linkOverDark' href='" . htmlspecialchars("thold_templates.php?filter=" . $_REQUEST["filter"] . "&page=" . ($_REQUEST["page"]+1)) . "'>"; } $nav .= "Next"; if (($_REQUEST["page"] * $_REQUEST["rows"]) < $total_rows) { $nav .= "</a>"; } $nav .= " &gt;&gt;</strong>
-							</td>\n
-						</tr>
-					</table>
-				</td>
-			</tr>\n";
-	}else{
-		$nav = "<tr bgcolor='#" . $colors["header"] . "'>
-				<td colspan='10'>
-					<table width='100%' cellspacing='0' cellpadding='0' border='0'>
-						<tr>
-							<td align='center' class='textHeaderDark'>
-								No Rows Found
-							</td>\n
-						</tr>
-					</table>
-				</td>
-			</tr>\n";
-	}
+	html_start_box('', '100%', '', '3', 'center', '');
 
-    /* print checkbox form for validation */
-    print "<form name='chk' method='post' action='thold_templates.php'>\n";
-
-	html_start_box('' , '100%', $colors['header'], '3', 'center', '');
+	$nav = html_nav_bar('thold_templates.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, 'Templates', 'page', 'main');
 
 	print $nav;
 
-	html_header_sort_checkbox(array(
-		'name' => array('Name', 'ASC'),
+	$display_text = array(
+		'name'               => array('Name', 'ASC'),
 		'data_template_name' => array('Data Template', 'ASC'),
-		'data_source_name' => array('DS Name', 'ASC'),
-		'thold_type' => array('Type', 'ASC'),
-		'nosort1' => array('High/Up', ''),
-		'nosort2' => array('Low/Down', ''),
-		'nosort3' => array('Trigger', ''),
-		'nosort4' => array('Duration', ''),
-		'nosort5' => array('Repeat', '')), $_REQUEST['sort_column'], $_REQUEST['sort_direction'], false);
+		'data_source_name'   => array('DS Name', 'ASC'),
+		'thold_type'         => array('Type', 'ASC'),
+		'nosort1'            => array('High/Up', ''),
+		'nosort2'            => array('Low/Down', ''),
+		'nosort3'            => array('Trigger', ''),
+		'nosort4'            => array('Duration', ''),
+		'nosort5'            => array('Repeat', '')
+	);
+
+	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
 	$i = 0;
 	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 	if (sizeof($template_list)) {
 		foreach ($template_list as $template) {
 			switch ($template['thold_type']) {
-				case 0:					# hi/lo
-					$value_hi = thold_format_number($template['thold_hi']);
-					$value_lo = thold_format_number($template['thold_low']);
-					$value_trig = $template['thold_fail_trigger'];
-					$value_duration = '';
-					$value_warning_hi = thold_format_number($template['thold_warning_hi']);
-					$value_warning_lo = thold_format_number($template['thold_warning_low']);
-					$value_warning_trig = $template['thold_warning_fail_trigger'];
-					$value_warning_duration = '';
-					break;
-				case 1:					# baseline
-					$value_hi = $template['bl_pct_up'] . (strlen($template['bl_pct_up']) ? '%':'-');
-					$value_lo = $template['bl_pct_down'] . (strlen($template['bl_pct_down']) ? '%':'-');
-					$value_trig = $template['bl_fail_trigger'];
-					$step = db_fetch_cell("SELECT rrd_step
-						FROM data_template_data
-						WHERE data_template_id=" . $template['data_template_id'] . "
-						LIMIT 1");
-					$value_duration = $template['bl_ref_time_range'] / $step;;
-					break;
-				case 2:					#time
-					$value_hi = thold_format_number($template['time_hi']);
-					$value_lo = thold_format_number($template['time_low']);
-					$value_trig = $template['time_fail_trigger'];
-					$value_duration = $template['time_fail_length'];
-					break;
+			case 0:					# hi/lo
+				$value_hi               = thold_format_number($template['thold_hi']);
+				$value_lo               = thold_format_number($template['thold_low']);
+				$value_trig             = $template['thold_fail_trigger'];
+				$value_duration         = '';
+				$value_warning_hi       = thold_format_number($template['thold_warning_hi']);
+				$value_warning_lo       = thold_format_number($template['thold_warning_low']);
+				$value_warning_trig     = $template['thold_warning_fail_trigger'];
+				$value_warning_duration = '';
+
+				break;
+			case 1:					# baseline
+				$value_hi   = $template['bl_pct_up'] . (strlen($template['bl_pct_up']) ? '%':'-');
+				$value_lo   = $template['bl_pct_down'] . (strlen($template['bl_pct_down']) ? '%':'-');
+				$value_trig = $template['bl_fail_trigger'];
+
+				$step = db_fetch_cell("SELECT rrd_step
+					FROM data_template_data
+					WHERE data_template_id=" . $template['data_template_id'] . "
+					LIMIT 1");
+
+				$value_duration = $template['bl_ref_time_range'] / $step;;
+
+				break;
+			case 2:					#time
+				$value_hi       = thold_format_number($template['time_hi']);
+				$value_lo       = thold_format_number($template['time_low']);
+				$value_trig     = $template['time_fail_trigger'];
+				$value_duration = $template['time_fail_length'];
+
+				break;
 			}
-			form_alternate_row_color($colors["alternate"], $colors["light"], $i, 'line' . $template["id"]); $i++;
-			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('thold_templates.php?action=edit&id=' . $template['id']) . '">' . ($template['name'] == '' ? $template['data_template_name'] . ' [' . $template['data_source_name'] . ']' : $template['name']) . '</a>', $template["id"]);
-			form_selectable_cell($template['data_template_name'], $template["id"]);
-			form_selectable_cell($template['data_source_name'], $template["id"]);
-			form_selectable_cell($types[$template['thold_type']], $template["id"]);
-			form_selectable_cell($value_hi, $template["id"]);
-			form_selectable_cell($value_lo, $template["id"]);
+
+			$name = ($template['name'] == '' ? $template['data_template_name'] . ' [' . $template['data_source_name'] . ']' : $template['name']);
+			$name = filter_value($name, get_request_var('filter'));
+
+			form_alternate_row('line' . $template['id']);
+			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name  . '</a>', $template['id']);
+			form_selectable_cell(filter_value($template['data_template_name'], get_request_var('filter')), $template['id']);
+			form_selectable_cell($template['data_source_name'], $template['id']);
+			form_selectable_cell($types[$template['thold_type']], $template['id']);
+			form_selectable_cell($value_hi, $template['id']);
+			form_selectable_cell($value_lo, $template['id']);
 
 			$trigger =  plugin_thold_duration_convert($template['data_template_id'], $value_trig, 'alert', 'data_template_id');
-			form_selectable_cell((strlen($trigger) ? "<i>" . $trigger . "</i>":"-"), $template["id"]);
+			form_selectable_cell((strlen($trigger) ? '<i>' . $trigger . '</i>':'-'), $template['id']);
 
 			$duration = plugin_thold_duration_convert($template['data_template_id'], $value_duration, 'time', 'data_template_id');
-			form_selectable_cell((strlen($duration) ? $duration:"-"), $template["id"]);
+			form_selectable_cell((strlen($duration) ? $duration:'-'), $template['id']);
 			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id']);
-			form_checkbox_cell($template['data_template_name'], $template["id"]);
+			form_checkbox_cell($template['data_template_name'], $template['id']);
 			form_end_row();
 		}
 
@@ -1387,74 +1329,72 @@ function templates() {
 	/* draw the dropdown containing a list of available actions for this form */
 	draw_actions_dropdown($thold_actions);
 
-	print "</form>\n";
+	form_end();
 }
 
 function import() {
-	global $colors;
-
 	$form_data = array(
-		"import_file" => array(
-			"friendly_name" => "Import Template from Local File",
-			"description" => "If the XML file containing Threshold Template data is located on your local
-			machine, select it here.",
-			"method" => "file"
+		'import_file' => array(
+			'friendly_name' => 'Import Template from Local File',
+			'description' => 'If the XML file containing Threshold Template data is located on your local
+				machine, select it here.',
+			'method' => 'file'
 		),
-		"import_text" => array(
-			"method" => "textarea",
-			"friendly_name" => "Import Template from Text",
-			"description" => "If you have the XML file containing Threshold Template data as text, you can paste
-			it into this box to import it.",
-			"value" => "",
-			"default" => "",
-			"textarea_rows" => "10",
-			"textarea_cols" => "80",
-			"class" => "textAreaNotes"
+		'import_text' => array(
+			'method' => 'textarea',
+			'friendly_name' => 'Import Template from Text',
+			'description' => 'If you have the XML file containing Threshold Template data as text, you can paste
+				it into this box to import it.',
+			'value' => '',
+			'default' => '',
+			'textarea_rows' => '10',
+			'textarea_cols' => '80',
+			'class' => 'textAreaNotes'
 		)
 	);
 
 	?>
-	<form method="post" action="thold_templates.php" enctype="multipart/form-data">
+	<form method='post' action='thold_templates.php' enctype='multipart/form-data'>
 	<?php
 
-	if ((isset($_SESSION["import_debug_info"])) && (is_array($_SESSION["import_debug_info"]))) {
-		html_start_box("<strong>Import Results</strong>", "100%", $colors["header"], "3", "center", "");
+	if ((isset($_SESSION['import_debug_info'])) && (is_array($_SESSION['import_debug_info']))) {
+		html_start_box('Import Results', '100%', '', '3', 'center', '');
 
-		print "<tr><td>Cacti has imported the following items:</td></tr>";
-		foreach($_SESSION["import_debug_info"] as $line) {
-			print "<tr><td>" . $line . "</td></tr>";
+		print '<tr><td>Cacti has imported the following items:</td></tr>';
+		foreach($_SESSION['import_debug_info'] as $line) {
+			print '<tr><td>' . $line . '</td></tr>';
 		}
 
 		html_end_box();
 
-		kill_session_var("import_debug_info");
+		kill_session_var('import_debug_info');
 	}
 
-	html_start_box("<strong>Import Threshold Templates</strong>", "100%", $colors["header"], "3", "center", "");
+	html_start_box('Import Threshold Templates', '100%', '', '3', 'center', '');
 
 	draw_edit_form(array(
-		"config" => array("no_form_tag" => true),
-		"fields" => $form_data
+		'config' => array('no_form_tag' => true),
+		'fields' => $form_data
 		));
 
 	html_end_box();
-	form_hidden_box("save_component_import","1","");
-	form_save_button("", "import");
+	form_hidden_box('save_component_import','1','');
+	form_save_button('', 'import');
 }
 
 function template_import() {
-	include_once("./lib/xml.php");
+	include_once('./lib/xml.php');
 
-	if (trim($_POST["import_text"] != "")) {
+	if (trim(get_nfilter_request_var('import_text') != '')) {
 		/* textbox input */
-		$xml_data = $_POST["import_text"];
-	}elseif (($_FILES["import_file"]["tmp_name"] != "none") && ($_FILES["import_file"]["tmp_name"] != "")) {
+		$xml_data = get_nfilter_request_var('import_text');
+	}elseif (($_FILES['import_file']['tmp_name'] != 'none') && ($_FILES['import_file']['tmp_name'] != '')) {
 		/* file upload */
-		$fp = fopen($_FILES["import_file"]["tmp_name"],"r");
-		$xml_data = fread($fp,filesize($_FILES["import_file"]["tmp_name"]));
+		$fp = fopen($_FILES['import_file']['tmp_name'],'r');
+		$xml_data = fread($fp,filesize($_FILES['import_file']['tmp_name']));
 		fclose($fp);
 	}else{
-		header("Location: thold_templates.php"); exit;
+		header('Location: thold_templates.php'); exit;
 	}
 
 	/* obtain debug information if it's set */
@@ -1524,18 +1464,18 @@ function template_import() {
 			$id = sql_save($save, 'thold_template');
 
 			if ($id) {
-				$debug_data[] = "<span style='font-weight:bold;color:green;'>NOTE:</span> Threshold Template '<b>$tname</b>' " . ($save['id'] > 0 ? "Updated":"Imported") . "!";
+				$debug_data[] = "<span style='font-weight:bold;color:green;'>NOTE:</span> Threshold Template '<b>$tname</b>' " . ($save['id'] > 0 ? 'Updated':'Imported') . '!';
 			}else{
-				$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template '<b>$tname</b>' " . ($save['id'] > 0 ? "Update":"Import") . " Failed!";
+				$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template '<b>$tname</b>' " . ($save['id'] > 0 ? 'Update':'Import') . ' Failed!';
 			}
 		}
 	}
 	}
 
 	if(sizeof($debug_data) > 0) {
-		$_SESSION["import_debug_info"] = $debug_data;
+		$_SESSION['import_debug_info'] = $debug_data;
 	}
 
-	header("Location: thold_templates.php?action=import");
+	header('Location: thold_templates.php?action=import');
 }
 

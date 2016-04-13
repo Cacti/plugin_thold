@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2014 The Cacti Group                                      |
+ | Copyright (C) 2006-2016 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -224,7 +224,7 @@ function thold_upgrade_database () {
 		$data['columns'][] = array('name' => 'host_id', 'type' => 'int(12)', 'unsigned' => true, 'NULL' => false);
 		$data['primary'] = 'id';
 		$data['type'] = 'MyISAM';
-		$data['comment'] = 'Table of Hosts in a Down State';
+		$data['comment'] = 'Table of Devices in a Down State';
 		api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
 
 		db_execute("DELETE FROM settings WHERE name='thold_failed_hosts'");
@@ -468,7 +468,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(12)', 'unsigned' => true, 'NULL' => false);
 	$data['primary'] = 'id';
 	$data['type'] = 'MyISAM';
-	$data['comment'] = 'Table of Hosts in a Down State';
+	$data['comment'] = 'Table of Devices in a Down State';
 	api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
 
 	$data = array();

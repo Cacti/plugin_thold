@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2014 The Cacti Group                                      |
+ | Copyright (C) 2006-2016 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -22,7 +22,6 @@
  | http://www.cacti.net/                                                   |
  +-------------------------------------------------------------------------+
 */
-
 
 /* do NOT run this script through a web browser */
 if (!isset($_SERVER['argv'][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($_SERVER['REMOTE_ADDR'])) {
@@ -133,7 +132,7 @@ function thold_cli_autocreate_host ($id) {
 	if ($id < 1)
 		return;
 
-	echo "Auto Creating Thresholds for Host #$id\n";
+	echo "Auto Creating Thresholds for Device #$id\n";
 	autocreate($id);
 	if (isset($_SESSION['thold_message'])) {
 		echo strip_tags(str_replace(array('<br>', 'Created threshold'), array("\n", '     Created threshold'), $_SESSION['thold_message']));

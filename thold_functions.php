@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2014 The Cacti Group                                      |
+ | Copyright (C) 2006-2016 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -23,6 +23,34 @@
  +-------------------------------------------------------------------------+
 */
 
+function thold_tabs() {
+	global $config;
+
+	/* present a tabbed interface */
+	$tabs = array(
+		'thold'    => 'Thresholds',
+		'log'      => 'Log',
+		'hoststat' => 'Device Status'
+	);
+
+	$current_tab = get_nfilter_request_var('action');
+
+	/* draw the tabs */
+	print "<div class='tabs'><nav><ul>\n";
+
+	if (sizeof($tabs)) {
+		foreach (array_keys($tabs) as $tab_short_name) {
+			print "<li><a class='pic" . (($tab_short_name == $current_tab) ? " selected'" : "'") . 
+				" href='" . htmlspecialchars($config['url_path'] .
+				'plugins/thold/thold_graph.php?' .
+				'action=' . $tab_short_name) .
+				"'>" . $tabs[$tab_short_name] . "</a></li>\n";
+		}
+	}
+
+	print "</ul></nav></div>\n";
+}
+
 function thold_debug($txt) {
 	global $debug;
 
@@ -34,126 +62,95 @@ function thold_debug($txt) {
 function thold_initialize_rusage() {
 	global $thold_start_rusage;
 
-	if (function_exists("getrusage")) {
+	if (function_exists('getrusage')) {
 		$thold_start_rusage = getrusage();
 	}
 
-	$thold_start_rusage["microtime"] = microtime();
+	$thold_start_rusage['microtime'] = microtime();
 }
 
 function thold_display_rusage() {
-	global $colors, $thold_start_rusage;
+	global $thold_start_rusage;
 
-	if (function_exists("getrusage")) {
+	if (function_exists('getrusage')) {
 		$dat = getrusage();
 
-		html_start_box("", "100%", $colors["header"], "3", "left", "");
-		print "<tr>";
+		html_start_box('', '100%', '', '3', 'left', '');
+		print '<tr>';
 
 		if (!isset($thold_start_rusage)) {
 			print "<td colspan='10'>ERROR: Can not display RUSAGE please call thold_initialize_rusage first</td>";
 		} else {
-			$i_u_time = $thold_start_rusage["ru_utime.tv_sec"] + ($thold_start_rusage["ru_utime.tv_usec"] * 1E-6);
-			$i_s_time = $thold_start_rusage["ru_stime.tv_sec"] + ($thold_start_rusage["ru_stime.tv_usec"] * 1E-6);
-			$s_s      = $thold_start_rusage["ru_nswap"];
-			$s_pf     = $thold_start_rusage["ru_majflt"];
+			$i_u_time = $thold_start_rusage['ru_utime.tv_sec'] + ($thold_start_rusage['ru_utime.tv_usec'] * 1E-6);
+			$i_s_time = $thold_start_rusage['ru_stime.tv_sec'] + ($thold_start_rusage['ru_stime.tv_usec'] * 1E-6);
+			$s_s      = $thold_start_rusage['ru_nswap'];
+			$s_pf     = $thold_start_rusage['ru_majflt'];
 
-			list($micro,$seconds) = split(" ", $thold_start_rusage["microtime"]);
+			list($micro,$seconds) = split(' ', $thold_start_rusage['microtime']);
 			$start_time = $seconds + $micro;
-			list($micro,$seconds) = split(" ", microtime());
+			list($micro,$seconds) = split(' ', microtime());
 			$end_time   = $seconds + $micro;
 
-			$utime    = ($dat["ru_utime.tv_sec"] + ($dat["ru_utime.tv_usec"] * 1E-6)) - $i_u_time;
-			$stime    = ($dat["ru_stime.tv_sec"] + ($dat["ru_stime.tv_usec"] * 1E-6)) - $i_s_time;
-			$swaps    = $dat["ru_nswap"] - $s_s;
-			$pages    = $dat["ru_majflt"] - $s_pf;
+			$utime    = ($dat['ru_utime.tv_sec'] + ($dat['ru_utime.tv_usec'] * 1E-6)) - $i_u_time;
+			$stime    = ($dat['ru_stime.tv_sec'] + ($dat['ru_stime.tv_usec'] * 1E-6)) - $i_s_time;
+			$swaps    = $dat['ru_nswap'] - $s_s;
+			$pages    = $dat['ru_majflt'] - $s_pf;
 
 			print "<td colspan='10' width='1%' style='text-align:left;'>";
-			print "<b>Time:</b>&nbsp;" . round($end_time - $start_time,2) . " seconds, ";
-			print "<b>User:</b>&nbsp;" . round($utime,2) . " seconds, ";
-			print "<b>System:</b>&nbsp;" . round($stime,2) . " seconds, ";
-			print "<b>Swaps:</b>&nbsp;" . ($swaps) . " swaps, ";
-			print "<b>Pages:</b>&nbsp;" . ($pages) . " pages";
-			print "</td>";
+			print '<b>Time:</b>&nbsp;'   . round($end_time - $start_time,2) . ' seconds, ';
+			print '<b>User:</b>&nbsp;'   . round($utime,2) . ' seconds, ';
+			print '<b>System:</b>&nbsp;' . round($stime,2) . ' seconds, ';
+			print '<b>Swaps:</b>&nbsp;'  . ($swaps) . ' swaps, ';
+			print '<b>Pages:</b>&nbsp;'  . ($pages) . ' pages';
+			print '</td>';
 		}
 
-		print "</tr>";
+		print '</tr>';
 		html_end_box(false);
 	}
 
 }
 
 function thold_legend() {
-	global $colors, $thold_bgcolors;
+	global $thold_states;
 
-	html_start_box("", "100%", $colors["header"], "3", "center", "");
-	print "<tr>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['red'] . ";'><b>Alarm</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['orange'] . ";'><b>Baseline Alarm</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['warning'] . ";'><b>Warning</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['yellow'] . ";'><b>Notice</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['green'] . ";'><b>Ok</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_bgcolors['grey'] . ";'><b>Disabled</b></td>";
+	html_start_box('', '100%', '', '3', 'center', '');
+
+	print '<tr>';
+	foreach($thold_states as $index => $state) {
+		print "<td class='" . $state['class'] . "'>" . $state['display'] . "</td>";
+	}
 	print "</tr>";
+
 	html_end_box(false);
 }
 
 function host_legend() {
-	global $colors, $host_colors, $disabled_color, $notmon_color;
+	global $thold_host_states;
 
-	html_start_box("", "100%", $colors["header"], "3", "center", "");
-	print "<tr>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $host_colors[HOST_DOWN] . ";'><b>Down</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $host_colors[HOST_UP] . ";'><b>Up</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $host_colors[HOST_RECOVERING] . ";'><b>Recovering</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $host_colors[HOST_UNKNOWN] . ";'><b>Unknown</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $notmon_color . ";'><b>Not Monitored</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $disabled_color . ";'><b>Disabled</b></td>";
-	print "</tr>";
+	html_start_box('', '100%', '', '3', 'center', '');
+
+	print '<tr>';
+	foreach($thold_host_states as $index => $state) {
+		print "<td class='" . $state['class'] . "'>" . $state['display'] . "</td>";
+	}
+	print '</tr>';
+
 	html_end_box(false);
 }
 
 function log_legend() {
-	global $colors;
+	global $thold_log_states;
 
-	$thold_log = array(
-		'alarm'     => 'F21924',
-		'warning'   => 'FB4A14',
-		'retrigger' => 'FF7A30',
-		'trigger'   => 'FAFD9E',
-		'restoral'  => 'CCFFCC',
-		'restore'   => 'CDCFC4');
+	html_start_box('', '100%', '', '3', 'center', '');
 
-	$thold_status = array(
-		'0' => 'restore',
-		'1' => 'trigger',
-		'2' => 'retrigger',
-		'3' => 'warning',
-		'4' => 'alarm',
-		'5' => 'restoral');
-
-	html_start_box("", "100%", $colors["header"], "3", "center", "");
-	print "<tr>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_log['alarm'] . ";'><b>Alarm Notify</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_log['warning'] . ";'><b>Warning Notify</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_log['retrigger'] . ";'><b>Retrigger Notify</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_log['trigger'] . ";'><b>Trigger Event</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_log['restoral'] . ";'><b>Restoral Notify</b></td>";
-	print "<td width='10%' style='text-align:center;background-color:#" . $thold_log['restore'] . ";'><b>Restoral Event</b></td>";
+	print '<tr>';
+	foreach($thold_log_states as $index => $state) {
+		print "<td class='" . $state['class'] . "'>" . $state['display'] . "</td>";
+	}
 	print "</tr>";
+
 	html_end_box(false);
-}
-
-// Update automatically 'alert_base_url' if not set and if we are called from the browser
-// so that check-thold can pick it up
-if (isset($_SERVER['HTTP_HOST']) && isset($_SERVER['PHP_SELF']) && read_config_option('alert_base_url') == '') {
-	$dir = dirname($_SERVER['PHP_SELF']);
-	if (strpos($dir, '/plugins/') !== false)
-		$dir = substr($dir, 0, strpos($dir, '/plugins/'));
-	db_execute("replace into settings (name,value) values ('alert_base_url', '" . ("http://" . $_SERVER['HTTP_HOST'] . $dir . "/") . "')");
-
-	/* reset local settings cache so the user sees the new settings */
-	kill_session_var('sess_config_array');
 }
 
 function thold_expression_rpn_pop(&$stack) {
@@ -201,7 +198,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 		$v1 = thold_expression_rpn_pop($stack);
 
 		if (!$rpn_error) {
-			eval("\$v2 = " . $operator . "(" . $v1 . ");");
+			eval("\$v2 = " . $operator . '(' . $v1 . ');');
 			array_push($stack, $v2);
 		}
 		break;
@@ -521,7 +518,7 @@ function thold_expression_specialtype_rpn($operator, &$stack, $rra_id, $currentv
 	case 'ALL_DATA_SOURCES_DUPS':
 		$v1 = 0;
 		$all_dsns = array();
-		$all_dsns = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE local_data_id = " . $rra_id);
+		$all_dsns = db_fetch_assoc('SELECT data_source_name FROM data_template_rrd WHERE local_data_id = ' . $rra_id);
 		if (is_array($all_dsns)) {
 			foreach ($all_dsns as $dsn) {
 				$v1 += get_current_value($rra_id, $dsn['data_source_name'], 0);
@@ -631,8 +628,8 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	/* replace all data tabs in the rpn with values */
 	if (sizeof($expression)) {
 	foreach($expression as $key => $item) {
-		if (substr_count($item, "|ds:")) {
-			$dsname = strtolower(trim(str_replace("|ds:", "", $item), " |\n\r"));
+		if (substr_count($item, '|ds:')) {
+			$dsname = strtolower(trim(str_replace('|ds:', '', $item), " |\n\r"));
 
 			$thold_item = db_fetch_row("SELECT thold_data.id, thold_data.graph_id,
 				thold_data.percent_ds, thold_data.expression,
@@ -644,9 +641,9 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 				data_template_rrd.rrd_maximum
 				FROM thold_data
 				LEFT JOIN data_template_rrd
-				ON (data_template_rrd.id = thold_data.data_id)
+				ON data_template_rrd.id = thold_data.data_id
 				LEFT JOIN data_template_data
-				ON (data_template_data.local_data_id=thold_data.rra_id)
+				ON data_template_data.local_data_id=thold_data.rra_id
 				WHERE data_template_rrd.data_source_name='$dsname'
 				AND thold_data.rra_id=" . $thold['rra_id'], false);
 
@@ -656,10 +653,10 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 				$expression[$key] = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
 			} else {
 				$value = '';
-				if (api_plugin_is_enabled('dsstats') && read_config_option("dsstats_enable") == "on") {
-					$value = db_fetch_cell("SELECT calculated
+				if (api_plugin_is_enabled('dsstats') && read_config_option('dsstats_enable') == 'on') {
+					$value = db_fetch_cell('SELECT calculated
 						FROM data_source_stats_hourly_last
-						WHERE local_data_id=" . $thold['rrd_id'] . "
+						WHERE local_data_id=' . $thold['rrd_id'] . "
 						AND rrd_name='$dsname'");
 				}
 
@@ -672,11 +669,11 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 			}
 
 			if ($expression[$key] == '') $expression[$key] = '0';
-		}elseif (substr_count($item, "|")) {
-			$gl = db_fetch_row("SELECT * FROM graph_local WHERE id=" . $thold["graph_id"]);
+		}elseif (substr_count($item, '|')) {
+			$gl = db_fetch_row('SELECT * FROM graph_local WHERE id=' . $thold['graph_id']);
 
 			if (sizeof($gl)) {
-				$expression[$key] = thold_expand_title($thold, $gl["host_id"], $gl["snmp_query_id"], $gl["snmp_index"], $item);
+				$expression[$key] = thold_expand_title($thold, $gl['host_id'], $gl['snmp_query_id'], $gl['snmp_index'], $item);
 			} else {
 				$expression[$key] = '0';
 				cacti_log("WARNING: Query Replacement for '$item' Does Not Exist");
@@ -689,9 +686,9 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	}
 	}
 
-	//cacti_log(implode(",", array_keys($data_sources)));
-	//cacti_log(implode(",", $data_sources));
-	//cacti_log(implode(",", $expression));
+	//cacti_log(implode(',', array_keys($data_sources)));
+	//cacti_log(implode(',', $data_sources));
+	//cacti_log(implode(',', $expression));
 
 	/* now let's process the RPN stack */
 	$x = count($expression);
@@ -755,28 +752,28 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 }
 
 function thold_expand_title($thold, $host_id, $snmp_query_id, $snmp_index, $string) {
-	if (strstr($string, "|query_") && !empty($host_id)) {
-		$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option("max_data_query_field_length"));
+	if (strstr($string, '|query_') && !empty($host_id)) {
+		$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length'));
 
 		if ($value == '|query_ifHighSpeed|') {
-			$value = thold_substitute_snmp_query_data('|query_ifSpeed|', $host_id, $snmp_query_id, $snmp_index, read_config_option("max_data_query_field_length")) / 1000000;
+			$value = thold_substitute_snmp_query_data('|query_ifSpeed|', $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length')) / 1000000;
 		}
 
-		if (strstr($value, "|")) {
-			cacti_log("WARNING: Expression Replacment for '$string' in THold '" . $thold["thold_name"] . "' Failed, A Reindex may be required!");
+		if (strstr($value, '|')) {
+			cacti_log("WARNING: Expression Replacment for '$string' in THold '" . $thold['thold_name'] . "' Failed, A Reindex may be required!");
 			return '0';
 		}
 
 		return $value;
-	}elseif ((strstr($string, "|host_")) && (!empty($host_id))) {
-		return thold_substitute_host_data($string, "|", "|", $host_id);
+	}elseif ((strstr($string, '|host_')) && (!empty($host_id))) {
+		return thold_substitute_host_data($string, '|', '|', $host_id);
 	}else{
 		return $string;
 	}
 }
 
 function thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, $max_chars = 0) {
-	$field_name = trim(str_replace("|query_", "", $string),"| \n\r");
+	$field_name = trim(str_replace('|query_', '', $string),"| \n\r");
 	$snmp_cache_data = db_fetch_cell("SELECT field_value
 		FROM host_snmp_cache
 		WHERE host_id=$host_id
@@ -792,17 +789,17 @@ function thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $sn
 }
 
 function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $host_id) {
-	$field_name = trim(str_replace("|host_", "", $string),"| \n\r");
-	if (!isset($_SESSION["sess_host_cache_array"][$host_id])) {
+	$field_name = trim(str_replace('|host_', '', $string),"| \n\r");
+	if (!isset($_SESSION['sess_host_cache_array'][$host_id])) {
 		$host = db_fetch_row("select * from host where id=$host_id");
-		$_SESSION["sess_host_cache_array"][$host_id] = $host;
+		$_SESSION['sess_host_cache_array'][$host_id] = $host;
 	}
 
-	if (isset($_SESSION["sess_host_cache_array"][$host_id][$field_name])) {
-		return $_SESSION["sess_host_cache_array"][$host_id][$field_name];
+	if (isset($_SESSION['sess_host_cache_array'][$host_id][$field_name])) {
+		return $_SESSION['sess_host_cache_array'][$host_id][$field_name];
 	}
 
-	$string = str_replace($l_escape_string . "host_management_ip" . $r_escape_string, $_SESSION["sess_host_cache_array"][$host_id]["hostname"], $string);
+	$string = str_replace($l_escape_string . 'host_management_ip' . $r_escape_string, $_SESSION['sess_host_cache_array'][$host_id]['hostname'], $string);
 	$temp = api_plugin_hook_function('substitute_host_data', array('string' => $string, 'l_escape_string' => $l_escape_string, 'r_escape_string' => $r_escape_string, 'host_id' => $host_id));
 	$string = $temp['string'];
 
@@ -824,22 +821,157 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 	return $currentval;
 }
 
-function thold_user_auth_threshold ($rra) {
-	$current_user = db_fetch_row("select policy_graphs,policy_hosts,policy_graph_templates from user_auth where id=" . $_SESSION["sess_user_id"]);
-	$sql_where = 'WHERE ' . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
-	$graphs = db_fetch_assoc('SELECT DISTINCT graph_templates_graph.local_graph_id
-		FROM data_template_rrd
-		LEFT JOIN graph_templates_item ON graph_templates_item.task_item_id = data_template_rrd.id
-		LEFT JOIN graph_local ON (graph_local.id=graph_templates_item.local_graph_id)
-		LEFT JOIN host ON graph_local.host_id = host.id
-		LEFT JOIN graph_templates_graph ON graph_templates_graph.local_graph_id = graph_local.id
-		LEFT JOIN graph_templates ON (graph_templates.id=graph_templates_graph.graph_template_id)
-		LEFT JOIN user_auth_perms on ((graph_templates_graph.local_graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ') OR (host.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ') OR (graph_templates.id=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . "))
-		$sql_where
-		AND data_template_rrd.local_data_id = $rra");
-	if (!empty($graphs)) {
+function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit = '', &$total_rows = 0, $user = 0, $graph_id = 0) {
+	if ($limit != '') {
+		$limit = "LIMIT $limit";
+	}
+
+	if ($order_by != '') {
+		$order_by = "ORDER BY $order_by";
+	}
+
+	if ($graph_id > 0) {
+		$sql_where .= (strlen($sql_where) ? ' AND ':' ') . " gl.id=$graph_id";
+	}
+
+	if (strlen($sql_where)) {
+		$sql_where = "WHERE $sql_where";
+	}
+
+	$i          = 0;
+	$sql_having = '';
+	$sql_select = '';
+	$sql_join   = '';
+
+	if (read_config_option('auth_method') != 0) {
+		if ($user == 0) {
+			$user = $_SESSION['sess_user_id'];
+		}
+
+		if (read_config_option('graph_auth_method') == 1) {
+			$sql_operator = 'OR';
+		}else{
+			$sql_operator = 'AND';
+		}
+
+		/* get policies for all groups and user */
+		$policies   = db_fetch_assoc_prepared("SELECT uag.id, 
+			'group' AS type, policy_graphs, policy_hosts, policy_graph_templates 
+			FROM user_auth_group AS uag
+			INNER JOIN user_auth_group_members AS uagm
+			ON uag.id = uagm.group_id
+			WHERE uag.enabled = 'on' AND uagm.user_id = ?", array($user));
+
+		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type, policy_graphs, policy_hosts, policy_graph_templates FROM user_auth WHERE id = ?", array($user));
+		
+		foreach($policies as $policy) {
+			if ($policy['policy_graphs'] == 1) {
+				$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i IS NULL";
+			}else{
+				$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i=" . $policy['id'];
+			}
+			$sql_join   .= "LEFT JOIN user_auth_" . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1) ";
+			$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
+			$i++;
+
+			if ($policy['policy_hosts'] == 1) {
+				$sql_having .= " OR (user$i IS NULL";
+			}else{
+				$sql_having .= " OR (user$i=" . $policy['id'];
+			}
+			$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3) ";
+			$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
+			$i++;
+
+			if ($policy['policy_graph_templates'] == 1) {
+				$sql_having .= " $sql_operator user$i IS NULL))";
+			}else{
+				$sql_having .= " $sql_operator user$i=" . $policy['id'] . '))';
+			}
+			$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4) ";
+			$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
+			$i++;
+		}
+
+		$sql_having = "HAVING $sql_having";
+
+		$tholds = db_fetch_assoc("SELECT td.*, tt.name AS template_name,
+			$sql_select
+			FROM thold_data AS td
+			INNER JOIN graph_local AS gl 
+			ON gl.id=td.graph_id 
+			LEFT JOIN graph_templates AS gt 
+			ON gt.id=gl.graph_template_id 
+			LEFT JOIN host AS h 
+			ON h.id=gl.host_id 
+			LEFT JOIN thold_template AS tt
+			ON tt.id=td.template
+			$sql_join
+			$sql_where
+			$sql_having
+			$order_by
+			$limit");
+
+		$total_rows = db_fetch_cell("SELECT COUNT(*)
+			FROM (
+				SELECT $sql_select
+				FROM thold_data AS td
+				INNER JOIN graph_local AS gl 
+				ON gl.id=td.graph_id 
+				LEFT JOIN graph_templates AS gt 
+				ON gt.id=gl.graph_template_id 
+				LEFT JOIN host AS h 
+				ON h.id=gl.host_id 
+				LEFT JOIN thold_template AS tt
+				ON tt.id=td.template
+				$sql_join
+				$sql_where
+				$sql_having
+			) AS rower");
+	}else{
+		$tholds = db_fetch_assoc("SELECT td.*, tt.name AS template_name
+			FROM thold_data AS td
+			INNER JOIN graph_local AS gl 
+			ON gl.id=td.graph_id 
+			LEFT JOIN graph_templates AS gt 
+			ON gt.id=gl.graph_template_id 
+			LEFT JOIN host AS h 
+			ON h.id=gl.host_id 
+			LEFT JOIN thold_template AS tt
+			ON tt.id=td.template
+			$sql_where
+			$order_by
+			$limit");
+
+		$total_rows = db_fetch_cell("SELECT COUNT(*)
+			FROM thold_data AS td
+			INNER JOIN graph_local AS gl 
+			ON gl.id=td.graph_id 
+			LEFT JOIN graph_templates AS gt 
+			ON gt.id=gl.graph_template_id 
+			LEFT JOIN host AS h 
+			ON h.id=gl.host_id 
+			LEFT JOIN thold_template AS tt
+			ON tt.id=td.template
+			$sql_where");
+	}
+
+	return $tholds;
+}
+
+function thold_user_auth_threshold($rra) {
+	$graph = db_fetch_cell_prepared('SELECT gl.id
+		FROM data_template_rrd AS dtr
+		LEFT JOIN graph_templates_item AS gti
+		ON gti.task_item_id=dtr.id
+		LEFT JOIN graph_local AS gl
+		ON gl.id=gti.local_graph_id
+		WHERE dtr.local_data_id = ?', array($rra));
+
+	if (!empty($graph) && is_graph_allowed($graph)) {
 		return true;
 	}
+
 	return false;
 }
 
@@ -847,14 +979,14 @@ function thold_log($save){
 	$save['id'] = 0;
 	if (read_config_option('thold_log_cacti') == 'on') {
 		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $save['threshold_id'], FALSE);
-		$dt = db_fetch_cell('SELECT data_template_id FROM data_template_data WHERE local_data_id=' . $thold['rra_id'], FALSE);
+		$dt    = db_fetch_cell('SELECT data_template_id FROM data_template_data WHERE local_data_id=' . $thold['rra_id'], FALSE);
 		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $dt, FALSE);
-		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id'], FALSE);
+		$ds    = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id'], FALSE);
 
 		if ($save['status'] == 0) {
-			$desc = "Threshold Restored  ID: " . $save['threshold_id'];
+			$desc = 'Threshold Restored  ID: ' . $save['threshold_id'];
 		} else {
-			$desc = "Threshold Breached  ID: " . $save['threshold_id'];
+			$desc = 'Threshold Breached  ID: ' . $save['threshold_id'];
 		}
 		$desc .= '  DataTemplate: ' . $tname;
 		$desc .= '  DataSource: ' . $ds;
@@ -894,10 +1026,13 @@ function thold_log($save){
 		}
 	}
 	unset($save['emails']);
+
 	$id = sql_save($save, 'plugin_thold_log');
 }
 
 function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_id') {
+	global $config;
+
 	/* handle a null data value */
 	if ($data == '') {
 		return '';
@@ -905,19 +1040,7 @@ function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_
 
 	$step = db_fetch_cell("SELECT rrd_step FROM data_template_data WHERE $field=$rra");
 
-	if ($step == 60) {
-		$repeatarray = array(0 => 'Never', 1 => 'Every Minute', 2 => 'Every 2 Minutes', 3 => 'Every 3 Minutes', 4 => 'Every 4 Minutes', 5 => 'Every 5 Minutes', 10 => 'Every 10 Minutes', 15 => 'Every 15 Minutes', 20 => 'Every 20 Minutes', 30 => 'Every 30 Minutes', 45 => 'Every 45 Minutes', 60 => 'Every Hour', 120 => 'Every 2 Hours', 180 => 'Every 3 Hours', 240 => 'Every 4 Hours', 360 => 'Every 6 Hours', 480 => 'Every 8 Hours', 720 => 'Every 12 Hours', 1440 => 'Every Day', 2880 => 'Every 2 Days', 10080 => 'Every Week', 20160 => 'Every 2 Weeks', 43200 => 'Every Month');
-		$alertarray  = array(0 => 'Never', 1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 10 => '10 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
-		$timearray   = array(1 => '1 Minute', 2 => '2 Minutes', 3 => '3 Minutes', 4 => '4 Minutes', 5 => '5 Minutes', 10 => '10 Minutes', 15 => '15 Minutes', 20 => '20 Minutes', 30 => '30 Minutes', 45 => '45 Minutes', 60 => '1 Hour', 120 => '2 Hours', 180 => '3 Hours', 240 => '4 Hours', 360 => '6 Hours', 480 => '8 Hours', 720 => '12 Hours', 1440 => '1 Day', 2880 => '2 Days', 10080 => '1 Week', 20160 => '2 Weeks', 43200 => '1 Month');
-	} else if ($step == 300) {
-		$repeatarray = array(0 => 'Never', 1 => 'Every 5 Minutes', 2 => 'Every 10 Minutes', 3 => 'Every 15 Minutes', 4 => 'Every 20 Minutes', 6 => 'Every 30 Minutes', 8 => 'Every 45 Minutes', 12 => 'Every Hour', 24 => 'Every 2 Hours', 36 => 'Every 3 Hours', 48 => 'Every 4 Hours', 72 => 'Every 6 Hours', 96 => 'Every 8 Hours', 144 => 'Every 12 Hours', 288 => 'Every Day', 576 => 'Every 2 Days', 2016 => 'Every Week', 4032 => 'Every 2 Weeks', 8640 => 'Every Month');
-		$alertarray  = array(0 => 'Never', 1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 5 => '25 Minutes', 6 => '30 Minutes', 7 => '35 Minutes', 8 => '40 Minutes', 12 => '1 Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
-		$timearray   = array(1 => '5 Minutes', 2 => '10 Minutes', 3 => '15 Minutes', 4 => '20 Minutes', 6 => '30 Minutes', 8 => '45 Minutes', 12 => '1 Hour', 24 => '2 Hours', 36 => '3 Hours', 48 => '4 Hours', 72 => '6 Hours', 96 => '8 Hours', 144 => '12 Hours', 288 => '1 Day', 576 => '2 Days', 2016 => '1 Week', 4032 => '2 Weeks', 8640 => '1 Month');
-	} else {
-		$repeatarray = array(0 => 'Never', 1 => 'Every Polling', 2 => 'Every 2 Pollings', 3 => 'Every 3 Pollings', 4 => 'Every 4 Pollings', 6 => 'Every 6 Pollings', 8 => 'Every 8 Pollings', 12 => 'Every 12 Pollings', 24 => 'Every 24 Pollings', 36 => 'Every 36 Pollings', 48 => 'Every 48 Pollings', 72 => 'Every 72 Pollings', 96 => 'Every 96 Pollings', 144 => 'Every 144 Pollings', 288 => 'Every 288 Pollings', 576 => 'Every 576 Pollings', 2016 => 'Every 2016 Pollings');
-		$alertarray  = array(0 => 'Never', 1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
-		$timearray   = array(1 => '1 Polling', 2 => '2 Pollings', 3 => '3 Pollings', 4 => '4 Pollings', 6 => '6 Pollings', 8 => '8 Pollings', 12 => '12 Pollings', 24 => '24 Pollings', 36 => '36 Pollings', 48 => '48 Pollings', 72 => '72 Pollings', 96 => '96 Pollings', 144 => '144 Pollings', 288 => '288 Pollings', 576 => '576 Pollings', 2016 => '2016 Pollings');
-	}
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	switch ($type) {
 	case 'repeat':
@@ -930,11 +1053,13 @@ function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_
 		return (isset($timearray[$data]) ? $timearray[$data] : $data);
 		break;
 	}
+
 	return $data;
 }
 
 function plugin_thold_log_changes($id, $changed, $message = array()) {
 	global $config;
+
 	$desc = '';
 
 	if (read_config_option('thold_log_changes') != 'on') {
@@ -952,69 +1077,82 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 	case 'enabled_threshold':
 		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $id, FALSE);
 		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template']);
-		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
-		$desc = "Enabled Threshold  User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
+		$ds    = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
+
+		$desc  = "Enabled Threshold  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id']) . "'>$id</a>";
+
 		$desc .= '  DataTemplate: ' . $tname;
 		$desc .= '  DataSource: ' . $ds;
 		break;
 	case 'disabled_threshold':
 		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $id, FALSE);
 		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template']);
-		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
-		$desc = "Disabled Threshold  User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
+		$ds    = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
+
+		$desc  = "Disabled Threshold  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id']) . "'>$id</a>";
+
 		$desc .= '  DataTemplate: ' . $tname;
 		$desc .= '  DataSource: ' . $ds;
 		break;
 	case 'reapply_name':
 		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id=' . $id, FALSE);
 		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template']);
-		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
-		$desc = "Reapply Threshold Name User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
+		$ds    = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
+
+		$desc  = "Reapply Threshold Name User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id']) . "'>$id</a>";
+
 		$desc .= '  DataTemplate: ' . $tname;
 		$desc .= '  DataSource: ' . $ds;
 		break;
 	case 'enabled_host':
 		$host = db_fetch_row('SELECT * FROM host WHERE id = ' . $id);
-		$desc = "User: $user  Enabled Host[$id] - " . $host['description'] . ' (' . $host['hostname'] . ')';
+		$desc = "User: $user  Enabled Device[$id] - " . $host['description'] . ' (' . $host['hostname'] . ')';
 		break;
 	case 'disabled_host':
 		$host = db_fetch_row('SELECT * FROM host WHERE id = ' . $id);
-		$desc = "User: $user  Disabled Host[$id] - " . $host['description'] . ' (' . $host['hostname'] . ')';
+		$desc = "User: $user  Disabled Device[$id] - " . $host['description'] . ' (' . $host['hostname'] . ')';
 		break;
 	case 'auto_created':
 		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $id, FALSE);
 		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template']);
-		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
-		$desc = "Auto-created Threshold  User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
+		$ds    = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
+
+		$desc  = "Auto-created Threshold  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id']) . "'>$id</a>";
+
 		$desc .= '  DataTemplate: ' . $tname;
 		$desc .= '  DataSource: ' . $ds;
 		break;
 	case 'created':
 		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $id, FALSE);
 		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template']);
-		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
-		$desc = "Created Threshold  User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
+		$ds    = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
+
+		$desc  = "Created Threshold  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id']) . "'>$id</a>";
+
 		$desc .= '  DataTemplate: ' . $tname;
 		$desc .= '  DataSource: ' . $ds;
 		break;
 	case 'deleted':
 		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $id, FALSE);
 		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template']);
-		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
-		$desc = "Deleted Threshold  User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
+		$ds    = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
+
+		$desc  = "Deleted Threshold  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id']) . "'>$id</a>";
+
 		$desc .= '  DataTemplate: ' . $tname;
 		$desc .= '  DataSource: ' . $ds;
 		break;
 	case 'deleted_template':
 		$thold = db_fetch_row('SELECT * FROM thold_template WHERE id = ' . $id, FALSE);
-		$desc = "Deleted Template  User: $user  ID: $id";
+
+		$desc  = "Deleted Template  User: $user  ID: $id";
 		$desc .= '  DataTemplate: ' . $thold['data_template_name'];
 		$desc .= '  DataSource: ' . $thold['data_source_name'];
 		break;
 	case 'modified':
 		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $id, FALSE);
 
-		$rows = db_fetch_assoc('SELECT plugin_thold_contacts.data
+		$rows  = db_fetch_assoc('SELECT plugin_thold_contacts.data
 			FROM plugin_thold_contacts, plugin_thold_threshold_contact
 			WHERE plugin_thold_contacts.id=plugin_thold_threshold_contact.contact_id
 			AND plugin_thold_threshold_contact.thold_id=' . $id);
@@ -1035,7 +1173,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			}
 		}
 
-		$alert_emails .= (strlen($alert_emails) ? ",":"") . get_thold_notification_emails($thold['notify_alert']);
+		$alert_emails .= (strlen($alert_emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert']);
 
 		$warning_emails = '';
 		if (read_config_option('thold_disable_legacy') != 'on') {
@@ -1043,9 +1181,9 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		}
 
 		if ($message['id'] > 0) {
-			$desc = "Modified Threshold  User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
+			$desc = "Modified Threshold  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id']) . "'>$id</a>";
 		} else {
-			$desc = "Created Threshold  User: $user  ID:  <a href='" . $config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id'] . "'>$id</a>";
+			$desc = "Created Threshold  User: $user  ID:  <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold.php?rra=" . $thold['rra_id'] . "&view_rrd=" . $thold['data_id']) . "'>$id</a>";
 		}
 
 		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template']);
@@ -1120,7 +1258,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			}
 		}
 
-		$alert_emails .= (strlen($alert_emails) ? ",":"") . get_thold_notification_emails($thold['notify_alert']);
+		$alert_emails .= (strlen($alert_emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert']);
 
 		$warning_emails = '';
 		if (read_config_option('thold_disable_legacy') != 'on') {
@@ -1128,9 +1266,9 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		}
 
 		if ($message['id'] > 0) {
-			$desc = "Modified Template  User: $user  ID: <a href='" . $config['url_path'] . "plugins/thold/thold_templates.php?action=edit&id=$id'>$id</a>";
+			$desc = "Modified Template  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold_templates.php?action=edit&id=$id") . "'>$id</a>";
 		} else {
-			$desc = "Created Template  User: $user  ID:  <a href='" . $config['url_path'] . "plugins/thold/thold_templates.php?action=edit&id=$id'>$id</a>";
+			$desc = "Created Template  User: $user  ID:  <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold_templates.php?action=edit&id=$id") . "'>$id</a>";
 		}
 
 		$desc .= '  DataTemplate: ' . $thold['data_template_name'];
@@ -1222,6 +1360,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	/* don't alert for this host if it's selected for maintenance */
 	if (api_plugin_is_enabled('maint') || in_array('maint', $plugins)) {
 		include_once($config["base_path"] . '/plugins/maint/functions.php');
+
 		if (plugin_maint_check_cacti_host ($item['host_id'])) {
 			thold_debug('Threshold checking is disabled by maintenance schedule');
 			return;
@@ -1230,10 +1369,10 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 	$graph_id = $item['graph_id'];
 
-	/* only alert if Host is in UP mode (not down, unknown, or recovering) */
+	/* only alert if Device is in UP mode (not down, unknown, or recovering) */
 	$h = db_fetch_row('SELECT * FROM host WHERE id=' . $item['host_id']);
 	if ($h['status'] != 3) {
-		thold_debug('Threshold checking halted by Host Status (' . $h['status'] . ')' );
+		thold_debug('Threshold checking halted by Device Status (' . $h['status'] . ')' );
 		return;
 	}
 
@@ -1252,7 +1391,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$realert = read_config_option('alert_repeat');
 	$alert_trigger = read_config_option('alert_trigger');
 	$alert_bl_trigger = read_config_option('alert_bl_trigger');
-	$httpurl = read_config_option('alert_base_url');
+	$httpurl = read_config_option('base_url');
 	$thold_show_datasource = read_config_option('thold_show_datasource');
 	$thold_send_text_only = read_config_option('thold_send_text_only');
 	$thold_alert_text = read_config_option('thold_alert_text');
@@ -1273,11 +1412,11 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 	/* make sure the alert text has been set */
 	if (!isset($thold_alert_text) || $thold_alert_text == '') {
-		$thold_alert_text = "<html><body>An alert has been issued that requires your attention.<br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>";
+		$thold_alert_text = "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>";
 	}
 	/* make sure the warning text has been set */
 	if (!isset($thold_warning_text) || $thold_warning_text == '') {
-		$thold_warning_text = "<html><body>A warning has been issued that requires your attention.<br><br><strong>Host</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>";
+		$thold_warning_text = "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>";
 	}
 
 	$hostname = db_fetch_row('SELECT description, hostname from host WHERE id = ' . $item['host_id']);
@@ -1304,14 +1443,14 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		}
 	}
 
-	$alert_emails .= (strlen($alert_emails) ? ",":"") . get_thold_notification_emails($item['notify_alert']);
+	$alert_emails .= (strlen($alert_emails) ? ',':'') . get_thold_notification_emails($item['notify_alert']);
 
 	$warning_emails = '';
 	if (read_config_option('thold_disable_legacy') != 'on') {
 		$warning_emails = $item['notify_warning_extra'];
 	}
 
-	$warning_emails .= (strlen($warning_emails) ? ",":"") . get_thold_notification_emails($item['notify_warning']);
+	$warning_emails .= (strlen($warning_emails) ? ',':'') . get_thold_notification_emails($item['notify_warning']);
 
 	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 
@@ -1320,7 +1459,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$thold_alert_text = str_replace('<HOSTNAME>', $hostname['hostname'], $thold_alert_text);
 	$thold_alert_text = str_replace('<TIME>', time(), $thold_alert_text);
 	$thold_alert_text = str_replace('<GRAPHID>', $graph_id, $thold_alert_text);
-	$thold_alert_text = str_replace('<URL>', "<a href='$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1'>$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1</a>", $thold_alert_text);
+	$thold_alert_text = str_replace('<URL>', "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1") . "'>$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1</a>", $thold_alert_text);
 	$thold_alert_text = str_replace('<CURRENTVALUE>', $currentval, $thold_alert_text);
 	$thold_alert_text = str_replace('<THRESHOLDNAME>', $item['name'], $thold_alert_text);
 	$thold_alert_text = str_replace('<DSNAME>', $name, $thold_alert_text);
@@ -1337,7 +1476,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	$thold_warning_text = str_replace('<HOSTNAME>', $hostname['hostname'], $thold_warning_text);
 	$thold_warning_text = str_replace('<TIME>', time(), $thold_warning_text);
 	$thold_warning_text = str_replace('<GRAPHID>', $graph_id, $thold_warning_text);
-	$thold_warning_text = str_replace('<URL>', "<a href='$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1'>$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1</a>", $thold_warning_text);
+	$thold_warning_text = str_replace('<URL>', "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1") . "'>$httpurl/graph.php?local_graph_id=$graph_id&rra_id=1</a>", $thold_warning_text);
 	$thold_warning_text = str_replace('<CURRENTVALUE>', $currentval, $thold_warning_text);
 	$thold_warning_text = str_replace('<THRESHOLDNAME>', $item['name'], $thold_warning_text);
 	$thold_warning_text = str_replace('<DSNAME>', $name, $thold_warning_text);
@@ -1351,38 +1490,38 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 	// Do some replacement of variables
 	$thold_snmp_data = array(
-		"eventDateRFC822"			=> date(DATE_RFC822),
-		"eventClass"				=> 3,						// default - see CACTI-THOLD-MIB
-		"eventSeverity"				=> 3,						// default - see CACTI-THOLD-MIB
-		"eventCategory"				=> ($item['snmp_event_category'] ? $item['snmp_event_category'] : ''),
-		"eventSource"				=> $item['name'],
-		"eventDescription"			=> '',						// default - see CACTI-THOLD-MIB
-		"eventDevice"				=> $hostname['hostname'],
-		"eventDeviceIp"				=> gethostbyname($hostname['hostname']),
-		"eventDataSource"			=> $name,
-		"eventCurrentValue"			=> $currentval,
-		"eventHigh"					=> ($item['thold_type'] == 0 ? $item['thold_hi'] : ($item['thold_type'] == 2 ? $item['time_warning_hi'] : '')),
-		"eventLow"					=> ($item['thold_type'] == 0 ? $item['thold_low'] : ($item['thold_type'] == 2 ? $item['time_warning_low'] : '')),
-		"eventThresholdType"		=> $types[$item['thold_type']] + 1,
-		"eventNotificationType"		=> 5,						// default - see CACTI-THOLD-MIB
-		"eventStatus"				=> 3,						// default - see CACTI-THOLD-MIB
-		"eventRealertStatus"		=> 1,						// default - see CACTI-THOLD-MIB
-		"eventFailDuration"			=> 0,						// default - see CACTI-THOLD-MIB
-		"eventFailCount"			=> 0,						// default - see CACTI-THOLD-MIB
-		"eventFailDurationTrigger"	=> 0,						// default - see CACTI-THOLD-MIB
-		"eventFailCountTrigger"		=> 0,						// default - see CACTI-THOLD-MIB
+		'eventDateRFC822'			=> date(DATE_RFC822),
+		'eventClass'				=> 3,						// default - see CACTI-THOLD-MIB
+		'eventSeverity'				=> 3,						// default - see CACTI-THOLD-MIB
+		'eventCategory'				=> ($item['snmp_event_category'] ? $item['snmp_event_category'] : ''),
+		'eventSource'				=> $item['name'],
+		'eventDescription'			=> '',						// default - see CACTI-THOLD-MIB
+		'eventDevice'				=> $hostname['hostname'],
+		'eventDeviceIp'				=> gethostbyname($hostname['hostname']),
+		'eventDataSource'			=> $name,
+		'eventCurrentValue'			=> $currentval,
+		'eventHigh'					=> ($item['thold_type'] == 0 ? $item['thold_hi'] : ($item['thold_type'] == 2 ? $item['time_warning_hi'] : '')),
+		'eventLow'					=> ($item['thold_type'] == 0 ? $item['thold_low'] : ($item['thold_type'] == 2 ? $item['time_warning_low'] : '')),
+		'eventThresholdType'		=> $types[$item['thold_type']] + 1,
+		'eventNotificationType'		=> 5,						// default - see CACTI-THOLD-MIB
+		'eventStatus'				=> 3,						// default - see CACTI-THOLD-MIB
+		'eventRealertStatus'		=> 1,						// default - see CACTI-THOLD-MIB
+		'eventFailDuration'			=> 0,						// default - see CACTI-THOLD-MIB
+		'eventFailCount'			=> 0,						// default - see CACTI-THOLD-MIB
+		'eventFailDurationTrigger'	=> 0,						// default - see CACTI-THOLD-MIB
+		'eventFailCountTrigger'		=> 0,						// default - see CACTI-THOLD-MIB
 	);
-	$thold_snmp_event_description = str_replace('<THRESHOLDNAME>', $thold_snmp_data["eventSource"], $thold_snmp_event_description);
-	$thold_snmp_event_description = str_replace('<HOSTNAME>', $thold_snmp_data["eventDevice"], $thold_snmp_event_description);
-	$thold_snmp_event_description = str_replace('<HOSTIP>', $thold_snmp_data["eventDeviceIp"], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<THRESHOLDNAME>', $thold_snmp_data['eventSource'], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<HOSTNAME>', $thold_snmp_data['eventDevice'], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<HOSTIP>', $thold_snmp_data['eventDeviceIp'], $thold_snmp_event_description);
 	$thold_snmp_event_description = str_replace('<TEMPLATE_ID>', ($item['template'] ? $item['template'] : 'none'), $thold_snmp_event_description);
 	$thold_snmp_event_description = str_replace('<TEMPLATE_NAME>', (isset($item_template['name']) ? $item_template['name'] : 'none'), $thold_snmp_event_description);
-	$thold_snmp_event_description = str_replace('<THR_TYPE>', $thold_snmp_data["eventThresholdType"], $thold_snmp_event_description);
-	$thold_snmp_event_description = str_replace('<DS_NAME>', $thold_snmp_data["eventDataSource"], $thold_snmp_event_description);
-	$thold_snmp_event_description = str_replace('<HI>', $thold_snmp_data["eventHigh"], $thold_snmp_event_description);
-	$thold_snmp_event_description = str_replace('<LOW>', $thold_snmp_data["eventLow"], $thold_snmp_event_description);
-	$thold_snmp_event_description = str_replace('<EVENT_CATEGORY>', $thold_snmp_data["eventCategory"], $thold_snmp_event_description);
-	$thold_snmp_data["eventDescription"] = $thold_snmp_event_description;
+	$thold_snmp_event_description = str_replace('<THR_TYPE>', $thold_snmp_data['eventThresholdType'], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<DS_NAME>', $thold_snmp_data['eventDataSource'], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<HI>', $thold_snmp_data['eventHigh'], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<LOW>', $thold_snmp_data['eventLow'], $thold_snmp_event_description);
+	$thold_snmp_event_description = str_replace('<EVENT_CATEGORY>', $thold_snmp_data['eventCategory'], $thold_snmp_event_description);
+	$thold_snmp_data['eventDescription'] = $thold_snmp_event_description;
 
 	$msg = $thold_alert_text;
 	$warn_msg = $thold_warning_text;
@@ -1390,10 +1529,10 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	if ($thold_send_text_only == 'on') {
 		$file_array = '';
 	} else {
-		$file_array = array(0 => array('local_graph_id' => $graph_id, 'rra_id' => 0, 'file' => "$httpurl/graph_image.php?local_graph_id=$graph_id&rra_id=0&view_type=tree",'mimetype'=>'image/png','filename'=>$graph_id));
+		$file_array = array(0 => array('local_graph_id' => $graph_id, 'rra_id' => 0, 'file' => "$httpurl/graph_image.php?local_graph_id=$graph_id&rra_id=0&view_type=tree", 'mimetype' => 'image/png', 'filename' => $graph_id));
 	}
 
-	$url = $httpurl . "/graph.php?local_graph_id=" . $graph_id ."&rra_id=all";
+	$url = $httpurl . '/graph.php?local_graph_id=' . $graph_id . '&rra_id=all';
 
 	switch ($item['thold_type']) {
 	case 0:	/* hi/low */
@@ -1422,7 +1561,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				$notify = true;
 			}
 
-			$subject = "ALERT: " . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $item['thold_hi'] : $item['thold_low']) . " with $currentval";
+			$subject = 'ALERT: ' . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $item['thold_hi'] : $item['thold_low']) . " with $currentval";
 			if ($notify) {
 				thold_debug('Alerting is necessary');
 
@@ -1435,19 +1574,19 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				}
 
 				if ($thold_snmp_traps) {
-					$thold_snmp_data["eventClass"] = 3;
-					$thold_snmp_data["eventSeverity"] = $item['snmp_event_severity'];
-					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
-					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($breach_up ? 3:2) :1);
-					$thold_snmp_data["eventNotificationType"] = ($ra ? ST_NOTIFYRA:ST_NOTIFYAL)+1;
-					$thold_snmp_data["eventFailCount"] = $item['thold_fail_count'];
-					$thold_snmp_data["eventFailDuration"] = $item['thold_fail_count'] * $cacti_polling_interval;
-					$thold_snmp_data["eventFailDurationTrigger"] = $trigger * $cacti_polling_interval;
+					$thold_snmp_data['eventClass'] = 3;
+					$thold_snmp_data['eventSeverity'] = $item['snmp_event_severity'];
+					$thold_snmp_data['eventStatus'] = $item['thold_alert']+1;
+					$thold_snmp_data['eventRealertStatus'] = ($ra ? ($breach_up ? 3:2) :1);
+					$thold_snmp_data['eventNotificationType'] = ($ra ? ST_NOTIFYRA:ST_NOTIFYAL)+1;
+					$thold_snmp_data['eventFailCount'] = $item['thold_fail_count'];
+					$thold_snmp_data['eventFailDuration'] = $item['thold_fail_count'] * $cacti_polling_interval;
+					$thold_snmp_data['eventFailDurationTrigger'] = $trigger * $cacti_polling_interval;
 
-					$thold_snmp_data["eventDescription"] = str_replace(
+					$thold_snmp_data['eventDescription'] = str_replace(
 					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
-					    array($thold_snmp_data["eventFailCount"], $thold_snmp_data["eventFailDuration"]),
-					    $thold_snmp_data["eventDescription"]
+					    array($thold_snmp_data['eventFailCount'], $thold_snmp_data['eventFailDuration']),
+					    $thold_snmp_data['eventDescription']
 					);
 					thold_snmptrap($thold_snmp_data);
 				}
@@ -1464,9 +1603,9 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					'emails' => $alert_emails));
 			}
 
-			db_execute("UPDATE thold_data
-				SET thold_alert=" . $item['thold_alert'] . ",
-				thold_fail_count=" . $item['thold_fail_count'] . ",
+			db_execute('UPDATE thold_data
+				SET thold_alert=' . $item['thold_alert'] . ',
+				thold_fail_count=' . $item['thold_fail_count'] . ",
 				thold_warning_fail_count=0
 				WHERE rra_id=$rra_id AND data_id=" . $item['data_id']);
 		} elseif ($warning_breach_up || $warning_breach_down) {
@@ -1484,7 +1623,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				$notify = true;
 			}
 
-			$subject = ($notify ? "WARNING: ":"TRIGGER: ") . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $item['thold_warning_hi'] : $item['thold_warning_low']) . " with $currentval";
+			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $item['thold_warning_hi'] : $item['thold_warning_low']) . " with $currentval";
 
 			if ($notify) {
 				thold_debug('Alerting is necessary');
@@ -1498,19 +1637,19 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				}
 
 				if ($thold_snmp_traps && $thold_snmp_warning_traps) {
-					$thold_snmp_data["eventClass"] = 2;
-					$thold_snmp_data["eventSeverity"] = $item['snmp_event_warning_severity'];
-					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
-					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($warning_breach_up ? 3:2) :1);
-					$thold_snmp_data["eventNotificationType"] = ($ra ? ST_NOTIFYRA:ST_NOTIFYWA)+1;
-					$thold_snmp_data["eventFailCount"] = $item['thold_warning_fail_count'];
-					$thold_snmp_data["eventFailDuration"] = $item['thold_warning_fail_count'] * $cacti_polling_interval;
-					$thold_snmp_data["eventFailDurationTrigger"] = $warning_trigger * $cacti_polling_interval;
+					$thold_snmp_data['eventClass'] = 2;
+					$thold_snmp_data['eventSeverity'] = $item['snmp_event_warning_severity'];
+					$thold_snmp_data['eventStatus'] = $item['thold_alert']+1;
+					$thold_snmp_data['eventRealertStatus'] = ($ra ? ($warning_breach_up ? 3:2) :1);
+					$thold_snmp_data['eventNotificationType'] = ($ra ? ST_NOTIFYRA:ST_NOTIFYWA)+1;
+					$thold_snmp_data['eventFailCount'] = $item['thold_warning_fail_count'];
+					$thold_snmp_data['eventFailDuration'] = $item['thold_warning_fail_count'] * $cacti_polling_interval;
+					$thold_snmp_data['eventFailDurationTrigger'] = $warning_trigger * $cacti_polling_interval;
 
-					$thold_snmp_data["eventDescription"] = str_replace(
+					$thold_snmp_data['eventDescription'] = str_replace(
 					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
-					    array($thold_snmp_data["eventFailCount"], $thold_snmp_data["eventFailDuration"]),
-					    $thold_snmp_data["eventDescription"]
+					    array($thold_snmp_data['eventFailCount'], $thold_snmp_data['eventFailDuration']),
+					    $thold_snmp_data['eventDescription']
 					);
 					thold_snmptrap($thold_snmp_data);
 				}
@@ -1527,25 +1666,25 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					'description' => $subject,
 					'emails' => $alert_emails));
 			}elseif (($item['thold_warning_fail_count'] >= $warning_trigger) && ($item['thold_fail_count'] >= $trigger)) {
-				$subject = "ALERT -> WARNING: ". $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " Changed to Warning Threshold with Value $currentval";
+				$subject = 'ALERT -> WARNING: ' . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " Changed to Warning Threshold with Value $currentval";
 
 				if (trim($alert_emails) != '') {
 					thold_mail($alert_emails, '', $subject, $warn_msg, $file_array);
 				}
 
 				if ($thold_snmp_traps && $thold_snmp_warning_traps) {
-					$thold_snmp_data["eventClass"] = 2;
-					$thold_snmp_data["eventSeverity"] = $item['snmp_event_warning_severity'];
-					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
-					$thold_snmp_data["eventNotificationType"] = ST_NOTIFYAW+1;
-					$thold_snmp_data["eventFailCount"] = $item['thold_warning_fail_count'];
-					$thold_snmp_data["eventFailDuration"] = $item['thold_warning_fail_count'] * $cacti_polling_interval;
-					$thold_snmp_data["eventFailDurationTrigger"] = $trigger * $cacti_polling_interval;
+					$thold_snmp_data['eventClass'] = 2;
+					$thold_snmp_data['eventSeverity'] = $item['snmp_event_warning_severity'];
+					$thold_snmp_data['eventStatus'] = $item['thold_alert']+1;
+					$thold_snmp_data['eventNotificationType'] = ST_NOTIFYAW+1;
+					$thold_snmp_data['eventFailCount'] = $item['thold_warning_fail_count'];
+					$thold_snmp_data['eventFailDuration'] = $item['thold_warning_fail_count'] * $cacti_polling_interval;
+					$thold_snmp_data['eventFailDurationTrigger'] = $trigger * $cacti_polling_interval;
 
-					$thold_snmp_data["eventDescription"] = str_replace(
+					$thold_snmp_data['eventDescription'] = str_replace(
 					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
-					    array($thold_snmp_data["eventFailCount"], $thold_snmp_data["eventFailDuration"]),
-					    $thold_snmp_data["eventDescription"]
+					    array($thold_snmp_data['eventFailCount'], $thold_snmp_data['eventFailDuration']),
+					    $thold_snmp_data['eventDescription']
 					);
 
 					thold_snmptrap($thold_snmp_data);
@@ -1564,9 +1703,9 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					'emails' => $alert_emails));
 			}
 
-			db_execute("UPDATE thold_data
-				SET thold_alert=" . $item['thold_alert'] . ",
-				thold_warning_fail_count=" . $item['thold_warning_fail_count'] . ",
+			db_execute('UPDATE thold_data
+				SET thold_alert=' . $item['thold_alert'] . ',
+				thold_warning_fail_count=' . $item['thold_warning_fail_count'] . ",
 				thold_fail_count=0
 				WHERE rra_id=$rra_id AND data_id=" . $item['data_id']);
 		} else {
@@ -1574,7 +1713,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 
 			/* if we were at an alert status before */
 			if ($alertstat != 0) {
-				$subject = "NORMAL: ". $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " Restored to Normal Threshold with Value $currentval";
+				$subject = 'NORMAL: '. $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " Restored to Normal Threshold with Value $currentval";
 
 				db_execute("UPDATE thold_data
 					SET thold_alert=0, thold_fail_count=0, thold_warning_fail_count=0
@@ -1590,10 +1729,10 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					}
 
 					if ($thold_snmp_traps && $thold_snmp_normal_traps) {
-						$thold_snmp_data["eventClass"] = 1;
-						$thold_snmp_data["eventSeverity"] = 1;
-						$thold_snmp_data["eventStatus"] = 1;
-						$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+						$thold_snmp_data['eventClass'] = 1;
+						$thold_snmp_data['eventSeverity'] = 1;
+						$thold_snmp_data['eventStatus'] = 1;
+						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
 						thold_snmptrap($thold_snmp_data);
 					}
 
@@ -1618,10 +1757,10 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					}
 
 					if ($thold_snmp_traps && $thold_snmp_normal_traps) {
-						$thold_snmp_data["eventClass"] = 1;
-						$thold_snmp_data["eventSeverity"] = 1;
-						$thold_snmp_data["eventStatus"] = 1;
-						$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+						$thold_snmp_data['eventClass'] = 1;
+						$thold_snmp_data['eventSeverity'] = 1;
+						$thold_snmp_data['eventStatus'] = 1;
+						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
 						thold_snmptrap($thold_snmp_data);
 					}
 
@@ -1664,17 +1803,17 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 						logger($item['name'], 'ok', 0, $currentval, $item['bl_fail_trigger'], $item['bl_fail_count'], $url);
 					}
 
-					$subject = "NORMAL: " . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+					$subject = 'NORMAL: ' . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 
 					if (trim($alert_emails) != '') {
 						thold_mail($alert_emails, '', $subject, $msg, $file_array);
 					}
 
 					if ($thold_snmp_traps && $thold_snmp_normal_traps) {
-						$thold_snmp_data["eventClass"] = 1;
-						$hold_snmp_data["eventSeverity"] = 1;
-						$thold_snmp_data["eventStatus"] = 1;
-						$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+						$thold_snmp_data['eventClass'] = 1;
+						$hold_snmp_data['eventSeverity'] = 1;
+						$thold_snmp_data['eventStatus'] = 1;
+						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
 
 						thold_snmptrap($thold_snmp_data);
 					}
@@ -1710,7 +1849,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 			if ($item['bl_fail_count'] == $bl_fail_trigger || $ra) {
 				thold_debug('Alerting is necessary');
 
-				$subject = "ALERT: " . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . " calculated baseline threshold " . ($breach_up ? $item['thold_hi'] : $item['thold_low']) . " with $currentval";
+				$subject = 'ALERT: ' . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $item['thold_hi'] : $item['thold_low']) . " with $currentval";
 
 				if ($logset == 1) {
 					logger($item['name'], ($ra ? 'realert':'alert'), ($breach_up ? $item['thold_hi'] : $item['thold_low']), $currentval, $item['bl_fail_trigger'], $item['bl_fail_count'], $url);
@@ -1721,19 +1860,19 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				}
 
 				if ($thold_snmp_traps) {
-					$thold_snmp_data["eventClass"] = 3;
-					$thold_snmp_data["eventSeverity"] = $item['snmp_event_severity'];
-					$thold_snmp_data["eventStatus"] = $item['bl_alert']+1;
-					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($breach_up ? 3:2) :1);
-					$thold_snmp_data["eventNotificationType"] = ($ra ? ST_NOTIFYRA:ST_NOTIFYAL)+1;
-					$thold_snmp_data["eventFailCount"] = $item['bl_fail_count'];
-					$thold_snmp_data["eventFailDuration"] = $item['bl_fail_count'] * $cacti_polling_interval;
-					$thold_snmp_data["eventFailCountTrigger"] = $bl_fail_trigger;
+					$thold_snmp_data['eventClass'] = 3;
+					$thold_snmp_data['eventSeverity'] = $item['snmp_event_severity'];
+					$thold_snmp_data['eventStatus'] = $item['bl_alert']+1;
+					$thold_snmp_data['eventRealertStatus'] = ($ra ? ($breach_up ? 3:2) :1);
+					$thold_snmp_data['eventNotificationType'] = ($ra ? ST_NOTIFYRA:ST_NOTIFYAL)+1;
+					$thold_snmp_data['eventFailCount'] = $item['bl_fail_count'];
+					$thold_snmp_data['eventFailDuration'] = $item['bl_fail_count'] * $cacti_polling_interval;
+					$thold_snmp_data['eventFailCountTrigger'] = $bl_fail_trigger;
 
-					$thold_snmp_data["eventDescription"] = str_replace(
+					$thold_snmp_data['eventDescription'] = str_replace(
 					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
-					    array($thold_snmp_data["eventFailCount"], $thold_snmp_data["eventFailDuration"]),
-					    $thold_snmp_data["eventDescription"]
+					    array($thold_snmp_data['eventFailCount'], $thold_snmp_data['eventFailDuration']),
+					    $thold_snmp_data['eventDescription']
 					);
 
 
@@ -1792,12 +1931,12 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 		/* alerts */
 		$trigger  = $item['time_fail_trigger'];
 		$time     = time() - ($item['time_fail_length'] * $step);
-		$failures = db_fetch_cell("SELECT count(id) FROM plugin_thold_log WHERE threshold_id=" . $item['id'] . " AND status IN (" . ST_TRIGGERA . "," . ST_NOTIFYRA . "," . ST_NOTIFYAL . ") AND time>" . $time);
+		$failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id=' . $item['id'] . ' AND status IN (' . ST_TRIGGERA . ',' . ST_NOTIFYRA . ',' . ST_NOTIFYAL . ') AND time>' . $time);
 
 		/* warnings */
 		$warning_trigger  = $item['time_warning_fail_trigger'];
 		$warning_time     = time() - ($item['time_warning_fail_length'] * $step);
-		$warning_failures = db_fetch_cell("SELECT count(id) FROM plugin_thold_log WHERE threshold_id=" . $item['id'] . " AND status IN (" . ST_NOTIFYWA . "," . ST_TRIGGERW . ") AND time>" . $warning_time) + $failures;
+		$warning_failures = db_fetch_cell('SELECT count(id) FROM plugin_thold_log WHERE threshold_id=' . $item['id'] . ' AND status IN (' . ST_NOTIFYWA . ',' . ST_TRIGGERW . ') AND time>' . $warning_time) + $failures;
 
 		if ($breach_up || $breach_down) {
 			$notify = false;
@@ -1810,12 +1949,12 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 			/* we should only re-alert X minutes after last email, not every 5 pollings, etc...
 			   re-alert? */
 			$realerttime   = ($item['repeat_alert']-1) * $step;
-			$lastemailtime = db_fetch_cell("SELECT time
+			$lastemailtime = db_fetch_cell('SELECT time
 				FROM plugin_thold_log
-				WHERE threshold_id=" . $item['id'] . "
-				AND status IN (" . ST_NOTIFYRA . "," . ST_NOTIFYAL . ")
+				WHERE threshold_id=' . $item['id'] . '
+				AND status IN (' . ST_NOTIFYRA . ',' . ST_NOTIFYAL . ')
 				ORDER BY time DESC
-				LIMIT 1", FALSE);
+				LIMIT 1', FALSE);
 
 			$ra = ($failures > $trigger && $item['repeat_alert'] && !empty($lastemailtime) && ($lastemailtime+$realerttime <= time()));
 
@@ -1828,7 +1967,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				$notify = true;
 			}
 
-			$subject = ($notify ? "ALERT: ":"TRIGGER: ") . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($failures > $trigger ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $item['time_hi'] : $item['time_low']) . " with $currentval";
+			$subject = ($notify ? 'ALERT: ':'TRIGGER: ') . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($failures > $trigger ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $item['time_hi'] : $item['time_low']) . " with $currentval";
 
 			if ($notify) {
 				thold_debug('Alerting is necessary');
@@ -1842,15 +1981,15 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				}
 
 				if ($thold_snmp_traps) {
-					$thold_snmp_data["eventClass"] = 3;
-					$thold_snmp_data["eventSeverity"] = $item['snmp_event_severity'];
-					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
-					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($breach_up ? 3:2) :1);
-					$thold_snmp_data["eventNotificationType"] = ($failures > $trigger ? ST_NOTIFYAL:ST_NOTIFYRA)+1;
-					$thold_snmp_data["eventFailCount"] = $failures;
-					$thold_snmp_data["eventFailCountTrigger"] = $trigger;
+					$thold_snmp_data['eventClass'] = 3;
+					$thold_snmp_data['eventSeverity'] = $item['snmp_event_severity'];
+					$thold_snmp_data['eventStatus'] = $item['thold_alert']+1;
+					$thold_snmp_data['eventRealertStatus'] = ($ra ? ($breach_up ? 3:2) :1);
+					$thold_snmp_data['eventNotificationType'] = ($failures > $trigger ? ST_NOTIFYAL:ST_NOTIFYRA)+1;
+					$thold_snmp_data['eventFailCount'] = $failures;
+					$thold_snmp_data['eventFailCountTrigger'] = $trigger;
 
-					$thold_snmp_data["eventDescription"] = str_replace('<FAIL_COUNT>', $thold_snmp_data["eventFailCount"], $thold_snmp_data["eventDescription"]);
+					$thold_snmp_data['eventDescription'] = str_replace('<FAIL_COUNT>', $thold_snmp_data['eventFailCount'], $thold_snmp_data['eventDescription']);
 					thold_snmptrap($thold_snmp_data);
 				}
 
@@ -1879,8 +2018,8 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					'emails' => $alert_emails));
 			}
 
-			db_execute("UPDATE thold_data
-				SET thold_alert=" . $item['thold_alert'] . ",
+			db_execute('UPDATE thold_data
+				SET thold_alert=' . $item['thold_alert'] . ",
 				thold_fail_count=$failures
 				WHERE rra_id=$rra_id AND data_id=" . $item['data_id']);
 		} elseif ($warning_breach_up || $warning_breach_down) {
@@ -1892,12 +2031,12 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 			/* we should only re-alert X minutes after last email, not every 5 pollings, etc...
 			   re-alert? */
 			$realerttime   = ($item['time_warning_fail_length']-1) * $step;
-			$lastemailtime = db_fetch_cell("SELECT time
+			$lastemailtime = db_fetch_cell('SELECT time
 				FROM plugin_thold_log
-				WHERE threshold_id=" . $item['id'] . "
-				AND status IN (" . ST_NOTIFYRA . "," . ST_NOTIFYWA . ")
+				WHERE threshold_id=' . $item['id'] . '
+				AND status IN (' . ST_NOTIFYRA . ',' . ST_NOTIFYWA . ')
 				ORDER BY time DESC
-				LIMIT 1", FALSE);
+				LIMIT 1', FALSE);
 
 			$ra = ($warning_failures > $warning_trigger && $item['time_warning_fail_length'] && !empty($lastemailtime) && ($lastemailtime+$realerttime <= time()));
 
@@ -1909,7 +2048,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				$notify = true;;
 			}
 
-			$subject = ($notify ? "WARNING: ":"TRIGGER: ") . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($warning_failures > $warning_trigger ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $item['time_warning_hi'] : $item['time_warning_low']) . " with $currentval";
+			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($warning_failures > $warning_trigger ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $item['time_warning_hi'] : $item['time_warning_low']) . " with $currentval";
 
 			if ($notify) {
 				if ($logset == 1) {
@@ -1921,15 +2060,15 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 				}
 
 				if ($thold_snmp_traps && $thold_snmp_warning_traps) {
-					$thold_snmp_data["eventClass"] = 2;
-					$thold_snmp_data["eventSeverity"] = $item['snmp_event_warning_severity'];
-					$thold_snmp_data["eventStatus"] = $item['thold_alert']+1;
-					$thold_snmp_data["eventRealertStatus"] = ($ra ? ($warning_breach_up ? 3:2) :1);
-					$thold_snmp_data["eventNotificationType"] = ($warning_failures > $warning_trigger ? ST_NOTIFYRA:ST_NOTIFYWA)+1;
-					$thold_snmp_data["eventFailCount"] = $warning_failures;
-					$thold_snmp_data["eventFailCountTrigger"] = $warning_trigger;
+					$thold_snmp_data['eventClass'] = 2;
+					$thold_snmp_data['eventSeverity'] = $item['snmp_event_warning_severity'];
+					$thold_snmp_data['eventStatus'] = $item['thold_alert']+1;
+					$thold_snmp_data['eventRealertStatus'] = ($ra ? ($warning_breach_up ? 3:2) :1);
+					$thold_snmp_data['eventNotificationType'] = ($warning_failures > $warning_trigger ? ST_NOTIFYRA:ST_NOTIFYWA)+1;
+					$thold_snmp_data['eventFailCount'] = $warning_failures;
+					$thold_snmp_data['eventFailCountTrigger'] = $warning_trigger;
 
-					$thold_snmp_data["eventDescription"] = str_replace('<FAIL_COUNT>', $thold_snmp_data["eventFailCount"], $thold_snmp_data["eventDescription"]);
+					$thold_snmp_data['eventDescription'] = str_replace('<FAIL_COUNT>', $thold_snmp_data['eventFailCount'], $thold_snmp_data['eventDescription']);
 					thold_snmptrap($thold_snmp_data);
 				}
 
@@ -1945,7 +2084,7 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					'description' => $subject,
 					'emails' => $alert_emails));
 			} elseif ($alertstat != 0 && $warning_failures < $warning_trigger && $failures < $trigger) {
-				$subject = "ALERT -> WARNING: ". $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " restored to warning threshold with value $currentval";
+				$subject = 'ALERT -> WARNING: '. $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " restored to warning threshold with value $currentval";
 
 				thold_log(array(
 					'type' => 2,
@@ -1972,8 +2111,8 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					'emails' => $warning_emails));
 			}
 
-			db_execute("UPDATE thold_data
-				SET thold_alert=" . $item['thold_alert'] . ",
+			db_execute('UPDATE thold_data
+				SET thold_alert=' . $item['thold_alert'] . ",
 				thold_warning_fail_count=$warning_failures,
 				thold_fail_count=$failures
 				WHERE rra_id=$rra_id AND data_id=" . $item['data_id']);
@@ -1985,17 +2124,17 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					logger($item['name'], 'ok', 0, $currentval, $warning_trigger, $item['thold_warning_fail_count'], $url);
 				}
 
-				$subject = "NORMAL: ". $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
+				$subject = 'NORMAL: ' . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " restored to normal threshold with value $currentval";
 
 				if (trim($warning_emails) != '' && $item['restored_alert'] != 'on') {
 					thold_mail($warning_emails, '', $subject, $msg, $file_array);
 				}
 
 				if ($thold_snmp_traps && $thold_snmp_normal_traps) {
-					$thold_snmp_data["eventClass"] = 1;
-					$thold_snmp_data["eventSeverity"] = 1;
-					$thold_snmp_data["eventStatus"] = 1;
-					$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+					$thold_snmp_data['eventClass'] = 1;
+					$thold_snmp_data['eventSeverity'] = 1;
+					$thold_snmp_data['eventStatus'] = 1;
+					$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
 					thold_snmptrap($thold_snmp_data);
 				}
 
@@ -2019,17 +2158,17 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 					logger($item['name'], 'ok', 0, $currentval, $trigger, $item['thold_fail_count'], $url);
 				}
 
-				$subject = "NORMAL: ". $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " restored to warning threshold with value $currentval";
+				$subject = 'NORMAL: ' . $item['name'] . ($thold_show_datasource ? " [$name]" : '') . " restored to warning threshold with value $currentval";
 
 				if (trim($alert_emails) != '' && $item['restored_alert'] != 'on') {
 					thold_mail($alert_emails, '', $subject, $msg, $file_array);
 				}
 
 				if ($thold_snmp_traps && $thold_snmp_normal_traps) {
-					$thold_snmp_data["eventClass"] = 1;
-					$thold_snmp_data["eventSeverity"] = 1;
-					$thold_snmp_data["eventStatus"] = 1;
-					$thold_snmp_data["eventNotificationType"] = ST_NOTIFYRS+1;
+					$thold_snmp_data['eventClass'] = 1;
+					$thold_snmp_data['eventSeverity'] = 1;
+					$thold_snmp_data['eventStatus'] = 1;
+					$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
 					thold_snmptrap($thold_snmp_data);
 				}
 
@@ -2066,7 +2205,7 @@ function thold_format_number($value, $digits=5) {
 	}elseif (strlen(round($value,0)) == strlen($value)) {
 		return $value;
 	} else {
-		return rtrim(number_format($value, $digits), "0");
+		return rtrim(number_format($value, $digits), '0');
 	}
 }
 
@@ -2076,11 +2215,11 @@ function thold_format_name($template, $local_graph_id, $local_data_id, $data_sou
 		WHERE local_data_id=' . $local_data_id . '
 		LIMIT 1');
 
-	if (substr_count($template["name"], '|')) {
+	if (substr_count($template['name'], '|')) {
 		$gl = db_fetch_row("SELECT * FROM graph_local WHERE id=$local_graph_id");
 
 		if (sizeof($gl)) {
-			$name = expand_title($gl["host_id"], $gl["snmp_query_id"], $gl["snmp_index"], $template["name"]);
+			$name = expand_title($gl['host_id'], $gl['snmp_query_id'], $gl['snmp_index'], $template['name']);
 		} else {
 			$name = $desc . ' [' . $data_source_name . ']';
 		}
@@ -2092,110 +2231,28 @@ function thold_format_name($template, $local_graph_id, $local_data_id, $data_sou
 }
 
 function get_reference_types($rra = 0, $step = 300) {
-	if ($step == 60) {
-		$timearray = array(
-			1 => '1 Minute',
-			2 => '2 Minutes',
-			3 => '3 Minutes',
-			4 => '4 Minutes',
-			5 => '5 Minutes',
-			6 => '6 Minutes',
-			7 => '7 Minutes',
-			8 => '8 Minutes',
-			9 => '9 Minutes',
-			10 => '10 Minutes',
-			12 => '12 Minutes',
-			15 => '15 Minutes',
-			20 => '20 Minutes',
-			24 => '24 Minutes',
-			30 => '30 Minutes',
-			45 => '45 Minutes',
-			60 => '1 Hour',
-			120 => '2 Hours',
-			180 => '3 Hours',
-			240 => '4 Hours',
-			288 => '4.8 Hours',
-			360 => '6 Hours',
-			480 => '8 Hours',
-			720 => '12 Hours',
-			1440 => '1 Day',
-			2880 => '2 Days',
-			10080 => '1 Week',
-			20160 => '2 Weeks',
-			43200 => '1 Month'
-		);
-	} else if ($step == 300) {
-		$timearray = array(
-			1 => '5 Minutes',
-			2 => '10 Minutes',
-			3 => '15 Minutes',
-			4 => '20 Minutes',
-			6 => '30 Minutes',
-			8 => '45 Minutes',
-			12 => 'Hour',
-			24 => '2 Hours',
-			36 => '3 Hours',
-			48 => '4 Hours',
-			72 => '6 Hours',
-			96 => '8 Hours',
-			144 => '12 Hours',
-			288 => '1 Day',
-			576 => '2 Days',
-			2016 => '1 Week',
-			4032 => '2 Weeks',
-			8640 => '1 Month'
-		);
-	} else {
-		$timearray = array(
-			1 => '1 Polling',
-			2 => '2 Pollings',
-			3 => '3 Pollings',
-			4 => '4 Pollings',
-			5 => '5 Pollings',
-			6 => '6 Pollings',
-			8 => '8 Pollings',
-			12 => '12 Pollings',
-			24 => '24 Pollings',
-			36 => '36 Pollings',
-			48 => '48 Pollings',
-			72 => '72 Pollings',
-			96 => '96 Pollings',
-			144 => '144 Pollings',
-			288 => '288 Pollings',
-			576 => '576 Pollings',
-			2016 => '2016 Pollings'
-		);
-	}
+	global $config;
 
-	$rra_steps = db_fetch_assoc("SELECT DISTINCT rra.steps
-		FROM data_template_data d
-		JOIN data_template_data_rra a
-		ON d.id=a.data_template_data_id
-		JOIN rra
-		ON a.rra_id=rra.id
-		WHERE rra.steps>1 " .
-		($rra > 0 ? "AND d.local_data_id=$rra":"") . "
-		ORDER BY steps");
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
+
+	$rra_steps = db_fetch_assoc('SELECT DISTINCT dspr.steps
+		FROM data_template_data AS dtd
+		JOIN data_source_profiles_rra AS dspr
+		ON dtd.data_source_profile_id=dspr.data_source_profile_id
+		WHERE dspr.steps>1 ' .  ($rra > 0 ? "AND dtd.local_data_id=$rra":'') . '
+		ORDER BY steps');
 
 	$reference_types = array();
 	if (sizeof($rra_steps)) {
-	foreach($rra_steps as $rra_step) {
-		$seconds = $step * $rra_step['steps'];
-		if (isset($timearray[$rra_step['steps']])) {
-			$reference_types[$seconds] = $timearray[$rra_step['steps']] . " Average" ;
+		foreach($rra_steps as $rra_step) {
+			$seconds = $step * $rra_step['steps'];
+			if (isset($timearray[$rra_step['steps']])) {
+				$reference_types[$seconds] = $timearray[$rra_step['steps']] . ' Average' ;
+			}
 		}
-	}
 	}
 
 	return $reference_types;
-}
-
-function thold_request_check_changed($request, $session) {
-	if ((isset($_REQUEST[$request])) && (isset($_SESSION[$session]))) {
-		if ($_REQUEST[$request] != $_SESSION[$session]) {
-			return 1;
-		}
-	}
 }
 
 function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct, $urlbreach) {
@@ -2389,16 +2446,12 @@ function delete_old_thresholds () {
 }
 
 function thold_rrd_last($rra) {
-	global $config;
-
 	$last_time_entry = @rrdtool_execute('last ' . trim(get_data_source_path($rra, true)), false, RRDTOOL_OUTPUT_STDOUT);
 
 	return trim($last_time_entry);
 }
 
 function get_current_value($rra, $ds, $cdef = 0) {
-	global $config;
-
 	/* get the information to populate into the rrd files */
 	if (function_exists("boost_check_correct_enabled") && boost_check_correct_enabled()) {
 		boost_process_poller_output(TRUE, $rra);
@@ -2440,8 +2493,6 @@ function get_current_value($rra, $ds, $cdef = 0) {
 }
 
 function thold_get_ref_value($rra_id, $ds, $ref_time, $time_range) {
-	global $config;
-
 	$result = rrdtool_function_fetch($rra_id, $ref_time-$time_range, $ref_time-1, $time_range);
 
 	$idx = array_search($ds, $result['data_source_names']);
@@ -2592,56 +2643,71 @@ function thold_check_baseline($rra_id, $ds, $current_value, &$item) {
 function save_thold() {
 	global $rra, $banner, $hostid;
 
-	$template_enabled = isset($_POST['template_enabled']) && $_POST['template_enabled'] == 'on' ? $_POST['template_enabled'] : 'off';
+	$template_enabled = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : 'off';
 	if ($template_enabled == 'on') {
-		input_validate_input_number($_POST['rra']);
-		input_validate_input_number($_POST['data_template_rrd_id']);
+		get_filter_request_var('rra');
+		get_filter_request_var('data_template_rrd_id');
 
-		$rra_id = $_POST['rra'];
+		$rra_id = get_request_var('rra');
 		if (!thold_user_auth_threshold ($rra_id)) {
-			$banner = '<font color=red><strong>Permission Denied</strong></font>';
+			$banner = '<span class="textError">Permission Denied</span>';
+
 			return;
 		}
-		$data_id = $_POST['data_template_rrd_id'];
-		$data = db_fetch_row("SELECT id, template FROM thold_data WHERE rra_id = $rra_id AND data_id = $data_id");
+
+		$data_id = get_request_var('data_template_rrd_id');
+		$data    = db_fetch_row("SELECT id, template FROM thold_data WHERE rra_id = $rra_id AND data_id = $data_id");
+
 		thold_template_update_threshold ($data['id'], $data['template']);
-		$banner = '<font color=green><strong>Record Updated</strong></font>';
+
+		$banner = '<span class="textInfo">Record Updated</span>';
+
 		plugin_thold_log_changes($data['id'], 'modified', array('id' => $data['id'], 'template_enabled' => 'on'));
+
 		return true;
 	}
 
 	/* Make sure this is defined */
-	$_POST['thold_enabled'] = isset($_POST['thold_enabled']) ? 'on' : 'off';
-	$_POST['template_enabled'] = isset($_POST['template_enabled']) ? 'on' : 'off';
+	set_request_var('thold_enabled', isset_request_var('thold_enabled') ? 'on' : 'off');
+	set_request_var('template_enabled', isset_request_var('template_enabled') ? 'on' : 'off');
 
 	/* Do Some error Checks */
-	$banner = '<font color=red><strong>';
-	if (($_POST['thold_type'] == 0 && (!isset($_POST['thold_hi']) || trim($_POST['thold_hi']) == '')) &&
-		($_POST['thold_type'] == 0 && (!isset($_POST['thold_low']) || trim($_POST['thold_low']) == ''))) {
-		$banner .= 'You must specify either &quot;High Threshold&quot; or &quot;Low Threshold&quot; or both!<br>RECORD NOT UPDATED!</strong></font>';
+	$banner = '<span class="textError">';
+	if (get_filter_request_var('thold_type') == 0 && 
+		isempty_request_var('thold_hi') && 
+		isempty_request_var('thold_low')) {
+		$banner .= 'You must specify either &quot;High Threshold&quot; or &quot;Low Threshold&quot; or both!<br>RECORD NOT UPDATED!</span>';
+
 		return;
 	}
 
-	//if (($_POST['thold_type'] == 0) && (isset($_POST['thold_hi'])) &&
-	//	(isset($_POST['thold_low'])) && (trim($_POST['thold_hi']) != '') &&
-	//	(trim($_POST['thold_low']) != '') && (round($_POST['thold_low'],4) >= round($_POST['thold_hi'],4))) {
-	//	$banner .= 'Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</strong></font>';
-	//	return;
-	//}
+	if (get_filter_request_var('thold_type') == 0 && 
+		!isempty_request_var('thold_hi') && 
+		!isempty_request_var('thold_low') && 
+		round(get_filter_request_var('thold_low'),4) >= round(get_filter_request_var('thold_hi'), 4)) {
+		$banner .= 'Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</span>';
 
-	if ($_POST['thold_type'] == 1) {
-		$banner .= 'With baseline thresholds enabled ';
+		return;
+	}
+
+	if (get_filter_request_var('thold_type') == 1) {
+		$banner .= 'With baseline thresholds enabled.';
+
 		if (!thold_mandatory_field_ok('bl_ref_time_range', 'Time reference in the past')) {
+			$banner .= '</span>';
 			return;
 		}
-		if ((!isset($_POST['bl_pct_down']) || trim($_POST['bl_pct_down']) == '') && (!isset($_POST['bl_pct_up']) || trim($_POST['bl_pct_up']) == '')) {
-			$banner .= 'You must specify either &quot;Baseline Deviation UP&quot; or &quot;Baseline Deviation DOWN&quot; or both!<br>RECORD NOT UPDATED!</strong></font>';
+
+		if (isempty_request_var('bl_pct_down') && isempty_request_var('bl_pct_up')) {
+			$banner .= 'You must specify either &quot;Baseline Deviation UP&quot; or &quot;Baseline Deviation DOWN&quot; or both!<br>RECORD NOT UPDATED!</span>';
 			return;
 		}
 	}
 
-	$existing = db_fetch_assoc('SELECT id FROM thold_data WHERE rra_id = ' . $rra . ' AND data_id = ' . $_POST['data_template_rrd_id']);
+	$existing = db_fetch_assoc('SELECT id FROM thold_data WHERE rra_id = ' . $rra . ' AND data_id = ' . get_filter_request_var('data_template_rrd_id'));
+
 	$save = array();
+
 	if (count($existing)) {
 		$save['id'] = $existing[0]['id'];
 	} else {
@@ -2649,121 +2715,160 @@ function save_thold() {
 		$save['template'] = '';
 	}
 
-	input_validate_input_number(get_request_var_post('thold_hi'));
-	input_validate_input_number(get_request_var_post('thold_low'));
-	input_validate_input_number(get_request_var_post('thold_fail_trigger'));
-	input_validate_input_number(get_request_var_post('thold_warning_hi'));
-	input_validate_input_number(get_request_var_post('thold_warning_low'));
-	input_validate_input_number(get_request_var_post('thold_warning_fail_trigger'));
-	input_validate_input_number(get_request_var_post('repeat_alert'));
-	input_validate_input_number(get_request_var_post('cdef'));
-	input_validate_input_number($_POST['rra']);
-	input_validate_input_number($_POST['data_template_rrd_id']);
-	input_validate_input_number(get_request_var_post('thold_type'));
-	input_validate_input_number(get_request_var_post('time_hi'));
-	input_validate_input_number(get_request_var_post('time_low'));
-	input_validate_input_number(get_request_var_post('time_fail_trigger'));
-	input_validate_input_number(get_request_var_post('time_fail_length'));
-	input_validate_input_number(get_request_var_post('time_warning_hi'));
-	input_validate_input_number(get_request_var_post('time_warning_low'));
-	input_validate_input_number(get_request_var_post('time_warning_fail_trigger'));
-	input_validate_input_number(get_request_var_post('time_warning_fail_length'));
-	input_validate_input_number(get_request_var_post('data_type'));
-	input_validate_input_number(get_request_var_post('notify_warning'));
-	input_validate_input_number(get_request_var_post('notify_alert'));
-	input_validate_input_number(get_request_var_post('bl_ref_time_range'));
-	input_validate_input_number(get_request_var_post('bl_pct_down'));
-	input_validate_input_number(get_request_var_post('bl_pct_up'));
-	input_validate_input_number(get_request_var_post('bl_fail_trigger'));
+	get_filter_request_var('thold_hi');
+	get_filter_request_var('thold_low');
+	get_filter_request_var('thold_fail_trigger');
+	get_filter_request_var('thold_warning_hi');
+	get_filter_request_var('thold_warning_low');
+	get_filter_request_var('thold_warning_fail_trigger');
+	get_filter_request_var('repeat_alert');
+	get_filter_request_var('cdef');
+	get_filter_request_var('rra');
+	get_filter_request_var('data_template_rrd_id');
+	get_fitler_request_var('thold_type');
+	get_fitler_request_var('time_hi');
+	get_fitler_request_var('time_low');
+	get_fitler_request_var('time_fail_trigger');
+	get_fitler_request_var('time_fail_length');
+	get_fitler_request_var('time_warning_hi');
+	get_fitler_request_var('time_warning_low');
+	get_fitler_request_var('time_warning_fail_trigger');
+	get_fitler_request_var('time_warning_fail_length');
+	get_fitler_request_var('data_type');
+	get_fitler_request_var('notify_warning');
+	get_fitler_request_var('notify_alert');
+	get_fitler_request_var('bl_ref_time_range');
+	get_fitler_request_var('bl_pct_down');
+	get_fitler_request_var('bl_pct_up');
+	get_fitler_request_var('bl_fail_trigger');
 
-	if (isset($_POST['snmp_event_category'])) {
-		$_POST['snmp_event_category'] = trim(str_replace(array("\\", "'", '"'), '', get_request_var_post('snmp_event_category')));
-	}
-	if (isset($_POST['snmp_event_severity'])) {
-		input_validate_input_number(get_request_var_post('snmp_event_severity'));
-	}
-	if (isset($_POST['snmp_event_warning_severity'])) {
-		input_validate_input_number(get_request_var_post('snmp_event_warning_severity'));
+	if (isset_request_var('snmp_event_category')) {
+		set_request_var('snmp_event_category', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_category'))));
 	}
 
-	$_POST['name']          = str_replace(array("\\", '"', "'"), '', $_POST['name']);
-	$save['name']           = (trim($_POST['name'])) == '' ? '' : $_POST['name'];
-	$save['host_id']        = $hostid;
-	$save['data_id']        = $_POST['data_template_rrd_id'];
-	$save['rra_id']         = $_POST['rra'];
-	$save['thold_enabled']  = isset($_POST['thold_enabled']) ? $_POST['thold_enabled'] : '';
-	$save['exempt']         = isset($_POST['exempt']) ? $_POST['exempt'] : 'off';
-	$save['restored_alert'] = isset($_POST['restored_alert']) ? $_POST['restored_alert'] : 'off';
-	$save['thold_type']     = $_POST['thold_type'];
+	if (isset_request_var('snmp_event_severity')) {
+		get_filter_request_var('snmp_event_severity');
+	}
+
+	if (isset_request_var('snmp_event_warning_severity')) {
+		get_filter_request_var('snmp_event_warning_severity');
+	}
+
+	set_request_var('name', str_replace(array("\\", '"', "'"), '', get_nfilter_request_var('name')));
+
+	$save['name']                        = trim_round_request_var('name');
+	$save['host_id']                     = $hostid;
+	$save['data_id']                     = get_request_var('data_template_rrd_id');
+	$save['rra_id']                      = get_request_var('rra');
+	$save['thold_enabled']               = isset_request_var('thold_enabled') ? 'on' : '';
+	$save['exempt']                      = isset_request_var('exempt') ? 'on' : 'off';
+	$save['restored_alert']              = isset_request_var('restored_alert') ? 'on' : 'off';
+	$save['thold_type']                  = get_request_var('thold_type');
+	$save['template_enabled']            = isset_request_var('template_enabled') ? 'on' : 'off';
+
 	// High / Low
-	$save['thold_hi']           = (trim($_POST['thold_hi'])) == '' ? '' : round($_POST['thold_hi'],4);
-	$save['thold_low']          = (trim($_POST['thold_low'])) == '' ? '' : round($_POST['thold_low'],4);
-	$save['thold_fail_trigger'] = (trim($_POST['thold_fail_trigger'])) == '' ? read_config_option('alert_trigger') : $_POST['thold_fail_trigger'];
+	$save['thold_hi']                    = trim_round_request_var('thold_hi', 4);
+	$save['thold_low']                   = trim_round_request_var('thold_low', 4);
+	$save['thold_fail_trigger']          = isempty_request_var('thold_fail_trigger') ? 
+			read_config_option('alert_trigger') : get_nfilter_request_var('thold_fail_trigger');
+
 	// Time Based
-	$save['time_hi']           = (trim($_POST['time_hi'])) == '' ? '' : round($_POST['time_hi'],4);
-	$save['time_low']          = (trim($_POST['time_low'])) == '' ? '' : round($_POST['time_low'],4);
-	$save['time_fail_trigger'] = (trim($_POST['time_fail_trigger'])) == '' ? read_config_option('thold_warning_time_fail_trigger') : $_POST['time_fail_trigger'];
-	$save['time_fail_length']  = (trim($_POST['time_fail_length'])) == '' ? (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) : $_POST['time_fail_length'];
+	$save['time_hi']                     = trim_round_request_var('time_hi', 4);
+	$save['time_low']                    = trim_round_request_var('time_low', 4);
+	$save['time_fail_trigger']           = isempty_request_var('time_fail_trigger') ? 
+			read_config_option('thold_warning_time_fail_trigger') : get_nfilter_request_var('time_fail_trigger');
+
+	$save['time_fail_length']            = isempty_request_var('time_fail_length') ? 
+			(read_config_option('thold_warning_time_fail_length') > 0 ? 
+			read_config_option('thold_warning_time_fail_length') : 1) : get_nfilter_request_var('time_fail_length');
+
 	// Warning High / Low
-	$save['thold_warning_hi']  = (trim($_POST['thold_warning_hi'])) == '' ? '' : round($_POST['thold_warning_hi'],4);
-	$save['thold_warning_low'] = (trim($_POST['thold_warning_low'])) == '' ? '' : round($_POST['thold_warning_low'],4);
-	$save['thold_warning_fail_trigger'] = (trim($_POST['thold_warning_fail_trigger'])) == '' ? read_config_option('alert_trigger') : $_POST['thold_warning_fail_trigger'];
+	$save['thold_warning_hi']            = trim_round_request_var('thold_warning_hi', 4);
+	$save['thold_warning_low']           = trim_round_request_var('thold_warning_low', 4);
+	$save['thold_warning_fail_trigger']  = isempty_request_var('thold_warning_fail_trigger') ? 
+			read_config_option('alert_trigger') : get_nfilter_request_var('thold_warning_fail_trigger');
+
 	// Warning Time Based
-	$save['time_warning_hi']  = (trim($_POST['time_warning_hi'])) == '' ? '' : round($_POST['time_warning_hi'],4);
-	$save['time_warning_low'] = (trim($_POST['time_warning_low'])) == '' ? '' : round($_POST['time_warning_low'],4);
-	$save['time_warning_fail_trigger'] = (trim($_POST['time_warning_fail_trigger'])) == '' ? read_config_option('thold_warning_time_fail_trigger') : $_POST['time_warning_fail_trigger'];
-	$save['time_warning_fail_length']  = (trim($_POST['time_warning_fail_length'])) == '' ? (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1) : $_POST['time_warning_fail_length'];
+	$save['time_warning_hi']             = trim_round_request_var('time_warning_hi', 4);
+	$save['time_warning_low']            = trim_round_request_var('time_warning_low', 4);
+	$save['time_warning_fail_trigger']   = isempty_request_var('time_warning_fail_trigger') ? 
+		read_config_option('thold_warning_time_fail_trigger') : get_nfilter_request_var('time_warning_fail_trigger');
+
+	$save['time_warning_fail_length']    = isempty_request_var('time_warning_fail_length') ? 
+		(read_config_option('thold_warning_time_fail_length') > 0 ? 
+		read_config_option('thold_warning_time_fail_length') : 1) : get_nfilter_request_var('time_warning_fail_length');
+
 	// Baseline
-	$save['bl_thold_valid'] = '0';
-	$save['bl_ref_time_range'] = (trim($_POST['bl_ref_time_range'])) == '' ? read_config_option('alert_bl_timerange_def') : $_POST['bl_ref_time_range'];
-	$save['bl_pct_down'] = (trim($_POST['bl_pct_down'])) == '' ? '' : $_POST['bl_pct_down'];
-	$save['bl_pct_up'] = (trim($_POST['bl_pct_up'])) == '' ? '' : $_POST['bl_pct_up'];
-	$save['bl_fail_trigger'] = (trim($_POST['bl_fail_trigger'])) == '' ? read_config_option("alert_bl_trigger") : $_POST['bl_fail_trigger'];
+	$save['bl_thold_valid']              = '0';
+	$save['bl_ref_time_range']           = isempty_request_var('bl_ref_time_range') ? 
+		read_config_option('alert_bl_timerange_def') : get_nfilter_request_var('bl_ref_time_range');
 
-	$save['repeat_alert'] = (trim($_POST['repeat_alert'])) == '' ? '' : $_POST['repeat_alert'];
-	$save['notify_extra'] = (trim($_POST['notify_extra'])) == '' ? '' : $_POST['notify_extra'];
-	$save['notify_warning_extra'] = (trim($_POST['notify_warning_extra'])) == '' ? '' : $_POST['notify_warning_extra'];
-	$save['notify_warning'] = $_POST['notify_warning'];
-	$save['notify_alert']   = $_POST['notify_alert'];
-	$save['cdef']           = (trim($_POST['cdef'])) == '' ? '' : $_POST['cdef'];
-	$save['template_enabled'] = $_POST['template_enabled'];
+	$save['bl_pct_down']                 = trim_round_request_var('bl_pct_down');
+	$save['bl_pct_up']                   = trim_round_request_var('bl_pct_up');
+	$save['bl_fail_trigger']             = isempty_request_var('bl_fail_trigger') ? 
+		read_config_option("alert_bl_trigger") : get_nfilter_request_var('bl_fail_trigger');
 
-	$save['snmp_event_category'] = isset($_POST['snmp_event_category']) ? $_POST['snmp_event_category'] : '';
-	$save['snmp_event_severity'] = isset($_POST['snmp_event_severity']) ? $_POST['snmp_event_severity'] : 4;
-	$save['snmp_event_warning_severity'] = isset($_POST['snmp_event_warning_severity']) ? $_POST['snmp_event_warning_severity'] : 3;
+	$save['repeat_alert']                = trim_round_request_var('repeat_alert');
 
-	$save['data_type'] = $_POST['data_type'];
-	if (isset($_POST['percent_ds'])) {
-		$save['percent_ds'] = $_POST['percent_ds'];
+	// Notification
+	$save['notify_extra']                = trim_round_request_var('notify_extra');
+	$save['notify_warning_extra']        = trim_round_request_var('notify_warning_extra');
+	$save['notify_warning']              = trim_round_request_var('notify_warning');
+	$save['notify_alert']                = trim_round_request_var('notify_alert');
+
+	// Data Manipulation
+	$save['data_type'] = get_nfilter_request_var('data_type');
+	if (isset_request_var('percent_ds')) {
+		$save['percent_ds'] = get_nfilter_request_var('percent_ds');
 	} else {
 		$save['percent_ds'] = '';
 	}
 
-	if (isset($_POST['expression'])) {
-		$save['expression'] = $_POST['expression'];
+	$save['cdef']                        = trim_round_request_var('cdef');
+
+	if (isset_request_var('expression')) {
+		$save['expression'] = get_nfilter_request_var('expression');
 	} else {
 		$save['expression'] = '';
 	}
 
+	// SNMP Information
+	$save['snmp_event_category']         = trim_round_request_var('snmp_event_category');
+
+	$save['snmp_event_severity']         = isset_request_var('snmp_event_severity') ? 
+		get_nfilter_request_var('snmp_event_severity') : 4;
+
+	$save['snmp_event_warning_severity'] = isset_request_var('snmp_event_warning_severity') ? 
+		get_nfilter_request_var('snmp_event_warning_severity') : 3;
+
 	/* Get the Data Template, Graph Template, and Graph */
-	$rrdsql = db_fetch_row('SELECT id, data_template_id FROM data_template_rrd WHERE local_data_id=' . $save['rra_id'] . ' ORDER BY id');
+	$rrdsql = db_fetch_row('SELECT id, data_template_id 
+		FROM data_template_rrd 
+		WHERE local_data_id=' . $save['rra_id'] . ' 
+		ORDER BY id');
+
 	$rrdlookup = $rrdsql['id'];
-	$grapharr = db_fetch_row("SELECT local_graph_id, graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup and local_graph_id <> '' LIMIT 1");
+
+	$grapharr = db_fetch_row("SELECT local_graph_id, graph_template_id 
+		FROM graph_templates_item 
+		WHERE task_item_id=$rrdlookup 
+		AND local_graph_id <> '' 
+		LIMIT 1");
 
 	$save['graph_id']       = $grapharr['local_graph_id'];
 	$save['graph_template'] = $grapharr['graph_template_id'];
 	$save['data_template']  = $rrdsql['data_template_id'];
 
-	if (!thold_user_auth_threshold ($save['rra_id'])) {
-		$banner = '<font color=red><strong>Permission Denied</strong></font>';
+	if (!thold_user_auth_threshold($save['rra_id'])) {
+		$banner = '<span class="textError">Permission Denied</span>';
 		return;
 	}
 
 	$id = sql_save($save , 'thold_data');
 
-	if (isset($_POST['notify_accounts']) && is_array($_POST['notify_accounts'])) {
-		thold_save_threshold_contacts ($id, $_POST['notify_accounts']);
-	} elseif (!isset($_POST['notify_accounts'])) {
+	if (isset_request_var('notify_accounts') && is_array(get_nfilter_request_var('notify_accounts'))) {
+		thold_save_threshold_contacts ($id, get_nfilter_request_var('notify_accounts'));
+	} elseif (!isset_request_var('notify_accounts')) {
 		thold_save_threshold_contacts ($id, array());
 	}
 
@@ -2772,12 +2877,22 @@ function save_thold() {
 		$thold = db_fetch_row("SELECT * FROM thold_data WHERE id=$id");
 		$ds = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_id']);
 
-		if ($thold["thold_type"] == 1) {
+		if ($thold['thold_type'] == 1) {
 			thold_check_threshold ($thold['rra_id'], $thold['data_id'], $ds, $thold['lastread'], $thold['cdef']);
 		}
 	}
 
-	$banner = '<font color=green><strong>Record Updated</strong></font>';
+	$banner = '<span class="textInfo">Record Updated</span>';
+}
+
+function trim_round_request_var($variable, $digits = 0) {
+	$variable = trim(get_nfilter_request_var($variable));
+
+	if ($digits > 0) {
+		return round($variable, $digits);
+	}else{
+		return $variable;
+	}
 }
 
 function thold_save_template_contacts ($id, $contacts) {
@@ -2792,6 +2907,7 @@ function thold_save_template_contacts ($id, $contacts) {
 
 function thold_save_threshold_contacts ($id, $contacts) {
 	db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id = ' . $id);
+
 	// ADD SOME SECURITY!!
 	foreach ($contacts as $contact) {
 		db_execute("INSERT INTO plugin_thold_threshold_contact (thold_id, contact_id) VALUES ($id, $contact)");
@@ -2800,10 +2916,14 @@ function thold_save_threshold_contacts ($id, $contacts) {
 
 function thold_mandatory_field_ok($name, $friendly_name) {
 	global $banner;
-	if (!isset($_POST[$name]) || (isset($_POST[$name]) && (trim($_POST[$name]) == '' || $_POST[$name] <= 0))) {
-		$banner .= '&quot;' . $friendly_name . '&quot; must be set to positive integer value!<br>RECORD NOT UPDATED!</strong></font>';
+
+	if (!isset_request_var($name) || (isset_request_var($name) && 
+		(trim(get_nfilter_request_var($name)) == '' || get_nfilter_request_var($name) <= 0))) {
+		$banner .= '&quot;' . $friendly_name . '&quot; must be set to positive integer value!<br>RECORD NOT UPDATED!</span>';
+
 		return false;
 	}
+
 	return true;
 }
 
@@ -2913,113 +3033,58 @@ function autocreate($hostid) {
 }
 
 /* Sends a group of graphs to a user */
-function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
-	global $config;
+function thold_mail($to_email, $from_email, $subject, $message, $filename, $headers = '') {
 	thold_debug('Preparing to send email');
-	include_once($config['base_path'] . '/plugins/settings/include/mailer.php');
-	include_once($config['base_path'] . '/plugins/thold/setup.php');
 
 	$subject = trim($subject);
-
 	$message = str_replace('<SUBJECT>', $subject, $message);
 
-	$how = read_config_option('settings_how');
-	if ($how < 0 && $how > 2)
-		$how = 0;
-	if ($how == 0) {
-		$Mailer = new Mailer(array(
-			'Type' => 'PHP'));
-	} else if ($how == 1) {
-		$sendmail = read_config_option('settings_sendmail_path');
-		$Mailer = new Mailer(array(
-			'Type' => 'DirectInject',
-			'DirectInject_Path' => $sendmail));
-	} else if ($how == 2) {
-		$smtp_host = read_config_option('settings_smtp_host');
-		$smtp_port = read_config_option('settings_smtp_port');
-		$smtp_username = read_config_option('settings_smtp_username');
-		$smtp_password = read_config_option('settings_smtp_password');
+	if ($from_email == '') {
+		$from_email = read_config_option('thold_from_email');
+		$from_name  = read_config_option('thold_from_name');
 
-		$Mailer = new Mailer(array(
-			'Type' => 'SMTP',
-			'SMTP_Host' => $smtp_host,
-			'SMTP_Port' => $smtp_port,
-			'SMTP_Username' => $smtp_username,
-			'SMTP_Password' => $smtp_password));
-	}
-
-	if ($from == '') {
-		$from = read_config_option('thold_from_email');
-		$fromname = read_config_option('thold_from_name');
-		if ($from == '') {
+		if ($from_email == '') {
 			if (isset($_SERVER['HOSTNAME'])) {
-				$from = 'Cacti@' . $_SERVER['HOSTNAME'];
+				$from_email = 'Cacti@' . $_SERVER['HOSTNAME'];
 			} else {
-				$from = 'Cacti@localhost';
+				$from_email = 'Cacti@localhost';
 			}
 		}
-		if ($fromname == '')
-			$fromname = 'Cacti'; $from = $Mailer->email_format($fromname, $from);
-		if ($Mailer->header_set('From', $from) === false) {
-			print 'ERROR: ' . $Mailer->error() . "\n";
-			return $Mailer->error();
-		}
-	} else {
-		$from = $Mailer->email_format('Cacti', $from);
-		if ($Mailer->header_set('From', $from) === false) {
-			print 'ERROR: ' . $Mailer->error() . "\n";
-			return $Mailer->error();
+
+		if ($from_name == '') {
+			$from_name = 'Cacti'; 
 		}
 	}
 
-	if ($to == '')
+	if ($to_email == '') {
 		return 'Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting.';
-	$to = explode(',', $to);
-
-	foreach($to as $t) {
-		if (trim($t) != '' && !$Mailer->header_set('To', $t)) {
-			print 'ERROR: ' . $Mailer->error() . "\n";
-			return $Mailer->error();
-		}
 	}
 
-	$wordwrap = read_config_option('settings_wordwrap');
-	if ($wordwrap == '')
-		$wordwrap = 76;
-	if ($wordwrap > 9999)
-		$wordwrap = 9999;
-	if ($wordwrap < 0)
-		$wordwrap = 76;
+	$attachments = array();
 
-	$Mailer->Config['Mail']['WordWrap'] = $wordwrap;
-
-	if (! $Mailer->header_set('Subject', $subject)) {
-		print 'ERROR: ' . $Mailer->error() . "\n";
-		return $Mailer->error();
-	}
-
-	if (is_array($filename) && !empty($filename) && strstr($message, '<GRAPH>') !==0) {
+	if (is_array($filename) && !empty($filename) && strstr($message, '<GRAPH>') !== 0) {
 		foreach($filename as $val) {
 			$graph_data_array = array('output_flag'=> RRDTOOL_OUTPUT_STDOUT);
 			if (function_exists('imagecreatefrompng') && function_exists('imagejpeg')) {
-				$data = @png2jpeg(rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array));
-				$ext = 'jpg';
+				$attachments[] = array(
+					'attachment' => @png2jpeg(rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array)),
+					'filename'   => '',
+					'mime_type'  => 'image/jpg',
+					'graphid'    => $val['local_graph_id'],
+					'inline'     => 'inline'
+				);
 			} else {
-				$data = @rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array);
-				$ext = 'png';
-			}
-			if ($data != '') {
-				$cid = $Mailer->content_id();
-				if ($Mailer->attach($data, $val['filename'].".$ext", "image/$ext", 'inline', $cid) == false) {
-					print 'ERROR: ' . $Mailer->error() . "\n";
-					return $Mailer->error();
-				}
-				$message = str_replace('<GRAPH>', "<br><br><img src='cid:$cid'>", $message);
-			} else {
-				$message = str_replace('<GRAPH>', "<br><img src='" . $val['file'] . "'><br>Could not open!<br>" . $val['file'], $message);
+				$attachments[] = array(
+					'attachment' => @rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array),
+					'filename'   => '',
+					'mime_type'  => 'image/png',
+					'graphid'    => $val['local_graph_id'],
+					'inline'     => 'inline'
+				);
 			}
 		}
 	}
+
 	$text = array('text' => '', 'html' => '');
 	if ($filename == '') {
 		$message = str_replace('<br>',  "\n", $message);
@@ -3031,16 +3096,33 @@ function thold_mail($to, $from, $subject, $message, $filename, $headers = '') {
 		$text['text'] = strip_tags(str_replace('<br>', "\n", $message));
 	}
 
-	$v = thold_version();
-	$Mailer->header_set('X-Mailer', 'Cacti-Thold-v' . $v['version']);
-	$Mailer->header_set('User-Agent', 'Cacti-Thold-v' . $v['version']);
+    $v = thold_version();
+    $headers['X-Mailer']   = 'Cacti-Thold-v' . $v;
+    $headers['User-Agent'] = 'Cacti-Thold-v' . $v;
+
 	if (read_config_option('thold_email_prio') == 'on') {
-		$Mailer->header_set('X-Priority', '1');
+		$headers['X-Priority'] = '1';
 	}
-	thold_debug("Sending email to '" . trim(implode(',',$to),',') . "'");
-	if ($Mailer->send($text) == false) {
-		print 'ERROR: ' . $Mailer->error() . "\n";
-		return $Mailer->error();
+
+	thold_debug("Sending email to '" . trim($to_email,', ') . "'");
+
+	$error = mailer(
+		array($from_email, $from_name),
+		$to_email,
+		'',
+		'',
+		'',
+		$subject,
+		$text['html'],
+		$text['text'],
+		$attachments,
+		$headers
+    );
+
+	if (strlen($error)) {
+		print 'ERROR: Sending Email Failed.  Error was ' . $error . "\n";
+
+		return $error;
 	}
 
 	return '';
@@ -3088,8 +3170,14 @@ function thold_template_update_threshold ($id, $template) {
 		thold_data.snmp_event_severity = thold_template.snmp_event_severity,
 		thold_data.snmp_event_warning_severity = thold_template.snmp_event_warning_severity
 		WHERE thold_data.id=$id AND thold_template.id=$template");
+
 	db_execute('DELETE FROM plugin_thold_threshold_contact where thold_id = ' . $id);
-	db_execute("INSERT INTO plugin_thold_threshold_contact (thold_id, contact_id) SELECT $id, contact_id FROM plugin_thold_template_contact WHERE template_id = $template");
+
+	db_execute("INSERT INTO plugin_thold_threshold_contact 
+		(thold_id, contact_id) 
+		SELECT $id, contact_id 
+		FROM plugin_thold_template_contact 
+		WHERE template_id = $template");
 }
 
 function thold_template_update_thresholds ($id) {
@@ -3133,35 +3221,45 @@ function thold_template_update_thresholds ($id) {
 		thold_data.snmp_event_severity = thold_template.snmp_event_severity,
 		thold_data.snmp_event_warning_severity = thold_template.snmp_event_warning_severity
 		WHERE thold_data.template=$id AND thold_data.template_enabled='on' AND thold_template.id=$id");
-	$rows = db_fetch_assoc("SELECT id, template FROM thold_data WHERE thold_data.template=$id AND thold_data.template_enabled='on'");
+
+	$rows = db_fetch_assoc("SELECT id, template 
+		FROM thold_data 
+		WHERE thold_data.template=$id 
+		AND thold_data.template_enabled='on'");
 
 	foreach ($rows as $row) {
-		db_execute('DELETE FROM plugin_thold_threshold_contact where thold_id = ' . $row['id']);
-		db_execute('INSERT INTO plugin_thold_threshold_contact (thold_id, contact_id) SELECT ' . $row['id'] . ', contact_id FROM plugin_thold_template_contact WHERE template_id = ' . $row['template']);
+		db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id = ' . $row['id']);
+
+		db_execute('INSERT INTO plugin_thold_threshold_contact 
+			(thold_id, contact_id) 
+			SELECT ' . $row['id'] . ', contact_id 
+			FROM plugin_thold_template_contact 
+			WHERE template_id = ' . $row['template']);
 	}
 }
 
 function thold_cacti_log($string) {
 	global $config;
+
 	$environ = 'THOLD';
 	/* fill in the current date for printing in the log */
-	$date = date("m/d/Y h:i:s A");
+	$date = date('m/d/Y h:i:s A');
 
 	/* determine how to log data */
-	$logdestination = read_config_option("log_destination");
-	$logfile        = read_config_option("path_cactilog");
+	$logdestination = read_config_option('log_destination');
+	$logfile        = read_config_option('path_cactilog');
 
 	/* format the message */
-	$message = "$date - " . $environ . ": " . $string . "\n";
+	$message = "$date - " . $environ . ': ' . $string . "\n";
 
 	/* Log to Logfile */
-	if ((($logdestination == 1) || ($logdestination == 2)) && (read_config_option("log_verbosity") != POLLER_VERBOSITY_NONE)) {
-		if ($logfile == "") {
-			$logfile = $config["base_path"] . "/log/cacti.log";
+	if ((($logdestination == 1) || ($logdestination == 2)) && (read_config_option('log_verbosity') != POLLER_VERBOSITY_NONE)) {
+		if ($logfile == '') {
+			$logfile = $config['base_path'] . '/log/cacti.log';
 		}
 
 		/* echo the data to the log (append) */
-		$fp = @fopen($logfile, "a");
+		$fp = @fopen($logfile, 'a');
 
 		if ($fp) {
 			@fwrite($fp, $message);
@@ -3173,32 +3271,32 @@ function thold_cacti_log($string) {
 	/* Syslog is currently Unstable in Win32 */
 	if (($logdestination == 2) || ($logdestination == 3)) {
 		$string = strip_tags($string);
-		$log_type = "";
-		if (substr_count($string,"ERROR:"))
-			$log_type = "err";
-		else if (substr_count($string,"WARNING:"))
-			$log_type = "warn";
-		else if (substr_count($string,"STATS:"))
-			$log_type = "stat";
-		else if (substr_count($string,"NOTICE:"))
-			$log_type = "note";
+		$log_type = '';
+		if (substr_count($string,'ERROR:'))
+			$log_type = 'err';
+		else if (substr_count($string,'WARNING:'))
+			$log_type = 'warn';
+		else if (substr_count($string,'STATS:'))
+			$log_type = 'stat';
+		else if (substr_count($string,'NOTICE:'))
+			$log_type = 'note';
 
 		if (strlen($log_type)) {
-			if ($config["cacti_server_os"] == "win32")
-				openlog("Cacti", LOG_NDELAY | LOG_PID, LOG_USER);
+			if ($config['cacti_server_os'] == 'win32')
+				openlog('Cacti', LOG_NDELAY | LOG_PID, LOG_USER);
 			else
-				openlog("Cacti", LOG_NDELAY | LOG_PID, LOG_SYSLOG);
+				openlog('Cacti', LOG_NDELAY | LOG_PID, LOG_SYSLOG);
 
-			if (($log_type == "err") && (read_config_option("log_perror"))) {
-				syslog(LOG_CRIT, $environ . ": " . $string);
+			if (($log_type == 'err') && (read_config_option('log_perror'))) {
+				syslog(LOG_CRIT, $environ . ': ' . $string);
 			}
 
-			if (($log_type == "warn") && (read_config_option("log_pwarn"))) {
-				syslog(LOG_WARNING, $environ . ": " . $string);
+			if (($log_type == 'warn') && (read_config_option('log_pwarn'))) {
+				syslog(LOG_WARNING, $environ . ': ' . $string);
 			}
 
-			if ((($log_type == "stat") || ($log_type == "note")) && (read_config_option("log_pstats"))) {
-				syslog(LOG_INFO, $environ . ": " . $string);
+			if ((($log_type == 'stat') || ($log_type == 'note')) && (read_config_option('log_pstats'))) {
+				syslog(LOG_INFO, $environ . ': ' . $string);
 			}
 
 			closelog();
@@ -3207,59 +3305,30 @@ function thold_cacti_log($string) {
 }
 
 function thold_threshold_enable($id) {
-	db_execute("UPDATE thold_data SET thold_enabled='on', thold_fail_count=0, thold_warning_fail_count=0, bl_fail_count=0, thold_alert=0, bl_alert=0 WHERE id=$id");
+	db_execute_prepared("UPDATE thold_data 
+		SET thold_enabled='on', 
+		thold_fail_count=0, 
+		thold_warning_fail_count=0, 
+		bl_fail_count=0, 
+		thold_alert=0, 
+		bl_alert=0 
+		WHERE id = ?", array($id));
 }
 
 function thold_threshold_disable($id) {
-	db_execute("UPDATE thold_data SET thold_enabled='off', thold_fail_count=0, thold_warning_fail_count=0, bl_fail_count=0, thold_alert=0, bl_alert=0 WHERE id=$id");
-}
-
-/**
- * This function is stolen from NECTAR
- * convert png images stream to jpeg using php-gd
- *
- * @param unknown_type $png_data    the png image as a stream
- * @return unknown                    the jpeg image as a stream
- */
-function png2jpeg ($png_data) {
-	global $config;
-	$ImageData = '';
-	if ($png_data != "") {
-		$fn = "/tmp/" . time() . '.png';
-
-		/* write rrdtool's png file to scratch dir */
-		$f = fopen($fn, 'wb');
-		fwrite($f, $png_data);
-		fclose($f);
-
-		/* create php-gd image object from file */
-		$im = imagecreatefrompng($fn);
-		if (!$im) {
-			/* check for errors */
-			$im = ImageCreate (150, 30);
-			/* create an empty image */
-			$bgc = ImageColorAllocate ($im, 255, 255, 255);
-			$tc  = ImageColorAllocate ($im, 0, 0, 0);
-			ImageFilledRectangle ($im, 0, 0, 150, 30, $bgc);
-			/* print error message */
-			ImageString($im, 1, 5, 5, "Error while opening: $imgname", $tc);
-		}
-
-		ob_start(); // start a new output buffer to capture jpeg image stream
-		imagejpeg($im);    // output to buffer
-		$ImageData = ob_get_contents(); // fetch image from buffer
-		$ImageDataLength = ob_get_length();
-		ob_end_clean(); // stop this output buffer
-		imagedestroy($im); //clean up
-
-		unlink($fn); // delete scratch file
-	}
-	return $ImageData;
+	db_execute_prepared("UPDATE thold_data 
+		SET thold_enabled='off', 
+		thold_fail_count=0, 
+		thold_warning_fail_count=0, 
+		bl_fail_count=0, 
+		thold_alert=0, 
+		bl_alert=0 
+		WHERE id = ?", array($id));
 }
 
 function get_thold_notification_emails($id) {
 	if (!empty($id)) {
-		return trim(db_fetch_cell('SELECT emails FROM plugin_notification_lists WHERE id=' . $id));
+		return trim(db_fetch_cell_prepared('SELECT emails FROM plugin_notification_lists WHERE id = ?', array($id)));
 	} else {
 		return '';
 	}
@@ -3269,9 +3338,9 @@ function get_thold_notification_emails($id) {
    @arg $id - (int) the ID of the thold template to return a hash for
    @returns - a 128-bit, hexadecimal hash */
 function get_hash_thold_template($id) {
-    $hash = db_fetch_cell("SELECT hash FROM thold_template WHERE id=$id");
+    $hash = db_fetch_cell_prepared('SELECT hash FROM thold_template WHERE id = ?', array($id));
 
-    if (preg_match("/[a-fA-F0-9]{32}/", $hash)) {
+    if (preg_match('/[a-fA-F0-9]{32}/', $hash)) {
         return $hash;
     } else {
         return generate_hash();
@@ -3279,7 +3348,7 @@ function get_hash_thold_template($id) {
 }
 
 function ia2xml($array) {
-	$xml = "";
+	$xml = '';
 	if (sizeof($array)) {
 	foreach ($array as $key=>$value) {
 		if (is_array($value)) {
@@ -3303,7 +3372,6 @@ function array2xml($array, $tag = 'template') {
 }
 
 function thold_snmptrap($varbinds){
-	global $config;
 	if (function_exists('snmpagent_notification')) {
 		snmpagent_notification('tholdNotify', 'CACTI-THOLD-MIB', $varbinds);
 	}else {

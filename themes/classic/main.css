@@ -1,0 +1,132 @@
+.deviceUpFull {
+	background-color: #198E32;
+	text-align:center;
+	width: 14%;
+}
+
+.deviceDownFull {
+	background-color: #FF0000;
+	text-align:center;
+	width: 14%;
+}
+
+.deviceUnknownFull {
+	background-color: #0000ff;
+	text-align:center;
+	width: 14%;
+}
+
+.deviceDisabledFull {
+	background-color: #A1A1A1;
+	text-align:center;
+	width: 14%;
+}
+
+.deviceRecoveringFull {
+	background-color: #ff8f1e;
+	text-align:center;
+	width: 14%;
+}
+
+.deviceErrorFull {
+	background-color: #750F7D;
+	text-align:center;
+	width: 14%;
+}
+
+.deviceNotMonFull {
+	background-color: #FAFD9E;
+	text-align:center;
+	width: 14%;
+}
+
+.tholdAlertNotify {
+	background-color: #F21924;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdWarningNotify {
+	background-color: #FB4A14;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdReTriggerEvent {
+	background-color: #FF7A30;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdTriggerEvent {
+	background-color: #FAFD9E;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdRestoralNotify {
+	background-color: #CCFFCC;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdRestoralEvent {
+	background-color: #CDCFC4;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdRestore {
+	background-color: #CCFFCC;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdAlertTrigger {
+	background-color: #F21721;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdReTrigger {
+	background-color: #FA7420;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdWarning {
+	background-color: #FF7A30;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdAlert {
+	background-color: #F21924;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdBaseAlert {
+	background-color: #FB4A14;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdNotice {
+	background-color: #FAFD9E;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdOk {
+	background-color: #CCFFCC;
+	text-align: center;
+	width: 14%;
+}
+
+.tholdDisabled {
+	background-color: #CDCFC4;
+	text-align: center;
+	width: 14%;
+}
+
