@@ -607,9 +607,6 @@ function template_edit() {
 
 	$datasources = "<br><b>Data Sources:</b> " . implode(", ", $dsname);
 
-	print "<form name='THold' action='thold_templates.php' method='post'>\n";
-
-	html_start_box('', '100%', '', '3', 'center', '');
 	$form_array = array(
 		'general_header' => array(
 			'friendly_name' => 'General Settings',
@@ -982,6 +979,10 @@ function template_edit() {
 		$form_array += $extra;
 	}
 
+	form_start('thold_templates.php', 'thold');
+
+	html_start_box('', '100%', '', '3', 'center', '');
+
 	draw_edit_form(
 		array(
 			'config' => array(
@@ -996,7 +997,7 @@ function template_edit() {
 
 	html_end_box();
 
-	form_save_button('thold_templates.php?id=' . $id, 'save');
+	form_save_button('thold_templates.php?id=' . $id);
 
 	?>
 
@@ -1086,21 +1087,20 @@ function template_edit() {
 	changeTholdType ();
 	changeDataType ();
 
-	if (document.THold["notify_accounts[]"] && document.THold["notify_accounts[]"].length == 0) {
+	if (document.thold["notify_accounts[]"] && document.thold["notify_accounts[]"].length == 0) {
 		document.getElementById('row_notify_accounts').style.display='none';
 	}
 
-	if (document.THold.notify_warning.length == 1) {
+	if (document.thold.notify_warning.length == 1) {
 		document.getElementById('row_notify_warning').style.display='none';
 	}
 
-	if (document.THold.notify_alert.length == 1) {
+	if (document.thold.notify_alert.length == 1) {
 		document.getElementById('row_notify_alert').style.display='none';
 	}
 
 	</script>
 	<?php
-
 }
 
 function template_request_validation() {

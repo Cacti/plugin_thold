@@ -328,7 +328,7 @@ function list_tholds() {
 
 	html_start_box('', '100%', '', '4', 'center', '');
 
-	$nav = html_nav_bar('listthold.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 11, 'Thresholds', 'page', 'main');
+	$nav = html_nav_bar('listthold.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, 'Thresholds', 'page', 'main');
 
 	print $nav;
 
