@@ -282,11 +282,6 @@ function tholds() {
 		$sql_where .= ')';
 	}
 
-cacti_log($sql_where);
-cacti_log($sort . ' ' . get_request_var('sort_direction'));
-cacti_log(get_request_var('page'));
-cacti_log(($rows*(get_request_var('page')-1)) . ", $rows");
-
 	$tholds = get_allowed_thresholds($sql_where, $sort . ' ' . get_request_var('sort_direction'), ($rows*(get_request_var('page')-1)) . ", $rows", $total_rows);
 
 	html_start_box('', '100%', '', '4', 'center', '');
