@@ -867,6 +867,8 @@ function hosts($header_label) {
 function tholds($header_label) {
 	global $item_rows, $config;
 
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
+
 	$thold_actions = array(1 => 'Associate', 2 => 'Disassociate');
 
 	thold_request_validation();
@@ -1074,7 +1076,6 @@ function tholds($header_label) {
 
 	$c=0;
 	$i=0;
-	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 	if (count($result)) {
 		foreach ($result as $row) {
 			$c++;
@@ -1150,7 +1151,7 @@ function tholds($header_label) {
 			form_selectable_cell($row['id'], $row['id']);
 			form_selectable_cell($warn_stat, $row['id']);
 			form_selectable_cell($alert_stat, $row['id']);
-			form_selectable_cell($types[$row['thold_type']], $row['id']);
+			form_selectable_cell($thold_types[$row['thold_type']], $row['id']);
 			form_selectable_cell($alertstat, $row['id']);
 			form_selectable_cell((($row['thold_enabled'] == 'off') ? 'Disabled': 'Enabled'), $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
@@ -1176,6 +1177,8 @@ function tholds($header_label) {
 
 function templates($header_label) {
 	global $config, $item_rows;
+
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	$thold_actions = array(1 => 'Associate', 2 => 'Disassociate');
 
@@ -1307,7 +1310,6 @@ function templates($header_label) {
 
 	$c=0;
 	$i=0;
-	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 	if (count($result)) {
 		foreach ($result as $row) {
 			$c++;
@@ -1364,7 +1366,7 @@ function templates($header_label) {
 			form_selectable_cell($row['id'], $row['id']);
 			form_selectable_cell($warn_stat, $row['id']);
 			form_selectable_cell($alert_stat, $row['id']);
-			form_selectable_cell($types[$row['thold_type']], $row['id']);
+			form_selectable_cell($thold_types[$row['thold_type']], $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
 			form_end_row();
 		}

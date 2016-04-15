@@ -583,16 +583,16 @@ function template_edit() {
 
 	$nr = array();
 	if (sizeof($replacements)) {
-	foreach($replacements as $r) {
-		$nr[] = "<span style='color:blue;'>|query_" . $r['field_name'] . "|</span>";
-	}
+		foreach($replacements as $r) {
+			$nr[] = "<span style='color:blue;'>|query_" . $r['field_name'] . "|</span>";
+		}
 	}
 
 	$vhf = explode("|", trim(VALID_HOST_FIELDS, "()"));
 	if (sizeof($vhf)) {
-	foreach($vhf as $r) {
-		$nr[] = "<span style='color:blue;'>|" . $r . "|</span>";
-	}
+		foreach($vhf as $r) {
+			$nr[] = "<span style='color:blue;'>|" . $r . "|</span>";
+		}
 	}
 
 	$replacements = "<br><b>Replacement Fields:</b> " . implode(", ", $nr);
@@ -600,9 +600,9 @@ function template_edit() {
 	$dss = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE data_template_id=" . $thold_item_data['data_template_id'] . " AND local_data_id=0");
 
 	if (sizeof($dss)) {
-	foreach($dss as $ds) {
-		$dsname[] = "<span style='color:blue;'>|ds:" . $ds["data_source_name"] . "|</span>";
-	}
+		foreach($dss as $ds) {
+			$dsname[] = "<span style='color:blue;'>|ds:" . $ds["data_source_name"] . "|</span>";
+		}
 	}
 
 	$datasources = "<br><b>Data Sources:</b> " . implode(", ", $dsname);
@@ -1143,7 +1143,9 @@ function template_request_validation() {
 }
 
 function templates() {
-	global $thold_actions, $item_rows;
+	global $config, $thold_actions, $item_rows;
+
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	template_request_validation();
 
@@ -1262,7 +1264,6 @@ function templates() {
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
 	$i = 0;
-	$types = array('High/Low', 'Baseline Deviation', 'Time Based');
 	if (sizeof($template_list)) {
 		foreach ($template_list as $template) {
 			switch ($template['thold_type']) {
@@ -1306,7 +1307,7 @@ function templates() {
 			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name  . '</a>', $template['id']);
 			form_selectable_cell(filter_value($template['data_template_name'], get_request_var('filter')), $template['id']);
 			form_selectable_cell($template['data_source_name'], $template['id']);
-			form_selectable_cell($types[$template['thold_type']], $template['id']);
+			form_selectable_cell($thold_types[$template['thold_type']], $template['id']);
 			form_selectable_cell($value_hi, $template['id']);
 			form_selectable_cell($value_lo, $template['id']);
 

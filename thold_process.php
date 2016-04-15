@@ -53,6 +53,7 @@ chdir(dirname(__FILE__));
 chdir('../../');
 
 require_once('./include/global.php');
+require($config['base_path'] . '/plugins/thold/includes/arrays.php');
 require_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 require_once($config['library_path'] . '/snmp.php');
 
@@ -139,7 +140,6 @@ $sql_query = "SELECT plugin_thold_daemon_data.id, plugin_thold_daemon_data.rrd_r
 $thold_items = db_fetch_assoc($sql_query, false);
 
 if (sizeof($thold_items)) {
-
 	/* hold data of all CDEFs in memory to reduce the number of SQL queries to minimum */
 	$cdefs = array();
 	$cdefs_tmp = db_fetch_assoc('SELECT cdef_id, sequence, type, value FROM cdef_items ORDER BY cdef_id, sequence');
