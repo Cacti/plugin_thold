@@ -358,14 +358,17 @@ function tholds() {
 			}
 
 			print "<td width='1%' style='white-space:nowrap;'>";
+
 			if (api_user_realm_auth('thold_add.php')) {
 				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?rra=' . $row["rra_id"] . '&view_rrd=' . $row["data_id"]) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="Edit Threshold"></a>';
 			}
+
 			if ($row["thold_enabled"] == 'on') {
 				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] .'&action=disable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" border="0" alt="" title="Disable Threshold"></a>';
 			}else{
 				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] . '&action=enable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" border="0" alt="" title="Enable Threshold"></a>';
 			}
+
 			print "<a href='". htmlspecialchars($config['url_path'] . "graph.php?local_graph_id=" . $row['graph_id'] . "&rra_id=all") . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graph'></a>";
 			print "<a href='". htmlspecialchars($config['url_path'] . "plugins/thold/thold_graph.php?action=log&threshold_id=" . $row["id"] . "&status=-1") . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
 
@@ -373,6 +376,7 @@ function tholds() {
 			print "<td class='left nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
 			print "<td class='left nowrap'>" . $thold_types[$row['thold_type']] . "</td>";
 			print "<td class='right'>" . $row["id"] . "</td>";
+
 			switch($row['thold_type']) {
 				case 0:
 					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i></td>";
@@ -390,17 +394,20 @@ function tholds() {
 					print "<td class='right'>N/A</td>";
 					print "<td class='right'>N/A</td>";
 			}
+
 			print "<td class='right nowrap'>" . ($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')) . "</td>";
 			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? "N/A":($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . "</td>";
 			print "<td class='right'>" . ($row['thold_type'] == 1 ? "N/A":($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . "</td>";
 			print "<td class='right'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): 'N/A') . "</td>";
 			print "<td class='right'>" . thold_format_number($row['lastread']) . "</td>";
 			print "<td class='right'>" . $alertstat . "</td>";
+
 			if ($row['thold_enabled'] == 'off') {
 				print "<td class='right'><b>Disabled</b></td>";
 			}else{
 				print "<td class='right'>Enabled</td>";
 			}
+
 			form_end_row();
 		}
 	} else {
@@ -457,7 +464,7 @@ function get_uncolored_device_status($disabled, $status) {
 }
 
 function hosts() {
-	global $config, $device_actions, $item_rows, $host_colors, $notmon_color;
+	global $config, $device_actions, $item_rows;
 
     /* ================= input validation and session storage ================= */
     $filters = array(
