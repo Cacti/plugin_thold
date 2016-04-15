@@ -2199,11 +2199,11 @@ function thold_check_threshold ($rra_id, $data_id, $name, $currentval, $cdef) {
 	}
 }
 
-function thold_format_number($value, $digits=5) {
+function thold_format_number($value, $digits = 5) {
 	if ($value == '') {
 		return '-';
-	}elseif (strlen(round($value,0)) == strlen($value)) {
-		return $value;
+	}elseif (strlen(round($value, 0)) == strlen($value)) {
+		return number_format($value);
 	} else {
 		return rtrim(number_format($value, $digits), '0');
 	}

@@ -333,17 +333,17 @@ function list_tholds() {
 	print $nav;
 
 	$display_text = array(
-		'name'             => array('Name', 'ASC'),
-		'thold_type'       => array('Type', 'ASC'),
-		'thold_hi'         => array('High', 'ASC'),
-		'thold_low'        => array('Low', 'ASC'),
-		'nosort3'          => array('Trigger', ''),
-		'nosort4'          => array('Duration', ''),
-		'repeat_alert'     => array('Repeat', 'ASC'),
-		'lastread'         => array('Current', 'ASC'),
-		'thold_alert'      => array('Triggered', 'ASC'),
-		'thold_enabled'    => array('Enabled', 'ASC'),
-		'template_enabled' => array('Templated', 'ASC')
+		'name'             => array('display' => 'Name',      'sort' => 'ASC', 'align' => 'left'),
+		'thold_type'       => array('display' => 'Type',      'sort' => 'ASC', 'align' => 'left'),
+		'thold_hi'         => array('display' => 'High',      'sort' => 'ASC', 'align' => 'right'),
+		'thold_low'        => array('display' => 'Low',       'sort' => 'ASC', 'align' => 'right'),
+		'nosort3'          => array('display' => 'Trigger',   'sort' => '',    'align' => 'right'),
+		'nosort4'          => array('display' => 'Duration',  'sort' => '',    'align' => 'right'),
+		'repeat_alert'     => array('display' => 'Repeat',    'sort' => 'ASC', 'align' => 'right'),
+		'lastread'         => array('display' => 'Current',   'sort' => 'ASC', 'align' => 'right'),
+		'thold_alert'      => array('display' => 'Triggered', 'sort' => 'ASC', 'align' => 'right'),
+		'thold_enabled'    => array('display' => 'Enabled',   'sort' => 'ASC', 'align' => 'right'),
+		'template_enabled' => array('display' => 'Templated', 'sort' => 'ASC', 'align' => 'right')
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
@@ -362,7 +362,7 @@ function list_tholds() {
 
 			$graph_id = $grapharr['local_graph_id'];
 
-			$alertstat='no';
+			$alertstat='No';
 			$bgcolor='green';
 			if ($row['thold_type'] == 0) {
 				if ($row['thold_alert'] != 0) {
@@ -408,39 +408,39 @@ function list_tholds() {
 
 			switch($row['thold_type']) {
 				case 0:
-					form_selectable_cell(thold_format_number($row['thold_hi']), $row['id'], '', 'text-align:left');
-					form_selectable_cell(thold_format_number($row['thold_low']), $row['id'], '', 'text-align:left');
-					form_selectable_cell('<i>' . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . '</i>', $row['id'], '', 'text-align:left');
-					form_selectable_cell('',  $row['id'], '', 'text-align:left');
+					form_selectable_cell(thold_format_number($row['thold_hi']), $row['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($row['thold_low']), $row['id'], '', 'text-align:right');
+					form_selectable_cell('<i>' . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . '</i>', $row['id'], '', 'text-align:right');
+					form_selectable_cell('',  $row['id'], '', 'text-align:right');
 					break;
 				case 1:
-					form_selectable_cell(thold_format_number($row['thold_hi']), $row['id'], '', 'text-align:left');
-					form_selectable_cell(thold_format_number($row['thold_low']), $row['id'], '', 'text-align:left');
-					form_selectable_cell('<i>' . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . '</i>', $row['id'], '', 'text-align:left');
-					form_selectable_cell($timearray[$row['bl_ref_time_range']/300], $row['id'], '', 'text-align:left');
+					form_selectable_cell(thold_format_number($row['thold_hi']), $row['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($row['thold_low']), $row['id'], '', 'text-align:right');
+					form_selectable_cell('<i>' . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . '</i>', $row['id'], '', 'text-align:right');
+					form_selectable_cell($timearray[$row['bl_ref_time_range']/300], $row['id'], '', 'text-align:right');
 					break;
 				case 2:
-					form_selectable_cell(thold_format_number($row['time_hi']), $row['id'], '', 'text-align:left');
-					form_selectable_cell(thold_format_number($row['time_low']), $row['id'], '', 'text-align:left');
-					form_selectable_cell('<i>' . $row['time_fail_trigger'] . ' Triggers</i>',  $row['id'], '', 'text-align:left');
-					form_selectable_cell(plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time'), $row['id'], '', 'text-align:left');
+					form_selectable_cell(thold_format_number($row['time_hi']), $row['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($row['time_low']), $row['id'], '', 'text-align:right');
+					form_selectable_cell('<i>' . $row['time_fail_trigger'] . ' Triggers</i>',  $row['id'], '', 'text-align:right');
+					form_selectable_cell(plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time'), $row['id'], '', 'text-align:right');
 					break;
 				default:
-					form_selectable_cell('',  $row['id'], '', 'text-align:left');
-					form_selectable_cell('',  $row['id'], '', 'text-align:left');
-					form_selectable_cell('',  $row['id'], '', 'text-align:left');
-					form_selectable_cell('',  $row['id'], '', 'text-align:left');
+					form_selectable_cell('',  $row['id'], '', 'text-align:right');
+					form_selectable_cell('',  $row['id'], '', 'text-align:right');
+					form_selectable_cell('',  $row['id'], '', 'text-align:right');
+					form_selectable_cell('',  $row['id'], '', 'text-align:right');
 			}
 
-			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')), $row['id'], '', 'text-align:left');
-			form_selectable_cell(thold_format_number($row['lastread']), $row['id'], '', 'text-align:left');
-			form_selectable_cell($alertstat, $row['id'], '', 'text-align:left');
-			form_selectable_cell((($row['thold_enabled'] == 'off') ? 'Disabled': 'Enabled'), $row['id'], '', 'text-align:left');
+			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')), $row['id'], '', 'text-align:right');
+			form_selectable_cell(thold_format_number($row['lastread']), $row['id'], '', 'text-align:right');
+			form_selectable_cell($alertstat, $row['id'], '', 'text-align:right');
+			form_selectable_cell((($row['thold_enabled'] == 'off') ? 'Disabled': 'Enabled'), $row['id'], '', 'text-align:right');
 
 			if ($row['template'] != 0) {
-				form_selectable_cell((($row['template_enabled'] == 'off' ) ? 'No': "<span title='{$row['template_name']}'>Yes</span>"), $row['id'], '', 'text-align:left');
+				form_selectable_cell($row['template_enabled'] == 'off' ? 'No' : "Yes", $row['id'], '', 'text-align:right');
 			} else {
-				form_selectable_cell('', $row['id'], '', 'text-align:left');
+				form_selectable_cell('No', $row['id'], '', 'text-align:right');
 			}
 
 			form_checkbox_cell($row['name'], $row['id'], '', 'text-align:left');

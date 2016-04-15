@@ -296,19 +296,19 @@ cacti_log(($rows*(get_request_var('page')-1)) . ", $rows");
 	print $nav;
 
 	$display_text = array(
-		'nosort' => array('Actions', ''),
-		'name' => array('Name', 'ASC'),
-		'id' => array('ID', 'ASC'),
-		'thold_type' => array('Type', 'ASC'),
-		'nosort2' => array('Trigger', 'ASC'),
-		'nosort3' => array('Duration', 'ASC'),
-		'repeat_alert' => array('Repeat', 'ASC'),
-		'nosort4' => array('Warn Hi/Lo', 'ASC'),
-		'nosort5' => array('Alert Hi/Lo', 'ASC'),
-		'nosort6' => array('BL Hi/Lo', 'ASC'),
-		'lastread' => array('Current', 'ASC'),
-		'thold_alert' => array('Triggered', 'ASC'),
-		'thold_enabled' => array('Enabled', 'ASC'));
+		'nosort'        => array('display' => 'Actions',     'sort' => '',      'align' => 'left'),
+		'name'          => array('display' => 'Name',        'sort' => 'ASC',   'align' => 'left'),
+		'thold_type'    => array('display' => 'Type',        'sort' => 'ASC',   'align' => 'left'),
+		'id'            => array('display' => 'ID',          'sort' => 'ASC',   'align' => 'right'),
+		'nosort2'       => array('display' => 'Trigger',     'sort' => 'ASC',   'align' => 'right'),
+		'nosort3'       => array('display' => 'Duration',    'sort' => 'ASC',   'align' => 'right'),
+		'repeat_alert'  => array('display' => 'Repeat',      'sort' => 'ASC',   'align' => 'right'),
+		'nosort4'       => array('display' => 'Warn Hi/Lo',  'sort' => 'ASC',   'align' => 'right'),
+		'nosort5'       => array('display' => 'Alert Hi/Lo', 'sort' => 'ASC',   'align' => 'right'),
+		'nosort6'       => array('display' => 'BL Hi/Lo',    'sort' => 'ASC',   'align' => 'right'),
+		'lastread'      => array('display' => 'Current',     'sort' => 'ASC',   'align' => 'right'),
+		'thold_alert'   => array('display' => 'Triggered',   'sort' => 'ASC',   'align' => 'right'),
+		'thold_enabled' => array('display' => 'Enabled',     'sort' => 'ASC',   'align' => 'right'));
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=thold');
 
@@ -322,11 +322,11 @@ cacti_log(($rows*(get_request_var('page')-1)) . ", $rows");
 	if (sizeof($tholds)) {
 		foreach ($tholds as $row) {
 			$c++;
-			$alertstat = 'no';
+			$alertstat = 'No';
 			$bgcolor   = 'green';
 			if ($row['thold_type'] == 0) {
 				if ($row['thold_alert'] != 0) {
-					$alertstat='yes';
+					$alertstat='Yes';
 					if ( $row['thold_fail_count'] >= $row['thold_fail_trigger'] ) {
 						$bgcolor = 'red';
 					} elseif ( $row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger'] ) {
@@ -337,7 +337,7 @@ cacti_log(($rows*(get_request_var('page')-1)) . ", $rows");
 				}
 			} elseif ($row['thold_type'] == 2) {
 				if ($row['thold_alert'] != 0) {
-					$alertstat='yes';
+					$alertstat='Yes';
 					if ($row['thold_fail_count'] >= $row['time_fail_trigger']) {
 						$bgcolor = 'red';
 					} elseif ($row['thold_warning_fail_count'] >= $row['time_warning_fail_trigger']) {
@@ -348,10 +348,10 @@ cacti_log(($rows*(get_request_var('page')-1)) . ", $rows");
 				}
 			} else {
 				if ($row['bl_alert'] == 1) {
-					$alertstat = 'baseline-LOW';
+					$alertstat = 'Baseline-LOW';
 					$bgcolor   = ($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
 				} elseif ($row['bl_alert'] == 2)  {
-					$alertstat = 'baseline-HIGH';
+					$alertstat = 'Baseline-HIGH';
 					$bgcolor   = ($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
 				}
 			};
@@ -375,36 +375,36 @@ cacti_log(($rows*(get_request_var('page')-1)) . ", $rows");
 			print "<a href='". htmlspecialchars($config['url_path'] . "plugins/thold/thold_graph.php?action=log&threshold_id=" . $row["id"] . "&status=-1") . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
 
 			print "</td>";
-			print "<td class='nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
+			print "<td class='left nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
+			print "<td class='left nowrap'>" . $thold_types[$row['thold_type']] . "</td>";
 			print "<td class='right'>" . $row["id"] . "</td>";
-			print "<td class='nowrap'>" . $thold_types[$row['thold_type']] . "</td>";
 			switch($row['thold_type']) {
 				case 0:
-					print "<td class='nowrap'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i></td>";
-					print "<td>N/A</td>";
+					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i></td>";
+					print "<td class='right'>N/A</td>";
 					break;
 				case 1:
-					print "<td class='nowrap'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . "</i></td>";
-					print "<td class='nowrap'>" . $timearray[$row['bl_ref_time_range']/300]. "</td>";;
+					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . "</i></td>";
+					print "<td class='right nowrap'>" . $timearray[$row['bl_ref_time_range']/300]. "</td>";;
 					break;
 				case 2:
-					print "<td class='nowrap'><i>" . $row['time_fail_trigger'] . " Triggers</i></td>";
-					print "<td class='nowrap'>" . plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time') . "</td>";;
+					print "<td class='right nowrap'><i>" . $row['time_fail_trigger'] . " Triggers</i></td>";
+					print "<td class='right nowrap'>" . plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time') . "</td>";;
 					break;
 				default:
-					print "<td>N/A</td>";
-					print "<td>N/A</td>";
+					print "<td class='right'>N/A</td>";
+					print "<td class='right'>N/A</td>";
 			}
-			print "<td class='nowrap'>" . ($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')) . "</td>";
-			print "<td class='nowrap'>" . ($row['thold_type'] == 1 ? "N/A":($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . "</td>";
-			print "<td>" . ($row['thold_type'] == 1 ? "N/A":($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . "</td>";
-			print "<td>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): 'N/A') . "</td>";
-			print "<td>" . thold_format_number($row['lastread']) . "</td>";
-			print "<td>" . ($row['thold_alert'] ? "yes":"no") . "</td>";
+			print "<td class='right nowrap'>" . ($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')) . "</td>";
+			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? "N/A":($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . "</td>";
+			print "<td class='right'>" . ($row['thold_type'] == 1 ? "N/A":($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . "</td>";
+			print "<td class='right'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): 'N/A') . "</td>";
+			print "<td class='right'>" . thold_format_number($row['lastread']) . "</td>";
+			print "<td class='right'>" . $alertstat . "</td>";
 			if ($row['thold_enabled'] == 'off') {
-				print "<td><b>Disabled</b></td>";
+				print "<td class='right'><b>Disabled</b></td>";
 			}else{
-				print "<td>Enabled</td>";
+				print "<td class='right'>Enabled</td>";
 			}
 			form_end_row();
 		}
@@ -561,27 +561,42 @@ function hosts() {
 
 	$hosts = get_allowed_devices($sql_where, $sortby . ' ' . get_request_var('sort_direction'), ($rows*(get_request_var('page')-1)) . ',' . $rows, $total_rows);
 
-	$nav = html_nav_bar('thold_graph.php?action=hoststat', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 11, 'Devices', 'page', 'main');
+	$nav = html_nav_bar('thold_graph.php?action=hoststat', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, 'Devices', 'page', 'main');
 
 	print $nav;
 
 	$display_text = array(
-		'nosort'             => array('display' => 'Actions',      'align' => 'left'),
-		'description'        => array('display' => 'Description',  'align' => 'left',   'sort' => 'ASC'),
-		'id'                 => array('display' => 'ID',           'align' => 'right',  'sort' => 'ASC'),
-		'nosort1'            => array('display' => 'Graphs',       'align' => 'right',  'sort' => 'ASC'),
-		'nosort2'            => array('display' => 'Data Sources', 'align' => 'right',  'sort' => 'ASC'),
-		'status'             => array('display' => 'Status',       'align' => 'center', 'sort' => 'ASC'),
-		'status_event_count' => array('display' => 'Event Count',  'align' => 'right',  'sort' => 'ASC'),
-		'hostname'           => array('display' => 'Hostname',     'align' => 'right',   'sort' => 'ASC'),
-		'cur_time'           => array('display' => 'Current (ms)', 'align' => 'right',  'sort' => 'DESC'),
-		'avg_time'           => array('display' => 'Average (ms)', 'align' => 'right',  'sort' => 'DESC'),
-		'availability'       => array('display' => 'Availability', 'align' => 'right',  'sort' => 'ASC'));
+		'nosort'                 => array('display' => 'Actions',      'align' => 'left',   'sort' => '',     'tip' => 'Hover over icons for help'),
+		'description'            => array('display' => 'Description',  'align' => 'left',   'sort' => 'ASC',  'tip' => 'A description for the Device'),
+		'id'                     => array('display' => 'ID',           'align' => 'right',  'sort' => 'ASC',  'tip' => 'A Cacti unique identifier for the Device'),
+		'nosort1'                => array('display' => 'Graphs',       'align' => 'right',  'sort' => 'ASC',  'tip' => 'The number of Graphs for this Device'),
+		'nosort2'                => array('display' => 'Data Sources', 'align' => 'right',  'sort' => 'ASC',  'tip' => 'The number of Data Sources for this Device'),
+		'status'                 => array('display' => 'Status',       'align' => 'center', 'sort' => 'ASC',  'tip' => 'The status for this Device as of the last time it was polled'),
+		'nosort3'                => array('display' => 'In State',     'align' => 'right',  'sort' => 'ASC',  'tip' => 'The last time Cacti found an issues with this Device.  It can be higher than the Uptime for the the Device, if it was rebooted between Cacti polling cycles'),
+		'snmp_sysUpTimeInstance' => array('display' => 'Uptime',       'align' => 'right',  'sort' => 'ASC',  'tip' => 'The official uptime of the Device as reported by SNMP'),
+		'hostname'               => array('display' => 'Hostname',     'align' => 'right',  'sort' => 'ASC',  'tip' => 'The official hostname for this Device'),
+		'cur_time'               => array('display' => 'Current (ms)', 'align' => 'right',  'sort' => 'DESC', 'tip' => 'The current response time for the Cacti Availability check'),
+		'avg_time'               => array('display' => 'Average (ms)', 'align' => 'right',  'sort' => 'DESC', 'tip' => 'The average response time for the Cacti Availability check'),
+		'availability'           => array('display' => 'Availability', 'align' => 'right',  'sort' => 'ASC',  'tip' => 'The overall Availability of this Device since the last counter reset in Cacti'));
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=hoststat');
 
 	if (sizeof($hosts)) {
 		foreach ($hosts as $host) {
+			if ($host['disabled'] == '' && 
+				($host['status'] == HOST_RECOVERING || $host['status'] == HOST_UP) &&
+				($host['availability_method'] != AVAIL_NONE && $host['availability_method'] != AVAIL_PING)) { 
+				$snmp_uptime = $host['snmp_sysUpTimeInstance'];
+				$days      = intval($snmp_uptime / (60*60*24*100));
+				$remainder = $snmp_uptime % (60*60*24*100);
+				$hours     = intval($remainder / (60*60*100));
+				$remainder = $remainder % (60*60*100);
+				$minutes   = intval($remainder / (60*100));
+				$uptime    = $days . 'd:' . substr('00' . $hours, -2) . 'h:' . substr('00' . $minutes, -2) . 'm';
+			}else{
+				$uptime    = "N/A";
+			}
+
 			if (isset($host_graphs[$host['id']])) {
 				$graphs = $host_graphs[$host['id']];
 			}else{
@@ -607,14 +622,15 @@ function hosts() {
 					<?php print filter_value($host['description'], get_request_var('filter'));?>
 				</td>
 				<td style='text-align:right'><?php print round(($host['id']), 2);?></td>
-				<td style='text-align:right'><i><?php print $graphs;?></i></td>
-				<td style='text-align:right'><i><?php print $ds;?></i></td>
+				<td style='text-align:right'><i><?php print number_format($graphs);?></i></td>
+				<td style='text-align:right'><i><?php print number_format($ds);?></i></td>
 				<td style='text-align:center'><?php print get_uncolored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']);?></td>
-				<td style='text-align:right'><?php print round(($host['status_event_count']), 2);?></td>
+				<td style='text-align:right'><?php print get_timeinstate($host);?></td>
+				<td style='text-align:right'><?php print $uptime;?></td>
 				<td style='text-align:right'><?php print filter_value($host['hostname'], get_request_var('filter'));?></td>
 				<td style='text-align:right'><?php print round(($host['cur_time']), 2);?></td>
 				<td style='text-align:right'><?php print round(($host['avg_time']), 2);?></td>
-				<td style='text-align:right'><?php print round($host['availability'], 2);?></td>
+				<td style='text-align:right'><?php print round($host['availability'], 2);?> %</td>
 				<?php
 			}else{
 				print "<tr class='deviceNotMonFull'>\n";
@@ -629,10 +645,11 @@ function hosts() {
 					<?php print filter_value($host['description'], get_request_var('filter'));?>
 				</td>
 				<td style='text-align:right'><?php print $host['id'];?></td>
-				<td style='text-align:right'><i><?php print $graphs;?></i></td>
-				<td style='text-align:right'><i><?php print $ds;?></i></td>
+				<td style='text-align:right'><i><?php print number_format($graphs);?></i></td>
+				<td style='text-align:right'><i><?php print number_format($ds);?></i></td>
 				<td style='text-align:center'><?php print 'Not Monitored';?></td>
 				<td style='text-align:right'><?php print 'N/A';?></td>
+				<td style='text-align:right'><?php print $uptime;?></td>
 				<td style='text-align:right'><?php print filter_value($host['hostname'], get_request_var('filter'));?></td>
 				<td style='text-align:right'><?php print 'N/A';?></td>
 				<td style='text-align:right'><?php print 'N/A';?></td>
@@ -653,6 +670,35 @@ function hosts() {
 	host_legend();
 
 	//thold_display_rusage();
+}
+
+function get_timeinstate($host) {
+	$interval = read_config_option('poller_interval');
+	if ($host['status_event_count'] > 0) {
+		$time = $host['status_event_count'] * $interval;
+	}elseif (strtotime($host['status_rec_date']) > 943916400) {
+		$time = time() - strtotime($host['status_rec_date']);
+	}else{
+		$time = $host['snmp_sysUpTimeInstance']/100;
+	}
+
+	if ($time > 86400) {
+		$days  = floor($time/86400);
+		$time %= 86400;
+	}else{
+		$days  = 0;
+	}
+
+	if ($time > 3600) {
+		$hours = floor($time/3600);
+		$time  %= 3600;
+	}else{
+		$hours = 0;
+	}
+
+	$minutes = floor($time/60);
+
+	return $days . 'd:' . substr('00' . $hours, -2) . 'h:' . substr('00' . $minutes, -2) . 'm';
 }
 
 function form_host_filter() {
