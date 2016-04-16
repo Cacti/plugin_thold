@@ -119,10 +119,10 @@ if($pid === false) {
 
 $sql_query = "SELECT plugin_thold_daemon_data.id, plugin_thold_daemon_data.rrd_reindexed, 
 	plugin_thold_daemon_data.rrd_time_reindexed,
-	thold_data.name AS thold_name, thold_data.graph_id,
+	thold_data.name AS thold_name, thold_data.local_graph_id,
 	thold_data.percent_ds, thold_data.expression,
-	thold_data.data_type, thold_data.cdef, thold_data.rra_id,
-	thold_data.data_id, thold_data.lastread,
+	thold_data.data_type, thold_data.cdef, thold_data.local_data_id,
+	thold_data.data_template_rrd_id, thold_data.lastread,
 	UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue,
 	data_template_rrd.data_source_name as name,
 	data_template_rrd.data_source_type_id, data_template_data.rrd_step,
@@ -131,9 +131,9 @@ $sql_query = "SELECT plugin_thold_daemon_data.id, plugin_thold_daemon_data.rrd_r
 	INNER JOIN thold_data
 	ON thold_data.id = plugin_thold_daemon_data.id
 	LEFT JOIN data_template_rrd
-	ON data_template_rrd.id = thold_data.data_id
+	ON data_template_rrd.id = thold_data.data_template_rrd_id
 	LEFT JOIN data_template_data
-	ON data_template_data.local_data_id = thold_data.rra_id
+	ON data_template_data.local_data_id = thold_data.local_data_id
 	WHERE plugin_thold_daemon_data.pid = '$pid'
 	AND data_template_rrd.data_source_name!=''";
 
@@ -154,10 +154,10 @@ if (sizeof($thold_items)) {
 	$rrd_time_reindexed = array();
 
 	foreach ($thold_items as $t_item) {
-		thold_debug("Checking Threshold:'" . $t_item['thold_name'] . "', Graph:'" . $t_item['graph_id'] . "'");
+		thold_debug("Checking Threshold:'" . $t_item['thold_name'] . "', Graph:'" . $t_item['local_graph_id'] . "'");
 		$item = array();
-		$rrd_reindexed[$t_item['rra_id']] = unserialize($t_item['thold_server_rrd_reindexed']);
-		$rrd_time_reindexed[$t_item['rra_id']] = $t_item['thold_server_rrd_time_reindexed'];
+		$rrd_reindexed[$t_item['local_data_id']] = unserialize($t_item['thold_server_rrd_reindexed']);
+		$rrd_time_reindexed[$t_item['local_data_id']] = $t_item['thold_server_rrd_time_reindexed'];
 		$currenttime = 0;
 		$currentval = thold_get_currentval($t_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
 
@@ -166,7 +166,7 @@ if (sizeof($thold_items)) {
 			break;
 		case 1:
 			if ($t_item['cdef'] != 0) {
-				$currentval = thold_build_cdef( $cdefs[$t_item['cdef']], $currentval, $t_item['rra_id'], $t_item['data_id']);
+				$currentval = thold_build_cdef( $cdefs[$t_item['cdef']], $currentval, $t_item['local_data_id'], $t_item['data_template_rrd_id']);
 			}
 			break;
 		case 2:
@@ -190,18 +190,18 @@ if (sizeof($thold_items)) {
 		db_execute("UPDATE thold_data SET tcheck=1, lastread='$currentval',
 			lasttime='" . date("Y-m-d H:i:s", $currenttime) . "',
 			oldvalue='" . $item[$t_item['name']] . "'
-			WHERE rra_id = " . $t_item['rra_id'] . "
-			AND data_id = " . $t_item['data_id']);
+			WHERE local_data_id = " . $t_item['local_data_id'] . "
+			AND data_template_rrd_id = " . $t_item['data_template_rrd_id']);
 	}
 
 	/* check all thresholds */
-	$sql_query = "SELECT thold_data.data_id, thold_data.rra_id, thold_data.lastread,
+	$sql_query = "SELECT thold_data.data_template_rrd_id, thold_data.local_data_id, thold_data.lastread,
 		thold_data.cdef, data_template_rrd.data_source_name
 		FROM plugin_thold_daemon_data
 		INNER JOIN thold_data
 		ON thold_data.id = plugin_thold_daemon_data.id
 		LEFT JOIN data_template_rrd 
-		ON data_template_rrd.id = thold_data.data_id
+		ON data_template_rrd.id = thold_data.data_template_rrd_id
 		WHERE plugin_thold_daemon_data.pid = '$pid' 
 		AND thold_data.thold_enabled='on' 
 		AND thold_data.tcheck=1";
@@ -210,7 +210,7 @@ if (sizeof($thold_items)) {
 
 	$total_tholds = sizeof($tholds);
 	foreach ($tholds as $thold) {
-		thold_check_threshold ($thold['rra_id'], $thold['data_id'], $thold['data_source_name'], $thold['lastread'], $thold['cdef']);
+		thold_check_threshold ($thold['local_data_id'], $thold['data_template_rrd_id'], $thold['data_source_name'], $thold['lastread'], $thold['cdef']);
 	}
 
 	db_execute("UPDATE thold_data SET thold_data.thold_server_pid = '', tcheck=0 WHERE thold_data.thold_server_pid = '$pid'");

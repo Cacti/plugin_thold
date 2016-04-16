@@ -338,24 +338,24 @@ function template_save_edit() {
 	}
 
 	/* save: data_template */
-	$save['id']                 = get_request_var('id');
+	$save['id']                 = get_nfilter_request_var('id');
 	$save['hash']               = get_hash_thold_template($save['id']);
-	$save['name']               = get_request_var('name');
-	$save['thold_type']         = get_request_var('thold_type');
+	$save['name']               = get_nfilter_request_var('name');
+	$save['thold_type']         = get_nfilter_request_var('thold_type');
 
 	// High / Low
-	$save['thold_hi']           = get_request_var('thold_hi');
-	$save['thold_low']          = get_request_var('thold_low');
-	$save['thold_fail_trigger'] = get_request_var('thold_fail_trigger');
+	$save['thold_hi']           = get_nfilter_request_var('thold_hi');
+	$save['thold_low']          = get_nfilter_request_var('thold_low');
+	$save['thold_fail_trigger'] = get_nfilter_request_var('thold_fail_trigger');
 	// Time Based
-	$save['time_hi']            = get_request_var('time_hi');
-	$save['time_low']           = get_request_var('time_low');
+	$save['time_hi']            = get_nfilter_request_var('time_hi');
+	$save['time_low']           = get_nfilter_request_var('time_low');
 
-	$save['time_fail_trigger']  = get_request_var('time_fail_trigger');
-	$save['time_fail_length']   = get_request_var('time_fail_length');
+	$save['time_fail_trigger']  = get_nfilter_request_var('time_fail_trigger');
+	$save['time_fail_length']   = get_nfilter_request_var('time_fail_length');
 
-	if (isset_request_var('thold_fail_trigger') && get_request_var('thold_fail_trigger') != '') {
-		$save['thold_fail_trigger'] = get_request_var('thold_fail_trigger');
+	if (isset_request_var('thold_fail_trigger') && get_nfilter_request_var('thold_fail_trigger') != '') {
+		$save['thold_fail_trigger'] = get_nfilter_request_var('thold_fail_trigger');
 	} else {
 		$alert_trigger = read_config_option('alert_trigger');
 		if ($alert_trigger != '' && is_numeric($alert_trigger)) {
@@ -367,19 +367,19 @@ function template_save_edit() {
 
 	/***  Warnings  ***/
 	// High / Low Warnings
-	$save['thold_warning_hi']           = get_request_var('thold_warning_hi');
-	$save['thold_warning_low']          = get_request_var('thold_warning_low');
-	$save['thold_warning_fail_trigger'] = get_request_var('thold_warning_fail_trigger');
+	$save['thold_warning_hi']           = get_nfilter_request_var('thold_warning_hi');
+	$save['thold_warning_low']          = get_nfilter_request_var('thold_warning_low');
+	$save['thold_warning_fail_trigger'] = get_nfilter_request_var('thold_warning_fail_trigger');
 
 	// Time Based Warnings
-	$save['time_warning_hi']            = get_request_var('time_warning_hi');
-	$save['time_warning_low']           = get_request_var('time_warning_low');
+	$save['time_warning_hi']            = get_nfilter_request_var('time_warning_hi');
+	$save['time_warning_low']           = get_nfilter_request_var('time_warning_low');
 
-	$save['time_warning_fail_trigger']  = get_request_var('time_warning_fail_trigger');
-	$save['time_warning_fail_length']   = get_request_var('time_warning_fail_length');
+	$save['time_warning_fail_trigger']  = get_nfilter_request_var('time_warning_fail_trigger');
+	$save['time_warning_fail_length']   = get_nfilter_request_var('time_warning_fail_length');
 
-	if (isset_request_var('thold_warning_fail_trigger') && get_request_var('thold_warning_fail_trigger') != '') {
-		$save['thold_warning_fail_trigger'] = get_request_var('thold_warning_fail_trigger');
+	if (isset_request_var('thold_warning_fail_trigger') && get_nfilter_request_var('thold_warning_fail_trigger') != '') {
+		$save['thold_warning_fail_trigger'] = get_nfilter_request_var('thold_warning_fail_trigger');
 	} else {
 		$alert_trigger = read_config_option('alert_trigger');
 		if ($alert_trigger != '' && is_numeric($alert_trigger)) {
@@ -393,8 +393,8 @@ function template_save_edit() {
 	$save['exempt']         = isset_request_var('exempt')         ? 'on' : 'off';
 	$save['restored_alert'] = isset_request_var('restored_alert') ? 'on' : 'off';
 
-	if (isset_request_var('bl_ref_time_range') && get_request_var('bl_ref_time_range') != '') {
-		$save['bl_ref_time_range'] = get_request_var('bl_ref_time_range');
+	if (isset_request_var('bl_ref_time_range') && get_nfilter_request_var('bl_ref_time_range') != '') {
+		$save['bl_ref_time_range'] = get_nfilter_request_var('bl_ref_time_range');
 	} else {
 		$alert_bl_timerange_def = read_config_option('alert_bl_timerange_def');
 		if ($alert_bl_timerange_def != '' && is_numeric($alert_bl_timerange_def)) {
@@ -404,11 +404,11 @@ function template_save_edit() {
 		}
 	}
 
-	$save['bl_pct_down'] = get_request_var('bl_pct_down');
-	$save['bl_pct_up']   = get_request_var('bl_pct_up');
+	$save['bl_pct_down'] = get_nfilter_request_var('bl_pct_down');
+	$save['bl_pct_up']   = get_nfilter_request_var('bl_pct_up');
 
-	if (isset_request_var('bl_fail_trigger') && get_request_var('bl_fail_trigger') != '') {
-		$save['bl_fail_trigger'] = get_request_var('bl_fail_trigger');
+	if (isset_request_var('bl_fail_trigger') && get_nfilter_request_var('bl_fail_trigger') != '') {
+		$save['bl_fail_trigger'] = get_nfilter_request_var('bl_fail_trigger');
 	} else {
 		$alert_bl_trigger = read_config_option('alert_bl_trigger');
 		if ($alert_bl_trigger != '' && is_numeric($alert_bl_trigger)) {
@@ -418,8 +418,8 @@ function template_save_edit() {
 		}
 	}
 
-	if (isset_request_var('repeat_alert') && get_request_var('repeat_alert') != '') {
-		$save['repeat_alert'] = get_request_var('repeat_alert');
+	if (isset_request_var('repeat_alert') && get_nfilter_request_var('repeat_alert') != '') {
+		$save['repeat_alert'] = get_nfilter_request_var('repeat_alert');
 	} else {
 		$alert_repeat = read_config_option('alert_repeat');
 		if ($alert_repeat != '' && is_numeric($alert_repeat)) {
@@ -430,26 +430,26 @@ function template_save_edit() {
 	}
 
 	if (isset_request_var('snmp_event_category')) {
-		$save['snmp_event_category'] = get_request_var('snmp_event_category');
-		$save['snmp_event_severity'] = get_request_var('snmp_event_severity');
+		$save['snmp_event_category'] = get_nfilter_request_var('snmp_event_category');
+		$save['snmp_event_severity'] = get_nfilter_request_var('snmp_event_severity');
 	}
 	if (isset_request_var('snmp_event_warning_severity')) {
-		if (get_request_var('snmp_event_warning_severity') > get_request_var('snmp_event_severity')) {
-			$save['snmp_event_warning_severity'] = get_request_var('snmp_event_severity');
+		if (get_nfilter_request_var('snmp_event_warning_severity') > get_nfilter_request_var('snmp_event_severity')) {
+			$save['snmp_event_warning_severity'] = get_nfilter_request_var('snmp_event_severity');
 		}else {
-			$save['snmp_event_warning_severity'] = get_request_var('snmp_event_warning_severity');
+			$save['snmp_event_warning_severity'] = get_nfilter_request_var('snmp_event_warning_severity');
 		}
 	}
 
-	$save['notify_extra']         = get_request_var('notify_extra');
-	$save['notify_warning_extra'] = get_request_var('notify_warning_extra');
-	$save['notify_warning']       = get_request_var('notify_warning');
-	$save['notify_alert']         = get_request_var('notify_alert');
-	$save['cdef']                 = get_request_var('cdef');
+	$save['notify_extra']         = get_nfilter_request_var('notify_extra');
+	$save['notify_warning_extra'] = get_nfilter_request_var('notify_warning_extra');
+	$save['notify_warning']       = get_nfilter_request_var('notify_warning');
+	$save['notify_alert']         = get_nfilter_request_var('notify_alert');
+	$save['cdef']                 = get_nfilter_request_var('cdef');
 
-	$save['data_type']            = get_request_var('data_type');
-	$save['percent_ds']           = get_request_var('percent_ds');
-	$save['expression']           = get_request_var('expression');
+	$save['data_type']            = get_nfilter_request_var('data_type');
+	$save['percent_ds']           = get_nfilter_request_var('percent_ds');
+	$save['expression']           = get_nfilter_request_var('expression');
 
 	if (!is_error_message()) {
 		$id = sql_save($save, 'thold_template');

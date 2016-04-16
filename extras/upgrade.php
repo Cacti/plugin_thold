@@ -45,8 +45,3 @@ print "Running Thold Upgrade\n";
 thold_upgrade_database ();
 
 print "Upgrade Complete\n";
-
-
-
-
-

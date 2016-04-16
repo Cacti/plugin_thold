@@ -28,8 +28,8 @@ include_once('./include/auth.php');
 
 $host = $graph = $ds = $dt = '';
 
-if (isset_request_var('hostid') && get_filter_request_var('hostid') != '') {
-	$host = get_request_var('hostid');
+if (isset_request_var('host_id') && get_filter_request_var('host_id') != '') {
+	$host = get_request_var('host_id');
 } else {
 	$host = 0;
 }
@@ -38,8 +38,8 @@ if (isset($_SERVER['HTTP_REFERER']) && (substr_count($_SERVER['HTTP_REFERER'], '
 	$_SESSION['graph_return'] = $_SERVER['HTTP_REFERER'];
 }
 
-if (isset_request_var('graphid') && get_filter_request_var('graphid') != '') {
-	$graph = get_request_var('graphid');
+if (isset_request_var('local_graph_id') && get_filter_request_var('local_graph_id') != '') {
+	$graph = get_request_var('local_graph_id');
 
 	if ($host == 0) {
 		$host = db_fetch_cell('SELECT host_id FROM graph_local WHERE id = ' . $graph);
@@ -50,7 +50,7 @@ if (isset_request_var('graphid') && get_filter_request_var('graphid') != '') {
 
 if (isset_request_var('doaction') && get_request_var('doaction') != '') {
 	if (get_request_var('doaction') == 1) {
-		header('Location:' . $config['url_path'] . "plugins/thold/thold_add.php?graphid=$graph");
+		header('Location:' . $config['url_path'] . "plugins/thold/thold_add.php?local_graph_id=$graph");
 	} else {
 		$temp = db_fetch_row("SELECT dtr.*
 			 FROM data_template_rrd AS dtr
@@ -81,7 +81,7 @@ if (isset_request_var('dt') && get_filter_request_var('dt') != '') {
 }
 
 if (isset_request_var('save') && get_nfilter_request_var('save') == 'save') {
-	header("Location: thold.php?header=false&rra=$dt&view_rrd=$ds");
+	header("Location: thold.php?header=false&local_data_id=$dt&view_rrd=$ds");
 	exit;
 }
 
@@ -126,14 +126,14 @@ function thold_add_graphs_action_execute() {
 	/* allow duplicate thresholds, but only from differing templates */
 	$existing = db_fetch_assoc('SELECT id
 		FROM thold_data
-		WHERE rra_id=' . $local_data_id . '
-		AND data_id=' . $data_template_id . '
-		AND template=' . $template['id'] . " AND template_enabled='on'");
+		WHERE local_data_id=' . $local_data_id . '
+		AND data_template_rrd_id=' . $data_template_id . '
+		AND thold_template_id=' . $template['id'] . " AND template_enabled='on'");
 
 	if (count($existing) == 0 && count($template)) {
 		if ($graph) {
-			$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id order by id LIMIT 1");
-			$grapharr  = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup and local_graph_id = $graph");
+			$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id ORDER BY id LIMIT 1");
+			$grapharr  = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup AND local_graph_id = $graph");
 
 			$desc = db_fetch_cell('SELECT name_cache FROM data_template_data WHERE local_data_id=' . $local_data_id . ' LIMIT 1');
 
@@ -144,10 +144,10 @@ function thold_add_graphs_action_execute() {
 
 			$insert['name']               = $name;
 			$insert['host_id']            = $data_source['host_id'];
-			$insert['rra_id']             = $local_data_id;
-			$insert['graph_id']           = $graph;
-			$insert['data_template']	  = $data_template_id;
-			$insert['graph_template']	  = $grapharr['graph_template_id'];
+			$insert['local_data_id']      = $local_data_id;
+			$insert['local_graph_id']     = $graph;
+			$insert['data_template_id']   = $data_template_id;
+			$insert['graph_template_id']  = $grapharr['graph_template_id'];
 			$insert['thold_hi']           = $template['thold_hi'];
 			$insert['thold_low']          = $template['thold_low'];
 			$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
@@ -163,7 +163,7 @@ function thold_add_graphs_action_execute() {
 			$insert['repeat_alert']       = $template['repeat_alert'];
 			$insert['notify_extra']       = $template['notify_extra'];
 			$insert['cdef']               = $template['cdef'];
-			$insert['template']           = $template['id'];
+			$insert['thold_template_id']  = $template['id'];
 			$insert['template_enabled']   = 'on';
 
 			$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id
@@ -175,19 +175,19 @@ function thold_add_graphs_action_execute() {
 
 			foreach ($rrdlist as $rrdrow) {
 				$data_rrd_id = $rrdrow['id'];
-				$insert['data_id'] = $data_rrd_id;
+				$insert['data_template_rrd_id'] = $data_rrd_id;
 
 				$existing = db_fetch_assoc("SELECT id
 					FROM thold_data
-					WHERE rra_id='$local_data_id'
-					AND data_id='$data_rrd_id'
-					AND template='" . $template['id'] . "' AND template_enabled='on'");
+					WHERE local_data_id='$local_data_id'
+					AND data_template_rrd_id='$data_rrd_id'
+					AND thold_template_id='" . $template['id'] . "' AND template_enabled='on'");
 
 				if (count($existing) == 0) {
 					$insert['id'] = 0;
 					$id = sql_save($insert, 'thold_data');
 					if ($id) {
-						thold_template_update_threshold ($id, $insert['template']);
+						thold_template_update_threshold($id, $insert['template']);
 
 						$l = db_fetch_assoc("SELECT name FROM data_template where id=$data_template_id");
 						$tname = $l[0]['name'];
@@ -324,7 +324,7 @@ function thold_add_graphs_action_prepare($graph) {
 				'method' => 'hidden',
 				'value' => 1
 			),
-			'graphid' => array(
+			'local_graph_id' => array(
 				'method' => 'hidden',
 				'value' => $graph
 			)
@@ -382,7 +382,7 @@ function thold_add_graphs_action_prepare($graph) {
 				'method' => 'hidden',
 				'value' => 1
 			),
-			'graphid' => array(
+			'local_graph_id' => array(
 				'method' => 'hidden',
 				'value' => $graph
 			)
@@ -464,7 +464,7 @@ function thold_add_select_host() {
 				Device
 			</td>
 			<td>
-				<select id='hostid' onChange='applyTholdFilterChange("host")'>
+				<select id='host_id' onChange='applyTholdFilterChange("host")'>
 					<option value=''></option><?php
 					foreach ($hosts as $row) {
 						echo "<option value='" . $row['id'] . "'" . ($row['id'] == $host ? ' selected' : '') . '>' . $row['description'] . ' [' . $row['hostname'] . ']</option>';
@@ -495,7 +495,7 @@ function thold_add_select_host() {
 				Graph
 			</td>
 			<td>
-				<select id='graphid' name='graphid' onChange='applyTholdFilterChange("graph")'>
+				<select id='local_graph_id' name='local_graph_id' onChange='applyTholdFilterChange("graph")'>
 					<option value=''></option><?php
 					foreach ($graphs as $row) {
 						echo "<option value='" . $row['local_graph_id'] . "'" . ($row['local_graph_id'] == $graph ? ' selected' : '') . '>' . $row['title_cache'] . '</option>';
@@ -507,7 +507,7 @@ function thold_add_select_host() {
 		?>
 		<tr>
 			<td>
-				<input type='hidden' id='graphid' name='graphid' value=''>
+				<input type='hidden' id='local_graph_id' name='local_graph_id' value=''>
 			</td>
 		</tr><?php
 	}
@@ -574,9 +574,9 @@ function thold_add_select_host() {
 	<script type='text/javascript'>
 
 	function applyTholdFilterChange(target) {
-		strURL = 'thold_add.php?header=false&hostid=' + $('#hostid').val();
+		strURL = 'thold_add.php?header=false&host_id=' + $('#host_id').val();
 		if (target != 'host') {
-			strURL += '&graphid=' + $('#graphid').val();
+			strURL += '&local_graph_id=' + $('#local_graph_id').val();
 		}
 		if (target == 'ds') {
 			strURL += '&dsid=' + $('#dsid').val();

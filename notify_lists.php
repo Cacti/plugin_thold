@@ -898,7 +898,7 @@ function tholds($header_label) {
 	$limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ", $rows";
 
 	if (!isempty_request_var('template') && get_request_var('template') != '-1') {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_data.data_template = ' . get_request_var('template');
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_data.data_template_id = ' . get_request_var('template');
 	}
 
 	if (strlen(get_request_var('filter'))) {
@@ -918,13 +918,13 @@ function tholds($header_label) {
 
 	$sql = 'SELECT * FROM thold_data
 		LEFT JOIN user_auth_perms
-		ON ((thold_data.graph_id=user_auth_perms.item_id
+		ON ((thold_data.local_graph_id=user_auth_perms.item_id
 		AND user_auth_perms.type=1
 		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ')
 		OR (thold_data.host_id=user_auth_perms.item_id
 		AND user_auth_perms.type=3
 		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ')
-		OR (thold_data.graph_template=user_auth_perms.item_id
+		OR (thold_data.graph_template_id=user_auth_perms.item_id
 		AND user_auth_perms.type=4
 		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . "))
 		$sql_where
@@ -936,7 +936,7 @@ function tholds($header_label) {
 	$data_templates = db_fetch_assoc('SELECT DISTINCT data_template.id, data_template.name
 		FROM data_template
 		INNER JOIN thold_data 
-		ON thold_data.data_template = data_template.id
+		ON thold_data.data_template_id = data_template.id
 		ORDER BY data_template.name');
 
 	html_start_box('Associated Thresholds ' . htmlspecialchars($header_label) , '100%', '', '3', 'center', '');
@@ -1044,13 +1044,13 @@ function tholds($header_label) {
 	$total_rows = count(db_fetch_assoc('SELECT thold_data.id
 		FROM thold_data
 		LEFT JOIN user_auth_perms
-		ON ((thold_data.graph_id=user_auth_perms.item_id
+		ON ((thold_data.local_graph_id=user_auth_perms.item_id
 		AND user_auth_perms.type=1
 		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ')
 		OR (thold_data.host_id=user_auth_perms.item_id
 		AND user_auth_perms.type=3
 		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ')
-		OR (thold_data.graph_template=user_auth_perms.item_id
+		OR (thold_data.graph_template_id=user_auth_perms.item_id
 		AND user_auth_perms.type=4
 		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . "))
 		$sql_where"));

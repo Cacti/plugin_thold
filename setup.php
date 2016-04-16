@@ -124,7 +124,7 @@ function plugin_thold_check_strict () {
 function plugin_thold_version () {
 	return array(
 			'name'		=> 'thold',
-			'version' 	=> '0.6',
+			'version' 	=> '1.0',
 			'longname'	=> 'Thresholds',
 			'author'	=> 'Jimmy Conner',
 			'homepage'	=> 'http://docs.cacti.net/plugin:thold',
@@ -185,7 +185,7 @@ function thold_graph_button($data) {
 			get_filter_request_var('leaf_id');
 		}
 
-		print '<a href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold_add.php?action2=' . get_request_var('action') . (isset_request_var('tree_id') ? ('&tree_id=' . get_request_var('tree_id')) : '') . (isset_request_var('leaf_id') ? ('&leaf_id=' . get_request_var('leaf_id')) : '') . '&usetemplate=1&graphid=' . $local_graph_id) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="Thresholds" title="Create Threshold" style="padding: 3px;"></a><br>';
+		print '<a href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold_add.php?action2=' . get_request_var('action') . (isset_request_var('tree_id') ? ('&tree_id=' . get_request_var('tree_id')) : '') . (isset_request_var('leaf_id') ? ('&leaf_id=' . get_request_var('leaf_id')) : '') . '&usetemplate=1&local_graph_id=' . $local_graph_id) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="Thresholds" title="Create Threshold" style="padding: 3px;"></a><br>';
 	}
 }
 
@@ -199,7 +199,7 @@ function thold_rrd_graph_graph_options ($g) {
 	$needles      = array();
 	$replacements = array();
 
-	/* map the rra_ids to the datasource names */
+	/* map the data_template_rrd_id's to the datasource names */
 	$defs = explode("\\\n", $g['graph_defs'], -1);
 	if (is_array($defs)) {
 		foreach ($defs as $def) {
@@ -214,7 +214,7 @@ function thold_rrd_graph_graph_options ($g) {
 					$temp2 = explode('_', $temp1);
 					$local_data_id = $temp2[sizeof($temp2)-1];
 				}
-				$rra_id[$dsname] = $local_data_id;
+				$data_template_rrd[$dsname] = $local_data_id;
 			}
 		}
 	}
@@ -229,10 +229,10 @@ function thold_rrd_graph_graph_options ($g) {
 				$needles[] = $matches[0];
 				$data_source = explode('|', $matches[2]);
 
-				/* look up the data_id from the data source name and rra_id */
+				/* look up the data_id from the data source name and data_template_rrd */
 				$data_id = db_fetch_cell("SELECT id 
 					FROM data_template_rrd 
-					WHERE local_data_id='" . $rra_id[$data_source[0]] . "' 
+					WHERE local_data_id='" . $data_template_rrd[$data_source[0]] . "' 
 					AND data_source_name='" . $data_source[0] . "'");
 
 				$thold_type = db_fetch_cell("SELECT thold_type 
@@ -264,24 +264,24 @@ function thold_rrd_graph_graph_options ($g) {
 				$needles[] = $matches[0];
 				$data_source = explode('|', $matches[2]);
 
-				/* look up the data_id from the data source name and rra_id */
+				/* look up the data_id from the data source name and data_template_rrd_id */
 				$data_id = db_fetch_cell("SELECT id 
 					FROM data_template_rrd 
-					WHERE local_data_id='" . $rra_id[$data_source[0]] . "' 
+					WHERE local_data_id='" . $data_template_rrd[$data_source[0]] . "' 
 					AND data_source_name='" . $data_source[0] . "'");
 
 				$thold_type = db_fetch_cell("SELECT thold_type 
 					FROM thold_data 
 					WHERE thold_enabled='on' 
-					AND data_id='" . $data_id . "'");
+					AND data_template_rrd_id='" . $data_id . "'");
 
 				/* fetch the value from thold */
 				if ($thold_type == '') {
 					$value = '';
 				}elseif ($thold_type == 0 || $thold_type == 1) { // Hi/Low & Baseline
-					$value = db_fetch_cell('SELECT thold_' . $matches[1] . " FROM `thold_data` WHERE data_id='" . $data_id . "'");
+					$value = db_fetch_cell('SELECT thold_' . $matches[1] . " FROM thold_data WHERE data_template_rrd_id='" . $data_id . "'");
 				}elseif ($thold_type == 1) { // Time Based
-					$value = db_fetch_cell('SELECT time_' . $matches[1] . " FROM `thold_data` WHERE data_id='" . $data_id . "'");
+					$value = db_fetch_cell('SELECT time_' . $matches[1] . " FROM thold_data WHERE data_template_rrd_id='" . $data_id . "'");
 				}
 
 				//cacti_log('H/L:' . $matches[1] . ', Data ID:' . $data_id . ', Data Source:' . $data_source[0] . ', Remainder:' . $matches[2] . ', Value:' . $value, false);
@@ -326,7 +326,7 @@ function thold_rrd_graph_graph_options ($g) {
 		return $g;
 	}
 
-	$id = $g['graph_id'];
+	$id = $g['local_graph_id'];
 
 	$end = $g['end'];
 	if ($end < 0)
@@ -338,7 +338,7 @@ function thold_rrd_graph_graph_options ($g) {
 		$start = $end + $start;
 	$start--;
 
-	$rows = db_fetch_assoc("SELECT time, status FROM plugin_thold_log WHERE graph_id = $id AND type = 0 and time > $start and time < $end");
+	$rows = db_fetch_assoc("SELECT time, status FROM plugin_thold_log WHERE local_graph_id = $id AND type = 0 and time > $start and time < $end");
 	if (!empty($rows)) {
 		foreach ($rows as $row) {
 			$g['graph_defs'] .= 'VRULE:' . $row['time'] . ($row['status'] == 0 ? '#00FF21' : '#FF0000') . ' \\' . "\n";
@@ -449,9 +449,9 @@ function thold_data_sources_table($ds) {
 	global $config;
 
 	if (!isset($ds['data_source'])) {
-		$ds['data_template_name'] = "<a href='" . htmlspecialchars("plugins/thold/thold.php?rra=" . $ds['local_data_id'] . '&hostid=' . $ds['host_id']) . "'>" . ((empty($ds['data_template_name'])) ? '<em>None</em>' : $ds['data_template_name']) . '</a>';
+		$ds['data_template_name'] = "<a href='" . htmlspecialchars("plugins/thold/thold.php?local_data_id=" . $ds['local_data_id'] . '&host_id=' . $ds['host_id']) . "'>" . ((empty($ds['data_template_name'])) ? '<em>None</em>' : $ds['data_template_name']) . '</a>';
 	} else {
-		$ds['template_name'] = "<a href='" . htmlspecialchars("plugins/thold/thold.php?rra=" . $ds['data_source']['local_data_id'] . '&hostid=' . $ds['data_source']['host_id']) . "'>" . ((empty($ds['data_source']['data_template_name'])) ? '<em>None</em>' : $ds['data_source']['data_template_name']) . '</a>';
+		$ds['template_name'] = "<a href='" . htmlspecialchars("plugins/thold/thold.php?local_data_id=" . $ds['data_source']['local_data_id'] . '&host_id=' . $ds['data_source']['host_id']) . "'>" . ((empty($ds['data_source']['data_template_name'])) ? '<em>None</em>' : $ds['data_source']['data_template_name']) . '</a>';
 	}
 
 	return $ds;
@@ -460,7 +460,7 @@ function thold_data_sources_table($ds) {
 function thold_graphs_new() {
 	global $config;
 
-	print '<span class="linkMarker">*</span><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&hostid=' . get_filter_request_var('host_id')) . '">Auto-create thresholds</a><br>';
+	print '<span class="linkMarker">*</span><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">Auto-create thresholds</a><br>';
 }
 
 function thold_user_admin_setup_sql_save($save) {
@@ -506,7 +506,7 @@ function thold_data_source_action_execute($action) {
 				$local_data_id    = $selected_items[$i];
 				$data_source      = db_fetch_row('SELECT * FROM data_local WHERE id=' . $local_data_id);
 				$data_template_id = $data_source['data_template_id'];
-				$existing         = db_fetch_assoc('SELECT id FROM thold_data WHERE rra_id=' . $local_data_id . ' AND data_id=' . $data_template_id);
+				$existing         = db_fetch_assoc('SELECT id FROM thold_data WHERE local_data_id=' . $local_data_id . ' AND data_template_rrd_id=' . $data_template_id);
 
 				if (count($existing) == 0 && count($template)) {
 					$rrdlookup = db_fetch_cell("SELECT id
@@ -531,10 +531,10 @@ function thold_data_source_action_execute($action) {
 
 						$insert['name']               = $name;
 						$insert['host_id']            = $data_source['host_id'];
-						$insert['rra_id']             = $local_data_id;
-						$insert['graph_id']           = $graph;
-						$insert['data_template']      = $data_template_id;
-						$insert['graph_template']     = $grapharr['graph_template_id'];
+						$insert['local_data']         = $local_data_id;
+						$insert['local_graph_id']     = $graph;
+						$insert['data_template_id']   = $data_template_id;
+						$insert['graph_template_id']  = $grapharr['graph_template_id'];
 						$insert['thold_hi']           = $template['thold_hi'];
 						$insert['thold_low']          = $template['thold_low'];
 						$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
@@ -547,7 +547,7 @@ function thold_data_source_action_execute($action) {
 						$insert['repeat_alert']       = $template['repeat_alert'];
 						$insert['notify_extra']       = $template['notify_extra'];
 						$insert['cdef']               = $template['cdef'];
-						$insert['template']           = $template['id'];
+						$insert['thold_template_id']  = $template['id'];
 						$insert['template_enabled']   = 'on';
 	
 						$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name='$data_source_name'");
@@ -556,12 +556,12 @@ function thold_data_source_action_execute($action) {
 						foreach ($rrdlist as $rrdrow) {
 							$data_rrd_id=$rrdrow['id'];
 							$insert['data_id'] = $data_rrd_id;
-							$existing = db_fetch_assoc("SELECT id FROM thold_data WHERE rra_id='$local_data_id' AND data_id='$data_rrd_id'");
+							$existing = db_fetch_assoc("SELECT id FROM thold_data WHERE local_data_id='$local_data_id' AND data_template_rrd_id='$data_rrd_id'");
 							if (count($existing) == 0) {
 								$insert['id'] = 0;
 								$id = sql_save($insert, 'thold_data');
 								if ($id) {
-									thold_template_update_threshold ($id, $insert['template']);
+									thold_template_update_threshold($id, $insert['template']);
 
 									$l = db_fetch_assoc("SELECT name FROM data_template where id=$data_template_id");
 									$tname = $l[0]['name'];
@@ -709,11 +709,12 @@ function thold_graphs_action_execute($action) {
 
 				$data_source      = db_fetch_row('SELECT * FROM data_local WHERE id=' . $local_data_id);
 				$data_template_id = $data_source['data_template_id'];
-				$existing         = db_fetch_assoc('SELECT id FROM thold_data WHERE rra_id=' . $local_data_id . ' AND data_id=' . $data_template_id);
+				$existing         = db_fetch_assoc('SELECT id FROM thold_data WHERE local_data_id=' . $local_data_id . ' AND data_template_rrd_id=' . $data_template_id);
 
 				if (count($existing) == 0 && count($template)) {
 					if ($graph) {
-						$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd
+						$rrdlookup = db_fetch_cell("SELECT id 
+							FROM data_template_rrd
 							WHERE local_data_id=$local_data_id
 							ORDER BY id
 							LIMIT 1");
@@ -731,10 +732,10 @@ function thold_graphs_action_execute($action) {
 
 						$insert['name']               = $name;
 						$insert['host_id']            = $data_source['host_id'];
-						$insert['rra_id']             = $local_data_id;
-						$insert['graph_id']           = $graph;
-						$insert['data_template']      = $data_template_id;
-						$insert['graph_template']     = $grapharr['graph_template_id'];
+						$insert['local_data_id']      = $local_data_id;
+						$insert['local_graph_id']     = $graph;
+						$insert['data_template_id']   = $data_template_id;
+						$insert['graph_template_id']  = $grapharr['graph_template_id'];
 						$insert['thold_hi']           = $template['thold_hi'];
 						$insert['thold_low']          = $template['thold_low'];
 						$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
@@ -747,7 +748,7 @@ function thold_graphs_action_execute($action) {
 						$insert['repeat_alert']       = $template['repeat_alert'];
 						$insert['notify_extra']       = $template['notify_extra'];
 						$insert['cdef']               = $template['cdef'];
-						$insert['template']           = $template['id'];
+						$insert['thold_template_id']  = $template['id'];
 						$insert['template_enabled']   = 'on';
 
 						$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name='$data_source_name'");
@@ -756,7 +757,7 @@ function thold_graphs_action_execute($action) {
 						foreach ($rrdlist as $rrdrow) {
 							$data_rrd_id=$rrdrow['id'];
 							$insert['data_id'] = $data_rrd_id;
-							$existing = db_fetch_assoc("SELECT id FROM thold_data WHERE rra_id='$local_data_id' AND data_id='$data_rrd_id'");
+							$existing = db_fetch_assoc("SELECT id FROM thold_data WHERE local_data_id='$local_data_id' AND data_template_rrd_id='$data_rrd_id'");
 							if (count($existing) == 0) {
 								$insert['id'] = 0;
 								$id = sql_save($insert, 'thold_data');

@@ -103,7 +103,7 @@ function form_thold_filter() {
 							<?php
 							$data_templates = db_fetch_assoc('SELECT DISTINCT data_template.id, data_template.name 
 								FROM thold_data 
-								LEFT JOIN data_template ON thold_data.data_template=data_template.id ' .
+								LEFT JOIN data_template ON thold_data.data_template_id=data_template.id ' .
 								(get_request_var('host_id') > 0 ? 'WHERE thold_data.host_id=' . get_request_var('host_id'):'') .
 								' ORDER by data_template.name');
 
@@ -270,7 +270,7 @@ function tholds() {
 
 	/* data template id filter */
 	if (get_request_var('data_template_id') != '-1') {
-		$sql_where .= (strlen($sql_where) ? ' AND': '(') . ' td.data_template=' . get_request_var('data_template_id');
+		$sql_where .= (strlen($sql_where) ? ' AND': '(') . ' td.data_template_id=' . get_request_var('data_template_id');
 	}
 
 	/* host id filter */
@@ -360,47 +360,47 @@ function tholds() {
 			print "<td width='1%' style='white-space:nowrap;'>";
 
 			if (api_user_realm_auth('thold_add.php')) {
-				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?rra=' . $row["rra_id"] . '&view_rrd=' . $row["data_id"]) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="Edit Threshold"></a>';
+				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?local_data_id=' . $row['local_data_id'] . '&view_rrd=' . $row['data_template_rrd_id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="Edit Threshold"></a>';
 			}
 
-			if ($row["thold_enabled"] == 'on') {
-				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] .'&action=disable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" border="0" alt="" title="Disable Threshold"></a>';
+			if ($row['thold_enabled'] == 'on') {
+				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row['id'] .'&action=disable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" border="0" alt="" title="Disable Threshold"></a>';
 			}else{
-				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row["id"] . '&action=enable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" border="0" alt="" title="Enable Threshold"></a>';
+				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?id=' . $row['id'] . '&action=enable') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" border="0" alt="" title="Enable Threshold"></a>';
 			}
 
-			print "<a href='". htmlspecialchars($config['url_path'] . "graph.php?local_graph_id=" . $row['graph_id'] . "&rra_id=all") . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graph'></a>";
-			print "<a href='". htmlspecialchars($config['url_path'] . "plugins/thold/thold_graph.php?action=log&threshold_id=" . $row["id"] . "&status=-1") . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
+			print "<a href='". htmlspecialchars($config['url_path'] . 'graph.php?local_graph_id=' . $row['local_graph_id'] . '&rra_id=all') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graph'></a>";
+			print "<a href='". htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&threshold_id=' . $row['id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
 
-			print "</td>";
-			print "<td class='left nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . "</td>";
-			print "<td class='left nowrap'>" . $thold_types[$row['thold_type']] . "</td>";
-			print "<td class='right'>" . $row["id"] . "</td>";
+			print '</td>';
+			print "<td class='left nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . '</td>';
+			print "<td class='left nowrap'>" . $thold_types[$row['thold_type']] . '</td>';
+			print "<td class='right'>" . $row['id'] . '</td>';
 
 			switch($row['thold_type']) {
 				case 0:
-					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . "</i></td>";
+					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['local_data_id'], $row['thold_fail_trigger'], 'alert') . '</i></td>';
 					print "<td class='right'>N/A</td>";
 					break;
 				case 1:
-					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . "</i></td>";
-					print "<td class='right nowrap'>" . $timearray[$row['bl_ref_time_range']/300]. "</td>";;
+					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['local_data_id'], $row['bl_fail_trigger'], 'alert') . '</i></td>';
+					print "<td class='right nowrap'>" . $timearray[$row['bl_ref_time_range']/300]. '</td>';;
 					break;
 				case 2:
-					print "<td class='right nowrap'><i>" . $row['time_fail_trigger'] . " Triggers</i></td>";
-					print "<td class='right nowrap'>" . plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time') . "</td>";;
+					print "<td class='right nowrap'><i>" . $row['time_fail_trigger'] . ' Triggers</i></td>';
+					print "<td class='right nowrap'>" . plugin_thold_duration_convert($row['local_data_id'], $row['time_fail_length'], 'time') . '</td>';;
 					break;
 				default:
 					print "<td class='right'>N/A</td>";
 					print "<td class='right'>N/A</td>";
 			}
 
-			print "<td class='right nowrap'>" . ($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')) . "</td>";
-			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? "N/A":($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . "</td>";
-			print "<td class='right'>" . ($row['thold_type'] == 1 ? "N/A":($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . "</td>";
-			print "<td class='right'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): 'N/A') . "</td>";
-			print "<td class='right'>" . thold_format_number($row['lastread']) . "</td>";
-			print "<td class='right'>" . $alertstat . "</td>";
+			print "<td class='right nowrap'>" . ($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['local_data_id'], $row['repeat_alert'], 'repeat')) . '</td>';
+			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? 'N/A':($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . '</td>';
+			print "<td class='right'>" . ($row['thold_type'] == 1 ? 'N/A':($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . '</td>';
+			print "<td class='right'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): 'N/A') . '</td>';
+			print "<td class='right'>" . thold_format_number($row['lastread']) . '</td>';
+			print "<td class='right'>" . $alertstat . '</td>';
 
 			if ($row['thold_enabled'] == 'off') {
 				print "<td class='right'><b>Disabled</b></td>";
@@ -441,23 +441,23 @@ function form_host_status_row_color($status, $disabled) {
 
 function get_uncolored_device_status($disabled, $status) {
 	if ($disabled) {
-		return "Disabled";
+		return 'Disabled';
 	}else{
 		switch ($status) {
 			case HOST_DOWN:
-				return "Down";
+				return 'Down';
 				break;
 			case HOST_RECOVERING:
-				return "Recovering";
+				return 'Recovering';
 				break;
 			case HOST_UP:
-				return "Up";
+				return 'Up';
 				break;
 			case HOST_ERROR:
-				return "Error";
+				return 'Error';
 				break;
 			default:
-				return "Unknown";
+				return 'Unknown';
 				break;
 		}
 	}

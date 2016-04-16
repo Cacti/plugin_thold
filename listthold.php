@@ -53,7 +53,7 @@ function do_thold() {
 	while (list($var,$val) = each($_POST)) {
 		if (ereg("^chk_(.*)$", $var, $matches)) {
 			$del = $matches[1];
-			$rra = db_fetch_cell("SELECT rra_id FROM thold_data WHERE id=$del");
+			$rra = db_fetch_cell("SELECT local_data_id FROM thold_data WHERE id=$del");
 
 			input_validate_input_number($del);
 			$tholds[$del] = $rra;
@@ -94,7 +94,7 @@ function do_thold() {
 					/* check if thold templated */
 					if ($thold['template_enabled'] == "on") {
 						$template = db_fetch_row("SELECT * FROM thold_template WHERE id=" . $thold["template"]);
-						$name = thold_format_name($template, $thold["graph_id"], $thold["data_id"], $template['data_source_name']);
+						$name = thold_format_name($template, $thold["local_graph_id"], $thold["data_template_rrd_id"], $template['data_source_name']);
 						plugin_thold_log_changes($del, 'reapply_name', array('id' => $del));
 						db_execute("UPDATE thold_data SET name='$name' WHERE id=$del");
 					}
@@ -225,7 +225,7 @@ function list_tholds() {
 	}
 
 	if (!isempty_request_var('template') && get_request_var('template') != '-1') {
-		$sql_where .= (!strlen($sql_where) ? '(' : ' AND ') . "td.data_template = " . get_request_var('template');
+		$sql_where .= (!strlen($sql_where) ? '(' : ' AND ') . "td.data_template_id = " . get_request_var('template');
 	}
 
 	if ($statefilter != '') {
@@ -241,7 +241,7 @@ function list_tholds() {
 	$data_templates = db_fetch_assoc("SELECT DISTINCT data_template.id, data_template.name
 		FROM data_template
 		INNER JOIN thold_data 
-		ON thold_data.data_template = data_template.id
+		ON thold_data.data_template_id = data_template.id
 		ORDER BY data_template.name");
 
 	html_start_box('Threshold Management' , '100%', '', '3', 'center', 'thold_add.php');
@@ -357,10 +357,10 @@ function list_tholds() {
 
 			$grapharr = db_fetch_row('SELECT DISTINCT graph_templates_item.local_graph_id
 				FROM graph_templates_item, data_template_rrd
-				WHERE (data_template_rrd.local_data_id=' . $row['rra_id'] . ' 
+				WHERE (data_template_rrd.local_data_id=' . $row['local_data_id'] . ' 
 				AND data_template_rrd.id=graph_templates_item.task_item_id)');
 
-			$graph_id = $grapharr['local_graph_id'];
+			$local_graph_id = $grapharr['local_graph_id'];
 
 			$alertstat='No';
 			$bgcolor='green';
@@ -402,7 +402,7 @@ function list_tholds() {
 				print "<tr class='" . $thold_states[$bgcolor]['class'] . "' id='line" . $row['id'] . "'>\n";
 			}
 
-			form_selectable_cell(filter_value(($row['name'] != '' ? $row['name'] : $row['name_cache'] . ' [' . $row['data_source_name'] . ']'), get_request_var('filter'), 'thold.php?rra=' . $row['rra_id'] . "&view_rrd=" . $row['data_id']) . '</a>', $row['id'], '', 'text-align:left');
+			form_selectable_cell(filter_value(($row['name'] != '' ? $row['name'] : $row['name_cache'] . ' [' . $row['data_source_name'] . ']'), get_request_var('filter'), 'thold.php?local_data_id=' . $row['local_data_id'] . "&view_rrd=" . $row['data_template_rrd_id']) . '</a>', $row['id'], '', 'text-align:left');
 
 			form_selectable_cell($thold_types[$row['thold_type']], $row['id'], '', 'text-align:left');
 
@@ -410,20 +410,20 @@ function list_tholds() {
 				case 0:
 					form_selectable_cell(thold_format_number($row['thold_hi']), $row['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($row['thold_low']), $row['id'], '', 'text-align:right');
-					form_selectable_cell('<i>' . plugin_thold_duration_convert($row['rra_id'], $row['thold_fail_trigger'], 'alert') . '</i>', $row['id'], '', 'text-align:right');
+					form_selectable_cell('<i>' . plugin_thold_duration_convert($row['local_data_id'], $row['thold_fail_trigger'], 'alert') . '</i>', $row['id'], '', 'text-align:right');
 					form_selectable_cell('',  $row['id'], '', 'text-align:right');
 					break;
 				case 1:
 					form_selectable_cell(thold_format_number($row['thold_hi']), $row['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($row['thold_low']), $row['id'], '', 'text-align:right');
-					form_selectable_cell('<i>' . plugin_thold_duration_convert($row['rra_id'], $row['bl_fail_trigger'], 'alert') . '</i>', $row['id'], '', 'text-align:right');
+					form_selectable_cell('<i>' . plugin_thold_duration_convert($row['local_data_id'], $row['bl_fail_trigger'], 'alert') . '</i>', $row['id'], '', 'text-align:right');
 					form_selectable_cell($timearray[$row['bl_ref_time_range']/300], $row['id'], '', 'text-align:right');
 					break;
 				case 2:
 					form_selectable_cell(thold_format_number($row['time_hi']), $row['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($row['time_low']), $row['id'], '', 'text-align:right');
 					form_selectable_cell('<i>' . $row['time_fail_trigger'] . ' Triggers</i>',  $row['id'], '', 'text-align:right');
-					form_selectable_cell(plugin_thold_duration_convert($row['rra_id'], $row['time_fail_length'], 'time'), $row['id'], '', 'text-align:right');
+					form_selectable_cell(plugin_thold_duration_convert($row['local_data_id'], $row['time_fail_length'], 'time'), $row['id'], '', 'text-align:right');
 					break;
 				default:
 					form_selectable_cell('',  $row['id'], '', 'text-align:right');
@@ -432,7 +432,7 @@ function list_tholds() {
 					form_selectable_cell('',  $row['id'], '', 'text-align:right');
 			}
 
-			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['rra_id'], $row['repeat_alert'], 'repeat')), $row['id'], '', 'text-align:right');
+			form_selectable_cell(($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['local_data_id'], $row['repeat_alert'], 'repeat')), $row['id'], '', 'text-align:right');
 			form_selectable_cell(thold_format_number($row['lastread']), $row['id'], '', 'text-align:right');
 			form_selectable_cell($alertstat, $row['id'], '', 'text-align:right');
 			form_selectable_cell((($row['thold_enabled'] == 'off') ? 'Disabled': 'Enabled'), $row['id'], '', 'text-align:right');

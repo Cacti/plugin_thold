@@ -30,37 +30,37 @@ include_once($config['library_path'] . '/rrd.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 get_filter_request_var('view_rra');
-get_filter_request_var('hostid');
-get_filter_request_var('rra');
+get_filter_request_var('host_id');
+get_filter_request_var('local_data_id');
 get_filter_request_var('id');
 
 get_filter_request_var('view_rrd');
 get_filter_request_var('data_template_rrd_id');
-get_filter_request_var('rra');
+get_filter_request_var('local_data_id');
 
 set_default_action();
 
-$hostid = '';
-if (isset_request_var('rra')) {
-	$rra    = get_request_var('rra');
-	$hostid = db_fetch_cell('SELECT host_id FROM thold_data WHERE rra_id=' . $rra . ' LIMIT 1');
+$host_id = '';
+if (isset_request_var('local_data_id')) {
+	$local_data_id = get_request_var('local_data_id');
+	$host_id        = db_fetch_cell('SELECT host_id FROM thold_data WHERE local_data_id=' . $local_data_id . ' LIMIT 1');
 
-	if (empty($hostid)) {
-		$hostid = db_fetch_cell('SELECT host_id FROM poller_item WHERE local_data_id=' . $rra . ' LIMIT 1');
+	if (empty($host_id)) {
+		$host_id = db_fetch_cell('SELECT host_id FROM poller_item WHERE local_data_id=' . $local_data_id . ' LIMIT 1');
 	}
 
-	if (!thold_user_auth_threshold($rra, $hostid)) {
+	if (!thold_user_auth_threshold($local_data_id, $host_id)) {
 		top_header();
 		print '<span class="textError">Access Denied - You do not have permissions to access that threshold.</span>';
 		bottom_footer();
 		exit;
 	}
 } else {
-	set_request_var('rra', '');
+	set_request_var('local_data_id', '');
 
-	$rra = '';
-	if (isset_request_var('hostid')) {
-		$hostid = get_filter_request_var('hostid');
+	$local_data_id = '';
+	if (isset_request_var('host_id')) {
+		$host_id = get_filter_request_var('host_id');
 	}
 }
 
@@ -86,7 +86,7 @@ switch(get_request_var('action')) {
 
 		break;
 	case 'autocreate':
-		$c = autocreate($hostid);
+		$c = autocreate($host_id);
 		if ($c == 0) {
 			$_SESSION['thold_message'] = '<font size=-1>Either No Templates or Threshold(s) Already Exists - No thresholds were created.</font>';
 		}
@@ -98,7 +98,7 @@ switch(get_request_var('action')) {
 			kill_session_var('graph_return');
 			header('Location: ' . $return_to . (strpos($return_to, '?') !== false ? '&':'?') . 'header=false');
 		}else{
-			header('Location: ../../graphs_new.php?host_id=' . $hostid);
+			header('Location: ../../graphs_new.php?host_id=' . $host_id);
 		}
 		exit;
 
@@ -131,11 +131,11 @@ switch(get_request_var('action')) {
 
 top_header();
 
-$t = db_fetch_assoc('SELECT id, name, name_cache FROM data_template_data WHERE local_data_id=' . $rra . ' LIMIT 1');
+$t = db_fetch_assoc('SELECT id, name, name_cache FROM data_template_data WHERE local_data_id=' . $local_data_id . ' LIMIT 1');
 $desc = $t[0]['name_cache'];
 unset($t);
 
-$rrdsql   = array_rekey(db_fetch_assoc("SELECT id FROM data_template_rrd WHERE local_data_id=$rra ORDER BY id"), 'id', 'id');
+$rrdsql   = array_rekey(db_fetch_assoc("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id ORDER BY id"), 'id', 'id');
 $sql      = 'task_item_id IN (' . implode(', ', $rrdsql) . ') AND graph_template_id>0';
 $grapharr = db_fetch_assoc("SELECT DISTINCT local_graph_id FROM graph_templates_item WHERE $sql");
 
@@ -195,7 +195,7 @@ if (isempty_request_var('view_rrd')) {
 		set_request_var('view_rrd', get_filter_request_var('data_template_rrd_id'));
 	} else {
 		/* Check and see if we already have a threshold set, and use that if so */
-		$thold_data = db_fetch_cell("SELECT data_id FROM thold_data WHERE rra_id = $rra ORDER BY data_id");
+		$thold_data = db_fetch_cell("SELECT data_template_rrd_id FROM thold_data WHERE local_data_id = $local_data_id ORDER BY data_template_rrd_id");
 
 		if ($thold_data) {
 			set_request_var('view_rrd', $thold_data);
@@ -223,7 +223,7 @@ if (isset($template_data_rrds)) {
 		foreach ($template_data_rrds as $template_data_rrd) {
 			if ($template_data_rrd['id'] == get_request_var('view_rrd')) $ds = $template_data_rrd['data_source_name'];
 
-			$item = db_fetch_assoc('SELECT * FROM thold_data WHERE data_id=' . $template_data_rrd['id']);
+			$item = db_fetch_assoc('SELECT * FROM thold_data WHERE data_template_rrd_id=' . $template_data_rrd['id']);
 			$item = count($item) > 0 ? $item[0]: $item;
 
 			$cur_setting = '';
@@ -244,13 +244,13 @@ if (isset($template_data_rrds)) {
 				}
 			}
 
-			if ($template_data_rrd['local_data_id'] == $rra) {
+			if ($template_data_rrd['local_data_id'] == $local_data_id) {
 				$selected = 'selected';
 			}else{
 				$selected = '';
 			}
 
-			echo "<li class='textEditTitle'><a class='hyperLink $selected' href='" . htmlspecialchars('thold.php?rra=' . $template_data_rrd['local_data_id'] . '&view_rrd=' . $template_data_rrd['id']) . "'>" . $template_data_rrd['data_source_name'] . '<br>' . $cur_setting . '</a></li>';
+			echo "<li class='textEditTitle'><a class='hyperLink $selected' href='" . htmlspecialchars('thold.php?local_data_id=' . $template_data_rrd['local_data_id'] . '&view_rrd=' . $template_data_rrd['id']) . "'>" . $template_data_rrd['data_source_name'] . '<br>' . $cur_setting . '</a></li>';
 			unset($thold_item_data);
 		}
 
@@ -263,7 +263,7 @@ if (isset($template_data_rrds)) {
 //----------------------
 // Data Source Item Form
 //----------------------
-$thold_item_data = db_fetch_assoc("SELECT * FROM thold_data WHERE data_id=" . get_filter_request_var('view_rrd'));
+$thold_item_data = db_fetch_assoc("SELECT * FROM thold_data WHERE data_template_rrd_id=" . get_filter_request_var('view_rrd'));
 
 $thold_item_data = count($thold_item_data) > 0 ? $thold_item_data[0] : $thold_item_data;
 $thold_item_data_cdef = (isset($thold_item_data['cdef']) ? $thold_item_data['cdef'] : 0);
@@ -273,7 +273,7 @@ if (isset($thold_item_data['template'])) {
 }
 
 $header_text = "Data Source Item [" . (isset($template_rrd) ? $template_rrd["data_source_name"] : "") . "] " .
-    " - Current value: [" . get_current_value($rra, $ds, $thold_item_data_cdef) . "]";
+    " - Current value: [" . get_current_value($local_data_id, $ds, $thold_item_data_cdef) . "]";
 
 html_start_box($header_text, "100%", $colors["header"], "3", "center", "");
 
@@ -294,26 +294,26 @@ if (!empty($users)) {
 
 if (isset($thold_item_data['id'])) {
 	$sql  = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=' . $thold_item_data['id'];
-	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $thold_item_data['rra_id'], FALSE);
+	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $thold_item_data['local_data_id'], FALSE);
 } else {
 	$sql  = 'SELECT contact_id as id FROM plugin_thold_threshold_contact WHERE thold_id=0';
-	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $rra, FALSE);
+	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE local_data_id = ' . $local_data_id, FALSE);
 }
 
 include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 $data_fields = array();
 
-$reference_types = get_reference_types($rra, $step, $timearray);
+$reference_types = get_reference_types($local_data_id, $step, $timearray);
 
 if (isset($thold_item_data['data_template_id'])) {
 	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, data_input_field_id
 		FROM data_template_rrd
-		WHERE local_data_id=' . $thold_item_data['rra_id']);
+		WHERE local_data_id=' . $thold_item_data['local_data_id']);
 } else {
 	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name, data_input_field_id
 		FROM data_template_rrd
-		WHERE local_data_id=' . $rra);
+		WHERE local_data_id=' . $local_data_id);
 }
 
 foreach ($temp as $d) {
@@ -322,7 +322,7 @@ foreach ($temp as $d) {
 	} else {
 		$temp2[0]['name'] = $d['data_source_name'];
 	}
-	if ((isset_request_var('view_rrd') && $d['id'] != get_filter_request_var('view_rrd')) || (isset($thold_item_data['data_id']) && $d['id'] != $thold_item_data['data_id'])) {
+	if ((isset_request_var('view_rrd') && $d['id'] != get_filter_request_var('view_rrd')) || (isset($thold_item_data['data_template_rrd_id']) && $d['id'] != $thold_item_data['data_template_rrd_id'])) {
 		$data_fields[$d['data_source_name']] = $temp2[0]['name'];
 	}
 }
@@ -332,7 +332,7 @@ $replacements = db_fetch_assoc("SELECT DISTINCT field_name
 	INNER JOIN host_snmp_cache AS hsc
 	ON dl.snmp_query_id=hsc.snmp_query_id
 	AND dl.host_id=hsc.host_id
-	WHERE dl.id=" . (isset($thold_item_data['data_template_id']) ? $thold_item_data['rra_id']:$rra));
+	WHERE dl.id=" . (isset($thold_item_data['data_template_id']) ? $thold_item_data['local_data_id']:$local_data_id));
 
 $nr = array();
 if (sizeof($replacements)) {
@@ -350,7 +350,7 @@ if (sizeof($vhf)) {
 
 $replacements = "<br><b>Replacement Fields:</b> " . implode(", ", $nr);
 
-$dss = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE local_data_id=" . $rra);
+$dss = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE local_data_id=" . $local_data_id);
 
 if (sizeof($dss)) {
 	foreach($dss as $ds) {
@@ -748,13 +748,13 @@ draw_edit_form(
 				'method' => 'hidden',
 				'value' => (isset($template_rrd) ? $template_rrd['id'] : '0')
 			),
-			'hostid' => array(
+			'host_id' => array(
 				'method' => 'hidden',
-				'value' => $hostid
+				'value' => $host_id
 			),
-			'rra' => array(
+			'local_data_id' => array(
 				'method' => 'hidden',
-				'value' => $rra
+				'value' => $local_data_id
 			)
 		)
 	)
@@ -762,7 +762,7 @@ draw_edit_form(
 
 html_end_box();
 
-form_save_button('thold.php?rra=' . $rra . '&view_rrd=' . get_filter_request_var('view_rrd'), 'save');
+form_save_button('thold.php?local_data_id=' . $local_data_id . '&view_rrd=' . get_filter_request_var('view_rrd'), 'save');
 
 unset($template_data_rrds);
 ?>
