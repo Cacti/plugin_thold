@@ -437,7 +437,7 @@ function list_tholds() {
 			form_selectable_cell($alertstat, $row['id'], '', 'text-align:right');
 			form_selectable_cell((($row['thold_enabled'] == 'off') ? 'Disabled': 'Enabled'), $row['id'], '', 'text-align:right');
 
-			if ($row['template'] != 0) {
+			if ($row['thold_template_id'] != 0) {
 				form_selectable_cell($row['template_enabled'] == 'off' ? 'No' : "Yes", $row['id'], '', 'text-align:right');
 			} else {
 				form_selectable_cell('No', $row['id'], '', 'text-align:right');
