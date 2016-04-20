@@ -536,6 +536,7 @@ function edit() {
 
 	/* ================= input validation ================= */
 	get_filter_request_var('id');
+	get_filter_request_var('tab', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^([a-zA-Z]+)$/')));
 	/* ==================================================== */
 
 	/* set the default tab */
@@ -892,46 +893,28 @@ function tholds($header_label) {
 		$rows = get_request_var('rows');
 	}
 
-	$sql_where = "WHERE template_enabled='off'";
+	$sql_where = '';
 
-	$sort = get_request_var('sort_column');
-	$limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ", $rows";
+	$sort  = get_request_var('sort_column') . ' ' . get_request_var('sort_direction');
+	$limit = ($rows*(get_request_var('page')-1)) . ", $rows";
 
 	if (!isempty_request_var('template') && get_request_var('template') != '-1') {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_data.data_template_id = ' . get_request_var('template');
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.data_template_id = ' . get_request_var('template');
 	}
 
 	if (strlen(get_request_var('filter'))) {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_data.name LIKE '%" . get_request_var('filter') . "%'";
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . "td.name LIKE '%" . get_request_var('filter') . "%'";
 	}
 
 	if ($statefilter != '') {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . $statefilter;
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . $statefilter;
 	}
 
 	if (get_request_var('associated') == 'true') {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . '(notify_warning=' . get_request_var('id') . ' OR notify_alert=' . get_request_var('id') . ')';
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . '(notify_warning=' . get_request_var('id') . ' OR notify_alert=' . get_request_var('id') . ')';
 	}
 
-	$current_user = db_fetch_row('SELECT * FROM user_auth WHERE id=' . $_SESSION['sess_user_id']);
-	$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
-
-	$sql = 'SELECT * FROM thold_data
-		LEFT JOIN user_auth_perms
-		ON ((thold_data.local_graph_id=user_auth_perms.item_id
-		AND user_auth_perms.type=1
-		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ')
-		OR (thold_data.host_id=user_auth_perms.item_id
-		AND user_auth_perms.type=3
-		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ')
-		OR (thold_data.graph_template_id=user_auth_perms.item_id
-		AND user_auth_perms.type=4
-		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . "))
-		$sql_where
-		ORDER BY $sort " . get_request_var('sort_direction') .
-		$limit;
-
-	$result = db_fetch_assoc($sql);
+	$result = get_allowed_thresholds($sql_where, $sort, $limit, $total_rows);
 
 	$data_templates = db_fetch_assoc('SELECT DISTINCT data_template.id, data_template.name
 		FROM data_template
@@ -1040,20 +1023,6 @@ function tholds($header_label) {
 	<?php
 
 	html_end_box();
-
-	$total_rows = count(db_fetch_assoc('SELECT thold_data.id
-		FROM thold_data
-		LEFT JOIN user_auth_perms
-		ON ((thold_data.local_graph_id=user_auth_perms.item_id
-		AND user_auth_perms.type=1
-		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ')
-		OR (thold_data.host_id=user_auth_perms.item_id
-		AND user_auth_perms.type=3
-		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ')
-		OR (thold_data.graph_template_id=user_auth_perms.item_id
-		AND user_auth_perms.type=4
-		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . "))
-		$sql_where"));
 
 	form_start('notify_lists.php', 'chk');
 

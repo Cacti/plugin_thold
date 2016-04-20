@@ -874,65 +874,35 @@ function thold_show_log() {
 	if (get_request_var('host_id') == '-1') {
 		/* Show all items */
 	}elseif (get_request_var('host_id') == '0') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' host.id IS NULL';
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' h.id IS NULL';
 	}elseif (!isempty_request_var('host_id')) {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' plugin_thold_log.host_id=' . get_request_var('host_id');
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' tl.host_id=' . get_request_var('host_id');
 	}
 
 	if (get_request_var('threshold_id') == '-1') {
 		/* Show all items */
 	}elseif (get_request_var('threshold_id') == '0') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' thold_data.id IS NULL';
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' td.id IS NULL';
 	}elseif (!isempty_request_var('threshold_id')) {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' plugin_thold_log.threshold_id=' . get_request_var('threshold_id');
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' tl.threshold_id=' . get_request_var('threshold_id');
 	}
 
 	if (get_request_var('status') == '-1') {
 		/* Show all items */
 	}else{
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . ' plugin_thold_log.status=' . get_request_var('status');
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' tl.status=' . get_request_var('status');
 	}
 
 	if (strlen(get_request_var('filter'))) {
-		$sql_where .= (strlen($sql_where) ? ' AND':'WHERE') . " plugin_thold_log.description LIKE '%" . get_request_var('filter') . "%'";
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . " tl.description LIKE '%" . get_request_var('filter') . "%'";
 	}
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
-	$sortby = get_request_var('sort_column');
+	$sortby = get_request_var('sort_column') . ' ' . get_request_var('sort_direction');
+	$limit  = ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-	$current_user = db_fetch_row('SELECT * FROM user_auth WHERE id=' . $_SESSION['sess_user_id']);
-
-	$sql_where .= ' AND ' . get_graph_permissions_sql($current_user['policy_graphs'], $current_user['policy_hosts'], $current_user['policy_graph_templates']);
-
-	$total_rows = db_fetch_cell('SELECT
-		COUNT(*)
-		FROM plugin_thold_log
-		LEFT JOIN host ON plugin_thold_log.host_id=host.id
-		LEFT JOIN thold_data ON plugin_thold_log.threshold_id=thold_data.id
-		LEFT JOIN graph_templates_graph AS gtg ON plugin_thold_log.graph_id=gtg.local_graph_id
-		LEFT JOIN user_auth_perms
-		ON (host.id=user_auth_perms.item_id
-		AND user_auth_perms.type=3
-		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ")
-		$sql_where");
-
-	$sql_query = 'SELECT plugin_thold_log.*, host.description AS hdescription, thold_data.name AS name, gtg.title_cache
-		FROM plugin_thold_log
-		LEFT JOIN host ON plugin_thold_log.host_id=host.id
-		LEFT JOIN thold_data ON plugin_thold_log.threshold_id=thold_data.id
-		LEFT JOIN graph_templates_graph AS gtg ON plugin_thold_log.graph_id=gtg.local_graph_id
-		LEFT JOIN user_auth_perms
-		ON (host.id=user_auth_perms.item_id
-		AND user_auth_perms.type=3
-		AND user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ")
-		$sql_where
-		ORDER BY " . $sortby . ' ' . get_request_var('sort_direction') . '
-		LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
-
-	//print $sql_query;
-
-	$logs = db_fetch_assoc($sql_query);
+	$logs = get_allowed_threshold_logs($sql_where, $sortby, $limit, $total_rows);
 
 	$nav = html_nav_bar('thold_graph.php?action=log', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 8, 'Log Entries', 'page', 'main');
 
