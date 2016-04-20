@@ -397,9 +397,9 @@ function list_tholds() {
 			};
 
 			if ($row['thold_enabled'] == 'off') {
-				print "<tr class='" . $thold_states['grey']['class'] . "' id='line" . $row['id'] . "'>\n";
+				print "<tr class='selectable " . $thold_states['grey']['class'] . "' id='line" . $row['id'] . "'>\n";
 			}else{
-				print "<tr class='" . $thold_states[$bgcolor]['class'] . "' id='line" . $row['id'] . "'>\n";
+				print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $row['id'] . "'>\n";
 			}
 
 			form_selectable_cell(filter_value(($row['name'] != '' ? $row['name'] : $row['name_cache'] . ' [' . $row['data_source_name'] . ']'), get_request_var('filter'), 'thold.php?local_data_id=' . $row['local_data_id'] . "&view_rrd=" . $row['data_template_rrd_id']) . '</a>', $row['id'], '', 'text-align:left');
