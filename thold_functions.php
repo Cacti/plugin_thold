@@ -43,7 +43,7 @@ function thold_tabs() {
 
 	if (sizeof($tabs)) {
 		foreach (array_keys($tabs) as $tab_short_name) {
-			print "<li><a class='pic" . (($tab_short_name == $current_tab) ? " selected'" : "'") . 
+			print "<li><a class='tab" . (($tab_short_name == $current_tab) ? " selected'" : "'") . 
 				" href='" . htmlspecialchars($config['url_path'] .
 				'plugins/thold/thold_graph.php?' .
 				'action=' . $tab_short_name) .
