@@ -216,10 +216,9 @@ function thold_config_settings () {
 		'thold_log_storage' => array(
 			'friendly_name' => 'Alert Log Retention',
 			'description' => 'Keep Threshold Logs for this number of days.',
-			'method' => 'textbox',
+			'method' => 'drop_array',
 			'default' => '31',
-			'size' => '8',
-			'max_length' => 255,
+			'array' => array('-1' => 'Indefinately', '31' => '1 Month', '62' => '2 Months', '93' => '3 Months', '124' => '4 Months', '186' => '6 Months', '365' => '1 Year')
 		),
 		'daemon_header' => array(
 			'friendly_name' => 'Threshold Daemon',

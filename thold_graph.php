@@ -369,9 +369,9 @@ function tholds() {
 			};
 
 			if ($row['thold_enabled'] == 'off') {
-				print "<tr class='" . $thold_states['grey']['class'] . "' id='line" . $row['id'] . "'>\n";
+				print "<tr class='selectable " . $thold_states['grey']['class'] . "' id='line" . $row['id'] . "'>\n";
 			}else{
-				print "<tr class='" . $thold_states[$bgcolor]['class'] . "' id='line" . $row['id'] . "'>\n";
+				print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $row['id'] . "'>\n";
 			}
 
 			print "<td width='1%' style='white-space:nowrap;'>";
