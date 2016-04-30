@@ -74,10 +74,10 @@ switch (get_request_var('action')) {
 
 function form_save() {
 	if (isset_request_var('save_component')) {
-		$save['id']          = get_request_var('id');
-		$save['name']        = form_input_validate(get_request_var('name'), 'name', '', false, 3);
-		$save['description'] = form_input_validate(get_request_var('description'), 'description', '', false, 3);
-		$save['emails']      = form_input_validate(get_request_var('emails'), 'emails', '', false, 3);
+		$save['id']          = get_filter_request_var('id');
+		$save['name']        = form_input_validate(get_nfilter_request_var('name'), 'name', '', false, 3);
+		$save['description'] = form_input_validate(get_nfilter_request_var('description'), 'description', '', false, 3);
+		$save['emails']      = form_input_validate(get_nfilter_request_var('emails'), 'emails', '', false, 3);
 
 		if (!is_error_message()) {
 			$id = sql_save($save, 'plugin_notification_lists');
@@ -1425,9 +1425,9 @@ function thold_request_validation() {
 			'options' => array('options' => 'sanitize_search_string')
 			),
 		'state' => array(
-			'filter' => FILTER_CALLBACK,
-			'default' => 'DESC',
-			'options' => array('options' => 'sanitize_search_string')
+			'filter' => FILTER_VALIDATE_IND,
+			'pageset' => true,
+			'default' => '-1',
 			),
 		'template' => array(
 			'filter' => FILTER_VALIDATE_INT,
