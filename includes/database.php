@@ -75,11 +75,11 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_type',         'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'notify_extra'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'percent_ds',        'type' => 'varchar(64)', 'NULL' => false, 'default' => 0, 'after' => 'cdef'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'tcheck',            'type' => 'int(1)', 'NULL' => false, 'default' => 0));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'exempt',            'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'exempt',            'type' => 'char(3)', 'NULL' => false, 'default' => ''));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'local_graph_id',    'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'data_id'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'graph_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_id'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_template_id',  'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_template'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'restored_alert',    'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'restored_alert',    'type' => 'char(3)', 'NULL' => false, 'default' => ''));
 
 
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'name',              'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));
@@ -90,8 +90,8 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'thold_enabled'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'data_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'syslog_priority'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => 0, 'after' => 'cdef'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off'));
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => ''));
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => ''));
 
 		// Update our hooks
 		db_execute('UPDATE plugin_hooks SET file = "includes/settings.php" WHERE name = "thold" AND hook = "config_arrays"');
@@ -112,7 +112,7 @@ function thold_upgrade_database () {
 		db_execute('UPDATE plugin_hooks SET status = 1 WHERE name="thold"');
 
 		// Fix our realms
-		db_execute('UPDATE plugin_realms SET file = "thold.php,listthold.php,thold_add.php" WHERE display = "Configure Thresholds"');
+		db_execute('UPDATE plugin_realms SET file = "thold.php" WHERE display = "Configure Thresholds"');
 		api_plugin_register_realm('thold', 'thold_templates.php', 'Configure Threshold Templates', 1);
 
 		db_execute('ALTER TABLE thold_data ADD INDEX ( tcheck )', FALSE);
@@ -346,8 +346,8 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'thold_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'template_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'tcheck', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
-	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
+	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'bl_thold_valid', 'type' => 'int(10)', 'NULL' => false, 'default' => '0', 'unsigned' => true);
 	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3');
@@ -409,8 +409,8 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'expression', 'type' => 'varchar(70)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
-	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off');
+	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3');
 	$data['columns'][] = array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2');
@@ -424,15 +424,16 @@ function thold_setup_database () {
 	api_plugin_db_table_create ('thold', 'thold_template', $data);
 
 	$data = array();
-	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
-	$data['columns'][] = array('name' => 'user_id', 'type' => 'int(12)', 'NULL' => false);
-	$data['columns'][] = array('name' => 'type', 'type' => 'varchar(32)', 'NULL' => false);
-	$data['columns'][] = array('name' => 'data', 'type' => 'text', 'NULL' => false);
-	$data['primary']   = 'id';
-	$data['keys'][]    = array('name' => 'type', 'columns' => 'type');
-	$data['keys'][]    = array('name' => 'user_id', 'columns' => 'user_id');
-	$data['type']      = 'MyISAM';
-	$data['comment']   = 'Table of threshold contacts';
+	$data['columns'][]     = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
+	$data['columns'][]     = array('name' => 'user_id', 'type' => 'int(12)', 'NULL' => false);
+	$data['columns'][]     = array('name' => 'type', 'type' => 'varchar(32)', 'NULL' => false);
+	$data['columns'][]     = array('name' => 'data', 'type' => 'text', 'NULL' => false);
+	$data['primary']       = 'id';
+	$data['keys'][]        = array('name' => 'type', 'columns' => 'type');
+	$data['keys'][]        = array('name' => 'user_id', 'columns' => 'user_id');
+	$data['unique_keys'][] = array('name' => 'user_id_type', 'columns' => 'user_id`, `type');
+	$data['type']          = 'MyISAM';
+	$data['comment']       = 'Table of threshold contacts';
 	api_plugin_db_table_create ('thold', 'plugin_thold_contacts', $data);
 
 	$data = array();

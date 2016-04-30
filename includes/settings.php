@@ -25,10 +25,11 @@
 
 function thold_draw_navigation_text ($nav) {
 	$nav['thold.php:'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '1');
-	$nav['thold.php:save'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '1');
-	$nav['thold.php:autocreate'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '1');
-	$nav['listthold.php:'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'listthold.php', 'level' => '1');
-	$nav['listthold.php:actions'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'listthold.php', 'level' => '1');
+	$nav['thold.php:actions'] = array('title' => '(actions)', 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
+	$nav['thold.php:edit'] = array('title' => '(edit)', 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
+	$nav['thold.php:save'] = array('title' => '(save)', 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
+	$nav['thold.php:add'] = array('title' => '(add)', 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
+	$nav['thold.php:autocreate'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '2');
 	$nav['thold_graph.php:'] = array('title' => 'Thresholds', 'mapping' => 'index.php:', 'url' => 'thold_graph.php', 'level' => '1');
 	$nav['thold_graph.php:thold'] = array('title' => 'Thresholds', 'mapping' => 'graph_view.php:', 'url' => 'thold_graph.php', 'level' => '1');
 	$nav['thold_view_failures.php:'] = array('title' => 'Thresholds - Failures', 'mapping' => 'index.php:', 'url' => 'thold_view_failures.php', 'level' => '1');
@@ -44,7 +45,6 @@ function thold_draw_navigation_text ($nav) {
 	$nav['thold_templates.php:actions'] = array('title' => 'Threshold Templates', 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
 	$nav['thold_templates.php:import'] = array('title' => 'Threshold Template Import', 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '2');
 
-	$nav['thold_add.php:'] = array('title' => 'Create Threshold', 'mapping' => 'index.php:', 'url' => 'thold_add.php', 'level' => '1');
 	$nav['notify_lists.php:'] = array('title' => 'Notification Lists', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
 	$nav['notify_lists.php:edit'] = array('title' => 'Notification Lists (edit)', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
 	$nav['notify_lists.php:save'] = array('title' => 'Notification Lists', 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
@@ -57,14 +57,14 @@ function thold_config_insert () {
 	global $menu;
 
 	$menu['Management']['plugins/thold/notify_lists.php'] = 'Notification Lists';
-	$menu['Management']['plugins/thold/listthold.php'] = 'Thresholds';
+	$menu['Management']['plugins/thold/thold.php'] = 'Thresholds';
 	$menu['Templates']['plugins/thold/thold_templates.php'] = 'Threshold';
 	if (isset_request_var('thold_vrule')) {
 		if (get_nfilter_request_var('thold_vrule') == 'on') {
 			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'on';
 			$_SESSION['sess_config_array']['boost_png_cache_enable'] = false;
-		} elseif (get_nfilter_request_var('thold_vrule') == 'off') {
-			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'off';
+		} elseif (get_nfilter_request_var('thold_vrule') == '') {
+			$_SESSION['sess_config_array']['thold_draw_vrules'] = '';
 		}
 	}
 
@@ -84,11 +84,17 @@ function thold_config_insert () {
 
 function thold_config_arrays () {
 	global $messages;
+
 	$messages['thold_save'] = array(
 		'message' => 'A template with that Data Source already exists!',
-		'type' => 'error');
+		'type' => 'error'
+	);
+
 	if (isset($_SESSION['thold_message']) && $_SESSION['thold_message'] != '') {
-		$messages['thold_created'] = array('message' => $_SESSION['thold_message'], 'type' => 'info');
+		$messages['thold_message'] = array(
+			'message' => $_SESSION['thold_message'], 
+			'type' => 'info'
+		);
 	}
 }
 
@@ -170,7 +176,7 @@ function thold_config_settings () {
 			'friendly_name' => 'Disable All Thresholds',
 			'description' => 'Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network.',
 			'method' => 'checkbox',
-			'default' => 'off'
+			'default' => ''
 		),
 		'thold_disable_legacy' => array(
 			'friendly_name' => 'Disable Legacy Notifications',
@@ -193,19 +199,19 @@ function thold_config_settings () {
 			'friendly_name' => 'Log Threshold Breaches',
 			'description' => 'Enable logging of all Threshold failures to the Cacti Log',
 			'method' => 'checkbox',
-			'default' => 'off'
+			'default' => ''
 		),
 		'thold_log_changes' => array(
 			'friendly_name' => 'Log Threshold Changes',
 			'description' => 'Enable logging of all Threshold changes to the Cacti Log',
 			'method' => 'checkbox',
-			'default' => 'off'
+			'default' => ''
 		),
 		'thold_log_debug' => array(
 			'friendly_name' => 'Debug Log',
 			'description' => 'Enable logging of debug messages with Thold',
 			'method' => 'checkbox',
-			'default' => 'off'
+			'default' => ''
 		),
 		'thold_log_storage' => array(
 			'friendly_name' => 'Alert Log Retention',
@@ -223,7 +229,7 @@ function thold_config_settings () {
 			'friendly_name' => 'Enable Threshold Daemon',
 			'description' => 'Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performace and/or to distribute threshold monitoring to a separate server.',
 			'method' => 'checkbox',
-			'default' => 'off'
+			'default' => ''
 		),
 		'thold_max_concurrent_processes' => array(
 			'friendly_name' => 'Maximum Concurrent Thold Processes',
@@ -347,7 +353,7 @@ function thold_config_settings () {
 			'friendly_name' => 'Send Emails with Urgent Priority',
 			'description' => 'Allows you to set e-mails with urgent priority',
 			'method' => 'checkbox',
-			'default' => 'off'
+			'default' => ''
 		),
 		'alert_deadnotify' => array(
 			'friendly_name' => 'Dead Device Notifications',
@@ -432,7 +438,7 @@ function thold_config_settings () {
 			'friendly_name' => 'Send Alerts as Text',
 			'description' => 'If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email.',
 			'method' => 'checkbox',
-			'default' => 'off'
+			'default' => ''
 		)
 	);
 }

@@ -23,20 +23,20 @@
  +-------------------------------------------------------------------------+
 */
 
-function thold_poller_bottom () {
-	if(!read_config_option("thold_daemon_enable")) {
+function thold_poller_bottom() {
+	if(!read_config_option('thold_daemon_enable')) {
 
 	/* record the start time */
-	list($micro,$seconds) = split(" ", microtime());
+	list($micro,$seconds) = split(' ', microtime());
 	$start = $seconds + $micro;
 
 	/* perform all thold checks */
-	$tholds = thold_check_all_thresholds ();
-	$nhosts = thold_update_host_status ();
+	$tholds = thold_check_all_thresholds();
+	$nhosts = thold_update_host_status();
 	thold_cleanup_log ();
 
 	/* record the end time */
-	list($micro,$seconds) = split(" ", microtime());
+	list($micro,$seconds) = split(' ', microtime());
 	$end = $seconds + $micro;
 
 	$total_hosts = db_fetch_cell("SELECT count(*) FROM host WHERE disabled=''");
@@ -78,13 +78,13 @@ function thold_poller_bottom () {
 	}
 }
 
-function thold_cleanup_log () {
+function thold_cleanup_log() {
 	$daysToStoreLogs = read_config_option('thold_log_storage');
 	$t = time() - (86400 * $daysToStoreLogs); // Delete Logs over a month old
 	db_execute("DELETE FROM plugin_thold_log WHERE time<$t");
 }
 
-function thold_poller_output (&$rrd_update_array) {
+function thold_poller_output(&$rrd_update_array) {
 	global $config, $debug;
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 	include_once($config['library_path'] . '/snmp.php');
@@ -211,27 +211,23 @@ function thold_poller_output (&$rrd_update_array) {
 	return $rrd_update_array;
 }
 
-function thold_check_all_thresholds () {
+function thold_check_all_thresholds() {
 	global $config;
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-	$sql_query = "SELECT
-		thold_data.data_template_rrd_id,
-		thold_data.local_data_id,
-		thold_data.lastread,
-		thold_data.cdef,
-		data_template_rrd.data_source_name
-		FROM thold_data
-		LEFT JOIN data_template_rrd ON
-		data_template_rrd.id = thold_data.data_template_rrd_id
-		WHERE thold_data.thold_enabled='on' AND thold_data.tcheck=1";
+	$sql_query = "SELECT td.*, dtr.data_source_name
+		FROM thold_data AS td
+		LEFT JOIN data_template_rrd AS dtr
+		ON dtr.id=td.data_template_rrd_id
+		WHERE td.thold_enabled='on' AND td.tcheck=1";
 
 	$tholds = do_hook_function('thold_get_live_hosts', db_fetch_assoc($sql_query));
+
 	$total_tholds = sizeof($tholds);
 	foreach ($tholds as $thold) {
-		thold_check_threshold ($thold['local_data_id'], $thold['data_template_rrd_id'], $thold['data_source_name'], $thold['lastread'], $thold['cdef']);
+		thold_check_threshold($thold);
 	}
 
 	db_execute('UPDATE thold_data SET tcheck=0');
@@ -239,7 +235,7 @@ function thold_check_all_thresholds () {
 	return $total_tholds;
 }
 
-function thold_update_host_status () {
+function thold_update_host_status() {
 	global $config;
 	// Return if we aren't set to notify
 	$deadnotify = (read_config_option('alert_deadnotify') == 'on');

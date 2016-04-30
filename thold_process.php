@@ -61,7 +61,6 @@ require_once($config['library_path'] . '/snmp.php');
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
-
 /* install signal handlers for UNIX only */
 if (function_exists('pcntl_signal')) {
 	pcntl_signal(SIGTERM, 'sig_handler');

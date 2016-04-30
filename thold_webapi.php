@@ -23,104 +23,32 @@
  +-------------------------------------------------------------------------+
 */
 
-chdir('../../');
-include_once('./include/auth.php');
-
-$host = $graph = $ds = $dt = '';
-
-if (isset_request_var('host_id') && get_filter_request_var('host_id') != '') {
-	$host = get_request_var('host_id');
-} else {
-	$host = 0;
-}
-
-if (isset($_SERVER['HTTP_REFERER']) && (substr_count($_SERVER['HTTP_REFERER'], 'graph_view.php') || substr_count($_SERVER['HTTP_REFERER'], 'graph.php'))) {
-	$_SESSION['graph_return'] = $_SERVER['HTTP_REFERER'];
-}
-
-if (isset_request_var('local_graph_id') && get_filter_request_var('local_graph_id') != '') {
-	$graph = get_request_var('local_graph_id');
-
-	if ($host == 0) {
-		$host = db_fetch_cell('SELECT host_id FROM graph_local WHERE id = ' . $graph);
-	}
-} else {
-	$graph = 0;
-}
-
-if (isset_request_var('doaction') && get_request_var('doaction') != '') {
-	if (get_request_var('doaction') == 1) {
-		header('Location:' . $config['url_path'] . "plugins/thold/thold_add.php?local_graph_id=$graph");
-	} else {
-		$temp = db_fetch_row("SELECT dtr.*
-			 FROM data_template_rrd AS dtr
-			 LEFT JOIN graph_templates_item AS gti
-			 ON gti.task_item_id=dtr.id
-			 LEFT JOIN graph_local AS gl
-			 ON gl.id=gti.local_graph_id
-			 WHERE gl.id=$graph");
-
-		$dt = $temp['data_template_id'];
-
-		header('Location:' . $config['url_path'] . "plugins/thold/thold_templates.php?action=add&data_template_id=$dt");
-	}
-
-	exit;
-}
-
-if (isset_request_var('dsid') && get_filter_request_var('dsid') != '') {
-	$ds = get_request_var('dsid');
-}
-
-if (isset_request_var('dt') && get_filter_request_var('dt') != '') {
-	if ($ds) {
-		$dt = db_fetch_cell("SELECT local_data_id FROM data_template_rrd WHERE id = $ds");
-	} else {
-		$dt = get_request_var('dt');
-	}
-}
-
-if (isset_request_var('save') && get_nfilter_request_var('save') == 'save') {
-	header("Location: thold.php?header=false&local_data_id=$dt&view_rrd=$ds");
-	exit;
-}
-
-if (isset_request_var('usetemplate') && get_nfilter_request_var('usetemplate') != '') {
-	if (isset_request_var('thold_template_id') && get_filter_request_var('thold_template_id') != '') {
-		if (get_request_var('thold_template_id') == '0') {
-			thold_add_select_host();
-		} else {
-			thold_add_graphs_action_execute();
-		}
-	} else {
-		thold_add_graphs_action_prepare($graph);
-	}
-} else {
-	thold_add_select_host();
-}
-
 function thold_add_graphs_action_execute() {
-	global $config, $host, $graph;
+	global $config;
 
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
+	$host_id           = get_filter_request_var('host_id');
+	$local_graph_id    = get_filter_request_var('local_data_id');
+	$thold_template_id = get_filter_request_var('thold_template_id');
+
 	$message = '';
-	get_filter_request_var('thold_template_id');
 
-	$template = db_fetch_row('SELECT * FROM thold_template WHERE id=' . get_request_var('thold_template_id'));
+	$template = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($thold_template_id));
 
-	$temp = db_fetch_row("SELECT dtr.*
+	$temp = db_fetch_row_prepared('SELECT dtr.*
 		 FROM data_template_rrd AS dtr
 		 LEFT JOIN graph_templates_item AS gti
 		 ON gti.task_item_id=dtr.id
 		 LEFT JOIN graph_local AS gl
 		 ON gl.id=gti.local_graph_id
-		 WHERE gl.id=$graph");
+		 WHERE gl.id = ?' , array($local_graph_id));
 
 	$data_template_id = $temp['data_template_id'];
-	$local_data_id = $temp['local_data_id'];
+	$local_data_id    = $temp['local_data_id'];
 
-	$data_source      = db_fetch_row('SELECT * FROM data_local WHERE id=' . $local_data_id);
+	$data_source      = db_fetch_row_prepared('SELECT * FROM data_local WHERE id = ?', array($local_data_id));
+
 	$data_template_id = $data_source['data_template_id'];
 
 	/* allow duplicate thresholds, but only from differing templates */
@@ -131,21 +59,21 @@ function thold_add_graphs_action_execute() {
 		AND thold_template_id=' . $template['id'] . " AND template_enabled='on'");
 
 	if (count($existing) == 0 && count($template)) {
-		if ($graph) {
+		if ($local_graph_id) {
 			$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id ORDER BY id LIMIT 1");
-			$grapharr  = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup AND local_graph_id = $graph");
+			$grapharr  = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup AND local_graph_id = $local_graph_id");
 
-			$desc = db_fetch_cell('SELECT name_cache FROM data_template_data WHERE local_data_id=' . $local_data_id . ' LIMIT 1');
+			$desc = db_fetch_cell_prepared('SELECT name_cache FROM data_template_data WHERE local_data_id = ? LIMIT 1', array($local_data_id));
 
 			$data_source_name = $template['data_source_name'];
 			$insert = array();
 
-			$name = thold_format_name($template, $graph, $local_data_id, $data_source_name);
+			$name = thold_format_name($template, $local_graph_id, $local_data_id, $data_source_name);
 
 			$insert['name']               = $name;
 			$insert['host_id']            = $data_source['host_id'];
 			$insert['local_data_id']      = $local_data_id;
-			$insert['local_graph_id']     = $graph;
+			$insert['local_graph_id']     = $local_graph_id;
 			$insert['data_template_id']   = $data_template_id;
 			$insert['graph_template_id']  = $grapharr['graph_template_id'];
 			$insert['thold_hi']           = $template['thold_hi'];
@@ -211,7 +139,7 @@ function thold_add_graphs_action_execute() {
 		$_SESSION['thold_message'] = "<font size=-2>Threshold(s) Already Exists - No Thresholds Created</font>";
 	}
 
-	raise_message('thold_created');
+	raise_message('thold_message');
 
 	if (isset($_SESSION['graph_return'])) {
 		$return_to = $_SESSION['graph_return'];
@@ -222,18 +150,20 @@ function thold_add_graphs_action_execute() {
 
 		header('Location: ' . $return_to . (strpos($return_to, '?') !== false ? '&':'?') . 'header=false');
 	}else{
-		header('Location:' . $config['url_path'] . 'plugins/thold/listthold.php?header=false');
+		header('Location:' . $config['url_path'] . 'plugins/thold/thold.php?header=false');
 	}
 }
 
-function thold_add_graphs_action_prepare($graph) {
+function thold_add_graphs_action_prepare() {
 	global $config;
+
+	$local_graph_id = get_filter_request_var('local_graph_id');
 
 	top_header();
 
 	html_start_box('Create Threshold from Template', '60%', '', '3', 'center', '');
 
-	form_start('thold_add.php');
+	form_start('thold.php?action=add');
 
 	/* get the valid thold templates
 	 * remove those hosts that do not have any valid templates
@@ -248,20 +178,21 @@ function thold_add_graphs_action_prepare($graph) {
 		 ON gti.task_item_id=dtr.id
 		 LEFT JOIN graph_local AS gl
 		 ON gl.id=gti.local_graph_id
-		 WHERE gl.id=$graph");
+		 WHERE gl.id=$local_graph_id");
+
 	if ($data_template_id != '') {
 		if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
-			$found_list .= '<li>' . get_graph_title($graph) . '</li>';
+			$found_list .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
 			}else{
 				$templates  = "$data_template_id";
 			}
 		}else{
-			$not_found .= '<li>' . get_graph_title($graph) . '</li>';
+			$not_found .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 		}
 	}else{
-		$not_found .= '<li>' . get_graph_title($graph) . '</li>';
+		$not_found .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 	}
 
 	if (strlen($templates)) {
@@ -279,9 +210,9 @@ function thold_add_graphs_action_prepare($graph) {
 		}
 
 		print '<p>Are you sure you wish to create Thresholds for this Graph?
-				<ul>' . $found_list . "</ul>
-				</td>
-			</tr>\n";
+			<ul>' . $found_list . "</ul>
+			</td>
+		</tr>\n";
 
 		if (isset_request_var('tree_id')) {
 			get_filter_request_var('tree_id');
@@ -308,25 +239,13 @@ function thold_add_graphs_action_prepare($graph) {
 				'value' => 'None',
 				'sql' => $sql
 			),
-			'tree_id' => array(
-				'method' => 'hidden',
-				'value' => get_request_var('tree_id')
-			),
-			'action2' => array(
-				'method' => 'hidden',
-				'value' => get_nfilter_request_var('action2')
-			),
-			'leaf_id' => array(
-				'method' => 'hidden',
-				'value' => get_request_var('leaf_id')
-			),
 			'usetemplate' => array(
 				'method' => 'hidden',
 				'value' => 1
 			),
 			'local_graph_id' => array(
 				'method' => 'hidden',
-				'value' => $graph
+				'value' => $local_graph_id
 			)
 		);
 
@@ -342,18 +261,6 @@ function thold_add_graphs_action_prepare($graph) {
 			print '<ul>' . $not_found . '</ul>';
 		}
 
-		if (isset_request_var('tree_id')) {
-			get_filter_request_var('tree_id');
-		}else{
-			set_request_var('tree_id', '');
-		}
-
-		if (isset_request_var('leaf_id')) {
-			get_filter_request_var('leaf_id');
-		}else{
-			set_request_var('leaf_id', '');
-		}
-
 		$form_array = array(
 			'general_header' => array(
 				'friendly_name' => 'Please select an action',
@@ -366,25 +273,13 @@ function thold_add_graphs_action_prepare($graph) {
 				'value' => 'None',
 				'array' => array(1 => 'Create a new Threshold', 2 => 'Create a Threshold Template')
 			),
-			'tree_id' => array(
-				'method' => 'hidden',
-				'value' => get_request_var('tree_id')
-			),
-			'action2' => array(
-				'method' => 'hidden',
-				'value' => get_nfilter_request_var('action2')
-			),
-			'leaf_id' => array(
-				'method' => 'hidden',
-				'value' => get_request_var('leaf_id')
-			),
 			'usetemplate' => array(
 				'method' => 'hidden',
 				'value' => 1
 			),
 			'local_graph_id' => array(
 				'method' => 'hidden',
-				'value' => $graph
+				'value' => $local_graph_id
 			)
 		);
 
@@ -419,6 +314,8 @@ function thold_add_graphs_action_prepare($graph) {
 
 	html_end_box();
 
+	print "<script type='text/javascript'>$(function() { applySkin() ;});</script>";
+
 	bottom_footer();
 }
 
@@ -429,24 +326,25 @@ function thold_add_graphs_action_array($action) {
 }
 
 function thold_add_select_host() {
-	global $config, $host, $graph, $ds;
+	global $config;
 
-	/* get policy information for the sql where clause */
-	$current_user = db_fetch_row("SELECT * FROM user_auth WHERE id=" . $_SESSION["sess_user_id"]);
+	$host_id              = get_filter_request_var('host_id');
+	$local_graph_id       = get_filter_request_var('local_graph_id');
+	$data_template_rrd_id = get_filter_request_var('data_template_rrd_id');
 
 	$hosts = get_allowed_devices();
 
 	top_header();
 
-	form_start('thold_add.php', 'tholdform');
+	form_start('thold.php?action=save', 'tholdform');
 
 	html_start_box('Threshold Creation Wizard', '50%', '', '3', 'center', '');
 
-	if ($host == '') {
+	if ($host_id == '') {
 		print '<tr><td class="center">Please select a Device</td></tr>';
-	} else if ($graph == '') {
+	} else if ($local_graph_id == '') {
 		print '<tr><td class="center">Please select a Graph</td></tr>';
-	} else if ($ds == '') {
+	} else if ($data_template_rrd_id == '') {
 		print '<tr><td class="center">Please select a Data Source</td></tr>';
 	} else {
 		print '<tr><td class="center">Please press "Create" to activate your Threshold</td></tr>';
@@ -460,45 +358,22 @@ function thold_add_select_host() {
 	?>
 	<tr><td><table class='filterTable' align='center'>
 		<tr>
-			<td>
-				Device
-			</td>
-			<td>
-				<select id='host_id' onChange='applyTholdFilterChange("host")'>
-					<option value=''></option><?php
-					foreach ($hosts as $row) {
-						echo "<option value='" . $row['id'] . "'" . ($row['id'] == $host ? ' selected' : '') . '>' . $row['description'] . ' [' . $row['hostname'] . ']</option>';
-					}?>
-				</select>
-			</td>
+			<?php print html_host_filter(get_request_var('host_id'));?>
 		</tr><?php
 
-	if ($host != '') {
-		$graphs = db_fetch_assoc('SELECT
-			graph_templates_graph.id,
-			graph_templates_graph.local_graph_id,
-			graph_templates_graph.title_cache
-			FROM (graph_templates_graph,graph_local)
-			LEFT JOIN host ON (host.id=graph_local.host_id)
-			LEFT JOIN graph_templates ON (graph_templates.id=graph_local.graph_template_id)
-			LEFT JOIN user_auth_perms ON ((graph_templates_graph.local_graph_id=user_auth_perms.item_id and user_auth_perms.type=1 and user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ') OR (host.id=user_auth_perms.item_id and user_auth_perms.type=3 and user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . ') OR (graph_templates.id=user_auth_perms.item_id and user_auth_perms.type=4 and user_auth_perms.user_id=' . $_SESSION['sess_user_id'] . '))
-			WHERE graph_templates_graph.local_graph_id=graph_local.id
-			AND graph_templates.id IS NOT NULL
-			' . (empty($sql_where) ? '' : "AND $sql_where") . "
-			AND host.id = $host
-			ORDER BY title_cache");
+	if ($host_id != '') {
+		$graphs = get_allowed_graphs('gl.host_id=' . $host_id);
 
-		/* display the graphs dropdown */
 		?>
 		<tr>
 			<td>
 				Graph
 			</td>
 			<td>
-				<select id='local_graph_id' name='local_graph_id' onChange='applyTholdFilterChange("graph")'>
+				<select id='local_graph_id' name='local_graph_id' onChange='applyFilter("graph")'>
 					<option value=''></option><?php
 					foreach ($graphs as $row) {
-						echo "<option value='" . $row['local_graph_id'] . "'" . ($row['local_graph_id'] == $graph ? ' selected' : '') . '>' . $row['title_cache'] . '</option>';
+						echo "<option value='" . $row['local_graph_id'] . "'" . ($row['local_graph_id'] == $local_graph_id ? ' selected' : '') . '>' . $row['title_cache'] . '</option>';
 					}?>
 				</select>
 			</td>
@@ -512,16 +387,16 @@ function thold_add_select_host() {
 		</tr><?php
 	}
 
-	if ($graph != '') {
+	if ($local_graph_id != '') {
 		$dt_sql = 'SELECT DISTINCT dtr.local_data_id
 			FROM data_template_rrd AS dtr
 			LEFT JOIN graph_templates_item AS gti
 			ON gti.task_item_id=dtr.id
 			LEFT JOIN graph_local AS gl
 			ON gl.id=gti.local_graph_id
-			WHERE gl.id = ' . $graph;
+			WHERE gl.id = ' . $local_graph_id;
 
-		$dt = db_fetch_cell($dt_sql);
+		$local_data_id = db_fetch_cell($dt_sql);
 
 		$dss = db_fetch_assoc('SELECT DISTINCT id, data_source_name
 			FROM data_template_rrd
@@ -534,11 +409,11 @@ function thold_add_select_host() {
 				Data Source
 			</td>
 			<td>
-				<input type='hidden' id='dt' name='dt' value='<?php print $dt;?>'>
-				<select id='dsid' name='dsid' onChange='applyTholdFilterChange("ds")'>
+				<input type='hidden' id='local_data_id' name='local_data_id' value='<?php print $local_data_id;?>'>
+				<select id='data_template_rrd_id' name='data_template_rrd_id' onChange='applyFilter("ds")'>
 					<option value=''></option><?php
 					foreach ($dss as $row) {
-						echo "<option value='" . $row['id'] . "'" . ($row['id'] == $ds ? ' selected' : '') . '>' . $row['data_source_name'] . '</option>';
+						echo "<option value='" . $row['id'] . "'" . ($row['id'] == $data_template_rrd_id ? ' selected' : '') . '>' . $row['data_source_name'] . '</option>';
 					}?>
 				</select>
 			</td>
@@ -547,12 +422,12 @@ function thold_add_select_host() {
 		?>
 		<tr>
 			<td>
-				<input type='hidden' id='dsid' name='dsid' value=''>
+				<input type='hidden' id='data_template_rrd_id' name='data_template_rrd_id' value=''>
 			</td>
 		</tr></table></td></tr><?php
 	}
 
-	if ($ds != '') {
+	if ($data_template_rrd_id != '') {
 		echo "<tr><td class='center' colspan='2'><input type='hidden' name='save' id='save' value='save'><input id='go' type='button' value='Create' title='Create Threshold'></td></tr>";
 	} else {
 		echo "<tr><td class='center' colspan='2'></td></tr>";
@@ -564,8 +439,8 @@ function thold_add_select_host() {
 
 	html_start_box('', '50%', '', '3', 'center', '');
 
-	if ($graph != '') {
-		print "<tr><td style='text-align:center'><img id='graphi' src='../../graph_image.php?local_graph_id=$graph&rra_id=0'></td></tr>";
+	if ($local_graph_id != '') {
+		print "<tr><td style='text-align:center'><img id='graphi' src='../../graph_image.php?local_graph_id=$local_graph_id&rra_id=0'></td></tr>";
 	}
 
 	html_end_box();
@@ -573,19 +448,19 @@ function thold_add_select_host() {
 	?>
 	<script type='text/javascript'>
 
-	function applyTholdFilterChange(target) {
-		strURL = 'thold_add.php?header=false&host_id=' + $('#host_id').val();
-		if (target != 'host') {
+	function applyFilter(target) {
+		strURL = 'thold.php?action=add&header=false&host_id=' + $('#host_id').val();
+		if (target != 'host_id') {
 			strURL += '&local_graph_id=' + $('#local_graph_id').val();
 		}
 		if (target == 'ds') {
-			strURL += '&dsid=' + $('#dsid').val();
+			strURL += '&data_template_rrd_id=' + $('#data_template_rrd_id').val();
 		}
 		loadPageNoHeader(strURL);
 	}
 
 	$(function() {
-		$('#go').click(function() {
+		$('#go').button().click(function() {
             strURL = $('#tholdform').attr('action');
             json   = $('input, select').serializeObject();
             $.post(strURL, json).done(function(data) {
