@@ -62,6 +62,8 @@ switch ($action) {
 				unset($_SESSION['graph_return']);
 				kill_session_var('graph_return');
 				header('Location: ' . $return_to);
+			}else{
+				header('Location: thold_templates.php?header=false');
 			}
 		} elseif (isset_request_var('save') && get_nfilter_request_var('save') == 'add') {
 
@@ -95,6 +97,8 @@ switch ($action) {
 
 		break;
 }
+
+exit;
 
 function template_export() {
 	$output = "<templates>\n";
@@ -138,9 +142,12 @@ function template_delete() {
 	foreach($_POST as $t=>$v) {
 		if (substr($t, 0,4) == 'chk_') {
 			$id = substr($t, 4);
+
 			input_validate_input_number($id);
+
 			plugin_thold_log_changes($id, 'deleted_template', array('id' => $id));
-			db_fetch_assoc('DELETE FROM thold_template WHERE id = ? LIMIT 1', array($id));
+
+			db_execute_prepared('DELETE FROM thold_template WHERE id = ? LIMIT 1', array($id));
 			db_execute_prepared('DELETE FROM plugin_thold_template_contact WHERE template_id = ?', array($id));
 			db_execute_prepared("UPDATE thold_data SET template = '', template_enabled = '' WHERE template = ?", array($id));
 		}
@@ -152,52 +159,38 @@ function template_delete() {
 
 function template_add() {
 	if ((!isset_request_var('save')) || (get_nfilter_request_var('save') == '')) {
-		$data_templates = array_rekey(db_fetch_assoc('select id, name from data_template order by name'), 'id', 'name');
+		$data_templates = array_rekey(db_fetch_assoc('SELECT id, name FROM data_template ORDER BY name'), 'id', 'name');
 
 		top_header();
 
-		?>
-		<script type='text/javascript'>
-
-		function applyFilter(type) {
-			if (type == 'dt' && $('#data_source_id')) {
-				$('#data_source_id').val('');
-			}
-
-			if ($('#save')) {
-				$('#save').val('');
-			}
-
-			document.tholdform.submit();
-		}
-
-		</script>
-		<?php
+		form_start('thold_templates.php', 'tholdform');
 
 		html_start_box('Threshold Template Creation Wizard', '50%', '', '3', 'center', '');
-
-		print "<tr><td><form action=thold_templates.php method='post' name='tholdform'>";
 
 		if (!isset_request_var('data_template_id')) set_request_var('data_template_id', '');
 		if (!isset_request_var('data_source_id'))   set_request_var('data_source_id', '');
 
-		if (get_fitler_request_var('data_template_id') == '') {
-			print '<center><h3>Please select a Data Template</h3></center>';
+		if (get_filter_request_var('data_template_id') == '') {
+			print '<tr><td class="center">Please select a Data Template</td></tr>';
 		} else if (get_filter_request_var('data_source_id') == '') {
-			print '<center><h3>Please select a Data Source</h3></center>';
+			print '<tr><td class="center">Please select a Data Source</td></tr>';
 		} else {
-			print '<center><h3>Please press "Create" to create your Threshold Template</h3></center>';
+			print '<tr><td class="center">Please press "Create" to create your Threshold Template</td></tr>';
 		}
+
+		html_end_box();
+
+		html_start_box('', '50%', '', '3', 'center', '');
 
 		/* display the data template dropdown */
 		?>
-		<table class='filterTable'>
+		<tr><td><table class='filterTable' align='center'>
 			<tr>
 				<td>
 					Data Template
 				</td>
 				<td>
-					<select id=data_template_id onChange="applyFilter('dt')">
+					<select id='data_template_id' name='data_template_id' onChange='applyFilter("dt")'>
 						<option value=''>None</option><?php
 						foreach ($data_templates as $id => $name) {
 							echo "<option value='" . $id . "'" . ($id == get_request_var('data_template_id') ? ' selected' : '') . '>' . $name . '</option>';
@@ -208,12 +201,18 @@ function template_add() {
 
 		if (get_request_var('data_template_id') != '') {
 			$data_template_id = get_request_var('data_template_id');
-			$data_fields      = array();
-			$temp             = db_fetch_assoc('select id, local_data_template_rrd_id, data_source_name, data_input_field_id from data_template_rrd where local_data_template_rrd_id = 0 and data_template_id = ' . $data_template_id);
+
+			$data_fields = array();
+
+			$temp = db_fetch_assoc_prepared('SELECT id, local_data_template_rrd_id, 
+				data_source_name, data_input_field_id 
+				FROM data_template_rrd 
+				WHERE local_data_template_rrd_id = 0 
+				AND data_template_id = ?', array($data_template_id));
 
 			foreach ($temp as $d) {
 				if ($d['data_input_field_id'] != 0) {
-					$temp2 = db_fetch_assoc('select name, data_name from data_input_fields where id = ' . $d['data_input_field_id']);
+					$temp2 = db_fetch_assoc_prepared('SELECT name, data_name FROM data_input_fields WHERE id = ?', array($d['data_input_field_id']));
 					$data_fields[$d['id']] = $temp2[0]['data_name'] . ' (' . $temp2[0]['name'] . ')';
 				} else {
 					$temp2[0]['name'] = $d['data_source_name'];
@@ -237,16 +236,51 @@ function template_add() {
 				</td>
 			</tr>
 			<?php
+		}else{
+			echo "<tr><td><input type='hidden' id='data_source_id' value=''></td></tr>\n";
 		}
 
 		if (get_request_var('data_source_id') != '') {
-			echo '<tr><td colspan=2><input type=hidden name=action value="add"><input id="save" type=hidden name="save" value="save"><br><center><input type="submit" value="Create"></center></td></tr>';
+			echo "<tr><td colspan='2'><input type='hidden' name='action' value='add'><input id='save' type='hidden' name='save' value='save'><br><center><input id='go' type='button' value='Create'></center></td></tr>";
 		} else {
-			echo '<tr><td colspan=2><input type=hidden name=action value="add"><br><br><br></td></tr>';
+			echo "<tr><td colspan=2><input type=hidden name=action value='add'><br><br><br></td></tr>";
 		}
-		echo '</table></form></td></tr>';
+
+		echo "</table></td></tr>\n";
 
 		html_end_box();
+
+		form_end();
+
+		?>
+		<script type='text/javascript'>
+
+		function applyFilter(type) {
+			if (type == 'dt' && $('#data_source_id')) {
+				$('#data_source_id').val('');
+			}
+
+			if ($('#save')) {
+				$('#save').val('');
+			}
+
+			loadPageNoHeader('thold_templates.php?action=add&header=false&data_template_id='+$('#data_template_id').val()+'&data_source_id='+$('#data_source_id').val());
+		}
+
+		$(function() {
+			$('#go').button().click(function() {
+				strURL = $('#tholdform').attr('action');
+				json   = $('input, select').serializeObject();
+				$.post(strURL, json).done(function(data) {
+					$('#main').html(data);
+					applySkin();
+					window.scrollTo(0, 0);
+				});
+			});
+		});
+
+		</script>
+		<?php
 
 		bottom_footer();
 	} else {
@@ -286,11 +320,11 @@ function template_add() {
 
 		if ($id) {
 			plugin_thold_log_changes($id, 'modified_template', $save);
-			Header("Location: thold_templates.php?action=edit&id=$id");
+			Header("Location: thold_templates.php?action=edit&id=$id&header=false");
 			exit;
 		} else {
 			raise_message('thold_save');
-			Header('Location: thold_templates.php?action=add');
+			Header('Location: thold_templates.php?action=add&header=false');
 			exit;
 		}
 	}
@@ -595,7 +629,7 @@ function template_edit() {
 		}
 	}
 
-	$replacements = "<br><b>Replacement Fields:</b> " . implode(", ", $nr);
+	$replacements = "<br>Replacement Fields: " . implode(", ", $nr);
 
 	$dss = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE data_template_id=" . $thold_data['data_template_id'] . " AND local_data_id=0");
 
@@ -605,7 +639,7 @@ function template_edit() {
 		}
 	}
 
-	$datasources = "<br><b>Data Sources:</b> " . implode(", ", $dsname);
+	$datasources = "<br>Data Sources: " . implode(", ", $dsname);
 
 	$form_array = array(
 		'general_header' => array(
@@ -616,6 +650,7 @@ function template_edit() {
 			'friendly_name' => 'Template Name',
 			'method' => 'textbox',
 			'max_length' => 100,
+			'size' => '60',
 			'default' => $thold_data['data_template_name'] . ' [' . $thold_data['data_source_name'] . ']',
 			'description' => 'Provide the Threshold Template a meaningful name.  Device Substritution and Data Query Substitution variables can be used as well as |graph_title| for the Graph Title',
 			'value' => isset($thold_data['name']) ? $thold_data['name'] : ''
@@ -831,7 +866,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 10,
-			'description' => 'Number of consecutive times the data source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (<b>Default: ' . read_config_option('alert_bl_trigger') . ' cycles</b>)',
+			'description' => 'Number of consecutive times the data source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: ' . read_config_option('alert_bl_trigger') . ' cycles)',
 			'value' => isset($thold_data['bl_fail_trigger']) ? $thold_data['bl_fail_trigger'] : read_config_option('alert_bl_trigger')
 		),
 		'data_manipulation' => array(
@@ -1000,11 +1035,10 @@ function template_edit() {
 	form_save_button('thold_templates.php?id=' . $id);
 
 	?>
-
 	<script type='text/javascript'>
+
 	function changeTholdType() {
-		type = document.getElementById('thold_type').value;
-		switch(type) {
+		switch($('#thold_type').val()) {
 		case '0': // Hi/Low
 			thold_toggle_hilow('');
 			thold_toggle_baseline('none');
@@ -1024,8 +1058,7 @@ function template_edit() {
 	}
 
 	function changeDataType() {
-		type = $('#data_type').val();
-		switch(type) {
+		switch($('#data_type').val()) {
 		case '0':
 			$('#row_cdef, #row_percent_ds, #row_expression').hide();
 
@@ -1084,20 +1117,74 @@ function template_edit() {
 		}
 	}
 
-	changeTholdType ();
-	changeDataType ();
+	changeTholdType();
+	changeDataType();
 
-	if (document.thold['notify_accounts[]'] && document.thold['notify_accounts[]'].length == 0) {
-		document.getElementById('row_notify_accounts').style.display='none';
+	if ($('#notify_accounts option').length == 0) {
+		$('#row_notify_accounts').hide();
 	}
 
-	if (document.thold.notify_warning.length == 1) {
-		document.getElementById('row_notify_warning').style.display='none';
+	if ($('#notify_warning option').length == 0) {
+		$('#row_notify_warning').hide();
 	}
 
-	if (document.thold.notify_alert.length == 1) {
-		document.getElementById('row_notify_alert').style.display='none';
+	if ($('#notify_alert option').length == 0) {
+		$('#row_notify_alert').hide();
 	}
+
+	$('#notify_accounts').multiselect({
+		minWidth: '400',
+		noneSelectedText: 'Select Users(s)', 
+		selectedText: function(numChecked, numTotal, checkedItems) {
+			myReturn = numChecked + ' Users Selected';
+			$.each(checkedItems, function(index, value) {
+				if (value.value == '0') {
+				myReturn='All Users Selected';
+					return false;
+				}
+			});
+			return myReturn;
+		},
+		checkAllText: 'All', 
+		uncheckAllText: 'None',
+		uncheckall: function() {
+			$(this).multiselect('widget').find(':checkbox:first').each(function() {
+				$(this).prop('checked', true);
+			});
+		},
+		open: function() {
+			size = $('#notify_accounts option').length * 20 + 20;
+			if (size > 140) {
+				size = 140;
+			}
+			$('ul.ui-multiselect-checkboxes').css('height', size + 'px');
+		},
+		click: function(event, ui) {
+			checked=$(this).multiselect('widget').find('input:checked').length;
+
+			if (ui.value == '0') {
+				if (ui.checked == true) {
+					$('#host').multiselect('uncheckAll');
+					$(this).multiselect('widget').find(':checkbox:first').each(function() {
+						$(this).prop('checked', true);
+					});
+				}
+			}else if (checked == 0) {
+				$(this).multiselect('widget').find(':checkbox:first').each(function() {
+					$(this).click();
+				});
+			}else if ($(this).multiselect('widget').find('input:checked:first').val() == '0') {
+				if (checked > 0) {
+					$(this).multiselect('widget').find(':checkbox:first').each(function() {
+						$(this).click();
+						$(this).prop('disable', true);
+					});
+				}
+			}
+		}
+	}).multiselectfilter( {
+		label: 'Search', width: '150'
+	});
 
 	</script>
 	<?php
@@ -1395,7 +1482,8 @@ function template_import() {
 		$xml_data = fread($fp,filesize($_FILES['import_file']['tmp_name']));
 		fclose($fp);
 	}else{
-		header('Location: thold_templates.php'); exit;
+		header('Location: thold_templates.php?header=false'); 
+		exit;
 	}
 
 	/* obtain debug information if it's set */
@@ -1465,9 +1553,9 @@ function template_import() {
 			$id = sql_save($save, 'thold_template');
 
 			if ($id) {
-				$debug_data[] = "<span style='font-weight:bold;color:green;'>NOTE:</span> Threshold Template '<b>$tname</b>' " . ($save['id'] > 0 ? 'Updated':'Imported') . '!';
+				$debug_data[] = "<span style='font-weight:bold;color:green;'>NOTE:</span> Threshold Template '$tname' " . ($save['id'] > 0 ? 'Updated':'Imported') . '!';
 			}else{
-				$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template '<b>$tname</b>' " . ($save['id'] > 0 ? 'Update':'Import') . ' Failed!';
+				$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template '$tname' " . ($save['id'] > 0 ? 'Update':'Import') . ' Failed!';
 			}
 		}
 	}

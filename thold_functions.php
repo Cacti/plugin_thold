@@ -1491,7 +1491,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 function thold_check_threshold(&$thold_data) {
 	global $config, $plugins, $debug, $thold_types;
 
-	$name  = db_fetch_cell_prepared('SELECT data_source_name FROM data_template_rrd WHERE id = ?', array($thold['data_template_rrd_id']));
+	$name  = db_fetch_cell_prepared('SELECT data_source_name FROM data_template_rrd WHERE id = ?', array($thold_data['data_template_rrd_id']));
 
 	thold_debug('Checking Threshold:' .
 		' DS:' . $name . 

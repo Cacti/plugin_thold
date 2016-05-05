@@ -1452,19 +1452,20 @@ function thold_edit() {
 			$('#template_enabled').prop('disabled', true);
 		}
 
-		if ($('#notify_accounts') && $('#notify_accounts').length == 0) {
+		if ($('#notify_accounts option').length == 0) {
 			$('#row_notify_accounts').hide();
 		}
 
-		if ($('#notify_warning options').size() == 1) {
+		if ($('#notify_warning option').length == 0) {
 			$('#row_notify_warning').hide();
 		}
 
-		if ($('#notify_alert options').size == 1) {
+		if ($('#notify_alert option').length == 0) {
 			$('#row_notify_alert').hide();
 		}
 
 		$('#notify_accounts').multiselect({
+			minWidth: '400',
 			noneSelectedText: 'Select Users(s)', 
 			selectedText: function(numChecked, numTotal, checkedItems) {
 				myReturn = numChecked + ' Users Selected';
