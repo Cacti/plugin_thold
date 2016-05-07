@@ -28,6 +28,8 @@ if (!isset($_SERVER["argv"][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($
 	die("<br><strong>This script is only meant to run at the command line.</strong>");
 }
 
+$no_http_headers = true;
+
 /* check if poller daemon is already running */
 exec('ps -ef | grep -v grep | grep -v "sh -c" | grep thold_daemon.php', $output);
 if(sizeof($output)>=2) {
@@ -45,96 +47,91 @@ error_reporting(E_ALL);
 set_time_limit(0);
 
 /* we do not need so much memory */
-ini_set("memory_limit", "32M");
+ini_set('memory_limit', '32M');
 
 chdir(dirname(__FILE__));
 chdir('../../');
 
-fwrite( STDOUT, "Starting Thold Daemon ... " );
+fwrite(STDOUT, 'Starting Thold Daemon ... ');
 
-if(function_exists("pcntl_fork")) {
+if(function_exists('pcntl_fork')) {
     /* fork the current process to bring a real new daemon on the road */
     $pid = pcntl_fork();
     if($pid == -1) {
         /* oha ... something went wrong :( */
-        fwrite( STDOUT, "[FAILED]" . PHP_EOL);
+        fwrite(STDOUT, '[FAILED]' . PHP_EOL);
         return false;
     }elseif($pid == 0) {
         /* the child should do nothing as long as the parent is still alive */
     }else {
         /* return the PID of the new child and kill the parent */
-		fwrite( STDOUT, "[OK]" . PHP_EOL);
+		fwrite(STDOUT, '[OK]' . PHP_EOL);
         return true;
     }
 }else {
-    fwrite( STDOUT, "[WARNING] This system does not support forking." . PHP_EOL ) ;
+    fwrite(STDOUT, '[WARNING] This system does not support forking.' . PHP_EOL);
 }
 
-require_once("./include/global.php");
-require_once($config["base_path"] . "/lib/poller.php");
+require_once('./include/global.php');
+require_once($config['base_path'] . '/lib/poller.php');
 
-$path_php_binary = read_config_option("path_php_binary");
+$path_php_binary = read_config_option('path_php_binary');
 
-while(1) {
-	if(thold_db_connection()){
+while(true) {
+	if (thold_db_connection()) {
 		/* initiate concurrent background processes as long as we do not hit the limits */
-		$queue = db_fetch_assoc("SELECT * FROM `plugin_thold_daemon_processes` WHERE start = 0 ORDER BY `pid`");
+		$queue = db_fetch_assoc('SELECT * FROM `plugin_thold_daemon_processes` WHERE start = 0 ORDER BY `pid`');
 		$queued_processes = sizeof($queue);
 
-		if($queued_processes) {
-			$thold_max_concurrent_processes = read_config_option("thold_max_concurrent_processes");
-		$running_processes = db_fetch_cell("SELECT COUNT(*) FROM `plugin_thold_daemon_processes` WHERE start != 0 AND end = 0");
-		$free_processes = $thold_max_concurrent_processes - $running_processes;
+		if ($queued_processes) {
+			$thold_max_concurrent_processes = read_config_option('thold_max_concurrent_processes');
+			$running_processes              = db_fetch_cell('SELECT COUNT(*) FROM `plugin_thold_daemon_processes` WHERE start != 0 AND end = 0');
+			$free_processes                 = $thold_max_concurrent_processes - $running_processes;
 
-			if($free_processes>0) {
-			for($i=0; $i<$free_processes; $i++) {
-				if(isset($queue[$i])) {
-					$pid = $queue[$i]['pid'];
-					exec( $path_php_binary . " " . $config["base_path"] . "/plugins/thold/thold_process.php " . "--pid=$pid > /dev/null &");
-				}else {
-					break;
+			if($free_processes > 0) {
+				for($i=0; $i<$free_processes; $i++) {
+					if(isset($queue[$i])) {
+						$pid = $queue[$i]['pid'];
+						exec($path_php_binary . ' ' . $config['base_path'] . '/plugins/thold/thold_process.php ' . "--pid=$pid > /dev/null &");
+					}else {
+						break;
+					}
 				}
 			}
 		}
-		}
-
-	}else {
+	} else {
 		/* try to reconnect */
 		thold_db_reconnect();
 	}
+
 	sleep(2);
 }
 
 function thold_db_connection(){
 	global $cnn_id;
-	if($cnn_id) {
+
+	if ($cnn_id) {
 		$cacti_version = db_fetch_cell("SELECT cacti FROM version");
+
 		return is_null($cacti_version) ? FALSE : TRUE;
 	}
+
 	return FALSE;
 }
 
 function thold_db_reconnect(){
-	chdir(dirname(__FILE__));
-	include_once("../../include/config.php");
 	global $cnn_id, $database_type, $database_default, $database_hostname, $database_username, $database_password, $database_port, $database_ssl;
 
-	if(is_object($cnn_id)){
-		$cnn_id->Close();
-	}
-	$dsn = "$database_type://" . rawurlencode($database_username) . ":" . rawurlencode($database_password) . "@" . rawurlencode($database_hostname) . "/" . rawurlencode($database_default) . "?persist";
+	chdir(dirname(__FILE__));
 
-	if ($database_ssl && $database_type == "mysql") {
-		$dsn .= "&clientflags=" . MYSQL_CLIENT_SSL;
-	}elseif ($database_ssl && $database_type == "mysqli") {
-		$dsn .= "&clientflags=" . MYSQLI_CLIENT_SSL;
+	include_once("../../include/config.php");
+
+	if (is_object($cnn_id)) {
+		db_close();
 	}
 
-	if ($database_port != "3306") {
-		$dsn .= "&port=" . $database_port;
-	}
-
-	$cnn_id = ADONewConnection($dsn);
-	return ($cnn_id) ? TRUE : FALSE;
+	/* connect to the database server */
+	return db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
 }
+
 ?>

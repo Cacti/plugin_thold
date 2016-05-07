@@ -824,7 +824,7 @@ function form_host_filter() {
 }
 
 function thold_show_log() {
-	global $config, $item_rows, $thold_log_states, $thold_status, $thold_types;
+	global $config, $item_rows, $thold_log_states, $thold_status, $thold_types, $thold_log_retention;
 
 	$step = read_config_option('poller_interval');
 
@@ -852,7 +852,7 @@ function thold_show_log() {
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
-			'default' => 'ASC',
+			'default' => 'DESC',
 			'options' => array('options' => 'sanitize_search_string')
 			),
 		'threshold_id' => array(
@@ -882,7 +882,7 @@ function thold_show_log() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box('Threshold Log [last 30 days]', '100%', '', '3', 'center', '');
+	html_start_box('Threshold Log for [ ' . $thold_log_retention[read_config_option('thold_log_storage')] . ']', '100%', '', '3', 'center', '');
 	form_thold_log_filter();
 	html_end_box();
 
@@ -962,12 +962,10 @@ function thold_show_log() {
 	html_end_box(false);
 
 	log_legend();
-
-	//thold_display_rusage();
 }
 
 function form_thold_log_filter() {
-	global $item_rows, $config;
+	global $item_rows, $thold_log_states, $config;
 
 	?>
 	<tr class='even'>
@@ -1010,18 +1008,17 @@ function form_thold_log_filter() {
 					<td>
 						<select id='status' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>>All</option>
-							<option value='4'<?php if (get_request_var('status') == '4') {?> selected<?php }?>>Notify - Alarm</option>
-							<option value='7'<?php if (get_request_var('status') == '7') {?> selected<?php }?>>Notify - Alarm2Warning</option>
-							<option value='3'<?php if (get_request_var('status') == '3') {?> selected<?php }?>>Notify - Warning</option>
-							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>>Notify - ReTriggers</option>
-							<option value='5'<?php if (get_request_var('status') == '5') {?> selected<?php }?>>Notify - Restoral</option>
-							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>>Triggers - Alert</option>
-							<option value='6'<?php if (get_request_var('status') == '6') {?> selected<?php }?>>Triggers - Warning</option>
-							<option value='0'<?php if (get_request_var('status') == '0') {?> selected<?php }?>>Restorals</option>
+							<?php
+							if (sizeof($thold_log_states)) {
+							foreach ($thold_log_states as $key => $value) {
+								print "<option value='" . $key . "'"; if (get_request_var('status') == $key) { print " selected"; } print ">" . $value['display'] . "</option>\n";
+							}
+							}
+							?>
 						</select>
 					</td>
 					<td>
-						Log Entries
+						Entries
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
@@ -1036,10 +1033,10 @@ function form_thold_log_filter() {
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='submit' value='Go'>
+						<input id='refresh' type='button' value='Go' onClick='applyFilter()'>
 					</td>
 					<td>
-						<input id='clear' type='submit' value='Clear'>
+						<input id='clear' type='button' value='Clear' onClick='clearFilter()'>
 					</td>
 				</tr>
 			</table>

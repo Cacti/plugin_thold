@@ -134,6 +134,7 @@ function thold_config_settings () {
 
 	if (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF']) != 'settings.php') return;
 
+	include('./plugins/thold/includes/arrays.php');
 	include_once('./plugins/thold/thold_functions.php');
 
 	if ($config['cacti_server_os'] == 'unix') {
@@ -201,6 +202,12 @@ function thold_config_settings () {
 			'method' => 'checkbox',
 			'default' => ''
 		),
+		'thold_show_datasource' => array(
+			'friendly_name' => 'Show Data Source in Log',
+			'description' => 'Show the Data Source name in the Log if not present',
+			'method' => 'checkbox',
+			'default' => ''
+		),
 		'thold_log_changes' => array(
 			'friendly_name' => 'Log Threshold Changes',
 			'description' => 'Enable logging of all Threshold changes to the Cacti Log',
@@ -218,7 +225,7 @@ function thold_config_settings () {
 			'description' => 'Keep Threshold Logs for this number of days.',
 			'method' => 'drop_array',
 			'default' => '31',
-			'array' => array('-1' => 'Indefinately', '31' => '1 Month', '62' => '2 Months', '93' => '3 Months', '124' => '4 Months', '186' => '6 Months', '365' => '1 Year')
+			'array' => $thold_log_retention
 		),
 		'daemon_header' => array(
 			'friendly_name' => 'Threshold Daemon',

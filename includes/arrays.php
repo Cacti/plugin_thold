@@ -23,6 +23,16 @@
  +-------------------------------------------------------------------------+
 */
 
+$thold_log_retention = array(
+	'-1'  => 'Indefinately', 
+	'31'  => '1 Month', 
+	'62'  => '2 Months', 
+	'93'  => '3 Months', 
+	'124' => '4 Months', 
+	'186' => '6 Months', 
+	'365' => '1 Year'
+);
+
 $thold_host_states = array(
 	HOST_DOWN       => array('display' => 'Down',          'class' => 'deviceDownFull'),
 	HOST_ERROR      => array('display' => 'Error',         'class' => 'deviceErrorFull'),
@@ -34,12 +44,14 @@ $thold_host_states = array(
 );
 
 $thold_log_states = array(
-	'4' => array('index' => 'alarm',     'display' => 'Alert Notify',    'class' => 'tholdAlertNotify'),
-	'3' => array('index' => 'warning',   'display' => 'Warning Notify',  'class' => 'tholdWarningNotify'),
-	'2' => array('index' => 'retrigger', 'display' => 'Re-Trigger Event', 'class' => 'tholdReTriggerEvent'),
-	'1' => array('index' => 'trigger',   'display' => 'Trigger Event',   'class' => 'tholdTriggerEvent'),
-	'5' => array('index' => 'restoral',  'display' => 'Restoral Notify', 'class' => 'tholdRestoralNotify'),
-	'0' => array('index' => 'restore',   'display' => 'Restoral Event',  'class' => 'tholdRestoralEvent')
+	'4' => array('index' => 'alarm',     'display' => 'Notify - Alert',          'display_short' => 'Alert', 'class' => 'tholdAlertNotify'),
+	'7' => array('index' => 'alarm',     'display' => 'Notify - Alert2Warning',  'display_short' => 'Alert2Warn', 'class' => 'tholdAlert2Warn'),
+	'3' => array('index' => 'warning',   'display' => 'Notify - Warning',        'display_short' => 'Warning', 'class' => 'tholdWarningNotify'),
+	'2' => array('index' => 'retrigger', 'display' => 'Notify - Re-Trigger',     'display_short' => 'Re-Trigger', 'class' => 'tholdReTriggerEvent'),
+	'5' => array('index' => 'restoral',  'display' => 'Notify - Restoral',       'display_short' => 'Retoral', 'class' => 'tholdRestoralNotify'),
+	'1' => array('index' => 'trigger',   'display' => 'Event - Alert Trigger',   'display_short' => 'Alert Event', 'class' => 'tholdTriggerEvent'),
+	'6' => array('index' => 'restoral',  'display' => 'Event - Warning Trigger', 'display_short' => 'Warning Event', 'class' => 'tholdWarnTrigger'),
+	'0' => array('index' => 'restore',   'display' => 'Event - Restoral',        'display_short' => 'Restoral Event', 'class' => 'tholdRestoralEvent')
 );
 
 $thold_status_list = array(
@@ -277,7 +289,7 @@ if ($step == 60) {
 }
 
 $thold_types = array (
-	0 => 'High / Low Values',
+	0 => 'High / Low',
 	1 => 'Baseline Deviation',
 	2 => 'Time Based',
 );

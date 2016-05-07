@@ -164,7 +164,7 @@ function log_legend() {
 
 	print '<tr>';
 	foreach($thold_log_states as $index => $state) {
-		print "<td class='" . $state['class'] . "'>" . $state['display'] . "</td>";
+		print "<td class='" . $state['class'] . "'>" . $state['display_short'] . "</td>";
 	}
 	print "</tr>";
 
@@ -1488,6 +1488,20 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 	}
 }
 
+function thold_datasource_required($name, $data_source) {
+	$thold_show_datasource = read_config_option('thold_show_datasource');
+
+	if ($thold_show_datasource == 'on') {
+		if (strstr($name, "[$data_source]") !== false) {
+			return false;
+		}
+	}else{
+		return false;
+	}
+
+	return true;
+}
+
 function thold_check_threshold(&$thold_data) {
 	global $config, $plugins, $debug, $thold_types;
 
@@ -1556,7 +1570,6 @@ function thold_check_threshold(&$thold_data) {
 	$alert_trigger         = read_config_option('alert_trigger');
 	$alert_bl_trigger      = read_config_option('alert_bl_trigger');
 	$httpurl               = read_config_option('base_url');
-	$thold_show_datasource = read_config_option('thold_show_datasource');
 	$thold_send_text_only  = read_config_option('thold_send_text_only');
 
 	$thold_snmp_traps             = (read_config_option('thold_alert_snmp') == 'on');
@@ -1565,7 +1578,7 @@ function thold_check_threshold(&$thold_data) {
 	$cacti_polling_interval       = read_config_option('poller_interval');
 
 	/* remove this after adding an option for it */
-	$thold_show_datasource = true;
+	$thold_show_datasource = thold_datasource_required($thold['name'], $name);
 
 	$trigger         = ($thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger']);
 	$warning_trigger = ($thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger']);

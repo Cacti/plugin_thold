@@ -28,6 +28,9 @@ if (!isset($_SERVER['argv'][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($
 	die('<br><strong>This script is only meant to run at the command line.</strong>');
 }
 
+/* We are not talking to the browser */
+$no_http_headers = true;
+
 /* let PHP run just as long as it has to */
 ini_set('max_execution_time', '0');
 
@@ -48,47 +51,47 @@ $force     = false;
 $debug     = false;
 $gtemplate = 0;
 $ttemplate = 0;
-$gids      = "";
+$gids      = '';
 
 /* process calling arguments */
-$parms = $_SERVER["argv"];
+$parms = $_SERVER['argv'];
 array_shift($parms);
 
 foreach($parms as $parameter) {
 	@list($arg, $value) = @explode('=', $parameter);
 
 	switch ($arg) {
-	case "-auto":
+	case '-auto':
 		thold_cli_autocreate_host ($value);
 		exit;
-	case "--debug":
-	case "-d":
+	case '--debug':
+	case '-d':
 		$debug = true;
 		break;
-	case "--force":
-	case "-f":
+	case '--force':
+	case '-f':
 		$force = true;
 		break;
-	case "--graph-template":
-	case "-gt":
+	case '--graph-template':
+	case '-gt':
 		$gtemplate = $value;
 		break;
-	case "--thold-template":
-	case "-tt":
+	case '--thold-template':
+	case '-tt':
 		$ttemplate = $value;
 		break;
-	case "--graph-ids":
-	case "-ids":
+	case '--graph-ids':
+	case '-ids':
 		$gids = $value;
 		break;
-	case "-h":
-	case "-v":
-	case "--version":
-	case "--help":
+	case '-h':
+	case '-v':
+	case '--version':
+	case '--help':
 		display_help();
 		exit(-1);
 	default:
-		print "ERROR: Invalid Parameter " . $parameter . "\n\n";
+		print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
 		display_help();
 		exit(-1);
 	}
@@ -141,7 +144,7 @@ function thold_cli_autocreate_host ($id) {
 
 /*	display_help - displays the usage of the function */
 function display_help () {
-	print "Threshold Command Line Interface\n";
+	print "Threshold Command Line Interface, Version " . read_config_option('plugin_thold_version') . "\n";
 	print "usage: cli_thresholds.php --auto-create=N | --graph-template=N [--thold-template=N] [--graph-ids='N1 N2 ...']\n\n";
 	print "There are two usage methods:\n\n";
 	print "The first requires you to specify the host id of the device and all existing threshold templates\n";
