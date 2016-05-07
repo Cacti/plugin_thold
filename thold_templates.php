@@ -149,7 +149,7 @@ function template_delete() {
 
 			db_execute_prepared('DELETE FROM thold_template WHERE id = ? LIMIT 1', array($id));
 			db_execute_prepared('DELETE FROM plugin_thold_template_contact WHERE template_id = ?', array($id));
-			db_execute_prepared("UPDATE thold_data SET template = '', template_enabled = '' WHERE template = ?", array($id));
+			db_execute_prepared("UPDATE thold_data SET thold_template_id = '', template_enabled = '' WHERE thold_template_id = ?", array($id));
 		}
 	}
 

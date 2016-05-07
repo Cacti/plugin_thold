@@ -474,10 +474,10 @@ function thold_update_host_status() {
 
 	// Now lets record all failed hosts
 	db_execute('TRUNCATE TABLE plugin_thold_host_failed');
-	$hosts = db_fetch_assoc_prepared('SELECT id
+	$hosts = db_fetch_assoc('SELECT id
 		FROM host
-		WHERE disabled=""
-		AND status! = ?', array(HOST_UP));
+		WHERE disabled = ""
+		AND status != ' . HOST_UP);
 
 	$failed = '';
 	if (sizeof($hosts)) {

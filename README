@@ -49,7 +49,7 @@
 	--- 0.4.9 ---
 		feature: Allow HRULES based upon HI/LOW Value portions courtesy of Barnaby Puttick
 		bug: Restoral Emails not working in all cases
-		bug: When polling returns non-numeric data,  don't return false LOW alarms
+		bug: When polling returns non-numeric data,  don't return false LOW Alerts
 		bug: Fix time based Warnings
 		bug: More issues with Realert for Time Based and Hi/Low
 		bug: Be more specific about what 'Hosts:' means when generating stats
@@ -67,11 +67,11 @@
 
 	--- 0.4.6 ---
 		Add Warning Support Curtesy (Thomas Urban)
-		Improve display of Baseline Alarms
+		Improve display of Baseline Alerts
 		Add Log Tab and new Events for Readablilty
 		Allow a variable replacements in Threshold names
 		Fix several GUI and polling issues
-		Don't alarm on blank data output
+		Don't alert on blank data output
 		Remove old ununsed variables
 		Fix thold messages on restorals
 		Reapply Suggested Name for Tholds

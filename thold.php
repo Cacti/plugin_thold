@@ -470,17 +470,16 @@ function list_tholds() {
 
 	$display_text = array(
 		'name'             => array('display' => 'Name',      'sort' => 'ASC', 'align' => 'left'),
-		'thold_type'       => array('display' => 'Type',      'sort' => 'ASC', 'align' => 'left'),
 		'id'               => array('display' => 'ID',        'sort' => 'ASC', 'align' => 'right'),
+		'thold_type'       => array('display' => 'Type',      'sort' => 'ASC', 'align' => 'right'),
 		'data_source'      => array('display' => 'DSName',    'sort' => 'ASC', 'align' => 'right'),
+		'lastread'         => array('display' => 'Current',   'sort' => 'ASC', 'align' => 'right', 'tip' => 'The last measured value for the Data Source'),
 		'thold_hi'         => array('display' => 'High',      'sort' => 'ASC', 'align' => 'right', 'tip' => 'Hight Threshold values for Warning/Alert'),
 		'thold_low'        => array('display' => 'Low',       'sort' => 'ASC', 'align' => 'right', 'tip' => 'Low Threshold values for Warning/Alert'),
-		'lastread'         => array('display' => 'Current',   'sort' => 'ASC', 'align' => 'right', 'tip' => 'The last measured value for the Data Source'),
 		'nosort3'          => array('display' => 'Trigger',   'sort' => '',    'align' => 'right'),
 		'nosort4'          => array('display' => 'Duration',  'sort' => '',    'align' => 'right'),
 		'repeat_alert'     => array('display' => 'Repeat',    'sort' => 'ASC', 'align' => 'right'),
 		'thold_alert'      => array('display' => 'Triggered', 'sort' => 'ASC', 'align' => 'right'),
-		'thold_enabled'    => array('display' => 'Enabled',   'sort' => 'ASC', 'align' => 'right'),
 		'template_enabled' => array('display' => 'Templated', 'sort' => 'ASC', 'align' => 'right')
 	);
 
@@ -505,7 +504,7 @@ function list_tholds() {
 
 			if ($thold_data['thold_type'] == 0) {
 				if ($thold_data['thold_alert'] != 0) {
-					$alertstat='yes';
+					$alertstat='Yes';
 					if ($thold_data['thold_fail_count'] >= $thold_data['thold_fail_trigger']) {
 						$bgcolor = 'red';
 					} elseif ($thold_data['thold_warning_fail_count'] >= $thold_data['thold_warning_fail_trigger']) {
@@ -516,7 +515,7 @@ function list_tholds() {
 				}
 			} elseif ($thold_data['thold_type'] == 2) {
 				if ($thold_data['thold_alert'] != 0) {
-					$alertstat='yes';
+					$alertstat='Yes';
 					if ($thold_data['thold_fail_count'] >= $thold_data['time_fail_trigger']) {
 						$bgcolor = 'red';
 					} elseif ($thold_data['thold_warning_fail_count'] >= $thold_data['time_warning_fail_trigger']) {
@@ -545,43 +544,42 @@ function list_tholds() {
 
 			form_selectable_cell(filter_value(($thold_data['name'] != '' ? $thold_data['name'] : $thold_data['name_cache'] . ' [' . $thold_data['data_source_name'] . ']'), get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']) . '</a>', $thold_data['id'], '', 'text-align:left');
 
-			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'text-align:left');
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'text-align:right');
+			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'text-align:right');
 			form_selectable_cell($data_source, $thold_data['id'], '', 'text-align:right');
 
 			switch($thold_data['thold_type']) {
 				case 0:
+					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi']) . ' / ' . thold_format_number($thold_data['thold_hi']), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($thold_data['thold_warning_low']) . ' / ' . thold_format_number($thold_data['thold_low']), $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['thold_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('N/A',  $thold_data['id'], '', 'text-align:right');
 					break;
 				case 1:
+					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi']) . ' / ' . thold_format_number($thold_data['thold_hi']), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($thold_data['thold_warning_low']) . ' / ' . thold_format_number($thold_data['thold_low']), $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['bl_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell($timearray[$thold_data['bl_ref_time_range']/300], $thold_data['id'], '', 'text-align:right');
 					break;
 				case 2:
+					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($thold_data['time_warning_hi']) . ' / ' . thold_format_number($thold_data['time_hi']), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($thold_data['time_warning_low']) . ' / ' . thold_format_number($thold_data['time_low']), $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('<i>' . $thold_data['time_fail_trigger'] . ' Triggers</i>',  $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['time_fail_length'], 'time') . '</i>', $thold_data['id'], '', 'text-align:right');
 					break;
 				default:
-					form_selectable_cell('- / -',  $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell('- / -',  $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell('- / -',  $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell('- / -',  $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('N/A',  $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('N/A',  $thold_data['id'], '', 'text-align:right');
 			}
 
 			form_selectable_cell(($thold_data['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['repeat_alert'], 'repeat')), $thold_data['id'], '', 'text-align:right');
 			form_selectable_cell($alertstat, $thold_data['id'], '', 'text-align:right');
-			form_selectable_cell((($thold_data['thold_enabled'] == 'off') ? 'Disabled': 'Enabled'), $thold_data['id'], '', 'text-align:right');
 
 			if ($thold_data['thold_template_id'] != 0) {
 				form_selectable_cell($thold_data['template_enabled'] == '' ? 'No' : 'Yes', $thold_data['id'], '', 'text-align:right');

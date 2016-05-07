@@ -310,17 +310,16 @@ function tholds() {
 	$display_text = array(
 		'nosort'        => array('display' => 'Actions',     'sort' => '',      'align' => 'left'),
 		'name'          => array('display' => 'Name',        'sort' => 'ASC',   'align' => 'left'),
-		'thold_type'    => array('display' => 'Type',        'sort' => 'ASC',   'align' => 'left'),
 		'id'            => array('display' => 'ID',          'sort' => 'ASC',   'align' => 'right'),
-		'nosort2'       => array('display' => 'Trigger',     'sort' => 'ASC',   'align' => 'right'),
-		'nosort3'       => array('display' => 'Duration',    'sort' => 'ASC',   'align' => 'right'),
-		'repeat_alert'  => array('display' => 'Repeat',      'sort' => 'ASC',   'align' => 'right'),
+		'thold_type'    => array('display' => 'Type',        'sort' => 'ASC',   'align' => 'left'),
+		'lastread'      => array('display' => 'Current',     'sort' => 'ASC',   'align' => 'right'),
 		'nosort4'       => array('display' => 'Warn Hi/Lo',  'sort' => 'ASC',   'align' => 'right'),
 		'nosort5'       => array('display' => 'Alert Hi/Lo', 'sort' => 'ASC',   'align' => 'right'),
 		'nosort6'       => array('display' => 'BL Hi/Lo',    'sort' => 'ASC',   'align' => 'right'),
-		'lastread'      => array('display' => 'Current',     'sort' => 'ASC',   'align' => 'right'),
-		'thold_alert'   => array('display' => 'Triggered',   'sort' => 'ASC',   'align' => 'right'),
-		'thold_enabled' => array('display' => 'Enabled',     'sort' => 'ASC',   'align' => 'right'));
+		'nosort2'       => array('display' => 'Trigger',     'sort' => 'ASC',   'align' => 'right'),
+		'nosort3'       => array('display' => 'Duration',    'sort' => 'ASC',   'align' => 'right'),
+		'repeat_alert'  => array('display' => 'Repeat',      'sort' => 'ASC',   'align' => 'right'),
+		'thold_alert'   => array('display' => 'Triggered',   'sort' => 'ASC',   'align' => 'right'));
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=thold');
 
@@ -391,8 +390,12 @@ function tholds() {
 
 			print '</td>';
 			print "<td class='left nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . '</td>';
-			print "<td class='left nowrap'>" . $thold_types[$row['thold_type']] . '</td>';
 			print "<td class='right'>" . $row['id'] . '</td>';
+			print "<td class='left nowrap'>" . $thold_types[$row['thold_type']] . '</td>';
+			print "<td class='right'>" . thold_format_number($row['lastread']) . '</td>';
+			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? 'N/A':($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . '</td>';
+			print "<td class='right'>" . ($row['thold_type'] == 1 ? 'N/A':($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . '</td>';
+			print "<td class='right'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): 'N/A') . '</td>';
 
 			switch($row['thold_type']) {
 				case 0:
@@ -413,17 +416,7 @@ function tholds() {
 			}
 
 			print "<td class='right nowrap'>" . ($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['local_data_id'], $row['repeat_alert'], 'repeat')) . '</td>';
-			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? 'N/A':($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . '</td>';
-			print "<td class='right'>" . ($row['thold_type'] == 1 ? 'N/A':($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . '</td>';
-			print "<td class='right'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): 'N/A') . '</td>';
-			print "<td class='right'>" . thold_format_number($row['lastread']) . '</td>';
 			print "<td class='right'>" . $alertstat . '</td>';
-
-			if ($row['thold_enabled'] == 'off') {
-				print "<td class='right'><b>Disabled</b></td>";
-			}else{
-				print "<td class='right'>Enabled</td>";
-			}
 
 			form_end_row();
 		}
@@ -927,12 +920,11 @@ function thold_show_log() {
 
 	$display_text = array(
 		'hdescription'    => array('display' => 'Device',            'sort' => 'ASC', 'align' => 'left'),
-		'name'            => array('display' => 'Threshold',         'sort' => 'ASC', 'align' => 'left'),
 		'time'            => array('display' => 'Time',              'sort' => 'ASC', 'align' => 'left'),
+		'type'            => array('display' => 'Type',              'sort' => 'DESC', 'align' => 'left'),
 		'description'     => array('display' => 'Event Description', 'sort' => 'ASC', 'align' => 'left'),
-		'threshold_value' => array('display' => 'Alarm Value',       'sort' => 'ASC', 'align' => 'right'),
-		'current'         => array('display' => 'Current Value',     'sort' => 'ASC', 'align' => 'right'),
-		'type'            => array('display' => 'Type',              'sort' => 'DESC', 'align' => 'right'));
+		'threshold_value' => array('display' => 'Alert Value',       'sort' => 'ASC', 'align' => 'right'),
+		'current'         => array('display' => 'Measured Value',     'sort' => 'ASC', 'align' => 'right'));
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=log');
 
@@ -942,12 +934,11 @@ function thold_show_log() {
 			?>
 			<tr class='<?php print $thold_log_states[$l['status']]['class'];?>'>
 			<td class='left nowrap'><?php print $l['hdescription'];?></td>
-			<td class='left nowrap'><?php print $l['name'];?></td>
 			<td class='left nowrap'><?php print date('Y-m-d H:i:s', $l['time']);?></td>
+			<td class='left nowrap'><?php print $thold_types[$l['type']];?></td>
 			<td class='left nowrap'><?php print (strlen($l['description']) ? $l['description']:'Restoral Event');?></td>
 			<td class='right'><?php print ($l['threshold_value'] != '' ? thold_format_number($l['threshold_value']):'N/A');?></td>
 			<td class='right'><?php print ($l['current'] != '' ? thold_format_number($l['current']):'N/A');?></td>
-			<td class='right nowrap'><?php print $thold_types[$l['type']];?></td>
 			<?php
 
 			form_end_row();
@@ -986,7 +977,6 @@ function form_thold_log_filter() {
 					<td>
 						<select id='threshold_id' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('threshold_id') == '-1') {?> selected<?php }?>>All</option>
-							<option value='0'<?php if (get_request_var('threshold_id') == '0') {?> selected<?php }?>>None</option>
 							<?php
 							$tholds = db_fetch_assoc('SELECT DISTINCT thold_data.id, thold_data.name
 								FROM thold_data

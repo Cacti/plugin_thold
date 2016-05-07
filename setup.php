@@ -348,7 +348,7 @@ function thold_rrd_graph_graph_options ($g) {
 	return $g;
 }
 
-function thold_device_action_execute ($action) {
+function thold_device_action_execute($action) {
 	if ($action != 'thold') {
 		return $action;
 	}
@@ -366,7 +366,7 @@ function thold_device_action_execute ($action) {
 	return $action;
 }
 
-function thold_device_action_prepare ($save) {
+function thold_device_action_prepare($save) {
 	global $host_list;
 
 	if ($save['drp_action'] != 'thold') {
@@ -539,7 +539,7 @@ function thold_data_source_action_execute($action) {
 
 						$insert['name']               = $name;
 						$insert['host_id']            = $data_source['host_id'];
-						$insert['local_data']         = $local_data_id;
+						$insert['local_data_id']      = $local_data_id;
 						$insert['local_graph_id']     = $graph;
 						$insert['data_template_id']   = $data_template_id;
 						$insert['graph_template_id']  = $grapharr['graph_template_id'];
@@ -563,13 +563,13 @@ function thold_data_source_action_execute($action) {
 						$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
 						foreach ($rrdlist as $rrdrow) {
 							$data_rrd_id=$rrdrow['id'];
-							$insert['data_id'] = $data_rrd_id;
+							$insert['data_template_rrd_id'] = $data_rrd_id;
 							$existing = db_fetch_assoc("SELECT id FROM thold_data WHERE local_data_id='$local_data_id' AND data_template_rrd_id='$data_rrd_id'");
 							if (count($existing) == 0) {
 								$insert['id'] = 0;
 								$id = sql_save($insert, 'thold_data');
 								if ($id) {
-									thold_template_update_threshold($id, $insert['template']);
+									thold_template_update_threshold($id, $insert['thold_template_id']);
 
 									$l = db_fetch_assoc("SELECT name FROM data_template where id=$data_template_id");
 									$tname = $l[0]['name'];
@@ -648,7 +648,7 @@ function thold_data_source_action_prepare($save) {
 			print '<p>Are you sure you wish to create Thresholds for these Data Sources?</p>
 					<ul>' . $found_list . "</ul>
 					</td>
-				</tr>\n";
+				</tr></table><table class='cactiTable'>\n";
 
 			$form_array = array(
 				'general_header' => array(
@@ -671,6 +671,8 @@ function thold_data_source_action_prepare($save) {
 					'fields' => $form_array
 					)
 				);
+
+			print "</tr></table>\n";
 		}else{
 			if (strlen($not_found)) {
 				print '<p>There are no Threshold Templates associated with the following Data Sources</p>';
