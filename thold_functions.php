@@ -552,56 +552,56 @@ function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $c
 	}
 }
 
-function thold_get_currentval(&$t_item, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
+function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
 	/* adjust the polling interval by the last read, if applicable */
-	$currenttime = $rrd_time_reindexed[$t_item['local_data_id']];
-	if ($t_item['lasttime'] > 0) {
-		$polling_interval = $currenttime - $t_item['lasttime'];
+	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
+	if ($thold_data['lasttime'] > 0) {
+		$polling_interval = $currenttime - $thold_data['lasttime'];
 	} else {
-		$polling_interval = $t_item['rrd_step'];
+		$polling_interval = $thold_data['rrd_step'];
 	}
 
 	$currentval = 0;
 
-	if (isset($rrd_reindexed[$t_item['local_data_id']])) {
-		$item = $rrd_reindexed[$t_item['local_data_id']];
-		if (isset($item[$t_item['name']])) {
-			switch ($t_item['data_source_type_id']) {
+	if (isset($rrd_reindexed[$thold_data['local_data_id']])) {
+		$item = $rrd_reindexed[$thold_data['local_data_id']];
+		if (isset($item[$thold_data['name']])) {
+			switch ($thold_data['data_source_type_id']) {
 			case 2:	// COUNTER
-				if ($t_item['oldvalue'] != 0) {
-					if ($item[$t_item['name']] >= $t_item['oldvalue']) {
+				if ($thold_data['oldvalue'] != 0) {
+					if ($item[$thold_data['name']] >= $thold_data['oldvalue']) {
 						// Everything is normal
-						$currentval = $item[$t_item['name']] - $t_item['oldvalue'];
+						$currentval = $item[$thold_data['name']] - $thold_data['oldvalue'];
 					} else {
 						// Possible overflow, see if its 32bit or 64bit
-						if ($t_item['oldvalue'] > 4294967295) {
-							$currentval = (18446744073709551615 - $t_item['oldvalue']) + $item[$t_item['name']];
+						if ($thold_data['oldvalue'] > 4294967295) {
+							$currentval = (18446744073709551615 - $thold_data['oldvalue']) + $item[$thold_data['name']];
 						} else {
-							$currentval = (4294967295 - $t_item['oldvalue']) + $item[$t_item['name']];
+							$currentval = (4294967295 - $thold_data['oldvalue']) + $item[$thold_data['name']];
 						}
 					}
 
 					$currentval = $currentval / $polling_interval;
 
 					/* assume counter reset if greater than max value */
-					if ($t_item['rrd_maximum'] > 0 && $currentval > $t_item['rrd_maximum']) {
-						$currentval = $item[$t_item['name']] / $polling_interval;
-					}elseif ($t_item['rrd_maximum'] == 0 && $currentval > 4.25E+9) {
-						$currentval = $item[$t_item['name']] / $polling_interval;
+					if ($thold_data['rrd_maximum'] > 0 && $currentval > $thold_data['rrd_maximum']) {
+						$currentval = $item[$thold_data['name']] / $polling_interval;
+					}elseif ($thold_data['rrd_maximum'] == 0 && $currentval > 4.25E+9) {
+						$currentval = $item[$thold_data['name']] / $polling_interval;
 					}
 				} else {
 					$currentval = 0;
 				}
 				break;
 			case 3:	// DERIVE
-				$currentval = ($item[$t_item['name']] - $t_item['oldvalue']) / $polling_interval;
+				$currentval = ($item[$thold_data['name']] - $thold_data['oldvalue']) / $polling_interval;
 				break;
 			case 4:	// ABSOLUTE
-				$currentval = $item[$t_item['name']] / $polling_interval;
+				$currentval = $item[$thold_data['name']] / $polling_interval;
 				break;
 			case 1:	// GAUGE
 			default:
-				$currentval = $item[$t_item['name']];
+				$currentval = $item[$thold_data['name']];
 				break;
 			}
 		}
@@ -1578,7 +1578,7 @@ function thold_check_threshold(&$thold_data) {
 	$cacti_polling_interval       = read_config_option('poller_interval');
 
 	/* remove this after adding an option for it */
-	$thold_show_datasource = thold_datasource_required($thold['name'], $name);
+	$thold_show_datasource = thold_datasource_required($thold_data['name'], $name);
 
 	$trigger         = ($thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger']);
 	$warning_trigger = ($thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger']);
