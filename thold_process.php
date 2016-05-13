@@ -150,7 +150,7 @@ if (sizeof($tholds)) {
 	$rrd_time_reindexed = array();
 
 	foreach ($tholds as $thold_data) {
-		thold_debug("Checking Threshold:'" . $thold_data['thold_name'] . "', Graph:'" . $thold_data['local_graph_id'] . "'");
+		thold_debug("Checking Threshold Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
 		$item = array();
 		$rrd_reindexed[$thold_data['local_data_id']] = unserialize($thold_data['thold_server_rrd_reindexed']);
 		$rrd_time_reindexed[$thold_data['local_data_id']] = $thold_data['thold_server_rrd_time_reindexed'];

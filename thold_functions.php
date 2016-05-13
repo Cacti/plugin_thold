@@ -1508,10 +1508,10 @@ function thold_check_threshold(&$thold_data) {
 	$name  = db_fetch_cell_prepared('SELECT data_source_name FROM data_template_rrd WHERE id = ?', array($thold_data['data_template_rrd_id']));
 
 	thold_debug('Checking Threshold:' .
-		' DS:' . $name . 
-		' LOCAL_DATA_ID:' . $thold_data['local_data_id'] . 
-		' DATA_TEMPLATE_RRD_ID:' . $thold_data['data_template_rrd_id'] . 
-		' VALUE:' . $thold_data['lastread']);
+		' Name: ' . $name . 
+		', local_data_id: ' . $thold_data['local_data_id'] . 
+		', data_template_rrd_id: ' . $thold_data['data_template_rrd_id'] . 
+		', value: ' . $thold_data['lastread']);
 
 	$debug = false;
 
@@ -3389,7 +3389,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 		foreach($filename as $val) {
 			$graph_data_array = array('output_flag'=> RRDTOOL_OUTPUT_STDOUT);
 			$attachments[] = array(
-				'attachment'     => @rrdtool_function_graph($val['local_graph_id'], $val['local_data_id'], $graph_data_array),
+				'attachment'     => @rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array),
 				'filename'       => $val['filename'],
 				'mime_type'      => 'image/png',
 				'local_graph_id' => $val['local_graph_id'],
@@ -3414,8 +3414,8 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 		FROM plugin_config 
 		WHERE name='thold'");
 
-    $headers['X-Mailer']   = 'Cacti-Thold-v' . $v;
-    $headers['User-Agent'] = 'Cacti-Thold-v' . $v;
+    $headers['X-Mailer']   = 'Cacti-Thold-v' . $version;
+    $headers['User-Agent'] = 'Cacti-Thold-v' . $version;
 
 	if (read_config_option('thold_email_prio') == 'on') {
 		$headers['X-Priority'] = '1';
