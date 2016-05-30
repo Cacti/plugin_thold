@@ -91,7 +91,7 @@ switch(get_request_var('action')) {
 
 			header('Location: ' . $return_to);
 		}else{
-			header('Location: ' . $config['url_path'] . 'graphs_new.php?host_id=' . get_request_var('host_id'));
+			header('Location: ' . $config['url_path'] . 'graphs_new.php?header=false&host_id=' . get_request_var('host_id'));
 		}
 
 		break;

@@ -354,6 +354,8 @@ function thold_rrd_graph_graph_options ($g) {
 }
 
 function thold_device_action_execute($action) {
+	global $config;
+
 	if ($action != 'thold') {
 		return $action;
 	}
@@ -487,7 +489,7 @@ function thold_data_sources_table($ds) {
 function thold_graphs_new() {
 	global $config;
 
-	print '<span class="linkMarker">*</span><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create thresholds'). '</a><br>';
+	print '<span class="linkMarker">*</span><a class="autocreate hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create thresholds'). '</a><br>';
 }
 
 function thold_user_admin_setup_sql_save($save) {
