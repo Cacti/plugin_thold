@@ -3381,8 +3381,6 @@ function autocreate($host_id) {
 							$created++;
 						}
 					}
-				}else{
-					cacti_log('Existing');
 				}
 			}
 		}
