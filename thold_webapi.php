@@ -136,7 +136,7 @@ function thold_add_graphs_action_execute() {
 	if (strlen($message)) {
 		$_SESSION['thold_message'] = "<font size=-2>$message</font>";
 	}else{
-		$_SESSION['thold_message'] = "<font size=-2>Threshold(s) Already Exists - No Thresholds Created</font>";
+		$_SESSION['thold_message'] = "<font size=-2>" . __('Threshold(s) Already Exists - No Thresholds Created') . "</font>";
 	}
 
 	raise_message('thold_message');
@@ -161,7 +161,7 @@ function thold_add_graphs_action_prepare() {
 
 	top_header();
 
-	html_start_box('Create Threshold from Template', '60%', '', '3', 'center', '');
+	html_start_box(__('Create Threshold from Template'), '60%', '', '3', 'center', '');
 
 	form_start('thold.php?action=add');
 
@@ -205,11 +205,11 @@ function thold_add_graphs_action_prepare() {
 
 	if (strlen($found_list)) {
 		if (strlen($not_found)) {
-			print '<p>The following Graph has no Threshold Templates associated with them</p>';
+			print '<p>' . __('The following Graph has no Threshold Templates associated with them.') . '</p>';
 			print '<ul>' . $not_found . '</ul>';
 		}
 
-		print '<p>Are you sure you wish to create Thresholds for this Graph?
+		print '<p>' . __('Are you sure you wish to create Thresholds for this Graph?') . '
 			<ul>' . $found_list . "</ul>
 			</td>
 		</tr>\n";
@@ -228,15 +228,15 @@ function thold_add_graphs_action_prepare() {
 
 		$form_array = array(
 			'general_header' => array(
-				'friendly_name' => 'Available Threshold Templates',
+				'friendly_name' => __('Available Threshold Templates'),
 				'method' => 'spacer',
 			),
 			'thold_template_id' => array(
 				'method' => 'drop_sql',
-				'friendly_name' => 'Select a Threshold Template',
+				'friendly_name' => __('Select a Threshold Template'),
 				'description' => '',
-				'none_value' => 'None',
-				'value' => 'None',
+				'none_value' => __('None'),
+				'value' => __('None'),
 				'sql' => $sql
 			),
 			'usetemplate' => array(
@@ -257,21 +257,21 @@ function thold_add_graphs_action_prepare() {
 			);
 	}else{
 		if (strlen($not_found)) {
-			print '<p>There are no Threshold Templates associated with the following Graph</p>';
+			print '<p>' . __('There are no Threshold Templates associated with the following Graph.'). '</p>';
 			print '<ul>' . $not_found . '</ul>';
 		}
 
 		$form_array = array(
 			'general_header' => array(
-				'friendly_name' => 'Please select an action',
+				'friendly_name' => __('Please select an action'),
 				'method' => 'spacer',
 			),
 			'doaction' => array(
 				'method' => 'drop_array',
-				'friendly_name' => 'Threshold Action',
-				'description' => 'You may either create a new Threshold Template, or an non-templated Threshold from this screen.',
+				'friendly_name' => __('Threshold Action'),
+				'description' => __('You may either create a new Threshold Template, or an non-templated Threshold from this screen.'),
 				'value' => 'None',
-				'array' => array(1 => 'Create a new Threshold', 2 => 'Create a Threshold Template')
+				'array' => array(1 => __('Create a new Threshold'), 2 => __('Create a Threshold Template'))
 			),
 			'usetemplate' => array(
 				'method' => 'hidden',
@@ -292,21 +292,21 @@ function thold_add_graphs_action_prepare() {
 	}
 
 	if (!strlen($not_found)) {
-		$save_html = "<input type='submit' value='Continue'>";
+		$save_html = "<input type='submit' value='" . __('Continue') . "'>";
 
 		print "<tr>
 			<td colspan='2' class='saveRow'>
 				<input type='hidden' id='action' value='actions'>
-				<input type='button' onClick='cactiReturnTo()' value='Cancel' title='Cancel'>
+				<input type='button' onClick='cactiReturnTo()' value='" . __('Cancel'). "' title='" . __('Cancel') . "'>
 				$save_html
 			</td>
 		</tr>\n";
 	} else {
-		$save_html = "<input type='submit' value='Continue'>";
+		$save_html = "<input type='submit' value='" . __('Continue') . "'>";
 
 		print "<tr>
 			<td colspan='2' class='saveRow'>
-				<input type='button' onClick='cactiReturnTo()' value='Cancel' title='Cancel'>
+				<input type='button' onClick='cactiReturnTo()' value='" . __('Cancel') . "' title='" . __('Cancel') . "'>
 				$save_html
 			</td>
 		</tr>\n";
@@ -320,7 +320,7 @@ function thold_add_graphs_action_prepare() {
 }
 
 function thold_add_graphs_action_array($action) {
-	$action['plugin_thold_create'] = 'Create Threshold from Template';
+	$action['plugin_thold_create'] = __('Create Threshold from Template');
 
 	return $action;
 }
@@ -338,16 +338,16 @@ function thold_add_select_host() {
 
 	form_start('thold.php?action=save', 'tholdform');
 
-	html_start_box('Threshold Creation Wizard', '50%', '', '3', 'center', '');
+	html_start_box(__('Threshold Creation Wizard'), '50%', '', '3', 'center', '');
 
 	if ($host_id == '') {
-		print '<tr><td class="center">Please select a Device</td></tr>';
+		print '<tr><td class="center">' . __('Please select a Device') . '</td></tr>';
 	} else if ($local_graph_id == '') {
-		print '<tr><td class="center">Please select a Graph</td></tr>';
+		print '<tr><td class="center">' . __('Please select a Graph') . '</td></tr>';
 	} else if ($data_template_rrd_id == '') {
-		print '<tr><td class="center">Please select a Data Source</td></tr>';
+		print '<tr><td class="center">' . __('Please select a Data Source') . '</td></tr>';
 	} else {
-		print '<tr><td class="center">Please press "Create" to activate your Threshold</td></tr>';
+		print '<tr><td class="center">' . __('Please press \'Create\' to activate your Threshold') . '</td></tr>';
 	}
 
 	html_end_box();
@@ -367,13 +367,13 @@ function thold_add_select_host() {
 		?>
 		<tr>
 			<td>
-				Graph
+				<?php print __('Graph');?>
 			</td>
 			<td>
 				<select id='local_graph_id' name='local_graph_id' onChange='applyFilter("graph")'>
 					<option value=''></option><?php
 					foreach ($graphs as $row) {
-						echo "<option value='" . $row['local_graph_id'] . "'" . ($row['local_graph_id'] == $local_graph_id ? ' selected' : '') . '>' . $row['title_cache'] . '</option>';
+						echo "<option value='" . $row['local_graph_id'] . "'" . ($row['local_graph_id'] == $local_graph_id ? ' selected' : '') . '>' . htmlspecialchars($row['title_cache'], ENT_QUOTES) . '</option>';
 					}?>
 				</select>
 			</td>
@@ -406,14 +406,14 @@ function thold_add_select_host() {
 		?>
 		<tr>
 			<td>
-				Data Source
+				<?php print __('Data Source');?>
 			</td>
 			<td>
 				<input type='hidden' id='local_data_id' name='local_data_id' value='<?php print $local_data_id;?>'>
 				<select id='data_template_rrd_id' name='data_template_rrd_id' onChange='applyFilter("ds")'>
 					<option value=''></option><?php
 					foreach ($dss as $row) {
-						echo "<option value='" . $row['id'] . "'" . ($row['id'] == $data_template_rrd_id ? ' selected' : '') . '>' . $row['data_source_name'] . '</option>';
+						echo "<option value='" . $row['id'] . "'" . ($row['id'] == $data_template_rrd_id ? ' selected' : '') . '>' . htmlspecialchars($row['data_source_name'], ENT_QUOTES) . '</option>';
 					}?>
 				</select>
 			</td>
@@ -428,7 +428,7 @@ function thold_add_select_host() {
 	}
 
 	if ($data_template_rrd_id != '') {
-		echo "<tr><td class='center' colspan='2'><input type='hidden' name='save' id='save' value='save'><input id='go' type='button' value='Create' title='Create Threshold'></td></tr>";
+		echo "<tr><td class='center' colspan='2'><input type='hidden' name='save' id='save' value='save'><input id='go' type='button' value='" . __('Create') . "' title='" . __('Create Threshold') . "'></td></tr>";
 	} else {
 		echo "<tr><td class='center' colspan='2'></td></tr>";
 	}

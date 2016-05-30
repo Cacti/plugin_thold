@@ -29,8 +29,8 @@ include_once('./include/auth.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 $thold_actions = array(
-	1 => 'Export',
-	2 => 'Delete'
+	1 => __('Export'),
+	2 => __('Delete')
 );
 
 $action = get_nfilter_request_var('action');
@@ -149,6 +149,7 @@ function template_delete() {
 
 			db_execute_prepared('DELETE FROM thold_template WHERE id = ? LIMIT 1', array($id));
 			db_execute_prepared('DELETE FROM plugin_thold_template_contact WHERE template_id = ?', array($id));
+			db_execute_prepared('DELETE FROM plugin_thold_host_template WHERE thold_template_id = ?', array($id));
 			db_execute_prepared("UPDATE thold_data SET thold_template_id = '', template_enabled = '' WHERE thold_template_id = ?", array($id));
 		}
 	}
@@ -165,17 +166,17 @@ function template_add() {
 
 		form_start('thold_templates.php', 'tholdform');
 
-		html_start_box('Threshold Template Creation Wizard', '50%', '', '3', 'center', '');
+		html_start_box(__('Threshold Template Creation Wizard'), '50%', '', '3', 'center', '');
 
 		if (!isset_request_var('data_template_id')) set_request_var('data_template_id', '');
 		if (!isset_request_var('data_source_id'))   set_request_var('data_source_id', '');
 
 		if (get_filter_request_var('data_template_id') == '') {
-			print '<tr><td class="center">Please select a Data Template</td></tr>';
+			print '<tr><td class="center">' . __('Please select a Data Template') . '</td></tr>';
 		} else if (get_filter_request_var('data_source_id') == '') {
-			print '<tr><td class="center">Please select a Data Source</td></tr>';
+			print '<tr><td class="center">' . __('Please select a Data Source') . '</td></tr>';
 		} else {
-			print '<tr><td class="center">Please press "Create" to create your Threshold Template</td></tr>';
+			print '<tr><td class="center">' . __('Please press \'Create\' to create your Threshold Template') . '</td></tr>';
 		}
 
 		html_end_box();
@@ -187,13 +188,13 @@ function template_add() {
 		<tr><td><table class='filterTable' align='center'>
 			<tr>
 				<td>
-					Data Template
+					<?php print __('Data Template');?>
 				</td>
 				<td>
 					<select id='data_template_id' name='data_template_id' onChange='applyFilter("dt")'>
 						<option value=''>None</option><?php
 						foreach ($data_templates as $id => $name) {
-							echo "<option value='" . $id . "'" . ($id == get_request_var('data_template_id') ? ' selected' : '') . '>' . $name . '</option>';
+							echo "<option value='" . $id . "'" . ($id == get_request_var('data_template_id') ? ' selected' : '') . '>' . htmlspecialchars($name, ENT_QUOTES) . '</option>';
 						}?>
 					</select>
 				</td>
@@ -224,13 +225,13 @@ function template_add() {
 			?>
 			<tr>
 				<td>
-					Data Source
+					<?php print __('Data Source');?>
 				</td>
 				<td>
 					<select id='data_source_id' name='data_source_id' onChange='applyFilter("ds")'>
-						<option value=''>None</option><?php
+						<option value=''><?php print __('None');?></option><?php
 						foreach ($data_fields as $id => $name) {
-							echo "<option value='" . $id . "'" . ($id == get_request_var('data_source_id') ? ' selected' : '') . '>' . $name . '</option>';
+							echo "<option value='" . $id . "'" . ($id == get_request_var('data_source_id') ? ' selected' : '') . '>' . htmlspecialchars($name, ENT_QUOTES) . '</option>';
 						}?>
 					</select>
 				</td>
@@ -241,7 +242,7 @@ function template_add() {
 		}
 
 		if (get_request_var('data_source_id') != '') {
-			echo "<tr><td colspan='2'><input type='hidden' name='action' value='add'><input id='save' type='hidden' name='save' value='save'><br><center><input id='go' type='button' value='Create'></center></td></tr>";
+			echo "<tr><td colspan='2'><input type='hidden' name='action' value='add'><input id='save' type='hidden' name='save' value='save'><br><center><input id='go' type='button' value='" . __('Create') . "'></center></td></tr>";
 		} else {
 			echo "<tr><td colspan=2><input type=hidden name=action value='add'><br><br><br></td></tr>";
 		}
@@ -643,290 +644,287 @@ function template_edit() {
 
 	$form_array = array(
 		'general_header' => array(
-			'friendly_name' => 'General Settings',
+			'friendly_name' => __('General Settings'),
 			'method' => 'spacer',
 		),
 		'name' => array(
-			'friendly_name' => 'Template Name',
+			'friendly_name' => __('Template Name'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => '60',
 			'default' => $thold_data['data_template_name'] . ' [' . $thold_data['data_source_name'] . ']',
-			'description' => 'Provide the Threshold Template a meaningful name.  Device Substritution and Data Query Substitution variables can be used as well as |graph_title| for the Graph Title',
+			'description' => __('Provide the Threshold Template a meaningful name.  Device Substritution and Data Query Substitution variables can be used as well as |graph_title| for the Graph Title'),
 			'value' => isset($thold_data['name']) ? $thold_data['name'] : ''
 		),
 		'data_template_name' => array(
-			'friendly_name' => 'Data Template',
+			'friendly_name' => __('Data Template'),
 			'method' => 'drop_array',
 			'default' => 'NULL',
-			'description' => 'Data Template that you are using. (This can not be changed)',
+			'description' => __('Data Template that you are using. (This can not be changed)'),
 			'value' => $thold_data['data_template_id'],
 			'array' => $data_templates,
 		),
 		'data_field_name' => array(
-			'friendly_name' => 'Data Field',
+			'friendly_name' => __('Data Field'),
 			'method' => 'drop_array',
 			'default' => 'NULL',
-			'description' => 'Data Field that you are using. (This can not be changed)',
+			'description' => __('Data Field that you are using. (This can not be changed)'),
 			'value' => $thold_data['id'],
 			'array' => $data_fields,
 		),
 		'thold_enabled' => array(
-			'friendly_name' => 'Enabled',
+			'friendly_name' => __('Enabled'),
 			'method' => 'checkbox',
 			'default' => 'on',
-			'description' => 'Whether or not this Threshold will be checked and alerted upon.',
+			'description' => __('Whether or not this Threshold will be checked and alerted upon.'),
 			'value' => isset($thold_data['thold_enabled']) ? $thold_data['thold_enabled'] : ''
 		),
 		'exempt' => array(
-			'friendly_name' => 'Weekend Exemption',
-			'description' => 'If this is checked, this Threshold will not alert on weekends.',
+			'friendly_name' => __('Weekend Exemption'),
+			'description' => __('If this is checked, this Threshold will not alert on weekends.'),
 			'method' => 'checkbox',
 			'default' => '',
 			'value' => isset($thold_data['exempt']) ? $thold_data['exempt'] : ''
 			),
 		'restored_alert' => array(
-			'friendly_name' => 'Disable Restoration Email',
-			'description' => 'If this is checked, Thold will not send an alert when the Threshold has returned to normal status.',
+			'friendly_name' => __('Disable Restoration Email'),
+			'description' => __('If this is checked, Thold will not send an alert when the Threshold has returned to normal status.'),
 			'method' => 'checkbox',
 			'default' => '',
 			'value' => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''
 			),
 		'thold_type' => array(
-			'friendly_name' => 'Threshold Type',
+			'friendly_name' => __('Threshold Type'),
 			'method' => 'drop_array',
 			'on_change' => 'changeTholdType()',
 			'array' => $thold_types,
 			'default' => read_config_option('thold_type'),
-			'description' => 'The type of Threshold that will be monitored.',
+			'description' => __('The type of Threshold that will be monitored.'),
 			'value' => isset($thold_data['thold_type']) ? $thold_data['thold_type'] : ''
 		),
 		'repeat_alert' => array(
-			'friendly_name' => 'Re-Alert Cycle',
+			'friendly_name' => __('Re-Alert Cycle'),
 			'method' => 'drop_array',
 			'array' => $repeatarray,
 			'default' => read_config_option('alert_repeat'),
-			'description' => 'Repeat alert after this amount of time has pasted since the last alert.',
+			'description' => __('Repeat alert after this amount of time has pasted since the last alert.'),
 			'value' => isset($thold_data['repeat_alert']) ? $thold_data['repeat_alert'] : ''
 		),
 		'thold_warning_header' => array(
-			'friendly_name' => 'Warning - High / Low Settings',
+			'friendly_name' => __('Warning - High / Low Settings'),
 			'method' => 'spacer',
 		),
 		'thold_warning_hi' => array(
-			'friendly_name' => 'High Threshold',
+			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
-			'description' => 'If set and data source value goes above this number, alert will be triggered',
+			'description' => __('If set and data source value goes above this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_warning_hi']) ? $thold_data['thold_warning_hi'] : ''
 		),
 		'thold_warning_low' => array(
-			'friendly_name' => 'Low Threshold',
+			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
-			'description' => 'If set and data source value goes below this number, alert will be triggered',
+			'description' => __('If set and data source value goes below this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_warning_low']) ? $thold_data['thold_warning_low'] : ''
 		),
 		'thold_warning_fail_trigger' => array(
-			'friendly_name' => 'Min Trigger Duration',
+			'friendly_name' => __('Min Trigger Duration'),
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
+			'description' => __('The amount of time the data source must be in a breach condition for an alert to be raised.'),
 			'value' => isset($thold_data['thold_warning_fail_trigger']) ? $thold_data['thold_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'thold_header' => array(
-			'friendly_name' => 'Alert - High / Low Settings',
+			'friendly_name' => __('Alert - High / Low Settings'),
 			'method' => 'spacer',
 		),
 		'thold_hi' => array(
-			'friendly_name' => 'High Threshold',
+			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
-			'description' => 'If set and data source value goes above this number, alert will be triggered',
+			'description' => __('If set and data source value goes above this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_hi']) ? $thold_data['thold_hi'] : ''
 		),
 		'thold_low' => array(
-			'friendly_name' => 'Low Threshold',
+			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
-			'description' => 'If set and data source value goes below this number, alert will be triggered',
+			'description' => __('If set and data source value goes below this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_low']) ? $thold_data['thold_low'] : ''
 		),
 		'thold_fail_trigger' => array(
-			'friendly_name' => 'Min Trigger Duration',
+			'friendly_name' => __('Min Trigger Duration'),
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'description' => 'The amount of time the data source must be in a breach condition for an alert to be raised.',
+			'description' => __('The amount of time the data source must be in a breach condition for an alert to be raised.'),
 			'value' => isset($thold_data['thold_fail_trigger']) ? $thold_data['thold_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_header' => array(
-			'friendly_name' => 'Warning - Time Based Settings',
+			'friendly_name' => __('Warning - Time Based Settings'),
 			'method' => 'spacer',
 		),
 		'time_warning_hi' => array(
-			'friendly_name' => 'High Threshold',
+			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
-			'description' => 'If set and data source value goes above this number, warning will be triggered',
+			'description' => __('If set and data source value goes above this number, warning will be triggered'),
 			'value' => isset($thold_data['time_warning_hi']) ? $thold_data['time_warning_hi'] : ''
 		),
 		'time_warning_low' => array(
-			'friendly_name' => 'Low Threshold',
+			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
-			'description' => 'If set and data source value goes below this number, warning will be triggered',
+			'description' => __('If set and data source value goes below this number, warning will be triggered'),
 			'value' => isset($thold_data['time_warning_low']) ? $thold_data['time_warning_low'] : ''
 		),
 		'time_warning_fail_trigger' => array(
-			'friendly_name' => 'Trigger Count',
+			'friendly_name' => __('Trigger Count'),
 			'method' => 'textbox',
 			'max_length' => 5,
 			'size' => 10,
 			'default' => read_config_option('thold_warning_time_fail_trigger'),
-			'description' => 'The number of times the data source must be in breach condition prior to issuing a warning.',
+			'description' => __('The number of times the data source must be in breach condition prior to issuing a warning.'),
 			'value' => isset($thold_data['time_warning_fail_trigger']) ? $thold_data['time_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_fail_length' => array(
-			'friendly_name' => 'Time Period Length',
+			'friendly_name' => __('Time Period Length'),
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'description' => 'The amount of time in the past to check for Threshold breaches.',
+			'description' => __('The amount of time in the past to check for Threshold breaches.'),
 			'value' => isset($thold_data['time_warning_fail_length']) ? $thold_data['time_warning_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1)
 		),
 		'time_header' => array(
-			'friendly_name' => 'Alert - Time Based Settings',
+			'friendly_name' => __('Alert - Time Based Settings'),
 			'method' => 'spacer',
 		),
 		'time_hi' => array(
-			'friendly_name' => 'High Threshold',
+			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
-			'description' => 'If set and data source value goes above this number, alert will be triggered',
+			'description' => __('If set and data source value goes above this number, alert will be triggered'),
 			'value' => isset($thold_data['time_hi']) ? $thold_data['time_hi'] : ''
 		),
 		'time_low' => array(
-			'friendly_name' => 'Low Threshold',
+			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 10,
-			'description' => 'If set and data source value goes below this number, alert will be triggered',
+			'description' => __('If set and data source value goes below this number, alert will be triggered'),
 			'value' => isset($thold_data['time_low']) ? $thold_data['time_low'] : ''
 		),
 		'time_fail_trigger' => array(
-			'friendly_name' => 'Trigger Count',
+			'friendly_name' => __('Trigger Count'),
 			'method' => 'textbox',
 			'max_length' => 5,
 			'size' => 10,
-			'description' => 'The number of times the data source must be in breach condition prior to issuing an alert.',
+			'description' => __('The number of times the data source must be in breach condition prior to issuing an alert.'),
 			'value' => isset($thold_data['time_fail_trigger']) ? $thold_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
 		),
 		'time_fail_length' => array(
-			'friendly_name' => 'Time Period Length',
+			'friendly_name' => __('Time Period Length'),
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'description' => 'The amount of time in the past to check for Threshold breaches.',
+			'description' => __('The amount of time in the past to check for Threshold breaches.'),
 			'value' => isset($thold_data['time_fail_length']) ? $thold_data['time_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 2)
 		),
 		'baseline_header' => array(
-			'friendly_name' => 'Baseline Monitoring',
+			'friendly_name' => __('Baseline Monitoring'),
 			'method' => 'spacer',
 		),
 		'bl_ref_time_range' => array(
-			'friendly_name' => 'Time reference in the past',
+			'friendly_name' => __('Time reference in the past'),
 			'method' => 'drop_array',
 			'array' => $reference_types,
-			'description' => 'Specifies the point in the past (based on rrd resolution) that will be used as a reference',
+			'description' => __('Specifies the point in the past (based on rrd resolution) that will be used as a reference'),
 			'value' => isset($thold_data['bl_ref_time_range']) ? $thold_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
 		),
 		'bl_pct_up' => array(
-			'friendly_name' => 'Baseline Deviation UP',
+			'friendly_name' => __('Baseline Deviation UP'),
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 10,
-			'description' => 'Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.',
+			'description' => __('Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.'),
 			'value' => isset($thold_data['bl_pct_up']) ? $thold_data['bl_pct_up'] : read_config_option('alert_bl_percent_def')
 		),
 		'bl_pct_down' => array(
-			'friendly_name' => 'Baseline Deviation DOWN',
+			'friendly_name' => __('Baseline Deviation DOWN'),
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 10,
-			'description' => 'Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.',
+			'description' => __('Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.'),
 			'value' => isset($thold_data['bl_pct_down']) ? $thold_data['bl_pct_down'] : read_config_option('alert_bl_percent_def')
 		),
 		'bl_fail_trigger' => array(
-			'friendly_name' => 'Baseline Trigger Count',
+			'friendly_name' => __('Baseline Trigger Count'),
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 10,
-			'description' => 'Number of consecutive times the data source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: ' . read_config_option('alert_bl_trigger') . ' cycles)',
+			'description' => __('Number of consecutive times the data source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles', read_config_option('alert_bl_trigger')),
 			'value' => isset($thold_data['bl_fail_trigger']) ? $thold_data['bl_fail_trigger'] : read_config_option('alert_bl_trigger')
 		),
 		'data_manipulation' => array(
-			'friendly_name' => 'Data Manipulation',
+			'friendly_name' => __('Data Manipulation'),
 			'method' => 'spacer',
 		),
 		'data_type' => array(
-			'friendly_name' => 'Data Type',
+			'friendly_name' => __('Data Type'),
 			'method' => 'drop_array',
 			'on_change' => 'changeDataType()',
 			'array' => $data_types,
-			'description' => 'Special formatting for the given data.',
+			'description' => __('Special formatting for the given data.'),
 			'value' => isset($thold_data['data_type']) ? $thold_data['data_type'] : read_config_option('data_type')
 		),
 		'cdef' => array(
-			'friendly_name' => 'Threshold CDEF',
+			'friendly_name' => __('Threshold CDEF'),
 			'method' => 'drop_array',
 			'default' => 'NULL',
-			'description' => 'Apply this CDEF before returning the data.',
+			'description' => __('Apply this CDEF before returning the data.'),
 			'value' => isset($thold_data['cdef']) ? $thold_data['cdef'] : 0,
 			'array' => thold_cdef_select_usable_names()
 		),
 		'percent_ds' => array(
-			'friendly_name' => 'Percent Datasource',
+			'friendly_name' => __('Percent Datasource'),
 			'method' => 'drop_array',
 			'default' => 'NULL',
-			'description' => 'Second Datasource Item to use as total value to calculate percentage from.',
+			'description' => __('Second Datasource Item to use as total value to calculate percentage from.'),
 			'value' => isset($thold_data['percent_ds']) ? $thold_data['percent_ds'] : 0,
 			'array' => $data_fields2,
 		),
 		'expression' => array(
-			'friendly_name' => 'RPN Expression',
+			'friendly_name' => __('RPN Expression'),
 			'method' => 'textbox',
 			'default' => '',
-			'description' => 'An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes
-			all functions below in addition to both Device and Data Query replacement expressions such as
-			<span style="color:blue;">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style="color:blue;">|ds:dsname|</span>.  For example, <span style="color:blue;">|ds:traffic_in|</span> will get the current value
-			of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style="color:blue;">+, -, /, *, %, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>'.$replacements.$datasources,
+			'description' => __('An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style="color:blue;">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style="color:blue;">|ds:dsname|</span>.  For example, <span style="color:blue;">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style="color:blue;">+, -, /, *, &#37;, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s', $replacements, $datasources),
 			'value' => isset($thold_data['expression']) ? $thold_data['expression'] : '',
 			'max_length' => '255',
 			'size' => '80'
 		),
 		'other_header' => array(
-			'friendly_name' => 'Other Settings',
+			'friendly_name' => __('Other Settings'),
 			'method' => 'spacer',
 		),
 		'notify_warning' => array(
-			'friendly_name' => 'Warning Notification List',
+			'friendly_name' => __('Warning Notification List'),
 			'method' => 'drop_sql',
-			'description' => 'You may specify choose a Notification List to receive Warnings for this Data Source',
+			'description' => __('You may specify choose a Notification List to receive Warnings for this Data Source'),
 			'value' => isset($thold_data['notify_warning']) ? $thold_data['notify_warning'] : '',
-			'none_value' => 'None',
+			'none_value' => __('None'),
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
 		),
 		'notify_alert' => array(
-			'friendly_name' => 'Alert Notification List',
+			'friendly_name' => __('Alert Notification List'),
 			'method' => 'drop_sql',
-			'description' => 'You may specify choose a Notification List to receive Alerts for this Data Source',
+			'description' => __('You may specify choose a Notification List to receive Alerts for this Data Source'),
 			'value' => isset($thold_data['notify_alert']) ? $thold_data['notify_alert'] : '',
-			'none_value' => 'None',
+			'none_value' => __('None'),
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
 		)
 	);
@@ -934,20 +932,20 @@ function template_edit() {
 	if (read_config_option('thold_alert_snmp') == 'on') {
 		$extra = array(
 			'snmp_event_category' => array(
-				'friendly_name' => 'SNMP Notification - Event Category',
+				'friendly_name' => __('SNMP Notification - Event Category'),
 				'method' => 'textbox',
-				'description' => 'To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: "disk_usage", "link_utilization", "ping_test", "nokia_firewall_cpu_utilization" ...',
+				'description' => __('To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: "disk_usage", "link_utilization", "ping_test", "nokia_firewall_cpu_utilization" ...'),
 				'value' => isset($thold_data['snmp_event_category']) ? $thold_data['snmp_event_category'] : '',
 				'default' => '',
 				'max_length' => '255',
 			),
 			'snmp_event_severity' => array(
-				'friendly_name' => 'SNMP Notification - Alert Event Severity',
+				'friendly_name' => __('SNMP Notification - Alert Event Severity'),
 				'method' => 'drop_array',
 				'default' => '3',
-				'description' => 'Severity to be used for alerts. (low impact -> critical impact)',
+				'description' => __('Severity to be used for alerts. (Low impact -> Critical impact)'),
 				'value' => isset($thold_data['snmp_event_severity']) ? $thold_data['snmp_event_severity'] : 3,
-				'array' => array( 1=>'low', 2=> 'medium', 3=> 'high', 4=> 'critical'),
+				'array' => array(1 => __('Low'), 2 => __('Medium'), 3 => __('High'), 4 => __('Critical')),
 			),
 		);
 		$form_array += $extra;
@@ -955,12 +953,12 @@ function template_edit() {
 		if (read_config_option('thold_alert_snmp_warning') != 'on') {
 			$extra = array(
 				'snmp_event_warning_severity' => array(
-					'friendly_name' => 'SNMP Notification - Warning Event Severity',
+					'friendly_name' => __('SNMP Notification - Warning Event Severity'),
 					'method' => 'drop_array',
 					'default' => '2',
-					'description' => 'Severity to be used for warnings. (low impact -> critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts.',
+					'description' => __('Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts.'),
 					'value' => isset($thold_data['snmp_event_warning_severity']) ? $thold_data['snmp_event_warning_severity'] : 2,
-					'array' => array( 1=>'low', 2=> 'medium', 3=> 'high', 4=> 'critical'),
+					'array' => array(1 => __('Low'), 2 => __('Medium'), 3 => __('High'), 4 => __('Critical')),
 				),
 			);
 		}
@@ -970,26 +968,26 @@ function template_edit() {
 	if (read_config_option('thold_disable_legacy') != 'on') {
 		$extra = array(
 			'notify_accounts' => array(
-				'friendly_name' => 'Notify accounts',
+				'friendly_name' => __('Notify accounts'),
 				'method' => 'drop_multi',
-				'description' => 'This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>',
+				'description' => __('This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>'),
 				'array' => $send_notification_array,
 				'sql' => $sql,
 			),
 			'notify_extra' => array(
-				'friendly_name' => 'Alert Emails',
+				'friendly_name' => __('Alert Emails'),
 				'method' => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,
-				'description' => 'You may specify here extra Emails to receive alerts for this data source (comma separated)',
+				'description' => __('You may specify here extra Emails to receive alerts for this data source (comma separated)'),
 				'value' => isset($thold_data['notify_extra']) ? $thold_data['notify_extra'] : ''
 			),
 			'notify_warning_extra' => array(
-				'friendly_name' => 'Warning Emails',
+				'friendly_name' => __('Warning Emails'),
 				'method' => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,
-				'description' => 'You may specify here extra Emails to receive warnings for this data source (comma separated)',
+				'description' => __('You may specify here extra Emails to receive warnings for this data source (comma separated)'),
 				'value' => isset($thold_data['notify_warning_extra']) ? $thold_data['notify_warning_extra'] : ''
 			)
 		);
@@ -1020,11 +1018,9 @@ function template_edit() {
 
 	draw_edit_form(
 		array(
-			'config' => array(
-				'no_form_tag' => true
-				),
+			'config' => array('no_form_tag' => true),
 			'fields' => $form_array
-			)
+		)
 	);
 
 	form_hidden_box('save', 'edit', '');
@@ -1243,7 +1239,7 @@ function templates() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box('Threshold Templates', '100%', '', '3', 'center', 'thold_templates.php?action=add');
+	html_start_box(__('Threshold Templates'), '100%', '', '3', 'center', 'thold_templates.php?action=add');
 
 	?>
 	<tr class='even'>
@@ -1252,17 +1248,17 @@ function templates() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						Search
+						<?php print __('Search');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						Rows
+						<?php print __('Templates');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>>Default</option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
 							<?php
 							if (sizeof($item_rows)) {
 							foreach ($item_rows as $key => $value) {
@@ -1273,13 +1269,13 @@ function templates() {
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='button' value='Go' onClick='applyFilter()'>
+						<input id='refresh' type='button' value='<?php print __('Go');?>' onClick='applyFilter()'>
 					</td>
 					<td>
-						<input id='clear' type='button' value='Clear' onClick='clearFilter()'>
+						<input id='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
 					</td>
 					<td>
-						<input id='import' type='button' value='Import' onClick='importTemplate()'>
+						<input id='import' type='button' value='<?php print __('Import');?>' onClick='importTemplate()'>
 					</td>
 				</tr>
 			</table>
@@ -1332,20 +1328,20 @@ function templates() {
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
-	$nav = html_nav_bar('thold_templates.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, 'Templates', 'page', 'main');
+	$nav = html_nav_bar('thold_templates.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Templates'), 'page', 'main');
 
 	print $nav;
 
 	$display_text = array(
-		'name'               => array('Name', 'ASC'),
-		'data_template_name' => array('Data Template', 'ASC'),
-		'data_source_name'   => array('DS Name', 'ASC'),
-		'thold_type'         => array('Type', 'ASC'),
-		'nosort1'            => array('High/Up', ''),
-		'nosort2'            => array('Low/Down', ''),
-		'nosort3'            => array('Trigger', ''),
-		'nosort4'            => array('Duration', ''),
-		'nosort5'            => array('Repeat', '')
+		'name'               => array(__('Name'), 'ASC'),
+		'data_template_name' => array(__('Data Template'), 'ASC'),
+		'data_source_name'   => array(__('DS Name'), 'ASC'),
+		'thold_type'         => array(__('Type'), 'ASC'),
+		'nosort1'            => array(__('High/Up'), ''),
+		'nosort2'            => array(__('Low/Down'), ''),
+		'nosort3'            => array(__('Trigger'), ''),
+		'nosort4'            => array(__('Duration'), ''),
+		'nosort5'            => array(__('Repeat'), '')
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
@@ -1410,7 +1406,7 @@ function templates() {
 
 		print $nav;
 	} else {
-		print "<tr><td><em>No Threshold Templates</em></td></tr>\n";
+		print "<tr><td><em>" . __('No Threshold Templates') . "</em></td></tr>\n";
 	}
 	html_end_box(false);
 
@@ -1423,16 +1419,14 @@ function templates() {
 function import() {
 	$form_data = array(
 		'import_file' => array(
-			'friendly_name' => 'Import Template from Local File',
-			'description' => 'If the XML file containing Threshold Template data is located on your local
-				machine, select it here.',
+			'friendly_name' => __('Import Template from Local File'),
+			'description' => __('If the XML file containing Threshold Template data is located on your local machine, select it here.'),
 			'method' => 'file'
 		),
 		'import_text' => array(
 			'method' => 'textarea',
-			'friendly_name' => 'Import Template from Text',
-			'description' => 'If you have the XML file containing Threshold Template data as text, you can paste
-				it into this box to import it.',
+			'friendly_name' => __('Import Template from Text'),
+			'description' => __('If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it.'),
 			'value' => '',
 			'default' => '',
 			'textarea_rows' => '10',
@@ -1446,9 +1440,9 @@ function import() {
 	<?php
 
 	if ((isset($_SESSION['import_debug_info'])) && (is_array($_SESSION['import_debug_info']))) {
-		html_start_box('Import Results', '100%', '', '3', 'center', '');
+		html_start_box(__('Import Results'), '100%', '', '3', 'center', '');
 
-		print '<tr><td>Cacti has imported the following items:</td></tr>';
+		print '<tr><td>' . __('Cacti has imported the following items:'). '</td></tr>';
 		foreach($_SESSION['import_debug_info'] as $line) {
 			print '<tr><td>' . $line . '</td></tr>';
 		}
@@ -1458,7 +1452,7 @@ function import() {
 		kill_session_var('import_debug_info');
 	}
 
-	html_start_box('Import Threshold Templates', '100%', '', '3', 'center', '');
+	html_start_box(__('Import Threshold Templates'), '100%', '', '3', 'center', '');
 
 	draw_edit_form(array(
 		'config' => array('no_form_tag' => true),
@@ -1507,7 +1501,7 @@ function template_import() {
 					$save['data_template_id'] = $found;
 				}else{
 					$error = true;
-					$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template Subordinate Data Template Not Found!";
+					$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:') . "</span> " . __('Threshold Template Subordinate Data Template Not Found!');
 				}
 
 				break;
@@ -1519,7 +1513,7 @@ function template_import() {
 					$save['data_source_id'] = $found;
 				}else{
 					$error = true;
-					$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template Subordinate Data Source Not Found!";
+					$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:'). "</span> " . __('Threshold Template Subordinate Data Source Not Found!');
 				}
 
 				break;
@@ -1553,9 +1547,9 @@ function template_import() {
 			$id = sql_save($save, 'thold_template');
 
 			if ($id) {
-				$debug_data[] = "<span style='font-weight:bold;color:green;'>NOTE:</span> Threshold Template '$tname' " . ($save['id'] > 0 ? 'Updated':'Imported') . '!';
+				$debug_data[] = "<span style='font-weight:bold;color:green;'>" . __('NOTE:') . "</span> " . __('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated'):__('Imported')));
 			}else{
-				$debug_data[] = "<span style='font-weight:bold;color:red;'>ERROR:</span> Threshold Template '$tname' " . ($save['id'] > 0 ? 'Update':'Import') . ' Failed!';
+				$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:'). "</span> " . __('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update'):__('Import')));
 			}
 		}
 	}

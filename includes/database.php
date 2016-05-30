@@ -199,7 +199,7 @@ function thold_upgrade_database () {
 		$data['columns'][] = array('name' => 'description', 'type' => 'varchar(512)', 'NULL' => false);
 		$data['columns'][] = array('name' => 'emails', 'type' => 'varchar(512)', 'NULL' => false);
 		$data['primary'] = 'id';
-		$data['type'] = 'MyISAM';
+		$data['type'] = 'InnoDB';
 		$data['comment'] = 'Table of Notification Lists';
 		api_plugin_db_table_create ('thold', 'plugin_notification_lists', $data);
 
@@ -235,7 +235,7 @@ function thold_upgrade_database () {
 		$data['columns'][] = array('name' => 'id',      'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
 		$data['columns'][] = array('name' => 'host_id', 'type' => 'int(12)', 'unsigned' => true, 'NULL' => false);
 		$data['primary'] = 'id';
-		$data['type'] = 'MyISAM';
+		$data['type'] = 'InnoDB';
 		$data['comment'] = 'Table of Devices in a Down State';
 		api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
 
@@ -262,7 +262,7 @@ function thold_upgrade_database () {
 		$data['columns'][] = array('name' => 'rrd_time_reindexed', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false);
 
 		$data['keys'][]    = array('name' => 'id', 'columns' => 'id`, `pid');
-		$data['type']      = 'MyISAM';
+		$data['type']      = 'InnoDB';
 		$data['comment']   = 'Table of Poller Outdata needed for queued daemon processes';
 		api_plugin_db_table_create ('thold', 'plugin_thold_daemon_data', $data);
 
@@ -273,7 +273,7 @@ function thold_upgrade_database () {
 		$data['columns'][] = array('name' => 'processed_items', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
 
 		$data['primary']   = 'pid';
-		$data['type']      = 'MyISAM';
+		$data['type']      = 'InnoDB';
 		$data['comment']   = 'Table of Thold Daemon Processes being queued';
 		api_plugin_db_table_create ('thold', 'plugin_thold_daemon_processes', $data);
 	}
@@ -288,6 +288,17 @@ function thold_upgrade_database () {
 		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN graph_template graph_template_id int(11) UNSIGNED NOT NULL default "0"');
 
 		db_execute('ALTER IGNORE TABLE plugin_thold_log CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
+	}
+
+	if (version_compare($oldv, '1.0', '<')) {
+		$data = array();
+		$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'auto_increment' => true);
+		$data['columns'][] = array('name' => 'device_template_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+		$data['columns'][] = array('name' => 'thold_template_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+		$data['primary'] = 'id';
+		$data['type'] = 'InnoDB';
+		$data['comment'] = 'Table of Device Template Threshold Templates';
+		api_plugin_db_table_create ('thold', 'plugin_thold_device_template', $data);
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
@@ -363,7 +374,7 @@ function thold_setup_database () {
 	$data['keys'][] = array('name' => 'thold_enabled', 'columns' => 'thold_enabled');
 	$data['keys'][] = array('name' => 'template_enabled', 'columns' => 'template_enabled');
 	$data['keys'][] = array('name' => 'tcheck', 'columns' => 'tcheck');
-	$data['type'] = 'MyISAM';
+	$data['type'] = 'InnoDB';
 	$data['comment'] = 'Threshold data';
 	api_plugin_db_table_create ('thold', 'thold_data', $data);
 
@@ -419,7 +430,7 @@ function thold_setup_database () {
 	$data['keys'][]    = array('name' => 'id', 'columns' => 'id');
 	$data['keys'][]    = array('name' => 'data_source_id', 'columns' => 'data_source_id');
 	$data['keys'][]    = array('name' => 'data_template_id', 'columns' => 'data_template_id');
-	$data['type']      = 'MyISAM';
+	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of thresholds defaults for graphs';
 	api_plugin_db_table_create ('thold', 'thold_template', $data);
 
@@ -432,7 +443,7 @@ function thold_setup_database () {
 	$data['keys'][]        = array('name' => 'type', 'columns' => 'type');
 	$data['keys'][]        = array('name' => 'user_id', 'columns' => 'user_id');
 	$data['unique_keys'][] = array('name' => 'user_id_type', 'columns' => 'user_id`, `type');
-	$data['type']          = 'MyISAM';
+	$data['type']          = 'InnoDB';
 	$data['comment']       = 'Table of threshold contacts';
 	api_plugin_db_table_create ('thold', 'plugin_thold_contacts', $data);
 
@@ -441,7 +452,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'contact_id', 'type' => 'int(12)', 'NULL' => false);
 	$data['keys'][]    = array('name' => 'template_id', 'columns' => 'template_id');
 	$data['keys'][]    = array('name' => 'contact_id', 'columns' => 'contact_id');
-	$data['type']      = 'MyISAM';
+	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Tholds Template Contacts';
 	api_plugin_db_table_create ('thold', 'plugin_thold_template_contact', $data);
 
@@ -451,7 +462,7 @@ function thold_setup_database () {
 
 	$data['keys'][]    = array('name' => 'thold_id', 'columns' => 'thold_id');
 	$data['keys'][]    = array('name' => 'contact_id', 'columns' => 'contact_id');
-	$data['type']      = 'MyISAM';
+	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Tholds Threshold Contacts';
 	api_plugin_db_table_create ('thold', 'plugin_thold_threshold_contact', $data);
 
@@ -474,7 +485,7 @@ function thold_setup_database () {
 	$data['keys'][]    = array('name' => 'threshold_id', 'columns' => 'threshold_id');
 	$data['keys'][]    = array('name' => 'status', 'columns' => 'status');
 	$data['keys'][]    = array('name' => 'type', 'columns' => 'type');
-	$data['type']      = 'MyISAM';
+	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of All Threshold Breaches';
 	api_plugin_db_table_create ('thold', 'plugin_thold_log', $data);
 
@@ -485,7 +496,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'emails', 'type' => 'varchar(512)', 'NULL' => false);
 
 	$data['primary']   = 'id';
-	$data['type']      = 'MyISAM';
+	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Notification Lists';
 	api_plugin_db_table_create ('thold', 'plugin_notification_lists', $data);
 
@@ -499,7 +510,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(12)', 'unsigned' => true, 'NULL' => false);
 
 	$data['primary']   = 'id';
-	$data['type']      = 'MyISAM';
+	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Devices in a Down State';
 	api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
 
@@ -510,7 +521,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'rrd_time_reindexed', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false);
 
 	$data['keys'][]    = array('name' => 'id', 'columns' => 'id`, `pid');
-	$data['type']      = 'MyISAM';
+	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Poller Outdata needed for queued daemon processes';
 	api_plugin_db_table_create ('thold', 'plugin_thold_daemon_data', $data);
 
@@ -521,9 +532,18 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'processed_items', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
 
 	$data['primary']   = 'pid';
-	$data['type']      = 'MyISAM';
+	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Thold Daemon Processes being queued';
 	api_plugin_db_table_create ('thold', 'plugin_thold_daemon_processes', $data);
+
+	$data = array();
+	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'auto_increment' => true);
+	$data['columns'][] = array('name' => 'host_template_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'thold_template_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['primary'] = 'id';
+	$data['type'] = 'InnoDB';
+	$data['comment'] = 'Table of Device Template Threshold Templates';
+	api_plugin_db_table_create ('thold', 'plugin_thold_host_template', $data);
 
 	$indexes = array_rekey(db_fetch_assoc('SHOW INDEX FROM data_local'),'Key_name', 'Key_name');
 	if (!array_key_exists('data_template_id', $indexes)) {

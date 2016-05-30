@@ -104,19 +104,19 @@ function form_thold_filter() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						Search
+						<?php print __('Search');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
-						Template
+						<?php print __('Template');?>
 					</td>
 					<td>
 						<select id='data_template_id' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('data_template_id') == '-1') {?> selected<?php }?>>All</option>
-							<option value='0'<?php if (get_request_var('data_template_id') == '0') {?> selected<?php }?>>None</option>
+							<option value='-1'<?php if (get_request_var('data_template_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='0'<?php if (get_request_var('data_template_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
 							<?php
 							$data_templates = db_fetch_assoc('SELECT DISTINCT data_template.id, data_template.name 
 								FROM thold_data 
@@ -133,23 +133,23 @@ function form_thold_filter() {
 						</select>
 					</td>
 					<td>
-						Status
+						<?php print __('Status');?>
 					</td>
 					<td>
 						<select id='status' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>>All</option>
-							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>>Breached</option>
-							<option value='3'<?php if (get_request_var('status') == '3') {?> selected<?php }?>>Triggered</option>
-							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>>Enabled</option>
-							<option value='0'<?php if (get_request_var('status') == '0') {?> selected<?php }?>>Disabled</option>
+							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>><?php print __('Breached');?></option>
+							<option value='3'<?php if (get_request_var('status') == '3') {?> selected<?php }?>><?php print __('Triggered');?></option>
+							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>><?php print __('Enabled');?></option>
+							<option value='0'<?php if (get_request_var('status') == '0') {?> selected<?php }?>><?php print __('Disabled');?></option>
 						</select>
 					</td>
 					<td>
-						Thresholds
+						<?php print __('Thresholds');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>>Default</option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
 							<?php
 							if (sizeof($item_rows)) {
 							foreach ($item_rows as $key => $value) {
@@ -160,10 +160,10 @@ function form_thold_filter() {
 						</select>
 					</td>
 					<td>
-						<input type='button' value='Go' onClick='applyFilter()'>
+						<input type='button' value='<?php print __('Go');?>' onClick='applyFilter()'>
 					</td>
 					<td>
-						<input id='clear' name='clear' type='button' value='Clear' onClick='clearFilter()'>
+						<input id='clear' name='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
 					</td>
 				</tr>
 			</table>
@@ -256,7 +256,7 @@ function tholds() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box('Threshold Status', '100%', '', '3', 'center', '');
+	html_start_box(__('Threshold Status'), '100%', '', '3', 'center', '');
 	form_thold_filter();
 	html_end_box();
 
@@ -308,18 +308,18 @@ function tholds() {
 	print $nav;
 
 	$display_text = array(
-		'nosort'        => array('display' => 'Actions',     'sort' => '',      'align' => 'left'),
-		'name'          => array('display' => 'Name',        'sort' => 'ASC',   'align' => 'left'),
-		'id'            => array('display' => 'ID',          'sort' => 'ASC',   'align' => 'right'),
-		'thold_type'    => array('display' => 'Type',        'sort' => 'ASC',   'align' => 'left'),
-		'lastread'      => array('display' => 'Current',     'sort' => 'ASC',   'align' => 'right'),
-		'nosort4'       => array('display' => 'Warn Hi/Lo',  'sort' => 'ASC',   'align' => 'right'),
-		'nosort5'       => array('display' => 'Alert Hi/Lo', 'sort' => 'ASC',   'align' => 'right'),
-		'nosort6'       => array('display' => 'BL Hi/Lo',    'sort' => 'ASC',   'align' => 'right'),
-		'nosort2'       => array('display' => 'Trigger',     'sort' => 'ASC',   'align' => 'right'),
-		'nosort3'       => array('display' => 'Duration',    'sort' => 'ASC',   'align' => 'right'),
-		'repeat_alert'  => array('display' => 'Repeat',      'sort' => 'ASC',   'align' => 'right'),
-		'thold_alert'   => array('display' => 'Triggered',   'sort' => 'ASC',   'align' => 'right'));
+		'nosort'        => array('display' => __('Actions'),     'sort' => '',      'align' => 'left'),
+		'name'          => array('display' => __('Name'),        'sort' => 'ASC',   'align' => 'left'),
+		'id'            => array('display' => __('ID'),          'sort' => 'ASC',   'align' => 'right'),
+		'thold_type'    => array('display' => __('Type'),        'sort' => 'ASC',   'align' => 'left'),
+		'lastread'      => array('display' => __('Current'),     'sort' => 'ASC',   'align' => 'right'),
+		'nosort4'       => array('display' => __('Warn Hi/Lo'),  'sort' => 'ASC',   'align' => 'right'),
+		'nosort5'       => array('display' => __('Alert Hi/Lo'), 'sort' => 'ASC',   'align' => 'right'),
+		'nosort6'       => array('display' => __('BL Hi/Lo'),    'sort' => 'ASC',   'align' => 'right'),
+		'nosort2'       => array('display' => __('Trigger'),     'sort' => 'ASC',   'align' => 'right'),
+		'nosort3'       => array('display' => __('Duration'),    'sort' => 'ASC',   'align' => 'right'),
+		'repeat_alert'  => array('display' => __('Repeat'),      'sort' => 'ASC',   'align' => 'right'),
+		'thold_alert'   => array('display' => __('Triggered'),   'sort' => 'ASC',   'align' => 'right'));
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=thold');
 
@@ -337,7 +337,7 @@ function tholds() {
 			$bgcolor   = 'green';
 			if ($row['thold_type'] == 0) {
 				if ($row['thold_alert'] != 0) {
-					$alertstat='Yes';
+					$alertstat = __('Yes');
 					if ( $row['thold_fail_count'] >= $row['thold_fail_trigger'] ) {
 						$bgcolor = 'red';
 					} elseif ( $row['thold_warning_fail_count'] >= $row['thold_warning_fail_trigger'] ) {
@@ -359,10 +359,10 @@ function tholds() {
 				}
 			} else {
 				if ($row['bl_alert'] == 1) {
-					$alertstat = 'Baseline-LOW';
+					$alertstat = __('Baseline-LOW');
 					$bgcolor   = ($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
 				} elseif ($row['bl_alert'] == 2)  {
-					$alertstat = 'Baseline-HIGH';
+					$alertstat = __('Baseline-HIGH');
 					$bgcolor   = ($row['bl_fail_count'] >= $row['bl_fail_trigger'] ? 'orange' : 'yellow');
 				}
 			};
@@ -376,31 +376,31 @@ function tholds() {
 			print "<td width='1%' style='white-space:nowrap;'>";
 
 			if (api_user_realm_auth('thold.php')) {
-				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=edit&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="Edit Threshold"></a>';
+				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=edit&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="' . __('Edit Threshold') . '"></a>';
 			}
 
 			if ($row['thold_enabled'] == 'on') {
-				print '<a class="hyperLink" href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" border="0" alt="" title="Disable Threshold"></a>';
+				print '<a class="hyperLink" href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" border="0" alt="" title="' . __('Disable Threshold') . '"></a>';
 			}else{
-				print '<a class="hyperLink" href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" border="0" alt="" title="Enable Threshold"></a>';
+				print '<a class="hyperLink" href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" border="0" alt="" title="' . __('Enable Threshold') . '"></a>';
 			}
 
-			print "<a href='". htmlspecialchars($config['url_path'] . 'graph.php?local_graph_id=' . $row['local_graph_id'] . '&rra_id=all') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graph'></a>";
-			print "<a class='hyperLink' href='". htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&threshold_id=' . $row['id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='View Threshold History'></a>";
+			print "<a href='". htmlspecialchars($config['url_path'] . 'graph.php?local_graph_id=' . $row['local_graph_id'] . '&rra_id=all') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='" . __('View Graph') . "'></a>";
+			print "<a class='hyperLink' href='". htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&threshold_id=' . $row['id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='" . __('View Threshold History') . "'></a>";
 
 			print '</td>';
 			print "<td class='left nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . '</td>';
 			print "<td class='right'>" . $row['id'] . '</td>';
 			print "<td class='left nowrap'>" . $thold_types[$row['thold_type']] . '</td>';
 			print "<td class='right'>" . thold_format_number($row['lastread']) . '</td>';
-			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? 'N/A':($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . '</td>';
-			print "<td class='right'>" . ($row['thold_type'] == 1 ? 'N/A':($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . '</td>';
-			print "<td class='right'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): 'N/A') . '</td>';
+			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? __('N/A'):($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . '</td>';
+			print "<td class='right'>" . ($row['thold_type'] == 1 ? __('N/A'):($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . '</td>';
+			print "<td class='right'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): __('N/A')) . '</td>';
 
 			switch($row['thold_type']) {
 				case 0:
 					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['local_data_id'], $row['thold_fail_trigger'], 'alert') . '</i></td>';
-					print "<td class='right'>N/A</td>";
+					print "<td class='right'>" . __('N/A') . "</td>";
 					break;
 				case 1:
 					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['local_data_id'], $row['bl_fail_trigger'], 'alert') . '</i></td>';
@@ -411,8 +411,8 @@ function tholds() {
 					print "<td class='right nowrap'>" . plugin_thold_duration_convert($row['local_data_id'], $row['time_fail_length'], 'time') . '</td>';;
 					break;
 				default:
-					print "<td class='right'>N/A</td>";
-					print "<td class='right'>N/A</td>";
+					print "<td class='right'>" . __('N/A') . "</td>";
+					print "<td class='right'>" . __('N/A') . "</td>";
 			}
 
 			print "<td class='right nowrap'>" . ($row['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($row['local_data_id'], $row['repeat_alert'], 'repeat')) . '</td>';
@@ -422,7 +422,7 @@ function tholds() {
 		}
 	} else {
 		form_alternate_row();
-		print '<td class="center" colspan=13>No Thresholds</td></tr>';
+		print '<td class="center" colspan="13">' . __('No Thresholds'). '</td></tr>';
 	}
 	print $nav;
 	html_end_box(false);
@@ -451,23 +451,23 @@ function form_host_status_row_color($status, $disabled) {
 
 function get_uncolored_device_status($disabled, $status) {
 	if ($disabled) {
-		return 'Disabled';
+		return __('Disabled');
 	}else{
 		switch ($status) {
 			case HOST_DOWN:
-				return 'Down';
+				return __('Down');
 				break;
 			case HOST_RECOVERING:
-				return 'Recovering';
+				return __('Recovering');
 				break;
 			case HOST_UP:
-				return 'Up';
+				return __('Up');
 				break;
 			case HOST_ERROR:
-				return 'Error';
+				return __('Error');
 				break;
 			default:
-				return 'Unknown';
+				return __('Unknown');
 				break;
 		}
 	}
@@ -525,7 +525,7 @@ function hosts() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box('Device Status', '100%', '', '3', 'center', '');
+	html_start_box(__('Device Status'), '100%', '', '3', 'center', '');
 	form_host_filter();
 	html_end_box();
 
@@ -573,23 +573,24 @@ function hosts() {
 
 	$hosts = get_allowed_devices($sql_where, $sortby . ' ' . get_request_var('sort_direction'), ($rows*(get_request_var('page')-1)) . ',' . $rows, $total_rows);
 
-	$nav = html_nav_bar('thold_graph.php?action=hoststat', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, 'Devices', 'page', 'main');
+	$nav = html_nav_bar('thold_graph.php?action=hoststat', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, __('Devices'), 'page', 'main');
 
 	print $nav;
 
 	$display_text = array(
-		'nosort'                 => array('display' => 'Actions',      'align' => 'left',   'sort' => '',     'tip' => 'Hover over icons for help'),
-		'description'            => array('display' => 'Description',  'align' => 'left',   'sort' => 'ASC',  'tip' => 'A description for the Device'),
-		'id'                     => array('display' => 'ID',           'align' => 'right',  'sort' => 'ASC',  'tip' => 'A Cacti unique identifier for the Device'),
-		'nosort1'                => array('display' => 'Graphs',       'align' => 'right',  'sort' => 'ASC',  'tip' => 'The number of Graphs for this Device'),
-		'nosort2'                => array('display' => 'Data Sources', 'align' => 'right',  'sort' => 'ASC',  'tip' => 'The number of Data Sources for this Device'),
-		'status'                 => array('display' => 'Status',       'align' => 'center', 'sort' => 'ASC',  'tip' => 'The status for this Device as of the last time it was polled'),
-		'nosort3'                => array('display' => 'In State',     'align' => 'right',  'sort' => 'ASC',  'tip' => 'The last time Cacti found an issues with this Device.  It can be higher than the Uptime for the the Device, if it was rebooted between Cacti polling cycles'),
-		'snmp_sysUpTimeInstance' => array('display' => 'Uptime',       'align' => 'right',  'sort' => 'ASC',  'tip' => 'The official uptime of the Device as reported by SNMP'),
-		'hostname'               => array('display' => 'Hostname',     'align' => 'right',  'sort' => 'ASC',  'tip' => 'The official hostname for this Device'),
-		'cur_time'               => array('display' => 'Current (ms)', 'align' => 'right',  'sort' => 'DESC', 'tip' => 'The current response time for the Cacti Availability check'),
-		'avg_time'               => array('display' => 'Average (ms)', 'align' => 'right',  'sort' => 'DESC', 'tip' => 'The average response time for the Cacti Availability check'),
-		'availability'           => array('display' => 'Availability', 'align' => 'right',  'sort' => 'ASC',  'tip' => 'The overall Availability of this Device since the last counter reset in Cacti'));
+		'nosort'                 => array('display' => __('Actions'),      'align' => 'left',   'sort' => '',     'tip' => __('Hover over icons for help')),
+		'description'            => array('display' => __('Description'),  'align' => 'left',   'sort' => 'ASC',  'tip' => __('A description for the Device')),
+		'id'                     => array('display' => __('ID'),           'align' => 'right',  'sort' => 'ASC',  'tip' => __('A Cacti unique identifier for the Device')),
+		'nosort1'                => array('display' => __('Graphs'),       'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Graphs for this Device')),
+		'nosort2'                => array('display' => __('Data Sources'), 'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Data Sources for this Device')),
+		'status'                 => array('display' => __('Status'),       'align' => 'center', 'sort' => 'ASC',  'tip' => __('The status for this Device as of the last time it was polled')),
+		'nosort3'                => array('display' => __('In State'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The last time Cacti found an issues with this Device.  It can be higher than the Uptime for the the Device, if it was rebooted between Cacti polling cycles')),
+		'snmp_sysUpTimeInstance' => array('display' => __('Uptime'),       'align' => 'right',  'sort' => 'ASC',  'tip' => __('The official uptime of the Device as reported by SNMP')),
+		'hostname'               => array('display' => __('Hostname'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The official hostname for this Device')),
+		'cur_time'               => array('display' => __('Current (ms)'), 'align' => 'right',  'sort' => 'DESC', 'tip' => __('The current response time for the Cacti Availability check')),
+		'avg_time'               => array('display' => __('Average (ms)'), 'align' => 'right',  'sort' => 'DESC', 'tip' => __('The average response time for the Cacti Availability check')),
+		'availability'           => array('display' => __('Availability'), 'align' => 'right',  'sort' => 'ASC',  'tip' => __('The overall Availability of this Device since the last counter reset in Cacti'))
+	);
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=hoststat');
 
@@ -606,7 +607,7 @@ function hosts() {
 				$minutes   = intval($remainder / (60*100));
 				$uptime    = $days . 'd:' . substr('00' . $hours, -2) . 'h:' . substr('00' . $minutes, -2) . 'm';
 			}else{
-				$uptime    = "N/A";
+				$uptime    = __('N/A');
 			}
 
 			if (isset($host_graphs[$host['id']])) {
@@ -625,9 +626,9 @@ function hosts() {
 				form_host_status_row_color($host['status'], $host['disabled']); 
 				print "<td width='1%' class='nowrap'>";
 				if (api_user_realm_auth('host.php')) {
-					print '<a href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="Edit Device"></a>';
+					print '<a href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="' . __('Edit Device') . '"></a>';
 				}
-				print "<a href='" . htmlspecialchars($config['url_path'] . 'graph_view.php?action=preview&graph_template_id=0&filter=&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graphs'></a>";
+				print "<a href='" . htmlspecialchars($config['url_path'] . 'graph_view.php?action=preview&graph_template_id=0&filter=&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='" . __('View Graphs') . "'></a>";
 				print '</td>';
 				?>
 				<td style='text-align:left'>
@@ -648,9 +649,9 @@ function hosts() {
 				print "<tr class='deviceNotMonFull'>\n";
 				print "<td width='1%' class='nowrap'>\n";
 				if (api_user_realm_auth('host.php')) {
-					print '<a href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host["id"]) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="Edit Device"></a>';
+					print '<a href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host["id"]) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="' . __('Edit Device') . '"></a>';
 				}
-				print "<a href='" . htmlspecialchars($config['url_path'] . "graph_view.php?action=preview&graph_template_id=0&filter=&host_id=" . $host["id"]) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='View Graphs'></a>";
+				print "<a href='" . htmlspecialchars($config['url_path'] . "graph_view.php?action=preview&graph_template_id=0&filter=&host_id=" . $host["id"]) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='" . __('View Graphs') . "'></a>";
 				print "</td>";
 				?>
 				<td style='text-align:left'>
@@ -674,7 +675,7 @@ function hosts() {
 
 		print $nav;
 	}else{
-		print '<tr><td class="center" colspan="11">No Devices</td></tr>';
+		print '<tr><td class="center" colspan="12">' . __('No Devices') . '</td></tr>';
 	}
 
 	html_end_box(false);
@@ -723,18 +724,18 @@ function form_host_filter() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						Search
+						<?php print __('Search');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						Type
+						<?php print __('Type');?>
 					</td>
 					<td>
 						<select id='host_template_id' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>>All</option>
-							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>>None</option>
+							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
 							<?php
 							$host_templates = db_fetch_assoc('select id,name from host_template order by name');
 
@@ -747,27 +748,27 @@ function form_host_filter() {
 						</select>
 					</td>
 					<td>
-						Status
+						<?php print __('Status');?>
 					</td>
 					<td>
 						<select id='host_status' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('host_status') == '-1') {?> selected<?php }?>>All</option>
-							<option value='-3'<?php if (get_request_var('host_status') == '-3') {?> selected<?php }?>>Enabled</option>
-							<option value='-2'<?php if (get_request_var('host_status') == '-2') {?> selected<?php }?>>Disabled</option>
-							<option value='-4'<?php if (get_request_var('host_status') == '-4') {?> selected<?php }?>>Not Up</option>
-							<option value='-5'<?php if (get_request_var('host_status') == '-5') {?> selected<?php }?>>Not Monitored</option>
-							<option value='3'<?php if (get_request_var('host_status') == '3') {?> selected<?php }?>>Up</option>
-							<option value='1'<?php if (get_request_var('host_status') == '1') {?> selected<?php }?>>Down</option>
-							<option value='2'<?php if (get_request_var('host_status') == '2') {?> selected<?php }?>>Recovering</option>
-							<option value='0'<?php if (get_request_var('host_status') == '0') {?> selected<?php }?>>Unknown</option>
+							<option value='-1'<?php if (get_request_var('host_status') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='-3'<?php if (get_request_var('host_status') == '-3') {?> selected<?php }?>><?php print __('Enabled');?></option>
+							<option value='-2'<?php if (get_request_var('host_status') == '-2') {?> selected<?php }?>><?php print __('Disabled');?></option>
+							<option value='-4'<?php if (get_request_var('host_status') == '-4') {?> selected<?php }?>><?php print __('Not Up');?></option>
+							<option value='-5'<?php if (get_request_var('host_status') == '-5') {?> selected<?php }?>><?php print __('Not Monitored');?></option>
+							<option value='3'<?php if (get_request_var('host_status') == '3') {?> selected<?php }?>><?php print __('Up');?></option>
+							<option value='1'<?php if (get_request_var('host_status') == '1') {?> selected<?php }?>><?php print __('Down');?></option>
+							<option value='2'<?php if (get_request_var('host_status') == '2') {?> selected<?php }?>><?php print __('Recovering');?></option>
+							<option value='0'<?php if (get_request_var('host_status') == '0') {?> selected<?php }?>><?php print __('Unknown');?></option>
 						</select>
 					</td>
 					<td>
-						Devices
+						<?php print __('Devices');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>>Default</option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
 							<?php
 							if (sizeof($item_rows)) {
 							foreach ($item_rows as $key => $value) {
@@ -778,10 +779,10 @@ function form_host_filter() {
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='button' value='Go' onClick='applyFilter()'>
+						<input id='refresh' type='button' value='<?php print __('Go');?>' onClick='applyFilter()'>
 					</td>
 					<td>
-						<input id='clear' type='button' value='Clear' onClick='clearFilter()'>
+						<input id='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
 					</td>
 				</tr>
 			</table>
@@ -875,7 +876,7 @@ function thold_show_log() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box('Threshold Log for [ ' . $thold_log_retention[read_config_option('thold_log_storage')] . ']', '100%', '', '3', 'center', '');
+	html_start_box(__('Threshold Log for [ %s ]', $thold_log_retention[read_config_option('thold_log_storage')]), '100%', '', '3', 'center', '');
 	form_thold_log_filter();
 	html_end_box();
 
@@ -914,17 +915,18 @@ function thold_show_log() {
 
 	$logs = get_allowed_threshold_logs($sql_where, $sortby, $limit, $total_rows);
 
-	$nav = html_nav_bar('thold_graph.php?action=log', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 8, 'Log Entries', 'page', 'main');
+	$nav = html_nav_bar('thold_graph.php?action=log', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 8, __('Log Entries'), 'page', 'main');
 
 	print $nav;
 
 	$display_text = array(
-		'hdescription'    => array('display' => 'Device',            'sort' => 'ASC', 'align' => 'left'),
-		'time'            => array('display' => 'Time',              'sort' => 'ASC', 'align' => 'left'),
-		'type'            => array('display' => 'Type',              'sort' => 'DESC', 'align' => 'left'),
-		'description'     => array('display' => 'Event Description', 'sort' => 'ASC', 'align' => 'left'),
-		'threshold_value' => array('display' => 'Alert Value',       'sort' => 'ASC', 'align' => 'right'),
-		'current'         => array('display' => 'Measured Value',     'sort' => 'ASC', 'align' => 'right'));
+		'hdescription'    => array('display' => __('Device'),            'sort' => 'ASC', 'align' => 'left'),
+		'time'            => array('display' => __('Time'),              'sort' => 'ASC', 'align' => 'left'),
+		'type'            => array('display' => __('Type'),              'sort' => 'DESC', 'align' => 'left'),
+		'description'     => array('display' => __('Event Description'), 'sort' => 'ASC', 'align' => 'left'),
+		'threshold_value' => array('display' => __('Alert Value'),       'sort' => 'ASC', 'align' => 'right'),
+		'current'         => array('display' => __('Measured Value'),    'sort' => 'ASC', 'align' => 'right')
+	);
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=log');
 
@@ -936,15 +938,15 @@ function thold_show_log() {
 			<td class='left nowrap'><?php print $l['hdescription'];?></td>
 			<td class='left nowrap'><?php print date('Y-m-d H:i:s', $l['time']);?></td>
 			<td class='left nowrap'><?php print $thold_types[$l['type']];?></td>
-			<td class='left nowrap'><?php print (strlen($l['description']) ? $l['description']:'Restoral Event');?></td>
-			<td class='right'><?php print ($l['threshold_value'] != '' ? thold_format_number($l['threshold_value']):'N/A');?></td>
-			<td class='right'><?php print ($l['current'] != '' ? thold_format_number($l['current']):'N/A');?></td>
+			<td class='left nowrap'><?php print (strlen($l['description']) ? $l['description']:__('Restoral Event'));?></td>
+			<td class='right'><?php print ($l['threshold_value'] != '' ? thold_format_number($l['threshold_value']):__('N/A'));?></td>
+			<td class='right'><?php print ($l['current'] != '' ? thold_format_number($l['current']):__('N/A'));?></td>
 			<?php
 
 			form_end_row();
 		}
 	}else{
-		print '<tr><td class="center" colspan="8">No Threshold Logs Found</td></tr>';
+		print '<tr><td class="center" colspan="8">' . __('No Threshold Logs Found'). '</td></tr>';
 	}
 
 	/* put the nav bar on the bottom as well */
@@ -965,18 +967,18 @@ function form_thold_log_filter() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						Search
+						<?php print __('Search');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
-						Threshold
+						<?php print __('Threshold');?>
 					</td>
 					<td>
 						<select id='threshold_id' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('threshold_id') == '-1') {?> selected<?php }?>>All</option>
+							<option value='-1'<?php if (get_request_var('threshold_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
 							<?php
 							$tholds = db_fetch_assoc('SELECT DISTINCT thold_data.id, thold_data.name
 								FROM thold_data
@@ -993,11 +995,11 @@ function form_thold_log_filter() {
 						</select>
 					</td>
 					<td>
-						Status
+						<?php print __('Status');?>
 					</td>
 					<td>
 						<select id='status' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>>All</option>
+							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
 							<?php
 							if (sizeof($thold_log_states)) {
 							foreach ($thold_log_states as $key => $value) {
@@ -1008,11 +1010,11 @@ function form_thold_log_filter() {
 						</select>
 					</td>
 					<td>
-						Entries
+						<?php print __('Entries');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>>Default</option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
 							<?php
 							if (sizeof($item_rows)) {
 							foreach ($item_rows as $key => $value) {
@@ -1023,10 +1025,10 @@ function form_thold_log_filter() {
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='button' value='Go' onClick='applyFilter()'>
+						<input id='refresh' type='button' value='<?php print __('Go');?>' onClick='applyFilter()'>
 					</td>
 					<td>
-						<input id='clear' type='button' value='Clear' onClick='clearFilter()'>
+						<input id='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
 					</td>
 				</tr>
 			</table>
