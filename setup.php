@@ -23,8 +23,6 @@
  +-------------------------------------------------------------------------+
 */
 
-	api_plugin_register_hook('thold', 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php');
-
 function plugin_thold_install () {
 	global $config;
 
@@ -374,11 +372,13 @@ function thold_device_action_execute($action) {
 }
 
 function thold_api_device_new($save) {
+	global $config;
+
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	if (read_config_option('thold_autocreate') == 'on') {
-		if (!empty($save['host_id'])) {
-			autocreate($save['host_id']);
+		if (!empty($save['id'])) {
+			autocreate($save['id']);
 		}
 	}
 
