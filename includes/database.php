@@ -109,7 +109,7 @@ function thold_upgrade_database () {
 		api_plugin_register_hook('thold', 'graphs_action_prepare', 'thold_graphs_action_prepare', 'setup.php');
 		api_plugin_register_hook('thold', 'graphs_action_execute', 'thold_graphs_action_execute', 'setup.php');
 
-		db_execute('UPDATE plugin_hooks SET status = 1 WHERE name="thold"');
+		api_plugin_enable_hooks ('thold');
 
 		// Fix our realms
 		db_execute('UPDATE plugin_realms SET file = "thold.php" WHERE display = "Configure Thresholds"');
@@ -151,7 +151,7 @@ function thold_upgrade_database () {
 		db_execute('DELETE FROM plugin_hooks WHERE name = "thold" AND hook = "config_arrays"');
 		api_plugin_register_hook('thold', 'config_insert', 'thold_config_insert', 'includes/settings.php');
 		api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'includes/settings.php');
-		db_execute('UPDATE plugin_hooks SET status = 1 WHERE name=\'thold\'');
+		api_plugin_enable_hooks ('thold');
 		$e = strtolower(db_fetch_cell("SELECT `value` FROM settings WHERE `name` = 'thold_from_email'"));
 		if ($e == 'cacti@cactiusers.org') {
 			db_execute("UPDATE settings SET `value`='cacti@localhost' WHERE `name`='thold_from_email'");
@@ -302,6 +302,10 @@ function thold_upgrade_database () {
 		api_plugin_register_hook('thold', 'device_template_top', 'thold_device_template_top', 'setup.php');
 		api_plugin_register_hook('thold', 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php');
 		api_plugin_register_hook('thold', 'api_device_new', 'thold_api_device_new', 'setup.php');
+
+		if (api_plugin_is_enabled ('thold')) {
+			api_plugin_enable_hooks ('thold');
+		}
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
