@@ -276,9 +276,7 @@ function thold_upgrade_database () {
 		$data['type']      = 'InnoDB';
 		$data['comment']   = 'Table of Thold Daemon Processes being queued';
 		api_plugin_db_table_create ('thold', 'plugin_thold_daemon_processes', $data);
-	}
 
-	if (version_compare($oldv, '0.6', '<')) {
 		// Rename some columns
 		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN rra_id local_data_id int(11) UNSIGNED NOT NULL default "0"');
 		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN data_id data_template_rrd_id int(11) UNSIGNED NOT NULL default "0"');
@@ -299,6 +297,11 @@ function thold_upgrade_database () {
 		$data['type'] = 'InnoDB';
 		$data['comment'] = 'Table of Device Template Threshold Templates';
 		api_plugin_db_table_create ('thold', 'plugin_thold_device_template', $data);
+
+		api_plugin_register_hook('thold', 'device_template_edit', 'thold_device_template_edit', 'setup.php');
+		api_plugin_register_hook('thold', 'device_template_top', 'thold_device_template_top', 'setup.php');
+		api_plugin_register_hook('thold', 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php');
+		api_plugin_register_hook('thold', 'api_device_new', 'thold_api_device_new', 'setup.php');
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
