@@ -37,12 +37,6 @@ thold_initialize_rusage();
 
 plugin_thold_upgrade();
 
-if (!plugin_thold_check_strict()) {
-	cacti_log('THOLD: You are running MySQL in Strict Mode, which is not supported by Thold.', true, 'POLLER');
-	print '<br><br><center><font color=red>You are running MySQL in Strict Mode, which is not supported by Thold.</font></color>';
-	exit;
-}
-
 delete_old_thresholds();
 
 set_default_action('thold');
