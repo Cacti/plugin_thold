@@ -343,10 +343,12 @@ function thold_rrd_graph_graph_options ($g) {
 		$start = $end + $start;
 	$start--;
 
-	$rows = db_fetch_assoc("SELECT time, status FROM plugin_thold_log WHERE local_graph_id = $id AND type = 0 and time > $start and time < $end");
-	if (!empty($rows)) {
-		foreach ($rows as $row) {
-			$g['graph_defs'] .= 'VRULE:' . $row['time'] . ($row['status'] == 0 ? '#00FF21' : '#FF0000') . ' \\' . "\n";
+	if ($id) {
+		$rows = db_fetch_assoc_prepared('SELECT time, status FROM plugin_thold_log WHERE local_graph_id = ? AND type = 0 and time > ? and time < ?', array($id, $start, $end));
+		if (!empty($rows)) {
+			foreach ($rows as $row) {
+				$g['graph_defs'] .= 'VRULE:' . $row['time'] . ($row['status'] == 0 ? '#00FF21' : '#FF0000') . ' \\' . "\n";
+			}
 		}
 	}
 
