@@ -879,10 +879,10 @@ function tholds($header_label) {
 		if (get_request_var('state') == '-1') {
 			$statefilter = '';
 		} else {
-			if (get_request_var('state') == '0') { $statefilter = "thold_data.thold_enabled='off'"; }
-			if (get_request_var('state') == '2') { $statefilter = "thold_data.thold_enabled='on'"; }
-			if (get_request_var('state') == '1') { $statefilter = 'thold_data.thold_alert!=0 OR thold_data.bl_alert>0'; }
-			if (get_request_var('state') == '3') { $statefilter = '(thold_data.thold_alert!=0 AND thold_data.thold_fail_count >= thold_data.thold_fail_trigger) OR (thold_data.bl_alert>0 AND thold_data.bl_fail_count >= thold_data.bl_fail_trigger)'; }
+			if (get_request_var('state') == '0') { $statefilter = "td.thold_enabled='off'"; }
+			if (get_request_var('state') == '2') { $statefilter = "td.thold_enabled='on'"; }
+			if (get_request_var('state') == '1') { $statefilter = '(td.thold_alert!=0 OR td.bl_alert>0)'; }
+			if (get_request_var('state') == '3') { $statefilter = '(td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger)'; }
 		}
 	}
 
@@ -911,16 +911,18 @@ function tholds($header_label) {
 	}
 
 	if (get_request_var('associated') == 'true') {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . '(notify_warning=' . get_request_var('id') . ' OR notify_alert=' . get_request_var('id') . ')';
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . '(td.notify_warning=' . get_request_var('id') . ' OR td.notify_alert=' . get_request_var('id') . ')';
 	}
+
+cacti_log($sql_where);
 
 	$result = get_allowed_thresholds($sql_where, $sort, $limit, $total_rows);
 
-	$data_templates = db_fetch_assoc('SELECT DISTINCT data_template.id, data_template.name
-		FROM data_template
-		INNER JOIN thold_data 
-		ON thold_data.data_template_id = data_template.id
-		ORDER BY data_template.name');
+	$data_templates = db_fetch_assoc('SELECT DISTINCT dt.id, dt.name
+		FROM data_template AS dt
+		INNER JOIN thold_data AS td
+		ON td.data_template_id = dt.id
+		ORDER BY dt.name');
 
 	html_start_box(__('Associated Thresholds') . ' ' . htmlspecialchars($header_label) , '100%', '', '3', 'center', '');
 	?>
@@ -1425,7 +1427,7 @@ function thold_request_validation() {
 			'options' => array('options' => 'sanitize_search_string')
 			),
 		'state' => array(
-			'filter' => FILTER_VALIDATE_IND,
+			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1',
 			),
