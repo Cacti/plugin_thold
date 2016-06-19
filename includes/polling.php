@@ -239,9 +239,11 @@ function thold_check_all_thresholds() {
 
 function thold_update_host_status() {
 	global $config;
+
 	// Return if we aren't set to notify
 	$deadnotify = (read_config_option('alert_deadnotify') == 'on');
 	if (!$deadnotify) return 0;
+
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	if (api_plugin_is_enabled('maint')) {
@@ -261,7 +263,9 @@ function thold_update_host_status() {
 						continue;
 					}
 				}
+
 				$host = db_fetch_row('SELECT * FROM host WHERE id = ' . $fh['host_id']);
+
 				if ($host['status'] == HOST_UP) {
 					$snmp_system   = '';
 					$snmp_hostname = '';
@@ -284,6 +288,7 @@ function thold_update_host_status() {
 							$snmp_system = str_replace('00:', '', $snmp_system);
 							$snmp_system = str_replace(':', ' ', $snmp_system);
 						}
+
 						if ($snmp_system != '') {
 							$snmp_uptime   = cacti_snmp_get($host['hostname'], $host['snmp_community'], '.1.3.6.1.2.1.1.3.0', $host['snmp_version'],
 								$host['snmp_username'], $host['snmp_password'],
@@ -329,7 +334,6 @@ function thold_update_host_status() {
 							$downtimemsg = $downtime_seconds . 's ';
 						}
 					}
-
 
 					$subject = read_config_option('thold_up_subject');
 					if ($subject == '') {
@@ -382,9 +386,9 @@ function thold_update_host_status() {
 					}
 
 					if ($alert_email == '' && $host['thold_send_email'] > 0) {
-						cacti_log('THOLD: Can not send a Devices Recovering Email since the \'Alert Email\' setting is not set !', true, 'POLLER');
+						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device recovering email for \'' . $host['description'] . '\' since the \'Alert Email\' setting is not set for Device!', true, 'THOLD');
 					} elseif ($host['thold_send_email'] == '0') {
-						cacti_log('THOLD: Did not send a Devices Recovering Email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
+						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Device recovering email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 					} elseif ($alert_email != '') {
 						thold_mail($alert_email, '', $subject, $msg, '');
 					}
@@ -473,9 +477,9 @@ function thold_update_host_status() {
 			}
 
 			if ($alert_email == '' && $host['thold_send_email'] > 0) {
-				cacti_log('THOLD: Can not send a Devices Down Email since the \'Alert Email\' setting is not set !', true, 'POLLER');
+				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device down email for \'' . $host['description'] . '\' since the \'Alert Email\' setting is not set for Device!', true, 'THOLD');
 			} elseif ($host['thold_send_email'] == '0') {
-				cacti_log('THOLD: Did not send a Devices Down Email, disabled per host setting : ' . $host['description'] . ' !', true, 'POLLER');
+				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Device down email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 			} elseif ($alert_email != '') {
 				thold_mail($alert_email, '', $subject, $msg, '');
 			}

@@ -109,7 +109,7 @@ function thold_upgrade_database () {
 		api_plugin_register_hook('thold', 'graphs_action_prepare', 'thold_graphs_action_prepare', 'setup.php');
 		api_plugin_register_hook('thold', 'graphs_action_execute', 'thold_graphs_action_execute', 'setup.php');
 
-		api_plugin_enable_hooks ('thold');
+		api_plugin_enable_hooks('thold');
 
 		// Fix our realms
 		db_execute('UPDATE plugin_realms SET file = "thold.php" WHERE display = "Configure Thresholds"');
@@ -149,9 +149,12 @@ function thold_upgrade_database () {
 		// Fix a few hooks
 		db_execute('DELETE FROM plugin_hooks WHERE name = "thold" AND hook = "config_insert"');
 		db_execute('DELETE FROM plugin_hooks WHERE name = "thold" AND hook = "config_arrays"');
+
 		api_plugin_register_hook('thold', 'config_insert', 'thold_config_insert', 'includes/settings.php');
 		api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'includes/settings.php');
-		api_plugin_enable_hooks ('thold');
+
+		api_plugin_enable_hooks('thold');
+
 		$e = strtolower(db_fetch_cell("SELECT `value` FROM settings WHERE `name` = 'thold_from_email'"));
 		if ($e == 'cacti@cactiusers.org') {
 			db_execute("UPDATE settings SET `value`='cacti@localhost' WHERE `name`='thold_from_email'");
@@ -204,7 +207,7 @@ function thold_upgrade_database () {
 		api_plugin_db_table_create ('thold', 'plugin_notification_lists', $data);
 
 		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
-		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'after' => 'thold_send_email'));
+		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_send_email'));
 
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'notify_warning', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'notify_alert', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
@@ -303,8 +306,8 @@ function thold_upgrade_database () {
 		api_plugin_register_hook('thold', 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php');
 		api_plugin_register_hook('thold', 'api_device_new', 'thold_api_device_new', 'setup.php');
 
-		if (api_plugin_is_enabled ('thold')) {
-			api_plugin_enable_hooks ('thold');
+		if (api_plugin_is_enabled('thold')) {
+			api_plugin_enable_hooks('thold');
 		}
 	}
 
