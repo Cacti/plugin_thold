@@ -3263,16 +3263,16 @@ function autocreate($host_id) {
 		ON tt.id=ptht.thold_template_id
 		WHERE ptht.host_template_id = ?', array($host_template_id)), 'data_template_id', 'data_template_id');
 
+	if (!count($template_list)) {
+		$_SESSION['thold_message'] = '<font size=-2>' . __('No Thresholds Templates associated with the Host\'s Template.') . '</font>';
+		return 0;
+	}
+
 	$rralist = db_fetch_assoc_prepared('SELECT id, data_template_id 
 		FROM data_local 
 		WHERE host_id = ? 
 		AND data_template_id IN (' . implode(',', $template_list) . ')', 
 		array($host_id));
-
-	if (!count($template_list)) {
-		$_SESSION['thold_message'] = '<font size=-2>' . __('No Thresholds Templates associated with the Host\'s Template.') . '</font>';
-		return 0;
-	}
 
 	foreach ($rralist as $row) {
 		$local_data_id      = $row['id'];
