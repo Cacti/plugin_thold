@@ -68,7 +68,7 @@ if (function_exists('pcntl_signal')) {
 }
 
 /* take time and log performance data */
-list($micro,$seconds) = split(' ', microtime());
+list($micro,$seconds) = explode(' ', microtime());
 $start = $seconds + $micro;
 
 /* process calling arguments */
