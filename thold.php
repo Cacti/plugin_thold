@@ -186,7 +186,7 @@ function do_thold() {
 
 	$tholds = array();
 	while (list($var,$val) = each($_POST)) {
-		if (ereg("^chk_(.*)$", $var, $matches)) {
+		if (preg_match("/^chk_(.*)$/", $var, $matches)) {
 			$del = $matches[1];
 			$rra = db_fetch_cell("SELECT local_data_id FROM thold_data WHERE id=$del");
 
