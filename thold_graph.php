@@ -679,35 +679,6 @@ function hosts() {
 	//thold_display_rusage();
 }
 
-function get_timeinstate($host) {
-	$interval = read_config_option('poller_interval');
-	if ($host['status_event_count'] > 0) {
-		$time = $host['status_event_count'] * $interval;
-	}elseif (strtotime($host['status_rec_date']) > 943916400) {
-		$time = time() - strtotime($host['status_rec_date']);
-	}else{
-		$time = $host['snmp_sysUpTimeInstance']/100;
-	}
-
-	if ($time > 86400) {
-		$days  = floor($time/86400);
-		$time %= 86400;
-	}else{
-		$days  = 0;
-	}
-
-	if ($time > 3600) {
-		$hours = floor($time/3600);
-		$time  %= 3600;
-	}else{
-		$hours = 0;
-	}
-
-	$minutes = floor($time/60);
-
-	return $days . 'd:' . substr('00' . $hours, -2) . 'h:' . substr('00' . $minutes, -2) . 'm';
-}
-
 function form_host_filter() {
 	global $item_rows, $config;
 
