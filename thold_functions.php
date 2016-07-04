@@ -561,6 +561,10 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		$polling_interval = $thold_data['rrd_step'];
 	}
 
+	if (empty($polling_interval)) {
+		$polling_interval = read_config_option('poller_interval');
+	}
+
 	$currentval = 0;
 
 	if (isset($rrd_reindexed[$thold_data['local_data_id']])) {
