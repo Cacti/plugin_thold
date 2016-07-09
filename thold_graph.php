@@ -295,11 +295,11 @@ function tholds() {
 
 	$tholds = get_allowed_thresholds($sql_where, $sort . ' ' . get_request_var('sort_direction'), ($rows*(get_request_var('page')-1)) . ", $rows", $total_rows);
 
-	html_start_box('', '100%', '', '4', 'center', '');
-
 	$nav = html_nav_bar('thold_graph.php?action=thold', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 13, 'Thresholds', 'page', 'main');
 
 	print $nav;
+
+	html_start_box('', '100%', '', '4', 'center', '');
 
 	$display_text = array(
 		'nosort'        => array('display' => __('Actions'),     'sort' => '',      'align' => 'left'),
@@ -415,11 +415,14 @@ function tholds() {
 			form_end_row();
 		}
 	} else {
-		form_alternate_row();
-		print '<td class="center" colspan="13">' . __('No Thresholds'). '</td></tr>';
+		print '<tr class="even"><td class="center" colspan="13">' . __('No Thresholds'). '</td></tr>';
 	}
-	print $nav;
+
 	html_end_box(false);
+
+	if (sizeof($tholds)) {
+		print $nav;
+	}
 
 	thold_legend();
 
@@ -555,8 +558,6 @@ function hosts() {
 
 	$sql_where .= (strlen($sql_where) ? ')':'');
 
-	html_start_box('', '100%', '', '3', 'center', '');
-
 	$sortby = get_request_var('sort_column');
 	if ($sortby=='hostname') {
 		$sortby = 'INET_ATON(hostname)';
@@ -570,6 +571,8 @@ function hosts() {
 	$nav = html_nav_bar('thold_graph.php?action=hoststat', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, __('Devices'), 'page', 'main');
 
 	print $nav;
+
+	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
 		'nosort'                 => array('display' => __('Actions'),      'align' => 'left',   'sort' => '',     'tip' => __('Hover over icons for help')),
@@ -666,13 +669,15 @@ function hosts() {
 
 			form_end_row();
 		}
-
-		print $nav;
 	}else{
 		print '<tr><td class="center" colspan="12">' . __('No Devices') . '</td></tr>';
 	}
 
 	html_end_box(false);
+
+	if (sizeof($hosts)) {
+		print $nav;
+	}
 
 	host_legend();
 
@@ -873,8 +878,6 @@ function thold_show_log() {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . " tl.description LIKE '%" . get_request_var('filter') . "%'";
 	}
 
-	html_start_box('', '100%', '', '3', 'center', '');
-
 	$sortby = get_request_var('sort_column') . ' ' . get_request_var('sort_direction');
 	$limit  = ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
@@ -883,6 +886,8 @@ function thold_show_log() {
 	$nav = html_nav_bar('thold_graph.php?action=log', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 8, __('Log Entries'), 'page', 'main');
 
 	print $nav;
+
+	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
 		'hdescription'    => array('display' => __('Device'),            'sort' => 'ASC', 'align' => 'left'),
@@ -914,10 +919,11 @@ function thold_show_log() {
 		print '<tr><td class="center" colspan="8">' . __('No Threshold Logs Found'). '</td></tr>';
 	}
 
-	/* put the nav bar on the bottom as well */
-	print $nav;
-
 	html_end_box(false);
+
+	if (sizeof($logs)) {
+		print $nav;
+	}
 
 	log_legend();
 }

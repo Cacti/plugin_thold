@@ -1324,13 +1324,13 @@ function templates() {
 	$total_rows    = db_fetch_cell('SELECT count(*) FROM thold_template');
 	$template_list = db_fetch_assoc("SELECT * FROM thold_template $sql_where $order $limit");
 
-	form_start('thold_templates.php', 'chk');
-
-	html_start_box('', '100%', '', '3', 'center', '');
-
 	$nav = html_nav_bar('thold_templates.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Templates'), 'page', 'main');
 
+	form_start('thold_templates.php', 'chk');
+
 	print $nav;
+
+	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
 		'name'               => array(__('Name'), 'ASC'),
@@ -1403,12 +1403,15 @@ function templates() {
 			form_checkbox_cell($template['data_template_name'], $template['id']);
 			form_end_row();
 		}
-
-		print $nav;
 	} else {
 		print "<tr><td><em>" . __('No Threshold Templates') . "</em></td></tr>\n";
 	}
+
 	html_end_box(false);
+
+	if (sizeof($template_list)) {
+		print $nav;
+	}
 
 	/* draw the dropdown containing a list of available actions for this form */
 	draw_actions_dropdown($thold_actions);

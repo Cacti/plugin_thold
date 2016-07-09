@@ -460,13 +460,13 @@ function list_tholds() {
 
 	html_end_box();
 
-	form_start('thold.php', 'chk');
-
-	html_start_box('', '100%', '', '4', 'center', '');
-
 	$nav = html_nav_bar('thold.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Thresholds'), 'page', 'main');
 
+	form_start('thold.php', 'chk');
+
 	print $nav;
+
+	html_start_box('', '100%', '', '4', 'center', '');
 
 	$display_text = array(
 		'name'             => array('display' => __('Name'),      'sort' => 'ASC', 'align' => 'left'),
@@ -591,12 +591,14 @@ function list_tholds() {
 			form_end_row();
 		}
 	} else {
-		form_alternate_row();
-		print '<td colspan=14><center>' . __('No Thresholds') . '</center></td></tr>';
+		print "<tr class='even'><td colspan='14'><center>" . __('No Thresholds') . "</center></td></tr>\n";
 	}
-	print $nav;
 
 	html_end_box(false);
+
+	if (sizeof($tholds)) {
+		print $nav;
+	}
 
 	thold_legend();
 

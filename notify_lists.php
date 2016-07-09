@@ -794,10 +794,6 @@ function hosts($header_label) {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'WHERE ') . ' (host.thold_send_email>1 AND host.thold_host_email=' . get_request_var('id') . ')';
 	}
 
-	form_start('notify_lists.php', 'chk');
-
-	html_start_box('', '100%', '', '3', 'center', '');
-
 	$total_rows = db_fetch_cell("select
 		COUNT(host.id)
 		from host
@@ -814,7 +810,11 @@ function hosts($header_label) {
 
 	$nav = html_nav_bar('notify_lists.php?action=edit&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Devices'), 'page', 'main');
 
+	form_start('notify_lists.php', 'chk');
+
 	print $nav;
+
+	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(__('Description'), __('ID'), __('Associated Lists'), __('Graphs'), __('Data Sources'), __('Status'), __('Hostname'));
 
@@ -847,19 +847,20 @@ function hosts($header_label) {
 			form_checkbox_cell($host['description'], $host['id']);
 			form_end_row();
 		}
-
-		/* put the nav bar on the bottom as well */
-		print $nav;
 	} else {
 		print '<tr><td><em>' . __('No Associated Devices Found') . '</em></td></tr>';
 	}
+
 	html_end_box(false);
+
+	if (sizeof($hosts)) {
+		print $nav;
+	}
 
 	form_hidden_box('tab', 'hosts', '');
 	form_hidden_box('id', get_request_var('id'), '');
 	form_hidden_box('save_associate', '1', '');
 
-	/* draw the dropdown containing a list of available actions for this form */
 	draw_actions_dropdown($assoc_actions);
 
 	form_end();
@@ -1026,13 +1027,13 @@ cacti_log($sql_where);
 
 	html_end_box();
 
-	form_start('notify_lists.php', 'chk');
-
-	html_start_box('', '100%', '', '4', 'center', '');
-
 	$nav = html_nav_bar('notify_lists.php?action=edit&tab=tholds', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Thresholds'), 'page', 'main');
 
+	form_start('notify_lists.php', 'chk');
+
 	print $nav;
+
+	html_start_box('', '100%', '', '4', 'center', '');
 
 	$display_text = array(
 		'name'          => array(__('Name'), 'ASC'),
@@ -1128,14 +1129,15 @@ cacti_log($sql_where);
 			form_checkbox_cell($row['name'], $row['id']);
 			form_end_row();
 		}
-
-		print $nav;
 	} else {
-		form_alternate_row();
-		print '<td colspan="8"><i>' . __('No Thresholds'). '</i></td></tr>';
+		print "<tr class='even' <td colspan='8'><i>" . __('No Thresholds'). "</i></td></tr>\n";
 	}
 
 	html_end_box(false);
+
+	if (count($result)) {
+		print $nav;
+	}
 
 	form_hidden_box('tab', 'tholds', '');
 	form_hidden_box('id', get_request_var('id'), '');
@@ -1262,13 +1264,13 @@ function templates($header_label) {
 		FROM thold_template
 		$sql_where");
 
-	form_start('notify_lists.php', 'chk');
-
-	html_start_box('', '100%', '', '4', 'center', '');
-
 	$nav = html_nav_bar('notify_lists.php?action=edit&tab=templates&id=' . get_filter_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, 'Lists', 'page', 'main');
 
+	form_start('notify_lists.php', 'chk');
+
 	print $nav;
+
+	html_start_box('', '100%', '', '4', 'center', '');
 
 	$display_text = array(
 		'name'       => array(__('Name'), 'ASC'),
@@ -1281,7 +1283,7 @@ function templates($header_label) {
 
 	$c=0;
 	$i=0;
-	if (count($result)) {
+	if (sizeof($result)) {
 		foreach ($result as $row) {
 			$c++;
 
@@ -1341,14 +1343,15 @@ function templates($header_label) {
 			form_checkbox_cell($row['name'], $row['id']);
 			form_end_row();
 		}
-
-		print $nav;
 	} else {
-		form_alternate_row();
-		print '<td colspan="8"><i>No Templates</i></td></tr>';
+		print "<tr class='even'><td colspan='8'><i>" . __('No Templates') . "</i></td></tr>\n";
 	}
 
 	html_end_box(false);
+
+	if (sizeof($result)) {
+		print $nav;
+	}
 
 	form_hidden_box('tab', 'templates', '');
 	form_hidden_box('id', get_request_var('id'), '');
@@ -1564,10 +1567,6 @@ function lists() {
 		$sql_where = '';
 	}
 
-	form_start('notify_lists.php', 'chk');
-
-	html_start_box('', '100%', '', '3', 'center', '');
-
 	$total_rows = db_fetch_cell("SELECT
 		COUNT(*)
 		FROM plugin_notification_lists
@@ -1581,7 +1580,11 @@ function lists() {
 
 	$nav = html_nav_bar('notify_lists.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Lists'), 'page', 'main');
 
+	form_start('notify_lists.php', 'chk');
+
 	print $nav;
+
+	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
 		'name'        => array(__('List Name'), 'ASC'),
@@ -1599,11 +1602,15 @@ function lists() {
 			form_checkbox_cell($item['name'], $item['id']);
 			form_end_row();
 		}
-		print $nav;
 	} else {
 		print '<tr><td><em>' . __('No Notification Lists') . '</em></td></tr>';
 	}
+
 	html_end_box(false);
+
+	if (sizeof($lists)) {
+		print $nav;
+	}
 
 	form_hidden_box('save_list', '1', '');
 
@@ -1612,6 +1619,3 @@ function lists() {
 
 	form_end();
 }
-
-?>
-
