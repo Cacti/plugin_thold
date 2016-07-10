@@ -2455,9 +2455,9 @@ function thold_format_number($value, $digits = 5) {
 	if ($value == '') {
 		return '-';
 	}elseif (strlen(round($value, 0)) == strlen($value)) {
-		return number_format($value);
+		return number_format_i18n($value);
 	} else {
-		return rtrim(number_format($value, $digits), '0');
+		return rtrim(number_format_i18n($value, $digits), '0');
 	}
 }
 

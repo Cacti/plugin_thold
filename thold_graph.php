@@ -632,8 +632,8 @@ function hosts() {
 					<?php print filter_value($host['description'], get_request_var('filter'));?>
 				</td>
 				<td style='text-align:right'><?php print round(($host['id']), 2);?></td>
-				<td style='text-align:right'><i><?php print number_format($graphs);?></i></td>
-				<td style='text-align:right'><i><?php print number_format($ds);?></i></td>
+				<td style='text-align:right'><i><?php print number_format_i18n($graphs);?></i></td>
+				<td style='text-align:right'><i><?php print number_format_i18n($ds);?></i></td>
 				<td style='text-align:center'><?php print get_uncolored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']);?></td>
 				<td style='text-align:right'><?php print get_timeinstate($host);?></td>
 				<td style='text-align:right'><?php print $uptime;?></td>
@@ -655,8 +655,8 @@ function hosts() {
 					<?php print filter_value($host['description'], get_request_var('filter'));?>
 				</td>
 				<td style='text-align:right'><?php print $host['id'];?></td>
-				<td style='text-align:right'><i><?php print number_format($graphs);?></i></td>
-				<td style='text-align:right'><i><?php print number_format($ds);?></i></td>
+				<td style='text-align:right'><i><?php print number_format_i18n($graphs);?></i></td>
+				<td style='text-align:right'><i><?php print number_format_i18n($ds);?></i></td>
 				<td style='text-align:center'><?php print 'Not Monitored';?></td>
 				<td style='text-align:right'><?php print 'N/A';?></td>
 				<td style='text-align:right'><?php print $uptime;?></td>
