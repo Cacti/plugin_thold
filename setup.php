@@ -209,7 +209,7 @@ function thold_rrd_graph_graph_options ($g) {
 	if (is_array($defs)) {
 		foreach ($defs as $def) {
 			if (!substr_count($def, 'CDEF') && !substr_count($def, 'VDEF')) {
-				$ddef   = thold_multiexplode(array('"', "'"), array($def));
+				$ddef   = thold_multiexplode(array('"', "'"), $def);
 				$kdef   = explode(':', $def);
 				$dsname = $kdef[2];
 				$temp1  = str_replace('.rrd', '', basename($ddef[1]));
