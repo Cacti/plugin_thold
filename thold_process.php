@@ -77,36 +77,43 @@ array_shift($parms);
 $pid			= false;
 $debug          = false;
 
-foreach($parms as $parameter) {
-	@list($arg, $value) = @explode('=', $parameter);
-
-	switch ($arg) {
-	case '-d':
-	case '--debug':
-		$debug = TRUE;
-		break;
-	case '-pid':
-	case '--pid':
-		@list($partA, $partB) = @explode('_', $value);
-		if(is_numeric($partA) && is_numeric($partB)) {
-			$pid = $value;
-		}else {
-			print 'ERROR: Invalid Process ID ' . $arg . "\n\n";
-			display_help();
-			exit;
+if (sizeof($parms)) {
+	foreach($parms as $parameter) {
+		if (strpos($parameter, '=')) {
+			list($arg, $value) = explode('=', $parameter);
+		} else {
+			$arg = $parameter;
+			$value = '';
 		}
-		break;
-	case '-v':
-	case '--version':
-	case '-V':
-	case '--help':
-	case '-h':
-	case '-H':
-		//display_help();
-		exit;
-	default:
-		print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
-		display_help();
+
+		switch ($arg) {
+			case '-d':
+			case '--debug':
+				$debug = TRUE;
+				break;
+			case '-pid':
+			case '--pid':
+				@list($partA, $partB) = @explode('_', $value);
+				if(is_numeric($partA) && is_numeric($partB)) {
+					$pid = $value;
+				}else {
+					print 'ERROR: Invalid Process ID ' . $arg . "\n\n";
+					display_help();
+					exit;
+				}
+				break;
+			case '-v':
+			case '--version':
+			case '-V':
+			case '--help':
+			case '-h':
+			case '-H':
+				//display_help();
+			exit;
+			default:
+				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
+				display_help();
+		}
 	}
 }
 

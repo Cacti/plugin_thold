@@ -57,43 +57,50 @@ $gids      = '';
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
-foreach($parms as $parameter) {
-	@list($arg, $value) = @explode('=', $parameter);
+if (sizeof($parms)) {
+	foreach($parms as $parameter) {
+		if (strpos($parameter, '=')) {
+			list($arg, $value) = explode('=', $parameter);
+		} else {
+			$arg = $parameter;
+			$value = '';
+		}
 
-	switch ($arg) {
-	case '-auto':
-		thold_cli_autocreate_host ($value);
-		exit;
-	case '--debug':
-	case '-d':
-		$debug = true;
-		break;
-	case '--force':
-	case '-f':
-		$force = true;
-		break;
-	case '--graph-template':
-	case '-gt':
-		$gtemplate = $value;
-		break;
-	case '--thold-template':
-	case '-tt':
-		$ttemplate = $value;
-		break;
-	case '--graph-ids':
-	case '-ids':
-		$gids = $value;
-		break;
-	case '-h':
-	case '-v':
-	case '--version':
-	case '--help':
-		display_help();
-		exit(-1);
-	default:
-		print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
-		display_help();
-		exit(-1);
+		switch ($arg) {
+			case '-auto':
+				thold_cli_autocreate_host ($value);
+				exit;
+			case '--debug':
+			case '-d':
+				$debug = true;
+				break;
+			case '--force':
+			case '-f':
+				$force = true;
+				break;
+			case '--graph-template':
+			case '-gt':
+				$gtemplate = $value;
+				break;
+			case '--thold-template':
+			case '-tt':
+				$ttemplate = $value;
+				break;
+			case '--graph-ids':
+			case '-ids':
+				$gids = $value;
+				break;
+			case '-h':
+			case '-v':
+			case '--version':
+			case '--help':
+				display_help();
+			exit(-1);
+			default:
+				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
+				display_help();
+				exit(-1);
+		}
 	}
 }
 
