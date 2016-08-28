@@ -1494,11 +1494,10 @@ function template_import() {
 		$save  = array();
 		if (sizeof($contents)) {
 		foreach($contents as $name => $value) {
-			$value = htmlentities($value);
 			switch($name) {
 			case 'data_template_id':
 				// See if the hash exists, if it doesn't, Error Out
-				$found = db_fetch_cell("SELECT id FROM data_template WHERE hash='$value'");
+				$found = db_fetch_cell_prepared('SELECT id FROM data_template WHERE hash = ?', array($value));
 
 				if (!empty($found)) {
 					$save['data_template_id'] = $found;
@@ -1510,7 +1509,7 @@ function template_import() {
 				break;
 			case 'data_source_id':
 				// See if the hash exists, if it doesn't, Error Out
-				$found = db_fetch_cell("SELECT id FROM data_template_rrd WHERE hash='$value'");
+				$found = db_fetch_cell_prepared('SELECT id FROM data_template_rrd WHERE hash = ?', array($value));
 
 				if (!empty($found)) {
 					$save['data_source_id'] = $found;
@@ -1522,7 +1521,7 @@ function template_import() {
 				break;
 			case 'hash':
 				// See if the hash exists, if it does, update the thold
-				$found = db_fetch_cell("SELECT id FROM thold_template WHERE hash='$value'");
+				$found = db_fetch_cell_prepared('SELECT id FROM thold_template WHERE hash = ?', array($value));
 
 				if (!empty($found)) {
 					$save['hash'] = $value;
