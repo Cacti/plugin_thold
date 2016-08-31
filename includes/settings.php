@@ -105,6 +105,11 @@ function thold_config_form () {
 	foreach ($fields_host_edit2 as $f => $a) {
 		$fields_host_edit3[$f] = $a;
 		if ($f == 'disabled') {
+			$fields_host_edit3['thold_mail_spacer'] = array(
+				'friendly_name' => __('Device Up/Down Notification Settings'),
+				'method' => 'spacer',
+				'collapsible' => true
+			);
 			$fields_host_edit3['thold_send_email'] = array(
 				'friendly_name' => __('Thold Up/Down Email Notification'),
 				'method' => 'drop_array',
