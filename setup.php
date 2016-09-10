@@ -190,7 +190,7 @@ function thold_graph_button($data) {
 			get_filter_request_var('leaf_id');
 		}
 
-		print '<a href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=add' . '&usetemplate=1&local_graph_id=' . $local_graph_id) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="' . __('Create Threshold') . '" style="padding: 3px;"></a><br>';
+		print '<a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=add' . '&usetemplate=1&local_graph_id=' . $local_graph_id) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" border="0" alt="" title="' . __('Create Threshold') . '" style="padding: 3px;"></a><br>';
 	}
 }
 
