@@ -1605,7 +1605,7 @@ function thold_check_threshold(&$thold_data) {
 				'rra_id'         => 0, 
 				'file'           => "$httpurl/graph_image.php?local_graph_id=" . $thold_data['local_graph_id'] . '&rra_id=0&view_type=tree', 
 				'mimetype'       => 'image/png', 
-				'filename'       => $thold_data['name'] . '.png'
+				'filename'       => clean_up_name($thold_data['name'])
 			);
 		}
 	}
@@ -3429,17 +3429,23 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 
 	if (is_array($filename) && !empty($filename) && strstr($message, '<GRAPH>') !== 0) {
 		foreach($filename as $val) {
-			$graph_data_array = array('output_flag'=> RRDTOOL_OUTPUT_STDOUT);
+			$graph_data_array = array(
+				'graph_start'   => time()-86400,
+				'graph_end'     => time(),
+				'image_format'  => 'png',
+				'graph_theme'   => 'modern',
+				'output_flag'   => RRDTOOL_OUTPUT_STDOUT,
+				'disable_cache' => true
+			);
+
 			$attachments[] = array(
-				'attachment'     => rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array),
-				'filename'       => $val['filename'],
+				'attachment'     => @rrdtool_function_graph($val['local_graph_id'], '', $graph_data_array, ''),
+				'filename'       => 'graph_' . $val['local_graph_id'] . '.png',
 				'mime_type'      => 'image/png',
 				'local_graph_id' => $val['local_graph_id'],
 				'local_data_id'  => $val['local_data_id'],
 				'inline'         => 'inline'
 			);
-
-			cacti_log('The filename: ' . $val['filename']);
 		}
 	}
 
