@@ -2822,13 +2822,15 @@ function thold_check_baseline($local_data_id, $data_template_rrd_id, $current_va
 		$midnight =  gmmktime(0,0,0);
 		$t0 = $midnight + floor(($now - $midnight) / $thold_data['bl_ref_time_range']) * $thold_data['bl_ref_time_range'];
 
-		$ref_values = thold_get_ref_value($local_data_id, $data_template_rrd_id, $t0, $thold_data['bl_ref_time_range']);
+		$ref_values    = thold_get_ref_value($local_data_id, $data_template_rrd_id, $t0, $thold_data['bl_ref_time_range']);
+		$ref_value_min = min($ref_values);
+		$ref_value_max = max($ref_values);
 
 		if (!is_array($ref_values) || sizeof($ref_values) == 0) {
 			$thold_data['thold_low'] = '';
 			$thold_data['thold_hi'] = '';
 			$thold_data['bl_thold_valid'] = $now;
-			$returnvalue=-1;
+			$returnvalue = -1;
 			return $returnvalue; // Baseline reference value not yet established
 		}
 
@@ -2841,16 +2843,16 @@ function thold_check_baseline($local_data_id, $data_template_rrd_id, $current_va
 		$blt_high = '';
 
 		if ($thold_data['bl_pct_down'] != '') {
-			$blt_low  = round($ref_value - abs($ref_value * $thold_data['bl_pct_down'] / 100),2);
+			$blt_low  = $ref_value_min - ($ref_value_min * $thold_data['bl_pct_down'] / 100);
 		}
 
 		if ($thold_data['bl_pct_up'] != '') {
-			$blt_high = round($ref_value + abs($ref_value * $thold_data['bl_pct_up'] / 100),2);
+			$blt_high = $ref_value_max + ($ref_value_max * $thold_data['bl_pct_up'] / 100);
 		}
 
 		// Cache the calculated or empty values
-		$thold_data['thold_low'] = $blt_low;
-		$thold_data['thold_hi']  = $blt_high;
+		$thold_data['thold_low']      = $blt_low;
+		$thold_data['thold_hi']       = $blt_high;
 		$thold_data['bl_thold_valid'] = $t0 + $thold_data['bl_ref_time_range'];
 
 		$failed = 0;
@@ -2867,13 +2869,13 @@ function thold_check_baseline($local_data_id, $data_template_rrd_id, $current_va
 	}
 
 	if ($debug) {
-		echo "Local Data Id: $local_data_id : $data_template_rrd_id\n";
+		echo 'Local Data Id: '     . $local_data_id . ':' . $data_template_rrd_id . "\n";
 		echo 'Ref. values count: ' . (isset($ref_values) ? count($ref_values):"N/A") . "\n";
-		echo "Ref. value (min): " . (isset($ref_value_min) ? $ref_value_min:"N/A") . "\n";
-		echo "Ref. value (max): " . (isset($ref_value_max) ? $ref_value_max:"N/A") . "\n";
-		echo "Cur. value: $current_value\n";
-		echo "Low bl thresh: " . (isset($blt_low) ? $blt_low:"N/A") . "\n";
-		echo "High bl thresh: " . (isset($blt_high) ? $blt_high:"N/A") . "\n";
+		echo 'Ref. value (min): '  . (isset($ref_value_min) ? $ref_value_min:'N/A') . "\n";
+		echo 'Ref. value (max): '  . (isset($ref_value_max) ? $ref_value_max:'N/A') . "\n";
+		echo 'Cur. value: '        . $current_value . "\n";
+		echo 'Low bl thresh: '     . (isset($blt_low) ? $blt_low:'N/A') . "\n";
+		echo 'High bl thresh: '    . (isset($blt_high) ? $blt_high:'N/A') . "\n";
 		echo 'Check against baseline: ';
 		switch($failed) {
 			case 0:
@@ -3429,13 +3431,15 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 		foreach($filename as $val) {
 			$graph_data_array = array('output_flag'=> RRDTOOL_OUTPUT_STDOUT);
 			$attachments[] = array(
-				'attachment'     => @rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array),
+				'attachment'     => rrdtool_function_graph($val['local_graph_id'], $val['rra_id'], $graph_data_array),
 				'filename'       => $val['filename'],
 				'mime_type'      => 'image/png',
 				'local_graph_id' => $val['local_graph_id'],
 				'local_data_id'  => $val['local_data_id'],
 				'inline'         => 'inline'
 			);
+
+			cacti_log('The filename: ' . $val['filename']);
 		}
 	}
 
