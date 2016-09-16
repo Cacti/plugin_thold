@@ -3701,6 +3701,7 @@ function get_thold_warning_emails($thold) {
 
 	$warning_emails .= (strlen($warning_emails) ? ',':'') . get_thold_notification_emails($thold['notify_warning']);
 
+	 return $warning_emails;
 }
 
 function get_thold_alert_emails($thold) {
