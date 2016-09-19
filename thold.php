@@ -228,7 +228,7 @@ function do_thold() {
 					$thold = db_fetch_row("SELECT * FROM thold_data WHERE id=$del");
 					/* check if thold templated */
 					if ($thold['template_enabled'] == "on") {
-						$template = db_fetch_row("SELECT * FROM thold_template WHERE id=" . $thold["template"]);
+						$template = db_fetch_row_prepared("SELECT * FROM thold_template WHERE id = ?", array($thold["template"]));
 						$name = thold_format_name($template, $thold["local_graph_id"], $thold["data_template_rrd_id"], $template['data_source_name']);
 						plugin_thold_log_changes($del, 'reapply_name', array('id' => $del));
 						db_execute("UPDATE thold_data SET name='$name' WHERE id=$del");

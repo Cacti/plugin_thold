@@ -2464,8 +2464,8 @@ function thold_format_number($value, $digits = 5) {
 function thold_format_name($template, $local_graph_id, $local_data_id, $data_source_name) {
 	$desc = db_fetch_cell_prepared('SELECT name_cache FROM data_template_data WHERE local_data_id = ? LIMIT 1', array($local_data_id));
 
-	if (substr_count($template['name'], '|')) {
-		$gl = db_fetch_row("SELECT * FROM graph_local WHERE id=$local_graph_id");
+	if (isset($template['name']) && strpos($template['name'], '|') !== false) {
+		$gl = db_fetch_row_prepared("SELECT * FROM graph_local WHERE id = ?", array($local_graph_id));
 
 		if (sizeof($gl)) {
 			$name = expand_title($gl['host_id'], $gl['snmp_query_id'], $gl['snmp_index'], $template['name']);
@@ -3701,7 +3701,7 @@ function get_thold_warning_emails($thold) {
 
 	$warning_emails .= (strlen($warning_emails) ? ',':'') . get_thold_notification_emails($thold['notify_warning']);
 
-	 return $warning_emails;
+	return $warning_emails;
 }
 
 function get_thold_alert_emails($thold) {

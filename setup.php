@@ -531,7 +531,7 @@ function thold_data_source_action_execute($action) {
 			$message = '';
 			get_filter_request_var('thold_template_id');
 
-			$template = db_fetch_row('SELECT * FROM thold_template WHERE id=' . get_request_var('thold_template_id'));
+			$template = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array(get_request_var('thold_template_id')));
 
 			for ($i=0;($i<count($selected_items));$i++) {
 				$local_data_id    = $selected_items[$i];
@@ -726,7 +726,7 @@ function thold_graphs_action_execute($action) {
 			$message = '';
 			get_filter_request_var('thold_template_id');
 
-			$template = db_fetch_row('SELECT * FROM thold_template WHERE id=' . get_request_var('thold_template_id'));
+			$template = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array(get_request_var('thold_template_id')));
 
 			for ($i=0;($i<count($selected_items));$i++) {
 				$graph    = $selected_items[$i];
