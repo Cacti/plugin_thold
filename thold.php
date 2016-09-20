@@ -253,7 +253,7 @@ function do_thold() {
 	}
 
 	if (isset($host_id) && $host_id != '') {
-		header('Location:thold.php?header=false&host_id=$host_id');
+		header('Location:thold.php?header=false&host_id=' . $host_id);
 	} else {
 		header('Location:thold.php?header=false');
 	}
@@ -795,7 +795,7 @@ function thold_edit() {
 					$selected = '';
 				}
 	
-				if ($selected != '' && !empty($template_data_rrd['thold_id'])) {
+				if (!empty($template_data_rrd['thold_id'])) {
 					echo "<li class='textEditTitle'><a class='hyperLink $selected' href='" . htmlspecialchars('thold.php?action=edit&id=' . $template_data_rrd['thold_id']) . "'>" . $template_data_rrd['data_source_name'] . '<br>' . $cur_setting . '</a></li>';
 				}else{
 					echo "<li class='textEditTitle'><a class='hyperLink $selected' href='" . htmlspecialchars('thold.php?action=edit&local_data_id=' . $template_data_rrd['local_data_id'] . '&data_template_rrd_id=' . $template_data_rrd['id']) . '&local_graph_id=' . $thold_data['local_graph_id'] . '&host_id=' . $thold_data['host_id'] . '&data_template_id=' . $thold_data['data_template_id'] . '&thold_template_id=0' . "'>" . $template_data_rrd['data_source_name'] . '<br>' . $cur_setting . '</a></li>';
