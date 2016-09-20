@@ -24,6 +24,8 @@
 */
 
 function thold_draw_navigation_text ($nav) {
+	global $config;
+
 	$nav['thold.php:'] = array('title' => __('Thresholds'), 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '1');
 	$nav['thold.php:actions'] = array('title' => __('(actions)'), 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
 	$nav['thold.php:edit'] = array('title' => __('(edit)'), 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
@@ -31,7 +33,7 @@ function thold_draw_navigation_text ($nav) {
 	$nav['thold.php:add'] = array('title' => __('(add)'), 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
 	$nav['thold.php:autocreate'] = array('title' => __('Thresholds'), 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '2');
 	$nav['thold_graph.php:'] = array('title' => __('Thresholds'), 'mapping' => 'index.php:', 'url' => 'thold_graph.php', 'level' => '1');
-	$nav['thold_graph.php:thold'] = array('title' => __('Thresholds'), 'mapping' => 'graph_view.php:', 'url' => 'thold_graph.php', 'level' => '1');
+	$nav['thold_graph.php:thold'] = array('title' => __('Thresholds'), 'mapping' => $config['url_path'] . 'graph_view.php:', 'url' => 'thold_graph.php', 'level' => '1');
 	$nav['thold_view_failures.php:'] = array('title' => __('Thresholds - Failures'), 'mapping' => 'index.php:', 'url' => 'thold_view_failures.php', 'level' => '1');
 	$nav['thold_view_normal.php:'] = array('title' => __('Thresholds - Normal'), 'mapping' => 'index.php:', 'url' => 'thold_view_normal.php', 'level' => '1');
 	$nav['thold_view_recover.php:'] = array('title' => __('Thresholds - Recovering'), 'mapping' => 'index.php:', 'url' => 'thold_view_recover.php', 'level' => '1');
