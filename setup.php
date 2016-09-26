@@ -95,8 +95,10 @@ function plugin_thold_upgrade () {
 	return false;
 }
 
-function thold_version () {
-	return plugin_thold_version();
+function plugin_thold_version () {
+	global $config;
+	$info = parse_ini_file($config['base_path'] . '/plugins/thold/INFO', true);
+	return $info['info'];
 }
 
 function thold_check_upgrade () {
@@ -124,18 +126,6 @@ function plugin_thold_check_strict () {
 		return false;
 	}
 	return true;
-}
-
-function plugin_thold_version () {
-	return array(
-		'name'		=> 'thold',
-		'version' 	=> '1.0',
-		'longname'	=> 'Thresholds',
-		'author'	=> 'Jimmy Conner',
-		'homepage'	=> 'http://docs.cacti.net/plugin:thold',
-		'email'		=> 'jimmy@sqmail.org',
-		'url'		=> 'http://docs.cacti.net/plugin:thold'
-	);
 }
 
 function thold_graph_button($data) {
