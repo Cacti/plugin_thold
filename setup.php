@@ -25,7 +25,9 @@
 
 function plugin_thold_install () {
 	global $config;
-
+	if (version_compare($config['cacti_version'], '1.0.0') < 0) {
+		return false;
+	}
 	api_plugin_register_hook('thold', 'page_head', 'thold_page_head', 'setup.php');
 	api_plugin_register_hook('thold', 'top_header_tabs', 'thold_show_tab', 'includes/tab.php');
 	api_plugin_register_hook('thold', 'top_graph_header_tabs', 'thold_show_tab', 'includes/tab.php');
@@ -84,9 +86,7 @@ function plugin_thold_uninstall () {
 function plugin_thold_check_config () {
 	// Here we will check to ensure everything is configured
 	thold_check_upgrade ();
-
 	return true;
-
 }
 
 function plugin_thold_upgrade () {
