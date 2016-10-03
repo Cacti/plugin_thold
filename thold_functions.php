@@ -3332,7 +3332,6 @@ function autocreate($host_id) {
 						$insert['thold_hi']             = $template['thold_hi'];
 						$insert['thold_low']            = $template['thold_low'];
 						$insert['thold_fail_trigger']   = $template['thold_fail_trigger'];
-						$insert['thold_fail_count']     = $template['thold_fail_count'];
 
 						$insert['time_hi']              = $template['time_hi'];
 						$insert['time_low']             = $template['time_low'];
