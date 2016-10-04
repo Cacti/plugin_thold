@@ -480,7 +480,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'time', 'type' => 'int(24)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(10)', 'NULL' => false);
-	$data['columns'][] = array('name' => 'graph_id', 'type' => 'int(10)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'local_graph_id', 'type' => 'int(10)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'threshold_id', 'type' => 'int(10)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'threshold_value', 'type' => 'varchar(64)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'current', 'type' => 'varchar(64)', 'NULL' => false);
@@ -491,7 +491,7 @@ function thold_setup_database () {
 	$data['primary']   = 'id';
 	$data['keys'][]    = array('name' => 'time', 'columns' => 'time');
 	$data['keys'][]    = array('name' => 'host_id', 'columns' => 'host_id');
-	$data['keys'][]    = array('name' => 'local_graph_id', 'columns' => 'graph_id');
+	$data['keys'][]    = array('name' => 'local_graph_id', 'columns' => 'local_graph_id');
 	$data['keys'][]    = array('name' => 'threshold_id', 'columns' => 'threshold_id');
 	$data['keys'][]    = array('name' => 'status', 'columns' => 'status');
 	$data['keys'][]    = array('name' => 'type', 'columns' => 'type');
