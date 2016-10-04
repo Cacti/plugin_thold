@@ -266,7 +266,7 @@ function thold_update_host_status() {
 
 				$host = db_fetch_row('SELECT * FROM host WHERE id = ' . $fh['host_id']);
 
-				if ($host['status'] == HOST_UP) {
+				if (isset($host['status']) && $host['status'] == HOST_UP) {
 					$snmp_system   = '';
 					$snmp_hostname = '';
 					$snmp_location = '';
