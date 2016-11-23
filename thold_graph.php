@@ -846,7 +846,15 @@ function thold_show_log() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box(__('Threshold Log for [ %s ]', $thold_log_retention[read_config_option('thold_log_storage')]), '100%', '', '3', 'center', '');
+	$days = read_config_option('thold_log_storage');
+
+	if (isset($thold_log_retention[$days])) {
+		$days = $thold_log_retention[$days];
+	}else{
+		$days = __('%d Days', $days);
+	}
+
+	html_start_box(__('Threshold Log for [ %s ]', $days), '100%', '', '3', 'center', '');
 	form_thold_log_filter();
 	html_end_box();
 
