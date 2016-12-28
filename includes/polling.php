@@ -24,7 +24,7 @@
 */
 
 function thold_poller_bottom() {
-	global $poller_id;
+	global $config;
 
 	if (!read_config_option('thold_daemon_enable')) {
 		/* record the start time */
@@ -40,8 +40,8 @@ function thold_poller_bottom() {
 		list($micro,$seconds) = explode(' ', microtime());
 		$end = $seconds + $micro;
 
-		$total_hosts = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE disabled="" AND poller_id = ?', array($poller_id));
-		$down_hosts  = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE status=1 AND disabled="" AND poller_id = ?', array($poller_id));
+		$total_hosts = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE disabled="" AND poller_id = ?', array($config['poller_id']));
+		$down_hosts  = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE status=1 AND disabled="" AND poller_id = ?', array($config['poller_id']));
 
 		/* log statistics */
 		$thold_stats = sprintf('Time:%01.4f Tholds:%s TotalDevices:%s DownDevices:%s NewDownDevices:%s', $end - $start, $tholds, $total_hosts, $down_hosts, $nhosts);
@@ -69,8 +69,8 @@ function thold_poller_bottom() {
 		$nhosts = thold_update_host_status ();
 		thold_cleanup_log ();
 
-		$total_hosts = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE disabled="" AND poller_id = ?', array($poller_id));
-		$down_hosts  = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE status=1 AND disabled="" AND poller_id = ?', array($poller_id));
+		$total_hosts = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE disabled="" AND poller_id = ?', array($config['poller_id']));
+		$down_hosts  = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE status=1 AND disabled="" AND poller_id = ?', array($config['poller_id']));
 
 		/* log statistics */
 		$thold_stats = sprintf('CPUTime:%u MaxRuntime:%u Tholds:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u Processes: %u completed, %u running, %u broken', $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $total_hosts, $down_hosts, $nhosts, $stats['completed'], $running_processes, $broken_processes);
