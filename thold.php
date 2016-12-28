@@ -35,6 +35,7 @@ set_default_action();
 if (isset($_SERVER['HTTP_REFERER'])) {
 	if (preg_match('/(data_sources.php|graph_view.php|graph.php)/', $_SERVER['HTTP_REFERER'])) {
 		$_SESSION['data_return'] = $_SERVER['HTTP_REFERER'];
+cacti_log('Data Return 1');
 	}
 }
 
@@ -63,13 +64,7 @@ switch(get_request_var('action')) {
 	case 'save':
 		$id = save_thold();
 
-		if (isset($_SESSION['data_return'])) {
-			$return_to = $_SESSION['data_return'];
-			unset($_SESSION['data_return']);
-			kill_session_var('data_return');
-
-			header('Location: ' . $return_to);
-		}elseif ($id) {
+		if ($id) {
 			header('Location: thold.php?action=edit&header=false&id=' . $id);
 		}else{
 			header('Location: thold.php');
@@ -85,6 +80,7 @@ switch(get_request_var('action')) {
 		raise_message('thold_message');
 
 		if (isset($_SESSION['data_return'])) {
+cacti_log('There I am');
 			$return_to = $_SESSION['data_return'];
 			unset($_SESSION['data_return']);
 			kill_session_var('data_return');
@@ -133,24 +129,20 @@ switch(get_request_var('action')) {
 }
 
 function thold_add() {
-	$host_id = $local_graph_id = $data_template_rrd_id = $local_data_id = '';
+	global $config;
 
 	$host_id              = get_filter_request_var('host_id');
 	$local_graph_id       = get_filter_request_var('local_graph_id');
 	$data_template_rrd_id = get_filter_request_var('data_template_rrd_id');
 	$local_data_id        = get_filter_request_var('local_data_id');
 
-	if (preg_match('/(data_sources.php|graph_view.php|graph.php)/', $_SERVER['HTTP_REFERER'])) {
-		$_SESSION['data_return'] = $_SERVER['HTTP_REFERER'];
-	}
-
 	if (isset_request_var('local_graph_id') && !isset_request_var('host_id')) {
-		$host_id = db_fetch_cell('SELECT host_id FROM graph_local WHERE id = ' . $local_graph_id);
+		$host_id = db_fetch_cell_prepared('SELECT host_id FROM graph_local WHERE id = ?', array($local_graph_id));
 	}
 
-	if (isset_request_var('doaction') && get_request_var('doaction') != '') {
-		if (get_request_var('doaction') == 1) {
-			header('Location:' . $config['url_path'] . "plugins/thold/thold.php?action=add&local_graph_id=$local_graph_id");
+	if (isset_request_var('doaction') && get_nfilter_request_var('doaction') != '') {
+		if (get_nfilter_request_var('doaction') == 1) {
+			header('Location:' . $config['url_path'] . "plugins/thold/thold.php?action=add&host_id=$host_id&local_graph_id=$local_graph_id");
 		} else {
 			$data_template_id = db_fetch_row("SELECT dtr.*
 				 FROM data_template_rrd AS dtr
@@ -342,10 +334,10 @@ function list_tholds() {
 		if (get_request_var('state') == '-1') {
 			$statefilter = '';
 		} else {
-			if(get_request_var('state') == '0') { $statefilter = "thold_data.thold_enabled='off'"; }
-			if(get_request_var('state') == '2') { $statefilter = "thold_data.thold_enabled='on'"; }
-			if(get_request_var('state') == '1') { $statefilter = '(thold_data.thold_alert!=0 OR thold_data.bl_alert>0)'; }
-			if(get_request_var('state') == '3') { $statefilter = '((thold_data.thold_alert!=0 AND thold_data.thold_fail_count >= thold_data.thold_fail_trigger) OR (thold_data.bl_alert>0 AND thold_data.bl_fail_count >= thold_data.bl_fail_trigger))'; }
+			if(get_request_var('state') == '0') { $statefilter = "td.thold_enabled='off'"; }
+			if(get_request_var('state') == '2') { $statefilter = "td.thold_enabled='on'"; }
+			if(get_request_var('state') == '1') { $statefilter = '(td.thold_alert!=0 OR td.bl_alert>0)'; }
+			if(get_request_var('state') == '3') { $statefilter = '((td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger))'; }
 		}
 	}
 
@@ -374,11 +366,11 @@ function list_tholds() {
 
 	$tholds = get_allowed_thresholds($sql_where, $sort . ' ' . get_request_var('sort_direction'), ($rows*(get_request_var('page')-1)) . ", $rows", $total_rows);
 
-	$data_templates = db_fetch_assoc("SELECT DISTINCT data_template.id, data_template.name
-		FROM data_template
-		INNER JOIN thold_data 
-		ON thold_data.data_template_id = data_template.id
-		ORDER BY data_template.name");
+	$data_templates = db_fetch_assoc("SELECT DISTINCT dt.id, dt.name
+		FROM data_template AS dt
+		INNER JOIN thold_data AS td
+		ON td.data_template_id = dt.id
+		ORDER BY dt.name");
 
 	html_start_box(__('Threshold Management'), '100%', '', '3', 'center', 'thold.php?action=add');
 
@@ -1308,13 +1300,13 @@ function thold_edit() {
 
 	html_end_box();
 
-	if (isset($_SESSION['data_return'])) {
-		$ajax = false;
-	}else{
-		$ajax = true;
-	}
+//	if (isset($_SESSION['data_return'])) {
+//		$ajax = false;
+//	}else{
+//		$ajax = true;
+//	}
 
-	form_save_button('thold.php' . (!empty($thold_data['id']) ? '?id=' . $thold_data['id']: ''), 'return', 'id', $ajax);
+	form_save_button('thold.php' . (!empty($thold_data['id']) ? '?id=' . $thold_data['id']: ''), 'return', 'id');
 
 	?>
 
