@@ -3438,7 +3438,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 			);
 
 			$attachments[] = array(
-				'attachment'     => @rrdtool_function_graph($val['local_graph_id'], '', $graph_data_array, ''),
+				'attachment'     => rrdtool_function_graph($val['local_graph_id'], '', $graph_data_array, ''),
 				'filename'       => 'graph_' . $val['local_graph_id'] . '.png',
 				'mime_type'      => 'image/png',
 				'local_graph_id' => $val['local_graph_id'],
