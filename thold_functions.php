@@ -3776,9 +3776,9 @@ function array2xml($array, $tag = 'template') {
 	return $xml;
 }
 
-function thold_snmptrap($varbinds){
+function thold_snmptrap($varbinds, $severity = SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite = false){
 	if (function_exists('snmpagent_notification')) {
-		snmpagent_notification('tholdNotify', 'CACTI-THOLD-MIB', $varbinds);
+		snmpagent_notification('tholdNotify', 'CACTI-THOLD-MIB', $varbinds, $severity, $overwrite);
 	}else {
 		cacti_log("ERROR: THOLD was unable to generate SNMP notifications. Cacti SNMPAgent plugin is current missing or inactive.");
 	}
