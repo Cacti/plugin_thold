@@ -1558,6 +1558,9 @@ function thold_check_threshold(&$thold_data) {
 		return;
 	}
 
+	/* ensure that Cacti will make of individual defined SNMP Engine IDs */
+	$overwrite['snmp_engine_id'] = $h['snmp_engine_id'];
+	
 	/* pull the cached name, if not present, it means that the graph hasn't polled yet */
 	$t = db_fetch_assoc('SELECT id, name, name_cache
 		FROM data_template_data
@@ -1666,7 +1669,7 @@ function thold_check_threshold(&$thold_data) {
 					    array($thold_snmp_data['eventFailCount'], $thold_snmp_data['eventFailDuration']),
 					    $thold_snmp_data['eventDescription']
 					);
-					thold_snmptrap($thold_snmp_data);
+					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
 
 				thold_log(array(
@@ -1731,7 +1734,7 @@ function thold_check_threshold(&$thold_data) {
 					    array($thold_snmp_data['eventFailCount'], $thold_snmp_data['eventFailDuration']),
 					    $thold_snmp_data['eventDescription']
 					);
-					thold_snmptrap($thold_snmp_data);
+					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
 
 				thold_log(array(
@@ -1768,7 +1771,7 @@ function thold_check_threshold(&$thold_data) {
 					    $thold_snmp_data['eventDescription']
 					);
 
-					thold_snmptrap($thold_snmp_data);
+					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
 
 				thold_log(array(
@@ -1817,7 +1820,7 @@ function thold_check_threshold(&$thold_data) {
 						$thold_snmp_data['eventSeverity'] = 1;
 						$thold_snmp_data['eventStatus'] = 1;
 						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
-						thold_snmptrap($thold_snmp_data);
+						thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 					}
 
 					thold_log(array(
@@ -1847,7 +1850,7 @@ function thold_check_threshold(&$thold_data) {
 						$thold_snmp_data['eventStatus'] = 1;
 						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
 
-						thold_snmptrap($thold_snmp_data);
+						thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 					}
 
 					thold_log(array(
@@ -1902,7 +1905,7 @@ function thold_check_threshold(&$thold_data) {
 						$thold_snmp_data['eventStatus'] = 1;
 						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
 
-						thold_snmptrap($thold_snmp_data);
+						thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 					}
 
 					thold_log(array(
@@ -1964,7 +1967,7 @@ function thold_check_threshold(&$thold_data) {
 					);
 
 
-					thold_snmptrap($thold_snmp_data);
+					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
 
 				thold_log(array(
@@ -2091,7 +2094,7 @@ function thold_check_threshold(&$thold_data) {
 
 					$thold_snmp_data['eventDescription'] = str_replace('<FAIL_COUNT>', $thold_snmp_data['eventFailCount'], $thold_snmp_data['eventDescription']);
 
-					thold_snmptrap($thold_snmp_data);
+					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
 
 				thold_log(array(
@@ -2173,7 +2176,7 @@ function thold_check_threshold(&$thold_data) {
 
 					$thold_snmp_data['eventDescription'] = str_replace('<FAIL_COUNT>', $thold_snmp_data['eventFailCount'], $thold_snmp_data['eventDescription']);
 
-					thold_snmptrap($thold_snmp_data);
+					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
 
 				thold_log(array(
@@ -2243,7 +2246,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventStatus'] = 1;
 					$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
 
-					thold_snmptrap($thold_snmp_data);
+					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
 
 				thold_log(array(
@@ -2281,7 +2284,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventStatus']           = 1;
 					$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
 
-					thold_snmptrap($thold_snmp_data);
+					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
 
 				thold_log(array(
