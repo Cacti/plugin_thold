@@ -168,12 +168,21 @@ function template_add() {
 
 		html_start_box(__('Threshold Template Creation Wizard'), '50%', '', '3', 'center', '');
 
-		if (!isset_request_var('data_template_id')) set_request_var('data_template_id', '');
-		if (!isset_request_var('data_source_id'))   set_request_var('data_source_id', '');
+		if (!isset_request_var('data_template_id')) {
+			$data_template_id = 0;
+		}else{
+			$data_template_id = get_filter_request_var('data_template_id');
+		}
 
-		if (get_filter_request_var('data_template_id') == '') {
+		if (!isset_request_var('data_source_id')) {
+			$data_source_id = 0;
+		}else{
+			$data_source_id = get_filter_request_var('data_source_id');
+		}
+
+		if ($data_template_id == 0) {
 			print '<tr><td class="center">' . __('Please select a Data Template') . '</td></tr>';
-		} else if (get_filter_request_var('data_source_id') == '') {
+		} else if ($data_source_id == 0) {
 			print '<tr><td class="center">' . __('Please select a Data Source') . '</td></tr>';
 		} else {
 			print '<tr><td class="center">' . __('Please press \'Create\' to create your Threshold Template') . '</td></tr>';
@@ -194,15 +203,13 @@ function template_add() {
 					<select id='data_template_id' name='data_template_id' onChange='applyFilter("dt")'>
 						<option value=''>None</option><?php
 						foreach ($data_templates as $id => $name) {
-							echo "<option value='" . $id . "'" . ($id == get_request_var('data_template_id') ? ' selected' : '') . '>' . htmlspecialchars($name, ENT_QUOTES) . '</option>';
+							echo "<option value='" . $id . "'" . ($id == $data_template_id ? ' selected' : '') . '>' . htmlspecialchars($name, ENT_QUOTES) . '</option>';
 						}?>
 					</select>
 				</td>
 			</tr><?php
 
-		if (get_request_var('data_template_id') != '') {
-			$data_template_id = get_request_var('data_template_id');
-
+		if ($data_template_id != 0) {
 			$data_fields = array();
 
 			$temp = db_fetch_assoc_prepared('SELECT id, local_data_template_rrd_id, 
@@ -231,7 +238,7 @@ function template_add() {
 					<select id='data_source_id' name='data_source_id' onChange='applyFilter("ds")'>
 						<option value=''><?php print __('None');?></option><?php
 						foreach ($data_fields as $id => $name) {
-							echo "<option value='" . $id . "'" . ($id == get_request_var('data_source_id') ? ' selected' : '') . '>' . htmlspecialchars($name, ENT_QUOTES) . '</option>';
+							echo "<option value='" . $id . "'" . ($id == $data_source_id ? ' selected' : '') . '>' . htmlspecialchars($name, ENT_QUOTES) . '</option>';
 						}?>
 					</select>
 				</td>
@@ -241,7 +248,7 @@ function template_add() {
 			echo "<tr><td><input type='hidden' id='data_source_id' value=''></td></tr>\n";
 		}
 
-		if (get_request_var('data_source_id') != '') {
+		if ($data_source_id != 0) {
 			echo "<tr><td colspan='2'><input type='hidden' name='action' value='add'><input id='save' type='hidden' name='save' value='save'><br><center><input id='go' type='button' value='" . __('Create') . "'></center></td></tr>";
 		} else {
 			echo "<tr><td colspan=2><input type=hidden name=action value='add'><br><br><br></td></tr>";
@@ -285,8 +292,17 @@ function template_add() {
 
 		bottom_footer();
 	} else {
-		$data_template_id = get_filter_request_var('data_template_id');
-		$data_source_id   = get_filter_request_var('data_source_id');
+		if (!isset_request_var('data_template_id')) {
+			$data_template_id = 0;
+		}else{
+			$data_template_id = get_filter_request_var('data_template_id');
+		}
+
+		if (!isset_request_var('data_source_id')) {
+			$data_source_id = 0;
+		}else{
+			$data_source_id = get_filter_request_var('data_source_id');
+		}
 
 		$save['id']       = '';
 		$save['hash']     = get_hash_thold_template(0);

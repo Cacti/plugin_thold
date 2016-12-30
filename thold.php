@@ -144,15 +144,15 @@ function thold_add() {
 		if (get_nfilter_request_var('doaction') == 1) {
 			header('Location:' . $config['url_path'] . "plugins/thold/thold.php?action=add&host_id=$host_id&local_graph_id=$local_graph_id");
 		} else {
-			$data_template_id = db_fetch_row("SELECT dtr.*
+			$data_template_id = db_fetch_cell_prepared('SELECT dtr.data_template_id
 				 FROM data_template_rrd AS dtr
 				 LEFT JOIN graph_templates_item AS gti
 				 ON gti.task_item_id=dtr.id
 				 LEFT JOIN graph_local AS gl
 				 ON gl.id=gti.local_graph_id
-				 WHERE gl.id=$local_graph_id");
+				 WHERE gl.id = ?', array($local_graph_id));
 
-			header('Location:' . $config['url_path'] . "plugins/thold/thold_templates.php?action=add&data_template_id=$data_template_id");
+			header('Location:' . $config['url_path'] . "plugins/thold/thold_templates.php?action=add&data_template_id=" . $data_template_id);
 		}
 
 		exit;
