@@ -208,7 +208,7 @@ if (sizeof($tholds)) {
 		AND td.thold_enabled='on' 
 		AND td.tcheck=1";
 
-	$tholds = do_hook_function('thold_get_live_hosts', db_fetch_assoc($sql_query));
+	$tholds = api_plugin_hook_function('thold_get_live_hosts', db_fetch_assoc($sql_query));
 
 	$total_tholds = sizeof($tholds);
 	foreach ($tholds as $thold) {
