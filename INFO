@@ -6,3 +6,4 @@ author = The Cacti Group
 email = 
 homepage = http://www.cacti.net
 compat = 1.0.0
+capabilities = online_view:1, online_mgmt:1, remote_view:0, remote_mgmt:0, remove_collect:0
