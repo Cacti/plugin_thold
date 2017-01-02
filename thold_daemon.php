@@ -1,8 +1,8 @@
-#!/ford/proj/cacti/env/php/bin/php
+#!/usr/bin/php
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2016 The Cacti Group                                 |
+ | Copyright (C) 2006-2017 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |

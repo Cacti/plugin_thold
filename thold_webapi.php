@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2016 The Cacti Group                                 |
+ | Copyright (C) 2006-2017 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -161,9 +161,9 @@ function thold_add_graphs_action_prepare() {
 
 	top_header();
 
-	html_start_box(__('Create Threshold from Template'), '60%', '', '3', 'center', '');
+	form_start($config['url_path'] . 'plugins/thold/thold.php?action=add', 'tholdform');
 
-	form_start('thold.php?action=add');
+	html_start_box(__('Create Threshold from Template'), '60%', '', '3', 'center', '');
 
 	/* get the valid thold templates
 	 * remove those hosts that do not have any valid templates
@@ -172,16 +172,16 @@ function thold_add_graphs_action_prepare() {
 	$found_list = '';
 	$not_found  = '';
 
-	$data_template_id = db_fetch_cell("SELECT dtr.data_template_id
+	$data_template_id = db_fetch_cell_prepared('SELECT dtr.data_template_id
 		 FROM data_template_rrd AS dtr
 		 LEFT JOIN graph_templates_item AS gti
 		 ON gti.task_item_id=dtr.id
 		 LEFT JOIN graph_local AS gl
 		 ON gl.id=gti.local_graph_id
-		 WHERE gl.id=$local_graph_id");
+		 WHERE gl.id = ?', array($local_graph_id));
 
 	if ($data_template_id != '') {
-		if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
+		if (sizeof(db_fetch_assoc_prepared('SELECT id FROM thold_template WHERE data_template_id = ?', array($data_template_id)))) {
 			$found_list .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
@@ -297,7 +297,7 @@ function thold_add_graphs_action_prepare() {
 		print "<tr>
 			<td colspan='2' class='saveRow'>
 				<input type='hidden' id='action' value='actions'>
-				<input type='button' onClick='cactiReturnTo()' value='" . __('Cancel'). "' title='" . __('Cancel') . "'>
+				<input id='cancel' type='button' value='" . __('Cancel'). "' title='" . __('Cancel') . "'>
 				$save_html
 			</td>
 		</tr>\n";
@@ -306,7 +306,7 @@ function thold_add_graphs_action_prepare() {
 
 		print "<tr>
 			<td colspan='2' class='saveRow'>
-				<input type='button' onClick='cactiReturnTo()' value='" . __('Cancel') . "' title='" . __('Cancel') . "'>
+				<input id='cancel' type='button' value='" . __('Cancel') . "' title='" . __('Cancel') . "'>
 				$save_html
 			</td>
 		</tr>\n";
@@ -314,7 +314,17 @@ function thold_add_graphs_action_prepare() {
 
 	html_end_box();
 
-	print "<script type='text/javascript'>$(function() { applySkin() ;});</script>";
+	form_end(false);
+
+	?>
+	<script type='text/javascript'>
+	$(function() {
+		$('#cancel').click(function() {
+			document.location = '<?php print $_SERVER['HTTP_REFERER'];?>';
+		});
+	});
+	</script>
+	<?php
 
 	bottom_footer();
 }
@@ -460,7 +470,8 @@ function thold_add_select_host() {
 	}
 
 	$(function() {
-		$('#go').button().click(function() {
+		$('#go').button().click(function(event) {
+			event.preventDefault();
             strURL = $('#tholdform').attr('action');
             json   = $('input, select').serializeObject();
             $.post(strURL, json).done(function(data) {

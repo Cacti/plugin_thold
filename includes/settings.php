@@ -2,7 +2,7 @@
 /*
  ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2016 The Cacti Group                                 |
+ | Copyright (C) 2006-2017 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -58,9 +58,9 @@ function thold_draw_navigation_text ($nav) {
 function thold_config_insert () {
 	global $menu;
 
-	$menu['Management']['plugins/thold/notify_lists.php'] = __('Notification Lists');
-	$menu['Management']['plugins/thold/thold.php'] = __('Thresholds');
-	$menu['Templates']['plugins/thold/thold_templates.php'] = __('Threshold');
+	$menu[__('Management')]['plugins/thold/notify_lists.php'] = __('Notification Lists');
+	$menu[__('Management')]['plugins/thold/thold.php'] = __('Thresholds');
+	$menu[__('Templates')]['plugins/thold/thold_templates.php'] = __('Threshold');
 	if (isset_request_var('thold_vrule')) {
 		if (get_nfilter_request_var('thold_vrule') == 'on') {
 			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'on';
