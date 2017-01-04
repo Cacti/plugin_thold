@@ -272,9 +272,11 @@ function thold_update_host_status() {
 					}
 				}
 
-				$host = db_fetch_row('SELECT * FROM host WHERE id = ' . $fh['host_id']);
+				$host = db_fetch_row_prepared('SELECT * FROM host WHERE id = ?', array($fh['host_id']));
 
-				if ($host['status'] == HOST_UP) {
+				if (!sizeof($host)) {
+					db_execute_prepared('DELETE FROM plugin_thold_host_failed WHERE host_id = ?', array($fh['host_id']));
+				}elseif ($host['status'] == HOST_UP) {
 					$snmp_system   = '';
 					$snmp_hostname = '';
 					$snmp_location = '';
