@@ -377,7 +377,7 @@ function list_tholds() {
 	?>
 	<tr class='even'>
 		<td>
-		<form id='listthold' action='thold.php' method='post'>
+		<form id='thold' action='thold.php' method='post'>
 			<table class='filterTable'>
 				<tr>
 					<td>
@@ -413,7 +413,7 @@ function list_tholds() {
 						</select>
 					</td>
 					<td>
-						<input type='button' id='refresh' value='<?php print __('Go');?>' title='<?php print __('Apply Filters');?>' onClick='applyFilter()'>
+						<input type='submit' id='refresh' value='<?php print __('Go');?>' title='<?php print __('Apply Filters');?>'>
 					</td>
 					<td>
 						<input type='button' id='clear' value='<?php print __('Clear');?>' title='<?php print __('Return to Defaults');?>' onClick='clearFilter()'>
@@ -439,7 +439,7 @@ function list_tholds() {
 		}
 
 		$(function() {
-			$('#listthold').submit(function(event) {
+			$('#thold').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
 			});
