@@ -571,25 +571,42 @@ function thold_data_source_action_execute($action) {
 						$insert['thold_template_id']  = $template['id'];
 						$insert['template_enabled']   = 'on';
 	
-						$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name='$data_source_name'");
+						$rrdlist = db_fetch_assoc_prepared('SELECT id, data_input_field_id 
+							FROM data_template_rrd 
+							WHERE local_data_id = ?
+							AND data_source_name= ?', 
+							array($local_data_id, $data_source_name));
 	
 						$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
+
 						foreach ($rrdlist as $rrdrow) {
-							$data_rrd_id=$rrdrow['id'];
+							$data_rrd_id = $rrdrow['id'];
 							$insert['data_template_rrd_id'] = $data_rrd_id;
-							$existing = db_fetch_assoc("SELECT id FROM thold_data WHERE local_data_id='$local_data_id' AND data_template_rrd_id='$data_rrd_id'");
-							if (count($existing) == 0) {
+
+							$existing = db_fetch_assoc_prepared('SELECT id 
+								FROM thold_data 
+								WHERE local_data_id = ?
+								AND data_template_rrd_id = ?', 
+								array($local_data_id, $data_rrd_id));
+
+							if (!sizeof($existing)) {
 								$insert['id'] = 0;
 								$id = sql_save($insert, 'thold_data');
+
 								if ($id) {
 									thold_template_update_threshold($id, $insert['thold_template_id']);
 
-									$l = db_fetch_assoc("SELECT name FROM data_template where id=$data_template_id");
+									$l = db_fetch_assoc_prepared('SELECT name 
+										FROM data_template 
+										WHERE id = ?', array($data_template_id));
 									$tname = $l[0]['name'];
 
 									$name = $data_source_name;
 									if ($rrdrow['data_input_field_id'] != 0) {
-										$l = db_fetch_assoc('SELECT name FROM data_input_fields where id=' . $rrdrow['data_input_field_id']);
+										$l = db_fetch_assoc_prepared('SELECT name 
+											FROM data_input_fields 
+											where id = ?', 
+											array($rrdrow['data_input_field_id']));
 										$name = $l[0]['name'];
 									}
 
@@ -776,27 +793,47 @@ function thold_graphs_action_execute($action) {
 						$insert['thold_template_id']  = $template['id'];
 						$insert['template_enabled']   = 'on';
 
-						$rrdlist = db_fetch_assoc("SELECT id, data_input_field_id FROM data_template_rrd where local_data_id='$local_data_id' and data_source_name='$data_source_name'");
+						$rrdlist = db_fetch_assoc_prepared('SELECT id, data_input_field_id 
+							FROM data_template_rrd 
+							WHERE local_data_id = ?
+							AND data_source_name = ?', 
+							array($local_data_id, $data_source_name));
 
 						$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
+
 						foreach ($rrdlist as $rrdrow) {
-							$data_rrd_id=$rrdrow['id'];
-							$insert['data_id'] = $data_rrd_id;
-							$existing = db_fetch_assoc("SELECT id FROM thold_data WHERE local_data_id='$local_data_id' AND data_template_rrd_id='$data_rrd_id'");
-							if (count($existing) == 0) {
+							$data_rrd_id = $rrdrow['id'];
+							$insert['data_template_rrd_id'] = $data_rrd_id;
+
+							$existing = db_fetch_assoc_prepared('SELECT id 
+								FROM thold_data 
+								WHERE local_data_id = ?
+								AND data_template_rrd_id = ?', 
+								array($local_data_id, $data_rrd_id));
+
+							if (!sizeof($existing)) {
 								$insert['id'] = 0;
 								$id = sql_save($insert, 'thold_data');
 								if ($id) {
 									thold_template_update_threshold ($id, $insert['template']);
 
-									$l = db_fetch_assoc("SELECT name FROM data_template where id=$data_template_id");
+									$l = db_fetch_assoc_prepared('SELECT name 
+										FROM data_template 
+										WHERE id = ?', 
+										array($data_template_id));
+
 									$tname = $l[0]['name'];
 
 									$name = $data_source_name;
 									if ($rrdrow['data_input_field_id'] != 0) {
-										$l = db_fetch_assoc('SELECT name FROM data_input_fields where id=' . $rrdrow['data_input_field_id']);
+										$l = db_fetch_assoc_prepared('SELECT name 
+											FROM data_input_fields 
+											WHERE id = ?', 
+											array($rrdrow['data_input_field_id']));
+
 										$name = $l[0]['name'];
 									}
+
 									plugin_thold_log_changes($id, 'created', " $tname [$name]");
 									$message .= __('Created threshold for the Graph \'<i>%s</i>\' using the Data Source \'<i>%s</i>\'', $tname, $name) . "<br>";
 								}
