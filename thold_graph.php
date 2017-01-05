@@ -94,7 +94,7 @@ function form_thold_filter() {
 	?>
 	<tr class='even'>
 		<td>
-		<form id='form_thold' action='thold_graph.php'>
+		<form id='thold' action='thold_graph.php'>
 			<table class='filterTable'>
 				<tr>
 					<td>
@@ -154,7 +154,7 @@ function form_thold_filter() {
 						</select>
 					</td>
 					<td>
-						<input type='button' value='<?php print __('Go');?>' onClick='applyFilter()'>
+						<input type='submit' value='<?php print __('Go');?>'>
 					</td>
 					<td>
 						<input id='clear' name='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
@@ -181,7 +181,7 @@ function form_thold_filter() {
 		}
 
 		$(function() {
-			$('#form_thold').submit(function(event) {
+			$('#thold').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
 			});
@@ -380,10 +380,12 @@ function tholds() {
 			}
 
 			print "<a href='". htmlspecialchars($config['url_path'] . 'graph.php?local_graph_id=' . $row['local_graph_id'] . '&rra_id=all') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' border='0' alt='' title='" . __('View Graph') . "'></a>";
+
 			print "<a class='hyperLink' href='". htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&threshold_id=' . $row['id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' border='0' alt='' title='" . __('View Threshold History') . "'></a>";
 
 			print '</td>';
-			print "<td class='left nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . '</td>';
+			print "<td class='left nowrap'>" . ($row['name'] != '' ? filter_value($row['name'], get_request_var('filter')) : __('No name set')) . '</td>';
+			//print "<td class='left nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . '</td>';
 			print "<td class='right'>" . $row['id'] . '</td>';
 			print "<td class='left nowrap'>" . $thold_types[$row['thold_type']] . '</td>';
 			print "<td class='right'>" . thold_format_number($row['lastread']) . '</td>';
