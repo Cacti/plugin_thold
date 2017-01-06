@@ -29,7 +29,7 @@ function thold_add_graphs_action_execute() {
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	$host_id           = get_filter_request_var('host_id');
-	$local_graph_id    = get_filter_request_var('local_data_id');
+	$local_graph_id    = get_filter_request_var('local_graph_id');
 	$thold_template_id = get_filter_request_var('thold_template_id');
 
 	$message = '';
@@ -37,17 +37,22 @@ function thold_add_graphs_action_execute() {
 	$template = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($thold_template_id));
 
 	$temp = db_fetch_row_prepared('SELECT dtr.*
-		 FROM data_template_rrd AS dtr
-		 LEFT JOIN graph_templates_item AS gti
-		 ON gti.task_item_id=dtr.id
-		 LEFT JOIN graph_local AS gl
-		 ON gl.id=gti.local_graph_id
-		 WHERE gl.id = ?' , array($local_graph_id));
+		FROM data_template_rrd AS dtr
+		LEFT JOIN graph_templates_item AS gti
+		ON gti.task_item_id=dtr.id
+		LEFT JOIN graph_local AS gl
+		ON gl.id=gti.local_graph_id
+		WHERE gl.id = ?
+		LIMIT 1' , 
+		array($local_graph_id));
 
 	$data_template_id = $temp['data_template_id'];
 	$local_data_id    = $temp['local_data_id'];
 
-	$data_source      = db_fetch_row_prepared('SELECT * FROM data_local WHERE id = ?', array($local_data_id));
+	$data_source      = db_fetch_row_prepared('SELECT * 
+		FROM data_local 
+		WHERE id = ?', 
+		array($local_data_id));
 
 	$data_template_id = $data_source['data_template_id'];
 
@@ -115,7 +120,7 @@ function thold_add_graphs_action_execute() {
 					$insert['id'] = 0;
 					$id = sql_save($insert, 'thold_data');
 					if ($id) {
-						thold_template_update_threshold($id, $insert['template']);
+						thold_template_update_threshold($id, $insert['thold_template_id']);
 
 						$l = db_fetch_assoc("SELECT name FROM data_template where id=$data_template_id");
 						$tname = $l[0]['name'];
@@ -209,7 +214,7 @@ function thold_add_graphs_action_prepare() {
 			print '<ul>' . $not_found . '</ul>';
 		}
 
-		print '<p>' . __('Are you sure you wish to create Thresholds for this Graph?') . '
+		print '<p>' . __('Press \'Continue\' after you have selected the Threshold Template to utilize.') . '
 			<ul>' . $found_list . "</ul>
 			</td>
 		</tr>\n";
@@ -316,11 +321,27 @@ function thold_add_graphs_action_prepare() {
 
 	form_end(false);
 
+	if (isset($_SERVER['HTTP_REFERER'])) {
+		$backto = $_SERVER['HTTP_REFERER'];
+	}else{
+		$backto = $config['url_path'] . 'plugins/thold/thold.php';
+	}
+
 	?>
 	<script type='text/javascript'>
 	$(function() {
 		$('#cancel').click(function() {
-			document.location = '<?php print $_SERVER['HTTP_REFERER'];?>';
+			document.location = '<?php print $backto;?>';
+		});
+
+		$('#tholdform').submit(function(event) {
+			event.preventDefault();
+			strURL = $(this).attr('action');
+			strURL += (strURL.indexOf('?') >- 0 ? '&':'?') + 'header=false';
+			json =  $('#listthold').serializeObject();
+			$.post(strURL, { usetemplate: 1, local_graph_id: $('#local_graph_id').val(), thold_template_id: $('#thold_template_id').val(), __csrf_magic: csrfMagicToken } ).done(function(data) {
+				document.location = '<?php print $backto;?>';
+			});
 		});
 	});
 	</script>

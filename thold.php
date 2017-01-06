@@ -35,7 +35,6 @@ set_default_action();
 if (isset($_SERVER['HTTP_REFERER'])) {
 	if (preg_match('/(data_sources.php|graph_view.php|graph.php)/', $_SERVER['HTTP_REFERER'])) {
 		$_SESSION['data_return'] = $_SERVER['HTTP_REFERER'];
-cacti_log('Data Return 1');
 	}
 }
 
