@@ -442,6 +442,10 @@ function template_save_edit() {
 
 	$save['thold_enabled']  = isset_request_var('thold_enabled')  ? 'on' : 'off';
 	$save['exempt']         = isset_request_var('exempt')         ? 'on' : '';
+
+	$save['thold_hrule_warning'] = get_nfilter_request_var('thold_hrule_warning');
+	$save['thold_hrule_alert']   = get_nfilter_request_var('thold_hrule_alert');
+
 	$save['restored_alert'] = isset_request_var('restored_alert') ? 'on' : '';
 
 	if (isset_request_var('bl_ref_time_range') && get_nfilter_request_var('bl_ref_time_range') != '') {
@@ -669,14 +673,14 @@ function template_edit() {
 			'max_length' => 100,
 			'size' => '60',
 			'default' => $thold_data['data_template_name'] . ' [' . $thold_data['data_source_name'] . ']',
-			'description' => __('Provide the Threshold Template a meaningful name.  Device Substritution and Data Query Substitution variables can be used as well as |graph_title| for the Graph Title'),
+			'description' => __('Provide the Threshold Template a meaningful name.  Device Substitution and Data Query Substitution variables can be used as well as |graph_title| for the Graph Title'),
 			'value' => isset($thold_data['name']) ? $thold_data['name'] : ''
 		),
 		'data_template_name' => array(
 			'friendly_name' => __('Data Template'),
 			'method' => 'drop_array',
 			'default' => 'NULL',
-			'description' => __('Data Template that you are using. (This can not be changed)'),
+			'description' => __('Data Template that you are using. (This cannot be changed)'),
 			'value' => $thold_data['data_template_id'],
 			'array' => $data_templates,
 		),
@@ -684,7 +688,7 @@ function template_edit() {
 			'friendly_name' => __('Data Field'),
 			'method' => 'drop_array',
 			'default' => 'NULL',
-			'description' => __('Data Field that you are using. (This can not be changed)'),
+			'description' => __('Data Field that you are using. (This cannot be changed)'),
 			'value' => $thold_data['id'],
 			'array' => $data_fields,
 		),
@@ -702,9 +706,25 @@ function template_edit() {
 			'default' => '',
 			'value' => isset($thold_data['exempt']) ? $thold_data['exempt'] : ''
 			),
+		'thold_hrule_warning' => array(
+			'friendly_name' => __('Warning HRULE Color'),
+			'description' => __('Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose \'None\' for No HRULE.'),
+			'method' => 'drop_color',
+			'none_value' => __('None'),
+			'default' => '0',
+			'value' => isset($thold_data['thold_hrule_warning']) ? $thold_data['thold_hrule_warning'] : '0'
+			),
+		'thold_hrule_alert' => array(
+			'friendly_name' => __('Alert HRULE Color'),
+			'description' => __('Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose \'None\' for No HRULE.'),
+			'method' => 'drop_color',
+			'none_value' => __('None'),
+			'default' => '0',
+			'value' => isset($thold_data['thold_hrule_alert']) ? $thold_data['thold_hrule_alert'] : '0'
+			),
 		'restored_alert' => array(
 			'friendly_name' => __('Disable Restoration Email'),
-			'description' => __('If this is checked, Thold will not send an alert when the Threshold has returned to normal status.'),
+			'description' => __('If this is checked, Threshold will not send an alert when the Threshold has returned to normal status.'),
 			'method' => 'checkbox',
 			'default' => '',
 			'value' => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''

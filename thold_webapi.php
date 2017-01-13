@@ -131,7 +131,7 @@ function thold_add_graphs_action_execute() {
 							$name = $l[0]['name'];
 						}
 						plugin_thold_log_changes($id, 'created', " $tname [$name]");
-						$message .= "Created threshold for the Graph '<i>$tname</i>' using the Data Source '<i>$name</i>'<br>";
+						$message .= "Created Threshold for the Graph '<i>$tname</i>' using the Data Source '<i>$name</i>'<br>";
 					}
 				}
 			}

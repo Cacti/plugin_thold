@@ -73,7 +73,7 @@ switch(get_request_var('action')) {
 	case 'autocreate':
 		$c = autocreate(get_filter_request_var('host_id'));
 		if ($c == 0) {
-			$_SESSION['thold_message'] = '<font size=-1>' . __('Either No Templates or Threshold(s) Already Exists - No thresholds were created.') . '</font>';
+			$_SESSION['thold_message'] = '<font size=-1>' . __('Either No Templates or Threshold(s) Already Exists - No Thresholds were created.') . '</font>';
 		}
 
 		raise_message('thold_message');
@@ -904,14 +904,14 @@ function thold_edit() {
 			'friendly_name' => __('Template Propagation Enabled'),
 			'method' => 'checkbox',
 			'default' => '',
-			'description' => __('Whether or not these settings will be propagates from the threshold template.'),
+			'description' => __('Whether or not these settings will be propagated from the Threshold template.'),
 			'value' => !empty($thold_data['template_enabled']) ? $thold_data['template_enabled'] : '',
 		),
 		'template_name' => array(
 			'friendly_name' => __('Template Name'),
 			'method' => 'custom',
 			'default' => '',
-			'description' => __('Name of the Threshold Template the threshold was created from.'),
+			'description' => __('Name of the Threshold Template the Threshold was created from.'),
 			'value' => isset($thold_data['template_name']) ? $thold_data['template_name'] : 'N/A',
 		),
 		'general_header' => array(
@@ -931,7 +931,7 @@ function thold_edit() {
 			'friendly_name' => __('Threshold Enabled'),
 			'method' => 'checkbox',
 			'default' => 'on',
-			'description' => __('Whether or not this threshold will be checked and alerted upon.'),
+			'description' => __('Whether or not this Threshold will be checked and alerted upon.'),
 			'value' => isset($thold_data['thold_enabled']) ? $thold_data['thold_enabled'] : ''
 		),
 		'exempt' => array(
@@ -941,9 +941,25 @@ function thold_edit() {
 			'default' => '',
 			'value' => isset($thold_data['exempt']) ? $thold_data['exempt'] : ''
 			),
+		'thold_hrule_warning' => array(
+			'friendly_name' => __('Warning HRULE Color'),
+			'description' => __('Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose \'None\' for No HRULE.'),
+			'method' => 'drop_color',
+			'none_value' => __('None'),
+			'default' => '0',
+			'value' => isset($thold_data['thold_hrule_warning']) ? $thold_data['thold_hrule_warning'] : '0'
+			),
+		'thold_hrule_alert' => array(
+			'friendly_name' => __('Alert HRULE Color'),
+			'description' => __('Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose \'None\' for No HRULE.'),
+			'method' => 'drop_color',
+			'none_value' => __('None'),
+			'default' => '0',
+			'value' => isset($thold_data['thold_hrule_alert']) ? $thold_data['thold_hrule_alert'] : '0'
+			),
 		'restored_alert' => array(
 			'friendly_name' => __('Disable Restoration Email'),
-			'description' => __('If this is checked, Thold will not send an alert when the threshold has returned to normal status.'),
+			'description' => __('If this is checked, Threshold will not send an alert when the Threshold has returned to normal status.'),
 			'method' => 'checkbox',
 			'default' => '',
 			'value' => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''
@@ -962,7 +978,7 @@ function thold_edit() {
 			'method' => 'drop_array',
 			'array' => $repeatarray,
 			'default' => read_config_option('alert_repeat'),
-			'description' => __('Repeat alert after this amount of time has pasted since the last alert.'),
+			'description' => __('Repeat alert after this amount of time has passed since the last alert.'),
 			'value' => isset($thold_data['repeat_alert']) ? $thold_data['repeat_alert'] : ''
 		),
 		'thold_warning_header' => array(
@@ -989,7 +1005,7 @@ function thold_edit() {
 			'friendly_name' => __('Breach Duration'),
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'description' => __('The amount of time the data source must be in breach of the threshold for a warning to be raised.'),
+			'description' => __('The amount of time the data source must be in breach of the Threshold for a warning to be raised.'),
 			'value' => isset($thold_data['thold_warning_fail_trigger']) ? $thold_data['thold_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'thold_header' => array(
@@ -1016,7 +1032,7 @@ function thold_edit() {
 			'friendly_name' => __('Breach Duration'),
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'description' => __('The amount of time the data source must be in breach of the threshold for an alert to be raised.'),
+			'description' => __('The amount of time the data source must be in breach of the Threshold for an alert to be raised.'),
 			'value' => isset($thold_data['thold_fail_trigger']) ? $thold_data['thold_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_header' => array(
@@ -1044,14 +1060,14 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 5,
 			'size' => 10,
-			'description' => __('The number of times the data source must be in breach of the threshold.'),
+			'description' => __('The number of times the data source must be in breach of the Threshold.'),
 			'value' => isset($thold_data['time_warning_fail_trigger']) ? $thold_data['time_warning_fail_trigger'] : read_config_option('thold_warning_time_fail_trigger')
 		),
 		'time_warning_fail_length' => array(
 			'friendly_name' => __('Breach Window'),
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'description' => __('The amount of time in the past to check for threshold breaches.'),
+			'description' => __('The amount of time in the past to check for Threshold breaches.'),
 			'value' => isset($thold_data['time_warning_fail_length']) ? $thold_data['time_warning_fail_length'] : (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1)
 		),
 		'time_header' => array(
@@ -1080,14 +1096,14 @@ function thold_edit() {
 			'max_length' => 5,
 			'size' => 10,
 			'default' => read_config_option('thold_time_fail_trigger'),
-			'description' => __('The number of times the data source must be in breach of the threshold.'),
+			'description' => __('The number of times the data source must be in breach of the Threshold.'),
 			'value' => isset($thold_data['time_fail_trigger']) ? $thold_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
 		),
 		'time_fail_length' => array(
 			'friendly_name' => __('Breach Window'),
 			'method' => 'drop_array',
 			'array' => $timearray,
-			'description' => __('The amount of time in the past to check for threshold breaches.'),
+			'description' => __('The amount of time in the past to check for Threshold breaches.'),
 			'value' => isset($thold_data['time_fail_length']) ? $thold_data['time_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 1)
 		),
 		'baseline_header' => array(
@@ -1098,7 +1114,7 @@ function thold_edit() {
 			'friendly_name' => __('Time range'),
 			'method' => 'drop_array',
 			'array' => $reference_types,
-			'description' => __('Specifies the point in the past (based on rrd resolution) that will be used as a reference'),
+			'description' => __('Specifies the point in the past (based on RRDfile resolution) that will be used as a reference'),
 			'value' => isset($thold_data['bl_ref_time_range']) ? $thold_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
 		),
 		'bl_pct_up' => array(
@@ -1106,7 +1122,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 10,
-			'description' => __('Specifies allowed deviation in percentage for the upper bound threshold. If not set, upper bound threshold will not be checked at all.'),
+			'description' => __('Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.'),
 			'value' => isset($thold_data['bl_pct_up']) ? $thold_data['bl_pct_up'] : ''
 		),
 		'bl_pct_down' => array(
@@ -1114,7 +1130,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 10,
-			'description' => __('Specifies allowed deviation in percentage for the lower bound threshold. If not set, lower bound threshold will not be checked at all.'),
+			'description' => __('Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.'),
 			'value' => isset($thold_data['bl_pct_down']) ? $thold_data['bl_pct_down'] : ''
 		),
 		'bl_fail_trigger' => array(
@@ -1122,7 +1138,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 10,
-			'description' => __('Number of consecutive times the data source must be in breach of the baseline threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)', read_config_option('alert_bl_trigger')),
+			'description' => __('Number of consecutive times the data source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)', read_config_option('alert_bl_trigger')),
 			'value' => isset($thold_data['bl_fail_trigger']) ? $thold_data['bl_fail_trigger'] : read_config_option("alert_bl_trigger")
 		),
 		'data_manipulation' => array(
@@ -1147,10 +1163,10 @@ function thold_edit() {
 			'array' => thold_cdef_select_usable_names()
 		),
 		'percent_ds' => array(
-			'friendly_name' => __('Percent Datasource'),
+			'friendly_name' => __('Percent Data Source'),
 			'method' => 'drop_array',
 			'default' => 'NULL',
-			'description' => __('Second Datasource Item to use as total value to calculate percentage from.'),
+			'description' => __('Second Data Source Item to use as total value to calculate percentage from.'),
 			'value' => isset($thold_data['percent_ds']) ? $thold_data['percent_ds'] : 0,
 			'array' => $data_fields,
 		),
@@ -1229,7 +1245,7 @@ function thold_edit() {
 			'notify_accounts' => array(
 				'friendly_name' => __('Notify accounts'),
 				'method' => 'drop_multi',
-				'description' => __('This is a listing of accounts that will be notified when this threshold is breached.<br><br><br><br>'),
+				'description' => __('This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>'),
 				'array' => $send_notification_array,
 				'sql' => $sql,
 			),
@@ -1344,6 +1360,8 @@ function thold_edit() {
 		$('#percent_ds').prop('disabled', status);
 		$('#expression').prop('disabled', status);
 		$('#exempt').prop('disabled', status);
+		$('#thold_hrule_warning').prop('disabled', status);
+		$('#thold_hrule_alert').prop('disabled', status);
 		$('#restored_alert').prop('disabled', status);
 
 		if ($('#snmp_event_category')) $('#snmp_event_category').prop('disabled', status);

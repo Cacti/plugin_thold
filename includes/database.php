@@ -81,7 +81,6 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_template_id',  'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_template'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'restored_alert',    'type' => 'char(3)', 'NULL' => false, 'default' => ''));
 
-
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'name',              'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_hi',           'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_fail_trigger'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_low',          'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_hi'));
@@ -311,6 +310,13 @@ function thold_upgrade_database () {
 		}
 	}
 
+	if (version_compare($oldv, '1.0.1', '<')) {
+		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '', 'after' => 'exempt'));
+		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '', 'after' => 'thold_hrule_alert') );
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '', 'after' => 'exempt'));
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '', 'after' => 'thold_hrule_alert') );
+	}
+
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
 	db_execute('UPDATE plugin_config SET version = "' . $v['version'] . '" WHERE directory = "thold"');
 }
@@ -441,7 +447,7 @@ function thold_setup_database () {
 	$data['keys'][]    = array('name' => 'data_source_id', 'columns' => 'data_source_id');
 	$data['keys'][]    = array('name' => 'data_template_id', 'columns' => 'data_template_id');
 	$data['type']      = 'InnoDB';
-	$data['comment']   = 'Table of thresholds defaults for graphs';
+	$data['comment']   = 'Table of Thresholds defaults for graphs';
 	api_plugin_db_table_create ('thold', 'thold_template', $data);
 
 	$data = array();
@@ -454,7 +460,7 @@ function thold_setup_database () {
 	$data['keys'][]        = array('name' => 'user_id', 'columns' => 'user_id');
 	$data['unique_keys'][] = array('name' => 'user_id_type', 'columns' => 'user_id`, `type');
 	$data['type']          = 'InnoDB';
-	$data['comment']       = 'Table of threshold contacts';
+	$data['comment']       = 'Table of Threshold contacts';
 	api_plugin_db_table_create ('thold', 'plugin_thold_contacts', $data);
 
 	$data = array();

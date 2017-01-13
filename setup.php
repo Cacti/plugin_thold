@@ -25,9 +25,11 @@
 
 function plugin_thold_install () {
 	global $config;
+
 	if (version_compare($config['cacti_version'], '1.0.0') < 0) {
 		return false;
 	}
+
 	api_plugin_register_hook('thold', 'page_head', 'thold_page_head', 'setup.php');
 	api_plugin_register_hook('thold', 'top_header_tabs', 'thold_show_tab', 'includes/tab.php');
 	api_plugin_register_hook('thold', 'top_graph_header_tabs', 'thold_show_tab', 'includes/tab.php');
@@ -394,7 +396,7 @@ function thold_device_action_prepare($save) {
 
 	print "<tr>
 		<td colspan='2' class='textArea'>
-			<p>" . __('Click \'Continute\' to apply all appropriate Thresholds to these Device(s).') . "</p>
+			<p>" . __('Click \'Continue\' to apply all appropriate Thresholds to these Device(s).') . "</p>
 			<ul>" . $save['host_list'] . "</ul>
 		</td>
 	</tr>";
@@ -487,7 +489,7 @@ function thold_data_sources_table($ds) {
 function thold_graphs_new() {
 	global $config;
 
-	print '<span class="linkMarker">*</span><a class="autocreate hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create thresholds'). '</a><br>';
+	print '<span class="linkMarker">*</span><a class="autocreate hyperLink" href="' . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create Thresholds'). '</a><br>';
 }
 
 function thold_user_admin_setup_sql_save($save) {
@@ -618,7 +620,7 @@ function thold_data_source_action_execute($action) {
 
 									plugin_thold_log_changes($id, 'created', " $tname [$name]");
 
-									$message .= __('Created threshold for the Graph \'<i>%s</i>\' using the Data Source \'<i>%s</i>\'', $tname, $name) . "<br>";
+									$message .= __('Created Threshold for the Graph \'<i>%s</i>\' using the Data Source \'<i>%s</i>\'', $tname, $name) . "<br>";
 								}
 							}
 						}
@@ -841,7 +843,7 @@ function thold_graphs_action_execute($action) {
 									}
 
 									plugin_thold_log_changes($id, 'created', " $tname [$name]");
-									$message .= __('Created threshold for the Graph \'<i>%s</i>\' using the Data Source \'<i>%s</i>\'', $tname, $name) . "<br>";
+									$message .= __('Created Threshold for the Graph \'<i>%s</i>\' using the Data Source \'<i>%s</i>\'', $tname, $name) . "<br>";
 								}
 							}
 						}
@@ -1039,7 +1041,7 @@ function thold_device_edit_pre_bottom() {
 			$i++;
 		}
 	}else{ 
-		print '<tr><td><em>' . __('No Associated Threshold Templates.') . '</em></td></tr>'; 
+		print '<tr><td colspan="2"><em>' . __('No Associated Threshold Templates.') . '</em></td></tr>'; 
 	}
 
 	html_end_box();
@@ -1071,7 +1073,7 @@ function thold_device_template_edit() {
 			$i++;
 		}
 	}else{ 
-		print '<tr><td><em>' . __('No Associated Threshold Templates.') . '</em></td></tr>'; 
+		print '<tr><td colspan="2"><em>' . __('No Associated Threshold Templates.') . '</em></td></tr>'; 
 	}
 
 	$unmapped = db_fetch_assoc_prepared('SELECT DISTINCT tt.id, tt.name

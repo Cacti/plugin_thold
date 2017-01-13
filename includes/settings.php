@@ -113,7 +113,7 @@ function thold_config_form () {
 				'collapsible' => true
 			);
 			$fields_host_edit3['thold_send_email'] = array(
-				'friendly_name' => __('Thold Up/Down Email Notification'),
+				'friendly_name' => __('Threshold Up/Down Email Notification'),
 				'method' => 'drop_array',
 				'array' =>  array(
 					'0' => __('Disabled'), 
@@ -193,7 +193,7 @@ function thold_config_settings () {
 		),
 		'thold_autocreate' => array(
 			'friendly_name' => __('Auto Create Thresholds'),
-			'description' => __('If selected, when running either automation, or when creating/saving a Device, all thresholds associated with the Device Template will be created.'),
+			'description' => __('If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created.'),
 			'method' => 'checkbox',
 			'default' => ''
 		),
@@ -240,7 +240,7 @@ function thold_config_settings () {
 		),
 		'thold_log_debug' => array(
 			'friendly_name' => __('Debug Log'),
-			'description' => __('Enable logging of debug messages with Thold'),
+			'description' => __('Enable logging of debug messages with Threshold'),
 			'method' => 'checkbox',
 			'default' => ''
 		),
@@ -257,13 +257,13 @@ function thold_config_settings () {
 		),
 		'thold_daemon_enable' => array(
 			'friendly_name' => __('Enable Threshold Daemon'),
-			'description' => __('Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performace and/or to distribute threshold monitoring to a separate server.'),
+			'description' => __('Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server.'),
 			'method' => 'checkbox',
 			'default' => ''
 		),
 		'thold_max_concurrent_processes' => array(
-			'friendly_name' => __('Maximum Concurrent Thold Processes'),
-			'description' => __('The maximum number of concurrent processes to be handled by the Thold Daemon.'),
+			'friendly_name' => __('Maximum Concurrent Threshold Processes'),
+			'description' => __('The maximum number of concurrent processes to be handled by the Threshold Daemon.'),
 			'method' => 'textbox',
 			'size' => 2,
 			'max_length' => 2,
@@ -275,7 +275,7 @@ function thold_config_settings () {
 		),
 		'alert_exempt' => array(
 			'friendly_name' => __('Weekend exemptions'),
-			'description' => __('If this is checked, thold will not run on weekends.'),
+			'description' => __('If this is checked, Thold will not run on weekends.'),
 			'method' => 'checkbox',
 		),
 		'alert_trigger' => array(
@@ -300,7 +300,7 @@ function thold_config_settings () {
 		),
 		'alert_bl_timerange_def' => array(
 			'friendly_name' => __('Baseline Time Range Default'),
-			'description' => __('This is the default value used in creating thresholds or templates.'),
+			'description' => __('This is the default value used in creating Thresholds or templates.'),
 			'method' => 'drop_array',
 			'array' => get_reference_types(),
 			'size' => 12,
@@ -317,7 +317,7 @@ function thold_config_settings () {
 		),
 		'alert_bl_percent_def' => array(
 			'friendly_name' => __('Baseline Deviation Percentage'),
-			'description' => __('This is the default value used in creating thresholds or templates.'),
+			'description' => __('This is the default value used in creating Thresholds or templates.'),
 			'method' => 'textbox',
 			'size' => 3,
 			'max_length' => 3,
@@ -367,12 +367,12 @@ function thold_config_settings () {
 		),
 		'thold_alert_snmp_warning' => array(
 			'friendly_name' => __('Disable Warning Notifications'),
-			'description' => __('If this is checked, Thold will not send a notification when a warning threshold has been breached.'),
+			'description' => __('If this is checked, Threshold will not send a notification when a warning Threshold has been breached.'),
 			'method' => 'checkbox'
 		),
 		'thold_alert_snmp_normal' => array(
 			'friendly_name' => __('Disable Restoration Notifications'),
-			'description' => __('If this is checked, Thold will not send a notfication when the threshold has returned to normal status.'),
+			'description' => __('If this is checked, Threshold will not send a notification when the Threshold has returned to normal status.'),
 			'method' => 'checkbox'
 		),
 		'thold_snmp_event_description' => array(
@@ -422,7 +422,7 @@ function thold_config_settings () {
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '7',
 			'textarea_cols' => '80',
-			'default' => __('System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTE: <NOTES>'),
+			'default' => __('System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTE: <NOTES>'),
 		),
 		'thold_up_subject' => array(
 			'friendly_name' => __('Recovering Device Subject'),
@@ -439,18 +439,18 @@ function thold_config_settings () {
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '7',
 			'textarea_cols' => '80',
-			'default' => __('<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>'),
+			'default' => __('<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>'),
 		),
 		'thold_from_email' => array(
 			'friendly_name' => __('From Email Address'),
-			'description' => __('This is the Email address that the threshold will appear from.'),
+			'description' => __('This is the Email address that the Threshold will appear from.'),
 			'method' => 'textbox',
 			'default' => read_config_option('settings_from_email'),
 			'max_length' => 255,
 		),
 		'thold_from_name' => array(
 			'friendly_name' => __('From Name'),
-			'description' => __('This is the actual name that the threshold will appear from.'),
+			'description' => __('This is the actual name that the Threshold will appear from.'),
 			'method' => 'textbox',
 			'default' => read_config_option('settings_from_name'),
 			'max_length' => 255,
@@ -466,7 +466,7 @@ function thold_config_settings () {
 		),
 		'thold_warning_text' => array(
 			'friendly_name' => __('Threshold Warning Message'),
-			'description' => __('This is the message that will be displayed at the top of all threshold warnings (255 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold warnings (255 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062'),
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',

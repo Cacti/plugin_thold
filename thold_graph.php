@@ -583,7 +583,7 @@ function hosts() {
 		'nosort1'                => array('display' => __('Graphs'),       'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Graphs for this Device')),
 		'nosort2'                => array('display' => __('Data Sources'), 'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Data Sources for this Device')),
 		'status'                 => array('display' => __('Status'),       'align' => 'center', 'sort' => 'ASC',  'tip' => __('The status for this Device as of the last time it was polled')),
-		'nosort3'                => array('display' => __('In State'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The last time Cacti found an issues with this Device.  It can be higher than the Uptime for the the Device, if it was rebooted between Cacti polling cycles')),
+		'nosort3'                => array('display' => __('In State'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles')),
 		'snmp_sysUpTimeInstance' => array('display' => __('Uptime'),       'align' => 'right',  'sort' => 'ASC',  'tip' => __('The official uptime of the Device as reported by SNMP')),
 		'hostname'               => array('display' => __('Hostname'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The official hostname for this Device')),
 		'cur_time'               => array('display' => __('Current (ms)'), 'align' => 'right',  'sort' => 'DESC', 'tip' => __('The current response time for the Cacti Availability check')),

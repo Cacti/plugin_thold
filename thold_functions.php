@@ -3077,6 +3077,10 @@ function save_thold() {
 	$save['local_data_id']               = get_request_var('local_data_id');
 	$save['thold_enabled']               = isset_request_var('thold_enabled') ? 'on' : 'off';
 	$save['exempt']                      = isset_request_var('exempt') ? 'on' : '';
+
+	$save['thold_hrule_warning']         = get_nfilter_request_var('thold_hrule_warning');
+	$save['thold_hrule_alert']           = get_nfilter_request_var('thold_hrule_alert');
+
 	$save['restored_alert']              = isset_request_var('restored_alert') ? 'on' : '';
 	$save['thold_type']                  = get_request_var('thold_type');
 	$save['template_enabled']            = isset_request_var('template_enabled') ? 'on' : '';

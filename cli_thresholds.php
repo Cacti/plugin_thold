@@ -145,7 +145,7 @@ function thold_cli_autocreate_host ($id) {
 	echo "Auto Creating Thresholds for Device #$id\n";
 	autocreate($id);
 	if (isset($_SESSION['thold_message'])) {
-		echo strip_tags(str_replace(array('<br>', 'Created threshold'), array("\n", '     Created threshold'), $_SESSION['thold_message']));
+		echo strip_tags(str_replace(array('<br>', 'Created Threshold'), array("\n", '     Created Threshold'), $_SESSION['thold_message']));
 	}
 }
 
@@ -154,13 +154,13 @@ function display_help () {
 	print "Threshold Command Line Interface, Version " . read_config_option('plugin_thold_version') . "\n";
 	print "usage: cli_thresholds.php --auto-create=N | --graph-template=N [--thold-template=N] [--graph-ids='N1 N2 ...']\n\n";
 	print "There are two usage methods:\n\n";
-	print "The first requires you to specify the host id of the device and all existing threshold templates\n";
+	print "The first requires you to specify the host id of the device and all existing Threshold templates\n";
 	print "are applied to hosts.\n\n";
 	print "The second requires you to specify a minimum of a Graph Template ID, and optionally the\n";
 	print "Threshold Template and Graph ID's of the Graphs to be impacted.\n\n";
-	print "--auto-create=N         - Auto Create all thresholds for this host id using current templates\n";
-	print "--graph-template=N      - The Graph Template to create thresholds for\n";
-	print "--thold-template=N      - The Threshold Template to use for creating thresholds\n";
-	print "--graph-ids='N1 N2 ...' - The Threshold Template to use for creating thresholds\n";
+	print "--auto-create=N         - Auto Create all Thresholds for this host id using current templates\n";
+	print "--graph-template=N      - The Graph Template to create Thresholds for\n";
+	print "--thold-template=N      - The Threshold Template to use for creating Thresholds\n";
+	print "--graph-ids='N1 N2 ...' - The Threshold Template to use for creating Thresholds\n";
 	print "-h --help -V --version  - Display this help message\n\n";
 }
