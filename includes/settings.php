@@ -390,7 +390,7 @@ function thold_config_settings () {
 		),
 		'thold_email_prio' => array(
 			'friendly_name' => __('Send Emails with Urgent Priority'),
-			'description' => __('Allows you to set e-mails with urgent priority'),
+			'description' => __('Allows you to set Emails with urgent priority'),
 			'method' => 'checkbox',
 			'default' => ''
 		),

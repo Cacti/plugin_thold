@@ -3428,7 +3428,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 	}
 
 	if ($to_email == '') {
-		return __('Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert e-mail</b> setting.');
+		return __('Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting.');
 	}
 
 	$attachments = array();
