@@ -151,7 +151,8 @@ function thold_cli_autocreate_host ($id) {
 
 /*	display_help - displays the usage of the function */
 function display_help () {
-	print "Threshold Command Line Interface, Version " . read_config_option('plugin_thold_version') . "\n";
+	$thold_version = db_fetch_cell('SELECT version FROM plugin_config WHERE directory="thold"');
+	print "Threshold Command Line Interface, Version $thold_version\n";
 	print "usage: cli_thresholds.php --auto-create=N | --graph-template=N [--thold-template=N] [--graph-ids='N1 N2 ...']\n\n";
 	print "There are two usage methods:\n\n";
 	print "The first requires you to specify the host id of the device and all existing Threshold templates\n";

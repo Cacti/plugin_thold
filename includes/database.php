@@ -33,12 +33,9 @@ function thold_upgrade_database () {
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 	$v = plugin_thold_version();
 
-	$oldv = read_config_option('plugin_thold_version');
+	$oldv = db_fetch_cell('SELECT version FROM plugin_config WHERE directory="thold"');
 
-	if ($oldv < .1) {
-		db_execute('INSERT INTO settings (name, value) VALUES ("plugin_thold_version", "' . $v['version'] . '")');
-		$oldv = $v['version'];
-	}
+	db_execute('DELETE FROM settings WHERE name="plugin_thold_version"');
 
 	// Check for needed Cacti Indexes
 	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM graph_templates_item"),"Key_name", "Key_name");
@@ -311,10 +308,10 @@ function thold_upgrade_database () {
 	}
 
 	if (version_compare($oldv, '1.0.1', '<')) {
-		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '', 'after' => 'exempt'));
-		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '', 'after' => 'thold_hrule_alert') );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '', 'after' => 'exempt'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '', 'after' => 'thold_hrule_alert') );
+		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'exempt'));
+		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_hrule_alert') );
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'exempt'));
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_hrule_alert') );
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');

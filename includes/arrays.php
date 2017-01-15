@@ -301,3 +301,6 @@ $data_types = array (
 	3 => __('RPN Expression')
 );
 
+/* perform database upgrade */
+include_once($config['base_path'] . '/plugins/thold/setup.php');
+thold_check_upgrade();

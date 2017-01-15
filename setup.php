@@ -105,13 +105,16 @@ function plugin_thold_version () {
 
 function thold_check_upgrade () {
 	global $config;
+
 	// Let's only run this check if we are on a page that actually needs the data
 	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'poller.php');
-	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files))
+	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
 		return;
-	$current = plugin_thold_version ();
+	}
+
+	$current = plugin_thold_version();
 	$current = $current['version'];
-	$old = read_config_option('plugin_thold_version', TRUE);
+	$old     = db_fetch_cell('SELECT version FROM plugin_config WHERE directory="thold"');
 	if ($current != $old) {
 		include_once($config['base_path'] . '/plugins/thold/includes/database.php');
 		thold_upgrade_database ();
