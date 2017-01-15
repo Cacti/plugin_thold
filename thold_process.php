@@ -143,16 +143,6 @@ $sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
 $tholds = db_fetch_assoc($sql_query, false);
 
 if (sizeof($tholds)) {
-	/* hold data of all CDEFs in memory to reduce the number of SQL queries to minimum */
-	$cdefs = array();
-	$cdefs_tmp = db_fetch_assoc('SELECT cdef_id, sequence, type, value FROM cdef_items ORDER BY cdef_id, sequence');
-	if($cdefs_tmp & sizeof($cdefs_tmp)>0) {
-		foreach($cdefs_tmp as $cdef_tmp) {
-			$cdefs[$cdef_tmp['cdef_id']][] = $cdef_tmp;
-		}
-	}
-	unset($cdefs_tmp);
-
 	$rrd_reindexed = array();
 	$rrd_time_reindexed = array();
 
@@ -169,7 +159,7 @@ if (sizeof($tholds)) {
 			break;
 		case 1:
 			if ($thold_data['cdef'] != 0) {
-				$currentval = thold_build_cdef( $cdefs[$thold_data['cdef']], $currentval, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+				$currentval = thold_build_cdef($thold_data['cdef'], $currentval, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 			}
 			break;
 		case 2:

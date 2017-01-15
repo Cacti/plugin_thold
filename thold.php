@@ -804,7 +804,7 @@ function thold_edit() {
 	//----------------------
 	// Data Source Item Form
 	//----------------------
-	$thold_data_cdef = (isset($thold_data['cdef']) ? $thold_data['cdef'] : 0);
+	$thold_data_cdef = (!empty($thold_data['cdef']) ? $thold_data['cdef'] : 0);
 
 	if (isset($thold_data['template'])) {
 		$thold_data['template_name'] = db_fetch_cell_prepared('SELECT name 

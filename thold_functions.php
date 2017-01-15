@@ -518,28 +518,32 @@ function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $c
 		array_push($stack, $currentval);
 		break;
 	case 'CURRENT_GRAPH_MAXIMUM_VALUE':
-		array_push(get_current_value($local_data_id, 'upper_limit', 0));
+		array_push(get_current_value($local_data_id, 'upper_limit'));
 		break;
 	case 'CURRENT_GRAPH_MINIMUM_VALUE':
-		array_push(get_current_value($local_data_id, 'lower_limit', 0));
+		array_push(get_current_value($local_data_id, 'lower_limit'));
 		break;
 	case 'CURRENT_DS_MINIMUM_VALUE':
-		array_push(get_current_value($local_data_id, 'rrd_minimum', 0));
+		array_push(get_current_value($local_data_id, 'rrd_minimum'));
 		break;
 	case 'CURRENT_DS_MAXIMUM_VALUE':
-		array_push($stack, get_current_value($local_data_id, 'rrd_maximum', 0));
+		array_push($stack, get_current_value($local_data_id, 'rrd_maximum'));
 		break;
 	case 'VALUE_OF_HDD_TOTAL':
-		array_push($stack, get_current_value($local_data_id, 'hdd_total', 0));
+		array_push($stack, get_current_value($local_data_id, 'hdd_total'));
 		break;
 	case 'ALL_DATA_SOURCES_NODUPS':
 	case 'ALL_DATA_SOURCES_DUPS':
 		$v1 = 0;
 		$all_dsns = array();
-		$all_dsns = db_fetch_assoc('SELECT data_source_name FROM data_template_rrd WHERE local_data_id = ' . $local_data_id);
+		$all_dsns = db_fetch_assoc_prepared('SELECT data_source_name 
+			FROM data_template_rrd 
+			WHERE local_data_id = ?', 
+			array($local_data_id));
+
 		if (is_array($all_dsns)) {
 			foreach ($all_dsns as $dsn) {
-				$v1 += get_current_value($local_data_id, $dsn['data_source_name'], 0);
+				$v1 += get_current_value($local_data_id, $dsn['data_source_name']);
 			}
 		}
 
@@ -2554,8 +2558,15 @@ function thold_cdef_select_usable_names () {
 	return $cdef_names;
 }
 
-function thold_build_cdef (&$cdefs, $value, $rra, $ds) {
-	$oldvalue = $value;
+function thold_build_cdef($cdef, $value, $rra, $ds) {
+	$oldvalue   = $value;
+
+	$cdefs      = db_fetch_assoc_prepared('SELECT * 
+		FROM cdef_items 
+		WHERE cdef_id = ? 
+		ORDER BY sequence', array($cdef));
+
+	$cdef_array = array();
 
 	if (sizeof($cdefs)) {
 	foreach ($cdefs as $cdef) {
@@ -2567,19 +2578,19 @@ function thold_build_cdef (&$cdefs, $value, $rra, $ds) {
 				$cdef['value'] = $oldvalue; // get_current_value($rra, $ds, 0);
 				break;
 			case 'CURRENT_GRAPH_MAXIMUM_VALUE':
-				$cdef['value'] = get_current_value($rra, 'upper_limit', 0);
+				$cdef['value'] = get_current_value($rra, 'upper_limit');
 				break;
 			case 'CURRENT_GRAPH_MINIMUM_VALUE':
-				$cdef['value'] = get_current_value($rra, 'lower_limit', 0);
+				$cdef['value'] = get_current_value($rra, 'lower_limit');
 				break;
 			case 'CURRENT_DS_MINIMUM_VALUE':
-				$cdef['value'] = get_current_value($rra, 'rrd_minimum', 0);
+				$cdef['value'] = get_current_value($rra, 'rrd_minimum');
 				break;
 			case 'CURRENT_DS_MAXIMUM_VALUE':
-				$cdef['value'] = get_current_value($rra, 'rrd_maximum', 0);
+				$cdef['value'] = get_current_value($rra, 'rrd_maximum');
 				break;
 			case 'VALUE_OF_HDD_TOTAL':
-				$cdef['value'] = get_current_value($rra, 'hdd_total', 0);
+				$cdef['value'] = get_current_value($rra, 'hdd_total');
 				break;
 			case 'ALL_DATA_SOURCES_NODUPS': // you can't have DUPs in a single data source, really...
 			case 'ALL_DATA_SOURCES_DUPS':
@@ -2588,7 +2599,7 @@ function thold_build_cdef (&$cdefs, $value, $rra, $ds) {
 				$all_dsns = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE local_data_id = $rra");
 				if (is_array($all_dsns)) {
 					foreach ($all_dsns as $dsn) {
-						$cdef['value'] += get_current_value($rra, $dsn['data_source_name'], 0);
+						$cdef['value'] += get_current_value($rra, $dsn['data_source_name']);
 					}
 				}
 				break;
@@ -2639,12 +2650,11 @@ function thold_build_cdef (&$cdefs, $value, $rra, $ds) {
 			$result = thold_rpn($v2['value'], $v1['value'], $cdef_array[$cursor]['value']);
 
 			// put the result back on the stack.
-			array_push($stack, array('type'=>6,'value'=>$result));
+			array_push($stack, array('type' => 6, 'value' => $result));
 
 			break;
 		default:
-			print 'Unknown RPN type: ';
-			print $cdef_array[$cursor]['type'];
+			cacti_log('Unknown RPN type: ' . $cdef_array[$cursor]['type'], false);;
 			return($oldvalue);
 
 			break;
