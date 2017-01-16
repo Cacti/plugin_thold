@@ -1,6 +1,6 @@
 #thold
 
-The Cacti thold plugin is designed to be a fault management system driven by Cacti's graph information.  It provides the facility to inspect data in a Cacti Graph and the underlying RRDfile, and generate alerts for management and operations personnel.  It provides  Email, Syslog, and SNMP Trap or Inform escalations.  In addition, it also can notify personnel of Cacti Device status changes through Email, Syslog, and either SNMP Trap or Inform.
+The Cacti thold plugin is designed to be a fault management system driven by Cacti's Graph information.  It provides the facility to inspect data in a Cacti Graph and the underlying RRDfile, and generate alerts for management and operations personnel.  It provides  Email, Syslog, and SNMP Trap or Inform escalations.  In addition, it also can notify personnel of Cacti Device status changes through Email, Syslog, and either SNMP Trap or Inform.
 
 ##Installation
 	
@@ -39,6 +39,8 @@ The thold plugin has been in development for well over a decade with increasing 
 * feature: Multiple tholds per data source
 * feature: Moving most SQL to prepared statements for security
 * feature: Moving away from direct use of $_GET, $_REQUEST, and $_POST for security
+* feature: Rename several legacy database columns to match Cacti's default schema, making the thold code much more readable
+* feature: complete audit and rewrite of several functions addressing: readability, clarity, and consistency
 
 --- 0.6 ---
 * feature: Reduce influence upon Cacti's poller runtime to a minimum by introducing a Thold daemon (also allows distribution)
