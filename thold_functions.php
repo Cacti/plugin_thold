@@ -1372,7 +1372,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		if ($message['template_enabled'] == 'on') {
 			$desc .= '  Use Template: On';
 		} else {
-			$desc .= '  Type: ' . $thold_types[$message['thold_type']];
+			$desc .= '  Type: ' . $thold_types[$thold['thold_type']];
 			$desc .= '  Enabled: ' . $message['thold_enabled'];
 			switch ($message['thold_type']) {
 			case 0:

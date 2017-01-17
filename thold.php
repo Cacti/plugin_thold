@@ -533,7 +533,19 @@ function list_tholds() {
 				print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $thold_data['id'] . "'>\n";
 			}
 
-			form_selectable_cell(filter_value(($thold_data['name'] != '' ? $thold_data['name'] : $thold_data['name_cache'] . ' [' . $thold_data['data_source_name'] . ']'), get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']) . '</a>', $thold_data['id'], '', 'text-align:left');
+			if ($thold_data['name'] != '') {
+				$name = $thold_data['name'] . ' [' . $data_source . ']';
+			}else{
+				$desc = db_fetch_cell_prepared('SELECT name_cache 
+					FROM data_template_data 
+					WHERE local_data_id = ? 
+					LIMIT 1', 
+					array($thold_data['local_data_id']));
+
+				$name = $desc . ' [' . $data_source . ']';
+			}
+
+			form_selectable_cell(filter_value($name, get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']) . '</a>', $thold_data['id'], '', 'text-align:left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'text-align:right');
 			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'text-align:right');
