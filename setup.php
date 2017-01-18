@@ -50,7 +50,6 @@ function plugin_thold_install () {
 
 	api_plugin_register_hook('thold', 'user_admin_setup_sql_save', 'thold_user_admin_setup_sql_save', 'setup.php');
 	api_plugin_register_hook('thold', 'poller_bottom', 'thold_poller_bottom', 'includes/polling.php');
-	api_plugin_register_hook('thold', 'user_admin_edit', 'thold_user_admin_edit', 'setup.php');
 	api_plugin_register_hook('thold', 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
 	api_plugin_register_hook('thold', 'graph_buttons', 'thold_graph_button', 'setup.php');
 
@@ -448,27 +447,6 @@ function thold_api_device_save($save) {
 	return $save;
 }
 
-function thold_user_admin_edit($user) {
-	global $fields_user_user_edit_host;
-
-	$value = '';
-
-	if ($user != 0) {
-		$value = db_fetch_cell("SELECT data FROM plugin_thold_contacts WHERE user_id = $user AND type = 'email'");
-	}
-
-	$fields_user_user_edit_host['email'] = array(
-		'method' => 'textbox',
-		'value' => $value,
-		'friendly_name' => __('Email Address'),
-		'form_id' => '|arg1:id|',
-		'default' => '',
-		'max_length' => 255
-	);
-
-	return $user;
-}
-
 function thold_data_sources_table($ds) {
 	global $config;
 
@@ -503,7 +481,7 @@ function thold_user_admin_setup_sql_save($save) {
 	}
 
 	if (isset_request_var('email')) {
-		$email = form_input_validate(get_nfilter_request_var('email'), 'email', '', true, 3);
+		$email = form_input_validate(get_nfilter_request_var('email_address'), 'email_address', '', true, 3);
 		if ($save['id'] == 0) {
 			$save['id'] = sql_save($save, 'user_auth');
 		}
