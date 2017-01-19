@@ -426,7 +426,7 @@ function thold_rrd_graph_graph_options ($g) {
 						}
 
 						if ($t['time_warning_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':\'Warning Low for ' . $t['name'] . ' (' . $t['time_warning_hi'] . ')\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':\'Warning Low for ' . $t['name'] . ' (' . $t['time_warning_low'] . ')\' \\' . "\n";
 						}
 
 						break;
