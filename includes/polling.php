@@ -203,8 +203,7 @@ function thold_poller_output(&$rrd_update_array) {
 			db_execute("UPDATE thold_data SET tcheck=1, lastread='$currentval',
 				lasttime='" . date('Y-m-d H:i:s', $currenttime) . "',
 				oldvalue='" . (isset($item[$thold_data['name']]) ? $item[$thold_data['name']]:'') . "'
-				WHERE local_data_id = " . $thold_data['local_data_id'] . "
-				AND data_template_rrd_id = " . $thold_data['data_template_rrd_id']);
+				WHERE id = " . $thold_data['id']);
 		}
 	}
 
