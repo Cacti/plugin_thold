@@ -708,7 +708,7 @@ function template_edit() {
 			),
 		'thold_hrule_warning' => array(
 			'friendly_name' => __('Warning HRULE Color'),
-			'description' => __('Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose \'None\' for No HRULE.'),
+			'description' => __('Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose \'None\' for No HRULE.  Note: This features is supported for Data Manipulation types \'Exact Value\' and \'Percentage\' only at this time.'),
 			'method' => 'drop_color',
 			'none_value' => __('None'),
 			'default' => '0',
@@ -716,7 +716,7 @@ function template_edit() {
 			),
 		'thold_hrule_alert' => array(
 			'friendly_name' => __('Alert HRULE Color'),
-			'description' => __('Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose \'None\' for No HRULE.'),
+			'description' => __('Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose \'None\' for No HRULE.  Note: This features is supported for Data Manipulation types \'Exact Value\' and \'Percentage\' only at this time.'),
 			'method' => 'drop_color',
 			'none_value' => __('None'),
 			'default' => '0',
@@ -1075,16 +1075,38 @@ function template_edit() {
 			thold_toggle_hilow('');
 			thold_toggle_baseline('none');
 			thold_toggle_time('none');
+
+			if ($('#data_type').val() == 0 || $('#data_type') == 2) {
+				$('#row_thold_hrule_warning').show();
+				$('#row_thold_hrule_alert').show();
+			}else{
+				$('#row_thold_hrule_warning').hide();
+				$('#row_thold_hrule_alert').hide();
+			}
+
 			break;
 		case '1': // Baseline
 			thold_toggle_hilow('none');
 			thold_toggle_baseline('');
 			thold_toggle_time('none');
+
+			$('#row_thold_hrule_warning').hide();
+			$('#row_thold_hrule_alert').hide();
+
 			break;
 		case '2': // Time Based
 			thold_toggle_hilow('none');
 			thold_toggle_baseline('none');
 			thold_toggle_time('');
+
+			if ($('#data_type').val() == 0 || $('#data_type') == 2) {
+				$('#row_thold_hrule_warning').show();
+				$('#row_thold_hrule_alert').show();
+			}else{
+				$('#row_thold_hrule_warning').hide();
+				$('#row_thold_hrule_alert').hide();
+			}
+
 			break;
 		}
 	}
@@ -1094,21 +1116,44 @@ function template_edit() {
 		case '0':
 			$('#row_cdef, #row_percent_ds, #row_expression').hide();
 
+			if ($('#thold_type').val() == 0 || $('#thold_type').val() == 2) {
+				$('#row_thold_hrule_warning').show();
+				$('#row_thold_hrule_alert').show();
+			}else{
+				$('#row_thold_hrule_warning').hide();
+				$('#row_thold_hrule_alert').hide();
+			}
+
 			break;
 		case '1':
 			$('#row_cdef').show();
 			$('#row_percent_ds, #row_expression').hide();
+
+			$('#row_thold_hrule_warning').hide();
+			$('#row_thold_hrule_alert').hide();
 
 			break;
 		case '2':
 			$('#row_cdef').hide();
 			$('#row_percent_ds, #row_expression').show();
 
+			if ($('#thold_type').val() == 0 || $('#thold_type').val() == 2) {
+				$('#row_thold_hrule_warning').show();
+				$('#row_thold_hrule_alert').show();
+			}else{
+				$('#row_thold_hrule_warning').hide();
+				$('#row_thold_hrule_alert').hide();
+			}
+
 			break;
 		case '3':
 			$('#row_cdef').hide();
 			$('#row_percent_ds').hide();
 			$('#row_expression').show();
+
+			$('#row_thold_hrule_warning').hide();
+			$('#row_thold_hrule_alert').hide();
+
 			break;
 		}
 	}

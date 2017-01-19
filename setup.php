@@ -194,6 +194,8 @@ function thold_multiexplode ($delimiters, $string) {
 }
 
 function thold_rrd_graph_graph_options ($g) {
+	global $config;
+
 	/* handle thold replacement variables */
 	$needles      = array();
 	$replacements = array();
@@ -213,7 +215,12 @@ function thold_rrd_graph_graph_options ($g) {
 					$temp2 = explode('_', $temp1);
 					$local_data_id = $temp2[sizeof($temp2)-1];
 				}
+				$dsname = trim($dsname, "'\" ");
 				$data_template_rrd[$dsname] = $local_data_id;
+
+				// Map the dsnames to def id's for percentile
+				$ndef = explode('=', $kdef[1]);
+				$data_defs[$dsname] = $ndef[0];
 			}
 		}
 	}
@@ -321,34 +328,199 @@ function thold_rrd_graph_graph_options ($g) {
 		$g['txt_graph_items'] = implode("\\\n", $txt_items);
 	}
 
-	if (read_config_option('thold_draw_vrules') != 'on') {
-		return $g;
+	$id = $g['graph_id'];
+
+	//print "<pre>"; print_r($g);print "</pre>";
+
+	if (read_config_option('thold_draw_vrules') == 'on') {
+		$end = $g['end'];
+		if ($end < 0)
+			$end = time() + $end;
+		$end++;
+
+		$start = $g['start'];
+		if ($start < 0)
+			$start = $end + $start;
+		$start--;
+
+		if ($id) {
+			$rows = db_fetch_assoc_prepared('SELECT time, status 
+				FROM plugin_thold_log 
+				WHERE local_graph_id = ? 
+				AND type = 0 
+				AND time > ? 
+				AND time < ?', array($id, $start, $end));
+
+			if (!empty($rows)) {
+				foreach ($rows as $row) {
+					$g['graph_defs'] .= 'VRULE:' . $row['time'] . ($row['status'] == 0 ? '#00FF21' : '#FF0000') . ' \\' . "\n";
+				}
+			}
+		}
 	}
 
-	$id = $g['local_graph_id'];
+	$tholds_w_hrule = db_fetch_assoc_prepared('SELECT * 
+		FROM thold_data 
+		WHERE thold_enabled = 1 
+		AND data_type IN (0, 2)
+		AND (thold_hrule_alert > 0 || thold_hrule_warning > 0) 
+		&& local_graph_id = ?', 
+		array($id));
 
-	$end = $g['end'];
-	if ($end < 0)
-		$end = time() + $end;
-	$end++;
+	$thold_id = 0;
+	$txt_graph_items = '';
+	if (sizeof($tholds_w_hrule)) {
+		foreach($tholds_w_hrule as $t) {
+			switch($t['data_type']) {
+			case '0': // Exact value
+				if ($t['thold_hrule_alert'] > 0) {
+					$color = db_fetch_cell_prepared('SELECT hex 
+						FROM colors
+						WHERE id = ?', 
+						array($t['thold_hrule_alert']));
 
-	$start = $g['start'];
-	if ($start < 0)
-		$start = $end + $start;
-	$start--;
+					switch($t['thold_type']) {
+					case '0': // Hi / Low
+						if ($t['thold_hi'] != '') {
+							$txt_graph_items .= 'LINE1:' . $t['thold_hi'] . '#' . $color . ':\'Alert Hi for ' . $t['name'] . '\' \\' . "\n";
+						}
 
-	if ($id) {
-		$rows = db_fetch_assoc_prepared('SELECT time, status 
-			FROM plugin_thold_log 
-			WHERE local_graph_id = ? 
-			AND type = 0 
-			AND time > ? 
-			AND time < ?', array($id, $start, $end));
+						if ($t['thold_low'] != '') {
+							$txt_graph_items .= 'LINE1:' . $t['thold_low'] . '#' . $color . ':\'Alert Low for ' . $t['name'] . '\' \\' . "\n";
+						}
 
-		if (!empty($rows)) {
-			foreach ($rows as $row) {
-				$g['graph_defs'] .= 'VRULE:' . $row['time'] . ($row['status'] == 0 ? '#00FF21' : '#FF0000') . ' \\' . "\n";
+						break;
+					case '2': // Time Based
+						if ($t['time_hi'] != '') {
+							$txt_graph_items .= 'LINE1:' . $t['time_hi'] . '#' . $color . ':\'Alert Hi for ' . $t['name'] . '\' \\' . "\n";
+						}
+
+						if ($t['time_low'] != '') {
+							$txt_graph_items .= 'LINE1:' . $t['time_low'] . '#' . $color . ':\'Alert Low for ' . $t['name'] . '\' \\' . "\n";
+						}
+
+						break;
+					}
+				}
+
+				if ($t['thold_hrule_warning'] > 0) {
+					$color = db_fetch_cell_prepared('SELECT hex 
+						FROM colors
+						WHERE id = ?', 
+						array($t['thold_hrule_warning']));
+
+					switch($t['thold_type']) {
+					case '0': // Hi / Low
+						if ($t['thold_warning_hi'] != '') {
+							$txt_graph_items .= 'LINE1:' . $t['thold_warning_hi'] . '#' . $color . ':\'Warning Hi for ' . $t['name'] . '\' \\' . "\n";
+						}
+
+						if ($t['thold_warning_low'] != '') {
+							$txt_graph_items .= 'LINE1:' . $t['thold_warning_low'] . '#' . $color . ':\'Warning Low for ' . $t['name'] . '\' \\' . "\n";
+						}
+
+						break;
+					case '2': // Time Based
+						if ($t['time_warning_hi'] != '') {
+							$txt_graph_items .= 'LINE1:' . $t['time_warning_hi'] . '#' . $color . ':\'Warning Hi for ' . $t['name'] . '\' \\' . "\n";
+						}
+
+						if ($t['time_warning_low'] != '') {
+							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':\'Warning Low for ' . $t['name'] . '\' \\' . "\n";
+						}
+
+						break;
+					}
+				}
+
+				break;
+			case '2': // Percentage
+				if (isset($data_defs[$t['percent_ds']])) {
+					if ($t['thold_hrule_alert'] > 0) {
+						$color = db_fetch_cell_prepared('SELECT hex 
+							FROM colors
+							WHERE id = ?', 
+							array($t['thold_hrule_alert']));
+
+						switch($t['thold_type']) {
+						case '0': // Hi / Low
+							if ($t['thold_hi'] != '') {
+								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_hi'] . ',100,/,* \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'Alert Hi for ' . $t['name'] . '\' \\' . "\n";
+								$thold_id++;
+							}
+
+							if ($t['thold_low'] != '') {
+								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_low'] . ',100,/,* \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'Alert Low for ' . $t['name'] . '\' \\' . "\n";
+								$thold_id++;
+							}
+
+							break;
+						case '2': // Time Based
+							if ($t['time_hi'] != '') {
+								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_hi'] . ',100,/,* \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'Alert Hi for ' . $t['name'] . '\' \\' . "\n";
+								$thold_id++;
+							}
+
+							if ($t['time_low'] != '') {
+								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_low'] . ',100,/,* \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'Alert Low for ' . $t['name'] . '\' \\' . "\n";
+								$thold_id++;
+							}
+
+							break;
+						}
+					}
+
+					if ($t['thold_hrule_warning'] > 0) {
+						$color = db_fetch_cell_prepared('SELECT hex 
+							FROM colors
+							WHERE id = ?', 
+							array($t['thold_hrule_warning']));
+
+						switch($t['thold_type']) {
+						case '0': // Hi / Low
+							if ($t['thold_warning_hi'] != '') {
+								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_hi'] . ',100,/,* \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':\'Warning Hi for ' . $t['name'] . '\' \\' . "\n";
+								$thold_id++;
+							}
+
+							if ($t['thold_warning_low'] != '') {
+								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_low'] . ',100,/,* \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':\'Warning Low for ' . $t['name'] . '\' \\' . "\n";
+								$thold_id++;
+							}
+
+							break;
+						case '2': // Time Based
+							if ($t['time_warning_hi'] != '') {
+								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_hi'] . ',100,/,* \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':\'Warning Hi for ' . $t['name'] . '\' \\' . "\n";
+								$thold_id++;
+							}
+
+							if ($t['time_warning_low'] != '') {
+								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_low'] . ',100,/,* \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':\'Warning Low for ' . $t['name'] . '\' \\' . "\n";
+								$thold_id++;
+							}
+
+							break;
+						}
+					}
+				}
 			}
+		}
+	}
+
+	if ($txt_graph_items) {
+		if ($config['cacti_server_os'] != 'win32' && read_config_option('rrdtool_version') != RRD_VERSION_1_2) {
+			$g['txt_graph_items'] .= 'COMMENT:\' ' . "\\n" . '\'\\' . "\n" . 'COMMENT:\'<u><b>' . __('Threshold Alert/Warning Values') . '</b>							</u>' . "\\n" . '\'\\' . "\n" . $txt_graph_items;
+		}else{
+			$g['txt_graph_items'] .= 'COMMENT:\' ' . "\\n" . '\'\\' . "\n" . 'COMMENT:\'' . __('Threshold Alert/Warning Values') . "\\n" . '\'\\' . "\n" . $txt_graph_items;
 		}
 	}
 
