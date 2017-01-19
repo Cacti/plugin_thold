@@ -3467,10 +3467,12 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 
 	$text = array('text' => '', 'html' => '');
 	if ($filename == '') {
+		$text['html'] = $message . '<br>';
+
 		$message = str_replace('<br>',  "\n", $message);
 		$message = str_replace('<BR>',  "\n", $message);
 		$message = str_replace('</BR>', "\n", $message);
-		$text['text'] = strip_tags($message);
+		$text['text'] = strip_tags(str_replace('<br>', "\n", $message));
 	} else {
 		$text['html'] = $message . '<br>';
 		$text['text'] = strip_tags(str_replace('<br>', "\n", $message));
