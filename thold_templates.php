@@ -1413,7 +1413,7 @@ function templates() {
 			case 1:					# baseline
 				$value_hi   = $template['bl_pct_up'] . (strlen($template['bl_pct_up']) ? '%':'-');
 				$value_lo   = $template['bl_pct_down'] . (strlen($template['bl_pct_down']) ? '%':'-');
-				$value_warning_hi = '-'
+				$value_warning_hi = '-';
 				$value_warning_lo = '-';
 				$value_trig = $template['bl_fail_trigger'];
 
