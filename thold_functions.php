@@ -1878,7 +1878,7 @@ function thold_check_threshold(&$thold_data) {
 		$bl_alert_prev    = $thold_data['bl_alert'];
 		$bl_count_prev    = $thold_data['bl_fail_count'];
 		$bl_fail_trigger  = ($thold_data['bl_fail_trigger'] == '' ? $alert_bl_trigger : $thold_data['bl_fail_trigger']);
-		$thold_data['bl_alert'] = thold_check_baseline($local_data_id, $name, $thold_data['lastread'], $thold_data);
+		$thold_data['bl_alert'] = thold_check_baseline($thold_data['local_data_id'], $name, $thold_data['lastread'], $thold_data);
 
 		switch($thold_data['bl_alert']) {
 		case -2:	/* exception is active, Future Release 'todo' */
@@ -1944,7 +1944,7 @@ function thold_check_threshold(&$thold_data) {
 			if ($thold_data['bl_fail_count'] == $bl_fail_trigger || $ra) {
 				thold_debug('Alerting is necessary');
 
-				$subject = 'ALERT: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
+				$subject = 'ALERT: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $thold_data['bl_pct_up'] : $thold_data['bl_pct_down']) . ' with ' . $thold_data['lastread'];
 
 				if ($logset == 1) {
 					logger($thold_data['name'], ($ra ? 'realert':'alert'), ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']), $thold_data['lastread'], $thold_data['bl_fail_trigger'], $thold_data['bl_fail_count'], $url);
@@ -1980,20 +1980,22 @@ function thold_check_threshold(&$thold_data) {
 					'host_id'         => $thold_data['host_id'],
 					'local_graph_id'  => $thold_data['local_graph_id'],
 					'threshold_id'    => $thold_data['id'],
-					'threshold_value' => ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']),
+					'threshold_value' => ($breach_up ? $thold_data['bl_pct_up'] : $thold_data['bl_pct_down']),
 					'current'         => $thold_data['lastread'],
 					'status'          => ($ra ? ST_NOTIFYRA:ST_NOTIFYAL),
 					'description'     => $subject,
 					'emails'          => $alert_emails)
 				);
 			} else {
+				$subject = 'Thold Baseline Cache Log';
+
 				thold_log(array(
 					'type'            => 1,
 					'time'            => time(),
 					'host_id'         => $thold_data['host_id'],
 					'local_graph_id'  => $thold_data['local_graph_id'],
 					'threshold_id'    => $thold_data['id'],
-					'threshold_value' => ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']),
+					'threshold_value' => ($breach_up ? $thold_data['bl_pct_up'] : $thold_data['bl_pct_down']),
 					'current'         => $thold_data['lastread'],
 					'status'          => ST_TRIGGERA,
 					'description'     => $subject,
@@ -2458,13 +2460,13 @@ function get_thold_warning_text($name, $thold, $h, $currentval, $local_graph_id)
 	return $warning_text;
 }
 
-function thold_format_number($value, $digits = 5) {
+function thold_format_number($value, $digits = 2, $baseu = 1024) {
 	if ($value == '') {
 		return '-';
-	}elseif (strlen(round($value, 0)) == strlen($value)) {
-		return number_format_i18n($value);
-	} else {
-		return rtrim(number_format_i18n($value, $digits), '0');
+	}elseif (strlen(round($value, 0)) == strlen($value) && $value < 1E4) {
+		return number_format_i18n($value, 0, $baseu);
+	}else {
+		return number_format_i18n($value, $digits, $baseu);
 	}
 }
 
@@ -2835,7 +2837,7 @@ function thold_check_baseline($local_data_id, $data_template_rrd_id, $current_va
 		$midnight =  gmmktime(0,0,0);
 		$t0 = $midnight + floor(($now - $midnight) / $thold_data['bl_ref_time_range']) * $thold_data['bl_ref_time_range'];
 
-		$ref_values    = thold_get_ref_value($local_data_id, $data_template_rrd_id, $t0, $thold_data['bl_ref_time_range']);
+		$ref_values    = thold_get_ref_value($thold_data['local_data_id'], $thold_data['data_template_rrd_id'], $t0, $thold_data['bl_ref_time_range']);
 		$ref_value_min = min($ref_values);
 		$ref_value_max = max($ref_values);
 

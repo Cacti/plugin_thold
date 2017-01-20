@@ -545,6 +545,11 @@ function list_tholds() {
 				$name = $desc . ' [' . $data_source . ']';
 			}
 
+			$baseu = db_fetch_cell_prepared('SELECT base_value 
+				FROM graph_templates_graph 
+				WHERE local_graph_id = ?', 
+				array($thold_data['local_graph_id']));
+
 			form_selectable_cell(filter_value($name, get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']) . '</a>', $thold_data['id'], '', 'text-align:left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'text-align:right');
@@ -553,28 +558,29 @@ function list_tholds() {
 
 			switch($thold_data['thold_type']) {
 				case 0:
-					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi']) . ' / ' . thold_format_number($thold_data['thold_hi']), $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_low']) . ' / ' . thold_format_number($thold_data['thold_low']), $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi'], 2, $baseu) . ' / ' . thold_format_number($thold_data['thold_hi'], 2, $baseu), $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_low'], 2, $baseu) . ' / ' . thold_format_number($thold_data['thold_low'], 2, $baseu), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['thold_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell(__('N/A'),  $thold_data['id'], '', 'text-align:right');
 					break;
 				case 1:
-					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi']) . ' / ' . thold_format_number($thold_data['thold_hi']), $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_low']) . ' / ' . thold_format_number($thold_data['thold_low']), $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'text-align:right');
+					
+					form_selectable_cell($thold_data['bl_pct_up'] . (strlen($thold_data['bl_pct_up']) ? '%':'-'), $thold_data['id'], '', 'right');
+					form_selectable_cell($thold_data['bl_pct_down'] . (strlen($thold_data['bl_pct_down']) ? '%':'-'), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['bl_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell($timearray[$thold_data['bl_ref_time_range']/300], $thold_data['id'], '', 'text-align:right');
 					break;
 				case 2:
-					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell(thold_format_number($thold_data['time_warning_hi']) . ' / ' . thold_format_number($thold_data['time_hi']), $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell(thold_format_number($thold_data['time_warning_low']) . ' / ' . thold_format_number($thold_data['time_low']), $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_hi'], 2, $baseu) . ' / ' . thold_format_number($thold_data['time_hi'], 2, $baseu), $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_low'], 2, $baseu) . ' / ' . thold_format_number($thold_data['time_low'], 2, $baseu), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('<i>' . __('%d Triggers', $thold_data['time_fail_trigger']) . '</i>',  $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['time_fail_length'], 'time') . '</i>', $thold_data['id'], '', 'text-align:right');
 					break;
 				default:
-					form_selectable_cell(thold_format_number($thold_data['lastread']), $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('- / -',  $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell('- / -',  $thold_data['id'], '', 'text-align:right');
 					form_selectable_cell(__('N/A'),  $thold_data['id'], '', 'text-align:right');
@@ -684,7 +690,7 @@ function thold_edit() {
 		LEFT JOIN thold_data AS td
 		ON dtr.id=td.data_template_rrd_id
 		WHERE dtr.local_data_id IN ($dt_sql) 
-		ORDER BY dtr.id");
+		ORDER BY dtr.id, td.id");
 
 	form_start('thold.php', 'thold');
 
@@ -695,7 +701,7 @@ function thold_edit() {
 		<td class='textArea'>
 			<?php if (isset($banner)) { echo $banner . '<br><br>'; }; ?>
 			<?php print __('Data Source Description:');?> <br><?php echo $desc; ?><br><br>
-			<?php print __('Associated Graph (graphs that use this RRD):');?> <br>
+			<?php print __('Associated Graph (Graphs using this RRD):');?> <br><br>
 			<select name='element'>
 				<?php
 				foreach($grapharr as $g) {
@@ -749,22 +755,27 @@ function thold_edit() {
 				if (!sizeof($td)) {
 					$cur_setting .= "<span style='padding-right:4px;'>" . __('N/A') . "</span>";
 				} else {
+					$baseu = db_fetch_cell_prepared('SELECT base_value 
+						FROM graph_templates_graph 
+						WHERE local_graph_id = ?', 
+						array($td['local_graph_id']));
+
 					$cur_setting = '<span style="padding-right:4px;">' . __('Last:'). '</span>' . 
 						($td['lastread'] == '' ? "<span>" . __('N/A') . "</span>":"<span class='deviceDown'>" . 
-						thold_format_number($td['lastread'],4) . "</span>");
+						thold_format_number($td['lastread'], 2, $baseu) . "</span>");
 
 					if ($td['thold_type'] != 1) {
 						if ($td['thold_warning_fail_trigger'] != 0) {
 							if ($td['thold_warning_hi'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('WHi:') . '</span>' . 
 									($td['thold_warning_hi'] == '' ? "<span>" . __('N/A') . "</span>" : "<span class='deviceRecovering'>" . 
-									thold_format_number($td['thold_warning_hi'],2) . '</span>');
+									thold_format_number($td['thold_warning_hi'], 2, $baseu) . '</span>');
 							}
 
 							if ($td['thold_warning_low'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('WLo:') . '</span>' .
 									($td['thold_warning_low'] == '' ? "<span>" . __('N/A') . "</span>" : "<span class='deviceRecovering'>" . 
-									thold_format_number($td['thold_warning_low'],2) . '</span>');
+									thold_format_number($td['thold_warning_low'], 2, $baseu) . '</span>');
 							}
 						}
 
@@ -772,27 +783,24 @@ function thold_edit() {
 							if ($td['thold_hi'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('AHi:') . '</span>' . 
 									($td['thold_hi'] == '' ? "<span>" . __('N/A') . "</span>" : "<span class='deviceRecovering'>" . 
-									thold_format_number($td['thold_hi'],2) . '</span>');
+									thold_format_number($td['thold_hi'], 2, $baseu) . '</span>');
 							}
 
 							if ($td['thold_low'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('ALo:') . '</span>' .
 									($td['thold_low'] == '' ? "<span>" . __('N/A') . "</span>" : "<span class='deviceRecovering'>" . 
-									thold_format_number($td['thold_low'],2) . '</span>');
+									thold_format_number($td['thold_low'], 2, $baseu) . '</span>');
 							}
 						}
 					}else{
-						$cur_setting .= '<span style="padding:4px">' . __('AHi:') . '</span>' .
-							($td['thold_hi'] == '' ? "<span>" . __('N/A') . "</span>" : "<span clas='deviceRecovering'>" . 
-							thold_format_number($td['thold_hi'],2) . '</span>');
-						$cur_setting .= '<span style="padding:4px">' . __('ALo:'). '</span>' .
-							($td['thold_low'] == '' ? "<span>" . __('N/A') . "</span>" : "<span class='deviceRecovering'>" . 
-							thold_format_number($td['thold_low'],2) . '</span>');
-						$cur_setting .= '<span>' . __('BL: (Up %s %/Down %s %)', $td['bl_pct_up'], $td['bl_pct_down']). '</span>';
+						$cur_setting .= '<span style="padding:4px">' . __('BL Up:') . '</span>' .
+							"<span>" . ($td['bl_pct_up'] != '' ? __('%s%%', $td['bl_pct_up']):__('N/A')) . "</span>";
+						$cur_setting .= '<span style="padding:4px">' . __('BL Down:'). '</span>' .
+							"<span>" . ($td['bl_pct_down'] != '' ? __('%s%%', $td['bl_pct_down']):__('N/A')) . "</span>";
 					}
 				}
 	
-				if ($template_data_rrd['id'] == $thold_data['data_template_rrd_id']) {
+				if ($template_data_rrd['thold_id'] == get_request_var('id')) {
 					$selected = 'selected';
 				}else{
 					$selected = '';
@@ -1001,7 +1009,7 @@ function thold_edit() {
 			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes above this number, warning will be triggered'),
 			'value' => isset($thold_data['thold_warning_hi']) ? $thold_data['thold_warning_hi'] : ''
 		),
@@ -1009,7 +1017,7 @@ function thold_edit() {
 			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes below this number, warning will be triggered'),
 			'value' => isset($thold_data['thold_warning_low']) ? $thold_data['thold_warning_low'] : ''
 		),
@@ -1028,7 +1036,7 @@ function thold_edit() {
 			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes above this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_hi']) ? $thold_data['thold_hi'] : ''
 		),
@@ -1036,7 +1044,7 @@ function thold_edit() {
 			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes below this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_low']) ? $thold_data['thold_low'] : ''
 		),
@@ -1055,7 +1063,7 @@ function thold_edit() {
 			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes above this number, warning will be triggered'),
 			'value' => isset($thold_data['time_warning_hi']) ? $thold_data['time_warning_hi'] : ''
 		),
@@ -1063,7 +1071,7 @@ function thold_edit() {
 			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes below this number, warning will be triggered'),
 			'value' => isset($thold_data['time_warning_low']) ? $thold_data['time_warning_low'] : ''
 		),
@@ -1071,7 +1079,7 @@ function thold_edit() {
 			'friendly_name' => __('Breach Count'),
 			'method' => 'textbox',
 			'max_length' => 5,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('The number of times the data source must be in breach of the Threshold.'),
 			'value' => isset($thold_data['time_warning_fail_trigger']) ? $thold_data['time_warning_fail_trigger'] : read_config_option('thold_warning_time_fail_trigger')
 		),
@@ -1090,7 +1098,7 @@ function thold_edit() {
 			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes above this number, alert will be triggered'),
 			'value' => isset($thold_data['time_hi']) ? $thold_data['time_hi'] : ''
 		),
@@ -1098,7 +1106,7 @@ function thold_edit() {
 			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes below this number, alert will be triggered'),
 			'value' => isset($thold_data['time_low']) ? $thold_data['time_low'] : ''
 		),
@@ -1106,7 +1114,7 @@ function thold_edit() {
 			'friendly_name' => __('Breach Count'),
 			'method' => 'textbox',
 			'max_length' => 5,
-			'size' => 10,
+			'size' => 15,
 			'default' => read_config_option('thold_time_fail_trigger'),
 			'description' => __('The number of times the data source must be in breach of the Threshold.'),
 			'value' => isset($thold_data['time_fail_trigger']) ? $thold_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
@@ -1133,7 +1141,7 @@ function thold_edit() {
 			'friendly_name' => __('Deviation UP'),
 			'method' => 'textbox',
 			'max_length' => 3,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.'),
 			'value' => isset($thold_data['bl_pct_up']) ? $thold_data['bl_pct_up'] : ''
 		),
@@ -1141,7 +1149,7 @@ function thold_edit() {
 			'friendly_name' => __('Deviation DOWN'),
 			'method' => 'textbox',
 			'max_length' => 3,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.'),
 			'value' => isset($thold_data['bl_pct_down']) ? $thold_data['bl_pct_down'] : ''
 		),
@@ -1149,7 +1157,7 @@ function thold_edit() {
 			'friendly_name' => __('Baseline Trigger Count'),
 			'method' => 'textbox',
 			'max_length' => 3,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('Number of consecutive times the data source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)', read_config_option('alert_bl_trigger')),
 			'value' => isset($thold_data['bl_fail_trigger']) ? $thold_data['bl_fail_trigger'] : read_config_option("alert_bl_trigger")
 		),
@@ -1388,13 +1396,8 @@ function thold_edit() {
 			thold_toggle_baseline('none');
 			thold_toggle_time('none');
 
-			if ($('#data_type').val() == 0 || $('#data_type') == 2) {
-				$('#row_thold_hrule_warning').show();
-				$('#row_thold_hrule_alert').show();
-			}else{
-				$('#row_thold_hrule_warning').hide();
-				$('#row_thold_hrule_alert').hide();
-			}
+			$('#row_thold_hrule_warning').show();
+			$('#row_thold_hrule_alert').show();
 
 			break;
 		case '1':
@@ -1411,13 +1414,8 @@ function thold_edit() {
 			thold_toggle_baseline('none');
 			thold_toggle_time('');
 
-			if ($('#data_type').val() == 0 || $('#data_type') == 2) {
-				$('#row_thold_hrule_warning').show();
-				$('#row_thold_hrule_alert').show();
-			}else{
-				$('#row_thold_hrule_warning').hide();
-				$('#row_thold_hrule_alert').hide();
-			}
+			$('#row_thold_hrule_warning').show();
+			$('#row_thold_hrule_alert').show();
 
 			break;
 		}
@@ -1430,22 +1428,11 @@ function thold_edit() {
 			$('#row_percent_ds').hide();
 			$('#row_expression').hide();
 
-			if ($('#thold_type').val() == 0 || $('#thold_type').val() == 2) {
-				$('#row_thold_hrule_warning').show();
-				$('#row_thold_hrule_alert').show();
-			}else{
-				$('#row_thold_hrule_warning').hide();
-				$('#row_thold_hrule_alert').hide();
-			}
-
 			break;
 		case '1':
 			$('#row_cdef').show();
 			$('#row_percent_ds').hide();
 			$('#row_expression').hide();
-
-			$('#row_thold_hrule_warning').hide();
-			$('#row_thold_hrule_alert').hide();
 
 			break;
 		case '2':
@@ -1453,22 +1440,11 @@ function thold_edit() {
 			$('#row_percent_ds').show();
 			$('#row_expression').hide();
 
-			if ($('#thold_type').val() == 0 || $('#thold_type').val() == 2) {
-				$('#row_thold_hrule_warning').show();
-				$('#row_thold_hrule_alert').show();
-			}else{
-				$('#row_thold_hrule_warning').hide();
-				$('#row_thold_hrule_alert').hide();
-			}
-
 			break;
 		case '3':
 			$('#row_expression').show();
 			$('#row_cdef').hide();
 			$('#row_percent_ds').hide();
-
-			$('#row_thold_hrule_warning').hide();
-			$('#row_thold_hrule_alert').hide();
 
 			break;
 		}

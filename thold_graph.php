@@ -361,6 +361,11 @@ function tholds() {
 				}
 			};
 
+			$baseu = db_fetch_cell_prepared('SELECT base_value 
+				FROM graph_templates_graph 
+				WHERE local_graph_id = ?', 
+				array($row['local_graph_id']));
+
 			if ($row['thold_enabled'] == 'off') {
 				print "<tr class='selectable " . $thold_states['grey']['class'] . "' id='line" . $row['id'] . "'>\n";
 			}else{
@@ -388,9 +393,9 @@ function tholds() {
 			//print "<td class='left nowrap'>" . ($row['name'] != '' ? $row['name'] : 'No name set') . '</td>';
 			print "<td class='right'>" . $row['id'] . '</td>';
 			print "<td class='left nowrap'>" . $thold_types[$row['thold_type']] . '</td>';
-			print "<td class='right'>" . thold_format_number($row['lastread']) . '</td>';
-			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? __('N/A'):($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi']) . '/' . thold_format_number($row['time_warning_low']) : thold_format_number($row['thold_warning_hi']) . '/' . thold_format_number($row['thold_warning_low']))) . '</td>';
-			print "<td class='right'>" . ($row['thold_type'] == 1 ? __('N/A'):($row['thold_type'] == 2 ? thold_format_number($row['time_hi']) . '/' . thold_format_number($row['time_low']) : thold_format_number($row['thold_hi']) . '/' . thold_format_number($row['thold_low']))) . '</td>';
+			print "<td class='right'>" . thold_format_number($row['lastread'], 2, $baseu) . '</td>';
+			print "<td class='right nowrap'>" . ($row['thold_type'] == 1 ? __('N/A'):($row['thold_type'] == 2 ? thold_format_number($row['time_warning_hi'], 2, $baseu) . '/' . thold_format_number($row['time_warning_low'], 2, $baseu) : thold_format_number($row['thold_warning_hi'], 2, $baseu) . '/' . thold_format_number($row['thold_warning_low'], 2, $baseu))) . '</td>';
+			print "<td class='right'>" . ($row['thold_type'] == 1 ? __('N/A'):($row['thold_type'] == 2 ? thold_format_number($row['time_hi'], 2, $baseu) . '/' . thold_format_number($row['time_low'], 2, $baseu) : thold_format_number($row['thold_hi'], 2, $baseu) . '/' . thold_format_number($row['thold_low'], 2, $baseu))) . '</td>';
 			print "<td class='right'>" . ($row['thold_type'] == 1 ? $row['bl_pct_up'] . (strlen($row['bl_pct_up']) ? '%':'-') . '/' . $row['bl_pct_down'] . (strlen($row['bl_pct_down']) ? '%':'-'): __('N/A')) . '</td>';
 
 			switch($row['thold_type']) {
@@ -913,14 +918,19 @@ function thold_show_log() {
 	$i = 0;
 	if (sizeof($logs)) {
 		foreach ($logs as $l) {
+			$baseu = db_fetch_cell_prepared('SELECT base_value 
+				FROM graph_templates_graph 
+				WHERE local_graph_id = ?', 
+				array($l['local_graph_id']));
+
 			?>
 			<tr class='<?php print $thold_log_states[$l['status']]['class'];?>'>
 			<td class='left nowrap'><?php print $l['hdescription'];?></td>
 			<td class='left nowrap'><?php print date('Y-m-d H:i:s', $l['time']);?></td>
 			<td class='left nowrap'><?php print $thold_types[$l['type']];?></td>
 			<td class='left nowrap'><?php print (strlen($l['description']) ? $l['description']:__('Restoral Event'));?></td>
-			<td class='right'><?php print ($l['threshold_value'] != '' ? thold_format_number($l['threshold_value']):__('N/A'));?></td>
-			<td class='right'><?php print ($l['current'] != '' ? thold_format_number($l['current']):__('N/A'));?></td>
+			<td class='right'><?php print ($l['threshold_value'] != '' ? thold_format_number($l['threshold_value'], 2, $baseu):__('N/A'));?></td>
+			<td class='right'><?php print ($l['current'] != '' ? thold_format_number($l['current'], 2, $baseu):__('N/A'));?></td>
 			<?php
 
 			form_end_row();

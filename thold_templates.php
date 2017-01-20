@@ -754,7 +754,7 @@ function template_edit() {
 			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes above this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_warning_hi']) ? $thold_data['thold_warning_hi'] : ''
 		),
@@ -762,7 +762,7 @@ function template_edit() {
 			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes below this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_warning_low']) ? $thold_data['thold_warning_low'] : ''
 		),
@@ -781,7 +781,7 @@ function template_edit() {
 			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes above this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_hi']) ? $thold_data['thold_hi'] : ''
 		),
@@ -789,7 +789,7 @@ function template_edit() {
 			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes below this number, alert will be triggered'),
 			'value' => isset($thold_data['thold_low']) ? $thold_data['thold_low'] : ''
 		),
@@ -808,7 +808,7 @@ function template_edit() {
 			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes above this number, warning will be triggered'),
 			'value' => isset($thold_data['time_warning_hi']) ? $thold_data['time_warning_hi'] : ''
 		),
@@ -816,7 +816,7 @@ function template_edit() {
 			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes below this number, warning will be triggered'),
 			'value' => isset($thold_data['time_warning_low']) ? $thold_data['time_warning_low'] : ''
 		),
@@ -824,7 +824,7 @@ function template_edit() {
 			'friendly_name' => __('Trigger Count'),
 			'method' => 'textbox',
 			'max_length' => 5,
-			'size' => 10,
+			'size' => 15,
 			'default' => read_config_option('thold_warning_time_fail_trigger'),
 			'description' => __('The number of times the data source must be in breach condition prior to issuing a warning.'),
 			'value' => isset($thold_data['time_warning_fail_trigger']) ? $thold_data['time_warning_fail_trigger'] : read_config_option('alert_trigger')
@@ -844,7 +844,7 @@ function template_edit() {
 			'friendly_name' => __('High Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes above this number, alert will be triggered'),
 			'value' => isset($thold_data['time_hi']) ? $thold_data['time_hi'] : ''
 		),
@@ -852,7 +852,7 @@ function template_edit() {
 			'friendly_name' => __('Low Threshold'),
 			'method' => 'textbox',
 			'max_length' => 100,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('If set and data source value goes below this number, alert will be triggered'),
 			'value' => isset($thold_data['time_low']) ? $thold_data['time_low'] : ''
 		),
@@ -860,7 +860,7 @@ function template_edit() {
 			'friendly_name' => __('Trigger Count'),
 			'method' => 'textbox',
 			'max_length' => 5,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('The number of times the data source must be in breach condition prior to issuing an alert.'),
 			'value' => isset($thold_data['time_fail_trigger']) ? $thold_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
 		),
@@ -886,7 +886,7 @@ function template_edit() {
 			'friendly_name' => __('Baseline Deviation UP'),
 			'method' => 'textbox',
 			'max_length' => 3,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.'),
 			'value' => isset($thold_data['bl_pct_up']) ? $thold_data['bl_pct_up'] : read_config_option('alert_bl_percent_def')
 		),
@@ -894,7 +894,7 @@ function template_edit() {
 			'friendly_name' => __('Baseline Deviation DOWN'),
 			'method' => 'textbox',
 			'max_length' => 3,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.'),
 			'value' => isset($thold_data['bl_pct_down']) ? $thold_data['bl_pct_down'] : read_config_option('alert_bl_percent_def')
 		),
@@ -902,7 +902,7 @@ function template_edit() {
 			'friendly_name' => __('Baseline Trigger Count'),
 			'method' => 'textbox',
 			'max_length' => 3,
-			'size' => 10,
+			'size' => 15,
 			'description' => __('Number of consecutive times the data source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles', read_config_option('alert_bl_trigger')),
 			'value' => isset($thold_data['bl_fail_trigger']) ? $thold_data['bl_fail_trigger'] : read_config_option('alert_bl_trigger')
 		),
@@ -1076,13 +1076,8 @@ function template_edit() {
 			thold_toggle_baseline('none');
 			thold_toggle_time('none');
 
-			if ($('#data_type').val() == 0 || $('#data_type') == 2) {
-				$('#row_thold_hrule_warning').show();
-				$('#row_thold_hrule_alert').show();
-			}else{
-				$('#row_thold_hrule_warning').hide();
-				$('#row_thold_hrule_alert').hide();
-			}
+			$('#row_thold_hrule_warning').show();
+			$('#row_thold_hrule_alert').show();
 
 			break;
 		case '1': // Baseline
@@ -1099,13 +1094,8 @@ function template_edit() {
 			thold_toggle_baseline('none');
 			thold_toggle_time('');
 
-			if ($('#data_type').val() == 0 || $('#data_type') == 2) {
-				$('#row_thold_hrule_warning').show();
-				$('#row_thold_hrule_alert').show();
-			}else{
-				$('#row_thold_hrule_warning').hide();
-				$('#row_thold_hrule_alert').hide();
-			}
+			$('#row_thold_hrule_warning').show();
+			$('#row_thold_hrule_alert').show();
 
 			break;
 		}
@@ -1116,43 +1106,21 @@ function template_edit() {
 		case '0':
 			$('#row_cdef, #row_percent_ds, #row_expression').hide();
 
-			if ($('#thold_type').val() == 0 || $('#thold_type').val() == 2) {
-				$('#row_thold_hrule_warning').show();
-				$('#row_thold_hrule_alert').show();
-			}else{
-				$('#row_thold_hrule_warning').hide();
-				$('#row_thold_hrule_alert').hide();
-			}
-
 			break;
 		case '1':
 			$('#row_cdef').show();
 			$('#row_percent_ds, #row_expression').hide();
-
-			$('#row_thold_hrule_warning').hide();
-			$('#row_thold_hrule_alert').hide();
 
 			break;
 		case '2':
 			$('#row_cdef').hide();
 			$('#row_percent_ds, #row_expression').show();
 
-			if ($('#thold_type').val() == 0 || $('#thold_type').val() == 2) {
-				$('#row_thold_hrule_warning').show();
-				$('#row_thold_hrule_alert').show();
-			}else{
-				$('#row_thold_hrule_warning').hide();
-				$('#row_thold_hrule_alert').hide();
-			}
-
 			break;
 		case '3':
 			$('#row_cdef').hide();
 			$('#row_percent_ds').hide();
 			$('#row_expression').show();
-
-			$('#row_thold_hrule_warning').hide();
-			$('#row_thold_hrule_alert').hide();
 
 			break;
 		}
@@ -1414,15 +1382,15 @@ function templates() {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'name'               => array(__('Name'), 'ASC'),
-		'data_template_name' => array(__('Data Template'), 'ASC'),
-		'data_source_name'   => array(__('DS Name'), 'ASC'),
-		'thold_type'         => array(__('Type'), 'ASC'),
-		'nosort1'            => array(__('High/Up'), ''),
-		'nosort2'            => array(__('Low/Down'), ''),
-		'nosort3'            => array(__('Trigger'), ''),
-		'nosort4'            => array(__('Duration'), ''),
-		'nosort5'            => array(__('Repeat'), '')
+		'name'               => array('display' => __('Name'), 'sort' => 'ASC', 'align' => 'left'),
+		'data_template_name' => array('display' => __('Data Template'), 'sort' => 'ASC', 'align' => 'left'),
+		'thold_type'         => array('display' => __('Type'), 'sort' => 'ASC', 'align' => 'right'),
+		'data_source_name'   => array('display' => __('DS Name'), 'sort' => 'ASC', 'align' => 'right'),
+		'nosort1'            => array('display' => __('High'), 'sort' => '', 'align' => 'right'),
+		'nosort2'            => array('display' => __('Low'), 'sort' => '', 'align' => 'right'),
+		'nosort3'            => array('display' => __('Trigger'), 'sort' => '', 'align' => 'right'),
+		'nosort4'            => array('display' => __('Duration'), 'sort' => '', 'align' => 'right'),
+		'nosort5'            => array('display' => __('Repeat'), 'sort' => '', 'align' => 'right')
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
@@ -1432,12 +1400,12 @@ function templates() {
 		foreach ($template_list as $template) {
 			switch ($template['thold_type']) {
 			case 0:					# hi/lo
-				$value_hi               = thold_format_number($template['thold_hi']);
-				$value_lo               = thold_format_number($template['thold_low']);
+				$value_hi               = thold_format_number($template['thold_hi'], 2, 1000);
+				$value_lo               = thold_format_number($template['thold_low'], 2, 1000);
 				$value_trig             = $template['thold_fail_trigger'];
 				$value_duration         = '';
-				$value_warning_hi       = thold_format_number($template['thold_warning_hi']);
-				$value_warning_lo       = thold_format_number($template['thold_warning_low']);
+				$value_warning_hi       = thold_format_number($template['thold_warning_hi'], 2, 1000);
+				$value_warning_lo       = thold_format_number($template['thold_warning_low'], 2, 1000);
 				$value_warning_trig     = $template['thold_warning_fail_trigger'];
 				$value_warning_duration = '';
 
@@ -1445,6 +1413,8 @@ function templates() {
 			case 1:					# baseline
 				$value_hi   = $template['bl_pct_up'] . (strlen($template['bl_pct_up']) ? '%':'-');
 				$value_lo   = $template['bl_pct_down'] . (strlen($template['bl_pct_down']) ? '%':'-');
+				$value_warning_hi = '-'
+				$value_warning_lo = '-';
 				$value_trig = $template['bl_fail_trigger'];
 
 				$step = db_fetch_cell_prepared('SELECT rrd_step
@@ -1456,10 +1426,12 @@ function templates() {
 
 				break;
 			case 2:					#time
-				$value_hi       = thold_format_number($template['time_hi']);
-				$value_lo       = thold_format_number($template['time_low']);
-				$value_trig     = $template['time_fail_trigger'];
-				$value_duration = $template['time_fail_length'];
+				$value_hi         = thold_format_number($template['time_hi'], 2, 1000);
+				$value_lo         = thold_format_number($template['time_low'], 2, 1000);
+				$value_warning_hi = thold_format_number($template['thold_warning_hi'], 2, 1000);
+				$value_warning_lo = thold_format_number($template['thold_warning_low'], 2, 1000);
+				$value_trig       = $template['time_fail_trigger'];
+				$value_duration   = $template['time_fail_length'];
 
 				break;
 			}
@@ -1470,17 +1442,17 @@ function templates() {
 			form_alternate_row('line' . $template['id']);
 			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name  . '</a>', $template['id']);
 			form_selectable_cell(filter_value($template['data_template_name'], get_request_var('filter')), $template['id']);
-			form_selectable_cell($template['data_source_name'], $template['id']);
-			form_selectable_cell($thold_types[$template['thold_type']], $template['id']);
-			form_selectable_cell($value_hi, $template['id']);
-			form_selectable_cell($value_lo, $template['id']);
+			form_selectable_cell($thold_types[$template['thold_type']], $template['id'], '', 'right');
+			form_selectable_cell($template['data_source_name'], $template['id'], '', 'right');
+			form_selectable_cell($value_hi . ' / ' . $value_warning_hi, $template['id'], '', 'right');
+			form_selectable_cell($value_lo . ' / ' . $value_warning_lo, $template['id'], '', 'right');
 
 			$trigger =  plugin_thold_duration_convert($template['data_template_id'], $value_trig, 'alert', 'data_template_id');
-			form_selectable_cell((strlen($trigger) ? '<i>' . $trigger . '</i>':'-'), $template['id']);
+			form_selectable_cell((strlen($trigger) ? '<i>' . $trigger . '</i>':'-'), $template['id'], '', 'right');
 
 			$duration = plugin_thold_duration_convert($template['data_template_id'], $value_duration, 'time', 'data_template_id');
-			form_selectable_cell((strlen($duration) ? $duration:'-'), $template['id']);
-			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id']);
+			form_selectable_cell((strlen($duration) ? $duration:'-'), $template['id'], '', 'right');
+			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id'], '', 'right');
 			form_checkbox_cell($template['data_template_name'], $template['id']);
 			form_end_row();
 		}

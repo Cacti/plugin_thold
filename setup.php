@@ -362,7 +362,7 @@ function thold_rrd_graph_graph_options ($g) {
 	$tholds_w_hrule = db_fetch_assoc_prepared('SELECT * 
 		FROM thold_data 
 		WHERE thold_enabled = 1 
-		AND data_type IN (0, 2)
+		AND data_type IN (0, 1, 2)
 		AND (thold_hrule_alert > 0 || thold_hrule_warning > 0) 
 		&& local_graph_id = ?', 
 		array($id));
@@ -373,7 +373,9 @@ function thold_rrd_graph_graph_options ($g) {
 		foreach($tholds_w_hrule as $t) {
 			switch($t['data_type']) {
 			case '0': // Exact value
+			case '1': // CDEF
 				if ($t['thold_hrule_alert'] > 0) {
+
 					$color = db_fetch_cell_prepared('SELECT hex 
 						FROM colors
 						WHERE id = ?', 
@@ -518,9 +520,9 @@ function thold_rrd_graph_graph_options ($g) {
 
 	if ($txt_graph_items) {
 		if ($config['cacti_server_os'] != 'win32' && read_config_option('rrdtool_version') != RRD_VERSION_1_2) {
-			$g['txt_graph_items'] .= 'COMMENT:\' ' . "\\n" . '\'\\' . "\n" . 'COMMENT:\'<u><b>' . __('Threshold Alert/Warning Values') . '</b>							</u>' . "\\n" . '\'\\' . "\n" . $txt_graph_items;
+			$g['txt_graph_items'] .= ' \\' . "\n" . 'COMMENT:\' ' . "\\n" . '\' \\' . "\n" . 'COMMENT:\'<u><b>' . __('Threshold Alert/Warning Values') . '</b>							</u>' . "\\n" . '\' \\' . "\n" . $txt_graph_items;
 		}else{
-			$g['txt_graph_items'] .= 'COMMENT:\' ' . "\\n" . '\'\\' . "\n" . 'COMMENT:\'' . __('Threshold Alert/Warning Values') . "\\n" . '\'\\' . "\n" . $txt_graph_items;
+			$g['txt_graph_items'] .= ' \\' . "\n" . 'COMMENT:\' ' . "\\n" . '\' \\' . "\n" . 'COMMENT:\'' . __('Threshold Alert/Warning Values') . "\\n" . '\' \\' . "\n" . $txt_graph_items;
 		}
 	}
 
