@@ -520,7 +520,7 @@ function thold_setup_database () {
 	api_plugin_register_hook('thold', 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php');
 
 	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
-	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => false, 'after' => 'thold_send_email'));
+	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => true, 'after' => 'thold_send_email'));
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
