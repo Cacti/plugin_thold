@@ -75,7 +75,7 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'exempt',            'type' => 'char(3)', 'NULL' => false, 'default' => ''));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'local_graph_id',    'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'data_id'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'graph_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_id'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_template_id',  'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_template'));
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_template_id',  'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_template_id'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'restored_alert',    'type' => 'char(3)', 'NULL' => false, 'default' => ''));
 
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'name',              'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));

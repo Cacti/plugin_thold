@@ -690,7 +690,10 @@ function thold_data_source_action_execute($action) {
 				$local_data_id    = $selected_items[$i];
 				$data_source      = db_fetch_row('SELECT * FROM data_local WHERE id=' . $local_data_id);
 				$data_template_id = $data_source['data_template_id'];
-				$existing         = db_fetch_assoc('SELECT id FROM thold_data WHERE local_data_id=' . $local_data_id . ' AND data_template_rrd_id=' . $data_template_id);
+				$existing         = db_fetch_assoc_prepared('SELECT id 
+					FROM thold_data 
+					WHERE local_data_id = ? AND data_template_rrd_id = ?', 
+					array($local_data_id, $data_template_id));
 
 				if (count($existing) == 0 && count($template)) {
 					$rrdlookup = db_fetch_cell("SELECT id
@@ -713,31 +716,58 @@ function thold_data_source_action_execute($action) {
 
 						$name = thold_format_name($template, $graph, $local_data_id, $data_source_name);
 
-						$insert['name']               = $name;
-						$insert['host_id']            = $data_source['host_id'];
-						$insert['local_data_id']      = $local_data_id;
-						$insert['local_graph_id']     = $graph;
-						$insert['data_template_id']   = $data_template_id;
-						$insert['graph_template_id']  = $grapharr['graph_template_id'];
-						$insert['thold_hi']           = $template['thold_hi'];
-						$insert['thold_low']          = $template['thold_low'];
-						$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
-						$insert['thold_enabled']      = $template['thold_enabled'];
-						$insert['bl_ref_time_range']  = $template['bl_ref_time_range'];
-						$insert['bl_pct_down']        = $template['bl_pct_down'];
-						$insert['bl_pct_up']          = $template['bl_pct_up'];
-						$insert['bl_fail_trigger']    = $template['bl_fail_trigger'];
-						$insert['bl_alert']           = $template['bl_alert'];
-						$insert['repeat_alert']       = $template['repeat_alert'];
-						$insert['notify_extra']       = $template['notify_extra'];
-						$insert['cdef']               = $template['cdef'];
-						$insert['thold_template_id']  = $template['id'];
-						$insert['template_enabled']   = 'on';
+						$insert['name']                       = $name;
+						$insert['host_id']                    = $data_source['host_id'];
+						$insert['local_data_id']              = $local_data_id;
+						$insert['local_graph_id']             = $graph;
+						$insert['data_template_id']           = $data_template_id;
+						$insert['graph_template_id']          = $grapharr['graph_template_id'];
+						$insert['thold_enabled']              = $template['thold_enabled'];
+
+						/* hi / low */
+						$insert['thold_hi']                   = $template['thold_hi'];
+						$insert['thold_low']                  = $template['thold_low'];
+						$insert['thold_fail_trigger']         = $template['thold_fail_trigger'];
+						$insert['thold_warning_hi']           = $template['thold_warning_hi'];
+						$insert['thold_warning_low']          = $template['thold_warning_low'];
+						$insert['thold_warning_fail_trigger'] = $template['thold_warning_fail_trigger'];
+
+						/* time based */
+						$insert['time_hi']                    = $template['time_hi'];
+						$insert['time_low']                   = $template['time_low'];
+						$insert['time_fail_trigger']          = $template['time_fail_trigger'];
+						$insert['time_fail_length']           = $template['time_fail_length'];
+						$insert['time_warning_hi']            = $template['time_warning_hi'];
+						$insert['time_warning_low']           = $template['time_warning_low'];
+						$insert['time_warning_fail_trigger']  = $template['time_warning_fail_trigger'];
+						$insert['time_warning_fail_length']   = $template['time_warning_fail_length'];
+
+						/* baseline */
+						$insert['bl_ref_time_range']          = $template['bl_ref_time_range'];
+						$insert['bl_pct_down']                = $template['bl_pct_down'];
+						$insert['bl_pct_up']                  = $template['bl_pct_up'];
+						$insert['bl_fail_trigger']            = $template['bl_fail_trigger'];
+						$insert['bl_alert']                   = $template['bl_alert'];
+
+						/* notification */
+						$insert['repeat_alert']               = $template['repeat_alert'];
+						$insert['notify_alert']               = $template['notify_alert'];
+						$insert['notify_wraning']             = $template['notify_warning'];
+						$insert['notify_extra']               = $template['notify_extra'];
+						$insert['notify_warning_extra']       = $template['notify_warning_extra'];
+
+						/* hrules */
+						$insert['thold_hrule_alert']          = $template['thold_hrule_alert'];
+						$insert['thold_hrule_warning']        = $template['thold_hrule_warning'];
+
+						$insert['cdef']                       = $template['cdef'];
+						$insert['thold_template_id']          = $template['id'];
+						$insert['template_enabled']           = 'on';
 	
 						$rrdlist = db_fetch_assoc_prepared('SELECT id, data_input_field_id 
 							FROM data_template_rrd 
 							WHERE local_data_id = ?
-							AND data_source_name= ?', 
+							AND data_source_name = ?', 
 							array($local_data_id, $data_source_name));
 	
 						$int = array('id', 'data_template_id', 'data_source_id', 'thold_fail_trigger', 'bl_ref_time_range', 'bl_pct_down', 'bl_pct_up', 'bl_fail_trigger', 'bl_alert', 'repeat_alert', 'cdef');
@@ -807,10 +837,10 @@ function thold_data_source_action_prepare($save) {
 		$not_found  = '';
 		if (sizeof($save['ds_array'])) {
 		foreach($save['ds_array'] as $item) {
-			$data_template_id = db_fetch_cell("SELECT data_template_id FROM data_local WHERE id=$item");
+			$data_template_id = db_fetch_cell_prepared('SELECT data_template_id FROM data_local WHERE id = ?', array($item));
 
 			if ($data_template_id != '') {
-				if (sizeof(db_fetch_assoc("SELECT id FROM thold_template WHERE data_template_id=$data_template_id"))) {
+				if (sizeof(db_fetch_assoc_prepared('SELECT id FROM thold_template WHERE data_template_id = ?', array($data_template_id)))) {
 					$found_list .= '<li>' . get_data_source_title($item) . '</li>';
 					if (strlen($templates)) {
 						$templates .= ", $data_template_id";
@@ -935,26 +965,53 @@ function thold_graphs_action_execute($action) {
 
 						$name = thold_format_name($template, $graph, $local_data_id, $data_source_name);
 
-						$insert['name']               = $name;
-						$insert['host_id']            = $data_source['host_id'];
-						$insert['local_data_id']      = $local_data_id;
-						$insert['local_graph_id']     = $graph;
-						$insert['data_template_id']   = $data_template_id;
-						$insert['graph_template_id']  = $grapharr['graph_template_id'];
-						$insert['thold_hi']           = $template['thold_hi'];
-						$insert['thold_low']          = $template['thold_low'];
-						$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
-						$insert['thold_enabled']      = $template['thold_enabled'];
-						$insert['bl_ref_time_range']  = $template['bl_ref_time_range'];
-						$insert['bl_pct_down']        = $template['bl_pct_down'];
-						$insert['bl_pct_up']          = $template['bl_pct_up'];
-						$insert['bl_fail_trigger']    = $template['bl_fail_trigger'];
-						$insert['bl_alert']           = $template['bl_alert'];
-						$insert['repeat_alert']       = $template['repeat_alert'];
-						$insert['notify_extra']       = $template['notify_extra'];
-						$insert['cdef']               = $template['cdef'];
-						$insert['thold_template_id']  = $template['id'];
-						$insert['template_enabled']   = 'on';
+						$insert['name']                       = $name;
+						$insert['host_id']                    = $data_source['host_id'];
+						$insert['local_data_id']              = $local_data_id;
+						$insert['local_graph_id']             = $graph;
+						$insert['data_template_id']           = $data_template_id;
+						$insert['graph_template_id']          = $grapharr['graph_template_id'];
+
+						/* hi/low */
+						$insert['thold_hi']                   = $template['thold_hi'];
+						$insert['thold_low']                  = $template['thold_low'];
+						$insert['thold_fail_trigger']         = $template['thold_fail_trigger'];
+						$insert['thold_warning_hi']           = $template['thold_warning_hi'];
+						$insert['thold_warning_low']          = $template['thold_warning_low'];
+						$insert['thold_warning_fail_trigger'] = $template['thold_warning_fail_trigger'];
+						$insert['thold_enabled']              = $template['thold_enabled'];
+
+						/* time based */
+						$insert['time_hi']                    = $template['time_hi'];
+						$insert['time_low']                   = $template['time_low'];
+						$insert['time_fail_trigger']          = $template['time_fail_trigger'];
+						$insert['time_fail_length']           = $template['time_fail_length'];
+						$insert['time_warning_hi']            = $template['time_warning_hi'];
+						$insert['time_warning_low']           = $template['time_warning_low'];
+						$insert['time_warning_fail_trigger']  = $template['time_warning_fail_trigger'];
+						$insert['time_warning_fail_length']   = $template['time_warning_fail_length'];
+
+						/* baseline */
+						$insert['bl_ref_time_range']          = $template['bl_ref_time_range'];
+						$insert['bl_pct_down']                = $template['bl_pct_down'];
+						$insert['bl_pct_up']                  = $template['bl_pct_up'];
+						$insert['bl_fail_trigger']            = $template['bl_fail_trigger'];
+						$insert['bl_alert']                   = $template['bl_alert'];
+
+						/* notification */
+						$insert['repeat_alert']               = $template['repeat_alert'];
+						$insert['notify_alert']               = $template['notify_alert'];
+						$insert['notify_wraning']             = $template['notify_warning'];
+						$insert['notify_extra']               = $template['notify_extra'];
+						$insert['notify_warning_extra']       = $template['notify_warning_extra'];
+
+						/* hrules */
+						$insert['thold_hrule_alert']          = $template['thold_hrule_alert'];
+						$insert['thold_hrule_warning']        = $template['thold_hrule_warning'];
+
+						$insert['cdef']                       = $template['cdef'];
+						$insert['thold_template_id']          = $template['id'];
+						$insert['template_enabled']           = 'on';
 
 						$rrdlist = db_fetch_assoc_prepared('SELECT id, data_input_field_id 
 							FROM data_template_rrd 
@@ -978,7 +1035,7 @@ function thold_graphs_action_execute($action) {
 								$insert['id'] = 0;
 								$id = sql_save($insert, 'thold_data');
 								if ($id) {
-									thold_template_update_threshold ($id, $insert['template']);
+									thold_template_update_threshold ($id, $insert['thold_template_id']);
 
 									$l = db_fetch_assoc_prepared('SELECT name 
 										FROM data_template 
