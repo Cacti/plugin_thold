@@ -158,8 +158,21 @@ function thold_graph_button($data) {
 		$end = time();
 	}
 
-	if (!isset($_SESSION['sess_config_array']['thold_draw_vrules'])) {
-		$_SESSION['sess_config_array']['thold_draw_vrules'] = 'off';
+	if (isset_request_var('thold_vrule') || isset($_SESSION['sess_config_array']['thold_draw_vrules'])) {
+		if (isset_request_var('thold_vrule')) {
+			if (get_nfilter_request_var('thold_vrule') == 'on') {
+				$vrules = 'off';
+			}else{
+				$vrules = 'on';
+			}
+
+			$_SESSION['sess_config_array']['thold_draw_vrules'] = $vrules;
+		}else{
+			$vrules = $_SESSION['sess_config_array']['thold_draw_vrules'];
+		}
+	}else{
+		$vrules = 'off';
+		$_SESSION['sess_config_array']['thold_draw_vrules'] = $vrules;
 	}
 
 	$url = $_SERVER['REQUEST_URI'];
@@ -173,8 +186,9 @@ function thold_graph_button($data) {
 	}
 
 	if (api_user_realm_auth('thold_graph.php')) {
-		print '<a class="iconLink" href="' .  $url . $separator . 'thold_vrule=' . ($_SESSION['sess_config_array']['thold_draw_vrules'] == 'on' ? 'off' : 'on') . '"><img src="' . $config['url_path'] . 'plugins/thold/images/reddot.png" border="0" alt="" title="' . __('Toggle Threshold VRULES %s', ($_SESSION['sess_config_array']['thold_draw_vrules'] == 'on' ? __('Off') : __('On'))) . '"></a><br>';
+		print '<a class="iconLink" href="' .  $url . $separator . 'thold_vrule=' . $vrules . '"><img src="' . $config['url_path'] . 'plugins/thold/images/reddot.png" border="0" alt="" title="' . __('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On'))) . '"></a><br>';
 	}
+
 	// Add Threshold Creation button
 	if (api_user_realm_auth('thold.php')) {
 		if (isset_request_var('tree_id')) {
@@ -332,7 +346,7 @@ function thold_rrd_graph_graph_options ($g) {
 
 	//print "<pre>"; print_r($g);print "</pre>";
 
-	if (read_config_option('thold_draw_vrules') == 'on') {
+	if (isset($_SESSION['sess_config_array']['thold_draw_vrules']) && $_SESSION['sess_config_array']['thold_draw_vrules'] == 'on') {
 		$end = $g['end'];
 		if ($end < 0)
 			$end = time() + $end;
