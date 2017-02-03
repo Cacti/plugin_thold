@@ -2,6 +2,8 @@
 
 The Cacti thold plugin is designed to be a fault management system driven by Cacti's Graph information.  It provides the facility to inspect data in a Cacti Graph and the underlying RRDfile, and generate alerts for management and operations personnel.  It provides  Email, Syslog, and SNMP Trap or Inform escalations.  In addition, it also can notify personnel of Cacti Device status changes through Email, Syslog, and either SNMP Trap or Inform.
 
+NOTE: The Thold plugin that is in GitHub is ONLY compatible with Cacti 1.0.0 and above!
+
 ##Installation
 	
 To install the plugin, simply copy the plugin_thold directory to Cacti's plugins directory and rename it to simply 'thold'.  Once this is complete, goto Cacti's Plugin Management section, and Install and Enable the plugin.  Once this is complete, you can grant users permission to view and create Thresholds.
