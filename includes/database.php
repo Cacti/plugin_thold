@@ -38,27 +38,24 @@ function thold_upgrade_database () {
 	db_execute('DELETE FROM settings WHERE name="plugin_thold_version"');
 
 	// Check for needed Cacti Indexes
-	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM graph_templates_item"),"Key_name", "Key_name");
-	if (!array_key_exists("task_item_id", $indexes)) {
-		db_execute("ALTER TABLE graph_templates_item ADD INDEX task_item_id(task_item_id)");
+	if (!db_index_exists('graph_templates_item', 'task_item_id')) {
+		db_add_index('graph_templates_item', 'INDEX', 'task_item_id', array('task_item_id'));
 	}
 
-	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM data_local"),"Key_name", "Key_name");
-	if (!array_key_exists("data_template_id", $indexes)) {
-		db_execute("ALTER TABLE data_local ADD INDEX data_template_id(data_template_id)");
-	}
-	if (!array_key_exists("snmp_query_id", $indexes)) {
-		db_execute("ALTER TABLE data_local ADD INDEX snmp_query_id(snmp_query_id)");
+	if (!db_index_exists('data_local', 'data_template_id')) {
+		db_add_index('data_local', 'INDEX', 'data_template_id', array('data_template_id'));
 	}
 
-	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM host_snmp_cache"),"Key_name", "Key_name");
-	if (!array_key_exists("snmp_query_id", $indexes)) {
-		db_execute("ALTER TABLE host_snmp_cache ADD INDEX snmp_query_id(snmp_query_id)");
+	if (!db_index_exists('data_local', 'snmp_query_id')) {
+		db_add_index('data_local', 'INDEX', 'snmp_query_id', array('snmp_query_id'));
 	}
 
-	$indexes = array_rekey(db_fetch_assoc("SHOW INDEX FROM data_template_rrd"),"Key_name", "Key_name");
-	if (!array_key_exists("data_source_name", $indexes)) {
-		db_execute("ALTER TABLE data_template_rrd ADD INDEX data_source_name(data_source_name)");
+	if (!db_index_exists('host_snmp_cache', 'snmp_query_id')) {
+		db_add_index('host_snmp_cache', 'INDEX', 'snmp_query_id', array('snmp_query_id'));
+	}
+
+	if (!db_index_exists('data_template_rrd', 'data_source_name')) {
+		db_add_index('data_template_rrd', 'INDEX', 'data_source_name', array('data_source_name'));
 	}
 
 	// Added in thold v0.4
@@ -111,10 +108,10 @@ function thold_upgrade_database () {
 		db_execute('UPDATE plugin_realms SET file = "thold.php" WHERE display = "Configure Thresholds"');
 		api_plugin_register_realm('thold', 'thold_templates.php', 'Configure Threshold Templates', 1);
 
-		db_execute('ALTER TABLE thold_data ADD INDEX ( tcheck )', FALSE);
-		db_execute('ALTER TABLE thold_data ADD INDEX ( local_graph_id )', FALSE);
-		db_execute('ALTER TABLE thold_data ADD INDEX ( graph_template_id )', FALSE);
-		db_execute('ALTER TABLE thold_data ADD INDEX ( data_template_id )', FALSE);
+		db_add_index('thold_data', 'INDEX', 'tcheck', array('tcheck'));
+		db_add_index('thold_data', 'INDEX', 'local_graph_id', array('local_graph_id'));
+		db_add_index('thold_data', 'INDEX', 'graph_template_id', array('graph_template_id'));
+		db_add_index('thold_data', 'INDEX', 'data_template_id', array('data_template_id'));
 
 		// Rename some columns
 		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN rra_id local_data_id int(11) UNSIGNED NOT NULL default "0"');
@@ -159,12 +156,12 @@ function thold_upgrade_database () {
 
 	if (version_compare($oldv, '0.4.4', '<')) {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'lasttime', 'type' => 'TIMESTAMP', 'NULL' => false, 'after' => 'lastread'));
-		db_execute('ALTER TABLE thold_data ADD COLUMN bl_thold_valid INT UNSIGNED NOT NULL DEFAULT 0', FALSE);
-		db_execute('ALTER TABLE thold_data MODIFY name varchar(150) default NULL');
-		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_down varchar(100)');
-		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_up varchar(100)');
-		db_execute('ALTER TABLE thold_data MODIFY COLUMN bl_pct_down varchar(100)');
-		db_execute('ALTER TABLE thold_data MODIFY COLUMN bl_pct_up varchar(100)');
+		db_execute('ALTER IGNORE TABLE thold_data ADD COLUMN bl_thold_valid INT UNSIGNED NOT NULL DEFAULT 0', FALSE);
+		db_execute('ALTER IGNORE TABLE thold_data MODIFY name varchar(150) default NULL');
+		db_execute('ALTER IGNORE TABLE thold_template MODIFY COLUMN bl_pct_down varchar(100)');
+		db_execute('ALTER IGNORE TABLE thold_template MODIFY COLUMN bl_pct_up varchar(100)');
+		db_execute('ALTER IGNORE TABLE thold_data MODIFY COLUMN bl_pct_down varchar(100)');
+		db_execute('ALTER IGNORE TABLE thold_data MODIFY COLUMN bl_pct_up varchar(100)');
 	}
 
 	if (version_compare($oldv, '0.4.5', '<')) {
@@ -189,8 +186,8 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'notify_warning_extra', 'type' => 'text', 'NULL' => true) );
 
-		db_execute('ALTER TABLE thold_data MODIFY COLUMN notify_extra text');
-		db_execute('ALTER TABLE thold_template MODIFY COLUMN notify_extra text');
+		db_execute('ALTER IGNORE TABLE thold_data MODIFY COLUMN notify_extra text');
+		db_execute('ALTER IGNORE TABLE thold_template MODIFY COLUMN notify_extra text');
 
 		$data = array();
 		$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
@@ -213,8 +210,13 @@ function thold_upgrade_database () {
 
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'hash', 'type' => 'varchar(32)', 'NULL' => true, 'after' => 'id'));
 
-		db_execute("ALTER TABLE thold_data REMOVE COLUMN bl_enabled", FALSE);
-		db_execute("ALTER TABLE thold_template REMOVE COLUMN bl_enabled", FALSE);
+		if (db_column_exists('thold_data', 'bl_enabled', false)) {
+			db_execute("ALTER IGNORE TABLE thold_data REMOVE COLUMN bl_enabled", FALSE);
+		}
+
+		if (db_column_exists('thold_template', 'bl_enabled', false)) {
+			db_execute("ALTER IGNORE TABLE thold_template REMOVE COLUMN bl_enabled", FALSE);
+		}
 
 		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php');
 		api_plugin_register_realm('thold', 'notify_lists.php', 'Plugin -> Manage Notification Lists', 1);
@@ -241,7 +243,7 @@ function thold_upgrade_database () {
 		db_execute("DELETE FROM settings WHERE name='thold_failed_hosts'");
 
 		/* increase the size of the settings table */
-		db_execute("ALTER TABLE settings MODIFY column `value` varchar(1024) not null default ''");
+		db_execute("ALTER IGNORE TABLE settings MODIFY column `value` varchar(1024) not null default ''");
 	}
 
 	if (version_compare($oldv, '0.6', '<')) {
@@ -562,19 +564,18 @@ function thold_setup_database () {
 	$data['comment'] = 'Table of Device Template Threshold Templates';
 	api_plugin_db_table_create ('thold', 'plugin_thold_host_template', $data);
 
-	$indexes = array_rekey(db_fetch_assoc('SHOW INDEX FROM data_local'),'Key_name', 'Key_name');
-	if (!array_key_exists('data_template_id', $indexes)) {
-		db_execute('ALTER TABLE data_local ADD INDEX data_template_id(data_template_id)');
-	}
-	if (!array_key_exists('snmp_query_id', $indexes)) {
-		db_execute('ALTER TABLE data_local ADD INDEX snmp_query_id(snmp_query_id)');
+	if (!db_index_exists('data_local', 'data_template_id')) {
+		db_add_index('data_local', 'INDEX', 'data_template_id', array('data_template_id'));
 	}
 
-	$indexes = array_rekey(db_fetch_assoc('SHOW INDEX FROM host_snmp_cache'),'Key_name', 'Key_name');
-	if (!array_key_exists('snmp_query_id', $indexes)) {
-		db_execute('ALTER TABLE host_snmp_cache ADD INDEX snmp_query_id(snmp_query_id)');
+	if (!db_index_exists('data_local', 'snmp_query_id')) {
+		db_add_index('data_local', 'INDEX', 'snmp_query_id', array('snmp_query_id'));
+	}
+
+	if (!db_index_exists('host_snmp_cache', 'snmp_query_id')) {
+		db_add_index('host_snmp_cache', 'INDEX', 'snmp_query_id', array('snmp_query_id'));
 	}
 
 	/* increase the size of the settings table */
-	db_execute("ALTER TABLE settings MODIFY column `value` varchar(4096) not null default ''");
+	db_execute("ALTER IGNORE TABLE settings MODIFY column `value` varchar(4096) not null default ''");
 }
