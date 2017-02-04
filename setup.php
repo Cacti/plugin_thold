@@ -365,9 +365,21 @@ function thold_rrd_graph_graph_options ($g) {
 				AND time > ? 
 				AND time < ?', array($id, $start, $end));
 
-			if (!empty($rows)) {
+			if (sizeof($rows)) {
 				foreach ($rows as $row) {
-					$g['graph_defs'] .= 'VRULE:' . $row['time'] . ($row['status'] == 0 ? '#00FF21' : '#FF0000') . ' \\' . "\n";
+					switch($row['status']) {
+					case '3':
+						$color = '#CC6600';
+						break;
+					case '4':
+						$color = '#FF0000';
+						break;
+					case '5':
+						$color = '#00FF00';
+						break;
+					}
+
+					$g['graph_defs'] .= 'VRULE:' . $row['time'] . $color . ' \\' . "\n";
 				}
 			}
 		}
