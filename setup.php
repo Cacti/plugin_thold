@@ -52,6 +52,7 @@ function plugin_thold_install () {
 	api_plugin_register_hook('thold', 'poller_bottom', 'thold_poller_bottom', 'includes/polling.php');
 	api_plugin_register_hook('thold', 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
 	api_plugin_register_hook('thold', 'graph_buttons', 'thold_graph_button', 'setup.php');
+	api_plugin_register_hook('thold', 'graph_buttons_thumbnails', 'thold_graph_button', 'setup.php');
 
 	api_plugin_register_hook('thold', 'snmpagent_cache_install', 'thold_snmpagent_cache_install', 'setup.php');
 
