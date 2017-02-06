@@ -1667,6 +1667,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventFailCount'] = $thold_data['thold_fail_count'];
 					$thold_snmp_data['eventFailDuration'] = $thold_data['thold_fail_count'] * $cacti_polling_interval;
 					$thold_snmp_data['eventFailDurationTrigger'] = $trigger * $cacti_polling_interval;
+					$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 					$thold_snmp_data['eventDescription'] = str_replace(
 					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
@@ -1732,6 +1733,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventFailCount'] = $thold_data['thold_warning_fail_count'];
 					$thold_snmp_data['eventFailDuration'] = $thold_data['thold_warning_fail_count'] * $cacti_polling_interval;
 					$thold_snmp_data['eventFailDurationTrigger'] = $warning_trigger * $cacti_polling_interval;
+					$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 					$thold_snmp_data['eventDescription'] = str_replace(
 					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
@@ -1768,6 +1770,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventFailCount'] = $thold_data['thold_warning_fail_count'];
 					$thold_snmp_data['eventFailDuration'] = $thold_data['thold_warning_fail_count'] * $cacti_polling_interval;
 					$thold_snmp_data['eventFailDurationTrigger'] = $trigger * $cacti_polling_interval;
+					$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 					$thold_snmp_data['eventDescription'] = str_replace(
 					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
@@ -1824,6 +1827,7 @@ function thold_check_threshold(&$thold_data) {
 						$thold_snmp_data['eventSeverity'] = 1;
 						$thold_snmp_data['eventStatus'] = 1;
 						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
+						$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 						thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 					}
 
@@ -1853,6 +1857,7 @@ function thold_check_threshold(&$thold_data) {
 						$thold_snmp_data['eventSeverity'] = 1;
 						$thold_snmp_data['eventStatus'] = 1;
 						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
+						$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 						thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 					}
@@ -1908,6 +1913,7 @@ function thold_check_threshold(&$thold_data) {
 						$hold_snmp_data['eventSeverity'] = 1;
 						$thold_snmp_data['eventStatus'] = 1;
 						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
+						$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 						thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 					}
@@ -1963,6 +1969,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventFailCount']        = $thold_data['bl_fail_count'];
 					$thold_snmp_data['eventFailDuration']     = $thold_data['bl_fail_count'] * $cacti_polling_interval;
 					$thold_snmp_data['eventFailCountTrigger'] = $bl_fail_trigger;
+					$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 					$thold_snmp_data['eventDescription'] = str_replace(
 					    array('<FAIL_COUNT>', '<FAIL_DURATION>'),
@@ -2097,6 +2104,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventNotificationType'] = ($failures > $trigger ? ST_NOTIFYAL:ST_NOTIFYRA)+1;
 					$thold_snmp_data['eventFailCount']        = $failures;
 					$thold_snmp_data['eventFailCountTrigger'] = $trigger;
+					$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 					$thold_snmp_data['eventDescription'] = str_replace('<FAIL_COUNT>', $thold_snmp_data['eventFailCount'], $thold_snmp_data['eventDescription']);
 
@@ -2179,6 +2187,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventNotificationType'] = ($warning_failures > $warning_trigger ? ST_NOTIFYRA:ST_NOTIFYWA)+1;
 					$thold_snmp_data['eventFailCount']        = $warning_failures;
 					$thold_snmp_data['eventFailCountTrigger'] = $warning_trigger;
+					$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 					$thold_snmp_data['eventDescription'] = str_replace('<FAIL_COUNT>', $thold_snmp_data['eventFailCount'], $thold_snmp_data['eventDescription']);
 
@@ -2251,6 +2260,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventSeverity'] = 1;
 					$thold_snmp_data['eventStatus'] = 1;
 					$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
+					$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
@@ -2289,6 +2299,7 @@ function thold_check_threshold(&$thold_data) {
 					$thold_snmp_data['eventSeverity']         = 1;
 					$thold_snmp_data['eventStatus']           = 1;
 					$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
+					$thold_snmp_data["eventDeviceIp"] = gethostbyname($h['hostname']);
 
 					thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 				}
@@ -2335,7 +2346,6 @@ function get_thold_snmp_data($name, $thold, $h, $currentval) {
 		'eventSource'				=> $thold['name'],
 		'eventDescription'			=> '',						// default - see CACTI-THOLD-MIB
 		'eventDevice'				=> $h['hostname'],
-		'eventDeviceIp'				=> gethostbyname($h['hostname']),
 		'eventDataSource'			=> $name,
 		'eventCurrentValue'			=> $currentval,
 		'eventHigh'					=> ($thold['thold_type'] == 0 ? $thold['thold_hi'] : ($thold['thold_type'] == 2 ? $thold['time_warning_hi'] : '')),
