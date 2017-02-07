@@ -83,6 +83,9 @@ function plugin_thold_install () {
 function plugin_thold_uninstall () {
 	// Do any extra Uninstall stuff here
 	thold_snmpagent_cache_uninstall();
+
+	// Remove items from the settings table
+	db_execute('DELETE FROM settings WHERE name LIKE "%thold%"');
 }
 
 function plugin_thold_check_config () {
@@ -546,7 +549,7 @@ function thold_rrd_graph_graph_options ($g) {
 	}
 
 	if ($txt_graph_items) {
-		if ($config['cacti_server_os'] != 'win32' && read_config_option('rrdtool_version') != RRD_VERSION_1_2) {
+		if (read_config_option('rrdtool_version') != RRD_VERSION_1_2) {
 			$g['txt_graph_items'] .= ' \\' . "\n" . 'COMMENT:\' ' . "\\n" . '\' \\' . "\n" . 'COMMENT:\'<u><b>' . __('Threshold Alert/Warning Values') . '</b>							</u>' . "\\n" . '\' \\' . "\n" . $txt_graph_items;
 		}else{
 			$g['txt_graph_items'] .= ' \\' . "\n" . 'COMMENT:\' ' . "\\n" . '\' \\' . "\n" . 'COMMENT:\'' . __('Threshold Alert/Warning Values') . "\\n" . '\' \\' . "\n" . $txt_graph_items;
