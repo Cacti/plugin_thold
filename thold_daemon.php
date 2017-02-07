@@ -75,6 +75,10 @@ if(function_exists('pcntl_fork')) {
 require_once('./include/global.php');
 require_once($config['base_path'] . '/lib/poller.php');
 
+db_execute("TRUNCATE plugin_thold_daemon_processes");
+db_execute("TRUNCATE plugin_thold_daemon_data");
+db_execute("UPDATE thold_data SET thold_daemon_pid = ''");
+
 $path_php_binary = read_config_option('path_php_binary');
 
 while(true) {
