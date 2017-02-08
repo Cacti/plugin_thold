@@ -1523,6 +1523,18 @@ function thold_check_threshold(&$thold_data) {
 
 	$debug = false;
 
+	if (!defined('STAT_HI')) {
+		define('STAT_HI', 2);
+	}
+
+	if (!defined('STAT_LO')) {
+		define('STAT_LO', 1);
+	}
+
+	if (!defined('STAT_NORMAL')) {
+		define('STAT_NORMAL', 0);
+	}
+
 	// Do not proceed if we have chosen to globally disable all alerts
 	if (read_config_option('thold_disable_all') == 'on') {
 		thold_debug('Threshold checking is disabled globally');
