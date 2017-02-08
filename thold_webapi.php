@@ -163,6 +163,10 @@ function thold_add_graphs_action_prepare() {
 	global $config;
 
 	$local_graph_id = get_filter_request_var('local_graph_id');
+	$host_id = db_fetch_cell_prepared('SELECT host_id 
+		FROM graph_local 
+		WHERE id = ?', 
+		array($local_graph_id));
 
 	top_header();
 
@@ -251,6 +255,10 @@ function thold_add_graphs_action_prepare() {
 			'local_graph_id' => array(
 				'method' => 'hidden',
 				'value' => $local_graph_id
+			),
+			'host_id' => array(
+				'method' => 'hidden',
+				'value' => $host_id
 			)
 		);
 
@@ -337,11 +345,26 @@ function thold_add_graphs_action_prepare() {
 		$('#tholdform').submit(function(event) {
 			event.preventDefault();
 			strURL = $(this).attr('action');
-			strURL += (strURL.indexOf('?') >- 0 ? '&':'?') + 'header=false';
-			json =  $('#listthold').serializeObject();
-			$.post(strURL, { usetemplate: 1, local_graph_id: $('#local_graph_id').val(), thold_template_id: $('#thold_template_id').val(), __csrf_magic: csrfMagicToken } ).done(function(data) {
-				document.location = '<?php print $backto;?>';
-			});
+			if ($('#thold_template_id').length && $('#thold_template_id').val() > 0) {
+				json =  $('#tholdform').serializeObject();
+				$.post(strURL, json).done(function(data) {
+					document.location = '<?php print $backto;?>';
+				});
+			}else if ($('#doaction').length) {
+				strURL += (strURL.indexOf('?') >- 0 ? '&':'?');
+				strURL += 'doaction='+$('#doaction').val();
+				strURL += '&local_graph_id='+$('#local_graph_id').val();
+				strURL += '&host_id='+$('#host_id').val();
+				strURL += '&usetemplate=1'+$('#usetemplate').val();
+				document.location = strURL;
+			}else{
+				strURL += (strURL.indexOf('?') >- 0 ? '&':'?');
+				strURL += 'thold_template_id='+$('#thold_template_id').val();
+				strURL += '&local_graph_id='+$('#local_graph_id').val();
+				strURL += '&host_id='+$('#host_id').val();
+				strURL += '&usetemplate=1'+$('#usetemplate').val();
+				document.location = strURL;
+			}
 		});
 	});
 	</script>
