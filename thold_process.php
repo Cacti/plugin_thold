@@ -105,10 +105,13 @@ if (sizeof($parms)) {
 			case '-v':
 			case '--version':
 			case '-V':
+				display_version();
+				exit;
 			case '--help':
 			case '-h':
 			case '-H':
-				//display_help();
+				display_help();
+				exit;
 			exit;
 			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
@@ -210,7 +213,21 @@ if (sizeof($tholds)) {
 	db_execute("UPDATE `plugin_thold_daemon_processes` SET `end` = " . time() . ", `processed_items` = " . $total_tholds);
 }
 
-function display_help() {
-	print "tbd  ... blablabla ...";
-	exit;
+function display_version() {
+	global $config;
+	if (!function_exists('plugin_thold_version')) {
+		include_once($config['base_path'] . '/plugins/thold/setup.php');
+	}
+
+	$info = plugin_thold_version();
+	echo "Threshold Processor, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
+}
+
+
+/*	display_help - displays the usage of the function */
+function display_help () {
+	display_version();
+
+	print "\nusage: thold_process.php --pid=N [--debug]\n\n";
+	print "The main Threshold processor for the Thold Plugin.\n";
 }

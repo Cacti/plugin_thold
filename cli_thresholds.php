@@ -90,11 +90,16 @@ if (sizeof($parms)) {
 			case '-ids':
 				$gids = $value;
 				break;
-			case '-h':
-			case '-v':
 			case '--version':
+			case '-V':
+			case '-v':
+				display_version();
+				exit;
 			case '--help':
+			case '-H':
+			case '-h':
 				display_help();
+				exit;
 			exit(-1);
 			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
@@ -149,11 +154,22 @@ function thold_cli_autocreate_host ($id) {
 	}
 }
 
+function display_version() {
+	global $config;
+	if (!function_exists('plugin_thold_version')) {
+		include_once($config['base_path'] . '/plugins/thold/setup.php');
+	}
+
+	$info = plugin_thold_version();
+	echo "Threshold Command Line Interface, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
+}
+
+
 /*	display_help - displays the usage of the function */
 function display_help () {
-	$thold_version = db_fetch_cell('SELECT version FROM plugin_config WHERE directory="thold"');
-	print "Threshold Command Line Interface, Version $thold_version\n";
-	print "usage: cli_thresholds.php --auto-create=N | --graph-template=N [--thold-template=N] [--graph-ids='N1 N2 ...']\n\n";
+	display_version();
+
+	print "\nusage: cli_thresholds.php --auto-create=N | --graph-template=N [--thold-template=N] [--graph-ids='N1 N2 ...']\n\n";
 	print "There are two usage methods:\n\n";
 	print "The first requires you to specify the host id of the device and all existing Threshold templates\n";
 	print "are applied to hosts.\n\n";
@@ -162,6 +178,5 @@ function display_help () {
 	print "--auto-create=N         - Auto Create all Thresholds for this host id using current templates\n";
 	print "--graph-template=N      - The Graph Template to create Thresholds for\n";
 	print "--thold-template=N      - The Threshold Template to use for creating Thresholds\n";
-	print "--graph-ids='N1 N2 ...' - The Threshold Template to use for creating Thresholds\n";
-	print "-h --help -V --version  - Display this help message\n\n";
+	print "--graph-ids='N1 N2 ...' - The Threshold Template to use for creating Thresholds\n\n";
 }
