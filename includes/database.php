@@ -577,5 +577,5 @@ function thold_setup_database () {
 	}
 
 	/* increase the size of the settings table */
-	db_execute("ALTER IGNORE TABLE settings MODIFY column `value` varchar(4096) not null default ''");
+	db_execute("ALTER TABLE settings MODIFY column `value` varchar(4096) not null default ''");
 }
