@@ -114,14 +114,14 @@ function thold_upgrade_database () {
 		db_add_index('thold_data', 'INDEX', 'data_template_id', array('data_template_id'));
 
 		// Rename some columns
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN rra_id local_data_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN data_id data_template_rrd_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN template thold_template_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN data_template data_template_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN graph_template graph_template_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN rra_id local_data_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN data_id data_template_rrd_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN template thold_template_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN data_template data_template_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN graph_template graph_template_id int(11) UNSIGNED NOT NULL default "0"');
 
-		db_execute('ALTER IGNORE TABLE plugin_thold_log CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE plugin_thold_log CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
 
 		/* Set the default names on threshold and templates */
 		db_execute("UPDATE thold_data, data_template_data, data_template_rrd SET
@@ -156,12 +156,12 @@ function thold_upgrade_database () {
 
 	if (version_compare($oldv, '0.4.4', '<')) {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'lasttime', 'type' => 'TIMESTAMP', 'NULL' => false, 'after' => 'lastread'));
-		db_execute('ALTER IGNORE TABLE thold_data ADD COLUMN bl_thold_valid INT UNSIGNED NOT NULL DEFAULT 0', FALSE);
-		db_execute('ALTER IGNORE TABLE thold_data MODIFY name varchar(150) default NULL');
-		db_execute('ALTER IGNORE TABLE thold_template MODIFY COLUMN bl_pct_down varchar(100)');
-		db_execute('ALTER IGNORE TABLE thold_template MODIFY COLUMN bl_pct_up varchar(100)');
-		db_execute('ALTER IGNORE TABLE thold_data MODIFY COLUMN bl_pct_down varchar(100)');
-		db_execute('ALTER IGNORE TABLE thold_data MODIFY COLUMN bl_pct_up varchar(100)');
+		db_execute('ALTER TABLE thold_data ADD COLUMN bl_thold_valid INT UNSIGNED NOT NULL DEFAULT 0', FALSE);
+		db_execute('ALTER TABLE thold_data MODIFY name varchar(150) default NULL');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_down varchar(100)');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_up varchar(100)');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN bl_pct_down varchar(100)');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN bl_pct_up varchar(100)');
 	}
 
 	if (version_compare($oldv, '0.4.5', '<')) {
@@ -186,8 +186,8 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'notify_warning_extra', 'type' => 'text', 'NULL' => true) );
 
-		db_execute('ALTER IGNORE TABLE thold_data MODIFY COLUMN notify_extra text');
-		db_execute('ALTER IGNORE TABLE thold_template MODIFY COLUMN notify_extra text');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN notify_extra text');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN notify_extra text');
 
 		$data = array();
 		$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
@@ -211,11 +211,11 @@ function thold_upgrade_database () {
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'hash', 'type' => 'varchar(32)', 'NULL' => true, 'after' => 'id'));
 
 		if (db_column_exists('thold_data', 'bl_enabled', false)) {
-			db_execute("ALTER IGNORE TABLE thold_data REMOVE COLUMN bl_enabled", FALSE);
+			db_execute("ALTER TABLE thold_data REMOVE COLUMN bl_enabled", FALSE);
 		}
 
 		if (db_column_exists('thold_template', 'bl_enabled', false)) {
-			db_execute("ALTER IGNORE TABLE thold_template REMOVE COLUMN bl_enabled", FALSE);
+			db_execute("ALTER TABLE thold_template REMOVE COLUMN bl_enabled", FALSE);
 		}
 
 		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php');
@@ -243,7 +243,7 @@ function thold_upgrade_database () {
 		db_execute("DELETE FROM settings WHERE name='thold_failed_hosts'");
 
 		/* increase the size of the settings table */
-		db_execute("ALTER IGNORE TABLE settings MODIFY column `value` varchar(1024) not null default ''");
+		db_execute("ALTER TABLE settings MODIFY column `value` varchar(1024) not null default ''");
 	}
 
 	if (version_compare($oldv, '0.6', '<')) {
@@ -279,14 +279,14 @@ function thold_upgrade_database () {
 		api_plugin_db_table_create ('thold', 'plugin_thold_daemon_processes', $data);
 
 		// Rename some columns
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN rra_id local_data_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN data_id data_template_rrd_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN template thold_template_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN data_template data_template_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
-		db_execute('ALTER IGNORE TABLE thold_data CHANGE COLUMN graph_template graph_template_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN rra_id local_data_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN data_id data_template_rrd_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN template thold_template_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN data_template data_template_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data CHANGE COLUMN graph_template graph_template_id int(11) UNSIGNED NOT NULL default "0"');
 
-		db_execute('ALTER IGNORE TABLE plugin_thold_log CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
+		db_execute('ALTER TABLE plugin_thold_log CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
 	}
 
 	if (version_compare($oldv, '1.0', '<')) {
