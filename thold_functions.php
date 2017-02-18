@@ -1615,10 +1615,10 @@ function thold_check_threshold(&$thold_data) {
 
 	$thold_snmp_data = get_thold_snmp_data($name, $thold_data, $h, $thold_data['lastread']);
 
-	$file_array = '';
+	$file_array = array();
 	if ($thold_send_text_only != 'on') {
 		if (!empty($thold_data['local_graph_id'])) {
-			$file_array[] = array(
+			$file_array = array(
 				'local_graph_id' => $thold_data['local_graph_id'], 
 				'local_data_id'  => $thold_data['local_data_id'], 
 				'rra_id'         => 0, 
@@ -3466,7 +3466,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 
 	$attachments = array();
 
-	if (is_array($filename) && !empty($filename) && strstr($message, '<GRAPH>') !== 0) {
+	if (is_array($filename) && sizeof($filename) && strstr($message, '<GRAPH>') !== 0) {
 		foreach($filename as $val) {
 			$graph_data_array = array(
 				'graph_start'   => time()-86400,
