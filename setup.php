@@ -782,7 +782,7 @@ function thold_data_source_action_execute($action) {
 						/* notification */
 						$insert['repeat_alert']               = $template['repeat_alert'];
 						$insert['notify_alert']               = $template['notify_alert'];
-						$insert['notify_wraning']             = $template['notify_warning'];
+						$insert['notify_warning']             = $template['notify_warning'];
 						$insert['notify_extra']               = $template['notify_extra'];
 						$insert['notify_warning_extra']       = $template['notify_warning_extra'];
 
@@ -1031,7 +1031,7 @@ function thold_graphs_action_execute($action) {
 						/* notification */
 						$insert['repeat_alert']               = $template['repeat_alert'];
 						$insert['notify_alert']               = $template['notify_alert'];
-						$insert['notify_wraning']             = $template['notify_warning'];
+						$insert['notify_warning']             = $template['notify_warning'];
 						$insert['notify_extra']               = $template['notify_extra'];
 						$insert['notify_warning_extra']       = $template['notify_warning_extra'];
 
