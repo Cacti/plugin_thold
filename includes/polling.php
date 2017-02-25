@@ -167,6 +167,7 @@ function thold_poller_output(&$rrd_update_array) {
 	}
 
 	if (sizeof($tholds)) {
+		$sql = array();
 		foreach ($tholds as $thold_data) {
 			thold_debug("Checking Threshold: Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
 
@@ -200,10 +201,24 @@ function thold_poller_output(&$rrd_update_array) {
 				$currentval = '';
 			}
 
-			db_execute("UPDATE thold_data SET tcheck=1, lastread='$currentval',
-				lasttime='" . date('Y-m-d H:i:s', $currenttime) . "',
-				oldvalue='" . (isset($item[$thold_data['name']]) ? $item[$thold_data['name']]:'') . "'
-				WHERE id = " . $thold_data['id']);
+			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', ' . db_qstr(date('Y-m-d H:i:s', $currenttime)) . ', ' . db_qstr(isset($item[$thold_data['name']]) ? $item[$thold_data['name']]:'') . ')';
+		}
+
+		if (sizeof($sql)) {
+			$chunks = array_chunk($sql, 400);
+			foreach($chunks as $c) {
+				db_execute('INSERT INTO thold_data 
+					(id, tcheck, lastread, lasttime, oldvalue) 
+					VALUES ' . implode(', ', $c) . ' 
+					ON DUPLICATE KEY UPDATE 
+						tcheck=VALUES(tcheck), 
+						lastread=VALUES(lastread), 
+						lasttime=VALUES(lasttime), 
+						oldvalue=VALUES(oldvalue)');
+			}
+
+			/* accomodate deleted tholds */
+			db_execute('DELETE FROM thold_data WHERE local_data_id=0');
 		}
 	}
 
