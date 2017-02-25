@@ -108,15 +108,21 @@ function template_export() {
 				$id = substr($t, 4);
 
 				if (is_numeric($id)) {
-					$data = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($id));
+					$data = db_fetch_row_prepared('SELECT * 
+						FROM thold_template 
+						WHERE id = ?', 
+						array($id));
+
 					if (sizeof($data)) {
 						$data_template_hash = db_fetch_cell_prepared('SELECT hash
 							FROM data_template
-							WHERE id = ?', array($data['data_template_id']));
+							WHERE id = ?', 
+							array($data['data_template_id']));
 
 						$data_source_hash   = db_fetch_cell_prepared('SELECT hash
 							FROM data_template_rrd
-							WHERE id = ?', array($data['data_source_id']));
+							WHERE id = ?', 
+							array($data['data_source_id']));
 
 						unset($data['id']);
 						$data['data_template_id'] = $data_template_hash;
@@ -216,11 +222,16 @@ function template_add() {
 				data_source_name, data_input_field_id 
 				FROM data_template_rrd 
 				WHERE local_data_template_rrd_id = 0 
-				AND data_template_id = ?', array($data_template_id));
+				AND data_template_id = ?', 
+				array($data_template_id));
 
 			foreach ($temp as $d) {
 				if ($d['data_input_field_id'] != 0) {
-					$temp2 = db_fetch_assoc_prepared('SELECT name, data_name FROM data_input_fields WHERE id = ?', array($d['data_input_field_id']));
+					$temp2 = db_fetch_assoc_prepared('SELECT name, data_name 
+						FROM data_input_fields 
+						WHERE id = ?', 
+						array($d['data_input_field_id']));
+
 					$data_fields[$d['id']] = $temp2[0]['data_name'] . ' (' . $temp2[0]['name'] . ')';
 				} else {
 					$temp2[0]['name'] = $d['data_source_name'];
@@ -304,26 +315,35 @@ function template_add() {
 			$data_source_id = get_filter_request_var('data_source_id');
 		}
 
-		$save['id']       = '';
-		$save['hash']     = get_hash_thold_template(0);
-		$temp             = db_fetch_row('SELECT id, name FROM data_template WHERE id=' . $data_template_id . ' LIMIT 1');
-		$save['name']     = $temp['name'];
+		$temp = db_fetch_row_prepared('SELECT id, name 
+			FROM data_template 
+			WHERE id = ? 
+			LIMIT 1', 
+			array($data_template_id));
+
+		$save['id']   = '';
+		$save['hash'] = get_hash_thold_template(0);
+		$save['name'] = $temp['name'];
 
 		$save['data_template_id']   = $data_template_id;
 		$save['data_template_name'] = $temp['name'];
 		$save['data_source_id']     = $data_source_id;
 
-		$temp = db_fetch_row('SELECT id, local_data_template_rrd_id, 
+		$temp = db_fetch_row_prepared('SELECT id, local_data_template_rrd_id, 
 			data_source_name, data_input_field_id 
 			FROM data_template_rrd 
-			WHERE id = ' . $data_source_id . ' 
-			LIMIT 1');
+			WHERE id = ?
+			LIMIT 1', 
+			array($data_source_id));
 
 		$save['data_source_name']  = $temp['data_source_name'];
 		$save['name']             .= ' [' . $temp['data_source_name'] . ']';
 
 		if ($temp['data_input_field_id'] != 0) {
-			$temp2 = db_fetch_row('SELECT name FROM data_input_fields WHERE id = ' . $temp['data_input_field_id'] . ' LIMIT 1');
+			$temp2['name'] = db_fetch_cell_prepared('SELECT name 
+				FROM data_input_fields 
+				WHERE id = ? LIMIT 1', 
+				array($temp['data_input_field_id']));
 		} else {
 			$temp2['name'] = $temp['data_source_name'];
 		}
@@ -539,33 +559,44 @@ function template_edit() {
 
 	$id = get_request_var('id');
 
-	$thold_data = db_fetch_row('SELECT * 
+	$thold_data = db_fetch_row_prepared('SELECT * 
 		FROM thold_template 
-		WHERE id=' . $id . ' 
-		LIMIT 1');
+		WHERE id = ?
+		LIMIT 1', 
+		array($id));
 
-	$temp = db_fetch_assoc('SELECT id, name 
+	$temp = db_fetch_row_prepared('SELECT id, name 
 		FROM data_template 
-		WHERE id=' . $thold_data['data_template_id']);
+		WHERE id = ?', 
+		array($thold_data['data_template_id']));
 
-	foreach ($temp as $d) {
-		$data_templates[$d['id']] = $d['name'];
-	}
+	$data_templates[$temp['id']] = $temp['name'];
 
-	$temp = db_fetch_row('SELECT id, data_source_name, data_input_field_id
+	$temp = db_fetch_row_prepared('SELECT id, data_source_name, data_input_field_id
 		FROM data_template_rrd
-		WHERE id=' . $thold_data['data_source_id'] . ' 
-		LIMIT 1');
+		WHERE id = ?',
+		array($thold_data['data_source_id']));
 
-	$source_id = $temp['data_input_field_id'];
+	$data_fields = array();
+	if (sizeof($temp)) {
+		$source_id = $temp['data_input_field_id'];
 
-	if ($source_id != 0) {
-		$temp2 = db_fetch_assoc('SELECT id, name FROM data_input_fields WHERE id=' . $source_id);
-		foreach ($temp2 as $d) {
-			$data_fields[$d['id']] = $d['name'];
+		if ($source_id != 0) {
+			$temp2 = db_fetch_row_prepared('SELECT id, name 
+				FROM data_input_fields 
+				WHERE id = ?',
+				array($source_id));
+
+			$data_fields[$temp2['id']] = $temp2['name'];
+			$data_source_name = $temp2['name'];
+		} else {
+			$data_fields[$temp['id']]  = $temp['data_source_name'];
+			$data_source_name = $temp['data_source_name'];
 		}
-	} else {
-		$data_fields[$temp['id']]= $temp['data_source_name'];
+	}else{
+		/* should not be reached */
+		cacti_log('ERROR: Thold Template ID:' . $thold_data['id'] . ' references a deleted Data Source.');
+		$data_source_name = '';
 	}
 
 	$send_notification_array = array();
@@ -588,53 +619,66 @@ function template_edit() {
 		$sql = 'SELECT contact_id as id FROM plugin_thold_template_contact WHERE template_id=0';
 	}
 
-	$step = db_fetch_cell('SELECT rrd_step FROM data_template_data WHERE data_template_id = ' . $thold_data['data_template_id'], FALSE);
+	$step = db_fetch_cell_prepared('SELECT rrd_step 
+		FROM data_template_data 
+		WHERE data_template_id = ?', 
+		array($thold_data['data_template_id']));
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
-	$rra_steps = db_fetch_assoc("SELECT dspr.steps
+	$rra_steps = db_fetch_assoc_prepared('SELECT dspr.steps
 		FROM data_template_data AS dtd
 		INNER JOIN data_source_profiles AS dsp
 	    ON dsp.id=dtd.data_source_profile_id
 		INNER JOIN data_source_profiles_rra AS dspr
 		ON dsp.id=dspr.data_source_profile_id
-	    WHERE dspr.steps>1
-		AND dtd.data_template_id=" . $thold_data['data_template_id'] . "
+	    WHERE dspr.steps > 1
+		AND dtd.data_template_id = ?
 	    AND dtd.local_data_template_data_id=0
-		ORDER BY steps");
+		ORDER BY steps', 
+		array($thold_data['data_template_id']));
 
 	$reference_types = array();
 	foreach($rra_steps as $rra_step) {
 	    $seconds = $step * $rra_step['steps'];
-	    $reference_types[$seconds] = $timearray[$rra_step['steps']] . " Average" ;
+		$reference_types[$seconds] = template_calculate_reference_avg($seconds, 'avg');
 	}
 
+	/* calculate percentage ds data sources */
 	$data_fields2 = array();
-	$temp = db_fetch_assoc('SELECT id, local_data_template_rrd_id, data_source_name,
+	$temp = db_fetch_assoc_prepared('SELECT id, local_data_template_rrd_id, data_source_name,
 		data_input_field_id
 		FROM data_template_rrd
-		WHERE local_data_template_rrd_id=0
-		AND data_template_id=' . $thold_data['data_template_id']);
+		WHERE local_data_template_rrd_id = 0
+		AND data_source_name NOT IN(?)
+		AND data_template_id = ?', 
+		array($data_source_name, $thold_data['data_template_id']));
 
-	foreach ($temp as $d) {
-		if ($d['data_input_field_id'] != 0) {
-			$temp2 = db_fetch_assoc('SELECT id, name, data_name
-				FROM data_input_fields
-				WHERE id=' . $d['data_input_field_id'] . '
-				ORDER BY data_name');
+	if (sizeof($temp)) {
+		foreach ($temp as $d) {
+			if ($d['data_input_field_id'] != 0) {
+				$temp2 = db_fetch_row_prepared('SELECT id, name, data_name
+					FROM data_input_fields
+					WHERE id = ?
+					ORDER BY data_name',
+					array($d['data_input_field_id']));
 
-			$data_fields2[$d['data_source_name']] = $temp2[0]['data_name'] . ' (' . $temp2[0]['name'] . ')';
-		} else {
-			$temp2[0]['name'] = $d['data_source_name'];
-			$data_fields2[$d['data_source_name']] = $temp2[0]['name'];
+				$data_fields2[$d['data_source_name']] = $temp2['data_name'] . ' (' . $temp2['name'] . ')';
+			} else {
+				$data_fields2[$d['data_source_name']] = $d['data_source_name'];
+			}
 		}
 	}
 
-	$replacements = db_fetch_assoc("SELECT DISTINCT field_name
+	$replacements = db_fetch_assoc_prepared('SELECT DISTINCT field_name
 		FROM data_local AS dl
-		INNER JOIN (SELECT DISTINCT field_name, snmp_query_id FROM host_snmp_cache) AS hsc
+		INNER JOIN (
+			SELECT DISTINCT field_name, snmp_query_id 
+			FROM host_snmp_cache
+		) AS hsc
 		ON dl.snmp_query_id=hsc.snmp_query_id
-		WHERE dl.data_template_id=" . $thold_data['data_template_id']);
+		WHERE dl.data_template_id = ?', 
+		array($thold_data['data_template_id']));
 
 	$nr = array();
 	if (sizeof($replacements)) {
@@ -650,9 +694,13 @@ function template_edit() {
 		}
 	}
 
-	$replacements = "<br>Replacement Fields: " . implode(", ", $nr);
+	$replacements = '<br>' . __('Replacement Fields: %s', implode(', ', $nr));
 
-	$dss = db_fetch_assoc("SELECT data_source_name FROM data_template_rrd WHERE data_template_id=" . $thold_data['data_template_id'] . " AND local_data_id=0");
+	$dss = db_fetch_assoc_prepared('SELECT data_source_name 
+		FROM data_template_rrd 
+		WHERE data_template_id= ?
+		AND local_data_id=0', 
+		array($thold_data['data_template_id']));
 
 	if (sizeof($dss)) {
 		foreach($dss as $ds) {
@@ -660,7 +708,7 @@ function template_edit() {
 		}
 	}
 
-	$datasources = "<br>Data Sources: " . implode(", ", $dsname);
+	$datasources = '<br>' . __('Data Sources: %s', implode(', ', $dsname));
 
 	$form_array = array(
 		'general_header' => array(
@@ -1235,6 +1283,46 @@ function template_edit() {
 	<?php
 }
 
+function template_calculate_reference_avg($seconds, $suffix = 'avg') {
+	$s = ($seconds % 60);
+	$m = floor(($seconds % 3600) / 60);
+	$h = floor(($seconds % 86400) / 3600);
+	$d = floor(($seconds % 2592000) / 86400);
+	$M = floor($seconds / 2592000);
+
+	if ($M > 0) {
+		if ($suffix == 'avg') {
+			return __('%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)', $M, $d, $h, $m, $s);
+		}else{
+			return __('%d Months, %d Days, %d Hours, %d Minutes, %d Seconds', $M, $d, $h, $m, $s);
+		}
+	}elseif ($d > 0) {
+		if ($suffix == 'avg') {
+			return __('%d Days, %d Hours, %d Minutes, %d Seconds (Average)', $d, $h, $m, $s);
+		}else{
+			return __('%d Days, %d Hours, %d Minutes, %d Seconds', $d, $h, $m, $s);
+		}
+	}elseif ($h > 0) {
+		if ($suffix == 'avg') {
+			return __('%d Hours, %d Minutes, %d Seconds (Average)', $h, $m, $s);
+		}else{
+			return __('%d Hours, %d Minutes, %d Seconds', $h, $m, $s);
+		}
+	}elseif ($m > 0) {
+		if ($suffix == 'avg') {
+			return __('%d Minutes, %d Seconds (Average)', $m, $s);
+		}else{
+			return __('%d Minutes, %d Seconds', $m, $s);
+		}
+	}else{
+		if ($suffix == 'avg') {
+			return __('%d Seconds (Average)', $s);
+		}else{
+			return __('%d Seconds', $s);
+		}
+	}
+}
+
 function template_request_validation() {
     /* ================= input validation and session storage ================= */
     $filters = array(
@@ -1550,7 +1638,10 @@ function template_import() {
 			switch($name) {
 			case 'data_template_id':
 				// See if the hash exists, if it doesn't, Error Out
-				$found = db_fetch_cell_prepared('SELECT id FROM data_template WHERE hash = ?', array($value));
+				$found = db_fetch_cell_prepared('SELECT id 
+					FROM data_template 
+					WHERE hash = ?', 
+					array($value));
 
 				if (!empty($found)) {
 					$save['data_template_id'] = $found;
@@ -1562,7 +1653,10 @@ function template_import() {
 				break;
 			case 'data_source_id':
 				// See if the hash exists, if it doesn't, Error Out
-				$found = db_fetch_cell_prepared('SELECT id FROM data_template_rrd WHERE hash = ?', array($value));
+				$found = db_fetch_cell_prepared('SELECT id 
+					FROM data_template_rrd 
+					WHERE hash = ?', 
+					array($value));
 
 				if (!empty($found)) {
 					$save['data_source_id'] = $found;
@@ -1574,7 +1668,10 @@ function template_import() {
 				break;
 			case 'hash':
 				// See if the hash exists, if it does, update the thold
-				$found = db_fetch_cell_prepared('SELECT id FROM thold_template WHERE hash = ?', array($value));
+				$found = db_fetch_cell_prepared('SELECT id 
+					FROM thold_template 
+					WHERE hash = ?', 
+					array($value));
 
 				if (!empty($found)) {
 					$save['hash'] = $value;
