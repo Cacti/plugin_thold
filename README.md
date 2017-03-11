@@ -36,6 +36,10 @@ The thold plugin has been in development for well over a decade with increasing 
 
 ##ChangeLog
 
+--- 1.1 ---
+* issue#57: Thold can not display graph with hrules due to lack of escaping
+* bug: Resolve issue where wrong graph could be attached to email
+
 --- 1.0 ---
 * feature: Initial Support for Cacti 1.0
 * feature: Multiple tholds per data source
