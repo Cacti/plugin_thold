@@ -478,13 +478,13 @@ function thold_rrd_graph_graph_options ($g) {
 						case '0': // Hi / Low
 							if ($t['thold_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'Alert Hi for ' . $t['name'] . ' (' . number_format_i18n($t['thold_hi']) . ' %)\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'Alert Hi for ' . $t['name'] . ' (' . number_format_i18n($t['thold_hi']) . ' %%)\' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['thold_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'Alert Low for ' . $t['name'] . ' (' . number_format_i18n($t['thold_low']) . ' %)\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'Alert Low for ' . $t['name'] . ' (' . number_format_i18n($t['thold_low']) . ' %%)\' \\' . "\n";
 								$thold_id++;
 							}
 
@@ -492,13 +492,13 @@ function thold_rrd_graph_graph_options ($g) {
 						case '2': // Time Based
 							if ($t['time_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'Alert Hi for ' . $t['name'] . ' (' . number_format_i18n($t['time_hi']) . ' %)\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'Alert Hi for ' . $t['name'] . ' (' . number_format_i18n($t['time_hi']) . ' %%)\' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['time_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'Alert Low for ' . $t['name'] . ' (' . number_format_i18n($t['time_low']) . ' %)\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'Alert Low for ' . $t['name'] . ' (' . number_format_i18n($t['time_low']) . ' %%)\' \\' . "\n";
 								$thold_id++;
 							}
 
@@ -516,13 +516,13 @@ function thold_rrd_graph_graph_options ($g) {
 						case '0': // Hi / Low
 							if ($t['thold_warning_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':\'Warning Hi for ' . $t['name'] . ' (' . number_format_i18n($t['thold_warning_hi']) . ' %)\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':\'Warning Hi for ' . $t['name'] . ' (' . number_format_i18n($t['thold_warning_hi']) . ' %%)\' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['thold_warning_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':\'Warning Low for ' . $t['name'] . ' (' . number_format_i18n($t['thold_warning_low']) . ' %)\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':\'Warning Low for ' . $t['name'] . ' (' . number_format_i18n($t['thold_warning_low']) . ' %%)\' \\' . "\n";
 								$thold_id++;
 							}
 
@@ -530,13 +530,13 @@ function thold_rrd_graph_graph_options ($g) {
 						case '2': // Time Based
 							if ($t['time_warning_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':\'Warning Hi for ' . $t['name'] . ' (' . number_format_i18n($t['time_warning_hi']) . ' %)\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':\'Warning Hi for ' . $t['name'] . ' (' . number_format_i18n($t['time_warning_hi']) . ' %%)\' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['time_warning_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':\'Warning Low for ' . $t['name'] . ' (' . number_format_i18n($t['time_warning_low']) . ' %)\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':\'Warning Low for ' . $t['name'] . ' (' . number_format_i18n($t['time_warning_low']) . ' %%)\' \\' . "\n";
 								$thold_id++;
 							}
 
@@ -1250,7 +1250,7 @@ function thold_device_edit_pre_bottom() {
 
 	html_header(array(__('Name'), __('Status')));
 
-	$i = 0;
+	$i = 1;
 	if (sizeof($threshold_templates)) {
 		foreach ($threshold_templates as $item) {
 			$exists = db_fetch_cell_prepared('SELECT id 
