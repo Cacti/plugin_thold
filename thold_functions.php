@@ -3467,6 +3467,12 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 	$attachments = array();
 
 	if (is_array($filename) && sizeof($filename) && strstr($message, '<GRAPH>') !== 0) {
+		if (isset($filename['local_data_id'])) {
+			$tmp      = array();
+			$tmp[]    = $filename;
+			$filename = $tmp;
+		}
+
 		foreach($filename as $val) {
 			$graph_data_array = array(
 				'graph_start'   => time()-86400,
