@@ -3303,27 +3303,31 @@ function autocreate($host_id) {
 
 	$host_template_id = db_fetch_cell_prepared('SELECT host_template_id FROM host WHERE id = ?', array($host_id));
 
-	$template_list = array_rekey(db_fetch_assoc_prepared('SELECT tt.data_template_id 
+	$template_list = array_rekey(db_fetch_assoc_prepared('SELECT tt.data_template_id, tt.id
 		FROM thold_template AS tt
 		INNER JOIN plugin_thold_host_template AS ptht
 		ON tt.id=ptht.thold_template_id
-		WHERE ptht.host_template_id = ?', array($host_template_id)), 'data_template_id', 'data_template_id');
+		WHERE ptht.host_template_id = ?', array($host_template_id)), 'data_template_id', 'id');
 
-	if (!count($template_list)) {
+	if (!sizeof($template_list)) {
 		$_SESSION['thold_message'] = '<font size=-2>' . __('No Thresholds Templates associated with the Host\'s Template.') . '</font>';
 		return 0;
+	}
+
+	foreach($template_list as $data_template_id => $thold_template_id) {
+		$data_templates[$data_template_id] = $data_template_id;
+		$thold_template_ids[$thold_template_id] = $thold_template_id;
 	}
 
 	$rralist = db_fetch_assoc_prepared('SELECT id, data_template_id 
 		FROM data_local 
 		WHERE host_id = ? 
-		AND data_template_id IN (' . implode(',', $template_list) . ')', 
+		AND data_template_id IN (' . implode(',', array_keys($data_templates)) . ')', 
 		array($host_id));
 
 	foreach ($rralist as $row) {
 		$local_data_id      = $row['id'];
 		$data_template_id   = $row['data_template_id'];
-		$thold_template_ids = db_fetch_assoc_prepared('SELECT id FROM thold_template WHERE data_template_id = ?', array($data_template_id));
 
 		if (sizeof($thold_template_ids)) {
 			foreach($thold_template_ids as $ttid) {

@@ -33,6 +33,8 @@ $thold_actions = array(
 	2 => __('Delete')
 );
 
+set_default_action();
+
 $action = get_nfilter_request_var('action');
 
 if (isset_request_var('drp_action') && get_filter_request_var('drp_action') == 2) {
