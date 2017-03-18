@@ -1166,9 +1166,6 @@ function templates($header_label) {
 
 	$sql_where = '';
 
-	$sort = get_request_var('sort_column');
-	$limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ", $rows";
-
 	if (get_request_var('associated') == 'true') {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . '(notify_warning=' . get_request_var('id') . ' OR notify_alert=' . get_request_var('id') . ')';
 	}
@@ -1177,10 +1174,13 @@ function templates($header_label) {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_template.name LIKE '%" . get_request_var('filter') . "%'";
 	}
 
+	$sql_order = get_order_string();
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+
 	$sql = "SELECT * FROM thold_template
 		$sql_where
-		ORDER BY $sort " . get_request_var('sort_direction') .
-		$limit;
+		$sql_order
+		$sql_limit";
 
 	$result = db_fetch_assoc($sql);
 

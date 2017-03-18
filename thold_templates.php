@@ -1453,15 +1453,15 @@ function templates() {
 
 	$sql_where = '';
 
-	$limit = ' LIMIT ' . ($rows * (get_request_var('page')-1)) . ',' . $rows;
-	$order = 'ORDER BY ' . get_request_var('sort_column') . ' ' . get_request_var('sort_direction');
-
 	if (strlen(get_request_var('filter'))) {
 		$sql_where .= (strlen($sql_where) ? ' AND': 'WHERE') . " thold_template.name LIKE '%" . get_request_var('filter') . "%'";
 	}
 
+	$sql_order = get_order_string();
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+
 	$total_rows    = db_fetch_cell('SELECT count(*) FROM thold_template');
-	$template_list = db_fetch_assoc("SELECT * FROM thold_template $sql_where $order $limit");
+	$template_list = db_fetch_assoc("SELECT * FROM thold_template $sql_where $sql_order $sql_limit");
 
 	$nav = html_nav_bar('thold_templates.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Templates'), 'page', 'main');
 
