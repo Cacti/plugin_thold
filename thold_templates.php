@@ -986,12 +986,12 @@ function template_edit() {
 		),
 		'expression' => array(
 			'friendly_name' => __('RPN Expression'),
-			'method' => 'textbox',
+			'method' => 'textarea',
+			'textarea_rows' => 3,
+			'textarea_cols' => 80,
 			'default' => '',
 			'description' => __('An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style="color:blue;">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style="color:blue;">|ds:dsname|</span>.  For example, <span style="color:blue;">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style="color:blue;">+, -, /, *, &#37;, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s', $replacements, $datasources),
-			'value' => isset($thold_data['expression']) ? $thold_data['expression'] : '',
-			'max_length' => '255',
-			'size' => '80'
+			'value' => isset($thold_data['expression']) ? $thold_data['expression'] : ''
 		),
 		'other_header' => array(
 			'friendly_name' => __('Other Settings'),
