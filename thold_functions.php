@@ -2970,89 +2970,6 @@ function save_thold() {
 		return get_filter_request_var('id');
 	}
 
-	if (isset_request_var('id')) {
-		/* Do Some error Checks */
-		$banner = "<span class='textError'>";
-		if (get_filter_request_var('thold_type') == 0 && 
-			get_filter_request_var('thold_hi', FILTER_VALIDATE_FLOAT) == '' && 
-			get_filter_request_var('thold_low', FILTER_VALIDATE_FLOAT) == '' && 
-			get_filter_request_var('thold_fail_trigger') != 0) {
-			$banner .= __('You must specify either &quot;High Alert Threshold&quot; or &quot;Low Alert Threshold&quot; or both!<br>RECORD NOT UPDATED!</span>');
-
-			$_SESSION['thold_message'] = $banner;
-			raise_message('thold_message');
-
-			return get_filter_request_var('id');
-		}
-
-		if (get_filter_request_var('thold_type') == 0 && 
-			get_filter_request_var('thold_warning_hi', FILTER_VALIDATE_FLOAT) == '' && 
-			get_filter_request_var('thold_warning_low', FILTER_VALIDATE_FLOAT) == '' && 
-			get_filter_request_var('thold_warning_fail_trigger') != 0) {
-			$banner .= __('You must specify either &quot;High Warning Threshold&quot; or &quot;Low Warning Threshold&quot; or both!<br>RECORD NOT UPDATED!</span>');
-
-			$_SESSION['thold_message'] = $banner;
-			raise_message('thold_message');
-
-			return get_filter_request_var('id');
-		}
-
-		if (get_filter_request_var('thold_type') == 0 && 
-			get_filter_request_var('thold_hi', FILTER_VALIDATE_FLOAT) != '' && 
-			get_filter_request_var('thold_low', FILTER_VALIDATE_FLOAT) != '' && 
-			round(get_filter_request_var('thold_low'),4) >= round(get_filter_request_var('thold_hi'), 4)) {
-			$banner .= __('Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</span>');
-
-			$_SESSION['thold_message'] = $banner;
-			raise_message('thold_message');
-
-			return get_filter_request_var('id');
-		}
-
-		if (get_filter_request_var('thold_type') == 0 && 
-			get_filter_request_var('thold_warning_hi', FILTER_VALIDATE_FLOAT) != '' && 
-			get_filter_request_var('thold_warning_low', FILTER_VALIDATE_FLOAT) != '' && 
-			round(get_filter_request_var('thold_warning_low'),4) >= round(get_filter_request_var('thold_warning_hi'), 4)) {
-			$banner .= __('Impossible thresholds: &quot;High Warning Threshold&quot; smaller than or equal to &quot;Low Warning Threshold&quot;<br>RECORD NOT UPDATED!</span>');
-
-			$_SESSION['thold_message'] = $banner;
-			raise_message('thold_message');
-
-			return get_filter_request_var('id');
-		}
-
-		if (get_filter_request_var('thold_type') == 1) {
-			$banner .= __('With baseline thresholds enabled.');
-
-			if (!thold_mandatory_field_ok('bl_ref_time_range', 'Time reference in the past')) {
-				$banner .= '</span>';
-
-				$_SESSION['thold_message'] = $banner;
-				raise_message('thold_message');
-
-				return get_filter_request_var('id');
-			}
-
-			if (isempty_request_var('bl_pct_down') && isempty_request_var('bl_pct_up')) {
-				$banner .= __('You must specify either &quot;Baseline Deviation UP&quot; or &quot;Baseline Deviation DOWN&quot; or both!<br>RECORD NOT UPDATED!</span>');
-
-				$_SESSION['thold_message'] = $banner;
-				raise_message('thold_message');
-
-				return get_filter_request_var('id');
-			}
-		}
-	}
-
-	$save = array();
-
-	if (isset_request_var('id')) {
-		$save['id'] = get_filter_request_var('id');
-	} else {
-		$save['id'] = '0';
-		$save['thold_template_id'] = '';
-	}
-
 	get_filter_request_var('thold_hi', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('thold_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('thold_fail_trigger');
@@ -3079,6 +2996,89 @@ function save_thold() {
 	get_filter_request_var('bl_pct_down', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('bl_pct_up', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('bl_fail_trigger');
+
+	if (isset_request_var('id')) {
+		/* Do Some error Checks */
+		$banner = "<span class='textError'>";
+		if (get_request_var('thold_type') == 0 && 
+			get_request_var('thold_hi') == '' && 
+			get_request_var('thold_low') == '' && 
+			get_request_var('thold_fail_trigger') != 0) {
+			$banner .= __('You must specify either &quot;High Alert Threshold&quot; or &quot;Low Alert Threshold&quot; or both!<br>RECORD NOT UPDATED!</span>');
+
+			$_SESSION['thold_message'] = $banner;
+			raise_message('thold_message');
+
+			return get_request_var('id');
+		}
+
+		if (get_request_var('thold_type') == 0 && 
+			get_request_var('thold_warning_hi') == '' && 
+			get_request_var('thold_warning_low') == '' && 
+			get_request_var('thold_warning_fail_trigger') != 0) {
+			$banner .= __('You must specify either &quot;High Warning Threshold&quot; or &quot;Low Warning Threshold&quot; or both!<br>RECORD NOT UPDATED!</span>');
+
+			$_SESSION['thold_message'] = $banner;
+			raise_message('thold_message');
+
+			return get_request_var('id');
+		}
+
+		if (get_request_var('thold_type') == 0 && 
+			get_request_var('thold_hi') != '' && 
+			get_request_var('thold_low') != '' && 
+			round(get_request_var('thold_low'),4) >= round(get_request_var('thold_hi'), 4)) {
+			$banner .= __('Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</span>');
+
+			$_SESSION['thold_message'] = $banner;
+			raise_message('thold_message');
+
+			return get_request_var('id');
+		}
+
+		if (get_request_var('thold_type') == 0 && 
+			get_request_var('thold_warning_hi') != '' && 
+			get_request_var('thold_warning_low') != '' && 
+			round(get_request_var('thold_warning_low'),4) >= round(get_request_var('thold_warning_hi'), 4)) {
+			$banner .= __('Impossible thresholds: &quot;High Warning Threshold&quot; smaller than or equal to &quot;Low Warning Threshold&quot;<br>RECORD NOT UPDATED!</span>');
+
+			$_SESSION['thold_message'] = $banner;
+			raise_message('thold_message');
+
+			return get_request_var('id');
+		}
+
+		if (get_request_var('thold_type') == 1) {
+			$banner .= __('With baseline thresholds enabled.');
+
+			if (!thold_mandatory_field_ok('bl_ref_time_range', 'Time reference in the past')) {
+				$banner .= '</span>';
+
+				$_SESSION['thold_message'] = $banner;
+				raise_message('thold_message');
+
+				return get_request_var('id');
+			}
+
+			if (isempty_request_var('bl_pct_down') && isempty_request_var('bl_pct_up')) {
+				$banner .= __('You must specify either &quot;Baseline Deviation UP&quot; or &quot;Baseline Deviation DOWN&quot; or both!<br>RECORD NOT UPDATED!</span>');
+
+				$_SESSION['thold_message'] = $banner;
+				raise_message('thold_message');
+
+				return get_request_var('id');
+			}
+		}
+	}
+
+	$save = array();
+
+	if (isset_request_var('id')) {
+		$save['id'] = get_request_var('id');
+	} else {
+		$save['id'] = '0';
+		$save['thold_template_id'] = '';
+	}
 
 	if (isset_request_var('snmp_event_category')) {
 		set_request_var('snmp_event_category', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_category'))));
