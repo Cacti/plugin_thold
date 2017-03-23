@@ -37,6 +37,7 @@ The thold plugin has been in development for well over a decade with increasing 
 ##ChangeLog
 
 --- 1.0.2 ---
+* issue#60: Threshold Templates could not be exported
 * issue#61: RPN Expression column too narrow
 * issue#64: Request High/Low Threshold allow for floating point values
 

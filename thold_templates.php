@@ -1559,7 +1559,7 @@ function templates() {
 	/* draw the dropdown containing a list of available actions for this form */
 	draw_actions_dropdown($thold_actions);
 
-	form_end();
+	thold_form_end();
 }
 
 function import() {
@@ -1607,6 +1607,7 @@ function import() {
 
 	html_end_box();
 	form_hidden_box('save_component_import','1','');
+
 	form_save_button('', 'import');
 }
 
@@ -1716,3 +1717,30 @@ function template_import() {
 	header('Location: thold_templates.php?action=import');
 }
 
+/* form_end - draws post form end. To be combined with form_start() */
+function thold_form_end($ajax = true) {
+	global $form_id, $form_action;
+
+	print "</form>\n";
+
+	if ($ajax) { ?>
+		<script type='text/javascript'>
+		$(function() {
+			$('#<?php print $form_id;?>').submit(function(event) {
+				if ('#drp_action').val() != '1') {
+					event.preventDefault();
+					strURL = '<?php print $form_action;?>';
+					strURL += (strURL.indexOf('?') >= 0 ? '&':'?') + 'header=false';
+					json =  $('#<?php print $form_id;?>').serializeObject();
+					$.post(strURL, json).done(function(data) {
+						$('#main').html(data);
+						applySkin();
+						window.scrollTo(0, 0);
+					});
+				}
+			});
+		});
+		</script>
+		<?php
+	}
+}
