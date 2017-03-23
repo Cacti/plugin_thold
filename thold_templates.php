@@ -1727,7 +1727,7 @@ function thold_form_end($ajax = true) {
 		<script type='text/javascript'>
 		$(function() {
 			$('#<?php print $form_id;?>').submit(function(event) {
-				if ('#drp_action').val() != '1') {
+				if ($('#drp_action').val() != '1') {
 					event.preventDefault();
 					strURL = '<?php print $form_action;?>';
 					strURL += (strURL.indexOf('?') >= 0 ? '&':'?') + 'header=false';
