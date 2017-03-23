@@ -2430,7 +2430,7 @@ function get_thold_alert_text($name, $thold, $h, $currentval, $local_graph_id) {
 	$alert_text = str_replace('<DATE_RFC822>',   date(DATE_RFC822), $alert_text);
 	$alert_text = str_replace('<DEVICENOTE>',    $h['notes'], $alert_text);
 
-	$alert_text = str_replace('<URL>',           "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id&rra_id=1") . "'>$httpurl/graph.php?local_graph_id=$local_graph_id&rra_id=1</a>", $alert_text);
+	$alert_text = str_replace('<URL>',           "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>$httpurl/graph.php?local_graph_id=$local_graph_id</a>", $alert_text);
 
 	return $alert_text;
 }
@@ -2476,7 +2476,7 @@ function get_thold_warning_text($name, $thold, $h, $currentval, $local_graph_id)
 	$warning_text = str_replace('<DATE_RFC822>',  date(DATE_RFC822), $warning_text);
 	$warning_text = str_replace('<DEVICENOTE>',   $h['notes'], $warning_text);
 
-	$warning_text = str_replace('<URL>',          "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id&rra_id=1") . "'>$httpurl/graph.php?local_graph_id=$local_graph_id&rra_id=1</a>", $warning_text);
+	$warning_text = str_replace('<URL>',          "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>$httpurl/graph.php?local_graph_id=$local_graph_id</a>", $warning_text);
 
 	return $warning_text;
 }
