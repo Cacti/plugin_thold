@@ -1206,16 +1206,16 @@ function thold_log($save){
 }
 
 function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_id') {
-	global $config;
+	global $config, $repeatarray, $alertarray, $timearray;
 
 	/* handle a null data value */
 	if ($data == '') {
 		return '';
 	}
 
-	$step = db_fetch_cell("SELECT rrd_step FROM data_template_data WHERE $field=$rra");
+	include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
-	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
+	$step = db_fetch_cell("SELECT rrd_step FROM data_template_data WHERE $field=$rra");
 
 	switch ($type) {
 	case 'repeat':
@@ -2510,9 +2510,9 @@ function thold_format_name($template, $local_graph_id, $local_data_id, $data_sou
 }
 
 function get_reference_types($rra = 0, $step = 300) {
-	global $config;
+	global $config, $timearray;
 
-	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	$rra_steps = db_fetch_assoc('SELECT DISTINCT dspr.steps
 		FROM data_template_data AS dtd
