@@ -915,8 +915,6 @@ function tholds($header_label) {
 		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . '(td.notify_warning=' . get_request_var('id') . ' OR td.notify_alert=' . get_request_var('id') . ')';
 	}
 
-cacti_log($sql_where);
-
 	$result = get_allowed_thresholds($sql_where, $sort, $limit, $total_rows);
 
 	$data_templates = db_fetch_assoc('SELECT DISTINCT dt.id, dt.name
