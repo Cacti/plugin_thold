@@ -23,61 +23,68 @@
  +-------------------------------------------------------------------------+
 */
 
-function plugin_thold_install () {
+function plugin_thold_install ($upgrade = 0) {
 	global $config;
 
 	if (version_compare($config['cacti_version'], '1.0.0') < 0) {
 		return false;
 	}
 
-	api_plugin_register_hook('thold', 'page_head', 'thold_page_head', 'setup.php');
-	api_plugin_register_hook('thold', 'top_header_tabs', 'thold_show_tab', 'includes/tab.php');
-	api_plugin_register_hook('thold', 'top_graph_header_tabs', 'thold_show_tab', 'includes/tab.php');
-	api_plugin_register_hook('thold', 'config_insert', 'thold_config_insert', 'includes/settings.php');
-	api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'includes/settings.php');
-	api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php');
-	api_plugin_register_hook('thold', 'config_settings', 'thold_config_settings', 'includes/settings.php');
-	api_plugin_register_hook('thold', 'draw_navigation_text', 'thold_draw_navigation_text', 'includes/settings.php');
-	api_plugin_register_hook('thold', 'data_sources_table', 'thold_data_sources_table', 'setup.php');
-	api_plugin_register_hook('thold', 'graphs_new_top_links', 'thold_graphs_new', 'setup.php');
-	api_plugin_register_hook('thold', 'api_device_save', 'thold_api_device_save', 'setup.php');
-	api_plugin_register_hook('thold', 'update_host_status', 'thold_update_host_status', 'includes/polling.php');
-	api_plugin_register_hook('thold', 'poller_output', 'thold_poller_output', 'includes/polling.php');
-	api_plugin_register_hook('thold', 'device_action_array', 'thold_device_action_array', 'setup.php');
-	api_plugin_register_hook('thold', 'device_action_execute', 'thold_device_action_execute', 'setup.php');
-	api_plugin_register_hook('thold', 'device_action_prepare', 'thold_device_action_prepare', 'setup.php');
-	api_plugin_register_hook('thold', 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php');
+	$plugin = 'thold';
+	api_plugin_register_hook($plugin, 'page_head', 'thold_page_head', 'setup.php');
+	api_plugin_register_hook($plugin, 'top_header_tabs', 'thold_show_tab', 'includes/tab.php');
+	api_plugin_register_hook($plugin, 'top_graph_header_tabs', 'thold_show_tab', 'includes/tab.php');
+	api_plugin_register_hook($plugin, 'config_insert', 'thold_config_insert', 'includes/settings.php');
+	api_plugin_register_hook($plugin, 'config_arrays', 'thold_config_arrays', 'includes/settings.php');
+	api_plugin_register_hook($plugin, 'config_form', 'thold_config_form', 'includes/settings.php');
+	api_plugin_register_hook($plugin, 'config_settings', 'thold_config_settings', 'includes/settings.php');
+	api_plugin_register_hook($plugin, 'draw_navigation_text', 'thold_draw_navigation_text', 'includes/settings.php');
+	api_plugin_register_hook($plugin, 'data_sources_table', 'thold_data_sources_table', 'setup.php');
+	api_plugin_register_hook($plugin, 'graphs_new_top_links', 'thold_graphs_new', 'setup.php');
+	api_plugin_register_hook($plugin, 'api_device_save', 'thold_api_device_save', 'setup.php');
+	api_plugin_register_hook($plugin, 'update_host_status', 'thold_update_host_status', 'includes/polling.php');
+	api_plugin_register_hook($plugin, 'poller_output', 'thold_poller_output', 'includes/polling.php');
+	api_plugin_register_hook($plugin, 'device_action_array', 'thold_device_action_array', 'setup.php');
+	api_plugin_register_hook($plugin, 'device_action_execute', 'thold_device_action_execute', 'setup.php');
+	api_plugin_register_hook($plugin, 'device_action_prepare', 'thold_device_action_prepare', 'setup.php');
+	api_plugin_register_hook($plugin, 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php');
 
-	api_plugin_register_hook('thold', 'user_admin_setup_sql_save', 'thold_user_admin_setup_sql_save', 'setup.php');
-	api_plugin_register_hook('thold', 'poller_bottom', 'thold_poller_bottom', 'includes/polling.php');
-	api_plugin_register_hook('thold', 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
-	api_plugin_register_hook('thold', 'graph_buttons', 'thold_graph_button', 'setup.php');
-	api_plugin_register_hook('thold', 'graph_buttons_thumbnails', 'thold_graph_button', 'setup.php');
+	api_plugin_register_hook($plugin, 'user_admin_setup_sql_save', 'thold_user_admin_setup_sql_save', 'setup.php');
+	api_plugin_register_hook($plugin, 'poller_bottom', 'thold_poller_bottom', 'includes/polling.php');
+	api_plugin_register_hook($plugin, 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
+	api_plugin_register_hook($plugin, 'graph_buttons', 'thold_graph_button', 'setup.php');
+	api_plugin_register_hook($plugin, 'graph_buttons_thumbnails', 'thold_graph_button', 'setup.php');
 
-	api_plugin_register_hook('thold', 'snmpagent_cache_install', 'thold_snmpagent_cache_install', 'setup.php');
+	api_plugin_register_hook($plugin, 'snmpagent_cache_install', 'thold_snmpagent_cache_install', 'setup.php');
 
 	/* hooks to add dropdown to allow the assignment of a cluster resource */
-	api_plugin_register_hook('thold', 'data_source_action_array', 'thold_data_source_action_array', 'setup.php');
-	api_plugin_register_hook('thold', 'data_source_action_prepare', 'thold_data_source_action_prepare', 'setup.php');
-	api_plugin_register_hook('thold', 'data_source_action_execute', 'thold_data_source_action_execute', 'setup.php');
-	api_plugin_register_hook('thold', 'graphs_action_array', 'thold_graphs_action_array', 'setup.php');
-	api_plugin_register_hook('thold', 'graphs_action_prepare', 'thold_graphs_action_prepare', 'setup.php');
-	api_plugin_register_hook('thold', 'graphs_action_execute', 'thold_graphs_action_execute', 'setup.php');
+	api_plugin_register_hook($plugin, 'data_source_action_array', 'thold_data_source_action_array', 'setup.php');
+	api_plugin_register_hook($plugin, 'data_source_action_prepare', 'thold_data_source_action_prepare', 'setup.php');
+	api_plugin_register_hook($plugin, 'data_source_action_execute', 'thold_data_source_action_execute', 'setup.php');
+	api_plugin_register_hook($plugin, 'graphs_action_array', 'thold_graphs_action_array', 'setup.php');
+	api_plugin_register_hook($plugin, 'graphs_action_prepare', 'thold_graphs_action_prepare', 'setup.php');
+	api_plugin_register_hook($plugin, 'graphs_action_execute', 'thold_graphs_action_execute', 'setup.php');
 
-	api_plugin_register_hook('thold', 'device_template_edit', 'thold_device_template_edit', 'setup.php');
-	api_plugin_register_hook('thold', 'device_template_top', 'thold_device_template_top', 'setup.php');
-	api_plugin_register_hook('thold', 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php');
-	api_plugin_register_hook('thold', 'api_device_new', 'thold_api_device_new', 'setup.php');
+	api_plugin_register_hook($plugin, 'device_template_edit', 'thold_device_template_edit', 'setup.php');
+	api_plugin_register_hook($plugin, 'device_template_top', 'thold_device_template_top', 'setup.php');
+	api_plugin_register_hook($plugin, 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php');
+	api_plugin_register_hook($plugin, 'api_device_new', 'thold_api_device_new', 'setup.php');
 
-	api_plugin_register_realm('thold', 'thold.php', __('Plugin -> Configure Thresholds'), 1);
-	api_plugin_register_realm('thold', 'thold_templates.php', __('Plugin -> Configure Threshold Templates'), 1);
-	api_plugin_register_realm('thold', 'notify_lists.php', __('Plugin -> Manage Notification Lists'), 1);
-	api_plugin_register_realm('thold', 'thold_graph.php,graph_thold.php,thold_view_failures.php,thold_view_normal.php,thold_view_recover.php,thold_view_recent.php,thold_view_host.php', __('Plugin -> View Thresholds'), 1);
+	api_plugin_register_realm($plugin, 'thold.php', __('Plugin -> Configure Thresholds'), 1);
+	api_plugin_register_realm($plugin, 'thold_templates.php', __('Plugin -> Configure Threshold Templates'), 1);
+	api_plugin_register_realm($plugin, 'notify_lists.php', __('Plugin -> Manage Notification Lists'), 1);
+	api_plugin_register_realm($plugin, 'thold_graph.php,graph_thold.php,thold_view_failures.php,thold_view_normal.php,thold_view_recover.php,thold_view_recent.php,thold_view_host.php', __('Plugin -> View Thresholds'), 1);
 
 	include_once($config['base_path'] . '/plugins/thold/includes/database.php');
-
-	thold_setup_database();
-	thold_snmpagent_cache_install();
+	if ($upgrade) {
+		thold_upgrade_database ();
+		if (api_plugin_is_enabled ($plugin)) {
+			api_plugin_enable_hooks ($plugin);
+		}
+	} else {
+		thold_setup_database();
+		thold_snmpagent_cache_install();
+	}
 }
 
 function plugin_thold_uninstall () {
@@ -90,38 +97,33 @@ function plugin_thold_uninstall () {
 
 function plugin_thold_check_config () {
 	// Here we will check to ensure everything is configured
-	thold_check_upgrade ();
+	 plugin_thold_upgrade ();
 	return true;
 }
 
 function plugin_thold_upgrade () {
 	// Here we will upgrade to the newest version
-	thold_check_upgrade ();
-	return false;
-}
-
-function plugin_thold_version () {
-	global $config;
-	$info = parse_ini_file($config['base_path'] . '/plugins/thold/INFO', true);
-	return $info['info'];
-}
-
-function thold_check_upgrade () {
 	global $config;
 
 	// Let's only run this check if we are on a page that actually needs the data
 	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'poller.php');
 	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
-		return;
+		return false;
 	}
 
 	$current = plugin_thold_version();
 	$current = $current['version'];
 	$old     = db_fetch_cell('SELECT version FROM plugin_config WHERE directory="thold"');
 	if ($current != $old) {
-		include_once($config['base_path'] . '/plugins/thold/includes/database.php');
-		thold_upgrade_database ();
+		plugin_thold_install (1);
 	}
+	return true;
+}
+
+function plugin_thold_version () {
+	global $config;
+	$info = parse_ini_file($config['base_path'] . '/plugins/thold/INFO', true);
+	return $info['info'];
 }
 
 function thold_check_dependencies() {
