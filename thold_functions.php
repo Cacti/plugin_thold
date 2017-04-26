@@ -1962,7 +1962,7 @@ function thold_check_threshold(&$thold_data) {
 			if ($thold_data['bl_fail_count'] == $bl_fail_trigger || $ra) {
 				thold_debug('Alerting is necessary');
 
-				$subject = 'ALERT: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $thold_data['bl_pct_up'] : $thold_data['bl_pct_down']) . ' with ' . $thold_data['lastread'];
+				$subject = 'ALERT: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
 
 				if ($logset == 1) {
 					logger($thold_data['name'], ($ra ? 'realert':'alert'), ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']), $thold_data['lastread'], $thold_data['bl_fail_trigger'], $thold_data['bl_fail_count'], $url);
@@ -2783,11 +2783,12 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 	return round($value, 4);
 }
 
-function thold_get_ref_value($local_data_id, $data_template_rrd_id, $ref_time, $time_range) {
+function thold_get_ref_value($local_data_id, $name, $ref_time, $time_range) {
 	$result = rrdtool_function_fetch($local_data_id, $ref_time-$time_range, $ref_time-1, $time_range);
 
-	$idx = array_search($data_template_rrd_id, $result['data_source_names']);
-	if (count($result['values'][$idx]) == 0) {
+	$idx = array_search($name, $result['data_source_names']);
+
+	if (!isset($result['values'][$idx]) || count($result['values'][$idx]) == 0) {
 		return false;
 	}
 
@@ -2840,7 +2841,7 @@ function thold_check_exception_periods($local_data_id, $ref_time, $ref_range) {
    1 if the current value is below the calculated threshold
    2 if the current value is above the calculated threshold
  */
-function thold_check_baseline($local_data_id, $data_template_rrd_id, $current_value, &$thold_data) {
+function thold_check_baseline($local_data_id, $name, $current_value, &$thold_data) {
 	global $debug;
 
 	$now = time();
@@ -2858,7 +2859,7 @@ function thold_check_baseline($local_data_id, $data_template_rrd_id, $current_va
 		$midnight =  gmmktime(0,0,0);
 		$t0 = $midnight + floor(($now - $midnight) / $thold_data['bl_ref_time_range']) * $thold_data['bl_ref_time_range'];
 
-		$ref_values    = thold_get_ref_value($thold_data['local_data_id'], $thold_data['data_template_rrd_id'], $t0, $thold_data['bl_ref_time_range']);
+		$ref_values    = thold_get_ref_value($thold_data['local_data_id'], $name, $t0, $thold_data['bl_ref_time_range']);
 		if ($ref_values === false || sizeof($ref_values) == 0) {
 			return -1;
 		}
@@ -2871,9 +2872,9 @@ function thold_check_baseline($local_data_id, $data_template_rrd_id, $current_va
 			$ref_value_max = $ref_values[0];
 		}
 
-		$ref_value = $ref_values[0];
 		if ($thold_data['cdef'] != 0) {
-			$ref_value = thold_build_cdef($thold_data['cdef'], $ref_value, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+			$ref_value_min = thold_build_cdef($thold_data['cdef'], $ref_value_min, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+			$ref_value_max = thold_build_cdef($thold_data['cdef'], $ref_value_max, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 		}
 
 		$blt_low  = '';
@@ -2906,7 +2907,7 @@ function thold_check_baseline($local_data_id, $data_template_rrd_id, $current_va
 	}
 
 	if ($debug) {
-		echo 'Local Data Id: '     . $local_data_id . ':' . $data_template_rrd_id . "\n";
+		echo 'Local Data Id: '     . $local_data_id . ':' . $thold['data_template_rrd_id'] . "\n";
 		echo 'Ref. values count: ' . (isset($ref_values) ? count($ref_values):"N/A") . "\n";
 		echo 'Ref. value (min): '  . (isset($ref_value_min) ? $ref_value_min:'N/A') . "\n";
 		echo 'Ref. value (max): '  . (isset($ref_value_max) ? $ref_value_max:'N/A') . "\n";
