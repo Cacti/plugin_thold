@@ -5,7 +5,7 @@ The Cacti thold plugin is designed to be a fault management system driven by Cac
 NOTE: The Thold plugin that is in GitHub is ONLY compatible with Cacti 1.0.0 and above!
 
 ##Installation
-	
+
 To install the plugin, simply copy the plugin_thold directory to Cacti's plugins directory and rename it to simply 'thold'.  Once this is complete, goto Cacti's Plugin Management section, and Install and Enable the plugin.  Once this is complete, you can grant users permission to view and create Thresholds.
 
 Once you have installed thold, you should verify that Email support is functioning in Cacti by going to Cacti's Console and under Configuration select Settings, and from there the 'Mail/Reporting/DNS'.  From there, you can test your mail settings to validate that users will receive notifications via email.
