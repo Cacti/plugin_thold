@@ -36,6 +36,9 @@ The thold plugin has been in development for well over a decade with increasing 
 
 ## ChangeLog
 
+--- 1.0.3 ---
+* feature#34: Allow notes to be attached to thresholds and templates
+
 --- 1.0.2 ---
 * issue#60: Threshold Templates could not be exported
 * issue#61: RPN Expression column too narrow
@@ -52,7 +55,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * feature: Initial Support for Cacti 1.0
 * feature: Multiple tholds per data source
 * feature: Moving most SQL to prepared statements for security
-* feature: Moving away from direct use of $_GET, $_REQUEST, and $_POST for security
+* feature: Moving away from direct use of GET, REQUEST, and POST variables for security
 * feature: Rename several legacy database columns to match Cacti's default schema, making the thold code much more readable
 * feature: complete audit and rewrite of several functions addressing: readability, clarity, and consistency
 

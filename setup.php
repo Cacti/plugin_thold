@@ -788,6 +788,9 @@ function thold_data_source_action_execute($action) {
 						$insert['thold_hrule_alert']          = $template['thold_hrule_alert'];
 						$insert['thold_hrule_warning']        = $template['thold_hrule_warning'];
 
+						/* notes */
+						$insert['notes']                      = $template['notes'];
+
 						$insert['cdef']                       = $template['cdef'];
 						$insert['thold_template_id']          = $template['id'];
 						$insert['template_enabled']           = 'on';
@@ -1036,6 +1039,9 @@ function thold_graphs_action_execute($action) {
 						/* hrules */
 						$insert['thold_hrule_alert']          = $template['thold_hrule_alert'];
 						$insert['thold_hrule_warning']        = $template['thold_hrule_warning'];
+
+						/* notes */
+						$insert['notes']                      = $template['notes'];
 
 						$insert['cdef']                       = $template['cdef'];
 						$insert['thold_template_id']          = $template['id'];

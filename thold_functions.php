@@ -2409,6 +2409,7 @@ function get_thold_alert_text($name, $thold, $h, $currentval, $local_graph_id) {
 	$alert_text = str_replace('<THRESHOLDNAME>', $thold['name'], $alert_text);
 	$alert_text = str_replace('<DSNAME>',        $name, $alert_text);
 	$alert_text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $alert_text);
+	$alert_text = str_replace('<NOTES>',         $thold['notes'], $alert_text);
 
 	if ($thold['thold_type'] == 0) {
 		$alert_text = str_replace('<HI>',        $thold['thold_hi'], $alert_text);
@@ -2455,6 +2456,7 @@ function get_thold_warning_text($name, $thold, $h, $currentval, $local_graph_id)
 	$warning_text = str_replace('<THRESHOLDNAME>', $thold['name'], $warning_text);
 	$warning_text = str_replace('<DSNAME>',        $name, $warning_text);
 	$warning_text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $warning_text);
+	$warning_text = str_replace('<NOTES>',         $thold['notes'], $warning_text);
 
 	if ($thold['thold_type'] == 0) {
 		$warning_text = str_replace('<HI>',        $thold['thold_hi'], $warning_text);
@@ -2960,7 +2962,7 @@ function save_thold() {
 			WHERE local_data_id = ?
 			AND data_template_rrd_id = ?', array($local_data_id, $data_template_rrd_id));
 
-		thold_template_update_threshold ($data['id'], $data['thold_template_id']);
+		thold_template_update_threshold($data['id'], $data['thold_template_id']);
 
 		$banner = "<span class='textInfo'>" . __('Record Updated') . "</span>";
 
@@ -3169,6 +3171,9 @@ function save_thold() {
 	$save['notify_warning_extra']        = trim_round_request_var('notify_warning_extra');
 	$save['notify_warning']              = trim_round_request_var('notify_warning');
 	$save['notify_alert']                = trim_round_request_var('notify_alert');
+
+	// Notes
+	$save['notes']                       = get_nfilter_request_var('notes');
 
 	// Data Manipulation
 	$save['data_type'] = get_nfilter_request_var('data_type');
@@ -3413,6 +3418,8 @@ function autocreate($host_id) {
 						$insert['notify_alert']         = $template['notify_alert'];
 
 						$insert['host_id']              = $host_id;
+
+						$insert['notes']                = $template['notes'];
 
 						$insert['cdef']                 = $template['cdef'];
 						$insert['percent_ds']           = $template['percent_ds'];
