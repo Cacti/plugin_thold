@@ -3846,7 +3846,6 @@ function thold_snmptrap($varbinds, $severity = SNMPAGENT_EVENT_SEVERITY_MEDIUM, 
 		if(isset($varbinds['eventDescription']) && isset($varbinds['eventDeviceIp'])) {
 			$varbinds['eventDescription'] = str_replace('<HOSTIP>', $varbinds['eventDeviceIp'], $varbinds['eventDescription']);
 		}
-		$snmp_event_description = str_replace('<HOSTIP>', $thold_snmp_data['eventDeviceIp'], $snmp_event_description);
 		snmpagent_notification('tholdNotify', 'CACTI-THOLD-MIB', $varbinds, $severity, $overwrite);
 	}else {
 		cacti_log("ERROR: THOLD was unable to generate SNMP notifications. Cacti SNMPAgent plugin is current missing or inactive.");
