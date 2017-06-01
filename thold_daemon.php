@@ -33,7 +33,7 @@ $no_http_headers = true;
 $options = getopt('f', ['foregroud']);
 
 /* check if poller daemon is already running */
-exec('ps -ef | grep -v grep | grep -v "sh -c" | grep thold_daemon.php', $output);
+exec('pgrep -a php | grep thold_daemon.php', $output);
 if(sizeof($output)>=2) {
     fwrite( STDOUT, "Thold Daemon is still running\n");
     return;
