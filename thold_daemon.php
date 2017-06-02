@@ -36,7 +36,7 @@ $options = getopt('f', ['foregroud']);
 exec('pgrep -a php | grep thold_daemon.php', $output);
 if(sizeof($output)>=2) {
     fwrite( STDOUT, "Thold Daemon is still running\n");
-    return;
+    exit(1);
 }
 
 /* we are not talking to the browser */
