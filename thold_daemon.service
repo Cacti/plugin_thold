@@ -1,7 +1,7 @@
 [Unit]
 Description=Cacti Thold Daemon.
-After=mysqld.service
-Requires=mysqld.service
+After=mysql.service
+Requires=mysql.service
 AssertPathExists=<CACTIDIR>/plugins/thold/
 
 [Service]
