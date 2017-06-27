@@ -3020,18 +3020,6 @@ function save_thold() {
 		}
 
 		if (get_request_var('thold_type') == 0 &&
-			get_request_var('thold_warning_hi') == '' &&
-			get_request_var('thold_warning_low') == '' &&
-			get_request_var('thold_warning_fail_trigger') != 0) {
-			$banner .= __('You must specify either &quot;High Warning Threshold&quot; or &quot;Low Warning Threshold&quot; or both!<br>RECORD NOT UPDATED!</span>');
-
-			$_SESSION['thold_message'] = $banner;
-			raise_message('thold_message');
-
-			return get_request_var('id');
-		}
-
-		if (get_request_var('thold_type') == 0 &&
 			get_request_var('thold_hi') != '' &&
 			get_request_var('thold_low') != '' &&
 			round(get_request_var('thold_low'),4) >= round(get_request_var('thold_hi'), 4)) {
