@@ -357,7 +357,7 @@ function thold_request_validation() {
 }
 
 function list_tholds() {
-	global $thold_states, $config, $host_id, $timearray, $thold_types;
+	global $thold_states, $config, $host_id, $timearray, $thold_types, $item_rows;
 
 	$thold_actions = array(
 		1 => __('Delete'),
@@ -506,9 +506,9 @@ function list_tholds() {
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
 							<?php
 							if (sizeof($item_rows)) {
-							foreach ($item_rows as $key => $value) {
-								print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
-							}
+								foreach ($item_rows as $key => $value) {
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
+								}
 							}
 							?>
 						</select>
