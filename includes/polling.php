@@ -120,16 +120,16 @@ function thold_poller_output(&$rrd_update_array) {
 			/* assign a new process id */
 			$thold_pid = time() . '_' . rand();
 
-			$thold_items = db_fetch_assoc("SELECT id, local_data_id 
-				FROM thold_data 
-				WHERE thold_daemon_pid = '' 
+			$thold_items = db_fetch_assoc("SELECT id, local_data_id
+				FROM thold_data
+				WHERE thold_daemon_pid = ''
 				AND thold_data.local_data_id IN ($local_data_ids)");
 
 			if($thold_items) {
 				/* avoid that concurrent processes will work on the same thold items */
-				db_execute("UPDATE thold_data 
-					SET thold_data.thold_daemon_pid = '$thold_pid' 
-					WHERE thold_daemon_pid = '' 
+				db_execute("UPDATE thold_data
+					SET thold_data.thold_daemon_pid = '$thold_pid'
+					WHERE thold_daemon_pid = ''
 					AND thold_data.local_data_id IN ($local_data_ids);");
 
 				/* cache required polling data. prefer bulk inserts for performance reasons - start with chunks of 1000 items*/
@@ -153,7 +153,7 @@ function thold_poller_output(&$rrd_update_array) {
 			return $rrd_update_array;
 		}
 
-		$tholds = db_fetch_assoc("SELECT td.id, 
+		$tholds = db_fetch_assoc("SELECT td.id,
 			td.name AS thold_name, td.local_graph_id,
 			td.percent_ds, td.expression,
 			td.data_type, td.cdef, td.local_data_id,
@@ -214,13 +214,13 @@ function thold_poller_output(&$rrd_update_array) {
 		if (sizeof($sql)) {
 			$chunks = array_chunk($sql, 400);
 			foreach($chunks as $c) {
-				db_execute('INSERT INTO thold_data 
-					(id, tcheck, lastread, lasttime, oldvalue) 
-					VALUES ' . implode(', ', $c) . ' 
-					ON DUPLICATE KEY UPDATE 
-						tcheck=VALUES(tcheck), 
-						lastread=VALUES(lastread), 
-						lasttime=VALUES(lasttime), 
+				db_execute('INSERT INTO thold_data
+					(id, tcheck, lastread, lasttime, oldvalue)
+					VALUES ' . implode(', ', $c) . '
+					ON DUPLICATE KEY UPDATE
+						tcheck=VALUES(tcheck),
+						lastread=VALUES(lastread),
+						lasttime=VALUES(lasttime),
 						oldvalue=VALUES(oldvalue)');
 			}
 
@@ -339,20 +339,24 @@ function thold_update_host_status() {
 							$uptimelong = $days . 'd ' . $hours . 'h ' . $minutes . 'm';
 						}
 
-						$downtime         = time() - strtotime($host['status_fail_date']);
-						$downtime_days    = floor($downtime/86400);
-						$downtime_hours   = floor(($downtime - ($downtime_days * 86400))/3600);
-						$downtime_minutes = floor(($downtime - ($downtime_days * 86400) - ($downtime_hours * 3600))/60);
-						$downtime_seconds = $downtime - ($downtime_days * 86400) - ($downtime_hours * 3600) - ($downtime_minutes * 60);
+						if ($host['status_fail_date'] != '0000-00-00 00:00:00') {
+							$downtime         = time() - strtotime($host['status_fail_date']);
+							$downtime_days    = floor($downtime/86400);
+							$downtime_hours   = floor(($downtime - ($downtime_days * 86400))/3600);
+							$downtime_minutes = floor(($downtime - ($downtime_days * 86400) - ($downtime_hours * 3600))/60);
+							$downtime_seconds = $downtime - ($downtime_days * 86400) - ($downtime_hours * 3600) - ($downtime_minutes * 60);
 
-						if ($downtime_days > 0 ) {
-							$downtimemsg = $downtime_days . 'd ' . $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's ';
-						} elseif ($downtime_hours > 0 ) {
-							$downtimemsg = $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's';
-						} elseif ($downtime_minutes > 0 ) {
-							$downtimemsg = $downtime_minutes . 'm ' . $downtime_seconds . 's';
+							if ($downtime_days > 0 ) {
+								$downtimemsg = $downtime_days . 'd ' . $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's ';
+							} elseif ($downtime_hours > 0 ) {
+								$downtimemsg = $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's';
+							} elseif ($downtime_minutes > 0 ) {
+								$downtimemsg = $downtime_minutes . 'm ' . $downtime_seconds . 's';
+							} else {
+								$downtimemsg = $downtime_seconds . 's ';
+							}
 						} else {
-							$downtimemsg = $downtime_seconds . 's ';
+							$downtimemsg = 'N/A';
 						}
 					}
 
@@ -434,20 +438,24 @@ function thold_update_host_status() {
 				}
 			}
 
-			$downtime         = time() - strtotime($host['status_rec_date']);
-			$downtime_days    = floor($downtime/86400);
-			$downtime_hours   = floor(($downtime - ($downtime_days * 86400))/3600);
-			$downtime_minutes = floor(($downtime - ($downtime_days * 86400) - ($downtime_hours * 3600))/60);
-			$downtime_seconds = $downtime - ($downtime_days * 86400) - ($downtime_hours * 3600) - ($downtime_minutes * 60);
+			if ($host['status_rec_date'] != '0000-00-00 00:00:00') {
+				$downtime         = time() - strtotime($host['status_rec_date']);
+				$downtime_days    = floor($downtime/86400);
+				$downtime_hours   = floor(($downtime - ($downtime_days * 86400))/3600);
+				$downtime_minutes = floor(($downtime - ($downtime_days * 86400) - ($downtime_hours * 3600))/60);
+				$downtime_seconds = $downtime - ($downtime_days * 86400) - ($downtime_hours * 3600) - ($downtime_minutes * 60);
 
-			if ($downtime_days > 0 ) {
-				$downtimemsg = $downtime_days . 'd ' . $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's ';
-			} elseif ($downtime_hours > 0 ) {
-				$downtimemsg = $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's';
-			} elseif ($downtime_minutes > 0 ) {
-				$downtimemsg = $downtime_minutes . 'm ' . $downtime_seconds . 's';
+				if ($downtime_days > 0 ) {
+					$downtimemsg = $downtime_days . 'd ' . $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's ';
+				} elseif ($downtime_hours > 0 ) {
+					$downtimemsg = $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's';
+				} elseif ($downtime_minutes > 0 ) {
+					$downtimemsg = $downtime_minutes . 'm ' . $downtime_seconds . 's';
+				} else {
+					$downtimemsg = $downtime_seconds . 's ';
+				}
 			} else {
-				$downtimemsg = $downtime_seconds . 's ';
+				$downtimemsg = 'N/A';
 			}
 
 			$subject = read_config_option('thold_down_subject');

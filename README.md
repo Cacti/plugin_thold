@@ -40,6 +40,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * feature#34: Allow notes to be attached to thresholds and templates
 * issue#86: Undefined variable in snmptrap function
 * issue: Baseline tholds generate SQL errors and PHP warnings
+* issue: <DOWNTIME> not processed properly when the value has never changed
 
 --- 1.0.2 ---
 * issue#60: Threshold Templates could not be exported
