@@ -103,7 +103,33 @@ function form_thold_filter() {
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
+					<td>
+						<?php print __('Site');?>
+					</td>
+					<td>
+						<select id='site_id' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
+							<?php
+							$sites = db_fetch_assoc('SELECT id,name FROM sites ORDER BY name');
+
+							if (sizeof($sites)) {
+								foreach ($sites as $sites) {
+									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . $sites['name'] . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
 					<?php print html_host_filter(get_request_var('host_id'));?>
+					<td>
+						<input type='submit' value='<?php print __('Go');?>'>
+					</td>
+					<td>
+						<input id='clear' name='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
+					</td>
+				</table>
+				<table class='filterTable'>
 					<td>
 						<?php print __('Template');?>
 					</td>
@@ -112,8 +138,8 @@ function form_thold_filter() {
 							<option value='-1'<?php if (get_request_var('data_template_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
 							<option value='0'<?php if (get_request_var('data_template_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
 							<?php
-							$data_templates = db_fetch_assoc('SELECT DISTINCT data_template.id, data_template.name 
-								FROM thold_data 
+							$data_templates = db_fetch_assoc('SELECT DISTINCT data_template.id, data_template.name
+								FROM thold_data
 								LEFT JOIN data_template ON thold_data.data_template_id=data_template.id ' .
 								(get_request_var('host_id') > 0 ? 'WHERE thold_data.host_id=' . get_request_var('host_id'):'') .
 								' ORDER by data_template.name');
@@ -153,12 +179,6 @@ function form_thold_filter() {
 							?>
 						</select>
 					</td>
-					<td>
-						<input type='submit' value='<?php print __('Go');?>'>
-					</td>
-					<td>
-						<input id='clear' name='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
-					</td>
 				</tr>
 			</table>
 			<input type='hidden' id='page' value='<?php print get_request_var('page');?>'>
@@ -167,9 +187,11 @@ function form_thold_filter() {
 		<script type='text/javascript'>
 
 		function applyFilter() {
-			strURL  = 'thold_graph.php?header=false&action=thold&status=' + $('#status').val();
+			strURL  = 'thold_graph.php?header=false&action=thold';
+			strURL += '&status=' + $('#status').val();
 			strURL += '&data_template_id=' + $('#data_template_id').val();
 			strURL += '&host_id=' + $('#host_id').val();
+			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
 			strURL += '&filter=' + $('#filter').val();
 			loadPageNoHeader(strURL);
@@ -186,7 +208,7 @@ function form_thold_filter() {
 				applyFilter();
 			});
 		});
-	
+
 		</script>
 		</td>
 	</tr>
@@ -229,6 +251,11 @@ function tholds() {
 			'default' => '-1'
 			),
 		'host_id' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
+		'site_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
@@ -283,6 +310,14 @@ function tholds() {
 	/* host id filter */
 	if (get_request_var('host_id') != '-1') {
 		$sql_where .= (strlen($sql_where) ? ' AND': '(') . ' td.host_id=' . get_request_var('host_id');
+	}
+
+	if (get_request_var('site_id') == '-1') {
+		/* Show all items */
+	}elseif (get_request_var('site_id') == '0') {
+		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=0'";
+	}elseif (!isempty_request_var('site_id')) {
+		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=" . get_request_var('site_id');
 	}
 
 	if ($sql_where != '') {
@@ -357,9 +392,9 @@ function tholds() {
 				}
 			};
 
-			$baseu = db_fetch_cell_prepared('SELECT base_value 
-				FROM graph_templates_graph 
-				WHERE local_graph_id = ?', 
+			$baseu = db_fetch_cell_prepared('SELECT base_value
+				FROM graph_templates_graph
+				WHERE local_graph_id = ?',
 				array($row['local_graph_id']));
 
 			if ($row['thold_enabled'] == 'off') {
@@ -503,6 +538,11 @@ function hosts() {
 			'default' => 'ASC',
 			'options' => array('options' => 'sanitize_search_string')
 			),
+		'site_id' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
 		'host_template_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
@@ -559,14 +599,33 @@ function hosts() {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.host_template_id=" . get_request_var('host_template_id');
 	}
 
+	if (get_request_var('site_id') == '-1') {
+		/* Show all items */
+	}elseif (get_request_var('site_id') == '0') {
+		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=0'";
+	}elseif (!isempty_request_var('site_id')) {
+		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=" . get_request_var('site_id');
+	}
+
 	$sql_where .= (strlen($sql_where) ? ')':'');
 
 	$sql_order = get_order_string();
 	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;
 	$sql_order = str_replace('ORDER BY ', '', $sql_order);
 
-	$host_graphs       = array_rekey(db_fetch_assoc('SELECT host_id, count(*) as graphs FROM graph_local GROUP BY host_id'), 'host_id', 'graphs');
-	$host_data_sources = array_rekey(db_fetch_assoc('SELECT host_id, count(*) as data_sources FROM data_local GROUP BY host_id'), 'host_id', 'data_sources');
+	$host_graphs = array_rekey(
+		db_fetch_assoc('SELECT host_id, count(*) AS graphs
+			FROM graph_local
+			GROUP BY host_id'),
+		'host_id', 'graphs'
+	);
+
+	$host_data_sources = array_rekey(
+		db_fetch_assoc('SELECT host_id, count(*) AS data_sources
+			FROM data_local
+			GROUP BY host_id'),
+		'host_id', 'data_sources'
+	);
 
 	$hosts = get_allowed_devices($sql_where, $sql_order, $sql_limit, $total_rows);
 
@@ -595,9 +654,9 @@ function hosts() {
 
 	if (sizeof($hosts)) {
 		foreach ($hosts as $host) {
-			if ($host['disabled'] == '' && 
+			if ($host['disabled'] == '' &&
 				($host['status'] == HOST_RECOVERING || $host['status'] == HOST_UP) &&
-				($host['availability_method'] != AVAIL_NONE && $host['availability_method'] != AVAIL_PING)) { 
+				($host['availability_method'] != AVAIL_NONE && $host['availability_method'] != AVAIL_PING)) {
 				$snmp_uptime = $host['snmp_sysUpTimeInstance'];
 				$days      = intval($snmp_uptime / (60*60*24*100));
 				$remainder = $snmp_uptime % (60*60*24*100);
@@ -622,7 +681,7 @@ function hosts() {
 			}
 
 			if ($host['availability_method'] != 0) {
-				form_host_status_row_color($host['status'], $host['disabled']); 
+				form_host_status_row_color($host['status'], $host['disabled']);
 				print "<td width='1%' class='nowrap'>";
 				if (api_user_realm_auth('host.php')) {
 					print '<a href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __('Edit Device') . '"></a>';
@@ -702,19 +761,19 @@ function form_host_filter() {
 						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('Type');?>
+						<?php print __('Site');?>
 					</td>
 					<td>
-						<select id='host_template_id' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
-							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
+						<select id='site_id' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
 							<?php
-							$host_templates = db_fetch_assoc('select id,name from host_template order by name');
+							$sites = db_fetch_assoc('SELECT id,name FROM sites ORDER BY name');
 
-							if (sizeof($host_templates)) {
-							foreach ($host_templates as $host_template) {
-								print "<option value='" . $host_template['id'] . "'"; if (get_request_var('host_template_id') == $host_template['id']) { print ' selected'; } print '>' . $host_template['name'] . "</option>\n";
-							}
+							if (sizeof($sites)) {
+								foreach ($sites as $sites) {
+									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . $sites['name'] . "</option>\n";
+								}
 							}
 							?>
 						</select>
@@ -736,6 +795,32 @@ function form_host_filter() {
 						</select>
 					</td>
 					<td>
+						<input id='refresh' type='button' value='<?php print __('Go');?>' onClick='applyFilter()'>
+					</td>
+					<td>
+						<input id='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
+					</td>
+				</table>
+				<table class='filterTable'>
+					<td>
+						<?php print __('Type');?>
+					</td>
+					<td>
+						<select id='host_template_id' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
+							<?php
+							$host_templates = db_fetch_assoc('SELECT id,name FROM host_template ORDER BY name');
+
+							if (sizeof($host_templates)) {
+								foreach ($host_templates as $host_template) {
+									print "<option value='" . $host_template['id'] . "'"; if (get_request_var('host_template_id') == $host_template['id']) { print ' selected'; } print '>' . $host_template['name'] . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td>
 						<?php print __('Devices');?>
 					</td>
 					<td>
@@ -750,12 +835,6 @@ function form_host_filter() {
 							?>
 						</select>
 					</td>
-					<td>
-						<input id='refresh' type='button' value='<?php print __('Go');?>' onClick='applyFilter()'>
-					</td>
-					<td>
-						<input id='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
-					</td>
 				</tr>
 			</table>
 			<input type='hidden' name='page' value='<?php print get_request_var('page');?>'>
@@ -764,8 +843,10 @@ function form_host_filter() {
 		<script type='text/javascript'>
 
 		function applyFilter() {
-			strURL  = 'thold_graph.php?header=false&action=hoststat&host_status=' + $('#host_status').val();
+			strURL  = 'thold_graph.php?header=false&action=hoststat';
+			strURL += '&host_status=' + $('#host_status').val();
 			strURL += '&host_template_id=' + $('#host_template_id').val();
+			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
 			strURL += '&filter=' + $('#filter').val();
 			loadPageNoHeader(strURL);
@@ -831,6 +912,11 @@ function thold_show_log() {
 			'pageset' => true,
 			'default' => '-1'
 			),
+		'site_id' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
 		'status' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
@@ -868,6 +954,14 @@ function thold_show_log() {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' h.id IS NULL';
 	}elseif (!isempty_request_var('host_id')) {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' tl.host_id=' . get_request_var('host_id');
+	}
+
+	if (get_request_var('site_id') == '-1') {
+		/* Show all items */
+	}elseif (get_request_var('site_id') == '0') {
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' h.site_id IS NULL';
+	}elseif (!isempty_request_var('site_id')) {
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' h.site_id=' . get_request_var('site_id');
 	}
 
 	if (get_request_var('threshold_id') == '-1') {
@@ -914,9 +1008,9 @@ function thold_show_log() {
 	$i = 0;
 	if (sizeof($logs)) {
 		foreach ($logs as $l) {
-			$baseu = db_fetch_cell_prepared('SELECT base_value 
-				FROM graph_templates_graph 
-				WHERE local_graph_id = ?', 
+			$baseu = db_fetch_cell_prepared('SELECT base_value
+				FROM graph_templates_graph
+				WHERE local_graph_id = ?',
 				array($l['local_graph_id']));
 
 			?>
@@ -959,7 +1053,33 @@ function form_thold_log_filter() {
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
 					</td>
+					<td>
+						<?php print __('Site');?>
+					</td>
+					<td>
+						<select id='site_id' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
+							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
+							<?php
+							$sites = db_fetch_assoc('SELECT id,name FROM sites ORDER BY name');
+
+							if (sizeof($sites)) {
+								foreach ($sites as $sites) {
+									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . $sites['name'] . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
 					<?php print html_host_filter(get_request_var('host_id'));?>
+					<td>
+						<input id='refresh' type='button' value='<?php print __('Go');?>' onClick='applyFilter()'>
+					</td>
+					<td>
+						<input id='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
+					</td>
+				</table>
+				<table class='filterTable'>
 					<td>
 						<?php print __('Threshold');?>
 					</td>
@@ -1011,12 +1131,6 @@ function form_thold_log_filter() {
 							?>
 						</select>
 					</td>
-					<td>
-						<input id='refresh' type='button' value='<?php print __('Go');?>' onClick='applyFilter()'>
-					</td>
-					<td>
-						<input id='clear' type='button' value='<?php print __('Clear');?>' onClick='clearFilter()'>
-					</td>
 				</tr>
 			</table>
 			<input type='hidden' name='page' value='<?php print get_request_var('filter');?>'>
@@ -1025,9 +1139,11 @@ function form_thold_log_filter() {
 		<script type='text/javascript'>
 
 		function applyFilter() {
-			strURL  = 'thold_graph.php?header=false&action=log&status=' + $('#status').val();
+			strURL  = 'thold_graph.php?header=false&action=log';
+			strURL += '&status=' + $('#status').val();
 			strURL += '&threshold_id=' + $('#threshold_id').val();
 			strURL += '&host_id=' + $('#host_id').val();
+			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
 			strURL += '&filter=' + $('#filter').val();
 			loadPageNoHeader(strURL);

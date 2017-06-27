@@ -40,6 +40,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * feature#34: Allow notes to be attached to thresholds and templates
 * issue#81: Alert settings are mandatory, Warning is optional
 * issue#86: Undefined variable in snmptrap function
+* issue#89: Add Site to main table views
 * issue#94: <DOWNTIME> not processed properly when the value has never changed
 * issue: Baseline tholds generate SQL errors and PHP warnings
 
