@@ -1663,7 +1663,7 @@ function thold_check_threshold(&$thold_data) {
 				thold_debug('Alerting is necessary');
 
 				if ($logset == 1) {
-					logger($thold_data['name'], ($ra ? 'realert':'alert'), ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']), $thold_data['lastread'], $trigger, $thold_data['thold_fail_count'], $url);
+					logger($thold_data['name'], $breach_up, ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']), $thold_data['lastread'], $trigger, $thold_data['thold_fail_count'], $url);
 				}
 
 				if (trim($alert_emails) != '') {
@@ -1729,7 +1729,7 @@ function thold_check_threshold(&$thold_data) {
 				thold_debug('Alerting is necessary');
 
 				if ($logset == 1) {
-					logger($thold_data['name'], ($ra ? 'rewarning':'warning'), ($warning_breach_up ? $thold_data['thold_warning_hi'] : $thold_data['thold_warning_low']), $thold_data['lastread'], $warning_trigger, $thold_data['thold_warning_fail_count'], $url);
+					logger($thold_data['name'], $warning_breach_up, ($warning_breach_up ? $thold_data['thold_warning_hi'] : $thold_data['thold_warning_low']), $thold_data['lastread'], $warning_trigger, $thold_data['thold_warning_fail_count'], $url);
 				}
 
 				if (trim($warning_emails) != '') {
@@ -1965,7 +1965,7 @@ function thold_check_threshold(&$thold_data) {
 				$subject = 'ALERT: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
 
 				if ($logset == 1) {
-					logger($thold_data['name'], ($ra ? 'realert':'alert'), ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']), $thold_data['lastread'], $thold_data['bl_fail_trigger'], $thold_data['bl_fail_count'], $url);
+					logger($thold_data['name'], $breach_up, ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']), $thold_data['lastread'], $thold_data['bl_fail_trigger'], $thold_data['bl_fail_count'], $url);
 				}
 
 				if (trim($alert_emails) != '') {
@@ -2104,7 +2104,7 @@ function thold_check_threshold(&$thold_data) {
 				thold_debug('Alerting is necessary');
 
 				if ($logset == 1) {
-					logger($thold_data['name'], ($failures > $trigger ? 'realert':'alert'), ($breach_up ? $thold_data['time_hi'] : $thold_data['time_low']), $thold_data['lastread'], $trigger, $failures, $url);
+					logger($thold_data['name'], $breach_up, ($breach_up ? $thold_data['time_hi'] : $thold_data['time_low']), $thold_data['lastread'], $trigger, $failures, $url);
 				}
 
 				if (trim($alert_emails) != '') {
@@ -2187,7 +2187,7 @@ function thold_check_threshold(&$thold_data) {
 
 			if ($notify) {
 				if ($logset == 1) {
-					logger($thold_data['name'], ($warning_failures > $warning_trigger ? 'rewarning':'warning'), ($warning_breach_up ? $thold_data['time_warning_hi'] : $thold_data['time_warning_low']), $thold_data['lastread'], $warning_trigger, $warning_failures, $url);
+					logger($thold_data['name'], $warning_breach_up, ($warning_breach_up ? $thold_data['time_warning_hi'] : $thold_data['time_warning_low']), $thold_data['lastread'], $warning_trigger, $warning_failures, $url);
 				}
 
 				if (trim($alert_emails) != '') {
