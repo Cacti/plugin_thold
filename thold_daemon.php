@@ -30,11 +30,13 @@ if (!isset($_SERVER["argv"][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($
 
 $no_http_headers = true;
 
+$options = getopt('f', array('foregroud'));
+
 /* check if poller daemon is already running */
-exec('ps -ef | grep -v grep | grep -v "sh -c" | grep thold_daemon.php', $output);
+exec('pgrep -a php | grep thold_daemon.php', $output);
 if(sizeof($output)>=2) {
     fwrite( STDOUT, "Thold Daemon is still running\n");
-    return;
+    exit(1);
 }
 
 /* we are not talking to the browser */
@@ -54,22 +56,24 @@ chdir('../../');
 
 fwrite(STDOUT, 'Starting Thold Daemon ... ');
 
-if(function_exists('pcntl_fork')) {
-    /* fork the current process to bring a real new daemon on the road */
-    $pid = pcntl_fork();
-    if($pid == -1) {
-        /* oha ... something went wrong :( */
-        fwrite(STDOUT, '[FAILED]' . PHP_EOL);
-        return false;
-    }elseif($pid == 0) {
-        /* the child should do nothing as long as the parent is still alive */
-    }else {
-        /* return the PID of the new child and kill the parent */
-		fwrite(STDOUT, '[OK]' . PHP_EOL);
-        return true;
-    }
-}else {
-    fwrite(STDOUT, '[WARNING] This system does not support forking.' . PHP_EOL);
+if(!isset($options['f']) && !isset($options['foreground'])) {
+	if(function_exists('pcntl_fork')) {
+		/* fork the current process to bring a real new daemon on the road */
+		$pid = pcntl_fork();
+		if($pid == -1) {
+			/* oha ... something went wrong :( */
+			fwrite(STDOUT, '[FAILED]' . PHP_EOL);
+			return false;
+		}elseif($pid == 0) {
+			/* the child should do nothing as long as the parent is still alive */
+		}else {
+			/* return the PID of the new child and kill the parent */
+			fwrite(STDOUT, '[OK]' . PHP_EOL);
+			return true;
+		}
+	}else {
+		fwrite(STDOUT, '[WARNING] This system does not support forking.' . PHP_EOL);
+	}
 }
 require_once('./include/global.php');
 require_once($config['base_path'] . '/lib/poller.php');
