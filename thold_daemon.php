@@ -30,7 +30,7 @@ if (!isset($_SERVER["argv"][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($
 
 $no_http_headers = true;
 
-$options = getopt('f', ['foregroud']);
+$options = getopt('f', array('foregroud'));
 
 /* check if poller daemon is already running */
 exec('pgrep -a php | grep thold_daemon.php', $output);
