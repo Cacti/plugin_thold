@@ -1904,7 +1904,7 @@ function thold_check_threshold(&$thold_data) {
 			break;
 		case 0:		/* all clear */
 			/* if we were at an alert status before */
-			if ($alertstat != 0) {
+			if ($bl_alert_prev != 0) {
 				thold_debug('Threshold Baseline check is normal');
 
 				if ($thold_data['bl_fail_count'] >= $bl_fail_trigger && $thold_data['restored_alert'] != 'on') {
