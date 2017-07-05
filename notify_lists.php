@@ -739,9 +739,6 @@ function hosts($header_label) {
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' value='<?php print get_filter_request_var('page');?>'>
-			<input type='hidden' name='action' value='edit'>
-			<input type='hidden' id='id' value='<?php print get_filter_request_var('id');?>'>
 		</form>
 		<script type='text/javascript'>
 
@@ -765,7 +762,7 @@ function hosts($header_label) {
 				applyFilter();
 			});
 		});
-	
+
 		</script>
 		</td>
 	</tr>
@@ -816,7 +813,15 @@ function hosts($header_label) {
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
-	$display_text = array(__('Description'), __('ID'), __('Associated Lists'), __('Graphs'), __('Data Sources'), __('Status'), __('Hostname'));
+	$display_text = array(
+		__('Description'),
+		__('ID'),
+		__('Associated Lists'),
+		__('Graphs'),
+		__('Data Sources'),
+		__('Status'),
+		__('Hostname')
+	);
 
 	html_header_checkbox($display_text);
 
@@ -848,7 +853,7 @@ function hosts($header_label) {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td><em>' . __('No Associated Devices Found') . '</em></td></tr>';
+		print '<tr><td colspan="' . (sizeof($display_text) + 1) . '"><em>' . __('No Associated Devices Found') . '</em></td></tr>';
 	}
 
 	html_end_box(false);
@@ -990,9 +995,6 @@ function tholds($header_label) {
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' value='<?php print get_filter_request_var('page');?>'>
-			<input type='hidden' id='tab' value='tholds'>
-			<input type='hidden' id='id' value='<?php print get_request_var('id');?>'>
 		</form>
 		<script type='text/javascript'>
 
@@ -1017,7 +1019,7 @@ function tholds($header_label) {
 				applyFilter();
 			});
 		});
-	
+
 		</script>
 		</td>
 	</tr>
@@ -1128,7 +1130,7 @@ function tholds($header_label) {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='even' <td colspan='8'><i>" . __('No Thresholds'). "</i></td></tr>\n";
+		print "<tr class='even' <td colspan='" . (sizeof($display_text) + 1) . "'><i>" . __('No Thresholds'). "</i></td></tr>\n";
 	}
 
 	html_end_box(false);
@@ -1224,10 +1226,6 @@ function templates($header_label) {
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' value='<?php print get_filter_request_var('page');?>'>
-			<input type='hidden' id='action' value='edit'>
-			<input type='hidden' id='tab' value='templates'>
-			<input type='hidden' id='id' value='<?php print get_request_var('id');?>'>
 		</form>
 		<script type='text/javascript'>
 
@@ -1250,7 +1248,7 @@ function templates($header_label) {
 				applyFilter();
 			});
 		});
-	
+
 		</script>
 		</td>
 	</tr>
@@ -1342,7 +1340,7 @@ function templates($header_label) {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='even'><td colspan='8'><i>" . __('No Templates') . "</i></td></tr>\n";
+		print "<tr class='even'><td colspan='" . (sizeof($display_text) + 1) . "'><i>" . __('No Templates') . "</i></td></tr>\n";
 	}
 
 	html_end_box(false);
@@ -1519,14 +1517,13 @@ function lists() {
 						</select>
 					</td>
 					<td>
-						<input type='button' value='<?php print __('Go');?>' title='<?php print __('Set/Refresh Filters');?>' onClick='applyFilter()'>
+						<input id='refresh' type='button' value='<?php print __('Go');?>' title='<?php print __('Set/Refresh Filters');?>' onClick='applyFilter()'>
 					</td>
 					<td>
-						<input type='button' name='clear' value='<?php print __('Clear');?>' title='<?php print __('Clear Filters');?>' onClick='clearFilter()'>
+						<input id='clear' type='button' value='<?php print __('Clear');?>' title='<?php print __('Clear Filters');?>' onClick='clearFilter()'>
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' value='<?php print get_filter_request_var('page');?>'>
 		</form>
 		<script type='text/javascript'>
 
@@ -1548,7 +1545,7 @@ function lists() {
 				applyFilter();
 			});
 		});
-	
+
 		</script>
 		</td>
 	</tr>
@@ -1601,7 +1598,7 @@ function lists() {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td><em>' . __('No Notification Lists') . '</em></td></tr>';
+		print '<tr><td colspan="' . (sizeof($display_text) + 1) . '"><em>' . __('No Notification Lists') . '</em></td></tr>';
 	}
 
 	html_end_box(false);
