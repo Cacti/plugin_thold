@@ -43,9 +43,9 @@ function thold_tabs() {
 
 	/* present a tabbed interface */
 	$tabs = array(
-		'thold'    => __('Thresholds'),
-		'log'      => __('Log'),
-		'hoststat' => __('Device Status')
+		'thold'    => __('Thresholds', 'thold'),
+		'log'      => __('Log', 'thold'),
+		'hoststat' => __('Device Status', 'thold')
 	);
 
 	get_filter_request_var('tab', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^([a-zA-Z]+)$/')));
@@ -115,11 +115,11 @@ function thold_display_rusage() {
 			$pages    = $dat['ru_majflt'] - $s_pf;
 
 			print "<td colspan='10' width='1%' style='text-align:left;'>";
-			print '<b>' . __('Time:') . '</b>&nbsp;'   . round($end_time - $start_time,2) . ' seconds, ';
-			print '<b>' . __('User:') . '</b>&nbsp;'   . round($utime,2) . ' seconds, ';
-			print '<b>' . __('System:') . '</b>&nbsp;' . round($stime,2) . ' seconds, ';
-			print '<b>' . __('Swaps:') . '</b>&nbsp;'  . ($swaps) . ' swaps, ';
-			print '<b>' . __('Pages:') . '</b>&nbsp;'  . ($pages) . ' pages';
+			print '<b>' . __('Time:', 'thold') . '</b>&nbsp;'   . round($end_time - $start_time,2) . ' seconds, ';
+			print '<b>' . __('User:', 'thold') . '</b>&nbsp;'   . round($utime,2) . ' seconds, ';
+			print '<b>' . __('System:', 'thold') . '</b>&nbsp;' . round($stime,2) . ' seconds, ';
+			print '<b>' . __('Swaps:', 'thold') . '</b>&nbsp;'  . ($swaps) . ' swaps, ';
+			print '<b>' . __('Pages:', 'thold') . '</b>&nbsp;'  . ($pages) . ' pages';
 			print '</td>';
 		}
 
@@ -2399,7 +2399,7 @@ function get_thold_alert_text($name, $thold, $h, $currentval, $local_graph_id) {
 
 	/* make sure the alert text has been set */
 	if (!isset($alert_text) || $alert_text == '') {
-		$alert_text = __('<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>');
+		$alert_text = __('<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>', 'thold');
 	}
 
 	// Do some replacement of variables
@@ -2434,7 +2434,7 @@ function get_thold_alert_text($name, $thold, $h, $currentval, $local_graph_id) {
 	$alert_text = str_replace('<DATE_RFC822>',   date(DATE_RFC822), $alert_text);
 	$alert_text = str_replace('<DEVICENOTE>',    $h['notes'], $alert_text);
 
-	$alert_text = str_replace('<URL>',           "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti') . "</a>", $alert_text);
+	$alert_text = str_replace('<URL>',           "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . "</a>", $alert_text);
 
 	return $alert_text;
 }
@@ -2447,7 +2447,7 @@ function get_thold_warning_text($name, $thold, $h, $currentval, $local_graph_id)
 
 	/* make sure the warning text has been set */
 	if (!isset($warning_text) || $warning_text == '') {
-		$warning_text = __('<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>');
+		$warning_text = __('<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>', 'thold');
 	}
 
 	// Do some replacement of variables
@@ -2481,7 +2481,7 @@ function get_thold_warning_text($name, $thold, $h, $currentval, $local_graph_id)
 	$warning_text = str_replace('<DATE_RFC822>',  date(DATE_RFC822), $warning_text);
 	$warning_text = str_replace('<DEVICENOTE>',   $h['notes'], $warning_text);
 
-	$warning_text = str_replace('<URL>',          "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti') . "</a>", $warning_text);
+	$warning_text = str_replace('<URL>',          "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . "</a>", $warning_text);
 
 	return $warning_text;
 }
@@ -2952,7 +2952,7 @@ function save_thold() {
 
 	if ($template_enabled == 'on') {
 		if (!thold_user_auth_threshold ($local_data_id)) {
-			$banner = "<span class='textError'>" . __('Permission Denied') . "</span>";
+			$banner = "<span class='textError'>" . __('Permission Denied', 'thold') . "</span>";
 
 			$_SESSION['thold_message'] = $banner;
 			raise_message('thold_message');
@@ -2967,7 +2967,7 @@ function save_thold() {
 
 		thold_template_update_threshold($data['id'], $data['thold_template_id']);
 
-		$banner = "<span class='textInfo'>" . __('Record Updated') . "</span>";
+		$banner = "<span class='textInfo'>" . __('Record Updated', 'thold') . "</span>";
 
 		plugin_thold_log_changes($data['id'], 'modified', array('id' => $data['id'], 'template_enabled' => 'on'));
 
@@ -3011,7 +3011,7 @@ function save_thold() {
 			get_request_var('thold_hi') == '' &&
 			get_request_var('thold_low') == '' &&
 			get_request_var('thold_fail_trigger') != 0) {
-			$banner .= __('You must specify either &quot;High Alert Threshold&quot; or &quot;Low Alert Threshold&quot; or both!<br>RECORD NOT UPDATED!</span>');
+			$banner .= __('You must specify either &quot;High Alert Threshold&quot; or &quot;Low Alert Threshold&quot; or both!<br>RECORD NOT UPDATED!</span>', 'thold');
 
 			$_SESSION['thold_message'] = $banner;
 			raise_message('thold_message');
@@ -3023,7 +3023,7 @@ function save_thold() {
 			get_request_var('thold_hi') != '' &&
 			get_request_var('thold_low') != '' &&
 			round(get_request_var('thold_low'),4) >= round(get_request_var('thold_hi'), 4)) {
-			$banner .= __('Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</span>');
+			$banner .= __('Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</span>', 'thold');
 
 			$_SESSION['thold_message'] = $banner;
 			raise_message('thold_message');
@@ -3035,7 +3035,7 @@ function save_thold() {
 			get_request_var('thold_warning_hi') != '' &&
 			get_request_var('thold_warning_low') != '' &&
 			round(get_request_var('thold_warning_low'),4) >= round(get_request_var('thold_warning_hi'), 4)) {
-			$banner .= __('Impossible thresholds: &quot;High Warning Threshold&quot; smaller than or equal to &quot;Low Warning Threshold&quot;<br>RECORD NOT UPDATED!</span>');
+			$banner .= __('Impossible thresholds: &quot;High Warning Threshold&quot; smaller than or equal to &quot;Low Warning Threshold&quot;<br>RECORD NOT UPDATED!</span>', 'thold');
 
 			$_SESSION['thold_message'] = $banner;
 			raise_message('thold_message');
@@ -3044,7 +3044,7 @@ function save_thold() {
 		}
 
 		if (get_request_var('thold_type') == 1) {
-			$banner .= __('With baseline thresholds enabled.');
+			$banner .= __('With baseline thresholds enabled.', 'thold');
 
 			if (!thold_mandatory_field_ok('bl_ref_time_range', 'Time reference in the past')) {
 				$banner .= '</span>';
@@ -3056,7 +3056,7 @@ function save_thold() {
 			}
 
 			if (isempty_request_var('bl_pct_down') && isempty_request_var('bl_pct_up')) {
-				$banner .= __('You must specify either &quot;Baseline Deviation UP&quot; or &quot;Baseline Deviation DOWN&quot; or both!<br>RECORD NOT UPDATED!</span>');
+				$banner .= __('You must specify either &quot;Baseline Deviation UP&quot; or &quot;Baseline Deviation DOWN&quot; or both!<br>RECORD NOT UPDATED!</span>', 'thold');
 
 				$_SESSION['thold_message'] = $banner;
 				raise_message('thold_message');
@@ -3240,7 +3240,7 @@ function save_thold() {
 		set_request_var('id', '0');
 	}
 
-	$banner = "<span class='textInfo'>" . __('Record Updated') . "</span>";
+	$banner = "<span class='textInfo'>" . __('Record Updated', 'thold') . "</span>";
 
 	$_SESSION['thold_message'] = $banner;
 	raise_message('thold_message');
@@ -3286,7 +3286,7 @@ function thold_mandatory_field_ok($name, $friendly_name) {
 
 	if (!isset_request_var($name) || (isset_request_var($name) &&
 		(trim(get_nfilter_request_var($name)) == '' || get_nfilter_request_var($name) <= 0))) {
-		$banner .= __('&quot;%s&quot; must be set to positive integer value!<br>RECORD NOT UPDATED!</span>', $friendly_name);
+		$banner .= __('&quot;%s&quot; must be set to positive integer value!<br>RECORD NOT UPDATED!</span>', $friendly_name, 'thold');
 
 		return false;
 	}
@@ -3308,7 +3308,7 @@ function autocreate($host_id) {
 		WHERE ptht.host_template_id = ?', array($host_template_id)), 'data_template_id', 'id');
 
 	if (!sizeof($template_list)) {
-		$_SESSION['thold_message'] = '<font size=-2>' . __('No Thresholds Templates associated with the Host\'s Template.') . '</font>';
+		$_SESSION['thold_message'] = '<font size=-2>' . __('No Thresholds Templates associated with the Host\'s Template.', 'thold') . '</font>';
 		return 0;
 	}
 
@@ -3426,7 +3426,7 @@ function autocreate($host_id) {
 							thold_template_update_threshold($id, $insert['thold_template_id']);
 							plugin_thold_log_changes($id, 'auto_created', $insert['name']);
 
-							$message .= __('Created threshold for the Graph \'<i>%s</i>\' using the Data Source \'<i>%s</i>\'', $graph_name, $data_source_name)  . "<br>";
+							$message .= __('Created threshold for the Graph \'<i>%s</i>\' using the Data Source \'<i>%s</i>\'', $graph_name, $data_source_name, 'thold')  . "<br>";
 							$created++;
 						}
 					}
@@ -3465,7 +3465,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 	}
 
 	if ($to_email == '') {
-		return __('Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting.');
+		return __('Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting.', 'thold');
 	}
 
 	$attachments = array();

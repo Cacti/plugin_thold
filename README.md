@@ -44,6 +44,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#91: Search filter not working from Thold Management
 * issue#94: <DOWNTIME> not processed properly when the value has never changed
 * issue: Baseline tholds generate SQL errors and PHP warnings
+* issue: Add test domain for i18n
 
 --- 1.0.2 ---
 * issue#60: Threshold Templates could not be exported

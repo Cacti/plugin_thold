@@ -28,21 +28,21 @@ include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 $actions = array(
-	1 => __('Delete'),
-	2 => __('Duplicate')
+	1 => __('Delete', 'thold'),
+	2 => __('Duplicate', 'thold')
 );
 
 $assoc_actions = array(
-    1 => __('Associate'),
-    2 => __('Disassociate')
+    1 => __('Associate', 'thold'),
+    2 => __('Disassociate', 'thold')
 );
 
 /* present a tabbed interface */
 $tabs_thold = array(
-    'general'   => __('General'),
-    'hosts'     => __('Devices'),
-    'tholds'    => __('Thresholds'),
-    'templates' => __('Templates')
+    'general'   => __('General', 'thold'),
+    'hosts'     => __('Devices', 'thold'),
+    'tholds'    => __('Thresholds', 'thold'),
+    'templates' => __('Templates', 'thold')
 );
 
 set_default_action('');
@@ -285,25 +285,25 @@ function form_actions() {
 			if (get_request_var('drp_action') == '1') { /* delete */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default.'). "</p>
+						<p>" . __('Click \'Continue\' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default.', 'thold'). "</p>
 						<ul>$list</ul>
 					</td>
 				</tr>\n";
 
-				$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Delete Notification List(s)') . "'>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Delete Notification List(s)', 'thold') . "'>";
 			}elseif (get_request_var('drp_action') == '2') { /* duplicate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Duplicate the following Notification List(s).') . "</p>
+						<p>" . __('Click \'Continue\' to Duplicate the following Notification List(s).', 'thold') . "</p>
 						<ul>$list</ul>
 					</td>
 				</tr>\n";
 
-				$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Duplicate Notification List(s)') . "'>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Duplicate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
-			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Notification List.') . "</span></td></tr>\n";
-			$save_html = "<input type='button' value='" . __('Return'). "' onClick='cactiReturnTo()'>";
+			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Notification List.', 'thold') . "</span></td></tr>\n";
+			$save_html = "<input type='button' value='" . __esc('Return', 'thold'). "' onClick='cactiReturnTo()'>";
 		}
 
 		print "<tr>
@@ -338,35 +338,35 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box(__('%s Threshold Template(s)', $assoc_actions[get_request_var('drp_action')]), '60%', '', '3', 'center', '');
+		html_start_box(__('%s Threshold Template(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '60%', '', '3', 'center', '');
 
 		if (sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Association the Notification List \'<b>%s</b>\' with the Threshold Template(s) below.', $list_name) . "</p>
+						<p>" . __('Click \'Continue\' to Association the Notification List \'<b>%s</b>\' with the Threshold Template(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Warning Membership:') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change'), 1 => __('Notification List Only'), 2 => __('Notification List, Retain Other Settings')), '', '', 1, '', ''); print "</p>
-						<p><b>" . __('Alert Membership:') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change'), 1 => __('Notification List Only'), 2 => __('Notification List, Retain Other Settings')), '', '', 1, '', ''); print "</p>
+						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
+						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
-				$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Associate Notification List(s)') . "'>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			}elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Thresholds Template(s) below.', $list_name) . "</p>
+						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Thresholds Template(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Warning Membership:') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change'), 1 => __('Remove List')), '', '', 1, '', ''); print "</p>
-						<p><b>" . __('Alert Membership:') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change'), 1 => __('Remove List')), '', '', 1, '', ''); print "</p>
+						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
+						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
-				$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Disassociate Notification List(s)') . "'>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
-			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Threshold Template.') . "</span></td></tr>\n";
-			$save_html = "<input type='button' value='" . __('Return') . "' onClick='cactiReturnTo()'>";
+			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Threshold Template.', 'thold') . "</span></td></tr>\n";
+			$save_html = "<input type='button' value='" . __esc('Return', 'thold') . "' onClick='cactiReturnTo()'>";
 		}
 
 		print "	<tr>
@@ -402,36 +402,36 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box(__('%s Threshold(s)', $assoc_actions[get_request_var('drp_action')]), '60%', '', '3', 'center', '');
+		html_start_box(__('%s Threshold(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '60%', '', '3', 'center', '');
 
 		if (sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Associate the Notification List \'<b>%s</b>\' with the Threshold(s) below.', $list_name) . "</p>
+						<p>" . __('Click \'Continue\' to Associate the Notification List \'<b>%s</b>\' with the Threshold(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Warning Membership:') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change'), 1 => __('Notification List Only'), 2 => __('Notification List, Retain Other Settings')), '', '', 1, '', ''); print "</p>
-						<p><b>" . __('Alert Membership:') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change'), 1 => __('Notification List Only'), 2 => __('Notification List, Retain Other Settings')), '', '', 1, '', ''); print "</p>
+						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
+						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
-				$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Associate Notification List(s)') . "'>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			}elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Thresholds(s) below.', $list_name) . "</p>
+						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Thresholds(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Warning Membership:') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change'), 1 => __('Remove List')), '', '', 1, '', ''); print "</p>
-						<p><b>" . __('Alert Membership:') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change'), 1 => __('Remove List')), '', '', 1, '', ''); print "</p>
+						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
+						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
-				$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Disassociate Notification List(s)') . "'>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
-			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Threshold.') . "</span></td></tr>\n";
+			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Threshold.', 'thold') . "</span></td></tr>\n";
 
-			$save_html = "<input type='button' value='" . __('Return') . "' onClick='cactiReturnTo()'>";
+			$save_html = "<input type='button' value='" . __esc('Return', 'thold') . "' onClick='cactiReturnTo()'>";
 		}
 
 		print "	<tr>
@@ -473,28 +473,28 @@ function form_actions() {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Associate the Notification List \'<b>%s</b>\' with the Device(s) below.', $list_name) . "</p>
+						<p>" . __('Click \'Continue\' to Associate the Notification List \'<b>%s</b>\' with the Device(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Resulting Membership:'). "<br>"; form_dropdown('notification_action', array(2 => __('Notification List Only'), 3 => __('Notification and Global Lists')), '', '', 2, '', ''); print "</p>
+						<p><b>" . __('Resulting Membership:', 'thold'). "<br>"; form_dropdown('notification_action', array(2 => __('Notification List Only', 'thold'), 3 => __('Notification and Global Lists', 'thold')), '', '', 2, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
-				$save_html = "<input type='button' value='" . __('Cancel'). "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue'). "' title='" . __('Associate Notification List(s)'). "'>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold'). "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold'). "' title='" . __esc('Associate Notification List(s)', 'thold'). "'>";
 			}elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Device(s) below.', $list_name) . "</p>
+						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Device(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Resulting Membership:') . "</b><br>"; form_dropdown('notification_action', array(1 => __('Global List'), 0 => __('Disabled')), '', '', 1, '', ''); print "</p>
+						<p><b>" . __('Resulting Membership:', 'thold') . "</b><br>"; form_dropdown('notification_action', array(1 => __('Global List', 'thold'), 0 => __('Disabled', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
-				$save_html = "<input type='button' value='" . __('Cancel') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue') . "' title='" . __('Disassociate Notification List(s)') . "'>";
+				$save_html = "<input type='button' value='" . __('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue', 'thold') . "' title='" . __('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
-			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Device.') . "</span></td></tr>\n";
+			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Device.', 'thold') . "</span></td></tr>\n";
 
-			$save_html = "<input type='button' value='" . __('Return'). "' onClick='cactiReturnTo()'>";
+			$save_html = "<input type='button' value='" . __esc('Return', 'thold'). "' onClick='cactiReturnTo()'>";
 		}
 
 		print "<tr>
@@ -523,9 +523,9 @@ function form_actions() {
 function get_notification_header_label() {
 	if (!isempty_request_var('id')) {
 		$list = db_fetch_row('SELECT * FROM plugin_notification_lists WHERE id=' . get_filter_request_var('id'));
-		$header_label = __('[edit: %s]', $list['name']);
+		$header_label = __('[edit: %s]', $list['name'], 'thold');
 	} else {
-		$header_label = __('[new]');
+		$header_label = __('[new]', 'thold');
 	}
 
 	return $header_label;
@@ -571,20 +571,20 @@ function edit() {
 	if ($current_tab == 'general') {
 		form_start('notify_lists.php');
 
-		html_start_box(__('List General Settings') . ' ' . htmlspecialchars($header_label), '100%', '', '3', 'center', '');
+		html_start_box(__('List General Settings', 'thold') . ' ' . htmlspecialchars($header_label), '100%', '', '3', 'center', '');
 
 		$fields_notification = array(
 			'name' => array(
 				'method' => 'textbox',
-				'friendly_name' => __('Name'),
-				'description' => __('Enter a name for this Notification List.'),
+				'friendly_name' => __('Name', 'thold'),
+				'description' => __('Enter a name for this Notification List.', 'thold'),
 				'value' => '|arg1:name|',
 				'max_length' => '80'
 			),
 			'description' => array(
 				'method' => 'textarea',
-				'friendly_name' => __('Description'),
-				'description' => __('Enter a description for this Notification List.'),
+				'friendly_name' => __('Description', 'thold'),
+				'description' => __('Enter a description for this Notification List.', 'thold'),
 				'value' => '|arg1:description|',
 				'class' => 'textAreaNotes',
 				'textarea_rows' => '2',
@@ -592,8 +592,8 @@ function edit() {
 			),
 			'emails' => array(
 				'method' => 'textarea',
-				'friendly_name' => __('Email Addresses'),
-				'description' => __('Enter a comma separated list of Email addresses for this Notification List.'),
+				'friendly_name' => __('Email Addresses', 'thold'),
+				'description' => __('Enter a comma separated list of Email addresses for this Notification List.', 'thold'),
 				'value' => '|arg1:emails|',
 				'class' => 'textAreaNotes',
 				'textarea_rows' => '4',
@@ -678,7 +678,7 @@ function hosts($header_label) {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box(__('Associated Devices') . ' ' . htmlspecialchars($header_label), '100%', '', '3', 'center', '');
+	html_start_box(__('Associated Devices', 'thold') . ' ' . htmlspecialchars($header_label), '100%', '', '3', 'center', '');
 
 	?>
 	<tr class='even'>
@@ -687,18 +687,18 @@ function hosts($header_label) {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>' onChange='applyFilter()'>
 					</td>
 					<td>
-						<?php print __('Type');?>
+						<?php print __('Type', 'thold');?>
 					</td>
 					<td>
 						<select id='host_template_id' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>><?php print __('Any');?></option>
-							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
+							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>><?php print __('Any', 'thold');?></option>
+							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold');?></option>
 							<?php
 							$host_templates = db_fetch_assoc('select id,name from host_template order by name');
 
@@ -711,13 +711,13 @@ function hosts($header_label) {
 						</select>
 					</td>
 					<td>
-						<?php print __('Devices');?>
+						<?php print __('Devices', 'thold');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows) > 0) {
+							if (sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
 								}
@@ -726,16 +726,16 @@ function hosts($header_label) {
 						</select>
 					</td>
 					<td>
-						<input type='checkbox' id='associated' onChange='applyFilter()' <?php print (get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked':'');?>>
+						<span>
+							<input type='checkbox' id='associated' onChange='applyFilter()' <?php print (get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked':'');?>>
+							<label for='associated'><?php print __('Associated', 'thold');?></label>
+						</span>
 					</td>
 					<td>
-						<label for='associated'><?php print __('Associated');?></label>
-					</td>
-					<td>
-						<input type='button' value='<?php print __('Go');?>' onClick='applyFilter()' title='<?php print __('Set/Refresh Filters');?>'>
-					</td>
-					<td nowrap>
-						<input type='button' name='clearf' value='<?php print __('Clear');?>' onClick='clearFilter()' title='<?php print __('Clear Filters');?>'>
+						<span>
+							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
+							<input type='button' name='clearf' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
+						</span>
 					</td>
 				</tr>
 			</table>
@@ -805,7 +805,7 @@ function hosts($header_label) {
 
 	$hosts = db_fetch_assoc($sql_query);
 
-	$nav = html_nav_bar('notify_lists.php?action=edit&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Devices'), 'page', 'main');
+	$nav = html_nav_bar('notify_lists.php?action=edit&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Devices', 'thold'), 'page', 'main');
 
 	form_start('notify_lists.php', 'chk');
 
@@ -814,13 +814,13 @@ function hosts($header_label) {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		__('Description'),
-		__('ID'),
-		__('Associated Lists'),
-		__('Graphs'),
-		__('Data Sources'),
-		__('Status'),
-		__('Hostname')
+		__('Description', 'thold'),
+		__('ID', 'thold'),
+		__('Associated Lists', 'thold'),
+		__('Graphs', 'thold'),
+		__('Data Sources', 'thold'),
+		__('Status', 'thold'),
+		__('Hostname', 'thold')
 	);
 
 	html_header_checkbox($display_text);
@@ -831,17 +831,17 @@ function hosts($header_label) {
 			form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], 250);
 			form_selectable_cell(round(($host['id']), 2), $host['id']);
 			if ($host['thold_send_email'] == 0) {
-				form_selectable_cell('<span style="color:blue;font-weight:bold;">' . __('Disabled') . '</span>', $host['id']);
+				form_selectable_cell('<span style="color:blue;font-weight:bold;">' . __('Disabled', 'thold') . '</span>', $host['id']);
 			}elseif ($host['thold_send_email'] == 1) {
-				form_selectable_cell('<span style="color:purple;font-weight:bold;">' . __('Global List') . '</span>', $host['id']);
+				form_selectable_cell('<span style="color:purple;font-weight:bold;">' . __('Global List', 'thold') . '</span>', $host['id']);
 			}elseif ($host['thold_host_email'] == get_request_var('id')) {
 				if ($host['thold_send_email'] == 2) {
-					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current List Only') . '</span>', $host['id']);
+					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current List Only', 'thold') . '</span>', $host['id']);
 				}else{
-					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current and Global List(s)') . '</span>', $host['id']);
+					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
 				}
 			}elseif ($host['thold_host_email'] == '0') {
-				form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('None') . '</span>', $host['id']);
+				form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('None', 'thold') . '</span>', $host['id']);
 			}else{
 				form_selectable_cell('<span style="color:red;font-weight:bold;">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
 			}
@@ -853,7 +853,7 @@ function hosts($header_label) {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td colspan="' . (sizeof($display_text) + 1) . '"><em>' . __('No Associated Devices Found') . '</em></td></tr>';
+		print '<tr><td colspan="' . (sizeof($display_text) + 1) . '"><em>' . __('No Associated Devices Found', 'thold') . '</em></td></tr>';
 	}
 
 	html_end_box(false);
@@ -876,7 +876,7 @@ function tholds($header_label) {
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
-	$thold_actions = array(1 => __('Associate'), 2 => __('Disassociate'));
+	$thold_actions = array(1 => __('Associate', 'thold'), 2 => __('Disassociate', 'thold'));
 
 	thold_request_validation();
 
@@ -928,7 +928,7 @@ function tholds($header_label) {
 		ON td.data_template_id = dt.id
 		ORDER BY dt.name');
 
-	html_start_box(__('Associated Thresholds') . ' ' . htmlspecialchars($header_label) , '100%', '', '3', 'center', '');
+	html_start_box(__('Associated Thresholds', 'thold') . ' ' . htmlspecialchars($header_label) , '100%', '', '3', 'center', '');
 	?>
 	<tr class='even'>
 		<td>
@@ -936,17 +936,17 @@ function tholds($header_label) {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>' onChange='applyFilter()'>
 					</td>
 					<td>
-						<?php print __('Template');?>
+						<?php print __('Template', 'thold');?>
 					</td>
 					<td>
 						<select id='template' onChange='applyFilter()'>
-							<option value='-1'><?php print __('Any');?></option>
+							<option value='-1'><?php print __('Any', 'thold');?></option>
 							<?php
 							foreach ($data_templates as $row) {
 								echo "<option value='" . $row['id'] . "'" . (isset_request_var('template') && $row['id'] == get_request_var('template') ? ' selected' : '') . '>' . $row['name'] . '</option>';
@@ -955,23 +955,23 @@ function tholds($header_label) {
 						</select>
 					</td>
 					<td>
-						<?php print __('State');?>
+						<?php print __('State', 'thold');?>
 					</td>
 					<td>
 						<select id='state' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('state') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
-							<option value='1'<?php if (get_request_var('state') == '1') {?> selected<?php }?>><?php print __('Breached');?></option>
-							<option value='3'<?php if (get_request_var('state') == '3') {?> selected<?php }?>><?php print __('Triggered');?></option>
-							<option value='2'<?php if (get_request_var('state') == '2') {?> selected<?php }?>><?php print __('Enabled');?></option>
-							<option value='0'<?php if (get_request_var('state') == '0') {?> selected<?php }?>><?php print __('Disabled');?></option>
+							<option value='-1'<?php if (get_request_var('state') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
+							<option value='1'<?php if (get_request_var('state') == '1') {?> selected<?php }?>><?php print __('Breached', 'thold');?></option>
+							<option value='3'<?php if (get_request_var('state') == '3') {?> selected<?php }?>><?php print __('Triggered', 'thold');?></option>
+							<option value='2'<?php if (get_request_var('state') == '2') {?> selected<?php }?>><?php print __('Enabled', 'thold');?></option>
+							<option value='0'<?php if (get_request_var('state') == '0') {?> selected<?php }?>><?php print __('Disabled', 'thold');?></option>
 						</select>
 					</td>
 					<td>
-						<?php print __('Thresholds');?>
+						<?php print __('Thresholds', 'thold');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
 							if (sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
@@ -982,16 +982,16 @@ function tholds($header_label) {
 						</select>
 					</td>
 					<td>
-						<input type='checkbox' id='associated' onChange='applyFilter()' <?php print (get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked':'');?>>
+						<span>
+							<input type='checkbox' id='associated' onChange='applyFilter()' <?php print (get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked':'');?>>
+							<label for='associated'><?php print __('Associated', 'thold');?></label>
+						</span>
 					</td>
 					<td>
-						<label for='associated'><?php print __('Associated');?></label>
-					</td>
-					<td>
-						<input type='button' value='<?php print __('Go');?>' onClick='applyFilter()' title='<?php print __('Set/Refresh Filters');?>'>
-					</td>
-					<td>
-						<input type='button' name='clearf' value='<?php print __('Clear');?>' onClick='clearFilter()' title='<?php print __('Clear Filters');?>'>
+						<span>
+							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
+							<input type='button' name='clearf' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
+						</span>
 					</td>
 				</tr>
 			</table>
@@ -1027,7 +1027,7 @@ function tholds($header_label) {
 
 	html_end_box();
 
-	$nav = html_nav_bar('notify_lists.php?action=edit&tab=tholds', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Thresholds'), 'page', 'main');
+	$nav = html_nav_bar('notify_lists.php?action=edit&tab=tholds', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Thresholds', 'thold'), 'page', 'main');
 
 	form_start('notify_lists.php', 'chk');
 
@@ -1036,13 +1036,13 @@ function tholds($header_label) {
 	html_start_box('', '100%', '', '4', 'center', '');
 
 	$display_text = array(
-		'name'          => array(__('Name'), 'ASC'),
-		'id'            => array(__('ID'), 'ASC'),
-		'nosort1'       => array(__('Warning Lists'), 'ASC'),
-		'nosort2'       => array(__('Alert Lists'), 'ASC'),
-		'thold_type'    => array(__('Type'), 'ASC'),
-		'thold_alert'   => array(__('Triggered'), 'ASC'),
-		'thold_enabled' => array(__('Enabled'), 'ASC'));
+		'name'          => array(__('Name', 'thold'), 'ASC'),
+		'id'            => array(__('ID', 'thold'), 'ASC'),
+		'nosort1'       => array(__('Warning Lists', 'thold'), 'ASC'),
+		'nosort2'       => array(__('Alert Lists', 'thold'), 'ASC'),
+		'thold_type'    => array(__('Type', 'thold'), 'ASC'),
+		'thold_alert'   => array(__('Triggered', 'thold'), 'ASC'),
+		'thold_enabled' => array(__('Enabled', 'thold'), 'ASC'));
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'notify_lists.php?action=edit&tab=tholds&id=' . get_filter_request_var('id'));
 
@@ -1069,16 +1069,16 @@ function tholds($header_label) {
 			$alert_stat = '';
 			$list = db_fetch_cell('SELECT count(*) FROM plugin_thold_threshold_contact WHERE thold_id=' . $row['id']);
 			if ($list > 0) {
-				$alert_stat = "<span style='font-weight:bold;color:green;'>" . __('Select Users') . "</span>";
+				$alert_stat = "<span style='font-weight:bold;color:green;'>" . __('Select Users', 'thold') . "</span>";
 			}
 
 			if (strlen($row['notify_extra'])) {
-				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails') . "</span>";
+				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List') . "</span>";
+					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
 				}else{
 					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $alert_list . '</span>';
@@ -1086,18 +1086,18 @@ function tholds($header_label) {
 			}
 
 			if (!strlen($alert_stat)) {
-				$alert_stat = "<span style='font-weight:bold;color:blue;'>" . __('Log Only') . "</span>";
+				$alert_stat = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold') . "</span>";
 			}
 
 			/* show warning stats first */
 			$warn_stat = '';
 			if (strlen($row['notify_warning_extra'])) {
-				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails') . "</span>";
+				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List') . "</span>";
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
 				}else{
 					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $warn_list . '</span>';
@@ -1107,9 +1107,9 @@ function tholds($header_label) {
 			if ((!strlen($warn_stat)) &&
 				(($row['thold_type'] == 0 && $row['thold_warning_hi'] == '' && $row['thold_warning_low'] == '') ||
 				($row['thold_type'] == 2 && $row['time_warning_hi'] == '' && $row['time_warning_low'] == ''))) {
-				$warn_stat  = "<span style='font-weight:bold;color:red;'>" . __('None') . "</span>";
+				$warn_stat  = "<span style='font-weight:bold;color:red;'>" . __('None', 'thold') . "</span>";
 			}elseif (!strlen($warn_stat)) {
-				$warn_stat  = "<span style='font-weight:bold;color:blue;'>" . __('Log Only'). "</span>";
+				$warn_stat  = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold'). "</span>";
 			}
 
 			if ($row['name'] != '') {
@@ -1125,12 +1125,12 @@ function tholds($header_label) {
 			form_selectable_cell($alert_stat, $row['id']);
 			form_selectable_cell($thold_types[$row['thold_type']], $row['id']);
 			form_selectable_cell($alertstat, $row['id']);
-			form_selectable_cell((($row['thold_enabled'] == 'off') ? __('Disabled'): __('Enabled')), $row['id']);
+			form_selectable_cell((($row['thold_enabled'] == 'off') ? __('Disabled', 'thold'): __('Enabled', 'thold')), $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
 			form_end_row();
 		}
 	} else {
-		print "<tr class='even' <td colspan='" . (sizeof($display_text) + 1) . "'><i>" . __('No Thresholds'). "</i></td></tr>\n";
+		print "<tr class='even' <td colspan='" . (sizeof($display_text) + 1) . "'><i>" . __('No Thresholds', 'thold'). "</i></td></tr>\n";
 	}
 
 	html_end_box(false);
@@ -1153,7 +1153,7 @@ function templates($header_label) {
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
-	$thold_actions = array(1 => __('Associate'), 2 => __('Disassociate'));
+	$thold_actions = array(1 => __('Associate', 'thold'), 2 => __('Disassociate', 'thold'));
 
 	thold_template_request_validation();
 
@@ -1184,7 +1184,7 @@ function templates($header_label) {
 
 	$result = db_fetch_assoc($sql);
 
-	html_start_box(__('Associated Templates') . ' ' . htmlspecialchars($header_label), '100%', '', '3', 'center', '');
+	html_start_box(__('Associated Templates', 'thold') . ' ' . htmlspecialchars($header_label), '100%', '', '3', 'center', '');
 	?>
 	<tr class='even'>
 		<td>
@@ -1192,19 +1192,19 @@ function templates($header_label) {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>' onChange='applyFilter()'>
 					</td>
 					<td>
-						<?php print __('Rows');?>
+						<?php print __('Rows', 'thold');?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows) > 0) {
+							if (sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
 								}
@@ -1213,16 +1213,16 @@ function templates($header_label) {
 						</select>
 					</td>
 					<td>
-						<input type='checkbox' id='associated' onChange='applyFilter()' <?php print (get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked':'');?>>
+						<span>
+							<input type='checkbox' id='associated' onChange='applyFilter()' <?php print (get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked':'');?>>
+							<label for='associated'><?php print __('Associated', 'thold');?></label>
+						</span>
 					</td>
 					<td>
-						<label for='associated'><?php print __('Associated');?></label>
-					</td>
-					<td>
-						<input type='button' value='<?php print __('Go');?>' onClick='applyFilter()' title='<?php print __('Set/Refresh Filters');?>'>
-					</td>
-					<td>
-						<input type='button' id='clearf' value='<?php print __('Clear');?>' onClick='clearFilter()' title='<?php print __('Clear Filters');?>'>
+						<span>
+							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
+							<input type='button' id='clearf' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
+						</span>
 					</td>
 				</tr>
 			</table>
@@ -1269,11 +1269,11 @@ function templates($header_label) {
 	html_start_box('', '100%', '', '4', 'center', '');
 
 	$display_text = array(
-		'name'       => array(__('Name'), 'ASC'),
-		'id'         => array(__('ID'), 'ASC'),
-		'nosort1'    => array(__('Warning Lists'), 'ASC'),
-		'nosort2'    => array(__('Alert Lists'), 'ASC'),
-		'thold_type' => array(__('Type'), 'ASC'));
+		'name'       => array(__('Name', 'thold'), 'ASC'),
+		'id'         => array(__('ID', 'thold'), 'ASC'),
+		'nosort1'    => array(__('Warning Lists', 'thold'), 'ASC'),
+		'nosort2'    => array(__('Alert Lists', 'thold'), 'ASC'),
+		'thold_type' => array(__('Type', 'thold'), 'ASC'));
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'notify_lists.php?action=edit&tab=templates&id=' . get_filter_request_var('id'));
 
@@ -1287,16 +1287,16 @@ function templates($header_label) {
 			$alert_stat = '';
 			$list = db_fetch_cell("SELECT count(*) FROM plugin_thold_template_contact WHERE template_id=" . $row["id"]);
 			if ($list > 0) {
-				$alert_stat = "<span style='font-weight:bold;color:green;'>" . __('Select Users') . "</span>";
+				$alert_stat = "<span style='font-weight:bold;color:green;'>" . __('Select Users', 'thold') . "</span>";
 			}
 
 			if (strlen($row['notify_extra'])) {
-				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails') . "</span>";
+				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List') . "</span>";
+					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
 				}else{
 					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $alert_list . '</span>';
@@ -1304,18 +1304,18 @@ function templates($header_label) {
 			}
 
 			if (!strlen($alert_stat)) {
-				$alert_stat = "<span style='font-weight:bold;color:blue;'>" . __('Log Only') . "</span>";
+				$alert_stat = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold') . "</span>";
 			}
 
 			/* show warning stats first */
 			$warn_stat = '';
 			if (strlen($row['notify_warning_extra'])) {
-				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails') . "</span>";
+				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List'). "</span>";
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold'). "</span>";
 				}else{
 					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $warn_list . '</span>';
@@ -1325,9 +1325,9 @@ function templates($header_label) {
 			if ((!strlen($warn_stat)) &&
 				(($row['thold_type'] == 0 && $row['thold_warning_hi'] == '' && $row['thold_warning_low'] == '') ||
 				($row['thold_type'] == 2 && $row['thold_time_warning_hi'] == '' && $row['thold_time_warning_low'] == ''))) {
-				$warn_stat  = "<span style='font-weight:bold;color:red;'>" . __('None') . "</span>";
+				$warn_stat  = "<span style='font-weight:bold;color:red;'>" . __('None', 'thold') . "</span>";
 			}elseif (!strlen($warn_stat)) {
-				$warn_stat  = "<span style='font-weight:bold;color:blue;'>" . __('Log Only') . "</span>";
+				$warn_stat  = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold') . "</span>";
 			}
 
 			form_alternate_row('line' . $row['id'], true);
@@ -1340,7 +1340,7 @@ function templates($header_label) {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='even'><td colspan='" . (sizeof($display_text) + 1) . "'><i>" . __('No Templates') . "</i></td></tr>\n";
+		print "<tr class='even'><td colspan='" . (sizeof($display_text) + 1) . "'><i>" . __('No Templates', 'thold') . "</i></td></tr>\n";
 	}
 
 	html_end_box(false);
@@ -1487,7 +1487,7 @@ function lists() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box(__('Notification Lists'), '100%', '', '3', 'center', 'notify_lists.php?action=edit');
+	html_start_box(__('Notification Lists', 'thold'), '100%', '', '3', 'center', 'notify_lists.php?action=edit');
 
 	?>
 	<tr class='even'>
@@ -1496,19 +1496,19 @@ function lists() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search')?>
+						<?php print __('Search', 'thold')?>
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
 					</td>
 					<td>
-						<?php print __('Lists')?>
+						<?php print __('Lists', 'thold')?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows) > 0) {
+							if (sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
 								}
@@ -1517,10 +1517,10 @@ function lists() {
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='button' value='<?php print __('Go');?>' title='<?php print __('Set/Refresh Filters');?>' onClick='applyFilter()'>
+						<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>' onClick='applyFilter()'>
 					</td>
 					<td>
-						<input id='clear' type='button' value='<?php print __('Clear');?>' title='<?php print __('Clear Filters');?>' onClick='clearFilter()'>
+						<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' title='<?php print __esc('Clear Filters', 'thold');?>' onClick='clearFilter()'>
 					</td>
 				</tr>
 			</table>
@@ -1573,7 +1573,7 @@ function lists() {
 		ORDER BY " . get_request_var('sort_column') . ' ' . get_request_var('sort_direction') .
 		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows);
 
-	$nav = html_nav_bar('notify_lists.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Lists'), 'page', 'main');
+	$nav = html_nav_bar('notify_lists.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Lists', 'thold'), 'page', 'main');
 
 	form_start('notify_lists.php', 'chk');
 
@@ -1582,9 +1582,9 @@ function lists() {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	$display_text = array(
-		'name'        => array(__('List Name'), 'ASC'),
-		'description' => array(__('Description'), 'ASC'),
-		'emails'      => array(__('Emails'), 'ASC'));
+		'name'        => array(__('List Name', 'thold'), 'ASC'),
+		'description' => array(__('Description', 'thold'), 'ASC'),
+		'emails'      => array(__('Emails', 'thold'), 'ASC'));
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
@@ -1598,7 +1598,7 @@ function lists() {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td colspan="' . (sizeof($display_text) + 1) . '"><em>' . __('No Notification Lists') . '</em></td></tr>';
+		print '<tr><td colspan="' . (sizeof($display_text) + 1) . '"><em>' . __('No Notification Lists', 'thold') . '</em></td></tr>';
 	}
 
 	html_end_box(false);
