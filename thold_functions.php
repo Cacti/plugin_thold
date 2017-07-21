@@ -1957,7 +1957,8 @@ function thold_check_threshold(&$thold_data) {
 			thold_debug('Threshold Baseline check breached');
 
 			/* re-alert? */
-			$ra = ($thold_data['bl_fail_count'] > $bl_fail_trigger && ($thold_data['bl_fail_count'] % ($thold_data['repeat_alert'] == '' ? $realert : $thold_data['repeat_alert'])) == 0);
+			$ra_modulo = ($thold_data['repeat_alert'] == '' ? $realert : $thold_data['repeat_alert']);
+			$ra = ($thold_data['bl_fail_count'] > $bl_fail_trigger && !empty($ra_modulo) && ($thold_data['bl_fail_count'] % $ra_modulo) == 0);
 
 			if ($thold_data['bl_fail_count'] == $bl_fail_trigger || $ra) {
 				thold_debug('Alerting is necessary');
