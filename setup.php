@@ -256,7 +256,7 @@ function thold_rrd_graph_graph_options ($g) {
 				$data_source = explode('|', $matches[2]);
 
 				/* look up the data_id from the data source name and data_template_rrd */
-				$data_id = db_fetch_cell("SELECT id
+				$data_template_rrd_id = db_fetch_cell("SELECT id
 					FROM data_template_rrd
 					WHERE local_data_id='" . $data_template_rrd[$data_source[0]] . "'
 					AND data_source_name='" . $data_source[0] . "'");
@@ -264,18 +264,16 @@ function thold_rrd_graph_graph_options ($g) {
 				$thold_type = db_fetch_cell("SELECT thold_type
 					FROM thold_data
 					WHERE thold_enabled='on'
-					AND data_id='" . $data_id . "'");
+					AND data_template_rrd_id='" . $data_template_rrd_id . "'");
 
 				/* fetch the value from thold */
 				if ($thold_type == '') {
 					$value = '';
 				}elseif ($thold_type == 0 || $thold_type == 1) { // Hi/Low & Baseline
-					$value = db_fetch_cell('SELECT thold_' . $matches[1] . " FROM thold_data WHERE data_id='" . $data_id . "'");
+					$value = db_fetch_cell('SELECT thold_' . $matches[1] . " FROM thold_data WHERE data_template_rrd_id='" . $data_template_rrd_id . "'");
 				}elseif ($thold_type == 1) {  // Time Based
-					$value = db_fetch_cell('SELECT time_' . $matches[1] . " FROM thold_data WHERE data_id='" . $data_id . "'");
+					$value = db_fetch_cell('SELECT time_' . $matches[1] . " FROM thold_data WHERE data_template_rrd_id='" . $data_template_rrd_id . "'");
 				}
-
-				//cacti_log('H/L:' . $matches[1] . ', Data ID:' . $data_id . ', Data Source:' . $data_source[0] . ', Remainder:' . $matches[2] . ', Value:' . $value, false);
 
 				if ($value == '' || !is_numeric($value)) {
 					$replacements['|thold\:' . $matches[1] . '\:' . $data_source[0] . '|'] = 'strip';
@@ -291,7 +289,7 @@ function thold_rrd_graph_graph_options ($g) {
 				$data_source = explode('|', $matches[2]);
 
 				/* look up the data_id from the data source name and data_template_rrd_id */
-				$data_id = db_fetch_cell("SELECT id
+				$data_template_rrd_id = db_fetch_cell("SELECT id
 					FROM data_template_rrd
 					WHERE local_data_id='" . $data_template_rrd[$data_source[0]] . "'
 					AND data_source_name='" . $data_source[0] . "'");
@@ -299,18 +297,16 @@ function thold_rrd_graph_graph_options ($g) {
 				$thold_type = db_fetch_cell("SELECT thold_type
 					FROM thold_data
 					WHERE thold_enabled='on'
-					AND data_template_rrd_id='" . $data_id . "'");
+					AND data_template_rrd_id='" . $data_template_rrd_id . "'");
 
 				/* fetch the value from thold */
 				if ($thold_type == '') {
 					$value = '';
 				}elseif ($thold_type == 0 || $thold_type == 1) { // Hi/Low & Baseline
-					$value = db_fetch_cell('SELECT thold_' . $matches[1] . " FROM thold_data WHERE data_template_rrd_id='" . $data_id . "'");
+					$value = db_fetch_cell('SELECT thold_' . $matches[1] . " FROM thold_data WHERE data_template_rrd_id='" . $data_template_rrd_id . "'");
 				}elseif ($thold_type == 1) { // Time Based
-					$value = db_fetch_cell('SELECT time_' . $matches[1] . " FROM thold_data WHERE data_template_rrd_id='" . $data_id . "'");
+					$value = db_fetch_cell('SELECT time_' . $matches[1] . " FROM thold_data WHERE data_template_rrd_id='" . $data_template_rrd_id . "'");
 				}
-
-				//cacti_log('H/L:' . $matches[1] . ', Data ID:' . $data_id . ', Data Source:' . $data_source[0] . ', Remainder:' . $matches[2] . ', Value:' . $value, false);
 
 				if ($value == '' || !is_numeric($value)) {
 					$replacements['|thold\:' . $matches[1] . '\:' . $data_source[0] . '|'] = 'strip';
