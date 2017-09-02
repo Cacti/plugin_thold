@@ -613,21 +613,21 @@ function hosts() {
 	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;
 	$sql_order = str_replace('ORDER BY ', '', $sql_order);
 
-	$host_graphs = array_rekey(
-		db_fetch_assoc('SELECT host_id, count(*) AS graphs
-			FROM graph_local
-			GROUP BY host_id'),
-		'host_id', 'graphs'
-	);
+//	$host_graphs = array_rekey(
+//		db_fetch_assoc('SELECT host_id, count(*) AS graphs
+//			FROM graph_local
+//			GROUP BY host_id'),
+//		'host_id', 'graphs'
+//	);
 
-	$host_data_sources = array_rekey(
-		db_fetch_assoc('SELECT host_id, count(*) AS data_sources
-			FROM data_local
-			GROUP BY host_id'),
-		'host_id', 'data_sources'
-	);
+//	$host_data_sources = array_rekey(
+//		db_fetch_assoc('SELECT host_id, count(*) AS data_sources
+//			FROM data_local
+//			GROUP BY host_id'),
+//		'host_id', 'data_sources'
+//	);
 
-	$hosts = get_allowed_devices($sql_where, $sql_order, $sql_limit, $total_rows);
+	$hosts = thold_get_allowed_devices($sql_where, $sql_order, $sql_limit, $total_rows);
 
 	$nav = html_nav_bar('thold_graph.php?action=hoststat', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, __('Devices', 'thold'), 'page', 'main');
 
@@ -639,10 +639,10 @@ function hosts() {
 		'nosort'                 => array('display' => __('Actions', 'thold'),      'align' => 'left',   'sort' => '',     'tip' => __('Hover over icons for help', 'thold')),
 		'description'            => array('display' => __('Description', 'thold'),  'align' => 'left',   'sort' => 'ASC',  'tip' => __('A description for the Device', 'thold')),
 		'id'                     => array('display' => __('ID', 'thold'),           'align' => 'right',  'sort' => 'ASC',  'tip' => __('A Cacti unique identifier for the Device', 'thold')),
-		'nosort1'                => array('display' => __('Graphs', 'thold'),       'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Graphs for this Device', 'thold')),
-		'nosort2'                => array('display' => __('Data Sources', 'thold'), 'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Data Sources for this Device', 'thold')),
+		'graphs'                 => array('display' => __('Graphs', 'thold'),       'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Graphs for this Device', 'thold')),
+		'data_sources'           => array('display' => __('Data Sources', 'thold'), 'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Data Sources for this Device', 'thold')),
 		'status'                 => array('display' => __('Status', 'thold'),       'align' => 'center', 'sort' => 'ASC',  'tip' => __('The status for this Device as of the last time it was polled', 'thold')),
-		'nosort3'                => array('display' => __('In State', 'thold'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles', 'thold')),
+		'instate'                => array('display' => __('In State', 'thold'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles', 'thold')),
 		'snmp_sysUpTimeInstance' => array('display' => __('Uptime', 'thold'),       'align' => 'right',  'sort' => 'ASC',  'tip' => __('The official uptime of the Device as reported by SNMP', 'thold')),
 		'hostname'               => array('display' => __('Hostname', 'thold'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The official hostname for this Device', 'thold')),
 		'cur_time'               => array('display' => __('Current (ms)', 'thold'), 'align' => 'right',  'sort' => 'DESC', 'tip' => __('The current response time for the Cacti Availability check', 'thold')),
@@ -693,8 +693,8 @@ function hosts() {
 					<?php print filter_value($host['description'], get_request_var('filter'));?>
 				</td>
 				<td style='text-align:right'><?php print round(($host['id']), 2);?></td>
-				<td style='text-align:right'><i><?php print number_format_i18n($graphs);?></i></td>
-				<td style='text-align:right'><i><?php print number_format_i18n($ds);?></i></td>
+				<td style='text-align:right'><i><?php print number_format_i18n($host['graphs']);?></i></td>
+				<td style='text-align:right'><i><?php print number_format_i18n($host['data_sources']);?></i></td>
 				<td style='text-align:center'><?php print get_uncolored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']);?></td>
 				<td style='text-align:right'><?php print get_timeinstate($host);?></td>
 				<td style='text-align:right'><?php print $uptime;?></td>

@@ -45,6 +45,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#94: <DOWNTIME> not processed properly when the value has never changed
 * issue#99: Thold disables itself due to division by zero for invalid RPN expressions
 * issue#104: Query using the wrong/deprecated column
+* issue#106: Sort host list by time in state, graphs, and data sources
 * issue: Baseline tholds generate SQL errors and PHP warnings
 * issue: Add test domain for i18n
 
