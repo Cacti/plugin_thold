@@ -509,12 +509,12 @@ function thold_expression_ds_value($operator, &$stack, $data_sources) {
 	global $rpn_error;
 
 	if (sizeof($data_sources)) {
-	foreach ($data_sources as $rrd_name => $value) {
-		if (strtoupper($rrd_name) == $operator) {
-			array_push($stack, $value);
-			return;
+		foreach ($data_sources as $rrd_name => $value) {
+			if (strtoupper($rrd_name) == $operator) {
+				array_push($stack, $value);
+				return;
+			}
 		}
-	}
 	}
 
 	array_push($stack, 0);
@@ -661,63 +661,69 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 
 	/* replace all data tabs in the rpn with values */
 	if (sizeof($expression)) {
-	foreach ($expression as $key => $item) {
-		if (substr_count($item, '|ds:')) {
-			$dsname = strtolower(trim(str_replace('|ds:', '', $item), " |\n\r"));
+		foreach ($expression as $key => $item) {
+			if (strpos($item, '|ds:') !== false) {
+				/* remove invalid characters */
+				$item = str_replace('\\', '', $item);
 
-			$thold_item = db_fetch_row("SELECT thold_data.id, thold_data.local_graph_id,
-				thold_data.percent_ds, thold_data.expression,
-				thold_data.data_type, thold_data.cdef, thold_data.local_data_id,
-				thold_data.data_template_rrd_id, thold_data.lastread,
-				UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue,
-				data_template_rrd.data_source_name as name,
-				data_template_rrd.data_source_type_id, data_template_data.rrd_step,
-				data_template_rrd.rrd_maximum
-				FROM thold_data
-				LEFT JOIN data_template_rrd
-				ON data_template_rrd.id = thold_data.data_template_rrd_id
-				LEFT JOIN data_template_data
-				ON data_template_data.local_data_id=thold_data.local_data_id
-				WHERE data_template_rrd.data_source_name='$dsname'
-				AND thold_data.local_data_id=" . $thold['local_data_id'], false);
+				$dsname = strtolower(trim(str_replace('|ds:', '', $item), " |\n\r"));
 
-			if (sizeof($thold_item)) {
-				$item = array();
-				$currenttime = 0;
-				$expression[$key] = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
-			} else {
-				$value = '';
-				if (api_plugin_is_enabled('dsstats') && read_config_option('dsstats_enable') == 'on') {
-					$value = db_fetch_cell('SELECT calculated
-						FROM data_source_stats_hourly_last
-						WHERE local_data_id=' . $thold['rrd_id'] . "
-						AND rrd_name='$dsname'");
-				}
+				$thold_item = db_fetch_row("SELECT thold_data.id, thold_data.local_graph_id,
+					thold_data.percent_ds, thold_data.expression,
+					thold_data.data_type, thold_data.cdef, thold_data.local_data_id,
+					thold_data.data_template_rrd_id, thold_data.lastread,
+					UNIX_TIMESTAMP(thold_data.lasttime) AS lasttime, thold_data.oldvalue,
+					data_template_rrd.data_source_name as name,
+					data_template_rrd.data_source_type_id, data_template_data.rrd_step,
+					data_template_rrd.rrd_maximum
+					FROM thold_data
+					LEFT JOIN data_template_rrd
+					ON data_template_rrd.id = thold_data.data_template_rrd_id
+					LEFT JOIN data_template_data
+					ON data_template_data.local_data_id=thold_data.local_data_id
+					WHERE data_template_rrd.data_source_name='$dsname'
+					AND thold_data.local_data_id=" . $thold['local_data_id'], false);
 
-				if (empty($value) || $value == '-90909090909') {
-					$expression[$key] = get_current_value($thold['local_data_id'], $dsname);
+				if (sizeof($thold_item)) {
+					$item = array();
+					$currenttime = 0;
+					$expression[$key] = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
 				} else {
-					$expression[$key] = $value;
+					$value = '';
+					if (api_plugin_is_enabled('dsstats') && read_config_option('dsstats_enable') == 'on') {
+						$value = db_fetch_cell('SELECT calculated
+							FROM data_source_stats_hourly_last
+							WHERE local_data_id=' . $thold['rrd_id'] . "
+							AND rrd_name='$dsname'");
+					}
+
+					if (empty($value) || $value == '-90909090909') {
+						$expression[$key] = get_current_value($thold['local_data_id'], $dsname);
+					} else {
+						$expression[$key] = $value;
+					}
+					cacti_log($expression[$key]);
 				}
-				cacti_log($expression[$key]);
-			}
 
-			if ($expression[$key] == '') $expression[$key] = '0';
-		}elseif (substr_count($item, '|')) {
-			$gl = db_fetch_row('SELECT * FROM graph_local WHERE id=' . $thold['local_graph_id']);
+				if ($expression[$key] == '') $expression[$key] = '0';
+			}elseif (strpos($item, '|') !== false) {
+				/* remove invalid characters */
+				$item = str_replace('\\', '', $item);
 
-			if (sizeof($gl)) {
-				$expression[$key] = thold_expand_title($thold, $gl['host_id'], $gl['snmp_query_id'], $gl['snmp_index'], $item);
+				$gl = db_fetch_row('SELECT * FROM graph_local WHERE id=' . $thold['local_graph_id']);
+
+				if (sizeof($gl)) {
+					$expression[$key] = thold_expand_title($thold, $gl['host_id'], $gl['snmp_query_id'], $gl['snmp_index'], $item);
+				} else {
+					$expression[$key] = '0';
+					cacti_log("WARNING: Query Replacement for '$item' Does Not Exist");
+				}
+
+				if ($expression[$key] == '') $expression[$key] = '0';
 			} else {
-				$expression[$key] = '0';
-				cacti_log("WARNING: Query Replacement for '$item' Does Not Exist");
+				/* normal operator */
 			}
-
-			if ($expression[$key] == '') $expression[$key] = '0';
-		} else {
-			/* normal operator */
 		}
-	}
 	}
 
 	//cacti_log(implode(',', array_keys($data_sources)));
