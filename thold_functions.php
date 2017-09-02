@@ -197,7 +197,9 @@ function thold_expression_math_rpn($operator, &$stack) {
 		$v3 = 'U';
 
 		if (!$rpn_error) {
+			restore_error_handler();
 			@eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
+			set_error_handler('CactiErrorHandler');
 			array_push($stack, $v3);
 		}
 		break;
@@ -216,7 +218,9 @@ function thold_expression_math_rpn($operator, &$stack) {
 		$v1 = thold_expression_rpn_pop($stack);
 
 		if (!$rpn_error) {
-			eval("\$v2 = " . $operator . '(' . $v1 . ');');
+			restore_error_handler();
+			@eval("\$v2 = " . $operator . '(' . $v1 . ');');
+			set_error_handler('CactiErrorHandler');
 			array_push($stack, $v2);
 		}
 		break;
