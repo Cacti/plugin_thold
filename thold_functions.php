@@ -26,7 +26,7 @@
 function thold_update_contacts() {
 	$users = db_fetch_assoc("SELECT id, 'email' AS type, email_address FROM user_auth WHERE email_address!=''");
 	if (sizeof($users)) {
-		foreach($users as $u) {
+		foreach ($users as $u) {
 			$cid = db_fetch_cell('SELECT id FROM plugin_thold_contacts WHERE type="email" AND user_id=' . $u['id']);
 
 			if ($cid) {
@@ -135,7 +135,7 @@ function thold_legend() {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	print '<tr>';
-	foreach($thold_states as $index => $state) {
+	foreach ($thold_states as $index => $state) {
 		print "<td class='" . $state['class'] . "'>" . $state['display'] . "</td>";
 	}
 	print "</tr>";
@@ -149,7 +149,7 @@ function host_legend() {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	print '<tr>';
-	foreach($thold_host_states as $index => $state) {
+	foreach ($thold_host_states as $index => $state) {
 		print "<td class='" . $state['class'] . "'>" . $state['display'] . "</td>";
 	}
 	print '</tr>';
@@ -163,7 +163,7 @@ function log_legend() {
 	html_start_box('', '100%', '', '3', 'center', '');
 
 	print '<tr>';
-	foreach($thold_log_states as $index => $state) {
+	foreach ($thold_log_states as $index => $state) {
 		print "<td class='" . $state['class'] . "'>" . $state['display_short'] . "</td>";
 	}
 	print "</tr>";
@@ -459,7 +459,7 @@ function thold_expression_setops_rpn($operator, &$stack) {
 
 			sort($v, SORT_NUMERIC);
 
-			foreach($v as $val) {
+			foreach ($v as $val) {
 				array_push($stack, $val);
 			}
 		}
@@ -473,7 +473,7 @@ function thold_expression_setops_rpn($operator, &$stack) {
 
 			$v = array_reverse($v);
 
-			foreach($v as $val) {
+			foreach ($v as $val) {
 				array_push($stack, $val);
 			}
 		}
@@ -509,7 +509,7 @@ function thold_expression_ds_value($operator, &$stack, $data_sources) {
 	global $rpn_error;
 
 	if (sizeof($data_sources)) {
-	foreach($data_sources as $rrd_name => $value) {
+	foreach ($data_sources as $rrd_name => $value) {
 		if (strtoupper($rrd_name) == $operator) {
 			array_push($stack, $value);
 			return;
@@ -652,7 +652,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	/* out current data sources */
 	$data_sources = $rrd_reindexed[$thold['local_data_id']];
 	if (sizeof($data_sources)) {
-		foreach($data_sources as $key => $value) {
+		foreach ($data_sources as $key => $value) {
 			$key = strtolower($key);
 			$nds[$key] = $value;
 		}
@@ -661,7 +661,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 
 	/* replace all data tabs in the rpn with values */
 	if (sizeof($expression)) {
-	foreach($expression as $key => $item) {
+	foreach ($expression as $key => $item) {
 		if (substr_count($item, '|ds:')) {
 			$dsname = strtolower(trim(str_replace('|ds:', '', $item), " |\n\r"));
 
@@ -898,7 +898,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 
 		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type, policy_graphs, policy_hosts, policy_graph_templates FROM user_auth WHERE id = ?", array($user));
 
-		foreach($policies as $policy) {
+		foreach ($policies as $policy) {
 			if ($policy['policy_graphs'] == 1) {
 				$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i IS NULL";
 			}else{
@@ -1036,7 +1036,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 
 		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type, policy_graphs, policy_hosts, policy_graph_templates FROM user_auth WHERE id = ?", array($user));
 
-		foreach($policies as $policy) {
+		foreach ($policies as $policy) {
 			if ($policy['policy_graphs'] == 1) {
 				$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i IS NULL";
 			}else{
@@ -2537,7 +2537,7 @@ function get_reference_types($rra = 0, $step = 300) {
 
 	$reference_types = array();
 	if (sizeof($rra_steps)) {
-		foreach($rra_steps as $rra_step) {
+		foreach ($rra_steps as $rra_step) {
 			$seconds = $step * $rra_step['steps'];
 			if (isset($timearray[$rra_step['steps']])) {
 				$reference_types[$seconds] = $timearray[$rra_step['steps']] . ' Average' ;
@@ -3308,21 +3308,25 @@ function autocreate($host_id) {
 	$created = 0;
 	$message = '';
 
-	$host_template_id = db_fetch_cell_prepared('SELECT host_template_id FROM host WHERE id = ?', array($host_id));
+	$host_template_id = db_fetch_cell_prepared('SELECT host_template_id 
+		FROM host 
+		WHERE id = ?', 
+		array($host_id));
 
 	$template_list = array_rekey(db_fetch_assoc_prepared('SELECT tt.data_template_id, tt.id
 		FROM thold_template AS tt
 		INNER JOIN plugin_thold_host_template AS ptht
 		ON tt.id=ptht.thold_template_id
-		WHERE ptht.host_template_id = ?', array($host_template_id)), 'data_template_id', 'id');
+		WHERE ptht.host_template_id = ?', 
+		array($host_template_id)), 'id', 'data_template_id');
 
 	if (!sizeof($template_list)) {
 		$_SESSION['thold_message'] = '<font size=-2>' . __('No Thresholds Templates associated with the Host\'s Template.', 'thold') . '</font>';
 		return 0;
 	}
 
-	foreach($template_list as $data_template_id => $thold_template_id) {
-		$data_templates[$data_template_id] = $data_template_id;
+	foreach ($template_list as $thold_template_id => $data_template_id) {
+		$data_templates[$data_template_id]      = $data_template_id;
 		$thold_template_ids[$thold_template_id] = $thold_template_id;
 	}
 
@@ -3337,10 +3341,13 @@ function autocreate($host_id) {
 		$data_template_id   = $row['data_template_id'];
 
 		if (sizeof($thold_template_ids)) {
-			foreach($thold_template_ids as $ttid) {
+			foreach ($thold_template_ids as $ttid) {
 				$thold_template_id = $ttid;
 
-				$template = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($thold_template_id));
+				$template = db_fetch_row_prepared('SELECT * 
+					FROM thold_template 
+					WHERE id = ?', 
+					array($thold_template_id));
 
 				$existing = db_fetch_row_prepared('SELECT td.id
 					FROM thold_data AS td
@@ -3360,83 +3367,85 @@ function autocreate($host_id) {
 						AND data_source_name = ?
 						ORDER BY id LIMIT 1', array($local_data_id, $template['data_source_name']));
 
-					$graph  = db_fetch_row_prepared('SELECT local_graph_id, graph_template_id
-						FROM graph_templates_item
-						WHERE task_item_id = ?
-						AND local_graph_id > 0
-						LIMIT 1', array($data_template_rrd_id));
+					if ($data_template_rrd_id > 0) {
+						$graph  = db_fetch_row_prepared('SELECT local_graph_id, graph_template_id
+							FROM graph_templates_item
+							WHERE task_item_id = ?
+							AND local_graph_id > 0
+							LIMIT 1', array($data_template_rrd_id));
 
-					if (sizeof($graph)) {
-						$data_source_name = $template['data_source_name'];
+						if (sizeof($graph)) {
+							$data_source_name = $template['data_source_name'];
 
-						$desc = db_fetch_cell_prepared('SELECT name_cache FROM data_template_data WHERE local_data_id = ? LIMIT 1', array($local_data_id));
+							$desc = db_fetch_cell_prepared('SELECT name_cache FROM data_template_data WHERE local_data_id = ? LIMIT 1', array($local_data_id));
 
-						$insert                         = array();
-						$insert['id']                   = 0;
-						$insert['name']                 = $desc . ' [' . $data_source_name . ']';
-						$insert['local_data_id']        = $local_data_id;
-						$insert['data_template_rrd_id'] = $data_template_rrd_id;
-						$insert['local_graph_id']       = $graph['local_graph_id'];
-						$insert['graph_template_id']    = $graph['graph_template_id'];
-						$insert['data_template_id']     = $data_template_id;
+							$insert                         = array();
+							$insert['id']                   = 0;
+							$insert['name']                 = $desc . ' [' . $data_source_name . ']';
+							$insert['local_data_id']        = $local_data_id;
+							$insert['data_template_rrd_id'] = $data_template_rrd_id;
+							$insert['local_graph_id']       = $graph['local_graph_id'];
+							$insert['graph_template_id']    = $graph['graph_template_id'];
+							$insert['data_template_id']     = $data_template_id;
 
-						$insert['thold_hi']             = $template['thold_hi'];
-						$insert['thold_low']            = $template['thold_low'];
-						$insert['thold_fail_trigger']   = $template['thold_fail_trigger'];
+							$insert['thold_hi']             = $template['thold_hi'];
+							$insert['thold_low']            = $template['thold_low'];
+							$insert['thold_fail_trigger']   = $template['thold_fail_trigger'];
 
-						$insert['time_hi']              = $template['time_hi'];
-						$insert['time_low']             = $template['time_low'];
-						$insert['time_fail_trigger']    = $template['time_fail_trigger'];
-						$insert['time_fail_length']     = $template['time_fail_length'];
+							$insert['time_hi']              = $template['time_hi'];
+							$insert['time_low']             = $template['time_low'];
+							$insert['time_fail_trigger']    = $template['time_fail_trigger'];
+							$insert['time_fail_length']     = $template['time_fail_length'];
 
-						$insert['thold_warning_hi']           = $template['thold_warning_hi'];
-						$insert['thold_warning_low']          = $template['thold_warning_low'];
-						$insert['thold_warning_fail_trigger'] = $template['thold_warning_fail_trigger'];
-						$insert['thold_warning_fail_count']   = $template['thold_warning_fail_count'];
+							$insert['thold_warning_hi']           = $template['thold_warning_hi'];
+							$insert['thold_warning_low']          = $template['thold_warning_low'];
+							$insert['thold_warning_fail_trigger'] = $template['thold_warning_fail_trigger'];
+							$insert['thold_warning_fail_count']   = $template['thold_warning_fail_count'];
 
-						$insert['time_warning_hi']            = $template['time_warning_hi'];
-						$insert['time_warning_low']           = $template['time_warning_low'];
-						$insert['time_warning_fail_trigger']  = $template['time_warning_fail_trigger'];
-						$insert['time_warning_fail_length']   = $template['time_warning_fail_length'];
+							$insert['time_warning_hi']            = $template['time_warning_hi'];
+							$insert['time_warning_low']           = $template['time_warning_low'];
+							$insert['time_warning_fail_trigger']  = $template['time_warning_fail_trigger'];
+							$insert['time_warning_fail_length']   = $template['time_warning_fail_length'];
 
-						$insert['thold_alert']          = 0;
-						$insert['thold_enabled']        = $template['thold_enabled'];
-						$insert['thold_type']           = $template['thold_type'];
+							$insert['thold_alert']          = 0;
+							$insert['thold_enabled']        = $template['thold_enabled'];
+							$insert['thold_type']           = $template['thold_type'];
 
-						$insert['bl_ref_time_range']    = $template['bl_ref_time_range'];
-						$insert['bl_pct_down']          = $template['bl_pct_down'];
-						$insert['bl_pct_up']            = $template['bl_pct_up'];
-						$insert['bl_fail_trigger']      = $template['bl_fail_trigger'];
-						$insert['bl_fail_count']        = $template['bl_fail_count'];
-						$insert['bl_alert']             = $template['bl_alert'];
+							$insert['bl_ref_time_range']    = $template['bl_ref_time_range'];
+							$insert['bl_pct_down']          = $template['bl_pct_down'];
+							$insert['bl_pct_up']            = $template['bl_pct_up'];
+							$insert['bl_fail_trigger']      = $template['bl_fail_trigger'];
+							$insert['bl_fail_count']        = $template['bl_fail_count'];
+							$insert['bl_alert']             = $template['bl_alert'];
 
-						$insert['repeat_alert']         = $template['repeat_alert'];
-						$insert['notify_default']       = $template['notify_default'];
-						$insert['notify_extra']         = $template['notify_extra'];
-						$insert['notify_warning_extra'] = $template['notify_warning_extra'];
-						$insert['notify_warning']       = $template['notify_warning'];
-						$insert['notify_alert']         = $template['notify_alert'];
+							$insert['repeat_alert']         = $template['repeat_alert'];
+							$insert['notify_default']       = $template['notify_default'];
+							$insert['notify_extra']         = $template['notify_extra'];
+							$insert['notify_warning_extra'] = $template['notify_warning_extra'];
+							$insert['notify_warning']       = $template['notify_warning'];
+							$insert['notify_alert']         = $template['notify_alert'];
 
-						$insert['host_id']              = $host_id;
+							$insert['host_id']              = $host_id;
 
-						$insert['notes']                = $template['notes'];
+							$insert['notes']                = $template['notes'];
 
-						$insert['cdef']                 = $template['cdef'];
-						$insert['percent_ds']           = $template['percent_ds'];
-						$insert['expression']           = $template['expression'];
-						$insert['thold_template_id']    = $template['id'];
-						$insert['template_enabled']     = 'on';
+							$insert['cdef']                 = $template['cdef'];
+							$insert['percent_ds']           = $template['percent_ds'];
+							$insert['expression']           = $template['expression'];
+							$insert['thold_template_id']    = $template['id'];
+							$insert['template_enabled']     = 'on';
 
-						$id = sql_save($insert, 'thold_data');
+							$id = sql_save($insert, 'thold_data');
 
-						if ($id) {
-							$graph_name = get_graph_title($graph['local_graph_id']);
+							if ($id) {
+								$graph_name = get_graph_title($graph['local_graph_id']);
 
-							thold_template_update_threshold($id, $insert['thold_template_id']);
-							plugin_thold_log_changes($id, 'auto_created', $insert['name']);
+								thold_template_update_threshold($id, $insert['thold_template_id']);
+								plugin_thold_log_changes($id, 'auto_created', $insert['name']);
 
-							$message .= __('Created threshold for the Graph \'<i>%s</i>\' using the Data Source \'<i>%s</i>\'', $graph_name, $data_source_name, 'thold')  . "<br>";
-							$created++;
+								$message .= __('Created threshold for the Graph \'<i>%s</i>\' using the Data Source \'<i>%s</i>\'', $graph_name, $data_source_name, 'thold')  . "<br>";
+								$created++;
+							}
 						}
 					}
 				}
@@ -3486,7 +3495,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 			$filename = $tmp;
 		}
 
-		foreach($filename as $val) {
+		foreach ($filename as $val) {
 			$graph_data_array = array(
 				'graph_start'   => time()-86400,
 				'graph_end'     => time(),
@@ -3922,7 +3931,7 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 		$sql_join   = '';
 		$sql_having = '';
 
-		foreach($policies as $policy) {
+		foreach ($policies as $policy) {
 			if ($policy['policy_graphs'] == 1) {
 				$sql_having .= ($sql_having != '' ? ' OR ' : '') . "(user$i IS NULL";
 			} else {
