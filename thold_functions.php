@@ -1957,7 +1957,8 @@ function thold_check_threshold(&$thold_data) {
 			thold_debug('Threshold Baseline check breached');
 
 			/* re-alert? */
-			$ra = ($thold_data['bl_fail_count'] > $bl_fail_trigger && ($thold_data['bl_fail_count'] % ($thold_data['repeat_alert'] == '' ? $realert : $thold_data['repeat_alert'])) == 0);
+			$ra_modulo = ($thold_data['repeat_alert'] == '' ? $realert : $thold_data['repeat_alert']);
+			$ra = ($thold_data['bl_fail_count'] > $bl_fail_trigger && !empty($ra_modulo) && ($thold_data['bl_fail_count'] % $ra_modulo) == 0);
 
 			if ($thold_data['bl_fail_count'] == $bl_fail_trigger || $ra) {
 				thold_debug('Alerting is necessary');
@@ -3499,7 +3500,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 	}
 
 	$text = array('text' => '', 'html' => '');
-	if ($filename == '') {
+	if (empty($filename)) {
 		$text['html'] = $message . '<br>';
 
 		$message = str_replace('<br>',  "\n", $message);
@@ -3524,6 +3525,8 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 
 	thold_debug("Sending email to '" . trim($to_email,', ') . "'");
 
+	$thold_send_text_only  = read_config_option('thold_send_text_only');
+
 	$error = mailer(
 		array($from_email, $from_name),
 		$to_email,
@@ -3533,8 +3536,9 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 		$subject,
 		$text['html'],
 		$text['text'],
-		$attachments,
-		$headers
+		empty($attachments) ? '' : $attachments,
+		$headers,
+		$thold_send_text_only != 'on'
     );
 
 	if (strlen($error)) {
