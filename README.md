@@ -44,6 +44,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#91: Search filter not working from Thold Management
 * issue#93: Thold ID's when auto created are NOT in sequential order
 * issue#94: <DOWNTIME> not processed properly when the value has never changed
+* issue#97: Re-write logger() function to leverage subject instead of attempting to reconstruct message
 * issue#99: Thold disables itself due to division by zero for invalid RPN expressions
 * issue#104: Query using the wrong/deprecated column
 * issue#106: Sort host list by time in state, graphs, and data sources

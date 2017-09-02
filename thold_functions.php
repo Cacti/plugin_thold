@@ -1667,11 +1667,12 @@ function thold_check_threshold(&$thold_data) {
 			}
 
 			$subject = 'ALERT: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
+
 			if ($notify) {
 				thold_debug('Alerting is necessary');
 
 				if ($logset == 1) {
-					logger($thold_data['name'], ($ra ? 'realert':'alert'), ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']), $thold_data['lastread'], $trigger, $thold_data['thold_fail_count'], $url);
+					logger($subject, $url);
 				}
 
 				if (trim($alert_emails) != '') {
@@ -1737,7 +1738,7 @@ function thold_check_threshold(&$thold_data) {
 				thold_debug('Alerting is necessary');
 
 				if ($logset == 1) {
-					logger($thold_data['name'], ($ra ? 'rewarning':'warning'), ($warning_breach_up ? $thold_data['thold_warning_hi'] : $thold_data['thold_warning_low']), $thold_data['lastread'], $warning_trigger, $thold_data['thold_warning_fail_count'], $url);
+					logger($subject, $url);
 				}
 
 				if (trim($warning_emails) != '') {
@@ -1835,7 +1836,7 @@ function thold_check_threshold(&$thold_data) {
 
 				if ($thold_data['thold_warning_fail_count'] >= $warning_trigger && $thold_data['restored_alert'] != 'on') {
 					if ($logset == 1) {
-						logger($thold_data['name'], 'ok', 0, $thold_data['lastread'], $warning_trigger, $thold_data['thold_warning_fail_count'], $url);
+						logger($subject, $url);
 					}
 
 					if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on') {
@@ -1865,7 +1866,7 @@ function thold_check_threshold(&$thold_data) {
 					);
 				} elseif ($thold_data['thold_fail_count'] >= $trigger && $thold_data['restored_alert'] != 'on') {
 					if ($logset == 1) {
-						logger($thold_data['name'], 'ok', 0, $thold_data['lastread'], $trigger, $thold_data['thold_fail_count'], $url);
+						logger($subject, $url);
 					}
 
 					if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on') {
@@ -1912,17 +1913,17 @@ function thold_check_threshold(&$thold_data) {
 			break;
 		case 0:		/* all clear */
 			/* if we were at an alert status before */
-			if ($alertstat != 0) {
+			if ($bl_alert_prev != 0) {
 				thold_debug('Threshold Baseline check is normal');
 
 				if ($thold_data['bl_fail_count'] >= $bl_fail_trigger && $thold_data['restored_alert'] != 'on') {
 					thold_debug('Threshold Baseline check returned to normal');
 
-					if ($logset == 1) {
-						logger($thold_data['name'], 'ok', 0, $thold_data['lastread'], $thold_data['bl_fail_trigger'], $thold_data['bl_fail_count'], $url);
-					}
-
 					$subject = 'NORMAL: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' restored to normal threshold with value ' . $thold_data['lastread'];
+
+					if ($logset == 1) {
+						logger($subject, $url);
+					}
 
 					if (trim($alert_emails) != '') {
 						thold_mail($alert_emails, '', $subject, $alert_msg, $file_array);
@@ -1974,7 +1975,7 @@ function thold_check_threshold(&$thold_data) {
 				$subject = 'ALERT: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
 
 				if ($logset == 1) {
-					logger($thold_data['name'], ($ra ? 'realert':'alert'), ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']), $thold_data['lastread'], $thold_data['bl_fail_trigger'], $thold_data['bl_fail_count'], $url);
+					logger($subject, $url);
 				}
 
 				if (trim($alert_emails) != '') {
@@ -2113,7 +2114,7 @@ function thold_check_threshold(&$thold_data) {
 				thold_debug('Alerting is necessary');
 
 				if ($logset == 1) {
-					logger($thold_data['name'], ($failures > $trigger ? 'realert':'alert'), ($breach_up ? $thold_data['time_hi'] : $thold_data['time_low']), $thold_data['lastread'], $trigger, $failures, $url);
+					logger($subject, $url);
 				}
 
 				if (trim($alert_emails) != '') {
@@ -2196,7 +2197,7 @@ function thold_check_threshold(&$thold_data) {
 
 			if ($notify) {
 				if ($logset == 1) {
-					logger($thold_data['name'], ($warning_failures > $warning_trigger ? 'rewarning':'warning'), ($warning_breach_up ? $thold_data['time_warning_hi'] : $thold_data['time_warning_low']), $thold_data['lastread'], $warning_trigger, $warning_failures, $url);
+					logger($subject, $url);
 				}
 
 				if (trim($alert_emails) != '') {
@@ -2269,11 +2270,11 @@ function thold_check_threshold(&$thold_data) {
 			thold_debug('Threshold Time Based check is normal HI:' . $thold_data['time_hi'] . ' LOW:' . $thold_data['time_low'] . ' VALUE:' . $thold_data['lastread']);
 
 			if ($alertstat != 0 && $warning_failures < $warning_trigger && $thold_data['restored_alert'] != 'on') {
-				if ($logset == 1) {
-					logger($thold_data['name'], 'ok', 0, $thold_data['lastread'], $warning_trigger, $thold_data['thold_warning_fail_count'], $url);
-				}
-
 				$subject = 'NORMAL: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' restored to normal threshold with value ' . $thold_data['lastread'];
+
+				if ($logset == 1) {
+					logger($subject, $url);
+				}
 
 				if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on') {
 					thold_mail($warning_emails, '', $subject, $alert_msg, $file_array);
@@ -2308,11 +2309,11 @@ function thold_check_threshold(&$thold_data) {
 					thold_fail_count=$failures
 					WHERE id=" . $thold_data['id']);
 			} elseif ($alertstat != 0 && $failures < $trigger && $thold_data['restored_alert'] != 'on') {
-				if ($logset == 1) {
-					logger($thold_data['name'], 'ok', 0, $thold_data['lastread'], $trigger, $thold_data['thold_fail_count'], $url);
-				}
-
 				$subject = 'NORMAL: ' . $thold_data['name'] . ($thold_show_datasource ? " [$name]" : '') . ' restored to warning threshold with value ' . $thold_data['lastread'];
+
+				if ($logset == 1) {
+					logger($subject, $url);
+				}
 
 				if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on') {
 					thold_mail($alert_emails, '', $subject, $alert_msg, $file_array);
@@ -2548,24 +2549,26 @@ function get_reference_types($rra = 0, $step = 300) {
 	return $reference_types;
 }
 
-function logger($desc, $breach_up, $threshld, $currentval, $trigger, $triggerct, $urlbreach) {
-	$syslog_level = read_config_option('thold_syslog_level');
+function logger($subject, $urlbreach) {
+	$syslog_level    = read_config_option('thold_syslog_level');
 	$syslog_facility = read_config_option('thold_syslog_facility');
+
 	if (!isset($syslog_level)) {
 		$syslog_level = LOG_WARNING;
 	} else if (isset($syslog_level) && ($syslog_level > 7 || $syslog_level < 0)) {
 		$syslog_level = LOG_WARNING;
 	}
+
 	if (!isset($syslog_facility)) {
 		$syslog_facility = LOG_DAEMON;
 	}
 
 	openlog('CactiTholdLog', LOG_PID | LOG_PERROR, $syslog_facility);
 
-	if (strval($breach_up) == 'ok') {
-		syslog($syslog_level, $desc . ' restored to normal with ' . $currentval . ' at trigger ' . $trigger . ' out of ' . $triggerct . " - ". $urlbreach);
-	} else {
-		syslog($syslog_level, $desc . ' went ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . $threshld . ' with ' . $currentval . ' at trigger ' . $trigger . ' out of ' . $triggerct . " - ". $urlbreach);
+	syslog($syslog_level, $subject . ' - ' . $urlbreach);
+
+	if (function_exists('closelog')) {
+		closelog();
 	}
 }
 
