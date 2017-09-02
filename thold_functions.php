@@ -196,10 +196,16 @@ function thold_expression_math_rpn($operator, &$stack) {
 		$v2 = thold_expression_rpn_pop($stack);
 		$v3 = 'U';
 
+		if (!is_numeric($v1)) {
+			$rpn_error = true;
+		} elseif (!is_numeric($v2)) {
+			$rpn_error = true;
+		} elseif ($v1 == 0 &&  $operator == '/') {
+			$rpn_error = true;
+		}
+
 		if (!$rpn_error) {
-			restore_error_handler();
-			@eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
-			set_error_handler('CactiErrorHandler');
+			eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
 			array_push($stack, $v3);
 		}
 		break;
@@ -218,9 +224,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 		$v1 = thold_expression_rpn_pop($stack);
 
 		if (!$rpn_error) {
-			restore_error_handler();
-			@eval("\$v2 = " . $operator . '(' . $v1 . ');');
-			set_error_handler('CactiErrorHandler');
+			eval("\$v2 = " . $operator . '(' . $v1 . ');');
 			array_push($stack, $v2);
 		}
 		break;
