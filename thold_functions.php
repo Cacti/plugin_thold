@@ -197,10 +197,13 @@ function thold_expression_math_rpn($operator, &$stack) {
 		$v3 = 'U';
 
 		if (!is_numeric($v1)) {
+			cacti_log('ERROR: RPN value: "' . $v1 . '" is Not valid for an operator', false, 'THOLD');
 			$rpn_error = true;
 		} elseif (!is_numeric($v2)) {
+			cacti_log('ERROR: RPN value: "' . $v2 . '" is Not valid for an operator', false, 'THOLD');
 			$rpn_error = true;
 		} elseif ($v1 == 0 &&  $operator == '/') {
+			cacti_log('ERROR: RPN value: "' . $v1 . '" can not be "0" when the operator is "/"', false, 'THOLD');
 			$rpn_error = true;
 		}
 
