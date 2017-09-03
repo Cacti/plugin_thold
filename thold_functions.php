@@ -198,21 +198,33 @@ function thold_expression_math_rpn($operator, &$stack) {
 		$v2 = thold_expression_rpn_pop($stack);
 		$v3 = 'U';
 
+		$rpn_evaled = false;
+
 		if (!is_numeric($v1)) {
 			cacti_log('ERROR: RPN value: "' . $v1 . '" is Not valid for an operator.  Converted stack is "' . implode(',', $orig_stack) . '"', false, 'THOLD');
 			$rpn_error = true;
 		} elseif (!is_numeric($v2)) {
 			cacti_log('ERROR: RPN value: "' . $v2 . '" is Not valid for an operator.  Converted stack is "' . implode(',', $orig_stack) . '"', false, 'THOLD');
 			$rpn_error = true;
+		} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
+			$v3 = 0;
+			$rpn_evaled = true;
+
+			break;
 		} elseif ($v1 == 0 &&  $operator == '/') {
 			cacti_log('ERROR: RPN value: "' . $v1 . '" can not be "0" when the operator is "/".  Converted stack is "' . implode(',', $orig_stack) . '"', false, 'THOLD');
 			$rpn_error = true;
 		}
 
-		if (!$rpn_error) {
-			eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
+		if (!$rpn_evaled) {
+			if (!$rpn_error) {
+				eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
+				array_push($stack, $v3);
+			}
+		} else {
 			array_push($stack, $v3);
 		}
+
 		break;
 	case 'SIN':
 	case 'COS':
@@ -656,11 +668,13 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 
 	/* out current data sources */
 	$data_sources = $rrd_reindexed[$thold['local_data_id']];
+
 	if (sizeof($data_sources)) {
 		foreach ($data_sources as $key => $value) {
 			$key = strtolower($key);
 			$nds[$key] = $value;
 		}
+
 		$data_sources = $nds;
 	}
 
@@ -713,7 +727,10 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 				// Remove invalid characters
 				$item = str_replace('\\', '', $item);
 
-				$gl = db_fetch_row('SELECT * FROM graph_local WHERE id=' . $thold['local_graph_id']);
+				$gl = db_fetch_row_prepared('SELECT * 
+					FROM graph_local 
+					WHERE id = ?',
+					array($thold['local_graph_id']));
 
 				if (sizeof($gl)) {
 					$expression[$key] = thold_expand_title($thold, $gl['host_id'], $gl['snmp_query_id'], $gl['snmp_index'], $item);
@@ -728,6 +745,8 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 			}
 		}
 	}
+
+	$processed_expression = $expression;
 
 	//cacti_log(implode(',', array_keys($data_sources)));
 	//cacti_log(implode(',', $data_sources));
@@ -786,7 +805,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 		$cursor++;
 
 		if ($rpn_error) {
-			cacti_log("ERROR: RPN Expression is invalid! THold:'" . $thold['thold_name'] . "', Value:'" . $currentval . "', Expression:'" . $thold['expression'] . "'", false, 'THOLD');
+			cacti_log("ERROR: RPN Expression is invalid! THold:'" . $thold['thold_name'] . "', Value:'" . $currentval . "', Expression:'" . $thold['expression'] . "', Processed:'" . implode(',', $processed_expression) . "'", false, 'THOLD');
 			return 0;
 		}
 	}
@@ -796,10 +815,29 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 
 function thold_expand_title($thold, $host_id, $snmp_query_id, $snmp_index, $string) {
 	if (strpos($string, '|query_') !== false && !empty($host_id)) {
-		$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length'));
+		$tenGEvalue = '';
 
 		if ($value == '|query_ifHighSpeed|') {
+			$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length'));
+
+			// Assume 10GE
+			if ($value == 0) {
+				$tenGEvalue = 10000;
+			}
+		} else {
+			$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length'));
+		}
+
+		if ($value == '|query_ifHighSpeed|' && $tenGEvalue == '') {
 			$value = thold_substitute_snmp_query_data('|query_ifSpeed|', $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length')) / 1000000;
+
+			if ($value == 0) {
+				$value = 10000;
+			}
+		}
+
+		if ($tenGEvalue != '') {
+			$value = $tenGEvalue;
 		}
 
 		if (strpos($value, '|') !== false) {
