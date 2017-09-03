@@ -677,12 +677,12 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					td.percent_ds, td.expression, td.data_type, td.cdef, td.local_data_id,
 					td.data_template_rrd_id, td.lastread, UNIX_TIMESTAMP(td.lasttime) AS lasttime, 
 					td.oldvalue, dtr.data_source_name as name, 
-					dtr.data_source_type_id, dtr.rrd_step, dtr.rrd_maximum
+					dtr.data_source_type_id, dtd.rrd_step, dtr.rrd_maximum
 					FROM thold_data AS td
 					LEFT JOIN data_template_rrd AS dtr
 					ON dtr.id = td.data_template_rrd_id
-					LEFT JOIN data_template_data AS dtr
-					ON dtr.local_data_id=td.local_data_id
+					LEFT JOIN data_template_data AS dtd
+					ON dtd.local_data_id=td.local_data_id
 					WHERE dtr.data_source_name = ?
 					AND td.local_data_id = ?', 
 					array($dsname, $thold['local_data_id']));
