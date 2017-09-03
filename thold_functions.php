@@ -1713,7 +1713,7 @@ function thold_check_threshold(&$thold_data) {
 	$overwrite['snmp_engine_id'] = $h['snmp_engine_id'];
 
 	/* pull the cached name, if not present, it means that the graph hasn't polled yet */
-	$t = db_fetch_assoc('SELECT id, name, name_cache
+	$t = db_fetch_assoc_prepared('SELECT id, name, name_cache
 		FROM data_template_data
 		WHERE local_data_id = ?
 		ORDER BY id
