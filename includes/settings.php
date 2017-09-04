@@ -217,8 +217,8 @@ function thold_config_settings () {
 			'default' => 20
 		),
 		'thold_empty_if_speed_default' => array(
-			'friendly_name' => __('Empty ifHighSpeed/ifSpeed Default', 'thold'),
-			'description' => __('When calculating Expression Thresholds, if the ifHighSpeed or ifSpeed come back as zero, use the following setting instead.  Default will be 10000 for 10GE interfaces.', 'thold'),
+			'friendly_name' => __('Empty ifHighSpeed Default', 'thold'),
+			'description' => __('When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces.', 'thold'),
 			'method' => 'textbox',
 			'size' => 6,
 			'max_length' => 6,
