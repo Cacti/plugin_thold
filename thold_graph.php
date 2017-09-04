@@ -283,7 +283,7 @@ function tholds() {
 
 	$sql_order = get_order_string();
 	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;
-	$sql_order = str_replace('lastread', 'lastread/1', $sql_order);
+	$sql_order = str_replace('`lastread`', '`lastread`/1', $sql_order);
 	$sql_order = str_replace('ORDER BY ', '', $sql_order);
 
 	$sql_where = '';
@@ -342,7 +342,7 @@ function tholds() {
 		'nosort5'       => array('display' => __('Alert Hi/Lo', 'thold'), 'sort' => 'ASC',   'align' => 'right'),
 		'nosort6'       => array('display' => __('BL Hi/Lo', 'thold'),    'sort' => 'ASC',   'align' => 'right'),
 		'nosort2'       => array('display' => __('Trigger', 'thold'),     'sort' => 'ASC',   'align' => 'right'),
-		'nosort3'       => array('display' => __('Duration', 'thold'),    'sort' => 'ASC',   'align' => 'right'),
+		'nosort3'       => array('display' => __('BL Duration', 'thold'), 'sort' => 'ASC',   'align' => 'right'),
 		'repeat_alert'  => array('display' => __('Repeat', 'thold'),      'sort' => 'ASC',   'align' => 'right'),
 		'thold_alert'   => array('display' => __('Triggered', 'thold'),   'sort' => 'ASC',   'align' => 'right'));
 
@@ -358,7 +358,7 @@ function tholds() {
 	if (sizeof($tholds)) {
 		foreach ($tholds as $row) {
 			$c++;
-			$alertstat = 'No';
+			$alertstat = __('No', 'thold');
 			$bgcolor   = 'green';
 			if ($row['thold_type'] == 0) {
 				if ($row['thold_alert'] != 0) {
@@ -718,13 +718,13 @@ function hosts() {
 				<td style='text-align:right'><?php print $host['id'];?></td>
 				<td style='text-align:right'><i><?php print number_format_i18n($graphs);?></i></td>
 				<td style='text-align:right'><i><?php print number_format_i18n($ds);?></i></td>
-				<td style='text-align:center'><?php print 'Not Monitored';?></td>
-				<td style='text-align:right'><?php print 'N/A';?></td>
+				<td style='text-align:center'><?php print __('Not Monitored', 'thold');?></td>
+				<td style='text-align:right'><?php print __('N/A', 'thold');?></td>
 				<td style='text-align:right'><?php print $uptime;?></td>
 				<td style='text-align:right'><?php print filter_value($host['hostname'], get_request_var('filter'));?></td>
-				<td style='text-align:right'><?php print 'N/A';?></td>
-				<td style='text-align:right'><?php print 'N/A';?></td>
-				<td style='text-align:right'><?php print 'N/A';?></td>
+				<td style='text-align:right'><?php print __('N/A', 'thold');?></td>
+				<td style='text-align:right'><?php print __('N/A', 'thold');?></td>
+				<td style='text-align:right'><?php print __('N/A', 'thold');?></td>
 				<?php
 			}
 
