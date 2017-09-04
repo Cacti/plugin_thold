@@ -104,7 +104,7 @@ function thold_display_rusage() {
 			$s_s      = $thold_start_rusage['ru_nswap'];
 			$s_pf     = $thold_start_rusage['ru_majflt'];
 
-			$start_time = $thold_start_rusage['microtime']);
+			$start_time = $thold_start_rusage['microtime'];
 			$end_time   = microtime(true);
 
 			$utime    = ($dat['ru_utime.tv_sec'] + ($dat['ru_utime.tv_usec'] * 1E-6)) - $i_u_time;
