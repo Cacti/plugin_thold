@@ -30,6 +30,11 @@ function thold_poller_bottom() {
 		/* record the start time */
 		$start = microtime(true);
 
+		if (read_config_option('thold_empty_if_speed_default') == '') {
+			set_config_option('thold_empty_if_speed_default', '10000');
+			$empty_value = read_config_option('thold_empty_if_speed_default', true);
+		}
+
 		/* perform all thold checks */
 		$tholds = thold_check_all_thresholds();
 		$nhosts = thold_update_host_status();
