@@ -559,18 +559,18 @@ function list_tholds() {
 	html_start_box('', '100%', '', '4', 'center', '');
 
 	$display_text = array(
-		'name'             => array('display' => __('Name', 'thold'),      'sort' => 'ASC', 'align' => 'left'),
-		'id'               => array('display' => __('ID', 'thold'),        'sort' => 'ASC', 'align' => 'right'),
-		'thold_type'       => array('display' => __('Type', 'thold'),      'sort' => 'ASC', 'align' => 'right'),
-		'data_source'      => array('display' => __('DSName', 'thold'),    'sort' => 'ASC', 'align' => 'right'),
-		'lastread'         => array('display' => __('Current', 'thold'),   'sort' => 'ASC', 'align' => 'right', 'tip' => __('The last measured value for the Data Source', 'thold')),
-		'thold_hi'         => array('display' => __('High', 'thold'),      'sort' => 'ASC', 'align' => 'right', 'tip' => __('High Threshold values for Warning/Alert', 'thold')),
-		'thold_low'        => array('display' => __('Low', 'thold'),       'sort' => 'ASC', 'align' => 'right', 'tip' => __('Low Threshold values for Warning/Alert', 'thold')),
-		'nosort3'          => array('display' => __('Trigger', 'thold'),   'sort' => '',    'align' => 'right'),
-		'nosort4'          => array('display' => __('Duration', 'thold'),  'sort' => '',    'align' => 'right'),
-		'repeat_alert'     => array('display' => __('Repeat', 'thold'),    'sort' => 'ASC', 'align' => 'right'),
-		'thold_alert'      => array('display' => __('Triggered', 'thold'), 'sort' => 'ASC', 'align' => 'right'),
-		'template_enabled' => array('display' => __('Templated', 'thold'), 'sort' => 'ASC', 'align' => 'right')
+		'name'             => array('display' => __('Name', 'thold'),        'sort' => 'ASC', 'align' => 'left'),
+		'id'               => array('display' => __('ID', 'thold'),          'sort' => 'ASC', 'align' => 'right'),
+		'thold_type'       => array('display' => __('Type', 'thold'),        'sort' => 'ASC', 'align' => 'right'),
+		'data_source'      => array('display' => __('DSName', 'thold'),      'sort' => 'ASC', 'align' => 'right'),
+		'lastread'         => array('display' => __('Current', 'thold'),     'sort' => 'ASC', 'align' => 'right', 'tip' => __('The last measured value for the Data Source', 'thold')),
+		'thold_hi'         => array('display' => __('High', 'thold'),        'sort' => 'ASC', 'align' => 'right', 'tip' => __('High Threshold values for Warning/Alert', 'thold')),
+		'thold_low'        => array('display' => __('Low', 'thold'),         'sort' => 'ASC', 'align' => 'right', 'tip' => __('Low Threshold values for Warning/Alert', 'thold')),
+		'nosort3'          => array('display' => __('Trigger', 'thold'),     'sort' => '',    'align' => 'right'),
+		'nosort4'          => array('display' => __('BL Duration', 'thold'), 'sort' => '',    'align' => 'right'),
+		'repeat_alert'     => array('display' => __('Repeat', 'thold'),      'sort' => 'ASC', 'align' => 'right'),
+		'thold_alert'      => array('display' => __('Triggered', 'thold'),   'sort' => 'ASC', 'align' => 'right'),
+		'template_enabled' => array('display' => __('Templated', 'thold'),   'sort' => 'ASC', 'align' => 'right')
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
