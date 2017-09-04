@@ -822,7 +822,7 @@ function thold_expand_title($thold, $host_id, $snmp_query_id, $snmp_index, $stri
 
 			// Assume 10GE
 			if ($value == 0) {
-				$tenGEvalue = 10000;
+				$tenGEvalue = read_config_option('thold_empty_if_speed_default');
 			}
 		} else {
 			$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length'));
@@ -832,7 +832,7 @@ function thold_expand_title($thold, $host_id, $snmp_query_id, $snmp_index, $stri
 			$value = thold_substitute_snmp_query_data('|query_ifSpeed|', $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length')) / 1000000;
 
 			if ($value == 0) {
-				$value = 10000;
+				$tenGEvalue = read_config_option('thold_empty_if_speed_default');
 			}
 		}
 

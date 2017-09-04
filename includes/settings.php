@@ -58,9 +58,9 @@ function thold_draw_navigation_text ($nav) {
 function thold_config_insert () {
 	global $menu;
 
-	$menu[__('Management', 'thold')]['plugins/thold/notify_lists.php'] = __('Notification Lists', 'thold');
-	$menu[__('Management', 'thold')]['plugins/thold/thold.php'] = __('Thresholds', 'thold');
-	$menu[__('Templates', 'thold')]['plugins/thold/thold_templates.php'] = __('Threshold', 'thold');
+	$menu[__('Management')]['plugins/thold/notify_lists.php'] = __('Notification Lists', 'thold');
+	$menu[__('Management')]['plugins/thold/thold.php'] = __('Thresholds', 'thold');
+	$menu[__('Templates')]['plugins/thold/thold_templates.php'] = __('Threshold', 'thold');
 	if (isset_request_var('thold_vrule')) {
 		if (get_nfilter_request_var('thold_vrule') == 'on') {
 			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'on';
@@ -215,6 +215,14 @@ function thold_config_settings () {
 				'3'  => __('Triggered', 'thold')
 			),
 			'default' => 20
+		),
+		'thold_empty_if_speed_default' => array(
+			'friendly_name' => __('Empty ifHighSpeed/ifSpeed Default', 'thold'),
+			'description' => __('When calculating Expression Thresholds, if the ifHighSpeed or ifSpeed come back as zero, use the following setting instead.  Default will be 10000 for 10GE interfaces.', 'thold'),
+			'method' => 'textbox',
+			'size' => 6,
+			'max_length' => 6,
+			'default' => '10000'
 		),
 		'logging_header' => array(
 			'friendly_name' => __('Logging', 'thold'),
