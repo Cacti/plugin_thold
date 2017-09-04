@@ -38,6 +38,7 @@ The thold plugin has been in development for well over a decade with increasing 
 
 --- 1.0.3 ---
 * feature#34: Allow notes to be attached to thresholds and templates
+* feature: New setting for expression tholds using ifHighSpeed to handle empty ifHighSpeed entries
 * issue#81: Alert settings are mandatory, Warning is optional
 * issue#86: Undefined variable in snmptrap function
 * issue#89: Add Site to main table views
