@@ -817,7 +817,7 @@ function thold_expand_title($thold, $host_id, $snmp_query_id, $snmp_index, $stri
 	if (strpos($string, '|query_') !== false && !empty($host_id)) {
 		$tenGEvalue = '';
 
-		if ($value == '|query_ifHighSpeed|') {
+		if (strpos($string, '|query_ifHighSpeed|') !== false) {
 			$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length'));
 
 			// Assume 10GE
