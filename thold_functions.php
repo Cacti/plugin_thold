@@ -84,7 +84,7 @@ function thold_initialize_rusage() {
 		$thold_start_rusage = getrusage();
 	}
 
-	$thold_start_rusage['microtime'] = microtime();
+	$thold_start_rusage['microtime'] = microtime(true);
 }
 
 function thold_display_rusage() {
@@ -104,10 +104,8 @@ function thold_display_rusage() {
 			$s_s      = $thold_start_rusage['ru_nswap'];
 			$s_pf     = $thold_start_rusage['ru_majflt'];
 
-			list($micro,$seconds) = explode(' ', $thold_start_rusage['microtime']);
-			$start_time = $seconds + $micro;
-			list($micro,$seconds) = explode(' ', microtime());
-			$end_time   = $seconds + $micro;
+			$start_time = $thold_start_rusage['microtime']);
+			$end_time   = microtime(true);
 
 			$utime    = ($dat['ru_utime.tv_sec'] + ($dat['ru_utime.tv_usec'] * 1E-6)) - $i_u_time;
 			$stime    = ($dat['ru_stime.tv_sec'] + ($dat['ru_stime.tv_usec'] * 1E-6)) - $i_s_time;

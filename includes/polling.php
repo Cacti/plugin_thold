@@ -28,17 +28,16 @@ function thold_poller_bottom() {
 
 	if (read_config_option('thold_daemon_enable') == '') {
 		/* record the start time */
-		list($micro,$seconds) = explode(' ', microtime());
-		$start = $seconds + $micro;
+		$start = microtime(true);
 
 		/* perform all thold checks */
 		$tholds = thold_check_all_thresholds();
 		$nhosts = thold_update_host_status();
+
 		thold_cleanup_log ();
 
 		/* record the end time */
-		list($micro,$seconds) = explode(' ', microtime());
-		$end = $seconds + $micro;
+		$end = microtime(true);
 
 		$total_hosts = db_fetch_cell_prepared('SELECT count(*) 
 			FROM host 
