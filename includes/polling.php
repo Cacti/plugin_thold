@@ -26,7 +26,7 @@
 function thold_poller_bottom() {
 	global $config, $database_type, $database_default, $database_hostname, $database_username, $database_password, $database_port, $database_ssl;
 
-	if (!read_config_option('thold_daemon_enable')) {
+	if (read_config_option('thold_daemon_enable') == '') {
 		/* record the start time */
 		list($micro,$seconds) = explode(' ', microtime());
 		$start = $seconds + $micro;
@@ -40,11 +40,22 @@ function thold_poller_bottom() {
 		list($micro,$seconds) = explode(' ', microtime());
 		$end = $seconds + $micro;
 
-		$total_hosts = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE disabled="" AND poller_id = ?', array($config['poller_id']));
-		$down_hosts  = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE status=1 AND disabled="" AND poller_id = ?', array($config['poller_id']));
+		$total_hosts = db_fetch_cell_prepared('SELECT count(*) 
+			FROM host 
+			WHERE disabled="" 
+			AND poller_id = ?', 
+			array($config['poller_id']));
+
+		$down_hosts  = db_fetch_cell_prepared('SELECT count(*) 
+			FROM host 
+			WHERE status=1 
+			AND disabled="" 
+			AND poller_id = ?', 
+			array($config['poller_id']));
 
 		/* log statistics */
 		$thold_stats = sprintf('Time:%01.4f Tholds:%s TotalDevices:%s DownDevices:%s NewDownDevices:%s', $end - $start, $tholds, $total_hosts, $down_hosts, $nhosts);
+
 		cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
 		db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold', '$thold_stats')");
 	} else {
@@ -62,23 +73,47 @@ function thold_poller_bottom() {
 			MAX(end-start) as max_processing_time,
 			SUM(end-start) as total_processing_time
 			FROM plugin_thold_daemon_processes
-			WHERE start != 0 AND end != 0 AND end <= ? AND processed_items != -1', array($current_time));
+			WHERE start != 0 
+			AND end != 0 
+			AND end <= ? 
+			AND processed_items != -1', 
+			array($current_time));
 
-		$broken_processes = db_fetch_cell('SELECT COUNT(*) FROM plugin_thold_daemon_processes WHERE processed_items = -1');
-		$running_processes = db_fetch_cell('SELECT COUNT(*) FROM plugin_thold_daemon_processes WHERE start != 0 AND end = 0');
+		$broken_processes = db_fetch_cell('SELECT COUNT(*) 
+			FROM plugin_thold_daemon_processes 
+			WHERE processed_items = -1');
+
+		$running_processes = db_fetch_cell('SELECT COUNT(*) 
+			FROM plugin_thold_daemon_processes 
+			WHERE start != 0 
+			AND end = 0');
 
 		/* system clean up */
-		db_execute_prepared("DELETE FROM plugin_thold_daemon_processes WHERE end != 0 AND end <= ?", array($current_time));
+		db_execute_prepared("DELETE FROM plugin_thold_daemon_processes 
+			WHERE end != 0 
+			AND end <= ?", 
+			array($current_time));
 
 		/* host_status processed by thold server */
 		$nhosts = thold_update_host_status ();
+
 		thold_cleanup_log ();
 
-		$total_hosts = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE disabled="" AND poller_id = ?', array($config['poller_id']));
-		$down_hosts  = db_fetch_cell_prepared('SELECT count(*) FROM host WHERE status=1 AND disabled="" AND poller_id = ?', array($config['poller_id']));
+		$total_hosts = db_fetch_cell_prepared('SELECT count(*) 
+			FROM host 
+			WHERE disabled="" 
+			AND poller_id = ?', 
+			array($config['poller_id']));
+
+		$down_hosts  = db_fetch_cell_prepared('SELECT count(*) 
+			FROM host 
+			WHERE status=1 
+			AND disabled="" 
+			AND poller_id = ?', 
+			array($config['poller_id']));
 
 		/* log statistics */
-		$thold_stats = sprintf('CPUTime:%u MaxRuntime:%u Tholds:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u Processes: %u completed, %u running, %u broken', $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $total_hosts, $down_hosts, $nhosts, $stats['completed'], $running_processes, $broken_processes);
+		$thold_stats = sprintf('Time:%u MaxRuntime:%u Tholds:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u Processes: %u completed, %u running, %u broken', $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $total_hosts, $down_hosts, $nhosts, $stats['completed'], $running_processes, $broken_processes);
 		cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
 		db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold', '$thold_stats')");
 
