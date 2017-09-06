@@ -65,7 +65,7 @@ switch(get_request_var('action')) {
 
 		if ($id) {
 			header('Location: thold.php?action=edit&header=false&id=' . $id);
-		}else{
+		} else {
 			header('Location: thold.php');
 		}
 
@@ -85,7 +85,7 @@ cacti_log('There I am');
 			kill_session_var('data_return');
 
 			header('Location: ' . $return_to);
-		}else{
+		} else {
 			header('Location: ' . $config['url_path'] . 'graphs_new.php?header=false&host_id=' . get_request_var('host_id'));
 		}
 
@@ -95,7 +95,7 @@ cacti_log('There I am');
 
 		if (isset($_SERVER['HTTP_REFERER'])) {
 			$return_to = $_SERVER['HTTP_REFERER'];
-		}else{
+		} else {
 			$return_to = 'thold.php';
 		}
 
@@ -107,7 +107,7 @@ cacti_log('There I am');
 
 		if (isset($_SERVER['HTTP_REFERER'])) {
 			$return_to = $_SERVER['HTTP_REFERER'];
-		}else{
+		} else {
 			$return_to = 'thold.php';
 		}
 
@@ -372,7 +372,7 @@ function list_tholds() {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -381,10 +381,10 @@ function list_tholds() {
 		if (get_request_var('state') == '-1') {
 			$statefilter = '';
 		} else {
-			if(get_request_var('state') == '0') { $statefilter = "td.thold_enabled='off'"; }
-			if(get_request_var('state') == '2') { $statefilter = "td.thold_enabled='on'"; }
-			if(get_request_var('state') == '1') { $statefilter = '(td.thold_alert!=0 OR td.bl_alert>0)'; }
-			if(get_request_var('state') == '3') { $statefilter = '((td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger))'; }
+			if (get_request_var('state') == '0') { $statefilter = "td.thold_enabled='off'"; }
+			if (get_request_var('state') == '2') { $statefilter = "td.thold_enabled='on'"; }
+			if (get_request_var('state') == '1') { $statefilter = '(td.thold_alert!=0 OR td.bl_alert>0)'; }
+			if (get_request_var('state') == '3') { $statefilter = '((td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger))'; }
 		}
 	}
 
@@ -617,7 +617,7 @@ function list_tholds() {
 					}
 				}
 			} else {
-				if($thold_data['bl_alert'] == 1) {
+				if ($thold_data['bl_alert'] == 1) {
 					$alertstat = __('baseline-LOW', 'thold');
 					$bgcolor=($thold_data['bl_fail_count'] >= $thold_data['bl_fail_trigger'] ? 'orange' : 'yellow');
 				} elseif ($thold_data['bl_alert'] == 2)  {
@@ -633,13 +633,13 @@ function list_tholds() {
 
 			if ($thold_data['thold_enabled'] == 'off') {
 				print "<tr class='selectable " . $thold_states['grey']['class'] . "' id='line" . $thold_data['id'] . "'>\n";
-			}else{
+			} else {
 				print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $thold_data['id'] . "'>\n";
 			}
 
 			if ($thold_data['name'] != '') {
 				$name = $thold_data['name'] . ' [' . $data_source . ']';
-			}else{
+			} else {
 				$desc = db_fetch_cell_prepared('SELECT name_cache
 					FROM data_template_data
 					WHERE local_data_id = ?
@@ -747,7 +747,7 @@ function thold_edit() {
 		$thold_data['host_id']              = get_filter_request_var('host_id');
 		$thold_data['data_template_rrd_id'] = get_filter_request_var('data_template_rrd_id');
 		$thold_data['thold_template_id']    = get_filter_request_var('thold_template_id');
-	}else{
+	} else {
 		exit;
 	}
 
@@ -859,7 +859,7 @@ function thold_edit() {
 						FROM thold_data
 						WHERE id = ?',
 						array($template_data_rrd['thold_id']));
-				}else{
+				} else {
 					$td = array();
 				}
 
@@ -904,7 +904,7 @@ function thold_edit() {
 									thold_format_number($td['thold_low'], 2, $baseu) . '</span>');
 							}
 						}
-					}else{
+					} else {
 						$cur_setting .= '<span style="padding:4px">' . __('BL Up:', 'thold') . '</span>' .
 							"<span>" . ($td['bl_pct_up'] != '' ? __('%s%%', $td['bl_pct_up'], 'thold'):__('N/A', 'thold')) . "</span>";
 						$cur_setting .= '<span style="padding:4px">' . __('BL Down:', 'thold'). '</span>' .
@@ -914,13 +914,13 @@ function thold_edit() {
 
 				if ($template_data_rrd['thold_id'] == get_request_var('id')) {
 					$selected = 'selected';
-				}else{
+				} else {
 					$selected = '';
 				}
 
 				if (!empty($template_data_rrd['thold_id'])) {
 					echo "<li class='textEditTitle'><a class='hyperLink $selected' href='" . htmlspecialchars('thold.php?action=edit&id=' . $template_data_rrd['thold_id']) . "'>" . $template_data_rrd['data_source_name'] . '<br>' . $cur_setting . '</a></li>';
-				}else{
+				} else {
 					echo "<li class='textEditTitle'><a class='hyperLink $selected' href='" . htmlspecialchars('thold.php?action=edit&local_data_id=' . $template_data_rrd['local_data_id'] . '&data_template_rrd_id=' . $template_data_rrd['id']) . '&local_graph_id=' . $thold_data['local_graph_id'] . '&host_id=' . $thold_data['host_id'] . '&data_template_id=' . $thold_data['data_template_id'] . '&thold_template_id=0' . "'>" . $template_data_rrd['data_source_name'] . '<br>' . $cur_setting . '</a></li>';
 				}
 			}
@@ -1418,7 +1418,7 @@ function thold_edit() {
 		);
 
 		$form_array += $extra;
-	}else{
+	} else {
 		$extra = array(
 			'notify_accounts' => array(
 				'method' => 'hidden',
@@ -1479,7 +1479,7 @@ function thold_edit() {
 
 //	if (isset($_SESSION['data_return'])) {
 //		$ajax = false;
-//	}else{
+//	} else {
 //		$ajax = true;
 //	}
 
@@ -1597,7 +1597,7 @@ function thold_edit() {
 			$('#row_thold_header, #row_thold_hi, #row_thold_low, #row_thold_fail_trigger').show();
 			$('#row_thold_warning_header, #row_thold_warning_hi').show();
 			$('#row_thold_warning_low, #row_thold_warning_fail_trigger').show();
-		}else{
+		} else {
 			$('#row_thold_header, #row_thold_hi, #row_thold_low, #row_thold_fail_trigger').hide();
 			$('#row_thold_warning_header, #row_thold_warning_hi').hide();
 			$('#row_thold_warning_low, #row_thold_warning_fail_trigger').hide();
@@ -1608,7 +1608,7 @@ function thold_edit() {
 		if (status == '') {
 			$('#row_baseline_header, #row_bl_ref_time_range').show();
 			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').show();
-		}else{
+		} else {
 			$('#row_baseline_header, #row_bl_ref_time_range').hide();
 			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').hide();
 		}
@@ -1619,7 +1619,7 @@ function thold_edit() {
 			$('#row_time_header, #row_time_hi, #row_time_low, #row_time_fail_trigger, #row_time_fail_length').show();
 			$('#row_time_warning_header, #row_time_warning_hi, #row_time_warning_low').show();
 			$('#row_time_warning_fail_trigger, #row_time_warning_fail_length').show();
-		}else{
+		} else {
 			$('#row_time_header, #row_time_hi, #row_time_low, #row_time_fail_trigger, #row_time_fail_length').hide();
 			$('#row_time_warning_header, #row_time_warning_hi, #row_time_warning_low').hide();
 			$('#row_time_warning_fail_trigger, #row_time_warning_fail_length').hide();
