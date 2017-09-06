@@ -206,7 +206,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 			$rpn_error = true;
 		} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
 			cacti_log('WARNNING: RPN values v1 & v2 empty returning "0" for result.', false, 'THOLD');
-			$v3 = '0';
+			$v3 = 0;
 			$rpn_evaled = true;
 
 			break;
@@ -215,12 +215,15 @@ function thold_expression_math_rpn($operator, &$stack) {
 			$rpn_error = true;
 		}
 
-		if (!$rpn_evaled) {
-			if (!$rpn_error) {
-				eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
-				array_push($stack, $v3);
+		if ($rpn_evaled) {
+			array_push($stack, $v3);
+		} else if (!$rpn_error) {
+			eval("\$v3 = " . $v2 . ' ' . $operator . ' ' . $v1 . ';');
+
+			if ($v3 == '') {
+				$v3 = 0;
 			}
-		} else {
+
 			array_push($stack, $v3);
 		}
 
