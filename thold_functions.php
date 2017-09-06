@@ -199,19 +199,18 @@ function thold_expression_math_rpn($operator, &$stack) {
 		$rpn_evaled = false;
 
 		if (!is_numeric($v1)) {
-			cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is Not valid for operator "' . $operator . '". Stack:"' . $orig_stack . '"', false, 'THOLD');
+			cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is Not valid for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 			$rpn_error = true;
 		} elseif (!is_numeric($v2)) {
-			cacti_log('ERROR: RPN value: v2 "' . $v2 . '" is Not valid for operator "' . $operator . '". Stack:"' . $orig_stack . '"', false, 'THOLD');
+			cacti_log('ERROR: RPN value: v2 "' . $v2 . '" is Not valid for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 			$rpn_error = true;
 		} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
-			cacti_log('WARNNING: RPN values v1 & v2 empty returning "0" for result.', false, 'THOLD');
 			$v3 = 0;
 			$rpn_evaled = true;
 
 			break;
 		} elseif ($v1 == 0 &&  $operator == '/') {
-			cacti_log('ERROR: RPN value: "' . $v1 . '" can not be "0" when the operator is "/"', false, 'THOLD');
+			cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "/".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 			$rpn_error = true;
 		}
 
@@ -822,7 +821,7 @@ function thold_expand_title($thold, $host_id, $snmp_query_id, $snmp_index, $stri
 		if (strpos($string, '|query_ifHighSpeed|') !== false) {
 			$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length'));
 
-			// Assume 10GE
+			/* if we are trying to replace 10GE */
 			if ($value == 0) {
 				$tenGEvalue = read_config_option('thold_empty_if_speed_default');
 			}
@@ -1440,12 +1439,12 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($id));
 
-		$tname = db_fetch_cell('SELECT name 
+		$tname = db_fetch_cell_prepared('SELECT name 
 			FROM data_template 
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$ds = db_fetch_cell('SELECT data_source_name 
+		$ds = db_fetch_cell_prepared('SELECT data_source_name 
 			FROM data_template_rrd 
 			WHERE id = ?',
 			array($thold['data_template_rrd_id']));
@@ -1457,9 +1456,20 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'deleted':
-		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $id, FALSE);
-		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $thold['data_template_id']);
-		$ds    = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_template_rrd_id']);
+		$thold = db_fetch_row_prepared('SELECT * 
+			FROM thold_data 
+			WHERE id = ?',
+			array($id));
+
+		$tname = db_fetch_cell_prepared('SELECT name 
+			FROM data_template 
+			WHERE id = ?',
+			array($thold['data_template_id']));
+
+		$ds = db_fetch_cell_prepared('SELECT data_source_name 
+			FROM data_template_rrd 
+			WHERE id = ?',
+			array($thold['data_template_rrd_id']));
 
 		$desc  = "Deleted Threshold  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold.php?local_data_id=" . $thold['local_data_id'] . "&view_rrd=" . $thold['data_template_rrd_id']) . "'>$id</a>";
 
@@ -1468,7 +1478,10 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'deleted_template':
-		$thold = db_fetch_row('SELECT * FROM thold_template WHERE id = ' . $id, FALSE);
+		$thold = db_fetch_row_prepared('SELECT * 
+			FROM thold_template 
+			WHERE id = ?', 
+			array($id));
 
 		$desc  = "Deleted Template  User: $user  ID: $id";
 		$desc .= '  DataTemplate: ' . $thold['data_template_name'];

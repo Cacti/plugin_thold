@@ -26,14 +26,14 @@
 function thold_poller_bottom() {
 	global $config, $database_type, $database_default, $database_hostname, $database_username, $database_password, $database_port, $database_ssl;
 
+	if (read_config_option('thold_empty_if_speed_default') == '') {
+		set_config_option('thold_empty_if_speed_default', '10000');
+		$empty_value = read_config_option('thold_empty_if_speed_default', true);
+	}
+
 	if (read_config_option('thold_daemon_enable') == '') {
 		/* record the start time */
 		$start = microtime(true);
-
-		if (read_config_option('thold_empty_if_speed_default') == '') {
-			set_config_option('thold_empty_if_speed_default', '10000');
-			$empty_value = read_config_option('thold_empty_if_speed_default', true);
-		}
 
 		/* perform all thold checks */
 		$tholds = thold_check_all_thresholds();
@@ -99,9 +99,9 @@ function thold_poller_bottom() {
 			array($current_time));
 
 		/* host_status processed by thold server */
-		$nhosts = thold_update_host_status ();
+		$nhosts = thold_update_host_status();
 
-		thold_cleanup_log ();
+		thold_cleanup_log();
 
 		$total_hosts = db_fetch_cell_prepared('SELECT count(*) 
 			FROM host 
@@ -317,7 +317,7 @@ function thold_update_host_status() {
 		foreach($failed as $fh) {
 			if (!empty($fh['host_id'])) {
 				if (api_plugin_is_enabled('maint')) {
-					if (plugin_maint_check_cacti_host ($fh['host_id'])) {
+					if (plugin_maint_check_cacti_host($fh['host_id'])) {
 						continue;
 					}
 				}
@@ -565,7 +565,7 @@ function thold_update_host_status() {
 	if (sizeof($hosts)) {
 		foreach ($hosts as $host) {
 			if (api_plugin_is_enabled('maint')) {
-				if (plugin_maint_check_cacti_host ($host['id'])) {
+				if (plugin_maint_check_cacti_host($host['id'])) {
 					continue;
 				}
 			}
@@ -578,3 +578,4 @@ function thold_update_host_status() {
 
 	return $total_hosts;
 }
+
