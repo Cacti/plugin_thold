@@ -112,17 +112,51 @@ function form_actions() {
 			if ($selected_items != false) {
 				if (get_request_var('drp_action') == '1') { /* delete */
 					db_execute('DELETE FROM plugin_notification_lists WHERE ' . array_to_sql_or($selected_items, 'id'));
-					db_execute('UPDATE host SET thold_send_email=0 WHERE thold_send_email=2 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
-					db_execute('UPDATE host SET thold_send_email=1 WHERE thold_send_email=3 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
-					db_execute('UPDATE host SET thold_host_email=0 WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
-				}elseif (get_request_var('drp_action') == '2') { /* duplicate */
-					// To Do
+					db_execute('UPDATE host SET thold_send_email = 0 WHERE thold_send_email = 2 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
+					db_execute('UPDATE host SET thold_send_email = 1 WHERE thold_send_email = 3 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
+					db_execute('UPDATE host SET thold_host_email = 0 WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
+				} elseif (get_request_var('drp_action') == '2') { /* duplicate */
+					$i = 1;
+
+					foreach($selected_items as $item) {
+						/* get list to be duplicated */
+						$list = db_fetch_row_prepared('SELECT * 
+							FROM plugin_notification_lists 
+							WHERE id = ?', 
+							array($item));
+
+						/* see if there is already a list with the new name */
+						$exists = db_fetch_cell_prepared('SELECT COUNT(*) 
+							FROM plugin_notification_lists 
+							WHERE name = ?', 
+							array(get_nfilter_request_var('name')));
+
+						if ($exists > 0) {
+							$name = get_nfilter_request_var('name') . ' (' . $i . ')';
+							$i ++;
+						} else {
+							$name = get_nfilter_request_var('name');
+						}
+
+						$save['id']          = 0;
+						$save['name']        = $name;
+						$save['description'] = $list['description'];
+						$save['emails']      = $list['emails'];
+
+						$id = sql_save($save, 'plugin_notification_lists');
+
+						if ($id) {
+							raise_message(1);
+						} else {
+							raise_message(2);
+						}
+					}
 				}
 			}
 
 			header('Location: notify_lists.php?header=false');
 			exit;
-		}elseif (isset_request_var('save_associate')) {
+		} elseif (isset_request_var('save_associate')) {
 			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 			if ($selected_items != false) {
@@ -135,7 +169,7 @@ function form_actions() {
 						/* set the global/list election */
 						db_execute('UPDATE host SET thold_send_email=' . get_request_var('notification_action') . ' WHERE id=' . $selected_items[$i]);
 					}
-				}elseif (get_request_var('drp_action') == '2') { /* disassociate */
+				} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 					for ($i=0;($i<count($selected_items));$i++) {
 						/* set the notification list */
 						db_execute('UPDATE host SET thold_host_email=0 WHERE id=' . $selected_items[$i]);
@@ -147,7 +181,7 @@ function form_actions() {
 
 			header('Location: notify_lists.php?header=false&action=edit&tab=hosts&id=' . get_request_var('id'));
 			exit;
-		}elseif (isset_request_var('save_templates')) {
+		} elseif (isset_request_var('save_templates')) {
 			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 			if ($selected_items != false) {
@@ -182,7 +216,7 @@ function form_actions() {
 							}
 						}
 					}
-				}elseif (get_request_var('drp_action') == '2') { /* disassociate */
+				} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 					for ($i=0;($i<count($selected_items));$i++) {
 						if (get_request_var('notification_warning_action') > 0) {
 							/* set the notification list */
@@ -199,7 +233,7 @@ function form_actions() {
 
 			header('Location: notify_lists.php?header=false&action=edit&tab=templates&id=' . get_request_var('id'));
 			exit;
-		}elseif (isset_request_var('save_tholds')) {
+		} elseif (isset_request_var('save_tholds')) {
 			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 			if ($selected_items != false) {
@@ -234,7 +268,7 @@ function form_actions() {
 							}
 						}
 					}
-				}elseif (get_request_var('drp_action') == '2') { /* disassociate */
+				} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 					for ($i=0;($i<count($selected_items));$i++) {
 						if (get_request_var('notification_warning_action') > 0) {
 							/* set the notification list */
@@ -268,7 +302,7 @@ function form_actions() {
 				input_validate_input_number($matches[1]);
 				/* ==================================================== */
 
-				$list .= '<li><b>' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $matches[1]) . '</b></li>';
+				$list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT name FROM plugin_notification_lists WHERE id = ?', array($matches[1]))) . '</li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -278,8 +312,6 @@ function form_actions() {
 		form_start('notify_lists.php');
 
 		html_start_box($actions{get_request_var('drp_action')} . " $list_name", '60%', '', '3', 'center', '');
-
-		print "<form action='notify_lists.php' method='post'>\n";
 
 		if (sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* delete */
@@ -291,12 +323,15 @@ function form_actions() {
 				</tr>\n";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Delete Notification List(s)', 'thold') . "'>";
-			}elseif (get_request_var('drp_action') == '2') { /* duplicate */
+			} elseif (get_request_var('drp_action') == '2') { /* duplicate */
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Duplicate the following Notification List(s).', 'thold') . "</p>
 						<ul>$list</ul>
-					</td>
+					<p>" . __('New List Name') . '<br>';
+					form_text_box('name', __('New Notification List'), '', '255', '40', 'text');
+
+				print "</p></td>
 				</tr>\n";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Duplicate Notification List(s)', 'thold') . "'>";
@@ -321,7 +356,7 @@ function form_actions() {
 		form_end();
 
 		bottom_footer();
-	}elseif (isset_request_var('save_templates')) {
+	} elseif (isset_request_var('save_templates')) {
 		/* loop through each of the notification lists selected on the previous page and get more info about them */
 		while (list($var,$val) = each($_POST)) {
 			if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
@@ -352,7 +387,7 @@ function form_actions() {
 				</tr>\n";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
-			}elseif (get_request_var('drp_action') == '2') { /* disassociate */
+			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Thresholds Template(s) below.', $list_name, 'thold') . "</p>
@@ -385,7 +420,7 @@ function form_actions() {
 		form_end();
 
 		bottom_footer();
-	}elseif (isset_request_var('save_tholds')) {
+	} elseif (isset_request_var('save_tholds')) {
 		/* loop through each of the notification lists selected on the previous page and get more info about them */
 		while (list($var,$val) = each($_POST)) {
 			if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
@@ -416,7 +451,7 @@ function form_actions() {
 				</tr>\n";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
-			}elseif (get_request_var('drp_action') == '2') { /* disassociate */
+			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Thresholds(s) below.', $list_name, 'thold') . "</p>
@@ -480,7 +515,7 @@ function form_actions() {
 				</tr>\n";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold'). "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold'). "' title='" . __esc('Associate Notification List(s)', 'thold'). "'>";
-			}elseif (get_request_var('drp_action') == '2') { /* disassociate */
+			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Device(s) below.', $list_name, 'thold') . "</p>
@@ -617,9 +652,9 @@ function edit() {
 		html_end_box();
 
 		form_save_button('notify_lists.php', 'return');
-	}elseif ($current_tab == 'hosts') {
+	} elseif ($current_tab == 'hosts') {
 		hosts($header_label);
-	}elseif ($current_tab == 'tholds') {
+	} elseif ($current_tab == 'tholds') {
 		tholds($header_label);
 	}else{
 		templates($header_label);
@@ -779,9 +814,9 @@ function hosts($header_label) {
 
 	if (get_request_var('host_template_id') == '-1') {
 		/* Show all items */
-	}elseif (get_request_var('host_template_id') == '0') {
+	} elseif (get_request_var('host_template_id') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'WHERE ') . ' host.host_template_id=0';
-	}elseif (!isempty_request_var('host_template_id')) {
+	} elseif (!isempty_request_var('host_template_id')) {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'WHERE ') . ' host.host_template_id=' . get_request_var('host_template_id');
 	}
 
@@ -832,15 +867,15 @@ function hosts($header_label) {
 			form_selectable_cell(round(($host['id']), 2), $host['id']);
 			if ($host['thold_send_email'] == 0) {
 				form_selectable_cell('<span style="color:blue;font-weight:bold;">' . __('Disabled', 'thold') . '</span>', $host['id']);
-			}elseif ($host['thold_send_email'] == 1) {
+			} elseif ($host['thold_send_email'] == 1) {
 				form_selectable_cell('<span style="color:purple;font-weight:bold;">' . __('Global List', 'thold') . '</span>', $host['id']);
-			}elseif ($host['thold_host_email'] == get_request_var('id')) {
+			} elseif ($host['thold_host_email'] == get_request_var('id')) {
 				if ($host['thold_send_email'] == 2) {
 					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current List Only', 'thold') . '</span>', $host['id']);
 				}else{
 					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
 				}
-			}elseif ($host['thold_host_email'] == '0') {
+			} elseif ($host['thold_host_email'] == '0') {
 				form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('None', 'thold') . '</span>', $host['id']);
 			}else{
 				form_selectable_cell('<span style="color:red;font-weight:bold;">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
@@ -1108,7 +1143,7 @@ function tholds($header_label) {
 				(($row['thold_type'] == 0 && $row['thold_warning_hi'] == '' && $row['thold_warning_low'] == '') ||
 				($row['thold_type'] == 2 && $row['time_warning_hi'] == '' && $row['time_warning_low'] == ''))) {
 				$warn_stat  = "<span style='font-weight:bold;color:red;'>" . __('None', 'thold') . "</span>";
-			}elseif (!strlen($warn_stat)) {
+			} elseif (!strlen($warn_stat)) {
 				$warn_stat  = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold'). "</span>";
 			}
 
@@ -1326,7 +1361,7 @@ function templates($header_label) {
 				(($row['thold_type'] == 0 && $row['thold_warning_hi'] == '' && $row['thold_warning_low'] == '') ||
 				($row['thold_type'] == 2 && $row['thold_time_warning_hi'] == '' && $row['thold_time_warning_low'] == ''))) {
 				$warn_stat  = "<span style='font-weight:bold;color:red;'>" . __('None', 'thold') . "</span>";
-			}elseif (!strlen($warn_stat)) {
+			} elseif (!strlen($warn_stat)) {
 				$warn_stat  = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold') . "</span>";
 			}
 

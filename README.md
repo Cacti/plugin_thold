@@ -50,6 +50,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#104: Query using the wrong/deprecated column
 * issue#106: Sort host list by time in state, graphs, and data sources
 * issue#109: RPN Expressions fail when ifHighSpeed is set to zero
+* issue#110: Notification List duplication not implemented
 * issue#111: Default Status filter not respected on thold tab
 * issue: Baseline tholds generate SQL errors and PHP warnings
 * issue: Add test domain for i18n
