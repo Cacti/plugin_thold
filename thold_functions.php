@@ -199,10 +199,10 @@ function thold_expression_math_rpn($operator, &$stack) {
 		$rpn_evaled = false;
 
 		if (!is_numeric($v1)) {
-			cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is Not valid for an operator.', false, 'THOLD');
+			cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is Not valid for operator "' . $operator . '". Stack:"' . $orig_stack . '"', false, 'THOLD');
 			$rpn_error = true;
 		} elseif (!is_numeric($v2)) {
-			cacti_log('ERROR: RPN value: v2 "' . $v2 . '" is Not valid for an operator.', false, 'THOLD');
+			cacti_log('ERROR: RPN value: v2 "' . $v2 . '" is Not valid for operator "' . $operation . '". Stack:"' . $orig_start . '"', false, 'THOLD');
 			$rpn_error = true;
 		} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
 			cacti_log('WARNNING: RPN values v1 & v2 empty returning "0" for result.', false, 'THOLD');
