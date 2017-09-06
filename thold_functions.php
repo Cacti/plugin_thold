@@ -713,7 +713,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 							FROM data_source_stats_hourly_last
 							WHERE local_data_id = ?
 							AND rrd_name = ?', 
-							array($thold['rrd_id'], $dsname));
+							array($thold['local_data_id'], $dsname));
 					}
 
 					if (empty($value) || $value == '-90909090909') {
