@@ -80,7 +80,7 @@ $debug          = false;
 if (sizeof($parms)) {
 	foreach($parms as $parameter) {
 		if (strpos($parameter, '=')) {
-			list($arg, $value) = explode('=', $parameter);
+			list ($arg, $value) = explode('=', $parameter);
 		} else {
 			$arg = $parameter;
 			$value = '';
@@ -93,14 +93,16 @@ if (sizeof($parms)) {
 				break;
 			case '-pid':
 			case '--pid':
-				@list($partA, $partB) = @explode('_', $value);
-				if(is_numeric($partA) && is_numeric($partB)) {
+				list ($partA, $partB) = explode('_', $value);
+
+				if (is_numeric($partA) && is_numeric($partB)) {
 					$pid = $value;
 				}else {
 					print 'ERROR: Invalid Process ID ' . $arg . "\n\n";
 					display_help();
 					exit;
 				}
+
 				break;
 			case '-v':
 			case '--version':
@@ -120,10 +122,12 @@ if (sizeof($parms)) {
 	}
 }
 
-if($pid === false) {
+if ($pid === false) {
 	display_help();
 }else {
-	db_execute_prepared("UPDATE plugin_thold_daemon_processes SET start = ? WHERE pid = ?", array(time(), $pid));
+	db_execute_prepared("UPDATE plugin_thold_daemon_processes 
+		SET start = ? WHERE pid = ? AND poller_id = ?", 
+		array(time(), $pid, $config['poller_id']));
 }
 
 $sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed, 
@@ -141,9 +145,10 @@ $sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
 	LEFT JOIN data_template_data AS dtd
 	ON dtd.local_data_id = td.local_data_id
 	WHERE tdd.pid = ?
+	AND tdd.poller_id = ?
 	AND dtr.data_source_name != ''";
 
-$tholds = db_fetch_assoc_prepared($sql_query, array($pid), false);
+$tholds = db_fetch_assoc_prepared($sql_query, array($pid, $config['poller_id']), false);
 
 if (sizeof($tholds)) {
 	$rrd_reindexed = array();
@@ -183,7 +188,9 @@ if (sizeof($tholds)) {
 			$currentval = '';
 		}
 
-		db_execute_prepared("UPDATE thold_data SET tcheck = 1, lastread= ?, lasttime = ?, oldvalue = ?  WHERE id = ?",
+		db_execute_prepared("UPDATE thold_data 
+			SET tcheck = 1, lastread= ?, lasttime = ?, oldvalue = ?
+			WHERE id = ?",
 			array($currentval, date('Y-m-d H:i:s', $currenttime),  $item[$thold_data['name']], $thold_data['thold_id'])
 		);
 	}
@@ -196,27 +203,45 @@ if (sizeof($tholds)) {
 		LEFT JOIN data_template_rrd AS dtr
 		ON dtr.id = td.data_template_rrd_id
 		WHERE tdd.pid = ? 
-		AND td.thold_enabled='on' 
-		AND td.tcheck=1";
+		AND tdd.poller_id = ?
+		AND td.thold_enabled = 'on' 
+		AND td.tcheck = 1";
 
-	$tholds = api_plugin_hook_function('thold_get_live_hosts', db_fetch_assoc_prepared($sql_query, array($pid)));
+	$tholds = api_plugin_hook_function(
+		'thold_get_live_hosts', 
+		db_fetch_assoc_prepared($sql_query, 
+			array($pid, $config['poller_id']))
+	);
 
 	$total_tholds = sizeof($tholds);
-	foreach ($tholds as $thold) {
-		thold_check_threshold($thold);
+	if (sizeof($tholds)) {
+		foreach ($tholds as $thold) {
+			thold_check_threshold($thold);
+		}
 	}
 
-	db_execute_prepared("UPDATE thold_data SET thold_data.thold_daemon_pid = '', tcheck=0 WHERE thold_data.thold_daemon_pid = ?",
+	db_execute_prepared('UPDATE thold_data 
+		SET thold_data.thold_daemon_pid = "", tcheck=0 
+		WHERE thold_data.thold_daemon_pid = ?',
 		array($pid)
 	);
-	db_execute_prepared("DELETE FROM plugin_thold_daemon_data WHERE pid = ?", array($pid));
-	db_execute_prepared("UPDATE plugin_thold_daemon_processes SET end = ?, processed_items = ? WHERE pid = ?",
-		array(time(), $total_tholds, $pid)
+
+	db_execute_prepared('DELETE FROM plugin_thold_daemon_data 
+		WHERE pid = ?
+		AND poller_id = ?', 
+		array($pid, $config['poller_id']));
+
+	db_execute_prepared('UPDATE plugin_thold_daemon_processes 
+		SET end = ?, processed_items = ? 
+		WHERE pid = ?
+		AND poller_id = ?',
+		array(time(), $total_tholds, $pid, $config['poller_id'])
 	);
 }
 
 function display_version() {
 	global $config;
+
 	if (!function_exists('plugin_thold_version')) {
 		include_once($config['base_path'] . '/plugins/thold/setup.php');
 	}
@@ -233,3 +258,4 @@ function display_help () {
 	print "\nusage: thold_process.php --pid=N [--debug]\n\n";
 	print "The main Threshold processor for the Thold Plugin.\n";
 }
+

@@ -23,20 +23,39 @@
  +-------------------------------------------------------------------------+
 */
 
-/* do NOT run this script through a web browser */
-if (!isset($_SERVER["argv"][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($_SERVER['REMOTE_ADDR'])) {
-	die("<br><strong>This script is only meant to run at the command line.</strong>");
+/* tick use required as of PHP 4.3.0 to accomodate signal handling */
+declare(ticks = 1);
+
+/* sig_handler - provides a generic means to catch exceptions to the Cacti log.
+   @arg $signo - (int) the signal that was thrown by the interface.
+   @returns - null */
+function sig_handler($signo) {
+	global $config;
+
+	switch ($signo) {
+		case SIGTERM:
+		case SIGINT:
+			db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
+				WHERE poller_id = ?', 
+				array($config['poller_id']));
+
+			db_execute_prepared('DELETE FROM plugin_thold_daemon_data 
+				WHERE poller_id = ?', 
+				array($config['poller_id']));
+
+			cacti_log('WARNING: Thold Daemon Process terminated by user', FALSE, 'thold');
+
+			exit;
+
+			break;
+		default:
+			/* ignore all other signals */
+	}
 }
 
-$no_http_headers = true;
-
-$options = getopt('f', array('foregroud'));
-
-/* check if poller daemon is already running */
-exec('pgrep -a php | grep thold_daemon.php', $output);
-if(sizeof($output)>=2) {
-    fwrite( STDOUT, "Thold Daemon is still running\n");
-    exit(1);
+/* do NOT run this script through a web browser */
+if (!isset($_SERVER['argv'][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($_SERVER['REMOTE_ADDR'])) {
+	die('<br><strong>This script is only meant to run at the command line.</strong>');
 }
 
 /* we are not talking to the browser */
@@ -49,62 +68,150 @@ error_reporting(E_ALL);
 set_time_limit(0);
 
 /* we do not need so much memory */
-ini_set('memory_limit', '32M');
+ini_set('memory_limit', '256M');
 
 chdir(dirname(__FILE__));
 chdir('../../');
 
-fwrite(STDOUT, 'Starting Thold Daemon ... ');
-
-if(!isset($options['f']) && !isset($options['foreground'])) {
-	if(function_exists('pcntl_fork')) {
-		/* fork the current process to bring a real new daemon on the road */
-		$pid = pcntl_fork();
-		if($pid == -1) {
-			/* oha ... something went wrong :( */
-			fwrite(STDOUT, '[FAILED]' . PHP_EOL);
-			return false;
-		}elseif($pid == 0) {
-			/* the child should do nothing as long as the parent is still alive */
-		}else {
-			/* return the PID of the new child and kill the parent */
-			fwrite(STDOUT, '[OK]' . PHP_EOL);
-			return true;
-		}
-	}else {
-		fwrite(STDOUT, '[WARNING] This system does not support forking.' . PHP_EOL);
-	}
-}
 require_once('./include/global.php');
 require_once($config['base_path'] . '/lib/poller.php');
 
+$no_http_headers = true;
+
+/* process calling arguments */
+$parms = $_SERVER['argv'];
+array_shift($parms);
+$debug      = false;
+$foreground = false;
+
+if (sizeof($parms)) {
+	foreach($parms as $parameter) {
+		if (strpos($parameter, '=')) {
+			list ($arg, $value) = explode('=', $parameter);
+		} else {
+			$arg = $parameter;
+			$value = '';
+		}
+
+		switch ($arg) {
+			case '-d':
+			case '--debug':
+				$debug = TRUE;
+				break;
+			case '-f':
+			case '--foreground':
+				$foreground = true;
+
+				break;
+			case '-v':
+			case '--version':
+			case '-V':
+				display_version();
+				exit;
+			case '--help':
+			case '-h':
+			case '-H':
+				display_help();
+				exit;
+			exit;
+			default:
+				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
+				display_help();
+		}
+	}
+}
+
+/* check if poller daemon is already running */
+exec('pgrep -a php | grep thold_daemon.php', $output);
+if (sizeof($output) >= 2) {
+	print 'The Thold Daemon is still running' . PHP_EOL;
+    return;
+}
+
+print 'Starting Thold Daemon ... ';
+
+if (!$foreground) {
+	if (function_exists('pcntl_fork')) {
+		/* fork the current process to bring a real new daemon on the road */
+		$pid = pcntl_fork();
+
+		if ($pid == -1) {
+			/* oha ... something went wrong :( */
+			print '[FAILED]' . PHP_EOL;
+			return false;
+		} elseif ($pid == 0) {
+			/* the child should do nothing as long as the parent is still alive */
+		} else {
+			/* return the PID of the new child and kill the parent */
+			print '[OK]' . PHP_EOL;
+			return true;
+		}
+	} else {
+		print '[WARNING] This system does not support forking.' . PHP_EOL;
+	}
+} else {
+	print '[NOTE] The Thold Daemon is running in foreground mode.' . PHP_EOL;
+}
+
 $cnn_id = thold_db_reconnect();
 
-db_execute("TRUNCATE plugin_thold_daemon_processes");
-db_execute("TRUNCATE plugin_thold_daemon_data");
-db_execute("UPDATE thold_data SET thold_daemon_pid = ''");
+db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
+	WHERE poller_id = ?', 
+	array($config['poller_id']));
+
+db_execute_prepared('DELETE FROM plugin_thold_daemon_data 
+	WHERE poller_id = ?', 
+	array($config['poller_id']));
+
+if ($config['poller_id'] == 1) {
+	db_execute('UPDATE thold_data AS td
+		LEFT JOIN host AS h
+		ON td.host_id = h.id
+		SET td.thold_daemon_pid = "" 
+		WHERE (h.poller_id = 1 OR h.poller_id IS NULL)');
+} else {
+	db_execute_prepared('UPDATE thold_data AS td
+		LEFT JOIN host AS h
+		ON td.host_id = h.id
+		SET td.thold_daemon_pid = "" 
+		WHERE poller_id = ?', 
+		array($config['poller_id']));
+}
 
 $path_php_binary = read_config_option('path_php_binary');
 
-while(true) {
+while (true) {
 	if (thold_db_connection()) {
 		/* initiate concurrent background processes as long as we do not hit the limits */
-		$queue = db_fetch_assoc('SELECT * FROM plugin_thold_daemon_processes WHERE start = 0 ORDER BY pid');
+		$queue = db_fetch_assoc_prepared('SELECT * 
+			FROM plugin_thold_daemon_processes 
+			WHERE start = 0 
+			AND poller_id = ?
+			ORDER BY pid',
+			array($config['poller_id']));
+
 		$queued_processes = sizeof($queue);
 
 		if ($queued_processes) {
 			$thold_max_concurrent_processes = read_config_option('thold_max_concurrent_processes');
-			$running_processes              = db_fetch_cell('SELECT COUNT(*) FROM plugin_thold_daemon_processes WHERE start != 0 AND end = 0');
-			$free_processes                 = $thold_max_concurrent_processes - $running_processes;
 
-			if($free_processes > 0) {
-				for($i=0; $i<$free_processes; $i++) {
-					if(isset($queue[$i])) {
+			$running_processes = db_fetch_cell_prepared('SELECT COUNT(*) 
+				FROM plugin_thold_daemon_processes 
+				WHERE start != 0 
+				AND end = 0
+				AND poller_id = ?',
+				array($config['poller_id']));
+
+			$free_processes = $thold_max_concurrent_processes - $running_processes;
+
+			if ($free_processes > 0) {
+				for ($i=0; $i<$free_processes; $i++) {
+					if (isset($queue[$i])) {
 						$pid = $queue[$i]['pid'];
 						$process = $path_php_binary . ' ' . $config['base_path'] . '/plugins/thold/thold_process.php ' . "--pid=$pid > /dev/null &";
 						cacti_log("DEBUG: Starting process: $process", false, 'THOLD', POLLER_VERBOSITY_DEBUG);
 						exec($process);
-					}else {
+					} else {
 						break;
 					}
 				}
@@ -122,12 +229,12 @@ function thold_db_connection(){
 	global $cnn_id;
 
 	if ($cnn_id) {
-		$cacti_version = db_fetch_cell("SELECT cacti FROM version");
+		$cacti_version = db_fetch_cell('SELECT cacti FROM version');
 
-		return is_null($cacti_version) ? FALSE : TRUE;
+		return is_null($cacti_version) ? false : true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 function thold_db_reconnect(){
@@ -135,7 +242,7 @@ function thold_db_reconnect(){
 
 	chdir(dirname(__FILE__));
 
-	include_once("../../include/config.php");
+	include_once('../../include/config.php');
 
 	if (is_object($cnn_id)) {
 		db_close();
@@ -145,4 +252,23 @@ function thold_db_reconnect(){
 	return db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
 }
 
-?>
+function display_version() {
+	global $config;
+
+	if (!function_exists('plugin_thold_version')) {
+		include_once($config['base_path'] . '/plugins/thold/setup.php');
+	}
+
+	$info = plugin_thold_version();
+	echo 'Threshold Daemon, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
+}
+
+
+/*	display_help - displays the usage of the function */
+function display_help () {
+	display_version();
+
+	print PHP_EOL . 'usage: thold_daemon.php [ --foreground | -f ] [ --debug ]' . PHP_EOL . PHP_EOL;
+	print 'The Threshold Daemon processor for the Thold Plugin.' . PHP_EOL;
+}
+

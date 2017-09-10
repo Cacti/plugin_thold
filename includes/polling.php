@@ -80,23 +80,28 @@ function thold_poller_bottom() {
 			WHERE start != 0 
 			AND end != 0 
 			AND end <= ? 
+			AND poller_id = ?
 			AND processed_items != -1', 
-			array($current_time));
+			array($current_time, $config['poller_id']));
 
-		$broken_processes = db_fetch_cell('SELECT COUNT(*) 
+		$broken_processes = db_fetch_cell_prepared('SELECT COUNT(*) 
 			FROM plugin_thold_daemon_processes 
-			WHERE processed_items = -1');
+			WHERE processed_items = -1',
+			array($config['poller_id']));
 
-		$running_processes = db_fetch_cell('SELECT COUNT(*) 
+		$running_processes = db_fetch_cell_prepared('SELECT COUNT(*) 
 			FROM plugin_thold_daemon_processes 
 			WHERE start != 0 
-			AND end = 0');
+			AND end = 0
+			AND poller_id = ?',
+			array($config['poller_id']));
 
 		/* system clean up */
-		db_execute_prepared("DELETE FROM plugin_thold_daemon_processes 
+		db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
 			WHERE end != 0 
-			AND end <= ?", 
-			array($current_time));
+			AND end <= ?
+			AND poller_id = ?', 
+			array($current_time, $config['poller_id']));
 
 		/* host_status processed by thold server */
 		$nhosts = thold_update_host_status();
@@ -118,8 +123,10 @@ function thold_poller_bottom() {
 
 		/* log statistics */
 		$thold_stats = sprintf('Time:%u MaxRuntime:%u Tholds:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u Processes: %u completed, %u running, %u broken', $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $total_hosts, $down_hosts, $nhosts, $stats['completed'], $running_processes, $broken_processes);
+
 		cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
-		db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold', '$thold_stats')");
+
+		db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold_" . $config['poller_id'] . "', '$thold_stats')");
 
 		$db_conn->commit();
 	}
@@ -142,12 +149,9 @@ function thold_poller_output(&$rrd_update_array) {
 	$local_data_ids     = '';
 	$x                  = 0;
 
-	foreach($rrd_update_array as $item) {
+	foreach ($rrd_update_array as $item) {
 		if (isset($item['times'][key($item['times'])])) {
-			if ($x) {
-				$local_data_ids .= ',';
-			}
-			$local_data_ids .= $item['local_data_id'];
+			$local_data_ids .= ($x > 0 ? ', ':'') . $item['local_data_id'];
 			$rrd_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
 			$rrd_time_reindexed[$item['local_data_id']] = key($item['times']);
 			$x++;
@@ -155,7 +159,7 @@ function thold_poller_output(&$rrd_update_array) {
 	}
 
 	if ($local_data_ids != '') {
-		if (read_config_option('thold_daemon_enable')) {
+		if (read_config_option('thold_daemon_enable') == 'on') {
 			/* assign a new process id */
 			$thold_pid = time() . '_' . rand();
 
@@ -164,7 +168,7 @@ function thold_poller_output(&$rrd_update_array) {
 				WHERE thold_daemon_pid = ''
 				AND thold_data.local_data_id IN ($local_data_ids)");
 
-			if($thold_items) {
+			if ($thold_items) {
 				/* avoid that concurrent processes will work on the same thold items */
 				db_execute("UPDATE thold_data
 					SET thold_data.thold_daemon_pid = '$thold_pid'
@@ -175,42 +179,56 @@ function thold_poller_output(&$rrd_update_array) {
 				$sql_max_inserts = 1000;
 				$thold_items = array_chunk($thold_items, $sql_max_inserts);
 
-				$sql_insert = 'INSERT INTO plugin_thold_daemon_data (id, pid, rrd_reindexed, rrd_time_reindexed) VALUES ';
+				$sql_insert = 'INSERT INTO plugin_thold_daemon_data 
+					(poller_id, id, pid, rrd_reindexed, rrd_time_reindexed) VALUES ';
+
 				$sql_values = '';
-				foreach($thold_items as $packet) {
-					foreach($packet as $thold_item) {
-						$sql_values .= "('" . $thold_item['id'] . "','" . $thold_pid . "','" . serialize($rrd_reindexed[$thold_item['local_data_id']]) . "','" . $rrd_time_reindexed[$thold_item['local_data_id']] . "'),";
+				$x          = 0;
+				foreach ($thold_items as $packet) {
+					foreach ($packet as $thold_item) {
+						$sql_values .= ($x > 0 ? ', ':'') . '(' . 
+							$config['poller_id'] . ', ' .
+							$thold_item['id'] . ", '" . 
+							$thold_pid . "', " . 
+							db_qstr(serialize($rrd_reindexed[$thold_item['local_data_id']])) . ', ' . 
+							$rrd_time_reindexed[$thold_item['local_data_id']] . ')';
+
+						$x++;
 					}
+
 					db_execute($sql_insert . substr($sql_values, 0, -1));
 					$sql_values = '';
 				}
 
 				/* queue a new thold process */
-				db_execute("INSERT INTO plugin_thold_daemon_processes (pid) VALUES('$thold_pid')");
+				db_execute_prepared('INSERT INTO plugin_thold_daemon_processes 
+					(poller_id, pid) 
+					VALUES(?, ?)',
+					array($config['poller_id'], $thold_pid));
 			}
 
 			return $rrd_update_array;
 		}
-
-		$tholds = db_fetch_assoc("SELECT td.id,
-			td.name AS thold_name, td.local_graph_id,
-			td.percent_ds, td.expression,
-			td.data_type, td.cdef, td.local_data_id,
-			td.data_template_rrd_id, td.lastread,
-			UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
-			dtr.data_source_name as name,
-			dtr.data_source_type_id, dtd.rrd_step,
-			dtr.rrd_maximum
-			FROM thold_data AS td
-			LEFT JOIN data_template_rrd AS dtr
-			ON (dtr.id = td.data_template_rrd_id)
-			LEFT JOIN data_template_data AS dtd
-			ON dtd.local_data_id = td.local_data_id
-			WHERE dtr.data_source_name!=''
-			AND td.local_data_id IN($local_data_ids)", false);
 	} else {
 		return $rrd_update_array;
 	}
+
+	$tholds = db_fetch_assoc("SELECT td.id,
+		td.name AS thold_name, td.local_graph_id,
+		td.percent_ds, td.expression,
+		td.data_type, td.cdef, td.local_data_id,
+		td.data_template_rrd_id, td.lastread,
+		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
+		dtr.data_source_name as name,
+		dtr.data_source_type_id, dtd.rrd_step,
+		dtr.rrd_maximum
+		FROM thold_data AS td
+		LEFT JOIN data_template_rrd AS dtr
+		ON (dtr.id = td.data_template_rrd_id)
+		LEFT JOIN data_template_data AS dtd
+		ON dtd.local_data_id = td.local_data_id
+		WHERE dtr.data_source_name!=''
+		AND td.local_data_id IN($local_data_ids)", false);
 
 	if (sizeof($tholds)) {
 		$sql = array();
@@ -252,7 +270,7 @@ function thold_poller_output(&$rrd_update_array) {
 
 		if (sizeof($sql)) {
 			$chunks = array_chunk($sql, 400);
-			foreach($chunks as $c) {
+			foreach ($chunks as $c) {
 				db_execute('INSERT INTO thold_data
 					(id, tcheck, lastread, lasttime, oldvalue)
 					VALUES ' . implode(', ', $c) . '
@@ -277,11 +295,27 @@ function thold_check_all_thresholds() {
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-	$sql_query = "SELECT td.*, dtr.data_source_name
-		FROM thold_data AS td
-		LEFT JOIN data_template_rrd AS dtr
-		ON dtr.id=td.data_template_rrd_id
-		WHERE td.thold_enabled='on' AND td.tcheck=1";
+	if ($config['poller_id'] == 1) {
+		$sql_query = "SELECT td.*, dtr.data_source_name
+			FROM thold_data AS td
+			LEFT JOIN host AS h
+			ON h.id = td.host_id
+			LEFT JOIN data_template_rrd AS dtr
+			ON dtr.id = td.data_template_rrd_id
+			WHERE td.thold_enabled = 'on' 
+			AND (h.poller_id = 1 OR h.poller_id IS NULL)
+			AND td.tcheck = 1";
+	} else {
+		$sql_query = "SELECT td.*, dtr.data_source_name
+			FROM thold_data AS td
+			LEFT JOIN host AS h
+			ON h.id = td.host_id
+			LEFT JOIN data_template_rrd AS dtr
+			ON dtr.id = td.data_template_rrd_id
+			WHERE td.thold_enabled = 'on' 
+			AND h.poller_id = " . $config['poller_id'] . "
+			AND td.tcheck = 1";
+	}
 
 	$tholds = api_plugin_hook_function('thold_get_live_hosts', db_fetch_assoc($sql_query));
 
@@ -290,7 +324,21 @@ function thold_check_all_thresholds() {
 		thold_check_threshold($thold);
 	}
 
-	db_execute('UPDATE thold_data SET tcheck=0');
+	if ($config['poller_id'] == 1) {
+		db_execute('UPDATE thold_data AS td
+			LEFT JOIN host AS h
+			ON td.host_id = h.id
+			SET tcheck=0
+			WHERE h.poller_id = 1 
+			OR h.poller_id IS NULL');
+	} else {
+		db_execute_prepared('UPDATE thold_data AS td
+			INNER JOIN host AS h
+			ON td.host_id = h.id
+			SET td.tcheck=0
+			WHERE h.poller_id = ?',
+			array($config['poller_id']));
+	}
 
 	return $total_tholds;
 }
@@ -312,9 +360,13 @@ function thold_update_host_status() {
 	$ping_failure_count = read_config_option('ping_failure_count');
 
 	// Lets find hosts that were down, but are now back up
-	$failed = db_fetch_assoc('SELECT * FROM plugin_thold_host_failed');
+	$failed = db_fetch_assoc_prepared('SELECT * 
+		FROM plugin_thold_host_failed
+		WHERE poller_id = ?',
+		array($config['poller_id']));
+
 	if (sizeof($failed)) {
-		foreach($failed as $fh) {
+		foreach ($failed as $fh) {
 			if (!empty($fh['host_id'])) {
 				if (api_plugin_is_enabled('maint')) {
 					if (plugin_maint_check_cacti_host($fh['host_id'])) {
@@ -322,10 +374,15 @@ function thold_update_host_status() {
 					}
 				}
 
-				$host = db_fetch_row_prepared('SELECT * FROM host WHERE id = ?', array($fh['host_id']));
+				$host = db_fetch_row_prepared('SELECT * 
+					FROM host 
+					WHERE id = ?',
+					array($fh['host_id']));
 
 				if (!sizeof($host)) {
-					db_execute_prepared('DELETE FROM plugin_thold_host_failed WHERE host_id = ?', array($fh['host_id']));
+					db_execute_prepared('DELETE FROM plugin_thold_host_failed 
+						WHERE host_id = ?', 
+						array($fh['host_id']));
 				}elseif ($host['status'] == HOST_UP) {
 					$snmp_system   = '';
 					$snmp_hostname = '';
@@ -395,14 +452,15 @@ function thold_update_host_status() {
 								$downtimemsg = $downtime_seconds . 's ';
 							}
 						} else {
-							$downtimemsg = 'N/A';
+							$downtimemsg = __('N/A', 'thold');
 						}
 					}
 
 					$subject = read_config_option('thold_up_subject');
 					if ($subject == '') {
-						$subject = 'Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state';
+						$subject = __('Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state', 'thold');
 					}
+
 					$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
 					$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
 					$subject = str_replace('<DOWN/UP>', 'UP', $subject);
@@ -466,11 +524,13 @@ function thold_update_host_status() {
 		FROM host
 		WHERE disabled=""
 		AND status = ?
-		AND status_event_count = ?', array(HOST_DOWN, $ping_failure_count));
+		AND status_event_count = ?
+		AND poller_id = ?', 
+		array(HOST_DOWN, $ping_failure_count, $config['poller_id']));
 
 	$total_hosts = sizeof($hosts);
 	if (count($hosts)) {
-		foreach($hosts as $host) {
+		foreach ($hosts as $host) {
 			if (api_plugin_is_enabled('maint')) {
 				if (plugin_maint_check_cacti_host ($host['id'])) {
 					continue;
@@ -555,11 +615,16 @@ function thold_update_host_status() {
 	}
 
 	// Now lets record all failed hosts
-	db_execute('TRUNCATE TABLE plugin_thold_host_failed');
-	$hosts = db_fetch_assoc('SELECT id
+	db_execute_prepared('DELETE FROM plugin_thold_host_failed 
+		WHERE poller_id = ?', 
+		array($config['poller_id']));
+
+	$hosts = db_fetch_assoc_prepared('SELECT id
 		FROM host
 		WHERE disabled = ""
-		AND status != ' . HOST_UP);
+		AND status != ?
+		AND poller_id = ?', 
+		array(HOST_UP, $config['poller_id']));
 
 	$failed = '';
 	if (sizeof($hosts)) {
@@ -569,7 +634,7 @@ function thold_update_host_status() {
 					continue;
 				}
 			}
-			$failed .= (strlen($failed) ? '), (':'(') . $host['id'];
+			$failed .= ($failed != '' ? '), (':'(') . $host['id'];
 		}
 		$failed .= ')';
 

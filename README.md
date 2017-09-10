@@ -36,6 +36,9 @@ The thold plugin has been in development for well over a decade with increasing 
 
 ## ChangeLog
 
+--- 1.0.4 ---
+* feature: First attempt of thresholding by data collector.  Note that if you are using the thold daemon, you will need to run on each data collector.
+
 --- 1.0.3 ---
 * feature#34: Allow notes to be attached to thresholds and templates
 * feature: New setting for expression tholds using ifHighSpeed to handle empty ifHighSpeed entries
