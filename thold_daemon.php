@@ -153,6 +153,7 @@ if (!$foreground) {
 	print '[NOTE] The Thold Daemon is running in foreground mode.' . PHP_EOL;
 }
 
+// The database connection looses state as parent, so reconnect regardless
 $cnn_id = thold_db_reconnect();
 
 db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
@@ -228,7 +229,7 @@ while (true) {
 function thold_db_connection(){
 	global $cnn_id;
 
-	if ($cnn_id) {
+	if (is_object($cnn_id)) {
 		$cacti_version = db_fetch_cell('SELECT cacti FROM version');
 
 		return is_null($cacti_version) ? false : true;
