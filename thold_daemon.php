@@ -43,7 +43,7 @@ function sig_handler($signo) {
 				WHERE poller_id = ?', 
 				array($config['poller_id']));
 
-			cacti_log('WARNING: Thold Daemon Process terminated by user', FALSE, 'thold');
+			cacti_log('WARNING: Thold Daemon Process (' . getmypid() . ') terminated by user', FALSE, 'thold');
 
 			exit;
 
@@ -77,6 +77,8 @@ require_once('./include/global.php');
 require_once($config['base_path'] . '/lib/poller.php');
 
 $no_http_headers = true;
+
+global $cnn_id;
 
 /* process calling arguments */
 $parms = $_SERVER['argv'];
@@ -121,6 +123,15 @@ if (sizeof($parms)) {
 	}
 }
 
+/* redirect standard error to dev/null */
+if ($config['cacti_server_os'] == 'unix') {
+	fclose(STDERR);
+	$STDERR = fopen('/dev/null', 'wb');
+} else {
+	fclose(STDERR);
+	$STDERR = fopen('null', 'wb');
+}
+
 /* check if poller daemon is already running */
 exec('pgrep -a php | grep thold_daemon.php', $output);
 if (sizeof($output) >= 2) {
@@ -132,7 +143,10 @@ print 'Starting Thold Daemon ... ';
 
 if (!$foreground) {
 	if (function_exists('pcntl_fork')) {
-		/* fork the current process to bring a real new daemon on the road */
+		// Close the database connection
+		db_close($cnn_id);
+
+		// Fork the current process to daemonize
 		$pid = pcntl_fork();
 
 		if ($pid == -1) {
@@ -140,21 +154,25 @@ if (!$foreground) {
 			print '[FAILED]' . PHP_EOL;
 			return false;
 		} elseif ($pid == 0) {
-			/* the child should do nothing as long as the parent is still alive */
+			// We are the child
 		} else {
-			/* return the PID of the new child and kill the parent */
+			// We are the parent, output and exit
 			print '[OK]' . PHP_EOL;
-			return true;
+
+	        exit;
 		}
 	} else {
+		// Windows.... awesome! But no worries
 		print '[WARNING] This system does not support forking.' . PHP_EOL;
 	}
 } else {
 	print '[NOTE] The Thold Daemon is running in foreground mode.' . PHP_EOL;
 }
 
+sleep(5);
+
 // The database connection looses state as parent, so reconnect regardless
-$cnn_id = thold_db_reconnect();
+$cnn_id = thold_db_reconnect($cnn_id);
 
 db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
 	WHERE poller_id = ?', 
@@ -164,6 +182,7 @@ db_execute_prepared('DELETE FROM plugin_thold_daemon_data
 	WHERE poller_id = ?', 
 	array($config['poller_id']));
 
+// Poller 1 handles external the special case of external data sources
 if ($config['poller_id'] == 1) {
 	db_execute('UPDATE thold_data AS td
 		LEFT JOIN host AS h
@@ -183,7 +202,7 @@ $path_php_binary = read_config_option('path_php_binary');
 
 while (true) {
 	if (thold_db_connection()) {
-		/* initiate concurrent background processes as long as we do not hit the limits */
+		// Initiate concurrent background processes as long as we do not hit the limits 
 		$queue = db_fetch_assoc_prepared('SELECT * 
 			FROM plugin_thold_daemon_processes 
 			WHERE start = 0 
@@ -205,7 +224,7 @@ while (true) {
 
 			$free_processes = $thold_max_concurrent_processes - $running_processes;
 
-			if ($free_processes > 0) {
+			if ($free_processes) {
 				for ($i=0; $i<$free_processes; $i++) {
 					if (isset($queue[$i])) {
 						$pid = $queue[$i]['pid'];
@@ -219,8 +238,8 @@ while (true) {
 			}
 		}
 	} else {
-		/* try to reconnect */
-		$cnn_id = thold_db_reconnect();
+		// try to reconnect if the test was no good
+		$cnn_id = thold_db_reconnect($cnn_id);
 	}
 
 	sleep(2);
@@ -230,7 +249,15 @@ function thold_db_connection(){
 	global $cnn_id;
 
 	if (is_object($cnn_id)) {
+		// Avoid showing errors
+		restore_error_handler();
+		set_error_handler('thold_db_error_handler');
+
 		$cacti_version = db_fetch_cell('SELECT cacti FROM version');
+
+		// Restore Cactis Error handler
+		restore_error_handler();
+		set_error_handler('CactiErrorHandler');
 
 		return is_null($cacti_version) ? false : true;
 	}
@@ -238,19 +265,31 @@ function thold_db_connection(){
 	return false;
 }
 
-function thold_db_reconnect(){
-	global $cnn_id, $database_type, $database_default, $database_hostname, $database_username, $database_password, $database_port, $database_ssl;
-
+function thold_db_reconnect($cnn_id = null) {
 	chdir(dirname(__FILE__));
 
-	include_once('../../include/config.php');
+	include('../../include/config.php');
 
 	if (is_object($cnn_id)) {
-		db_close();
+		db_close($cnn_id);
 	}
 
-	/* connect to the database server */
-	return db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
+	// Avoid showing errors
+	restore_error_handler();
+	set_error_handler('thold_db_error_handler');
+
+	// Connect to the database server
+	$cnn_id = db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
+
+	// Restore Cactis Error handler
+	restore_error_handler();
+	set_error_handler('CactiErrorHandler');
+
+	return $cnn_id;
+}
+
+function thold_db_error_handler() {
+	return true;
 }
 
 function display_version() {
