@@ -84,6 +84,13 @@ function thold_poller_bottom() {
 			AND processed_items != -1', 
 			array($current_time, $config['poller_id']));
 
+		if (!sizeof($stats)) {
+			$stats['completed'] = 0;
+			$stats['processed_items'] = 0;
+			$stats['max_processing_time'] = 0;
+			$stats['total_processing_time'] = 0;
+		}
+
 		$broken_processes = db_fetch_cell_prepared('SELECT COUNT(*) 
 			FROM plugin_thold_daemon_processes 
 			WHERE processed_items = -1',
@@ -122,9 +129,11 @@ function thold_poller_bottom() {
 			array($config['poller_id']));
 
 		/* log statistics */
-		$thold_stats = sprintf('Time:%u MaxRuntime:%u Tholds:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u Processes: %u completed, %u running, %u broken', $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $total_hosts, $down_hosts, $nhosts, $stats['completed'], $running_processes, $broken_processes);
+		$thold_stats = sprintf('TotalTime:%0.3f MaxRuntime:%0.3f TholdsProcessed:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u MaxProcesses:%u Completed:%u Running:%u Broken:%u', 
+			$stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], 
+			$total_hosts, $down_hosts, $nhosts, $max_concurrent_processes, $stats['completed'], $running_processes, $broken_processes);
 
-		cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
+		cacti_log('THOLD DAEMON STATS: ' . $thold_stats, false, 'SYSTEM');
 
 		db_execute("REPLACE INTO settings (name, value) VALUES ('stats_thold_" . $config['poller_id'] . "', '$thold_stats')");
 
@@ -196,7 +205,7 @@ function thold_poller_output(&$rrd_update_array) {
 						$x++;
 					}
 
-					db_execute($sql_insert . substr($sql_values, 0, -1));
+					db_execute($sql_insert . $sql_values);
 					$sql_values = '';
 				}
 
@@ -394,7 +403,7 @@ function thold_update_host_status() {
 
 					if (($host['snmp_community'] == '' && $host['snmp_username'] == '') || $host['snmp_version'] == 0) {
 						// SNMP not in use
-						$snmp_system = 'SNMP not in use';
+						$snmp_system = __('SNMP not in use', 'thold');
 					} else {
 						$snmp_system = cacti_snmp_get($host['hostname'], $host['snmp_community'], '.1.3.6.1.2.1.1.1.0', $host['snmp_version'],
 							$host['snmp_username'], $host['snmp_password'],
@@ -554,7 +563,7 @@ function thold_update_host_status() {
 					$downtimemsg = $downtime_seconds . 's ';
 				}
 			} else {
-				$downtimemsg = 'N/A';
+				$downtimemsg = __('N/A', 'thold');
 			}
 
 			$subject = read_config_option('thold_down_subject');
@@ -563,7 +572,7 @@ function thold_update_host_status() {
 			}
 			$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
 			$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
-			$subject = str_replace('<DOWN/UP>', 'DOWN', $subject);
+			$subject = str_replace('<DOWN/UP>', __('DOWN', 'thold'), $subject);
 			$subject = strip_tags($subject);
 
 			$msg = read_config_option('thold_down_text');
@@ -576,7 +585,7 @@ function thold_update_host_status() {
 			$msg = str_replace('<UPTIME>', '', $msg);
 			$msg = str_replace('<DOWNTIME>', $downtimemsg, $msg);
 			$msg = str_replace('<MESSAGE>', $host['status_last_error'], $msg);
-			$msg = str_replace('<DOWN/UP>', 'DOWN', $msg);
+			$msg = str_replace('<DOWN/UP>', __('DOWN', 'thold'), $msg);
 			$msg = str_replace('<SNMP_HOSTNAME>', '', $msg);
 			$msg = str_replace('<SNMP_LOCATION>', '', $msg);
 			$msg = str_replace('<SNMP_CONTACT>', '', $msg);

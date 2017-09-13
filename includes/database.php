@@ -271,8 +271,8 @@ function thold_upgrade_database () {
 
 		$data = array();
 		$data['columns'][] = array('name' => 'pid', 'type' => 'varchar(25)', 'NULL' => false);
-		$data['columns'][] = array('name' => 'start', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
-		$data['columns'][] = array('name' => 'end', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+		$data['columns'][] = array('name' => 'start', 'type' => 'double', 'NULL' => false, 'default' => '0');
+		$data['columns'][] = array('name' => 'end', 'type' => 'double', 'NULL' => false, 'default' => '0');
 		$data['columns'][] = array('name' => 'processed_items', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
 
 		$data['primary']   = 'pid';
@@ -333,6 +333,8 @@ function thold_upgrade_database () {
 	if (!db_column_exists('plugin_thold_daemon_processes', 'poller_id')) {
 		db_execute("ALTER TABLE plugin_thold_daemon_processes 
 			ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' FIRST,
+			MODIFY COLUMN start double NOT NULL default '0',
+			MODIFY COLUMN end double NOT NULL default '0',
 			DROP PRIMARY KEY, ADD PRIMARY KEY (`poller_id`, `pid`)");
 	}
 
@@ -585,8 +587,8 @@ function thold_setup_database () {
 	$data = array();
 	$data['columns'][] = array('name' => 'poller_id', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1');
 	$data['columns'][] = array('name' => 'pid', 'type' => 'varchar(25)', 'NULL' => false);
-	$data['columns'][] = array('name' => 'start', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'end', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'start', 'type' => 'double', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'end', 'type' => 'double', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'processed_items', 'type' => 'mediumint(8)', 'NULL' => false, 'default' => '0');
 
 	$data['primary']   = 'pid';

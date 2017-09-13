@@ -125,9 +125,9 @@ if (sizeof($parms)) {
 if ($pid === false) {
 	display_help();
 }else {
-	db_execute_prepared("UPDATE plugin_thold_daemon_processes 
-		SET start = ? WHERE pid = ? AND poller_id = ?", 
-		array(time(), $pid, $config['poller_id']));
+	db_execute_prepared('UPDATE plugin_thold_daemon_processes 
+		SET start = ? WHERE pid = ? AND poller_id = ?', 
+		array(microtime(true), $pid, $config['poller_id']));
 }
 
 $sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed, 
@@ -235,7 +235,7 @@ if (sizeof($tholds)) {
 		SET end = ?, processed_items = ? 
 		WHERE pid = ?
 		AND poller_id = ?',
-		array(time(), $total_tholds, $pid, $config['poller_id'])
+		array(microtime(true), $total_tholds, $pid, $config['poller_id'])
 	);
 }
 

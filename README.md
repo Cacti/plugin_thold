@@ -38,6 +38,7 @@ The thold plugin has been in development for well over a decade with increasing 
 
 --- 1.0.4 ---
 * feature: First attempt of thresholding by data collector.  Note that if you are using the thold daemon, you will need to run on each data collector.
+* feature: Report Thold Daemon Runtime with Millisecond precision.
 * issue: Fully convert the thold daemon to Cacti 1.x.  Old converted thold daemon was generating MySQL 2006 errors due to a feature in PDO
 
 --- 1.0.3 ---

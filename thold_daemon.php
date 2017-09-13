@@ -33,23 +33,23 @@ function sig_handler($signo) {
 	global $config;
 
 	switch ($signo) {
-		case SIGTERM:
-		case SIGINT:
-			db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
-				WHERE poller_id = ?', 
-				array($config['poller_id']));
+	case SIGTERM:
+	case SIGINT:
+		db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
+			WHERE poller_id = ?', 
+			array($config['poller_id']));
 
-			db_execute_prepared('DELETE FROM plugin_thold_daemon_data 
-				WHERE poller_id = ?', 
-				array($config['poller_id']));
+		db_execute_prepared('DELETE FROM plugin_thold_daemon_data 
+			WHERE poller_id = ?', 
+			array($config['poller_id']));
 
-			cacti_log('WARNING: Thold Daemon Process (' . getmypid() . ') terminated by user', FALSE, 'thold');
+		cacti_log('WARNING: Thold Daemon Process (' . getmypid() . ') terminated by user', false, 'THOLD');
 
-			exit;
+		exit;
 
-			break;
-		default:
-			/* ignore all other signals */
+		break;
+	default:
+		/* ignore all other signals */
 	}
 }
 
@@ -78,7 +78,7 @@ require_once($config['base_path'] . '/lib/poller.php');
 
 $no_http_headers = true;
 
-global $cnn_id;
+global $cnn_id, $config;
 
 /* process calling arguments */
 $parms = $_SERVER['argv'];
@@ -98,7 +98,7 @@ if (sizeof($parms)) {
 		switch ($arg) {
 			case '-d':
 			case '--debug':
-				$debug = TRUE;
+				$debug = true;
 				break;
 			case '-f':
 			case '--foreground':
@@ -156,6 +156,8 @@ if (!$foreground) {
 		} elseif ($pid == 0) {
 			// We are the child
 		} else {
+			cacti_log('THOLD DAEMON Started on ' . gethostname(), false, 'SYSTEM');;
+
 			// We are the parent, output and exit
 			print '[OK]' . PHP_EOL;
 
@@ -212,6 +214,8 @@ while (true) {
 
 		$queued_processes = sizeof($queue);
 
+		cacti_log('Processes Queued:' . $queued_processes, false, 'THOLD', POLLER_VERBOSITY_LOW);
+
 		if ($queued_processes) {
 			$thold_max_concurrent_processes = read_config_option('thold_max_concurrent_processes');
 
@@ -228,9 +232,9 @@ while (true) {
 				for ($i=0; $i<$free_processes; $i++) {
 					if (isset($queue[$i])) {
 						$pid = $queue[$i]['pid'];
-						$process = $path_php_binary . ' ' . $config['base_path'] . '/plugins/thold/thold_process.php ' . "--pid=$pid > /dev/null &";
-						cacti_log("DEBUG: Starting process: $process", false, 'THOLD', POLLER_VERBOSITY_DEBUG);
-						exec($process);
+						$process = ' -q ' . $config['base_path'] . '/plugins/thold/thold_process.php --pid=' . $pid . ' > /dev/null';
+						cacti_log('DEBUG: Starting process: ' . $path_php_binary . ' ' . $process, false, 'THOLD', POLLER_VERBOSITY_LOW);
+						exec_background($path_php_binary, $process);
 					} else {
 						break;
 					}
