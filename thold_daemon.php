@@ -171,7 +171,7 @@ if (!$foreground) {
 	print '[NOTE] The Thold Daemon is running in foreground mode.' . PHP_EOL;
 }
 
-sleep(5);
+sleep(2);
 
 // The database connection looses state as parent, so reconnect regardless
 $cnn_id = thold_db_reconnect($cnn_id);
@@ -201,6 +201,7 @@ if ($config['poller_id'] == 1) {
 }
 
 $path_php_binary = read_config_option('path_php_binary');
+$queued_processes = 0;
 
 while (true) {
 	if (thold_db_connection()) {
@@ -246,7 +247,9 @@ while (true) {
 		$cnn_id = thold_db_reconnect($cnn_id);
 	}
 
-	sleep(2);
+	if ($queued_processes == 0) {
+		sleep(2);
+	}
 }
 
 function thold_db_connection(){
