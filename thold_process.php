@@ -135,7 +135,7 @@ $sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
 	td.percent_ds, td.expression, td.data_type, td.cdef, td.local_data_id,
 	td.data_template_rrd_id, td.lastread,
 	UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
-	dtr.data_source_name as name, dtr.data_source_type_id, 
+	dtr.data_source_name, dtr.data_source_type_id, 
 	dtd.rrd_step, dtr.rrd_maximum
 	FROM plugin_thold_daemon_data AS tdd
 	INNER JOIN thold_data AS td
@@ -191,7 +191,7 @@ if (sizeof($tholds)) {
 		db_execute_prepared("UPDATE thold_data 
 			SET tcheck = 1, lastread= ?, lasttime = ?, oldvalue = ?
 			WHERE id = ?",
-			array($currentval, date('Y-m-d H:i:s', $currenttime),  $item[$thold_data['name']], $thold_data['thold_id'])
+			array($currentval, date('Y-m-d H:i:s', $currenttime),  $item[$thold_data['data_source_name']], $thold_data['thold_id'])
 		);
 	}
 
