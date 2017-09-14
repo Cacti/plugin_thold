@@ -191,9 +191,10 @@ function thold_poller_output(&$rrd_update_array) {
 				$sql_insert = 'INSERT INTO plugin_thold_daemon_data 
 					(poller_id, id, pid, rrd_reindexed, rrd_time_reindexed) VALUES ';
 
-				$sql_values = '';
-				$x          = 0;
 				foreach ($thold_items as $packet) {
+					$sql_values = '';
+					$x          = 0;
+
 					foreach ($packet as $thold_item) {
 						$sql_values .= ($x > 0 ? ', ':'') . '(' . 
 							$config['poller_id'] . ', ' .
@@ -206,7 +207,6 @@ function thold_poller_output(&$rrd_update_array) {
 					}
 
 					db_execute($sql_insert . $sql_values);
-					$sql_values = '';
 				}
 
 				/* queue a new thold process */
