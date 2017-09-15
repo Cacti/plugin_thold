@@ -35,13 +35,19 @@ function sig_handler($signo) {
 	switch ($signo) {
 	case SIGTERM:
 	case SIGINT:
-		db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
-			WHERE poller_id = ?', 
-			array($config['poller_id']));
+		if (read_config_option('remote_storage_method') == 1) {
+			db_execute_prepared('DELETE FROM plugin_thold_daemon_processes
+				WHERE poller_id = ?',
+				array($config['poller_id']));
 
-		db_execute_prepared('DELETE FROM plugin_thold_daemon_data 
-			WHERE poller_id = ?', 
-			array($config['poller_id']));
+			db_execute_prepared('DELETE FROM plugin_thold_daemon_data
+				WHERE poller_id = ?',
+				array($config['poller_id']));
+		} else {
+			db_execute('TRUNCATE plugin_thold_daemon_processes');
+
+			db_execute('TRUNCATE plugin_thold_daemon_data');
+		}
 
 		cacti_log('WARNING: Thold Daemon Process (' . getmypid() . ') terminated by user', false, 'THOLD');
 
@@ -70,13 +76,19 @@ set_time_limit(0);
 /* we do not need so much memory */
 ini_set('memory_limit', '256M');
 
+$no_http_headers = true;
+
 chdir(dirname(__FILE__));
 chdir('../../');
 
-require_once('./include/global.php');
-require_once($config['base_path'] . '/lib/poller.php');
+include_once('./include/global.php');
+include_once($config['base_path'] . '/lib/poller.php');
 
-$no_http_headers = true;
+/* install signal handlers for Linux/UNIX only */
+if (function_exists('pcntl_signal')) {
+	pcntl_signal(SIGTERM, 'sig_handler');
+	pcntl_signal(SIGINT, 'sig_handler');
+}
 
 global $cnn_id, $config;
 
@@ -87,7 +99,7 @@ $debug      = false;
 $foreground = false;
 
 if (sizeof($parms)) {
-	foreach($parms as $parameter) {
+	foreach ($parms as $parameter) {
 		if (strpos($parameter, '=')) {
 			list ($arg, $value) = explode('=', $parameter);
 		} else {
@@ -139,6 +151,12 @@ if (sizeof($output) >= 2) {
     return;
 }
 
+/* do not run the thold daemon on the remote server in central storage mode */
+if (read_config_option('remote_storage_method') != 1 && $config['poller_id'] > 1) {
+	print 'In Central Storage Mode, the thold_daemon only runs on the main data collector.' . PHP_EOL;
+	exit(1);
+}
+
 print 'Starting Thold Daemon ... ';
 
 if (!$foreground) {
@@ -156,7 +174,7 @@ if (!$foreground) {
 		} elseif ($pid == 0) {
 			// We are the child
 		} else {
-			cacti_log('THOLD DAEMON Started on ' . gethostname(), false, 'SYSTEM');;
+			cacti_log('NOTE: Thold Daemon Started on ' . gethostname(), false, 'THOLD');;
 
 			// We are the parent, output and exit
 			print '[OK]' . PHP_EOL;
@@ -176,28 +194,37 @@ sleep(2);
 // The database connection looses state as parent, so reconnect regardless
 $cnn_id = thold_db_reconnect($cnn_id);
 
-db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
-	WHERE poller_id = ?', 
-	array($config['poller_id']));
-
-db_execute_prepared('DELETE FROM plugin_thold_daemon_data 
-	WHERE poller_id = ?', 
-	array($config['poller_id']));
-
-// Poller 1 handles external the special case of external data sources
-if ($config['poller_id'] == 1) {
-	db_execute('UPDATE thold_data AS td
-		LEFT JOIN host AS h
-		ON td.host_id = h.id
-		SET td.thold_daemon_pid = "" 
-		WHERE (h.poller_id = 1 OR h.poller_id IS NULL)');
-} else {
-	db_execute_prepared('UPDATE thold_data AS td
-		LEFT JOIN host AS h
-		ON td.host_id = h.id
-		SET td.thold_daemon_pid = "" 
-		WHERE poller_id = ?', 
+if (read_config_option('remote_storage_method') == 1) {
+	db_execute_prepared('DELETE FROM plugin_thold_daemon_processes
+		WHERE poller_id = ?',
 		array($config['poller_id']));
+
+	db_execute_prepared('DELETE FROM plugin_thold_daemon_data
+		WHERE poller_id = ?',
+		array($config['poller_id']));
+
+	// Poller 1 handles external the special case of external data sources
+	if ($config['poller_id'] == 1) {
+		db_execute('UPDATE thold_data AS td
+			LEFT JOIN host AS h
+			ON td.host_id = h.id
+			SET td.thold_daemon_pid = ""
+			WHERE (h.poller_id = 1 OR h.poller_id IS NULL)');
+	} else {
+		db_execute_prepared('UPDATE thold_data AS td
+			LEFT JOIN host AS h
+			ON td.host_id = h.id
+			SET td.thold_daemon_pid = ""
+			WHERE poller_id = ?',
+			array($config['poller_id']));
+	}
+} elseif ($config['poller_id'] == 1) {
+	db_execute('TRUNCATE plugin_thold_daemon_processes');
+
+	db_execute('TRUNCATE plugin_thold_daemon_data');
+
+	db_execute('UPDATE thold_data AS td
+		SET td.thold_daemon_pid = ""');
 }
 
 $path_php_binary = read_config_option('path_php_binary');
@@ -205,50 +232,78 @@ $queued_processes = 0;
 
 while (true) {
 	if (thold_db_connection()) {
-		// Initiate concurrent background processes as long as we do not hit the limits 
-		$queue = db_fetch_assoc_prepared('SELECT * 
-			FROM plugin_thold_daemon_processes 
-			WHERE start = 0 
-			AND poller_id = ?
-			ORDER BY pid',
-			array($config['poller_id']));
+		// Initiate concurrent background processes as long as we do not hit the limits
+		if (read_config_option('remote_storage_method') == 1) {
+			$queue = db_fetch_assoc_prepared('SELECT *
+				FROM plugin_thold_daemon_processes
+				WHERE start = 0
+				AND poller_id = ?
+				ORDER BY pid',
+				array($config['poller_id']));
+		} else {
+			$queue = db_fetch_assoc('SELECT *
+				FROM plugin_thold_daemon_processes
+				WHERE start = 0
+				ORDER BY pid');
+		}
 
 		$queued_processes = sizeof($queue);
 
-		cacti_log('Processes Queued:' . $queued_processes, false, 'THOLD', POLLER_VERBOSITY_LOW);
+		thold_debug('Processes Queued: ' . $queued_processes);
 
 		if ($queued_processes) {
 			$thold_max_concurrent_processes = read_config_option('thold_max_concurrent_processes');
 
-			$running_processes = db_fetch_cell_prepared('SELECT COUNT(*) 
-				FROM plugin_thold_daemon_processes 
-				WHERE start != 0 
-				AND end = 0
-				AND poller_id = ?',
-				array($config['poller_id']));
+			if (read_config_option('remote_storage_method') == 1) {
+				$running_processes = db_fetch_cell_prepared('SELECT COUNT(*)
+					FROM plugin_thold_daemon_processes
+					WHERE start > 0
+					AND end = 0
+					AND poller_id = ?',
+					array($config['poller_id']));
+			} else {
+				$running_processes = db_fetch_cell('SELECT COUNT(*)
+					FROM plugin_thold_daemon_processes
+					WHERE start > 0
+					AND end = 0');
+			}
+
+			thold_debug('Processes Running: ' . $running_processes);
 
 			$free_processes = $thold_max_concurrent_processes - $running_processes;
 
-			if ($free_processes) {
-				for ($i=0; $i<$free_processes; $i++) {
-					if (isset($queue[$i])) {
-						$pid = $queue[$i]['pid'];
-						$process = ' -q ' . $config['base_path'] . '/plugins/thold/thold_process.php --pid=' . $pid . ' > /dev/null';
-						cacti_log('DEBUG: Starting process: ' . $path_php_binary . ' ' . $process, false, 'THOLD', POLLER_VERBOSITY_LOW);
-						exec_background($path_php_binary, $process);
-					} else {
+			thold_debug('Processes Free: ' . $free_processes);
+
+			$launched = 0;
+			if ($free_processes > 0) {
+				foreach ($queue as $proc) {
+					$pid     = $proc['pid'];
+
+					/* mark the pid as started from here */
+					db_execute_prepared('UPDATE plugin_thold_daemon_processes 
+						SET start = ? 
+						WHERE pid = ?', 
+						array(microtime(true), $pid));
+
+					$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --pid=' . $pid . ' > /dev/null';
+
+					thold_debug('Starting process: ' . $path_php_binary . ' -q ' . $process, false, 'THOLD');
+
+					exec_background($path_php_binary, $process);
+					$launched++;
+
+					if ($launched >= $free_processes) {
 						break;
 					}
 				}
 			}
+		} else {
+			thold_debug('Idle Sleeping');
+			sleep(2);
 		}
 	} else {
 		// try to reconnect if the test was no good
 		$cnn_id = thold_db_reconnect($cnn_id);
-	}
-
-	if ($queued_processes == 0) {
-		sleep(2);
 	}
 }
 
@@ -297,6 +352,16 @@ function thold_db_reconnect($cnn_id = null) {
 
 function thold_db_error_handler() {
 	return true;
+}
+
+function thold_debug($string) {
+	global $debug;
+
+	if ($debug) {
+		$output = 'DEBUG: ' . trim($string);
+
+		print $output . PHP_EOL;
+	}
 }
 
 function display_version() {
