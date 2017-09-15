@@ -135,6 +135,11 @@ function thold_poller_bottom() {
 				AND disabled="" 
 				AND poller_id = ?', 
 				array($config['poller_id']));
+
+			$remaining = db_fetch_cell_prepared('SELECT count(*)
+				FROM plugin_thold_daemon_data
+				WHERE poller_id = ?',
+				array($config['poller_id']));
 		} else {
 			$stats = db_fetch_row_prepared('SELECT
 				COUNT(*) as completed,
@@ -176,6 +181,9 @@ function thold_poller_bottom() {
 				FROM host 
 				WHERE status=1 
 				AND disabled=""');
+
+			$remaining = db_fetch_cell('SELECT count(*)
+				FROM plugin_thold_daemon_data');
 		}
 
 		if (!sizeof($stats)) {
@@ -186,8 +194,8 @@ function thold_poller_bottom() {
 		}
 
 		/* log statistics */
-		$thold_stats = sprintf('TotalTime:%0.3f MaxRuntime:%0.3f TholdsProcessed:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u MaxProcesses:%u Completed:%u Running:%u Broken:%u', 
-			$stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], 
+		$thold_stats = sprintf('TotalTime:%0.3f MaxRuntime:%0.3f Processed:%u InProcess:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u MaxProcesses:%u Completed:%u Running:%u Broken:%u', 
+			$stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $remaining, 
 			$total_hosts, $down_hosts, $nhosts, $max_concurrent_processes, $stats['completed'], $running_processes, $broken_processes);
 
 		cacti_log('THOLD DAEMON STATS: ' . $thold_stats, false, 'SYSTEM');
