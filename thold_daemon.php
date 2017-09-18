@@ -43,10 +43,27 @@ function sig_handler($signo) {
 			db_execute_prepared('DELETE FROM plugin_thold_daemon_data
 				WHERE poller_id = ?',
 				array($config['poller_id']));
+
+			if ($config['poller_id'] == 1) {
+				db_execute('UPDATE thold_data AS td
+					LEFT JOIN host AS h
+					ON td.host_id = h.id
+					SET td.thold_daemon_pid = ""
+					WHERE (h.poller_id = 1 OR h.poller_id IS NULL)
+					AND td.thold_daemon_pid != ""');
+			} else {
+				db_execute_prepared('UPDATE thold_data AS td
+					LEFT JOIN host AS h
+					ON td.host_id = h.id
+					SET td.thold_daemon_pid = ""
+					WHERE poller_id = ?
+					AND td.thold_daemon_pid != ""',
+					array($config['poller_id']));
+			}
 		} else {
 			db_execute('TRUNCATE plugin_thold_daemon_processes');
-
 			db_execute('TRUNCATE plugin_thold_daemon_data');
+			db_execute('UPDATE thold_data SET thold_daemon_pid = "" WHERE thold_daemon_pid != ""');
 		}
 
 		cacti_log('WARNING: Thold Daemon Process (' . getmypid() . ') terminated by user', false, 'THOLD');
@@ -224,7 +241,8 @@ if (read_config_option('remote_storage_method') == 1) {
 	db_execute('TRUNCATE plugin_thold_daemon_data');
 
 	db_execute('UPDATE thold_data AS td
-		SET td.thold_daemon_pid = ""');
+		SET thold_daemon_pid = ""
+		WHERE thold_daemon_pid != ""');
 }
 
 $path_php_binary = read_config_option('path_php_binary');
