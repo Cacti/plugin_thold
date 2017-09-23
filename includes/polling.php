@@ -84,7 +84,8 @@ function thold_poller_bottom() {
 		$db_conn = db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
 		$db_conn->beginTransaction();
 
-		if (read_config_option('remote_storage_method') == 1) {
+		if (read_config_option('remote_storage_method') == 1) 
+		{
 			$stats = db_fetch_row_prepared('SELECT
 				COUNT(*) as completed,
 				SUM(processed_items) as processed_items,
@@ -140,7 +141,9 @@ function thold_poller_bottom() {
 				FROM plugin_thold_daemon_data
 				WHERE poller_id = ?',
 				array($config['poller_id']));
-		} else {
+		} 
+		else 
+		{
 			$stats = db_fetch_row_prepared('SELECT
 				COUNT(*) as completed,
 				SUM(processed_items) as processed_items,
@@ -163,10 +166,11 @@ function thold_poller_bottom() {
 				AND end = 0');
 
 			/* system clean up */
-			db_execute_prepared('DELETE FROM plugin_thold_daemon_processes 
-				WHERE end > 0 
-				AND end <= ?',
-				array($now));
+			db_execute_prepared('DELETE FROM plugin_thold_daemon_processes WHERE (end > 0 AND end <= ?) OR (start <= ? AND end = 0)', array($now, $now-600));
+
+			db_execute_prepared('DELETE FROM plugin_thold_daemon_data WHERE rrd_time_reindexed <= ?', array($now - 600));
+
+			db_execute_prepared('Update thold_data set thold_daemon_pid = "" WHERE UNIX_TIMESTAMP(lasttime) <= ?', array($now - 600));
 
 			/* host_status processed by thold server */
 			$nhosts = thold_update_host_status();
@@ -223,8 +227,10 @@ function thold_poller_output(&$rrd_update_array) {
 	$local_data_ids     = '';
 	$x                  = 0;
 
-	foreach ($rrd_update_array as $item) {
-		if (isset($item['times'][key($item['times'])])) {
+	foreach ($rrd_update_array as $item) 
+	{
+		if (isset($item['times'][key($item['times'])])) 
+		{
 			$local_data_ids .= ($x > 0 ? ', ':'') . $item['local_data_id'];
 			$rrd_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
 			$rrd_time_reindexed[$item['local_data_id']] = key($item['times']);
@@ -232,59 +238,95 @@ function thold_poller_output(&$rrd_update_array) {
 		}
 	}
 
-	if ($local_data_ids != '') {
-		if (read_config_option('thold_daemon_enable') == 'on') {
-			/* assign a new process id */
-			$thold_pid = microtime(true);
+	if ($local_data_ids != '')
+	{
+		if (read_config_option('thold_daemon_enable') == 'on') 
+		{
+			$chunks = sizeof($rrd_update_array) / 50;
+			if ($chunks < 1) $chunks = 1;
 
-			$thold_items = db_fetch_assoc("SELECT id, local_data_id
-				FROM thold_data
-				WHERE thold_daemon_pid = ''
-				AND thold_data.local_data_id IN ($local_data_ids)");
+			$rrd_update_array_chunks = array_chunk($rrd_update_array, $chunks, true);
 
-			if ($thold_items) {
-				/* avoid that concurrent processes will work on the same thold items */
-				db_execute_prepared("UPDATE thold_data
-					SET thold_data.thold_daemon_pid = ?
-					WHERE thold_daemon_pid = ''
-					AND thold_data.local_data_id IN ($local_data_ids)", 
-					array($thold_pid));
+			foreach($rrd_update_array_chunks as $rrd_update_array_chunk) 
+			{
+				$rrd_reindexed      = array();
+				$rrd_time_reindexed = array();
+				$local_data_ids     = '';
+				$thold_items        = 0;
+				$x                  = 0;
 
-				/* cache required polling data. prefer bulk inserts for performance reasons - start with chunks of 1000 items*/
-				$sql_max_inserts = 1000;
-				$thold_items = array_chunk($thold_items, $sql_max_inserts);
-
-				$sql_insert = 'INSERT INTO plugin_thold_daemon_data 
-					(poller_id, id, pid, rrd_reindexed, rrd_time_reindexed) VALUES ';
-
-				foreach ($thold_items as $packet) {
-					$sql_values = '';
-					$x          = 0;
-
-					foreach ($packet as $thold_item) {
-						$sql_values .= ($x > 0 ? ', ':'') . '(' . 
-							$config['poller_id'] . ', ' .
-							$thold_item['id'] . ", '" . 
-							$thold_pid . "', " . 
-							db_qstr(serialize($rrd_reindexed[$thold_item['local_data_id']])) . ', ' . 
-							$rrd_time_reindexed[$thold_item['local_data_id']] . ')';
-
+				foreach($rrd_update_array_chunk as $item) 
+				{
+					if (isset($item['times'][key($item['times'])])) 
+					{
+						if ($x) {
+							$local_data_ids .= ',';
+						}
+						$local_data_ids .= $item['local_data_id'];
+						$rrd_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
+						$rrd_time_reindexed[$item['local_data_id']] = key($item['times']);
 						$x++;
 					}
-
-					db_execute($sql_insert . $sql_values);
 				}
 
-				/* queue a new thold process */
-				db_execute_prepared('INSERT INTO plugin_thold_daemon_processes 
-					(poller_id, pid) 
-					VALUES(?, ?)',
-					array($config['poller_id'], $thold_pid));
+				/* assign a new process id */
+				$thold_pid = microtime(true);
+
+				if ($x > 0)
+				{
+					$thold_items = db_fetch_assoc("SELECT id, local_data_id
+						FROM thold_data
+						WHERE thold_daemon_pid = ''
+						AND thold_data.local_data_id IN ($local_data_ids)");
+				}
+
+				if ($thold_items ) 
+				{
+					/* avoid that concurrent processes will work on the same thold items */
+					db_execute_prepared("UPDATE thold_data
+						SET thold_data.thold_daemon_pid = ?
+						WHERE thold_daemon_pid = ''
+						AND thold_data.local_data_id IN ($local_data_ids)", 
+						array($thold_pid));
+
+					/* cache required polling data. prefer bulk inserts for performance reasons - start with chunks of 1000 items*/
+					$sql_max_inserts = 1000;
+					$thold_items = array_chunk($thold_items, $sql_max_inserts);
+
+					$sql_insert = 'INSERT INTO plugin_thold_daemon_data 
+						(poller_id, id, pid, rrd_reindexed, rrd_time_reindexed) VALUES ';
+
+					foreach ($thold_items as $packet) {
+						$sql_values = '';
+						$x          = 0;
+
+						foreach ($packet as $thold_item) {
+							$sql_values .= ($x > 0 ? ', ':'') . '(' . 
+								$config['poller_id'] . ', ' .
+								$thold_item['id'] . ", '" . 
+								$thold_pid . "', " . 
+								db_qstr(serialize($rrd_reindexed[$thold_item['local_data_id']])) . ', ' . 
+								$rrd_time_reindexed[$thold_item['local_data_id']] . ')';
+
+							$x++;
+						}
+
+						db_execute($sql_insert . $sql_values);
+					}
+
+					/* queue a new thold process */
+					db_execute_prepared('INSERT INTO plugin_thold_daemon_processes 
+						(poller_id, pid) 
+						VALUES(?, ?)',
+						array($config['poller_id'], $thold_pid));
+				}
 			}
 
 			return $rrd_update_array;
 		}
-	} else {
+	} 
+	else 
+	{
 		return $rrd_update_array;
 	}
 
