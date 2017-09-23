@@ -436,7 +436,10 @@ function thold_update_host_status() {
 
 	// Return if we aren't set to notify
 	$deadnotify = (read_config_option('alert_deadnotify') == 'on');
-	if (!$deadnotify) return 0;
+
+	if (!$deadnotify) {
+		return false;
+	}
 
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
@@ -444,7 +447,7 @@ function thold_update_host_status() {
 		include_once($config['base_path'] . '/plugins/maint/functions.php');
 	}
 
-	$alert_email = read_config_option('alert_email');
+	$alert_email        = read_config_option('alert_email');
 	$ping_failure_count = read_config_option('ping_failure_count');
 
 	// Lets find hosts that were down, but are now back up
