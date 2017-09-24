@@ -795,7 +795,7 @@ function thold_update_host_status() {
 					continue;
 				}
 			}
-			$failed .= ($failed != '' ? '), (' : '(') . $host['id'];
+			$failed .= ($failed != '' ? '), (':'(') . $host['id'];
 		}
 		$failed .= ')';
 
