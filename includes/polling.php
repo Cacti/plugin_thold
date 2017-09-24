@@ -247,8 +247,8 @@ function thold_poller_output(&$rrd_update_array) {
 
 	foreach ($rrd_update_array as $item) {
 		if (isset($item['times'][key($item['times'])])) {
-			$local_data_ids .= ($x > 0 ? ', ' : '') . $item['local_data_id'];
-			$rrd_reindexed[$item['local_data_id']]	  = $item['times'][key($item['times'])];
+			$local_data_ids .= ($x > 0 ? ', ':'') . $item['local_data_id'];
+			$rrd_reindexed[$item['local_data_id']] = $item['times'][key($item['times'])];
 			$rrd_time_reindexed[$item['local_data_id']] = key($item['times']);
 			$x++;
 		}
