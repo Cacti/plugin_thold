@@ -356,7 +356,7 @@ function thold_poller_output(&$rrd_update_array) {
 		foreach ($tholds as $thold_data) {
 			thold_debug("Checking Threshold: Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
 
-			$item		= array();
+			$item        = array();
 			$currenttime = 0;
 			$currentval  = thold_get_currentval($thold_data, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
 
