@@ -39,7 +39,7 @@ function thold_poller_bottom() {
 		$tholds = thold_check_all_thresholds();
 		$nhosts = thold_update_host_status();
 
-		thold_cleanup_log();
+		thold_cleanup_log ();
 
 		/* record the end time */
 		$end = microtime(true);
