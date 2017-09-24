@@ -216,7 +216,9 @@ function thold_poller_bottom() {
 		}
 
 		/* log statistics */
-		$thold_stats = sprintf('TotalTime:%0.3f MaxRuntime:%0.3f Processed:%u InProcess:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u MaxProcesses:%u Completed:%u Running:%u Broken:%u', $stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $remaining, $total_hosts, $down_hosts, $nhosts, $max_concurrent_processes, $stats['completed'], $running_processes, $broken_processes);
+		$thold_stats = sprintf('TotalTime:%0.3f MaxRuntime:%0.3f Processed:%u InProcess:%u TotalDevices:%u DownDevices:%u NewDownDevices:%u MaxProcesses:%u Completed:%u Running:%u Broken:%u', 
+			$stats['total_processing_time'], $stats['max_processing_time'], $stats['processed_items'], $remaining, 
+			$total_hosts, $down_hosts, $nhosts, $max_concurrent_processes, $stats['completed'], $running_processes, $broken_processes);
 
 		cacti_log('THOLD DAEMON STATS: ' . $thold_stats, false, 'SYSTEM');
 
