@@ -48,15 +48,15 @@ function thold_poller_bottom() {
 			$total_hosts = db_fetch_cell_prepared('SELECT count(*)
 				FROM host
 				WHERE disabled=""
-				AND poller_id = ?', array(
-				$config['poller_id']));
+				AND poller_id = ?', 
+				array($config['poller_id']));
 
 			$down_hosts = db_fetch_cell_prepared('SELECT count(*)
 				FROM host
 				WHERE status=1
 				AND disabled=""
-				AND poller_id = ?', array(
-				$config['poller_id']));
+				AND poller_id = ?', 
+				array($config['poller_id']));
 		} else {
 			$total_hosts = db_fetch_cell('SELECT count(*)
 				FROM host
