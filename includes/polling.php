@@ -209,9 +209,9 @@ function thold_poller_bottom() {
 		}
 
 		if (!sizeof($stats)) {
-			$stats['completed']			 = 0;
-			$stats['processed_items']	   = 0;
-			$stats['max_processing_time']   = 0;
+			$stats['completed'] = 0;
+			$stats['processed_items'] = 0;
+			$stats['max_processing_time'] = 0;
 			$stats['total_processing_time'] = 0;
 		}
 
