@@ -2772,7 +2772,7 @@ function thold_format_name($template, $local_graph_id, $local_data_id, $data_sou
 function get_reference_types($rra = 0, $step = 300) {
 	global $config, $timearray;
 
-	include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	$rra_steps = db_fetch_assoc('SELECT DISTINCT dspr.steps
 		FROM data_template_data AS dtd
