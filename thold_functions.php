@@ -3819,7 +3819,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 
     $version = db_fetch_cell("SELECT version
 		FROM plugin_config
-		WHERE name='thold'");
+		WHERE directory='thold'");
 
     $headers['X-Mailer']   = 'Cacti-Thold-v' . $version;
     $headers['User-Agent'] = 'Cacti-Thold-v' . $version;

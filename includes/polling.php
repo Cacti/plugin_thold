@@ -494,7 +494,7 @@ function thold_update_host_status() {
 		include_once($config['base_path'] . '/plugins/maint/functions.php');
 	}
 
-	$alert_email		= read_config_option('alert_email');
+	$alert_email        = read_config_option('alert_email');
 	$ping_failure_count = read_config_option('ping_failure_count');
 
 	// Lets find hosts that were down, but are now back up
