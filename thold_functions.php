@@ -1751,23 +1751,25 @@ function thold_check_threshold(&$thold_data) {
 
 	$local_graph_id = $thold_data['local_graph_id'];
 
-	/* only alert if Device is in UP mode (not down, unknown, or recovering) 
-	not needed anymore because check performed before
-	$h = db_fetch_row_prepared('SELECT * 
-		FROM host 
-		WHERE id = ?',
-		array($thold_data['host_id']));
+	$h = array();
+	if (isset($thold_data['hostname'])) {
+		/* function called during polling */
+		$h['snmp_engine_id'] =$thold_data['snmp_engine_id'];
+		$h['notes'] = $thold_data['notes'];
+		$h['description'] = $thold_data['description'];
+		$h['hostname'] = $thold_data['hostname'];
+	} else {
+		/* only alert if Device is in UP mode (not down, unknown, or recovering) */
+		$h = db_fetch_row_prepared('SELECT * 
+			FROM host 
+			WHERE id = ?',
+			array($thold_data['host_id']));
 
-	if (sizeof($h) && $h['status'] != 3) {
-		thold_debug('Threshold checking halted by Device Status (' . $h['status'] . ')' );
-		return;
+		if (sizeof($h) && $h['status'] != 3) {
+			thold_debug('Threshold checking halted by Device Status (' . $h['status'] . ')' );
+			return;
+		}
 	}
-	*/
-	/* set $h for following compatibility (TODO: code cleaning) */
-	$h = array('snmp_engine_id' => $thold_data['snmp_engine_id'], 
-			   'notes' => $thold_data['notes'],
-			   'description' => $thold_data['description	'],
-			   'hostname' => $thold_data['hostname']);
 
 	/* ensure that Cacti will make of individual defined SNMP Engine IDs */
 	$overwrite['snmp_engine_id'] = $h['snmp_engine_id'];
