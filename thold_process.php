@@ -228,16 +228,18 @@ if (sizeof($tholds)) {
 
 	/* check all thresholds */
 	if (read_config_option('remote_storage_method') == 1) {
-		$sql_query = "SELECT td.*, dtr.data_source_name
+		$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname, h.description, h.notes, h.snmp_engine_id
 			FROM plugin_thold_daemon_data AS tdd
 			INNER JOIN thold_data AS td
 			ON td.id = tdd.id
 			LEFT JOIN data_template_rrd AS dtr
 			ON dtr.id = td.data_template_rrd_id
+			LEFT JOIN host as h
+			ON td.host_id = h.id
 			WHERE tdd.pid = ? 
 			AND tdd.poller_id = ?
 			AND td.thold_enabled = 'on' 
-			AND td.tcheck = 1";
+			AND td.tcheck = 1 AND h.status=3";
 
 		$tholds = api_plugin_hook_function(
 			'thold_get_live_hosts', 
@@ -245,15 +247,17 @@ if (sizeof($tholds)) {
 				array($pid, $config['poller_id']))
 		);
 	} else {
-		$sql_query = "SELECT td.*, dtr.data_source_name
+		$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname, h.description, h.notes, h.snmp_engine_id
 			FROM plugin_thold_daemon_data AS tdd
 			INNER JOIN thold_data AS td
 			ON td.id = tdd.id
 			LEFT JOIN data_template_rrd AS dtr
 			ON dtr.id = td.data_template_rrd_id
+			LEFT JOIN host as h
+			ON td.host_id = h.id
 			WHERE tdd.pid = ? 
 			AND td.thold_enabled = 'on' 
-			AND td.tcheck = 1";
+			AND td.tcheck = 1 AND h.status=3";
 
 		$tholds = api_plugin_hook_function(
 			'thold_get_live_hosts', 
