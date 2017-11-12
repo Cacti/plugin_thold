@@ -38,6 +38,7 @@ The thold plugin has been in development for well over a decade with increasing 
 
 --- 1.0.4 ---
 * issue#117: ERROR: possible illegal string offset when sending mails
+* issue#125: Thold VRules Enabling and Disabling results in a broken page
 * issue#128: Thold log date format does not align with Cacti log format
 * issue#130: Correct errors relative to mailer headers
 * issue#131: Users without permissions can disable/enable tholds

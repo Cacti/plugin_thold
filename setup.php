@@ -23,7 +23,7 @@
  +-------------------------------------------------------------------------+
 */
 
-function plugin_thold_install ($upgrade = 0) {
+function plugin_thold_install($upgrade = 0) {
 	global $config;
 
 	if (version_compare($config['cacti_version'], '1.0.0') < 0) {
@@ -87,7 +87,7 @@ function plugin_thold_install ($upgrade = 0) {
 	}
 }
 
-function plugin_thold_uninstall () {
+function plugin_thold_uninstall() {
 	// Do any extra Uninstall stuff here
 	thold_snmpagent_cache_uninstall();
 
@@ -95,13 +95,13 @@ function plugin_thold_uninstall () {
 	db_execute('DELETE FROM settings WHERE name LIKE "%thold%"');
 }
 
-function plugin_thold_check_config () {
+function plugin_thold_check_config() {
 	// Here we will check to ensure everything is configured
-	 plugin_thold_upgrade ();
+	 plugin_thold_upgrade();
 	return true;
 }
 
-function plugin_thold_upgrade () {
+function plugin_thold_upgrade() {
 	// Here we will upgrade to the newest version
 	global $config;
 
@@ -120,7 +120,7 @@ function plugin_thold_upgrade () {
 	return true;
 }
 
-function plugin_thold_version () {
+function plugin_thold_version() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/thold/INFO', true);
 	return $info['info'];
@@ -130,7 +130,7 @@ function thold_check_dependencies() {
 	return true;
 }
 
-function plugin_thold_check_strict () {
+function plugin_thold_check_strict() {
 	$mode = db_fetch_cell("select @@global.sql_mode", false);
 	if (stristr($mode, 'strict') !== FALSE) {
 		return false;
@@ -142,6 +142,12 @@ function thold_graph_button($data) {
 	global $config;
 
 	$local_graph_id = $data[1]['local_graph_id'];
+
+	$thold_id = db_fetch_cell_prepared('SELECT id
+		FROM thold_data
+		WHERE local_graph_id = ?',
+		array($local_graph_id));
+
 	$rra_id = $data[1]['rra'];
 	if (isset_request_var('view_type') && !isempty_request_var('view_type')) {
 		$view_type = get_request_var('view_type');
@@ -191,8 +197,8 @@ function thold_graph_button($data) {
 		$separator = '&';
 	}
 
-	if (api_user_realm_auth('thold_graph.php')) {
-		print '<a class="iconLink" href="' .  $url . $separator . 'thold_vrule=' . $vrules . '"><img src="' . $config['url_path'] . 'plugins/thold/images/reddot.png" alt="" title="' . __esc('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"></a><br>';
+	if (api_user_realm_auth('thold_graph.php') && !empty($thold_id)) {
+		print '<a class="iconLink tholdVRule" href="' .  $url . $separator . 'thold_vrule=' . $vrules . '"><img src="' . $config['url_path'] . 'plugins/thold/images/reddot.png" alt="" title="' . __esc('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"></a><br>';
 	}
 
 	// Add Threshold Creation button
@@ -200,6 +206,7 @@ function thold_graph_button($data) {
 		if (isset_request_var('tree_id')) {
 			get_filter_request_var('tree_id');
 		}
+
 		if (isset_request_var('leaf_id')) {
 			get_filter_request_var('leaf_id');
 		}
@@ -208,12 +215,12 @@ function thold_graph_button($data) {
 	}
 }
 
-function thold_multiexplode ($delimiters, $string) {
+function thold_multiexplode($delimiters, $string) {
 	$ready = str_replace($delimiters, $delimiters[0], $string);
 	return  @explode($delimiters[0], $ready);
 }
 
-function thold_rrd_graph_graph_options ($g) {
+function thold_rrd_graph_graph_options($g) {
 	global $config;
 
 	/* handle thold replacement variables */
@@ -1225,7 +1232,7 @@ function thold_snmpagent_cache_install() {
 	}
 }
 
-function thold_snmpagent_cache_uninstall(){
+function thold_snmpagent_cache_uninstall() {
 	global $config;
 	if (class_exists('MibCache')) {
 		$mc = new MibCache('CACTI-THOLD-MIB');
@@ -1236,9 +1243,31 @@ function thold_snmpagent_cache_uninstall(){
 function thold_page_head() {
 	global $config;
 
-	if (file_exists($config['base_path'] . "/plugins/thold/themes/" . get_selected_theme() . "/main.css")) {
-		print "<link href='" . $config['url_path'] . "plugins/thold/themes/" . get_selected_theme() . "/main.css' type='text/css' rel='stylesheet'>\n";
+	if (file_exists($config['base_path'] . '/plugins/thold/themes/' . get_selected_theme() . '/main.css')) {
+		print "<link href='" . $config['url_path'] . 'plugins/thold/themes/' . get_selected_theme() . "/main.css' type='text/css' rel='stylesheet'>\n";
 	}
+
+	?>
+	<script type='text/javascript'>
+	$(function() {
+		$(document).ajaxComplete(function() {
+			$('.tholdVRule').unbind().click(function(event) {
+				event.preventDefault();
+
+				href = $(this).attr('href');
+				href += '&header=false';
+
+				$.get(href, function(data) {
+					$('#main').empty().hide();
+					$('div[class^="ui-"]').remove();
+					$('#main').html(data);
+					applySkin();
+				});
+			});
+		});
+	});
+	</script>
+	<?php
 }
 
 function thold_device_edit_pre_bottom() {
