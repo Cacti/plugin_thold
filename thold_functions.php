@@ -3975,8 +3975,13 @@ function thold_cacti_log($string) {
 	global $config;
 
 	$environ = 'THOLD';
+
 	/* fill in the current date for printing in the log */
-	$date = date('m/d/Y h:i:s A');
+	if (defined('CACTI_DATE_TIME_FORMAT')) {
+		$date = date(CACTI_DATE_TIME_FORMAT);
+	} else {
+		$date = date('Y-m-d H:i:s');
+	}
 
 	/* determine how to log data */
 	$logdestination = read_config_option('log_destination');
