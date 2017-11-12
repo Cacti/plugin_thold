@@ -690,8 +690,8 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 
 				$thold_item = db_fetch_row_prepared('SELECT td.id, td.local_graph_id,
 					td.percent_ds, td.expression, td.data_type, td.cdef, td.local_data_id,
-					td.data_template_rrd_id, td.lastread, UNIX_TIMESTAMP(td.lasttime) AS lasttime, 
-					td.oldvalue, dtr.data_source_name as name, 
+					td.data_template_rrd_id, td.lastread, UNIX_TIMESTAMP(td.lasttime) AS lasttime,
+					td.oldvalue, dtr.data_source_name as name,
 					dtr.data_source_type_id, dtd.rrd_step, dtr.rrd_maximum
 					FROM thold_data AS td
 					LEFT JOIN data_template_rrd AS dtr
@@ -699,7 +699,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					LEFT JOIN data_template_data AS dtd
 					ON dtd.local_data_id=td.local_data_id
 					WHERE dtr.data_source_name = ?
-					AND td.local_data_id = ?', 
+					AND td.local_data_id = ?',
 					array($dsname, $thold['local_data_id']));
 
 				if (sizeof($thold_item)) {
@@ -712,7 +712,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 						$value = db_fetch_cell_prepared('SELECT calculated
 							FROM data_source_stats_hourly_last
 							WHERE local_data_id = ?
-							AND rrd_name = ?', 
+							AND rrd_name = ?',
 							array($thold['local_data_id'], $dsname));
 					}
 
@@ -728,8 +728,8 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 				// Remove invalid characters
 				$item = str_replace('\\', '', $item);
 
-				$gl = db_fetch_row_prepared('SELECT * 
-					FROM graph_local 
+				$gl = db_fetch_row_prepared('SELECT *
+					FROM graph_local
 					WHERE id = ?',
 					array($thold['local_graph_id']));
 
@@ -875,7 +875,7 @@ function thold_substitute_host_data($string, $l_escape_string, $r_escape_string,
 	$field_name = trim(str_replace('|host_', '', $string),"| \n\r");
 
 	if (!isset($_SESSION['sess_host_cache_array'][$host_id])) {
-		$host = db_fetch_row_prepared('SELECT * 
+		$host = db_fetch_row_prepared('SELECT *
 			FROM host WHERE id = ?',
 			array($host_id));
 
@@ -1202,7 +1202,7 @@ function thold_user_auth_threshold($rra) {
 		ON gti.task_item_id=dtr.id
 		LEFT JOIN graph_local AS gl
 		ON gl.id=gti.local_graph_id
-		WHERE dtr.local_data_id = ?', 
+		WHERE dtr.local_data_id = ?',
 		array($rra));
 
 	if (!empty($graph) && is_graph_allowed($graph)) {
@@ -1283,9 +1283,9 @@ function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_
 
 	include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
-	$step = db_fetch_cell_prepared("SELECT rrd_step 
-		FROM data_template_data 
-		WHERE $field = ?", 
+	$step = db_fetch_cell_prepared("SELECT rrd_step
+		FROM data_template_data
+		WHERE $field = ?",
 		array($rra));
 
 	switch ($type) {
@@ -1318,8 +1318,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 	}
 
 	if (isset($_SESSION['sess_user_id'])) {
-		$user = db_fetch_cell_prepared('SELECT username 
-			FROM user_auth 
+		$user = db_fetch_cell_prepared('SELECT username
+			FROM user_auth
 			WHERE id = ?',
 			array($_SESSION['sess_user_id']));
 	} else {
@@ -1328,18 +1328,18 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 	switch ($changed) {
 	case 'enabled_threshold':
-		$thold = db_fetch_row_prepared('SELECT * 
-			FROM thold_data 
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_data
 			WHERE id = ?',
 			array($id));
 
-		$tname = db_fetch_cell_prepared('SELECT name 
-			FROM data_template 
+		$tname = db_fetch_cell_prepared('SELECT name
+			FROM data_template
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$ds = db_fetch_cell_prepared('SELECT data_source_name 
-			FROM data_template_rrd 
+		$ds = db_fetch_cell_prepared('SELECT data_source_name
+			FROM data_template_rrd
 			WHERE id = ?',
 			array($thold['data_template_rrd_id']));
 
@@ -1350,18 +1350,18 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'disabled_threshold':
-		$thold = db_fetch_row_prepared('SELECT * 
-			FROM thold_data 
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_data
 			WHERE id = ?',
 			array($id));
 
-		$tname = db_fetch_cell_prepared('SELECT name 
-			FROM data_template 
+		$tname = db_fetch_cell_prepared('SELECT name
+			FROM data_template
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$ds = db_fetch_cell_prepared('SELECT data_source_name 
-			FROM data_template_rrd 
+		$ds = db_fetch_cell_prepared('SELECT data_source_name
+			FROM data_template_rrd
 			WHERE id = ?',
 			array($thold['data_template_rrd_id']));
 
@@ -1372,18 +1372,18 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'reapply_name':
-		$thold = db_fetch_row_prepared('SELECT * 
-			FROM thold_data 
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_data
 			WHERE id = ?',
 			array($id));
 
-		$tname = db_fetch_cell_prepared('SELECT name 
-			FROM data_template 
+		$tname = db_fetch_cell_prepared('SELECT name
+			FROM data_template
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$ds = db_fetch_cell_prepared('SELECT data_source_name 
-			FROM data_template_rrd 
+		$ds = db_fetch_cell_prepared('SELECT data_source_name
+			FROM data_template_rrd
 			WHERE id = ?',
 			array($thold['data_template_rrd_id']));
 
@@ -1394,8 +1394,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'enabled_host':
-		$host = db_fetch_row_prepared('SELECT * 
-			FROM host 
+		$host = db_fetch_row_prepared('SELECT *
+			FROM host
 			WHERE id = ?',
 			array($id));
 
@@ -1403,8 +1403,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'disabled_host':
-		$host = db_fetch_row_prepared('SELECT * 
-			FROM host 
+		$host = db_fetch_row_prepared('SELECT *
+			FROM host
 			WHERE id = ?',
 			array($id));
 
@@ -1412,18 +1412,18 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'auto_created':
-		$thold = db_fetch_row_prepared('SELECT * 
-			FROM thold_data 
-			WHERE id = ?', 
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_data
+			WHERE id = ?',
 			array($id));
 
-		$tname = db_fetch_cell_prepared('SELECT name 
-			FROM data_template 
+		$tname = db_fetch_cell_prepared('SELECT name
+			FROM data_template
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$ds = db_fetch_cell_prepared('SELECT data_source_name 
-			FROM data_template_rrd 
+		$ds = db_fetch_cell_prepared('SELECT data_source_name
+			FROM data_template_rrd
 			WHERE id = ?',
 			array($thold['data_template_rrd_id']));
 
@@ -1434,18 +1434,18 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'created':
-		$thold = db_fetch_row_prepared('SELECT * 
-			FROM thold_data 
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_data
 			WHERE id = ?',
 			array($id));
 
-		$tname = db_fetch_cell_prepared('SELECT name 
-			FROM data_template 
+		$tname = db_fetch_cell_prepared('SELECT name
+			FROM data_template
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$ds = db_fetch_cell_prepared('SELECT data_source_name 
-			FROM data_template_rrd 
+		$ds = db_fetch_cell_prepared('SELECT data_source_name
+			FROM data_template_rrd
 			WHERE id = ?',
 			array($thold['data_template_rrd_id']));
 
@@ -1456,18 +1456,18 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'deleted':
-		$thold = db_fetch_row_prepared('SELECT * 
-			FROM thold_data 
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_data
 			WHERE id = ?',
 			array($id));
 
-		$tname = db_fetch_cell_prepared('SELECT name 
-			FROM data_template 
+		$tname = db_fetch_cell_prepared('SELECT name
+			FROM data_template
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$ds = db_fetch_cell_prepared('SELECT data_source_name 
-			FROM data_template_rrd 
+		$ds = db_fetch_cell_prepared('SELECT data_source_name
+			FROM data_template_rrd
 			WHERE id = ?',
 			array($thold['data_template_rrd_id']));
 
@@ -1478,9 +1478,9 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'deleted_template':
-		$thold = db_fetch_row_prepared('SELECT * 
-			FROM thold_template 
-			WHERE id = ?', 
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_template
+			WHERE id = ?',
 			array($id));
 
 		$desc  = "Deleted Template  User: $user  ID: $id";
@@ -1489,8 +1489,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'modified':
-		$thold = db_fetch_row_prepared('SELECT * 
-			FROM thold_data 
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_data
 			WHERE id = ?',
 			array($id));
 
@@ -1533,13 +1533,13 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			$desc = "Created Threshold  User: $user  ID:  <a href='" . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?local_data_id=' . $thold['local_data_id'] . '&view_rrd=' . $thold['data_template_rrd_id']) . "'>$id</a>";
 		}
 
-		$tname = db_fetch_cell_prepared('SELECT name 
-			FROM data_template 
+		$tname = db_fetch_cell_prepared('SELECT name
+			FROM data_template
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$ds = db_fetch_cell_prepared('SELECT data_source_name 
-			FROM data_template_rrd 
+		$ds = db_fetch_cell_prepared('SELECT data_source_name
+			FROM data_template_rrd
 			WHERE id = ?',
 			array($thold['data_template_rrd_id']));
 
@@ -1589,8 +1589,8 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		break;
 	case 'modified_template':
-		$thold = db_fetch_row_prepared('SELECT * 
-			FROM thold_template 
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_template
 			WHERE id = ?',
 			array($id));
 
@@ -1751,6 +1751,7 @@ function thold_check_threshold(&$thold_data) {
 
 	$local_graph_id = $thold_data['local_graph_id'];
 
+
 	$h = array();
 	if (isset($thold_data['hostname'])) {
 		/* function called during polling */
@@ -1764,6 +1765,7 @@ function thold_check_threshold(&$thold_data) {
 			FROM host 
 			WHERE id = ?',
 			array($thold_data['host_id']));
+  }
 
 		if (sizeof($h) && $h['status'] != 3) {
 			thold_debug('Threshold checking halted by Device Status (' . $h['status'] . ')' );
@@ -2034,7 +2036,7 @@ function thold_check_threshold(&$thold_data) {
 					SET thold_alert=0,
 					thold_fail_count=0,
 					thold_warning_fail_count=0
-					WHERE id = ?', 
+					WHERE id = ?',
 					array($thold_data['id']));
 
 				if ($thold_data['thold_warning_fail_count'] >= $warning_trigger && $thold_data['restored_alert'] != 'on') {
@@ -2762,9 +2764,9 @@ function thold_format_name($template, $local_graph_id, $local_data_id, $data_sou
 	$desc = db_fetch_cell_prepared('SELECT name_cache FROM data_template_data WHERE local_data_id = ? LIMIT 1', array($local_data_id));
 
 	if (isset($template['name']) && strpos($template['name'], '|') !== false) {
-		$gl = db_fetch_row_prepared('SELECT * 
-			FROM graph_local 
-			WHERE id = ?', 
+		$gl = db_fetch_row_prepared('SELECT *
+			FROM graph_local
+			WHERE id = ?',
 			array($local_graph_id));
 
 		if (sizeof($gl)) {
@@ -2828,8 +2830,8 @@ function logger($subject, $urlbreach) {
 }
 
 function thold_cdef_get_usable () {
-	$cdef_items = db_fetch_assoc('SELECT * 
-		FROM cdef_items 
+	$cdef_items = db_fetch_assoc('SELECT *
+		FROM cdef_items
 		WHERE value = "CURRENT_DATA_SOURCE"
 		ORDER BY cdef_id');
 
@@ -2905,9 +2907,9 @@ function thold_build_cdef($cdef, $value, $rra, $ds) {
 				case 'ALL_DATA_SOURCES_DUPS':
 					$cdef['value'] = 0;
 
-					$all_dsns = db_fetch_assoc_prepared('SELECT data_source_name 
-						FROM data_template_rrd 
-						WHERE local_data_id = ?', 
+					$all_dsns = db_fetch_assoc_prepared('SELECT data_source_name
+						FROM data_template_rrd
+						WHERE local_data_id = ?',
 						array($rra));
 
 					if (sizeof($all_dsns)) {
@@ -2934,8 +2936,8 @@ function thold_build_cdef($cdef, $value, $rra, $ds) {
 						ON hsc.host_id = dl.host_id
 						AND hsc.snmp_query_id = dl.snmp_query_id
 						AND hsc.snmp_index = dl.snmp_index
-						WHERE dl.id = ? 
-						AND hsc.field_name = ?', 
+						WHERE dl.id = ?
+						AND hsc.field_name = ?',
 						array($rra, $matches[1]));
 				}
 			}
@@ -3021,11 +3023,11 @@ function delete_old_thresholds() {
 
 	if (sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
-			db_execute_prepared('DELETE FROM thold_data 
-				WHERE id = ?', 
+			db_execute_prepared('DELETE FROM thold_data
+				WHERE id = ?',
 				array($thold_data['id']));
 
-			db_execute_prepared('DELETE FROM plugin_thold_threshold_contact 
+			db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
 				WHERE thold_id = ?',
 				array($thold_data['id']));
 		}
@@ -3051,9 +3053,9 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 		$last_time_entry = time();
 	}
 
-	$data_template_data = db_fetch_row_prepared('SELECT * 
-		FROM data_template_data 
-		WHERE local_data_id = ?', 
+	$data_template_data = db_fetch_row_prepared('SELECT *
+		FROM data_template_data
+		WHERE local_data_id = ?',
 		array($local_data_id));
 
 	$step = $data_template_data['rrd_step'];
@@ -3491,7 +3493,7 @@ function save_thold() {
 	$rrdsql = db_fetch_row_prepared('SELECT id, data_template_id
 		FROM data_template_rrd
 		WHERE local_data_id = ?
-		ORDER BY id', 
+		ORDER BY id',
 		array($save['local_data_id']));
 
 	$rrdlookup = $rrdsql['id'];
@@ -3500,7 +3502,7 @@ function save_thold() {
 		FROM graph_templates_item
 		WHERE task_item_id = ?
 		AND local_graph_id <> ""
-		LIMIT 1', 
+		LIMIT 1',
 		array($rrdlookup));
 
 	$save['local_graph_id']    = $grapharr['local_graph_id'];
@@ -3561,29 +3563,29 @@ function trim_round_request_var($variable, $digits = 0) {
 }
 
 function thold_save_template_contacts ($id, $contacts) {
-	db_execute_prepared('DELETE FROM plugin_thold_template_contact 
-		WHERE template_id = ?', 
+	db_execute_prepared('DELETE FROM plugin_thold_template_contact
+		WHERE template_id = ?',
 		array($id));
 
 	if (!empty($contacts)) {
 		foreach ($contacts as $contact) {
-			db_execute_prepared('INSERT INTO plugin_thold_template_contact 
-				(template_id, contact_id) 
-				VALUES (?, ?)', 
+			db_execute_prepared('INSERT INTO plugin_thold_template_contact
+				(template_id, contact_id)
+				VALUES (?, ?)',
 				array($id, $contact));
 		}
 	}
 }
 
 function thold_save_threshold_contacts ($id, $contacts) {
-	db_execute_prepared('DELETE FROM plugin_thold_threshold_contact 
+	db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
 		WHERE thold_id = ?',
 		array($id));
 
 	foreach ($contacts as $contact) {
-		db_execute_prepared('INSERT INTO plugin_thold_threshold_contact 
-			(thold_id, contact_id) 
-			VALUES (?, ?)', 
+		db_execute_prepared('INSERT INTO plugin_thold_threshold_contact
+			(thold_id, contact_id)
+			VALUES (?, ?)',
 			array($id, $contact));
 	}
 }
@@ -3606,16 +3608,16 @@ function autocreate($host_id) {
 	$created = 0;
 	$message = '';
 
-	$host_template_id = db_fetch_cell_prepared('SELECT host_template_id 
-		FROM host 
-		WHERE id = ?', 
+	$host_template_id = db_fetch_cell_prepared('SELECT host_template_id
+		FROM host
+		WHERE id = ?',
 		array($host_id));
 
 	$template_list = array_rekey(db_fetch_assoc_prepared('SELECT tt.data_template_id, tt.id
 		FROM thold_template AS tt
 		INNER JOIN plugin_thold_host_template AS ptht
 		ON tt.id=ptht.thold_template_id
-		WHERE ptht.host_template_id = ?', 
+		WHERE ptht.host_template_id = ?',
 		array($host_template_id)), 'id', 'data_template_id');
 
 	if (!sizeof($template_list)) {
@@ -3642,9 +3644,9 @@ function autocreate($host_id) {
 			foreach ($thold_template_ids as $ttid) {
 				$thold_template_id = $ttid;
 
-				$template = db_fetch_row_prepared('SELECT * 
-					FROM thold_template 
-					WHERE id = ?', 
+				$template = db_fetch_row_prepared('SELECT *
+					FROM thold_template
+					WHERE id = ?',
 					array($thold_template_id));
 
 				$existing = db_fetch_row_prepared('SELECT td.id
@@ -3757,7 +3759,7 @@ function autocreate($host_id) {
 }
 
 /* Sends a group of graphs to a user */
-function thold_mail($to_email, $from_email, $subject, $message, $filename, $headers = '') {
+function thold_mail($to_email, $from_email, $subject, $message, $filename, $headers = array()) {
 	thold_debug('Preparing to send email');
 
 	$subject = trim($subject);
@@ -4056,7 +4058,7 @@ function thold_threshold_enable($id) {
 		bl_fail_count=0,
 		thold_alert=0,
 		bl_alert=0
-		WHERE id = ?", 
+		WHERE id = ?",
 		array($id));
 }
 
@@ -4068,7 +4070,7 @@ function thold_threshold_disable($id) {
 		bl_fail_count=0,
 		thold_alert=0,
 		bl_alert=0
-		WHERE id = ?", 
+		WHERE id = ?",
 		array($id));
 }
 
@@ -4089,7 +4091,7 @@ function get_thold_alert_emails($thold) {
 		FROM plugin_thold_contacts AS ptc
 		INNER JOIN plugin_thold_threshold_contact AS pttc
 		ON ptc.id=pttc.contact_id
-		WHERE pttc.thold_id = ?', 
+		WHERE pttc.thold_id = ?',
 		array($thold['id']));
 
 	$alert_emails = '';
@@ -4128,9 +4130,9 @@ function get_thold_notification_emails($id) {
    @arg $id - (int) the ID of the thold template to return a hash for
    @returns - a 128-bit, hexadecimal hash */
 function get_hash_thold_template($id) {
-    $hash = db_fetch_cell_prepared('SELECT hash 
-		FROM thold_template 
-		WHERE id = ?', 
+    $hash = db_fetch_cell_prepared('SELECT hash
+		FROM thold_template
+		WHERE id = ?',
 		array($id));
 
     if (preg_match('/[a-fA-F0-9]{32}/', $hash)) {
