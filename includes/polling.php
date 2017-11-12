@@ -286,7 +286,8 @@ function thold_poller_output(&$rrd_update_array) {
 						AND thold_data.local_data_id IN ($local_data_ids)",
 						array($thold_pid));
 
-					/* cache required polling data. prefer bulk inserts for performance reasons - start with chunks of 1000 items*/
+					/* cache required polling data. prefer bulk inserts for
+					 * performance reasons - start with chunks of 1000 items */
 					$sql_max_inserts = 1000;
 					$thold_items     = array_chunk($thold_items, $sql_max_inserts);
 
@@ -403,7 +404,8 @@ function thold_check_all_thresholds() {
 
 	if (read_config_option('remote_storage_method') == 1) {
 		if ($config['poller_id'] == 1) {
-			$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname, h.description, h.notes, h.snmp_engine_id
+			$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
+				h.description, h.notes, h.snmp_engine_id
 				FROM thold_data AS td
 				LEFT JOIN host AS h
 				ON h.id = td.host_id
@@ -411,9 +413,11 @@ function thold_check_all_thresholds() {
 				ON dtr.id = td.data_template_rrd_id
 				WHERE td.thold_enabled = 'on'
 				AND (h.poller_id = 1 OR h.poller_id IS NULL)
-				AND td.tcheck = 1 AND h.status=3";
+				AND td.tcheck = 1
+				AND h.status=3";
 		} else {
-			$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname, h.description, h.notes, h.snmp_engine_id
+			$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
+				h.description, h.notes, h.snmp_engine_id
 				FROM thold_data AS td
 				LEFT JOIN host AS h
 				ON h.id = td.host_id
@@ -421,17 +425,20 @@ function thold_check_all_thresholds() {
 				ON dtr.id = td.data_template_rrd_id
 				WHERE td.thold_enabled = 'on'
 				AND h.poller_id = " . $config['poller_id'] . "
-				AND td.tcheck = 1 AND h.status=3";
+				AND td.tcheck = 1
+				AND h.status=3";
 		}
 	} else {
-		$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname, h.description, h.notes, h.snmp_engine_id
+		$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
+			h.description, h.notes, h.snmp_engine_id
 			FROM thold_data AS td
 			LEFT JOIN data_template_rrd AS dtr
 			ON dtr.id = td.data_template_rrd_id
 			LEFT JOIN host as h
 			ON td.host_id = h.id
 			WHERE td.thold_enabled = 'on'
-			AND td.tcheck = 1 AND h.status=3";
+			AND td.tcheck = 1
+			AND h.status=3";
 	}
 
 	$tholds = api_plugin_hook_function('thold_get_live_hosts', db_fetch_assoc($sql_query));

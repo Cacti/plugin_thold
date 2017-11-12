@@ -1761,11 +1761,10 @@ function thold_check_threshold(&$thold_data) {
 		$h['hostname'] = $thold_data['hostname'];
 	} else {
 		/* only alert if Device is in UP mode (not down, unknown, or recovering) */
-		$h = db_fetch_row_prepared('SELECT * 
-			FROM host 
+		$h = db_fetch_row_prepared('SELECT *
+			FROM host
 			WHERE id = ?',
 			array($thold_data['host_id']));
-  }
 
 		if (sizeof($h) && $h['status'] != 3) {
 			thold_debug('Threshold checking halted by Device Status (' . $h['status'] . ')' );
@@ -1775,15 +1774,6 @@ function thold_check_threshold(&$thold_data) {
 
 	/* ensure that Cacti will make of individual defined SNMP Engine IDs */
 	$overwrite['snmp_engine_id'] = $h['snmp_engine_id'];
-
-	/* pull the cached name, if not present, it means that the graph hasn't polled yet */
-	/* this request is useless !?!
-	$t = db_fetch_assoc_prepared('SELECT id, name, name_cache
-		FROM data_template_data
-		WHERE local_data_id = ?
-		ORDER BY id
-		LIMIT 1', 
-		array($thold_data['local_data_id']));*/
 
 	/* pull a few default settings */
 	$global_alert_address  = read_config_option('alert_email');
