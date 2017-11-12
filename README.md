@@ -39,6 +39,7 @@ The thold plugin has been in development for well over a decade with increasing 
 --- 1.0.4 ---
 * issue#117: ERROR: possible illegal string offset when sending mails
 * issue#130: Correct errors relative to mailer headers
+* issue#131: Users without permissions can disable/enable tholds
 * feature: First attempt of thresholding by data collector.  Note that if you are using the thold daemon, you will need to run on each data collector.
 * feature: Report Thold Daemon Runtime with Millisecond precision.
 * feature: Prepare for new Cacti 1.2 feature for storing RRDfiles on remote storage

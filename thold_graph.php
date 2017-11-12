@@ -273,7 +273,7 @@ function tholds() {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -314,9 +314,9 @@ function tholds() {
 
 	if (get_request_var('site_id') == '-1') {
 		/* Show all items */
-	}elseif (get_request_var('site_id') == '0') {
+	} elseif (get_request_var('site_id') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=0'";
-	}elseif (!isempty_request_var('site_id')) {
+	} elseif (!isempty_request_var('site_id')) {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=" . get_request_var('site_id');
 	}
 
@@ -399,7 +399,7 @@ function tholds() {
 
 			if ($row['thold_enabled'] == 'off') {
 				print "<tr class='selectable " . $thold_states['grey']['class'] . "' id='line" . $row['id'] . "'>\n";
-			}else{
+			} else {
 				print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $row['id'] . "'>\n";
 			}
 
@@ -409,10 +409,12 @@ function tholds() {
 				print '<a href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?action=edit&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __esc('Edit Threshold', 'thold') . '"></a>';
 			}
 
-			if ($row['thold_enabled'] == 'on') {
-				print '<a class="hyperLink" href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" alt="" title="' . __esc('Disable Threshold', 'thold') . '"></a>';
-			}else{
-				print '<a class="hyperLink" href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" alt="" title="' . __esc('Enable Threshold', 'thold') . '"></a>';
+			if (api_user_realm_auth('thold.php')) {
+				if ($row['thold_enabled'] == 'on') {
+					print '<a class="hyperLink" href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" alt="" title="' . __esc('Disable Threshold', 'thold') . '"></a>';
+				} else {
+					print '<a class="hyperLink" href="' .  htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $row['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" alt="" title="' . __esc('Enable Threshold', 'thold') . '"></a>';
+				}
 			}
 
 			print "<a href='". htmlspecialchars($config['url_path'] . 'graph.php?local_graph_id=' . $row['local_graph_id'] . '&rra_id=all') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graph', 'thold') . "'></a>";
@@ -487,7 +489,7 @@ function form_host_status_row_color($status, $disabled) {
 function get_uncolored_device_status($disabled, $status) {
 	if ($disabled) {
 		return __('Disabled', 'thold');
-	}else{
+	} else {
 		switch ($status) {
 			case HOST_DOWN:
 				return __('Down', 'thold');
@@ -561,7 +563,7 @@ function hosts() {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -577,15 +579,15 @@ function hosts() {
 
 	if (get_request_var('host_status') == '-1') {
 		/* Show all items */
-	}elseif (get_request_var('host_status') == '-2') {
+	} elseif (get_request_var('host_status') == '-2') {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.disabled='on'";
-	}elseif (get_request_var('host_status') == '-3') {
+	} elseif (get_request_var('host_status') == '-3') {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.disabled=''";
-	}elseif (get_request_var('host_status') == '-4') {
+	} elseif (get_request_var('host_status') == '-4') {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "(h.status!='3' OR h.disabled='on')";
-	}elseif (get_request_var('host_status') == '-5') {
+	} elseif (get_request_var('host_status') == '-5') {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "(h.availability_method=0)";
-	}elseif (get_request_var('host_status') == '3') {
+	} elseif (get_request_var('host_status') == '3') {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "(h.availability_method!=0 AND h.status=3 AND h.disabled='')";
 	}else {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "(h.status=" . get_request_var('host_status') . " AND h.disabled = '')";
@@ -593,17 +595,17 @@ function hosts() {
 
 	if (get_request_var('host_template_id') == '-1') {
 		/* Show all items */
-	}elseif (get_request_var('host_template_id') == '0') {
+	} elseif (get_request_var('host_template_id') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.host_template_id=0'";
-	}elseif (!isempty_request_var('host_template_id')) {
+	} elseif (!isempty_request_var('host_template_id')) {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.host_template_id=" . get_request_var('host_template_id');
 	}
 
 	if (get_request_var('site_id') == '-1') {
 		/* Show all items */
-	}elseif (get_request_var('site_id') == '0') {
+	} elseif (get_request_var('site_id') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=0'";
-	}elseif (!isempty_request_var('site_id')) {
+	} elseif (!isempty_request_var('site_id')) {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=" . get_request_var('site_id');
 	}
 
@@ -664,19 +666,19 @@ function hosts() {
 				$remainder = $remainder % (60*60*100);
 				$minutes   = intval($remainder / (60*100));
 				$uptime    = $days . 'd:' . substr('00' . $hours, -2) . 'h:' . substr('00' . $minutes, -2) . 'm';
-			}else{
+			} else {
 				$uptime    = __('N/A', 'thold');
 			}
 
 			if (isset($host_graphs[$host['id']])) {
 				$graphs = $host_graphs[$host['id']];
-			}else{
+			} else {
 				$graphs = 0;
 			}
 
 			if (isset($host_data_sources[$host['id']])) {
 				$ds = $host_data_sources[$host['id']];
-			}else{
+			} else {
 				$ds = 0;
 			}
 
@@ -703,7 +705,7 @@ function hosts() {
 				<td style='text-align:right'><?php print round(($host['avg_time']), 2);?></td>
 				<td style='text-align:right'><?php print round($host['availability'], 2);?> %</td>
 				<?php
-			}else{
+			} else {
 				print "<tr class='deviceNotMonFull'>\n";
 				print "<td width='1%' class='nowrap'>\n";
 				if (api_user_realm_auth('host.php')) {
@@ -730,7 +732,7 @@ function hosts() {
 
 			form_end_row();
 		}
-	}else{
+	} else {
 		print '<tr><td class="center" colspan="12">' . __('No Devices', 'thold') . '</td></tr>';
 	}
 
@@ -930,7 +932,7 @@ function thold_show_log() {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -938,7 +940,7 @@ function thold_show_log() {
 
 	if (isset($thold_log_retention[$days])) {
 		$days = $thold_log_retention[$days];
-	}else{
+	} else {
 		$days = __('%d Days', $days, 'thold');
 	}
 
@@ -950,31 +952,31 @@ function thold_show_log() {
 
 	if (get_request_var('host_id') == '-1') {
 		/* Show all items */
-	}elseif (get_request_var('host_id') == '0') {
+	} elseif (get_request_var('host_id') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' h.id IS NULL';
-	}elseif (!isempty_request_var('host_id')) {
+	} elseif (!isempty_request_var('host_id')) {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' tl.host_id=' . get_request_var('host_id');
 	}
 
 	if (get_request_var('site_id') == '-1') {
 		/* Show all items */
-	}elseif (get_request_var('site_id') == '0') {
+	} elseif (get_request_var('site_id') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' h.site_id IS NULL';
-	}elseif (!isempty_request_var('site_id')) {
+	} elseif (!isempty_request_var('site_id')) {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' h.site_id=' . get_request_var('site_id');
 	}
 
 	if (get_request_var('threshold_id') == '-1') {
 		/* Show all items */
-	}elseif (get_request_var('threshold_id') == '0') {
+	} elseif (get_request_var('threshold_id') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' td.id IS NULL';
-	}elseif (!isempty_request_var('threshold_id')) {
+	} elseif (!isempty_request_var('threshold_id')) {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' tl.threshold_id=' . get_request_var('threshold_id');
 	}
 
 	if (get_request_var('status') == '-1') {
 		/* Show all items */
-	}else{
+	} else {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' tl.status=' . get_request_var('status');
 	}
 
@@ -1025,7 +1027,7 @@ function thold_show_log() {
 
 			form_end_row();
 		}
-	}else{
+	} else {
 		print '<tr><td class="center" colspan="8">' . __('No Threshold Logs Found', 'thold'). '</td></tr>';
 	}
 
