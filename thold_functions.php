@@ -4041,27 +4041,31 @@ function thold_cacti_log($string) {
 }
 
 function thold_threshold_enable($id) {
-	db_execute_prepared("UPDATE thold_data
-		SET thold_enabled='on',
-		thold_fail_count=0,
-		thold_warning_fail_count=0,
-		bl_fail_count=0,
-		thold_alert=0,
-		bl_alert=0
-		WHERE id = ?",
+	if (api_user_realm_auth('thold.php')) {
+		db_execute_prepared("UPDATE thold_data
+			SET thold_enabled='on',
+			thold_fail_count=0,
+			thold_warning_fail_count=0,
+			bl_fail_count=0,
+			thold_alert=0,
+			bl_alert=0
+			WHERE id = ?",
 		array($id));
+	}
 }
 
 function thold_threshold_disable($id) {
-	db_execute_prepared("UPDATE thold_data
-		SET thold_enabled='off',
-		thold_fail_count=0,
-		thold_warning_fail_count=0,
-		bl_fail_count=0,
-		thold_alert=0,
-		bl_alert=0
-		WHERE id = ?",
-		array($id));
+	if (api_user_realm_auth('thold.php')) {
+		db_execute_prepared("UPDATE thold_data
+			SET thold_enabled='off',
+			thold_fail_count=0,
+			thold_warning_fail_count=0,
+			bl_fail_count=0,
+			thold_alert=0,
+			bl_alert=0
+			WHERE id = ?",
+			array($id));
+	}
 }
 
 function get_thold_warning_emails($thold) {
