@@ -397,6 +397,11 @@ function tholds() {
 				WHERE local_graph_id = ?',
 				array($row['local_graph_id']));
 
+			if (empty($baseu)) {
+				cacti_log('WARNING: Graph Template for local_graph_id ' . $row['local_graph_id'] . ' has been removed!');
+				$baseu = 1024;
+			}
+
 			if ($row['thold_enabled'] == 'off') {
 				print "<tr class='selectable " . $thold_states['grey']['class'] . "' id='line" . $row['id'] . "'>\n";
 			} else {
@@ -1014,6 +1019,11 @@ function thold_show_log() {
 				FROM graph_templates_graph
 				WHERE local_graph_id = ?',
 				array($l['local_graph_id']));
+
+			if (empty($baseu)) {
+				cacti_log('WARNING: Graph Template for local_graph_id ' . $l['local_graph_id'] . ' has been removed!');
+				$baseu = 1024;
+			}
 
 			?>
 			<tr class='<?php print $thold_log_states[$l['status']]['class'];?>'>

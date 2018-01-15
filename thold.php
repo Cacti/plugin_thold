@@ -654,6 +654,11 @@ function list_tholds() {
 				WHERE local_graph_id = ?',
 				array($thold_data['local_graph_id']));
 
+			if (empty($baseu)) {
+				cacti_log('WARNING: Graph Template for local_graph_id ' . $thold_data['local_graph_id'] . ' has been removed!');
+				$baseu = 1024;
+			}
+
 			form_selectable_cell(filter_value($name, get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']) . '</a>', $thold_data['id'], '', 'text-align:left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'text-align:right');
@@ -871,6 +876,11 @@ function thold_edit() {
 						FROM graph_templates_graph
 						WHERE local_graph_id = ?',
 						array($td['local_graph_id']));
+
+					if (empty($baseu)) {
+						cacti_log('WARNING: Graph Template for local_graph_id ' . $td['local_graph_id'] . ' has been removed!');
+						$baseu = 1024;
+					}
 
 					$cur_setting = '<span style="padding-right:4px;">' . __('Last:', 'thold'). '</span>' .
 						($td['lastread'] == '' ? "<span>" . __('N/A', 'thold') . "</span>":"<span class='deviceDown'>" .
