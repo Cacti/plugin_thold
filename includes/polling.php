@@ -482,6 +482,7 @@ function thold_update_host_status() {
 	}
 
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['library_path'] . '/snmp.php');
 
 	if (api_plugin_is_enabled('maint')) {
 		include_once($config['base_path'] . '/plugins/maint/functions.php');
