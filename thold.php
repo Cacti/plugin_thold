@@ -1361,6 +1361,24 @@ function thold_edit() {
 			'none_value' => __('None', 'thold'),
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
 		)
+/*		),
++		'warning_phones' => array(
++			'friendly_name' => __('Warning Phones Notification List', 'thold'),
++			'method' => 'drop_sql',
++			'description' => __('You may specify choose a Notification Phone List to receive Warnings for this Data Source', 'thold'),
++			'value' => isset($thold_data['warning_phones']) ? $thold_data['warning_phones'] : '',
++			'none_value' => __('None', 'thold'),
++			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
++		),
++		'alert_phones' => array(
++			'friendly_name' => __('Alert Phones Notification List', 'thold'),
++			'method' => 'drop_sql',
++			'description' => __('You may specify choose a Notification Phone List to receive Alerts for this Data Source', 'thold'),
++			'value' => isset($thold_data['alert_phones']) ? $thold_data['alert_phones'] : '',
++			'none_value' => __('None', 'thold'),
++			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
++		)
+*/
 	);
 
 	if (read_config_option("thold_alert_snmp") == 'on') {
@@ -1424,6 +1442,38 @@ function thold_edit() {
 				'textarea_cols' => 50,
 				'description' => __('You may specify here extra Emails to receive warnings for this data source (comma separated)', 'thold'),
 				'value' => isset($thold_data['notify_warning_extra']) ? $thold_data['notify_warning_extra'] : ''
+			),
+			'alert_phones_extra' => array(
+				'friendly_name' => __('Alert Phones', 'thold'),
+				'method' => 'textarea',
+				'textarea_rows' => 3,
+				'textarea_cols' => 50,
+				'description' => __('You may specify here extra Phones to receive alerts for this data source (comma separated)', 'thold'),
+				'value' => isset($thold_data['alert_phones_extra']) ? $thold_data['alert_phones_extra'] : ''
+			),
+			'warning_phones_extra' => array(
+				'friendly_name' => __('Warning Phones', 'thold'),
+				'method' => 'textarea',
+				'textarea_rows' => 3,
+				'textarea_cols' => 50,
+				'description' => __('You may specify here extra Phones to receive warnings for this data source (comma separated)', 'thold'),
+				'value' => isset($thold_data['warning_phones_extra']) ? $thold_data['warning_phones_extra'] : ''
+			),
+			'alert_command' => array(
+				'friendly_name' => __('Alert Command', 'thold'),
+				'method' => 'textarea',
+				'textarea_rows' => 3,
+				'textarea_cols' => 50,
+				'description' => __('You may specify here command that will be executed then Alert threshold is breached', 'thold'),
+				'value' => isset($thold_data['alert_command']) ? $thold_data['alert_command'] : ''
+			),
+			'warning_command' => array(
+				'friendly_name' => __('Warning Command', 'thold'),
+				'method' => 'textarea',
+				'textarea_rows' => 3,
+				'textarea_cols' => 50,
+				'description' => __('You may specify here command that will be executed then Warning threshold is breached', 'thold'),
+				'value' => isset($thold_data['warning_command']) ? $thold_data['warning_command'] : ''
 			)
 		);
 
@@ -1441,6 +1491,22 @@ function thold_edit() {
 			'notify_warning_extra' => array(
 				'method' => 'hidden',
 				'value' => isset($thold_data['notify_warning_extra']) ? $thold_data['notify_warning_extra'] : ''
+			),
+			'alert_phones_extra' => array(
+				'method' => 'hidden',
+				'value' => isset($thold_data['alert_phones_extra']) ? $thold_data['alert_phones_extra'] : ''
+			),
+			'warning_phones_extra' => array(
+				'method' => 'hidden',
+				'value' => isset($thold_data['warning_phones_extra']) ? $thold_data['warning_phones_extra'] : ''
+			),
+			'alert_command' => array(
+				'method' => 'hidden',
+				'value' => isset($thold_data['alert_command']) ? $thold_data['alert_command'] : ''
+			),
+			'warning_command' => array(
+				'method' => 'hidden',
+				'value' => isset($thold_data['warning_command']) ? $thold_data['warning_command'] : ''
 			)
 		);
 
@@ -1515,6 +1581,9 @@ function thold_edit() {
 		$('#notify_warning_extra').prop('disabled', status);
 		$('#notify_warning').prop('disabled', status);
 		$('#notify_alert').prop('disabled', status);
+		$('#warning_phones_extra').prop('disabled', status);
+		$('#alert_command').prop('disabled', status);
+		$('#warning_command').prop('disabled', status);
 		$('#cdef').prop('disabled', status);
 		$('#thold_enabled').prop('disabled', status);
 
