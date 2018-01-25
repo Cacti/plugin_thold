@@ -768,7 +768,7 @@ function thold_update_host_status() {
 				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Device SMS for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 			} elseif ($alert_phone != '') {
 				thold_sms($alert_phone, $subject);
-//				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] THOLD: Sent SMS ' . $host['description'] . ' !', true, 'POLLER');
+				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] THOLD: Sent SMS ' . $host['description'] . ' !', true, 'POLLER');
 			}
 		}
 	}
