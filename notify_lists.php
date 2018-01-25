@@ -116,9 +116,9 @@ function form_actions() {
 					db_execute('UPDATE host SET thold_send_email = 0 WHERE thold_send_email = 2 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
 					db_execute('UPDATE host SET thold_send_email = 1 WHERE thold_send_email = 3 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
 					db_execute('UPDATE host SET thold_host_email = 0 WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
-					db_execute("UPDATE host SET thold_send_sms=0 WHERE thold_send_sms=2 AND " . array_to_sql_or($selected_items, "thold_host_phone"));
-					db_execute("UPDATE host SET thold_send_sms=1 WHERE thold_send_sms=3 AND " . array_to_sql_or($selected_items, "thold_host_phone"));
-					db_execute("UPDATE host SET thold_host_phone=0 WHERE " . array_to_sql_or($selected_items, "thold_host_phone"));
+					db_execute("UPDATE host SET thold_send_sms = 0 WHERE thold_send_sms=2 AND " . array_to_sql_or($selected_items, "thold_host_phone"));
+					db_execute("UPDATE host SET thold_send_sms = 1 WHERE thold_send_sms=3 AND " . array_to_sql_or($selected_items, "thold_host_phone"));
+					db_execute("UPDATE host SET thold_host_phone = 0 WHERE " . array_to_sql_or($selected_items, "thold_host_phone"));
 				} elseif (get_request_var('drp_action') == '2') { /* duplicate */
 					$i = 1;
 
