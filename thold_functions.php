@@ -4461,42 +4461,42 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 
 
 function get_thold_notification_phones($id) {
-    if (!empty($id)) {
-        return trim(db_fetch_cell('SELECT phones FROM plugin_notification_lists WHERE id=' . $id));
-    } else {
-        return '';
-    }
+	if (!empty($id)) {
+		return trim(db_fetch_cell('SELECT phones FROM plugin_notification_lists WHERE id=' . $id));
+	} else {
+		return '';
+	}
 }
 
 function thold_sms($numbers, $msg) {
-    global $debug;
-    $command = '';
-    $command_output = array();
-    $command_return = 999;
-    $gammu_smsd_inject_path = trim(read_config_option('thold_gammu_smsd_inject_path'));
-    $thold_sendsms_path = trim(read_config_option('thold_sendsms_path'));
+	global $debug;
+	$command = '';
+	$command_output = array();
+	$command_return = 999;
+	$gammu_smsd_inject_path = trim(read_config_option('thold_gammu_smsd_inject_path'));
+	$thold_sendsms_path = trim(read_config_option('thold_sendsms_path'));
 
-    $sms_numbers = explode(',', $numbers);
+	$sms_numbers = explode(',', $numbers);
 
-    if (count($sms_numbers) == 0) {
-        thold_debug('DEBUG: thold_sms: no numbers defined, do nothing');
-        return;
-    }
+	if (count($sms_numbers) == 0) {
+		thold_debug('DEBUG: thold_sms: no numbers defined, do nothing');
+		return;
+	}
 
-    foreach($sms_numbers as $key => $value) {
-        if (strlen($thold_sendsms_path)>2) {
-            $command = 'bash ' . $thold_sendsms_path . ' ' . trim($value) . ' "' . $msg . '"';
-   		 } else {
-        $command = $gammu_smsd_inject_path . ' sendsms TEXT ' . trim($value) . ' -text "' . $msg . '"';
-    	}
-    	exec($command, $command_output, $command_return);
+	foreach($sms_numbers as $key => $value) {
+		if (strlen($thold_sendsms_path)>2) {
+			$command = 'bash ' . $thold_sendsms_path . ' ' . trim($value) . ' "' . $msg . '"';
+		 } else {
+		$command = $gammu_smsd_inject_path . ' sendsms TEXT ' . trim($value) . ' -text "' . $msg . '"';
+		}
+		exec(cacti_escapeshellcmd($command), $command_output, $command_return);
 
-        thold_debug('DEBUG: thold_sms: command ==>' . $command, true, 'POLLER');
-        foreach ($command_output as $key => $value) {
-            thold_debug('DEBUG: thold_sms: command output ==> ' . $key . ' = ' . $value, true, 'POLLER');
-        }
-        thold_debug('DEBUG: thold_sms: command return value ==> ' . $command_return, true, 'POLLER');
-    }
+		thold_debug('DEBUG: thold_sms: command ==>' . $command);
+		foreach ($command_output as $key => $value) {
+			thold_debug('DEBUG: thold_sms: command output ==> ' . $key . ' = ' . $value);
+		}
+		thold_debug('DEBUG: thold_sms: command return value ==> ' . $command_return);
+	}
 }
 
 
@@ -4510,10 +4510,10 @@ function exec_script($command) {
         return;
     }
 
-    exec($command, $command_output, $command_return);
+    exec(cacti_escapeshellcmd($command), $command_output, $command_return);
 	thold_debug('DEBUG: thold exec_script: command ==>' . $command, true, 'POLLER');
     foreach ($command_output as $key => $value) {
-        thold_debug('DEBUG: thold exec_script: command output ==> ' . $key . ' = ' . $value, true, 'POLLER');
+        thold_debug('DEBUG: thold exec_script: command output ==> ' . $key . ' = ' . $value);
     }
-    thold_debug('DEBUG: thold exec_script: command return value ==> ' . $command_return, true, 'POLLER');
+    thold_debug('DEBUG: thold exec_script: command return value ==> ' . $command_return);
 }
