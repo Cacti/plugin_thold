@@ -1018,6 +1018,7 @@ function template_edit() {
 			'value' => isset($thold_data['notify_alert']) ? $thold_data['notify_alert'] : '',
 			'none_value' => __('None', 'thold'),
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
+		),
 		'warning_phones' => array(
 			'friendly_name' => 'Warning Phones Notification List',
 			'method' => 'drop_sql',
@@ -1033,7 +1034,7 @@ function template_edit() {
 			'value' => isset($thold_data['alert_phones']) ? $thold_data['alert_phones'] : '',
 			'none_value' => 'None',
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
-		)	),
+		),
 		'warning_phones' => array(
 			'friendly_name' => 'Warning Phones Notification List',
 			'method' => 'drop_sql',
