@@ -330,7 +330,7 @@ function thold_upgrade_database () {
 			array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'snmp_event_warning_severity'));
 	}
 
-	if (version_compare($oldv, '1.1.4', '<')) {
+	if (version_compare($oldv, '1.0.5', '<')) {
 		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_sms', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'thold_host_email'));
 		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_phone', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'after' => 'thold_send_sms'));
 
