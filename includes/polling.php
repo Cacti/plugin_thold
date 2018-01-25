@@ -646,7 +646,7 @@ function thold_update_host_status() {
 					if ($alert_phone == '' && $host['thold_send_sms'] > 0) {
 						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device recovering SMS for \'' . $host['description'] . '\' since the \'Alert SMS\' setting is not set for Device!', true, 'THOLD');
 					} elseif ($host['thold_send_sms'] == '0') {
-						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Host Recovering SMS for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
+						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Device recovering SMS for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 					} elseif ($alert_phone != '') {
 						thold_sms($alert_phone, $subject);
 //						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] THOLD: Sent SMS ' . $host['description'] . ' !', true, 'POLLER');
@@ -763,9 +763,9 @@ function thold_update_host_status() {
 			}
 
 			if ($alert_phone == '' && $host['thold_send_sms'] > 0) {
-				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device recovering SMS for \'' . $host['description'] . '\' since the \'Alert SMS\' setting is not set for Device!', true, 'THOLD');
+				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device down SMS for \'' . $host['description'] . '\' since the \'Alert SMS\' setting is not set for Device!', true, 'THOLD');
 			} elseif ($host['thold_send_sms'] == '0') {
-				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Host Recovering SMS for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
+				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Device SMS for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 			} elseif ($alert_phone != '') {
 				thold_sms($alert_phone, $subject);
 //				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] THOLD: Sent SMS ' . $host['description'] . ' !', true, 'POLLER');

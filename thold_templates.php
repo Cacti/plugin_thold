@@ -257,7 +257,7 @@ function template_add() {
 				</td>
 			</tr>
 			<?php
-		}else{
+		} else {
 			echo "<tr><td><input type='hidden' id='data_source_id' value=''></td></tr>\n";
 		}
 
@@ -307,13 +307,13 @@ function template_add() {
 	} else {
 		if (!isset_request_var('data_template_id')) {
 			$data_template_id = 0;
-		}else{
+		} else {
 			$data_template_id = get_filter_request_var('data_template_id');
 		}
 
 		if (!isset_request_var('data_source_id')) {
 			$data_source_id = 0;
-		}else{
+		} else {
 			$data_source_id = get_filter_request_var('data_source_id');
 		}
 
@@ -601,7 +601,7 @@ function template_edit() {
 			$data_fields[$temp['id']]  = $temp['data_source_name'];
 			$data_source_name = $temp['data_source_name'];
 		}
-	}else{
+	} else {
 		/* should not be reached */
 		cacti_log('ERROR: Thold Template ID:' . $thold_data['id'] . ' references a deleted Data Source.');
 		$data_source_name = '';
@@ -1020,35 +1020,35 @@ function template_edit() {
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
 		),
 		'warning_phones' => array(
-			'friendly_name' => 'Warning Phones Notification List',
+			'friendly_name' => __('Warning Phones Notification List', 'thold'),
 			'method' => 'drop_sql',
-			'description' => 'You may specify choose a Notification Phone List to receive Warnings for this Data Source',
+			'description' => __('You may specify choose a Notification Phone List to receive Warnings for this Data Source', 'thold'),
 			'value' => isset($thold_data['warning_phones']) ? $thold_data['warning_phones'] : '',
-			'none_value' => 'None',
+			'none_value' => __('None', 'thold'),
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
 		),
 		'alert_phones' => array(
-			'friendly_name' => 'Alert Phones Notification List',
+			'friendly_name' => __('Alert Phones Notification List', 'thold'),
 			'method' => 'drop_sql',
-			'description' => 'You may specify choose a Notification Phone List to receive Alerts for this Data Source',
+			'description' => __('You may specify choose a Notification Phone List to receive Alerts for this Data Source', 'thold'),
 			'value' => isset($thold_data['alert_phones']) ? $thold_data['alert_phones'] : '',
-			'none_value' => 'None',
+			'none_value' => __('None', 'thold'),
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
 		),
 		'warning_phones' => array(
-			'friendly_name' => 'Warning Phones Notification List',
+			'friendly_name' => __('Warning Phones Notification List', 'thold'),
 			'method' => 'drop_sql',
-			'description' => 'You may specify choose a Notification Phone List to receive Warnings for this Data Source',
+			'description' => __('You may specify choose a Notification Phone List to receive Warnings for this Data Source', 'thold'),
 			'value' => isset($thold_data['warning_phones']) ? $thold_data['warning_phones'] : '',
-			'none_value' => 'None',
+			'none_value' => __('None', 'thold'),
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
 		),
 		'alert_phones' => array(
-			'friendly_name' => 'Alert Phones Notification List',
+			'friendly_name' => __('Alert Phones Notification List', 'thold'),
 			'method' => 'drop_sql',
-			'description' => 'You may specify choose a Notification Phone List to receive Alerts for this Data Source',
+			'description' => __('You may specify choose a Notification Phone List to receive Alerts for this Data Source', 'thold'),
 			'value' => isset($thold_data['alert_phones']) ? $thold_data['alert_phones'] : '',
-			'none_value' => 'None',
+			'none_value' => __('None', 'thold'),
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
 		)
 	);
@@ -1115,7 +1115,7 @@ function template_edit() {
 				'value' => isset($thold_data['notify_warning_extra']) ? $thold_data['notify_warning_extra'] : ''
 			),
 			'alert_phones_extra' => array(
-				'friendly_name' => 'Alert Phones',
+				'friendly_name' => __('Alert Phones', 'thold'),
 				'method' => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,
@@ -1123,7 +1123,7 @@ function template_edit() {
 				'value' => isset($thold_data['alert_phones_extra']) ? $thold_data['alert_phones_extra'] : ''
 			),
 			'warning_phones_extra' => array(
-				'friendly_name' => 'Warning Phones',
+				'friendly_name' => __('Warning Phones', 'thold'),
 				'method' => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,
@@ -1131,7 +1131,7 @@ function template_edit() {
 				'value' => isset($thold_data['warning_phones_extra']) ? $thold_data['warning_phones_extra'] : ''
 			),
 			'alert_command' => array(
-				'friendly_name' => 'Alert Command',
+				'friendly_name' => __('Alert Command', 'thold'),
 				'method' => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,
@@ -1139,7 +1139,7 @@ function template_edit() {
 				'value' => isset($thold_data['alert_command']) ? $thold_data['alert_command'] : ''
 			),
 			'warning_command' => array(
-				'friendly_name' => 'Warning Command',
+				'friendly_name' => __('Warning Command', 'thold'),
 				'method' => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,

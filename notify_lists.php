@@ -183,7 +183,7 @@ function form_actions() {
 						db_execute('UPDATE host SET thold_host_phone=0 WHERE id=' . $selected_items[$i]);
 						/* set the global/list selection */
 						db_execute('UPDATE host SET thold_send_email=' . get_request_var('notification_action') . ' WHERE id=' . $selected_items[$i]);
-						db_execute('UPDATE host SET thold_send_sms=' . get_request_var_request('notification_action') . ' WHERE id=' . $selected_items[$i]);
+						db_execute('UPDATE host SET thold_send_sms=' . get_request_var('notification_action') . ' WHERE id=' . $selected_items[$i]);
 					}
 				}
 			}

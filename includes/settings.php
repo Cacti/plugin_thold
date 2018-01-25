@@ -536,7 +536,7 @@ function thold_config_settings () {
 			'method' => 'filepath',
 			'size' => 80,
 			'max_length' => 255,
-			'default' => $config['base_path'] . '/plugins/thold/extras/sendsms'
+			//'default' => $config['base_path'] . '/plugins/thold/extras/sendsms'
 		)
 	);
 }
