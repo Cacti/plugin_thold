@@ -331,6 +331,8 @@ function thold_upgrade_database () {
 	}
 
 	if (version_compare($oldv, '1.0.5', '<')) {
+		api_plugin_db_add_column ('thold', 'plugin_notification_lists', array('name' => 'phones', 'type' => 'varchar(512)', 'NULL' => true, 'after' => 'emails'));
+		
 		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_sms', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'thold_host_email'));
 		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_phone', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'after' => 'thold_send_sms'));
 
@@ -494,6 +496,10 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'notify_warning_extra', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_warning', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'notify_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'alert_phones_extra', 'type' => 'varchar(512)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'warning_phones_extra', 'type' => 'varchar(512)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'alert_command', 'type' => 'varchar(512)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'warning_command', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'data_type', 'type' => 'int(12)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');

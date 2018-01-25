@@ -489,6 +489,8 @@ function thold_update_host_status() {
 	}
 
 	$alert_email        = read_config_option('alert_email');
+	$alert_phone        = read_config_option('alert_phone');
+	$thold_enable_sms   = read_config_option('thold_enable_sms');
 	$ping_failure_count = read_config_option('ping_failure_count');
 
 	// Lets find hosts that were down, but are now back up
