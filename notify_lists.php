@@ -78,6 +78,7 @@ function form_save() {
 		$save['name']        = form_input_validate(get_nfilter_request_var('name'), 'name', '', false, 3);
 		$save['description'] = form_input_validate(get_nfilter_request_var('description'), 'description', '', false, 3);
 		$save['emails']      = form_input_validate(get_nfilter_request_var('emails'), 'emails', '', false, 3);
+		$save['phones']      = form_input_validate(get_nfilter_request_var('phones'), 'phones', '', false, 3);
 
 		if (!is_error_message()) {
 			$id = sql_save($save, 'plugin_notification_lists');
@@ -115,6 +116,9 @@ function form_actions() {
 					db_execute('UPDATE host SET thold_send_email = 0 WHERE thold_send_email = 2 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
 					db_execute('UPDATE host SET thold_send_email = 1 WHERE thold_send_email = 3 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
 					db_execute('UPDATE host SET thold_host_email = 0 WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
+					db_execute("UPDATE host SET thold_send_sms=0 WHERE thold_send_sms=2 AND " . array_to_sql_or($selected_items, "thold_host_phone"));
+					db_execute("UPDATE host SET thold_send_sms=1 WHERE thold_send_sms=3 AND " . array_to_sql_or($selected_items, "thold_host_phone"));
+					db_execute("UPDATE host SET thold_host_phone=0 WHERE " . array_to_sql_or($selected_items, "thold_host_phone"));
 				} elseif (get_request_var('drp_action') == '2') { /* duplicate */
 					$i = 1;
 
@@ -142,6 +146,7 @@ function form_actions() {
 						$save['name']        = $name;
 						$save['description'] = $list['description'];
 						$save['emails']      = $list['emails'];
+						$save['phones']      = $list['phones'];
 
 						$id = sql_save($save, 'plugin_notification_lists');
 
@@ -166,15 +171,19 @@ function form_actions() {
 					for ($i=0;($i<count($selected_items));$i++) {
 						/* set the notification list */
 						db_execute('UPDATE host SET thold_host_email=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
-						/* set the global/list election */
+						db_execute('UPDATE host SET thold_host_phone=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+						/* set the global/list selection */
 						db_execute('UPDATE host SET thold_send_email=' . get_request_var('notification_action') . ' WHERE id=' . $selected_items[$i]);
+						db_execute('UPDATE host SET thold_send_sms=' . get_request_var('notification_action') . ' WHERE id=' . $selected_items[$i]);
 					}
 				} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 					for ($i=0;($i<count($selected_items));$i++) {
 						/* set the notification list */
 						db_execute('UPDATE host SET thold_host_email=0 WHERE id=' . $selected_items[$i]);
-						/* set the global/list election */
+						db_execute('UPDATE host SET thold_host_phone=0 WHERE id=' . $selected_items[$i]);
+						/* set the global/list selection */
 						db_execute('UPDATE host SET thold_send_email=' . get_request_var('notification_action') . ' WHERE id=' . $selected_items[$i]);
+						db_execute('UPDATE host SET thold_send_sms=' . get_request_var_request('notification_action') . ' WHERE id=' . $selected_items[$i]);
 					}
 				}
 			}
@@ -196,6 +205,7 @@ function form_actions() {
 								db_execute('UPDATE thold_template SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 								/* clear other items */
 								db_execute("UPDATE thold_template SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
+								db_execute("UPDATE thold_template SET warning_phones_extra='' WHERE id=" . $selected_items[$i]);
 							}else{
 								/* set the notification list */
 								db_execute('UPDATE thold_template SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
@@ -209,6 +219,7 @@ function form_actions() {
 								db_execute('UPDATE thold_template SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 								/* clear other items */
 								db_execute("UPDATE thold_template SET notify_extra='' WHERE id=" . $selected_items[$i]);
+								db_execute("UPDATE thold_template SET alert_phones_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute('DELETE FROM plugin_thold_template_contact WHERE template_id=' . $selected_items[$i]);
 							}else{
 								/* set the notification list */
@@ -248,6 +259,7 @@ function form_actions() {
 								db_execute('UPDATE thold_data SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 								/* clear other items */
 								db_execute("UPDATE thold_data SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
+								db_execute("UPDATE thold_data SET warning_phones_extra='' WHERE id=" . $selected_items[$i]);
 							}else{
 								/* set the notification list */
 								db_execute('UPDATE thold_data SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
@@ -261,6 +273,7 @@ function form_actions() {
 								db_execute('UPDATE thold_data SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 								/* clear other items */
 								db_execute("UPDATE thold_data SET notify_extra='' WHERE id=" . $selected_items[$i]);
+								db_execute("UPDATE thold_data SET alert_phones_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $selected_items[$i]);
 							}else{
 								/* set the notification list */
@@ -634,6 +647,15 @@ function edit() {
 				'textarea_rows' => '4',
 				'textarea_cols' => '80'
 			),
+			"phones" => array(
+				"method" => "textarea",
+				"friendly_name" => __('Phone Numbers', 'thold'),
+				"description" => __('Enter a comma separated list of Phone Numbers for this notification list.', 'thold'),
+				"value" => "|arg1:phones|",
+				"class" => "textAreaNotes",
+				"textarea_rows" => "4",
+				"textarea_cols" => "80"
+			),
 			'id' => array(
 				'method' => 'hidden_zero',
 				'value' => '|arg1:id|'
@@ -880,6 +902,21 @@ function hosts($header_label) {
 			}else{
 				form_selectable_cell('<span style="color:red;font-weight:bold;">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
 			}
+			if ($host['thold_send_sms'] == 0) {
+				form_selectable_cell('<span style="color:blue;font-weight:bold;">' . __('Disabled', 'thold') . '</span>', $host['id']);
+			} elseif ($host['thold_send_sms'] == 1) {
+				form_selectable_cell('<span style="color:purple;font-weight:bold;">' . __('Global List', 'thold') . '</span>', $host['id']);
+			} elseif ($host['thold_host_phone'] == get_request_var('id')) {
+				if ($host['thold_send_sms'] == 2) {
+					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current List Only', 'thold') . '</span>', $host['id']);
+				}else{
+					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
+				}
+			} elseif ($host['thold_host_phone'] == '0') {
+				form_selectable_cell('<span style="color:green;font-weight:bold;">None</span>', $host['id']);
+			} else{
+				form_selectable_cell('<span style="color:red;font-weight:bold;">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
+ 			}
 			form_selectable_cell((isset($host_graphs[$host['id']]) ? $host_graphs[$host['id']] : 0), $host['id']);
 			form_selectable_cell((isset($host_data_sources[$host['id']]) ? $host_data_sources[$host['id']] : 0), $host['id']);
 			form_selectable_cell(get_colored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']), $host['id']);

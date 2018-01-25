@@ -1262,6 +1262,7 @@ function thold_log($save){
 		}
 
 		$desc .= '  SentTo: ' . $save['emails'];
+		$desc .= '  SMS_Sent_To: ' . $save['phones'];
 
 		if ($save['status'] == ST_RESTORAL || $save['status'] == ST_NOTIFYRS) {
 			thold_cacti_log($desc);
@@ -1269,6 +1270,8 @@ function thold_log($save){
 	}
 
 	unset($save['emails']);
+	unset($save['phones']);
+	unset($save['command']);
 
 	$id = sql_save($save, 'plugin_thold_log');
 }
@@ -1522,10 +1525,35 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		$alert_emails .= (strlen($alert_emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert']);
 
+		$alert_phones = '';
+		if (read_config_option('thold_disable_legacy') != 'on') {
+		//	$alert_phones = array();
+		//	if (count($rows)) {
+		//		foreach ($rows as $row) {
+		//		$alert_phones[] = $row['data'];
+		//		}
+		//	}
+		//	$alert_phones = implode(',', $alert_phones);
+			if ($alert_phones != '') {
+				$alert_phones .= ',' . $thold['alert_phones_extra'];
+			} else {
+				$alert_phones = $thold['alert_phones_extra'];
+			}
+		}
+		$alert_phones .= (strlen($alert_phones) ? ",":"") . get_thold_notification_phones($thold['notify_alert']);
+
 		$warning_emails = '';
 		if (read_config_option('thold_disable_legacy') != 'on') {
 			$warning_emails = $thold['notify_warning_extra'];
 		}
+
+		$warning_phones = '';
+		if (read_config_option('thold_disable_legacy') != 'on') {
+			$warning_phones = $thold['warning_phones_extra'];
+		}
+
+		$alert_command = $thold['alert_command'];
+		$warning_command = $thold['warning_command'];
 
 		if ($message['id'] > 0) {
 			$desc = "Modified Threshold  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . 'plugins/thold/thold.php?local_data_id=' . $thold['local_data_id'] . '&view_rrd=' . $thold['data_template_rrd_id']) . "'>$id</a>";
@@ -1584,7 +1612,11 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			$desc .= '  CDEF: ' . $message['cdef'];
 			$desc .= '  ReAlert: ' . plugin_thold_duration_convert($thold['local_data_id'], $message['repeat_alert'], 'alert');
 			$desc .= '  Alert Emails: ' . $alert_emails;
+			$desc .= '  Alert Phones: ' . $alert_phones;
 			$desc .= '  Warning Emails: ' . $warning_emails;
+			$desc .= '  Warning Phones: ' . $warning_phones;
+			$desc .= '  Alert Command: ' . $alert_command;
+			$desc .= '  Warning Command: ' . $warning_command;
 		}
 
 		break;
@@ -1622,10 +1654,35 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 		$alert_emails .= (strlen($alert_emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert']);
 
+		$alert_phones = '';
+		if (read_config_option('thold_disable_legacy') != 'on') {
+		//	$alert_phones = array();
+		//	if (count($rows)) {
+		//		foreach ($rows as $row) {
+		//		$alert_phones[] = $row['data'];
+		//		}
+		//	}
+		//	$alert_phones = implode(',', $alert_phones);
+			if ($alert_phones != '') {
+				$alert_phones .= ',' . $thold['alert_phones_extra'];
+			} else {
+				$alert_phones = $thold['alert_phones_extra'];
+			}
+		}
+		$alert_phones .= (strlen($alert_phones) ? ",":"") . get_thold_notification_phones($thold['notify_alert']);
+
 		$warning_emails = '';
 		if (read_config_option('thold_disable_legacy') != 'on') {
 			$warning_emails = $thold['notify_warning_extra'];
 		}
+
+		$warning_phones = '';
+		if (read_config_option('thold_disable_legacy') != 'on') {
+			$warning_phones = $thold['warning_phones_extra'];
+		}
+
+		$alert_command = $thold['alert_command'];
+		$warning_command = $thold['warning_command'];  
 
 		if ($message['id'] > 0) {
 			$desc = "Modified Template  User: $user  ID: <a href='" . htmlspecialchars($config['url_path'] . "plugins/thold/thold_templates.php?action=edit&id=$id") . "'>$id</a>";
@@ -1672,7 +1729,11 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		$desc .= '  CDEF: ' . (isset($message['cdef']) ? $message['cdef']: '');
 		$desc .= '  ReAlert: ' . plugin_thold_duration_convert($thold['data_template_id'], $message['repeat_alert'], 'alert', 'data_template_id');
 		$desc .= '  Alert Emails: ' . $alert_emails;
+		$desc .= '  Alert Phones: ' . $alert_phones;
 		$desc .= '  Warning Emails: ' . $warning_emails;
+		$desc .= '  Warning Phones: ' . $warning_phones;
+		$desc .= '  Alert Command: ' . $alert_command;
+		$desc .= '  Warning Command: ' . $warning_command;
 
 		break;
 	}
@@ -1857,6 +1918,14 @@ function thold_check_threshold(&$thold_data) {
 					thold_mail($alert_emails, '', $subject, $alert_msg, $file_array);
 				}
 
+				if (trim($alert_phones) != '') {
+					thold_sms($alert_phones, $subject);
+				}
+
+				if ($alert_command != ''){
+					exec_script($alert_command);
+				}
+
 				if ($thold_snmp_traps) {
 					$thold_snmp_data = get_thold_snmp_data($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread']);
 
@@ -1889,7 +1958,9 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ($ra ? ST_NOTIFYRA:ST_NOTIFYAL),
 					'description'     => $subject,
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'phones'          => $alert_phones,
+					'command'          => $alert_command)
 				);
 			}
 
@@ -1931,6 +2002,14 @@ function thold_check_threshold(&$thold_data) {
 					thold_mail($warning_emails, '', $subject, $warn_msg, $file_array);
 				}
 
+				if (trim($warning_phones) != '') {
+					thold_sms($warning_phones, $subject);
+				}
+
+				if ($warning_command != ''){
+					exec_script($warning_command);
+				}
+
 				if ($thold_snmp_traps && $thold_snmp_warning_traps) {
 					$thold_snmp_data = get_thold_snmp_data($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread']);
 
@@ -1963,7 +2042,9 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ($ra ? ST_NOTIFYRA:ST_NOTIFYWA),
 					'description'     => $subject,
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'phones'          => $warning_phones,
+					'command'          => $warning_command)
 				);
 			} elseif (($thold_data['thold_warning_fail_count'] >= $warning_trigger) && ($thold_data['thold_fail_count'] >= $trigger)) {
 				$subject = 'ALERT -> WARNING: ' . $thold_data['name'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Changed to Warning Threshold with Value ' . $thold_data['lastread'];
@@ -4378,3 +4459,61 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 	return $host_list;
 }
 
+
+function get_thold_notification_phones($id) {
+    if (!empty($id)) {
+        return trim(db_fetch_cell('SELECT phones FROM plugin_notification_lists WHERE id=' . $id));
+    } else {
+        return '';
+    }
+}
+
+function thold_sms($numbers, $msg) {
+    global $debug;
+    $command = '';
+    $command_output = array();
+    $command_return = 999;
+    $gammu_smsd_inject_path = trim(read_config_option('thold_gammu_smsd_inject_path'));
+    $thold_sendsms_path = trim(read_config_option('thold_sendsms_path'));
+
+    $sms_numbers = explode(',', $numbers);
+
+    if (count($sms_numbers) == 0) {
+        thold_debug('DEBUG: thold_sms: no numbers defined, do nothing');
+        return;
+    }
+
+    foreach($sms_numbers as $key => $value) {
+        if (strlen($thold_sendsms_path)>2) {
+            $command = 'bash ' . $thold_sendsms_path . ' ' . trim($value) . ' "' . $msg . '"';
+   		 } else {
+        $command = $gammu_smsd_inject_path . ' sendsms TEXT ' . trim($value) . ' -text "' . $msg . '"';
+    	}
+    	exec($command, $command_output, $command_return);
+
+        thold_debug('DEBUG: thold_sms: command ==>' . $command, true, 'POLLER');
+        foreach ($command_output as $key => $value) {
+            thold_debug('DEBUG: thold_sms: command output ==> ' . $key . ' = ' . $value, true, 'POLLER');
+        }
+        thold_debug('DEBUG: thold_sms: command return value ==> ' . $command_return, true, 'POLLER');
+    }
+}
+
+
+function exec_script($command) {
+	global $debug;
+	cacti_log('THOLD ALERT COMMAND: ' . $command, false, 'SYSTEM');
+	$command_output = array();
+    $command_return = 999;
+    if ($command == '') {
+        thold_debug('DEBUG: thold exec_script: no command defined, do nothing');
+        return;
+    }
+
+    exec($command, $command_output, $command_return);
+	thold_debug('DEBUG: thold exec_script: command ==>' . $command, true, 'POLLER');
+    foreach ($command_output as $key => $value) {
+        thold_debug('DEBUG: thold exec_script: command output ==> ' . $key . ' = ' . $value, true, 'POLLER');
+    }
+    thold_debug('DEBUG: thold exec_script: command return value ==> ' . $command_return, true, 'POLLER');
+}

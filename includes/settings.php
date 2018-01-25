@@ -136,6 +136,25 @@ function thold_config_form () {
 				'default' => '',
 				'none_value' => 'None'
 			);
+			$fields_host_edit3['thold_send_sms'] = array(
+				'method' => 'drop_array',
+				'array' =>  array('0' => 'Disabled', '1' => 'Global List', '2' => 'List Below', '3' => 'Global and List Below'),
+				'friendly_name' => 'Thold Up/Down SMS Notification',
+				'description' => 'Which Notification List(s) of should be notified about Host Up/Down events?',
+				'value' => '|arg1:thold_send_sms|',
+				'on_change' => 'changeNotify()',
+				'default' => '0',
+				'form_id' => false
+			);
+			$fields_host_edit3['thold_host_phone'] = array(
+				'friendly_name' => 'Notification List',
+				'description' => 'Additional Phone address, separated by commas for multi Phones.',
+				'method' => 'drop_sql',
+				'sql' => "SELECT id,name FROM plugin_notification_lists ORDER BY name",
+				'value' => '|arg1:thold_host_phone|',
+				'default' => '',
+				'none_value' => 'None'
+			);
 		}
 	}
 	$fields_host_edit = $fields_host_edit3;
@@ -486,6 +505,38 @@ function thold_config_settings () {
 			'description' => __('If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email.', 'thold'),
 			'method' => 'checkbox',
 			'default' => ''
+		),
+		'thold_sms_header' => array(
+			'friendly_name' => 'SMS Sending Options',
+			'method' => 'spacer',
+		),
+		'thold_enable_sms' => array(
+			'friendly_name' => 'Enable SMS sending',
+			'description' => 'If checked, this will cause Cacti to send SMS to numbers in Notification Lists.',
+			'method' => 'checkbox',
+			'default' => 'off',
+		),
+		'alert_phone' => array(
+			'friendly_name' => 'Dead Host Notifications phone numbers for SMS',
+			'description' => 'This is the comma separated list of phone numbers that the Dead Host Notifications will be sent to if the Global Notification List is selected.',
+			'method' => 'textbox',
+			'size' => 80,
+			'max_length' => 255,
+		),
+		'thold_gammu_smsd_inject_path' => array(
+			'friendly_name' => 'Path to gammu-smsd-inject',
+			'description' => 'This is the path to gammu sms inject binary',
+			'method' => 'filepath',
+			'size' => 80,
+			'max_length' => 255,
+		),
+		'thold_sendsms_path' => array(
+			'friendly_name' => 'Path to sendsms script',
+			'description' => 'This is the path to sendsms script from SMS Server Tools 3',
+			'method' => 'filepath',
+			'size' => 80,
+			'max_length' => 255,
+			'default' => $config['base_path'] . '/plugins/thold/extras/sendsms'
 		)
 	);
 }

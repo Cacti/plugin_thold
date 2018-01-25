@@ -330,6 +330,21 @@ function thold_upgrade_database () {
 			array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'snmp_event_warning_severity'));
 	}
 
+	if (version_compare($oldv, '1.1.4', '<')) {
+		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_sms', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'thold_host_email'));
+		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_phone', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'after' => 'thold_send_sms'));
+
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'alert_phones_extra', 'type' => 'varchar(512)', 'NULL' => true, 'after' => 'notify_warning_extra'));
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'warning_phones_extra', 'type' => 'varchar(512)', 'NULL' => true, 'after' => 'alert_phones_extra'));
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'alert_command', 'type' => 'varchar(512)', 'NULL' => true, 'after' => 'warning_phones_extra'));
+		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'warning_command', 'type' => 'varchar(512)', 'NULL' => true, 'after' => 'alert_command'));
+
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'alert_phones_extra', 'type' => 'varchar(512)', 'NULL' => true, 'after' => 'notify_warning_extra'));
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'warning_phones_extra', 'type' => 'varchar(512)', 'NULL' => true, 'after' => 'alert_phones_extra'));
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'alert_command', 'type' => 'varchar(512)', 'NULL' => true, 'after' => 'warning_phones_extra'));
+		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'warning_command', 'type' => 'varchar(512)', 'NULL' => true, 'after' => 'alert_command'));
+	}
+
 	if (!db_column_exists('plugin_thold_daemon_processes', 'poller_id')) {
 		db_execute("ALTER TABLE plugin_thold_daemon_processes 
 			ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' FIRST,
@@ -403,6 +418,10 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'notify_warning_extra', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_warning', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'notify_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'alert_phones_extra', 'type' => 'varchar(512)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'warning_phones_extra', 'type' => 'varchar(512)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'alert_command', 'type' => 'varchar(512)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'warning_command', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(10)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'syslog_priority', 'type' => 'int(2)', 'NULL' => false, 'default' => '3');
 	$data['columns'][] = array('name' => 'data_type', 'type' => 'int(12)', 'NULL' => false, 'default' => '0');
@@ -556,6 +575,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(128)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(512)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'emails', 'type' => 'varchar(512)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'phones', 'type' => 'varchar(512)', 'NULL' => false);
 
 	$data['primary']   = 'id';
 	$data['type']      = 'InnoDB';
@@ -566,6 +586,9 @@ function thold_setup_database () {
 
 	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
 	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => true, 'after' => 'thold_send_email'));
+
+	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_sms', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'thold_host_email'));
+	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_phone', 'type' => 'int(10)', 'NULL' => false, 'after' => 'thold_send_sms'));
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);

@@ -95,6 +95,9 @@ function thold_add_graphs_action_execute() {
 			$insert['bl_alert']           = $template['bl_alert'];
 			$insert['repeat_alert']       = $template['repeat_alert'];
 			$insert['notify_extra']       = $template['notify_extra'];
+			$insert['alert_phones_extra'] = $template['alert_phones_extra'];
+			$insert['alert_command']      = $template['alert_command'];
+			$insert['warning_command']    = $template['warning_command']; 
 			$insert['cdef']               = $template['cdef'];
 			$insert['thold_template_id']  = $template['id'];
 			$insert['notes']              = $template['notes'];

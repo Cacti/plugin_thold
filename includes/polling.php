@@ -618,14 +618,17 @@ function thold_update_host_status() {
 					switch ($host['thold_send_email']) {
 						case '0': // Disabled
 							$alert_email = '';
+							$alert_phone = '';
 							break;
 						case '1': // Global List
 							break;
 						case '2': // Devices List Only
 							$alert_email = get_thold_notification_emails($host['thold_host_email']);
+							$alert_phone = get_thold_notification_phones($host['thold_host_phone']);
 							break;
 						case '3': // Global and Devices List
 							$alert_email = $alert_email . ',' . get_thold_notification_emails($host['thold_host_email']);
+							$alert_phone = $alert_phone . ',' . get_thold_notification_phones($host['thold_host_phone']);
 							break;
 					}
 
@@ -635,6 +638,16 @@ function thold_update_host_status() {
 						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Device recovering email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 					} elseif ($alert_email != '') {
 						thold_mail($alert_email, '', $subject, $msg, '');
+//						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] THOLD: Sent Email ' . $host['description'] . ' !', true, 'POLLER');
+					}
+
+					if ($alert_phone == '' && $host['thold_send_sms'] > 0) {
+						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device recovering SMS for \'' . $host['description'] . '\' since the \'Alert SMS\' setting is not set for Device!', true, 'THOLD');
+					} elseif ($host['thold_send_sms'] == '0') {
+						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Host Recovering SMS for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
+					} elseif ($alert_phone != '') {
+						thold_sms($alert_phone, $subject);
+//						cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] THOLD: Sent SMS ' . $host['description'] . ' !', true, 'POLLER');
 					}
 				}
 			}
@@ -724,14 +737,17 @@ function thold_update_host_status() {
 			switch ($host['thold_send_email']) {
 				case '0': // Disabled
 					$alert_email = '';
+					$alert_phone = '';
 					break;
 				case '1': // Global List
 					break;
 				case '2': // Devices List Only
 					$alert_email = get_thold_notification_emails($host['thold_host_email']);
+					$alert_phone = get_thold_notification_phones($host['thold_host_phone']);
 					break;
 				case '3': // Global and Devices List
 					$alert_email = $alert_email . ',' . get_thold_notification_emails($host['thold_host_email']);
+					$alert_phone = $alert_phone . ',' . get_thold_notification_phones($host['thold_host_phone']);
 					break;
 			}
 
@@ -741,6 +757,16 @@ function thold_update_host_status() {
 				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Device down email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 			} elseif ($alert_email != '') {
 				thold_mail($alert_email, '', $subject, $msg, '');
+//				acti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] THOLD: Sent Email ' . $host['description'] . ' !', true, 'POLLER');
+			}
+
+			if ($alert_phone == '' && $host['thold_send_sms'] > 0) {
+				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device recovering SMS for \'' . $host['description'] . '\' since the \'Alert SMS\' setting is not set for Device!', true, 'THOLD');
+			} elseif ($host['thold_send_sms'] == '0') {
+				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Host Recovering SMS for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
+			} elseif ($alert_phone != '') {
+				thold_sms($alert_phone, $subject);
+//				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] THOLD: Sent SMS ' . $host['description'] . ' !', true, 'POLLER');
 			}
 		}
 	}
