@@ -523,13 +523,6 @@ function thold_config_settings () {
 			'size' => 80,
 			'max_length' => 255,
 		),
-		'thold_gammu_smsd_inject_path' => array(
-			'friendly_name' => __('Path to gammu-smsd-inject', 'thold'),
-			'description' => __('This is the path to gammu sms inject binary', 'thold'),
-			'method' => 'filepath',
-			'size' => 80,
-			'max_length' => 255,
-		),
 		'thold_sendsms_path' => array(
 			'friendly_name' => __('Path to sendsms script', 'thold'),
 			'description' => __('This is the path to sendsms script from SMS Server Tools 3', 'thold'),

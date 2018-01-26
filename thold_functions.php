@@ -4484,11 +4484,7 @@ function thold_sms($numbers, $msg) {
 	}
 
 	foreach($sms_numbers as $key => $value) {
-		if (strlen($thold_sendsms_path)>2) {
-			$command = 'bash ' . $thold_sendsms_path . ' ' . trim($value) . ' "' . $msg . '"';
-		 } else {
-		$command = $gammu_smsd_inject_path . ' sendsms TEXT ' . trim($value) . ' -text "' . $msg . '"';
-		}
+		$command = 'bash ' . $thold_sendsms_path . ' ' . trim($value) . ' "' . $msg . '"';
 		exec(cacti_escapeshellcmd($command), $command_output, $command_return);
 
 		thold_debug('DEBUG: thold_sms: command ==>' . $command);
@@ -4498,7 +4494,6 @@ function thold_sms($numbers, $msg) {
 		thold_debug('DEBUG: thold_sms: command return value ==> ' . $command_return);
 	}
 }
-
 
 function exec_script($command) {
 	global $debug;
