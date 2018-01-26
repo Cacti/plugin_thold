@@ -144,7 +144,7 @@ function thold_add_graphs_action_execute() {
 
 	if (strlen($message)) {
 		$_SESSION['thold_message'] = "<font size=-2>$message</font>";
-	}else{
+	} else {
 		$_SESSION['thold_message'] = "<font size=-2>" . __('Threshold(s) Already Exists - No Thresholds Created', 'thold') . "</font>";
 	}
 
@@ -158,7 +158,7 @@ function thold_add_graphs_action_execute() {
 		kill_session_var('graph_return');
 
 		header('Location: ' . $return_to . (strpos($return_to, '?') !== false ? '&':'?') . 'header=false');
-	}else{
+	} else {
 		header('Location:' . $config['url_path'] . 'plugins/thold/thold.php?header=false');
 	}
 }
@@ -198,19 +198,19 @@ function thold_add_graphs_action_prepare() {
 			$found_list .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
-			}else{
+			} else {
 				$templates  = "$data_template_id";
 			}
-		}else{
+		} else {
 			$not_found .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 		}
-	}else{
+	} else {
 		$not_found .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 	}
 
 	if (strlen($templates)) {
 		$sql = 'SELECT id, name FROM thold_template WHERE data_template_id IN (' . $templates . ') ORDER BY name';
-	}else{
+	} else {
 		$sql = 'SELECT id, name FROM thold_template ORDER BY name';
 	}
 
@@ -229,13 +229,13 @@ function thold_add_graphs_action_prepare() {
 
 		if (isset_request_var('tree_id')) {
 			get_filter_request_var('tree_id');
-		}else{
+		} else {
 			set_request_var('tree_id', '');
 		}
 
 		if (isset_request_var('leaf_id')) {
 			get_filter_request_var('leaf_id');
-		}else{
+		} else {
 			set_request_var('leaf_id', '');
 		}
 
@@ -272,7 +272,7 @@ function thold_add_graphs_action_prepare() {
 				'fields' => $form_array
 				)
 			);
-	}else{
+	} else {
 		if (strlen($not_found)) {
 			print '<p>' . __('There are no Threshold Templates associated with the following Graph.', 'thold') . '</p>';
 			print '<ul>' . $not_found . '</ul>';
@@ -335,7 +335,7 @@ function thold_add_graphs_action_prepare() {
 
 	if (isset($_SERVER['HTTP_REFERER'])) {
 		$backto = $_SERVER['HTTP_REFERER'];
-	}else{
+	} else {
 		$backto = $config['url_path'] . 'plugins/thold/thold.php';
 	}
 
@@ -354,14 +354,14 @@ function thold_add_graphs_action_prepare() {
 				$.post(strURL, json).done(function(data) {
 					document.location = '<?php print $backto;?>';
 				});
-			}else if ($('#doaction').length) {
+			} else if ($('#doaction').length) {
 				strURL += (strURL.indexOf('?') >- 0 ? '&':'?');
 				strURL += 'doaction='+$('#doaction').val();
 				strURL += '&local_graph_id='+$('#local_graph_id').val();
 				strURL += '&host_id='+$('#host_id').val();
 				strURL += '&usetemplate=1'+$('#usetemplate').val();
 				document.location = strURL;
-			}else{
+			} else {
 				strURL += (strURL.indexOf('?') >- 0 ? '&':'?');
 				strURL += 'thold_template_id='+$('#thold_template_id').val();
 				strURL += '&local_graph_id='+$('#local_graph_id').val();

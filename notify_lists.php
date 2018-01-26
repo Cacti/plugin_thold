@@ -206,7 +206,7 @@ function form_actions() {
 								/* clear other items */
 								db_execute("UPDATE thold_template SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute("UPDATE thold_template SET warning_phones_extra='' WHERE id=" . $selected_items[$i]);
-							}else{
+							} else {
 								/* set the notification list */
 								db_execute('UPDATE thold_template SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 							}
@@ -221,7 +221,7 @@ function form_actions() {
 								db_execute("UPDATE thold_template SET notify_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute("UPDATE thold_template SET alert_phones_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute('DELETE FROM plugin_thold_template_contact WHERE template_id=' . $selected_items[$i]);
-							}else{
+							} else {
 								/* set the notification list */
 								db_execute('UPDATE thold_template SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 							}
@@ -260,7 +260,7 @@ function form_actions() {
 								/* clear other items */
 								db_execute("UPDATE thold_data SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute("UPDATE thold_data SET warning_phones_extra='' WHERE id=" . $selected_items[$i]);
-							}else{
+							} else {
 								/* set the notification list */
 								db_execute('UPDATE thold_data SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 							}
@@ -275,7 +275,7 @@ function form_actions() {
 								db_execute("UPDATE thold_data SET notify_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute("UPDATE thold_data SET alert_phones_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $selected_items[$i]);
-							}else{
+							} else {
 								/* set the notification list */
 								db_execute('UPDATE thold_data SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 							}
@@ -498,7 +498,7 @@ function form_actions() {
 		form_end();
 
 		bottom_footer();
-	}else{
+	} else {
 		/* loop through each of the notification lists selected on the previous page and get more info about them */
 		while (list($var,$val) = each($_POST)) {
 			if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
@@ -678,7 +678,7 @@ function edit() {
 		hosts($header_label);
 	} elseif ($current_tab == 'tholds') {
 		tholds($header_label);
-	}else{
+	} else {
 		templates($header_label);
 	}
 }
@@ -731,7 +731,7 @@ function hosts($header_label) {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -894,12 +894,12 @@ function hosts($header_label) {
 			} elseif ($host['thold_host_email'] == get_request_var('id')) {
 				if ($host['thold_send_email'] == 2) {
 					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current List Only', 'thold') . '</span>', $host['id']);
-				}else{
+				} else {
 					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
 				}
 			} elseif ($host['thold_host_email'] == '0') {
 				form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('None', 'thold') . '</span>', $host['id']);
-			}else{
+			} else {
 				form_selectable_cell('<span style="color:red;font-weight:bold;">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
 			}
 			if ($host['thold_send_sms'] == 0) {
@@ -909,7 +909,7 @@ function hosts($header_label) {
 			} elseif ($host['thold_host_phone'] == get_request_var('id')) {
 				if ($host['thold_send_sms'] == 2) {
 					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current List Only', 'thold') . '</span>', $host['id']);
-				}else{
+				} else {
 					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
 				}
 			} elseif ($host['thold_host_phone'] == '0') {
@@ -967,7 +967,7 @@ function tholds($header_label) {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -1151,7 +1151,7 @@ function tholds($header_label) {
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
-				}else{
+				} else {
 					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $alert_list . '</span>';
 				}
@@ -1170,7 +1170,7 @@ function tholds($header_label) {
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
-				}else{
+				} else {
 					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $warn_list . '</span>';
 				}
@@ -1186,7 +1186,7 @@ function tholds($header_label) {
 
 			if ($row['name'] != '') {
 				$name = $row['name'];
-			}else{
+			} else {
 				$name = $row['name_cache'] . ' [' . $row['data_source_name'] . ']';
 			}
 
@@ -1232,7 +1232,7 @@ function templates($header_label) {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -1369,7 +1369,7 @@ function templates($header_label) {
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
-				}else{
+				} else {
 					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $alert_list . '</span>';
 				}
@@ -1388,7 +1388,7 @@ function templates($header_label) {
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold'). "</span>";
-				}else{
+				} else {
 					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $warn_list . '</span>';
 				}
@@ -1555,7 +1555,7 @@ function lists() {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
