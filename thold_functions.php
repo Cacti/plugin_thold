@@ -1791,7 +1791,6 @@ function thold_check_threshold(&$thold_data) {
 	if (isset($thold_data['hostname'])) {
 		/* function called during polling */
 		$h['snmp_engine_id'] =$thold_data['snmp_engine_id'];
-		$h['notes'] = $thold_data['notes'];
 		$h['description'] = $thold_data['description'];
 		$h['hostname'] = $thold_data['hostname'];
 	} else {
@@ -2703,7 +2702,7 @@ function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local
 
 	$alert_text = str_replace('<NOTES>',         $thold['notes'], $alert_text);
 	$alert_text = str_replace('<DNOTES>',        $thold['dnotes'], $alert_text);
-	$alert_text = str_replace('<DEVICENOTE>',    $h['dnotes'], $alert_text);
+	$alert_text = str_replace('<DEVICENOTE>',    $thold['dnotes'], $alert_text);
 
 	if ($thold['thold_type'] == 0) {
 		$alert_text = str_replace('<HI>',        $thold['thold_hi'], $alert_text);
@@ -2754,7 +2753,7 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 
 	$warning_text = str_replace('<NOTES>',         $thold['notes'], $warning_text);
 	$warning_text = str_replace('<DNOTES>',        $thold['dnotes'], $warning_text);
-	$warning_text = str_replace('<DEVICENOTE>',   $h['dnotes'], $warning_text);
+	$warning_text = str_replace('<DEVICENOTE>',   $thold['dnotes'], $warning_text);
 
 	if ($thold['thold_type'] == 0) {
 		$warning_text = str_replace('<HI>',        $thold['thold_hi'], $warning_text);
@@ -3566,18 +3565,18 @@ function save_thold() {
 		plugin_thold_log_changes($id, 'modified', $save);
 
 		$thold = db_fetch_row_prepared('SELECT td.*, dtr.data_source_name, h.hostname,
-            h.description, h.notes AS dnotes, h.snmp_engine_id
-            FROM plugin_thold_daemon_data AS tdd
-            INNER JOIN thold_data AS td
-            ON td.id = tdd.id
-            LEFT JOIN data_template_rrd AS dtr
-            ON dtr.id = td.data_template_rrd_id
-            LEFT JOIN host as h
-            ON td.host_id = h.id
-            WHERE td.id = ?',
+			h.description, h.notes AS dnotes, h.snmp_engine_id
+			FROM plugin_thold_daemon_data AS tdd
+			INNER JOIN thold_data AS td
+			ON td.id = tdd.id
+			LEFT JOIN data_template_rrd AS dtr
+			ON dtr.id = td.data_template_rrd_id
+			LEFT JOIN host as h
+			ON td.host_id = h.id
+			WHERE td.id = ?',
 			array($id));
 
-		if ($thold['thold_type'] == 1) {
+		if ($save['thold_type'] == 1) {
 			thold_check_threshold($thold);
 		}
 
