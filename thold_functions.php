@@ -617,6 +617,31 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 
 					$currentval = $currentval / $polling_interval;
 
+					if (strpos($thold_data['rrd_maximum'], '|query_') !== false) {
+						$data_local = db_fetch_row_prepared('SELECT *
+							FROM data_local
+							WHERE id = ?',
+							array($thold_data['local_data_id']));
+
+						if ($thold_data['rrd_maximum'] == '|query_ifSpeed|' || $thold_data['rrd_maximum'] == '|query_ifHighSpeed|') {
+							$highSpeed = db_fetch_cell_prepared("SELECT field_value
+								FROM host_snmp_cache
+								WHERE host_id = ?
+								AND snmp_query_id = ?
+								AND snmp_index = ?
+								AND field_name = 'ifHighSpeed'",
+								array($data_local['host_id'], $data_local['snmp_query_id'], $data_local['snmp_index']));
+
+							if (!empty($highSpeed)) {
+								$thold_data['rrd_maximum'] = $highSpeed * 1000000;
+							} else {
+								$thold_data['rrd_maximum'] = substitute_snmp_query_data('|query_ifSpeed|', $data_local['host_id'], $data_local['snmp_query_id'], $data_local['snmp_index']);
+							}
+						} else {
+							$thold_data['rrd_maximum'] = substitute_snmp_query_data($thold_data['rrd_maximum'], $data_local['host_id'], $data_local['snmp_query_id'], $data_local['snmp_index']);
+						}
+					}
+
 					/* assume counter reset if greater than max value */
 					if ($thold_data['rrd_maximum'] > 0 && $currentval > $thold_data['rrd_maximum']) {
 						$currentval = $item[$thold_data['name']] / $polling_interval;

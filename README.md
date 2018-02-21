@@ -43,6 +43,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#130: Correct errors relative to mailer headers
 * issue#131: Users without permissions can disable/enable tholds
 * issue#141: Division by zero when removing threshold due to deleted Graph Template
+* issue#144: Unexpected threshold breach due to very high value
 * issue#145: Cacti turning Thold off
 * issue#153: Threshold Template "Operator Notes" Variable not Recognized
 * issue#154: Removed Devices are not pruned to thold tables
