@@ -2667,6 +2667,7 @@ function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local
 	$alert_text = str_replace('<DSNAME>',        $data_source_name, $alert_text);
 	$alert_text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $alert_text);
 	$alert_text = str_replace('<NOTES>',         $thold['notes'], $alert_text);
+	$alert_text = str_replace('<DNOTES>',        $thold['dnotes'], $alert_text);
 
 	if ($thold['thold_type'] == 0) {
 		$alert_text = str_replace('<HI>',        $thold['thold_hi'], $alert_text);
@@ -2709,11 +2710,13 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 	$warning_text = str_replace('<HOSTNAME>',      $h['hostname'], $warning_text);
 	$warning_text = str_replace('<TIME>',          time(), $warning_text);
 	$warning_text = str_replace('<GRAPHID>',       $local_graph_id, $warning_text);
+
 	$warning_text = str_replace('<CURRENTVALUE>',  $currentval, $warning_text);
 	$warning_text = str_replace('<THRESHOLDNAME>', $thold['name'], $warning_text);
 	$warning_text = str_replace('<DSNAME>',        $data_source_name, $warning_text);
 	$warning_text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $warning_text);
 	$warning_text = str_replace('<NOTES>',         $thold['notes'], $warning_text);
+	$warning_text = str_replace('<DNOTES>',        $thold['dnotes'], $warning_text);
 
 	if ($thold['thold_type'] == 0) {
 		$warning_text = str_replace('<HI>',        $thold['thold_hi'], $warning_text);
@@ -2751,7 +2754,11 @@ function thold_format_number($value, $digits = 2, $baseu = 1024) {
 }
 
 function thold_format_name($template, $local_graph_id, $local_data_id, $data_source_name) {
-	$desc = db_fetch_cell_prepared('SELECT name_cache FROM data_template_data WHERE local_data_id = ? LIMIT 1', array($local_data_id));
+	$desc = db_fetch_cell_prepared('SELECT name_cache
+		FROM data_template_data
+		WHERE local_data_id = ?
+		LIMIT 1',
+		array($local_data_id));
 
 	if (isset($template['name']) && strpos($template['name'], '|') !== false) {
 		$gl = db_fetch_row_prepared('SELECT *
@@ -3519,7 +3526,17 @@ function save_thold() {
 	if ($id) {
 		plugin_thold_log_changes($id, 'modified', $save);
 
-		$thold = db_fetch_row_prepared('SELECT * FROM thold_data WHERE id= ?', array($id));
+		$thold = db_fetch_row_prepared('SELECT td.*, dtr.data_source_name, h.hostname,
+            h.description, h.notes AS dnotes, h.snmp_engine_id
+            FROM plugin_thold_daemon_data AS tdd
+            INNER JOIN thold_data AS td
+            ON td.id = tdd.id
+            LEFT JOIN data_template_rrd AS dtr
+            ON dtr.id = td.data_template_rrd_id
+            LEFT JOIN host as h
+            ON td.host_id = h.id
+            WHERE td.id = ?',
+			array($id));
 
 		if ($thold['thold_type'] == 1) {
 			thold_check_threshold($thold);

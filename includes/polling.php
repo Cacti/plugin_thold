@@ -409,7 +409,7 @@ function thold_check_all_thresholds() {
 	if (read_config_option('remote_storage_method') == 1) {
 		if ($config['poller_id'] == 1) {
 			$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
-				h.description, h.notes, h.snmp_engine_id
+				h.description, h.notes AS dnotes, h.snmp_engine_id
 				FROM thold_data AS td
 				LEFT JOIN host AS h
 				ON h.id = td.host_id
@@ -421,7 +421,7 @@ function thold_check_all_thresholds() {
 				AND h.status=3";
 		} else {
 			$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
-				h.description, h.notes, h.snmp_engine_id
+				h.description, h.notes AS dnotes, h.snmp_engine_id
 				FROM thold_data AS td
 				LEFT JOIN host AS h
 				ON h.id = td.host_id
@@ -434,7 +434,7 @@ function thold_check_all_thresholds() {
 		}
 	} else {
 		$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
-			h.description, h.notes, h.snmp_engine_id
+			h.description, h.notes AS dnotes, h.snmp_engine_id
 			FROM thold_data AS td
 			LEFT JOIN data_template_rrd AS dtr
 			ON dtr.id = td.data_template_rrd_id
