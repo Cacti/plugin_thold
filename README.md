@@ -45,6 +45,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#132: Undefined indexes from time to time when storing current value
 * issue#138: Duplicate thresholds created
 * issue#141: Division by zero when removing threshold due to deleted Graph Template
+* issue#142: When two data source have same field name, thold will create duplicates
 * issue#144: Unexpected threshold breach due to very high value
 * issue#145: Cacti turning Thold off
 * issue#153: Threshold Template "Operator Notes" Variable not Recognized

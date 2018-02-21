@@ -24,15 +24,25 @@
 */
 
 function thold_update_contacts() {
-	$users = db_fetch_assoc("SELECT id, 'email' AS type, email_address FROM user_auth WHERE email_address!=''");
+	$users = db_fetch_assoc("SELECT id, 'email' AS type, email_address
+		FROM user_auth
+		WHERE email_address!=''");
+
 	if (sizeof($users)) {
 		foreach ($users as $u) {
-			$cid = db_fetch_cell('SELECT id FROM plugin_thold_contacts WHERE type="email" AND user_id=' . $u['id']);
+			$cid = db_fetch_cell('SELECT id
+				FROM plugin_thold_contacts
+				WHERE type="email"
+				AND user_id=' . $u['id']);
 
 			if ($cid) {
-				db_execute("REPLACE INTO plugin_thold_contacts (id, user_id, type, data) VALUES ($cid, " . $u['id'] . ", 'email', '" . $u['email_address'] . "')");
+				db_execute("REPLACE INTO plugin_thold_contacts
+					(id, user_id, type, data)
+					VALUES ($cid, " . $u['id'] . ", 'email', '" . $u['email_address'] . "')");
 			} else {
-				db_execute("REPLACE INTO plugin_thold_contacts (user_id, type, data) VALUES (" . $u['id'] . ", 'email', '" . $u['email_address'] . "')");
+				db_execute("REPLACE INTO plugin_thold_contacts
+					(user_id, type, data)
+					VALUES (" . $u['id'] . ", 'email', '" . $u['email_address'] . "')");
 			}
 		}
 	}
@@ -3699,19 +3709,26 @@ function autocreate($host_id) {
 						FROM data_template_rrd
 						WHERE local_data_id = ?
 						AND data_source_name = ?
-						ORDER BY id LIMIT 1', array($local_data_id, $template['data_source_name']));
+						AND data_template_id = ?
+						ORDER BY id LIMIT 1',
+						array($local_data_id, $template['data_template_id'], $template['data_source_name']));
 
 					if ($data_template_rrd_id > 0) {
 						$graph  = db_fetch_row_prepared('SELECT local_graph_id, graph_template_id
 							FROM graph_templates_item
 							WHERE task_item_id = ?
 							AND local_graph_id > 0
-							LIMIT 1', array($data_template_rrd_id));
+							LIMIT 1',
+							array($data_template_rrd_id));
 
 						if (sizeof($graph)) {
 							$data_source_name = $template['data_source_name'];
 
-							$desc = db_fetch_cell_prepared('SELECT name_cache FROM data_template_data WHERE local_data_id = ? LIMIT 1', array($local_data_id));
+							$desc = db_fetch_cell_prepared('SELECT name_cache
+								FROM data_template_data
+								WHERE local_data_id = ?
+								LIMIT 1',
+								array($local_data_id));
 
 							$insert                         = array();
 							$insert['id']                   = 0;
@@ -3944,15 +3961,20 @@ function thold_template_update_threshold ($id, $template) {
 		thold_data.snmp_event_category = thold_template.snmp_event_category,
 		thold_data.snmp_event_severity = thold_template.snmp_event_severity,
 		thold_data.snmp_event_warning_severity = thold_template.snmp_event_warning_severity
-		WHERE thold_data.id = ? AND thold_template.id = ?", array($id, $template));
+		WHERE thold_data.id = ?
+		AND thold_template.id = ?",
+		array($id, $template));
 
-	db_execute_prepared('DELETE FROM plugin_thold_threshold_contact WHERE thold_id = ?', array($id));
+	db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
+		WHERE thold_id = ?',
+		array($id));
 
 	db_execute_prepared('INSERT INTO plugin_thold_threshold_contact
 		(thold_id, contact_id)
 		SELECT ?, contact_id
 		FROM plugin_thold_template_contact
-		WHERE template_id = ?', array($id, $template));
+		WHERE template_id = ?',
+		array($id, $template));
 }
 
 function thold_template_update_thresholds($id) {
@@ -3997,21 +4019,30 @@ function thold_template_update_thresholds($id) {
 		thold_data.snmp_event_category = thold_template.snmp_event_category,
 		thold_data.snmp_event_severity = thold_template.snmp_event_severity,
 		thold_data.snmp_event_warning_severity = thold_template.snmp_event_warning_severity
-		WHERE thold_data.thold_template_id = ? AND thold_data.template_enabled='on' AND thold_template.id = ?", array($id, $id));
+		WHERE thold_data.thold_template_id = ?
+		AND thold_data.template_enabled='on'
+		AND thold_template.id = ?",
+		array($id, $id));
 
 	$rows = db_fetch_assoc_prepared("SELECT id, thold_template_id
 		FROM thold_data
 		WHERE thold_data.thold_template_id = ?
-		AND thold_data.template_enabled='on'", array($id));
+		AND thold_data.template_enabled='on'",
+		array($id));
 
-	foreach ($rows as $row) {
-		db_execute_prepared('DELETE FROM plugin_thold_threshold_contact WHERE thold_id = ?', array($row['id']));
+	if (sizeof($rows)) {
+		foreach ($rows as $row) {
+			db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
+				WHERE thold_id = ?',
+				array($row['id']));
 
-		db_execute_prepared('INSERT INTO plugin_thold_threshold_contact
-			(thold_id, contact_id)
-			SELECT ?, contact_id
-			FROM plugin_thold_template_contact
-			WHERE template_id = ?', array($row['id'], $row['thold_template_id']));
+			db_execute_prepared('INSERT INTO plugin_thold_threshold_contact
+				(thold_id, contact_id)
+				SELECT ?, contact_id
+				FROM plugin_thold_template_contact
+				WHERE template_id = ?',
+				array($row['id'], $row['thold_template_id']));
+		}
 	}
 }
 
@@ -4099,7 +4130,7 @@ function thold_threshold_enable($id) {
 			thold_alert=0,
 			bl_alert=0
 			WHERE id = ?",
-		array($id));
+			array($id));
 	}
 }
 
@@ -4163,7 +4194,10 @@ function get_thold_alert_emails($thold) {
 
 function get_thold_notification_emails($id) {
 	if (!empty($id)) {
-		return trim(db_fetch_cell_prepared('SELECT emails FROM plugin_notification_lists WHERE id = ?', array($id)));
+		return trim(db_fetch_cell_prepared('SELECT emails
+			FROM plugin_notification_lists
+			WHERE id = ?',
+			array($id)));
 	} else {
 		return '';
 	}
