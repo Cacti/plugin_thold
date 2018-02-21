@@ -47,7 +47,7 @@ if (!isset($_SERVER['argv'][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($
 }
 
 /* We are not talking to the browser */
-$no_http_headers = TRUE;
+$no_http_headers = true;
 
 chdir(dirname(__FILE__));
 chdir('../../');
@@ -86,7 +86,7 @@ if (sizeof($parms)) {
 		switch ($arg) {
 			case '-d':
 			case '--debug':
-				$debug = TRUE;
+				$debug = true;
 				break;
 			case '-pid':
 			case '--pid':
@@ -125,13 +125,13 @@ $start = microtime(true);
 if ($pid === false) {
 	display_help();
 } elseif (read_config_option('remote_storage_method') == 1) {
-	db_execute_prepared('UPDATE plugin_thold_daemon_processes 
-		SET start = ? 
-		WHERE pid = ? AND poller_id = ?', 
+	db_execute_prepared('UPDATE plugin_thold_daemon_processes
+		SET start = ?
+		WHERE pid = ? AND poller_id = ?',
 		array($start, $pid, $config['poller_id']));
 } else {
-	db_execute_prepared('UPDATE plugin_thold_daemon_processes 
-		SET start = ? 
+	db_execute_prepared('UPDATE plugin_thold_daemon_processes
+		SET start = ?
 		WHERE pid = ?',
 		array($start, $pid));
 }
@@ -140,12 +140,12 @@ if ($pid === false) {
 usleep(1);
 
 if (read_config_option('remote_storage_method') == 1) {
-	$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed, 
+	$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
 		td.id AS thold_id, td.name AS thold_name, td.local_graph_id,
 		td.percent_ds, td.expression, td.data_type, td.cdef, td.local_data_id,
 		td.data_template_rrd_id, td.lastread,
 		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
-		dtr.data_source_name AS name, dtr.data_source_type_id, 
+		dtr.data_source_name AS name, dtr.data_source_type_id,
 		dtd.rrd_step, dtr.rrd_maximum
 		FROM plugin_thold_daemon_data AS tdd
 		INNER JOIN thold_data AS td
@@ -160,12 +160,12 @@ if (read_config_option('remote_storage_method') == 1) {
 
 	$tholds = db_fetch_assoc_prepared($sql_query, array($pid, $config['poller_id']), false);
 } else {
-	$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed, 
+	$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
 		td.id AS thold_id, td.name AS thold_name, td.local_graph_id,
 		td.percent_ds, td.expression, td.data_type, td.cdef, td.local_data_id,
 		td.data_template_rrd_id, td.lastread,
 		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
-		dtr.data_source_name AS name, dtr.data_source_type_id, 
+		dtr.data_source_name AS name, dtr.data_source_type_id,
 		dtd.rrd_step, dtr.rrd_maximum
 		FROM plugin_thold_daemon_data AS tdd
 		INNER JOIN thold_data AS td
@@ -219,7 +219,7 @@ if (sizeof($tholds)) {
 			$currentval = '';
 		}
 
-		db_execute_prepared("UPDATE thold_data 
+		db_execute_prepared("UPDATE thold_data
 			SET tcheck = 1, lastread= ?, lasttime = ?, oldvalue = ?
 			WHERE id = ?",
 			array($currentval, date('Y-m-d H:i:s', $currenttime),  $item[$thold_data['name']], $thold_data['thold_id'])
@@ -236,14 +236,14 @@ if (sizeof($tholds)) {
 			ON dtr.id = td.data_template_rrd_id
 			LEFT JOIN host as h
 			ON td.host_id = h.id
-			WHERE tdd.pid = ? 
+			WHERE tdd.pid = ?
 			AND tdd.poller_id = ?
-			AND td.thold_enabled = 'on' 
+			AND td.thold_enabled = 'on'
 			AND td.tcheck = 1 AND h.status=3";
 
 		$tholds = api_plugin_hook_function(
-			'thold_get_live_hosts', 
-			db_fetch_assoc_prepared($sql_query, 
+			'thold_get_live_hosts',
+			db_fetch_assoc_prepared($sql_query,
 				array($pid, $config['poller_id']))
 		);
 	} else {
@@ -255,13 +255,13 @@ if (sizeof($tholds)) {
 			ON dtr.id = td.data_template_rrd_id
 			LEFT JOIN host as h
 			ON td.host_id = h.id
-			WHERE tdd.pid = ? 
-			AND td.thold_enabled = 'on' 
+			WHERE tdd.pid = ?
+			AND td.thold_enabled = 'on'
 			AND td.tcheck = 1 AND h.status=3";
 
 		$tholds = api_plugin_hook_function(
-			'thold_get_live_hosts', 
-			db_fetch_assoc_prepared($sql_query, 
+			'thold_get_live_hosts',
+			db_fetch_assoc_prepared($sql_query,
 				array($pid))
 		);
 	}
@@ -273,8 +273,8 @@ if (sizeof($tholds)) {
 		}
 	}
 
-	db_execute_prepared('UPDATE thold_data 
-		SET thold_data.thold_daemon_pid = "", tcheck=0 
+	db_execute_prepared('UPDATE thold_data
+		SET thold_data.thold_daemon_pid = "", tcheck=0
 		WHERE thold_data.thold_daemon_pid = ?',
 		array($pid)
 	);
@@ -282,23 +282,23 @@ if (sizeof($tholds)) {
 	$end = microtime(true);
 
 	if (read_config_option('remote_storage_method') == 1) {
-		db_execute_prepared('DELETE FROM plugin_thold_daemon_data 
+		db_execute_prepared('DELETE FROM plugin_thold_daemon_data
 			WHERE pid = ?
-			AND poller_id = ?', 
+			AND poller_id = ?',
 			array($pid, $config['poller_id']));
 
-		db_execute_prepared('UPDATE plugin_thold_daemon_processes 
-			SET start = ?, end = ?, processed_items = ? 
+		db_execute_prepared('UPDATE plugin_thold_daemon_processes
+			SET start = ?, end = ?, processed_items = ?
 			WHERE pid = ?
 			AND poller_id = ?',
 			array($start, $end, $total_tholds, $pid, $config['poller_id']));
 	} else {
-		db_execute_prepared('DELETE FROM plugin_thold_daemon_data 
+		db_execute_prepared('DELETE FROM plugin_thold_daemon_data
 			WHERE pid = ?',
 			array($pid));
 
-		db_execute_prepared('UPDATE plugin_thold_daemon_processes 
-			SET start = ?, end = ?, processed_items = ? 
+		db_execute_prepared('UPDATE plugin_thold_daemon_processes
+			SET start = ?, end = ?, processed_items = ?
 			WHERE pid = ?',
 			array($start, $end, $total_tholds, $pid));
 	}
