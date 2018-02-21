@@ -737,6 +737,7 @@ function thold_data_source_action_execute($action) {
 						FROM graph_templates_item
 						WHERE task_item_id=$rrdlookup
 						AND local_graph_id<>''
+						AND graph_template_id>0
 						LIMIT 1");
 
 					$graph     = (isset($grapharr['local_graph_id']) ? $grapharr['local_graph_id'] : '');
@@ -969,6 +970,7 @@ function thold_graphs_action_execute($action) {
 					 FROM data_template_rrd AS dtr
 					 LEFT JOIN graph_templates_item AS gti
 					 ON gti.task_item_id=dtr.id
+					 AND gti.graph_template_id>0
 					 LEFT JOIN graph_local AS gl
 					 ON gl.id=gti.local_graph_id
 					 WHERE gl.id=$graph");
@@ -991,7 +993,8 @@ function thold_graphs_action_execute($action) {
 						$grapharr = db_fetch_row("SELECT graph_template_id
 							FROM graph_templates_item
 							WHERE task_item_id=$rrdlookup
-							AND local_graph_id=$graph");
+							AND local_graph_id=$graph
+							AND graph_template_id>0");
 
 						$data_source_name = $template['data_source_name'];
 
@@ -1130,6 +1133,7 @@ function thold_graphs_action_prepare($save) {
 					 FROM data_template_rrd AS dtr
 					 LEFT JOIN graph_templates_item AS gti
 					 ON gti.task_item_id=dtr.id
+					 AND gti.graph_template_id>0
 					 LEFT JOIN graph_local AS gl
 					 ON gl.id=gti.local_graph_id
 					 WHERE gl.id=$item");

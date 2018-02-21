@@ -40,6 +40,7 @@ function thold_add_graphs_action_execute() {
 		FROM data_template_rrd AS dtr
 		LEFT JOIN graph_templates_item AS gti
 		ON gti.task_item_id=dtr.id
+		AND gti.graph_template_id>0
 		LEFT JOIN graph_local AS gl
 		ON gl.id=gti.local_graph_id
 		WHERE gl.id = ?
@@ -66,7 +67,7 @@ function thold_add_graphs_action_execute() {
 	if (count($existing) == 0 && count($template)) {
 		if ($local_graph_id) {
 			$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id ORDER BY id LIMIT 1");
-			$grapharr  = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup AND local_graph_id = $local_graph_id");
+			$grapharr  = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup AND local_graph_id = $local_graph_id AND graph_template_id>0");
 
 			$desc = db_fetch_cell_prepared('SELECT name_cache FROM data_template_data WHERE local_data_id = ? LIMIT 1', array($local_data_id));
 
@@ -186,6 +187,7 @@ function thold_add_graphs_action_prepare() {
 		 FROM data_template_rrd AS dtr
 		 LEFT JOIN graph_templates_item AS gti
 		 ON gti.task_item_id=dtr.id
+		 AND gti.graph_template_id>0
 		 LEFT JOIN graph_local AS gl
 		 ON gl.id=gti.local_graph_id
 		 WHERE gl.id = ?', array($local_graph_id));
@@ -447,6 +449,7 @@ function thold_add_select_host() {
 			FROM data_template_rrd AS dtr
 			LEFT JOIN graph_templates_item AS gti
 			ON gti.task_item_id=dtr.id
+			AND gti.graph_template_id>0
 			LEFT JOIN graph_local AS gl
 			ON gl.id=gti.local_graph_id
 			WHERE gl.id = ' . $local_graph_id;

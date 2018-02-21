@@ -150,6 +150,7 @@ function thold_add() {
 				 FROM data_template_rrd AS dtr
 				 LEFT JOIN graph_templates_item AS gti
 				 ON gti.task_item_id=dtr.id
+				 AND gti.graph_template_id>0
 				 LEFT JOIN graph_local AS gl
 				 ON gl.id=gti.local_graph_id
 				 WHERE gl.id = ?',
@@ -586,7 +587,8 @@ function list_tholds() {
 				FROM graph_templates_item AS gti
 				INNER JOIN data_template_rrd AS dtr
 				ON dtr.local_data_id = ?
-				AND dtr.id=gti.task_item_id',
+				AND dtr.id=gti.task_item_id
+				AND gti.graph_template_id>0',
 				array($thold_data['local_data_id']));
 
 			$local_graph_id = $grapharr['local_graph_id'];
@@ -776,6 +778,7 @@ function thold_edit() {
 			FROM graph_local AS gl
 			INNER JOIN graph_templates_item AS gti
 			ON gl.id=gti.local_graph_id
+			AND gti.graph_template_id>0
 			INNER JOIN data_template_rrd AS dtr
 			ON gti.task_item_id=dtr.id
 			WHERE dtr.local_data_id = ?
@@ -795,6 +798,7 @@ function thold_edit() {
 		FROM data_template_rrd AS dtr
 		LEFT JOIN graph_templates_item AS gti
 		ON gti.task_item_id=dtr.id
+		AND gti.graph_template_id>0
 		LEFT JOIN graph_local AS gl
 		ON gl.id=gti.local_graph_id
 		WHERE gl.id=' . $thold_data['local_graph_id'];

@@ -1235,6 +1235,7 @@ function thold_user_auth_threshold($rra) {
 		FROM data_template_rrd AS dtr
 		LEFT JOIN graph_templates_item AS gti
 		ON gti.task_item_id=dtr.id
+		AND gti.graph_template_id>0
 		LEFT JOIN graph_local AS gl
 		ON gl.id=gti.local_graph_id
 		WHERE dtr.local_data_id = ?',
@@ -3538,6 +3539,7 @@ function save_thold() {
 		FROM graph_templates_item
 		WHERE task_item_id = ?
 		AND local_graph_id <> ""
+		AND graph_template_id>0
 		LIMIT 1',
 		array($rrdlookup));
 
@@ -3722,6 +3724,7 @@ function autocreate($host_id) {
 							FROM graph_templates_item
 							WHERE task_item_id = ?
 							AND local_graph_id > 0
+							AND graph_template_id>0
 							LIMIT 1',
 							array($data_template_rrd_id));
 
