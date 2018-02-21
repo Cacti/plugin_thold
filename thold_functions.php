@@ -4179,6 +4179,29 @@ function thold_snmptrap($varbinds, $severity = SNMPAGENT_EVENT_SEVERITY_MEDIUM, 
 	}
 }
 
+function thold_prune_old_data() {
+	// Remove failed entries from removed devices
+	db_execute('DELETE pthf
+		FROM plugin_thold_host_failed AS pthf
+		LEFT JOIN host AS h
+		ON pthf.host_id = h.id
+		WHERE h.id IS NULL');
+
+	// Remove log entries from removed devices
+	db_execute('DELETE ptl
+		FROM plugin_thold_log AS ptl
+		LEFT JOIN host AS h
+		ON ptl.host_id = h.id
+		WHERE h.id IS NULL');
+
+	// Remove threashols from removed devices
+	db_execute('DELETE td
+		FROM thold_data AS td
+		LEFT JOIN host AS h
+		ON td.host_id = h.id
+		WHERE h.id IS NULL');
+}
+
 function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $limit = '', &$total_rows = 0, $user = 0, $host_id = 0) {
 	if ($limit != '') {
 		$limit = "LIMIT $limit";
