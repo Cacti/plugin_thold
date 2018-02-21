@@ -3685,6 +3685,8 @@ function autocreate($host_id) {
 					FROM thold_data AS td
 					INNER JOIN data_template_rrd AS dtr
 					ON dtr.id=td.data_template_rrd_id
+					AND dtr.data_template_id=td.data_template_id
+					AND dtr.local_data_id=td.local_data_id
 					WHERE td.local_data_id = ?
 					AND td.data_template_id = ?
 					AND td.thold_template_id = ?
