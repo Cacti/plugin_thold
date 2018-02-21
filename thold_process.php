@@ -222,7 +222,7 @@ if (sizeof($tholds)) {
 		if (isset($item[$thold_data['name']])) {
 			$lasttime = $item[$thold_data['name']];
 		} else {
-			$lasttime = $current_time - $thold_data['rrd_step'];
+			$lasttime = $currenttime - $thold_data['rrd_step'];
 		}
 
 		db_execute_prepared("UPDATE thold_data
