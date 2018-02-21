@@ -3715,7 +3715,7 @@ function autocreate($host_id) {
 						AND data_source_name = ?
 						AND data_template_id = ?
 						ORDER BY id LIMIT 1',
-						array($local_data_id, $template['data_template_id'], $template['data_source_name']));
+						array($local_data_id, $template['data_source_name'], $template['data_template_id']));
 
 					if ($data_template_rrd_id > 0) {
 						$graph  = db_fetch_row_prepared('SELECT local_graph_id, graph_template_id
