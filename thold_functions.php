@@ -2694,15 +2694,16 @@ function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local
 	// Do some replacement of variables
 	$alert_text = str_replace('<DESCRIPTION>',   $h['description'], $alert_text);
 	$alert_text = str_replace('<HOSTNAME>',      $h['hostname'], $alert_text);
-	$alert_text = str_replace('<TIME>',          time(), $alert_text);
 	$alert_text = str_replace('<GRAPHID>',       $local_graph_id, $alert_text);
 
 	$alert_text = str_replace('<CURRENTVALUE>',  $currentval, $alert_text);
 	$alert_text = str_replace('<THRESHOLDNAME>', $thold['name'], $alert_text);
 	$alert_text = str_replace('<DSNAME>',        $data_source_name, $alert_text);
 	$alert_text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $alert_text);
+
 	$alert_text = str_replace('<NOTES>',         $thold['notes'], $alert_text);
 	$alert_text = str_replace('<DNOTES>',        $thold['dnotes'], $alert_text);
+	$alert_text = str_replace('<DEVICENOTE>',    $h['dnotes'], $alert_text);
 
 	if ($thold['thold_type'] == 0) {
 		$alert_text = str_replace('<HI>',        $thold['thold_hi'], $alert_text);
@@ -2721,8 +2722,9 @@ function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local
 		$alert_text = str_replace('<DURATION>',  '', $alert_text);
 	}
 
+	$alert_text = str_replace('<TIME>',          time(), $alert_text);
+	$alert_text = str_replace('<DATE>',          date(CACTI_DATE_TIME_FORMAT), $alert_text);
 	$alert_text = str_replace('<DATE_RFC822>',   date(DATE_RFC822), $alert_text);
-	$alert_text = str_replace('<DEVICENOTE>',    $h['notes'], $alert_text);
 
 	$alert_text = str_replace('<URL>',           "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . "</a>", $alert_text);
 
@@ -2743,15 +2745,16 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 	// Do some replacement of variables
 	$warning_text = str_replace('<DESCRIPTION>',   $h['description'], $warning_text);
 	$warning_text = str_replace('<HOSTNAME>',      $h['hostname'], $warning_text);
-	$warning_text = str_replace('<TIME>',          time(), $warning_text);
 	$warning_text = str_replace('<GRAPHID>',       $local_graph_id, $warning_text);
 
 	$warning_text = str_replace('<CURRENTVALUE>',  $currentval, $warning_text);
 	$warning_text = str_replace('<THRESHOLDNAME>', $thold['name'], $warning_text);
 	$warning_text = str_replace('<DSNAME>',        $data_source_name, $warning_text);
 	$warning_text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $warning_text);
+
 	$warning_text = str_replace('<NOTES>',         $thold['notes'], $warning_text);
 	$warning_text = str_replace('<DNOTES>',        $thold['dnotes'], $warning_text);
+	$warning_text = str_replace('<DEVICENOTE>',   $h['dnotes'], $warning_text);
 
 	if ($thold['thold_type'] == 0) {
 		$warning_text = str_replace('<HI>',        $thold['thold_hi'], $warning_text);
@@ -2770,8 +2773,9 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 		$warning_text = str_replace('<DURATION>', '', $warning_text);
 	}
 
+	$warning_text = str_replace('<TIME>',          time(), $warning_text);
+	$warning_text = str_replace('<DATE>',         date(CACTI_DATE_TIME_FORMAT), $warning_text);
 	$warning_text = str_replace('<DATE_RFC822>',  date(DATE_RFC822), $warning_text);
-	$warning_text = str_replace('<DEVICENOTE>',   $h['notes'], $warning_text);
 
 	$warning_text = str_replace('<URL>',          "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . "</a>", $warning_text);
 

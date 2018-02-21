@@ -43,6 +43,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#130: Correct errors relative to mailer headers
 * issue#131: Users without permissions can disable/enable tholds
 * issue#132: Undefined indexes from time to time when storing current value
+* issue#136: Add Support <DATE> in Cacti format and document <DATE_RFC822> option
 * issue#138: Duplicate thresholds created
 * issue#141: Division by zero when removing threshold due to deleted Graph Template
 * issue#142: When two data source have same field name, thold will create duplicates
@@ -53,6 +54,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * feature: First attempt of thresholding by data collector.  Note that if you are using the thold daemon, you will need to run on each data collector.
 * feature: Report Thold Daemon Runtime with Millisecond precision.
 * feature: Prepare for new Cacti 1.2 feature for storing RRDfiles on remote storage
+* feature: Add <TIME>, <DATE> in Cacti format, and <DATE_RFC822> to Device Up/Down Emails
 * issue: Speed thold processing by reducing queries and string manipulation
 * issue: Fully convert the thold daemon to Cacti 1.x.  Old converted thold daemon was generating MySQL 2006 errors due to a feature in PDO
 

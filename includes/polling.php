@@ -608,6 +608,10 @@ function thold_update_host_status() {
 				$msg = str_replace('<UPTIME>', $snmp_uptime, $msg);
 				$msg = str_replace('<UPTIMETEXT>', $uptimelong, $msg);
 
+				$msg = str_replace('<TIME>', time(), $msg);
+				$msg = str_replace('<DATE>', date(CACTI_DATE_TIME_FORMAT), $msg);
+				$msg = str_replace('<DATE_RFC822>', date(DATE_RFC822), $msg);
+
 				$msg = str_replace('<DOWNTIME>', $downtimemsg, $msg);
 				$msg = str_replace('<MESSAGE>', '', $msg);
 				$msg = str_replace('<DOWN/UP>', 'UP', $msg);
