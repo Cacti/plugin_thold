@@ -376,7 +376,13 @@ function thold_poller_output(&$rrd_update_array) {
 				$currentval = '';
 			}
 
-			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', ' . db_qstr(date('Y-m-d H:i:s', $currenttime)) . ', ' . db_qstr(isset($item[$thold_data['name']]) ? $item[$thold_data['name']] : '') . ')';
+			if (isset($item[$thold_data['name']])) {
+				$lasttime = $item[$thold_data['name']];
+			} else {
+				$lasttime = $current_time - $thold_data['rrd_step'];
+			}
+
+			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', ' . db_qstr(date('Y-m-d H:i:s', $currenttime)) . ', ' . db_qstr($lasttime) . ')';
 		}
 
 		if (sizeof($sql)) {

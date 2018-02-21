@@ -42,6 +42,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#128: Thold log date format does not align with Cacti log format
 * issue#130: Correct errors relative to mailer headers
 * issue#131: Users without permissions can disable/enable tholds
+* issue#132: Undefined indexes from time to time when storing current value
 * issue#138: Duplicate thresholds created
 * issue#141: Division by zero when removing threshold due to deleted Graph Template
 * issue#144: Unexpected threshold breach due to very high value

@@ -219,10 +219,16 @@ if (sizeof($tholds)) {
 			$currentval = '';
 		}
 
+		if (isset($item[$thold_data['name']])) {
+			$lasttime = $item[$thold_data['name']];
+		} else {
+			$lasttime = $current_time - $thold_data['rrd_step'];
+		}
+
 		db_execute_prepared("UPDATE thold_data
-			SET tcheck = 1, lastread= ?, lasttime = ?, oldvalue = ?
+			SET tcheck = 1, lastread = ?, lasttime = ?, oldvalue = ?
 			WHERE id = ?",
-			array($currentval, date('Y-m-d H:i:s', $currenttime),  $item[$thold_data['name']], $thold_data['thold_id'])
+			array($currentval, date('Y-m-d H:i:s', $currenttime),  $lasttime, $thold_data['thold_id'])
 		);
 	}
 
