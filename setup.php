@@ -736,7 +736,7 @@ function thold_data_source_action_execute($action) {
 					$grapharr  = db_fetch_row("SELECT local_graph_id, graph_template_id
 						FROM graph_templates_item
 						WHERE task_item_id=$rrdlookup
-						AND local_graph_id<>''
+						AND local_graph_id > 0
 						AND graph_template_id>0
 						LIMIT 1");
 
