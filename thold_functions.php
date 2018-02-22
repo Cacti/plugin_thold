@@ -2807,7 +2807,7 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 	}
 
 	if ($thold['notes'] != '') {
-		$notes = thold_replace_replace_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
+		$notes = thold_replace_threshold_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
 		$warning_text = str_replace('<NOTES>', $notes, $warning_text);
 	}
 
