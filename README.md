@@ -52,11 +52,13 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#153: Threshold Template "Operator Notes" Variable not Recognized
 * issue#154: Removed Devices are not pruned to thold tables
 * issue#155: Autocreate now failing due to recent changes
+* issue#157: Operator Notes are not propagated during Template updates
 * feature: Now shows counts of notification list usage on front page
 * feature: First attempt of thresholding by data collector.  Note that if you are using the thold daemon, you will need to run on each data collector.
 * feature: Report Thold Daemon Runtime with Millisecond precision.
 * feature: Prepare for new Cacti 1.2 feature for storing RRDfiles on remote storage
 * feature: Add <TIME>, <DATE> in Cacti format, and <DATE_RFC822> to Device Up/Down Emails
+* feature: Allow Operator Notes to include threshold tags
 * issue: Speed thold processing by reducing queries and string manipulation
 * issue: Fully convert the thold daemon to Cacti 1.x.  Old converted thold daemon was generating MySQL 2006 errors due to a feature in PDO
 

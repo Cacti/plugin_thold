@@ -1603,12 +1603,12 @@ function lists() {
 		$sql_where");
 
 	$lists = db_fetch_assoc("SELECT id, name, description, emails,
-                        (SELECT COUNT(id) FROM thold_data WHERE notify_alert = nl.id) as thold_alerts,
-                        (SELECT COUNT(id) FROM thold_data WHERE notify_warning = nl.id) as thold_warnings,
-                        (SELECT COUNT(id) FROM thold_template WHERE notify_alert = nl.id) as template_alerts,
-                        (SELECT COUNT(id) FROM thold_template WHERE notify_warning = nl.id) as template_warnings,
-                        (SELECT COUNT(id) FROM host WHERE thold_host_email = nl.id) as hosts
-                FROM plugin_notification_lists nl
+		(SELECT COUNT(id) FROM thold_data WHERE notify_alert = nl.id) as thold_alerts,
+		(SELECT COUNT(id) FROM thold_data WHERE notify_warning = nl.id) as thold_warnings,
+		(SELECT COUNT(id) FROM thold_template WHERE notify_alert = nl.id) as template_alerts,
+		(SELECT COUNT(id) FROM thold_template WHERE notify_warning = nl.id) as template_warnings,
+		(SELECT COUNT(id) FROM host WHERE thold_host_email = nl.id) as hosts
+		FROM plugin_notification_lists nl
 		$sql_where
 		ORDER BY " . get_request_var('sort_column') . ' ' . get_request_var('sort_direction') .
 		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows);
