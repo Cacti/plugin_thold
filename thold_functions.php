@@ -26,23 +26,26 @@
 function thold_update_contacts() {
 	$users = db_fetch_assoc("SELECT id, 'email' AS type, email_address
 		FROM user_auth
-		WHERE email_address!=''");
+		WHERE email_address != ''");
 
 	if (sizeof($users)) {
 		foreach ($users as $u) {
-			$cid = db_fetch_cell('SELECT id
+			$cid = db_fetch_cell_prepared('SELECT id
 				FROM plugin_thold_contacts
 				WHERE type="email"
-				AND user_id=' . $u['id']);
+				AND user_id = ?',
+				array($u['id']));
 
 			if ($cid) {
-				db_execute("REPLACE INTO plugin_thold_contacts
+				db_execute_prepared('REPLACE INTO plugin_thold_contacts
 					(id, user_id, type, data)
-					VALUES ($cid, " . $u['id'] . ", 'email', '" . $u['email_address'] . "')");
+					VALUES (?, ?, "email", ?)',
+					array($cid, $u['id'], $u['email_address']));
 			} else {
-				db_execute("REPLACE INTO plugin_thold_contacts
+				db_execute_prepared('REPLACE INTO plugin_thold_contacts
 					(user_id, type, data)
-					VALUES (" . $u['id'] . ", 'email', '" . $u['email_address'] . "')");
+					VALUES (?, "email", ?)',
+					array($u['id'], $u['email_address']));
 			}
 		}
 	}
@@ -1254,10 +1257,25 @@ function thold_log($save){
 
 	$save['id'] = 0;
 	if (read_config_option('thold_log_cacti') == 'on') {
-		$thold = db_fetch_row('SELECT * FROM thold_data WHERE id = ' . $save['threshold_id'], FALSE);
-		$dt    = db_fetch_cell('SELECT data_template_id FROM data_template_data WHERE local_data_id=' . $thold['local_data_id'], FALSE);
-		$tname = db_fetch_cell('SELECT name FROM data_template WHERE id=' . $dt, FALSE);
-		$ds    = db_fetch_cell('SELECT data_source_name FROM data_template_rrd WHERE id=' . $thold['data_template_rrd_id'], FALSE);
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_data
+			WHERE id = ?',
+			array($save['threshold_id']));
+
+		$dt = db_fetch_cell_prepared('SELECT data_template_id
+			FROM data_template_data
+			WHERE local_data_id = ?',
+			array($thold['local_data_id']));
+
+		$tname = db_fetch_cell_prepared('SELECT name
+			FROM data_template
+			WHERE id = ?',
+			array($dt));
+
+		$ds = db_fetch_cell_prepared('SELECT data_source_name
+			FROM data_template_rrd
+			WHERE id = ?',
+			array($thold['data_template_rrd_id']));
 
 		if ($save['status'] == 0) {
 			$desc = 'Threshold Restored  ID: ' . $save['threshold_id'];
@@ -1790,9 +1808,9 @@ function thold_check_threshold(&$thold_data) {
 	$h = array();
 	if (isset($thold_data['hostname'])) {
 		/* function called during polling */
-		$h['snmp_engine_id'] =$thold_data['snmp_engine_id'];
-		$h['description'] = $thold_data['description'];
-		$h['hostname'] = $thold_data['hostname'];
+		$h['snmp_engine_id'] = $thold_data['snmp_engine_id'];
+		$h['description']    = $thold_data['description'];
+		$h['hostname']       = $thold_data['hostname'];
 	} else {
 		/* only alert if Device is in UP mode (not down, unknown, or recovering) */
 		$h = db_fetch_row_prepared('SELECT *
@@ -1930,7 +1948,7 @@ function thold_check_threshold(&$thold_data) {
 			db_execute('UPDATE thold_data
 				SET thold_alert=' . $thold_data['thold_alert'] . ',
 				thold_fail_count=' . $thold_data['thold_fail_count'] . ",
-				thold_warning_fail_count=0
+				thold_warning_fail_count = 0
 				WHERE id=" . $thold_data['id']);
 		} elseif ($warning_breach_up || $warning_breach_down) {
 			$notify = false;
@@ -2044,11 +2062,12 @@ function thold_check_threshold(&$thold_data) {
 				);
 			}
 
-			db_execute('UPDATE thold_data
-				SET thold_alert=' . $thold_data['thold_alert'] . ',
-				thold_warning_fail_count=' . $thold_data['thold_warning_fail_count'] . ',
-				thold_fail_count=0
-				WHERE id=' . $thold_data['id']);
+			db_execute_prepared('UPDATE thold_data
+				SET thold_alert = ?
+				thold_warning_fail_count = ?
+				thold_fail_count = 0
+				WHERE id = ?',
+				array($thold_data['thold_alert'], $thold_data['thold_warning_fail_count'], $thold_data['id']));
 		} else {
 			thold_debug('Threshold HI / Low check is normal HI:' . $thold_data['thold_hi'] . '  LOW:' . $thold_data['thold_low'] . ' VALUE:' . $thold_data['lastread']);
 
@@ -2286,15 +2305,24 @@ function thold_check_threshold(&$thold_data) {
 			break;
 		}
 
-		db_execute("UPDATE thold_data
-			SET thold_alert=0,
-			thold_fail_count=0,
-			bl_alert='" . $thold_data['bl_alert'] . "',
-			bl_fail_count='" . $thold_data['bl_fail_count'] . "',
-			thold_low='" . $thold_data['thold_low'] . "',
-			thold_hi='" . $thold_data['thold_hi'] . "',
-			bl_thold_valid='" . $thold_data['bl_thold_valid'] . "'
-			WHERE id=" . $thold_data['id']);
+		db_execute_prepared("UPDATE thold_data
+			SET thold_alert = 0,
+			thold_fail_count = 0,
+			bl_alert = ?,
+			bl_fail_count = ?,
+			thold_low = ?,
+			thold_hi = ?,
+			bl_thold_valid = ?
+			WHERE id = ?",
+			array(
+				$thold_data['bl_alert'],
+				$thold_data['bl_fail_count'],
+				$thold_data['thold_low'],
+				$thold_data['thold_hi'],
+				$thold_data['bl_thold_valid'],
+				$thold_data['id']
+			)
+		);
 
 		break;
 	case 2:	/* time based */
@@ -2315,20 +2343,35 @@ function thold_check_threshold(&$thold_data) {
 		/* alerts */
 		$trigger  = $thold_data['time_fail_trigger'];
 		$time     = time() - ($thold_data['time_fail_length'] * $step);
-		$failures = db_fetch_cell('SELECT count(id)
+		$failures = db_fetch_cell_prepared('SELECT count(id)
 			FROM plugin_thold_log
-			WHERE threshold_id=' . $thold_data['id'] . '
-			AND status IN (' . ST_TRIGGERA . ',' . ST_NOTIFYRA . ',' . ST_NOTIFYAL . ')
-			AND time>' . $time);
+			WHERE threshold_id = ?
+			AND status IN (?, ?, ?)
+			AND time > ?',
+			array(
+				$thold_data['id'],
+				ST_TRIGGERA,
+				ST_NOTIFYRA,
+				ST_NOTIFYAL,
+				$time
+			)
+		);
 
 		/* warnings */
 		$warning_trigger  = $thold_data['time_warning_fail_trigger'];
 		$warning_time     = time() - ($thold_data['time_warning_fail_length'] * $step);
-		$warning_failures = db_fetch_cell('SELECT count(id)
+		$warning_failures = db_fetch_cell_prepared('SELECT count(id)
 			FROM plugin_thold_log
-			WHERE threshold_id=' . $thold_data['id'] . '
-			AND status IN (' . ST_NOTIFYWA . ',' . ST_TRIGGERW . ')
-			AND time>' . $warning_time) + $failures;
+			WHERE threshold_id = ?
+			AND status IN (?, ?)
+			AND time > ?',
+			array(
+				$thold_data['id'],
+				ST_NOTIFYWA,
+				ST_TRIGGERW,
+				$warning_time
+			)
+		) + $failures;
 
 		if ($breach_up || $breach_down) {
 			$notify = false;
@@ -2341,12 +2384,13 @@ function thold_check_threshold(&$thold_data) {
 			/* we should only re-alert X minutes after last email, not every 5 pollings, etc...
 			   re-alert? */
 			$realerttime   = ($thold_data['repeat_alert']-1) * $step;
-			$lastemailtime = db_fetch_cell('SELECT time
+			$lastemailtime = db_fetch_cell_prepared('SELECT time
 				FROM plugin_thold_log
-				WHERE threshold_id=' . $thold_data['id'] . '
-				AND status IN (' . ST_NOTIFYRA . ',' . ST_NOTIFYAL . ')
+				WHERE threshold_id = ?
+				AND status IN (?, ?)
 				ORDER BY time DESC
-				LIMIT 1', FALSE);
+				LIMIT 1',
+				array($thold_data['id'], ST_NOTIFYRA, ST_NOTIFYAL));
 
 			$ra = ($failures > $trigger && $thold_data['repeat_alert'] && !empty($lastemailtime) && ($lastemailtime+$realerttime <= time()));
 
@@ -2421,10 +2465,11 @@ function thold_check_threshold(&$thold_data) {
 				);
 			}
 
-			db_execute('UPDATE thold_data
-				SET thold_alert=' . $thold_data['thold_alert'] . ",
-				thold_fail_count=$failures
-				WHERE id=" . $thold_data['id']);
+			db_execute_prepared('UPDATE thold_data
+				SET thold_alert = ?,
+				thold_fail_count = ?
+				WHERE id = ?',
+				array($thold_data['thold_alert'], $failures, $thold_data['id']));
 		} elseif ($warning_breach_up || $warning_breach_down) {
 			$notify = false;
 
@@ -2434,12 +2479,13 @@ function thold_check_threshold(&$thold_data) {
 			/* we should only re-alert X minutes after last email, not every 5 pollings, etc...
 			   re-alert? */
 			$realerttime   = ($thold_data['time_warning_fail_length']-1) * $step;
-			$lastemailtime = db_fetch_cell('SELECT time
+			$lastemailtime = db_fetch_cell_prepared('SELECT time
 				FROM plugin_thold_log
-				WHERE threshold_id=' . $thold_data['id'] . '
-				AND status IN (' . ST_NOTIFYRA . ',' . ST_NOTIFYWA . ')
+				WHERE threshold_id = ?
+				AND status IN (?, ?)
 				ORDER BY time DESC
-				LIMIT 1', FALSE);
+				LIMIT 1',
+				array($thold_data['id'], ST_NOTIFYRA, ST_NOTIFYWA));
 
 			$ra = ($warning_failures > $warning_trigger && $thold_data['time_warning_fail_length'] && !empty($lastemailtime) && ($lastemailtime+$realerttime <= time()));
 
@@ -2529,11 +2575,12 @@ function thold_check_threshold(&$thold_data) {
 				);
 			}
 
-			db_execute('UPDATE thold_data
-				SET thold_alert=' . $thold_data['thold_alert'] . ",
-				thold_warning_fail_count=$warning_failures,
-				thold_fail_count=$failures
-				WHERE id=" . $thold_data['id']);
+			db_execute_prepared('UPDATE thold_data
+				SET thold_alert = ?,
+				thold_warning_fail_count = ?,
+				thold_fail_count = ?
+				WHERE id = ?',
+				array($thold_data['thold_alert'], $warning_failures, $failures, $thold_data['id']));
 		} else {
 			thold_debug('Threshold Time Based check is normal HI:' . $thold_data['time_hi'] . ' LOW:' . $thold_data['time_low'] . ' VALUE:' . $thold_data['lastread']);
 
@@ -2576,11 +2623,12 @@ function thold_check_threshold(&$thold_data) {
 					'emails'          => $warning_emails)
 				);
 
-				db_execute("UPDATE thold_data
-					SET thold_alert=0,
-					thold_warning_fail_count=$warning_failures,
-					thold_fail_count=$failures
-					WHERE id=" . $thold_data['id']);
+				db_execute_prepared('UPDATE thold_data
+					SET thold_alert = 0,
+					thold_warning_fail_count = ?,
+					thold_fail_count = ?
+					WHERE id = ?',
+					array($warning_failures, $failures, $thold_data['id']));
 			} elseif ($alertstat != 0 && $failures < $trigger && $thold_data['restored_alert'] != 'on') {
 				$subject = 'NORMAL: ' . $thold_data['name'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to warning threshold with value ' . $thold_data['lastread'];
 
@@ -2620,16 +2668,18 @@ function thold_check_threshold(&$thold_data) {
 					'emails'          => $alert_emails)
 				);
 
-				db_execute("UPDATE thold_data
+				db_execute_prepared('UPDATE thold_data
 					SET thold_alert=0,
-					thold_warning_fail_count=$warning_failures,
-					thold_fail_count=$failures
-					WHERE id=" . $thold_data['id']);
+					thold_warning_fail_count = ?,
+					thold_fail_count = ?
+					WHERE id = ?',
+					array($warning_failures, $failures, $thold_data['id']));
 			} else {
-				db_execute("UPDATE thold_data
-					SET thold_fail_count=$failures,
-					thold_warning_fail_count=$warning_failures
-					WHERE id=" . $thold_data['id']);
+				db_execute_prepared('UPDATE thold_data
+					SET thold_fail_count = ?,
+					thold_warning_fail_count = ?
+					WHERE id = ?',
+					array($failures, $warning_failures, $thold_data['id']));
 			}
 		}
 
@@ -2753,7 +2803,7 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 
 	$warning_text = str_replace('<NOTES>',         $thold['notes'], $warning_text);
 	$warning_text = str_replace('<DNOTES>',        $thold['dnotes'], $warning_text);
-	$warning_text = str_replace('<DEVICENOTE>',   $thold['dnotes'], $warning_text);
+	$warning_text = str_replace('<DEVICENOTE>',    $thold['dnotes'], $warning_text);
 
 	if ($thold['thold_type'] == 0) {
 		$warning_text = str_replace('<HI>',        $thold['thold_hi'], $warning_text);
@@ -2904,7 +2954,8 @@ function thold_build_cdef($cdef, $value, $rra, $ds) {
 	$cdefs = db_fetch_assoc_prepared('SELECT *
 		FROM cdef_items
 		WHERE cdef_id = ?
-		ORDER BY sequence', array($cdef));
+		ORDER BY sequence',
+		array($cdef));
 
 	$cdef_array = array();
 
@@ -3293,10 +3344,11 @@ function save_thold() {
 			return;
 		}
 
-		$data    = db_fetch_row_prepared('SELECT id, thold_template_id
+		$data = db_fetch_row_prepared('SELECT id, thold_template_id
 			FROM thold_data
 			WHERE local_data_id = ?
-			AND data_template_rrd_id = ?', array($local_data_id, $data_template_rrd_id));
+			AND data_template_rrd_id = ?',
+			array($local_data_id, $data_template_rrd_id));
 
 		thold_template_update_threshold($data['id'], $data['thold_template_id']);
 
@@ -3423,11 +3475,18 @@ function save_thold() {
 	if (!isempty_request_var('name')) {
 		$name = str_replace(array("\\", '"', "'"), '', get_nfilter_request_var('name'));
 	} elseif (isset_request_var('data_template_rrd_id')) {
-		$data_source_name  = db_fetch_cell_prepared('SELECT data_source_name FROM data_template_rrd WHERE id = ?', array(get_request_var('data_template_rrd_id')));
-		$data_template     = db_fetch_row_prepared('SELECT * FROM data_template_data WHERE id = ?', array(get_request_var('data_template_id')));
+		$data_source_name = db_fetch_cell_prepared('SELECT data_source_name
+			FROM data_template_rrd
+			WHERE id = ?',
+			array(get_request_var('data_template_rrd_id')));
 
-		$local_data_id     = get_request_var('local_data_id');
-		$local_graph_id    = get_request_var('local_graph_id');
+		$data_template = db_fetch_row_prepared('SELECT *
+			FROM data_template_data
+			WHERE id = ?',
+			array(get_request_var('data_template_id')));
+
+		$local_data_id  = get_request_var('local_data_id');
+		$local_graph_id = get_request_var('local_graph_id');
 
 		$name = thold_format_name($data_template, $local_graph_id, $local_data_id, $data_source_name);
 	}
@@ -3608,7 +3667,8 @@ function trim_round_request_var($variable, $digits = 0) {
 }
 
 function thold_save_template_contacts ($id, $contacts) {
-	db_execute_prepared('DELETE FROM plugin_thold_template_contact
+	db_execute_prepared('DELETE
+		FROM plugin_thold_template_contact
 		WHERE template_id = ?',
 		array($id));
 
@@ -3623,7 +3683,8 @@ function thold_save_template_contacts ($id, $contacts) {
 }
 
 function thold_save_threshold_contacts ($id, $contacts) {
-	db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
+	db_execute_prepared('DELETE
+		FROM plugin_thold_threshold_contact
 		WHERE thold_id = ?',
 		array($id));
 
@@ -4021,7 +4082,8 @@ function thold_template_update_thresholds($id) {
 		thold_data.restored_alert = thold_template.restored_alert,
 		thold_data.snmp_event_category = thold_template.snmp_event_category,
 		thold_data.snmp_event_severity = thold_template.snmp_event_severity,
-		thold_data.snmp_event_warning_severity = thold_template.snmp_event_warning_severity
+		thold_data.snmp_event_warning_severity = thold_template.snmp_event_warning_severity,
+		thold_data.notes = thold_template.notes
 		WHERE thold_data.thold_template_id = ?
 		AND thold_data.template_enabled='on'
 		AND thold_template.id = ?",
