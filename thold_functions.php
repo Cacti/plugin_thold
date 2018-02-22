@@ -2063,8 +2063,8 @@ function thold_check_threshold(&$thold_data) {
 			}
 
 			db_execute_prepared('UPDATE thold_data
-				SET thold_alert = ?
-				thold_warning_fail_count = ?
+				SET thold_alert = ?,
+				thold_warning_fail_count = ?,
 				thold_fail_count = 0
 				WHERE id = ?',
 				array($thold_data['thold_alert'], $thold_data['thold_warning_fail_count'], $thold_data['id']));
@@ -2786,7 +2786,7 @@ function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local
 	}
 
 	if ($thold['notes'] != '') {
-		$notes = thold_replace_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
+		$notes = thold_replace_threshold_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
 		$alert_text = str_replace('<NOTES>', $notes, $alert_text);
 	}
 
@@ -2807,7 +2807,7 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 	}
 
 	if ($thold['notes'] != '') {
-		$notes = thold_replace_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
+		$notes = thold_replace_threshold_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
 		$warning_text = str_replace('<NOTES>', $notes, $warning_text);
 	}
 
