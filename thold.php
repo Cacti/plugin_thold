@@ -133,7 +133,6 @@ function thold_add() {
 	$host_id              = get_filter_request_var('host_id');
 	$local_graph_id       = get_filter_request_var('local_graph_id');
 	$data_template_rrd_id = get_filter_request_var('data_template_rrd_id');
-	$local_data_id        = get_filter_request_var('local_data_id');
 
 	if (isset_request_var('local_graph_id') && !isset_request_var('host_id')) {
 		$host_id = db_fetch_cell_prepared('SELECT host_id
@@ -144,7 +143,11 @@ function thold_add() {
 
 	if (isset_request_var('doaction') && get_nfilter_request_var('doaction') != '') {
 		if (get_nfilter_request_var('doaction') == 1) {
-			header('Location:' . $config['url_path'] . "plugins/thold/thold.php?action=add&host_id=$host_id&local_graph_id=$local_graph_id");
+			set_request_var('host_id',$host_id);
+			set_request_var('local_graph_id',$local_graph_id);
+			unset_request_var('usetemplate');
+			unset_request_var('doaction');
+			unset_request_var('data_template_rrd_id');
 		} else {
 			$data_template_id = db_fetch_cell_prepared('SELECT dtr.data_template_id
 				 FROM data_template_rrd AS dtr
@@ -155,10 +158,11 @@ function thold_add() {
 				 WHERE gl.id = ?',
 				array($local_graph_id));
 
-			header('Location:' . $config['url_path'] . "plugins/thold/thold_templates.php?action=add&data_template_id=" . $data_template_id);
+			set_request_var('data_template_id',$data_template_id);
+			unset_request_var('doaction');
+			unset_request_var('data_template_rrd_id');
+			unset_request_var('usetemplate');
 		}
-
-		exit;
 	}
 
 	if (isset_request_var('usetemplate') && get_nfilter_request_var('usetemplate') != '') {

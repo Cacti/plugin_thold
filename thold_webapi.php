@@ -260,7 +260,7 @@ function thold_add_graphs_action_prepare() {
 			'host_id' => array(
 				'method' => 'hidden',
 				'value' => $host_id
-			)
+			),
 		);
 
 		draw_edit_form(
@@ -291,10 +291,14 @@ function thold_add_graphs_action_prepare() {
 				'method' => 'hidden',
 				'value' => 1
 			),
+			'host_id' => array(
+				'method' => 'hidden',
+				'value' => $host_id
+			),
 			'local_graph_id' => array(
 				'method' => 'hidden',
 				'value' => $local_graph_id
-			)
+			),
 		);
 
 		draw_edit_form(
@@ -351,19 +355,16 @@ function thold_add_graphs_action_prepare() {
 				$.post(strURL, json).done(function(data) {
 					document.location = '<?php print $backto;?>';
 				});
-			}else if ($('#doaction').length) {
-				strURL += (strURL.indexOf('?') >- 0 ? '&':'?');
-				strURL += 'doaction='+$('#doaction').val();
-				strURL += '&local_graph_id='+$('#local_graph_id').val();
-				strURL += '&host_id='+$('#host_id').val();
-				strURL += '&usetemplate=1'+$('#usetemplate').val();
-				document.location = strURL;
 			}else{
 				strURL += (strURL.indexOf('?') >- 0 ? '&':'?');
-				strURL += 'thold_template_id='+$('#thold_template_id').val();
 				strURL += '&local_graph_id='+$('#local_graph_id').val();
 				strURL += '&host_id='+$('#host_id').val();
-				strURL += '&usetemplate=1'+$('#usetemplate').val();
+				strURL += '&usetemplate='+$('#usetemplate').val();
+				if ($('#doaction').length) {
+					strURL += '&doaction='+$('#doaction').val();
+				} else {
+					strURL += '&thold_template_id='+$('#thold_template_id').val();
+				}
 				document.location = strURL;
 			}
 		});
@@ -529,4 +530,5 @@ function thold_add_select_host() {
 
 	</script>
 	<?php
+	bottom_footer();
 }
