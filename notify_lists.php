@@ -120,15 +120,15 @@ function form_actions() {
 
 					foreach($selected_items as $item) {
 						/* get list to be duplicated */
-						$list = db_fetch_row_prepared('SELECT * 
-							FROM plugin_notification_lists 
-							WHERE id = ?', 
+						$list = db_fetch_row_prepared('SELECT *
+							FROM plugin_notification_lists
+							WHERE id = ?',
 							array($item));
 
 						/* see if there is already a list with the new name */
-						$exists = db_fetch_cell_prepared('SELECT COUNT(*) 
-							FROM plugin_notification_lists 
-							WHERE name = ?', 
+						$exists = db_fetch_cell_prepared('SELECT COUNT(*)
+							FROM plugin_notification_lists
+							WHERE name = ?',
 							array(get_nfilter_request_var('name')));
 
 						if ($exists > 0) {
@@ -1602,8 +1602,13 @@ function lists() {
 		FROM plugin_notification_lists
 		$sql_where");
 
-	$lists = db_fetch_assoc("SELECT id, name, description, emails
-		FROM plugin_notification_lists
+	$lists = db_fetch_assoc("SELECT id, name, description, emails,
+                        (SELECT COUNT(id) FROM thold_data WHERE notify_alert = nl.id) as thold_alerts,
+                        (SELECT COUNT(id) FROM thold_data WHERE notify_warning = nl.id) as thold_warnings,
+                        (SELECT COUNT(id) FROM thold_template WHERE notify_alert = nl.id) as template_alerts,
+                        (SELECT COUNT(id) FROM thold_template WHERE notify_warning = nl.id) as template_warnings,
+                        (SELECT COUNT(id) FROM host WHERE thold_host_email = nl.id) as hosts
+                FROM plugin_notification_lists nl
 		$sql_where
 		ORDER BY " . get_request_var('sort_column') . ' ' . get_request_var('sort_direction') .
 		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows);
@@ -1618,6 +1623,9 @@ function lists() {
 
 	$display_text = array(
 		'name'        => array(__('List Name', 'thold'), 'ASC'),
+		'nosort1'     => array(__('Devices', 'thold'), ''),
+		'nosort2'     => array(__('Thresholds', 'thold'), ''),
+		'nosort3'     => array(__('Templates', 'thold'), ''),
 		'description' => array(__('Description', 'thold'), 'ASC'),
 		'emails'      => array(__('Emails', 'thold'), 'ASC'));
 
@@ -1626,9 +1634,12 @@ function lists() {
 	if (sizeof($lists)) {
 		foreach ($lists as $item) {
 			form_alternate_row('line' . $item['id'], true);
-			form_selectable_cell(filter_value($item['name'], get_request_var('filter'), 'notify_lists.php?action=edit&id=' . $item['id']), $item['id'], '25%');
-			form_selectable_cell(filter_value($item['description'], get_request_var('filter')), $item['id'], '35%');
-			form_selectable_cell(filter_value($item['emails'], get_request_var('filter')), $item['id']);
+			form_selectable_cell(filter_value($item['name'], get_request_var('filter'), 'notify_lists.php?action=edit&id=' . $item['id']), $item['id'], '20%','badclass');
+			form_selectable_cell(filter_value($item['hosts'], get_request_var('filter'), 'notify_lists.php?tab=hosts&action=edit&id='.$item['id']), $item['id'], '5%','badclass');
+			form_selectable_cell(filter_value('Warn: '.$item['thold_warnings'].', Alert: '.$item['thold_alerts'] , get_request_var('filter'), 'notify_lists.php?tab=tholds&action=edit&id='.$item['id']), $item['id'], '10%');
+			form_selectable_cell(filter_value('Warn: '.$item['template_warnings'].', Alert: '.$item['template_alerts'] , get_request_var('filter'), 'notify_lists.php?tab=templates&action=edit&id='.$item['id']), $item['id'], '10%','badclass');
+			form_selectable_cell(filter_value($item['description'], get_request_var('filter')), $item['id'], '25%','badclass');
+			form_selectable_cell(filter_value($item['emails'], get_request_var('filter')), $item['id'], '45%','badclass');
 			form_checkbox_cell($item['name'], $item['id']);
 			form_end_row();
 		}
