@@ -51,6 +51,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#145: Cacti turning Thold off
 * issue#153: Threshold Template "Operator Notes" Variable not Recognized
 * issue#154: Removed Devices are not pruned to thold tables
+* issue#155: Autocreate now failing due to recent changes
 * feature: Now shows counts of notification list usage on front page
 * feature: First attempt of thresholding by data collector.  Note that if you are using the thold daemon, you will need to run on each data collector.
 * feature: Report Thold Daemon Runtime with Millisecond precision.
