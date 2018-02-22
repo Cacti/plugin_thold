@@ -2729,6 +2729,51 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	return $thold_snmp_data;
 }
 
+function thold_replace_threshold_tags($string, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
+	global $type_types;
+
+	$httpurl    = read_config_option('base_url');
+
+	// Do some replacement of variables
+	$text = str_replace('<DESCRIPTION>',   $h['description'], $text);
+	$text = str_replace('<HOSTNAME>',      $h['hostname'], $text);
+	$text = str_replace('<GRAPHID>',       $local_graph_id, $text);
+
+	$text = str_replace('<CURRENTVALUE>',  $currentval, $text);
+	$text = str_replace('<THRESHOLDNAME>', $thold['name'], $text);
+	$text = str_replace('<DSNAME>',        $data_source_name, $text);
+	$text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $text);
+
+	$text = str_replace('<NOTES>',         $thold['notes'], $text);
+	$text = str_replace('<DNOTES>',        $thold['dnotes'], $text);
+	$text = str_replace('<DEVICENOTE>',    $thold['dnotes'], $text);
+
+	if ($thold['thold_type'] == 0) {
+		$text = str_replace('<HI>',        $thold['thold_hi'], $text);
+		$text = str_replace('<LOW>',       $thold['thold_low'], $text);
+		$text = str_replace('<TRIGGER>',   $thold['thold_fail_trigger'], $text);
+		$text = str_replace('<DURATION>',  '', $text);
+	} elseif ($thold['thold_type'] == 2) {
+		$text = str_replace('<HI>',        $thold['time_hi'], $text);
+		$text = str_replace('<LOW>',       $thold['time_low'], $text);
+		$text = str_replace('<TRIGGER>',   $thold['time_fail_trigger'], $text);
+		$text = str_replace('<DURATION>',  plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time'), $text);
+	} else {
+		$text = str_replace('<HI>',        '', $text);
+		$text = str_replace('<LOW>',       '', $text);
+		$text = str_replace('<TRIGGER>',   '', $text);
+		$text = str_replace('<DURATION>',  '', $text);
+	}
+
+	$text = str_replace('<TIME>',          time(), $text);
+	$text = str_replace('<DATE>',          date(CACTI_DATE_TIME_FORMAT), $text);
+	$text = str_replace('<DATE_RFC822>',   date(DATE_RFC822), $text);
+
+	$text = str_replace('<URL>',           "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . "</a>", $text);
+
+	return $text;
+}
+
 function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local_graph_id) {
 	global $thold_types;
 
@@ -2740,42 +2785,12 @@ function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local
 		$alert_text = __('<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>', 'thold');
 	}
 
-	// Do some replacement of variables
-	$alert_text = str_replace('<DESCRIPTION>',   $h['description'], $alert_text);
-	$alert_text = str_replace('<HOSTNAME>',      $h['hostname'], $alert_text);
-	$alert_text = str_replace('<GRAPHID>',       $local_graph_id, $alert_text);
-
-	$alert_text = str_replace('<CURRENTVALUE>',  $currentval, $alert_text);
-	$alert_text = str_replace('<THRESHOLDNAME>', $thold['name'], $alert_text);
-	$alert_text = str_replace('<DSNAME>',        $data_source_name, $alert_text);
-	$alert_text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $alert_text);
-
-	$alert_text = str_replace('<NOTES>',         $thold['notes'], $alert_text);
-	$alert_text = str_replace('<DNOTES>',        $thold['dnotes'], $alert_text);
-	$alert_text = str_replace('<DEVICENOTE>',    $thold['dnotes'], $alert_text);
-
-	if ($thold['thold_type'] == 0) {
-		$alert_text = str_replace('<HI>',        $thold['thold_hi'], $alert_text);
-		$alert_text = str_replace('<LOW>',       $thold['thold_low'], $alert_text);
-		$alert_text = str_replace('<TRIGGER>',   $thold['thold_fail_trigger'], $alert_text);
-		$alert_text = str_replace('<DURATION>',  '', $alert_text);
-	} elseif ($thold['thold_type'] == 2) {
-		$alert_text = str_replace('<HI>',        $thold['time_hi'], $alert_text);
-		$alert_text = str_replace('<LOW>',       $thold['time_low'], $alert_text);
-		$alert_text = str_replace('<TRIGGER>',   $thold['time_fail_trigger'], $alert_text);
-		$alert_text = str_replace('<DURATION>',  plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time'), $alert_text);
-	} else {
-		$alert_text = str_replace('<HI>',        '', $alert_text);
-		$alert_text = str_replace('<LOW>',       '', $alert_text);
-		$alert_text = str_replace('<TRIGGER>',   '', $alert_text);
-		$alert_text = str_replace('<DURATION>',  '', $alert_text);
+	if ($thold['notes'] != '') {
+		$notes = thold_replace_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
+		$alert_text = str_replace('<NOTES>', $notes, $alert_text);
 	}
 
-	$alert_text = str_replace('<TIME>',          time(), $alert_text);
-	$alert_text = str_replace('<DATE>',          date(CACTI_DATE_TIME_FORMAT), $alert_text);
-	$alert_text = str_replace('<DATE_RFC822>',   date(DATE_RFC822), $alert_text);
-
-	$alert_text = str_replace('<URL>',           "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . "</a>", $alert_text);
+	$alert_text = thold_replace_threshold_tags($alert_text, $thold, $h, $currentval, $local_graph_id, $data_source_name);
 
 	return $alert_text;
 }
@@ -2791,42 +2806,12 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 		$warning_text = __('<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>', 'thold');
 	}
 
-	// Do some replacement of variables
-	$warning_text = str_replace('<DESCRIPTION>',   $h['description'], $warning_text);
-	$warning_text = str_replace('<HOSTNAME>',      $h['hostname'], $warning_text);
-	$warning_text = str_replace('<GRAPHID>',       $local_graph_id, $warning_text);
-
-	$warning_text = str_replace('<CURRENTVALUE>',  $currentval, $warning_text);
-	$warning_text = str_replace('<THRESHOLDNAME>', $thold['name'], $warning_text);
-	$warning_text = str_replace('<DSNAME>',        $data_source_name, $warning_text);
-	$warning_text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $warning_text);
-
-	$warning_text = str_replace('<NOTES>',         $thold['notes'], $warning_text);
-	$warning_text = str_replace('<DNOTES>',        $thold['dnotes'], $warning_text);
-	$warning_text = str_replace('<DEVICENOTE>',    $thold['dnotes'], $warning_text);
-
-	if ($thold['thold_type'] == 0) {
-		$warning_text = str_replace('<HI>',        $thold['thold_hi'], $warning_text);
-		$warning_text = str_replace('<LOW>',       $thold['thold_low'], $warning_text);
-		$warning_text = str_replace('<TRIGGER>',   $thold['thold_warning_fail_trigger'], $warning_text);
-		$warning_text = str_replace('<DURATION>',  '', $warning_text);
-	} elseif ($thold['thold_type'] == 2) {
-		$warning_text = str_replace('<HI>',        $thold['time_warning_hi'], $warning_text);
-		$warning_text = str_replace('<LOW>',       $thold['time_warning_low'], $warning_text);
-		$warning_text = str_replace('<TRIGGER>',   $thold['time_warning_fail_trigger'], $warning_text);
-		$warning_text = str_replace('<DURATION>',  plugin_thold_duration_convert($thold['local_data_id'], $thold['time_warning_fail_length'], 'time'), $warning_text);
-	} else {
-		$warning_text = str_replace('<HI>',       '', $warning_text);
-		$warning_text = str_replace('<LOW>',      '', $warning_text);
-		$warning_text = str_replace('<TRIGGER>',  '', $warning_text);
-		$warning_text = str_replace('<DURATION>', '', $warning_text);
+	if ($thold['notes'] != '') {
+		$notes = thold_replace_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
+		$warning_text = str_replace('<NOTES>', $notes, $warning_text);
 	}
 
-	$warning_text = str_replace('<TIME>',          time(), $warning_text);
-	$warning_text = str_replace('<DATE>',         date(CACTI_DATE_TIME_FORMAT), $warning_text);
-	$warning_text = str_replace('<DATE_RFC822>',  date(DATE_RFC822), $warning_text);
-
-	$warning_text = str_replace('<URL>',          "<a href='" . htmlspecialchars("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . "</a>", $warning_text);
+	$warning_text = thold_replace_threshold_tags($warning_text, $thold, $h, $currentval, $local_graph_id, $data_source_name);
 
 	return $warning_text;
 }

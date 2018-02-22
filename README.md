@@ -58,6 +58,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * feature: Report Thold Daemon Runtime with Millisecond precision.
 * feature: Prepare for new Cacti 1.2 feature for storing RRDfiles on remote storage
 * feature: Add <TIME>, <DATE> in Cacti format, and <DATE_RFC822> to Device Up/Down Emails
+* feature: Allow Operator Notes to include threshold tags
 * issue: Speed thold processing by reducing queries and string manipulation
 * issue: Fully convert the thold daemon to Cacti 1.x.  Old converted thold daemon was generating MySQL 2006 errors due to a feature in PDO
 
