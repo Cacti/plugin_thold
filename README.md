@@ -49,6 +49,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#142: When two data source have same field name, thold will create duplicates
 * issue#144: Unexpected threshold breach due to very high value
 * issue#145: Cacti turning Thold off
+* issue#148: Creating threshold from data source fails if not all variables are graphed
 * issue#153: Threshold Template "Operator Notes" Variable not Recognized
 * issue#154: Removed Devices are not pruned to thold tables
 * issue#155: Autocreate now failing due to recent changes

@@ -736,7 +736,7 @@ function thold_data_source_action_execute($action) {
 					$grapharr  = db_fetch_row("SELECT local_graph_id, graph_template_id
 						FROM graph_templates_item
 						WHERE task_item_id=$rrdlookup
-						AND local_graph_id<>''
+						AND local_graph_id > 0
 						LIMIT 1");
 
 					$graph     = (isset($grapharr['local_graph_id']) ? $grapharr['local_graph_id'] : '');
@@ -960,40 +960,56 @@ function thold_graphs_action_execute($action) {
 			$message = '';
 			get_filter_request_var('thold_template_id');
 
-			$template = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array(get_request_var('thold_template_id')));
+			$template = db_fetch_row_prepared('SELECT *
+				FROM thold_template
+				WHERE id = ?',
+				array(get_request_var('thold_template_id')));
 
 			for ($i=0;($i<count($selected_items));$i++) {
-				$graph    = $selected_items[$i];
+				$graph = $selected_items[$i];
 
-				$temp = db_fetch_row("SELECT dtr.*
-					 FROM data_template_rrd AS dtr
-					 LEFT JOIN graph_templates_item AS gti
-					 ON gti.task_item_id=dtr.id
-					 LEFT JOIN graph_local AS gl
-					 ON gl.id=gti.local_graph_id
-					 WHERE gl.id=$graph");
+				$temp = db_fetch_row_prepared('SELECT dtr.*
+					FROM data_template_rrd AS dtr
+					LEFT JOIN graph_templates_item AS gti
+					ON gti.task_item_id=dtr.id
+					LEFT JOIN graph_local AS gl
+					ON gl.id=gti.local_graph_id
+					WHERE gl.id = ?',
+					array($graph));
 
 				$data_template_id = $temp['data_template_id'];
-				$local_data_id = $temp['local_data_id'];
+				$local_data_id    = $temp['local_data_id'];
 
-				$data_source      = db_fetch_row('SELECT * FROM data_local WHERE id=' . $local_data_id);
+				$data_source = db_fetch_row_prepared('SELECT *
+					FROM data_local
+					WHERE id = ?',
+					array($local_data_id));
+
 				$data_template_id = $data_source['data_template_id'];
-				$existing         = db_fetch_assoc('SELECT id FROM thold_data WHERE local_data_id=' . $local_data_id . ' AND data_template_rrd_id=' . $data_template_id);
+
+				$existing = db_fetch_assoc_prepared('SELECT id
+					FROM thold_data
+					WHERE local_data_id = ?
+					AND data_template_rrd_id = ?',
+					array($local_data_id, $data_template_id));
 
 				if (count($existing) == 0 && count($template)) {
 					if ($graph) {
-						$rrdlookup = db_fetch_cell("SELECT id
-							FROM data_template_rrd
-							WHERE local_data_id=$local_data_id
-							ORDER BY id
-							LIMIT 1");
-
-						$grapharr = db_fetch_row("SELECT graph_template_id
-							FROM graph_templates_item
-							WHERE task_item_id=$rrdlookup
-							AND local_graph_id=$graph");
-
 						$data_source_name = $template['data_source_name'];
+
+						$rrdlookup = db_fetch_cell_prepared('SELECT id
+							FROM data_template_rrd
+							WHERE local_data_id = ?
+							AND data_source_name = ?
+							ORDER BY id
+							LIMIT 1',
+							array($local_data_id, $data_source_name));
+
+						$grapharr = db_fetch_row_prepared('SELECT graph_template_id
+							FROM graph_templates_item
+							WHERE task_item_id = ?
+							AND local_graph_id = ?',
+							array($rrdlookup, $graph));
 
 						$insert = array();
 
