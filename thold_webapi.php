@@ -141,7 +141,7 @@ function thold_add_graphs_action_execute() {
 
 	if (strlen($message)) {
 		$_SESSION['thold_message'] = "<font size=-2>$message</font>";
-	}else{
+	} else {
 		$_SESSION['thold_message'] = "<font size=-2>" . __('Threshold(s) Already Exists - No Thresholds Created', 'thold') . "</font>";
 	}
 
@@ -155,7 +155,7 @@ function thold_add_graphs_action_execute() {
 		kill_session_var('graph_return');
 
 		header('Location: ' . $return_to . (strpos($return_to, '?') !== false ? '&':'?') . 'header=false');
-	}else{
+	} else {
 		header('Location:' . $config['url_path'] . 'plugins/thold/thold.php?header=false');
 	}
 }
@@ -173,7 +173,7 @@ function thold_add_graphs_action_prepare() {
 
 	form_start($config['url_path'] . 'plugins/thold/thold.php?action=add', 'tholdform');
 
-	html_start_box(__('Create Threshold from Template', 'thold'), '60%', '', '3', 'center', '');
+	html_start_box(__('Create Threshold from Template', 'thold'), '70%', false, '3', 'center', '');
 
 	/* get the valid thold templates
 	 * remove those hosts that do not have any valid templates
@@ -195,23 +195,23 @@ function thold_add_graphs_action_prepare() {
 			$found_list .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
-			}else{
+			} else {
 				$templates  = "$data_template_id";
 			}
-		}else{
+		} else {
 			$not_found .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 		}
-	}else{
+	} else {
 		$not_found .= '<li>' . get_graph_title($local_graph_id) . '</li>';
 	}
 
 	if (strlen($templates)) {
 		$sql = 'SELECT id, name FROM thold_template WHERE data_template_id IN (' . $templates . ') ORDER BY name';
-	}else{
+	} else {
 		$sql = 'SELECT id, name FROM thold_template ORDER BY name';
 	}
 
-	print "<tr><td colspan='2' class='textArea'>\n";
+	print "<tr><td colspan='2' class='odd'>\n";
 
 	if (strlen($found_list)) {
 		if (strlen($not_found)) {
@@ -226,13 +226,13 @@ function thold_add_graphs_action_prepare() {
 
 		if (isset_request_var('tree_id')) {
 			get_filter_request_var('tree_id');
-		}else{
+		} else {
 			set_request_var('tree_id', '');
 		}
 
 		if (isset_request_var('leaf_id')) {
 			get_filter_request_var('leaf_id');
-		}else{
+		} else {
 			set_request_var('leaf_id', '');
 		}
 
@@ -269,7 +269,7 @@ function thold_add_graphs_action_prepare() {
 				'fields' => $form_array
 				)
 			);
-	}else{
+	} else {
 		if (strlen($not_found)) {
 			print '<p>' . __('There are no Threshold Templates associated with the following Graph.', 'thold') . '</p>';
 			print '<ul>' . $not_found . '</ul>';
@@ -336,7 +336,7 @@ function thold_add_graphs_action_prepare() {
 
 	if (isset($_SERVER['HTTP_REFERER'])) {
 		$backto = $_SERVER['HTTP_REFERER'];
-	}else{
+	} else {
 		$backto = $config['url_path'] . 'plugins/thold/thold.php';
 	}
 
@@ -349,22 +349,26 @@ function thold_add_graphs_action_prepare() {
 
 		$('#tholdform').submit(function(event) {
 			event.preventDefault();
+
 			strURL = $(this).attr('action');
+
 			if ($('#thold_template_id').length && $('#thold_template_id').val() > 0) {
 				json =  $('#tholdform').serializeObject();
 				$.post(strURL, json).done(function(data) {
 					document.location = '<?php print $backto;?>';
 				});
-			}else{
+			} else {
 				strURL += (strURL.indexOf('?') >- 0 ? '&':'?');
 				strURL += '&local_graph_id='+$('#local_graph_id').val();
 				strURL += '&host_id='+$('#host_id').val();
 				strURL += '&usetemplate='+$('#usetemplate').val();
+
 				if ($('#doaction').length) {
 					strURL += '&doaction='+$('#doaction').val();
 				} else {
 					strURL += '&thold_template_id='+$('#thold_template_id').val();
 				}
+
 				document.location = strURL;
 			}
 		});
@@ -394,7 +398,7 @@ function thold_add_select_host() {
 
 	form_start('thold.php?action=save', 'tholdform');
 
-	html_start_box(__('Threshold Creation Wizard', 'thold'), '50%', '', '3', 'center', '');
+	html_start_box(__('Threshold Creation Wizard', 'thold'), '70%', false, '3', 'center', '');
 
 	if ($host_id == '') {
 		print '<tr><td class="center">' . __('Please select a Device', 'thold') . '</td></tr>';
@@ -408,7 +412,7 @@ function thold_add_select_host() {
 
 	html_end_box();
 
-	html_start_box('', '50%', '', '3', 'center', '');
+	html_start_box('', '70%', false, '3', 'center', '');
 
 	/* display the host dropdown */
 	?>
@@ -493,7 +497,7 @@ function thold_add_select_host() {
 
 	form_end();
 
-	html_start_box('', '50%', '', '3', 'center', '');
+	html_start_box('', '70%', false, '3', 'center', '');
 
 	if ($local_graph_id != '') {
 		print "<tr><td style='text-align:center'><img id='graphi' src='../../graph_image.php?local_graph_id=$local_graph_id&rra_id=0'></td></tr>";
@@ -530,5 +534,6 @@ function thold_add_select_host() {
 
 	</script>
 	<?php
+
 	bottom_footer();
 }
