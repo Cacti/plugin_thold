@@ -3772,7 +3772,14 @@ function autocreate($host_id) {
 					AND td.thold_template_id = ?
 					AND td.thold_type = ?
 					AND dtr.data_source_name = ?',
-					array($local_data_id, $data_template_id, $thold_template_id, $template['thold_type'], $template['data_source_name']));
+					array(
+						$local_data_id,
+						$data_template_id,
+						$thold_template_id,
+						$template['thold_type'],
+						$template['data_source_name']
+					)
+				);
 
 				if (!sizeof($existing)) {
 					$data_template_rrd_id = db_fetch_cell_prepared('SELECT id
