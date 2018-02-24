@@ -54,6 +54,7 @@ The thold plugin has been in development for well over a decade with increasing 
 * issue#154: Removed Devices are not pruned to thold tables
 * issue#155: Autocreate now failing due to recent changes
 * issue#157: Operator Notes are not propagated during Template updates
+* issue#160: RPN Expressions not handling ifSpeed and ifHighSpeed replacement
 * feature: Now shows counts of notification list usage on front page
 * feature: First attempt of thresholding by data collector.  Note that if you are using the thold daemon, you will need to run on each data collector.
 * feature: Report Thold Daemon Runtime with Millisecond precision.

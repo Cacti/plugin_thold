@@ -805,6 +805,27 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	while($cursor < $x) {
 		$operator = strtoupper(trim($expression[$cursor]));
 
+		if (strpos($operator, '|query_ifHighSpeed') !== false || strpos($operator, '|query_ifSpeed') !== false) {
+			$data_local = db_fetch_row_prepared('SELECT *
+				FROM data_local
+				WHERE id = ?',
+				array($thold_data['local_data_id']));
+
+			$highSpeed = db_fetch_cell_prepared("SELECT field_value
+				FROM host_snmp_cache
+				WHERE host_id = ?
+				AND snmp_query_id = ?
+				AND snmp_index = ?
+				AND field_name = 'ifHighSpeed'",
+				array($data_local['host_id'], $data_local['snmp_query_id'], $data_local['snmp_index']));
+
+			if (!empty($highSpeed)) {
+				$operator = $highSpeed * 1000000;
+			} else {
+				$operator = substitute_snmp_query_data('|query_ifSpeed|', $data_local['host_id'], $data_local['snmp_query_id'], $data_local['snmp_index']);
+			}
+		}
+
 		/* is the operator a data source */
 		if (is_numeric($operator)) {
 			//cacti_log("NOTE: Numeric '$operator'", false, "THOLD");
@@ -837,7 +858,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 			//cacti_log("NOTE: SpecialTypes '$operator'", false, "THOLD");
 			thold_expression_specialtype_rpn($operator, $stack, $thold['local_data_id'], $currentval);
 		} else {
-			cacti_log("WARNING: Unsupported Field '$operator'", false, "THOLD");
+			cacti_log("WARNING: Unsupported Field '$operator'", false, 'THOLD');
 			$rpn_error = true;
 		}
 
