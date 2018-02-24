@@ -106,7 +106,7 @@ function thold_display_rusage() {
 	if (function_exists('getrusage')) {
 		$dat = getrusage();
 
-		html_start_box('', '100%', '', '3', 'left', '');
+		html_start_box('', '100%', false, '3', 'left', '');
 		print '<tr>';
 
 		if (!isset($thold_start_rusage)) {
@@ -143,7 +143,7 @@ function thold_display_rusage() {
 function thold_legend() {
 	global $thold_states;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	print '<tr>';
 	foreach ($thold_states as $index => $state) {
@@ -157,7 +157,7 @@ function thold_legend() {
 function host_legend() {
 	global $thold_host_states;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	print '<tr>';
 	foreach ($thold_host_states as $index => $state) {
@@ -171,7 +171,7 @@ function host_legend() {
 function log_legend() {
 	global $thold_log_states;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	print '<tr>';
 	foreach ($thold_log_states as $index => $state) {

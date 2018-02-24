@@ -277,7 +277,7 @@ function tholds() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box(__('Threshold Status', 'thold'), '100%', '', '3', 'center', '');
+	html_start_box(__('Threshold Status', 'thold'), '100%', false, '3', 'center', '');
 	form_thold_filter();
 	html_end_box();
 
@@ -330,7 +330,7 @@ function tholds() {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '4', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
 		'nosort'        => array('display' => __('Actions', 'thold'),     'sort' => '',      'align' => 'left'),
@@ -572,7 +572,7 @@ function hosts() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box(__('Device Status', 'thold'), '100%', '', '3', 'center', '');
+	html_start_box(__('Device Status', 'thold'), '100%', false, '3', 'center', '');
 	form_host_filter();
 	html_end_box();
 
@@ -640,7 +640,7 @@ function hosts() {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
 		'nosort'                 => array('display' => __('Actions', 'thold'),      'align' => 'left',   'sort' => '',     'tip' => __('Hover over icons for help', 'thold')),
@@ -949,7 +949,7 @@ function thold_show_log() {
 		$days = __('%d Days', $days, 'thold');
 	}
 
-	html_start_box(__('Threshold Log for [ %s ]', $days, 'thold'), '100%', '', '3', 'center', '');
+	html_start_box(__('Threshold Log for [ %s ]', $days, 'thold'), '100%', false, '3', 'center', '');
 	form_thold_log_filter();
 	html_end_box();
 
@@ -999,7 +999,7 @@ function thold_show_log() {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
 		'hdescription'    => array('display' => __('Device', 'thold'),            'sort' => 'ASC', 'align' => 'left'),

@@ -437,7 +437,7 @@ function list_tholds() {
 		ON td.data_template_id = dt.id
 		ORDER BY dt.name');
 
-	html_start_box(__('Threshold Management', 'thold'), '100%', '', '3', 'center', 'thold.php?action=add');
+	html_start_box(__('Threshold Management', 'thold'), '100%', false, '3', 'center', 'thold.php?action=add');
 
 	?>
 	<tr class='even'>
@@ -560,7 +560,7 @@ function list_tholds() {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '4', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
 		'name'             => array('display' => __('Name', 'thold'),        'sort' => 'ASC', 'align' => 'left'),
@@ -812,7 +812,7 @@ function thold_edit() {
 
 	form_start('thold.php', 'thold');
 
-	html_start_box(__('Graph Data', 'thold'), '100%', '', '3', 'center', '');
+	html_start_box(__('Graph Data', 'thold'), '100%', false, '3', 'center', '');
 
 	?>
 	<tr>
@@ -962,7 +962,7 @@ function thold_edit() {
 	$header_text = __('Data Source Item [%s] ' .  ' - Current value: [%s]',
 		(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), get_current_value($thold_data['local_data_id'], $ds, $thold_data_cdef), 'thold');
 
-	html_start_box($header_text, '100%', '', '3', 'center', '');
+	html_start_box($header_text, '100%', false, '3', 'center', '');
 
 	$send_notification_array = array();
 

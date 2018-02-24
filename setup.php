@@ -1287,7 +1287,7 @@ function thold_page_head() {
 }
 
 function thold_device_edit_pre_bottom() {
-	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', '', '3', 'center', '');
+	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
 	$host_template_id = db_fetch_cell_prepared('SELECT host_template_id FROM host WHERE id = ?' ,array(get_request_var('id')));
 
@@ -1335,7 +1335,7 @@ function thold_device_edit_pre_bottom() {
 }
 
 function thold_device_template_edit() {
-	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', '', '3', 'center', '');
+	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
 	$threshold_templates = db_fetch_assoc_prepared('SELECT ptdt.thold_template_id, tt.name
 		FROM plugin_thold_host_template AS ptdt
@@ -1417,7 +1417,7 @@ function thold_device_template_top() {
 
 		form_start('host_templates.php?action=edit&id' . get_request_var('host_template_id'));
 
-		html_start_box('', '100%', '', '3', 'center', '');
+		html_start_box('', '100%', false, '3', 'center', '');
 
 		$template = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array(get_request_var('id')));
 

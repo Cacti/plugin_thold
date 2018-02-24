@@ -56,7 +56,7 @@ switch ($action) {
 	case 'save':
 		if (isset_request_var('save_component_import')) {
 			template_import();
-		}elseif (isset_request_var('save') && get_nfilter_request_var('save') == 'edit') {
+		} elseif (isset_request_var('save') && get_nfilter_request_var('save') == 'edit') {
 			template_save_edit();
 
 			if (isset($_SESSION['graph_return'])) {
@@ -64,7 +64,7 @@ switch ($action) {
 				unset($_SESSION['graph_return']);
 				kill_session_var('graph_return');
 				header('Location: ' . $return_to);
-			}else{
+			} else {
 				header('Location: thold_templates.php?header=false');
 			}
 		} elseif (isset_request_var('save') && get_nfilter_request_var('save') == 'add') {
@@ -105,7 +105,7 @@ exit;
 function template_export() {
 	$output = "<templates>\n";
 	if (sizeof($_POST)) {
-		foreach($_POST as $t => $v) {
+		foreach ($_POST as $t => $v) {
 			if (substr($t, 0,4) == 'chk_') {
 				$id = substr($t, 4);
 
@@ -147,7 +147,7 @@ function template_export() {
 }
 
 function template_delete() {
-	foreach($_POST as $t=>$v) {
+	foreach ($_POST as $t=>$v) {
 		if (substr($t, 0,4) == 'chk_') {
 			$id = substr($t, 4);
 
@@ -174,23 +174,23 @@ function template_add() {
 
 		form_start('thold_templates.php', 'tholdform');
 
-		html_start_box(__('Threshold Template Creation Wizard', 'thold'), '50%', '', '3', 'center', '');
+		html_start_box(__('Threshold Template Creation Wizard', 'thold'), '70%', false, '3', 'center', '');
 
 		if (!isset_request_var('data_template_id')) {
 			$data_template_id = 0;
-		}else{
+		} else {
 			$data_template_id = get_filter_request_var('data_template_id');
 		}
 
 		if (!isset_request_var('data_source_id')) {
 			$data_source_id = 0;
-		}else{
+		} else {
 			$data_source_id = get_filter_request_var('data_source_id');
 		}
 
 		if ($data_template_id == 0) {
 			print '<tr><td class="center">' . __('Please select a Data Template', 'thold') . '</td></tr>';
-		} else if ($data_source_id == 0) {
+		} elseif ($data_source_id == 0) {
 			print '<tr><td class="center">' . __('Please select a Data Source', 'thold') . '</td></tr>';
 		} else {
 			print '<tr><td class="center">' . __('Please press \'Create\' to create your Threshold Template', 'thold') . '</td></tr>';
@@ -198,7 +198,7 @@ function template_add() {
 
 		html_end_box();
 
-		html_start_box('', '50%', '', '3', 'center', '');
+		html_start_box('', '70%', false, '3', 'center', '');
 
 		/* display the data template dropdown */
 		?>
@@ -257,7 +257,7 @@ function template_add() {
 				</td>
 			</tr>
 			<?php
-		}else{
+		} else {
 			echo "<tr><td><input type='hidden' id='data_source_id' value=''></td></tr>\n";
 		}
 
@@ -307,13 +307,13 @@ function template_add() {
 	} else {
 		if (!isset_request_var('data_template_id')) {
 			$data_template_id = 0;
-		}else{
+		} else {
 			$data_template_id = get_filter_request_var('data_template_id');
 		}
 
 		if (!isset_request_var('data_source_id')) {
 			$data_source_id = 0;
-		}else{
+		} else {
 			$data_source_id = get_filter_request_var('data_source_id');
 		}
 
@@ -513,7 +513,7 @@ function template_save_edit() {
 	if (isset_request_var('snmp_event_warning_severity')) {
 		if (get_nfilter_request_var('snmp_event_warning_severity') > get_nfilter_request_var('snmp_event_severity')) {
 			$save['snmp_event_warning_severity'] = get_nfilter_request_var('snmp_event_severity');
-		}else {
+		} else {
 			$save['snmp_event_warning_severity'] = get_nfilter_request_var('snmp_event_warning_severity');
 		}
 	}
@@ -597,7 +597,7 @@ function template_edit() {
 			$data_fields[$temp['id']]  = $temp['data_source_name'];
 			$data_source_name = $temp['data_source_name'];
 		}
-	}else{
+	} else {
 		/* should not be reached */
 		cacti_log('ERROR: Thold Template ID:' . $thold_data['id'] . ' references a deleted Data Source.');
 		$data_source_name = '';
@@ -643,7 +643,7 @@ function template_edit() {
 		array($thold_data['data_template_id']));
 
 	$reference_types = array();
-	foreach($rra_steps as $rra_step) {
+	foreach ($rra_steps as $rra_step) {
 	    $seconds = $step * $rra_step['steps'];
 		$reference_types[$seconds] = template_calculate_reference_avg($seconds, 'avg');
 	}
@@ -686,14 +686,14 @@ function template_edit() {
 
 	$nr = array();
 	if (sizeof($replacements)) {
-		foreach($replacements as $r) {
+		foreach ($replacements as $r) {
 			$nr[] = "<span style='color:blue;'>|query_" . $r['field_name'] . "|</span>";
 		}
 	}
 
 	$vhf = explode("|", trim(VALID_HOST_FIELDS, "()"));
 	if (sizeof($vhf)) {
-		foreach($vhf as $r) {
+		foreach ($vhf as $r) {
 			$nr[] = "<span style='color:blue;'>|" . $r . "|</span>";
 		}
 	}
@@ -707,7 +707,7 @@ function template_edit() {
 		array($thold_data['data_template_id']));
 
 	if (sizeof($dss)) {
-		foreach($dss as $ds) {
+		foreach ($dss as $ds) {
 			$dsname[] = "<span style='color:blue;'>|ds:" . $ds["data_source_name"] . "|</span>";
 		}
 	}
@@ -1114,7 +1114,7 @@ function template_edit() {
 
 	form_start('thold_templates.php', 'thold');
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	draw_edit_form(
 		array(
@@ -1195,7 +1195,7 @@ function template_edit() {
 			$('#row_thold_header, #row_thold_hi, #row_thold_low, #row_thold_fail_trigger').show();
 			$('#row_thold_warning_header, #row_thold_warning_hi').show();
 			$('#row_thold_warning_low, #row_thold_warning_fail_trigger').show();
-		}else{
+		} else {
 			$('#row_thold_header, #row_thold_hi, #row_thold_low, #row_thold_fail_trigger').hide();
 			$('#row_thold_warning_header, #row_thold_warning_hi').hide();
 			$('#row_thold_warning_low, #row_thold_warning_fail_trigger').hide();
@@ -1206,7 +1206,7 @@ function template_edit() {
 		if (status == '') {
 			$('#row_baseline_header, #row_bl_ref_time_range').show();
 			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').show();
-		}else{
+		} else {
 			$('#row_baseline_header, #row_bl_ref_time_range').hide();
 			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').hide();
 		}
@@ -1218,7 +1218,7 @@ function template_edit() {
 			$('#row_time_fail_trigger, #row_time_fail_length, #row_time_warning_header').show();
 			$('#row_time_warning_hi, #row_time_warning_low').show();
 			$('#row_time_warning_fail_trigger, #row_time_warning_fail_length').show();
-		}else{
+		} else {
 			$('#row_time_header, #row_time_hi, #row_time_low').hide();
 			$('#row_time_fail_trigger, #row_time_fail_length, #row_time_warning_header').hide();
 			$('#row_time_warning_hi, #row_time_warning_low').hide();
@@ -1278,11 +1278,11 @@ function template_edit() {
 						$(this).prop('checked', true);
 					});
 				}
-			}else if (checked == 0) {
+			} else if (checked == 0) {
 				$(this).multiselect('widget').find(':checkbox:first').each(function() {
 					$(this).click();
 				});
-			}else if ($(this).multiselect('widget').find('input:checked:first').val() == '0') {
+			} else if ($(this).multiselect('widget').find('input:checked:first').val() == '0') {
 				if (checked > 0) {
 					$(this).multiselect('widget').find(':checkbox:first').each(function() {
 						$(this).click();
@@ -1309,31 +1309,31 @@ function template_calculate_reference_avg($seconds, $suffix = 'avg') {
 	if ($M > 0) {
 		if ($suffix == 'avg') {
 			return __('%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)', $M, $d, $h, $m, $s, 'thold');
-		}else{
+		} else {
 			return __('%d Months, %d Days, %d Hours, %d Minutes, %d Seconds', $M, $d, $h, $m, $s, 'thold');
 		}
-	}elseif ($d > 0) {
+	} elseif ($d > 0) {
 		if ($suffix == 'avg') {
 			return __('%d Days, %d Hours, %d Minutes, %d Seconds (Average)', $d, $h, $m, $s, 'thold');
-		}else{
+		} else {
 			return __('%d Days, %d Hours, %d Minutes, %d Seconds', $d, $h, $m, $s, 'thold');
 		}
-	}elseif ($h > 0) {
+	} elseif ($h > 0) {
 		if ($suffix == 'avg') {
 			return __('%d Hours, %d Minutes, %d Seconds (Average)', $h, $m, $s, 'thold');
-		}else{
+		} else {
 			return __('%d Hours, %d Minutes, %d Seconds', $h, $m, $s, 'thold');
 		}
-	}elseif ($m > 0) {
+	} elseif ($m > 0) {
 		if ($suffix == 'avg') {
 			return __('%d Minutes, %d Seconds (Average)', $m, $s, 'thold');
-		}else{
+		} else {
 			return __('%d Minutes, %d Seconds', $m, $s, 'thold');
 		}
-	}else{
+	} else {
 		if ($suffix == 'avg') {
 			return __('%d Seconds (Average)', $s, 'thold');
-		}else{
+		} else {
 			return __('%d Seconds', $s, 'thold');
 		}
 	}
@@ -1388,11 +1388,11 @@ function templates() {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box(__('Threshold Templates', 'thold'), '100%', '', '3', 'center', 'thold_templates.php?action=add');
+	html_start_box(__('Threshold Templates', 'thold'), '100%', false, '3', 'center', 'thold_templates.php?action=add');
 
 	?>
 	<tr class='even'>
@@ -1481,7 +1481,7 @@ function templates() {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
 		'name'               => array('display' => __('Name', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
@@ -1598,10 +1598,10 @@ function import() {
 	<?php
 
 	if ((isset($_SESSION['import_debug_info'])) && (is_array($_SESSION['import_debug_info']))) {
-		html_start_box(__('Import Results', 'thold'), '100%', '', '3', 'center', '');
+		html_start_box(__('Import Results', 'thold'), '100%', false, '3', 'center', '');
 
 		print '<tr><td>' . __('Cacti has imported the following items:', 'thold'). '</td></tr>';
-		foreach($_SESSION['import_debug_info'] as $line) {
+		foreach ($_SESSION['import_debug_info'] as $line) {
 			print '<tr><td>' . $line . '</td></tr>';
 		}
 
@@ -1610,7 +1610,7 @@ function import() {
 		kill_session_var('import_debug_info');
 	}
 
-	html_start_box(__('Import Threshold Templates', 'thold'), '100%', '', '3', 'center', '');
+	html_start_box(__('Import Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
 	draw_edit_form(array(
 		'config' => array('no_form_tag' => true),
@@ -1629,12 +1629,12 @@ function template_import() {
 	if (trim(get_nfilter_request_var('import_text') != '')) {
 		/* textbox input */
 		$xml_data = get_nfilter_request_var('import_text');
-	}elseif (($_FILES['import_file']['tmp_name'] != 'none') && ($_FILES['import_file']['tmp_name'] != '')) {
+	} elseif (($_FILES['import_file']['tmp_name'] != 'none') && ($_FILES['import_file']['tmp_name'] != '')) {
 		/* file upload */
 		$fp = fopen($_FILES['import_file']['tmp_name'],'r');
 		$xml_data = fread($fp,filesize($_FILES['import_file']['tmp_name']));
 		fclose($fp);
-	}else{
+	} else {
 		header('Location: thold_templates.php?header=false');
 		exit;
 	}
@@ -1645,83 +1645,84 @@ function template_import() {
 	$debug_data = array();
 
 	if (sizeof($xml_array)) {
-	foreach($xml_array as $template => $contents) {
-		$error = false;
-		$save  = array();
-		if (sizeof($contents)) {
-		foreach($contents as $name => $value) {
-			switch($name) {
-			case 'data_template_id':
-				// See if the hash exists, if it doesn't, Error Out
-				$found = db_fetch_cell_prepared('SELECT id
-					FROM data_template
-					WHERE hash = ?',
-					array($value));
+		foreach ($xml_array as $template => $contents) {
+			$error = false;
+			$save  = array();
 
-				if (!empty($found)) {
-					$save['data_template_id'] = $found;
-				}else{
-					$error = true;
-					$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold') . "</span> " . __('Threshold Template Subordinate Data Template Not Found!', 'thold');
+			if (sizeof($contents)) {
+				foreach ($contents as $name => $value) {
+					switch($name) {
+					case 'data_template_id':
+						// See if the hash exists, if it doesn't, Error Out
+						$found = db_fetch_cell_prepared('SELECT id
+							FROM data_template
+							WHERE hash = ?',
+							array($value));
+
+						if (!empty($found)) {
+							$save['data_template_id'] = $found;
+						} else {
+							$error = true;
+							$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold') . "</span> " . __('Threshold Template Subordinate Data Template Not Found!', 'thold');
+						}
+
+						break;
+					case 'data_source_id':
+						// See if the hash exists, if it doesn't, Error Out
+						$found = db_fetch_cell_prepared('SELECT id
+							FROM data_template_rrd
+							WHERE hash = ?',
+							array($value));
+
+						if (!empty($found)) {
+							$save['data_source_id'] = $found;
+						} else {
+							$error = true;
+							$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template Subordinate Data Source Not Found!', 'thold');
+						}
+
+						break;
+					case 'hash':
+						// See if the hash exists, if it does, update the thold
+						$found = db_fetch_cell_prepared('SELECT id
+							FROM thold_template
+							WHERE hash = ?',
+							array($value));
+
+						if (!empty($found)) {
+							$save['hash'] = $value;
+							$save['id']   = $found;
+						} else {
+							$save['hash'] = $value;
+							$save['id']   = 0;
+						}
+
+						break;
+					case 'name':
+						$tname = $value;
+						$save['name'] = $value;
+
+						break;
+					default:
+						if (db_column_exists('thold_template', $name)) {
+							$save[$name] = $value;
+						}
+
+						break;
+					}
 				}
+			}
 
-				break;
-			case 'data_source_id':
-				// See if the hash exists, if it doesn't, Error Out
-				$found = db_fetch_cell_prepared('SELECT id
-					FROM data_template_rrd
-					WHERE hash = ?',
-					array($value));
+			if (!$error) {
+				$id = sql_save($save, 'thold_template');
 
-				if (!empty($found)) {
-					$save['data_source_id'] = $found;
-				}else{
-					$error = true;
-					$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template Subordinate Data Source Not Found!', 'thold');
+				if ($id) {
+					$debug_data[] = "<span style='font-weight:bold;color:green;'>" . __('NOTE:', 'thold') . "</span> " . __('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
+				} else {
+					$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
 				}
-
-				break;
-			case 'hash':
-				// See if the hash exists, if it does, update the thold
-				$found = db_fetch_cell_prepared('SELECT id
-					FROM thold_template
-					WHERE hash = ?',
-					array($value));
-
-				if (!empty($found)) {
-					$save['hash'] = $value;
-					$save['id']   = $found;
-				}else{
-					$save['hash'] = $value;
-					$save['id']   = 0;
-				}
-
-				break;
-			case 'name':
-				$tname = $value;
-				$save['name'] = $value;
-
-				break;
-			default:
-				if (db_column_exists('thold_template', $name)) {
-					$save[$name] = $value;
-				}
-
-				break;
 			}
 		}
-		}
-
-		if (!$error) {
-			$id = sql_save($save, 'thold_template');
-
-			if ($id) {
-				$debug_data[] = "<span style='font-weight:bold;color:green;'>" . __('NOTE:', 'thold') . "</span> " . __('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
-			}else{
-				$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
-			}
-		}
-	}
 	}
 
 	if(sizeof($debug_data) > 0) {
@@ -1758,3 +1759,4 @@ function thold_form_end($ajax = true) {
 		<?php
 	}
 }
+

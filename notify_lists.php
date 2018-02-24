@@ -311,7 +311,7 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box($actions{get_request_var('drp_action')} . " $list_name", '60%', '', '3', 'center', '');
+		html_start_box($actions{get_request_var('drp_action')} . " $list_name", '70%', false, '3', 'center', '');
 
 		if (sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* delete */
@@ -373,7 +373,7 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box(__('%s Threshold Template(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '60%', '', '3', 'center', '');
+		html_start_box(__('%s Threshold Template(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '70%', false, '3', 'center', '');
 
 		if (sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
@@ -437,7 +437,7 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box(__('%s Threshold(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '60%', '', '3', 'center', '');
+		html_start_box(__('%s Threshold(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '70%', false, '3', 'center', '');
 
 		if (sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
@@ -502,7 +502,7 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box($assoc_actions{get_request_var('drp_action')} . ' Device(s)', '60%', '', '3', 'center', '');
+		html_start_box($assoc_actions{get_request_var('drp_action')} . ' Device(s)', '70%', false, '3', 'center', '');
 
 		if (sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
@@ -606,7 +606,7 @@ function edit() {
 	if ($current_tab == 'general') {
 		form_start('notify_lists.php');
 
-		html_start_box(__('List General Settings', 'thold') . ' ' . htmlspecialchars($header_label), '100%', '', '3', 'center', '');
+		html_start_box(__('List General Settings', 'thold') . ' ' . htmlspecialchars($header_label), '100%', false, '3', 'center', '');
 
 		$fields_notification = array(
 			'name' => array(
@@ -713,7 +713,7 @@ function hosts($header_label) {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box(__('Associated Devices', 'thold') . ' ' . htmlspecialchars($header_label), '100%', '', '3', 'center', '');
+	html_start_box(__('Associated Devices', 'thold') . ' ' . htmlspecialchars($header_label), '100%', false, '3', 'center', '');
 
 	?>
 	<tr class='even'>
@@ -846,7 +846,7 @@ function hosts($header_label) {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
 		__('Description', 'thold'),
@@ -963,7 +963,7 @@ function tholds($header_label) {
 		ON td.data_template_id = dt.id
 		ORDER BY dt.name');
 
-	html_start_box(__('Associated Thresholds', 'thold') . ' ' . htmlspecialchars($header_label) , '100%', '', '3', 'center', '');
+	html_start_box(__('Associated Thresholds', 'thold') . ' ' . htmlspecialchars($header_label) , '100%', false, '3', 'center', '');
 	?>
 	<tr class='even'>
 		<td>
@@ -1068,7 +1068,7 @@ function tholds($header_label) {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '4', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
 		'name'          => array(__('Name', 'thold'), 'ASC'),
@@ -1077,7 +1077,8 @@ function tholds($header_label) {
 		'nosort2'       => array(__('Alert Lists', 'thold'), 'ASC'),
 		'thold_type'    => array(__('Type', 'thold'), 'ASC'),
 		'thold_alert'   => array(__('Triggered', 'thold'), 'ASC'),
-		'thold_enabled' => array(__('Enabled', 'thold'), 'ASC'));
+		'thold_enabled' => array(__('Enabled', 'thold'), 'ASC')
+	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'notify_lists.php?action=edit&tab=tholds&id=' . get_filter_request_var('id'));
 
@@ -1219,7 +1220,7 @@ function templates($header_label) {
 
 	$result = db_fetch_assoc($sql);
 
-	html_start_box(__('Associated Templates', 'thold') . ' ' . htmlspecialchars($header_label), '100%', '', '3', 'center', '');
+	html_start_box(__('Associated Templates', 'thold') . ' ' . htmlspecialchars($header_label), '100%', false, '3', 'center', '');
 	?>
 	<tr class='even'>
 		<td>
@@ -1301,7 +1302,7 @@ function templates($header_label) {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '4', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
 		'name'       => array(__('Name', 'thold'), 'ASC'),
@@ -1522,7 +1523,7 @@ function lists() {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box(__('Notification Lists', 'thold'), '100%', '', '3', 'center', 'notify_lists.php?action=edit');
+	html_start_box(__('Notification Lists', 'thold'), '100%', false, '3', 'center', 'notify_lists.php?action=edit');
 
 	?>
 	<tr class='even'>
@@ -1619,7 +1620,7 @@ function lists() {
 
 	print $nav;
 
-	html_start_box('', '100%', '', '3', 'center', '');
+	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
 		'name'        => array(__('List Name', 'thold'), 'ASC'),
