@@ -2750,8 +2750,8 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	return $thold_snmp_data;
 }
 
-function thold_replace_threshold_tags($string, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
-	global $type_types;
+function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
+	global $thold_types;
 
 	$httpurl    = read_config_option('base_url');
 
