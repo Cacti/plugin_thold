@@ -263,7 +263,7 @@ function tholds() {
 		'status' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
-			'default' => read_config_option('thold_filter_default')
+			'default' => read_config_option('thold_monitor_default')
 			)
 	);
 
