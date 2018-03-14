@@ -204,7 +204,20 @@ function thold_config_settings () {
 			'default' => ''
 		),
 		'thold_filter_default' => array(
-			'friendly_name' => __('Default Status', 'thold'),
+			'friendly_name' => __('Default Management Status', 'thold'),
+			'description' => __('Default Threshold management filter status.', 'thold'),
+			'method' => 'drop_array',
+			'array' => array(
+				'-1' => __('Any', 'thold'),
+				'0'  => __('Disabled', 'thold'),
+				'2'  => __('Enabled', 'thold'),
+				'1'  => __('Breached', 'thold'),
+				'3'  => __('Triggered', 'thold')
+			),
+			'default' => -1
+		),
+		'thold_monitor_default' => array(
+			'friendly_name' => __('Default Monitor Status', 'thold'),
 			'description' => __('Default Threshold Tab filter status.', 'thold'),
 			'method' => 'drop_array',
 			'array' => array(
@@ -214,7 +227,7 @@ function thold_config_settings () {
 				'1'  => __('Breached', 'thold'),
 				'3'  => __('Triggered', 'thold')
 			),
-			'default' => 20
+			'default' => -1
 		),
 		'thold_empty_if_speed_default' => array(
 			'friendly_name' => __('Empty ifHighSpeed Default', 'thold'),
