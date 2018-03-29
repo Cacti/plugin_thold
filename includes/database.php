@@ -131,8 +131,8 @@ function thold_upgrade_database () {
 
 		/* Set the graph_ids for all thresholds */
 		db_execute('UPDATE thold_data, graph_templates_item, data_template_rrd
-			 SET thold_data.local_graph_id = graph_templates_item.local_graph_id, 
-				thold_data.graph_template_id = graph_templates_item.graph_template_id, 
+			 SET thold_data.local_graph_id = graph_templates_item.local_graph_id,
+				thold_data.graph_template_id = graph_templates_item.graph_template_id,
 				thold_data.data_template_id = data_template_rrd.data_template_id
 			 WHERE data_template_rrd.local_data_id=thold_data.local_data_id AND data_template_rrd.id=graph_templates_item.task_item_id');
 	}
@@ -324,14 +324,19 @@ function thold_upgrade_database () {
 	}
 
 	if (version_compare($oldv, '1.0.3', '<')) {
-		api_plugin_db_add_column ('thold', 'thold_data', 
+		api_plugin_db_add_column ('thold', 'thold_data',
 			array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'thold_daemon_pid'));
-		api_plugin_db_add_column ('thold', 'thold_template', 
+		api_plugin_db_add_column ('thold', 'thold_template',
 			array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'snmp_event_warning_severity'));
 	}
 
+	if (version_compare($oldv, '1.0.5', '<')) {
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN expression VARCHAR(512) NOT NULL DEFAULT ""');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN expression VARCHAR(512) NOT NULL DEFAULT ""');
+	}
+
 	if (!db_column_exists('plugin_thold_daemon_processes', 'poller_id')) {
-		db_execute("ALTER TABLE plugin_thold_daemon_processes 
+		db_execute("ALTER TABLE plugin_thold_daemon_processes
 			ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' FIRST,
 			MODIFY COLUMN start double NOT NULL default '0',
 			MODIFY COLUMN end double NOT NULL default '0',
@@ -339,7 +344,7 @@ function thold_upgrade_database () {
 	}
 
 	if (!db_column_exists('plugin_thold_daemon_data', 'poller_id')) {
-		db_execute("ALTER TABLE plugin_thold_daemon_data 
+		db_execute("ALTER TABLE plugin_thold_daemon_data
 			ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' AFTER `id`,
 			ADD KEY `poller_id` (`poller_id`),
 			ADD PRIMARY KEY (`id`, `pid`),
@@ -347,7 +352,7 @@ function thold_upgrade_database () {
 	}
 
 	if (!db_column_exists('plugin_thold_host_failed', 'poller_id')) {
-		db_execute("ALTER TABLE plugin_thold_host_failed 
+		db_execute("ALTER TABLE plugin_thold_host_failed
 			ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' AFTER `id`,
 			ADD KEY `poller_id` (`poller_id`)");
 	}
@@ -408,7 +413,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'data_type', 'type' => 'int(12)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'expression', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'expression', 'type' => 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'thold_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'template_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'tcheck', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
@@ -478,7 +483,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'data_type', 'type' => 'int(12)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'expression', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'expression', 'type' => 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'thold_hrule_alert', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
 	$data['columns'][] = array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
