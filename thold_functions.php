@@ -435,7 +435,7 @@ function thold_expression_compare_rpn($operator, &$stack) {
 function thold_expression_specvals_rpn($operator, &$stack, $count) {
 	global $rpn_error;
 
-	if ($operator == 'UNKN') {
+	if ($operator === 'U' || $operator == 'UNKN') {
 		array_push($stack, 'U');
 	} elseif ($operator == 'INF') {
 		array_push($stack, 'INF');
@@ -694,7 +694,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	$boolean    = array('LT', 'LE', 'GT', 'GE', 'EQ', 'NE', 'UN', 'ISNF', 'IF', 'AND', 'OR');
 	$comparison = array('MIN', 'MAX', 'LIMIT');
 	$setops     = array('SORT', 'REV', 'AVG');
-	$specvals   = array('UNKN', 'INF', 'NEGINF', 'PREV', 'COUNT');
+	$specvals   = array('U', 'UNKN', 'INF', 'NEGINF', 'PREV', 'COUNT');
 	$stackops   = array('DUP', 'POP', 'EXC');
 	$time       = array('NOW', 'TIME', 'LTIME');
 	$spectypes  = array('CURRENT_DATA_SOURCE','CURRENT_GRAPH_MINIMUM_VALUE',
