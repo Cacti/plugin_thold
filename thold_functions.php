@@ -1044,7 +1044,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 
 		$sql_having = "HAVING $sql_having";
 
-		$tholds = db_fetch_assoc("SELECT td.*, tt.name AS template_name,
+		$tholds = db_fetch_assoc("SELECT td.*, dtd.rrd_step, tt.name AS template_name,
 			$sql_select
 			FROM thold_data AS td
 			INNER JOIN graph_local AS gl
@@ -1055,6 +1055,8 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 			ON h.id=gl.host_id
 			LEFT JOIN thold_template AS tt
 			ON tt.id=td.thold_template_id
+			LEFT JOIN data_template_data AS dtd
+			ON dtd.local_data_id=td.local_data_id
 			$sql_join
 			$sql_where
 			$sql_having

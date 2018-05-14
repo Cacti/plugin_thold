@@ -683,7 +683,7 @@ function list_tholds() {
 					form_selectable_cell($thold_data['bl_pct_up'] . (strlen($thold_data['bl_pct_up']) ? '%':'-'), $thold_data['id'], '', 'right');
 					form_selectable_cell($thold_data['bl_pct_down'] . (strlen($thold_data['bl_pct_down']) ? '%':'-'), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['bl_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'text-align:right');
-					form_selectable_cell($timearray[$thold_data['bl_ref_time_range']/300], $thold_data['id'], '', 'text-align:right');
+					form_selectable_cell($timearray[$thold_data['bl_ref_time_range']/$thold_data['rrd_step']], $thold_data['id'], '', 'text-align:right');
 					break;
 				case 2:
 					form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'text-align:right');

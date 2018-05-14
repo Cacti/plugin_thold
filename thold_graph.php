@@ -263,7 +263,7 @@ function tholds() {
 		'status' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
-			'default' => read_config_option('thold_monitor_default')
+			'default' => read_config_option('thold_filter_default')
 			)
 	);
 
@@ -443,7 +443,7 @@ function tholds() {
 					break;
 				case 1:
 					print "<td class='right nowrap'><i>" . plugin_thold_duration_convert($row['local_data_id'], $row['bl_fail_trigger'], 'alert') . '</i></td>';
-					print "<td class='right nowrap'>" . $timearray[$row['bl_ref_time_range']/300]. '</td>';;
+					print "<td class='right nowrap'>" . $timearray[$row['bl_ref_time_range']/$row['rrd_step']]. '</td>';;
 					break;
 				case 2:
 					print "<td class='right nowrap'><i>" . $row['time_fail_trigger'] . ' Triggers</i></td>';
