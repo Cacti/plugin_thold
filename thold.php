@@ -28,7 +28,7 @@ include_once('./include/auth.php');
 include_once($config['library_path'] . '/rrd.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 include_once($config['base_path'] . '/plugins/thold/thold_webapi.php');
-include($config['base_path'] . '/plugins/thold/includes/arrays.php');
+include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 set_default_action();
 
@@ -39,7 +39,7 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 }
 
 if (isset_request_var('drp_action')) {
-	do_thold();
+	do_actions();
 }
 
 if (isset_request_var('id')) {
@@ -79,7 +79,6 @@ switch(get_request_var('action')) {
 		raise_message('thold_message');
 
 		if (isset($_SESSION['data_return'])) {
-cacti_log('There I am');
 			$return_to = $_SESSION['data_return'];
 			unset($_SESSION['data_return']);
 			kill_session_var('data_return');
@@ -180,122 +179,238 @@ function thold_add() {
 	}
 }
 
-function do_thold() {
-	global $host_id;
+function do_actions() {
+	global $host_id, $thold_actions;
 
 	$tholds = array();
-	while (list($var,$val) = each($_POST)) {
+
+	/* ================= input validation ================= */
+	$drp_action = get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^([a-zA-Z0-9_]+)$/')));
+	/* ==================================================== */
+
+	/* if we are to save this form, instead of display it */
+	if (isset_request_var('selected_items')) {
+		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
+
+		if ($selected_items != false) {
+			foreach ($selected_items as $var) {
+				$rra = db_fetch_cell_prepared('SELECT local_data_id
+					FROM thold_data
+					WHERE id = ?',
+					array($var));
+
+				input_validate_input_number($var);
+				$tholds[$var] = $rra;
+			}
+
+			switch ($drp_action) {
+				case 1:	// Delete
+					foreach ($tholds as $del => $rra) {
+						if (thold_user_auth_threshold ($rra)) {
+							plugin_thold_log_changes($del, 'deleted', array('id' => $del));
+
+							db_execute_prepared('DELETE FROM thold_data
+								WHERE id = ?',
+								array($del));
+
+							db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
+								WHERE thold_id = ?',
+								array($del));
+
+							db_execute_prepared('DELETE FROM plugin_thold_log
+								WHERE threshold_id = ?',
+								array($del));
+						}
+					}
+					break;
+				case 2:	// Enabled
+					foreach ($tholds as $del => $rra) {
+						if (thold_user_auth_threshold ($rra)) {
+							plugin_thold_log_changes($del, 'enabled_threshold', array('id' => $del));
+
+							db_execute_prepared('UPDATE thold_data
+								SET thold_enabled="on"
+								WHERE id = ?',
+								array($del));
+						}
+					}
+					break;
+				case 3:	// Disabled
+					foreach ($tholds as $del => $rra) {
+						if (thold_user_auth_threshold ($rra)) {
+							plugin_thold_log_changes($del, 'disabled_threshold', array('id' => $del));
+
+							db_execute_prepared('UPDATE thold_data
+								SET thold_enabled="off"
+								WHERE id = ?',
+								array($del));
+						}
+					}
+					break;
+				case 4:	// Reapply Suggested Name
+					$message = array();
+					foreach ($tholds as $del => $rra) {
+						if (thold_user_auth_threshold ($rra)) {
+							$thold = db_fetch_row_prepared('SELECT *
+								FROM thold_data
+								WHERE id = ?',
+								array($del));
+
+							/* check if thold templated */
+							if ($thold['template_enabled'] == "on") {
+								$template = db_fetch_row_prepared('SELECT *
+									FROM thold_template
+									WHERE id = ?',
+									array($thold['thold_template_id']));
+
+								$name = thold_format_name($template, $thold['local_graph_id'], $thold['data_template_rrd_id']);
+
+								plugin_thold_log_changes($del, 'reapply_name', array('id' => $del));
+
+								db_execute_prepared('UPDATE thold_data
+									SET name = ?
+									WHERE id = ?',
+									array($name, $del));
+							} else {
+								$message['template_disabled'] = '<font size=-1>' . __('One or more thresholds are blocking name replacements', 'thold') . '</font>';
+							}
+						} else {
+							$message['security'] = '<font size=-1>' . __('You are not authorised to modify one or more of the thresholds selected','thold') .'</font>';
+						}
+					}
+					if (sizeof($message)) {
+						$_SESSION['thold_message'] = implode('', $message);
+						raise_message('thold_message');
+					}
+
+					break;
+				case 5:	// Propagate Template
+					foreach ($tholds as $thold_id => $rra) {
+						if (thold_user_auth_threshold ($rra)) {
+							$template = db_fetch_row_prepared('SELECT td.template AS id,
+								td.template_enabled AS enabled
+								FROM thold_data AS td
+								INNER JOIN thold_template AS tt
+								ON tt.id = td.template
+								WHERE td.id = ?',
+								array($thold_id));
+
+							if (isset($template['id']) && $template['id'] != 0 && $template['enabled'] != 'on') {
+								thold_template_update_threshold($thold_id, $template['id']);
+								plugin_thold_log_changes($thold_id, 'modified', array('id' => $thold_id, 'template_enabled' => 'on'));
+							}
+						}
+					}
+					break;
+			}
+
+			if (isset($host_id) && $host_id != '') {
+				header('Location:thold.php?header=false&host_id=' . $host_id);
+			} else {
+				header('Location:thold.php?header=false');
+			}
+			exit;
+		}
+	}
+
+	foreach ($_POST as $var => $val) {
 		if (preg_match('/^chk_(.*)$/', $var, $matches)) {
 			$del = $matches[1];
+			input_validate_input_number($del);
 
-			$rra = db_fetch_cell_prepared('SELECT local_data_id
+			$thold = db_fetch_row_prepared('SELECT name, local_data_id, local_graph_id, thold_template_id
 				FROM thold_data
 				WHERE id = ?',
 				array($del));
 
-			input_validate_input_number($del);
-			$tholds[$del] = $rra;
+			$name = ($thold === false ? '' : $thold['name']);
+			if (empty($name)) {
+				$template = 0;
+				$local_graph_id = 0;
+				$local_data_id = 0;
+				if ($thold !== false) {
+					$template_id = $thold['thold_template_id'];
+					$local_data_id = $thold['local_data_id'];
+					$local_graph_id = $thold['local_graph_id'];
+					if ($template_id > 0) {
+						$template = db_fetch_row_prepared('SELECT * from thold_template WHERE id = ?', array($template_id));
+					}
+				}
+
+				$name = thold_format_name($template, $local_graph_id, $local_data_id);
+			}
+
+			$tholds[$del] = $name;
+			$tholds_list[] = $del;
 		}
 	}
+	$thold_list = implode('</li><li>', $tholds);
 
-	switch (get_nfilter_request_var('drp_action')) {
-		case 1:	// Delete
-			foreach ($tholds as $del => $rra) {
-				if (thold_user_auth_threshold ($rra)) {
-					plugin_thold_log_changes($del, 'deleted', array('id' => $del));
+	top_header();
 
-					db_execute_prepared('DELETE FROM thold_data
-						WHERE id = ?',
-						array($del));
+	form_start('thold.php');
 
-					db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
-						WHERE thold_id = ?',
-						array($del));
+	html_start_box($thold_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
-					db_execute_prepared('DELETE FROM plugin_thold_log
-						WHERE threshold_id = ?',
-						array($del));
-				}
-			}
-			break;
-		case 2:	// Disabled
-			foreach ($tholds as $del => $rra) {
-				if (thold_user_auth_threshold ($rra)) {
-					plugin_thold_log_changes($del, 'disabled_threshold', array('id' => $del));
+	$message = '';
+	if (isset($tholds) && sizeof($tholds)) {
+		switch ($drp_action) {
+			case 1: // Delete thresholds
+				$message = __('Click \'Delete\' to delete the following Threshold(s).', 'thold');
+				$button = __esc('Delete Threshold(s)', 'thold');
+				break;
+			case 2:
+				$message = __('Click \'Continue\' to enable the following Threshold(s).', 'thold');
+				$button = __esc('Enable Threshold(s)', 'thold');
+				break;
+			case 3:
+				$message = __('Click \'Continue\' to disable the following Threshold(s).', 'thold');
+				$button = __esc('Disable Threshold(s)', 'thold');
+				break;
+			case 4:
+				$message = __('Click \'Continue\' to reapply suggested name(s) to the following Threshold(s).', 'thold');
+				$button = __esc('Apply Suggestion', 'thold');
+				break;
+			case 5:
+				$message = __('Click \'Continue\' to update the following Threshold(s) with their associate template\'s details.', 'thold');
+				$button = __esc('Reapply Template', 'thold');
+				break;
+			default:
+				$message = __('Invalid action detected, can not proceed', 'thold');
+				$button = '';
+				break;
+		}
 
-					db_execute_prepared('UPDATE thold_data
-						SET thold_enabled="off"
-						WHERE id = ?',
-						array($del));
-				}
-			}
-			break;
-		case 3:	// Enabled
-			foreach ($tholds as $del => $rra) {
-				if (thold_user_auth_threshold ($rra)) {
-					plugin_thold_log_changes($del, 'enabled_threshold', array('id' => $del));
+		print "	<tr>
+			<td colspan='2' class='textArea'>
+				<p>$message</p>
+				<div class='itemlist'><ul><li>$thold_list</li></ul></div>
+			</td>
+			</tr>\n";
 
-					db_execute_prepared('UPDATE thold_data
-						SET thold_enabled="on"
-						WHERE id = ?',
-						array($del));
-				}
-			}
-			break;
-		case 4:	// Reapply Suggested Name
-			foreach ($tholds as $del => $rra) {
-				if (thold_user_auth_threshold ($rra)) {
-					$thold = db_fetch_row_prepared('SELECT *
-						FROM thold_data
-						WHERE id = ?',
-						array($del));
-
-					/* check if thold templated */
-					if ($thold['template_enabled'] == "on") {
-						$template = db_fetch_row_prepared('SELECT *
-							FROM thold_template
-							WHERE id = ?',
-							array($thold['thold_template_id']));
-
-						$name = thold_format_name($template, $thold['local_graph_id'],
-							$thold['data_template_rrd_id'], $template['data_source_name']);
-
-						plugin_thold_log_changes($del, 'reapply_name', array('id' => $del));
-
-						db_execute_prepared('UPDATE thold_data
-							SET name = ?
-							WHERE id = ?',
-							array($name, $del));
-					}
-				}
-			}
-			break;
-		case 5:	// Propagate Template
-			foreach ($tholds as $thold_id => $rra) {
-				if (thold_user_auth_threshold ($rra)) {
-					$template = db_fetch_row_prepared('SELECT td.template AS id,
-						td.template_enabled AS enabled
-						FROM thold_data AS td
-						INNER JOIN thold_template AS tt
-						ON tt.id = td.template
-						WHERE td.id = ?',
-						array($thold_id));
-
-					if (isset($template['id']) && $template['id'] != 0 && $template['enabled'] != 'on') {
-						thold_template_update_threshold($thold_id, $template['id']);
-						plugin_thold_log_changes($thold_id, 'modified', array('id' => $thold_id, 'template_enabled' => 'on'));
-					}
-				}
-			}
-			break;
-	}
-
-	if (isset($host_id) && $host_id != '') {
-		header('Location:thold.php?header=false&host_id=' . $host_id);
+		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>";
+		if (!empty($button)) {
+			$save_html .= "&nbsp;<input type='submit' class='ui-button ui-corner-all ui-widget' value='" . __esc('Continue', 'thold') . "' title='$button'>";
+		}
 	} else {
-		header('Location:thold.php?header=false');
+		print "<tr><td class='even'><span class='textError'>" . __('You must select at least one threshold.', 'thold') . "</span></td></tr>\n";
+		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget' value='" . __esc('Return', 'thold') . "' onClick='cactiReturnTo()'>";
 	}
 
+	print "<tr>
+		<td colspan='2' class='saveRow'>
+			<input type='hidden' name='action' value='actions'>
+			<input type='hidden' name='selected_items' value='" . serialize($tholds_list) . "'>
+			<input type='hidden' name='drp_action' value='" . $drp_action . "'>
+			$save_html
+		</td>
+	</tr>\n";
+
+	html_end_box();
+
+	form_end();
+
+	bottom_footer();
 	exit;
 }
 
@@ -361,15 +476,7 @@ function thold_request_validation() {
 }
 
 function list_tholds() {
-	global $thold_states, $config, $host_id, $timearray, $thold_types, $item_rows;
-
-	$thold_actions = array(
-		1 => __('Delete', 'thold'),
-		2 => __('Disable', 'thold'),
-		3 => __('Enable', 'thold'),
-		4 => __('Reapply Suggested Names', 'thold'),
-		5 => __('Propagate Template', 'thold')
-	);
+	global $thold_actions, $thold_states, $config, $host_id, $timearray, $thold_types, $item_rows;
 
 	thold_request_validation();
 
@@ -642,7 +749,7 @@ function list_tholds() {
 			}
 
 			if ($thold_data['name'] != '') {
-				$name = $thold_data['name'] . ' [' . $data_source . ']';
+				$name = $thold_data['name'];
 			} else {
 				$desc = db_fetch_cell_prepared('SELECT name_cache
 					FROM data_template_data
@@ -650,7 +757,7 @@ function list_tholds() {
 					LIMIT 1',
 					array($thold_data['local_data_id']));
 
-				$name = $desc . ' [' . $data_source . ']';
+				$name = thold_format_name(false, $thold_data['local_graph_id'], $thold_data['local_data_id']);
 			}
 
 			$baseu = db_fetch_cell_prepared('SELECT base_value
@@ -952,11 +1059,14 @@ function thold_edit() {
 	//----------------------
 	$thold_data_cdef = (!empty($thold_data['cdef']) ? $thold_data['cdef'] : 0);
 
-	if (isset($thold_data['template'])) {
-		$thold_data['template_name'] = db_fetch_cell_prepared('SELECT name
+	$template_thold = false;
+	if (isset($thold_data['thold_template_id'])) {
+		$template_thold = db_fetch_row_prepared('SELECT *
 			FROM thold_template
 			WHERE id = ?',
 			array($thold_data['thold_template_id']));
+
+		$thold_data['template_name'] = empty($template_thold) ? ('Unknown Template ' . $thold_data['thold_template_id']) : $template_thold['name'];
 	}
 
 	$header_text = __('Data Source Item [%s] ' .  ' - Current value: [%s]',
@@ -1073,7 +1183,7 @@ function thold_edit() {
 		),
 		'template_name' => array(
 			'friendly_name' => __('Template Name', 'thold'),
-			'method' => 'custom',
+			'method' => '',
 			'default' => '',
 			'description' => __('Name of the Threshold Template the Threshold was created from.', 'thold'),
 			'value' => isset($thold_data['template_name']) ? $thold_data['template_name'] : __('N/A', 'thold'),
@@ -1087,7 +1197,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => '70',
-			'default' => $desc . ' [' . $template_rrd['data_source_name'] . ']',
+			'default' => thold_format_name($template_thold, $thold_data['local_graph_id'], $thold_data['local_data_id']),
 			'description' => __('Provide the Thresholds a meaningful name', 'thold'),
 			'value' => isset($thold_data['name']) ? $thold_data['name'] : ''
 		),

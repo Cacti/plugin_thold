@@ -65,22 +65,20 @@ function thold_add_graphs_action_execute() {
 
 	if (count($existing) == 0 && count($template)) {
 		if ($local_graph_id) {
-			$rrdlookup = db_fetch_cell("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id ORDER BY id LIMIT 1");
-			$grapharr  = db_fetch_row("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrdlookup AND local_graph_id = $local_graph_id");
-
-			$desc = db_fetch_cell_prepared('SELECT name_cache FROM data_template_data WHERE local_data_id = ? LIMIT 1', array($local_data_id));
+			$rrd_id = db_fetch_cell("SELECT id FROM data_template_rrd WHERE local_data_id=$local_data_id ORDER BY id LIMIT 1");
+			$graph_template_id = db_fetch_cell("SELECT graph_template_id FROM graph_templates_item WHERE task_item_id=$rrd_id AND local_graph_id = $local_graph_id");
 
 			$data_source_name = $template['data_source_name'];
 			$insert = array();
 
-			$name = thold_format_name($template, $local_graph_id, $local_data_id, $data_source_name);
+			$name = thold_format_name($template, $local_graph_id, $local_data_id);
 
 			$insert['name']               = $name;
 			$insert['host_id']            = $data_source['host_id'];
 			$insert['local_data_id']      = $local_data_id;
 			$insert['local_graph_id']     = $local_graph_id;
 			$insert['data_template_id']   = $data_template_id;
-			$insert['graph_template_id']  = $grapharr['graph_template_id'];
+			$insert['graph_template_id']  = $graph_template_id;
 			$insert['thold_hi']           = $template['thold_hi'];
 			$insert['thold_low']          = $template['thold_low'];
 			$insert['thold_fail_trigger'] = $template['thold_fail_trigger'];
@@ -424,6 +422,10 @@ function thold_add_select_host() {
 	if ($host_id != '') {
 		$graphs = get_allowed_graphs('gl.host_id=' . $host_id);
 
+		if ($graphs !== false && count($graphs) == 1) {
+			$local_graph_id = $graphs[0]['local_graph_id'];
+		}
+
 		?>
 		<tr>
 			<td>
@@ -461,6 +463,10 @@ function thold_add_select_host() {
 		$dss = db_fetch_assoc('SELECT DISTINCT id, data_source_name
 			FROM data_template_rrd
 			WHERE local_data_id IN (' . $dt_sql . ') ORDER BY data_source_name');
+
+		if ($dss !== false && count($dss) == 1) {
+			$data_template_rrd_id = $dss[0]['id'];
+		}
 
 		/* show the data source options */
 		?>
@@ -503,6 +509,12 @@ function thold_add_select_host() {
 		print "<tr><td style='text-align:center'><img id='graphi' src='../../graph_image.php?local_graph_id=$local_graph_id&rra_id=0'></td></tr>";
 	}
 
+	print '<tr><td style=\'text-align:center\'>&nbsp;</td></tr>';
+	print '<tr><td style=\'text-align:center\'><b><font color=\'red\'>' . __('NOTE:', 'thold') .'</font></b>';
+	print __('This Graph Threshold will not be templated.', 'thold') . '<br><br>';
+	print __('Associate a Threshold Template to a Device Template', 'thold') . '<br>';
+	print __('Then click \'Apply Thresholds\' to create templated Thresholds', 'thold') . '</td></tr>';
+
 	html_end_box();
 
 	?>
@@ -516,7 +528,7 @@ function thold_add_select_host() {
 		if (target == 'ds') {
 			strURL += '&data_template_rrd_id=' + $('#data_template_rrd_id').val();
 		}
-		loadPageNoHeader(strURL);
+		loadPageNoHeader(strURL, false, true);
 	}
 
 	$(function() {

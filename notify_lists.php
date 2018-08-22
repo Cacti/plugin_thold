@@ -296,7 +296,7 @@ function form_actions() {
 
 	if (isset_request_var('save_list')) {
 		/* loop through each of the notification lists selected on the previous page and get more info about them */
-		while (list($var,$val) = each($_POST)) {
+		foreach($_POST as $var => $val) {
 			if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
 				/* ================= input validation ================= */
 				input_validate_input_number($matches[1]);
@@ -358,7 +358,7 @@ function form_actions() {
 		bottom_footer();
 	} elseif (isset_request_var('save_templates')) {
 		/* loop through each of the notification lists selected on the previous page and get more info about them */
-		while (list($var,$val) = each($_POST)) {
+		foreach($_POST as $var => $val) {
 			if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
 				/* ================= input validation ================= */
 				input_validate_input_number($matches[1]);
@@ -422,7 +422,7 @@ function form_actions() {
 		bottom_footer();
 	} elseif (isset_request_var('save_tholds')) {
 		/* loop through each of the notification lists selected on the previous page and get more info about them */
-		while (list($var,$val) = each($_POST)) {
+		foreach($_POST as $var => $val) {
 			if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
 				/* ================= input validation ================= */
 				input_validate_input_number($matches[1]);
@@ -487,7 +487,7 @@ function form_actions() {
 		bottom_footer();
 	}else{
 		/* loop through each of the notification lists selected on the previous page and get more info about them */
-		while (list($var,$val) = each($_POST)) {
+		foreach($_POST as $var => $val) {
 			if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
 				/* ================= input validation ================= */
 				input_validate_input_number($matches[1]);

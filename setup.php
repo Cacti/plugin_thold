@@ -745,7 +745,7 @@ function thold_data_source_action_execute($action) {
 						$data_source_name = $template['data_source_name'];
 						$insert = array();
 
-						$name = thold_format_name($template, $graph, $local_data_id, $data_source_name);
+						$name = thold_format_name($template, $graph, $local_data_id);
 
 						$insert['name']                       = $name;
 						$insert['host_id']                    = $data_source['host_id'];
@@ -1013,7 +1013,7 @@ function thold_graphs_action_execute($action) {
 
 						$insert = array();
 
-						$name = thold_format_name($template, $graph, $local_data_id, $data_source_name);
+						$name = thold_format_name($template, $graph, $local_data_id);
 
 						$insert['name']                       = $name;
 						$insert['host_id']                    = $data_source['host_id'];

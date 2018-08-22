@@ -59,7 +59,7 @@ function thold_upgrade_database () {
 	}
 
 	// Added in thold v0.4
-	if ($oldv < 0.4) {
+	if (cacti_version_compare($oldv,'0.4','<')) {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'name',              'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_hi',           'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_fail_trigger'));
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_low',          'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_hi'));
@@ -138,7 +138,7 @@ function thold_upgrade_database () {
 	}
 	// End 0.4 Upgrade
 
-	if (version_compare($oldv, '0.4.3', '<')) {
+	if (cacti_version_compare($oldv, '0.4.3', '<')) {
 		// Fix a few hooks
 		db_execute('DELETE FROM plugin_hooks WHERE name = "thold" AND hook = "config_insert"');
 		db_execute('DELETE FROM plugin_hooks WHERE name = "thold" AND hook = "config_arrays"');
@@ -154,7 +154,7 @@ function thold_upgrade_database () {
 		}
 	}
 
-	if (version_compare($oldv, '0.4.4', '<')) {
+	if (cacti_version_compare($oldv, '0.4.4', '<')) {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'lasttime', 'type' => 'TIMESTAMP', 'NULL' => false, 'after' => 'lastread'));
 		db_execute('ALTER TABLE thold_data ADD COLUMN bl_thold_valid INT UNSIGNED NOT NULL DEFAULT 0', FALSE);
 		db_execute('ALTER TABLE thold_data MODIFY name varchar(150) default NULL');
@@ -164,7 +164,7 @@ function thold_upgrade_database () {
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN bl_pct_up varchar(100)');
 	}
 
-	if (version_compare($oldv, '0.4.5', '<')) {
+	if (cacti_version_compare($oldv, '0.4.5', '<')) {
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_warning_hi', 'type' => 'varchar(100)', 'NULL' => true) );
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_warning_low', 'type' => 'varchar(100)', 'NULL' => true) );
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_warning_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true) );
@@ -231,7 +231,7 @@ function thold_upgrade_database () {
 		}
 	}
 
-	if (version_compare($oldv, '0.4.7', '<')) {
+	if (cacti_version_compare($oldv, '0.4.7', '<')) {
 		$data = array();
 		$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
 		$data['columns'][] = array('name' => 'poller_id', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1');
@@ -247,7 +247,7 @@ function thold_upgrade_database () {
 		db_execute("ALTER TABLE settings MODIFY column `value` varchar(1024) not null default ''");
 	}
 
-	if (version_compare($oldv, '0.6', '<')) {
+	if (cacti_version_compare($oldv, '0.6', '<')) {
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true) );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3') );
 		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2') );
@@ -291,7 +291,7 @@ function thold_upgrade_database () {
 		db_execute('ALTER TABLE plugin_thold_log CHANGE COLUMN graph_id local_graph_id int(11) UNSIGNED NOT NULL default "0"');
 	}
 
-	if (version_compare($oldv, '1.0', '<')) {
+	if (cacti_version_compare($oldv, '1.0', '<')) {
 		$data = array();
 		$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'auto_increment' => true);
 		$data['columns'][] = array('name' => 'device_template_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
@@ -311,26 +311,26 @@ function thold_upgrade_database () {
 		}
 	}
 
-	if (version_compare($oldv, '1.0.1', '<')) {
+	if (cacti_version_compare($oldv, '1.0.1', '<')) {
 		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'exempt'));
 		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_hrule_alert') );
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'exempt'));
 		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_hrule_alert') );
 	}
 
-	if (version_compare($oldv, '1.0.2', '<')) {
+	if (cacti_version_compare($oldv, '1.0.2', '<')) {
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN expression VARCHAR(128) NOT NULL DEFAULT ""');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN expression VARCHAR(128) NOT NULL DEFAULT ""');
 	}
 
-	if (version_compare($oldv, '1.0.3', '<')) {
+	if (cacti_version_compare($oldv, '1.0.3', '<')) {
 		api_plugin_db_add_column ('thold', 'thold_data',
 			array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'thold_daemon_pid'));
 		api_plugin_db_add_column ('thold', 'thold_template',
 			array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'snmp_event_warning_severity'));
 	}
 
-	if (version_compare($oldv, '1.0.5', '<')) {
+	if (cacti_version_compare($oldv, '1.0.5', '<')) {
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN expression VARCHAR(512) NOT NULL DEFAULT ""');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN expression VARCHAR(512) NOT NULL DEFAULT ""');
 	}
@@ -359,6 +359,11 @@ function thold_upgrade_database () {
 
 	if (!db_index_exists('thold_data', 'thold_daemon_pid')) {
 		db_execute('ALTER TABLE thold_data ADD INDEX thold_daemon_pid (thold_daemon_pid)');
+	}
+
+	if (!db_column_exists('thold_template', 'suggested_name')) {
+		db_execute("ALTER TABLE thold_template
+			ADD COLUMN `suggested_name` varchar(255) NOT NULL default '' AFTER `name`");
 	}
 
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
@@ -446,6 +451,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'hash', 'type' => 'varchar(32)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'suggested_name', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_template_id', 'type' => 'int(10)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_template_name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_source_id', 'type' => 'int(10)', 'NULL' => false, 'default' => '0');

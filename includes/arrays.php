@@ -301,6 +301,20 @@ $data_types = array (
 	3 => __('RPN Expression', 'thold')
 );
 
+$thold_actions = array(
+	1 => __('Delete', 'thold'),
+	2 => __('Enable', 'thold'),
+	3 => __('Disable', 'thold'),
+	4 => __('Reapply Suggested Names', 'thold'),
+	5 => __('Propagate Template', 'thold')
+);
+
+$thold_template_actions = array(
+	1 => __('Export', 'thold'),
+	2 => __('Delete', 'thold'),
+	3 => __('Reapply Suggested Names', 'thold')
+);
+
 /* perform database upgrade */
 include_once($config['base_path'] . '/plugins/thold/setup.php');
 plugin_thold_upgrade ();
