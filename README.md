@@ -38,10 +38,12 @@ The thold plugin has been in development for well over a decade with increasing 
 
 --- 1.0.5 ---
 * feature: Increase size for RPN expressions
+* feature: Template list should allow reapply suggested name
+* feature: Template list shows clickable/sortable count of Thresholds
+* feature: Threshold list allows filtering by Threshold Template as well as Data Template
 * issue#168: Suggested names does not work if no substitute variable used
 * issue#198: Depreciated each() function usage under PHP 7.2
 * issue#199: Threshold template association issue
-* feature#197: Template view should allow reapply suggested name
 
 --- 1.0.4 ---
 * issue#117: ERROR: possible illegal string offset when sending mails

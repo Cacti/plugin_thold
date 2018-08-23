@@ -570,10 +570,6 @@ function template_save_edit() {
 		set_request_var('name', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('name'))));
 	}
 
-	if (isempty_request_var('suggested_name')) {
-		set_request_var('suggested_name', thold_get_default_suggested_name(null,get_nfilter_request_var('id')));
-	}
-
 	if (isset_request_var('suggested_name')) {
 		set_request_var('suggested_name', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('suggested_name'))));
 	}
@@ -1651,7 +1647,13 @@ function templates() {
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
 	$total_rows    = db_fetch_cell('SELECT count(*) FROM thold_template');
-	$template_list = db_fetch_assoc("SELECT * FROM thold_template $sql_where $sql_order $sql_limit");
+	$template_list = db_fetch_assoc("SELECT
+			thold_template.*,
+			(SELECT COUNT(id) FROM thold_data where thold_data.thold_template_id = thold_template.id) thresholds
+		FROM thold_template
+		$sql_where
+		$sql_order
+		$sql_limit");
 
 	$nav = html_nav_bar('thold_templates.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Templates', 'thold'), 'page', 'main');
 
@@ -1664,13 +1666,15 @@ function templates() {
 	$display_text = array(
 		'name'               => array('display' => __('Name', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
 		'data_template_name' => array('display' => __('Data Template', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
-		'thold_type'         => array('display' => __('Type', 'thold'), 'sort' => 'ASC', 'align' => 'right'),
-		'data_source_name'   => array('display' => __('DS Name', 'thold'), 'sort' => 'ASC', 'align' => 'right'),
-		'nosort1'            => array('display' => __('High', 'thold'), 'sort' => '', 'align' => 'right'),
-		'nosort2'            => array('display' => __('Low', 'thold'), 'sort' => '', 'align' => 'right'),
-		'nosort3'            => array('display' => __('Trigger', 'thold'), 'sort' => '', 'align' => 'right'),
-		'nosort4'            => array('display' => __('Duration', 'thold'), 'sort' => '', 'align' => 'right'),
-		'nosort5'            => array('display' => __('Repeat', 'thold'), 'sort' => '', 'align' => 'right')
+		'thold_type'         => array('display' => __('Type', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
+		'data_source_name'   => array('display' => __('DS Name', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
+		'nosort1'            => array('display' => __('High', 'thold'), 'sort' => '', 'align' => 'center'),
+		'nosort2'            => array('display' => __('Low', 'thold'), 'sort' => '', 'align' => 'center'),
+		'nosort3'            => array('display' => __('Trigger', 'thold'), 'sort' => '', 'align' => 'left'),
+		'nosort4'            => array('display' => __('Duration', 'thold'), 'sort' => '', 'align' => 'left'),
+		'nosort5'            => array('display' => __('Repeat', 'thold'), 'sort' => '', 'align' => 'left'),
+		'nosort6'            => array('display' => __('Suggested Name', 'thold'), 'sort' => '', 'align' => 'left'),
+		'thresholds'         => array('display' => __('Thresholds', 'thold'), 'sort' => '', 'align' => 'right')
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
@@ -1719,20 +1723,24 @@ function templates() {
 			$name = ($template['name'] == '' ? $template['data_template_name'] . ' [' . $template['data_source_name'] . ']' : $template['name']);
 			$name = filter_value($name, get_request_var('filter'));
 
+			$suggested_name = (empty($template['suggseted_name']) ? thold_get_default_suggested_name($template) : $template['suggested_name']);
+
 			form_alternate_row('line' . $template['id']);
 			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name  . '</a>', $template['id']);
 			form_selectable_cell(filter_value($template['data_template_name'], get_request_var('filter')), $template['id']);
-			form_selectable_cell($thold_types[$template['thold_type']], $template['id'], '', 'right');
-			form_selectable_cell($template['data_source_name'], $template['id'], '', 'right');
-			form_selectable_cell($value_hi . ' / ' . $value_warning_hi, $template['id'], '', 'right');
-			form_selectable_cell($value_lo . ' / ' . $value_warning_lo, $template['id'], '', 'right');
+			form_selectable_cell($thold_types[$template['thold_type']], $template['id'], '', 'left');
+			form_selectable_cell($template['data_source_name'], $template['id'], '', 'left');
+			form_selectable_cell($value_hi . ' / ' . $value_warning_hi, $template['id'], '', 'center');
+			form_selectable_cell($value_lo . ' / ' . $value_warning_lo, $template['id'], '', 'center');
 
 			$trigger =  plugin_thold_duration_convert($template['data_template_id'], $value_trig, 'alert', 'data_template_id');
-			form_selectable_cell((strlen($trigger) ? '<i>' . $trigger . '</i>':'-'), $template['id'], '', 'right');
+			form_selectable_cell((strlen($trigger) ? '<i>' . $trigger . '</i>':'-'), $template['id'], '', 'left');
 
 			$duration = plugin_thold_duration_convert($template['data_template_id'], $value_duration, 'time', 'data_template_id');
-			form_selectable_cell((strlen($duration) ? $duration:'-'), $template['id'], '', 'right');
-			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id'], '', 'right');
+			form_selectable_cell((strlen($duration) ? $duration:'-'), $template['id'], '', 'left');
+			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id'], '', 'left');
+			form_selectable_cell(filter_value($suggested_name, get_request_var('filter')), $template['id']);
+			form_selectable_cell('<a class="linkEditMain" href="' . htmlspecialchars('thold.php?thold_template_id=' . $template['id']) . '">' . $template['thresholds']  . '</a>', $template['id'], '', 'right');
 			form_checkbox_cell($template['data_template_name'], $template['id']);
 			form_end_row();
 		}

@@ -263,7 +263,7 @@ function do_actions() {
 									WHERE id = ?',
 									array($thold['thold_template_id']));
 
-								$name = thold_format_name($template, $thold['local_graph_id'], $thold['data_template_rrd_id']);
+								$name = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id']);
 
 								plugin_thold_log_changes($del, 'reapply_name', array('id' => $del));
 
@@ -459,6 +459,11 @@ function thold_request_validation() {
 			'pageset' => true,
 			'default' => '-1'
 			),
+		'thold_template_id' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
 		'host_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
@@ -511,6 +516,10 @@ function list_tholds() {
 		$sql_where .= (!strlen($sql_where) ? '(' : ' AND ') . "td.data_template_id = " . get_request_var('data_template_id');
 	}
 
+	if (!isempty_request_var('thold_template_id') && get_request_var('thold_template_id') != '-1') {
+		$sql_where .= (!strlen($sql_where) ? '(' : ' AND ') . "td.thold_template_id = " . get_request_var('thold_template_id');
+	}
+
 	if (strlen(get_request_var('filter'))) {
 		$sql_where .= (strlen($sql_where) ? ' AND': '(') . " td.name LIKE '%" . get_request_var('filter') . "%'";
 	}
@@ -543,6 +552,10 @@ function list_tholds() {
 		INNER JOIN thold_data AS td
 		ON td.data_template_id = dt.id
 		ORDER BY dt.name');
+
+	$thold_templates = db_fetch_assoc('SELECT DISTINCT tt.id, tt.name
+		FROM thold_template as tt
+		ORDER BY tt.name');
 
 	html_start_box(__('Threshold Management', 'thold'), '100%', false, '3', 'center', 'thold.php?action=add');
 
@@ -587,6 +600,19 @@ function list_tholds() {
 				<table class='filterTable'>
 					<td>
 						<?php print __('Template', 'thold');?>
+					</td>
+					<td>
+						<select id='thold_template_id' onChange='applyFilter()'>
+							<option value='-1'><?php print __('Any', 'thold');?></option>
+							<?php
+							foreach ($thold_templates as $row) {
+								echo "<option value='" . $row['id'] . "'" . (isset_request_var('thold_template_id') && $row['id'] == get_request_var('thold_template_id') ? ' selected' : '') . '>' . $row['name'] . '</option>';
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<?php print __('Data Template', 'thold');?>
 					</td>
 					<td>
 						<select id='data_template_id' onChange='applyFilter()'>
@@ -635,6 +661,7 @@ function list_tholds() {
 		function applyFilter() {
 			strURL  = 'thold.php?header=false&host_id=' + $('#host_id').val();
 			strURL += '&state=' + $('#state').val();
+			strURL += '&thold_template_id=' + $('#thold_template_id').val();
 			strURL += '&data_template_id=' + $('#data_template_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();

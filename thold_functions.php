@@ -932,6 +932,22 @@ function thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $sn
 	}
 }
 
+function thold_substitute_data_source_description($string, $local_data_id, $max_chars = 0) {
+	$field_name = trim(str_replace('|data_source_description', '', $string),"| \n\r");
+
+	$cache_data = db_fetch_cell_prepared('SELECT name_cache
+		FROM data_template_data
+		WHERE local_data_id = ?
+		LIMIT 1',
+		array($local_data_id));
+
+	if ($cache_data != '') {
+		return $cache_data;
+	} else {
+		return $string;
+	}
+}
+
 function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $host_id) {
 	$field_name = trim(str_replace('|host_', '', $string),"| \n\r");
 
@@ -2881,17 +2897,13 @@ function thold_format_name($template, $local_graph_id, $local_data_id) {
 		WHERE local_data_id = ?',
 		array($local_data_id));
 
-	$desc = db_fetch_cell_prepared('SELECT name_cache
+	$data_source_desc = db_fetch_cell_prepared('SELECT name_cache
 		FROM data_template_data
 		WHERE local_data_id = ?
 		LIMIT 1',
 		array($local_data_id));
 
-	if ($desc !== false) {
-		$default_name = $desc;
-	}
-	$default_name .= ' [' . $data_source_name . ']';
-
+	$default_name = $data_source_desc;
 	$suggested_name = isset($template) ? 'template' : 'no template';
 	if (isset($template['suggested_name']) && !empty($template['suggested_name'])) {
 		$suggested_name = $template['suggested_name'];
@@ -2907,6 +2919,11 @@ function thold_format_name($template, $local_graph_id, $local_data_id) {
 	if (strpos($name, '|graph_title|') == false) {
 		$title = get_graph_title($local_graph_id);
 		$result = str_replace('|graph_title|', $title, $name);
+		$name = $result;
+	}
+
+	if (strpos($name, '|data_source_description|') !== false) {
+		$result = str_replace('|data_source_description|', $data_source_desc, $name);
 		$name = $result;
 	}
 	return $name;
@@ -4598,5 +4615,11 @@ function thold_get_default_suggested_name($thold_data, $id = 0) {
 	if (empty($thold_data) && $id) {
 		$thold_data = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($id));
 	}
-	return empty($thold_data) ? '|graph_title|' : ('|graph_title| - [' . $thold_data['data_source_name'] . ']');
+
+	$desc = '|data_source_description|';
+
+	if (isset($thold_data['suggested_name']) && !empty($thold_data['suggested_name'])) {
+		$desc = $thold_data['suggested_name'];
+	}
+	return $desc;
 }
