@@ -159,7 +159,7 @@ function do_actions() {
 											WHERE id = ?',
 											array($thold['thold_template_id']));
 
-										$name = thold_format_name($template, $thold['local_graph_id'], $thold['data_template_rrd_id']);
+										$name = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id']);
 
 										plugin_thold_log_changes($del, 'reapply_name', array('id' => $del));
 
