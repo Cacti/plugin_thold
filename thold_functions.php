@@ -325,8 +325,8 @@ function thold_expression_boolean_rpn($operator, &$stack) {
 			array_push($stack, $v2);
 		}
 	} else {
-		$v1 = thold_expression_rpn_pop($stack);
 		$v2 = thold_expression_rpn_pop($stack);
+		$v1 = thold_expression_rpn_pop($stack);
 
 		/* deal with unknown or infinite data */
 		if (($v1 == 'INF' || $v2 == 'INF') ||
