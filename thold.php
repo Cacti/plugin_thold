@@ -74,10 +74,8 @@ switch(get_request_var('action')) {
 	case 'autocreate':
 		$c = autocreate(get_filter_request_var('host_id'));
 		if ($c == 0) {
-			$_SESSION['thold_message'] = '<font size=-1>' . __('Either No Templates or Threshold(s) Already Exists - No Thresholds were created.', 'thold') . '</font>';
+			thold_raise_message('<font size=-1>' . __('Either No Templates or Threshold(s) Already Exists - No Thresholds were created.', 'thold') . '</font>');
 		}
-
-		raise_message('thold_message');
 
 		if (isset($_SESSION['data_return'])) {
 			$return_to = $_SESSION['data_return'];
@@ -280,8 +278,7 @@ function do_actions() {
 						}
 					}
 					if (sizeof($message)) {
-						$_SESSION['thold_message'] = implode('', $message);
-						raise_message('thold_message');
+						thold_raise_message(implode('', $message));
 					}
 
 					break;

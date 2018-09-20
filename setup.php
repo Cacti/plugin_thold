@@ -848,11 +848,10 @@ function thold_data_source_action_execute($action) {
 			}
 
 			if (strlen($message)) {
-				$_SESSION['thold_message'] = "<font size=-2>$message</font>";
+				thold_raise_message("<font size=-2>$message</font>");
 			}else{
-				$_SESSION['thold_message'] = "<font size=-2>" . __('Threshold(s) Already Exist - No Thresholds Created', 'thold') . "</font>";
+				thold_raise_message("<font size=-2>" . __('Threshold(s) Already Exist - No Thresholds Created', 'thold') . "</font>");
 			}
-			raise_message('thold_message');
 		}
 	}
 
@@ -1117,12 +1116,10 @@ function thold_graphs_action_execute($action) {
 			}
 
 			if (strlen($message)) {
-				$_SESSION['thold_message'] = "<font size=-2>$message</font>";
+				thold_raise_message("<font size=-2>$message</font>");
 			}else{
-				$_SESSION['thold_message'] = "<font size=-2>" . __('Threshold(s) Already Exist - No Thresholds Created', 'thold') . "</font>";
+				thold_raise_message("<font size=-2>" . __('Threshold(s) Already Exist - No Thresholds Created', 'thold') . "</font>");
 			}
-
-			raise_message('thold_message');
 		}
 	}
 

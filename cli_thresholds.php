@@ -149,8 +149,10 @@ function thold_cli_autocreate_host ($id) {
 
 	echo "Auto Creating Thresholds for Device #$id\n";
 	autocreate($id);
-	if (isset($_SESSION['thold_message'])) {
-		echo strip_tags(str_replace(array('<br>', 'Created Threshold'), array("\n", '     Created Threshold'), $_SESSION['thold_message']));
+	foreach ($_SESSION as $message_id => $message) {
+		if (stripos('thold_message', $message_id) == 0) {
+			echo strip_tags(str_replace(array('<br>', 'Created Threshold'), array("\n", '     Created Threshold'), $message));
+		}
 	}
 }
 

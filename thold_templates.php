@@ -177,8 +177,7 @@ function do_actions() {
 						}
 					}
 					if (sizeof($message)) {
-						$_SESSION['thold_message'] = implode('', $message);
-						raise_message('thold_message');
+						thold_raise_message(implode('', $message));
 					}
 					break;
 			}
