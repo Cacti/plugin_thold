@@ -497,8 +497,8 @@ function list_tholds() {
 		} else {
 			if (get_request_var('state') == '0') { $statefilter = "td.thold_enabled='off'"; }
 			if (get_request_var('state') == '2') { $statefilter = "td.thold_enabled='on'"; }
-			if (get_request_var('state') == '1') { $statefilter = '(td.thold_alert!=0 OR td.bl_alert>0)'; }
-			if (get_request_var('state') == '3') { $statefilter = '((td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger))'; }
+			if (get_request_var('state') == '1') { $statefilter = '(td.thold_enabled=\'on\' AND (td.thold_alert!=0 OR td.bl_alert>0))'; }
+			if (get_request_var('state') == '3') { $statefilter = '(td.thold_enabled=\'on\' AND ((td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger)))'; }
 		}
 	}
 
