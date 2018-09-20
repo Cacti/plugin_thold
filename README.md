@@ -35,6 +35,10 @@ Lastly, please note that several forks of the thold plugin are available from di
 The thold plugin has been in development for well over a decade with increasing functionality and stability over that time.  There have been several contributors to thold over the years.  Chief amonst them are Jimmy Conner, Larry Adams, and Andreas Braun.  We hope that version 1.0 and beyond are the most stable and robust versions of thold ever published.  We are always looking for new ideas.  So, this won't be the last release of thold, you can rest assured of that.
 
 ## ChangeLog
+--- 1.0.7 ---
+* issue#207: Errors when attempting to save a Threshold
+* issue#210: Disabled Thresholds appear in breach/trigger filters
+* issue#211: Site filtering does not work without another filter selected
 
 --- 1.0.6 ---
 * feature: Template list shows clickable/sortable count of Thresholds
