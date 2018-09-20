@@ -23,6 +23,14 @@
  +-------------------------------------------------------------------------+
 */
 
+if (!defined('MESSAGE_LEVEL_NONE')) {
+	define('MESSAGE_LEVEL_NONE', 0);
+	define('MESSAGE_LEVEL_INFO', 1);
+	define('MESSAGE_LEVEL_WARN', 2);
+	define('MESSAGE_LEVEL_ERROR', 3);
+	define('MESSAGE_LEVEL_CSRF', 4);
+}
+
 function thold_update_contacts() {
 	$users = db_fetch_assoc("SELECT id, 'email' AS type, email_address
 		FROM user_auth
@@ -1281,7 +1289,7 @@ function thold_user_auth_threshold($rra) {
 		ON gti.task_item_id=dtr.id
 		LEFT JOIN graph_local AS gl
 		ON gl.id=gti.local_graph_id
-		WHERE dtr.local_data_id = ?',
+		WHERE dtr.id = ?',
 		array($rra));
 
 	if (!empty($graph) && is_graph_allowed($graph)) {
@@ -3398,11 +3406,9 @@ function save_thold() {
 	$template_enabled     = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : '';
 
 	if ($template_enabled == 'on') {
-		if (!thold_user_auth_threshold ($local_data_id)) {
+		if (!thold_user_auth_threshold ($data_template_rrd_id)) {
 			$banner = "<span class='textError'>" . __('Permission Denied', 'thold') . "</span>";
-
-			$_SESSION['thold_message'] = $banner;
-			raise_message('thold_message');
+			thold_raise_message($banner);
 
 			return;
 		}
@@ -3419,8 +3425,7 @@ function save_thold() {
 
 		plugin_thold_log_changes($data['id'], 'modified', array('id' => $data['id'], 'template_enabled' => 'on'));
 
-		$_SESSION['thold_message'] = $banner;
-		raise_message('thold_message');
+		thold_raise_message($banner, MESSAGE_LEVEL_INFO);
 
 		return get_filter_request_var('id');
 	}
@@ -3461,8 +3466,7 @@ function save_thold() {
 			get_request_var('thold_fail_trigger') != 0) {
 			$banner .= __('You must specify either &quot;High Alert Threshold&quot; or &quot;Low Alert Threshold&quot; or both!<br>RECORD NOT UPDATED!</span>', 'thold');
 
-			$_SESSION['thold_message'] = $banner;
-			raise_message('thold_message');
+			thold_raise_message($banner);
 
 			return get_request_var('id');
 		}
@@ -3473,8 +3477,7 @@ function save_thold() {
 			round(get_request_var('thold_low'),4) >= round(get_request_var('thold_hi'), 4)) {
 			$banner .= __('Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!</span>', 'thold');
 
-			$_SESSION['thold_message'] = $banner;
-			raise_message('thold_message');
+			thold_raise_message($banner);
 
 			return get_request_var('id');
 		}
@@ -3485,8 +3488,7 @@ function save_thold() {
 			round(get_request_var('thold_warning_low'),4) >= round(get_request_var('thold_warning_hi'), 4)) {
 			$banner .= __('Impossible thresholds: &quot;High Warning Threshold&quot; smaller than or equal to &quot;Low Warning Threshold&quot;<br>RECORD NOT UPDATED!</span>', 'thold');
 
-			$_SESSION['thold_message'] = $banner;
-			raise_message('thold_message');
+			thold_raise_message($banner);
 
 			return get_request_var('id');
 		}
@@ -3497,8 +3499,7 @@ function save_thold() {
 			if (!thold_mandatory_field_ok('bl_ref_time_range', 'Time reference in the past')) {
 				$banner .= '</span>';
 
-				$_SESSION['thold_message'] = $banner;
-				raise_message('thold_message');
+				thold_raise_message($banner);
 
 				return get_request_var('id');
 			}
@@ -3506,8 +3507,7 @@ function save_thold() {
 			if (isempty_request_var('bl_pct_down') && isempty_request_var('bl_pct_up')) {
 				$banner .= __('You must specify either &quot;Baseline Deviation UP&quot; or &quot;Baseline Deviation DOWN&quot; or both!<br>RECORD NOT UPDATED!</span>', 'thold');
 
-				$_SESSION['thold_message'] = $banner;
-				raise_message('thold_message');
+				thold_raise_message($banner);
 
 				return get_request_var('id');
 			}
@@ -3642,13 +3642,7 @@ function save_thold() {
 		get_nfilter_request_var('snmp_event_warning_severity') : 3;
 
 	/* Get the Data Template, Graph Template, and Graph */
-	$rrdsql = db_fetch_row_prepared('SELECT id, data_template_id
-		FROM data_template_rrd
-		WHERE local_data_id = ?
-		ORDER BY id',
-		array($save['local_data_id']));
-
-	$rrdlookup = $rrdsql['id'];
+	$rrdlookup = $save['data_template_rrd_id'];
 
 	$grapharr = db_fetch_row_prepared('SELECT local_graph_id, graph_template_id
 		FROM graph_templates_item
@@ -3657,16 +3651,16 @@ function save_thold() {
 		LIMIT 1',
 		array($rrdlookup));
 
+	if ($grapharr === false || count($grapharr) == 0) {
+		thold_raise_message('Failed to find linked graph template item \'' . $rrdsql['id'] . '\' on threshold \''.  $save['id'] . '\'');
+		return '';
+	}
+
 	$save['local_graph_id']    = $grapharr['local_graph_id'];
 	$save['graph_template_id'] = $grapharr['graph_template_id'];
-	$save['data_template_id']  = $rrdsql['data_template_id'];
 
-	if (!thold_user_auth_threshold($save['local_data_id'])) {
-		$banner = "<span class='textError'>Permission Denied</span>";
-
-		$_SESSION['thold_message'] = $banner;
-		raise_message('thold_message');
-
+	if (!thold_user_auth_threshold($save['data_template_rrd_id'])) {
+		thold_raise_message("<span class='textError'>Permission Denied</span>");
 		return '';
 	}
 
@@ -3703,9 +3697,7 @@ function save_thold() {
 	}
 
 	$banner = "<span class='textInfo'>" . __('Record Updated', 'thold') . "</span>";
-
-	$_SESSION['thold_message'] = $banner;
-	raise_message('thold_message');
+	thold_raise_message($banner, MESSAGE_LEVEL_INFO);
 
 	return $id;
 }
@@ -3737,6 +3729,20 @@ function thold_save_template_contacts ($id, $contacts) {
 				VALUES (?, ?)',
 				array($id, $contact));
 		}
+	}
+}
+
+function thold_raise_message($message, $message_type = 'error') {
+	if (cacti_version_compare(CACTI_VERSION, '1.2', '<')) {
+		$_SESSION['thold_message'] = $message;
+		raise_message('thold_message');
+	} else {
+		global $messages;
+		static $thold_message_count = 0;
+		$message_id = 'thold_message_' . $thold_message_count;
+		$messages[$message_id] = array('type' => $message_type, 'message' => $message);
+		raise_message($message_id);
+		$thold_message_count++;
 	}
 }
 
@@ -3785,8 +3791,7 @@ function autocreate($host_id) {
 		array($host_template_id)), 'id', 'data_template_id');
 
 	if (!sizeof($template_list)) {
-		$_SESSION['thold_message'] = '<font size=-2>' . __('No Thresholds Templates associated with the Host\'s Template.', 'thold') . '</font>';
-		raise_message('thold_message');
+		thold_raise_message('<font size=-2>' . __('No Thresholds Templates associated with the Host\'s Template.', 'thold') . '</font>');
 		return 0;
 	}
 
@@ -3930,8 +3935,7 @@ function autocreate($host_id) {
 		}
 	}
 
-	$_SESSION['thold_message'] = "<font size=-2>$message</font>";
-	raise_message('thold_message');
+	thold_raise_message("<font size=-2>$message</font>");
 
 	return $created;
 }

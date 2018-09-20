@@ -61,12 +61,13 @@ switch(get_request_var('action')) {
 
 		break;
 	case 'save':
-		$id = save_thold();
+		$id = get_request_var('id');
+		$new_id = save_thold();
 
-		if ($id) {
-			header('Location: thold.php?action=edit&header=false&id=' . $id);
+		if ($new_id) {
+			header('Location: thold.php?header=false');
 		} else {
-			header('Location: thold.php');
+			header('Location: thold.php?action=edit&header=false&id=' . $id);
 		}
 
 		break;
@@ -194,7 +195,7 @@ function do_actions() {
 
 		if ($selected_items != false) {
 			foreach ($selected_items as $var) {
-				$rra = db_fetch_cell_prepared('SELECT local_data_id
+				$rra = db_fetch_cell_prepared('SELECT data_template_rrd_id
 					FROM thold_data
 					WHERE id = ?',
 					array($var));
@@ -596,8 +597,10 @@ function list_tholds() {
 					<td>
 						<input type='button' id='clear' value='<?php print __esc('Clear', 'thold');?>' title='<?php print __esc('Return to Defaults', 'thold');?>' onClick='clearFilter()'>
 					</td>
-				</table>
-				<table class='filterTable'>
+				</tr>
+			</table>
+			<table class='filterTable'>
+				<tr>
 					<td>
 						<?php print __('Template', 'thold');?>
 					</td>
@@ -797,7 +800,7 @@ function list_tholds() {
 				$baseu = 1024;
 			}
 
-			form_selectable_cell(filter_value($name, get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']) . '</a>', $thold_data['id'], '', 'text-align:left');
+			form_selectable_cell(filter_value($name, get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'text-align:left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'text-align:right');
 			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'text-align:right');
