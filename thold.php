@@ -529,9 +529,9 @@ function list_tholds() {
 	if (get_request_var('site_id') == '-1') {
 		/* Show all items */
 	}elseif (get_request_var('site_id') == '0') {
-		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' h.site_id IS NULL';
+		$sql_where .= (strlen($sql_where) ? ' AND':'(') . ' h.site_id IS NULL';
 	}elseif (!isempty_request_var('site_id')) {
-		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' h.site_id=' . get_request_var('site_id');
+		$sql_where .= (strlen($sql_where) ? ' AND':'(') . ' h.site_id=' . get_request_var('site_id');
 	}
 
 	if ($sql_where != '') {
