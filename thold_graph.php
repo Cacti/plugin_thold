@@ -294,8 +294,8 @@ function tholds() {
 	} else {
 		if (get_request_var('status') == '0') { $sql_where = "(td.thold_enabled='off'"; } /*disabled*/
 		if (get_request_var('status') == '2') { $sql_where = "(td.thold_enabled='on'"; } /* enabled */
-		if (get_request_var('status') == '1') { $sql_where = "((td.thold_alert!=0 OR td.bl_alert>0)"; } /* breached */
-		if (get_request_var('status') == '3') { $sql_where = "(((td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger))"; } /* status */
+		if (get_request_var('status') == '1') { $sql_where = "(td.thold_enabled='on' AND ((td.thold_alert!=0 OR td.bl_alert>0))"; } /* breached */
+		if (get_request_var('status') == '3') { $sql_where = "(td.thold_enabled='on' AND (((td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger)))"; } /* status */
 	}
 
 	if (strlen(get_request_var('filter'))) {
@@ -315,7 +315,7 @@ function tholds() {
 	if (get_request_var('site_id') == '-1') {
 		/* Show all items */
 	} elseif (get_request_var('site_id') == '0') {
-		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=0'";
+		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id IS NULL'";
 	} elseif (!isempty_request_var('site_id')) {
 		$sql_where .= (strlen($sql_where) ? ' AND ':'(') . "h.site_id=" . get_request_var('site_id');
 	}
