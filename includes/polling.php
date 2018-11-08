@@ -498,7 +498,6 @@ function thold_update_host_status() {
 		include_once($config['base_path'] . '/plugins/maint/functions.php');
 	}
 
-	$alert_email        = read_config_option('alert_email');
 	$ping_failure_count = read_config_option('ping_failure_count');
 
 	// Lets find hosts that were down, but are now back up
@@ -514,6 +513,8 @@ function thold_update_host_status() {
 
 	if (sizeof($failed)) {
 		foreach ($failed as $fh) {
+			$alert_email        = read_config_option('alert_email');
+			
 			if (api_plugin_is_enabled('maint')) {
 				if (plugin_maint_check_cacti_host($fh['host_id'])) {
 					continue;
