@@ -676,6 +676,8 @@ function thold_update_host_status() {
 	$total_hosts = sizeof($hosts);
 	if ($total_hosts) {
 		foreach ($hosts as $host) {
+			$alert_email = read_config_option('alert_email');
+			
 			if (api_plugin_is_enabled('maint')) {
 				if (plugin_maint_check_cacti_host($host['id'])) {
 					continue;
@@ -801,4 +803,3 @@ function thold_update_host_status() {
 
 	return $total_hosts;
 }
-
