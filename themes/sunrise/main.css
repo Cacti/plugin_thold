@@ -1,192 +1,192 @@
 .deviceUpFull {
-	background-color: rgba(25, 142, 50, 0.8);
+	background-color: rgba(25, 142, 50, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .deviceDownFull {
-	background-color: rgba(255, 0, 0, 0.8);
+	background-color: rgba(255, 0, 0, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .deviceUnknownFull {
-	background-color: rgba(0, 0, 255, 0.8);
+	background-color: rgba(0, 0, 255, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .deviceDisabledFull {
-	background-color: rgba(161, 161, 161, 0.8);
+	background-color: rgba(161, 161, 161, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .deviceRecoveringFull {
-	background-color: rgba(255, 143, 30, 0.8);
+	background-color: rgba(255, 143, 30, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .deviceErrorFull {
-	background-color: rgba(117, 15, 125, 0.8);
+	background-color: rgba(117, 15, 125, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .deviceNotMonFull {
-	background-color: rgba(250, 253, 158, 0.8);
+	background-color: rgba(250, 253, 158, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdAlertNotify {
-	background-color: rgba(242, 25, 36, 0.8);
+	background-color: rgba(242, 25, 36, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 12.5%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdAlert2Warn {
-	background-color: rgba(200, 25, 36, 0.8);
+	background-color: rgba(200, 25, 36, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 12.5%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdWarningNotify {
-	background-color: rgba(251, 74, 20, 0.8);
+	background-color: rgba(251, 74, 20, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 12.5%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdReTriggerEvent {
-	background-color: rgba(255, 122, 48, 0.8);
+	background-color: rgba(255, 122, 48, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 12.5%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdTriggerEvent {
-	background-color: rgba(250, 253, 158, 0.8);
+	background-color: rgba(250, 253, 158, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 12.5%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdWarnTrigger {
-	background-color: rgba(210, 223, 128, 0.8);
+	background-color: rgba(210, 223, 128, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 12.5%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdRestoralNotify {
-	background-color: rgba(204, 255, 204, 0.8);
+	background-color: rgba(204, 255, 204, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 12.5%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdRestoralEvent {
-	background-color: rgba(205, 207, 196, 0.8);
+	background-color: rgba(205, 207, 196, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 12.5%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdRestore {
-	background-color: rgba(204, 255, 204, 0.8);
+	background-color: rgba(204, 255, 204, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdAlertTrigger {
-	background-color: rgba(242, 23, 33, 0.8);
+	background-color: rgba(242, 23, 33, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdReTrigger {
-	background-color: rgba(250, 116, 32, 0.8);
+	background-color: rgba(250, 116, 32, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdWarning {
-	background-color: rgba(255, 122, 48, 0.8);
+	background-color: rgba(255, 122, 48, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdAlert {
-	background-color: rgba(242, 25, 36, 0.8);
+	background-color: rgba(242, 25, 36, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdBaseAlert {
-	background-color: rgba(251, 74, 20, 0.8);
+	background-color: rgba(251, 74, 20, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdNotice {
-	background-color: rgba(250, 253, 158, 0.8);
+	background-color: rgba(250, 253, 158, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdOk {
-	background-color: rgba(204, 255, 204, 0.8);
+	background-color: rgba(204, 255, 204, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
 .tholdDisabled {
-	background-color: rgba(205, 207, 196, 0.8);
+	background-color: rgba(205, 207, 196, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
-	color: #0A0A0A;
+	color: #CACACA;
 }
 
