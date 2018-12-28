@@ -1,8 +1,7 @@
 <?php
 /*
- ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2007-2017 The Cacti Group                                 |
+ | Copyright (C) 2007-2018 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -46,9 +45,12 @@ print "Found " . count($users) . " users\n";
 
 // Loop through and update each users permissions
 print "Updating Realm Permissions\n";
+
 foreach ($users as $user) {
 	print ".";
 	$u = $user['id'];
 	db_execute("REPLACE INTO user_auth_realm (realm_id, user_id) VALUES ($realm, $u)");
 }
+
 print "\n";
+
