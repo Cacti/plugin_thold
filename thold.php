@@ -1253,7 +1253,11 @@ function thold_edit() {
 
 	$email_body = read_config_option('thold_enable_per_thold_body');
 
-	$acknowledgment = ($thold_data['reset_ack'] == 'on' ? 'reset_ack': ($thold_data['persist_ack'] == 'on' ? 'persist_ack':'none'));
+	if (sizeof($thold_data) && isset($thold_data['reset_ack'])) {
+		$acknowledgment = ($thold_data['reset_ack'] == 'on' ? 'reset_ack': ($thold_data['persist_ack'] == 'on' ? 'persist_ack':'none'));
+	} else {
+		$acknowledgment = 'none';
+	}
 
 	$form_array = array(
 		'template_header' => array(
