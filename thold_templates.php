@@ -156,10 +156,10 @@ function do_actions() {
 											WHERE id = ?',
 											array($name, $thold_id));
 									} else {
-										$message['template_disabled'] = '<font size=-1>' . __('One or more Thresholds are blocking name replacements', 'thold') . '</font>';
+										$message['template_disabled'] = '<font size=-2>' . __('One or more Thresholds are blocking name replacements', 'thold') . '</font>';
 									}
 								} else {
-									$message['security'] = '<font size=-1>' . __('You are not authorised to modify one or more of the Thresholds selected','thold') .'</font>';
+									$message['security'] = '<font size=-2>' . __('You are not authorised to modify one or more of the Thresholds selected','thold') .'</font>';
 								}
 							}
 						}

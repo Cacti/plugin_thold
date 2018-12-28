@@ -746,8 +746,9 @@ function thold_data_source_action_execute($action) {
 						ON gti.task_item_id=dtr.id
 						INNER JOIN graph_local AS gl
 						ON gl.id=gti.local_graph_id
-						WHERE dtr.local_data_id = ?',
-						array($local_data_id));
+						WHERE dtr.local_data_id = ?
+						AND dtr.data_source_name = ?',
+						array($local_data_id, $template['data_source_name']));
 
 					if (cacti_sizeof($data_sources)) {
 						foreach($data_sources as $data_source) {
@@ -763,12 +764,12 @@ function thold_data_source_action_execute($action) {
 				}
 
 				if (strlen($message)) {
-					thold_raise_message('<font size=-1>' . $message . '</font>', MESSAGE_LEVEL_INFO);
+					thold_raise_message('<font size=-2>' . $message . '</font>', MESSAGE_LEVEL_INFO);
 				} else {
-					thold_raise_message('<font size=-1>' . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
+					thold_raise_message('<font size=-2>' . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
 				}
 			} else {
-				thold_raise_message('<font size=-1>' . __('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold') . '</font>', MESSAGE_LEVEL_ERROR);
+				thold_raise_message('<font size=-2>' . __('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold') . '</font>', MESSAGE_LEVEL_ERROR);
 			}
 		}
 	}
@@ -883,6 +884,7 @@ function thold_graphs_action_execute($action) {
 
 		if ($selected_items != false) {
 			$message = '';
+			$created = 0;
 
 			get_filter_request_var('thold_template_id');
 
@@ -900,8 +902,9 @@ function thold_graphs_action_execute($action) {
 						ON gti.task_item_id=dtr.id
 						INNER JOIN graph_local AS gl
 						ON gl.id=gti.local_graph_id
-						WHERE gl.id = ?',
-						array($local_graph_id));
+						WHERE gl.id = ?
+						AND dtr.data_source_name = ?',
+						array($local_graph_id, $template['data_source_name']));
 
 					if (cacti_sizeof($data_sources)) {
 						foreach($data_sources as $data_source) {
@@ -917,12 +920,12 @@ function thold_graphs_action_execute($action) {
 				}
 
 				if (strlen($message)) {
-					thold_raise_message('<font size=-1>' . $message . '</font>', MESSAGE_LEVEL_INFO);
+					thold_raise_message('<font size=-2>' . $message . '</font>', MESSAGE_LEVEL_INFO);
 				} else {
-					thold_raise_message('<font size=-1>' . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
+					thold_raise_message('<font size=-2>' . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
 				}
 			} else {
-				thold_raise_message('<font size=-1>' . __('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold') . '</font>', MESSAGE_LEVEL_ERROR);
+				thold_raise_message('<font size=-2>' . __('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold') . '</font>', MESSAGE_LEVEL_ERROR);
 			}
 		}
 	}

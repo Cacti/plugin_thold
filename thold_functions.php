@@ -4277,15 +4277,16 @@ function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_tem
 			array($host_template_id));
 
 		if (!cacti_sizeof($templates)) {
-			thold_raise_message('<font size=-1>' . __('No Thresholds Templates associated with the Device\'s Template.', 'thold') . '</font>', MESSAGE_LEVEL_ERROR);
+			thold_raise_message('<font size=-2>' . __('No Thresholds Templates associated with the Device\'s Template.', 'thold') . '</font>', MESSAGE_LEVEL_ERROR);
 			return 0;
 		} else {
 			$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gl.host_id = ' . $host_id;
+			$Sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'dtr.data_source_name = ?';
 
 			foreach($templates as $template) {
 				$new_where = $sql_where . ' AND tt.id = ' . $template['id'];
 
-				$data_sources = db_fetch_assoc("SELECT DISTINCT
+				$data_sources = db_fetch_assoc_prepared("SELECT DISTINCT
 					dtr.id, gti.local_graph_id, local_data_id
 					FROM data_template_rrd AS dtr
 					INNER JOIN thold_template AS tt
@@ -4295,7 +4296,8 @@ function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_tem
 					ON gti.task_item_id=dtr.id
 					INNER JOIN graph_local AS gl
 					ON gl.id = gti.local_graph_id
-					$new_where");
+					$new_where",
+					array($template['data_source_name']));
 
 				if (cacti_sizeof($data_sources)) {
 					foreach($data_sources as $data_source) {
@@ -4346,9 +4348,9 @@ function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_tem
 	}
 
 	if (strlen($message)) {
-		thold_raise_message('<font size=-1>' . $message . '</font>', MESSAGE_LEVEL_INFO);
+		thold_raise_message('<font size=-2>' . $message . '</font>', MESSAGE_LEVEL_INFO);
 	} else {
-		thold_raise_message('<font size=-1>' . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
+		thold_raise_message('<font size=-2>' . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
 	}
 
 	return $created;
@@ -4362,6 +4364,17 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 			FROM thold_template
 			WHERE id = ?',
 			array($thold_template_id));
+	}
+
+	$data_source_name = db_fetch_cell_prepared('SELECT data_source_name
+		FROM data_template_rrd
+		WHERE id = ?',
+		array($data_template_rrd_id));
+
+	// Don't create the threshold if the dtr data source
+	// does not match the templates
+	if ($data_source_name != $template['data_source_name']) {
+		return false;
 	}
 
 	$exists = db_fetch_cell_prepared('SELECT id

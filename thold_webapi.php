@@ -142,9 +142,9 @@ function thold_add_graphs_action_execute() {
 	}
 
 	if (strlen($message)) {
-		thold_raise_message('<font size=-1>' . $message . '</font>', MESSAGE_LEVEL_INFO);
+		thold_raise_message('<font size=-2>' . $message . '</font>', MESSAGE_LEVEL_INFO);
 	} else {
-		thold_raise_message('<font size=-1>' . __('Threshold(s) Already Exists - No Thresholds Created', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
+		thold_raise_message('<font size=-2>' . __('Threshold(s) Already Exists - No Thresholds Created', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
 	}
 
 	if (isset($_SESSION['graph_return'])) {
