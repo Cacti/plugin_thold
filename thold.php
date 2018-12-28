@@ -199,7 +199,7 @@ function do_actions() {
 				case 1:	// Delete
 					foreach ($tholds as $thold_id => $rra) {
 						if (thold_user_auth_threshold($rra)) {
-							plugin_thold_log_changes($thold_id, 'deleted', array('id' => $thold_id));
+							plugin_thold_log_changes($thold_id, 'deleted', array('message' => 'Removed from Thold page'));
 
 							db_execute_prepared('DELETE FROM thold_data
 								WHERE id = ?',

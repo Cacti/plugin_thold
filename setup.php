@@ -49,6 +49,10 @@ function plugin_thold_install($upgrade = false) {
 	api_plugin_register_hook($plugin, 'device_action_prepare', 'thold_device_action_prepare', 'setup.php');
 	api_plugin_register_hook($plugin, 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php');
 
+	// New graph automation
+	api_plugin_register_hook($plugin, 'create_complete_graph_from_template', 'thold_create_graph_thold', 'setup.php');
+	api_plugin_register_hook($plugin, 'data_source_remove', 'thold_data_source_remove', 'setup.php');
+
 	api_plugin_register_hook($plugin, 'user_admin_setup_sql_save', 'thold_user_admin_setup_sql_save', 'setup.php');
 	api_plugin_register_hook($plugin, 'poller_bottom', 'thold_poller_bottom', 'includes/polling.php');
 	api_plugin_register_hook($plugin, 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
@@ -1273,7 +1277,11 @@ function thold_device_template_top() {
 		get_filter_request_var('host_template_id');
 		/* ==================================================== */
 
-		db_execute_prepared('DELETE FROM plugin_thold_host_template WHERE thold_template_id = ? AND host_template_id = ?', array(get_request_var('id'), get_request_var('host_template_id')));
+		db_execute_prepared('DELETE
+			FROM plugin_thold_host_template
+			WHERE thold_template_id = ?
+			AND host_template_id = ?',
+			array(get_request_var('id'), get_request_var('host_template_id')));
 
 		header('Location: host_templates.php?header=false&action=edit&id=' . get_request_var('host_template_id'));
 
@@ -1294,3 +1302,41 @@ function thold_device_template_top() {
 	}
 }
 
+function thold_create_graph_thold($save) {
+	global $config;
+
+	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+
+	if (read_config_option('thold_autocreate') == 'on') {
+		$graph = db_fetch_row_prepared('SELECT *
+			FROM graph_local
+			WHERE id = ?',
+			array($save['id']));
+
+		if (cacti_sizeof($graph)) {
+			autocreate($graph['host_id'], array($graph['id']));
+		}
+	}
+
+	return $save;
+}
+
+function thold_data_source_remove($data_ids) {
+	global $config;
+
+	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+
+	$tholds = array_rekey(
+		db_fetch_assoc('SELECT id FROM thold_data WHERE local_data_id IN (' . implode(', ', $data_ids) . ')'),
+		'id', 'id'
+	);
+
+	if (cacti_sizeof($tholds)) {
+		foreach($tholds as $thold) {
+			plugin_thold_log_changes($thold, 'deleted', array('message' => 'Deleted due to Data Source removal'));
+			thold_api_thold_remove($thold);
+		}
+	}
+
+	return $data_ids;
+}

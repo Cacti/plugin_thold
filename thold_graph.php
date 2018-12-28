@@ -139,7 +139,8 @@ function form_thold_filter() {
 							<?php
 							$data_templates = db_fetch_assoc('SELECT DISTINCT data_template.id, data_template.name
 								FROM thold_data
-								LEFT JOIN data_template ON thold_data.data_template_id=data_template.id ' .
+								INNER JOIN data_template
+								ON thold_data.data_template_id=data_template.id ' .
 								(get_request_var('host_id') > 0 ? 'WHERE thold_data.host_id=' . get_request_var('host_id'):'') .
 								' ORDER by data_template.name');
 

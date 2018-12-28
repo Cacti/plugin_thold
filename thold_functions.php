@@ -1447,13 +1447,15 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		return;
 	}
 
-	if (isset($_SESSION['sess_user_id'])) {
+	if (!$config['is_web']) {
+		$user = 'poller';
+	} elseif (isset($_SESSION['sess_user_id'])) {
 		$user = db_fetch_cell_prepared('SELECT username
 			FROM user_auth
 			WHERE id = ?',
 			array($_SESSION['sess_user_id']));
 	} else {
-		$user = 'Unknown';
+		$user = 'unknown';
 	}
 
 	switch ($changed) {
@@ -1468,10 +1470,10 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$desc  = "Enabled Threshold  User: $user  ID: <a href='" . html_escape($config['url_path'] . 'plugins/thold/thold.php?local_data_id=' . $thold['local_data_id'] . '&view_rrd=' . $thold['data_template_rrd_id']) . "'>$id</a>";
+		$desc  = "Threshold Enabled by User[$user] TH[$id]";
 
-		$desc .= '  DataTemplate: ' . $tname;
-		$desc .= '  DataSource: ' . $thold['data_source_name'];
+		$desc .= ' DataTemplate[' . $tname . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
 		break;
 	case 'disabled_threshold':
@@ -1485,10 +1487,10 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$desc  = "Disabled Threshold  User: $user  ID: <a href='" . html_escape($config['url_path'] . "plugins/thold/thold.php?local_data_id=" . $thold['local_data_id'] . "&view_rrd=" . $thold['data_template_rrd_id']) . "'>$id</a>";
+		$desc  = "Threshold Disabled by User[$user] TH[$id]";
 
-		$desc .= '  DataTemplate: ' . $tname;
-		$desc .= '  DataSource: ' . $thold['data_source_name'];
+		$desc .= ' DataTemplate[' . $tname . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
 		break;
 	case 'reapply_name':
@@ -1502,10 +1504,10 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$desc  = "Reapply Threshold Name User: $user  ID: <a href='" . html_escape($config['url_path'] . "plugins/thold/thold.php?local_data_id=" . $thold['local_data_id'] . "&view_rrd=" . $thold['data_template_rrd_id']) . "'>$id</a>";
+		$desc  = "Threshold Reapply Suggested Name by User[$user] TH[$id]";
 
-		$desc .= '  DataTemplate: ' . $tname;
-		$desc .= '  DataSource: ' . $thold['data_source_name'];
+		$desc .= ' DataTemplate[' . $tname . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
 		break;
 	case 'enabled_host':
@@ -1514,7 +1516,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($id));
 
-		$desc = "User: $user  Enabled Device[$id] - " . $host['description'] . ' (' . $host['hostname'] . ')';
+		$desc = "Device Enabled by User[$user] Device[$id]";
 
 		break;
 	case 'disabled_host':
@@ -1523,7 +1525,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($id));
 
-		$desc = "User: $user  Disabled Device[$id] - " . $host['description'] . ' (' . $host['hostname'] . ')';
+		$desc = "Device Disabled by User[$user] Device[$id]";
 
 		break;
 	case 'auto_created':
@@ -1537,10 +1539,10 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$desc  = "Auto-created Threshold  User: $user  ID: <a href='" . html_escape($config['url_path'] . "plugins/thold/thold.php?local_data_id=" . $thold['local_data_id'] . "&view_rrd=" . $thold['data_template_rrd_id']) . "'>$id</a>";
+		$desc  = "Threshold Auto-created by User[$user] TH[$id]";
 
-		$desc .= '  DataTemplate: ' . $tname;
-		$desc .= '  DataSource: ' . $thold['data_source_name'];
+		$desc .= ' DataTemplate[' . $tname . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
 		break;
 	case 'created':
@@ -1554,10 +1556,10 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$desc  = "Created Threshold  User: $user  ID: <a href='" . html_escape($config['url_path'] . "plugins/thold/thold.php?local_data_id=" . $thold['local_data_id'] . "&view_rrd=" . $thold['data_template_rrd_id']) . "'>$id</a>";
+		$desc  = "Threshold Created by User[$user] TH[$id]";
 
-		$desc .= '  DataTemplate: ' . $tname;
-		$desc .= '  DataSource: ' . $thold['data_source_name'];
+		$desc .= ' DataTemplate[' . $tname . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
 		break;
 	case 'deleted':
@@ -1571,10 +1573,14 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$desc  = "Deleted Threshold  User: $user  ID: <a href='" . html_escape($config['url_path'] . "plugins/thold/thold.php?local_data_id=" . $thold['local_data_id'] . "&view_rrd=" . $thold['data_template_rrd_id']) . "'>$id</a>";
+		$desc  = "Threshold Deleted by User[$user] TH[$id]";
 
-		$desc .= '  DataTemplate: ' . $tname;
-		$desc .= '  DataSource: ' . $thold['data_source_name'];
+		$desc .= ' DataTemplate[' . $tname . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
+
+		if (sizeof($message)) {
+			$desc .= ' Note[' . implode(', ', $message) . ']';
+		}
 
 		break;
 	case 'deleted_template':
@@ -1583,9 +1589,9 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($id));
 
-		$desc  = "Deleted Template  User: $user  ID: $id";
-		$desc .= '  DataTemplate: ' . $thold['data_template_name'];
-		$desc .= '  DataSource: ' . $thold['data_source_name'];
+		$desc  = "Template Deleted by User[$user] TH[$id]";
+		$desc .= ' DataTemplate[' . $thold['data_template_name'] . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
 		break;
 	case 'modified':
@@ -1628,9 +1634,9 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		}
 
 		if ($message['id'] > 0) {
-			$desc = "Modified Threshold  User: $user  ID: <a href='" . html_escape($config['url_path'] . 'plugins/thold/thold.php?local_data_id=' . $thold['local_data_id'] . '&view_rrd=' . $thold['data_template_rrd_id']) . "'>$id</a>";
+			$desc = "Threshold Modified by User[$user] TH[$id]";
 		} else {
-			$desc = "Created Threshold  User: $user  ID:  <a href='" . html_escape($config['url_path'] . 'plugins/thold/thold.php?local_data_id=' . $thold['local_data_id'] . '&view_rrd=' . $thold['data_template_rrd_id']) . "'>$id</a>";
+			$desc = "Threshold Created by User[$user] TH[$id]";
 		}
 
 		$tname = db_fetch_cell_prepared('SELECT name
@@ -1638,48 +1644,49 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			WHERE id = ?',
 			array($thold['data_template_id']));
 
-		$desc .= '  DataTemplate: ' . $tname;
-		$desc .= '  DataSource: ' . $thold['data_source_name'];
+		$desc .= ' DataTemplate[' . $tname . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
 		if ($message['template_enabled'] == 'on') {
-			$desc .= '  Use Template: On';
+			$desc .= ' Use Template[On]';
 		} else {
-			$desc .= '  Type: ' . $thold_types[$thold['thold_type']];
-			$desc .= '  Enabled: ' . $message['thold_enabled'];
+			$desc .= ' Type[' . $thold_types[$thold['thold_type']] . ']';
+			$desc .= ' Enabled[' . $message['thold_enabled'] . ']';
 
 			switch ($message['thold_type']) {
 			case 0:
-				$desc .= '  High: ' . $message['thold_hi'];
-				$desc .= '  Low: ' . $message['thold_low'];
-				$desc .= '  Trigger: ' . plugin_thold_duration_convert($thold['local_data_id'], $message['thold_fail_trigger'], 'alert');
-				$desc .= '  Warning High: ' . $message['thold_warning_hi'];
-				$desc .= '  Warning Low: ' . $message['thold_warning_low'];
-				$desc .= '  Warning Trigger: ' . plugin_thold_duration_convert($thold['local_data_id'], $message['thold_warning_fail_trigger'], 'alert');
+				$desc .= ' High[' . $message['thold_hi'] . ']';
+				$desc .= ' Low[' . $message['thold_low'] . ']';
+				$desc .= ' Trigger[' . plugin_thold_duration_convert($thold['local_data_id'], $message['thold_fail_trigger'], 'alert') . ']';
+				$desc .= ' WarnHigh[' . $message['thold_warning_hi'] . ']';
+				$desc .= ' WarnLow[' . $message['thold_warning_low'] . ']';
+				$desc .= ' WarnTrigger[' . plugin_thold_duration_convert($thold['local_data_id'], $message['thold_warning_fail_trigger'], 'alert') . ']';
 
 				break;
 			case 1:
-				$desc .= '  Range: ' . $message['bl_ref_time_range'];
-				$desc .= '  Dev Up: ' . $message['bl_pct_up'];
-				$desc .= '  Dev Down: ' . $message['bl_pct_down'];
-				$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
+				$desc .= ' Range[' . $message['bl_ref_time_range'] . ']';
+				$desc .= ' DevUp[' . $message['bl_pct_up'] . ']';
+				$desc .= ' DevDown[' . $message['bl_pct_down'] . ']';
+				$desc .= ' Trigger[' . $message['bl_fail_trigger'] . ']';
 
 				break;
 			case 2:
-				$desc .= '  High: ' . $message['time_hi'];
-				$desc .= '  Low: ' . $message['time_low'];
-				$desc .= '  Trigger: ' . $message['time_fail_trigger'];
-				$desc .= '  Time: ' . plugin_thold_duration_convert($thold['local_data_id'], $message['time_fail_length'], 'time');
-				$desc .= '  Warning High: ' . $message['time_warning_hi'];
-				$desc .= '  Warning Low: ' . $message['time_warning_low'];
-				$desc .= '  Warning Trigger: ' . $message['time_warning_fail_trigger'];
-				$desc .= '  Warning Time: ' . plugin_thold_duration_convert($thold['local_data_id'], $message['time_warning_fail_length'], 'time');
+				$desc .= ' High[' . $message['time_hi'] . ']';
+				$desc .= ' Low[' . $message['time_low'] . ']';
+				$desc .= ' Trigger[' . $message['time_fail_trigger'] . ']';
+				$desc .= ' Time: ' . plugin_thold_duration_convert($thold['local_data_id'], $message['time_fail_length'], 'time') . ']';
+				$desc .= ' WarnHigh[' . $message['time_warning_hi'] . ']';
+				$desc .= ' WarnLow[' . $message['time_warning_low'] . ']';
+				$desc .= ' WarnTrigger[' . $message['time_warning_fail_trigger'] . ']';
+				$desc .= ' WarnTime[' . plugin_thold_duration_convert($thold['local_data_id'], $message['time_warning_fail_length'], 'time') . ']';
 
 				break;
 			}
-			$desc .= '  CDEF: ' . $message['cdef'];
-			$desc .= '  ReAlert: ' . plugin_thold_duration_convert($thold['local_data_id'], $message['repeat_alert'], 'alert');
-			$desc .= '  Alert Emails: ' . $alert_emails;
-			$desc .= '  Warning Emails: ' . $warning_emails;
+
+			$desc .= ' CDEF[' . $message['cdef'] . ']';
+			$desc .= ' ReAlert[' . plugin_thold_duration_convert($thold['local_data_id'], $message['repeat_alert'], 'alert') . ']';
+			$desc .= ' AlertEmails[' . $alert_emails . ']';
+			$desc .= ' WarnEmails[' . $warning_emails . ']';
 		}
 
 		break;
@@ -1723,51 +1730,51 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		}
 
 		if ($message['id'] > 0) {
-			$desc = "Modified Template  User: $user  ID: <a href='" . html_escape($config['url_path'] . "plugins/thold/thold_templates.php?action=edit&id=$id") . "'>$id</a>";
+			$desc = "Template Modified by User[$user] TT[$id]";
 		} else {
-			$desc = "Created Template  User: $user  ID:  <a href='" . html_escape($config['url_path'] . "plugins/thold/thold_templates.php?action=edit&id=$id") . "'>$id</a>";
+			$desc = "Template Created by User[$user] TT[$id]";
 		}
 
-		$desc .= '  DataTemplate: ' . $thold['data_template_name'];
-		$desc .= '  DataSource: ' . $thold['data_source_name'];
+		$desc .= ' DataTemplate[' . $thold['data_template_name'] . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
-		$desc .= '  Type: ' . $thold_types[$message['thold_type']];
-		$desc .= '  Enabled: ' . $message['thold_enabled'];
+		$desc .= ' Type[' . $thold_types[$message['thold_type']] . ']';
+		$desc .= ' Enabled[' . $message['thold_enabled'] . ']';
 
 		switch ($message['thold_type']) {
 		case 0:
-			$desc .= '  High: ' . (isset($message['thold_hi']) ? $message['thold_hi'] : '');
-			$desc .= '  Low: ' . (isset($message['thold_low']) ? $message['thold_low'] : '');
-			$desc .= '  Trigger: ' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id');
-			$desc .= '  Warning High: ' . (isset($message['thold_warning_hi']) ? $message['thold_warning_hi'] : '');
-			$desc .= '  Warning Low: ' . (isset($message['thold_warning_low']) ? $message['thold_warning_low'] : '');
-			$desc .= '  Warning Trigger: ' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_warning_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id');
+			$desc .= ' High[' . (isset($message['thold_hi']) ? $message['thold_hi'] : '') . ']';
+			$desc .= ' Low[' . (isset($message['thold_low']) ? $message['thold_low'] : '') . ']';
+			$desc .= ' Trigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
+			$desc .= ' WarnHigh[' . (isset($message['thold_warning_hi']) ? $message['thold_warning_hi'] : '') . ']';
+			$desc .= ' WarnLow[' . (isset($message['thold_warning_low']) ? $message['thold_warning_low'] : '') . ']';
+			$desc .= ' WarnTrigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_warning_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
 
 			break;
 		case 1:
-			$desc .= '  Range: ' . $message['bl_ref_time_range'];
-			$desc .= '  Dev Up: ' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : '' );
-			$desc .= '  Dev Down: ' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : '' );
-			$desc .= '  Trigger: ' . $message['bl_fail_trigger'];
+			$desc .= ' Range[' . $message['bl_ref_time_range'] . ']';
+			$desc .= ' DevUp[' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : '' ) . ']';
+			$desc .= ' DevDown[' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : '' ) . ']';
+			$desc .= ' Trigger[' . $message['bl_fail_trigger'] . ']';
 
 			break;
 		case 2:
-			$desc .= '  High: ' . $message['time_hi'];
-			$desc .= '  Low: ' . $message['time_low'];
-			$desc .= '  Trigger: ' . $message['time_fail_trigger'];
-			$desc .= '  Time: ' . plugin_thold_duration_convert($thold['data_template_id'], $message['time_fail_length'], 'alert', 'data_template_id');
-			$desc .= '  Warning High: ' . $message['time_warning_hi'];
-			$desc .= '  Warning Low: ' . $message['time_warning_low'];
-			$desc .= '  Warning Trigger: ' . $message['time_warning_fail_trigger'];
-			$desc .= '  Warning Time: ' . plugin_thold_duration_convert($thold['data_template_id'], $message['time_warning_fail_length'], 'alert', 'data_template_id');
+			$desc .= ' High[' . $message['time_hi'] . ']';
+			$desc .= ' Low[' . $message['time_low'] . ']';
+			$desc .= ' Trigger[' . $message['time_fail_trigger'] . ']';
+			$desc .= ' Time[' . plugin_thold_duration_convert($thold['data_template_id'], $message['time_fail_length'], 'alert', 'data_template_id') . ']';
+			$desc .= ' WarnHigh[' . $message['time_warning_hi'] . ']';
+			$desc .= ' WarnLow[' . $message['time_warning_low'] . ']';
+			$desc .= ' WarnTrigger[' . $message['time_warning_fail_trigger'] . ']';
+			$desc .= ' WarnTime[' . plugin_thold_duration_convert($thold['data_template_id'], $message['time_warning_fail_length'], 'alert', 'data_template_id') . ']';
 
 			break;
 		}
 
-		$desc .= '  CDEF: ' . (isset($message['cdef']) ? $message['cdef']: '');
-		$desc .= '  ReAlert: ' . plugin_thold_duration_convert($thold['data_template_id'], $message['repeat_alert'], 'alert', 'data_template_id');
-		$desc .= '  Alert Emails: ' . $alert_emails;
-		$desc .= '  Warning Emails: ' . $warning_emails;
+		$desc .= ' CDEF[' . (isset($message['cdef']) ? $message['cdef']: '') . ']';
+		$desc .= ' ReAlert[' . plugin_thold_duration_convert($thold['data_template_id'], $message['repeat_alert'], 'alert', 'data_template_id') . ']';
+		$desc .= ' AlertEmails[' . $alert_emails . ']';
+		$desc .= ' WarnEmails[' . $warning_emails . ']';
 
 		break;
 	}
@@ -3481,15 +3488,36 @@ function delete_old_thresholds() {
 
 	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
-			db_execute_prepared('DELETE FROM thold_data
-				WHERE id = ?',
-				array($thold_data['id']));
+			plugin_thold_log_changes($thold_data['id'], 'deleted', array('message' => 'Auto-delete due to  Data Source removal'));
 
-			db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
-				WHERE thold_id = ?',
-				array($thold_data['id']));
+			thold_api_thold_remove($thold_data['id']);
 		}
 	}
+}
+
+function thold_api_thold_remove($id) {
+	db_execute_prepared('DELETE FROM thold_data
+		WHERE id = ?',
+		array($id));
+
+	db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
+		WHERE thold_id = ?',
+		array($id));
+}
+
+function thold_api_thold_template_remove($id) {
+	db_execute_prepared('DELETE FROM thold_template
+		WHERE id = ?',
+		array($id));
+
+	db_execute_prepared('DELETE FROM plugin_thold_template_contact
+		WHERE template_id = ?',
+		array($id));
+
+	db_execute_prepared('UPDATE thold_data
+		SET thold_template_id=0, template_enabled=""
+		WHERE thold_template_id = ?',
+		array($id));
 }
 
 function thold_rrd_last($local_data_id) {
@@ -4232,7 +4260,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_tem
 	}
 
 	if (is_array($graph_ids) && cacti_sizeof($graph_ids)) {
-		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gti.local_grpah_id IN(' . implode(', ', $graph_ids) . ')';
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gti.local_graph_id IN(' . implode(', ', $graph_ids) . ')';
 	}
 
 	if ($host_id > 0) {
@@ -4267,14 +4295,14 @@ function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_tem
 					ON gti.task_item_id=dtr.id
 					INNER JOIN graph_local AS gl
 					ON gl.id = gti.local_graph_id
-					$sql_where");
+					$new_where");
 
 				if (cacti_sizeof($data_sources)) {
-					$local_data_id        = $data_source['local_data_id'];
-					$local_graph_id       = $data_source['local_graph_id'];
-					$data_template_rrd_id = $data_source['id'];
-
 					foreach($data_sources as $data_source) {
+						$local_data_id        = $data_source['local_data_id'];
+						$local_graph_id       = $data_source['local_graph_id'];
+						$data_template_rrd_id = $data_source['id'];
+
 						if (thold_create_from_template($local_data_id, $local_graph_id, $data_template_rrd_id, $template, $message)) {
 							$created++;
 						}
