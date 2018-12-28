@@ -74,9 +74,55 @@ $thold_states = array(
 	'grey'    => array('class' => 'tholdDisabled',  'display' => __('Disabled', 'thold'))
 );
 
-if (!isset($step)) {
-	$step = read_config_option('poller_interval');
+if ($config['cacti_server_os'] == 'unix') {
+	$syslog_facil_array = array(
+		LOG_AUTH     => 'Auth',
+		LOG_AUTHPRIV => 'Auth Private',
+		LOG_CRON     => 'Cron',
+		LOG_DAEMON   => 'Daemon',
+		LOG_KERN     => 'Kernel',
+		LOG_LOCAL0   => 'Local 0',
+		LOG_LOCAL1   => 'Local 1',
+		LOG_LOCAL2   => 'Local 2',
+		LOG_LOCAL3   => 'Local 3',
+		LOG_LOCAL4   => 'Local 4',
+		LOG_LOCAL5   => 'Local 5',
+		LOG_LOCAL6   => 'Local 6',
+		LOG_LOCAL7   => 'Local 7',
+		LOG_SYSLOG   => 'Syslog',
+		LOG_USER     => 'User',
+	);
+
+	$default_facility = LOG_DAEMON;
+
+	$syslog_priority_array = array(
+		LOG_EMERG   => __('Emergency', 'thold'),
+		LOG_ALERT   => __('Alert', 'thold'),
+		LOG_CRIT    => __('Critical', 'thold'),
+		LOG_ERR     => __('Error', 'thold'),
+		LOG_WARNING => __('Warning', 'thold'),
+		LOG_NOTICE  => __('Notice', 'thold'),
+		LOG_INFO    => __('Info', 'thold'),
+		LOG_DEBUG   => __('Debug', 'thold')
+	);
+
+	$default_priority = LOG_WARNING;
+} else {
+	$syslog_facil_array = array(
+		LOG_USER => 'User'
+	);
+
+	$default_facility = LOG_USER;
+
+	$syslog_priority_array = array(
+		LOG_ERR     => __('Error', 'thold'),
+		LOG_INFO    => __('Info', 'thold'),
+	);
+
+	$default_priority = LOG_WARNING;
 }
+
+$step = read_config_option('poller_interval');
 
 if ($step == 60) {
 	$repeatarray = array(
@@ -162,7 +208,7 @@ if ($step == 60) {
 		20160 => __('%d Weeks', 2, 'thold'),
 		43200 => __('%d Month', 1, 'thold')
 	);
-} else if ($step == 300) {
+} elseif ($step == 300) {
 	$repeatarray = array(
 		0    => __('Never', 'thold'),
 		1    => __('Every %d Minutes', 5, 'thold'),
@@ -302,11 +348,13 @@ $data_types = array (
 );
 
 $thold_actions = array(
+	6 => __('Acknowledge', 'thold'),
+	7 => __('Reset Acknowledgment', 'thold'),
 	1 => __('Delete', 'thold'),
 	2 => __('Enable', 'thold'),
 	3 => __('Disable', 'thold'),
 	4 => __('Reapply Suggested Names', 'thold'),
-	5 => __('Propagate Template', 'thold')
+	5 => __('Propagate Template', 'thold'),
 );
 
 $thold_template_actions = array(
@@ -317,4 +365,4 @@ $thold_template_actions = array(
 
 /* perform database upgrade */
 include_once($config['base_path'] . '/plugins/thold/setup.php');
-plugin_thold_upgrade ();
+plugin_thold_upgrade();

@@ -94,7 +94,7 @@ if (sizeof($parms)) {
 
 				if (isset($parts[0]) && isset($parts[1]) && is_numeric($parts[0]) && is_numeric($parts[1])) {
 					$pid = $value;
-				}else {
+				} else {
 					print 'ERROR: Invalid Process ID ' . $arg . "\n\n";
 					display_help();
 					exit;
@@ -215,7 +215,7 @@ if (sizeof($tholds)) {
 
 		if (is_numeric($currentval)) {
 			$currentval = round($currentval, 4);
-		}else{
+		} else {
 			$currentval = '';
 		}
 
@@ -234,7 +234,7 @@ if (sizeof($tholds)) {
 
 	/* check all thresholds */
 	if (read_config_option('remote_storage_method') == 1) {
-		$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
+		$sql_query = "SELECT td.*, h.hostname,
 			h.description, h.notes AS dnotes, h.snmp_engine_id
 			FROM plugin_thold_daemon_data AS tdd
 			INNER JOIN thold_data AS td
@@ -254,7 +254,7 @@ if (sizeof($tholds)) {
 				array($pid, $config['poller_id']))
 		);
 	} else {
-		$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
+		$sql_query = "SELECT td.*, h.hostname,
 			h.description, h.notes AS dnotes, h.snmp_engine_id
 			FROM plugin_thold_daemon_data AS tdd
 			INNER JOIN thold_data AS td
@@ -320,7 +320,7 @@ function display_version() {
 	}
 
 	$info = plugin_thold_version();
-	echo "Threshold Processor, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
+	print "Threshold Processor, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
 }
 
 /*	display_help - displays the usage of the function */

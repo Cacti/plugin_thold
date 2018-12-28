@@ -101,13 +101,23 @@ that.
 
 ## ChangeLog
 
---- 1.0.7 ---
+--- 1.2 ---
 
+* feature: Add Acknowledgment support to thold
+* feature: Allow per threshold syslog settings
+* feature: Allow Notification Lists to be hooked by other Plugins
+* feature: Allow command execution on Threshold breaches and restoral events
+* feature: Add per threshold email body for alert and warning messages
+* feature: Allow threshold actions to be hooked by other plugins
 * issue#207: Errors when attempting to save a Threshold
 * issue#210: Disabled Thresholds appear in breach/trigger filters
 * issue#211: Site filtering does not work without another filter selected
 * issue#220: Fixed bug when mass host down created wrong email sending where
   used both global and local notification lists on hosts.
+* issue#226: Tholds cli_thresholds.php script does not fully function
+* issue: Massive usability and readability improvements in code
+* issue: When saving a Threshold or a Threshold Template you were redirected
+  back to the respective table views and not left on the edit page.
 
 --- 1.0.6 ---
 

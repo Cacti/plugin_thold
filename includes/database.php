@@ -23,7 +23,7 @@
  +-------------------------------------------------------------------------+
 */
 
-function thold_upgrade_database () {
+function thold_upgrade_database() {
 	global $config, $database_default;
 	include_once($config['library_path'] . '/database.php');
 
@@ -31,6 +31,7 @@ function thold_upgrade_database () {
 
 	include_once($config['base_path'] . '/plugins/thold/setup.php');
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+
 	$v = plugin_thold_version();
 
 	$oldv = db_fetch_cell('SELECT version FROM plugin_config WHERE directory="thold"');
@@ -60,31 +61,31 @@ function thold_upgrade_database () {
 
 	// Added in thold v0.4
 	if (cacti_version_compare($oldv,'0.4','<')) {
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'name',              'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_hi',           'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_fail_trigger'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_low',          'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_hi'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_low'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_fail_length',  'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_fail_trigger'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_type',        'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'thold_enabled'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_type',         'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'notify_extra'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'percent_ds',        'type' => 'varchar(64)', 'NULL' => false, 'default' => 0, 'after' => 'cdef'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'tcheck',            'type' => 'int(1)', 'NULL' => false, 'default' => 0));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'exempt',            'type' => 'char(3)', 'NULL' => false, 'default' => ''));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'local_graph_id',    'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'data_id'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'graph_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_id'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'data_template_id',  'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_template_id'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'restored_alert',    'type' => 'char(3)', 'NULL' => false, 'default' => ''));
+		db_add_column('thold_data', array('name' => 'name',              'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));
+		db_add_column('thold_data', array('name' => 'time_hi',           'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_fail_trigger'));
+		db_add_column('thold_data', array('name' => 'time_low',          'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_hi'));
+		db_add_column('thold_data', array('name' => 'time_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_low'));
+		db_add_column('thold_data', array('name' => 'time_fail_length',  'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_fail_trigger'));
+		db_add_column('thold_data', array('name' => 'thold_type',        'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'thold_enabled'));
+		db_add_column('thold_data', array('name' => 'data_type',         'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'notify_extra'));
+		db_add_column('thold_data', array('name' => 'percent_ds',        'type' => 'varchar(64)', 'NULL' => false, 'default' => 0, 'after' => 'cdef'));
+		db_add_column('thold_data', array('name' => 'tcheck',            'type' => 'int(1)', 'NULL' => false, 'default' => 0));
+		db_add_column('thold_data', array('name' => 'exempt',            'type' => 'char(3)', 'NULL' => false, 'default' => ''));
+		db_add_column('thold_data', array('name' => 'graph_id',          'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'data_id'));
+		db_add_column('thold_data', array('name' => 'graph_template',    'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_id'));
+		db_add_column('thold_data', array('name' => 'data_template',     'type' => 'int(11)', 'NULL' => false, 'default' => 0, 'after' => 'graph_template_id'));
+		db_add_column('thold_data', array('name' => 'restored_alert',    'type' => 'char(3)', 'NULL' => false, 'default' => ''));
 
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'name',              'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_hi',           'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_fail_trigger'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_low',          'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_hi'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_low'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_fail_length',  'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_fail_trigger'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'thold_enabled'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'data_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'syslog_priority'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => 0, 'after' => 'cdef'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => ''));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => ''));
+		db_add_column('thold_template', array('name' => 'name',              'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'id'));
+		db_add_column('thold_template', array('name' => 'time_hi',           'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_fail_trigger'));
+		db_add_column('thold_template', array('name' => 'time_low',          'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_hi'));
+		db_add_column('thold_template', array('name' => 'time_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_low'));
+		db_add_column('thold_template', array('name' => 'time_fail_length',  'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_fail_trigger'));
+		db_add_column('thold_template', array('name' => 'thold_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'thold_enabled'));
+		db_add_column('thold_template', array('name' => 'data_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0, 'after' => 'syslog_priority'));
+		db_add_column('thold_template', array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => 0, 'after' => 'cdef'));
+		db_add_column('thold_template', array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => ''));
+		db_add_column('thold_template', array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => ''));
 
 		// Update our hooks
 		db_execute('UPDATE plugin_hooks SET file = "includes/settings.php" WHERE name = "thold" AND hook = "config_arrays"');
@@ -155,8 +156,9 @@ function thold_upgrade_database () {
 	}
 
 	if (cacti_version_compare($oldv, '0.4.4', '<')) {
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'lasttime', 'type' => 'TIMESTAMP', 'NULL' => false, 'after' => 'lastread'));
-		db_execute('ALTER TABLE thold_data ADD COLUMN bl_thold_valid INT UNSIGNED NOT NULL DEFAULT 0', FALSE);
+		db_add_column('thold_data', array('name' => 'lasttime', 'type' => 'TIMESTAMP', 'NULL' => false, 'after' => 'lastread'));
+		db_add_column('thold_data', array('name' => 'bl_thold_valid', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'bl_alert'));
+
 		db_execute('ALTER TABLE thold_data MODIFY name varchar(150) default NULL');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_down varchar(100)');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_up varchar(100)');
@@ -165,26 +167,25 @@ function thold_upgrade_database () {
 	}
 
 	if (cacti_version_compare($oldv, '0.4.5', '<')) {
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_warning_hi', 'type' => 'varchar(100)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_warning_low', 'type' => 'varchar(100)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_warning_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true) );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_warning_fail_count', 'type' => 'int(11)', 'NULL' => false, 'default' => '0') );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_warning_hi', 'type' => 'varchar(100)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_warning_low', 'type' => 'varchar(100)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_warning_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'notify_warning_extra', 'type' => 'text', 'NULL' => true) );
+		db_add_column('thold_template', array('name' => 'thold_warning_hi', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_fail_length'));
+		db_add_column('thold_template', array('name' => 'thold_warning_low', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_warning_hi'));
+		db_add_column('thold_template', array('name' => 'thold_warning_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true, 'after' => 'thold_warning_low'));
+		db_add_column('thold_template', array('name' => 'thold_warning_fail_count', 'type' => 'int(11)', 'NULL' => false, 'default' => '0', 'after' => 'thold_warning_fail_trigger'));
+		db_add_column('thold_template', array('name' => 'time_warning_hi', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_warning_fail_count'));
+		db_add_column('thold_template', array('name' => 'time_warning_low', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_warning_hi'));
+		db_add_column('thold_template', array('name' => 'time_warning_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_warning_low'));
+		db_add_column('thold_template', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_warning_fail_trigger'));
+		db_add_column('thold_template', array('name' => 'notify_warning_extra', 'type' => 'text', 'NULL' => true, 'after' => 'time_warning_fail_length'));
 
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_warning_hi', 'type' => 'varchar(100)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_warning_low', 'type' => 'varchar(100)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_warning_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true) );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_warning_fail_count', 'type' => 'int(11)', 'NULL' => false, 'default' => '0') );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_hi', 'type' => 'varchar(100)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_low', 'type' => 'varchar(100)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1) );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'notify_warning_extra', 'type' => 'text', 'NULL' => true) );
+		db_add_column('thold_data', array('name' => 'thold_warning_hi', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_fail_length'));
+		db_add_column('thold_data', array('name' => 'thold_warning_low', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_warning_hi'));
+		db_add_column('thold_data', array('name' => 'thold_warning_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true, 'after' => 'thold_warning_low'));
+		db_add_column('thold_data', array('name' => 'thold_warning_fail_count', 'type' => 'int(11)', 'NULL' => false, 'default' => '0', 'after' => 'thold_warning_fail_trigger'));
+		db_add_column('thold_data', array('name' => 'time_warning_hi', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'thold_warning_fail_count'));
+		db_add_column('thold_data', array('name' => 'time_warning_low', 'type' => 'varchar(100)', 'NULL' => true, 'after' => 'time_warning_hi'));
+		db_add_column('thold_data', array('name' => 'time_warning_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_warning_low'));
+		db_add_column('thold_data', array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1, 'after' => 'time_warning_fail_trigger'));
+		db_add_column('thold_data', array('name' => 'notify_warning_extra', 'type' => 'text', 'NULL' => true, 'after' => 'time_warning_fail_length'));
 
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN notify_extra text');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN notify_extra text');
@@ -197,36 +198,39 @@ function thold_upgrade_database () {
 		$data['primary'] = 'id';
 		$data['type'] = 'InnoDB';
 		$data['comment'] = 'Table of Notification Lists';
-		api_plugin_db_table_create ('thold', 'plugin_notification_lists', $data);
+		api_plugin_db_table_create('thold', 'plugin_notification_lists', $data);
 
-		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
-		api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_send_email'));
+		api_plugin_db_add_column('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
+		api_plugin_db_add_column('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_send_email'));
 
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'notify_warning', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'notify_alert', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
+		db_add_column('thold_data', array('name' => 'notify_warning', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
+		db_add_column('thold_data', array('name' => 'notify_alert', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
 
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'notify_warning', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'notify_alert', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
+		db_add_column('thold_template', array('name' => 'notify_warning', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
+		db_add_column('thold_template', array('name' => 'notify_alert', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1', 'after' => 'notify_warning_extra'));
 
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'hash', 'type' => 'varchar(32)', 'NULL' => true, 'after' => 'id'));
+		db_add_column('thold_template', array('name' => 'hash', 'type' => 'varchar(32)', 'NULL' => true, 'after' => 'id'));
 
 		if (db_column_exists('thold_data', 'bl_enabled', false)) {
-			db_execute("ALTER TABLE thold_data REMOVE COLUMN bl_enabled", FALSE);
+			db_execute('ALTER TABLE thold_data REMOVE COLUMN bl_enabled', FALSE);
 		}
 
 		if (db_column_exists('thold_template', 'bl_enabled', false)) {
-			db_execute("ALTER TABLE thold_template REMOVE COLUMN bl_enabled", FALSE);
+			db_execute('ALTER TABLE thold_template REMOVE COLUMN bl_enabled', FALSE);
 		}
 
 		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php');
 		api_plugin_register_realm('thold', 'notify_lists.php', 'Manage Notification Lists', 1);
 
 		/* set unique hash values for all thold templates */
-		$templates = db_fetch_assoc("SELECT id FROM thold_template");
+		$templates = db_fetch_assoc('SELECT id FROM thold_template');
 		if (sizeof($templates)) {
 			foreach($templates as $t) {
 				$hash = get_hash_thold_template($t['id']);
-				db_execute("UPDATE thold_template SET hash='$hash' WHERE id=" . $t['id']);
+				db_execute_prepared('UPDATE thold_template
+					SET hash = ?
+					WHERE id = ?',
+					array($hash, $t['id']));
 			}
 		}
 	}
@@ -239,23 +243,23 @@ function thold_upgrade_database () {
 		$data['primary'] = 'id';
 		$data['type'] = 'InnoDB';
 		$data['comment'] = 'Table of Devices in a Down State';
-		api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
+		api_plugin_db_table_create('thold', 'plugin_thold_host_failed', $data);
 
-		db_execute("DELETE FROM settings WHERE name='thold_failed_hosts'");
+		db_execute('DELETE FROM settings WHERE name="thold_failed_hosts"');
 
 		/* increase the size of the settings table */
-		db_execute("ALTER TABLE settings MODIFY column `value` varchar(1024) not null default ''");
+		db_execute('ALTER TABLE settings MODIFY column `value` varchar(1024) NOT NULL default ""');
 	}
 
 	if (cacti_version_compare($oldv, '0.6', '<')) {
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3') );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2') );
-		api_plugin_db_add_column ('thold', 'thold_data', array('name' => 'thold_daemon_pid', 'type' => 'varchar(25)', 'NULL' => false, 'default' => '') );
+		db_add_column('thold_data', array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true, 'after' => 'notify_alert'));
+		db_add_column('thold_data', array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3', 'after' => 'snmp_event_category'));
+		db_add_column('thold_data', array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2', 'after' => 'snmp_event_severity'));
+		db_add_column('thold_data', array('name' => 'thold_daemon_pid', 'type' => 'varchar(25)', 'NULL' => false, 'default' => '', 'after' => 'snmp_event_warning_severity'));
 
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true) );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3') );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2') );
+		db_add_column('thold_template', array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true, 'after' => 'notify_alert'));
+		db_add_column('thold_template', array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3', 'after' => 'snmp_event_category'));
+		db_add_column('thold_template', array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2', 'after' => 'snmp_event_severity'));
 
 		$data = array();
 		$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false);
@@ -267,7 +271,7 @@ function thold_upgrade_database () {
 		$data['keys'][]    = array('name' => 'id', 'columns' => 'id`, `pid');
 		$data['type']      = 'InnoDB';
 		$data['comment']   = 'Table of Poller Outdata needed for queued daemon processes';
-		api_plugin_db_table_create ('thold', 'plugin_thold_daemon_data', $data);
+		api_plugin_db_table_create('thold', 'plugin_thold_daemon_data', $data);
 
 		$data = array();
 		$data['columns'][] = array('name' => 'pid', 'type' => 'varchar(25)', 'NULL' => false);
@@ -278,7 +282,7 @@ function thold_upgrade_database () {
 		$data['primary']   = 'pid';
 		$data['type']      = 'InnoDB';
 		$data['comment']   = 'Table of Thold Daemon Processes being queued';
-		api_plugin_db_table_create ('thold', 'plugin_thold_daemon_processes', $data);
+		api_plugin_db_table_create('thold', 'plugin_thold_daemon_processes', $data);
 
 		// Rename some columns
 		db_execute('ALTER TABLE thold_data CHANGE COLUMN rra_id local_data_id int(11) UNSIGNED NOT NULL default "0"');
@@ -299,7 +303,7 @@ function thold_upgrade_database () {
 		$data['primary'] = 'id';
 		$data['type'] = 'InnoDB';
 		$data['comment'] = 'Table of Device Template Threshold Templates';
-		api_plugin_db_table_create ('thold', 'plugin_thold_device_template', $data);
+		api_plugin_db_table_create('thold', 'plugin_thold_device_template', $data);
 
 		api_plugin_register_hook('thold', 'device_template_edit', 'thold_device_template_edit', 'setup.php');
 		api_plugin_register_hook('thold', 'device_template_top', 'thold_device_template_top', 'setup.php');
@@ -312,10 +316,11 @@ function thold_upgrade_database () {
 	}
 
 	if (cacti_version_compare($oldv, '1.0.1', '<')) {
-		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'exempt'));
-		api_plugin_db_add_column ('thold', 'thold_data',     array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_hrule_alert') );
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'exempt'));
-		api_plugin_db_add_column ('thold', 'thold_template', array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_hrule_alert') );
+		db_add_column('thold_data', array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'exempt'));
+		db_add_column('thold_data', array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_hrule_alert'));
+
+		db_add_column('thold_template', array('name' => 'thold_hrule_alert',   'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'exempt'));
+		db_add_column('thold_template', array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true, 'after' => 'thold_hrule_alert'));
 	}
 
 	if (cacti_version_compare($oldv, '1.0.2', '<')) {
@@ -324,10 +329,8 @@ function thold_upgrade_database () {
 	}
 
 	if (cacti_version_compare($oldv, '1.0.3', '<')) {
-		api_plugin_db_add_column ('thold', 'thold_data',
-			array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'thold_daemon_pid'));
-		api_plugin_db_add_column ('thold', 'thold_template',
-			array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'snmp_event_warning_severity'));
+		db_add_column('thold_data', array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'thold_daemon_pid'));
+		db_add_column('thold_template', array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '', 'after' => 'snmp_event_warning_severity'));
 	}
 
 	if (cacti_version_compare($oldv, '1.0.5', '<')) {
@@ -366,19 +369,123 @@ function thold_upgrade_database () {
 			ADD COLUMN `suggested_name` varchar(255) NOT NULL default '' AFTER `name`");
 	}
 
+	if (cacti_version_compare($oldv, '1.2', '<')) {
+		// Add additional columns for new features
+		db_add_column('thold_data', array('name' => 'name_cache', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'name'));
+		db_add_column('thold_data', array('name' => 'data_source_name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '', 'after' => 'data_template_id'));
+
+		// Acknowledgement
+		db_add_column('thold_data', array('name' => 'prev_thold_alert', 'type' => 'int(1)', 'NULL' => false, 'default' => '0', 'after' => 'thold_alert'));
+		db_add_column('thold_data', array('name' => 'acknowledgement', 'type' => 'char(3)', 'NULL' => false, 'default' => '', 'after' => 'exempt'));
+		db_add_column('thold_data', array('name' => 'reset_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '', 'after' => 'restored_alert'));
+		db_add_column('thold_data', array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '', 'after' => 'reset_ack'));
+
+		// Populate the data source name
+		db_execute("UPDATE thold_data, data_template_data, data_template_rrd SET
+			 thold_data.data_source_name = data_template_rrd.data_source_name
+			 WHERE data_template_data.local_data_id = thold_data.local_data_id
+			AND data_template_rrd.id = thold_data.data_template_rrd_id
+			AND thold_data.data_source_name = ''");
+
+		// Required for backward compatibility
+		if (!db_column_exists('thold_data', 'acknowledgment')) {
+			db_execute('ALTER TABLE thold_data CHANGE COLUMN acknowledgement acknowledgment char(3) NOT NULL default ""');
+		} else {
+			db_remove_column('thold_data', 'acknowledgement');
+		}
+
+		// For backport legacy support
+		if (db_column_exists('thold_data', 'email_body')) {
+			set_config_option('thold_enable_per_thold_body', 'on');
+		}
+
+		// For backport legacy support
+		if (db_column_exists('thold_data', 'trigger_cmd_high')) {
+			set_config_option('thold_enable_scripts', 'on');
+		}
+
+		// Move modifyable Email body into thold
+		db_add_column('thold_data', array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '', 'after' => 'persist_ack'));
+		db_add_column('thold_data', array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '', 'after' => 'email_body'));
+
+		// If these columns were added before, change attributes
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN email_body varchar(1024) default ""');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN restored_alert char(3) NOT NULL default ""');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN exempt char(3) NOT NULL default ""');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN data_type int(12) NOT NULL default "0"');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN notify_extra varchar(512) default ""');
+
+		// Trigger commands
+		db_add_column('thold_data', array('name' => 'trigger_cmd_high', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '', 'after' => 'email_body_warn'));
+		db_add_column('thold_data', array('name' => 'trigger_cmd_low', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '', 'after' => 'trigger_cmd_high'));
+		db_add_column('thold_data', array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '', 'after' => 'trigger_cmd_low'));
+
+		// Additional syslog columns
+		db_add_column('thold_data', array('name' => 'syslog_facility', 'type'=> 'int(2)', 'NULL' => true, 'after' => 'syslog_priority'));
+		db_add_column('thold_data', array('name' => 'syslog_enabled', 'type'=> 'char(3)', 'NULL' => false, 'default' => '', 'after' => 'syslog_facility'));
+
+		// Remove these columns if they exist
+		db_remove_column('thold_data', 'bl_ref_time');
+		db_remove_column('thold_data', 'notify_default');
+		db_remove_column('thold_template', 'notify_default');
+
+		// Acknowledgement columns
+		db_add_column('thold_template', array('name' => 'reset_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off', 'after' => 'restored_alert'));
+		db_add_column('thold_template', array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => 'off', 'after' => 'reset_ack'));
+
+		// Move modifyable Email body into thold
+		db_add_column('thold_template', array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '', 'after' => 'persist_ack'));
+		db_add_column('thold_template', array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '', 'after' => 'email_body'));
+
+		// Trigger commands
+		db_add_column('thold_template', array('name' => 'trigger_cmd_high', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '', 'after' => 'email_body_warn'));
+		db_add_column('thold_template', array('name' => 'trigger_cmd_low', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '', 'after' => 'trigger_cmd_high'));
+		db_add_column('thold_template', array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '', 'after' => 'trigger_cmd_low'));
+
+		// Additional syslog columns
+		db_add_column('thold_template', array('name' => 'syslog_priority', 'type'=> 'int(2)', 'NULL' => true, 'after' => 'trigger_cmd_norm'));
+		db_add_column('thold_template', array('name' => 'syslog_facility', 'type'=> 'int(2)', 'NULL' => true, 'after' => 'syslog_priority'));
+		db_add_column('thold_template', array('name' => 'syslog_enabled', 'type'=> 'char(3)', 'NULL' => false, 'default' => '', 'after' => 'syslog_facility'));
+
+		// Remove this column if it exists
+		db_remove_column('thold_template', 'bl_enabled');
+		db_remove_column('thold_template', 'bl_ref_time');
+
+		// If these columns were added before, change attributes
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN email_body varchar(1024) default ""');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN data_template_id int(10) default "0"');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN thold_fail_trigger int(10) unsigned default NULL');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN repeat_alert int(10) default NULL');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN notify_extra varchar(512) default NULL');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN percent_ds varchar(64) NOT NULL default ""');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN exempt char(3) NOT NULL default ""');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN restored_alert char(3) NOT NULL default ""');
+
+		// Move email notification settings to thresholds and templates
+		$warning_text = read_config_option('thold_warning_text');
+		$alert_text   = read_config_option('thold_warning_text');
+
+		db_execute_prepared('UPDATE thold_data SET email_body = ? WHERE email_body = ""', array($alert_text));
+		db_execute_prepared('UPDATE thold_template SET email_body = ? WHERE email_body = ""', array($alert_text));
+		db_execute_prepared('UPDATE thold_data SET email_body_warn = ? WHERE email_body_warn = ""', array($warning_text));
+		db_execute_prepared('UPDATE thold_template SET email_body_warn = ? WHERE email_body_warn = ""', array($warning_text));
+	}
+
 	db_execute('UPDATE settings SET value = "' . $v['version'] . '" WHERE name = "plugin_thold_version"');
 	db_execute('UPDATE plugin_config SET version = "' . $v['version'] . '" WHERE directory = "thold"');
 }
 
-function thold_setup_database () {
+function thold_setup_database() {
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'name_cache', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'local_data_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_template_rrd_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'local_graph_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'graph_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'data_source_name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'thold_hi', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'thold_low', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'thold_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
@@ -396,6 +503,7 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'time_warning_fail_trigger', 'type' => 'int (12)', 'NULL' => false, 'default' => 1);
 	$data['columns'][] = array('name' => 'time_warning_fail_length', 'type' => 'int (12)', 'NULL' => false, 'default' => 1);
 	$data['columns'][] = array('name' => 'thold_alert', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'prev_thold_alert', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'thold_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'on');
 	$data['columns'][] = array('name' => 'thold_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0);
 	$data['columns'][] = array('name' => 'bl_ref_time_range', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
@@ -404,17 +512,23 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'bl_fail_trigger', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_fail_count', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_alert', 'type' => 'int(2)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'bl_thold_valid', 'type' => 'int(10)', 'NULL' => false, 'default' => '0', 'unsigned' => true);
 	$data['columns'][] = array('name' => 'lastread', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lasttime', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00');
 	$data['columns'][] = array('name' => 'oldvalue', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
-	$data['columns'][] = array('name' => 'notify_default', 'type' => "enum('on','off')", 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_extra', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_warning_extra', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_warning', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'notify_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3');
+	$data['columns'][] = array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2');
+	$data['columns'][] = array('name' => 'thold_daemon_pid', 'type' => 'varchar(25)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(10)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'syslog_priority', 'type' => 'int(2)', 'NULL' => false, 'default' => '3');
+	$data['columns'][] = array('name' => 'syslog_facility', 'type' => 'int(2)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'syslog_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_type', 'type' => 'int(12)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
@@ -423,14 +537,17 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'template_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'tcheck', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'acknowledgment', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'thold_hrule_alert', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
 	$data['columns'][] = array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
 	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'bl_thold_valid', 'type' => 'int(10)', 'NULL' => false, 'default' => '0', 'unsigned' => true);
-	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3');
-	$data['columns'][] = array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2');
-	$data['columns'][] = array('name' => 'thold_daemon_pid', 'type' => 'varchar(25)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'reset_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '');
 
 	$data['primary'] = 'id';
@@ -445,7 +562,7 @@ function thold_setup_database () {
 	$data['keys'][] = array('name' => 'thold_daemon_pid', 'columns' => 'thold_daemon_pid');
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'Threshold data';
-	api_plugin_db_table_create ('thold', 'thold_data', $data);
+	api_plugin_db_table_create('thold', 'thold_data', $data);
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
@@ -481,11 +598,13 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'bl_fail_count', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_alert', 'type' => 'int(2)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
-	$data['columns'][] = array('name' => 'notify_default', 'type' => "enum('on','off')", 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_extra', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_warning_extra', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_warning', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'notify_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3');
+	$data['columns'][] = array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2');
 	$data['columns'][] = array('name' => 'data_type', 'type' => 'int(12)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
@@ -494,9 +613,16 @@ function thold_setup_database () {
 	$data['columns'][] = array('name' => 'thold_hrule_alert', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
 	$data['columns'][] = array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
 	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'snmp_event_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '3');
-	$data['columns'][] = array('name' => 'snmp_event_warning_severity', 'type' => 'tinyint(1)', 'NULL' => false, 'default' => '2');
+	$data['columns'][] = array('name' => 'reset_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'syslog_priority', 'type' => 'int(2)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'syslog_facility', 'type' => 'int(2)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'syslog_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '');
 
 	$data['primary']   = 'id';
@@ -505,7 +631,7 @@ function thold_setup_database () {
 	$data['keys'][]    = array('name' => 'data_template_id', 'columns' => 'data_template_id');
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Thresholds defaults for graphs';
-	api_plugin_db_table_create ('thold', 'thold_template', $data);
+	api_plugin_db_table_create('thold', 'thold_template', $data);
 
 	$data = array();
 	$data['columns'][]     = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
@@ -518,7 +644,7 @@ function thold_setup_database () {
 	$data['unique_keys'][] = array('name' => 'user_id_type', 'columns' => 'user_id`, `type');
 	$data['type']          = 'InnoDB';
 	$data['comment']       = 'Table of Threshold contacts';
-	api_plugin_db_table_create ('thold', 'plugin_thold_contacts', $data);
+	api_plugin_db_table_create('thold', 'plugin_thold_contacts', $data);
 
 	$data = array();
 	$data['columns'][] = array('name' => 'template_id', 'type' => 'int(12)', 'NULL' => false);
@@ -527,7 +653,7 @@ function thold_setup_database () {
 	$data['keys'][]    = array('name' => 'contact_id', 'columns' => 'contact_id');
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Tholds Template Contacts';
-	api_plugin_db_table_create ('thold', 'plugin_thold_template_contact', $data);
+	api_plugin_db_table_create('thold', 'plugin_thold_template_contact', $data);
 
 	$data = array();
 	$data['columns'][] = array('name' => 'thold_id', 'type' => 'int(12)', 'NULL' => false);
@@ -537,7 +663,7 @@ function thold_setup_database () {
 	$data['keys'][]    = array('name' => 'contact_id', 'columns' => 'contact_id');
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Tholds Threshold Contacts';
-	api_plugin_db_table_create ('thold', 'plugin_thold_threshold_contact', $data);
+	api_plugin_db_table_create('thold', 'plugin_thold_threshold_contact', $data);
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
@@ -560,7 +686,7 @@ function thold_setup_database () {
 	$data['keys'][]    = array('name' => 'type', 'columns' => 'type');
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of All Threshold Breaches';
-	api_plugin_db_table_create ('thold', 'plugin_thold_log', $data);
+	api_plugin_db_table_create('thold', 'plugin_thold_log', $data);
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
@@ -571,12 +697,12 @@ function thold_setup_database () {
 	$data['primary']   = 'id';
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Notification Lists';
-	api_plugin_db_table_create ('thold', 'plugin_notification_lists', $data);
+	api_plugin_db_table_create('thold', 'plugin_notification_lists', $data);
 
 	api_plugin_register_hook('thold', 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php');
 
-	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
-	api_plugin_db_add_column ('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => true, 'after' => 'thold_send_email'));
+	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
+	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => true, 'after' => 'thold_send_email'));
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
@@ -586,7 +712,7 @@ function thold_setup_database () {
 	$data['primary']   = 'id';
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Devices in a Down State';
-	api_plugin_db_table_create ('thold', 'plugin_thold_host_failed', $data);
+	api_plugin_db_table_create('thold', 'plugin_thold_host_failed', $data);
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false);
@@ -598,7 +724,7 @@ function thold_setup_database () {
 	$data['keys'][]    = array('name' => 'id', 'columns' => 'id`, `pid');
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Poller Outdata needed for queued daemon processes';
-	api_plugin_db_table_create ('thold', 'plugin_thold_daemon_data', $data);
+	api_plugin_db_table_create('thold', 'plugin_thold_daemon_data', $data);
 
 	$data = array();
 	$data['columns'][] = array('name' => 'poller_id', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false, 'default' => '1');
@@ -610,7 +736,7 @@ function thold_setup_database () {
 	$data['primary']   = 'pid';
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Table of Thold Daemon Processes being queued';
-	api_plugin_db_table_create ('thold', 'plugin_thold_daemon_processes', $data);
+	api_plugin_db_table_create('thold', 'plugin_thold_daemon_processes', $data);
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'auto_increment' => true);
@@ -619,7 +745,7 @@ function thold_setup_database () {
 	$data['primary'] = 'id';
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'Table of Device Template Threshold Templates';
-	api_plugin_db_table_create ('thold', 'plugin_thold_host_template', $data);
+	api_plugin_db_table_create('thold', 'plugin_thold_host_template', $data);
 
 	if (!db_index_exists('data_local', 'data_template_id')) {
 		db_add_index('data_local', 'INDEX', 'data_template_id', array('data_template_id'));

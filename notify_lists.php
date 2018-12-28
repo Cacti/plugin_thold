@@ -45,7 +45,9 @@ $tabs_thold = array(
     'templates' => __('Templates', 'thold')
 );
 
-set_default_action('');
+$tabs_thold = api_plugin_hook_function('notify_list_tabs', $tabs_thold);
+
+set_default_action();
 
 switch (get_request_var('action')) {
 	case 'save':
@@ -196,7 +198,7 @@ function form_actions() {
 								db_execute('UPDATE thold_template SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 								/* clear other items */
 								db_execute("UPDATE thold_template SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
-							}else{
+							} else {
 								/* set the notification list */
 								db_execute('UPDATE thold_template SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 							}
@@ -210,7 +212,7 @@ function form_actions() {
 								/* clear other items */
 								db_execute("UPDATE thold_template SET notify_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute('DELETE FROM plugin_thold_template_contact WHERE template_id=' . $selected_items[$i]);
-							}else{
+							} else {
 								/* set the notification list */
 								db_execute('UPDATE thold_template SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 							}
@@ -248,7 +250,7 @@ function form_actions() {
 								db_execute('UPDATE thold_data SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 								/* clear other items */
 								db_execute("UPDATE thold_data SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
-							}else{
+							} else {
 								/* set the notification list */
 								db_execute('UPDATE thold_data SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 							}
@@ -262,7 +264,7 @@ function form_actions() {
 								/* clear other items */
 								db_execute("UPDATE thold_data SET notify_extra='' WHERE id=" . $selected_items[$i]);
 								db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $selected_items[$i]);
-							}else{
+							} else {
 								/* set the notification list */
 								db_execute('UPDATE thold_data SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
 							}
@@ -283,6 +285,10 @@ function form_actions() {
 				}
 			}
 
+			header('Location: notify_lists.php?header=false&action=edit&tab=tholds&id=' . get_request_var('id'));
+			exit;
+		} else {
+			api_plugin_hook_function('notify_list_save', $_POST);
 			header('Location: notify_lists.php?header=false&action=edit&tab=tholds&id=' . get_request_var('id'));
 			exit;
 		}
@@ -485,7 +491,7 @@ function form_actions() {
 		form_end();
 
 		bottom_footer();
-	}else{
+	} elseif (isset_request_var('save_associate')) {
 		/* loop through each of the notification lists selected on the previous page and get more info about them */
 		foreach($_POST as $var => $val) {
 			if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
@@ -548,6 +554,9 @@ function form_actions() {
 		form_end();
 
 		bottom_footer();
+	} else {
+		$save = array('post' => $_POST, 'selected_items' => $selected_items);
+		api_plugin_hook_function('notify_list_form_confirm', $save);
 	}
 }
 
@@ -606,7 +615,7 @@ function edit() {
 	if ($current_tab == 'general') {
 		form_start('notify_lists.php');
 
-		html_start_box(__('List General Settings', 'thold') . ' ' . htmlspecialchars($header_label), '100%', false, '3', 'center', '');
+		html_start_box(__('List General Settings', 'thold') . ' ' . html_escape($header_label), '100%', false, '3', 'center', '');
 
 		$fields_notification = array(
 			'name' => array(
@@ -656,7 +665,7 @@ function edit() {
 		hosts($header_label);
 	} elseif ($current_tab == 'tholds') {
 		tholds($header_label);
-	}else{
+	} else {
 		templates($header_label);
 	}
 }
@@ -709,11 +718,11 @@ function hosts($header_label) {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
-	html_start_box(__('Associated Devices', 'thold') . ' ' . htmlspecialchars($header_label), '100%', false, '3', 'center', '');
+	html_start_box(__('Associated Devices', 'thold') . ' ' . html_escape($header_label), '100%', false, '3', 'center', '');
 
 	?>
 	<tr class='even'>
@@ -725,7 +734,7 @@ function hosts($header_label) {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>' onChange='applyFilter()'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>' onChange='applyFilter()'>
 					</td>
 					<td>
 						<?php print __('Type', 'thold');?>
@@ -739,7 +748,7 @@ function hosts($header_label) {
 
 							if (sizeof($host_templates) > 0) {
 								foreach ($host_templates as $host_template) {
-									print "<option value='" . $host_template['id'] . "'"; if (get_request_var('host_template_id') == $host_template['id']) { print ' selected'; } print '>' . htmlspecialchars($host_template['name']) . "</option>\n";
+									print "<option value='" . $host_template['id'] . "'"; if (get_request_var('host_template_id') == $host_template['id']) { print ' selected'; } print '>' . html_escape($host_template['name']) . "</option>\n";
 								}
 							}
 							?>
@@ -754,7 +763,7 @@ function hosts($header_label) {
 							<?php
 							if (sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
 							}
 							?>
@@ -872,12 +881,12 @@ function hosts($header_label) {
 			} elseif ($host['thold_host_email'] == get_request_var('id')) {
 				if ($host['thold_send_email'] == 2) {
 					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current List Only', 'thold') . '</span>', $host['id']);
-				}else{
+				} else {
 					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
 				}
 			} elseif ($host['thold_host_email'] == '0') {
 				form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('None', 'thold') . '</span>', $host['id']);
-			}else{
+			} else {
 				form_selectable_cell('<span style="color:red;font-weight:bold;">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
 			}
 			form_selectable_cell((isset($host_graphs[$host['id']]) ? $host_graphs[$host['id']] : 0), $host['id']);
@@ -930,7 +939,7 @@ function tholds($header_label) {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -963,7 +972,7 @@ function tholds($header_label) {
 		ON td.data_template_id = dt.id
 		ORDER BY dt.name');
 
-	html_start_box(__('Associated Thresholds', 'thold') . ' ' . htmlspecialchars($header_label) , '100%', false, '3', 'center', '');
+	html_start_box(__('Associated Thresholds', 'thold') . ' ' . html_escape($header_label) , '100%', false, '3', 'center', '');
 	?>
 	<tr class='even'>
 		<td>
@@ -974,7 +983,7 @@ function tholds($header_label) {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>' onChange='applyFilter()'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>' onChange='applyFilter()'>
 					</td>
 					<td>
 						<?php print __('Template', 'thold');?>
@@ -984,7 +993,7 @@ function tholds($header_label) {
 							<option value='-1'><?php print __('Any', 'thold');?></option>
 							<?php
 							foreach ($data_templates as $row) {
-								echo "<option value='" . $row['id'] . "'" . (isset_request_var('template') && $row['id'] == get_request_var('template') ? ' selected' : '') . '>' . $row['name'] . '</option>';
+								print "<option value='" . $row['id'] . "'" . (isset_request_var('template') && $row['id'] == get_request_var('template') ? ' selected' : '') . '>' . $row['name'] . '</option>';
 							}
 							?>
 						</select>
@@ -1010,7 +1019,7 @@ function tholds($header_label) {
 							<?php
 							if (sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
 							}
 							?>
@@ -1115,7 +1124,7 @@ function tholds($header_label) {
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
-				}else{
+				} else {
 					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $alert_list . '</span>';
 				}
@@ -1134,7 +1143,7 @@ function tholds($header_label) {
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
-				}else{
+				} else {
 					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $warn_list . '</span>';
 				}
@@ -1150,7 +1159,7 @@ function tholds($header_label) {
 
 			if ($row['name'] != '') {
 				$name = $row['name'];
-			}else{
+			} else {
 				$name = $row['name_cache'] . ' [' . $row['data_source_name'] . ']';
 			}
 
@@ -1196,7 +1205,7 @@ function templates($header_label) {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -1220,7 +1229,7 @@ function templates($header_label) {
 
 	$result = db_fetch_assoc($sql);
 
-	html_start_box(__('Associated Templates', 'thold') . ' ' . htmlspecialchars($header_label), '100%', false, '3', 'center', '');
+	html_start_box(__('Associated Templates', 'thold') . ' ' . html_escape($header_label), '100%', false, '3', 'center', '');
 	?>
 	<tr class='even'>
 		<td>
@@ -1231,7 +1240,7 @@ function templates($header_label) {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>' onChange='applyFilter()'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>' onChange='applyFilter()'>
 					</td>
 					<td>
 						<?php print __('Rows', 'thold');?>
@@ -1242,7 +1251,7 @@ function templates($header_label) {
 							<?php
 							if (sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
 							}
 							?>
@@ -1333,7 +1342,7 @@ function templates($header_label) {
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
-				}else{
+				} else {
 					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
 					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $alert_list . '</span>';
 				}
@@ -1352,7 +1361,7 @@ function templates($header_label) {
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold'). "</span>";
-				}else{
+				} else {
 					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
 					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $warn_list . '</span>';
 				}
@@ -1519,7 +1528,7 @@ function lists() {
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
-	}else{
+	} else {
 		$rows = get_request_var('rows');
 	}
 
@@ -1535,7 +1544,7 @@ function lists() {
 						<?php print __('Search', 'thold')?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print htmlspecialchars(get_request_var('filter'));?>'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>'>
 					</td>
 					<td>
 						<?php print __('Lists', 'thold')?>
@@ -1546,7 +1555,7 @@ function lists() {
 							<?php
 							if (sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . htmlspecialchars($value) . "</option>\n";
+									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
 							}
 							?>

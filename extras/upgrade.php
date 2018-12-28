@@ -42,6 +42,6 @@ print "Faking Low Thold Version\n";
 $_SESSION['sess_config_array']['plugin_thold_version'] = '.1';
 
 print "Running Thold Upgrade\n";
-thold_upgrade_database ();
+thold_upgrade_database();
 
 print "Upgrade Complete\n";

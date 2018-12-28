@@ -298,9 +298,9 @@ while (true) {
 					$pid     = $proc['pid'];
 
 					/* mark the pid as started from here */
-					db_execute_prepared('UPDATE plugin_thold_daemon_processes 
-						SET start = ? 
-						WHERE pid = ?', 
+					db_execute_prepared('UPDATE plugin_thold_daemon_processes
+						SET start = ?
+						WHERE pid = ?',
 						array(microtime(true), $pid));
 
 					$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --pid=' . $pid . ' > /dev/null';
@@ -390,7 +390,7 @@ function display_version() {
 	}
 
 	$info = plugin_thold_version();
-	echo 'Threshold Daemon, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
+	print 'Threshold Daemon, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
 

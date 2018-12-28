@@ -327,7 +327,7 @@ function thold_poller_output(&$rrd_update_array) {
 		td.local_graph_id, td.percent_ds, td.expression, td.data_type,
 		td.cdef, td.local_data_id, td.data_template_rrd_id, td.lastread,
 		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
-		dtr.data_source_name as name, dtr.data_source_type_id,
+		td.data_source_name AS name, dtr.data_source_type_id,
 		dtd.rrd_step, dtr.rrd_maximum
 		FROM thold_data AS td
 		LEFT JOIN data_template_rrd AS dtr
@@ -414,7 +414,7 @@ function thold_check_all_thresholds() {
 
 	if (read_config_option('remote_storage_method') == 1) {
 		if ($config['poller_id'] == 1) {
-			$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
+			$sql_query = "SELECT td.*, h.hostname,
 				h.description, h.notes AS dnotes, h.snmp_engine_id
 				FROM thold_data AS td
 				LEFT JOIN host AS h
@@ -426,7 +426,7 @@ function thold_check_all_thresholds() {
 				AND td.tcheck = 1
 				AND h.status=3";
 		} else {
-			$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
+			$sql_query = "SELECT td.*, h.hostname,
 				h.description, h.notes AS dnotes, h.snmp_engine_id
 				FROM thold_data AS td
 				LEFT JOIN host AS h
@@ -439,7 +439,7 @@ function thold_check_all_thresholds() {
 				AND h.status=3";
 		}
 	} else {
-		$sql_query = "SELECT td.*, dtr.data_source_name, h.hostname,
+		$sql_query = "SELECT td.*, h.hostname,
 			h.description, h.notes AS dnotes, h.snmp_engine_id
 			FROM thold_data AS td
 			LEFT JOIN data_template_rrd AS dtr
@@ -514,7 +514,7 @@ function thold_update_host_status() {
 	if (sizeof($failed)) {
 		foreach ($failed as $fh) {
 			$alert_email        = read_config_option('alert_email');
-			
+
 			if (api_plugin_is_enabled('maint')) {
 				if (plugin_maint_check_cacti_host($fh['host_id'])) {
 					continue;
@@ -677,7 +677,7 @@ function thold_update_host_status() {
 	if ($total_hosts) {
 		foreach ($hosts as $host) {
 			$alert_email = read_config_option('alert_email');
-			
+
 			if (api_plugin_is_enabled('maint')) {
 				if (plugin_maint_check_cacti_host($host['id'])) {
 					continue;
