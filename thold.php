@@ -67,7 +67,7 @@ switch(get_request_var('action')) {
 	case 'autocreate':
 		$c = autocreate(get_filter_request_var('host_id'));
 		if ($c == 0) {
-			thold_raise_message('<font size=-1>' . __('Either No Templates or Threshold(s) Already Exists - No Thresholds were created.', 'thold') . '</font>');
+			thold_raise_message('<font size=-1>' . __('Either No Templates or Threshold(s) Already Exists - No Thresholds were created.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
 		}
 
 		if (isset($_SESSION['data_return'])) {
@@ -270,8 +270,9 @@ function do_actions() {
 							$message['security'] = '<font size=-1>' . __('You are not authorised to modify one or more of the Thresholds selected', 'thold') .'</font>';
 						}
 					}
+
 					if (sizeof($message)) {
-						thold_raise_message(implode('<br>', $message));
+						thold_raise_message(implode('<br>', $message), MESSAGE_LEVEL_ERROR);
 					}
 
 					break;

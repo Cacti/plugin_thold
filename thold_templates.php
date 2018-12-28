@@ -165,7 +165,7 @@ function do_actions() {
 						}
 					}
 					if (sizeof($message)) {
-						thold_raise_message(implode('<br>', $message));
+						thold_raise_message(implode('<br>', $message), MESSAGE_LEVEL_ERROR);
 					}
 					break;
 			}

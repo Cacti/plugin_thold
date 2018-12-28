@@ -759,12 +759,12 @@ function thold_data_source_action_execute($action) {
 				}
 
 				if (strlen($message)) {
-					thold_raise_message("<font size=-1>$message</font>");
+					thold_raise_message('<font size=-1>' . $message . '</font>', MESSAGE_LEVEL_INFO);
 				} else {
-					thold_raise_message("<font size=-1>" . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . "</font>");
+					thold_raise_message('<font size=-1>' . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
 				}
 			} else {
-				thold_raise_message("<font size=-1>" . __('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold') . "</font>");
+				thold_raise_message('<font size=-1>' . __('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold') . '</font>', MESSAGE_LEVEL_ERROR);
 			}
 		}
 	}
@@ -913,12 +913,12 @@ function thold_graphs_action_execute($action) {
 				}
 
 				if (strlen($message)) {
-					thold_raise_message("<font size=-1>$message</font>");
+					thold_raise_message('<font size=-1>' . $message . '</font>', MESSAGE_LEVEL_INFO);
 				} else {
-					thold_raise_message("<font size=-1>" . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . "</font>");
+					thold_raise_message('<font size=-1>' . __('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
 				}
 			} else {
-				thold_raise_message("<font size=-1>" . __('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold') . "</font>");
+				thold_raise_message('<font size=-1>' . __('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold') . '</font>', MESSAGE_LEVEL_ERROR);
 			}
 		}
 	}
