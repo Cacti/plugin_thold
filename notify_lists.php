@@ -953,7 +953,7 @@ function tholds($header_label) {
 	}
 
 	if (strlen(get_request_var('filter'))) {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . "td.name LIKE '%" . get_request_var('filter') . "%'";
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . "td.name_cache LIKE '%" . get_request_var('filter') . "%'";
 	}
 
 	if ($statefilter != '') {
@@ -1080,7 +1080,7 @@ function tholds($header_label) {
 	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
-		'name'          => array(__('Name', 'thold'), 'ASC'),
+		'name_cache'    => array(__('Name', 'thold'), 'ASC'),
 		'id'            => array(__('ID', 'thold'), 'ASC'),
 		'nosort1'       => array(__('Warning Lists', 'thold'), 'ASC'),
 		'nosort2'       => array(__('Alert Lists', 'thold'), 'ASC'),
@@ -1157,14 +1157,8 @@ function tholds($header_label) {
 				$warn_stat  = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold'). "</span>";
 			}
 
-			if ($row['name'] != '') {
-				$name = $row['name'];
-			} else {
-				$name = $row['name_cache'] . ' [' . $row['data_source_name'] . ']';
-			}
-
 			form_alternate_row('line' . $row['id'], true);
-			form_selectable_cell(filter_value($name, get_request_var('filter')), $row['id']);
+			form_selectable_cell(filter_value($row['name_cache'], get_request_var('filter')), $row['id']);
 			form_selectable_cell($row['id'], $row['id']);
 			form_selectable_cell($warn_stat, $row['id']);
 			form_selectable_cell($alert_stat, $row['id']);
