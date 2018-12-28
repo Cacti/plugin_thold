@@ -1,8 +1,7 @@
 <?php
 /*
- ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2017 The Cacti Group                                 |
+ | Copyright (C) 2006-2018 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -143,9 +142,9 @@ function thold_add_graphs_action_execute() {
 	}
 
 	if (strlen($message)) {
-		thold_raise_message("<font size=-2>$message</font>");
+		thold_raise_message('<font size=-1>' . $message . '</font>', MESSAGE_LEVEL_INFO);
 	} else {
-		thold_raise_message("<font size=-2>" . __('Threshold(s) Already Exists - No Thresholds Created', 'thold') . "</font>");
+		thold_raise_message('<font size=-1>' . __('Threshold(s) Already Exists - No Thresholds Created', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
 	}
 
 	if (isset($_SESSION['graph_return'])) {
@@ -554,3 +553,4 @@ function thold_add_select_host() {
 
 	bottom_footer();
 }
+

@@ -1,8 +1,7 @@
 <?php
 /*
- ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2017 The Cacti Group                                 |
+ | Copyright (C) 2006-2018 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -366,3 +365,4 @@ $thold_template_actions = array(
 /* perform database upgrade */
 include_once($config['base_path'] . '/plugins/thold/setup.php');
 plugin_thold_upgrade();
+

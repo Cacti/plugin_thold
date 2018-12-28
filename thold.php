@@ -1,8 +1,7 @@
 <?php
 /*
- ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2017 The Cacti Group                                 |
+ | Copyright (C) 2006-2018 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -272,7 +271,7 @@ function do_actions() {
 						}
 					}
 					if (sizeof($message)) {
-						thold_raise_message(implode('', $message));
+						thold_raise_message(implode('<br>', $message));
 					}
 
 					break;
@@ -2096,3 +2095,4 @@ function thold_edit() {
 	</script>
 	<?php
 }
+

@@ -1,8 +1,7 @@
 <?php
 /*
- ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2017 The Cacti Group                                 |
+ | Copyright (C) 2006-2018 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -216,3 +215,4 @@ function display_help () {
 	print '--thold-template=N      - The Threshold Template to use for creating Thresholds' . PHP_EOL;
 	print '--graph-ids=\'N1 N2 ...\' - The Threshold Template to use for creating Thresholds' . PHP_EOL . PHP_EOL;
 }
+

@@ -1,8 +1,7 @@
 <?php
 /*
- ex: set tabstop=4 shiftwidth=4 autoindent:
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2017 The Cacti Group                                 |
+ | Copyright (C) 2006-2018 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -762,3 +761,4 @@ function thold_setup_database() {
 	/* increase the size of the settings table */
 	db_execute("ALTER TABLE settings MODIFY column `value` varchar(4096) not null default ''");
 }
+
