@@ -370,7 +370,7 @@ function form_actions() {
 				input_validate_input_number($matches[1]);
 				/* ==================================================== */
 
-				$list .= '<li><b>' . db_fetch_cell('SELECT name FROM thold_template WHERE id=' . $matches[1]) . '</b></li>';
+				$list .= '<li><i>' . db_fetch_cell('SELECT name FROM thold_template WHERE id=' . $matches[1]) . '</i></li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -385,7 +385,7 @@ function form_actions() {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Association the Notification List \'<b>%s</b>\' with the Threshold Template(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Association the Notification List \'<i>%s</i>\' with the Threshold Template(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
@@ -396,7 +396,7 @@ function form_actions() {
 			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Thresholds Template(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<i>%s</i>\' from the Thresholds Template(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
@@ -449,7 +449,7 @@ function form_actions() {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Associate the Notification List \'<b>%s</b>\' with the Threshold(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Associate the Notification List \'<i>%s</i>\' with the Threshold(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
@@ -460,7 +460,7 @@ function form_actions() {
 			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Thresholds(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<i>%s</i>\' from the Thresholds(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
@@ -514,7 +514,7 @@ function form_actions() {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Associate the Notification List \'<b>%s</b>\' with the Device(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Associate the Notification List \'<i>%s</i>\' with the Device(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Resulting Membership:', 'thold'). "<br>"; form_dropdown('notification_action', array(2 => __('Notification List Only', 'thold'), 3 => __('Notification and Global Lists', 'thold')), '', '', 2, '', ''); print "</p>
 					</td>
@@ -524,7 +524,7 @@ function form_actions() {
 			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<b>%s</b>\' from the Device(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<i>%s</i>\' from the Device(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Resulting Membership:', 'thold') . "</b><br>"; form_dropdown('notification_action', array(1 => __('Global List', 'thold'), 0 => __('Disabled', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
@@ -875,19 +875,19 @@ function hosts($header_label) {
 			form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], 250);
 			form_selectable_cell(round(($host['id']), 2), $host['id']);
 			if ($host['thold_send_email'] == 0) {
-				form_selectable_cell('<span style="color:blue;font-weight:bold;">' . __('Disabled', 'thold') . '</span>', $host['id']);
+				form_selectable_cell('<span style="color:blue">' . __('Disabled', 'thold') . '</span>', $host['id']);
 			} elseif ($host['thold_send_email'] == 1) {
-				form_selectable_cell('<span style="color:purple;font-weight:bold;">' . __('Global List', 'thold') . '</span>', $host['id']);
+				form_selectable_cell('<span style="color:purple">' . __('Global List', 'thold') . '</span>', $host['id']);
 			} elseif ($host['thold_host_email'] == get_request_var('id')) {
 				if ($host['thold_send_email'] == 2) {
-					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current List Only', 'thold') . '</span>', $host['id']);
+					form_selectable_cell('<span style="color:green">' . __('Current List Only', 'thold') . '</span>', $host['id']);
 				} else {
-					form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
+					form_selectable_cell('<span style="color:green">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
 				}
 			} elseif ($host['thold_host_email'] == '0') {
-				form_selectable_cell('<span style="color:green;font-weight:bold;">' . __('None', 'thold') . '</span>', $host['id']);
+				form_selectable_cell('<span style="color:green">' . __('None', 'thold') . '</span>', $host['id']);
 			} else {
-				form_selectable_cell('<span style="color:red;font-weight:bold;">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
+				form_selectable_cell('<span style="color:red">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
 			}
 			form_selectable_cell((isset($host_graphs[$host['id']]) ? $host_graphs[$host['id']] : 0), $host['id']);
 			form_selectable_cell((isset($host_data_sources[$host['id']]) ? $host_data_sources[$host['id']] : 0), $host['id']);
@@ -1114,47 +1114,47 @@ function tholds($header_label) {
 			$alert_stat = '';
 			$list = db_fetch_cell('SELECT count(*) FROM plugin_thold_threshold_contact WHERE thold_id=' . $row['id']);
 			if ($list > 0) {
-				$alert_stat = "<span style='font-weight:bold;color:green;'>" . __('Select Users', 'thold') . "</span>";
+				$alert_stat = "<span style='color:green'>" . __('Select Users', 'thold') . "</span>";
 			}
 
 			if (strlen($row['notify_extra'])) {
-				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails', 'thold') . "</span>";
+				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:purple'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
+					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:green'>" . __('Current List', 'thold') . "</span>";
 				} else {
 					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $alert_list . '</span>';
+					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:red'>" . $alert_list . '</span>';
 				}
 			}
 
 			if (!strlen($alert_stat)) {
-				$alert_stat = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold') . "</span>";
+				$alert_stat = "<span style='color:blue'>" . __('Log Only', 'thold') . "</span>";
 			}
 
 			/* show warning stats first */
 			$warn_stat = '';
 			if (strlen($row['notify_warning_extra'])) {
-				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails', 'thold') . "</span>";
+				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:purple'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:green'>" . __('Current List', 'thold') . "</span>";
 				} else {
 					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $warn_list . '</span>';
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:red'>" . $warn_list . '</span>';
 				}
 			}
 
 			if ((!strlen($warn_stat)) &&
 				(($row['thold_type'] == 0 && $row['thold_warning_hi'] == '' && $row['thold_warning_low'] == '') ||
 				($row['thold_type'] == 2 && $row['time_warning_hi'] == '' && $row['time_warning_low'] == ''))) {
-				$warn_stat  = "<span style='font-weight:bold;color:red;'>" . __('None', 'thold') . "</span>";
+				$warn_stat  = "<span style='color:red'>" . __('None', 'thold') . "</span>";
 			} elseif (!strlen($warn_stat)) {
-				$warn_stat  = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold'). "</span>";
+				$warn_stat  = "<span style='color:blue'>" . __('Log Only', 'thold'). "</span>";
 			}
 
 			form_alternate_row('line' . $row['id'], true);
@@ -1326,47 +1326,47 @@ function templates($header_label) {
 			$alert_stat = '';
 			$list = db_fetch_cell("SELECT count(*) FROM plugin_thold_template_contact WHERE template_id=" . $row["id"]);
 			if ($list > 0) {
-				$alert_stat = "<span style='font-weight:bold;color:green;'>" . __('Select Users', 'thold') . "</span>";
+				$alert_stat = "<span style='color:green'>" . __('Select Users', 'thold') . "</span>";
 			}
 
 			if (strlen($row['notify_extra'])) {
-				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails', 'thold') . "</span>";
+				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:purple'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold') . "</span>";
+					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:green'>" . __('Current List', 'thold') . "</span>";
 				} else {
 					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $alert_list . '</span>';
+					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:red'>" . $alert_list . '</span>';
 				}
 			}
 
 			if (!strlen($alert_stat)) {
-				$alert_stat = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold') . "</span>";
+				$alert_stat = "<span style='color:blue'>" . __('Log Only', 'thold') . "</span>";
 			}
 
 			/* show warning stats first */
 			$warn_stat = '';
 			if (strlen($row['notify_warning_extra'])) {
-				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:purple;'>" . __('Specific Emails', 'thold') . "</span>";
+				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:purple'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:green;'>" . __('Current List', 'thold'). "</span>";
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:green'>" . __('Current List', 'thold'). "</span>";
 				} else {
 					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='font-weight:bold;color:red;'>" . $warn_list . '</span>';
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:red'>" . $warn_list . '</span>';
 				}
 			}
 
 			if ((!strlen($warn_stat)) &&
 				(($row['thold_type'] == 0 && $row['thold_warning_hi'] == '' && $row['thold_warning_low'] == '') ||
 				($row['thold_type'] == 2 && $row['thold_time_warning_hi'] == '' && $row['thold_time_warning_low'] == ''))) {
-				$warn_stat  = "<span style='font-weight:bold;color:red;'>" . __('None', 'thold') . "</span>";
+				$warn_stat  = "<span style='color:red'>" . __('None', 'thold') . "</span>";
 			} elseif (!strlen($warn_stat)) {
-				$warn_stat  = "<span style='font-weight:bold;color:blue;'>" . __('Log Only', 'thold') . "</span>";
+				$warn_stat  = "<span style='color:blue'>" . __('Log Only', 'thold') . "</span>";
 			}
 
 			form_alternate_row('line' . $row['id'], true);
