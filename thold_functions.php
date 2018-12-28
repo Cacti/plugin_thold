@@ -4281,7 +4281,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_tem
 			return 0;
 		} else {
 			$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gl.host_id = ' . $host_id;
-			$Sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'dtr.data_source_name = ?';
+			$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'dtr.data_source_name = ?';
 
 			foreach($templates as $template) {
 				$new_where = $sql_where . ' AND tt.id = ' . $template['id'];
