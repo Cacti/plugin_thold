@@ -434,7 +434,7 @@ function form_actions() {
 				input_validate_input_number($matches[1]);
 				/* ==================================================== */
 
-				$list .= '<li><b>' . db_fetch_cell('SELECT name FROM thold_data WHERE id=' . $matches[1]) . '</b></li>';
+				$list .= '<li><i>' . db_fetch_cell('SELECT name_cache FROM thold_data WHERE id=' . $matches[1]) . '</i></li>';
 				$array[] = $matches[1];
 			}
 		}
