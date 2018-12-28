@@ -718,7 +718,6 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 
 	if (cacti_sizeof($data_sources)) {
 		foreach ($data_sources as $key => $value) {
-			$key = strtolower($key);
 			$nds[$key] = $value;
 		}
 
@@ -732,7 +731,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 				// Remove invalid characters
 				$item = str_replace('\\', '', $item);
 
-				$dsname = strtolower(trim(str_replace('|ds:', '', $item), " |\n\r"));
+				$dsname = trim(str_replace('|ds:', '', $item), " |\n\r");
 
 				$thold_item = db_fetch_row_prepared('SELECT td.id, td.local_graph_id,
 					td.percent_ds, td.expression, td.data_type, td.cdef, td.local_data_id,
