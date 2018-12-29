@@ -150,6 +150,10 @@
 	color: #0A0A0A;
 }
 
+.tholdWarning .linkEditMain {
+	color: #000000;
+}
+
 .tholdAlert {
 	background-color: rgba(242, 25, 36, 0.8);
 	text-align: center;
@@ -158,12 +162,20 @@
 	color: #0A0A0A;
 }
 
+.tholdAlert .linkEditMain {
+	color: #000000;
+}
+
 .tholdBaseAlert {
 	background-color: rgba(251, 74, 20, 0.8);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
 	color: #0A0A0A;
+}
+
+.tholdBaseAlert .linkEditMain {
+	color: #000000;
 }
 
 .tholdNotice {
