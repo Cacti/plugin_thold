@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2018 The Cacti Group                                 |
+ | Copyright (C) 2006-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -1238,7 +1238,7 @@ function thold_device_template_top() {
 		?>
 		<tr>
 			<td class='topBoxAlt'>
-				<p><?php print __('Click \'Continue\' to delete the following Threshold Template will be disassociated from the Device Template.', 'thold');?></p>
+				<p><?php print __('Click \'Continue\' to Delete the following Threshold Template will be disassociated from the Device Template.', 'thold');?></p>
 				<p><?php print __('Threshold Template Name: %s', html_escape($template['name']), 'thold');?>'<br>
 			</td>
 		</tr>

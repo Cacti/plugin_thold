@@ -68,6 +68,13 @@
 	width: 12.5%;
 }
 
+.tholdReTriggerNotify {
+	background-color: #F24010;
+	text-align: center;
+	white-space: nowrap;
+	width: 12.5%;
+}
+
 .tholdReTriggerEvent {
 	background-color: #FF7A30;
 	text-align: center;
@@ -134,6 +141,13 @@
 
 .tholdAlert {
 	background-color: #F21924;
+	text-align: center;
+	white-space: nowrap;
+	width: 14%;
+}
+
+.tholdAcknowledgment {
+	background-color: #EFEAE0;
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;

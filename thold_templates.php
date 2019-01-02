@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2018 The Cacti Group                                 |
+ | Copyright (C) 2006-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -174,21 +174,34 @@ function do_actions() {
 		}
 	}
 
+	$tholds     = array();
+	$thold_list = '';
+
 	foreach ($_POST as $var => $val) {
 		if (preg_match('/^chk_(.*)$/', $var, $matches)) {
 			$id = $matches[1];
 			input_validate_input_number($id);
 
-			$template = db_fetch_row_prepared('SELECT id, name FROM thold_template WHERE id = ?', array($id));
-			if ($template !== false) {
-				$count = db_fetch_cell_prepared('SELECT count(id) FROM thold_data WHERE thold_template_id = ?', array($id));
-				$tholds[$id] = $template['name'] . '<br>(' . $count . ' Thresholds)';
+			$template = db_fetch_row_prepared('SELECT id, name
+				FROM thold_template
+				WHERE id = ?',
+				array($id));
+
+			if (cacti_sizeof($template)) {
+				$count = db_fetch_cell_prepared('SELECT count(id)
+					FROM thold_data
+					WHERE thold_template_id = ?',
+					array($id));
+
+				$tholds[$id]   = __('%s<br>(%d Thresholds)', $template['name'], $count, 'gridalarms');
 				$tholds_list[] = $id;
 			}
 		}
 	}
 
-	$thold_list = implode('</li><li>', $tholds);
+	if (cacti_sizeof($tholds)) {
+		$thold_list = implode('</li><li>', $tholds);
+	}
 
 	top_header();
 
@@ -197,7 +210,8 @@ function do_actions() {
 	html_start_box($thold_template_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
 	$message = '';
-	if (isset($tholds) && sizeof($tholds)) {
+
+	if (cacti_sizeof($tholds)) {
 		switch ($drp_action) {
 			case 1:
 				$message = __('Click \'Continue\' to export the following Threshold Template(s).', 'thold');
@@ -229,8 +243,9 @@ function do_actions() {
 			$save_html .= "&nbsp;<input type='submit' class='ui-button ui-corner-all ui-widget' value='" . __esc('Continue', 'thold') . "' title='$button'>";
 		}
 	} else {
-		print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Threshold.', 'thold') . "</span></td></tr>\n";
-		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget' value='" . __esc('Return', 'thold') . "' onClick='cactiReturnTo()'>";
+		raise_message(40);
+		header('Location: thold_templates.php?header=false');
+		exit;
 	}
 
 	print "<tr>
@@ -247,6 +262,7 @@ function do_actions() {
 	form_end();
 
 	bottom_footer();
+
 	exit;
 }
 

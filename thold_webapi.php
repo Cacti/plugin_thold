@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2018 The Cacti Group                                 |
+ | Copyright (C) 2006-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -107,11 +107,13 @@ function thold_add_graphs_action_execute() {
 					$data_rrd_id = $rrdrow['id'];
 					$save['data_template_rrd_id'] = $data_rrd_id;
 
-					$existing = db_fetch_assoc("SELECT id
+					$existing = db_fetch_assoc_prepared("SELECT id
 						FROM thold_data
-						WHERE local_data_id='$local_data_id'
-						AND data_template_rrd_id='$data_rrd_id'
-						AND thold_template_id='" . $template['id'] . "' AND template_enabled='on'");
+						WHERE local_data_id = ?
+						AND data_template_rrd_id = ?
+						AND thold_template_id = ?
+						AND template_enabled='on'",
+						array($local_data_id, $data_rrd_id, $template['id']));
 
 					if (count($existing) == 0) {
 						$save['id'] = 0;
@@ -121,7 +123,8 @@ function thold_add_graphs_action_execute() {
 
 							$tname = db_fetch_cell_prepared('SELECT name
 								FROM data_template
-								WHERE id = ?', array($data_template_id));
+								WHERE id = ?',
+								array($data_template_id));
 
 							$name = $data_source_name;
 							if ($rrdrow['data_input_field_id'] != 0) {
@@ -217,11 +220,11 @@ function thold_add_graphs_action_prepare() {
 	if (strlen($found_list)) {
 		if (strlen($not_found)) {
 			print '<p>' . __('The following Graph has no Threshold Templates associated with them.', 'thold') . '</p>';
-			print '<ul>' . $not_found . '</ul>';
+			print '<div class="itemlist"><ul>' . $not_found . '</ul></div>';
 		}
 
 		print '<p>' . __('Press \'Continue\' after you have selected the Threshold Template to utilize.', 'thold') . '
-			<ul>' . $found_list . "</ul>
+			<div class="itemlist"><ul>' . $found_list . "</ul></div>
 			</td>
 		</tr>\n";
 
@@ -273,7 +276,7 @@ function thold_add_graphs_action_prepare() {
 	} else {
 		if (strlen($not_found)) {
 			print '<p>' . __('There are no Threshold Templates associated with the following Graph.', 'thold') . '</p>';
-			print '<ul>' . $not_found . '</ul>';
+			print '<div class="itemlist"><ul>' . $not_found . '</ul></div>';
 		}
 
 		$form_array = array(
@@ -285,7 +288,7 @@ function thold_add_graphs_action_prepare() {
 				'method' => 'drop_array',
 				'friendly_name' => __('Threshold Action', 'thold'),
 				'description' => __('You may either create a new Threshold Template, or an non-templated Threshold from this screen.', 'thold'),
-				'value' => 'None',
+				'value' => __('None', 'thold'),
 				'array' => array(1 => __('Create a new Threshold', 'thold'), 2 => __('Create a Threshold Template', 'thold'))
 			),
 			'usetemplate' => array(
@@ -389,9 +392,19 @@ function thold_add_graphs_action_array($action) {
 function thold_add_select_host() {
 	global $config;
 
+	$type_id              = get_nfilter_request_var('type_id');
+	$thold_template_id    = get_filter_request_var('thold_template_id');
+	$graph_template_id    = get_filter_request_var('graph_template_id');
 	$host_id              = get_filter_request_var('host_id');
 	$local_graph_id       = get_filter_request_var('local_graph_id');
 	$data_template_rrd_id = get_filter_request_var('data_template_rrd_id');
+
+	if ($type_id == '') {
+		$type_id = 'thold';
+	}
+
+	$_SESSION['thold_type_id'] = $type_id;
+	$_SESSION['thold_template_id'] = $thold_template_id;
 
 	$hosts = get_allowed_devices();
 
@@ -401,7 +414,13 @@ function thold_add_select_host() {
 
 	html_start_box(__('Threshold Creation Wizard', 'thold'), '70%', false, '3', 'center', '');
 
-	if ($host_id == '') {
+	if ($type_id == '') {
+		print '<tr><td class="center">' . __('Please select a Threshold Type', 'thold') . '</td></tr>';
+	} elseif ($type_id != 'thold' && $host_id == '') {
+		print '<tr><td class="center">' . __('Please select a Threshold Template', 'thold') . '</td></tr>';
+	} elseif ($type_id != 'thold' && $host_id != '') {
+		print '<tr><td class="center">' . __('Please select an available Graph Template', 'thold') . '</td></tr>';
+	} elseif ($host_id == '') {
 		print '<tr><td class="center">' . __('Please select a Device', 'thold') . '</td></tr>';
 	} elseif ($local_graph_id == '') {
 		print '<tr><td class="center">' . __('Please select a Graph', 'thold') . '</td></tr>';
@@ -411,18 +430,121 @@ function thold_add_select_host() {
 		print '<tr><td class="center">' . __('Please press \'Create\' to activate your Threshold', 'thold') . '</td></tr>';
 	}
 
+	$templates = db_fetch_assoc('SELECT id, name
+		FROM thold_template
+		WHERE thold_enabled="on"
+		ORDER BY name');
+
 	html_end_box();
 
 	html_start_box('', '70%', false, '3', 'center', '');
 
-	/* display the host dropdown */
+	/* display the type dropdown */
 	?>
 	<tr><td><table class='filterTable' align='center'>
 		<tr>
-			<?php print html_host_filter(get_request_var('host_id'));?>
+			<td>
+				<?php print __('Create Type', 'thold');?>
+			</td>
+			<td>
+				<select id='type_id' name='type_id' onChange='applyFilter("type")'>
+					<option value=''><?php print __('Select a Threshold Type', 'thold');?></option>
+					<option value='thold'<?php print $type_id == 'thold' ? ' selected':'';?>><?php print __esc('Non Templated', 'thold');?></option>
+					<?php if (cacti_sizeof($templates)) {?><option value='template'<?php print $type_id == 'template' ? ' selected':'';?>><?php print __esc('Threshold Template', 'thold');?></option><?php }?>
+				</select>
+			</td>
 		</tr><?php
 
-	if ($host_id != '') {
+	if ($type_id == 'template') {?>
+		<tr id='row_thold_template_id'>
+			<td>
+				<?php print __('Create Type', 'thold');?>
+			</td>
+			<td>
+				<select id='thold_template_id' name='thold_template_id' onChange='applyFilter("thold_template")'>
+					<option value=''><?php print __('Select a Threshold Template', 'thold');?></option><?php
+						if (sizeof($templates)) {
+							foreach($templates as $t) {
+								print "<option value='" . $t['id'] . "'" . ($t['id'] == $thold_template_id ? ' selected' : '') . '>' . html_escape($t['name']) . '</option>';
+							}
+						}
+					?>
+				</select>
+			</td>
+		</tr><?php
+	}
+
+	if ($type_id != 'thold' && $thold_template_id != '') {
+		/* display the host dropdown */
+		$graph_templates = array_rekey(db_fetch_assoc_prepared('SELECT DISTINCT gt.id
+			FROM graph_templates AS gt
+			INNER JOIN graph_templates_item AS gti
+			ON gt.id=gti.graph_template_id
+			AND local_graph_id=0
+			INNER JOIN data_template_rrd AS dtr
+			ON dtr.id=task_item_id
+			INNER JOIN thold_template AS tt
+			ON tt.data_template_id=dtr.data_template_id
+			INNER JOIN thold_data AS td
+			ON td.data_template_id=dtr.data_template_id
+			AND gt.id=td.graph_template_id
+			AND tt.id = ?',
+			array($thold_template_id)), 'id', 'id');
+
+		// Limit ths hosts to only hosts that either have a graph template
+		// Listed as multiple, or do not have a threshold created
+		// Using the Graph Template listed
+		if (sizeof($graph_templates)) {
+			$host_ids = array_rekey(db_fetch_assoc('SELECT DISTINCT rs.id
+				FROM (
+					SELECT h.id, gt.id AS gti, gt.multiple
+					FROM host AS h,graph_templates AS gt
+				) AS rs
+				LEFT JOIN graph_local AS gl
+				ON gl.graph_template_id=rs.gti
+				AND gl.host_id=rs.id
+				WHERE (gti IN(' . implode(', ', $graph_templates) . ')
+				AND host_id IS NULL)
+				OR rs.multiple = "on"'), 'id', 'id');
+		} else {
+			$host_ids = array('0');
+		}
+
+		?>
+		<tr id='row_graph_template_id'>
+			<td>
+				<?php print __('Graph Template', 'thold');?>
+			</td>
+			<td>
+				<select id='graph_template_id' name='graph_template_id' onChange='applyFilter("graph_template")'>
+					<option value=''><?php print __('Select a Graph Template', 'thold');?></option><?php
+					$gts = db_fetch_assoc('SELECT gt.id, gt.name
+						FROM graph_templates AS gt
+						WHERE id IN (' . implode(', ', $graph_templates) . ')');
+
+					foreach ($gts as $row) {
+						print "<option value='" . $row['id'] . "'" . ($row['id'] == $graph_template_id ? ' selected' : '') . '>' . html_escape($row['name']) . '</option>';
+					}?>
+				</select>
+			</td>
+		</tr>
+		<?php
+
+		if ($graph_template_id != '') {
+			?>
+			<tr id='row_host_id'>
+				<?php print html_host_filter(get_request_var('host_id'), 'applyFilter', 'h.id IN (' . implode(', ', $host_ids) . ')');?>
+			</tr><?php
+		}
+	} elseif ($type_id == 'thold') {
+		/* display the host dropdown */
+		?>
+		<tr id='row_host_id'>
+			<?php print html_host_filter(get_request_var('host_id'));?>
+		</tr><?php
+	}
+
+	if ($host_id != '' && $type_id == 'thold') {
 		$graphs = get_allowed_graphs('gl.host_id=' . $host_id);
 
 		if ($graphs !== false && count($graphs) == 1) {
@@ -430,13 +552,13 @@ function thold_add_select_host() {
 		}
 
 		?>
-		<tr>
+		<tr id='row_local_graph_id'>
 			<td>
 				<?php print __('Graph', 'thold');?>
 			</td>
 			<td>
 				<select id='local_graph_id' name='local_graph_id' onChange='applyFilter("graph")'>
-					<option value=''></option><?php
+					<option value=''><?php print __('Select a Graph', 'thold');?></option><?php
 					foreach ($graphs as $row) {
 						print "<option value='" . $row['local_graph_id'] . "'" . ($row['local_graph_id'] == $local_graph_id ? ' selected' : '') . '>' . html_escape($row['title_cache']) . '</option>';
 					}?>
@@ -445,7 +567,7 @@ function thold_add_select_host() {
 		</tr><?php
 	} else {
 		?>
-		<tr>
+		<tr id='row_local_graph_id'>
 			<td>
 				<input type='hidden' id='local_graph_id' name='local_graph_id' value=''>
 			</td>
@@ -474,14 +596,14 @@ function thold_add_select_host() {
 
 		/* show the data source options */
 		?>
-		<tr>
+		<tr id='row_data_template_rrd_id'>
 			<td>
 				<?php print __('Data Source', 'thold');?>
 			</td>
 			<td>
 				<input type='hidden' id='local_data_id' name='local_data_id' value='<?php print $local_data_id;?>'>
 				<select id='data_template_rrd_id' name='data_template_rrd_id' onChange='applyFilter("ds")'>
-					<option value=''></option><?php
+					<option value=''><?php print __('Select a Data Source', 'thold');?></option><?php
 					foreach ($dss as $row) {
 						print "<option value='" . $row['id'] . "'" . ($row['id'] == $data_template_rrd_id ? ' selected' : '') . '>' . html_escape($row['data_source_name']) . '</option>';
 					}?>
@@ -490,14 +612,14 @@ function thold_add_select_host() {
 		</tr></table></td></tr><?php
 	} else {
 		?>
-		<tr>
+		<tr id='row_data_template_rrd_id'>
 			<td>
 				<input type='hidden' id='data_template_rrd_id' name='data_template_rrd_id' value=''>
 			</td>
 		</tr></table></td></tr><?php
 	}
 
-	if ($data_template_rrd_id != '') {
+	if ($data_template_rrd_id != '' || ($type_id == 'template' && $host_id != '' && $thold_template_id != '')) {
 		print "<tr><td class='center' colspan='2'><input type='hidden' name='save' id='save' value='save'><input id='go' type='button' value='" . __esc('Create', 'thold') . "' title='" . __esc('Create Threshold', 'thold') . "'></td></tr>";
 	} else {
 		print "<tr><td class='center' colspan='2'></td></tr>";
@@ -507,35 +629,103 @@ function thold_add_select_host() {
 
 	form_end();
 
-	html_start_box('', '70%', false, '3', 'center', '');
+	print "<table style='margin-left:auto;margin-right:auto'>";
 
-	if ($local_graph_id != '') {
-		print "<tr><td class='center'><img id='graphi' src='../../graph_image.php?local_graph_id=$local_graph_id&rra_id=0'></td></tr>";
+	print '<tr><td class=\'center\'><p class=\'center\' style=\'max-width:500px\'><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
+	if ($type_id == 'thold') {
+		print __('This Threshold will not be templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold in one step, select Threshold Template from the drop down and continue until the \'Create\' button appears.', 'thold') . '<br><br></p></td></tr>';
+	} else {
+		print __('Using the Threshold Template option you will be prompted for both a Threshold Template and then a Device before receiving the \'Create\' prompt at which time, pressing the \'Create\' button, you will may be prompted for additional information related to the Graph.  Once you have a responded to those prompts, both the Threshold and Graph will be created at the same time.', 'thold') . '<br><br></p></td></tr>';
 	}
 
-	print '<tr><td class=\'center\'>&nbsp;</td></tr>';
-	print '<tr><td class=\'center\'><b><font color=\'red\'>' . __('NOTE:', 'thold') .'</font></b>';
-	print __('This Graph Threshold will not be templated.', 'thold') . '<br><br>';
-	print __('Associate a Threshold Template to a Device Template', 'thold') . '<br>';
-	print __('Then click \'Apply Thresholds\' to create templated Thresholds', 'thold') . '</td></tr>';
+	if ($local_graph_id != '') {
+		print "<tr><td class='center'><p><img class='center' id='graphi' style='max-width:700px;' src='../../graph_image.php?local_graph_id=$local_graph_id&rra_id=0'></p></td></tr>";
+	}
 
-	html_end_box();
+	print "</table>";
 
 	?>
 	<script type='text/javascript'>
 
 	function applyFilter(target) {
-		strURL = 'thold.php?action=add&header=false&host_id=' + $('#host_id').val();
-		if (target != 'host_id') {
-			strURL += '&local_graph_id=' + $('#local_graph_id').val();
+		strURL  = 'thold.php?action=add&header=false';
+		strURL += '&type_id=' + $('#type_id').val();
+
+		if ($('#type_id').val() == 'thold') {
+			if ($('#host_id').length && $('#host_id').val() != '0') {
+				strURL += '&host_id=' + $('#host_id').val();
+			}
+
+			if ($('#local_graph_id').length && $('#local_graph_id').val() != '0') {
+				strURL += '&local_graph_id=' + $('#local_graph_id').val();
+			}
+
+			if ($('#data_template_rrd_id').length && $('#data_template_rrd_id').val() != '0') {
+				strURL += '&data_template_rrd_id=' + $('#data_template_rrd_id').val();
+			}
+		} else {
+			if ($('#thold_template_id').length && $('#thold_template_id').val() != '0') {
+				strURL += '&thold_template_id=' + $('#thold_template_id').val();
+			}
+
+			if ($('#graph_template_id').length && $('#graph_template_id').val() != '0') {
+				strURL += '&graph_template_id=' + $('#graph_template_id').val();
+			}
+
+			if ($('#host_id').length && $('#host_id').val() != '0') {
+				strURL += '&host_id=' + $('#host_id').val();
+			}
 		}
-		if (target == 'ds') {
-			strURL += '&data_template_rrd_id=' + $('#data_template_rrd_id').val();
-		}
+
 		loadPageNoHeader(strURL, false, true);
 	}
 
 	$(function() {
+		if ($('#type_id').val() == '') {
+			$('#thold_template_id').val('');
+			$('#host_id').val('-1');
+			$('#graph_template_id').val('');
+			$('#local_graph_id').val('');
+			$('#data_template_rrd_id').val('');
+
+			$('#row_thold_template_id').hide();
+			$('#row_host_id').hide();
+			$('#row_graph_template_id').hide();
+			$('#row_local_graph_id').hide();
+			$('#row_data_template_rrd_id').hide();
+		}
+
+		if ($('#host_id').val() == '-1' || $('#host_id').val() == '') {
+			$('#local_graph_id').val('');
+			$('#data_template_rrd_id').val('');
+		}
+
+		if ($('#type_id').val() == 'thold') {
+			if ($('#local_graph_id').val() == '') {
+				$('#data_template_rrd_id').val('');
+				$('#row_data_template_rrd_id').hide();
+				$('#go').hide();
+			}
+
+			if ($('#data_template_rrd_id').val() == '') {
+				$('#go').hide();
+				if ($('#go').button('instance') !== undefined) {
+					$('#go').button('disable');
+				} else {
+					$('#go').prop('disabled', true);
+				}
+			}
+		} else {
+			if ($('#host_id').val() == '-1' || $('#host_id').val() == '') {
+				$('#go').hide();
+				if ($('#go').button('instance') !== undefined) {
+					$('#go').button('disable');
+				} else {
+					$('#go').prop('disabled', true);
+				}
+			}
+		}
+
 		$('#go').button().click(function(event) {
 			event.preventDefault();
             strURL = $('#tholdform').attr('action');

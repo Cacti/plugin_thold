@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2018 The Cacti Group                                 |
+ | Copyright (C) 2006-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -343,8 +343,9 @@ function form_actions() {
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Duplicate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
-			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Notification List.', 'thold') . "</span></td></tr>\n";
-			$save_html = "<input type='button' value='" . __esc('Return', 'thold'). "' onClick='cactiReturnTo()'>";
+			raise_message(40);
+			header('Location: notify_lists.php?action=edit&header=false&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+			exit;
 		}
 
 		print "<tr>
@@ -406,8 +407,9 @@ function form_actions() {
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
-			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Threshold Template.', 'thold') . "</span></td></tr>\n";
-			$save_html = "<input type='button' value='" . __esc('Return', 'thold') . "' onClick='cactiReturnTo()'>";
+			raise_message(40);
+			header('Location: notify_lists.php?action=edit&header=false&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+			exit;
 		}
 
 		print "	<tr>
@@ -470,9 +472,9 @@ function form_actions() {
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
-			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Threshold.', 'thold') . "</span></td></tr>\n";
-
-			$save_html = "<input type='button' value='" . __esc('Return', 'thold') . "' onClick='cactiReturnTo()'>";
+			raise_message(40);
+			header('Location: notify_lists.php?action=edit&header=false&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+			exit;
 		}
 
 		print "	<tr>
@@ -530,16 +532,16 @@ function form_actions() {
 					</td>
 				</tr>\n";
 
-				$save_html = "<input type='button' value='" . __('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue', 'thold') . "' title='" . __('Disassociate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
-			print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Device.', 'thold') . "</span></td></tr>\n";
-
-			$save_html = "<input type='button' value='" . __esc('Return', 'thold'). "' onClick='cactiReturnTo()'>";
+			raise_message(40);
+			header('Location: notify_lists.php?action=edit&header=false&id=' . get_request_var('id') . '&tab=' . get_request_var('tab'));
+			exit;
 		}
 
 		print "<tr>
-				<td class='saveRow'>
+			<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
 				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
 				<input type='hidden' name='save_associate' value='1'>
@@ -665,8 +667,15 @@ function edit() {
 		hosts($header_label);
 	} elseif ($current_tab == 'tholds') {
 		tholds($header_label);
-	} else {
+	} elseif ($current_tab == 'templates') {
 		templates($header_label);
+	} else {
+		$save = array(
+			'current_tab' => $current_tab,
+			'header_label' => $header_label
+		);
+
+		api_plugin_hook_function('notify_list_display', $save);
 	}
 }
 
@@ -875,19 +884,19 @@ function hosts($header_label) {
 			form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], 250);
 			form_selectable_cell(round(($host['id']), 2), $host['id']);
 			if ($host['thold_send_email'] == 0) {
-				form_selectable_cell('<span style="color:blue">' . __('Disabled', 'thold') . '</span>', $host['id']);
+				form_selectable_cell('<span class="deviceDisabled">' . __('Disabled', 'thold') . '</span>', $host['id']);
 			} elseif ($host['thold_send_email'] == 1) {
-				form_selectable_cell('<span style="color:purple">' . __('Global List', 'thold') . '</span>', $host['id']);
+				form_selectable_cell('<span class="deviceRecovering">' . __('Global List', 'thold') . '</span>', $host['id']);
 			} elseif ($host['thold_host_email'] == get_request_var('id')) {
 				if ($host['thold_send_email'] == 2) {
-					form_selectable_cell('<span style="color:green">' . __('Current List Only', 'thold') . '</span>', $host['id']);
+					form_selectable_cell('<span class="deviceUp">' . __('Current List Only', 'thold') . '</span>', $host['id']);
 				} else {
-					form_selectable_cell('<span style="color:green">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
+					form_selectable_cell('<span class="deviceUp">' . __('Current and Global List(s)', 'thold') . '</span>', $host['id']);
 				}
 			} elseif ($host['thold_host_email'] == '0') {
-				form_selectable_cell('<span style="color:green">' . __('None', 'thold') . '</span>', $host['id']);
+				form_selectable_cell('<span class="deviceUp">' . __('None', 'thold') . '</span>', $host['id']);
 			} else {
-				form_selectable_cell('<span style="color:red">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
+				form_selectable_cell('<span class="deviceDown">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
 			}
 			form_selectable_cell((isset($host_graphs[$host['id']]) ? $host_graphs[$host['id']] : 0), $host['id']);
 			form_selectable_cell((isset($host_data_sources[$host['id']]) ? $host_data_sources[$host['id']] : 0), $host['id']);
@@ -916,11 +925,9 @@ function hosts($header_label) {
 }
 
 function tholds($header_label) {
-	global $item_rows, $config;
+	global $item_rows, $assoc_actions, $config;
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
-
-	$thold_actions = array(1 => __('Associate', 'thold'), 2 => __('Disassociate', 'thold'));
 
 	thold_request_validation();
 
@@ -1096,65 +1103,81 @@ function tholds($header_label) {
 	if (count($result)) {
 		foreach ($result as $row) {
 			$c++;
-			$alertstat='no';
+			$alertstat = __('No', 'thold');
 			$bgcolor='green';
 			if ($row['thold_type'] != 1) {
 				if ($row['thold_alert'] != 0) {
-					$alertstat='yes';
+					$alertstat = __('Yes', 'thold');
 				}
 			} else {
 				if ($row['bl_alert'] == 1) {
-					$alertstat='baseline-LOW';
+					$alertstat = __('baseline-LOW', 'thold');
 				} elseif ($row['bl_alert'] == 2)  {
-					$alertstat='baseline-HIGH';
+					$alertstat = __('baseline-HIGH', 'thold');
 				}
 			};
 
 			/* show alert stats first */
 			$alert_stat = '';
-			$list = db_fetch_cell('SELECT count(*) FROM plugin_thold_threshold_contact WHERE thold_id=' . $row['id']);
+			$list = db_fetch_cell_prepared('SELECT count(*)
+				FROM plugin_thold_threshold_contact
+				WHERE thold_id = ?',
+				array($row['id']));
+
 			if ($list > 0) {
-				$alert_stat = "<span style='color:green'>" . __('Select Users', 'thold') . "</span>";
+				$alert_stat = "<span class='deviceUp'>" . __('Select Users', 'thold') . "</span>";
 			}
 
 			if (strlen($row['notify_extra'])) {
-				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:purple'>" . __('Specific Emails', 'thold') . "</span>";
+				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceRecovering'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:green'>" . __('Current List', 'thold') . "</span>";
+					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceUp'>" . __('Current List', 'thold') . "</span>";
 				} else {
-					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:red'>" . $alert_list . '</span>';
+					$alert_info = db_fetch_cell_prepared('SELECT name
+						FROM plugin_notification_lists
+						WHERE id = ?',
+						array($row['notify_alert']));
+
+					if ($alert_info != '') {
+						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . $alert_info . '</span>';
+					} else {
+						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . __('Unknown Threshold', 'thold') . '</span>';
+					}
 				}
 			}
 
 			if (!strlen($alert_stat)) {
-				$alert_stat = "<span style='color:blue'>" . __('Log Only', 'thold') . "</span>";
+				$alert_stat = "<span class='deviceUnknown'>" . __('Log Only', 'thold') . "</span>";
 			}
 
 			/* show warning stats first */
 			$warn_stat = '';
 			if (strlen($row['notify_warning_extra'])) {
-				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:purple'>" . __('Specific Emails', 'thold') . "</span>";
+				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceRecovering'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:green'>" . __('Current List', 'thold') . "</span>";
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceUp'>" . __('Current List', 'thold') . "</span>";
 				} else {
-					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:red'>" . $warn_list . '</span>';
+					$warn_list = db_fetch_cell_prepared('SELECT name
+						FROM plugin_notification_lists
+						WHERE id = ?',
+						array($row['notify_warning']));
+
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceDown'>" . $warn_list . '</span>';
 				}
 			}
 
 			if ((!strlen($warn_stat)) &&
 				(($row['thold_type'] == 0 && $row['thold_warning_hi'] == '' && $row['thold_warning_low'] == '') ||
 				($row['thold_type'] == 2 && $row['time_warning_hi'] == '' && $row['time_warning_low'] == ''))) {
-				$warn_stat  = "<span style='color:red'>" . __('None', 'thold') . "</span>";
+				$warn_stat  = "<span class='deviceDown'>" . __('None', 'thold') . "</span>";
 			} elseif (!strlen($warn_stat)) {
-				$warn_stat  = "<span style='color:blue'>" . __('Log Only', 'thold'). "</span>";
+				$warn_stat  = "<span class='deviceUnknown'>" . __('Log Only', 'thold'). "</span>";
 			}
 
 			form_alternate_row('line' . $row['id'], true);
@@ -1182,17 +1205,15 @@ function tholds($header_label) {
 	form_hidden_box('id', get_request_var('id'), '');
 	form_hidden_box('save_tholds', '1', '');
 
-	draw_actions_dropdown($thold_actions);
+	draw_actions_dropdown($assoc_actions);
 
 	form_end();
 }
 
 function templates($header_label) {
-	global $config, $item_rows;
+	global $config, $item_rows, $assoc_actions;
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
-
-	$thold_actions = array(1 => __('Associate', 'thold'), 2 => __('Disassociate', 'thold'));
 
 	thold_template_request_validation();
 
@@ -1204,6 +1225,8 @@ function templates($header_label) {
 	}
 
 	$sql_where = '';
+	$sql_order = get_order_string();
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
 	if (get_request_var('associated') == 'true') {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . '(notify_warning=' . get_request_var('id') . ' OR notify_alert=' . get_request_var('id') . ')';
@@ -1212,9 +1235,6 @@ function templates($header_label) {
 	if (strlen(get_request_var('filter'))) {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_template.name LIKE '%" . get_request_var('filter') . "%'";
 	}
-
-	$sql_order = get_order_string();
-	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
 	$sql = "SELECT * FROM thold_template
 		$sql_where
@@ -1324,49 +1344,65 @@ function templates($header_label) {
 
 			/* show alert stats first */
 			$alert_stat = '';
-			$list = db_fetch_cell("SELECT count(*) FROM plugin_thold_template_contact WHERE template_id=" . $row["id"]);
+			$list = db_fetch_cell_prepared("SELECT count(*)
+				FROM plugin_thold_template_contact
+				WHERE template_id = ?",
+				array($row["id"]));
+
 			if ($list > 0) {
-				$alert_stat = "<span style='color:green'>" . __('Select Users', 'thold') . "</span>";
+				$alert_stat = "<span class='deviceUp'>" . __('Select Users', 'thold') . "</span>";
 			}
 
 			if (strlen($row['notify_extra'])) {
-				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:purple'>" . __('Specific Emails', 'thold') . "</span>";
+				$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceRecovering'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_alert'])) {
 				if (get_request_var('id') == $row['notify_alert']) {
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:green'>" . __('Current List', 'thold') . "</span>";
+					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceUp'>" . __('Current List', 'thold') . "</span>";
 				} else {
-					$alert_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_alert']);
-					$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span style='color:red'>" . $alert_list . '</span>';
+					$alert_info = db_fetch_cell_prepared('SELECT name
+						FROM plugin_notification_lists
+						WHERE id = ?',
+						array($row['notify_alert']));
+
+					if ($alert_info != '') {
+						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . $alert_info . '</span>';
+					} else {
+						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . __('Unknown Template', 'thold') . '</span>';
+					}
 				}
 			}
 
 			if (!strlen($alert_stat)) {
-				$alert_stat = "<span style='color:blue'>" . __('Log Only', 'thold') . "</span>";
+				$alert_stat = "<span class='deviceUnknown'>" . __('Log Only', 'thold') . "</span>";
 			}
 
 			/* show warning stats first */
 			$warn_stat = '';
 			if (strlen($row['notify_warning_extra'])) {
-				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:purple'>" . __('Specific Emails', 'thold') . "</span>";
+				$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceRecovering'>" . __('Specific Emails', 'thold') . "</span>";
 			}
 
 			if (!empty($row['notify_warning'])) {
 				if (get_request_var('id') == $row['notify_warning']) {
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:green'>" . __('Current List', 'thold'). "</span>";
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceUp'>" . __('Current List', 'thold'). "</span>";
 				} else {
-					$warn_list = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . $row['notify_warning']);
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span style='color:red'>" . $warn_list . '</span>';
+					$warn_list = db_fetch_cell_prepared('SELECT name
+						FROM plugin_notification_lists
+						WHERE id = ?',
+						array($row['notify_warning']));
+
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceDown'>" . $warn_list . '</span>';
 				}
 			}
 
 			if ((!strlen($warn_stat)) &&
 				(($row['thold_type'] == 0 && $row['thold_warning_hi'] == '' && $row['thold_warning_low'] == '') ||
 				($row['thold_type'] == 2 && $row['thold_time_warning_hi'] == '' && $row['thold_time_warning_low'] == ''))) {
-				$warn_stat  = "<span style='color:red'>" . __('None', 'thold') . "</span>";
+				$warn_stat  = "<span class='deviceDown'>" . __('None', 'thold') . "</span>";
 			} elseif (!strlen($warn_stat)) {
-				$warn_stat  = "<span style='color:blue'>" . __('Log Only', 'thold') . "</span>";
+				$warn_stat  = "<span class='deviceUnknown'>" . __('Log Only', 'thold') . "</span>";
 			}
 
 			form_alternate_row('line' . $row['id'], true);
@@ -1392,7 +1428,7 @@ function templates($header_label) {
 	form_hidden_box('id', get_request_var('id'), '');
 	form_hidden_box('save_templates', '1', '');
 
-	draw_actions_dropdown($thold_actions);
+	draw_actions_dropdown($assoc_actions);
 
 	form_end();
 }

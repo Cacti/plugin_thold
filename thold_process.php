@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2018 The Cacti Group                                 |
+ | Copyright (C) 2006-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -225,9 +225,9 @@ if (sizeof($tholds)) {
 			$lasttime = $currenttime - $thold_data['rrd_step'];
 		}
 
-		db_execute_prepared("UPDATE thold_data
+		db_execute_prepared('UPDATE thold_data
 			SET tcheck = 1, lastread = ?, lasttime = ?, oldvalue = ?
-			WHERE id = ?",
+			WHERE id = ?',
 			array($currentval, date('Y-m-d H:i:s', $currenttime),  $lasttime, $thold_data['thold_id'])
 		);
 	}

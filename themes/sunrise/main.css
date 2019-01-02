@@ -78,6 +78,14 @@
 	color: #CACACA;
 }
 
+.tholdReTriggerNotify {
+	background-color: rgba(200, 125, 88, 0.2);
+	text-align: center;
+	white-space: nowrap;
+	width: 12.5%;
+	color: #CACACA;
+}
+
 .tholdReTriggerEvent {
 	background-color: rgba(255, 122, 48, 0.2);
 	text-align: center;
@@ -152,6 +160,14 @@
 
 .tholdAlert {
 	background-color: rgba(242, 25, 36, 0.2);
+	text-align: center;
+	white-space: nowrap;
+	width: 14%;
+	color: #CACACA;
+}
+
+.tholdAcknowledgment {
+	background-color: rgba(242, 120, 88, 0.2);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;

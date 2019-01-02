@@ -78,6 +78,14 @@
 	color: #0A0A0A;
 }
 
+.tholdReTriggerNotify {
+	background-color: rgba(200, 125, 88, 0.8);
+	text-align: center;
+	white-space: nowrap;
+	width: 12.5%;
+	color: #0A0A0A;
+}
+
 .tholdReTriggerEvent {
 	background-color: rgba(255, 122, 48, 0.8);
 	text-align: center;
@@ -163,6 +171,18 @@
 }
 
 .tholdAlert .linkEditMain {
+	color: #000000;
+}
+
+.tholdAcknowledgment {
+	background-color: rgba(242, 200, 86, 0.8);
+	text-align: center;
+	white-space: nowrap;
+	width: 14%;
+	color: #0A0A0A;
+}
+
+.tholdAcknowledgment .linkEditMain {
 	color: #000000;
 }
 

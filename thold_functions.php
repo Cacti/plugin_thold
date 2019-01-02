@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2018 The Cacti Group                                 |
+ | Copyright (C) 2006-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -95,6 +95,59 @@ function thold_debug($txt) {
 	if (read_config_option('thold_log_debug') == 'on' || $debug) {
 		thold_cacti_log($txt);
 	}
+}
+
+function thold_template_avail_devices($thold_template_id = 0) {
+	/* display the host dropdown */
+	if ($thold_template_id > 0) {
+		$graph_templates = array_rekey(db_fetch_assoc_prepared('SELECT DISTINCT gt.id
+			FROM graph_templates AS gt
+			INNER JOIN graph_templates_item AS gti
+			ON gt.id=gti.graph_template_id
+			AND local_graph_id=0
+			INNER JOIN data_template_rrd AS dtr
+			ON dtr.id=task_item_id
+			INNER JOIN thold_template AS tt
+			ON tt.data_template_id=dtr.data_template_id
+			INNER JOIN thold_data AS td
+			ON td.data_template_id=dtr.data_template_id
+			AND gt.id=td.graph_template_id
+			AND tt.id = ?',
+			array($thold_template_id)), 'id', 'id');
+	} else {
+		$graph_templates = array_rekey(db_fetch_assoc_prepared('SELECT DISTINCT gt.id
+			FROM graph_templates AS gt
+			INNER JOIN graph_templates_item AS gti
+			ON gt.id=gti.graph_template_id
+			AND local_graph_id=0
+			INNER JOIN data_template_rrd AS dtr
+			ON dtr.id=task_item_id
+			INNER JOIN thold_template AS tt
+			ON tt.data_template_id=dtr.data_template_id
+			INNER JOIN thold_data AS td
+			ON td.data_template_id=dtr.data_template_id
+			AND gt.id=td.graph_template_id'), 'id', 'id');
+	}
+
+	// Limit ths hosts to only hosts that either have a graph template
+	// Listed as multiple, or do not have a threshold created
+	// Using the Graph Template listed
+	$host_ids = array();
+	if (cacti_sizeof($graph_templates)) {
+		$host_ids = array_rekey(db_fetch_assoc('SELECT DISTINCT rs.id
+			FROM (
+				SELECT h.id, gt.id AS gti, gt.multiple
+				FROM host AS h,graph_templates AS gt
+			) AS rs
+			LEFT JOIN graph_local AS gl
+			ON gl.graph_template_id=rs.gti
+			AND gl.host_id=rs.id
+			WHERE (gti IN(' . implode(', ', $graph_templates) . ')
+			AND host_id IS NULL)
+			OR rs.multiple = "on"'), 'id', 'id');
+	}
+
+	return (cacti_sizeof($host_ids) ? 'h.id IN (' . implode(', ', $host_ids) . ')':'');
 }
 
 function thold_initialize_rusage() {
@@ -3800,7 +3853,7 @@ function save_thold() {
 			get_request_var('thold_low') == '' &&
 			get_request_var('thold_fail_trigger') != 0) {
 
-			$banner = __('You must specify either &quot;High Alert Threshold&quot; or &quot;Low Alert Threshold&quot; or both!<br>RECORD NOT UPDATED!', 'thold');
+			$banner = __('You must specify either \'High Alert Threshold\' or \'Low Alert Threshold\' or both!<br>RECORD NOT UPDATED!', 'thold');
 
 			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
 
@@ -3812,7 +3865,7 @@ function save_thold() {
 			get_request_var('thold_low') != '' &&
 			round(get_request_var('thold_low'),4) >= round(get_request_var('thold_hi'), 4)) {
 
-			$banner = __('Impossible thresholds: &quot;High Threshold&quot; smaller than or equal to &quot;Low Threshold&quot;<br>RECORD NOT UPDATED!', 'thold');
+			$banner = __('Impossible thresholds: \'High Threshold\' smaller than or equal to \'Low Threshold\'<br>RECORD NOT UPDATED!', 'thold');
 
 			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
 
@@ -3824,7 +3877,7 @@ function save_thold() {
 			get_request_var('thold_warning_low') != '' &&
 			round(get_request_var('thold_warning_low'),4) >= round(get_request_var('thold_warning_hi'), 4)) {
 
-			$banner = __('Impossible thresholds: &quot;High Warning Threshold&quot; smaller than or equal to &quot;Low Warning Threshold&quot;<br>RECORD NOT UPDATED!', 'thold');
+			$banner = __('Impossible thresholds: \'High Warning Threshold\' smaller than or equal to \'Low Warning Threshold\'<br>RECORD NOT UPDATED!', 'thold');
 
 			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
 
@@ -3841,7 +3894,7 @@ function save_thold() {
 			}
 
 			if (isempty_request_var('bl_pct_down') && isempty_request_var('bl_pct_up')) {
-				$banner .= __('You must specify either &quot;Baseline Deviation UP&quot; or &quot;Baseline Deviation DOWN&quot; or both!<br>RECORD NOT UPDATED!', 'thold');
+				$banner .= __('You must specify either \'Baseline Deviation UP\' or \'Baseline Deviation DOWN\' or both!<br>RECORD NOT UPDATED!', 'thold');
 
 				thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
 
@@ -3873,7 +3926,9 @@ function save_thold() {
 
 	if (!isempty_request_var('name')) {
 		$name = str_replace(array("\\", '"', "'"), '', get_nfilter_request_var('name'));
-	} elseif (isset_request_var('data_template_rrd_id')) {
+	}
+
+	if (isset_request_var('data_template_rrd_id')) {
 		$data_source_name = db_fetch_cell_prepared('SELECT data_source_name
 			FROM data_template_rrd
 			WHERE id = ?',
@@ -4136,7 +4191,7 @@ function thold_mandatory_field_ok($name, $friendly_name) {
 
 	if (!isset_request_var($name) || (isset_request_var($name) &&
 		(trim(get_nfilter_request_var($name)) == '' || get_nfilter_request_var($name) <= 0))) {
-		$banner .= __('&quot;%s&quot; must be set to positive integer value!<br>RECORD NOT UPDATED!</span>', $friendly_name, 'thold');
+		$banner .= __('\'%s\' must be set to positive integer value!<br>RECORD NOT UPDATED!</span>', $friendly_name, 'thold');
 
 		return false;
 	}

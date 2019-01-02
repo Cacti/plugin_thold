@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2018 The Cacti Group                                 |
+ | Copyright (C) 2006-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -47,12 +47,19 @@ if (isset_request_var('id')) {
 
 switch(get_request_var('action')) {
 	case 'ajax_hosts':
-		//get_allowed_ajax_hosts(true, false, 'h.id IN (SELECT host_id FROM thold_data)');
-		get_allowed_ajax_hosts(true, false);
+		if ($_SESSION['thold_type_id'] == 'template') {
+			get_allowed_ajax_hosts(true, false, thold_template_avail_devices($_SESSION['thold_template_id']));
+		} else {
+			get_allowed_ajax_hosts(true, false, '');
+		}
 
 		break;
 	case 'ajax_hosts_noany':
-		get_allowed_ajax_hosts(false, false, 'h.id IN (SELECT host_id FROM thold_data)');
+		if ($_SESSION['thold_type_id'] == 'template') {
+			get_allowed_ajax_hosts(false, false, thold_template_avail_devices($_SESSION['thold_template_id']));
+		} else {
+			get_allowed_ajax_hosts(false, false, '');
+		}
 
 		break;
 	case 'add':
@@ -339,6 +346,9 @@ function do_actions() {
 		}
 	}
 
+	$tholds     = array();
+	$thold_list = '';
+
 	foreach ($_POST as $var => $val) {
 		if (preg_match('/^chk_(.*)$/', $var, $matches)) {
 			$thold_id = $matches[1];
@@ -371,10 +381,13 @@ function do_actions() {
 			}
 
 			$tholds[$thold_id] = $name;
-			$tholds_list[] = $thold_id;
+			$tholds_list[]     = $thold_id;
 		}
 	}
-	$thold_list = implode('</li><li>', $tholds);
+
+	if (cacti_sizeof($tholds)) {
+		$thold_list = implode('</li><li>', $tholds);
+	}
 
 	top_header();
 
@@ -383,7 +396,7 @@ function do_actions() {
 	html_start_box($thold_actions[get_request_var('drp_action')], '60%', '', '3', 'center', '');
 
 	$message = '';
-	if (isset($tholds) && sizeof($tholds)) {
+	if (cacti_sizeof($tholds)) {
 		switch ($drp_action) {
 			case 1: // Delete thresholds
 				$message = __('Click \'Delete\' to delete the following Threshold(s).', 'thold');
@@ -435,8 +448,9 @@ function do_actions() {
 			$save_html .= "&nbsp;<input type='submit' class='ui-button ui-corner-all ui-widget' value='" . __esc('Continue', 'thold') . "' title='$button'>";
 		}
 	} else {
-		print "<tr><td class='even'><span class='textError'>" . __('You must select at least one Threshold.', 'thold') . "</span></td></tr>\n";
-		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget' value='" . __esc('Return', 'thold') . "' onClick='cactiReturnTo()'>";
+		raise_message(40);
+		header('Location: tholds.php?header=false');
+		exit;
 	}
 
 	print "<tr>
@@ -453,6 +467,7 @@ function do_actions() {
 	form_end();
 
 	bottom_footer();
+
 	exit;
 }
 
