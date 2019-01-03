@@ -157,6 +157,11 @@ function thold_config_settings() {
 	include_once('./plugins/thold/thold_functions.php');
 
 	$tabs['alerts'] = __('Alerting/Thold', 'thold');
+
+	if (isset($settings['alerts'])) {
+		$temp = $settings['alerts'];
+	}
+
 	$settings['alerts'] = array(
 		'general_header' => array(
 			'friendly_name' => __('General', 'thold'),
@@ -489,5 +494,9 @@ function thold_config_settings() {
 			'default' => __('A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>', 'thold'),
 		),
 	);
+
+	if (isset($temp)) {
+		$settings['alerts'] = array_merge($settings['alerts'], $temp);
+	}
 }
 
