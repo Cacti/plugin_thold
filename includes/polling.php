@@ -31,6 +31,12 @@ function thold_poller_bottom() {
 		$empty_value = read_config_option('thold_empty_if_speed_default', true);
 	}
 
+	// Force upgrade the database if there is a problem
+	if (!db_column_exists('thold_data', 'name_cache')) {
+		include_once($config['base_path'] . '/plugins/thold/includes/database.php');
+		thold_upgrade_database(true);
+	}
+
 	if (read_config_option('thold_daemon_enable') == '') {
 		/* record the start time */
 		$start = microtime(true);

@@ -945,6 +945,12 @@ function thold_edit() {
 			FROM thold_data
 			WHERE id = ?',
 			array(get_request_var('id')));
+
+		if (!isset($thold_data['local_graph_id'])) {
+			include_once($config['base_path'] . '/plugins/thold/includes/database.php');
+
+			thold_upgrade_database(true);
+		}
 	} elseif (isset_request_var('local_data_id') &&
 		isset_request_var('local_graph_id') &&
 		isset_request_var('host_id') &&
