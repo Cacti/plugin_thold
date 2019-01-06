@@ -3928,6 +3928,8 @@ function save_thold() {
 				return $thold;
 			}
 		}
+
+		set_request_var('thold_enabled', 'on');
 	}
 
 	$host_id              = get_filter_request_var('host_id');

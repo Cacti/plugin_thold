@@ -434,7 +434,7 @@ function tholds() {
 
 			print "<a href='". html_escape($config['url_path'] . 'graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graph', 'thold') . "'></a>";
 
-			print "<a class='hyperLink' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&threshold_id=' . $thold_data['id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' alt='' title='" . __esc('View Threshold History', 'thold') . "'></a>";
+			print "<a class='hyperLink' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&reset=1&threshold_id=' . $thold_data['id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' alt='' title='" . __esc('View Threshold History', 'thold') . "'></a>";
 
 			print '</td>';
 			print "<td class='left nowrap'>" . ($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('filter')) : __('No name set', 'thold')) . '</td>';
@@ -1117,15 +1117,18 @@ function form_thold_log_filter() {
 						<select id='threshold_id' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('threshold_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
 							<?php
-							$tholds = db_fetch_assoc('SELECT DISTINCT thold_data.id, thold_data.name
-								FROM thold_data
-								INNER JOIN plugin_thold_log ON thold_data.id=plugin_thold_log.threshold_id ' .
-								(get_request_var('host_id') > 0 ? 'WHERE thold_data.host_id=' . get_request_var('host_id'):'') .
-								' ORDER by thold_data.name');
+							$tholds = db_fetch_assoc('SELECT DISTINCT tt.id, tt.name
+								FROM thold_template AS tt
+								INNER JOIN thold_data AS td
+								ON tt.id=td.thold_template_id
+								INNER JOIN plugin_thold_log AS tl
+								ON td.id = tl.threshold_id ' .
+								(get_request_var('host_id') > 0 ? 'WHERE td.host_id=' . get_request_var('host_id'):'') .
+								' ORDER by tt.name');
 
 							if (sizeof($tholds)) {
 								foreach ($tholds as $thold) {
-									print "<option value='" . $thold['id'] . "'"; if (get_request_var('threshold_id') == $thold['id']) { print ' selected'; } print '>' . $thold['name'] . "</option>\n";
+									print "<option value='" . $thold['id'] . "'"; if (get_request_var('threshold_id') == $thold['id']) { print ' selected'; } print '>' . $thold['name'] . '</option>';
 								}
 							}
 							?>
