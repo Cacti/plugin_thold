@@ -1882,6 +1882,7 @@ function templates() {
 	$display_text = array(
 		'name'               => array('display' => __('Name', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
 		'id'                 => array('display' => __('ID', 'thold'), 'sort' => 'ASC', 'align' => 'right'),
+		'thresholds'         => array('display' => __('Thresholds', 'thold'), 'sort' => '', 'align' => 'right'),
 		'data_template_name' => array('display' => __('Data Template', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
 		'thold_type'         => array('display' => __('Type', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
 		'data_source_name'   => array('display' => __('DS Name', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
@@ -1890,8 +1891,6 @@ function templates() {
 		'nosort3'            => array('display' => __('Trigger', 'thold'), 'sort' => '', 'align' => 'left'),
 		'nosort4'            => array('display' => __('Duration', 'thold'), 'sort' => '', 'align' => 'left'),
 		'nosort5'            => array('display' => __('Repeat', 'thold'), 'sort' => '', 'align' => 'left'),
-		'nosort6'            => array('display' => __('Suggested Name', 'thold'), 'sort' => '', 'align' => 'left'),
-		'thresholds'         => array('display' => __('Thresholds', 'thold'), 'sort' => '', 'align' => 'right')
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
@@ -1946,6 +1945,7 @@ function templates() {
 			form_alternate_row('line' . $template['id']);
 			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name  . '</a>', $template['id']);
 			form_selectable_cell($template['id'], $template['id'], '', 'right');
+			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold.php?reset=1&thold_template_id=' . $template['id']) . '">' . $template['thresholds']  . '</a>', $template['id'], '', 'right');
 			form_selectable_cell(filter_value($template['data_template_name'], get_request_var('filter')), $template['id']);
 			form_selectable_cell($thold_types[$template['thold_type']], $template['id'], '', 'left');
 			form_selectable_cell($template['data_source_name'], $template['id'], '', 'left');
@@ -1958,8 +1958,6 @@ function templates() {
 			$duration = plugin_thold_duration_convert($template['data_template_id'], $value_duration, 'time', 'data_template_id');
 			form_selectable_cell((strlen($duration) ? $duration:'-'), $template['id'], '', 'left');
 			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id'], '', 'left');
-			form_selectable_cell(filter_value($suggested_name, get_request_var('filter')), $template['id']);
-			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold.php?thold_template_id=' . $template['id']) . '">' . $template['thresholds']  . '</a>', $template['id'], '', 'right');
 			form_checkbox_cell($template['data_template_name'], $template['id']);
 			form_end_row();
 		}
