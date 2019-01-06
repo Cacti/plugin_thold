@@ -608,7 +608,10 @@ function edit() {
 	$header_label = get_notification_header_label();
 
 	if (isset_request_var('id')) {
-		$list = db_fetch_row('SELECT * FROM plugin_notification_lists WHERE id=' . get_request_var('id'));
+		$list = db_fetch_row_prepared('SELECT *
+			FROM plugin_notification_lists
+			WHERE id = ?',
+			array(get_request_var('id')));
 	} else {
 		$list = array();
 		$current_tab = 'general';
@@ -787,7 +790,7 @@ function hosts($header_label) {
 					<td>
 						<span>
 							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
-							<input type='button' name='clearf' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
+							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
 						</span>
 					</td>
 				</tr>
@@ -805,7 +808,7 @@ function hosts($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'notify_lists.php?header=false&action=edit&id=<?php print get_request_var('id');?>&clearf=true'
+			strURL = 'notify_lists.php?header=false&action=edit&id=<?php print get_request_var('id');?>&clear=true'
 			loadPageNoHeader(strURL);
 		}
 
@@ -1041,7 +1044,7 @@ function tholds($header_label) {
 					<td>
 						<span>
 							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
-							<input type='button' name='clearf' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
+							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
 						</span>
 					</td>
 				</tr>
@@ -1060,7 +1063,7 @@ function tholds($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print get_request_var('id');?>&clearf=true'
+			strURL = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print get_request_var('id');?>&clear=true'
 			loadPageNoHeader(strURL);
 		}
 
@@ -1280,7 +1283,7 @@ function templates($header_label) {
 					<td>
 						<span>
 							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
-							<input type='button' id='clearf' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
+							<input type='button' id='clear' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
 						</span>
 					</td>
 				</tr>
@@ -1297,7 +1300,7 @@ function templates($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print get_request_var('id');?>&clearf=true'
+			strURL = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print get_request_var('id');?>&clear=true'
 			loadPageNoHeader(strURL);
 		}
 
