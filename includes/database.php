@@ -1120,7 +1120,7 @@ function thold_upgrade_database($force = false) {
 
 		if (cacti_sizeof($tholds)) {
 			foreach($tholds as $thold) {
-				$name = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id']);
+				$name = thold_format_name(false, $thold['local_graph_id'], $thold['local_data_id']);
 
 				plugin_thold_log_changes($thold['id'], 'reapply_name', array('id' => $thold['id']));
 
