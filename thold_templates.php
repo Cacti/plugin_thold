@@ -117,10 +117,23 @@ function do_actions() {
 						if ($id > 0) {
 							plugin_thold_log_changes($id, 'deleted_template', array('id' => $id));
 
-							db_execute_prepared('DELETE FROM thold_template WHERE id = ? LIMIT 1', array($id));
-							db_execute_prepared('DELETE FROM plugin_thold_template_contact WHERE template_id = ?', array($id));
-							db_execute_prepared('DELETE FROM plugin_thold_host_template WHERE thold_template_id = ?', array($id));
-							db_execute_prepared("UPDATE thold_data SET thold_template_id = '', template_enabled = '' WHERE thold_template_id = ?", array($id));
+							db_execute_prepared('DELETE FROM thold_template
+								WHERE id = ?
+								LIMIT 1',
+								array($id));
+
+							db_execute_prepared('DELETE FROM plugin_thold_template_contact
+								WHERE template_id = ?',
+								array($id));
+
+							db_execute_prepared('DELETE FROM plugin_thold_host_template
+								WHERE thold_template_id = ?',
+								array($id));
+
+							db_execute_prepared("UPDATE thold_data
+								SET thold_template_id = '', template_enabled = ''
+								WHERE thold_template_id = ?",
+								array($id));
 						}
 					}
 					break;
@@ -193,14 +206,14 @@ function do_actions() {
 					WHERE thold_template_id = ?',
 					array($id));
 
-				$tholds[$id]   = __('%s<br>(%d Thresholds)', $template['name'], $count, 'gridalarms');
+				$tholds[$id]   = __('%s<br>(%d Thresholds)', html_escape($template['name']), $count, 'thold');
 				$tholds_list[] = $id;
 			}
 		}
 	}
 
 	if (cacti_sizeof($tholds)) {
-		$thold_list = implode('</li><li>', $tholds);
+		$thold_list = implode('</i></li><li><i>', $tholds);
 	}
 
 	top_header();
@@ -234,7 +247,7 @@ function do_actions() {
 		print "	<tr>
 			<td colspan='2' class='textArea'>
 				<p>$message</p>
-				<div class='itemlist'><ul><li>$thold_list</li></ul></div>
+				<div class='itemlist'><ul><li><i>$thold_list</i></li></ul></div>
 			</td>
 			</tr>\n";
 
@@ -309,7 +322,12 @@ function template_export() {
 
 function template_add() {
 	if ((!isset_request_var('save')) || (get_nfilter_request_var('save') == '')) {
-		$data_templates = array_rekey(db_fetch_assoc('SELECT id, name FROM data_template ORDER BY name'), 'id', 'name');
+		$data_templates = array_rekey(
+			db_fetch_assoc('SELECT id, name
+				FROM data_template
+				ORDER BY name'),
+			'id', 'name'
+		);
 
 		top_header();
 
@@ -486,8 +504,7 @@ function template_add() {
 
 		$temp = db_fetch_row_prepared('SELECT id, name
 			FROM data_template
-			WHERE id = ?
-			LIMIT 1',
+			WHERE id = ?',
 			array($data_template_id));
 
 		$save['id']   = '';
@@ -501,8 +518,7 @@ function template_add() {
 		$temp = db_fetch_row_prepared('SELECT id, local_data_template_rrd_id,
 			data_source_name, data_input_field_id
 			FROM data_template_rrd
-			WHERE id = ?
-			LIMIT 1',
+			WHERE id = ?',
 			array($data_source_id));
 
 		$save['data_source_name']  = $temp['data_source_name'];
@@ -511,7 +527,7 @@ function template_add() {
 		if ($temp['data_input_field_id'] != 0) {
 			$temp2['name'] = db_fetch_cell_prepared('SELECT name
 				FROM data_input_fields
-				WHERE id = ? LIMIT 1',
+				WHERE id = ?',
 				array($temp['data_input_field_id']));
 		} else {
 			$temp2['name'] = $temp['data_source_name'];
@@ -792,8 +808,7 @@ function template_edit() {
 
 	$thold_data = db_fetch_row_prepared('SELECT *
 		FROM thold_template
-		WHERE id = ?
-		LIMIT 1',
+		WHERE id = ?',
 		array($id));
 
 	$temp = db_fetch_row_prepared('SELECT id, name
@@ -835,8 +850,8 @@ function template_edit() {
 	$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data,
 		plugin_thold_contacts.type, user_auth.full_name
 		FROM plugin_thold_contacts, user_auth
-		WHERE user_auth.id=plugin_thold_contacts.user_id
-		AND plugin_thold_contacts.data!=''
+		WHERE user_auth.id = plugin_thold_contacts.user_id
+		AND plugin_thold_contacts.data != ''
 		ORDER BY user_auth.full_name ASC, plugin_thold_contacts.type ASC");
 
 	if (!empty($users)) {
@@ -916,7 +931,7 @@ function template_edit() {
 		}
 	}
 
-	$vhf = explode("|", trim(VALID_HOST_FIELDS, "()"));
+	$vhf = explode('|', trim(VALID_HOST_FIELDS, '()'));
 	if (sizeof($vhf)) {
 		foreach ($vhf as $r) {
 			$nr[] = "<span style='color:blue;'>|" . $r . "|</span>";
@@ -1845,7 +1860,8 @@ function templates() {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-	$total_rows    = db_fetch_cell('SELECT count(*) FROM thold_template');
+	$total_rows = db_fetch_cell('SELECT count(*)
+		FROM thold_template');
 
 	$template_list = db_fetch_assoc("SELECT
 		thold_template.*,
@@ -1905,7 +1921,8 @@ function templates() {
 				$step = db_fetch_cell_prepared('SELECT rrd_step
 					FROM data_template_data
 					WHERE data_template_id = ?
-					LIMIT 1', array($template['data_template_id']));
+					LIMIT 1',
+					array($template['data_template_id']));
 
 				$value_duration = $template['bl_ref_time_range'] / $step;;
 

@@ -33,13 +33,16 @@ function thold_upgrade_database($force = false) {
 
 	$v = plugin_thold_version();
 
-	$oldv = db_fetch_cell('SELECT version FROM plugin_config WHERE directory="thold"');
+	$oldv = db_fetch_cell('SELECT version
+		FROM plugin_config
+		WHERE directory="thold"');
 
 	if ($force) {
 		$oldv = '0.1';
 	}
 
-	db_execute('DELETE FROM settings WHERE name="plugin_thold_version"');
+	db_execute('DELETE FROM settings
+		WHERE name="plugin_thold_version"');
 
 	// Added in thold v0.4
 	if (cacti_version_compare($oldv, '0.4', '<') && !db_column_exists('thold_data', 'local_graph_id')) {

@@ -110,7 +110,9 @@ function form_thold_filter() {
 							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
 							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold');?></option>
 							<?php
-							$sites = db_fetch_assoc('SELECT id,name FROM sites ORDER BY name');
+							$sites = db_fetch_assoc('SELECT id, name
+								FROM sites
+								ORDER BY name');
 
 							if (sizeof($sites)) {
 								foreach ($sites as $sites) {
@@ -785,7 +787,9 @@ function form_host_filter() {
 							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
 							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold');?></option>
 							<?php
-							$sites = db_fetch_assoc('SELECT id,name FROM sites ORDER BY name');
+							$sites = db_fetch_assoc('SELECT id, name
+								FROM sites
+								ORDER BY name');
 
 							if (sizeof($sites)) {
 								foreach ($sites as $sites) {
@@ -827,7 +831,9 @@ function form_host_filter() {
 							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
 							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold');?></option>
 							<?php
-							$host_templates = db_fetch_assoc('SELECT id,name FROM host_template ORDER BY name');
+							$host_templates = db_fetch_assoc('SELECT id, name
+								FROM host_template
+								ORDER BY name');
 
 							if (sizeof($host_templates)) {
 								foreach ($host_templates as $host_template) {
@@ -1083,7 +1089,9 @@ function form_thold_log_filter() {
 							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
 							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold');?></option>
 							<?php
-							$sites = db_fetch_assoc('SELECT id,name FROM sites ORDER BY name');
+							$sites = db_fetch_assoc('SELECT id, name
+								FROM sites
+								ORDER BY name');
 
 							if (sizeof($sites)) {
 								foreach ($sites as $sites) {

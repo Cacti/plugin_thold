@@ -397,13 +397,13 @@ function do_actions() {
 				$name = thold_format_name($template, $local_graph_id, $local_data_id);
 			}
 
-			$tholds[$thold_id] = $name;
+			$tholds[$thold_id] = html_escape($name);
 			$tholds_list[]     = $thold_id;
 		}
 	}
 
 	if (cacti_sizeof($tholds)) {
-		$thold_list = implode('</li><li>', $tholds);
+		$thold_list = implode('</i></li><li><i>', $tholds);
 	}
 
 	top_header();
@@ -452,7 +452,7 @@ function do_actions() {
 		print "<tr>
 			<td colspan='2'>
 				<p>$message</p>
-				<div class='itemlist'><ul><li>$thold_list</li></ul></div>
+				<div class='itemlist'><ul><li><i>$thold_list</i></li></ul></div>
 			</td>
 		</tr>";
 
@@ -653,7 +653,9 @@ function list_tholds() {
 							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
 							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold');?></option>
 							<?php
-							$sites = db_fetch_assoc('SELECT id,name FROM sites ORDER BY name');
+							$sites = db_fetch_assoc('SELECT id, name
+								FROM sites
+								ORDER BY name');
 
 							if (sizeof($sites)) {
 								foreach ($sites as $sites) {
@@ -1158,9 +1160,9 @@ function thold_edit() {
 				}
 
 				if (!empty($template_data_rrd['thold_id'])) {
-					print "<li class=''><a class='hyperLink $selected' href='" . html_escape('thold.php?action=edit&id=' . $template_data_rrd['thold_id']) . "'>" . $template_data_rrd['data_source_name'] . '<br>' . $cur_setting . '</a></li>';
+					print "<li class=''><a class='hyperLink $selected' href='" . html_escape('thold.php?action=edit&id=' . $template_data_rrd['thold_id']) . "'>" . html_escape($template_data_rrd['data_source_name']) . '<br>' . $cur_setting . '</a></li>';
 				} else {
-					print "<li class=''><a class='hyperLink $selected' href='" . html_escape('thold.php?action=edit&local_data_id=' . $template_data_rrd['local_data_id'] . '&data_template_rrd_id=' . $template_data_rrd['id']) . '&local_graph_id=' . $thold_data['local_graph_id'] . '&host_id=' . $thold_data['host_id'] . '&data_template_id=' . $thold_data['data_template_id'] . '&thold_template_id=0' . "'>" . $template_data_rrd['data_source_name'] . '<br>' . $cur_setting . '</a></li>';
+					print "<li class=''><a class='hyperLink $selected' href='" . html_escape('thold.php?action=edit&local_data_id=' . $template_data_rrd['local_data_id'] . '&data_template_rrd_id=' . $template_data_rrd['id']) . '&local_graph_id=' . $thold_data['local_graph_id'] . '&host_id=' . $thold_data['host_id'] . '&data_template_id=' . $thold_data['data_template_id'] . '&thold_template_id=0' . "'>" . html_escape($template_data_rrd['data_source_name']) . '<br>' . $cur_setting . '</a></li>';
 				}
 			}
 

@@ -62,8 +62,12 @@ function sig_handler($signo) {
 			}
 		} else {
 			db_execute('TRUNCATE plugin_thold_daemon_processes');
+
 			db_execute('TRUNCATE plugin_thold_daemon_data');
-			db_execute('UPDATE thold_data SET thold_daemon_pid = "" WHERE thold_daemon_pid != ""');
+
+			db_execute('UPDATE thold_data
+				SET thold_daemon_pid = ""
+				WHERE thold_daemon_pid != ""');
 		}
 
 		cacti_log('WARNING: Thold Daemon Process (' . getmypid() . ') terminated by user', false, 'THOLD');

@@ -113,10 +113,22 @@ function form_actions() {
 
 			if ($selected_items != false) {
 				if (get_request_var('drp_action') == '1') { /* delete */
-					db_execute('DELETE FROM plugin_notification_lists WHERE ' . array_to_sql_or($selected_items, 'id'));
-					db_execute('UPDATE host SET thold_send_email = 0 WHERE thold_send_email = 2 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
-					db_execute('UPDATE host SET thold_send_email = 1 WHERE thold_send_email = 3 AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
-					db_execute('UPDATE host SET thold_host_email = 0 WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
+					db_execute('DELETE FROM plugin_notification_lists
+						WHERE ' . array_to_sql_or($selected_items, 'id'));
+
+					db_execute('UPDATE host
+						SET thold_send_email = 0
+						WHERE thold_send_email = 2
+						AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
+
+					db_execute('UPDATE host
+						SET thold_send_email = 1
+						WHERE thold_send_email = 3
+						AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
+
+					db_execute('UPDATE host
+						SET thold_host_email = 0
+						WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
 				} elseif (get_request_var('drp_action') == '2') { /* duplicate */
 					$i = 1;
 
@@ -167,16 +179,26 @@ function form_actions() {
 				if (get_request_var('drp_action') == '1') { /* associate */
 					for ($i=0;($i<count($selected_items));$i++) {
 						/* set the notification list */
-						db_execute('UPDATE host SET thold_host_email=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+						db_execute('UPDATE host
+							SET thold_host_email=' . get_request_var('id') . '
+							WHERE id=' . $selected_items[$i]);
+
 						/* set the global/list election */
-						db_execute('UPDATE host SET thold_send_email=' . get_request_var('notification_action') . ' WHERE id=' . $selected_items[$i]);
+						db_execute('UPDATE host
+							SET thold_send_email=' . get_request_var('notification_action') . '
+							WHERE id=' . $selected_items[$i]);
 					}
 				} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 					for ($i=0;($i<count($selected_items));$i++) {
 						/* set the notification list */
-						db_execute('UPDATE host SET thold_host_email=0 WHERE id=' . $selected_items[$i]);
+						db_execute('UPDATE host
+							SET thold_host_email=0
+							WHERE id=' . $selected_items[$i]);
+
 						/* set the global/list election */
-						db_execute('UPDATE host SET thold_send_email=' . get_request_var('notification_action') . ' WHERE id=' . $selected_items[$i]);
+						db_execute('UPDATE host
+							SET thold_send_email=' . get_request_var('notification_action') . '
+							WHERE id=' . $selected_items[$i]);
 					}
 				}
 			}
@@ -195,12 +217,19 @@ function form_actions() {
 							/* clear other settings */
 							if (get_request_var('notification_warning_action') == 1) {
 								/* set the notification list */
-								db_execute('UPDATE thold_template SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+								db_execute('UPDATE thold_template
+									SET notify_warning=' . get_request_var('id') . '
+									WHERE id=' . $selected_items[$i]);
+
 								/* clear other items */
-								db_execute("UPDATE thold_template SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
+								db_execute("UPDATE thold_template
+									SET notify_warning_extra=''
+									WHERE id=" . $selected_items[$i]);
 							} else {
 								/* set the notification list */
-								db_execute('UPDATE thold_template SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+								db_execute('UPDATE thold_template
+									SET notify_warning=' . get_request_var('id') . '
+									WHERE id=' . $selected_items[$i]);
 							}
 						}
 
@@ -208,13 +237,22 @@ function form_actions() {
 							/* clear other settings */
 							if (get_request_var('notification_alert_action') == 1) {
 								/* set the notification list */
-								db_execute('UPDATE thold_template SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+								db_execute('UPDATE thold_template
+									SET notify_alert=' . get_request_var('id') . '
+									WHERE id=' . $selected_items[$i]);
+
 								/* clear other items */
-								db_execute("UPDATE thold_template SET notify_extra='' WHERE id=" . $selected_items[$i]);
-								db_execute('DELETE FROM plugin_thold_template_contact WHERE template_id=' . $selected_items[$i]);
+								db_execute("UPDATE thold_template
+									SET notify_extra=''
+									WHERE id=" . $selected_items[$i]);
+
+								db_execute('DELETE FROM plugin_thold_template_contact
+									WHERE template_id=' . $selected_items[$i]);
 							} else {
 								/* set the notification list */
-								db_execute('UPDATE thold_template SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+								db_execute('UPDATE thold_template
+									SET notify_alert=' . get_request_var('id') . '
+									WHERE id=' . $selected_items[$i]);
 							}
 						}
 					}
@@ -222,12 +260,18 @@ function form_actions() {
 					for ($i=0;($i<count($selected_items));$i++) {
 						if (get_request_var('notification_warning_action') > 0) {
 							/* set the notification list */
-							db_execute('UPDATE thold_template SET notify_warning=0 WHERE id=' . $selected_items[$i] . ' AND notify_warning=' . get_request_var('id'));
+							db_execute('UPDATE thold_template
+								SET notify_warning=0
+								WHERE id=' . $selected_items[$i] . '
+								AND notify_warning=' . get_request_var('id'));
 						}
 
 						if (get_request_var('notification_alert_action') > 0) {
 							/* set the notification list */
-							db_execute('UPDATE thold_template SET notify_alert=0 WHERE id=' . $selected_items[$i] . ' AND notify_alert=' . get_request_var('id'));
+							db_execute('UPDATE thold_template
+								SET notify_alert=0
+								WHERE id=' . $selected_items[$i] . '
+								AND notify_alert=' . get_request_var('id'));
 						}
 					}
 				}
@@ -247,12 +291,19 @@ function form_actions() {
 							/* clear other settings */
 							if (get_request_var('notification_warning_action') == 1) {
 								/* set the notification list */
-								db_execute('UPDATE thold_data SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+								db_execute('UPDATE thold_data
+									SET notify_warning=' . get_request_var('id') . '
+									WHERE id=' . $selected_items[$i]);
+
 								/* clear other items */
-								db_execute("UPDATE thold_data SET notify_warning_extra='' WHERE id=" . $selected_items[$i]);
+								db_execute("UPDATE thold_data
+									SET notify_warning_extra=''
+									WHERE id=" . $selected_items[$i]);
 							} else {
 								/* set the notification list */
-								db_execute('UPDATE thold_data SET notify_warning=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+								db_execute('UPDATE thold_data
+									SET notify_warning=' . get_request_var('id') . '
+									WHERE id=' . $selected_items[$i]);
 							}
 						}
 
@@ -260,13 +311,21 @@ function form_actions() {
 							/* clear other settings */
 							if (get_request_var('notification_alert_action') == 1) {
 								/* set the notification list */
-								db_execute('UPDATE thold_data SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+								db_execute('UPDATE thold_data
+									SET notify_alert=' . get_request_var('id') . '
+									WHERE id=' . $selected_items[$i]);
+
 								/* clear other items */
-								db_execute("UPDATE thold_data SET notify_extra='' WHERE id=" . $selected_items[$i]);
+								db_execute("UPDATE thold_data
+									SET notify_extra=''
+									WHERE id=" . $selected_items[$i]);
+
 								db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $selected_items[$i]);
 							} else {
 								/* set the notification list */
-								db_execute('UPDATE thold_data SET notify_alert=' . get_request_var('id') . ' WHERE id=' . $selected_items[$i]);
+								db_execute('UPDATE thold_data
+									SET notify_alert=' . get_request_var('id') . '
+									WHERE id=' . $selected_items[$i]);
 							}
 						}
 					}
@@ -274,12 +333,18 @@ function form_actions() {
 					for ($i=0;($i<count($selected_items));$i++) {
 						if (get_request_var('notification_warning_action') > 0) {
 							/* set the notification list */
-							db_execute('UPDATE thold_data SET notify_warning=0 WHERE id=' . $selected_items[$i] . ' AND notify_warning=' . get_request_var('id'));
+							db_execute('UPDATE thold_data
+								SET notify_warning=0
+								WHERE id=' . $selected_items[$i] . '
+								AND notify_warning=' . get_request_var('id'));
 						}
 
 						if (get_request_var('notification_alert_action') > 0) {
 							/* set the notification list */
-							db_execute('UPDATE thold_data SET notify_alert=0 WHERE id=' . $selected_items[$i] . ' AND notify_alert=' . get_request_var('id'));
+							db_execute('UPDATE thold_data
+								SET notify_alert=0
+								WHERE id=' . $selected_items[$i] . '
+								AND notify_alert=' . get_request_var('id'));
 						}
 					}
 				}
@@ -297,7 +362,10 @@ function form_actions() {
 	/* setup some variables */
 	$list = ''; $array = array(); $list_name = '';
 	if (isset_request_var('id')) {
-		$list_name = db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_filter_request_var('id'));
+		$list_name = db_fetch_cell_prepared('SELECT name
+			FROM plugin_notification_lists
+			WHERE id = ?',
+			array(get_filter_request_var('id')));
 	}
 
 	if (isset_request_var('save_list')) {
@@ -308,7 +376,12 @@ function form_actions() {
 				input_validate_input_number($matches[1]);
 				/* ==================================================== */
 
-				$list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT name FROM plugin_notification_lists WHERE id = ?', array($matches[1]))) . '</li>';
+				$name = db_fetch_cell_prepared('SELECT name
+					FROM plugin_notification_lists
+					WHERE id = ?',
+					array($matches[1]));
+
+				$list .= '<li><i>' . html_escape($name) . '</i></li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -371,7 +444,12 @@ function form_actions() {
 				input_validate_input_number($matches[1]);
 				/* ==================================================== */
 
-				$list .= '<li><i>' . db_fetch_cell('SELECT name FROM thold_template WHERE id=' . $matches[1]) . '</i></li>';
+				$name = db_fetch_cell_prepared('SELECT name
+					FROM thold_template
+					WHERE id = ?',
+					array($matches[1]));
+
+				$list .= '<li><i>' . html_escape($name) . '</i></li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -436,7 +514,12 @@ function form_actions() {
 				input_validate_input_number($matches[1]);
 				/* ==================================================== */
 
-				$list .= '<li><i>' . db_fetch_cell('SELECT name_cache FROM thold_data WHERE id=' . $matches[1]) . '</i></li>';
+				$name = db_fetch_cell_prepared('SELECT name_cache
+					FROM thold_data
+					WHERE id = ?',
+					array($matches[1]));
+
+				$list .= '<li><i>' . html_escape($name) . '</i></li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -501,7 +584,11 @@ function form_actions() {
 				input_validate_input_number($matches[1]);
 				/* ==================================================== */
 
-				$list .= '<li>' . db_fetch_cell('SELECT description FROM host WHERE id=' . $matches[1]) . '</li>';
+				$name = db_fetch_cell_prepared('SELECT description
+					FROM host WHERE id = ?',
+					array($matches[1]));
+
+				$list .= '<li><i>' . html_escape($name) . '</i></li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -568,7 +655,11 @@ function form_actions() {
 
 function get_notification_header_label() {
 	if (!isempty_request_var('id')) {
-		$list = db_fetch_row('SELECT * FROM plugin_notification_lists WHERE id=' . get_filter_request_var('id'));
+		$list = db_fetch_row_prepared('SELECT *
+			FROM plugin_notification_lists
+			WHERE id = ?',
+			array(get_filter_request_var('id')));
+
 		$header_label = __('[edit: %s]', $list['name'], 'thold');
 	} else {
 		$header_label = __('[new]', 'thold');
@@ -756,9 +847,11 @@ function hosts($header_label) {
 							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>><?php print __('Any', 'thold');?></option>
 							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold');?></option>
 							<?php
-							$host_templates = db_fetch_assoc('select id,name from host_template order by name');
+							$host_templates = db_fetch_assoc('SELECT id, name
+								FROM host_template
+								ORDER BY name');
 
-							if (sizeof($host_templates) > 0) {
+							if (sizeof($host_templates)) {
 								foreach ($host_templates as $host_template) {
 									print "<option value='" . $host_template['id'] . "'"; if (get_request_var('host_template_id') == $host_template['id']) { print ' selected'; } print '>' . html_escape($host_template['name']) . "</option>\n";
 								}
@@ -852,11 +945,23 @@ function hosts($header_label) {
 		from host
 		$sql_where");
 
-	$host_graphs       = array_rekey(db_fetch_assoc('SELECT host_id, count(*) as graphs FROM graph_local GROUP BY host_id'), 'host_id', 'graphs');
-	$host_data_sources = array_rekey(db_fetch_assoc('SELECT host_id, count(*) as data_sources FROM data_local GROUP BY host_id'), 'host_id', 'data_sources');
+	$host_graphs = array_rekey(
+		db_fetch_assoc('SELECT host_id, COUNT(*) AS graphs
+			FROM graph_local
+			GROUP BY host_id'),
+		'host_id', 'graphs'
+	);
+
+	$host_data_sources = array_rekey(
+		db_fetch_assoc('SELECT host_id, COUNT(*) AS data_sources
+			FROM data_local GROUP BY host_id'),
+		'host_id', 'data_sources'
+	);
 
 	$sql_query = "SELECT *
-		FROM host $sql_where
+		FROM host
+		$sql_where
+		ORDER BY description
 		LIMIT " . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
 	$hosts = db_fetch_assoc($sql_query);
@@ -884,8 +989,10 @@ function hosts($header_label) {
 	if (sizeof($hosts)) {
 		foreach ($hosts as $host) {
 			form_alternate_row('line' . $host['id'], true);
+
 			form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], 250);
 			form_selectable_cell(round(($host['id']), 2), $host['id']);
+
 			if ($host['thold_send_email'] == 0) {
 				form_selectable_cell('<span class="deviceDisabled">' . __('Disabled', 'thold') . '</span>', $host['id']);
 			} elseif ($host['thold_send_email'] == 1) {
@@ -899,13 +1006,20 @@ function hosts($header_label) {
 			} elseif ($host['thold_host_email'] == '0') {
 				form_selectable_cell('<span class="deviceUp">' . __('None', 'thold') . '</span>', $host['id']);
 			} else {
-				form_selectable_cell('<span class="deviceDown">' . db_fetch_cell('SELECT name FROM plugin_notification_lists WHERE id=' . get_request_var('id')) . '</span>', $host['id']);
+				$name = db_fetch_cell_prepared('SELECT name
+					FROM plugin_notification_lists
+					WHERE id = ?',
+					array(get_request_var('id')));
+
+				form_selectable_cell('<span class="deviceDown">' . html_escape($name) . '</span>', $host['id']);
 			}
+
 			form_selectable_cell((isset($host_graphs[$host['id']]) ? $host_graphs[$host['id']] : 0), $host['id']);
 			form_selectable_cell((isset($host_data_sources[$host['id']]) ? $host_data_sources[$host['id']] : 0), $host['id']);
 			form_selectable_cell(get_colored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']), $host['id']);
 			form_selectable_cell(filter_value($host['hostname'], get_request_var('filter')), $host['id']);
 			form_checkbox_cell($host['description'], $host['id']);
+
 			form_end_row();
 		}
 	} else {
@@ -1145,7 +1259,7 @@ function tholds($header_label) {
 						array($row['notify_alert']));
 
 					if ($alert_info != '') {
-						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . $alert_info . '</span>';
+						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . html_escape($alert_info) . '</span>';
 					} else {
 						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . __('Unknown Threshold', 'thold') . '</span>';
 					}
@@ -1171,7 +1285,7 @@ function tholds($header_label) {
 						WHERE id = ?',
 						array($row['notify_warning']));
 
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceDown'>" . $warn_list . '</span>';
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceDown'>" . html_escape($warn_list) . '</span>';
 				}
 			}
 
@@ -1184,6 +1298,7 @@ function tholds($header_label) {
 			}
 
 			form_alternate_row('line' . $row['id'], true);
+
 			form_selectable_cell(filter_value($row['name_cache'], get_request_var('filter')), $row['id']);
 			form_selectable_cell($row['id'], $row['id']);
 			form_selectable_cell($warn_stat, $row['id']);
@@ -1192,6 +1307,7 @@ function tholds($header_label) {
 			form_selectable_cell($alertstat, $row['id']);
 			form_selectable_cell((($row['thold_enabled'] == 'off') ? __('Disabled', 'thold'): __('Enabled', 'thold')), $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
+
 			form_end_row();
 		}
 	} else {
@@ -1370,7 +1486,7 @@ function templates($header_label) {
 						array($row['notify_alert']));
 
 					if ($alert_info != '') {
-						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . $alert_info . '</span>';
+						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . html_escape($alert_info) . '</span>';
 					} else {
 						$alert_stat .= (strlen($alert_stat) ? ', ':'') . "<span class='deviceDown'>" . __('Unknown Template', 'thold') . '</span>';
 					}
@@ -1396,7 +1512,7 @@ function templates($header_label) {
 						WHERE id = ?',
 						array($row['notify_warning']));
 
-					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceDown'>" . $warn_list . '</span>';
+					$warn_stat .= (strlen($warn_stat) ? ', ':'') . "<span class='deviceDown'>" . html_escape($warn_list) . '</span>';
 				}
 			}
 
@@ -1409,12 +1525,14 @@ function templates($header_label) {
 			}
 
 			form_alternate_row('line' . $row['id'], true);
+
 			form_selectable_cell(filter_value($row['name'], get_request_var('filter')), $row['id']);
 			form_selectable_cell($row['id'], $row['id']);
 			form_selectable_cell($warn_stat, $row['id']);
 			form_selectable_cell($alert_stat, $row['id']);
 			form_selectable_cell($thold_types[$row['thold_type']], $row['id']);
 			form_checkbox_cell($row['name'], $row['id']);
+
 			form_end_row();
 		}
 	} else {
@@ -1645,6 +1763,9 @@ function lists() {
 		FROM plugin_notification_lists
 		$sql_where");
 
+	$sql_order = get_order_string();
+	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+
 	$lists = db_fetch_assoc("SELECT id, name, description, emails,
 		(SELECT COUNT(id) FROM thold_data WHERE notify_alert = nl.id) as thold_alerts,
 		(SELECT COUNT(id) FROM thold_data WHERE notify_warning = nl.id) as thold_warnings,
@@ -1653,8 +1774,8 @@ function lists() {
 		(SELECT COUNT(id) FROM host WHERE thold_host_email = nl.id) as hosts
 		FROM plugin_notification_lists nl
 		$sql_where
-		ORDER BY " . get_request_var('sort_column') . ' ' . get_request_var('sort_direction') .
-		' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows);
+		$sql_order
+		$sql_limit");
 
 	$nav = html_nav_bar('notify_lists.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Lists', 'thold'), 'page', 'main');
 

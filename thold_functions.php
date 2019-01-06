@@ -115,7 +115,7 @@ function thold_template_avail_devices($thold_template_id = 0) {
 			AND tt.id = ?',
 			array($thold_template_id)), 'id', 'id');
 	} else {
-		$graph_templates = array_rekey(db_fetch_assoc_prepared('SELECT DISTINCT gt.id
+		$graph_templates = array_rekey(db_fetch_assoc('SELECT DISTINCT gt.id
 			FROM graph_templates AS gt
 			INNER JOIN graph_templates_item AS gti
 			ON gt.id=gti.graph_template_id
@@ -1121,9 +1121,14 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 			FROM user_auth_group AS uag
 			INNER JOIN user_auth_group_members AS uagm
 			ON uag.id = uagm.group_id
-			WHERE uag.enabled = 'on' AND uagm.user_id = ?", array($user));
+			WHERE uag.enabled = 'on' AND uagm.user_id = ?",
+			array($user));
 
-		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type, policy_graphs, policy_hosts, policy_graph_templates FROM user_auth WHERE id = ?", array($user));
+		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type, policy_graphs,
+			policy_hosts, policy_graph_templates
+			FROM user_auth
+			WHERE id = ?",
+			array($user));
 
 		foreach ($policies as $policy) {
 			if ($policy['policy_graphs'] == 1) {
@@ -1256,14 +1261,19 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 		}
 
 		/* get policies for all groups and user */
-		$policies   = db_fetch_assoc_prepared("SELECT uag.id,
+		$policies = db_fetch_assoc_prepared("SELECT uag.id,
 			'group' AS type, policy_graphs, policy_hosts, policy_graph_templates
 			FROM user_auth_group AS uag
 			INNER JOIN user_auth_group_members AS uagm
 			ON uag.id = uagm.group_id
-			WHERE uag.enabled = 'on' AND uagm.user_id = ?", array($user));
+			WHERE uag.enabled = 'on' AND uagm.user_id = ?",
+			array($user));
 
-		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type, policy_graphs, policy_hosts, policy_graph_templates FROM user_auth WHERE id = ?", array($user));
+		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type,
+			policy_graphs, policy_hosts, policy_graph_templates
+			FROM user_auth
+			WHERE id = ?",
+			array($user));
 
 		foreach ($policies as $policy) {
 			if ($policy['policy_graphs'] == 1) {

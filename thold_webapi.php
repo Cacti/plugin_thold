@@ -202,17 +202,17 @@ function thold_add_graphs_action_prepare() {
 			array($data_template_id));
 
 		if (cacti_sizeof($thold_template_id)) {
-			$found_list .= '<li>' . get_graph_title($local_graph_id) . '</li>';
+			$found_list .= '<li><i>' . html_escape(get_graph_title($local_graph_id)) . '</i></li>';
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
 			} else {
 				$templates  = "$data_template_id";
 			}
 		} else {
-			$not_found .= '<li>' . get_graph_title($local_graph_id) . '</li>';
+			$not_found .= '<li><i>' . html_escape(get_graph_title($local_graph_id)) . '</i></li>';
 		}
 	} else {
-		$not_found .= '<li>' . get_graph_title($local_graph_id) . '</li>';
+		$not_found .= '<li><i>' . html_escape(get_graph_title($local_graph_id)) . '</i></li>';
 	}
 
 	if (strlen($templates)) {

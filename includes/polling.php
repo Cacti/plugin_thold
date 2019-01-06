@@ -234,7 +234,9 @@ function thold_cleanup_log() {
 	$daysToStoreLogs = read_config_option('thold_log_storage');
 	$t = time() - (86400 * $daysToStoreLogs); // Delete Logs over a month old
 
-	db_execute("DELETE FROM plugin_thold_log WHERE time<$t");
+	db_execute_prepared('DELETE FROM plugin_thold_log
+		WHERE time < ?',
+		array($t));
 }
 
 function thold_poller_output(&$rrd_update_array) {
