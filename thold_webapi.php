@@ -747,16 +747,16 @@ function thold_wizard() {
 
 	} elseif ($type_id == 'thold') {
 		$host_template_ids = array_rekey(
-			db_fetch_assoc_prepared('SELECT id
+			db_fetch_assoc_prepared('SELECT host_template_id
 				FROM host_template_graph
 				WHERE graph_template_id = ?',
 				array($graph_template_id)),
 			'host_template_id', 'host_template_id');
 
 		if (cacti_sizeof($host_template_ids)) {
-			$hql = ' AND host_template_id IN (' . implode(', ', $host_template_ids) . ')';
+			$hiql = ' AND host_template_id IN (' . implode(', ', $host_template_ids) . ')';
 		} else {
-			$hql = ' AND 0 = 1';
+			$hiql = ' AND 0 = 1';
 		}
 
 		$form_array['my_host_id'] = array(
@@ -766,7 +766,7 @@ function thold_wizard() {
 			'on_change' => 'applyTholdFilter()',
 			'action' => 'ajax_hosts',
 			'id' => $host_id,
-			'sql' => 'SELECT id, name FROM host WHERE disabled!="" AND deleted!=""' . $hql,
+			'sql' => 'SELECT id, name FROM host WHERE disabled!="" AND deleted!=""' . $hiql,
 			'value' => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
 			'none_value' => __('Select a Device', 'thold')
 		);
@@ -842,7 +842,7 @@ function thold_wizard() {
 		if ($data_template_rrd_id > 0) {
 			print "<tr class='odd'>
 				<td colspan='2' class='saveRow'>
-					<input type='submit' value='" . __esc('Continue', 'thold') . "'>
+					<input type='submit' value='" . __esc('Create', 'thold') . "'>
 				</td>
 			</tr>\n";
 		}
