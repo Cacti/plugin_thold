@@ -863,7 +863,7 @@ function thold_data_source_action_prepare($save) {
 			$sql = 'SELECT id, name FROM thold_template ORDER BY name';
 		}
 
-		print "<tr><td colspan='2' class='textArea'>\n";
+		print "<tr><td colspan='2' class='textArea'>";
 
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
@@ -874,7 +874,7 @@ function thold_data_source_action_prepare($save) {
 			print '<p>' . __('Click \'Continue\' to create Thresholds for these Data Sources?', 'thold') . '</p>
 					<ul>' . $found_list . "</ul>
 				</td>
-			</tr></table><table class='cactiTable'>\n";
+			</tr></table><table class='cactiTable'><tr><td>";
 
 			$form_array = array(
 				'general_header' => array(
@@ -895,16 +895,16 @@ function thold_data_source_action_prepare($save) {
 				array(
 					'config' => array('no_form_tag' => true),
 					'fields' => $form_array
-					)
-				);
-
-			print "</tr></table>\n";
+				)
+			);
 		} else {
 			if (strlen($not_found)) {
 				print '<p>' . __('There are no Threshold Templates associated with the following Data Sources', 'thold'). '</p>';
 				print '<ul>' . $not_found . '</ul>';
 			}
 		}
+
+		print '</td></tr></table><table class="cactiTable"><tr><td class="saveRow">';
 	} else {
 		return $save;
 	}
@@ -1020,7 +1020,7 @@ function thold_graphs_action_prepare($save) {
 			$sql = 'SELECT id, name FROM thold_template ORDER BY name';
 		}
 
-		print "<tr><td colspan='2' class='textArea'>\n";
+		print "<tr><td colspan='2' class='textArea'>";
 
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
@@ -1031,7 +1031,7 @@ function thold_graphs_action_prepare($save) {
 			print '<p>' . __('Press \'Continue\' if you wish to create Threshold(s) for these Graph(s)', 'thold') . '</p>
 				<ul>' . $found_list . "</ul>
 				</td>
-			</tr>\n";
+			</tr></table><table class='cactiTable'><tr><td>";
 
 			$form_array = array(
 				'general_header' => array(
@@ -1060,6 +1060,8 @@ function thold_graphs_action_prepare($save) {
 				print '<ul>' . $not_found . '</ul>';
 			}
 		}
+
+		print '</td></tr></table><table class="cactiTable"><tr><td class="saveRow">';
 	} else {
 		return $save;
 	}
