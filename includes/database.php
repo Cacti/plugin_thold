@@ -1119,15 +1119,15 @@ function thold_upgrade_database($force = false) {
 			WHERE name_cache = ""');
 
 		if (cacti_sizeof($tholds)) {
-			foreach($tholds as $id) {
+			foreach($tholds as $thold) {
 				$name = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id']);
 
-				plugin_thold_log_changes($thold_id, 'reapply_name', array('id' => $thold_id));
+				plugin_thold_log_changes($thold['id'], 'reapply_name', array('id' => $thold['id']));
 
 				db_execute_prepared('UPDATE thold_data
 					SET name = ?
 					WHERE id = ?',
-					array($name, $thold_id));
+					array($name, $thold['id']));
 			}
 		}
 	}
