@@ -129,6 +129,22 @@ function form_actions() {
 					db_execute('UPDATE host
 						SET thold_host_email = 0
 						WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
+
+					db_execute('UPDATE thold_data
+						SET notify_warning = 0
+						WHERE ' . array_to_sql_or($selected_items, 'notify_warning'));
+
+					db_execute('UPDATE thold_data
+						SET notify_alert = 0
+						WHERE ' . array_to_sql_or($selected_items, 'notify_alert'));
+
+					db_execute('UPDATE thold_template
+						SET notify_warning = 0
+						WHERE ' . array_to_sql_or($selected_items, 'notify_warning'));
+
+					db_execute('UPDATE thold_template
+						SET notify_alert = 0
+						WHERE ' . array_to_sql_or($selected_items, 'notify_alert'));
 				} elseif (get_request_var('drp_action') == '2') { /* duplicate */
 					$i = 1;
 
