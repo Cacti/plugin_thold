@@ -711,7 +711,7 @@ function thold_wizard() {
 		html_end_box(false);
 
 		html_start_box(__('Creation Notes', 'thold'), '100%', false, '3', 'center', '');
-		print '<tr><td><p><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
+		print '<tr><td><p style="padding:0px 5px"><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
 		print __('This Threshold will <b>NOT</b> be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the \'Create\' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the \'Create\' button, both the Graph and Threshold will be created simultaneously.', 'thold') . '</p></td></tr>';
 		html_end_box(false);
 
@@ -850,7 +850,7 @@ function thold_wizard() {
 		html_end_box(false);
 
 		html_start_box(__('Creation Notes', 'thold'), '100%', false, '3', 'center', '');
-		print '<tr><td><p><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
+		print '<tr><td><p style="padding:0px 5px"><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
 		print __('This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the \'Create\' button appears.', 'thold') . '</p></td></tr>';
 		html_end_box(false);
 	} else {
@@ -870,7 +870,7 @@ function thold_wizard() {
 		html_end_box(false);
 
 		html_start_box(__('Creation Notes', 'thold'), '100%', false, '3', 'center', '');
-		print '<tr><td><p><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
+		print '<tr><td><p style="padding:0px 5px"><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
 		print __('This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously', 'thold') . '</p></td></tr>';
 		html_end_box(false);
 	}
