@@ -24,10 +24,19 @@
 
 chdir('../../');
 include_once('./include/auth.php');
-include_once($config['library_path'] . '/rrd.php');
-include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+include_once($config['base_path'] . '/lib/api_graph.php');
+include_once($config['base_path'] . '/lib/api_tree.php');
+include_once($config['base_path'] . '/lib/api_data_source.php');
+include_once($config['base_path'] . '/lib/data_query.php');
+include_once($config['base_path'] . '/lib/html_tree.php');
+include_once($config['base_path'] . '/lib/html_form_template.php');
+include_once($config['base_path'] . '/lib/poller.php');
+include_once($config['base_path'] . '/lib/rrd.php');
+include_once($config['base_path'] . '/lib/template.php');
+include_once($config['base_path'] . '/lib/utility.php');
 include_once($config['base_path'] . '/plugins/thold/thold_webapi.php');
 include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
+include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 set_default_action();
 
@@ -48,7 +57,11 @@ if (isset_request_var('id')) {
 switch(get_request_var('action')) {
 	case 'ajax_hosts':
 		if ($_SESSION['thold_type_id'] == 'template') {
-			get_allowed_ajax_hosts(true, false, thold_template_avail_devices($_SESSION['thold_template_id']));
+			if (isset($_SESSION['sess_thold_hql'])) {
+				get_allowed_ajax_hosts(true, false, $_SESSION['sess_thold_hql']);
+			} else {
+				get_allowed_ajax_hosts(true, false, thold_template_avail_devices($_SESSION['thold_template_id']));
+			}
 		} else {
 			get_allowed_ajax_hosts(true, false, '');
 		}
@@ -56,7 +69,11 @@ switch(get_request_var('action')) {
 		break;
 	case 'ajax_hosts_noany':
 		if ($_SESSION['thold_type_id'] == 'template') {
-			get_allowed_ajax_hosts(false, false, thold_template_avail_devices($_SESSION['thold_template_id']));
+			if (isset($_SESSION['sess_thold_hql'])) {
+				get_allowed_ajax_hosts(false, false, $_SESSION['sess_thold_hql']);
+			} else {
+				get_allowed_ajax_hosts(false, false, thold_template_avail_devices($_SESSION['thold_template_id']));
+			}
 		} else {
 			get_allowed_ajax_hosts(false, false, '');
 		}
@@ -74,7 +91,7 @@ switch(get_request_var('action')) {
 	case 'autocreate':
 		$c = autocreate(get_filter_request_var('host_id'));
 		if ($c == 0) {
-			thold_raise_message('<font size=-2>' . __('Either No Templates or Threshold(s) Already Exists - No Thresholds were created.', 'thold') . '</font>', MESSAGE_LEVEL_INFO);
+			thold_raise_message(__('Either No Templates or Threshold(s) Already Exists - No Thresholds were created.', 'thold'), MESSAGE_LEVEL_INFO);
 		}
 
 		if (isset($_SESSION['data_return'])) {
@@ -166,7 +183,7 @@ function thold_add() {
 	if (isset_request_var('usetemplate') && get_nfilter_request_var('usetemplate') != '') {
 		if (isset_request_var('thold_template_id') && get_filter_request_var('thold_template_id') != '') {
 			if (get_request_var('thold_template_id') == '0') {
-				thold_add_select_host();
+				thold_wizard();
 			} else {
 				thold_add_graphs_action_execute();
 			}
@@ -174,7 +191,7 @@ function thold_add() {
 			thold_add_graphs_action_prepare();
 		}
 	} else {
-		thold_add_select_host();
+		thold_wizard();
 	}
 }
 
@@ -271,10 +288,10 @@ function do_actions() {
 									WHERE id = ?',
 									array($name, $thold_id));
 							} else {
-								$message['template_disabled'] = '<font size=-2>' . __('One or more Thresholds are blocking name replacements', 'thold') . '</font>';
+								$message['template_disabled'] = __('One or more Thresholds are blocking name replacements', 'thold');
 							}
 						} else {
-							$message['security'] = '<font size=-2>' . __('You are not authorised to modify one or more of the Thresholds selected', 'thold') .'</font>';
+							$message['security'] = __('You are not authorised to modify one or more of the Thresholds selected', 'thold');
 						}
 					}
 
@@ -940,7 +957,7 @@ function list_tholds() {
 function thold_edit() {
 	global $config, $syslog_facil_array, $syslog_priority_array;
 
-	if (isset_request_var('id')) {
+	if (isset_request_var('id') && get_filter_request_var('id') > 0) {
 		$thold_data = db_fetch_row_prepared('SELECT *
 			FROM thold_data
 			WHERE id = ?',
@@ -1147,7 +1164,7 @@ function thold_edit() {
 				}
 			}
 
-			print "<li class=''><a class='hyperLink' href='" . html_escape('thold.php?action=add' . '&local_graph_id=' . $thold_data['local_graph_id'] . '&host_id=' . $thold_data['host_id']) . "'>new thold<br>n/a</a></li>";
+			print "<li class=''><a class='hyperLink' href='" . html_escape('thold.php?action=add' . '&local_graph_id=' . $thold_data['local_graph_id'] . '&host_id=' . $thold_data['host_id'] . '&type_id=thold') . "'>new thold<br>n/a</a></li>";
 
 			print "</ul></nav></div>\n";
 		} elseif (sizeof($template_data_rrds) == 1) {
