@@ -56,7 +56,7 @@ if (isset_request_var('id')) {
 
 switch(get_request_var('action')) {
 	case 'ajax_hosts':
-		if ($_SESSION['thold_type_id'] == 'template') {
+		if (isset($_SESSION['type_type_id']) && $_SESSION['thold_type_id'] == 'template') {
 			if (isset($_SESSION['sess_thold_hql'])) {
 				get_allowed_ajax_hosts(true, false, $_SESSION['sess_thold_hql']);
 			} else {
@@ -68,7 +68,7 @@ switch(get_request_var('action')) {
 
 		break;
 	case 'ajax_hosts_noany':
-		if ($_SESSION['thold_type_id'] == 'template') {
+		if (isset($_SESSION['type_type_id']) && $_SESSION['thold_type_id'] == 'template') {
 			if (isset($_SESSION['sess_thold_hql'])) {
 				get_allowed_ajax_hosts(false, false, $_SESSION['sess_thold_hql']);
 			} else {
