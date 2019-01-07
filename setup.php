@@ -983,7 +983,7 @@ function thold_graphs_action_prepare($save) {
 		 */
 		$found_list = '';
 		$not_found  = '';
-		$template_ids = '';
+		$template_ids = [];             // Fix: As of PHP 7.1.0, applying the empty index operator on a string throws a fatal error. Formerly, the string was silently converted to an array.
 
 		if (cacti_sizeof($save['graph_array'])) {
 			foreach($save['graph_array'] as $item) {
