@@ -3092,10 +3092,14 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 
 	$httpurl    = read_config_option('base_url');
 
+	// Compile the subject
+        $subject = 'ALERT: ' . $thold['name_cache'] . ($thold_show_datasource ? ' [' . $thold['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $thold['thold_hi'] : $thold['thold_low']) . ' with ' . $thold['lastread'];
+
 	// Do some replacement of variables
 	$text = str_replace('<DESCRIPTION>',   $h['description'], $text);
 	$text = str_replace('<HOSTNAME>',      $h['hostname'], $text);
 	$text = str_replace('<GRAPHID>',       $local_graph_id, $text);
+	$text = str_replace('<SUBJECT>',       $subject, $text);
 
 	$text = str_replace('<CURRENTVALUE>',  $currentval, $text);
 	$text = str_replace('<THRESHOLDNAME>', $thold['name_cache'], $text);
