@@ -3050,21 +3050,21 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
-			exec($thold_data['trigger_cmd_high'], $output, $return);
+			exec($cmd, $output, $return);
 
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
-			exec($thold_data['trigger_cmd_low'], $output, $return);
+			exec($cmd, $output, $return);
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
-			exec($thold_data['trigger_cmd_norm'], $output, $return);
+			exec($cmd, $output, $return);
 
 			$command_executed = true;
 		}
