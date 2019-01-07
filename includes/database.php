@@ -280,6 +280,13 @@ function thold_upgrade_database($force = false) {
 			'default' => '0',
 			'after'   => 'bl_alert'));
 
+		db_add_column('thold_data', array(
+			'name'     => 'expression',
+			'type'     => 'varchar(70)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'percent_ds'));
+
 		db_execute('ALTER TABLE thold_data MODIFY name varchar(150) default NULL');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_down varchar(100)');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_up varchar(100)');
