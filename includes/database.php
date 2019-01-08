@@ -948,25 +948,31 @@ function thold_upgrade_database($force = false) {
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN exempt char(3) NOT NULL default ""');
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN data_type int(12) NOT NULL default "0"');
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN notify_extra varchar(512) default ""');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN trigger_cmd_high varchar(512) NOT NULL default ""');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN trigger_cmd_low varchar(512) NOT NULL default ""');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN trigger_cmd_norm varchar(512) NOT NULL default ""');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_high varchar(512) NOT NULL default ""');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_low varchar(512) NOT NULL default ""');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_norm varchar(512) NOT NULL default ""');
 
 		// Trigger commands
 		db_add_column('thold_data', array(
 			'name'    => 'trigger_cmd_high',
-			'type'    => 'varchar(255)',
+			'type'    => 'varchar(512)',
 			'NULL'    => false,
 			'default' => '',
 			'after'   => 'email_body_warn'));
 
 		db_add_column('thold_data', array(
 			'name'    => 'trigger_cmd_low',
-			'type'    => 'varchar(255)',
+			'type'    => 'varchar(512)',
 			'NULL'    => false,
 			'default' => '',
 			'after'   => 'trigger_cmd_high'));
 
 		db_add_column('thold_data', array(
 			'name'    => 'trigger_cmd_norm',
-			'type'    => 'varchar(255)',
+			'type'    => 'varchar(512)',
 			'NULL'    => false,
 			'default' => '',
 			'after'   => 'trigger_cmd_low'));
@@ -1023,21 +1029,21 @@ function thold_upgrade_database($force = false) {
 		// Trigger commands
 		db_add_column('thold_template', array(
 			'name' => 'trigger_cmd_high',
-			'type'=> 'varchar(255)',
+			'type'=> 'varchar(512)',
 			'NULL' => false,
 			'default' => '',
 			'after' => 'email_body_warn'));
 
 		db_add_column('thold_template', array(
 			'name' => 'trigger_cmd_low',
-			'type'=> 'varchar(255)',
+			'type'=> 'varchar(512)',
 			'NULL' => false,
 			'default' => '',
 			'after' => 'trigger_cmd_high'));
 
 		db_add_column('thold_template', array(
 			'name' => 'trigger_cmd_norm',
-			'type'=> 'varchar(255)',
+			'type'=> 'varchar(512)',
 			'NULL' => false,
 			'default' => '',
 			'after' => 'trigger_cmd_low'));
