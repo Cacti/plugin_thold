@@ -273,23 +273,23 @@ function do_actions() {
 								array($thold_id));
 
 							/* check if thold templated */
-							if ($thold['template_enabled'] == "on") {
+							if ($thold['template_enabled'] == 'on') {
 								$template = db_fetch_row_prepared('SELECT *
 									FROM thold_template
 									WHERE id = ?',
 									array($thold['thold_template_id']));
-
-								$name = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id']);
-
-								plugin_thold_log_changes($thold_id, 'reapply_name', array('id' => $thold_id));
-
-								db_execute_prepared('UPDATE thold_data
-									SET name = ?
-									WHERE id = ?',
-									array($name, $thold_id));
 							} else {
-								$message['template_disabled'] = __('One or more Thresholds are blocking name replacements', 'thold');
+								$template = false;
 							}
+
+							$name = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id']);
+
+							plugin_thold_log_changes($thold_id, 'reapply_name', array('id' => $thold_id));
+
+							db_execute_prepared('UPDATE thold_data
+								SET name = ?
+								WHERE id = ?',
+								array($name, $thold_id));
 						} else {
 							$message['security'] = __('You are not authorised to modify one or more of the Thresholds selected', 'thold');
 						}
