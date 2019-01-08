@@ -368,10 +368,11 @@ function thold_rrd_graph_graph_options($g) {
 					}
 				}
 			}
+
 			$i++;
 		}
 
-		if (sizeof($unsets)) {
+		if (cacti_sizeof($unsets)) {
 			foreach($unsets as $i) {
 				unset($txt_items[$i]);
 			}
@@ -981,9 +982,9 @@ function thold_graphs_action_prepare($save) {
 		/* get the valid thold templates
 		 * remove those hosts that do not have any valid templates
 		 */
-		$found_list = '';
-		$not_found  = '';
-		$template_ids = '';
+		$found_list   = '';
+		$not_found    = '';
+		$template_ids = array();
 
 		if (cacti_sizeof($save['graph_array'])) {
 			foreach($save['graph_array'] as $item) {
@@ -1014,7 +1015,7 @@ function thold_graphs_action_prepare($save) {
 			}
 		}
 
-		if (sizeof($template_ids)) {
+		if (cacti_sizeof($template_ids)) {
 			$sql = 'SELECT id, name FROM thold_template WHERE data_template_id IN (' . implode(', ',  $template_ids) . ') ORDER BY name';
 		} else {
 			$sql = 'SELECT id, name FROM thold_template ORDER BY name';
@@ -1091,6 +1092,7 @@ function thold_host_edit_bottom() {
 
 function thold_snmpagent_cache_install() {
 	global $config;
+
 	if (class_exists('MibCache')) {
 		$mc = new MibCache('CACTI-THOLD-MIB');
 		$mc->install($config['base_path'] . '/plugins/thold/CACTI-THOLD-MIB', true);
@@ -1099,6 +1101,7 @@ function thold_snmpagent_cache_install() {
 
 function thold_snmpagent_cache_uninstall() {
 	global $config;
+
 	if (class_exists('MibCache')) {
 		$mc = new MibCache('CACTI-THOLD-MIB');
 		$mc->uninstall();
@@ -1386,3 +1389,4 @@ function thold_data_source_remove($data_ids) {
 
 	return $data_ids;
 }
+
