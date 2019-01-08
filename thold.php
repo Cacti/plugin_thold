@@ -210,19 +210,19 @@ function do_actions() {
 
 		if ($selected_items != false) {
 			foreach ($selected_items as $var) {
-				$rra = db_fetch_cell_prepared('SELECT data_template_rrd_id
+				$local_graph_id = db_fetch_cell_prepared('SELECT local_graph_id
 					FROM thold_data
 					WHERE id = ?',
 					array($var));
 
 				input_validate_input_number($var);
-				$tholds[$var] = $rra;
+				$tholds[$var] = $local_graph_id;
 			}
 
 			switch ($drp_action) {
 				case 1:	// Delete
-					foreach ($tholds as $thold_id => $rra) {
-						if (thold_user_auth_threshold($rra)) {
+					foreach ($tholds as $thold_id => $local_graph_id) {
+						if (thold_user_auth_threshold($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'deleted', array('message' => 'Removed from Thold page'));
 
 							db_execute_prepared('DELETE FROM thold_data
@@ -240,8 +240,8 @@ function do_actions() {
 					}
 					break;
 				case 2:	// Enabled
-					foreach ($tholds as $thold_id => $rra) {
-						if (thold_user_auth_threshold($rra)) {
+					foreach ($tholds as $thold_id => $local_graph_id) {
+						if (thold_user_auth_threshold($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'enabled_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
@@ -252,8 +252,8 @@ function do_actions() {
 					}
 					break;
 				case 3:	// Disabled
-					foreach ($tholds as $thold_id => $rra) {
-						if (thold_user_auth_threshold($rra)) {
+					foreach ($tholds as $thold_id => $local_graph_id) {
+						if (thold_user_auth_threshold($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'disabled_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
@@ -265,8 +265,8 @@ function do_actions() {
 					break;
 				case 4:	// Reapply Suggested Name
 					$message = array();
-					foreach ($tholds as $thold_id => $rra) {
-						if (thold_user_auth_threshold ($rra)) {
+					foreach ($tholds as $thold_id => $local_graph_id) {
+						if (thold_user_auth_threshold($local_graph_id)) {
 							$thold = db_fetch_row_prepared('SELECT *
 								FROM thold_data
 								WHERE id = ?',
@@ -301,8 +301,8 @@ function do_actions() {
 
 					break;
 				case 5:	// Propagate Template
-					foreach ($tholds as $thold_id => $rra) {
-						if (thold_user_auth_threshold($rra)) {
+					foreach ($tholds as $thold_id => $local_graph_id) {
+						if (thold_user_auth_threshold($local_graph_id)) {
 							$template = db_fetch_row_prepared('SELECT td.template AS id,
 								td.template_enabled AS enabled
 								FROM thold_data AS td
@@ -319,8 +319,8 @@ function do_actions() {
 					}
 					break;
 				case 6: // Acknowledgment
-					foreach ($tholds as $thold_id => $rra) {
-						if (thold_user_auth_threshold($rra)) {
+					foreach ($tholds as $thold_id => $local_graph_id) {
+						if (thold_user_auth_threshold($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'acknowledge_threshold', array('id' => $thold_id));
 
 							$thold_alert = db_fetch_cell_prepared("SELECT thold_alert
@@ -339,8 +339,8 @@ function do_actions() {
 
 					break;
 				case 7: // Dismiss Acknowledgment
-					foreach ($tholds as $thold_id => $rra) {
-						if (thold_user_auth_threshold($rra)) {
+					foreach ($tholds as $thold_id => $local_graph_id) {
+						if (thold_user_auth_threshold($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'dismiss_acknowledge_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
@@ -403,7 +403,7 @@ function do_actions() {
 	}
 
 	if (cacti_sizeof($tholds)) {
-		$thold_list = implode('</i></li><li><i>', $tholds);
+		$thold_list = implode('</li><li>', $tholds);
 	}
 
 	top_header();
@@ -452,7 +452,7 @@ function do_actions() {
 		print "<tr>
 			<td colspan='2'>
 				<p>$message</p>
-				<div class='itemlist'><ul><li><i>$thold_list</i></li></ul></div>
+				<div class='itemlist'><ul><li>$thold_list</li></ul></div>
 			</td>
 		</tr>";
 

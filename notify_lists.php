@@ -397,7 +397,7 @@ function form_actions() {
 					WHERE id = ?',
 					array($matches[1]));
 
-				$list .= '<li><i>' . html_escape($name) . '</i></li>';
+				$list .= '<li>' . html_escape($name) . '</li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -465,7 +465,7 @@ function form_actions() {
 					WHERE id = ?',
 					array($matches[1]));
 
-				$list .= '<li><i>' . html_escape($name) . '</i></li>';
+				$list .= '<li>' . html_escape($name) . '</li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -480,7 +480,7 @@ function form_actions() {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Association the Notification List \'<i>%s</i>\' with the Threshold Template(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Association the Notification List \'%s\' with the Threshold Template(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
@@ -491,7 +491,7 @@ function form_actions() {
 			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<i>%s</i>\' from the Thresholds Template(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Thresholds Template(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
@@ -535,7 +535,7 @@ function form_actions() {
 					WHERE id = ?',
 					array($matches[1]));
 
-				$list .= '<li><i>' . html_escape($name) . '</i></li>';
+				$list .= '<li>' . html_escape($name) . '</li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -550,7 +550,7 @@ function form_actions() {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Associate the Notification List \'<i>%s</i>\' with the Threshold(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Associate the Notification List \'%s\' with the Threshold(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
@@ -561,7 +561,7 @@ function form_actions() {
 			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<i>%s</i>\' from the Thresholds(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Thresholds(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
@@ -604,7 +604,7 @@ function form_actions() {
 					FROM host WHERE id = ?',
 					array($matches[1]));
 
-				$list .= '<li><i>' . html_escape($name) . '</i></li>';
+				$list .= '<li>' . html_escape($name) . '</li>';
 				$array[] = $matches[1];
 			}
 		}
@@ -619,7 +619,7 @@ function form_actions() {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Associate the Notification List \'<i>%s</i>\' with the Device(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Associate the Notification List \'%s\' with the Device(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Resulting Membership:', 'thold'). "<br>"; form_dropdown('notification_action', array(2 => __('Notification List Only', 'thold'), 3 => __('Notification and Global Lists', 'thold')), '', '', 2, '', ''); print "</p>
 					</td>
@@ -629,7 +629,7 @@ function form_actions() {
 			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
-						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'<i>%s</i>\' from the Device(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Device(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
 						<p><b>" . __('Resulting Membership:', 'thold') . "</b><br>"; form_dropdown('notification_action', array(1 => __('Global List', 'thold'), 0 => __('Disabled', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>

@@ -843,17 +843,17 @@ function thold_data_source_action_prepare($save) {
 						array($data_template_id));
 
 					if (cacti_sizeof($templates)) {
-						$found_list .= '<li><i>' . html_escape(get_data_source_title($item)) . '</i></li>';
+						$found_list .= '<li>' . html_escape(get_data_source_title($item)) . '</li>';
 						if (strlen($templates)) {
 							$templates .= ", $data_template_id";
 						} else {
 							$templates  = "$data_template_id";
 						}
 					} else {
-						$not_found .= '<li><i>' . html_escape(get_data_source_title($item)) . '</i></li>';
+						$not_found .= '<li>' . html_escape(get_data_source_title($item)) . '</li>';
 					}
 				} else {
-					$not_found .= '<li><i>' . html_escape(get_data_source_title($item)) . '</i></li>';
+					$not_found .= '<li>' . html_escape(get_data_source_title($item)) . '</li>';
 				}
 			}
 		}
@@ -1004,13 +1004,13 @@ function thold_graphs_action_prepare($save) {
 						array($data_template_id));
 
 					if (cacti_sizeof($templates)) {
-						$found_list .= '<li><i>' . html_escape(get_graph_title($item)) . '</i></li>';
+						$found_list .= '<li>' . html_escape(get_graph_title($item)) . '</li>';
 						$template_ids[] = $data_template_id;
 					} else {
-						$not_found .= '<li><i>' . html_escape(get_graph_title($item)) . '</i></li>';
+						$not_found .= '<li>' . html_escape(get_graph_title($item)) . '</li>';
 					}
 				} else {
-					$not_found .= '<li><i>' . html_escape(get_graph_title($item)) . '</i></li>';
+					$not_found .= '<li>' . html_escape(get_graph_title($item)) . '</li>';
 				}
 			}
 		}

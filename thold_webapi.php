@@ -136,7 +136,7 @@ function thold_add_graphs_action_execute() {
 
 							plugin_thold_log_changes($id, 'created', " $tname [$name]");
 
-							$message .= "Created Threshold for the Graph '<i>$tname</i>' using the Data Source '<i>$name</i>'<br>";
+							$message .= "Created Threshold for the Graph '$tname' using the Data Source '$name'<br>";
 						}
 					}
 				}
@@ -202,17 +202,17 @@ function thold_add_graphs_action_prepare() {
 			array($data_template_id));
 
 		if (cacti_sizeof($thold_template_id)) {
-			$found_list .= '<li><i>' . html_escape(get_graph_title($local_graph_id)) . '</i></li>';
+			$found_list .= '<li>' . html_escape(get_graph_title($local_graph_id)) . '</li>';
 			if (strlen($templates)) {
 				$templates .= ", $data_template_id";
 			} else {
 				$templates  = "$data_template_id";
 			}
 		} else {
-			$not_found .= '<li><i>' . html_escape(get_graph_title($local_graph_id)) . '</i></li>';
+			$not_found .= '<li>' . html_escape(get_graph_title($local_graph_id)) . '</li>';
 		}
 	} else {
-		$not_found .= '<li><i>' . html_escape(get_graph_title($local_graph_id)) . '</i></li>';
+		$not_found .= '<li>' . html_escape(get_graph_title($local_graph_id)) . '</li>';
 	}
 
 	if (strlen($templates)) {

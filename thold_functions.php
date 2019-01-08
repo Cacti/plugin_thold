@@ -1378,21 +1378,8 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 	return $tholds;
 }
 
-function thold_user_auth_threshold($rra) {
-	$graph = db_fetch_cell_prepared('SELECT gl.id
-		FROM data_template_rrd AS dtr
-		LEFT JOIN graph_templates_item AS gti
-		ON gti.task_item_id=dtr.id
-		LEFT JOIN graph_local AS gl
-		ON gl.id=gti.local_graph_id
-		WHERE dtr.id = ?',
-		array($rra));
-
-	if (!empty($graph) && is_graph_allowed($graph)) {
-		return true;
-	}
-
-	return false;
+function thold_user_auth_threshold($local_graph_id) {
+	return is_graph_allowed($local_graph_id);
 }
 
 function thold_log($save){
@@ -3940,7 +3927,7 @@ function save_thold() {
 	$template_enabled     = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : '';
 
 	if ($template_enabled == 'on') {
-		if (!thold_user_auth_threshold($data_template_rrd_id)) {
+		if (!thold_user_auth_threshold($local_graph_id)) {
 			$banner = __('Permission Denied', 'thold');
 			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
 
@@ -4238,7 +4225,7 @@ function save_thold() {
 		$save['graph_template_id'] = $grapharr['graph_template_id'];
 	}
 
-	if ($save['id'] > 0 && !thold_user_auth_threshold($save['data_template_rrd_id'])) {
+	if ($save['id'] > 0 && !thold_user_auth_threshold($local_graph_id)) {
 		thold_raise_message(__(' What? Permission Denied', 'thold'), MESSAGE_LEVEL_ERROR);
 
 		return false;

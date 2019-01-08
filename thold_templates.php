@@ -140,14 +140,17 @@ function do_actions() {
 				case 3:
 					$message = array();
 					foreach ($selected_items as $id) {
-						$tholds = array_rekey(db_fetch_assoc_prepared('SELECT id, local_data_id
-							FROM thold_data
-							WHERE thold_template_id = ?',
-							array($id)), 'id', 'local_data_id');
+						$tholds = array_rekey(
+							db_fetch_assoc_prepared('SELECT id, local_graph_id
+								FROM thold_data
+								WHERE thold_template_id = ?',
+								array($id)),
+							'id', 'local_graph_id'
+						);
 
-						if ($tholds !== false && sizeof($tholds)) {
-							foreach ($tholds as $thold_id => $rra) {
-								if (thold_user_auth_threshold ($rra)) {
+						if (cacti_sizeof($tholds)) {
+							foreach ($tholds as $thold_id => $local_graph_id) {
+								if (thold_user_auth_threshold($local_graph_id)) {
 									$thold = db_fetch_row_prepared('SELECT *
 										FROM thold_data
 										WHERE id = ?',
@@ -206,14 +209,14 @@ function do_actions() {
 					WHERE thold_template_id = ?',
 					array($id));
 
-				$tholds[$id]   = __('%s<br>(%d Thresholds)', html_escape($template['name']), $count, 'thold');
+				$tholds[$id]   = __('%s (%d Thresholds)', html_escape($template['name']), $count, 'thold');
 				$tholds_list[] = $id;
 			}
 		}
 	}
 
 	if (cacti_sizeof($tholds)) {
-		$thold_list = implode('</i></li><li><i>', $tholds);
+		$thold_list = implode('</li><li>', $tholds);
 	}
 
 	top_header();
@@ -247,7 +250,7 @@ function do_actions() {
 		print "	<tr>
 			<td colspan='2' class='textArea'>
 				<p>$message</p>
-				<div class='itemlist'><ul><li><i>$thold_list</i></li></ul></div>
+				<div class='itemlist'><ul><li>$thold_list</li></ul></div>
 			</td>
 			</tr>\n";
 
