@@ -359,7 +359,7 @@ function tholds() {
 	$c=0;
 	$i=0;
 
-	if (sizeof($tholds)) {
+	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
 			$c++;
 			$alertstat = __('No', 'thold');
