@@ -295,7 +295,7 @@ function do_actions() {
 						}
 					}
 
-					if (sizeof($message)) {
+					if (cacti_sizeof($message)) {
 						thold_raise_message(implode('<br>', $message), MESSAGE_LEVEL_ERROR);
 					}
 
@@ -657,7 +657,7 @@ function list_tholds() {
 								FROM sites
 								ORDER BY name');
 
-							if (sizeof($sites)) {
+							if (cacti_sizeof($sites)) {
 								foreach ($sites as $sites) {
 									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . $sites['name'] . "</option>\n";
 								}
@@ -721,7 +721,7 @@ function list_tholds() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
 								}
@@ -795,7 +795,7 @@ function list_tholds() {
 	$c=0;
 	$i=0;
 
-	if (sizeof($tholds)) {
+	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
 			$c++;
 
@@ -934,12 +934,12 @@ function list_tholds() {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='even'><td colspan='" . (sizeof($display_text)+1) . "'><center>" . __('No Thresholds', 'thold') . "</center></td></tr>\n";
+		print "<tr class='even'><td colspan='" . (cacti_sizeof($display_text)+1) . "'><center>" . __('No Thresholds', 'thold') . "</center></td></tr>\n";
 	}
 
 	html_end_box(false);
 
-	if (sizeof($tholds)) {
+	if (cacti_sizeof($tholds)) {
 		print $nav;
 	}
 
@@ -1081,7 +1081,7 @@ function thold_edit() {
 	$i  = 0;
 	$ds = 0;
 	if (isset($template_data_rrds)) {
-		if (sizeof($template_data_rrds)) {
+		if (cacti_sizeof($template_data_rrds)) {
 			/* draw the data source tabs on the top of the page */
 			print "<br><div class='tabs'><nav><ul>\n";
 
@@ -1169,7 +1169,7 @@ function thold_edit() {
 			print "<li class=''><a class='hyperLink' href='" . html_escape('thold.php?action=add' . '&local_graph_id=' . $thold_data['local_graph_id'] . '&host_id=' . $thold_data['host_id'] . '&type_id=thold') . "'>new thold<br>n/a</a></li>";
 
 			print "</ul></nav></div>\n";
-		} elseif (sizeof($template_data_rrds) == 1) {
+		} elseif (cacti_sizeof($template_data_rrds) == 1) {
 			set_request_var('data_template_rrd_id', $template_data_rrds[0]['id']);
 		}
 	}
@@ -1263,14 +1263,14 @@ function thold_edit() {
 		array($thold_data['data_template_id']));
 
 	$nr = array();
-	if (sizeof($replacements)) {
+	if (cacti_sizeof($replacements)) {
 		foreach($replacements as $r) {
 			$nr[] = "<span class='deviceUp'>|query_" . $r['field_name'] . "|</span>";
 		}
 	}
 
 	$vhf = explode('|', trim(VALID_HOST_FIELDS, '()'));
-	if (sizeof($vhf)) {
+	if (cacti_sizeof($vhf)) {
 		foreach($vhf as $r) {
 			$nr[] = "<span class='deviceUp'>|" . $r . "|</span>";
 		}
@@ -1283,7 +1283,7 @@ function thold_edit() {
 		WHERE local_data_id = ?',
 		array($thold_data['local_data_id']));
 
-	if (sizeof($dss)) {
+	if (cacti_sizeof($dss)) {
 		foreach($dss as $ds) {
 			$dsname[] = "<span class='deviceUp'>|ds:" . $ds['data_source_name'] . "|</span>";
 		}
@@ -1293,7 +1293,7 @@ function thold_edit() {
 
 	$email_body = read_config_option('thold_enable_per_thold_body');
 
-	if (sizeof($thold_data) && isset($thold_data['reset_ack'])) {
+	if (cacti_sizeof($thold_data) && isset($thold_data['reset_ack'])) {
 		$acknowledgment = ($thold_data['reset_ack'] == 'on' ? 'reset_ack': ($thold_data['persist_ack'] == 'on' ? 'persist_ack':'none'));
 	} else {
 		$acknowledgment = 'none';

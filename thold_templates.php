@@ -180,7 +180,7 @@ function do_actions() {
 							}
 						}
 					}
-					if (sizeof($message)) {
+					if (cacti_sizeof($message)) {
 						thold_raise_message(implode('<br>', $message), MESSAGE_LEVEL_ERROR);
 					}
 					break;
@@ -296,7 +296,7 @@ function template_export() {
 						WHERE id = ?',
 						array($id));
 
-					if (sizeof($data)) {
+					if (cacti_sizeof($data)) {
 						$data_template_hash = db_fetch_cell_prepared('SELECT hash
 							FROM data_template
 							WHERE id = ?',
@@ -827,7 +827,7 @@ function template_edit() {
 		array($thold_data['data_source_id']));
 
 	$data_fields = array();
-	if (sizeof($temp)) {
+	if (cacti_sizeof($temp)) {
 		$source_id = $temp['data_input_field_id'];
 
 		if ($source_id != 0) {
@@ -901,7 +901,7 @@ function template_edit() {
 		AND data_template_id = ?',
 		array($data_source_name, $thold_data['data_template_id']));
 
-	if (sizeof($temp)) {
+	if (cacti_sizeof($temp)) {
 		foreach ($temp as $d) {
 			if ($d['data_input_field_id'] != 0) {
 				$temp2 = db_fetch_row_prepared('SELECT id, name, data_name
@@ -928,14 +928,14 @@ function template_edit() {
 		array($thold_data['data_template_id']));
 
 	$nr = array();
-	if (sizeof($replacements)) {
+	if (cacti_sizeof($replacements)) {
 		foreach ($replacements as $r) {
 			$nr[] = "<span style='color:blue;'>|query_" . $r['field_name'] . "|</span>";
 		}
 	}
 
 	$vhf = explode('|', trim(VALID_HOST_FIELDS, '()'));
-	if (sizeof($vhf)) {
+	if (cacti_sizeof($vhf)) {
 		foreach ($vhf as $r) {
 			$nr[] = "<span style='color:blue;'>|" . $r . "|</span>";
 		}
@@ -949,7 +949,7 @@ function template_edit() {
 		AND local_data_id=0',
 		array($thold_data['data_template_id']));
 
-	if (sizeof($dss)) {
+	if (cacti_sizeof($dss)) {
 		foreach ($dss as $ds) {
 			$dsname[] = "<span style='color:blue;'>|ds:" . $ds['data_source_name'] . "|</span>";
 		}
@@ -959,7 +959,7 @@ function template_edit() {
 
 	$email_body = read_config_option('thold_enable_per_thold_body');
 
-	if (sizeof($thold_data) && isset($thold_data['reset_ack'])) {
+	if (cacti_sizeof($thold_data) && isset($thold_data['reset_ack'])) {
 		$acknowledgment = ($thold_data['reset_ack'] == 'on' ? 'reset_ack': ($thold_data['persist_ack'] == 'on' ? 'persist_ack':'none'));
 	} else {
 		$acknowledgment = 'none';
@@ -1804,7 +1804,7 @@ function templates() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
 								}
@@ -1899,7 +1899,7 @@ function templates() {
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
 	$i = 0;
-	if (sizeof($template_list)) {
+	if (cacti_sizeof($template_list)) {
 		foreach ($template_list as $template) {
 			switch ($template['thold_type']) {
 			case 0:					# hi/lo
@@ -1970,7 +1970,7 @@ function templates() {
 
 	html_end_box(false);
 
-	if (sizeof($template_list)) {
+	if (cacti_sizeof($template_list)) {
 		print $nav;
 	}
 
@@ -2048,12 +2048,12 @@ function template_import() {
 
 	$debug_data = array();
 
-	if (sizeof($xml_array)) {
+	if (cacti_sizeof($xml_array)) {
 		foreach ($xml_array as $template => $contents) {
 			$error = false;
 			$save  = array();
 
-			if (sizeof($contents)) {
+			if (cacti_sizeof($contents)) {
 				foreach ($contents as $name => $value) {
 					switch($name) {
 					case 'data_template_id':
@@ -2129,7 +2129,7 @@ function template_import() {
 		}
 	}
 
-	if(sizeof($debug_data) > 0) {
+	if(cacti_sizeof($debug_data) > 0) {
 		$_SESSION['import_debug_info'] = $debug_data;
 	}
 

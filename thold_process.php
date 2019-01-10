@@ -180,7 +180,7 @@ if (read_config_option('remote_storage_method') == 1) {
 	$tholds = db_fetch_assoc_prepared($sql_query, array($pid), false);
 }
 
-if (sizeof($tholds)) {
+if (cacti_sizeof($tholds)) {
 	$rrd_reindexed = array();
 	$rrd_time_reindexed = array();
 
@@ -275,7 +275,7 @@ if (sizeof($tholds)) {
 	}
 
 	$total_tholds = sizeof($tholds);
-	if (sizeof($tholds)) {
+	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold) {
 			thold_check_threshold($thold);
 		}

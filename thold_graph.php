@@ -114,7 +114,7 @@ function form_thold_filter() {
 								FROM sites
 								ORDER BY name');
 
-							if (sizeof($sites)) {
+							if (cacti_sizeof($sites)) {
 								foreach ($sites as $sites) {
 									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . $sites['name'] . "</option>\n";
 								}
@@ -146,7 +146,7 @@ function form_thold_filter() {
 								(get_request_var('host_id') > 0 ? 'WHERE thold_data.host_id=' . get_request_var('host_id'):'') .
 								' ORDER by data_template.name');
 
-							if (sizeof($data_templates)) {
+							if (cacti_sizeof($data_templates)) {
 								foreach ($data_templates as $data_template) {
 									print "<option value='" . $data_template['id'] . "'"; if (get_request_var('data_template_id') == $data_template['id']) { print ' selected'; } print '>' . $data_template['name'] . "</option>\n";
 								}
@@ -173,7 +173,7 @@ function form_thold_filter() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
 								}
@@ -477,7 +477,7 @@ function tholds() {
 
 	html_end_box(false);
 
-	if (sizeof($tholds)) {
+	if (cacti_sizeof($tholds)) {
 		print $nav;
 	}
 
@@ -671,7 +671,7 @@ function hosts() {
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=hoststat');
 
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		foreach ($hosts as $host) {
 			if ($host['disabled'] == '' &&
 				($host['status'] == HOST_RECOVERING || $host['status'] == HOST_UP) &&
@@ -755,7 +755,7 @@ function hosts() {
 
 	html_end_box(false);
 
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		print $nav;
 	}
 
@@ -791,7 +791,7 @@ function form_host_filter() {
 								FROM sites
 								ORDER BY name');
 
-							if (sizeof($sites)) {
+							if (cacti_sizeof($sites)) {
 								foreach ($sites as $sites) {
 									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . $sites['name'] . "</option>\n";
 								}
@@ -835,7 +835,7 @@ function form_host_filter() {
 								FROM host_template
 								ORDER BY name');
 
-							if (sizeof($host_templates)) {
+							if (cacti_sizeof($host_templates)) {
 								foreach ($host_templates as $host_template) {
 									print "<option value='" . $host_template['id'] . "'"; if (get_request_var('host_template_id') == $host_template['id']) { print ' selected'; } print '>' . $host_template['name'] . "</option>\n";
 								}
@@ -850,7 +850,7 @@ function form_host_filter() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print " selected"; } print ">" . $value . "</option>\n";
 								}
@@ -1029,7 +1029,7 @@ function thold_show_log() {
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=log');
 
 	$i = 0;
-	if (sizeof($logs)) {
+	if (cacti_sizeof($logs)) {
 		foreach ($logs as $l) {
 			$baseu = db_fetch_cell_prepared('SELECT base_value
 				FROM graph_templates_graph
@@ -1059,7 +1059,7 @@ function thold_show_log() {
 
 	html_end_box(false);
 
-	if (sizeof($logs)) {
+	if (cacti_sizeof($logs)) {
 		print $nav;
 	}
 
@@ -1093,7 +1093,7 @@ function form_thold_log_filter() {
 								FROM sites
 								ORDER BY name');
 
-							if (sizeof($sites)) {
+							if (cacti_sizeof($sites)) {
 								foreach ($sites as $sites) {
 									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . $sites['name'] . "</option>\n";
 								}
@@ -1126,7 +1126,7 @@ function form_thold_log_filter() {
 								(get_request_var('host_id') > 0 ? 'WHERE td.host_id=' . get_request_var('host_id'):'') .
 								' ORDER by tt.name');
 
-							if (sizeof($tholds)) {
+							if (cacti_sizeof($tholds)) {
 								foreach ($tholds as $thold) {
 									print "<option value='" . $thold['id'] . "'"; if (get_request_var('threshold_id') == $thold['id']) { print ' selected'; } print '>' . $thold['name'] . '</option>';
 								}
@@ -1141,7 +1141,7 @@ function form_thold_log_filter() {
 						<select id='status' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
 							<?php
-							if (sizeof($thold_log_states)) {
+							if (cacti_sizeof($thold_log_states)) {
 								foreach ($thold_log_states as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('status') == $key) { print " selected"; } print ">" . $value['display'] . "</option>\n";
 								}
@@ -1156,7 +1156,7 @@ function form_thold_log_filter() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print " selected"; } print ">" . $value . "</option>\n";
 								}

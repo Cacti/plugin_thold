@@ -408,7 +408,7 @@ function form_actions() {
 
 		html_start_box($actions{get_request_var('drp_action')} . " $list_name", '70%', false, '3', 'center', '');
 
-		if (sizeof($array)) {
+		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* delete */
 				print "<tr>
 					<td class='textArea'>
@@ -476,7 +476,7 @@ function form_actions() {
 
 		html_start_box(__('%s Threshold Template(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '70%', false, '3', 'center', '');
 
-		if (sizeof($array)) {
+		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
@@ -546,7 +546,7 @@ function form_actions() {
 
 		html_start_box(__('%s Threshold(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '70%', false, '3', 'center', '');
 
-		if (sizeof($array)) {
+		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
@@ -615,7 +615,7 @@ function form_actions() {
 
 		html_start_box($assoc_actions{get_request_var('drp_action')} . ' Device(s)', '70%', false, '3', 'center', '');
 
-		if (sizeof($array)) {
+		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
@@ -696,17 +696,15 @@ function edit() {
 	load_current_session_value('tab', 'sess_thold_notify_tab', 'general');
 	$current_tab = get_request_var('tab');
 
-	if (sizeof($tabs_thold) && isset_request_var('id')) {
+	if (cacti_sizeof($tabs_thold) && isset_request_var('id')) {
 		print "<div class='tabs'><nav><ul>\n";
 
-		if (sizeof($tabs_thold)) {
-			foreach (array_keys($tabs_thold) as $tab_short_name) {
-				print "<li><a class='pic" . (($tab_short_name == $current_tab) ? ' selected' : '') .  "' href='" . $config['url_path'] .
-					'plugins/thold/notify_lists.php' .
-					'?action=edit&id=' . get_filter_request_var('id') .
-					'&tab=' . $tab_short_name .
-					"'>" . $tabs_thold[$tab_short_name] . "</a></li>\n";
-			}
+		foreach (array_keys($tabs_thold) as $tab_short_name) {
+			print "<li><a class='pic" . (($tab_short_name == $current_tab) ? ' selected' : '') .  "' href='" . $config['url_path'] .
+				'plugins/thold/notify_lists.php' .
+				'?action=edit&id=' . get_filter_request_var('id') .
+				'&tab=' . $tab_short_name .
+				"'>" . $tabs_thold[$tab_short_name] . "</a></li>\n";
 		}
 
 		print "</ul></nav></div>\n";
@@ -867,7 +865,7 @@ function hosts($header_label) {
 								FROM host_template
 								ORDER BY name');
 
-							if (sizeof($host_templates)) {
+							if (cacti_sizeof($host_templates)) {
 								foreach ($host_templates as $host_template) {
 									print "<option value='" . $host_template['id'] . "'"; if (get_request_var('host_template_id') == $host_template['id']) { print ' selected'; } print '>' . html_escape($host_template['name']) . "</option>\n";
 								}
@@ -882,7 +880,7 @@ function hosts($header_label) {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
@@ -1002,7 +1000,7 @@ function hosts($header_label) {
 
 	html_header_checkbox($display_text);
 
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		foreach ($hosts as $host) {
 			form_alternate_row('line' . $host['id'], true);
 
@@ -1039,12 +1037,12 @@ function hosts($header_label) {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td colspan="' . (sizeof($display_text) + 1) . '"><em>' . __('No Associated Devices Found', 'thold') . '</em></td></tr>';
+		print '<tr><td colspan="' . (cacti_sizeof($display_text) + 1) . '"><em>' . __('No Associated Devices Found', 'thold') . '</em></td></tr>';
 	}
 
 	html_end_box(false);
 
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		print $nav;
 	}
 
@@ -1157,7 +1155,7 @@ function tholds($header_label) {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
@@ -1327,7 +1325,7 @@ function tholds($header_label) {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='even' <td colspan='" . (sizeof($display_text) + 1) . "'><i>" . __('No Thresholds', 'thold'). "</i></td></tr>\n";
+		print "<tr class='even' <td colspan='" . (cacti_sizeof($display_text) + 1) . "'><i>" . __('No Thresholds', 'thold'). "</i></td></tr>\n";
 	}
 
 	html_end_box(false);
@@ -1398,7 +1396,7 @@ function templates($header_label) {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
@@ -1473,7 +1471,7 @@ function templates($header_label) {
 
 	$c=0;
 	$i=0;
-	if (sizeof($result)) {
+	if (cacti_sizeof($result)) {
 		foreach ($result as $row) {
 			$c++;
 
@@ -1552,12 +1550,12 @@ function templates($header_label) {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='even'><td colspan='" . (sizeof($display_text) + 1) . "'><i>" . __('No Templates', 'thold') . "</i></td></tr>\n";
+		print "<tr class='even'><td colspan='" . (cacti_sizeof($display_text) + 1) . "'><i>" . __('No Templates', 'thold') . "</i></td></tr>\n";
 	}
 
 	html_end_box(false);
 
-	if (sizeof($result)) {
+	if (cacti_sizeof($result)) {
 		print $nav;
 	}
 
@@ -1720,7 +1718,7 @@ function lists() {
 						<select id='rows' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
 							<?php
-							if (sizeof($item_rows)) {
+							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
 									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
 								}
@@ -1811,7 +1809,7 @@ function lists() {
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
-	if (sizeof($lists)) {
+	if (cacti_sizeof($lists)) {
 		foreach ($lists as $item) {
 			form_alternate_row('line' . $item['id'], true);
 			form_selectable_cell(filter_value($item['name'], get_request_var('filter'), 'notify_lists.php?action=edit&id=' . $item['id']), $item['id'], '20%','badclass');
@@ -1824,12 +1822,12 @@ function lists() {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td colspan="' . (sizeof($display_text) + 1) . '"><em>' . __('No Notification Lists', 'thold') . '</em></td></tr>';
+		print '<tr><td colspan="' . (cacti_sizeof($display_text) + 1) . '"><em>' . __('No Notification Lists', 'thold') . '</em></td></tr>';
 	}
 
 	html_end_box(false);
 
-	if (sizeof($lists)) {
+	if (cacti_sizeof($lists)) {
 		print $nav;
 	}
 

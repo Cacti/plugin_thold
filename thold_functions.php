@@ -76,7 +76,7 @@ function thold_tabs() {
 	/* draw the tabs */
 	print "<div class='tabs'><nav><ul>\n";
 
-	if (sizeof($tabs)) {
+	if (cacti_sizeof($tabs)) {
 		foreach (array_keys($tabs) as $tab_short_name) {
 			print "<li><a class='tab" . (($tab_short_name == $current_tab) ? " selected'" : "'") .
 				" href='" . html_escape($config['url_path'] .
@@ -245,7 +245,7 @@ function log_legend() {
 function thold_expression_rpn_pop(&$stack) {
 	global $rpn_error;
 
-	if (sizeof($stack)) {
+	if (cacti_sizeof($stack)) {
 		return array_pop($stack);
 	} else {
 		$rpn_error = true;
@@ -1628,7 +1628,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		$desc .= ' DataTemplate[' . $tname . ']';
 		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
-		if (sizeof($message)) {
+		if (cacti_sizeof($message)) {
 			$desc .= ' Note[' . implode(', ', $message) . ']';
 		}
 
@@ -1917,7 +1917,7 @@ function thold_check_threshold(&$thold_data) {
 			WHERE id = ?',
 			array($thold_data['host_id']));
 
-		if (sizeof($h) && $h['status'] != 3) {
+		if (cacti_sizeof($h) && $h['status'] != 3) {
 			thold_debug('Threshold checking halted by Device Status (' . $h['status'] . ')' );
 			return;
 		}
@@ -3011,13 +3011,13 @@ function thold_expand_string($thold_data, $string) {
 
 	$str = $string;
 
-	if (sizeof($thold_data)) {
+	if (cacti_sizeof($thold_data)) {
 		$local_graph = db_fetch_row_prepared('SELECT *
 			FROM graph_local
 			WHERE id = ?',
 			array($thold_data['local_graph_id']));
 
-		if (sizeof($local_graph)) {
+		if (cacti_sizeof($local_graph)) {
 			$str = expand_title($thold_data['host_id'], $local_graph['snmp_query_id'], $local_graph['snmp_index'], $str);
 			$str = thold_substitute_custom_data($str, '|', '|', $thold_data['local_data_id']);
 		}
@@ -3057,7 +3057,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		}
 
 		if ($command_executed) {
-			if (sizeof($output)) {
+			if (cacti_sizeof($output)) {
 				if ($return > 0) {
 					cacti_log('WARNING: Threshold command execution for TH[' . $thold_data['id'] . '] returned ' . $return . ', with output ' . implode(', ', $output), false, 'THOLD');
 				} else {
@@ -3263,7 +3263,7 @@ function get_reference_types($local_data_id = 0) {
 		ORDER BY frequency');
 
 	$reference_types = array();
-	if (sizeof($rra_steps)) {
+	if (cacti_sizeof($rra_steps)) {
 		$i = 0;
 		foreach ($rra_steps as $rra_step) {
 			$seconds = $rra_step['frequency'];
@@ -3351,7 +3351,7 @@ function thold_cdef_get_usable() {
 
 	$cdef_usable = array();
 
-	if (sizeof($cdef_items)) {
+	if (cacti_sizeof($cdef_items)) {
 		foreach ($cdef_items as $cdef_item) {
 				$cdef_usable[] =  $cdef_item['cdef_id'];
 		}
@@ -3366,7 +3366,7 @@ function thold_cdef_select_usable_names () {
 
 	$cdef_names[0] = '';
 
-	if (sizeof($cdefs)) {
+	if (cacti_sizeof($cdefs)) {
 		foreach ($cdefs as $cdef) {
 			if (in_array($cdef['id'], $ids)) {
 				$cdef_names[$cdef['id']] =  $cdef['name'];
@@ -3388,7 +3388,7 @@ function thold_build_cdef($cdef, $value, $rra, $ds) {
 
 	$cdef_array = array();
 
-	if (sizeof($cdefs)) {
+	if (cacti_sizeof($cdefs)) {
 		foreach ($cdefs as $cdef) {
 			if ($cdef['type'] == 4) {
 				$cdef['type'] = 6;
@@ -3427,7 +3427,7 @@ function thold_build_cdef($cdef, $value, $rra, $ds) {
 						WHERE local_data_id = ?',
 						array($rra));
 
-					if (sizeof($all_dsns)) {
+					if (cacti_sizeof($all_dsns)) {
 						foreach ($all_dsns as $dsn) {
 							$cdef['value'] += get_current_value($rra, $dsn['data_source_name']);
 						}
@@ -3703,7 +3703,7 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 			return -1;
 		}
 
-		if (sizeof($ref_values) > 1) {
+		if (cacti_sizeof($ref_values) > 1) {
 			$ref_value_min = min($ref_values);
 			$ref_value_max = max($ref_values);
 		} else {
@@ -4539,7 +4539,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_tem
 					WHERE id = ?',
 					array($data_source['thold_template_id']));
 
-				if (sizeof($template)) {
+				if (cacti_sizeof($template)) {
 					foreach($data_sources as $data_source) {
 						if (thold_create_from_template($local_data_id, $local_graph_id, $data_template_rrd_id, $template, $message)) {
 							$created++;
@@ -5090,7 +5090,7 @@ function get_hash_thold_template($id) {
 function ia2xml($array) {
 	$xml = '';
 
-	if (sizeof($array)) {
+	if (cacti_sizeof($array)) {
 		foreach ($array as $key=>$value) {
 			if (is_array($value)) {
 				$xml .= "\t<$key>" . ia2xml($value) . "</$key>\n";

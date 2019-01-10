@@ -167,7 +167,7 @@ if ($config['cacti_server_os'] == 'unix') {
 
 /* check if poller daemon is already running */
 exec('pgrep -a php | grep thold_daemon.php', $output);
-if (sizeof($output) >= 2) {
+if (cacti_sizeof($output) >= 2) {
 	print 'The Thold Daemon is still running' . PHP_EOL;
     return;
 }

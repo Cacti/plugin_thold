@@ -505,7 +505,7 @@ function thold_wizard() {
 			// Using the Graph Template listed
 			// If the Graph Template is associated with a Data Query
 			// make sure that your get all the Data Query based Graph Templates
-			if (sizeof($graph_templates)) {
+			if (cacti_sizeof($graph_templates)) {
 				$new_templates = array();
 				$hql = '';
 				$host_ids = array();
@@ -536,7 +536,7 @@ function thold_wizard() {
 						AND dtr.data_template_id = ?',
 						array($data_template_id));
 
-					if (sizeof($templates)) {
+					if (cacti_sizeof($templates)) {
 						$new_templates = $templates;
 
 						foreach ($templates as $t) {
@@ -551,7 +551,7 @@ function thold_wizard() {
 							array($data_query_id)),
 						'id', 'id');
 
-					if (sizeof($host_templates)) {
+					if (cacti_sizeof($host_templates)) {
 						$hql = 'h.host_template_id IN(' . implode(', ', $host_templates) . ')';
 					} else {
 						$hosts_ids = array();
@@ -1057,7 +1057,7 @@ function thold_new_graphs_save($host_id) {
 			if ($current_form_type == 'cg') {
 				$return_array = create_complete_graph_from_template($graph_template_id, $host_id, '', $values['cg']);
 
-				if (sizeof($return_array)) {
+				if (cacti_sizeof($return_array)) {
 					thold_raise_message(__('Created graph: %s', html_escape(get_graph_title($return_array['local_graph_id'])), 'thold'), MESSAGE_LEVEL_INFO);
 					/* lastly push host-specific information to our data sources */
 					foreach ($return_array['local_data_id'] as $item) {
@@ -1070,7 +1070,7 @@ function thold_new_graphs_save($host_id) {
 
 					$return_array = create_complete_graph_from_template($graph_template_id, $host_id, $snmp_query_array, $values['sg']{$snmp_query_array['snmp_query_id']});
 
-					if (sizeof($return_array)) {
+					if (cacti_sizeof($return_array)) {
 						thold_raise_message(__('Created graph: %s', html_escape(get_graph_title($return_array['local_graph_id'])), 'thold'), MESSAGE_LEVEL_INFO);
 						/* lastly push host-specific information to our data sources */
 						foreach ($return_array['local_data_id'] as $item) {
