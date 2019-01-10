@@ -289,7 +289,7 @@ function thold_poller_output(&$rrd_update_array) {
 						AND thold_data.local_data_id IN ($local_data_ids)");
 				}
 
-				if (sizeof($thold_items)) {
+				if (cacti_sizeof($thold_items)) {
 					/* avoid that concurrent processes will work on the same thold items */
 					db_execute_prepared("UPDATE thold_data
 						SET thold_data.thold_daemon_pid = ?
@@ -344,7 +344,7 @@ function thold_poller_output(&$rrd_update_array) {
 		WHERE dtr.data_source_name!=''
 		AND td.local_data_id IN($local_data_ids)");
 
-	if (sizeof($tholds)) {
+	if (cacti_sizeof($tholds)) {
 		$sql = array();
 		foreach ($tholds as $thold_data) {
 			thold_debug("Checking Threshold: Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
@@ -392,7 +392,7 @@ function thold_poller_output(&$rrd_update_array) {
 			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', ' . db_qstr(date('Y-m-d H:i:s', $currenttime)) . ', ' . db_qstr($lasttime) . ')';
 		}
 
-		if (sizeof($sql)) {
+		if (cacti_sizeof($sql)) {
 			$chunks = array_chunk($sql, 400);
 			foreach ($chunks as $c) {
 				db_execute('INSERT INTO thold_data
@@ -518,7 +518,7 @@ function thold_update_host_status() {
 			FROM plugin_thold_host_failed');
 	}
 
-	if (sizeof($failed)) {
+	if (cacti_sizeof($failed)) {
 		foreach ($failed as $fh) {
 			$alert_email        = read_config_option('alert_email');
 
@@ -792,7 +792,7 @@ function thold_update_host_status() {
 	}
 
 	$failed = '';
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		foreach ($hosts as $host) {
 			if (api_plugin_is_enabled('maint')) {
 				if (plugin_maint_check_cacti_host($host['id'])) {
