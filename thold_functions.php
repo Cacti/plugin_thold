@@ -3022,6 +3022,12 @@ function thold_expand_string($thold_data, $string) {
 		if (cacti_sizeof($local_graph)) {
 			$str = expand_title($thold_data['host_id'], $local_graph['snmp_query_id'], $local_graph['snmp_index'], $str);
 			$str = thold_substitute_custom_data($str, '|', '|', $thold_data['local_data_id']);
+
+			$str = api_plugin_hook_function('thold_substitute_custom_data', array('str' => $str, 'thold_data' => $thold_data, 'local_graph' => $local_graph));
+
+			if (is_array($str)) {
+				$str = $str['str'];
+			}
 		}
 	}
 
