@@ -68,6 +68,8 @@ function thold_tabs() {
 		'hoststat' => __('Device Status', 'thold')
 	);
 
+	$tabs = api_plugin_hook_function('thold_graph_tabs', $tabs);
+
 	get_filter_request_var('tab', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^([a-zA-Z]+)$/')));
 
 	load_current_session_value('tab', 'sess_thold_graph_tab', 'general');
