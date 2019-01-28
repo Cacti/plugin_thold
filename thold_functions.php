@@ -2374,21 +2374,22 @@ function thold_check_threshold(&$thold_data) {
 					thold_command_execution($thold_data, $h, false, false, true);
 
 					$save = array(
-						'class'               => 'blnormal',
-						'thold_data'          => $thold_data,
-						'subject'             => $subject,
-						'host_data'           => $h
+						'class'      => 'blnormal',
+						'thold_data' => $thold_data,
+						'subject'    => $subject,
+						'host_data'  => $h
 					);
 					api_plugin_hook_function('thold_action', $save);
 
 					if ($thold_snmp_traps && $thold_snmp_normal_traps) {
 						$thold_snmp_data = get_thold_snmp_data($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread']);
 
-						$thold_snmp_data['eventClass'] = 1;
-						$hold_snmp_data['eventSeverity'] = 1;
-						$thold_snmp_data['eventStatus'] = 1;
-						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS+1;
+						$thold_snmp_data['eventClass']    = 1;
+						$thold_snmp_data['eventSeverity'] = 1;
+						$thold_snmp_data['eventStatus']   = 1;
 						$thold_snmp_data['eventDeviceIp'] = gethostbyname($h['hostname']);
+
+						$thold_snmp_data['eventNotificationType'] = ST_NOTIFYRS + 1;
 
 						thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 					}
