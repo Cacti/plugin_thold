@@ -510,7 +510,7 @@ function thold_upgrade_database($force = false) {
 				db_execute_prepared('UPDATE thold_template
 					SET hash = ?
 					WHERE id = ?
-					AND hash = ""',
+					AND hash = "" OR hash IS NULL',
 					array($hash, $t['id']));
 			}
 		}
