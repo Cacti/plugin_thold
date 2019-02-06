@@ -1511,6 +1511,23 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 	}
 
 	switch ($changed) {
+	case 'acknowledge_threshold':
+		$thold = db_fetch_row_prepared('SELECT *
+			FROM thold_data
+			WHERE id = ?',
+			array($id));
+
+		$tname = db_fetch_cell_prepared('SELECT name
+			FROM data_template
+			WHERE id = ?',
+			array($thold['data_template_id']));
+
+		$desc  = "Threshold Acknowledged by User[$user] TH[$id]";
+
+		$desc .= ' DataTemplate[' . $tname . ']';
+		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
+
+		break;
 	case 'enabled_threshold':
 		$thold = db_fetch_row_prepared('SELECT *
 			FROM thold_data
@@ -1904,7 +1921,6 @@ function thold_check_threshold(&$thold_data) {
 	}
 
 	$local_graph_id = $thold_data['local_graph_id'];
-
 
 	$h = array();
 	if (isset($thold_data['hostname'])) {
@@ -3339,7 +3355,7 @@ function ack_logging($thold_id, $desc = '') {
 			'type' => 99,
 			'time' => time(),
 			'host_id' => '',
-			'graph_id' => $thold_data['graph_id'],
+			'local_graph_id' => $thold_data['local_graph_id'],
 			'threshold_id' => $thold_id,
 			'threshold_value' => '',
 			'current' => $thold_data['lastread'],

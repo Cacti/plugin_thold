@@ -381,7 +381,7 @@ function thold_rrd_graph_graph_options($g) {
 		$g['txt_graph_items'] = implode("\\\n", $txt_items);
 	}
 
-	$id = $g['graph_id'];
+	$id = $g['local_graph_id'];
 
 	//print "<pre>"; print_r($g);print "</pre>";
 
