@@ -74,10 +74,10 @@ function plugin_thold_install($upgrade = false) {
 	api_plugin_register_hook($plugin, 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php');
 	api_plugin_register_hook($plugin, 'api_device_new', 'thold_api_device_new', 'setup.php');
 
-	api_plugin_register_realm($plugin, 'thold.php', __('Configure Thresholds', 'thold'), 1);
-	api_plugin_register_realm($plugin, 'thold_templates.php', __('Configure Threshold Templates', 'thold'), 1);
-	api_plugin_register_realm($plugin, 'notify_lists.php', __('Manage Notification Lists', 'thold'), 1);
-	api_plugin_register_realm($plugin, 'thold_graph.php,graph_thold.php,thold_view_failures.php,thold_view_normal.php,thold_view_recover.php,thold_view_recent.php,thold_view_host.php', __('View Thresholds', 'thold'), 1);
+	api_plugin_register_realm($plugin, 'thold.php', 'Configure Thresholds', 1);
+	api_plugin_register_realm($plugin, 'thold_templates.php', 'Configure Threshold Templates', 1);
+	api_plugin_register_realm($plugin, 'notify_lists.php', 'Manage Notification Lists', 1);
+	api_plugin_register_realm($plugin, 'thold_graph.php,graph_thold.php,thold_view_failures.php,thold_view_normal.php,thold_view_recover.php,thold_view_recent.php,thold_view_host.php', 'View Thresholds', 1);
 
 	include_once($config['base_path'] . '/plugins/thold/includes/database.php');
 

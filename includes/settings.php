@@ -98,6 +98,13 @@ function thold_config_arrays() {
 		);
 	}
 
+	$realm_array = array(
+		__('Configure Thresholds', 'thold'),
+		__('Configure Threshold Templates', 'thold'),
+		__('Manage Notification Lists', 'thold'),
+		__('View Thresholds', 'thold')
+	);
+
 	kill_session_var('thold_message');
 }
 
