@@ -303,11 +303,11 @@ function do_actions() {
 				case 5:	// Propagate Template
 					foreach ($tholds as $thold_id => $local_graph_id) {
 						if (thold_user_auth_threshold($local_graph_id)) {
-							$template = db_fetch_row_prepared('SELECT td.template AS id,
+							$template = db_fetch_row_prepared('SELECT td.thold_template_id AS id,
 								td.template_enabled AS enabled
 								FROM thold_data AS td
 								INNER JOIN thold_template AS tt
-								ON tt.id = td.template
+								ON tt.id = td.thold_template_id
 								WHERE td.id = ?',
 								array($thold_id));
 
