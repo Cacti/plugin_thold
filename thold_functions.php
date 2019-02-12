@@ -1491,7 +1491,7 @@ function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_
 function plugin_thold_log_changes($id, $changed, $message = array()) {
 	global $config;
 
-	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	$desc = '';
 

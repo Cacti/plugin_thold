@@ -115,6 +115,7 @@ that.
 * issue#220: Fixed bug when mass host down created wrong email sending where
   used both global and local notification lists on hosts.
 * issue#226: Tholds cli_thresholds.php script does not fully function
+* issue#245: Upgrade to THold 1.2.0 fails with massive stack trace being repeated
 * issue: Massive usability and readability improvements in code
 * issue: When saving a Threshold or a Threshold Template you were redirected
   back to the respective table views and not left on the edit page.
