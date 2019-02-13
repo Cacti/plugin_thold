@@ -51,8 +51,8 @@ switch ($action) {
 		} elseif (isset_request_var('save') && get_nfilter_request_var('save') == 'edit') {
 			template_save_edit();
 		}
-
 		break;
+
 	case 'import':
 		top_header();
 		import();
@@ -104,7 +104,7 @@ function do_actions() {
 	}
 
 	$(function() {
-		debugger;
+		//debugger;
 		DownloadStart(\'thold_templates.php?action=export&selected_items=' . get_nfilter_request_var('selected_items') . '\');
 	});
 </script>
@@ -1999,9 +1999,7 @@ function import() {
 		)
 	);
 
-	?>
-	<form method='post' action='thold_templates.php' enctype='multipart/form-data'>
-	<?php
+	form_start('thold_templates.php','chk',true);
 
 	if ((isset($_SESSION['import_debug_info'])) && (is_array($_SESSION['import_debug_info']))) {
 		html_start_box(__('Import Results', 'thold'), '100%', false, '3', 'center', '');
@@ -2016,124 +2014,169 @@ function import() {
 		kill_session_var('import_debug_info');
 	}
 
-	html_start_box(__('Import Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
+	html_start_box(__('Import Threshold Templates', 'thold'), '80%', false, '3', 'center', '');
 
 	draw_edit_form(array(
 		'config' => array('no_form_tag' => true),
 		'fields' => $form_data
 		));
 
-	html_end_box();
 	form_hidden_box('save_component_import','1','');
 
-	form_save_button('', 'import');
+	print "	<tr><td><hr/></td></tr><tr>
+			<td class='saveRow'>
+				<input type='hidden' name='action' value='save'>
+				<input type='submit' value='" . __esc('Import', 'thold') . "' title='" . __esc('Import Threshold Templates', 'thold') . "' class='ui-button ui-corner-all ui-widget ui-state-active'>
+			</td>
+		</tr>";
+	html_end_box();
+}
+
+function validate_upload() {
+	/* check file tranfer if used */
+	if (isset($_FILES['import_file'])) {
+		/* check for errors first */
+		if ($_FILES['import_file']['error'] != 0) {
+			switch ($_FILES['import_file']['error']) {
+				case 1:
+					thold_raise_message(__('The file is too big.', 'thold'), MESSAGE_LEVEL_ERROR);
+					break;
+				case 2:
+					thold_raise_message(__('The file is too big.', 'thold'), MESSAGE_LEVEL_ERROR);
+					break;
+				case 3:
+					thold_raise_message(__('Incomplete file transfer.', 'thold'), MESSAGE_LEVEL_ERROR);
+					break;
+				case 4:
+					thold_raise_message(__('No file uploaded.', 'thold'), MESSAGE_LEVEL_ERROR);
+					break;
+				case 6:
+					thold_raise_message(__('Temporary folder missing.', 'thold'), MESSAGE_LEVEL_ERROR);
+					break;
+				case 7:
+					thold_raise_message(__('Failed to write file to disk', 'thold'), MESSAGE_LEVEL_ERROR);
+					break;
+				case 8:
+					thold_raise_message(__('File upload stopped by extension', 'thold'), MESSAGE_LEVEL_ERROR);
+					break;
+			}
+			if (is_error_message()) {
+				return false;
+			}
+		}
+		/* check mine type of the uploaded file */
+		if ($_FILES['import_file']['type'] != 'text/xml') {
+			thold_raise_message(__('Invalid file extension.', 'thold'), MESSAGE_LEVEL_ERROR);
+			return false;
+		}
+		return file_get_contents($_FILES['import_file']['tmp_name']);
+	}
+
+	raise_message(__('No file uploaded.', 'thold'), MESSAGE_LEVEL_ERROR);
+	return false;
 }
 
 function template_import() {
-	if (trim(get_nfilter_request_var('import_text') != '')) {
-		/* textbox input */
-		$xml_data = get_nfilter_request_var('import_text');
-	} elseif (($_FILES['import_file']['tmp_name'] != 'none') && ($_FILES['import_file']['tmp_name'] != '')) {
-		/* file upload */
-		$fp = fopen($_FILES['import_file']['tmp_name'],'r');
-		$xml_data = fread($fp,filesize($_FILES['import_file']['tmp_name']));
-		fclose($fp);
-	} else {
-		header('Location: thold_templates.php?header=false');
-		exit;
+	$xml_data = trim(get_nfilter_request_var('import_text'));
+
+	// If we have text, then we were trying to import text, otherwise we are uploading a file for import
+	if (empty($xml_data)) {
+		$xml_data = validate_upload();
 	}
 
-	/* obtain debug information if it's set */
-	$xml_array = xml2array($xml_data);
+	if ($xml_data) {
+		/* obtain debug information if it's set */
+		$xml_array = xml2array($xml_data);
 
-	$debug_data = array();
+		$debug_data = array();
 
-	if (cacti_sizeof($xml_array)) {
-		foreach ($xml_array as $template => $contents) {
-			$error = false;
-			$save  = array();
+		if (cacti_sizeof($xml_array)) {
+			foreach ($xml_array as $template => $contents) {
+				$error = false;
+				$save  = array();
 
-			if (cacti_sizeof($contents)) {
-				foreach ($contents as $name => $value) {
-					switch($name) {
-					case 'data_template_id':
-						// See if the hash exists, if it doesn't, Error Out
-						$found = db_fetch_cell_prepared('SELECT id
-							FROM data_template
-							WHERE hash = ?',
-							array($value));
+				if (cacti_sizeof($contents)) {
+					foreach ($contents as $name => $value) {
+						switch($name) {
+							case 'data_template_id':
+								// See if the hash exists, if it doesn't, Error Out
+								$found = db_fetch_cell_prepared('SELECT id
+									FROM data_template
+									WHERE hash = ?',
+									array($value));
 
-						if (!empty($found)) {
-							$save['data_template_id'] = $found;
-						} else {
-							$error = true;
-							$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold') . "</span> " . __('Threshold Template Subordinate Data Template Not Found!', 'thold');
+								if (!empty($found)) {
+									$save['data_template_id'] = $found;
+								} else {
+									$error = true;
+									$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold') . "</span> " . __('Threshold Template Subordinate Data Template Not Found!', 'thold');
+								}
+
+								break;
+							case 'data_source_id':
+							// See if the hash exists, if it doesn't, Error Out
+							$found = db_fetch_cell_prepared('SELECT id
+								FROM data_template_rrd
+								WHERE hash = ?',
+								array($value));
+
+							if (!empty($found)) {
+								$save['data_source_id'] = $found;
+							} else {
+								$error = true;
+								$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template Subordinate Data Source Not Found!', 'thold');
+							}
+
+							break;
+						case 'hash':
+							// See if the hash exists, if it does, update the thold
+							$found = db_fetch_cell_prepared('SELECT id
+								FROM thold_template
+								WHERE hash = ?',
+								array($value));
+
+							if (!empty($found)) {
+								$save['hash'] = $value;
+								$save['id']   = $found;
+							} else {
+								$save['hash'] = $value;
+								$save['id']   = 0;
+							}
+
+							break;
+						case 'name':
+							$tname = $value;
+							$save['name'] = $value;
+
+							break;
+						default:
+							if (db_column_exists('thold_template', $name)) {
+								$save[$name] = $value;
+							}
+
+							break;
 						}
+					}
+				}
 
-						break;
-					case 'data_source_id':
-						// See if the hash exists, if it doesn't, Error Out
-						$found = db_fetch_cell_prepared('SELECT id
-							FROM data_template_rrd
-							WHERE hash = ?',
-							array($value));
+				if (!$error) {
+					$id = sql_save($save, 'thold_template');
 
-						if (!empty($found)) {
-							$save['data_source_id'] = $found;
-						} else {
-							$error = true;
-							$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template Subordinate Data Source Not Found!', 'thold');
-						}
-
-						break;
-					case 'hash':
-						// See if the hash exists, if it does, update the thold
-						$found = db_fetch_cell_prepared('SELECT id
-							FROM thold_template
-							WHERE hash = ?',
-							array($value));
-
-						if (!empty($found)) {
-							$save['hash'] = $value;
-							$save['id']   = $found;
-						} else {
-							$save['hash'] = $value;
-							$save['id']   = 0;
-						}
-
-						break;
-					case 'name':
-						$tname = $value;
-						$save['name'] = $value;
-
-						break;
-					default:
-						if (db_column_exists('thold_template', $name)) {
-							$save[$name] = $value;
-						}
-
-						break;
+					if ($id) {
+						$debug_data[] = "<span style='font-weight:bold;color:green;'>" . __('NOTE:', 'thold') . "</span> " . __('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
+					} else {
+						$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
 					}
 				}
 			}
+		}
 
-			if (!$error) {
-				$id = sql_save($save, 'thold_template');
-
-				if ($id) {
-					$debug_data[] = "<span style='font-weight:bold;color:green;'>" . __('NOTE:', 'thold') . "</span> " . __('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
-				} else {
-					$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
-				}
-			}
+		if(cacti_sizeof($debug_data) > 0) {
+			$_SESSION['import_debug_info'] = $debug_data;
 		}
 	}
-
-	if(cacti_sizeof($debug_data) > 0) {
-		$_SESSION['import_debug_info'] = $debug_data;
-	}
-
 	header('Location: thold_templates.php?action=import');
+	exit();
 }
 
 /* form_end - draws post form end. To be combined with form_start() */

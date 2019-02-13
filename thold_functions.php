@@ -4330,16 +4330,12 @@ function thold_save_template_contacts($id, $contacts) {
 	}
 }
 
-function thold_raise_message($message, $level = 'info') {
-	if (cacti_version_compare(CACTI_VERSION, '1.2', '<')) {
-		$_SESSION['thold_message'] = $message;
-		raise_message('thold_message');
-	} else {
-		static $thold_message_count = 0;
-		$message_id = 'thold_message_' . $thold_message_count;
-		raise_message($message_id, $message, $level);
-		$thold_message_count++;
-	}
+function thold_raise_message($message, $level = MESSAGE_LEVEL_NONE) {
+	static $thold_message_count = 0;
+	$message_id = 'thold_message_' . $thold_message_count;
+	cacti_log('raise_message($message_id, $message, $level);');
+	raise_message($message_id, $message, $level);
+	$thold_message_count++;
 }
 
 function thold_save_threshold_contacts($id, $contacts) {
