@@ -855,7 +855,9 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	/* now let's process the RPN stack */
 	$x = count($expression);
 
-	if ($x == 0) return $currentval;
+	if ($x == 0) {
+		return $currentval;
+	}
 
 	/* operation stack for RPN */
 	$stack = array();
@@ -866,25 +868,13 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	while($cursor < $x) {
 		$operator = strtoupper(trim($expression[$cursor]));
 
-		if (strpos($operator, '|query_ifHighSpeed') !== false || strpos($operator, '|query_ifSpeed') !== false) {
+		if (stripos($operator, '|query_ifHighSpeed') !== false || stripos($operator, '|query_ifSpeed') !== false) {
 			$data_local = db_fetch_row_prepared('SELECT *
 				FROM data_local
 				WHERE id = ?',
 				array($thold_data['local_data_id']));
 
-			$highSpeed = db_fetch_cell_prepared("SELECT field_value
-				FROM host_snmp_cache
-				WHERE host_id = ?
-				AND snmp_query_id = ?
-				AND snmp_index = ?
-				AND field_name = 'ifHighSpeed'",
-				array($data_local['host_id'], $data_local['snmp_query_id'], $data_local['snmp_index']));
-
-			if (!empty($highSpeed)) {
-				$operator = $highSpeed * 1000000;
-			} else {
-				$operator = substitute_snmp_query_data('|query_ifSpeed|', $data_local['host_id'], $data_local['snmp_query_id'], $data_local['snmp_index']);
-			}
+			$operator = rrdtool_function_interface_speed($data_local);
 		}
 
 		/* is the operator a data source */
