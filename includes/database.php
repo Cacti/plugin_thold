@@ -819,41 +819,43 @@ function thold_upgrade_database($force = false) {
 			'after'    => 'snmp_event_warning_severity'));
 	}
 
+	if (cacti_version_compare($oldv, '1.0.4', '<')) {
+		if (!db_column_exists('plugin_thold_daemon_processes', 'poller_id')) {
+			db_execute("ALTER TABLE plugin_thold_daemon_processes
+				ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' FIRST,
+				MODIFY COLUMN start double NOT NULL default '0',
+				MODIFY COLUMN end double NOT NULL default '0',
+				DROP PRIMARY KEY, ADD PRIMARY KEY (`poller_id`, `pid`)");
+		}
+
+		if (!db_column_exists('plugin_thold_daemon_data', 'poller_id')) {
+			db_execute("ALTER TABLE plugin_thold_daemon_data
+				ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' AFTER `id`,
+				ADD KEY `poller_id` (`poller_id`),
+				ADD PRIMARY KEY (`id`, `pid`),
+				DROP KEY `id`");
+		}
+
+		if (!db_column_exists('plugin_thold_host_failed', 'poller_id')) {
+			db_execute("ALTER TABLE plugin_thold_host_failed
+				ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' AFTER `id`,
+				ADD KEY `poller_id` (`poller_id`)");
+		}
+
+		if (!db_index_exists('thold_data', 'thold_daemon_pid')) {
+			db_execute('ALTER TABLE thold_data
+				ADD INDEX thold_daemon_pid (thold_daemon_pid)');
+		}
+
+		if (!db_column_exists('thold_template', 'suggested_name')) {
+			db_execute("ALTER TABLE thold_template
+				ADD COLUMN `suggested_name` varchar(255) NOT NULL default '' AFTER `name`");
+		}
+	}
+
 	if (cacti_version_compare($oldv, '1.0.5', '<')) {
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN expression VARCHAR(512) NOT NULL DEFAULT ""');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN expression VARCHAR(512) NOT NULL DEFAULT ""');
-	}
-
-	if (!db_column_exists('plugin_thold_daemon_processes', 'poller_id')) {
-		db_execute("ALTER TABLE plugin_thold_daemon_processes
-			ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' FIRST,
-			MODIFY COLUMN start double NOT NULL default '0',
-			MODIFY COLUMN end double NOT NULL default '0',
-			DROP PRIMARY KEY, ADD PRIMARY KEY (`poller_id`, `pid`)");
-	}
-
-	if (!db_column_exists('plugin_thold_daemon_data', 'poller_id')) {
-		db_execute("ALTER TABLE plugin_thold_daemon_data
-			ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' AFTER `id`,
-			ADD KEY `poller_id` (`poller_id`),
-			ADD PRIMARY KEY (`id`, `pid`),
-			DROP KEY `id`");
-	}
-
-	if (!db_column_exists('plugin_thold_host_failed', 'poller_id')) {
-		db_execute("ALTER TABLE plugin_thold_host_failed
-			ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' AFTER `id`,
-			ADD KEY `poller_id` (`poller_id`)");
-	}
-
-	if (!db_index_exists('thold_data', 'thold_daemon_pid')) {
-		db_execute('ALTER TABLE thold_data
-			ADD INDEX thold_daemon_pid (thold_daemon_pid)');
-	}
-
-	if (!db_column_exists('thold_template', 'suggested_name')) {
-		db_execute("ALTER TABLE thold_template
-			ADD COLUMN `suggested_name` varchar(255) NOT NULL default '' AFTER `name`");
 	}
 
 	if (cacti_version_compare($oldv, '1.2', '<')) {
@@ -909,7 +911,7 @@ function thold_upgrade_database($force = false) {
 			AND thold_data.data_source_name = ''");
 
 		// Required for backward compatibility
-		if (db_column_exists('thold_data', 'acknowledgment')) {
+		if (db_column_exists('thold_data', 'acknowledgement')) {
 			db_execute('ALTER TABLE thold_data
 				CHANGE COLUMN acknowledgement acknowledgment
 				char(3) NOT NULL default ""');
@@ -1143,6 +1145,15 @@ function thold_upgrade_database($force = false) {
 					WHERE id = ?',
 					array($name, $thold['id']));
 			}
+		}
+	}
+
+	if (cacti_version_compare($oldv, '1.2.1', '<')) {
+		// Required for backward compatibility (was previously misspelled on exists check)
+		if (db_column_exists('thold_data', 'acknowledgement')) {
+			db_execute('ALTER TABLE thold_data
+				CHANGE COLUMN acknowledgement acknowledgment
+				char(3) NOT NULL default ""');
 		}
 	}
 

@@ -101,6 +101,10 @@ that.
 
 ## ChangeLog
 
+--- 1.2.1 ---
+
+* issue: Correct issues with database upgrade code
+
 --- 1.2 ---
 
 * feature: Add Acknowledgment support to thold
