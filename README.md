@@ -103,7 +103,7 @@ that.
 
 --- 1.2.1 ---
 
-* issue: Correct issues with database upgrade code
+* issue #250: Database upgrade is not performed properly
 
 --- 1.2 ---
 
