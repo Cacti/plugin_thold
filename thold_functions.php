@@ -1379,6 +1379,10 @@ function thold_log($save){
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
+	if ($save['lastread'] == null) {
+		$save['lastread'] = '';
+	}
+
 	$save['id'] = 0;
 	if (read_config_option('thold_log_cacti') == 'on') {
 		$thold = db_fetch_row_prepared('SELECT *
@@ -3323,7 +3327,8 @@ function logger($subject, $urlbreach, $syslog_priority = '', $syslog_facility = 
 function ack_logging($thold_id, $desc = '') {
 	$thold_data = db_fetch_row_prepared('SELECT
 		thold_hi, thold_low, syslog_enabled, syslog_facility, syslog_priority, lastread, graph_id
-		FROM thold_data WHERE id = ?',
+		FROM thold_data
+		WHERE id = ?',
 		array($thold_id));
 
 	if ($thold_data['syslog_enabled']){
