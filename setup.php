@@ -60,6 +60,7 @@ function plugin_thold_install($upgrade = false) {
 	api_plugin_register_hook($plugin, 'graph_buttons_thumbnails', 'thold_graph_button', 'setup.php');
 
 	api_plugin_register_hook($plugin, 'snmpagent_cache_install', 'thold_snmpagent_cache_install', 'setup.php');
+	api_plugin_register_hook($plugin, 'clog_regex_array', 'thold_clog_regex_array', 'setup.php');
 
 	/* hooks to add dropdown to allow the assignment of a cluster resource */
 	api_plugin_register_hook($plugin, 'data_source_action_array', 'thold_data_source_action_array', 'setup.php');
@@ -1390,3 +1391,43 @@ function thold_data_source_remove($data_ids) {
 	return $data_ids;
 }
 
+function thold_clog_regex_array($regex_array) {
+	$regex_array[] = array('name' => 'TH', 'regex' => '( TH\[)([, \d]+)(\])', 'func' => 'thold_clog_regex_threshold');
+	return $regex_array;
+}
+
+function thold_clog_regex_threshold($matches) {
+	global $config;
+
+	include_once('thold_functions.php');
+
+	$result = $matches[0];
+
+	$threshold_ids = explode(',',str_replace(" ","",$matches[2]));
+	if (cacti_sizeof($threshold_ids)) {
+		$result = '';
+		$thresholds = db_fetch_assoc('SELECT id, name, name_cache, local_data_id
+			FROM thold_data
+			WHERE id IN (' . implode(',',$threshold_ids) . ')');
+
+		$thresholdDescriptions = array();
+		if (cacti_sizeof($thresholds)) {
+			foreach ($thresholds as $threshold) {
+				$thresholdDescriptions[$threshold['id']] = html_escape(
+					!empty($threshold['name_cache']) ?
+						$threshold['name_cache'] :
+						thold_substitute_data_source_description($threshold['name'], $threshold['local_data_id'])
+				);
+			}
+		}
+
+		foreach ($threshold_ids as $threshold_id) {
+			$result .= $matches[1] . '<a href=\'' . $config['url_path'] .
+				'plugins/thold/thold.php?action=edit&id=' . $threshold_id . '\'>' .
+				html_escape(isset($thresholdDescriptions[$threshold_id]) ? $thresholdDescriptions[$threshold_id] : $threshold_id) .
+				'</a>' . $matches[3];
+		}
+	}
+
+	return $result;
+}

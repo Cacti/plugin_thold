@@ -104,6 +104,7 @@ that.
 --- 1.2.1 ---
 
 * issue #250: Database upgrade is not performed properly
+* feature: Allow CLOG to direct link to threshold
 
 --- 1.2 ---
 

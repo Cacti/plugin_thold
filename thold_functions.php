@@ -1496,10 +1496,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 	if (!$config['is_web']) {
 		$user = 'poller';
 	} elseif (isset($_SESSION['sess_user_id'])) {
-		$user = db_fetch_cell_prepared('SELECT username
-			FROM user_auth
-			WHERE id = ?',
-			array($_SESSION['sess_user_id']));
+		$user = $_SESSION['sess_user_id'];
 	} else {
 		$user = 'unknown';
 	}
