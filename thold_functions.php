@@ -1379,8 +1379,8 @@ function thold_log($save){
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
-	if ($save['lastread'] == null) {
-		$save['lastread'] = '';
+	if ($save['current'] == null) {
+		$save['current'] = '';
 	}
 
 	$save['id'] = 0;
