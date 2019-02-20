@@ -629,11 +629,11 @@ function thold_update_host_status() {
 				$msg = str_replace('<SNMP_CONTACT>', $snmp_contact, $msg);
 				$msg = str_replace('<SNMP_SYSTEM>', html_split_string($snmp_system), $msg);
 				$msg = str_replace('<LAST_FAIL>', $host['status_fail_date'], $msg);
-				$msg = str_replace('<AVAILABILITY>', round(($host['availability']), 2) . ' %', $msg);
-				$msg = str_replace('<TOT_POLL>', $host['total_polls'], $msg);
-				$msg = str_replace('<FAIL_POLL>', $host['failed_polls'], $msg);
-				$msg = str_replace('<CUR_TIME>', round(($host['cur_time']), 2), $msg);
-				$msg = str_replace('<AVG_TIME>', round(($host['avg_time']), 2), $msg);
+				$msg = str_replace('<AVAILABILITY>', number_format_i18n(($host['availability']), 2) . ' %', $msg);
+				$msg = str_replace('<TOT_POLL>', number_format_i18n($host['total_polls']), $msg);
+				$msg = str_replace('<FAIL_POLL>', number_format_i18n($host['failed_polls']), $msg);
+				$msg = str_replace('<CUR_TIME>', number_format_i18n(($host['cur_time']), 2), $msg);
+				$msg = str_replace('<AVG_TIME>', number_format_i18n(($host['avg_time']), 2), $msg);
 				$msg = str_replace('<NOTES>', $host['notes'], $msg);
 				$msg = str_replace("\n", '<br>', $msg);
 
