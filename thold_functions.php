@@ -1957,7 +1957,7 @@ function thold_check_threshold(&$thold_data) {
 	$cacti_polling_interval   = read_config_option('poller_interval');
 
 	/* remove this after adding an option for it */
-	$thold_show_datasource = thold_datasource_required($thold_data['name_cache'], $thold_data['data_source_name']);
+	$thold_show_datasource = thold_datasource_required(thold_get_cached_name($thold_data), $thold_data['data_source_name']);
 
 	$trigger         = ($thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger']);
 	$warning_trigger = ($thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger']);
@@ -1972,7 +1972,7 @@ function thold_check_threshold(&$thold_data) {
 				'rra_id'         => 0,
 				'file'           => "$httpurl/graph_image.php?local_graph_id=" . $thold_data['local_graph_id'] . '&rra_id=0&view_type=tree',
 				'mimetype'       => 'image/png',
-				'filename'       => clean_up_name($thold_data['name_cache'])
+				'filename'       => clean_up_name(thold_get_cached_name($thold_data))
 			);
 		}
 	}
@@ -2006,7 +2006,7 @@ function thold_check_threshold(&$thold_data) {
 				$notify = true;
 			}
 
-			$subject = 'ALERT: ' . $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
+			$subject = 'ALERT: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
 
 			if ($notify) {
 				thold_debug('Alerting is necessary');
@@ -2093,7 +2093,7 @@ function thold_check_threshold(&$thold_data) {
 				$notify = true;
 			}
 
-			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $thold_data['thold_warning_hi'] : $thold_data['thold_warning_low']) . ' with ' . $thold_data['lastread'];
+			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $thold_data['thold_warning_hi'] : $thold_data['thold_warning_low']) . ' with ' . $thold_data['lastread'];
 
 			if ($notify) {
 				thold_debug('Alerting is necessary');
@@ -2159,7 +2159,7 @@ function thold_check_threshold(&$thold_data) {
 					'emails'          => $alert_emails)
 				);
 			} elseif (($thold_data['thold_warning_fail_count'] >= $warning_trigger) && ($thold_data['thold_fail_count'] >= $trigger)) {
-				$subject = 'ALERT -> WARNING: ' . $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Changed to Warning Threshold with Value ' . $thold_data['lastread'];
+				$subject = 'ALERT -> WARNING: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Changed to Warning Threshold with Value ' . $thold_data['lastread'];
 
 				$alert_emails = get_thold_alert_emails($thold_data);
 
@@ -2227,7 +2227,7 @@ function thold_check_threshold(&$thold_data) {
 
 			/* if we were at an alert status before */
 			if ($alertstat != 0) {
-				$subject = 'NORMAL: '. $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Restored to Normal Threshold with Value ' . $thold_data['lastread'];
+				$subject = 'NORMAL: '. thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Restored to Normal Threshold with Value ' . $thold_data['lastread'];
 
 				db_execute_prepared('UPDATE thold_data
 					SET thold_alert=0,
@@ -2365,7 +2365,7 @@ function thold_check_threshold(&$thold_data) {
 				if ($thold_data['bl_fail_count'] >= $bl_fail_trigger && $thold_data['restored_alert'] != 'on') {
 					thold_debug('Threshold Baseline check returned to normal');
 
-					$subject = 'NORMAL: ' . $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to normal threshold with value ' . $thold_data['lastread'];
+					$subject = 'NORMAL: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to normal threshold with value ' . $thold_data['lastread'];
 
 					if ($syslog) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
@@ -2441,7 +2441,7 @@ function thold_check_threshold(&$thold_data) {
 			if ($thold_data['bl_fail_count'] == $bl_fail_trigger || $ra) {
 				thold_debug('Alerting is necessary');
 
-				$subject = 'ALERT: ' . $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
+				$subject = 'ALERT: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
 
 				if ($syslog) {
 					logger($subject, $url, $syslog_priority, $syslog_facility);
@@ -2620,7 +2620,7 @@ function thold_check_threshold(&$thold_data) {
 				$notify = true;
 			}
 
-			$subject = ($notify ? 'ALERT: ':'TRIGGER: ') . $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($failures > $trigger ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $thold_data['time_hi'] : $thold_data['time_low']) . ' with ' . $thold_data['lastread'];
+			$subject = ($notify ? 'ALERT: ':'TRIGGER: ') . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($failures > $trigger ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $thold_data['time_hi'] : $thold_data['time_low']) . ' with ' . $thold_data['lastread'];
 
 			if ($notify) {
 				thold_debug('Alerting is necessary');
@@ -2729,7 +2729,7 @@ function thold_check_threshold(&$thold_data) {
 				$notify = true;;
 			}
 
-			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($warning_failures > $warning_trigger ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $thold_data['time_warning_hi'] : $thold_data['time_warning_low']) . ' with ' . $thold_data['lastread'];
+			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($warning_failures > $warning_trigger ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $thold_data['time_warning_hi'] : $thold_data['time_warning_low']) . ' with ' . $thold_data['lastread'];
 
 			if ($notify) {
 				if ($syslog) {
@@ -2787,7 +2787,7 @@ function thold_check_threshold(&$thold_data) {
 					'emails'          => $alert_emails)
 				);
 			} elseif ($alertstat != 0 && $warning_failures < $warning_trigger && $failures < $trigger) {
-				$subject = 'ALERT -> WARNING: '. $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to warning threshold with value ' . $thold_data['lastread'];
+				$subject = 'ALERT -> WARNING: '. thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to warning threshold with value ' . $thold_data['lastread'];
 
 				$alert_emails = get_thold_alert_emails($thold_data);
 
@@ -2830,7 +2830,7 @@ function thold_check_threshold(&$thold_data) {
 			thold_debug('Threshold Time Based check is normal HI:' . $thold_data['time_hi'] . ' LOW:' . $thold_data['time_low'] . ' VALUE:' . $thold_data['lastread']);
 
 			if ($alertstat != 0 && $warning_failures < $warning_trigger && $thold_data['restored_alert'] != 'on') {
-				$subject = 'NORMAL: ' . $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to normal threshold with value ' . $thold_data['lastread'];
+				$subject = 'NORMAL: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to normal threshold with value ' . $thold_data['lastread'];
 
 				if ($syslog) {
 					logger($subject, $url, $syslog_priority, $syslog_facility);
@@ -2894,7 +2894,7 @@ function thold_check_threshold(&$thold_data) {
 						array($thold_data['id']));
 				}
 			} elseif ($alertstat != 0 && $failures < $trigger && $thold_data['restored_alert'] != 'on') {
-				$subject = 'NORMAL: ' . $thold_data['name_cache'] . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to warning threshold with value ' . $thold_data['lastread'];
+				$subject = 'NORMAL: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to warning threshold with value ' . $thold_data['lastread'];
 
 				if ($syslog) {
 					logger($subject, $url, $syslog_priority, $syslog_facility);
@@ -5377,3 +5377,10 @@ function thold_get_default_suggested_name($thold_data, $id = 0) {
 	return $desc;
 }
 
+function thold_get_cached_name(&$thold_data) {
+	if (empty($thold_data['name_cache'])) {
+		$thold_data['name_cache'] = thold_substitute_data_source_description($thold_data['name'], $thold_data['local_data_id']);
+	}
+
+	return $thold_data['name_cache'];
+}
