@@ -3323,7 +3323,7 @@ function logger($subject, $urlbreach, $syslog_priority = '', $syslog_facility = 
 
 function ack_logging($thold_id, $desc = '') {
 	$thold_data = db_fetch_row_prepared('SELECT
-		thold_hi, thold_low, syslog_enabled, syslog_facility, syslog_priority, lastread, graph_id
+		thold_hi, thold_low, syslog_enabled, syslog_facility, syslog_priority, lastread, local_graph_id
 		FROM thold_data
 		WHERE id = ?',
 		array($thold_id));
