@@ -1457,7 +1457,7 @@ function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_
 		return '';
 	}
 
-	include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	$step = db_fetch_cell_prepared("SELECT rrd_step
 		FROM data_template_data
@@ -1485,7 +1485,7 @@ function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_
 function plugin_thold_log_changes($id, $changed, $message = array()) {
 	global $config;
 
-	include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	$desc = '';
 

@@ -416,7 +416,7 @@ function thold_poller_output(&$rrd_update_array) {
 function thold_check_all_thresholds() {
 	global $config;
 
-	include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	if (read_config_option('remote_storage_method') == 1) {
