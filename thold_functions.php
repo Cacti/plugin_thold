@@ -30,6 +30,13 @@ if (!defined('MESSAGE_LEVEL_NONE')) {
 	define('MESSAGE_LEVEL_CSRF', 4);
 }
 
+/* sanitize_thold_sort_string - cleans up a search string submitted by the user to be passed
+     to the database. NOTE: some of the code for this function came from the phpBB project.
+   @arg $string - the original raw search string
+   @returns - the sanitized search string */
+function sanitize_thold_sort_string($string) {
+	static $drop_char_match = array('^', '$', '<', '>', '`', '\'', '"', '|', '?', '+', '[', ']', '{', '}', '#', ';', '!', '=', '*');
+	static $drop_char_replace = array(' ', ' ', ' ', ' ', '', '', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
 function thold_update_contacts() {
 	$users = db_fetch_assoc("SELECT id, 'email' AS type, email_address
 		FROM user_auth
@@ -3936,7 +3943,12 @@ function save_thold() {
 		set_request_var('thold_enabled', 'on');
 	}
 
-	$host_id              = get_filter_request_var('host_id');
+	if (isset_request_var('my_host_id')) {
+		$host_id = get_filter_request_var('my_host_id');
+	} else {
+		$host_id = get_filter_request_var('host_id');
+	}
+
 	$local_data_id        = get_filter_request_var('local_data_id');
 	$local_graph_id       = get_filter_request_var('local_graph_id');
 	$data_template_rrd_id = get_filter_request_var('data_template_rrd_id');
