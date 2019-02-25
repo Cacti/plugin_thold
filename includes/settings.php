@@ -161,6 +161,7 @@ function thold_config_settings() {
 	if (get_current_page() != 'settings.php') return;
 
 	include('./plugins/thold/includes/arrays.php');
+	include_once('./plugins/thold/setup.php');
 	include_once('./plugins/thold/thold_functions.php');
 	include_once('./plugins/thold/includes/database.php');
 
