@@ -516,7 +516,7 @@ function thold_request_validation() {
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'thold_alert',
-			'options' => array('options' => 'sanitize_search_string')
+			'options' => array('options' => 'sanitize_thold_sort_string')
 			),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
@@ -775,19 +775,81 @@ function list_tholds() {
 	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
-		'name_cache'       => array('display' => __('Name', 'thold'),         'sort' => 'ASC', 'align' => 'left'),
-		'id'               => array('display' => __('ID', 'thold'),           'sort' => 'ASC', 'align' => 'right'),
-		'thold_type'       => array('display' => __('Type', 'thold'),         'sort' => 'ASC', 'align' => 'right'),
-		'data_source'      => array('display' => __('DSName', 'thold'),       'sort' => 'ASC', 'align' => 'right'),
-		'lastread'         => array('display' => __('Current', 'thold'),      'sort' => 'ASC', 'align' => 'right', 'tip' => __('The last measured value for the Data Source', 'thold')),
-		'thold_hi'         => array('display' => __('High', 'thold'),         'sort' => 'ASC', 'align' => 'right', 'tip' => __('High Threshold values for Warning/Alert', 'thold')),
-		'thold_low'        => array('display' => __('Low', 'thold'),          'sort' => 'ASC', 'align' => 'right', 'tip' => __('Low Threshold values for Warning/Alert', 'thold')),
-		'nosort3'          => array('display' => __('Trigger', 'thold'),      'sort' => '',    'align' => 'right'),
-		'nosort4'          => array('display' => __('BL Duration', 'thold'),  'sort' => '',    'align' => 'right'),
-		'repeat_alert'     => array('display' => __('Repeat', 'thold'),       'sort' => 'ASC', 'align' => 'right'),
-		'thold_alert'      => array('display' => __('Triggered', 'thold'),    'sort' => 'ASC', 'align' => 'right'),
-		'template_enabled' => array('display' => __('Templated', 'thold'),    'sort' => 'ASC', 'align' => 'right'),
-		'acknowledgment'   => array('display' => __('Ack Required', 'thold'), 'sort' => 'ASC', 'align' => 'right', 'tip' => __('Acknowledgment required for this Threshold'))
+		'name_cache' => array(
+			'display' => __('Name', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'id' => array(
+			'display' => __('ID', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right'
+		),
+		'thold_type' => array(
+			'display' => __('Type', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right'
+		),
+		'data_source' => array(
+			'display' => __('DSName', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right'
+		),
+		'lastread' => array(
+			'display' => __('Current', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right',
+			'tip' => __('The last measured value for the Data Source', 'thold')
+		),
+		'thold_hi' => array(
+			'display' => __('High', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right',
+			'tip' => __('High Threshold values for Warning/Alert', 'thold')
+		),
+		'thold_low' => array(
+			'display' => __('Low', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right',
+			'tip' => __('Low Threshold values for Warning/Alert', 'thold')
+		),
+		'nosort3' => array(
+			'display' => __('Trigger', 'thold'),
+			'sort' => '',
+			'align' => 'right'
+		),
+		'nosort4' => array(
+			'display' => __('Duration', 'thold'),
+			'sort' => '',
+			'align' => 'right'
+		),
+		'repeat_alert' => array(
+			'display' => __('Repeat', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right'
+		),
+		'thold_alert' => array(
+			'display' => __('Triggered', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right'
+		),
+		'GREATEST(td.thold_fail_count,td.thold_warning_fail_count)' => array(
+			'display' => __('In State', 'thold'),
+			'sort' => 'DESC',
+			'align' => 'right',
+			'tip' => __('The amount of time that has passed since the Threshold either Breached or was Triggered', 'thold')
+		),
+		'template_enabled' => array(
+			'display' => __('Templated', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right'
+		),
+		'acknowledgment' => array(
+			'display' => __('Ack Required', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right',
+			'tip' => __('Acknowledgment required for this Threshold')
+		)
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
@@ -921,6 +983,9 @@ function list_tholds() {
 
 			form_selectable_cell(($thold_data['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['repeat_alert'], 'repeat')), $thold_data['id'], '', 'right');
 			form_selectable_cell($alertstat, $thold_data['id'], '', 'right');
+
+			// The time since this threshold was triggered
+			form_selectable_cell('<i>' . get_time_since_last_event($thold_data) . '</i>',  $thold_data['id'], '', 'right');
 
 			if ($thold_data['thold_template_id'] != 0) {
 				form_selectable_cell($thold_data['template_enabled'] == '' ? __('No', 'thold'):__('Yes', 'thold'), $thold_data['id'], '', 'right');

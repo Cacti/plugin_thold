@@ -107,7 +107,7 @@ that.
 * issue #253: Threshold names are not being displayed correctly
 * feature: Allow CLOG to direct link to threshold
 
---- 1.2 ---
+--- 1.2.1 ---
 
 * feature: Add Acknowledgment support to thold
 * feature: Allow per threshold syslog settings
@@ -115,6 +115,7 @@ that.
 * feature: Allow command execution on Threshold breaches and restoral events
 * feature: Add per threshold email body for alert and warning messages
 * feature: Allow threshold actions to be hooked by other plugins
+* issue#95: Display duration count in days:hr:min:sec for triggered thold alarms and warnings
 * issue#207: Errors when attempting to save a Threshold
 * issue#210: Disabled Thresholds appear in breach/trigger filters
 * issue#211: Site filtering does not work without another filter selected

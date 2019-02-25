@@ -37,6 +37,59 @@ if (!defined('MESSAGE_LEVEL_NONE')) {
 function sanitize_thold_sort_string($string) {
 	static $drop_char_match = array('^', '$', '<', '>', '`', '\'', '"', '|', '?', '+', '[', ']', '{', '}', '#', ';', '!', '=', '*');
 	static $drop_char_replace = array(' ', ' ', ' ', ' ', '', '', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+
+	/* Replace line endings by a space */
+	$string = preg_replace('/[\n\r]/is', ' ', $string);
+
+	/* HTML entities like &nbsp; */
+	$string = preg_replace('/\b&[a-z]+;\b/', ' ', $string);
+
+	/* Remove URL's */
+	$string = preg_replace('/\b[a-z0-9]+:\/\/[a-z0-9\.\-]+(\/[a-z0-9\?\.%_\-\+=&\/]+)?/', ' ', $string);
+
+	/* Filter out strange characters like ^, $, &, change "it's" to "its" */
+	for($i = 0; $i < cacti_count($drop_char_match); $i++) {
+		$string =  str_replace($drop_char_match[$i], $drop_char_replace[$i], $string);
+	}
+
+	return $string;
+}
+
+function get_time_since_last_event($thold) {
+	$local_data_id = $thold['local_data_id'];
+
+	$step = db_fetch_cell_prepared('SELECT rrd_step
+		FROM data_template_data
+		WHERE local_data_id = ?',
+		array($local_data_id));
+
+	switch($thold['thold_alert']) {
+		case '0':
+			$lasttime = db_fetch_cell_prepared('SELECT MAX(time)
+				FROM plugin_thold_log
+				WHERE threshold_id = ?',
+				array($thold['id']));
+
+			if (empty($lasttime)) {
+				return __('Never', 'thold');
+			} else {
+				$timesince = time() - $lasttime;
+
+				return get_daysfromtime($timesince);
+			}
+
+			break;
+		case '1':
+		case '2':
+			$triggers  = max($thold['thold_warning_fail_count'], $thold['thold_fail_count']);
+			$timesince = $step * $triggers;
+
+			return get_daysfromtime($timesince);
+
+			break;
+	}
+}
+
 function thold_update_contacts() {
 	$users = db_fetch_assoc("SELECT id, 'email' AS type, email_address
 		FROM user_auth
