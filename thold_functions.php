@@ -4325,7 +4325,9 @@ function thold_save_template_contacts($id, $contacts) {
 function thold_raise_message($message, $level = MESSAGE_LEVEL_NONE) {
 	static $thold_message_count = 0;
 	$message_id = 'thold_message_' . $thold_message_count;
-	cacti_log("raise_message($message_id, $message, $level);" . cacti_debug_backtrace('', false, false));
+
+	cacti_log("raise_message($message_id, $message, $level);" . cacti_debug_backtrace('', false, false), false, 'THOLD', POLLER_VERBOSITY_DEBUG);
+
 	raise_message($message_id, $message, $level);
 	$thold_message_count++;
 }
