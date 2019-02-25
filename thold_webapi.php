@@ -619,7 +619,7 @@ function thold_wizard() {
 		if ($graph_template_id > 0) {
 			if (isset($hql) && $hql != '') {
 				$sql = "SELECT id, description AS name FROM host AS h WHERE $hql ORDER BY description";
-			} elseif (isset($host_ids)) {
+			} elseif (cacti_sizeof($host_ids)) {
 				$sql = 'SELECT id, description AS name FROM host AS h WHERE h.id IN (' . implode(', ', $host_ids) . ') ORDER BY description';
 			} else {
 				$sql = "SELECT id, description AS name FROM host AS h ORDER BY description";
