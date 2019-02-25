@@ -912,9 +912,17 @@ function thold_upgrade_database($force = false) {
 
 		// Required for backward compatibility
 		if (db_column_exists('thold_data', 'acknowledgement')) {
-			db_execute('ALTER TABLE thold_data
-				CHANGE COLUMN acknowledgement acknowledgment
-				char(3) NOT NULL default ""');
+			if (!db_column_exists('thold_data', 'acknowledgment')) {
+				db_execute('ALTER TABLE thold_data
+					CHANGE COLUMN acknowledgement acknowledgment
+					char(3) NOT NULL default ""');
+			} else {
+				db_execute('UPDATE thold_data
+					SET acknowledgment = acknowledgement
+					WHERE acknowledgment = acknowledgement');
+
+				db_execute('ALTER TABLE thold_data DROP COLUMN acknowledgement');
+			}
 		}
 
 		// For backport legacy support
