@@ -876,18 +876,18 @@ function thold_upgrade_database($force = false) {
 
 		// Acknowledgement
 		db_add_column('thold_data', array(
+			'name'    => 'acknowledgment',
+			'type'    => 'char(3)',
+			'NULL'    => false,
+			'default' => '',
+			'after'   => 'exempt'));
+
+		db_add_column('thold_data', array(
 			'name'    => 'prev_thold_alert',
 			'type'    => 'int(1)',
 			'NULL'    => false,
 			'default' => '0',
 			'after'   => 'thold_alert'));
-
-		db_add_column('thold_data', array(
-			'name'    => 'acknowledgement',
-			'type'    => 'char(3)',
-			'NULL'    => false,
-			'default' => '',
-			'after'   => 'exempt'));
 
 		db_add_column('thold_data', array(
 			'name'    => 'reset_ack',
@@ -1159,9 +1159,17 @@ function thold_upgrade_database($force = false) {
 	if (cacti_version_compare($oldv, '1.2.1', '<')) {
 		// Required for backward compatibility (was previously misspelled on exists check)
 		if (db_column_exists('thold_data', 'acknowledgement')) {
-			db_execute('ALTER TABLE thold_data
-				CHANGE COLUMN acknowledgement acknowledgment
-				char(3) NOT NULL default ""');
+			if (!db_column_exists('thold_data', 'acknowledgment')) {
+				db_execute('ALTER TABLE thold_data
+					CHANGE COLUMN acknowledgement acknowledgment
+					char(3) NOT NULL default ""');
+			} else {
+				db_execute('UPDATE thold_data
+					SET acknowledgment = acknowledgement
+					WHERE acknowledgment = acknowledgement');
+
+				db_execute('ALTER TABLE thold_data DROP COLUMN acknowledgement');
+			}
 		}
 	}
 
