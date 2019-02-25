@@ -453,7 +453,7 @@ function thold_wizard() {
 	/* display the type dropdown */
 	$form_array['spacer']  = array(
 		'method' => 'spacer',
-		'friendly_name' => __('Threshold Creations Criteria', 'thold'),
+		'friendly_name' => __('Threshold Creation Criteria', 'thold'),
 	);
 
 	$form_array['type_id'] = array(
@@ -876,7 +876,7 @@ function thold_wizard() {
 	}
 
 	if ($local_graph_id > 0) {
-		html_start_box(__('Selected Graph', 'thold'), '100%', '', '3', 'center');
+		html_start_box(__('Selected Graph', 'thold'), '100%', '', '3', 'center', '');
 
 		print "<tr><td class='center'><p><img class='center' id='graphi' style='max-width:700px;' src='../../graph_image.php?local_graph_id=$local_graph_id&rra_id=0'></p></td></tr>";
 
