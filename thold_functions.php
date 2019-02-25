@@ -3377,7 +3377,7 @@ function thold_cdef_get_usable() {
 	return $cdef_usable;
 }
 
-function thold_cdef_select_usable_names () {
+function thold_cdef_select_usable_names() {
 	$ids   = thold_cdef_get_usable();
 	$cdefs = db_fetch_assoc('SELECT id, name FROM cdef');
 
@@ -3394,7 +3394,7 @@ function thold_cdef_select_usable_names () {
 	return $cdef_names;
 }
 
-function thold_build_cdef($cdef, $value, $rra, $ds) {
+function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) {
 	$oldvalue = $value;
 
 	$cdefs = db_fetch_assoc_prepared('SELECT *
@@ -3412,27 +3412,27 @@ function thold_build_cdef($cdef, $value, $rra, $ds) {
 
 				switch ($cdef['value']) {
 				case 'CURRENT_DATA_SOURCE':
-					$cdef['value'] = $oldvalue; // get_current_value($rra, $ds, 0);
+					$cdef['value'] = $oldvalue; // get_current_value($local_data_id, $data_template_rrd_id, 0);
 
 					break;
 				case 'CURRENT_GRAPH_MAXIMUM_VALUE':
-					$cdef['value'] = get_current_value($rra, 'upper_limit');
+					$cdef['value'] = get_current_value($local_data_id, 'upper_limit');
 
 					break;
 				case 'CURRENT_GRAPH_MINIMUM_VALUE':
-					$cdef['value'] = get_current_value($rra, 'lower_limit');
+					$cdef['value'] = get_current_value($local_data_id, 'lower_limit');
 
 					break;
 				case 'CURRENT_DS_MINIMUM_VALUE':
-					$cdef['value'] = get_current_value($rra, 'rrd_minimum');
+					$cdef['value'] = get_current_value($local_data_id, 'rrd_minimum');
 
 					break;
 				case 'CURRENT_DS_MAXIMUM_VALUE':
-					$cdef['value'] = get_current_value($rra, 'rrd_maximum');
+					$cdef['value'] = get_current_value($local_data_id, 'rrd_maximum');
 
 					break;
 				case 'VALUE_OF_HDD_TOTAL':
-					$cdef['value'] = get_current_value($rra, 'hdd_total');
+					$cdef['value'] = get_current_value($local_data_id, 'hdd_total');
 
 					break;
 				case 'ALL_DATA_SOURCES_NODUPS': // you can't have DUPs in a single data source, really...
@@ -3442,11 +3442,11 @@ function thold_build_cdef($cdef, $value, $rra, $ds) {
 					$all_dsns = db_fetch_assoc_prepared('SELECT data_source_name
 						FROM data_template_rrd
 						WHERE local_data_id = ?',
-						array($rra));
+						array($local_data_id));
 
 					if (cacti_sizeof($all_dsns)) {
 						foreach ($all_dsns as $dsn) {
-							$cdef['value'] += get_current_value($rra, $dsn['data_source_name']);
+							$cdef['value'] += get_current_value($local_data_id, $dsn['data_source_name']);
 						}
 					}
 
@@ -3470,7 +3470,7 @@ function thold_build_cdef($cdef, $value, $rra, $ds) {
 						AND hsc.snmp_index = dl.snmp_index
 						WHERE dl.id = ?
 						AND hsc.field_name = ?',
-						array($rra, $matches[1]));
+						array($local_data_id, $matches[1]));
 				}
 			}
 
@@ -3478,7 +3478,7 @@ function thold_build_cdef($cdef, $value, $rra, $ds) {
 		}
 	}
 
-	$x = count($cdef_array);
+	$x = cacti_count($cdef_array);
 
 	if ($x == 0) return $oldvalue;
 
