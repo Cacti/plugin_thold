@@ -799,8 +799,8 @@ function thold_upgrade_database($force = false) {
 	}
 
 	if (cacti_version_compare($oldv, '1.0.2', '<')) {
-		db_execute('ALTER TABLE thold_data MODIFY COLUMN expression VARCHAR(128) NOT NULL DEFAULT ""');
-		db_execute('ALTER TABLE thold_template MODIFY COLUMN expression VARCHAR(128) NOT NULL DEFAULT ""');
+		db_execute('ALTER TABLE thold_data MODIFY COLUMN expression VARCHAR(512) NOT NULL DEFAULT ""');
+		db_execute('ALTER TABLE thold_template MODIFY COLUMN expression VARCHAR(512) NOT NULL DEFAULT ""');
 	}
 
 	if (cacti_version_compare($oldv, '1.0.3', '<')) {
