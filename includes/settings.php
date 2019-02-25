@@ -162,6 +162,10 @@ function thold_config_settings() {
 
 	include('./plugins/thold/includes/arrays.php');
 	include_once('./plugins/thold/thold_functions.php');
+	include_once('./plugins/thold/includes/database.php');
+
+	/* check to see if there is an upgrade required */
+	plugin_thold_upgrade();
 
 	$tabs['alerts'] = __('Alerting/Thold', 'thold');
 

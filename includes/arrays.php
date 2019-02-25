@@ -362,7 +362,3 @@ $thold_template_actions = array(
 	3 => __('Reapply Suggested Names', 'thold')
 );
 
-/* perform database upgrade */
-include_once($config['base_path'] . '/plugins/thold/setup.php');
-plugin_thold_upgrade();
-
