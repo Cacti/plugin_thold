@@ -1030,6 +1030,12 @@ function thold_edit() {
 			WHERE id = ?',
 			array(get_request_var('id')));
 
+		if (!cacti_sizeof($thold_data)) {
+			raise_message('', __('Threshold Deleted, can not Edit!', 'thold'), MESSAGE_LEVEL_ERROR);
+			header('Location: thold.php');
+			exit;
+		}
+
 		if (!isset($thold_data['local_graph_id'])) {
 			include_once($config['base_path'] . '/plugins/thold/includes/database.php');
 
