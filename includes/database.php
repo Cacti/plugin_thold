@@ -1381,7 +1381,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'local_graph_id', 'type' => 'int(10)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'threshold_id', 'type' => 'int(10)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'threshold_value', 'type' => 'varchar(64)', 'NULL' => false);
-	$data['columns'][] = array('name' => 'current', 'type' => 'varchar(64)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'current', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'status', 'type' => 'int(5)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'type', 'type' => 'int(5)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(255)', 'NULL' => false);
@@ -1464,5 +1464,8 @@ function thold_setup_database() {
 	db_execute("ALTER TABLE settings
 		MODIFY COLUMN `value`
 		varchar(4096) NOT NULL default ''");
+
+	db_execute('ALTER TABLE plugin_thold_log
+		MODIFY COLUMN current varchar(64) NOT NULL default ""');
 }
 
