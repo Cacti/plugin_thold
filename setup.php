@@ -31,50 +31,75 @@ function plugin_thold_install($upgrade = false) {
 
 	$plugin = 'thold';
 
+	// Insert CSS and JavaScript
 	api_plugin_register_hook($plugin, 'page_head', 'thold_page_head', 'setup.php');
+
+	// Add the Thold tab
 	api_plugin_register_hook($plugin, 'top_header_tabs', 'thold_show_tab', 'includes/tab.php');
 	api_plugin_register_hook($plugin, 'top_graph_header_tabs', 'thold_show_tab', 'includes/tab.php');
+
+	// Settings forms and arrays
 	api_plugin_register_hook($plugin, 'config_insert', 'thold_config_insert', 'includes/settings.php');
 	api_plugin_register_hook($plugin, 'config_arrays', 'thold_config_arrays', 'includes/settings.php');
 	api_plugin_register_hook($plugin, 'config_form', 'thold_config_form', 'includes/settings.php');
 	api_plugin_register_hook($plugin, 'config_settings', 'thold_config_settings', 'includes/settings.php');
+
+	// Breadcrums
 	api_plugin_register_hook($plugin, 'draw_navigation_text', 'thold_draw_navigation_text', 'includes/settings.php');
-	api_plugin_register_hook($plugin, 'data_sources_table', 'thold_data_sources_table', 'setup.php');
-	api_plugin_register_hook($plugin, 'graphs_new_top_links', 'thold_graphs_new', 'setup.php');
-	api_plugin_register_hook($plugin, 'api_device_save', 'thold_api_device_save', 'setup.php');
-	api_plugin_register_hook($plugin, 'update_host_status', 'thold_update_host_status', 'includes/polling.php');
+
+	// Inline thold checks
 	api_plugin_register_hook($plugin, 'poller_output', 'thold_poller_output', 'includes/polling.php');
+
+	// Device Hooks
 	api_plugin_register_hook($plugin, 'device_action_array', 'thold_device_action_array', 'setup.php');
 	api_plugin_register_hook($plugin, 'device_action_execute', 'thold_device_action_execute', 'setup.php');
 	api_plugin_register_hook($plugin, 'device_action_prepare', 'thold_device_action_prepare', 'setup.php');
+	api_plugin_register_hook($plugin, 'api_device_save', 'thold_api_device_save', 'setup.php');
 	api_plugin_register_hook($plugin, 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php');
 
-	// New graph automation
+	// Automation Hooks
 	api_plugin_register_hook($plugin, 'create_complete_graph_from_template', 'thold_create_graph_thold', 'setup.php');
-	api_plugin_register_hook($plugin, 'data_source_remove', 'thold_data_source_remove', 'setup.php');
 
-	api_plugin_register_hook($plugin, 'user_admin_setup_sql_save', 'thold_user_admin_setup_sql_save', 'setup.php');
+	// Hooks to enable thold maintenance
 	api_plugin_register_hook($plugin, 'poller_bottom', 'thold_poller_bottom', 'includes/polling.php');
-	api_plugin_register_hook($plugin, 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
+
+	// Setup buttons on Graph Pages
 	api_plugin_register_hook($plugin, 'graph_buttons', 'thold_graph_button', 'setup.php');
 	api_plugin_register_hook($plugin, 'graph_buttons_thumbnails', 'thold_graph_button', 'setup.php');
 
-	api_plugin_register_hook($plugin, 'snmpagent_cache_install', 'thold_snmpagent_cache_install', 'setup.php');
-	api_plugin_register_hook($plugin, 'clog_regex_array', 'thold_clog_regex_array', 'setup.php');
-
-	/* hooks to add dropdown to allow the assignment of a cluster resource */
+	// Data Source Hooks
 	api_plugin_register_hook($plugin, 'data_source_action_array', 'thold_data_source_action_array', 'setup.php');
 	api_plugin_register_hook($plugin, 'data_source_action_prepare', 'thold_data_source_action_prepare', 'setup.php');
 	api_plugin_register_hook($plugin, 'data_source_action_execute', 'thold_data_source_action_execute', 'setup.php');
+	api_plugin_register_hook($plugin, 'data_source_remove', 'thold_data_source_remove', 'setup.php');
+
+	// Create Threshold from Data Source table
+	api_plugin_register_hook($plugin, 'data_sources_table', 'thold_data_sources_table', 'setup.php');
+
+	// Follow Graph Actions
 	api_plugin_register_hook($plugin, 'graphs_action_array', 'thold_graphs_action_array', 'setup.php');
 	api_plugin_register_hook($plugin, 'graphs_action_prepare', 'thold_graphs_action_prepare', 'setup.php');
 	api_plugin_register_hook($plugin, 'graphs_action_execute', 'thold_graphs_action_execute', 'setup.php');
 
+	// Follow Device Template Actions
 	api_plugin_register_hook($plugin, 'device_template_edit', 'thold_device_template_edit', 'setup.php');
 	api_plugin_register_hook($plugin, 'device_template_top', 'thold_device_template_top', 'setup.php');
+
+	// Display Threshold Templates in Devices
 	api_plugin_register_hook($plugin, 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php');
+
+	// Follow New Graph Actions
 	api_plugin_register_hook($plugin, 'api_device_new', 'thold_api_device_new', 'setup.php');
 
+	// Miscelaneious hooks
+	api_plugin_register_hook($plugin, 'graphs_new_top_links', 'thold_graphs_new', 'setup.php');
+	api_plugin_register_hook($plugin, 'update_host_status', 'thold_update_host_status', 'includes/polling.php');
+	api_plugin_register_hook($plugin, 'user_admin_setup_sql_save', 'thold_user_admin_setup_sql_save', 'setup.php');
+	api_plugin_register_hook($plugin, 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php');
+	api_plugin_register_hook($plugin, 'snmpagent_cache_install', 'thold_snmpagent_cache_install', 'setup.php');
+	api_plugin_register_hook($plugin, 'clog_regex_array', 'thold_clog_regex_array', 'setup.php');
+
+	// Setup permissions
 	api_plugin_register_realm($plugin, 'thold.php', 'Configure Thresholds', 1);
 	api_plugin_register_realm($plugin, 'thold_templates.php', 'Configure Threshold Templates', 1);
 	api_plugin_register_realm($plugin, 'notify_lists.php', 'Manage Notification Lists', 1);
@@ -84,8 +109,8 @@ function plugin_thold_install($upgrade = false) {
 
 	if ($upgrade) {
 		thold_upgrade_database();
-		if (api_plugin_is_enabled ($plugin)) {
-			api_plugin_enable_hooks ($plugin);
+		if (api_plugin_is_enabled($plugin)) {
+			api_plugin_enable_hooks($plugin);
 		}
 	} else {
 		thold_setup_database();
@@ -1209,7 +1234,7 @@ function thold_device_template_edit() {
 					<strong><?php print $i;?>)</strong> <?php print html_escape($item['name']);?>
 				</td>
 				<td class='right'>
-					<a class='delete deleteMarker fa fa-remove' title='<?php print __esc('Delete', 'thold');?>' href='<?php print html_escape('host_templates.php?action=item_remove_tt_confirm&id=' . $item['thold_template_id'] . '&host_template_id=' . get_request_var('id'));?>'></a>
+					<a class='delete deleteMarker fa fa-times' title='<?php print __esc('Delete', 'thold');?>' href='<?php print html_escape('host_templates.php?action=item_remove_tt_confirm&id=' . $item['thold_template_id'] . '&host_template_id=' . get_request_var('id'));?>'></a>
 				</td>
 			<?php
 			form_end_row();
