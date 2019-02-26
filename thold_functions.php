@@ -3417,7 +3417,7 @@ function ack_logging($thold_id, $desc = '') {
 		)
 	);
 
-	cacti_log('Threshold ' . $thold_id . ' has been acknowledged. Additional Comments: ' . $desc);
+	cacti_log('Threshold TH[' . $thold_id . '] has been acknowledged. Additional Comments: ' . $desc);
 }
 
 function thold_cdef_get_usable() {
@@ -3965,35 +3965,37 @@ function save_thold() {
 			return false;
 		}
 
-		$autocreated = db_fetch_cell_prepared('SELECT COUNT(*)
-			FROM plugin_thold_host_template
-			WHERE host_template_id = ?
-			AND thold_template_id = ?',
-			array($host_template_id, $thold_template_id));
+		if (!isset_request_var('save_autocreate') || get_filter_request_var('save_autocreate') == 1) {
+			$autocreated = db_fetch_cell_prepared('SELECT COUNT(*)
+				FROM plugin_thold_host_template
+				WHERE host_template_id = ?
+				AND thold_template_id = ?',
+				array($host_template_id, $thold_template_id));
 
-		if ($autocreated) {
-			$thold = db_fetch_cell_prepared('SELECT id
-				FROM thold_data
-				WHERE local_data_id = ?
-				AND local_graph_id = ?
-				AND data_template_rrd_id = ?
-				AND data_source_name = ?',
-				array(
-					get_request_var('local_data_id'),
-					get_request_var('local_graph_id'),
-					get_request_var('data_template_rrd_id'),
-					$template['data_source_name']
-				)
-			);
+			if ($autocreated) {
+				$thold = db_fetch_cell_prepared('SELECT id
+					FROM thold_data
+					WHERE local_data_id = ?
+					AND local_graph_id = ?
+					AND data_template_rrd_id = ?
+					AND data_source_name = ?',
+					array(
+						get_request_var('local_data_id'),
+						get_request_var('local_graph_id'),
+						get_request_var('data_template_rrd_id'),
+						$template['data_source_name']
+					)
+				);
 
-			if ($thold > 0) {
-				$banner = __('Threshold was Autocreated due to Device Template mapping', 'thold');
-				thold_raise_message($banner, MESSAGE_LEVEL_INFO);
-				return $thold;
+				if ($thold > 0) {
+					$banner = __('Threshold was Autocreated due to Device Template mapping', 'thold');
+					thold_raise_message($banner, MESSAGE_LEVEL_INFO);
+					return $thold;
+				}
 			}
-		}
 
-		set_request_var('thold_enabled', 'on');
+			set_request_var('thold_enabled', 'on');
+		}
 	}
 
 	if (isset_request_var('my_host_id')) {
@@ -4126,6 +4128,23 @@ function save_thold() {
 
 	$save = array();
 
+	if ($thold_template_id > 0 && isempty_request_var('id')) {
+		$save = db_fetch_row_prepared('SELECT *
+			FROM thold_template
+			WHERE id = ?',
+			array($thold_template_id));
+
+		unset($save['id']);
+		unset($save['hash']);
+		unset($save['suggested_name']);
+		unset($save['data_template_name']);
+		unset($save['data_source_friendly']);
+		unset($save['data_source_id']);
+
+		set_request_var('thold_enabled', 'on');
+		set_request_var('template_enabled', 'on');
+	}
+
 	if (isset_request_var('id')) {
 		$save['id'] = get_request_var('id');
 	} else {
@@ -4172,6 +4191,7 @@ function save_thold() {
 	$save['data_template_rrd_id'] = $data_template_rrd_id;
 	$save['local_data_id']        = get_request_var('local_data_id');
 	$save['thold_enabled']        = isset_request_var('thold_enabled') ? 'on':'off';
+	$save['thold_template_id']    = $thold_template_id;
 	$save['exempt']               = isset_request_var('exempt') ? 'on':'';
 	$save['repeat_alert']         = trim_round_request_var('repeat_alert');
 	$save['data_template_id']     = $data_source_info['data_template_id'];
@@ -4318,12 +4338,16 @@ function save_thold() {
 	$id = sql_save($save , 'thold_data');
 
 	if (isset_request_var('notify_accounts') && is_array(get_nfilter_request_var('notify_accounts'))) {
-		thold_save_threshold_contacts ($id, get_nfilter_request_var('notify_accounts'));
+		thold_save_threshold_contacts($id, get_nfilter_request_var('notify_accounts'));
 	} elseif (!isset_request_var('notify_accounts')) {
-		thold_save_threshold_contacts ($id, array());
+		thold_save_threshold_contacts($id, array());
 	}
 
 	if ($id) {
+		if ($thold_template_id > 0 && $save['template_enabled'] == 'on') {
+			thold_template_update_threshold($id, $thold_template_id);
+		}
+
 		plugin_thold_log_changes($id, 'modified', $save);
 
 		$thold = db_fetch_row_prepared('SELECT td.*, h.hostname,
@@ -4352,6 +4376,7 @@ function save_thold() {
 	} else {
 		$banner = __('Record Updated', 'thold');
 	}
+
 	thold_raise_message($banner, MESSAGE_LEVEL_INFO);
 
 	return $id;
@@ -4523,6 +4548,11 @@ function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_tem
 	$message = '';
 	$host_id = 0;
 
+	// Don't autocreate if not asked to
+	if (isset_request_var('save_autocreate') && get_filter_request_var('save_autocreate') == 0) {
+		return;
+	}
+
 	$sql_where = '';
 
 	if (is_array($host_ids)) {
@@ -4665,12 +4695,14 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 		WHERE local_graph_id = ?
 		AND local_data_id = ?
 		AND data_template_rrd_id = ?
-		AND data_source_name = ?',
+		AND data_source_name = ?
+		AND thold_template_id = ?',
 		array(
 			$local_graph_id,
 			$local_data_id,
 			$data_template_rrd_id,
-			$template['data_source_name']
+			$template['data_source_name'],
+			$template['id']
 		)
 	);
 
@@ -4701,7 +4733,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 				thold_template_update_threshold($id, $save['thold_template_id']);
 				plugin_thold_log_changes($id, 'auto_created', $save['name_cache']);
 
-				$message .= __('Created threshold: %s', $save['name_cache'], 'thold');
+				$message .= __('Created Threshold: %s<br>', $save['name_cache'], 'thold');
 
 				return true;
 			}
@@ -5226,6 +5258,13 @@ function thold_prune_old_data() {
 		LEFT JOIN host AS h
 		ON td.host_id = h.id
 		WHERE h.id IS NULL');
+
+	// Remove threashols from removed graphs
+	db_execute('DELETE td
+		FROM thold_data AS td
+		LEFT JOIN graph_local AS gl
+		ON td.local_graph_id = gl.id
+		WHERE gl.id IS NULL');
 }
 
 function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $limit = '', &$total_rows = 0, $user = 0, $host_id = 0) {

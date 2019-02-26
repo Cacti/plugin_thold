@@ -649,7 +649,13 @@ function thold_wizard() {
 				$available_items += array_rekey(
 					db_fetch_assoc_prepared('SELECT hsc.snmp_index AS id, hsc.field_value AS name
 						FROM host_snmp_cache AS hsc
-						LEFT JOIN graph_local AS gl
+						LEFT JOIN (
+							SELECT *
+							FROM graph_local AS gl
+							WHERE snmp_query_id = ?
+							AND host_id = ?
+							AND snmp_query_graph_id = ?
+						) AS gl
 						ON hsc.host_id = gl.host_id
 						AND hsc.snmp_query_id = gl.snmp_query_id
 						AND hsc.snmp_index = gl.snmp_index
@@ -657,7 +663,15 @@ function thold_wizard() {
 						AND hsc.host_id = ?
 						AND hsc.snmp_query_id = ?
 						AND field_name = ?',
-						array($host_id, $data_query_id, $sort_field)),
+						array(
+							$data_query_id,
+							$host_id,
+							$graph_template_id,
+							$host_id,
+							$data_query_id,
+							$sort_field
+						)
+					),
 					'id', 'name'
 				);
 			}
@@ -1109,6 +1123,7 @@ function thold_graph_new_graphs($page, $host_id, $host_template_id, $selected_gr
 	form_hidden_box('host_template_id', $host_template_id, '0');
 	form_hidden_box('host_id', $host_id, '0');
 	form_hidden_box('save_component_new_graphs', '1', '');
+	form_hidden_box('save_autocreate', '0', '');
 	form_hidden_box('selected_graphs_array', serialize($selected_graphs_array), '');
 
 	if (isset($_SERVER['HTTP_REFERER']) && !substr_count($_SERVER['HTTP_REFERER'], 'graphs_new')) {
