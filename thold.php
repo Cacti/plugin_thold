@@ -939,7 +939,7 @@ function list_tholds() {
 				WHERE local_graph_id = ?',
 				array($thold_data['local_graph_id']));
 
-			if (empty($baseu)) {
+			if ($baseu == '') {
 				cacti_log('WARNING: Graph Template for local_graph_id ' . $thold_data['local_graph_id'] . ' has been removed!');
 				$baseu = 1024;
 			}
