@@ -103,11 +103,15 @@ that.
 
 --- 1.2.1 ---
 
+* feature: Allow CLOG to direct link to threshold
+* issue#95: Display duration count in days:hr:min:sec for triggered thold alarms and warnings
 * issue #250: Database upgrade is not performed properly
 * issue #253: Threshold names are not being displayed correctly
-* feature: Allow CLOG to direct link to threshold
+* issue: Threshold Autocreate not working as expected when multiple Templates specified
+* issue: Creating a Threshold from Template using the Wizard inconsistent
+* issue: Database Upgrade not handled properly in some cases
 
---- 1.2.1 ---
+--- 1.2.0 ---
 
 * feature: Add Acknowledgment support to thold
 * feature: Allow per threshold syslog settings
@@ -115,7 +119,6 @@ that.
 * feature: Allow command execution on Threshold breaches and restoral events
 * feature: Add per threshold email body for alert and warning messages
 * feature: Allow threshold actions to be hooked by other plugins
-* issue#95: Display duration count in days:hr:min:sec for triggered thold alarms and warnings
 * issue#207: Errors when attempting to save a Threshold
 * issue#210: Disabled Thresholds appear in breach/trigger filters
 * issue#211: Site filtering does not work without another filter selected
