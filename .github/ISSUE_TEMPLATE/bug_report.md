@@ -23,7 +23,7 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Plugin (plreace complete the following information):**
+**Plugin (please complete the following information):**
  - Version: [e.g. 1.2]
  - Source: [e.g. cacti.net, package, github]
  - Identifer: [e.g. apt/yum package name or github commit ref]
