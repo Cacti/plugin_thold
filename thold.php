@@ -1237,7 +1237,7 @@ function thold_edit() {
 				}
 			}
 
-			print "<li class=''><a class='hyperLink' href='" . html_escape('thold.php?action=add' . '&local_graph_id=' . $thold_data['local_graph_id'] . '&host_id=' . $thold_data['host_id'] . '&type_id=thold') . "'>new thold<br>n/a</a></li>";
+			print "<li class=''><a class='hyperLink' href='" . html_escape('thold.php?action=add' . '&local_graph_id=' . $thold_data['local_graph_id'] . '&my_host_id=' . $thold_data['host_id'] . '&type_id=thold') . "'>new thold<br>n/a</a></li>";
 
 			print "</ul></nav></div>\n";
 		} elseif (cacti_sizeof($template_data_rrds) == 1) {
