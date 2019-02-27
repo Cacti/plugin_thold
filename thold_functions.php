@@ -1156,65 +1156,88 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 	$sql_select = '';
 	$sql_join   = '';
 
-	if (read_config_option('auth_method') != 0) {
-		if ($user == 0) {
-			$user = $_SESSION['sess_user_id'];
-		}
+	if ($user == 0) {
+		$user = $_SESSION['sess_user_id'];
+	}
 
-		if (read_config_option('graph_auth_method') == 1) {
-			$sql_operator = 'OR';
+	if (read_config_option('graph_auth_method') == 1) {
+		$sql_operator = 'OR';
+	} else {
+		$sql_operator = 'AND';
+	}
+
+	/* get policies for all groups and user */
+	$policies   = db_fetch_assoc_prepared("SELECT uag.id,
+		'group' AS type, policy_graphs, policy_hosts, policy_graph_templates
+		FROM user_auth_group AS uag
+		INNER JOIN user_auth_group_members AS uagm
+		ON uag.id = uagm.group_id
+		WHERE uag.enabled = 'on' AND uagm.user_id = ?",
+		array($user));
+
+	$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type, policy_graphs,
+		policy_hosts, policy_graph_templates
+		FROM user_auth
+		WHERE id = ?",
+		array($user));
+
+	foreach ($policies as $policy) {
+		if ($policy['policy_graphs'] == 1) {
+			$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i IS NULL";
 		} else {
-			$sql_operator = 'AND';
+			$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i=" . $policy['id'];
 		}
+		$sql_join   .= "LEFT JOIN user_auth_" . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1) ";
+		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
+		$i++;
 
-		/* get policies for all groups and user */
-		$policies   = db_fetch_assoc_prepared("SELECT uag.id,
-			'group' AS type, policy_graphs, policy_hosts, policy_graph_templates
-			FROM user_auth_group AS uag
-			INNER JOIN user_auth_group_members AS uagm
-			ON uag.id = uagm.group_id
-			WHERE uag.enabled = 'on' AND uagm.user_id = ?",
-			array($user));
-
-		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type, policy_graphs,
-			policy_hosts, policy_graph_templates
-			FROM user_auth
-			WHERE id = ?",
-			array($user));
-
-		foreach ($policies as $policy) {
-			if ($policy['policy_graphs'] == 1) {
-				$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i IS NULL";
-			} else {
-				$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i=" . $policy['id'];
-			}
-			$sql_join   .= "LEFT JOIN user_auth_" . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1) ";
-			$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-			$i++;
-
-			if ($policy['policy_hosts'] == 1) {
-				$sql_having .= " OR (user$i IS NULL";
-			} else {
-				$sql_having .= " OR (user$i=" . $policy['id'];
-			}
-			$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3) ";
-			$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-			$i++;
-
-			if ($policy['policy_graph_templates'] == 1) {
-				$sql_having .= " $sql_operator user$i IS NULL))";
-			} else {
-				$sql_having .= " $sql_operator user$i=" . $policy['id'] . '))';
-			}
-			$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4) ";
-			$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-			$i++;
+		if ($policy['policy_hosts'] == 1) {
+			$sql_having .= " OR (user$i IS NULL";
+		} else {
+			$sql_having .= " OR (user$i=" . $policy['id'];
 		}
+		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3) ";
+		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
+		$i++;
 
-		$sql_having = "HAVING $sql_having";
+		if ($policy['policy_graph_templates'] == 1) {
+			$sql_having .= " $sql_operator user$i IS NULL))";
+		} else {
+			$sql_having .= " $sql_operator user$i=" . $policy['id'] . '))';
+		}
+		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4) ";
+		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
+		$i++;
+	}
 
-		$tholds = db_fetch_assoc("SELECT td.*, dtd.rrd_step, tt.name AS template_name,
-			$sql_select
+	$sql_having = "HAVING $sql_having";
+
+	$tholds_sql = ("SELECT td.*, dtd.rrd_step, tt.name AS template_name, dtr.data_source_name as data_source,
+		$sql_select
+		FROM thold_data AS td
+		INNER JOIN graph_local AS gl
+		ON gl.id=td.local_graph_id
+		LEFT JOIN graph_templates AS gt
+		ON gt.id=gl.graph_template_id
+		LEFT JOIN host AS h
+		ON h.id=gl.host_id
+		LEFT JOIN thold_template AS tt
+		ON tt.id=td.thold_template_id
+		LEFT JOIN data_template_data AS dtd
+		ON dtd.local_data_id=td.local_data_id
+		LEFT JOIN data_template_rrd AS dtr
+		ON dtr.id=td.data_template_rrd_id
+		$sql_join
+		$sql_where
+		$sql_having
+		$order_by
+		$limit");
+
+	cacti_log($tholds_sql);
+	$tholds = db_fetch_assoc($tholds_sql);
+	$total_rows = db_fetch_cell("SELECT COUNT(*)
+		FROM (
+			SELECT $sql_select
 			FROM thold_data AS td
 			INNER JOIN graph_local AS gl
 			ON gl.id=td.local_graph_id
@@ -1224,57 +1247,10 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 			ON h.id=gl.host_id
 			LEFT JOIN thold_template AS tt
 			ON tt.id=td.thold_template_id
-			LEFT JOIN data_template_data AS dtd
-			ON dtd.local_data_id=td.local_data_id
 			$sql_join
 			$sql_where
 			$sql_having
-			$order_by
-			$limit");
-
-		$total_rows = db_fetch_cell("SELECT COUNT(*)
-			FROM (
-				SELECT $sql_select
-				FROM thold_data AS td
-				INNER JOIN graph_local AS gl
-				ON gl.id=td.local_graph_id
-				LEFT JOIN graph_templates AS gt
-				ON gt.id=gl.graph_template_id
-				LEFT JOIN host AS h
-				ON h.id=gl.host_id
-				LEFT JOIN thold_template AS tt
-				ON tt.id=td.thold_template_id
-				$sql_join
-				$sql_where
-				$sql_having
-			) AS rower");
-	} else {
-		$tholds = db_fetch_assoc("SELECT td.*, tt.name AS template_name
-			FROM thold_data AS td
-			INNER JOIN graph_local AS gl
-			ON gl.id=td.local_graph_id
-			LEFT JOIN graph_templates AS gt
-			ON gt.id=gl.graph_template_id
-			LEFT JOIN host AS h
-			ON h.id=gl.host_id
-			LEFT JOIN thold_template AS tt
-			ON tt.id=td.thold_template_id
-			$sql_where
-			$order_by
-			$limit");
-
-		$total_rows = db_fetch_cell("SELECT COUNT(*)
-			FROM thold_data AS td
-			INNER JOIN graph_local AS gl
-			ON gl.id=td.local_graph_id
-			LEFT JOIN graph_templates AS gt
-			ON gt.id=gl.graph_template_id
-			LEFT JOIN host AS h
-			ON h.id=gl.host_id
-			LEFT JOIN thold_template AS tt
-			ON tt.id=td.thold_template_id
-			$sql_where");
-	}
+		) AS rower");
 
 	return $tholds;
 }
@@ -1301,65 +1277,84 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 	$sql_select = '';
 	$sql_join   = '';
 
-	if (read_config_option('auth_method') != 0) {
-		if ($user == 0) {
-			$user = $_SESSION['sess_user_id'];
-		}
+	if ($user == 0) {
+		$user = $_SESSION['sess_user_id'];
+	}
 
-		if (read_config_option('graph_auth_method') == 1) {
-			$sql_operator = 'OR';
+	if (read_config_option('graph_auth_method') == 1) {
+		$sql_operator = 'OR';
+	} else {
+		$sql_operator = 'AND';
+	}
+
+	/* get policies for all groups and user */
+	$policies = db_fetch_assoc_prepared("SELECT uag.id,
+		'group' AS type, policy_graphs, policy_hosts, policy_graph_templates
+		FROM user_auth_group AS uag
+		INNER JOIN user_auth_group_members AS uagm
+		ON uag.id = uagm.group_id
+		WHERE uag.enabled = 'on' AND uagm.user_id = ?",
+		array($user));
+
+	$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type,
+		policy_graphs, policy_hosts, policy_graph_templates
+		FROM user_auth
+		WHERE id = ?",
+		array($user));
+
+	foreach ($policies as $policy) {
+		if ($policy['policy_graphs'] == 1) {
+			$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i IS NULL";
 		} else {
-			$sql_operator = 'AND';
+			$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i=" . $policy['id'];
 		}
+		$sql_join   .= "LEFT JOIN user_auth_" . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1) ";
+		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
+		$i++;
 
-		/* get policies for all groups and user */
-		$policies = db_fetch_assoc_prepared("SELECT uag.id,
-			'group' AS type, policy_graphs, policy_hosts, policy_graph_templates
-			FROM user_auth_group AS uag
-			INNER JOIN user_auth_group_members AS uagm
-			ON uag.id = uagm.group_id
-			WHERE uag.enabled = 'on' AND uagm.user_id = ?",
-			array($user));
-
-		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type,
-			policy_graphs, policy_hosts, policy_graph_templates
-			FROM user_auth
-			WHERE id = ?",
-			array($user));
-
-		foreach ($policies as $policy) {
-			if ($policy['policy_graphs'] == 1) {
-				$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i IS NULL";
-			} else {
-				$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i=" . $policy['id'];
-			}
-			$sql_join   .= "LEFT JOIN user_auth_" . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1) ";
-			$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-			$i++;
-
-			if ($policy['policy_hosts'] == 1) {
-				$sql_having .= " OR (user$i IS NULL";
-			} else {
-				$sql_having .= " OR (user$i=" . $policy['id'];
-			}
-			$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3) ";
-			$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-			$i++;
-
-			if ($policy['policy_graph_templates'] == 1) {
-				$sql_having .= " $sql_operator user$i IS NULL))";
-			} else {
-				$sql_having .= " $sql_operator user$i=" . $policy['id'] . '))';
-			}
-			$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4) ";
-			$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-			$i++;
+		if ($policy['policy_hosts'] == 1) {
+			$sql_having .= " OR (user$i IS NULL";
+		} else {
+			$sql_having .= " OR (user$i=" . $policy['id'];
 		}
+		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3) ";
+		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
+		$i++;
 
-		$sql_having = "HAVING $sql_having";
+		if ($policy['policy_graph_templates'] == 1) {
+			$sql_having .= " $sql_operator user$i IS NULL))";
+		} else {
+			$sql_having .= " $sql_operator user$i=" . $policy['id'] . '))';
+		}
+		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4) ";
+		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
+		$i++;
+	}
 
-		$tholds = db_fetch_assoc("SELECT tl.*, h.description AS hdescription, td.name, gtg.title_cache,
-			$sql_select
+	$sql_having = "HAVING $sql_having";
+
+	$tholds = db_fetch_assoc("SELECT tl.*, h.description AS hdescription, td.name, gtg.title_cache,
+		$sql_select
+		FROM plugin_thold_log AS tl
+		INNER JOIN thold_data AS td
+		ON tl.threshold_id=td.id
+		INNER JOIN graph_local AS gl
+		ON gl.id=td.local_graph_id
+		LEFT JOIN graph_templates AS gt
+		ON gt.id=gl.graph_template_id
+		LEFT JOIN graph_templates_graph AS gtg
+		ON gtg.local_graph_id=gl.id
+		LEFT JOIN host AS h
+		ON h.id=gl.host_id
+		$sql_join
+		$sql_where
+		$sql_having
+		$order_by
+		$limit");
+
+	$total_rows = db_fetch_cell("SELECT COUNT(*)
+		FROM (
+			SELECT $sql_select
 			FROM plugin_thold_log AS tl
 			INNER JOIN thold_data AS td
 			ON tl.threshold_id=td.id
@@ -1374,59 +1369,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 			$sql_join
 			$sql_where
 			$sql_having
-			$order_by
-			$limit");
-
-		$total_rows = db_fetch_cell("SELECT COUNT(*)
-			FROM (
-				SELECT $sql_select
-				FROM plugin_thold_log AS tl
-				INNER JOIN thold_data AS td
-				ON tl.threshold_id=td.id
-				INNER JOIN graph_local AS gl
-				ON gl.id=td.local_graph_id
-				LEFT JOIN graph_templates AS gt
-				ON gt.id=gl.graph_template_id
-				LEFT JOIN graph_templates_graph AS gtg
-				ON gtg.local_graph_id=gl.id
-				LEFT JOIN host AS h
-				ON h.id=gl.host_id
-				$sql_join
-				$sql_where
-				$sql_having
-			) AS rower");
-	} else {
-		$tholds = db_fetch_assoc("SELECT tl.*, h.description AS hdescription, td.name, gtg.title_cache
-			FROM plugin_thold_log AS tl
-			INNER JOIN thold_data AS td
-			ON tl.threshold_id=td.id
-			INNER JOIN graph_local AS gl
-			ON gl.id=td.local_graph_id
-			LEFT JOIN graph_templates AS gt
-			ON gt.id=gl.graph_template_id
-			LEFT JOIN graph_templates_graph AS gtg
-			ON gtg.local_graph_id=gl.id
-			LEFT JOIN host AS h
-			ON h.id=gl.host_id
-			$sql_where
-			$order_by
-			$limit");
-
-		$total_rows = db_fetch_cell("SELECT COUNT(*)
-			FROM plugin_thold_log AS tl
-			INNER JOIN thold_data AS td
-			ON tl.threshold_id=td.id
-			INNER JOIN graph_local AS gl
-			ON gl.id=td.local_graph_id
-			LEFT JOIN graph_templates AS gt
-			ON gt.id=gl.graph_template_id
-			LEFT JOIN graph_templates_graph AS gtg
-			ON gtg.local_graph_id=gl.id
-			LEFT JOIN host AS h
-			ON h.id=gl.host_id
-			$sql_where");
-	}
-
+		) AS rower");
 	return $tholds;
 }
 
@@ -5288,120 +5231,87 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . " h.id=$host_id";
 	}
 
-	if ($user == -1) {
-		$auth_method = 0;
-	} else {
-		$auth_method = read_config_option('auth_method');
-	}
-
 	$poller_interval = read_config_option('poller_interval');
 
-	if ($auth_method != 0) {
-		if ($user == 0) {
-			if (isset($_SESSION['sess_user_id'])) {
-				$user = $_SESSION['sess_user_id'];
-			} else {
-				return array();
-			}
-		}
-
-		if (read_config_option('graph_auth_method') == 1) {
-			$sql_operator = 'OR';
+	if ($user == 0) {
+		if (isset($_SESSION['sess_user_id'])) {
+			$user = $_SESSION['sess_user_id'];
 		} else {
-			$sql_operator = 'AND';
+			return array();
+		}
+	}
+
+	if (read_config_option('graph_auth_method') == 1) {
+		$sql_operator = 'OR';
+	} else {
+		$sql_operator = 'AND';
+	}
+
+	/* get policies for all groups and user */
+	$policies   = db_fetch_assoc_prepared("SELECT uag.id, 'group' AS type,
+		uag.policy_graphs, uag.policy_hosts, uag.policy_graph_templates
+		FROM user_auth_group AS uag
+		INNER JOIN user_auth_group_members AS uagm
+		ON uag.id = uagm.group_id
+		WHERE uag.enabled = 'on'
+		AND uagm.user_id = ?",
+		array($user)
+	);
+
+	$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type,
+		policy_graphs, policy_hosts, policy_graph_templates
+		FROM user_auth
+		WHERE id = ?",
+		array($user)
+	);
+
+	$i          = 0;
+	$sql_select = '';
+	$sql_join   = '';
+	$sql_having = '';
+
+	foreach ($policies as $policy) {
+		if ($policy['policy_graphs'] == 1) {
+			$sql_having .= ($sql_having != '' ? ' OR ' : '') . "(user$i IS NULL";
+		} else {
+			$sql_having .= ($sql_having != '' ? ' OR ' : '') . "(user$i IS NOT NULL";
 		}
 
-		/* get policies for all groups and user */
-		$policies   = db_fetch_assoc_prepared("SELECT uag.id, 'group' AS type,
-			uag.policy_graphs, uag.policy_hosts, uag.policy_graph_templates
-			FROM user_auth_group AS uag
-			INNER JOIN user_auth_group_members AS uagm
-			ON uag.id = uagm.group_id
-			WHERE uag.enabled = 'on'
-			AND uagm.user_id = ?",
-			array($user)
-		);
+		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1 AND uap$i." . $policy['type'] . "_id=" . $policy['id'] . ") ";
+		$sql_select .= ($sql_select != '' ? ', ' : '') . "uap$i." . $policy['type'] . "_id AS user$i";
+		$i++;
 
-		$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type,
-			policy_graphs, policy_hosts, policy_graph_templates
-			FROM user_auth
-			WHERE id = ?",
-			array($user)
-		);
-
-		$i          = 0;
-		$sql_select = '';
-		$sql_join   = '';
-		$sql_having = '';
-
-		foreach ($policies as $policy) {
-			if ($policy['policy_graphs'] == 1) {
-				$sql_having .= ($sql_having != '' ? ' OR ' : '') . "(user$i IS NULL";
-			} else {
-				$sql_having .= ($sql_having != '' ? ' OR ' : '') . "(user$i IS NOT NULL";
-			}
-
-			$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1 AND uap$i." . $policy['type'] . "_id=" . $policy['id'] . ") ";
-			$sql_select .= ($sql_select != '' ? ', ' : '') . "uap$i." . $policy['type'] . "_id AS user$i";
-			$i++;
-
-			if ($policy['policy_hosts'] == 1) {
-				$sql_having .= " OR (user$i IS NULL";
-			} else {
-				$sql_having .= " OR (user$i IS NOT NULL";
-			}
-
-			$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3 AND uap$i." . $policy['type'] . "_id=" . $policy['id'] . ") ";
-			$sql_select .= ($sql_select != '' ? ', ' : '') . "uap$i." . $policy['type'] . "_id AS user$i";
-			$i++;
-
-			if ($policy['policy_graph_templates'] == 1) {
-				$sql_having .= " $sql_operator user$i IS NULL))";
-			} else {
-				$sql_having .= " $sql_operator user$i IS NOT NULL))";
-			}
-
-			$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4 AND uap$i." . $policy['type'] . "_id=" . $policy['id'] . ") ";
-			$sql_select .= ($sql_select != '' ? ', ' : '') . "uap$i." . $policy['type'] . "_id AS user$i";
-			$i++;
+		if ($policy['policy_hosts'] == 1) {
+			$sql_having .= " OR (user$i IS NULL";
+		} else {
+			$sql_having .= " OR (user$i IS NOT NULL";
 		}
 
-		$sql_having = "HAVING $sql_having";
+		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3 AND uap$i." . $policy['type'] . "_id=" . $policy['id'] . ") ";
+		$sql_select .= ($sql_select != '' ? ', ' : '') . "uap$i." . $policy['type'] . "_id AS user$i";
+		$i++;
 
-		$host_list = db_fetch_assoc("SELECT h1.*, graphs, data_sources,
-			IF(status_event_count>0, status_event_count*$poller_interval,
-			IF(UNIX_TIMESTAMP(status_rec_date)>943916400,UNIX_TIMESTAMP()-UNIX_TIMESTAMP(status_rec_date),
-			IF(snmp_sysUptimeInstance>0 AND snmp_version > 0, snmp_sysUptimeInstance,UNIX_TIMESTAMP()))) AS instate
-			FROM host AS h1
-			INNER JOIN (
-				SELECT DISTINCT id FROM (
-					SELECT h.*, $sql_select
-					FROM host AS h
-					LEFT JOIN graph_local AS gl
-					ON h.id=gl.host_id
-					LEFT JOIN graph_templates_graph AS gtg
-					ON gl.id=gtg.local_graph_id
-					LEFT JOIN graph_templates AS gt
-					ON gt.id=gl.graph_template_id
-					LEFT JOIN host_template AS ht
-					ON h.host_template_id=ht.id
-					$sql_join
-					$sql_where
-					$sql_having
-				) AS rs1
-			) AS rs2
-			ON rs2.id=h1.id
-			LEFT JOIN (SELECT host_id, COUNT(*) AS graphs FROM graph_local GROUP BY host_id) AS gl
-			ON h1.id=gl.host_id
-			LEFT JOIN (SELECT host_id, COUNT(*) AS data_sources FROM data_local GROUP BY host_id) AS dl
-			ON h1.id=dl.host_id
-			$order_by
-			$limit"
-		);
+		if ($policy['policy_graph_templates'] == 1) {
+			$sql_having .= " $sql_operator user$i IS NULL))";
+		} else {
+			$sql_having .= " $sql_operator user$i IS NOT NULL))";
+		}
 
-		$total_rows = db_fetch_cell("SELECT COUNT(DISTINCT id)
-			FROM (
-				SELECT h.id, $sql_select
+		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4 AND uap$i." . $policy['type'] . "_id=" . $policy['id'] . ") ";
+		$sql_select .= ($sql_select != '' ? ', ' : '') . "uap$i." . $policy['type'] . "_id AS user$i";
+		$i++;
+	}
+
+	$sql_having = "HAVING $sql_having";
+
+	$host_list = db_fetch_assoc("SELECT h1.*, graphs, data_sources,
+		IF(status_event_count>0, status_event_count*$poller_interval,
+		IF(UNIX_TIMESTAMP(status_rec_date)>943916400,UNIX_TIMESTAMP()-UNIX_TIMESTAMP(status_rec_date),
+		IF(snmp_sysUptimeInstance>0 AND snmp_version > 0, snmp_sysUptimeInstance,UNIX_TIMESTAMP()))) AS instate
+		FROM host AS h1
+		INNER JOIN (
+			SELECT DISTINCT id FROM (
+				SELECT h.*, $sql_select
 				FROM host AS h
 				LEFT JOIN graph_local AS gl
 				ON h.id=gl.host_id
@@ -5414,54 +5324,34 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 				$sql_join
 				$sql_where
 				$sql_having
-			) AS rower"
-		);
-	} else {
-		$host_list = db_fetch_assoc("SELECT h1.*, graphs, data_sources,
-			IF(status_event_count>0, status_event_count*$poller_interval,
-			IF(UNIX_TIMESTAMP(status_rec_date)>943916400,UNIX_TIMESTAMP()-UNIX_TIMESTAMP(status_rec_date),
-			IF(snmp_sysUptimeInstance>0 AND snmp_version > 0, snmp_sysUptimeInstance,UNIX_TIMESTAMP()))) AS instate
-			FROM host AS h1
-			INNER JOIN (
-				SELECT DISTINCT id FROM (
-					SELECT h.*
-					FROM host AS h
-					LEFT JOIN graph_local AS gl
-					ON h.id=gl.host_id
-					LEFT JOIN graph_templates_graph AS gtg
-					ON gl.id=gtg.local_graph_id
-					LEFT JOIN graph_templates AS gt
-					ON gt.id=gl.graph_template_id
-					LEFT JOIN host_template AS ht
-					ON h.host_template_id=ht.id
-					$sql_where
-				) AS rs1
-			) AS rs2
-			ON rs2.id=h1.id
-			LEFT JOIN (SELECT host_id, COUNT(*) AS graphs FROM graph_local GROUP BY host_id) AS gl
-			ON h1.id=gl.host_id
-			LEFT JOIN (SELECT host_id, COUNT(*) AS data_sources FROM data_local GROUP BY host_id) AS dl
-			ON h1.id=dl.host_id
-			$order_by
-			$limit"
-		);
+			) AS rs1
+		) AS rs2
+		ON rs2.id=h1.id
+		LEFT JOIN (SELECT host_id, COUNT(*) AS graphs FROM graph_local GROUP BY host_id) AS gl
+		ON h1.id=gl.host_id
+		LEFT JOIN (SELECT host_id, COUNT(*) AS data_sources FROM data_local GROUP BY host_id) AS dl
+		ON h1.id=dl.host_id
+		$order_by
+		$limit"
+	);
 
-		$total_rows = db_fetch_cell("SELECT COUNT(DISTINCT id)
-			FROM (
-				SELECT h.id
-				FROM host AS h
-				LEFT JOIN graph_local AS gl
-				ON h.id=gl.host_id
-				LEFT JOIN graph_templates_graph AS gtg
-				ON gl.id=gtg.local_graph_id
-				LEFT JOIN graph_templates AS gt
-				ON gt.id=gl.graph_template_id
-				LEFT JOIN host_template AS ht
-				ON h.host_template_id=ht.id
-				$sql_where
-			) AS rower"
-		);
-	}
+	$total_rows = db_fetch_cell("SELECT COUNT(DISTINCT id)
+		FROM (
+			SELECT h.id, $sql_select
+			FROM host AS h
+			LEFT JOIN graph_local AS gl
+			ON h.id=gl.host_id
+			LEFT JOIN graph_templates_graph AS gtg
+			ON gl.id=gtg.local_graph_id
+			LEFT JOIN graph_templates AS gt
+			ON gt.id=gl.graph_template_id
+			LEFT JOIN host_template AS ht
+			ON h.host_template_id=ht.id
+			$sql_join
+			$sql_where
+			$sql_having
+		) AS rower"
+	);
 
 	return $host_list;
 }
