@@ -833,7 +833,7 @@ function thold_data_source_action_execute($action) {
 				if (strlen($message)) {
 					thold_raise_message($message, MESSAGE_LEVEL_INFO);
 				} else {
-					thold_raise_message(__('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold'), MESSAGE_LEVEL_INFO);
+					thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
 				}
 			} else {
 				thold_raise_message(__('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold'), MESSAGE_LEVEL_ERROR);
@@ -990,7 +990,7 @@ function thold_graphs_action_execute($action) {
 				if (strlen($message)) {
 					thold_raise_message($message, MESSAGE_LEVEL_INFO);
 				} else {
-					thold_raise_message(__('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold'), MESSAGE_LEVEL_INFO);
+					thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
 				}
 			} else {
 				thold_raise_message(__('No Threshold(s) Created.  Threshold(s) Template not found.', 'thold'), MESSAGE_LEVEL_ERROR);
@@ -1069,7 +1069,6 @@ function thold_graphs_action_prepare($save) {
 					'method' => 'drop_sql',
 					'friendly_name' => __('Select a Threshold Template', 'thold'),
 					'description' => '',
-					'none_value' => __('None', 'thold'),
 					'value' => __('None', 'thold'),
 					'sql' => $sql
 				)

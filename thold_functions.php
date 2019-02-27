@@ -4606,7 +4606,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_tem
 	if (strlen($message)) {
 		thold_raise_message($message, MESSAGE_LEVEL_INFO);
 	} else {
-		thold_raise_message(__('No Threshold(s) Created.  They either already exist, or there were not matching combinations found.', 'thold'), MESSAGE_LEVEL_INFO);
+		thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
 	}
 
 	return $created;
