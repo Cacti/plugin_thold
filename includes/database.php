@@ -1173,6 +1173,34 @@ function thold_upgrade_database($force = false) {
 		}
 	}
 
+	$tables = db_fetch_assoc("SELECT DISTINCT TABLE_NAME
+		FROM information_schema.COLUMNS
+		WHERE TABLE_SCHEMA = SCHEMA()
+		AND TABLE_NAME LIKE '%thold%'");
+
+	if (sizeof($tables)) {
+		foreach ($tables as $table) {
+			$columns = db_fetch_assoc("SELECT *
+				FROM information_schema.COLUMNS
+				WHERE TABLE_SCHEMA=SCHEMA()
+				AND TABLE_NAME='" . $table['TABLE_NAME'] . "'
+				AND DATA_TYPE LIKE '%char%'
+				AND COLUMN_DEFAULT IS NULL");
+
+			if (cacti_sizeof($columns)) {
+				$alter = 'ALTER TABLE `' . $table['TABLE_NAME'] . '` ';
+
+				$i = 0;
+				foreach($columns as $column) {
+					$alter .= ($i == 0 ? '': ', ') . ' MODIFY COLUMN `' . $column['COLUMN_NAME'] . '` ' . $column['COLUMN_TYPE'] . ($column['IS_NULLABLE'] == 'NO' ? ' NOT NULL' : '') . ' DEFAULT ""';
+					$i++;
+				}
+
+				db_execute($alter);
+			}
+		}
+	}
+
 	db_execute_prepared('UPDATE settings
 		SET value = ?
 		WHERE name = "plugin_thold_version"',
