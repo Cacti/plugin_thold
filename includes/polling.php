@@ -651,6 +651,15 @@ function thold_update_host_status() {
 						break;
 				}
 
+				api_plugin_hook_function(
+					'thold_device_recovering',
+					array(
+						'device'  => $host,
+						'subject' => $subject,
+						'message' => $msg
+					)
+				);
+
 				if ($alert_email == '' && $host['thold_send_email'] > 0) {
 					cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device recovering email for \'' . $host['description'] . '\' since the \'Alert Email\' setting is not set for Device!', true, 'THOLD');
 				} elseif ($host['thold_send_email'] == '0') {
@@ -757,6 +766,15 @@ function thold_update_host_status() {
 					$alert_email = $alert_email . ',' . get_thold_notification_emails($host['thold_host_email']);
 					break;
 			}
+
+			api_plugin_hook_function(
+				'thold_device_down',
+				array(
+					'device'  => $host,
+					'subject' => $subject,
+					'message' => $msg
+				)
+			);
 
 			if ($alert_email == '' && $host['thold_send_email'] > 0) {
 				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device down email for \'' . $host['description'] . '\' since the \'Alert Email\' setting is not set for Device!', true, 'THOLD');
