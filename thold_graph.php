@@ -704,7 +704,6 @@ function hosts() {
 	}
 
 	$sql_where .= (strlen($sql_where) ? ')':'');
-cacti_log('WHERE ' . $sql_where);
 
 	$sql_order = get_order_string();
 	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;

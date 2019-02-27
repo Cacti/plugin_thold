@@ -1233,7 +1233,6 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 		$order_by
 		$limit");
 
-	cacti_log($tholds_sql);
 	$tholds = db_fetch_assoc($tholds_sql);
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM (
