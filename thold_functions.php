@@ -1222,11 +1222,11 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 		td.`time_warning_fail_trigger`, td.`time_warning_fail_length`, td.`thold_alert`,
 		td.`prev_thold_alert`, td.`thold_enabled`, td.`thold_type`, td.`bl_ref_time_range`,
 		td.`bl_pct_down`, td.`bl_pct_up`, td.`bl_fail_trigger`, td.`bl_fail_count`, td.`bl_alert`,
-		(td.`lastread` + 0.0) as `lastread`,
-		td.`lasttime`, td.`oldvalue`, td.`repeat_alert`, td.`notify_extra`,
-		td.`notify_warning_extra`, td.`notify_warning`, td.`notify_alert`, td.`host_id`,
-		td.`syslog_priority`, td.`syslog_facility`, td.`syslog_enabled`, td.`data_type`,
-		td.`cdef`, td.`percent_ds`, td.`expression`, td.`thold_template_id`,
+		IF(IFNULL(td.`lastread`,'')='',NULL,(td.`lastread` + 0.0)) as `lastread`, td.`lasttime`,
+		IF(IFNULL(td.`oldvalue`,'')='',NULL,(td.`oldvalue` + 0.0)) as `oldvalue`, td.`repeat_alert`,
+		td.`notify_extra`, td.`notify_warning_extra`, td.`notify_warning`, td.`notify_alert`,
+		td.`host_id`, td.`syslog_priority`, td.`syslog_facility`, td.`syslog_enabled`,
+		td.`data_type`, td.`cdef`, td.`percent_ds`, td.`expression`, td.`thold_template_id`,
 		td.`template_enabled`, td.`tcheck`, td.`exempt`, td.`acknowledgment`,
 		td.`thold_hrule_alert`, td.`thold_hrule_warning`, td.`restored_alert`, td.`reset_ack`,
 		td.`persist_ack`, td.`email_body`, td.`email_body_warn`, td.`trigger_cmd_high`,
@@ -1352,7 +1352,11 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 
 	$sql_having = "HAVING $sql_having";
 
-	$tholds = db_fetch_assoc("SELECT tl.*, h.description AS hdescription, td.name, gtg.title_cache,
+	$tholds = db_fetch_assoc("SELECT
+		tl.`id`, tl.`time`, tl.`host_id`, tl.`local_graph_id`, tl.`threshold_id`,
+		IF(IFNULL(tl.`threshold_value`,'')='',NULL,(tl.`threshold_value` + 0.0)) as `threshold_value`,
+		IF(IFNULL(tl.`current`,'')='',NULL,(tl.`current` + 0.0)) as `current`, tl.`status`, tl.`type`,
+		tl.`description`, h.description AS hdescription, td.name, gtg.title_cache,
 		$sql_select
 		FROM plugin_thold_log AS tl
 		INNER JOIN thold_data AS td
