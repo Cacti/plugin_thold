@@ -287,7 +287,6 @@ function tholds() {
 
 	$sql_order = get_order_string();
 	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;
-	$sql_order = str_replace('`lastread`', '`lastread`/1', $sql_order);
 	$sql_order = str_replace('ORDER BY ', '', $sql_order);
 
 	$sql_where = '';
