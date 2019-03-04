@@ -1212,7 +1212,26 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 
 	$sql_having = "HAVING $sql_having";
 
-	$tholds_sql = ("SELECT td.*, dtd.rrd_step, tt.name AS template_name, dtr.data_source_name as data_source,
+	$tholds_sql = ("SELECT
+		td.`id`, td.`name`, td.`name_cache`, td.`local_data_id`, td.`data_template_rrd_id`,
+		td.`local_graph_id`, td.`graph_template_id`, td.`data_template_id`, td.`data_source_name`,
+		td.`thold_hi`, td.`thold_low`, td.`thold_fail_trigger`, td.`thold_fail_count`,
+		td.`time_hi`, td.`time_low`, td.`time_fail_trigger`, td.`time_fail_length`,
+		td.`thold_warning_hi`, td.`thold_warning_low`, td.`thold_warning_fail_trigger`,
+		td.`thold_warning_fail_count`, td.`time_warning_hi`, td.`time_warning_low`,
+		td.`time_warning_fail_trigger`, td.`time_warning_fail_length`, td.`thold_alert`,
+		td.`prev_thold_alert`, td.`thold_enabled`, td.`thold_type`, td.`bl_ref_time_range`,
+		td.`bl_pct_down`, td.`bl_pct_up`, td.`bl_fail_trigger`, td.`bl_fail_count`, td.`bl_alert`,
+		td.`lastread`, td.`lasttime`, td.`oldvalue`, td.`repeat_alert`, td.`notify_extra`,
+		td.`notify_warning_extra`, td.`notify_warning`, td.`notify_alert`, td.`host_id`,
+		td.`syslog_priority`, td.`syslog_facility`, td.`syslog_enabled`, td.`data_type`,
+		td.`cdef`, td.`percent_ds`, td.`expression`, td.`thold_template_id`,
+		td.`template_enabled`, td.`tcheck`, td.`exempt`, td.`acknowledgment`,
+		td.`thold_hrule_alert`, td.`thold_hrule_warning`, td.`restored_alert`, td.`reset_ack`,
+		td.`persist_ack`, td.`email_body`, td.`email_body_warn`, td.`trigger_cmd_high`,
+		td.`trigger_cmd_low`, td.`trigger_cmd_norm`, td.`bl_thold_valid`, td.`snmp_event_category`,
+		td.`snmp_event_severity`, td.`snmp_event_warning_severity`, td.`thold_daemon_pid`,
+		td.`notes`, dtd.rrd_step, tt.name AS template_name, dtr.data_source_name as data_source,
 		$sql_select
 		FROM thold_data AS td
 		INNER JOIN graph_local AS gl
