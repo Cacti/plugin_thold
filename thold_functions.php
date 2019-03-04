@@ -1222,7 +1222,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 		td.`time_warning_fail_trigger`, td.`time_warning_fail_length`, td.`thold_alert`,
 		td.`prev_thold_alert`, td.`thold_enabled`, td.`thold_type`, td.`bl_ref_time_range`,
 		td.`bl_pct_down`, td.`bl_pct_up`, td.`bl_fail_trigger`, td.`bl_fail_count`, td.`bl_alert`,
-		CAST(td.`lastread` as unsigned) as `lastread`,
+		(td.`lastread` + 0.0) as `lastread`,
 		td.`lasttime`, td.`oldvalue`, td.`repeat_alert`, td.`notify_extra`,
 		td.`notify_warning_extra`, td.`notify_warning`, td.`notify_alert`, td.`host_id`,
 		td.`syslog_priority`, td.`syslog_facility`, td.`syslog_enabled`, td.`data_type`,
