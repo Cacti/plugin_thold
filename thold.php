@@ -222,7 +222,7 @@ function do_actions() {
 			switch ($drp_action) {
 				case 1:	// Delete
 					foreach ($tholds as $thold_id => $local_graph_id) {
-						if (thold_user_auth_threshold($local_graph_id)) {
+						if (is_thold_allowed_graph($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'deleted', array('message' => 'Removed from Thold page'));
 
 							db_execute_prepared('DELETE FROM thold_data
@@ -241,7 +241,7 @@ function do_actions() {
 					break;
 				case 2:	// Enabled
 					foreach ($tholds as $thold_id => $local_graph_id) {
-						if (thold_user_auth_threshold($local_graph_id)) {
+						if (is_thold_allowed_graph($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'enabled_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
@@ -253,7 +253,7 @@ function do_actions() {
 					break;
 				case 3:	// Disabled
 					foreach ($tholds as $thold_id => $local_graph_id) {
-						if (thold_user_auth_threshold($local_graph_id)) {
+						if (is_thold_allowed_graph($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'disabled_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
@@ -266,7 +266,7 @@ function do_actions() {
 				case 4:	// Reapply Suggested Name
 					$message = array();
 					foreach ($tholds as $thold_id => $local_graph_id) {
-						if (thold_user_auth_threshold($local_graph_id)) {
+						if (is_thold_allowed_graph($local_graph_id)) {
 							$thold = db_fetch_row_prepared('SELECT *
 								FROM thold_data
 								WHERE id = ?',
@@ -302,7 +302,7 @@ function do_actions() {
 					break;
 				case 5:	// Propagate Template
 					foreach ($tholds as $thold_id => $local_graph_id) {
-						if (thold_user_auth_threshold($local_graph_id)) {
+						if (is_thold_allowed_graph($local_graph_id)) {
 							$template = db_fetch_row_prepared('SELECT td.thold_template_id AS id,
 								td.template_enabled AS enabled
 								FROM thold_data AS td
@@ -320,7 +320,7 @@ function do_actions() {
 					break;
 				case 6: // Acknowledgment
 					foreach ($tholds as $thold_id => $local_graph_id) {
-						if (thold_user_auth_threshold($local_graph_id)) {
+						if (is_thold_allowed_graph($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'acknowledge_threshold', array('id' => $thold_id));
 
 							$thold_alert = db_fetch_cell_prepared("SELECT thold_alert
@@ -340,7 +340,7 @@ function do_actions() {
 					break;
 				case 7: // Dismiss Acknowledgment
 					foreach ($tholds as $thold_id => $local_graph_id) {
-						if (thold_user_auth_threshold($local_graph_id)) {
+						if (is_thold_allowed_graph($local_graph_id)) {
 							plugin_thold_log_changes($thold_id, 'dismiss_acknowledge_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
@@ -616,6 +616,7 @@ function list_tholds() {
 
 	$sql_order = get_order_string();
 	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_order = str_replace('`lastread`', '`lastread`/1', $sql_order);
 	$sql_order = str_replace('ORDER BY ', '', $sql_order);
 
 	$tholds = get_allowed_thresholds($sql_where, $sql_order, $sql_limit, $total_rows);

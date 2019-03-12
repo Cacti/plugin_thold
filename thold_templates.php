@@ -150,7 +150,7 @@ function do_actions() {
 
 						if (cacti_sizeof($tholds)) {
 							foreach ($tholds as $thold_id => $local_graph_id) {
-								if (thold_user_auth_threshold($local_graph_id)) {
+								if (is_thold_allowed_graph($local_graph_id)) {
 									$thold = db_fetch_row_prepared('SELECT *
 										FROM thold_data
 										WHERE id = ?',

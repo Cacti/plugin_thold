@@ -1254,6 +1254,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 		$limit");
 
 	$tholds = db_fetch_assoc($tholds_sql);
+
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM (
 			SELECT $sql_select
@@ -1396,7 +1397,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 	return $tholds;
 }
 
-function thold_user_auth_threshold($local_graph_id) {
+function is_thold_allowed_graph($local_graph_id) {
 	return is_graph_allowed($local_graph_id);
 }
 
@@ -3977,7 +3978,7 @@ function save_thold() {
 	$template_enabled     = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : '';
 
 	if ($template_enabled == 'on') {
-		if (!thold_user_auth_threshold($local_graph_id)) {
+		if ($local_graph_id > 0 && !is_thold_allowed_graph($local_graph_id)) {
 			$banner = __('Permission Denied', 'thold');
 			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
 
@@ -4293,8 +4294,8 @@ function save_thold() {
 		$save['graph_template_id'] = $grapharr['graph_template_id'];
 	}
 
-	if ($save['id'] > 0 && !thold_user_auth_threshold($local_graph_id)) {
-		thold_raise_message(__(' What? Permission Denied', 'thold'), MESSAGE_LEVEL_ERROR);
+	if ($save['id'] > 0 && $save['local_graph_id'] > 0 && !is_thold_allowed_graph($save['local_graph_id'])) {
+		thold_raise_message(__('Permission Denied', 'thold'), MESSAGE_LEVEL_ERROR);
 
 		return false;
 	}
