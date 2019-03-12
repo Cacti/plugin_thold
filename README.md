@@ -125,6 +125,8 @@ that.
 
 * issue#267: Database Upgrade not handled properly in some cases
 
+* issue#271: A non-numeric value encountered in file polling.php line 570 & 571
+
 * issue#272: MySQL is sorting measured values as strings not numerics on Thold tab
 
 * issue#273: Wrong navigation bar link

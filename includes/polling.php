@@ -567,12 +567,21 @@ function thold_update_host_status() {
 
 						$snmp_contact = cacti_snmp_get($host['hostname'], $host['snmp_community'], '.1.3.6.1.2.1.1.4.0', $host['snmp_version'], $host['snmp_username'], $host['snmp_password'], $host['snmp_auth_protocol'], $host['snmp_priv_passphrase'], $host['snmp_priv_protocol'], $host['snmp_context'], $host['snmp_port'], $host['snmp_timeout'], read_config_option('snmp_retries'), SNMP_WEBUI);
 
-						$days       = intval($snmp_uptime / (60 * 60 * 24 * 100));
-						$remainder  = $snmp_uptime % (60 * 60 * 24 * 100);
-						$hours      = intval($remainder / (60 * 60 * 100));
-						$remainder  = $remainder % (60 * 60 * 100);
-						$minutes    = intval($remainder / (60 * 100));
-						$uptimelong = $days . 'd ' . $hours . 'h ' . $minutes . 'm';
+						if (is_numeric($snmp_uptime)) {
+							$days       = intval($snmp_uptime / (60 * 60 * 24 * 100));
+							$remainder  = $snmp_uptime % (60 * 60 * 24 * 100);
+							$hours      = intval($remainder / (60 * 60 * 100));
+							$remainder  = $remainder % (60 * 60 * 100);
+							$minutes    = intval($remainder / (60 * 100));
+							$uptimelong = $days . 'd ' . $hours . 'h ' . $minutes . 'm';
+						} else {
+							$days       = '0';
+							$remainder  = '0';
+							$hours      = '0';
+							$remainder  = '0';
+							$minutes    = '0';
+							$uptimelong = $days . 'd ' . $hours . 'h ' . $minutes . 'm';
+						}
 					}
 
 					if ($host['status_fail_date'] != '0000-00-00 00:00:00') {
