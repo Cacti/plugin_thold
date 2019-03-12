@@ -1209,7 +1209,7 @@ function tholds($header_label) {
 
 	html_end_box();
 
-	$nav = html_nav_bar('notify_lists.php?action=edit&tab=tholds', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Thresholds', 'thold'), 'page', 'main');
+	$nav = html_nav_bar('notify_lists.php?action=edit&tab=tholds&id=' . get_filter_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Thresholds', 'thold'), 'page', 'main');
 
 	form_start('notify_lists.php', 'chk');
 
@@ -1369,7 +1369,8 @@ function templates($header_label) {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_template.name LIKE '%" . get_request_var('filter') . "%'";
 	}
 
-	$sql = "SELECT * FROM thold_template
+	$sql = "SELECT *
+		FROM thold_template
 		$sql_where
 		$sql_order
 		$sql_limit";
@@ -1477,7 +1478,8 @@ function templates($header_label) {
 
 			/* show alert stats first */
 			$alert_stat = '';
-			$list = db_fetch_cell_prepared("SELECT count(*)
+
+			$list = db_fetch_cell_prepared("SELECT COUNT(*)
 				FROM plugin_thold_template_contact
 				WHERE template_id = ?",
 				array($row["id"]));
@@ -1532,7 +1534,7 @@ function templates($header_label) {
 
 			if ((!strlen($warn_stat)) &&
 				(($row['thold_type'] == 0 && $row['thold_warning_hi'] == '' && $row['thold_warning_low'] == '') ||
-				($row['thold_type'] == 2 && $row['thold_time_warning_hi'] == '' && $row['thold_time_warning_low'] == ''))) {
+				($row['thold_type'] == 2 && $row['time_warning_hi'] == '' && $row['time_warning_low'] == ''))) {
 				$warn_stat  = "<span class='deviceDown'>" . __('None', 'thold') . "</span>";
 			} elseif (!strlen($warn_stat)) {
 				$warn_stat  = "<span class='deviceUnknown'>" . __('Log Only', 'thold') . "</span>";
