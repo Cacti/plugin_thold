@@ -722,24 +722,35 @@ function thold_api_device_save($save) {
 function thold_data_sources_table($ds) {
 	global $config;
 
-	if (!isset($ds['data_source'])) {
+	if (isset($ds['local_data_id'])) {
 		$exists = db_fetch_cell_prepared('SELECT id
 			FROM thold_data
-			WHERE local_data_id = ?',
+			WHERE local_data_id = ?
+			LIMIT 1',
 			array($ds['local_data_id']));
 
 		if ($exists) {
 			$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='hyperLink' href='" . html_escape('plugins/thold/thold.php?action=edit&id=' . $exists) . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold'). '</em>' : html_escape($ds['data_template_name'])) . '</a>';
 		} else {
+			$graph_exists = db_fetch_cell_prepared('SELECT DISTINCT gl.id
+				FROM graph_local AS gl
+				INNER JOIN graph_templates_item AS gti
+				ON gl.id = gti.local_graph_id
+				INNER JOIN data_template_rrd AS dtr
+				ON gti.task_item_id = dtr.id
+				WHERE dtr.local_data_id = ?
+				LIMIT 1',
+				array($ds['local_data_id']));
+
 			$data_template_id = db_fetch_cell_prepared('SELECT data_template_id
 				FROM data_local
 				WHERE id = ?',
 				array($ds['local_data_id']));
 
-			$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='hyperLink' href='" . html_escape('plugins/thold/thold.php?action=edit&local_data_id=' . $ds['local_data_id'] . '&host_id=' . $ds['host_id'] . '&data_template_id=' . $data_template_id . '&data_template_rrd_id=&local_graph_id=&thold_template_id=0') . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold') . '</em>' : html_escape($ds['data_template_name'])) . '</a>';
+			if ($graph_exists) {
+				$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='hyperLink' href='" . html_escape('plugins/thold/thold.php?action=edit&local_data_id=' . $ds['local_data_id'] . '&host_id=' . $ds['host_id'] . '&data_template_id=' . $data_template_id . '&data_template_rrd_id=&local_graph_id=' . $graph_exists . '&thold_template_id=0') . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold') . '</em>' : html_escape($ds['data_template_name'])) . '</a>';
+			}
 		}
-	} else {
-		$ds['template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='hyperLink' href='" . html_escape('plugins/thold/thold.php?local_data_id=' . $ds['data_source']['local_data_id'] . '&host_id=' . $ds['data_source']['host_id'] . '&thold_template_id=0') . "'>" . ((empty($ds['data_source']['data_template_name'])) ? '<em>' . __('None', 'thold') . '</em>' : html_escape($ds['data_source']['data_template_name'])) . '</a>';
 	}
 
 	return $ds;

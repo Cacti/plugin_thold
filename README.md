@@ -125,6 +125,8 @@ that.
 
 * issue#267: Database Upgrade not handled properly in some cases
 
+* issue#274: Data Source link on Data Template column is ambiguous and can lead to confusion
+
 --- 1.2.0 ---
 
 * feature: Add Acknowledgment support to thold
