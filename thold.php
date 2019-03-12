@@ -832,7 +832,7 @@ function list_tholds() {
 			'sort' => 'ASC',
 			'align' => 'right'
 		),
-		'GREATEST(td.thold_fail_count,td.thold_warning_fail_count)' => array(
+		'instate' => array(
 			'display' => __('In State', 'thold'),
 			'sort' => 'DESC',
 			'align' => 'right',

@@ -397,7 +397,7 @@ function tholds() {
 			'sort' => 'ASC',
 			'align' => 'right'
 		),
-		'GREATEST(td.thold_fail_count,td.thold_warning_fail_count)' => array(
+		'instate' => array(
 			'display' => __('In State', 'thold'),
 			'sort' => 'DESC',
 			'align' => 'right',
@@ -516,7 +516,6 @@ function tholds() {
 			form_selectable_cell(($thold_data['thold_type'] == 1 ? __('N/A', 'thold'):($thold_data['thold_type'] == 2 ? thold_format_number($thold_data['time_hi'], 2, $baseu) . '/' . thold_format_number($thold_data['time_low'], 2, $baseu) : thold_format_number($thold_data['thold_hi'], 2, $baseu) . '/' . thold_format_number($thold_data['thold_low'], 2, $baseu))), $thold_data['id'], '', 'right');
 
 			form_selectable_cell(($thold_data['thold_type'] == 1 ? $thold_data['bl_pct_up'] . (strlen($thold_data['bl_pct_up']) ? '%':'-') . '/' . $thold_data['bl_pct_down'] . (strlen($thold_data['bl_pct_down']) ? '%':'-'): __('N/A', 'thold')), $thold_data['id'], '', 'right');
-
 
 			switch($thold_data['thold_type']) {
 				case 0:

@@ -58,35 +58,22 @@ function sanitize_thold_sort_string($string) {
 function get_time_since_last_event($thold) {
 	$local_data_id = $thold['local_data_id'];
 
-	$step = db_fetch_cell_prepared('SELECT rrd_step
-		FROM data_template_data
-		WHERE local_data_id = ?',
-		array($local_data_id));
+	if (empty($thold['instate']) || $thold['instate'] < 60) {
+		return __esc('< 1 Minute', 'thold');
+	}
 
 	switch($thold['thold_alert']) {
 		case '0':
-			$lasttime = db_fetch_cell_prepared('SELECT MAX(time)
-				FROM plugin_thold_log
-				WHERE threshold_id = ?',
-				array($thold['id']));
-
-			if (empty($lasttime)) {
-				return __('Never', 'thold');
-			} else {
-				$timesince = time() - $lasttime;
-
-				return get_daysfromtime($timesince);
-			}
+			return get_daysfromtime($thold['instate']);
 
 			break;
 		case '1':
 		case '2':
-			$triggers  = max($thold['thold_warning_fail_count'], $thold['thold_fail_count']);
-			$timesince = $step * $triggers;
-
-			return get_daysfromtime($timesince);
+			return get_daysfromtime($thold['instate']);
 
 			break;
+		default:
+			return __('Never', 'thold');
 	}
 }
 
@@ -1224,6 +1211,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 		td.`bl_pct_down`, td.`bl_pct_up`, td.`bl_fail_trigger`, td.`bl_fail_count`, td.`bl_alert`,
 		IF(IFNULL(td.`lastread`,'')='',NULL,(td.`lastread` + 0.0)) as `lastread`, td.`lasttime`,
 		IF(IFNULL(td.`oldvalue`,'')='',NULL,(td.`oldvalue` + 0.0)) as `oldvalue`, td.`repeat_alert`,
+		IF(td.`thold_alert` > 0, IF(td.`thold_fail_count` > 0 AND td.`thold_fail_count` > td.`thold_warning_fail_count`, td.`thold_fail_count` * dtd.`rrd_step`, td.`thold_warning_fail_count` * dtd.`rrd_step`), UNIX_TIMESTAMP() - UNIX_TIMESTAMP(`lasttime`)) AS `instate`,
 		td.`notify_extra`, td.`notify_warning_extra`, td.`notify_warning`, td.`notify_alert`,
 		td.`host_id`, td.`syslog_priority`, td.`syslog_facility`, td.`syslog_enabled`,
 		td.`data_type`, td.`cdef`, td.`percent_ds`, td.`expression`, td.`thold_template_id`,
