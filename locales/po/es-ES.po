@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-19 09:51+0000\n"
-"PO-Revision-Date: 2019-03-17 12:59-0400\n"
-"Last-Translator: Larry Adams <thewitness@cacti.net>\n"
+"PO-Revision-Date: 2019-03-20 08:51+0000\n"
+"Last-Translator: Mark Brugnoli-Vinten <netniv@cacti.net>\n"
 "Language-Team: Spanish <http://translate.cacti.net/projects/cacti/thold/es-"
 "ES/>\n"
-"Language: es_ES\n"
+"Language: es-ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: includes/arrays.php:26
 #, fuzzy
@@ -802,7 +802,6 @@ msgstr ""
 "ifHighSpeed.  Por defecto si HighSpeed será 10000 para interfaces 10GE."
 
 #: includes/settings.php:247
-#, fuzzy
 msgid "Logging"
 msgstr "Logging"
 
@@ -2350,7 +2349,6 @@ msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "Si este umbral será verificado y alertado."
 
 #: thold.php:1399 thold_templates.php:970
-#, fuzzy
 msgid "General Settings"
 msgstr "Opciones generales"
 
