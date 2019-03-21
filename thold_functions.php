@@ -1877,10 +1877,10 @@ function thold_check_threshold(&$thold_data) {
 	global $config, $plugins, $debug, $thold_types;
 
 	thold_debug('Checking Threshold:' .
-		' Name: ' . $thold_data['data_source_name'] .
-		', local_data_id: ' . $thold_data['local_data_id'] .
-		', data_template_rrd_id: ' . $thold_data['data_template_rrd_id'] .
-		', value: ' . $thold_data['lastread']);
+		' Name: ' . var_export($thold_data['data_source_name'],true) .
+		', local_data_id: ' . var_export($thold_data['local_data_id'],true) .
+		', data_template_rrd_id: ' . var_export($thold_data['data_template_rrd_id'],true) .
+		', value: ' . var_export($thold_data['lastread'],true));
 
 	$debug = false;
 
@@ -3735,12 +3735,11 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 			return -1;
 		}
 
-		if (cacti_sizeof($ref_values) > 1) {
+		/* Note: any values are returned indexed by timestamp, not 0-based *
+		 *       no reason we can't still use min() or max()               */
+		if (cacti_sizeof($ref_values) >= 1) {
 			$ref_value_min = min($ref_values);
 			$ref_value_max = max($ref_values);
-		} else {
-			$ref_value_min = $ref_values[0];
-			$ref_value_max = $ref_values[0];
 		}
 
 		if ($thold_data['cdef'] != 0) {
@@ -4305,17 +4304,44 @@ function save_thold() {
 
 		plugin_thold_log_changes($id, 'modified', $save);
 
-		$thold = db_fetch_row_prepared('SELECT td.*, h.hostname,
-			h.description, h.notes AS dnotes, h.snmp_engine_id
-			FROM plugin_thold_daemon_data AS tdd
-			INNER JOIN thold_data AS td
-			ON td.id = tdd.id
+		$thold_sql = "SELECT
+			td.`id`, td.`name`, td.`name_cache`, td.`local_data_id`, td.`data_template_rrd_id`,
+			td.`local_graph_id`, td.`graph_template_id`, td.`data_template_id`, td.`data_source_name`,
+			td.`thold_hi`, td.`thold_low`, td.`thold_fail_trigger`, td.`thold_fail_count`,
+			td.`time_hi`, td.`time_low`, td.`time_fail_trigger`, td.`time_fail_length`,
+			td.`thold_warning_hi`, td.`thold_warning_low`, td.`thold_warning_fail_trigger`,
+			td.`thold_warning_fail_count`, td.`time_warning_hi`, td.`time_warning_low`,
+			td.`time_warning_fail_trigger`, td.`time_warning_fail_length`, td.`thold_alert`,
+			td.`prev_thold_alert`, td.`thold_enabled`, td.`thold_type`, td.`bl_ref_time_range`,
+			td.`bl_pct_down`, td.`bl_pct_up`, td.`bl_fail_trigger`, td.`bl_fail_count`, td.`bl_alert`,
+			IF(IFNULL(td.`lastread`,'')='',NULL,(td.`lastread` + 0.0)) as `lastread`, td.`lasttime`,
+			IF(IFNULL(td.`oldvalue`,'')='',NULL,(td.`oldvalue` + 0.0)) as `oldvalue`, td.`repeat_alert`,
+			IF(td.`thold_alert` > 0, IF(td.`thold_fail_count` > 0 AND td.`thold_fail_count` > td.`thold_warning_fail_count`, td.`thold_fail_count` * dtd.`rrd_step`, td.`thold_warning_fail_count` * dtd.`rrd_step`), UNIX_TIMESTAMP() - UNIX_TIMESTAMP(`lasttime`)) AS `instate`,
+			td.`notify_extra`, td.`notify_warning_extra`, td.`notify_warning`, td.`notify_alert`,
+			td.`host_id`, td.`syslog_priority`, td.`syslog_facility`, td.`syslog_enabled`,
+			td.`data_type`, td.`cdef`, td.`percent_ds`, td.`expression`, td.`thold_template_id`,
+			td.`template_enabled`, td.`tcheck`, td.`exempt`, td.`acknowledgment`,
+			td.`thold_hrule_alert`, td.`thold_hrule_warning`, td.`restored_alert`, td.`reset_ack`,
+			td.`persist_ack`, td.`email_body`, td.`email_body_warn`, td.`trigger_cmd_high`,
+			td.`trigger_cmd_low`, td.`trigger_cmd_norm`, td.`bl_thold_valid`, td.`snmp_event_category`,
+			td.`snmp_event_severity`, td.`snmp_event_warning_severity`, td.`thold_daemon_pid`,
+			td.`notes`, dtd.rrd_step, tt.name AS template_name, dtr.data_source_name as data_source
+			FROM thold_data AS td
+			INNER JOIN graph_local AS gl
+			ON gl.id=td.local_graph_id
+			LEFT JOIN graph_templates AS gt
+			ON gt.id=gl.graph_template_id
+			LEFT JOIN host AS h
+			ON h.id=gl.host_id
+			LEFT JOIN thold_template AS tt
+			ON tt.id=td.thold_template_id
+			LEFT JOIN data_template_data AS dtd
+			ON dtd.local_data_id=td.local_data_id
 			LEFT JOIN data_template_rrd AS dtr
-			ON dtr.id = td.data_template_rrd_id
-			LEFT JOIN host as h
-			ON td.host_id = h.id
-			WHERE td.id = ?',
-			array($id));
+			ON dtr.id=td.data_template_rrd_id
+			WHERE td.id = ?";
+
+		$thold = db_fetch_row_prepared($thold_sql, array($id));
 
 		if ($save['thold_type'] == 1) {
 			thold_check_threshold($thold);

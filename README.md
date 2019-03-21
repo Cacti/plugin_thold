@@ -131,7 +131,10 @@ that.
 
 * issue#273: Wrong navigation bar link
 
-* issue#274: Data Source link on Data Template column is ambiguous and can lead to confusion
+* issue#274: Data Source link on Data Template column is ambiguous and can lead
+  to confusion
+
+* issue#276: When saving a threshold, multiple errors are generated
 
 --- 1.2.0 ---
 
