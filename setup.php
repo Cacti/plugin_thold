@@ -874,17 +874,17 @@ function thold_data_source_action_prepare($save) {
 					array($item));
 
 				if ($data_template_id != '') {
-					$templates = db_fetch_assoc_prepared('SELECT id
+					$templates_ids = db_fetch_assoc_prepared('SELECT id
 						FROM thold_template
 						WHERE data_template_id = ?',
 						array($data_template_id));
 
-					if (cacti_sizeof($templates)) {
+					if (cacti_sizeof($templates_ids)) {
 						$found_list .= '<li>' . html_escape(get_data_source_title($item)) . '</li>';
 						if (strlen($templates)) {
-							$templates .= ", $data_template_id";
+								$templates .= ", $data_template_id";
 						} else {
-							$templates  = "$data_template_id";
+								$templates  = "$data_template_id";
 						}
 					} else {
 						$not_found .= '<li>' . html_escape(get_data_source_title($item)) . '</li>';
