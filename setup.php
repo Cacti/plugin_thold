@@ -807,6 +807,7 @@ function thold_data_source_action_execute($action) {
 
 		if ($selected_items != false) {
 			$message = '';
+			$created = 0;
 
 			get_filter_request_var('thold_template_id');
 
@@ -842,7 +843,7 @@ function thold_data_source_action_execute($action) {
 				}
 
 				if (strlen($message)) {
-					thold_raise_message($message, MESSAGE_LEVEL_INFO);
+					thold_raise_message(__('Created %s thresholds', $created) . '<br>' . $message, MESSAGE_LEVEL_INFO);
 				} else {
 					thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
 				}
@@ -999,7 +1000,7 @@ function thold_graphs_action_execute($action) {
 				}
 
 				if (strlen($message)) {
-					thold_raise_message($message, MESSAGE_LEVEL_INFO);
+					thold_raise_message(__('Created %s thresholds', $created) . '<br>' . $message, MESSAGE_LEVEL_INFO);
 				} else {
 					thold_raise_message(__('No Threshold(s) Created.  Either they already exist, or no suitable matches found.', 'thold'), MESSAGE_LEVEL_INFO);
 				}

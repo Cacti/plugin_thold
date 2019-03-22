@@ -139,6 +139,8 @@ that.
 * issue#277: When finding data sources to template, string vs array error occurs
   if templates are found
 
+* issue#278: When creating new thresholds, created count generates errors
+
 --- 1.2.0 ---
 
 * feature: Add Acknowledgment support to thold
