@@ -56,6 +56,7 @@ function plugin_thold_install($upgrade = false) {
 	api_plugin_register_hook($plugin, 'device_action_prepare', 'thold_device_action_prepare', 'setup.php');
 	api_plugin_register_hook($plugin, 'api_device_save', 'thold_api_device_save', 'setup.php');
 	api_plugin_register_hook($plugin, 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php');
+	api_plugin_register_hook($plugin, 'device_threshold_autocreate', 'thold_device_autocreate', 'setup.php');
 
 	// Automation Hooks
 	api_plugin_register_hook($plugin, 'create_complete_graph_from_template', 'thold_create_graph_thold', 'setup.php');
@@ -1386,6 +1387,10 @@ function thold_device_template_top() {
 
 		exit;
 	}
+}
+
+function thold_hook_device_autocreate($host_id) {
+	autocreate($host_id);
 }
 
 function thold_create_graph_thold($save) {

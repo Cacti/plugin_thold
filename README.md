@@ -101,6 +101,12 @@ that.
 
 ## ChangeLog
 
+--- 1.2.2 ---
+
+* feature: Add hook for Threshold autocreation during automation cycle.  This
+  allows Cacti v1.3 to use a hook instead of hardcoded plugin functionality to
+  generate the thresholds
+
 --- 1.2.1 ---
 
 * feature: Allow CLOG to direct link to threshold
