@@ -139,7 +139,7 @@ function plugin_thold_upgrade() {
 	global $config;
 
 	// Let's only run this check if we are on a page that actually needs the data
-	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'poller.php', 'plugins.php');
+	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'poller.php', 'plugins.php', 'clog.php');
 	if (!in_array(get_current_page(), $files)) {
 		return false;
 	}

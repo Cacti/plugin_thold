@@ -101,6 +101,13 @@ that.
 
 ## ChangeLog
 
+--- 1.2.3 ---
+
+* issue#284: Threshold loses parent template if template propagation disabled
+  during save
+
+* issue#285: Threshold name cache is not being populated properly
+
 --- 1.2.2 ---
 
 * feature: Add hook for Threshold autocreation during automation cycle.  This

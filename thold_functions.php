@@ -3215,7 +3215,7 @@ function thold_format_number($value, $digits = 2, $baseu = 1024) {
 	}
 }
 
-function thold_format_name($template, $local_graph_id, $local_data_id) {
+function thold_format_name($template, $local_graph_id, $local_data_id, $thold = false) {
 	$host_id = 0;
 	$query_id = 0;
 	$index = 0;
@@ -3231,50 +3231,38 @@ function thold_format_name($template, $local_graph_id, $local_data_id) {
 			$host_id  = $gl['host_id'];
 			$query_id = $gl['snmp_query_id'];
 			$index    = $gl['snmp_index'];
-			if ($host_id > 0) {
-				$host_name = db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id));
-				if (!empty($host_name)) {
-					$default_name = $host_name;
-				}
-			}
 		}
 	}
 
-	$data_source_name = db_fetch_cell_prepared('SELECT data_source_name
-		FROM data_template_rrd
-		WHERE local_data_id = ?',
-		array($local_data_id));
-
-	$data_source_desc = db_fetch_cell_prepared('SELECT name_cache
-		FROM data_template_data
-		WHERE local_data_id = ?
-		LIMIT 1',
-		array($local_data_id));
-
-	$default_name = $data_source_desc;
-	$suggested_name = isset($template) ? 'template' : 'no template';
-	if (isset($template['suggested_name']) && !empty($template['suggested_name'])) {
-		$suggested_name = $template['suggested_name'];
-	} else {
-		$suggested_name = thold_get_default_suggested_name(array('data_source_name' => $data_source_name), 0);
+	if (isset($thold['thold_template_id']) && empty($template)) {
+		$template = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($thold['thold_template_id']));
 	}
 
-	if (!empty($suggested_name)) {
-		$default_name = $suggested_name;
+	$default_name = thold_get_default_suggested_name($template, 0);
+	if (!empty($thold)) {
+		if ($thold['template_enabled'] != 'on' && !empty($thold['name'])) {
+			$default_name = $thold['name'];
+		}
+	}
+	//cacti_log('default_name: ' . $default_name .' ... ' . cacti_debug_backtrace());
+	$name_cache   = thold_expand_title($thold, $host_id, $query_id, $index, $default_name);
+
+	if (strpos($name_cache, '|graph_title|') == false) {
+		$title      = get_graph_title($local_graph_id);
+		$name_cache = str_replace('|graph_title|', $title, $name_cache);
 	}
 
-	$name = expand_title($host_id, $query_id, $index, $default_name);
+	if (strpos($name_cache, '|data_source_description|') !== false) {
+		$data_source_desc = db_fetch_cell_prepared('SELECT name_cache
+			FROM data_template_data
+			WHERE local_data_id = ?
+			LIMIT 1',
+			array($local_data_id));
 
-	if (strpos($name, '|graph_title|') == false) {
-		$title = get_graph_title($local_graph_id);
-		$name = str_replace('|graph_title|', $title, $name);
+		$name_cache = str_replace('|data_source_description|', $data_source_desc, $name_cache);
 	}
 
-	if (strpos($name, '|data_source_description|') !== false) {
-		$name = str_replace('|data_source_description|', $data_source_desc, $name);
-	}
-
-	return $name;
+	return $name_cache;
 }
 
 function get_reference_types($local_data_id = 0) {
@@ -3850,6 +3838,13 @@ function save_thold() {
 	$host_template_id  = get_filter_request_var('host_template_id');
 	$thold_template_id = get_filter_request_var('thold_template_id');
 
+	if (isset_request_var('thold_template_id')) {
+		$template = db_fetch_row_prepared('SELECT *
+			FROM thold_template
+			WHERE id = ?',
+			array(get_filter_request_var('thold_template_id')));
+	}
+
 	if (isset_request_var('save_component_new_graphs')) {
 		// Correct issue where host_id variables comes back as an array
 		if (isset_request_var('host_id')) {
@@ -3868,12 +3863,7 @@ function save_thold() {
 
 		$host_id = get_request_var('host_id');
 
-		if (isset_request_var('thold_template_id')) {
-			$template = db_fetch_row_prepared('SELECT *
-				FROM thold_template
-				WHERE id = ?',
-				array(get_filter_request_var('thold_template_id')));
-		} else {
+		if (empty($template)) {
 			$banner = __('The Threshold Template ID was not set while trying to create Graph and Threshold', 'thold');
 			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
 			cacti_log('ERROR: The Threshold Template ID not set for save', false, 'THOLD');
@@ -4082,12 +4072,20 @@ function save_thold() {
 
 	$save = array();
 
-	if ($thold_template_id > 0 && isempty_request_var('id')) {
-		$save = db_fetch_row_prepared('SELECT *
-			FROM thold_template
+	if (empty($thold_template_id) && !isempty_request_var('id')) {
+		$thold_template_id = db_fetch_cell_prepared('SELECT thold_template_id
+			FROM thold_data
 			WHERE id = ?',
-			array($thold_template_id));
+			array(get_request_var('id')));
+	}
 
+	$template = db_fetch_row_prepared('SELECT *
+		FROM thold_template
+		WHERE id = ?',
+		array($thold_template_id));
+
+	if ($thold_template_id > 0 && isempty_request_var('id')) {
+		$save = $template;
 		unset($save['id']);
 		unset($save['hash']);
 		unset($save['suggested_name']);
@@ -4103,7 +4101,6 @@ function save_thold() {
 		$save['id'] = get_request_var('id');
 	} else {
 		$save['id'] = '0';
-		$save['thold_template_id'] = '';
 	}
 
 	if (isset_request_var('snmp_event_category')) {
@@ -4122,6 +4119,10 @@ function save_thold() {
 		$name = str_replace(array("\\", '"', "'"), '', get_nfilter_request_var('name'));
 	}
 
+	if (!isempty_request_var('name_cache')) {
+		$name_cache = str_replace(array("\\", '"', "'"), '', get_nfilter_request_var('name_cache'));
+	}
+
 	if (isset_request_var('data_template_rrd_id')) {
 		$data_source_name = db_fetch_cell_prepared('SELECT data_source_name
 			FROM data_template_rrd
@@ -4135,12 +4136,10 @@ function save_thold() {
 
 		$local_data_id  = get_request_var('local_data_id');
 		$local_graph_id = get_request_var('local_graph_id');
-
-		$name = thold_format_name(false, $local_graph_id, $local_data_id);
 	}
 
 	$save['name']                 = $name;
-	$save['name_cache']           = $name;
+	$save['name_cache']           = thold_format_name($template, $local_graph_id, $local_data_id, $save);
 	$save['host_id']              = $host_id;
 	$save['data_template_rrd_id'] = $data_template_rrd_id;
 	$save['local_data_id']        = get_request_var('local_data_id');
@@ -4657,7 +4656,12 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 		$template = db_fetch_row_prepared('SELECT *
 			FROM thold_template
 			WHERE id = ?',
-			array($thold_template_id));
+			array($template_or_id));
+	}
+
+	if (empty($template) || !isset($template['id'])) {
+		$message .= __('No Threshold(s) Created.  Template does not exist.', 'thold');
+		return false;
 	}
 
 	$data_source_name = db_fetch_cell_prepared('SELECT data_source_name
@@ -5400,7 +5404,7 @@ function thold_get_default_template_name($thold_data) {
 
 function thold_get_default_suggested_name($thold_data, $id = 0) {
 	if (empty($thold_data) && $id) {
-		$thold_data = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($id));
+		$thold_data = db_fetch_row_prepared('SELECT id, suggested_name FROM thold_template WHERE id = ?', array($id));
 	}
 
 	$desc = '|data_source_description|';

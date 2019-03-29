@@ -41,8 +41,7 @@ function thold_upgrade_database($force = false) {
 		$oldv = '0.1';
 	}
 
-	db_execute('DELETE FROM settings
-		WHERE name="plugin_thold_version"');
+	db_execute('DELETE FROM settings WHERE name="plugin_thold_version"');
 
 	// Added in thold v0.4
 	if (cacti_version_compare($oldv, '0.4', '<') && !db_column_exists('thold_data', 'local_graph_id')) {
@@ -1136,24 +1135,6 @@ function thold_upgrade_database($force = false) {
 			SET email_body_warn = ?
 			WHERE email_body_warn = ""',
 			array($warning_text));
-
-		// Setup the name cache with the correct information
-		$tholds = db_fetch_assoc('SELECT *
-			FROM thold_data
-			WHERE name_cache = ""');
-
-		if (cacti_sizeof($tholds)) {
-			foreach($tholds as $thold) {
-				$name = thold_format_name(false, $thold['local_graph_id'], $thold['local_data_id']);
-
-				plugin_thold_log_changes($thold['id'], 'reapply_name', array('id' => $thold['id']));
-
-				db_execute_prepared('UPDATE thold_data
-					SET name = ?
-					WHERE id = ?',
-					array($name, $thold['id']));
-			}
-		}
 	}
 
 	if (cacti_version_compare($oldv, '1.2.1', '<')) {
@@ -1170,6 +1151,31 @@ function thold_upgrade_database($force = false) {
 
 				db_execute('ALTER TABLE thold_data DROP COLUMN acknowledgement');
 			}
+		}
+	}
+
+	// Setup the name cache with the correct information
+	$tholds = db_fetch_assoc('SELECT *
+		FROM thold_data
+		WHERE IFNULL(name_cache,"") = "" OR name_cache = name');
+
+	if (cacti_sizeof($tholds)) {
+		$template_cache = array();
+		foreach($tholds as $thold) {
+			if (!array_key_exists($thold['thold_template_id'], $template_cache)) {
+				$template_cache[$thold['thold_template_id']] = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($thold['thold_template_id']));
+			}
+			$template = $template_cache[$thold['thold_template_id']];
+
+			$name       = thold_get_default_suggested_name($template, 0);
+			$name_cache = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id'], $thold);
+
+			plugin_thold_log_changes($thold['id'], 'reapply_name', array('id' => $thold['id']));
+
+			db_execute_prepared('UPDATE thold_data
+				SET name = ?, name_cache = ?
+				WHERE id = ?',
+				array($name, $name_cache, $thold['id']));
 		}
 	}
 
@@ -1200,11 +1206,6 @@ function thold_upgrade_database($force = false) {
 			}
 		}
 	}
-
-	db_execute_prepared('UPDATE settings
-		SET value = ?
-		WHERE name = "plugin_thold_version"',
-		array($v['version']));
 
 	db_execute_prepared('UPDATE plugin_config
 		SET version = ?
@@ -1496,4 +1497,3 @@ function thold_setup_database() {
 	db_execute('ALTER TABLE plugin_thold_log
 		MODIFY COLUMN current varchar(64) NOT NULL default ""');
 }
-

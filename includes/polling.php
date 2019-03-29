@@ -330,7 +330,7 @@ function thold_poller_output(&$rrd_update_array) {
 		return $rrd_update_array;
 	}
 
-	$tholds = db_fetch_assoc("SELECT td.id, td.name AS thold_name,
+	$tholds = db_fetch_assoc("SELECT td.id, td.name_cache AS thold_name,
 		td.local_graph_id, td.percent_ds, td.expression, td.data_type,
 		td.cdef, td.local_data_id, td.data_template_rrd_id, td.lastread,
 		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,

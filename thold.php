@@ -1400,13 +1400,22 @@ function thold_edit() {
 			'method' => 'spacer',
 		),
 		'name' => array(
-			'friendly_name' => __('Name', 'thold'),
+			'friendly_name' => __('Name (Format)', 'thold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => '70',
-			'default' => thold_format_name($template_thold, $thold_data['local_graph_id'], $thold_data['local_data_id']),
-			'description' => __('Provide the Thresholds a meaningful name', 'thold'),
-			'value' => isset($thold_data['name_cache']) && $thold_data['name_cache'] != '' ? $thold_data['name_cache'] : ''
+			'default' => thold_get_default_suggested_name($template_thold, 0),
+			'description' => __('Provide the Thresholds a meaningful name', 'thold') . ' ' . __('(Format)', 'thold'),
+			'value' => $thold_data['name']
+		),
+		'name_cache' => array(
+			'friendly_name' => __('Name (Displayed)', 'thold'),
+			'method' => 'value',
+			'max_length' => 100,
+			'size' => '70',
+			'default' => thold_format_name($template_thold, $thold_data['local_graph_id'], $thold_data['local_data_id'], $thold_data),
+			'description' => __('Provide the Thresholds a meaningful name', 'thold') . ' ' . __('(Displayed)', 'thold'),
+			'value' => $thold_data['name_cache'],
 		),
 		'thold_hrule_warning' => array(
 			'friendly_name' => __('Warning HRULE Color', 'thold'),
