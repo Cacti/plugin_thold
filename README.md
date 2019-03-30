@@ -103,6 +103,8 @@ that.
 
 --- 1.2.3 ---
 
+* issue#283: Do not show 'Threshold Create' icon on the Graphs page for Aggregates
+
 * issue#284: Threshold loses parent template if template propagation disabled
   during save
 

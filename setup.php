@@ -250,7 +250,14 @@ function thold_graph_button($data) {
 			get_filter_request_var('leaf_id');
 		}
 
-		print '<a class="iconLink" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=add' . '&usetemplate=1&local_graph_id=' . $local_graph_id) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __esc('Create Threshold', 'thold') . '"></a><br>';
+		$is_aggregate = db_fetch_cell_prepared('SELECT id 
+			FROM aggregate_graphs 
+			WHERE local_graph_id = ?', 
+			array($local_graph_id));
+
+		if (empty($is_aggregate)) {
+			print '<a class="iconLink" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=add' . '&usetemplate=1&local_graph_id=' . $local_graph_id) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __esc('Create Threshold', 'thold') . '"></a><br>';
+		}
 	}
 }
 
