@@ -108,6 +108,8 @@ that.
 
 * issue#285: Threshold name cache is not being populated properly
 
+* issue#295: Custom status was not replaced correctly after creating threshold
+
 --- 1.2.2 ---
 
 * feature: Add hook for Threshold autocreation during automation cycle.  This

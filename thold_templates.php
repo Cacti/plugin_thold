@@ -94,22 +94,22 @@ function do_actions() {
 			switch ($drp_action) {
 				case 1:
 					top_header();
-					print '
-<script text="text/javascript">
-	function DownloadStart(url) {
-		document.getElementById("download_iframe").src = url;
-		setTimeout(function() {
-			document.location = "thold_templates.php";
-		}, 500);
-	}
 
-	$(function() {
-		//debugger;
-		DownloadStart(\'thold_templates.php?action=export&selected_items=' . get_nfilter_request_var('selected_items') . '\');
-	});
-</script>
-<iframe id="download_iframe" style="display:none;"></iframe>
-';
+					print '<script text="text/javascript">
+						function DownloadStart(url) {
+							document.getElementById("download_iframe").src = url;
+							setTimeout(function() {
+								document.location = "thold_templates.php";
+							}, 500);
+						}
+
+						$(function() {
+							//debugger;
+							DownloadStart(\'thold_templates.php?action=export&selected_items=' . get_nfilter_request_var('selected_items') . '\');
+						});
+					</script>
+					<iframe id="download_iframe" style="display:none;"></iframe>';
+
 					bottom_footer();
 					exit;
 				case 2:
@@ -166,14 +166,21 @@ function do_actions() {
 										$template = false;
 									}
 
-									$name = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id']);
+									if ($thold['name_cache'] == '' || $thold['name'] == '') {
+										if ($thold['name'] == '') {
+											$thold['name'] = '|data_source_description|';
+										}
+										$name_cache = thold_expand_string($thold, $thold['name']);
+									} else {
+										$name_cache = $thold['name_cache'];
+									}
 
 									plugin_thold_log_changes($thold_id, 'reapply_name', array('id' => $thold_id));
 
 									db_execute_prepared('UPDATE thold_data
-										SET name = ?
+										SET name = ?, name_cache = ?
 										WHERE id = ?',
-										array($name, $thold_id));
+										array($thold['name'], $name_cache, $thold_id));
 								} else {
 									$message['security'] = __('You are not authorised to modify one or more of the Thresholds selected','thold');
 								}
@@ -505,7 +512,7 @@ function template_add() {
 			$data_source_id = get_filter_request_var('data_source_id');
 		}
 
-		$temp = db_fetch_row_prepared('SELECT id, name
+		$temp = db_fetch_row_prepared('SELECT id, hash, name
 			FROM data_template
 			WHERE id = ?',
 			array($data_template_id));
@@ -515,6 +522,7 @@ function template_add() {
 		$save['name'] = $temp['name'];
 
 		$save['data_template_id']   = $data_template_id;
+		$save['data_template_hash'] = $temp['hash'];
 		$save['data_template_name'] = $temp['name'];
 		$save['data_source_id']     = $data_source_id;
 
@@ -1999,10 +2007,10 @@ function import() {
 		)
 	);
 
-	form_start('thold_templates.php','chk',true);
+	form_start('thold_templates.php', 'chk', true);
 
 	if ((isset($_SESSION['import_debug_info'])) && (is_array($_SESSION['import_debug_info']))) {
-		html_start_box(__('Import Results', 'thold'), '100%', false, '3', 'center', '');
+		html_start_box(__('Import Results', 'thold'), '80%', false, '3', 'center', '');
 
 		print '<tr><td>' . __('Cacti has imported the following items:', 'thold'). '</td></tr>';
 		foreach ($_SESSION['import_debug_info'] as $line) {
@@ -2060,19 +2068,23 @@ function validate_upload() {
 					thold_raise_message(__('File upload stopped by extension', 'thold'), MESSAGE_LEVEL_ERROR);
 					break;
 			}
+
 			if (is_error_message()) {
 				return false;
 			}
 		}
+
 		/* check mine type of the uploaded file */
 		if ($_FILES['import_file']['type'] != 'text/xml') {
 			thold_raise_message(__('Invalid file extension.', 'thold'), MESSAGE_LEVEL_ERROR);
 			return false;
 		}
+
 		return file_get_contents($_FILES['import_file']['tmp_name']);
 	}
 
 	raise_message(__('No file uploaded.', 'thold'), MESSAGE_LEVEL_ERROR);
+
 	return false;
 }
 

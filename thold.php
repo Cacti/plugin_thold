@@ -282,16 +282,16 @@ function do_actions() {
 								$template = false;
 							}
 
-							$name = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id']);
+							$name_cache = thold_expand_string($thold, $thold['name']);
 
 							plugin_thold_log_changes($thold_id, 'reapply_name', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
-								SET name = ?
+								SET name_cache = ?
 								WHERE id = ?',
-								array($name, $thold_id));
+								array($name_cache, $thold_id));
 						} else {
-							$message['security'] = __('You are not authorised to modify one or more of the Thresholds selected', 'thold');
+							$message['security'] = __('You are not authorized to modify one or more of the Thresholds selected', 'thold');
 						}
 					}
 
@@ -376,28 +376,7 @@ function do_actions() {
 				WHERE id = ?',
 				array($thold_id));
 
-			$name = ($thold === false ? '' : $thold['name_cache']);
-			if (empty($name)) {
-				$template       = 0;
-				$local_graph_id = 0;
-				$local_data_id  = 0;
-
-				if ($thold !== false) {
-					$template_id    = $thold['thold_template_id'];
-					$local_data_id  = $thold['local_data_id'];
-					$local_graph_id = $thold['local_graph_id'];
-					if ($template_id > 0) {
-						$template = db_fetch_row_prepared('SELECT *
-							FROM thold_template
-							WHERE id = ?',
-							array($template_id));
-					}
-				}
-
-				$name = thold_format_name($template, $local_graph_id, $local_data_id);
-			}
-
-			$tholds[$thold_id] = html_escape($name);
+			$tholds[$thold_id] = html_escape($thold['name_cache']);
 			$tholds_list[]     = $thold_id;
 		}
 	}
@@ -924,13 +903,7 @@ function list_tholds() {
 			if ($thold_data['name_cache'] != '') {
 				$name = $thold_data['name_cache'];
 			} else {
-				$desc = db_fetch_cell_prepared('SELECT name_cache
-					FROM data_template_data
-					WHERE local_data_id = ?
-					LIMIT 1',
-					array($thold_data['local_data_id']));
-
-				$name = thold_format_name(false, $thold_data['local_graph_id'], $thold_data['local_data_id']);
+				$name = thold_expand_string($thold_data, $thold_data['name']);
 			}
 
 			$baseu = db_fetch_cell_prepared('SELECT base_value
@@ -1399,23 +1372,23 @@ function thold_edit() {
 			'friendly_name' => __('General Settings', 'thold'),
 			'method' => 'spacer',
 		),
+		'name_cache' => array(
+			'friendly_name' => __('Name (Displayed)', 'thold'),
+			'method' => 'other',
+			'max_length' => 100,
+			'size' => '70',
+			'default' => '',
+			'description' => __('Provide the Thresholds a meaningful name', 'thold'),
+			'value' => isset($thold_data['name_cache']) && $thold_data['name_cache'] != '' ? $thold_data['name_cache'] : ''
+		),
 		'name' => array(
 			'friendly_name' => __('Name (Format)', 'thold'),
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => '70',
-			'default' => thold_get_default_suggested_name($template_thold, 0),
-			'description' => __('Provide the Thresholds a meaningful name', 'thold') . ' ' . __('(Format)', 'thold'),
-			'value' => $thold_data['name']
-		),
-		'name_cache' => array(
-			'friendly_name' => __('Name (Displayed)', 'thold'),
-			'method' => 'value',
-			'max_length' => 100,
-			'size' => '70',
-			'default' => thold_format_name($template_thold, $thold_data['local_graph_id'], $thold_data['local_data_id'], $thold_data),
-			'description' => __('Provide the Thresholds a meaningful name', 'thold') . ' ' . __('(Displayed)', 'thold'),
-			'value' => $thold_data['name_cache'],
+			'default' => '|data_source_description|',
+			'description' => __('Provide the Thresholds a meaningful name', 'thold'),
+			'value' => isset($thold_data['name']) && $thold_data['name'] != '' ? $thold_data['name'] : ''
 		),
 		'thold_hrule_warning' => array(
 			'friendly_name' => __('Warning HRULE Color', 'thold'),

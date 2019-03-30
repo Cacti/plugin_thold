@@ -1157,26 +1157,101 @@ function thold_upgrade_database($force = false) {
 	// Setup the name cache with the correct information
 	$tholds = db_fetch_assoc('SELECT *
 		FROM thold_data
-		WHERE IFNULL(name_cache,"") = "" OR name_cache = name');
-
-	if (cacti_sizeof($tholds)) {
-		$template_cache = array();
-		foreach($tholds as $thold) {
-			if (!array_key_exists($thold['thold_template_id'], $template_cache)) {
-				$template_cache[$thold['thold_template_id']] = db_fetch_row_prepared('SELECT * FROM thold_template WHERE id = ?', array($thold['thold_template_id']));
 			}
 			$template = $template_cache[$thold['thold_template_id']];
+			'name'     => 'data_template_hash',
 
-			$name       = thold_get_default_suggested_name($template, 0);
-			$name_cache = thold_format_name($template, $thold['local_graph_id'], $thold['local_data_id'], $thold);
+		// Setup the name cache with the correct information
+		$tholds = db_fetch_assoc('SELECT *
+			FROM thold_data
+			WHERE name_cache = ""');
 
-			plugin_thold_log_changes($thold['id'], 'reapply_name', array('id' => $thold['id']));
+		if (cacti_sizeof($tholds)) {
+			foreach($tholds as $thold) {
+				if ($thold['name_cache'] == '' || $thold['name'] == '') {
+					if ($thold['name'] == '') {
+						$thold['name'] = '|data_source_description|';
+					}
 
-			db_execute_prepared('UPDATE thold_data
-				SET name = ?, name_cache = ?
-				WHERE id = ?',
-				array($name, $name_cache, $thold['id']));
+					$name = thold_expand_string($thold, $thold['name']);
+
+					plugin_thold_log_changes($thold['id'], 'reapply_name', array('id' => $thold['id']));
+
+					db_execute_prepared('UPDATE thold_data
+						SET name, name_cache = ?
+						WHERE id = ?',
+						array($thold['name'], $name, $thold['id']));
+				}
+			}
 		}
+
+		// Update hashes for templates if they are incorrect
+		$thold_templates = array_rekey(
+			db_fetch_assoc('SELECT id, data_template_id, data_template_name, data_source_name
+				FROM thold_template
+				WHERE data_template_hash = ""'),
+			'id', array('data_template_id', 'data_template_name', 'data_source_name')
+		);
+
+		if (cacti_sizeof($thold_templates)) {
+			foreach($thold_templates as $thold_template_id => $t) {
+				$template_hints = db_fetch_assoc_prepared('SELECT DISTINCT id, data_template_id 
+					FROM data_template_rrd
+					WHERE data_source_name = ?
+					AND local_data_id = 0',
+					array($t['data_source_name']));
+
+				$found = false;
+
+				if (cacti_sizeof($template_hints)) {
+					foreach($template_hints as $h) {
+						$template_details = db_fetch_row_prepared('SELECT * 
+							FROM data_template 
+							WHERE id = ? 
+							AND name = ?',
+							array($h['data_template_id'], $t['data_template_name']));
+
+						// Update if exact match else search
+						if (cacti_sizeof($template_details)) {
+							db_execute_prepared('UPDATE thold_template 
+								SET data_source_id = ?, data_template_hash = ?, data_template_id = ? 
+								WHERE id = ?',
+								array($h['id'], $template_details['hash'], $template_details['id'], $thold_template_id));
+
+							$found = true;
+
+							break;
+						} else {
+							$template_details = db_fetch_row_prepared('SELECT *
+								FROM data_template
+								WHERE name = ?',
+								array($t['data_template_name']));
+
+							if (cacti_sizeof($template_details)) {
+								db_execute_prepared('UPDATE thold_template 
+									SET data_template_hash = ?, data_template_id = ?
+									WHERE id = ?',
+									array($template_details['hash'], $template_details['id'], $thold_template_id));
+
+								$found = true;
+
+								break;
+							}
+						}
+					}
+				}
+
+				if (!$found) {
+					cacti_log(sprintf('WARNING: Threshold Template with Name %s and ID %d Aligns with no matching Data Template', $t['name'], $t['id']), false, 'THOLD');
+				}
+			}
+		}
+
+		// Update thold data hashes
+		db_execute('UPDATE thold_data AS td
+			INNER JOIN thold_template AS tt
+			ON tt.id = td.thold_template_id
+			SET td.data_template_hash = tt.data_template_hash');
 	}
 
 	$tables = db_fetch_assoc("SELECT DISTINCT TABLE_NAME
@@ -1223,6 +1298,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'local_graph_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'graph_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'data_template_hash', 'type' => 'varchar(32)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_source_name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'thold_hi', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'thold_low', 'type' => 'varchar(100)', 'NULL' => true);
@@ -1308,6 +1384,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'suggested_name', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_template_id', 'type' => 'int(10)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'data_template_hash', 'type' => 'varchar(32)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_template_name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'data_source_id', 'type' => 'int(10)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_source_name', 'type' => 'varchar(100)', 'NULL' => false, 'default' => '');
@@ -1497,3 +1574,4 @@ function thold_setup_database() {
 	db_execute('ALTER TABLE plugin_thold_log
 		MODIFY COLUMN current varchar(64) NOT NULL default ""');
 }
+
