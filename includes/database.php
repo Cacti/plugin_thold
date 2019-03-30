@@ -1154,12 +1154,28 @@ function thold_upgrade_database($force = false) {
 		}
 	}
 
-	// Setup the name cache with the correct information
-	$tholds = db_fetch_assoc('SELECT *
-		FROM thold_data
-			}
-			$template = $template_cache[$thold['thold_template_id']];
+	if (cacti_version_compare($oldv, '1.2.3', '<')) {
+		db_add_column('thold_data', array(
 			'name'     => 'data_template_hash',
+			'type'     => 'varchar(32)',
+			'NULL'     => true,
+			'default'  => '',
+			'after'    => 'graph_template_id'));
+
+		db_add_column('thold_template', array(
+			'name'     => 'data_template_hash',
+			'type'     => 'varchar(32)',
+			'NULL'     => true,
+			'default'  => '',
+			'after'    => 'suggested_name'));
+
+		db_execute('UPDATE thold_data 
+			SET name = "|data_source_description|"
+			WHERE name = ""');
+
+		db_execute('UPDATE thold_template 
+			SET suggested_name = "|data_source_description|"
+			WHERE suggested_name = ""');
 
 		// Setup the name cache with the correct information
 		$tholds = db_fetch_assoc('SELECT *
