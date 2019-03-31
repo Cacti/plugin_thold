@@ -3084,7 +3084,7 @@ function thold_expand_string($thold_data, $string) {
 			$data = array(
 				'str'         => $str, 
 				'thold_data'  => $thold_data, 
-				'local_graph' => $local_graph
+				'local_graph' => $lg
 			);
 
 			$data = api_plugin_hook_function('thold_substitute_custom_data', $data);
