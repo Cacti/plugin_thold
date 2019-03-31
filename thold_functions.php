@@ -880,7 +880,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					array($thold['local_graph_id']));
 
 				if (cacti_sizeof($gl)) {
-					$expression[$key] = thold_expand_title($thold, $gl['host_id'], $gl['snmp_query_id'], $gl['snmp_index'], $item);
+					$expression[$key] = thold_expand_string($thold, $gl['host_id'], $gl['snmp_query_id'], $gl['snmp_index'], $item);
 				} else {
 					$expression[$key] = '0';
 					cacti_log("WARNING: Query Replacement for '$item' Does Not Exist");
@@ -969,48 +969,6 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	}
 
 	return $stack[0];
-}
-
-function thold_expand_title($thold, $host_id, $snmp_query_id, $snmp_index, $string) {
-	if (strpos($string, '|query_') !== false && !empty($host_id)) {
-		$tenGEvalue = '';
-
-		if (strpos($string, '|query_ifHighSpeed|') !== false) {
-			$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length'));
-
-			/* if we are trying to replace 10GE */
-			if ($value == 0) {
-				$tenGEvalue = read_config_option('thold_empty_if_speed_default');
-			}
-		} else {
-			$value = thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length'));
-		}
-
-		if ($value == '|query_ifHighSpeed|' && $tenGEvalue == '') {
-			$value = thold_substitute_snmp_query_data('|query_ifSpeed|', $host_id, $snmp_query_id, $snmp_index, read_config_option('max_data_query_field_length')) / 1000000;
-
-			if ($value == 0) {
-				$tenGEvalue = read_config_option('thold_empty_if_speed_default');
-			}
-		}
-
-		if ($tenGEvalue != '') {
-			$value = $tenGEvalue;
-		}
-
-		if (strpos($value, '|query_') !== false) {
-			cacti_log("WARNING: Expression Replacment for '$string' in THold '" . $thold['thold_name'] . "' Failed, A Reindex may be required!");
-			return '0';
-		}
-
-		$string = $value;
-	}
-
-	if (strpos($string, '|host_') !== false && !empty($host_id)) {
-		$string = thold_substitute_host_data($string, '|', '|', $host_id);
-	}
-
-	return $string;
 }
 
 function thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, $max_chars = 0) {
@@ -3090,14 +3048,14 @@ function thold_expand_string($thold_data, $string) {
 	}
 
 	// Do core replacements
-	if (cacti_sizeof($thold_data)) {
-		$local_graph = db_fetch_row_prepared('SELECT *
+	if (cacti_sizeof($thold_data) && isset($thold_data['local_graph_id']) && isset($thold_data['local_data_id'])) {
+		$lg = db_fetch_row_prepared('SELECT *
 			FROM graph_local
 			WHERE id = ?',
 			array($thold_data['local_graph_id']));
 
-		if (cacti_sizeof($local_graph)) {
-			$str = expand_title($thold_data['host_id'], $local_graph['snmp_query_id'], $local_graph['snmp_index'], $str);
+		if (cacti_sizeof($lg)) {
+			$str = expand_title($lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], $str);
 			$str = thold_substitute_custom_data($str, '|', '|', $thold_data['local_data_id']);
 
 			$data = array(
@@ -3110,23 +3068,50 @@ function thold_expand_string($thold_data, $string) {
 			if (isset($data['str'])) {
 				$str = $data['str'];
 			}
+
+			if (strpos($str, '|query_ifHighSpeed|') !== false) {
+				$value = thold_substitute_snmp_query_data('|query_ifHighSpeed|', $lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], read_config_option('max_data_query_field_length'));
+
+				/* if we are trying to replace 10GE of some odd data */
+				if (!is_numeric($value) || $value == 0) {
+					$value = read_config_option('thold_empty_if_speed_default');
+				}
+
+				$str = str_replace('|query_ifHighSpeed|', $value, $str);
+			} elseif (strpos($str, '|query_ifSpeed|') !== false) {
+				$value = thold_substitute_snmp_query_data('|query_ifSpeed|', $lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], read_config_option('max_data_query_field_length'));
+
+				if (!is_numeric($value) || $value == 0) {
+					$value = read_config_option('thold_empty_if_speed_default');
+				}
+
+				$str = str_replace('|query_ifSpeed|', $value, $str);
+			}
+
+			if (strpos($str, '|query_') !== false) {
+				cacti_log("WARNING: Expression Replacment for '$str' in THold '" . $thold['thold_name'] . "' Failed, A Reindex may be required!");
+			}
 		}
-	}
 
-	// Replace |graph_title|
-	if (strpos($str, '|graph_title|') !== false) {
-		$title = get_graph_title($thold_data['local_graph_id']);
-		$str   = str_replace('|graph_title|', $title, $str);
-	}
+		if (strpos($str, '|host_') !== false && !empty($host_id)) {
+			$str = thold_substitute_host_data($str, '|', '|', $host_id);
+		}
 
-	// Replace |data_source_description|
-	if (strpos($str, '|data_source_description|') !== false) {
-		$data_source_desc = db_fetch_cell_prepared('SELECT name_cache 
-			FROM data_template_data 
-			WHERE local_data_id = ?',
-			array($thold_data['local_data_id']));
+		// Replace |graph_title|
+		if (strpos($str, '|graph_title|') !== false) {
+			$title = get_graph_title($thold_data['local_graph_id']);
+			$str   = str_replace('|graph_title|', $title, $str);
+		}
 
-		$str = str_replace('|data_source_description|', $data_source_desc, $str);
+		// Replace |data_source_description|
+		if (strpos($str, '|data_source_description|') !== false) {
+			$data_source_desc = db_fetch_cell_prepared('SELECT name_cache 
+				FROM data_template_data 
+				WHERE local_data_id = ?',
+				array($thold_data['local_data_id']));
+	
+			$str = str_replace('|data_source_description|', $data_source_desc, $str);
+		}
 	}
 
 	return $str;
@@ -4726,7 +4711,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 
 			$save = thold_create_thold_save_from_template($save, $template);
 
-			$save['name_cache'] = thold_expand_title($save, $save['name']);
+			$save['name_cache'] = thold_expand_string($save, $save['name']);
 
 			$save = api_plugin_hook_function('thold_edit_save_thold', $save);
 
