@@ -1998,14 +1998,14 @@ function thold_edit() {
 		$('#notes').prop('disabled', status);
 
 		if (status) {
-			$('input, textarea, select').each(function() {
+			$('input:not(:button):not(:submit), textarea, select').each(function() {
 				$(this).addClass('ui-state-disabled');
 				if ($(this).selectmenu('instance')) {
 					$(this).selectmenu('disable');
 				}
 			});
 		} else {
-			$('input, textarea, select').each(function() {
+			$('input:not(:button):not(:submit), textarea, select').each(function() {
 				$(this).removeClass('ui-state-disabled');
 				if ($(this).selectmenu('instance')) {
 					$(this).selectmenu('enable');
