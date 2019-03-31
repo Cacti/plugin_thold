@@ -4295,8 +4295,6 @@ function save_thold() {
 		return false;
 	}
 
-	$save = api_plugin_hook_function('thold_edit_save_thold', $save);
-
 	if (isset_request_var('name') && get_nfilter_request_var('name') != '') {
 		$name = get_nfilter_request_var('name');
 	} else {
@@ -4307,6 +4305,8 @@ function save_thold() {
 
 	$save['name']       = $name;
 	$save['name_cache'] = $name_cache;
+
+	$save = api_plugin_hook_function('thold_edit_save_thold', $save);
 
 	$id = sql_save($save , 'thold_data');
 
@@ -4727,6 +4727,8 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 			$save = thold_create_thold_save_from_template($save, $template);
 
 			$save['name_cache'] = thold_expand_title($save, $save['name']);
+
+			$save = api_plugin_hook_function('thold_edit_save_thold', $save);
 
 			$id = sql_save($save, 'thold_data');
 

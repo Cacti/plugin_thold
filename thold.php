@@ -1893,29 +1893,29 @@ function thold_edit() {
 	// Allow plugins to hook the edit form
 	$form_array = api_plugin_hook_function('thold_edit_form_array', $form_array);
 
+	$form_array += array(
+		'id' => array(
+			'method' => 'hidden',
+			'value' => !empty($thold_data['id']) ? $thold_data['id'] : '0'
+		),
+		'data_template_rrd_id' => array(
+			'method' => 'hidden',
+			'value' => (isset($template_rrd) ? $template_rrd['id'] : '0')
+		),
+		'host_id' => array(
+			'method' => 'hidden',
+			'value' => $thold_data['host_id']
+		),
+		'local_data_id' => array(
+			'method' => 'hidden',
+			'value' => $thold_data['local_data_id']
+		)
+	);
+
 	draw_edit_form(
 		array(
-			'config' => array(
-				'no_form_tag' => true
-				),
-			'fields' => $form_array + array(
-				'id' => array(
-					'method' => 'hidden',
-					'value' => !empty($thold_data['id']) ? $thold_data['id'] : '0'
-				),
-				'data_template_rrd_id' => array(
-					'method' => 'hidden',
-					'value' => (isset($template_rrd) ? $template_rrd['id'] : '0')
-				),
-				'host_id' => array(
-					'method' => 'hidden',
-					'value' => $thold_data['host_id']
-				),
-				'local_data_id' => array(
-					'method' => 'hidden',
-					'value' => $thold_data['local_data_id']
-				)
-			)
+			'config' => array('no_form_tag' => true),
+			'fields' => inject_form_variables($form_array, isset($thold_data) ? $thold_data : array())
 		)
 	);
 
@@ -1996,6 +1996,22 @@ function thold_edit() {
 
 		// Other options
 		$('#notes').prop('disabled', status);
+
+		if (status) {
+			$('input, textarea, select').each(function() {
+				$(this).addClass('ui-state-disabled');
+				if ($(this).selectmenu('instance')) {
+					$(this).selectmenu('disable');
+				}
+			});
+		} else {
+			$('input, textarea, select').each(function() {
+				$(this).removeClass('ui-state-disabled');
+				if ($(this).selectmenu('instance')) {
+					$(this).selectmenu('enable');
+				}
+			});
+		}
 	}
 
 	function changeTholdType() {
@@ -2171,7 +2187,7 @@ function thold_edit() {
 
 		templateEnableDisable();
 
-		$('#template_enabled').click(function() {
+		$('#template_enabled').on('change', function() {
 			templateEnableDisable();
 		});
 
@@ -2182,7 +2198,7 @@ function thold_edit() {
 		changeTholdType ();
 		changeDataType ();
 
-		$('#element').change(function() {
+		$('#element').on('change', function() {
 			graphImage;
 		});
 

@@ -778,6 +778,9 @@ function template_save_edit() {
 	// Other
 	$save['notes'] = get_nfilter_request_var('notes');
 
+	// Allow other plugins to modify thrshold contents
+	$save = api_plugin_hook_function('thold_template_edit_save_thold', $save);
+
 	if (!is_error_message()) {
 		$id = sql_save($save, 'thold_template');
 		if ($id) {
@@ -1516,7 +1519,7 @@ function template_edit() {
 	draw_edit_form(
 		array(
 			'config' => array('no_form_tag' => true),
-			'fields' => $form_array
+			'fields' => inject_form_variables($form_array, sizeof($thold_data) ? $thold_data : array())
 		)
 	);
 
