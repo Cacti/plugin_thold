@@ -837,7 +837,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 				$dsname = trim(str_replace('|ds:', '', $item), " |\n\r");
 
 				$thold_item = db_fetch_row_prepared('SELECT td.id, td.local_graph_id,
-					td.percent_ds, td.expression, td.data_type, td.cdef, td.local_data_id,
+					td.percent_ds, td.expression, td.data_type, td.host_id, td.cdef, td.local_data_id,
 					td.data_template_rrd_id, td.lastread, UNIX_TIMESTAMP(td.lasttime) AS lasttime,
 					td.oldvalue, dtr.data_source_name as name,
 					dtr.data_source_type_id, dtd.rrd_step, dtr.rrd_maximum
@@ -882,7 +882,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					array($thold['local_graph_id']));
 
 				if (cacti_sizeof($gl)) {
-					$expression[$key] = thold_expand_string($thold, $gl['host_id'], $gl['snmp_query_id'], $gl['snmp_index'], $item);
+					$expression[$key] = thold_expand_string($thold, $item);
 				} else {
 					$expression[$key] = '0';
 					cacti_log("WARNING: Query Replacement for '$item' Does Not Exist");
@@ -4895,6 +4895,8 @@ function thold_template_update_threshold($id, $template) {
 		FROM plugin_thold_template_contact
 		WHERE template_id = ?',
 		array($id, $template));
+
+	update_suggested_names_from_template($template, $id);
 }
 
 function thold_template_update_thresholds($id) {
@@ -4945,6 +4947,38 @@ function thold_template_update_thresholds($id) {
 				FROM plugin_thold_template_contact
 				WHERE template_id = ?',
 				array($row['id'], $row['thold_template_id']));
+		}
+	}
+
+	update_suggested_names_from_template($id);
+}
+
+function update_suggested_names_from_template($id, $thold_id = -1) {
+	$suggested_name = db_fetch_cell_prepared('SELECT suggested_name 
+		FROM thold_template 
+		WHERE id = ?', 
+		array($id));
+
+	if ($thold_id > 0) {
+		$sql_where = ' AND id = ' . $thold_id;
+	} else {
+		$sql_where = '';
+	}
+
+	$tholds = db_fetch_assoc_prepared('SELECT *
+		FROM thold_data
+		WHERE template_enabled = "on"
+		AND thold_template_id = ?' . $sql_where,
+		array($id));
+
+	if (cacti_sizeof($tholds)) {
+		foreach($tholds as $thold_data) {
+			$name_cache = thold_expand_string($thold_data, $suggested_name);
+
+			db_execute_prepared('UPDATE thold_data 
+				SET name_cache = ? 
+				WHERE id = ?', 
+				array($name_cache, $thold_data['id']));
 		}
 	}
 }

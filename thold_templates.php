@@ -556,11 +556,13 @@ function template_add() {
 
 		if ($id) {
 			plugin_thold_log_changes($id, 'modified_template', $save);
-			Header("Location: thold_templates.php?action=edit&id=$id&header=false");
+
+			header("Location: thold_templates.php?action=edit&id=$id&header=false");
 			exit;
 		} else {
 			raise_message('thold_save');
-			Header('Location: thold_templates.php?action=add&header=false');
+
+			header('Location: thold_templates.php?action=add&header=false');
 			exit;
 		}
 	}
@@ -783,6 +785,7 @@ function template_save_edit() {
 
 	if (!is_error_message()) {
 		$id = sql_save($save, 'thold_template');
+
 		if ($id) {
 			raise_message(1);
 
@@ -2206,6 +2209,7 @@ function template_import() {
 			$_SESSION['import_debug_info'] = $debug_data;
 		}
 	}
+
 	header('Location: thold_templates.php?action=import');
 	exit();
 }
