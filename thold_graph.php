@@ -356,7 +356,7 @@ function tholds() {
 			'sort' => 'ASC',
 			'align' => 'right'
 		),
-		'lastread' => array(
+		'flastread' => array(
 			'display' => __('Current', 'thold'),
 			'sort' => 'ASC',
 			'align' => 'right',
@@ -499,7 +499,15 @@ function tholds() {
 
 			$actions_url .= "<a class='hyperLink' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&reset=1&threshold_id=' . $thold_data['id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' alt='' title='" . __esc('View Threshold History', 'thold') . "'></a>";
 
-			$actions_url = api_plugin_hook_function('thold_graph_actions_url', $actions_url);
+			$data = array(
+				'thold_data' => $thold_data,
+				'actions_url' => $actions_url
+			);
+
+			$data = api_plugin_hook_function('thold_graph_actions_url', $data);
+			if (isset($data['actions_url'])) {
+				$actions_url = $data['actions_url'];
+			}
 
 			form_selectable_cell($actions_url, $thold_data['id'], '', 'left');
 

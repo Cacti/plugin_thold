@@ -773,7 +773,7 @@ function list_tholds() {
 			'sort' => 'ASC',
 			'align' => 'right'
 		),
-		'lastread' => array(
+		'flastread' => array(
 			'display' => __('Current', 'thold'),
 			'sort' => 'ASC',
 			'align' => 'right',
@@ -1890,9 +1890,6 @@ function thold_edit() {
 
 	$form_array += $extra;
 
-	// Allow plugins to hook the edit form
-	$form_array = api_plugin_hook_function('thold_edit_form_array', $form_array);
-
 	$form_array += array(
 		'id' => array(
 			'method' => 'hidden',
@@ -1911,6 +1908,9 @@ function thold_edit() {
 			'value' => $thold_data['local_data_id']
 		)
 	);
+
+	// Allow plugins to hook the edit form
+	$form_array = api_plugin_hook_function('thold_edit_form_array', $form_array);
 
 	draw_edit_form(
 		array(

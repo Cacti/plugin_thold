@@ -1509,6 +1509,25 @@ function template_edit() {
 
 	$form_array += $extra;
 
+	$form_array += array(
+		'id' => array(
+			'method' => 'hidden',
+			'value' => !empty($thold_data['id']) ? $thold_data['id'] : '0'
+		),
+		'data_template_id' => array(
+			'method' => 'hidden',
+			'value' => (isset($thold_data['data_template_id']) ? $thold_data['data_template_id'] : '0')
+		),
+		'data_source_id' => array(
+			'method' => 'hidden',
+			'value' => $thold_data['data_source_id']
+		),
+		'save' => array(
+			'method' => 'hidden',
+			'value' => 'edit'
+		)
+	);
+
 	// Allow plugins to hook the edit form
 	$form_array = api_plugin_hook_function('thold_template_edit_form_array', $form_array);
 
@@ -1522,9 +1541,6 @@ function template_edit() {
 			'fields' => inject_form_variables($form_array, sizeof($thold_data) ? $thold_data : array())
 		)
 	);
-
-	form_hidden_box('save', 'edit', '');
-	form_hidden_box('id', $id, '');
 
 	html_end_box();
 
