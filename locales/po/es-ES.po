@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-19 09:51+0000\n"
-"PO-Revision-Date: 2019-03-20 08:51+0000\n"
-"Last-Translator: Mark Brugnoli-Vinten <netniv@cacti.net>\n"
+"PO-Revision-Date: 2019-03-31 21:09+0000\n"
+"Last-Translator: Javier Pobeda <javier.pobeda@pm.me>\n"
 "Language-Team: Spanish <http://translate.cacti.net/projects/cacti/thold/es-"
 "ES/>\n"
 "Language: es-ES\n"
@@ -439,7 +439,7 @@ msgstr "No usa SNMP"
 #: thold_graph.php:808 thold_graph.php:809 thold_graph.php:1112
 #: thold_graph.php:1113
 msgid "N/A"
-msgstr "N/A"
+msgstr "N/D"
 
 #: includes/polling.php:610
 #, fuzzy
@@ -1415,7 +1415,6 @@ msgstr ""
 #: notify_lists.php:501 notify_lists.php:560 notify_lists.php:571
 #: notify_lists.php:628 notify_lists.php:638 setup.php:1329 thold.php:463
 #: thold_templates.php:257
-#, fuzzy
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -1703,9 +1702,8 @@ msgid "Associated Lists"
 msgstr "Listas asociadas"
 
 #: notify_lists.php:995 thold_graph.php:722
-#, fuzzy
 msgid "Graphs"
-msgstr "Graficos"
+msgstr "Gráficos"
 
 #: notify_lists.php:996 thold_graph.php:723
 #, fuzzy
