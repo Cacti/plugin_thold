@@ -93,7 +93,7 @@ function thold_add_graphs_action_execute() {
 
 			$save = thold_create_thold_save_from_template($save, $template);
 
-			$save['name_cache'] = thold_expand_title($save, $save['name']);
+			$save['name_cache'] = thold_expand_string($save, $save['name']);
 
 			$rrdlist = db_fetch_assoc_prepared('SELECT id, data_input_field_id
 				FROM data_template_rrd
