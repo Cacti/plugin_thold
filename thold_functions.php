@@ -60,6 +60,8 @@ function get_time_since_last_event($thold) {
 
 	if (empty($thold['instate']) || $thold['instate'] < 60) {
 		return __esc('< 1 Minute', 'thold');
+	} elseif (time() - $thold['instate'] < 1000) {
+		return __esc('Since Created', 'thold');
 	}
 
 	switch($thold['thold_alert']) {
@@ -1198,7 +1200,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 		td.*, dtd.rrd_step, tt.name AS template_name, dtr.data_source_name AS data_source,
 		IF(IFNULL(td.`lastread`,'')='',NULL,(td.`lastread` + 0.0)) AS `flastread`,
 		IF(IFNULL(td.`oldvalue`,'')='',NULL,(td.`oldvalue` + 0.0)) AS `foldvalue`,
-		IF(td.`thold_alert` > 0, IF(td.`thold_fail_count` > 0 AND td.`thold_fail_count` > td.`thold_warning_fail_count`, td.`thold_fail_count` * dtd.`rrd_step`, td.`thold_warning_fail_count` * dtd.`rrd_step`), UNIX_TIMESTAMP() - UNIX_TIMESTAMP(`lasttime`)) AS `instate`,
+		UNIX_TIMESTAMP() - UNIX_TIMESTAMP(lastchanged) AS `instate`,
 		$sql_select
 		FROM thold_data AS td
 		INNER JOIN graph_local AS gl
@@ -1999,6 +2001,10 @@ function thold_check_threshold(&$thold_data) {
 				$notify = true;
 			}
 
+			if ($notify && !$ra) {
+				db_execute_prepared('UPDATE thold_data SET lastchanged = NOW() WHERE id = ?', array($thold_data['id']));
+			}
+
 			$subject = 'ALERT: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
 
 			if ($notify) {
@@ -2085,6 +2091,10 @@ function thold_check_threshold(&$thold_data) {
 
 			if ($thold_data['thold_warning_fail_count'] == $warning_trigger || $ra) {
 				$notify = true;
+			}
+
+			if ($notify && !$ra) {
+				db_execute_prepared('UPDATE thold_data SET lastchanged = NOW() WHERE id = ?', array($thold_data['id']));
 			}
 
 			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $thold_data['thold_warning_hi'] : $thold_data['thold_warning_low']) . ' with ' . $thold_data['lastread'];
@@ -2228,6 +2238,7 @@ function thold_check_threshold(&$thold_data) {
 				db_execute_prepared('UPDATE thold_data
 					SET thold_alert=0,
 					thold_fail_count=0,
+					lastchanged = NOW(),
 					thold_warning_fail_count=0
 					WHERE id = ?',
 					array($thold_data['id']));
@@ -2407,6 +2418,9 @@ function thold_check_threshold(&$thold_data) {
 							array($thold_data['id']));
 					}
 
+					// Set the return to normal time
+					db_execute_prepared('UPDATE thold_data SET lastchanged = NOW() WHERE id = ?', array($thold_data['id']));
+
 					thold_log(array(
 						'type'            => 1,
 						'time'            => time(),
@@ -2435,9 +2449,14 @@ function thold_check_threshold(&$thold_data) {
 
 			/* re-alert? */
 			$ra_modulo = ($thold_data['repeat_alert'] == '' ? $realert : $thold_data['repeat_alert']);
+
 			$ra = ($thold_data['bl_fail_count'] > $bl_fail_trigger && !empty($ra_modulo) && ($thold_data['bl_fail_count'] % $ra_modulo) == 0);
 
 			if ($thold_data['bl_fail_count'] == $bl_fail_trigger || $ra) {
+				if (!$ra) {
+					db_execute_prepared('UPDATE thold_data SET lastchanged = NOW() WHERE id = ?', array($thold_data['id']));
+				}
+
 				thold_debug('Alerting is necessary');
 
 				$subject = 'ALERT: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' calculated baseline threshold ' . ($breach_up ? $thold_data['thold_hi'] : $thold_data['thold_low']) . ' with ' . $thold_data['lastread'];
@@ -2620,6 +2639,10 @@ function thold_check_threshold(&$thold_data) {
 				$notify = true;
 			}
 
+			if ($notify && !$ra) {
+				db_execute_prepared('UPDATE thold_data SET lastchanged = NOW() WHERE id = ?', array($thold_data['id']));
+			}
+
 			$subject = ($notify ? 'ALERT: ':'TRIGGER: ') . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($failures > $trigger ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? $thold_data['time_hi'] : $thold_data['time_low']) . ' with ' . $thold_data['lastread'];
 
 			if ($notify) {
@@ -2728,6 +2751,10 @@ function thold_check_threshold(&$thold_data) {
 
 			if ($warning_failures == $warning_trigger || $ra) {
 				$notify = true;;
+			}
+
+			if ($notify && !$ra) {
+				db_execute_prepared('UPDATE thold_data SET lastchanged = NOW() WHERE id = ?', array($thold_data['id']));
 			}
 
 			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($warning_failures > $warning_trigger ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? $thold_data['time_warning_hi'] : $thold_data['time_warning_low']) . ' with ' . $thold_data['lastread'];
@@ -2885,6 +2912,7 @@ function thold_check_threshold(&$thold_data) {
 
 				db_execute_prepared('UPDATE thold_data
 					SET thold_alert = 0,
+					lastchanged = NOW(),
 					thold_warning_fail_count = ?,
 					thold_fail_count = ?
 					WHERE id = ?',
@@ -2951,7 +2979,8 @@ function thold_check_threshold(&$thold_data) {
 				);
 
 				db_execute_prepared('UPDATE thold_data
-					SET thold_alert=0,
+					SET thold_alert = 0,
+					lastchanged = NOW(),
 					thold_warning_fail_count = ?,
 					thold_fail_count = ?
 					WHERE id = ?',
@@ -4316,7 +4345,7 @@ function save_thold() {
 			td.*, dtd.rrd_step, tt.name AS template_name, dtr.data_source_name as data_source,
 			IF(IFNULL(td.`lastread`,'')='',NULL,(td.`lastread` + 0.0)) as `flastread`, td.`lasttime`,
 			IF(IFNULL(td.`oldvalue`,'')='',NULL,(td.`oldvalue` + 0.0)) as `foldvalue`, td.`repeat_alert`,
-			IF(td.`thold_alert` > 0, IF(td.`thold_fail_count` > 0 AND td.`thold_fail_count` > td.`thold_warning_fail_count`, td.`thold_fail_count` * dtd.`rrd_step`, td.`thold_warning_fail_count` * dtd.`rrd_step`), UNIX_TIMESTAMP() - UNIX_TIMESTAMP(`lasttime`)) AS `instate`
+			UNIX_TIMESTAMP() - UNIX_TIMESTAMP(lastchanged) AS `instate`
 			FROM thold_data AS td
 			INNER JOIN graph_local AS gl
 			ON gl.id=td.local_graph_id

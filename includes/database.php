@@ -1277,6 +1277,25 @@ function thold_upgrade_database($force = false) {
 			SET td.data_template_hash = tt.data_template_hash');
 	}
 
+	if (cacti_version_compare($oldv, '1.2.4', '<')) {
+		db_add_column('thold_data', array(
+			'name'     => 'lastchanged',
+			'type'     => 'timestamp',
+			'NULL'     => false,
+			'default'  => '0000-00-00',
+			'after'    => 'lasttime'));
+
+		// Last Change event in the thold_data table
+		db_execute('UPDATE thold_data AS td
+			LEFT JOIN (
+				SELECT threshold_id, MAX(time) AS time
+				FROM plugin_thold_log AS ptl
+				WHERE ptl.status IN (4,3,5,0,1,6)
+			) AS ptl
+			ON td.id = ptl.threshold_id
+			SET td.lastchanged = IF(IFNULL(ptl.time, "") = "", "0000-00-00", FROM_UNIXTIME(ptl.time))');
+	}
+
 	$tables = db_fetch_assoc("SELECT DISTINCT TABLE_NAME
 		FROM information_schema.COLUMNS
 		WHERE TABLE_SCHEMA = SCHEMA()
@@ -1352,6 +1371,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'bl_thold_valid', 'type' => 'int(10)', 'NULL' => false, 'default' => '0', 'unsigned' => true);
 	$data['columns'][] = array('name' => 'lastread', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lasttime', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00');
+	$data['columns'][] = array('name' => 'lastchanged', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00');
 	$data['columns'][] = array('name' => 'oldvalue', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'notify_extra', 'type' => 'varchar(512)', 'NULL' => true);

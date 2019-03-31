@@ -788,7 +788,7 @@ function hosts() {
 
 				form_selectable_cell(get_uncolored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']), $host['id'], '', 'right');
 
-				form_selectable_cell(get_timeinstate($host), $host['id'], '', 'center');
+				form_selectable_cell(get_timeinstate($host), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
 				form_selectable_cell(filter_value($host['hostname'], get_request_var('filter')), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n(($host['cur_time']), 2), $host['id'], '', 'right');
