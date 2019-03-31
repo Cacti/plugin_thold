@@ -1177,6 +1177,13 @@ function thold_upgrade_database($force = false) {
 			SET suggested_name = "|data_source_description|"
 			WHERE suggested_name = ""');
 
+		// Update thold name from template
+		db_execute('UPDATE thold_data AS td
+			LEFT JOIN thold_template AS tt
+			ON tt.id = td.thold_template_id
+			SET td.name = IF(ISNULL(th.suggested_name), "|data_source_description|", th.suggested_name)
+			WHERE td.name = ""');
+
 		// Setup the name cache with the correct information
 		$tholds = db_fetch_assoc('SELECT *
 			FROM thold_data
