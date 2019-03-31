@@ -103,6 +103,14 @@ that.
 
 --- 1.2.3 ---
 
+* feature: Add last changed data to threshold table to make it easier to tell when a threshold was last triggered.
+
+* issue#182: When adding/removing list from a Threshold, Templated Thresholds should be ignored.
+
+* issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.
+
+--- 1.2.3 ---
+
 * issue#283: Do not show 'Threshold Create' icon on the Graphs page for Aggregates
 
 * issue#284: Threshold loses parent template if template propagation disabled

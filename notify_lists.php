@@ -271,6 +271,8 @@ function form_actions() {
 									WHERE id=' . $selected_items[$i]);
 							}
 						}
+
+						thold_template_update_thresholds($selected_items[$i]);
 					}
 				} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 					for ($i=0;($i<count($selected_items));$i++) {
@@ -289,6 +291,8 @@ function form_actions() {
 								WHERE id=' . $selected_items[$i] . '
 								AND notify_alert=' . get_request_var('id'));
 						}
+
+						thold_template_update_thresholds($selected_items[$i]);
 					}
 				}
 			}
@@ -1224,6 +1228,7 @@ function tholds($header_label) {
 		'nosort2'       => array(__('Alert Lists', 'thold'), 'ASC'),
 		'thold_type'    => array(__('Type', 'thold'), 'ASC'),
 		'thold_alert'   => array(__('Triggered', 'thold'), 'ASC'),
+		'nosort3'       => array(__('Templated', 'thold'), 'ASC'),
 		'thold_enabled' => array(__('Enabled', 'thold'), 'ASC')
 	);
 
@@ -1231,7 +1236,7 @@ function tholds($header_label) {
 
 	$c=0;
 	$i=0;
-	if (count($result)) {
+	if (cacti_sizeof($result)) {
 		foreach ($result as $row) {
 			$c++;
 			$alertstat = __('No', 'thold');
@@ -1311,7 +1316,15 @@ function tholds($header_label) {
 				$warn_stat  = "<span class='deviceUnknown'>" . __('Log Only', 'thold'). "</span>";
 			}
 
-			form_alternate_row('line' . $row['id'], true);
+			if ($row['template_enabled'] == 'on') {
+				$disabled = true;
+cacti_log('Row Disabled');
+			} else {
+				$disabled = false;
+cacti_log('Row Enabled');
+			}
+
+			form_alternate_row('line' . $row['id'], true, $disabled);
 
 			form_selectable_cell(filter_value($row['name_cache'], get_request_var('filter')), $row['id']);
 			form_selectable_cell($row['id'], $row['id']);
@@ -1319,8 +1332,9 @@ function tholds($header_label) {
 			form_selectable_cell($alert_stat, $row['id']);
 			form_selectable_cell($thold_types[$row['thold_type']], $row['id']);
 			form_selectable_cell($alertstat, $row['id']);
+			form_selectable_cell((($row['template_enabled'] == 'on') ? __('Read Only', 'thold'): __('Editable', 'thold')), $row['id']);
 			form_selectable_cell((($row['thold_enabled'] == 'off') ? __('Disabled', 'thold'): __('Enabled', 'thold')), $row['id']);
-			form_checkbox_cell($row['name'], $row['id']);
+			form_checkbox_cell($row['name'], $row['id'], $disabled);
 
 			form_end_row();
 		}
