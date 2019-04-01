@@ -4125,6 +4125,7 @@ function save_thold() {
 		unset($save['data_source_id']);
 		unset($save['data_template_name']);
 		unset($save['data_source_friendly']);
+		unset($save['notify_templated']);
 
 		set_request_var('thold_enabled', 'on');
 		set_request_var('template_enabled', 'on');
@@ -4870,10 +4871,9 @@ function thold_template_update_threshold($id, $template) {
 		td.time_warning_fail_length = tt.time_warning_fail_length, td.thold_enabled = tt.thold_enabled,
 		td.thold_type = tt.thold_type, td.bl_ref_time_range = tt.bl_ref_time_range, td.bl_pct_up = tt.bl_pct_up,
 		td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up, td.bl_fail_trigger = tt.bl_fail_trigger,
-		td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0, td.repeat_alert = tt.repeat_alert, td.notify_extra = tt.notify_extra,
-		td.notify_warning_extra = tt.notify_warning_extra, td.notify_warning = tt.notify_warning, td.notify_alert = tt.notify_alert,
-		td.data_type = tt.data_type, td.cdef = tt.cdef, td.percent_ds = tt.percent_ds, td.expression = tt.expression,
-		td.exempt = tt.exempt, td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
+		td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0, td.repeat_alert = tt.repeat_alert, 
+		td.data_type = tt.data_type, td.cdef = tt.cdef, td.percent_ds = tt.percent_ds, 
+		td.expression = tt.expression, td.exempt = tt.exempt, td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
 		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning,
 		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body, td.email_body_warn = tt.email_body_warn,
 		td.trigger_cmd_high = tt.trigger_cmd_high, td.trigger_cmd_low = tt.trigger_cmd_low,
@@ -4896,6 +4896,8 @@ function thold_template_update_threshold($id, $template) {
 		WHERE template_id = ?',
 		array($id, $template));
 
+	update_notification_list_from_template($template, $id);
+
 	update_suggested_names_from_template($template, $id);
 }
 
@@ -4913,11 +4915,11 @@ function thold_template_update_thresholds($id) {
 		td.thold_enabled = tt.thold_enabled, td.thold_type = tt.thold_type, td.bl_ref_time_range = tt.bl_ref_time_range,
 		td.bl_pct_up = tt.bl_pct_up, td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up,
 		td.bl_fail_trigger = tt.bl_fail_trigger, td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0,
-		td.repeat_alert = tt.repeat_alert, td.notify_extra = tt.notify_extra, td.notify_warning_extra = tt.notify_warning_extra,
-		td.notify_warning = tt.notify_warning, td.notify_alert = tt.notify_alert, td.data_type = tt.data_type,
-		td.cdef = tt.cdef, td.percent_ds = tt.percent_ds, td.expression = tt.expression, td.exempt = tt.exempt,
-		td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack, td.thold_hrule_alert = tt.thold_hrule_alert,
-		td.thold_hrule_warning = tt.thold_hrule_warning, td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
+		td.repeat_alert = tt.repeat_alert, td.data_type = tt.data_type, td.cdef = tt.cdef, 
+		td.percent_ds = tt.percent_ds, td.expression = tt.expression, 
+		td.exempt = tt.exempt, td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack, 
+		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning, 
+		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
 		td.email_body_warn = tt.email_body_warn, td.trigger_cmd_high = tt.trigger_cmd_high,
 		td.trigger_cmd_low = tt.trigger_cmd_low, td.trigger_cmd_norm = tt.trigger_cmd_norm,
 		td.syslog_enabled = tt.syslog_enabled, td.syslog_priority = tt.syslog_priority,
@@ -4950,7 +4952,32 @@ function thold_template_update_thresholds($id) {
 		}
 	}
 
+	update_notification_list_from_template($id);
+
 	update_suggested_names_from_template($id);
+}
+
+function update_notification_list_from_template($id, $thold_id = -1) {
+	$templated = db_fetch_cell_prepared('SELECT notify_templated 
+		FROM thold_templates 
+		WHERE id = ?', 
+		array($id));
+
+	if ($thold_id > 0) {
+		$sql_where = ' AND id = ' . $thold_id;
+	} else {
+		$sql_where = '';
+	}
+
+	if ($templated == 'on') {
+		db_execute_prepared("UPDATE thold_data AS td, thold_template AS tt
+			SET
+			td.notify_warning = tt.notify_warning, td.notify_alert = tt.notify_alert
+			td.notify_extra = tt.notify_extra, td.notify_warning_extra = tt.notify_warning_extra,
+			WHERE td.id = ?
+			AND tt.id = ?" . $sql_where,
+			array($id, $template));
+	}
 }
 
 function update_suggested_names_from_template($id, $thold_id = -1) {

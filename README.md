@@ -101,11 +101,17 @@ that.
 
 ## ChangeLog
 
---- 1.2.3 ---
+--- 1.2.4 ---
 
-* feature: Add last changed data to threshold table to make it easier to tell when a threshold was last triggered.
+* feature: Add last changed date to Threshold table to make it easier to tell when a Threshold was last triggered.
+
+* feature: Add Sites to Notification Lists for Devices and Thresholds
+
+* feature: Allow Threshold Notification Settings to be overwritten based upon Template setting.
 
 * issue#182: When adding/removing list from a Threshold, Templated Thresholds should be ignored.
+
+* issue#268: Allow Device Association/Disassociation to set Thresholds Notification as well.
 
 * issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.
 

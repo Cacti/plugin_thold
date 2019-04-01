@@ -1294,6 +1294,14 @@ function thold_upgrade_database($force = false) {
 			) AS ptl
 			ON td.id = ptl.threshold_id
 			SET td.lastchanged = IF(IFNULL(ptl.time, "") = "", "0000-00-00", FROM_UNIXTIME(ptl.time))');
+
+		// Add switch to hardwire notification lists
+		db_add_column('thold_template', array(
+			'name'     => 'notify_templated',
+			'type'     => 'char(3)',
+			'NULL'     => false,
+			'default'  => 'on',
+			'after'    => 'notify_warning_extra'));
 	}
 
 	$tables = db_fetch_assoc("SELECT DISTINCT TABLE_NAME
@@ -1458,6 +1466,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'notify_extra', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_warning_extra', 'type' => 'varchar(512)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'notify_templated', 'type' => 'char(3)', 'NULL' => false, 'default' => 'on');
 	$data['columns'][] = array('name' => 'notify_warning', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'notify_alert', 'type' => 'int(10)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'snmp_event_category', 'type' => 'varchar(255)', 'NULL' => true);

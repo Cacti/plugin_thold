@@ -768,6 +768,7 @@ function template_save_edit() {
 	// Email Notification
 	$save['notify_extra']         = get_nfilter_request_var('notify_extra');
 	$save['notify_warning_extra'] = get_nfilter_request_var('notify_warning_extra');
+	$save['notify_templated']     = isset_request_var('notify_templated') ? 'on':'';
 	$save['notify_warning']       = get_nfilter_request_var('notify_warning');
 	$save['notify_alert']         = get_nfilter_request_var('notify_alert');
 
@@ -1312,6 +1313,13 @@ function template_edit() {
 			'default' => read_config_option('thold_warning_text'),
 			'description' => __('This is the message that will be displayed at the top of all Threshold Warnings (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
 			'value' => isset($thold_data['email_body']) ? $thold_data['email_body'] : ''
+		),
+		'notify_templated' => array(
+			'friendly_name' => __('Notification List Read Only', 'thold'),
+			'description' => __('If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold.', 'thold'),
+			'method' => 'checkbox',
+			'default' => 'on',
+			'value' => isset($thold_data['notify_templated']) ? $thold_data['notify_templated'] : ''
 		),
 		'notify_warning' => array(
 			'friendly_name' => __('Warning Notification List', 'thold'),

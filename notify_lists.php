@@ -203,6 +203,74 @@ function form_actions() {
 						db_execute('UPDATE host
 							SET thold_send_email=' . get_request_var('notification_action') . '
 							WHERE id=' . $selected_items[$i]);
+
+						if (get_request_var('notification_warning_action') > 0) {
+							/* clear other settings */
+							if (get_request_var('notification_warning_action') == 1) {
+								/* set the notification list */
+								db_execute('UPDATE thold_data AS td
+									LEFT JOIN thold_template AS tt
+									ON td.thold_template_id = tt.id
+									SET td.notify_warning=' . get_request_var('id') . '
+									WHERE td.host_id=' . $selected_items[$i] . '
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+
+								/* clear other items */
+								db_execute("UPDATE thold_data AS td
+									LEFT JOIN thold_template AS tt
+									ON td.thold_template_id = tt.id
+									SET td.notify_warning_extra=''
+									WHERE td.host_id=" . $selected_items[$i] . '
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+							} else {
+								/* set the notification list */
+								db_execute('UPDATE thold_data AS td
+									LEFT JOIN thold_template AS tt
+									ON td.thold_template_id = tt.id
+									SET td.notify_warning=' . get_request_var('id') . '
+									WHERE td.host_id=' . $selected_items[$i] . '
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+							}
+						}
+
+						if (get_request_var('notification_alert_action') > 0) {
+							/* clear other settings */
+							if (get_request_var('notification_alert_action') == 1) {
+								/* set the notification list */
+								db_execute('UPDATE thold_data AS td
+									LEFT JOIN thold_template AS tt
+									ON td.thold_template_id = tt.id
+									SET td.notify_alert=' . get_request_var('id') . '
+									WHERE td.host_id=' . $selected_items[$i] . '
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+
+								/* clear other items */
+								db_execute("UPDATE thold_data AS td
+									LEFT JOIN thold_template AS tt
+									ON td.thold_template_id = tt.id
+									SET td.notify_extra=''
+									WHERE host_id=" . $selected_items[$i] . '
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+
+								/* remove legacy contacts */
+								db_execute('DELETE pttc 
+									FROM plugin_thold_threshold_contact AS pttc 
+									INNER JOIN thold_data AS td
+									ON pttc.thold_id = td.id
+									LEFT JOIN thold_template AS tt
+									ON td.thold_template_id = tt.id
+									WHERE td.host_id=' . $selected_items[$i] . '
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+							} else {
+								/* set the notification list */
+								db_execute('UPDATE thold_data AS td
+									LEFT JOIN thold_template AS tt
+									ON td.thold_template_id = tt.id
+									SET td.notify_alert=' . get_request_var('id') . '
+									WHERE td.host_id=' . $selected_items[$i] . '
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+							}
+						}
 					}
 				} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 					for ($i=0;($i<count($selected_items));$i++) {
@@ -215,6 +283,28 @@ function form_actions() {
 						db_execute('UPDATE host
 							SET thold_send_email=' . get_request_var('notification_action') . '
 							WHERE id=' . $selected_items[$i]);
+
+						if (get_request_var('notification_warning_action') > 0) {
+							/* set the notification list */
+							db_execute('UPDATE thold_data AS td
+								LEFT JOIN thold_template AS tt
+								ON td.thold_template_id = tt.id
+								SET td.notify_warning = 0
+								WHERE td.host_id=' . $selected_items[$i] . '
+								AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)
+								AND td.notify_warning=' . get_request_var('id'));
+						}
+
+						if (get_request_var('notification_alert_action') > 0) {
+							/* set the notification list */
+							db_execute('UPDATE thold_data AS td
+								LEFT JOIN thold_template AS tt
+								ON td.thold_template_id = tt.id
+								SET td.notify_alert=0
+								WHERE td.host_id=' . $selected_items[$i] . '
+								AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)
+								AND td.notify_alert=' . get_request_var('id'));
+						}
 					}
 				}
 			}
@@ -410,7 +500,7 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box($actions{get_request_var('drp_action')} . " $list_name", '70%', false, '3', 'center', '');
+		html_start_box($actions{get_request_var('drp_action')} . " $list_name", '80%', false, '3', 'center', '');
 
 		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* delete */
@@ -478,7 +568,7 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box(__('%s Threshold Template(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '70%', false, '3', 'center', '');
+		html_start_box(__('%s Threshold Template(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '80%', false, '3', 'center', '');
 
 		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
@@ -486,8 +576,8 @@ function form_actions() {
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Association the Notification List \'%s\' with the Threshold Template(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
-						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
@@ -497,8 +587,8 @@ function form_actions() {
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Thresholds Template(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
-						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
@@ -548,7 +638,7 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box(__('%s Threshold(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '70%', false, '3', 'center', '');
+		html_start_box(__('%s Threshold(s)', $assoc_actions[get_request_var('drp_action')], 'thold'), '80%', false, '3', 'center', '');
 
 		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
@@ -556,8 +646,8 @@ function form_actions() {
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Associate the Notification List \'%s\' with the Threshold(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
-						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
@@ -567,8 +657,8 @@ function form_actions() {
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Thresholds(s) below.', $list_name, 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Warning Membership:', 'thold') . "</b><br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
-						<p><b>" . __('Alert Membership:', 'thold') . "</b><br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
@@ -617,15 +707,18 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box($assoc_actions{get_request_var('drp_action')} . ' Device(s)', '70%', false, '3', 'center', '');
+		html_start_box($assoc_actions{get_request_var('drp_action')} . ' Device(s)', '80%', false, '3', 'center', '');
 
 		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Associate the Notification List \'%s\' with the Device(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('You may also Associate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten.', 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Resulting Membership:', 'thold'). "<br>"; form_dropdown('notification_action', array(2 => __('Notification List Only', 'thold'), 3 => __('Notification and Global Lists', 'thold')), '', '', 2, '', ''); print "</p>
+						<p>" . __('Resulting Membership:', 'thold'). "<br>"; form_dropdown('notification_action', array(2 => __('Notification List Only', 'thold'), 3 => __('Notification and Global Lists', 'thold')), '', '', 2, '', ''); print "</p>
+						<p>" . __('Device Threshold Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Device Threshold Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
@@ -634,8 +727,11 @@ function form_actions() {
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Device(s) below.', $list_name, 'thold') . "</p>
+						<p>" . __('You may also Disssociate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten.', 'thold') . "</p>
 						<ul>$list</ul>
-						<p><b>" . __('Resulting Membership:', 'thold') . "</b><br>"; form_dropdown('notification_action', array(1 => __('Global List', 'thold'), 0 => __('Disabled', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Resulting Membership:', 'thold') . "<br>"; form_dropdown('notification_action', array(1 => __('Global List', 'thold'), 0 => __('Disabled', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Device Threshold Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
+						<p>" . __('Device Threshold Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
 				</tr>\n";
 
@@ -805,6 +901,11 @@ function hosts($header_label) {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
+		'site_id' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
 		'filter' => array(
 			'filter' => FILTER_CALLBACK,
 			'pageset' => true,
@@ -856,6 +957,24 @@ function hosts($header_label) {
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>' onChange='applyFilter()'>
+					</td>
+					<td>
+						<?php print __('Site');?>
+					</td>
+					<td>
+						<select id='site_id'>
+							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('Any');?></option>
+							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
+							<?php
+							$sites = db_fetch_assoc('SELECT id, name FROM sites ORDER BY name');
+
+							if (cacti_sizeof($sites)) {
+								foreach ($sites as $site) {
+									print "<option value='" . $site['id'] . "'"; if (get_request_var('site_id') == $site['id']) { print ' selected'; } print '>' . html_escape($site['name']) . "</option>\n";
+								}
+							}
+							?>
+						</select>
 					</td>
 					<td>
 						<?php print __('Type', 'thold');?>
@@ -913,6 +1032,7 @@ function hosts($header_label) {
 			strURL  = '?header=false&action=edit&id=<?php print get_request_var('id');?>'
 			strURL += '&rows=' + $('#rows').val();
 			strURL += '&host_template_id=' + $('#host_template_id').val();
+			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&associated=' + $('#associated').is(':checked');
 			strURL += '&filter=' + $('#filter').val();
 			loadPageNoHeader(strURL);
@@ -926,6 +1046,10 @@ function hosts($header_label) {
 		$(function() {
 			$('#form_devices').submit(function(event) {
 				event.preventDefault();
+				applyFilter();
+			});
+
+			$('#site_id').off('change').on('change', function() {
 				applyFilter();
 			});
 		});
@@ -944,18 +1068,26 @@ function hosts($header_label) {
 		$sql_where = '';
 	}
 
+	if (get_request_var('site_id') == '-1') {
+		/* Show all items */
+	} elseif (get_request_var('site_id') == '0') {
+		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' host.site_id=0';
+	} elseif (!isempty_request_var('site_id')) {
+		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' host.site_id=' . get_request_var('site_id');
+	}
+
 	if (get_request_var('host_template_id') == '-1') {
 		/* Show all items */
 	} elseif (get_request_var('host_template_id') == '0') {
-		$sql_where .= (strlen($sql_where) ? ' AND ':'WHERE ') . ' host.host_template_id=0';
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' host.host_template_id=0';
 	} elseif (!isempty_request_var('host_template_id')) {
-		$sql_where .= (strlen($sql_where) ? ' AND ':'WHERE ') . ' host.host_template_id=' . get_request_var('host_template_id');
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' host.host_template_id=' . get_request_var('host_template_id');
 	}
 
 	if (get_request_var('associated') == 'false') {
 		/* Show all items */
 	} else {
-		$sql_where .= (strlen($sql_where) ? ' AND ':'WHERE ') . ' (host.thold_send_email>1 AND host.thold_host_email=' . get_request_var('id') . ')';
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' (host.thold_send_email>1 AND host.thold_host_email=' . get_request_var('id') . ')';
 	}
 
 	$total_rows = db_fetch_cell("select
@@ -976,8 +1108,10 @@ function hosts($header_label) {
 		'host_id', 'data_sources'
 	);
 
-	$sql_query = "SELECT *
+	$sql_query = "SELECT host.*, sites.name AS site_name
 		FROM host
+		LEFT JOIN sites
+		ON host.site_id = sites.id
 		$sql_where
 		ORDER BY description
 		LIMIT " . ($rows*(get_request_var('page')-1)) . ',' . $rows;
@@ -994,6 +1128,7 @@ function hosts($header_label) {
 
 	$display_text = array(
 		__('Description', 'thold'),
+		__('Site', 'thold'),
 		__('ID', 'thold'),
 		__('Associated Lists', 'thold'),
 		__('Graphs', 'thold'),
@@ -1009,6 +1144,7 @@ function hosts($header_label) {
 			form_alternate_row('line' . $host['id'], true);
 
 			form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], 250);
+			form_selectable_cell($host['site_name'] != '' ? $host['site_name'] : __('None', 'thold'), $host['id']);
 			form_selectable_cell(round(($host['id']), 2), $host['id']);
 
 			if ($host['thold_send_email'] == 0) {
@@ -1091,7 +1227,15 @@ function tholds($header_label) {
 	$limit = ($rows*(get_request_var('page')-1)) . ", $rows";
 
 	if (!isempty_request_var('template') && get_request_var('template') != '-1') {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.data_template_id = ' . get_request_var('template');
+		$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.data_template_id = ' . get_request_var('template');
+	}
+
+	if (get_request_var('site_id') == '-1') {
+		/* Show all items */
+	} elseif (get_request_var('site_id') == '0') {
+		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id=0';
+	} elseif (!isempty_request_var('site_id')) {
+		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id=' . get_request_var('site_id');
 	}
 
 	if (strlen(get_request_var('filter'))) {
@@ -1126,6 +1270,24 @@ function tholds($header_label) {
 					</td>
 					<td>
 						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>' onChange='applyFilter()'>
+					</td>
+					<td>
+						<?php print __('Site');?>
+					</td>
+					<td>
+						<select id='site_id'>
+							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('Any');?></option>
+							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None');?></option>
+							<?php
+							$sites = db_fetch_assoc('SELECT id, name FROM sites ORDER BY name');
+
+							if (cacti_sizeof($sites)) {
+								foreach ($sites as $site) {
+									print "<option value='" . $site['id'] . "'"; if (get_request_var('site_id') == $site['id']) { print ' selected'; } print '>' . html_escape($site['name']) . "</option>\n";
+								}
+							}
+							?>
+						</select>
 					</td>
 					<td>
 						<?php print __('Template', 'thold');?>
@@ -1188,6 +1350,7 @@ function tholds($header_label) {
 			strURL  = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print get_request_var('id');?>'
 			strURL += '&associated=' + $('#associated').is(':checked');;
 			strURL += '&state=' + $('#state').val();
+			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
 			strURL += '&template=' + $('#template').val();
 			strURL += '&filter=' + $('#filter').val();
@@ -1202,6 +1365,10 @@ function tholds($header_label) {
 		$(function() {
 			$('#listthold').submit(function(event) {
 				event.preventDefault();
+				applyFilter();
+			});
+
+			$('#site_id').off('change').on('change', function() {
 				applyFilter();
 			});
 		});
@@ -1317,11 +1484,18 @@ function tholds($header_label) {
 			}
 
 			if ($row['template_enabled'] == 'on') {
-				$disabled = true;
-cacti_log('Row Disabled');
+				$templated = db_fetch_cell_prepared('SELECT notify_templated 
+					FROM thold_template 
+					WHERE id = ?', 
+					array($row['thold_template_id']));
+
+				if ($templated == 'on') {
+					$disabled = true;
+				} else {
+					$disabled = false;
+				}
 			} else {
 				$disabled = false;
-cacti_log('Row Enabled');
 			}
 
 			form_alternate_row('line' . $row['id'], true, $disabled);
@@ -1332,7 +1506,7 @@ cacti_log('Row Enabled');
 			form_selectable_cell($alert_stat, $row['id']);
 			form_selectable_cell($thold_types[$row['thold_type']], $row['id']);
 			form_selectable_cell($alertstat, $row['id']);
-			form_selectable_cell((($row['template_enabled'] == 'on') ? __('Read Only', 'thold'): __('Editable', 'thold')), $row['id']);
+			form_selectable_cell($disabled ? __('Read Only', 'thold'): __('Editable', 'thold'), $row['id']);
 			form_selectable_cell((($row['thold_enabled'] == 'off') ? __('Disabled', 'thold'): __('Enabled', 'thold')), $row['id']);
 			form_checkbox_cell($row['name'], $row['id'], $disabled);
 
