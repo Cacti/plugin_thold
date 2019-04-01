@@ -1318,7 +1318,7 @@ function template_edit() {
 			'friendly_name' => __('Notification List Read Only', 'thold'),
 			'description' => __('If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold.', 'thold'),
 			'method' => 'checkbox',
-			'default' => 'on',
+			'default' => read_config_option('notify_templated'),
 			'value' => isset($thold_data['notify_templated']) ? $thold_data['notify_templated'] : ''
 		),
 		'notify_warning' => array(

@@ -4959,7 +4959,7 @@ function thold_template_update_thresholds($id) {
 
 function update_notification_list_from_template($id, $thold_id = -1) {
 	$templated = db_fetch_cell_prepared('SELECT notify_templated 
-		FROM thold_templates 
+		FROM thold_template
 		WHERE id = ?', 
 		array($id));
 
@@ -4972,11 +4972,10 @@ function update_notification_list_from_template($id, $thold_id = -1) {
 	if ($templated == 'on') {
 		db_execute_prepared("UPDATE thold_data AS td, thold_template AS tt
 			SET
-			td.notify_warning = tt.notify_warning, td.notify_alert = tt.notify_alert
-			td.notify_extra = tt.notify_extra, td.notify_warning_extra = tt.notify_warning_extra,
-			WHERE td.id = ?
-			AND tt.id = ?" . $sql_where,
-			array($id, $template));
+			td.notify_warning = tt.notify_warning, td.notify_alert = tt.notify_alert,
+			td.notify_extra = tt.notify_extra, td.notify_warning_extra = tt.notify_warning_extra
+			WHERE tt.id = ?" . $sql_where,
+			array($id));
 	}
 }
 

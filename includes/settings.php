@@ -197,6 +197,11 @@ function thold_config_settings() {
 			'method' => 'checkbox',
 			'default' => ''
 		),
+		'notify_templated' => array(
+			'friendly_name' => __('Threshold Notification Templated', 'thold'),
+			'description' => __('If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template.', 'thold'),
+			'method' => 'checkbox'
+		),
 		'thold_enable_scripts' => array(
 			'friendly_name' => __('Enable Command Execution', 'thold'),
 			'description' => __('Checking this box will enable the ability to run commands on Threshold breach and restoral events.', 'thold'),
