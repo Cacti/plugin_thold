@@ -4964,7 +4964,7 @@ function update_notification_list_from_template($id, $thold_id = -1) {
 		array($id));
 
 	if ($thold_id > 0) {
-		$sql_where = ' AND id = ' . $thold_id;
+		$sql_where = ' AND td.id = ' . $thold_id;
 	} else {
 		$sql_where = '';
 	}
