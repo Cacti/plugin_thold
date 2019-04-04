@@ -3057,10 +3057,10 @@ function thold_expand_string($thold_data, $string) {
 	// Handle the blank string case
 	if ($str == '') {
 		if (isset($thold_data['thold_template_id']) && $thold_data['thold_template_id'] > 0) {
-			$str = db_fetch_cell_prepared('SELECT suggested_name 
-				FROM thold_template 
-				WHERE id = ?', 
-				array($thod_data['thold_template_id']));
+			$str = db_fetch_cell_prepared('SELECT suggested_name
+				FROM thold_template
+				WHERE id = ?',
+				array($thold_data['thold_template_id']));
 
 			if ($str == '') {
 				$str = '|data_source_description|';
