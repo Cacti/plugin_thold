@@ -1029,11 +1029,13 @@ function thold_show_log() {
 
 	$days = read_config_option('thold_log_storage');
 
-	if (isset($thold_log_retention[$days])) {
-		$days = $thold_log_retention[$days];
-	} else {
-		$days = __('%d Days', $days, 'thold');
+	if (empty($days)) {
+		set_config_option('thold_log_storage', '31');
+
+		$days = 31;
 	}
+
+	$days = __('%d Days', $days, 'thold');
 
 	html_start_box(__('Threshold Log for [ %s ]', $days, 'thold'), '100%', false, '3', 'center', '');
 	form_thold_log_filter();
@@ -1061,8 +1063,8 @@ function thold_show_log() {
 		/* Show all items */
 	} elseif (get_request_var('threshold_id') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' td.id IS NULL';
-	} elseif (!isempty_request_var('threshold_id')) {
-		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' tl.threshold_id=' . get_request_var('threshold_id');
+	} elseif (get_request_var('threshold_id') > 0) {
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' td.thold_template_id=' . get_request_var('threshold_id');
 	}
 
 	if (get_request_var('status') == '-1') {
@@ -1088,12 +1090,36 @@ function thold_show_log() {
 	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
-		'hdescription'    => array('display' => __('Device', 'thold'),            'sort' => 'ASC', 'align' => 'left'),
-		'time'            => array('display' => __('Time', 'thold'),              'sort' => 'ASC', 'align' => 'left'),
-		'type'            => array('display' => __('Type', 'thold'),              'sort' => 'DESC', 'align' => 'left'),
-		'description'     => array('display' => __('Event Description', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
-		'threshold_value' => array('display' => __('Alert Value', 'thold'),       'sort' => 'ASC', 'align' => 'right'),
-		'current'         => array('display' => __('Measured Value', 'thold'),    'sort' => 'ASC', 'align' => 'right')
+		'hdescription' => array(
+			'display' => __('Device', 'thold'),            
+			'sort' => 'ASC', 
+			'align' => 'left'
+		),
+		'time' => array(
+			'display' => __('Time', 'thold'),              
+			'sort' => 'ASC', 
+			'align' => 'left'
+		),
+		'type' => array(
+			'display' => __('Type', 'thold'),              
+			'sort' => 'DESC', 
+			'align' => 'left'
+		),
+		'description' => array(
+			'display' => __('Event Description', 'thold'), 
+			'sort' => 'ASC', 
+			'align' => 'left'
+		),
+		'threshold_value' => array(
+			'display' => __('Alert Value', 'thold'),       
+			'sort' => 'ASC', 
+			'align' => 'right'
+		),
+		'current' => array(
+			'display' => __('Measured Value', 'thold'),    
+			'sort' => 'ASC', 
+			'align' => 'right'
+		)
 	);
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=log');

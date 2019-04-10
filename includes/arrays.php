@@ -33,44 +33,155 @@ $thold_log_retention = array(
 );
 
 $thold_host_states = array(
-	HOST_DOWN       => array('display' => __('Down', 'thold'),          'class' => 'deviceDownFull'),
-	HOST_ERROR      => array('display' => __('Error', 'thold'),         'class' => 'deviceErrorFull'),
-	HOST_RECOVERING => array('display' => __('Recovering', 'thold'),    'class' => 'deviceRecoveringFull'),
-	HOST_UP         => array('display' => __('Up', 'thold'),            'class' => 'deviceUpFull'),
-	HOST_UNKNOWN    => array('display' => __('Unknown', 'thold'),       'class' => 'deviceUnknownFull'),
-	'disabled'      => array('display' => __('Disabled', 'thold'),      'class' => 'deviceDisabledFull'),
-	'notmon'        => array('display' => __('Not Monitored', 'thold'), 'class' => 'deviceNotMonFull')
+	HOST_DOWN => array(
+		'display' => __('Down', 'thold'),          
+		'class' => 'deviceDownFull'
+	),
+	HOST_ERROR => array(
+		'display' => __('Error', 'thold'),         
+		'class' => 'deviceErrorFull'
+	),
+	HOST_RECOVERING => array(
+		'display' => __('Recovering', 'thold'),    
+		'class' => 'deviceRecoveringFull'
+	),
+	HOST_UP => array(
+		'display' => __('Up', 'thold'),            
+		'class' => 'deviceUpFull'
+	),
+	HOST_UNKNOWN => array(
+		'display' => __('Unknown', 'thold'),       
+		'class' => 'deviceUnknownFull'
+	),
+	'disabled' => array(
+		'display' => __('Disabled', 'thold'),      
+		'class' => 'deviceDisabledFull'
+	),
+	'notmon' => array(
+		'display' => __('Not Monitored', 'thold'), 
+		'class' => 'deviceNotMonFull'
+	)
 );
 
 $thold_log_states = array(
-	'4' => array('index' => 'alarm',     'display' => __('Notify - Alert', 'thold'),          'display_short' => 'Alert', 'class' => 'tholdAlertNotify'),
-	'7' => array('index' => 'alarm',     'display' => __('Notify - Alert2Warning', 'thold'),  'display_short' => 'Alert2Warn', 'class' => 'tholdAlert2Warn'),
-	'3' => array('index' => 'warning',   'display' => __('Notify - Warning', 'thold'),        'display_short' => 'Warning', 'class' => 'tholdWarningNotify'),
-	'2' => array('index' => 'retrigger', 'display' => __('Notify - Re-Trigger', 'thold'),     'display_short' => 'Re-Trigger', 'class' => 'tholdReTriggerEvent'),
-	'5' => array('index' => 'restoral',  'display' => __('Notify - Restoral', 'thold'),       'display_short' => 'Retoral', 'class' => 'tholdRestoralNotify'),
-	'1' => array('index' => 'trigger',   'display' => __('Event - Alert Trigger', 'thold'),   'display_short' => 'Alert Event', 'class' => 'tholdTriggerEvent'),
-	'6' => array('index' => 'restoral',  'display' => __('Event - Warning Trigger', 'thold'), 'display_short' => 'Warning Event', 'class' => 'tholdWarnTrigger'),
-	'0' => array('index' => 'restore',   'display' => __('Event - Restoral', 'thold'),        'display_short' => 'Restoral Event', 'class' => 'tholdRestoralEvent')
+	'4' => array(
+		'index' => 'alarm',     
+		'display' => __('Notify - Alert', 'thold'),          
+		'display_short' => __('Alert', 'thold'), 
+		'class' => 'tholdAlertNotify'
+	),
+	'7' => array(
+		'index' => 'alarm',     
+		'display' => __('Notify - Alert2Warning', 'thold'),  
+		'display_short' => __('Alert2Warn', 'thold'), 
+		'class' => 'tholdAlert2Warn'
+	),
+	'3' => array(
+		'index' => 'warning',   
+		'display' => __('Notify - Warning', 'thold'),        
+		'display_short' => __('Warning', 'thold'), 
+		'class' => 'tholdWarningNotify'
+	),
+	'2' => array(
+		'index' => 'retrigger', 
+		'display' => __('Notify - Re-Trigger', 'thold'),     
+		'display_short' => __('Re-Trigger', 'thold'), 
+		'class' => 'tholdReTriggerEvent'
+	),
+	'5' => array(
+		'index' => 'restoral',  
+		'display' => __('Notify - Restoral', 'thold'),       
+		'display_short' => __('Retoral', 'thold'), 
+		'class' => 'tholdRestoralNotify'
+	),
+	'1' => array(
+		'index' => 'trigger',   
+		'display' => __('Event - Alert Trigger', 'thold'),   
+		'display_short' => __('Alert Event', 'thold'), 
+		'class' => 'tholdTriggerEvent'
+	),
+	'6' => array(
+		'index' => 'restoral',  
+		'display' => __('Event - Warning Trigger', 'thold'), 
+		'display_short' => __('Warning Event', 'thold'), 
+		'class' => 'tholdWarnTrigger'
+	),
+	'0' => array(
+		'index' => 'restore',   
+		'display' => __('Event - Restoral', 'thold'),        
+		'display_short' => __('Restoral Event', 'thold'), 
+		'class' => 'tholdRestoralEvent'
+	)
 );
 
 $thold_status_list = array(
-	'0' => array('index' => 'restore',   'display' => __('Restore', 'thold'),       'class' => 'tholdRestore'),
-	'1' => array('index' => 'trigger',   'display' => __('Alert Trigger', 'thold'), 'class' => 'tholdAlertTrigger'),
-	'2' => array('index' => 'retrigger', 'display' => __('Re-Trigger', 'thold'),    'class' => 'tholdReTrigger'),
-	'3' => array('index' => 'warning',   'display' => __('Warning', 'thold'),       'class' => 'tholdWarning'),
-	'4' => array('index' => 'alarm',     'display' => __('Alert', 'thold'),         'class' => 'tholdAlert'),
-	'5' => array('index' => 'restoral',  'display' => __('Restoral', 'thold'),      'class' => 'tholdRestoral'),
-	'6' => array('index' => 'wtrigger',  'display' => __('Warn Trigger', 'thold'),  'class' => 'tholdWarnTrigger'),
-	'7' => array('index' => 'alarmwarn', 'display' => __('Alert-Warn', 'thold'),    'class' => 'tholdAlert2Warn')
+	'0' => array(
+		'index' => 'restore',   
+		'display' => __('Restore', 'thold'),       
+		'class' => 'tholdRestore'
+	),
+	'1' => array(
+		'index' => 'trigger',   
+		'display' => __('Alert Trigger', 'thold'), 
+		'class' => 'tholdAlertTrigger'
+	),
+	'2' => array(
+		'index' => 'retrigger', 
+		'display' => __('Re-Trigger', 'thold'),    
+		'class' => 'tholdReTrigger'
+	),
+	'3' => array(
+		'index' => 'warning',   
+		'display' => __('Warning', 'thold'),       
+		'class' => 'tholdWarning'
+	),
+	'4' => array(
+		'index' => 'alarm',     
+		'display' => __('Alert', 'thold'),         
+		'class' => 'tholdAlert'
+	),
+	'5' => array(
+		'index' => 'restoral',  
+		'display' => __('Restoral', 'thold'),      
+		'class' => 'tholdRestoral'
+	),
+	'6' => array(
+		'index' => 'wtrigger',  
+		'display' => __('Warn Trigger', 'thold'),  
+		'class' => 'tholdWarnTrigger'
+	),
+	'7' => array(
+		'index' => 'alarmwarn', 
+		'display' => __('Alert-Warn', 'thold'),    
+		'class' => 'tholdAlert2Warn'
+	)
 );
 
 $thold_states = array(
-	'red'     => array('class' => 'tholdAlert',     'display' => __('Alert', 'thold')),
-	'orange'  => array('class' => 'tholdBaseAlert', 'display' => __('Baseline Alert', 'thold')),
-	'warning' => array('class' => 'tholdWarning',   'display' => __('Warning', 'thold')),
-	'yellow'  => array('class' => 'tholdNotice',    'display' => __('Notice', 'thold')),
-	'green'   => array('class' => 'tholdOk',        'display' => __('Ok', 'thold')),
-	'grey'    => array('class' => 'tholdDisabled',  'display' => __('Disabled', 'thold'))
+	'red' => array(
+		'class' => 'tholdAlert',     
+		'display' => __('Alert', 'thold')
+	),
+	'orange' => array(
+		'class' => 'tholdBaseAlert', 
+		'display' => __('Baseline Alert', 'thold')
+	),
+	'warning' => array(
+		'class' => 'tholdWarning',   
+		'display' => __('Warning', 'thold')
+	),
+	'yellow' => array(
+		'class' => 'tholdNotice',    
+		'display' => __('Notice', 'thold')
+	),
+	'green' => array(
+		'class' => 'tholdOk',        
+		'display' => __('Ok', 'thold')
+	),
+	'grey' => array(
+		'class' => 'tholdDisabled',  
+		'display' => __('Disabled', 'thold')
+	)
 );
 
 if ($config['cacti_server_os'] == 'unix') {

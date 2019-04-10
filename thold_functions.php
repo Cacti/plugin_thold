@@ -1253,7 +1253,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 	}
 
 	if ($graph_id > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND ':' ') . " gl.id=$graph_id";
+		$sql_where .= (strlen($sql_where) ? ' AND ':' ') . " gl.id = $graph_id";
 	}
 
 	if (strlen($sql_where)) {
@@ -1296,7 +1296,10 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 		} else {
 			$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i=" . $policy['id'];
 		}
-		$sql_join   .= "LEFT JOIN user_auth_" . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1) ";
+
+		$sql_join   .= "LEFT JOIN user_auth_" . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i 
+			ON (gl.id=uap$i.item_id AND uap$i.type=1) ";
+
 		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
 		$i++;
 
@@ -1305,7 +1308,10 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 		} else {
 			$sql_having .= " OR (user$i=" . $policy['id'];
 		}
-		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3) ";
+
+		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i 
+			ON (gl.host_id=uap$i.item_id AND uap$i.type=3) ";
+
 		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
 		$i++;
 
@@ -1314,7 +1320,10 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 		} else {
 			$sql_having .= " $sql_operator user$i=" . $policy['id'] . '))';
 		}
-		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4) ";
+
+		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i 
+			ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4) ";
+
 		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
 		$i++;
 	}
@@ -1323,8 +1332,8 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 
 	$tholds = db_fetch_assoc("SELECT
 		tl.`id`, tl.`time`, tl.`host_id`, tl.`local_graph_id`, tl.`threshold_id`,
-		IF(IFNULL(tl.`threshold_value`,'')='',NULL,(tl.`threshold_value` + 0.0)) as `threshold_value`,
-		IF(IFNULL(tl.`current`,'')='',NULL,(tl.`current` + 0.0)) as `current`, tl.`status`, tl.`type`,
+		IF(IFNULL(tl.`threshold_value`,'')='',NULL,(tl.`threshold_value` + 0.0)) AS `threshold_value`,
+		IF(IFNULL(tl.`current`,'')='',NULL,(tl.`current` + 0.0)) AS `current`, tl.`status`, tl.`type`,
 		tl.`description`, h.description AS hdescription, td.name, gtg.title_cache,
 		$sql_select
 		FROM plugin_thold_log AS tl
@@ -1362,6 +1371,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 			$sql_where
 			$sql_having
 		) AS rower");
+
 	return $tholds;
 }
 

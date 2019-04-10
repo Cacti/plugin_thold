@@ -115,6 +115,8 @@ that.
 
 * issue#287: Thresholds are not being created in 1.2.3
 
+* issue#289: Threshold filter on Thold - Log tab can not work
+
 * issue#293: php error, undefined selected_items in notify_lists.php
 
 * issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.

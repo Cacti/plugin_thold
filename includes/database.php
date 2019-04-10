@@ -965,12 +965,15 @@ function thold_upgrade_database($force = false) {
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN trigger_cmd_high varchar(512) NOT NULL default ""');
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN trigger_cmd_low varchar(512) NOT NULL default ""');
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN trigger_cmd_norm varchar(512) NOT NULL default ""');
+
 		if (db_column_exists('thold_template', 'trigger_cmd_high')) {
 			db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_high varchar(512) NOT NULL default ""');
 		}
+
 		if (db_column_exists('thold_template', 'trigger_cmd_low')) {
 			db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_low varchar(512) NOT NULL default ""');
 		}
+
 		if (db_column_exists('thold_template', 'trigger_cmd_norm')) {
 			db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_norm varchar(512) NOT NULL default ""');
 		}
