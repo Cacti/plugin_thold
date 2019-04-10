@@ -103,6 +103,8 @@ that.
 
 --- 1.2.4 ---
 
+* feature#292: New Requirement: CLI to import thold template
+
 * feature: Add last changed date to Threshold table to make it easier to tell when a Threshold was last triggered.
 
 * feature: Add Sites to Notification Lists for Devices and Thresholds

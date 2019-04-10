@@ -5452,3 +5452,123 @@ function thold_get_cached_name(&$thold_data) {
 
 	return $thold_data['name_cache'];
 }
+
+function thold_template_import($xml_data) {
+	$debug_data = array();
+
+	if ($xml_data != '') {
+		/* obtain debug information if it's set */
+		$xml_array = xml2array($xml_data);
+
+		if (cacti_sizeof($xml_array)) {
+			foreach ($xml_array as $template => $contents) {
+				$error = false;
+				$save  = array();
+
+				if (cacti_sizeof($contents)) {
+					foreach ($contents as $name => $value) {
+						switch($name) {
+							case 'data_template_id':
+								// See if the hash exists, if it doesn't, Error Out
+								$found = db_fetch_cell_prepared('SELECT id
+									FROM data_template
+									WHERE hash = ?',
+									array($value));
+
+								if (!empty($found)) {
+									$save['data_template_id'] = $found;
+								} else {
+									$error = true;
+									$debug_data['errors'][] = __('Threshold Template Subordinate Data Template Not Found!', 'thold');
+								}
+
+								break;
+							case 'data_source_id':
+								// See if the hash exists, if it doesn't, Error Out
+								$found = db_fetch_cell_prepared('SELECT id
+									FROM data_template_rrd
+									WHERE hash = ?',
+									array($value));
+
+								if (!empty($found)) {
+									$save['data_source_id'] = $found;
+								} else {
+									$error = true;
+									$debug_data['errors'][] = __('Threshold Template Subordinate Data Source Not Found!', 'thold');
+								}
+	
+								break;
+							case 'hash':
+								// See if the hash exists, if it does, update the thold
+								$found = db_fetch_cell_prepared('SELECT id
+									FROM thold_template
+									WHERE hash = ?',
+									array($value));
+
+								if (!empty($found)) {
+									$save['hash'] = $value;
+									$save['id']   = $found;
+								} else {
+									$save['hash'] = $value;
+									$save['id']   = 0;
+								}
+
+								break;
+							case 'name':
+								$tname = $value;
+								$save['name'] = $value;
+
+								break;
+							default:
+								if (db_column_exists('thold_template', $name)) {
+									$save[$name] = $value;
+								}
+	
+								break;
+						}
+					}
+				}
+
+				if (!validate_template_import_columns($save)) {
+					$debug_data['errors'][] = __('Threshold Template import columns do not match the database schema', 'thold');
+					$error = true;
+				}
+
+				if (!$error) {
+					$id = sql_save($save, 'thold_template');
+
+					if ($id) {
+						$debug_data['success'][] = __('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
+					} else {
+						$debug_data['failure'][] = __('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
+					}
+				} else {
+					$debug_data['failure'][] = __('Errors enountered while attempting to import Threshold Template data.', 'thold');
+				}
+			}
+		} else {
+			$debug_data['failure'][] = __('Threshold Template Import data was not found to be XML data.', 'thold');
+		}
+	} else {
+		$debug_data['failure'][] = __('Threshold Template Import data was not correct while importing Threshold Template.', 'thold');
+	}
+
+	return $debug_data;
+}
+
+function validate_template_import_columns($template) {
+	if (cacti_sizeof($template)) {
+		foreach($template as $column => $data) {
+			if (!db_column_exists('thold_template', $column)) {
+				cacti_log('Template column \'' . $column . '\' is not valid for a threshold template.', false, 'THOLD');
+
+				return false;
+			}
+		}
+	} else {
+		return false;
+	}
+
+	return true;
+}
+

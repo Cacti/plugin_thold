@@ -2126,96 +2126,33 @@ function template_import() {
 		$xml_data = validate_upload();
 	}
 
-	if ($xml_data) {
-		/* obtain debug information if it's set */
-		$xml_array = xml2array($xml_data);
+	$errors = 0;
 
-		$debug_data = array();
+	$return_data = thold_template_import($xml_data);
 
-		if (cacti_sizeof($xml_array)) {
-			foreach ($xml_array as $template => $contents) {
-				$error = false;
-				$save  = array();
-
-				if (cacti_sizeof($contents)) {
-					foreach ($contents as $name => $value) {
-						switch($name) {
-							case 'data_template_id':
-								// See if the hash exists, if it doesn't, Error Out
-								$found = db_fetch_cell_prepared('SELECT id
-									FROM data_template
-									WHERE hash = ?',
-									array($value));
-
-								if (!empty($found)) {
-									$save['data_template_id'] = $found;
-								} else {
-									$error = true;
-									$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold') . "</span> " . __('Threshold Template Subordinate Data Template Not Found!', 'thold');
-								}
-
-								break;
-							case 'data_source_id':
-							// See if the hash exists, if it doesn't, Error Out
-							$found = db_fetch_cell_prepared('SELECT id
-								FROM data_template_rrd
-								WHERE hash = ?',
-								array($value));
-
-							if (!empty($found)) {
-								$save['data_source_id'] = $found;
-							} else {
-								$error = true;
-								$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template Subordinate Data Source Not Found!', 'thold');
-							}
-
-							break;
-						case 'hash':
-							// See if the hash exists, if it does, update the thold
-							$found = db_fetch_cell_prepared('SELECT id
-								FROM thold_template
-								WHERE hash = ?',
-								array($value));
-
-							if (!empty($found)) {
-								$save['hash'] = $value;
-								$save['id']   = $found;
-							} else {
-								$save['hash'] = $value;
-								$save['id']   = 0;
-							}
-
-							break;
-						case 'name':
-							$tname = $value;
-							$save['name'] = $value;
-
-							break;
-						default:
-							if (db_column_exists('thold_template', $name)) {
-								$save[$name] = $value;
-							}
-
-							break;
-						}
-					}
-				}
-
-				if (!$error) {
-					$id = sql_save($save, 'thold_template');
-
-					if ($id) {
-						$debug_data[] = "<span style='font-weight:bold;color:green;'>" . __('NOTE:', 'thold') . "</span> " . __('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
-					} else {
-						$debug_data[] = "<span style='font-weight:bold;color:red;'>" . __('ERROR:', 'thold'). "</span> " . __('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
-					}
-				}
-			}
+	if (sizeof($return_data) && isset($return_data['success'])) {
+		foreach ($return_data['success'] as $message) {
+			$debug_data[] = '<span class="deviceUp">' . __('NOTE:', 'thold') . '</span> ' . $message;
+			cacti_log('NOTE: Template Import Succeeded!.  Message: '. $message, false, 'THOLD');
 		}
+	}
 
-		if(cacti_sizeof($debug_data) > 0) {
-			$_SESSION['import_debug_info'] = $debug_data;
+	if (isset($return_data['errors'])) {
+		foreach ($return_data['errors'] as $error) {
+			$debug_data[] = '<span class="deviceDown">' . __('ERROR:', 'thold') . '</span> ' . $error;
+			cacti_log('NOTE: Template Import Error!.  Message: '. $message, false, 'THOLD');
 		}
+	}
+
+	if (isset($return_data['failure'])) {
+		foreach ($return_data['failure'] as $message) {
+			$debug_data[] = '<span class="deviceDown">' . __('ERROR:', 'thold') . '</span> ' . $message;
+			cacti_log('NOTE: Template Import Failed!.  Message: '. $message, false, 'THOLD');
+		}
+	}
+
+	if (cacti_sizeof($debug_data) > 0) {
+		$_SESSION['import_debug_info'] = $debug_data;
 	}
 
 	header('Location: thold_templates.php?action=import');
