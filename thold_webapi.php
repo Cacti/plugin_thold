@@ -633,7 +633,7 @@ function thold_wizard() {
 			'on_change' => 'applyTholdFilter()',
 			'action' => 'ajax_hosts',
 			'id' => $host_id,
-			'sql' => 'SELECT id, name FROM host WHERE disabled!="" AND deleted!=""' . $hiql,
+			'sql' => 'SELECT id, description AS name name FROM host WHERE disabled!="" AND deleted!=""' . $hiql,
 			'value' => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
 			'none_value' => __('Select a Device', 'thold')
 		);
