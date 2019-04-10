@@ -108,9 +108,9 @@ function form_actions() {
 
 	/* if we are to save this form, instead of display it */
 	if (isset_request_var('selected_items')) {
-		if (isset_request_var('save_list')) {
-			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
+		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
+		if (isset_request_var('save_list')) {
 			if ($selected_items != false) {
 				if (get_request_var('drp_action') == '1') { /* delete */
 					db_execute('DELETE FROM plugin_notification_lists
@@ -187,8 +187,6 @@ function form_actions() {
 			header('Location: notify_lists.php?header=false');
 			exit;
 		} elseif (isset_request_var('save_associate')) {
-			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
-
 			if ($selected_items != false) {
 				get_filter_request_var('notification_action');
 
@@ -312,8 +310,6 @@ function form_actions() {
 			header('Location: notify_lists.php?header=false&action=edit&tab=hosts&id=' . get_request_var('id'));
 			exit;
 		} elseif (isset_request_var('save_templates')) {
-			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
-
 			if ($selected_items != false) {
 				get_filter_request_var('notification_action');
 
@@ -390,8 +386,6 @@ function form_actions() {
 			header('Location: notify_lists.php?header=false&action=edit&tab=templates&id=' . get_request_var('id'));
 			exit;
 		} elseif (isset_request_var('save_tholds')) {
-			$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
-
 			if ($selected_items != false) {
 				get_filter_request_var('notification_action');
 
@@ -760,7 +754,7 @@ function form_actions() {
 
 		bottom_footer();
 	} else {
-		$save = array('post' => $_POST, 'selected_items' => $selected_items);
+		$save = array('post' => $_POST, 'selected_items' => isset($selected_items) ? $selected_items : '');
 		api_plugin_hook_function('notify_list_form_confirm', $save);
 	}
 }
