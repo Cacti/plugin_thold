@@ -113,6 +113,8 @@ that.
 
 * issue#268: Allow Device Association/Disassociation to set Thresholds Notification as well.
 
+* issue#293: php error, undefined selected_items in notify_lists.php
+
 * issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.
 
 --- 1.2.3 ---
