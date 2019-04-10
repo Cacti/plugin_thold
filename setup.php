@@ -1425,7 +1425,9 @@ function thold_data_source_remove($data_ids) {
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	$tholds = array_rekey(
-		db_fetch_assoc('SELECT id FROM thold_data WHERE local_data_id IN (' . implode(', ', $data_ids) . ')'),
+		db_fetch_assoc('SELECT id 
+			FROM thold_data 
+			WHERE local_data_id IN (' . implode(', ', $data_ids) . ')'),
 		'id', 'id'
 	);
 

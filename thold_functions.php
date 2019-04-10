@@ -3607,7 +3607,7 @@ function delete_old_thresholds() {
 		FROM thold_data AS td
 		LEFT JOIN data_template_rrd AS dtr
 		ON dtr.id=td.data_template_rrd_id
-		WHERE dtr.data_source_name IS NULL');
+		WHERE dtr.local_graph_id IS NULL');
 
 	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
