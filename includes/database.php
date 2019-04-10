@@ -286,6 +286,13 @@ function thold_upgrade_database($force = false) {
 			'default'  => '',
 			'after'    => 'percent_ds'));
 
+		db_add_column('thold_template', array(
+			'name'     => 'expression',
+			'type'     => 'varchar(70)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'percent_ds'));
+
 		db_execute('ALTER TABLE thold_data MODIFY name varchar(150) default NULL');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_down varchar(100)');
 		db_execute('ALTER TABLE thold_template MODIFY COLUMN bl_pct_up varchar(100)');
@@ -958,9 +965,15 @@ function thold_upgrade_database($force = false) {
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN trigger_cmd_high varchar(512) NOT NULL default ""');
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN trigger_cmd_low varchar(512) NOT NULL default ""');
 		db_execute('ALTER TABLE thold_data MODIFY COLUMN trigger_cmd_norm varchar(512) NOT NULL default ""');
-		db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_high varchar(512) NOT NULL default ""');
-		db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_low varchar(512) NOT NULL default ""');
-		db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_norm varchar(512) NOT NULL default ""');
+		if (db_column_exists('thold_template', 'trigger_cmd_high')) {
+			db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_high varchar(512) NOT NULL default ""');
+		}
+		if (db_column_exists('thold_template', 'trigger_cmd_low')) {
+			db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_low varchar(512) NOT NULL default ""');
+		}
+		if (db_column_exists('thold_template', 'trigger_cmd_norm')) {
+			db_execute('ALTER TABLE thold_template MODIFY COLUMN trigger_cmd_norm varchar(512) NOT NULL default ""');
+		}
 
 		// Trigger commands
 		db_add_column('thold_data', array(
