@@ -425,43 +425,50 @@ function tholds() {
 			$c++;
 			$alertstat = __('No', 'thold');
 			$bgcolor   = 'green';
+
+			$severity = get_thold_severity($thold_data);
+
+			switch($severity) {
+				case THOLD_SEVERITY_DISABLED:
+					$bgcolor = 'grey';
+					break;
+				case THOLD_SEVERITY_NORMAL:
+					$bgcolor = 'green';
+					break;
+				case THOLD_SEVERITY_ALERT:
+					$bgcolor = 'red';
+					break;
+				case THOLD_SEVERITY_WARNING:
+					$bgcolor = 'warning';
+					break;
+				case THOLD_SEVERITY_BASELINE:
+					$bgcolor = 'orange';
+					break;
+				case THOLD_SEVERITY_NOTICE:
+					$bgcolor = 'yellow';
+					break;
+				case THOLD_SEVERITY_ACKREQ:
+					$bgcolor = 'orange';
+					break;
+			}
+
 			if ($thold_data['thold_type'] == 0) {
 				if ($thold_data['thold_alert'] != 0) {
 					$alertstat = __('Yes', 'thold');
-					if ( $thold_data['thold_fail_count'] >= $thold_data['thold_fail_trigger'] ) {
-						$bgcolor = 'red';
-					} elseif ( $thold_data['thold_warning_fail_count'] >= $thold_data['thold_warning_fail_trigger'] ) {
-						$bgcolor = 'warning';
-					} else {
-						$bgcolor = 'yellow';
-					}
-				} elseif (($thold_data['thold_alert'] != $thold_data['prev_thold_alert']) && ($thold_data['persist_ack']=='on') && ($thold_data['acknowledgment'] != 'on')){
-					$bgcolor   = 'orange';
 				}
 			} elseif ($thold_data['thold_type'] == 2) {
 				if ($thold_data['thold_alert'] != 0) {
-					$alertstat='Yes';
-					if ($thold_data['thold_fail_count'] >= $thold_data['time_fail_trigger']) {
-						$bgcolor = 'red';
-					} elseif ($thold_data['thold_warning_fail_count'] >= $thold_data['time_warning_fail_trigger']) {
-						$bgcolor = 'warning';
-					} else {
-						$bgcolor = 'yellow';
-					}
-				} elseif (($thold_data['thold_alert'] != $thold_data['prev_thold_alert']) && ($thold_data['persist_ack']=='on') && ($thold_data['acknowledgment'] != 'on')){
-					$bgcolor   = 'orange';
+					$alertstat = __('Yes', 'thold');
 				}
 			} else {
 				if ($thold_data['bl_alert'] == 1) {
-					$alertstat = __('Baseline-LOW', 'thold');
-					$bgcolor   = ($thold_data['bl_fail_count'] >= $thold_data['bl_fail_trigger'] ? 'orange' : 'yellow');
+					$alertstat = __('baseline-LOW', 'thold');
 				} elseif ($thold_data['bl_alert'] == 2)  {
-					$alertstat = __('Baseline-HIGH', 'thold');
-					$bgcolor   = ($thold_data['bl_fail_count'] >= $thold_data['bl_fail_trigger'] ? 'orange' : 'yellow');
-				} elseif (($thold_data['thold_alert'] != $thold_data['prev_thold_alert']) && ($thold_data['persist_ack']=='on') && ($thold_data['acknowledgment'] != 'on')){
-					$bgcolor   = 'orange';
+					$alertstat = __('baseline-HIGH', 'thold');
 				}
-			};
+			}
+
+			print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $thold_data['id'] . "'>\n";
 
 			$baseu = db_fetch_cell_prepared('SELECT base_value
 				FROM graph_templates_graph
@@ -471,12 +478,6 @@ function tholds() {
 			if (empty($baseu)) {
 				cacti_log('WARNING: Graph Template for local_graph_id ' . $thold_data['local_graph_id'] . ' has been removed!');
 				$baseu = 1024;
-			}
-
-			if ($thold_data['thold_enabled'] == 'off') {
-				print "<tr class='selectable " . $thold_states['grey']['class'] . "' id='line" . $thold_data['id'] . "'>\n";
-			} else {
-				print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $thold_data['id'] . "'>\n";
 			}
 
 			$actions_url = '';

@@ -30,6 +30,20 @@ if (!defined('MESSAGE_LEVEL_NONE')) {
 	define('MESSAGE_LEVEL_CSRF', 4);
 }
 
+if (!defined('STAT_HI')) {
+	define('STAT_HI', 2);
+	define('STAT_LO', 1);
+	define('STAT_NORMAL', 0);
+}
+
+define('THOLD_SEVERITY_NORMAL', 0);
+define('THOLD_SEVERITY_ALERT', 1);
+define('THOLD_SEVERITY_WARNING', 2);
+define('THOLD_SEVERITY_NOTICE', 3);
+define('THOLD_SEVERITY_ACKREQ', 4);
+define('THOLD_SEVERITY_DISABLED', 5);
+define('THOLD_SEVERITY_BASELINE', 6);
+
 /* sanitize_thold_sort_string - cleans up a search string submitted by the user to be passed
      to the database. NOTE: some of the code for this function came from the phpBB project.
    @arg $string - the original raw search string
@@ -1387,7 +1401,7 @@ function is_thold_allowed_graph($local_graph_id) {
 	return is_graph_allowed($local_graph_id);
 }
 
-function thold_log($save){
+function thold_log($save) {
 	global $config;
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
@@ -1857,6 +1871,80 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 	}
 }
 
+function get_thold_severity(&$td) {
+	$severity = THOLD_SEVERITY_NORMAL;
+
+	if ($td['thold_enabled'] == 'off') {
+		return THOLD_SEVERITY_DISABLED;
+	}
+
+	switch($td['thold_type']) {
+		case '0': // Hi/Low
+			if ($td['thold_alert'] != 0) {
+				if ($td['thold_hi'] != '' || $td['thold_low'] != '') {
+					if ($td['thold_fail_count'] >= $td['thold_fail_trigger']) {
+						$severity = THOLD_SEVERITY_ALERT;
+					} else {
+						$severity = THOLD_SEVERITY_NOTICE;
+					}
+				} elseif ($td['thold_warning_hi'] != '' || $td['thold_warning_low'] != '') {
+					if ($td['thold_warning_fail_count'] >= $td['thold_warning_fail_trigger']) {
+						$severity = THOLD_SEVERITY_WARNING;
+					} else {
+						$severity = THOLD_SEVERITY_NOTICE;
+					}
+				}
+			} elseif (($td['thold_alert'] != $td['prev_thold_alert']) && ($td['persist_ack']=='on') && ($td['acknowledgment'] != 'on')) {
+				$severity = THOLD_SEVERITY_ACKREQ;
+			}
+
+			break;
+		case '1': // Baseline
+			if ($td['bl_alert'] == 1) {
+				if ($td['bl_fail_count'] >= $td['bl_fail_trigger']) {
+					$severity = THOLD_SEVERITY_BASELINE;
+				} else {
+					$severity = THOLD_SEVERITY_NOTICE;
+				}
+			} elseif ($td['bl_alert'] == 2)  {
+				if ($td['bl_fail_count'] >= $td['bl_fail_trigger']) {
+					$severity = THOLD_SEVERITY_BASELINE;
+				} else {
+					$severity = THOLD_SEVERITY_NOTICE;
+				}
+			} elseif (($td['thold_alert'] != $td['prev_thold_alert']) && ($td['persist_ack']=='on') && ($td['acknowledgment'] != 'on')) {
+				$severity = THOLD_SEVERITY_ACKREQ;
+			}
+
+			break;
+		case '2': // Time Based
+			if ($td['thold_alert'] != 0) {
+				if ($td['time_hi'] != '' || $td['time_low'] != '') {
+					if ($td['thold_fail_count'] >= $td['time_fail_trigger']) {
+						$severity = THOLD_SEVERITY_ALERT;
+					} else {
+						$severity = THOLD_SEVERITY_NOTICE;
+					}
+				} elseif ($td['time_warning_hi'] != '' || $td['time_warning_low']) {
+					if ($td['thold_warning_fail_count'] >= $td['time_warning_fail_trigger']) {
+						$severity = THOLD_SEVERITY_WARNING;
+					} else {
+						$severity = THOLD_SEVERITY_NOTICE;
+					}
+
+				}
+			} elseif (($td['thold_alert'] != $td['prev_thold_alert']) && ($td['persist_ack']=='on') && ($td['acknowledgment'] != 'on')) {
+				$severity = THOLD_SEVERITY_ACKREQ;
+			}
+
+			break;
+		default:
+			break;
+	}
+
+	return $severity;
+}
+
 function thold_datasource_required($name, $data_source) {
 	$thold_show_datasource = read_config_option('thold_show_datasource');
 
@@ -1881,18 +1969,6 @@ function thold_check_threshold(&$thold_data) {
 		', value: ' . var_export($thold_data['lastread'],true));
 
 	$debug = false;
-
-	if (!defined('STAT_HI')) {
-		define('STAT_HI', 2);
-	}
-
-	if (!defined('STAT_LO')) {
-		define('STAT_LO', 1);
-	}
-
-	if (!defined('STAT_NORMAL')) {
-		define('STAT_NORMAL', 0);
-	}
 
 	// Do not proceed if we have chosen to globally disable all alerts
 	if (read_config_option('thold_disable_all') == 'on') {
@@ -3392,7 +3468,7 @@ function ack_logging($thold_id, $desc = '') {
 		WHERE id = ?',
 		array($thold_id));
 
-	if ($thold_data['syslog_enabled']){
+	if ($thold_data['syslog_enabled']) {
 		openlog('CactiTholdLog', LOG_PID | LOG_PERROR, $thold_data['syslog_facility']);
 
 		syslog($thold_data['syslog_priority'], 'Threshold ' . $thold_id . ' has been acknowledged. Additional Comments: ' . $desc);
@@ -5129,7 +5205,7 @@ function thold_threshold_disable($id) {
 	}
 }
 
-function thold_threshold_ack($id){
+function thold_threshold_ack($id) {
 	if (api_user_realm_auth('thold.php')) {
     	db_execute_prepared('UPDATE thold_data
 			SET acknowledgment="on"
@@ -5138,7 +5214,7 @@ function thold_threshold_ack($id){
 	}
 }
 
-function thold_threshold_reset_ack($id){
+function thold_threshold_reset_ack($id) {
 	if (api_user_realm_auth('thold.php')) {
     	db_execute_prepared('UPDATE thold_data
 			SET acknowledgment=""
@@ -5244,7 +5320,7 @@ function array2xml($array, $tag = 'template') {
 	return $xml;
 }
 
-function thold_snmptrap($varbinds, $severity = SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite = false){
+function thold_snmptrap($varbinds, $severity = SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite = false) {
 	if (function_exists('snmpagent_notification')) {
 		if (isset($varbinds['eventDescription']) && isset($varbinds['eventDeviceIp'])) {
 			$varbinds['eventDescription'] = str_replace('<HOSTIP>', $varbinds['eventDeviceIp'], $varbinds['eventDescription']);

@@ -851,54 +851,54 @@ function list_tholds() {
 			$alertstat = __('No', 'thold');
 			$bgcolor   = 'green';
 
+			$severity = get_thold_severity($thold_data);
+
+			switch($severity) {
+				case THOLD_SEVERITY_DISABLED:
+					$bgcolor = 'grey';
+					break;
+				case THOLD_SEVERITY_NORMAL:
+					$bgcolor = 'green';
+					break;
+				case THOLD_SEVERITY_ALERT:
+					$bgcolor = 'red';
+					break;
+				case THOLD_SEVERITY_WARNING:
+					$bgcolor = 'warning';
+					break;
+				case THOLD_SEVERITY_BASELINE:
+					$bgcolor = 'orange';
+					break;
+				case THOLD_SEVERITY_NOTICE:
+					$bgcolor = 'yellow';
+					break;
+				case THOLD_SEVERITY_ACKREQ:
+					$bgcolor = 'orange';
+					break;
+			}
+
 			if ($thold_data['thold_type'] == 0) {
 				if ($thold_data['thold_alert'] != 0) {
 					$alertstat = __('Yes', 'thold');
-					if ($thold_data['thold_fail_count'] >= $thold_data['thold_fail_trigger']) {
-						$bgcolor = 'red';
-					} elseif ($thold_data['thold_warning_fail_count'] >= $thold_data['thold_warning_fail_trigger']) {
-						$bgcolor = 'warning';
-					} else {
-						$bgcolor = 'yellow';
-					}
-				} elseif (($thold_data['thold_alert'] != $thold_data['prev_thold_alert']) && ($thold_data['persist_ack']=='on') && ($thold_data['acknowledgment'] != 'on')){
-					$bgcolor = 'orange';
 				}
 			} elseif ($thold_data['thold_type'] == 2) {
 				if ($thold_data['thold_alert'] != 0) {
 					$alertstat = __('Yes', 'thold');
-					if ($thold_data['thold_fail_count'] >= $thold_data['time_fail_trigger']) {
-						$bgcolor = 'red';
-					} elseif ($thold_data['thold_warning_fail_count'] >= $thold_data['time_warning_fail_trigger']) {
-						$bgcolor = 'warning';
-					} else {
-						$bgcolor = 'yellow';
-					}
-				} elseif (($thold_data['thold_alert'] != $thold_data['prev_thold_alert']) && ($thold_data['persist_ack']=='on') && ($thold_data['acknowledgment'] != 'on')){
-					$bgcolor = 'orange';
 				}
 			} else {
 				if ($thold_data['bl_alert'] == 1) {
 					$alertstat = __('baseline-LOW', 'thold');
-					$bgcolor   = ($thold_data['bl_fail_count'] >= $thold_data['bl_fail_trigger'] ? 'orange' : 'yellow');
 				} elseif ($thold_data['bl_alert'] == 2)  {
 					$alertstat = __('baseline-HIGH', 'thold');
-					$bgcolor   = ($thold_data['bl_fail_count'] >= $thold_data['bl_fail_trigger'] ? 'orange' : 'yellow');
-				} elseif (($thold_data['thold_alert'] != $thold_data['prev_thold_alert']) && ($thold_data['persist_ack']=='on') && ($thold_data['acknowledgment'] != 'on')){
-					$bgcolor = 'orange';
 				}
-			};
+			}
 
 			$data_source = db_fetch_cell_prepared('SELECT data_source_name
 				FROM data_template_rrd
 				WHERE id = ?',
 				array($thold_data['data_template_rrd_id']));
 
-			if ($thold_data['thold_enabled'] == 'off') {
-				print "<tr class='selectable " . $thold_states['grey']['class'] . "' id='line" . $thold_data['id'] . "'>\n";
-			} else {
-				print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $thold_data['id'] . "'>\n";
-			}
+			print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $thold_data['id'] . "'>";
 
 			if ($thold_data['name_cache'] != '') {
 				$name = $thold_data['name_cache'];

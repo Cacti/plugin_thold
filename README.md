@@ -123,6 +123,8 @@ that.
 
 * issue#296: plugin_thold_contacts keep obsoleted data if email is changed from User Management
 
+* issue#297: Thold row always `alert color` when current value only reach warn hi/low
+
 * issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.
 
 --- 1.2.3 ---
