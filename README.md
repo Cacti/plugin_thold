@@ -121,6 +121,8 @@ that.
 
 * issue#293: php error, undefined selected_items in notify_lists.php
 
+* issue#295: Thold daemon setting causing warnings
+
 * issue#296: plugin_thold_contacts keep obsoleted data if email is changed from User Management
 
 * issue#297: Thold row always `alert color` when current value only reach warn hi/low

@@ -732,7 +732,11 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 	/* adjust the polling interval by the last read, if applicable */
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
 	if ($thold_data['lasttime'] > 0) {
-		$polling_interval = $currenttime - $thold_data['lasttime'];
+		if (is_numeric($currenttime)) {
+			$polling_interval = $currenttime - $thold_data['lasttime'];
+		} else {
+			$polling_interval = $thold_data['rrd_step'];
+		}
 	} else {
 		$polling_interval = $thold_data['rrd_step'];
 	}
