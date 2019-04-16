@@ -771,13 +771,11 @@ function thold_graphs_new() {
 }
 
 function thold_user_admin_setup_sql_save($save) {
-	global $database_default, $database_type, $database_port, $database_password, $database_username, $database_hostname, $config;
-
 	if (is_error_message()) {
 		return $save;
 	}
 
-	if (isset_request_var('email')) {
+	if (isset_request_var('email') || isset_request_var('email_address')) {
 		$email = form_input_validate(get_nfilter_request_var('email_address'), 'email_address', '', true, 3);
 		if ($save['id'] == 0) {
 			$save['id'] = sql_save($save, 'user_auth');
@@ -787,7 +785,7 @@ function thold_user_admin_setup_sql_save($save) {
 			FROM plugin_thold_contacts
 			WHERE type = "email"
 			AND user_id = ?',
-			array($save['id'], false));
+			array($save['id']));
 
 		if ($cid) {
 			db_execute_prepared('REPLACE INTO plugin_thold_contacts

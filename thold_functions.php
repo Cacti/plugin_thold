@@ -105,6 +105,14 @@ function thold_update_contacts() {
 			}
 		}
 	}
+
+	/* cleanup old accounts */
+	db_execute('DELETE ptc
+		FROM plugin_thold_contacts AS ptc
+		LEFT JOIN user_auth AS ua
+		ON ptc.user_id = ua.id
+		WHERE ua.email_address = "" 
+		OR ua.id IS NULL');
 }
 
 function thold_tabs() {
