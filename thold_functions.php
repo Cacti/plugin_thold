@@ -752,7 +752,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		if (isset($item[$thold_data['name']])) {
 			switch ($thold_data['data_source_type_id']) {
 			case 2:	// COUNTER
-				if ($thold_data['oldvalue'] != 0) {
+				if ($thold_data['oldvalue'] != 0 && is_numeric($thold_data['oldvalue'])) {
 					if ($item[$thold_data['name']] >= $thold_data['oldvalue']) {
 						// Everything is normal
 						$currentval = $item[$thold_data['name']] - $thold_data['oldvalue'];
