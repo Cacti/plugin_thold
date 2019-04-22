@@ -1196,7 +1196,9 @@ function thold_edit() {
 					}
 				}
 
-				if ($template_data_rrd['thold_id'] == get_request_var('id')) {
+				if (isset_request_var('id') && $template_data_rrd['thold_id'] == get_filter_request_var('id')) {
+					$selected = 'selected';
+				} elseif (isset_request_var('data_template_rrd_id') && $template_data_rrd['id'] == get_filter_request_var('data_template_rrd_id')) {
 					$selected = 'selected';
 				} else {
 					$selected = '';
