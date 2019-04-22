@@ -36,13 +36,15 @@ if (!defined('STAT_HI')) {
 	define('STAT_NORMAL', 0);
 }
 
-define('THOLD_SEVERITY_NORMAL', 0);
-define('THOLD_SEVERITY_ALERT', 1);
-define('THOLD_SEVERITY_WARNING', 2);
-define('THOLD_SEVERITY_NOTICE', 3);
-define('THOLD_SEVERITY_ACKREQ', 4);
-define('THOLD_SEVERITY_DISABLED', 5);
-define('THOLD_SEVERITY_BASELINE', 6);
+if (!defined('THOLD_SEVERITY_NORMAL')) {
+	define('THOLD_SEVERITY_NORMAL', 0);
+	define('THOLD_SEVERITY_ALERT', 1);
+	define('THOLD_SEVERITY_WARNING', 2);
+	define('THOLD_SEVERITY_NOTICE', 3);
+	define('THOLD_SEVERITY_ACKREQ', 4);
+	define('THOLD_SEVERITY_DISABLED', 5);
+	define('THOLD_SEVERITY_BASELINE', 6);
+}
 
 /* sanitize_thold_sort_string - cleans up a search string submitted by the user to be passed
      to the database. NOTE: some of the code for this function came from the phpBB project.

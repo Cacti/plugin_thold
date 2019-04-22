@@ -60,6 +60,7 @@ function thold_config_insert() {
 	$menu[__('Management')]['plugins/thold/notify_lists.php'] = __('Notification Lists', 'thold');
 	$menu[__('Management')]['plugins/thold/thold.php'] = __('Thresholds', 'thold');
 	$menu[__('Templates')]['plugins/thold/thold_templates.php'] = __('Threshold', 'thold');
+
 	if (isset_request_var('thold_vrule')) {
 		if (get_nfilter_request_var('thold_vrule') == 'on') {
 			$_SESSION['sess_config_array']['thold_draw_vrules'] = 'on';
@@ -69,18 +70,40 @@ function thold_config_insert() {
 		}
 	}
 
-	define('ST_RESTORAL', 0); // Restoral
-	define('ST_TRIGGERA', 1); // Trigger Alert
-	define('ST_NOTIFYRA', 2); // Notify Alert Retrigger
-	define('ST_NOTIFYWA', 3); // Notify Warning
-	define('ST_NOTIFYAL', 4); // Notify Alert
-	define('ST_NOTIFYRS', 5); // Notify Restoral
-	define('ST_TRIGGERW', 6); // Trigger Warning
-	define('ST_NOTIFYAW', 7); // Notify Restoral to Warning
+	if (!defined('ST_RESTORAL')) {
+		define('ST_RESTORAL', 0); // Restoral
+		define('ST_TRIGGERA', 1); // Trigger Alert
+		define('ST_NOTIFYRA', 2); // Notify Alert Retrigger
+		define('ST_NOTIFYWA', 3); // Notify Warning
+		define('ST_NOTIFYAL', 4); // Notify Alert
+		define('ST_NOTIFYRS', 5); // Notify Restoral
+		define('ST_TRIGGERW', 6); // Trigger Warning
+		define('ST_NOTIFYAW', 7); // Notify Restoral to Warning
+	}
 
-	define('STAT_HI',     2);
-	define('STAT_LO',     1);
-	define('STAT_NORMAL', 0);
+	if (!defined('MESSAGE_LEVEL_NONE')) {
+		define('MESSAGE_LEVEL_NONE', 0);
+		define('MESSAGE_LEVEL_INFO', 1);
+		define('MESSAGE_LEVEL_WARN', 2);
+		define('MESSAGE_LEVEL_ERROR', 3);
+		define('MESSAGE_LEVEL_CSRF', 4);
+	}
+
+	if (!defined('STAT_HI')) {
+		define('STAT_HI', 2);
+		define('STAT_LO', 1);
+		define('STAT_NORMAL', 0);
+	}
+
+	if (!defined('THOLD_SEVERITY_NORMAL')) {
+		define('THOLD_SEVERITY_NORMAL', 0);
+		define('THOLD_SEVERITY_ALERT', 1);
+		define('THOLD_SEVERITY_WARNING', 2);
+		define('THOLD_SEVERITY_NOTICE', 3);
+		define('THOLD_SEVERITY_ACKREQ', 4);
+		define('THOLD_SEVERITY_DISABLED', 5);
+		define('THOLD_SEVERITY_BASELINE', 6);
+	}
 }
 
 function thold_config_arrays() {
