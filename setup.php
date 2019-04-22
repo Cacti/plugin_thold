@@ -484,21 +484,21 @@ function thold_rrd_graph_graph_options($g) {
 					switch($t['thold_type']) {
 					case '0': // Hi / Low
 						if ($t['thold_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name'] . ' (' . number_format_i18n($t['thold_hi']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_hi']) . ')') . '\' \\' . "\n";
 						}
 
 						if ($t['thold_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name'] . ' (' . number_format_i18n($t['thold_low']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_low']) . ')') . '\' \\' . "\n";
 						}
 
 						break;
 					case '2': // Time Based
 						if ($t['time_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name'] . ' (' . number_format_i18n($t['time_hi']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_hi']) . ')') . '\' \\' . "\n";
 						}
 
 						if ($t['time_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name'] . ' (' . number_format_i18n($t['time_low']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_low']) . ')') . '\' \\' . "\n";
 						}
 
 						break;
@@ -514,21 +514,21 @@ function thold_rrd_graph_graph_options($g) {
 					switch($t['thold_type']) {
 					case '0': // Hi / Low
 						if ($t['thold_warning_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_warning_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name'] . ' (' . number_format_i18n($t['thold_warning_hi']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_warning_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_warning_hi']) . ')') . '\' \\' . "\n";
 						}
 
 						if ($t['thold_warning_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_warning_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name'] . ' (' . number_format_i18n($t['thold_warning_low']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_warning_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_warning_low']) . ')') . '\' \\' . "\n";
 						}
 
 						break;
 					case '2': // Time Based
 						if ($t['time_warning_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_warning_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name'] . ' (' . number_format_i18n($t['time_warning_hi']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_warning_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_warning_hi']) . ')') . '\' \\' . "\n";
 						}
 
 						if ($t['time_warning_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name'] . ' (' . number_format_i18n($t['time_warning_low']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_warning_low']) . ')') . '\' \\' . "\n";
 						}
 
 						break;
@@ -548,13 +548,13 @@ function thold_rrd_graph_graph_options($g) {
 						case '0': // Hi / Low
 							if ($t['thold_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name'] . ' (' . number_format_i18n($t['thold_hi'])) . ' %)' . '\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_hi'])) . ' %)' . '\' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['thold_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name'] . ' (' . number_format_i18n($t['thold_low'])) . ' %)' . '\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_low'])) . ' %)' . '\' \\' . "\n";
 								$thold_id++;
 							}
 
@@ -562,13 +562,13 @@ function thold_rrd_graph_graph_options($g) {
 						case '2': // Time Based
 							if ($t['time_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name'] . ' (' . number_format_i18n($t['time_hi'])) . ' %)' . '\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_hi'])) . ' %)' . '\' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['time_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name'] . ' (' . number_format_i18n($t['time_low'])) . ' %)' . '\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_low'])) . ' %)' . '\' \\' . "\n";
 								$thold_id++;
 							}
 
@@ -586,13 +586,13 @@ function thold_rrd_graph_graph_options($g) {
 						case '0': // Hi / Low
 							if ($t['thold_warning_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name'] . ' (' . number_format_i18n($t['thold_warning_hi'])) . ' %)' . '\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_warning_hi'])) . ' %)' . '\' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['thold_warning_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name'] . ' (' . number_format_i18n($t['thold_warning_low'])) . ' %)' . '\' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_warning_low'])) . ' %)' . '\' \\' . "\n";
 								$thold_id++;
 							}
 
@@ -1280,7 +1280,7 @@ function thold_device_template_edit() {
 							<?php print __('Add Threshold Template', 'thold');?>
 						</td>
 						<td>
-							<?php form_dropdown('thold_template_id',$unmapped ,'name','id','','','');?>
+							<?php form_dropdown('thold_template_id', $unmapped, 'name', 'id', '', '', '');?>
 						</td>
 						<td>
 							<input type='button' value='<?php print __esc('Add', 'thold');?>' id='add_tt' title='<?php print __esc('Add Threshold Template to Device Template', 'thold');?>'>
