@@ -127,6 +127,8 @@ that.
 
 * issue#297: Thold row always `alert color` when current value only reach warn hi/low
 
+* issue#301: Thold Graph does not substitute comment for warn/alert hrule
+
 * issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.
 
 --- 1.2.3 ---
