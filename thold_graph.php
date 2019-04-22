@@ -498,7 +498,7 @@ function tholds() {
 
 			$actions_url .= "<a href='". html_escape($config['url_path'] . 'graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graph', 'thold') . "'></a>";
 
-			$actions_url .= "<a class='hyperLink' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&reset=1&threshold_id=' . $thold_data['thold_template_id'] . '&host_id=' . $thold_data['host_id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' alt='' title='" . __esc('View Threshold History', 'thold') . "'></a>";
+			$actions_url .= "<a class='hyperLink' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&reset=1&threshold_id=' . $thold_data['id'] . '&host_id=' . $thold_data['host_id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' alt='' title='" . __esc('View Threshold History', 'thold') . "'></a>";
 
 			$data = array(
 				'thold_data' => $thold_data,
@@ -1065,7 +1065,7 @@ function thold_show_log() {
 	} elseif (get_request_var('threshold_id') == '0') {
 		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' td.id IS NULL';
 	} elseif (get_request_var('threshold_id') > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' td.thold_template_id=' . get_request_var('threshold_id');
+		$sql_where .= (strlen($sql_where) ? ' AND':'') . ' td.id=' . get_request_var('threshold_id');
 	}
 
 	if (get_request_var('status') == '-1') {
@@ -1212,18 +1212,16 @@ function form_thold_log_filter() {
 						<select id='threshold_id' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('threshold_id') == '-1') {?> selected<?php }?>><?php print __('All');?></option>
 							<?php
-							$tholds = db_fetch_assoc('SELECT DISTINCT tt.id, tt.name
-								FROM thold_template AS tt
-								INNER JOIN thold_data AS td
-								ON tt.id=td.thold_template_id
+							$tholds = db_fetch_assoc('SELECT DISTINCT td.id, td.name_cache
+								FROM thold_data AS td
 								INNER JOIN plugin_thold_log AS tl
 								ON td.id = tl.threshold_id ' .
 								(get_request_var('host_id') > 0 ? 'WHERE td.host_id=' . get_request_var('host_id'):'') .
-								' ORDER by tt.name');
+								' ORDER by td.name_cache');
 
 							if (cacti_sizeof($tholds)) {
 								foreach ($tholds as $thold) {
-									print "<option value='" . $thold['id'] . "'"; if (get_request_var('threshold_id') == $thold['id']) { print ' selected'; } print '>' . $thold['name'] . '</option>';
+									print "<option value='" . $thold['id'] . "'"; if (get_request_var('threshold_id') == $thold['id']) { print ' selected'; } print '>' . $thold['name_cache'] . '</option>';
 								}
 							}
 							?>
