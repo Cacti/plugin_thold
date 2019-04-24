@@ -3249,7 +3249,10 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+
 			$cmd = thold_expand_string($thold_data, $cmd);
+
+			thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
 			exec($cmd, $output, $return);
 
@@ -3258,12 +3261,16 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
+			thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+
 			exec($cmd, $output, $return);
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 			$cmd = thold_expand_string($thold_data, $cmd);
+
+			thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
 			exec($cmd, $output, $return);
 
@@ -3286,6 +3293,52 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 			}
 		}
 	}
+}
+
+function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
+	$httpurl    = read_config_option('base_url');
+
+	// Do some replacement of variables
+	putenv('THOLD_DESCRIPTION',   $h['description']);
+	putenv('THOLD_HOSTNAME',      $h['hostname']);
+	putenv('THOLD_GRAPHID',       $local_graph_id);
+
+	putenv('THOLD_CURRENTVALUE',  $currentval);
+	putenv('THOLD_THRESHOLDNAME', $thold['name_cache']);
+	putenv('THOLD_DSNAME',        $data_source_name);
+	putenv('THOLD_THOLDTYPE',     $thold_types[$thold['thold_type']]);
+
+	if ($thold['notes'] != '') {
+		$notes = thold_replace_threshold_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
+		putenv('THOLD_NOTES', $notes);
+	} else {
+		putenv('THOLD_NOTES', '');
+	}
+
+	putenv('THOLD_DEVICENOTE',    $thold['dnotes']);
+
+	if ($thold['thold_type'] == 0) {
+		putenv('THOLD_HI',        $thold['thold_hi']);
+		putenv('THOLD_LOW',       $thold['thold_low']);
+		putenv('THOLD_TRIGGER',   $thold['thold_fail_trigger']);
+		putenv('THOLD_DURATION',  '');
+	} elseif ($thold['thold_type'] == 2) {
+		putenv('THOLD_HI',        $thold['time_hi']);
+		putenv('THOLD_LOW',       $thold['time_low']);
+		putenv('THOLD_TRIGGER',   $thold['time_fail_trigger']);
+		putenv('THOLD_DURATION',  plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time'));
+	} else {
+		putenv('THOLD_HI',        '');
+		putenv('THOLD_LOW',       '');
+		putenv('THOLD_TRIGGER',   '');
+		putenv('THOLD_DURATION',  '');
+	}
+
+	putenv('THOLD_TIME',          time());
+	putenv('THOLD_DATE',          date(CACTI_DATE_TIME_FORMAT));
+	putenv('THOLD_DATE_RFC822',   date(DATE_RFC822));
+
+	putenv('THOLD_URL', html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id"));
 }
 
 function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {

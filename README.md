@@ -111,6 +111,8 @@ that.
 
 * feature: Allow Threshold Notification Settings to be overwritten based upon Template setting.
 
+* feature: Set THOLD_* specific environment variables for script use
+
 * issue#182: When adding/removing list from a Threshold, Templated Thresholds should be ignored.
 
 * issue#268: Allow Device Association/Disassociation to set Thresholds Notification as well.
