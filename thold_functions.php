@@ -3344,7 +3344,17 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
 	global $thold_types;
 
-	$httpurl    = read_config_option('base_url');
+	if (substr(read_config_option('base_url'), 0, 4) != 'http') {
+		if (read_config_option('force_https') == 'on') {
+			$prefix = 'https://';
+		} else {
+			$prefix = 'http://';
+		}
+
+		set_config_option('base_url', $prefix . read_config_option('base_url'));
+	}
+
+	$httpurl = read_config_option('base_url', true);
 
 	// Do some replacement of variables
 	$text = str_replace('<DESCRIPTION>',   $h['description'], $text);
