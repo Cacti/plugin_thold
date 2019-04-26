@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: thold on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-19 09:51+0000\n"
-"PO-Revision-Date: 2019-03-18 01:57-0400\n"
-"Last-Translator: ASD\n"
-"Language-Team: sfqas <sfqas@163.com>\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2019-04-26 01:40+0000\n"
+"Last-Translator: whsir <wh@whsir.com>\n"
+"Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
+"cacti/thold/zh-CN/>\n"
+"Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -356,6 +358,7 @@ msgstr "重置确认"
 
 #: includes/arrays.php:352 includes/arrays.php:361 notify_lists.php:31
 #: setup.php:1247
+#, fuzzy
 msgid "Delete"
 msgstr "删除"
 
@@ -392,6 +395,7 @@ msgstr "SNMP 未被使用"
 #: thold_graph.php:748 thold_graph.php:804 thold_graph.php:807
 #: thold_graph.php:808 thold_graph.php:809 thold_graph.php:1112
 #: thold_graph.php:1113
+#, fuzzy
 msgid "N/A"
 msgstr "N/A"
 
@@ -698,8 +702,9 @@ msgstr ""
 "ifHighSpeed  设置,  如果10GE接口默认 ifHighSpeed  为10000."
 
 #: includes/settings.php:247
+#, fuzzy
 msgid "Logging"
-msgstr "记录"
+msgstr "日志"
 
 #: includes/settings.php:251
 msgid "Log Threshold Breaches"
@@ -1184,6 +1189,7 @@ msgstr ""
 #: notify_lists.php:501 notify_lists.php:560 notify_lists.php:571
 #: notify_lists.php:628 notify_lists.php:638 setup.php:1329 thold.php:463
 #: thold_templates.php:257
+#, fuzzy
 msgid "Cancel"
 msgstr "取消"
 
@@ -1364,6 +1370,7 @@ msgstr "相关设备"
 #: notify_lists.php:1711 thold.php:642 thold.php:2187 thold_graph.php:102
 #: thold_graph.php:839 thold_graph.php:1139 thold_templates.php:1685
 #: thold_templates.php:1795
+#, fuzzy
 msgid "Search"
 msgstr "搜索"
 
@@ -1381,8 +1388,9 @@ msgstr "类型"
 #: thold_graph.php:1150 thold_templates.php:382 thold_templates.php:430
 #: thold_templates.php:1018 thold_templates.php:1026 thold_templates.php:1307
 #: thold_templates.php:1315 thold_templates.php:1648
+#, fuzzy
 msgid "None"
-msgstr "没有"
+msgstr "无"
 
 #: notify_lists.php:881 notify_lists.php:1156 notify_lists.php:1398
 #: notify_lists.php:1721 thold.php:721 thold_graph.php:176 thold_graph.php:913
@@ -1397,24 +1405,28 @@ msgstr "关联的"
 #: notify_lists.php:899 notify_lists.php:1174 notify_lists.php:1416
 #: notify_lists.php:1732 thold.php:669 thold_graph.php:130 thold_graph.php:882
 #: thold_graph.php:1167 thold_templates.php:1817
+#, fuzzy
 msgid "Go"
-msgstr "启动"
+msgstr "Go"
 
 #: notify_lists.php:899 notify_lists.php:1174 notify_lists.php:1416
 #: notify_lists.php:1732
+#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "设置/刷新过滤器"
 
 #: notify_lists.php:900 notify_lists.php:1175 notify_lists.php:1417
 #: notify_lists.php:1735 thold.php:672 thold_graph.php:131 thold_graph.php:883
 #: thold_graph.php:1168 thold_templates.php:1818
+#, fuzzy
 msgid "Clear"
 msgstr "清除"
 
 #: notify_lists.php:900 notify_lists.php:1175 notify_lists.php:1417
 #: notify_lists.php:1735
+#, fuzzy
 msgid "Clear Filters"
-msgstr "清除过滤器"
+msgstr "清除过滤"
 
 #: notify_lists.php:993 notify_lists.php:1222 notify_lists.php:1466
 #: thold.php:783 thold_graph.php:350 thold_graph.php:721
@@ -2577,8 +2589,9 @@ msgid "Time:"
 msgstr "时间："
 
 #: thold_functions.php:239
+#, fuzzy
 msgid "User:"
-msgstr "用户："
+msgstr "用户:"
 
 #: thold_functions.php:240
 msgid "System:"
@@ -2836,12 +2849,14 @@ msgid ""
 msgstr "自Cacti上次计数器重置以来，此设备的总体可用性"
 
 #: thold_graph.php:769 thold_graph.php:794
+#, fuzzy
 msgid "Edit Device"
 msgstr "编辑设备"
 
 #: thold_graph.php:771 thold_graph.php:796
+#, fuzzy
 msgid "View Graphs"
-msgstr "查看图表"
+msgstr "查看图形"
 
 #: thold_graph.php:815
 msgid "No Devices"
