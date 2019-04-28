@@ -949,7 +949,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 			$data_local = db_fetch_row_prepared('SELECT *
 				FROM data_local
 				WHERE id = ?',
-				array($thold_data['local_data_id']));
+				array($thold['local_data_id']));
 
 			$operator = rrdtool_function_interface_speed($data_local);
 		}
