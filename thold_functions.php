@@ -4710,7 +4710,7 @@ function thold_create_thold_save_from_template($save, $template) {
 }
 
 // Create tholds for all possible data elements for a host
-function autocreate($host_ids, $graph_ids = '', $graph_template = '', $thold_template_id = '', $log = false) {
+function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_template_id = '', $log = false) {
 	$created = 0;
 	$message = '';
 	$host_id = 0;
@@ -4843,7 +4843,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 		$template = db_fetch_row_prepared('SELECT *
 			FROM thold_template
 			WHERE id = ?',
-			array($thold_template_id));
+			array($template_or_id));
 	}
 
 	$data_source_name = db_fetch_cell_prepared('SELECT data_source_name
