@@ -3296,6 +3296,8 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 }
 
 function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
+	global $thold_types;
+
 	$httpurl    = read_config_option('base_url');
 
 	// Do some replacement of variables
@@ -3971,7 +3973,7 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 	}
 
 	if ($debug) {
-		print 'Local Data Id: '     . $local_data_id . ':' . $thold['data_template_rrd_id'] . "\n";
+		print 'Local Data Id: '     . $local_data_id . ':' . $thold_data['data_template_rrd_id'] . "\n";
 		print 'Ref. values count: ' . (isset($ref_values) ? count($ref_values):"N/A") . "\n";
 		print 'Ref. value (min): '  . (isset($ref_value_min) ? $ref_value_min:'N/A') . "\n";
 		print 'Ref. value (max): '  . (isset($ref_value_max) ? $ref_value_max:'N/A') . "\n";

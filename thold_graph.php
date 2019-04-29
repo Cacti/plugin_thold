@@ -757,18 +757,6 @@ function hosts() {
 				$uptime    = __('N/A', 'thold');
 			}
 
-			if (isset($host_graphs[$host['id']])) {
-				$graphs = $host_graphs[$host['id']];
-			} else {
-				$graphs = 0;
-			}
-
-			if (isset($host_data_sources[$host['id']])) {
-				$ds = $host_data_sources[$host['id']];
-			} else {
-				$ds = 0;
-			}
-
 			if ($host['availability_method'] != 0) {
 				form_host_status_row_color($host['status'], $host['disabled'], $host['id']);
 
@@ -807,8 +795,8 @@ function hosts() {
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
 				form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], '', 'left');
 				form_selectable_cell(number_format_i18n($host['id']), $host['id'], '', 'right');
-				form_selectable_cell('<i>' . number_format_i18n($graphs) . '</i>', $host['id'], '', 'right');
-				form_selectable_cell('<i>' . number_format_i18n($ds) . '</i>', $host['id'], '', 'right');
+				form_selectable_cell('<i>' . number_format_i18n($host['graphs']) . '</i>', $host['id'], '', 'right');
+				form_selectable_cell('<i>' . number_format_i18n($host['data_sources') . '</i>', $host['id'], '', 'right');
 				form_selectable_cell(__('Not Monitored', 'thold'), $host['id'], '', 'center');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
