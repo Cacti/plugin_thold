@@ -796,7 +796,7 @@ function hosts() {
 				form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], '', 'left');
 				form_selectable_cell(number_format_i18n($host['id']), $host['id'], '', 'right');
 				form_selectable_cell('<i>' . number_format_i18n($host['graphs']) . '</i>', $host['id'], '', 'right');
-				form_selectable_cell('<i>' . number_format_i18n($host['data_sources') . '</i>', $host['id'], '', 'right');
+				form_selectable_cell('<i>' . number_format_i18n($host['data_sources']) . '</i>', $host['id'], '', 'right');
 				form_selectable_cell(__('Not Monitored', 'thold'), $host['id'], '', 'center');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
