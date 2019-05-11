@@ -1099,7 +1099,7 @@ function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data
 			'id', 'id'
 		);
 
-		if (sizeof($ids)) {
+		if (cacti_sizeof($ids)) {
 			$data_template_data_ids = implode(', ', $ids);
 
 			foreach($matches as $match) {
@@ -4004,7 +4004,7 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 function thold_create_new_graph_from_template() {
 	if (isset_request_var('save_component_graph')) {
 		/* summarize the 'create graph from host template/snmp index' stuff into an array */
-		while (list($var, $val) = each($_POST)) {
+		foreach ($_POST as $var => $val) {
 			if (preg_match('/^cg_(\d+)$/', $var, $matches)) {
 				$selected_graphs['cg']{$matches[1]}{$matches[1]} = true;
 			} elseif (preg_match('/^cg_g$/', $var)) {
