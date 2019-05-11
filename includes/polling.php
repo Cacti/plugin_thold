@@ -675,10 +675,12 @@ function thold_update_host_status() {
 					)
 				);
 
+				cacti_log('WARNING: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] is recovering!', true, 'THOLD');
+
 				if ($alert_email == '' && $host['thold_send_email'] > 0) {
-					cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device recovering email for \'' . $host['description'] . '\' since the \'Alert Email\' setting is not set for Device!', true, 'THOLD');
+					cacti_log('WARNING: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] can not send a Device recovering email for \'' . $host['description'] . '\' since the \'Alert Email\' setting is not set for Device!', true, 'THOLD');
 				} elseif ($host['thold_send_email'] == '0') {
-					cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Device recovering email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
+					cacti_log('NOTE: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] did not send a Device recovering email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 				} elseif ($alert_email != '') {
 					thold_mail($alert_email, '', $subject, $msg, '');
 				}
@@ -791,10 +793,12 @@ function thold_update_host_status() {
 				)
 			);
 
+			cacti_log('WARNING: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] is down!', true, 'THOLD');
+
 			if ($alert_email == '' && $host['thold_send_email'] > 0) {
-				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] WARNING: Can not send a Device down email for \'' . $host['description'] . '\' since the \'Alert Email\' setting is not set for Device!', true, 'THOLD');
+				cacti_log('WARNING: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] can not send a Device down email for \'' . $host['description'] . '\' since the \'Alert Email\' setting is not set for Device!', true, 'THOLD');
 			} elseif ($host['thold_send_email'] == '0') {
-				cacti_log('Host[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] NOTE: Did not send a Device down email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
+				cacti_log('NOTE: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] did not send a Device down email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 			} elseif ($alert_email != '') {
 				thold_mail($alert_email, '', $subject, $msg, '');
 			}
