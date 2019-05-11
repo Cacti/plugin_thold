@@ -3766,7 +3766,7 @@ function delete_old_thresholds() {
 
 	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
-			plugin_thold_log_changes($thold_data['id'], 'deleted', array('message' => 'Auto-delete due to  Data Source removal'));
+			plugin_thold_log_changes($thold_data['id'], 'deleted', array('message' => 'Auto-delete due to Data Source removal'));
 
 			thold_api_thold_remove($thold_data['id']);
 		}
