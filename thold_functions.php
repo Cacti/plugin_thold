@@ -5735,6 +5735,7 @@ function thold_template_import($xml_data) {
 					foreach ($contents as $name => $value) {
 						switch($name) {
 							case 'data_template_id':
+							case 'data_template_hash':
 								// See if the hash exists, if it doesn't, Error Out
 								$found = db_fetch_cell_prepared('SELECT id
 									FROM data_template
