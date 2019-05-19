@@ -779,17 +779,17 @@ function list_tholds() {
 			'align' => 'right',
 			'tip' => __('The last measured value for the Data Source', 'thold')
 		),
-		'thold_hi' => array(
+		'nosort1' => array(
 			'display' => __('High', 'thold'),
 			'sort' => 'ASC',
 			'align' => 'right',
-			'tip' => __('High Threshold values for Warning/Alert', 'thold')
+			'tip' => __('The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that are modified by a cdef.', 'thold')
 		),
-		'thold_low' => array(
+		'nosort2' => array(
 			'display' => __('Low', 'thold'),
 			'sort' => 'ASC',
 			'align' => 'right',
-			'tip' => __('Low Threshold values for Warning/Alert', 'thold')
+			'tip' => __('The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that are modified by a cdef.', 'thold')
 		),
 		'nosort3' => array(
 			'display' => __('Trigger', 'thold'),
@@ -832,8 +832,8 @@ function list_tholds() {
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
-	$c=0;
-	$i=0;
+	$c = 0;
+	$i = 0;
 
 	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
@@ -906,6 +906,7 @@ function list_tholds() {
 				$name = thold_expand_string($thold_data, $thold_data['name']);
 			}
 
+			// Setup base units
 			$baseu = db_fetch_cell_prepared('SELECT base_value
 				FROM graph_templates_graph
 				WHERE local_graph_id = ?',
@@ -916,37 +917,36 @@ function list_tholds() {
 				$baseu = 1024;
 			}
 
+			// Check is the graph item has a cdef and modify the output
+			thold_modify_values_for_display($thold_data);
+
 			form_selectable_cell(filter_value($name, get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
 			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
 			form_selectable_cell($data_source, $thold_data['id'], '', 'right');
+			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'right');
 
 			switch($thold_data['thold_type']) {
 				case 0:
-					form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'right');
 					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi'], 2, $baseu) . ' / ' . thold_format_number($thold_data['thold_hi'], 2, $baseu), $thold_data['id'], '', 'right');
 					form_selectable_cell(thold_format_number($thold_data['thold_warning_low'], 2, $baseu) . ' / ' . thold_format_number($thold_data['thold_low'], 2, $baseu), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['thold_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'right');
 					form_selectable_cell(__('N/A', 'thold'),  $thold_data['id'], '', 'right');
 					break;
 				case 1:
-					form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'right');
-
 					form_selectable_cell($thold_data['bl_pct_up'] . (strlen($thold_data['bl_pct_up']) ? '%':'-'), $thold_data['id'], '', 'right');
 					form_selectable_cell($thold_data['bl_pct_down'] . (strlen($thold_data['bl_pct_down']) ? '%':'-'), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['bl_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'right');
 					form_selectable_cell($timearray[$thold_data['bl_ref_time_range']/$thold_data['rrd_step']], $thold_data['id'], '', 'right');
 					break;
 				case 2:
-					form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'right');
 					form_selectable_cell(thold_format_number($thold_data['time_warning_hi'], 2, $baseu) . ' / ' . thold_format_number($thold_data['time_hi'], 2, $baseu), $thold_data['id'], '', 'right');
 					form_selectable_cell(thold_format_number($thold_data['time_warning_low'], 2, $baseu) . ' / ' . thold_format_number($thold_data['time_low'], 2, $baseu), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . __('%d Triggers', $thold_data['time_fail_trigger'], 'thold') . '</i>',  $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['time_fail_length'], 'time') . '</i>', $thold_data['id'], '', 'right');
 					break;
 				default:
-					form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'right');
 					form_selectable_cell('- / -',  $thold_data['id'], '', 'right');
 					form_selectable_cell('- / -',  $thold_data['id'], '', 'right');
 					form_selectable_cell(__('N/A', 'thold'),  $thold_data['id'], '', 'right');
@@ -1155,6 +1155,9 @@ function thold_edit() {
 						cacti_log('WARNING: Graph Template for local_graph_id ' . $td['local_graph_id'] . ' has been removed!');
 						$baseu = 1024;
 					}
+
+					// Check is the graph item has a cdef and modify the output
+					thold_modify_values_for_display($td);
 
 					$cur_setting = '<span style="padding-right:4px;">' . __('Last:', 'thold'). '</span>' .
 						($td['lastread'] == '' ? "<span>" . __('N/A', 'thold') . "</span>":"<span class='deviceDown'>" .
@@ -1388,7 +1391,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => '70',
-			'default' => '|data_source_description|',
+			'default' => '|data_source_description| [|data_source_name|]',
 			'description' => __('Provide the Thresholds a meaningful name', 'thold'),
 			'value' => isset($thold_data['name']) && $thold_data['name'] != '' ? $thold_data['name'] : ''
 		),
@@ -1469,7 +1472,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes above this number, warning will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['thold_warning_hi']) ? $thold_data['thold_warning_hi'] : ''
 		),
 		'thold_warning_low' => array(
@@ -1477,14 +1480,14 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes below this number, warning will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['thold_warning_low']) ? $thold_data['thold_warning_low'] : ''
 		),
 		'thold_warning_fail_trigger' => array(
 			'friendly_name' => __('Breach Duration', 'thold'),
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'description' => __('The amount of time the data source must be in breach of the Threshold for a warning to be raised.', 'thold'),
+			'description' => __('The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['thold_warning_fail_trigger']) ? $thold_data['thold_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'thold_header' => array(
@@ -1496,7 +1499,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes above this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['thold_hi']) ? $thold_data['thold_hi'] : ''
 		),
 		'thold_low' => array(
@@ -1504,14 +1507,14 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes below this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['thold_low']) ? $thold_data['thold_low'] : ''
 		),
 		'thold_fail_trigger' => array(
 			'friendly_name' => __('Breach Duration', 'thold'),
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'description' => __('The amount of time the data source must be in breach of the Threshold for an alert to be raised.', 'thold'),
+			'description' => __('The amount of time the Data Source must be in breach of the Threshold for an alert to be raised.', 'thold'),
 			'value' => isset($thold_data['thold_fail_trigger']) ? $thold_data['thold_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_header' => array(
@@ -1523,7 +1526,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes above this number, warning will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['time_warning_hi']) ? $thold_data['time_warning_hi'] : ''
 		),
 		'time_warning_low' => array(
@@ -1531,7 +1534,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes below this number, warning will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['time_warning_low']) ? $thold_data['time_warning_low'] : ''
 		),
 		'time_warning_fail_trigger' => array(
@@ -1539,7 +1542,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 5,
 			'size' => 15,
-			'description' => __('The number of times the data source must be in breach of the Threshold.', 'thold'),
+			'description' => __('The number of times the Data Source must be in breach of the Threshold.', 'thold'),
 			'value' => isset($thold_data['time_warning_fail_trigger']) ? $thold_data['time_warning_fail_trigger'] : read_config_option('thold_warning_time_fail_trigger')
 		),
 		'time_warning_fail_length' => array(
@@ -1558,7 +1561,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes above this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['time_hi']) ? $thold_data['time_hi'] : ''
 		),
 		'time_low' => array(
@@ -1566,7 +1569,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes below this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['time_low']) ? $thold_data['time_low'] : ''
 		),
 		'time_fail_trigger' => array(
@@ -1575,7 +1578,7 @@ function thold_edit() {
 			'max_length' => 5,
 			'size' => 15,
 			'default' => read_config_option('thold_time_fail_trigger'),
-			'description' => __('The number of times the data source must be in breach of the Threshold.', 'thold'),
+			'description' => __('The number of times the Data Source must be in breach of the Threshold.', 'thold'),
 			'value' => isset($thold_data['time_fail_trigger']) ? $thold_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
 		),
 		'time_fail_length' => array(
@@ -1617,7 +1620,7 @@ function thold_edit() {
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 15,
-			'description' => __('Number of consecutive times the data source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)', read_config_option('alert_bl_trigger'), 'thold'),
+			'description' => __('Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)', read_config_option('alert_bl_trigger'), 'thold'),
 			'value' => isset($thold_data['bl_fail_trigger']) ? $thold_data['bl_fail_trigger'] : read_config_option('alert_bl_trigger')
 		),
 		'data_manipulation' => array(

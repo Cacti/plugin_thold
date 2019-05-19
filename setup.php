@@ -250,9 +250,9 @@ function thold_graph_button($data) {
 			get_filter_request_var('leaf_id');
 		}
 
-		$is_aggregate = db_fetch_cell_prepared('SELECT id 
-			FROM aggregate_graphs 
-			WHERE local_graph_id = ?', 
+		$is_aggregate = db_fetch_cell_prepared('SELECT id
+			FROM aggregate_graphs
+			WHERE local_graph_id = ?',
 			array($local_graph_id));
 
 		if (empty($is_aggregate)) {
@@ -268,6 +268,8 @@ function thold_multiexplode($delimiters, $string) {
 
 function thold_rrd_graph_graph_options($g) {
 	global $config;
+
+	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	/* handle thold replacement variables */
 	$needles      = array();
@@ -471,11 +473,18 @@ function thold_rrd_graph_graph_options($g) {
 	$txt_graph_items = '';
 	if (cacti_sizeof($tholds_w_hrule)) {
 		foreach($tholds_w_hrule as $t) {
+			// Adjust number for graph
+			thold_modify_values_for_display($t);
+
+			$baseu = db_fetch_cell_prepared('SELECT base_value
+				FROM graph_templates_graph
+				WHERE local_graph_id = ?',
+				array($t['local_graph_id']));
+
 			switch($t['data_type']) {
 			case '0': // Exact value
 			case '1': // CDEF
 				if ($t['thold_hrule_alert'] > 0) {
-
 					$color = db_fetch_cell_prepared('SELECT hex
 						FROM colors
 						WHERE id = ?',
@@ -484,21 +493,21 @@ function thold_rrd_graph_graph_options($g) {
 					switch($t['thold_type']) {
 					case '0': // Hi / Low
 						if ($t['thold_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_hi']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name_cache'] . ' (' . thold_format_number($t['thold_hi'], 2, $baseu) . ')') . '\' \\' . "\n";
 						}
 
 						if ($t['thold_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_low']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name_cache'] . ' (' . thold_format_number($t['thold_low'], 2, $baseu) . ')') . '\' \\' . "\n";
 						}
 
 						break;
 					case '2': // Time Based
 						if ($t['time_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_hi']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Hi for ' . $t['name_cache'] . ' (' . thold_format_number($t['time_hi'], 2, $baseu) . ')') . '\' \\' . "\n";
 						}
 
 						if ($t['time_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_low']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Alert Low for ' . $t['name_cache'] . ' (' . thold_format_number($t['time_low'], 2, $baseu) . ')') . '\' \\' . "\n";
 						}
 
 						break;
@@ -514,21 +523,21 @@ function thold_rrd_graph_graph_options($g) {
 					switch($t['thold_type']) {
 					case '0': // Hi / Low
 						if ($t['thold_warning_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_warning_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_warning_hi']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_warning_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name_cache'] . ' (' . thold_format_number($t['thold_warning_hi'], 2, $baseu) . ')') . '\' \\' . "\n";
 						}
 
 						if ($t['thold_warning_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_warning_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['thold_warning_low']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_warning_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name_cache'] . ' (' . thold_format_number($t['thold_warning_low'], 2, $baseu) . ')') . '\' \\' . "\n";
 						}
 
 						break;
 					case '2': // Time Based
 						if ($t['time_warning_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_warning_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_warning_hi']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_warning_hi'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Hi for ' . $t['name_cache'] . ' (' . thold_format_number($t['time_warning_hi'], 2, $baseu) . ')') . '\' \\' . "\n";
 						}
 
 						if ($t['time_warning_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name_cache'] . ' (' . number_format_i18n($t['time_warning_low']) . ')') . '\' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':\'' . rrdtool_escape_string('Warning Low for ' . $t['name_cache'] . ' (' . thold_format_number($t['time_warning_low'], 2, $baseu) . ')') . '\' \\' . "\n";
 						}
 
 						break;
@@ -1423,8 +1432,8 @@ function thold_data_source_remove($data_ids) {
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	$tholds = array_rekey(
-		db_fetch_assoc('SELECT id 
-			FROM thold_data 
+		db_fetch_assoc('SELECT id
+			FROM thold_data
 			WHERE local_data_id IN (' . implode(', ', $data_ids) . ')'),
 		'id', 'id'
 	);
@@ -1451,7 +1460,7 @@ function thold_clog_regex_threshold($matches) {
 
 	$result = $matches[0];
 
-	$threshold_ids = explode(',',str_replace(" ","",$matches[2]));
+	$threshold_ids = explode(',', str_replace(' ', '', $matches[2]));
 	if (cacti_sizeof($threshold_ids)) {
 		$result = '';
 		$thresholds = db_fetch_assoc('SELECT id, name, name_cache, local_data_id
@@ -1479,3 +1488,4 @@ function thold_clog_regex_threshold($matches) {
 
 	return $result;
 }
+

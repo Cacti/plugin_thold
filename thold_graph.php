@@ -363,19 +363,16 @@ function tholds() {
 			'tip' => __('The last measured value for the Data Source', 'thold')
 		),
 		'nosort4' => array(
-			'display' => __('Warn Hi/Lo', 'thold'),
+			'display' => __('High', 'thold'),
 			'sort' => 'ASC',
-			'align' => 'right'
+			'align' => 'right',
+			'tip' => __('The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that are modified by a cdef.', 'thold')
 		),
 		'nosort5' => array(
-			'display' => __('Alert Hi/Lo', 'thold'),
+			'display' => __('Low', 'thold'),
 			'sort' => 'ASC',
-			'align' => 'right'
-		),
-		'nosort6' => array(
-			'display' => __('BL Hi/Lo', 'thold'),
-			'sort' => 'ASC',
-			'align' => 'right'
+			'align' => 'right',
+			'tip' => __('The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that are modified by a cdef.', 'thold')
 		),
 		'nosort2' => array(
 			'display' => __('Trigger', 'thold'),
@@ -480,6 +477,9 @@ function tholds() {
 				$baseu = 1024;
 			}
 
+			// Check is the graph item has a cdef and modify the output
+			thold_modify_values_for_display($thold_data);
+
 			$actions_url = '';
 
 			if (api_user_realm_auth('thold.php')) {
@@ -520,28 +520,30 @@ function tholds() {
 
 			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'right');
 
-			form_selectable_cell(($thold_data['thold_type'] == 1 ? __('N/A', 'thold'):($thold_data['thold_type'] == 2 ? thold_format_number($thold_data['time_warning_hi'], 2, $baseu) . '/' . thold_format_number($thold_data['time_warning_low'], 2, $baseu) : thold_format_number($thold_data['thold_warning_hi'], 2, $baseu) . '/' . thold_format_number($thold_data['thold_warning_low'], 2, $baseu))), $thold_data['id'], '', 'right');
-
-			form_selectable_cell(($thold_data['thold_type'] == 1 ? __('N/A', 'thold'):($thold_data['thold_type'] == 2 ? thold_format_number($thold_data['time_hi'], 2, $baseu) . '/' . thold_format_number($thold_data['time_low'], 2, $baseu) : thold_format_number($thold_data['thold_hi'], 2, $baseu) . '/' . thold_format_number($thold_data['thold_low'], 2, $baseu))), $thold_data['id'], '', 'right');
-
-			form_selectable_cell(($thold_data['thold_type'] == 1 ? $thold_data['bl_pct_up'] . (strlen($thold_data['bl_pct_up']) ? '%':'-') . '/' . $thold_data['bl_pct_down'] . (strlen($thold_data['bl_pct_down']) ? '%':'-'): __('N/A', 'thold')), $thold_data['id'], '', 'right');
-
 			switch($thold_data['thold_type']) {
 				case 0:
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi'], 2, $baseu) . ' / ' . thold_format_number($thold_data['thold_hi'], 2, $baseu), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_low'], 2, $baseu) . ' / ' . thold_format_number($thold_data['thold_low'], 2, $baseu), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['thold_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'right');
-					form_selectable_cell(__('N/A', 'thold'), $thold_data['id'], '', 'right');
+					form_selectable_cell(__('N/A', 'thold'),  $thold_data['id'], '', 'right');
 					break;
 				case 1:
+					form_selectable_cell($thold_data['bl_pct_up'] . (strlen($thold_data['bl_pct_up']) ? '%':'-'), $thold_data['id'], '', 'right');
+					form_selectable_cell($thold_data['bl_pct_down'] . (strlen($thold_data['bl_pct_down']) ? '%':'-'), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['bl_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'right');
 					form_selectable_cell($timearray[$thold_data['bl_ref_time_range']/$thold_data['rrd_step']], $thold_data['id'], '', 'right');
 					break;
 				case 2:
-					form_selectable_cell('<i>' . __('%d Triggers', $thold_data['time_fail_trigger'], 'thold') . '</i>', $thold_data['id'], '', 'right');
-					form_selectable_cell(plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['time_fail_length'], 'time'), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_hi'], 2, $baseu) . ' / ' . thold_format_number($thold_data['time_hi'], 2, $baseu), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_low'], 2, $baseu) . ' / ' . thold_format_number($thold_data['time_low'], 2, $baseu), $thold_data['id'], '', 'right');
+					form_selectable_cell('<i>' . __('%d Triggers', $thold_data['time_fail_trigger'], 'thold') . '</i>',  $thold_data['id'], '', 'right');
+					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['time_fail_length'], 'time') . '</i>', $thold_data['id'], '', 'right');
 					break;
 				default:
-					form_selectable_cell(__('N/A', 'thold'), $thold_data['id'], '', 'right');
-					form_selectable_cell(__('N/A', 'thold'), $thold_data['id'], '', 'right');
+					form_selectable_cell('- / -',  $thold_data['id'], '', 'right');
+					form_selectable_cell('- / -',  $thold_data['id'], '', 'right');
+					form_selectable_cell(__('N/A', 'thold'),  $thold_data['id'], '', 'right');
+					form_selectable_cell(__('N/A', 'thold'),  $thold_data['id'], '', 'right');
 			}
 
 			form_selectable_cell(($thold_data['repeat_alert'] == '' ? '' : plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['repeat_alert'], 'repeat')), $thold_data['id'], '', 'right');
@@ -725,18 +727,78 @@ function hosts() {
 	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
-		'nosort'                 => array('display' => __('Actions', 'thold'),      'align' => 'left',   'sort' => '',     'tip' => __('Hover over icons for help', 'thold')),
-		'description'            => array('display' => __('Description', 'thold'),  'align' => 'left',   'sort' => 'ASC',  'tip' => __('A description for the Device', 'thold')),
-		'id'                     => array('display' => __('ID', 'thold'),           'align' => 'right',  'sort' => 'ASC',  'tip' => __('A Cacti unique identifier for the Device', 'thold')),
-		'graphs'                 => array('display' => __('Graphs', 'thold'),       'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Graphs for this Device', 'thold')),
-		'data_sources'           => array('display' => __('Data Sources', 'thold'), 'align' => 'right',  'sort' => 'ASC',  'tip' => __('The number of Data Sources for this Device', 'thold')),
-		'status'                 => array('display' => __('Status', 'thold'),       'align' => 'center', 'sort' => 'ASC',  'tip' => __('The status for this Device as of the last time it was polled', 'thold')),
-		'instate'                => array('display' => __('In State', 'thold'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles', 'thold')),
-		'snmp_sysUpTimeInstance' => array('display' => __('Uptime', 'thold'),       'align' => 'right',  'sort' => 'ASC',  'tip' => __('The official uptime of the Device as reported by SNMP', 'thold')),
-		'hostname'               => array('display' => __('Hostname', 'thold'),     'align' => 'right',  'sort' => 'ASC',  'tip' => __('The official hostname for this Device', 'thold')),
-		'cur_time'               => array('display' => __('Current (ms)', 'thold'), 'align' => 'right',  'sort' => 'DESC', 'tip' => __('The current response time for the Cacti Availability check', 'thold')),
-		'avg_time'               => array('display' => __('Average (ms)', 'thold'), 'align' => 'right',  'sort' => 'DESC', 'tip' => __('The average response time for the Cacti Availability check', 'thold')),
-		'availability'           => array('display' => __('Availability', 'thold'), 'align' => 'right',  'sort' => 'ASC',  'tip' => __('The overall Availability of this Device since the last counter reset in Cacti', 'thold'))
+		'nosort' => array(
+			'display' => __('Actions', 'thold'),
+			'align' => 'left',
+			'sort' => '',
+			'tip' => __('Hover over icons for help', 'thold')
+		),
+		'description' => array(
+			'display' => __('Description', 'thold'),
+			'align' => 'left',
+			'sort' => 'ASC',
+			'tip' => __('A description for the Device', 'thold')
+		),
+		'id' => array(
+			'display' => __('ID', 'thold'),
+			'align' => 'right',
+			'sort' => 'ASC',
+			'tip' => __('A Cacti unique identifier for the Device', 'thold')
+		),
+		'graphs' => array(
+			'display' => __('Graphs', 'thold'),
+			'align' => 'right',
+			'sort' => 'ASC',
+			'tip' => __('The number of Graphs for this Device', 'thold')
+		),
+		'data_sources' => array(
+			'display' => __('Data Sources', 'thold'),
+			'align' => 'right',
+			'sort' => 'ASC',
+			'tip' => __('The number of Data Sources for this Device', 'thold')
+		),
+		'status' => array(
+			'display' => __('Status', 'thold'),
+			'align' => 'center',
+			'sort' => 'ASC',
+			'tip' => __('The status for this Device as of the last time it was polled', 'thold')
+		),
+		'instate' => array(
+			'display' => __('In State', 'thold'),
+			'align' => 'right',
+			'sort' => 'ASC',
+			'tip' => __('The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles', 'thold')
+		),
+		'snmp_sysUpTimeInstance' => array(
+			'display' => __('Uptime', 'thold'),
+			'align' => 'right',
+			'sort' => 'ASC',
+			'tip' => __('The official uptime of the Device as reported by SNMP', 'thold')
+		),
+		'hostname' => array(
+			'display' => __('Hostname', 'thold'),
+			'align' => 'right',
+			'sort' => 'ASC',
+			'tip' => __('The official hostname for this Device', 'thold')
+		),
+		'cur_time' => array(
+			'display' => __('Current (ms)', 'thold'),
+			'align' => 'right',
+			'sort' => 'DESC',
+			'tip' => __('The current response time for the Cacti Availability check', 'thold')
+		),
+		'avg_time' => array(
+			'display' => __('Average (ms)', 'thold'),
+			'align' => 'right',
+			'sort' => 'DESC',
+			'tip' => __('The average response time for the Cacti Availability check', 'thold')
+		),
+		'availability' => array(
+			'display' => __('Availability', 'thold'),
+			'align' => 'right',
+			'sort' => 'ASC',
+			'tip' => __('The overall Availability of this Device since the last counter reset in Cacti', 'thold')
+		)
 	);
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=hoststat');
@@ -765,7 +827,7 @@ function hosts() {
 				if (api_user_realm_auth('host.php')) {
 					$actions_url .= '<a href="' . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __esc('Edit Device', 'thold') . '"></a>';
 				}
-				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&graph_template_id=0&filter=&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'thold') . "'></a>";
+				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'thold') . "'></a>";
 
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
 
@@ -790,7 +852,7 @@ function hosts() {
 				if (api_user_realm_auth('host.php')) {
 					$actions_url .= '<a href="' . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host["id"]) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __esc('Edit Device', 'thold') . '"></a>';
 				}
-				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&graph_template_id=0&filter=&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'thold') . "'></a>";
+				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'thold') . "'></a>";
 
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
 				form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], '', 'left');
@@ -1080,33 +1142,33 @@ function thold_show_log() {
 
 	$display_text = array(
 		'hdescription' => array(
-			'display' => __('Device', 'thold'),            
-			'sort' => 'ASC', 
+			'display' => __('Device', 'thold'),
+			'sort' => 'ASC',
 			'align' => 'left'
 		),
 		'time' => array(
-			'display' => __('Time', 'thold'),              
-			'sort' => 'ASC', 
+			'display' => __('Time', 'thold'),
+			'sort' => 'ASC',
 			'align' => 'left'
 		),
 		'type' => array(
-			'display' => __('Type', 'thold'),              
-			'sort' => 'DESC', 
+			'display' => __('Type', 'thold'),
+			'sort' => 'DESC',
 			'align' => 'left'
 		),
 		'description' => array(
-			'display' => __('Event Description', 'thold'), 
-			'sort' => 'ASC', 
+			'display' => __('Event Description', 'thold'),
+			'sort' => 'ASC',
 			'align' => 'left'
 		),
 		'threshold_value' => array(
-			'display' => __('Alert Value', 'thold'),       
-			'sort' => 'ASC', 
+			'display' => __('Alert Value', 'thold'),
+			'sort' => 'ASC',
 			'align' => 'right'
 		),
 		'current' => array(
-			'display' => __('Measured Value', 'thold'),    
-			'sort' => 'ASC', 
+			'display' => __('Measured Value', 'thold'),
+			'sort' => 'ASC',
 			'align' => 'right'
 		)
 	);

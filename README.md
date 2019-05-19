@@ -113,6 +113,8 @@ that.
 
 * feature: Set THOLD_* specific environment variables for script use
 
+* issue#78: Different dimension - MegaBytes instead of Megabits
+
 * issue#182: When adding/removing list from a Threshold, Templated Thresholds should be ignored.
 
 * issue#268: Allow Device Association/Disassociation to set Thresholds Notification as well.
@@ -131,7 +133,22 @@ that.
 
 * issue#300: Thold shows multiple tabs as 'selected' when first creating a thold
 
+* issue#307: Thold should log thold device down and recovering to Cacti log for syslog forwarding
+
 * issue#301: Thold Graph does not substitute comment for warn/alert hrule
+
+* issue#310: Sort by Low value in management - Threshold page can not work well
+
+* issue#311: Can not show graphs when drill down from Thold - Device Status
+
+* issue#312: A warning thold use wrong color
+
+* issue#314: Current display value incorrect
+
+* issue#315: Can not distinct threshold with same graph template but with different DataSource
+
+* issue#316: Wrong color when baseline deviation type of threshold back to normal 
+
 
 * issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.
 

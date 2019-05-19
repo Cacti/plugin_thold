@@ -1185,19 +1185,19 @@ function thold_upgrade_database($force = false) {
 			'default'  => '',
 			'after'    => 'suggested_name'));
 
-		db_execute('UPDATE thold_data 
-			SET name = "|data_source_description|"
+		db_execute('UPDATE thold_data
+			SET name = "|data_source_description| [|data_source_name|]"
 			WHERE name = ""');
 
-		db_execute('UPDATE thold_template 
-			SET suggested_name = "|data_source_description|"
+		db_execute('UPDATE thold_template
+			SET suggested_name = "|data_source_description| [|data_source_name|]"
 			WHERE suggested_name = ""');
 
 		// Update thold name from template
 		db_execute('UPDATE thold_data AS td
 			LEFT JOIN thold_template AS tt
 			ON tt.id = td.thold_template_id
-			SET td.name = IF(ISNULL(tt.suggested_name), "|data_source_description|", tt.suggested_name)
+			SET td.name = IF(ISNULL(tt.suggested_name), "|data_source_description| [|data_source_name|]", tt.suggested_name)
 			WHERE td.name = ""');
 
 		// Setup the name cache with the correct information
@@ -1209,7 +1209,7 @@ function thold_upgrade_database($force = false) {
 			foreach($tholds as $thold) {
 				if ($thold['name_cache'] == '' || $thold['name'] == '') {
 					if ($thold['name'] == '') {
-						$thold['name'] = '|data_source_description|';
+						$thold['name'] = '|data_source_description| [|data_source_name|]';
 					}
 
 					$name = thold_expand_string($thold, $thold['name']);
@@ -1234,7 +1234,7 @@ function thold_upgrade_database($force = false) {
 
 		if (cacti_sizeof($thold_templates)) {
 			foreach($thold_templates as $thold_template_id => $t) {
-				$template_hints = db_fetch_assoc_prepared('SELECT DISTINCT id, data_template_id 
+				$template_hints = db_fetch_assoc_prepared('SELECT DISTINCT id, data_template_id
 					FROM data_template_rrd
 					WHERE data_source_name = ?
 					AND local_data_id = 0',
@@ -1244,16 +1244,16 @@ function thold_upgrade_database($force = false) {
 
 				if (cacti_sizeof($template_hints)) {
 					foreach($template_hints as $h) {
-						$template_details = db_fetch_row_prepared('SELECT * 
-							FROM data_template 
-							WHERE id = ? 
+						$template_details = db_fetch_row_prepared('SELECT *
+							FROM data_template
+							WHERE id = ?
 							AND name = ?',
 							array($h['data_template_id'], $t['data_template_name']));
 
 						// Update if exact match else search
 						if (cacti_sizeof($template_details)) {
-							db_execute_prepared('UPDATE thold_template 
-								SET data_source_id = ?, data_template_hash = ?, data_template_id = ? 
+							db_execute_prepared('UPDATE thold_template
+								SET data_source_id = ?, data_template_hash = ?, data_template_id = ?
 								WHERE id = ?',
 								array($h['id'], $template_details['hash'], $template_details['id'], $thold_template_id));
 
@@ -1267,7 +1267,7 @@ function thold_upgrade_database($force = false) {
 								array($t['data_template_name']));
 
 							if (cacti_sizeof($template_details)) {
-								db_execute_prepared('UPDATE thold_template 
+								db_execute_prepared('UPDATE thold_template
 									SET data_template_hash = ?, data_template_id = ?
 									WHERE id = ?',
 									array($template_details['hash'], $template_details['id'], $thold_template_id));

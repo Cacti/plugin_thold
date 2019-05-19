@@ -168,7 +168,7 @@ function do_actions() {
 
 									if ($thold['name_cache'] == '' || $thold['name'] == '') {
 										if ($thold['name'] == '') {
-											$thold['name'] = '|data_source_description|';
+											$thold['name'] = '|data_source_description| [|data_source_name|]';
 										}
 										$name_cache = thold_expand_string($thold, $thold['name']);
 									} else {
@@ -1103,7 +1103,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes above this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['thold_warning_hi']) ? $thold_data['thold_warning_hi'] : ''
 		),
 		'thold_warning_low' => array(
@@ -1111,14 +1111,14 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes below this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['thold_warning_low']) ? $thold_data['thold_warning_low'] : ''
 		),
 		'thold_warning_fail_trigger' => array(
 			'friendly_name' => __('Min Trigger Duration', 'thold'),
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'description' => __('The amount of time the data source must be in a breach condition for an alert to be raised.', 'thold'),
+			'description' => __('The amount of time the Data Source must be in a breach condition for an alert to be raised.', 'thold'),
 			'value' => isset($thold_data['thold_warning_fail_trigger']) ? $thold_data['thold_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'thold_header' => array(
@@ -1130,7 +1130,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes above this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['thold_hi']) ? $thold_data['thold_hi'] : ''
 		),
 		'thold_low' => array(
@@ -1138,14 +1138,14 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes below this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['thold_low']) ? $thold_data['thold_low'] : ''
 		),
 		'thold_fail_trigger' => array(
 			'friendly_name' => __('Min Trigger Duration', 'thold'),
 			'method' => 'drop_array',
 			'array' => $alertarray,
-			'description' => __('The amount of time the data source must be in a breach condition for an alert to be raised.', 'thold'),
+			'description' => __('The amount of time the Data Source must be in a breach condition for an alert to be raised.', 'thold'),
 			'value' => isset($thold_data['thold_fail_trigger']) ? $thold_data['thold_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_header' => array(
@@ -1157,7 +1157,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes above this number, warning will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['time_warning_hi']) ? $thold_data['time_warning_hi'] : ''
 		),
 		'time_warning_low' => array(
@@ -1165,7 +1165,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes below this number, warning will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['time_warning_low']) ? $thold_data['time_warning_low'] : ''
 		),
 		'time_warning_fail_trigger' => array(
@@ -1174,7 +1174,7 @@ function template_edit() {
 			'max_length' => 5,
 			'size' => 15,
 			'default' => read_config_option('thold_warning_time_fail_trigger'),
-			'description' => __('The number of times the data source must be in breach condition prior to issuing a warning.', 'thold'),
+			'description' => __('The number of times the Data Source must be in breach condition prior to issuing a warning.', 'thold'),
 			'value' => isset($thold_data['time_warning_fail_trigger']) ? $thold_data['time_warning_fail_trigger'] : read_config_option('alert_trigger')
 		),
 		'time_warning_fail_length' => array(
@@ -1193,7 +1193,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes above this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['time_hi']) ? $thold_data['time_hi'] : ''
 		),
 		'time_low' => array(
@@ -1201,7 +1201,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 100,
 			'size' => 15,
-			'description' => __('If set and data source value goes below this number, alert will be triggered', 'thold'),
+			'description' => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
 			'value' => isset($thold_data['time_low']) ? $thold_data['time_low'] : ''
 		),
 		'time_fail_trigger' => array(
@@ -1209,7 +1209,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 5,
 			'size' => 15,
-			'description' => __('The number of times the data source must be in breach condition prior to issuing an alert.', 'thold'),
+			'description' => __('The number of times the Data Source must be in breach condition prior to issuing an alert.', 'thold'),
 			'value' => isset($thold_data['time_fail_trigger']) ? $thold_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
 		),
 		'time_fail_length' => array(
@@ -1251,7 +1251,7 @@ function template_edit() {
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 15,
-			'description' => __('Number of consecutive times the data source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles', read_config_option('alert_bl_trigger'), 'thold'),
+			'description' => __('Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles', read_config_option('alert_bl_trigger'), 'thold'),
 			'value' => isset($thold_data['bl_fail_trigger']) ? $thold_data['bl_fail_trigger'] : read_config_option('alert_bl_trigger')
 		),
 		'data_manipulation' => array(
@@ -1391,7 +1391,7 @@ function template_edit() {
 				'method' => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,
-				'description' => __('You may specify here extra Emails to receive alerts for this data source (comma separated)', 'thold'),
+				'description' => __('You may specify here extra Emails to receive alerts for this Data Source (comma separated)', 'thold'),
 				'value' => isset($thold_data['notify_extra']) ? $thold_data['notify_extra'] : ''
 			),
 			'notify_warning_extra' => array(
@@ -1399,7 +1399,7 @@ function template_edit() {
 				'method' => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,
-				'description' => __('You may specify here extra Emails to receive warnings for this data source (comma separated)', 'thold'),
+				'description' => __('You may specify here extra Emails to receive warnings for this Data Source (comma separated)', 'thold'),
 				'value' => isset($thold_data['notify_warning_extra']) ? $thold_data['notify_warning_extra'] : ''
 			)
 		);
@@ -1921,17 +1921,63 @@ function templates() {
 	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
-		'name'               => array('display' => __('Name', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
-		'id'                 => array('display' => __('ID', 'thold'), 'sort' => 'ASC', 'align' => 'right'),
-		'thresholds'         => array('display' => __('Thresholds', 'thold'), 'sort' => '', 'align' => 'right'),
-		'data_template_name' => array('display' => __('Data Template', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
-		'thold_type'         => array('display' => __('Type', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
-		'data_source_name'   => array('display' => __('DS Name', 'thold'), 'sort' => 'ASC', 'align' => 'left'),
-		'nosort1'            => array('display' => __('High', 'thold'), 'sort' => '', 'align' => 'center'),
-		'nosort2'            => array('display' => __('Low', 'thold'), 'sort' => '', 'align' => 'center'),
-		'nosort3'            => array('display' => __('Trigger', 'thold'), 'sort' => '', 'align' => 'left'),
-		'nosort4'            => array('display' => __('Duration', 'thold'), 'sort' => '', 'align' => 'left'),
-		'nosort5'            => array('display' => __('Repeat', 'thold'), 'sort' => '', 'align' => 'left'),
+		'name' => array(
+			'display' => __('Name', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'id' => array(
+			'display' => __('ID', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'right'
+		),
+		'thresholds' => array(
+			'display' => __('Thresholds', 'thold'),
+			'sort' => '',
+			'align' => 'right'
+		),
+		'data_template_name' => array(
+			'display' => __('Data Template', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'thold_type' => array(
+			'display' => __('Type', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'data_source_name' => array(
+			'display' => __('DS Name', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'nosort1' => array(
+			'display' => __('High', 'thold'),
+			'sort' => '',
+			'align' => 'center',
+			'tip' => __('The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef.', 'thold')
+		),
+		'nosort2' => array(
+			'display' => __('Low', 'thold'),
+			'sort' => '',
+			'align' => 'center',
+			'tip' => __('The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef.', 'thold')
+		),
+		'nosort3' => array(
+			'display' => __('Trigger', 'thold'),
+			'sort' => '',
+			'align' => 'left'
+		),
+		'nosort4' => array(
+			'display' => __('Duration', 'thold'),
+			'sort' => '',
+			'align' => 'left'
+		),
+		'nosort5' => array(
+			'display' => __('Repeat', 'thold'),
+			'sort' => '',
+			'align' => 'left'
+		)
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
