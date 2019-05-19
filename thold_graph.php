@@ -127,8 +127,8 @@ function form_thold_filter() {
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
 						<span>
-							<input type='submit' value='<?php print __esc('Go', 'thold');?>'>
-							<input id='clear' name='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
 						</span>
 					</td>
 				</table>
@@ -209,6 +209,10 @@ function form_thold_filter() {
 		$(function() {
 			$('#thold').submit(function(event) {
 				event.preventDefault();
+				applyFilter();
+			});
+
+			$('#filter').change(function() {
 				applyFilter();
 			});
 		});
@@ -1006,6 +1010,10 @@ function form_host_filter() {
 				event.preventDefault();
 				applyFilter();
 			});
+
+			$('#filter').change(function() {
+				applyFilter();
+			});
 		});
 
 		</script>
@@ -1333,6 +1341,10 @@ function form_thold_log_filter() {
 		$(function() {
 			$('#form_log').submit(function(event) {
 				event.preventDefault();
+				applyFilter();
+			});
+
+			$('#filter').change(function() {
 				applyFilter();
 			});
 		});

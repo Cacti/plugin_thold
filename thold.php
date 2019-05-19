@@ -645,7 +645,7 @@ function list_tholds() {
 					</td>
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
-						<input type='submit' id='refresh' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Apply Filters', 'thold');?>'>
+						<input type='button' id='refresh' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Apply Filters', 'thold');?>' onClick='applyFilter()'>
 					</td>
 					<td>
 						<input type='button' id='clear' value='<?php print __esc('Clear', 'thold');?>' title='<?php print __esc('Return to Defaults', 'thold');?>' onClick='clearFilter()'>
@@ -733,6 +733,10 @@ function list_tholds() {
 		$(function() {
 			$('#thold').submit(function(event) {
 				event.preventDefault();
+				applyFilter();
+			});
+
+			$('#filter').change(function() {
 				applyFilter();
 			});
 		});
