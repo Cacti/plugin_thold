@@ -1159,21 +1159,47 @@ function thold_edit() {
 					// Check is the graph item has a cdef and modify the output
 					thold_modify_values_for_display($td);
 
+					$severity = get_thold_severity($thold_data);
+
+					switch($severity) {
+						case THOLD_SEVERITY_DISABLED:
+							$color = 'grey';
+							break;
+						case THOLD_SEVERITY_NORMAL:
+							$color = 'green';
+							break;
+						case THOLD_SEVERITY_ALERT:
+							$color = 'red';
+							break;
+						case THOLD_SEVERITY_WARNING:
+							$color = 'warning';
+							break;
+						case THOLD_SEVERITY_BASELINE:
+							$color = 'darkorange';
+							break;
+						case THOLD_SEVERITY_NOTICE:
+							$color = 'yellow';
+							break;
+						case THOLD_SEVERITY_ACKREQ:
+							$color = 'darkorange';
+							break;
+					}
+
 					$cur_setting = '<span style="padding-right:4px;">' . __('Last:', 'thold'). '</span>' .
-						($td['lastread'] == '' ? "<span>" . __('N/A', 'thold') . "</span>":"<span class='deviceDown'>" .
+						($td['lastread'] == '' ? "<span>" . __('N/A', 'thold') . "</span>":"<span style='color:$color'>" .
 						thold_format_number($td['lastread'], 2, $baseu) . "</span>");
 
 					if ($td['thold_type'] != 1) {
 						if ($td['thold_warning_fail_trigger'] != 0) {
 							if ($td['thold_warning_hi'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('WHi:', 'thold') . '</span>' .
-									($td['thold_warning_hi'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span class='deviceRecovering'>" .
+									($td['thold_warning_hi'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:darkorange'>" .
 									thold_format_number($td['thold_warning_hi'], 2, $baseu) . '</span>');
 							}
 
 							if ($td['thold_warning_low'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('WLo:', 'thold') . '</span>' .
-									($td['thold_warning_low'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span class='deviceRecovering'>" .
+									($td['thold_warning_low'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:darkorange'>" .
 									thold_format_number($td['thold_warning_low'], 2, $baseu) . '</span>');
 							}
 						}
@@ -1181,13 +1207,13 @@ function thold_edit() {
 						if ($td['thold_fail_trigger'] != 0) {
 							if ($td['thold_hi'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('AHi:', 'thold') . '</span>' .
-									($td['thold_hi'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span class='deviceRecovering'>" .
+									($td['thold_hi'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:red'>" .
 									thold_format_number($td['thold_hi'], 2, $baseu) . '</span>');
 							}
 
 							if ($td['thold_low'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('ALo:', 'thold') . '</span>' .
-									($td['thold_low'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span class='deviceRecovering'>" .
+									($td['thold_low'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:red'>" .
 									thold_format_number($td['thold_low'], 2, $baseu) . '</span>');
 							}
 						}
