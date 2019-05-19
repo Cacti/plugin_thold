@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-19 12:47-0400\n"
+"POT-Creation-Date: 2019-05-19 13:14-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1779,7 +1779,7 @@ msgstr ""
 #: thold.php:786 thold_graph.php:369
 msgid ""
 "The High Warning / Alert values.  NOTE: Baseline values are a percent, all "
-"other values are display values that are modified by a cdef."
+"other values are display values that may be modified by a cdef."
 msgstr ""
 
 #: thold.php:789 thold.php:1724 thold.php:1743 thold_graph.php:372
@@ -1790,7 +1790,7 @@ msgstr ""
 #: thold.php:792 thold_graph.php:375
 msgid ""
 "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all "
-"other values are display values that are modified by a cdef."
+"other values are display values that may be modified by a cdef."
 msgstr ""
 
 #: thold.php:795 thold_graph.php:378 thold_templates.php:1967

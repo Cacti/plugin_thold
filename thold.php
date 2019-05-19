@@ -783,13 +783,13 @@ function list_tholds() {
 			'display' => __('High', 'thold'),
 			'sort' => 'ASC',
 			'align' => 'right',
-			'tip' => __('The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that are modified by a cdef.', 'thold')
+			'tip' => __('The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef.', 'thold')
 		),
 		'nosort2' => array(
 			'display' => __('Low', 'thold'),
 			'sort' => 'ASC',
 			'align' => 'right',
-			'tip' => __('The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that are modified by a cdef.', 'thold')
+			'tip' => __('The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef.', 'thold')
 		),
 		'nosort3' => array(
 			'display' => __('Trigger', 'thold'),
