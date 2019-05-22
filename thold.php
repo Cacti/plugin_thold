@@ -1163,7 +1163,7 @@ function thold_edit() {
 					// Check is the graph item has a cdef and modify the output
 					thold_modify_values_for_display($td);
 
-					$severity = get_thold_severity($thold_data);
+					$severity = get_thold_severity($td);
 
 					switch($severity) {
 						case THOLD_SEVERITY_DISABLED:

@@ -196,14 +196,14 @@ function thold_graph_button($data) {
 	}
 
 	if (isset_request_var('graph_start') && !isempty_request_var('graph_start')) {
-		$start = get_request_var('graph_start');
+		$start = get_filter_request_var('graph_start');
 	} else {
 		set_request_var('graph_start', '');
 		$start = time() - 3600;
 	}
 
 	if (isset_request_var('graph_end') && !isempty_request_var('graph_end')) {
-		$end = get_request_var('graph_end');
+		$end = get_filter_request_var('graph_end');
 	} else {
 		set_request_var('graph_end', '');
 		$end = time();

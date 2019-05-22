@@ -226,6 +226,12 @@ function form_thold_filter() {
 function tholds() {
 	global $config, $device_actions, $item_rows, $thold_classes, $thold_states;
 
+	$default_status = read_config_option('thold_filter_default');
+	if (empty($default_status)) {
+		set_config_option('thold_filter_default', '-1');
+		$default_status = '-1';
+	}
+
     /* ================= input validation and session storage ================= */
     $filters = array(
 		'rows' => array(
@@ -271,7 +277,7 @@ function tholds() {
 		'status' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
-			'default' => read_config_option('thold_filter_default')
+			'default' => $default_status
 			)
 	);
 
