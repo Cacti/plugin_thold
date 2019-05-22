@@ -149,6 +149,7 @@ that.
 
 * issue#316: Wrong color when baseline deviation type of threshold back to normal 
 
+* issue#320: Thold Graph broken when name include single quote
 
 * issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.
 
