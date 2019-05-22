@@ -635,7 +635,7 @@ function thold_rrd_graph_graph_options($g) {
 }
 
 function thold_prep_rrd_string($string) {
-	return '\\' . cacti_escapeshellarg(rrdtool_escape_string($string)) . '\\';
+	return '\'' . trim(cacti_escapeshellarg(rrdtool_escape_string($string)), "'") . '\'';
 }
 
 function thold_device_action_execute($action) {
