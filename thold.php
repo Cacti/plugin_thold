@@ -1034,7 +1034,7 @@ function thold_edit() {
 		exit;
 	}
 
-	$desc   = db_fetch_cell_prepared('SELECT name_cache
+	$desc = db_fetch_cell_prepared('SELECT name_cache
 		FROM data_template_data
 		WHERE local_data_id = ?
 		LIMIT 1',
@@ -1042,12 +1042,13 @@ function thold_edit() {
 
 	$rrdsql = array_rekey(db_fetch_assoc_prepared('SELECT id
 		FROM data_template_rrd
-		WHERE local_data_id = ? ORDER BY id',
+		WHERE local_data_id = ?
+		ORDER BY id',
 		array($thold_data['local_data_id'])), 'id', 'id');
 
 	$grapharr = db_fetch_assoc('SELECT DISTINCT local_graph_id
 		FROM graph_templates_item
-		WHERE task_item_id IN (' . implode(', ', $rrdsql) . ') AND graph_template_id>0');
+		WHERE task_item_id IN (' . implode(', ', $rrdsql) . ')');
 
 	if (empty($thold_data['local_graph_id'])) {
 		$thold_data['local_graph_id'] = db_fetch_cell_prepared('SELECT gl.id
@@ -1094,7 +1095,7 @@ function thold_edit() {
 			<?php if (isset($banner)) { print $banner . '<br><br>'; }; ?>
 			<?php print __('Data Source Description:', 'thold');?> <br><?php print $desc; ?><br><br>
 			<?php print __('Associated Graph (Graphs using this RRD):', 'thold');?> <br><br>
-			<select name='element'>
+			<select id='local_graph_id' name='local_graph_id'>
 				<?php
 				foreach($grapharr as $g) {
 					$graph_desc = db_fetch_row_prepared('SELECT local_graph_id, title, title_cache
@@ -1104,14 +1105,14 @@ function thold_edit() {
 
 					print "<option value='" . $graph_desc['local_graph_id'] . "'";
 					if ($graph_desc['local_graph_id'] == $thold_data['local_graph_id']) print ' selected';
-					print '>' . $graph_desc['local_graph_id'] . ' - ' . $graph_desc['title_cache'] . " </option>\n";
+					print '>' . html_escape($graph_desc['local_graph_id'] . ' - ' . $graph_desc['title_cache']) . " </option>\n";
 				} ?>
 			</select>
 			<br>
 			<br>
 		</td>
 		<td class='textArea'>
-			<img id='graphimage' src='<?php print html_escape($config['url_path'] . 'graph_image.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=0&graph_start=-32400&graph_height=140&graph_width=500');?>'>
+			<img id='graphimage' src='<?php print html_escape($config['url_path'] . 'graph_image.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=0&graph_start=-32400&graph_height=150&graph_width=600');?>'>
 		</td>
 	</tr>
 	<?php
@@ -1126,17 +1127,12 @@ function thold_edit() {
 	// Tabs (if more than one item)
 	//-----------------------------
 	$i  = 0;
-	$ds = 0;
 	if (isset($template_data_rrds)) {
 		if (cacti_sizeof($template_data_rrds)) {
 			/* draw the data source tabs on the top of the page */
 			print "<br><div class='tabs'><nav><ul>\n";
 
 			foreach ($template_data_rrds as $template_data_rrd) {
-				if ($template_data_rrd['id'] == $thold_data['data_template_rrd_id']) {
-					$ds = $template_data_rrd['data_source_name'];
-				}
-
 				if (!empty($template_data_rrd['thold_id'])) {
 					$td = db_fetch_row_prepared('SELECT *
 						FROM thold_data
@@ -1255,8 +1251,6 @@ function thold_edit() {
 	//----------------------
 	// Data Source Item Form
 	//----------------------
-	$thold_data_cdef = (!empty($thold_data['cdef']) ? $thold_data['cdef'] : 0);
-
 	$template_thold = false;
 	if (isset($thold_data['thold_template_id']) && $thold_data['thold_template_id'] > 0) {
 		$template_thold = db_fetch_row_prepared('SELECT *
@@ -1269,8 +1263,13 @@ function thold_edit() {
 		$thold_data['template_name'] = __('Not Templated', 'thold');
 	}
 
-	$header_text = __('Data Source Item [%s] ' .  ' - Current value: [%s]',
-		(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), get_current_value($thold_data['local_data_id'], $ds, $thold_data_cdef), 'thold');
+	$baseu = db_fetch_cell_prepared('SELECT base_value
+		FROM graph_templates_graph
+		WHERE local_graph_id = ?',
+		array($thold_data['local_graph_id']));
+
+	$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
+		(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_lastread_for_display($thold_data), 2, $baseu), 'thold');
 
 	html_start_box($header_text, '100%', false, '3', 'center', '');
 
@@ -2144,9 +2143,12 @@ function thold_edit() {
 		}
 	}
 
+	var counter = 1;
+
 	function graphImage() {
-		var id = $('#element').val();
-		$('#graphimage').attr(src, '../../graph_image.php?local_graph_id=' + id + '&rra_id=0&graph_start=-32400&graph_height=100&graph_width=300&graph_nolegend=true').change();
+		var id = $('#local_graph_id').val();
+		$('#graphimage').attr('src', urlPath + 'graph_image.php?local_graph_id=' + id + '&rra_id=0&graph_start=-32400&graph_height=150&graph_width=600&graph_nolegend=true&counter='+counter).change();
+		counter++;
 	}
 
 	$(function() {
@@ -2233,8 +2235,8 @@ function thold_edit() {
 		changeTholdType ();
 		changeDataType ();
 
-		$('#element').on('change', function() {
-			graphImage;
+		$('#local_graph_id').on('change', function() {
+			graphImage();
 		});
 
 		<?php api_plugin_hook_function('thold_edit_javascript', $thold_data);?>

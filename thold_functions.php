@@ -3538,6 +3538,24 @@ function thold_modify_values_for_display(&$thold_data) {
 	}
 }
 
+function thold_get_lastread_for_display(&$thold_data) {
+	// Check is the graph item has a cdef
+	$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
+		FROM graph_templates_item AS gti
+		INNER JOIN data_template_rrd AS dtr
+		ON gti.task_item_id = dtr.id
+		WHERE local_graph_id = ?
+		AND dtr.id = ?
+		AND dtr.data_source_name = ?',
+		array($thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']));
+
+	if (!empty($cdef)) {
+		return thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+	} else {
+		return $thold_data['lastread'];
+	}
+}
+
 function thold_format_number($value, $digits = 2, $baseu = 1024) {
 	$units = '';
 	$suffix = '';
@@ -3738,7 +3756,7 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 
 				switch ($cdef['value']) {
 				case 'CURRENT_DATA_SOURCE':
-					$cdef['value'] = $oldvalue; // get_current_value($local_data_id, $data_template_rrd_id, 0);
+					$cdef['value'] = $oldvalue; //
 
 					break;
 				case 'CURRENT_GRAPH_MAXIMUM_VALUE':
@@ -4440,8 +4458,14 @@ function save_thold() {
 			WHERE id = ?',
 			array($data_template_rrd_id));
 
-		$local_data_id  = get_request_var('local_data_id');
-		$local_graph_id = get_request_var('local_graph_id');
+		$local_data_id  = get_filter_request_var('local_data_id');
+		$local_graph_id = get_filter_request_var('local_graph_id');
+	} elseif (isset_request_var('local_graph_id')) {
+		$local_graph_id    = get_filter_request_var('local_graph_id');
+		$graph_template_id = db_fetch_cell_prepared('SELECT graph_template_id
+			FROM graph_local
+			WHERE id = ?',
+			array($local_graph_id));
 	}
 
 	$save['host_id']              = $host_id;
@@ -4570,6 +4594,9 @@ function save_thold() {
 	$save['snmp_event_warning_severity'] = isset_request_var('snmp_event_warning_severity') ? get_nfilter_request_var('snmp_event_warning_severity'):3;
 
 	if ($local_graph_id > 0 && $graph_template_id > 0) {
+		$save['local_graph_id']    = $local_graph_id;
+		$save['graph_template_id'] = $graph_template_id;
+	} elseif ($local_graph_id > 0) {
 		$save['local_graph_id']    = $local_graph_id;
 		$save['graph_template_id'] = $graph_template_id;
 	} else {
