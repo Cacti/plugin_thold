@@ -4294,7 +4294,17 @@ function save_thold() {
 	$local_graph_id       = get_filter_request_var('local_graph_id');
 	$data_template_rrd_id = get_filter_request_var('data_template_rrd_id');
 
-	$template_enabled     = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : '';
+	// In cases where a Graph can have multiple RRDtool data sources
+	// coming from different RRDfiles, we have to reset the local
+	// local_data_id to match the data_template_rrd_id
+	if (!empty($data_template_rrd_id)) {
+		$local_data_id = db_fetch_cell_prepared('SELECT local_data_id
+			FROM data_template_rrd
+			WHERE id = ?',
+			array($data_template_rrd_id));
+	}
+
+	$template_enabled = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : '';
 
 	if ($template_enabled == 'on') {
 		if ($local_graph_id > 0 && !is_thold_allowed_graph($local_graph_id)) {
@@ -4447,7 +4457,7 @@ function save_thold() {
 		get_filter_request_var('snmp_event_warning_severity');
 	}
 
-	if (isset_request_var('data_template_rrd_id')) {
+	if (!empty($data_template_rrd_id)) {
 		$data_source_name = db_fetch_cell_prepared('SELECT data_source_name
 			FROM data_template_rrd
 			WHERE id = ?',
@@ -4457,11 +4467,7 @@ function save_thold() {
 			FROM data_template_rrd
 			WHERE id = ?',
 			array($data_template_rrd_id));
-
-		$local_data_id  = get_filter_request_var('local_data_id');
-		$local_graph_id = get_filter_request_var('local_graph_id');
-	} elseif (isset_request_var('local_graph_id')) {
-		$local_graph_id    = get_filter_request_var('local_graph_id');
+	} elseif (!empty($local_graph_id) && empty($graph_template_id)) {
 		$graph_template_id = db_fetch_cell_prepared('SELECT graph_template_id
 			FROM graph_local
 			WHERE id = ?',
@@ -4470,7 +4476,7 @@ function save_thold() {
 
 	$save['host_id']              = $host_id;
 	$save['data_template_rrd_id'] = $data_template_rrd_id;
-	$save['local_data_id']        = get_request_var('local_data_id');
+	$save['local_data_id']        = $local_data_id;
 	$save['thold_enabled']        = isset_request_var('thold_enabled') && get_request_var('thold_enabled') == 'on' ? 'on':'off';
 
 	if ($thold_template_id > 0) {

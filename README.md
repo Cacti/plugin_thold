@@ -151,6 +151,8 @@ that.
 
 * issue#320: Thold Graph broken when name include single quote
 
+* issue#322: Standalone thresholds based on graph with serveral DS don't work for DS after the 1st one...
+
 * issue#323: "Associated Graph (Graphs using this RRD)" field not including all graphs using same RRD...
 
 * issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.
