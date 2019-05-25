@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 18:19-0400\n"
+"POT-Creation-Date: 2019-05-25 19:14-0400\n"
 "PO-Revision-Date: 2019-03-17 12:39-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -2572,11 +2572,12 @@ msgid ""
 "There are three Acknowledgment levels that control how you must respond to a "
 "Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - "
 "When you select this option, no Acknowledgment is required for a Threshold "
-"breach.</li><li><i>Reset Acknowledgment</i> - With this option, once you "
-"Acknowledge the Threshold, you will no longer receive Notifications while it "
-"is breached.</li><li><i>Persist Acknowledgment</i> - With this option, even "
-"after the Threshold has returned to normal, you must Acknowledge the "
-"Threshold and provide an optional Operator Message.</li></ul>"
+"breach.</li><li><i>Suspendible Notification</i> - With this option, once you "
+"Acknowledge or Suspend Notifications on the Threshold, you will no longer "
+"receive notifications while it is breached.  You may subsequently, Resume "
+"Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - "
+"With this option, even after the Threshold has returned to normal, you must "
+"Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr ""
 "هناك ثلاثة مستويات للاعتراف تتحكم في كيفية الاستجابة لشرط خرق الحد. هم انهم: "
 "<br><br><ul style=\";text-align:right;direction:rtl\"><li style=\";text-"
@@ -2594,12 +2595,12 @@ msgstr "لا شيء مطلوب"
 
 #: thold.php:1483 thold_templates.php:1072
 #, fuzzy
-msgid "Reset Acknowledgment"
-msgstr "إعادة تعيين الاعتراف"
+msgid "Suspendible Notification"
+msgstr "SNMP الإخطارات"
 
 #: thold.php:1487 thold_templates.php:1076
 #, fuzzy
-msgid "Persist Acknowledgment"
+msgid "Persistent Acknowledgment"
 msgstr "استمرار الاعتراف"
 
 #: thold.php:1492 thold_templates.php:1081
@@ -4316,6 +4317,10 @@ msgstr "الرسم البياني المحدد"
 #, fuzzy, php-format
 msgid "Created graph: %s"
 msgstr "الرسم البياني الذي تم إنشاؤه:٪ s"
+
+#, fuzzy
+#~ msgid "Reset Acknowledgment"
+#~ msgstr "إعادة تعيين الاعتراف"
 
 #, fuzzy
 #~ msgid "Reset Acknowledgment for Template(s)"
