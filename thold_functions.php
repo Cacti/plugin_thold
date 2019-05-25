@@ -3540,20 +3540,24 @@ function thold_modify_values_for_display(&$thold_data) {
 
 function thold_get_lastread_for_display(&$thold_data) {
 	// Check is the graph item has a cdef
-	$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
-		FROM graph_templates_item AS gti
-		INNER JOIN data_template_rrd AS dtr
-		ON gti.task_item_id = dtr.id
-		WHERE local_graph_id = ?
-		AND dtr.id = ?
-		AND dtr.data_source_name = ?',
-		array($thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']));
+	if (isset($thold_data['local_data_id'])) {
+		$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
+			FROM graph_templates_item AS gti
+			INNER JOIN data_template_rrd AS dtr
+			ON gti.task_item_id = dtr.id
+			WHERE local_graph_id = ?
+			AND dtr.id = ?
+			AND dtr.data_source_name = ?',
+			array($thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']));
 
-	if (!empty($cdef)) {
-		return thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
-	} else {
-		return $thold_data['lastread'];
+		if (!empty($cdef)) {
+			return thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+		} elseif (isset($thold_data['lastread'])) {
+			return $thold_data['lastread'];
+		}
 	}
+
+	return '-';
 }
 
 function thold_format_number($value, $digits = 2, $baseu = 1024) {
