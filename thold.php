@@ -922,7 +922,7 @@ function list_tholds() {
 			}
 
 			// Check is the graph item has a cdef and modify the output
-			thold_modify_values_for_display($thold_data);
+			thold_modify_values_by_cdef($thold_data);
 
 			form_selectable_cell(filter_value($name, get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
 
@@ -1157,7 +1157,7 @@ function thold_edit() {
 					}
 
 					// Check is the graph item has a cdef and modify the output
-					thold_modify_values_for_display($td);
+					thold_modify_values_by_cdef($td);
 
 					$severity = get_thold_severity($td);
 
@@ -1269,7 +1269,7 @@ function thold_edit() {
 		array($thold_data['local_graph_id']));
 
 	$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
-		(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_lastread_for_display($thold_data), 2, $baseu), 'thold');
+		(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_column_by_cdef($thold_data, 'lastread'), 2, $baseu), 'thold');
 
 	html_start_box($header_text, '100%', false, '3', 'center', '');
 

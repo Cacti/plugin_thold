@@ -474,7 +474,7 @@ function thold_rrd_graph_graph_options($g) {
 	if (cacti_sizeof($tholds_w_hrule)) {
 		foreach($tholds_w_hrule as $t) {
 			// Adjust number for graph
-			thold_modify_values_for_display($t);
+			thold_modify_values_by_cdef($t);
 
 			$baseu = db_fetch_cell_prepared('SELECT base_value
 				FROM graph_templates_graph

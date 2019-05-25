@@ -383,9 +383,7 @@ function thold_poller_output(&$rrd_update_array) {
 				break;
 			}
 
-			if (is_numeric($currentval)) {
-				$currentval = round($currentval, 4);
-			} else {
+			if (!is_numeric($currentval)) {
 				$currentval = '';
 			}
 

@@ -2010,6 +2010,9 @@ function thold_datasource_required($name, $data_source) {
 function thold_check_threshold(&$thold_data) {
 	global $config, $plugins, $debug, $thold_types;
 
+	// Modify critical thold values based upon a cdef if present
+	thold_modify_values_by_cdef($thold_data);
+
 	thold_debug('Checking Threshold:' .
 		' Name: ' . var_export($thold_data['data_source_name'],true) .
 		', local_data_id: ' . var_export($thold_data['local_data_id'],true) .
@@ -3510,7 +3513,7 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 	return $warning_text;
 }
 
-function thold_modify_values_for_display(&$thold_data) {
+function thold_modify_values_by_cdef(&$thold_data) {
 	// Check is the graph item has a cdef
 	$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
 		FROM graph_templates_item AS gti
@@ -3538,7 +3541,7 @@ function thold_modify_values_for_display(&$thold_data) {
 	}
 }
 
-function thold_get_lastread_for_display(&$thold_data) {
+function thold_get_column_by_cdef(&$thold_data, $column = 'lastread') {
 	// Check is the graph item has a cdef
 	if (isset($thold_data['local_data_id'])) {
 		$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
@@ -3572,39 +3575,69 @@ function thold_format_number($value, $digits = 2, $baseu = 1024) {
 		return '-';
 	}
 
-	if ($value >= $baseu) {
-		$units  = ' K';
-		$value /= $baseu;
-	} else {
-		return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+	if ($value == '0') {
+		return '0';
 	}
 
-	if ($value >= $baseu) {
-		$units  = ' M';
-		$value /= $baseu;
-	} else {
-		return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
-	}
+	if (abs($value) < 1) {
+		$units = ' m';
+		$value *= $baseu;
 
-	if ($value >= $baseu) {
-		$units  = ' G';
-		$value /= $baseu;
-	} else {
-		return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
-	}
+		if (abs($value) < 1) {
+			$units = ' &#181;';
+			$value *= $baseu;
+		} else {
+			return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+		}
 
-	if ($value >= $baseu) {
-		$units  = ' T';
-		$value /= $baseu;
-	} else {
-		return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
-	}
+		if (abs($value) < 1) {
+			$units = ' n';
+			$value *= $baseu;
+		} else {
+			return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+		}
 
-	if ($value >= $baseu) {
-		$units  = ' P';
-		$value /= $baseu;
+		if (abs($value) < 1) {
+			$units = ' p';
+			$value *= $baseu;
+		} else {
+			return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+		}
 	} else {
-		return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+		if (abs($value) >= $baseu) {
+			$units  = ' K';
+			$value /= $baseu;
+		} else {
+			return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+		}
+
+		if (abs($value) >= $baseu) {
+			$units  = ' M';
+			$value /= $baseu;
+		} else {
+			return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+		}
+
+		if (abs($value) >= $baseu) {
+			$units  = ' G';
+			$value /= $baseu;
+		} else {
+			return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+		}
+
+		if (abs($value) >= $baseu) {
+			$units  = ' T';
+			$value /= $baseu;
+		} else {
+			return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+		}
+
+		if (abs($value) >= $baseu) {
+			$units  = ' P';
+			$value /= $baseu;
+		} else {
+			return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
+		}
 	}
 
 	return number_format_i18n($value, $digits, $baseu) . $units . $suffix;

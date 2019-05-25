@@ -488,7 +488,7 @@ function tholds() {
 			}
 
 			// Check is the graph item has a cdef and modify the output
-			thold_modify_values_for_display($thold_data);
+			thold_modify_values_by_cdef($thold_data);
 
 			$actions_url = '';
 
