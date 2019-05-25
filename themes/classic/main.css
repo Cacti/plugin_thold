@@ -51,49 +51,49 @@
 	background-color: #F21924;
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 }
 
 .tholdAlert2Warn {
 	background-color: #F21620;
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 }
 
 .tholdWarningNotify {
 	background-color: #FB4A14;
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 }
 
 .tholdReTriggerNotify {
 	background-color: #F24010;
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 }
 
 .tholdReTriggerEvent {
 	background-color: #FF7A30;
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 }
 
 .tholdTriggerEvent {
 	background-color: #FAFD9E;
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 }
 
 .tholdWarnTrigger {
 	background-color: #F9FA90;
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 
 }
 
@@ -101,14 +101,14 @@
 	background-color: #CCFFCC;
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 }
 
 .tholdRestoralEvent {
 	background-color: #CDCFC4;
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 }
 
 .tholdRestore {
@@ -144,6 +144,10 @@
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
+}
+
+.tholdAckCol {
+	background-color: #EFEAE0;
 }
 
 .tholdAcknowledgment {

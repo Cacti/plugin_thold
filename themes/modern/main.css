@@ -58,7 +58,7 @@
 	background-color: rgba(242, 25, 36, 0.8);
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 	color: #0A0A0A;
 }
 
@@ -66,7 +66,7 @@
 	background-color: rgba(200, 25, 36, 0.8);
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 	color: #0A0A0A;
 }
 
@@ -74,7 +74,7 @@
 	background-color: rgba(251, 74, 20, 0.8);
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 	color: #0A0A0A;
 }
 
@@ -82,7 +82,7 @@
 	background-color: rgba(200, 125, 88, 0.8);
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 	color: #0A0A0A;
 }
 
@@ -90,7 +90,7 @@
 	background-color: rgba(255, 122, 48, 0.8);
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 	color: #0A0A0A;
 }
 
@@ -98,7 +98,7 @@
 	background-color: rgba(250, 253, 158, 0.8);
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 	color: #0A0A0A;
 }
 
@@ -106,7 +106,7 @@
 	background-color: rgba(210, 223, 128, 0.8);
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 	color: #0A0A0A;
 }
 
@@ -114,7 +114,7 @@
 	background-color: rgba(204, 255, 204, 0.8);
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 	color: #0A0A0A;
 }
 
@@ -122,7 +122,7 @@
 	background-color: rgba(205, 207, 196, 0.8);
 	text-align: center;
 	white-space: nowrap;
-	width: 12.5%;
+	width: 11.11%;
 	color: #0A0A0A;
 }
 
@@ -174,8 +174,12 @@
 	color: #000000;
 }
 
+.tholdAckCol {
+	background-color: rgba(138, 43, 226, 0.4);
+}
+
 .tholdAcknowledgment {
-	background-color: rgba(242, 200, 86, 0.8);
+	background-color: rgba(138, 43, 226, 0.4);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;

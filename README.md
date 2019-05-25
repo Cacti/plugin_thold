@@ -113,6 +113,8 @@ that.
 
 * feature: Set THOLD_* specific environment variables for script use
 
+* feature: Allow Threshold Acknowledgment and Suspension of Notification.
+
 * issue#78: Different dimension - MegaBytes instead of Megabits
 
 * issue#182: When adding/removing list from a Threshold, Templated Thresholds should be ignored.

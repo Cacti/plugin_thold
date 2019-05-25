@@ -111,6 +111,12 @@ $thold_log_states = array(
 		'display' => __('Event - Restoral', 'thold'),
 		'display_short' => __('Restoral Event', 'thold'),
 		'class' => 'tholdRestoralEvent'
+	),
+	'99' => array(
+		'index' => 'acknowledgment',
+		'display' => __('Event - Acknowledge', 'thold'),
+		'display_short' => __('Acknowledge Event', 'thold'),
+		'class' => 'tholdAcknowledgment'
 	)
 );
 
@@ -154,6 +160,11 @@ $thold_status_list = array(
 		'index' => 'alarmwarn',
 		'display' => __('Alert-Warn', 'thold'),
 		'class' => 'tholdAlert2Warn'
+	),
+	'8' => array(
+		'index' => 'acknowledgment',
+		'display' => __('Acknowledgment', 'thold'),
+		'classs' => 'tholdAcknowledgment'
 	)
 );
 
@@ -177,6 +188,10 @@ $thold_states = array(
 	'green' => array(
 		'class' => 'tholdOk',
 		'display' => __('Ok', 'thold')
+	),
+	'purple' => array(
+		'class' => 'tholdAcknowledgment',
+		'display' => __('Acknowledgment', 'thold')
 	),
 	'grey' => array(
 		'class' => 'tholdDisabled',
@@ -456,7 +471,8 @@ $data_types = array (
 
 $thold_actions = array(
 	6 => __('Acknowledge', 'thold'),
-	7 => __('Reset Acknowledgment', 'thold'),
+	8 => __('Suspend Notifications', 'thold'),
+	7 => __('Resume Notifications', 'thold'),
 	1 => __('Delete', 'thold'),
 	2 => __('Enable', 'thold'),
 	3 => __('Disable', 'thold'),
