@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 19:14-0400\n"
+"POT-Creation-Date: 2019-05-26 09:16-0400\n"
 "PO-Revision-Date: 2019-03-18 00:52-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -3555,12 +3555,14 @@ msgid "View Threshold History"
 msgstr "Visa tröskelhistorik"
 
 #: thold_graph.php:578
-msgid "Stop alerts until Threshold clears"
-msgstr ""
+#, fuzzy
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Duplicate Notification List (s)"
 
 #: thold_graph.php:581
-msgid "Restart receiving alerts for Threshold"
-msgstr ""
+#, fuzzy
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Radera Notifieringslista (s)"
 
 #: thold_graph.php:597
 #, fuzzy
