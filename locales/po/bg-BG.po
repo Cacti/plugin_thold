@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 19:14-0400\n"
+"POT-Creation-Date: 2019-05-26 09:16-0400\n"
 "PO-Revision-Date: 2019-03-17 12:45-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -3586,12 +3586,14 @@ msgid "View Threshold History"
 msgstr "Преглед на историята на прага"
 
 #: thold_graph.php:578
-msgid "Stop alerts until Threshold clears"
-msgstr ""
+#, fuzzy
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Дублиращ се списък с известия"
 
 #: thold_graph.php:581
-msgid "Restart receiving alerts for Threshold"
-msgstr ""
+#, fuzzy
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Изтриване на списъците със съобщения"
 
 #: thold_graph.php:597
 #, fuzzy
