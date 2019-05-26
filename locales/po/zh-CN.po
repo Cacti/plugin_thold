@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: thold on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 19:14-0400\n"
+"POT-Creation-Date: 2019-05-26 09:16-0400\n"
 "PO-Revision-Date: 2019-04-26 01:40+0000\n"
 "Last-Translator: whsir <wh@whsir.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
@@ -3060,12 +3060,14 @@ msgid "View Threshold History"
 msgstr "查看阈值历史记录"
 
 #: thold_graph.php:578
-msgid "Stop alerts until Threshold clears"
-msgstr ""
+#, fuzzy
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "重复通知列表"
 
 #: thold_graph.php:581
-msgid "Restart receiving alerts for Threshold"
-msgstr ""
+#, fuzzy
+msgid "Resume Notifications for this breached Threshold"
+msgstr "删除通知列表"
 
 #: thold_graph.php:597
 msgid "No name set"
