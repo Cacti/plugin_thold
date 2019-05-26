@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: thold on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 18:19-0400\n"
+"POT-Creation-Date: 2019-05-25 19:14-0400\n"
 "PO-Revision-Date: 2019-04-26 01:40+0000\n"
 "Last-Translator: whsir <wh@whsir.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
@@ -2245,11 +2245,12 @@ msgid ""
 "There are three Acknowledgment levels that control how you must respond to a "
 "Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - "
 "When you select this option, no Acknowledgment is required for a Threshold "
-"breach.</li><li><i>Reset Acknowledgment</i> - With this option, once you "
-"Acknowledge the Threshold, you will no longer receive Notifications while it "
-"is breached.</li><li><i>Persist Acknowledgment</i> - With this option, even "
-"after the Threshold has returned to normal, you must Acknowledge the "
-"Threshold and provide an optional Operator Message.</li></ul>"
+"breach.</li><li><i>Suspendible Notification</i> - With this option, once you "
+"Acknowledge or Suspend Notifications on the Threshold, you will no longer "
+"receive notifications while it is breached.  You may subsequently, Resume "
+"Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - "
+"With this option, even after the Threshold has returned to normal, you must "
+"Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr ""
 "有三个确认级别可控制您必须如何响应阈值违规条件。他们是： <br><br><ul><li> <i>"
 "无必需</i> - 选择此选项时，阈值违规不需要确认。 </li><li> <i>重置确认</i> - "
@@ -2264,12 +2265,12 @@ msgstr "无必需"
 
 #: thold.php:1483 thold_templates.php:1072
 #, fuzzy
-msgid "Reset Acknowledgment"
-msgstr "重置确认"
+msgid "Suspendible Notification"
+msgstr "SNMP通知"
 
 #: thold.php:1487 thold_templates.php:1076
 #, fuzzy
-msgid "Persist Acknowledgment"
+msgid "Persistent Acknowledgment"
 msgstr "坚持承认"
 
 #: thold.php:1492 thold_templates.php:1081
@@ -3786,6 +3787,10 @@ msgstr "调整所选图形的大小"
 #, fuzzy, php-format
 msgid "Created graph: %s"
 msgstr "创建图形: '%s'"
+
+#, fuzzy
+#~ msgid "Reset Acknowledgment"
+#~ msgstr "重置确认"
 
 #, fuzzy
 #~ msgid "Reset Acknowledgment for Template(s)"

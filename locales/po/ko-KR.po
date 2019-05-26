@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 18:19-0400\n"
+"POT-Creation-Date: 2019-05-25 19:14-0400\n"
 "PO-Revision-Date: 2019-03-17 15:25-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -2555,11 +2555,12 @@ msgid ""
 "There are three Acknowledgment levels that control how you must respond to a "
 "Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - "
 "When you select this option, no Acknowledgment is required for a Threshold "
-"breach.</li><li><i>Reset Acknowledgment</i> - With this option, once you "
-"Acknowledge the Threshold, you will no longer receive Notifications while it "
-"is breached.</li><li><i>Persist Acknowledgment</i> - With this option, even "
-"after the Threshold has returned to normal, you must Acknowledge the "
-"Threshold and provide an optional Operator Message.</li></ul>"
+"breach.</li><li><i>Suspendible Notification</i> - With this option, once you "
+"Acknowledge or Suspend Notifications on the Threshold, you will no longer "
+"receive notifications while it is breached.  You may subsequently, Resume "
+"Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - "
+"With this option, even after the Threshold has returned to normal, you must "
+"Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr ""
 "임계 값 위반 조건에 응답해야하는 방법을 제어하는 세 가지 승인 수준이 있습니"
 "다. 그들은: <br><br><ul><li> <i>없음 필수</i> -이 옵션을 선택하면 임계 값 위"
@@ -2576,12 +2577,12 @@ msgstr "필요 없음"
 
 #: thold.php:1483 thold_templates.php:1072
 #, fuzzy
-msgid "Reset Acknowledgment"
-msgstr "재설정 수신 확인"
+msgid "Suspendible Notification"
+msgstr "SNMP 알림"
 
 #: thold.php:1487 thold_templates.php:1076
 #, fuzzy
-msgid "Persist Acknowledgment"
+msgid "Persistent Acknowledgment"
 msgstr "Persistent Acknowledgement"
 
 #: thold.php:1492 thold_templates.php:1081
@@ -4292,6 +4293,10 @@ msgstr "선택된 그래프"
 #, fuzzy, php-format
 msgid "Created graph: %s"
 msgstr "그래프 생성 :  %s"
+
+#, fuzzy
+#~ msgid "Reset Acknowledgment"
+#~ msgstr "재설정 수신 확인"
 
 #, fuzzy
 #~ msgid "Reset Acknowledgment for Template(s)"
