@@ -575,10 +575,10 @@ function tholds() {
 					$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=ack&threshold_id=' . $thold_data['id']) . "'><img src='" . $config['url_path'] . "images/accept.png' alt='' title='" . __esc('Acknowledge Threshold', 'thold') . "'></a>";
 
 					if ($thold_data['reset_ack'] == 'on') {
-						$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=reset_ack&threshold_id=' . $thold_data['id']) . "'><img src='" . $config['url_path'] . "images/stop.png' alt='' title='" . __esc('Stop alerts until Threshold clears', 'thold') . "'></a>";
+						$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=reset_ack&threshold_id=' . $thold_data['id']) . "'><img src='" . $config['url_path'] . "images/stop.png' alt='' title='" . __esc('Suspend Notifications until the Threshold clears', 'thold') . "'></a>";
 					}
 				} elseif ($thold_data['thold_alert'] > 0 && $thold_data['reset_ack'] == 'on') {
-					$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=resume_ack&threshold_id=' . $thold_data['id']) . "'><img src='" . $config['url_path'] . "images/accept.png' alt='' title='" . __esc('Restart receiving alerts for Threshold', 'thold') . "'></a>";
+					$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=resume_ack&threshold_id=' . $thold_data['id']) . "'><img src='" . $config['url_path'] . "images/accept.png' alt='' title='" . __esc('Resume Notifications for this breached Threshold', 'thold') . "'></a>";
 				}
 			}
 

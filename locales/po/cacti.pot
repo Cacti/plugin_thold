@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 19:14-0400\n"
+"POT-Creation-Date: 2019-05-26 09:16-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2773,11 +2773,11 @@ msgid "View Threshold History"
 msgstr ""
 
 #: thold_graph.php:578
-msgid "Stop alerts until Threshold clears"
+msgid "Suspend Notifications until the Threshold clears"
 msgstr ""
 
 #: thold_graph.php:581
-msgid "Restart receiving alerts for Threshold"
+msgid "Resume Notifications for this breached Threshold"
 msgstr ""
 
 #: thold_graph.php:597
