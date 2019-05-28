@@ -768,6 +768,7 @@ function thold_upgrade_database($force = false) {
 		api_plugin_register_hook('thold', 'device_template_top', 'thold_device_template_top', 'setup.php', '1');
 		api_plugin_register_hook('thold', 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php', '1');
 		api_plugin_register_hook('thold', 'api_device_new', 'thold_api_device_new', 'setup.php', '1');
+		api_plugin_register_hook('thold', 'page_head', 'thold_page_head', 'setup.php');
 
 		if (api_plugin_is_enabled('thold')) {
 			api_plugin_enable_hooks('thold');
