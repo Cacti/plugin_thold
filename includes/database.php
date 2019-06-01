@@ -1427,9 +1427,9 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '');
 
 	$data['primary'] = 'id';
@@ -1501,9 +1501,9 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
-	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'syslog_priority', 'type' => 'int(2)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'syslog_facility', 'type' => 'int(2)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'syslog_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
