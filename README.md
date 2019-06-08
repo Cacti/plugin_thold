@@ -157,6 +157,8 @@ that.
 
 * issue#323: "Associated Graph (Graphs using this RRD)" field not including all graphs using same RRD...
 
+* issue#334: Undefined  index: data_source_name in file: thold_functions.php
+
 * issue#339: thold_rpn error if some xxx_hi/low value is empty
 
 * issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.

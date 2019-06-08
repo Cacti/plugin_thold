@@ -709,13 +709,13 @@ function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $c
 	case 'ALL_DATA_SOURCES_NODUPS':
 	case 'ALL_DATA_SOURCES_DUPS':
 		$v1 = 0;
-		$all_dsns = array();
+
 		$all_dsns = db_fetch_assoc_prepared('SELECT data_source_name
 			FROM data_template_rrd
 			WHERE local_data_id = ?',
 			array($local_data_id));
 
-		if (is_array($all_dsns)) {
+		if (cacti_sizeof($all_dsns)) {
 			foreach ($all_dsns as $dsn) {
 				$v1 += get_current_value($local_data_id, $dsn['data_source_name']);
 			}
@@ -3666,7 +3666,12 @@ function thold_get_column_by_cdef(&$thold_data, $column = 'lastread') {
 			WHERE local_graph_id = ?
 			AND dtr.id = ?
 			AND dtr.data_source_name = ?',
-			array($thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']));
+			array(
+				$thold_data['local_graph_id'],
+				$thold_data['data_template_rrd_id'],
+				$thold_data['data_source_name']
+			)
+		);
 
 		if (!empty($cdef)) {
 			return thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);

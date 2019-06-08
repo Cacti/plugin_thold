@@ -1043,6 +1043,11 @@ function thold_edit() {
 		$thold_data['host_id']              = get_filter_request_var('host_id');
 		$thold_data['data_template_rrd_id'] = get_filter_request_var('data_template_rrd_id');
 		$thold_data['thold_template_id']    = get_filter_request_var('thold_template_id');
+
+		$thold_data['data_source_name'] = db_fetch_cell_assoc('SELECT data_source_name
+			FROM data_template_rrd
+			WHERE id = ?',
+			array($thold_data['data_template_rrd_id']));
 	} else {
 		exit;
 	}
@@ -1081,6 +1086,11 @@ function thold_edit() {
 			WHERE local_data_id = ?
 			LIMIT 1',
 			array($thold_data['local_data_id']));
+
+		$thold_data['data_source_name'] = db_fetch_cell_assoc('SELECT data_source_name
+			FROM data_template_rrd
+			WHERE id = ?',
+			array($thold_data['data_template_rrd_id']));
 	}
 
 	$dt_sql = 'SELECT DISTINCT dtr.local_data_id
