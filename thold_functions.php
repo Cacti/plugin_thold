@@ -1481,8 +1481,10 @@ function thold_log($save) {
 			}
 
 			$desc .= '  SentTo: ' . $save['emails'];
+		} elseif (isset($save['description']) {
+			$desc = $save['description'];
 		} else {
-			$desc = $save['desc'];
+			$desc = 'Threshold Acknowledgment';
 		}
 
 		if ($save['status'] == ST_RESTORAL || $save['status'] == ST_NOTIFYRS) {
