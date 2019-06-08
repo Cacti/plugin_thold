@@ -135,9 +135,9 @@ that.
 
 * issue#300: Thold shows multiple tabs as 'selected' when first creating a thold
 
-* issue#307: Thold should log thold device down and recovering to Cacti log for syslog forwarding
-
 * issue#301: Thold Graph does not substitute comment for warn/alert hrule
+
+* issue#307: Thold should log thold device down and recovering to Cacti log for syslog forwarding
 
 * issue#310: Sort by Low value in management - Threshold page can not work well
 
@@ -151,6 +151,8 @@ that.
 
 * issue#316: Wrong color when baseline deviation type of threshold back to normal 
 
+* issue#319: Thold duplicating tholds when two Graphs use the same Data Source
+* 
 * issue#320: Thold Graph broken when name include single quote
 
 * issue#322: Standalone thresholds based on graph with serveral DS don't work for DS after the 1st one...

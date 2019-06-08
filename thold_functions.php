@@ -1481,7 +1481,7 @@ function thold_log($save) {
 			}
 
 			$desc .= '  SentTo: ' . $save['emails'];
-		} elseif (isset($save['description']) {
+		} elseif (isset($save['description'])) {
 			$desc = $save['description'];
 		} else {
 			$desc = 'Threshold Acknowledgment';
@@ -5074,7 +5074,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 				$new_where = $sql_where . ' AND tt.id = ' . $template['id'];
 
 				$data_sources = db_fetch_assoc_prepared("SELECT DISTINCT
-					dtr.id, gti.local_graph_id, local_data_id
+					dtr.id, gti.local_graph_id, local_data_id, gl.snmp_query_id
 					FROM data_template_rrd AS dtr
 					INNER JOIN thold_template AS tt
 					ON tt.data_template_id = dtr.data_template_id
@@ -5092,7 +5092,19 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 						$local_graph_id       = $data_source['local_graph_id'];
 						$data_template_rrd_id = $data_source['id'];
 
-						if (thold_create_from_template($local_data_id, $local_graph_id, $data_template_rrd_id, $template, $message)) {
+						// Don't create a second threashold for a data source that already has a threshold
+						if ($data_source['snmp_query_id'] > 0) {
+							$exists = db_fetch_cell_prepared('SELECT id
+								FROM thold_data
+								WHERE local_data_id = ?
+								AND thold_template_id = ?
+								AND data_template_rrd_id = ?',
+								array($local_data_id, $template['id'], $data_template_rrd_id));
+						} else {
+							$exists = false;
+						}
+
+						if (!$exists && thold_create_from_template($local_data_id, $local_graph_id, $data_template_rrd_id, $template, $message)) {
 							$created++;
 						}
 					}
@@ -5101,7 +5113,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 		}
 	} else {
 		$data_sources = db_fetch_assoc("SELECT DISTINCT
-			dtr.id, gl.id AS local_graph_id, local_data_id, tt.id AS thold_template_id
+			dtr.id, gl.id AS local_graph_id, local_data_id, tt.id AS thold_template_id, gl.snmp_query_id
 			FROM data_template_rrd AS dtr
 			INNER JOIN thold_template AS tt
 			ON tt.data_template_id = dtr.data_template_id
@@ -5125,7 +5137,19 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 
 				if (cacti_sizeof($template)) {
 					foreach($data_sources as $data_source) {
-						if (thold_create_from_template($local_data_id, $local_graph_id, $data_template_rrd_id, $template, $message)) {
+						// Don't create a second threashold for a data source that already has a threshold
+						if ($data_source['snmp_query_id'] > 0) {
+							$exists = db_fetch_cell_prepared('SELECT id
+								FROM thold_data
+								WHERE local_data_id = ?
+								AND thold_template_id = ?
+								AND data_template_rrd_id = ?',
+								array($local_data_id, $template['id'], $data_template_rrd_id));
+						} else {
+							$exists = false;
+						}
+
+						if (!$exists && thold_create_from_template($local_data_id, $local_graph_id, $data_template_rrd_id, $template, $message)) {
 							$created++;
 						}
 					}
