@@ -4005,6 +4005,14 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 }
 
 function thold_rpn($x, $y, $z) {
+	if (empty($x) || $x == 'U') {
+		$x = 0;
+	}
+
+	if (empty($y) || $y == 'U') {
+		$y = 0;
+	}
+
 	switch ($z) {
 	case 1:
 		return $x + $y;
