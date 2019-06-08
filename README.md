@@ -103,15 +103,17 @@ that.
 
 --- 1.2.4 ---
 
-* feature#292: New Requirement: CLI to import thold template
+* feature#274: Data Source link on Data Template column is ambiguous and can lead to confusion.
+
+* feature#292: New Requirement: CLI to import thold template.
 
 * feature: Add last changed date to Threshold table to make it easier to tell when a Threshold was last triggered.
 
-* feature: Add Sites to Notification Lists for Devices and Thresholds
+* feature: Add Sites to Notification Lists for Devices and Thresholds.
 
 * feature: Allow Threshold Notification Settings to be overwritten based upon Template setting.
 
-* feature: Set THOLD_* specific environment variables for script use
+* feature: Set THOLD_* specific environment variables for script use.
 
 * feature: Allow Threshold Acknowledgment and Suspension of Notification.
 
@@ -120,6 +122,8 @@ that.
 * issue#182: When adding/removing list from a Threshold, Templated Thresholds should be ignored.
 
 * issue#268: Allow Device Association/Disassociation to set Thresholds Notification as well.
+
+* issue#283: Do not show 'Threshold Create' icon on the Graphs page for Aggregates
 
 * issue#287: Thresholds are not being created in 1.2.3
 
@@ -133,11 +137,17 @@ that.
 
 * issue#297: Thold row always `alert color` when current value only reach warn hi/low
 
+* issue#298: Thold(tab)->Log(Subtab)->Threshold(Filter) should be "threshold", current is template
+
 * issue#300: Thold shows multiple tabs as 'selected' when first creating a thold
 
 * issue#301: Thold Graph does not substitute comment for warn/alert hrule
 
+* issue#305: Correct three PHP Undefined indexes and CSS errors
+
 * issue#307: Thold should log thold device down and recovering to Cacti log for syslog forwarding
+
+* issue#309: Remove use of deprecated each() from thold_functions.php
 
 * issue#310: Sort by Low value in management - Threshold page can not work well
 
