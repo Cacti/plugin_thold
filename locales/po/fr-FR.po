@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-26 09:16-0400\n"
-"PO-Revision-Date: 2019-03-31 14:55+0000\n"
-"Last-Translator: The Cacti Group <weblate@cacti.net>\n"
+"PO-Revision-Date: 2019-05-28 18:25+0000\n"
+"Last-Translator: Olivier VOGEL <olivier.vogel@st.com>\n"
 "Language-Team: French <http://translate.cacti.net/projects/cacti/thold/fr-FR/"
 ">\n"
 "Language: fr-FR\n"
@@ -449,7 +449,6 @@ msgstr "Notifications SNMP"
 
 #: includes/arrays.php:476 includes/arrays.php:485 notify_lists.php:31
 #: setup.php:1267
-#, fuzzy
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -630,7 +629,6 @@ msgstr "Gestion"
 
 #: includes/settings.php:62 notify_lists.php:45 notify_lists.php:1990
 #: thold_templates.php:1839 thold_templates.php:1915
-#, fuzzy
 msgid "Templates"
 msgstr "Modèles"
 
@@ -817,7 +815,6 @@ msgstr "Par défaut Statut du filtre de gestion des seuils."
 #: includes/settings.php:245 includes/settings.php:258 notify_lists.php:960
 #: notify_lists.php:978 notify_lists.php:1273 notify_lists.php:1291
 #: thold.php:683
-#, fuzzy
 msgid "Any"
 msgstr "N'importe quel"
 
@@ -1500,7 +1497,6 @@ msgstr ""
 #: notify_lists.php:589 notify_lists.php:648 notify_lists.php:659
 #: notify_lists.php:719 notify_lists.php:732 setup.php:1349 thold.php:444
 #: thold_functions.php:5591 thold_templates.php:264
-#, fuzzy
 msgid "Cancel"
 msgstr "Abandonner"
 
@@ -1508,7 +1504,6 @@ msgstr "Abandonner"
 #: notify_lists.php:589 notify_lists.php:648 notify_lists.php:659
 #: notify_lists.php:719 notify_lists.php:732 setup.php:1350 thold.php:446
 #: thold_functions.php:5594 thold_templates.php:266
-#, fuzzy
 msgid "Continue"
 msgstr "Continuer"
 
@@ -1745,7 +1740,6 @@ msgstr "Dispositifs associés"
 #: notify_lists.php:1893 thold.php:628 thold.php:2235 thold_graph.php:127
 #: thold_graph.php:983 thold_graph.php:1329 thold_templates.php:1723
 #: thold_templates.php:1833
-#, fuzzy
 msgid "Search"
 msgstr "Rechercher"
 
@@ -1779,7 +1773,6 @@ msgstr "Type"
 #: notify_lists.php:998 notify_lists.php:1316 notify_lists.php:1580
 #: notify_lists.php:1903 thold.php:709 thold_graph.php:220 thold_graph.php:1057
 #: thold_graph.php:1423 thold_templates.php:1843
-#, fuzzy
 msgid "Default"
 msgstr "Défaut"
 
@@ -1827,7 +1820,6 @@ msgid "Associated Lists"
 msgstr "Listes associées"
 
 #: notify_lists.php:1128 thold_graph.php:834
-#, fuzzy
 msgid "Graphs"
 msgstr "Graphiques"
 
@@ -1868,7 +1860,6 @@ msgid "Associated Thresholds"
 msgstr "Seuils associés"
 
 #: notify_lists.php:1287 thold.php:665 thold_graph.php:162 thold_graph.php:1364
-#, fuzzy
 msgid "Template"
 msgstr "Modèle"
 
@@ -4334,7 +4325,6 @@ msgstr ""
 "basés."
 
 #: thold_webapi.php:467
-#, fuzzy
 msgid "Graph Template"
 msgstr "Modèle de graphique"
 
