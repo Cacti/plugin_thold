@@ -705,7 +705,7 @@ function thold_upgrade_database($force = false) {
 				int(11) UNSIGNED NOT NULL default "0"');
 		}
 
-		if (db_column_exists('thold_data', 'graph_id')) {
+		if (db_column_exists('plugin_thold_log', 'graph_id')) {
 			db_execute('ALTER TABLE plugin_thold_log
 				CHANGE COLUMN graph_id local_graph_id
 				int(11) UNSIGNED NOT NULL default "0"');
