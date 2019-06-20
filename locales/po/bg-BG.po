@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-26 09:16-0400\n"
+"POT-Creation-Date: 2019-06-20 18:40+0000\n"
 "PO-Revision-Date: 2019-03-17 12:45-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -220,7 +220,7 @@ msgstr "Добре"
 msgid "Emergency"
 msgstr "Спешен случай"
 
-#: includes/arrays.php:226 thold.php:1769 thold.php:1788
+#: includes/arrays.php:226 thold.php:1779 thold.php:1798
 #: thold_templates.php:1358 thold_templates.php:1372
 #, fuzzy
 msgid "Critical"
@@ -425,7 +425,7 @@ msgstr "CDEF"
 msgid "Percentage"
 msgstr "Проценти"
 
-#: includes/arrays.php:469 thold.php:1698 thold_templates.php:1286
+#: includes/arrays.php:469 thold.php:1708 thold_templates.php:1286
 #, fuzzy
 msgid "RPN Expression"
 msgstr "Израз на RPN"
@@ -482,9 +482,9 @@ msgid "SNMP not in use"
 msgstr "SNMP не се използва"
 
 #: includes/polling.php:608 includes/polling.php:735 thold.php:948
-#: thold.php:968 thold.php:969 thold.php:1160 thold.php:1202 thold.php:1209
-#: thold.php:1215 thold.php:1223 thold.php:1229 thold.php:1235 thold.php:1237
-#: thold.php:1409 thold_graph.php:610 thold_graph.php:630 thold_graph.php:631
+#: thold.php:968 thold.php:969 thold.php:1170 thold.php:1212 thold.php:1219
+#: thold.php:1225 thold.php:1233 thold.php:1239 thold.php:1245 thold.php:1247
+#: thold.php:1419 thold_graph.php:610 thold_graph.php:630 thold_graph.php:631
 #: thold_graph.php:904 thold_graph.php:948 thold_graph.php:951
 #: thold_graph.php:952 thold_graph.php:953 thold_graph.php:1302
 #: thold_graph.php:1303
@@ -817,7 +817,7 @@ msgid "Any"
 msgstr "Всички"
 
 #: includes/settings.php:247 includes/settings.php:260 notify_lists.php:1307
-#: notify_lists.php:1393 notify_lists.php:1504 thold.php:699 thold.php:1852
+#: notify_lists.php:1393 notify_lists.php:1504 thold.php:699 thold.php:1862
 #: thold_graph.php:210 thold_graph.php:1014 thold_templates.php:1023
 #: thold_templates.php:1435
 #, fuzzy
@@ -1011,7 +1011,7 @@ msgstr ""
 "Това е стойността по подразбиране, използвана при създаването на прагове или "
 "шаблони."
 
-#: includes/settings.php:366 thold.php:1661 thold_templates.php:1250
+#: includes/settings.php:366 thold.php:1671 thold_templates.php:1250
 #, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "Начален брой тригери"
@@ -1489,7 +1489,7 @@ msgstr ""
 #: notify_lists.php:508 notify_lists.php:520 notify_lists.php:578
 #: notify_lists.php:589 notify_lists.php:648 notify_lists.php:659
 #: notify_lists.php:719 notify_lists.php:732 setup.php:1349 thold.php:444
-#: thold_functions.php:5591 thold_templates.php:264
+#: thold_functions.php:5630 thold_templates.php:264
 #, fuzzy
 msgid "Cancel"
 msgstr "Отказ"
@@ -1497,7 +1497,7 @@ msgstr "Отказ"
 #: notify_lists.php:508 notify_lists.php:520 notify_lists.php:578
 #: notify_lists.php:589 notify_lists.php:648 notify_lists.php:659
 #: notify_lists.php:719 notify_lists.php:732 setup.php:1350 thold.php:446
-#: thold_functions.php:5594 thold_templates.php:266
+#: thold_functions.php:5633 thold_templates.php:266
 #, fuzzy
 msgid "Continue"
 msgstr "Продължи"
@@ -1731,7 +1731,7 @@ msgid "Associated Devices"
 msgstr "Свързани устройства"
 
 #: notify_lists.php:950 notify_lists.php:1263 notify_lists.php:1570
-#: notify_lists.php:1893 thold.php:628 thold.php:2235 thold_graph.php:127
+#: notify_lists.php:1893 thold.php:628 thold.php:2245 thold_graph.php:127
 #: thold_graph.php:983 thold_graph.php:1329 thold_templates.php:1723
 #: thold_templates.php:1833
 #, fuzzy
@@ -1747,8 +1747,8 @@ msgstr "Tочка на продажба"
 #: notify_lists.php:961 notify_lists.php:979 notify_lists.php:1141
 #: notify_lists.php:1155 notify_lists.php:1274 notify_lists.php:1475
 #: notify_lists.php:1720 setup.php:754 setup.php:772 setup.php:946
-#: setup.php:947 setup.php:1103 thold.php:639 thold.php:670 thold.php:1444
-#: thold.php:1452 thold.php:1736 thold.php:1744 thold.php:2198
+#: setup.php:947 setup.php:1103 thold.php:639 thold.php:670 thold.php:1454
+#: thold.php:1462 thold.php:1746 thold.php:1754 thold.php:2208
 #: thold_graph.php:138 thold_graph.php:167 thold_graph.php:185
 #: thold_graph.php:994 thold_graph.php:1038 thold_graph.php:1340
 #: thold_graph.php:1369 thold_templates.php:389 thold_templates.php:437
@@ -1867,7 +1867,7 @@ msgid "State"
 msgstr "Област"
 
 #: notify_lists.php:1304 thold.php:638 thold.php:669 thold.php:696
-#: thold.php:2197 thold_graph.php:137 thold_graph.php:166 thold_graph.php:184
+#: thold.php:2207 thold_graph.php:137 thold_graph.php:166 thold_graph.php:184
 #: thold_graph.php:207 thold_graph.php:993 thold_graph.php:1013
 #: thold_graph.php:1037 thold_graph.php:1339 thold_graph.php:1368
 #: thold_graph.php:1386 thold_graph.php:1408 thold_templates.php:1685
@@ -2082,7 +2082,7 @@ msgstr "Автоматично създаване на прагове"
 msgid "Created %s thresholds"
 msgstr "Праг на създаване: %s"
 
-#: setup.php:867 setup.php:1024 thold_functions.php:5125
+#: setup.php:867 setup.php:1024 thold_functions.php:5164
 #, fuzzy
 msgid ""
 "No Threshold(s) Created.  Either they already exist, or no suitable matches "
@@ -2274,7 +2274,7 @@ msgid ""
 "do not allows this, or that are not triggered, will be ignored."
 msgstr ""
 
-#: thold.php:417 thold_functions.php:5581
+#: thold.php:417 thold_functions.php:5620
 #, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "Потвърдете шаблон (и)"
@@ -2349,7 +2349,7 @@ msgstr "Текущ"
 msgid "The last measured value for the Data Source"
 msgstr "Последната измерена стойност за източника на данни"
 
-#: thold.php:796 thold.php:1768 thold.php:1787 thold_graph.php:436
+#: thold.php:796 thold.php:1778 thold.php:1797 thold_graph.php:436
 #: thold_templates.php:1358 thold_templates.php:1372 thold_templates.php:1955
 #, fuzzy
 msgid "High"
@@ -2361,7 +2361,7 @@ msgid ""
 "other values are display values that may be modified by a cdef."
 msgstr ""
 
-#: thold.php:802 thold.php:1766 thold.php:1785 thold_graph.php:442
+#: thold.php:802 thold.php:1776 thold.php:1795 thold_graph.php:442
 #: thold_templates.php:1358 thold_templates.php:1372 thold_templates.php:1961
 #, fuzzy
 msgid "Low"
@@ -2417,146 +2417,146 @@ msgstr "% d Тригери"
 msgid "Threshold Deleted, can not Edit!"
 msgstr "Прагът не съществува"
 
-#: thold.php:1103
+#: thold.php:1113
 #, fuzzy
 msgid "Graph Data"
 msgstr "Графични данни"
 
-#: thold.php:1109
+#: thold.php:1119
 #, fuzzy
 msgid "Data Source Description:"
 msgstr "Описание на източника на данни:"
 
-#: thold.php:1110
+#: thold.php:1120
 #, fuzzy
 msgid "Associated Graph (Graphs using this RRD):"
 msgstr "Свързан график (графики, използващи това RRD):"
 
-#: thold.php:1201
+#: thold.php:1211
 #, fuzzy
 msgid "Last:"
 msgstr "Последно"
 
-#: thold.php:1208
+#: thold.php:1218
 #, fuzzy
 msgid "WHi:"
 msgstr "WHI:"
 
-#: thold.php:1214
+#: thold.php:1224
 #, fuzzy
 msgid "WLo:"
 msgstr "WLo:"
 
-#: thold.php:1222
+#: thold.php:1232
 #, fuzzy
 msgid "AHi:"
 msgstr "Ахи:"
 
-#: thold.php:1228
+#: thold.php:1238
 #, fuzzy
 msgid "ALo:"
 msgstr "ALO:"
 
-#: thold.php:1234
+#: thold.php:1244
 #, fuzzy
 msgid "BL Up:"
 msgstr "BL Up:"
 
-#: thold.php:1235 thold.php:1237
+#: thold.php:1245 thold.php:1247
 #, fuzzy, php-format
 msgid "%s%%"
 msgstr "Неуспешно сввързавне към: %s"
 
-#: thold.php:1236
+#: thold.php:1246
 #, fuzzy
 msgid "BL Down:"
 msgstr "BL Down:"
 
-#: thold.php:1274
+#: thold.php:1284
 #, fuzzy, php-format
 msgid "Unknown Template ID %d"
 msgstr "Идентификатор на неизвестен шаблон% d"
 
-#: thold.php:1276
+#: thold.php:1286
 #, fuzzy
 msgid "Not Templated"
 msgstr "Не е планирано"
 
-#: thold.php:1284
+#: thold.php:1294
 #, fuzzy, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "Източник на данни [ %s] - Текуща стойност: [ %s]"
 
-#: thold.php:1369 thold_templates.php:959
+#: thold.php:1379 thold_templates.php:959
 #, fuzzy, php-format
 msgid "Replacement Fields: %s"
 msgstr "Поле за смяна: %s"
 
-#: thold.php:1382 thold_templates.php:973
+#: thold.php:1392 thold_templates.php:973
 #, fuzzy, php-format
 msgid "Data Sources: %s"
 msgstr "Източници на данни: %s"
 
-#: thold.php:1394
+#: thold.php:1404
 #, fuzzy
 msgid "Template/Enabled Information"
 msgstr "Шаблон / Активирана информация"
 
-#: thold.php:1398
+#: thold.php:1408
 #, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "Разпространение на шаблона е активирано"
 
-#: thold.php:1401
+#: thold.php:1411
 #, fuzzy
 msgid ""
 "Whether or not these settings will be propagated from the Threshold template."
 msgstr "Дали тези настройки ще се разпространяват от шаблона за праг."
 
-#: thold.php:1405 thold_templates.php:989
+#: thold.php:1415 thold_templates.php:989
 #, fuzzy
 msgid "Template Name"
 msgstr "Име на шаблона"
 
-#: thold.php:1408
+#: thold.php:1418
 #, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "Име на шаблона на прага, от който е създаден прагът."
 
-#: thold.php:1412
+#: thold.php:1422
 #, fuzzy
 msgid "Threshold Enabled"
 msgstr "Праг е разрешен"
 
-#: thold.php:1415 thold_templates.php:1026
+#: thold.php:1425 thold_templates.php:1026
 #, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "Дали този праг ще бъде проверен или предупреждаван."
 
-#: thold.php:1419 thold_templates.php:985
+#: thold.php:1429 thold_templates.php:985
 #, fuzzy
 msgid "General Settings"
 msgstr "Основни настройки"
 
-#: thold.php:1423
+#: thold.php:1433
 msgid "Name (Displayed)"
 msgstr ""
 
-#: thold.php:1428 thold.php:1437
+#: thold.php:1438 thold.php:1447
 #, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "Дайте Праговете смислено име"
 
-#: thold.php:1432
+#: thold.php:1442
 msgid "Name (Format)"
 msgstr ""
 
-#: thold.php:1441 thold_templates.php:1030
+#: thold.php:1451 thold_templates.php:1030
 #, fuzzy
 msgid "Warning HRULE Color"
 msgstr "Предупреждение HRULE Цвят"
 
-#: thold.php:1442 thold_templates.php:1031
+#: thold.php:1452 thold_templates.php:1031
 #, fuzzy
 msgid ""
 "Please choose a Color for the Graph HRULE for the Warning Thresholds.  "
@@ -2567,12 +2567,12 @@ msgstr ""
 "Изберете „Няма“ за Не HRULE. Забележка: Тази функция се поддържа за типове "
 "манипулиране на данни „Точна стойност“ и „Процент“ само в този момент."
 
-#: thold.php:1449 thold_templates.php:1038
+#: thold.php:1459 thold_templates.php:1038
 #, fuzzy
 msgid "Alert HRULE Color"
 msgstr "Предупреждение HRULE Цвят"
 
-#: thold.php:1450 thold_templates.php:1039
+#: thold.php:1460 thold_templates.php:1039
 #, fuzzy
 msgid ""
 "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose "
@@ -2583,23 +2583,23 @@ msgstr ""
 "Изберете „Няма“ за Не HRULE. Забележка: Тази функция се поддържа за типове "
 "манипулиране на данни „Точна стойност“ и „Процент“ само в този момент."
 
-#: thold.php:1457 thold_templates.php:1046
+#: thold.php:1467 thold_templates.php:1046
 #, fuzzy
 msgid "Weekend Exemption"
 msgstr "Освобождаване от уикенда"
 
-#: thold.php:1458 thold_templates.php:1047
+#: thold.php:1468 thold_templates.php:1047
 #, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr ""
 "Ако това е отметнато, този праг няма да се сигнализира през почивните дни."
 
-#: thold.php:1464 thold_templates.php:1053
+#: thold.php:1474 thold_templates.php:1053
 #, fuzzy
 msgid "Disable Restoration Email"
 msgstr "Деактивиране на имейла за възстановяване"
 
-#: thold.php:1465 thold_templates.php:1054
+#: thold.php:1475 thold_templates.php:1054
 #, fuzzy
 msgid ""
 "If this is checked, Threshold will not send an alert when the Threshold has "
@@ -2608,12 +2608,12 @@ msgstr ""
 "Ако това е отметнато, Прагът няма да изпрати сигнал, когато Прагът се върне "
 "към нормалното състояние."
 
-#: thold.php:1471 thold_templates.php:1060
+#: thold.php:1481 thold_templates.php:1060
 #, fuzzy
 msgid "Acknowledgment Options"
 msgstr "Опции за потвърждение"
 
-#: thold.php:1472 thold_templates.php:1061
+#: thold.php:1482 thold_templates.php:1061
 #, fuzzy
 msgid ""
 "There are three Acknowledgment levels that control how you must respond to a "
@@ -2635,82 +2635,82 @@ msgstr ""
 "дори след като Прагът се върне към нормалното, трябва да потвърдите прага и "
 "да предоставите незадължително операторско съобщение. </li></ul>"
 
-#: thold.php:1479 thold_templates.php:1068
+#: thold.php:1489 thold_templates.php:1068
 #, fuzzy
 msgid "None Required"
 msgstr "Не е задължително"
 
-#: thold.php:1483 thold_templates.php:1072
+#: thold.php:1493 thold_templates.php:1072
 #, fuzzy
 msgid "Suspendible Notification"
 msgstr "SNMP Известия"
 
-#: thold.php:1487 thold_templates.php:1076
+#: thold.php:1497 thold_templates.php:1076
 #, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "Постоянно признание"
 
-#: thold.php:1492 thold_templates.php:1081
+#: thold.php:1502 thold_templates.php:1081
 #, fuzzy
 msgid "Threshold Type"
 msgstr "Тип праг"
 
-#: thold.php:1497 thold_templates.php:1086
+#: thold.php:1507 thold_templates.php:1086
 #, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "Типът Праг, който ще бъде наблюдаван."
 
-#: thold.php:1501 thold_templates.php:1090
+#: thold.php:1511 thold_templates.php:1090
 #, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "Цикъл на повторно предупреждение"
 
-#: thold.php:1505
+#: thold.php:1515
 #, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr ""
 "Повтаряйте предупреждението след изтичането на този период от последния "
 "сигнал."
 
-#: thold.php:1509 thold_templates.php:1098
+#: thold.php:1519 thold_templates.php:1098
 #, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "Предупреждение - Висока / ниска настройка"
 
-#: thold.php:1513 thold.php:1540 thold.php:1567 thold.php:1602
+#: thold.php:1523 thold.php:1550 thold.php:1577 thold.php:1612
 #: thold_templates.php:1102 thold_templates.php:1129 thold_templates.php:1156
 #: thold_templates.php:1192
 #, fuzzy
 msgid "High Threshold"
 msgstr "Висок праг"
 
-#: thold.php:1517 thold.php:1571 thold_templates.php:1160
+#: thold.php:1527 thold.php:1581 thold_templates.php:1160
 msgid ""
 "If set and Data Source value goes above this number, warning will be "
 "triggered.  NOTE: This value must be a RAW number.  The value displayed on "
 "the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1521 thold.php:1548 thold.php:1575 thold.php:1610
+#: thold.php:1531 thold.php:1558 thold.php:1585 thold.php:1620
 #: thold_templates.php:1110 thold_templates.php:1137 thold_templates.php:1164
 #: thold_templates.php:1200
 #, fuzzy
 msgid "Low Threshold"
 msgstr "Нисък праг"
 
-#: thold.php:1525 thold.php:1579 thold_templates.php:1168
+#: thold.php:1535 thold.php:1589 thold_templates.php:1168
 msgid ""
 "If set and Data Source value goes below this number, warning will be "
 "triggered.  NOTE: This value must be a RAW number.  The value displayed on "
 "the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1529 thold.php:1556
+#: thold.php:1539 thold.php:1566
 #, fuzzy
 msgid "Breach Duration"
 msgstr "Продължителност на нарушението"
 
-#: thold.php:1532
+#: thold.php:1542
 #, fuzzy
 msgid ""
 "The amount of time the Data Source must be in breach of the Threshold for a "
@@ -2720,12 +2720,12 @@ msgstr ""
 "Времето, през което източникът на данни трябва да е в нарушение на Прага за "
 "предупреждение, което трябва да бъде повдигнат."
 
-#: thold.php:1536 thold_templates.php:1125
+#: thold.php:1546 thold_templates.php:1125
 #, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "Предупреждение - Висока / ниска настройка"
 
-#: thold.php:1544 thold.php:1606 thold_templates.php:1106
+#: thold.php:1554 thold.php:1616 thold_templates.php:1106
 #: thold_templates.php:1133 thold_templates.php:1196
 msgid ""
 "If set and Data Source value goes above this number, alert will be "
@@ -2733,7 +2733,7 @@ msgid ""
 "the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1552 thold.php:1614 thold_templates.php:1114
+#: thold.php:1562 thold.php:1624 thold_templates.php:1114
 #: thold_templates.php:1141 thold_templates.php:1204
 msgid ""
 "If set and Data Source value goes below this number, alert will be "
@@ -2741,7 +2741,7 @@ msgid ""
 "the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1559
+#: thold.php:1569
 #, fuzzy
 msgid ""
 "The amount of time the Data Source must be in breach of the Threshold for an "
@@ -2750,49 +2750,49 @@ msgstr ""
 "Времето, през което източникът на данни трябва да е в нарушение на Прага за "
 "сигнал, който трябва да се повиши."
 
-#: thold.php:1563 thold_templates.php:1152
+#: thold.php:1573 thold_templates.php:1152
 #, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "Предупреждение - Настройки, базирани на времето"
 
-#: thold.php:1583 thold.php:1618
+#: thold.php:1593 thold.php:1628
 #, fuzzy
 msgid "Breach Count"
 msgstr "Брой на нарушенията"
 
-#: thold.php:1587 thold.php:1623
+#: thold.php:1597 thold.php:1633
 #, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr ""
 "Броят пъти, в които източникът на данни трябва да е в нарушение на Прага."
 
-#: thold.php:1591 thold.php:1627
+#: thold.php:1601 thold.php:1637
 #, fuzzy
 msgid "Breach Window"
 msgstr "Прозорец за нарушения"
 
-#: thold.php:1594 thold.php:1630 thold_templates.php:1184
+#: thold.php:1604 thold.php:1640 thold_templates.php:1184
 #: thold_templates.php:1219
 #, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "Времето в миналото, което трябва да се провери за нарушения на Прага."
 
-#: thold.php:1598 thold_templates.php:1188
+#: thold.php:1608 thold_templates.php:1188
 #, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "Предупреждение - Настройки, базирани на времето"
 
-#: thold.php:1634
+#: thold.php:1644
 #, fuzzy
 msgid "Baseline Settings"
 msgstr "Основни настройки"
 
-#: thold.php:1638
+#: thold.php:1648
 #, fuzzy
 msgid "Time range"
 msgstr "Времеви интервал"
 
-#: thold.php:1641
+#: thold.php:1651
 #, fuzzy
 msgid ""
 "Specifies the point in the past (based on RRDfile resolution) that will be "
@@ -2801,12 +2801,12 @@ msgstr ""
 "Определя точката в миналото (въз основа на разделителната способност на "
 "RRDfile), която ще се използва като отправна точка"
 
-#: thold.php:1645
+#: thold.php:1655
 #, fuzzy
 msgid "Deviation UP"
 msgstr "Отклонение UP"
 
-#: thold.php:1649 thold_templates.php:1238
+#: thold.php:1659 thold_templates.php:1238
 #, fuzzy
 msgid ""
 "Specifies allowed deviation in percentage for the upper bound Threshold. If "
@@ -2815,12 +2815,12 @@ msgstr ""
 "Определя допустимото отклонение в проценти за горната граница на прага. Ако "
 "не е зададен, прагът на горната граница изобщо не се проверява."
 
-#: thold.php:1653
+#: thold.php:1663
 #, fuzzy
 msgid "Deviation DOWN"
 msgstr "Отклонение надолу"
 
-#: thold.php:1657 thold_templates.php:1246
+#: thold.php:1667 thold_templates.php:1246
 #, fuzzy
 msgid ""
 "Specifies allowed deviation in percentage for the lower bound Threshold. If "
@@ -2829,7 +2829,7 @@ msgstr ""
 "Задава допустимото отклонение в проценти за долния праг. Ако не е зададен, "
 "прагът на долната граница няма да се проверява изобщо."
 
-#: thold.php:1665
+#: thold.php:1675
 #, fuzzy, php-format
 msgid ""
 "Number of consecutive times the Data Source must be in breach of the "
@@ -2841,37 +2841,37 @@ msgstr ""
 "Оставете празно, за да използвате стойността по подразбиране (по "
 "<b>подразбиране: %s цикли</b> )"
 
-#: thold.php:1669 thold_templates.php:1258
+#: thold.php:1679 thold_templates.php:1258
 #, fuzzy
 msgid "Data Manipulation"
 msgstr "Управление на данни"
 
-#: thold.php:1673 thold_templates.php:1262
+#: thold.php:1683 thold_templates.php:1262
 #, fuzzy
 msgid "Data Type"
 msgstr "Тип данни"
 
-#: thold.php:1678 thold_templates.php:1266
+#: thold.php:1688 thold_templates.php:1266
 #, fuzzy
 msgid "Special formatting for the given data."
 msgstr "Специално форматиране за дадените данни."
 
-#: thold.php:1682 thold_templates.php:1270
+#: thold.php:1692 thold_templates.php:1270
 #, fuzzy
 msgid "Threshold CDEF"
 msgstr "Праг CDEF"
 
-#: thold.php:1685 thold_templates.php:1273
+#: thold.php:1695 thold_templates.php:1273
 #, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "Приложете този CDEF преди да върнете данните."
 
-#: thold.php:1690
+#: thold.php:1700
 #, fuzzy
 msgid "Percent Data Source"
 msgstr "Процент източник на данни"
 
-#: thold.php:1693
+#: thold.php:1703
 #, fuzzy
 msgid ""
 "Second Data Source Item to use as total value to calculate percentage from."
@@ -2879,7 +2879,7 @@ msgstr ""
 "Втори източник на данни за използване като обща стойност за изчисляване на "
 "процента от."
 
-#: thold.php:1703
+#: thold.php:1713
 #, fuzzy, php-format
 msgid ""
 "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes "
@@ -2911,17 +2911,17 @@ msgstr ""
 "GE, EQ, NE</span> <br> Функции за сравнение: <span class=\"deviceUp\">MAX, "
 "MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
 
-#: thold.php:1709 thold_templates.php:1295
+#: thold.php:1719 thold_templates.php:1295
 #, fuzzy
 msgid "Notification Settings"
 msgstr "Настройки за известията"
 
-#: thold.php:1714 thold_templates.php:1300
+#: thold.php:1724 thold_templates.php:1300
 #, fuzzy
 msgid "Alert Email Body"
 msgstr "Орган за известяване по имейл"
 
-#: thold.php:1719 thold_templates.php:1305
+#: thold.php:1729 thold_templates.php:1305
 #, fuzzy
 msgid ""
 "This is the message that will be displayed at the top of all Threshold "
@@ -2942,12 +2942,12 @@ msgstr ""
 "DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;"
 "BREACHED_ITEMS &gt;"
 
-#: thold.php:1723 thold_templates.php:1309
+#: thold.php:1733 thold_templates.php:1309
 #, fuzzy
 msgid "Warning Email Body"
 msgstr "Предупредително тяло на имейл"
 
-#: thold.php:1728 thold_templates.php:1314
+#: thold.php:1738 thold_templates.php:1314
 #, fuzzy
 msgid ""
 "This is the message that will be displayed at the top of all Threshold "
@@ -2968,12 +2968,12 @@ msgstr ""
 "DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;"
 "BREACHED_ITEMS &gt;"
 
-#: thold.php:1732 thold_templates.php:1325
+#: thold.php:1742 thold_templates.php:1325
 #, fuzzy
 msgid "Warning Notification List"
 msgstr "Списък с предупреждения"
 
-#: thold.php:1734 thold_templates.php:1327
+#: thold.php:1744 thold_templates.php:1327
 #, fuzzy
 msgid ""
 "You may specify choose a Notification List to receive Warnings for this Data "
@@ -2982,12 +2982,12 @@ msgstr ""
 "Можете да укажете да изберете списък с уведомления, за да получавате "
 "предупреждения за този източник на данни"
 
-#: thold.php:1740 thold_templates.php:1333
+#: thold.php:1750 thold_templates.php:1333
 #, fuzzy
 msgid "Alert Notification List"
 msgstr "Списък с известия за уведомяване"
 
-#: thold.php:1742 thold_templates.php:1335
+#: thold.php:1752 thold_templates.php:1335
 #, fuzzy
 msgid ""
 "You may specify choose a Notification List to receive Alerts for this Data "
@@ -2996,12 +2996,12 @@ msgstr ""
 "Можете да укажете да изберете списък с уведомления, за да получавате сигнали "
 "за този източник на данни"
 
-#: thold.php:1752 thold_templates.php:1345
+#: thold.php:1762 thold_templates.php:1345
 #, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "SNMP Notification - Категория на събитието"
 
-#: thold.php:1754 thold_templates.php:1347
+#: thold.php:1764 thold_templates.php:1347
 #, fuzzy
 msgid ""
 "To allow a NMS to categorize different SNMP notifications more easily please "
@@ -3014,30 +3014,30 @@ msgstr ""
 "\"disk_usage\", \"link_utilization\", \"ping_test\", "
 "\"nokia_firewall_cpu_utilization\" ..."
 
-#: thold.php:1760 thold_templates.php:1353
+#: thold.php:1770 thold_templates.php:1353
 #, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "SNMP известяване - сериозност на предупредителното събитие"
 
-#: thold.php:1763
+#: thold.php:1773
 #, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr ""
 "Тежестта, която трябва да се използва за сигнали. (слабо въздействие -> "
 "критично въздействие)"
 
-#: thold.php:1767 thold.php:1786 thold_templates.php:1358
+#: thold.php:1777 thold.php:1796 thold_templates.php:1358
 #: thold_templates.php:1372
 #, fuzzy
 msgid "Medium"
 msgstr "Средно"
 
-#: thold.php:1779 thold_templates.php:1367
+#: thold.php:1789 thold_templates.php:1367
 #, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "SNMP уведомяване - сериозност на предупредителното събитие"
 
-#: thold.php:1782 thold_templates.php:1370
+#: thold.php:1792 thold_templates.php:1370
 #, fuzzy
 msgid ""
 "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: "
@@ -3048,12 +3048,12 @@ msgstr ""
 "> Критично въздействие). <br> Забележка: Тежестта на предупрежденията трябва "
 "да бъде равна или по-ниска от определената за сериозността на сигналите."
 
-#: thold.php:1800 thold_templates.php:1383
+#: thold.php:1810 thold_templates.php:1383
 #, fuzzy
 msgid "Notify accounts"
 msgstr "Известяване на профили"
 
-#: thold.php:1802
+#: thold.php:1812
 #, fuzzy
 msgid ""
 "This is a listing of accounts that will be notified when this Threshold is "
@@ -3062,12 +3062,12 @@ msgstr ""
 "Това е списък с профили, които ще бъдат известени, когато този праг е "
 "нарушен."
 
-#: thold.php:1807 thold_templates.php:1390
+#: thold.php:1817 thold_templates.php:1390
 #, fuzzy
 msgid "Alert Emails"
 msgstr "Предупредителни имейли"
 
-#: thold.php:1811
+#: thold.php:1821
 #, fuzzy
 msgid ""
 "You may specify here extra Emails to receive alerts for this data source "
@@ -3076,12 +3076,12 @@ msgstr ""
 "Можете да посочите тук допълнителни имейли, за да получавате сигнали за този "
 "източник на данни (разделени със запетая)"
 
-#: thold.php:1815 thold_templates.php:1398
+#: thold.php:1825 thold_templates.php:1398
 #, fuzzy
 msgid "Warning Emails"
 msgstr "Предупредителни съобщения"
 
-#: thold.php:1819
+#: thold.php:1829
 #, fuzzy
 msgid ""
 "You may specify here extra Emails to receive warnings for this data source "
@@ -3090,24 +3090,24 @@ msgstr ""
 "Можете да посочите тук допълнителни имейли, за да получавате предупреждения "
 "за този източник на данни (разделени със запетая)"
 
-#: thold.php:1847 thold_templates.php:1430
+#: thold.php:1857 thold_templates.php:1430
 #, fuzzy
 msgid "Syslog Settings"
 msgstr "Настройки на Syslog"
 
-#: thold.php:1853 thold_templates.php:1436
+#: thold.php:1863 thold_templates.php:1436
 #, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr ""
 "Ако е отметнато, уведомяването за праг ще бъде изпратено до вашия локален "
 "syslog."
 
-#: thold.php:1859 thold_templates.php:1442
+#: thold.php:1869 thold_templates.php:1442
 #, fuzzy
 msgid "Priority/Level"
 msgstr "Приоритет / Ниво"
 
-#: thold.php:1860 thold_templates.php:1443
+#: thold.php:1870 thold_templates.php:1443
 #, fuzzy
 msgid ""
 "This is the Priority Level that will be logged into your syslog messages."
@@ -3115,27 +3115,27 @@ msgstr ""
 "Това е нивото на приоритет, което ще бъде регистрирано в съобщенията ви в "
 "системния журнал."
 
-#: thold.php:1867 thold_templates.php:1450
+#: thold.php:1877 thold_templates.php:1450
 #, fuzzy
 msgid "Facility"
 msgstr "Условие"
 
-#: thold.php:1868 thold_templates.php:1451
+#: thold.php:1878 thold_templates.php:1451
 #, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "Това е Механизмът, който ще се използва за този Праг."
 
-#: thold.php:1889 thold_templates.php:1472
+#: thold.php:1899 thold_templates.php:1472
 #, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "Иницииране на събитие (командване на Shell)"
 
-#: thold.php:1894 thold_templates.php:1477
+#: thold.php:1904 thold_templates.php:1477
 #, fuzzy
 msgid "High Trigger Command"
 msgstr "Команда за високо задействане"
 
-#: thold.php:1895 thold_templates.php:1478
+#: thold.php:1905 thold_templates.php:1478
 #, fuzzy
 msgid ""
 "If set, and if a High Threshold is breached, this command will be run.  "
@@ -3164,12 +3164,12 @@ msgstr ""
 "данни и Замяна на Хост се използват конвенции Cacti | query_xxxx | и | "
 "host_xxxx | съответно."
 
-#: thold.php:1902 thold_templates.php:1485
+#: thold.php:1912 thold_templates.php:1485
 #, fuzzy
 msgid "Low Trigger Command"
 msgstr "Команда за ниско спусъка"
 
-#: thold.php:1903 thold_templates.php:1486
+#: thold.php:1913 thold_templates.php:1486
 #, fuzzy
 msgid ""
 "If set, and if a Low Threshold is breached, this command will be run. Please "
@@ -3198,12 +3198,12 @@ msgstr ""
 "данни и Замяна на Хост се използват конвенции Cacti | query_xxxx | и | "
 "host_xxxx | съответно."
 
-#: thold.php:1910 thold_templates.php:1493
+#: thold.php:1920 thold_templates.php:1493
 #, fuzzy
 msgid "Norm Trigger Command"
 msgstr "Команда за пускане на норма"
 
-#: thold.php:1911 thold_templates.php:1494
+#: thold.php:1921 thold_templates.php:1494
 #, fuzzy
 msgid ""
 "If set, when a thold falls back to a normal value, this command will be "
@@ -3233,17 +3233,17 @@ msgstr ""
 "на замяна в очакване |. За Запитване на данни и Замяна на Хост се използват "
 "конвенции Cacti | query_xxxx | и | host_xxxx | съответно."
 
-#: thold.php:1924 thold_templates.php:1507
+#: thold.php:1934 thold_templates.php:1507
 #, fuzzy
 msgid "Other Settings"
 msgstr "Други настройки"
 
-#: thold.php:1929 thold_templates.php:1512
+#: thold.php:1939 thold_templates.php:1512
 #, fuzzy
 msgid "Operator Notes"
 msgstr "Бележки на оператора"
 
-#: thold.php:1933 thold_templates.php:1516
+#: thold.php:1943 thold_templates.php:1516
 #, fuzzy
 msgid ""
 "Enter instructions here for an operator who may be receiving the Threshold "
@@ -3252,17 +3252,17 @@ msgstr ""
 "Въведете тук инструкции за оператор, който може да получава съобщението "
 "Threshold."
 
-#: thold.php:2186
+#: thold.php:2196
 #, fuzzy
 msgid "Select Users(s)"
 msgstr "Изберете потребители"
 
-#: thold.php:2188
+#: thold.php:2198
 #, fuzzy
 msgid "Users Selected"
 msgstr "Избрани потребители"
 
-#: thold.php:2191
+#: thold.php:2201
 #, fuzzy
 msgid "All Users Selected"
 msgstr "Всички потребители са избрани"
@@ -3312,12 +3312,12 @@ msgstr "Суаповете:"
 msgid "Pages:"
 msgstr "Страници:"
 
-#: thold_functions.php:3559
+#: thold_functions.php:3561
 #, fuzzy
 msgid "Link to Graph in Cacti"
 msgstr "Линк към Graph in Cacti"
 
-#: thold_functions.php:3590
+#: thold_functions.php:3592
 #, fuzzy
 msgid ""
 "<html><body>An alert has been issued that requires your attention."
@@ -3328,7 +3328,7 @@ msgstr ""
 "<b>Устройство</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL адрес</b> : "
 "<URL><br> <b>Съобщение</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3616
+#: thold_functions.php:3618
 #, fuzzy
 msgid ""
 "<html><body>A warning has been issued that requires your attention."
@@ -3339,14 +3339,14 @@ msgstr ""
 "<br><br> <b>Устройство</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL адрес</"
 "b> : <URL><br> <b>Съобщение</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:4336
+#: thold_functions.php:4351
 #, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr ""
 "Идентификаторът на устройството не е зададен, докато се опитва да създаде "
 "графика и праг"
 
-#: thold_functions.php:4351
+#: thold_functions.php:4366
 #, fuzzy
 msgid ""
 "The Threshold Template ID was not found while trying to create Graph and "
@@ -3355,7 +3355,7 @@ msgstr ""
 "Идентификационният номер на шаблона за прага не е зададен, докато се опитва "
 "да създаде графика и праг"
 
-#: thold_functions.php:4358
+#: thold_functions.php:4373
 #, fuzzy
 msgid ""
 "The Threshold Template ID was not set while trying to create Graph and "
@@ -3364,29 +3364,29 @@ msgstr ""
 "Идентификационният номер на шаблона за прага не е зададен, докато се опитва "
 "да създаде графика и праг"
 
-#: thold_functions.php:4391
+#: thold_functions.php:4406
 #, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "Създаването на графиката е неуспешно за шаблона за праг"
 
-#: thold_functions.php:4421
+#: thold_functions.php:4436
 #, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr ""
 "Прагът бе автоматично създаден поради картографиране на шаблон на "
 "устройството"
 
-#: thold_functions.php:4455 thold_functions.php:4769
+#: thold_functions.php:4470 thold_functions.php:4784
 #, fuzzy
 msgid "Permission Denied"
 msgstr "Разрешението е отказано"
 
-#: thold_functions.php:4469 thold_functions.php:4836
+#: thold_functions.php:4484 thold_functions.php:4851
 #, fuzzy
 msgid "Record Updated"
 msgstr "Записът е актуализиран"
 
-#: thold_functions.php:4519
+#: thold_functions.php:4534
 #, fuzzy
 msgid ""
 "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or "
@@ -3395,7 +3395,7 @@ msgstr ""
 "Трябва да укажете или 'High Alert Threshold' или 'Low Alert Threshold' или и "
 "двете! <br> RECORD НЕ АКТУАЛНО!"
 
-#: thold_functions.php:4531
+#: thold_functions.php:4546
 #, fuzzy
 msgid ""
 "Impossible thresholds: 'High Threshold' smaller than or equal to 'Low "
@@ -3404,7 +3404,7 @@ msgstr ""
 "Невъзможни прагове: „висок праг“ по-малък или равен на „нисък праг“ <br> "
 "RECORD НЕ АКТУАЛНО!"
 
-#: thold_functions.php:4543
+#: thold_functions.php:4558
 #, fuzzy
 msgid ""
 "Impossible thresholds: 'High Warning Threshold' smaller than or equal to "
@@ -3413,12 +3413,12 @@ msgstr ""
 "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на "
 "„Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
 
-#: thold_functions.php:4551
+#: thold_functions.php:4566
 #, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "При включени базови прагове."
 
-#: thold_functions.php:4560
+#: thold_functions.php:4575
 #, fuzzy
 msgid ""
 "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' "
@@ -3427,32 +3427,32 @@ msgstr ""
 "Трябва да посочите или „Базово отклонение UP“, или „Baseline Deviation "
 "DOWN“, или и двете! <br> RECORD НЕ АКТУАЛНО!"
 
-#: thold_functions.php:4759
+#: thold_functions.php:4774
 #, fuzzy, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "Неуспешно намиране на свързан шаблон за график „% d“ на праг „% d“"
 
-#: thold_functions.php:4834
+#: thold_functions.php:4849
 #, fuzzy, php-format
 msgid "Created Threshold: %s"
 msgstr "Праг на създаване: %s"
 
-#: thold_functions.php:4903
+#: thold_functions.php:4918
 #, fuzzy, php-format
 msgid "'%s' must be set to positive integer value!<br>RECORD NOT UPDATED!"
 msgstr "„ %s“ трябва да е с положителна цяло число! <br> RECORD НЕ АКТУАЛНО!"
 
-#: thold_functions.php:5050
+#: thold_functions.php:5065
 #, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "Без прагови шаблони, свързани с шаблона на устройството."
 
-#: thold_functions.php:5198
+#: thold_functions.php:5237
 #, fuzzy, php-format
 msgid "Created Threshold: %s<br>"
 msgstr "Праг на създаване: %s"
 
-#: thold_functions.php:5233
+#: thold_functions.php:5272
 #, fuzzy
 msgid ""
 "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> "
@@ -3462,70 +3462,70 @@ msgstr ""
 "използвате връзката „ <i>Тестова поща</i> “, задайте настройката „ <b>E-"
 "mail</b> “."
 
-#: thold_functions.php:5578 thold_graph.php:575
+#: thold_functions.php:5617 thold_graph.php:575
 #, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "Неизвестен праг"
 
-#: thold_functions.php:5580
+#: thold_functions.php:5619
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "Кликнете върху „Напред“, за да потвърдите следните прагове."
 
-#: thold_functions.php:5997
+#: thold_functions.php:6036
 #, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "Шаблонът на подчинените данни за шаблона не е намерен!"
 
-#: thold_functions.php:6012
+#: thold_functions.php:6051
 #, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "Не е намерен подчинен източник на данни от шаблона за прага"
 
-#: thold_functions.php:6048
+#: thold_functions.php:6087
 msgid "Threshold Template import columns do not match the database schema"
 msgstr ""
 
-#: thold_functions.php:6056
+#: thold_functions.php:6095
 #, fuzzy
 msgid "Imported"
 msgstr "Импортирано"
 
-#: thold_functions.php:6056
+#: thold_functions.php:6095
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "Шаблон за прага „ %s“ %s!"
 
-#: thold_functions.php:6056
+#: thold_functions.php:6095
 #, fuzzy
 msgid "Updated"
 msgstr "Обновена на"
 
-#: thold_functions.php:6058 thold_templates.php:1857 thold_templates.php:2113
+#: thold_functions.php:6097 thold_templates.php:1857 thold_templates.php:2113
 #, fuzzy
 msgid "Import"
 msgstr "Импорт"
 
-#: thold_functions.php:6058
+#: thold_functions.php:6097
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "Шаблонът за прага „ %s“ %s е неуспешен!"
 
-#: thold_functions.php:6058
+#: thold_functions.php:6097
 #, fuzzy
 msgid "Update"
 msgstr "Обновяване"
 
-#: thold_functions.php:6061
+#: thold_functions.php:6100
 msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr ""
 
-#: thold_functions.php:6065
+#: thold_functions.php:6104
 #, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "Шаблонът на подчинените данни за шаблона не е намерен!"
 
-#: thold_functions.php:6068
+#: thold_functions.php:6107
 #, fuzzy
 msgid ""
 "Threshold Template Import data was not correct while importing Threshold "
