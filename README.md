@@ -101,79 +101,165 @@ that.
 
 ## ChangeLog
 
---- 1.2.4 ---
+--- 1.3.0 ---
 
 * feature#240: Thold plugin expose alerting information for external script
+
 * feature#259: Custom status was not replaced correctly after creating threshold
-* feature#274: Data Source link on Data Template column is ambiguous and can lead to confusion.
+
+* feature#274: Data Source link on Data Template column is ambiguous and can
+  lead to confusion.
+
 * feature#292: New Requirement: CLI to import thold template.
-* feature: Add last changed date to Threshold table to make it easier to tell when a Threshold was last triggered.
+
+* feature: Add last changed date to Threshold table to make it easier to tell
+  when a Threshold was last triggered.
+
 * feature: Add Sites to Notification Lists for Devices and Thresholds.
-* feature: Allow Threshold Notification Settings to be overwritten based upon Template setting.
+
+* feature: Allow Threshold Notification Settings to be overwritten based upon
+  Template setting.
+
 * feature: Set THOLD_* specific environment variables for script use.
+
 * feature: Allow Threshold Acknowledgment and Suspension of Notification.
+
 * issue#78: Different dimension - MegaBytes instead of Megabits
-* issue#95: Enhancement: Display duration count in days:hr:min:sec for triggered thold alarms and warnings
-* issue#182: When adding/removing list from a Threshold, Templated Thresholds should be ignored.
+
+* issue#95: Enhancement: Display duration count in days:hr:min:sec for triggered
+  thold alarms and warnings
+
+* issue#182: When adding/removing list from a Threshold, Templated Thresholds
+  should be ignored.
+
 * issue#241: Problem when acknowleding a thold
+
 * issue#248: No device available when attempting to manually add a new Threshold
+
 * issue#253: Threshold names are not being displayed correctly
+
 * issue#257: Can not create thold for graph
+
 * issue#258: When listing Thresholds, unable to sort by Data Source column
+
 * issue#260: New thold tab in a threshold can not work properly
+
 * issue#262: MySQL is sorting measured values as strings not numerics on Log tab
-* issue#268: Allow Device Association/Disassociation to set Thresholds Notification as well.
+
+* issue#268: Allow Device Association/Disassociation to set Thresholds
+  Notification as well.
+
 * issue#271: A non-numeric value encountered in file polling.php line 570 & 571
-* issue#272: MySQL is sorting measured values as strings not numerics on Thold tab
+
+* issue#272: MySQL is sorting measured values as strings not numerics on Thold
+  tab
+
 * issue#273: Wrong navigation bar link
+
 * issue#276: When saving a threshold, multiple errors are generated
-* issue#277: When finding data sources to template, string vs array error occurs if templates are found
+
+* issue#277: When finding data sources to template, string vs array error occurs
+  if templates are found
+
 * issue#278: When creating new thresholds, created count generates errors
-* issue#283: Do not show 'Threshold Create' icon on the Graphs page for Aggregates
+
+* issue#283: Do not show 'Threshold Create' icon on the Graphs page for
+  Aggregates
+
 * issue#287: Thresholds are not being created in 1.2.3
+
 * issue#289: Threshold filter on Thold - Log tab can not work
+
 * issue#290: Upgrade log some SQL Error, and save thold_template failure
+
 * issue#293: php error, undefined selected_items in notify_lists.php
+
 * issue#294: Update thold_webapi.php
+
 * issue#295: Thold daemon setting causing warnings
-* issue#296: plugin_thold_contacts keep obsoleted data if email is changed from User Management
-* issue#297: Thold row always `alert color` when current value only reach warn hi/low
-* issue#298: Thold(tab)->Log(Subtab)->Threshold(Filter) should be "threshold", current is template
+
+* issue#296: plugin_thold_contacts keep obsoleted data if email is changed from
+  User Management
+
+* issue#297: Thold row always `alert color` when current value only reach warn
+  hi/low
+
+* issue#298: Thold(tab)->Log(Subtab)->Threshold(Filter) should be "threshold",
+  current is template
+
 * issue#299: php error Constant STAT_NORMAL,STAT_LO,STAT_HI already defined
+
 * issue#300: Thold shows multiple tabs as 'selected' when first creating a thold
+
 * issue#301: Thold Graph does not substitute comment for warn/alert hrule
+
 * issue#302: Fixed: PHP Notice: Undefined Variable $thold_data
+
 * issue#305: Correct three PHP Undefined indexes and CSS errors
-* issue#307: Thold should log thold device down and recovering to Cacti log for syslog forwarding
+
+* issue#307: Thold should log thold device down and recovering to Cacti log for
+  syslog forwarding
+
 * issue#309: Remove use of deprecated each() from thold_functions.php
+
 * issue#310: Sort by Low value in management - Threshold page can not work well
+
 * issue#311: Can not show graphs when drill down from Thold - Device Status
+
 * issue#312: A warning thold use wrong color
+
 * issue#314: Current display value incorrect
-* issue#315: Can not distinct threshold with same graph template but with different DataSource
-* issue#316: Wrong color when baseline deviation type of threshold back to normal 
+
+* issue#315: Can not distinct threshold with same graph template but with
+  different DataSource
+
+* issue#316: Wrong color when baseline deviation type of threshold back to
+  normal
+
 * issue#319: Thold duplicating tholds when two Graphs use the same Data Source
+
 * issue#320: Thold Graph broken when name include single quote
-* issue#322: Standalone thresholds based on graph with serveral DS don't work for DS after the 1st one...
-* issue#323: "Associated Graph (Graphs using this RRD)" field not including all graphs using same RRD...
+
+* issue#322: Standalone thresholds based on graph with serveral DS don't work
+  for DS after the 1st one...
+
+* issue#323: "Associated Graph (Graphs using this RRD)" field not including all
+  graphs using same RRD...
+
 * issue#324: value not correct in Thold - Log page
+
 * issue#325: In State status incorrect for threshold
+
 * issue#326: Threshold Acknowledgment, Suspend, Resume not functional
+
 * issue#327: php error for thold_functions.php
+
 * issue#329: SQL Error due to typo if thold upgrade from 0.6 and prior
-* issue#334: Undefined  index: data_source_name in file: thold_functions.php
-* issue#335: Undefined index: desc in file: /opt/IBM/cacti/plugins/thold/thold_functions.php
-* issue#336: cacti 1.2.4 and THOLD 1.2.4 check_all_thresholds error
+
+* issue#334: Undefined index: data_source_name in file: thold_functions.php
+
+* issue#335: Undefined index: desc in file:
+  /opt/IBM/cacti/plugins/thold/thold_functions.php
+
+* issue#336: cacti 1.2.4 and THOLD 1.2.x check_all_thresholds error
+
 * issue#339: thold_rpn error if some xxx_hi/low value is empty
+
 * issue#340: fix wrong function name function db_fetch_cell_assoc
-* issue: When updating the Notification List for a Threshold Template, updates were not pushed to Thresholds.
+
+* issue: When updating the Notification List for a Threshold Template, updates
+  were not pushed to Thresholds.
 
 --- 1.2.3 ---
 
-* issue#283: Do not show 'Threshold Create' icon on the Graphs page for Aggregates
+* issue#283: Do not show 'Threshold Create' icon on the Graphs page for
+  Aggregates
+
 * issue#284: Threshold loses parent template if template propagation disabled
   during save
+
 * issue#285: Threshold name cache is not being populated properly
+
 * issue#295: Custom status was not replaced correctly after creating threshold
 
 --- 1.2.2 ---
