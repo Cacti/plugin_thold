@@ -237,7 +237,7 @@ function thold_graph_button($data) {
 	}
 
 	if (api_user_realm_auth('thold_graph.php') && !empty($thold_id)) {
-		print '<a class="iconLink tholdVRule" href="' .  $url . $separator . 'thold_vrule=' . $vrules . '"><img src="' . $config['url_path'] . 'plugins/thold/images/reddot.png" alt="" title="' . __esc('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"></a><br>';
+		print '<a class="iconLink tholdVRule" href="' .  html_escape($url . $separator . 'thold_vrule=' . $vrules) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/reddot.png" alt="" title="' . __esc('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"></a><br>';
 	}
 
 	// Add Threshold Creation button
@@ -1460,7 +1460,7 @@ function thold_clog_regex_array($regex_array) {
 function thold_clog_regex_threshold($matches) {
 	global $config;
 
-	include_once('thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 	$result = $matches[0];
 
