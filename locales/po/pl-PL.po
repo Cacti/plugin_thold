@@ -6,16 +6,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2019-06-20 18:40+0000\n"
-"PO-Revision-Date: 2019-03-18 00:00-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: pl_PL\n"
+"PO-Revision-Date: 2019-07-13 04:14+0000\n"
+"Last-Translator: Jaroslaw Kłopotek <jkl@interduo.pl>\n"
+"Language-Team: Polish <http://translate.cacti.net/projects/cacti/thold/pl-PL/"
+">\n"
+"Language: pl-PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: includes/arrays.php:26
 #, fuzzy
@@ -24,20 +27,20 @@ msgstr "Nieokreślony"
 
 #: includes/arrays.php:27 includes/arrays.php:301 includes/arrays.php:333
 #: includes/arrays.php:376 includes/arrays.php:397
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "%d Miesiąc"
+msgstr "%d miesiąc"
 
 #: includes/arrays.php:28 includes/arrays.php:29 includes/arrays.php:30
 #: includes/arrays.php:31
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "%d Miesiące"
+msgstr "%d miesiące"
 
 #: includes/arrays.php:32
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "%d Rok"
+msgstr "%d rok"
 
 #: includes/arrays.php:37 thold_graph.php:683 thold_graph.php:1019
 #, fuzzy
@@ -61,7 +64,6 @@ msgid "Up"
 msgstr "Do góry"
 
 #: includes/arrays.php:53 thold_graph.php:695 thold_graph.php:1021
-#, fuzzy
 msgid "Unknown"
 msgstr "Nieznany"
 
@@ -69,7 +71,6 @@ msgstr "Nieznany"
 #: includes/settings.php:246 includes/settings.php:259 notify_lists.php:726
 #: notify_lists.php:1145 notify_lists.php:1308 notify_lists.php:1504
 #: thold.php:700 thold_graph.php:211 thold_graph.php:679 thold_graph.php:1015
-#, fuzzy
 msgid "Disabled"
 msgstr "Wyłączone"
 
@@ -106,7 +107,6 @@ msgstr "Powiadomienie - ostrzeżenie"
 
 #: includes/arrays.php:82 includes/arrays.php:141 includes/arrays.php:182
 #: includes/arrays.php:228
-#, fuzzy
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
@@ -238,12 +238,10 @@ msgstr "Uruchamianie"
 
 #: includes/arrays.php:254 includes/arrays.php:337 includes/arrays.php:401
 #: thold_functions.php:94
-#, fuzzy
 msgid "Never"
 msgstr "Nigdy"
 
 #: includes/arrays.php:255
-#, fuzzy
 msgid "Every Minute"
 msgstr "Każda minuta"
 
@@ -265,7 +263,7 @@ msgstr "Co godzine"
 #: includes/arrays.php:269 includes/arrays.php:270 includes/arrays.php:271
 #: includes/arrays.php:345 includes/arrays.php:346 includes/arrays.php:347
 #: includes/arrays.php:348 includes/arrays.php:349 includes/arrays.php:350
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hours"
 msgstr "Co %d godzin"
 
@@ -431,7 +429,6 @@ msgid "RPN Expression"
 msgstr "Wyrażenie RPN"
 
 #: includes/arrays.php:473
-#, fuzzy
 msgid "Acknowledge"
 msgstr "Potwierdzenie"
 
@@ -447,7 +444,6 @@ msgstr "Powiadomienia SNMP"
 
 #: includes/arrays.php:476 includes/arrays.php:485 notify_lists.php:31
 #: setup.php:1267
-#, fuzzy
 msgid "Delete"
 msgstr "Usuń"
 
@@ -488,9 +484,8 @@ msgstr "SNMP nieużywany"
 #: thold_graph.php:904 thold_graph.php:948 thold_graph.php:951
 #: thold_graph.php:952 thold_graph.php:953 thold_graph.php:1302
 #: thold_graph.php:1303
-#, fuzzy
 msgid "N/A"
-msgstr "Nie dotyczy"
+msgstr "N/D"
 
 #: includes/polling.php:614
 #, fuzzy
@@ -811,7 +806,6 @@ msgstr "Domyślny stan filtra zarządzania progiem."
 #: includes/settings.php:245 includes/settings.php:258 notify_lists.php:960
 #: notify_lists.php:978 notify_lists.php:1273 notify_lists.php:1291
 #: thold.php:683
-#, fuzzy
 msgid "Any"
 msgstr "Dowolny"
 
@@ -832,7 +826,6 @@ msgstr "Naruszony"
 #: includes/settings.php:249 includes/settings.php:262 notify_lists.php:1306
 #: notify_lists.php:1391 thold.php:698 thold.php:823 thold_graph.php:209
 #: thold_graph.php:463
-#, fuzzy
 msgid "Triggered"
 msgstr "Wyzwolony"
 
@@ -1468,7 +1461,6 @@ msgstr "dysocjacjacja"
 
 #: notify_lists.php:43 notify_lists.php:994 notify_lists.php:1115
 #: notify_lists.php:1988 thold_graph.php:808 thold_graph.php:1053
-#, fuzzy
 msgid "Devices"
 msgstr "Urządzenia"
 
@@ -1485,7 +1477,6 @@ msgstr ""
 #: notify_lists.php:589 notify_lists.php:648 notify_lists.php:659
 #: notify_lists.php:719 notify_lists.php:732 setup.php:1349 thold.php:444
 #: thold_functions.php:5630 thold_templates.php:264
-#, fuzzy
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -1698,7 +1689,6 @@ msgstr "Wprowadź nazwę dla tej listy powiadomień."
 
 #: notify_lists.php:834 notify_lists.php:1124 notify_lists.php:1991
 #: thold_graph.php:822
-#, fuzzy
 msgid "Description"
 msgstr "Opis"
 
@@ -1729,15 +1719,13 @@ msgstr "Połączone urządzenia"
 #: notify_lists.php:1893 thold.php:628 thold.php:2245 thold_graph.php:127
 #: thold_graph.php:983 thold_graph.php:1329 thold_templates.php:1723
 #: thold_templates.php:1833
-#, fuzzy
 msgid "Search"
 msgstr "Szukaj"
 
 #: notify_lists.php:956 notify_lists.php:1125 notify_lists.php:1269
 #: thold.php:634 thold_graph.php:133 thold_graph.php:989 thold_graph.php:1335
-#, fuzzy
 msgid "Site"
-msgstr "Strona"
+msgstr "Lokalizacja"
 
 #: notify_lists.php:961 notify_lists.php:979 notify_lists.php:1141
 #: notify_lists.php:1155 notify_lists.php:1274 notify_lists.php:1475
@@ -1749,7 +1737,6 @@ msgstr "Strona"
 #: thold_graph.php:1369 thold_templates.php:389 thold_templates.php:437
 #: thold_templates.php:1033 thold_templates.php:1041 thold_templates.php:1329
 #: thold_templates.php:1337 thold_templates.php:1686
-#, fuzzy
 msgid "None"
 msgstr "Brak"
 
@@ -1822,14 +1809,12 @@ msgstr "Źródła danych"
 
 #: notify_lists.php:1130 setup.php:1210 thold.php:692 thold_graph.php:203
 #: thold_graph.php:846 thold_graph.php:1009 thold_graph.php:1404
-#, fuzzy
 msgid "Status"
 msgstr "Status"
 
 #: notify_lists.php:1131 thold_graph.php:864
-#, fuzzy
 msgid "Hostname"
-msgstr "Serwer"
+msgstr "Nazwa hosta"
 
 #: notify_lists.php:1150
 #, fuzzy
@@ -1852,7 +1837,6 @@ msgid "Associated Thresholds"
 msgstr "Powiązane progi"
 
 #: notify_lists.php:1287 thold.php:665 thold_graph.php:162 thold_graph.php:1364
-#, fuzzy
 msgid "Template"
 msgstr "Szablon"
 
@@ -2347,7 +2331,6 @@ msgstr "Ostatnia zmierzona wartość dla źródła danych"
 
 #: thold.php:796 thold.php:1778 thold.php:1797 thold_graph.php:436
 #: thold_templates.php:1358 thold_templates.php:1372 thold_templates.php:1955
-#, fuzzy
 msgid "High"
 msgstr "Wysoki"
 
@@ -2359,7 +2342,6 @@ msgstr ""
 
 #: thold.php:802 thold.php:1776 thold.php:1795 thold_graph.php:442
 #: thold_templates.php:1358 thold_templates.php:1372 thold_templates.php:1961
-#, fuzzy
 msgid "Low"
 msgstr "Niski"
 
@@ -3020,7 +3002,6 @@ msgstr ""
 
 #: thold.php:1777 thold.php:1796 thold_templates.php:1358
 #: thold_templates.php:1372
-#, fuzzy
 msgid "Medium"
 msgstr "Średni"
 
@@ -3672,7 +3653,6 @@ msgid "The average response time for the Cacti Availability check"
 msgstr "Średni czas reakcji dla kontroli dostępności kaktusów"
 
 #: thold_graph.php:882
-#, fuzzy
 msgid "Availability"
 msgstr "Dostępność"
 
