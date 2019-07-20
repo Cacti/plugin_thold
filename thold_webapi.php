@@ -340,6 +340,7 @@ function thold_wizard() {
 		);
 
 		$host_ids = array();
+		$in_sql = array();
 
 		if ($thold_template_id != '') {
 			/* display the host dropdown */
@@ -448,6 +449,10 @@ function thold_wizard() {
 				}
 			} else {
 				$host_ids = array('0');
+			}
+
+			if (!cacti_sizeof($in_sql)) {
+				$in_sql[] = 'NULL';
 			}
 
 			if (!$data_query_id) {
