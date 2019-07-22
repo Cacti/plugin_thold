@@ -101,14 +101,17 @@ that.
 
 ## ChangeLog
 
---- 1.3.1 ---
+--- 1.3.2 ---
 
+* issue#349: Undefined variable notice when attempting to create a threshold
 * issue#352: Non-numeric value error can sometimes be issued by
   thold_format_number()
+
+--- 1.3.1 ---
+
 * issue#342: Unable to include thold_functions.php in thold regex function
 * issue#343: Call to undefined function db_fetch_cell_assoc()
 * issue#344: Thold VRules Display is subject to XSS Attack
-* issue#349: Undefined variable notice when attempting to create a threshold
 
 --- 1.3.0 ---
 
