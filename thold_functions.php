@@ -3691,7 +3691,7 @@ function thold_format_number($value, $digits = 2, $baseu = 1024) {
 		$suffix = 'i';
 	}
 
-	if ($value == '') {
+	if (!is_numeric($value)) {
 		return '-';
 	}
 
