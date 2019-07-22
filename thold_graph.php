@@ -112,7 +112,7 @@ switch(get_request_var('action')) {
 }
 
 // Clear the Nav Cache, so that it doesn't know we came from Thold
-$_SESSION['sess_nav_level_cache'] = '';
+$_SESSION['sess_nav_level_cache'] = array();
 
 function form_thold_filter() {
 	global $item_rows, $config;
@@ -1470,4 +1470,3 @@ function form_thold_log_filter() {
 	</tr>
 	<?php
 }
-
