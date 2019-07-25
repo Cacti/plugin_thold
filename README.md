@@ -101,6 +101,11 @@ that.
 
 ## ChangeLog
 
+--- develop ---
+
+* issue#355: Thold search fields do not work with some international characters 
+* issue#356: Thold should not show the 'i' suffix for percentage type tholds
+
 --- 1.3.2 ---
 
 * issue#349: Undefined variable notice when attempting to create a threshold

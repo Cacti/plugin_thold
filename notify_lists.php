@@ -251,8 +251,8 @@ function form_actions() {
 									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
 
 								/* remove legacy contacts */
-								db_execute('DELETE pttc 
-									FROM plugin_thold_threshold_contact AS pttc 
+								db_execute('DELETE pttc
+									FROM plugin_thold_threshold_contact AS pttc
 									INNER JOIN thold_data AS td
 									ON pttc.thold_id = td.id
 									LEFT JOIN thold_template AS tt
@@ -901,7 +901,7 @@ function hosts($header_label) {
 			'default' => '-1'
 			),
 		'filter' => array(
-			'filter' => FILTER_CALLBACK,
+			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
 			'default' => '',
 			'options' => array('options' => 'sanitize_search_string')
@@ -950,7 +950,7 @@ function hosts($header_label) {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>' onChange='applyFilter()'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>' onChange='applyFilter()'>
 					</td>
 					<td>
 						<?php print __('Site');?>
@@ -1057,7 +1057,9 @@ function hosts($header_label) {
 
 	/* form the 'where' clause for our main sql query */
 	if (strlen(get_request_var('filter'))) {
-		$sql_where = "WHERE (host.hostname LIKE '%" . get_request_var('filter') . "%' OR host.description LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where = 'WHERE (
+			host.hostname LIKE '       . db_qstr('%' . get_request_var('filter') . '%') . '
+			OR host.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	} else {
 		$sql_where = '';
 	}
@@ -1233,7 +1235,7 @@ function tholds($header_label) {
 	}
 
 	if (strlen(get_request_var('filter'))) {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . "td.name_cache LIKE '%" . get_request_var('filter') . "%'";
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	}
 
 	if ($statefilter != '') {
@@ -1263,7 +1265,7 @@ function tholds($header_label) {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>' onChange='applyFilter()'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>' onChange='applyFilter()'>
 					</td>
 					<td>
 						<?php print __('Site');?>
@@ -1478,9 +1480,9 @@ function tholds($header_label) {
 			}
 
 			if ($row['template_enabled'] == 'on') {
-				$templated = db_fetch_cell_prepared('SELECT notify_templated 
-					FROM thold_template 
-					WHERE id = ?', 
+				$templated = db_fetch_cell_prepared('SELECT notify_templated
+					FROM thold_template
+					WHERE id = ?',
 					array($row['thold_template_id']));
 
 				if ($templated == 'on') {
@@ -1548,7 +1550,7 @@ function templates($header_label) {
 	}
 
 	if (strlen(get_request_var('filter'))) {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_template.name LIKE '%" . get_request_var('filter') . "%'";
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_template.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	}
 
 	$sql = "SELECT *
@@ -1570,7 +1572,7 @@ function templates($header_label) {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>' onChange='applyFilter()'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>' onChange='applyFilter()'>
 					</td>
 					<td>
 						<?php print __('Rows', 'thold');?>
@@ -1765,10 +1767,9 @@ function thold_template_request_validation() {
 			'default' => '1'
 			),
 		'filter' => array(
-			'filter' => FILTER_CALLBACK,
+			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
-			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'default' => ''
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
@@ -1804,10 +1805,9 @@ function thold_request_validation() {
 			'default' => '1'
 			),
 		'filter' => array(
-			'filter' => FILTER_CALLBACK,
+			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
-			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'default' => ''
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
@@ -1854,10 +1854,9 @@ function lists() {
 			'default' => '1'
 			),
 		'filter' => array(
-			'filter' => FILTER_CALLBACK,
+			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
-			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'default' => ''
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
@@ -1893,7 +1892,7 @@ function lists() {
 						<?php print __('Search', 'thold')?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape(get_request_var('filter'));?>'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Lists', 'thold')?>
@@ -1949,9 +1948,10 @@ function lists() {
 
 	/* form the 'where' clause for our main sql query */
 	if (strlen(get_request_var('filter'))) {
-		$sql_where = "WHERE (name LIKE '%" . get_request_var('filter') . "%' OR
-		description LIKE '%" . get_request_var('filter') . "%' OR
-		emails LIKE '%" . get_request_var('filter') . "%')";
+		$sql_where = 'WHERE (
+		name LIKE '           . db_qstr('%' . get_request_var('filter') . '%') . '
+		OR description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . '
+		OR emails LIKE '      . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	} else {
 		$sql_where = '';
 	}

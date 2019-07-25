@@ -1783,10 +1783,9 @@ function template_request_validation() {
 			'default' => '1'
 			),
 		'filter' => array(
-			'filter' => FILTER_CALLBACK,
+			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
-			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'default' => ''
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
@@ -1833,7 +1832,7 @@ function templates() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Templates', 'thold');?>
@@ -1895,7 +1894,7 @@ function templates() {
 	$sql_where = '';
 
 	if (strlen(get_request_var('filter'))) {
-		$sql_where .= (strlen($sql_where) ? ' AND': 'WHERE') . " thold_template.name LIKE '%" . get_request_var('filter') . "%'";
+		$sql_where .= (strlen($sql_where) ? ' AND': 'WHERE') . ' thold_template.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	}
 
 	$sql_order = get_order_string();

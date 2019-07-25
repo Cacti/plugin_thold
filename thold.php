@@ -489,10 +489,9 @@ function thold_request_validation() {
 			'default' => '1'
 			),
 		'filter' => array(
-			'filter' => FILTER_CALLBACK,
+			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
-			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'default' => ''
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
@@ -580,8 +579,8 @@ function list_tholds() {
 		}
 	}
 
-	if (strlen(get_request_var('filter'))) {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND') . " td.name_cache LIKE '%" . get_request_var('filter') . "%'";
+	if (get_request_var('filter') != '') {
+		$sql_where .= ($sql_where == '' ? '(': ' AND ') . ' td.name_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	}
 
 	if ($statefilter != '') {
@@ -628,7 +627,7 @@ function list_tholds() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print get_request_var('filter');?>'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
@@ -925,6 +924,12 @@ function list_tholds() {
 				WHERE local_graph_id = ?',
 				array($thold_data['local_graph_id']));
 
+			if ($thold_data['data_type'] == 2) {
+				$suffix = false;
+			} else {
+				$suffix = true;
+			}
+
 			if ($baseu == '') {
 				cacti_log('WARNING: Graph Template for local_graph_id ' . $thold_data['local_graph_id'] . ' has been removed!');
 				$baseu = 1024;
@@ -938,12 +943,12 @@ function list_tholds() {
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
 			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
 			form_selectable_cell($data_source, $thold_data['id'], '', 'right');
-			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu), $thold_data['id'], '', 'right');
+			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
 
 			switch($thold_data['thold_type']) {
 				case 0:
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi'], 2, $baseu) . ' / ' . thold_format_number($thold_data['thold_hi'], 2, $baseu), $thold_data['id'], '', 'right');
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_low'], 2, $baseu) . ' / ' . thold_format_number($thold_data['thold_low'], 2, $baseu), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['thold_hi'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_low'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['thold_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'right');
 					form_selectable_cell(__('N/A', 'thold'),  $thold_data['id'], '', 'right');
 
@@ -956,8 +961,8 @@ function list_tholds() {
 
 					break;
 				case 2:
-					form_selectable_cell(thold_format_number($thold_data['time_warning_hi'], 2, $baseu) . ' / ' . thold_format_number($thold_data['time_hi'], 2, $baseu), $thold_data['id'], '', 'right');
-					form_selectable_cell(thold_format_number($thold_data['time_warning_low'], 2, $baseu) . ' / ' . thold_format_number($thold_data['time_low'], 2, $baseu), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_hi'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['time_hi'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_low'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['time_low'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . __('%d Triggers', $thold_data['time_fail_trigger'], 'thold') . '</i>',  $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['time_fail_length'], 'time') . '</i>', $thold_data['id'], '', 'right');
 
@@ -1174,6 +1179,12 @@ function thold_edit() {
 						WHERE local_graph_id = ?',
 						array($td['local_graph_id']));
 
+					if ($td['data_type'] == 2) {
+						$suffix = false;
+					} else {
+						$suffix = true;
+					}
+
 					if (empty($baseu)) {
 						cacti_log('WARNING: Graph Template for local_graph_id ' . $td['local_graph_id'] . ' has been removed!');
 						$baseu = 1024;
@@ -1210,20 +1221,20 @@ function thold_edit() {
 
 					$cur_setting = '<span style="padding-right:4px;">' . __('Last:', 'thold'). '</span>' .
 						($td['lastread'] == '' ? "<span>" . __('N/A', 'thold') . "</span>":"<span style='color:$color'>" .
-						thold_format_number($td['lastread'], 2, $baseu) . "</span>");
+						thold_format_number($td['lastread'], 2, $baseu, $suffix) . "</span>");
 
 					if ($td['thold_type'] != 1) {
 						if ($td['thold_warning_fail_trigger'] != 0) {
 							if ($td['thold_warning_hi'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('WHi:', 'thold') . '</span>' .
 									($td['thold_warning_hi'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:darkorange'>" .
-									thold_format_number($td['thold_warning_hi'], 2, $baseu) . '</span>');
+									thold_format_number($td['thold_warning_hi'], 2, $baseu, $suffix) . '</span>');
 							}
 
 							if ($td['thold_warning_low'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('WLo:', 'thold') . '</span>' .
 									($td['thold_warning_low'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:darkorange'>" .
-									thold_format_number($td['thold_warning_low'], 2, $baseu) . '</span>');
+									thold_format_number($td['thold_warning_low'], 2, $baseu, $suffix) . '</span>');
 							}
 						}
 
@@ -1231,13 +1242,13 @@ function thold_edit() {
 							if ($td['thold_hi'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('AHi:', 'thold') . '</span>' .
 									($td['thold_hi'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:red'>" .
-									thold_format_number($td['thold_hi'], 2, $baseu) . '</span>');
+									thold_format_number($td['thold_hi'], 2, $baseu, $suffix) . '</span>');
 							}
 
 							if ($td['thold_low'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('ALo:', 'thold') . '</span>' .
 									($td['thold_low'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:red'>" .
-									thold_format_number($td['thold_low'], 2, $baseu) . '</span>');
+									thold_format_number($td['thold_low'], 2, $baseu, $suffix) . '</span>');
 							}
 						}
 					} else {
@@ -1291,8 +1302,14 @@ function thold_edit() {
 		WHERE local_graph_id = ?',
 		array($thold_data['local_graph_id']));
 
+	if ($thold_data['data_type'] == 2) {
+		$suffix = false;
+	} else {
+		$suffix = true;
+	}
+
 	$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
-		(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_column_by_cdef($thold_data, 'lastread'), 2, $baseu), 'thold');
+		(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_column_by_cdef($thold_data, 'lastread'), 2, $baseu, $suffix), 'thold');
 
 	html_start_box($header_text, '100%', false, '3', 'center', '');
 
