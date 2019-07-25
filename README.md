@@ -103,6 +103,7 @@ that.
 
 --- develop ---
 
+* issue#345: Adding an alarm threshold does not work
 * issue#351: Missed required param $host_id of thold_new_graphs_save() in thold_functions.php
 * issue#353: Thold Wizard enables Cacti poller to remove newly created thresholds
 * issue#354: Error trying to resolve Graph display values with error: Unknown RPN type: 1

@@ -3642,6 +3642,7 @@ function thold_modify_values_by_cdef(&$thold_data) {
 		ON gti.task_item_id = dtr.id
 		WHERE local_graph_id = ?
 		AND dtr.id = ?
+		AND gti.graph_type_id IN (4, 5, 6, 7, 8, 20)
 		AND dtr.data_source_name = ?',
 		array($thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']));
 
