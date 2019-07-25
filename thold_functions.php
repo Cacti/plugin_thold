@@ -4301,6 +4301,12 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 }
 
 function thold_create_new_graph_from_template() {
+	if (!isset_request_var('host_id')) {
+		$host_id = 0;
+	} else {
+		$host_id = get_filter_request_var('host_id');
+	}
+
 	if (isset_request_var('save_component_graph')) {
 		/* summarize the 'create graph from host template/snmp index' stuff into an array */
 		foreach ($_POST as $var => $val) {
@@ -4315,12 +4321,6 @@ function thold_create_new_graph_from_template() {
 			}
 		}
 
-		if (!isset_request_var('host_id')) {
-			$host_id = 0;
-		} else {
-			$host_id = get_filter_request_var('host_id');
-		}
-
 		if (!isset_request_var('host_template_id')) {
 			$host_template_id = 0;
 		} else {
@@ -4332,7 +4332,7 @@ function thold_create_new_graph_from_template() {
 			exit;
 		}
 	} elseif (isset_request_var('save_component_new_graphs')) {
-		thold_new_graphs_save();
+		thold_new_graphs_save($host_id);
 	}
 }
 
