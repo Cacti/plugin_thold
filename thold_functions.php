@@ -4005,7 +4005,8 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 
 			break;
 		default:
-			cacti_log('Unknown RPN type: ' . $cdef_array[$cursor]['type'], false);;
+			cacti_log('Unknown RPN type: ' . $cdef_array[$cursor]['type'], false, 'THOLD', LOG_VERBOSITY_MEDIUM);
+
 			return($oldvalue);
 
 			break;

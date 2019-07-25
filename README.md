@@ -103,6 +103,7 @@ that.
 
 --- develop ---
 
+* issue#354: Error trying to resolve Graph display values with error: Unknown RPN type: 1
 * issue#355: Thold search fields do not work with some international characters 
 * issue#356: Thold should not show the 'i' suffix for percentage type tholds
 
