@@ -120,6 +120,8 @@ that.
 
 * issue#358: Downtime message is only calculated when SNMP is in use
 
+* issue#361: Thresholds are not applying CDEF's correctly
+
 --- 1.3.2 ---
 
 * issue#349: Undefined variable notice when attempting to create a threshold

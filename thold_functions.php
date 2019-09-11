@@ -3635,16 +3635,19 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 }
 
 function thold_modify_values_by_cdef(&$thold_data) {
-	// Check is the graph item has a cdef
-	$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
-		FROM graph_templates_item AS gti
-		INNER JOIN data_template_rrd AS dtr
-		ON gti.task_item_id = dtr.id
-		WHERE local_graph_id = ?
-		AND dtr.id = ?
-		AND gti.graph_type_id IN (4, 5, 6, 7, 8, 20)
-		AND dtr.data_source_name = ?',
-		array($thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']));
+	$cdef = false;
+	if ($thold_data['data_type'] != 1 || empty($thold_data['cdef'])) {
+		// Check is the graph item has a cdef
+		$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
+			FROM graph_templates_item AS gti
+			INNER JOIN data_template_rrd AS dtr
+			ON gti.task_item_id = dtr.id
+			WHERE local_graph_id = ?
+			AND dtr.id = ?
+			AND gti.graph_type_id IN (4, 5, 6, 7, 8, 20)
+			AND dtr.data_source_name = ?',
+			array($thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']));
+	}
 
 	if (!empty($cdef)) {
 		$thold_data['lastread']  = thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);

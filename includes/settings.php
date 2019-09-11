@@ -183,10 +183,10 @@ function thold_config_settings() {
 
 	if (get_current_page() != 'settings.php') return;
 
-	include('./plugins/thold/includes/arrays.php');
-	include_once('./plugins/thold/setup.php');
-	include_once('./plugins/thold/thold_functions.php');
-	include_once('./plugins/thold/includes/database.php');
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
+	include_once($config['base_path'] . '/plugins/thold/setup.php');
+	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/database.php');
 
 	/* check to see if there is an upgrade required */
 	plugin_thold_upgrade();

@@ -393,6 +393,10 @@ function thold_poller_output(&$rrd_update_array) {
 				$lasttime = $currenttime - $thold_data['rrd_step'];
 			}
 
+			if ($thold_data['data_type'] == 1 && !empty($thold_data['cdef'])) {
+				$lasttime = thold_build_cdef($thold_data['cdef'], $lasttime, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+			}
+
 			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', ' . db_qstr(date('Y-m-d H:i:s', $currenttime)) . ', ' . db_qstr($lasttime) . ')';
 		}
 
