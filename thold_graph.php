@@ -27,6 +27,7 @@ $guest_account = true;
 chdir('../../');
 include_once('./include/auth.php');
 
+require_once($config['base_path'] . '/lib/rrd.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 include_once($config['base_path'] . '/plugins/thold/setup.php');
 include_once($config['base_path'] . '/plugins/thold/includes/database.php');
