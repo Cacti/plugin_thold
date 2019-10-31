@@ -122,6 +122,8 @@ that.
 
 * issue#361: Thresholds are not applying CDEF's correctly
 
+* issue#384: Call to undefined function rrdtool_execute() in thold_functions.php:4094
+
 --- 1.3.2 ---
 
 * issue#349: Undefined variable notice when attempting to create a threshold
