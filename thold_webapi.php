@@ -620,31 +620,31 @@ function thold_wizard() {
 			form_end();
 		}
 
-	} elseif ($type_id == 'thold') {
-		$host_template_ids = array_rekey(
-			db_fetch_assoc_prepared('SELECT host_template_id
-				FROM host_template_graph
-				WHERE graph_template_id = ?',
-				array($graph_template_id)),
-			'host_template_id', 'host_template_id');
+	 } elseif ($type_id == 'thold') {
+                $host_template_ids = array_rekey(
+                        db_fetch_assoc_prepared('SELECT host_template_id
+                                FROM host_template_graph
+                                WHERE graph_template_id = ?',
+                                array($graph_template_id)),
+                        'host_template_id', 'host_template_id');
 
-		if (cacti_sizeof($host_template_ids)) {
-			$hiql = ' AND host_template_id IN (' . implode(', ', $host_template_ids) . ')';
-		} else {
-			$hiql = ' AND 0 = 1';
-		}
+                if (cacti_sizeof($host_template_ids)) {
+                        $hiql = ' AND host_template_id IN (' . implode(', ', $host_template_ids) . ')';
+                } else {
+                        $hiql = ' AND 1 = 1';
+                }
 
-		$form_array['my_host_id'] = array(
-			'method' => 'drop_callback',
-			'friendly_name' => __('Device', 'thold'),
-			'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
-			'on_change' => 'applyTholdFilter()',
-			'action' => 'ajax_hosts',
-			'id' => $host_id,
-			'sql' => 'SELECT id, description AS name FROM host WHERE disabled!="" AND deleted!=""' . $hiql,
-			'value' => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
-			'none_value' => __('Select a Device', 'thold')
-		);
+                $form_array['my_host_id'] = array(
+                        'method' => 'drop_sql',
+                        'friendly_name' => __('Device', 'thold'),
+                        'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
+                        'on_change' => 'applyTholdFilter()',
+                        'action' => 'ajax_hosts',
+                        'id' => $host_id,
+                        'sql' => 'SELECT id, description AS name FROM host WHERE disabled="" AND deleted=""' . $hiql,
+                        'value' => $host_id,
+                        'none_value' => __('Select a Device', 'thold')
+                );
 
 		if ($host_id > 0) {
 			$graphs = get_allowed_graphs('gl.host_id=' . $host_id);
