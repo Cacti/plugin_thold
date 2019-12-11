@@ -359,7 +359,7 @@ function tholds() {
 		if (get_request_var('status') == '2') { $sql_where = "(td.thold_enabled = 'on'"; } /* enabled */
 		if (get_request_var('status') == '1') { $sql_where = "(td.thold_enabled = 'on' AND ((td.thold_alert != 0 OR td.bl_alert > 0))"; } /* breached */
 		if (get_request_var('status') == '3') { $sql_where = "(td.thold_enabled = 'on' AND (((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))"; } /* status */
-		if (get_request_var('status') == '4') { $sql_where = "(td.acknowledgment = 'on')"; } /* status */
+		if (get_request_var('status') == '4') { $sql_where = "(td.acknowledgment = 'on'"; } /* status */
 	}
 
 	if (get_request_var('filter') != '') {

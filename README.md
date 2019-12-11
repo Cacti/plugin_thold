@@ -103,6 +103,8 @@ that.
 
 --- develop ---
 
+* issue#395: Filtering on Ack Required field does not work
+
 * issue#345: Adding an alarm threshold does not work
 
 * issue#351: Missed required param $host_id of thold_new_graphs_save() in
