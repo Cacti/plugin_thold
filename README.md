@@ -103,8 +103,6 @@ that.
 
 --- develop ---
 
-* issue#395: Filtering on Ack Required field does not work
-
 * issue#345: Adding an alarm threshold does not work
 
 * issue#351: Missed required param $host_id of thold_new_graphs_save() in
@@ -124,7 +122,12 @@ that.
 
 * issue#361: Thresholds are not applying CDEF's correctly
 
+* issue#369: When saving a template, notification lists of all
+  templates are updated
+
 * issue#384: Call to undefined function rrdtool_execute() in thold_functions.php:4094
+
+* issue#395: Filtering on Ack Required field does not work
 
 --- 1.3.2 ---
 

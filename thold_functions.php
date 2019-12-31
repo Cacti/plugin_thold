@@ -5481,8 +5481,10 @@ function update_notification_list_from_template($id, $thold_id = -1) {
 			SET
 			td.notify_warning = tt.notify_warning, td.notify_alert = tt.notify_alert,
 			td.notify_extra = tt.notify_extra, td.notify_warning_extra = tt.notify_warning_extra
-			WHERE tt.id = ?" . $sql_where,
-			array($id));
+			WHERE td.thold_template_id = ?
+			AND td.template_enabled = 'on'
+			AND tt.id = ?" . $sql_where,
+			array($id,$id));
 	}
 }
 
