@@ -4110,7 +4110,7 @@ function thold_rrd_last($local_data_id) {
 function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 	/* get the information to populate into the rrd files */
 	if (function_exists('boost_check_correct_enabled') && boost_check_correct_enabled()) {
-		boost_process_poller_output(TRUE, $local_data_id);
+		boost_process_poller_output($local_data_id);
 	}
 
 	$last_time_entry = thold_rrd_last($local_data_id);
