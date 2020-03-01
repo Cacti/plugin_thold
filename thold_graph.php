@@ -91,7 +91,11 @@ switch(get_request_var('action')) {
 	case 'enable':
 		thold_threshold_enable(get_filter_request_var('id'));
 
-		header('Location: thold_graph.php');
+		header('Location: thold_graph.php?action=log');
+
+		exit;
+	case 'exportlog':
+		thold_export_log();
 
 		exit;
 	case 'hoststat':
@@ -1113,11 +1117,7 @@ function form_host_filter() {
 	<?php
 }
 
-function thold_show_log() {
-	global $config, $item_rows, $thold_log_states, $thold_status, $thold_types, $thold_log_retention;
-
-	$step = read_config_option('poller_interval');
-
+function thold_validate_log_vars() {
     /* ================= input validation and session storage ================= */
     $filters = array(
 		'rows' => array(
@@ -1173,6 +1173,79 @@ function thold_show_log() {
 
 	validate_store_request_vars($filters, 'sess_thold_log');
 	/* ================= input validation ================= */
+
+}
+
+function thold_export_log() {
+	$sql_where = '';
+
+	thold_validate_log_vars();
+
+	if (get_request_var('host_id') == '-1') {
+		/* Show all items */
+	} elseif (get_request_var('host_id') == '0') {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.id IS NULL';
+	} elseif (!isempty_request_var('host_id')) {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.host_id=' . get_request_var('host_id');
+	}
+
+	if (get_request_var('site_id') == '-1') {
+		/* Show all items */
+	} elseif (get_request_var('site_id') == '0') {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.site_id IS NULL';
+	} elseif (!isempty_request_var('site_id')) {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.site_id=' . get_request_var('site_id');
+	}
+
+	if (get_request_var('threshold_id') == '-1') {
+		/* Show all items */
+	} elseif (get_request_var('threshold_id') == '0') {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' td.id IS NULL';
+	} elseif (get_request_var('threshold_id') > 0) {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' td.id=' . get_request_var('threshold_id');
+	}
+
+	/* thold template id filter */
+	if (!isempty_request_var('thold_template_id')) {
+		if (get_request_var('thold_template_id') > 0) {
+			$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.thold_template_id = ' . get_request_var('thold_template_id');
+		} elseif (get_request_var('thold_template_id') == '-2') {
+			$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.template_enabled = ""';
+		}
+	}
+
+	if (get_request_var('status') == '-1') {
+		/* Show all items */
+	} else {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status=' . get_request_var('status');
+	}
+
+	if (get_request_var('filter') != '') {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	}
+
+	$sql_order  = '';
+	$total_rows = 0;
+
+	$logs = get_allowed_threshold_logs($sql_where, $sql_order, 100000, $total_rows);
+
+	if (sizeof($logs)) {
+		$columns = array_keys($logs[0]);
+		header('Content-type: application/csv');
+		header('Content-Disposition: attachment; filename=thold_log_export.csv');
+
+		print implode(',', $columns) . PHP_EOL;
+
+		foreach($logs as $log) {
+			print implode(',', array_values($log)) . PHP_EOL;
+		}
+	}
+}
+
+function thold_show_log() {
+	global $config, $item_rows, $thold_log_states, $thold_status, $thold_types, $thold_log_retention;
+
+	thold_validate_log_vars();
 
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
@@ -1373,6 +1446,7 @@ function form_thold_log_filter() {
 						<span>
 							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()'>
 							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
+							<input id='export' type='button' value='<?php print __esc('Export', 'thold');?>' onClick='exportLog()'>
 						</span>
 					</td>
 				</table>
@@ -1468,6 +1542,19 @@ function form_thold_log_filter() {
 		function clearFilter() {
 			strURL  = 'thold_graph.php?header=false&action=log&clear=1';
 			loadPageNoHeader(strURL);
+		}
+
+		function exportLog() {
+console.log('stuff');
+			strURL  = 'thold_graph.php?action=exportlog';
+			strURL += '&status=' + $('#status').val();
+			strURL += '&threshold_id=' + $('#threshold_id').val();
+			strURL += '&thold_template_id=' + $('#thold_template_id').val();
+			strURL += '&host_id=' + $('#host_id').val();
+			strURL += '&site_id=' + $('#site_id').val();
+			strURL += '&rows=' + $('#rows').val();
+			strURL += '&filter=' + $('#filter').val();
+			document.location = strURL;
 		}
 
 		$(function() {

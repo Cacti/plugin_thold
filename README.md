@@ -103,6 +103,8 @@ that.
 
 --- develop ---
 
+* feature#375: Enhance Thold to Export Thold Logs to csv
+
 * feature: Properly support 10, 20, and 30 second polling
 
 * issue#345: Adding an alarm threshold does not work
