@@ -129,6 +129,8 @@ that.
 
 * issue#395: Filtering on Ack Required field does not work
 
+* issue#401: Errors occur with invalid thresholds with a bad thold type
+
 --- 1.3.2 ---
 
 * issue#349: Undefined variable notice when attempting to create a threshold

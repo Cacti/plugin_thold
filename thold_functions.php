@@ -1452,7 +1452,10 @@ function thold_log($save) {
 			$desc .= '  DataTemplate: ' . $tname;
 			$desc .= '  DataSource: ' . $thold['data_source_name'];
 
-			$desc .= '  Type: ' . $thold_types[$thold['thold_type']];
+			if (isset($thold_types[$thold['thold_type']])) {
+				$desc .= '  Type: ' . $thold_types[$thold['thold_type']];
+			}
+
 			$desc .= '  Enabled: ' . $thold['thold_enabled'];
 			switch ($thold['thold_type']) {
 			case 0:
@@ -1758,7 +1761,10 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		if ($message['template_enabled'] == 'on') {
 			$desc .= ' Use Template[On]';
 		} else {
-			$desc .= ' Type[' . $thold_types[$thold['thold_type']] . ']';
+			if (isset($thold_types[$thold['thold_type']])) {
+				$desc .= ' Type[' . $thold_types[$thold['thold_type']] . ']';
+			}
+
 			$desc .= ' Enabled[' . $message['thold_enabled'] . ']';
 
 			switch ($message['thold_type']) {
@@ -1846,7 +1852,10 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		$desc .= ' DataTemplate[' . $thold['data_template_name'] . ']';
 		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
-		$desc .= ' Type[' . $thold_types[$message['thold_type']] . ']';
+		if (isset($thold_types[$thold['thold_type']])) {
+			$desc .= ' Type[' . $thold_types[$message['thold_type']] . ']';
+		}
+
 		$desc .= ' Enabled[' . $message['thold_enabled'] . ']';
 
 		switch ($message['thold_type']) {
@@ -2020,7 +2029,7 @@ function thold_datasource_required($name, $data_source) {
 }
 
 function thold_check_threshold(&$thold_data) {
-	global $config, $plugins, $debug, $thold_types;
+	global $config, $plugins, $debug;
 
 	// Modify critical thold values based upon a cdef if present
 	thold_modify_values_by_cdef($thold_data);
@@ -3287,7 +3296,6 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 		'eventCurrentValue'			=> $currentval,
 		'eventHigh'					=> ($thold['thold_type'] == 0 ? $thold['thold_hi'] : ($thold['thold_type'] == 2 ? $thold['time_warning_hi'] : '')),
 		'eventLow'					=> ($thold['thold_type'] == 0 ? $thold['thold_low'] : ($thold['thold_type'] == 2 ? $thold['time_warning_low'] : '')),
-		'eventThresholdType'		=> $thold_types[$thold['thold_type']] + 1,
 		'eventNotificationType'		=> 5,						// default - see CACTI-THOLD-MIB
 		'eventStatus'				=> 3,						// default - see CACTI-THOLD-MIB
 		'eventRealertStatus'		=> 1,						// default - see CACTI-THOLD-MIB
@@ -3296,6 +3304,12 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 		'eventFailDurationTrigger'	=> 0,						// default - see CACTI-THOLD-MIB
 		'eventFailCountTrigger'		=> 0,						// default - see CACTI-THOLD-MIB
 	);
+
+	if (isset($thold_types[$thold['thold_type']])) {
+		$thold_snmp_data['eventThresholdType'] = $thold_types[$thold['thold_type']] + 1;
+	} else {
+		$thold_snmp_data['eventThresholdType'] = 1;
+	}
 
 	$snmp_event_description = read_config_option('thold_snmp_event_description');
 
@@ -3469,7 +3483,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
 	global $thold_types;
 
-	$httpurl    = read_config_option('base_url');
+	$httpurl = read_config_option('base_url');
 
 	// Do some replacement of variables
 	putenv('THOLD_DESCRIPTION=' . $h['description']);
@@ -3479,7 +3493,12 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	putenv('THOLD_CURRENTVALUE='  . $currentval);
 	putenv('THOLD_THRESHOLDNAME=' . $thold['name_cache']);
 	putenv('THOLD_DSNAME='        . $data_source_name);
-	putenv('THOLD_THOLDTYPE='     . $thold_types[$thold['thold_type']]);
+
+	if (isset($thold_types[$thold['thold_type']])) {
+		putenv('THOLD_THOLDTYPE='     . $thold_types[$thold['thold_type']]);
+	} else {
+		putenv('THOLD_THOLDTYPE=');
+	}
 
 	if ($thold['notes'] != '') {
 		$notes = thold_replace_threshold_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
@@ -3537,7 +3556,10 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	$text = str_replace('<CURRENTVALUE>',  $currentval, $text);
 	$text = str_replace('<THRESHOLDNAME>', $thold['name_cache'], $text);
 	$text = str_replace('<DSNAME>',        $data_source_name, $text);
-	$text = str_replace('<THOLDTYPE>',     $thold_types[$thold['thold_type']], $text);
+
+	if (isset($thold_types[$thold['thold_type']])) {
+		$text = str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);
+	}
 
 	$text = str_replace('<NOTES>',         $thold['notes'], $text);
 	$text = str_replace('<DNOTES>',        $thold['dnotes'], $text);
@@ -3580,8 +3602,6 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 }
 
 function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local_graph_id) {
-	global $thold_types;
-
 	$alert_text = read_config_option('thold_alert_text');
 	$httpurl    = read_config_option('base_url');
 	$peralert   = read_config_option('thold_enable_per_thold_body');
@@ -3609,8 +3629,6 @@ function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local
 }
 
 function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $local_graph_id) {
-	global $thold_types;
-
 	$warning_text = read_config_option('thold_warning_text');
 	$httpurl      = read_config_option('base_url');
 	$peralert     = read_config_option('thold_enable_per_thold_body');
@@ -3875,7 +3893,7 @@ function thold_cdef_get_usable() {
 
 	if (cacti_sizeof($cdef_items)) {
 		foreach ($cdef_items as $cdef_item) {
-				$cdef_usable[] =  $cdef_item['cdef_id'];
+			$cdef_usable[] =  $cdef_item['cdef_id'];
 		}
 	}
 
