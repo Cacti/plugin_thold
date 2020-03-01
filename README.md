@@ -101,7 +101,7 @@ that.
 
 ## ChangeLog
 
---- develop ---
+--- 1.3.3 ---
 
 * feature#359: Allow <DOWNTIME> variable substitution also in UP/DOWN e-mail subject
 
