@@ -1508,12 +1508,12 @@ function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_
 		return '';
 	}
 
-	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
-
 	$step = db_fetch_cell_prepared("SELECT rrd_step
 		FROM data_template_data
 		WHERE $field = ?",
 		array($rra));
+
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	switch ($type) {
 	case 'repeat':

@@ -129,6 +129,8 @@ that.
 
 * issue#391: Undefined CDEF generated with latest Core / Thold versions
 
+* issue#392: Make THOLD working on 1min poller w/ 5min rrd
+
 * issue#394: THOLD shows devices that have been deleted as down
 
 * issue#395: Filtering on Ack Required field does not work

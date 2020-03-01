@@ -480,15 +480,18 @@ function tholds() {
 
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=thold');
 
-	$step = read_config_option('poller_interval');
-
-	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
-
 	$c=0;
 	$i=0;
 
 	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
+			$step = db_fetch_cell_prepared('SELECT rrd_step
+				FROM data_template_data
+				WHERE local_data_id = ?',
+				array($thold_data['local_data_id']));
+
+			include($config['base_path'] . '/plugins/thold/includes/arrays.php');
+
 			$c++;
 			$alertstat = __('No', 'thold');
 			$bgcolor   = 'green';

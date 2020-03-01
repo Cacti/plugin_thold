@@ -247,213 +247,231 @@ if ($config['cacti_server_os'] == 'unix') {
 	$default_priority = LOG_WARNING;
 }
 
-$step = read_config_option('poller_interval');
+if (!isset($step)) {
+	$step = read_config_option('poller_interval');
+}
 
-if ($step == 60) {
-	$repeatarray = array(
-		0     => __('Never', 'thold'),
-		1     => __('Every Minute', 'thold'),
-		2     => __('Every %d Minutes', 2, 'thold'),
-		3     => __('Every %d Minutes', 3, 'thold'),
-		4     => __('Every %d Minutes', 4, 'thold'),
-		5     => __('Every %d Minutes', 5, 'thold'),
-		10    => __('Every %d Minutes', 10, 'thold'),
-		15    => __('Every %d Minutes', 15, 'thold'),
-		20    => __('Every %d Minutes', 20, 'thold'),
-		30    => __('Every %d Minutes', 30, 'thold'),
-		45    => __('Every %d Minutes', 45, 'thold'),
-		60    => __('Every Hour', 'thold'),
-		120   => __('Every %d Hours', 2, 'thold'),
-		180   => __('Every %d Hours', 3, 'thold'),
-		240   => __('Every %d Hours', 4, 'thold'),
-		360   => __('Every %d Hours', 6, 'thold'),
-		480   => __('Every %d Hours', 8, 'thold'),
-		720   => __('Every %d Hours', 12, 'thold'),
-		1440  => __('Every Day', 'thold'),
-		2880  => __('Every %d Days', 2, 'thold'),
-		10080 => __('Every Week', 'thold'),
-		20160 => __('Every %d Weeks', 2, 'thold'),
-		43200 => __('Every Month', 'thold')
-	);
+switch($step) {
+	case '10':
+	case '20':
+	case '30':
+	case '60':
+		if ($step == 10) {
+			$f = 6;
+		} elseif ($step == 20) {
+			$f = 3;
+		} elseif ($step == 30) {
+			$f = 2;
+		} else {
+			$f = 1;
+		}
 
-	$alertarray  = array(
-		1     => __('%d Minute', 1, 'thold'),
-		2     => __('%d Minutes', 2, 'thold'),
-		3     => __('%d Minutes', 3, 'thold'),
-		4     => __('%d Minutes', 4, 'thold'),
-		5     => __('%d Minutes', 5, 'thold'),
-		10    => __('%d Minutes', 10, 'thold'),
-		15    => __('%d Minutes', 15, 'thold'),
-		20    => __('%d Minutes', 20, 'thold'),
-		30    => __('%d Minutes', 30, 'thold'),
-		45    => __('%d Minutes', 45, 'thold'),
-		60    => __('%d Hour', 1, 'thold'),
-		120   => __('%d Hours', 2, 'thold'),
-		180   => __('%d Hours', 3, 'thold'),
-		240   => __('%d Hours', 4, 'thold'),
-		360   => __('%d Hours', 6, 'thold'),
-		480   => __('%d Hours', 8, 'thold'),
-		720   => __('%d Hours', 12, 'thold'),
-		1440  => __('%d Day', 1, 'thold'),
-		2880  => __('%d Days', 2, 'thold'),
-		10080 => __('%d Week', 1, 'thold'),
-		20160 => __('%d Weeks', 2, 'thold'),
-		43200 => __('%d Month', 1, 'thold')
-	);
+		$repeatarray = array(
+			0               => __('Never', 'thold'),
+			1     * $factor => __('Every Minute', 'thold'),
+			2     * $factor => __('Every %d Minutes', 2, 'thold'),
+			3     * $factor => __('Every %d Minutes', 3, 'thold'),
+			4     * $factor => __('Every %d Minutes', 4, 'thold'),
+			5     * $factor => __('Every %d Minutes', 5, 'thold'),
+			10    * $factor => __('Every %d Minutes', 10, 'thold'),
+			15    * $factor => __('Every %d Minutes', 15, 'thold'),
+			20    * $factor => __('Every %d Minutes', 20, 'thold'),
+			30    * $factor => __('Every %d Minutes', 30, 'thold'),
+			45    * $factor => __('Every %d Minutes', 45, 'thold'),
+			60    * $factor => __('Every Hour', 'thold'),
+			120   * $factor => __('Every %d Hours', 2, 'thold'),
+			180   * $factor => __('Every %d Hours', 3, 'thold'),
+			240   * $factor => __('Every %d Hours', 4, 'thold'),
+			360   * $factor => __('Every %d Hours', 6, 'thold'),
+			480   * $factor => __('Every %d Hours', 8, 'thold'),
+			720   * $factor => __('Every %d Hours', 12, 'thold'),
+			1440  * $factor => __('Every Day', 'thold'),
+			2880  * $factor => __('Every %d Days', 2, 'thold'),
+			10080 * $factor => __('Every Week', 'thold'),
+			20160 * $factor => __('Every %d Weeks', 2, 'thold'),
+			43200 * $factor => __('Every Month', 'thold')
+		);
 
-	$timearray   = array(
-		1     => __('%d Minute', 1, 'thold'),
-		2     => __('%d Minutes', 2, 'thold'),
-		3     => __('%d Minutes', 3, 'thold'),
-		4     => __('%d Minutes', 4, 'thold'),
-		5     => __('%d Minutes', 5, 'thold'),
-		6     => __('%d Minutes', 6, 'thold'),
-		7     => __('%d Minutes', 7, 'thold'),
-		8     => __('%d Minutes', 8, 'thold'),
-		9     => __('%d Minutes', 9, 'thold'),
-		10    => __('%d Minutes', 10, 'thold'),
-		12    => __('%d Minutes', 12, 'thold'),
-		15    => __('%d Minutes', 15, 'thold'),
-		20    => __('%d Minutes', 20, 'thold'),
-		24    => __('%d Minutes', 24, 'thold'),
-		30    => __('%d Minutes', 30, 'thold'),
-		45    => __('%d Minutes', 45, 'thold'),
-		60    => __('%d Hour', 1, 'thold'),
-		120   => __('%d Hours', 2, 'thold'),
-		180   => __('%d Hours', 3, 'thold'),
-		240   => __('%d Hours', 4, 'thold'),
-		288   => __('%0.1f Hours', 4.8, 'thold'),
-		360   => __('%d Hours', 6, 'thold'),
-		480   => __('%d Hours', 8, 'thold'),
-		720   => __('%d Hours', 12, 'thold'),
-		1440  => __('%d Day', 1, 'thold'),
-		2880  => __('%d Days', 2, 'thold'),
-		10080 => __('%d Week', 1, 'thold'),
-		20160 => __('%d Weeks', 2, 'thold'),
-		43200 => __('%d Month', 1, 'thold')
-	);
-} elseif ($step == 300) {
-	$repeatarray = array(
-		0    => __('Never', 'thold'),
-		1    => __('Every %d Minutes', 5, 'thold'),
-		2    => __('Every %d Minutes', 10, 'thold'),
-		3    => __('Every %d Minutes', 15, 'thold'),
-		4    => __('Every %d Minutes', 20, 'thold'),
-		6    => __('Every %d Minutes', 30, 'thold'),
-		8    => __('Every %d Minutes', 45, 'thold'),
-		12   => __('Every Hour', 'thold'),
-		24   => __('Every %d Hours', 2, 'thold'),
-		36   => __('Every %d Hours', 3, 'thold'),
-		48   => __('Every %d Hours', 4, 'thold'),
-		72   => __('Every %d Hours', 6, 'thold'),
-		96   => __('Every %d Hours', 8, 'thold'),
-		144  => __('Every %d Hours', 12, 'thold'),
-		288  => __('Every Day', 'thold'),
-		576  => __('Every %d Days', 2, 'thold'),
-		2016 => __('Every Week', 'thold'),
-		4032 => __('Every %d Weeks', 2, 'thold'),
-		8640 => __('Every Month', 'thold')
-	);
+		$alertarray  = array(
+			1     * $factor => __('%d Minute', 1, 'thold'),
+			2     * $factor => __('%d Minutes', 2, 'thold'),
+			3     * $factor => __('%d Minutes', 3, 'thold'),
+			4     * $factor => __('%d Minutes', 4, 'thold'),
+			5     * $factor => __('%d Minutes', 5, 'thold'),
+			10    * $factor => __('%d Minutes', 10, 'thold'),
+			15    * $factor => __('%d Minutes', 15, 'thold'),
+			20    * $factor => __('%d Minutes', 20, 'thold'),
+			30    * $factor => __('%d Minutes', 30, 'thold'),
+			45    * $factor => __('%d Minutes', 45, 'thold'),
+			60    * $factor => __('%d Hour', 1, 'thold'),
+			120   * $factor => __('%d Hours', 2, 'thold'),
+			180   * $factor => __('%d Hours', 3, 'thold'),
+			240   * $factor => __('%d Hours', 4, 'thold'),
+			360   * $factor => __('%d Hours', 6, 'thold'),
+			480   * $factor => __('%d Hours', 8, 'thold'),
+			720   * $factor => __('%d Hours', 12, 'thold'),
+			1440  * $factor => __('%d Day', 1, 'thold'),
+			2880  * $factor => __('%d Days', 2, 'thold'),
+			10080 * $factor => __('%d Week', 1, 'thold'),
+			20160 * $factor => __('%d Weeks', 2, 'thold'),
+			43200 * $factor => __('%d Month', 1, 'thold')
+		);
 
-	$alertarray  = array(
-		1    => __('%d Minutes', 5, 'thold'),
-		2    => __('%d Minutes', 10, 'thold'),
-		3    => __('%d Minutes', 15, 'thold'),
-		4    => __('%d Minutes', 20, 'thold'),
-		6    => __('%d Minutes', 30, 'thold'),
-		8    => __('%d Minutes', 45, 'thold'),
-		12   => __('%d Hour', 1, 'thold'),
-		24   => __('%d Hours', 2, 'thold'),
-		36   => __('%d Hours', 3, 'thold'),
-		48   => __('%d Hours', 4, 'thold'),
-		72   => __('%d Hours', 6, 'thold'),
-		96   => __('%d Hours', 8, 'thold'),
-		144  => __('%d Hours', 12, 'thold'),
-		288  => __('%d Day', 1, 'thold'),
-		576  => __('%d Days', 2, 'thold'),
-		2016 => __('%d Week', 1, 'thold'),
-		4032 => __('%d Weeks', 2, 'thold'),
-		8640 => __('%d Month', 1, 'thold')
-	);
+		$timearray   = array(
+			1     * $factor => __('%d Minute', 1, 'thold'),
+			2     * $factor => __('%d Minutes', 2, 'thold'),
+			3     * $factor => __('%d Minutes', 3, 'thold'),
+			4     * $factor => __('%d Minutes', 4, 'thold'),
+			5     * $factor => __('%d Minutes', 5, 'thold'),
+			6     * $factor => __('%d Minutes', 6, 'thold'),
+			7     * $factor => __('%d Minutes', 7, 'thold'),
+			8     * $factor => __('%d Minutes', 8, 'thold'),
+			9     * $factor => __('%d Minutes', 9, 'thold'),
+			10    * $factor => __('%d Minutes', 10, 'thold'),
+			12    * $factor => __('%d Minutes', 12, 'thold'),
+			15    * $factor => __('%d Minutes', 15, 'thold'),
+			20    * $factor => __('%d Minutes', 20, 'thold'),
+			24    * $factor => __('%d Minutes', 24, 'thold'),
+			30    * $factor => __('%d Minutes', 30, 'thold'),
+			45    * $factor => __('%d Minutes', 45, 'thold'),
+			60    * $factor => __('%d Hour', 1, 'thold'),
+			120   * $factor => __('%d Hours', 2, 'thold'),
+			180   * $factor => __('%d Hours', 3, 'thold'),
+			240   * $factor => __('%d Hours', 4, 'thold'),
+			288   * $factor => __('%0.1f Hours', 4.8, 'thold'),
+			360   * $factor => __('%d Hours', 6, 'thold'),
+			480   * $factor => __('%d Hours', 8, 'thold'),
+			720   * $factor => __('%d Hours', 12, 'thold'),
+			1440  * $factor => __('%d Day', 1, 'thold'),
+			2880  * $factor => __('%d Days', 2, 'thold'),
+			10080 * $factor => __('%d Week', 1, 'thold'),
+			20160 * $factor => __('%d Weeks', 2, 'thold'),
+			43200 * $factor => __('%d Month', 1, 'thold')
+		);
+	case '300':
+		$repeatarray = array(
+			0    => __('Never', 'thold'),
+			1    => __('Every %d Minutes', 5, 'thold'),
+			2    => __('Every %d Minutes', 10, 'thold'),
+			3    => __('Every %d Minutes', 15, 'thold'),
+			4    => __('Every %d Minutes', 20, 'thold'),
+			6    => __('Every %d Minutes', 30, 'thold'),
+			8    => __('Every %d Minutes', 45, 'thold'),
+			12   => __('Every Hour', 'thold'),
+			24   => __('Every %d Hours', 2, 'thold'),
+			36   => __('Every %d Hours', 3, 'thold'),
+			48   => __('Every %d Hours', 4, 'thold'),
+			72   => __('Every %d Hours', 6, 'thold'),
+			96   => __('Every %d Hours', 8, 'thold'),
+			144  => __('Every %d Hours', 12, 'thold'),
+			288  => __('Every Day', 'thold'),
+			576  => __('Every %d Days', 2, 'thold'),
+			2016 => __('Every Week', 'thold'),
+			4032 => __('Every %d Weeks', 2, 'thold'),
+			8640 => __('Every Month', 'thold')
+		);
 
-	$timearray   = array(
-		1   => __('%d Minutes', 5, 'thold'),
-		2   => __('%d Minutes', 10, 'thold'),
-		3   => __('%d Minutes', 15, 'thold'),
-		4   => __('%d Minutes', 20, 'thold'),
-		6   => __('%d Minutes', 30, 'thold'),
-		8   => __('%d Minutes', 45, 'thold'),
-		12   => __('%d Hour', 1, 'thold'),
-		24   => __('%d Hours', 2, 'thold'),
-		36   => __('%d Hours', 3, 'thold'),
-		48   => __('%d Hours', 4, 'thold'),
-		72   => __('%d Hours', 6, 'thold'),
-		96   => __('%d Hours', 8, 'thold'),
-		144  => __('%d Hours', 12, 'thold'),
-		288  => __('%d Day', 1, 'thold'),
-		576  => __('%d Days', 2, 'thold'),
-		2016 => __('%d Week', 1, 'thold'),
-		4032 => __('%d Weeks', 2, 'thold'),
-		8640 => __('%d Month', 1, 'thold')
-	);
-} else {
-	$repeatarray = array(
-		0    => __('Never', 'thold'),
-		1    => __('Every Polling', 'thold'),
-		2    => __('Every %d Pollings', 1, 'thold'),
-		3    => __('Every %d Pollings', 3, 'thold'),
-		4    => __('Every %d Pollings', 4, 'thold'),
-		6    => __('Every %d Pollings', 6, 'thold'),
-		8    => __('Every %d Pollings', 8, 'thold'),
-		12   => __('Every %d Pollings', 12, 'thold'),
-		24   => __('Every %d Pollings', 24, 'thold'),
-		36   => __('Every %d Pollings', 36, 'thold'),
-		48   => __('Every %d Pollings', 48, 'thold'),
-		72   => __('Every %d Pollings', 72, 'thold'),
-		96   => __('Every %d Pollings', 96, 'thold'),
-		144  => __('Every %d Pollings', 144, 'thold'),
-		288  => __('Every %d Pollings', 288, 'thold'),
-		576  => __('Every %d Pollings', 576, 'thold'),
-		2016 => __('Every %d Pollings', 2016, 'thold')
-	);
+		$alertarray  = array(
+			1    => __('%d Minutes', 5, 'thold'),
+			2    => __('%d Minutes', 10, 'thold'),
+			3    => __('%d Minutes', 15, 'thold'),
+			4    => __('%d Minutes', 20, 'thold'),
+			6    => __('%d Minutes', 30, 'thold'),
+			8    => __('%d Minutes', 45, 'thold'),
+			12   => __('%d Hour', 1, 'thold'),
+			24   => __('%d Hours', 2, 'thold'),
+			36   => __('%d Hours', 3, 'thold'),
+			48   => __('%d Hours', 4, 'thold'),
+			72   => __('%d Hours', 6, 'thold'),
+			96   => __('%d Hours', 8, 'thold'),
+			144  => __('%d Hours', 12, 'thold'),
+			288  => __('%d Day', 1, 'thold'),
+			576  => __('%d Days', 2, 'thold'),
+			2016 => __('%d Week', 1, 'thold'),
+			4032 => __('%d Weeks', 2, 'thold'),
+			8640 => __('%d Month', 1, 'thold')
+		);
 
-	$alertarray  = array(
-		1    => __('%d Polling', 1, 'thold'),
-		2    => __('%d Pollings', 2, 'thold'),
-		3    => __('%d Pollings', 3, 'thold'),
-		4    => __('%d Pollings', 4, 'thold'),
-		6    => __('%d Pollings', 6, 'thold'),
-		8    => __('%d Pollings', 8, 'thold'),
-		12   => __('%d Pollings', 12, 'thold'),
-		24   => __('%d Pollings', 24, 'thold'),
-		36   => __('%d Pollings', 36, 'thold'),
-		48   => __('%d Pollings', 45, 'thold'),
-		72   => __('%d Pollings', 72, 'thold'),
-		96   => __('%d Pollings', 96, 'thold'),
-		144  => __('%d Pollings', 144, 'thold'),
-		288  => __('%d Pollings', 288, 'thold'),
-		576  => __('%d Pollings', 576, 'thold'),
-		2016 => __('%d Pollings', 2016, 'thold')
-	);
+		$timearray   = array(
+			1   => __('%d Minutes', 5, 'thold'),
+			2   => __('%d Minutes', 10, 'thold'),
+			3   => __('%d Minutes', 15, 'thold'),
+			4   => __('%d Minutes', 20, 'thold'),
+			6   => __('%d Minutes', 30, 'thold'),
+			8   => __('%d Minutes', 45, 'thold'),
+			12   => __('%d Hour', 1, 'thold'),
+			24   => __('%d Hours', 2, 'thold'),
+			36   => __('%d Hours', 3, 'thold'),
+			48   => __('%d Hours', 4, 'thold'),
+			72   => __('%d Hours', 6, 'thold'),
+			96   => __('%d Hours', 8, 'thold'),
+			144  => __('%d Hours', 12, 'thold'),
+			288  => __('%d Day', 1, 'thold'),
+			576  => __('%d Days', 2, 'thold'),
+			2016 => __('%d Week', 1, 'thold'),
+			4032 => __('%d Weeks', 2, 'thold'),
+			8640 => __('%d Month', 1, 'thold')
+		);
 
-	$timearray   = array(
-		1    => __('%d Polling', 1, 'thold'),
-		2    => __('%d Pollings', 2, 'thold'),
-		3    => __('%d Pollings', 3, 'thold'),
-		4    => __('%d Pollings', 4, 'thold'),
-		6    => __('%d Pollings', 6, 'thold'),
-		8    => __('%d Pollings', 8, 'thold'),
-		12   => __('%d Pollings', 12, 'thold'),
-		24   => __('%d Pollings', 24, 'thold'),
-		36   => __('%d Pollings', 36, 'thold'),
-		48   => __('%d Pollings', 48, 'thold'),
-		72   => __('%d Pollings', 72, 'thold'),
-		96   => __('%d Pollings', 96, 'thold'),
-		144  => __('%d Pollings', 144, 'thold'),
-		288  => __('%d Pollings', 288, 'thold'),
-		576  => __('%d Pollings', 576, 'thold'),
-		2016 => __('%d Pollings', 2016, 'thold')
-	);
+		break;
+	default:
+		$repeatarray = array(
+			0    => __('Never', 'thold'),
+			1    => __('Every Polling', 'thold'),
+			2    => __('Every %d Pollings', 1, 'thold'),
+			3    => __('Every %d Pollings', 3, 'thold'),
+			4    => __('Every %d Pollings', 4, 'thold'),
+			6    => __('Every %d Pollings', 6, 'thold'),
+			8    => __('Every %d Pollings', 8, 'thold'),
+			12   => __('Every %d Pollings', 12, 'thold'),
+			24   => __('Every %d Pollings', 24, 'thold'),
+			36   => __('Every %d Pollings', 36, 'thold'),
+			48   => __('Every %d Pollings', 48, 'thold'),
+			72   => __('Every %d Pollings', 72, 'thold'),
+			96   => __('Every %d Pollings', 96, 'thold'),
+			144  => __('Every %d Pollings', 144, 'thold'),
+			288  => __('Every %d Pollings', 288, 'thold'),
+			576  => __('Every %d Pollings', 576, 'thold'),
+			2016 => __('Every %d Pollings', 2016, 'thold')
+		);
+
+		$alertarray  = array(
+			1    => __('%d Polling', 1, 'thold'),
+			2    => __('%d Pollings', 2, 'thold'),
+			3    => __('%d Pollings', 3, 'thold'),
+			4    => __('%d Pollings', 4, 'thold'),
+			6    => __('%d Pollings', 6, 'thold'),
+			8    => __('%d Pollings', 8, 'thold'),
+			12   => __('%d Pollings', 12, 'thold'),
+			24   => __('%d Pollings', 24, 'thold'),
+			36   => __('%d Pollings', 36, 'thold'),
+			48   => __('%d Pollings', 45, 'thold'),
+			72   => __('%d Pollings', 72, 'thold'),
+			96   => __('%d Pollings', 96, 'thold'),
+			144  => __('%d Pollings', 144, 'thold'),
+			288  => __('%d Pollings', 288, 'thold'),
+			576  => __('%d Pollings', 576, 'thold'),
+			2016 => __('%d Pollings', 2016, 'thold')
+		);
+
+		$timearray   = array(
+			1    => __('%d Polling', 1, 'thold'),
+			2    => __('%d Pollings', 2, 'thold'),
+			3    => __('%d Pollings', 3, 'thold'),
+			4    => __('%d Pollings', 4, 'thold'),
+			6    => __('%d Pollings', 6, 'thold'),
+			8    => __('%d Pollings', 8, 'thold'),
+			12   => __('%d Pollings', 12, 'thold'),
+			24   => __('%d Pollings', 24, 'thold'),
+			36   => __('%d Pollings', 36, 'thold'),
+			48   => __('%d Pollings', 48, 'thold'),
+			72   => __('%d Pollings', 72, 'thold'),
+			96   => __('%d Pollings', 96, 'thold'),
+			144  => __('%d Pollings', 144, 'thold'),
+			288  => __('%d Pollings', 288, 'thold'),
+			576  => __('%d Pollings', 576, 'thold'),
+			2016 => __('%d Pollings', 2016, 'thold')
+		);
 }
 
 $thold_types = array (

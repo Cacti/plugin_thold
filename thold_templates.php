@@ -815,8 +815,7 @@ function template_save_edit() {
 }
 
 function template_edit() {
-	global $config, $thold_types, $repeatarray, $timearray, $alertarray, $data_types;
-	global $syslog_facil_array, $syslog_priority_array;
+	global $config;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('id');
@@ -887,6 +886,8 @@ function template_edit() {
 		FROM data_template_data
 		WHERE data_template_id = ?',
 		array($thold_data['data_template_id']));
+
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 	$rra_steps = db_fetch_assoc_prepared('SELECT dspr.steps
 		FROM data_template_data AS dtd
