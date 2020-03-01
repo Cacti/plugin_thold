@@ -735,23 +735,23 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
 	if ($thold_data['lasttime'] > 0) {
 		if (is_numeric($currenttime)) {
-			$polling_interval = $currenttime - $thold_data['lasttime'];
+			$step = $currenttime - $thold_data['lasttime'];
 		} else {
-			$polling_interval = $thold_data['rrd_step'];
+			$step = $thold_data['rrd_step'];
 		}
 	} else {
-		$polling_interval = $thold_data['rrd_step'];
+		$step = $thold_data['rrd_step'];
 	}
 
-	if (empty($polling_interval)) {
-		$polling_interval = read_config_option('poller_interval');
+	if (empty($step)) {
+		$step = read_config_option('poller_interval');
 	}
 
 	$currentval = 0;
 
 	if (isset($rrd_reindexed[$thold_data['local_data_id']])) {
 		$item = $rrd_reindexed[$thold_data['local_data_id']];
-		if (isset($item[$thold_data['name']])) {
+		if (isset($item[$thold_data['name']]) && is_numeric($item[$thold_data['name']])) {
 			switch ($thold_data['data_source_type_id']) {
 			case 2:	// COUNTER
 				if ($thold_data['oldvalue'] != 0 && is_numeric($thold_data['oldvalue'])) {
@@ -767,7 +767,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 						}
 					}
 
-					$currentval = $currentval / $polling_interval;
+					$currentval = $currentval / $step;
 
 					if (strpos($thold_data['rrd_maximum'], '|query_') !== false) {
 						$data_local = db_fetch_row_prepared('SELECT *
