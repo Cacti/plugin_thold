@@ -3493,11 +3493,11 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	putenv('THOLD_CURRENTVALUE='    . $currentval);
 	putenv('THOLD_THRESHOLDNAME='   . $thold['name_cache']);
 	putenv('THOLD_DSNAME='          . $data_source_name);
-	putenv('THOLD_TIMEINSTATE='     . get_timeinstate($h);
-	putenv('THOLD_HOST_STATUS='     . $h['status'];
-	putenv('THOLD_HOST_FAIL_DATE='  . $h['status_fail_date'];
-	putenv('THOLD_HOST_REC_DATE='   . $h['status_rec_date'];
-	putenv('THOLD_HOST_LAST_ERROR=' . $h['status_last_error'];
+	putenv('THOLD_TIMEINSTATE='     . get_timeinstate($h));
+	putenv('THOLD_HOST_STATUS='     . $h['status']);
+	putenv('THOLD_HOST_FAIL_DATE='  . $h['status_fail_date']);
+	putenv('THOLD_HOST_REC_DATE='   . $h['status_rec_date']);
+	putenv('THOLD_HOST_LAST_ERROR=' . $h['status_last_error']);
 
 	if (isset($thold_types[$thold['thold_type']])) {
 		putenv('THOLD_THOLDTYPE=' . $thold_types[$thold['thold_type']]);

@@ -31,8 +31,10 @@ function thold_draw_navigation_text($nav) {
 	$nav['thold.php:save'] = array('title' => __('(save)', 'thold'), 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
 	$nav['thold.php:add'] = array('title' => __('(add)', 'thold'), 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
 	$nav['thold.php:autocreate'] = array('title' => __('Thresholds', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '2');
-	$nav['thold_graph.php:'] = array('title' => __('Thresholds', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_graph.php', 'level' => '1');
-	$nav['thold_graph.php:thold'] = array('title' => __('Thresholds', 'thold'), 'mapping' => $config['url_path'] . 'graph_view.php:', 'url' => 'thold_graph.php', 'level' => '1');
+	$nav['thold_graph.php:'] = array('title' => __('Thresholds', 'thold'), 'mapping' => '', 'url' => 'thold_graph.php', 'level' => '0');
+	$nav['thold_graph.php:thold'] = array('title' => __('Thresholds', 'thold'), 'mapping' => '', 'url' => 'thold_graph.php', 'level' => '0');
+	$nav['thold_graph.php:log'] = array('title' => __('Threshold Logs', 'thold'), 'mapping' => '', 'url' => 'thold_graph.php', 'level' => '0');
+	$nav['thold_graph.php:hoststat'] = array('title' => __('Device Status', 'thold'), 'mapping' => '', 'url' => 'thold_graph.php', 'level' => '0');
 	$nav['thold_view_failures.php:'] = array('title' => __('Thresholds - Failures', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_view_failures.php', 'level' => '1');
 	$nav['thold_view_normal.php:'] = array('title' => __('Thresholds - Normal', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_view_normal.php', 'level' => '1');
 	$nav['thold_view_recover.php:'] = array('title' => __('Thresholds - Recovering', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_view_recover.php', 'level' => '1');
