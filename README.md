@@ -127,6 +127,8 @@ that.
 
 * issue#384: Call to undefined function rrdtool_execute() in thold_functions.php:4094
 
+* issue#391: Undefined CDEF generated with latest Core / Thold versions
+
 * issue#394: THOLD shows devices that have been deleted as down
 
 * issue#395: Filtering on Ack Required field does not work

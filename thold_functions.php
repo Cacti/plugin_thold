@@ -724,7 +724,7 @@ function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $c
 		array_push($stack, $v1);
 		break;
 	default:
-		cacti_log('WARNING: CDEF property not implemented yet: ' . $operator, false, 'THOLD');
+		cacti_log('WARNING: CDEF property not implemented yet: ' . $operator, false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
 		array_push($stack, $currentval);
 		break;
 	}
@@ -3975,7 +3975,7 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 
 					break;
 				default:
-					cacti_log('WARNING: CDEF property not implemented yet: ' . $cdef['value'], false, 'THOLD');
+					cacti_log('WARNING: CDEF property not implemented yet: ' . $cdef['value'], false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
 
 					return $oldvalue;
 
