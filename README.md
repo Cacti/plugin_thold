@@ -124,6 +124,8 @@ that.
 
 * issue#361: Thresholds are not applying CDEF's correctly
 
+* issue#368: When using Classic Theme, devices not appearing when try to create a threshold
+
 * issue#369: When saving a template, notification lists of all
   templates are updated
 

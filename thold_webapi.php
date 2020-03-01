@@ -634,17 +634,37 @@ function thold_wizard() {
 			$hiql = ' AND 0 = 1';
 		}
 
-		$form_array['my_host_id'] = array(
-			'method' => 'drop_callback',
-			'friendly_name' => __('Device', 'thold'),
-			'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
-			'on_change' => 'applyTholdFilter()',
-			'action' => 'ajax_hosts',
-			'id' => $host_id,
-			'sql' => 'SELECT id, description AS name FROM host WHERE disabled!="" AND deleted!=""' . $hiql,
-			'value' => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
-			'none_value' => __('Select a Device', 'thold')
-		);
+		if (get_selected_theme() != 'classic') {
+			$form_array['my_host_id'] = array(
+				'method' => 'drop_callback',
+				'friendly_name' => __('Device', 'thold'),
+				'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
+				'on_change' => 'applyTholdFilter()',
+				'action' => 'ajax_hosts',
+				'id' => $host_id,
+				'sql' => 'SELECT id, description AS name FROM host WHERE disabled != "" AND deleted != ""' . $hiql,
+				'value' => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
+				'none_value' => __('Select a Device', 'thold')
+			);
+		} else {
+			if ($hiql == ' AND 0 = 1') {
+				$hiql = '';
+			}
+
+			$hosts = array_rekey(get_allowed_devices($hiql),
+				'id', 'description'
+			);
+
+			$form_array['my_host_id'] = array(
+				'method' => 'drop_array',
+				'friendly_name' => __('Device', 'thold'),
+				'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
+				'on_change' => 'applyTholdFilter()',
+				'array' => $hosts,
+				'value' => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
+				'none_value' => __('Select a Device', 'thold')
+			);
+		}
 
 		if ($host_id > 0) {
 			$graphs = get_allowed_graphs('gl.host_id=' . $host_id);
