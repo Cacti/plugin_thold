@@ -719,33 +719,17 @@ function thold_update_host_status() {
 				}
 			}
 
-			if ($host['status_rec_date'] != '0000-00-00 00:00:00') {
-				$downtime         = time() - strtotime($host['status_rec_date']);
-				$downtime_days    = floor($downtime / 86400);
-				$downtime_hours   = floor(($downtime - ($downtime_days * 86400)) / 3600);
-				$downtime_minutes = floor(($downtime - ($downtime_days * 86400) - ($downtime_hours * 3600)) / 60);
-				$downtime_seconds = $downtime - ($downtime_days * 86400) - ($downtime_hours * 3600) - ($downtime_minutes * 60);
-
-				if ($downtime_days > 0) {
-					$downtimemsg = $downtime_days . 'd ' . $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's ';
-				} elseif ($downtime_hours > 0) {
-					$downtimemsg = $downtime_hours . 'h ' . $downtime_minutes . 'm ' . $downtime_seconds . 's';
-				} elseif ($downtime_minutes > 0) {
-					$downtimemsg = $downtime_minutes . 'm ' . $downtime_seconds . 's';
-				} else {
-					$downtimemsg = $downtime_seconds . 's ';
-				}
-			} else {
-				$downtimemsg = __('N/A', 'thold');
-			}
+			$downtimemsg = get_timeinstate($host);
 
 			$subject = read_config_option('thold_down_subject');
 			if ($subject == '') {
 				$subject = __('Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN', 'thold');
 			}
+
 			$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
 			$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
 			$subject = str_replace('<DOWN/UP>', __('DOWN', 'thold'), $subject);
+			$subject = str_replace('<DOWNTIME>', $downtimemsg, $subject);
 			$subject = strip_tags($subject);
 
 			$msg = read_config_option('thold_down_text');
