@@ -103,6 +103,8 @@ that.
 
 --- develop ---
 
+* feature: Properly support 10, 20, and 30 second polling
+
 * issue#345: Adding an alarm threshold does not work
 
 * issue#351: Missed required param $host_id of thold_new_graphs_save() in
