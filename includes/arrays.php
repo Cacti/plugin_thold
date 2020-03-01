@@ -257,13 +257,13 @@ switch($step) {
 	case '30':
 	case '60':
 		if ($step == 10) {
-			$f = 6;
+			$factor = 6;
 		} elseif ($step == 20) {
-			$f = 3;
+			$factor = 3;
 		} elseif ($step == 30) {
-			$f = 2;
+			$factor = 2;
 		} else {
-			$f = 1;
+			$factor = 1;
 		}
 
 		$repeatarray = array(
