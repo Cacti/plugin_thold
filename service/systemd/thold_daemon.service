@@ -1,11 +1,14 @@
 [Unit]
 Description=Cacti Threshold Daemon Service
+After=network.target auditd.service mariadb.service php7.0-fpm.service nginx.service
 
 [Service]
-Type=oneshot
-ExecStart=/var/www/html/cacti/plugins/thold/service/systemd/thold_daemon
-ExecStop=/var/www/html/cacti/plugins/thold/service/systemd/thold_daemon
-RemainAfterExit=yes
+Type=forking
+User=apache
+Group=root
+ExecStart=/usr/bin/php -q /usr/share/cacti/site/plugins/thold/thold_daemon.php
+KillMode=process
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
