@@ -1308,8 +1308,13 @@ function thold_edit() {
 		$suffix = true;
 	}
 
-	$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
-		(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_column_by_cdef($thold_data, 'lastread'), 2, $baseu, $suffix), 'thold');
+	if (isset($thold_data['lastread'])) {
+		$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
+			(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_column_by_cdef($thold_data, 'lastread'), 2, $baseu, $suffix), 'thold');
+	} else {
+		$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
+			(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), '-', 'thold');
+	}
 
 	html_start_box($header_text, '100%', false, '3', 'center', '');
 

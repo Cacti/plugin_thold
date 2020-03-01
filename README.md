@@ -127,6 +127,8 @@ that.
 * issue#369: When saving a template, notification lists of all
   templates are updated
 
+* issue#383: Backtrace errors when first creating a thold
+
 * issue#384: Call to undefined function rrdtool_execute() in thold_functions.php:4094
 
 * issue#391: Undefined CDEF generated with latest Core / Thold versions
