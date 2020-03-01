@@ -767,7 +767,7 @@ function hosts() {
 	/* form the 'where' clause for our main sql query */
 	$sql_where = '';
 	if (get_request_var('filter') != '') {
-		$sql_where = ' ((
+		$sql_where = ' (h.deleted = "" AND (
 			h.hostname LIKE '       . db_qstr('%' . get_request_var('filter') . '%') . '
 			OR h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}

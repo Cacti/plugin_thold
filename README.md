@@ -127,6 +127,8 @@ that.
 
 * issue#384: Call to undefined function rrdtool_execute() in thold_functions.php:4094
 
+* issue#394: THOLD shows devices that have been deleted as down
+
 * issue#395: Filtering on Ack Required field does not work
 
 * issue#401: Errors occur with invalid thresholds with a bad thold type
