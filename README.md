@@ -101,6 +101,10 @@ that.
 
 ## ChangeLog
 
+--- 1.3.4 ---
+
+* issue#404: THOLD 1.3.3 Cacti 1.2.9 PHP errors 
+
 --- 1.3.3 ---
 
 * feature#359: Allow <DOWNTIME> variable substitution also in UP/DOWN e-mail subject
