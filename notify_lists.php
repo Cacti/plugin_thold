@@ -119,15 +119,18 @@ function form_actions() {
 					db_execute('UPDATE host
 						SET thold_send_email = 0
 						WHERE thold_send_email = 2
+						AND deleted=""
 						AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
 
 					db_execute('UPDATE host
 						SET thold_send_email = 1
 						WHERE thold_send_email = 3
+						AND deleted=""
 						AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
 
 					db_execute('UPDATE host
 						SET thold_host_email = 0
+						AND deleted=""
 						WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
 
 					db_execute('UPDATE thold_data
@@ -195,12 +198,14 @@ function form_actions() {
 						/* set the notification list */
 						db_execute('UPDATE host
 							SET thold_host_email=' . get_request_var('id') . '
-							WHERE id=' . $selected_items[$i]);
+							WHERE id=' . $selected_items[$i] . '
+							AND deleted=""');
 
 						/* set the global/list election */
 						db_execute('UPDATE host
 							SET thold_send_email=' . get_request_var('notification_action') . '
-							WHERE id=' . $selected_items[$i]);
+							WHERE id=' . $selected_items[$i] . '
+							AND deleted=""');
 
 						if (get_request_var('notification_warning_action') > 0) {
 							/* clear other settings */
@@ -275,12 +280,14 @@ function form_actions() {
 						/* set the notification list */
 						db_execute('UPDATE host
 							SET thold_host_email=0
-							WHERE id=' . $selected_items[$i]);
+							WHERE id=' . $selected_items[$i] . '
+							AND deleted=""');
 
 						/* set the global/list election */
 						db_execute('UPDATE host
 							SET thold_send_email=' . get_request_var('notification_action') . '
-							WHERE id=' . $selected_items[$i]);
+							WHERE id=' . $selected_items[$i] . '
+							AND deleted=""');
 
 						if (get_request_var('notification_warning_action') > 0) {
 							/* set the notification list */

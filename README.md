@@ -101,6 +101,10 @@ that.
 
 ## ChangeLog
 
+--- develop ---
+
+* issue: Make notification lists aware of device removal
+
 --- 1.3.4 ---
 
 * issue#404: THOLD 1.3.3 Cacti 1.2.9 PHP errors 
