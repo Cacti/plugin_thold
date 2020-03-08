@@ -103,6 +103,8 @@ that.
 
 --- develop ---
 
+* issue#405: thold_functions.php Undefined variable "polling_interval"
+
 * issue: Make notification lists aware of device removal
 
 --- 1.3.4 ---

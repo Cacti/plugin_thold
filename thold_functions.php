@@ -796,19 +796,19 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 
 					/* assume counter reset if greater than max value */
 					if ($thold_data['rrd_maximum'] > 0 && $currentval > $thold_data['rrd_maximum']) {
-						$currentval = $item[$thold_data['name']] / $polling_interval;
+						$currentval = $item[$thold_data['name']] / $step;
 					} elseif ($thold_data['rrd_maximum'] == 0 && $currentval > 4.25E+9) {
-						$currentval = $item[$thold_data['name']] / $polling_interval;
+						$currentval = $item[$thold_data['name']] / $step;
 					}
 				} else {
 					$currentval = 0;
 				}
 				break;
 			case 3:	// DERIVE
-				$currentval = ($item[$thold_data['name']] - $thold_data['oldvalue']) / $polling_interval;
+				$currentval = ($item[$thold_data['name']] - $thold_data['oldvalue']) / $step;
 				break;
 			case 4:	// ABSOLUTE
-				$currentval = $item[$thold_data['name']] / $polling_interval;
+				$currentval = $item[$thold_data['name']] / $step;
 				break;
 			case 1:	// GAUGE
 			default:
