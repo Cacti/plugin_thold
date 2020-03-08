@@ -5063,22 +5063,46 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 
 	$sql_where = '';
 
-	if (is_array($host_ids)) {
-		$sql_where = 'WHERE gl.host_id IN(' . implode($host_ids) . ')';
-	} elseif ($host_ids > 0) {
-		$host_id = $host_ids;
+	if (!empty($thold_template_id) && is_numeric($thold_template_id)) {
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'tt.id = ' . $thold_template_id;
+
+		if (empty($graph_template_id)) {
+			$data_template_id = db_fetch_cell_prepared('SELECT data_template_id
+				FROM thold_template
+				WHERE id = ?',
+				array($thold_template_id));
+
+			if ($data_template_id > 0) {
+				$graph_template_ids = array_rekey(
+					db_fetch_assoc_prepared('SELECT DISTINCT gti.graph_template_id
+						FROM graph_templates_item AS gti
+						INNER JOIN data_template_rrd AS dtr
+						ON gti.task_item_id = dtr.id
+						AND gti.local_graph_id = 0
+						AND dtr.data_template_id = ?',
+						array($data_template_id)),
+					'graph_template_id', 'graph_template_id'
+				);
+
+				if (cacti_sizeof($graph_template_ids)) {
+					$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gl.graph_template_id IN (' . implode(', ', $graph_template_ids) . ')';
+				}
+			}
+		}
 	}
 
 	if (!empty($graph_template_id) && is_numeric($graph_template_id)) {
-		$sql_where = 'WHERE gl.graph_template_id = ' . $graph_template_id;
-	}
-
-	if (!empty($thold_template_id) && is_numeric($thold_template_id)) {
-		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'tt.id = ' . $thold_template_id;
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gl.graph_template_id = ' . $graph_template_id;
 	}
 
 	if (is_array($graph_ids) && cacti_sizeof($graph_ids)) {
 		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gti.local_graph_id IN(' . implode(', ', $graph_ids) . ')';
+	}
+
+	if (is_array($host_ids)) {
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gl.host_id IN(' . implode($host_ids) . ')';
+	} elseif ($host_ids > 0) {
+		$host_id = $host_ids;
 	}
 
 	if ($host_id > 0) {
@@ -5090,7 +5114,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 		$templates = db_fetch_assoc_prepared('SELECT tt.*
 			FROM thold_template AS tt
 			INNER JOIN plugin_thold_host_template AS ptht
-			ON tt.id=ptht.thold_template_id
+			ON tt.id = ptht.thold_template_id
 			WHERE ptht.host_template_id = ?',
 			array($host_template_id));
 
@@ -5114,7 +5138,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 					ON tt.data_template_id = dtr.data_template_id
 					AND tt.data_source_name = dtr.data_source_name
 					INNER JOIN graph_templates_item AS gti
-					ON gti.task_item_id=dtr.id
+					ON gti.task_item_id = dtr.id
 					INNER JOIN graph_local AS gl
 					ON gl.id = gti.local_graph_id
 					$new_where",
@@ -5153,9 +5177,9 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 			ON tt.data_template_id = dtr.data_template_id
 			AND tt.data_source_name = dtr.data_source_name
 			INNER JOIN graph_templates_item AS gti
-			ON gti.task_item_id=dtr.id
+			ON gti.task_item_id = dtr.id
 			INNER JOIN graph_local AS gl
-			ON gl.id=gti.local_graph_id
+			ON gl.id = gti.local_graph_id
 			$sql_where");
 
 		if (cacti_sizeof($data_sources)) {
