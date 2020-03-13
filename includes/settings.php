@@ -59,8 +59,8 @@ function thold_draw_navigation_text($nav) {
 function thold_config_insert() {
 	global $menu;
 
-	$menu[__('Management')]['plugins/thold/notify_lists.php'] = __('Notification Lists', 'thold');
-	$menu[__('Management')]['plugins/thold/thold.php'] = __('Thresholds', 'thold');
+	$menu[__('Management')]['plugins/thold/notify_lists.php']   = __('Notification Lists', 'thold');
+	$menu[__('Management')]['plugins/thold/thold.php']          = __('Thresholds', 'thold');
 	$menu[__('Templates')]['plugins/thold/thold_templates.php'] = __('Threshold', 'thold');
 
 	if (isset_request_var('thold_vrule')) {
