@@ -130,6 +130,13 @@ function thold_config_arrays() {
 		__('View Thresholds', 'thold')
 	);
 
+	if (function_exists('auth_augment_roles')) {
+		auth_augment_roles(__('Normal User'), array('thold_graph.php'));
+		auth_augment_roles(__('Template Editor'), array('thold_templates.php'));
+		auth_augment_roles(__('General Administration'), array('thold.php'));
+		auth_augment_roles(__('General Administration'), array('notify_lists.php'));
+	}
+
 	kill_session_var('thold_message');
 }
 
