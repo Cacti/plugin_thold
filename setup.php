@@ -757,7 +757,7 @@ function thold_data_sources_table($ds) {
 			array($ds['local_data_id']));
 
 		if ($exists) {
-			$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='hyperLink' href='" . html_escape('plugins/thold/thold.php?action=edit&id=' . $exists) . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold'). '</em>' : html_escape($ds['data_template_name'])) . '</a>';
+			$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='linkEditMain' href='" . html_escape('plugins/thold/thold.php?action=edit&id=' . $exists) . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold'). '</em>' : html_escape($ds['data_template_name'])) . '</a>';
 		} else {
 			$graph_exists = db_fetch_cell_prepared('SELECT DISTINCT gl.id
 				FROM graph_local AS gl
@@ -775,7 +775,7 @@ function thold_data_sources_table($ds) {
 				array($ds['local_data_id']));
 
 			if ($graph_exists) {
-				$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='hyperLink' href='" . html_escape('plugins/thold/thold.php?action=edit&local_data_id=' . $ds['local_data_id'] . '&host_id=' . $ds['host_id'] . '&data_template_id=' . $data_template_id . '&data_template_rrd_id=&local_graph_id=' . $graph_exists . '&thold_template_id=0') . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold') . '</em>' : html_escape($ds['data_template_name'])) . '</a>';
+				$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='linkEditMain' href='" . html_escape('plugins/thold/thold.php?action=edit&local_data_id=' . $ds['local_data_id'] . '&host_id=' . $ds['host_id'] . '&data_template_id=' . $data_template_id . '&data_template_rrd_id=&local_graph_id=' . $graph_exists . '&thold_template_id=0') . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold') . '</em>' : html_escape($ds['data_template_name'])) . '</a>';
 			}
 		}
 	}
@@ -786,7 +786,7 @@ function thold_data_sources_table($ds) {
 function thold_graphs_new() {
 	global $config;
 
-	print '<span class="linkMarker">*</span><a class="autocreate hyperLink" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create Thresholds', 'thold'). '</a><br>';
+	print '<span class="linkMarker">*</span><a class="autocreate linkEditMain" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create Thresholds', 'thold'). '</a><br>';
 }
 
 function thold_user_admin_setup_sql_save($save) {
