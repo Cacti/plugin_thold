@@ -542,7 +542,7 @@ function tholds() {
 				}
 			}
 
-			print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $thold_data['id'] . "'>";
+			print "<tr class='tableRow selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $thold_data['id'] . "'>";
 
 			$baseu = db_fetch_cell_prepared('SELECT base_value
 				FROM graph_templates_graph
@@ -656,7 +656,7 @@ function tholds() {
 			form_end_row();
 		}
 	} else {
-		print '<tr class="even"><td class="center" colspan="13">' . __('No Thresholds', 'thold'). '</td></tr>';
+		print '<tr class="tableRow even"><td class="center" colspan="13">' . __('No Thresholds', 'thold'). '</td></tr>';
 	}
 
 	html_end_box(false);
@@ -682,7 +682,7 @@ function form_host_status_row_color($status, $disabled, $id) {
 		$class = $thold_host_states[$status]['class'];
 	}
 
-	print "<tr class='selectable $class' id='line" . $id . "'>";
+	print "<tr class='tableRow selectable $class' id='line" . $id . "'>";
 
 	return $class;
 }
@@ -970,7 +970,7 @@ function hosts() {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td class="center" colspan="12">' . __('No Devices', 'thold') . '</td></tr>';
+		print '<tr class="tableRow"><td class="center" colspan="12">' . __('No Devices', 'thold') . '</td></tr>';
 	}
 
 	html_end_box(false);
@@ -1383,7 +1383,7 @@ function thold_show_log() {
 				$baseu = 1024;
 			}
 
-			print "<tr class='selectable " . $thold_log_states[$l['status']]['class'] . "' id='" . $l['id'] . "'>";
+			print "<tr class='tableRow selectable " . $thold_log_states[$l['status']]['class'] . "' id='line" . $l['id'] . "'>";
 
 			form_selectable_cell($l['hdescription'], $l['id'], '', 'left');
 			form_selectable_cell(date('Y-m-d H:i:s', $l['time']), $l['id'], '', 'left');
@@ -1394,7 +1394,7 @@ function thold_show_log() {
 			form_end_row();
 		}
 	} else {
-		print '<tr><td class="center" colspan="8">' . __('No Threshold Logs Found', 'thold'). '</td></tr>';
+		print '<tr class="tableRow"><td class="center" colspan="8">' . __('No Threshold Logs Found', 'thold'). '</td></tr>';
 	}
 
 	html_end_box(false);
