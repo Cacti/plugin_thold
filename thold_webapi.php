@@ -776,7 +776,7 @@ function thold_wizard() {
 	if ($local_graph_id > 0) {
 		html_start_box(__('Selected Graph', 'thold'), '100%', '', '3', 'center', '');
 
-		print "<tr><td class='center'><p><img class='center' id='graphi' style='max-width:700px;' src='../../graph_image.php?local_graph_id=$local_graph_id&rra_id=0'></p></td></tr>";
+		print "<tr><td class='center'><p><img class='center' id='graphi' style='max-width:700px;' src='" . $config['url_path'] . "graph_image.php?local_graph_id=$local_graph_id&rra_id=0'></p></td></tr>";
 
 		html_end_box();
 	}

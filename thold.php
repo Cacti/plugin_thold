@@ -1302,7 +1302,7 @@ function thold_edit() {
 		WHERE local_graph_id = ?',
 		array($thold_data['local_graph_id']));
 
-	if ($thold_data['data_type'] == 2) {
+	if (isset($thold_data['data_type']) && $thold_data['data_type'] == 2) {
 		$suffix = false;
 	} else {
 		$suffix = true;

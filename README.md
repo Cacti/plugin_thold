@@ -107,7 +107,19 @@ that.
 
 * issue#405: thold_functions.php Undefined variable "polling_interval"
 
+* issue#406: THOLD 1.3.4 no 1 minute cycle/Trigger option
+
+* issue#407: Error php deprecated when delete any graph
+
+* issue#409: Cannot send mail due to default From mail is invalid
+
+* issue#410: php error when creating threshold - Undefined index: data_type
+
+* issue#411: The newly added device In Stat value incorrect
+
 * issue: Make notification lists aware of device removal
+
+* issue: When Data Manipulation type is Percentage, RPN Expression column is shown
 
 --- 1.3.4 ---
 

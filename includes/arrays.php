@@ -348,6 +348,8 @@ switch($step) {
 			20160 * $factor => __('%d Weeks', 2, 'thold'),
 			43200 * $factor => __('%d Month', 1, 'thold')
 		);
+
+		break;
 	case '300':
 		$repeatarray = array(
 			0    => __('Never', 'thold'),
@@ -472,6 +474,8 @@ switch($step) {
 			576  => __('%d Pollings', 576, 'thold'),
 			2016 => __('%d Pollings', 2016, 'thold')
 		);
+
+		break;
 }
 
 $thold_types = array (

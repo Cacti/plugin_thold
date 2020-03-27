@@ -1605,8 +1605,8 @@ function template_edit() {
 
 			break;
 		case '2':
-			$('#row_cdef').hide();
-			$('#row_percent_ds, #row_expression').show();
+			$('#row_cdef, #row_expression').hide();
+			$('#row_percent_ds').show();
 
 			break;
 		case '3':

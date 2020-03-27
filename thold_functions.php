@@ -4338,10 +4338,10 @@ function thold_create_new_graph_from_template() {
 		/* summarize the 'create graph from host template/snmp index' stuff into an array */
 		foreach ($_POST as $var => $val) {
 			if (preg_match('/^cg_(\d+)$/', $var, $matches)) {
-				$selected_graphs['cg']{$matches[1]}{$matches[1]} = true;
+				$selected_graphs['cg'][$matches[1]][$matches[1]] = true;
 			} elseif (preg_match('/^cg_g$/', $var)) {
 				if (get_request_var('cg_g') > 0) {
-					$selected_graphs['cg']{get_request_var('cg_g')}{get_request_var('cg_g')} = true;
+					$selected_graphs['cg'][get_request_var('cg_g')][get_request_var('cg_g')] = true;
 				}
 			} elseif (preg_match('/^sg_(\d+)_([a-f0-9]{32})$/', $var, $matches)) {
 				$selected_graphs['sg'][$matches[1]][get_nfilter_request_var('sgg_' . $matches[1])][$matches[2]] = true;
@@ -5317,7 +5317,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 			if (isset($_SERVER['HOSTNAME'])) {
 				$from_email = 'Cacti@' . $_SERVER['HOSTNAME'];
 			} else {
-				$from_email = 'Cacti@localhost';
+				$from_email = 'Cacti@cacti.net';
 			}
 		}
 
@@ -5986,9 +5986,12 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 	$sql_having = "HAVING $sql_having";
 
 	$host_list = db_fetch_assoc("SELECT h1.*, graphs, data_sources,
-		IF(status_event_count>0, status_event_count*$poller_interval,
-		IF(UNIX_TIMESTAMP(status_rec_date)>943916400,UNIX_TIMESTAMP()-UNIX_TIMESTAMP(status_rec_date),
-		IF(snmp_sysUptimeInstance>0 AND snmp_version > 0, snmp_sysUptimeInstance,UNIX_TIMESTAMP()))) AS instate
+		CAST(IF(availability_method = 0, '0',
+			IF(status_event_count > 0 AND status IN (1, 2), status_event_count*$poller_interval,
+			IF(UNIX_TIMESTAMP(status_rec_date) < 943916400 AND status IN (0, 3), total_polls*$poller_interval,
+			IF(UNIX_TIMESTAMP(status_rec_date) > 943916400, UNIX_TIMESTAMP() - UNIX_TIMESTAMP(status_rec_date),
+			IF(snmp_sysUptimeInstance>0 AND snmp_version > 0, snmp_sysUptimeInstance/100, UNIX_TIMESTAMP()
+		))))) AS unsigned) AS instate
 		FROM host AS h1
 		INNER JOIN (
 			SELECT DISTINCT id FROM (
