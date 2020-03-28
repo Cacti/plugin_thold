@@ -101,7 +101,7 @@ that.
 
 ## ChangeLog
 
---- develop ---
+--- 1.4 ---
 
 * issue#400: Slow cli_thresholds.php Performance
 
