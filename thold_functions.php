@@ -3422,7 +3422,7 @@ function thold_expand_string($thold_data, $string) {
 		}
 	}
 
-	return $str;
+	return trim($str);
 }
 
 function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $breach_norm = false) {

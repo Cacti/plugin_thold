@@ -101,6 +101,10 @@ that.
 
 ## ChangeLog
 
+--- develop ---
+
+* issue#412: Can not trigger thold command cause there is a Enter Key at the end
+
 --- 1.4 ---
 
 * issue#400: Slow cli_thresholds.php Performance
