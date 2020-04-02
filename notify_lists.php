@@ -889,7 +889,7 @@ function edit() {
 }
 
 function hosts($header_label) {
-	global $assoc_actions, $item_rows;
+	global $assoc_actions, $item_rows, $config;
 
     /* ================= input validation and session storage ================= */
     $filters = array(
@@ -1146,7 +1146,8 @@ function hosts($header_label) {
 		foreach ($hosts as $host) {
 			form_alternate_row('line' . $host['id'], true);
 
-			form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], 250);
+			form_selectable_cell(filter_value($host['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $host['id']), $host['id'],250);
+			
 			form_selectable_cell($host['site_name'] != '' ? $host['site_name'] : __('None', 'thold'), $host['id']);
 			form_selectable_cell(round(($host['id']), 2), $host['id']);
 
