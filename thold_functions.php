@@ -5373,12 +5373,12 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 		$text['text'] = strip_tags(str_replace('<br>', "\n", $message));
 	}
 
-    $version = db_fetch_cell("SELECT version
+	$version = db_fetch_cell("SELECT version
 		FROM plugin_config
 		WHERE directory='thold'");
 
-    $headers['X-Mailer']   = 'Cacti-Thold-v' . $version;
-    $headers['User-Agent'] = 'Cacti-Thold-v' . $version;
+	$headers['X-Mailer']   = 'Cacti-Thold-v' . $version;
+	$headers['User-Agent'] = 'Cacti-Thold-v' . $version;
 
 	if (read_config_option('thold_email_prio') == 'on') {
 		$headers['X-Priority'] = '1';
@@ -5392,7 +5392,6 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 	$any_error='';
 
 	if ($thold_send_email_separately != 'on') {
-
 		$any_error = mailer(
 			array($from_email, $from_name),
 			$to_email,
@@ -5406,7 +5405,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 			$headers,
 			$thold_send_text_only != 'on'
 		);
-	}else{
+	} else {
 		$ar_to_email = explode(',', $to_email);
 
 		foreach($ar_to_email as $to) {
@@ -5433,11 +5432,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 		}
 	}
 
-
-
-
 	if (strlen($any_error)) {
-
 		return $any_error;
 	}
 
