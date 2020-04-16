@@ -777,7 +777,7 @@ function get_notification_header_label() {
 			WHERE id = ?',
 			array(get_filter_request_var('id')));
 
-		$header_label = __('[edit: %s]', $list['name'], 'thold');
+		$header_label = __esc('[edit: %s]', $list['name'], 'thold');
 	} else {
 		$header_label = __('[new]', 'thold');
 	}
