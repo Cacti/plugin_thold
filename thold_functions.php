@@ -5373,12 +5373,12 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 		$text['text'] = strip_tags(str_replace('<br>', "\n", $message));
 	}
 
-    $version = db_fetch_cell("SELECT version
+	$version = db_fetch_cell("SELECT version
 		FROM plugin_config
 		WHERE directory='thold'");
 
-    $headers['X-Mailer']   = 'Cacti-Thold-v' . $version;
-    $headers['User-Agent'] = 'Cacti-Thold-v' . $version;
+	$headers['X-Mailer']   = 'Cacti-Thold-v' . $version;
+	$headers['User-Agent'] = 'Cacti-Thold-v' . $version;
 
 	if (read_config_option('thold_email_prio') == 'on') {
 		$headers['X-Priority'] = '1';
@@ -5387,25 +5387,53 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 	thold_debug("Sending email to '" . trim($to_email,', ') . "'");
 
 	$thold_send_text_only  = read_config_option('thold_send_text_only');
+	$thold_send_email_separately  = read_config_option('thold_send_email_separately');
 
-	$error = mailer(
-		array($from_email, $from_name),
-		$to_email,
-		'',
-		'',
-		'',
-		$subject,
-		$text['html'],
-		$text['text'],
-		empty($attachments) ? '' : $attachments,
-		$headers,
-		$thold_send_text_only != 'on'
-    );
+	$any_error='';
 
-	if (strlen($error)) {
-		cacti_log('ERROR: Sending Email Failed.  Error was ' . $error, true, 'THOLD');
+	if ($thold_send_email_separately != 'on') {
+		$any_error = mailer(
+			array($from_email, $from_name),
+			$to_email,
+			'',
+			'',
+			'',
+			$subject,
+			$text['html'],
+			$text['text'],
+			empty($attachments) ? '' : $attachments,
+			$headers,
+			$thold_send_text_only != 'on'
+		);
+	} else {
+		$ar_to_email = explode(',', $to_email);
 
-		return $error;
+		foreach ($ar_to_email as $to) {
+			if (filter_var($to, FILTER_VALIDATE_EMAIL) == $to) { //email
+				$error = mailer(
+					array($from_email, $from_name),
+					$to,
+					'',
+					'',
+					'',
+					$subject,
+					$text['html'],
+					$text['text'],
+					empty($attachments) ? '' : $attachments,
+					$headers,
+					$thold_send_text_only != 'on'
+				);
+
+				if (strlen($error)) {
+					cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
+					$any_error = $error;
+				}
+			}
+		}
+	}
+
+	if (strlen($any_error)) {
+		return $any_error;
 	}
 
 	return '';

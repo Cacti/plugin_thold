@@ -455,6 +455,12 @@ function thold_config_settings() {
 			'method' => 'checkbox',
 			'default' => ''
 		),
+		'thold_send_email_separately' => array(
+			'friendly_name' => __('Send Email separately for each address', 'thold'),
+			'description' => __('If checked, this will cause all Emails to be sent separately for each address.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
+		),
 		'thold_from_email' => array(
 			'friendly_name' => __('From Email Address', 'thold'),
 			'description' => __('This is the Email address that the Threshold will appear from.', 'thold'),
