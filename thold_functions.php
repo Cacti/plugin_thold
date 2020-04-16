@@ -5408,7 +5408,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 	} else {
 		$ar_to_email = explode(',', $to_email);
 
-		foreach($ar_to_email as $to) {
+		foreach ($ar_to_email as $to) {
 			if (filter_var($to, FILTER_VALIDATE_EMAIL) == $to) { //email
 				$error = mailer(
 					array($from_email, $from_name),
@@ -5426,7 +5426,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 
 				if (strlen($error)) {
 					cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
-					$any_error=$error;
+					$any_error = $error;
 				}
 			}
 		}
