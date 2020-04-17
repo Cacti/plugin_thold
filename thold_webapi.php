@@ -956,7 +956,7 @@ function thold_new_graphs_save($host_id) {
 				$return_array = create_complete_graph_from_template($graph_template_id, $host_id, '', $values['cg']);
 
 				if (cacti_sizeof($return_array)) {
-					thold_raise_message(__('Created graph: %s', html_escape(get_graph_title($return_array['local_graph_id'])), 'thold'), MESSAGE_LEVEL_INFO);
+					thold_raise_message(__esc('Created graph: %s', get_graph_title($return_array['local_graph_id']), 'thold'), MESSAGE_LEVEL_INFO);
 					/* lastly push host-specific information to our data sources */
 					foreach ($return_array['local_data_id'] as $item) {
 						push_out_host($host_id, $item);
@@ -969,7 +969,7 @@ function thold_new_graphs_save($host_id) {
 					$return_array = create_complete_graph_from_template($graph_template_id, $host_id, $snmp_query_array, $values['sg']{$snmp_query_array['snmp_query_id']});
 
 					if (cacti_sizeof($return_array)) {
-						thold_raise_message(__('Created graph: %s', html_escape(get_graph_title($return_array['local_graph_id'])), 'thold'), MESSAGE_LEVEL_INFO);
+						thold_raise_message(__esc('Created graph: %s', get_graph_title($return_array['local_graph_id']), 'thold'), MESSAGE_LEVEL_INFO);
 						/* lastly push host-specific information to our data sources */
 						foreach ($return_array['local_data_id'] as $item) {
 							push_out_host($host_id, $item);
