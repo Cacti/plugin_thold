@@ -4880,7 +4880,7 @@ function save_thold() {
 	}
 
 	if ($save['id'] == 0) {
-		$banner = __('Created Threshold: %s', $save['name_cache'], 'thold');
+		$banner = __esc('Created Threshold: %s', $save['name_cache'], 'thold');
 	} else {
 		$banner = __('Record Updated', 'thold');
 	}
@@ -5292,7 +5292,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 				thold_template_update_threshold($id, $save['thold_template_id']);
 				plugin_thold_log_changes($id, 'auto_created', $save['name_cache']);
 
-				$message .= __('Created Threshold: %s<br>', $save['name_cache'], 'thold');
+				$message .= __esc('Created Threshold: %s<br>', $save['name_cache'], 'thold');
 
 				return true;
 			}
@@ -6155,9 +6155,9 @@ function thold_template_import($xml_data) {
 					$id = sql_save($save, 'thold_template');
 
 					if ($id) {
-						$debug_data['success'][] = __('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
+						$debug_data['success'][] = __esc('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
 					} else {
-						$debug_data['failure'][] = __('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
+						$debug_data['failure'][] = __esc('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
 					}
 				} else {
 					$debug_data['failure'][] = __('Errors enountered while attempting to import Threshold Template data.', 'thold');
