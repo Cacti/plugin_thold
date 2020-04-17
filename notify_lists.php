@@ -501,7 +501,7 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box($actions{get_request_var('drp_action')} . " " . html_escape($list_name) , '80%', false, '3', 'center', '');
+		html_start_box($actions[get_request_var('drp_action')] . " " . html_escape($list_name) , '80%', false, '3', 'center', '');
 
 		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* delete */
@@ -708,7 +708,7 @@ function form_actions() {
 
 		form_start('notify_lists.php');
 
-		html_start_box($assoc_actions{get_request_var('drp_action')} . ' Device(s)', '80%', false, '3', 'center', '');
+		html_start_box($assoc_actions[get_request_var('drp_action')] . ' Device(s)', '80%', false, '3', 'center', '');
 
 		if (cacti_sizeof($array)) {
 			if (get_request_var('drp_action') == '1') { /* associate */
