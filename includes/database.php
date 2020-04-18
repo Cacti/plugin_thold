@@ -1218,7 +1218,7 @@ function thold_upgrade_database($force = false) {
 					plugin_thold_log_changes($thold['id'], 'reapply_name', array('id' => $thold['id']));
 
 					db_execute_prepared('UPDATE thold_data
-						SET name, name_cache = ?
+						SET name = ?, name_cache = ?
 						WHERE id = ?',
 						array($thold['name'], $name, $thold['id']));
 				}

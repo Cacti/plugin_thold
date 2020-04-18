@@ -103,6 +103,8 @@ that.
 
 --- develop ---
 
+* issue#418: Errors during Thold upgrade to v1.4
+
 * issue#422: Apply Cacti#3191 for XSS exposure (CVE-2020-7106)
 
 * issue#412: Can not trigger thold command cause there is a Enter Key at the end
