@@ -629,6 +629,7 @@ function thold_update_host_status() {
 				}
 				$msg = str_replace('<SUBJECT>', $subject, $msg);
 				$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
+				$msg = str_replace('<HOST_ID>', $host['id'], $msg);
 				$msg = str_replace('<DESCRIPTION>', $host['description'], $msg);
 				$msg = str_replace('<UPTIME>', $snmp_uptime, $msg);
 				$msg = str_replace('<UPTIMETEXT>', $uptimelong, $msg);
@@ -673,7 +674,8 @@ function thold_update_host_status() {
 					array(
 						'device'  => $host,
 						'subject' => $subject,
-						'message' => $msg
+						'message' => $msg,
+						'email' => $alert_email
 					)
 				);
 
@@ -738,6 +740,7 @@ function thold_update_host_status() {
 			}
 			$msg = str_replace('<SUBJECT>', $subject, $msg);
 			$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
+			$msg = str_replace('<HOST_ID>', $host['id'], $msg);
 			$msg = str_replace('<DESCRIPTION>', $host['description'], $msg);
 			$msg = str_replace('<UPTIME>', '', $msg);
 			$msg = str_replace('<DOWNTIME>', $downtimemsg, $msg);
@@ -775,7 +778,8 @@ function thold_update_host_status() {
 				array(
 					'device'  => $host,
 					'subject' => $subject,
-					'message' => $msg
+					'message' => $msg,
+					'email' => $alert_email
 				)
 			);
 
