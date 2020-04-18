@@ -673,7 +673,8 @@ function thold_update_host_status() {
 					array(
 						'device'  => $host,
 						'subject' => $subject,
-						'message' => $msg
+						'message' => $msg,
+						'email' => $alert_email
 					)
 				);
 
@@ -775,7 +776,8 @@ function thold_update_host_status() {
 				array(
 					'device'  => $host,
 					'subject' => $subject,
-					'message' => $msg
+					'message' => $msg,
+					'email' => $alert_email
 				)
 			);
 
