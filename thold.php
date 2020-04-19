@@ -1253,9 +1253,9 @@ function thold_edit() {
 						}
 					} else {
 						$cur_setting .= '<span style="padding:4px">' . __('BL Up:', 'thold') . '</span>' .
-							"<span>" . ($td['bl_pct_up'] != '' ? __('%s%%', $td['bl_pct_up'], 'thold'):__('N/A', 'thold')) . "</span>";
+							"<span>" . ($td['bl_pct_up'] != '' ? __('%s%%%', $td['bl_pct_up'], 'thold'):__('N/A', 'thold')) . "</span>";
 						$cur_setting .= '<span style="padding:4px">' . __('BL Down:', 'thold'). '</span>' .
-							"<span>" . ($td['bl_pct_down'] != '' ? __('%s%%', $td['bl_pct_down'], 'thold'):__('N/A', 'thold')) . "</span>";
+							"<span>" . ($td['bl_pct_down'] != '' ? __('%s%%%', $td['bl_pct_down'], 'thold'):__('N/A', 'thold')) . "</span>";
 					}
 				}
 
