@@ -698,7 +698,7 @@ function thold_update_host_status() {
 			FROM host
 			WHERE disabled=""
 			AND status = ?
-			AND status_event_count = ?
+			AND status_event_count = if(thold_failure_count>0,thold_failure_count, ? )
 			AND poller_id = ?',
 			array(HOST_DOWN, $ping_failure_count, $config['poller_id']));
 	} else {
@@ -706,7 +706,7 @@ function thold_update_host_status() {
 			FROM host
 			WHERE disabled=""
 			AND status = ?
-			AND status_event_count = ?',
+			AND status_event_count = if(thold_failure_count>0,thold_failure_count, ? )',
 			array(HOST_DOWN, $ping_failure_count));
 	}
 
@@ -802,37 +802,42 @@ function thold_update_host_status() {
 			WHERE poller_id = ?',
 			array($config['poller_id']));
 
-		$hosts = db_fetch_assoc_prepared('SELECT id
+		$hosts = db_fetch_assoc_prepared('SELECT id, status
 			FROM host
 			WHERE disabled = ""
-			AND status != ?
-			AND poller_id = ?',
-			array(HOST_UP, $config['poller_id']));
+			AND poller_id = ?
+			AND ((status != ? AND status != ?)
+			OR (status = ? AND status_event_count >= if(thold_failure_count>0,thold_failure_count, ? ))) ',
+			array($config['poller_id'], HOST_UP,HOST_DOWN,HOST_DOWN, $ping_failure_count));
 	} else {
 		db_execute('TRUNCATE plugin_thold_host_failed');
 
-		$hosts = db_fetch_assoc_prepared('SELECT id
+		$hosts = db_fetch_assoc_prepared('SELECT id, status
 			FROM host
 			WHERE disabled = ""
-			AND status != ?',
-			array(HOST_UP));
+			AND ((status != ? AND status != ?)
+			OR (status = ? AND status_event_count >= if(thold_failure_count>0,thold_failure_count, ? ))) ',
+			array(HOST_UP,HOST_DOWN,HOST_DOWN, $ping_failure_count));
 	}
 
-	$failed = '';
+	$failed_ids = '';
 	if (cacti_sizeof($hosts)) {
 		foreach ($hosts as $host) {
-			if (api_plugin_is_enabled('maint')) {
-				if (plugin_maint_check_cacti_host($host['id'])) {
-					continue;
+			//hosts in recovery status record only if they was in failed status
+			if (($host['status'] != HOST_RECOVERING) OR ($host['status'] == HOST_RECOVERING AND (array_search($host['id'], array_column($failed, 'host_id')) !== FALSE))) {
+				if (api_plugin_is_enabled('maint')) {
+					if (plugin_maint_check_cacti_host($host['id'])) {
+						continue;
+					}
 				}
+				$failed_ids .= ($failed_ids != '' ? '), (':'(') . $host['id'];
 			}
-			$failed .= ($failed != '' ? '), (':'(') . $host['id'];
 		}
-		$failed .= ')';
+		$failed_ids .= ')';
 
 		db_execute("INSERT INTO plugin_thold_host_failed
 			(host_id)
-			VALUES $failed");
+			VALUES $failed_ids");
 	}
 
 	return $total_hosts;
