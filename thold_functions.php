@@ -2154,7 +2154,7 @@ function thold_check_threshold(&$thold_data) {
 
 	switch ($thold_data['thold_type']) {
 	case 0:	/* hi/low */
-		if ($thold_data['lastread'] != '') {
+		if (is_numeric($thold_data['lastread'])) {
 			$breach_up           = ($thold_data['thold_hi'] != '' && $thold_data['lastread'] > $thold_data['thold_hi']);
 			$breach_down         = ($thold_data['thold_low'] != '' && $thold_data['lastread'] < $thold_data['thold_low']);
 			$warning_breach_up   = ($thold_data['thold_warning_hi'] != '' && $thold_data['lastread'] > $thold_data['thold_warning_hi']);
@@ -2800,7 +2800,7 @@ function thold_check_threshold(&$thold_data) {
 
 		break;
 	case 2:	/* time based */
-		if ($thold_data['lastread'] != '') {
+		if (is_numeric($thold_data['lastread'])) {
 			$breach_up           = ($thold_data['time_hi']          != '' && $thold_data['lastread'] > $thold_data['time_hi']);
 			$breach_down         = ($thold_data['time_low']         != '' && $thold_data['lastread'] < $thold_data['time_low']);
 			$warning_breach_up   = ($thold_data['time_warning_hi']  != '' && $thold_data['lastread'] > $thold_data['time_warning_hi']);
