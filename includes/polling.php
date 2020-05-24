@@ -818,17 +818,20 @@ function thold_update_host_status() {
 			array(HOST_UP));
 	}
 
-	$failed = '';
 	if (cacti_sizeof($hosts)) {
+		$failed = '';
+
 		foreach ($hosts as $host) {
 			if (api_plugin_is_enabled('maint')) {
 				if (plugin_maint_check_cacti_host($host['id'])) {
 					continue;
 				}
 			}
+
 			$failed .= ($failed != '' ? '), (':'(') . $host['id'];
 		}
-		$failed .= ')';
+
+		$failed .= ($failed != '' ? ')':'');
 
 		db_execute("INSERT INTO plugin_thold_host_failed
 			(host_id)
