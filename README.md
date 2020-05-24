@@ -103,6 +103,8 @@ that.
 
 --- develop ---
 
+* issue#412: Can not trigger thold command cause there is a Enter Key at the end
+
 * issue#417: zero 'lastread' value incorrectly processed by
   thold_check_threshold()
 
@@ -110,7 +112,7 @@ that.
 
 * issue#422: Apply Cacti#3191 for XSS exposure (CVE-2020-7106)
 
-* issue#412: Can not trigger thold command cause there is a Enter Key at the end
+* issue#433: ERROR PHP WARNING in Plugin 'thold': Use of undefined constant LOG_VERBOSITY_MEDIUM
 
 --- 1.4 ---
 
