@@ -1121,7 +1121,7 @@ function thold_edit() {
 	<tr>
 		<td class='textArea'>
 			<?php if (isset($banner)) { print $banner . '<br><br>'; }; ?>
-			<?php print __('Data Source Description:', 'thold');?> <br><?php print $desc; ?><br><br>
+			<?php print __('Data Source Description:', 'thold');?> <br><?php print html_escape($desc);?><br><br>
 			<?php print __('Associated Graph (Graphs using this RRD):', 'thold');?> <br><br>
 			<select id='local_graph_id' name='local_graph_id'>
 				<?php

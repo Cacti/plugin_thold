@@ -114,6 +114,8 @@ that.
 
 * issue#431: SQL Syntax Determining Failed Devices
 
+* issue#430: XSS Vulnerabilities if host/graph name include script
+
 * issue#433: ERROR PHP WARNING in Plugin 'thold': Use of undefined constant LOG_VERBOSITY_MEDIUM
 
 --- 1.4 ---

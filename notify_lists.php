@@ -1147,9 +1147,9 @@ function hosts($header_label) {
 			form_alternate_row('line' . $host['id'], true);
 
 			form_selectable_cell(filter_value($host['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $host['id']), $host['id'],250);
-			
-			form_selectable_cell($host['site_name'] != '' ? $host['site_name'] : __('None', 'thold'), $host['id']);
-			form_selectable_cell(round(($host['id']), 2), $host['id']);
+
+			form_selectable_ecell($host['site_name'] != '' ? $host['site_name'] : __('None', 'thold'), $host['id']);
+			form_selectable_cell($host['id'], $host['id']);
 
 			if ($host['thold_send_email'] == 0) {
 				form_selectable_cell('<span class="deviceDisabled">' . __('Disabled', 'thold') . '</span>', $host['id']);
