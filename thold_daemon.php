@@ -94,8 +94,8 @@ error_reporting(E_ALL);
 /* allow the script to hang around waiting for connections. */
 set_time_limit(0);
 
-/* we do not need so much memory */
-ini_set('memory_limit', '256M');
+ini_set('memory_limit', '800M');
+ini_set('max_execution_time', '-1');
 
 $no_http_headers = true;
 
@@ -113,11 +113,12 @@ if (function_exists('pcntl_signal')) {
 
 global $cnn_id, $config;
 
+$debug      = false;
+$foreground = false;
+
 /* process calling arguments */
 $parms = $_SERVER['argv'];
 array_shift($parms);
-$debug      = false;
-$foreground = false;
 
 if (sizeof($parms)) {
 	foreach ($parms as $parameter) {
