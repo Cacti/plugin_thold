@@ -777,6 +777,7 @@ function template_save_edit() {
 	$save['cdef']       = get_nfilter_request_var('cdef');
 	$save['percent_ds'] = get_nfilter_request_var('percent_ds');
 	$save['expression'] = get_nfilter_request_var('expression');
+	$save['upper_ds']   = get_nfilter_request_var('upper_ds');
 
 	// Other
 	$save['notes'] = get_nfilter_request_var('notes');
@@ -1292,6 +1293,14 @@ function template_edit() {
 			'description' => __esc('An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style="color:blue;">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style="color:blue;">|ds:dsname|</span>.  For example, <span style="color:blue;">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style="color:blue;">+, -, /, *, &#37;, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s', $replacements, $datasources, 'thold'),
 			'value' => isset($thold_data['expression']) ? $thold_data['expression'] : ''
 		),
+		'upper_ds' => array(
+			'friendly_name' => __('Upper Data Source', 'thold'),
+			'method' => 'drop_array',
+			'default' => 'NULL',
+			'description' => __('Upper data source to use to calculate the total value.', 'thold'),
+			'value' => isset($thold_data['upper_ds']) ? $thold_data['upper_ds'] : 0,
+			'array' => $data_fields2,
+		),
 		'notify_header' => array(
 			'friendly_name' => __('Notification Settings', 'thold'),
 			'collapsible' => 'true',
@@ -1594,25 +1603,22 @@ function template_edit() {
 	}
 
 	function changeDataType() {
+		$('#row_cdef, #row_percent_ds, #row_expression, #row_upper_ds').hide();
 		switch($('#data_type').val()) {
-		case '0':
-			$('#row_cdef, #row_percent_ds, #row_expression').hide();
-
-			break;
 		case '1':
 			$('#row_cdef').show();
-			$('#row_percent_ds, #row_expression').hide();
 
 			break;
 		case '2':
-			$('#row_cdef, #row_expression').hide();
 			$('#row_percent_ds').show();
 
 			break;
 		case '3':
-			$('#row_cdef').hide();
-			$('#row_percent_ds').hide();
 			$('#row_expression').show();
+
+			break;
+		case '4':
+			$('#row_upper_ds').show();
 
 			break;
 		}

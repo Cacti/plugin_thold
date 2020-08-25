@@ -488,7 +488,8 @@ $data_types = array (
 	0 => __('Exact Value', 'thold'),
 	1 => __('CDEF', 'thold'),
 	2 => __('Percentage', 'thold'),
-	3 => __('RPN Expression', 'thold')
+	3 => __('RPN Expression', 'thold'),
+	4 => __('Upper + Lower bytes', 'thold'),
 );
 
 $thold_actions = array(

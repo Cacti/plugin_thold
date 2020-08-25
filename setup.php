@@ -490,6 +490,7 @@ function thold_rrd_graph_graph_options($g) {
 			switch($t['data_type']) {
 			case '0': // Exact value
 			case '1': // CDEF
+			case '3': // Upper+Lower
 				if ($t['thold_hrule_alert'] > 0) {
 					$color = db_fetch_cell_prepared('SELECT hex
 						FROM colors

@@ -337,7 +337,7 @@ function thold_poller_output(&$rrd_update_array) {
 	}
 
 	$tholds = db_fetch_assoc("SELECT td.id, td.name_cache AS thold_name,
-		td.local_graph_id, td.percent_ds, td.expression, td.data_type,
+		td.local_graph_id, td.percent_ds, td.expression, td.upper_ds, td.data_type,
 		td.cdef, td.local_data_id, td.data_template_rrd_id, td.lastread,
 		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
 		td.data_source_name AS name, dtr.data_source_type_id,
@@ -378,6 +378,12 @@ function thold_poller_output(&$rrd_update_array) {
 			case 3:
 				if ($thold_data['expression'] != '') {
 					$currentval = thold_calculate_expression($thold_data, $currentval, $rrd_reindexed, $rrd_time_reindexed);
+				}
+
+				break;
+			case 4:
+				if ($thold_data['upper_ds'] != '') {
+					$currentval = thold_calculate_lower_upper($thold_data, $currentval, $rrd_reindexed);
 				}
 
 				break;

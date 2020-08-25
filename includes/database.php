@@ -1321,6 +1321,22 @@ function thold_upgrade_database($force = false) {
 			'after'    => 'notify_warning_extra'));
 	}
 
+	if (cacti_version_compare($oldv, '1.4.0', '<')) {
+		db_add_column('thold_data', array(
+			'name' => 'upper_ds',
+			'type' => 'varchar(64)',
+			'NULL' => false,
+			'default' => '',
+			'after' => 'expression'));
+
+		db_add_column('thold_template', array(
+			'name' => 'upper_ds',
+			'type' => 'varchar(64)',
+			'NULL' => false,
+			'default' => '',
+			'after' => 'expression'));
+	}
+
 	$tables = db_fetch_assoc("SELECT DISTINCT TABLE_NAME
 		FROM information_schema.COLUMNS
 		WHERE TABLE_SCHEMA = SCHEMA()
@@ -1415,6 +1431,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'expression', 'type' => 'varchar(512)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'upper_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'thold_template_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'template_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'tcheck', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
@@ -1493,6 +1510,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'cdef', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'percent_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'expression', 'type' => 'varchar(512)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'upper_ds', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'thold_hrule_alert', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
 	$data['columns'][] = array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);

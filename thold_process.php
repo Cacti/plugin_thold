@@ -142,7 +142,7 @@ usleep(1);
 if (read_config_option('remote_storage_method') == 1) {
 	$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
 		td.id AS thold_id, td.name_cache AS thold_name, td.local_graph_id,
-		td.percent_ds, td.expression, td.data_type, td.cdef, td.local_data_id,
+		td.percent_ds, td.expression, td.upper_ds, td.data_type, td.cdef, td.local_data_id,
 		td.data_template_rrd_id, td.lastread,
 		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
 		dtr.data_source_name AS name, dtr.data_source_type_id,
@@ -162,7 +162,7 @@ if (read_config_option('remote_storage_method') == 1) {
 } else {
 	$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
 		td.id AS thold_id, td.name_cache AS thold_name, td.local_graph_id,
-		td.percent_ds, td.expression, td.data_type, td.cdef, td.local_data_id,
+		td.percent_ds, td.expression, td.upper_ds, td.data_type, td.cdef, td.local_data_id,
 		td.data_template_rrd_id, td.lastread,
 		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
 		dtr.data_source_name AS name, dtr.data_source_type_id,
@@ -209,6 +209,11 @@ if (cacti_sizeof($tholds)) {
 		case 3:
 			if ($thold_data['expression'] != '') {
 				$currentval = thold_calculate_expression($thold_data, $currentval, $rrd_reindexed, $rrd_time_reindexed);
+			}
+			break;
+		case 4:
+			if ($thold_data['upper_ds'] != '') {
+				$currentval = thold_calculate_lower_upper($thold_data, $currentval, $rrd_reindexed);
 			}
 			break;
 		}
