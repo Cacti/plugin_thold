@@ -430,6 +430,15 @@ function thold_poller_output(&$rrd_update_array) {
 	return $rrd_update_array;
 }
 
+if (!function_exists('array_column')) {
+	function array_column($array, $column_name) {
+		return array_map(function($element)
+		use($column_name) {
+			return $element[$column_name];
+		}, $array);
+	}
+}
+
 function thold_check_all_thresholds() {
 	global $config;
 

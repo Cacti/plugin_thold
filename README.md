@@ -130,6 +130,8 @@ that.
 
 * issue#444: PHP bug - Array and string offset access syntax with curly braces is deprecated
 
+* issue: Function array_column() missing from PHP5.4
+
 --- 1.4 ---
 
 * issue#400: Slow cli_thresholds.php Performance
