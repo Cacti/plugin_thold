@@ -25,33 +25,178 @@
 function thold_draw_navigation_text($nav) {
 	global $config;
 
-	$nav['thold.php:'] = array('title' => __('Thresholds', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '1');
-	$nav['thold.php:actions'] = array('title' => __('(actions)', 'thold'), 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
-	$nav['thold.php:edit'] = array('title' => __('(edit)', 'thold'), 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
-	$nav['thold.php:save'] = array('title' => __('(save)', 'thold'), 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
-	$nav['thold.php:add'] = array('title' => __('(add)', 'thold'), 'mapping' => 'index.php:,thold.php:', 'url' => 'thold.php', 'level' => '2');
-	$nav['thold.php:autocreate'] = array('title' => __('Thresholds', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold.php', 'level' => '2');
-	$nav['thold_graph.php:'] = array('title' => __('Thresholds', 'thold'), 'mapping' => '', 'url' => 'thold_graph.php', 'level' => '0');
-	$nav['thold_graph.php:thold'] = array('title' => __('Thresholds', 'thold'), 'mapping' => '', 'url' => 'thold_graph.php', 'level' => '0');
-	$nav['thold_graph.php:log'] = array('title' => __('Threshold Logs', 'thold'), 'mapping' => '', 'url' => 'thold_graph.php', 'level' => '0');
-	$nav['thold_graph.php:hoststat'] = array('title' => __('Device Status', 'thold'), 'mapping' => '', 'url' => 'thold_graph.php', 'level' => '0');
-	$nav['thold_view_failures.php:'] = array('title' => __('Thresholds - Failures', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_view_failures.php', 'level' => '1');
-	$nav['thold_view_normal.php:'] = array('title' => __('Thresholds - Normal', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_view_normal.php', 'level' => '1');
-	$nav['thold_view_recover.php:'] = array('title' => __('Thresholds - Recovering', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_view_recover.php', 'level' => '1');
-	$nav['thold_view_recent.php:'] = array('title' => __('Recent Thresholds', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_view_recent.php', 'level' => '1');
-	$nav['thold_view_host.php:'] = array('title' => __('Recent Device Failures', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_view_host.php', 'level' => '1');
+	$nav['thold.php:'] = array(
+		'title' => __('Thresholds', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold.php',
+		'level' => '1'
+	);
 
-	$nav['thold_templates.php:'] = array('title' => __('Threshold Templates', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
-	$nav['thold_templates.php:edit'] = array('title' => __('Threshold Templates', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
-	$nav['thold_templates.php:save'] = array('title' => __('Threshold Templates', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
-	$nav['thold_templates.php:add'] = array('title' => __('Threshold Templates', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
-	$nav['thold_templates.php:actions'] = array('title' => __('Threshold Templates', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '1');
-	$nav['thold_templates.php:import'] = array('title' => __('Threshold Template Import', 'thold'), 'mapping' => 'index.php:', 'url' => 'thold_templates.php', 'level' => '2');
+	$nav['thold.php:actions'] = array(
+		'title' => __('(actions)', 'thold'),
+		'mapping' => 'index.php:,thold.php:',
+		'url' => 'thold.php',
+		'level' => '2'
+	);
 
-	$nav['notify_lists.php:'] = array('title' => __('Notification Lists', 'thold'), 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
-	$nav['notify_lists.php:edit'] = array('title' => __('Notification Lists (edit)', 'thold'), 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
-	$nav['notify_lists.php:save'] = array('title' => __('Notification Lists', 'thold'), 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
-	$nav['notify_lists.php:actions'] = array('title' => __('Notification Lists', 'thold'), 'mapping' => 'index.php:', 'url' => 'notify_lists.php', 'level' => '1');
+	$nav['thold.php:edit'] = array(
+		'title' => __('(edit)', 'thold'),
+		'mapping' => 'index.php:,thold.php:',
+		'url' => 'thold.php',
+		'level' => '2'
+	);
+
+	$nav['thold.php:save'] = array(
+		'title' => __('(save)', 'thold'),
+		'mapping' => 'index.php:,thold.php:',
+		'url' => 'thold.php',
+		'level' => '2'
+	);
+
+	$nav['thold.php:add'] = array(
+		'title' => __('(add)', 'thold'),
+		'mapping' => 'index.php:,thold.php:',
+		'url' => 'thold.php',
+		'level' => '2'
+	);
+
+	$nav['thold.php:autocreate'] = array(
+		'title' => __('Thresholds', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold.php',
+		'level' => '2'
+	);
+
+	$nav['thold_graph.php:'] = array(
+		'title' => __('Thresholds', 'thold'),
+		'mapping' => '',
+		'url' => 'thold_graph.php',
+		'level' => '0'
+	);
+	$nav['thold_graph.php:thold'] = array(
+		'title' => __('Thresholds', 'thold'),
+		'mapping' => '',
+		'url' => 'thold_graph.php',
+		'level' => '0'
+	);
+
+	$nav['thold_graph.php:log'] = array(
+		'title' => __('Threshold Logs', 'thold'),
+		'mapping' => '',
+		'url' => 'thold_graph.php',
+		'level' => '0'
+	);
+
+	$nav['thold_graph.php:hoststat'] = array(
+		'title' => __('Device Status', 'thold'),
+		'mapping' => '',
+		'url' => 'thold_graph.php',
+		'level' => '0'
+	);
+
+	$nav['thold_view_failures.php:'] = array(
+		'title' => __('Thresholds - Failures', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_view_failures.php',
+		'level' => '1'
+	);
+
+	$nav['thold_view_normal.php:'] = array(
+		'title' => __('Thresholds - Normal', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_view_normal.php',
+		'level' => '1'
+	);
+
+	$nav['thold_view_recover.php:'] = array(
+		'title' => __('Thresholds - Recovering', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_view_recover.php',
+		'level' => '1'
+	);
+	$nav['thold_view_recent.php:'] = array(
+		'title' => __('Recent Thresholds', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_view_recent.php',
+		'level' => '1'
+	);
+
+	$nav['thold_view_host.php:'] = array(
+		'title' => __('Recent Device Failures', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_view_host.php',
+		'level' => '1'
+	);
+
+	$nav['thold_templates.php:'] = array(
+		'title' => __('Threshold Templates', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_templates.php',
+		'level' => '1'
+	);
+
+	$nav['thold_templates.php:edit'] = array(
+		'title' => __('Threshold Templates', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_templates.php',
+		'level' => '1'
+	);
+
+	$nav['thold_templates.php:save'] = array(
+		'title' => __('Threshold Templates', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_templates.php',
+		'level' => '1'
+	);
+
+	$nav['thold_templates.php:add'] = array(
+		'title' => __('Threshold Templates', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_templates.php',
+		'level' => '1'
+	);
+
+	$nav['thold_templates.php:actions'] = array(
+		'title' => __('Threshold Templates', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_templates.php',
+		'level' => '1'
+	);
+
+	$nav['thold_templates.php:import'] = array(
+		'title' => __('Threshold Template Import', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'thold_templates.php',
+		'level' => '2'
+	);
+
+	$nav['notify_lists.php:'] = array(
+		'title' => __('Notification Lists', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'notify_lists.php',
+		'level' => '1'
+	);
+
+	$nav['notify_lists.php:edit'] = array(
+		'title' => __('Notification Lists (edit)', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'notify_lists.php',
+		'level' => '1'
+	);
+
+	$nav['notify_lists.php:save'] = array(
+		'title' => __('Notification Lists', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'notify_lists.php',
+		'level' => '1'
+	);
+
+	$nav['notify_lists.php:actions'] = array(
+		'title' => __('Notification Lists', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'notify_lists.php',
+		'level' => '1'
+	);
 
 	return $nav;
 }
@@ -194,9 +339,9 @@ function thold_config_form() {
 					2 => __('%d Polling Intervals', 2, 'thold'),
 					3 => __('%d Polling Intervals', 3, 'thold'),
 					4 => __('%d Polling Intervals', 4, 'thold'),
-					5 => __('%d Polling Intervals', 5, 'thold'),
+					5 => __('%d Polling Intervals', 5, 'thold')
 				)
-			);			
+			);
 		}
 	}
 

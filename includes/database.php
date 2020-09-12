@@ -459,14 +459,6 @@ function thold_upgrade_database($force = false) {
 			'NULL'     => true,
 			'after'    => 'thold_send_email'));
 
-		api_plugin_db_add_column('thold', 'host', array(
-			'name'     => 'thold_failure_count',
-			'type'     => 'int(10)',
-			'unsigned' => true,
-			'NULL'     => false,
-			'default'  => '0',
-			'after'    => 'thold_host_email'));
-			
 		db_add_column('thold_data', array(
 			'name'     => 'notify_warning',
 			'type'     => 'int(10)',
@@ -1327,6 +1319,16 @@ function thold_upgrade_database($force = false) {
 			'NULL'     => false,
 			'default'  => 'on',
 			'after'    => 'notify_warning_extra'));
+	}
+
+	if (cacti_version_compare($oldv, '1.5', '<')) {
+		api_plugin_db_add_column('thold', 'host', array(
+			'name'     => 'thold_failure_count',
+			'type'     => 'int(10)',
+			'unsigned' => true,
+			'NULL'     => false,
+			'default'  => '0',
+			'after'    => 'thold_host_email'));
 	}
 
 	$tables = db_fetch_assoc("SELECT DISTINCT TABLE_NAME

@@ -743,6 +743,12 @@ function thold_api_device_save($save) {
 		$save['thold_host_email'] = form_input_validate('', 'thold_host_email', '', true, 3);
 	}
 
+	if (isset_request_var('thold_failure_count')) {
+		$save['thold_failure_count'] = form_input_validate(get_nfilter_request_var('thold_failure_count'), 'thold_failure_count', '', true, 3);
+	} else {
+		$save['thold_failure_count'] = form_input_validate('', 'thold_failure_count', '', true, 3);
+	}
+
 	return $save;
 }
 
