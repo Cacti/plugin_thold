@@ -808,7 +808,7 @@ function thold_update_host_status() {
 			AND poller_id = ?
 			AND ((status != ? AND status != ?)
 			OR (status = ? AND status_event_count >= IF(thold_failure_count > 0, thold_failure_count, ?))) ',
-			array($config['poller_id'], HOST_UP,HOST_DOWN,HOST_DOWN, $ping_failure_count));
+			array($config['poller_id'], HOST_UP, HOST_DOWN, HOST_DOWN, $ping_failure_count));
 	} else {
 		db_execute('TRUNCATE plugin_thold_host_failed');
 
@@ -817,7 +817,7 @@ function thold_update_host_status() {
 			WHERE disabled = ""
 			AND ((status != ? AND status != ?)
 			OR (status = ? AND status_event_count >= IF(thold_failure_count > 0, thold_failure_count, ?))) ',
-			array(HOST_UP,HOST_DOWN,HOST_DOWN, $ping_failure_count));
+			array(HOST_UP, HOST_DOWN, HOST_DOWN, $ping_failure_count));
 	}
 
 	$failed_ids = '';
