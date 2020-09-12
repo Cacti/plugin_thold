@@ -347,7 +347,7 @@ function thold_poller_output(&$rrd_update_array) {
 		ON dtr.id = td.data_template_rrd_id
 		LEFT JOIN data_template_data AS dtd
 		ON dtd.local_data_id = td.local_data_id
-		WHERE dtr.data_source_name!=''
+		WHERE dtr.data_source_name != ''
 		AND td.local_data_id IN($local_data_ids)");
 
 	if (cacti_sizeof($tholds)) {
@@ -384,7 +384,16 @@ function thold_poller_output(&$rrd_update_array) {
 			}
 
 			if (!is_numeric($currentval)) {
-				$currentval = '';
+				if (read_config_option('thold_consider_unknown_zero') == 'on') {
+					$currentval = strtolower($currentval);
+					if ($currentval == 'u' || $currentval == 'nan' || $currentval == '') {
+						$currentval = 0;
+					} else {
+						$currentval = '';
+					}
+				} else {
+					$currentval = '';
+				}
 			}
 
 			if (isset($item[$thold_data['name']])) {
@@ -439,7 +448,7 @@ function thold_check_all_thresholds() {
 				WHERE td.thold_enabled = 'on'
 				AND (h.poller_id = 1 OR h.poller_id IS NULL)
 				AND td.tcheck = 1
-				AND h.status=3";
+				AND h.status = 3";
 		} else {
 			$sql_query = "SELECT td.*, h.hostname,
 				h.description, h.notes AS dnotes, h.snmp_engine_id
@@ -451,7 +460,7 @@ function thold_check_all_thresholds() {
 				WHERE td.thold_enabled = 'on'
 				AND h.poller_id = " . $config['poller_id'] . "
 				AND td.tcheck = 1
-				AND h.status=3";
+				AND h.status = 3";
 		}
 	} else {
 		$sql_query = "SELECT td.*, h.hostname,
@@ -463,7 +472,7 @@ function thold_check_all_thresholds() {
 			ON td.host_id = h.id
 			WHERE td.thold_enabled = 'on'
 			AND td.tcheck = 1
-			AND h.status=3";
+			AND h.status = 3";
 	}
 
 	$tholds = api_plugin_hook_function('thold_get_live_hosts', db_fetch_assoc($sql_query));
@@ -478,19 +487,19 @@ function thold_check_all_thresholds() {
 			db_execute('UPDATE thold_data AS td
 				LEFT JOIN host AS h
 				ON td.host_id = h.id
-				SET tcheck=0
+				SET tcheck = 0
 				WHERE h.poller_id = 1
 				OR h.poller_id IS NULL');
 		} else {
 			db_execute_prepared('UPDATE thold_data AS td
 				INNER JOIN host AS h
 				ON td.host_id = h.id
-				SET td.tcheck=0
+				SET td.tcheck = 0
 				WHERE h.poller_id = ?',
 				array($config['poller_id']));
 		}
 	} else {
-		db_execute('UPDATE thold_data AS td SET td.tcheck=0');
+		db_execute('UPDATE thold_data AS td SET td.tcheck = 0');
 	}
 
 	return $total_tholds;
@@ -528,7 +537,7 @@ function thold_update_host_status() {
 
 	if (cacti_sizeof($failed)) {
 		foreach ($failed as $fh) {
-			$alert_email        = read_config_option('alert_email');
+			$alert_email = read_config_option('alert_email');
 
 			if (api_plugin_is_enabled('maint')) {
 				if (plugin_maint_check_cacti_host($fh['host_id'])) {
@@ -738,6 +747,7 @@ function thold_update_host_status() {
 			if ($msg == '') {
 				$msg = __('System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>', 'thold');
 			}
+
 			$msg = str_replace('<SUBJECT>', $subject, $msg);
 			$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
 			$msg = str_replace('<HOST_ID>', $host['id'], $msg);
@@ -825,7 +835,7 @@ function thold_update_host_status() {
 
 		foreach ($hosts as $host) {
 			//hosts in recovery status record only if they was in failed status
-			if (($host['status'] != HOST_RECOVERING) OR ($host['status'] == HOST_RECOVERING AND (array_search($host['id'], array_column($failed, 'host_id')) !== FALSE))) {
+			if (($host['status'] != HOST_RECOVERING) OR ($host['status'] == HOST_RECOVERING AND (array_search($host['id'], array_column($failed, 'host_id')) !== false))) {
 				if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($host['id'])) {
 					continue;
 				}
@@ -845,3 +855,4 @@ function thold_update_host_status() {
 
 	return $total_hosts;
 }
+

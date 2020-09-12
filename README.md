@@ -103,6 +103,8 @@ that.
 
 --- develop ---
 
+* issue#366: When a value is undefined, Thresholds are no longer triggering when minimum is zero
+
 * issue#402: Notification Lists should support searching via RegEx
 
 * issue#412: Can not trigger thold command cause there is a Enter Key at the end

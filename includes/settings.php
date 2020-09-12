@@ -407,6 +407,12 @@ function thold_config_settings() {
 			'method' => 'checkbox',
 			'default' => ''
 		),
+		'thold_consider_unknown_zero' => array(
+			'friendly_name' => __('Consider Unknown Data as Zero', 'thold'),
+			'description' => __('When checking Thresholds, if a Data Source returns Unknown Data (\'U\'), consider the value as zero for the Threshold check.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
+		),
 		'thold_filter_default' => array(
 			'friendly_name' => __('Default Management Status', 'thold'),
 			'description' => __('Default Threshold management filter status.', 'thold'),
