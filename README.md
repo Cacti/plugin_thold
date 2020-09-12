@@ -132,6 +132,8 @@ that.
 
 * issue: Function array_column() missing from PHP5.4
 
+* issue: Unable to search for thresholds by regular expression
+
 --- 1.4 ---
 
 * issue#400: Slow cli_thresholds.php Performance

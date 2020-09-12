@@ -488,8 +488,8 @@ function thold_request_validation() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -579,8 +579,8 @@ function list_tholds() {
 		}
 	}
 
-	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where == '' ? '(': ' AND ') . ' td.name_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (get_request_var('rfilter') != '') {
+		$sql_where .= ($sql_where == '' ? '(': ' AND ') . ' td.name_cache RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	if ($statefilter != '') {
@@ -627,7 +627,7 @@ function list_tholds() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
@@ -756,7 +756,7 @@ function list_tholds() {
 
 	html_end_box();
 
-	$nav = html_nav_bar('thold.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Thresholds', 'thold'), 'page', 'main');
+	$nav = html_nav_bar('thold.php', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Thresholds', 'thold'), 'page', 'main');
 
 	form_start('thold.php', 'chk');
 
@@ -938,7 +938,7 @@ function list_tholds() {
 			// Check is the graph item has a cdef and modify the output
 			thold_modify_values_by_cdef($thold_data);
 
-			form_selectable_cell(filter_value($name, get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
+			form_selectable_cell(filter_value($name, get_request_var('rfilter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
 			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');

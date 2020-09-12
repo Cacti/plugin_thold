@@ -132,7 +132,7 @@ function form_thold_filter() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
@@ -293,8 +293,8 @@ function tholds() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -366,8 +366,8 @@ function tholds() {
 		if (get_request_var('status') == '4') { $sql_where = "(td.acknowledgment = 'on'"; } /* status */
 	}
 
-	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where == '' ? '(':' AND') . ' td.name_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (get_request_var('rfilter') != '') {
+		$sql_where .= ($sql_where == '' ? '(':' AND') . ' td.name_cache RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	/* data template id filter */
@@ -607,7 +607,7 @@ function tholds() {
 
 			form_selectable_cell($actions_url, $thold_data['id'], '', 'left');
 
-			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('filter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
+			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('rfilter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
 
@@ -725,8 +725,8 @@ function hosts() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -773,10 +773,11 @@ function hosts() {
 
 	/* form the 'where' clause for our main sql query */
 	$sql_where = '';
-	if (get_request_var('filter') != '') {
-		$sql_where = ' (h.deleted = "" AND (
-			h.hostname LIKE '       . db_qstr('%' . get_request_var('filter') . '%') . '
-			OR h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
+
+	if (get_request_var('rfilter') != '') {
+		$sql_where = ' (h.deleted = ""
+			AND (h.hostname RLIKE "'       . get_request_var('rfilter') . '"
+			OR h.description RLIKE "' . get_request_var('rfilter') . '"))';
 	}
 
 	if (get_request_var('host_status') == '-1') {
@@ -930,7 +931,7 @@ function hosts() {
 
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
 
-				form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], '', 'left');
+				form_selectable_cell(filter_value($host['description'], get_request_var('rfilter')), $host['id'], '', 'left');
 
 				form_selectable_cell(number_format_i18n($host['id']), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($host['graphs']), $host['id'], '', 'right');
@@ -940,7 +941,7 @@ function hosts() {
 
 				form_selectable_cell(get_timeinstate($host), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
-				form_selectable_cell(filter_value($host['hostname'], get_request_var('filter')), $host['id'], '', 'right');
+				form_selectable_cell(filter_value($host['hostname'], get_request_var('rfilter')), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n(($host['cur_time']), 2), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n(($host['avg_time']), 2), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($host['availability'], 2), $host['id'], '', 'right');
@@ -954,14 +955,14 @@ function hosts() {
 				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'thold') . "'></a>";
 
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
-				form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], '', 'left');
+				form_selectable_cell(filter_value($host['description'], get_request_var('rfilter')), $host['id'], '', 'left');
 				form_selectable_cell(number_format_i18n($host['id']), $host['id'], '', 'right');
 				form_selectable_cell('<i>' . number_format_i18n($host['graphs']) . '</i>', $host['id'], '', 'right');
 				form_selectable_cell('<i>' . number_format_i18n($host['data_sources']) . '</i>', $host['id'], '', 'right');
 				form_selectable_cell(__('Not Monitored', 'thold'), $host['id'], '', 'center');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
-				form_selectable_cell(filter_value($host['hostname'], get_request_var('filter')), $host['id'], '', 'right');
+				form_selectable_cell(filter_value($host['hostname'], get_request_var('rfilter')), $host['id'], '', 'right');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
@@ -997,7 +998,7 @@ function form_host_filter() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
@@ -1129,8 +1130,8 @@ function thold_validate_log_vars() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -1214,14 +1215,12 @@ function thold_export_log() {
 		}
 	}
 
-	if (get_request_var('status') == '-1') {
-		/* Show all items */
-	} else {
+	if (get_request_var('status') != '-1') {
 		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status=' . get_request_var('status');
 	}
 
-	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (get_request_var('rfilter') != '') {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	$sql_order  = '';
@@ -1303,14 +1302,12 @@ function thold_show_log() {
 		}
 	}
 
-	if (get_request_var('status') == '-1') {
-		/* Show all items */
-	} else {
+	if (get_request_var('status') != '-1') {
 		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status=' . get_request_var('status');
 	}
 
-	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (get_request_var('rfilter') != '') {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	$sql_order = get_order_string();
@@ -1419,7 +1416,7 @@ function form_thold_log_filter() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
