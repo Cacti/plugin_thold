@@ -698,7 +698,7 @@ function thold_update_host_status() {
 			FROM host
 			WHERE disabled=""
 			AND status = ?
-			AND status_event_count = IF(thold_failure_count > 0,thold_failure_count, ?)
+			AND status_event_count = IF(thold_failure_count > 0, thold_failure_count, ?)
 			AND poller_id = ?',
 			array(HOST_DOWN, $ping_failure_count, $config['poller_id']));
 	} else {
