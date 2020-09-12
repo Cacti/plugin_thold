@@ -1019,7 +1019,7 @@ function hosts($header_label) {
 					</td>
 					<td>
 						<span>
-							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
+							<input type='submit' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
 							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
 						</span>
 					</td>
@@ -1205,7 +1205,8 @@ function tholds($header_label) {
 
 	thold_request_validation();
 
-	$statefilter='';
+	$statefilter = '';
+
 	if (isset_request_var('state')) {
 		if (get_request_var('state') == '-1') {
 			$statefilter = '';
@@ -1340,7 +1341,7 @@ function tholds($header_label) {
 					</td>
 					<td>
 						<span>
-							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
+							<input type='submit' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
 							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
 						</span>
 					</td>
@@ -1604,7 +1605,7 @@ function templates($header_label) {
 					</td>
 					<td>
 						<span>
-							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
+							<input type='submit' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
 							<input type='button' id='clear' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
 						</span>
 					</td>
@@ -1917,7 +1918,7 @@ function lists() {
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>' onClick='applyFilter()'>
+						<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
 					</td>
 					<td>
 						<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' title='<?php print __esc('Clear Filters', 'thold');?>' onClick='clearFilter()'>

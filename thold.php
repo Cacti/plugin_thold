@@ -546,7 +546,8 @@ function list_tholds() {
 		$rows = get_request_var('rows');
 	}
 
-	$statefilter='';
+	$statefilter = '';
+
 	if (isset_request_var('state')) {
 		if (get_request_var('state') == '-1') {
 			$statefilter = '';
@@ -627,7 +628,7 @@ function list_tholds() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
@@ -651,7 +652,7 @@ function list_tholds() {
 					</td>
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
-						<input type='button' id='refresh' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Apply Filters', 'thold');?>' onClick='applyFilter()'>
+						<input type='submit' id='refresh' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Apply Filters', 'thold');?>'>
 					</td>
 					<td>
 						<input type='button' id='clear' value='<?php print __esc('Clear', 'thold');?>' title='<?php print __esc('Return to Defaults', 'thold');?>' onClick='clearFilter()'>
@@ -729,7 +730,7 @@ function list_tholds() {
 			strURL += '&data_template_id=' + $('#data_template_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + $('#rfilter').val();
 			loadPageNoHeader(strURL);
 		}
 
@@ -741,10 +742,6 @@ function list_tholds() {
 		$(function() {
 			$('#thold').submit(function(event) {
 				event.preventDefault();
-				applyFilter();
-			});
-
-			$('#filter').change(function() {
 				applyFilter();
 			});
 		});

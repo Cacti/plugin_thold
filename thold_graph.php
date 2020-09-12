@@ -157,7 +157,7 @@ function form_thold_filter() {
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
 						<span>
-							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()'>
+							<input id='refresh' type='submit' value='<?php print __esc('Go', 'thold');?>'>
 							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
 						</span>
 					</td>
@@ -247,7 +247,7 @@ function form_thold_filter() {
 			strURL += '&host_id=' + $('#host_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -259,10 +259,6 @@ function form_thold_filter() {
 		$(function() {
 			$('#thold').submit(function(event) {
 				event.preventDefault();
-				applyFilter();
-			});
-
-			$('#filter').change(function() {
 				applyFilter();
 			});
 		});
@@ -1038,7 +1034,7 @@ function form_host_filter() {
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()'>
+							<input id='refresh' type='submit' value='<?php print __esc('Go', 'thold');?>'>
 							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
 						</span>
 					</td>
@@ -1092,7 +1088,7 @@ function form_host_filter() {
 			strURL += '&host_template_id=' + $('#host_template_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -1104,10 +1100,6 @@ function form_host_filter() {
 		$(function() {
 			$('#form_devices').submit(function(event) {
 				event.preventDefault();
-				applyFilter();
-			});
-
-			$('#filter').change(function() {
 				applyFilter();
 			});
 		});
@@ -1441,7 +1433,7 @@ function form_thold_log_filter() {
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
 						<span>
-							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()'>
+							<input id='refresh' type='submit' value='<?php print __esc('Go', 'thold');?>'>
 							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
 							<input id='export' type='button' value='<?php print __esc('Export', 'thold');?>' onClick='exportLog()'>
 						</span>
@@ -1532,7 +1524,7 @@ function form_thold_log_filter() {
 			strURL += '&host_id=' + $('#host_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -1542,7 +1534,6 @@ function form_thold_log_filter() {
 		}
 
 		function exportLog() {
-console.log('stuff');
 			strURL  = 'thold_graph.php?action=exportlog';
 			strURL += '&status=' + $('#status').val();
 			strURL += '&threshold_id=' + $('#threshold_id').val();
@@ -1550,17 +1541,13 @@ console.log('stuff');
 			strURL += '&host_id=' + $('#host_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			document.location = strURL;
 		}
 
 		$(function() {
 			$('#form_log').submit(function(event) {
 				event.preventDefault();
-				applyFilter();
-			});
-
-			$('#filter').change(function() {
 				applyFilter();
 			});
 		});
