@@ -1266,7 +1266,7 @@ function thold_show_log() {
 	} elseif (get_request_var('host_id') == '0') {
 		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.id IS NULL';
 	} elseif (!isempty_request_var('host_id')) {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.host_id=' . get_request_var('host_id');
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.host_id = ' . get_request_var('host_id');
 	}
 
 	if (get_request_var('site_id') == '-1') {
@@ -1274,7 +1274,7 @@ function thold_show_log() {
 	} elseif (get_request_var('site_id') == '0') {
 		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.site_id IS NULL';
 	} elseif (!isempty_request_var('site_id')) {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.site_id=' . get_request_var('site_id');
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.site_id = ' . get_request_var('site_id');
 	}
 
 	if (get_request_var('threshold_id') == '-1') {
@@ -1282,7 +1282,7 @@ function thold_show_log() {
 	} elseif (get_request_var('threshold_id') == '0') {
 		$sql_where .= ($sql_where == '' ? '':' AND') . ' td.id IS NULL';
 	} elseif (get_request_var('threshold_id') > 0) {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' td.id=' . get_request_var('threshold_id');
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' td.id = ' . get_request_var('threshold_id');
 	}
 
 	/* thold template id filter */
@@ -1295,7 +1295,7 @@ function thold_show_log() {
 	}
 
 	if (get_request_var('status') != '-1') {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status=' . get_request_var('status');
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status = ' . get_request_var('status');
 	}
 
 	if (get_request_var('rfilter') != '') {
@@ -1377,7 +1377,7 @@ function thold_show_log() {
 			form_selectable_cell($l['hdescription'], $l['id'], '', 'left');
 			form_selectable_cell(date('Y-m-d H:i:s', $l['time']), $l['id'], '', 'left');
 			form_selectable_cell($thold_types[$l['type']], $l['id'], '', 'left');
-			form_selectable_cell((strlen($l['description']) ? $l['description']:__('Restoral Event', 'thold')), $l['id'], '', 'left');
+			form_selectable_cell((strlen($l['description']) ? filter_value($l['description'], get_request_var('rfilter')):__('Restoral Event', 'thold')), $l['id'], '', 'left');
 			form_selectable_cell($l['threshold_value'] != '' ? thold_format_number($l['threshold_value'], 2, $baseu, $suffix):__('N/A', 'thold'), $l['id'], '', 'right');
 			form_selectable_cell($l['current'] != '' ? thold_format_number($l['current'], 2, $baseu, $suffix):__('N/A', 'thold'), $l['id'], '', 'right');
 			form_end_row();
