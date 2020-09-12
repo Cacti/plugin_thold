@@ -103,11 +103,22 @@ that.
 
 --- develop ---
 
+* issue#412: Can not trigger thold command cause there is a Enter Key at the end
+
+* issue#417: zero 'lastread' value incorrectly processed by
+  thold_check_threshold()
+
 * issue#418: Errors during Thold upgrade to v1.4
 
 * issue#422: Apply Cacti#3191 for XSS exposure (CVE-2020-7106)
 
-* issue#412: Can not trigger thold command cause there is a Enter Key at the end
+* issue#431: SQL Syntax Determining Failed Devices
+
+* issue#430: XSS Vulnerabilities if host/graph name include script
+
+* issue#433: ERROR PHP WARNING in Plugin 'thold': Use of undefined constant LOG_VERBOSITY_MEDIUM
+
+* issue#444: PHP bug - Array and string offset access syntax with curly braces is deprecated
 
 --- 1.4 ---
 
@@ -131,11 +142,11 @@ that.
 
 --- 1.3.4 ---
 
-* issue#404: THOLD 1.3.3 Cacti 1.2.9 PHP errors 
+* issue#404: THOLD 1.3.3 Cacti 1.2.9 PHP errors
 
 --- 1.3.3 ---
 
-* feature#359: Allow <DOWNTIME> variable substitution also in UP/DOWN e-mail subject
+* feature#359: Allow DOWNTIME variable substitution also in UP/DOWN e-mail subject
 
 * feature#375: Enhance Thold to Export Thold Logs to csv
 
@@ -164,7 +175,8 @@ that.
 
 * issue#364: Thold 1.3.2 A non-numeric value encountered in thold_functions.php
 
-* issue#368: When using Classic Theme, devices not appearing when try to create a threshold
+* issue#368: When using Classic Theme, devices not appearing when try to create
+  a threshold
 
 * issue#369: When saving a template, notification lists of all
   templates are updated

@@ -821,25 +821,27 @@ function thold_update_host_status() {
 	}
 
 	$failed_ids = '';
-	if (cacti_sizeof($hosts)) {
+
+  if (cacti_sizeof($hosts)) {
 		foreach ($hosts as $host) {
 			//hosts in recovery status record only if they was in failed status
 			if (($host['status'] != HOST_RECOVERING) OR ($host['status'] == HOST_RECOVERING AND (array_search($host['id'], array_column($failed, 'host_id')) !== FALSE))) {
-				if (api_plugin_is_enabled('maint')) {
-					if (plugin_maint_check_cacti_host($host['id'])) {
-						continue;
-					}
+				if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($host['id'])) {
+					continue;
 				}
-				$failed_ids .= ($failed_ids != '' ? '), (':'(') . $host['id'];
+
+        $failed_ids .= ($failed_ids != '' ? '), (':'(') . $host['id'];
 			}
 		}
-		$failed_ids .= ')';
 
-		db_execute("INSERT INTO plugin_thold_host_failed
-			(host_id)
-			VALUES $failed_ids");
+    $failed_ids .= $failed_ids != '' ? ')':'';
+
+    if ($failed_ids != '') {
+		  db_execute("INSERT INTO plugin_thold_host_failed
+  			(host_id)
+	  		VALUES $failed_ids");
+    }
 	}
 
 	return $total_hosts;
 }
-
