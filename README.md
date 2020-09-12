@@ -103,6 +103,8 @@ that.
 
 --- develop ---
 
+* issue#402: Notification Lists should support searching via RegEx
+
 * issue#412: Can not trigger thold command cause there is a Enter Key at the end
 
 * issue#417: zero 'lastread' value incorrectly processed by
