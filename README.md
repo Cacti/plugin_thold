@@ -118,6 +118,8 @@ that.
 
 * issue#433: ERROR PHP WARNING in Plugin 'thold': Use of undefined constant LOG_VERBOSITY_MEDIUM
 
+* issue#444: PHP bug - Array and string offset access syntax with curly braces is deprecated
+
 --- 1.4 ---
 
 * issue#400: Slow cli_thresholds.php Performance
