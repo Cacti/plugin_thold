@@ -1755,7 +1755,16 @@ function thold_edit() {
 			'textarea_cols' => 50,
 			'default' => read_config_option('thold_warning_text'),
 			'description' => __('This is the message that will be displayed at the top of all Threshold Warnings (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
-			'value' => isset($thold_data['email_body']) ? $thold_data['email_body'] : ''
+			'value' => isset($thold_data['email_body_warn']) ? $thold_data['email_body_warn'] : ''
+		),
+		'email_body_restoral' => array(
+			'friendly_name' => __('Restoral Email Body', 'thold'),
+			'method' => ($email_body == 'on' ? 'textarea':'hidden'),
+			'textarea_rows' => 3,
+			'textarea_cols' => 50,
+			'default' => read_config_option('thold_restoral_text'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'value' => isset($thold_data['email_body_restoral']) ? $thold_data['email_body_restoral'] : ''
 		),
 		'notify_warning' => array(
 			'friendly_name' => __('Warning Notification List', 'thold'),
@@ -2055,6 +2064,7 @@ function thold_edit() {
 		// Email Body options
 		$('#email_body').prop('disabled', status);
 		$('#email_body_warn').prop('disabled', status);
+		$('#email_body_restoral').prop('disabled', status);
 
 		// Syslog settings
 		$('#syslog_enabled').prop('disabled', status);

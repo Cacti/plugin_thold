@@ -1329,6 +1329,22 @@ function thold_upgrade_database($force = false) {
 			'NULL'     => false,
 			'default'  => '0',
 			'after'    => 'thold_host_email'));
+
+		// Add restoral message option
+		db_add_column('thold_data', array(
+			'name'     => 'email_body_restoral',
+			'type'     => 'varchar(1024)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'email_body_warn'));
+
+		// Add restoral message option
+		db_add_column('thold_template', array(
+			'name'     => 'email_body_restoral',
+			'type'     => 'varchar(1024)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'email_body_warn'));
 	}
 
 	$tables = db_fetch_assoc("SELECT DISTINCT TABLE_NAME
@@ -1437,6 +1453,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_body_restoral', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
@@ -1511,6 +1528,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_body_restoral', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');

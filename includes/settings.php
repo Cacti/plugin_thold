@@ -715,6 +715,15 @@ function thold_config_settings() {
 			'textarea_cols' => '80',
 			'default' => __('A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>', 'thold'),
 		),
+		'thold_restoral_text' => array(
+			'friendly_name' => __('Threshold Restoral Message', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold restorals (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'method' => 'textarea',
+			'class' => 'textAreaNotes',
+			'textarea_rows' => '5',
+			'textarea_cols' => '80',
+			'default' => __('A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>', 'thold'),
+		),
 	);
 
 	if (isset($temp)) {

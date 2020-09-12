@@ -103,6 +103,8 @@ that.
 
 --- develop ---
 
+* issue#225: Customize Thold Restore message
+
 * issue#366: When a value is undefined, Thresholds are no longer triggering when minimum is zero
 
 * issue#376: Question - Variables to use when sending a command
