@@ -661,7 +661,7 @@ function thold_wizard() {
 				'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
 				'on_change' => 'applyTholdFilter()',
 				'array' => $hosts,
-				'value' => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
+				'value' => $host_id,
 				'none_value' => __('Select a Device', 'thold')
 			);
 		}

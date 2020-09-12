@@ -120,6 +120,8 @@ that.
 
 * issue#433: ERROR PHP WARNING in Plugin 'thold': Use of undefined constant LOG_VERBOSITY_MEDIUM
 
+* issue#441: Thold 1.4 + cacti 1.2.14 - Classic Theme - Unable to Create Thresholds
+
 * issue#444: PHP bug - Array and string offset access syntax with curly braces is deprecated
 
 --- 1.4 ---
