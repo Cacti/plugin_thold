@@ -183,13 +183,18 @@ function thold_config_form() {
 			);
 			$fields_host_edit3['thold_failure_count'] = array(
 				'friendly_name' => __('Host Failure Count', 'thold'),
-				'description' => __('The number of polling intervals at this host must be down before Thold logging an error and reporting host as down. Default is 0 (not use it and use config[ping_failure_count])', 'thold'),
-				'method' => 'textbox',
+				'description' => __('The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)', 'thold'),
+				'method' => 'drop_array',
 				'value' => '|arg1:thold_failure_count|',
 				'default' => '0',
-				'max_length' => 5,
-				'size' => 15,
-				'none_value' => 'None',
+				'array' => array(
+					0 => __('Use Cacti Setting', 'thold'),
+					1 => __('%d Polling Interval', 1, 'thold'),
+					2 => __('%d Polling Intervals', 2, 'thold'),
+					3 => __('%d Polling Intervals', 3, 'thold'),
+					4 => __('%d Polling Intervals', 4, 'thold'),
+					5 => __('%d Polling Intervals', 5, 'thold'),
+				)
 			);			
 		}
 	}
