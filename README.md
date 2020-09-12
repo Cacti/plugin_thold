@@ -122,6 +122,8 @@ that.
 
 * issue#441: Thold 1.4 + cacti 1.2.14 - Classic Theme - Unable to Create Thresholds
 
+* issue#442: THOLD daemon should not log errors on interruption/termination by user
+
 * issue#444: PHP bug - Array and string offset access syntax with curly braces is deprecated
 
 --- 1.4 ---
