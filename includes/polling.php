@@ -344,7 +344,7 @@ function thold_poller_output(&$rrd_update_array) {
 		dtd.rrd_step, dtr.rrd_maximum
 		FROM thold_data AS td
 		LEFT JOIN data_template_rrd AS dtr
-		ON (dtr.id = td.data_template_rrd_id)
+		ON dtr.id = td.data_template_rrd_id
 		LEFT JOIN data_template_data AS dtd
 		ON dtd.local_data_id = td.local_data_id
 		WHERE dtr.data_source_name!=''
@@ -698,7 +698,7 @@ function thold_update_host_status() {
 			FROM host
 			WHERE disabled=""
 			AND status = ?
-			AND status_event_count = ?
+			AND status_event_count = IF(thold_failure_count > 0, thold_failure_count, ?)
 			AND poller_id = ?',
 			array(HOST_DOWN, $ping_failure_count, $config['poller_id']));
 	} else {
@@ -706,7 +706,7 @@ function thold_update_host_status() {
 			FROM host
 			WHERE disabled=""
 			AND status = ?
-			AND status_event_count = ?',
+			AND status_event_count = IF(thold_failure_count > 0, thold_failure_count, ?)',
 			array(HOST_DOWN, $ping_failure_count));
 	}
 
@@ -802,42 +802,46 @@ function thold_update_host_status() {
 			WHERE poller_id = ?',
 			array($config['poller_id']));
 
-		$hosts = db_fetch_assoc_prepared('SELECT id
+		$hosts = db_fetch_assoc_prepared('SELECT id, status
 			FROM host
 			WHERE disabled = ""
-			AND status != ?
-			AND poller_id = ?',
-			array(HOST_UP, $config['poller_id']));
+			AND poller_id = ?
+			AND ((status != ? AND status != ?)
+			OR (status = ? AND status_event_count >= IF(thold_failure_count > 0, thold_failure_count, ?))) ',
+			array($config['poller_id'], HOST_UP, HOST_DOWN, HOST_DOWN, $ping_failure_count));
 	} else {
 		db_execute('TRUNCATE plugin_thold_host_failed');
 
-		$hosts = db_fetch_assoc_prepared('SELECT id
+		$hosts = db_fetch_assoc_prepared('SELECT id, status
 			FROM host
 			WHERE disabled = ""
-			AND status != ?',
-			array(HOST_UP));
+			AND ((status != ? AND status != ?)
+			OR (status = ? AND status_event_count >= IF(thold_failure_count > 0, thold_failure_count, ?))) ',
+			array(HOST_UP, HOST_DOWN, HOST_DOWN, $ping_failure_count));
 	}
 
 	if (cacti_sizeof($hosts)) {
-		$failed = '';
+		$failed_ids = '';
 
 		foreach ($hosts as $host) {
-			if (api_plugin_is_enabled('maint')) {
-				if (plugin_maint_check_cacti_host($host['id'])) {
+			//hosts in recovery status record only if they was in failed status
+			if (($host['status'] != HOST_RECOVERING) OR ($host['status'] == HOST_RECOVERING AND (array_search($host['id'], array_column($failed, 'host_id')) !== FALSE))) {
+				if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($host['id'])) {
 					continue;
 				}
-			}
 
-			$failed .= ($failed != '' ? '), (':'(') . $host['id'];
+				$failed_ids .= ($failed_ids != '' ? '), (':'(') . $host['id'];
+			}
 		}
 
-		$failed .= ($failed != '' ? ')':'');
+		$failed_ids .= $failed_ids != '' ? ')':'';
 
-		db_execute("INSERT INTO plugin_thold_host_failed
-			(host_id)
-			VALUES $failed");
+ 		if ($failed_ids != '') {
+			db_execute("INSERT INTO plugin_thold_host_failed
+				(host_id)
+				VALUES $failed_ids");
+		}
 	}
 
 	return $total_hosts;
 }
-

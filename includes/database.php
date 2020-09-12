@@ -459,6 +459,14 @@ function thold_upgrade_database($force = false) {
 			'NULL'     => true,
 			'after'    => 'thold_send_email'));
 
+		api_plugin_db_add_column('thold', 'host', array(
+			'name'     => 'thold_failure_count',
+			'type'     => 'int(10)',
+			'unsigned' => true,
+			'NULL'     => false,
+			'default'  => '0',
+			'after'    => 'thold_host_email'));
+			
 		db_add_column('thold_data', array(
 			'name'     => 'notify_warning',
 			'type'     => 'int(10)',
@@ -1587,6 +1595,7 @@ function thold_setup_database() {
 
 	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
 	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => true, 'after' => 'thold_send_email'));
+	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_failure_count', 'type' => 'int(10)', 'NULL' => false, 'default' => '0', 'after' => 'thold_host_email'));
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);
