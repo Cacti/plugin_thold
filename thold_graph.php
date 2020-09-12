@@ -771,9 +771,9 @@ function hosts() {
 	$sql_where = '';
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where = ' (h.deleted = ""
+		$sql_where .= ' (h.deleted = ""
 			AND (h.hostname RLIKE "'       . get_request_var('rfilter') . '"
-			OR h.description RLIKE "' . get_request_var('rfilter') . '"))';
+			OR h.description RLIKE "' . get_request_var('rfilter') . '")';
 	}
 
 	if (get_request_var('host_status') == '-1') {
