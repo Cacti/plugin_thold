@@ -112,9 +112,11 @@ that.
 
 * issue#422: Apply Cacti#3191 for XSS exposure (CVE-2020-7106)
 
-* issue#431: SQL Syntax Determining Failed Devices
+* issue#429: Add new per host config thold_failure_count
 
 * issue#430: XSS Vulnerabilities if host/graph name include script
+
+* issue#431: SQL Syntax Determining Failed Devices
 
 * issue#433: ERROR PHP WARNING in Plugin 'thold': Use of undefined constant LOG_VERBOSITY_MEDIUM
 
