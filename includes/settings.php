@@ -181,6 +181,7 @@ function thold_config_form() {
 				'default' => '',
 				'none_value' => 'None'
 			);
+
 			$fields_host_edit3['thold_failure_count'] = array(
 				'friendly_name' => __('Host Failure Count', 'thold'),
 				'description' => __('The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)', 'thold'),
