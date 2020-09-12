@@ -820,9 +820,9 @@ function thold_update_host_status() {
 			array(HOST_UP, HOST_DOWN, HOST_DOWN, $ping_failure_count));
 	}
 
-	$failed_ids = '';
+	if (cacti_sizeof($hosts)) {
+		$failed_ids = '';
 
-  if (cacti_sizeof($hosts)) {
 		foreach ($hosts as $host) {
 			//hosts in recovery status record only if they was in failed status
 			if (($host['status'] != HOST_RECOVERING) OR ($host['status'] == HOST_RECOVERING AND (array_search($host['id'], array_column($failed, 'host_id')) !== FALSE))) {
@@ -830,17 +830,17 @@ function thold_update_host_status() {
 					continue;
 				}
 
-        $failed_ids .= ($failed_ids != '' ? '), (':'(') . $host['id'];
+				$failed_ids .= ($failed_ids != '' ? '), (':'(') . $host['id'];
 			}
 		}
 
-    $failed_ids .= $failed_ids != '' ? ')':'';
+		$failed_ids .= $failed_ids != '' ? ')':'';
 
-    if ($failed_ids != '') {
-		  db_execute("INSERT INTO plugin_thold_host_failed
-  			(host_id)
-	  		VALUES $failed_ids");
-    }
+ 		if ($failed_ids != '') {
+			db_execute("INSERT INTO plugin_thold_host_failed
+				(host_id)
+				VALUES $failed_ids");
+		}
 	}
 
 	return $total_hosts;
