@@ -865,7 +865,8 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 				$dsname = trim(str_replace('|ds:', '', $item), " |\n\r");
 
 				$thold_item = db_fetch_row_prepared('SELECT td.id, td.local_graph_id,
-					td.percent_ds, td.expression, td.data_type, td.host_id, td.cdef, td.local_data_id,
+					td.percent_ds, td.expression, td.upper_ds, td.data_type,
+					td.host_id, td.cdef, td.local_data_id,
 					td.data_template_rrd_id, td.lastread, UNIX_TIMESTAMP(td.lasttime) AS lasttime,
 					td.oldvalue, dtr.data_source_name as name,
 					dtr.data_source_type_id, dtd.rrd_step, dtr.rrd_maximum
@@ -1141,6 +1142,17 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 		}
 	} else {
 		$currentval = '';
+	}
+
+	return $currentval;
+}
+
+function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
+	$ds = $thold['upper_ds'];
+
+	if (isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
+		$t = $rrd_reindexed[$thold['local_data_id']][$thold['upper_ds']];
+		$currentval = ($t << 32) + $currentval;
 	}
 
 	return $currentval;
@@ -4793,20 +4805,11 @@ function save_thold() {
 	$save['notes'] = get_nfilter_request_var('notes');
 
 	// Data Manipulation
-	$save['data_type'] = get_nfilter_request_var('data_type');
-	if (isset_request_var('percent_ds')) {
-		$save['percent_ds'] = get_nfilter_request_var('percent_ds');
-	} else {
-		$save['percent_ds'] = '';
-	}
-
-	$save['cdef'] = trim_round_request_var('cdef');
-
-	if (isset_request_var('expression')) {
-		$save['expression'] = get_nfilter_request_var('expression');
-	} else {
-		$save['expression'] = '';
-	}
+	$save['data_type']  = get_nfilter_request_var('data_type');
+	$save['percent_ds'] = (isset_request_var('percent_ds')) ? get_nfilter_request_var('percent_ds') : '';
+	$save['cdef']       = trim_round_request_var('cdef');
+	$save['expression'] = (isset_request_var('expression')) ? get_nfilter_request_var('expression') : '';
+	$save['upper_ds']   = (isset_request_var('upper_ds')) ? get_nfilter_request_var('upper_ds') : '';
 
 	// Email Bodies
 	$save['email_body']          = get_nfilter_request_var('email_body');
@@ -5047,6 +5050,7 @@ function thold_create_thold_save_from_template($save, $template) {
 	$save['cdef']       = $template['cdef'];
 	$save['percent_ds'] = $template['percent_ds'];
 	$save['expression'] = $template['expression'];
+	$save['upper_ds']   = $template['upper_ds'];
 
 	// Hrules
 	$save['thold_hrule_alert']   = $template['thold_hrule_alert'];
@@ -5487,7 +5491,8 @@ function thold_template_update_threshold($id, $template) {
 		td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up, td.bl_fail_trigger = tt.bl_fail_trigger,
 		td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0, td.repeat_alert = tt.repeat_alert,
 		td.data_type = tt.data_type, td.cdef = tt.cdef, td.percent_ds = tt.percent_ds,
-		td.expression = tt.expression, td.exempt = tt.exempt, td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
+		td.expression = tt.expression, td.upper_ds = tt.upper_ds, td.exempt = tt.exempt,
+		td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
 		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning,
 		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
 		td.email_body_warn = tt.email_body_warn, td.email_body_restoral = tt.email_body_restoral,
@@ -5531,7 +5536,7 @@ function thold_template_update_thresholds($id) {
 		td.bl_pct_up = tt.bl_pct_up, td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up,
 		td.bl_fail_trigger = tt.bl_fail_trigger, td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0,
 		td.repeat_alert = tt.repeat_alert, td.data_type = tt.data_type, td.cdef = tt.cdef,
-		td.percent_ds = tt.percent_ds, td.expression = tt.expression,
+		td.percent_ds = tt.percent_ds, td.expression = tt.expression, td.upper_ds = tt.upper_ds,
 		td.exempt = tt.exempt, td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
 		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning,
 		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,

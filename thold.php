@@ -1738,6 +1738,14 @@ function thold_edit() {
 			'max_length' => '255',
 			'size' => '80'
 		),
+		'upper_ds' => array(
+			'friendly_name' => __('Upper Data Source', 'thold'),
+			'method' => 'drop_array',
+			'default' => 'NULL',
+			'description' => __('Upper data source to calculate the total value.', 'thold'),
+			'value' => isset($thold_data['upper_ds']) ? $thold_data['upper_ds'] : 0,
+			'array' => $data_fields,
+		),
 		'notify_header' => array(
 			'friendly_name' => __('Notification Settings', 'thold'),
 			'collapsible' => 'true',
@@ -2064,6 +2072,7 @@ function thold_edit() {
 		$('#cdef').prop('disabled', status);
 		$('#percent_ds').prop('disabled', status);
 		$('#expression').prop('disabled', status);
+		$('#upper_ds').prop('disabled', status);
 
 		// Email Body options
 		$('#email_body').prop('disabled', status);
@@ -2137,29 +2146,23 @@ function thold_edit() {
 	}
 
 	function changeDataType () {
-		switch($('#data_type').val()) {
-		case '0':
-			$('#row_cdef').hide();
-			$('#row_percent_ds').hide();
-			$('#row_expression').hide();
+		$('#row_cdef, #row_percent_ds, #row_expression, #row_upper_ds').hide();
 
-			break;
+		switch($('#data_type').val()) {
 		case '1':
 			$('#row_cdef').show();
-			$('#row_percent_ds').hide();
-			$('#row_expression').hide();
 
 			break;
 		case '2':
-			$('#row_cdef').hide()
 			$('#row_percent_ds').show();
-			$('#row_expression').hide();
 
 			break;
 		case '3':
 			$('#row_expression').show();
-			$('#row_cdef').hide();
-			$('#row_percent_ds').hide();
+
+			break;
+		case '4':
+			$('#row_upper_ds').show();
 
 			break;
 		}
