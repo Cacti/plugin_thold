@@ -773,9 +773,9 @@ function thold_update_host_status() {
 
 						exec($command, $output, $return);
 
-						cacti_log('Up Device Command for Device[' . $host['id'] . '] Command[' . $command . '] ExitStatus[' . $return . '] Output[' . implode(' ', $output) . ']', false, 'THOLD');
+						cacti_log('Device Up Command for Device[' . $host['id'] . '] Command[' . $command . '] ExitStatus[' . $return . '] Output[' . implode(' ', $output) . ']', false, 'THOLD');
 					} else {
-						cacti_log('WARNING: Up Device Command for Device[' . $host['id'] . '] Command[' . $command . '] Is either Not found or Not executable!', false, 'THOLD');
+						cacti_log('WARNING: Device Up Command for Device[' . $host['id'] . '] Command[' . $command . '] Is either Not found or Not executable!', false, 'THOLD');
 					}
 				}
 			}
@@ -918,9 +918,9 @@ function thold_update_host_status() {
 
 					exec($command, $output, $return);
 
-					cacti_log('Down Device Command for Device[' . $host['id'] . '] Command[' . $command . '] ExitStatus[' . $return . '] Output[' . implode(' ', $output) . ']', false, 'THOLD');
+					cacti_log('Device Down Command for Device[' . $host['id'] . '] Command[' . $command . '] ExitStatus[' . $return . '] Output[' . implode(' ', $output) . ']', false, 'THOLD');
 				} else {
-					cacti_log('WARNING: Down Device Command for Device[' . $host['id'] . '] Command[' . $command . '] Is either Not found or Not executable!', false, 'THOLD');
+					cacti_log('WARNING: Device Down Command for Device[' . $host['id'] . '] Command[' . $command . '] Is either Not found or Not executable!', false, 'THOLD');
 				}
 			}
 		}
