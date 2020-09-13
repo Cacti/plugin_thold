@@ -488,8 +488,8 @@ function thold_request_validation() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -546,16 +546,21 @@ function list_tholds() {
 		$rows = get_request_var('rows');
 	}
 
-	$statefilter='';
+	$statefilter = '';
+
 	if (isset_request_var('state')) {
 		if (get_request_var('state') == '-1') {
 			$statefilter = '';
-		} else {
-			if (get_request_var('state') == '0') { $statefilter = "td.thold_enabled='off'"; }
-			if (get_request_var('state') == '2') { $statefilter = "td.thold_enabled='on'"; }
-			if (get_request_var('state') == '1') { $statefilter = '(td.thold_enabled=\'on\' AND (td.thold_alert!=0 OR td.bl_alert>0))'; }
-			if (get_request_var('state') == '3') { $statefilter = '(td.thold_enabled=\'on\' AND ((td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger)))'; }
-			if (get_request_var('state') == '4') { $statefilter = "(td.acknowledgment='on')"; }
+		} elseif (get_request_var('state') == '0') {
+			$statefilter = 'td.thold_enabled = "off"';
+		} elseif (get_request_var('state') == '2') {
+			$statefilter = 'td.thold_enabled = "on"';
+		} elseif (get_request_var('state') == '1') {
+			$statefilter = '(td.thold_enabled = "on" AND (td.thold_alert != 0 OR td.bl_alert > 0))';
+		} elseif (get_request_var('state') == '3') {
+			$statefilter = '(td.thold_enabled = "on" AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))';
+		} elseif (get_request_var('state') == '4') {
+			$statefilter = '(td.acknowledgment = "on")';
 		}
 	}
 
@@ -564,35 +569,35 @@ function list_tholds() {
 	$sql_where = '';
 
 	if (!isempty_request_var('host_id') && get_request_var('host_id') != '-1') {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "td.host_id = " . get_request_var('host_id');
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.host_id = ' . get_request_var('host_id');
 	}
 
 	if (!isempty_request_var('data_template_id') && get_request_var('data_template_id') != '-1') {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "td.data_template_id = " . get_request_var('data_template_id');
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.data_template_id = ' . get_request_var('data_template_id');
 	}
 
 	if (!isempty_request_var('thold_template_id')) {
 		if (get_request_var('thold_template_id') > 0) {
-			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "td.thold_template_id = " . get_request_var('thold_template_id');
+			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.thold_template_id = ' . get_request_var('thold_template_id');
 		} elseif (get_request_var('thold_template_id') == '-2') {
-			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "td.template_enabled = ''";
+			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.template_enabled = ""';
 		}
 	}
 
-	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where == '' ? '(': ' AND ') . ' td.name_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (get_request_var('rfilter') != '') {
+		$sql_where .= ($sql_where == '' ? '(': ' AND ') . ' td.name_cache RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	if ($statefilter != '') {
 		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . $statefilter;
 	}
 
-	if (get_request_var('site_id') == '-1') {
-		/* Show all items */
-	} elseif (get_request_var('site_id') == '0') {
-		$sql_where .= ($sql_where == '' ? '(': ' AND') . ' h.site_id IS NULL';
-	} elseif (!isempty_request_var('site_id')) {
-		$sql_where .= ($sql_where == '' ? '(':' AND') . ' h.site_id=' . get_request_var('site_id');
+	if (get_request_var('site_id') != '-1') {
+		if (get_request_var('site_id') == '0') {
+			$sql_where .= ($sql_where == '' ? '(': ' AND') . ' h.site_id IS NULL';
+		} elseif (!isempty_request_var('site_id')) {
+			$sql_where .= ($sql_where == '' ? '(':' AND') . ' h.site_id = ' . get_request_var('site_id');
+		}
 	}
 
 	if ($sql_where != '') {
@@ -627,7 +632,7 @@ function list_tholds() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
@@ -651,7 +656,7 @@ function list_tholds() {
 					</td>
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
-						<input type='button' id='refresh' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Apply Filters', 'thold');?>' onClick='applyFilter()'>
+						<input type='submit' id='refresh' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Apply Filters', 'thold');?>'>
 					</td>
 					<td>
 						<input type='button' id='clear' value='<?php print __esc('Clear', 'thold');?>' title='<?php print __esc('Return to Defaults', 'thold');?>' onClick='clearFilter()'>
@@ -729,7 +734,7 @@ function list_tholds() {
 			strURL += '&data_template_id=' + $('#data_template_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + $('#rfilter').val();
 			loadPageNoHeader(strURL);
 		}
 
@@ -743,10 +748,6 @@ function list_tholds() {
 				event.preventDefault();
 				applyFilter();
 			});
-
-			$('#filter').change(function() {
-				applyFilter();
-			});
 		});
 
 		</script>
@@ -756,7 +757,7 @@ function list_tholds() {
 
 	html_end_box();
 
-	$nav = html_nav_bar('thold.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Thresholds', 'thold'), 'page', 'main');
+	$nav = html_nav_bar('thold.php', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 14, __('Thresholds', 'thold'), 'page', 'main');
 
 	form_start('thold.php', 'chk');
 
@@ -938,7 +939,7 @@ function list_tholds() {
 			// Check is the graph item has a cdef and modify the output
 			thold_modify_values_by_cdef($thold_data);
 
-			form_selectable_cell(filter_value($name, get_request_var('filter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
+			form_selectable_cell(filter_value($name, get_request_var('rfilter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
 			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
@@ -1756,7 +1757,7 @@ function thold_edit() {
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
 			'default' => read_config_option('thold_alert_text'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
 			'value' => isset($thold_data['email_body']) ? $thold_data['email_body'] : ''
 		),
 		'email_body_warn' => array(
@@ -1765,8 +1766,17 @@ function thold_edit() {
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
 			'default' => read_config_option('thold_warning_text'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold Warnings (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
-			'value' => isset($thold_data['email_body']) ? $thold_data['email_body'] : ''
+			'description' => __('This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
+			'value' => isset($thold_data['email_body_warn']) ? $thold_data['email_body_warn'] : ''
+		),
+		'email_body_restoral' => array(
+			'friendly_name' => __('Restoral Email Body', 'thold'),
+			'method' => ($email_body == 'on' ? 'textarea':'hidden'),
+			'textarea_rows' => 3,
+			'textarea_cols' => 50,
+			'default' => read_config_option('thold_restoral_text'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'value' => isset($thold_data['email_body_restoral']) ? $thold_data['email_body_restoral'] : ''
 		),
 		'notify_warning' => array(
 			'friendly_name' => __('Warning Notification List', 'thold'),
@@ -1932,7 +1942,7 @@ function thold_edit() {
 			),
 			'trigger_cmd_high' => array(
 				'friendly_name' => __('High Trigger Command', 'thold'),
-				'description' => __('If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  They include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
+				'description' => __('If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
 				'method' => 'textarea',
 				'textarea_rows' => '4',
 				'textarea_cols' => '80',
@@ -1940,7 +1950,7 @@ function thold_edit() {
 			),
 			'trigger_cmd_low' => array(
    				'friendly_name' => __('Low Trigger Command', 'thold'),
-				'description' => __('If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  They include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
+				'description' => __('If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
 				'method' => 'textarea',
 				'textarea_rows' => '4',
 				'textarea_cols' => '80',
@@ -1948,7 +1958,7 @@ function thold_edit() {
 			),
 			'trigger_cmd_norm' => array(
 				'friendly_name' => __('Norm Trigger Command', 'thold'),
-				'description' => __('If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  They include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
+				'description' => __('If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
 				'method' => 'textarea',
 				'textarea_rows' => '4',
 				'textarea_cols' => '80',
@@ -2067,6 +2077,7 @@ function thold_edit() {
 		// Email Body options
 		$('#email_body').prop('disabled', status);
 		$('#email_body_warn').prop('disabled', status);
+		$('#email_body_restoral').prop('disabled', status);
 
 		// Syslog settings
 		$('#syslog_enabled').prop('disabled', status);

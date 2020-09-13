@@ -689,7 +689,7 @@ function thold_device_action_prepare($save) {
 	print "<tr>
 		<td colspan='2' class='textArea'>
 			<p>" . __('Click \'Continue\' to apply all appropriate Thresholds to these Device(s).', 'thold') . "</p>
-			<ul>" . $save['host_list'] . "</ul>
+			<div class='itemlist'><ul>" . $save['host_list'] . "</ul></div>
 		</td>
 	</tr>";
 }
@@ -742,6 +742,12 @@ function thold_api_device_save($save) {
 		$save['thold_host_email'] = form_input_validate(get_nfilter_request_var('thold_host_email'), 'thold_host_email', '', true, 3);
 	} else {
 		$save['thold_host_email'] = form_input_validate('', 'thold_host_email', '', true, 3);
+	}
+
+	if (isset_request_var('thold_failure_count')) {
+		$save['thold_failure_count'] = form_input_validate(get_nfilter_request_var('thold_failure_count'), 'thold_failure_count', '', true, 3);
+	} else {
+		$save['thold_failure_count'] = form_input_validate('', 'thold_failure_count', '', true, 3);
 	}
 
 	return $save;
@@ -933,11 +939,11 @@ function thold_data_source_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print '<p>' . __('The following Data Sources have no Threshold Templates associated with them', 'thold') . '</p>';
-				print '<ul>' . $not_found . '</ul>';
+				print '<div class="itemlist"><ul>' . $not_found . '</ul></div>';
 			}
 
 			print '<p>' . __('Click \'Continue\' to create Thresholds for these Data Sources?', 'thold') . '</p>
-					<ul>' . $found_list . "</ul>
+					<div class="itemlist"><ul>' . $found_list . "</ul></div>
 				</td>
 			</tr></table><table class='cactiTable'><tr><td>";
 
@@ -965,7 +971,7 @@ function thold_data_source_action_prepare($save) {
 		} else {
 			if (strlen($not_found)) {
 				print '<p>' . __('There are no Threshold Templates associated with the following Data Sources', 'thold'). '</p>';
-				print '<ul>' . $not_found . '</ul>';
+				print '<div class="itemlist"><ul>' . $not_found . '</ul></div>';
 			}
 		}
 
@@ -1090,11 +1096,11 @@ function thold_graphs_action_prepare($save) {
 		if (strlen($found_list)) {
 			if (strlen($not_found)) {
 				print '<p>' . __('The following Graphs have no Threshold Templates associated with them', 'thold') . '</p>';
-				print '<ul>' . $not_found . '</ul>';
+				print '<div class="itemlist"><ul>' . $not_found . '</ul></div>';
 			}
 
 			print '<p>' . __('Press \'Continue\' if you wish to create Threshold(s) for these Graph(s)', 'thold') . '</p>
-				<ul>' . $found_list . "</ul>
+				<div class="itemlist"><ul>' . $found_list . "</ul></div>
 				</td>
 			</tr></table><table class='cactiTable'><tr><td>";
 
@@ -1121,7 +1127,7 @@ function thold_graphs_action_prepare($save) {
 		} else {
 			if (strlen($not_found)) {
 				print '<p>' . __('There are no Threshold Templates associated with the following Graphs', 'thold') . '</p>';
-				print '<ul>' . $not_found . '</ul>';
+				print '<div class="itemlist"><ul>' . $not_found . '</ul></div>';
 			}
 		}
 

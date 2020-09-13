@@ -661,7 +661,7 @@ function thold_wizard() {
 				'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
 				'on_change' => 'applyTholdFilter()',
 				'array' => $hosts,
-				'value' => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
+				'value' => $host_id,
 				'none_value' => __('Select a Device', 'thold')
 			);
 		}
@@ -966,7 +966,7 @@ function thold_new_graphs_save($host_id) {
 				foreach($snmp_index_array as $snmp_index => $true) {
 					$snmp_query_array['snmp_index'] = decode_data_query_index($snmp_index, $snmp_query_array['snmp_query_id'], $host_id);
 
-					$return_array = create_complete_graph_from_template($graph_template_id, $host_id, $snmp_query_array, $values['sg']{$snmp_query_array['snmp_query_id']});
+					$return_array = create_complete_graph_from_template($graph_template_id, $host_id, $snmp_query_array, $values['sg'][$snmp_query_array['snmp_query_id']]);
 
 					if (cacti_sizeof($return_array)) {
 						thold_raise_message(__esc('Created graph: %s', get_graph_title($return_array['local_graph_id']), 'thold'), MESSAGE_LEVEL_INFO);

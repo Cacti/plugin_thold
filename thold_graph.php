@@ -132,7 +132,7 @@ function form_thold_filter() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
@@ -157,7 +157,7 @@ function form_thold_filter() {
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
 						<span>
-							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()'>
+							<input id='refresh' type='submit' value='<?php print __esc('Go', 'thold');?>'>
 							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
 						</span>
 					</td>
@@ -247,7 +247,7 @@ function form_thold_filter() {
 			strURL += '&host_id=' + $('#host_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -259,10 +259,6 @@ function form_thold_filter() {
 		$(function() {
 			$('#thold').submit(function(event) {
 				event.preventDefault();
-				applyFilter();
-			});
-
-			$('#filter').change(function() {
 				applyFilter();
 			});
 		});
@@ -293,8 +289,8 @@ function tholds() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -366,8 +362,8 @@ function tholds() {
 		if (get_request_var('status') == '4') { $sql_where = "(td.acknowledgment = 'on'"; } /* status */
 	}
 
-	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where == '' ? '(':' AND') . ' td.name_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (get_request_var('rfilter') != '') {
+		$sql_where .= ($sql_where == '' ? '(':' AND') . ' td.name_cache RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	/* data template id filter */
@@ -607,7 +603,7 @@ function tholds() {
 
 			form_selectable_cell($actions_url, $thold_data['id'], '', 'left');
 
-			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('filter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
+			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('rfilter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
 
@@ -725,8 +721,8 @@ function hosts() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -773,10 +769,11 @@ function hosts() {
 
 	/* form the 'where' clause for our main sql query */
 	$sql_where = '';
-	if (get_request_var('filter') != '') {
-		$sql_where = ' (h.deleted = "" AND (
-			h.hostname LIKE '       . db_qstr('%' . get_request_var('filter') . '%') . '
-			OR h.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
+
+	if (get_request_var('rfilter') != '') {
+		$sql_where .= ' (h.deleted = ""
+			AND (h.hostname RLIKE "'       . get_request_var('rfilter') . '"
+			OR h.description RLIKE "' . get_request_var('rfilter') . '")';
 	}
 
 	if (get_request_var('host_status') == '-1') {
@@ -930,7 +927,7 @@ function hosts() {
 
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
 
-				form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], '', 'left');
+				form_selectable_cell(filter_value($host['description'], get_request_var('rfilter')), $host['id'], '', 'left');
 
 				form_selectable_cell(number_format_i18n($host['id']), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($host['graphs']), $host['id'], '', 'right');
@@ -940,7 +937,7 @@ function hosts() {
 
 				form_selectable_cell(get_timeinstate($host), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
-				form_selectable_cell(filter_value($host['hostname'], get_request_var('filter')), $host['id'], '', 'right');
+				form_selectable_cell(filter_value($host['hostname'], get_request_var('rfilter')), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n(($host['cur_time']), 2), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n(($host['avg_time']), 2), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($host['availability'], 2), $host['id'], '', 'right');
@@ -954,14 +951,14 @@ function hosts() {
 				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'thold') . "'></a>";
 
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
-				form_selectable_cell(filter_value($host['description'], get_request_var('filter')), $host['id'], '', 'left');
+				form_selectable_cell(filter_value($host['description'], get_request_var('rfilter')), $host['id'], '', 'left');
 				form_selectable_cell(number_format_i18n($host['id']), $host['id'], '', 'right');
 				form_selectable_cell('<i>' . number_format_i18n($host['graphs']) . '</i>', $host['id'], '', 'right');
 				form_selectable_cell('<i>' . number_format_i18n($host['data_sources']) . '</i>', $host['id'], '', 'right');
 				form_selectable_cell(__('Not Monitored', 'thold'), $host['id'], '', 'center');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
-				form_selectable_cell(filter_value($host['hostname'], get_request_var('filter')), $host['id'], '', 'right');
+				form_selectable_cell(filter_value($host['hostname'], get_request_var('rfilter')), $host['id'], '', 'right');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
@@ -997,7 +994,7 @@ function form_host_filter() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
@@ -1037,7 +1034,7 @@ function form_host_filter() {
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()'>
+							<input id='refresh' type='submit' value='<?php print __esc('Go', 'thold');?>'>
 							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
 						</span>
 					</td>
@@ -1091,7 +1088,7 @@ function form_host_filter() {
 			strURL += '&host_template_id=' + $('#host_template_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -1103,10 +1100,6 @@ function form_host_filter() {
 		$(function() {
 			$('#form_devices').submit(function(event) {
 				event.preventDefault();
-				applyFilter();
-			});
-
-			$('#filter').change(function() {
 				applyFilter();
 			});
 		});
@@ -1129,8 +1122,8 @@ function thold_validate_log_vars() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -1214,14 +1207,12 @@ function thold_export_log() {
 		}
 	}
 
-	if (get_request_var('status') == '-1') {
-		/* Show all items */
-	} else {
+	if (get_request_var('status') != '-1') {
 		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status=' . get_request_var('status');
 	}
 
-	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (get_request_var('rfilter') != '') {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	$sql_order  = '';
@@ -1275,7 +1266,7 @@ function thold_show_log() {
 	} elseif (get_request_var('host_id') == '0') {
 		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.id IS NULL';
 	} elseif (!isempty_request_var('host_id')) {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.host_id=' . get_request_var('host_id');
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.host_id = ' . get_request_var('host_id');
 	}
 
 	if (get_request_var('site_id') == '-1') {
@@ -1283,7 +1274,7 @@ function thold_show_log() {
 	} elseif (get_request_var('site_id') == '0') {
 		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.site_id IS NULL';
 	} elseif (!isempty_request_var('site_id')) {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.site_id=' . get_request_var('site_id');
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' h.site_id = ' . get_request_var('site_id');
 	}
 
 	if (get_request_var('threshold_id') == '-1') {
@@ -1291,7 +1282,7 @@ function thold_show_log() {
 	} elseif (get_request_var('threshold_id') == '0') {
 		$sql_where .= ($sql_where == '' ? '':' AND') . ' td.id IS NULL';
 	} elseif (get_request_var('threshold_id') > 0) {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' td.id=' . get_request_var('threshold_id');
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' td.id = ' . get_request_var('threshold_id');
 	}
 
 	/* thold template id filter */
@@ -1303,14 +1294,12 @@ function thold_show_log() {
 		}
 	}
 
-	if (get_request_var('status') == '-1') {
-		/* Show all items */
-	} else {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status=' . get_request_var('status');
+	if (get_request_var('status') != '-1') {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status = ' . get_request_var('status');
 	}
 
-	if (get_request_var('filter') != '') {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (get_request_var('rfilter') != '') {
+		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	$sql_order = get_order_string();
@@ -1388,7 +1377,7 @@ function thold_show_log() {
 			form_selectable_cell($l['hdescription'], $l['id'], '', 'left');
 			form_selectable_cell(date('Y-m-d H:i:s', $l['time']), $l['id'], '', 'left');
 			form_selectable_cell($thold_types[$l['type']], $l['id'], '', 'left');
-			form_selectable_cell((strlen($l['description']) ? $l['description']:__('Restoral Event', 'thold')), $l['id'], '', 'left');
+			form_selectable_cell((strlen($l['description']) ? filter_value($l['description'], get_request_var('rfilter')):__('Restoral Event', 'thold')), $l['id'], '', 'left');
 			form_selectable_cell($l['threshold_value'] != '' ? thold_format_number($l['threshold_value'], 2, $baseu, $suffix):__('N/A', 'thold'), $l['id'], '', 'right');
 			form_selectable_cell($l['current'] != '' ? thold_format_number($l['current'], 2, $baseu, $suffix):__('N/A', 'thold'), $l['id'], '', 'right');
 			form_end_row();
@@ -1419,7 +1408,7 @@ function form_thold_log_filter() {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>'>
 					</td>
 					<td>
 						<?php print __('Site', 'thold');?>
@@ -1444,7 +1433,7 @@ function form_thold_log_filter() {
 					<?php print html_host_filter(get_request_var('host_id'));?>
 					<td>
 						<span>
-							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()'>
+							<input id='refresh' type='submit' value='<?php print __esc('Go', 'thold');?>'>
 							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
 							<input id='export' type='button' value='<?php print __esc('Export', 'thold');?>' onClick='exportLog()'>
 						</span>
@@ -1535,7 +1524,7 @@ function form_thold_log_filter() {
 			strURL += '&host_id=' + $('#host_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -1545,7 +1534,6 @@ function form_thold_log_filter() {
 		}
 
 		function exportLog() {
-console.log('stuff');
 			strURL  = 'thold_graph.php?action=exportlog';
 			strURL += '&status=' + $('#status').val();
 			strURL += '&threshold_id=' + $('#threshold_id').val();
@@ -1553,17 +1541,13 @@ console.log('stuff');
 			strURL += '&host_id=' + $('#host_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			document.location = strURL;
 		}
 
 		$(function() {
 			$('#form_log').submit(function(event) {
 				event.preventDefault();
-				applyFilter();
-			});
-
-			$('#filter').change(function() {
 				applyFilter();
 			});
 		});

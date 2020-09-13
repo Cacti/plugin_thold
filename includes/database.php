@@ -1321,8 +1321,32 @@ function thold_upgrade_database($force = false) {
 			'after'    => 'notify_warning_extra'));
 	}
 
-	if (cacti_version_compare($oldv, '1.4.0', '<')) {
+	if (cacti_version_compare($oldv, '1.5', '<')) {
+		api_plugin_db_add_column('thold', 'host', array(
+			'name'     => 'thold_failure_count',
+			'type'     => 'int(10)',
+			'unsigned' => true,
+			'NULL'     => false,
+			'default'  => '0',
+			'after'    => 'thold_host_email'));
+
+		// Add restoral message option
 		db_add_column('thold_data', array(
+			'name'     => 'email_body_restoral',
+			'type'     => 'varchar(1024)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'email_body_warn'));
+
+		// Add restoral message option
+		db_add_column('thold_template', array(
+			'name'     => 'email_body_restoral',
+			'type'     => 'varchar(1024)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'email_body_warn'));
+    
+ 		db_add_column('thold_data', array(
 			'name' => 'upper_ds',
 			'type' => 'varchar(64)',
 			'NULL' => false,
@@ -1444,6 +1468,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_body_restoral', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
@@ -1519,6 +1544,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_body_restoral', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_high', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
@@ -1605,6 +1631,7 @@ function thold_setup_database() {
 
 	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
 	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => true, 'after' => 'thold_send_email'));
+	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_failure_count', 'type' => 'int(10)', 'NULL' => false, 'default' => '0', 'after' => 'thold_host_email'));
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'unsigned' => true, 'auto_increment' => true);

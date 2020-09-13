@@ -2488,8 +2488,8 @@ function thold_check_threshold(&$thold_data) {
 					$warning_emails = get_thold_warning_emails($thold_data);
 
 					if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on' && $thold_data['acknowledgment'] == '') {
-						$warn_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($warning_emails, '', $subject, $warn_msg, $file_array);
+						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+						thold_mail($warning_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					$save = array(
@@ -2537,8 +2537,8 @@ function thold_check_threshold(&$thold_data) {
 					$alert_emails = get_thold_alert_emails($thold_data);
 
 					if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on' && $thold_data['acknowledgment'] == '') {
-						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, '', $subject, $alert_msg, $file_array);
+						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+						thold_mail($alert_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);
@@ -2613,8 +2613,8 @@ function thold_check_threshold(&$thold_data) {
 					$alert_emails = get_thold_alert_emails($thold_data);
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, '', $subject, $alert_msg, $file_array);
+						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+						thold_mail($alert_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);
@@ -3155,8 +3155,8 @@ function thold_check_threshold(&$thold_data) {
 				$warning_emails = get_thold_warning_emails($thold_data);
 
 				if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on') {
-					$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-					thold_mail($warning_emails, '', $subject, $alert_msg, $file_array);
+					$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+					thold_mail($warning_emails, '', $subject, $restoral_msg, $file_array);
 				}
 
 				$save = array(
@@ -3221,8 +3221,8 @@ function thold_check_threshold(&$thold_data) {
 				$alert_emails = get_thold_alert_emails($thold_data);
 
 				if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on') {
-					$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-					thold_mail($alert_emails, '', $subject, $alert_msg, $file_array);
+					$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+					thold_mail($alert_emails, '', $subject, $restoral_msg, $file_array);
 				}
 
 				thold_command_execution($thold_data, $h, false, false, true);
@@ -3651,7 +3651,10 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 	$peralert     = read_config_option('thold_enable_per_thold_body');
 
 	if ($peralert == 'on') {
-		$warning_text = db_fetch_cell_prepared('SELECT email_body_warn FROM thold_data WHERE id = ?', array($thold['id']));
+		$warning_text = db_fetch_cell_prepared('SELECT email_body_warn
+			FROM thold_data
+			WHERE id = ?',
+			array($thold['id']));
 	}
 
 	/* make sure the warning text has been set */
@@ -3667,6 +3670,33 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 	$warning_text = thold_replace_threshold_tags($warning_text, $thold, $h, $currentval, $local_graph_id, $data_source_name);
 
 	return $warning_text;
+}
+
+function get_thold_restoral_text($data_source_name, $thold, $h, $currentval, $local_graph_id) {
+	$restoral_text = read_config_option('thold_restoral_text');
+	$httpurl    = read_config_option('base_url');
+	$peralert   = read_config_option('thold_enable_per_thold_body');
+
+	if ($peralert == 'on') {
+		$restoral_text = db_fetch_cell_prepared('SELECT email_body_restoral
+			FROM thold_data
+			WHERE id = ?',
+			array($thold['id']));
+	}
+
+	/* make sure the alert text has been set */
+	if ($restoral_text == '') {
+		$restoral_text = __('<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>', 'thold');
+	}
+
+	if ($thold['notes'] != '') {
+		$notes = thold_replace_threshold_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
+		$restoral_text = str_replace('<NOTES>', $notes, $restoral_text);
+	}
+
+	$restoral_text = thold_replace_threshold_tags($restoral_text, $thold, $h, $currentval, $local_graph_id, $data_source_name);
+
+	return $restoral_text;
 }
 
 function thold_modify_values_by_cdef(&$thold_data) {
@@ -4782,8 +4812,9 @@ function save_thold() {
 	$save['upper_ds']   = (isset_request_var('upper_ds')) ? get_nfilter_request_var('upper_ds') : '';
 
 	// Email Bodies
-	$save['email_body']      = get_nfilter_request_var('email_body');
-	$save['email_body_warn'] = get_nfilter_request_var('email_body_warn');
+	$save['email_body']          = get_nfilter_request_var('email_body');
+	$save['email_body_warn']     = get_nfilter_request_var('email_body_warn');
+	$save['email_body_restoral'] = get_nfilter_request_var('email_body_restoral');
 
 	// Command execution
 	$save['trigger_cmd_high'] = get_nfilter_request_var('trigger_cmd_high');
@@ -5040,8 +5071,9 @@ function thold_create_thold_save_from_template($save, $template) {
 	$save['persist_ack']    = $template['persist_ack'];
 
 	// Email
-	$save['email_body']      = $template['email_body'];
-	$save['email_body_warn'] = $template['email_body_warn'];
+	$save['email_body']          = $template['email_body'];
+	$save['email_body_warn']     = $template['email_body_warn'];
+	$save['email_body_restoral'] = $template['email_body_restoral'];
 
 	// SNMP
 	$save['snmp_event_category']         = $template['snmp_event_category'];
@@ -5296,7 +5328,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 				thold_template_update_threshold($id, $save['thold_template_id']);
 				plugin_thold_log_changes($id, 'auto_created', $save['name_cache']);
 
-				$message .= __esc('Created Threshold: %s<br>', $save['name_cache'], 'thold');
+				$message .= __esc('Created Threshold: %s', $save['name_cache'], 'thold') . '<br>';
 
 				return true;
 			}
@@ -5462,7 +5494,8 @@ function thold_template_update_threshold($id, $template) {
 		td.expression = tt.expression, td.upper_ds = tt.upper_ds, td.exempt = tt.exempt,
 		td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
 		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning,
-		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body, td.email_body_warn = tt.email_body_warn,
+		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
+		td.email_body_warn = tt.email_body_warn, td.email_body_restoral = tt.email_body_restoral,
 		td.trigger_cmd_high = tt.trigger_cmd_high, td.trigger_cmd_low = tt.trigger_cmd_low,
 		td.trigger_cmd_norm = tt.trigger_cmd_norm, td.syslog_enabled = tt.syslog_enabled, td.syslog_priority = tt.syslog_priority,
 		td.syslog_facility = tt.syslog_facility, td.snmp_event_category = tt.snmp_event_category,
@@ -5507,8 +5540,8 @@ function thold_template_update_thresholds($id) {
 		td.exempt = tt.exempt, td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
 		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning,
 		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
-		td.email_body_warn = tt.email_body_warn, td.trigger_cmd_high = tt.trigger_cmd_high,
-		td.trigger_cmd_low = tt.trigger_cmd_low, td.trigger_cmd_norm = tt.trigger_cmd_norm,
+		td.email_body_warn = tt.email_body_warn, td.email_body_restoral = tt.email_body_restoral,
+		td.trigger_cmd_high = tt.trigger_cmd_high, td.trigger_cmd_low = tt.trigger_cmd_low, td.trigger_cmd_norm = tt.trigger_cmd_norm,
 		td.syslog_enabled = tt.syslog_enabled, td.syslog_priority = tt.syslog_priority,
 		td.syslog_facility = tt.syslog_facility, td.snmp_event_category = tt.snmp_event_category,
 		td.snmp_event_severity = tt.snmp_event_severity, td.snmp_event_warning_severity = tt.snmp_event_warning_severity,

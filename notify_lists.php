@@ -907,11 +907,10 @@ function hosts($header_label) {
 			'pageset' => true,
 			'default' => '-1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
-			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
+			'default' => ''
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
@@ -957,7 +956,7 @@ function hosts($header_label) {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>' onChange='applyFilter()'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>' onChange='applyFilter()'>
 					</td>
 					<td>
 						<?php print __('Site');?>
@@ -1020,7 +1019,7 @@ function hosts($header_label) {
 					</td>
 					<td>
 						<span>
-							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
+							<input type='submit' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
 							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
 						</span>
 					</td>
@@ -1035,7 +1034,7 @@ function hosts($header_label) {
 			strURL += '&host_template_id=' + $('#host_template_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&associated=' + $('#associated').is(':checked');
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -1063,10 +1062,10 @@ function hosts($header_label) {
 	html_end_box();
 
 	/* form the 'where' clause for our main sql query */
-	if (strlen(get_request_var('filter'))) {
+	if (strlen(get_request_var('rfilter'))) {
 		$sql_where = 'WHERE (
-			host.hostname LIKE '       . db_qstr('%' . get_request_var('filter') . '%') . '
-			OR host.description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
+			host.hostname RLIKE "'       . get_request_var('rfilter') . '"
+			OR host.description RLIKE "' . get_request_var('filter')  . '")';
 	} else {
 		$sql_where = '';
 	}
@@ -1146,7 +1145,7 @@ function hosts($header_label) {
 		foreach ($hosts as $host) {
 			form_alternate_row('line' . $host['id'], true);
 
-			form_selectable_cell(filter_value($host['description'], get_request_var('filter'), $config['url_path'] . 'host.php?action=edit&id=' . $host['id']), $host['id'],250);
+			form_selectable_cell(filter_value($host['description'], get_request_var('rfilter'), $config['url_path'] . 'host.php?action=edit&id=' . $host['id']), $host['id'],250);
 
 			form_selectable_ecell($host['site_name'] != '' ? $host['site_name'] : __('None', 'thold'), $host['id']);
 			form_selectable_cell($host['id'], $host['id']);
@@ -1175,7 +1174,7 @@ function hosts($header_label) {
 			form_selectable_cell((isset($host_graphs[$host['id']]) ? $host_graphs[$host['id']] : 0), $host['id']);
 			form_selectable_cell((isset($host_data_sources[$host['id']]) ? $host_data_sources[$host['id']] : 0), $host['id']);
 			form_selectable_cell(get_colored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']), $host['id']);
-			form_selectable_cell(filter_value($host['hostname'], get_request_var('filter')), $host['id']);
+			form_selectable_cell(filter_value($host['hostname'], get_request_var('rfilter')), $host['id']);
 			form_checkbox_cell($host['description'], $host['id']);
 
 			form_end_row();
@@ -1206,7 +1205,8 @@ function tholds($header_label) {
 
 	thold_request_validation();
 
-	$statefilter='';
+	$statefilter = '';
+
 	if (isset_request_var('state')) {
 		if (get_request_var('state') == '-1') {
 			$statefilter = '';
@@ -1242,8 +1242,8 @@ function tholds($header_label) {
 		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id=' . get_request_var('site_id');
 	}
 
-	if (strlen(get_request_var('filter'))) {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (strlen(get_request_var('rfilter'))) {
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache RLIKE "' . get_request_var('filter') . '"';
 	}
 
 	if ($statefilter != '') {
@@ -1273,7 +1273,7 @@ function tholds($header_label) {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>' onChange='applyFilter()'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>' onChange='applyFilter()'>
 					</td>
 					<td>
 						<?php print __('Site');?>
@@ -1341,7 +1341,7 @@ function tholds($header_label) {
 					</td>
 					<td>
 						<span>
-							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
+							<input type='submit' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
 							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
 						</span>
 					</td>
@@ -1357,7 +1357,7 @@ function tholds($header_label) {
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
 			strURL += '&template=' + $('#template').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -1504,7 +1504,7 @@ function tholds($header_label) {
 
 			form_alternate_row('line' . $row['id'], true, $disabled);
 
-			form_selectable_cell(filter_value($row['name_cache'], get_request_var('filter')), $row['id']);
+			form_selectable_cell(filter_value($row['name_cache'], get_request_var('rfilter')), $row['id']);
 			form_selectable_cell($row['id'], $row['id']);
 			form_selectable_cell($warn_stat, $row['id']);
 			form_selectable_cell($alert_stat, $row['id']);
@@ -1557,8 +1557,8 @@ function templates($header_label) {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . '(notify_warning=' . get_request_var('id') . ' OR notify_alert=' . get_request_var('id') . ')';
 	}
 
-	if (strlen(get_request_var('filter'))) {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_template.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+	if (strlen(get_request_var('rfilter'))) {
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_template.name RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	$sql = "SELECT *
@@ -1580,7 +1580,7 @@ function templates($header_label) {
 						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>' onChange='applyFilter()'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>' onChange='applyFilter()'>
 					</td>
 					<td>
 						<?php print __('Rows', 'thold');?>
@@ -1605,7 +1605,7 @@ function templates($header_label) {
 					</td>
 					<td>
 						<span>
-							<input type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
+							<input type='submit' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
 							<input type='button' id='clear' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold');?>'>
 						</span>
 					</td>
@@ -1618,7 +1618,7 @@ function templates($header_label) {
 			strURL  = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print get_request_var('id');?>'
 			strURL += '&associated=' + $('#associated').is(':checked');
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -1734,7 +1734,7 @@ function templates($header_label) {
 
 			form_alternate_row('line' . $row['id'], true);
 
-			form_selectable_cell(filter_value($row['name'], get_request_var('filter')), $row['id']);
+			form_selectable_cell(filter_value($row['name'], get_request_var('rfilter')), $row['id']);
 			form_selectable_cell($row['id'], $row['id']);
 			form_selectable_cell($warn_stat, $row['id']);
 			form_selectable_cell($alert_stat, $row['id']);
@@ -1774,8 +1774,8 @@ function thold_template_request_validation() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -1812,8 +1812,8 @@ function thold_request_validation() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -1861,8 +1861,8 @@ function lists() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
 			),
@@ -1900,7 +1900,7 @@ function lists() {
 						<?php print __('Search', 'thold')?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter');?>'>
 					</td>
 					<td>
 						<?php print __('Lists', 'thold')?>
@@ -1918,7 +1918,7 @@ function lists() {
 						</select>
 					</td>
 					<td>
-						<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>' onClick='applyFilter()'>
+						<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' title='<?php print __esc('Set/Refresh Filters', 'thold');?>'>
 					</td>
 					<td>
 						<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' title='<?php print __esc('Clear Filters', 'thold');?>' onClick='clearFilter()'>
@@ -1931,7 +1931,7 @@ function lists() {
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false';
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
@@ -1955,11 +1955,11 @@ function lists() {
 	html_end_box();
 
 	/* form the 'where' clause for our main sql query */
-	if (strlen(get_request_var('filter'))) {
+	if (strlen(get_request_var('rfilter'))) {
 		$sql_where = 'WHERE (
-		name LIKE '           . db_qstr('%' . get_request_var('filter') . '%') . '
-		OR description LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . '
-		OR emails LIKE '      . db_qstr('%' . get_request_var('filter') . '%') . ')';
+		name RLIKE "'           . get_request_var('rfilter') . '"
+		OR description RLIKE "' . get_request_var('rfilter') . '"
+		OR emails RLIKE "'      . get_request_var('rfilter') . '")';
 	} else {
 		$sql_where = '';
 	}
@@ -1983,7 +1983,7 @@ function lists() {
 		$sql_order
 		$sql_limit");
 
-	$nav = html_nav_bar('notify_lists.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Lists', 'thold'), 'page', 'main');
+	$nav = html_nav_bar('notify_lists.php', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Lists', 'thold'), 'page', 'main');
 
 	form_start('notify_lists.php', 'chk');
 
@@ -2004,12 +2004,12 @@ function lists() {
 	if (cacti_sizeof($lists)) {
 		foreach ($lists as $item) {
 			form_alternate_row('line' . $item['id'], true);
-			form_selectable_cell(filter_value($item['name'], get_request_var('filter'), 'notify_lists.php?action=edit&id=' . $item['id']), $item['id'], '20%','badclass');
-			form_selectable_cell(filter_value($item['hosts'], get_request_var('filter'), 'notify_lists.php?tab=hosts&action=edit&id='.$item['id']), $item['id'], '5%','badclass');
-			form_selectable_cell(filter_value('Warn: '.$item['thold_warnings'].', Alert: '.$item['thold_alerts'] , get_request_var('filter'), 'notify_lists.php?tab=tholds&action=edit&id='.$item['id']), $item['id'], '10%');
-			form_selectable_cell(filter_value('Warn: '.$item['template_warnings'].', Alert: '.$item['template_alerts'] , get_request_var('filter'), 'notify_lists.php?tab=templates&action=edit&id='.$item['id']), $item['id'], '10%','badclass');
-			form_selectable_cell(filter_value($item['description'], get_request_var('filter')), $item['id'], '25%','badclass');
-			form_selectable_cell(filter_value($item['emails'], get_request_var('filter')), $item['id'], '45%','badclass');
+			form_selectable_cell(filter_value($item['name'], get_request_var('rfilter'), 'notify_lists.php?action=edit&id=' . $item['id']), $item['id'], '20%','badclass');
+			form_selectable_cell(filter_value($item['hosts'], get_request_var('rfilter'), 'notify_lists.php?tab=hosts&action=edit&id='.$item['id']), $item['id'], '5%','badclass');
+			form_selectable_cell(filter_value('Warn: '.$item['thold_warnings'].', Alert: '.$item['thold_alerts'] , get_request_var('rfilter'), 'notify_lists.php?tab=tholds&action=edit&id='.$item['id']), $item['id'], '10%');
+			form_selectable_cell(filter_value('Warn: '.$item['template_warnings'].', Alert: '.$item['template_alerts'] , get_request_var('rfilter'), 'notify_lists.php?tab=templates&action=edit&id='.$item['id']), $item['id'], '10%','badclass');
+			form_selectable_cell(filter_value($item['description'], get_request_var('rfilter')), $item['id'], '25%','badclass');
+			form_selectable_cell(filter_value($item['emails'], get_request_var('rfilter')), $item['id'], '45%','badclass');
 			form_checkbox_cell($item['name'], $item['id']);
 			form_end_row();
 		}
