@@ -89,6 +89,30 @@ function thold_poller_bottom() {
 		/* collect some stats */
 		$now = microtime(true);
 
+		/* get the last update from the daemon */
+		$heartbeat       = read_config_option('thold_daemon_heartbeat');
+		$poller_interval = read_config_option('poller_interval');
+		$curtime         = time();
+		$frequency       = read_config_option('thold_daemon_dead_notification');
+
+		if ($frequency > 0) {
+			if (empty($heartbeat)) {
+				$last_notification = read_config_option('thold_daemon_down_notify_time');
+
+				if ($curtime - $last_notification > $frequency) {
+					admin_email('Thold Daemon Not Started', 'WARNING: You have elected to use the Thold Daemon, but it appears not to be running.  Please correct this right away');
+					set_config_option('thold_daemon_down_notify_time', $curtime);
+				}
+			} elseif ($now - $heartbeat > 3 * $poller_interval) {
+				$last_notification = read_config_option('thold_daemon_down_notify_time');
+
+				if ($curtime - $last_notification > $frequency) {
+					admin_email('Thold Daemon Down', 'WARNING: You have elected to use the Thold Daemon, but it appears have stopped running.  Please correct this right away');
+					set_config_option('thold_daemon_down_notify_time', $curtime);
+				}
+			}
+		}
+
 		$max_concurrent_processes = read_config_option('thold_max_concurrent_processes');
 
 		/* begin transaction for repeatable read isolation level */

@@ -105,6 +105,8 @@ that.
 
 * issue#225: Customize Thold Restore message
 
+* issue#304: Warn Cacti Administrator if the Thold Daemon is Down
+
 * issue#366: When a value is undefined, Thresholds are no longer triggering when minimum is zero
 
 * issue#372: Thold plugin execute a script each time device state changes? v2

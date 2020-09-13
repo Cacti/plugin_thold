@@ -255,6 +255,8 @@ $queued_processes = 0;
 
 while (true) {
 	if (thold_db_connection()) {
+		set_config_option('thold_daemon_heartbeat', microtime(true));
+
 		// Initiate concurrent background processes as long as we do not hit the limits
 		if (read_config_option('remote_storage_method') == 1) {
 			$queue = db_fetch_assoc_prepared('SELECT *

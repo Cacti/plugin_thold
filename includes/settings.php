@@ -457,6 +457,20 @@ function thold_config_settings() {
 			'method' => 'checkbox',
 			'default' => ''
 		),
+		'thold_daemon_dead_notification' => array(
+			'friendly_name' => __('Daemon Down Notification Frequency', 'thold'),
+			'description' => __('If the Thold Daemon is found to be down, send out an Email notification at this frequency.', 'thold'),
+			'method' => 'drop_array',
+			'array' => array(
+				'-1'   => __('Disabled', 'thold'),
+				'600'  => __('Every %d Minutes', 10, 'thold'),
+				'1200'  => __('Every %d Minutes', 20, 'thold'),
+				'2400'  => __('Every %d Minutes', 40, 'thold'),
+				'3600'  => __('Every %d Hour', 1, 'thold'),
+				'7200'  => __('Every %d Hours', 2, 'thold')
+			),
+			'default' => 7200
+		),
 		'thold_max_concurrent_processes' => array(
 			'friendly_name' => __('Maximum Concurrent Threshold Processes', 'thold'),
 			'description' => __('The maximum number of concurrent processes to be handled by the Threshold Daemon.', 'thold'),
