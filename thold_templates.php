@@ -187,11 +187,14 @@ function do_actions() {
 							}
 						}
 					}
+
 					if (cacti_sizeof($message)) {
 						thold_raise_message(implode('<br>', $message), MESSAGE_LEVEL_ERROR);
 					}
+
 					break;
 			}
+
 			header('Location: thold_templates.php?header=false');
 			exit;
 		}

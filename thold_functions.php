@@ -5324,7 +5324,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 				thold_template_update_threshold($id, $save['thold_template_id']);
 				plugin_thold_log_changes($id, 'auto_created', $save['name_cache']);
 
-				$message .= __esc('Created Threshold: %s<br>', $save['name_cache'], 'thold');
+				$message .= __esc('Created Threshold: %s', $save['name_cache'], 'thold') . '<br>';
 
 				return true;
 			}
