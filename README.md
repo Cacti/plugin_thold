@@ -13,7 +13,7 @@ above!
 ## Installation
 
 To install the plugin, simply copy the plugin_thold directory to Cacti's plugins
-directory and rename it to simply 'thold'.  Once this is complete, goto Cacti's
+directory and rename it to simply 'thold'.  Once this is complete, go to Cacti's
 Plugin Management section, and Install and Enable the plugin.  Once this is
 complete, you can grant users permission to view and create Thresholds.
 
@@ -22,7 +22,7 @@ functioning in Cacti by going to Cacti's Console and under Configuration select
 Settings, and from there the 'Mail/Reporting/DNS'.  From there, you can test
 your mail settings to validate that users will receive notifications via email.
 
-After you have completed that, you should goto the 'Thresholds' Settings tab,
+After you have completed that, you should go to the 'Thresholds' Settings tab,
 and become familiar with its settings.  From there, you can provide overall
 control of thold, and set defaults for things like Email bodies, weekend
 exemptions, alert log retention, logging, etc.
@@ -34,9 +34,9 @@ pull request with your proposed changes.
 ## Usage
 
 The Cacti 1.0 version of thold is designed to work with Device Templates.
-Therefore, when you configure a Device Template, you can add default Thresold
+Therefore, when you configure a Device Template, you can add default Threshold
 Templates to that Device Template and when a Device in Cacti is created with
-that Device Template, all the required Thresolds will be created automatically.
+that Device Template, all the required Thresholds will be created automatically.
 Of course, creating stand alone Thresholds is still supported.
 
 Also new in thold version 1.0 is the ability to create multiple Thresholds per
@@ -84,6 +84,11 @@ other Data Sources in the Cacti graph in addition to the selected Data Source.
 It follows closely RRDtools RPN logic, and most RRDtool RPN functions are
 supported.
 
+If you plan on using the Threshold Daemon to increase the scalability of your
+thresholds, note that you must modify and install the thold_daemon.service file
+into your systemd configuration, and then start and test the service.  If you
+fail to perform these steps, thold will appear to not work as expected.
+
 Lastly, please note that several forks of the thold plugin are available from
 different sources.  These forks of thold are not necessarily compatible with the
 current version of Cacti's thold plugin.  Please be aware of this when
@@ -93,7 +98,7 @@ installing thold for the first time.
 
 The thold plugin has been in development for well over a decade with increasing
 functionality and stability over that time.  There have been several
-contributors to thold over the years.  Chief amonst them are Jimmy Conner, Larry
+contributors to thold over the years.  Chief among them are Jimmy Conner, Larry
 Adams, and Andreas Braun.  We hope that version 1.0 and beyond are the most
 stable and robust versions of thold ever published.  We are always looking for
 new ideas.  So, this won't be the last release of thold, you can rest assured of
@@ -102,6 +107,8 @@ that.
 ## ChangeLog
 
 --- develop ---
+
+* issue#187: Standalone Thresholds created do not read graph data due to threshold daemon not running
 
 * issue#225: Customize Thold Restore message
 
