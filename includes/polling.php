@@ -767,7 +767,7 @@ function thold_update_host_status() {
 					putenv('TOLD_AVG_TIME='      . $host['avg_time']);
 					putenv('TOLD_NOTES='         . $host['notes']);
 
-					if (file_exists($cmmmand) && is_executable($commmand)) {
+					if (file_exists($command) && is_executable($command)) {
 						$output = array();
 						$return = 0;
 
@@ -912,7 +912,7 @@ function thold_update_host_status() {
 				putenv('TOLD_AVG_TIME='      . $host['avg_time']);
 				putenv('TOLD_NOTES='         . $host['notes']);
 
-				if (file_exists($cmmmand) && is_executable($commmand)) {
+				if (file_exists($command) && is_executable($command)) {
 					$output = array();
 					$return = 0;
 
