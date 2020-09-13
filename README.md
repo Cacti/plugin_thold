@@ -143,6 +143,8 @@ that.
 
 * issue#442: THOLD daemon should not log errors on interruption/termination by user
 
+* issue#443: Add support for upper + lower bytes calculation
+
 * issue#444: PHP bug - Array and string offset access syntax with curly braces is deprecated
 
 * issue: Function array_column() missing from PHP5.4
