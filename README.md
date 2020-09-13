@@ -107,6 +107,8 @@ that.
 
 * issue#366: When a value is undefined, Thresholds are no longer triggering when minimum is zero
 
+* issue#372: Thold plugin execute a script each time device state changes? v2
+
 * issue#376: Question - Variables to use when sending a command
 
 * issue#402: Notification Lists should support searching via RegEx

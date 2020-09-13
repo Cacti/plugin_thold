@@ -551,12 +551,16 @@ function list_tholds() {
 	if (isset_request_var('state')) {
 		if (get_request_var('state') == '-1') {
 			$statefilter = '';
-		} else {
-			if (get_request_var('state') == '0') { $statefilter = "td.thold_enabled='off'"; }
-			if (get_request_var('state') == '2') { $statefilter = "td.thold_enabled='on'"; }
-			if (get_request_var('state') == '1') { $statefilter = '(td.thold_enabled=\'on\' AND (td.thold_alert!=0 OR td.bl_alert>0))'; }
-			if (get_request_var('state') == '3') { $statefilter = '(td.thold_enabled=\'on\' AND ((td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger)))'; }
-			if (get_request_var('state') == '4') { $statefilter = "(td.acknowledgment='on')"; }
+		} elseif (get_request_var('state') == '0') {
+			$statefilter = 'td.thold_enabled = "off"';
+		} elseif (get_request_var('state') == '2') {
+			$statefilter = 'td.thold_enabled = "on"';
+		} elseif (get_request_var('state') == '1') {
+			$statefilter = '(td.thold_enabled = "on" AND (td.thold_alert != 0 OR td.bl_alert > 0))';
+		} elseif (get_request_var('state') == '3') {
+			$statefilter = '(td.thold_enabled = "on" AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))';
+		} elseif (get_request_var('state') == '4') {
+			$statefilter = '(td.acknowledgment = "on")';
 		}
 	}
 
@@ -565,18 +569,18 @@ function list_tholds() {
 	$sql_where = '';
 
 	if (!isempty_request_var('host_id') && get_request_var('host_id') != '-1') {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "td.host_id = " . get_request_var('host_id');
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.host_id = ' . get_request_var('host_id');
 	}
 
 	if (!isempty_request_var('data_template_id') && get_request_var('data_template_id') != '-1') {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "td.data_template_id = " . get_request_var('data_template_id');
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.data_template_id = ' . get_request_var('data_template_id');
 	}
 
 	if (!isempty_request_var('thold_template_id')) {
 		if (get_request_var('thold_template_id') > 0) {
-			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "td.thold_template_id = " . get_request_var('thold_template_id');
+			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.thold_template_id = ' . get_request_var('thold_template_id');
 		} elseif (get_request_var('thold_template_id') == '-2') {
-			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "td.template_enabled = ''";
+			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.template_enabled = ""';
 		}
 	}
 
@@ -588,12 +592,12 @@ function list_tholds() {
 		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . $statefilter;
 	}
 
-	if (get_request_var('site_id') == '-1') {
-		/* Show all items */
-	} elseif (get_request_var('site_id') == '0') {
-		$sql_where .= ($sql_where == '' ? '(': ' AND') . ' h.site_id IS NULL';
-	} elseif (!isempty_request_var('site_id')) {
-		$sql_where .= ($sql_where == '' ? '(':' AND') . ' h.site_id=' . get_request_var('site_id');
+	if (get_request_var('site_id') != '-1') {
+		if (get_request_var('site_id') == '0') {
+			$sql_where .= ($sql_where == '' ? '(': ' AND') . ' h.site_id IS NULL';
+		} elseif (!isempty_request_var('site_id')) {
+			$sql_where .= ($sql_where == '' ? '(':' AND') . ' h.site_id = ' . get_request_var('site_id');
+		}
 	}
 
 	if ($sql_where != '') {
@@ -1745,7 +1749,7 @@ function thold_edit() {
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
 			'default' => read_config_option('thold_alert_text'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
 			'value' => isset($thold_data['email_body']) ? $thold_data['email_body'] : ''
 		),
 		'email_body_warn' => array(
@@ -1754,7 +1758,7 @@ function thold_edit() {
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
 			'default' => read_config_option('thold_warning_text'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold Warnings (255 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several descriptors that may be used.<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
 			'value' => isset($thold_data['email_body_warn']) ? $thold_data['email_body_warn'] : ''
 		),
 		'email_body_restoral' => array(
@@ -1763,7 +1767,7 @@ function thold_edit() {
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
 			'default' => read_config_option('thold_restoral_text'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several descriptors that may be used.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
 			'value' => isset($thold_data['email_body_restoral']) ? $thold_data['email_body_restoral'] : ''
 		),
 		'notify_warning' => array(
