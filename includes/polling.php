@@ -742,30 +742,30 @@ function thold_update_host_status() {
 
 				if ($command != '') {
 					putenv('THOLD_SUBJECT='      . $subject);
-					putenv('TOLD_HOSTNAME='      . $host['hostname']);
-					putenv('TOLD_HOST_ID='       . $host['id']);
-					putenv('TOLD_DESCRIPTION='   . $host['description']);
-					putenv('TOLD_TIME='          . time());
-					putenv('TOLD_DATE='          . date(CACTI_DATE_TIME_FORMAT));
-					putenv('TOLD_DATE_RFC822='   . date(DATE_RFC822));
+					putenv('THOLD_HOSTNAME='      . $host['hostname']);
+					putenv('THOLD_HOST_ID='       . $host['id']);
+					putenv('THOLD_DESCRIPTION='   . $host['description']);
+					putenv('THOLD_TIME='          . time());
+					putenv('THOLD_DATE='          . date(CACTI_DATE_TIME_FORMAT));
+					putenv('THOLD_DATE_RFC822='   . date(DATE_RFC822));
 
-					putenv('TOLD_UPTIME='        . $snmp_uptime);
-					putenv('TOLD_UPTIMETEXT='    . $uptimelong);
-					putenv('TOLD_DOWNTIME='      . $downtimemsg);
-					putenv('TOLD_MESSAGE='       . '');
-					putenv('TOLD_DOWNUP='        . 'UP');
+					putenv('THOLD_UPTIME='        . $snmp_uptime);
+					putenv('THOLD_UPTIMETEXT='    . $uptimelong);
+					putenv('THOLD_DOWNTIME='      . $downtimemsg);
+					putenv('THOLD_MESSAGE='       . '');
+					putenv('THOLD_DOWNUP='        . 'UP');
 
-					putenv('TOLD_SNMP_HOSTNAME=' . $snmp_hostname);
-					putenv('TOLD_SNMP_LOCATION=' . $snmp_location);
-					putenv('TOLD_SNMP_CONTACT='  . $snmp_contact);
-					putenv('TOLD_SNMP_SYSTEM='   . $snmp_system);
-					putenv('TOLD_LAST_FAIL='     . $host['status_fail_date']);
-					putenv('TOLD_AVAILABILITY='  . $host['availability']);
-					putenv('TOLD_TOT_POLL='      . $host['total_polls']);
-					putenv('TOLD_FAIL_POLL='     . $host['failed_polls']);
-					putenv('TOLD_CUR_TIME='      . $host['cur_time']);
-					putenv('TOLD_AVG_TIME='      . $host['avg_time']);
-					putenv('TOLD_NOTES='         . $host['notes']);
+					putenv('THOLD_SNMP_HOSTNAME=' . $snmp_hostname);
+					putenv('THOLD_SNMP_LOCATION=' . $snmp_location);
+					putenv('THOLD_SNMP_CONTACT='  . $snmp_contact);
+					putenv('THOLD_SNMP_SYSTEM='   . $snmp_system);
+					putenv('THOLD_LAST_FAIL='     . $host['status_fail_date']);
+					putenv('THOLD_AVAILABILITY='  . $host['availability']);
+					putenv('THOLD_TOT_POLL='      . $host['total_polls']);
+					putenv('THOLD_FAIL_POLL='     . $host['failed_polls']);
+					putenv('THOLD_CUR_TIME='      . $host['cur_time']);
+					putenv('THOLD_AVG_TIME='      . $host['avg_time']);
+					putenv('THOLD_NOTES='         . $host['notes']);
 
 					if (file_exists($command) && is_executable($command)) {
 						$output = array();
@@ -888,29 +888,29 @@ function thold_update_host_status() {
 
 			if ($command != '') {
 				putenv('THOLD_SUBJECT='      . $subject);
-				putenv('TOLD_HOSTNAME='      . $host['hostname']);
-				putenv('TOLD_HOST_ID='       . $host['id']);
-				putenv('TOLD_DESCRIPTION='   . $host['description']);
-				putenv('TOLD_TIME='          . time());
-				putenv('TOLD_DATE='          . date(CACTI_DATE_TIME_FORMAT));
-				putenv('TOLD_DATE_RFC822='   . date(DATE_RFC822));
+				putenv('THOLD_HOSTNAME='      . $host['hostname']);
+				putenv('THOLD_HOST_ID='       . $host['id']);
+				putenv('THOLD_DESCRIPTION='   . $host['description']);
+				putenv('THOLD_TIME='          . time());
+				putenv('THOLD_DATE='          . date(CACTI_DATE_TIME_FORMAT));
+				putenv('THOLD_DATE_RFC822='   . date(DATE_RFC822));
 
-				putenv('TOLD_UPTIME=');
-				putenv('TOLD_DOWNTIME='      . $downtimemsg);
-				putenv('TOLD_MESSAGE='       . $host['status_last_error']);
-				putenv('TOLD_DOWNUP='        . 'DOWN');
+				putenv('THOLD_UPTIME=');
+				putenv('THOLD_DOWNTIME='      . $downtimemsg);
+				putenv('THOLD_MESSAGE='       . $host['status_last_error']);
+				putenv('THOLD_DOWNUP='        . 'DOWN');
 
-				putenv('TOLD_SNMP_HOSTNAME=' . $host['snmp_sysName']);
-				putenv('TOLD_SNMP_LOCATION=' . $host['snmp_sysLocation']);
-				putenv('TOLD_SNMP_CONTACT='  . $host['snmp_sysContact']);
-				putenv('TOLD_SNMP_SYSTEM=');
-				putenv('TOLD_LAST_FAIL='     . $host['status_fail_date']);
-				putenv('TOLD_AVAILABILITY='  . $host['availability']);
-				putenv('TOLD_TOT_POLL='      . $host['total_polls']);
-				putenv('TOLD_FAIL_POLL='     . $host['failed_polls']);
-				putenv('TOLD_CUR_TIME='      . $host['cur_time']);
-				putenv('TOLD_AVG_TIME='      . $host['avg_time']);
-				putenv('TOLD_NOTES='         . $host['notes']);
+				putenv('THOLD_SNMP_HOSTNAME=' . $host['snmp_sysName']);
+				putenv('THOLD_SNMP_LOCATION=' . $host['snmp_sysLocation']);
+				putenv('THOLD_SNMP_CONTACT='  . $host['snmp_sysContact']);
+				putenv('THOLD_SNMP_SYSTEM=');
+				putenv('THOLD_LAST_FAIL='     . $host['status_fail_date']);
+				putenv('THOLD_AVAILABILITY='  . $host['availability']);
+				putenv('THOLD_TOT_POLL='      . $host['total_polls']);
+				putenv('THOLD_FAIL_POLL='     . $host['failed_polls']);
+				putenv('THOLD_CUR_TIME='      . $host['cur_time']);
+				putenv('THOLD_AVG_TIME='      . $host['avg_time']);
+				putenv('THOLD_NOTES='         . $host['notes']);
 
 				if (file_exists($command) && is_executable($command)) {
 					$output = array();
