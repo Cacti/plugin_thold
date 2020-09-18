@@ -107,7 +107,6 @@ that.
 ## ChangeLog
 
 --- develop ---
-* issue#447: Command execution Variables are TOLD instead of THOLD
 
 * issue#187: Standalone Thresholds created do not read graph data due to threshold daemon not running
 
