@@ -91,7 +91,7 @@ switch(get_request_var('action')) {
 	case 'enable':
 		thold_threshold_enable(get_filter_request_var('id'));
 
-		header('Location: thold_graph.php?action=log');
+		header('Location: thold_graph.php');
 
 		exit;
 	case 'exportlog':
@@ -562,32 +562,32 @@ function tholds() {
 			$actions_url = '';
 
 			if (api_user_realm_auth('thold.php')) {
-				$actions_url .= '<a href="' .  html_escape($config['url_path'] . 'plugins/thold/thold.php?action=edit&id=' . $thold_data['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __esc('Edit Threshold', 'thold') . '"></a>';
+				$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold.php?action=edit&id=' . $thold_data['id']) . '" title="' . __esc('Edit Threshold', 'thold') . '"><i class="tholdGlyphEdit fas fa-wrench"></i></a>';
 			}
 
 			if (api_user_realm_auth('thold.php')) {
 				if ($thold_data['thold_enabled'] == 'on') {
-					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $thold_data['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/disable_thold.png" alt="" title="' . __esc('Disable Threshold', 'thold') . '"></a>';
+					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $thold_data['id']) . '" alt="" title="' . __esc('Disable Threshold', 'thold') . '"><i class="tholdGlyphDisable fas fa-stop-circle"></i></a>';
 				} else {
-					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $thold_data['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/enable_thold.png" alt="" title="' . __esc('Enable Threshold', 'thold') . '"></a>';
+					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $thold_data['id']) . '" title="' . __esc('Enable Threshold', 'thold') . '"><i class="tholdGlyphEnable fas fa-play-circle"></i></a>';
 				}
 			}
 
 			thold_get_cached_name($thold_data);
 
-			$actions_url .= "<a href='". html_escape($config['url_path'] . 'graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graph', 'thold') . "'></a>";
+			$actions_url .= "<a href='". html_escape($config['url_path'] . 'graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all') . "' title='" . __esc('View Graph', 'thold') . "'><i class='tholdGlyphChart fas fa-chart-area'></i></a>";
 
-			$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&reset=1&threshold_id=' . $thold_data['id'] . '&host_id=' . $thold_data['host_id'] . '&status=-1') . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_log.gif' alt='' title='" . __esc('View Threshold History', 'thold') . "'></a>";
+			$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=log&reset=1&threshold_id=' . $thold_data['id'] . '&host_id=' . $thold_data['host_id'] . '&status=-1') . "' title='" . __esc('View Threshold History', 'thold') . "'><i class='tholdGlyphLog fas fa-exclamation-triangle'></i></a>";
 
 			if (api_user_realm_auth('thold.php')) {
 				if ($thold_data['acknowledgment'] == 'on') {
-					$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=ack&threshold_id=' . $thold_data['id']) . "'><img src='" . $config['url_path'] . "images/accept.png' alt='' title='" . __esc('Acknowledge Threshold', 'thold') . "'></a>";
+					$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=ack&threshold_id=' . $thold_data['id']) . "' title='" . __esc('Acknowledge Threshold', 'thold') . "'><i class='tholdGlyphAcknowledge fas fa-clipboard-check'></i></a>";
 
 					if ($thold_data['reset_ack'] == 'on') {
-						$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=reset_ack&threshold_id=' . $thold_data['id']) . "'><img src='" . $config['url_path'] . "images/stop.png' alt='' title='" . __esc('Suspend Notifications until the Threshold clears', 'thold') . "'></a>";
+						$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=reset_ack&threshold_id=' . $thold_data['id']) . "' title='" . __esc('Suspend Notifications until the Threshold clears', 'thold') . "'><i class='tholdGlyphAcknowledgeSuspend fas fa-clipboard-check'></i></a>";
 					}
 				} elseif ($thold_data['thold_alert'] > 0 && $thold_data['reset_ack'] == 'on') {
-					$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=resume_ack&threshold_id=' . $thold_data['id']) . "'><img src='" . $config['url_path'] . "images/accept.png' alt='' title='" . __esc('Resume Notifications for this breached Threshold', 'thold') . "'></a>";
+					$actions_url .= "<a class='pic' href='". html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=resume_ack&threshold_id=' . $thold_data['id']) . "' title='" . __esc('Resume Notifications for this breached Threshold', 'thold') . "'><i class='tholdGlyphAcknowledgeResume fas fa-clipboard-check'></i></a>";
 				}
 			}
 
@@ -921,9 +921,9 @@ function hosts() {
 				$actions_url = '';
 
 				if (api_user_realm_auth('host.php')) {
-					$actions_url .= '<a href="' . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __esc('Edit Device', 'thold') . '"></a>';
+					$actions_url .= '<a href="' . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '" title="' . __esc('Edit Device', 'thold') . '"><i class="tholdGlyphEdit fas fa-wrench"></i></a>';
 				}
-				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'thold') . "'></a>";
+				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "' title='" . __esc('View Graphs', 'thold') . "'><i class='tholdGlyphChart fas fa-chart-area'></i></a>";
 
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
 
@@ -946,9 +946,9 @@ function hosts() {
 
 				$actions_url = '';
 				if (api_user_realm_auth('host.php')) {
-					$actions_url .= '<a href="' . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host["id"]) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __esc('Edit Device', 'thold') . '"></a>';
+					$actions_url .= '<a href="' . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host["id"]) . '" title="' . __esc('Edit Device', 'thold') . '"><i class="tholdGlyphEdit fas fa-wrench"></i></a>';
 				}
-				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "'><img src='" . $config['url_path'] . "plugins/thold/images/view_graphs.gif' alt='' title='" . __esc('View Graphs', 'thold') . "'></a>";
+				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "' title='" . __esc('View Graphs', 'thold') . "'><i class='tholdGlyphChart fas fa-chart-area></i></a>";
 
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
 				form_selectable_cell(filter_value($host['description'], get_request_var('rfilter')), $host['id'], '', 'left');

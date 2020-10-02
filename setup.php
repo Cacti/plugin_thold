@@ -237,7 +237,7 @@ function thold_graph_button($data) {
 	}
 
 	if (api_user_realm_auth('thold_graph.php') && !empty($thold_id)) {
-		print '<a class="iconLink tholdVRule" href="' .  html_escape($url . $separator . 'thold_vrule=' . $vrules) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/reddot.png" alt="" title="' . __esc('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"></a><br>';
+		print '<a class="iconLink tholdVRule" href="' .  html_escape($url . $separator . 'thold_vrule=' . $vrules) . '" title="' . __esc('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"><i class="tholdVRules far fa-chart-bar"></i></a><br>';
 	}
 
 	// Add Threshold Creation button
@@ -256,7 +256,7 @@ function thold_graph_button($data) {
 			array($local_graph_id));
 
 		if (empty($is_aggregate)) {
-			print '<a class="iconLink" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=add' . '&usetemplate=1&local_graph_id=' . $local_graph_id) . '"><img src="' . $config['url_path'] . 'plugins/thold/images/edit_object.png" alt="" title="' . __esc('Create Threshold', 'thold') . '"></a><br>';
+			print '<a class="iconLink" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=add' . '&usetemplate=1&local_graph_id=' . $local_graph_id) . '" title="' . __esc('Create Threshold', 'thold') . '"><i class="tholdEdit fas fa-wrench"></i></a><br>';
 		}
 	}
 }
@@ -442,6 +442,8 @@ function thold_rrd_graph_graph_options($g) {
 				array($id, $start, $end));
 
 			if (cacti_sizeof($rows)) {
+				$color = '';
+
 				foreach ($rows as $row) {
 					switch($row['status']) {
 					case '3':
@@ -453,9 +455,14 @@ function thold_rrd_graph_graph_options($g) {
 					case '5':
 						$color = '#00FF00';
 						break;
+					default:
+						$color = '';
+						break;
 					}
 
-					$g['graph_defs'] .= 'VRULE:' . $row['time'] . $color . ' \\' . "\n";
+					if ($color != '') {
+						$g['graph_defs'] .= 'VRULE:' . $row['time'] . $color . ' \\' . "\n";
+					}
 				}
 			}
 		}

@@ -159,11 +159,15 @@
 }
 
 .tholdAlert {
-	background-color: #F21924;
+	background-color: rgba(242, 25, 36, 0.8);
 	text-align: center;
 	white-space: nowrap;
 	width: 14%;
 	padding: 3px;
+}
+
+.tholdAlert a {
+	color: #003366;
 }
 
 .tholdAckCol {
@@ -208,5 +212,37 @@
 	white-space: nowrap;
 	width: 14%;
 	padding: 3px;
+}
+
+.tholdGlyphEdit {
+	color: #666666;
+}
+
+.tholdGlyphDisable {
+	color: #990000;
+}
+
+.tholdGlyphEnable {
+	color: #006600;
+}
+
+.tholdGlyphChart {
+	color: #996600;
+}
+
+.tholdGlyphLog {
+	color: #999900;
+}
+
+.tholdGlyphAcknowledge {
+	color: #336600;
+}
+
+.tholdGlyphAcknowledge {
+	color: #336600;
+}
+
+.tholdGlyphAcknowledgeSuspend {
+	color: #336600;
 }
 
