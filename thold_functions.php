@@ -2148,6 +2148,8 @@ function thold_check_threshold(&$thold_data) {
 		$suffix = true;
 	}
 
+	$show_units = ($thold_data['show_units'] ? true : false);
+
 	$file_array = array();
 	if ($thold_send_text_only != 'on') {
 		if (!empty($thold_data['local_graph_id'])) {
@@ -2212,7 +2214,7 @@ function thold_check_threshold(&$thold_data) {
 				$suspend_notify = false;
 			}
 
-			$subject = 'ALERT: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? thold_format_number($thold_data['thold_hi'], 2, $baseu, $suffix) : thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix)) . ' with ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix);
+			$subject = 'ALERT: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($breach_up ? 'above' : 'below') . ' threshold of ' . ($breach_up ? thold_format_number($thold_data['thold_hi'], 2, $baseu, $suffix, $show_units) : thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix, $show_units)) . ' with ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units);
 
 			if ($notify) {
 				if (!$suspend_notify) {
@@ -2323,7 +2325,7 @@ function thold_check_threshold(&$thold_data) {
 				$suspend_notify = false;
 			}
 
-			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? thold_format_number($thold_data['thold_warning_hi'], 2, $baseu, $suffix) : thold_format_number($thold_data['thold_warning_low'], 2, $baseu, $suffix)) . ' with ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix);
+			$subject = ($notify ? 'WARNING: ':'TRIGGER: ') . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' . ($ra ? 'is still' : 'went') . ' ' . ($warning_breach_up ? 'above' : 'below') . ' threshold of ' . ($warning_breach_up ? thold_format_number($thold_data['thold_warning_hi'], 2, $baseu, $suffix, $show_units) : thold_format_number($thold_data['thold_warning_low'], 2, $baseu, $suffix, $show_units)) . ' with ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units);
 
 			if ($notify) {
 				if (!$suspend_notify) {
@@ -2393,7 +2395,7 @@ function thold_check_threshold(&$thold_data) {
 				}
 			} elseif (($thold_data['thold_warning_fail_count'] >= $warning_trigger) && ($thold_data['thold_fail_count'] >= $trigger)) {
 				if (!$suspend_notify) {
-					$subject = 'ALERT -> WARNING: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Changed to Warning Threshold with Value ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix);
+					$subject = 'ALERT -> WARNING: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Changed to Warning Threshold with Value ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units);
 
 					$alert_emails = get_thold_alert_emails($thold_data);
 
@@ -2463,7 +2465,7 @@ function thold_check_threshold(&$thold_data) {
 
 			/* if we were at an alert status before */
 			if ($alertstat != 0) {
-				$subject = 'NORMAL: '. thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Restored to Normal Threshold with Value ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix);
+				$subject = 'NORMAL: '. thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Restored to Normal Threshold with Value ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units);
 
 				db_execute_prepared('UPDATE thold_data
 					SET thold_alert=0,
@@ -2604,7 +2606,7 @@ function thold_check_threshold(&$thold_data) {
 				if ($thold_data['bl_fail_count'] >= $bl_fail_trigger && $thold_data['restored_alert'] != 'on') {
 					thold_debug('Threshold Baseline check returned to normal');
 
-					$subject = 'NORMAL: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to normal threshold with value ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix);
+					$subject = 'NORMAL: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to normal threshold with value ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units);
 
 					if ($syslog) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
@@ -3758,7 +3760,7 @@ function thold_get_column_by_cdef(&$thold_data, $column = 'lastread') {
 	return '-';
 }
 
-function thold_format_number($value, $digits = 2, $baseu = 1024, $show_suffix = true) {
+function thold_format_number($value, $digits = 2, $baseu = 1024, $show_suffix = true, $show_units = false) {
 	$units = '';
 	$suffix = '';
 
@@ -3772,6 +3774,10 @@ function thold_format_number($value, $digits = 2, $baseu = 1024, $show_suffix = 
 
 	if ($value == '0') {
 		return '0';
+	}
+
+	if (!$show_units) {
+		return number_format_i18n($value, $digits, $baseu);
 	}
 
 	if (abs($value) < 1) {
@@ -4805,11 +4811,12 @@ function save_thold() {
 	$save['notes'] = get_nfilter_request_var('notes');
 
 	// Data Manipulation
-	$save['data_type']  = get_nfilter_request_var('data_type');
-	$save['percent_ds'] = (isset_request_var('percent_ds')) ? get_nfilter_request_var('percent_ds') : '';
-	$save['cdef']       = trim_round_request_var('cdef');
-	$save['expression'] = (isset_request_var('expression')) ? get_nfilter_request_var('expression') : '';
-	$save['upper_ds']   = (isset_request_var('upper_ds')) ? get_nfilter_request_var('upper_ds') : '';
+	$save['data_type']   = get_nfilter_request_var('data_type');
+	$save['percent_ds']  = (isset_request_var('percent_ds')) ? get_nfilter_request_var('percent_ds') : '';
+	$save['cdef']        = trim_round_request_var('cdef');
+	$save['expression']  = (isset_request_var('expression')) ? get_nfilter_request_var('expression') : '';
+	$save['upper_ds']    = (isset_request_var('upper_ds')) ? get_nfilter_request_var('upper_ds') : '';
+	$save['show_units'] = isset_request_var('show_units') && get_request_var('show_units') == 'on' ? 'on':'off';
 
 	// Email Bodies
 	$save['email_body']          = get_nfilter_request_var('email_body');
@@ -5536,7 +5543,7 @@ function thold_template_update_thresholds($id) {
 		td.bl_pct_up = tt.bl_pct_up, td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up,
 		td.bl_fail_trigger = tt.bl_fail_trigger, td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0,
 		td.repeat_alert = tt.repeat_alert, td.data_type = tt.data_type, td.cdef = tt.cdef,
-		td.percent_ds = tt.percent_ds, td.expression = tt.expression, td.upper_ds = tt.upper_ds,
+		td.percent_ds = tt.percent_ds, td.expression = tt.expression, td.upper_ds = tt.upper_ds, td.show_units = tt.show_units,
 		td.exempt = tt.exempt, td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
 		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning,
 		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,

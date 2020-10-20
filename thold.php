@@ -931,6 +931,8 @@ function list_tholds() {
 				$suffix = true;
 			}
 
+			$show_units = ($thold_data['show_units'] ? true : false);
+
 			if ($baseu == '') {
 				cacti_log('WARNING: Graph Template for local_graph_id ' . $thold_data['local_graph_id'] . ' has been removed!');
 				$baseu = 1024;
@@ -944,12 +946,12 @@ function list_tholds() {
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
 			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
 			form_selectable_cell($data_source, $thold_data['id'], '', 'right');
-			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
+			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
 
 			switch($thold_data['thold_type']) {
 				case 0:
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['thold_hi'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_low'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi'], 2, $baseu, $suffix, $show_units) . ' / ' . thold_format_number($thold_data['thold_hi'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_low'], 2, $baseu, $suffix, $show_units) . ' / ' . thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['thold_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'right');
 					form_selectable_cell(__('N/A', 'thold'),  $thold_data['id'], '', 'right');
 
@@ -962,8 +964,8 @@ function list_tholds() {
 
 					break;
 				case 2:
-					form_selectable_cell(thold_format_number($thold_data['time_warning_hi'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['time_hi'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
-					form_selectable_cell(thold_format_number($thold_data['time_warning_low'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['time_low'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_hi'], 2, $baseu, $suffix, $show_units) . ' / ' . thold_format_number($thold_data['time_hi'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_low'], 2, $baseu, $suffix, $show_units) . ' / ' . thold_format_number($thold_data['time_low'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . __('%d Triggers', $thold_data['time_fail_trigger'], 'thold') . '</i>',  $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['time_fail_length'], 'time') . '</i>', $thold_data['id'], '', 'right');
 
@@ -1185,6 +1187,7 @@ function thold_edit() {
 					} else {
 						$suffix = true;
 					}
+					$show_units = ($td['show_units'] ? true : false);
 
 					if (empty($baseu)) {
 						cacti_log('WARNING: Graph Template for local_graph_id ' . $td['local_graph_id'] . ' has been removed!');
@@ -1222,20 +1225,20 @@ function thold_edit() {
 
 					$cur_setting = '<span style="padding-right:4px;">' . __('Last:', 'thold'). '</span>' .
 						($td['lastread'] == '' ? "<span>" . __('N/A', 'thold') . "</span>":"<span style='color:$color'>" .
-						thold_format_number($td['lastread'], 2, $baseu, $suffix) . "</span>");
+						thold_format_number($td['lastread'], 2, $baseu, $suffix, $show_units) . "</span>");
 
 					if ($td['thold_type'] != 1) {
 						if ($td['thold_warning_fail_trigger'] != 0) {
 							if ($td['thold_warning_hi'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('WHi:', 'thold') . '</span>' .
 									($td['thold_warning_hi'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:darkorange'>" .
-									thold_format_number($td['thold_warning_hi'], 2, $baseu, $suffix) . '</span>');
+									thold_format_number($td['thold_warning_hi'], 2, $baseu, $suffix, $show_units) . '</span>');
 							}
 
 							if ($td['thold_warning_low'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('WLo:', 'thold') . '</span>' .
 									($td['thold_warning_low'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:darkorange'>" .
-									thold_format_number($td['thold_warning_low'], 2, $baseu, $suffix) . '</span>');
+									thold_format_number($td['thold_warning_low'], 2, $baseu, $suffix, $show_units) . '</span>');
 							}
 						}
 
@@ -1243,13 +1246,13 @@ function thold_edit() {
 							if ($td['thold_hi'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('AHi:', 'thold') . '</span>' .
 									($td['thold_hi'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:red'>" .
-									thold_format_number($td['thold_hi'], 2, $baseu, $suffix) . '</span>');
+									thold_format_number($td['thold_hi'], 2, $baseu, $suffix, $show_units) . '</span>');
 							}
 
 							if ($td['thold_low'] != '') {
 								$cur_setting .= '<span style="padding:4px">' . __('ALo:', 'thold') . '</span>' .
 									($td['thold_low'] == '' ? "<span>" . __('N/A', 'thold') . "</span>" : "<span style='color:red'>" .
-									thold_format_number($td['thold_low'], 2, $baseu, $suffix) . '</span>');
+									thold_format_number($td['thold_low'], 2, $baseu, $suffix, $show_units) . '</span>');
 							}
 						}
 					} else {
@@ -1309,9 +1312,11 @@ function thold_edit() {
 		$suffix = true;
 	}
 
+	$show_units = (isset($thold_data['show_units']) && $thold_data['show_units'] ? true : false);
+
 	if (isset($thold_data['lastread'])) {
 		$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
-			(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_column_by_cdef($thold_data, 'lastread'), 2, $baseu, $suffix), 'thold');
+			(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_column_by_cdef($thold_data, 'lastread'), 2, $baseu, $suffix, $show_units), 'thold');
 	} else {
 		$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
 			(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), '-', 'thold');
@@ -1727,6 +1732,13 @@ function thold_edit() {
 			'value' => isset($thold_data['percent_ds']) ? $thold_data['percent_ds'] : 0,
 			'array' => $data_fields,
 		),
+		'show_units' => array(
+			'friendly_name' => __('Show Units', 'thold'),
+			'method' => 'checkbox',
+			'default' => '',
+			'description' => __('Display units for very large or small numbers.', 'thold'),
+			'value' => !empty($thold_data['show_units']) ? $thold_data['show_units'] : '',
+		),
 		'expression' => array(
 			'friendly_name' => __('RPN Expression', 'thold'),
 			'method' => 'textarea',
@@ -2073,6 +2085,7 @@ function thold_edit() {
 		$('#percent_ds').prop('disabled', status);
 		$('#expression').prop('disabled', status);
 		$('#upper_ds').prop('disabled', status);
+		$('#show_units').prop('disabled', status);
 
 		// Email Body options
 		$('#email_body').prop('disabled', status);

@@ -782,6 +782,7 @@ function template_save_edit() {
 	$save['percent_ds'] = get_nfilter_request_var('percent_ds');
 	$save['expression'] = get_nfilter_request_var('expression');
 	$save['upper_ds']   = get_nfilter_request_var('upper_ds');
+	$save['show_units']  = isset_request_var('show_units') ? 'on' : 'off';
 
 	// Other
 	$save['notes'] = get_nfilter_request_var('notes');
@@ -1304,6 +1305,13 @@ function template_edit() {
 			'description' => __('Upper data source to use to calculate the total value.', 'thold'),
 			'value' => isset($thold_data['upper_ds']) ? $thold_data['upper_ds'] : 0,
 			'array' => $data_fields2,
+		),
+		'show_units' => array(
+			'friendly_name' => __('Show Units', 'thold'),
+			'method' => 'checkbox',
+			'default' => '',
+			'description' => __('Display units for very large or small numbers.', 'thold'),
+			'value' => isset($thold_data['show_units']) ? $thold_data['show_units'] : ''
 		),
 		'notify_header' => array(
 			'friendly_name' => __('Notification Settings', 'thold'),

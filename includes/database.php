@@ -1359,6 +1359,20 @@ function thold_upgrade_database($force = false) {
 			'NULL' => false,
 			'default' => '',
 			'after' => 'expression'));
+
+		db_add_column('thold_data', array(
+			'name' => 'show_units',
+			'type' => 'char(3)',
+			'NULL' => false,
+			'default' => '',
+			'after' => 'data_type'));	
+
+		db_add_column('thold_template', array(
+			'name' => 'show_units',
+			'type' => 'char(3)',
+			'NULL' => false,
+			'default' => '',
+			'after' => 'data_type'));
 	}
 
 	$tables = db_fetch_assoc("SELECT DISTINCT TABLE_NAME

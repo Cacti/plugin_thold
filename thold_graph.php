@@ -551,6 +551,8 @@ function tholds() {
 				$suffix = true;
 			}
 
+			$show_units = ($thold_data['show_units'] ? true : false);;
+
 			if (empty($baseu)) {
 				cacti_log('WARNING: Graph Template for local_graph_id ' . $thold_data['local_graph_id'] . ' has been removed!');
 				$baseu = 1024;
@@ -609,12 +611,12 @@ function tholds() {
 
 			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
 
-			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
+			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
 
 			switch($thold_data['thold_type']) {
 				case 0:
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['thold_hi'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
-					form_selectable_cell(thold_format_number($thold_data['thold_warning_low'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_hi'], 2, $baseu, $suffix, $show_units) . ' / ' . thold_format_number($thold_data['thold_hi'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['thold_warning_low'], 2, $baseu, $suffix, $show_units) . ' / ' . thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['thold_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'right');
 					form_selectable_cell(__('N/A', 'thold'),  $thold_data['id'], '', 'right');
 
@@ -627,8 +629,8 @@ function tholds() {
 
 					break;
 				case 2:
-					form_selectable_cell(thold_format_number($thold_data['time_warning_hi'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['time_hi'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
-					form_selectable_cell(thold_format_number($thold_data['time_warning_low'], 2, $baseu, $suffix) . ' / ' . thold_format_number($thold_data['time_low'], 2, $baseu, $suffix), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_hi'], 2, $baseu, $suffix, $show_units) . ' / ' . thold_format_number($thold_data['time_hi'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
+					form_selectable_cell(thold_format_number($thold_data['time_warning_low'], 2, $baseu, $suffix, $show_units) . ' / ' . thold_format_number($thold_data['time_low'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . __('%d Triggers', $thold_data['time_fail_trigger'], 'thold') . '</i>',  $thold_data['id'], '', 'right');
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['time_fail_length'], 'time') . '</i>', $thold_data['id'], '', 'right');
 
@@ -1367,6 +1369,8 @@ function thold_show_log() {
 				$suffix = true;
 			}
 
+			$show_units = (db_fetch_cell_prepared('SELECT show_units FROM thold_data WHERE id = ?', array($l['threshold_id'])) ? true : false);
+
 			if (empty($baseu)) {
 				cacti_log('WARNING: Graph Template for local_graph_id ' . $l['local_graph_id'] . ' has been removed!');
 				$baseu = 1024;
@@ -1378,8 +1382,8 @@ function thold_show_log() {
 			form_selectable_cell(date('Y-m-d H:i:s', $l['time']), $l['id'], '', 'left');
 			form_selectable_cell($thold_types[$l['type']], $l['id'], '', 'left');
 			form_selectable_cell((strlen($l['description']) ? filter_value($l['description'], get_request_var('rfilter')):__('Restoral Event', 'thold')), $l['id'], '', 'left');
-			form_selectable_cell($l['threshold_value'] != '' ? thold_format_number($l['threshold_value'], 2, $baseu, $suffix):__('N/A', 'thold'), $l['id'], '', 'right');
-			form_selectable_cell($l['current'] != '' ? thold_format_number($l['current'], 2, $baseu, $suffix):__('N/A', 'thold'), $l['id'], '', 'right');
+			form_selectable_cell($l['threshold_value'] != '' ? thold_format_number($l['threshold_value'], 2, $baseu, $suffix, $show_units):__('N/A', 'thold'), $l['id'], '', 'right');
+			form_selectable_cell($l['current'] != '' ? thold_format_number($l['current'], 2, $baseu, $suffix, $show_units):__('N/A', 'thold'), $l['id'], '', 'right');
 			form_end_row();
 		}
 	} else {

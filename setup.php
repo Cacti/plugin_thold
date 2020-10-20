@@ -494,6 +494,8 @@ function thold_rrd_graph_graph_options($g) {
 				$suffix = true;
 			}
 
+			$show_units = ($t['show_units'] ? true : false);
+
 			switch($t['data_type']) {
 			case '0': // Exact value
 			case '1': // CDEF
@@ -507,21 +509,21 @@ function thold_rrd_graph_graph_options($g) {
 					switch($t['thold_type']) {
 					case '0': // Hi / Low
 						if ($t['thold_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s)', $t['name_cache'], thold_format_number($t['thold_hi'], 2, $baseu, $suffix), 'thold')) . ' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s)', $t['name_cache'], thold_format_number($t['thold_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . ' \\' . "\n";
 						}
 
 						if ($t['thold_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s)', $t['name_cache'], thold_format_number($t['thold_low'], 2, $baseu, $suffix), 'thold')) . ' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s)', $t['name_cache'], thold_format_number($t['thold_low'], 2, $baseu, $suffix, $show_units), 'thold')) . ' \\' . "\n";
 						}
 
 						break;
 					case '2': // Time Based
 						if ($t['time_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s)', $t['name_cache'], thold_format_number($t['time_hi'], 2, $baseu, $suffix), 'thold')) . ' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s)', $t['name_cache'], thold_format_number($t['time_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . ' \\' . "\n";
 						}
 
 						if ($t['time_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s)', $t['name_cache'], thold_format_number($t['time_low'], 2, $baseu, $suffix), 'thold')) . ' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s)', $t['name_cache'], thold_format_number($t['time_low'], 2, $baseu, $suffix, $show_units), 'thold')) . ' \\' . "\n";
 						}
 
 						break;
@@ -537,21 +539,22 @@ function thold_rrd_graph_graph_options($g) {
 					switch($t['thold_type']) {
 					case '0': // Hi / Low
 						if ($t['thold_warning_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_warning_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s)', $t['name_cache'], thold_format_number($t['thold_warning_hi'], 2, $baseu, $suffix), 'thold')) . ' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_warning_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s)', $t['name_cache'], thold_format_number($t['thold_warning_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . ' \\' . "\n";
 						}
 
 						if ($t['thold_warning_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_warning_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s)', $t['name_cache'], thold_format_number($t['thold_warning_low'], 2, $baseu, $suffix), 'thold')) . ' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['thold_warning_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s)', $t['name_cache'], thold_format_number($t['thold_warning_low'], 2, $baseu, $suffix, $show_units), 'thold')) . ' \\' . "\n";
 						}
 
 						break;
 					case '2': // Time Based
 						if ($t['time_warning_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_warning_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s)', $t['name_cache'], thold_format_number($t['time_warning_hi'], 2, $baseu, $suffix), 'thold')) . ' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_warning_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s)', $t['name_cache'], thold_format_number($t['time_warning_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . ' \\' . "\n";
+
 						}
 
 						if ($t['time_warning_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s)', $t['name_cache'], thold_format_number($t['time_warning_low'], 2, $baseu, $suffix), 'thold')) . ' \\' . "\n";
+							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s)', $t['name_cache'], thold_format_number($t['time_warning_low'], 2, $baseu, $suffix, $show_units), 'thold')) . ' \\' . "\n";
 						}
 
 						break;
