@@ -51,6 +51,8 @@
 
 * issue: Unable to search for thresholds by regular expression
 
+* issue: Percentage threholds that show horizontal rule are cut off
+
 * feature: Migrate all Images to Fontawesome Glyphs
 
 --- 1.4 ---

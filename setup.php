@@ -574,13 +574,13 @@ function thold_rrd_graph_graph_options($g) {
 						case '0': // Hi / Low
 							if ($t['thold_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s %%)', $t['name_cache'], number_format_i18n($t['thold_hi']), 'thold')) . ' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_hi']), 'thold')) . ' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['thold_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s %%)', $t['name_cache'], number_format_i18n($t['thold_low']), 'thold')) . ' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_low']), 'thold')) . ' \\' . "\n";
 								$thold_id++;
 							}
 
@@ -588,13 +588,13 @@ function thold_rrd_graph_graph_options($g) {
 						case '2': // Time Based
 							if ($t['time_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s %%)', $t['name_cache'], number_format_i18n($t['time_hi']), 'thold')) . ' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_hi']), 'thold')) . ' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['time_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s %%)', $t['name_cache'], number_format_i18n($t['time_low']), 'thold')) . ' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_low']), 'thold')) . ' \\' . "\n";
 								$thold_id++;
 							}
 
@@ -612,13 +612,13 @@ function thold_rrd_graph_graph_options($g) {
 						case '0': // Hi / Low
 							if ($t['thold_warning_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s %%)', $t['name_cache'], number_format_i18n($t['thold_warning_hi']), 'thold')) . ' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_warning_hi']), 'thold')) . ' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['thold_warning_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s %%)', $t['name_cache'], number_format_i18n($t['thold_warning_low']), 'thold')) . ' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_warning_low']), 'thold')) . ' \\' . "\n";
 								$thold_id++;
 							}
 
