@@ -381,7 +381,8 @@ function thold_poller_output(&$rrd_update_array) {
 
 			$item        = array();
 			$currenttime = 0;
-			$currentval  = thold_get_currentval($thold_data, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
+			$postvalue   = thold_get_currentval($thold_data, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
+			$currentval  = $postvalue;
 
 			switch ($thold_data['data_type']) {
 			case 0:
@@ -389,25 +390,25 @@ function thold_poller_output(&$rrd_update_array) {
 				break;
 			case 1:
 				if ($thold_data['cdef'] != 0) {
-					$currentval = thold_build_cdef($thold_data['cdef'], $currentval, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+					$currentval = thold_build_cdef($thold_data['cdef'], $postvalue, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 				}
 
 				break;
 			case 2:
 				if ($thold_data['percent_ds'] != '') {
-					$currentval = thold_calculate_percent($thold_data, $currentval, $rrd_reindexed);
+					$currentval = thold_calculate_percent($thold_data, $postvalue, $rrd_reindexed);
 				}
 
 				break;
 			case 3:
 				if ($thold_data['expression'] != '') {
-					$currentval = thold_calculate_expression($thold_data, $currentval, $rrd_reindexed, $rrd_time_reindexed);
+					$currentval = thold_calculate_expression($thold_data, $postvalue, $rrd_reindexed, $rrd_time_reindexed);
 				}
 
 				break;
 			case 4:
 				if ($thold_data['upper_ds'] != '') {
-					$currentval = thold_calculate_lower_upper($thold_data, $currentval, $rrd_reindexed);
+					$currentval = thold_calculate_lower_upper($thold_data, $postvalue, $rrd_reindexed);
 				}
 
 				break;
@@ -426,17 +427,17 @@ function thold_poller_output(&$rrd_update_array) {
 				}
 			}
 
+			// This stores the raw value into the data source and is important for
+			// Counters, where calculating the difference is important.
+			// The unset case is problematic and may lead to false triggering
+			// events.  So, in those cases, we will store the 'oldvalue'.
 			if (isset($item[$thold_data['name']])) {
-				$lasttime = $item[$thold_data['name']];
+				$rawvalue = $item[$thold_data['name']];
 			} else {
-				$lasttime = $currenttime - $thold_data['rrd_step'];
+				$rawvalue = $thold_data['oldvalue'];
 			}
 
-			if ($thold_data['data_type'] == 1 && !empty($thold_data['cdef'])) {
-				$lasttime = thold_build_cdef($thold_data['cdef'], $lasttime, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
-			}
-
-			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', ' . db_qstr(date('Y-m-d H:i:s', $currenttime)) . ', ' . db_qstr($lasttime) . ')';
+			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', ' . db_qstr(date('Y-m-d H:i:s', $currenttime)) . ', ' . db_qstr($rawvalue) . ')';
 		}
 
 		if (cacti_sizeof($sql)) {
@@ -453,7 +454,7 @@ function thold_poller_output(&$rrd_update_array) {
 			}
 
 			/* accomodate deleted tholds */
-			db_execute('DELETE FROM thold_data WHERE local_data_id=0');
+			db_execute('DELETE FROM thold_data WHERE local_data_id = 0');
 		}
 	}
 

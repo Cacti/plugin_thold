@@ -41,7 +41,11 @@
 
 * issue#444: PHP bug - Array and string offset access syntax with curly braces is deprecated
 
+* issue#446: Threshold not triggering if CDEF is utilized
+
 * issue#449: Notification List is not saved when adding new device
+
+* issue#450: Thold generate wrong bandwidth alert
 
 * issue: Function array_column() missing from PHP5.4
 
