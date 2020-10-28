@@ -626,13 +626,13 @@ function thold_rrd_graph_graph_options($g) {
 						case '2': // Time Based
 							if ($t['time_warning_hi'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s %%)', $t['name_cache'], number_format_i18n($t['time_warning_hi']), 'thold')) . ' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_warning_hi']), 'thold')) . ' \\' . "\n";
 								$thold_id++;
 							}
 
 							if ($t['time_warning_low'] != '') {
 								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s %%)', $t['name_cache'], number_format_i18n($t['time_warning_low']), 'thold')) . ' \\' . "\n";
+								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_warning_low']), 'thold')) . ' \\' . "\n";
 								$thold_id++;
 							}
 
