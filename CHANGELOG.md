@@ -41,6 +41,8 @@
 
 * issue#444: PHP bug - Array and string offset access syntax with curly braces is deprecated
 
+* issue#449: Notification List is not saved when adding new device
+
 * issue: Function array_column() missing from PHP5.4
 
 * issue: Unable to search for thresholds by regular expression

@@ -713,32 +713,30 @@ function thold_device_action_array($device_action_array) {
 function thold_api_device_save($save) {
 	global $config;
 
-	$result = db_fetch_assoc_prepared('SELECT disabled
+	$result = db_fetch_row_prepared('SELECT disabled
 		FROM host
 		WHERE id = ?',
 		array($save['id']));
 
-	if (!isset($result[0]['disabled'])) {
-		return $save;
-	}
-
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-	if ($save['disabled'] != $result[0]['disabled']) {
-		if ($save['disabled'] == '') {
-			plugin_thold_log_changes($save['id'], 'enabled_host');
+	if ($save['id'] > 0) {
+		if ($save['disabled'] != $result['disabled']) {
+			if ($save['disabled'] == '') {
+				plugin_thold_log_changes($save['id'], 'enabled_host');
 
-			db_execute_prepared('UPDATE thold_data
-				SET thold_enabled = "on"
-				WHERE host_id = ?',
-				array($save['id']));
-		} else {
-			plugin_thold_log_changes($save['id'], 'disabled_host');
+				db_execute_prepared('UPDATE thold_data
+					SET thold_enabled = "on"
+					WHERE host_id = ?',
+					array($save['id']));
+			} else {
+				plugin_thold_log_changes($save['id'], 'disabled_host');
 
-			db_execute_prepared('UPDATE thold_data
-				SET thold_enabled = "off"
-				WHERE host_id = ?',
-				array($save['id']));
+				db_execute_prepared('UPDATE thold_data
+					SET thold_enabled = "off"
+					WHERE host_id = ?',
+					array($save['id']));
+			}
 		}
 	}
 
