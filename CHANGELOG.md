@@ -1,6 +1,6 @@
 ## ChangeLog
 
---- develop ---
+--- 1.5 ---
 
 * issue#187: Standalone Thresholds created do not read graph data due to threshold daemon not running
 
