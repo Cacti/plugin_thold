@@ -1208,7 +1208,7 @@ function thold_export_log() {
 	/* thold template id filter */
 	if (!isempty_request_var('thold_template_id')) {
 		if (get_request_var('thold_template_id') > 0) {
-			$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.thold_template_id = ' . get_request_var('thold_template_id');
+			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.thold_template_id = ' . get_request_var('thold_template_id') . ' AND td.template_enabled = "on")';
 		} elseif (get_request_var('thold_template_id') == '-2') {
 			$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.template_enabled = ""';
 		}
@@ -1299,7 +1299,7 @@ function thold_show_log() {
 	/* thold template id filter */
 	if (!isempty_request_var('thold_template_id')) {
 		if (get_request_var('thold_template_id') > 0) {
-			$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.thold_template_id = ' . get_request_var('thold_template_id');
+			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.thold_template_id = ' . get_request_var('thold_template_id') . ' AND td.template_enabled = "on")';
 		} elseif (get_request_var('thold_template_id') == '-2') {
 			$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.template_enabled = ""';
 		}
