@@ -100,6 +100,7 @@ function do_actions() {
 							document.getElementById("download_iframe").src = url;
 							setTimeout(function() {
 								document.location = "thold_templates.php";
+								Pace.stop();
 							}, 500);
 						}
 

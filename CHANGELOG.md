@@ -1,5 +1,19 @@
 ## ChangeLog
 
+--- 1.5.2 ---
+
+* issue#457: Page show blank if do export function without log info exist
+
+* issue#458: The indicator is not removed upon completion when do export function
+
+* issue#459: Background color looks ugly for availability column. Table not aligned well.
+
+* issue#460: Filter result for template none incorrect
+
+--- 1.5.1 ---
+
+* issue: Upgrade to thold 1.5 misses new column causing saves to fail
+
 --- 1.5 ---
 
 * issue#187: Standalone Thresholds created do not read graph data due to threshold daemon not running

@@ -374,7 +374,7 @@ function tholds() {
 	/* thold template id filter */
 	if (!isempty_request_var('thold_template_id')) {
 		if (get_request_var('thold_template_id') > 0) {
-			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.thold_template_id = ' . get_request_var('thold_template_id');
+			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.thold_template_id = ' . get_request_var('thold_template_id') . ' AND td.template_enabled = "on")';
 		} elseif (get_request_var('thold_template_id') == '-2') {
 			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.template_enabled = ""';
 		}
@@ -947,17 +947,22 @@ function hosts() {
 				print "<tr class='selectable deviceNotMonFull' id='line" . $host['id'] . "'>";
 
 				$actions_url = '';
+
 				if (api_user_realm_auth('host.php')) {
 					$actions_url .= '<a href="' . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host["id"]) . '" title="' . __esc('Edit Device', 'thold') . '"><i class="tholdGlyphEdit fas fa-wrench"></i></a>';
 				}
-				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "' title='" . __esc('View Graphs', 'thold') . "'><i class='tholdGlyphChart fas fa-chart-area></i></a>";
+				$actions_url .= "<a href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=true&host_id=' . $host['id']) . "' title='" . __esc('View Graphs', 'thold') . "'><i class='tholdGlyphChart fas fa-chart-area'></i></a>";
 
 				form_selectable_cell($actions_url, $host['id'], '', 'left');
+
 				form_selectable_cell(filter_value($host['description'], get_request_var('rfilter')), $host['id'], '', 'left');
+
 				form_selectable_cell(number_format_i18n($host['id']), $host['id'], '', 'right');
-				form_selectable_cell('<i>' . number_format_i18n($host['graphs']) . '</i>', $host['id'], '', 'right');
-				form_selectable_cell('<i>' . number_format_i18n($host['data_sources']) . '</i>', $host['id'], '', 'right');
+				form_selectable_cell(number_format_i18n($host['graphs']), $host['id'], '', 'right');
+				form_selectable_cell(number_format_i18n($host['data_sources']), $host['id'], '', 'right');
+
 				form_selectable_cell(__('Not Monitored', 'thold'), $host['id'], '', 'center');
+
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
 				form_selectable_cell(filter_value($host['hostname'], get_request_var('rfilter')), $host['id'], '', 'right');
@@ -1232,6 +1237,10 @@ function thold_export_log() {
 		foreach($logs as $log) {
 			print implode(',', array_values($log)) . PHP_EOL;
 		}
+	} else {
+		raise_message('norows', __('No Export Rows Found.', 'thold'), MESSAGE_LEVEL_ERROR);
+		header('Location: thold_graph.php?action=log');
+		exit;
 	}
 }
 
@@ -1547,6 +1556,7 @@ function form_thold_log_filter() {
 			strURL += '&rows=' + $('#rows').val();
 			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			document.location = strURL;
+			Pace.stop();
 		}
 
 		$(function() {
