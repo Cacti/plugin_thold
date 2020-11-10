@@ -4890,7 +4890,9 @@ function save_thold() {
 		plugin_thold_log_changes($id, 'modified', $save);
 
 		$thold_sql = "SELECT
-			td.*, dtd.rrd_step, tt.name AS template_name, dtr.data_source_name as data_source,
+			td.*, dtd.rrd_step, tt.name AS template_name,
+			dtr.data_source_name as data_source, h.hostname,
+			h.description, h.notes AS dnotes, h.snmp_engine_id,
 			IF(IFNULL(td.`lastread`,'')='',NULL,(td.`lastread` + 0.0)) as `flastread`, td.`lasttime`,
 			IF(IFNULL(td.`oldvalue`,'')='',NULL,(td.`oldvalue` + 0.0)) as `foldvalue`, td.`repeat_alert`,
 			UNIX_TIMESTAMP() - UNIX_TIMESTAMP(lastchanged) AS `instate`

@@ -1,5 +1,9 @@
 ## ChangeLog
 
+--- 1.5.3 ---
+
+* issue#463: php error - undefined index dnotes 
+
 --- 1.5.2 ---
 
 * issue#457: Page show blank if do export function without log info exist
