@@ -1227,10 +1227,10 @@ function thold_upgrade_database($force = false) {
 
 		// Update hashes for templates if they are incorrect
 		$thold_templates = array_rekey(
-			db_fetch_assoc('SELECT id, data_template_id, data_template_name, data_source_name
+			db_fetch_assoc('SELECT id, name, data_template_id, data_template_name, data_source_name
 				FROM thold_template
 				WHERE data_template_hash = ""'),
-			'id', array('data_template_id', 'data_template_name', 'data_source_name')
+			'id', array('name', 'data_template_id', 'data_template_name', 'data_source_name')
 		);
 
 		if (cacti_sizeof($thold_templates)) {
@@ -1282,7 +1282,7 @@ function thold_upgrade_database($force = false) {
 				}
 
 				if (!$found) {
-					cacti_log(sprintf('WARNING: Threshold Template with Name %s and ID %d Aligns with no matching Data Template', $t['name'], $t['id']), false, 'THOLD');
+					cacti_log(sprintf('WARNING: Threshold Template with Name %s and ID %d Aligns with no matching Data Template', $t['name'], $thold_template_id), false, 'THOLD');
 				}
 			}
 		}
