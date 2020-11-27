@@ -299,6 +299,10 @@ function template_export() {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 		if ($selected_items != false) {
+			$export_file_name = 'thold_template_export.xml';
+			if(cacti_sizeof($selected_items) == 1) {
+				$export_file_name = 'thold_template_' . strtolower(clean_up_file_name(db_fetch_cell_prepared('SELECT name FROM thold_template WHERE id = ?', array($selected_items[0])))) . '.xml';
+			}
 			$output = "<templates>\n";
 			foreach ($selected_items as $id) {
 				if ($id > 0) {
@@ -328,7 +332,7 @@ function template_export() {
 
 			$output .= "</templates>\n";
 			header('Content-type: application/xml');
-			header('Content-Disposition: attachment; filename=thold_template_export.xml');
+			header('Content-Disposition: attachment; filename=' . $export_file_name);
 			print $output;
 		}
 	}
