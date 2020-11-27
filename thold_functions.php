@@ -3716,7 +3716,7 @@ function thold_modify_values_by_cdef(&$thold_data) {
 			array($thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']));
 	}
 
-	if (!empty($cdef)) {
+	if ($cdef !== false && $cdef > 0) {
 		$thold_data['lastread']  = thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 
 		$thold_data['thold_hi']  = thold_build_cdef($cdef, $thold_data['thold_hi'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
@@ -3750,7 +3750,7 @@ function thold_get_column_by_cdef(&$thold_data, $column = 'lastread') {
 			)
 		);
 
-		if (!empty($cdef)) {
+		if ($cdef > 0) {
 			return thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 		} elseif (isset($thold_data['lastread'])) {
 			return $thold_data['lastread'];
@@ -4217,7 +4217,7 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 	}
 
 	$value = $result['values'][$idx][0];
-	if ($cdef != 0) {
+	if ($cdef > 0) {
 		$value = thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id);
 	}
 
@@ -4312,7 +4312,7 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 			$ref_value_max = max($ref_values);
 		}
 
-		if ($thold_data['cdef'] != 0) {
+		if ($thold_data['cdef'] > 0) {
 			$ref_value_min = thold_build_cdef($thold_data['cdef'], $ref_value_min, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 			$ref_value_max = thold_build_cdef($thold_data['cdef'], $ref_value_max, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 		}
