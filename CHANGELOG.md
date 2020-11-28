@@ -4,6 +4,8 @@
 
 * issue#463: php error - undefined index dnotes 
 
+* feature#469: use thold template name as filename for single export
+
 --- 1.5.2 ---
 
 * issue#457: Page show blank if do export function without log info exist
