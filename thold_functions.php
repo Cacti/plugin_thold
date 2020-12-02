@@ -3973,6 +3973,10 @@ function thold_cdef_select_usable_names() {
 }
 
 function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) {
+	if ($value == '') {
+		$value = 0;
+	}
+
 	$oldvalue = $value;
 
 	$cdefs = db_fetch_assoc_prepared('SELECT *
@@ -3985,12 +3989,14 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 
 	if (cacti_sizeof($cdefs)) {
 		foreach ($cdefs as $cdef) {
+			$prev_value = $cdef['value'];
+
 			if ($cdef['type'] == 4) {
 				$cdef['type'] = 6;
 
 				switch ($cdef['value']) {
 				case 'CURRENT_DATA_SOURCE':
-					$cdef['value'] = $oldvalue; //
+					$cdef['value'] = $oldvalue;
 
 					break;
 				case 'CURRENT_GRAPH_MAXIMUM_VALUE':
@@ -4053,6 +4059,9 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 			}
 
 			$cdef_array[] = $cdef;
+			if ($cdef['type'] == 6 && !is_numeric($cdef['value'])) {
+				cacti_log("WARNING: Value for Data ID $local_data_id is not numeric:'" . $cdef['value'] . "', Previous Value was:'". $prev_value . "'", false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
+			}
 		}
 	}
 
