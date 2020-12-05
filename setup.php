@@ -1076,17 +1076,19 @@ function thold_graphs_action_prepare($save) {
 					WHERE gl.id = ?',
 					array($item));
 
-				foreach ($data_template_ids as $i => $data_template_rec) {
-					$data_template_id = isset($data_template_rec['data_template_id']) ? $data_template_rec['data_template_id'] : '';
-					$not_found.= "<li> data_template_id = $data_template_id </li>";
-					$templates = db_fetch_assoc_prepared('SELECT id
-						FROM thold_template
-						WHERE data_template_id = ?',
-						array($data_template_id));
+				if (cacti_sizeof($data_template_ids)) {
+					foreach ($data_template_ids as $i => $data_template_rec) {
+						$data_template_id = isset($data_template_rec['data_template_id']) ? $data_template_rec['data_template_id'] : '';
+						$not_found.= "<li> data_template_id = $data_template_id </li>";
+						$templates = db_fetch_assoc_prepared('SELECT id
+							FROM thold_template
+							WHERE data_template_id = ?',
+							array($data_template_id));
 
-					if (cacti_sizeof($templates)) {
-						$item_found = true;
-						$template_ids[] = $data_template_id;
+						if (cacti_sizeof($templates)) {
+							$item_found = true;
+							$template_ids[] = $data_template_id;
+						}
 					}
 				}
 				
