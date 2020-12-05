@@ -1075,7 +1075,7 @@ function thold_graphs_action_prepare($save) {
 					ON gl.id=gti.local_graph_id
 					WHERE gl.id = ?',
 					array($item));
-				
+
 				foreach ($data_template_ids as $i => $data_template_rec) {
 					$data_template_id = isset($data_template_rec['data_template_id']) ? $data_template_rec['data_template_id'] : '';
 					$not_found.= "<li> data_template_id = $data_template_id </li>";
