@@ -1078,8 +1078,8 @@ function thold_graphs_action_prepare($save) {
 
 				if (cacti_sizeof($data_template_ids)) {
 					foreach ($data_template_ids as $i => $data_template_rec) {
-						$data_template_id = isset($data_template_rec['data_template_id']) ? $data_template_rec['data_template_id'] : '';
-						$not_found.= "<li> data_template_id = $data_template_id </li>";
+						$data_template_id = $data_template_rec['data_template_id']
+
 						$templates = db_fetch_assoc_prepared('SELECT id
 							FROM thold_template
 							WHERE data_template_id = ?',
