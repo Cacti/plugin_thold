@@ -1068,26 +1068,26 @@ function thold_graphs_action_prepare($save) {
 			foreach($save['graph_array'] as $item) {
 				$item_found = false;
 				$data_template_ids = db_fetch_assoc_prepared('SELECT DISTINCT dtr.data_template_id
-                                         FROM data_template_rrd AS dtr
-                                         LEFT JOIN graph_templates_item AS gti
-                                         ON gti.task_item_id=dtr.id
-                                         LEFT JOIN graph_local AS gl
-                                         ON gl.id=gti.local_graph_id
-                                         WHERE gl.id = ?',
-                                        array($item));
+					FROM data_template_rrd AS dtr
+					LEFT JOIN graph_templates_item AS gti
+					ON gti.task_item_id=dtr.id
+					LEFT JOIN graph_local AS gl
+					ON gl.id=gti.local_graph_id
+					WHERE gl.id = ?',
+					array($item));
 				
 				foreach ($data_template_ids as $i => $data_template_rec) {
 					$data_template_id = isset($data_template_rec['data_template_id']) ? $data_template_rec['data_template_id'] : '';
 					$not_found.= "<li> data_template_id = $data_template_id </li>";
 					$templates = db_fetch_assoc_prepared('SELECT id
-                                                FROM thold_template
-                                                WHERE data_template_id = ?',
-                                                array($data_template_id));
+						FROM thold_template
+						WHERE data_template_id = ?',
+						array($data_template_id));
 					
 					if (cacti_sizeof($templates)) {
 						$item_found = true;
-                                                $template_ids[] = $data_template_id;
-                                        }
+						$template_ids[] = $data_template_id;
+					}
 				}
 				
 				if (!$item_found) {
