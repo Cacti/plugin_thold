@@ -1078,7 +1078,7 @@ function thold_graphs_action_prepare($save) {
 
 				if (cacti_sizeof($data_template_ids)) {
 					foreach ($data_template_ids as $i => $data_template_rec) {
-						$data_template_id = $data_template_rec['data_template_id']
+						$data_template_id = $data_template_rec['data_template_id'];
 
 						$templates = db_fetch_assoc_prepared('SELECT id
 							FROM thold_template
@@ -1091,7 +1091,7 @@ function thold_graphs_action_prepare($save) {
 						}
 					}
 				}
-				
+
 				if (!$item_found) {
 					$not_found .= '<li>' . html_escape(get_graph_title($item)) . '</li>';
 				}
