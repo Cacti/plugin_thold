@@ -566,7 +566,7 @@
 * feature: Moving away from direct use of GET, REQUEST, and POST variables for
   security
 
-* feature: Rename several legacy database columns to match Cacti's default
+* feature: Rename several legacy database columns to match Cactis default
   schema, making the thold code much more readable
 
 * feature: complete audit and rewrite of several functions addressing:
