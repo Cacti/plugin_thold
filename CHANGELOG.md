@@ -2,9 +2,9 @@
 
 --- 1.5.3 ---
 
-* issue#474: Create threshold from templates fail with multiple data template ids
-
 * issue#463: php error - undefined index dnotes 
+
+* issue#474: Create threshold from templates fail with multiple data template ids
 
 * feature#469: use thold template name as filename for single export
 
@@ -128,7 +128,7 @@
 
 * issue#358: Downtime message is only calculated when SNMP is in use
 
-* issue#361: Thresholds are not applying CDEF's correctly
+* issue#361: Thresholds are not applying CDEFs correctly
 
 * issue#364: Thold 1.3.2 A non-numeric value encountered in thold_functions.php
 
@@ -288,7 +288,7 @@
 
 * issue#320: Thold Graph broken when name include single quote
 
-* issue#322: Standalone thresholds based on graph with serveral DS don't work
+* issue#322: Standalone thresholds based on graph with serveral DS dont work
   for DS after the 1st one...
 
 * issue#323: "Associated Graph (Graphs using this RRD)" field not including all
@@ -307,7 +307,7 @@
 * issue#334: Undefined index: data_source_name in file: thold_functions.php
 
 * issue#335: Undefined index: desc in file:
-  /opt/IBM/cacti/plugins/thold/thold_functions.php
+  CACTI_TOP/plugins/thold/thold_functions.php
 
 * issue#336: cacti 1.2.4 and THOLD 1.2.x check_all_thresholds error
 
@@ -510,7 +510,7 @@
 
 * issue#91: Search filter not working from Thold Management
 
-* issue#93: Thold ID's when auto created are NOT in sequential order
+* issue#93: Thold IDs when auto created are NOT in sequential order
 
 * issue#94: `<DOWNTIME>` not processed properly when the value has never changed
 
@@ -572,7 +572,7 @@
 
 --- 0.6 ---
 
-* feature: Reduce influence upon Cacti's poller runtime to a minimum by
+* feature: Reduce influence upon Cactis poller runtime to a minimum by
   introducing a Thold daemon (also allows distribution)
 
 * feature: Support of SNMP traps and informs ( requires the CACTI SNMPAgent
@@ -601,7 +601,7 @@
 
 * bug: Restoral Emails not working in all cases
 
-* bug: When polling returns non-numeric data,  don't return false LOW Alerts
+* bug: When polling returns non-numeric data,  dont return false LOW Alerts
 
 * bug: Fix time based Warnings
 
@@ -639,7 +639,7 @@
 
 * bug: Fix several GUI and polling issues
 
-* bug: Don't alert on blank data output
+* bug: Dont alert on blank data output
 
 * bug: Remove old ununsed variables
 
