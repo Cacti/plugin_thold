@@ -834,7 +834,7 @@
 
 * bug: Fix for threshold template data propagating to an incorrect threshold
 
-* feature: Added Email Address field to User's Profiles
+* feature: Added Email Address field to Users Profiles
 
 * feature: Added ability to select a user to alert for a threshold instead of
   having to type in their email address
@@ -1028,7 +1028,7 @@
 
 --- 0.2.0 ---
 
-* feature: Auto-create the database if it doesn't exist
+* feature: Auto-create the database if it doesnt exist
 
 * bug: Better sorting on threshold tables
 
