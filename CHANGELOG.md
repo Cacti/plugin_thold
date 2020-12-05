@@ -6,6 +6,8 @@
 
 * issue#467: The thold cdef processing function does not handle non-numeric data correctly
 
+* issue#474: Create threshold from templates fail with multiple data template ids
+
 * feature#469: use thold template name as filename for single export
 
 --- 1.5.2 ---
