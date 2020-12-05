@@ -4055,6 +4055,12 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 						WHERE dl.id = ?
 						AND hsc.field_name = ?',
 						array($local_data_id, $matches[1]));
+
+					if ($cdef['value'] == '' || !is_numeric($cdef['value'])) {
+						$cdef['value'] = 0;
+					}
+				} else {
+					$cdef['value'] = 0;
 				}
 			}
 
@@ -4111,6 +4117,14 @@ function thold_rpn($x, $y, $z) {
 
 	if (empty($y) || $y == 'U') {
 		$y = 0;
+	}
+
+	if (!is_numeric($x)) {
+		cacti_log("WARNING: Erroneous CDEF logic, the first value should be numeric, but is '$x'", false, 'THOLD');
+	}
+
+	if (!is_numeric($y)) {
+		cacti_log("WARNING: Erroneous CDEF logic, the second value should be numeric, but is '$y'", false, 'THOLD');
 	}
 
 	switch ($z) {
