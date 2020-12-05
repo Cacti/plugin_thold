@@ -1083,7 +1083,7 @@ function thold_graphs_action_prepare($save) {
 						FROM thold_template
 						WHERE data_template_id = ?',
 						array($data_template_id));
-					
+
 					if (cacti_sizeof($templates)) {
 						$item_found = true;
 						$template_ids[] = $data_template_id;
