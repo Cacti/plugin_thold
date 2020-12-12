@@ -1094,6 +1094,8 @@ function thold_graphs_action_prepare($save) {
 
 				if (!$item_found) {
 					$not_found .= '<li>' . html_escape(get_graph_title($item)) . '</li>';
+				} else {
+					$found_list.= '<li>' . html_escape(get_graph_title($item)) . '</li>';
 				}
 			}
 		}
