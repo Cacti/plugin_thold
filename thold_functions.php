@@ -4059,8 +4059,6 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 					if ($cdef['value'] == '' || !is_numeric($cdef['value'])) {
 						$cdef['value'] = 0;
 					}
-				} else {
-					$cdef['value'] = 0;
 				}
 			}
 
