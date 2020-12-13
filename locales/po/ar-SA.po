@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-13 14:35-0400\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2020-12-12 22:16-0500\n"
 "PO-Revision-Date: 2020-09-13 14:41-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -38,24 +38,24 @@ msgstr "٪ د أشهر"
 msgid "%d Year"
 msgstr "٪ د السنة"
 
-#: includes/arrays.php:37 thold_graph.php:692 thold_graph.php:1030
+#: includes/arrays.php:37 thold_graph.php:694 thold_graph.php:1037
 msgid "Down"
 msgstr "المرض"
 
 #: includes/arrays.php:41 includes/arrays.php:227 includes/arrays.php:243
-#: thold_graph.php:701
+#: thold_graph.php:703
 msgid "Error"
 msgstr "خطأ"
 
-#: includes/arrays.php:45 thold_graph.php:695 thold_graph.php:1031
+#: includes/arrays.php:45 thold_graph.php:697 thold_graph.php:1038
 msgid "Recovering"
 msgstr "يستردّ"
 
-#: includes/arrays.php:49 thold_graph.php:698 thold_graph.php:1029
+#: includes/arrays.php:49 thold_graph.php:700 thold_graph.php:1036
 msgid "Up"
 msgstr "أعلى"
 
-#: includes/arrays.php:53 thold_graph.php:704 thold_graph.php:1032
+#: includes/arrays.php:53 thold_graph.php:706 thold_graph.php:1039
 msgid "Unknown"
 msgstr "غير معروف"
 
@@ -63,11 +63,11 @@ msgstr "غير معروف"
 #: includes/settings.php:422 includes/settings.php:435
 #: includes/settings.php:465 notify_lists.php:733 notify_lists.php:1154
 #: notify_lists.php:1318 notify_lists.php:1514 thold.php:704
-#: thold_graph.php:216 thold_graph.php:688 thold_graph.php:1026
+#: thold_graph.php:216 thold_graph.php:690 thold_graph.php:1033
 msgid "Disabled"
 msgstr "معطل"
 
-#: includes/arrays.php:61 thold_graph.php:958 thold_graph.php:1028
+#: includes/arrays.php:61 thold_graph.php:964 thold_graph.php:1035
 #, fuzzy
 msgid "Not Monitored"
 msgstr "غير مراقب"
@@ -147,7 +147,7 @@ msgstr "تحذير"
 msgid "Event - Restoral"
 msgstr "الحدث - استعادة"
 
-#: includes/arrays.php:112 thold_graph.php:1380
+#: includes/arrays.php:112 thold_graph.php:1393
 #, fuzzy
 msgid "Restoral Event"
 msgstr "الحدث التصالحي"
@@ -186,7 +186,7 @@ msgstr "تحذير الزناد"
 msgid "Alert-Warn"
 msgstr "تنبيه تحذير"
 
-#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1352
+#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1363
 msgid "Acknowledgment"
 msgstr "الشكر والتقدير"
 
@@ -207,8 +207,8 @@ msgstr "أوك"
 msgid "Emergency"
 msgstr "الطوارئ"
 
-#: includes/arrays.php:226 thold.php:1819 thold.php:1838
-#: thold_templates.php:1381 thold_templates.php:1395
+#: includes/arrays.php:226 thold.php:1831 thold.php:1850
+#: thold_templates.php:1394 thold_templates.php:1408
 msgid "Critical"
 msgstr "حرجة"
 
@@ -321,7 +321,7 @@ msgid "%d Day"
 msgstr "٪ د يوم"
 
 #: includes/arrays.php:314 includes/arrays.php:346 includes/arrays.php:391
-#: includes/arrays.php:412 thold_graph.php:1256
+#: includes/arrays.php:412 thold_graph.php:1267
 #, php-format
 msgid "%d Days"
 msgstr "٪ أيام"
@@ -404,7 +404,7 @@ msgstr "CDEF"
 msgid "Percentage"
 msgstr "النسبة المئوية"
 
-#: includes/arrays.php:491 thold.php:1731 thold_templates.php:1292
+#: includes/arrays.php:491 thold.php:1743 thold_templates.php:1298
 #, fuzzy
 msgid "RPN Expression"
 msgstr "تعبير RPN"
@@ -429,7 +429,7 @@ msgid "Resume Notifications"
 msgstr "SNMP الإخطارات"
 
 #: includes/arrays.php:499 includes/arrays.php:508 notify_lists.php:31
-#: setup.php:1280
+#: setup.php:1295
 msgid "Delete"
 msgstr "حذف"
 
@@ -451,45 +451,45 @@ msgstr "إعادة تطبيق الأسماء المقترحة"
 msgid "Propagate Template"
 msgstr "نشر القالب"
 
-#: includes/arrays.php:507 thold_graph.php:1438
+#: includes/arrays.php:507 thold_graph.php:1451
 msgid "Export"
 msgstr "تصدير"
 
-#: includes/polling.php:608
+#: includes/polling.php:609
 #, fuzzy
 msgid "SNMP not in use"
 msgstr "SNMP ليس قيد الاستخدام"
 
-#: includes/polling.php:661 thold.php:954 thold.php:974 thold.php:975
-#: thold.php:1176 thold.php:1224 thold.php:1231 thold.php:1237 thold.php:1245
-#: thold.php:1251 thold.php:1257 thold.php:1259 thold.php:1442
-#: thold_graph.php:619 thold_graph.php:639 thold_graph.php:640
-#: thold_graph.php:915 thold_graph.php:959 thold_graph.php:962
-#: thold_graph.php:963 thold_graph.php:964 thold_graph.php:1381
-#: thold_graph.php:1382
+#: includes/polling.php:662 thold.php:956 thold.php:976 thold.php:977
+#: thold.php:1178 thold.php:1227 thold.php:1234 thold.php:1240 thold.php:1248
+#: thold.php:1254 thold.php:1260 thold.php:1262 thold.php:1447
+#: thold_graph.php:621 thold_graph.php:641 thold_graph.php:642
+#: thold_graph.php:917 thold_graph.php:966 thold_graph.php:969
+#: thold_graph.php:970 thold_graph.php:971 thold_graph.php:1394
+#: thold_graph.php:1395
 msgid "N/A"
 msgstr "N/A"
 
-#: includes/polling.php:666
+#: includes/polling.php:667
 #, fuzzy
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "إشعار الأجهزة: <DESCRIPTION> ( <HOSTNAME> ) عاد من أسفل الدولة"
 
-#: includes/polling.php:676
+#: includes/polling.php:677
 #, fuzzy
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
 msgstr "<br> النظام <DESCRIPTION> ( <HOSTNAME> ) الحالة: <DOWN/UP><br><br> استجابة ping الحالية: <CUR_TIME> الآنسة <br> متوسط استجابة النظام: <AVG_TIME> الآنسة <br> توفر نظام: <AVAILABILITY><br> إجمالي الشيكات منذ الإلغاء: <TOT_POLL><br> إجمالي الشيكات الفاشلة: <FAIL_POLL><br> تاريخ آخر فحص UP: <LAST_FAIL><br> الأجهزة السابقة لأسفل لـ: <DOWNTIME><br><br> معلومات SNMP: <br> اسم - <SNMP_HOSTNAME><br> موقعك - <SNMP_LOCATION><br> مدة التشغيل - <UPTIMETEXT> ( <UPTIME> الآنسة) <br> النظام - <SNMP_SYSTEM><br><br> ملحوظة: <NOTES>"
 
-#: includes/polling.php:818
+#: includes/polling.php:819
 #, fuzzy
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "خطأ في الأجهزة: <DESCRIPTION> ( <HOSTNAME> ) هو أسفل"
 
-#: includes/polling.php:823 includes/polling.php:839
+#: includes/polling.php:824 includes/polling.php:840
 msgid "DOWN"
 msgstr "لاسفل"
 
-#: includes/polling.php:829
+#: includes/polling.php:830
 #, fuzzy
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "خطأ بالنظام : <DESCRIPTION> ( <HOSTNAME> ) هو <DOWN/UP><br> السبب: <MESSAGE><br><br> متوسط استجابة النظام: <AVG_TIME> الآنسة <br> توفر نظام: <AVAILABILITY><br> إجمالي الشيكات منذ الإلغاء: <TOT_POLL><br> إجمالي الشيكات الفاشلة: <FAIL_POLL><br> تاريخ آخر تاريخ <LAST_FAIL><br> الأجهزة السابقة UP لـ: <DOWNTIME><br> ملحوظة: <NOTES>"
@@ -498,7 +498,7 @@ msgstr "خطأ بالنظام : <DESCRIPTION> ( <HOSTNAME> ) هو <DOWN/UP><br> 
 #: includes/settings.php:77 includes/settings.php:208 notify_lists.php:44
 #: notify_lists.php:1322 notify_lists.php:1387 notify_lists.php:1997
 #: thold.php:709 thold.php:760 thold_functions.php:139 thold_graph.php:221
-#: thold_templates.php:1954
+#: thold_templates.php:1967
 #, fuzzy
 msgid "Thresholds"
 msgstr "الحدود القصوى"
@@ -526,7 +526,7 @@ msgstr "إضافة"
 msgid "Threshold Logs"
 msgstr "الحدود القصوى"
 
-#: includes/settings.php:91 thold_functions.php:141 thold_graph.php:766
+#: includes/settings.php:91 thold_functions.php:141 thold_graph.php:768
 #, fuzzy
 msgid "Device Status"
 msgstr "حالة الجهاز"
@@ -558,7 +558,7 @@ msgstr "فشل الجهاز الأخير"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
-#: includes/settings.php:160 thold_templates.php:1843
+#: includes/settings.php:160 thold_templates.php:1856
 #, fuzzy
 msgid "Threshold Templates"
 msgstr "قوالب العتبة"
@@ -584,11 +584,11 @@ msgid "Management"
 msgstr "الإدارة"
 
 #: includes/settings.php:209 notify_lists.php:45 notify_lists.php:1998
-#: thold_templates.php:1858 thold_templates.php:1934
+#: thold_templates.php:1871 thold_templates.php:1947
 msgid "Templates"
 msgstr "القوالب"
 
-#: includes/settings.php:209 thold_graph.php:1462
+#: includes/settings.php:209 thold_graph.php:1475
 msgid "Threshold"
 msgstr "العتبة"
 
@@ -790,9 +790,9 @@ msgid "Any"
 msgstr "الجميع"
 
 #: includes/settings.php:423 includes/settings.php:436 notify_lists.php:1317
-#: notify_lists.php:1403 notify_lists.php:1514 thold.php:703 thold.php:1902
-#: thold_graph.php:215 thold_graph.php:1025 thold_templates.php:1029
-#: thold_templates.php:1458
+#: notify_lists.php:1403 notify_lists.php:1514 thold.php:703 thold.php:1914
+#: thold_graph.php:215 thold_graph.php:1032 thold_templates.php:1035
+#: thold_templates.php:1471
 msgid "Enabled"
 msgstr "مفعل"
 
@@ -922,7 +922,7 @@ msgstr "تنبيه سجل الاحتفاظ"
 msgid "Keep Threshold Logs for this number of days."
 msgstr "الاحتفاظ بسجلات الحد الأدنى لهذا العدد من الأيام."
 
-#: includes/settings.php:518 thold.php:1897 thold_templates.php:1453
+#: includes/settings.php:518 thold.php:1909 thold_templates.php:1466
 #, fuzzy
 msgid "Syslog Settings"
 msgstr "إعدادات سيسلوغ"
@@ -1007,7 +1007,7 @@ msgstr "خط الأساس النطاق الزمني الافتراضي"
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr "هذه هي القيمة الافتراضية المستخدمة في إنشاء عتبات أو قوالب."
 
-#: includes/settings.php:579 thold.php:1694 thold_templates.php:1256
+#: includes/settings.php:579 thold.php:1699 thold_templates.php:1262
 #, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "الأساس الزناد العد"
@@ -1255,7 +1255,7 @@ msgstr "تم إصدار تحذير يتطلب انتباهك. <br><br> <strong>�
 msgid "Threshold Restoral Message"
 msgstr "رسالة تنبيه العتبة"
 
-#: includes/settings.php:743 thold.php:1778 thold_templates.php:1337
+#: includes/settings.php:743 thold.php:1790 thold_templates.php:1350
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "هذه هي الرسالة التي سيتم عرضها في الجزء العلوي من جميع تحذيرات Threshold (255 Char MAX). HTML مسموح به ، ولكن ستتم إزالته للنص فقط رسائل البريد الإلكتروني. هناك العديد من الواصفات التي يمكن استخدامها. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GREATH&gt;"
@@ -1284,7 +1284,7 @@ msgid "Disassociate"
 msgstr "تنأى"
 
 #: notify_lists.php:43 notify_lists.php:1000 notify_lists.php:1123
-#: notify_lists.php:1996 thold_graph.php:819 thold_graph.php:1064
+#: notify_lists.php:1996 thold_graph.php:821 thold_graph.php:1071
 msgid "Devices"
 msgstr "الأجهزة"
 
@@ -1295,15 +1295,15 @@ msgstr "انقر فوق \"متابعة\" لحذف قوائم (قوائم) الإ
 
 #: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
 #: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1362 thold.php:444
-#: thold_functions.php:5756 thold_templates.php:267
+#: notify_lists.php:726 notify_lists.php:739 setup.php:1377 thold.php:444
+#: thold_functions.php:5788 thold_templates.php:268
 msgid "Cancel"
 msgstr "إلغاء"
 
 #: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
 #: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1363 thold.php:446
-#: thold_functions.php:5759 thold_templates.php:269
+#: notify_lists.php:726 notify_lists.php:739 setup.php:1378 thold.php:446
+#: thold_functions.php:5791 thold_templates.php:270
 msgid "Continue"
 msgstr "إستمرار"
 
@@ -1466,7 +1466,7 @@ msgid "List General Settings"
 msgstr "قائمة الإعدادات العامة"
 
 #: notify_lists.php:834 notify_lists.php:1396 notify_lists.php:1657
-#: setup.php:1223 thold.php:770 thold_graph.php:415 thold_templates.php:1944
+#: setup.php:1238 thold.php:770 thold_graph.php:415 thold_templates.php:1957
 msgid "Name"
 msgstr "الاسم"
 
@@ -1476,7 +1476,7 @@ msgid "Enter a name for this Notification List."
 msgstr "أدخل اسمًا لقائمة الإخطار هذه."
 
 #: notify_lists.php:841 notify_lists.php:1132 notify_lists.php:1999
-#: thold_graph.php:833
+#: thold_graph.php:835
 msgid "Description"
 msgstr "الوصف"
 
@@ -1500,39 +1500,39 @@ msgid "Associated Devices"
 msgstr "الأجهزة المرتبطة"
 
 #: notify_lists.php:956 notify_lists.php:1273 notify_lists.php:1580
-#: notify_lists.php:1900 thold.php:632 thold.php:2281 thold_graph.php:132
-#: thold_graph.php:994 thold_graph.php:1408 thold_templates.php:1743
-#: thold_templates.php:1852
+#: notify_lists.php:1900 thold.php:632 thold.php:2294 thold_graph.php:132
+#: thold_graph.php:1001 thold_graph.php:1421 thold_templates.php:1756
+#: thold_templates.php:1865
 msgid "Search"
 msgstr "بحث"
 
 #: notify_lists.php:962 notify_lists.php:1133 notify_lists.php:1279
-#: thold.php:638 thold_graph.php:138 thold_graph.php:1000 thold_graph.php:1414
+#: thold.php:638 thold_graph.php:138 thold_graph.php:1007 thold_graph.php:1427
 msgid "Site"
 msgstr "موضع، موقع، مقر"
 
 #: notify_lists.php:967 notify_lists.php:985 notify_lists.php:1150
 #: notify_lists.php:1164 notify_lists.php:1284 notify_lists.php:1485
-#: notify_lists.php:1730 setup.php:767 setup.php:785 setup.php:959
-#: setup.php:960 setup.php:1116 thold.php:643 thold.php:674 thold.php:1477
-#: thold.php:1485 thold.php:1786 thold.php:1794 thold.php:2244
+#: notify_lists.php:1730 setup.php:775 setup.php:793 setup.php:967
+#: setup.php:968 setup.php:1131 thold.php:643 thold.php:674 thold.php:1482
+#: thold.php:1490 thold.php:1798 thold.php:1806 thold.php:2257
 #: thold_graph.php:143 thold_graph.php:172 thold_graph.php:190
-#: thold_graph.php:1005 thold_graph.php:1049 thold_graph.php:1419
-#: thold_graph.php:1449 thold_templates.php:392 thold_templates.php:440
-#: thold_templates.php:1039 thold_templates.php:1047 thold_templates.php:1352
-#: thold_templates.php:1360 thold_templates.php:1706
+#: thold_graph.php:1012 thold_graph.php:1056 thold_graph.php:1432
+#: thold_graph.php:1462 thold_templates.php:397 thold_templates.php:445
+#: thold_templates.php:1045 thold_templates.php:1053 thold_templates.php:1365
+#: thold_templates.php:1373 thold_templates.php:1719
 msgid "None"
 msgstr "لا شيء"
 
 #: notify_lists.php:980 notify_lists.php:1400 notify_lists.php:1661
-#: thold.php:780 thold_graph.php:425 thold_graph.php:1044 thold_graph.php:1329
-#: thold_templates.php:1964
+#: thold.php:780 thold_graph.php:425 thold_graph.php:1051 thold_graph.php:1340
+#: thold_templates.php:1977
 msgid "Type"
 msgstr "النوع"
 
 #: notify_lists.php:1004 notify_lists.php:1326 notify_lists.php:1590
-#: notify_lists.php:1910 thold.php:713 thold_graph.php:225 thold_graph.php:1068
-#: thold_graph.php:1503 thold_templates.php:1862
+#: notify_lists.php:1910 thold.php:713 thold_graph.php:225 thold_graph.php:1075
+#: thold_graph.php:1516 thold_templates.php:1875
 msgid "Default"
 msgstr "الافتراضي"
 
@@ -1541,8 +1541,8 @@ msgid "Associated"
 msgstr "مربوط بسـلعة، إعلان مربوط بسلعة"
 
 #: notify_lists.php:1022 notify_lists.php:1344 notify_lists.php:1608
-#: notify_lists.php:1921 thold.php:659 thold_graph.php:160 thold_graph.php:1037
-#: thold_graph.php:1436 thold_templates.php:1874
+#: notify_lists.php:1921 thold.php:659 thold_graph.php:160 thold_graph.php:1044
+#: thold_graph.php:1449 thold_templates.php:1887
 msgid "Go"
 msgstr "أذهب"
 
@@ -1553,8 +1553,8 @@ msgid "Set/Refresh Filters"
 msgstr "ضبط / تحديث المرشحات"
 
 #: notify_lists.php:1023 notify_lists.php:1345 notify_lists.php:1609
-#: notify_lists.php:1924 thold.php:662 thold_graph.php:161 thold_graph.php:1038
-#: thold_graph.php:1437 thold_templates.php:1875
+#: notify_lists.php:1924 thold.php:662 thold_graph.php:161 thold_graph.php:1045
+#: thold_graph.php:1450 thold_templates.php:1888
 msgid "Clear"
 msgstr "واضح"
 
@@ -1564,8 +1564,8 @@ msgid "Clear Filters"
 msgstr "مسح الفلتر"
 
 #: notify_lists.php:1134 notify_lists.php:1397 notify_lists.php:1658
-#: thold.php:775 thold_graph.php:420 thold_graph.php:839
-#: thold_templates.php:1949
+#: thold.php:775 thold_graph.php:420 thold_graph.php:841
+#: thold_templates.php:1962
 msgid "ID"
 msgstr "المعرف"
 
@@ -1574,20 +1574,20 @@ msgstr "المعرف"
 msgid "Associated Lists"
 msgstr "القوائم المرتبطة"
 
-#: notify_lists.php:1136 thold_graph.php:845
+#: notify_lists.php:1136 thold_graph.php:847
 msgid "Graphs"
 msgstr "الرسوم"
 
-#: notify_lists.php:1137 thold_graph.php:851
+#: notify_lists.php:1137 thold_graph.php:853
 msgid "Data Sources"
 msgstr "مصادر البيانات"
 
-#: notify_lists.php:1138 setup.php:1223 thold.php:696 thold_graph.php:208
-#: thold_graph.php:857 thold_graph.php:1020 thold_graph.php:1484
+#: notify_lists.php:1138 setup.php:1238 thold.php:696 thold_graph.php:208
+#: thold_graph.php:859 thold_graph.php:1027 thold_graph.php:1497
 msgid "Status"
 msgstr "الحالة"
 
-#: notify_lists.php:1139 thold_graph.php:875
+#: notify_lists.php:1139 thold_graph.php:877
 msgid "Hostname"
 msgstr "اسم الخادم"
 
@@ -1611,7 +1611,7 @@ msgstr "لم يتم العثور على الأجهزة المرتبطة"
 msgid "Associated Thresholds"
 msgstr "عتبات المرتبطة"
 
-#: notify_lists.php:1297 thold.php:669 thold_graph.php:167 thold_graph.php:1444
+#: notify_lists.php:1297 thold.php:669 thold_graph.php:167 thold_graph.php:1457
 msgid "Template"
 msgstr "قالب"
 
@@ -1620,10 +1620,10 @@ msgid "State"
 msgstr "الحالة"
 
 #: notify_lists.php:1314 thold.php:642 thold.php:673 thold.php:700
-#: thold.php:2243 thold_graph.php:142 thold_graph.php:171 thold_graph.php:189
-#: thold_graph.php:212 thold_graph.php:1004 thold_graph.php:1024
-#: thold_graph.php:1048 thold_graph.php:1418 thold_graph.php:1448
-#: thold_graph.php:1466 thold_graph.php:1488 thold_templates.php:1705
+#: thold.php:2256 thold_graph.php:142 thold_graph.php:171 thold_graph.php:189
+#: thold_graph.php:212 thold_graph.php:1011 thold_graph.php:1031
+#: thold_graph.php:1055 thold_graph.php:1431 thold_graph.php:1461
+#: thold_graph.php:1479 thold_graph.php:1501 thold_templates.php:1718
 msgid "All"
 msgstr "الكل"
 
@@ -1642,13 +1642,13 @@ msgstr "قوائم التنبيه"
 msgid "Templated"
 msgstr "لنموذج"
 
-#: notify_lists.php:1413 thold.php:864 thold.php:985 thold.php:987
-#: thold.php:990 thold_graph.php:496 thold_graph.php:650
+#: notify_lists.php:1413 thold.php:864 thold.php:987 thold.php:989
+#: thold.php:992 thold_graph.php:496 thold_graph.php:652
 msgid "No"
 msgstr "لا"
 
-#: notify_lists.php:1417 thold.php:895 thold.php:899 thold.php:985
-#: thold.php:990 thold_graph.php:527 thold_graph.php:531 thold_graph.php:650
+#: notify_lists.php:1417 thold.php:895 thold.php:899 thold.php:987
+#: thold.php:992 thold_graph.php:527 thold_graph.php:531 thold_graph.php:652
 msgid "Yes"
 msgstr "نعم"
 
@@ -1698,7 +1698,7 @@ msgstr "قابل للتعديل"
 msgid "Read Only"
 msgstr "يقرأ فقط"
 
-#: notify_lists.php:1520 thold.php:997 thold_graph.php:655
+#: notify_lists.php:1520 thold.php:999 thold_graph.php:657
 #, fuzzy
 msgid "No Thresholds"
 msgstr "لا عتبات"
@@ -1757,171 +1757,171 @@ msgstr "تبديل عتبة VRULES٪ s"
 msgid "Create Threshold"
 msgstr "إنشاء عتبة"
 
-#: setup.php:503 setup.php:513
+#: setup.php:512 setup.php:522
 #, fuzzy, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr "تنبيه مرحبًا لـ٪ s (٪ s)"
 
-#: setup.php:507 setup.php:517
+#: setup.php:516 setup.php:526
 #, fuzzy, php-format
 msgid "Alert Low for %s (%s)"
 msgstr "تنبيه منخفض لـ٪ s (٪ s)"
 
-#: setup.php:533 setup.php:543
+#: setup.php:542 setup.php:552
 #, fuzzy, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr "قوائم التحذير"
 
-#: setup.php:537 setup.php:547
+#: setup.php:546 setup.php:557
 #, fuzzy, php-format
 msgid "Warning Low for %s (%s)"
 msgstr "قوائم التحذير"
 
-#: setup.php:567 setup.php:581
-#, fuzzy, php-format
-msgid "Alert Hi for %s (%s %%)"
+#: setup.php:577 setup.php:591
+#, fuzzy
+msgid "Alert Hi for %s (%s %%%)"
 msgstr "تنبيه مرحبًا لـ٪ s (٪ s ٪٪)"
 
-#: setup.php:573 setup.php:587
-#, fuzzy, php-format
-msgid "Alert Low for %s (%s %%)"
+#: setup.php:583 setup.php:597
+#, fuzzy
+msgid "Alert Low for %s (%s %%%)"
 msgstr "تنبيه منخفض لـ٪ s (٪ s ٪٪)"
 
-#: setup.php:605 setup.php:619
-#, fuzzy, php-format
-msgid "Warning Hi for %s (%s %%)"
+#: setup.php:615 setup.php:629
+#, fuzzy
+msgid "Warning Hi for %s (%s %%%)"
 msgstr "تحذير مرحبًا لـ٪ s (٪ s ٪٪)"
 
-#: setup.php:611 setup.php:625
-#, fuzzy, php-format
-msgid "Warning Low for %s (%s %%)"
+#: setup.php:621 setup.php:635
+#, fuzzy
+msgid "Warning Low for %s (%s %%%)"
 msgstr "تحذير منخفض لـ٪ s (٪ s ٪٪)"
 
-#: setup.php:638
+#: setup.php:648
 #, fuzzy
 msgid "Threshold Alert/Warning Values"
 msgstr "عتبة تنبيه / قيم التحذير"
 
-#: setup.php:691
+#: setup.php:701
 #, fuzzy
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr "انقر فوق \"متابعة\" لتطبيق جميع الحدود المناسبة على هذه الأجهزة (الأجهزة)."
 
-#: setup.php:767 setup.php:785
+#: setup.php:775 setup.php:793
 #, fuzzy
 msgid "Create Threshold from Data Source"
 msgstr "إنشاء عتبة من مصدر البيانات"
 
-#: setup.php:796
+#: setup.php:804
 #, fuzzy
 msgid "Auto-create Thresholds"
 msgstr "لصناعة السيارات في خلق عتبات"
 
-#: setup.php:878 setup.php:1035
+#: setup.php:886 setup.php:1043
 #, fuzzy, php-format
 msgid "Created %s thresholds"
 msgstr "العتبة التي تم إنشاؤها:٪ s"
 
-#: setup.php:880 setup.php:1037 thold_functions.php:5258
+#: setup.php:888 setup.php:1045 thold_functions.php:5290
 #, fuzzy
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "لا توجد عتبة (قيم) تم إنشاؤها. إما أنها موجودة بالفعل ، أو لم تكن هناك مجموعات مطابقة متطابقة."
 
-#: setup.php:883 setup.php:1040
+#: setup.php:891 setup.php:1048
 #, fuzzy
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "لم يتم إنشاء عتبة (عتبات). عتبة (ق) قالب غير موجود."
 
-#: setup.php:941
+#: setup.php:949
 #, fuzzy
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr "لا تحتوي مصادر البيانات التالية على قوالب عتبة مرتبطة بها"
 
-#: setup.php:945
+#: setup.php:953
 #, fuzzy
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr "انقر فوق \"متابعة\" لإنشاء عتبات لمصادر البيانات هذه؟"
 
-#: setup.php:952 setup.php:1109
+#: setup.php:960 setup.php:1124
 #, fuzzy
 msgid "Available Threshold Templates"
 msgstr "قوالب العتبة المتاحة"
 
-#: setup.php:957 setup.php:1114 thold_webapi.php:339
+#: setup.php:965 setup.php:1129 thold_webapi.php:339
 #, fuzzy
 msgid "Select a Threshold Template"
 msgstr "حدد قالب العتبة"
 
-#: setup.php:973
+#: setup.php:981
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "لا توجد قوالب عتبة مرتبطة بمصادر البيانات التالية"
 
-#: setup.php:985 setup.php:1141 thold_webapi.php:177
+#: setup.php:993 setup.php:1156 thold_webapi.php:177
 #, fuzzy
 msgid "Create Threshold from Template"
 msgstr "إنشاء عتبة من القالب"
 
-#: setup.php:1098
+#: setup.php:1113
 #, fuzzy
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "لا تتضمن الرسوم البيانية التالية قوالب عتبة مرتبطة بها"
 
-#: setup.php:1102
+#: setup.php:1117
 #, fuzzy
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr "اضغط على \"متابعة\" إذا كنت ترغب في إنشاء عتبة (ق) للرسم البياني"
 
-#: setup.php:1129
+#: setup.php:1144
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr "لا توجد قوالب عتبة مرتبطة بالرسوم البيانية التالية"
 
-#: setup.php:1211 setup.php:1261
+#: setup.php:1226 setup.php:1276
 #, fuzzy
 msgid "Associated Threshold Templates"
 msgstr "قوالب العتبة المرتبطة"
 
-#: setup.php:1235
+#: setup.php:1250
 #, fuzzy
 msgid "Threshold Exists"
 msgstr "العتبة موجودة"
 
-#: setup.php:1237
+#: setup.php:1252
 #, fuzzy
 msgid "Threshold Does Not Exist"
 msgstr "العتبة غير موجودة"
 
-#: setup.php:1254 setup.php:1288
+#: setup.php:1269 setup.php:1303
 #, fuzzy
 msgid "No Associated Threshold Templates."
 msgstr "لا قوالب العتبة المرتبطة."
 
-#: setup.php:1306
+#: setup.php:1321
 #, fuzzy
 msgid "Add Threshold Template"
 msgstr "إضافة قالب العتبة"
 
-#: setup.php:1312
+#: setup.php:1327
 msgid "Add"
 msgstr "إضافة"
 
-#: setup.php:1312
+#: setup.php:1327
 #, fuzzy
 msgid "Add Threshold Template to Device Template"
 msgstr "إضافة قالب العتبة إلى قالب الجهاز"
 
-#: setup.php:1356
+#: setup.php:1371
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr "انقر فوق \"متابعة\" لحذف قالب العتبة التالي سيتم فصله عن قالب الجهاز."
 
-#: setup.php:1357
+#: setup.php:1372
 #, fuzzy, php-format
 msgid "Threshold Template Name: %s"
 msgstr "اسم قالب العتبة:٪ s"
 
-#: setup.php:1363
+#: setup.php:1378
 #, fuzzy
 msgid "Remove Threshold Template"
 msgstr "إزالة قالب العتبة"
@@ -1991,7 +1991,7 @@ msgstr "إعادة تطبيق القالب"
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "انقر فوق \"متابعة\" للإقرار بالعتبة (العتبات) التالية. سيتم تجاهل العتبات التي لا تسمح بذلك ، أو التي لم يتم تشغيلها."
 
-#: thold.php:417 thold_functions.php:5746
+#: thold.php:417 thold_functions.php:5778
 #, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "قالب الاعتراف (ق)"
@@ -2016,7 +2016,7 @@ msgstr "انقر فوق \"متابعة\" لتعليق الإشعارات للح�
 msgid "Suspend Notification for Threshold(s)"
 msgstr "قائمة (قوائم) الإعلام المكررة"
 
-#: thold.php:428 thold_templates.php:255
+#: thold.php:428 thold_templates.php:256
 #, fuzzy
 msgid "Invalid action detected, can not proceed"
 msgstr "تم اكتشاف إجراء غير صالح ، ولا يمكن المتابعة"
@@ -2035,8 +2035,8 @@ msgstr "طبق عوامل التصفية"
 msgid "Return to Defaults"
 msgstr "العودة إلى الإعدادات الافتراضية"
 
-#: thold.php:683 thold_graph.php:185 thold_templates.php:388
-#: thold_templates.php:1013 thold_templates.php:1959
+#: thold.php:683 thold_graph.php:185 thold_templates.php:393
+#: thold_templates.php:1019 thold_templates.php:1972
 #, fuzzy
 msgid "Data Template"
 msgstr "قالب البيانات"
@@ -2060,8 +2060,8 @@ msgstr "بريدك الإلكتروني الحالي غير مسموح"
 msgid "The last measured value for the Data Source"
 msgstr "القيمة الأخيرة المقاسة لمصدر البيانات"
 
-#: thold.php:796 thold.php:1818 thold.php:1837 thold_graph.php:436
-#: thold_templates.php:1381 thold_templates.php:1395 thold_templates.php:1974
+#: thold.php:796 thold.php:1830 thold.php:1849 thold_graph.php:436
+#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1987
 msgid "High"
 msgstr "عالي"
 
@@ -2070,8 +2070,8 @@ msgstr "عالي"
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "قيم التحذير / التنبيه العالية. ملاحظة: قيم خط الأساس نسبة مئوية ، وجميع القيم الأخرى هي قيم عرض يمكن تعديلها بواسطة cdef."
 
-#: thold.php:802 thold.php:1816 thold.php:1835 thold_graph.php:442
-#: thold_templates.php:1381 thold_templates.php:1395 thold_templates.php:1980
+#: thold.php:802 thold.php:1828 thold.php:1847 thold_graph.php:442
+#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1993
 msgid "Low"
 msgstr "منخفض"
 
@@ -2080,19 +2080,19 @@ msgstr "منخفض"
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "قيم التحذير / التنبيه المنخفضة. ملاحظة: قيم خط الأساس نسبة مئوية ، وجميع القيم الأخرى هي قيم عرض يمكن تعديلها بواسطة cdef."
 
-#: thold.php:808 thold_graph.php:448 thold_templates.php:1986
+#: thold.php:808 thold_graph.php:448 thold_templates.php:1999
 msgid "Trigger"
 msgstr "مشغل"
 
-#: thold.php:813 thold_graph.php:453 thold_templates.php:1991
+#: thold.php:813 thold_graph.php:453 thold_templates.php:2004
 msgid "Duration"
 msgstr "المدة الزمنية"
 
-#: thold.php:818 thold_graph.php:458 thold_templates.php:1996
+#: thold.php:818 thold_graph.php:458 thold_templates.php:2009
 msgid "Repeat"
 msgstr "كرر"
 
-#: thold.php:828 thold_graph.php:468 thold_graph.php:863
+#: thold.php:828 thold_graph.php:468 thold_graph.php:865
 #, fuzzy
 msgid "In State"
 msgstr "الحالة"
@@ -2107,611 +2107,619 @@ msgstr "مقدار الوقت الذي يجب أن يكون فيه مصدر ال
 msgid "Acknowledgment required for this Threshold"
 msgstr "الإقرار المطلوب لهذا العتبة"
 
-#: thold.php:967 thold_graph.php:632
+#: thold.php:969 thold_graph.php:634
 #, fuzzy, php-format
 msgid "%d Triggers"
 msgstr "٪ د المشغلات"
 
-#: thold.php:1029
+#: thold.php:1031
 #, fuzzy
 msgid "Threshold Deleted, can not Edit!"
 msgstr "العتبة غير موجودة"
 
-#: thold.php:1119
+#: thold.php:1121
 #, fuzzy
 msgid "Graph Data"
 msgstr "الرسم البياني البيانات"
 
-#: thold.php:1125
+#: thold.php:1127
 #, fuzzy
 msgid "Data Source Description:"
 msgstr "وصف مصدر البيانات:"
 
-#: thold.php:1126
+#: thold.php:1128
 #, fuzzy
 msgid "Associated Graph (Graphs using this RRD):"
 msgstr "الرسم البياني المرتبط (الرسوم البيانية باستخدام هذا RRD):"
 
-#: thold.php:1223
+#: thold.php:1226
 #, fuzzy
 msgid "Last:"
 msgstr "الاخير"
 
-#: thold.php:1230
+#: thold.php:1233
 #, fuzzy
 msgid "WHi:"
 msgstr "مبادرة الخوذ البيضاء:"
 
-#: thold.php:1236
+#: thold.php:1239
 #, fuzzy
 msgid "WLo:"
 msgstr "WLO:"
 
-#: thold.php:1244
+#: thold.php:1247
 #, fuzzy
 msgid "AHi:"
 msgstr "أهي:"
 
-#: thold.php:1250
+#: thold.php:1253
 #, fuzzy
 msgid "ALo:"
 msgstr "منظمة العمل العربية:"
 
-#: thold.php:1256
+#: thold.php:1259
 #, fuzzy
 msgid "BL Up:"
 msgstr "BL Up:"
 
-#: thold.php:1257 thold.php:1259
+#: thold.php:1260 thold.php:1262
 #, fuzzy
 msgid "%s%%%"
 msgstr "%s %s"
 
-#: thold.php:1258
+#: thold.php:1261
 #, fuzzy
 msgid "BL Down:"
 msgstr "از داون:"
 
-#: thold.php:1296
+#: thold.php:1299
 #, fuzzy, php-format
 msgid "Unknown Template ID %d"
 msgstr "معرف القالب غير معروف٪ d"
 
-#: thold.php:1298
+#: thold.php:1301
 #, fuzzy
 msgid "Not Templated"
 msgstr "لا templated"
 
-#: thold.php:1313 thold.php:1316
+#: thold.php:1318 thold.php:1321
 #, fuzzy, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "عنصر مصدر البيانات [٪ s] - القيمة الحالية: [٪ s]"
 
-#: thold.php:1402 thold_templates.php:965
+#: thold.php:1407 thold_templates.php:971
 #, fuzzy, php-format
 msgid "Replacement Fields: %s"
 msgstr "حقول الاستبدال:٪ s"
 
-#: thold.php:1415 thold_templates.php:979
+#: thold.php:1420 thold_templates.php:985
 #, fuzzy, php-format
 msgid "Data Sources: %s"
 msgstr "مصادر البيانات:٪ s"
 
-#: thold.php:1427
+#: thold.php:1432
 #, fuzzy
 msgid "Template/Enabled Information"
 msgstr "قالب / معلومات ممكّنة"
 
-#: thold.php:1431
+#: thold.php:1436
 #, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "تم تمكين نشر القالب"
 
-#: thold.php:1434
+#: thold.php:1439
 #, fuzzy
 msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr "أم لا سيتم نشر هذه الإعدادات من قالب العتبة."
 
-#: thold.php:1438 thold_templates.php:995
+#: thold.php:1443 thold_templates.php:1001
 msgid "Template Name"
 msgstr "إسم القالب"
 
-#: thold.php:1441
+#: thold.php:1446
 #, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "اسم قالب العتبة الذي تم إنشاء العتبة منه."
 
-#: thold.php:1445
+#: thold.php:1450
 #, fuzzy
 msgid "Threshold Enabled"
 msgstr "تمكين العتبة"
 
-#: thold.php:1448 thold_templates.php:1032
+#: thold.php:1453 thold_templates.php:1038
 #, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "ما إذا كان سيتم فحص هذه العتبة أم لا وسيتم تنبيهك عليها."
 
-#: thold.php:1452 thold_templates.php:991
+#: thold.php:1457 thold_templates.php:997
 msgid "General Settings"
 msgstr "الاعدادات العامة"
 
-#: thold.php:1456
+#: thold.php:1461
 #, fuzzy
 msgid "Name (Displayed)"
 msgstr "الاسم (معروض)"
 
-#: thold.php:1461 thold.php:1470
+#: thold.php:1466 thold.php:1475
 #, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "توفير عتبات اسم معنى"
 
-#: thold.php:1465
+#: thold.php:1470
 #, fuzzy
 msgid "Name (Format)"
 msgstr "الاسم (التنسيق)"
 
-#: thold.php:1474 thold_templates.php:1036
+#: thold.php:1479 thold_templates.php:1042
 #, fuzzy
 msgid "Warning HRULE Color"
 msgstr "تحذير HRULE اللون"
 
-#: thold.php:1475 thold_templates.php:1037
+#: thold.php:1480 thold_templates.php:1043
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "يرجى اختيار لون الرسم البياني HRULE لعتبات التحذير. اختر \"بلا\" لعدم وجود HRULE. ملاحظة: يتم دعم هذه الميزات لأنواع معالجة البيانات \"القيمة الدقيقة\" و \"النسبة المئوية\" فقط في هذا الوقت."
 
-#: thold.php:1482 thold_templates.php:1044
+#: thold.php:1487 thold_templates.php:1050
 #, fuzzy
 msgid "Alert HRULE Color"
 msgstr "تنبيه HRULE اللون"
 
-#: thold.php:1483 thold_templates.php:1045
+#: thold.php:1488 thold_templates.php:1051
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "يرجى اختيار لون الرسم البياني HRULE لعتبات التنبيه. اختر \"بلا\" لعدم وجود HRULE. ملاحظة: يتم دعم هذه الميزات لأنواع معالجة البيانات \"القيمة الدقيقة\" و \"النسبة المئوية\" فقط في هذا الوقت."
 
-#: thold.php:1490 thold_templates.php:1052
+#: thold.php:1495 thold_templates.php:1058
 #, fuzzy
 msgid "Weekend Exemption"
 msgstr "إعفاء نهاية الأسبوع"
 
-#: thold.php:1491 thold_templates.php:1053
+#: thold.php:1496 thold_templates.php:1059
 #, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr "إذا تم تحديد ذلك ، فلن يتم تنبيه هذا الحد في عطلة نهاية الأسبوع."
 
-#: thold.php:1497 thold_templates.php:1059
+#: thold.php:1502 thold_templates.php:1065
 #, fuzzy
 msgid "Disable Restoration Email"
 msgstr "تعطيل استعادة البريد الإلكتروني"
 
-#: thold.php:1498 thold_templates.php:1060
+#: thold.php:1503 thold_templates.php:1066
 #, fuzzy
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr "إذا تم تحديد ذلك ، فلن يرسل Threshold تنبيهًا عند عودة Threshold إلى وضعها الطبيعي."
 
-#: thold.php:1504 thold_templates.php:1066
+#: thold.php:1509 thold_templates.php:1072
 #, fuzzy
 msgid "Acknowledgment Options"
 msgstr "خيارات الاعتراف"
 
-#: thold.php:1505 thold_templates.php:1067
+#: thold.php:1510 thold_templates.php:1073
 #, fuzzy
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr "هناك ثلاثة مستويات للاعتراف تتحكم في كيفية الاستجابة لشرط خرق الحد. هم انهم: <br><br><ul style=\";text-align:right;direction:rtl\"><li style=\";text-align:right;direction:rtl\"> <i>لا شيء مطلوب</i> - عند تحديد هذا الخيار ، لا يلزم وجود إقرار بخرق عتبة. </li><li style=\";text-align:right;direction:rtl\"> <i>إعادة تعيين الإقرار</i> - مع هذا الخيار ، بمجرد إقرارك بالحد الأدنى ، لن تتلقى إعلامات بعد خرقها. </li><li style=\";text-align:right;direction:rtl\"> استمرار <i>الاعتراف</i> - مع هذا الخيار ، حتى بعد عودة الحد إلى طبيعته ، يجب عليك الاعتراف بالحد الأدنى وتقديم رسالة اختياري للمشغل. </li></ul>"
 
-#: thold.php:1512 thold_templates.php:1074
+#: thold.php:1517 thold_templates.php:1080
 #, fuzzy
 msgid "None Required"
 msgstr "لا شيء مطلوب"
 
-#: thold.php:1516 thold_templates.php:1078
+#: thold.php:1521 thold_templates.php:1084
 #, fuzzy
 msgid "Suspendible Notification"
 msgstr "SNMP الإخطارات"
 
-#: thold.php:1520 thold_templates.php:1082
+#: thold.php:1525 thold_templates.php:1088
 #, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "استمرار الاعتراف"
 
-#: thold.php:1525 thold_templates.php:1087
+#: thold.php:1530 thold_templates.php:1093
 #, fuzzy
 msgid "Threshold Type"
 msgstr "نوع العتبة"
 
-#: thold.php:1530 thold_templates.php:1092
+#: thold.php:1535 thold_templates.php:1098
 #, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "نوع العتبة التي سيتم مراقبتها."
 
-#: thold.php:1534 thold_templates.php:1096
+#: thold.php:1539 thold_templates.php:1102
 #, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "إعادة تنبيه دورة"
 
-#: thold.php:1538
+#: thold.php:1543
 #, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr "كرر التنبيه بعد مرور هذه الفترة الزمنية منذ آخر تنبيه."
 
-#: thold.php:1542 thold_templates.php:1104
+#: thold.php:1547 thold_templates.php:1110
 #, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "تحذير - إعدادات عالية / منخفضة"
 
-#: thold.php:1546 thold.php:1573 thold.php:1600 thold.php:1635
-#: thold_templates.php:1108 thold_templates.php:1135 thold_templates.php:1162
-#: thold_templates.php:1198
+#: thold.php:1551 thold.php:1578 thold.php:1605 thold.php:1640
+#: thold_templates.php:1114 thold_templates.php:1141 thold_templates.php:1168
+#: thold_templates.php:1204
 #, fuzzy
 msgid "High Threshold"
 msgstr "عتبة عالية"
 
-#: thold.php:1550 thold.php:1604 thold_templates.php:1166
+#: thold.php:1555 thold.php:1609 thold_templates.php:1172
 #, fuzzy
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "إذا كانت قيمة التعيين ومصدر البيانات أعلى من هذا الرقم ، فسيتم تشغيل تحذير. ملاحظة: يجب أن تكون هذه القيمة رقم RAW. يمكن تعديل القيمة المعروضة على الرسم البياني بواسطة cdef."
 
-#: thold.php:1554 thold.php:1581 thold.php:1608 thold.php:1643
-#: thold_templates.php:1116 thold_templates.php:1143 thold_templates.php:1170
-#: thold_templates.php:1206
+#: thold.php:1559 thold.php:1586 thold.php:1613 thold.php:1648
+#: thold_templates.php:1122 thold_templates.php:1149 thold_templates.php:1176
+#: thold_templates.php:1212
 #, fuzzy
 msgid "Low Threshold"
 msgstr "حد منخفض"
 
-#: thold.php:1558 thold.php:1612 thold_templates.php:1174
+#: thold.php:1563 thold.php:1617 thold_templates.php:1180
 #, fuzzy
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "إذا كانت قيمة التعيين ومصدر البيانات أقل من هذا الرقم ، فسيتم تشغيل تحذير. ملاحظة: يجب أن تكون هذه القيمة رقم RAW. يمكن تعديل القيمة المعروضة على الرسم البياني بواسطة cdef."
 
-#: thold.php:1562 thold.php:1589
+#: thold.php:1567 thold.php:1594
 #, fuzzy
 msgid "Breach Duration"
 msgstr "خرق المدة"
 
-#: thold.php:1565
+#: thold.php:1570
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "مقدار الوقت الذي يجب أن يكون فيه مصدر البيانات خرقًا للحد الأدنى حتى يتم رفع تحذير."
 
-#: thold.php:1569 thold_templates.php:1131
+#: thold.php:1574 thold_templates.php:1137
 #, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "تنبيه - إعدادات عالية / منخفضة"
 
-#: thold.php:1577 thold.php:1639 thold_templates.php:1112
-#: thold_templates.php:1139 thold_templates.php:1202
+#: thold.php:1582 thold.php:1644 thold_templates.php:1118
+#: thold_templates.php:1145 thold_templates.php:1208
 #, fuzzy
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "إذا كانت قيمة التعيين ومصدر البيانات أعلى من هذا الرقم ، فسيتم تشغيل التنبيه. ملاحظة: يجب أن تكون هذه القيمة رقم RAW. يمكن تعديل القيمة المعروضة على الرسم البياني بواسطة cdef."
 
-#: thold.php:1585 thold.php:1647 thold_templates.php:1120
-#: thold_templates.php:1147 thold_templates.php:1210
+#: thold.php:1590 thold.php:1652 thold_templates.php:1126
+#: thold_templates.php:1153 thold_templates.php:1216
 #, fuzzy
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "إذا كانت قيمة التعيين ومصدر البيانات أقل من هذا الرقم ، فسيتم تشغيل التنبيه. ملاحظة: يجب أن تكون هذه القيمة رقم RAW. يمكن تعديل القيمة المعروضة على الرسم البياني بواسطة cdef."
 
-#: thold.php:1592
+#: thold.php:1597
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr "مقدار الوقت الذي يجب أن يكون فيه مصدر البيانات خرقًا للحد الأدنى حتى يتم رفع تنبيه."
 
-#: thold.php:1596 thold_templates.php:1158
+#: thold.php:1601 thold_templates.php:1164
 #, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "تحذير - إعدادات تستند إلى الوقت"
 
-#: thold.php:1616 thold.php:1651
+#: thold.php:1621 thold.php:1656
 #, fuzzy
 msgid "Breach Count"
 msgstr "خرق العد"
 
-#: thold.php:1620 thold.php:1656
+#: thold.php:1625 thold.php:1661
 #, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr "عدد مرات خرق مصدر البيانات للعتبة."
 
-#: thold.php:1624 thold.php:1660
+#: thold.php:1629 thold.php:1665
 #, fuzzy
 msgid "Breach Window"
 msgstr "نافذة خرق"
 
-#: thold.php:1627 thold.php:1663 thold_templates.php:1190
-#: thold_templates.php:1225
+#: thold.php:1632 thold.php:1668 thold_templates.php:1196
+#: thold_templates.php:1231
 #, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "مقدار الوقت في الماضي للتحقق من انتهاكات الحد."
 
-#: thold.php:1631 thold_templates.php:1194
+#: thold.php:1636 thold_templates.php:1200
 #, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "تنبيه - إعدادات الوقت المستندة"
 
-#: thold.php:1667
+#: thold.php:1672
 #, fuzzy
 msgid "Baseline Settings"
 msgstr "إعدادات خط الأساس"
 
-#: thold.php:1671
+#: thold.php:1676
 msgid "Time range"
 msgstr "النطاق الزمني"
 
-#: thold.php:1674
+#: thold.php:1679
 #, fuzzy
 msgid "Specifies the point in the past (based on RRDfile resolution) that will be used as a reference"
 msgstr "يحدد النقطة في الماضي (بناءً على دقة RRDfile) التي سيتم استخدامها كمرجع"
 
-#: thold.php:1678
+#: thold.php:1683
 #, fuzzy
 msgid "Deviation UP"
 msgstr "انحراف UP"
 
-#: thold.php:1682 thold_templates.php:1244
+#: thold.php:1687 thold_templates.php:1250
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all."
 msgstr "يحدد الانحراف المسموح به بالنسبة المئوية للحد الأعلى. إذا لم يتم تعيينه ، فلن يتم تحديد الحد الأعلى للعتبة على الإطلاق."
 
-#: thold.php:1686
+#: thold.php:1691
 #, fuzzy
 msgid "Deviation DOWN"
 msgstr "الانحراف إلى أسفل"
 
-#: thold.php:1690 thold_templates.php:1252
+#: thold.php:1695 thold_templates.php:1258
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all."
 msgstr "يحدد الانحراف المسموح به بالنسبة المئوية للحد الأدنى. إذا لم يتم تعيينه ، فلن يتم تحديد حد الحد الأدنى على الإطلاق."
 
-#: thold.php:1698
+#: thold.php:1703
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr "عدد المرات المتتالية التي يجب أن يخرق فيها مصدر البيانات حد الأساس لرفع التنبيه. <br> اترك المساحة فارغة لاستخدام القيمة الافتراضية ( <b>الافتراضي: دورات٪ s</b> )"
 
-#: thold.php:1702 thold_templates.php:1264
+#: thold.php:1707 thold_templates.php:1270
 #, fuzzy
 msgid "Data Manipulation"
 msgstr "معالجة البيانات"
 
-#: thold.php:1706 thold_templates.php:1268
+#: thold.php:1711 thold_templates.php:1274
 msgid "Data Type"
 msgstr "نوع البيانات"
 
-#: thold.php:1711 thold_templates.php:1272
+#: thold.php:1716 thold_templates.php:1278
 #, fuzzy
 msgid "Special formatting for the given data."
 msgstr "تنسيق خاص للبيانات المقدمة."
 
-#: thold.php:1715 thold_templates.php:1276
+#: thold.php:1720 thold_templates.php:1282
 #, fuzzy
 msgid "Threshold CDEF"
 msgstr "عتبة CDEF"
 
-#: thold.php:1718 thold_templates.php:1279
+#: thold.php:1723 thold_templates.php:1285
 #, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "قم بتطبيق CDEF هذا قبل إرجاع البيانات."
 
-#: thold.php:1723
+#: thold.php:1728
 #, fuzzy
 msgid "Percent Data Source"
 msgstr "في المئة مصدر البيانات"
 
-#: thold.php:1726
+#: thold.php:1731
 #, fuzzy
 msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr "عنصر مصدر البيانات الثاني لاستخدامه كقيمة إجمالية لحساب النسبة المئوية من."
 
-#: thold.php:1736
+#: thold.php:1736 thold_templates.php:1315
+msgid "Show Units"
+msgstr ""
+
+#: thold.php:1739 thold_templates.php:1318
+msgid "Display units for very large or small numbers."
+msgstr ""
+
+#: thold.php:1748
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "تعبير RPN هو تعبير RPN متوافق مع RRDtool. يتضمن بناء الجملة جميع الوظائف <span class=\"deviceUp\">الموضحة</span> أدناه بالإضافة إلى تعبيرات استبدال كل من الجهاز والبيانات مثل <span class=\"deviceUp\">| query_ifSpeed |</span> . لاستخدام مصدر بيانات في تعبير RPN ، يجب عليك استخدام بناء الجملة: <span class=\"deviceUp\">| ds: dsname |</span> . على سبيل المثال ، <span class=\"deviceUp\">| ds: traffic_in |</span> سيحصل على القيمة الحالية لمصدر البيانات traffic_in لـ RRDfile (الملفات) المرتبطة بالرسم البياني. يمكن تضمين أي مصدر بيانات للرسم البياني. <br><br> عوامل تشغيل الرياضيات: <span class=\"deviceUp\">+ ، - ، / ، * ،٪ ، ^</span> <br> الوظائف: <span class=\"deviceUp\">SIN ، COS ، TAN ، ATAN ، SQRT ، FLOOR ، CEIL ، DEG2RAD ، RAD2DEG ، ABS ، EXP ، LOG ، ATAN ، ADNAN</span> <br> مشغلي التدفق: <span class=\"deviceUp\">UN ، ISINF ، IF ، LT ، LE ، GT ، GE ، EQ ، NE</span> <br> وظائف المقارنة: <span class=\"deviceUp\">MAX ، MIN ، INF ، NEGINF ، NAN ، UNKN ، COUNT ، PREV</span> ٪ s٪ s"
 
-#: thold.php:1742 thold_templates.php:1301
+#: thold.php:1754 thold_templates.php:1307
 #, fuzzy
 msgid "Upper Data Source"
 msgstr "مصدر البيانات"
 
-#: thold.php:1745
+#: thold.php:1757
 #, fuzzy
 msgid "Upper data source to calculate the total value."
 msgstr "مصدر البيانات العلوي لحساب القيمة الإجمالية."
 
-#: thold.php:1750 thold_templates.php:1309
+#: thold.php:1762 thold_templates.php:1322
 msgid "Notification Settings"
 msgstr "إعدادات الإشعار"
 
-#: thold.php:1755 thold_templates.php:1314
+#: thold.php:1767 thold_templates.php:1327
 #, fuzzy
 msgid "Alert Email Body"
 msgstr "تنبيه هيئة البريد الإلكتروني"
 
-#: thold.php:1760 thold_templates.php:1319
+#: thold.php:1772 thold_templates.php:1332
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "هذه هي الرسالة التي سيتم عرضها في الجزء العلوي من جميع تنبيهات العتبة (255 Char MAX). HTML مسموح به ، ولكن ستتم إزالته للنص فقط رسائل البريد الإلكتروني. هناك العديد من الواصفات التي يمكن استخدامها. <br> على سبيل المثال. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRATEGL&gt; &gt;"
 
-#: thold.php:1764 thold_templates.php:1323
+#: thold.php:1776 thold_templates.php:1336
 #, fuzzy
 msgid "Warning Email Body"
 msgstr "تحذير هيئة البريد الإلكتروني"
 
-#: thold.php:1769 thold_templates.php:1328
+#: thold.php:1781 thold_templates.php:1341
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "هذه هي الرسالة التي سيتم عرضها في الجزء العلوي من جميع تحذيرات العتبة (255 Char MAX). HTML مسموح به ، ولكن ستتم إزالته للنص فقط رسائل البريد الإلكتروني. هناك العديد من الواصفات التي يمكن استخدامها. <br> على سبيل المثال. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRATEGL&gt; &gt;"
 
-#: thold.php:1773 thold_templates.php:1332
+#: thold.php:1785 thold_templates.php:1345
 #, fuzzy
 msgid "Restoral Email Body"
 msgstr "تنبيه هيئة البريد الإلكتروني"
 
-#: thold.php:1782 thold_templates.php:1348
+#: thold.php:1794 thold_templates.php:1361
 #, fuzzy
 msgid "Warning Notification List"
 msgstr "قائمة إخطار التحذير"
 
-#: thold.php:1784 thold_templates.php:1350
+#: thold.php:1796 thold_templates.php:1363
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr "يمكنك تحديد اختيار قائمة إعلام لتلقي تحذيرات لمصدر البيانات هذا"
 
-#: thold.php:1790 thold_templates.php:1356
+#: thold.php:1802 thold_templates.php:1369
 #, fuzzy
 msgid "Alert Notification List"
 msgstr "تنبيه الإخطار قائمة"
 
-#: thold.php:1792 thold_templates.php:1358
+#: thold.php:1804 thold_templates.php:1371
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr "يمكنك تحديد اختيار قائمة إعلام لتلقي تنبيهات لمصدر البيانات هذا"
 
-#: thold.php:1802 thold_templates.php:1368
+#: thold.php:1814 thold_templates.php:1381
 #, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "SNMP إعلام - فئة الحدث"
 
-#: thold.php:1804 thold_templates.php:1370
+#: thold.php:1816 thold_templates.php:1383
 #, fuzzy
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr "للسماح لـ NMS بتصنيف إعلامات SNMP المختلفة بسهولة أكبر ، يرجى ملء فئة إعلامات SNMP لهذا القالب. على سبيل المثال: \"disk_usage\" ، \"link_utilization\" ، \"ping_test\" ، \"nokia_firewall_cpu_utilization\" ..."
 
-#: thold.php:1810 thold_templates.php:1376
+#: thold.php:1822 thold_templates.php:1389
 #, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "SNMP إعلام - تنبيه الحدث شدة"
 
-#: thold.php:1813
+#: thold.php:1825
 #, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr "شدة لاستخدامها في التنبيهات. (تأثير منخفض -> تأثير حرج)"
 
-#: thold.php:1817 thold.php:1836 thold_templates.php:1381
-#: thold_templates.php:1395
+#: thold.php:1829 thold.php:1848 thold_templates.php:1394
+#: thold_templates.php:1408
 msgid "Medium"
 msgstr "متوسط"
 
-#: thold.php:1829 thold_templates.php:1390
+#: thold.php:1841 thold_templates.php:1403
 #, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "SNMP إعلام - تحذير خطورة الحدث"
 
-#: thold.php:1832 thold_templates.php:1393
+#: thold.php:1844 thold_templates.php:1406
 #, fuzzy
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr "شدة لاستخدامها في التحذيرات. (تأثير منخفض -> تأثير حرج). <br> ملاحظة: يجب أن تكون شدة التحذيرات مساوية أو أقل من الشدة التي يتم تعريفها للتنبيهات."
 
-#: thold.php:1850 thold_templates.php:1406
+#: thold.php:1862 thold_templates.php:1419
 #, fuzzy
 msgid "Notify accounts"
 msgstr "يخطر الحسابات"
 
-#: thold.php:1852
+#: thold.php:1864
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr "هذه قائمة بالحسابات التي سيتم إخطارها عند خرق هذا الحد."
 
-#: thold.php:1857 thold_templates.php:1413
+#: thold.php:1869 thold_templates.php:1426
 #, fuzzy
 msgid "Alert Emails"
 msgstr "تنبيه رسائل البريد الإلكتروني"
 
-#: thold.php:1861
+#: thold.php:1873
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr "يمكنك تحديد رسائل البريد الإلكتروني الإضافية هنا لتلقي تنبيهات لمصدر البيانات هذا (مفصولة بفواصل)"
 
-#: thold.php:1865 thold_templates.php:1421
+#: thold.php:1877 thold_templates.php:1434
 #, fuzzy
 msgid "Warning Emails"
 msgstr "رسائل البريد الإلكتروني تحذير"
 
-#: thold.php:1869
+#: thold.php:1881
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr "يمكنك تحديد رسائل البريد الإلكتروني الإضافية هنا لتلقي تحذيرات لمصدر البيانات هذا (مفصولة بفواصل)"
 
-#: thold.php:1903 thold_templates.php:1459
+#: thold.php:1915 thold_templates.php:1472
 #, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "إذا تم تحديده ، فسيتم إرسال إشعار العتبة إلى سجل النظام المحلي."
 
-#: thold.php:1909 thold_templates.php:1465
+#: thold.php:1921 thold_templates.php:1478
 #, fuzzy
 msgid "Priority/Level"
 msgstr "الأولوية / المستوى"
 
-#: thold.php:1910 thold_templates.php:1466
+#: thold.php:1922 thold_templates.php:1479
 #, fuzzy
 msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr "هذا هو مستوى الأولوية الذي سيتم تسجيل دخولك إلى رسائل syslog الخاصة بك."
 
-#: thold.php:1917 thold_templates.php:1473
+#: thold.php:1929 thold_templates.php:1486
 msgid "Facility"
 msgstr "المرافق"
 
-#: thold.php:1918 thold_templates.php:1474
+#: thold.php:1930 thold_templates.php:1487
 #, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "هذا هو المرفق الذي سيتم استخدامه لهذا العتبة."
 
-#: thold.php:1939 thold_templates.php:1495
+#: thold.php:1951 thold_templates.php:1508
 #, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "تحريك الأحداث (قيادة شل)"
 
-#: thold.php:1944 thold_templates.php:1500
+#: thold.php:1956 thold_templates.php:1513
 #, fuzzy
 msgid "High Trigger Command"
 msgstr "قيادة عالية الزناد"
 
-#: thold.php:1945 thold_templates.php:1501
+#: thold.php:1957 thold_templates.php:1514
 #, fuzzy
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "إذا تم التعيين ، وإذا تم اختراق الحد الأعلى ، فسيتم تشغيل هذا الأمر. الرجاء إدخال أمر صالح. بالإضافة إلى ذلك ، هناك العديد من علامات الاستبدال المتاحة التي يمكن استخدامها لتمرير المعلومات من العتبة إلى البرنامج النصي. وهي تشمل: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DAIL&gt; &gt; &lt;BREACHED_ITEMS&gt;. أخيرًا ، يمكن إجراء الاستضافة واستبدال البيانات وإدخال البيانات. على سبيل المثال ، إذا كان لديك بيانات مخصصة لإدخال البيانات تسمى معلقة ، لأداء الاستخدام البديل | معلقة |. بالنسبة لاستعلامات البيانات ، واستبدال المضيف ، استخدم Cacti اصطلاحات | query_xxxx | و | host_xxxx | على التوالي."
 
-#: thold.php:1952 thold_templates.php:1508
+#: thold.php:1964 thold_templates.php:1521
 #, fuzzy
 msgid "Low Trigger Command"
 msgstr "قيادة منخفضة الزناد"
 
-#: thold.php:1953 thold_templates.php:1509
+#: thold.php:1965 thold_templates.php:1522
 #, fuzzy
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "إذا تم تعيينه ، وإذا تم اختراق حد أدنى ، فسيتم تشغيل هذا الأمر. الرجاء إدخال أمر صالح. بالإضافة إلى ذلك ، هناك العديد من علامات الاستبدال المتاحة التي يمكن استخدامها لتمرير المعلومات من العتبة إلى البرنامج النصي. وهي تشمل: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DAIL&gt; &gt; &lt;BREACHED_ITEMS&gt;. أخيرًا ، يمكن إجراء الاستبدال واستضافة إدخال البيانات والمضيف. على سبيل المثال ، إذا كان لديك بيانات مخصصة لإدخال البيانات تسمى معلقة ، لأداء الاستخدام البديل | معلقة |. بالنسبة لاستعلامات البيانات ، واستبدال المضيف ، استخدم Cacti اصطلاحات | query_xxxx | و | host_xxxx | على التوالي."
 
-#: thold.php:1960 thold_templates.php:1516
+#: thold.php:1972 thold_templates.php:1529
 #, fuzzy
 msgid "Norm Trigger Command"
 msgstr "قيادة الزناد نورم"
 
-#: thold.php:1961 thold_templates.php:1517
+#: thold.php:1973 thold_templates.php:1530
 #, fuzzy
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "في حالة التعيين ، عندما يعود thold إلى القيمة العادية ، سيتم تشغيل هذا الأمر. الرجاء إدخال أمر صالح. بالإضافة إلى ذلك ، هناك العديد من علامات الاستبدال المتاحة التي يمكن استخدامها لتمرير المعلومات من العتبة إلى البرنامج النصي. وهي تشمل: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DAIL&gt; &gt; &lt;BREACHED_ITEMS&gt;. أخيرًا ، يمكن إجراء الاستبدال واستضافة إدخال البيانات والمضيف. على سبيل المثال ، إذا كان لديك بيانات مخصصة لإدخال البيانات تسمى معلقة ، لأداء الاستخدام البديل | معلقة |. بالنسبة لاستعلامات البيانات ، واستبدال المضيف ، استخدم Cacti اصطلاحات | query_xxxx | و | host_xxxx | على التوالي."
 
-#: thold.php:1974 thold_templates.php:1530
+#: thold.php:1986 thold_templates.php:1543
 msgid "Other Settings"
 msgstr "إعدادات اخرى"
 
-#: thold.php:1979 thold_templates.php:1535
+#: thold.php:1991 thold_templates.php:1548
 #, fuzzy
 msgid "Operator Notes"
 msgstr "ملاحظات المشغل"
 
-#: thold.php:1983 thold_templates.php:1539
+#: thold.php:1995 thold_templates.php:1552
 #, fuzzy
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr "أدخل التعليمات هنا لمشغل قد يتلقى رسالة العتبة."
 
-#: thold.php:2232
+#: thold.php:2245
 #, fuzzy
 msgid "Select Users(s)"
 msgstr "اختر مستخدمين"
 
-#: thold.php:2234
+#: thold.php:2247
 msgid "Users Selected"
 msgstr "مستخدمين مختارين"
 
-#: thold.php:2237
+#: thold.php:2250
 #, fuzzy
 msgid "All Users Selected"
 msgstr "جميع المستخدمين المختارين"
@@ -2751,171 +2759,171 @@ msgstr "مقايضة:"
 msgid "Pages:"
 msgstr "الصفحات:"
 
-#: thold_functions.php:3606
+#: thold_functions.php:3608
 #, fuzzy
 msgid "Link to Graph in Cacti"
 msgstr "رابط الرسم البياني في الصبار"
 
-#: thold_functions.php:3635
+#: thold_functions.php:3637
 #, fuzzy
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body style=\";text-align:right;direction:rtl\"> تم إصدار تنبيه يتطلب انتباهك. <br><br> <b>الجهاز</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>عنوان URL</b> : <URL><br> <b>رسالة</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3662
+#: thold_functions.php:3664
 #, fuzzy
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body style=\";text-align:right;direction:rtl\"> تم إصدار تحذير يتطلب انتباهك. <br><br> <b>الجهاز</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>عنوان URL</b> : <URL><br> <b>رسالة</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3689
+#: thold_functions.php:3691
 #, fuzzy
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "تم إصدار تنبيه يتطلب انتباهك. <br><br> <strong>الجهاز</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>عنوان URL</strong> : <URL><br> <strong>الرسالة</strong> : <SUBJECT><br><br><GRAPH>"
 
-#: thold_functions.php:4427
+#: thold_functions.php:4456
 #, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "لم يتم تعيين معرف الجهاز أثناء محاولة إنشاء Graph و Threshold"
 
-#: thold_functions.php:4442
+#: thold_functions.php:4471
 #, fuzzy
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr "لم يتم تعيين معرف قالب Threshold أثناء محاولة إنشاء Graph و Threshold"
 
-#: thold_functions.php:4449
+#: thold_functions.php:4478
 #, fuzzy
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr "لم يتم تعيين معرف قالب Threshold أثناء محاولة إنشاء Graph و Threshold"
 
-#: thold_functions.php:4482
+#: thold_functions.php:4511
 #, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "فشل إنشاء الرسم البياني في قالب العتبة"
 
-#: thold_functions.php:4512
+#: thold_functions.php:4541
 #, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr "تم إنشاء عتبة تلقائية بسبب تعيين قالب الجهاز"
 
-#: thold_functions.php:4546 thold_functions.php:4852
+#: thold_functions.php:4575 thold_functions.php:4882
 msgid "Permission Denied"
 msgstr "تم رفض الإذن"
 
-#: thold_functions.php:4560 thold_functions.php:4919
+#: thold_functions.php:4589 thold_functions.php:4951
 msgid "Record Updated"
 msgstr "تم تحديث السجل"
 
-#: thold_functions.php:4610
+#: thold_functions.php:4639
 #, fuzzy
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!<br>RECORD NOT UPDATED!"
 msgstr "يجب تحديد إما \"عتبة إنذار عالية\" أو \"عتبة إنذار منخفض\" أو كليهما! <br> سجل غير محدث!"
 
-#: thold_functions.php:4622
+#: thold_functions.php:4651
 #, fuzzy
 msgid "Impossible thresholds: 'High Threshold' smaller than or equal to 'Low Threshold'<br>RECORD NOT UPDATED!"
 msgstr "عتبات مستحيلة: \"عتبة عالية\" أصغر من أو تساوي \"عتبة منخفضة\" <br> سجل غير محدث!"
 
-#: thold_functions.php:4634
+#: thold_functions.php:4663
 #, fuzzy
 msgid "Impossible thresholds: 'High Warning Threshold' smaller than or equal to 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
 msgstr "عتبات مستحيلة: \"عتبة التحذير المرتفعة\" أصغر من أو تساوي \"حد الإنذار المنخفض\" <br> سجل غير محدث!"
 
-#: thold_functions.php:4642
+#: thold_functions.php:4671
 #, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "مع تمكين عتبات خط الأساس."
 
-#: thold_functions.php:4651
+#: thold_functions.php:4680
 #, fuzzy
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!<br>RECORD NOT UPDATED!"
 msgstr "يجب تحديد إما \"الانحراف الأساسي\" أو \"الانحراف الأساسي للأسفل\" أو كليهما! <br> سجل غير محدث!"
 
-#: thold_functions.php:4842
+#: thold_functions.php:4872
 #, fuzzy, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "أخفق العثور على عنصر قالب الرسم البياني المرتبط '٪ d' على الحد الأقصى '٪ d'"
 
-#: thold_functions.php:4917 thold_functions.php:5331
+#: thold_functions.php:4949 thold_functions.php:5363
 #, fuzzy, php-format
 msgid "Created Threshold: %s"
 msgstr "العتبة التي تم إنشاؤها:٪ s"
 
-#: thold_functions.php:4986
+#: thold_functions.php:5018
 #, fuzzy, php-format
 msgid "'%s' must be set to positive integer value!<br>RECORD NOT UPDATED!"
 msgstr "يجب تعيين \"٪ s\" على قيمة صحيحة موجبة! <br> سجل غير محدث!"
 
-#: thold_functions.php:5159
+#: thold_functions.php:5191
 #, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "لا توجد قوالب عتبات مرتبطة بقالب الجهاز."
 
-#: thold_functions.php:5366
+#: thold_functions.php:5398
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr "ميلر خطأ: لا <b>لمعالجة</b> وضع !! <br> إذا كنت تستخدم رابط <i>اختبار البريد</i> ، فيرجى ضبط إعداد <b>تنبيه البريد الإلكتروني</b> ."
 
-#: thold_functions.php:5743 thold_graph.php:584
+#: thold_functions.php:5775 thold_graph.php:586
 #, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "عتبة غير معروفة"
 
-#: thold_functions.php:5745
+#: thold_functions.php:5777
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "انقر فوق \"متابعة\" للإقرار بالحد الأدنى (العتبات) التالية."
 
-#: thold_functions.php:6165
+#: thold_functions.php:6197
 #, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "قالب عتبة قالب بيانات ثانوية غير موجود!"
 
-#: thold_functions.php:6180
+#: thold_functions.php:6212
 #, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "عتبة قالب البيانات الثانوية مصدر غير موجود!"
 
-#: thold_functions.php:6216
+#: thold_functions.php:6248
 #, fuzzy
 msgid "Threshold Template import columns do not match the database schema"
 msgstr "أعمدة استيراد قالب العتبة لا تطابق مخطط قاعدة البيانات"
 
-#: thold_functions.php:6224
+#: thold_functions.php:6256
 msgid "Imported"
 msgstr "تم الاستيراد"
 
-#: thold_functions.php:6224
+#: thold_functions.php:6256
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "قالب العتبة '٪ s'٪ s!"
 
-#: thold_functions.php:6224
+#: thold_functions.php:6256
 msgid "Updated"
 msgstr "تم التحديث"
 
-#: thold_functions.php:6226 thold_templates.php:1876 thold_templates.php:2132
+#: thold_functions.php:6258 thold_templates.php:1889 thold_templates.php:2145
 msgid "Import"
 msgstr "استيراد"
 
-#: thold_functions.php:6226
+#: thold_functions.php:6258
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "فشل عتبة القالب '٪ s'٪ s!"
 
-#: thold_functions.php:6226
+#: thold_functions.php:6258
 msgid "Update"
 msgstr "تحديث"
 
-#: thold_functions.php:6229
+#: thold_functions.php:6261
 #, fuzzy
 msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr "حدثت أخطاء أثناء محاولة استيراد بيانات قالب الحد."
 
-#: thold_functions.php:6233
+#: thold_functions.php:6265
 #, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "قالب عتبة قالب بيانات ثانوية غير موجود!"
 
-#: thold_functions.php:6236
+#: thold_functions.php:6268
 #, fuzzy
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr "لم يتم تعيين معرف قالب Threshold أثناء محاولة إنشاء Graph و Threshold"
@@ -2940,543 +2948,547 @@ msgstr "قيم عتبة عالية للتحذير / التنبيه"
 msgid "Threshold Status"
 msgstr "حالة العتبة"
 
-#: thold_graph.php:410 thold_graph.php:827
+#: thold_graph.php:410 thold_graph.php:829
 msgid "Actions"
 msgstr "أفعال"
 
-#: thold_graph.php:565
+#: thold_graph.php:567
 #, fuzzy
 msgid "Edit Threshold"
 msgstr "تحرير العتبة"
 
-#: thold_graph.php:570
+#: thold_graph.php:572
 #, fuzzy
 msgid "Disable Threshold"
 msgstr "تعطيل العتبة"
 
-#: thold_graph.php:572
+#: thold_graph.php:574
 #, fuzzy
 msgid "Enable Threshold"
 msgstr "تمكين العتبة"
 
-#: thold_graph.php:578
+#: thold_graph.php:580
 #, fuzzy
 msgid "View Graph"
 msgstr "عرض الرسم البياني"
 
-#: thold_graph.php:580
+#: thold_graph.php:582
 #, fuzzy
 msgid "View Threshold History"
 msgstr "عرض تاريخ العتبة"
 
-#: thold_graph.php:587
+#: thold_graph.php:589
 #, fuzzy
 msgid "Suspend Notifications until the Threshold clears"
 msgstr "قائمة (قوائم) الإعلام المكررة"
 
-#: thold_graph.php:590
+#: thold_graph.php:592
 #, fuzzy
 msgid "Resume Notifications for this breached Threshold"
 msgstr "حذف قائمة (قوائم) الإخطار"
 
-#: thold_graph.php:606
+#: thold_graph.php:608
 #, fuzzy
 msgid "No name set"
 msgstr "لم يتم تحديد الاسم"
 
-#: thold_graph.php:830
+#: thold_graph.php:832
 #, fuzzy
 msgid "Hover over icons for help"
 msgstr "قم بالمرور فوق الرموز للحصول على المساعدة"
 
-#: thold_graph.php:836
+#: thold_graph.php:838
 #, fuzzy
 msgid "A description for the Device"
 msgstr "وصف للجهاز"
 
-#: thold_graph.php:842
+#: thold_graph.php:844
 #, fuzzy
 msgid "A Cacti unique identifier for the Device"
 msgstr "معرف Cacti فريد للجهاز"
 
-#: thold_graph.php:848
+#: thold_graph.php:850
 #, fuzzy
 msgid "The number of Graphs for this Device"
 msgstr "عدد الرسوم البيانية لهذا الجهاز"
 
-#: thold_graph.php:854
+#: thold_graph.php:856
 #, fuzzy
 msgid "The number of Data Sources for this Device"
 msgstr "عدد مصادر البيانات لهذا الجهاز"
 
-#: thold_graph.php:860
+#: thold_graph.php:862
 #, fuzzy
 msgid "The status for this Device as of the last time it was polled"
 msgstr "حالة هذا الجهاز اعتبارًا من آخر مرة تم فيها استطلاع الرأي"
 
-#: thold_graph.php:866
+#: thold_graph.php:868
 #, fuzzy
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
 msgstr "آخر مرة وجدت Cacti مشكلة مع هذا الجهاز. يمكن أن يكون أعلى من Uptime للجهاز ، إذا تم إعادة تشغيله بين دورات الاقتراع Cacti"
 
-#: thold_graph.php:869
+#: thold_graph.php:871
 msgid "Uptime"
 msgstr "مدة التشغيل"
 
-#: thold_graph.php:872
+#: thold_graph.php:874
 #, fuzzy
 msgid "The official uptime of the Device as reported by SNMP"
 msgstr "الجهوزية الرسمية للجهاز كما ذكرت SNMP"
 
-#: thold_graph.php:878
+#: thold_graph.php:880
 #, fuzzy
 msgid "The official hostname for this Device"
 msgstr "اسم المضيف الرسمي لهذا الجهاز"
 
-#: thold_graph.php:881
+#: thold_graph.php:883
 #, fuzzy
 msgid "Current (ms)"
 msgstr "الحالية (مللي ثانية)"
 
-#: thold_graph.php:884
+#: thold_graph.php:886
 #, fuzzy
 msgid "The current response time for the Cacti Availability check"
 msgstr "زمن الاستجابة الحالي لفحص الصبار"
 
-#: thold_graph.php:887
+#: thold_graph.php:889
 #, fuzzy
 msgid "Average (ms)"
 msgstr "متوسط (مللي ثانية)"
 
-#: thold_graph.php:890
+#: thold_graph.php:892
 #, fuzzy
 msgid "The average response time for the Cacti Availability check"
 msgstr "متوسط وقت الاستجابة لفحص Cacti Availability"
 
-#: thold_graph.php:893
+#: thold_graph.php:895
 msgid "Availability"
 msgstr "متوفر"
 
-#: thold_graph.php:896
+#: thold_graph.php:898
 #, fuzzy
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
 msgstr "التوفر العام لهذا الجهاز منذ آخر إعادة تعيين العداد في الصبار"
 
-#: thold_graph.php:924 thold_graph.php:949
+#: thold_graph.php:926 thold_graph.php:952
 msgid "Edit Device"
 msgstr "تحرير الجهاز"
 
-#: thold_graph.php:926 thold_graph.php:951
+#: thold_graph.php:928 thold_graph.php:954
 #, fuzzy
 msgid "View Graphs"
 msgstr "عرض الرسوم البيانية"
 
-#: thold_graph.php:970
+#: thold_graph.php:977
 #, fuzzy
 msgid "No Devices"
 msgstr "الأجهزة"
 
-#: thold_graph.php:1027
+#: thold_graph.php:1034
 #, fuzzy
 msgid "Not Up"
 msgstr "لا يصل"
 
-#: thold_graph.php:1258
+#: thold_graph.php:1241
+msgid "No Export Rows Found."
+msgstr ""
+
+#: thold_graph.php:1269
 #, fuzzy, php-format
 msgid "Threshold Log for [ %s ]"
 msgstr "سجل العتبة لـ [٪ s]"
 
-#: thold_graph.php:1311
+#: thold_graph.php:1322
 #, fuzzy
 msgid "Log Entries"
 msgstr "إدخالات السجل"
 
-#: thold_graph.php:1319 thold_webapi.php:492 thold_webapi.php:640
+#: thold_graph.php:1330 thold_webapi.php:492 thold_webapi.php:640
 #: thold_webapi.php:660
 msgid "Device"
 msgstr "جهاز"
 
-#: thold_graph.php:1324
+#: thold_graph.php:1335
 msgid "Time"
 msgstr "الوقت"
 
-#: thold_graph.php:1334
+#: thold_graph.php:1345
 msgid "Event Description"
 msgstr "وصف الفعالية"
 
-#: thold_graph.php:1339
+#: thold_graph.php:1350
 #, fuzzy
 msgid "Alert Value"
 msgstr "قيمة التنبيه"
 
-#: thold_graph.php:1344
+#: thold_graph.php:1355
 #, fuzzy
 msgid "Measured Value"
 msgstr "القيمة المقاسة"
 
-#: thold_graph.php:1386
+#: thold_graph.php:1399
 #, fuzzy
 msgid "No Threshold Logs Found"
 msgstr "لم يتم العثور على سجلات العتبة"
 
-#: thold_graph.php:1499
+#: thold_graph.php:1512
 msgid "Entries"
 msgstr "مقالات"
 
-#: thold_templates.php:185
+#: thold_templates.php:186
 #, fuzzy
 msgid "You are not authorised to modify one or more of the Thresholds selected"
 msgstr "لا يحق لك تعديل واحد أو أكثر من العتبات المحددة"
 
-#: thold_templates.php:222
+#: thold_templates.php:223
 #, fuzzy, php-format
 msgid "%s (%d Thresholds)"
 msgstr "٪ s (٪ d عتبات)"
 
-#: thold_templates.php:243
+#: thold_templates.php:244
 #, fuzzy
 msgid "Click 'Continue' to export the following Threshold Template(s)."
 msgstr "انقر فوق \"متابعة\" لتصدير قالب (قوالب) العتبة التالي."
 
-#: thold_templates.php:244
+#: thold_templates.php:245
 #, fuzzy
 msgid "Export Template(s)"
 msgstr "قالب (قوالب) التصدير"
 
-#: thold_templates.php:247
+#: thold_templates.php:248
 #, fuzzy
 msgid "Click 'Continue' to delete the following Threshold Template(s)."
 msgstr "انقر فوق \"متابعة\" لحذف قالب (نماذج) العتبة التالي."
 
-#: thold_templates.php:248
+#: thold_templates.php:249
 #, fuzzy
 msgid "Delete Template(s)"
 msgstr "حذف القوالب"
 
-#: thold_templates.php:251
+#: thold_templates.php:252
 #, fuzzy
 msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
 msgstr "انقر فوق \"متابعة\" لإعادة تطبيق الأسماء المقترحة على عتبات قالب (قوالب) العتبة التالي."
 
-#: thold_templates.php:252
+#: thold_templates.php:253
 #, fuzzy
 msgid "Reapply Suggested Names to Template(s)"
 msgstr "إعادة تطبيق الأسماء المقترحة على القالب (النماذج)"
 
-#: thold_templates.php:349
+#: thold_templates.php:354
 #, fuzzy
 msgid "Threshold Template Creation Wizard"
 msgstr "عتبة قالب إنشاء معالج"
 
-#: thold_templates.php:436 thold_webapi.php:710
+#: thold_templates.php:441 thold_webapi.php:710
 msgid "Data Source"
 msgstr "مصدر البيانات"
 
-#: thold_templates.php:454
+#: thold_templates.php:459
 #, fuzzy
 msgid "Please select a Data Template"
 msgstr "يرجى اختيار قالب البيانات"
 
-#: thold_templates.php:456
+#: thold_templates.php:461
 #, fuzzy
 msgid "Please select a Data Source"
 msgstr "يرجى اختيار مصدر البيانات"
 
-#: thold_templates.php:458
+#: thold_templates.php:463
 #, fuzzy
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "يرجى الضغط على \"إنشاء\" لإنشاء قالب العتبة الخاص بك"
 
-#: thold_templates.php:462 thold_webapi.php:743
+#: thold_templates.php:467 thold_webapi.php:743
 msgid "Create"
 msgstr "أنشأ"
 
-#: thold_templates.php:1000
+#: thold_templates.php:1006
 #, fuzzy
 msgid "Provide the Threshold Template a meaningful name."
 msgstr "توفير قالب العتبة اسم ذات مغزى."
 
-#: thold_templates.php:1004
+#: thold_templates.php:1010
 #, fuzzy
 msgid "Suggested Threshold Name"
 msgstr "اسم العتبة المقترح"
 
-#: thold_templates.php:1009
+#: thold_templates.php:1015
 #, fuzzy
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr "أدخل الاسم المقترح للعتبة التي تم إنشاؤها باستخدام هذا القالب. يمكن استخدام متغيرات استبدال الأجهزة القياسية (| host_ * |) واستعلام البيانات (| query_ * |) وإدخال (| input_ * |) وكذلك | graph_title | للحصول على عنوان الرسم البياني."
 
-#: thold_templates.php:1016
+#: thold_templates.php:1022
 #, fuzzy
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "قالب البيانات الذي تستخدمه. (لا يمكن تغيير هذا)"
 
-#: thold_templates.php:1021
+#: thold_templates.php:1027
 msgid "Data Field"
 msgstr "حقل بيانات"
 
-#: thold_templates.php:1024
+#: thold_templates.php:1030
 #, fuzzy
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr "حقل البيانات الذي تستخدمه. (لا يمكن تغيير هذا)"
 
-#: thold_templates.php:1100
+#: thold_templates.php:1106
 #, fuzzy
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr "كرر التنبيه بعد مضي فترة الوقت هذه منذ آخر تنبيه."
 
-#: thold_templates.php:1124 thold_templates.php:1151
+#: thold_templates.php:1130 thold_templates.php:1157
 #, fuzzy
 msgid "Min Trigger Duration"
 msgstr "دقيقة الزناد المدة"
 
-#: thold_templates.php:1127 thold_templates.php:1154
+#: thold_templates.php:1133 thold_templates.php:1160
 #, fuzzy
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr "مقدار الوقت الذي يجب أن يكون فيه مصدر البيانات في حالة خرق لرفع التنبيه."
 
-#: thold_templates.php:1178 thold_templates.php:1214
+#: thold_templates.php:1184 thold_templates.php:1220
 #, fuzzy
 msgid "Trigger Count"
 msgstr "عدد الزناد"
 
-#: thold_templates.php:1183
+#: thold_templates.php:1189
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr "عدد المرات التي يجب أن يكون فيها مصدر البيانات في حالة خرق قبل إصدار تحذير."
 
-#: thold_templates.php:1187 thold_templates.php:1222
+#: thold_templates.php:1193 thold_templates.php:1228
 #, fuzzy
 msgid "Time Period Length"
 msgstr "طول الفترة الزمنية"
 
-#: thold_templates.php:1218
+#: thold_templates.php:1224
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr "عدد المرات التي يجب أن يكون فيها مصدر البيانات في حالة خرق قبل إصدار تنبيه."
 
-#: thold_templates.php:1229
+#: thold_templates.php:1235
 #, fuzzy
 msgid "Baseline Monitoring"
 msgstr "رصد خط الأساس"
 
-#: thold_templates.php:1233
+#: thold_templates.php:1239
 #, fuzzy
 msgid "Time reference in the past"
 msgstr "مرجع الوقت في الماضي"
 
-#: thold_templates.php:1236
+#: thold_templates.php:1242
 #, fuzzy
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference"
 msgstr "يحدد النقطة في الماضي (بناءً على دقة rrd) التي سيتم استخدامها كمرجع"
 
-#: thold_templates.php:1240
+#: thold_templates.php:1246
 #, fuzzy
 msgid "Baseline Deviation UP"
 msgstr "خط الأساس الانحراف UP"
 
-#: thold_templates.php:1248
+#: thold_templates.php:1254
 #, fuzzy
 msgid "Baseline Deviation DOWN"
 msgstr "خط الأساس الانحراف إلى أسفل"
 
-#: thold_templates.php:1260
+#: thold_templates.php:1266
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr "عدد المرات المتتالية التي يجب أن يكون فيها مصدر البيانات في حالة خرق ليتم رفع تنبيه. <br> اترك المساحة فارغة لاستخدام القيمة الافتراضية (الافتراضي: دورات٪ s"
 
-#: thold_templates.php:1284
+#: thold_templates.php:1290
 #, fuzzy
 msgid "Percent Datasource"
 msgstr "نسبة مصدر البيانات"
 
-#: thold_templates.php:1287
+#: thold_templates.php:1293
 #, fuzzy
 msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr "عنصر مصدر البيانات الثاني لاستخدامه كقيمة إجمالية لحساب النسبة المئوية من."
 
-#: thold_templates.php:1297
+#: thold_templates.php:1303
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "تعبير RPN هو تعبير RPN متوافق مع RRDtool. يتضمن بناء الجملة جميع الوظائف <span style=\"color:blue;\">الموضحة</span> أدناه بالإضافة إلى تعبيرات استبدال كل من الجهاز والبيانات مثل <span style=\"color:blue;\">| query_ifSpeed |</span> . لاستخدام مصدر بيانات في تعبير RPN ، يجب عليك استخدام بناء الجملة: <span style=\"color:blue;\">| ds: dsname |</span> . على سبيل المثال ، <span style=\"color:blue;\">| ds: traffic_in |</span> سيحصل على القيمة الحالية لمصدر البيانات traffic_in لـ RRDfile (الملفات) المرتبطة بالرسم البياني. يمكن تضمين أي مصدر بيانات للرسم البياني. <br> عوامل تشغيل الرياضيات: <span style=\"color:blue;\">+ ، - ، / ، * ،٪ ، ^</span> <br> الوظائف: <span style=\"color:blue;\">SIN ، COS ، TAN ، ATAN ، SQRT ، FLOOR ، CEIL ، DEG2RAD ، RAD2DEG ، ABS ، EXP ، LOG ، ATAN ، ADNAN</span> <br> مشغلي التدفق: <span style=\"color:blue;\">UN ، ISINF ، IF ، LT ، LE ، GT ، GE ، EQ ، NE</span> <br> وظائف المقارنة: <span style=\"color:blue;\">MAX ، MIN ، INF ، NEGINF ، NAN ، UNKN ، COUNT ، PREV</span> ٪ s٪ s"
 
-#: thold_templates.php:1304
+#: thold_templates.php:1310
 #, fuzzy
 msgid "Upper data source to use to calculate the total value."
 msgstr "مصدر بيانات علوي لاستخدامه لحساب القيمة الإجمالية."
 
-#: thold_templates.php:1341
+#: thold_templates.php:1354
 #, fuzzy
 msgid "Notification List Read Only"
 msgstr "قائمة الإخطار فقط"
 
-#: thold_templates.php:1342
+#: thold_templates.php:1355
 #, fuzzy
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr "إذا تم تحديده ، فسيتم إرسال إشعار العتبة إلى سجل النظام المحلي."
 
-#: thold_templates.php:1379
+#: thold_templates.php:1392
 #, fuzzy
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "شدة لاستخدامها في التنبيهات. (تأثير منخفض -> تأثير حرج)"
 
-#: thold_templates.php:1408
+#: thold_templates.php:1421
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr "هذه قائمة بالحسابات التي سيتم إخطارها عند خرق هذا الحد. <br><br><br><br>"
 
-#: thold_templates.php:1417
+#: thold_templates.php:1430
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr "يمكنك تحديد رسائل البريد الإلكتروني الإضافية هنا لتلقي تنبيهات لمصدر البيانات هذا (مفصولة بفواصل)"
 
-#: thold_templates.php:1425
+#: thold_templates.php:1438
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr "يمكنك تحديد رسائل البريد الإلكتروني الإضافية هنا لتلقي تحذيرات لمصدر البيانات هذا (مفصولة بفواصل)"
 
-#: thold_templates.php:1762
+#: thold_templates.php:1775
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "٪ d أشهر ،٪ d أيام ،٪ d ساعات ،٪ d دقائق ،٪ d ثوانٍ (متوسط)"
 
-#: thold_templates.php:1764
+#: thold_templates.php:1777
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "٪ d الشهور ،٪ d الأيام ،٪ d الساعات ،٪ d الدقائق ،٪ d الثواني"
 
-#: thold_templates.php:1768
+#: thold_templates.php:1781
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "٪ d الأيام ،٪ d الساعات ،٪ d الدقائق ،٪ d الثواني (متوسط)"
 
-#: thold_templates.php:1770
+#: thold_templates.php:1783
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "٪ d الأيام ،٪ d الساعات ،٪ d الدقائق ،٪ d الثواني"
 
-#: thold_templates.php:1774
+#: thold_templates.php:1787
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "٪ d ساعات ،٪ d دقائق ،٪ d ثوانٍ (متوسط)"
 
-#: thold_templates.php:1776
+#: thold_templates.php:1789
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr "٪ d ساعات ،٪ d دقائق ،٪ d ثواني"
 
-#: thold_templates.php:1780
+#: thold_templates.php:1793
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr "٪ d الدقائق ،٪ d الثواني (متوسط)"
 
-#: thold_templates.php:1782
+#: thold_templates.php:1795
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr "٪ d الدقائق ،٪ d الثواني"
 
-#: thold_templates.php:1786
+#: thold_templates.php:1799
 #, fuzzy, php-format
 msgid "%d Seconds (Average)"
 msgstr "٪ d ثانية (متوسط)"
 
-#: thold_templates.php:1788
+#: thold_templates.php:1801
 #, fuzzy, php-format
 msgid "%d Seconds"
 msgstr "<ph id=\"mtc_1\" equiv-text=\"base64:JWQ=\"/> ثواني"
 
-#: thold_templates.php:1969
+#: thold_templates.php:1982
 #, fuzzy
 msgid "DS Name"
 msgstr "اسم DS"
 
-#: thold_templates.php:1977
+#: thold_templates.php:1990
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "قيم التحذير / التنبيه العالية. ملاحظة: قيم خط الأساس نسبة مئوية ، وجميع القيم الأخرى هي قيم RAW لم يتم تعديلها بواسطة cdef."
 
-#: thold_templates.php:1983
+#: thold_templates.php:1996
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "قيم التحذير / التنبيه المنخفضة. ملاحظة: قيم خط الأساس نسبة مئوية ، وجميع القيم الأخرى هي قيم RAW لم يتم تعديلها بواسطة cdef."
 
-#: thold_templates.php:2071
+#: thold_templates.php:2084
 #, fuzzy
 msgid "No Threshold Templates"
 msgstr "لا قوالب عتبة"
 
-#: thold_templates.php:2089
+#: thold_templates.php:2102
 #, fuzzy
 msgid "Import Template from Local File"
 msgstr "استيراد قالب من ملف محلي"
 
-#: thold_templates.php:2090
+#: thold_templates.php:2103
 #, fuzzy
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr "إذا كان ملف XML الذي يحتوي على بيانات قالب العتبة موجودًا على جهازك المحلي ، فحدده هنا."
 
-#: thold_templates.php:2095
+#: thold_templates.php:2108
 #, fuzzy
 msgid "Import Template from Text"
 msgstr "استيراد قالب من النص"
 
-#: thold_templates.php:2096
+#: thold_templates.php:2109
 #, fuzzy
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
 msgstr "إذا كان لديك ملف XML يحتوي على بيانات قالب العتبة كنص ، فيمكنك لصقه في هذا المربع لاستيراده."
 
-#: thold_templates.php:2108
+#: thold_templates.php:2121
 msgid "Import Results"
 msgstr "نتائج الاستيراد"
 
-#: thold_templates.php:2110
+#: thold_templates.php:2123
 #, fuzzy
 msgid "Cacti has imported the following items:"
 msgstr "قام Cacti باستيراد العناصر التالية:"
 
-#: thold_templates.php:2120 thold_templates.php:2132
+#: thold_templates.php:2133 thold_templates.php:2145
 #, fuzzy
 msgid "Import Threshold Templates"
 msgstr "استيراد قوالب العتبة"
 
-#: thold_templates.php:2145 thold_templates.php:2148
+#: thold_templates.php:2158 thold_templates.php:2161
 #, fuzzy
 msgid "The file is too big."
 msgstr "الملف كبير جدًا."
 
-#: thold_templates.php:2151
+#: thold_templates.php:2164
 #, fuzzy
 msgid "Incomplete file transfer."
 msgstr "نقل ملف غير مكتمل."
 
-#: thold_templates.php:2154 thold_templates.php:2181
+#: thold_templates.php:2167 thold_templates.php:2194
 #, fuzzy
 msgid "No file uploaded."
 msgstr "لم يتم تحميل أي ملف."
 
-#: thold_templates.php:2157
+#: thold_templates.php:2170
 #, fuzzy
 msgid "Temporary folder missing."
 msgstr "المجلد المؤقت مفقود."
 
-#: thold_templates.php:2160
+#: thold_templates.php:2173
 msgid "Failed to write file to disk"
 msgstr "فشل في كتابه الملف إلى القرص"
 
-#: thold_templates.php:2163
+#: thold_templates.php:2176
 msgid "File upload stopped by extension"
 msgstr "تم إيقاف تحميل الملف بواسطة الملحق"
 
-#: thold_templates.php:2174
+#: thold_templates.php:2187
 #, fuzzy
 msgid "Invalid file extension."
 msgstr "ملحق الملف غير صالح."
 
-#: thold_templates.php:2200
+#: thold_templates.php:2213
 msgid "NOTE:"
 msgstr "ملاحظة:"
 
-#: thold_templates.php:2207 thold_templates.php:2214
+#: thold_templates.php:2220 thold_templates.php:2227
 msgid "ERROR:"
 msgstr "خطأ:"
 
@@ -3664,101 +3676,101 @@ msgid "Created graph: %s"
 msgstr "الرسم البياني الذي تم إنشاؤه:٪ s"
 
 #, fuzzy
-#~ msgid "Default Syslog Settings"
-#~ msgstr "إعدادات Syslog الافتراضية"
-
-#, fuzzy
-#~ msgid "SNMP Notification Presets"
-#~ msgstr "المسبقة SNMP الإخطار"
-
-#, fuzzy
-#~ msgid "Created Threshold: %s<br>"
-#~ msgstr "العتبة التي تم إنشاؤها:٪ s"
-
-#, fuzzy
-#~ msgid "Reset Acknowledgment"
-#~ msgstr "إعادة تعيين الاعتراف"
-
-#, fuzzy
-#~ msgid "Reset Acknowledgment for Template(s)"
-#~ msgstr "إعادة تعيين الإقرار بالقالب"
-
-#, fuzzy
-#~ msgid "Low Threshold values for Warning/Alert"
-#~ msgstr "قيم عتبة منخفضة للتحذير / التنبيه"
-
-#, fuzzy
-#~ msgid "If set and data source value goes above this number, warning will be triggered"
-#~ msgstr "إذا تجاوزت قيمة مصدر البيانات والقيمة فوق هذا الرقم ، فسيتم تشغيل التحذير"
-
-#, fuzzy
-#~ msgid "If set and data source value goes below this number, warning will be triggered"
-#~ msgstr "إذا كانت القيمة المعينة ومصدر البيانات تقل عن هذا الرقم ، فسيتم تشغيل التحذير"
-
-#, fuzzy
-#~ msgid "If set and data source value goes above this number, alert will be triggered"
-#~ msgstr "إذا كانت القيمة المعينة ومصدر البيانات تتجاوز هذا الرقم ، فسيتم تشغيل التنبيه"
-
-#, fuzzy
-#~ msgid "If set and data source value goes below this number, alert will be triggered"
-#~ msgstr "إذا كانت القيمة المعينة ومصدر البيانات تقل عن هذا الرقم ، فسيتم تشغيل التنبيه"
-
-#, fuzzy
-#~ msgid "Warn Hi/Lo"
-#~ msgstr "تحذير مرحبا / لو"
-
-#, fuzzy
-#~ msgid "Alert Hi/Lo"
-#~ msgstr "تنبيه مرحبا / لو"
-
-#, fuzzy
-#~ msgid "BL Hi/Lo"
-#~ msgstr "BL مرحبا / لو"
-
-#, fuzzy
-#~ msgid "Baseline-LOW"
-#~ msgstr "خط أساس منخفض"
-
-#, fuzzy
-#~ msgid "Baseline-HIGH"
-#~ msgstr "خط الأساس عالي"
-
-#, fuzzy
-#~ msgid "BL Duration"
-#~ msgstr "BL المدة"
-
-#, fuzzy
-#~ msgid " What? Permission Denied"
-#~ msgstr "ماذا؟ طلب الاذن مرفوض"
-
-#, fuzzy
-#~ msgid "The following Graph has no Threshold Templates associated with them."
-#~ msgstr "لا يحتوي الرسم البياني التالي على قوالب عتبة مرتبطة بها."
-
-#, fuzzy
-#~ msgid "Press 'Continue' after you have selected the Threshold Template to utilize."
-#~ msgstr "اضغط على \"متابعة\" بعد تحديد \"قالب العتبة\" للاستفادة منه."
-
-#, fuzzy
-#~ msgid "There are no Threshold Templates associated with the following Graph."
-#~ msgstr "لا توجد قوالب عتبة مرتبطة بالرسم البياني التالي."
-
-#, fuzzy
-#~ msgid "Select an action"
-#~ msgstr "حدد إجراء"
-
-#, fuzzy
-#~ msgid "Threshold Action"
-#~ msgstr "عتبة العمل"
-
-#, fuzzy
-#~ msgid "You may either create a new Threshold Template, or an non-templated Threshold from this screen."
-#~ msgstr "يمكنك إما إنشاء قالب عتبة جديد ، أو عتبة غير مجدولة من هذه الشاشة."
+#~ msgid "Create a new Threshold"
+#~ msgstr "إنشاء عتبة جديدة"
 
 #, fuzzy
 #~ msgid "Create a Threshold Template"
 #~ msgstr "إنشاء قالب عتبة"
 
 #, fuzzy
-#~ msgid "Create a new Threshold"
-#~ msgstr "إنشاء عتبة جديدة"
+#~ msgid "You may either create a new Threshold Template, or an non-templated Threshold from this screen."
+#~ msgstr "يمكنك إما إنشاء قالب عتبة جديد ، أو عتبة غير مجدولة من هذه الشاشة."
+
+#, fuzzy
+#~ msgid "Threshold Action"
+#~ msgstr "عتبة العمل"
+
+#, fuzzy
+#~ msgid "Select an action"
+#~ msgstr "حدد إجراء"
+
+#, fuzzy
+#~ msgid "There are no Threshold Templates associated with the following Graph."
+#~ msgstr "لا توجد قوالب عتبة مرتبطة بالرسم البياني التالي."
+
+#, fuzzy
+#~ msgid "Press 'Continue' after you have selected the Threshold Template to utilize."
+#~ msgstr "اضغط على \"متابعة\" بعد تحديد \"قالب العتبة\" للاستفادة منه."
+
+#, fuzzy
+#~ msgid "The following Graph has no Threshold Templates associated with them."
+#~ msgstr "لا يحتوي الرسم البياني التالي على قوالب عتبة مرتبطة بها."
+
+#, fuzzy
+#~ msgid " What? Permission Denied"
+#~ msgstr "ماذا؟ طلب الاذن مرفوض"
+
+#, fuzzy
+#~ msgid "BL Duration"
+#~ msgstr "BL المدة"
+
+#, fuzzy
+#~ msgid "Baseline-HIGH"
+#~ msgstr "خط الأساس عالي"
+
+#, fuzzy
+#~ msgid "Baseline-LOW"
+#~ msgstr "خط أساس منخفض"
+
+#, fuzzy
+#~ msgid "BL Hi/Lo"
+#~ msgstr "BL مرحبا / لو"
+
+#, fuzzy
+#~ msgid "Alert Hi/Lo"
+#~ msgstr "تنبيه مرحبا / لو"
+
+#, fuzzy
+#~ msgid "Warn Hi/Lo"
+#~ msgstr "تحذير مرحبا / لو"
+
+#, fuzzy
+#~ msgid "If set and data source value goes below this number, alert will be triggered"
+#~ msgstr "إذا كانت القيمة المعينة ومصدر البيانات تقل عن هذا الرقم ، فسيتم تشغيل التنبيه"
+
+#, fuzzy
+#~ msgid "If set and data source value goes above this number, alert will be triggered"
+#~ msgstr "إذا كانت القيمة المعينة ومصدر البيانات تتجاوز هذا الرقم ، فسيتم تشغيل التنبيه"
+
+#, fuzzy
+#~ msgid "If set and data source value goes below this number, warning will be triggered"
+#~ msgstr "إذا كانت القيمة المعينة ومصدر البيانات تقل عن هذا الرقم ، فسيتم تشغيل التحذير"
+
+#, fuzzy
+#~ msgid "If set and data source value goes above this number, warning will be triggered"
+#~ msgstr "إذا تجاوزت قيمة مصدر البيانات والقيمة فوق هذا الرقم ، فسيتم تشغيل التحذير"
+
+#, fuzzy
+#~ msgid "Low Threshold values for Warning/Alert"
+#~ msgstr "قيم عتبة منخفضة للتحذير / التنبيه"
+
+#, fuzzy
+#~ msgid "Reset Acknowledgment"
+#~ msgstr "إعادة تعيين الاعتراف"
+
+#, fuzzy
+#~ msgid "Created Threshold: %s<br>"
+#~ msgstr "العتبة التي تم إنشاؤها:٪ s"
+
+#, fuzzy
+#~ msgid "SNMP Notification Presets"
+#~ msgstr "المسبقة SNMP الإخطار"
+
+#, fuzzy
+#~ msgid "Default Syslog Settings"
+#~ msgstr "إعدادات Syslog الافتراضية"
+
+#, fuzzy
+#~ msgid "Reset Acknowledgment for Template(s)"
+#~ msgstr "إعادة تعيين الإقرار بالقالب"

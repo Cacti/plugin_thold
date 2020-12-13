@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-13 14:35-0400\n"
+"Project-Id-Version: Cacti \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2020-12-12 22:16-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,24 +38,24 @@ msgstr ""
 msgid "%d Year"
 msgstr ""
 
-#: includes/arrays.php:37 thold_graph.php:692 thold_graph.php:1030
+#: includes/arrays.php:37 thold_graph.php:694 thold_graph.php:1037
 msgid "Down"
 msgstr ""
 
 #: includes/arrays.php:41 includes/arrays.php:227 includes/arrays.php:243
-#: thold_graph.php:701
+#: thold_graph.php:703
 msgid "Error"
 msgstr ""
 
-#: includes/arrays.php:45 thold_graph.php:695 thold_graph.php:1031
+#: includes/arrays.php:45 thold_graph.php:697 thold_graph.php:1038
 msgid "Recovering"
 msgstr ""
 
-#: includes/arrays.php:49 thold_graph.php:698 thold_graph.php:1029
+#: includes/arrays.php:49 thold_graph.php:700 thold_graph.php:1036
 msgid "Up"
 msgstr ""
 
-#: includes/arrays.php:53 thold_graph.php:704 thold_graph.php:1032
+#: includes/arrays.php:53 thold_graph.php:706 thold_graph.php:1039
 msgid "Unknown"
 msgstr ""
 
@@ -63,11 +63,11 @@ msgstr ""
 #: includes/settings.php:422 includes/settings.php:435
 #: includes/settings.php:465 notify_lists.php:733 notify_lists.php:1154
 #: notify_lists.php:1318 notify_lists.php:1514 thold.php:704
-#: thold_graph.php:216 thold_graph.php:688 thold_graph.php:1026
+#: thold_graph.php:216 thold_graph.php:690 thold_graph.php:1033
 msgid "Disabled"
 msgstr ""
 
-#: includes/arrays.php:61 thold_graph.php:958 thold_graph.php:1028
+#: includes/arrays.php:61 thold_graph.php:964 thold_graph.php:1035
 msgid "Not Monitored"
 msgstr ""
 
@@ -133,7 +133,7 @@ msgstr ""
 msgid "Event - Restoral"
 msgstr ""
 
-#: includes/arrays.php:112 thold_graph.php:1380
+#: includes/arrays.php:112 thold_graph.php:1393
 msgid "Restoral Event"
 msgstr ""
 
@@ -165,7 +165,7 @@ msgstr ""
 msgid "Alert-Warn"
 msgstr ""
 
-#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1352
+#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1363
 msgid "Acknowledgment"
 msgstr ""
 
@@ -185,8 +185,8 @@ msgstr ""
 msgid "Emergency"
 msgstr ""
 
-#: includes/arrays.php:226 thold.php:1819 thold.php:1838
-#: thold_templates.php:1381 thold_templates.php:1395
+#: includes/arrays.php:226 thold.php:1831 thold.php:1850
+#: thold_templates.php:1394 thold_templates.php:1408
 msgid "Critical"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgid "%d Day"
 msgstr ""
 
 #: includes/arrays.php:314 includes/arrays.php:346 includes/arrays.php:391
-#: includes/arrays.php:412 thold_graph.php:1256
+#: includes/arrays.php:412 thold_graph.php:1267
 #, php-format
 msgid "%d Days"
 msgstr ""
@@ -377,7 +377,7 @@ msgstr ""
 msgid "Percentage"
 msgstr ""
 
-#: includes/arrays.php:491 thold.php:1731 thold_templates.php:1292
+#: includes/arrays.php:491 thold.php:1743 thold_templates.php:1298
 msgid "RPN Expression"
 msgstr ""
 
@@ -398,7 +398,7 @@ msgid "Resume Notifications"
 msgstr ""
 
 #: includes/arrays.php:499 includes/arrays.php:508 notify_lists.php:31
-#: setup.php:1280
+#: setup.php:1295
 msgid "Delete"
 msgstr ""
 
@@ -418,61 +418,49 @@ msgstr ""
 msgid "Propagate Template"
 msgstr ""
 
-#: includes/arrays.php:507 thold_graph.php:1438
+#: includes/arrays.php:507 thold_graph.php:1451
 msgid "Export"
 msgstr ""
 
-#: includes/polling.php:608
+#: includes/polling.php:609
 msgid "SNMP not in use"
 msgstr ""
 
-#: includes/polling.php:661 thold.php:954 thold.php:974 thold.php:975
-#: thold.php:1176 thold.php:1224 thold.php:1231 thold.php:1237 thold.php:1245
-#: thold.php:1251 thold.php:1257 thold.php:1259 thold.php:1442
-#: thold_graph.php:619 thold_graph.php:639 thold_graph.php:640
-#: thold_graph.php:915 thold_graph.php:959 thold_graph.php:962
-#: thold_graph.php:963 thold_graph.php:964 thold_graph.php:1381
-#: thold_graph.php:1382
+#: includes/polling.php:662 thold.php:956 thold.php:976 thold.php:977
+#: thold.php:1178 thold.php:1227 thold.php:1234 thold.php:1240 thold.php:1248
+#: thold.php:1254 thold.php:1260 thold.php:1262 thold.php:1447
+#: thold_graph.php:621 thold_graph.php:641 thold_graph.php:642
+#: thold_graph.php:917 thold_graph.php:966 thold_graph.php:969
+#: thold_graph.php:970 thold_graph.php:971 thold_graph.php:1394
+#: thold_graph.php:1395
 msgid "N/A"
 msgstr ""
 
-#: includes/polling.php:666
+#: includes/polling.php:667
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr ""
 
-#: includes/polling.php:676
-msgid ""
-"<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping "
-"response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System "
-"availability: <AVAILABILITY><br>Total Checks Since Clear: "
-"<TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: "
-"<LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:"
-"<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - "
-"<UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+#: includes/polling.php:677
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
 msgstr ""
 
-#: includes/polling.php:818
+#: includes/polling.php:819
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr ""
 
-#: includes/polling.php:823 includes/polling.php:839
+#: includes/polling.php:824 includes/polling.php:840
 msgid "DOWN"
 msgstr ""
 
-#: includes/polling.php:829
-msgid ""
-"System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: "
-"<MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System "
-"availability: <AVAILABILITY><br>Total Checks Since Clear: "
-"<TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : "
-"<LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+#: includes/polling.php:830
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr ""
 
 #: includes/settings.php:29 includes/settings.php:64 includes/settings.php:71
 #: includes/settings.php:77 includes/settings.php:208 notify_lists.php:44
 #: notify_lists.php:1322 notify_lists.php:1387 notify_lists.php:1997
 #: thold.php:709 thold.php:760 thold_functions.php:139 thold_graph.php:221
-#: thold_templates.php:1954
+#: thold_templates.php:1967
 msgid "Thresholds"
 msgstr ""
 
@@ -496,7 +484,7 @@ msgstr ""
 msgid "Threshold Logs"
 msgstr ""
 
-#: includes/settings.php:91 thold_functions.php:141 thold_graph.php:766
+#: includes/settings.php:91 thold_functions.php:141 thold_graph.php:768
 msgid "Device Status"
 msgstr ""
 
@@ -522,7 +510,7 @@ msgstr ""
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
-#: includes/settings.php:160 thold_templates.php:1843
+#: includes/settings.php:160 thold_templates.php:1856
 msgid "Threshold Templates"
 msgstr ""
 
@@ -544,11 +532,11 @@ msgid "Management"
 msgstr ""
 
 #: includes/settings.php:209 notify_lists.php:45 notify_lists.php:1998
-#: thold_templates.php:1858 thold_templates.php:1934
+#: thold_templates.php:1871 thold_templates.php:1947
 msgid "Templates"
 msgstr ""
 
-#: includes/settings.php:209 thold_graph.php:1462
+#: includes/settings.php:209 thold_graph.php:1475
 msgid "Threshold"
 msgstr ""
 
@@ -605,8 +593,7 @@ msgid "Global and List Below"
 msgstr ""
 
 #: includes/settings.php:313
-msgid ""
-"Which Notification List(s) of should be notified about Device Up/Down events?"
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgstr ""
 
 #: includes/settings.php:321
@@ -622,9 +609,7 @@ msgid "Host Failure Count"
 msgstr ""
 
 #: includes/settings.php:332
-msgid ""
-"The number of Polling Intervals at this Host must be Down before Thold "
-"logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
 msgstr ""
 
 #: includes/settings.php:337
@@ -655,9 +640,7 @@ msgid "Disable All Thresholds"
 msgstr ""
 
 #: includes/settings.php:377
-msgid ""
-"Checking this box will disable Alerting on all Thresholds.  This can be used "
-"when it is necessary to perform maintenance on your network."
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
 msgstr ""
 
 #: includes/settings.php:382
@@ -665,9 +648,7 @@ msgid "Auto Create Thresholds"
 msgstr ""
 
 #: includes/settings.php:383
-msgid ""
-"If selected, when running either automation, or when creating/saving a "
-"Device, all Thresholds associated with the Device Template will be created."
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
 msgstr ""
 
 #: includes/settings.php:388
@@ -675,10 +656,7 @@ msgid "Disable Legacy Notifications"
 msgstr ""
 
 #: includes/settings.php:389
-msgid ""
-"Checking this box will disable Legacy Alerting on all Thresholds.  Legacy "
-"Alerting is defined as any Specific Email Alerts not associated with a "
-"Notification List."
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
 msgstr ""
 
 #: includes/settings.php:394
@@ -686,9 +664,7 @@ msgid "Threshold Notification Templated"
 msgstr ""
 
 #: includes/settings.php:395
-msgid ""
-"If checked, when creating at Threshold Template, its Notification Settings "
-"will, by default be owned by the Threshold Template."
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
 msgstr ""
 
 #: includes/settings.php:399
@@ -696,9 +672,7 @@ msgid "Enable Command Execution"
 msgstr ""
 
 #: includes/settings.php:400
-msgid ""
-"Checking this box will enable the ability to run commands on Threshold "
-"breach and restoral events."
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
 msgstr ""
 
 #: includes/settings.php:405
@@ -706,9 +680,7 @@ msgid "Enable Per Thold Notification"
 msgstr ""
 
 #: includes/settings.php:406
-msgid ""
-"Checking this box will enable the ability to maintain custom Email bodies "
-"for Thresholds."
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
 msgstr ""
 
 #: includes/settings.php:411
@@ -716,9 +688,7 @@ msgid "Consider Unknown Data as Zero"
 msgstr ""
 
 #: includes/settings.php:412
-msgid ""
-"When checking Thresholds, if a Data Source returns Unknown Data ('U'), "
-"consider the value as zero for the Threshold check."
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check."
 msgstr ""
 
 #: includes/settings.php:417
@@ -736,9 +706,9 @@ msgid "Any"
 msgstr ""
 
 #: includes/settings.php:423 includes/settings.php:436 notify_lists.php:1317
-#: notify_lists.php:1403 notify_lists.php:1514 thold.php:703 thold.php:1902
-#: thold_graph.php:215 thold_graph.php:1025 thold_templates.php:1029
-#: thold_templates.php:1458
+#: notify_lists.php:1403 notify_lists.php:1514 thold.php:703 thold.php:1914
+#: thold_graph.php:215 thold_graph.php:1032 thold_templates.php:1035
+#: thold_templates.php:1471
 msgid "Enabled"
 msgstr ""
 
@@ -766,10 +736,7 @@ msgid "Empty ifHighSpeed Default"
 msgstr ""
 
 #: includes/settings.php:444
-msgid ""
-"When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come "
-"back as zero, use the following ifHighSpeed setting instead.  Default "
-"ifHighSpeed will be 10000 for 10GE interfaces."
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
 msgstr ""
 
 #: includes/settings.php:451
@@ -781,10 +748,7 @@ msgid "Enable Threshold Daemon"
 msgstr ""
 
 #: includes/settings.php:456
-msgid ""
-"Checking this box will enable the use of a dedicated Threshold daemon. This "
-"can be used to increase system performance and/or to distribute Threshold "
-"monitoring to a separate server."
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
 msgstr ""
 
 #: includes/settings.php:461
@@ -792,9 +756,7 @@ msgid "Daemon Down Notification Frequency"
 msgstr ""
 
 #: includes/settings.php:462
-msgid ""
-"If the Thold Daemon is found to be down, send out an Email notification at "
-"this frequency."
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
 msgstr ""
 
 #: includes/settings.php:469
@@ -807,9 +769,7 @@ msgid "Maximum Concurrent Threshold Processes"
 msgstr ""
 
 #: includes/settings.php:476
-msgid ""
-"The maximum number of concurrent processes to be handled by the Threshold "
-"Daemon."
+msgid "The maximum number of concurrent processes to be handled by the Threshold Daemon."
 msgstr ""
 
 #: includes/settings.php:483
@@ -856,7 +816,7 @@ msgstr ""
 msgid "Keep Threshold Logs for this number of days."
 msgstr ""
 
-#: includes/settings.php:518 thold.php:1897 thold_templates.php:1453
+#: includes/settings.php:518 thold.php:1909 thold_templates.php:1466
 msgid "Syslog Settings"
 msgstr ""
 
@@ -865,10 +825,7 @@ msgid "Syslog Enabled"
 msgstr ""
 
 #: includes/settings.php:523
-msgid ""
-"If checked, when creating a new Threshold, by default new Threshold events "
-"will be sent to your local syslog.  This setting is a preset.  Threshold "
-"settings dictate actual syslog control."
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr ""
 
 #: includes/settings.php:527
@@ -876,10 +833,7 @@ msgid "Default Priority/Level"
 msgstr ""
 
 #: includes/settings.php:528
-msgid ""
-"This is the default Priority/Level that Thold will use to send syslog "
-"messages.  This setting is a preset.  Threshold settings dictate actual "
-"syslog control."
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr ""
 
 #: includes/settings.php:534
@@ -887,9 +841,7 @@ msgid "Default Facility"
 msgstr ""
 
 #: includes/settings.php:535
-msgid ""
-"This is the default Facility that Thold will use to send syslog messages.  "
-"This setting is a preset.  Threshold settings dictate actual syslog control."
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr ""
 
 #: includes/settings.php:541
@@ -909,9 +861,7 @@ msgid "Default Trigger Count"
 msgstr ""
 
 #: includes/settings.php:551
-msgid ""
-"Default number of consecutive times the Data Source must be in breach of the "
-"Threshold for an Alert to be raised."
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
 msgstr ""
 
 #: includes/settings.php:558
@@ -934,14 +884,12 @@ msgstr ""
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr ""
 
-#: includes/settings.php:579 thold.php:1694 thold_templates.php:1256
+#: includes/settings.php:579 thold.php:1699 thold_templates.php:1262
 msgid "Baseline Trigger Count"
 msgstr ""
 
 #: includes/settings.php:580
-msgid ""
-"Default number of consecutive times the Data Source must be in breach of the "
-"calculated Baseline Threshold for an Alert to be raised."
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
 msgstr ""
 
 #: includes/settings.php:587
@@ -957,10 +905,7 @@ msgid "SNMP Notifications"
 msgstr ""
 
 #: includes/settings.php:600
-msgid ""
-"Threshold status messages (informs/traps) will be sent to SNMP notification "
-"receivers. This includes Alerts, Warnings and Restoration traps per default. "
-"Note: This feature requires the Cacti SNMPAgent plugin."
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
 msgstr ""
 
 #: includes/settings.php:605
@@ -968,9 +913,7 @@ msgid "Disable Warning Notifications"
 msgstr ""
 
 #: includes/settings.php:606
-msgid ""
-"If this is checked, Threshold will not send a notification when a warning "
-"Threshold has been breached."
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
 msgstr ""
 
 #: includes/settings.php:610
@@ -978,9 +921,7 @@ msgid "Disable Restoration Notifications"
 msgstr ""
 
 #: includes/settings.php:611
-msgid ""
-"If this is checked, Threshold will not send a notification when the "
-"Threshold has returned to normal status."
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
 msgstr ""
 
 #: includes/settings.php:615
@@ -988,14 +929,7 @@ msgid "SNMP Event Description"
 msgstr ""
 
 #: includes/settings.php:616
-msgid ""
-"You can customize the event description being sent out to the SNMP "
-"notification receivers by using additional varbinds. Following variable "
-"bindings will be supported:<br>&#060;THRESHOLDNAME&#062; &#060;"
-"HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;"
-"TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; "
-"&#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;"
-"FAIL_DURATION&#062;"
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using additional varbinds. Following variable bindings will be supported:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 msgstr ""
 
 #: includes/settings.php:624
@@ -1015,9 +949,7 @@ msgid "Send Alerts as Text"
 msgstr ""
 
 #: includes/settings.php:635
-msgid ""
-"If checked, this will cause all Alerts to be sent as plain text Emails with "
-"no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
 msgstr ""
 
 #: includes/settings.php:640
@@ -1025,9 +957,7 @@ msgid "Send Email separately for each address"
 msgstr ""
 
 #: includes/settings.php:641
-msgid ""
-"If checked, this will cause all Emails to be sent separately for each "
-"address."
+msgid "If checked, this will cause all Emails to be sent separately for each address."
 msgstr ""
 
 #: includes/settings.php:646
@@ -1063,9 +993,7 @@ msgid "Device Notifications Email"
 msgstr ""
 
 #: includes/settings.php:671
-msgid ""
-"This is the Email Address that the Dead Device Notifications will be sent to "
-"if the Global Notification List is selected."
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
 msgstr ""
 
 #: includes/settings.php:677
@@ -1085,28 +1013,11 @@ msgid "Down Message"
 msgstr ""
 
 #: includes/settings.php:686
-msgid ""
-"This is the message that will be displayed as the message body of all UP / "
-"Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed "
-"for text only Emails.  There are several common replacement tags that may be "
-"used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 "
-"&#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 "
-"&#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 "
-"&#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/"
-"UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 "
-"&#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 "
-"&#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 "
-"&#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr ""
 
 #: includes/settings.php:691
-msgid ""
-"System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: "
-"<MESSAGE><br><br>Average system response: <AVG_TIME> ms<br>System "
-"availability: <AVAILABILITY><br>Total Checks Since Clear: "
-"<TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : "
-"<LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: "
-"<NOTES><br>Device NOTES: <DNOTES>"
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
 msgstr ""
 
 #: includes/settings.php:694
@@ -1114,8 +1025,7 @@ msgid "Recovering Subject"
 msgstr ""
 
 #: includes/settings.php:695
-msgid ""
-"This is the Email subject that will be used for Recovering Device Messages."
+msgid "This is the Email subject that will be used for Recovering Device Messages."
 msgstr ""
 
 #: includes/settings.php:699
@@ -1127,30 +1037,11 @@ msgid "Recovering Message"
 msgstr ""
 
 #: includes/settings.php:703
-msgid ""
-"This is the message that will be displayed as the message body of all UP / "
-"Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed "
-"for text only Emails.  There are several common replacement tags that may be "
-"used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 "
-"&#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 "
-"&#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 "
-"&#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/"
-"UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 "
-"&#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 "
-"&#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 "
-"&#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr ""
 
 #: includes/settings.php:708
-msgid ""
-"<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping "
-"response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System "
-"availability: <AVAILABILITY><br>Total Checks Since Clear: "
-"<TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: "
-"<LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:"
-"<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - "
-"<UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: "
-"<NOTES><br>Device Notes: <DNOTES>"
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
 msgstr ""
 
 #: includes/settings.php:711
@@ -1158,21 +1049,7 @@ msgid "Status Change Command"
 msgstr ""
 
 #: includes/settings.php:712
-msgid ""
-"When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to "
-"RECOVERING/UP), run the following command.  This command must NOT include "
-"command line arguments.  However, the following variables can be pulled from "
-"the environment of the script:<br>&#060THOLD_HOSTNAME&#062 "
-"&#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 "
-"&#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 "
-"&#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 "
-"&#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 "
-"&#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 "
-"&#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 "
-"&#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 "
-"&#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 "
-"&#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 "
-"&#060THOLD_NOTES&#062"
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 msgstr ""
 
 #: includes/settings.php:720
@@ -1184,22 +1061,11 @@ msgid "Threshold Alert Message"
 msgstr ""
 
 #: includes/settings.php:725
-msgid ""
-"This is the message that will be displayed at the top of all Threshold "
-"Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only "
-"Emails.  There are several common replacement tags that may be used in "
-"include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 "
-"&#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 "
-"&#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 "
-"&#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 "
-"&#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr ""
 
 #: includes/settings.php:730
-msgid ""
-"An Alert has been issued that requires your attention. "
-"<br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</"
-"strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr ""
 
 #: includes/settings.php:733
@@ -1207,45 +1073,23 @@ msgid "Threshold Warning Message"
 msgstr ""
 
 #: includes/settings.php:734
-msgid ""
-"This is the message that will be displayed at the top of all Threshold "
-"warnings (1024 Char MAX).  HTML is allowed, but will be removed for text "
-"only Emails.  There are several common replacement tags that may be used in "
-"include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 "
-"&#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 "
-"&#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 "
-"&#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 "
-"&#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr ""
 
 #: includes/settings.php:739
-msgid ""
-"A Warning has been issued that requires your attention. "
-"<br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</"
-"strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr ""
 
 #: includes/settings.php:742
 msgid "Threshold Restoral Message"
 msgstr ""
 
-#: includes/settings.php:743 thold.php:1778 thold_templates.php:1337
-msgid ""
-"This is the message that will be displayed at the top of all Threshold "
-"restoral notifications (1024 Chars MAX).  HTML is allowed, but will be "
-"removed for text only Emails.  There are several common replacement tags "
-"that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 "
-"&#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 "
-"&#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 "
-"&#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 "
-"&#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+#: includes/settings.php:743 thold.php:1790 thold_templates.php:1350
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr ""
 
 #: includes/settings.php:748
-msgid ""
-"A Threshold has returned to normal status. <br><br><strong>Device</strong>: "
-"<DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: "
-"<URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr ""
 
 #: includes/tab.php:33
@@ -1265,27 +1109,25 @@ msgid "Disassociate"
 msgstr ""
 
 #: notify_lists.php:43 notify_lists.php:1000 notify_lists.php:1123
-#: notify_lists.php:1996 thold_graph.php:819 thold_graph.php:1064
+#: notify_lists.php:1996 thold_graph.php:821 thold_graph.php:1071
 msgid "Devices"
 msgstr ""
 
 #: notify_lists.php:510
-msgid ""
-"Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or "
-"Threshold(s) associated with the List(s) will be reverted to the default."
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr ""
 
 #: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
 #: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1362 thold.php:444
-#: thold_functions.php:5756 thold_templates.php:267
+#: notify_lists.php:726 notify_lists.php:739 setup.php:1377 thold.php:444
+#: thold_functions.php:5788 thold_templates.php:268
 msgid "Cancel"
 msgstr ""
 
 #: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
 #: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1363 thold.php:446
-#: thold_functions.php:5759 thold_templates.php:269
+#: notify_lists.php:726 notify_lists.php:739 setup.php:1378 thold.php:446
+#: thold_functions.php:5791 thold_templates.php:270
 msgid "Continue"
 msgstr ""
 
@@ -1316,9 +1158,7 @@ msgstr ""
 
 #: notify_lists.php:578
 #, php-format
-msgid ""
-"Click 'Continue' to Association the Notification List '%s' with the "
-"Threshold Template(s) below."
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
 msgstr ""
 
 #: notify_lists.php:580 notify_lists.php:581 notify_lists.php:591
@@ -1355,9 +1195,7 @@ msgstr ""
 
 #: notify_lists.php:589
 #, php-format
-msgid ""
-"Click 'Continue' to Disassociate the Notification List '%s' from the "
-"Thresholds Template(s) below."
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
 msgstr ""
 
 #: notify_lists.php:591 notify_lists.php:592 notify_lists.php:661
@@ -1376,30 +1214,21 @@ msgstr ""
 
 #: notify_lists.php:648
 #, php-format
-msgid ""
-"Click 'Continue' to Associate the Notification List '%s' with the "
-"Threshold(s) below."
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
 msgstr ""
 
 #: notify_lists.php:659
 #, php-format
-msgid ""
-"Click 'Continue' to Disassociate the Notification List '%s' from the "
-"Thresholds(s) below."
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
 msgstr ""
 
 #: notify_lists.php:717
 #, php-format
-msgid ""
-"Click 'Continue' to Associate the Notification List '%s' with the Device(s) "
-"below."
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
 msgstr ""
 
 #: notify_lists.php:718
-msgid ""
-"You may also Associate the Devices Thresholds as well. However, these Device "
-"Tresholds will must allow the allow the Thrshold Notification List to be "
-"overwritten."
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten."
 msgstr ""
 
 #: notify_lists.php:720
@@ -1420,16 +1249,11 @@ msgstr ""
 
 #: notify_lists.php:730
 #, php-format
-msgid ""
-"Click 'Continue' to Disassociate the Notification List '%s' from the "
-"Device(s) below."
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
 msgstr ""
 
 #: notify_lists.php:731
-msgid ""
-"You may also Disssociate the Devices Thresholds as well. However, these "
-"Device Tresholds will must allow the allow the Thrshold Notification List to "
-"be overwritten."
+msgid "You may also Disssociate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten."
 msgstr ""
 
 #: notify_lists.php:780
@@ -1446,7 +1270,7 @@ msgid "List General Settings"
 msgstr ""
 
 #: notify_lists.php:834 notify_lists.php:1396 notify_lists.php:1657
-#: setup.php:1223 thold.php:770 thold_graph.php:415 thold_templates.php:1944
+#: setup.php:1238 thold.php:770 thold_graph.php:415 thold_templates.php:1957
 msgid "Name"
 msgstr ""
 
@@ -1455,7 +1279,7 @@ msgid "Enter a name for this Notification List."
 msgstr ""
 
 #: notify_lists.php:841 notify_lists.php:1132 notify_lists.php:1999
-#: thold_graph.php:833
+#: thold_graph.php:835
 msgid "Description"
 msgstr ""
 
@@ -1468,8 +1292,7 @@ msgid "Email Addresses"
 msgstr ""
 
 #: notify_lists.php:851
-msgid ""
-"Enter a comma separated list of Email addresses for this Notification List."
+msgid "Enter a comma separated list of Email addresses for this Notification List."
 msgstr ""
 
 #: notify_lists.php:947
@@ -1477,39 +1300,39 @@ msgid "Associated Devices"
 msgstr ""
 
 #: notify_lists.php:956 notify_lists.php:1273 notify_lists.php:1580
-#: notify_lists.php:1900 thold.php:632 thold.php:2281 thold_graph.php:132
-#: thold_graph.php:994 thold_graph.php:1408 thold_templates.php:1743
-#: thold_templates.php:1852
+#: notify_lists.php:1900 thold.php:632 thold.php:2294 thold_graph.php:132
+#: thold_graph.php:1001 thold_graph.php:1421 thold_templates.php:1756
+#: thold_templates.php:1865
 msgid "Search"
 msgstr ""
 
 #: notify_lists.php:962 notify_lists.php:1133 notify_lists.php:1279
-#: thold.php:638 thold_graph.php:138 thold_graph.php:1000 thold_graph.php:1414
+#: thold.php:638 thold_graph.php:138 thold_graph.php:1007 thold_graph.php:1427
 msgid "Site"
 msgstr ""
 
 #: notify_lists.php:967 notify_lists.php:985 notify_lists.php:1150
 #: notify_lists.php:1164 notify_lists.php:1284 notify_lists.php:1485
-#: notify_lists.php:1730 setup.php:767 setup.php:785 setup.php:959
-#: setup.php:960 setup.php:1116 thold.php:643 thold.php:674 thold.php:1477
-#: thold.php:1485 thold.php:1786 thold.php:1794 thold.php:2244
+#: notify_lists.php:1730 setup.php:775 setup.php:793 setup.php:967
+#: setup.php:968 setup.php:1131 thold.php:643 thold.php:674 thold.php:1482
+#: thold.php:1490 thold.php:1798 thold.php:1806 thold.php:2257
 #: thold_graph.php:143 thold_graph.php:172 thold_graph.php:190
-#: thold_graph.php:1005 thold_graph.php:1049 thold_graph.php:1419
-#: thold_graph.php:1449 thold_templates.php:392 thold_templates.php:440
-#: thold_templates.php:1039 thold_templates.php:1047 thold_templates.php:1352
-#: thold_templates.php:1360 thold_templates.php:1706
+#: thold_graph.php:1012 thold_graph.php:1056 thold_graph.php:1432
+#: thold_graph.php:1462 thold_templates.php:397 thold_templates.php:445
+#: thold_templates.php:1045 thold_templates.php:1053 thold_templates.php:1365
+#: thold_templates.php:1373 thold_templates.php:1719
 msgid "None"
 msgstr ""
 
 #: notify_lists.php:980 notify_lists.php:1400 notify_lists.php:1661
-#: thold.php:780 thold_graph.php:425 thold_graph.php:1044 thold_graph.php:1329
-#: thold_templates.php:1964
+#: thold.php:780 thold_graph.php:425 thold_graph.php:1051 thold_graph.php:1340
+#: thold_templates.php:1977
 msgid "Type"
 msgstr ""
 
 #: notify_lists.php:1004 notify_lists.php:1326 notify_lists.php:1590
-#: notify_lists.php:1910 thold.php:713 thold_graph.php:225 thold_graph.php:1068
-#: thold_graph.php:1503 thold_templates.php:1862
+#: notify_lists.php:1910 thold.php:713 thold_graph.php:225 thold_graph.php:1075
+#: thold_graph.php:1516 thold_templates.php:1875
 msgid "Default"
 msgstr ""
 
@@ -1518,8 +1341,8 @@ msgid "Associated"
 msgstr ""
 
 #: notify_lists.php:1022 notify_lists.php:1344 notify_lists.php:1608
-#: notify_lists.php:1921 thold.php:659 thold_graph.php:160 thold_graph.php:1037
-#: thold_graph.php:1436 thold_templates.php:1874
+#: notify_lists.php:1921 thold.php:659 thold_graph.php:160 thold_graph.php:1044
+#: thold_graph.php:1449 thold_templates.php:1887
 msgid "Go"
 msgstr ""
 
@@ -1529,8 +1352,8 @@ msgid "Set/Refresh Filters"
 msgstr ""
 
 #: notify_lists.php:1023 notify_lists.php:1345 notify_lists.php:1609
-#: notify_lists.php:1924 thold.php:662 thold_graph.php:161 thold_graph.php:1038
-#: thold_graph.php:1437 thold_templates.php:1875
+#: notify_lists.php:1924 thold.php:662 thold_graph.php:161 thold_graph.php:1045
+#: thold_graph.php:1450 thold_templates.php:1888
 msgid "Clear"
 msgstr ""
 
@@ -1540,8 +1363,8 @@ msgid "Clear Filters"
 msgstr ""
 
 #: notify_lists.php:1134 notify_lists.php:1397 notify_lists.php:1658
-#: thold.php:775 thold_graph.php:420 thold_graph.php:839
-#: thold_templates.php:1949
+#: thold.php:775 thold_graph.php:420 thold_graph.php:841
+#: thold_templates.php:1962
 msgid "ID"
 msgstr ""
 
@@ -1549,20 +1372,20 @@ msgstr ""
 msgid "Associated Lists"
 msgstr ""
 
-#: notify_lists.php:1136 thold_graph.php:845
+#: notify_lists.php:1136 thold_graph.php:847
 msgid "Graphs"
 msgstr ""
 
-#: notify_lists.php:1137 thold_graph.php:851
+#: notify_lists.php:1137 thold_graph.php:853
 msgid "Data Sources"
 msgstr ""
 
-#: notify_lists.php:1138 setup.php:1223 thold.php:696 thold_graph.php:208
-#: thold_graph.php:857 thold_graph.php:1020 thold_graph.php:1484
+#: notify_lists.php:1138 setup.php:1238 thold.php:696 thold_graph.php:208
+#: thold_graph.php:859 thold_graph.php:1027 thold_graph.php:1497
 msgid "Status"
 msgstr ""
 
-#: notify_lists.php:1139 thold_graph.php:875
+#: notify_lists.php:1139 thold_graph.php:877
 msgid "Hostname"
 msgstr ""
 
@@ -1582,7 +1405,7 @@ msgstr ""
 msgid "Associated Thresholds"
 msgstr ""
 
-#: notify_lists.php:1297 thold.php:669 thold_graph.php:167 thold_graph.php:1444
+#: notify_lists.php:1297 thold.php:669 thold_graph.php:167 thold_graph.php:1457
 msgid "Template"
 msgstr ""
 
@@ -1591,10 +1414,10 @@ msgid "State"
 msgstr ""
 
 #: notify_lists.php:1314 thold.php:642 thold.php:673 thold.php:700
-#: thold.php:2243 thold_graph.php:142 thold_graph.php:171 thold_graph.php:189
-#: thold_graph.php:212 thold_graph.php:1004 thold_graph.php:1024
-#: thold_graph.php:1048 thold_graph.php:1418 thold_graph.php:1448
-#: thold_graph.php:1466 thold_graph.php:1488 thold_templates.php:1705
+#: thold.php:2256 thold_graph.php:142 thold_graph.php:171 thold_graph.php:189
+#: thold_graph.php:212 thold_graph.php:1011 thold_graph.php:1031
+#: thold_graph.php:1055 thold_graph.php:1431 thold_graph.php:1461
+#: thold_graph.php:1479 thold_graph.php:1501 thold_templates.php:1718
 msgid "All"
 msgstr ""
 
@@ -1610,13 +1433,13 @@ msgstr ""
 msgid "Templated"
 msgstr ""
 
-#: notify_lists.php:1413 thold.php:864 thold.php:985 thold.php:987
-#: thold.php:990 thold_graph.php:496 thold_graph.php:650
+#: notify_lists.php:1413 thold.php:864 thold.php:987 thold.php:989
+#: thold.php:992 thold_graph.php:496 thold_graph.php:652
 msgid "No"
 msgstr ""
 
-#: notify_lists.php:1417 thold.php:895 thold.php:899 thold.php:985
-#: thold.php:990 thold_graph.php:527 thold_graph.php:531 thold_graph.php:650
+#: notify_lists.php:1417 thold.php:895 thold.php:899 thold.php:987
+#: thold.php:992 thold_graph.php:527 thold_graph.php:531 thold_graph.php:652
 msgid "Yes"
 msgstr ""
 
@@ -1659,7 +1482,7 @@ msgstr ""
 msgid "Read Only"
 msgstr ""
 
-#: notify_lists.php:1520 thold.php:997 thold_graph.php:655
+#: notify_lists.php:1520 thold.php:999 thold_graph.php:657
 msgid "No Thresholds"
 msgstr ""
 
@@ -1712,163 +1535,150 @@ msgstr ""
 msgid "Create Threshold"
 msgstr ""
 
-#: setup.php:503 setup.php:513
+#: setup.php:512 setup.php:522
 #, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr ""
 
-#: setup.php:507 setup.php:517
+#: setup.php:516 setup.php:526
 #, php-format
 msgid "Alert Low for %s (%s)"
 msgstr ""
 
-#: setup.php:533 setup.php:543
+#: setup.php:542 setup.php:552
 #, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr ""
 
-#: setup.php:537 setup.php:547
+#: setup.php:546 setup.php:557
 #, php-format
 msgid "Warning Low for %s (%s)"
 msgstr ""
 
-#: setup.php:567 setup.php:581
-#, php-format
-msgid "Alert Hi for %s (%s %%)"
+#: setup.php:577 setup.php:591
+msgid "Alert Hi for %s (%s %%%)"
 msgstr ""
 
-#: setup.php:573 setup.php:587
-#, php-format
-msgid "Alert Low for %s (%s %%)"
+#: setup.php:583 setup.php:597
+msgid "Alert Low for %s (%s %%%)"
 msgstr ""
 
-#: setup.php:605 setup.php:619
-#, php-format
-msgid "Warning Hi for %s (%s %%)"
+#: setup.php:615 setup.php:629
+msgid "Warning Hi for %s (%s %%%)"
 msgstr ""
 
-#: setup.php:611 setup.php:625
-#, php-format
-msgid "Warning Low for %s (%s %%)"
+#: setup.php:621 setup.php:635
+msgid "Warning Low for %s (%s %%%)"
 msgstr ""
 
-#: setup.php:638
+#: setup.php:648
 msgid "Threshold Alert/Warning Values"
 msgstr ""
 
-#: setup.php:691
-msgid ""
-"Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+#: setup.php:701
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr ""
 
-#: setup.php:767 setup.php:785
+#: setup.php:775 setup.php:793
 msgid "Create Threshold from Data Source"
 msgstr ""
 
-#: setup.php:796
+#: setup.php:804
 msgid "Auto-create Thresholds"
 msgstr ""
 
-#: setup.php:878 setup.php:1035
+#: setup.php:886 setup.php:1043
 #, php-format
 msgid "Created %s thresholds"
 msgstr ""
 
-#: setup.php:880 setup.php:1037 thold_functions.php:5258
-msgid ""
-"No Threshold(s) Created.  Either they already exist, or no suitable matches "
-"found."
+#: setup.php:888 setup.php:1045 thold_functions.php:5290
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr ""
 
-#: setup.php:883 setup.php:1040
+#: setup.php:891 setup.php:1048
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr ""
 
-#: setup.php:941
-msgid ""
-"The following Data Sources have no Threshold Templates associated with them"
+#: setup.php:949
+msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr ""
 
-#: setup.php:945
+#: setup.php:953
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr ""
 
-#: setup.php:952 setup.php:1109
+#: setup.php:960 setup.php:1124
 msgid "Available Threshold Templates"
 msgstr ""
 
-#: setup.php:957 setup.php:1114 thold_webapi.php:339
+#: setup.php:965 setup.php:1129 thold_webapi.php:339
 msgid "Select a Threshold Template"
 msgstr ""
 
-#: setup.php:973
-msgid ""
-"There are no Threshold Templates associated with the following Data Sources"
+#: setup.php:981
+msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr ""
 
-#: setup.php:985 setup.php:1141 thold_webapi.php:177
+#: setup.php:993 setup.php:1156 thold_webapi.php:177
 msgid "Create Threshold from Template"
 msgstr ""
 
-#: setup.php:1098
+#: setup.php:1113
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr ""
 
-#: setup.php:1102
+#: setup.php:1117
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr ""
 
-#: setup.php:1129
+#: setup.php:1144
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr ""
 
-#: setup.php:1211 setup.php:1261
+#: setup.php:1226 setup.php:1276
 msgid "Associated Threshold Templates"
 msgstr ""
 
-#: setup.php:1235
+#: setup.php:1250
 msgid "Threshold Exists"
 msgstr ""
 
-#: setup.php:1237
+#: setup.php:1252
 msgid "Threshold Does Not Exist"
 msgstr ""
 
-#: setup.php:1254 setup.php:1288
+#: setup.php:1269 setup.php:1303
 msgid "No Associated Threshold Templates."
 msgstr ""
 
-#: setup.php:1306
+#: setup.php:1321
 msgid "Add Threshold Template"
 msgstr ""
 
-#: setup.php:1312
+#: setup.php:1327
 msgid "Add"
 msgstr ""
 
-#: setup.php:1312
+#: setup.php:1327
 msgid "Add Threshold Template to Device Template"
 msgstr ""
 
-#: setup.php:1356
-msgid ""
-"Click 'Continue' to Delete the following Threshold Template will be "
-"disassociated from the Device Template."
+#: setup.php:1371
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr ""
 
-#: setup.php:1357
+#: setup.php:1372
 #, php-format
 msgid "Threshold Template Name: %s"
 msgstr ""
 
-#: setup.php:1363
+#: setup.php:1378
 msgid "Remove Threshold Template"
 msgstr ""
 
 #: thold.php:94
-msgid ""
-"Either No Templates or Threshold(s) Already Exists - No Thresholds were "
-"created."
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
 msgstr ""
 
 #: thold.php:294
@@ -1900,8 +1710,7 @@ msgid "Disable Threshold(s)"
 msgstr ""
 
 #: thold.php:408
-msgid ""
-"Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
 msgstr ""
 
 #: thold.php:409
@@ -1909,9 +1718,7 @@ msgid "Apply Suggestion"
 msgstr ""
 
 #: thold.php:412
-msgid ""
-"Click 'Continue' to update the following Threshold(s) with their associate "
-"Template's details."
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
 msgstr ""
 
 #: thold.php:413
@@ -1919,20 +1726,15 @@ msgid "Reapply Template"
 msgstr ""
 
 #: thold.php:416
-msgid ""
-"Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that "
-"do not allows this, or that are not triggered, will be ignored."
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr ""
 
-#: thold.php:417 thold_functions.php:5746
+#: thold.php:417 thold_functions.php:5778
 msgid "Acknowledge Threshold(s)"
 msgstr ""
 
 #: thold.php:420
-msgid ""
-"Click 'Continue' to Resume Notifications for the following Threshold(s).  "
-"Thresholds that do not allows this, or that are not triggered will be "
-"ignored."
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr ""
 
 #: thold.php:421
@@ -1940,17 +1742,14 @@ msgid "Resume Notifications for Threshold(s)"
 msgstr ""
 
 #: thold.php:424
-msgid ""
-"Click 'Continue' to Suspend Notifications for the following Threshold(s).  "
-"Thresholds that do not allows this, or that are not triggered will be "
-"ignored."
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr ""
 
 #: thold.php:425
 msgid "Suspend Notification for Threshold(s)"
 msgstr ""
 
-#: thold.php:428 thold_templates.php:255
+#: thold.php:428 thold_templates.php:256
 msgid "Invalid action detected, can not proceed"
 msgstr ""
 
@@ -1966,8 +1765,8 @@ msgstr ""
 msgid "Return to Defaults"
 msgstr ""
 
-#: thold.php:683 thold_graph.php:185 thold_templates.php:388
-#: thold_templates.php:1013 thold_templates.php:1959
+#: thold.php:683 thold_graph.php:185 thold_templates.php:393
+#: thold_templates.php:1019 thold_templates.php:1972
 msgid "Data Template"
 msgstr ""
 
@@ -1987,696 +1786,556 @@ msgstr ""
 msgid "The last measured value for the Data Source"
 msgstr ""
 
-#: thold.php:796 thold.php:1818 thold.php:1837 thold_graph.php:436
-#: thold_templates.php:1381 thold_templates.php:1395 thold_templates.php:1974
+#: thold.php:796 thold.php:1830 thold.php:1849 thold_graph.php:436
+#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1987
 msgid "High"
 msgstr ""
 
 #: thold.php:799 thold_graph.php:439
-msgid ""
-"The High Warning / Alert values.  NOTE: Baseline values are a percent, all "
-"other values are display values that may be modified by a cdef."
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr ""
 
-#: thold.php:802 thold.php:1816 thold.php:1835 thold_graph.php:442
-#: thold_templates.php:1381 thold_templates.php:1395 thold_templates.php:1980
+#: thold.php:802 thold.php:1828 thold.php:1847 thold_graph.php:442
+#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1993
 msgid "Low"
 msgstr ""
 
 #: thold.php:805 thold_graph.php:445
-msgid ""
-"The Low Warning / Alert values.  NOTE: Baseline values are a percent, all "
-"other values are display values that may be modified by a cdef."
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr ""
 
-#: thold.php:808 thold_graph.php:448 thold_templates.php:1986
+#: thold.php:808 thold_graph.php:448 thold_templates.php:1999
 msgid "Trigger"
 msgstr ""
 
-#: thold.php:813 thold_graph.php:453 thold_templates.php:1991
+#: thold.php:813 thold_graph.php:453 thold_templates.php:2004
 msgid "Duration"
 msgstr ""
 
-#: thold.php:818 thold_graph.php:458 thold_templates.php:1996
+#: thold.php:818 thold_graph.php:458 thold_templates.php:2009
 msgid "Repeat"
 msgstr ""
 
-#: thold.php:828 thold_graph.php:468 thold_graph.php:863
+#: thold.php:828 thold_graph.php:468 thold_graph.php:865
 msgid "In State"
 msgstr ""
 
 #: thold.php:831 thold_graph.php:471
-msgid ""
-"The amount of time that has passed since the Threshold either Breached or "
-"was Triggered"
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
 msgstr ""
 
 #: thold.php:842 thold_graph.php:477
 msgid "Acknowledgment required for this Threshold"
 msgstr ""
 
-#: thold.php:967 thold_graph.php:632
+#: thold.php:969 thold_graph.php:634
 #, php-format
 msgid "%d Triggers"
 msgstr ""
 
-#: thold.php:1029
+#: thold.php:1031
 msgid "Threshold Deleted, can not Edit!"
 msgstr ""
 
-#: thold.php:1119
+#: thold.php:1121
 msgid "Graph Data"
 msgstr ""
 
-#: thold.php:1125
+#: thold.php:1127
 msgid "Data Source Description:"
 msgstr ""
 
-#: thold.php:1126
+#: thold.php:1128
 msgid "Associated Graph (Graphs using this RRD):"
 msgstr ""
 
-#: thold.php:1223
+#: thold.php:1226
 msgid "Last:"
 msgstr ""
 
-#: thold.php:1230
+#: thold.php:1233
 msgid "WHi:"
 msgstr ""
 
-#: thold.php:1236
+#: thold.php:1239
 msgid "WLo:"
 msgstr ""
 
-#: thold.php:1244
+#: thold.php:1247
 msgid "AHi:"
 msgstr ""
 
-#: thold.php:1250
+#: thold.php:1253
 msgid "ALo:"
 msgstr ""
 
-#: thold.php:1256
+#: thold.php:1259
 msgid "BL Up:"
 msgstr ""
 
-#: thold.php:1257 thold.php:1259
+#: thold.php:1260 thold.php:1262
 msgid "%s%%%"
 msgstr ""
 
-#: thold.php:1258
+#: thold.php:1261
 msgid "BL Down:"
 msgstr ""
 
-#: thold.php:1296
+#: thold.php:1299
 #, php-format
 msgid "Unknown Template ID %d"
 msgstr ""
 
-#: thold.php:1298
+#: thold.php:1301
 msgid "Not Templated"
 msgstr ""
 
-#: thold.php:1313 thold.php:1316
+#: thold.php:1318 thold.php:1321
 #, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr ""
 
-#: thold.php:1402 thold_templates.php:965
+#: thold.php:1407 thold_templates.php:971
 #, php-format
 msgid "Replacement Fields: %s"
 msgstr ""
 
-#: thold.php:1415 thold_templates.php:979
+#: thold.php:1420 thold_templates.php:985
 #, php-format
 msgid "Data Sources: %s"
 msgstr ""
 
-#: thold.php:1427
+#: thold.php:1432
 msgid "Template/Enabled Information"
 msgstr ""
 
-#: thold.php:1431
+#: thold.php:1436
 msgid "Template Propagation Enabled"
 msgstr ""
 
-#: thold.php:1434
-msgid ""
-"Whether or not these settings will be propagated from the Threshold template."
+#: thold.php:1439
+msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr ""
 
-#: thold.php:1438 thold_templates.php:995
+#: thold.php:1443 thold_templates.php:1001
 msgid "Template Name"
 msgstr ""
 
-#: thold.php:1441
+#: thold.php:1446
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr ""
 
-#: thold.php:1445
+#: thold.php:1450
 msgid "Threshold Enabled"
 msgstr ""
 
-#: thold.php:1448 thold_templates.php:1032
+#: thold.php:1453 thold_templates.php:1038
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr ""
 
-#: thold.php:1452 thold_templates.php:991
+#: thold.php:1457 thold_templates.php:997
 msgid "General Settings"
 msgstr ""
 
-#: thold.php:1456
+#: thold.php:1461
 msgid "Name (Displayed)"
 msgstr ""
 
-#: thold.php:1461 thold.php:1470
+#: thold.php:1466 thold.php:1475
 msgid "Provide the Thresholds a meaningful name"
 msgstr ""
 
-#: thold.php:1465
+#: thold.php:1470
 msgid "Name (Format)"
 msgstr ""
 
-#: thold.php:1474 thold_templates.php:1036
+#: thold.php:1479 thold_templates.php:1042
 msgid "Warning HRULE Color"
 msgstr ""
 
-#: thold.php:1475 thold_templates.php:1037
-msgid ""
-"Please choose a Color for the Graph HRULE for the Warning Thresholds.  "
-"Choose 'None' for No HRULE.  Note: This features is supported for Data "
-"Manipulation types 'Exact Value' and 'Percentage' only at this time."
+#: thold.php:1480 thold_templates.php:1043
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr ""
 
-#: thold.php:1482 thold_templates.php:1044
+#: thold.php:1487 thold_templates.php:1050
 msgid "Alert HRULE Color"
 msgstr ""
 
-#: thold.php:1483 thold_templates.php:1045
-msgid ""
-"Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose "
-"'None' for No HRULE.  Note: This features is supported for Data Manipulation "
-"types 'Exact Value' and 'Percentage' only at this time."
+#: thold.php:1488 thold_templates.php:1051
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr ""
 
-#: thold.php:1490 thold_templates.php:1052
+#: thold.php:1495 thold_templates.php:1058
 msgid "Weekend Exemption"
 msgstr ""
 
-#: thold.php:1491 thold_templates.php:1053
+#: thold.php:1496 thold_templates.php:1059
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr ""
 
-#: thold.php:1497 thold_templates.php:1059
+#: thold.php:1502 thold_templates.php:1065
 msgid "Disable Restoration Email"
 msgstr ""
 
-#: thold.php:1498 thold_templates.php:1060
-msgid ""
-"If this is checked, Threshold will not send an alert when the Threshold has "
-"returned to normal status."
+#: thold.php:1503 thold_templates.php:1066
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr ""
 
-#: thold.php:1504 thold_templates.php:1066
+#: thold.php:1509 thold_templates.php:1072
 msgid "Acknowledgment Options"
 msgstr ""
 
-#: thold.php:1505 thold_templates.php:1067
-msgid ""
-"There are three Acknowledgment levels that control how you must respond to a "
-"Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - "
-"When you select this option, no Acknowledgment is required for a Threshold "
-"breach.</li><li><i>Suspendible Notification</i> - With this option, once you "
-"Acknowledge or Suspend Notifications on the Threshold, you will no longer "
-"receive notifications while it is breached.  You may subsequently, Resume "
-"Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - "
-"With this option, even after the Threshold has returned to normal, you must "
-"Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+#: thold.php:1510 thold_templates.php:1073
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr ""
 
-#: thold.php:1512 thold_templates.php:1074
+#: thold.php:1517 thold_templates.php:1080
 msgid "None Required"
 msgstr ""
 
-#: thold.php:1516 thold_templates.php:1078
+#: thold.php:1521 thold_templates.php:1084
 msgid "Suspendible Notification"
 msgstr ""
 
-#: thold.php:1520 thold_templates.php:1082
+#: thold.php:1525 thold_templates.php:1088
 msgid "Persistent Acknowledgment"
 msgstr ""
 
-#: thold.php:1525 thold_templates.php:1087
+#: thold.php:1530 thold_templates.php:1093
 msgid "Threshold Type"
 msgstr ""
 
-#: thold.php:1530 thold_templates.php:1092
+#: thold.php:1535 thold_templates.php:1098
 msgid "The type of Threshold that will be monitored."
 msgstr ""
 
-#: thold.php:1534 thold_templates.php:1096
+#: thold.php:1539 thold_templates.php:1102
 msgid "Re-Alert Cycle"
 msgstr ""
 
-#: thold.php:1538
+#: thold.php:1543
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr ""
 
-#: thold.php:1542 thold_templates.php:1104
+#: thold.php:1547 thold_templates.php:1110
 msgid "Warning - High / Low Settings"
 msgstr ""
 
-#: thold.php:1546 thold.php:1573 thold.php:1600 thold.php:1635
-#: thold_templates.php:1108 thold_templates.php:1135 thold_templates.php:1162
-#: thold_templates.php:1198
+#: thold.php:1551 thold.php:1578 thold.php:1605 thold.php:1640
+#: thold_templates.php:1114 thold_templates.php:1141 thold_templates.php:1168
+#: thold_templates.php:1204
 msgid "High Threshold"
 msgstr ""
 
-#: thold.php:1550 thold.php:1604 thold_templates.php:1166
-msgid ""
-"If set and Data Source value goes above this number, warning will be "
-"triggered.  NOTE: This value must be a RAW number.  The value displayed on "
-"the Graph may be modified by a cdef."
+#: thold.php:1555 thold.php:1609 thold_templates.php:1172
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1554 thold.php:1581 thold.php:1608 thold.php:1643
-#: thold_templates.php:1116 thold_templates.php:1143 thold_templates.php:1170
-#: thold_templates.php:1206
+#: thold.php:1559 thold.php:1586 thold.php:1613 thold.php:1648
+#: thold_templates.php:1122 thold_templates.php:1149 thold_templates.php:1176
+#: thold_templates.php:1212
 msgid "Low Threshold"
 msgstr ""
 
-#: thold.php:1558 thold.php:1612 thold_templates.php:1174
-msgid ""
-"If set and Data Source value goes below this number, warning will be "
-"triggered.  NOTE: This value must be a RAW number.  The value displayed on "
-"the Graph may be modified by a cdef."
+#: thold.php:1563 thold.php:1617 thold_templates.php:1180
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1562 thold.php:1589
+#: thold.php:1567 thold.php:1594
 msgid "Breach Duration"
 msgstr ""
 
-#: thold.php:1565
-msgid ""
-"The amount of time the Data Source must be in breach of the Threshold for a "
-"warning to be raised.  NOTE: This value must be a RAW number.  The value "
-"displayed on the Graph may be modified by a cdef."
+#: thold.php:1570
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1569 thold_templates.php:1131
+#: thold.php:1574 thold_templates.php:1137
 msgid "Alert - High / Low Settings"
 msgstr ""
 
-#: thold.php:1577 thold.php:1639 thold_templates.php:1112
-#: thold_templates.php:1139 thold_templates.php:1202
-msgid ""
-"If set and Data Source value goes above this number, alert will be "
-"triggered.  NOTE: This value must be a RAW number.  The value displayed on "
-"the Graph may be modified by a cdef."
+#: thold.php:1582 thold.php:1644 thold_templates.php:1118
+#: thold_templates.php:1145 thold_templates.php:1208
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1585 thold.php:1647 thold_templates.php:1120
-#: thold_templates.php:1147 thold_templates.php:1210
-msgid ""
-"If set and Data Source value goes below this number, alert will be "
-"triggered.  NOTE: This value must be a RAW number.  The value displayed on "
-"the Graph may be modified by a cdef."
+#: thold.php:1590 thold.php:1652 thold_templates.php:1126
+#: thold_templates.php:1153 thold_templates.php:1216
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1592
-msgid ""
-"The amount of time the Data Source must be in breach of the Threshold for an "
-"alert to be raised."
+#: thold.php:1597
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr ""
 
-#: thold.php:1596 thold_templates.php:1158
+#: thold.php:1601 thold_templates.php:1164
 msgid "Warning - Time Based Settings"
 msgstr ""
 
-#: thold.php:1616 thold.php:1651
+#: thold.php:1621 thold.php:1656
 msgid "Breach Count"
 msgstr ""
 
-#: thold.php:1620 thold.php:1656
+#: thold.php:1625 thold.php:1661
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr ""
 
-#: thold.php:1624 thold.php:1660
+#: thold.php:1629 thold.php:1665
 msgid "Breach Window"
 msgstr ""
 
-#: thold.php:1627 thold.php:1663 thold_templates.php:1190
-#: thold_templates.php:1225
+#: thold.php:1632 thold.php:1668 thold_templates.php:1196
+#: thold_templates.php:1231
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr ""
 
-#: thold.php:1631 thold_templates.php:1194
+#: thold.php:1636 thold_templates.php:1200
 msgid "Alert - Time Based Settings"
 msgstr ""
 
-#: thold.php:1667
+#: thold.php:1672
 msgid "Baseline Settings"
 msgstr ""
 
-#: thold.php:1671
+#: thold.php:1676
 msgid "Time range"
 msgstr ""
 
-#: thold.php:1674
-msgid ""
-"Specifies the point in the past (based on RRDfile resolution) that will be "
-"used as a reference"
+#: thold.php:1679
+msgid "Specifies the point in the past (based on RRDfile resolution) that will be used as a reference"
 msgstr ""
 
-#: thold.php:1678
+#: thold.php:1683
 msgid "Deviation UP"
 msgstr ""
 
-#: thold.php:1682 thold_templates.php:1244
-msgid ""
-"Specifies allowed deviation in percentage for the upper bound Threshold. If "
-"not set, upper bound Threshold will not be checked at all."
+#: thold.php:1687 thold_templates.php:1250
+msgid "Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all."
 msgstr ""
 
-#: thold.php:1686
+#: thold.php:1691
 msgid "Deviation DOWN"
 msgstr ""
 
-#: thold.php:1690 thold_templates.php:1252
-msgid ""
-"Specifies allowed deviation in percentage for the lower bound Threshold. If "
-"not set, lower bound Threshold will not be checked at all."
+#: thold.php:1695 thold_templates.php:1258
+msgid "Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all."
 msgstr ""
 
-#: thold.php:1698
+#: thold.php:1703
 #, php-format
-msgid ""
-"Number of consecutive times the Data Source must be in breach of the "
-"baseline Threshold for an alert to be raised.<br>Leave empty to use default "
-"value (<b>Default: %s cycles</b>)"
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr ""
 
-#: thold.php:1702 thold_templates.php:1264
+#: thold.php:1707 thold_templates.php:1270
 msgid "Data Manipulation"
 msgstr ""
 
-#: thold.php:1706 thold_templates.php:1268
+#: thold.php:1711 thold_templates.php:1274
 msgid "Data Type"
 msgstr ""
 
-#: thold.php:1711 thold_templates.php:1272
+#: thold.php:1716 thold_templates.php:1278
 msgid "Special formatting for the given data."
 msgstr ""
 
-#: thold.php:1715 thold_templates.php:1276
+#: thold.php:1720 thold_templates.php:1282
 msgid "Threshold CDEF"
 msgstr ""
 
-#: thold.php:1718 thold_templates.php:1279
+#: thold.php:1723 thold_templates.php:1285
 msgid "Apply this CDEF before returning the data."
 msgstr ""
 
-#: thold.php:1723
+#: thold.php:1728
 msgid "Percent Data Source"
 msgstr ""
 
-#: thold.php:1726
-msgid ""
-"Second Data Source Item to use as total value to calculate percentage from."
+#: thold.php:1731
+msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr ""
 
-#: thold.php:1736
+#: thold.php:1736 thold_templates.php:1315
+msgid "Show Units"
+msgstr ""
+
+#: thold.php:1739 thold_templates.php:1318
+msgid "Display units for very large or small numbers."
+msgstr ""
+
+#: thold.php:1748
 #, php-format
-msgid ""
-"An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes "
-"all functions below in addition to both Device and Data Query replacement "
-"expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use "
-"a Data Source in the RPN Expression, you must use the syntax: <span class="
-"\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:"
-"traffic_in|</span> will get the current value of the traffic_in Data Source "
-"for the RRDfile(s) associated with the Graph. Any Data Source for a Graph "
-"can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, "
-"&#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, "
-"SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</"
-"span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, "
-"GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, "
-"MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr ""
 
-#: thold.php:1742 thold_templates.php:1301
+#: thold.php:1754 thold_templates.php:1307
 msgid "Upper Data Source"
 msgstr ""
 
-#: thold.php:1745
+#: thold.php:1757
 msgid "Upper data source to calculate the total value."
 msgstr ""
 
-#: thold.php:1750 thold_templates.php:1309
+#: thold.php:1762 thold_templates.php:1322
 msgid "Notification Settings"
 msgstr ""
 
-#: thold.php:1755 thold_templates.php:1314
+#: thold.php:1767 thold_templates.php:1327
 msgid "Alert Email Body"
 msgstr ""
 
-#: thold.php:1760 thold_templates.php:1319
-msgid ""
-"This is the message that will be displayed at the top of all Threshold "
-"Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only "
-"emails.  There are several common replacement tags that may be used in "
-"include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 "
-"&#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 "
-"&#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 "
-"&#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 "
-"&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+#: thold.php:1772 thold_templates.php:1332
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr ""
 
-#: thold.php:1764 thold_templates.php:1323
+#: thold.php:1776 thold_templates.php:1336
 msgid "Warning Email Body"
 msgstr ""
 
-#: thold.php:1769 thold_templates.php:1328
-msgid ""
-"This is the message that will be displayed at the top of all Threshold "
-"Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text "
-"only emails.  There are several common replacement tags that may be used in "
-"include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 "
-"&#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 "
-"&#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 "
-"&#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 "
-"&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+#: thold.php:1781 thold_templates.php:1341
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr ""
 
-#: thold.php:1773 thold_templates.php:1332
+#: thold.php:1785 thold_templates.php:1345
 msgid "Restoral Email Body"
 msgstr ""
 
-#: thold.php:1782 thold_templates.php:1348
+#: thold.php:1794 thold_templates.php:1361
 msgid "Warning Notification List"
 msgstr ""
 
-#: thold.php:1784 thold_templates.php:1350
-msgid ""
-"You may specify choose a Notification List to receive Warnings for this Data "
-"Source"
+#: thold.php:1796 thold_templates.php:1363
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr ""
 
-#: thold.php:1790 thold_templates.php:1356
+#: thold.php:1802 thold_templates.php:1369
 msgid "Alert Notification List"
 msgstr ""
 
-#: thold.php:1792 thold_templates.php:1358
-msgid ""
-"You may specify choose a Notification List to receive Alerts for this Data "
-"Source"
+#: thold.php:1804 thold_templates.php:1371
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr ""
 
-#: thold.php:1802 thold_templates.php:1368
+#: thold.php:1814 thold_templates.php:1381
 msgid "SNMP Notification - Event Category"
 msgstr ""
 
-#: thold.php:1804 thold_templates.php:1370
-msgid ""
-"To allow a NMS to categorize different SNMP notifications more easily please "
-"fill in the category SNMP notifications for this template should make use "
-"of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", "
-"\"nokia_firewall_cpu_utilization\" ..."
+#: thold.php:1816 thold_templates.php:1383
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr ""
 
-#: thold.php:1810 thold_templates.php:1376
+#: thold.php:1822 thold_templates.php:1389
 msgid "SNMP Notification - Alert Event Severity"
 msgstr ""
 
-#: thold.php:1813
+#: thold.php:1825
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr ""
 
-#: thold.php:1817 thold.php:1836 thold_templates.php:1381
-#: thold_templates.php:1395
+#: thold.php:1829 thold.php:1848 thold_templates.php:1394
+#: thold_templates.php:1408
 msgid "Medium"
 msgstr ""
 
-#: thold.php:1829 thold_templates.php:1390
+#: thold.php:1841 thold_templates.php:1403
 msgid "SNMP Notification - Warning Event Severity"
 msgstr ""
 
-#: thold.php:1832 thold_templates.php:1393
-msgid ""
-"Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: "
-"The severity of warnings has to be equal or lower than the severity being "
-"defined for alerts."
+#: thold.php:1844 thold_templates.php:1406
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr ""
 
-#: thold.php:1850 thold_templates.php:1406
+#: thold.php:1862 thold_templates.php:1419
 msgid "Notify accounts"
 msgstr ""
 
-#: thold.php:1852
-msgid ""
-"This is a listing of accounts that will be notified when this Threshold is "
-"breached."
+#: thold.php:1864
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr ""
 
-#: thold.php:1857 thold_templates.php:1413
+#: thold.php:1869 thold_templates.php:1426
 msgid "Alert Emails"
 msgstr ""
 
-#: thold.php:1861
-msgid ""
-"You may specify here extra Emails to receive alerts for this data source "
-"(comma separated)"
+#: thold.php:1873
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr ""
 
-#: thold.php:1865 thold_templates.php:1421
+#: thold.php:1877 thold_templates.php:1434
 msgid "Warning Emails"
 msgstr ""
 
-#: thold.php:1869
-msgid ""
-"You may specify here extra Emails to receive warnings for this data source "
-"(comma separated)"
+#: thold.php:1881
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr ""
 
-#: thold.php:1903 thold_templates.php:1459
+#: thold.php:1915 thold_templates.php:1472
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr ""
 
-#: thold.php:1909 thold_templates.php:1465
+#: thold.php:1921 thold_templates.php:1478
 msgid "Priority/Level"
 msgstr ""
 
-#: thold.php:1910 thold_templates.php:1466
-msgid ""
-"This is the Priority Level that will be logged into your syslog messages."
+#: thold.php:1922 thold_templates.php:1479
+msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr ""
 
-#: thold.php:1917 thold_templates.php:1473
+#: thold.php:1929 thold_templates.php:1486
 msgid "Facility"
 msgstr ""
 
-#: thold.php:1918 thold_templates.php:1474
+#: thold.php:1930 thold_templates.php:1487
 msgid "This is the Facility that will be used for this Threshold."
 msgstr ""
 
-#: thold.php:1939 thold_templates.php:1495
+#: thold.php:1951 thold_templates.php:1508
 msgid "Event Triggering (Shell Command)"
 msgstr ""
 
-#: thold.php:1944 thold_templates.php:1500
+#: thold.php:1956 thold_templates.php:1513
 msgid "High Trigger Command"
 msgstr ""
 
-#: thold.php:1945 thold_templates.php:1501
-msgid ""
-"If set, and if a High Threshold is breached, this command will be run.  "
-"Please enter a valid command.  In addition, there are several replacement "
-"tags available that can be used to pass information from the Threshold to "
-"the script.  You can do this as arguments on the command line, or "
-"preferably, in the environment of the script.  All replacement values will "
-"appear in the environment of the script prefixed with THOLD_.  So, for "
-"example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The "
-"variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 "
-"&#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 "
-"&#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 "
-"&#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 "
-"&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  "
-"Finally, Host, Data Query and Data Input replacement can be made.  For "
-"example, if you have a data input custom data called pending, to perform the "
-"replacement use |pending|.  For Data Query, and Host replacement use Cacti "
-"conventions |query_xxxx|, and |host_xxxx| respectively."
+#: thold.php:1957 thold_templates.php:1514
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr ""
 
-#: thold.php:1952 thold_templates.php:1508
+#: thold.php:1964 thold_templates.php:1521
 msgid "Low Trigger Command"
 msgstr ""
 
-#: thold.php:1953 thold_templates.php:1509
-msgid ""
-"If set, and if a Low Threshold is breached, this command will be run. Please "
-"enter a valid command.  In addition, there are several replacement tags "
-"available that can be used to pass information from the Threshold to the "
-"script.  You can do this as arguments on the command line, or preferably, in "
-"the environment of the script.  All replacement values will appear in the "
-"environment of the script prefixed with THOLD_.  So, for example "
-"CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables "
-"include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 "
-"&#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 "
-"&#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 "
-"&#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 "
-"&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  "
-"Finally, Host, Data Query and Data input replacement can be made.  For "
-"example, if you have a data input custom data called pending, to perform the "
-"replacement use |pending|.  For Data Query, and Host replacement use Cacti "
-"conventions |query_xxxx|, and |host_xxxx| respectively."
+#: thold.php:1965 thold_templates.php:1522
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr ""
 
-#: thold.php:1960 thold_templates.php:1516
+#: thold.php:1972 thold_templates.php:1529
 msgid "Norm Trigger Command"
 msgstr ""
 
-#: thold.php:1961 thold_templates.php:1517
-msgid ""
-"If set, when a thold falls back to a normal value, this command will be "
-"run.  Please enter a valid command.  In addition, there are several "
-"replacement tags available that can be used to pass information from the "
-"Threshold to the script.  You can do this as arguments on the command line, "
-"or preferably, in the environment of the script.  All replacement values "
-"will appear in the environment of the script prefixed with THOLD_.  So, for "
-"example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The "
-"variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 "
-"&#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 "
-"&#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 "
-"&#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 "
-"&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  "
-"Finally, Host, Data Query and Data input replacement can be made.  For "
-"example, if you have a data input custom data called pending, to perform the "
-"replacement use |pending|.  For Data Query, and Host replacement use Cacti "
-"conventions |query_xxxx|, and |host_xxxx| respectively."
+#: thold.php:1973 thold_templates.php:1530
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr ""
 
-#: thold.php:1974 thold_templates.php:1530
+#: thold.php:1986 thold_templates.php:1543
 msgid "Other Settings"
 msgstr ""
 
-#: thold.php:1979 thold_templates.php:1535
+#: thold.php:1991 thold_templates.php:1548
 msgid "Operator Notes"
 msgstr ""
 
-#: thold.php:1983 thold_templates.php:1539
-msgid ""
-"Enter instructions here for an operator who may be receiving the Threshold "
-"message."
+#: thold.php:1995 thold_templates.php:1552
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr ""
 
-#: thold.php:2232
+#: thold.php:2245
 msgid "Select Users(s)"
 msgstr ""
 
-#: thold.php:2234
+#: thold.php:2247
 msgid "Users Selected"
 msgstr ""
 
-#: thold.php:2237
+#: thold.php:2250
 msgid "All Users Selected"
 msgstr ""
 
@@ -2712,175 +2371,149 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: thold_functions.php:3606
+#: thold_functions.php:3608
 msgid "Link to Graph in Cacti"
 msgstr ""
 
-#: thold_functions.php:3635
-msgid ""
-"<html><body>An alert has been issued that requires your attention."
-"<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: "
-"<URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+#: thold_functions.php:3637
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr ""
 
-#: thold_functions.php:3662
-msgid ""
-"<html><body>A warning has been issued that requires your attention."
-"<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: "
-"<URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+#: thold_functions.php:3664
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr ""
 
-#: thold_functions.php:3689
-msgid ""
-"<html><body>A Threshold has returned to normal status. "
-"<br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</"
-"strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></"
-"html>"
+#: thold_functions.php:3691
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr ""
 
-#: thold_functions.php:4427
+#: thold_functions.php:4456
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr ""
 
-#: thold_functions.php:4442
-msgid ""
-"The Threshold Template ID was not found while trying to create Graph and "
-"Threshold"
+#: thold_functions.php:4471
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr ""
 
-#: thold_functions.php:4449
-msgid ""
-"The Threshold Template ID was not set while trying to create Graph and "
-"Threshold"
+#: thold_functions.php:4478
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr ""
 
-#: thold_functions.php:4482
+#: thold_functions.php:4511
 msgid "The Graph Creation failed for Threshold Template"
 msgstr ""
 
-#: thold_functions.php:4512
+#: thold_functions.php:4541
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr ""
 
-#: thold_functions.php:4546 thold_functions.php:4852
+#: thold_functions.php:4575 thold_functions.php:4882
 msgid "Permission Denied"
 msgstr ""
 
-#: thold_functions.php:4560 thold_functions.php:4919
+#: thold_functions.php:4589 thold_functions.php:4951
 msgid "Record Updated"
 msgstr ""
 
-#: thold_functions.php:4610
-msgid ""
-"You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or "
-"both!<br>RECORD NOT UPDATED!"
-msgstr ""
-
-#: thold_functions.php:4622
-msgid ""
-"Impossible thresholds: 'High Threshold' smaller than or equal to 'Low "
-"Threshold'<br>RECORD NOT UPDATED!"
-msgstr ""
-
-#: thold_functions.php:4634
-msgid ""
-"Impossible thresholds: 'High Warning Threshold' smaller than or equal to "
-"'Low Warning Threshold'<br>RECORD NOT UPDATED!"
-msgstr ""
-
-#: thold_functions.php:4642
-msgid "With baseline thresholds enabled."
+#: thold_functions.php:4639
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!<br>RECORD NOT UPDATED!"
 msgstr ""
 
 #: thold_functions.php:4651
-msgid ""
-"You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' "
-"or both!<br>RECORD NOT UPDATED!"
+msgid "Impossible thresholds: 'High Threshold' smaller than or equal to 'Low Threshold'<br>RECORD NOT UPDATED!"
 msgstr ""
 
-#: thold_functions.php:4842
+#: thold_functions.php:4663
+msgid "Impossible thresholds: 'High Warning Threshold' smaller than or equal to 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
+msgstr ""
+
+#: thold_functions.php:4671
+msgid "With baseline thresholds enabled."
+msgstr ""
+
+#: thold_functions.php:4680
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!<br>RECORD NOT UPDATED!"
+msgstr ""
+
+#: thold_functions.php:4872
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr ""
 
-#: thold_functions.php:4917 thold_functions.php:5331
+#: thold_functions.php:4949 thold_functions.php:5363
 #, php-format
 msgid "Created Threshold: %s"
 msgstr ""
 
-#: thold_functions.php:4986
+#: thold_functions.php:5018
 #, php-format
 msgid "'%s' must be set to positive integer value!<br>RECORD NOT UPDATED!"
 msgstr ""
 
-#: thold_functions.php:5159
+#: thold_functions.php:5191
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr ""
 
-#: thold_functions.php:5366
-msgid ""
-"Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> "
-"link, please set the <b>Alert Email</b> setting."
+#: thold_functions.php:5398
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr ""
 
-#: thold_functions.php:5743 thold_graph.php:584
+#: thold_functions.php:5775 thold_graph.php:586
 msgid "Acknowledge Threshold"
 msgstr ""
 
-#: thold_functions.php:5745
+#: thold_functions.php:5777
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr ""
 
-#: thold_functions.php:6165
+#: thold_functions.php:6197
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr ""
 
-#: thold_functions.php:6180
+#: thold_functions.php:6212
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr ""
 
-#: thold_functions.php:6216
+#: thold_functions.php:6248
 msgid "Threshold Template import columns do not match the database schema"
 msgstr ""
 
-#: thold_functions.php:6224
+#: thold_functions.php:6256
 msgid "Imported"
 msgstr ""
 
-#: thold_functions.php:6224
+#: thold_functions.php:6256
 #, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr ""
 
-#: thold_functions.php:6224
+#: thold_functions.php:6256
 msgid "Updated"
 msgstr ""
 
-#: thold_functions.php:6226 thold_templates.php:1876 thold_templates.php:2132
+#: thold_functions.php:6258 thold_templates.php:1889 thold_templates.php:2145
 msgid "Import"
 msgstr ""
 
-#: thold_functions.php:6226
+#: thold_functions.php:6258
 #, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr ""
 
-#: thold_functions.php:6226
+#: thold_functions.php:6258
 msgid "Update"
 msgstr ""
 
-#: thold_functions.php:6229
+#: thold_functions.php:6261
 msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr ""
 
-#: thold_functions.php:6233
+#: thold_functions.php:6265
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr ""
 
-#: thold_functions.php:6236
-msgid ""
-"Threshold Template Import data was not correct while importing Threshold "
-"Template."
+#: thold_functions.php:6268
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr ""
 
 #: thold_graph.php:66
@@ -2888,9 +2521,7 @@ msgid "The Threshold has been Ascknowledged."
 msgstr ""
 
 #: thold_graph.php:73
-msgid ""
-"The Threshold will no longer generate Alerts, Notifications, or execute "
-"commands."
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
 msgstr ""
 
 #: thold_graph.php:80
@@ -2901,512 +2532,466 @@ msgstr ""
 msgid "Threshold Status"
 msgstr ""
 
-#: thold_graph.php:410 thold_graph.php:827
+#: thold_graph.php:410 thold_graph.php:829
 msgid "Actions"
 msgstr ""
 
-#: thold_graph.php:565
+#: thold_graph.php:567
 msgid "Edit Threshold"
 msgstr ""
 
-#: thold_graph.php:570
+#: thold_graph.php:572
 msgid "Disable Threshold"
 msgstr ""
 
-#: thold_graph.php:572
+#: thold_graph.php:574
 msgid "Enable Threshold"
 msgstr ""
 
-#: thold_graph.php:578
+#: thold_graph.php:580
 msgid "View Graph"
 msgstr ""
 
-#: thold_graph.php:580
+#: thold_graph.php:582
 msgid "View Threshold History"
 msgstr ""
 
-#: thold_graph.php:587
+#: thold_graph.php:589
 msgid "Suspend Notifications until the Threshold clears"
 msgstr ""
 
-#: thold_graph.php:590
+#: thold_graph.php:592
 msgid "Resume Notifications for this breached Threshold"
 msgstr ""
 
-#: thold_graph.php:606
+#: thold_graph.php:608
 msgid "No name set"
 msgstr ""
 
-#: thold_graph.php:830
+#: thold_graph.php:832
 msgid "Hover over icons for help"
 msgstr ""
 
-#: thold_graph.php:836
+#: thold_graph.php:838
 msgid "A description for the Device"
 msgstr ""
 
-#: thold_graph.php:842
+#: thold_graph.php:844
 msgid "A Cacti unique identifier for the Device"
 msgstr ""
 
-#: thold_graph.php:848
+#: thold_graph.php:850
 msgid "The number of Graphs for this Device"
 msgstr ""
 
-#: thold_graph.php:854
+#: thold_graph.php:856
 msgid "The number of Data Sources for this Device"
 msgstr ""
 
-#: thold_graph.php:860
+#: thold_graph.php:862
 msgid "The status for this Device as of the last time it was polled"
 msgstr ""
 
-#: thold_graph.php:866
-msgid ""
-"The last time Cacti found an issue with this Device.  It can be higher than "
-"the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+#: thold_graph.php:868
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
 msgstr ""
 
-#: thold_graph.php:869
+#: thold_graph.php:871
 msgid "Uptime"
 msgstr ""
 
-#: thold_graph.php:872
+#: thold_graph.php:874
 msgid "The official uptime of the Device as reported by SNMP"
 msgstr ""
 
-#: thold_graph.php:878
+#: thold_graph.php:880
 msgid "The official hostname for this Device"
 msgstr ""
 
-#: thold_graph.php:881
+#: thold_graph.php:883
 msgid "Current (ms)"
 msgstr ""
 
-#: thold_graph.php:884
+#: thold_graph.php:886
 msgid "The current response time for the Cacti Availability check"
 msgstr ""
 
-#: thold_graph.php:887
+#: thold_graph.php:889
 msgid "Average (ms)"
 msgstr ""
 
-#: thold_graph.php:890
+#: thold_graph.php:892
 msgid "The average response time for the Cacti Availability check"
 msgstr ""
 
-#: thold_graph.php:893
+#: thold_graph.php:895
 msgid "Availability"
 msgstr ""
 
-#: thold_graph.php:896
-msgid ""
-"The overall Availability of this Device since the last counter reset in Cacti"
+#: thold_graph.php:898
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
 msgstr ""
 
-#: thold_graph.php:924 thold_graph.php:949
+#: thold_graph.php:926 thold_graph.php:952
 msgid "Edit Device"
 msgstr ""
 
-#: thold_graph.php:926 thold_graph.php:951
+#: thold_graph.php:928 thold_graph.php:954
 msgid "View Graphs"
 msgstr ""
 
-#: thold_graph.php:970
+#: thold_graph.php:977
 msgid "No Devices"
 msgstr ""
 
-#: thold_graph.php:1027
+#: thold_graph.php:1034
 msgid "Not Up"
 msgstr ""
 
-#: thold_graph.php:1258
+#: thold_graph.php:1241
+msgid "No Export Rows Found."
+msgstr ""
+
+#: thold_graph.php:1269
 #, php-format
 msgid "Threshold Log for [ %s ]"
 msgstr ""
 
-#: thold_graph.php:1311
+#: thold_graph.php:1322
 msgid "Log Entries"
 msgstr ""
 
-#: thold_graph.php:1319 thold_webapi.php:492 thold_webapi.php:640
+#: thold_graph.php:1330 thold_webapi.php:492 thold_webapi.php:640
 #: thold_webapi.php:660
 msgid "Device"
 msgstr ""
 
-#: thold_graph.php:1324
+#: thold_graph.php:1335
 msgid "Time"
 msgstr ""
 
-#: thold_graph.php:1334
+#: thold_graph.php:1345
 msgid "Event Description"
 msgstr ""
 
-#: thold_graph.php:1339
+#: thold_graph.php:1350
 msgid "Alert Value"
 msgstr ""
 
-#: thold_graph.php:1344
+#: thold_graph.php:1355
 msgid "Measured Value"
 msgstr ""
 
-#: thold_graph.php:1386
+#: thold_graph.php:1399
 msgid "No Threshold Logs Found"
 msgstr ""
 
-#: thold_graph.php:1499
+#: thold_graph.php:1512
 msgid "Entries"
 msgstr ""
 
-#: thold_templates.php:185
+#: thold_templates.php:186
 msgid "You are not authorised to modify one or more of the Thresholds selected"
 msgstr ""
 
-#: thold_templates.php:222
+#: thold_templates.php:223
 #, php-format
 msgid "%s (%d Thresholds)"
 msgstr ""
 
-#: thold_templates.php:243
+#: thold_templates.php:244
 msgid "Click 'Continue' to export the following Threshold Template(s)."
 msgstr ""
 
-#: thold_templates.php:244
+#: thold_templates.php:245
 msgid "Export Template(s)"
 msgstr ""
 
-#: thold_templates.php:247
+#: thold_templates.php:248
 msgid "Click 'Continue' to delete the following Threshold Template(s)."
 msgstr ""
 
-#: thold_templates.php:248
+#: thold_templates.php:249
 msgid "Delete Template(s)"
 msgstr ""
 
-#: thold_templates.php:251
-msgid ""
-"Click 'Continue' to Reapply Suggested Names to Thresholds of the following "
-"Threshold Template(s)."
+#: thold_templates.php:252
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
 msgstr ""
 
-#: thold_templates.php:252
+#: thold_templates.php:253
 msgid "Reapply Suggested Names to Template(s)"
 msgstr ""
 
-#: thold_templates.php:349
+#: thold_templates.php:354
 msgid "Threshold Template Creation Wizard"
 msgstr ""
 
-#: thold_templates.php:436 thold_webapi.php:710
+#: thold_templates.php:441 thold_webapi.php:710
 msgid "Data Source"
 msgstr ""
 
-#: thold_templates.php:454
+#: thold_templates.php:459
 msgid "Please select a Data Template"
 msgstr ""
 
-#: thold_templates.php:456
+#: thold_templates.php:461
 msgid "Please select a Data Source"
 msgstr ""
 
-#: thold_templates.php:458
+#: thold_templates.php:463
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr ""
 
-#: thold_templates.php:462 thold_webapi.php:743
+#: thold_templates.php:467 thold_webapi.php:743
 msgid "Create"
 msgstr ""
 
-#: thold_templates.php:1000
+#: thold_templates.php:1006
 msgid "Provide the Threshold Template a meaningful name."
 msgstr ""
 
-#: thold_templates.php:1004
+#: thold_templates.php:1010
 msgid "Suggested Threshold Name"
 msgstr ""
 
-#: thold_templates.php:1009
-msgid ""
-"Provide the suggested name for a Threshold created using this Template.  "
-"Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) "
-"substitution variables can be used as well as |graph_title| for the Graph "
-"Title."
+#: thold_templates.php:1015
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr ""
 
-#: thold_templates.php:1016
+#: thold_templates.php:1022
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr ""
 
-#: thold_templates.php:1021
+#: thold_templates.php:1027
 msgid "Data Field"
 msgstr ""
 
-#: thold_templates.php:1024
+#: thold_templates.php:1030
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr ""
 
-#: thold_templates.php:1100
+#: thold_templates.php:1106
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr ""
 
-#: thold_templates.php:1124 thold_templates.php:1151
+#: thold_templates.php:1130 thold_templates.php:1157
 msgid "Min Trigger Duration"
 msgstr ""
 
-#: thold_templates.php:1127 thold_templates.php:1154
-msgid ""
-"The amount of time the Data Source must be in a breach condition for an "
-"alert to be raised."
+#: thold_templates.php:1133 thold_templates.php:1160
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr ""
 
-#: thold_templates.php:1178 thold_templates.php:1214
+#: thold_templates.php:1184 thold_templates.php:1220
 msgid "Trigger Count"
 msgstr ""
 
-#: thold_templates.php:1183
-msgid ""
-"The number of times the Data Source must be in breach condition prior to "
-"issuing a warning."
+#: thold_templates.php:1189
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr ""
 
-#: thold_templates.php:1187 thold_templates.php:1222
+#: thold_templates.php:1193 thold_templates.php:1228
 msgid "Time Period Length"
 msgstr ""
 
-#: thold_templates.php:1218
-msgid ""
-"The number of times the Data Source must be in breach condition prior to "
-"issuing an alert."
+#: thold_templates.php:1224
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr ""
 
-#: thold_templates.php:1229
+#: thold_templates.php:1235
 msgid "Baseline Monitoring"
 msgstr ""
 
-#: thold_templates.php:1233
+#: thold_templates.php:1239
 msgid "Time reference in the past"
 msgstr ""
 
-#: thold_templates.php:1236
-msgid ""
-"Specifies the point in the past (based on rrd resolution) that will be used "
-"as a reference"
+#: thold_templates.php:1242
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference"
 msgstr ""
 
-#: thold_templates.php:1240
+#: thold_templates.php:1246
 msgid "Baseline Deviation UP"
 msgstr ""
 
-#: thold_templates.php:1248
+#: thold_templates.php:1254
 msgid "Baseline Deviation DOWN"
 msgstr ""
 
-#: thold_templates.php:1260
+#: thold_templates.php:1266
 #, php-format
-msgid ""
-"Number of consecutive times the Data Source must be in a breached condition "
-"for an alert to be raised.<br>Leave empty to use default value (Default: %s "
-"cycles"
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr ""
 
-#: thold_templates.php:1284
+#: thold_templates.php:1290
 msgid "Percent Datasource"
 msgstr ""
 
-#: thold_templates.php:1287
-msgid ""
-"Second Datasource Item to use as total value to calculate percentage from."
+#: thold_templates.php:1293
+msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr ""
 
-#: thold_templates.php:1297
+#: thold_templates.php:1303
 #, php-format
-msgid ""
-"An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes "
-"all functions below in addition to both Device and Data Query replacement "
-"expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To "
-"use a Data Source in the RPN Expression, you must use the syntax: <span "
-"style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:"
-"blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in "
-"Data Source for the RRDfile(s) associated with the Graph. Any Data Source "
-"for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">"
-"+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, "
-"COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, "
-"ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, "
-"LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:"
-"blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr ""
 
-#: thold_templates.php:1304
+#: thold_templates.php:1310
 msgid "Upper data source to use to calculate the total value."
 msgstr ""
 
-#: thold_templates.php:1341
+#: thold_templates.php:1354
 msgid "Notification List Read Only"
 msgstr ""
 
-#: thold_templates.php:1342
-msgid ""
-"If checked, Threshold Notification Lists in the Template will overwrite "
-"those of the Threshold."
+#: thold_templates.php:1355
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr ""
 
-#: thold_templates.php:1379
+#: thold_templates.php:1392
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr ""
 
-#: thold_templates.php:1408
-msgid ""
-"This is a listing of accounts that will be notified when this Threshold is "
-"breached.<br><br><br><br>"
+#: thold_templates.php:1421
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr ""
 
-#: thold_templates.php:1417
-msgid ""
-"You may specify here extra Emails to receive alerts for this Data Source "
-"(comma separated)"
+#: thold_templates.php:1430
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr ""
 
-#: thold_templates.php:1425
-msgid ""
-"You may specify here extra Emails to receive warnings for this Data Source "
-"(comma separated)"
+#: thold_templates.php:1438
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr ""
 
-#: thold_templates.php:1762
+#: thold_templates.php:1775
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr ""
 
-#: thold_templates.php:1764
+#: thold_templates.php:1777
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr ""
 
-#: thold_templates.php:1768
+#: thold_templates.php:1781
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr ""
 
-#: thold_templates.php:1770
+#: thold_templates.php:1783
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr ""
 
-#: thold_templates.php:1774
+#: thold_templates.php:1787
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr ""
 
-#: thold_templates.php:1776
+#: thold_templates.php:1789
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr ""
 
-#: thold_templates.php:1780
+#: thold_templates.php:1793
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr ""
 
-#: thold_templates.php:1782
+#: thold_templates.php:1795
 #, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr ""
 
-#: thold_templates.php:1786
+#: thold_templates.php:1799
 #, php-format
 msgid "%d Seconds (Average)"
 msgstr ""
 
-#: thold_templates.php:1788
+#: thold_templates.php:1801
 #, php-format
 msgid "%d Seconds"
 msgstr ""
 
-#: thold_templates.php:1969
+#: thold_templates.php:1982
 msgid "DS Name"
 msgstr ""
 
-#: thold_templates.php:1977
-msgid ""
-"The High Warning / Alert values.  NOTE: Baseline values are a percent, all "
-"other values are RAW values not modified by a cdef."
+#: thold_templates.php:1990
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr ""
 
-#: thold_templates.php:1983
-msgid ""
-"The Low Warning / Alert values.  NOTE: Baseline values are a percent, all "
-"other values are RAW values not modified by a cdef."
+#: thold_templates.php:1996
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr ""
 
-#: thold_templates.php:2071
+#: thold_templates.php:2084
 msgid "No Threshold Templates"
 msgstr ""
 
-#: thold_templates.php:2089
+#: thold_templates.php:2102
 msgid "Import Template from Local File"
 msgstr ""
 
-#: thold_templates.php:2090
-msgid ""
-"If the XML file containing Threshold Template data is located on your local "
-"machine, select it here."
-msgstr ""
-
-#: thold_templates.php:2095
-msgid "Import Template from Text"
-msgstr ""
-
-#: thold_templates.php:2096
-msgid ""
-"If you have the XML file containing Threshold Template data as text, you can "
-"paste it into this box to import it."
+#: thold_templates.php:2103
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr ""
 
 #: thold_templates.php:2108
+msgid "Import Template from Text"
+msgstr ""
+
+#: thold_templates.php:2109
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr ""
+
+#: thold_templates.php:2121
 msgid "Import Results"
 msgstr ""
 
-#: thold_templates.php:2110
+#: thold_templates.php:2123
 msgid "Cacti has imported the following items:"
 msgstr ""
 
-#: thold_templates.php:2120 thold_templates.php:2132
+#: thold_templates.php:2133 thold_templates.php:2145
 msgid "Import Threshold Templates"
 msgstr ""
 
-#: thold_templates.php:2145 thold_templates.php:2148
+#: thold_templates.php:2158 thold_templates.php:2161
 msgid "The file is too big."
 msgstr ""
 
-#: thold_templates.php:2151
+#: thold_templates.php:2164
 msgid "Incomplete file transfer."
 msgstr ""
 
-#: thold_templates.php:2154 thold_templates.php:2181
+#: thold_templates.php:2167 thold_templates.php:2194
 msgid "No file uploaded."
 msgstr ""
 
-#: thold_templates.php:2157
+#: thold_templates.php:2170
 msgid "Temporary folder missing."
 msgstr ""
 
-#: thold_templates.php:2160
+#: thold_templates.php:2173
 msgid "Failed to write file to disk"
 msgstr ""
 
-#: thold_templates.php:2163
+#: thold_templates.php:2176
 msgid "File upload stopped by extension"
 msgstr ""
 
-#: thold_templates.php:2174
+#: thold_templates.php:2187
 msgid "Invalid file extension."
 msgstr ""
 
-#: thold_templates.php:2200
+#: thold_templates.php:2213
 msgid "NOTE:"
 msgstr ""
 
-#: thold_templates.php:2207 thold_templates.php:2214
+#: thold_templates.php:2220 thold_templates.php:2227
 msgid "ERROR:"
 msgstr ""
 
@@ -3419,9 +3004,7 @@ msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
 msgstr ""
 
 #: thold_webapi.php:286
-msgid ""
-"Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create "
-"your Threshold and Graph ]"
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
 msgstr ""
 
 #: thold_webapi.php:288
@@ -3477,8 +3060,7 @@ msgid "Threshold Template"
 msgstr ""
 
 #: thold_webapi.php:335
-msgid ""
-"Select a Threshold Template that the Graph and Threshold will be based upon."
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
 msgstr ""
 
 #: thold_webapi.php:472
@@ -3510,8 +3092,7 @@ msgid "Data Query Item"
 msgstr ""
 
 #: thold_webapi.php:544
-msgid ""
-"Select the applicable row from the Data Query for the Graph and Threshold."
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
 msgstr ""
 
 #: thold_webapi.php:592 thold_webapi.php:750 thold_webapi.php:770
@@ -3523,14 +3104,7 @@ msgid "Important Note:"
 msgstr ""
 
 #: thold_webapi.php:594
-msgid ""
-"This Threshold will be Templated.  When using the Threshold Template option, "
-"you will be prompted for a Threshold Template, Graph Template, Device and "
-"possibly Data Query Item information before receiving the 'Create' prompt at "
-"which time, if any overridable Graph or Data Source information is allowed "
-"at the Graph and Data Source Template level, you will be prompted for it.  "
-"Then, by pressing the 'Create' button, both the Graph and Threshold will be "
-"created simultaneously."
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
 msgstr ""
 
 #: thold_webapi.php:681
@@ -3554,20 +3128,11 @@ msgid "Select a Data Source"
 msgstr ""
 
 #: thold_webapi.php:752
-msgid ""
-"This Threshold will <b>NOT</b> be Templated and will only work on existing "
-"Graphs.  If you wish to both Create the Graph and the Threshold "
-"simultaneously, select Threshold Template from the drop down and continue "
-"until the 'Create' button appears."
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
 msgstr ""
 
 #: thold_webapi.php:772
-msgid ""
-"This Threshold will <b>NOT</b> be Templated.  You can select either By Graph "
-"where you will then select an existing Device, Graph and Data Source before "
-"creating your Threshold, or you can select Threshold Template which will "
-"allow you to create a Non Templated Threshold and corresponding Graph "
-"simultaneously"
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
 msgstr ""
 
 #: thold_webapi.php:777
