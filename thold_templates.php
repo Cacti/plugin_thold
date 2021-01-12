@@ -2059,8 +2059,6 @@ function templates() {
 			$name = ($template['name'] == '' ? $template['data_template_name'] . ' [' . $template['data_source_name'] . ']' : $template['name']);
 			$name = filter_value($name, get_request_var('filter'));
 
-			$suggested_name = (empty($template['suggseted_name']) ? thold_get_default_suggested_name($template) : $template['suggested_name']);
-
 			form_alternate_row('line' . $template['id']);
 			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name  . '</a>', $template['id']);
 			form_selectable_cell($template['id'], $template['id'], '', 'right');
