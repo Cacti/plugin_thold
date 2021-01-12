@@ -611,15 +611,6 @@ function thold_config_settings() {
 			'description' => __('If this is checked, Threshold will not send a notification when the Threshold has returned to normal status.', 'thold'),
 			'method' => 'checkbox'
 		),
-		'thold_snmp_event_description' => array(
-			'friendly_name' => __('SNMP Event Description', 'thold'),
-			'description' => __('You can customize the event description being sent out to the SNMP notification receivers by using additional varbinds. Following variable bindings will be supported:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;', 'thold'),
-			'method' => 'textarea',
-			'class' => 'textAreaNotes',
-			'textarea_rows' => '5',
-			'textarea_cols' => '80',
-			'default' => '',
-		),
 		'thold_email_header' => array(
 			'friendly_name' => __('Emailing Options', 'thold'),
 			'method' => 'spacer',

@@ -3325,7 +3325,8 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 		$thold_snmp_data['eventThresholdType'] = 1;
 	}
 
-	$snmp_event_description = read_config_option('thold_snmp_event_description');
+	// substitute snmp query data
+	$snmp_event_description = thold_expand_string($thold, $thold['snmp_event_description']);
 
 	$snmp_event_description = str_replace('<THRESHOLDNAME>', $thold_snmp_data['eventSource'], $snmp_event_description);
 	$snmp_event_description = str_replace('<HOSTNAME>', $thold_snmp_data['eventDevice'], $snmp_event_description);
@@ -4713,6 +4714,10 @@ function save_thold() {
 		set_request_var('snmp_event_category', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_category'))));
 	}
 
+	if (isset_request_var('snmp_event_description')) {
+		set_request_var('snmp_event_description', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_description'))));
+	}
+
 	if (isset_request_var('snmp_event_severity')) {
 		get_filter_request_var('snmp_event_severity');
 	}
@@ -4853,6 +4858,7 @@ function save_thold() {
 
 	// SNMP Information
 	$save['snmp_event_category'] = trim_round_request_var('snmp_event_category');
+	$save['snmp_event_description'] = trim_round_request_var('snmp_event_description');
 	$save['snmp_event_severity'] = isset_request_var('snmp_event_severity') ? get_nfilter_request_var('snmp_event_severity'):4;
 	$save['snmp_event_warning_severity'] = isset_request_var('snmp_event_warning_severity') ? get_nfilter_request_var('snmp_event_warning_severity'):3;
 
@@ -5109,6 +5115,7 @@ function thold_create_thold_save_from_template($save, $template) {
 
 	// SNMP
 	$save['snmp_event_category']         = $template['snmp_event_category'];
+	$save['snmp_event_description']      = $template['snmp_event_description'];
 	$save['snmp_event_severity']         = $template['snmp_event_severity'];
 	$save['snmp_event_warning_severity'] = $template['snmp_event_warning_severity'];
 
@@ -5529,8 +5536,9 @@ function thold_template_update_threshold($id, $template) {
 		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
 		td.email_body_warn = tt.email_body_warn, td.email_body_restoral = tt.email_body_restoral,
 		td.trigger_cmd_high = tt.trigger_cmd_high, td.trigger_cmd_low = tt.trigger_cmd_low,
-		td.trigger_cmd_norm = tt.trigger_cmd_norm, td.syslog_enabled = tt.syslog_enabled, td.syslog_priority = tt.syslog_priority,
-		td.syslog_facility = tt.syslog_facility, td.snmp_event_category = tt.snmp_event_category,
+		td.trigger_cmd_norm = tt.trigger_cmd_norm, td.syslog_enabled = tt.syslog_enabled,
+		td.syslog_priority = tt.syslog_priority, td.syslog_facility = tt.syslog_facility,
+		td.snmp_event_category = tt.snmp_event_category, td.snmp_event_description = tt.snmp_event_description,
 		td.snmp_event_severity = tt.snmp_event_severity, td.snmp_event_warning_severity = tt.snmp_event_warning_severity,
 		td.notes = tt.notes
 		WHERE td.id = ?
@@ -5575,7 +5583,8 @@ function thold_template_update_thresholds($id) {
 		td.email_body_warn = tt.email_body_warn, td.email_body_restoral = tt.email_body_restoral,
 		td.trigger_cmd_high = tt.trigger_cmd_high, td.trigger_cmd_low = tt.trigger_cmd_low, td.trigger_cmd_norm = tt.trigger_cmd_norm,
 		td.syslog_enabled = tt.syslog_enabled, td.syslog_priority = tt.syslog_priority,
-		td.syslog_facility = tt.syslog_facility, td.snmp_event_category = tt.snmp_event_category,
+		td.syslog_facility = tt.syslog_facility,
+		td.snmp_event_category = tt.snmp_event_category, td.snmp_event_description = tt.snmp_event_description,
 		td.snmp_event_severity = tt.snmp_event_severity, td.snmp_event_warning_severity = tt.snmp_event_warning_severity,
 		td.notes = tt.notes
 		WHERE td.thold_template_id = ?

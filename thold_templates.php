@@ -621,8 +621,12 @@ function template_save_edit() {
 		set_request_var('suggested_name', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('suggested_name'))));
 	}
 
-	if (isset_request_var('snmp_trap_category')) {
-		set_request_var('snmp_event_category', db_qstr(trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_category')))));
+	if (isset_request_var('snmp_event_category')) {
+		set_request_var('snmp_event_category', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_category'))));
+	}
+
+	if (isset_request_var('snmp_event_description')) {
+		set_request_var('snmp_event_description', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_description'))));
 	}
 
 	// General Information
@@ -763,6 +767,7 @@ function template_save_edit() {
 	// SNMP Notification
 	if (isset_request_var('snmp_event_category')) {
 		$save['snmp_event_category'] = get_nfilter_request_var('snmp_event_category');
+		$save['snmp_event_description'] = get_nfilter_request_var('snmp_event_description');
 		$save['snmp_event_severity'] = get_nfilter_request_var('snmp_event_severity');
 	}
 
@@ -1384,6 +1389,16 @@ function template_edit() {
 				'value' => isset($thold_data['snmp_event_category']) ? $thold_data['snmp_event_category'] : '',
 				'default' => '',
 				'max_length' => '255',
+			),
+			'snmp_event_description' => array(
+				'friendly_name' => __('SNMP Event Description', 'thold'),
+				'description' => __('You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;', 'thold'),
+				'method' => 'textarea',
+				'class' => 'textAreaNotes',
+				'textarea_rows' => '5',
+				'textarea_cols' => '80',
+				'value' => isset($thold_data['snmp_event_description']) ? $thold_data['snmp_event_description'] : '',
+				'default' => '',
 			),
 			'snmp_event_severity' => array(
 				'friendly_name' => __('SNMP Notification - Alert Event Severity', 'thold'),

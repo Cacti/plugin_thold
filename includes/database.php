@@ -1375,6 +1375,22 @@ function thold_upgrade_database($force = false) {
 			'after' => 'data_type'));
 	}
 
+	if (cacti_version_compare($oldv, '1.5.3', '<')) {
+		// Add snmp event description
+		db_add_column('thold_data', array(
+			'name'     => 'snmp_event_description',
+			'type'     => 'varchar(1000)',
+			'NULL'     => true,
+			'after'    => 'snmp_event_category'));
+
+		// Add snmp event description
+		db_add_column('thold_template', array(
+			'name'     => 'snmp_event_description',
+			'type'     => 'varchar(1000)',
+			'NULL'     => true,
+			'after'    => 'snmp_event_category'));
+	}
+
 	$tables = db_fetch_assoc("SELECT DISTINCT TABLE_NAME
 		FROM information_schema.COLUMNS
 		WHERE TABLE_SCHEMA = SCHEMA()
