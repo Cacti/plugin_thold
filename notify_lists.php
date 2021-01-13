@@ -715,7 +715,7 @@ function form_actions() {
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __esc('Click \'Continue\' to Associate the Notification List \'%s\' with the Device(s) below.', $list_name, 'thold') . "</p>
-						<p>" . __('You may also Associate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten.', 'thold') . "</p>
+						<p>" . __('You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten.', 'thold') . "</p>
 						<ul>$list</ul>
 						<p>" . __('Resulting Membership:', 'thold'). "<br>"; form_dropdown('notification_action', array(2 => __('Notification List Only', 'thold'), 3 => __('Notification and Global Lists', 'thold')), '', '', 2, '', ''); print "</p>
 						<p>" . __('Device Threshold Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
@@ -728,7 +728,7 @@ function form_actions() {
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __esc('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Device(s) below.', $list_name, 'thold') . "</p>
-						<p>" . __('You may also Disssociate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten.', 'thold') . "</p>
+						<p>" . __('You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten.', 'thold') . "</p>
 						<ul>$list</ul>
 						<p>" . __('Resulting Membership:', 'thold') . "<br>"; form_dropdown('notification_action', array(1 => __('Global List', 'thold'), 0 => __('Disabled', 'thold')), '', '', 1, '', ''); print "</p>
 						<p>" . __('Device Threshold Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
@@ -1352,7 +1352,7 @@ function tholds($header_label) {
 
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print get_request_var('id');?>'
-			strURL += '&associated=' + $('#associated').is(':checked');;
+			strURL += '&associated=' + $('#associated').is(':checked');
 			strURL += '&state=' + $('#state').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
@@ -1406,12 +1406,10 @@ function tholds($header_label) {
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'notify_lists.php?action=edit&tab=tholds&id=' . get_filter_request_var('id'));
 
 	$c=0;
-	$i=0;
 	if (cacti_sizeof($result)) {
 		foreach ($result as $row) {
 			$c++;
 			$alertstat = __('No', 'thold');
-			$bgcolor='green';
 			if ($row['thold_type'] != 1) {
 				if ($row['thold_alert'] != 0) {
 					$alertstat = __('Yes', 'thold');
@@ -1422,7 +1420,7 @@ function tholds($header_label) {
 				} elseif ($row['bl_alert'] == 2)  {
 					$alertstat = __('baseline-HIGH', 'thold');
 				}
-			};
+			}
 
 			/* show alert stats first */
 			$alert_stat = '';
@@ -1663,7 +1661,6 @@ function templates($header_label) {
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'notify_lists.php?action=edit&tab=templates&id=' . get_filter_request_var('id'));
 
 	$c=0;
-	$i=0;
 	if (cacti_sizeof($result)) {
 		foreach ($result as $row) {
 			$c++;
