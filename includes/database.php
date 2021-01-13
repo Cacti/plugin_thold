@@ -498,11 +498,11 @@ function thold_upgrade_database($force = false) {
 			'after'    => 'id'));
 
 		if (db_column_exists('thold_data', 'bl_enabled', false)) {
-			db_execute('ALTER TABLE thold_data REMOVE COLUMN bl_enabled', FALSE);
+			db_execute('ALTER TABLE thold_data DROP COLUMN bl_enabled', FALSE);
 		}
 
 		if (db_column_exists('thold_template', 'bl_enabled', false)) {
-			db_execute('ALTER TABLE thold_template REMOVE COLUMN bl_enabled', FALSE);
+			db_execute('ALTER TABLE thold_template DROP COLUMN bl_enabled', FALSE);
 		}
 
 		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php', '1');

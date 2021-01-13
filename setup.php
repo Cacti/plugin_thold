@@ -44,7 +44,7 @@ function plugin_thold_install($upgrade = false) {
 	api_plugin_register_hook($plugin, 'config_form', 'thold_config_form', 'includes/settings.php');
 	api_plugin_register_hook($plugin, 'config_settings', 'thold_config_settings', 'includes/settings.php');
 
-	// Breadcrums
+	// Breadcrumbs
 	api_plugin_register_hook($plugin, 'draw_navigation_text', 'thold_draw_navigation_text', 'includes/settings.php');
 
 	// Inline thold checks
@@ -92,7 +92,7 @@ function plugin_thold_install($upgrade = false) {
 	// Follow New Graph Actions
 	api_plugin_register_hook($plugin, 'api_device_new', 'thold_api_device_new', 'setup.php');
 
-	// Miscelaneious hooks
+	// Miscellaneous hooks
 	api_plugin_register_hook($plugin, 'graphs_new_top_links', 'thold_graphs_new', 'setup.php');
 	api_plugin_register_hook($plugin, 'update_host_status', 'thold_update_host_status', 'includes/polling.php');
 	api_plugin_register_hook($plugin, 'user_admin_setup_sql_save', 'thold_user_admin_setup_sql_save', 'setup.php');

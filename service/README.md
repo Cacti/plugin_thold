@@ -5,7 +5,7 @@
 The thold daemon was designed to improve Cacti's scalability by allowing the
 thold check process to take place out of band.  By doing so, the time Cacti
 spends checking thresholds can be reduced significantly.  This service folder
-includes initilization scripts for both systemd and initd based systems.  To
+includes initialization scripts for both systemd and initd based systems.  To
 install the thold daemon as a service, follow the instructions below.
 
 ## SystemD Based Systems

@@ -846,7 +846,6 @@ function list_tholds() {
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
 	$c = 0;
-	$i = 0;
 
 	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
@@ -1157,7 +1156,6 @@ function thold_edit() {
 	//-----------------------------
 	// Tabs (if more than one item)
 	//-----------------------------
-	$i  = 0;
 	if (isset($template_data_rrds)) {
 		if (cacti_sizeof($template_data_rrds)) {
 			/* draw the data source tabs on the top of the page */

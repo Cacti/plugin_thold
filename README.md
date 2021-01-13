@@ -37,7 +37,7 @@ The Cacti 1.0 version of thold is designed to work with Device Templates.
 Therefore, when you configure a Device Template, you can add default Threshold
 Templates to that Device Template and when a Device in Cacti is created with
 that Device Template, all the required Thresholds will be created automatically.
-Of course, creating stand alone Thresholds is still supported.
+Of course, creating stand-alone Thresholds is still supported.
 
 Also new in thold version 1.0 is the ability to create multiple Thresholds per
 Data Source.  So, you can have a Baseline Threshold say measuring the rate of
@@ -81,7 +81,7 @@ the Denominator of the percentage calculation.  The most involved Data
 Manipulation is the RPN Expression type.  This Data Manipulation type allows you
 to use RPN Expressions to determine the value to be evaluated.  It can include
 other Data Sources in the Cacti graph in addition to the selected Data Source.
-It follows closely RRDtools RPN logic, and most RRDtool RPN functions are
+It follows closely RRDtool's RPN logic, and most RRDtool RPN functions are
 supported.
 
 If you plan on using the Threshold Daemon to increase the scalability of your

@@ -111,7 +111,6 @@ if (sizeof($parms)) {
 			case '-H':
 				display_help();
 				exit;
-			exit;
 			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
 				display_help();

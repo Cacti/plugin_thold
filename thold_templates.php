@@ -2057,7 +2057,7 @@ function templates() {
 					LIMIT 1',
 					array($template['data_template_id']));
 
-				$value_duration = $template['bl_ref_time_range'] / $step;;
+				$value_duration = $template['bl_ref_time_range'] / $step;
 
 				break;
 			case 2:					#time

@@ -3020,7 +3020,7 @@ function thold_check_threshold(&$thold_data) {
 			thold_debug("Warn Time:'$warning_time', Warn Trigger:'$warning_trigger', Warn Failures:'$warning_failures', RealertTime:'$realerttime', LastTime:'$lastemailtime', RA:'$ra', Diff:'" . ($realerttime+$lastemailtime) . "'<'". time() . "'");
 
 			if ($warning_failures == $warning_trigger || $ra) {
-				$notify = true;;
+				$notify = true;
 			}
 
 			if ($notify && !$ra) {
@@ -3407,7 +3407,7 @@ function thold_expand_string($thold_data, $string) {
 			}
 
 			if (strpos($str, '|query_') !== false) {
-				cacti_log("WARNING: Expression Replacment for '$str' in THold '" . $thold['thold_name'] . "' Failed, A Reindex may be required!");
+				cacti_log("WARNING: Expression Replacement for '$str' in THold '" . $thold['thold_name'] . "' Failed, A Reindex may be required!");
 			}
 		}
 
@@ -3865,7 +3865,6 @@ function get_reference_types($local_data_id = 0) {
 
 	$reference_types = array();
 	if (cacti_sizeof($rra_steps)) {
-		$i = 0;
 		foreach ($rra_steps as $rra_step) {
 			$seconds = $rra_step['frequency'];
 			$setting = round($rra_step['frequency'] / $poller_interval, 0);
@@ -5032,7 +5031,7 @@ function thold_mandatory_field_ok($name, $friendly_name) {
 // populate the save structure from a thold template
 function thold_create_thold_save_from_template($save, $template) {
 	// General Settings
-	$save['name']              = $template['suggested_name'];;
+	$save['name']              = $template['suggested_name'];
 	$save['data_template_id']  = $template['data_template_id'];
 	$save['data_source_name']  = $template['data_source_name'];
 	$save['thold_template_id'] = $template['id'];
@@ -5225,7 +5224,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 						$local_graph_id       = $data_source['local_graph_id'];
 						$data_template_rrd_id = $data_source['id'];
 
-						// Don't create a second threashold for a data source that already has a threshold
+						// Don't create a second threshold for a data source that already has a threshold
 						if ($data_source['snmp_query_id'] > 0) {
 							$exists = db_fetch_cell_prepared('SELECT id
 								FROM thold_data
@@ -5270,7 +5269,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 
 				if (cacti_sizeof($template)) {
 					foreach($data_sources as $data_source) {
-						// Don't create a second threashold for a data source that already has a threshold
+						// Don't create a second threshold for a data source that already has a threshold
 						if ($data_source['snmp_query_id'] > 0) {
 							$exists = db_fetch_cell_prepared('SELECT id
 								FROM thold_data
@@ -5983,14 +5982,14 @@ function thold_prune_old_data() {
 		ON ptl.host_id = h.id
 		WHERE h.id IS NULL');
 
-	// Remove threashols from removed devices
+	// Remove thresholds from removed devices
 	db_execute('DELETE td
 		FROM thold_data AS td
 		LEFT JOIN host AS h
 		ON td.host_id = h.id
 		WHERE h.id IS NULL');
 
-	// Remove threashols from removed graphs
+	// Remove thresholds from removed graphs
 	db_execute('DELETE td
 		FROM thold_data AS td
 		LEFT JOIN graph_local AS gl

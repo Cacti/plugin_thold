@@ -147,8 +147,8 @@ function form_thold_filter() {
 								ORDER BY name');
 
 							if (cacti_sizeof($sites)) {
-								foreach ($sites as $sites) {
-									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . html_escape($sites['name']) . '</option>';
+								foreach ($sites as $site) {
+									print "<option value='" . $site['id'] . "'"; if (get_request_var('site_id') == $site['id']) { print ' selected'; } print '>' . html_escape($site['name']) . '</option>';
 								}
 							}
 							?>
@@ -161,8 +161,10 @@ function form_thold_filter() {
 							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
 						</span>
 					</td>
-				</table>
-				<table class='filterTable'>
+				</tr>
+			</table>
+			<table class='filterTable'>
+				<tr>
 					<td>
 						<?php print __('Template', 'thold');?>
 					</td>
@@ -481,7 +483,6 @@ function tholds() {
 	html_header_sort($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'thold_graph.php?action=thold');
 
 	$c=0;
-	$i=0;
 
 	if (cacti_sizeof($tholds)) {
 		foreach ($tholds as $thold_data) {
@@ -551,7 +552,7 @@ function tholds() {
 				$suffix = true;
 			}
 
-			$show_units = ($thold_data['show_units'] ? true : false);;
+			$show_units = ($thold_data['show_units'] ? true : false);
 
 			if (empty($baseu)) {
 				cacti_log('WARNING: Graph Template for local_graph_id ' . $thold_data['local_graph_id'] . ' has been removed!');
@@ -569,7 +570,7 @@ function tholds() {
 
 			if (api_user_realm_auth('thold.php')) {
 				if ($thold_data['thold_enabled'] == 'on') {
-					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $thold_data['id']) . '" alt="" title="' . __esc('Disable Threshold', 'thold') . '"><i class="tholdGlyphDisable fas fa-stop-circle"></i></a>';
+					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $thold_data['id']) . '" title="' . __esc('Disable Threshold', 'thold') . '"><i class="tholdGlyphDisable fas fa-stop-circle"></i></a>';
 				} else {
 					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $thold_data['id']) . '" title="' . __esc('Enable Threshold', 'thold') . '"><i class="tholdGlyphEnable fas fa-play-circle"></i></a>';
 				}
@@ -1016,8 +1017,8 @@ function form_host_filter() {
 								ORDER BY name');
 
 							if (cacti_sizeof($sites)) {
-								foreach ($sites as $sites) {
-									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . html_escape($sites['name']) . '</option>';
+								foreach ($sites as $site) {
+									print "<option value='" . $site['id'] . "'"; if (get_request_var('site_id') == $site['id']) { print ' selected'; } print '>' . html_escape($site['name']) . '</option>';
 								}
 							}
 							?>
@@ -1045,8 +1046,10 @@ function form_host_filter() {
 							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
 						</span>
 					</td>
-				</table>
-				<table class='filterTable'>
+				</tr>
+			</table>
+			<table class='filterTable'>
+				<tr>
 					<td>
 						<?php print __('Type', 'thold');?>
 					</td>
@@ -1362,7 +1365,6 @@ function thold_show_log() {
 
 	$thold_types[99] = __('Acknowledgment', 'thold');
 
-	$i = 0;
 	if (cacti_sizeof($logs)) {
 		foreach ($logs as $l) {
 			$baseu = db_fetch_cell_prepared('SELECT base_value
@@ -1436,8 +1438,8 @@ function form_thold_log_filter() {
 								ORDER BY name');
 
 							if (cacti_sizeof($sites)) {
-								foreach ($sites as $sites) {
-									print "<option value='" . $sites['id'] . "'"; if (get_request_var('site_id') == $sites['id']) { print ' selected'; } print '>' . html_escape($sites['name']) . '</option>';
+								foreach ($sites as $site) {
+									print "<option value='" . $site['id'] . "'"; if (get_request_var('site_id') == $site['id']) { print ' selected'; } print '>' . html_escape($site['name']) . '</option>';
 								}
 							}
 							?>
@@ -1451,8 +1453,10 @@ function form_thold_log_filter() {
 							<input id='export' type='button' value='<?php print __esc('Export', 'thold');?>' onClick='exportLog()'>
 						</span>
 					</td>
-				</table>
-				<table class='filterTable'>
+				</tr>
+			</table>
+			<table class='filterTable'>
+				<tr>
 					<td>
 						<?php print __('Template', 'thold');?>
 					</td>

@@ -23,7 +23,7 @@
  +-------------------------------------------------------------------------+
 */
 
-/* tick use required as of PHP 4.3.0 to accomodate signal handling */
+/* tick use required as of PHP 4.3.0 to accommodate signal handling */
 declare(ticks = 1);
 
 /* sig_handler - provides a generic means to catch exceptions to the Cacti log.
@@ -74,7 +74,6 @@ function sig_handler($signo) {
 
 		exit;
 
-		break;
 	default:
 		/* ignore all other signals */
 	}
@@ -149,7 +148,6 @@ if (sizeof($parms)) {
 			case '-H':
 				display_help();
 				exit;
-			exit;
 			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
 				display_help();
@@ -196,7 +194,7 @@ if (!$foreground) {
 		} elseif ($pid == 0) {
 			// We are the child
 		} else {
-			cacti_log('NOTE: Thold Daemon Started on ' . gethostname(), false, 'THOLD');;
+			cacti_log('NOTE: Thold Daemon Started on ' . gethostname(), false, 'THOLD');
 
 			// We are the parent, output and exit
 			print '[OK]' . PHP_EOL;
@@ -312,7 +310,7 @@ while (true) {
 
 					$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --pid=' . $pid . ' > /dev/null';
 
-					thold_debug('Starting process: ' . $path_php_binary . ' -q ' . $process, false, 'THOLD');
+					thold_debug('Starting process: ' . $path_php_binary . ' -q ' . $process);
 
 					exec_background($path_php_binary, $process);
 					$launched++;
@@ -342,7 +340,7 @@ function thold_db_connection(){
 
 		$cacti_version = db_fetch_cell('SELECT cacti FROM version');
 
-		// Restore Cactis Error handler
+		// Restore Cacti's Error handler
 		restore_error_handler();
 		set_error_handler('CactiErrorHandler');
 
@@ -368,7 +366,7 @@ function thold_db_reconnect($cnn_id = null) {
 	// Connect to the database server
 	$cnn_id = db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
 
-	// Restore Cactis Error handler
+	// Restore Cacti's Error handler
 	restore_error_handler();
 	set_error_handler('CactiErrorHandler');
 
