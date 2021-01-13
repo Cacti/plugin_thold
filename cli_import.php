@@ -69,7 +69,6 @@ if (sizeof($parms)) {
 			case '-h':
 				display_help();
 				exit;
-			exit(-1);
 			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . PHP_EOL . PHP_EOL;
 				display_help();
