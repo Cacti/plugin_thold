@@ -8,6 +8,8 @@
 
 * issue#474: Create threshold from templates fail with multiple data template ids
 
+* issue#482: Thold and Thold Template missing <DATE> Tab in Help
+
 * feature#469: use thold template name as filename for single export
 
 * feature#481: SNMP event description can be defined individually or template based. 
