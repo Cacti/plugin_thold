@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2019-03-18 00:11-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: pt_PT\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2021-01-18 18:17+0000\nLast-Translator: Luís Silva <luis.m.ribeiro.silva@tecnico.ulisboa.pt>\nLanguage-Team: Portuguese (Portugal) <http://translate.cacti.net/projects/cacti/thold/pt_PT/>\nLanguage: pt-PT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 4.3.2\n"
 
 #: includes/arrays.php:26
 #, fuzzy
@@ -480,7 +469,6 @@ msgid "Propagate Template"
 msgstr "Propagate Template"
 
 #: includes/arrays.php:507 thold_graph.php:1451
-#, fuzzy
 msgid "Export"
 msgstr "Exportar"
 
@@ -1567,7 +1555,6 @@ msgstr "Site"
 #: thold_graph.php:1462 thold_templates.php:397 thold_templates.php:445
 #: thold_templates.php:1045 thold_templates.php:1053 thold_templates.php:1365
 #: thold_templates.php:1373 thold_templates.php:1719
-#, fuzzy
 msgid "None"
 msgstr "Nenhum"
 
@@ -1640,7 +1627,6 @@ msgstr "Fontes de Dados"
 
 #: notify_lists.php:1138 setup.php:1238 thold.php:696 thold_graph.php:208
 #: thold_graph.php:859 thold_graph.php:1027 thold_graph.php:1497
-#, fuzzy
 msgid "Status"
 msgstr "Estado"
 
@@ -3112,9 +3098,8 @@ msgid "The last time Cacti found an issue with this Device.  It can be higher th
 msgstr "A última vez que Cacti encontrou um problema com este dispositivo.  Pode ser maior do que o Uptime para o Dispositivo, se ele foi reinicializado entre os ciclos de sondagem Cacti"
 
 #: thold_graph.php:871
-#, fuzzy
 msgid "Uptime"
-msgstr "Tempo de atividade"
+msgstr "Tempo de funcionamento"
 
 #: thold_graph.php:874
 #, fuzzy
