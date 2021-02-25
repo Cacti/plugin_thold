@@ -734,7 +734,7 @@ function list_tholds() {
 			strURL += '&data_template_id=' + $('#data_template_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
 			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + $('#rfilter').val();
+			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
 			loadPageNoHeader(strURL);
 		}
 
