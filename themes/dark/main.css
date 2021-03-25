@@ -269,5 +269,5 @@
 }
 
 .tholdLog {
-	white-space: pre !important;
+	white-space: pre-wrap !important;
 }
