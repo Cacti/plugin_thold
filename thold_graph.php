@@ -1392,7 +1392,7 @@ function thold_show_log() {
 			form_selectable_cell($l['hdescription'], $l['id'], '', 'left');
 			form_selectable_cell(date('Y-m-d H:i:s', $l['time']), $l['id'], '', 'left');
 			form_selectable_cell($thold_types[$l['type']], $l['id'], '', 'left');
-			form_selectable_cell((strlen($l['description']) ? filter_value($l['description'], get_request_var('rfilter')):__('Restoral Event', 'thold')), $l['id'], '', 'left');
+			form_selectable_cell((strlen($l['description']) ? filter_value($l['description'], get_request_var('rfilter')):__('Restoral Event', 'thold')), $l['id'], '', 'left tholdLog');
 			form_selectable_cell($l['threshold_value'] != '' ? thold_format_number($l['threshold_value'], 2, $baseu, $suffix, $show_units):__('N/A', 'thold'), $l['id'], '', 'right');
 			form_selectable_cell($l['current'] != '' ? thold_format_number($l['current'], 2, $baseu, $suffix, $show_units):__('N/A', 'thold'), $l['id'], '', 'right');
 			form_end_row();
