@@ -1606,7 +1606,7 @@ function template_edit() {
 
 	html_end_box();
 
-	form_save_button('thold_templates.php?action=edit&id=' . $id, 'return', 'id');
+	form_save_button('thold_templates.php', 'return');
 
 	?>
 	<script type='text/javascript'>

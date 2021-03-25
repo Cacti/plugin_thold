@@ -932,9 +932,9 @@ function hosts() {
 
 				form_selectable_cell(filter_value($host['description'], get_request_var('rfilter')), $host['id'], '', 'left');
 
-				form_selectable_cell(number_format_i18n($host['id']), $host['id'], '', 'right');
-				form_selectable_cell(number_format_i18n($host['graphs']), $host['id'], '', 'right');
-				form_selectable_cell(number_format_i18n($host['data_sources']), $host['id'], '', 'right');
+				form_selectable_cell(number_format_i18n($host['id'], -1), $host['id'], '', 'right');
+				form_selectable_cell(number_format_i18n($host['graphs'], -1), $host['id'], '', 'right');
+				form_selectable_cell(number_format_i18n($host['data_sources'], -1), $host['id'], '', 'right');
 
 				form_selectable_cell(get_uncolored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']), $host['id'], '', 'right');
 
@@ -958,9 +958,9 @@ function hosts() {
 
 				form_selectable_cell(filter_value($host['description'], get_request_var('rfilter')), $host['id'], '', 'left');
 
-				form_selectable_cell(number_format_i18n($host['id']), $host['id'], '', 'right');
-				form_selectable_cell(number_format_i18n($host['graphs']), $host['id'], '', 'right');
-				form_selectable_cell(number_format_i18n($host['data_sources']), $host['id'], '', 'right');
+				form_selectable_cell(number_format_i18n($host['id'], -1), $host['id'], '', 'right');
+				form_selectable_cell(number_format_i18n($host['graphs'], -1), $host['id'], '', 'right');
+				form_selectable_cell(number_format_i18n($host['data_sources'], -1), $host['id'], '', 'right');
 
 				form_selectable_cell(__('Not Monitored', 'thold'), $host['id'], '', 'center');
 

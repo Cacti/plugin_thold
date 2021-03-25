@@ -12,6 +12,10 @@
 
 * issue#492: Thold search filter does not work from Console > Management > Thresholds
 
+* issue#498: Return button in Thold templates is broken
+
+* issue#499: In Thold Tab->Device status-> ID of device reported simply as 1K if number is above 1023
+
 * feature#469: use thold template name as filename for single export
 
 * feature#481: SNMP event description can be defined individually or template based. 
