@@ -1005,12 +1005,13 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 function thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, $max_chars = 0) {
 	$field_name = trim(str_replace('|query_', '', $string),"| \n\r");
 
-	$snmp_cache_data = db_fetch_cell("SELECT field_value
+	$snmp_cache_data = db_fetch_cell_prepared("SELECT field_value
 		FROM host_snmp_cache
-		WHERE host_id=$host_id
-		AND snmp_query_id=$snmp_query_id
-		AND snmp_index='$snmp_index'
-		AND field_name='$field_name'");
+		WHERE host_id = ?
+		AND snmp_query_id = ?
+		AND snmp_index = ?
+		AND field_name= ?",
+		array($host_id, $snmp_query_id, $snmp_index, $field_name));
 
 	if ($snmp_cache_data != '') {
 		return $snmp_cache_data;
@@ -3373,20 +3374,7 @@ function thold_expand_string($thold_data, $string) {
 			array($thold_data['local_graph_id']));
 
 		if (cacti_sizeof($lg)) {
-			$str = expand_title($lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], $str);
-			$str = thold_substitute_custom_data($str, '|', '|', $thold_data['local_data_id']);
-
-			$data = array(
-				'str'         => $str,
-				'thold_data'  => $thold_data,
-				'local_graph' => $lg
-			);
-
-			$data = api_plugin_hook_function('thold_substitute_custom_data', $data);
-			if (isset($data['str'])) {
-				$str = $data['str'];
-			}
-
+			// Handle speed queries replacements first
 			if (strpos($str, '|query_ifHighSpeed|') !== false) {
 				$value = thold_substitute_snmp_query_data('|query_ifHighSpeed|', $lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], read_config_option('max_data_query_field_length'));
 
@@ -3404,6 +3392,20 @@ function thold_expand_string($thold_data, $string) {
 				}
 
 				$str = str_replace('|query_ifSpeed|', $value, $str);
+			}
+
+			$str = expand_title($lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], $str);
+			$str = thold_substitute_custom_data($str, '|', '|', $thold_data['local_data_id']);
+
+			$data = array(
+				'str'         => $str,
+				'thold_data'  => $thold_data,
+				'local_graph' => $lg
+			);
+
+			$data = api_plugin_hook_function('thold_substitute_custom_data', $data);
+			if (isset($data['str'])) {
+				$str = $data['str'];
 			}
 
 			if (strpos($str, '|query_') !== false) {

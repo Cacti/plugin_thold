@@ -12,6 +12,8 @@
 
 * issue#492: Thold search filter does not work from Console > Management > Thresholds
 
+* issue#495: THOLD ERROR: RPN Expression is invalid!
+
 * issue#496: Aacknowledgement text does not visible but shows up when you refresh
 
 * issue#498: Return button in Thold templates is broken
