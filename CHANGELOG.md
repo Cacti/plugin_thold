@@ -26,6 +26,8 @@
 
 * issue#510: Searching in Notify lists doesn't filter result 
 
+* issue#511: Fix missing variable validation
+
 --- 1.5.2 ---
 
 * issue#457: Page show blank if do export function without log info exist
