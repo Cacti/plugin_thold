@@ -1809,6 +1809,11 @@ function thold_request_validation() {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 			),
+		'site_id' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+			),
 		'rfilter' => array(
 			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
