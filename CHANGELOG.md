@@ -24,6 +24,8 @@
 
 * feature#481: SNMP event description can be defined individually or template based. 
 
+* issue#510: Searching in Notify lists doesn't filter result 
+
 --- 1.5.2 ---
 
 * issue#457: Page show blank if do export function without log info exist

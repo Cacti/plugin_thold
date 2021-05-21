@@ -1065,7 +1065,7 @@ function hosts($header_label) {
 	if (strlen(get_request_var('rfilter'))) {
 		$sql_where = 'WHERE (
 			host.hostname RLIKE "'       . get_request_var('rfilter') . '"
-			OR host.description RLIKE "' . get_request_var('filter')  . '")';
+			OR host.description RLIKE "' . get_request_var('rfilter')  . '")';
 	} else {
 		$sql_where = '';
 	}
@@ -1243,7 +1243,7 @@ function tholds($header_label) {
 	}
 
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache RLIKE "' . get_request_var('filter') . '"';
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache RLIKE "' . get_request_var('rfilter') . '"';
 	}
 
 	if ($statefilter != '') {
