@@ -177,7 +177,7 @@ thold_cli_debug('Forking Thold Daemon Child Processes');
 
 for($i = 1; $i <= $processes; $i++) {
 	$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --thread=' . $i . ' > /dev/null';
-	thold_cli_debug('Starting Threshold process: ' . $path_php . ' -q ' . $process);
+	thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
 	exec_background($path_php, $process);
 }
 
@@ -346,15 +346,31 @@ function thold_heartbeat_processes($processes, $new_processes) {
 	// Check for a crashed process
 	$process_num = -1;
 	foreach($procs as $id => $p) {
+		// Check for crashed processes first
 		if ($process_num != -1) {
 			if ($process_num - 1 != $p['taskid']) {
 				thold_cli_debug(sprintf('WARNING: Detected Crashed Thold Thread.  Relaunching Crashed Thread %s', $process_num - 1));
 
 				$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --thread=' . ($process_num -1) . ' > /dev/null';
-				thold_cli_debug('Starting Threshold process: ' . $path_php . ' -q ' . $process);
+				thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
 				exec_background($path_php, $process);
 
 				$running_processes++;
+			}
+		} else {
+			// Check for hung processes next
+			$lastupdate = strtotime($p['last_update']);
+			$now        = time();
+			if ($lastupdate + 120 > $now) {
+				thold_cli_debug(sprintf('WARNING: Detected Hung Thold Thread.  Killing/Relaunching Hung Thread %s', $p['taskid']));
+
+				posix_kill($p['pid'], SIGTERM);
+
+				$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --thread=' . $p['taskid'] . ' > /dev/null';
+
+				thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
+
+				exec_background($path_php, $process);
 			}
 		}
 
@@ -396,7 +412,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 				$running_processes++;
 
 				$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --thread=' . $running_processes . ' > /dev/null';
-				thold_cli_debug('Starting Threshold process: ' . $path_php . ' -q ' . $process);
+				thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
 				exec_background($path_php, $process);
 			}
 		}

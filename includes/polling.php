@@ -81,10 +81,7 @@ function thold_poller_bottom() {
 
 		cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
 
-		db_execute_prepared("REPLACE INTO settings
-			(name, value)
-			VALUES ('stats_thold', ?)",
-			array($thold_stats));
+		set_config_option('stats_thold', $thold_stats);
 	} else {
 		/* collect some stats */
 		$now = microtime(true);
@@ -113,7 +110,7 @@ function thold_poller_bottom() {
 			}
 		}
 
-		$threads = read_config_option('thold_threads');
+		$threads = read_config_option('thold_max_concurrent_processes');
 
 		/* begin transaction for repeatable read isolation level */
 		$db_conn = db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
@@ -176,11 +173,9 @@ function thold_poller_bottom() {
 		$thold_stats = sprintf('TotalTime:%0.3f TotalDevices:%u DownDevices:%u NewDownDevices:%u Threads:%u Thresholds:%u',
 			$end - $start, $total_hosts, $down_hosts, $nhosts, $threads, $thresholds);
 
-		cacti_log('THOLD DAEMON STATS: ' . $thold_stats, false, 'SYSTEM');
+		cacti_log('THOLD POLLER STATS: ' . $thold_stats, false, 'SYSTEM');
 
-		db_execute("REPLACE INTO settings
-			(name, value)
-			VALUES ('stats_thold_" . $config['poller_id'] . "', '$thold_stats')");
+		set_config_option('stats_thold_' . $config['poller_id'], $thold_stats);
 
 		$db_conn->commit();
 	}
