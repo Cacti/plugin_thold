@@ -246,10 +246,12 @@ while(true) {
 			sleep(5);
 
 			$cnn_id = thold_db_reconnect($cnn_id);
+
+			heartbeat_process('thold', 'child', $thread);
 		}
 	} else {
-		thold_cli_debug('WARNING: Thold Database Connection Down.  Sleeping 30 Seconds');
-		sleep(30);
+		thold_cli_debug('WARNING: Thold Database Connection Down.  Sleeping 60 Seconds');
+		sleep(60);
 	}
 }
 

@@ -240,10 +240,14 @@ while (true) {
 			$processes = $new_processes;
 
 			thold_cli_debug('Thold Thread Watchdog End.  Processed heartbeat.');
+
+			heartbeat_process('thold', 'parent', 0);
 		}
+
 	} else {
-		thold_cli_debug('WARNING: No database connection.  Sleeping for 30 seconds.');
-		sleep(30);
+		thold_cli_debug('WARNING: No database connection.  Sleeping for 60 seconds.');
+
+		sleep(60);
 	}
 }
 
