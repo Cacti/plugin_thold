@@ -105,7 +105,7 @@ if ($config['cacti_server_os'] == 'unix') {
 $timeout = 99999999;
 
 /* enable thold daemon in the GUI */
-thold_cli_debug('Enabling Thold Daemon in Database.');
+thold_daemon_debug('Enabling Thold Daemon in Database.');
 
 set_config_option('thold_daemon_enable', 'on');
 
@@ -170,9 +170,11 @@ $cnn_id = thold_db_reconnect($cnn_id);
 
 $processes = read_config_option('thold_max_concurrent_processes');
 
+thold_truncate_daemon_data();
+
 thold_prime_distribution($processes);
 
-thold_cli_debug('Forking Thold Daemon Child Processes');
+thold_daemon_debug('Forking Thold Daemon Child Processes');
 
 for($i = 1; $i <= $processes; $i++) {
 	thold_launch_worker($i);
@@ -186,8 +188,11 @@ while (true) {
 	if (thold_db_connection()) {
 		$counter++;
 
+		// force the check for the daemon debug
+		$daemon_debug = read_config_option('thold_daemon_debug', true);
+
 		if ($counter == 1) {
-			thold_cli_debug('Thold Thread Watchdog Start.');
+			thold_daemon_debug('Thold Thread Watchdog Start.');
 
 			set_config_option('thold_daemon_heartbeat', microtime(true));
 		}
@@ -197,7 +202,7 @@ while (true) {
 		if ($running && !$prev_running) {
 			$start = microtime(true);
 
-			thold_cli_debug('Detected Cacti Poller Start at ' . date('Y-m-d H:i:s'));
+			thold_daemon_debug('Detected Cacti Poller Start at ' . date('Y-m-d H:i:s'));
 
 			$start_items = db_fetch_cell('SELECT COUNT(*) FROM plugin_thold_daemon_data');
 			$prev_running = true;
@@ -207,7 +212,7 @@ while (true) {
 
 			$tholds = db_fetch_cell('SELECT COUNT(*) FROM thold_data WHERE thold_enabled = "on"');
 
-			thold_cli_debug(sprintf('Detected Cacti Poller End.  TotalTholds:%u StartItems:%u, EndItems:%u', $tholds, $start_items, $end_items));
+			thold_daemon_debug(sprintf('Detected Cacti Poller End.  TotalTholds:%u StartItems:%u, EndItems:%u', $tholds, $start_items, $end_items));
 
 			$end = microtime(true);
 
@@ -236,16 +241,22 @@ while (true) {
 
 			$processes = $new_processes;
 
-			thold_cli_debug('Thold Thread Watchdog End.  Processed heartbeat.');
+			thold_daemon_debug('Thold Thread Watchdog End.  Processed heartbeat.');
 
 			heartbeat_process('thold', 'parent', 0);
 		}
 
 	} else {
-		thold_cli_debug('WARNING: No database connection.  Sleeping for 60 seconds.');
+		thold_daemon_debug('WARNING: No database connection.  Sleeping for 60 seconds.');
 
 		sleep(60);
 	}
+}
+
+function thold_truncate_daemon_data() {
+	thold_daemon_debug('Truncating historical Threshold Daemon Data');
+
+	db_execute('TRUNCATE TABLE plugin_thold_daemon_data');
 }
 
 function thold_poller_running() {
@@ -270,7 +281,7 @@ function sig_handler($signo) {
 
 		if (cacti_sizeof($processes)) {
 			foreach($processes as $p) {
-				thold_cli_debug(sprintf('Killing Child Process with the pid of %u', $p['pid']));
+				thold_daemon_debug(sprintf('Killing Child Process with the pid of %u', $p['pid']));
 				posix_kill($p['pid'], SIGTERM);
 			}
 		}
@@ -338,7 +349,7 @@ function thold_launch_worker($thread) {
 		($debug ? ' --debug':'')            .
 		' > /dev/null';
 
-	thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
+	thold_daemon_debug('Starting Process: ' . $path_php . ' -q ' . $process);
 
 	exec_background($path_php, $process);
 }
@@ -360,7 +371,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 		// Check for crashed processes first
 		if ($process_num != -1) {
 			if ($process_num - 1 != $p['taskid']) {
-				thold_cli_debug(sprintf('WARNING: Detected Crashed Thold Thread.  Relaunching Crashed Thread %s', $process_num - 1));
+				thold_daemon_debug(sprintf('WARNING: Detected Crashed Thold Thread.  Relaunching Crashed Thread %s', $process_num - 1));
 
 				thold_launch_worker($process_num -1);
 
@@ -371,7 +382,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 			$lastupdate = strtotime($p['last_update']);
 			$now        = time();
 			if ($lastupdate + 120 > $now) {
-				thold_cli_debug(sprintf('WARNING: Detected Hung Thold Thread.  Killing/Relaunching Hung Thread %s', $p['taskid']));
+				thold_daemon_debug(sprintf('WARNING: Detected Hung Thold Thread.  Killing/Relaunching Hung Thread %s', $p['taskid']));
 
 				posix_kill($p['pid'], SIGTERM);
 
@@ -390,7 +401,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 		}
 
 		if (!$running) {
-			thold_cli_debug(sprintf('WARNING: Thold Daemon Child[%s] Died!', $p['pid']));
+			thold_daemon_debug(sprintf('WARNING: Thold Daemon Child[%s] Died!', $p['pid']));
 
 			cacti_log(sprintf('WARNING: Thold Daemon Child[%s] Died!', $p['pid']), false, 'THOLD');
 
@@ -401,7 +412,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 
 	if ($running_processes != $new_processes) {
 		if ($running_processes > $new_processes) {
-			thold_cli_debug(sprintf('Thold Thread Detected Process Count Change.  Reducing Process Count by %s', $running_processes - $new_processes));
+			thold_daemon_debug(sprintf('Thold Thread Detected Process Count Change.  Reducing Process Count by %s', $running_processes - $new_processes));
 
 			foreach($procs as $id => $p) {
 				posix_kill($p['pid'], SIGTERM);
@@ -411,7 +422,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 				}
 			}
 		} else {
-			thold_cli_debug(sprintf('Thold Thread Detected Process Count Change.  Increasing Process Count by %s', $new_processes - $running_processes));
+			thold_daemon_debug(sprintf('Thold Thread Detected Process Count Change.  Increasing Process Count by %s', $new_processes - $running_processes));
 
 			while($running_processes < $new_processes) {
 				$running_processes++;
@@ -423,7 +434,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 }
 
 function thold_prime_distribution($processes, $truncate = false) {
-	thold_cli_debug('Rebalancing Thread Allocation by Device');
+	thold_daemon_debug('Rebalancing Thread Allocation by Device');
 
 	// Perform column checks
 	if (db_column_exists('thold_data', 'thold_daemon_pid')) {
@@ -484,17 +495,20 @@ function thold_prime_distribution($processes, $truncate = false) {
 		}
 	}
 
-	thold_cli_debug('Thread Rebalancing Allocation by Device Completed');
+	thold_daemon_debug('Thread Rebalancing Allocation by Device Completed');
 }
 
 function thold_db_error_handler() {
 	return true;
 }
 
-function thold_cli_debug($string) {
+function thold_daemon_debug($string) {
 	global $debug;
 
-	if ($debug) {
+	// Get the cached value
+	$daemon_debug = read_config_option('thold_daemon_debug');
+
+	if ($debug || $daemon_debug) {
 		$output = date('Y-m-d H:i:s') . ' DEBUG: ' . trim($string);
 
 		print $output . PHP_EOL;

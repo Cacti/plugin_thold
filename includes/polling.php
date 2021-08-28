@@ -256,7 +256,7 @@ function thold_poller_output(&$rrd_update_array) {
 						$sql_values = '';
 
 						foreach ($packet as $thold_item) {
-							$sql_values .= ($sql_values != '' ? ', ' : '') . '(' . $config['poller_id'] . ', ' . $thold_item['id'] . ",  " . db_qstr(serialize($rrd_reindexed[$thold_item['local_data_id']])) . ', ' . $rrd_time_reindexed[$thold_item['local_data_id']] . ')';
+							$sql_values .= ($sql_values != '' ? ', ' : '') . '(' . $config['poller_id'] . ', ' . $thold_item['id'] . ",  " . db_qstr(json_encode($rrd_reindexed[$thold_item['local_data_id']])) . ', ' . $rrd_time_reindexed[$thold_item['local_data_id']] . ')';
 
 						}
 

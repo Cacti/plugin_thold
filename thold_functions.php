@@ -164,11 +164,11 @@ function thold_tabs() {
 	print "</ul></nav></div>\n";
 }
 
-function thold_debug($txt) {
+function thold_debug($txt, $thread = '') {
 	global $debug;
 
 	if (read_config_option('thold_log_debug') == 'on' || $debug) {
-		thold_cacti_log($txt);
+		thold_cacti_log($txt, $thread);
 	}
 }
 
@@ -5673,10 +5673,10 @@ function update_suggested_names_from_template($id, $thold_id = -1) {
 	}
 }
 
-function thold_cacti_log($string) {
+function thold_cacti_log($string, $thread = '') {
 	global $config;
 
-	$environ = 'THOLD';
+	$environ = 'THOLD' . ($thread != '' ? ' THREAD[' . $thread . ']':'');
 
 	/* fill in the current date for printing in the log */
 	if (defined('CACTI_DATE_TIME_FORMAT')) {

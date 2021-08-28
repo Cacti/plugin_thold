@@ -134,8 +134,11 @@ db_close($cnn_id);
 
 $cnn_id = thold_db_reconnect($cnn_id);
 
-while(true) {
+while (true) {
 	if (thold_db_connection()) {
+		// Prime the 'thold_daemon_debug' value
+		$daemon_debug = read_config_option('thold_daemon_debug', true);
+
 		// Fix issues with microtime skew
 		usleep(1);
 
@@ -143,20 +146,31 @@ while(true) {
 
 		$tholds = thold_get_thresholds_precheck($thread, $start_time);
 
-		thold_cli_debug(sprintf('Found %u Thresholds to Check', $tholds));
+		$total_tholds = cacti_sizeof($tholds);
+
+		thold_daemon_debug(sprintf('Found %u Thresholds to check for current values.', $total_tholds), $thread);
 
 		if (cacti_sizeof($tholds)) {
 			$rrd_reindexed      = array();
 			$rrd_time_reindexed = array();
 
+			thold_daemon_debug('Getting current values and normalizing multi-item Data Sources for Thresholds', $thread);
+
 			foreach ($tholds as $thold_data) {
-				thold_cli_debug("Checking Threshold Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
+				thold_daemon_debug(sprintf('Checking Threshold Name: %s, Graph %s', $thold_data['thold_name'], $thold_data['local_graph_id']), $thread);
 
 				$item = array();
-				$rrd_reindexed[$thold_data['local_data_id']] = unserialize($thold_data['rrd_reindexed']);
+
+				if (substr($thold_data['rrd_reindexed'], 0, 1) == 'a') {
+					$rrd_reindexed[$thold_data['local_data_id']] = unserialize($thold_data['rrd_reindexed']);
+				} else {
+					$rrd_reindexed[$thold_data['local_data_id']] = json_decode($thold_data['rrd_reindexed'], true);
+				}
+
 				$rrd_time_reindexed[$thold_data['local_data_id']] = $thold_data['rrd_time_reindexed'];
+
 				$currenttime = 0;
-				$currentval = thold_get_currentval($thold_data, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
+				$currentval  = thold_get_currentval($thold_data, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
 
 				switch ($thold_data['data_type']) {
 				case 0:
@@ -210,12 +224,14 @@ while(true) {
 
 			$total_tholds = cacti_sizeof($tholds);
 
-			if (cacti_sizeof($tholds)) {
+			thold_daemon_debug(sprintf('Found %u Thresholds to check for breech.', $total_tholds), $thread);
+
+			if ($total_tholds) {
 				foreach ($tholds as $thold) {
 					thold_check_threshold($thold);
 
 					db_execute_prepared('UPDATE thold_data
-						SET tcheck=0
+						SET tcheck = 0
 						WHERE id = ?',
 						array($thold['id'])
 					);
@@ -231,15 +247,15 @@ while(true) {
 					ON ptdd.id = td.id
 					WHERE ptdd.poller_id = ?
 					AND td.thread_id = ?
-					AND ptdd.time <= ?',
+					AND ptdd.time <= FROM_UNIXTIME(?)',
 					array($config['poller_id'], $thread, $start_time));
 			} else {
 				db_execute_prepared('DELETE ptdd
 					FROM plugin_thold_daemon_data AS ptdd
 					INNER JOIN thold_data AS td
 					ON ptdd.id = td.id
-					WHERE ptdd.thread = ?
-					AND ptdd.time <= ?',
+					WHERE td.thread_id = ?
+					AND ptdd.time <= FROM_UNIXTIME(?)',
 					array($thread, $start_time));
 			}
 		} else {
@@ -250,7 +266,7 @@ while(true) {
 			heartbeat_process('thold', 'child', $thread);
 		}
 	} else {
-		thold_cli_debug('WARNING: Thold Database Connection Down.  Sleeping 60 Seconds');
+		thold_daemon_debug('WARNING: Thold Database Connection Down.  Sleeping 60 Seconds', $thread);
 		sleep(60);
 	}
 }
@@ -278,6 +294,16 @@ function sig_handler($signo) {
 	}
 }
 
+function thold_daemon_debug($message, $thread) {
+	global $debug;
+
+	$daemon_debug = read_config_option('thold_daemon_debug');
+
+	if ($debug || $daemon_debug) {
+		thold_cacti_log($message, $thread);
+	}
+}
+
 function thold_get_thresholds_tholdcheck($thread, $start_time) {
 	global $config;
 
@@ -294,7 +320,7 @@ function thold_get_thresholds_tholdcheck($thread, $start_time) {
 			ON td.host_id = h.id
 			WHERE td.thread_id = ?
 			AND tdd.poller_id = ?
-			AND tdd.time <= ?
+			AND tdd.time <= FROM_UNIXTIME(?)
 			AND td.thold_enabled = 'on'
 			AND td.tcheck = 1
 			AND h.status = 3";
@@ -313,7 +339,7 @@ function thold_get_thresholds_tholdcheck($thread, $start_time) {
 			LEFT JOIN host as h
 			ON td.host_id = h.id
 			WHERE td.thread_id = ?
-			AND tdd.time <= ?
+			AND tdd.time <= FROM_UNIXTIME(?)
 			AND td.thold_enabled = 'on'
 			AND td.tcheck = 1
 			AND h.status = 3";
@@ -346,10 +372,10 @@ function thold_get_thresholds_precheck($thread, $start_time) {
 			ON dtd.local_data_id = td.local_data_id
 			WHERE td.thread_id = ?
 			AND tdd.poller_id = ?
-			AND tdd.time <= ?
+			AND tdd.time <= FROM_UNIXTIME(?)
 			AND dtr.data_source_name != ''";
 
-		$tholds = db_fetch_assoc_prepared($sql_query, array($thread, $config['poller_id'], $start_time), false);
+		$tholds = db_fetch_assoc_prepared($sql_query, array($thread, $config['poller_id'], $start_time));
 	} else {
 		$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
 			td.id AS thold_id, td.name_cache AS thold_name, td.local_graph_id,
@@ -366,10 +392,10 @@ function thold_get_thresholds_precheck($thread, $start_time) {
 			LEFT JOIN data_template_data AS dtd
 			ON dtd.local_data_id = td.local_data_id
 			WHERE td.thread_id = ?
-			AND tdd.time <= ?
+			AND tdd.time <= FROM_UNIXTIME(?)
 			AND dtr.data_source_name != ''";
 
-		$tholds = db_fetch_assoc_prepared($sql_query, array($thread, $start_time), false);
+		$tholds = db_fetch_assoc_prepared($sql_query, array($thread, $start_time));
 	}
 
 	return $tholds;
@@ -436,14 +462,14 @@ function display_version() {
 	}
 
 	$info = plugin_thold_version();
-	print "Threshold Processor, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
+	print 'Threshold Processor, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
 /*	display_help - displays the usage of the function */
 function display_help () {
 	display_version();
 
-	print "\nusage: thold_process.php --pid=N [--debug]\n\n";
-	print "The main Threshold processor for the Thold Plugin.\n";
+	print PHP_EOL . 'usage: thold_process.php --thread=N [--debug]' . PHP_EOL . PHP_EOL;
+	print 'The main Threshold Processor for the Thold Plugin.' . PHP_EOL;
 }
 

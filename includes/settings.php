@@ -457,6 +457,12 @@ function thold_config_settings() {
 			'method' => 'checkbox',
 			'default' => ''
 		),
+		'thold_daemon_debug' => array(
+			'friendly_name' => __('Force Threshold Daemon Debug', 'thold'),
+			'description' => __('Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
+		),
 		'thold_daemon_dead_notification' => array(
 			'friendly_name' => __('Daemon Down Notification Frequency', 'thold'),
 			'description' => __('If the Thold Daemon is found to be down, send out an Email notification at this frequency.', 'thold'),
