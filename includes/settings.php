@@ -472,11 +472,21 @@ function thold_config_settings() {
 			'default' => 7200
 		),
 		'thold_max_concurrent_processes' => array(
-			'friendly_name' => __('Maximum Concurrent Threshold Processes', 'thold'),
-			'description' => __('The maximum number of concurrent processes to be handled by the Threshold Daemon.', 'thold'),
-			'method' => 'textbox',
-			'size' => 2,
-			'max_length' => 2,
+			'friendly_name' => __('Daemon Threads', 'thold'),
+			'description' => __('The number of daemon threads to be handled by the Threshold Daemon.', 'thold'),
+			'method' => 'drop_array',
+			'array' => array(
+				'1'  => __('1 Process', 'thold'),
+				'2'  => __('%d Processes', 2, 'thold'),
+				'3'  => __('%d Processes', 3, 'thold'),
+				'4'  => __('%d Processes', 4, 'thold'),
+				'5'  => __('%d Processes', 5, 'thold'),
+				'6'  => __('%d Processes', 6, 'thold'),
+				'7'  => __('%d Processes', 7, 'thold'),
+				'8'  => __('%d Processes', 8, 'thold'),
+				'9'  => __('%d Processes', 9, 'thold'),
+				'10' => __('%d Processes', 10, 'thold')
+			),
 			'default' => read_config_option('concurrent_processes')
 		),
 		'logging_header' => array(

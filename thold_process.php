@@ -22,37 +22,16 @@
  +-------------------------------------------------------------------------+
 */
 
-/* tick use required as of PHP 4.3.0 to accomodate signal handling */
-declare(ticks = 1);
-
-/* sig_handler - provides a generic means to catch exceptions to the Cacti log.
-   @arg $signo - (int) the signal that was thrown by the interface.
-   @returns - null */
-function sig_handler($signo) {
-	switch ($signo) {
-		case SIGTERM:
-		case SIGINT:
-			cacti_log('WARNING: Thold Sub Process terminated by user', FALSE, 'thold');
-
-			exit;
-			break;
-		default:
-			/* ignore all other signals */
-	}
+if (function_exists('pcntl_async_signals')) {
+	pcntl_async_signals(true);
+} else {
+	declare(ticks = 100);
 }
 
-/* do NOT run this script through a web browser */
-if (!isset($_SERVER['argv'][0]) || isset($_SERVER['REQUEST_METHOD'])  || isset($_SERVER['REMOTE_ADDR'])) {
-	die('<br><strong>This script is only meant to run at the command line.</strong>');
-}
-
-/* We are not talking to the browser */
-$no_http_headers = true;
-
-chdir(dirname(__FILE__));
+chdir(__DIR__);
 chdir('../../');
 
-require_once('./include/global.php');
+require_once('./include/cli_check.php');
 require_once($config['base_path'] . '/lib/rrd.php');
 require($config['base_path'] . '/plugins/thold/includes/arrays.php');
 require_once($config['base_path'] . '/plugins/thold/thold_functions.php');
@@ -71,8 +50,10 @@ if (function_exists('pcntl_signal')) {
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
-$pid   = false;
-$debug = false;
+$thread = false;
+$debug  = false;
+
+global $thread, $cnn_id;
 
 if (sizeof($parms)) {
 	foreach($parms as $parameter) {
@@ -88,18 +69,14 @@ if (sizeof($parms)) {
 			case '--debug':
 				$debug = true;
 				break;
-			case '-pid':
-			case '--pid':
-				$parts = explode('.', $value);
+			case '--thread':
+				$thread = $value;
 
-				if (isset($parts[0]) && isset($parts[1]) && is_numeric($parts[0]) && is_numeric($parts[1])) {
-					$pid = $value;
-				} else {
-					print 'ERROR: Invalid Process ID ' . $arg . "\n\n";
+				if (!is_numeric($thread) || $thread <= 0) {
+					print 'FATAL: The Thread ID must be numeric and greater than 0.' . PHP_EOL;
 					display_help();
-					exit;
+					exit(1);
 				}
-
 				break;
 			case '-v':
 			case '--version':
@@ -121,124 +98,186 @@ if (sizeof($parms)) {
 // Record start time for the pid's processing
 $start = microtime(true);
 
-if ($pid === false) {
+if ($thread === false) {
+	print 'FATAL: The Thread ID must be numeric and greater than 0.' . PHP_EOL;
 	display_help();
-} elseif (read_config_option('remote_storage_method') == 1) {
-	db_execute_prepared('UPDATE plugin_thold_daemon_processes
-		SET start = ?
-		WHERE pid = ? AND poller_id = ?',
-		array($start, $pid, $config['poller_id']));
-} else {
-	db_execute_prepared('UPDATE plugin_thold_daemon_processes
-		SET start = ?
-		WHERE pid = ?',
-		array($start, $pid));
+	exit(1);
 }
 
-// Fix issues with microtime skew
-usleep(1);
+$timeout = 99999999;
 
-if (read_config_option('remote_storage_method') == 1) {
-	$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
-		td.id AS thold_id, td.name_cache AS thold_name, td.local_graph_id,
-		td.percent_ds, td.expression, td.upper_ds, td.data_type, td.cdef, td.local_data_id,
-		td.data_template_rrd_id, td.lastread,
-		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
-		dtr.data_source_name AS name, dtr.data_source_type_id,
-		dtd.rrd_step, dtr.rrd_maximum
-		FROM plugin_thold_daemon_data AS tdd
-		INNER JOIN thold_data AS td
-		ON td.id = tdd.id
-		LEFT JOIN data_template_rrd AS dtr
-		ON dtr.id = td.data_template_rrd_id
-		LEFT JOIN data_template_data AS dtd
-		ON dtd.local_data_id = td.local_data_id
-		WHERE tdd.pid = ?
-		AND tdd.poller_id = ?
-		AND dtr.data_source_name != ''";
+if (!register_process_start('thold', 'child', $thread, $timeout)) {
+	$pid = db_fetch_cell_prepared('SELECT pid
+		FROM processes
+		WHERE tasktype = "thold"
+		AND taskname = "child"
+		AND taskid = ?',
+		array($thread));
 
-	$tholds = db_fetch_assoc_prepared($sql_query, array($pid, $config['poller_id']), false);
-} else {
-	$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
-		td.id AS thold_id, td.name_cache AS thold_name, td.local_graph_id,
-		td.percent_ds, td.expression, td.upper_ds, td.data_type, td.cdef, td.local_data_id,
-		td.data_template_rrd_id, td.lastread,
-		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
-		dtr.data_source_name AS name, dtr.data_source_type_id,
-		dtd.rrd_step, dtr.rrd_maximum
-		FROM plugin_thold_daemon_data AS tdd
-		INNER JOIN thold_data AS td
-		ON td.id = tdd.id
-		LEFT JOIN data_template_rrd AS dtr
-		ON dtr.id = td.data_template_rrd_id
-		LEFT JOIN data_template_data AS dtd
-		ON dtd.local_data_id = td.local_data_id
-		WHERE tdd.pid = ?
-		AND dtr.data_source_name != ''";
+	if ($config['cacti_server_os'] == 'unix') {
+        if (function_exists('posix_getpgid')) {
+            $running = posix_getpgid($pid);
+        } elseif (function_exists('posix_kill')) {
+            $running = posix_kill($pid, 0);
+        }
 
-	$tholds = db_fetch_assoc_prepared($sql_query, array($pid), false);
+		if ($running) {
+			exit(1);
+		} else {
+			unregister_process('thold', 'child', $thread);
+			register_process('thold', 'child', $thread, $timeout);
+		}
+    }
 }
 
-if (cacti_sizeof($tholds)) {
-	$rrd_reindexed = array();
-	$rrd_time_reindexed = array();
+db_close($cnn_id);
 
-	foreach ($tholds as $thold_data) {
-		thold_debug("Checking Threshold Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
+$cnn_id = thold_db_reconnect($cnn_id);
 
-		$item = array();
-		$rrd_reindexed[$thold_data['local_data_id']] = unserialize($thold_data['rrd_reindexed']);
-		$rrd_time_reindexed[$thold_data['local_data_id']] = $thold_data['rrd_time_reindexed'];
-		$currenttime = 0;
-		$currentval = thold_get_currentval($thold_data, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
+while(true) {
+	if (thold_db_connection()) {
+		// Fix issues with microtime skew
+		usleep(1);
 
-		switch ($thold_data['data_type']) {
-		case 0:
-			break;
-		case 1:
-			if ($thold_data['cdef'] != 0) {
-				$currentval = thold_build_cdef($thold_data['cdef'], $currentval, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
-			}
-			break;
-		case 2:
-			if ($thold_data['percent_ds'] != '') {
-				$currentval = thold_calculate_percent($thold_data, $currentval, $rrd_reindexed);
-			}
-			break;
-		case 3:
-			if ($thold_data['expression'] != '') {
-				$currentval = thold_calculate_expression($thold_data, $currentval, $rrd_reindexed, $rrd_time_reindexed);
-			}
-			break;
-		case 4:
-			if ($thold_data['upper_ds'] != '') {
-				$currentval = thold_calculate_lower_upper($thold_data, $currentval, $rrd_reindexed);
-			}
-			break;
-		}
+		$start_time = time();
 
-		if (is_numeric($currentval)) {
-			$currentval = round($currentval, 4);
+		$tholds = thold_get_thresholds_precheck($thread, $start_time);
+
+		thold_cli_debug(sprintf('Found %u Thresholds to Check', $tholds));
+
+		if (cacti_sizeof($tholds)) {
+			$rrd_reindexed      = array();
+			$rrd_time_reindexed = array();
+
+			foreach ($tholds as $thold_data) {
+				thold_cli_debug("Checking Threshold Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
+
+				$item = array();
+				$rrd_reindexed[$thold_data['local_data_id']] = unserialize($thold_data['rrd_reindexed']);
+				$rrd_time_reindexed[$thold_data['local_data_id']] = $thold_data['rrd_time_reindexed'];
+				$currenttime = 0;
+				$currentval = thold_get_currentval($thold_data, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
+
+				switch ($thold_data['data_type']) {
+				case 0:
+					break;
+				case 1:
+					if ($thold_data['cdef'] != 0) {
+						$currentval = thold_build_cdef($thold_data['cdef'], $currentval, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+					}
+					break;
+				case 2:
+					if ($thold_data['percent_ds'] != '') {
+						$currentval = thold_calculate_percent($thold_data, $currentval, $rrd_reindexed);
+					}
+					break;
+				case 3:
+					if ($thold_data['expression'] != '') {
+						$currentval = thold_calculate_expression($thold_data, $currentval, $rrd_reindexed, $rrd_time_reindexed);
+					}
+					break;
+				case 4:
+					if ($thold_data['upper_ds'] != '') {
+						$currentval = thold_calculate_lower_upper($thold_data, $currentval, $rrd_reindexed);
+					}
+					break;
+				}
+
+				if (is_numeric($currentval)) {
+					$currentval = round($currentval, 4);
+				} else {
+					$currentval = '';
+				}
+
+				if (isset($item[$thold_data['name']])) {
+					$lasttime = $item[$thold_data['name']];
+				} else {
+					$lasttime = $currenttime - $thold_data['rrd_step'];
+				}
+
+				if ($thold_data['data_type'] == 1 && !empty($thold_data['cdef'])) {
+					$lasttime = thold_build_cdef($thold_data['cdef'], $lasttime, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+				}
+
+				db_execute_prepared('UPDATE thold_data
+					SET tcheck = 1, lastread = ?, lasttime = ?, oldvalue = ?
+					WHERE id = ?',
+					array($currentval, date('Y-m-d H:i:s', $currenttime),  $lasttime, $thold_data['thold_id'])
+				);
+			}
+
+			$tholds = thold_get_thresholds_tholdcheck($thread, $start_time);
+
+			$total_tholds = cacti_sizeof($tholds);
+
+			if (cacti_sizeof($tholds)) {
+				foreach ($tholds as $thold) {
+					thold_check_threshold($thold);
+
+					db_execute_prepared('UPDATE thold_data
+						SET tcheck=0
+						WHERE id = ?',
+						array($thold['id'])
+					);
+				}
+			}
+
+			$end = microtime(true);
+
+			if (read_config_option('remote_storage_method') == 1) {
+				db_execute_prepared('DELETE ptdd
+					FROM plugin_thold_daemon_data AS ptdd
+					INNER JOIN thold_data AS td
+					ON ptdd.id = td.id
+					WHERE ptdd.poller_id = ?
+					AND td.thread_id = ?
+					AND ptdd.time <= ?',
+					array($config['poller_id'], $thread, $start_time));
+			} else {
+				db_execute_prepared('DELETE ptdd
+					FROM plugin_thold_daemon_data AS ptdd
+					INNER JOIN thold_data AS td
+					ON ptdd.id = td.id
+					WHERE ptdd.thread = ?
+					AND ptdd.time <= ?',
+					array($thread, $start_time));
+			}
 		} else {
-			$currentval = '';
-		}
+			sleep(5);
 
-		if (isset($item[$thold_data['name']])) {
-			$lasttime = $item[$thold_data['name']];
-		} else {
-			$lasttime = $currenttime - $thold_data['rrd_step'];
+			$cnn_id = thold_db_reconnect($cnn_id);
 		}
-
-		if ($thold_data['data_type'] == 1 && !empty($thold_data['cdef'])) {
-			$lasttime = thold_build_cdef($thold_data['cdef'], $lasttime, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
-		}
-
-		db_execute_prepared('UPDATE thold_data
-			SET tcheck = 1, lastread = ?, lasttime = ?, oldvalue = ?
-			WHERE id = ?',
-			array($currentval, date('Y-m-d H:i:s', $currenttime),  $lasttime, $thold_data['thold_id'])
-		);
+	} else {
+		thold_cli_debug('WARNING: Thold Database Connection Down.  Sleeping 30 Seconds');
+		sleep(30);
 	}
+}
+
+/**
+ * sig_handler - provides a generic means to catch exceptions to the Cacti log.
+ *
+ * @param $signo - (int) the signal that was thrown by the interface.
+ *
+ * @returns - null
+ */
+function sig_handler($signo) {
+	global $thread;
+
+	switch ($signo) {
+		case SIGTERM:
+		case SIGINT:
+			cacti_log('WARNING: Thold Sub Process terminated by user', FALSE, 'thold');
+			unregister_process('thold', 'child', $thread);
+
+			exit;
+			break;
+		default:
+			/* ignore all other signals */
+	}
+}
+
+function thold_get_thresholds_tholdcheck($thread, $start_time) {
+	global $config;
 
 	/* check all thresholds */
 	if (read_config_option('remote_storage_method') == 1) {
@@ -251,15 +290,15 @@ if (cacti_sizeof($tholds)) {
 			ON dtr.id = td.data_template_rrd_id
 			LEFT JOIN host as h
 			ON td.host_id = h.id
-			WHERE tdd.pid = ?
+			WHERE td.thread_id = ?
 			AND tdd.poller_id = ?
+			AND tdd.time <= ?
 			AND td.thold_enabled = 'on'
-			AND td.tcheck = 1 AND h.status=3";
+			AND td.tcheck = 1
+			AND h.status = 3";
 
-		$tholds = api_plugin_hook_function(
-			'thold_get_live_hosts',
-			db_fetch_assoc_prepared($sql_query,
-				array($pid, $config['poller_id']))
+		$tholds = api_plugin_hook_function('thold_get_live_hosts',
+			db_fetch_assoc_prepared($sql_query, array($thread, $config['poller_id'], $start_time))
 		);
 	} else {
 		$sql_query = "SELECT td.*, h.hostname,
@@ -271,52 +310,119 @@ if (cacti_sizeof($tholds)) {
 			ON dtr.id = td.data_template_rrd_id
 			LEFT JOIN host as h
 			ON td.host_id = h.id
-			WHERE tdd.pid = ?
+			WHERE td.thread_id = ?
+			AND tdd.time <= ?
 			AND td.thold_enabled = 'on'
-			AND td.tcheck = 1 AND h.status=3";
+			AND td.tcheck = 1
+			AND h.status = 3";
 
-		$tholds = api_plugin_hook_function(
-			'thold_get_live_hosts',
-			db_fetch_assoc_prepared($sql_query,
-				array($pid))
+		$tholds = api_plugin_hook_function('thold_get_live_hosts',
+			db_fetch_assoc_prepared($sql_query, array($thread, $start_time))
 		);
 	}
 
-	$total_tholds = sizeof($tholds);
-	if (cacti_sizeof($tholds)) {
-		foreach ($tholds as $thold) {
-			thold_check_threshold($thold);
-		}
-	}
+	return $tholds;
+}
 
-	db_execute_prepared('UPDATE thold_data
-		SET thold_data.thold_daemon_pid = "", tcheck=0
-		WHERE thold_data.thold_daemon_pid = ?',
-		array($pid)
-	);
-
-	$end = microtime(true);
+function thold_get_thresholds_precheck($thread, $start_time) {
+	global $config;
 
 	if (read_config_option('remote_storage_method') == 1) {
-		db_execute_prepared('DELETE FROM plugin_thold_daemon_data
-			WHERE pid = ?
-			AND poller_id = ?',
-			array($pid, $config['poller_id']));
+		$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
+			td.id AS thold_id, td.name_cache AS thold_name, td.local_graph_id,
+			td.percent_ds, td.expression, td.upper_ds, td.data_type, td.cdef, td.local_data_id,
+			td.data_template_rrd_id, td.lastread,
+			UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
+			dtr.data_source_name AS name, dtr.data_source_type_id,
+			dtd.rrd_step, dtr.rrd_maximum
+			FROM plugin_thold_daemon_data AS tdd
+			INNER JOIN thold_data AS td
+			ON td.id = tdd.id
+			LEFT JOIN data_template_rrd AS dtr
+			ON dtr.id = td.data_template_rrd_id
+			LEFT JOIN data_template_data AS dtd
+			ON dtd.local_data_id = td.local_data_id
+			WHERE td.thread_id = ?
+			AND tdd.poller_id = ?
+			AND tdd.time <= ?
+			AND dtr.data_source_name != ''";
 
-		db_execute_prepared('UPDATE plugin_thold_daemon_processes
-			SET start = ?, end = ?, processed_items = ?
-			WHERE pid = ?
-			AND poller_id = ?',
-			array($start, $end, $total_tholds, $pid, $config['poller_id']));
+		$tholds = db_fetch_assoc_prepared($sql_query, array($thread, $config['poller_id'], $start_time), false);
 	} else {
-		db_execute_prepared('DELETE FROM plugin_thold_daemon_data
-			WHERE pid = ?',
-			array($pid));
+		$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
+			td.id AS thold_id, td.name_cache AS thold_name, td.local_graph_id,
+			td.percent_ds, td.expression, td.upper_ds, td.data_type, td.cdef, td.local_data_id,
+			td.data_template_rrd_id, td.lastread,
+			UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
+			dtr.data_source_name AS name, dtr.data_source_type_id,
+			dtd.rrd_step, dtr.rrd_maximum
+			FROM plugin_thold_daemon_data AS tdd
+			INNER JOIN thold_data AS td
+			ON td.id = tdd.id
+			LEFT JOIN data_template_rrd AS dtr
+			ON dtr.id = td.data_template_rrd_id
+			LEFT JOIN data_template_data AS dtd
+			ON dtd.local_data_id = td.local_data_id
+			WHERE td.thread_id = ?
+			AND tdd.time <= ?
+			AND dtr.data_source_name != ''";
 
-		db_execute_prepared('UPDATE plugin_thold_daemon_processes
-			SET start = ?, end = ?, processed_items = ?
-			WHERE pid = ?',
-			array($start, $end, $total_tholds, $pid));
+		$tholds = db_fetch_assoc_prepared($sql_query, array($thread, $start_time), false);
+	}
+
+	return $tholds;
+}
+
+function thold_db_connection(){
+	global $cnn_id;
+
+	if (is_object($cnn_id)) {
+		// Avoid showing errors
+		restore_error_handler();
+		set_error_handler('thold_db_error_handler');
+
+		$cacti_version = db_fetch_cell('SELECT cacti FROM version');
+
+		// Restore Cacti's Error handler
+		restore_error_handler();
+		set_error_handler('CactiErrorHandler');
+
+		return is_null($cacti_version) ? false : true;
+	}
+
+	return false;
+}
+
+function thold_db_reconnect($cnn_id = null) {
+	chdir(dirname(__FILE__));
+
+	include('../../include/config.php');
+
+	if (is_object($cnn_id)) {
+		db_close($cnn_id);
+	}
+
+	// Avoid showing errors
+	restore_error_handler();
+	set_error_handler('thold_db_error_handler');
+
+	// Connect to the database server
+	$cnn_id = db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
+
+	// Restore Cacti's Error handler
+	restore_error_handler();
+	set_error_handler('CactiErrorHandler');
+
+	return $cnn_id;
+}
+
+function thold_cli_debug($string) {
+	global $debug;
+
+	if ($debug) {
+		$output = date('Y-m-d H:i:s') . ' DEBUG: ' . trim($string);
+
+		print $output . PHP_EOL;
 	}
 }
 
