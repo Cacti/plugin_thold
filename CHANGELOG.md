@@ -4,6 +4,18 @@
 
 * feature: Enhance thold daemon to work more efficiently
 
+* feature: Auto Enable the thold daemon on startup
+
+* feature: Keep track of running daemon processes and scale up/down automatically
+
+* feature: Make the thold daemon process/thread counter a dropdown
+
+* feature: Make the thold daemon children processes persistent
+
+* feature: Make the thold daemon properly pause in cases where the database is offline
+
+* feature: Properly execute signal handling from the parent to the children processes
+
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes 
