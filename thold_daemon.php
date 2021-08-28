@@ -41,6 +41,7 @@ chdir('../../');
 
 include_once('./include/cli_check.php');
 include_once($config['base_path'] . '/lib/poller.php');
+include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
 /* install signal handlers for Linux/UNIX only */
 if (function_exists('pcntl_signal')) {
@@ -286,10 +287,11 @@ function sig_handler($signo) {
 			}
 		}
 
-		cacti_log('WARNING: Thold Daemon Process (' . getmypid() . ') terminated by user', false, 'THOLD');
+		thold_cacti_log('WARNING: Thold Daemon Parent Process with PID[' . getmypid() . '] terminated by user', 0);
+
+		unregister_process('thold', 'parent', 0);
 
 		exit;
-
 	default:
 		/* ignore all other signals */
 	}

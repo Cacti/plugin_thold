@@ -284,7 +284,7 @@ function sig_handler($signo) {
 	switch ($signo) {
 		case SIGTERM:
 		case SIGINT:
-			cacti_log('WARNING: Thold Sub Process terminated by user', FALSE, 'thold');
+			thold_cacti_log('WARNING: Thold Daemon Child Process with PID[' . getmypid() . '] terminated by user', $thread);
 			unregister_process('thold', 'child', $thread);
 
 			exit;

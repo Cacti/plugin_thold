@@ -16,6 +16,8 @@
 
 * feature: Properly execute signal handling from the parent to the children processes
 
+* feature: Implement thold daemon debugging from the settings page
+
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes 
