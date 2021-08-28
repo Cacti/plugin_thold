@@ -169,16 +169,13 @@ sleep(2);
 $cnn_id = thold_db_reconnect($cnn_id);
 
 $processes = read_config_option('thold_max_concurrent_processes');
-$path_php  = read_config_option('path_php_binary');
 
 thold_prime_distribution($processes);
 
 thold_cli_debug('Forking Thold Daemon Child Processes');
 
 for($i = 1; $i <= $processes; $i++) {
-	$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --thread=' . $i . ' > /dev/null';
-	thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
-	exec_background($path_php, $process);
+	thold_launch_worker($i);
 }
 
 $prev_running = false;
@@ -330,10 +327,24 @@ function thold_db_reconnect($cnn_id = null) {
 	return $cnn_id;
 }
 
-function thold_heartbeat_processes($processes, $new_processes) {
-	global $config;
+function thold_launch_worker($thread) {
+	global $config, $debug;
 
 	$path_php  = read_config_option('path_php_binary');
+
+	$process = '-q ' . $config['base_path'] .
+		'/plugins/thold/thold_process.php ' .
+		' --thread=' . $thread              .
+		($debug ? ' --debug':'')            .
+		' > /dev/null';
+
+	thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
+
+	exec_background($path_php, $process);
+}
+
+function thold_heartbeat_processes($processes, $new_processes) {
+	global $config;
 
 	$procs = db_fetch_assoc('SELECT *
 		FROM processes
@@ -351,9 +362,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 			if ($process_num - 1 != $p['taskid']) {
 				thold_cli_debug(sprintf('WARNING: Detected Crashed Thold Thread.  Relaunching Crashed Thread %s', $process_num - 1));
 
-				$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --thread=' . ($process_num -1) . ' > /dev/null';
-				thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
-				exec_background($path_php, $process);
+				thold_launch_worker($process_num -1);
 
 				$running_processes++;
 			}
@@ -366,11 +375,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 
 				posix_kill($p['pid'], SIGTERM);
 
-				$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --thread=' . $p['taskid'] . ' > /dev/null';
-
-				thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
-
-				exec_background($path_php, $process);
+				thold_launch_worker($p['taskid']);
 			}
 		}
 
@@ -411,9 +416,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 			while($running_processes < $new_processes) {
 				$running_processes++;
 
-				$process = '-q ' . $config['base_path'] . '/plugins/thold/thold_process.php --thread=' . $running_processes . ' > /dev/null';
-				thold_cli_debug('Starting Process: ' . $path_php . ' -q ' . $process);
-				exec_background($path_php, $process);
+				thold_launch_worker($running_processes);
 			}
 		}
 	}
