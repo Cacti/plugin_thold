@@ -345,7 +345,7 @@ function thold_launch_worker($thread) {
 
 	$path_php  = read_config_option('path_php_binary');
 
-	$process = '-q ' . $config['base_path'] .
+	$process =  $config['base_path'] .
 		'/plugins/thold/thold_process.php ' .
 		' --thread=' . $thread              .
 		($debug ? ' --debug':'')            .
