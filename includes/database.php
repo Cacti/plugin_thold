@@ -1397,7 +1397,7 @@ function thold_upgrade_database($force = false) {
 		}
 
 		if (!db_column_exists('thold_data', 'thread_id')) {
-			db_execute('ALTER TALBE thold_data
+			db_execute('ALTER TABLE thold_data
 				ADD COLUMN thread_id int UNSIGNED NOT NULL default "0" AFTER id');
 		}
 

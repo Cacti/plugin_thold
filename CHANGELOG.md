@@ -18,6 +18,8 @@
 
 * feature: Implement thold daemon debugging from the settings page
 
+* issue#523: Fix misspelled SQL statement
+
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes 
