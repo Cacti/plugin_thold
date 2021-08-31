@@ -217,8 +217,9 @@ function thold_poller_output(&$rrd_update_array) {
 	if ($local_data_ids != '') {
 		if (read_config_option('thold_daemon_enable') == 'on') {
 			$chunks = sizeof($rrd_update_array) / 50;
-			if ($chunks < 1)
+			if ($chunks < 1) {
 				$chunks = 1;
+			}
 
 			$rrd_update_array_chunks = array_chunk($rrd_update_array, $chunks, true);
 
@@ -348,7 +349,7 @@ function thold_poller_output(&$rrd_update_array) {
 				$rawvalue = $thold_data['oldvalue'];
 			}
 
-			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', ' . db_qstr(date('Y-m-d H:i:s', $currenttime)) . ', ' . db_qstr($rawvalue) . ')';
+			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', FROM_UNIXTIME(' . $currenttime . '), ' . db_qstr($rawvalue) . ')';
 		}
 
 		if (cacti_sizeof($sql)) {

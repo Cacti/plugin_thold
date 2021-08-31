@@ -22,9 +22,11 @@
 
 * issue#523: Fix misspelled SQL statement
 
+* issue#525: Thold Daemon improperly adjust the thold by it's cdef twice
+
 --- 1.5.3 ---
 
-* issue#463: php error - undefined index dnotes 
+* issue#463: php error - undefined index dnotes
 
 * issue#467: The thold cdef processing function does not handle non-numeric data correctly
 
@@ -44,9 +46,9 @@
 
 * feature#469: use thold template name as filename for single export
 
-* feature#481: SNMP event description can be defined individually or template based. 
+* feature#481: SNMP event description can be defined individually or template based.
 
-* issue#510: Searching in Notify lists doesnt filter result 
+* issue#510: Searching in Notify lists doesnt filter result
 
 * issue#511: Fix missing variable validation
 

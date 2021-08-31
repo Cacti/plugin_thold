@@ -767,8 +767,6 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 						}
 					}
 
-					$currentval = $currentval / $step;
-
 					if (strpos($thold_data['rrd_maximum'], '|query_') !== false) {
 						$data_local = db_fetch_row_prepared('SELECT *
 							FROM data_local
@@ -799,6 +797,8 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 						$currentval = $item[$thold_data['name']] / $step;
 					} elseif ($thold_data['rrd_maximum'] == 0 && $currentval > 4.25E+9) {
 						$currentval = $item[$thold_data['name']] / $step;
+					} else {
+						$currentval = $currentval / $step;
 					}
 				} else {
 					$currentval = 0;
