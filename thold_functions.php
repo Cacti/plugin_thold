@@ -3719,7 +3719,7 @@ function thold_modify_values_by_cdef(&$thold_data) {
 			array($thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']));
 	}
 
-	if ($cdef !== false && $cdef > 0) {
+	if ($cdef !== false && $cdef > 0 && $thold_data['data_type'] == 1) {
 		$thold_data['lastread']  = thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 
 		if ($thold_data['thold_type'] == 0) {
@@ -4090,6 +4090,7 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 			// this is a binary operation. pop two values, and then use them.
 			$v1 = thold_expression_rpn_pop($stack);
 			$v2 = thold_expression_rpn_pop($stack);
+
 			$result = thold_rpn($v2['value'], $v1['value'], $cdef_array[$cursor]['value']);
 
 			// put the result back on the stack.
@@ -4319,7 +4320,7 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 		} elseif ($thold_data['thold_low'] && $current_value < $thold_data['thold_low']) {
 			$failed = 1;
 		} else {
-			$failed= 0;
+			$failed = 0;
 		}
 	} else {
 		$midnight =  gmmktime(0,0,0);

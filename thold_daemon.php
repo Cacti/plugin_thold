@@ -345,13 +345,13 @@ function thold_launch_worker($thread) {
 
 	$path_php  = read_config_option('path_php_binary');
 
-	$process =  $config['base_path'] .
+	$process   = $config['base_path']       .
 		'/plugins/thold/thold_process.php ' .
 		' --thread=' . $thread              .
 		($debug ? ' --debug':'')            .
 		' > /dev/null';
 
-	thold_daemon_debug('Starting Process: ' . $path_php . ' -q ' . $process);
+	thold_daemon_debug('Starting Process: ' . $path_php . ' ' . $process);
 
 	exec_background($path_php, $process);
 }
@@ -383,7 +383,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 			// Check for hung processes next
 			$lastupdate = strtotime($p['last_update']);
 			$now        = time();
-			if ($lastupdate + 120 > $now) {
+			if ($lastupdate + 120 < $now) {
 				thold_daemon_debug(sprintf('WARNING: Detected Hung Thold Thread.  Killing/Relaunching Hung Thread %s', $p['taskid']));
 
 				posix_kill($p['pid'], SIGTERM);

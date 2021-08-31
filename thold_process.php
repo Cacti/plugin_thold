@@ -176,7 +176,7 @@ while (true) {
 				case 0:
 					break;
 				case 1:
-					if ($thold_data['cdef'] != 0) {
+					if ($thold_data['cdef'] > 0) {
 						$currentval = thold_build_cdef($thold_data['cdef'], $currentval, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 					}
 					break;
