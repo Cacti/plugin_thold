@@ -438,25 +438,6 @@ function thold_heartbeat_processes($processes, $new_processes) {
 function thold_prime_distribution($processes, $truncate = false) {
 	thold_daemon_debug('Rebalancing Thread Allocation by Device');
 
-	// Perform column checks
-	if (db_column_exists('thold_data', 'thold_daemon_pid')) {
-		db_execute('ALTER TABLE thold_data DROP COLUMN thold_daemon_pid');
-	}
-
-	if (!db_column_exists('thold_data', 'thread_id')) {
-		db_execute('ALTER TABLE thold_data
-			ADD COLUMN thread_id int UNSIGNED NOT NULL default "0" AFTER id');
-	}
-
-	if (!db_column_exists('plugin_thold_daemon_data', 'time')) {
-		db_execute('ALTER TABLE plugin_thold_daemon_data
-			ADD COLUMN time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP');
-	}
-
-	if (db_column_exists('plugin_thold_daemon_data', 'pid')) {
-		db_execute('ALTER TABLE plugin_thold_daemon_data DROP COLUMN pid');
-	}
-
 	if ($truncate) {
 		db_execute('UPDATE thold_data SET thread_id = 0');
 	}
