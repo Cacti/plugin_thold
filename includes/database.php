@@ -1540,7 +1540,6 @@ function thold_setup_database() {
 	$data['keys'][] = array('name' => 'thold_enabled', 'columns' => 'thold_enabled');
 	$data['keys'][] = array('name' => 'template_enabled', 'columns' => 'template_enabled');
 	$data['keys'][] = array('name' => 'tcheck', 'columns' => 'tcheck');
-	$data['keys'][] = array('name' => 'thold_daemon_pid', 'columns' => 'thold_daemon_pid');
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'Threshold data';
 	api_plugin_db_table_create('thold', 'thold_data', $data);
