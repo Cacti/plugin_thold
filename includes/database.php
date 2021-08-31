@@ -1713,6 +1713,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'thread_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'rrd_reindexed', 'type' => 'varchar(600)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'rrd_time_reindexed', 'type' => 'int(10)', 'unsigned' => true, 'NULL' => false);
+	$data['columns'][] = array('name' => 'time', 'type' => 'timestamp', 'default' => 'CURRENT_TIMESTAMP', 'NULL' => false);
 
 	$data['keys'][]    = array('name' => 'id', 'columns' => 'id`, `thread_id');
 	$data['type']      = 'InnoDB';
