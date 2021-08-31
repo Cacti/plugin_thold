@@ -634,6 +634,12 @@ function thold_upgrade_database($force = false) {
 			'unsigned' => true,
 			'NULL'     => false);
 
+		$data['columns'][] = array(
+			'name'     => 'time',
+			'type'     => 'timestamp',
+			'NULL'     => false,
+			'default'  => 'CURRENT_TIMESTAMP');
+
 		$data['keys'][]  = array('name' => 'id', 'columns' => 'id`, `pid');
 		$data['type']    = 'InnoDB';
 		$data['comment'] = 'Table of Poller Outdata needed for queued daemon processes';
