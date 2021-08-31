@@ -3409,7 +3409,7 @@ function thold_expand_string($thold_data, $string) {
 			}
 
 			if (strpos($str, '|query_') !== false) {
-				cacti_log("WARNING: Expression Replacement for '$str' in THold '" . $thold['thold_name'] . "' Failed, A Reindex may be required!");
+				cacti_log("WARNING: Expression Replacement for '$str' in THold '" . $thold_data['thold_name'] . "' Failed, A Reindex may be required!");
 			}
 		}
 
