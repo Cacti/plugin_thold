@@ -157,8 +157,6 @@ while (true) {
 			thold_daemon_debug('Getting current values and normalizing multi-item Data Sources for Thresholds', $thread);
 
 			foreach ($tholds as $thold_data) {
-				thold_daemon_debug(sprintf('Checking Threshold Name: %s, Graph %s', $thold_data['thold_name'], $thold_data['local_graph_id']), $thread);
-
 				$item = array();
 
 				if (substr($thold_data['rrd_reindexed'], 0, 1) == 'a') {
@@ -209,9 +207,11 @@ while (true) {
 					$lasttime = $currenttime - $thold_data['rrd_step'];
 				}
 
+				thold_daemon_debug(sprintf('Checked Name:%s, Graph:%s, Value:%s, Time:%s', $thold_data['thold_name'], $thold_data['local_graph_id'], $currentval, $currenttime), $thread);
+
 				db_execute_prepared('UPDATE thold_data
-					SET tcheck = 1, lastread = FROM_UNIXTIME(?),
-					lasttime = ?, oldvalue = ?
+					SET tcheck = 1, lastread = ?,
+					lasttime = FROM_UNIXTIME(?), oldvalue = ?
 					WHERE id = ?',
 					array($currentval, $currenttime, $lasttime, $thold_data['thold_id'])
 				);
