@@ -234,9 +234,9 @@ while (true) {
 			$new_processes = read_config_option('thold_max_concurrent_processes', true);
 
 			if ($new_processes != $processes) {
-				thold_prime_distribution($processes, true);
+				thold_prime_distribution($new_processes, true);
 			} else {
-				thold_prime_distribution($processes);
+				thold_prime_distribution($new_processes);
 			}
 
 			thold_heartbeat_processes($processes, $new_processes);
@@ -439,7 +439,9 @@ function thold_heartbeat_processes($processes, $new_processes) {
 function thold_prime_distribution($processes, $truncate = false) {
 	thold_daemon_debug('Rebalancing Thread Allocation by Device');
 
-	if ($truncate) {
+	$seen_processes = db_fetch_cell('SELECT COUNT(DISTINCT thread_id) FROM thold_data');
+
+	if ($truncate || $seen_processes != $processes) {
 		db_execute('UPDATE thold_data SET thread_id = 0');
 	}
 
