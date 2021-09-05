@@ -18,6 +18,8 @@
 
 * feature: Implement thold daemon debugging from the settings page
 
+* feature: Properly implement thold_error_handler
+
 * issue#522: Incorrect variable name for threshold
 
 * issue#523: Fix misspelled SQL statement

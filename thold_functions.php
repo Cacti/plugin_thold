@@ -6298,3 +6298,45 @@ function validate_template_import_columns($template) {
 	return true;
 }
 
+function thold_error_handler($errno, $errmsg, $filename, $linenum, $vars = []) {
+	if (read_config_option('log_verbosity') >= POLLER_VERBOSITY_DEBUG) {
+		/* define all error types */
+		$errortype = array(
+			E_ERROR             => 'Error',
+			E_WARNING           => 'Warning',
+			E_PARSE             => 'Parsing Error',
+			E_NOTICE            => 'Notice',
+			E_CORE_ERROR        => 'Core Error',
+			E_CORE_WARNING      => 'Core Warning',
+			E_COMPILE_ERROR     => 'Compile Error',
+			E_COMPILE_WARNING   => 'Compile Warning',
+			E_USER_ERROR        => 'User Error',
+			E_USER_WARNING      => 'User Warning',
+			E_USER_NOTICE       => 'User Notice',
+			E_STRICT            => 'Runtime Notice'
+		);
+
+		if (defined('E_RECOVERABLE_ERROR')) {
+			$errortype[E_RECOVERABLE_ERROR] = 'Catchable Fatal Error';
+		}
+
+		if (defined('E_DEPRECATED')) {
+			$errortype[E_DEPRECATED] = 'Deprecated Warning';
+		}
+
+		/* create an error string for the log */
+		$err = "ERRNO:'"  . $errno   . "' TYPE:'"    . $errortype[$errno] .
+			"' MESSAGE:'" . $errmsg  . "' IN FILE:'" . $filename .
+			"' LINE NO:'" . $linenum . "'";
+
+		/* let's ignore some lesser issues */
+		if (substr_count($errmsg, 'date_default_timezone')) return;
+		if (substr_count($errmsg, 'Only variables')) return;
+
+		/* log the error to the Cacti log */
+		cacti_log('PROGERR: ' . $err, false, 'THOLD');
+	}
+
+	return;
+}
+

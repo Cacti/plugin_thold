@@ -404,7 +404,7 @@ function thold_db_connection(){
 	if (is_object($cnn_id)) {
 		// Avoid showing errors
 		restore_error_handler();
-		set_error_handler('thold_db_error_handler');
+		set_error_handler('thold_error_handler');
 
 		$cacti_version = db_fetch_cell('SELECT cacti FROM version');
 
@@ -429,7 +429,7 @@ function thold_db_reconnect($cnn_id = null) {
 
 	// Avoid showing errors
 	restore_error_handler();
-	set_error_handler('thold_db_error_handler');
+	set_error_handler('thold_error_handler');
 
 	// Connect to the database server
 	$cnn_id = db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
