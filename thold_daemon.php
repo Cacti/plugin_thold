@@ -213,7 +213,8 @@ while (true) {
 
 			$tholds = db_fetch_cell('SELECT COUNT(*) FROM thold_data WHERE thold_enabled = "on"');
 
-			thold_daemon_debug(sprintf('Detected Cacti Poller End.  TotalTholds:%u StartItems:%u, EndItems:%u', $tholds, $start_items, $end_items));
+			thold_daemon_debug(sprintf('Detected Cacti Poller End at %s.', date('Y-m-d H:i:s')));
+			thold_daemon_debug(sprintf('TotalTholds:%u StartingTholds:%u, EndingTholds:%u', $tholds, $start_items, $end_items));
 
 			$end = microtime(true);
 
