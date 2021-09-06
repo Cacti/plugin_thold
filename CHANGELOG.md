@@ -26,6 +26,8 @@
 
 * issue#525: Thold Daemon improperly adjust the thold by it's cdef twice
 
+* issue#527: When removing a threshold, thold should remove daemon data related to it
+
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes

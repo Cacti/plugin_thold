@@ -4181,6 +4181,10 @@ function thold_api_thold_remove($id) {
 	db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
 		WHERE thold_id = ?',
 		array($id));
+
+	db_execute_prepared('DELETE FROM plugin_thold_daemon_data
+		WHERE id = ?',
+		array($id));
 }
 
 function thold_api_thold_template_remove($id) {
@@ -4193,7 +4197,7 @@ function thold_api_thold_template_remove($id) {
 		array($id));
 
 	db_execute_prepared('UPDATE thold_data
-		SET thold_template_id=0, template_enabled=""
+		SET thold_template_id = 0, template_enabled = ""
 		WHERE thold_template_id = ?',
 		array($id));
 }
