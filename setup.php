@@ -702,6 +702,8 @@ function thold_device_action_prepare($save) {
 			<div class='itemlist'><ul>" . $save['host_list'] . "</ul></div>
 		</td>
 	</tr>";
+
+	return $save;
 }
 
 function thold_device_action_array($device_action_array) {

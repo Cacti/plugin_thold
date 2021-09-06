@@ -20,6 +20,8 @@
 
 * feature: Properly implement thold_error_handler
 
+* issue#520: When applying threshold from Devices Page they are not applied.
+
 * issue#522: Incorrect variable name for threshold
 
 * issue#523: Fix misspelled SQL statement
