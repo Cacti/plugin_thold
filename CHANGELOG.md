@@ -30,6 +30,8 @@
 
 * issue#527: When removing a threshold, thold should remove daemon data related to it
 
+* issue#529: Undefined index: thold_name in thold_functions.php on line: 3412
+
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes

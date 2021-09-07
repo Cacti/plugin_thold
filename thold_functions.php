@@ -994,7 +994,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 		$cursor++;
 
 		if ($rpn_error) {
-			cacti_log("ERROR: RPN Expression is invalid! THold:'" . $thold['thold_name'] . "', Value:'" . $currentval . "', Expression:'" . $thold['expression'] . "', Processed:'" . implode(',', $processed_expression) . "'", false, 'THOLD');
+			cacti_log("ERROR: RPN Expression is invalid! THold:'" . $thold['name'] . "', Value:'" . $currentval . "', Expression:'" . $thold['expression'] . "', Processed:'" . implode(',', $processed_expression) . "'", false, 'THOLD');
 			return 0;
 		}
 	}
@@ -3409,7 +3409,7 @@ function thold_expand_string($thold_data, $string) {
 			}
 
 			if (strpos($str, '|query_') !== false) {
-				cacti_log("WARNING: Expression Replacement for '$str' in THold '" . $thold_data['thold_name'] . "' Failed, A Reindex may be required!");
+				cacti_log("WARNING: Expression Replacement for '$str' in THold '" . $thold_data['name'] . "' Failed, A Reindex may be required!");
 			}
 		}
 
