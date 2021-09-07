@@ -20,6 +20,8 @@
 
 * feature: Properly implement thold_error_handler
 
+* issue#515: Security[CSRF]: thold.php use the value of the "Referer" header without validation
+
 * issue#517: notification list page formatting not correct
 
 * issue#520: When applying threshold from Devices Page they are not applied.
