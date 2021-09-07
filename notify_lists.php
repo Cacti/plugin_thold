@@ -2005,13 +2005,16 @@ function lists() {
 
 	if (cacti_sizeof($lists)) {
 		foreach ($lists as $item) {
+			// Add wrappable characters to emails
+			$item['emails'] = implode(', ', explode(',', $item['emails']));
+
 			form_alternate_row('line' . $item['id'], true);
-			form_selectable_cell(filter_value($item['name'], get_request_var('rfilter'), 'notify_lists.php?action=edit&id=' . $item['id']), $item['id'], '20%','badclass');
-			form_selectable_cell(filter_value($item['hosts'], get_request_var('rfilter'), 'notify_lists.php?tab=hosts&action=edit&id='.$item['id']), $item['id'], '5%','badclass');
-			form_selectable_cell(filter_value('Warn: '.$item['thold_warnings'].', Alert: '.$item['thold_alerts'] , get_request_var('rfilter'), 'notify_lists.php?tab=tholds&action=edit&id='.$item['id']), $item['id'], '10%');
-			form_selectable_cell(filter_value('Warn: '.$item['template_warnings'].', Alert: '.$item['template_alerts'] , get_request_var('rfilter'), 'notify_lists.php?tab=templates&action=edit&id='.$item['id']), $item['id'], '10%','badclass');
-			form_selectable_cell(filter_value($item['description'], get_request_var('rfilter')), $item['id'], '25%','badclass');
-			form_selectable_cell(filter_value($item['emails'], get_request_var('rfilter')), $item['id'], '45%','badclass');
+			form_selectable_cell(filter_value($item['name'], get_request_var('rfilter'), 'notify_lists.php?action=edit&id=' . $item['id']), $item['id']);
+			form_selectable_cell(filter_value($item['hosts'], get_request_var('rfilter'), 'notify_lists.php?tab=hosts&action=edit&id='.$item['id']), $item['id']);
+			form_selectable_cell(filter_value('Warn: '.$item['thold_warnings'].', Alert: '.$item['thold_alerts'] , get_request_var('rfilter'), 'notify_lists.php?tab=tholds&action=edit&id='.$item['id']), $item['id']);
+			form_selectable_cell(filter_value('Warn: '.$item['template_warnings'].', Alert: '.$item['template_alerts'] , get_request_var('rfilter'), 'notify_lists.php?tab=templates&action=edit&id='.$item['id']), $item['id']);
+			form_selectable_cell(filter_value($item['description'], get_request_var('rfilter')), $item['id'], '', 'wrap');
+			form_selectable_cell(filter_value($item['emails'], get_request_var('rfilter')), $item['id'], '', 'white-space:pre-wrap');
 			form_checkbox_cell($item['name'], $item['id']);
 			form_end_row();
 		}

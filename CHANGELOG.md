@@ -20,6 +20,8 @@
 
 * feature: Properly implement thold_error_handler
 
+* issue#517: notification list page formatting not correct
+
 * issue#520: When applying threshold from Devices Page they are not applied.
 
 * issue#522: Incorrect variable name for threshold
