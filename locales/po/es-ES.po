@@ -4,23 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
-"PO-Revision-Date: 2020-09-13 14:54-0400\n"
-"Last-Translator: Javier Pobeda <javier.pobeda@pm.me>\n"
-"Language-Team: Spanish <http://translate.cacti.net/projects/cacti/thold/es-ES/>\n"
-"Language: es_ES\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.4.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2021-09-22 14:09+0000\nLast-Translator: Tadeo Briceño <tadeobriceno@vencable.com>\nLanguage-Team: Spanish <http://translate.cacti.net/projects/cacti/thold/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.3.2\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
-msgstr "Por tiempo indefinido"
+msgstr "Indefinidamente"
 
 #: includes/arrays.php:27 includes/arrays.php:317 includes/arrays.php:349
 #: includes/arrays.php:394 includes/arrays.php:415
@@ -259,9 +247,9 @@ msgid "Every Day"
 msgstr "Todos los días"
 
 #: includes/arrays.php:289 includes/arrays.php:370
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Days"
-msgstr "Cada %d dias"
+msgstr "Cada %d días"
 
 #: includes/arrays.php:290 includes/arrays.php:371
 msgid "Every Week"
@@ -340,9 +328,9 @@ msgid "%d Weeks"
 msgstr "%d semanas"
 
 #: includes/arrays.php:341
-#, fuzzy, php-format
+#, php-format
 msgid "%0.1f Hours"
-msgstr "0.1f Horas"
+msgstr "%0.1f Horas"
 
 #: includes/arrays.php:422
 #, fuzzy
@@ -416,7 +404,7 @@ msgstr "Bytes superiores + inferiores"
 
 #: includes/arrays.php:496
 msgid "Acknowledge"
-msgstr "Aceptar"
+msgstr "Reconocido"
 
 #: includes/arrays.php:497
 #, fuzzy
@@ -466,7 +454,7 @@ msgstr "No usa SNMP"
 #: thold_graph.php:970 thold_graph.php:971 thold_graph.php:1394
 #: thold_graph.php:1395
 msgid "N/A"
-msgstr "N/D"
+msgstr "n/d"
 
 #: includes/polling.php:667
 #, fuzzy
@@ -485,7 +473,7 @@ msgstr "Error de dispositivos: <DESCRIPCIÓN> (<NOMBRE DE HOSTALIZACIÓN>) es AB
 
 #: includes/polling.php:824 includes/polling.php:840
 msgid "DOWN"
-msgstr "ABAJO"
+msgstr "Caído"
 
 #: includes/polling.php:830
 #, fuzzy
@@ -501,13 +489,12 @@ msgid "Thresholds"
 msgstr "Umbrales"
 
 #: includes/settings.php:36
-#, fuzzy
 msgid "(actions)"
-msgstr "Acciones"
+msgstr "(acciones)"
 
 #: includes/settings.php:43
 msgid "(edit)"
-msgstr "(editar)"
+msgstr "(Editar)"
 
 #: includes/settings.php:50
 #, fuzzy
@@ -515,9 +502,8 @@ msgid "(save)"
 msgstr "Guardar"
 
 #: includes/settings.php:57
-#, fuzzy
 msgid "(add)"
-msgstr "Agregar un motivo para esta entrada."
+msgstr "(añadir)"
 
 #: includes/settings.php:84
 #, fuzzy
@@ -851,9 +837,9 @@ msgid "If the Thold Daemon is found to be down, send out an Email notification a
 msgstr "Si se encuentra que Thold Daemon está inactivo, envíe una notificación por correo electrónico con esta frecuencia."
 
 #: includes/settings.php:469
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hour"
-msgstr "Cada %d horas"
+msgstr "Cada %d hora"
 
 #: includes/settings.php:475
 #, fuzzy
@@ -867,7 +853,7 @@ msgstr "El número máximo de procesos simultáneos que puede manejar el demonio
 
 #: includes/settings.php:483
 msgid "Logging"
-msgstr "Logging"
+msgstr "Inicio de sesión"
 
 #: includes/settings.php:487
 #, fuzzy
@@ -1073,9 +1059,8 @@ msgid "Send Emails with Urgent Priority"
 msgstr "Enviar correos electrónicos con prioridad urgente"
 
 #: includes/settings.php:629
-#, fuzzy
 msgid "Allows you to set Emails with urgent priority"
-msgstr "Le permite establecer correos electrónicos con prioridad urgente."
+msgstr "Le permite establecer correos electrónicos con prioridad urgente"
 
 #: includes/settings.php:634
 #, fuzzy
@@ -1261,9 +1246,8 @@ msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong
 msgstr "Se ha emitido una alerta que requiere su atención. <br><br><fuerte>Dispositivo</fuerte>: <DESCRIPCIÓN> (<NOMBRE>)<br><fuerte>URL</fuerte>: <URL><br><fuerte>Mensaje</fuerte>: <TEMA><br><br><br><GRÁFICOS>"
 
 #: includes/tab.php:33
-#, fuzzy
 msgid "Thold"
-msgstr "Si la latencia a través de cualquiera de los método de ping predefinido en Cacti se eleva por encima de este umbral, registre una advertencia o envíe un correo basado en la configuración de criticidad y opciones de Monitoreo. La unidad se configura en milisegundos. Especificar 0 lo deshabilita. El Plugin Thold es requerido para aprovechar esta funcionalidad."
+msgstr "Thold"
 
 #: notify_lists.php:32
 msgid "Duplicate"
@@ -1275,7 +1259,7 @@ msgstr "Asociado"
 
 #: notify_lists.php:37
 msgid "Disassociate"
-msgstr "socio"
+msgstr "Desasociar"
 
 #: notify_lists.php:43 notify_lists.php:1000 notify_lists.php:1123
 #: notify_lists.php:1996 thold_graph.php:821 thold_graph.php:1071
@@ -1389,9 +1373,9 @@ msgid "Disassociate Notification List(s)"
 msgstr "Lista(s) de notificaciones de disociación"
 
 #: notify_lists.php:642
-#, fuzzy, php-format
+#, php-format
 msgid "%s Threshold(s)"
-msgstr "Umbral(es)"
+msgstr "%s Umbral(es)"
 
 #: notify_lists.php:648
 #, fuzzy, php-format
@@ -1429,9 +1413,8 @@ msgid "Device Threshold Warning Membership:"
 msgstr "Membresía de Advertencia:"
 
 #: notify_lists.php:722 notify_lists.php:735
-#, fuzzy
 msgid "Device Threshold Alert Membership:"
-msgstr "Mensaje de alerta de umbral"
+msgstr "Membresía del umbral de alerta del dispositivo:"
 
 #: notify_lists.php:730
 #, fuzzy, php-format
@@ -1479,7 +1462,7 @@ msgstr "Introduzca una descripción para esta Lista de avisos."
 
 #: notify_lists.php:850
 msgid "Email Addresses"
-msgstr "Correos electrónicos"
+msgstr "Direcciones de correo"
 
 #: notify_lists.php:851
 #, fuzzy
@@ -1525,7 +1508,7 @@ msgstr "Tipo"
 #: notify_lists.php:1910 thold.php:713 thold_graph.php:225 thold_graph.php:1075
 #: thold_graph.php:1516 thold_templates.php:1875
 msgid "Default"
-msgstr "Por defecto"
+msgstr "Predeterminado"
 
 #: notify_lists.php:1017 notify_lists.php:1339 notify_lists.php:1603
 msgid "Associated"
@@ -1570,7 +1553,7 @@ msgstr "Gráficos"
 
 #: notify_lists.php:1137 thold_graph.php:853
 msgid "Data Sources"
-msgstr "Data Sources"
+msgstr "Fuentes de datos"
 
 #: notify_lists.php:1138 setup.php:1238 thold.php:696 thold_graph.php:208
 #: thold_graph.php:859 thold_graph.php:1027 thold_graph.php:1497
@@ -1592,7 +1575,6 @@ msgid "Current and Global List(s)"
 msgstr "Lista(s) actual(es) y mundial(es)"
 
 #: notify_lists.php:1183
-#, fuzzy
 msgid "No Associated Devices Found"
 msgstr "No se encontraron dispositivos asociados"
 
@@ -1719,7 +1701,7 @@ msgstr "Nombre de Lista"
 
 #: notify_lists.php:2000
 msgid "Emails"
-msgstr "Emails"
+msgstr "Correos electrónicos"
 
 #: notify_lists.php:2017
 #, fuzzy
@@ -1732,7 +1714,7 @@ msgstr "Apagado"
 
 #: setup.php:240
 msgid "On"
-msgstr "Activado"
+msgstr "Encendido"
 
 #: setup.php:240
 #, fuzzy, php-format
@@ -1755,14 +1737,14 @@ msgid "Alert Low for %s (%s)"
 msgstr "Alerta baja para %s ( %s)"
 
 #: setup.php:542 setup.php:552
-#, fuzzy, php-format
+#, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Listas de advertencia"
+msgstr "Advertencia Alta para %s (%s)"
 
 #: setup.php:546 setup.php:557
-#, fuzzy, php-format
+#, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "Listas de advertencia"
+msgstr "Advertencia baja para %s (%s)"
 
 #: setup.php:577 setup.php:591
 #, fuzzy
@@ -1855,9 +1837,8 @@ msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "Los siguientes Gráficos no tienen Plantillas de Umbral asociadas con ellos"
 
 #: setup.php:1117
-#, fuzzy
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr "Pulse 'Continuar' si desea crear Umbrales para estos Gráficos."
+msgstr "Pulse 'Continuar' si desea crear umbrales para estos gráficos"
 
 #: setup.php:1144
 #, fuzzy
@@ -2083,9 +2064,8 @@ msgid "In State"
 msgstr "Hace"
 
 #: thold.php:831 thold_graph.php:471
-#, fuzzy
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "La cantidad de tiempo que la fuente de datos debe estar en violación del Umbral para que se produzca una advertencia."
+msgstr "La cantidad de tiempo que ha pasado desde que el umbral fue traspasado o alcanzado"
 
 #: thold.php:842 thold_graph.php:477
 #, fuzzy
@@ -2093,14 +2073,13 @@ msgid "Acknowledgment required for this Threshold"
 msgstr "Reconocimiento requerido para este Umbral"
 
 #: thold.php:969 thold_graph.php:634
-#, fuzzy, php-format
+#, php-format
 msgid "%d Triggers"
-msgstr "Disparadores"
+msgstr "%d Disparadores"
 
 #: thold.php:1031
-#, fuzzy
 msgid "Threshold Deleted, can not Edit!"
-msgstr "El umbral no existe"
+msgstr "Umbral borrado, ¡no puede ser editado!"
 
 #: thold.php:1121
 msgid "Graph Data"
@@ -2121,44 +2100,37 @@ msgid "Last:"
 msgstr "Ultimo:"
 
 #: thold.php:1233
-#, fuzzy
 msgid "WHi:"
 msgstr "WHi:"
 
 #: thold.php:1239
-#, fuzzy
 msgid "WLo:"
 msgstr "WLo:"
 
 #: thold.php:1247
-#, fuzzy
 msgid "AHi:"
 msgstr "AHi:"
 
 #: thold.php:1253
-#, fuzzy
 msgid "ALo:"
 msgstr "ALo:"
 
 #: thold.php:1259
-#, fuzzy
 msgid "BL Up:"
 msgstr "BL Arriba:"
 
 #: thold.php:1260 thold.php:1262
-#, fuzzy
 msgid "%s%%%"
-msgstr "%s %s"
+msgstr "%s%%%"
 
 #: thold.php:1261
-#, fuzzy
 msgid "BL Down:"
-msgstr "BL Down:"
+msgstr "BL abajo:"
 
 #: thold.php:1299
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown Template ID %d"
-msgstr "Desconocido ID de plantilla %d"
+msgstr "Plantilla ID %d desconocida"
 
 #: thold.php:1301
 msgid "Not Templated"
@@ -2228,9 +2200,8 @@ msgid "Provide the Thresholds a meaningful name"
 msgstr "Proporcionar a los Umbrales un nombre significativo"
 
 #: thold.php:1470
-#, fuzzy
 msgid "Name (Format)"
-msgstr "Nombre de Formato:"
+msgstr "Nombre (Formato)"
 
 #: thold.php:1479 thold_templates.php:1042
 #, fuzzy
@@ -2278,9 +2249,8 @@ msgid "Acknowledgment Options"
 msgstr "Opciones de reconocimiento"
 
 #: thold.php:1510 thold_templates.php:1073
-#, fuzzy
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
-msgstr "Hay tres niveles de Reconocimiento que controlan cómo debe responder a una condición de Violación del Umbral.  Son:<br><br><ul><li><i>Ninguno Requerido</i> - Cuando usted selecciona esta opción, no se requiere ningún Reconocimiento para una violación del Umbral.</li><li><i>Reset Acknowledgment</i> - Con esta opción, una vez que usted Reconoce el Umbral, ya no recibirá más Notificaciones mientras esté siendo violado.</Con esta opción, incluso después de que el umbral haya vuelto a la normalidad, debe reconocer el umbral y proporcionar un mensaje de operador opcional."
+msgstr "Hay tres niveles de Reconocimiento que controlan cómo debe responder a una condición de traspaso del Umbral.  Son:<br><br><ul><li><i>Ninguno Requerido</i> - Cuando usted selecciona esta opción, no se requiere ningún Reconocimiento para una violación del Umbral.</li><li><i>Notificación suspendible</i> - Con esta opción, una vez que reconozcas o suspendas las notificaciones en el umbral, no recibirás mas notificaciones mientras este sea traspasado.  Puedes resumir las notificaciones subsecuentemente mientras sea traspasado.</li><li><i>Reconocimiento persistente</i> - Con esta opción, aún después de que el umbral ha regresado a la normalidad, debes reconocer el umbral y proveer un mensaje opcional de Operador.</li></ul>"
 
 #: thold.php:1517 thold_templates.php:1080
 #, fuzzy
@@ -2418,9 +2388,8 @@ msgid "Time range"
 msgstr "Intervalo de tiempo"
 
 #: thold.php:1679
-#, fuzzy
 msgid "Specifies the point in the past (based on RRDfile resolution) that will be used as a reference"
-msgstr "Especifica el punto en el pasado (basado en la resolución del archivo RRD) que se utilizará como referencia."
+msgstr "Especifica el punto en el pasado (basado en la resolución del archivo RRD) que se utilizará como referencia"
 
 #: thold.php:1683
 #, fuzzy
@@ -2482,11 +2451,11 @@ msgstr "Segundo elemento de la fuente de datos que se utilizará como valor tota
 
 #: thold.php:1736 thold_templates.php:1315
 msgid "Show Units"
-msgstr ""
+msgstr "Mostrar unidades"
 
 #: thold.php:1739 thold_templates.php:1318
 msgid "Display units for very large or small numbers."
-msgstr ""
+msgstr "Mostrar unidades para números muy grandes o pequeños."
 
 #: thold.php:1748
 #, fuzzy, php-format
@@ -2538,9 +2507,8 @@ msgid "Warning Notification List"
 msgstr "Lista de avisos de advertencia"
 
 #: thold.php:1796 thold_templates.php:1363
-#, fuzzy
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
-msgstr "Puede especificar una lista de notificaciones para recibir avisos para esta fuente de datos."
+msgstr "Puede especificar una lista de notificaciones para recibir advertencias para esta fuente de datos"
 
 #: thold.php:1802 thold_templates.php:1369
 #, fuzzy
@@ -2548,9 +2516,8 @@ msgid "Alert Notification List"
 msgstr "Lista de notificación de alertas"
 
 #: thold.php:1804 thold_templates.php:1371
-#, fuzzy
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
-msgstr "Puede especificar una lista de notificaciones para recibir alertas de esta fuente de datos."
+msgstr "Puede especificar una lista de notificaciones para recibir alertas de esta fuente de datos"
 
 #: thold.php:1814 thold_templates.php:1381
 #, fuzzy
@@ -2766,14 +2733,12 @@ msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "El ID de dispositivo no se ha configurado mientras se intentaba crear el gráfico y el umbral"
 
 #: thold_functions.php:4471
-#, fuzzy
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "El ID de la plantilla de umbral no se ha configurado al intentar crear el gráfico y el umbral."
+msgstr "El ID de la plantilla de umbral no se fue encontrada al intentar crear el gráfico y el umbral"
 
 #: thold_functions.php:4478
-#, fuzzy
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "El ID de la plantilla de umbral no se ha configurado al intentar crear el gráfico y el umbral."
+msgstr "El ID de la plantilla de umbral no fue configurada mientras se intentaba crear el gráfico y el umbral"
 
 #: thold_functions.php:4511
 #, fuzzy
@@ -2819,9 +2784,9 @@ msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DO
 msgstr "Debe especificar'Baseline Deviation UP' o'Baseline Deviation DOWN' o ambos!<br>RECORD NOT UPDATED!"
 
 #: thold_functions.php:4872
-#, fuzzy, php-format
+#, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "No se encontró el elemento vinculado de la plantilla de gráfico '%d' en el umbral '%d''."
+msgstr "Fallo al encontrar el elemento vinculado a la plantilla del gráfico '%d' en el umbral '%d'"
 
 #: thold_functions.php:4949 thold_functions.php:5363
 #, fuzzy, php-format
@@ -2900,9 +2865,8 @@ msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr "Se han producido errores al intentar importar los datos de la plantilla de umbral."
 
 #: thold_functions.php:6265
-#, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Plantilla de umbral Plantilla de datos subordinados no encontrada!"
+msgstr "No se encontraron datos XML en los datos importados para la plantilla del umbral."
 
 #: thold_functions.php:6268
 #, fuzzy
@@ -2920,9 +2884,8 @@ msgid "The Threshold will no longer generate Alerts, Notifications, or execute c
 msgstr "El umbral ya no generará alertas, notificaciones ni ejecutará comandos."
 
 #: thold_graph.php:80
-#, fuzzy
 msgid "The Threshold will restart generating Alerts."
-msgstr "Valores umbral altos para Advertencia/Alerta"
+msgstr "El umbral reiniciará la generación de alertas."
 
 #: thold_graph.php:344
 #, fuzzy
@@ -3003,13 +2966,12 @@ msgid "The status for this Device as of the last time it was polled"
 msgstr "El estado de este dispositivo desde la última vez que se sondeó"
 
 #: thold_graph.php:868
-#, fuzzy
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
-msgstr "La última vez que Cacti encontró un problema con este dispositivo.  Puede ser mayor que el tiempo de actividad del dispositivo, si se reinició entre los ciclos de sondeo de Cacti."
+msgstr "La última vez Cacti encontró un problema con este dispositivo.  Puede ser mayor que el tiempo de actividad del dispositivo, si se reinició entre los ciclos de sondeo de Cacti"
 
 #: thold_graph.php:871
 msgid "Uptime"
-msgstr "Uptime"
+msgstr "Tiempo arriba"
 
 #: thold_graph.php:874
 #, fuzzy
@@ -3062,13 +3024,12 @@ msgid "No Devices"
 msgstr "Dispositivos"
 
 #: thold_graph.php:1034
-#, fuzzy
 msgid "Not Up"
-msgstr "Arriba"
+msgstr "No esta arriba"
 
 #: thold_graph.php:1241
 msgid "No Export Rows Found."
-msgstr ""
+msgstr "No se encontraron filas para exportar."
 
 #: thold_graph.php:1269
 #, fuzzy, php-format
@@ -3117,9 +3078,9 @@ msgid "You are not authorised to modify one or more of the Thresholds selected"
 msgstr "No está autorizado a modificar uno o más de los Umbrales seleccionados"
 
 #: thold_templates.php:223
-#, fuzzy, php-format
+#, php-format
 msgid "%s (%d Thresholds)"
-msgstr "(%d Umbrales)"
+msgstr "%s (%d Umbrales)"
 
 #: thold_templates.php:244
 #, fuzzy
@@ -3254,9 +3215,8 @@ msgid "Time reference in the past"
 msgstr "Referencia temporal en el pasado"
 
 #: thold_templates.php:1242
-#, fuzzy
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference"
-msgstr "Especifica el punto en el pasado (basado en la resolución rrd) que se utilizará como referencia."
+msgstr "Especifica el punto en el pasado (basado en la resolución rrd) que se utilizará como referencia"
 
 #: thold_templates.php:1246
 #, fuzzy
@@ -3309,9 +3269,8 @@ msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "Gravedad que se utilizará para las alertas. (Bajo impacto -> Impacto crítico)"
 
 #: thold_templates.php:1421
-#, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
-msgstr "Este es un listado de cuentas que serán notificadas cuando este Umbral sea violado."
+msgstr "Este es un listado de cuentas que serán notificadas cuando este Umbral sea traspasado.<br><br><br><br>"
 
 #: thold_templates.php:1430
 #, fuzzy
@@ -3364,9 +3323,9 @@ msgid "%d Minutes, %d Seconds"
 msgstr "%d Minutos, %d Segundos"
 
 #: thold_templates.php:1799
-#, fuzzy, php-format
+#, php-format
 msgid "%d Seconds (Average)"
-msgstr "Segundos (Promedio)"
+msgstr "%d Segundos (Promedio)"
 
 #: thold_templates.php:1801
 #, php-format
@@ -3473,9 +3432,8 @@ msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
 msgstr "Asistente para la creación de umbrales [ Seleccionar un tipo de umbral ]"
 
 #: thold_webapi.php:286
-#, fuzzy
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Asistente para la creación de umbrales [ Introducir datos personalizados y pulsar 'Crear' para crear el umbral y el gráfico []]."
+msgstr "Asistente para la creación de umbrales [ Introducir datos personalizados y pulsar 'Crear' para crear el umbral y el gráfico ]"
 
 #: thold_webapi.php:288
 #, fuzzy
@@ -3566,9 +3524,8 @@ msgid "Select a Device to use for the Threshold and Graph to be created."
 msgstr "Seleccione un dispositivo para usar para el Umbral y el Gráfico que se creará."
 
 #: thold_webapi.php:497 thold_webapi.php:647 thold_webapi.php:665
-#, fuzzy
 msgid "Select a Device"
-msgstr "Seleccionar una Plantilla de Dispositivos contra la que los dispositivos serán evaluados."
+msgstr "Seleccione un dispositivo"
 
 #: thold_webapi.php:510
 #, fuzzy
@@ -3629,9 +3586,8 @@ msgid "This Threshold will <b>NOT</b> be Templated and will only work on existin
 msgstr "Este Umbral será <b>NOT</b> Plantilla y sólo funcionará en los Gráficos existentes.  Si desea crear el gráfico y el umbral simultáneamente, seleccione Threshold Template en el menú desplegable y continúe hasta que aparezca el botón `Crear'."
 
 #: thold_webapi.php:772
-#, fuzzy
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Este Umbral será <b>NOT</b> Plantilla.  Puede seleccionar Por Gráfico donde seleccionará un Dispositivo, Gráfico y Fuente de Datos existente antes de crear su Umbral, o puede seleccionar Plantilla de Umbral que le permitirá crear un Umbral No Plantilla y el Gráfico correspondiente simultáneamente."
+msgstr "Este Umbral <b>NO</b> será convertido en plantilla.  Puede seleccionar por gráfico donde seleccionará un dispositivo, gráfico y fuente de datos existente antes de crear su Umbral, o puede seleccionar plantilla de umbral que le permitirá crear un umbral que no tenga plantilla y el gráfico correspondiente simultáneamente"
 
 #: thold_webapi.php:777
 #, fuzzy
