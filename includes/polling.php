@@ -764,7 +764,6 @@ function thold_update_host_status() {
 			$msg = str_replace('<TIME>', time(), $msg);
 			$msg = str_replace('<DATE>', date(CACTI_DATE_TIME_FORMAT), $msg);
 			$msg = str_replace('<DATE_RFC822>', date(DATE_RFC822), $msg);
-
 			$msg = str_replace("\n", '<br>', $msg);
 
 			switch ($host['thold_send_email']) {
