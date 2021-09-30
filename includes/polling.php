@@ -761,6 +761,9 @@ function thold_update_host_status() {
 			$msg = str_replace('<FAIL_POLL>', $host['failed_polls'], $msg);
 			$msg = str_replace('<AVG_TIME>', round(($host['avg_time']), 2), $msg);
 			$msg = str_replace('<NOTES>', $host['notes'], $msg);
+			$msg = str_replace('<TIME>', time(), $msg);
+			$msg = str_replace('<DATE>', date(CACTI_DATE_TIME_FORMAT), $msg);
+			$msg = str_replace('<DATE_RFC822>', date(DATE_RFC822), $msg);
 			$msg = str_replace("\n", '<br>', $msg);
 
 			switch ($host['thold_send_email']) {
