@@ -36,6 +36,8 @@
 
 * issue#529: Undefined index: thold_name in thold_functions.php on line: 3412
 
+* issue#533: thold_data table missed two indexes for fresh installation
+
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes
