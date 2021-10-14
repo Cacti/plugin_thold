@@ -36,6 +36,8 @@
 
 * issue#529: Undefined index: thold_name in thold_functions.php on line: 3412
 
+* issue#534: CLI template importing output escaped template name
+
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes
