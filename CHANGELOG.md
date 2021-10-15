@@ -38,6 +38,8 @@
 
 * issue#533: thold_data table missed two indexes for fresh installation
 
+* issue#534: CLI template importing output escaped template name
+
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes
