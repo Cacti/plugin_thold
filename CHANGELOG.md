@@ -36,6 +36,8 @@
 
 * issue#529: Undefined index: thold_name in thold_functions.php on line: 3412
 
+* issue#533: thold_data table missed two indexes for fresh installation
+
 * issue#534: CLI template importing output escaped template name
 
 --- 1.5.3 ---
