@@ -6183,6 +6183,8 @@ function thold_get_cached_name(&$thold_data) {
 }
 
 function thold_template_import($xml_data) {
+	global $config;
+
 	$debug_data = array();
 
 	if ($xml_data != '') {
@@ -6268,9 +6270,17 @@ function thold_template_import($xml_data) {
 					$id = sql_save($save, 'thold_template');
 
 					if ($id) {
-						$debug_data['success'][] = __esc('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
+						if ($config['is_web']) {
+							$debug_data['success'][] = __esc('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
+						} else {
+							$debug_data['success'][] = __('Threshold Template \'%s\' %s!', $tname, ($save['id'] > 0 ? __('Updated', 'thold'):__('Imported', 'thold')), 'thold');
+						}
 					} else {
-						$debug_data['failure'][] = __esc('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
+						if ($config['is_web']) {
+							$debug_data['failure'][] = __esc('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
+						} else {
+							$debug_data['failure'][] = __('Threshold Template \'%s\' %s Failed!', $tname, ($save['id'] > 0 ? __('Update', 'thold'):__('Import', 'thold')), 'thold');
+						}
 					}
 				} else {
 					$debug_data['failure'][] = __('Errors enountered while attempting to import Threshold Template data.', 'thold');
