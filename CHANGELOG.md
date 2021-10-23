@@ -1,5 +1,9 @@
 ## ChangeLog
 
+--- develop ---
+
+* issue#535: Support new uptime calculation in Cacti 1.2.19
+
 --- 1.6.0 ---
 
 * feature: Enhance thold daemon to work more efficiently
