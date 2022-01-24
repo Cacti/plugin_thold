@@ -2,6 +2,8 @@
 
 --- develop ---
 
+* issue#540: Change table name from 'plugin_thold_device_template' to 'plugin_thold_host_template' for Pre-1.0 upgrade
+
 * issue#535: Support new uptime calculation in Cacti 1.2.19
 
 --- 1.6.0 ---

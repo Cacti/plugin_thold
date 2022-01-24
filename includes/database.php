@@ -768,7 +768,7 @@ function thold_upgrade_database($force = false) {
 		$data['primary'] = 'id';
 		$data['type'] = 'InnoDB';
 		$data['comment'] = 'Table of Device Template Threshold Templates';
-		api_plugin_db_table_create('thold', 'plugin_thold_device_template', $data);
+		api_plugin_db_table_create('thold', 'plugin_thold_host_template', $data);
 
 		api_plugin_register_hook('thold', 'device_template_edit', 'thold_device_template_edit', 'setup.php', '1');
 		api_plugin_register_hook('thold', 'device_template_top', 'thold_device_template_top', 'setup.php', '1');
