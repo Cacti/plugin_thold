@@ -1027,7 +1027,7 @@ function thold_edit() {
 			array(get_request_var('id')));
 
 		if (!cacti_sizeof($thold_data)) {
-			raise_message('', __('Threshold Deleted, can not Edit!', 'thold'), MESSAGE_LEVEL_ERROR);
+			raise_message('thold_deleted', __('Threshold Deleted, can not Edit!', 'thold'), MESSAGE_LEVEL_ERROR);
 			header('Location: thold.php');
 			exit;
 		}
