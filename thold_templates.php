@@ -2204,7 +2204,7 @@ function validate_upload() {
 		return file_get_contents($_FILES['import_file']['tmp_name']);
 	}
 
-	raise_message(__('No file uploaded.', 'thold'), MESSAGE_LEVEL_ERROR);
+	thold_raise_message(__('No file uploaded.', 'thold'), MESSAGE_LEVEL_ERROR);
 
 	return false;
 }
