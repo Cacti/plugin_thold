@@ -4351,11 +4351,11 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 		$blt_high = '';
 
 		if ($thold_data['bl_pct_down'] != '') {
-			$blt_low  = $ref_value_min - ($ref_value_min * $thold_data['bl_pct_down'] / 100);
+			$blt_low  = $ref_value_min - (abs($ref_value_min) * $thold_data['bl_pct_down'] / 100);
 		}
 
 		if ($thold_data['bl_pct_up'] != '') {
-			$blt_high = $ref_value_max + ($ref_value_max * $thold_data['bl_pct_up'] / 100);
+			$blt_high = $ref_value_max + (abs($ref_value_max) * $thold_data['bl_pct_up'] / 100);
 		}
 
 		// Cache the calculated or empty values
