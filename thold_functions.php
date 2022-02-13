@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2020 The Cacti Group                                 |
+ | Copyright (C) 2006-2022 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -5396,9 +5396,9 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 
 		if ($from_email == '') {
 			if (isset($_SERVER['HOSTNAME'])) {
-				$from_email = 'Cacti@' . $_SERVER['HOSTNAME'];
+				$from_email = 'cacti@' . $_SERVER['HOSTNAME'];
 			} else {
-				$from_email = 'Cacti@cacti.net';
+				$from_email = 'cacti@' . gethostname();
 			}
 		}
 

@@ -4,6 +4,8 @@
 
 * issue#540: Change table name from 'plugin_thold_device_template' to 'plugin_thold_host_template' for Pre-1.0 upgrade
 
+* issue#542: Thold uses hardcoded from adress insted of db one
+
 * issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti uses
   autocommit, so don't use them.
 
