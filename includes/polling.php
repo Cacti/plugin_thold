@@ -114,7 +114,6 @@ function thold_poller_bottom() {
 
 		/* begin transaction for repeatable read isolation level */
 		$db_conn = db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
-		$db_conn->beginTransaction();
 
 		if (read_config_option('remote_storage_method') == 1) {
 			/* host_status processed by thold server */
@@ -176,8 +175,6 @@ function thold_poller_bottom() {
 		cacti_log('THOLD POLLER STATS: ' . $thold_stats, false, 'SYSTEM');
 
 		set_config_option('stats_thold_' . $config['poller_id'], $thold_stats);
-
-		$db_conn->commit();
 	}
 }
 
@@ -216,7 +213,7 @@ function thold_poller_output(&$rrd_update_array) {
 
 	if ($local_data_ids != '') {
 		if (read_config_option('thold_daemon_enable') == 'on') {
-			$chunks = sizeof($rrd_update_array) / 50;
+			$chunks = ceil(sizeof($rrd_update_array) / 50);
 			if ($chunks < 1) {
 				$chunks = 1;
 			}

@@ -4,6 +4,12 @@
 
 * issue#540: Change table name from 'plugin_thold_device_template' to 'plugin_thold_host_template' for Pre-1.0 upgrade
 
+* issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti uses
+  autocommit, so don't use them.
+
+* issue: Fix issues where thold daemon could possibly loose events due to an
+  array chunking issue identified through PHP8.1.2 testing.
+
 * issue#535: Support new uptime calculation in Cacti 1.2.19
 
 --- 1.6.0 ---
