@@ -263,6 +263,40 @@ function form_thold_filter() {
 				event.preventDefault();
 				applyFilter();
 			});
+
+			$('.ackMessage').tooltip({
+				items: '.ackMessage',
+				track: false,
+				position: { my: 'left', of: event, at: 'right+10', collision: 'fit' },
+				content: function() {
+					var text = atob($(this).attr('data-ack'));
+					return text;
+				},
+				open: function(event, ui) {
+					if (typeof(event.originalEvent) === 'undefined') {
+						return false;
+					}
+
+					var id = $(ui.tooltip).attr('id');
+
+					$('div.ui-tooltip').not('#' + id).remove();
+
+					ui.tooltip.css('width', '800px');
+					ui.tooltip.css('max-width', '800px');
+				},
+				close: function(event, ui) {
+					ui.tooltip.hover(
+						function() {
+							$(this).stop(true).fadeTo(400, 1);
+						},
+						function() {
+							$(this).fadeOut('400', function() {
+								$(this).remove();
+							});
+						}
+					);
+				}
+			});
 		});
 
 		</script>
@@ -422,6 +456,10 @@ function tholds() {
 			'display' => __('ID', 'thold'),
 			'sort' => 'ASC',
 			'align' => 'right'
+		),
+		'nosort6' => array(
+			'display' => __('Ack Detail', 'thold'),
+			'align' => 'center'
 		),
 		'thold_type' => array(
 			'display' => __('Type', 'thold'),
@@ -604,11 +642,50 @@ function tholds() {
 				$actions_url = $data['actions_url'];
 			}
 
+			if ($thold_data['reset_ack'] == 'on' || $thold_data['persist_ack'] == 'on') {
+				$acks = db_fetch_assoc_prepared('SELECT *
+					FROM plugin_thold_log
+					WHERE type = 99
+					AND threshold_id = ?
+					LIMIT 5',
+					array($thold_data['id']));
+
+				if (cacti_sizeof($acks)) {
+					$table = '<table class="cactiTable">
+						<tr class="tableHeader">
+							<th>' . __('Acknowledgement Message', 'thold') . '</th>
+							<th>' . __('Date', 'thold')    . '</th>
+						</tr>';
+
+					foreach($acks as $a) {
+						$parts = explode('Additional Comments:', $a['description']);
+						if (isset($parts[1])) {
+							$comment = trim($parts[1], '" ');
+						} else {
+							$comment = __('Comment Not Found', 'thold');
+						}
+
+						$table .= '<tr>
+							<td>' . $comment . '</td>
+							<td>' . date('Y-m-d H:i:s', $a['time']) . '</td>
+						</tr>';
+					}
+
+					$details = '<a class="ackMessage" href="#" data-ack="' . base64_encode($table) . '">' . __('Ack History', 'thold') . '</a>';
+				} else {
+					$details = '';
+				}
+			} else {
+				$details = '';
+			}
+
 			form_selectable_cell($actions_url, $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('rfilter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
+
+			form_selectable_cell($details, $thold_data['id'], '', 'center');
 
 			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
 
