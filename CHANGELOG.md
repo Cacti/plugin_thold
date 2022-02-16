@@ -15,6 +15,7 @@
   array chunking issue identified through PHP8.1.2 testing.
 
 * issue#535: Support new uptime calculation in Cacti 1.2.19
+* issue#147: Fixed threshold compare negative baseline values.
 
 --- 1.6.0 ---
 
