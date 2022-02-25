@@ -1134,9 +1134,9 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 	$ds = $thold['percent_ds'];
 
 	if (isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
-		$t = $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
+		$t = (int) $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
 
-		if ($t != 0) {
+		if ($t > 0) {
 			$currentval = ($currentval / $t) * 100;
 		} else {
 			$currentval = 0;
