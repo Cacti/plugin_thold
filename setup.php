@@ -191,8 +191,8 @@ function thold_graph_button($data) {
 	if (isset_request_var('view_type') && !isempty_request_var('view_type')) {
 		$view_type = get_request_var('view_type');
 	} else {
-		set_request_var('view_type', '');
-		$view_type = read_config_option('dataquery_type');
+		set_request_var('view_type', 'tree');
+		$view_type = 'preview';
 	}
 
 	if (isset_request_var('graph_start') && !isempty_request_var('graph_start')) {
