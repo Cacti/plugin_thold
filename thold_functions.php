@@ -2111,7 +2111,6 @@ function thold_check_threshold(&$thold_data) {
 
 	/* pull a few default settings */
 	$global_alert_address  = read_config_option('alert_email');
-	$global_notify_enabled = (read_config_option('alert_notify_default') == 'on');
 
 	// Settings for syslogging
 	$syslog                = $thold_data['syslog_enabled'] == 'on' ? true:false;
