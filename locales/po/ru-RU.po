@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2021-04-12 08:18+0000\nLast-Translator: Sergey <sbolshagin@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.3.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-03-25 04:14+0000\nLast-Translator: Anatoliy <hamrad99h2@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -780,7 +780,7 @@ msgstr "Любой"
 #: thold_graph.php:215 thold_graph.php:1032 thold_templates.php:1035
 #: thold_templates.php:1471
 msgid "Enabled"
-msgstr "Включено"
+msgstr "Разрешено"
 
 #: includes/settings.php:424 includes/settings.php:437 notify_lists.php:1315
 #: thold.php:701 thold_graph.php:213
@@ -1261,12 +1261,11 @@ msgstr "Дублировать"
 
 #: notify_lists.php:36
 msgid "Associate"
-msgstr "ассоциированный"
+msgstr "Ассоциировать"
 
 #: notify_lists.php:37
-#, fuzzy
 msgid "Disassociate"
-msgstr "отмежеваться"
+msgstr "Разъединить"
 
 #: notify_lists.php:43 notify_lists.php:1000 notify_lists.php:1123
 #: notify_lists.php:1996 thold_graph.php:821 thold_graph.php:1071
