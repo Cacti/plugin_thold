@@ -4,18 +4,21 @@
 
 * feature#497: Show acknowledgment status on Thresholds tab instead of log
 
+* issue#147: Fixed threshold compare negative baseline values.
+
+* issue#535: Support new uptime calculation in Cacti 1.2.19
+
 * issue#540: Change table name from 'plugin_thold_device_template' to 'plugin_thold_host_template' for Pre-1.0 upgrade
 
 * issue#542: Thold uses hardcoded from adress insted of db one
+
+* issue#555: CMDPHP ERRORS DETECTED - DISABLING PLUGIN 'thold'
 
 * issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti uses
   autocommit, so don't use them.
 
 * issue: Fix issues where thold daemon could possibly loose events due to an
   array chunking issue identified through PHP8.1.2 testing.
-
-* issue#535: Support new uptime calculation in Cacti 1.2.19
-* issue#147: Fixed threshold compare negative baseline values.
 
 --- 1.6.0 ---
 

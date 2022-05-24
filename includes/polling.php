@@ -26,6 +26,8 @@ function thold_poller_bottom() {
 	global $config, $database_type, $database_default, $database_hostname;
 	global $database_username, $database_password, $database_port, $database_ssl;
 
+	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+
 	if (read_config_option('thold_empty_if_speed_default') == '') {
 		set_config_option('thold_empty_if_speed_default', '10000');
 		$empty_value = read_config_option('thold_empty_if_speed_default', true);
