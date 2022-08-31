@@ -4465,7 +4465,7 @@ function save_thold() {
 			return false;
 		}
 
-		$host_id = get_request_var('host_id');
+		$host_id = get_filter_request_var('host_id');
 
 		if (isset_request_var('thold_template_id')) {
 			$template = db_fetch_row_prepared('SELECT *
