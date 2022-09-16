@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-06-27 20:46+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-09-16 13:04+0000\nLast-Translator: Anton Zhuravlev <baka109g@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -246,9 +246,9 @@ msgid "Every Day"
 msgstr "Каждый день"
 
 #: includes/arrays.php:289 includes/arrays.php:370
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Days"
-msgstr "Каждый день"
+msgstr "Каждый %d день"
 
 #: includes/arrays.php:290 includes/arrays.php:371
 msgid "Every Week"
@@ -346,9 +346,9 @@ msgid "Every %d Pollings"
 msgstr "Каждый %d Опросы"
 
 #: includes/arrays.php:441 includes/arrays.php:460
-#, fuzzy, php-format
+#, php-format
 msgid "%d Polling"
-msgstr "d Опрос общественного мнения"
+msgstr "%d Опрос"
 
 #: includes/arrays.php:442 includes/arrays.php:443 includes/arrays.php:444
 #: includes/arrays.php:445 includes/arrays.php:446 includes/arrays.php:447
@@ -360,9 +360,9 @@ msgstr "d Опрос общественного мнения"
 #: includes/arrays.php:467 includes/arrays.php:468 includes/arrays.php:469
 #: includes/arrays.php:470 includes/arrays.php:471 includes/arrays.php:472
 #: includes/arrays.php:473 includes/arrays.php:474 includes/arrays.php:475
-#, fuzzy, php-format
+#, php-format
 msgid "%d Pollings"
-msgstr "d Опросы общественного мнения"
+msgstr "%d Опросы"
 
 #: includes/arrays.php:482
 msgid "High / Low"
@@ -379,9 +379,8 @@ msgid "Time Based"
 msgstr "Основанный на времени"
 
 #: includes/arrays.php:488
-#, fuzzy
 msgid "Exact Value"
-msgstr "Точная стоимость"
+msgstr "Точное значение"
 
 #: includes/arrays.php:489
 #, fuzzy
@@ -407,14 +406,12 @@ msgid "Acknowledge"
 msgstr "Принять к сведению"
 
 #: includes/arrays.php:497
-#, fuzzy
 msgid "Suspend Notifications"
-msgstr "Уведомления SNMP"
+msgstr "Приостановить уведомления"
 
 #: includes/arrays.php:498
-#, fuzzy
 msgid "Resume Notifications"
-msgstr "Уведомления SNMP"
+msgstr "Возобновить уведомления"
 
 #: includes/arrays.php:499 includes/arrays.php:508 notify_lists.php:31
 #: setup.php:1295
@@ -498,14 +495,12 @@ msgid "(edit)"
 msgstr "(редактировать)"
 
 #: includes/settings.php:50
-#, fuzzy
 msgid "(save)"
-msgstr " Сохранить "
+msgstr "(сохранить)"
 
 #: includes/settings.php:57
-#, fuzzy
 msgid "(add)"
-msgstr "Добавить на панель управления"
+msgstr "(добавить)"
 
 #: includes/settings.php:84
 #, fuzzy
@@ -555,12 +550,10 @@ msgstr "Импорт порогового шаблона Импорт шабло
 
 #: includes/settings.php:174 includes/settings.php:188
 #: includes/settings.php:195 includes/settings.php:207 notify_lists.php:1891
-#, fuzzy
 msgid "Notification Lists"
 msgstr "Списки уведомлений"
 
 #: includes/settings.php:181
-#, fuzzy
 msgid "Notification Lists (edit)"
 msgstr "Списки уведомлений (редактирование)"
 
@@ -578,7 +571,6 @@ msgid "Threshold"
 msgstr "Порог"
 
 #: includes/settings.php:260
-#, fuzzy
 msgid "A template with that Data Source already exists!"
 msgstr "Шаблон с этим Источником данных уже существует!"
 
@@ -630,7 +622,6 @@ msgid "Global List"
 msgstr "Глобальный список"
 
 #: includes/settings.php:310
-#, fuzzy
 msgid "List Below"
 msgstr "Список Ниже"
 
@@ -689,7 +680,6 @@ msgid "General"
 msgstr "Общие"
 
 #: includes/settings.php:376
-#, fuzzy
 msgid "Disable All Thresholds"
 msgstr "Отключить все пороговые значения"
 
@@ -709,9 +699,8 @@ msgid "If selected, when running either automation, or when creating/saving a De
 msgstr "Если этот параметр выбран, при запуске системы автоматизации или при создании/сохранении устройства будут созданы все пороговые значения, связанные с шаблоном устройства."
 
 #: includes/settings.php:388
-#, fuzzy
 msgid "Disable Legacy Notifications"
-msgstr "Уведомления об отключении старых уведомлений"
+msgstr "Отключить устаревшие уведомления"
 
 #: includes/settings.php:389
 #, fuzzy
@@ -749,9 +738,8 @@ msgid "Checking this box will enable the ability to maintain custom Email bodies
 msgstr "Установив этот флажок, вы сможете поддерживать пользовательские тела электронной почты для пороговых значений."
 
 #: includes/settings.php:411
-#, fuzzy
 msgid "Consider Unknown Data as Zero"
-msgstr "Считайте неизвестные данные нулем"
+msgstr "Считать неизвестные данные нулем"
 
 #: includes/settings.php:412
 #, fuzzy
@@ -779,7 +767,7 @@ msgstr "Любой"
 #: thold_graph.php:215 thold_graph.php:1032 thold_templates.php:1035
 #: thold_templates.php:1471
 msgid "Enabled"
-msgstr "Разрешено"
+msgstr "Включенные"
 
 #: includes/settings.php:424 includes/settings.php:437 notify_lists.php:1315
 #: thold.php:701 thold_graph.php:213
@@ -868,12 +856,10 @@ msgid "Enable logging of all Threshold failures to the Cacti Log."
 msgstr "Включить протоколирование всех неполадок порогового уровня в журнале кактусов."
 
 #: includes/settings.php:493
-#, fuzzy
 msgid "Show Data Source in Log"
 msgstr "Показать источник данных в журнале"
 
 #: includes/settings.php:494
-#, fuzzy
 msgid "Show the Data Source name in the Log if not present."
 msgstr "Показывать имя источника данных в журнале, если его нет."
 
@@ -907,7 +893,6 @@ msgid "Keep Threshold Logs for this number of days."
 msgstr "Хранение журналов порогов в течение этого количества дней."
 
 #: includes/settings.php:518 thold.php:1909 thold_templates.php:1466
-#, fuzzy
 msgid "Syslog Settings"
 msgstr "Настройки системного журнала"
 
@@ -967,7 +952,6 @@ msgid "Default number of consecutive times the Data Source must be in breach of 
 msgstr "По умолчанию количество раз подряд Источник данных должен нарушать Пороговый уровень, чтобы оповещение о тревоге повышалось."
 
 #: includes/settings.php:558
-#, fuzzy
 msgid "Re-Alerting"
 msgstr "Повторное оповещение"
 
@@ -1067,7 +1051,6 @@ msgid "Allows you to set Emails with urgent priority"
 msgstr "Позволяет настроить адреса электронной почты с приоритетом \"Срочно\"."
 
 #: includes/settings.php:634
-#, fuzzy
 msgid "Send Alerts as Text"
 msgstr "Отправка уведомлений в текстовом виде"
 
@@ -1130,9 +1113,8 @@ msgid "This is the Email Address that the Dead Device Notifications will be sent
 msgstr "Это адрес электронной почты, на который будут отправляться уведомления о мертвом устройстве, если выбран Глобальный список уведомлений."
 
 #: includes/settings.php:677
-#, fuzzy
 msgid "Down Subject"
-msgstr "Вниз Предмет исследования"
+msgstr "Упавший объект"
 
 #: includes/settings.php:678
 #, fuzzy
@@ -1145,9 +1127,8 @@ msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "Ошибка устройства: <ОПИСАНИЕ> (<ХОСТНАМЕ>) - ВНИЗ."
 
 #: includes/settings.php:685
-#, fuzzy
 msgid "Down Message"
-msgstr "Вниз Сообщение устройства"
+msgstr "Сообщение о падении"
 
 #: includes/settings.php:686
 #, fuzzy
@@ -1250,9 +1231,8 @@ msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong
 msgstr "Выпущено предупреждение, требующее вашего внимания. <br><br><br><strong>Устройство</strong>: <ОПИСАНИЕ> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><strong>Message</strong>: <SUBJECT><br><br><br><GRAPH><SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php:33
-#, fuzzy
 msgid "Thold"
-msgstr "Говорил"
+msgstr "Порог"
 
 #: notify_lists.php:32
 msgid "Duplicate"
@@ -1306,7 +1286,6 @@ msgid "New List Name"
 msgstr "Новое имя списка"
 
 #: notify_lists.php:522
-#, fuzzy
 msgid "New Notification List"
 msgstr "Новый список уведомлений"
 
@@ -1442,7 +1421,6 @@ msgid "[new]"
 msgstr "[новый]"
 
 #: notify_lists.php:829
-#, fuzzy
 msgid "List General Settings"
 msgstr "Список общих настроек"
 
@@ -1462,7 +1440,6 @@ msgid "Description"
 msgstr "Описание"
 
 #: notify_lists.php:842
-#, fuzzy
 msgid "Enter a description for this Notification List."
 msgstr "Введите описание для этого списка уведомлений."
 
@@ -1653,18 +1630,15 @@ msgstr "Конкретные сообщения электронной почт�
 
 #: notify_lists.php:1444 notify_lists.php:1471 notify_lists.php:1689
 #: notify_lists.php:1716
-#, fuzzy
 msgid "Current List"
 msgstr "Текущий список"
 
 #: notify_lists.php:1454
-#, fuzzy
 msgid "Unknown Threshold"
 msgstr "Неизвестный порог"
 
 #: notify_lists.php:1460 notify_lists.php:1487 notify_lists.php:1705
 #: notify_lists.php:1732
-#, fuzzy
 msgid "Log Only"
 msgstr "Только журнал"
 
@@ -1691,7 +1665,6 @@ msgid "Rows"
 msgstr "Строк"
 
 #: notify_lists.php:1699
-#, fuzzy
 msgid "Unknown Template"
 msgstr "Неизвестный шаблон"
 
@@ -1709,7 +1682,7 @@ msgstr "Имя списка"
 
 #: notify_lists.php:2000
 msgid "Emails"
-msgstr "Emails"
+msgstr "Почты"
 
 #: notify_lists.php:2017
 #, fuzzy
@@ -1730,7 +1703,6 @@ msgid "Toggle Threshold VRULES %s"
 msgstr "Порог переключения Пороговые значения VRULES %s"
 
 #: setup.php:259
-#, fuzzy
 msgid "Create Threshold"
 msgstr "Создать порог"
 
@@ -1790,9 +1762,8 @@ msgid "Create Threshold from Data Source"
 msgstr "Создать пороговый уровень из источника данных"
 
 #: setup.php:804
-#, fuzzy
 msgid "Auto-create Thresholds"
-msgstr "Автоматическое создание пороговых значений"
+msgstr "Автоматическое создание порогов"
 
 #: setup.php:886 setup.php:1043
 #, fuzzy, php-format
@@ -1929,19 +1900,16 @@ msgid "Click 'Continue' to enable the following Threshold(s)."
 msgstr "Нажмите кнопку \"Продолжить\", чтобы включить следующий(ые) порог(ы)."
 
 #: thold.php:401
-#, fuzzy
 msgid "Enable Threshold(s)"
-msgstr "Включить порог(ы)"
+msgstr "Включить порог(и)"
 
 #: thold.php:404
-#, fuzzy
 msgid "Click 'Continue' to disable the following Threshold(s)."
-msgstr "Нажмите кнопку \"Продолжить\", чтобы отключить следующий порог(ы)."
+msgstr "Нажмите кнопку \"Продолжить\", чтобы отключить следующ(ий/ие) порог(и)."
 
 #: thold.php:405
-#, fuzzy
 msgid "Disable Threshold(s)"
-msgstr "Отключить порог(ы)."
+msgstr "Отключить порог(и)"
 
 #: thold.php:408
 #, fuzzy
@@ -2008,20 +1976,17 @@ msgid "Apply Filters"
 msgstr "Применить фильтры"
 
 #: thold.php:662
-#, fuzzy
 msgid "Return to Defaults"
 msgstr "Возврат к настройкам по умолчанию"
 
 #: thold.php:683 thold_graph.php:185 thold_templates.php:393
 #: thold_templates.php:1019 thold_templates.php:1972
-#, fuzzy
 msgid "Data Template"
 msgstr "Шаблон данных"
 
 #: thold.php:705 thold.php:839 thold_graph.php:217 thold_graph.php:474
-#, fuzzy
 msgid "Ack Required"
-msgstr "Требуется подпорка"
+msgstr "Требуется подтверждение"
 
 #: thold.php:785
 #, fuzzy
@@ -2033,7 +1998,6 @@ msgid "Current"
 msgstr "Текущий"
 
 #: thold.php:793 thold_graph.php:433
-#, fuzzy
 msgid "The last measured value for the Data Source"
 msgstr "Последнее измеренное значение для Источника данных"
 
@@ -2100,7 +2064,6 @@ msgid "Graph Data"
 msgstr "Графические данные"
 
 #: thold.php:1127
-#, fuzzy
 msgid "Data Source Description:"
 msgstr "Описание источника данных:"
 
@@ -2169,7 +2132,7 @@ msgid "Replacement Fields: %s"
 msgstr "Поля замены: %s"
 
 #: thold.php:1420 thold_templates.php:985
-#, fuzzy, php-format
+#, php-format
 msgid "Data Sources: %s"
 msgstr "Источники данных: %s"
 
@@ -2214,7 +2177,7 @@ msgstr "Основные Настройки"
 #: thold.php:1461
 #, fuzzy
 msgid "Name (Displayed)"
-msgstr "Имя (отображается)"
+msgstr "Отображаемое имя"
 
 #: thold.php:1466 thold.php:1475
 #, fuzzy
@@ -2292,12 +2255,10 @@ msgid "Persistent Acknowledgment"
 msgstr "Персидское признание"
 
 #: thold.php:1530 thold_templates.php:1093
-#, fuzzy
 msgid "Threshold Type"
-msgstr "Пороговый тип"
+msgstr "Тип порога"
 
 #: thold.php:1535 thold_templates.php:1098
-#, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "Тип порога, который будет контролироваться."
 
