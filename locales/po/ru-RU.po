@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-09-16 13:04+0000\nLast-Translator: Anton Zhuravlev <baka109g@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-09-19 14:12+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -237,9 +237,9 @@ msgstr "Каждый час"
 #: includes/arrays.php:363 includes/arrays.php:364 includes/arrays.php:365
 #: includes/arrays.php:366 includes/arrays.php:367 includes/arrays.php:368
 #: includes/settings.php:470
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hours"
-msgstr "Каждые %d Часы"
+msgstr "Каждые %d часов"
 
 #: includes/arrays.php:288 includes/arrays.php:369
 msgid "Every Day"
@@ -3569,7 +3569,6 @@ msgid "Select the Graph for the Threshold."
 msgstr "Выберите Пороговый график для параметра Порог."
 
 #: thold_webapi.php:686
-#, fuzzy
 msgid "Select a Graph"
 msgstr "Выбрать график"
 
