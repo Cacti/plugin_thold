@@ -1437,8 +1437,9 @@ function thold_device_template_top() {
 	}
 }
 
-function thold_hook_device_autocreate($host_id) {
+function thold_device_autocreate($host_id) {
 	autocreate($host_id);
+	return $host_id;
 }
 
 function thold_create_graph_thold($save) {
