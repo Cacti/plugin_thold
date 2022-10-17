@@ -1313,8 +1313,8 @@ function thold_edit() {
 	$show_units = (isset($thold_data['show_units']) && $thold_data['show_units'] ? true : false);
 
 	if (isset($thold_data['lastread'])) {
-		$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
-			(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number(thold_get_column_by_cdef($thold_data, 'lastread'), 2, $baseu, $suffix, $show_units), 'thold');
+		$header_text = __('xxData Source Item [ %s ] - Current value: [ %s ]',
+			(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units), 'thold');
 	} else {
 		$header_text = __('Data Source Item [ %s ] - Current value: [ %s ]',
 			(isset($template_rrd) ? $template_rrd['data_source_name'] : ''), '-', 'thold');
