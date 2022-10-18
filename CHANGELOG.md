@@ -20,6 +20,9 @@
 * issue: Fix issues where thold daemon could possibly loose events due to an
   array chunking issue identified through PHP8.1.2 testing.
 
+* issue#454: Unite last thold value and ds value
+
+
 --- 1.6.0 ---
 
 * feature: Enhance thold daemon to work more efficiently
