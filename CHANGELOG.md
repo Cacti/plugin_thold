@@ -22,6 +22,8 @@
 
 * issue#454: Unite last thold value and ds value
 
+* issue#558: Thold entry displayed moretimes
+
 
 --- 1.6.0 ---
 
