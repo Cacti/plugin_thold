@@ -1176,73 +1176,38 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 		$sql_where = "WHERE $sql_where";
 	}
 
-	$i          = 0;
-	$sql_having = '';
-	$sql_select = '';
-	$sql_join   = '';
-
-	if ($user == 0) {
-		$user = $_SESSION['sess_user_id'];
-	}
-
-	if (read_config_option('graph_auth_method') == 1) {
-		$sql_operator = 'OR';
+	if ($user == -1) {
+		$auth_method = 0;
 	} else {
-		$sql_operator = 'AND';
+		$auth_method = read_config_option('auth_method');
 	}
+
+	if ($auth_method > 0 && $user == 0) {
+		if (isset($_SESSION['sess_user_id'])) {
+			$user = $_SESSION['sess_user_id'];
+		} else {
+			return array();
+		}
+	}
+
+	/* see if permissions are simple */
+	$simple_perms = get_simple_graph_perms($user);
+	
+	/* in case we need to review get the graph_auth_method */
+	$graph_auth_method = read_config_option('graph_auth_method');
 
 	/* get policies for all groups and user */
-	$policies   = db_fetch_assoc_prepared("SELECT uag.id,
-		'group' AS type, policy_graphs, policy_hosts, policy_graph_templates
-		FROM user_auth_group AS uag
-		INNER JOIN user_auth_group_members AS uagm
-		ON uag.id = uagm.group_id
-		WHERE uag.enabled = 'on' AND uagm.user_id = ?",
-		array($user));
+	$policies = get_policies($user);
 
-	$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type, policy_graphs,
-		policy_hosts, policy_graph_templates
-		FROM user_auth
-		WHERE id = ?",
-		array($user));
-
-	foreach ($policies as $policy) {
-		if ($policy['policy_graphs'] == 1) {
-			$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i IS NULL";
-		} else {
-			$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i=" . $policy['id'];
-		}
-		$sql_join   .= "LEFT JOIN user_auth_" . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1) ";
-		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-		$i++;
-
-		if ($policy['policy_hosts'] == 1) {
-			$sql_having .= " OR (user$i IS NULL";
-		} else {
-			$sql_having .= " OR (user$i=" . $policy['id'];
-		}
-		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3) ";
-		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-		$i++;
-
-		if ($policy['policy_graph_templates'] == 1) {
-			$sql_having .= " $sql_operator user$i IS NULL))";
-		} else {
-			$sql_having .= " $sql_operator user$i=" . $policy['id'] . '))';
-		}
-		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4) ";
-		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-		$i++;
+	if (!$simple_perms && $auth_method != 0) {
+		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
 	}
-
-	$sql_having = "HAVING $sql_having";
 
 	$tholds_sql = ("SELECT
 		td.*, dtd.rrd_step, tt.name AS template_name, dtr.data_source_name AS data_source,
 		IF(IFNULL(td.`lastread`,'')='',NULL,(td.`lastread` + 0.0)) AS `flastread`,
 		IF(IFNULL(td.`oldvalue`,'')='',NULL,(td.`oldvalue` + 0.0)) AS `foldvalue`,
-		UNIX_TIMESTAMP() - UNIX_TIMESTAMP(lastchanged) AS `instate`,
-		$sql_select
+		UNIX_TIMESTAMP() - UNIX_TIMESTAMP(lastchanged) AS `instate`
 		FROM thold_data AS td
 		INNER JOIN graph_local AS gl
 		ON gl.id=td.local_graph_id
@@ -1256,9 +1221,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 		ON dtd.local_data_id=td.local_data_id
 		LEFT JOIN data_template_rrd AS dtr
 		ON dtr.id=td.data_template_rrd_id
-		$sql_join
 		$sql_where
-		$sql_having
 		$order_by
 		$limit");
 
@@ -1266,7 +1229,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM (
-			SELECT $sql_select
+			SELECT td.id
 			FROM thold_data AS td
 			INNER JOIN graph_local AS gl
 			ON gl.id=td.local_graph_id
@@ -1276,9 +1239,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 			ON h.id=gl.host_id
 			LEFT JOIN thold_template AS tt
 			ON tt.id=td.thold_template_id
-			$sql_join
 			$sql_where
-			$sql_having
 		) AS rower");
 
 	return $tholds;
@@ -1301,82 +1262,38 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 		$sql_where = "WHERE $sql_where";
 	}
 
-	$i          = 0;
-	$sql_having = '';
-	$sql_select = '';
-	$sql_join   = '';
-
-	if ($user == 0) {
-		$user = $_SESSION['sess_user_id'];
-	}
-
-	if (read_config_option('graph_auth_method') == 1) {
-		$sql_operator = 'OR';
+	if ($user == -1) {
+		$auth_method = 0;
 	} else {
-		$sql_operator = 'AND';
+		$auth_method = read_config_option('auth_method');
 	}
+
+	if ($auth_method > 0 && $user == 0) {
+		if (isset($_SESSION['sess_user_id'])) {
+			$user = $_SESSION['sess_user_id'];
+		} else {
+			return array();
+		}
+	}
+
+	/* see if permissions are simple */
+	$simple_perms = get_simple_graph_perms($user);
+	
+	/* in case we need to review get the graph_auth_method */
+	$graph_auth_method = read_config_option('graph_auth_method');
 
 	/* get policies for all groups and user */
-	$policies = db_fetch_assoc_prepared("SELECT uag.id,
-		'group' AS type, policy_graphs, policy_hosts, policy_graph_templates
-		FROM user_auth_group AS uag
-		INNER JOIN user_auth_group_members AS uagm
-		ON uag.id = uagm.group_id
-		WHERE uag.enabled = 'on' AND uagm.user_id = ?",
-		array($user));
+	$policies = get_policies($user);
 
-	$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type,
-		policy_graphs, policy_hosts, policy_graph_templates
-		FROM user_auth
-		WHERE id = ?",
-		array($user));
-
-	foreach ($policies as $policy) {
-		if ($policy['policy_graphs'] == 1) {
-			$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i IS NULL";
-		} else {
-			$sql_having .= (strlen($sql_having) ? ' OR':'') . " (user$i=" . $policy['id'];
-		}
-
-		$sql_join   .= "LEFT JOIN user_auth_" . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i
-			ON (gl.id=uap$i.item_id AND uap$i.type=1) ";
-
-		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-		$i++;
-
-		if ($policy['policy_hosts'] == 1) {
-			$sql_having .= " OR (user$i IS NULL";
-		} else {
-			$sql_having .= " OR (user$i=" . $policy['id'];
-		}
-
-		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i
-			ON (gl.host_id=uap$i.item_id AND uap$i.type=3) ";
-
-		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-		$i++;
-
-		if ($policy['policy_graph_templates'] == 1) {
-			$sql_having .= " $sql_operator user$i IS NULL))";
-		} else {
-			$sql_having .= " $sql_operator user$i=" . $policy['id'] . '))';
-		}
-
-		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i
-			ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4) ";
-
-		$sql_select .= (strlen($sql_select) ? ', ':'') . "uap$i." . $policy['type'] . "_id AS user$i";
-		$i++;
+	if (!$simple_perms && $auth_method != 0) {
+		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
 	}
-
-	$sql_having = "HAVING $sql_having";
 
 	$tholds = db_fetch_assoc("SELECT
 		tl.`id`, tl.`time`, tl.`host_id`, tl.`local_graph_id`, tl.`threshold_id`,
 		IF(IFNULL(tl.`threshold_value`,'')='',NULL,(tl.`threshold_value` + 0.0)) AS `threshold_value`,
 		IF(IFNULL(tl.`current`,'')='',NULL,(tl.`current` + 0.0)) AS `current`, tl.`status`, tl.`type`,
-		tl.`description`, h.description AS hdescription, td.name, gtg.title_cache,
-		$sql_select
+		tl.`description`, h.description AS hdescription, td.name, gtg.title_cache
 		FROM plugin_thold_log AS tl
 		INNER JOIN thold_data AS td
 		ON tl.threshold_id=td.id
@@ -1388,15 +1305,13 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 		ON gtg.local_graph_id=gl.id
 		LEFT JOIN host AS h
 		ON h.id=gl.host_id
-		$sql_join
 		$sql_where
-		$sql_having
 		$order_by
 		$limit");
 
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
 		FROM (
-			SELECT $sql_select
+			SELECT tl.id
 			FROM plugin_thold_log AS tl
 			INNER JOIN thold_data AS td
 			ON tl.threshold_id=td.id
@@ -1408,9 +1323,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 			ON gtg.local_graph_id=gl.id
 			LEFT JOIN host AS h
 			ON h.id=gl.host_id
-			$sql_join
 			$sql_where
-			$sql_having
 		) AS rower");
 
 	return $tholds;
@@ -6352,4 +6265,5 @@ function thold_error_handler($errno, $errmsg, $filename, $linenum, $vars = []) {
 
 	return;
 }
+
 
