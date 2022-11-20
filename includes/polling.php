@@ -514,6 +514,8 @@ function thold_update_host_status() {
 					FROM plugin_thold_host_failed
 					WHERE host_id = ?',
 					array($fh['host_id']));
+
+				set_config_option('time_last_change_thold_device', time());
 			} elseif ($host['status'] == HOST_UP) {
 				$snmp_system   = '';
 				$snmp_hostname = '';
@@ -869,6 +871,8 @@ function thold_update_host_status() {
 			AND ((status != ? AND status != ?)
 			OR (status = ? AND status_event_count >= IF(thold_failure_count > 0, thold_failure_count, ?))) ',
 			array($config['poller_id'], HOST_UP, HOST_DOWN, HOST_DOWN, $ping_failure_count));
+
+		set_config_option('time_last_change_thold_device', time());
 	} else {
 		db_execute('TRUNCATE plugin_thold_host_failed');
 
@@ -878,6 +882,8 @@ function thold_update_host_status() {
 			AND ((status != ? AND status != ?)
 			OR (status = ? AND status_event_count >= IF(thold_failure_count > 0, thold_failure_count, ?))) ',
 			array(HOST_UP, HOST_DOWN, HOST_DOWN, $ping_failure_count));
+
+		set_config_option('time_last_change_thold_device', time());
 	}
 
 	if (cacti_sizeof($hosts)) {
@@ -900,6 +906,8 @@ function thold_update_host_status() {
 			db_execute("INSERT INTO plugin_thold_host_failed
 				(host_id)
 				VALUES $failed_ids");
+
+			set_config_option('time_last_change_thold_device', time());
 		}
 	}
 

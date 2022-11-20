@@ -5915,6 +5915,10 @@ function thold_prune_old_data() {
 		ON pthf.host_id = h.id
 		WHERE h.id IS NULL');
 
+	if (db_affected_rows() > 0) {
+		set_config_option('time_last_change_thold_device', time());
+	}
+
 	// Remove log entries from removed devices
 	db_execute('DELETE ptl
 		FROM plugin_thold_log AS ptl
@@ -6049,7 +6053,7 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $device_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, array(), 'device');
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_device');
 	} else {
 		$total_rows = db_fetch_cell($sql);
 	}
