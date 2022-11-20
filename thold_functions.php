@@ -207,9 +207,9 @@ function thold_template_avail_devices($thold_template_id = 0) {
 	// Limit ths hosts to only hosts that either have a graph template
 	// Listed as multiple, or do not have a threshold created
 	// Using the Graph Template listed
-	$host_ids = array();
+	$device_ids = array();
 	if (cacti_sizeof($graph_templates)) {
-		$host_ids = array_rekey(db_fetch_assoc('SELECT DISTINCT rs.id
+		$device_ids = array_rekey(db_fetch_assoc('SELECT DISTINCT rs.id
 			FROM (
 				SELECT h.id, gt.id AS gti, gt.multiple
 				FROM host AS h,graph_templates AS gt
@@ -222,7 +222,7 @@ function thold_template_avail_devices($thold_template_id = 0) {
 			OR rs.multiple = "on"'), 'id', 'id');
 	}
 
-	return (cacti_sizeof($host_ids) ? 'h.id IN (' . implode(', ', $host_ids) . ')':'');
+	return (cacti_sizeof($device_ids) ? 'h.id IN (' . implode(', ', $device_ids) . ')':'');
 }
 
 function thold_initialize_rusage() {
@@ -1002,7 +1002,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	return $stack[0];
 }
 
-function thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $snmp_index, $max_chars = 0) {
+function thold_substitute_snmp_query_data($string, $device_id, $snmp_query_id, $snmp_index, $max_chars = 0) {
 	$field_name = trim(str_replace('|query_', '', $string),"| \n\r");
 
 	$snmp_cache_data = db_fetch_cell_prepared("SELECT field_value
@@ -1011,7 +1011,7 @@ function thold_substitute_snmp_query_data($string, $host_id, $snmp_query_id, $sn
 		AND snmp_query_id = ?
 		AND snmp_index = ?
 		AND field_name= ?",
-		array($host_id, $snmp_query_id, $snmp_index, $field_name));
+		array($device_id, $snmp_query_id, $snmp_index, $field_name));
 
 	if ($snmp_cache_data != '') {
 		return $snmp_cache_data;
@@ -1036,23 +1036,23 @@ function thold_substitute_data_source_description($string, $local_data_id, $max_
 	}
 }
 
-function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $host_id) {
+function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $device_id) {
 	$field_name = trim(str_replace('|host_', '', $string),"| \n\r");
 
-	if (!isset($_SESSION['sess_host_cache_array'][$host_id])) {
+	if (!isset($_SESSION['sess_host_cache_array'][$device_id])) {
 		$host = db_fetch_row_prepared('SELECT *
 			FROM host WHERE id = ?',
-			array($host_id));
+			array($device_id));
 
-		$_SESSION['sess_host_cache_array'][$host_id] = $host;
+		$_SESSION['sess_host_cache_array'][$device_id] = $host;
 	}
 
-	if (isset($_SESSION['sess_host_cache_array'][$host_id][$field_name])) {
-		return $_SESSION['sess_host_cache_array'][$host_id][$field_name];
+	if (isset($_SESSION['sess_host_cache_array'][$device_id][$field_name])) {
+		return $_SESSION['sess_host_cache_array'][$device_id][$field_name];
 	}
 
-	$string = str_replace($l_escape_string . 'host_management_ip' . $r_escape_string, $_SESSION['sess_host_cache_array'][$host_id]['hostname'], $string);
-	$temp = api_plugin_hook_function('substitute_host_data', array('string' => $string, 'l_escape_string' => $l_escape_string, 'r_escape_string' => $r_escape_string, 'host_id' => $host_id));
+	$string = str_replace($l_escape_string . 'host_management_ip' . $r_escape_string, $_SESSION['sess_host_cache_array'][$device_id]['hostname'], $string);
+	$temp = api_plugin_hook_function('substitute_host_data', array('string' => $string, 'l_escape_string' => $l_escape_string, 'r_escape_string' => $r_escape_string, 'host_id' => $device_id));
 	$string = $temp['string'];
 
 	return $string;
@@ -1159,9 +1159,9 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	return $currentval;
 }
 
-function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit = '', &$total_rows = 0, $user = 0, $graph_id = 0) {
-	if ($limit != '') {
-		$limit = "LIMIT $limit";
+function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
+	if ($sql_limit != '') {
+		$sql_limit = "LIMIT $sql_limit";
 	}
 
 	if ($order_by != '') {
@@ -1176,28 +1176,28 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 		$sql_where = "WHERE $sql_where";
 	}
 
-	if ($user == -1) {
+	if ($user_id == -1) {
 		$auth_method = 0;
 	} else {
 		$auth_method = read_config_option('auth_method');
 	}
 
-	if ($auth_method > 0 && $user == 0) {
+	if ($auth_method > 0 && $user_id == 0) {
 		if (isset($_SESSION['sess_user_id'])) {
-			$user = $_SESSION['sess_user_id'];
+			$user_id = $_SESSION['sess_user_id'];
 		} else {
 			return array();
 		}
 	}
 
 	/* see if permissions are simple */
-	$simple_perms = get_simple_graph_perms($user);
-	
+	$simple_perms = get_simple_graph_perms($user_id);
+
 	/* in case we need to review get the graph_auth_method */
 	$graph_auth_method = read_config_option('graph_auth_method');
 
 	/* get policies for all groups and user */
-	$policies = get_policies($user);
+	$policies = get_policies($user_id);
 
 	if (!$simple_perms && $auth_method != 0) {
 		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
@@ -1205,29 +1205,29 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 
 	$tholds_sql = ("SELECT
 		td.*, dtd.rrd_step, tt.name AS template_name, dtr.data_source_name AS data_source,
-		IF(IFNULL(td.`lastread`,'')='',NULL,(td.`lastread` + 0.0)) AS `flastread`,
-		IF(IFNULL(td.`oldvalue`,'')='',NULL,(td.`oldvalue` + 0.0)) AS `foldvalue`,
+		IF(IFNULL(td.`lastread`,'') = '',NULL,(td.`lastread` + 0.0)) AS `flastread`,
+		IF(IFNULL(td.`oldvalue`,'') = '',NULL,(td.`oldvalue` + 0.0)) AS `foldvalue`,
 		UNIX_TIMESTAMP() - UNIX_TIMESTAMP(lastchanged) AS `instate`
 		FROM thold_data AS td
 		INNER JOIN graph_local AS gl
-		ON gl.id=td.local_graph_id
+		ON gl.id = td.local_graph_id
 		LEFT JOIN graph_templates AS gt
-		ON gt.id=gl.graph_template_id
+		ON gt.id = gl.graph_template_id
 		LEFT JOIN host AS h
-		ON h.id=gl.host_id
+		ON h.id = gl.host_id
 		LEFT JOIN thold_template AS tt
-		ON tt.id=td.thold_template_id
+		ON tt.id = td.thold_template_id
 		LEFT JOIN data_template_data AS dtd
-		ON dtd.local_data_id=td.local_data_id
+		ON dtd.local_data_id = td.local_data_id
 		LEFT JOIN data_template_rrd AS dtr
-		ON dtr.id=td.data_template_rrd_id
+		ON dtr.id = td.data_template_rrd_id
 		$sql_where
 		$order_by
-		$limit");
+		$sql_limit");
 
 	$tholds = db_fetch_assoc($tholds_sql);
 
-	$total_rows = db_fetch_cell("SELECT COUNT(*)
+	$sql = "SELECT COUNT(*)
 		FROM (
 			SELECT td.id
 			FROM thold_data AS td
@@ -1240,14 +1240,20 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $limit =
 			LEFT JOIN thold_template AS tt
 			ON tt.id=td.thold_template_id
 			$sql_where
-		) AS rower");
+		) AS rower";
+
+	if (function_exists('get_total_row_data') && $graph_id == 0) {
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold');
+	} else {
+		$total_rows = db_fetch_cell($sql);
+	}
 
 	return $tholds;
 }
 
-function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $limit = '', &$total_rows = 0, $user = 0, $graph_id = 0) {
-	if ($limit != '') {
-		$limit = "LIMIT $limit";
+function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
+	if ($sql_limit != '') {
+		$sql_limit = "LIMIT $sql_limit";
 	}
 
 	if ($order_by != '') {
@@ -1262,28 +1268,28 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 		$sql_where = "WHERE $sql_where";
 	}
 
-	if ($user == -1) {
+	if ($user_id == -1) {
 		$auth_method = 0;
 	} else {
 		$auth_method = read_config_option('auth_method');
 	}
 
-	if ($auth_method > 0 && $user == 0) {
+	if ($auth_method > 0 && $user_id == 0) {
 		if (isset($_SESSION['sess_user_id'])) {
-			$user = $_SESSION['sess_user_id'];
+			$user_id = $_SESSION['sess_user_id'];
 		} else {
 			return array();
 		}
 	}
 
 	/* see if permissions are simple */
-	$simple_perms = get_simple_graph_perms($user);
-	
+	$simple_perms = get_simple_graph_perms($user_id);
+
 	/* in case we need to review get the graph_auth_method */
 	$graph_auth_method = read_config_option('graph_auth_method');
 
 	/* get policies for all groups and user */
-	$policies = get_policies($user);
+	$policies = get_policies($user_id);
 
 	if (!$simple_perms && $auth_method != 0) {
 		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
@@ -1307,9 +1313,9 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 		ON h.id=gl.host_id
 		$sql_where
 		$order_by
-		$limit");
+		$sql_limit");
 
-	$total_rows = db_fetch_cell("SELECT COUNT(*)
+	$sql = "SELECT COUNT(*)
 		FROM (
 			SELECT tl.id
 			FROM plugin_thold_log AS tl
@@ -1324,7 +1330,13 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $lim
 			LEFT JOIN host AS h
 			ON h.id=gl.host_id
 			$sql_where
-		) AS rower");
+		) AS rower";
+
+	if (function_exists('get_total_row_data') && $graph_id == 0) {
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_log');
+	} else {
+		$total_rows = db_fetch_cell($sql);
+	}
 
 	return $tholds;
 }
@@ -3325,8 +3337,8 @@ function thold_expand_string($thold_data, $string) {
 			}
 		}
 
-		if (strpos($str, '|host_') !== false && !empty($host_id)) {
-			$str = thold_substitute_host_data($str, '|', '|', $host_id);
+		if (strpos($str, '|host_') !== false && !empty($device_id)) {
+			$str = thold_substitute_host_data($str, '|', '|', $device_id);
 		}
 
 		// Replace |graph_title|
@@ -4319,9 +4331,9 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 
 function thold_create_new_graph_from_template() {
 	if (!isset_request_var('host_id')) {
-		$host_id = 0;
+		$device_id = 0;
 	} else {
-		$host_id = get_filter_request_var('host_id');
+		$device_id = get_filter_request_var('host_id');
 	}
 
 	if (isset_request_var('save_component_graph')) {
@@ -4345,11 +4357,11 @@ function thold_create_new_graph_from_template() {
 		}
 
 		if (isset($selected_graphs)) {
-			html_graph_new_graphs('thold.php', $host_id, $host_template_id, $selected_graphs);
+			html_graph_new_graphs('thold.php', $device_id, $host_template_id, $selected_graphs);
 			exit;
 		}
 	} elseif (isset_request_var('save_component_new_graphs')) {
-		thold_new_graphs_save($host_id);
+		thold_new_graphs_save($device_id);
 	}
 }
 
@@ -4378,7 +4390,7 @@ function save_thold() {
 			return false;
 		}
 
-		$host_id = get_filter_request_var('host_id');
+		$device_id = get_filter_request_var('host_id');
 
 		if (isset_request_var('thold_template_id')) {
 			$template = db_fetch_row_prepared('SELECT *
@@ -4401,7 +4413,7 @@ function save_thold() {
 			return false;
 		}
 
-		$graph_array = thold_new_graphs_save($host_id);
+		$graph_array = thold_new_graphs_save($device_id);
 
 		if ($graph_array !== false) {
 			if (isset($graph_array['local_graph_id'])) {
@@ -4468,9 +4480,9 @@ function save_thold() {
 	}
 
 	if (isset_request_var('my_host_id')) {
-		$host_id = get_filter_request_var('my_host_id');
+		$device_id = get_filter_request_var('my_host_id');
 	} else {
-		$host_id = get_filter_request_var('host_id');
+		$device_id = get_filter_request_var('host_id');
 	}
 
 	$local_data_id        = get_filter_request_var('local_data_id');
@@ -4661,7 +4673,7 @@ function save_thold() {
 			array($local_graph_id));
 	}
 
-	$save['host_id']              = $host_id;
+	$save['host_id']              = $device_id;
 	$save['data_template_rrd_id'] = $data_template_rrd_id;
 	$save['local_data_id']        = $local_data_id;
 	$save['thold_enabled']        = isset_request_var('thold_enabled') && get_request_var('thold_enabled') == 'on' ? 'on':'off';
@@ -5044,10 +5056,10 @@ function thold_create_thold_save_from_template($save, $template) {
 }
 
 // Create tholds for all possible data elements for a host
-function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_template_id = '', $log = false) {
+function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thold_template_id = '', $log = false) {
 	$created = 0;
 	$message = '';
-	$host_id = 0;
+	$device_id = 0;
 
 	// Don't autocreate if not asked to
 	if (isset_request_var('save_autocreate') && get_filter_request_var('save_autocreate') == 0) {
@@ -5092,17 +5104,17 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gti.local_graph_id IN(' . implode(', ', $graph_ids) . ')';
 	}
 
-	if (is_array($host_ids)) {
-		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gl.host_id IN(' . implode($host_ids) . ')';
-	} elseif ($host_ids > 0) {
-		$host_id = $host_ids;
+	if (is_array($device_ids)) {
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gl.host_id IN(' . implode($device_ids) . ')';
+	} elseif ($device_ids > 0) {
+		$device_id = $device_ids;
 	}
 
-	if ($host_id > 0) {
+	if ($device_id > 0) {
 		$host_template_id = db_fetch_cell_prepared('SELECT host_template_id
 			FROM host
 			WHERE id = ?',
-			array($host_id));
+			array($device_id));
 
 		$templates = db_fetch_assoc_prepared('SELECT tt.*
 			FROM thold_template AS tt
@@ -5118,7 +5130,7 @@ function autocreate($host_ids, $graph_ids = '', $graph_template_id = '', $thold_
 
 			return 0;
 		} else {
-			$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gl.host_id = ' . $host_id;
+			$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'gl.host_id = ' . $device_id;
 			$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . 'dtr.data_source_name = ?';
 
 			foreach($templates as $template) {
@@ -5916,9 +5928,31 @@ function thold_prune_old_data() {
 		WHERE gl.id IS NULL');
 }
 
-function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $limit = '', &$total_rows = 0, $user = 0, $host_id = 0) {
-	if ($limit != '') {
-		$limit = "LIMIT $limit";
+function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $sql_limit = '', &$total_rows = 0, $user_id = 0, $device_id = 0) {
+	if ($user_id == -1) {
+		$auth_method = 0;
+	} else {
+		$auth_method = read_config_option('auth_method');
+	}
+
+	if ($user_id == 0) {
+		if (isset($_SESSION['sess_user_id'])) {
+			$user_id = $_SESSION['sess_user_id'];
+		} else {
+			return array();
+		}
+	}
+
+	$simple_perms = get_simple_device_perms($user_id);
+
+	$init_rows = $total_rows;
+
+	$host_list = array();
+
+	if ($sql_limit != '' && $sql_limit != -1) {
+		$sql_limit = "LIMIT $sql_limit";
+	} else {
+		$sql_limit = '';
 	}
 
 	if ($order_by != '') {
@@ -5926,89 +5960,27 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 	}
 
 	if (read_user_setting('hide_disabled') == 'on') {
-		$sql_where .= ($sql_where != '' ? ' AND':'') . ' h.disabled=""';
+		$sql_where .= ($sql_where != '' ? ' AND':'') . ' (h.disabled = "" OR h.disabled IS NULL)';
 	}
 
 	if ($sql_where != '') {
 		$sql_where = "WHERE $sql_where";
 	}
 
-	if ($host_id > 0) {
-		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . " h.id=$host_id";
+	if ($device_id > 0) {
+		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . " h.id = $device_id";
 	}
+
+	$graph_auth_method = read_config_option('graph_auth_method');
 
 	$poller_interval = read_config_option('poller_interval');
 
-	if ($user == 0) {
-		if (isset($_SESSION['sess_user_id'])) {
-			$user = $_SESSION['sess_user_id'];
-		} else {
-			return array();
-		}
-	}
-
-	if (read_config_option('graph_auth_method') == 1) {
-		$sql_operator = 'OR';
-	} else {
-		$sql_operator = 'AND';
-	}
-
 	/* get policies for all groups and user */
-	$policies   = db_fetch_assoc_prepared("SELECT uag.id, 'group' AS type,
-		uag.policy_graphs, uag.policy_hosts, uag.policy_graph_templates
-		FROM user_auth_group AS uag
-		INNER JOIN user_auth_group_members AS uagm
-		ON uag.id = uagm.group_id
-		WHERE uag.enabled = 'on'
-		AND uagm.user_id = ?",
-		array($user)
-	);
+	$policies = get_policies($user_id);
 
-	$policies[] = db_fetch_row_prepared("SELECT id, 'user' AS type,
-		policy_graphs, policy_hosts, policy_graph_templates
-		FROM user_auth
-		WHERE id = ?",
-		array($user)
-	);
-
-	$i          = 0;
-	$sql_select = '';
-	$sql_join   = '';
-	$sql_having = '';
-
-	foreach ($policies as $policy) {
-		if ($policy['policy_graphs'] == 1) {
-			$sql_having .= ($sql_having != '' ? ' OR ' : '') . "(user$i IS NULL";
-		} else {
-			$sql_having .= ($sql_having != '' ? ' OR ' : '') . "(user$i IS NOT NULL";
-		}
-
-		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.id=uap$i.item_id AND uap$i.type=1 AND uap$i." . $policy['type'] . "_id=" . $policy['id'] . ") ";
-		$sql_select .= ($sql_select != '' ? ', ' : '') . "uap$i." . $policy['type'] . "_id AS user$i";
-		$i++;
-
-		if ($policy['policy_hosts'] == 1) {
-			$sql_having .= " OR (user$i IS NULL";
-		} else {
-			$sql_having .= " OR (user$i IS NOT NULL";
-		}
-
-		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.host_id=uap$i.item_id AND uap$i.type=3 AND uap$i." . $policy['type'] . "_id=" . $policy['id'] . ") ";
-		$sql_select .= ($sql_select != '' ? ', ' : '') . "uap$i." . $policy['type'] . "_id AS user$i";
-		$i++;
-
-		if ($policy['policy_graph_templates'] == 1) {
-			$sql_having .= " $sql_operator user$i IS NULL))";
-		} else {
-			$sql_having .= " $sql_operator user$i IS NOT NULL))";
-		}
-
-		$sql_join   .= 'LEFT JOIN user_auth_' . ($policy['type'] == 'user' ? '':'group_') . "perms AS uap$i ON (gl.graph_template_id=uap$i.item_id AND uap$i.type=4 AND uap$i." . $policy['type'] . "_id=" . $policy['id'] . ") ";
-		$sql_select .= ($sql_select != '' ? ', ' : '') . "uap$i." . $policy['type'] . "_id AS user$i";
-		$i++;
+	if (!$simple_perms && $auth_method != 0) {
+		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
 	}
-
-	$sql_having = "HAVING $sql_having";
 
 	$host_list = db_fetch_assoc("SELECT h1.*, graphs, data_sources,
 		CAST(IF(availability_method = 0, '0',
@@ -6019,48 +5991,46 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 		))))) AS unsigned) AS instate
 		FROM host AS h1
 		INNER JOIN (
-			SELECT DISTINCT id FROM (
-				SELECT h.*, $sql_select
+			SELECT DISTINCT id
+			FROM (
+				SELECT h.id
 				FROM host AS h
 				LEFT JOIN graph_local AS gl
-				ON h.id=gl.host_id
-				LEFT JOIN graph_templates_graph AS gtg
-				ON gl.id=gtg.local_graph_id
+				ON h.id = gl.host_id
 				LEFT JOIN graph_templates AS gt
 				ON gt.id=gl.graph_template_id
 				LEFT JOIN host_template AS ht
-				ON h.host_template_id=ht.id
-				$sql_join
+				ON h.host_template_id = ht.id
 				$sql_where
-				$sql_having
 			) AS rs1
 		) AS rs2
-		ON rs2.id=h1.id
+		ON rs2.id = h1.id
 		LEFT JOIN (SELECT host_id, COUNT(*) AS graphs FROM graph_local GROUP BY host_id) AS gl
-		ON h1.id=gl.host_id
+		ON h1.id = gl.host_id
 		LEFT JOIN (SELECT host_id, COUNT(*) AS data_sources FROM data_local GROUP BY host_id) AS dl
-		ON h1.id=dl.host_id
+		ON h1.id = dl.host_id
 		$order_by
-		$limit"
+		$sql_limit"
 	);
 
-	$total_rows = db_fetch_cell("SELECT COUNT(DISTINCT id)
+	$sql = "SELECT COUNT(DISTINCT id)
 		FROM (
-			SELECT h.id, $sql_select
+			SELECT h.id
 			FROM host AS h
 			LEFT JOIN graph_local AS gl
 			ON h.id=gl.host_id
-			LEFT JOIN graph_templates_graph AS gtg
-			ON gl.id=gtg.local_graph_id
 			LEFT JOIN graph_templates AS gt
 			ON gt.id=gl.graph_template_id
 			LEFT JOIN host_template AS ht
 			ON h.host_template_id=ht.id
-			$sql_join
 			$sql_where
-			$sql_having
-		) AS rower"
-	);
+		) AS rower";
+
+	if (function_exists('get_total_row_data') && $device_id == 0) {
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'device');
+	} else {
+		$total_rows = db_fetch_cell($sql);
+	}
 
 	return $host_list;
 }
