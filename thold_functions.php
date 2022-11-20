@@ -1436,6 +1436,8 @@ function thold_log($save) {
 	unset($save['emails']);
 
 	$id = sql_save($save, 'plugin_thold_log');
+
+	set_config_option('time_last_change_thold_log', time());
 }
 
 function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_id') {
@@ -4835,6 +4837,10 @@ function save_thold() {
 
 	$id = sql_save($save , 'thold_data');
 
+	if (isempty_request_var('id')) {
+		set_config_option('time_last_change_thold', time());
+	}
+
 	if (isset_request_var('notify_accounts') && is_array(get_nfilter_request_var('notify_accounts'))) {
 		thold_save_threshold_contacts($id, get_nfilter_request_var('notify_accounts'));
 	} elseif (!isset_request_var('notify_accounts')) {
@@ -5292,6 +5298,8 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 			$save = api_plugin_hook_function('thold_edit_save_thold', $save);
 
 			$id = sql_save($save, 'thold_data');
+
+			set_config_option('time_last_change_thold', time());
 
 			if ($id) {
 				thold_template_update_threshold($id, $save['thold_template_id']);
@@ -5913,6 +5921,10 @@ function thold_prune_old_data() {
 		ON ptl.host_id = h.id
 		WHERE h.id IS NULL');
 
+	if (db_affected_rows() > 0) {
+		set_config_option('time_last_change_thold_log', time());
+	}
+
 	// Remove thresholds from removed devices
 	db_execute('DELETE td
 		FROM thold_data AS td
@@ -5920,12 +5932,20 @@ function thold_prune_old_data() {
 		ON td.host_id = h.id
 		WHERE h.id IS NULL');
 
+	if (db_affected_rows() > 0) {
+		set_config_option('time_last_change_thold', time());
+	}
+
 	// Remove thresholds from removed graphs
 	db_execute('DELETE td
 		FROM thold_data AS td
 		LEFT JOIN graph_local AS gl
 		ON td.local_graph_id = gl.id
 		WHERE gl.id IS NULL');
+
+	if (db_affected_rows() > 0) {
+		set_config_option('time_last_change_thold', time());
+	}
 }
 
 function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $sql_limit = '', &$total_rows = 0, $user_id = 0, $device_id = 0) {

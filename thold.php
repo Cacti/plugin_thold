@@ -236,6 +236,9 @@ function do_actions() {
 							db_execute_prepared('DELETE FROM plugin_thold_log
 								WHERE threshold_id = ?',
 								array($thold_id));
+
+							set_config_option('time_last_change_thold', time());
+							set_config_option('time_last_change_thold_log', time());
 						}
 					}
 					break;

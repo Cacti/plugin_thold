@@ -193,6 +193,10 @@ function thold_cleanup_log() {
 	db_execute_prepared('DELETE FROM plugin_thold_log
 		WHERE time < ?',
 		array($t));
+
+	if (db_affected_rows() > 0) {
+		set_config_option('time_last_change_thold_log', time());
+	}
 }
 
 function thold_poller_output(&$rrd_update_array) {
@@ -366,6 +370,10 @@ function thold_poller_output(&$rrd_update_array) {
 
 			/* accomodate deleted tholds */
 			db_execute('DELETE FROM thold_data WHERE local_data_id = 0');
+
+			if (db_affected_rows() > 0) {
+				set_config_option('time_last_change_thold', time());
+			}
 		}
 	}
 
