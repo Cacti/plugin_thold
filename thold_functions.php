@@ -1438,6 +1438,7 @@ function thold_log($save) {
 	$id = sql_save($save, 'plugin_thold_log');
 
 	set_config_option('time_last_change_thold_log', time());
+	set_config_option('time_last_change_thold', time());
 }
 
 function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_id') {
@@ -5923,6 +5924,7 @@ function thold_prune_old_data() {
 
 	if (db_affected_rows() > 0) {
 		set_config_option('time_last_change_thold_log', time());
+		set_config_option('time_last_change_thold', time());
 	}
 
 	// Remove thresholds from removed devices
