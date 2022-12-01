@@ -25,7 +25,7 @@
 /* let PHP run just as long as it has to */
 ini_set('max_execution_time', '0');
 
-error_reporting('E_ALL');
+error_reporting(E_ALL);
 $dir = dirname(__FILE__);
 chdir($dir);
 
