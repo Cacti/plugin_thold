@@ -25,7 +25,7 @@
 /* let PHP run just as long as it has to */
 ini_set('max_execution_time', '0');
 
-error_reporting('E_ALL');
+error_reporting(E_ALL);
 
 include(dirname(__FILE__) . '/../../include/cli_check.php');
 include_once($config['base_path'] . '/lib/xml.php');
