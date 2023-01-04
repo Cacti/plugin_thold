@@ -596,8 +596,8 @@ function thold_update_host_status() {
 
 				$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
 				$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
-				$subject = str_replace('<NOTES>', $host['notes'], $subject);
 				$subject = str_replace('<DOWN/UP>', 'UP', $subject);
+				$subject = str_replace('<NOTES>', $host['notes'], $subject);
 				$subject = strip_tags($subject);
 
 				$msg = read_config_option('thold_up_text');
@@ -751,6 +751,7 @@ function thold_update_host_status() {
 			$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
 			$subject = str_replace('<DOWN/UP>', __('DOWN', 'thold'), $subject);
 			$subject = str_replace('<DOWNTIME>', $downtimemsg, $subject);
+			$subject = str_replace('<NOTES>', $host['notes'], $subject);
 			$subject = strip_tags($subject);
 
 			$msg = read_config_option('thold_down_text');
