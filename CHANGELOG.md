@@ -14,6 +14,8 @@
 
 * issue#555: CMDPHP ERRORS DETECTED - DISABLING PLUGIN 'thold'
 
+* issue#566: Device Notification Options: Subject editing with tags (<NOTES>) not showing
+
 * issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti uses
   autocommit, so don't use them.
 

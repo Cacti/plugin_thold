@@ -596,6 +596,7 @@ function thold_update_host_status() {
 
 				$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
 				$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
+				$subject = str_replace('<NOTES>', $host['notes'], $subject);
 				$subject = str_replace('<DOWN/UP>', 'UP', $subject);
 				$subject = strip_tags($subject);
 
