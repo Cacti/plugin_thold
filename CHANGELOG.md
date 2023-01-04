@@ -12,6 +12,8 @@
 
 * issue#542: Thold uses hardcoded from adress insted of db one
 
+* issue#549: Thold 1.6 breaks on bandwidth utilization
+
 * issue#551: Cacti monitor rate different the threshold read
 
 * issue#555: CMDPHP ERRORS DETECTED - DISABLING PLUGIN 'thold'
