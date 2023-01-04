@@ -8,7 +8,8 @@
 
 * issue#535: Support new uptime calculation in Cacti 1.2.19
 
-* issue#540: Change table name from 'plugin_thold_device_template' to 'plugin_thold_host_template' for Pre-1.0 upgrade
+* issue#540: Change table name from 'plugin_thold_device_template' to
+  'plugin_thold_host_template' for Pre-1.0 upgrade
 
 * issue#542: Thold uses hardcoded from adress insted of db one
 
@@ -18,12 +19,13 @@
 
 * issue#555: CMDPHP ERRORS DETECTED - DISABLING PLUGIN 'thold'
 
-* issue#566: Device Notification Options: Subject editing with tags (<NOTES>) not showing
+* issue#566: Device Notification Options: Subject editing with tags (<NOTES>)
+  not showing
 
 * issue#558: Thold entry displayed moretimes
 
-* issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti uses
-  autocommit, so don't use them.
+* issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti
+  uses autocommit, so don't use them.
 
 * issue: Fix issues where thold daemon could possibly loose events due to an
   array chunking issue identified through PHP8.1.2 testing.
@@ -39,21 +41,25 @@
 
 * feature: Auto Enable the thold daemon on startup
 
-* feature: Keep track of running daemon processes and scale up/down automatically
+* feature: Keep track of running daemon processes and scale up/down
+  automatically
 
 * feature: Make the thold daemon process/thread counter a dropdown
 
 * feature: Make the thold daemon children processes persistent
 
-* feature: Make the thold daemon properly pause in cases where the database is offline
+* feature: Make the thold daemon properly pause in cases where the database is
+  offline
 
-* feature: Properly execute signal handling from the parent to the children processes
+* feature: Properly execute signal handling from the parent to the children
+  processes
 
 * feature: Implement thold daemon debugging from the settings page
 
 * feature: Properly implement thold_error_handler
 
-* issue#515: Security[CSRF]: thold.php use the value of the "Referer" header without validation
+* issue#515: Security[CSRF]: thold.php use the value of the "Referer" header
+  without validation
 
 * issue#517: notification list page formatting not correct
 
@@ -65,7 +71,8 @@
 
 * issue#525: Thold Daemon improperly adjust the thold by it's cdef twice
 
-* issue#527: When removing a threshold, thold should remove daemon data related to it
+* issue#527: When removing a threshold, thold should remove daemon data related
+  to it
 
 * issue#529: Undefined index: thold_name in thold_functions.php on line: 3412
 
@@ -73,57 +80,71 @@
 
 * issue#534: CLI template importing output escaped template name
 
+
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes
 
-* issue#467: The thold cdef processing function does not handle non-numeric data correctly
+* issue#467: The thold cdef processing function does not handle non-numeric data
+  correctly
 
-* issue#474: Create threshold from templates fail with multiple data template ids
+* issue#474: Create threshold from templates fail with multiple data template
+  ids
 
 * issue#482: Thold and Thold Template missing <DATE> Tab in Help
 
-* issue#492: Thold search filter does not work from Console > Management > Thresholds
+* issue#492: Thold search filter does not work from Console > Management >
+  Thresholds
 
 * issue#495: THOLD ERROR: RPN Expression is invalid!
 
-* issue#496: Aacknowledgement text does not visible but shows up when you refresh
+* issue#496: Aacknowledgement text does not visible but shows up when you
+  refresh
 
 * issue#498: Return button in Thold templates is broken
 
-* issue#499: In Thold Tab > Device status > ID of device reported simply as 1K if number is above 1023
+* issue#499: In Thold Tab > Device status > ID of device reported simply as 1K
+  if number is above 1023
 
 * feature#469: use thold template name as filename for single export
 
-* feature#481: SNMP event description can be defined individually or template based.
+* feature#481: SNMP event description can be defined individually or template
+  based.
 
 * issue#510: Searching in Notify lists doesnt filter result
 
 * issue#511: Fix missing variable validation
 
+
 --- 1.5.2 ---
 
 * issue#457: Page show blank if do export function without log info exist
 
-* issue#458: The indicator is not removed upon completion when do export function
+* issue#458: The indicator is not removed upon completion when do export
+  function
 
-* issue#459: Background color looks ugly for availability column. Table not aligned well.
+* issue#459: Background color looks ugly for availability column. Table not
+  aligned well.
 
 * issue#460: Filter result for template none incorrect
+
 
 --- 1.5.1 ---
 
 * issue: Upgrade to thold 1.5 misses new column causing saves to fail
 
+
 --- 1.5 ---
 
-* issue#187: Standalone Thresholds created do not read graph data due to threshold daemon not running
+* issue#187: Standalone Thresholds created do not read graph data due to
+  threshold daemon not running
 
 * issue#225: Customize Thold Restore message
 
 * issue#304: Warn Cacti Administrator if the Thold Daemon is Down
 
-* issue#366: When a value is undefined, Thresholds are no longer triggering when minimum is zero
+* issue#366: When a value is undefined, Thresholds are no longer triggering when
+  minimum is zero
 
 * issue#372: Thold plugin execute a script each time device state changes? v2
 
@@ -146,15 +167,19 @@
 
 * issue#431: SQL Syntax Determining Failed Devices
 
-* issue#433: ERROR PHP WARNING in Plugin 'thold': Use of undefined constant LOG_VERBOSITY_MEDIUM
+* issue#433: ERROR PHP WARNING in Plugin 'thold': Use of undefined constant
+  LOG_VERBOSITY_MEDIUM
 
-* issue#441: Thold 1.4 + cacti 1.2.14 - Classic Theme - Unable to Create Thresholds
+* issue#441: Thold 1.4 + cacti 1.2.14 - Classic Theme - Unable to Create
+  Thresholds
 
-* issue#442: THOLD daemon should not log errors on interruption/termination by user
+* issue#442: THOLD daemon should not log errors on interruption/termination by
+  user
 
 * issue#443: Add support for upper + lower bytes calculation
 
-* issue#444: PHP bug - Array and string offset access syntax with curly braces is deprecated
+* issue#444: PHP bug - Array and string offset access syntax with curly braces
+  is deprecated
 
 * issue#446: Threshold not triggering if CDEF is utilized
 
@@ -169,6 +194,7 @@
 * issue: Percentage threholds that show horizontal rule are cut off
 
 * feature: Migrate all Images to Fontawesome Glyphs
+
 
 --- 1.4 ---
 
@@ -188,15 +214,19 @@
 
 * issue: Make notification lists aware of device removal
 
-* issue: When Data Manipulation type is Percentage, RPN Expression column is shown
+* issue: When Data Manipulation type is Percentage, RPN Expression column is
+  shown
+
 
 --- 1.3.4 ---
 
 * issue#404: THOLD 1.3.3 Cacti 1.2.9 PHP errors
 
+
 --- 1.3.3 ---
 
-* feature#359: Allow DOWNTIME variable substitution also in UP/DOWN e-mail subject
+* feature#359: Allow DOWNTIME variable substitution also in UP/DOWN e-mail
+  subject
 
 * feature#375: Enhance Thold to Export Thold Logs to csv
 
@@ -228,14 +258,15 @@
 * issue#368: When using Classic Theme, devices not appearing when try to create
   a threshold
 
-* issue#369: When saving a template, notification lists of all
-  templates are updated
+* issue#369: When saving a template, notification lists of all templates are
+  updated
 
 * issue#381: Threshold Daemon Server (get rid of start script)
 
 * issue#383: Backtrace errors when first creating a thold
 
-* issue#384: Call to undefined function rrdtool_execute() in thold_functions.php:4094
+* issue#384: Call to undefined function rrdtool_execute() in
+  thold_functions.php:4094
 
 * issue#391: Undefined CDEF generated with latest Core / Thold versions
 
@@ -247,12 +278,14 @@
 
 * issue#401: Errors occur with invalid thresholds with a bad thold type
 
+
 --- 1.3.2 ---
 
 * issue#349: Undefined variable notice when attempting to create a threshold
 
 * issue#352: Non-numeric value error can sometimes be issued by
   thold_format_number()
+
 
 --- 1.3.1 ---
 
@@ -261,6 +294,7 @@
 * issue#343: Call to undefined function db_fetch_cell_assoc()
 
 * issue#344: Thold VRules Display is subject to XSS Attack
+
 
 --- 1.3.0 ---
 
@@ -381,8 +415,8 @@
 
 * issue#320: Thold Graph broken when name include single quote
 
-* issue#322: Standalone thresholds based on graph with serveral DS dont work
-  for DS after the 1st one...
+* issue#322: Standalone thresholds based on graph with serveral DS dont work for
+  DS after the 1st one...
 
 * issue#323: "Associated Graph (Graphs using this RRD)" field not including all
   graphs using same RRD...
@@ -411,6 +445,7 @@
 * issue: When updating the Notification List for a Threshold Template, updates
   were not pushed to Thresholds.
 
+
 --- 1.2.3 ---
 
 * issue#283: Do not show 'Threshold Create' icon on the Graphs page for
@@ -423,11 +458,13 @@
 
 * issue#295: Custom status was not replaced correctly after creating threshold
 
+
 --- 1.2.2 ---
 
 * feature: Add hook for Threshold autocreation during automation cycle.  This
   allows Cacti v1.3 to use a hook instead of hardcoded plugin functionality to
   generate the thresholds
+
 
 --- 1.2.1 ---
 
@@ -436,8 +473,7 @@
 * issue#95: Display duration count in days:hr:min:sec for triggered thold alarms
   and warnings
 
-* issue#248: No device available when attempting to manually add a new
-  Threshold
+* issue#248: No device available when attempting to manually add a new Threshold
 
 * issue#250: Database upgrade is not performed properly
 
@@ -445,8 +481,7 @@
 
 * issue#257: Creating a Threshold from Template using the Wizard inconsistent
 
-* issue#262: MySQL is sorting measured values as strings not numerics on Log
-  tab
+* issue#262: MySQL is sorting measured values as strings not numerics on Log tab
 
 * issue#266: Autocreation of Thresholds not working as expected when multiple
   Templates specified
@@ -455,7 +490,8 @@
 
 * issue#271: A non-numeric value encountered in file polling.php line 570 & 571
 
-* issue#272: MySQL is sorting measured values as strings not numerics on Thold tab
+* issue#272: MySQL is sorting measured values as strings not numerics on Thold
+  tab
 
 * issue#273: Wrong navigation bar link
 
@@ -468,6 +504,7 @@
   if templates are found
 
 * issue#278: When creating new thresholds, created count generates errors
+
 
 --- 1.2.0 ---
 
@@ -503,14 +540,16 @@
 * issue#265: When saving a Threshold or a Threshold Template you were redirected
   back to the respective table views and not left on the edit page.
 
+
 --- 1.0.6 ---
 
 * feature: Template list shows clickable/sortable count of Thresholds
 
-* feature: Threshold list allows filtering by Threshold Template as well as
-  Data Template
+* feature: Threshold list allows filtering by Threshold Template as well as Data
+  Template
 
 * issue: Suggested names was not selecting the correct data source
+
 
 --- 1.0.5 ---
 
@@ -523,6 +562,7 @@
 * issue#198: Depreciated each() function usage under PHP 7.2
 
 * issue#199: Threshold template association issue
+
 
 --- 1.0.4 ---
 
@@ -588,6 +628,7 @@
 * issue: Fully convert the thold daemon to Cacti 1.x.  Old converted thold
   daemon was generating MySQL 2006 errors due to a feature in PDO
 
+
 --- 1.0.3 ---
 
 * feature#34: Allow notes to be attached to thresholds and templates
@@ -610,7 +651,8 @@
 * issue#97: Re-write logger() function to leverage subject instead of attempting
   to reconstruct message
 
-* issue#99: Thold disables itself due to division by zero for invalid RPN expressions
+* issue#99: Thold disables itself due to division by zero for invalid RPN
+  expressions
 
 * issue#104: Query using the wrong/deprecated column
 
@@ -626,6 +668,7 @@
 
 * issue: Add test domain for i18n
 
+
 --- 1.0.2 ---
 
 * issue#60: Threshold Templates could not be exported
@@ -638,6 +681,7 @@
 
 * issue#73: PHP Warnings when saving baseline alerts
 
+
 --- 1.0.1 ---
 
 * issue#57: Thold can not display graph with hrules due to lack of escaping
@@ -645,6 +689,7 @@
 * issue#58: Autocreate creates too many thresholds
 
 * bug: Resolve issue where wrong graph could be attached to email
+
 
 --- 1.0.0 ---
 
@@ -663,6 +708,7 @@
 * feature: complete audit and rewrite of several functions addressing:
   readability, clarity, and consistency
 
+
 --- 0.6 ---
 
 * feature: Reduce influence upon Cactis poller runtime to a minimum by
@@ -676,6 +722,7 @@
 * Bug#0002371: Thold plugin - Undefined index: template in
   /var/www/html/plugins/thold/thold.php on line 273
 
+
 --- 0.5 ---
 
 * feature: Allow threshold log retention to be configurable
@@ -687,6 +734,7 @@
 * bug: #0002247 - SQL Injection in thold.php (must be authenticated first)
   Thanks Primož!!
 
+
 --- 0.4.9 ---
 
 * feature: Allow HRULES based upon HI/LOW Value portions courtesy of Barnaby
@@ -694,13 +742,14 @@
 
 * bug: Restoral Emails not working in all cases
 
-* bug: When polling returns non-numeric data,  dont return false LOW Alerts
+* bug: When polling returns non-numeric data, dont return false LOW Alerts
 
 * bug: Fix time based Warnings
 
 * bug: More issues with Realert for Time Based and Hi/Low
 
 * bug: Be more specific about what 'Hosts:' means when generating stats
+
 
 --- 0.4.8 ---
 
@@ -714,11 +763,13 @@
 
 * bug: Notification List Disassociate Global List not functional
 
+
 --- 0.4.7 ---
 
 * feature: Add index to optimize page loads
 
 * feature: Allow more hosts to be reported as down
+
 
 --- 0.4.6 ---
 
@@ -742,8 +793,7 @@
 
 * feature: Add Email Priority per 'dragossto'
 
-* feature: Add Email Notification Lists for Thresholds, Templates and Dead
-  Hosts
+* feature: Add Email Notification Lists for Thresholds, Templates and Dead Hosts
 
 * feature: Add Ability to Disable Legacy Alerting
 
@@ -756,6 +806,7 @@
 * feature: Add Template Export/Import Functionality
 
 * feature: Add DSStats functionality to RPN Expressions save on Disk I/O
+
 
 --- 0.4.4 ---
 
@@ -771,6 +822,7 @@
 
 * bug: Multiple fixes posted by our hard working forum users!!!
 
+
 --- 0.4.3 ---
 
 * feature: Add support for maint plugin
@@ -785,6 +837,7 @@
 * bug: Several fixes to CDEFs
 
 * feature: Add customizable subjects and message body for down host alerts
+
 
 --- 0.4.2 ---
 
@@ -802,10 +855,10 @@
 
 * bug: Allow the use of query_XYZ in CDEFs
 
-* bug: Fix host status page to only allow users to see hosts they have access
-  to
+* bug: Fix host status page to only allow users to see hosts they have access to
 
 * bug: Fix ru_nswap errors on Windows
+
 
 --- 0.4.1 ---
 
@@ -823,17 +876,18 @@
 
 * bug: Fix duplicate function names (when improperly installing plugin)
 
+
 --- 0.4.0 ---
 
-* bug: Fix for multiple poller intervals, use RRD Step of Data Source
-  instead of Polling Interval
+* bug: Fix for multiple poller intervals, use RRD Step of Data Source instead of
+  Polling Interval
 
 * Bug: Fix for down host alerting on disabled hosts
 
 * feature: Add filtering to listthold.php
 
-* feature: Use time periods instead of number of pollings when specifying
-  Repeat Alerts and Fail Triggers
+* feature: Use time periods instead of number of pollings when specifying Repeat
+  Alerts and Fail Triggers
 
 * feature: Time Based Threshold Checking
 
@@ -879,13 +933,16 @@
 
 * feature: Allow setting of Syslog Facility for Syslog Logging
 
+
 --- 0.3.9 ---
 
 * feature: Major poller speed increase when using large numbers of thresholds
 
+
 --- 0.3.8 ---
 
 * bug: Fix undefined variable error on thold.php
+
 
 --- 0.3.7 ---
 
@@ -893,6 +950,7 @@
 
 * bug: Fix issue with Setting plugin having to be before thold in the plugins
   array
+
 
 --- 0.3.6 ---
 
@@ -903,14 +961,17 @@
 
 * bug: Fixed issue with tab images
 
+
 --- 0.3.5.2 ---
 
 * bug: Fix issues for users not using latest SVN of the Plugin Architecture
+
 
 --- 0.3.5.1 ---
 
 * bug: Fix for latest Cacti v0.8.6k SVN (requires latest SVN of Plugin
   Architecture)
+
 
 --- 0.3.5 ---
 
@@ -931,6 +992,7 @@
   having to type in their email address
 
 * feature: Change to using the Settings plugin for mail functionality
+
 
 --- 0.3.4 ---
 
@@ -953,6 +1015,7 @@
 * feature: Add the ability for template changes to propagate back to the
   thresholds (with the ability to disable per threshold)
 
+
 --- 0.3.3 ---
 
 * bug#0000076 - Fix to speed up processing of thresholds (thanks mikv!)
@@ -966,26 +1029,27 @@
 
 * feature: Host Down messages are now sent as text only emails
 
+
 --- 0.3.2 ---
 
-* bug: Fix an index error message displayed when clicking the auto-creation
-  link
+* bug: Fix an index error message displayed when clicking the auto-creation link
 
-* bug: Fix an issue with thresholds not switching into "is still down" mode
-  when alerting
+* bug: Fix an issue with thresholds not switching into "is still down" mode when
+  alerting
 
-* bug: Fix a rare error where under certain conditions no data is passed back
-  to threshold during polling
+* bug: Fix a rare error where under certain conditions no data is passed back to
+  threshold during polling
+
 
 --- 0.3.1 ---
 
-* feature: Patch from William Riley to allow the threshold management page to
-  be split into separate pages
+* feature: Patch from William Riley to allow the threshold management page to be
+  split into separate pages
 
 * bug: Fix a php short tag issue on graph_thold.php
 
-* feature: Major rewrite of thold processing, now we pull from the poller
-  output table instead of directly from the rrd files
+* feature: Major rewrite of thold processing, now we pull from the poller output
+  table instead of directly from the rrd files
 
 * feature: Major code cleanup in a few files
 
@@ -1005,14 +1069,15 @@
 * bug#0000041 - Subject of mail message now reflects the data source item (also
   #0000066)
 
-* bug#0000059 - Thold always displays and assigns only one associated graph
-  with the lowest graph_id
+* bug#0000059 - Thold always displays and assigns only one associated graph with
+  the lowest graph_id
 
 * bug#0000060 - Issue with "nan" values in the RRD File
 
 * bug#0000062 - Step value of the rra is not considered for fetching rrd values
 
 * bug#0000063 - CDEF function error (100 -DS)
+
 
 --- 0.3.0 ---
 
@@ -1026,6 +1091,7 @@
   data
 
 * bug#0000054 - Fix issue with CDEFs on manual threshold creating page
+
 
 --- 0.2.9 ---
 
@@ -1045,17 +1111,18 @@
 
 * feature: Changed the font size for the Auto-Create Thold Messages
 
+
 --- 0.2.8 ---
 
 * bug#0000013 - Fix issues with database names with uncommon characters by
   enclosing in back-ticks.
 
-* bug#0000030 - Allow use of decimal values in thresholds up to 4 decimal
-  places
+* bug#0000030 - Allow use of decimal values in thresholds up to 4 decimal places
 
 * bug#0000005 - Fix for threshold values not matching the graph values
 
 * feature: Change "Thresholds" to "Threshold Templates"
+
 
 --- 0.2.7 ---
 
@@ -1063,7 +1130,8 @@
 
 * bug: Fixes for table tholdset being empty causes poller to not function
 
-* bug: Resolved issue with Base URL auto generation pointing to the plugin directory
+* bug: Resolved issue with Base URL auto generation pointing to the plugin
+  directory
 
 * feature: Code Cleanup of Threshold Management Page
 
@@ -1074,6 +1142,7 @@
 * bug: Orphan thresholds are now cleaned up automatically
 
 * bug: Fixed Guest account access to View Thresholds
+
 
 --- 0.2.6 ---
 
@@ -1092,6 +1161,7 @@
 
 * bug: Fixed the Test Email link for IE
 
+
 --- 0.2.5 ---
 
 * feature: Test Link Created to help debug mail sending issues
@@ -1100,11 +1170,13 @@
 
 * bug: Several fixes to the Down Host Notification
 
+
 --- 0.2.4 ---
 
 * feature: Added Threshold Templates
 
 * bug: A few other minor interface fixes
+
 
 --- 0.2.3 ---
 
@@ -1117,6 +1189,7 @@
 
 * bug: Fixed the Host Down Notification
 
+
 --- 0.2.0 ---
 
 * feature: Auto-create the database if it doesnt exist
@@ -1126,3 +1199,6 @@
 * bug: Does not require its own cron job anymore
 
 * bug: Lots of bug fixes for issues in the original threshold module
+
+-----------------------------------------------
+Copyright (c) 2004-2023 - The Cacti Group, Inc.

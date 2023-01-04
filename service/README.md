@@ -51,3 +51,6 @@ Follow the steps below to install the thold daemon on a SystemD system.
   systemctl enable thold_daemon
   systemctl start thold_daemon
   ```
+
+-----------------------------------------------
+Copyright (c) 2004-2023 - The Cacti Group, Inc.
