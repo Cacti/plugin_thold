@@ -12,6 +12,8 @@
 
 * issue#542: Thold uses hardcoded from adress insted of db one
 
+* issue#551: Cacti monitor rate different the threshold read
+
 * issue#555: CMDPHP ERRORS DETECTED - DISABLING PLUGIN 'thold'
 
 * issue#566: Device Notification Options: Subject editing with tags (<NOTES>) not showing
