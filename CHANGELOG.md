@@ -2,6 +2,8 @@
 
 --- develop ---
 
+* issue#562: Thold shows big numbers for bandwidth percentage CDEF (or RPN)
+
 * feature#497: Show acknowledgment status on Thresholds tab instead of log
 
 * issue#147: Fixed threshold compare negative baseline values.
