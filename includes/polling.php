@@ -503,8 +503,6 @@ function thold_update_host_status() {
 				WHERE id = ?',
 				array($fh['host_id']));
 
-
-
 			if (!sizeof($host)) {
 				db_execute_prepared('DELETE
 					FROM plugin_thold_host_failed
