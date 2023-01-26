@@ -793,7 +793,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 					}
 
 					/* assume counter reset if greater than max value */
-					if ($thold_data['rrd_maximum'] > 0 && $currentval > $thold_data['rrd_maximum']) {
+					if ($thold_data['rrd_maximum'] > 0 && ($currentval / $step) > $thold_data['rrd_maximum']) {
 						$currentval = $item[$thold_data['name']] / $step;
 					} elseif ($thold_data['rrd_maximum'] == 0 && $currentval > 4.25E+9) {
 						$currentval = $item[$thold_data['name']] / $step;
