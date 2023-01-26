@@ -3704,6 +3704,10 @@ function thold_format_number($value, $digits = 2, $baseu = 1024, $show_suffix = 
 		return '-';
 	}
 
+	if (empty($baseu)) {
+		$baseu = 1000;
+	}
+
 	if ($value == '0') {
 		return '0';
 	}

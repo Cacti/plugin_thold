@@ -34,6 +34,8 @@
 
 * issue#558: Thold entry displayed moretimes
 
+* issue: Fix potential divide by zero errors with an empty baseu
+
 
 --- 1.6.0 ---
 
