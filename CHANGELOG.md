@@ -2,7 +2,7 @@
 
 --- develop ---
 
-* security: Fix potential security exposure with underialize() function
+* security: Fix potential security exposure with unserialize() function
 
 * issue#562: Thold shows big numbers for bandwidth percentage CDEF (or RPN)
 
