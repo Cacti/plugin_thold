@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: uk\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2023-03-14 01:38+0000\nLast-Translator: Rostyslav Haitkulov <info@ubilling.net.ua>\nLanguage-Team: Ukrainian <http://translate.cacti.net/projects/cacti/thold/uk/>\nLanguage: uk-UA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: includes/arrays.php:37 thold_graph.php:694 thold_graph.php:1037
 msgid "Down"
-msgstr ""
+msgstr "Оффлайн"
 
 #: includes/arrays.php:41 includes/arrays.php:227 includes/arrays.php:243
 #: thold_graph.php:703
@@ -38,15 +38,15 @@ msgstr ""
 
 #: includes/arrays.php:45 thold_graph.php:697 thold_graph.php:1038
 msgid "Recovering"
-msgstr ""
+msgstr "Відновлення"
 
 #: includes/arrays.php:49 thold_graph.php:700 thold_graph.php:1036
 msgid "Up"
-msgstr ""
+msgstr "Онлайн"
 
 #: includes/arrays.php:53 thold_graph.php:706 thold_graph.php:1039
 msgid "Unknown"
-msgstr ""
+msgstr "Невідомо"
 
 #: includes/arrays.php:57 includes/arrays.php:198 includes/settings.php:308
 #: includes/settings.php:422 includes/settings.php:435
@@ -439,7 +439,7 @@ msgstr ""
 
 #: includes/polling.php:824 includes/polling.php:840
 msgid "DOWN"
-msgstr ""
+msgstr "Оффлайн"
 
 #: includes/polling.php:830
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
@@ -1298,7 +1298,7 @@ msgstr ""
 #: notify_lists.php:962 notify_lists.php:1133 notify_lists.php:1279
 #: thold.php:638 thold_graph.php:138 thold_graph.php:1007 thold_graph.php:1427
 msgid "Site"
-msgstr ""
+msgstr "Вузол"
 
 #: notify_lists.php:967 notify_lists.php:985 notify_lists.php:1150
 #: notify_lists.php:1164 notify_lists.php:1284 notify_lists.php:1485
@@ -1376,7 +1376,7 @@ msgstr ""
 
 #: notify_lists.php:1139 thold_graph.php:877
 msgid "Hostname"
-msgstr ""
+msgstr "Ім'я хоста"
 
 #: notify_lists.php:1159
 msgid "Current List Only"
@@ -1807,7 +1807,7 @@ msgstr ""
 
 #: thold.php:828 thold_graph.php:468 thold_graph.php:865
 msgid "In State"
-msgstr ""
+msgstr "В стані"
 
 #: thold.php:831 thold_graph.php:471
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
@@ -2523,7 +2523,7 @@ msgstr ""
 
 #: thold_graph.php:410 thold_graph.php:829
 msgid "Actions"
-msgstr ""
+msgstr "Дії"
 
 #: thold_graph.php:567
 msgid "Edit Threshold"
@@ -2599,7 +2599,7 @@ msgstr ""
 
 #: thold_graph.php:883
 msgid "Current (ms)"
-msgstr ""
+msgstr "Поточний (ms)"
 
 #: thold_graph.php:886
 msgid "The current response time for the Cacti Availability check"
@@ -2607,7 +2607,7 @@ msgstr ""
 
 #: thold_graph.php:889
 msgid "Average (ms)"
-msgstr ""
+msgstr "Середній (ms)"
 
 #: thold_graph.php:892
 msgid "The average response time for the Cacti Availability check"
@@ -2615,7 +2615,7 @@ msgstr ""
 
 #: thold_graph.php:895
 msgid "Availability"
-msgstr ""
+msgstr "Доступність"
 
 #: thold_graph.php:898
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
@@ -2635,7 +2635,7 @@ msgstr ""
 
 #: thold_graph.php:1034
 msgid "Not Up"
-msgstr ""
+msgstr "Оффлайн"
 
 #: thold_graph.php:1241
 msgid "No Export Rows Found."
