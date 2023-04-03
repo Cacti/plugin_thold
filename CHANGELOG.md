@@ -4,11 +4,11 @@
 
 * security: Fix potential security exposure with unserialize() function
 
-* issue#562: Thold shows big numbers for bandwidth percentage CDEF (or RPN)
-
 * feature#497: Show acknowledgment status on Thresholds tab instead of log
 
 * issue#147: Fixed threshold compare negative baseline values.
+
+* issue#454: Unite last thold value and ds value
 
 * issue#535: Support new uptime calculation in Cacti 1.2.19
 
@@ -23,10 +23,14 @@
 
 * issue#555: CMDPHP ERRORS DETECTED - DISABLING PLUGIN 'thold'
 
+* issue#558: Thold entry displayed moretimes
+
+* issue#562: Thold shows big numbers for bandwidth percentage CDEF (or RPN)
+
 * issue#566: Device Notification Options: Subject editing with tags (<NOTES>)
   not showing
 
-* issue#558: Thold entry displayed moretimes
+* issue#575: Getting Errors in Cacti Log Frequently with Cacti 1.3.0 develop
 
 * issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti
   uses autocommit, so don't use them.
@@ -34,12 +38,7 @@
 * issue: Fix issues where thold daemon could possibly loose events due to an
   array chunking issue identified through PHP8.1.2 testing.
 
-* issue#454: Unite last thold value and ds value
-
-* issue#558: Thold entry displayed moretimes
-
 * issue: Fix potential divide by zero errors with an empty baseu
-
 
 --- 1.6.0 ---
 
@@ -86,7 +85,6 @@
 
 * issue#534: CLI template importing output escaped template name
 
-
 --- 1.5.3 ---
 
 * issue#463: php error - undefined index dnotes
@@ -121,7 +119,6 @@
 
 * issue#511: Fix missing variable validation
 
-
 --- 1.5.2 ---
 
 * issue#457: Page show blank if do export function without log info exist
@@ -134,11 +131,9 @@
 
 * issue#460: Filter result for template none incorrect
 
-
 --- 1.5.1 ---
 
 * issue: Upgrade to thold 1.5 misses new column causing saves to fail
-
 
 --- 1.5 ---
 
@@ -201,7 +196,6 @@
 
 * feature: Migrate all Images to Fontawesome Glyphs
 
-
 --- 1.4 ---
 
 * issue#400: Slow cli_thresholds.php Performance
@@ -223,11 +217,9 @@
 * issue: When Data Manipulation type is Percentage, RPN Expression column is
   shown
 
-
 --- 1.3.4 ---
 
 * issue#404: THOLD 1.3.3 Cacti 1.2.9 PHP errors
-
 
 --- 1.3.3 ---
 
@@ -284,14 +276,12 @@
 
 * issue#401: Errors occur with invalid thresholds with a bad thold type
 
-
 --- 1.3.2 ---
 
 * issue#349: Undefined variable notice when attempting to create a threshold
 
 * issue#352: Non-numeric value error can sometimes be issued by
   thold_format_number()
-
 
 --- 1.3.1 ---
 
@@ -300,7 +290,6 @@
 * issue#343: Call to undefined function db_fetch_cell_assoc()
 
 * issue#344: Thold VRules Display is subject to XSS Attack
-
 
 --- 1.3.0 ---
 
@@ -451,7 +440,6 @@
 * issue: When updating the Notification List for a Threshold Template, updates
   were not pushed to Thresholds.
 
-
 --- 1.2.3 ---
 
 * issue#283: Do not show 'Threshold Create' icon on the Graphs page for
@@ -464,13 +452,11 @@
 
 * issue#295: Custom status was not replaced correctly after creating threshold
 
-
 --- 1.2.2 ---
 
 * feature: Add hook for Threshold autocreation during automation cycle.  This
   allows Cacti v1.3 to use a hook instead of hardcoded plugin functionality to
   generate the thresholds
-
 
 --- 1.2.1 ---
 
@@ -511,7 +497,6 @@
 
 * issue#278: When creating new thresholds, created count generates errors
 
-
 --- 1.2.0 ---
 
 * feature: Add Acknowledgment support to thold
@@ -546,7 +531,6 @@
 * issue#265: When saving a Threshold or a Threshold Template you were redirected
   back to the respective table views and not left on the edit page.
 
-
 --- 1.0.6 ---
 
 * feature: Template list shows clickable/sortable count of Thresholds
@@ -555,7 +539,6 @@
   Template
 
 * issue: Suggested names was not selecting the correct data source
-
 
 --- 1.0.5 ---
 
@@ -568,7 +551,6 @@
 * issue#198: Depreciated each() function usage under PHP 7.2
 
 * issue#199: Threshold template association issue
-
 
 --- 1.0.4 ---
 
@@ -634,7 +616,6 @@
 * issue: Fully convert the thold daemon to Cacti 1.x.  Old converted thold
   daemon was generating MySQL 2006 errors due to a feature in PDO
 
-
 --- 1.0.3 ---
 
 * feature#34: Allow notes to be attached to thresholds and templates
@@ -674,7 +655,6 @@
 
 * issue: Add test domain for i18n
 
-
 --- 1.0.2 ---
 
 * issue#60: Threshold Templates could not be exported
@@ -687,7 +667,6 @@
 
 * issue#73: PHP Warnings when saving baseline alerts
 
-
 --- 1.0.1 ---
 
 * issue#57: Thold can not display graph with hrules due to lack of escaping
@@ -695,7 +674,6 @@
 * issue#58: Autocreate creates too many thresholds
 
 * bug: Resolve issue where wrong graph could be attached to email
-
 
 --- 1.0.0 ---
 
@@ -714,7 +692,6 @@
 * feature: complete audit and rewrite of several functions addressing:
   readability, clarity, and consistency
 
-
 --- 0.6 ---
 
 * feature: Reduce influence upon Cactis poller runtime to a minimum by
@@ -728,7 +705,6 @@
 * Bug#0002371: Thold plugin - Undefined index: template in
   /var/www/html/plugins/thold/thold.php on line 273
 
-
 --- 0.5 ---
 
 * feature: Allow threshold log retention to be configurable
@@ -739,7 +715,6 @@
 
 * bug: #0002247 - SQL Injection in thold.php (must be authenticated first)
   Thanks Primož!!
-
 
 --- 0.4.9 ---
 
@@ -756,7 +731,6 @@
 
 * bug: Be more specific about what 'Hosts:' means when generating stats
 
-
 --- 0.4.8 ---
 
 * feature: Support for Ugroup Plugin
@@ -769,13 +743,11 @@
 
 * bug: Notification List Disassociate Global List not functional
 
-
 --- 0.4.7 ---
 
 * feature: Add index to optimize page loads
 
 * feature: Allow more hosts to be reported as down
-
 
 --- 0.4.6 ---
 
@@ -813,7 +785,6 @@
 
 * feature: Add DSStats functionality to RPN Expressions save on Disk I/O
 
-
 --- 0.4.4 ---
 
 * bug: Fix emailing of alerts when PHP-GD is not available
@@ -827,7 +798,6 @@
 * feature: Update baseline description
 
 * bug: Multiple fixes posted by our hard working forum users!!!
-
 
 --- 0.4.3 ---
 
@@ -844,7 +814,6 @@
 
 * feature: Add customizable subjects and message body for down host alerts
 
-
 --- 0.4.2 ---
 
 * bug: Fixed Cacti 0.8.7g compatibility
@@ -855,7 +824,7 @@
 
 * bug: Fix for compatibility with other plugins using datasource action hook
 
-* bug: Re-add syslog messages for down hosts
+* bug: Re-add Syslog messages for down hosts
 
 * bug: Fixed a few minor issues
 
@@ -864,7 +833,6 @@
 * bug: Fix host status page to only allow users to see hosts they have access to
 
 * bug: Fix ru_nswap errors on Windows
-
 
 --- 0.4.1 ---
 
@@ -881,7 +849,6 @@
 * bug: Fix HTTP_REFERER error
 
 * bug: Fix duplicate function names (when improperly installing plugin)
-
 
 --- 0.4.0 ---
 
@@ -903,9 +870,9 @@
 
 * feature: Allow Naming of Threshold Templates and Thresholds
 
-* feature: Allow Thresholds to be added in mass via a Data Sources dropdown
+* feature: Allow Thresholds to be added in mass via a Data Sources drop-down
 
-* feature: Allow Thresholds to be added in mass via a Graph Management dropdown
+* feature: Allow Thresholds to be added in mass via a Graph Management drop-down
 
 * feature: Added Background Color Legend for Multiple Interfaces
 
@@ -939,16 +906,13 @@
 
 * feature: Allow setting of Syslog Facility for Syslog Logging
 
-
 --- 0.3.9 ---
 
 * feature: Major poller speed increase when using large numbers of thresholds
 
-
 --- 0.3.8 ---
 
 * bug: Fix undefined variable error on thold.php
-
 
 --- 0.3.7 ---
 
@@ -956,7 +920,6 @@
 
 * bug: Fix issue with Setting plugin having to be before thold in the plugins
   array
-
 
 --- 0.3.6 ---
 
@@ -967,17 +930,14 @@
 
 * bug: Fixed issue with tab images
 
-
 --- 0.3.5.2 ---
 
 * bug: Fix issues for users not using latest SVN of the Plugin Architecture
-
 
 --- 0.3.5.1 ---
 
 * bug: Fix for latest Cacti v0.8.6k SVN (requires latest SVN of Plugin
   Architecture)
-
 
 --- 0.3.5 ---
 
@@ -998,7 +958,6 @@
   having to type in their email address
 
 * feature: Change to using the Settings plugin for mail functionality
-
 
 --- 0.3.4 ---
 
@@ -1021,7 +980,6 @@
 * feature: Add the ability for template changes to propagate back to the
   thresholds (with the ability to disable per threshold)
 
-
 --- 0.3.3 ---
 
 * bug#0000076 - Fix to speed up processing of thresholds (thanks mikv!)
@@ -1035,7 +993,6 @@
 
 * feature: Host Down messages are now sent as text only emails
 
-
 --- 0.3.2 ---
 
 * bug: Fix an index error message displayed when clicking the auto-creation link
@@ -1045,7 +1002,6 @@
 
 * bug: Fix a rare error where under certain conditions no data is passed back to
   threshold during polling
-
 
 --- 0.3.1 ---
 
@@ -1084,7 +1040,6 @@
 
 * bug#0000063 - CDEF function error (100 -DS)
 
-
 --- 0.3.0 ---
 
 * bug#0000040 - Fix issue with invalid link in Navigation panel under certain
@@ -1097,7 +1052,6 @@
   data
 
 * bug#0000054 - Fix issue with CDEFs on manual threshold creating page
-
 
 --- 0.2.9 ---
 
@@ -1117,7 +1071,6 @@
 
 * feature: Changed the font size for the Auto-Create Thold Messages
 
-
 --- 0.2.8 ---
 
 * bug#0000013 - Fix issues with database names with uncommon characters by
@@ -1128,7 +1081,6 @@
 * bug#0000005 - Fix for threshold values not matching the graph values
 
 * feature: Change "Thresholds" to "Threshold Templates"
-
 
 --- 0.2.7 ---
 
@@ -1149,7 +1101,6 @@
 
 * bug: Fixed Guest account access to View Thresholds
 
-
 --- 0.2.6 ---
 
 * bug: Fixes for HI and Low thresholds limiting the max characters
@@ -1167,7 +1118,6 @@
 
 * bug: Fixed the Test Email link for IE
 
-
 --- 0.2.5 ---
 
 * feature: Test Link Created to help debug mail sending issues
@@ -1176,29 +1126,26 @@
 
 * bug: Several fixes to the Down Host Notification
 
-
 --- 0.2.4 ---
 
 * feature: Added Threshold Templates
 
 * bug: A few other minor interface fixes
 
-
 --- 0.2.3 ---
 
 * feature: Emails now use embedded PNG images (instead of links)
 
 * feature: Option to send mail via PHP Mail function, Sendmail, or SMTP (even
-  authenicated)
+  authenticated)
 
 * bug: Set the from email address and name
 
 * bug: Fixed the Host Down Notification
 
-
 --- 0.2.0 ---
 
-* feature: Auto-create the database if it doesnt exist
+* feature: Auto-create the database if it doesn't exist
 
 * bug: Better sorting on threshold tables
 

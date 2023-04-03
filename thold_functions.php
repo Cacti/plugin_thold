@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2023 The Cacti Group                                 |
+ | Copyright (C) 2006-2023 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -23,25 +23,25 @@
 */
 
 if (!defined('MESSAGE_LEVEL_NONE')) {
-	define('MESSAGE_LEVEL_NONE', 0);
-	define('MESSAGE_LEVEL_INFO', 1);
-	define('MESSAGE_LEVEL_WARN', 2);
+	define('MESSAGE_LEVEL_NONE',  0);
+	define('MESSAGE_LEVEL_INFO',  1);
+	define('MESSAGE_LEVEL_WARN',  2);
 	define('MESSAGE_LEVEL_ERROR', 3);
-	define('MESSAGE_LEVEL_CSRF', 4);
+	define('MESSAGE_LEVEL_CSRF',  4);
 }
 
 if (!defined('STAT_HI')) {
-	define('STAT_HI', 2);
-	define('STAT_LO', 1);
+	define('STAT_HI',     2);
+	define('STAT_LO',     1);
 	define('STAT_NORMAL', 0);
 }
 
 if (!defined('THOLD_SEVERITY_NORMAL')) {
-	define('THOLD_SEVERITY_NORMAL', 0);
-	define('THOLD_SEVERITY_ALERT', 1);
-	define('THOLD_SEVERITY_WARNING', 2);
-	define('THOLD_SEVERITY_NOTICE', 3);
-	define('THOLD_SEVERITY_ACKREQ', 4);
+	define('THOLD_SEVERITY_NORMAL',   0);
+	define('THOLD_SEVERITY_ALERT',    1);
+	define('THOLD_SEVERITY_WARNING',  2);
+	define('THOLD_SEVERITY_NOTICE',   3);
+	define('THOLD_SEVERITY_ACKREQ',   4);
 	define('THOLD_SEVERITY_DISABLED', 5);
 	define('THOLD_SEVERITY_BASELINE', 6);
 }
@@ -5419,7 +5419,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 			$subject,
 			$text['html'],
 			$text['text'],
-			empty($attachments) ? '' : $attachments,
+			empty($attachments) ? null : $attachments,
 			$headers,
 			$thold_send_text_only != 'on'
 		);
