@@ -690,12 +690,12 @@ function thold_config_settings() {
 		),
 		'thold_down_text' => array(
 			'friendly_name' => __('Down Message', 'thold'),
-			'description' => __('This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062', 'thold'),
+			'description' => __('This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062', 'thold'),
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '7',
 			'textarea_cols' => '80',
-			'default' => __('System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>', 'thold'),
+			'default' => __('System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>', 'thold'),
 		),
 		'thold_up_subject' => array(
 			'friendly_name' => __('Recovering Subject', 'thold'),
@@ -707,16 +707,16 @@ function thold_config_settings() {
 		),
 		'thold_up_text' => array(
 			'friendly_name' => __('Recovering Message', 'thold'),
-			'description' => __('This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062', 'thold'),
+			'description' => __('This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062', 'thold'),
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '7',
 			'textarea_cols' => '80',
-			'default' => __('<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>', 'thold'),
+			'default' => __('<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>', 'thold'),
 		),
 		'thold_device_command' => array(
 			'friendly_name' => __('Status Change Command', 'thold'),
-			'description' => __('When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062', 'thold'),
+			'description' => __('When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062', 'thold'),
 			'method' => 'filepath',
 			'file_type' => 'binary',
 			'size' => '100',
@@ -729,7 +729,7 @@ function thold_config_settings() {
 		),
 		'thold_alert_text' => array(
 			'friendly_name' => __('Threshold Alert Message', 'thold'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
@@ -738,7 +738,7 @@ function thold_config_settings() {
 		),
 		'thold_warning_text' => array(
 			'friendly_name' => __('Threshold Warning Message', 'thold'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
@@ -747,7 +747,7 @@ function thold_config_settings() {
 		),
 		'thold_restoral_text' => array(
 			'friendly_name' => __('Threshold Restoral Message', 'thold'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',

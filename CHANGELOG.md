@@ -6,6 +6,8 @@
 
 * feature#497: Show acknowledgment status on Thresholds tab instead of log
 
+* feature: Add Site and Location options to Device Up/Down Notifications
+
 * issue#147: Fixed threshold compare negative baseline values.
 
 * issue#454: Unite last thold value and ds value
