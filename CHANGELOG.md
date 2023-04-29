@@ -8,6 +8,8 @@
 
 * feature: Add Site and Location options to Device Up/Down Notifications
 
+* feature: Add the Thold ID to the environment for scripts
+
 * issue#147: Fixed threshold compare negative baseline values.
 
 * issue#454: Unite last thold value and ds value

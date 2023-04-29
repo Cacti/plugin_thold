@@ -46,10 +46,14 @@ if (!defined('THOLD_SEVERITY_NORMAL')) {
 	define('THOLD_SEVERITY_BASELINE', 6);
 }
 
-/* sanitize_thold_sort_string - cleans up a search string submitted by the user to be passed
-     to the database. NOTE: some of the code for this function came from the phpBB project.
-   @arg $string - the original raw search string
-   @returns - the sanitized search string */
+/**
+ * sanitize_thold_sort_string - cleans up a search string submitted by the user to be passed
+ * to the database. NOTE: some of the code for this function came from the phpBB project.
+ *
+ * @param $string - the original raw search string
+ *
+ * @return - the sanitized search string
+ */
 function sanitize_thold_sort_string($string) {
 	static $drop_char_match = array('^', '$', '<', '>', '`', '\'', '"', '|', '?', '+', '[', ']', '{', '}', '#', ';', '!', '=', '*');
 	static $drop_char_replace = array(' ', ' ', ' ', ' ', '', '', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
@@ -1058,18 +1062,22 @@ function thold_substitute_host_data($string, $l_escape_string, $r_escape_string,
 	return $string;
 }
 
-/* thold_substitute_custom_data - takes a string and substitutes all custom data variables contained in it
-    @arg $string - the string to make custom data variable substitutions on
-    @arg $l_escape_string - the character used to escape each variable on the left side
-    @arg $r_escape_string - the character used to escape each variable on the right side
-    @arg $local_data_id - (int) the local_data_id to match
-    @returns - the original string with all of the variable substitutions made */
+/**
+ * thold_substitute_custom_data - takes a string and substitutes all custom data variables contained in it
+ *
+ * @param $string - the string to make custom data variable substitutions on
+ * @param $l_escape_string - the character used to escape each variable on the left side
+ * @param $r_escape_string - the character used to escape each variable on the right side
+ * @param $local_data_id - (int) the local_data_id to match
+ *
+ * @return - the original string with all of the variable substitutions made
+ */
 function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data_id) {
 	if (is_array($local_data_id)) {
 		$local_data_ids = $local_data_id;
 	} elseif ($local_data_id == '') {
-        return;
-    } else {
+		return;
+	} else {
 		$local_data_ids = array($local_data_id);
 	}
 
@@ -1127,7 +1135,7 @@ function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data
 		}
 	}
 
-    return $string;
+	return $string;
 }
 
 function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
@@ -2004,16 +2012,15 @@ function thold_check_threshold(&$thold_data) {
 	}
 
 	/* don't alert for this host if it's selected for maintenance */
-        if (api_plugin_is_enabled('maint') || in_array('maint', $plugins)) {
-                include_once($config['base_path'] . '/plugins/maint/functions.php');
-        }
+	if (api_plugin_is_enabled('maint') || in_array('maint', $plugins)) {
+		include_once($config['base_path'] . '/plugins/maint/functions.php');
+	}
 
-        if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($thold_data['host_id'])) {
-                $maint_dev = true;
-        }
-        else {
-                $maint_dev = false;
-        }
+	if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($thold_data['host_id'])) {
+		$maint_dev = true;
+	} else {
+		$maint_dev = false;
+	}
 
 	$local_graph_id = $thold_data['local_graph_id'];
 
@@ -2323,7 +2330,6 @@ function thold_check_threshold(&$thold_data) {
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
 					'emails'          => $alert_emails)
 				);
-
 			} elseif (($thold_data['thold_warning_fail_count'] >= $warning_trigger) && ($thold_data['thold_fail_count'] >= $trigger)) {
 
 				$subject = 'ALERT -> WARNING: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Changed to Warning Threshold with Value ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units);
@@ -2516,7 +2522,7 @@ function thold_check_threshold(&$thold_data) {
 						'description'     => $subject,
 						'emails'          => $alert_emails)
 					);
-				} 
+				}
 
 				if ($maint_dev) {
 					thold_log(array(
@@ -2548,7 +2554,6 @@ function thold_check_threshold(&$thold_data) {
 		case -1:	/* reference value not available, Future Release 'todo' */
 			break;
 		case 0:		/* all clear */
-
 			/* if we were at an alert status before */
 			if ($bl_alert_prev != 0) {
 				thold_debug('Threshold Baseline check is normal');
@@ -2722,7 +2727,6 @@ function thold_check_threshold(&$thold_data) {
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
 					'emails'          => $alert_emails)
 				);
-
 			} else {
 				$subject = 'Thold Baseline Cache Log';
 
@@ -3463,6 +3467,7 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	$httpurl = read_config_option('base_url');
 
 	// Do some replacement of variables
+	putenv('THOLD_ID='          . $thold['id']);
 	putenv('THOLD_DESCRIPTION=' . $h['description']);
 	putenv('THOLD_HOSTNAME='    . $h['hostname']);
 	putenv('THOLD_GRAPHID='     . $local_graph_id);
@@ -5894,16 +5899,16 @@ function get_thold_notification_emails($id) {
    @arg $id - (int) the ID of the thold template to return a hash for
    @returns - a 128-bit, hexadecimal hash */
 function get_hash_thold_template($id) {
-    $hash = db_fetch_cell_prepared('SELECT hash
+	$hash = db_fetch_cell_prepared('SELECT hash
 		FROM thold_template
 		WHERE id = ?',
 		array($id));
 
-    if (preg_match('/[a-fA-F0-9]{32}/', $hash)) {
-        return $hash;
-    } else {
-        return generate_hash();
-    }
+	if (preg_match('/[a-fA-F0-9]{32}/', $hash)) {
+		return $hash;
+	} else {
+		return generate_hash();
+	}
 }
 
 function ia2xml($array) {
