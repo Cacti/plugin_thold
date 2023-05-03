@@ -3293,15 +3293,15 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	// substitute snmp query data
 	$snmp_event_description = thold_expand_string($thold, $thold['snmp_event_description']);
 
-	$snmp_event_description = str_replace('<THRESHOLDNAME>', $thold_snmp_data['eventSource'], $snmp_event_description);
-	$snmp_event_description = str_replace('<HOSTNAME>', $thold_snmp_data['eventDevice'], $snmp_event_description);
-	$snmp_event_description = str_replace('<TEMPLATE_ID>', ($thold['thold_template_id'] ? $thold['thold_template_id'] : 'none'), $snmp_event_description);
-	$snmp_event_description = str_replace('<TEMPLATE_NAME>', (isset($thold['name_cache']) ? $thold['name_cache'] : 'none'), $snmp_event_description);
-	$snmp_event_description = str_replace('<THR_TYPE>', $thold_snmp_data['eventThresholdType'], $snmp_event_description);
-	$snmp_event_description = str_replace('<DS_NAME>', $thold_snmp_data['eventDataSource'], $snmp_event_description);
-	$snmp_event_description = str_replace('<HI>', $thold_snmp_data['eventHigh'], $snmp_event_description);
-	$snmp_event_description = str_replace('<LOW>', $thold_snmp_data['eventLow'], $snmp_event_description);
-	$snmp_event_description = str_replace('<EVENT_CATEGORY>', $thold_snmp_data['eventCategory'], $snmp_event_description);
+	$snmp_event_description = thold_str_replace('<THRESHOLDNAME>', $thold_snmp_data['eventSource'], $snmp_event_description);
+	$snmp_event_description = thold_str_replace('<HOSTNAME>', $thold_snmp_data['eventDevice'], $snmp_event_description);
+	$snmp_event_description = thold_str_replace('<TEMPLATE_ID>', ($thold['thold_template_id'] ? $thold['thold_template_id'] : 'none'), $snmp_event_description);
+	$snmp_event_description = thold_str_replace('<TEMPLATE_NAME>', (isset($thold['name_cache']) ? $thold['name_cache'] : 'none'), $snmp_event_description);
+	$snmp_event_description = thold_str_replace('<THR_TYPE>', $thold_snmp_data['eventThresholdType'], $snmp_event_description);
+	$snmp_event_description = thold_str_replace('<DS_NAME>', $thold_snmp_data['eventDataSource'], $snmp_event_description);
+	$snmp_event_description = thold_str_replace('<HI>', $thold_snmp_data['eventHigh'], $snmp_event_description);
+	$snmp_event_description = thold_str_replace('<LOW>', $thold_snmp_data['eventLow'], $snmp_event_description);
+	$snmp_event_description = thold_str_replace('<EVENT_CATEGORY>', $thold_snmp_data['eventCategory'], $snmp_event_description);
 	$thold_snmp_data['eventDescription'] = $snmp_event_description;
 
 	return $thold_snmp_data;
@@ -3536,44 +3536,44 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	$httpurl = read_config_option('base_url', true);
 
 	// Do some replacement of variables
-	$text = str_replace('<DESCRIPTION>',   $h['description'], $text);
-	$text = str_replace('<HOSTNAME>',      $h['hostname'], $text);
-	$text = str_replace('<GRAPHID>',       $local_graph_id, $text);
+	$text = thold_str_replace('<DESCRIPTION>',   $h['description'], $text);
+	$text = thold_str_replace('<HOSTNAME>',      $h['hostname'], $text);
+	$text = thold_str_replace('<GRAPHID>',       $local_graph_id, $text);
 
-	$text = str_replace('<CURRENTVALUE>',  $currentval, $text);
-	$text = str_replace('<THRESHOLDNAME>', $thold['name_cache'], $text);
-	$text = str_replace('<DSNAME>',        $data_source_name, $text);
+	$text = thold_str_replace('<CURRENTVALUE>',  $currentval, $text);
+	$text = thold_str_replace('<THRESHOLDNAME>', $thold['name_cache'], $text);
+	$text = thold_str_replace('<DSNAME>',        $data_source_name, $text);
 
 	if (isset($thold_types[$thold['thold_type']])) {
-		$text = str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);
+		$text = thold_str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);
 	}
 
-	$text = str_replace('<NOTES>',         $thold['notes'], $text);
-	$text = str_replace('<DNOTES>',        $thold['dnotes'], $text);
-	$text = str_replace('<DEVICENOTE>',    $thold['dnotes'], $text);
+	$text = thold_str_replace('<NOTES>',         $thold['notes'], $text);
+	$text = thold_str_replace('<DNOTES>',        $thold['dnotes'], $text);
+	$text = thold_str_replace('<DEVICENOTE>',    $thold['dnotes'], $text);
 
 	if ($thold['thold_type'] == 0) {
-		$text = str_replace('<HI>',        $thold['thold_hi'], $text);
-		$text = str_replace('<LOW>',       $thold['thold_low'], $text);
-		$text = str_replace('<TRIGGER>',   $thold['thold_fail_trigger'], $text);
-		$text = str_replace('<DURATION>',  '', $text);
+		$text = thold_str_replace('<HI>',        $thold['thold_hi'], $text);
+		$text = thold_str_replace('<LOW>',       $thold['thold_low'], $text);
+		$text = thold_str_replace('<TRIGGER>',   $thold['thold_fail_trigger'], $text);
+		$text = thold_str_replace('<DURATION>',  '', $text);
 	} elseif ($thold['thold_type'] == 2) {
-		$text = str_replace('<HI>',        $thold['time_hi'], $text);
-		$text = str_replace('<LOW>',       $thold['time_low'], $text);
-		$text = str_replace('<TRIGGER>',   $thold['time_fail_trigger'], $text);
-		$text = str_replace('<DURATION>',  plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time'), $text);
+		$text = thold_str_replace('<HI>',        $thold['time_hi'], $text);
+		$text = thold_str_replace('<LOW>',       $thold['time_low'], $text);
+		$text = thold_str_replace('<TRIGGER>',   $thold['time_fail_trigger'], $text);
+		$text = thold_str_replace('<DURATION>',  plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time'), $text);
 	} else {
-		$text = str_replace('<HI>',        '', $text);
-		$text = str_replace('<LOW>',       '', $text);
-		$text = str_replace('<TRIGGER>',   '', $text);
-		$text = str_replace('<DURATION>',  '', $text);
+		$text = thold_str_replace('<HI>',        '', $text);
+		$text = thold_str_replace('<LOW>',       '', $text);
+		$text = thold_str_replace('<TRIGGER>',   '', $text);
+		$text = thold_str_replace('<DURATION>',  '', $text);
 	}
 
-	$text = str_replace('<TIME>',          time(), $text);
-	$text = str_replace('<DATE>',          date(CACTI_DATE_TIME_FORMAT), $text);
-	$text = str_replace('<DATE_RFC822>',   date(DATE_RFC822), $text);
+	$text = thold_str_replace('<TIME>',          time(), $text);
+	$text = thold_str_replace('<DATE>',          date(CACTI_DATE_TIME_FORMAT), $text);
+	$text = thold_str_replace('<DATE_RFC822>',   date(DATE_RFC822), $text);
 
-	$text = str_replace('<URL>', "<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . "</a>", $text);
+	$text = thold_str_replace('<URL>', "<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . "</a>", $text);
 
 	$data = array(
 		'thold_data' => $thold,
@@ -3607,7 +3607,7 @@ function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local
 
 	if ($thold['notes'] != '') {
 		$notes = thold_replace_threshold_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
-		$alert_text = str_replace('<NOTES>', $notes, $alert_text);
+		$alert_text = thold_str_replace('<NOTES>', $notes, $alert_text);
 	}
 
 	$alert_text = thold_replace_threshold_tags($alert_text, $thold, $h, $currentval, $local_graph_id, $data_source_name);
@@ -3634,7 +3634,7 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 
 	if ($thold['notes'] != '') {
 		$notes = thold_replace_threshold_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
-		$warning_text = str_replace('<NOTES>', $notes, $warning_text);
+		$warning_text = thold_str_replace('<NOTES>', $notes, $warning_text);
 	}
 
 	$warning_text = thold_replace_threshold_tags($warning_text, $thold, $h, $currentval, $local_graph_id, $data_source_name);
@@ -3661,7 +3661,7 @@ function get_thold_restoral_text($data_source_name, $thold, $h, $currentval, $lo
 
 	if ($thold['notes'] != '') {
 		$notes = thold_replace_threshold_tags($thold['notes'], $thold, $h, $currentval, $local_graph_id, $data_source_name);
-		$restoral_text = str_replace('<NOTES>', $notes, $restoral_text);
+		$restoral_text = thold_str_replace('<NOTES>', $notes, $restoral_text);
 	}
 
 	$restoral_text = thold_replace_threshold_tags($restoral_text, $thold, $h, $currentval, $local_graph_id, $data_source_name);
@@ -5363,7 +5363,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 	thold_debug('Preparing to send email');
 
 	$subject = trim($subject);
-	$message = str_replace('<SUBJECT>', $subject, $message);
+	$message = thold_str_replace('<SUBJECT>', $subject, $message);
 
 	if ($from_email == '') {
 		$from_email = read_config_option('thold_from_email');
@@ -5940,7 +5940,7 @@ function array2xml($array, $tag = 'template') {
 function thold_snmptrap($varbinds, $severity = SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite = false) {
 	if (function_exists('snmpagent_notification')) {
 		if (isset($varbinds['eventDescription']) && isset($varbinds['eventDeviceIp'])) {
-			$varbinds['eventDescription'] = str_replace('<HOSTIP>', $varbinds['eventDeviceIp'], $varbinds['eventDescription']);
+			$varbinds['eventDescription'] = thold_str_replace('<HOSTIP>', $varbinds['eventDeviceIp'], $varbinds['eventDescription']);
 		}
 
 		snmpagent_notification('tholdNotify', 'CACTI-THOLD-MIB', $varbinds, $severity, $overwrite);
@@ -6130,6 +6130,14 @@ function thold_get_cached_name(&$thold_data) {
 	}
 
 	return $thold_data['name_cache'];
+}
+
+function thold_str_replace($search, $replace, $subject) {
+	if (empty($replace) && $replace != 0) {
+		$replace = '';
+	}
+
+	return str_replace($search, $replace, $subject);
 }
 
 function thold_template_import($xml_data) {

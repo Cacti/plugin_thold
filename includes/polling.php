@@ -593,12 +593,12 @@ function thold_update_host_status() {
 					$site = 'Unspecified';
 				}
 
-				$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
-				$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
-				$subject = str_replace('<SITE>', $site, $subject);
-				$subject = str_replace('<LOCATION>', $host['location'], $subject);
-				$subject = str_replace('<DOWN/UP>', 'UP', $subject);
-				$subject = str_replace('<NOTES>', $host['notes'], $subject);
+				$subject = thold_str_replace('<HOSTNAME>', $host['hostname'], $subject);
+				$subject = thold_str_replace('<DESCRIPTION>', $host['description'], $subject);
+				$subject = thold_str_replace('<SITE>', $site, $subject);
+				$subject = thold_str_replace('<LOCATION>', $host['location'], $subject);
+				$subject = thold_str_replace('<DOWN/UP>', 'UP', $subject);
+				$subject = thold_str_replace('<NOTES>', $host['notes'], $subject);
 				$subject = strip_tags($subject);
 
 				$msg = read_config_option('thold_up_text');
@@ -606,35 +606,35 @@ function thold_update_host_status() {
 					$msg = __('<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>', 'thold');
 				}
 
-				$msg = str_replace('<SUBJECT>', $subject, $msg);
-				$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
-				$msg = str_replace('<HOST_ID>', $host['id'], $msg);
-				$msg = str_replace('<DESCRIPTION>', $host['description'], $msg);
-				$msg = str_replace('<SITE>', $site, $msg);
-				$msg = str_replace('<LOCATION>', $host['location'], $msg);
-				$msg = str_replace('<UPTIME>', $snmp_uptime, $msg);
-				$msg = str_replace('<UPTIMETEXT>', $uptimelong, $msg);
+				$msg = thold_str_replace('<SUBJECT>', $subject, $msg);
+				$msg = thold_str_replace('<HOSTNAME>', $host['hostname'], $msg);
+				$msg = thold_str_replace('<HOST_ID>', $host['id'], $msg);
+				$msg = thold_str_replace('<DESCRIPTION>', $host['description'], $msg);
+				$msg = thold_str_replace('<SITE>', $site, $msg);
+				$msg = thold_str_replace('<LOCATION>', $host['location'], $msg);
+				$msg = thold_str_replace('<UPTIME>', $snmp_uptime, $msg);
+				$msg = thold_str_replace('<UPTIMETEXT>', $uptimelong, $msg);
 
-				$msg = str_replace('<TIME>', time(), $msg);
-				$msg = str_replace('<DATE>', date(CACTI_DATE_TIME_FORMAT), $msg);
-				$msg = str_replace('<DATE_RFC822>', date(DATE_RFC822), $msg);
+				$msg = thold_str_replace('<TIME>', time(), $msg);
+				$msg = thold_str_replace('<DATE>', date(CACTI_DATE_TIME_FORMAT), $msg);
+				$msg = thold_str_replace('<DATE_RFC822>', date(DATE_RFC822), $msg);
 
-				$msg = str_replace('<DOWNTIME>', $downtimemsg, $msg);
-				$msg = str_replace('<MESSAGE>', '', $msg);
-				$msg = str_replace('<DOWN/UP>', 'UP', $msg);
+				$msg = thold_str_replace('<DOWNTIME>', $downtimemsg, $msg);
+				$msg = thold_str_replace('<MESSAGE>', '', $msg);
+				$msg = thold_str_replace('<DOWN/UP>', 'UP', $msg);
 
-				$msg = str_replace('<SNMP_HOSTNAME>', $snmp_hostname, $msg);
-				$msg = str_replace('<SNMP_LOCATION>', $snmp_location, $msg);
-				$msg = str_replace('<SNMP_CONTACT>', $snmp_contact, $msg);
-				$msg = str_replace('<SNMP_SYSTEM>', html_split_string($snmp_system), $msg);
-				$msg = str_replace('<LAST_FAIL>', $host['status_fail_date'], $msg);
-				$msg = str_replace('<AVAILABILITY>', number_format_i18n(($host['availability']), 2) . ' %', $msg);
-				$msg = str_replace('<TOT_POLL>', number_format_i18n($host['total_polls']), $msg);
-				$msg = str_replace('<FAIL_POLL>', number_format_i18n($host['failed_polls']), $msg);
-				$msg = str_replace('<CUR_TIME>', number_format_i18n(($host['cur_time']), 2), $msg);
-				$msg = str_replace('<AVG_TIME>', number_format_i18n(($host['avg_time']), 2), $msg);
-				$msg = str_replace('<NOTES>', $host['notes'], $msg);
-				$msg = str_replace("\n", '<br>', $msg);
+				$msg = thold_str_replace('<SNMP_HOSTNAME>', $snmp_hostname, $msg);
+				$msg = thold_str_replace('<SNMP_LOCATION>', $snmp_location, $msg);
+				$msg = thold_str_replace('<SNMP_CONTACT>', $snmp_contact, $msg);
+				$msg = thold_str_replace('<SNMP_SYSTEM>', html_split_string($snmp_system), $msg);
+				$msg = thold_str_replace('<LAST_FAIL>', $host['status_fail_date'], $msg);
+				$msg = thold_str_replace('<AVAILABILITY>', number_format_i18n(($host['availability']), 2) . ' %', $msg);
+				$msg = thold_str_replace('<TOT_POLL>', number_format_i18n($host['total_polls']), $msg);
+				$msg = thold_str_replace('<FAIL_POLL>', number_format_i18n($host['failed_polls']), $msg);
+				$msg = thold_str_replace('<CUR_TIME>', number_format_i18n(($host['cur_time']), 2), $msg);
+				$msg = thold_str_replace('<AVG_TIME>', number_format_i18n(($host['avg_time']), 2), $msg);
+				$msg = thold_str_replace('<NOTES>', $host['notes'], $msg);
+				$msg = thold_str_replace("\n", '<br>', $msg);
 
 				if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($host['id'])) {
 					cacti_log('WARNING: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] is recovering! Only logging, maint device', true, 'THOLD');
@@ -758,13 +758,13 @@ function thold_update_host_status() {
 					$site = 'Unspecified';
 				}
 
-				$subject = str_replace('<HOSTNAME>', $host['hostname'], $subject);
-				$subject = str_replace('<DESCRIPTION>', $host['description'], $subject);
-				$subject = str_replace('<SITE>', $site, $subject);
-				$subject = str_replace('<LOCATION>', $host['location'], $subject);
-				$subject = str_replace('<DOWN/UP>', __('DOWN', 'thold'), $subject);
-				$subject = str_replace('<DOWNTIME>', $downtimemsg, $subject);
-				$subject = str_replace('<NOTES>', $host['notes'], $subject);
+				$subject = thold_str_replace('<HOSTNAME>', $host['hostname'], $subject);
+				$subject = thold_str_replace('<DESCRIPTION>', $host['description'], $subject);
+				$subject = thold_str_replace('<SITE>', $site, $subject);
+				$subject = thold_str_replace('<LOCATION>', $host['location'], $subject);
+				$subject = thold_str_replace('<DOWN/UP>', __('DOWN', 'thold'), $subject);
+				$subject = thold_str_replace('<DOWNTIME>', $downtimemsg, $subject);
+				$subject = thold_str_replace('<NOTES>', $host['notes'], $subject);
 				$subject = strip_tags($subject);
 
 				$msg = read_config_option('thold_down_text');
@@ -772,31 +772,31 @@ function thold_update_host_status() {
 					$msg = __('System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>', 'thold');
 				}
 
-				$msg = str_replace('<SUBJECT>', $subject, $msg);
-				$msg = str_replace('<HOSTNAME>', $host['hostname'], $msg);
-				$msg = str_replace('<HOST_ID>', $host['id'], $msg);
-				$msg = str_replace('<DESCRIPTION>', $host['description'], $msg);
-				$msg = str_replace('<SITE>', $site, $msg);
-				$msg = str_replace('<LOCATION>', $host['location'], $msg);
-				$msg = str_replace('<UPTIME>', '', $msg);
-				$msg = str_replace('<DOWNTIME>', $downtimemsg, $msg);
-				$msg = str_replace('<MESSAGE>', $host['status_last_error'], $msg);
-				$msg = str_replace('<DOWN/UP>', __('DOWN', 'thold'), $msg);
-				$msg = str_replace('<SNMP_HOSTNAME>', '', $msg);
-				$msg = str_replace('<SNMP_LOCATION>', '', $msg);
-				$msg = str_replace('<SNMP_CONTACT>', '', $msg);
-				$msg = str_replace('<SNMP_SYSTEM>', '', $msg);
-				$msg = str_replace('<LAST_FAIL>', $host['status_fail_date'], $msg);
-				$msg = str_replace('<AVAILABILITY>', round(($host['availability']), 2) . ' %', $msg);
-				$msg = str_replace('<CUR_TIME>', round(($host['cur_time']), 2), $msg);
-				$msg = str_replace('<TOT_POLL>', $host['total_polls'], $msg);
-				$msg = str_replace('<FAIL_POLL>', $host['failed_polls'], $msg);
-				$msg = str_replace('<AVG_TIME>', round(($host['avg_time']), 2), $msg);
-				$msg = str_replace('<NOTES>', $host['notes'], $msg);
-				$msg = str_replace('<TIME>', time(), $msg);
-				$msg = str_replace('<DATE>', date(CACTI_DATE_TIME_FORMAT), $msg);
-				$msg = str_replace('<DATE_RFC822>', date(DATE_RFC822), $msg);
-				$msg = str_replace("\n", '<br>', $msg);
+				$msg = thold_str_replace('<SUBJECT>', $subject, $msg);
+				$msg = thold_str_replace('<HOSTNAME>', $host['hostname'], $msg);
+				$msg = thold_str_replace('<HOST_ID>', $host['id'], $msg);
+				$msg = thold_str_replace('<DESCRIPTION>', $host['description'], $msg);
+				$msg = thold_str_replace('<SITE>', $site, $msg);
+				$msg = thold_str_replace('<LOCATION>', $host['location'], $msg);
+				$msg = thold_str_replace('<UPTIME>', '', $msg);
+				$msg = thold_str_replace('<DOWNTIME>', $downtimemsg, $msg);
+				$msg = thold_str_replace('<MESSAGE>', $host['status_last_error'], $msg);
+				$msg = thold_str_replace('<DOWN/UP>', __('DOWN', 'thold'), $msg);
+				$msg = thold_str_replace('<SNMP_HOSTNAME>', '', $msg);
+				$msg = thold_str_replace('<SNMP_LOCATION>', '', $msg);
+				$msg = thold_str_replace('<SNMP_CONTACT>', '', $msg);
+				$msg = thold_str_replace('<SNMP_SYSTEM>', '', $msg);
+				$msg = thold_str_replace('<LAST_FAIL>', $host['status_fail_date'], $msg);
+				$msg = thold_str_replace('<AVAILABILITY>', round(($host['availability']), 2) . ' %', $msg);
+				$msg = thold_str_replace('<CUR_TIME>', round(($host['cur_time']), 2), $msg);
+				$msg = thold_str_replace('<TOT_POLL>', $host['total_polls'], $msg);
+				$msg = thold_str_replace('<FAIL_POLL>', $host['failed_polls'], $msg);
+				$msg = thold_str_replace('<AVG_TIME>', round(($host['avg_time']), 2), $msg);
+				$msg = thold_str_replace('<NOTES>', $host['notes'], $msg);
+				$msg = thold_str_replace('<TIME>', time(), $msg);
+				$msg = thold_str_replace('<DATE>', date(CACTI_DATE_TIME_FORMAT), $msg);
+				$msg = thold_str_replace('<DATE_RFC822>', date(DATE_RFC822), $msg);
+				$msg = thold_str_replace("\n", '<br>', $msg);
 
 				switch ($host['thold_send_email']) {
 					case '0': // Disabled
