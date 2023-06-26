@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2023-04-21 12:26+0000\nLast-Translator: Сергей <zersh@mail.ru>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2023-06-26 11:06+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -2171,7 +2171,7 @@ msgstr "Будет ли этот порог проверяться и преду
 
 #: thold.php:1457 thold_templates.php:997
 msgid "General Settings"
-msgstr "Основные Настройки"
+msgstr "Общие Настройки"
 
 #: thold.php:1461
 #, fuzzy
