@@ -34,6 +34,8 @@
 * issue#566: Device Notification Options: Subject editing with tags (<NOTES>)
   not showing
 
+* issue#574: Wrong href after click Auto-create Thresholds
+
 * issue#575: Getting Errors in Cacti Log Frequently with Cacti 1.3.0 develop
 
 * issue#578: Default setting for Threshold Up/Down Email Notification
