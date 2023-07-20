@@ -5501,7 +5501,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 function thold_template_update_threshold($id, $template) {
 	db_execute_prepared("UPDATE thold_data AS td, thold_template AS tt
 		SET
-		td.template_enabled = 'on', td.name = tt.suggested_name, td.thold_hi = tt.thold_hi,
+		td.name = tt.suggested_name, td.thold_hi = tt.thold_hi,
 		td.data_source_name = tt.data_source_name, td.data_template_hash = tt.data_template_hash,
 		td.data_template_id = tt.data_template_id, td.thold_low = tt.thold_low,
 		td.thold_fail_trigger = tt.thold_fail_trigger, td.time_hi = tt.time_hi, td.time_low = tt.time_low,
@@ -5526,6 +5526,7 @@ function thold_template_update_threshold($id, $template) {
 		td.snmp_event_severity = tt.snmp_event_severity, td.snmp_event_warning_severity = tt.snmp_event_warning_severity,
 		td.notes = tt.notes
 		WHERE td.id = ?
+		AND td.template_enabled = 'on'
 		AND tt.id = ?",
 		array($id, $template));
 
@@ -5556,7 +5557,7 @@ function thold_template_update_thresholds($id) {
 		td.thold_warning_low = tt.thold_warning_low, td.thold_warning_fail_trigger = tt.thold_warning_fail_trigger,
 		td.time_warning_hi = tt.time_warning_hi, td.time_warning_low = tt.time_warning_low,
 		td.time_warning_fail_trigger = tt.time_warning_fail_trigger, td.time_warning_fail_length = tt.time_warning_fail_length,
-		td.thold_enabled = tt.thold_enabled, td.thold_type = tt.thold_type, td.bl_ref_time_range = tt.bl_ref_time_range,
+		td.thold_type = tt.thold_type, td.bl_ref_time_range = tt.bl_ref_time_range,
 		td.bl_pct_up = tt.bl_pct_up, td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up,
 		td.bl_fail_trigger = tt.bl_fail_trigger, td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0,
 		td.repeat_alert = tt.repeat_alert, td.data_type = tt.data_type, td.cdef = tt.cdef,
