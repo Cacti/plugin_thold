@@ -36,6 +36,8 @@
 
 * issue#575: Getting Errors in Cacti Log Frequently with Cacti 1.3.0 develop
 
+* issue#582: Baseline deviation tholds generate warnings about alert email
+
 * issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti
   uses autocommit, so don't use them.
 

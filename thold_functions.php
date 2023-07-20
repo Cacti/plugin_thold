@@ -2598,31 +2598,31 @@ function thold_check_threshold(&$thold_data) {
 						thold_snmptrap($thold_snmp_data, SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite);
 					}
 
+					if ($thold_data['reset_ack'] == 'on') {
+						db_execute_prepared('UPDATE thold_data
+							SET acknowledgment = ""
+							WHERE id = ?',
+							array($thold_data['id']));
+					}
+
+					// Set the return to normal time
+					db_execute_prepared('UPDATE thold_data SET lastchanged = NOW() WHERE id = ?', array($thold_data['id']));
+
+					thold_log(array(
+						'type'            => 1,
+						'time'            => time(),
+						'host_id'         => $thold_data['host_id'],
+						'local_graph_id'  => $thold_data['local_graph_id'],
+						'threshold_id'    => $thold_data['id'],
+						'threshold_value' => '',
+						'current'         => $thold_data['lastread'],
+						'status'          => ST_RESTORAL,
+						'description'     => ($maint_dev ? $subject . '. ' .  __('Only logging, maint device', 'thold') : $subject),
+						'emails'          => $alert_emails)
+					);
 				}
-
-				if ($thold_data['reset_ack'] == 'on') {
-					db_execute_prepared('UPDATE thold_data
-						SET acknowledgment=""
-						WHERE id = ?',
-						array($thold_data['id']));
-				}
-
-				// Set the return to normal time
-				db_execute_prepared('UPDATE thold_data SET lastchanged = NOW() WHERE id = ?', array($thold_data['id']));
-
-				thold_log(array(
-					'type'            => 1,
-					'time'            => time(),
-					'host_id'         => $thold_data['host_id'],
-					'local_graph_id'  => $thold_data['local_graph_id'],
-					'threshold_id'    => $thold_data['id'],
-					'threshold_value' => '',
-					'current'         => $thold_data['lastread'],
-					'status'          => ST_RESTORAL,
-					'description'     => ($maint_dev ? $subject . '. ' .  __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
-				);
 			}
+
 			$thold_data['bl_fail_count'] = 0;
 
 			break;
