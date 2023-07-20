@@ -3539,6 +3539,7 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	$text = thold_str_replace('<DESCRIPTION>',   $h['description'], $text);
 	$text = thold_str_replace('<HOSTNAME>',      $h['hostname'], $text);
 	$text = thold_str_replace('<GRAPHID>',       $local_graph_id, $text);
+	$text = thold_str_replace('<THOLD_ID>',      $thold['id'], $text);
 
 	$text = thold_str_replace('<CURRENTVALUE>',  $currentval, $text);
 	$text = thold_str_replace('<THRESHOLDNAME>', $thold['name_cache'], $text);

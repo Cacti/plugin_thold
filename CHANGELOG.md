@@ -10,6 +10,8 @@
 
 * feature: Add the Thold ID to the environment for scripts
 
+* feature: Add the Thold ID to the possible replacement value for notifications
+
 * issue#147: Fixed threshold compare negative baseline values.
 
 * issue#454: Unite last thold value and ds value

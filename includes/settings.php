@@ -729,7 +729,7 @@ function thold_config_settings() {
 		),
 		'thold_alert_text' => array(
 			'friendly_name' => __('Threshold Alert Message', 'thold'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
@@ -738,7 +738,7 @@ function thold_config_settings() {
 		),
 		'thold_warning_text' => array(
 			'friendly_name' => __('Threshold Warning Message', 'thold'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
@@ -747,7 +747,7 @@ function thold_config_settings() {
 		),
 		'thold_restoral_text' => array(
 			'friendly_name' => __('Threshold Restoral Message', 'thold'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'description' => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
 			'method' => 'textarea',
 			'class' => 'textAreaNotes',
 			'textarea_rows' => '5',
