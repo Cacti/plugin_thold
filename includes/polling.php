@@ -724,7 +724,8 @@ function thold_update_host_status() {
 	if (read_config_option('remote_storage_method') == 1) {
 		$hosts = db_fetch_assoc_prepared('SELECT *
 			FROM host
-			WHERE disabled=""
+			WHERE disabled = ""
+			AND availability_method > 0
 			AND status = ?
 			AND status_event_count = IF(thold_failure_count > 0, thold_failure_count, ?)
 			AND poller_id = ?',
@@ -732,13 +733,14 @@ function thold_update_host_status() {
 	} else {
 		$hosts = db_fetch_assoc_prepared('SELECT *
 			FROM host
-			WHERE disabled=""
+			WHERE disabled = ""
+			AND availability_method > 0
 			AND status = ?
 			AND status_event_count = IF(thold_failure_count > 0, thold_failure_count, ?)',
 			array(HOST_DOWN, $ping_failure_count));
 	}
 
-	$total_hosts = sizeof($hosts);
+	$total_hosts = cacti_sizeof($hosts);
 	if ($total_hosts) {
 		foreach ($hosts as $host) {
 			$alert_email = read_config_option('alert_email');

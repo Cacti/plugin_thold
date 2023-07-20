@@ -38,6 +38,8 @@
 
 * issue#582: Baseline deviation tholds generate warnings about alert email
 
+* issue#584: Thold device uptime check still checks uptime when availability method is 0 and snmp_version is > 0
+
 * issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti
   uses autocommit, so don't use them.
 
