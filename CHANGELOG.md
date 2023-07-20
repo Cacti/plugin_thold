@@ -36,6 +36,8 @@
 
 * issue#575: Getting Errors in Cacti Log Frequently with Cacti 1.3.0 develop
 
+* issue#578: Default setting for Threshold Up/Down Email Notification
+
 * issue#582: Baseline deviation tholds generate warnings about alert email
 
 * issue#584: Thold device uptime check still checks uptime when availability method is 0 and snmp_version is > 0

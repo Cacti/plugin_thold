@@ -313,7 +313,7 @@ function thold_config_form() {
 				'description' => __('Which Notification List(s) of should be notified about Device Up/Down events?', 'thold'),
 				'value' => '|arg1:thold_send_email|',
 				'on_change' => 'changeNotify()',
-				'default' => '0',
+				'default' => '1',
 				'form_id' => false
 			);
 
