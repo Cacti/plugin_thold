@@ -6,6 +6,8 @@
 
 * feature#497: Show acknowledgment status on Thresholds tab instead of log
 
+* feature#569: Provide enough data in environment of command to get Graph Information about Thold
+
 * feature: Add Site and Location options to Device Up/Down Notifications
 
 * feature: Add the Thold ID to the environment for scripts

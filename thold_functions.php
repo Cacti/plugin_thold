@@ -3468,6 +3468,8 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 
 	// Do some replacement of variables
 	putenv('THOLD_ID='          . $thold['id']);
+	putenv('THOLD_DATA_ID='     . $thold['local_data_id']);
+	putenv('THOLD_GRAPH_ID='    . $thold['local_graph_id']);
 	putenv('THOLD_DESCRIPTION=' . $h['description']);
 	putenv('THOLD_HOSTNAME='    . $h['hostname']);
 	putenv('THOLD_GRAPHID='     . $local_graph_id);
