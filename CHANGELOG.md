@@ -40,6 +40,8 @@
 
 * issue#584: Thold device uptime check still checks uptime when availability method is 0 and snmp_version is > 0
 
+* issue#585:  The return Web page is wrong after clicking the "return" button in the "edit threshold"
+
 * issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti
   uses autocommit, so don't use them.
 

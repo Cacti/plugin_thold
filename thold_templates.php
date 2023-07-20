@@ -341,8 +341,10 @@ function template_export() {
 function template_add() {
 	if ((!isset_request_var('save')) || (get_nfilter_request_var('save') == '')) {
 		$data_templates = array_rekey(
-			db_fetch_assoc('SELECT id, name
-				FROM data_template
+			db_fetch_assoc('SELECT DISTINCT dt.id, dt.name
+				FROM data_template AS dt
+				INNER JOIN data_local AS dl
+				ON dl.data_template_id = dt.id
 				ORDER BY name'),
 			'id', 'name'
 		);
