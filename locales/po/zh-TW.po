@@ -4,7 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2021-05-04 08:47+0000\nLast-Translator: Linya Huang <linya0405@gmail.com>\nLanguage-Team: Chinese (Traditional) <http://translate.cacti.net/projects/cacti/thold/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.3.2\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2023-07-22 13:25-0400\n"
+"PO-Revision-Date: 2021-05-04 08:47+0000\n"
+"Last-Translator: Linya Huang <linya0405@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <http://translate.cacti.net/projects/cacti/thold/zh_Hant/>\n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -27,36 +39,35 @@ msgstr "％d個月"
 msgid "%d Year"
 msgstr "％d年"
 
-#: includes/arrays.php:37 thold_graph.php:694 thold_graph.php:1037
+#: includes/arrays.php:37 thold_graph.php:772 thold_graph.php:1115
 msgid "Down"
 msgstr "向下"
 
 #: includes/arrays.php:41 includes/arrays.php:227 includes/arrays.php:243
-#: thold_graph.php:703
+#: thold_graph.php:781
 msgid "Error"
 msgstr "錯誤"
 
-#: includes/arrays.php:45 thold_graph.php:697 thold_graph.php:1038
+#: includes/arrays.php:45 thold_graph.php:775 thold_graph.php:1116
 msgid "Recovering"
 msgstr "正在復原"
 
-#: includes/arrays.php:49 thold_graph.php:700 thold_graph.php:1036
+#: includes/arrays.php:49 thold_graph.php:778 thold_graph.php:1114
 msgid "Up"
 msgstr "向上"
 
-#: includes/arrays.php:53 thold_graph.php:706 thold_graph.php:1039
+#: includes/arrays.php:53 thold_graph.php:784 thold_graph.php:1117
 msgid "Unknown"
 msgstr "未知"
 
 #: includes/arrays.php:57 includes/arrays.php:198 includes/settings.php:308
-#: includes/settings.php:422 includes/settings.php:435
-#: includes/settings.php:465 notify_lists.php:733 notify_lists.php:1154
-#: notify_lists.php:1318 notify_lists.php:1514 thold.php:704
-#: thold_graph.php:216 thold_graph.php:690 thold_graph.php:1033
+#: includes/settings.php:422 includes/settings.php:458 notify_lists.php:735
+#: notify_lists.php:1165 notify_lists.php:1329 notify_lists.php:1523
+#: thold.php:719 thold_graph.php:218 thold_graph.php:768 thold_graph.php:1111
 msgid "Disabled"
 msgstr "停用"
 
-#: includes/arrays.php:61 thold_graph.php:964 thold_graph.php:1035
+#: includes/arrays.php:61 thold_graph.php:1042 thold_graph.php:1113
 #, fuzzy
 msgid "Not Monitored"
 msgstr "沒有監控"
@@ -136,7 +147,7 @@ msgstr "警告"
 msgid "Event - Restoral"
 msgstr "事件 - 恢復"
 
-#: includes/arrays.php:112 thold_graph.php:1393
+#: includes/arrays.php:112 thold_graph.php:1472
 #, fuzzy
 msgid "Restoral Event"
 msgstr "恢復活動"
@@ -175,7 +186,7 @@ msgstr "警告觸發器"
 msgid "Alert-Warn"
 msgstr "警報，警告"
 
-#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1363
+#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1443
 #, fuzzy
 msgid "Acknowledgment"
 msgstr "確認"
@@ -197,8 +208,8 @@ msgstr "確定"
 msgid "Emergency"
 msgstr "緊急"
 
-#: includes/arrays.php:226 thold.php:1831 thold.php:1850
-#: thold_templates.php:1394 thold_templates.php:1408
+#: includes/arrays.php:226 thold.php:1861 thold.php:1880
+#: thold_templates.php:1419 thold_templates.php:1433
 msgid "Critical"
 msgstr "嚴重"
 
@@ -211,7 +222,7 @@ msgid "Debug"
 msgstr "除錯"
 
 #: includes/arrays.php:270 includes/arrays.php:355 includes/arrays.php:421
-#: thold_functions.php:94
+#: thold_functions.php:98
 msgid "Never"
 msgstr "從不"
 
@@ -224,8 +235,8 @@ msgstr "每分鐘"
 #: includes/arrays.php:278 includes/arrays.php:279 includes/arrays.php:280
 #: includes/arrays.php:356 includes/arrays.php:357 includes/arrays.php:358
 #: includes/arrays.php:359 includes/arrays.php:360 includes/arrays.php:361
-#: includes/settings.php:466 includes/settings.php:467
-#: includes/settings.php:468
+#: includes/settings.php:459 includes/settings.php:460
+#: includes/settings.php:461
 #, php-format
 msgid "Every %d Minutes"
 msgstr "每 %d 分鐘"
@@ -239,7 +250,7 @@ msgstr "每隔一小時"
 #: includes/arrays.php:285 includes/arrays.php:286 includes/arrays.php:287
 #: includes/arrays.php:363 includes/arrays.php:364 includes/arrays.php:365
 #: includes/arrays.php:366 includes/arrays.php:367 includes/arrays.php:368
-#: includes/settings.php:470
+#: includes/settings.php:463
 #, fuzzy, php-format
 msgid "Every %d Hours"
 msgstr "每個％d小時"
@@ -313,7 +324,7 @@ msgid "%d Day"
 msgstr "%d 天"
 
 #: includes/arrays.php:314 includes/arrays.php:346 includes/arrays.php:391
-#: includes/arrays.php:412 thold_graph.php:1267
+#: includes/arrays.php:412 thold_graph.php:1347
 #, php-format
 msgid "%d Days"
 msgstr "%d 天"
@@ -397,7 +408,7 @@ msgstr "CDEF"
 msgid "Percentage"
 msgstr "百分比"
 
-#: includes/arrays.php:491 thold.php:1743 thold_templates.php:1298
+#: includes/arrays.php:491 thold.php:1763 thold_templates.php:1313
 #, fuzzy
 msgid "RPN Expression"
 msgstr "RPN表達"
@@ -422,7 +433,7 @@ msgid "Resume Notifications"
 msgstr "SNMP通知"
 
 #: includes/arrays.php:499 includes/arrays.php:508 notify_lists.php:31
-#: setup.php:1295
+#: setup.php:1298
 msgid "Delete"
 msgstr "刪除"
 
@@ -444,54 +455,54 @@ msgstr "重新申請建議的名稱"
 msgid "Propagate Template"
 msgstr "傳播模板"
 
-#: includes/arrays.php:507 thold_graph.php:1451
+#: includes/arrays.php:507 thold_graph.php:1530
 msgid "Export"
 msgstr "匯出"
 
-#: includes/polling.php:609
+#: includes/polling.php:532
 #, fuzzy
 msgid "SNMP not in use"
 msgstr "SNMP未使用"
 
-#: includes/polling.php:662 thold.php:956 thold.php:976 thold.php:977
-#: thold.php:1178 thold.php:1227 thold.php:1234 thold.php:1240 thold.php:1248
-#: thold.php:1254 thold.php:1260 thold.php:1262 thold.php:1447
-#: thold_graph.php:621 thold_graph.php:641 thold_graph.php:642
-#: thold_graph.php:917 thold_graph.php:966 thold_graph.php:969
-#: thold_graph.php:970 thold_graph.php:971 thold_graph.php:1394
-#: thold_graph.php:1395
+#: includes/polling.php:591 thold.php:970 thold.php:990 thold.php:991
+#: thold.php:1191 thold.php:1240 thold.php:1247 thold.php:1253 thold.php:1261
+#: thold.php:1267 thold.php:1273 thold.php:1275 thold.php:1460
+#: thold_graph.php:699 thold_graph.php:719 thold_graph.php:720
+#: thold_graph.php:995 thold_graph.php:1044 thold_graph.php:1047
+#: thold_graph.php:1048 thold_graph.php:1049 thold_graph.php:1473
+#: thold_graph.php:1474
 msgid "N/A"
 msgstr "不适用"
 
-#: includes/polling.php:667
+#: includes/polling.php:596
 #, fuzzy
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "設備通知： <DESCRIPTION> （ <HOSTNAME> ）從DOWN狀態返回"
 
-#: includes/polling.php:677
+#: includes/polling.php:614
 #, fuzzy
-msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
 msgstr "<br>系統<DESCRIPTION> （ <HOSTNAME> ） 狀態： <DOWN/UP><br><br>當前ping響應： <CUR_TIME>女士<br>平均係統響應： <AVG_TIME>女士<br>系統可用性： <AVAILABILITY><br>清除後的總檢查： <TOT_POLL><br>總失敗檢查： <FAIL_POLL><br>最後日期已檢查： <LAST_FAIL><br>設備以前下降為： <DOWNTIME><br><br> SNMP信息： <br>名稱 - <SNMP_HOSTNAME><br>地點 - <SNMP_LOCATION><br>正常運行時間<UPTIMETEXT> （ <UPTIME>女士） <br>系統 - <SNMP_SYSTEM><br><br>注意： <NOTES>"
 
-#: includes/polling.php:819
+#: includes/polling.php:763
 #, fuzzy
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "設備錯誤： <DESCRIPTION> （ <HOSTNAME> ）是DOWN"
 
-#: includes/polling.php:824 includes/polling.php:840
+#: includes/polling.php:775 includes/polling.php:794
 msgid "DOWN"
 msgstr "向下"
 
-#: includes/polling.php:830
+#: includes/polling.php:782
 #, fuzzy
-msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "系統錯誤 ： <DESCRIPTION> （ <HOSTNAME> ）是<DOWN/UP><br>原因： <MESSAGE><br><br>平均係統響應： <AVG_TIME>女士<br>系統可用性： <AVAILABILITY><br>清除後的總檢查： <TOT_POLL><br>總失敗檢查： <FAIL_POLL><br>最後一次檢查DOWN： <LAST_FAIL><br>設備以前用於： <DOWNTIME><br>注意： <NOTES>"
 
 #: includes/settings.php:29 includes/settings.php:64 includes/settings.php:71
 #: includes/settings.php:77 includes/settings.php:208 notify_lists.php:44
-#: notify_lists.php:1322 notify_lists.php:1387 notify_lists.php:1997
-#: thold.php:709 thold.php:760 thold_functions.php:139 thold_graph.php:221
-#: thold_templates.php:1967
+#: notify_lists.php:1333 notify_lists.php:1398 notify_lists.php:2010
+#: thold.php:724 thold.php:775 thold_functions.php:143 thold_graph.php:223
+#: thold_templates.php:1992
 #, fuzzy
 msgid "Thresholds"
 msgstr "閾值"
@@ -520,7 +531,7 @@ msgstr "（加）"
 msgid "Threshold Logs"
 msgstr "閾值"
 
-#: includes/settings.php:91 thold_functions.php:141 thold_graph.php:768
+#: includes/settings.php:91 thold_functions.php:145 thold_graph.php:846
 #, fuzzy
 msgid "Device Status"
 msgstr "設備狀態"
@@ -552,7 +563,7 @@ msgstr "最近的設備故障"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
-#: includes/settings.php:160 thold_templates.php:1856
+#: includes/settings.php:160 thold_templates.php:1881
 #, fuzzy
 msgid "Threshold Templates"
 msgstr "閾值模板"
@@ -563,7 +574,7 @@ msgid "Threshold Template Import"
 msgstr "閾值模板導入"
 
 #: includes/settings.php:174 includes/settings.php:188
-#: includes/settings.php:195 includes/settings.php:207 notify_lists.php:1891
+#: includes/settings.php:195 includes/settings.php:207 notify_lists.php:1904
 #, fuzzy
 msgid "Notification Lists"
 msgstr "通知列表"
@@ -577,12 +588,12 @@ msgstr "通知列表（編輯）"
 msgid "Management"
 msgstr "管理"
 
-#: includes/settings.php:209 notify_lists.php:45 notify_lists.php:1998
-#: thold_templates.php:1871 thold_templates.php:1947
+#: includes/settings.php:209 notify_lists.php:45 notify_lists.php:2011
+#: thold_templates.php:1896 thold_templates.php:1972
 msgid "Templates"
 msgstr "模板"
 
-#: includes/settings.php:209 thold_graph.php:1475
+#: includes/settings.php:209 thold_graph.php:1556
 msgid "Threshold"
 msgstr "閾值"
 
@@ -634,7 +645,7 @@ msgstr "設備上/下通知設置"
 msgid "Threshold Up/Down Email Notification"
 msgstr "閾值上/下電子郵件通知"
 
-#: includes/settings.php:309 notify_lists.php:733 notify_lists.php:1156
+#: includes/settings.php:309 notify_lists.php:735 notify_lists.php:1167
 #, fuzzy
 msgid "Global List"
 msgstr "全球清單"
@@ -779,484 +790,482 @@ msgstr "默認管理狀態"
 msgid "Default Threshold management filter status."
 msgstr "默認閾值管理過濾器狀態。"
 
-#: includes/settings.php:421 includes/settings.php:434 notify_lists.php:966
-#: notify_lists.php:984 notify_lists.php:1283 notify_lists.php:1301
-#: thold.php:687
+#: includes/settings.php:421 notify_lists.php:977 notify_lists.php:995
+#: notify_lists.php:1294 notify_lists.php:1312 thold.php:702
 msgid "Any"
 msgstr "任何"
 
-#: includes/settings.php:423 includes/settings.php:436 notify_lists.php:1317
-#: notify_lists.php:1403 notify_lists.php:1514 thold.php:703 thold.php:1914
-#: thold_graph.php:215 thold_graph.php:1032 thold_templates.php:1035
-#: thold_templates.php:1471
+#: includes/settings.php:423 notify_lists.php:1328 notify_lists.php:1414
+#: notify_lists.php:1523 thold.php:718 thold.php:1944 thold_graph.php:217
+#: thold_graph.php:1110 thold_templates.php:1043 thold_templates.php:1496
 msgid "Enabled"
 msgstr "啟用"
 
-#: includes/settings.php:424 includes/settings.php:437 notify_lists.php:1315
-#: thold.php:701 thold_graph.php:213
+#: includes/settings.php:424 notify_lists.php:1326 thold.php:716
+#: thold_graph.php:215
 #, fuzzy
 msgid "Breached"
 msgstr "突破"
 
-#: includes/settings.php:425 includes/settings.php:438 notify_lists.php:1316
-#: notify_lists.php:1401 thold.php:702 thold.php:823 thold_graph.php:214
-#: thold_graph.php:463
+#: includes/settings.php:425 notify_lists.php:1327 notify_lists.php:1412
+#: thold.php:717 thold.php:838 thold_graph.php:216 thold_graph.php:503
 #, fuzzy
 msgid "Triggered"
 msgstr "觸發"
 
 #: includes/settings.php:430
 #, fuzzy
-msgid "Default Monitor Status"
-msgstr "默認監控狀態"
-
-#: includes/settings.php:431
-#, fuzzy
-msgid "Default Threshold Tab filter status."
-msgstr "默認閾值選項卡篩選狀態。"
-
-#: includes/settings.php:443
-#, fuzzy
 msgid "Empty ifHighSpeed Default"
 msgstr "清空ifHighSpeed默認值"
 
-#: includes/settings.php:444
+#: includes/settings.php:431
 #, fuzzy
 msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
 msgstr "計算表達式閾值時，如果ifHighSpeed和ifSpeed返回為零，請改用以下ifHighSpeed設置。對於10GE接口，默認ifHighSpeed為10000。"
 
-#: includes/settings.php:451
+#: includes/settings.php:438
 #, fuzzy
 msgid "Threshold Daemon"
 msgstr "閾值守護進程"
 
-#: includes/settings.php:455
+#: includes/settings.php:442
 #, fuzzy
 msgid "Enable Threshold Daemon"
 msgstr "啟用閾值守護程序"
 
-#: includes/settings.php:456
+#: includes/settings.php:443
 #, fuzzy
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
 msgstr "選中此框將啟用專用閾值守護程序。這可用於提高系統性能和/或將閾值監視分發到單獨的服務器。"
 
-#: includes/settings.php:461
+#: includes/settings.php:448
+#, fuzzy
+msgid "Force Threshold Daemon Debug"
+msgstr "閾值守護進程"
+
+#: includes/settings.php:449
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr ""
+
+#: includes/settings.php:454
 #, fuzzy
 msgid "Daemon Down Notification Frequency"
 msgstr "設備上/下通知設置"
 
-#: includes/settings.php:462
+#: includes/settings.php:455
 #, fuzzy
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
 msgstr "如果發現Thold守護程序已關閉，則以該頻率發送電子郵件通知。"
 
-#: includes/settings.php:469
+#: includes/settings.php:462
 #, fuzzy, php-format
 msgid "Every %d Hour"
 msgstr "每個％d小時"
 
-#: includes/settings.php:475
-#, fuzzy
-msgid "Maximum Concurrent Threshold Processes"
-msgstr "最大並發閾值進程"
+#: includes/settings.php:468
+msgid "Daemon Threads"
+msgstr ""
 
-#: includes/settings.php:476
+#: includes/settings.php:469
 #, fuzzy
-msgid "The maximum number of concurrent processes to be handled by the Threshold Daemon."
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
 msgstr "閾值守護程序要處理的最大並發進程數。"
 
-#: includes/settings.php:483
+#: includes/settings.php:472
+msgid "1 Process"
+msgstr ""
+
+#: includes/settings.php:473 includes/settings.php:474
+#: includes/settings.php:475 includes/settings.php:476
+#: includes/settings.php:477 includes/settings.php:478
+#: includes/settings.php:479 includes/settings.php:480
+#: includes/settings.php:481
+#, php-format
+msgid "%d Processes"
+msgstr ""
+
+#: includes/settings.php:486
 msgid "Logging"
 msgstr "記錄"
 
-#: includes/settings.php:487
+#: includes/settings.php:490
 #, fuzzy
 msgid "Log Threshold Breaches"
 msgstr "記錄閾值違規"
 
-#: includes/settings.php:488
+#: includes/settings.php:491
 #, fuzzy
 msgid "Enable logging of all Threshold failures to the Cacti Log."
 msgstr "啟用將所有閾值故障記錄到Cacti Log。"
 
-#: includes/settings.php:493
+#: includes/settings.php:496
 #, fuzzy
 msgid "Show Data Source in Log"
 msgstr "在日誌中顯示數據源"
 
-#: includes/settings.php:494
+#: includes/settings.php:497
 #, fuzzy
 msgid "Show the Data Source name in the Log if not present."
 msgstr "如果不存在，則在日誌中顯示數據源名稱。"
 
-#: includes/settings.php:499
+#: includes/settings.php:502
 #, fuzzy
 msgid "Log Threshold Changes"
 msgstr "記錄閾值更改"
 
-#: includes/settings.php:500
+#: includes/settings.php:503
 #, fuzzy
 msgid "Enable logging of all Threshold changes to the Cacti Log."
 msgstr "啟用將所有閾值更改記錄到Cacti Log。"
 
-#: includes/settings.php:505
+#: includes/settings.php:508
 msgid "Debug Log"
 msgstr "除錯記錄"
 
-#: includes/settings.php:506
+#: includes/settings.php:509
 #, fuzzy
 msgid "Enable logging of debug messages with Threshold"
 msgstr "使用閾值啟用調試消息的日誌記錄"
 
-#: includes/settings.php:511
+#: includes/settings.php:514
 #, fuzzy
 msgid "Alert Log Retention"
 msgstr "警報日誌保留"
 
-#: includes/settings.php:512
+#: includes/settings.php:515
 #, fuzzy
 msgid "Keep Threshold Logs for this number of days."
 msgstr "將閾值日誌保留此天數。"
 
-#: includes/settings.php:518 thold.php:1909 thold_templates.php:1466
+#: includes/settings.php:521 thold.php:1939 thold_templates.php:1491
 #, fuzzy
 msgid "Syslog Settings"
 msgstr "系統日誌設置"
 
-#: includes/settings.php:522
+#: includes/settings.php:525
 #, fuzzy
 msgid "Syslog Enabled"
 msgstr "已啟用Syslog"
 
-#: includes/settings.php:523
+#: includes/settings.php:526
 #, fuzzy
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "如果選中，則在創建新閾值時，默認情況下，新的閾值事件將發送到您的本地syslog。此設置是預設。閾值設置決定了實際的syslog控制。"
 
-#: includes/settings.php:527
+#: includes/settings.php:530
 #, fuzzy
 msgid "Default Priority/Level"
 msgstr "默認優先級/級別"
 
-#: includes/settings.php:528
+#: includes/settings.php:531
 #, fuzzy
 msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "這是Thold用於發送系統日誌消息的默認優先級/級別。此設置是預設。閾值設置決定了實際的syslog控制。"
 
-#: includes/settings.php:534
+#: includes/settings.php:537
 #, fuzzy
 msgid "Default Facility"
 msgstr "默認設施"
 
-#: includes/settings.php:535
+#: includes/settings.php:538
 #, fuzzy
 msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "這是Thold將用於發送系統日誌消息的默認工具。此設置是預設。閾值設置決定了實際的syslog控制。"
 
-#: includes/settings.php:541
+#: includes/settings.php:544
 #, fuzzy
 msgid "Alert Presets"
 msgstr "警報預設"
 
-#: includes/settings.php:545
+#: includes/settings.php:548
 #, fuzzy
 msgid "Weekend exemptions"
 msgstr "週末豁免"
 
-#: includes/settings.php:546
+#: includes/settings.php:549
 #, fuzzy
 msgid "If this is checked, Thold will not run on weekends."
 msgstr "如果選中此選項，Thold將不會在周末運行。"
 
-#: includes/settings.php:550
+#: includes/settings.php:553
 #, fuzzy
 msgid "Default Trigger Count"
 msgstr "默認觸發計數"
 
-#: includes/settings.php:551
+#: includes/settings.php:554
 #, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
 msgstr "數據源必須連續違反警報閾值的默認連續次數。"
 
-#: includes/settings.php:558
+#: includes/settings.php:561
 #, fuzzy
 msgid "Re-Alerting"
 msgstr "重新警報"
 
-#: includes/settings.php:559
+#: includes/settings.php:562
 #, fuzzy
 msgid "Repeat Alert after specified number of poller cycles."
 msgstr "在指定的輪詢週期數後重複警報。"
 
-#: includes/settings.php:566
+#: includes/settings.php:569
 #, fuzzy
 msgid "Baseline Presets"
 msgstr "基線預設"
 
-#: includes/settings.php:570
+#: includes/settings.php:573
 #, fuzzy
 msgid "Baseline Time Range Default"
 msgstr "基線時間範圍默認值"
 
-#: includes/settings.php:571 includes/settings.php:588
+#: includes/settings.php:574 includes/settings.php:591
 #, fuzzy
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr "這是創建閾值或模板時使用的默認值。"
 
-#: includes/settings.php:579 thold.php:1699 thold_templates.php:1262
+#: includes/settings.php:582 thold.php:1719 thold_templates.php:1277
 #, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "基線觸發計數"
 
-#: includes/settings.php:580
+#: includes/settings.php:583
 #, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
 msgstr "數據源必須連續違反計算的基準閾值的默認連續次數才能引發警報。"
 
-#: includes/settings.php:587
+#: includes/settings.php:590
 #, fuzzy
 msgid "Baseline Deviation Percentage"
 msgstr "基線偏差百分比"
 
-#: includes/settings.php:595
+#: includes/settings.php:598
 #, fuzzy
 msgid "SNMP Notification Options"
 msgstr "SNMP通知"
 
-#: includes/settings.php:599
+#: includes/settings.php:602
 #, fuzzy
 msgid "SNMP Notifications"
 msgstr "SNMP通知"
 
-#: includes/settings.php:600
+#: includes/settings.php:603
 #, fuzzy
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
 msgstr "閾值狀態消息（通知/陷阱）將發送到SNMP通知接收器。這包括默認情況下的警報，警告和恢復陷阱。注意：此功能需要Cacti SNMPAgent插件。"
 
-#: includes/settings.php:605
+#: includes/settings.php:608
 #, fuzzy
 msgid "Disable Warning Notifications"
 msgstr "禁用警告通知"
 
-#: includes/settings.php:606
+#: includes/settings.php:609
 #, fuzzy
 msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
 msgstr "如果選中此選項，則在違反警告閾值時，閾值將不會發送通知。"
 
-#: includes/settings.php:610
+#: includes/settings.php:613
 #, fuzzy
 msgid "Disable Restoration Notifications"
 msgstr "禁用恢復通知"
 
-#: includes/settings.php:611
+#: includes/settings.php:614
 #, fuzzy
 msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
 msgstr "如果選中此選項，則閾值將在閾值恢復正常狀態時發送通知。"
 
-#: includes/settings.php:615
-#, fuzzy
-msgid "SNMP Event Description"
-msgstr "SNMP事件描述"
-
-#: includes/settings.php:616
-#, fuzzy
-msgid "You can customize the event description being sent out to the SNMP notification receivers by using additional varbinds. Following variable bindings will be supported:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr "您可以使用其他varbinds自定義發送到SNMP通知接收器的事件描述。將支持以下變量綁定： <br> &lt;THRESHOLDNAME&gt; &lt;HOSTNAME&gt; &lt;HOSTIP&gt; &lt;TEMPLATE_ID&gt; &lt;TEMPLATE_NAME&gt; &lt;THR_TYPE&gt; &lt;DS_NAME&gt; &lt;HI&gt; &lt;LOW&gt; &lt;EVENT_CATEGORY&gt; &lt;FAIL_COUNT&gt; &lt;FAIL_DURATION&gt;"
-
-#: includes/settings.php:624
+#: includes/settings.php:618
 #, fuzzy
 msgid "Emailing Options"
 msgstr "電子郵件選項"
 
-#: includes/settings.php:628
+#: includes/settings.php:622
 #, fuzzy
 msgid "Send Emails with Urgent Priority"
 msgstr "發送緊急優先級的電子郵件"
 
-#: includes/settings.php:629
+#: includes/settings.php:623
 #, fuzzy
 msgid "Allows you to set Emails with urgent priority"
 msgstr "允許您設置具有緊急優先級的電子郵件"
 
-#: includes/settings.php:634
+#: includes/settings.php:628
 #, fuzzy
 msgid "Send Alerts as Text"
 msgstr "將警報作為文本發送"
 
-#: includes/settings.php:635
+#: includes/settings.php:629
 #, fuzzy
 msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
 msgstr "如果選中，則會導致所有警報作為純文本電子郵件發送而沒有圖表。默認為HTML電子郵件，其中嵌入了電子郵件中的圖表。"
 
-#: includes/settings.php:640
+#: includes/settings.php:634
 #, fuzzy
 msgid "Send Email separately for each address"
 msgstr "為每個地址分別發送電子郵件"
 
-#: includes/settings.php:641
+#: includes/settings.php:635
 #, fuzzy
 msgid "If checked, this will cause all Emails to be sent separately for each address."
 msgstr "如果選中，這將導致針對每個地址分別發送所有電子郵件。"
 
-#: includes/settings.php:646
+#: includes/settings.php:640
 msgid "From Email Address"
 msgstr "寄件者電子郵件"
 
-#: includes/settings.php:647
+#: includes/settings.php:641
 #, fuzzy
 msgid "This is the Email address that the Threshold will appear from."
 msgstr "這是閾值將顯示的電子郵件地址。"
 
-#: includes/settings.php:653
+#: includes/settings.php:647
 msgid "From Name"
 msgstr "寄件者名稱"
 
-#: includes/settings.php:654
+#: includes/settings.php:648
 #, fuzzy
 msgid "This is the actual name that the Threshold will appear from."
 msgstr "這是閾值將顯示的實際名稱。"
 
-#: includes/settings.php:660
+#: includes/settings.php:654
 #, fuzzy
 msgid "Device Notification Options"
 msgstr "設備通知選項"
 
-#: includes/settings.php:664
+#: includes/settings.php:658
 #, fuzzy
 msgid "Device Notifications"
 msgstr "死設備通知"
 
-#: includes/settings.php:665
+#: includes/settings.php:659
 #, fuzzy
 msgid "Enable Dead/Recovering host notification"
 msgstr "啟用死機/恢復主機通知"
 
-#: includes/settings.php:670
+#: includes/settings.php:664
 #, fuzzy
 msgid "Device Notifications Email"
 msgstr "死設備通知電子郵件"
 
-#: includes/settings.php:671
+#: includes/settings.php:665
 #, fuzzy
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
 msgstr "這是在選擇全局通知列表時將發送死設備通知的電子郵件地址。"
 
-#: includes/settings.php:677
+#: includes/settings.php:671
 #, fuzzy
 msgid "Down Subject"
 msgstr "關閉設備主題"
 
-#: includes/settings.php:678
+#: includes/settings.php:672
 #, fuzzy
 msgid "This is the Email subject that will be used for Down Device Messages."
 msgstr "這是將用於關閉設備消息的電子郵件主題。"
 
-#: includes/settings.php:682
+#: includes/settings.php:676
 #, fuzzy
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "設備錯誤： <DESCRIPTION> （ <HOSTNAME> ）是DOWN"
 
-#: includes/settings.php:685
+#: includes/settings.php:679
 #, fuzzy
 msgid "Down Message"
 msgstr "關閉設備消息"
 
-#: includes/settings.php:686
+#: includes/settings.php:680
 #, fuzzy
-msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "這是將顯示為所有UP / Down設備消息（255 Char MAX）的消息正文的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;DOWN / UP&gt; &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;注意&gt;"
 
-#: includes/settings.php:691
+#: includes/settings.php:685
 #, fuzzy
-msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
 msgstr "系統錯誤 ： <DESCRIPTION> （ <HOSTNAME> ）是<DOWN/UP><br>原因： <MESSAGE><br><br>平均係統響應： <AVG_TIME>女士<br>系統可用性： <AVAILABILITY><br>清除後的總檢查： <TOT_POLL><br>總失敗檢查： <FAIL_POLL><br>最後一次檢查DOWN： <LAST_FAIL><br>設備以前用於： <DOWNTIME><br>筆記： <NOTES><br>設備說明： <DNOTES>"
 
-#: includes/settings.php:694
+#: includes/settings.php:688
 #, fuzzy
 msgid "Recovering Subject"
 msgstr "恢復設備主題"
 
-#: includes/settings.php:695
+#: includes/settings.php:689
 #, fuzzy
 msgid "This is the Email subject that will be used for Recovering Device Messages."
 msgstr "這是將用於恢復設備消息的電子郵件主題。"
 
-#: includes/settings.php:699
+#: includes/settings.php:693
 #, fuzzy
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "設備通知： <DESCRIPTION> （ <HOSTNAME> ）從DOWN狀態返回"
 
-#: includes/settings.php:702
+#: includes/settings.php:696
 #, fuzzy
 msgid "Recovering Message"
 msgstr "恢復設備消息"
 
-#: includes/settings.php:703
+#: includes/settings.php:697
 #, fuzzy
-msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "這是將顯示為所有UP / Down設備消息（255 Char MAX）的消息正文的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;DOWN / UP&gt; &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;注意&gt;"
 
-#: includes/settings.php:708
+#: includes/settings.php:702
 #, fuzzy
-msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
 msgstr "<br>系統<DESCRIPTION> （ <HOSTNAME> ） 狀態： <DOWN/UP><br><br>當前ping響應： <CUR_TIME>女士<br>平均係統響應： <AVG_TIME>女士<br>系統可用性： <AVAILABILITY><br>清除後的總檢查： <TOT_POLL><br>總失敗檢查： <FAIL_POLL><br>最後日期已檢查： <LAST_FAIL><br>設備先前為DOWN： <DOWNTIME><br><br> Snmp信息： <br>名稱 - <SNMP_HOSTNAME><br>地點 - <SNMP_LOCATION><br>正常運行時間<UPTIMETEXT> （ <UPTIME>女士） <br>系統 - <SNMP_SYSTEM><br><br>注意： <NOTES><br>設備說明： <DNOTES>"
 
-#: includes/settings.php:711
+#: includes/settings.php:705
 #, fuzzy
 msgid "Status Change Command"
 msgstr "狀態變更指令"
 
-#: includes/settings.php:712
+#: includes/settings.php:706
 #, fuzzy
-msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 msgstr "這是將顯示為所有UP / Down設備消息（255 Char MAX）的消息正文的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;DOWN / UP&gt; &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;注意&gt;"
 
-#: includes/settings.php:720
+#: includes/settings.php:714
 #, fuzzy
 msgid "Alert/Warning Message Defaults"
 msgstr "警報/警告消息默認值"
 
-#: includes/settings.php:724
+#: includes/settings.php:718
 #, fuzzy
 msgid "Threshold Alert Message"
 msgstr "閾值警報消息"
 
-#: includes/settings.php:725
+#: includes/settings.php:719
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "這是將顯示在所有閾值警報（255 Char MAX）頂部的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
-#: includes/settings.php:730
+#: includes/settings.php:724
 #, fuzzy
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "已發出警報，需要您注意。 <br><br> <strong>裝置</strong> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <strong>網址</strong> ： <URL><br> <strong>消息</strong> ： <SUBJECT><br><br><GRAPH>"
 
-#: includes/settings.php:733
+#: includes/settings.php:727
 #, fuzzy
 msgid "Threshold Warning Message"
 msgstr "閾值警告消息"
 
-#: includes/settings.php:734
+#: includes/settings.php:728
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "這是將顯示在所有閾值警告（255 Char MAX）頂部的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
-#: includes/settings.php:739
+#: includes/settings.php:733
 #, fuzzy
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "已發出警告，需要您注意。 <br><br> <strong>裝置</strong> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <strong>網址</strong> ： <URL><br> <strong>消息</strong> ： <SUBJECT><br><br><GRAPH>"
 
-#: includes/settings.php:742
+#: includes/settings.php:736
 #, fuzzy
 msgid "Threshold Restoral Message"
 msgstr "閾值警報消息"
 
-#: includes/settings.php:743 thold.php:1790 thold_templates.php:1350
+#: includes/settings.php:737
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "這是將顯示在所有閾值警告（255 Char MAX）頂部的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
-#: includes/settings.php:748
+#: includes/settings.php:742
 #, fuzzy
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "已發出警報，需要您注意。 <br><br> <strong>裝置</strong> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <strong>網址</strong> ： <URL><br> <strong>消息</strong> ： <SUBJECT><br><br><GRAPH>"
@@ -1279,456 +1288,469 @@ msgstr "關聯"
 msgid "Disassociate"
 msgstr "撇清"
 
-#: notify_lists.php:43 notify_lists.php:1000 notify_lists.php:1123
-#: notify_lists.php:1996 thold_graph.php:821 thold_graph.php:1071
+#: notify_lists.php:43 notify_lists.php:1011 notify_lists.php:1134
+#: notify_lists.php:2009 thold_graph.php:899 thold_graph.php:1151
 msgid "Devices"
 msgstr "設備"
 
-#: notify_lists.php:510
+#: notify_lists.php:512
 #, fuzzy
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "點擊“繼續”以刪除通知列表。與列表關聯的任何設備或閾值將恢復為默認值。"
 
-#: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
-#: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1377 thold.php:444
-#: thold_functions.php:5788 thold_templates.php:268
+#: notify_lists.php:517 notify_lists.php:529 notify_lists.php:587
+#: notify_lists.php:598 notify_lists.php:657 notify_lists.php:668
+#: notify_lists.php:728 notify_lists.php:741 setup.php:1380 thold.php:458
+#: thold_functions.php:5821 thold_templates.php:268
 msgid "Cancel"
 msgstr "取消"
 
-#: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
-#: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1378 thold.php:446
-#: thold_functions.php:5791 thold_templates.php:270
+#: notify_lists.php:517 notify_lists.php:529 notify_lists.php:587
+#: notify_lists.php:598 notify_lists.php:657 notify_lists.php:668
+#: notify_lists.php:728 notify_lists.php:741 setup.php:1381 thold.php:461
+#: thold_functions.php:5824 thold_templates.php:270
 msgid "Continue"
 msgstr "繼續"
 
-#: notify_lists.php:515
+#: notify_lists.php:517
 #, fuzzy
 msgid "Delete Notification List(s)"
 msgstr "刪除通知清單"
 
-#: notify_lists.php:519
+#: notify_lists.php:521
 #, fuzzy
 msgid "Click 'Continue' to Duplicate the following Notification List(s)."
 msgstr "單擊“繼續”以復制以下通知列表。"
 
-#: notify_lists.php:521
+#: notify_lists.php:523
 #, fuzzy
 msgid "New List Name"
 msgstr "新列表名稱"
 
-#: notify_lists.php:522
+#: notify_lists.php:524
 #, fuzzy
 msgid "New Notification List"
 msgstr "新通知清單"
 
-#: notify_lists.php:527
+#: notify_lists.php:529
 #, fuzzy
 msgid "Duplicate Notification List(s)"
 msgstr "重複的通知清單"
 
-#: notify_lists.php:572
+#: notify_lists.php:574
 #, fuzzy, php-format
 msgid "%s Threshold Template(s)"
 msgstr "％s閾值模板"
 
-#: notify_lists.php:578
+#: notify_lists.php:580
 #, fuzzy, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
 msgstr "單擊“繼續”以將通知列表'％s'與下面的閾值模板相關聯。"
 
-#: notify_lists.php:580 notify_lists.php:581 notify_lists.php:591
-#: notify_lists.php:592 notify_lists.php:650 notify_lists.php:651
-#: notify_lists.php:661 notify_lists.php:662 notify_lists.php:721
-#: notify_lists.php:722 notify_lists.php:734 notify_lists.php:735
+#: notify_lists.php:582 notify_lists.php:583 notify_lists.php:593
+#: notify_lists.php:594 notify_lists.php:652 notify_lists.php:653
+#: notify_lists.php:663 notify_lists.php:664 notify_lists.php:723
+#: notify_lists.php:724 notify_lists.php:736 notify_lists.php:737
 msgid "No Change"
 msgstr "沒有變更"
 
-#: notify_lists.php:580 notify_lists.php:581 notify_lists.php:650
-#: notify_lists.php:651 notify_lists.php:720 notify_lists.php:721
-#: notify_lists.php:722
+#: notify_lists.php:582 notify_lists.php:583 notify_lists.php:652
+#: notify_lists.php:653 notify_lists.php:722 notify_lists.php:723
+#: notify_lists.php:724
 #, fuzzy
 msgid "Notification List Only"
 msgstr "僅通知清單"
 
-#: notify_lists.php:580 notify_lists.php:581 notify_lists.php:650
-#: notify_lists.php:651 notify_lists.php:721 notify_lists.php:722
+#: notify_lists.php:582 notify_lists.php:583 notify_lists.php:652
+#: notify_lists.php:653 notify_lists.php:723 notify_lists.php:724
 #, fuzzy
 msgid "Notification List, Retain Other Settings"
 msgstr "通知列表，保留其他設置"
 
-#: notify_lists.php:580 notify_lists.php:591 notify_lists.php:650
-#: notify_lists.php:661
+#: notify_lists.php:582 notify_lists.php:593 notify_lists.php:652
+#: notify_lists.php:663
 #, fuzzy
 msgid "Warning Membership:"
 msgstr "警告成員："
 
-#: notify_lists.php:581 notify_lists.php:592 notify_lists.php:651
-#: notify_lists.php:662
+#: notify_lists.php:583 notify_lists.php:594 notify_lists.php:653
+#: notify_lists.php:664
 #, fuzzy
 msgid "Alert Membership:"
 msgstr "警報會員："
 
-#: notify_lists.php:585 notify_lists.php:655 notify_lists.php:726
+#: notify_lists.php:587 notify_lists.php:657 notify_lists.php:728
 #, fuzzy
 msgid "Associate Notification List(s)"
 msgstr "關聯通知清單"
 
-#: notify_lists.php:589
+#: notify_lists.php:591
 #, fuzzy, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
 msgstr "單擊“繼續”以從下面的閾值模板中取消關聯通知列表'％s'。"
 
-#: notify_lists.php:591 notify_lists.php:592 notify_lists.php:661
-#: notify_lists.php:662 notify_lists.php:734 notify_lists.php:735
+#: notify_lists.php:593 notify_lists.php:594 notify_lists.php:663
+#: notify_lists.php:664 notify_lists.php:736 notify_lists.php:737
 #, fuzzy
 msgid "Remove List"
 msgstr "刪除列表"
 
-#: notify_lists.php:596 notify_lists.php:666 notify_lists.php:739
+#: notify_lists.php:598 notify_lists.php:668 notify_lists.php:741
 #, fuzzy
 msgid "Disassociate Notification List(s)"
 msgstr "解除關聯通知清單"
 
-#: notify_lists.php:642
+#: notify_lists.php:644
 #, fuzzy, php-format
 msgid "%s Threshold(s)"
 msgstr "％s門檻（s）"
 
-#: notify_lists.php:648
+#: notify_lists.php:650
 #, fuzzy, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
 msgstr "單擊“繼續”以將通知列表'％s'與下面的閾值相關聯。"
 
-#: notify_lists.php:659
+#: notify_lists.php:661
 #, fuzzy, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
 msgstr "單擊“繼續”以從下面的閾值中取消關聯通知列表'％s'。"
 
-#: notify_lists.php:717
+#: notify_lists.php:719
 #, fuzzy, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
 msgstr "單擊“繼續”以將通知列表'％s'與下面的設備相關聯。"
 
-#: notify_lists.php:718
+#: notify_lists.php:720
 #, fuzzy
-msgid "You may also Associate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten."
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "您也可以關聯設備閾值。但是，這些設備閾值將必須允許覆蓋閾值通知列表。"
 
-#: notify_lists.php:720
+#: notify_lists.php:722
 #, fuzzy
 msgid "Notification and Global Lists"
 msgstr "通知和全球列表"
 
-#: notify_lists.php:720 notify_lists.php:733
+#: notify_lists.php:722 notify_lists.php:735
 #, fuzzy
 msgid "Resulting Membership:"
 msgstr "結果會員資格："
 
-#: notify_lists.php:721 notify_lists.php:734
+#: notify_lists.php:723 notify_lists.php:736
 #, fuzzy
 msgid "Device Threshold Warning Membership:"
 msgstr "警告成員："
 
-#: notify_lists.php:722 notify_lists.php:735
+#: notify_lists.php:724 notify_lists.php:737
 #, fuzzy
 msgid "Device Threshold Alert Membership:"
 msgstr "閾值警報消息"
 
-#: notify_lists.php:730
+#: notify_lists.php:732
 #, fuzzy, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
 msgstr "單擊“繼續”以從下面的設備中取消關聯通知列表'％s'。"
 
-#: notify_lists.php:731
+#: notify_lists.php:733
 #, fuzzy
-msgid "You may also Disssociate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten."
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "您也可以取消關聯設備閾值。但是，這些設備閾值將必須允許覆蓋閾值通知列表。"
 
-#: notify_lists.php:780
+#: notify_lists.php:782
 #, fuzzy, php-format
 msgid "[edit: %s]"
 msgstr "[編輯：％s]"
 
-#: notify_lists.php:782
+#: notify_lists.php:784
 #, fuzzy
 msgid "[new]"
 msgstr "[新]"
 
-#: notify_lists.php:829
+#: notify_lists.php:831
 #, fuzzy
 msgid "List General Settings"
 msgstr "列出常規設置"
 
-#: notify_lists.php:834 notify_lists.php:1396 notify_lists.php:1657
-#: setup.php:1238 thold.php:770 thold_graph.php:415 thold_templates.php:1957
+#: notify_lists.php:836 notify_lists.php:1407 notify_lists.php:1666
+#: setup.php:1241 thold.php:785 thold_graph.php:451 thold_templates.php:1982
 msgid "Name"
 msgstr "名稱"
 
-#: notify_lists.php:835
+#: notify_lists.php:837
 #, fuzzy
 msgid "Enter a name for this Notification List."
 msgstr "輸入此通知列表的名稱。"
 
-#: notify_lists.php:841 notify_lists.php:1132 notify_lists.php:1999
-#: thold_graph.php:835
+#: notify_lists.php:843 notify_lists.php:1143 notify_lists.php:2012
+#: thold_graph.php:913
 msgid "Description"
 msgstr "描述"
 
-#: notify_lists.php:842
+#: notify_lists.php:844
 #, fuzzy
 msgid "Enter a description for this Notification List."
 msgstr "輸入此通知列表的說明。"
 
-#: notify_lists.php:850
-msgid "Email Addresses"
+#: notify_lists.php:852
+#, fuzzy
+#| msgid "Email Addresses"
+msgid "To Email Addresses"
 msgstr "電子郵件信箱"
 
-#: notify_lists.php:851
+#: notify_lists.php:853
 #, fuzzy
 msgid "Enter a comma separated list of Email addresses for this Notification List."
 msgstr "輸入此通知列表的逗號分隔的電子郵件地址列表。"
 
-#: notify_lists.php:947
+#: notify_lists.php:861
+#, fuzzy
+#| msgid "Email Addresses"
+msgid "BCC Email Addresses"
+msgstr "電子郵件信箱"
+
+#: notify_lists.php:862
+#, fuzzy
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "輸入此通知列表的逗號分隔的電子郵件地址列表。"
+
+#: notify_lists.php:958
 #, fuzzy
 msgid "Associated Devices"
 msgstr "相關設備"
 
-#: notify_lists.php:956 notify_lists.php:1273 notify_lists.php:1580
-#: notify_lists.php:1900 thold.php:632 thold.php:2294 thold_graph.php:132
-#: thold_graph.php:1001 thold_graph.php:1421 thold_templates.php:1756
-#: thold_templates.php:1865
+#: notify_lists.php:967 notify_lists.php:1284 notify_lists.php:1589
+#: notify_lists.php:1913 thold.php:647 thold.php:2326 thold_graph.php:132
+#: thold_graph.php:1079 thold_graph.php:1500 thold_templates.php:1781
+#: thold_templates.php:1890
 msgid "Search"
 msgstr "搜尋"
 
-#: notify_lists.php:962 notify_lists.php:1133 notify_lists.php:1279
-#: thold.php:638 thold_graph.php:138 thold_graph.php:1007 thold_graph.php:1427
+#: notify_lists.php:973 notify_lists.php:1144 notify_lists.php:1290
+#: thold.php:653 thold_graph.php:138 thold_graph.php:1085 thold_graph.php:1506
 msgid "Site"
 msgstr "網站"
 
-#: notify_lists.php:967 notify_lists.php:985 notify_lists.php:1150
-#: notify_lists.php:1164 notify_lists.php:1284 notify_lists.php:1485
-#: notify_lists.php:1730 setup.php:775 setup.php:793 setup.php:967
-#: setup.php:968 setup.php:1131 thold.php:643 thold.php:674 thold.php:1482
-#: thold.php:1490 thold.php:1798 thold.php:1806 thold.php:2257
-#: thold_graph.php:143 thold_graph.php:172 thold_graph.php:190
-#: thold_graph.php:1012 thold_graph.php:1056 thold_graph.php:1432
-#: thold_graph.php:1462 thold_templates.php:397 thold_templates.php:445
-#: thold_templates.php:1045 thold_templates.php:1053 thold_templates.php:1365
-#: thold_templates.php:1373 thold_templates.php:1719
+#: notify_lists.php:978 notify_lists.php:996 notify_lists.php:1161
+#: notify_lists.php:1175 notify_lists.php:1295 notify_lists.php:1494
+#: notify_lists.php:1738 setup.php:778 setup.php:796 setup.php:970
+#: setup.php:971 setup.php:1134 thold.php:658 thold.php:689 thold.php:1495
+#: thold.php:1503 thold.php:1818 thold.php:1826 thold.php:2289
+#: thold_graph.php:143 thold_graph.php:174 thold_graph.php:192
+#: thold_graph.php:1090 thold_graph.php:1136 thold_graph.php:1511
+#: thold_graph.php:1543 thold_templates.php:399 thold_templates.php:447
+#: thold_templates.php:1053 thold_templates.php:1061 thold_templates.php:1380
+#: thold_templates.php:1388 thold_templates.php:1744
 msgid "None"
 msgstr "無"
 
-#: notify_lists.php:980 notify_lists.php:1400 notify_lists.php:1661
-#: thold.php:780 thold_graph.php:425 thold_graph.php:1051 thold_graph.php:1340
-#: thold_templates.php:1977
+#: notify_lists.php:991 notify_lists.php:1411 notify_lists.php:1670
+#: thold.php:795 thold_graph.php:465 thold_graph.php:1131 thold_graph.php:1420
+#: thold_templates.php:2002
 msgid "Type"
 msgstr "類型"
 
-#: notify_lists.php:1004 notify_lists.php:1326 notify_lists.php:1590
-#: notify_lists.php:1910 thold.php:713 thold_graph.php:225 thold_graph.php:1075
-#: thold_graph.php:1516 thold_templates.php:1875
+#: notify_lists.php:1015 notify_lists.php:1337 notify_lists.php:1599
+#: notify_lists.php:1923 thold.php:728 thold_graph.php:227 thold_graph.php:1155
+#: thold_graph.php:1597 thold_templates.php:1900
 msgid "Default"
 msgstr "預設"
 
-#: notify_lists.php:1017 notify_lists.php:1339 notify_lists.php:1603
+#: notify_lists.php:1028 notify_lists.php:1350 notify_lists.php:1612
 #, fuzzy
 msgid "Associated"
 msgstr "關聯的"
 
-#: notify_lists.php:1022 notify_lists.php:1344 notify_lists.php:1608
-#: notify_lists.php:1921 thold.php:659 thold_graph.php:160 thold_graph.php:1044
-#: thold_graph.php:1449 thold_templates.php:1887
+#: notify_lists.php:1033 notify_lists.php:1355 notify_lists.php:1617
+#: notify_lists.php:1934 thold.php:674 thold_graph.php:160 thold_graph.php:1122
+#: thold_graph.php:1528 thold_templates.php:1912
 msgid "Go"
 msgstr "送出"
 
-#: notify_lists.php:1022 notify_lists.php:1344 notify_lists.php:1608
-#: notify_lists.php:1921
+#: notify_lists.php:1033 notify_lists.php:1355 notify_lists.php:1617
+#: notify_lists.php:1934
 msgid "Set/Refresh Filters"
 msgstr "設置/刷新過濾器"
 
-#: notify_lists.php:1023 notify_lists.php:1345 notify_lists.php:1609
-#: notify_lists.php:1924 thold.php:662 thold_graph.php:161 thold_graph.php:1045
-#: thold_graph.php:1450 thold_templates.php:1888
+#: notify_lists.php:1034 notify_lists.php:1356 notify_lists.php:1618
+#: notify_lists.php:1937 thold.php:677 thold_graph.php:161 thold_graph.php:1123
+#: thold_graph.php:1529 thold_templates.php:1913
 msgid "Clear"
 msgstr "清除"
 
-#: notify_lists.php:1023 notify_lists.php:1345 notify_lists.php:1609
-#: notify_lists.php:1924
+#: notify_lists.php:1034 notify_lists.php:1356 notify_lists.php:1618
+#: notify_lists.php:1937
 msgid "Clear Filters"
 msgstr "清除過濾器"
 
-#: notify_lists.php:1134 notify_lists.php:1397 notify_lists.php:1658
-#: thold.php:775 thold_graph.php:420 thold_graph.php:841
-#: thold_templates.php:1962
+#: notify_lists.php:1145 notify_lists.php:1408 notify_lists.php:1667
+#: thold.php:790 thold_graph.php:456 thold_graph.php:919
+#: thold_templates.php:1987
 msgid "ID"
 msgstr "ID"
 
-#: notify_lists.php:1135
+#: notify_lists.php:1146
 #, fuzzy
 msgid "Associated Lists"
 msgstr "相關名單"
 
-#: notify_lists.php:1136 thold_graph.php:847
+#: notify_lists.php:1147 thold_graph.php:925
 msgid "Graphs"
 msgstr "圖表"
 
-#: notify_lists.php:1137 thold_graph.php:853
+#: notify_lists.php:1148 thold_graph.php:931
 msgid "Data Sources"
 msgstr "數據源"
 
-#: notify_lists.php:1138 setup.php:1238 thold.php:696 thold_graph.php:208
-#: thold_graph.php:859 thold_graph.php:1027 thold_graph.php:1497
+#: notify_lists.php:1149 setup.php:1241 thold.php:711 thold_graph.php:210
+#: thold_graph.php:937 thold_graph.php:1105 thold_graph.php:1578
 msgid "Status"
 msgstr "狀態"
 
-#: notify_lists.php:1139 thold_graph.php:877
+#: notify_lists.php:1150 thold_graph.php:955
 msgid "Hostname"
 msgstr "主機名稱"
 
-#: notify_lists.php:1159
+#: notify_lists.php:1170
 #, fuzzy
 msgid "Current List Only"
 msgstr "僅限當前列表"
 
-#: notify_lists.php:1161
+#: notify_lists.php:1172
 #, fuzzy
 msgid "Current and Global List(s)"
 msgstr "當前和全球名單"
 
-#: notify_lists.php:1183
+#: notify_lists.php:1194
 #, fuzzy
 msgid "No Associated Devices Found"
 msgstr "找不到相關設備"
 
-#: notify_lists.php:1265
+#: notify_lists.php:1276
 #, fuzzy
 msgid "Associated Thresholds"
 msgstr "相關閾值"
 
-#: notify_lists.php:1297 thold.php:669 thold_graph.php:167 thold_graph.php:1457
+#: notify_lists.php:1308 thold.php:684 thold_graph.php:169 thold_graph.php:1538
 msgid "Template"
 msgstr "模板"
 
-#: notify_lists.php:1310
+#: notify_lists.php:1321
 msgid "State"
 msgstr "州"
 
-#: notify_lists.php:1314 thold.php:642 thold.php:673 thold.php:700
-#: thold.php:2256 thold_graph.php:142 thold_graph.php:171 thold_graph.php:189
-#: thold_graph.php:212 thold_graph.php:1011 thold_graph.php:1031
-#: thold_graph.php:1055 thold_graph.php:1431 thold_graph.php:1461
-#: thold_graph.php:1479 thold_graph.php:1501 thold_templates.php:1718
+#: notify_lists.php:1325 thold.php:657 thold.php:688 thold.php:715
+#: thold.php:2288 thold_graph.php:142 thold_graph.php:173 thold_graph.php:191
+#: thold_graph.php:214 thold_graph.php:1089 thold_graph.php:1109
+#: thold_graph.php:1135 thold_graph.php:1510 thold_graph.php:1542
+#: thold_graph.php:1560 thold_graph.php:1582 thold_templates.php:1743
 msgid "All"
 msgstr "全部"
 
-#: notify_lists.php:1398 notify_lists.php:1659
+#: notify_lists.php:1409 notify_lists.php:1668
 #, fuzzy
 msgid "Warning Lists"
 msgstr "警告列表"
 
-#: notify_lists.php:1399 notify_lists.php:1660
+#: notify_lists.php:1410 notify_lists.php:1669
 #, fuzzy
 msgid "Alert Lists"
 msgstr "警報列表"
 
-#: notify_lists.php:1402 thold.php:834
+#: notify_lists.php:1413 thold.php:849
 #, fuzzy
 msgid "Templated"
 msgstr "模板"
 
-#: notify_lists.php:1413 thold.php:864 thold.php:987 thold.php:989
-#: thold.php:992 thold_graph.php:496 thold_graph.php:652
+#: notify_lists.php:1423 thold.php:878 thold.php:1001 thold.php:1003
+#: thold.php:1006 thold_graph.php:535 thold_graph.php:730
 msgid "No"
 msgstr "否"
 
-#: notify_lists.php:1417 thold.php:895 thold.php:899 thold.php:987
-#: thold.php:992 thold_graph.php:527 thold_graph.php:531 thold_graph.php:652
+#: notify_lists.php:1426 thold.php:909 thold.php:913 thold.php:1001
+#: thold.php:1006 thold_graph.php:566 thold_graph.php:570 thold_graph.php:730
 msgid "Yes"
 msgstr "是"
 
-#: notify_lists.php:1421 thold.php:903 thold_graph.php:535
+#: notify_lists.php:1430 thold.php:917 thold_graph.php:574
 #, fuzzy
 msgid "baseline-LOW"
 msgstr "基線LOW"
 
-#: notify_lists.php:1423 thold.php:905 thold_graph.php:537
+#: notify_lists.php:1432 thold.php:919 thold_graph.php:576
 #, fuzzy
 msgid "baseline-HIGH"
 msgstr "基線HIGH"
 
-#: notify_lists.php:1435 notify_lists.php:1680
+#: notify_lists.php:1444 notify_lists.php:1688
 msgid "Select Users"
 msgstr "選擇使用者"
 
-#: notify_lists.php:1439 notify_lists.php:1466 notify_lists.php:1684
-#: notify_lists.php:1711
+#: notify_lists.php:1448 notify_lists.php:1475 notify_lists.php:1692
+#: notify_lists.php:1719
 #, fuzzy
 msgid "Specific Emails"
 msgstr "具體的電子郵件"
 
-#: notify_lists.php:1444 notify_lists.php:1471 notify_lists.php:1689
-#: notify_lists.php:1716
+#: notify_lists.php:1453 notify_lists.php:1480 notify_lists.php:1697
+#: notify_lists.php:1724
 #, fuzzy
 msgid "Current List"
 msgstr "當前列表"
 
-#: notify_lists.php:1454
+#: notify_lists.php:1463
 #, fuzzy
 msgid "Unknown Threshold"
 msgstr "未知閾值"
 
-#: notify_lists.php:1460 notify_lists.php:1487 notify_lists.php:1705
-#: notify_lists.php:1732
+#: notify_lists.php:1469 notify_lists.php:1496 notify_lists.php:1713
+#: notify_lists.php:1740
 #, fuzzy
 msgid "Log Only"
 msgstr "僅記錄"
 
-#: notify_lists.php:1513
+#: notify_lists.php:1522
 msgid "Editable"
 msgstr "可編輯"
 
-#: notify_lists.php:1513
+#: notify_lists.php:1522
 msgid "Read Only"
 msgstr "唯讀"
 
-#: notify_lists.php:1520 thold.php:999 thold_graph.php:657
+#: notify_lists.php:1529 thold.php:1013 thold_graph.php:735
 #, fuzzy
 msgid "No Thresholds"
 msgstr "沒有門檻"
 
-#: notify_lists.php:1572
+#: notify_lists.php:1581
 #, fuzzy
 msgid "Associated Templates"
 msgstr "相關模板"
 
-#: notify_lists.php:1586
+#: notify_lists.php:1595
 msgid "Rows"
 msgstr "行"
 
-#: notify_lists.php:1699
+#: notify_lists.php:1707
 #, fuzzy
 msgid "Unknown Template"
 msgstr "未知的模板"
 
-#: notify_lists.php:1747
+#: notify_lists.php:1755
 msgid "No Templates"
 msgstr "沒有模板"
 
-#: notify_lists.php:1906 notify_lists.php:1986
+#: notify_lists.php:1919 notify_lists.php:1999
 msgid "Lists"
 msgstr "列表"
 
-#: notify_lists.php:1995
+#: notify_lists.php:2008
 msgid "List Name"
 msgstr "列表名稱"
 
-#: notify_lists.php:2000
+#: notify_lists.php:2013
 msgid "Emails"
 msgstr "電子郵件"
 
-#: notify_lists.php:2017
+#: notify_lists.php:2033
 #, fuzzy
 msgid "No Notification Lists"
 msgstr "沒有通知列表"
@@ -1751,1175 +1773,1207 @@ msgstr "切換閾值VRULES％s"
 msgid "Create Threshold"
 msgstr "創建閾值"
 
-#: setup.php:512 setup.php:522
+#: setup.php:513 setup.php:523
 #, fuzzy, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr "％s（％s）的警報高"
 
-#: setup.php:516 setup.php:526
+#: setup.php:517 setup.php:527
 #, fuzzy, php-format
 msgid "Alert Low for %s (%s)"
 msgstr "％s（％s）的警報低"
 
-#: setup.php:542 setup.php:552
+#: setup.php:543 setup.php:553
 #, fuzzy, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr "警告列表"
 
-#: setup.php:546 setup.php:557
+#: setup.php:547 setup.php:558
 #, fuzzy, php-format
 msgid "Warning Low for %s (%s)"
 msgstr "警告列表"
 
-#: setup.php:577 setup.php:591
+#: setup.php:578 setup.php:592
 #, fuzzy
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "％s（％s %%）的警報高"
 
-#: setup.php:583 setup.php:597
+#: setup.php:584 setup.php:598
 #, fuzzy
 msgid "Alert Low for %s (%s %%%)"
 msgstr "％s的警報低（％s %%）"
 
-#: setup.php:615 setup.php:629
+#: setup.php:616 setup.php:630
 #, fuzzy
 msgid "Warning Hi for %s (%s %%%)"
 msgstr "％s（％s %%）警告高"
 
-#: setup.php:621 setup.php:635
+#: setup.php:622 setup.php:636
 #, fuzzy
 msgid "Warning Low for %s (%s %%%)"
 msgstr "％s的警告低（％s %%）"
 
-#: setup.php:648
+#: setup.php:649
 #, fuzzy
 msgid "Threshold Alert/Warning Values"
 msgstr "閾值警報/警告值"
 
-#: setup.php:701
+#: setup.php:702
 #, fuzzy
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr "單擊“繼續”以將所有適當的閾值應用於這些設備。"
 
-#: setup.php:775 setup.php:793
+#: setup.php:778 setup.php:796
 #, fuzzy
 msgid "Create Threshold from Data Source"
 msgstr "從數據源創建閾值"
 
-#: setup.php:804
+#: setup.php:807
 #, fuzzy
 msgid "Auto-create Thresholds"
 msgstr "自動創建閾值"
 
-#: setup.php:886 setup.php:1043
+#: setup.php:889 setup.php:1046
 #, fuzzy, php-format
 msgid "Created %s thresholds"
 msgstr "創建的閾值：％s"
 
-#: setup.php:888 setup.php:1045 thold_functions.php:5290
+#: setup.php:891 setup.php:1048 thold_functions.php:5318
 #, fuzzy
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "沒有創建閾值。它們已經存在，或者找不到匹配的組合。"
 
-#: setup.php:891 setup.php:1048
+#: setup.php:894 setup.php:1051
 #, fuzzy
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "沒有創建閾值。閾值未找到模板。"
 
-#: setup.php:949
+#: setup.php:952
 #, fuzzy
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr "以下數據源沒有與之關聯的閾值模板"
 
-#: setup.php:953
+#: setup.php:956
 #, fuzzy
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr "點擊“繼續”為這些數據源創建閾值？"
 
-#: setup.php:960 setup.php:1124
+#: setup.php:963 setup.php:1127
 #, fuzzy
 msgid "Available Threshold Templates"
 msgstr "可用的閾值模板"
 
-#: setup.php:965 setup.php:1129 thold_webapi.php:339
+#: setup.php:968 setup.php:1132 thold_webapi.php:339
 #, fuzzy
 msgid "Select a Threshold Template"
 msgstr "選擇閾值模板"
 
-#: setup.php:981
+#: setup.php:984
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "沒有與以下數據源關聯的閾值模板"
 
-#: setup.php:993 setup.php:1156 thold_webapi.php:177
+#: setup.php:996 setup.php:1159 thold_webapi.php:177
 #, fuzzy
 msgid "Create Threshold from Template"
 msgstr "從模板創建閾值"
 
-#: setup.php:1113
+#: setup.php:1116
 #, fuzzy
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "以下圖表沒有與之關聯的閾值模板"
 
-#: setup.php:1117
+#: setup.php:1120
 #, fuzzy
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr "如果要為這些圖形創建閾值，請按“繼續”"
 
-#: setup.php:1144
+#: setup.php:1147
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr "沒有與以下圖表關聯的閾值模板"
 
-#: setup.php:1226 setup.php:1276
+#: setup.php:1229 setup.php:1279
 #, fuzzy
 msgid "Associated Threshold Templates"
 msgstr "關聯閾值模板"
 
-#: setup.php:1250
+#: setup.php:1253
 #, fuzzy
 msgid "Threshold Exists"
 msgstr "門檻存在"
 
-#: setup.php:1252
+#: setup.php:1255
 #, fuzzy
 msgid "Threshold Does Not Exist"
 msgstr "閾值不存在"
 
-#: setup.php:1269 setup.php:1303
+#: setup.php:1272 setup.php:1306
 #, fuzzy
 msgid "No Associated Threshold Templates."
 msgstr "沒有關聯的閾值模板。"
 
-#: setup.php:1321
+#: setup.php:1324
 #, fuzzy
 msgid "Add Threshold Template"
 msgstr "添加閾值模板"
 
-#: setup.php:1327
+#: setup.php:1330
 msgid "Add"
 msgstr "新增"
 
-#: setup.php:1327
+#: setup.php:1330
 #, fuzzy
 msgid "Add Threshold Template to Device Template"
 msgstr "將閾值模板添加到設備模板"
 
-#: setup.php:1371
+#: setup.php:1374
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr "單擊“繼續”以刪除以下閾值模板將與設備模板解除關聯。"
 
-#: setup.php:1372
+#: setup.php:1375
 #, fuzzy, php-format
 msgid "Threshold Template Name: %s"
 msgstr "閾值模板名稱：％s"
 
-#: setup.php:1378
+#: setup.php:1381
 #, fuzzy
 msgid "Remove Threshold Template"
 msgstr "刪除閾值模板"
 
-#: thold.php:94
+#: thold.php:99
 #, fuzzy
 msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
 msgstr "無模板或閾值已存在 - 未創建閾值。"
 
-#: thold.php:294
+#: thold.php:302
 #, fuzzy
 msgid "You are not authorized to modify one or more of the Thresholds selected"
 msgstr "您無權修改所選的一個或多個閾值"
 
-#: thold.php:396
+#: thold.php:404
 #, fuzzy
 msgid "Click 'Delete' to delete the following Threshold(s)."
 msgstr "單擊“刪除”以刪除以下閾值。"
 
-#: thold.php:397
+#: thold.php:405
 #, fuzzy
 msgid "Delete Threshold(s)"
 msgstr "刪除閾值"
 
-#: thold.php:400
+#: thold.php:408
 #, fuzzy
 msgid "Click 'Continue' to enable the following Threshold(s)."
 msgstr "單擊“繼續”以啟用以下閾值。"
 
-#: thold.php:401
+#: thold.php:409
 #, fuzzy
 msgid "Enable Threshold(s)"
 msgstr "啟用閾值"
 
-#: thold.php:404
+#: thold.php:412
 #, fuzzy
 msgid "Click 'Continue' to disable the following Threshold(s)."
 msgstr "單擊“繼續”以禁用以下閾值。"
 
-#: thold.php:405
+#: thold.php:413
 #, fuzzy
 msgid "Disable Threshold(s)"
 msgstr "禁用閾值"
 
-#: thold.php:408
+#: thold.php:416
 #, fuzzy
 msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
 msgstr "單擊“繼續”以將建議的名稱重新應用於以下閾值。"
 
-#: thold.php:409
+#: thold.php:417
 #, fuzzy
 msgid "Apply Suggestion"
 msgstr "申請建議"
 
-#: thold.php:412
+#: thold.php:420
 #, fuzzy
 msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
 msgstr "單擊“繼續”以使用其關聯模板的詳細信息更新以下閾值。"
 
-#: thold.php:413
+#: thold.php:421
 #, fuzzy
 msgid "Reapply Template"
 msgstr "重新申請模板"
 
-#: thold.php:416
+#: thold.php:424
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "單擊“繼續”以確認以下閾值。不允許或未觸發的閾值將被忽略。"
 
-#: thold.php:417 thold_functions.php:5778
+#: thold.php:425 thold_functions.php:5811
 #, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "確認模板"
 
-#: thold.php:420
+#: thold.php:428
 #, fuzzy
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "單擊“繼續”以恢復以下閾值的通知。不允許或未觸發的閾值將被忽略。"
 
-#: thold.php:421
+#: thold.php:429
 #, fuzzy
 msgid "Resume Notifications for Threshold(s)"
 msgstr "刪除通知清單"
 
-#: thold.php:424
+#: thold.php:432
 #, fuzzy
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "單擊“繼續”以掛起以下閾值的通知。不允許或未觸發的閾值將被忽略。"
 
-#: thold.php:425
+#: thold.php:433
 #, fuzzy
 msgid "Suspend Notification for Threshold(s)"
 msgstr "重複的通知清單"
 
-#: thold.php:428 thold_templates.php:256
+#: thold.php:436 thold_templates.php:256
 #, fuzzy
 msgid "Invalid action detected, can not proceed"
 msgstr "檢測到無效操作，無法繼續"
 
-#: thold.php:623
+#: thold.php:638
 #, fuzzy
 msgid "Threshold Management"
 msgstr "門檻管理"
 
-#: thold.php:659
+#: thold.php:674
 msgid "Apply Filters"
 msgstr "套用篩選條件"
 
-#: thold.php:662
+#: thold.php:677
 #, fuzzy
 msgid "Return to Defaults"
 msgstr "返回默認值"
 
-#: thold.php:683 thold_graph.php:185 thold_templates.php:393
-#: thold_templates.php:1019 thold_templates.php:1972
+#: thold.php:698 thold_graph.php:187 thold_templates.php:395
+#: thold_templates.php:1027 thold_templates.php:1997
 #, fuzzy
 msgid "Data Template"
 msgstr "數據模板"
 
-#: thold.php:705 thold.php:839 thold_graph.php:217 thold_graph.php:474
+#: thold.php:720 thold.php:854 thold_graph.php:219 thold_graph.php:514
 #, fuzzy
 msgid "Ack Required"
 msgstr "確定需要"
 
-#: thold.php:785
+#: thold.php:800
 #, fuzzy
 msgid "DSName"
 msgstr "DSNAME"
 
-#: thold.php:790 thold_graph.php:430
+#: thold.php:805 thold_graph.php:470
 msgid "Current"
 msgstr "當前"
 
-#: thold.php:793 thold_graph.php:433
+#: thold.php:808 thold_graph.php:473
 #, fuzzy
 msgid "The last measured value for the Data Source"
 msgstr "數據源的最後一個測量值"
 
-#: thold.php:796 thold.php:1830 thold.php:1849 thold_graph.php:436
-#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1987
+#: thold.php:811 thold.php:1860 thold.php:1879 thold_graph.php:476
+#: thold_templates.php:1419 thold_templates.php:1433 thold_templates.php:2012
 msgid "High"
 msgstr "高"
 
-#: thold.php:799 thold_graph.php:439
+#: thold.php:814 thold_graph.php:479
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "高警告/警報值。注意：基線值是一個百分比，所有其他值都是可以由cdef修改的顯示值。"
 
-#: thold.php:802 thold.php:1828 thold.php:1847 thold_graph.php:442
-#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1993
+#: thold.php:817 thold.php:1858 thold.php:1877 thold_graph.php:482
+#: thold_templates.php:1419 thold_templates.php:1433 thold_templates.php:2018
 msgid "Low"
 msgstr "低"
 
-#: thold.php:805 thold_graph.php:445
+#: thold.php:820 thold_graph.php:485
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "低警告/警報值。注意：基線值是一個百分比，所有其他值都是可以由cdef修改的顯示值。"
 
-#: thold.php:808 thold_graph.php:448 thold_templates.php:1999
+#: thold.php:823 thold_graph.php:488 thold_templates.php:2024
 msgid "Trigger"
 msgstr "觸發"
 
-#: thold.php:813 thold_graph.php:453 thold_templates.php:2004
+#: thold.php:828 thold_graph.php:493 thold_templates.php:2029
 msgid "Duration"
 msgstr "持續時間"
 
-#: thold.php:818 thold_graph.php:458 thold_templates.php:2009
+#: thold.php:833 thold_graph.php:498 thold_templates.php:2034
 msgid "Repeat"
 msgstr "重複"
 
-#: thold.php:828 thold_graph.php:468 thold_graph.php:865
+#: thold.php:843 thold_graph.php:508 thold_graph.php:943
 #, fuzzy
 msgid "In State"
 msgstr "州"
 
-#: thold.php:831 thold_graph.php:471
+#: thold.php:846 thold_graph.php:511
 #, fuzzy
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
 msgstr "數據源必須超出閾值以提出警告的時間量。"
 
-#: thold.php:842 thold_graph.php:477
+#: thold.php:857 thold_graph.php:517
 #, fuzzy
 msgid "Acknowledgment required for this Threshold"
 msgstr "確認此閾值所需的確認"
 
-#: thold.php:969 thold_graph.php:634
+#: thold.php:983 thold_graph.php:712
 #, fuzzy, php-format
 msgid "%d Triggers"
 msgstr "％d觸發器"
 
-#: thold.php:1031
+#: thold.php:1045
 #, fuzzy
 msgid "Threshold Deleted, can not Edit!"
 msgstr "閾值不存在"
 
-#: thold.php:1121
+#: thold.php:1135
 #, fuzzy
 msgid "Graph Data"
 msgstr "圖數據"
 
-#: thold.php:1127
+#: thold.php:1141
 #, fuzzy
 msgid "Data Source Description:"
 msgstr "數據來源描述："
 
-#: thold.php:1128
+#: thold.php:1142
 #, fuzzy
 msgid "Associated Graph (Graphs using this RRD):"
 msgstr "關聯圖（使用此RRD的圖表）："
 
-#: thold.php:1226
+#: thold.php:1239
 msgid "Last:"
 msgstr "最後活躍"
 
-#: thold.php:1233
+#: thold.php:1246
 #, fuzzy
 msgid "WHi:"
 msgstr "WHI："
 
-#: thold.php:1239
+#: thold.php:1252
 #, fuzzy
 msgid "WLo:"
 msgstr "WLO："
 
-#: thold.php:1247
+#: thold.php:1260
 #, fuzzy
 msgid "AHi:"
 msgstr "AHI："
 
-#: thold.php:1253
+#: thold.php:1266
 #, fuzzy
 msgid "ALo:"
 msgstr "ALO："
 
-#: thold.php:1259
+#: thold.php:1272
 #, fuzzy
 msgid "BL Up:"
 msgstr "BL Up："
 
-#: thold.php:1260 thold.php:1262
+#: thold.php:1273 thold.php:1275
 #, fuzzy
 msgid "%s%%%"
 msgstr "%s - %s"
 
-#: thold.php:1261
+#: thold.php:1274
 #, fuzzy
 msgid "BL Down:"
 msgstr "BL Down："
 
-#: thold.php:1299
+#: thold.php:1312
 #, fuzzy, php-format
 msgid "Unknown Template ID %d"
 msgstr "未知模板ID％d"
 
-#: thold.php:1301
+#: thold.php:1314
 #, fuzzy
 msgid "Not Templated"
 msgstr "沒有模板化"
 
-#: thold.php:1318 thold.php:1321
+#: thold.php:1331 thold.php:1334
 #, fuzzy, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "數據源項目[％s]  - 當前值：[％s]"
 
-#: thold.php:1407 thold_templates.php:971
+#: thold.php:1420 thold_templates.php:979
 #, fuzzy, php-format
 msgid "Replacement Fields: %s"
 msgstr "替換字段：％s"
 
-#: thold.php:1420 thold_templates.php:985
+#: thold.php:1433 thold_templates.php:993
 #, fuzzy, php-format
 msgid "Data Sources: %s"
 msgstr "數據來源：％s"
 
-#: thold.php:1432
+#: thold.php:1445
 #, fuzzy
 msgid "Template/Enabled Information"
 msgstr "模板/啟用信息"
 
-#: thold.php:1436
+#: thold.php:1449
 #, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "模板傳播已啟用"
 
-#: thold.php:1439
+#: thold.php:1452
 #, fuzzy
 msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr "是否將從閾值模板傳播這些設置。"
 
-#: thold.php:1443 thold_templates.php:1001
+#: thold.php:1456 thold_templates.php:1009
 msgid "Template Name"
 msgstr "模板名稱"
 
-#: thold.php:1446
+#: thold.php:1459
 #, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "創建閾值的閾值模板的名稱。"
 
-#: thold.php:1450
+#: thold.php:1463
 #, fuzzy
 msgid "Threshold Enabled"
 msgstr "閾值已啟用"
 
-#: thold.php:1453 thold_templates.php:1038
+#: thold.php:1466 thold_templates.php:1046
 #, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "是否將檢查此警報並提醒您。"
 
-#: thold.php:1457 thold_templates.php:997
+#: thold.php:1470 thold_templates.php:1005
 msgid "General Settings"
 msgstr "一般設定"
 
-#: thold.php:1461
+#: thold.php:1474
 #, fuzzy
 msgid "Name (Displayed)"
 msgstr "名稱（顯示）"
 
-#: thold.php:1466 thold.php:1475
+#: thold.php:1479 thold.php:1488
 #, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "為閾值提供有意義的名稱"
 
-#: thold.php:1470
+#: thold.php:1483
 #, fuzzy
 msgid "Name (Format)"
 msgstr "名稱（格式）"
 
-#: thold.php:1479 thold_templates.php:1042
+#: thold.php:1492 thold_templates.php:1050
 #, fuzzy
 msgid "Warning HRULE Color"
 msgstr "警告HRULE顏色"
 
-#: thold.php:1480 thold_templates.php:1043
+#: thold.php:1493 thold_templates.php:1051
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "請為圖形HRULE選擇顏色作為警告閾值。如果沒有HRULE，請選擇“無”。注意：此功能僅支持數據操作類型的“精確值”和“百分比”。"
 
-#: thold.php:1487 thold_templates.php:1050
+#: thold.php:1500 thold_templates.php:1058
 #, fuzzy
 msgid "Alert HRULE Color"
 msgstr "警報HRULE顏色"
 
-#: thold.php:1488 thold_templates.php:1051
+#: thold.php:1501 thold_templates.php:1059
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "請為警報閾值選擇圖形HRULE的顏色。如果沒有HRULE，請選擇“無”。注意：此功能僅支持數據操作類型的“精確值”和“百分比”。"
 
-#: thold.php:1495 thold_templates.php:1058
+#: thold.php:1508 thold_templates.php:1066
+msgid "Skip Scaling on HRULEs"
+msgstr ""
+
+#: thold.php:1511 thold_templates.php:1069
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr ""
+
+#: thold.php:1515 thold_templates.php:1073
 #, fuzzy
 msgid "Weekend Exemption"
 msgstr "週末豁免"
 
-#: thold.php:1496 thold_templates.php:1059
+#: thold.php:1516 thold_templates.php:1074
 #, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr "如果選中此選項，則此閾值將不會在周末發出警報。"
 
-#: thold.php:1502 thold_templates.php:1065
+#: thold.php:1522 thold_templates.php:1080
 #, fuzzy
 msgid "Disable Restoration Email"
 msgstr "禁用恢復電子郵件"
 
-#: thold.php:1503 thold_templates.php:1066
+#: thold.php:1523 thold_templates.php:1081
 #, fuzzy
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr "如果選中此選項，則閾值將在閾值恢復正常狀態時不發送警報。"
 
-#: thold.php:1509 thold_templates.php:1072
+#: thold.php:1529 thold_templates.php:1087
 #, fuzzy
 msgid "Acknowledgment Options"
 msgstr "確認選項"
 
-#: thold.php:1510 thold_templates.php:1073
+#: thold.php:1530 thold_templates.php:1088
 #, fuzzy
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr "有三個確認級別可控制您必須如何響應閾值違規條件。他們是： <br><br><ul><li> <i>無必需</i> - 選擇此選項時，閾值違規不需要確認。 </li><li> <i>重置確認</i> - 使用此選項，一旦您確認閾值，您將不再收到違反通知的通知。 </li><li> <i>持久確認</i> - 使用此選項，即使閾值恢復正常，您也必須確認閾值並提供可選的操作員消息。 </li></ul>"
 
-#: thold.php:1517 thold_templates.php:1080
+#: thold.php:1537 thold_templates.php:1095
 #, fuzzy
 msgid "None Required"
 msgstr "無必需"
 
-#: thold.php:1521 thold_templates.php:1084
+#: thold.php:1541 thold_templates.php:1099
 #, fuzzy
 msgid "Suspendible Notification"
 msgstr "SNMP通知"
 
-#: thold.php:1525 thold_templates.php:1088
+#: thold.php:1545 thold_templates.php:1103
 #, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "堅持承認"
 
-#: thold.php:1530 thold_templates.php:1093
+#: thold.php:1550 thold_templates.php:1108
 #, fuzzy
 msgid "Threshold Type"
 msgstr "閾值類型"
 
-#: thold.php:1535 thold_templates.php:1098
+#: thold.php:1555 thold_templates.php:1113
 #, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "要監視的閾值類型。"
 
-#: thold.php:1539 thold_templates.php:1102
+#: thold.php:1559 thold_templates.php:1117
 #, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "重新警報週期"
 
-#: thold.php:1543
+#: thold.php:1563
 #, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr "自上次警報起經過這段時間後重複警報。"
 
-#: thold.php:1547 thold_templates.php:1110
+#: thold.php:1567 thold_templates.php:1125
 #, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "警告 - 高/低設置"
 
-#: thold.php:1551 thold.php:1578 thold.php:1605 thold.php:1640
-#: thold_templates.php:1114 thold_templates.php:1141 thold_templates.php:1168
-#: thold_templates.php:1204
+#: thold.php:1571 thold.php:1598 thold.php:1625 thold.php:1660
+#: thold_templates.php:1129 thold_templates.php:1156 thold_templates.php:1183
+#: thold_templates.php:1219
 #, fuzzy
 msgid "High Threshold"
 msgstr "高門檻"
 
-#: thold.php:1555 thold.php:1609 thold_templates.php:1172
+#: thold.php:1575 thold.php:1629 thold_templates.php:1187
 #, fuzzy
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "如果設置並且“數據源”值超過此數字，將觸發警告。注意：此值必須是RAW號。圖形上顯示的值可以由cdef修改。"
 
-#: thold.php:1559 thold.php:1586 thold.php:1613 thold.php:1648
-#: thold_templates.php:1122 thold_templates.php:1149 thold_templates.php:1176
-#: thold_templates.php:1212
+#: thold.php:1579 thold.php:1606 thold.php:1633 thold.php:1668
+#: thold_templates.php:1137 thold_templates.php:1164 thold_templates.php:1191
+#: thold_templates.php:1227
 #, fuzzy
 msgid "Low Threshold"
 msgstr "低門檻"
 
-#: thold.php:1563 thold.php:1617 thold_templates.php:1180
+#: thold.php:1583 thold.php:1637 thold_templates.php:1195
 #, fuzzy
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "如果設置並且數據源值低於該數字，將觸發警告。注意：此值必須是RAW號。圖形上顯示的值可以由cdef修改。"
 
-#: thold.php:1567 thold.php:1594
+#: thold.php:1587 thold.php:1614
 #, fuzzy
 msgid "Breach Duration"
 msgstr "違反期限"
 
-#: thold.php:1570
+#: thold.php:1590
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "數據源必須超出閾值以提出警告的時間量。"
 
-#: thold.php:1574 thold_templates.php:1137
+#: thold.php:1594 thold_templates.php:1152
 #, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "警報 - 高/低設置"
 
-#: thold.php:1582 thold.php:1644 thold_templates.php:1118
-#: thold_templates.php:1145 thold_templates.php:1208
+#: thold.php:1602 thold.php:1664 thold_templates.php:1133
+#: thold_templates.php:1160 thold_templates.php:1223
 #, fuzzy
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "如果設置並且“數據源”值超過此數字，將觸發警報。注意：此值必須是RAW號。圖形上顯示的值可以由cdef修改。"
 
-#: thold.php:1590 thold.php:1652 thold_templates.php:1126
-#: thold_templates.php:1153 thold_templates.php:1216
+#: thold.php:1610 thold.php:1672 thold_templates.php:1141
+#: thold_templates.php:1168 thold_templates.php:1231
 #, fuzzy
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "如果設置並且“數據源”值低於此數字，將觸發警報。注意：此值必須是RAW號。圖形上顯示的值可以由cdef修改。"
 
-#: thold.php:1597
+#: thold.php:1617
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr "數據源必須違反閾值以提出警報的時間量。"
 
-#: thold.php:1601 thold_templates.php:1164
+#: thold.php:1621 thold_templates.php:1179
 #, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "警告 - 基於時間的設置"
 
-#: thold.php:1621 thold.php:1656
+#: thold.php:1641 thold.php:1676
 #, fuzzy
 msgid "Breach Count"
 msgstr "違反計數"
 
-#: thold.php:1625 thold.php:1661
+#: thold.php:1645 thold.php:1681
 #, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr "數據源必須違反閾值的次數。"
 
-#: thold.php:1629 thold.php:1665
+#: thold.php:1649 thold.php:1685
 #, fuzzy
 msgid "Breach Window"
 msgstr "違反窗口"
 
-#: thold.php:1632 thold.php:1668 thold_templates.php:1196
-#: thold_templates.php:1231
+#: thold.php:1652 thold.php:1688 thold_templates.php:1211
+#: thold_templates.php:1246
 #, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "過去檢查閾值違規的時間量。"
 
-#: thold.php:1636 thold_templates.php:1200
+#: thold.php:1656 thold_templates.php:1215
 #, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "警報 - 基於時間的設置"
 
-#: thold.php:1672
+#: thold.php:1692
 #, fuzzy
 msgid "Baseline Settings"
 msgstr "基線設置"
 
-#: thold.php:1676
+#: thold.php:1696
 msgid "Time range"
 msgstr "時間範圍"
 
-#: thold.php:1679
+#: thold.php:1699
 #, fuzzy
 msgid "Specifies the point in the past (based on RRDfile resolution) that will be used as a reference"
 msgstr "指定將用作參考的過去的點（基於RRDfile分辨率）"
 
-#: thold.php:1683
+#: thold.php:1703
 #, fuzzy
 msgid "Deviation UP"
 msgstr "偏差UP"
 
-#: thold.php:1687 thold_templates.php:1250
+#: thold.php:1707 thold_templates.php:1265
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all."
 msgstr "指定上限閾值的允許偏差百分比。如果未設置，則根本不會檢查上限閾值。"
 
-#: thold.php:1691
+#: thold.php:1711
 #, fuzzy
 msgid "Deviation DOWN"
 msgstr "偏差下降"
 
-#: thold.php:1695 thold_templates.php:1258
+#: thold.php:1715 thold_templates.php:1273
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all."
 msgstr "指定下限閾值的允許偏差百分比。如果未設置，則根本不會檢查下限閾值。"
 
-#: thold.php:1703
+#: thold.php:1723
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr "數據源必須連續多次違反基準閾值才能引發警報。 <br>保留為空以使用默認值（ <b>默認值：％s週期</b> ）"
 
-#: thold.php:1707 thold_templates.php:1270
+#: thold.php:1727 thold_templates.php:1285
 #, fuzzy
 msgid "Data Manipulation"
 msgstr "數據操作"
 
-#: thold.php:1711 thold_templates.php:1274
+#: thold.php:1731 thold_templates.php:1289
 msgid "Data Type"
 msgstr "數據類型"
 
-#: thold.php:1716 thold_templates.php:1278
+#: thold.php:1736 thold_templates.php:1293
 #, fuzzy
 msgid "Special formatting for the given data."
 msgstr "給定數據的特殊格式。"
 
-#: thold.php:1720 thold_templates.php:1282
+#: thold.php:1740 thold_templates.php:1297
 #, fuzzy
 msgid "Threshold CDEF"
 msgstr "門檻CDEF"
 
-#: thold.php:1723 thold_templates.php:1285
+#: thold.php:1743 thold_templates.php:1300
 #, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "在返回數據之前應用此CDEF。"
 
-#: thold.php:1728
+#: thold.php:1748
 #, fuzzy
 msgid "Percent Data Source"
 msgstr "百分比數據源"
 
-#: thold.php:1731
+#: thold.php:1751
 #, fuzzy
 msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr "第二個數據源項目用作總計值來計算百分比。"
 
-#: thold.php:1736 thold_templates.php:1315
+#: thold.php:1756 thold_templates.php:1330
 msgid "Show Units"
 msgstr ""
 
-#: thold.php:1739 thold_templates.php:1318
+#: thold.php:1759 thold_templates.php:1333
 msgid "Display units for very large or small numbers."
 msgstr ""
 
-#: thold.php:1748
+#: thold.php:1768
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "RPN表達式是兼容RRDtool的RPN表達式。語法包括以下所有函數以及Device和Data Query替換錶達式，例如<span class=\"deviceUp\">| query_ifSpeed |</span> 。要在RPN表達式中使用數據源，必須使用以下語法： <span class=\"deviceUp\">| ds：dsname |</span> 。例如， <span class=\"deviceUp\">| ds：traffic_in |</span>將獲取與Graph關聯的RRD文件的traffic_in數據源的當前值。可以包含圖表的任何數據源。 <br><br>數學運算符： <span class=\"deviceUp\">+， - ，/，*，％，^</span> <br>功能： <span class=\"deviceUp\">SIN，COS，TAN，ATAN，SQRT，FLOOR，CEIL，DEG2RAD，RAD2DEG，ABS，EXP，LOG，ATAN，ADNAN</span> <br>流量運算符： <span class=\"deviceUp\">UN，ISINF，IF，LT，LE，GT，GE，EQ，NE</span> <br>比較函數： <span class=\"deviceUp\">MAX，MIN，INF，NEGINF，NAN，UNKN，COUNT，PREV</span> ％s％s"
 
-#: thold.php:1754 thold_templates.php:1307
+#: thold.php:1774 thold_templates.php:1322
 #, fuzzy
 msgid "Upper Data Source"
 msgstr "資料來源"
 
-#: thold.php:1757
+#: thold.php:1777
 #, fuzzy
 msgid "Upper data source to calculate the total value."
 msgstr "上層數據源計算總值。"
 
-#: thold.php:1762 thold_templates.php:1322
+#: thold.php:1782 thold_templates.php:1337
 msgid "Notification Settings"
 msgstr "通知設定"
 
-#: thold.php:1767 thold_templates.php:1327
+#: thold.php:1787 thold_templates.php:1342
 #, fuzzy
 msgid "Alert Email Body"
 msgstr "警報郵件正文"
 
-#: thold.php:1772 thold_templates.php:1332
+#: thold.php:1792 thold_templates.php:1347
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "這是將顯示在所有閾值警報（255 Char MAX）頂部的消息。允許使用HTML，但只會刪除純文本電子郵件。可以使用幾種描述符。 <br>例如。 &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
 
-#: thold.php:1776 thold_templates.php:1336
+#: thold.php:1796 thold_templates.php:1351
 #, fuzzy
 msgid "Warning Email Body"
 msgstr "警告郵件正文"
 
-#: thold.php:1781 thold_templates.php:1341
+#: thold.php:1801 thold_templates.php:1356
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "這是將顯示在所有閾值警告（255 Char MAX）頂部的消息。允許使用HTML，但只會刪除純文本電子郵件。可以使用幾種描述符。 <br>例如。 &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
 
-#: thold.php:1785 thold_templates.php:1345
+#: thold.php:1805 thold_templates.php:1360
 #, fuzzy
 msgid "Restoral Email Body"
 msgstr "警報郵件正文"
 
-#: thold.php:1794 thold_templates.php:1361
+#: thold.php:1810 thold_templates.php:1365
+#, fuzzy
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "這是將顯示在所有閾值警告（255 Char MAX）頂部的消息。允許使用HTML，但僅刪除純文本電子郵件。可以使用幾種描述符。 <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+
+#: thold.php:1814 thold_templates.php:1376
 #, fuzzy
 msgid "Warning Notification List"
 msgstr "警告通知列表"
 
-#: thold.php:1796 thold_templates.php:1363
+#: thold.php:1816 thold_templates.php:1378
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr "您可以指定選擇通知列表以接收此數據源的警告"
 
-#: thold.php:1802 thold_templates.php:1369
+#: thold.php:1822 thold_templates.php:1384
 #, fuzzy
 msgid "Alert Notification List"
 msgstr "警報通知列表"
 
-#: thold.php:1804 thold_templates.php:1371
+#: thold.php:1824 thold_templates.php:1386
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr "您可以指定選擇通知列表以接收此數據源的警報"
 
-#: thold.php:1814 thold_templates.php:1381
+#: thold.php:1834 thold_templates.php:1396
 #, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "SNMP通知 - 事件類別"
 
-#: thold.php:1816 thold_templates.php:1383
+#: thold.php:1836 thold_templates.php:1398
 #, fuzzy
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr "要允許NMS更輕鬆地對不同的SNMP通知進行分類，請填寫此模板應使用的SNMP通知類別。例如：“disk_usage”，“link_utilization”，“ping_test”，“nokia_firewall_cpu_utilization”......"
 
-#: thold.php:1822 thold_templates.php:1389
+#: thold.php:1842 thold_templates.php:1404
+#, fuzzy
+msgid "SNMP Event Description"
+msgstr "SNMP事件描述"
+
+#: thold.php:1843 thold_templates.php:1405
+#, fuzzy
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "您可以使用其他varbinds自定義發送到SNMP通知接收器的事件描述。將支持以下變量綁定： <br> &lt;THRESHOLDNAME&gt; &lt;HOSTNAME&gt; &lt;HOSTIP&gt; &lt;TEMPLATE_ID&gt; &lt;TEMPLATE_NAME&gt; &lt;THR_TYPE&gt; &lt;DS_NAME&gt; &lt;HI&gt; &lt;LOW&gt; &lt;EVENT_CATEGORY&gt; &lt;FAIL_COUNT&gt; &lt;FAIL_DURATION&gt;"
+
+#: thold.php:1852 thold_templates.php:1414
 #, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "SNMP通知 - 警報事件嚴重性"
 
-#: thold.php:1825
+#: thold.php:1855
 #, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr "用於警報的嚴重性。 （影響小 - >關鍵影響）"
 
-#: thold.php:1829 thold.php:1848 thold_templates.php:1394
-#: thold_templates.php:1408
+#: thold.php:1859 thold.php:1878 thold_templates.php:1419
+#: thold_templates.php:1433
 msgid "Medium"
 msgstr "中"
 
-#: thold.php:1841 thold_templates.php:1403
+#: thold.php:1871 thold_templates.php:1428
 #, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "SNMP通知 - 警告事件嚴重性"
 
-#: thold.php:1844 thold_templates.php:1406
+#: thold.php:1874 thold_templates.php:1431
 #, fuzzy
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr "嚴重性用於警告。 （低影響 - >關鍵影響）。 <br>注意：警告的嚴重性必須等於或低於為警報定義的嚴重性。"
 
-#: thold.php:1862 thold_templates.php:1419
+#: thold.php:1892 thold_templates.php:1444
 #, fuzzy
 msgid "Notify accounts"
 msgstr "通知帳戶"
 
-#: thold.php:1864
+#: thold.php:1894
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr "這是在違反此閾值時將通知的帳戶列表。"
 
-#: thold.php:1869 thold_templates.php:1426
+#: thold.php:1899 thold_templates.php:1451
 #, fuzzy
 msgid "Alert Emails"
 msgstr "提醒電子郵件"
 
-#: thold.php:1873
+#: thold.php:1903
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr "您可以在此處指定額外的電子郵件以接收此數據源的警報（以逗號分隔）"
 
-#: thold.php:1877 thold_templates.php:1434
+#: thold.php:1907 thold_templates.php:1459
 #, fuzzy
 msgid "Warning Emails"
 msgstr "警告電子郵件"
 
-#: thold.php:1881
+#: thold.php:1911
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr "您可以在此處指定額外的電子郵件以接收此數據源的警告（以逗號分隔）"
 
-#: thold.php:1915 thold_templates.php:1472
+#: thold.php:1945 thold_templates.php:1497
 #, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "如果選中，則會將閾值通知發送到您的本地syslog。"
 
-#: thold.php:1921 thold_templates.php:1478
+#: thold.php:1951 thold_templates.php:1503
 #, fuzzy
 msgid "Priority/Level"
 msgstr "優先級/等級"
 
-#: thold.php:1922 thold_templates.php:1479
+#: thold.php:1952 thold_templates.php:1504
 #, fuzzy
 msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr "這是將記錄到系統日誌消息中的優先級。"
 
-#: thold.php:1929 thold_templates.php:1486
+#: thold.php:1959 thold_templates.php:1511
 msgid "Facility"
 msgstr "設施"
 
-#: thold.php:1930 thold_templates.php:1487
+#: thold.php:1960 thold_templates.php:1512
 #, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "這是將用於此閾值的工具。"
 
-#: thold.php:1951 thold_templates.php:1508
+#: thold.php:1981 thold_templates.php:1533
 #, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "事件觸發（Shell命令）"
 
-#: thold.php:1956 thold_templates.php:1513
+#: thold.php:1986 thold_templates.php:1538
 #, fuzzy
 msgid "High Trigger Command"
 msgstr "高觸發命令"
 
-#: thold.php:1957 thold_templates.php:1514
+#: thold.php:1987 thold_templates.php:1539
 #, fuzzy
-msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "如果設置，並且違反了高閾值，則將運行此命令。請輸入有效的命令。此外，還有幾個可用的替換標記可用於將信息從閾值傳遞到腳本。它們包括：&lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;。最後，可以進行主機，數據查詢和數據輸入替換。例如，如果您有一個名為pending的數據輸入自定義數據，則執行替換use | pending |。對於數據查詢和主機替換，使用Cacti約定| query_xxxx |和| host_xxxx |分別。"
 
-#: thold.php:1964 thold_templates.php:1521
+#: thold.php:1994 thold_templates.php:1546
 #, fuzzy
 msgid "Low Trigger Command"
 msgstr "低觸發命令"
 
-#: thold.php:1965 thold_templates.php:1522
+#: thold.php:1995 thold_templates.php:1547
 #, fuzzy
-msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "如果設置，並且違反了低閾值，則將運行此命令。請輸入有效的命令。此外，還有幾個可用的替換標記可用於將信息從閾值傳遞到腳本。它們包括：&lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;。最後，可以進行主機，數據查詢和數據輸入替換。例如，如果您有一個名為pending的數據輸入自定義數據，則執行替換use | pending |。對於數據查詢和主機替換，使用Cacti約定| query_xxxx |和| host_xxxx |分別。"
 
-#: thold.php:1972 thold_templates.php:1529
+#: thold.php:2002 thold_templates.php:1554
 #, fuzzy
 msgid "Norm Trigger Command"
 msgstr "規範觸發命令"
 
-#: thold.php:1973 thold_templates.php:1530
+#: thold.php:2003 thold_templates.php:1555
 #, fuzzy
-msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "如果設置，當thold回退到正常值時，將運行此命令。請輸入有效的命令。此外，還有幾個可用的替換標記可用於將信息從閾值傳遞到腳本。它們包括：&lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;。最後，可以進行主機，數據查詢和數據輸入替換。例如，如果您有一個名為pending的數據輸入自定義數據，則執行替換use | pending |。對於數據查詢和主機替換，使用Cacti約定| query_xxxx |和| host_xxxx |分別。"
 
-#: thold.php:1986 thold_templates.php:1543
+#: thold.php:2016 thold_templates.php:1568
 msgid "Other Settings"
 msgstr "其他設置"
 
-#: thold.php:1991 thold_templates.php:1548
+#: thold.php:2021 thold_templates.php:1573
 #, fuzzy
 msgid "Operator Notes"
 msgstr "操作員備註"
 
-#: thold.php:1995 thold_templates.php:1552
+#: thold.php:2025 thold_templates.php:1577
 #, fuzzy
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr "為此處輸入可能正在接收閾值消息的操作員的說明。"
 
-#: thold.php:2245
+#: thold.php:2277
 #, fuzzy
 msgid "Select Users(s)"
 msgstr "選擇用戶"
 
-#: thold.php:2247
+#: thold.php:2279
 #, fuzzy
 msgid "Users Selected"
 msgstr "用戶已選中"
 
-#: thold.php:2250
+#: thold.php:2282
 #, fuzzy
 msgid "All Users Selected"
 msgstr "選擇所有用戶"
 
-#: thold_functions.php:78
+#: thold_functions.php:82
 #, fuzzy
 msgid "< 1 Minute"
 msgstr "1 分鐘"
 
-#: thold_functions.php:80
+#: thold_functions.php:84
 #, fuzzy
 msgid "Since Created"
 msgstr "創建"
 
-#: thold_functions.php:140
+#: thold_functions.php:144
 msgid "Log"
 msgstr "日誌"
 
-#: thold_functions.php:264
+#: thold_functions.php:268
 msgid "Time:"
 msgstr "時間:"
 
-#: thold_functions.php:265
+#: thold_functions.php:269
 msgid "User:"
 msgstr "使用者："
 
-#: thold_functions.php:266
+#: thold_functions.php:270
 #, fuzzy
 msgid "System:"
 msgstr "取得系統報表"
 
-#: thold_functions.php:267
+#: thold_functions.php:271
 #, fuzzy
 msgid "Swaps:"
 msgstr "互換："
 
-#: thold_functions.php:268
+#: thold_functions.php:272
 msgid "Pages:"
 msgstr "頁面:"
 
-#: thold_functions.php:3608
+#: thold_functions.php:2223 thold_functions.php:2337 thold_functions.php:2400
+#: thold_functions.php:2551 thold_functions.php:2636 thold_functions.php:2745
+#: thold_functions.php:2764 thold_functions.php:2953 thold_functions.php:2970
+#: thold_functions.php:3089 thold_functions.php:3109 thold_functions.php:3126
+#: thold_functions.php:3193 thold_functions.php:3266
+msgid "Only logging, maint device"
+msgstr ""
+
+#: thold_functions.php:3615
 #, fuzzy
 msgid "Link to Graph in Cacti"
 msgstr "鏈接到仙人掌中的圖表"
 
-#: thold_functions.php:3637
+#: thold_functions.php:3644
 #, fuzzy
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body>已發出警報，需要您注意。 <br><br> <b>裝置</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>網址</b> ： <URL><br> <b>消息</b> ： <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3664
+#: thold_functions.php:3671
 #, fuzzy
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body>已發出警告，需要您注意。 <br><br> <b>裝置</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>網址</b> ： <URL><br> <b>消息</b> ： <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3691
+#: thold_functions.php:3698
 #, fuzzy
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "已發出警報，需要您注意。 <br><br> <strong>裝置</strong> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <strong>網址</strong> ： <URL><br> <strong>消息</strong> ： <SUBJECT><br><br><GRAPH>"
 
-#: thold_functions.php:4456
+#: thold_functions.php:4472
 #, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "嘗試創建圖形和閾值時未設置設備ID"
 
-#: thold_functions.php:4471
+#: thold_functions.php:4487
 #, fuzzy
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
 
-#: thold_functions.php:4478
+#: thold_functions.php:4494
 #, fuzzy
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
 
-#: thold_functions.php:4511
+#: thold_functions.php:4527
 #, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "閾值模板的圖表創建失敗"
 
-#: thold_functions.php:4541
+#: thold_functions.php:4557
 #, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr "由於設備模板映射，閾值已自動處理"
 
-#: thold_functions.php:4575 thold_functions.php:4882
+#: thold_functions.php:4591 thold_functions.php:4904
 msgid "Permission Denied"
 msgstr "存取被拒"
 
-#: thold_functions.php:4589 thold_functions.php:4951
+#: thold_functions.php:4605 thold_functions.php:4977
 #, fuzzy
 msgid "Record Updated"
 msgstr "記錄更新"
 
-#: thold_functions.php:4639
+#: thold_functions.php:4655
 #, fuzzy
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!<br>RECORD NOT UPDATED!"
 msgstr "您必須指定“高警報閾值”或“低警報閾值”或兩者！ <br>記錄沒有更新！"
 
-#: thold_functions.php:4651
+#: thold_functions.php:4667
 #, fuzzy
 msgid "Impossible thresholds: 'High Threshold' smaller than or equal to 'Low Threshold'<br>RECORD NOT UPDATED!"
 msgstr "不可能的閾值：“高閾值”小於或等於“低閾值” <br>記錄沒有更新！"
 
-#: thold_functions.php:4663
+#: thold_functions.php:4679
 #, fuzzy
 msgid "Impossible thresholds: 'High Warning Threshold' smaller than or equal to 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
 msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
 
-#: thold_functions.php:4671
+#: thold_functions.php:4687
 #, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "啟用基線閾值。"
 
-#: thold_functions.php:4680
+#: thold_functions.php:4696
 #, fuzzy
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!<br>RECORD NOT UPDATED!"
 msgstr "您必須指定“Baseline Deviation UP”或“Baseline Deviation DOWN”或兩者！ <br>記錄沒有更新！"
 
-#: thold_functions.php:4872
+#: thold_functions.php:4894
 #, fuzzy, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "無法在閾值'％d'上找到鏈接的圖表模板項'％d'"
 
-#: thold_functions.php:4949 thold_functions.php:5363
+#: thold_functions.php:4975 thold_functions.php:5393
 #, fuzzy, php-format
 msgid "Created Threshold: %s"
 msgstr "創建的閾值：％s"
 
-#: thold_functions.php:5018
+#: thold_functions.php:5044
 #, fuzzy, php-format
 msgid "'%s' must be set to positive integer value!<br>RECORD NOT UPDATED!"
 msgstr "'％s'必須設置為正整數值！ <br>記錄沒有更新！"
 
-#: thold_functions.php:5191
+#: thold_functions.php:5219
 #, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "沒有與設備模板關聯的閾值模板。"
 
-#: thold_functions.php:5398
+#: thold_functions.php:5428
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr "郵件程序錯誤：沒有<b>TO</b>地址集！ <br>如果使用“ <i>測試郵件”</i>鏈接，請設置“ <b>警報電子郵件”</b>設置。"
 
-#: thold_functions.php:5775 thold_graph.php:586
+#: thold_functions.php:5808 thold_graph.php:625
 #, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "未知閾值"
 
-#: thold_functions.php:5777
+#: thold_functions.php:5810
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "單擊“繼續”以確認以下閾值。"
 
-#: thold_functions.php:6197
+#: thold_functions.php:6219
 #, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "未找到閾值模板從屬數據模板！"
 
-#: thold_functions.php:6212
+#: thold_functions.php:6234
 #, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "未找到閾值模板從屬數據源！"
 
-#: thold_functions.php:6248
+#: thold_functions.php:6270
 #, fuzzy
 msgid "Threshold Template import columns do not match the database schema"
 msgstr "閾值模板導入列與數據庫架構不匹配"
 
-#: thold_functions.php:6256
+#: thold_functions.php:6279 thold_functions.php:6281
 msgid "Imported"
 msgstr "已匯入"
 
-#: thold_functions.php:6256
+#: thold_functions.php:6279 thold_functions.php:6281
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "閾值模板'％s'％s！"
 
-#: thold_functions.php:6256
+#: thold_functions.php:6279 thold_functions.php:6281
 msgid "Updated"
 msgstr "已更新"
 
-#: thold_functions.php:6258 thold_templates.php:1889 thold_templates.php:2145
+#: thold_functions.php:6285 thold_functions.php:6287 thold_templates.php:1914
+#: thold_templates.php:2168
 msgid "Import"
 msgstr "匯入"
 
-#: thold_functions.php:6258
+#: thold_functions.php:6285 thold_functions.php:6287
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "閾值模板'％s'％s失敗！"
 
-#: thold_functions.php:6258
+#: thold_functions.php:6285 thold_functions.php:6287
 msgid "Update"
 msgstr "更新"
 
-#: thold_functions.php:6261
+#: thold_functions.php:6291
 #, fuzzy
 msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr "嘗試導入閾值模板數據時出現錯誤。"
 
-#: thold_functions.php:6265
+#: thold_functions.php:6295
 #, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "未找到閾值模板從屬數據模板！"
 
-#: thold_functions.php:6268
+#: thold_functions.php:6298
 #, fuzzy
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
@@ -2939,194 +2993,215 @@ msgstr "閾值將不再生成警報，通知或執行命令。"
 msgid "The Threshold will restart generating Alerts."
 msgstr "警告/警報的高閾值"
 
-#: thold_graph.php:344
+#: thold_graph.php:380
 #, fuzzy
 msgid "Threshold Status"
 msgstr "門檻狀態"
 
-#: thold_graph.php:410 thold_graph.php:829
+#: thold_graph.php:446 thold_graph.php:907
 msgid "Actions"
 msgstr "動作"
 
-#: thold_graph.php:567
+#: thold_graph.php:461
+msgid "Ack Detail"
+msgstr ""
+
+#: thold_graph.php:606
 #, fuzzy
 msgid "Edit Threshold"
 msgstr "編輯閾值"
 
-#: thold_graph.php:572
+#: thold_graph.php:611
 #, fuzzy
 msgid "Disable Threshold"
 msgstr "禁用閾值"
 
-#: thold_graph.php:574
+#: thold_graph.php:613
 #, fuzzy
 msgid "Enable Threshold"
 msgstr "啟用閾值"
 
-#: thold_graph.php:580
+#: thold_graph.php:619
 #, fuzzy
 msgid "View Graph"
 msgstr "查看圖表"
 
-#: thold_graph.php:582
+#: thold_graph.php:621
 #, fuzzy
 msgid "View Threshold History"
 msgstr "查看閾值歷史記錄"
 
-#: thold_graph.php:589
+#: thold_graph.php:628
 #, fuzzy
 msgid "Suspend Notifications until the Threshold clears"
 msgstr "重複的通知清單"
 
-#: thold_graph.php:592
+#: thold_graph.php:631
 #, fuzzy
 msgid "Resume Notifications for this breached Threshold"
 msgstr "刪除通知清單"
 
-#: thold_graph.php:608
+#: thold_graph.php:656
+#, fuzzy
+msgid "Acknowledgement Message"
+msgstr "確認"
+
+#: thold_graph.php:657
+msgid "Date"
+msgstr ""
+
+#: thold_graph.php:665
+msgid "Comment Not Found"
+msgstr ""
+
+#: thold_graph.php:674
+msgid "Ack History"
+msgstr ""
+
+#: thold_graph.php:684
 #, fuzzy
 msgid "No name set"
 msgstr "沒有設置名稱"
 
-#: thold_graph.php:832
+#: thold_graph.php:910
 #, fuzzy
 msgid "Hover over icons for help"
 msgstr "將鼠標懸停在圖標上尋求幫助"
 
-#: thold_graph.php:838
+#: thold_graph.php:916
 #, fuzzy
 msgid "A description for the Device"
 msgstr "設備的描述"
 
-#: thold_graph.php:844
+#: thold_graph.php:922
 #, fuzzy
 msgid "A Cacti unique identifier for the Device"
 msgstr "設備的Cacti唯一標識符"
 
-#: thold_graph.php:850
+#: thold_graph.php:928
 #, fuzzy
 msgid "The number of Graphs for this Device"
 msgstr "此設備的圖表數量"
 
-#: thold_graph.php:856
+#: thold_graph.php:934
 #, fuzzy
 msgid "The number of Data Sources for this Device"
 msgstr "此設備的數據源數量"
 
-#: thold_graph.php:862
+#: thold_graph.php:940
 #, fuzzy
 msgid "The status for this Device as of the last time it was polled"
 msgstr "上次輪詢時此設備的狀態"
 
-#: thold_graph.php:868
+#: thold_graph.php:946
 #, fuzzy
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
 msgstr "Cacti最後一次發現此設備存在問題。如果它在Cacti輪詢週期之間重新啟動，它可能高於設備的正常運行時間"
 
-#: thold_graph.php:871
+#: thold_graph.php:949
 msgid "Uptime"
 msgstr "運行時間"
 
-#: thold_graph.php:874
+#: thold_graph.php:952
 #, fuzzy
 msgid "The official uptime of the Device as reported by SNMP"
 msgstr "SNMP報告的設備正式正常運行時間"
 
-#: thold_graph.php:880
+#: thold_graph.php:958
 #, fuzzy
 msgid "The official hostname for this Device"
 msgstr "此設備的官方主機名"
 
-#: thold_graph.php:883
+#: thold_graph.php:961
 #, fuzzy
 msgid "Current (ms)"
 msgstr "電流（ms）"
 
-#: thold_graph.php:886
+#: thold_graph.php:964
 #, fuzzy
 msgid "The current response time for the Cacti Availability check"
 msgstr "Cacti可用性檢查的當前響應時間"
 
-#: thold_graph.php:889
+#: thold_graph.php:967
 #, fuzzy
 msgid "Average (ms)"
 msgstr "平均（ms）"
 
-#: thold_graph.php:892
+#: thold_graph.php:970
 #, fuzzy
 msgid "The average response time for the Cacti Availability check"
 msgstr "Cacti Availability檢查的平均響應時間"
 
-#: thold_graph.php:895
+#: thold_graph.php:973
 msgid "Availability"
 msgstr "可用性"
 
-#: thold_graph.php:898
+#: thold_graph.php:976
 #, fuzzy
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
 msgstr "自Cacti上次計數器重置以來此設備的整體可用性"
 
-#: thold_graph.php:926 thold_graph.php:952
+#: thold_graph.php:1004 thold_graph.php:1030
 #, fuzzy
 msgid "Edit Device"
 msgstr "編輯設備"
 
-#: thold_graph.php:928 thold_graph.php:954
+#: thold_graph.php:1006 thold_graph.php:1032
 #, fuzzy
 msgid "View Graphs"
 msgstr "查看圖表"
 
-#: thold_graph.php:977
+#: thold_graph.php:1055
 msgid "No Devices"
 msgstr "沒有裝置"
 
-#: thold_graph.php:1034
+#: thold_graph.php:1112
 #, fuzzy
 msgid "Not Up"
 msgstr "不起來"
 
-#: thold_graph.php:1241
+#: thold_graph.php:1321
 msgid "No Export Rows Found."
 msgstr ""
 
-#: thold_graph.php:1269
+#: thold_graph.php:1349
 #, fuzzy, php-format
 msgid "Threshold Log for [ %s ]"
 msgstr "[％s]的閾值日誌"
 
-#: thold_graph.php:1322
+#: thold_graph.php:1402
 msgid "Log Entries"
 msgstr "紀錄細節"
 
-#: thold_graph.php:1330 thold_webapi.php:492 thold_webapi.php:640
+#: thold_graph.php:1410 thold_webapi.php:492 thold_webapi.php:640
 #: thold_webapi.php:660
 msgid "Device"
 msgstr "裝置"
 
-#: thold_graph.php:1335
+#: thold_graph.php:1415
 msgid "Time"
 msgstr "時間"
 
-#: thold_graph.php:1345
+#: thold_graph.php:1425
 msgid "Event Description"
 msgstr "活動說明"
 
-#: thold_graph.php:1350
+#: thold_graph.php:1430
 #, fuzzy
 msgid "Alert Value"
 msgstr "警報價值"
 
-#: thold_graph.php:1355
+#: thold_graph.php:1435
 #, fuzzy
 msgid "Measured Value"
 msgstr "測量值"
 
-#: thold_graph.php:1399
+#: thold_graph.php:1478
 #, fuzzy
 msgid "No Threshold Logs Found"
 msgstr "找不到閾值日誌"
 
-#: thold_graph.php:1512
+#: thold_graph.php:1593
 msgid "Entries"
 msgstr "留言"
 
@@ -3170,318 +3245,318 @@ msgstr "單擊“繼續”以將建議的名稱重新應用於以下閾值模板
 msgid "Reapply Suggested Names to Template(s)"
 msgstr "將建議的名稱重新應用於模板"
 
-#: thold_templates.php:354
+#: thold_templates.php:356
 #, fuzzy
 msgid "Threshold Template Creation Wizard"
 msgstr "閾值模板創建嚮導"
 
-#: thold_templates.php:441 thold_webapi.php:710
+#: thold_templates.php:443 thold_webapi.php:710
 msgid "Data Source"
 msgstr "資料來源"
 
-#: thold_templates.php:459
+#: thold_templates.php:461
 #, fuzzy
 msgid "Please select a Data Template"
 msgstr "請選擇一個數據模板"
 
-#: thold_templates.php:461
+#: thold_templates.php:463
 #, fuzzy
 msgid "Please select a Data Source"
 msgstr "請選擇一個數據源"
 
-#: thold_templates.php:463
+#: thold_templates.php:465
 #, fuzzy
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "請按“創建”以創建閾值模板"
 
-#: thold_templates.php:467 thold_webapi.php:743
+#: thold_templates.php:469 thold_webapi.php:743
 msgid "Create"
 msgstr "創建"
 
-#: thold_templates.php:1006
+#: thold_templates.php:1014
 #, fuzzy
 msgid "Provide the Threshold Template a meaningful name."
 msgstr "為閾值模板提供有意義的名稱。"
 
-#: thold_templates.php:1010
+#: thold_templates.php:1018
 #, fuzzy
 msgid "Suggested Threshold Name"
 msgstr "建議的閾值名稱"
 
-#: thold_templates.php:1015
+#: thold_templates.php:1023
 #, fuzzy
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr "提供使用此模板創建的閾值的建議名稱。可以使用標准設備（| host_ * |），數據查詢（| query_ * |）和輸入（| input_ * |）替換變量以及| graph_title |對於圖表標題。"
 
-#: thold_templates.php:1022
+#: thold_templates.php:1030
 #, fuzzy
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "您正在使用的數據模板。 （這不能改變）"
 
-#: thold_templates.php:1027
+#: thold_templates.php:1035
 #, fuzzy
 msgid "Data Field"
 msgstr "數據字段"
 
-#: thold_templates.php:1030
+#: thold_templates.php:1038
 #, fuzzy
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr "您正在使用的數據字段。 （這不能改變）"
 
-#: thold_templates.php:1106
+#: thold_templates.php:1121
 #, fuzzy
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr "自上次警報以來粘貼了這段時間後重複提醒。"
 
-#: thold_templates.php:1130 thold_templates.php:1157
+#: thold_templates.php:1145 thold_templates.php:1172
 #, fuzzy
 msgid "Min Trigger Duration"
 msgstr "最小觸發持續時間"
 
-#: thold_templates.php:1133 thold_templates.php:1160
+#: thold_templates.php:1148 thold_templates.php:1175
 #, fuzzy
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr "數據源必須處於違規情況以引發警報的時間量。"
 
-#: thold_templates.php:1184 thold_templates.php:1220
+#: thold_templates.php:1199 thold_templates.php:1235
 #, fuzzy
 msgid "Trigger Count"
 msgstr "觸發計數"
 
-#: thold_templates.php:1189
+#: thold_templates.php:1204
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr "發出警告之前數據源必須處於違規狀態的次數。"
 
-#: thold_templates.php:1193 thold_templates.php:1228
+#: thold_templates.php:1208 thold_templates.php:1243
 #, fuzzy
 msgid "Time Period Length"
 msgstr "時間段長度"
 
-#: thold_templates.php:1224
+#: thold_templates.php:1239
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr "發出警報之前數據源必須處於違規狀態的次數。"
 
-#: thold_templates.php:1235
+#: thold_templates.php:1250
 #, fuzzy
 msgid "Baseline Monitoring"
 msgstr "基線監測"
 
-#: thold_templates.php:1239
+#: thold_templates.php:1254
 #, fuzzy
 msgid "Time reference in the past"
 msgstr "過去的時間參考"
 
-#: thold_templates.php:1242
+#: thold_templates.php:1257
 #, fuzzy
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference"
 msgstr "指定將用作參考的過去的點（基於rrd分辨率）"
 
-#: thold_templates.php:1246
+#: thold_templates.php:1261
 #, fuzzy
 msgid "Baseline Deviation UP"
 msgstr "基線偏差UP"
 
-#: thold_templates.php:1254
+#: thold_templates.php:1269
 #, fuzzy
 msgid "Baseline Deviation DOWN"
 msgstr "基線偏差下降"
 
-#: thold_templates.php:1266
+#: thold_templates.php:1281
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr "數據源必須處於違規狀態以便引發警報的連續次數。 <br>保留為空以使用默認值（默認值：％s個週期"
 
-#: thold_templates.php:1290
+#: thold_templates.php:1305
 #, fuzzy
 msgid "Percent Datasource"
 msgstr "百分比數據源"
 
-#: thold_templates.php:1293
+#: thold_templates.php:1308
 #, fuzzy
 msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr "第二個數據源項目用作總計值來計算百分比。"
 
-#: thold_templates.php:1303
+#: thold_templates.php:1318
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "RPN表達式是兼容RRDtool的RPN表達式。語法包括以下所有函數以及Device和Data Query替換錶達式，例如<span style=\"color:blue;\">| query_ifSpeed |</span> 。要在RPN表達式中使用數據源，必須使用以下語法： <span style=\"color:blue;\">| ds：dsname |</span> 。例如， <span style=\"color:blue;\">| ds：traffic_in |</span>將獲取與Graph關聯的RRD文件的traffic_in數據源的當前值。可以包含圖表的任何數據源。 <br>數學運算符： <span style=\"color:blue;\">+， - ，/，*，％，^</span> <br>功能： <span style=\"color:blue;\">SIN，COS，TAN，ATAN，SQRT，FLOOR，CEIL，DEG2RAD，RAD2DEG，ABS，EXP，LOG，ATAN，ADNAN</span> <br>流量運算符： <span style=\"color:blue;\">UN，ISINF，IF，LT，LE，GT，GE，EQ，NE</span> <br>比較函數： <span style=\"color:blue;\">MAX，MIN，INF，NEGINF，NAN，UNKN，COUNT，PREV</span> ％s％s"
 
-#: thold_templates.php:1310
+#: thold_templates.php:1325
 #, fuzzy
 msgid "Upper data source to use to calculate the total value."
 msgstr "用於計算總值的上層數據源。"
 
-#: thold_templates.php:1354
+#: thold_templates.php:1369
 #, fuzzy
 msgid "Notification List Read Only"
 msgstr "僅通知清單"
 
-#: thold_templates.php:1355
+#: thold_templates.php:1370
 #, fuzzy
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr "如果選中，則會將閾值通知發送到您的本地syslog。"
 
-#: thold_templates.php:1392
+#: thold_templates.php:1417
 #, fuzzy
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "用於警報的嚴重性。 （低影響 - >關鍵影響）"
 
-#: thold_templates.php:1421
+#: thold_templates.php:1446
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr "這是在違反此閾值時將通知的帳戶列表。 <br><br><br><br>"
 
-#: thold_templates.php:1430
+#: thold_templates.php:1455
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr "您可以在此處指定額外的電子郵件以接收此數據源的警報（以逗號分隔）"
 
-#: thold_templates.php:1438
+#: thold_templates.php:1463
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr "您可以在此處指定額外的電子郵件以接收此數據源的警告（以逗號分隔）"
 
-#: thold_templates.php:1775
+#: thold_templates.php:1800
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "％d個月，％d天，％d小時，％d分鐘，％d秒（平均）"
 
-#: thold_templates.php:1777
+#: thold_templates.php:1802
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "％d個月，％d天，％d小時，％d分鐘，％d秒"
 
-#: thold_templates.php:1781
+#: thold_templates.php:1806
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "％d天，％d小時，％d分鐘，％d秒（平均）"
 
-#: thold_templates.php:1783
+#: thold_templates.php:1808
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "％d天，％d小時，％d分鐘，％d秒"
 
-#: thold_templates.php:1787
+#: thold_templates.php:1812
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "％d小時，％d分鐘，％d秒（平均）"
 
-#: thold_templates.php:1789
+#: thold_templates.php:1814
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr "％d小時，％d分鐘，％d秒"
 
-#: thold_templates.php:1793
+#: thold_templates.php:1818
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr "％d分鐘，％d秒（平均）"
 
-#: thold_templates.php:1795
+#: thold_templates.php:1820
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr "％d分鐘，％d秒"
 
-#: thold_templates.php:1799
+#: thold_templates.php:1824
 #, fuzzy, php-format
 msgid "%d Seconds (Average)"
 msgstr "％d秒（平均）"
 
-#: thold_templates.php:1801
+#: thold_templates.php:1826
 #, fuzzy, php-format
 msgid "%d Seconds"
 msgstr "%d 秒"
 
-#: thold_templates.php:1982
+#: thold_templates.php:2007
 msgid "DS Name"
 msgstr "DS 名稱"
 
-#: thold_templates.php:1990
+#: thold_templates.php:2015
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "高警告/警報值。注意：基線值是百分比，所有其他值是未經cdef修改的RAW值。"
 
-#: thold_templates.php:1996
+#: thold_templates.php:2021
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "低警告/警報值。注意：基線值是百分比，所有其他值是未經cdef修改的RAW值。"
 
-#: thold_templates.php:2084
+#: thold_templates.php:2107
 #, fuzzy
 msgid "No Threshold Templates"
 msgstr "沒有門檻模板"
 
-#: thold_templates.php:2102
+#: thold_templates.php:2125
 #, fuzzy
 msgid "Import Template from Local File"
 msgstr "從本地文件導入模板"
 
-#: thold_templates.php:2103
+#: thold_templates.php:2126
 #, fuzzy
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr "如果包含閾值模板數據的XML文件位於本地計算機上，請在此處選擇它。"
 
-#: thold_templates.php:2108
+#: thold_templates.php:2131
 #, fuzzy
 msgid "Import Template from Text"
 msgstr "從文本導入模板"
 
-#: thold_templates.php:2109
+#: thold_templates.php:2132
 #, fuzzy
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
 msgstr "如果您將包含閾值模板數據的XML文件作為文本，則可以將其粘貼到此框中以將其導入。"
 
-#: thold_templates.php:2121
+#: thold_templates.php:2144
 msgid "Import Results"
 msgstr "匯入結果"
 
-#: thold_templates.php:2123
+#: thold_templates.php:2146
 #, fuzzy
 msgid "Cacti has imported the following items:"
 msgstr "Cacti已導入以下物品："
 
-#: thold_templates.php:2133 thold_templates.php:2145
+#: thold_templates.php:2156 thold_templates.php:2168
 #, fuzzy
 msgid "Import Threshold Templates"
 msgstr "導入閾值模板"
 
-#: thold_templates.php:2158 thold_templates.php:2161
+#: thold_templates.php:2181 thold_templates.php:2184
 msgid "The file is too big."
 msgstr "檔案容量過大"
 
-#: thold_templates.php:2164
+#: thold_templates.php:2187
 #, fuzzy
 msgid "Incomplete file transfer."
 msgstr "文件傳輸不完整。"
 
-#: thold_templates.php:2167 thold_templates.php:2194
+#: thold_templates.php:2190 thold_templates.php:2217
 #, fuzzy
 msgid "No file uploaded."
 msgstr "無上傳文件"
 
-#: thold_templates.php:2170
+#: thold_templates.php:2193
 #, fuzzy
 msgid "Temporary folder missing."
 msgstr "臨時文件夾丟失。"
 
-#: thold_templates.php:2173
+#: thold_templates.php:2196
 msgid "Failed to write file to disk"
 msgstr "檔案無法寫入。 "
 
-#: thold_templates.php:2176
+#: thold_templates.php:2199
 msgid "File upload stopped by extension"
 msgstr "擴展文件中斷了上傳"
 
-#: thold_templates.php:2187
+#: thold_templates.php:2210
 msgid "Invalid file extension."
 msgstr "文件擴展名無效"
 
-#: thold_templates.php:2213
+#: thold_templates.php:2236
 msgid "NOTE:"
 msgstr "備註："
 
-#: thold_templates.php:2220 thold_templates.php:2227
+#: thold_templates.php:2243 thold_templates.php:2250
 msgid "ERROR:"
 msgstr "錯誤:"
 
@@ -3667,6 +3742,18 @@ msgstr "選定的圖表"
 #, fuzzy, php-format
 msgid "Created graph: %s"
 msgstr "創建圖：％s"
+
+#, fuzzy
+#~ msgid "Default Monitor Status"
+#~ msgstr "默認監控狀態"
+
+#, fuzzy
+#~ msgid "Default Threshold Tab filter status."
+#~ msgstr "默認閾值選項卡篩選狀態。"
+
+#, fuzzy
+#~ msgid "Maximum Concurrent Threshold Processes"
+#~ msgstr "最大並發閾值進程"
 
 #, fuzzy
 #~ msgid "Create a new Threshold"
