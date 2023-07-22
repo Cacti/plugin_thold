@@ -1432,7 +1432,7 @@ function thold_upgrade_database($force = false) {
 	}
 
 	if (!db_column_exists('thold_template', 'skipscale')) {
-		db_add_column('thold_data', array(
+		db_add_column('thold_template', array(
 			'name' => 'skipscale',
 			'type' => 'char(3)',
 			'NULL' => true,
