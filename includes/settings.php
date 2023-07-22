@@ -426,19 +426,6 @@ function thold_config_settings() {
 			),
 			'default' => -1
 		),
-		'thold_monitor_default' => array(
-			'friendly_name' => __('Default Monitor Status', 'thold'),
-			'description' => __('Default Threshold Tab filter status.', 'thold'),
-			'method' => 'drop_array',
-			'array' => array(
-				'-1' => __('Any', 'thold'),
-				'0'  => __('Disabled', 'thold'),
-				'2'  => __('Enabled', 'thold'),
-				'1'  => __('Breached', 'thold'),
-				'3'  => __('Triggered', 'thold')
-			),
-			'default' => -1
-		),
 		'thold_empty_if_speed_default' => array(
 			'friendly_name' => __('Empty ifHighSpeed Default', 'thold'),
 			'description' => __('When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces.', 'thold'),

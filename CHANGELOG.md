@@ -22,6 +22,8 @@
 
 * issue#514: When saving a thold template, tholds disassociated from their template are re-templated and re-enabled
 
+* issue#516: The Default Monitor Status setting belongs in the Monitor plugin.  Remove from Thold
+
 * issue#535: Support new uptime calculation in Cacti 1.2.19
 
 * issue#540: Change table name from 'plugin_thold_device_template' to
