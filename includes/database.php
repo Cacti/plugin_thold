@@ -1440,6 +1440,14 @@ function thold_upgrade_database($force = false) {
 			'default' => ''));
 	}
 
+	if (cacti_version_compare($oldv, '1.8', '<')) {
+		db_execute('INSERT INTO plugin_thold_host (host_id, thold_template_id)
+			SELECT h.id, ptht.thold_template_id
+			FROM host AS h
+			INNER JOIN plugin_thold_host_template AS ptht
+			ON h.host_template_id = ptht.host_template_id');
+	}
+
 	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', 1);
 
 	db_execute_prepared('UPDATE plugin_config
