@@ -3321,7 +3321,7 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	);
 
 	if (isset($thold_types[$thold['thold_type']])) {
-		$thold_snmp_data['eventThresholdType'] = $thold_types[$thold['thold_type']] + 1;
+		$thold_snmp_data['eventThresholdType'] = $thold['thold_type'];
 	} else {
 		$thold_snmp_data['eventThresholdType'] = 1;
 	}
