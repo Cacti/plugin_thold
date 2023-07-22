@@ -1450,6 +1450,15 @@ function thold_upgrade_database($force = false) {
 		}
 	}
 
+	if (!db_column_exists('plugin_notification_lists', 'bcc_emails')) {
+		db_add_column('plugin_notification_lists', array(
+			'name' => 'bcc_emails',
+			'type' => 'varchar(512)',
+			'NULL' => false,
+			'default' => '',
+			'after' => 'emails'));
+	}
+
 	db_execute_prepared('UPDATE plugin_config
 		SET version = ?
 		WHERE directory = "thold"',
@@ -1687,6 +1696,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(128)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(512)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'emails', 'type' => 'varchar(512)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'bcc_emails', 'type' => 'varchar(512)', 'NULL' => false);
 
 	$data['primary']   = 'id';
 	$data['type']      = 'InnoDB';

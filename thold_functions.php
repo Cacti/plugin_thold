@@ -1429,7 +1429,9 @@ function thold_log($save) {
 				break;
 			}
 
-			$desc .= '  SentTo: ' . $save['emails'];
+			$desc .= ' ' .
+				'SentTo: ' . (isset($save['emails']) && $save['emails'] != '' ? $save['emails']:'None') .
+				'SendBCC: ' . (isset($save['bcc_emails']) && $save['bcc_emails'] != '' ? $save['bcc_emails']:'None');
 		} elseif (isset($save['description'])) {
 			$desc = $save['description'];
 		} else {
@@ -1442,6 +1444,7 @@ function thold_log($save) {
 	}
 
 	unset($save['emails']);
+	unset($save['bcc_emails']);
 
 	$id = sql_save($save, 'plugin_thold_log');
 
@@ -2157,7 +2160,8 @@ function thold_check_threshold(&$thold_data) {
 				if (!$suspend_notify && !$maint_dev) {
 					thold_debug('Alerting is necessary');
 
-					$alert_emails = get_thold_alert_emails($thold_data);
+					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 					if ($syslog) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
@@ -2165,7 +2169,7 @@ function thold_check_threshold(&$thold_data) {
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, '', $subject, $alert_msg, $file_array);
+						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, $breach_up, $breach_down);
@@ -2217,7 +2221,8 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ($ra ? ST_NOTIFYRA:ST_NOTIFYAL),
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 			}
 
@@ -2268,17 +2273,19 @@ function thold_check_threshold(&$thold_data) {
 				if (!$suspend_notify && !$maint_dev) {
 					thold_debug('Alerting is necessary');
 
-					$alert_emails = get_thold_alert_emails($thold_data);
+					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 					if ($syslog) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$warning_emails = get_thold_warning_emails($thold_data);
+					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
 
 					if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$warn_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($warning_emails, '', $subject, $warn_msg, $file_array);
+						thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $warn_msg, $file_array);
 					}
 
 					$save = array(
@@ -2328,7 +2335,8 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ($ra ? ST_NOTIFYRA:ST_NOTIFYWA),
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 			} elseif (($thold_data['thold_warning_fail_count'] >= $warning_trigger) && ($thold_data['thold_fail_count'] >= $trigger)) {
 
@@ -2336,11 +2344,12 @@ function thold_check_threshold(&$thold_data) {
 
 				if (!$suspend_notify && !$maint_dev) {
 
-					$alert_emails = get_thold_alert_emails($thold_data);
+					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$warn_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, '', $subject, $warn_msg, $file_array);
+						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $warn_msg, $file_array);
 					}
 
 					$save = array(
@@ -2389,7 +2398,8 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ST_NOTIFYAW,
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 			}
 
@@ -2427,11 +2437,12 @@ function thold_check_threshold(&$thold_data) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$warning_emails = get_thold_warning_emails($thold_data);
+					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
 
 					if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on' && $thold_data['acknowledgment'] == '') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($warning_emails, '', $subject, $restoral_msg, $file_array);
+						thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					$save = array(
@@ -2469,18 +2480,20 @@ function thold_check_threshold(&$thold_data) {
 						'current'         => $thold_data['lastread'],
 						'status'          => ST_NOTIFYRS,
 						'description'     => $subject,
-						'emails'          => $warning_emails)
+						'emails'          => $warning_emails,
+						'bcc_emails'      => $warning_bcc_emails)
 					);
 				} elseif ($thold_data['thold_fail_count'] >= $trigger && $thold_data['restored_alert'] != 'on' && !$maint_dev) {
 					if ($syslog) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$alert_emails = get_thold_alert_emails($thold_data);
+					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 					if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on' && $thold_data['acknowledgment'] == '') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, '', $subject, $restoral_msg, $file_array);
+						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);
@@ -2520,7 +2533,8 @@ function thold_check_threshold(&$thold_data) {
 						'current'         => $thold_data['lastread'],
 						'status'          => ST_NOTIFYRS,
 						'description'     => $subject,
-						'emails'          => $alert_emails)
+						'emails'          => $alert_emails,
+						'bcc_emails'      => $alert_bcc_emails)
 					);
 				}
 
@@ -2535,7 +2549,8 @@ function thold_check_threshold(&$thold_data) {
 						'current'         => $thold_data['lastread'],
 						'status'          => ST_NOTIFYRS,
 						'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-						'emails'          => $alert_emails)
+						'emails'          => $alert_emails,
+						'bcc_emails'      => $alert_bcc_emails)
 					);
 				}
 			}
@@ -2567,11 +2582,12 @@ function thold_check_threshold(&$thold_data) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$alert_emails = get_thold_alert_emails($thold_data);
+					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, '', $subject, $restoral_msg, $file_array);
+						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);
@@ -2618,7 +2634,8 @@ function thold_check_threshold(&$thold_data) {
 						'current'         => $thold_data['lastread'],
 						'status'          => ST_RESTORAL,
 						'description'     => ($maint_dev ? $subject . '. ' .  __('Only logging, maint device', 'thold') : $subject),
-						'emails'          => $alert_emails)
+						'emails'          => $alert_emails,
+						'bcc_emails'      => $alert_bcc_emails)
 					);
 				}
 			}
@@ -2671,11 +2688,12 @@ function thold_check_threshold(&$thold_data) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$alert_emails = get_thold_alert_emails($thold_data);
+					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, '', $subject, $alert_msg, $file_array);
+						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, $breach_up, $breach_down, false);
@@ -2725,12 +2743,14 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ($ra ? ST_NOTIFYRA:ST_NOTIFYAL),
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 			} else {
 				$subject = 'Thold Baseline Cache Log';
 
-				$alert_emails = get_thold_alert_emails($thold_data);
+				$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+				$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 				thold_log(array(
 					'type'            => 1,
@@ -2742,7 +2762,8 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ST_TRIGGERA,
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 			}
 
@@ -2878,11 +2899,12 @@ function thold_check_threshold(&$thold_data) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$alert_emails = get_thold_alert_emails($thold_data);
+					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, '', $subject, $alert_msg, $file_array);
+						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, $breach_up, $breach_down, false);
@@ -2929,10 +2951,12 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ($failures > $trigger ? ST_NOTIFYAL:ST_NOTIFYRA),
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 			} else {
-				$alert_emails = get_thold_alert_emails($thold_data);
+				$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+				$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 				thold_log(array(
 					'type'            => 2,
@@ -2944,7 +2968,8 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ST_TRIGGERA,
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 			}
 
@@ -3010,12 +3035,14 @@ function thold_check_threshold(&$thold_data) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$alert_emails   = get_thold_alert_emails($thold_data);
-					$warning_emails = get_thold_warning_emails($thold_data);
+					$alert_emails       = get_thold_emails($thold_data, 'alert', 'to');
+					$alert_bcc_emails   = get_thold_emails($thold_data, 'alert', 'bcc');
+					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$warn_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($warning_emails, '', $subject, $warn_msg, $file_array);
+						thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $warn_msg, $file_array);
 					}
 
 					$save = array(
@@ -3060,13 +3087,15 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ($warning_failures > $warning_trigger ? ST_NOTIFYRA:ST_NOTIFYWA),
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 
 			} elseif ($alertstat != 0 && $warning_failures < $warning_trigger && $failures < $trigger) {
 				$subject = 'ALERT -> WARNING: '. thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' restored to warning threshold with value ' . thold_format_number($thold_data['lastread'], 2, $baseu);
 
-				$alert_emails = get_thold_alert_emails($thold_data);
+				$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+				$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 				thold_log(array(
 					'type'            => 2,
@@ -3078,10 +3107,12 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ST_NOTIFYAW,
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 			} else {
-				$warning_emails = get_thold_warning_emails($thold_data);
+				$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+				$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
 
 				thold_log(array(
 					'type'            => 2,
@@ -3093,7 +3124,8 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ST_TRIGGERW,
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $warning_emails)
+					'emails'          => $warning_emails,
+					'bcc_emails'      => $warning_bcc_emails)
 				);
 			}
 
@@ -3115,11 +3147,12 @@ function thold_check_threshold(&$thold_data) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$warning_emails = get_thold_warning_emails($thold_data);
+					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
 
 					if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($warning_emails, '', $subject, $restoral_msg, $file_array);
+						thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					$save = array(
@@ -3158,7 +3191,8 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ST_NOTIFYRS,
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $warning_emails)
+					'emails'          => $warning_emails,
+					'bcc_emails'      => $warning_bcc_emails)
 				);
 
 				db_execute_prepared('UPDATE thold_data
@@ -3183,11 +3217,12 @@ function thold_check_threshold(&$thold_data) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$alert_emails = get_thold_alert_emails($thold_data);
+					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
+					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
 
 					if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, '', $subject, $restoral_msg, $file_array);
+						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);
@@ -3229,7 +3264,8 @@ function thold_check_threshold(&$thold_data) {
 					'current'         => $thold_data['lastread'],
 					'status'          => ST_NOTIFYRS,
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-					'emails'          => $alert_emails)
+					'emails'          => $alert_emails,
+					'bcc_emails'      => $alert_bcc_emails)
 				);
 
 				db_execute_prepared('UPDATE thold_data
@@ -3905,7 +3941,8 @@ function ack_logging($thold_id, $desc = '') {
 			'current' => $thold_data['lastread'],
 			'status' => $status,
 			'description' => 'Threshold Name ' . $thold_data['name_cache'] . ' has been acknowledged. Additional Comments: "' . $desc . '"',
-			'emails' => ''
+			'emails' => '',
+			'bcc_emails' => ''
 		)
 	);
 
@@ -5362,7 +5399,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 }
 
 /* Sends a group of graphs to a user */
-function thold_mail($to_email, $from_email, $subject, $message, $filename, $headers = array()) {
+function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $filename, $headers = array()) {
 	thold_debug('Preparing to send email');
 
 	$subject = trim($subject);
@@ -5455,7 +5492,7 @@ function thold_mail($to_email, $from_email, $subject, $message, $filename, $head
 			array($from_email, $from_name),
 			$to_email,
 			'',
-			'',
+			$bcc_email,
 			'',
 			$subject,
 			$text['html'],
@@ -5844,56 +5881,60 @@ function thold_threshold_resume_ack($id) {
 	}
 }
 
-function get_thold_warning_emails($thold) {
-	$warning_emails = '';
+function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
+	$emails = '';
 
-	if (read_config_option('thold_disable_legacy') != 'on') {
-		$warning_emails = $thold['notify_warning_extra'];
-	}
+	if ($class == 'alert') {
+		if (read_config_option('thold_disable_legacy') != 'on' && $recipeint == 'to') {
+			$emails = array();
 
-	$warning_emails .= (strlen($warning_emails) ? ',':'') . get_thold_notification_emails($thold['notify_warning']);
+			$rows = db_fetch_assoc_prepared('SELECT ptc.data
+				FROM plugin_thold_contacts AS ptc
+				INNER JOIN plugin_thold_threshold_contact AS pttc
+				ON ptc.id = pttc.contact_id
+				WHERE pttc.thold_id = ?',
+				array($thold['id']));
 
-	return $warning_emails;
-}
+			if (count($rows)) {
+				foreach ($rows as $row) {
+					$emails[] = $row['data'];
+				}
+			}
 
-function get_thold_alert_emails($thold) {
-	$rows = db_fetch_assoc_prepared('SELECT ptc.data
-		FROM plugin_thold_contacts AS ptc
-		INNER JOIN plugin_thold_threshold_contact AS pttc
-		ON ptc.id=pttc.contact_id
-		WHERE pttc.thold_id = ?',
-		array($thold['id']));
+			$emails = implode(',', $emails);
 
-	$alert_emails = '';
-	if (read_config_option('thold_disable_legacy') != 'on') {
-		$alert_emails = array();
-
-		if (count($rows)) {
-			foreach ($rows as $row) {
-				$alert_emails[] = $row['data'];
+			if ($emails != '') {
+				$emails .= ',' . $thold['notify_extra'];
+			} else {
+				$emails = $thold['notify_extra'];
 			}
 		}
 
-		$alert_emails = implode(',', $alert_emails);
-
-		if ($alert_emails != '') {
-			$alert_emails .= ',' . $thold['notify_extra'];
-		} else {
-			$alert_emails = $thold['notify_extra'];
+		$emails .= (strlen($emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert'], $recipient);
+	} else {
+		if (read_config_option('thold_disable_legacy') != 'on' && $recipeint == 'to') {
+			$emails = $thold['notify_warning_extra'];
 		}
+
+		$emails .= (strlen($emails) ? ',':'') . get_thold_notification_emails($thold['notify_warning'], $recipient);
 	}
 
-	$alert_emails .= (strlen($alert_emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert']);
-
-	return $alert_emails;
+	return $emails;
 }
 
-function get_thold_notification_emails($id) {
+function get_thold_notification_emails($id, $recipient = 'to') {
 	if (!empty($id)) {
-		return trim(db_fetch_cell_prepared('SELECT emails
-			FROM plugin_notification_lists
-			WHERE id = ?',
-			array($id)));
+		if ($recipient == 'to') {
+			return trim(db_fetch_cell_prepared('SELECT emails
+				FROM plugin_notification_lists
+				WHERE id = ?',
+				array($id)));
+		} else {
+			return trim(db_fetch_cell_prepared('SELECT bcc_emails
+				FROM plugin_notification_lists
+				WHERE id = ?',
+				array($id)));
+		}
 	} else {
 		return '';
 	}
