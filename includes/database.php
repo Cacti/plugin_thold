@@ -1440,6 +1440,8 @@ function thold_upgrade_database($force = false) {
 			'default' => ''));
 	}
 
+	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', 1);
+
 	db_execute_prepared('UPDATE plugin_config
 		SET version = ?
 		WHERE directory = "thold"',
@@ -1723,6 +1725,15 @@ function thold_setup_database() {
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'Table of Device Template Threshold Templates';
 	api_plugin_db_table_create('thold', 'plugin_thold_host_template', $data);
+
+	$data = array();
+	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'auto_increment' => true);
+	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'thold_template_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['primary'] = 'id';
+	$data['type'] = 'InnoDB';
+	$data['comment'] = 'Table of Device to Supported Threshold Templates';
+	api_plugin_db_table_create('thold', 'plugin_thold_host', $data);
 
 	db_add_index('data_local', 'INDEX', 'data_template_id', array('data_template_id'));
 	db_add_index('data_local', 'INDEX', 'snmp_query_id', array('snmp_query_id'));

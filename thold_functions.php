@@ -4533,10 +4533,10 @@ function save_thold() {
 
 		if (!isset_request_var('save_autocreate') || get_filter_request_var('save_autocreate') == 1) {
 			$autocreated = db_fetch_cell_prepared('SELECT COUNT(*)
-				FROM plugin_thold_host_template
-				WHERE host_template_id = ?
+				FROM plugin_thold_host
+				WHERE host_id = ?
 				AND thold_template_id = ?',
-				array($host_template_id, $thold_template_id));
+				array($device_id, $thold_template_id));
 
 			if ($autocreated) {
 				$thold = db_fetch_cell_prepared('SELECT id
@@ -5209,10 +5209,10 @@ function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thol
 
 		$templates = db_fetch_assoc_prepared('SELECT tt.*
 			FROM thold_template AS tt
-			INNER JOIN plugin_thold_host_template AS ptht
+			INNER JOIN plugin_thold_host AS pth
 			ON tt.id = ptht.thold_template_id
-			WHERE ptht.host_template_id = ?',
-			array($host_template_id));
+			WHERE pth.host_id = ?',
+			array($device_id));
 
 		if (!cacti_sizeof($templates)) {
 			if ($log) {

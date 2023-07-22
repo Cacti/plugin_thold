@@ -44,6 +44,15 @@ if (isset_request_var('import')) {
 switch ($action) {
 	case 'add':
 		template_add();
+
+		break;
+	case 'add_tt':
+		template_add_host_to_template();
+
+		break;
+	case 'tt_remove':
+		template_remove_host_from_template();
+
 		break;
 	case 'save':
 		if (isset_request_var('save_component_import')) {
@@ -51,8 +60,8 @@ switch ($action) {
 		} elseif (isset_request_var('save') && get_nfilter_request_var('save') == 'edit') {
 			template_save_edit();
 		}
-		break;
 
+		break;
 	case 'import':
 		top_header();
 		import();
@@ -291,6 +300,25 @@ function do_actions() {
 	bottom_footer();
 
 	exit;
+}
+
+function template_remove_host_from_template() {
+	$host_id = get_filter_request_var('host_id');
+	$thold_template_id = get_filter_request_var('thold_template_id');
+
+	db_execute_prepared('DELETE FROM plugin_thold_host
+		WHERE host_id = ?
+		AND thold_template_id = ?',
+		array($host_id, $thold_template_id));
+}
+
+function template_add_host_to_template() {
+	$host_id = get_filter_request_var('host_id');
+	$thold_template_id = get_filter_request_var('thold_template_id');
+
+	db_execute_prepared('REPLACE INTO plugin_thold_host
+		(host_id, thold_template_id) VALUES (?, ?)',
+		array($host_id, $thold_template_id));
 }
 
 function template_export() {
