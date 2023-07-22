@@ -1065,7 +1065,7 @@ function template_edit() {
 		'skipscale' => array(
 			'friendly_name' => __('Skip Scaling on HRULEs', 'thold'),
 			'method' => 'checkbox',
-			'default' => 'on',
+			'default' => '',
 			'description' => __('If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs.', 'thold'),
 			'value' => isset($thold_data['skipscale']) ? $thold_data['skipscale'] : ''
 		),

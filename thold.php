@@ -1157,7 +1157,7 @@ function thold_edit() {
 			<br>
 		</td>
 		<td class='textArea'>
-			<img id='graphimage' src='<?php print html_escape($config['url_path'] . 'graph_image.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=0&graph_start=-32400&graph_height=150&graph_width=600');?>'>
+			<img id='graphimage' src='<?php print html_escape($config['url_path'] . 'graph_image.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=0&graph_start=-32400&graph_height=150&graph_width=600&randome=' . rand());?>'>
 		</td>
 	</tr>
 	<?php
@@ -1507,7 +1507,7 @@ function thold_edit() {
 		'skipscale' => array(
 			'friendly_name' => __('Skip Scaling on HRULEs', 'thold'),
 			'method' => 'checkbox',
-			'default' => 'on',
+			'default' => '',
 			'description' => __('If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs.', 'thold'),
 			'value' => isset($thold_data['skipscale']) ? $thold_data['skipscale'] : ''
 		),

@@ -495,7 +495,7 @@ function thold_rrd_graph_graph_options($g) {
 			}
 
 			$show_units = ($t['show_units'] ? true : false);
-			$noscale    = ($t['skipscale'] == 'on' ? ':skipscale':'');
+			$skipscale  = ($t['skipscale'] == 'on' ? ':skipscale':'');
 
 			switch($t['data_type']) {
 			case '0': // Exact value
