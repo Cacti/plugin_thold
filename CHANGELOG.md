@@ -20,6 +20,8 @@
 
 * issue#147: Fixed threshold compare negative baseline values.
 
+* issue#451: Creating Threshold from Template Missing from Graph Page
+
 * issue#454: Unite last thold value and ds value
 
 * issue#487: If Dead Host Notification is disabled, prune the dead host table

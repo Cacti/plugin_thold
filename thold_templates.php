@@ -158,7 +158,7 @@ function do_actions() {
 										array($thold_id));
 
 									/* check if thold templated */
-									if ($thold['template_enabled'] == "on") {
+									if ($thold['template_enabled'] == 'on') {
 										$template = db_fetch_row_prepared('SELECT *
 											FROM thold_template
 											WHERE id = ?',

@@ -209,16 +209,19 @@ function thold_wizard() {
 				ON dtr.local_data_id = dl.id
 				INNER JOIN graph_templates_item AS gti
 				ON dtr.id = gti.task_item_id
-				LEFT JOIN thold_data AS td
-				ON td.local_graph_id = gti.local_graph_id
-				AND td.local_data_id = dl.id
+				LEFT JOIN (
+					SELECT td.id, td.local_data_id, td.data_source_name, data_template_rrd_id
+					FROM thold_data AS td
+					INNER JOIN thold_template AS tt
+					ON tt.id = td.thold_template_id
+					WHERE td.host_id = ?
+				) AS td
+				ON td.local_data_id = dl.id
 				AND td.data_source_name = dtr.data_source_name
 				AND td.data_template_rrd_id = dtr.id
-				INNER JOIN thold_template AS tt
-				ON tt.id = td.thold_template_id
 				WHERE gti.local_graph_id = ?
 				AND td.id IS NULL',
-				array($local_graph_id));
+				array($host_id, $local_graph_id));
 
 			if ($data_source_info != '') {
 				$templates = db_fetch_assoc('SELECT id, name
