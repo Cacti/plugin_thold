@@ -4,6 +4,8 @@
 
 * security: Fix potential security exposure with unserialize() function
 
+* feature#140: Baseline Deviation Moving Average
+
 * feature#185: Baseline deviation with exact changes
 
 * feature#445: Allow removal of Threshold from a specific device ignoring device template

@@ -4265,16 +4265,24 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 	return round($value, 4);
 }
 
-function thold_get_ref_value($local_data_id, $name, $ref_time, $time_range) {
-	$result = rrdtool_function_fetch($local_data_id, $ref_time-$time_range, $ref_time-1, $time_range);
+function thold_get_ref_value($local_data_id, $name, $current_time, $ref_time, $time_range, $thold_type) {
+	if ($thold_type < 2) {
+		$result = rrdtool_function_fetch($local_data_id, $ref_time-$time_range, $ref_time-1, $time_range);
+	} else {
+		$result = rrdtool_function_fetch($local_data_id, $current_time-$time_range, $current_time);
+	}
 
 	$idx = array_search($name, $result['data_source_names']);
 
-	if (!isset($result['values'][$idx]) || count($result['values'][$idx]) == 0) {
+	if (!isset($result['values'][$idx]) || cacti_sizeof($result['values'][$idx]) == 0) {
 		return false;
 	}
 
-	return $result['values'][$idx];
+	if ($thold_type < 2) {
+		return $result['values'][$idx];
+	} else {
+		return array(array_sum($result['values'][$idx]) / count($result['values'][$idx]));
+	}
 }
 
 /**
@@ -4332,7 +4340,7 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 	$now = time();
 
 	// See if we have a valid cached thold_high and thold_low value
-	if ($thold_data['bl_thold_valid'] && $now < $thold_data['bl_thold_valid']) {
+	if ($thold_data['bl_type'] < 2 && $thold_data['bl_thold_valid'] && $now < $thold_data['bl_thold_valid']) {
 		if ($thold_data['thold_hi'] && $current_value > $thold_data['thold_hi']) {
 			$failed = 2;
 		} elseif ($thold_data['thold_low'] && $current_value < $thold_data['thold_low']) {
@@ -4343,8 +4351,9 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 	} else {
 		$midnight =  gmmktime(0,0,0);
 		$t0 = $midnight + floor(($now - $midnight) / $thold_data['bl_ref_time_range']) * $thold_data['bl_ref_time_range'];
+		$current_time = time() - read_config_option('poller_interval');
 
-		$ref_values = thold_get_ref_value($thold_data['local_data_id'], $name, $t0, $thold_data['bl_ref_time_range']);
+		$ref_values = thold_get_ref_value($thold_data['local_data_id'], $name, $current_time, $t0, $thold_data['bl_ref_time_range'], $thold_data['bl_type']);
 
 		if ($ref_values === false || cacti_sizeof($ref_values) == 0) {
 			cacti_log(sprintf('WARNING: RRDtool was unable to return any reference values to Thold[%s]', $thold_data['id']), false, 'THOLD');
@@ -4381,13 +4390,21 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 			if ($thold_data['bl_pct_up'] != '') {
 				$blt_high = $ref_value_max + (abs($ref_value_max) * $thold_data['bl_pct_up'] / 100);
 			}
-		} else {
+		} elseif ($thold_data['bl_type'] == 1) {
 			if ($thold_data['bl_pct_down'] != '') {
 				$blt_low  = $ref_value_min - $thold_data['bl_pct_down'];
 			}
 
 			if ($thold_data['bl_pct_up'] != '') {
 				$blt_high = $ref_value_max + $thold_data['bl_pct_up'];
+			}
+		} else {
+			if ($thold_data['bl_pct_down'] != '') {
+				$blt_low  = $ref_value_min - (abs($ref_value_min) * $thold_data['bl_pct_down'] / 100);
+			}
+
+			if ($thold_data['bl_pct_up'] != '') {
+				$blt_high = $ref_value_max + (abs($ref_value_max) * $thold_data['bl_pct_up'] / 100);
 			}
 		}
 

@@ -554,6 +554,8 @@ function list_tholds() {
 
 	thold_request_validation();
 
+	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
+
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
@@ -958,7 +960,13 @@ function list_tholds() {
 			form_selectable_cell(filter_value($name, get_request_var('rfilter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
-			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
+
+			if ($thold_data['thold_type'] != 1) {
+				form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
+			} else {
+				form_selectable_cell($bl_types[$thold_data['bl_type']], $thold_data['id'], '', 'right');
+			}
+
 			form_selectable_cell($data_source, $thold_data['id'], '', 'right');
 			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
 
@@ -1295,7 +1303,7 @@ function thold_edit() {
 						$low = thold_format_number($td['thold_low'], 2, $baseu, $suffix, $show_units);
 						$low_var = thold_format_number($td['bl_pct_down'], 2, $baseu, $suffix, $show_units);
 
-						if ($td['bl_type'] == 0) {
+						if ($td['bl_type'] == 0 || $td['bl_type'] == 2) {
 							$suffix = ' %';
 						} else {
 							$suffix = '';
@@ -1727,7 +1735,7 @@ function thold_edit() {
 		'bl_type' => array(
 			'friendly_name' => __('Baseline Type', 'thold'),
 			'method' => 'drop_array',
-			'array' => array(0 => __('Percentage Deviation', 'thold'), 1 => __('Absolute Value', 'thold')),
+			'array' => $bl_types,
 			'description' => __('The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend.', 'thold'),
 			'value' => isset($thold_data['bl_type']) ? $thold_data['bl_type'] : 0
 		),
@@ -1735,7 +1743,7 @@ function thold_edit() {
 			'friendly_name' => __('Time range', 'thold'),
 			'method' => 'drop_array',
 			'array' => $reference_types,
-			'description' => __('Specifies the point in the past (based on RRDfile resolution) that will be used as a reference', 'thold'),
+			'description' => __('Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold', 'thold'),
 			'value' => isset($thold_data['bl_ref_time_range']) ? $thold_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
 		),
 		'bl_pct_up' => array(

@@ -484,6 +484,12 @@ $thold_types = array (
 	2 => __('Time Based', 'thold')
 );
 
+$bl_types = array(
+	0 => __('%% Deviation', 'thold'),
+	1 => __('Absolute Value', 'thold'),
+	2 => __('%% Floating Avg', 'thold'),
+);
+
 $data_types = array (
 	0 => __('Exact Value', 'thold'),
 	1 => __('CDEF', 'thold'),

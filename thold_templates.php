@@ -1289,15 +1289,15 @@ function template_edit() {
 		'bl_type' => array(
 			'friendly_name' => __('Baseline Type', 'thold'),
 			'method' => 'drop_array',
-			'array' => array(0 => __('Percentage Deviation', 'thold'), 1 => __('Absolute Value', 'thold')),
+			'array' => $bl_types,
 			'description' => __('The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend.', 'thold'),
 			'value' => isset($thold_data['bl_type']) ? $thold_data['bl_type'] : 0
 		),
 		'bl_ref_time_range' => array(
-			'friendly_name' => __('Time reference in the past', 'thold'),
+			'friendly_name' => __('Time Range', 'thold'),
 			'method' => 'drop_array',
 			'array' => $reference_types,
-			'description' => __('Specifies the point in the past (based on rrd resolution) that will be used as a reference', 'thold'),
+			'description' => __('Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold', 'thold'),
 			'value' => isset($thold_data['bl_ref_time_range']) ? $thold_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
 		),
 		'bl_pct_up' => array(

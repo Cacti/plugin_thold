@@ -687,7 +687,11 @@ function tholds() {
 
 			form_selectable_cell($details, $thold_data['id'], '', 'center');
 
-			form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
+			if ($thold_data['thold_type'] != 1) {
+				form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
+			} else {
+				form_selectable_cell($bl_types[$thold_data['bl_type']], $thold_data['id'], '', 'right');
+			}
 
 			form_selectable_cell(thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units), $thold_data['id'], '', 'right');
 
@@ -705,7 +709,7 @@ function tholds() {
 					$low = thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix, $show_units);
 					$low_var = thold_format_number($thold_data['bl_pct_down'], 2, $baseu, $suffix, $show_units);
 
-					if ($thold_data['bl_type'] == 0) {
+					if ($thold_data['bl_type'] == 0 || $thold_data['bl_type'] == 2) {
 						$suffix = ' %';
 					} else {
 						$suffix = '';
