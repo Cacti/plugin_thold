@@ -1714,7 +1714,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			$desc .= ' Use Template[On]';
 		} else {
 			if (isset($thold_types[$thold['thold_type']])) {
-				$desc .= ' Type[' . $thold_types[$thold['thold_type']] . ']';
+				$desc .= ' Type Type[' . $thold_types[$thold['thold_type']] . ']';
 			}
 
 			$desc .= ' Enabled[' . $message['thold_enabled'] . ']';
@@ -1730,6 +1730,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 				break;
 			case 1:
+				$desc .= ' BL Type[' . (!isset($message['bl_type']) ? 0:$message['bl_type']) . ']';
 				$desc .= ' Range[' . $message['bl_ref_time_range'] . ']';
 				$desc .= ' DevUp[' . $message['bl_pct_up'] . ']';
 				$desc .= ' DevDown[' . $message['bl_pct_down'] . ']';
@@ -1805,7 +1806,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 		$desc .= ' DataSource[' . $thold['data_source_name'] . ']';
 
 		if (isset($thold_types[$thold['thold_type']])) {
-			$desc .= ' Type[' . $thold_types[$message['thold_type']] . ']';
+			$desc .= ' Thold Type[' . $thold_types[$message['thold_type']] . ']';
 		}
 
 		$desc .= ' Enabled[' . $message['thold_enabled'] . ']';
@@ -1821,6 +1822,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 
 			break;
 		case 1:
+			$desc .= ' BL Type[' . (!isset($message['bl_type']) ? 0:$message['bl_type']) . ']';
 			$desc .= ' Range[' . $message['bl_ref_time_range'] . ']';
 			$desc .= ' DevUp[' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : '' ) . ']';
 			$desc .= ' DevDown[' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : '' ) . ']';
@@ -4275,12 +4277,14 @@ function thold_get_ref_value($local_data_id, $name, $ref_time, $time_range) {
 	return $result['values'][$idx];
 }
 
-/* thold_check_exception_periods
- @to-do: This function should check 'globally' declared exceptions, like
- holidays etc., as well as exceptions bound to the specific $local_data_id. $local_data_id
- should inherit exceptions that are assigned on the higher level (i.e. device).
-
-*/
+/**
+ * thold_check_exception_periods
+ *
+ * @to-do: This function should check 'globally' declared exceptions, like
+ * holidays etc., as well as exceptions bound to the specific $local_data_id. $local_data_id
+ * should inherit exceptions that are assigned on the higher level (i.e. device).
+ *
+ */
 function thold_check_exception_periods($local_data_id, $ref_time, $ref_range) {
 	// TO-DO
 	// Check if the reference time falls into global exceptions
@@ -4299,27 +4303,28 @@ function thold_check_exception_periods($local_data_id, $ref_time, $ref_range) {
 	return false;
 }
 
-/* thold_check_baseline -
- Should be called after hard limits have been checked and only when they are OK
-
- The function "goes back in time" $ref_time seconds and retrieves the data
- for $ref_range seconds. Then it finds minimum and maximum values and calculates
- allowed deviations from those values.
-
- @arg $local_data_id - the data source to check the data
- @arg $data_template_rrd_id - Index of the data_source in the RRD
- @arg $ref_time - Integer value representing reference offset in seconds
- @arg $ref_range - Integer value indicating reference time range in seconds
- @arg $current_value - Current "value" of the data source
- @arg $pct_down - Allowed baseline deviation in % - if set to false will not be considered
- @arg $pct_up - Allowed baseline deviation in % - if set to false will not be considered
-
- @returns (integer) - integer value that indicates status
-   -2 if the exception is active
-   -1 if the reference value is not available
-   0 if the current value is within the boundaries
-   1 if the current value is below the calculated threshold
-   2 if the current value is above the calculated threshold
+/**
+ * thold_check_baseline -
+ * Should be called after hard limits have been checked and only when they are OK
+ *
+ * The function "goes back in time" $ref_time seconds and retrieves the data
+ * for $ref_range seconds. Then it finds minimum and maximum values and calculates
+ * allowed deviations from those values.
+ *
+ * @param $local_data_id - the data source to check the data
+ * @param $data_template_rrd_id - Index of the data_source in the RRD
+ * @param $ref_time - Integer value representing reference offset in seconds
+ * @param $ref_range - Integer value indicating reference time range in seconds
+ * @param $current_value - Current "value" of the data source
+ * @param $pct_down - Allowed baseline deviation in % - if set to false will not be considered
+ * @param $pct_up - Allowed baseline deviation in % - if set to false will not be considered
+ *
+ * @return integer - integer value that indicates status
+ *   -2 if the exception is active
+ *   -1 if the reference value is not available
+ *   0 if the current value is within the boundaries
+ *   1 if the current value is below the calculated threshold
+ *   2 if the current value is above the calculated threshold
  */
 function thold_check_baseline($local_data_id, $name, $current_value, &$thold_data) {
 	global $debug;
@@ -4339,14 +4344,18 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 		$midnight =  gmmktime(0,0,0);
 		$t0 = $midnight + floor(($now - $midnight) / $thold_data['bl_ref_time_range']) * $thold_data['bl_ref_time_range'];
 
-		$ref_values    = thold_get_ref_value($thold_data['local_data_id'], $name, $t0, $thold_data['bl_ref_time_range']);
-		if ($ref_values === false || sizeof($ref_values) == 0) {
+		$ref_values = thold_get_ref_value($thold_data['local_data_id'], $name, $t0, $thold_data['bl_ref_time_range']);
+
+		if ($ref_values === false || cacti_sizeof($ref_values) == 0) {
+			cacti_log(sprintf('WARNING: RRDtool was unable to return any reference values to Thold[%s]', $thold_data['id']), false, 'THOLD');
 			return -1;
 		}
 
-		/* Note: any values are returned indexed by timestamp, not 0-based *
-		 *       no reason we can't still use min() or max()               */
-		if (cacti_sizeof($ref_values) >= 1) {
+		/**
+		 * Note: any values are returned indexed by timestamp, not 0-based
+		 * no reason we can't still use min() or max()
+		 */
+		if (cacti_sizeof($ref_values)) {
 			$ref_value_min = min($ref_values);
 			$ref_value_max = max($ref_values);
 		}
@@ -4356,15 +4365,30 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 			$ref_value_max = thold_build_cdef($thold_data['cdef'], $ref_value_max, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 		}
 
+		db_execute_prepared('UPDATE thold_data
+			SET bl_reference_min = ?, bl_reference_max = ?
+			WHERE id = ?',
+			array($ref_value_min, $ref_value_max, $thold_data['id']));
+
 		$blt_low  = '';
 		$blt_high = '';
 
-		if ($thold_data['bl_pct_down'] != '') {
-			$blt_low  = $ref_value_min - (abs($ref_value_min) * $thold_data['bl_pct_down'] / 100);
-		}
+		if ($thold_data['bl_type'] == 0) {
+			if ($thold_data['bl_pct_down'] != '') {
+				$blt_low  = $ref_value_min - (abs($ref_value_min) * $thold_data['bl_pct_down'] / 100);
+			}
 
-		if ($thold_data['bl_pct_up'] != '') {
-			$blt_high = $ref_value_max + (abs($ref_value_max) * $thold_data['bl_pct_up'] / 100);
+			if ($thold_data['bl_pct_up'] != '') {
+				$blt_high = $ref_value_max + (abs($ref_value_max) * $thold_data['bl_pct_up'] / 100);
+			}
+		} else {
+			if ($thold_data['bl_pct_down'] != '') {
+				$blt_low  = $ref_value_min - $thold_data['bl_pct_down'];
+			}
+
+			if ($thold_data['bl_pct_up'] != '') {
+				$blt_high = $ref_value_max + $thold_data['bl_pct_up'];
+			}
 		}
 
 		// Cache the calculated or empty values
@@ -4637,6 +4661,7 @@ function save_thold() {
 	get_filter_request_var('notify_warning');
 	get_filter_request_var('notify_alert');
 
+	get_filter_request_var('bl_type');
 	get_filter_request_var('bl_ref_time_range');
 	get_filter_request_var('bl_pct_down', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('bl_pct_up', FILTER_VALIDATE_FLOAT);
@@ -4840,6 +4865,7 @@ function save_thold() {
 
 	// Baseline
 	$save['bl_thold_valid']    = '0';
+	$save['bl_type']           = trim_round_request_var('bl_type');
 	$save['bl_ref_time_range'] = isempty_request_var('bl_ref_time_range') ? read_config_option('alert_bl_timerange_def'):get_nfilter_request_var('bl_ref_time_range');
 	$save['bl_pct_down']       = trim_round_request_var('bl_pct_down');
 	$save['bl_pct_up']         = trim_round_request_var('bl_pct_up');
@@ -5090,6 +5116,7 @@ function thold_create_thold_save_from_template($save, $template) {
 	$save['time_warning_fail_length']   = $template['time_warning_fail_length'];
 
 	// Baseline
+	$save['bl_type']           = $template['bl_type'];
 	$save['bl_ref_time_range'] = $template['bl_ref_time_range'];
 	$save['bl_pct_down']       = $template['bl_pct_down'];
 	$save['bl_pct_up']         = $template['bl_pct_up'];
@@ -5549,12 +5576,12 @@ function thold_template_update_threshold($id, $template) {
 		td.thold_warning_fail_trigger = tt.thold_warning_fail_trigger, td.time_warning_hi = tt.time_warning_hi,
 		td.time_warning_low = tt.time_warning_low, td.time_warning_fail_trigger = tt.time_warning_fail_trigger,
 		td.time_warning_fail_length = tt.time_warning_fail_length, td.thold_enabled = tt.thold_enabled,
-		td.thold_type = tt.thold_type, td.bl_ref_time_range = tt.bl_ref_time_range, td.bl_pct_up = tt.bl_pct_up,
-		td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up, td.bl_fail_trigger = tt.bl_fail_trigger,
-		td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0, td.repeat_alert = tt.repeat_alert,
-		td.data_type = tt.data_type, td.cdef = tt.cdef, td.percent_ds = tt.percent_ds,
-		td.expression = tt.expression, td.upper_ds = tt.upper_ds, td.exempt = tt.exempt,
-		td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
+		td.thold_type = tt.thold_type, td.bl_type = tt.bl_type, td.bl_ref_time_range = tt.bl_ref_time_range,
+		td.bl_pct_up = tt.bl_pct_up, td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up,
+		td.bl_fail_trigger = tt.bl_fail_trigger, td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0,
+		td.repeat_alert = tt.repeat_alert, td.data_type = tt.data_type, td.cdef = tt.cdef,
+		td.percent_ds = tt.percent_ds, td.expression = tt.expression, td.upper_ds = tt.upper_ds,
+		td.exempt = tt.exempt, td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
 		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning,
 		td.skipscale = tt.skipscale, td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
 		td.email_body_warn = tt.email_body_warn, td.email_body_restoral = tt.email_body_restoral,
@@ -5596,7 +5623,7 @@ function thold_template_update_thresholds($id) {
 		td.thold_warning_low = tt.thold_warning_low, td.thold_warning_fail_trigger = tt.thold_warning_fail_trigger,
 		td.time_warning_hi = tt.time_warning_hi, td.time_warning_low = tt.time_warning_low,
 		td.time_warning_fail_trigger = tt.time_warning_fail_trigger, td.time_warning_fail_length = tt.time_warning_fail_length,
-		td.thold_type = tt.thold_type, td.bl_ref_time_range = tt.bl_ref_time_range,
+		td.thold_type = tt.thold_type, td.bl_type = tt.bl_type, td.bl_ref_time_range = tt.bl_ref_time_range,
 		td.bl_pct_up = tt.bl_pct_up, td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up,
 		td.bl_fail_trigger = tt.bl_fail_trigger, td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0,
 		td.repeat_alert = tt.repeat_alert, td.data_type = tt.data_type, td.cdef = tt.cdef,
@@ -5887,7 +5914,7 @@ function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 	$emails = '';
 
 	if ($class == 'alert') {
-		if (read_config_option('thold_disable_legacy') != 'on' && $recipeint == 'to') {
+		if (read_config_option('thold_disable_legacy') != 'on' && $recipient == 'to') {
 			$emails = array();
 
 			$rows = db_fetch_assoc_prepared('SELECT ptc.data
@@ -5914,7 +5941,7 @@ function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 
 		$emails .= (strlen($emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert'], $recipient);
 	} else {
-		if (read_config_option('thold_disable_legacy') != 'on' && $recipeint == 'to') {
+		if (read_config_option('thold_disable_legacy') != 'on' && $recipient == 'to') {
 			$emails = $thold['notify_warning_extra'];
 		}
 
@@ -5943,7 +5970,7 @@ function get_thold_notification_emails($id, $recipient = 'to') {
 }
 
 /* get_hash_thold_template - returns the current unique hash for a thold_template
-   @arg $id - (int) the ID of the thold template to return a hash for
+   @param $id - (int) the ID of the thold template to return a hash for
    @returns - a 128-bit, hexadecimal hash */
 function get_hash_thold_template($id) {
 	$hash = db_fetch_cell_prepared('SELECT hash

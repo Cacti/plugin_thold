@@ -971,8 +971,20 @@ function list_tholds() {
 
 					break;
 				case 1:
-					form_selectable_cell($thold_data['bl_pct_up'] . (strlen($thold_data['bl_pct_up']) ? '%':'-'), $thold_data['id'], '', 'right');
-					form_selectable_cell($thold_data['bl_pct_down'] . (strlen($thold_data['bl_pct_down']) ? '%':'-'), $thold_data['id'], '', 'right');
+					$hi = thold_format_number($thold_data['thold_hi'], 2, $baseu, $suffix, $show_units);
+					$hi_var = thold_format_number($thold_data['bl_pct_up'], 2, $baseu, $suffix, $show_units);
+					$low = thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix, $show_units);
+					$low_var = thold_format_number($thold_data['bl_pct_down'], 2, $baseu, $suffix, $show_units);
+
+					if ($thold_data['bl_type'] == 0) {
+						$suffix = ' %';
+					} else {
+						$suffix = '';
+					}
+
+					form_selectable_cell($hi != '' ? $hi . ' [ ' . $hi_var . " $suffix ]":'-', $thold_data['id'], '', 'right');
+					form_selectable_cell($low != '' ? $low . ' [ ' . $low_var . " $suffix ]":'-', $thold_data['id'], '', 'right');
+
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['bl_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'right');
 					form_selectable_cell($timearray[$thold_data['bl_ref_time_range']/$thold_data['rrd_step']], $thold_data['id'], '', 'right');
 
@@ -1134,12 +1146,21 @@ function thold_edit() {
 
 	html_start_box(__('Graph Data', 'thold'), '100%', false, '3', 'center', '');
 
+	if ($thold_data['thold_template_id'] > 0) {
+		$template_edit = "<span class='linkMarker'>*</span><a class='hyperLink' href='" . html_escape($config['url_path'] . 'plugins/thold/thold_templates.php?action=edit&id=' . $thold_data['thold_template_id']) . "'>" . __('Edit Threshold Template', 'thold') . "</a></span>";
+	} else {
+		$template_edit = '';
+	}
+
 	?>
 	<tr>
-		<td class='textArea'>
+		<td class='textArea' style='vertical-align:text-top;padding:5px;'>
 			<?php if (isset($banner)) { print $banner . '<br><br>'; }; ?>
-			<?php print __('Data Source Description:', 'thold');?> <br><?php print html_escape($desc);?><br><br>
-			<?php print __('Associated Graph (Graphs using this RRD):', 'thold');?> <br><br>
+			<?php print $template_edit;?>
+			<br>
+			<br>
+			<b><?php print __('Data Source Description:', 'thold');?></b><br><?php print html_escape($desc);?><br><br>
+			<b><?php print __('Associated Graph (Graphs using this RRD):', 'thold');?></b><br>
 			<select id='local_graph_id' name='local_graph_id'>
 				<?php
 				foreach($grapharr as $g) {
@@ -1156,7 +1177,7 @@ function thold_edit() {
 			<br>
 			<br>
 		</td>
-		<td class='textArea'>
+		<td class='textArea' style='vertical-align:middle;padding:5px'>
 			<img id='graphimage' src='<?php print html_escape($config['url_path'] . 'graph_image.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=0&graph_start=-32400&graph_height=150&graph_width=600&randome=' . rand());?>'>
 		</td>
 	</tr>
@@ -1269,10 +1290,21 @@ function thold_edit() {
 							}
 						}
 					} else {
+						$hi = thold_format_number($td['thold_hi'], 2, $baseu, $suffix, $show_units);
+						$hi_var = thold_format_number($td['bl_pct_up'], 2, $baseu, $suffix, $show_units);
+						$low = thold_format_number($td['thold_low'], 2, $baseu, $suffix, $show_units);
+						$low_var = thold_format_number($td['bl_pct_down'], 2, $baseu, $suffix, $show_units);
+
+						if ($td['bl_type'] == 0) {
+							$suffix = ' %';
+						} else {
+							$suffix = '';
+						}
+
 						$cur_setting .= '<span style="padding:4px">' . __('BL Up:', 'thold') . '</span>' .
-							"<span>" . ($td['bl_pct_up'] != '' ? __('%s%%%', $td['bl_pct_up'], 'thold'):__('N/A', 'thold')) . "</span>";
+							"<span>" . ($td['bl_pct_up'] != '' ? $hi . ' [ ' . $hi_var . " $suffix ]":__('N/A', 'thold')) . "</span>";
 						$cur_setting .= '<span style="padding:4px">' . __('BL Down:', 'thold'). '</span>' .
-							"<span>" . ($td['bl_pct_down'] != '' ? __('%s%%%', $td['bl_pct_down'], 'thold'):__('N/A', 'thold')) . "</span>";
+							"<span>" . ($td['bl_pct_down'] != '' ? $low . ' [ ' . $low_var . " $suffix ]":__('N/A', 'thold')) . "</span>";
 					}
 				}
 
@@ -1692,6 +1724,13 @@ function thold_edit() {
 			'friendly_name' => __('Baseline Settings', 'thold'),
 			'method' => 'spacer',
 		),
+		'bl_type' => array(
+			'friendly_name' => __('Baseline Type', 'thold'),
+			'method' => 'drop_array',
+			'array' => array(0 => __('Percentage Deviation', 'thold'), 1 => __('Absolute Value', 'thold')),
+			'description' => __('The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend.', 'thold'),
+			'value' => isset($thold_data['bl_type']) ? $thold_data['bl_type'] : 0
+		),
 		'bl_ref_time_range' => array(
 			'friendly_name' => __('Time range', 'thold'),
 			'method' => 'drop_array',
@@ -1702,7 +1741,7 @@ function thold_edit() {
 		'bl_pct_up' => array(
 			'friendly_name' => __('Deviation UP', 'thold'),
 			'method' => 'textbox',
-			'max_length' => 3,
+			'max_length' => 12,
 			'size' => 15,
 			'description' => __('Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.', 'thold'),
 			'value' => isset($thold_data['bl_pct_up']) ? $thold_data['bl_pct_up'] : ''
@@ -1710,7 +1749,7 @@ function thold_edit() {
 		'bl_pct_down' => array(
 			'friendly_name' => __('Deviation DOWN', 'thold'),
 			'method' => 'textbox',
-			'max_length' => 3,
+			'max_length' => 12,
 			'size' => 15,
 			'description' => __('Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.', 'thold'),
 			'value' => isset($thold_data['bl_pct_down']) ? $thold_data['bl_pct_down'] : ''

@@ -1431,6 +1431,33 @@ function thold_upgrade_database($force = false) {
 			'default' => ''));
 	}
 
+	if (!db_column_exists('thold_data', 'bl_type')) {
+		db_add_column('thold_data', array(
+			'name' => 'bl_type',
+			'type' => 'int(3)',
+			'NULL' => false,
+			'after' => 'bl_ref_time_range',
+			'default' => '0'));
+	}
+
+	if (!db_column_exists('thold_data', 'bl_reference_min')) {
+		db_add_column('thold_data', array(
+			'name' => 'bl_reference_min',
+			'type' => 'double',
+			'NULL' => true,
+			'after' => 'bl_alert',
+			'default' => '0'));
+	}
+
+	if (!db_column_exists('thold_data', 'bl_reference_max')) {
+		db_add_column('thold_data', array(
+			'name' => 'bl_reference_max',
+			'type' => 'double',
+			'NULL' => true,
+			'after' => 'bl_reference_min',
+			'default' => '0'));
+	}
+
 	if (!db_column_exists('thold_template', 'skipscale')) {
 		db_add_column('thold_template', array(
 			'name' => 'skipscale',
@@ -1438,6 +1465,15 @@ function thold_upgrade_database($force = false) {
 			'NULL' => true,
 			'after' => 'thold_hrule_warning',
 			'default' => ''));
+	}
+
+	if (!db_column_exists('thold_template', 'bl_type')) {
+		db_add_column('thold_template', array(
+			'name' => 'bl_type',
+			'type' => 'int(3)',
+			'NULL' => false,
+			'after' => 'bl_ref_time_range',
+			'default' => '0'));
 	}
 
 	if (cacti_version_compare($oldv, '1.8', '<')) {
@@ -1490,11 +1526,14 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'thold_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'on');
 	$data['columns'][] = array('name' => 'thold_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0);
 	$data['columns'][] = array('name' => 'bl_ref_time_range', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0);
 	$data['columns'][] = array('name' => 'bl_pct_down', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'bl_pct_up', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'bl_fail_trigger', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_fail_count', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_alert', 'type' => 'int(2)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'bl_reference_min', 'type' => 'double', 'NULL' => true, 'default' => '0');
+	$data['columns'][] = array('name' => 'bl_reference_max', 'type' => 'double', 'NULL' => true, 'default' => '0');
 	$data['columns'][] = array('name' => 'bl_thold_valid', 'type' => 'int(11)', 'NULL' => false, 'default' => '0', 'unsigned' => true);
 	$data['columns'][] = array('name' => 'lastread', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lasttime', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00');
@@ -1582,6 +1621,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'thold_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'on');
 	$data['columns'][] = array('name' => 'thold_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0);
 	$data['columns'][] = array('name' => 'bl_ref_time_range', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
+	$data['columns'][] = array('name' => 'bl_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0);
 	$data['columns'][] = array('name' => 'bl_pct_down', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'bl_pct_up', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'bl_fail_trigger', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);

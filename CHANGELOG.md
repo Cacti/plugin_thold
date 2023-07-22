@@ -4,6 +4,8 @@
 
 * security: Fix potential security exposure with unserialize() function
 
+* feature#185: Baseline deviation with exact changes
+
 * feature#445: Allow removal of Threshold from a specific device ignoring device template
 
 * feature#497: Show acknowledgment status on Thresholds tab instead of log
@@ -19,6 +21,8 @@
 * feature: Add the Thold ID to the environment for scripts
 
 * feature: Add the Thold ID to the possible replacement value for notifications
+
+* feature: Allow quick links to the Threshold Template when editing a Thold
 
 * issue#147: Fixed threshold compare negative baseline values.
 
@@ -65,6 +69,8 @@
 * issue#584: Thold device uptime check still checks uptime when availability method is 0 and snmp_version is > 0
 
 * issue#585:  The return Web page is wrong after clicking the "return" button in the "edit threshold"
+
+* issue#586: Attempting to edit a non-existing thold template results in plugin being disabled
 
 * issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti
   uses autocommit, so don't use them.

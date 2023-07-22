@@ -700,8 +700,20 @@ function tholds() {
 
 					break;
 				case 1:
-					form_selectable_cell($thold_data['bl_pct_up'] . (strlen($thold_data['bl_pct_up']) ? '%':'-'), $thold_data['id'], '', 'right');
-					form_selectable_cell($thold_data['bl_pct_down'] . (strlen($thold_data['bl_pct_down']) ? '%':'-'), $thold_data['id'], '', 'right');
+					$hi = thold_format_number($thold_data['thold_hi'], 2, $baseu, $suffix, $show_units);
+					$hi_var = thold_format_number($thold_data['bl_pct_up'], 2, $baseu, $suffix, $show_units);
+					$low = thold_format_number($thold_data['thold_low'], 2, $baseu, $suffix, $show_units);
+					$low_var = thold_format_number($thold_data['bl_pct_down'], 2, $baseu, $suffix, $show_units);
+
+					if ($thold_data['bl_type'] == 0) {
+						$suffix = ' %';
+					} else {
+						$suffix = '';
+					}
+
+					form_selectable_cell($hi != '' ? $hi . ' [ ' . $hi_var . " $suffix ]":'-', $thold_data['id'], '', 'right');
+					form_selectable_cell($low != '' ? $low . ' [ ' . $low_var . " $suffix ]":'-', $thold_data['id'], '', 'right');
+
 					form_selectable_cell('<i>' . plugin_thold_duration_convert($thold_data['local_data_id'], $thold_data['bl_fail_trigger'], 'alert') . '</i>', $thold_data['id'], '', 'right');
 					form_selectable_cell($timearray[$thold_data['bl_ref_time_range']/$thold_data['rrd_step']], $thold_data['id'], '', 'right');
 

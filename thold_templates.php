@@ -629,6 +629,7 @@ function template_save_edit() {
 	get_filter_request_var('time_warning_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('time_warning_fail_trigger');
 	get_filter_request_var('time_warning_fail_length');
+	get_filter_request_var('bl_type');
 	get_filter_request_var('bl_ref_time_range');
 	get_filter_request_var('bl_pct_down', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('bl_pct_up', FILTER_VALIDATE_FLOAT);
@@ -770,6 +771,7 @@ function template_save_edit() {
 		}
 	}
 
+	$save['bl_type']     = get_nfilter_request_var('bl_type');
 	$save['bl_pct_down'] = get_nfilter_request_var('bl_pct_down');
 	$save['bl_pct_up']   = get_nfilter_request_var('bl_pct_up');
 
@@ -874,6 +876,12 @@ function template_edit() {
 		FROM thold_template
 		WHERE id = ?',
 		array($id));
+
+	if (!cacti_sizeof($thold_data)) {
+		raise_message('template_not_found', __('The Threshold Template requested can not be found', 'thold'), MESSAGE_LEVEL_ERROR);
+		header('Location: thold_templates.php');
+		exit;
+	}
 
 	$temp = db_fetch_row_prepared('SELECT id, name
 		FROM data_template
@@ -1278,6 +1286,13 @@ function template_edit() {
 			'friendly_name' => __('Baseline Monitoring', 'thold'),
 			'method' => 'spacer',
 		),
+		'bl_type' => array(
+			'friendly_name' => __('Baseline Type', 'thold'),
+			'method' => 'drop_array',
+			'array' => array(0 => __('Percentage Deviation', 'thold'), 1 => __('Absolute Value', 'thold')),
+			'description' => __('The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend.', 'thold'),
+			'value' => isset($thold_data['bl_type']) ? $thold_data['bl_type'] : 0
+		),
 		'bl_ref_time_range' => array(
 			'friendly_name' => __('Time reference in the past', 'thold'),
 			'method' => 'drop_array',
@@ -1288,7 +1303,7 @@ function template_edit() {
 		'bl_pct_up' => array(
 			'friendly_name' => __('Baseline Deviation UP', 'thold'),
 			'method' => 'textbox',
-			'max_length' => 3,
+			'max_length' => 12,
 			'size' => 15,
 			'description' => __('Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.', 'thold'),
 			'value' => isset($thold_data['bl_pct_up']) ? $thold_data['bl_pct_up'] : read_config_option('alert_bl_percent_def')
@@ -1296,7 +1311,7 @@ function template_edit() {
 		'bl_pct_down' => array(
 			'friendly_name' => __('Baseline Deviation DOWN', 'thold'),
 			'method' => 'textbox',
-			'max_length' => 3,
+			'max_length' => 12,
 			'size' => 15,
 			'description' => __('Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.', 'thold'),
 			'value' => isset($thold_data['bl_pct_down']) ? $thold_data['bl_pct_down'] : read_config_option('alert_bl_percent_def')
@@ -1718,10 +1733,10 @@ function template_edit() {
 	function thold_toggle_baseline(status) {
 		if (status == '') {
 			$('#row_baseline_header, #row_bl_ref_time_range').show();
-			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').show();
+			$('#row_bl_type, #row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').show();
 		} else {
 			$('#row_baseline_header, #row_bl_ref_time_range').hide();
-			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').hide();
+			$('#row_bl_type, #row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').hide();
 		}
 	}
 
