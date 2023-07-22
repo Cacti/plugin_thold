@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-12 22:16-0500\n"
+"POT-Creation-Date: 2023-07-22 13:25-0400\n"
 "PO-Revision-Date: 2020-09-13 15:04-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -38,36 +38,35 @@ msgstr "%d Maanden"
 msgid "%d Year"
 msgstr "%d Jaar"
 
-#: includes/arrays.php:37 thold_graph.php:694 thold_graph.php:1037
+#: includes/arrays.php:37 thold_graph.php:772 thold_graph.php:1115
 msgid "Down"
 msgstr "Offline"
 
 #: includes/arrays.php:41 includes/arrays.php:227 includes/arrays.php:243
-#: thold_graph.php:703
+#: thold_graph.php:781
 msgid "Error"
 msgstr "Fout"
 
-#: includes/arrays.php:45 thold_graph.php:697 thold_graph.php:1038
+#: includes/arrays.php:45 thold_graph.php:775 thold_graph.php:1116
 msgid "Recovering"
 msgstr "Herstellende"
 
-#: includes/arrays.php:49 thold_graph.php:700 thold_graph.php:1036
+#: includes/arrays.php:49 thold_graph.php:778 thold_graph.php:1114
 msgid "Up"
 msgstr "Online"
 
-#: includes/arrays.php:53 thold_graph.php:706 thold_graph.php:1039
+#: includes/arrays.php:53 thold_graph.php:784 thold_graph.php:1117
 msgid "Unknown"
 msgstr "Onbekend"
 
 #: includes/arrays.php:57 includes/arrays.php:198 includes/settings.php:308
-#: includes/settings.php:422 includes/settings.php:435
-#: includes/settings.php:465 notify_lists.php:733 notify_lists.php:1154
-#: notify_lists.php:1318 notify_lists.php:1514 thold.php:704
-#: thold_graph.php:216 thold_graph.php:690 thold_graph.php:1033
+#: includes/settings.php:422 includes/settings.php:458 notify_lists.php:735
+#: notify_lists.php:1165 notify_lists.php:1329 notify_lists.php:1523
+#: thold.php:719 thold_graph.php:218 thold_graph.php:768 thold_graph.php:1111
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
-#: includes/arrays.php:61 thold_graph.php:964 thold_graph.php:1035
+#: includes/arrays.php:61 thold_graph.php:1042 thold_graph.php:1113
 #, fuzzy
 msgid "Not Monitored"
 msgstr "Gemonitored"
@@ -147,7 +146,7 @@ msgstr "Waarschuwing"
 msgid "Event - Restoral"
 msgstr "Evenement - Herstel"
 
-#: includes/arrays.php:112 thold_graph.php:1393
+#: includes/arrays.php:112 thold_graph.php:1472
 #, fuzzy
 msgid "Restoral Event"
 msgstr "Herstel evenement"
@@ -186,7 +185,7 @@ msgstr "Waarschuwing Trigger"
 msgid "Alert-Warn"
 msgstr "Waarschuwing"
 
-#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1363
+#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1443
 msgid "Acknowledgment"
 msgstr "Dankbetuiging"
 
@@ -207,8 +206,8 @@ msgstr "Ok"
 msgid "Emergency"
 msgstr "Noodgeval"
 
-#: includes/arrays.php:226 thold.php:1831 thold.php:1850
-#: thold_templates.php:1394 thold_templates.php:1408
+#: includes/arrays.php:226 thold.php:1861 thold.php:1880
+#: thold_templates.php:1419 thold_templates.php:1433
 msgid "Critical"
 msgstr "Kritiek"
 
@@ -221,7 +220,7 @@ msgid "Debug"
 msgstr "Debug"
 
 #: includes/arrays.php:270 includes/arrays.php:355 includes/arrays.php:421
-#: thold_functions.php:94
+#: thold_functions.php:98
 msgid "Never"
 msgstr "Nooit"
 
@@ -234,8 +233,8 @@ msgstr "Iedere minuut"
 #: includes/arrays.php:278 includes/arrays.php:279 includes/arrays.php:280
 #: includes/arrays.php:356 includes/arrays.php:357 includes/arrays.php:358
 #: includes/arrays.php:359 includes/arrays.php:360 includes/arrays.php:361
-#: includes/settings.php:466 includes/settings.php:467
-#: includes/settings.php:468
+#: includes/settings.php:459 includes/settings.php:460
+#: includes/settings.php:461
 #, php-format
 msgid "Every %d Minutes"
 msgstr "Iedere %d minuten"
@@ -248,7 +247,7 @@ msgstr "Ieder uur"
 #: includes/arrays.php:285 includes/arrays.php:286 includes/arrays.php:287
 #: includes/arrays.php:363 includes/arrays.php:364 includes/arrays.php:365
 #: includes/arrays.php:366 includes/arrays.php:367 includes/arrays.php:368
-#: includes/settings.php:470
+#: includes/settings.php:463
 #, php-format
 msgid "Every %d Hours"
 msgstr "Iedere %d uren"
@@ -321,7 +320,7 @@ msgid "%d Day"
 msgstr "%d Dag"
 
 #: includes/arrays.php:314 includes/arrays.php:346 includes/arrays.php:391
-#: includes/arrays.php:412 thold_graph.php:1267
+#: includes/arrays.php:412 thold_graph.php:1347
 #, php-format
 msgid "%d Days"
 msgstr "%d Dagen"
@@ -404,7 +403,7 @@ msgstr "CDEF"
 msgid "Percentage"
 msgstr "Percentage"
 
-#: includes/arrays.php:491 thold.php:1743 thold_templates.php:1298
+#: includes/arrays.php:491 thold.php:1763 thold_templates.php:1313
 #, fuzzy
 msgid "RPN Expression"
 msgstr "RPN-uitdrukking"
@@ -429,7 +428,7 @@ msgid "Resume Notifications"
 msgstr "Geen SNMP notificaties"
 
 #: includes/arrays.php:499 includes/arrays.php:508 notify_lists.php:31
-#: setup.php:1295
+#: setup.php:1298
 msgid "Delete"
 msgstr "Verwijder"
 
@@ -450,53 +449,53 @@ msgstr "Gesuggereerde namen opnieuw toepassen"
 msgid "Propagate Template"
 msgstr "Propageren Sjabloon"
 
-#: includes/arrays.php:507 thold_graph.php:1451
+#: includes/arrays.php:507 thold_graph.php:1530
 msgid "Export"
 msgstr "Exporteer"
 
-#: includes/polling.php:609
+#: includes/polling.php:532
 msgid "SNMP not in use"
 msgstr "SNMP niet in gebruik"
 
-#: includes/polling.php:662 thold.php:956 thold.php:976 thold.php:977
-#: thold.php:1178 thold.php:1227 thold.php:1234 thold.php:1240 thold.php:1248
-#: thold.php:1254 thold.php:1260 thold.php:1262 thold.php:1447
-#: thold_graph.php:621 thold_graph.php:641 thold_graph.php:642
-#: thold_graph.php:917 thold_graph.php:966 thold_graph.php:969
-#: thold_graph.php:970 thold_graph.php:971 thold_graph.php:1394
-#: thold_graph.php:1395
+#: includes/polling.php:591 thold.php:970 thold.php:990 thold.php:991
+#: thold.php:1191 thold.php:1240 thold.php:1247 thold.php:1253 thold.php:1261
+#: thold.php:1267 thold.php:1273 thold.php:1275 thold.php:1460
+#: thold_graph.php:699 thold_graph.php:719 thold_graph.php:720
+#: thold_graph.php:995 thold_graph.php:1044 thold_graph.php:1047
+#: thold_graph.php:1048 thold_graph.php:1049 thold_graph.php:1473
+#: thold_graph.php:1474
 msgid "N/A"
 msgstr "N/B"
 
-#: includes/polling.php:667
+#: includes/polling.php:596
 #, fuzzy
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "Aankondiging van apparaten: <DESCRIPTION> (<HOSTNAME>) teruggezonden uit DOWN-staat"
 
-#: includes/polling.php:677
+#: includes/polling.php:614
 #, fuzzy
-msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
 msgstr "<br>Systeem <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br><br><br>Huidige pingreactie: <CUR_TIME> ms<br>Gemiddelde systeemrespons: <AVG_TIME> ms<br>Systeembeschikbaarheid: <AVAILABILITEIT><br><br>Totale Controles Sinds wissen: <TOT_POLL><br>Totale mislukte Controles: <FAIL_POLL><br><br>Vroegste datum Gecontroleerd UP: <LAST_FAIL><br><br>Apparaten Voorheen DOWN voor: <DOWNTIME><br><br><br>SNMP Info:<br>Naam - <SNMP_HOSTNAME><br><br>Locatie - <SNMP_LOCATIE><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>Systeem - <SNMP_SYSTEM><br><br><br>NOTE: <NOTES>."
 
-#: includes/polling.php:819
+#: includes/polling.php:763
 #, fuzzy
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "Apparaten Fout: <DESCRIPTIE> (<HOSTNAME>) is DOWNEN"
 
-#: includes/polling.php:824 includes/polling.php:840
+#: includes/polling.php:775 includes/polling.php:794
 msgid "DOWN"
 msgstr "OMLAAG"
 
-#: includes/polling.php:830
+#: includes/polling.php:782
 #, fuzzy
-msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Systeemfout : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reden: <MESSAGE><br><br><br><br>Gemiddelde systeemrespons : <AVG_TIME> ms<br>Systeembeschikbaarheid: <AVAILABILITEIT><br><br>Totale Controles Sinds wissen: <TOT_POLL><br>Totale mislukte Controles: <FAIL_POLL><br><br>Laatste datum Gecontroleerde DOWN : <LAST_FAIL><br>Apparaten Voorheen UP voor: <DOWNTIME><br>NOTE: <NOTES>"
 
 #: includes/settings.php:29 includes/settings.php:64 includes/settings.php:71
 #: includes/settings.php:77 includes/settings.php:208 notify_lists.php:44
-#: notify_lists.php:1322 notify_lists.php:1387 notify_lists.php:1997
-#: thold.php:709 thold.php:760 thold_functions.php:139 thold_graph.php:221
-#: thold_templates.php:1967
+#: notify_lists.php:1333 notify_lists.php:1398 notify_lists.php:2010
+#: thold.php:724 thold.php:775 thold_functions.php:143 thold_graph.php:223
+#: thold_templates.php:1992
 msgid "Thresholds"
 msgstr "Drempelwaarden"
 
@@ -524,7 +523,7 @@ msgstr "(toevoegen)"
 msgid "Threshold Logs"
 msgstr "Drempels"
 
-#: includes/settings.php:91 thold_functions.php:141 thold_graph.php:768
+#: includes/settings.php:91 thold_functions.php:145 thold_graph.php:846
 msgid "Device Status"
 msgstr "Apparaat status"
 
@@ -555,7 +554,7 @@ msgstr "Recente storingen aan het apparaat"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
-#: includes/settings.php:160 thold_templates.php:1856
+#: includes/settings.php:160 thold_templates.php:1881
 #, fuzzy
 msgid "Threshold Templates"
 msgstr "Drempel sjablonen"
@@ -566,7 +565,7 @@ msgid "Threshold Template Import"
 msgstr "Drempelwaarde Sjabloon Importeren"
 
 #: includes/settings.php:174 includes/settings.php:188
-#: includes/settings.php:195 includes/settings.php:207 notify_lists.php:1891
+#: includes/settings.php:195 includes/settings.php:207 notify_lists.php:1904
 #, fuzzy
 msgid "Notification Lists"
 msgstr "Notificatielijsten"
@@ -580,12 +579,12 @@ msgstr "Notificatielijsten (bewerken)"
 msgid "Management"
 msgstr "Onderhoud"
 
-#: includes/settings.php:209 notify_lists.php:45 notify_lists.php:1998
-#: thold_templates.php:1871 thold_templates.php:1947
+#: includes/settings.php:209 notify_lists.php:45 notify_lists.php:2011
+#: thold_templates.php:1896 thold_templates.php:1972
 msgid "Templates"
 msgstr "Templates"
 
-#: includes/settings.php:209 thold_graph.php:1475
+#: includes/settings.php:209 thold_graph.php:1556
 msgid "Threshold"
 msgstr "Drempel"
 
@@ -636,7 +635,7 @@ msgstr "Apparaat Omhoog/Omlaag Meldingsinstellingen"
 msgid "Threshold Up/Down Email Notification"
 msgstr "Drempel omhoog/omlaag e-mail notificatie"
 
-#: includes/settings.php:309 notify_lists.php:733 notify_lists.php:1156
+#: includes/settings.php:309 notify_lists.php:735 notify_lists.php:1167
 #, fuzzy
 msgid "Global List"
 msgstr "Wereldwijde lijst"
@@ -780,483 +779,481 @@ msgstr "Standaard beheerstatus"
 msgid "Default Threshold management filter status."
 msgstr "Default Threshold management filterstatus."
 
-#: includes/settings.php:421 includes/settings.php:434 notify_lists.php:966
-#: notify_lists.php:984 notify_lists.php:1283 notify_lists.php:1301
-#: thold.php:687
+#: includes/settings.php:421 notify_lists.php:977 notify_lists.php:995
+#: notify_lists.php:1294 notify_lists.php:1312 thold.php:702
 msgid "Any"
 msgstr "Alle"
 
-#: includes/settings.php:423 includes/settings.php:436 notify_lists.php:1317
-#: notify_lists.php:1403 notify_lists.php:1514 thold.php:703 thold.php:1914
-#: thold_graph.php:215 thold_graph.php:1032 thold_templates.php:1035
-#: thold_templates.php:1471
+#: includes/settings.php:423 notify_lists.php:1328 notify_lists.php:1414
+#: notify_lists.php:1523 thold.php:718 thold.php:1944 thold_graph.php:217
+#: thold_graph.php:1110 thold_templates.php:1043 thold_templates.php:1496
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-#: includes/settings.php:424 includes/settings.php:437 notify_lists.php:1315
-#: thold.php:701 thold_graph.php:213
+#: includes/settings.php:424 notify_lists.php:1326 thold.php:716
+#: thold_graph.php:215
 #, fuzzy
 msgid "Breached"
 msgstr "Gebroken"
 
-#: includes/settings.php:425 includes/settings.php:438 notify_lists.php:1316
-#: notify_lists.php:1401 thold.php:702 thold.php:823 thold_graph.php:214
-#: thold_graph.php:463
+#: includes/settings.php:425 notify_lists.php:1327 notify_lists.php:1412
+#: thold.php:717 thold.php:838 thold_graph.php:216 thold_graph.php:503
 msgid "Triggered"
 msgstr "Geactiveerd"
 
 #: includes/settings.php:430
 #, fuzzy
-msgid "Default Monitor Status"
-msgstr "Standaard monitorstatus"
-
-#: includes/settings.php:431
-#, fuzzy
-msgid "Default Threshold Tab filter status."
-msgstr "Default Threshold Tab filterstatus."
-
-#: includes/settings.php:443
-#, fuzzy
 msgid "Empty ifHighSpeed Default"
 msgstr "Leeg alsHighSpeed Default"
 
-#: includes/settings.php:444
+#: includes/settings.php:431
 #, fuzzy
 msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
 msgstr "Als de ifHighSpeed en ifSpeed terugkomen als nul, gebruik dan de volgende ifHighSpeed-instelling voor de berekening van Expression Thresholds.  Standaard is de standaardinstelling alsHighSpeed 10000 voor 10GE interfaces."
 
-#: includes/settings.php:451
+#: includes/settings.php:438
 #, fuzzy
 msgid "Threshold Daemon"
 msgstr "Drempel Daemon"
 
-#: includes/settings.php:455
+#: includes/settings.php:442
 #, fuzzy
 msgid "Enable Threshold Daemon"
 msgstr "Activeer Drempel Daemon"
 
-#: includes/settings.php:456
+#: includes/settings.php:443
 #, fuzzy
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
 msgstr "Door dit vakje aan te vinken wordt het gebruik van een speciale daemon Threshold ingeschakeld. Dit kan worden gebruikt om de systeemprestaties te verbeteren en/of om Threshold monitoring naar een aparte server te distribueren."
 
-#: includes/settings.php:461
+#: includes/settings.php:448
+#, fuzzy
+msgid "Force Threshold Daemon Debug"
+msgstr "Drempel Daemon"
+
+#: includes/settings.php:449
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr ""
+
+#: includes/settings.php:454
 #, fuzzy
 msgid "Daemon Down Notification Frequency"
 msgstr "Apparaat Omhoog/Omlaag Meldingsinstellingen"
 
-#: includes/settings.php:462
+#: includes/settings.php:455
 #, fuzzy
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
 msgstr "Als blijkt dat de Thold Daemon niet werkt, stuur dan op deze frequentie een e-mailnotificatie."
 
-#: includes/settings.php:469
+#: includes/settings.php:462
 #, fuzzy, php-format
 msgid "Every %d Hour"
 msgstr "Iedere %d uren"
 
-#: includes/settings.php:475
-#, fuzzy
-msgid "Maximum Concurrent Threshold Processes"
-msgstr "Maximale gelijktijdige drempelwaarden Processen"
+#: includes/settings.php:468
+msgid "Daemon Threads"
+msgstr ""
 
-#: includes/settings.php:476
+#: includes/settings.php:469
 #, fuzzy
-msgid "The maximum number of concurrent processes to be handled by the Threshold Daemon."
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
 msgstr "Het maximale aantal gelijktijdige processen dat door de Threshold Daemon kan worden verwerkt."
 
-#: includes/settings.php:483
+#: includes/settings.php:472
+msgid "1 Process"
+msgstr ""
+
+#: includes/settings.php:473 includes/settings.php:474
+#: includes/settings.php:475 includes/settings.php:476
+#: includes/settings.php:477 includes/settings.php:478
+#: includes/settings.php:479 includes/settings.php:480
+#: includes/settings.php:481
+#, php-format
+msgid "%d Processes"
+msgstr ""
+
+#: includes/settings.php:486
 msgid "Logging"
 msgstr "Logging"
 
-#: includes/settings.php:487
+#: includes/settings.php:490
 #, fuzzy
 msgid "Log Threshold Breaches"
 msgstr "Log Threshold Schendingen"
 
-#: includes/settings.php:488
+#: includes/settings.php:491
 #, fuzzy
 msgid "Enable logging of all Threshold failures to the Cacti Log."
 msgstr "Activeer het loggen van alle drempelfouten in het Cactielogboek."
 
-#: includes/settings.php:493
+#: includes/settings.php:496
 #, fuzzy
 msgid "Show Data Source in Log"
 msgstr "Toon gegevensbron in logboek"
 
-#: includes/settings.php:494
+#: includes/settings.php:497
 #, fuzzy
 msgid "Show the Data Source name in the Log if not present."
 msgstr "Toon de naam van de gegevensbron in het logboek als deze niet aanwezig is."
 
-#: includes/settings.php:499
+#: includes/settings.php:502
 #, fuzzy
 msgid "Log Threshold Changes"
 msgstr "Wijziging van de logboekdrempel"
 
-#: includes/settings.php:500
+#: includes/settings.php:503
 #, fuzzy
 msgid "Enable logging of all Threshold changes to the Cacti Log."
 msgstr "Activeer het loggen van alle Drempelwijzigingen in het Cactielogboek."
 
-#: includes/settings.php:505
+#: includes/settings.php:508
 msgid "Debug Log"
 msgstr "Debug logboek"
 
-#: includes/settings.php:506
+#: includes/settings.php:509
 #, fuzzy
 msgid "Enable logging of debug messages with Threshold"
 msgstr "Logboekregistratie van debugberichten inschakelen met Threshold"
 
-#: includes/settings.php:511
+#: includes/settings.php:514
 #, fuzzy
 msgid "Alert Log Retention"
 msgstr "Waarschuwingslogboekretentie"
 
-#: includes/settings.php:512
+#: includes/settings.php:515
 #, fuzzy
 msgid "Keep Threshold Logs for this number of days."
 msgstr "Bewaar de Threshold Logs voor dit aantal dagen."
 
-#: includes/settings.php:518 thold.php:1909 thold_templates.php:1466
+#: includes/settings.php:521 thold.php:1939 thold_templates.php:1491
 #, fuzzy
 msgid "Syslog Settings"
 msgstr "Syslog instellingen"
 
-#: includes/settings.php:522
+#: includes/settings.php:525
 #, fuzzy
 msgid "Syslog Enabled"
 msgstr "Syslog ingeschakeld"
 
-#: includes/settings.php:523
+#: includes/settings.php:526
 #, fuzzy
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Als deze optie is aangevinkt, worden bij het maken van een nieuwe Threshold standaard nieuwe Threshold events naar uw lokale syslog gestuurd.  Deze instelling is een preset.  Drempelinstellingen dicteren de eigenlijke syslogcontrole."
 
-#: includes/settings.php:527
+#: includes/settings.php:530
 #, fuzzy
 msgid "Default Priority/Level"
 msgstr "Standaardprioriteit/niveau"
 
-#: includes/settings.php:528
+#: includes/settings.php:531
 #, fuzzy
 msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Dit is de standaard Prioriteit/het niveau dat Thold zal gebruiken om syslog berichten te versturen.  Deze instelling is een preset.  Drempelinstellingen dicteren de eigenlijke syslogcontrole."
 
-#: includes/settings.php:534
+#: includes/settings.php:537
 #, fuzzy
 msgid "Default Facility"
 msgstr "Standaardfaciliteit"
 
-#: includes/settings.php:535
+#: includes/settings.php:538
 #, fuzzy
 msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Dit is de standaard faciliteit die Thold zal gebruiken om syslog berichten te versturen.  Deze instelling is een preset.  Drempelinstellingen dicteren de eigenlijke syslogcontrole."
 
-#: includes/settings.php:541
+#: includes/settings.php:544
 #, fuzzy
 msgid "Alert Presets"
 msgstr "Waarschuwingspresets"
 
-#: includes/settings.php:545
+#: includes/settings.php:548
 #, fuzzy
 msgid "Weekend exemptions"
 msgstr "Weekend vrijstellingen"
 
-#: includes/settings.php:546
+#: includes/settings.php:549
 #, fuzzy
 msgid "If this is checked, Thold will not run on weekends."
 msgstr "Als dit wordt gecontroleerd, loopt Thold niet in het weekend."
 
-#: includes/settings.php:550
+#: includes/settings.php:553
 #, fuzzy
 msgid "Default Trigger Count"
 msgstr "Standaardtriggertelling"
 
-#: includes/settings.php:551
+#: includes/settings.php:554
 #, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
 msgstr "Het standaardaantal opeenvolgende keren dat de gegevensbron de drempelwaarde overschrijdt om een waarschuwing te verhogen."
 
-#: includes/settings.php:558
+#: includes/settings.php:561
 #, fuzzy
 msgid "Re-Alerting"
 msgstr "Herwaarschuwing"
 
-#: includes/settings.php:559
+#: includes/settings.php:562
 #, fuzzy
 msgid "Repeat Alert after specified number of poller cycles."
 msgstr "Herhaal Alert na het opgegeven aantal pollercycli."
 
-#: includes/settings.php:566
+#: includes/settings.php:569
 #, fuzzy
 msgid "Baseline Presets"
 msgstr "Basislijn Presets"
 
-#: includes/settings.php:570
+#: includes/settings.php:573
 #, fuzzy
 msgid "Baseline Time Range Default"
 msgstr "Basislijn Tijdbereik Standaardinstelling"
 
-#: includes/settings.php:571 includes/settings.php:588
+#: includes/settings.php:574 includes/settings.php:591
 #, fuzzy
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr "Dit is de standaardwaarde die gebruikt wordt bij het maken van drempels of sjablonen."
 
-#: includes/settings.php:579 thold.php:1699 thold_templates.php:1262
+#: includes/settings.php:582 thold.php:1719 thold_templates.php:1277
 #, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "Basislijn Triggertelling"
 
-#: includes/settings.php:580
+#: includes/settings.php:583
 #, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
 msgstr "Het standaard aantal opeenvolgende keren dat de gegevensbron in strijd is met de berekende basislijndrempel voor het verhogen van een waarschuwing."
 
-#: includes/settings.php:587
+#: includes/settings.php:590
 #, fuzzy
 msgid "Baseline Deviation Percentage"
 msgstr "Basislijn Afwijking Percentage"
 
-#: includes/settings.php:595
+#: includes/settings.php:598
 #, fuzzy
 msgid "SNMP Notification Options"
 msgstr "Geen SNMP notificaties"
 
-#: includes/settings.php:599
+#: includes/settings.php:602
 #, fuzzy
 msgid "SNMP Notifications"
 msgstr "Geen SNMP notificaties"
 
-#: includes/settings.php:600
+#: includes/settings.php:603
 #, fuzzy
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
 msgstr "Drempelstatusberichten (informatie/traps) worden naar SNMP-kennisgevingsontvangers gestuurd. Dit omvat waarschuwingen, waarschuwingen en herstelvallen per standaardinstelling. Opmerking: Deze functie vereist de Cacti SNMPAgent plugin."
 
-#: includes/settings.php:605
+#: includes/settings.php:608
 #, fuzzy
 msgid "Disable Warning Notifications"
 msgstr "Waarschuwingen voor het uitschakelen van waarschuwingen"
 
-#: includes/settings.php:606
+#: includes/settings.php:609
 #, fuzzy
 msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
 msgstr "Als dit is aangevinkt, stuurt Threshold geen melding wanneer een waarschuwing Threshold is overschreden."
 
-#: includes/settings.php:610
+#: includes/settings.php:613
 #, fuzzy
 msgid "Disable Restoration Notifications"
 msgstr "Meldingen voor het uitschakelen van restauratiemeldingen"
 
-#: includes/settings.php:611
+#: includes/settings.php:614
 #, fuzzy
 msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
 msgstr "Als dit is aangevinkt, stuurt Threshold geen melding wanneer de Threshold weer in de normale status is teruggekeerd."
 
-#: includes/settings.php:615
-#, fuzzy
-msgid "SNMP Event Description"
-msgstr "SNMP-gebeurtenis Beschrijving"
-
-#: includes/settings.php:616
-#, fuzzy
-msgid "You can customize the event description being sent out to the SNMP notification receivers by using additional varbinds. Following variable bindings will be supported:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr "U kunt de beschrijving van de gebeurtenis die naar de SNMP-kennisgevingsontvangers wordt gestuurd, aanpassen met behulp van extra varbindingen. De volgende variabele bindingen worden ondersteund:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-
-#: includes/settings.php:624
+#: includes/settings.php:618
 #, fuzzy
 msgid "Emailing Options"
 msgstr "Opties voor e-mailen"
 
-#: includes/settings.php:628
+#: includes/settings.php:622
 #, fuzzy
 msgid "Send Emails with Urgent Priority"
 msgstr "Stuur e-mails met dringende prioriteit"
 
-#: includes/settings.php:629
+#: includes/settings.php:623
 #, fuzzy
 msgid "Allows you to set Emails with urgent priority"
 msgstr "Stelt u in staat om e-mails met dringende prioriteit in te stellen"
 
-#: includes/settings.php:634
+#: includes/settings.php:628
 #, fuzzy
 msgid "Send Alerts as Text"
 msgstr "Waarschuwingen als tekst verzenden"
 
-#: includes/settings.php:635
+#: includes/settings.php:629
 #, fuzzy
 msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
 msgstr "Als deze optie is aangevinkt, worden alle waarschuwingen verzonden als platte tekst E-mails zonder grafiek.  De standaardinstelling is HTML-e-mails met de grafiek in de e-mail."
 
-#: includes/settings.php:640
+#: includes/settings.php:634
 #, fuzzy
 msgid "Send Email separately for each address"
 msgstr "Verzend e-mail afzonderlijk voor elk adres"
 
-#: includes/settings.php:641
+#: includes/settings.php:635
 #, fuzzy
 msgid "If checked, this will cause all Emails to be sent separately for each address."
 msgstr "Indien aangevinkt, zorgt dit ervoor dat alle e-mails voor elk adres afzonderlijk worden verzonden."
 
-#: includes/settings.php:646
+#: includes/settings.php:640
 msgid "From Email Address"
 msgstr "Vanaf e-mailadres"
 
-#: includes/settings.php:647
+#: includes/settings.php:641
 #, fuzzy
 msgid "This is the Email address that the Threshold will appear from."
 msgstr "Dit is het e-mailadres waarvan de drempelwaarde wordt weergegeven."
 
-#: includes/settings.php:653
+#: includes/settings.php:647
 msgid "From Name"
 msgstr "Afzender naam"
 
-#: includes/settings.php:654
+#: includes/settings.php:648
 #, fuzzy
 msgid "This is the actual name that the Threshold will appear from."
 msgstr "Dit is de eigenlijke naam van waaruit de Threshold zal verschijnen."
 
-#: includes/settings.php:660
+#: includes/settings.php:654
 #, fuzzy
 msgid "Device Notification Options"
 msgstr "Opties voor apparaatmeldingen"
 
-#: includes/settings.php:664
+#: includes/settings.php:658
 #, fuzzy
 msgid "Device Notifications"
 msgstr "Dode apparaatmeldingen"
 
-#: includes/settings.php:665
+#: includes/settings.php:659
 #, fuzzy
 msgid "Enable Dead/Recovering host notification"
 msgstr "Dead/Recovering host notificatie inschakelen"
 
-#: includes/settings.php:670
+#: includes/settings.php:664
 #, fuzzy
 msgid "Device Notifications Email"
 msgstr "Dode apparaatmeldingen E-mail"
 
-#: includes/settings.php:671
+#: includes/settings.php:665
 #, fuzzy
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
 msgstr "Dit is het e-mailadres waarnaar de dode apparaatmeldingen worden verzonden als de Global Notification List is geselecteerd."
 
-#: includes/settings.php:677
+#: includes/settings.php:671
 #, fuzzy
 msgid "Down Subject"
 msgstr "Onderwerp van het apparaat"
 
-#: includes/settings.php:678
+#: includes/settings.php:672
 #, fuzzy
 msgid "This is the Email subject that will be used for Down Device Messages."
 msgstr "Dit is het e-mailonderwerp dat zal worden gebruikt voor berichten over het neerzetten van apparaten."
 
-#: includes/settings.php:682
+#: includes/settings.php:676
 #, fuzzy
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "Apparaatfout: <DESCRIPTIE> (<HOSTNAME>) is DOWNEN"
 
-#: includes/settings.php:685
+#: includes/settings.php:679
 #, fuzzy
 msgid "Down Message"
 msgstr "Bericht over het apparaat omlaag"
 
-#: includes/settings.php:686
+#: includes/settings.php:680
 #, fuzzy
-msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "Dit is het bericht dat wordt weergegeven als de body van alle UP / Down Device Messages (255 Char MAX).  HTML is toegestaan, maar zal worden verwijderd voor alleen tekst in e-mails.  Er zijn verschillende descriptoren die gebruikt kunnen worden.<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATIE&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060BESCHIKBAARHEID&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
-#: includes/settings.php:691
+#: includes/settings.php:685
 #, fuzzy
-msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
 msgstr "Systeemfout : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reden: <MESSAGE><br><br><br><br>Gemiddelde systeemrespons: <AVG_TIME> ms<br>Systeembeschikbaarheid: <AVAILABILITEIT><br><br>Totale Controles Sinds wissen: <TOT_POLL><br>Totale mislukte Controles: <FAIL_POLL><br><br>Laatste datum Gecontroleerde DOWN : <LAST_FAIL><br><br>Apparaat Voorheen UP voor: <DOWNTIME><br>NOTES: <NOTES><br><br>Apparaatmeldingen: <DNOTES>"
 
-#: includes/settings.php:694
+#: includes/settings.php:688
 #, fuzzy
 msgid "Recovering Subject"
 msgstr "Onderwerp van het terugwinningsapparaat"
 
-#: includes/settings.php:695
+#: includes/settings.php:689
 #, fuzzy
 msgid "This is the Email subject that will be used for Recovering Device Messages."
 msgstr "Dit is het e-mailonderwerp dat zal worden gebruikt voor het herstellen van apparaatberichten."
 
-#: includes/settings.php:699
+#: includes/settings.php:693
 #, fuzzy
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "Kennisgeving van het apparaat: <DESCRIPTION> (<HOSTNAME>) teruggezonden uit DOWN-staat"
 
-#: includes/settings.php:702
+#: includes/settings.php:696
 #, fuzzy
 msgid "Recovering Message"
 msgstr "Bericht over het herstellen van het apparaat"
 
-#: includes/settings.php:703
+#: includes/settings.php:697
 #, fuzzy
-msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "Dit is het bericht dat wordt weergegeven als de body van alle UP / Down Device Messages (255 Char MAX).  HTML is toegestaan, maar zal worden verwijderd voor alleen tekst in e-mails.  Er zijn verschillende descriptoren die gebruikt kunnen worden.<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATIE&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060BESCHIKBAARHEID&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
-#: includes/settings.php:708
+#: includes/settings.php:702
 #, fuzzy
-msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
 msgstr "<br>Systeem <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br><br><br>Huidige pingreactie: <CUR_TIME> ms<br>Gemiddelde systeemrespons: <AVG_TIME> ms<br>Systeembeschikbaarheid: <AVAILABILITEIT><br><br>Totale Controles Sinds wissen: <TOT_POLL><br>Totale mislukte Controles: <FAIL_POLL><br><br>Vroegste datum Gecontroleerd UP: <LAST_FAIL><br><br>Apparaat Voorheen DOWN voor: <DOWNTIME><br><br><br><br>Naam - <SNMP_HOSTNAME><br><br>Locatie - <SNMP_LOCATIE><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>Systeem - <SNMP_SYSTEM><br><br><br>NOTE: <NOTES><br><br>Device Notes: <DNOTES>"
 
-#: includes/settings.php:711
+#: includes/settings.php:705
 #, fuzzy
 msgid "Status Change Command"
 msgstr "Commando Statuswijziging"
 
-#: includes/settings.php:712
+#: includes/settings.php:706
 #, fuzzy
-msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 msgstr "Dit is het bericht dat wordt weergegeven als de body van alle UP / Down Device Messages (255 Char MAX).  HTML is toegestaan, maar zal worden verwijderd voor alleen tekst in e-mails.  Er zijn verschillende descriptoren die gebruikt kunnen worden.<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATIE&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060BESCHIKBAARHEID&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
-#: includes/settings.php:720
+#: includes/settings.php:714
 #, fuzzy
 msgid "Alert/Warning Message Defaults"
 msgstr "Waarschuwing/waarschuwingsbericht Standaardinstellingen"
 
-#: includes/settings.php:724
+#: includes/settings.php:718
 #, fuzzy
 msgid "Threshold Alert Message"
 msgstr "Drempel Waarschuwingsbericht"
 
-#: includes/settings.php:725
+#: includes/settings.php:719
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Dit is het bericht dat wordt weergegeven bovenaan alle drempelwaarschuwingen (255 Char MAX).  HTML is toegestaan, maar zal worden verwijderd voor alleen tekst in e-mails.  Er zijn verschillende descriptoren die gebruikt kunnen worden.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 
-#: includes/settings.php:730
+#: includes/settings.php:724
 #, fuzzy
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Er is een Alert uitgegeven dat uw aandacht vraagt. <br><br><br><sterk>Apparaat</sterk>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><sterk>Bericht</sterk>: <SUBJECT><br><br><br><br><GRAPH>"
 
-#: includes/settings.php:733
+#: includes/settings.php:727
 #, fuzzy
 msgid "Threshold Warning Message"
 msgstr "Drempel Waarschuwingsbericht"
 
-#: includes/settings.php:734
+#: includes/settings.php:728
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Dit is het bericht dat wordt weergegeven bovenaan alle drempelwaarschuwingen (255 Char MAX).  HTML is toegestaan, maar zal worden verwijderd voor alleen tekst in e-mails.  Er zijn verschillende descriptoren die gebruikt kunnen worden.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 
-#: includes/settings.php:739
+#: includes/settings.php:733
 #, fuzzy
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Er is een waarschuwing uitgevaardigd die uw aandacht vereist. <br><br><br><sterk>Apparaat</sterk>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><sterk>Bericht</sterk>: <SUBJECT><br><br><br><br><GRAPH>"
 
-#: includes/settings.php:742
+#: includes/settings.php:736
 #, fuzzy
 msgid "Threshold Restoral Message"
 msgstr "Drempel Waarschuwingsbericht"
 
-#: includes/settings.php:743 thold.php:1790 thold_templates.php:1350
+#: includes/settings.php:737
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Dit is het bericht dat wordt weergegeven bovenaan alle drempelwaarschuwingen (255 Char MAX).  HTML is toegestaan, maar zal worden verwijderd voor alleen tekst in e-mails.  Er zijn verschillende descriptoren die gebruikt kunnen worden.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 
-#: includes/settings.php:748
+#: includes/settings.php:742
 #, fuzzy
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Er is een Alert uitgegeven dat uw aandacht vraagt. <br><br><br><sterk>Apparaat</sterk>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><sterk>Bericht</sterk>: <SUBJECT><br><br><br><br><GRAPH>"
@@ -1279,453 +1276,466 @@ msgstr "Associëren"
 msgid "Disassociate"
 msgstr "Loskoppelen"
 
-#: notify_lists.php:43 notify_lists.php:1000 notify_lists.php:1123
-#: notify_lists.php:1996 thold_graph.php:821 thold_graph.php:1071
+#: notify_lists.php:43 notify_lists.php:1011 notify_lists.php:1134
+#: notify_lists.php:2009 thold_graph.php:899 thold_graph.php:1151
 msgid "Devices"
 msgstr "Apparaten"
 
-#: notify_lists.php:510
+#: notify_lists.php:512
 #, fuzzy
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Klik op 'Doorgaan' om de kennisgevingslijsten te verwijderen.  Alle Apparaten of Drempel(s) die bij de Lijst(en) horen, worden teruggezet naar de standaardinstelling."
 
-#: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
-#: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1377 thold.php:444
-#: thold_functions.php:5788 thold_templates.php:268
+#: notify_lists.php:517 notify_lists.php:529 notify_lists.php:587
+#: notify_lists.php:598 notify_lists.php:657 notify_lists.php:668
+#: notify_lists.php:728 notify_lists.php:741 setup.php:1380 thold.php:458
+#: thold_functions.php:5821 thold_templates.php:268
 msgid "Cancel"
 msgstr "Annuleer"
 
-#: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
-#: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1378 thold.php:446
-#: thold_functions.php:5791 thold_templates.php:270
+#: notify_lists.php:517 notify_lists.php:529 notify_lists.php:587
+#: notify_lists.php:598 notify_lists.php:657 notify_lists.php:668
+#: notify_lists.php:728 notify_lists.php:741 setup.php:1381 thold.php:461
+#: thold_functions.php:5824 thold_templates.php:270
 msgid "Continue"
 msgstr "Volgende"
 
-#: notify_lists.php:515
+#: notify_lists.php:517
 #, fuzzy
 msgid "Delete Notification List(s)"
 msgstr "Kennisgevingslijst(en) verwijderen"
 
-#: notify_lists.php:519
+#: notify_lists.php:521
 #, fuzzy
 msgid "Click 'Continue' to Duplicate the following Notification List(s)."
 msgstr "Klik op 'Doorgaan' om de volgende kennisgevingslijst(en) te dupliceren."
 
-#: notify_lists.php:521
+#: notify_lists.php:523
 #, fuzzy
 msgid "New List Name"
 msgstr "Nieuwe lijst naam"
 
-#: notify_lists.php:522
+#: notify_lists.php:524
 #, fuzzy
 msgid "New Notification List"
 msgstr "Nieuwe kennisgevingslijst"
 
-#: notify_lists.php:527
+#: notify_lists.php:529
 #, fuzzy
 msgid "Duplicate Notification List(s)"
 msgstr "Dubbele kennisgevingslijst(en)"
 
-#: notify_lists.php:572
+#: notify_lists.php:574
 #, fuzzy, php-format
 msgid "%s Threshold Template(s)"
 msgstr "%s Drempelwaarde(n) Sjabloon(s)"
 
-#: notify_lists.php:578
+#: notify_lists.php:580
 #, fuzzy, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
 msgstr "Klik op 'Doorgaan' om de kennisgevingslijst '%s' te associëren met de onderstaande drempelwaarde(n)."
 
-#: notify_lists.php:580 notify_lists.php:581 notify_lists.php:591
-#: notify_lists.php:592 notify_lists.php:650 notify_lists.php:651
-#: notify_lists.php:661 notify_lists.php:662 notify_lists.php:721
-#: notify_lists.php:722 notify_lists.php:734 notify_lists.php:735
+#: notify_lists.php:582 notify_lists.php:583 notify_lists.php:593
+#: notify_lists.php:594 notify_lists.php:652 notify_lists.php:653
+#: notify_lists.php:663 notify_lists.php:664 notify_lists.php:723
+#: notify_lists.php:724 notify_lists.php:736 notify_lists.php:737
 msgid "No Change"
 msgstr "Geen wijzigingen"
 
-#: notify_lists.php:580 notify_lists.php:581 notify_lists.php:650
-#: notify_lists.php:651 notify_lists.php:720 notify_lists.php:721
-#: notify_lists.php:722
+#: notify_lists.php:582 notify_lists.php:583 notify_lists.php:652
+#: notify_lists.php:653 notify_lists.php:722 notify_lists.php:723
+#: notify_lists.php:724
 #, fuzzy
 msgid "Notification List Only"
 msgstr "Alleen kennisgevingslijst"
 
-#: notify_lists.php:580 notify_lists.php:581 notify_lists.php:650
-#: notify_lists.php:651 notify_lists.php:721 notify_lists.php:722
+#: notify_lists.php:582 notify_lists.php:583 notify_lists.php:652
+#: notify_lists.php:653 notify_lists.php:723 notify_lists.php:724
 #, fuzzy
 msgid "Notification List, Retain Other Settings"
 msgstr "Notificatielijst, andere instellingen behouden"
 
-#: notify_lists.php:580 notify_lists.php:591 notify_lists.php:650
-#: notify_lists.php:661
+#: notify_lists.php:582 notify_lists.php:593 notify_lists.php:652
+#: notify_lists.php:663
 #, fuzzy
 msgid "Warning Membership:"
 msgstr "Waarschuwing Lidmaatschap:"
 
-#: notify_lists.php:581 notify_lists.php:592 notify_lists.php:651
-#: notify_lists.php:662
+#: notify_lists.php:583 notify_lists.php:594 notify_lists.php:653
+#: notify_lists.php:664
 #, fuzzy
 msgid "Alert Membership:"
 msgstr "Alarmlidmaatschap:"
 
-#: notify_lists.php:585 notify_lists.php:655 notify_lists.php:726
+#: notify_lists.php:587 notify_lists.php:657 notify_lists.php:728
 #, fuzzy
 msgid "Associate Notification List(s)"
 msgstr "Bijbehorende kennisgevingslijst(en)"
 
-#: notify_lists.php:589
+#: notify_lists.php:591
 #, fuzzy, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
 msgstr "Klik op 'Doorgaan' om de kennisgevingslijst '%s' te scheiden van de onderstaande drempelwaarde(n)."
 
-#: notify_lists.php:591 notify_lists.php:592 notify_lists.php:661
-#: notify_lists.php:662 notify_lists.php:734 notify_lists.php:735
+#: notify_lists.php:593 notify_lists.php:594 notify_lists.php:663
+#: notify_lists.php:664 notify_lists.php:736 notify_lists.php:737
 msgid "Remove List"
 msgstr "Lijst verwijderen"
 
-#: notify_lists.php:596 notify_lists.php:666 notify_lists.php:739
+#: notify_lists.php:598 notify_lists.php:668 notify_lists.php:741
 #, fuzzy
 msgid "Disassociate Notification List(s)"
 msgstr "Aparte kennisgevingslijst(en)"
 
-#: notify_lists.php:642
+#: notify_lists.php:644
 #, fuzzy, php-format
 msgid "%s Threshold(s)"
 msgstr "%s Drempel(en)"
 
-#: notify_lists.php:648
+#: notify_lists.php:650
 #, fuzzy, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
 msgstr "Klik op 'Doorgaan' om de kennisgevingslijst '%s' te koppelen aan de onderstaande drempel(s)."
 
-#: notify_lists.php:659
+#: notify_lists.php:661
 #, fuzzy, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
 msgstr "Klik op 'Doorgaan' om de kennisgevingslijst '%s' te scheiden van de onderstaande drempel(s)."
 
-#: notify_lists.php:717
+#: notify_lists.php:719
 #, fuzzy, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
 msgstr "Klik op 'Doorgaan' om de kennisgevingslijst '%s' te koppelen aan de onderstaande apparaten."
 
-#: notify_lists.php:718
+#: notify_lists.php:720
 #, fuzzy
-msgid "You may also Associate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten."
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "U kunt ook de apparaatdrempels koppelen. Deze Device Tresholds moeten het echter mogelijk maken om de Thrshold Notification List te overschrijven."
 
-#: notify_lists.php:720
+#: notify_lists.php:722
 #, fuzzy
 msgid "Notification and Global Lists"
 msgstr "Kennisgeving en wereldwijde lijsten"
 
-#: notify_lists.php:720 notify_lists.php:733
+#: notify_lists.php:722 notify_lists.php:735
 #, fuzzy
 msgid "Resulting Membership:"
 msgstr "Resultaat: lidmaatschap:"
 
-#: notify_lists.php:721 notify_lists.php:734
+#: notify_lists.php:723 notify_lists.php:736
 #, fuzzy
 msgid "Device Threshold Warning Membership:"
 msgstr "Waarschuwing Lidmaatschap:"
 
-#: notify_lists.php:722 notify_lists.php:735
+#: notify_lists.php:724 notify_lists.php:737
 #, fuzzy
 msgid "Device Threshold Alert Membership:"
 msgstr "Drempel Waarschuwingsbericht"
 
-#: notify_lists.php:730
+#: notify_lists.php:732
 #, fuzzy, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
 msgstr "Klik op 'Doorgaan' om de kennisgevingslijst '%s' te scheiden van de onderstaande apparaten."
 
-#: notify_lists.php:731
+#: notify_lists.php:733
 #, fuzzy
-msgid "You may also Disssociate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten."
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "U kunt ook de drempelwaarden voor apparaten loskoppelen. Deze Device Tresholds moeten het echter mogelijk maken om de Thrshold Notification List te overschrijven."
 
-#: notify_lists.php:780
+#: notify_lists.php:782
 #, php-format
 msgid "[edit: %s]"
 msgstr "[wijzig %s]"
 
-#: notify_lists.php:782
+#: notify_lists.php:784
 msgid "[new]"
 msgstr "[nieuw]"
 
-#: notify_lists.php:829
+#: notify_lists.php:831
 #, fuzzy
 msgid "List General Settings"
 msgstr "Lijst Algemene instellingen"
 
-#: notify_lists.php:834 notify_lists.php:1396 notify_lists.php:1657
-#: setup.php:1238 thold.php:770 thold_graph.php:415 thold_templates.php:1957
+#: notify_lists.php:836 notify_lists.php:1407 notify_lists.php:1666
+#: setup.php:1241 thold.php:785 thold_graph.php:451 thold_templates.php:1982
 msgid "Name"
 msgstr "Naam"
 
-#: notify_lists.php:835
+#: notify_lists.php:837
 #, fuzzy
 msgid "Enter a name for this Notification List."
 msgstr "Voer een naam in voor deze kennisgevingslijst."
 
-#: notify_lists.php:841 notify_lists.php:1132 notify_lists.php:1999
-#: thold_graph.php:835
+#: notify_lists.php:843 notify_lists.php:1143 notify_lists.php:2012
+#: thold_graph.php:913
 msgid "Description"
 msgstr "Omschrijving"
 
-#: notify_lists.php:842
+#: notify_lists.php:844
 #, fuzzy
 msgid "Enter a description for this Notification List."
 msgstr "Voer een beschrijving van deze kennisgevingslijst in."
 
-#: notify_lists.php:850
-msgid "Email Addresses"
+#: notify_lists.php:852
+#, fuzzy
+#| msgid "Email Addresses"
+msgid "To Email Addresses"
 msgstr "E-mailadressen"
 
-#: notify_lists.php:851
+#: notify_lists.php:853
 #, fuzzy
 msgid "Enter a comma separated list of Email addresses for this Notification List."
 msgstr "Voer een kommagescheiden lijst met e-mailadressen in voor deze kennisgevingslijst."
 
-#: notify_lists.php:947
+#: notify_lists.php:861
+#, fuzzy
+#| msgid "Email Addresses"
+msgid "BCC Email Addresses"
+msgstr "E-mailadressen"
+
+#: notify_lists.php:862
+#, fuzzy
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Voer een kommagescheiden lijst met e-mailadressen in voor deze kennisgevingslijst."
+
+#: notify_lists.php:958
 #, fuzzy
 msgid "Associated Devices"
 msgstr "Bijbehorende apparaten"
 
-#: notify_lists.php:956 notify_lists.php:1273 notify_lists.php:1580
-#: notify_lists.php:1900 thold.php:632 thold.php:2294 thold_graph.php:132
-#: thold_graph.php:1001 thold_graph.php:1421 thold_templates.php:1756
-#: thold_templates.php:1865
+#: notify_lists.php:967 notify_lists.php:1284 notify_lists.php:1589
+#: notify_lists.php:1913 thold.php:647 thold.php:2326 thold_graph.php:132
+#: thold_graph.php:1079 thold_graph.php:1500 thold_templates.php:1781
+#: thold_templates.php:1890
 msgid "Search"
 msgstr "Zoeken"
 
-#: notify_lists.php:962 notify_lists.php:1133 notify_lists.php:1279
-#: thold.php:638 thold_graph.php:138 thold_graph.php:1007 thold_graph.php:1427
+#: notify_lists.php:973 notify_lists.php:1144 notify_lists.php:1290
+#: thold.php:653 thold_graph.php:138 thold_graph.php:1085 thold_graph.php:1506
 msgid "Site"
 msgstr "Website"
 
-#: notify_lists.php:967 notify_lists.php:985 notify_lists.php:1150
-#: notify_lists.php:1164 notify_lists.php:1284 notify_lists.php:1485
-#: notify_lists.php:1730 setup.php:775 setup.php:793 setup.php:967
-#: setup.php:968 setup.php:1131 thold.php:643 thold.php:674 thold.php:1482
-#: thold.php:1490 thold.php:1798 thold.php:1806 thold.php:2257
-#: thold_graph.php:143 thold_graph.php:172 thold_graph.php:190
-#: thold_graph.php:1012 thold_graph.php:1056 thold_graph.php:1432
-#: thold_graph.php:1462 thold_templates.php:397 thold_templates.php:445
-#: thold_templates.php:1045 thold_templates.php:1053 thold_templates.php:1365
-#: thold_templates.php:1373 thold_templates.php:1719
+#: notify_lists.php:978 notify_lists.php:996 notify_lists.php:1161
+#: notify_lists.php:1175 notify_lists.php:1295 notify_lists.php:1494
+#: notify_lists.php:1738 setup.php:778 setup.php:796 setup.php:970
+#: setup.php:971 setup.php:1134 thold.php:658 thold.php:689 thold.php:1495
+#: thold.php:1503 thold.php:1818 thold.php:1826 thold.php:2289
+#: thold_graph.php:143 thold_graph.php:174 thold_graph.php:192
+#: thold_graph.php:1090 thold_graph.php:1136 thold_graph.php:1511
+#: thold_graph.php:1543 thold_templates.php:399 thold_templates.php:447
+#: thold_templates.php:1053 thold_templates.php:1061 thold_templates.php:1380
+#: thold_templates.php:1388 thold_templates.php:1744
 msgid "None"
 msgstr "Geen"
 
-#: notify_lists.php:980 notify_lists.php:1400 notify_lists.php:1661
-#: thold.php:780 thold_graph.php:425 thold_graph.php:1051 thold_graph.php:1340
-#: thold_templates.php:1977
+#: notify_lists.php:991 notify_lists.php:1411 notify_lists.php:1670
+#: thold.php:795 thold_graph.php:465 thold_graph.php:1131 thold_graph.php:1420
+#: thold_templates.php:2002
 msgid "Type"
 msgstr "Type"
 
-#: notify_lists.php:1004 notify_lists.php:1326 notify_lists.php:1590
-#: notify_lists.php:1910 thold.php:713 thold_graph.php:225 thold_graph.php:1075
-#: thold_graph.php:1516 thold_templates.php:1875
+#: notify_lists.php:1015 notify_lists.php:1337 notify_lists.php:1599
+#: notify_lists.php:1923 thold.php:728 thold_graph.php:227 thold_graph.php:1155
+#: thold_graph.php:1597 thold_templates.php:1900
 msgid "Default"
 msgstr "Standaard"
 
-#: notify_lists.php:1017 notify_lists.php:1339 notify_lists.php:1603
+#: notify_lists.php:1028 notify_lists.php:1350 notify_lists.php:1612
 #, fuzzy
 msgid "Associated"
 msgstr "Gekoppelde data templates"
 
-#: notify_lists.php:1022 notify_lists.php:1344 notify_lists.php:1608
-#: notify_lists.php:1921 thold.php:659 thold_graph.php:160 thold_graph.php:1044
-#: thold_graph.php:1449 thold_templates.php:1887
+#: notify_lists.php:1033 notify_lists.php:1355 notify_lists.php:1617
+#: notify_lists.php:1934 thold.php:674 thold_graph.php:160 thold_graph.php:1122
+#: thold_graph.php:1528 thold_templates.php:1912
 msgid "Go"
 msgstr "Ga"
 
-#: notify_lists.php:1022 notify_lists.php:1344 notify_lists.php:1608
-#: notify_lists.php:1921
+#: notify_lists.php:1033 notify_lists.php:1355 notify_lists.php:1617
+#: notify_lists.php:1934
 msgid "Set/Refresh Filters"
 msgstr "Stel in/vernieuw filters"
 
-#: notify_lists.php:1023 notify_lists.php:1345 notify_lists.php:1609
-#: notify_lists.php:1924 thold.php:662 thold_graph.php:161 thold_graph.php:1045
-#: thold_graph.php:1450 thold_templates.php:1888
+#: notify_lists.php:1034 notify_lists.php:1356 notify_lists.php:1618
+#: notify_lists.php:1937 thold.php:677 thold_graph.php:161 thold_graph.php:1123
+#: thold_graph.php:1529 thold_templates.php:1913
 msgid "Clear"
 msgstr "Herstel"
 
-#: notify_lists.php:1023 notify_lists.php:1345 notify_lists.php:1609
-#: notify_lists.php:1924
+#: notify_lists.php:1034 notify_lists.php:1356 notify_lists.php:1618
+#: notify_lists.php:1937
 msgid "Clear Filters"
 msgstr "Stel filters opnieuw in"
 
-#: notify_lists.php:1134 notify_lists.php:1397 notify_lists.php:1658
-#: thold.php:775 thold_graph.php:420 thold_graph.php:841
-#: thold_templates.php:1962
+#: notify_lists.php:1145 notify_lists.php:1408 notify_lists.php:1667
+#: thold.php:790 thold_graph.php:456 thold_graph.php:919
+#: thold_templates.php:1987
 msgid "ID"
 msgstr "ID"
 
-#: notify_lists.php:1135
+#: notify_lists.php:1146
 #, fuzzy
 msgid "Associated Lists"
 msgstr "Bijbehorende lijsten"
 
-#: notify_lists.php:1136 thold_graph.php:847
+#: notify_lists.php:1147 thold_graph.php:925
 msgid "Graphs"
 msgstr "Grafieken"
 
-#: notify_lists.php:1137 thold_graph.php:853
+#: notify_lists.php:1148 thold_graph.php:931
 msgid "Data Sources"
 msgstr "Data bronnen"
 
-#: notify_lists.php:1138 setup.php:1238 thold.php:696 thold_graph.php:208
-#: thold_graph.php:859 thold_graph.php:1027 thold_graph.php:1497
+#: notify_lists.php:1149 setup.php:1241 thold.php:711 thold_graph.php:210
+#: thold_graph.php:937 thold_graph.php:1105 thold_graph.php:1578
 msgid "Status"
 msgstr "Status"
 
-#: notify_lists.php:1139 thold_graph.php:877
+#: notify_lists.php:1150 thold_graph.php:955
 msgid "Hostname"
 msgstr "Hostname"
 
-#: notify_lists.php:1159
+#: notify_lists.php:1170
 #, fuzzy
 msgid "Current List Only"
 msgstr "Huidige lijst alleen"
 
-#: notify_lists.php:1161
+#: notify_lists.php:1172
 #, fuzzy
 msgid "Current and Global List(s)"
 msgstr "Huidige en wereldwijde lijst(en)"
 
-#: notify_lists.php:1183
+#: notify_lists.php:1194
 #, fuzzy
 msgid "No Associated Devices Found"
 msgstr "Geen gekoppelde apparaten gevonden"
 
-#: notify_lists.php:1265
+#: notify_lists.php:1276
 #, fuzzy
 msgid "Associated Thresholds"
 msgstr "Bijbehorende drempels"
 
-#: notify_lists.php:1297 thold.php:669 thold_graph.php:167 thold_graph.php:1457
+#: notify_lists.php:1308 thold.php:684 thold_graph.php:169 thold_graph.php:1538
 msgid "Template"
 msgstr "Template"
 
-#: notify_lists.php:1310
+#: notify_lists.php:1321
 msgid "State"
 msgstr "Staat"
 
-#: notify_lists.php:1314 thold.php:642 thold.php:673 thold.php:700
-#: thold.php:2256 thold_graph.php:142 thold_graph.php:171 thold_graph.php:189
-#: thold_graph.php:212 thold_graph.php:1011 thold_graph.php:1031
-#: thold_graph.php:1055 thold_graph.php:1431 thold_graph.php:1461
-#: thold_graph.php:1479 thold_graph.php:1501 thold_templates.php:1718
+#: notify_lists.php:1325 thold.php:657 thold.php:688 thold.php:715
+#: thold.php:2288 thold_graph.php:142 thold_graph.php:173 thold_graph.php:191
+#: thold_graph.php:214 thold_graph.php:1089 thold_graph.php:1109
+#: thold_graph.php:1135 thold_graph.php:1510 thold_graph.php:1542
+#: thold_graph.php:1560 thold_graph.php:1582 thold_templates.php:1743
 msgid "All"
 msgstr "Alle"
 
-#: notify_lists.php:1398 notify_lists.php:1659
+#: notify_lists.php:1409 notify_lists.php:1668
 #, fuzzy
 msgid "Warning Lists"
 msgstr "Waarschuwingslijsten"
 
-#: notify_lists.php:1399 notify_lists.php:1660
+#: notify_lists.php:1410 notify_lists.php:1669
 #, fuzzy
 msgid "Alert Lists"
 msgstr "Waarschuwingslijsten"
 
-#: notify_lists.php:1402 thold.php:834
+#: notify_lists.php:1413 thold.php:849
 #, fuzzy
 msgid "Templated"
 msgstr "Gematigd"
 
-#: notify_lists.php:1413 thold.php:864 thold.php:987 thold.php:989
-#: thold.php:992 thold_graph.php:496 thold_graph.php:652
+#: notify_lists.php:1423 thold.php:878 thold.php:1001 thold.php:1003
+#: thold.php:1006 thold_graph.php:535 thold_graph.php:730
 msgid "No"
 msgstr "Nee"
 
-#: notify_lists.php:1417 thold.php:895 thold.php:899 thold.php:987
-#: thold.php:992 thold_graph.php:527 thold_graph.php:531 thold_graph.php:652
+#: notify_lists.php:1426 thold.php:909 thold.php:913 thold.php:1001
+#: thold.php:1006 thold_graph.php:566 thold_graph.php:570 thold_graph.php:730
 msgid "Yes"
 msgstr "Ja"
 
-#: notify_lists.php:1421 thold.php:903 thold_graph.php:535
+#: notify_lists.php:1430 thold.php:917 thold_graph.php:574
 #, fuzzy
 msgid "baseline-LOW"
 msgstr "baseline-LOW"
 
-#: notify_lists.php:1423 thold.php:905 thold_graph.php:537
+#: notify_lists.php:1432 thold.php:919 thold_graph.php:576
 #, fuzzy
 msgid "baseline-HIGH"
 msgstr "baseline-Hoogte"
 
-#: notify_lists.php:1435 notify_lists.php:1680
+#: notify_lists.php:1444 notify_lists.php:1688
 msgid "Select Users"
 msgstr "Selecteer gebruikers"
 
-#: notify_lists.php:1439 notify_lists.php:1466 notify_lists.php:1684
-#: notify_lists.php:1711
+#: notify_lists.php:1448 notify_lists.php:1475 notify_lists.php:1692
+#: notify_lists.php:1719
 #, fuzzy
 msgid "Specific Emails"
 msgstr "Specifieke e-mails"
 
-#: notify_lists.php:1444 notify_lists.php:1471 notify_lists.php:1689
-#: notify_lists.php:1716
+#: notify_lists.php:1453 notify_lists.php:1480 notify_lists.php:1697
+#: notify_lists.php:1724
 #, fuzzy
 msgid "Current List"
 msgstr "Huidige lijst"
 
-#: notify_lists.php:1454
+#: notify_lists.php:1463
 #, fuzzy
 msgid "Unknown Threshold"
 msgstr "Onbekende drempel"
 
-#: notify_lists.php:1460 notify_lists.php:1487 notify_lists.php:1705
-#: notify_lists.php:1732
+#: notify_lists.php:1469 notify_lists.php:1496 notify_lists.php:1713
+#: notify_lists.php:1740
 #, fuzzy
 msgid "Log Only"
 msgstr "Alleen logboek"
 
-#: notify_lists.php:1513
+#: notify_lists.php:1522
 msgid "Editable"
 msgstr "Bewerken"
 
-#: notify_lists.php:1513
+#: notify_lists.php:1522
 msgid "Read Only"
 msgstr "Alleen lezen"
 
-#: notify_lists.php:1520 thold.php:999 thold_graph.php:657
+#: notify_lists.php:1529 thold.php:1013 thold_graph.php:735
 #, fuzzy
 msgid "No Thresholds"
 msgstr "Drempelwaarden"
 
-#: notify_lists.php:1572
+#: notify_lists.php:1581
 #, fuzzy
 msgid "Associated Templates"
 msgstr "Bijbehorende sjablonen"
 
-#: notify_lists.php:1586
+#: notify_lists.php:1595
 msgid "Rows"
 msgstr "Rijen"
 
-#: notify_lists.php:1699
+#: notify_lists.php:1707
 msgid "Unknown Template"
 msgstr "Onbekend template"
 
-#: notify_lists.php:1747
+#: notify_lists.php:1755
 msgid "No Templates"
 msgstr "Geen templates"
 
-#: notify_lists.php:1906 notify_lists.php:1986
+#: notify_lists.php:1919 notify_lists.php:1999
 msgid "Lists"
 msgstr "Lijsten"
 
-#: notify_lists.php:1995
+#: notify_lists.php:2008
 msgid "List Name"
 msgstr "Naam"
 
-#: notify_lists.php:2000
+#: notify_lists.php:2013
 msgid "Emails"
 msgstr "E-mails"
 
-#: notify_lists.php:2017
+#: notify_lists.php:2033
 #, fuzzy
 msgid "No Notification Lists"
 msgstr "Geen kennisgevingslijsten"
@@ -1748,1171 +1758,1203 @@ msgstr "Schakelendrempel VRULES %s"
 msgid "Create Threshold"
 msgstr "Drempelwaarde creëren"
 
-#: setup.php:512 setup.php:522
+#: setup.php:513 setup.php:523
 #, fuzzy, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr "Waarschuwing Hallo voor%s (%s)"
 
-#: setup.php:516 setup.php:526
+#: setup.php:517 setup.php:527
 #, fuzzy, php-format
 msgid "Alert Low for %s (%s)"
 msgstr "Waarschuwing laag voor%s (%s)"
 
-#: setup.php:542 setup.php:552
+#: setup.php:543 setup.php:553
 #, fuzzy, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr "Waarschuwingslijsten"
 
-#: setup.php:546 setup.php:557
+#: setup.php:547 setup.php:558
 #, fuzzy, php-format
 msgid "Warning Low for %s (%s)"
 msgstr "Waarschuwingslijsten"
 
-#: setup.php:577 setup.php:591
+#: setup.php:578 setup.php:592
 #, fuzzy
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "Waarschuwing Hallo voor%s (%s %%)"
 
-#: setup.php:583 setup.php:597
+#: setup.php:584 setup.php:598
 #, fuzzy
 msgid "Alert Low for %s (%s %%%)"
 msgstr "Waarschuwing laag voor%s (%s %%)"
 
-#: setup.php:615 setup.php:629
+#: setup.php:616 setup.php:630
 #, fuzzy
 msgid "Warning Hi for %s (%s %%%)"
 msgstr "Waarschuwing Hallo voor%s (%s %%)"
 
-#: setup.php:621 setup.php:635
+#: setup.php:622 setup.php:636
 #, fuzzy
 msgid "Warning Low for %s (%s %%%)"
 msgstr "Waarschuwing laag voor%s (%s %%)"
 
-#: setup.php:648
+#: setup.php:649
 #, fuzzy
 msgid "Threshold Alert/Warning Values"
 msgstr "Drempelwaarde/waarschuwingswaarden"
 
-#: setup.php:701
+#: setup.php:702
 #, fuzzy
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr "Klik op 'Doorgaan' om alle toepasselijke drempels op deze Apparaten toe te passen."
 
-#: setup.php:775 setup.php:793
+#: setup.php:778 setup.php:796
 #, fuzzy
 msgid "Create Threshold from Data Source"
 msgstr "Creëer een drempelwaarde uit de gegevensbron"
 
-#: setup.php:804
+#: setup.php:807
 #, fuzzy
 msgid "Auto-create Thresholds"
 msgstr "Auto-creëer Drempels"
 
-#: setup.php:886 setup.php:1043
+#: setup.php:889 setup.php:1046
 #, fuzzy, php-format
 msgid "Created %s thresholds"
 msgstr "Gemaakte drempel: %s"
 
-#: setup.php:888 setup.php:1045 thold_functions.php:5290
+#: setup.php:891 setup.php:1048 thold_functions.php:5318
 #, fuzzy
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "Geen drempel(s) Gemaakt.  Ze bestaan al, of er zijn geen overeenkomende combinaties gevonden."
 
-#: setup.php:891 setup.php:1048
+#: setup.php:894 setup.php:1051
 #, fuzzy
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Geen drempel(s) Gemaakt.  Drempel(s) Sjabloon niet gevonden."
 
-#: setup.php:949
+#: setup.php:952
 #, fuzzy
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr "De volgende gegevensbronnen hebben geen Drempelwaarde sjablonen die eraan gekoppeld zijn"
 
-#: setup.php:953
+#: setup.php:956
 #, fuzzy
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr "Klik op 'Doorgaan' om Drempels voor deze gegevensbronnen aan te maken?"
 
-#: setup.php:960 setup.php:1124
+#: setup.php:963 setup.php:1127
 #, fuzzy
 msgid "Available Threshold Templates"
 msgstr "Beschikbare Drempel sjablonen"
 
-#: setup.php:965 setup.php:1129 thold_webapi.php:339
+#: setup.php:968 setup.php:1132 thold_webapi.php:339
 #, fuzzy
 msgid "Select a Threshold Template"
 msgstr "Selecteer een drempelwaarde sjabloon"
 
-#: setup.php:981
+#: setup.php:984
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Er zijn geen Drempelwaarde sjablonen geassocieerd met de volgende gegevensbronnen"
 
-#: setup.php:993 setup.php:1156 thold_webapi.php:177
+#: setup.php:996 setup.php:1159 thold_webapi.php:177
 #, fuzzy
 msgid "Create Threshold from Template"
 msgstr "Creëer Drempelwaarde van Sjabloon"
 
-#: setup.php:1113
+#: setup.php:1116
 #, fuzzy
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "De volgende grafieken hebben geen Drempelwaarde sjablonen die eraan gekoppeld zijn"
 
-#: setup.php:1117
+#: setup.php:1120
 #, fuzzy
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr "Druk op 'Doorgaan' als u Drempel(s) voor deze grafiek(en) wilt maken"
 
-#: setup.php:1144
+#: setup.php:1147
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr "Er zijn geen Drempelsjablonen geassocieerd met de volgende grafieken"
 
-#: setup.php:1226 setup.php:1276
+#: setup.php:1229 setup.php:1279
 #, fuzzy
 msgid "Associated Threshold Templates"
 msgstr "Bijbehorende drempel sjablonen"
 
-#: setup.php:1250
+#: setup.php:1253
 #, fuzzy
 msgid "Threshold Exists"
 msgstr "Drempel Bestaat"
 
-#: setup.php:1252
+#: setup.php:1255
 #, fuzzy
 msgid "Threshold Does Not Exist"
 msgstr "Drempel bestaat niet"
 
-#: setup.php:1269 setup.php:1303
+#: setup.php:1272 setup.php:1306
 #, fuzzy
 msgid "No Associated Threshold Templates."
 msgstr "Geen bijbehorende drempelsjablonen."
 
-#: setup.php:1321
+#: setup.php:1324
 #, fuzzy
 msgid "Add Threshold Template"
 msgstr "Drempelwaarde sjabloon toevoegen"
 
-#: setup.php:1327
+#: setup.php:1330
 msgid "Add"
 msgstr "Toevoegen"
 
-#: setup.php:1327
+#: setup.php:1330
 #, fuzzy
 msgid "Add Threshold Template to Device Template"
 msgstr "Drempelwaarde sjabloon toevoegen aan apparaatsjabloon"
 
-#: setup.php:1371
+#: setup.php:1374
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr "Klik op 'Doorgaan' om de volgende drempelwaarde sjabloon te verwijderen uit de apparaatsjabloon."
 
-#: setup.php:1372
+#: setup.php:1375
 #, fuzzy, php-format
 msgid "Threshold Template Name: %s"
 msgstr "Drempelwaarde Sjabloonnaam: %s"
 
-#: setup.php:1378
+#: setup.php:1381
 #, fuzzy
 msgid "Remove Threshold Template"
 msgstr "Drempelwaarde sjabloon verwijderen"
 
-#: thold.php:94
+#: thold.php:99
 #, fuzzy
 msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
 msgstr "Ofwel geen sjablonen of drempel(s) Bestaat/bestaat/bestaat/bestaat er al - Er zijn geen drempels gecreëerd."
 
-#: thold.php:294
+#: thold.php:302
 #, fuzzy
 msgid "You are not authorized to modify one or more of the Thresholds selected"
 msgstr "U bent niet bevoegd om een of meer van de geselecteerde drempels te wijzigen."
 
-#: thold.php:396
+#: thold.php:404
 #, fuzzy
 msgid "Click 'Delete' to delete the following Threshold(s)."
 msgstr "Klik op 'Verwijderen' om de volgende drempel(s) te verwijderen."
 
-#: thold.php:397
+#: thold.php:405
 #, fuzzy
 msgid "Delete Threshold(s)"
 msgstr "Drempel(en) verwijderen"
 
-#: thold.php:400
+#: thold.php:408
 #, fuzzy
 msgid "Click 'Continue' to enable the following Threshold(s)."
 msgstr "Klik op 'Doorgaan' om de volgende drempel(s) in te schakelen."
 
-#: thold.php:401
+#: thold.php:409
 #, fuzzy
 msgid "Enable Threshold(s)"
 msgstr "Activeer Drempel(s)"
 
-#: thold.php:404
+#: thold.php:412
 #, fuzzy
 msgid "Click 'Continue' to disable the following Threshold(s)."
 msgstr "Klik op 'Doorgaan' om de volgende drempel(s) uit te schakelen."
 
-#: thold.php:405
+#: thold.php:413
 #, fuzzy
 msgid "Disable Threshold(s)"
 msgstr "Drempel(s) uitschakelen"
 
-#: thold.php:408
+#: thold.php:416
 #, fuzzy
 msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
 msgstr "Klik op 'Doorgaan' om de voorgestelde naam (namen) opnieuw toe te passen op de volgende drempel(s)."
 
-#: thold.php:409
+#: thold.php:417
 #, fuzzy
 msgid "Apply Suggestion"
 msgstr "Suggestie toepassen"
 
-#: thold.php:412
+#: thold.php:420
 #, fuzzy
 msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
 msgstr "Klik op 'Doorgaan' om de volgende drempel(s) bij te werken met de gegevens van het bijbehorende sjabloon."
 
-#: thold.php:413
+#: thold.php:421
 #, fuzzy
 msgid "Reapply Template"
 msgstr "Opnieuw aanbrengen Sjabloon"
 
-#: thold.php:416
+#: thold.php:424
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Klik op 'Doorgaan' om de volgende drempel (en) te erkennen. Drempels die dit niet toestaan of die niet worden geactiveerd, worden genegeerd."
 
-#: thold.php:417 thold_functions.php:5778
+#: thold.php:425 thold_functions.php:5811
 #, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "Erkenningssjabloon(s)"
 
-#: thold.php:420
+#: thold.php:428
 #, fuzzy
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "Klik op 'Doorgaan' om meldingen voor de volgende drempel (en) te hervatten. Drempels die dit niet toestaan of die niet worden geactiveerd, worden genegeerd."
 
-#: thold.php:421
+#: thold.php:429
 #, fuzzy
 msgid "Resume Notifications for Threshold(s)"
 msgstr "Kennisgevingslijst(en) verwijderen"
 
-#: thold.php:424
+#: thold.php:432
 #, fuzzy
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "Klik op 'Doorgaan' om meldingen voor de volgende drempel (en) op te schorten. Drempels die dit niet toestaan of die niet worden geactiveerd, worden genegeerd."
 
-#: thold.php:425
+#: thold.php:433
 #, fuzzy
 msgid "Suspend Notification for Threshold(s)"
 msgstr "Dubbele kennisgevingslijst(en)"
 
-#: thold.php:428 thold_templates.php:256
+#: thold.php:436 thold_templates.php:256
 #, fuzzy
 msgid "Invalid action detected, can not proceed"
 msgstr "Ongeldige actie gedetecteerd, kan niet doorgaan"
 
-#: thold.php:623
+#: thold.php:638
 #, fuzzy
 msgid "Threshold Management"
 msgstr "Drempelbeheer"
 
-#: thold.php:659
+#: thold.php:674
 msgid "Apply Filters"
 msgstr "Filter toepassen"
 
-#: thold.php:662
+#: thold.php:677
 #, fuzzy
 msgid "Return to Defaults"
 msgstr "Terug naar Standaardinstellingen"
 
-#: thold.php:683 thold_graph.php:185 thold_templates.php:393
-#: thold_templates.php:1019 thold_templates.php:1972
+#: thold.php:698 thold_graph.php:187 thold_templates.php:395
+#: thold_templates.php:1027 thold_templates.php:1997
 msgid "Data Template"
 msgstr "Data template"
 
-#: thold.php:705 thold.php:839 thold_graph.php:217 thold_graph.php:474
+#: thold.php:720 thold.php:854 thold_graph.php:219 thold_graph.php:514
 #, fuzzy
 msgid "Ack Required"
 msgstr "Ack Vereist"
 
-#: thold.php:785
+#: thold.php:800
 #, fuzzy
 msgid "DSName"
 msgstr "DSName"
 
-#: thold.php:790 thold_graph.php:430
+#: thold.php:805 thold_graph.php:470
 msgid "Current"
 msgstr "Huidig"
 
-#: thold.php:793 thold_graph.php:433
+#: thold.php:808 thold_graph.php:473
 #, fuzzy
 msgid "The last measured value for the Data Source"
 msgstr "De laatste gemeten waarde voor de gegevensbron"
 
-#: thold.php:796 thold.php:1830 thold.php:1849 thold_graph.php:436
-#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1987
+#: thold.php:811 thold.php:1860 thold.php:1879 thold_graph.php:476
+#: thold_templates.php:1419 thold_templates.php:1433 thold_templates.php:2012
 msgid "High"
 msgstr "Hoog"
 
-#: thold.php:799 thold_graph.php:439
+#: thold.php:814 thold_graph.php:479
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "De hoge waarschuwings- / waarschuwingswaarden. OPMERKING: basislijnwaarden zijn een percentage, alle andere waarden zijn weergavewaarden die kunnen worden gewijzigd door een cdef."
 
-#: thold.php:802 thold.php:1828 thold.php:1847 thold_graph.php:442
-#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1993
+#: thold.php:817 thold.php:1858 thold.php:1877 thold_graph.php:482
+#: thold_templates.php:1419 thold_templates.php:1433 thold_templates.php:2018
 msgid "Low"
 msgstr "Laag"
 
-#: thold.php:805 thold_graph.php:445
+#: thold.php:820 thold_graph.php:485
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "De lage waarschuwings- / waarschuwingswaarden. OPMERKING: basislijnwaarden zijn een percentage, alle andere waarden zijn weergavewaarden die kunnen worden gewijzigd door een cdef."
 
-#: thold.php:808 thold_graph.php:448 thold_templates.php:1999
+#: thold.php:823 thold_graph.php:488 thold_templates.php:2024
 msgid "Trigger"
 msgstr "Trigger"
 
-#: thold.php:813 thold_graph.php:453 thold_templates.php:2004
+#: thold.php:828 thold_graph.php:493 thold_templates.php:2029
 msgid "Duration"
 msgstr "Duur"
 
-#: thold.php:818 thold_graph.php:458 thold_templates.php:2009
+#: thold.php:833 thold_graph.php:498 thold_templates.php:2034
 msgid "Repeat"
 msgstr "Herhalen"
 
-#: thold.php:828 thold_graph.php:468 thold_graph.php:865
+#: thold.php:843 thold_graph.php:508 thold_graph.php:943
 msgid "In State"
 msgstr "In staat"
 
-#: thold.php:831 thold_graph.php:471
+#: thold.php:846 thold_graph.php:511
 #, fuzzy
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
 msgstr "De tijdsduur van de gegevensbron moet in strijd zijn met de drempelwaarde voor het verhogen van een waarschuwing."
 
-#: thold.php:842 thold_graph.php:477
+#: thold.php:857 thold_graph.php:517
 #, fuzzy
 msgid "Acknowledgment required for this Threshold"
 msgstr "Bevestiging vereist voor deze drempelwaarde"
 
-#: thold.php:969 thold_graph.php:634
+#: thold.php:983 thold_graph.php:712
 #, fuzzy, php-format
 msgid "%d Triggers"
 msgstr "%d Triggers"
 
-#: thold.php:1031
+#: thold.php:1045
 #, fuzzy
 msgid "Threshold Deleted, can not Edit!"
 msgstr "Drempel bestaat niet"
 
-#: thold.php:1121
+#: thold.php:1135
 msgid "Graph Data"
 msgstr "Grafiekdata"
 
-#: thold.php:1127
+#: thold.php:1141
 #, fuzzy
 msgid "Data Source Description:"
 msgstr "Beschrijving van de gegevensbron:"
 
-#: thold.php:1128
+#: thold.php:1142
 #, fuzzy
 msgid "Associated Graph (Graphs using this RRD):"
 msgstr "Bijbehorende grafiek (grafieken die deze RRD gebruiken):"
 
-#: thold.php:1226
+#: thold.php:1239
 msgid "Last:"
 msgstr "Achtern.:"
 
-#: thold.php:1233
+#: thold.php:1246
 #, fuzzy
 msgid "WHi:"
 msgstr "WHi:"
 
-#: thold.php:1239
+#: thold.php:1252
 #, fuzzy
 msgid "WLo:"
 msgstr "WLo:"
 
-#: thold.php:1247
+#: thold.php:1260
 #, fuzzy
 msgid "AHi:"
 msgstr "AHi:"
 
-#: thold.php:1253
+#: thold.php:1266
 #, fuzzy
 msgid "ALo:"
 msgstr "ALo:"
 
-#: thold.php:1259
+#: thold.php:1272
 #, fuzzy
 msgid "BL Up:"
 msgstr "BL omhoog:"
 
-#: thold.php:1260 thold.php:1262
+#: thold.php:1273 thold.php:1275
 #, fuzzy
 msgid "%s%%%"
 msgstr "%s %s"
 
-#: thold.php:1261
+#: thold.php:1274
 #, fuzzy
 msgid "BL Down:"
 msgstr "BL Naar beneden:"
 
-#: thold.php:1299
+#: thold.php:1312
 #, fuzzy, php-format
 msgid "Unknown Template ID %d"
 msgstr "Onbekende sjabloon-ID %d"
 
-#: thold.php:1301
+#: thold.php:1314
 #, fuzzy
 msgid "Not Templated"
 msgstr "Niet getempereerd"
 
-#: thold.php:1318 thold.php:1321
+#: thold.php:1331 thold.php:1334
 #, fuzzy, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "Data Source Item [%s] - Huidige waarde: [%s]"
 
-#: thold.php:1407 thold_templates.php:971
+#: thold.php:1420 thold_templates.php:979
 #, fuzzy, php-format
 msgid "Replacement Fields: %s"
 msgstr "Vervangende velden: %s"
 
-#: thold.php:1420 thold_templates.php:985
+#: thold.php:1433 thold_templates.php:993
 #, fuzzy, php-format
 msgid "Data Sources: %s"
 msgstr "Data bronnen [%s]"
 
-#: thold.php:1432
+#: thold.php:1445
 #, fuzzy
 msgid "Template/Enabled Information"
 msgstr "Sjabloon/Toegelaten informatie"
 
-#: thold.php:1436
+#: thold.php:1449
 #, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "Sjabloon Propagatie ingeschakeld"
 
-#: thold.php:1439
+#: thold.php:1452
 #, fuzzy
 msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr "Of deze instellingen al dan niet worden doorgegeven vanuit het Drempelsjabloon."
 
-#: thold.php:1443 thold_templates.php:1001
+#: thold.php:1456 thold_templates.php:1009
 msgid "Template Name"
 msgstr "Templatenaam"
 
-#: thold.php:1446
+#: thold.php:1459
 #, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "Naam van de Drempel Template waaruit de Drempel is gecreëerd."
 
-#: thold.php:1450
+#: thold.php:1463
 #, fuzzy
 msgid "Threshold Enabled"
 msgstr "Drempelwaarde ingeschakeld"
 
-#: thold.php:1453 thold_templates.php:1038
+#: thold.php:1466 thold_templates.php:1046
 #, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "Of deze drempel al dan niet wordt gecontroleerd en gealarmeerd."
 
-#: thold.php:1457 thold_templates.php:997
+#: thold.php:1470 thold_templates.php:1005
 msgid "General Settings"
 msgstr "Algemene instellingen"
 
-#: thold.php:1461
+#: thold.php:1474
 #, fuzzy
 msgid "Name (Displayed)"
 msgstr "Naam (weergegeven)"
 
-#: thold.php:1466 thold.php:1475
+#: thold.php:1479 thold.php:1488
 #, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "Geef de drempels een betekenisvolle naam"
 
-#: thold.php:1470
+#: thold.php:1483
 #, fuzzy
 msgid "Name (Format)"
 msgstr "Naamlayout:"
 
-#: thold.php:1479 thold_templates.php:1042
+#: thold.php:1492 thold_templates.php:1050
 #, fuzzy
 msgid "Warning HRULE Color"
 msgstr "Waarschuwing HRULE Kleur"
 
-#: thold.php:1480 thold_templates.php:1043
+#: thold.php:1493 thold_templates.php:1051
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Kies een kleur voor de grafiek HRULE voor de waarschuwingsdrempels.  Kies 'Geen' voor Geen HRULE.  Opmerking: Deze functies worden alleen op dit moment ondersteund voor gegevensmanipulatietypen 'Exacte waarde' en 'Percentage'."
 
-#: thold.php:1487 thold_templates.php:1050
+#: thold.php:1500 thold_templates.php:1058
 #, fuzzy
 msgid "Alert HRULE Color"
 msgstr "Alarm HRULE Kleur"
 
-#: thold.php:1488 thold_templates.php:1051
+#: thold.php:1501 thold_templates.php:1059
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Kies een kleur voor de grafiek HRULE voor de Waarschuwingsdrempels.  Kies 'Geen' voor Geen HRULE.  Opmerking: Deze functies worden alleen op dit moment ondersteund voor gegevensmanipulatietypen 'Exacte waarde' en 'Percentage'."
 
-#: thold.php:1495 thold_templates.php:1058
+#: thold.php:1508 thold_templates.php:1066
+msgid "Skip Scaling on HRULEs"
+msgstr ""
+
+#: thold.php:1511 thold_templates.php:1069
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr ""
+
+#: thold.php:1515 thold_templates.php:1073
 #, fuzzy
 msgid "Weekend Exemption"
 msgstr "Weekend Vrijstelling"
 
-#: thold.php:1496 thold_templates.php:1059
+#: thold.php:1516 thold_templates.php:1074
 #, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr "Als dit is aangevinkt, zal deze Drempel in het weekend niet worden gealarmeerd."
 
-#: thold.php:1502 thold_templates.php:1065
+#: thold.php:1522 thold_templates.php:1080
 #, fuzzy
 msgid "Disable Restoration Email"
 msgstr "Uitschakelen Restauratie e-mail"
 
-#: thold.php:1503 thold_templates.php:1066
+#: thold.php:1523 thold_templates.php:1081
 #, fuzzy
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr "Als dit is aangevinkt, stuurt Threshold geen waarschuwing wanneer de Threshold weer in de normale status is teruggekeerd."
 
-#: thold.php:1509 thold_templates.php:1072
+#: thold.php:1529 thold_templates.php:1087
 #, fuzzy
 msgid "Acknowledgment Options"
 msgstr "Erkenning Opties"
 
-#: thold.php:1510 thold_templates.php:1073
+#: thold.php:1530 thold_templates.php:1088
 #, fuzzy
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr "Er zijn drie erkenningsniveaus die bepalen hoe u moet reageren op een Threshold breach condition.  Ze zijn:<br><br><br><ul><li><i><i>Nieuwe vereist</i> - Wanneer u deze optie selecteert, is geen bevestiging vereist voor een drempelwaardebreuk.</li><li><li><i><i>Herstelbevestiging</i> - Met deze optie ontvangt u, zodra u de drempelwaarde hebt bevestigd, geen meldingen meer terwijl deze wordt overschreden.</li><li><li><i></i>Persist Acknowledgment</i> - Met deze optie moet u, zelfs nadat de Threshold is teruggekeerd naar normaal, de Threshold bevestigen en een optioneel Operator Message.</li></li></ul> verstrekken."
 
-#: thold.php:1517 thold_templates.php:1080
+#: thold.php:1537 thold_templates.php:1095
 #, fuzzy
 msgid "None Required"
 msgstr "Geen Vereist"
 
-#: thold.php:1521 thold_templates.php:1084
+#: thold.php:1541 thold_templates.php:1099
 #, fuzzy
 msgid "Suspendible Notification"
 msgstr "Geen SNMP notificaties"
 
-#: thold.php:1525 thold_templates.php:1088
+#: thold.php:1545 thold_templates.php:1103
 #, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "Persisteren Erkenning"
 
-#: thold.php:1530 thold_templates.php:1093
+#: thold.php:1550 thold_templates.php:1108
 #, fuzzy
 msgid "Threshold Type"
 msgstr "Drempel Type"
 
-#: thold.php:1535 thold_templates.php:1098
+#: thold.php:1555 thold_templates.php:1113
 #, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "Het type drempel dat zal worden bewaakt."
 
-#: thold.php:1539 thold_templates.php:1102
+#: thold.php:1559 thold_templates.php:1117
 #, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "Herwaarschuwingscyclus"
 
-#: thold.php:1543
+#: thold.php:1563
 #, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr "Herhaal de waarschuwing nadat deze tijd is verstreken sinds de laatste waarschuwing."
 
-#: thold.php:1547 thold_templates.php:1110
+#: thold.php:1567 thold_templates.php:1125
 #, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "Waarschuwing - Hoge / Lage instellingen"
 
-#: thold.php:1551 thold.php:1578 thold.php:1605 thold.php:1640
-#: thold_templates.php:1114 thold_templates.php:1141 thold_templates.php:1168
-#: thold_templates.php:1204
+#: thold.php:1571 thold.php:1598 thold.php:1625 thold.php:1660
+#: thold_templates.php:1129 thold_templates.php:1156 thold_templates.php:1183
+#: thold_templates.php:1219
 #, fuzzy
 msgid "High Threshold"
 msgstr "Hoge drempel"
 
-#: thold.php:1555 thold.php:1609 thold_templates.php:1172
+#: thold.php:1575 thold.php:1629 thold_templates.php:1187
 #, fuzzy
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Als de waarde van set en gegevensbron dit aantal overschrijdt, wordt een waarschuwing geactiveerd. OPMERKING: deze waarde moet een RAW-nummer zijn. De waarde die in de grafiek wordt weergegeven, kan worden gewijzigd door een cdef."
 
-#: thold.php:1559 thold.php:1586 thold.php:1613 thold.php:1648
-#: thold_templates.php:1122 thold_templates.php:1149 thold_templates.php:1176
-#: thold_templates.php:1212
+#: thold.php:1579 thold.php:1606 thold.php:1633 thold.php:1668
+#: thold_templates.php:1137 thold_templates.php:1164 thold_templates.php:1191
+#: thold_templates.php:1227
 #, fuzzy
 msgid "Low Threshold"
 msgstr "Lage drempel"
 
-#: thold.php:1563 thold.php:1617 thold_templates.php:1180
+#: thold.php:1583 thold.php:1637 thold_templates.php:1195
 #, fuzzy
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Als de waarde van set en gegevensbron onder dit aantal komt, wordt een waarschuwing geactiveerd. OPMERKING: deze waarde moet een RAW-nummer zijn. De waarde die in de grafiek wordt weergegeven, kan worden gewijzigd door een cdef."
 
-#: thold.php:1567 thold.php:1594
+#: thold.php:1587 thold.php:1614
 #, fuzzy
 msgid "Breach Duration"
 msgstr "Schending Duur"
 
-#: thold.php:1570
+#: thold.php:1590
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "De tijdsduur van de gegevensbron moet in strijd zijn met de drempelwaarde voor het verhogen van een waarschuwing."
 
-#: thold.php:1574 thold_templates.php:1137
+#: thold.php:1594 thold_templates.php:1152
 #, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "Waarschuwing - Hoge / Lage instellingen"
 
-#: thold.php:1582 thold.php:1644 thold_templates.php:1118
-#: thold_templates.php:1145 thold_templates.php:1208
+#: thold.php:1602 thold.php:1664 thold_templates.php:1133
+#: thold_templates.php:1160 thold_templates.php:1223
 #, fuzzy
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Als de waarde van set en gegevensbron dit aantal overschrijdt, wordt een waarschuwing geactiveerd. OPMERKING: deze waarde moet een RAW-nummer zijn. De waarde die in de grafiek wordt weergegeven, kan worden gewijzigd door een cdef."
 
-#: thold.php:1590 thold.php:1652 thold_templates.php:1126
-#: thold_templates.php:1153 thold_templates.php:1216
+#: thold.php:1610 thold.php:1672 thold_templates.php:1141
+#: thold_templates.php:1168 thold_templates.php:1231
 #, fuzzy
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Als de waarde van set en gegevensbron onder dit aantal komt, wordt een waarschuwing geactiveerd. OPMERKING: deze waarde moet een RAW-nummer zijn. De waarde die in de grafiek wordt weergegeven, kan worden gewijzigd door een cdef."
 
-#: thold.php:1597
+#: thold.php:1617
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr "De tijdsduur van de gegevensbron moet in strijd zijn met de drempelwaarde om een waarschuwing op te nemen."
 
-#: thold.php:1601 thold_templates.php:1164
+#: thold.php:1621 thold_templates.php:1179
 #, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "Waarschuwing - Tijdgestuurde instellingen"
 
-#: thold.php:1621 thold.php:1656
+#: thold.php:1641 thold.php:1676
 #, fuzzy
 msgid "Breach Count"
 msgstr "Breukentelling"
 
-#: thold.php:1625 thold.php:1661
+#: thold.php:1645 thold.php:1681
 #, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr "Het aantal keren dat de gegevensbron in strijd met de drempelwaarde moet zijn."
 
-#: thold.php:1629 thold.php:1665
+#: thold.php:1649 thold.php:1685
 #, fuzzy
 msgid "Breach Window"
 msgstr "Breukraam"
 
-#: thold.php:1632 thold.php:1668 thold_templates.php:1196
-#: thold_templates.php:1231
+#: thold.php:1652 thold.php:1688 thold_templates.php:1211
+#: thold_templates.php:1246
 #, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "De hoeveelheid tijd in het verleden om te controleren of er sprake is van drempeloverschrijdingen."
 
-#: thold.php:1636 thold_templates.php:1200
+#: thold.php:1656 thold_templates.php:1215
 #, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "Waarschuwing - Tijdgestuurde instellingen"
 
-#: thold.php:1672
+#: thold.php:1692
 #, fuzzy
 msgid "Baseline Settings"
 msgstr "Basislijn Instellingen"
 
-#: thold.php:1676
+#: thold.php:1696
 msgid "Time range"
 msgstr "Tijdsbereik"
 
-#: thold.php:1679
+#: thold.php:1699
 #, fuzzy
 msgid "Specifies the point in the past (based on RRDfile resolution) that will be used as a reference"
 msgstr "Specificeert het punt in het verleden (op basis van de resolutie van het RRD-document) dat als referentie zal worden gebruikt"
 
-#: thold.php:1683
+#: thold.php:1703
 #, fuzzy
 msgid "Deviation UP"
 msgstr "Afwijking UP"
 
-#: thold.php:1687 thold_templates.php:1250
+#: thold.php:1707 thold_templates.php:1265
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all."
 msgstr "Specificeert de toegestane afwijking in percentage voor de bovengrenswaarde Threshold. Indien niet ingesteld, wordt de bovengrenswaarde helemaal niet gecontroleerd."
 
-#: thold.php:1691
+#: thold.php:1711
 #, fuzzy
 msgid "Deviation DOWN"
 msgstr "Afwijking DOWN"
 
-#: thold.php:1695 thold_templates.php:1258
+#: thold.php:1715 thold_templates.php:1273
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all."
 msgstr "Specificeert toegestane afwijking in percentage voor de ondergrens van de Threshold. Indien niet ingesteld, wordt de ondergrenswaarde helemaal niet gecontroleerd."
 
-#: thold.php:1703
+#: thold.php:1723
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr "Aantal opeenvolgende keren dat de gegevensbron in strijd moet zijn met de basislijn Drempelwaarde voor het verhogen van een waarschuwing.<br>Laat leeg om de standaardwaarde te gebruiken (<b>Fout: %s cycli</b>)"
 
-#: thold.php:1707 thold_templates.php:1270
+#: thold.php:1727 thold_templates.php:1285
 #, fuzzy
 msgid "Data Manipulation"
 msgstr "Gegevens Manipulatie"
 
-#: thold.php:1711 thold_templates.php:1274
+#: thold.php:1731 thold_templates.php:1289
 msgid "Data Type"
 msgstr "Gegevenstype"
 
-#: thold.php:1716 thold_templates.php:1278
+#: thold.php:1736 thold_templates.php:1293
 #, fuzzy
 msgid "Special formatting for the given data."
 msgstr "Speciale opmaak voor de gegeven gegevens."
 
-#: thold.php:1720 thold_templates.php:1282
+#: thold.php:1740 thold_templates.php:1297
 #, fuzzy
 msgid "Threshold CDEF"
 msgstr "Drempel CDEF"
 
-#: thold.php:1723 thold_templates.php:1285
+#: thold.php:1743 thold_templates.php:1300
 #, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "Pas deze CDEF toe voordat u de gegevens terugstuurt."
 
-#: thold.php:1728
+#: thold.php:1748
 #, fuzzy
 msgid "Percent Data Source"
 msgstr "Percentage Gegevensbron"
 
-#: thold.php:1731
+#: thold.php:1751
 #, fuzzy
 msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr "Tweede gegevensbron Item te gebruiken als totale waarde voor de berekening van het percentage."
 
-#: thold.php:1736 thold_templates.php:1315
+#: thold.php:1756 thold_templates.php:1330
 msgid "Show Units"
 msgstr ""
 
-#: thold.php:1739 thold_templates.php:1318
+#: thold.php:1759 thold_templates.php:1333
 msgid "Display units for very large or small numbers."
 msgstr ""
 
-#: thold.php:1748
+#: thold.php:1768
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "Een RPN-expressie is een RRDtoolcompatibele RPN-expressie.  Syntax bevat alle onderstaande functies, naast de vervangingsuitdrukkingen Device en Data Query, zoals <span class=\"deviceUp\">|query_ifSpeed|</span>.  Om een gegevensbron in de RPN-expressie te gebruiken, moet u de syntaxis gebruiken: <span class=\"deviceUp\">|ds:dsname|</span>.  Bijvoorbeeld, <span class=\"deviceUp\">|ds:traffic_in|</span> krijgt de huidige waarde van de traffic_in Data Source voor de RRDfile(s) die bij de Graph horen. Elke gegevensbron voor een grafiek kan worden opgenomen.<br><br><br>Math Operators: <span class=\"deviceUp\">+, -, /, /, *, &#37;, ^</span><br><br>Functies: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br><br>Vergelijkingsfuncties: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
-#: thold.php:1754 thold_templates.php:1307
+#: thold.php:1774 thold_templates.php:1322
 #, fuzzy
 msgid "Upper Data Source"
 msgstr "Data bron"
 
-#: thold.php:1757
+#: thold.php:1777
 #, fuzzy
 msgid "Upper data source to calculate the total value."
 msgstr "Bovenste gegevensbron om de totale waarde te berekenen."
 
-#: thold.php:1762 thold_templates.php:1322
+#: thold.php:1782 thold_templates.php:1337
 msgid "Notification Settings"
 msgstr "Notificatie instellingen"
 
-#: thold.php:1767 thold_templates.php:1327
+#: thold.php:1787 thold_templates.php:1342
 #, fuzzy
 msgid "Alert Email Body"
 msgstr "Waarschuwings e-mail lichaam"
 
-#: thold.php:1772 thold_templates.php:1332
+#: thold.php:1792 thold_templates.php:1347
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Dit is het bericht dat wordt weergegeven bovenaan alle drempelwaarschuwingen (255 Char MAX).  HTML is toegestaan, maar zal worden verwijderd voor tekst alleen e-mails.  Er zijn verschillende descriptoren die gebruikt kunnen worden.<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060GEBROKEN_ITEMS&#062"
 
-#: thold.php:1776 thold_templates.php:1336
+#: thold.php:1796 thold_templates.php:1351
 #, fuzzy
 msgid "Warning Email Body"
 msgstr "Waarschuwing e-mail lichaam"
 
-#: thold.php:1781 thold_templates.php:1341
+#: thold.php:1801 thold_templates.php:1356
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Dit is het bericht dat wordt weergegeven bovenaan alle Drempelwaarschuwingen (255 Char MAX).  HTML is toegestaan, maar zal worden verwijderd voor tekst alleen e-mails.  Er zijn verschillende descriptoren die gebruikt kunnen worden.<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060GEBROKEN_ITEMS&#062"
 
-#: thold.php:1785 thold_templates.php:1345
+#: thold.php:1805 thold_templates.php:1360
 #, fuzzy
 msgid "Restoral Email Body"
 msgstr "Waarschuwings e-mail lichaam"
 
-#: thold.php:1794 thold_templates.php:1361
+#: thold.php:1810 thold_templates.php:1365
+#, fuzzy
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Dit is het bericht dat wordt weergegeven bovenaan alle drempelwaarschuwingen (255 Char MAX).  HTML is toegestaan, maar zal worden verwijderd voor alleen tekst in e-mails.  Er zijn verschillende descriptoren die gebruikt kunnen worden.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+
+#: thold.php:1814 thold_templates.php:1376
 #, fuzzy
 msgid "Warning Notification List"
 msgstr "Waarschuwingslijst"
 
-#: thold.php:1796 thold_templates.php:1363
+#: thold.php:1816 thold_templates.php:1378
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr "U kunt een notificatielijst kiezen om waarschuwingen voor deze gegevensbron te ontvangen"
 
-#: thold.php:1802 thold_templates.php:1369
+#: thold.php:1822 thold_templates.php:1384
 #, fuzzy
 msgid "Alert Notification List"
 msgstr "Waarschuwingskennisgevingslijst"
 
-#: thold.php:1804 thold_templates.php:1371
+#: thold.php:1824 thold_templates.php:1386
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr "U kunt een notificatielijst kiezen om waarschuwingen voor deze gegevensbron te ontvangen"
 
-#: thold.php:1814 thold_templates.php:1381
+#: thold.php:1834 thold_templates.php:1396
 #, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "SNMP-melding - Evenementencategorie"
 
-#: thold.php:1816 thold_templates.php:1383
+#: thold.php:1836 thold_templates.php:1398
 #, fuzzy
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr "Om een NMS in staat te stellen verschillende SNMP-kennisgevingen gemakkelijker te categoriseren, gelieve de categorie SNMP-kennisgevingen voor dit sjabloon in te vullen. Bijv: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ...."
 
-#: thold.php:1822 thold_templates.php:1389
+#: thold.php:1842 thold_templates.php:1404
+#, fuzzy
+msgid "SNMP Event Description"
+msgstr "SNMP-gebeurtenis Beschrijving"
+
+#: thold.php:1843 thold_templates.php:1405
+#, fuzzy
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "U kunt de beschrijving van de gebeurtenis die naar de SNMP-kennisgevingsontvangers wordt gestuurd, aanpassen met behulp van extra varbindingen. De volgende variabele bindingen worden ondersteund:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php:1852 thold_templates.php:1414
 #, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "SNMP-kennisgeving - Ernst van het alarmgebeurtenis"
 
-#: thold.php:1825
+#: thold.php:1855
 #, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr "Ernst die voor waarschuwingen moet worden gebruikt. (lage impact -> kritische impact)"
 
-#: thold.php:1829 thold.php:1848 thold_templates.php:1394
-#: thold_templates.php:1408
+#: thold.php:1859 thold.php:1878 thold_templates.php:1419
+#: thold_templates.php:1433
 msgid "Medium"
 msgstr "Medium"
 
-#: thold.php:1841 thold_templates.php:1403
+#: thold.php:1871 thold_templates.php:1428
 #, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "SNMP-melding - Waarschuwing Gebeurtenis Ernst van de gebeurtenis"
 
-#: thold.php:1844 thold_templates.php:1406
+#: thold.php:1874 thold_templates.php:1431
 #, fuzzy
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr "Ernst die voor waarschuwingen moet worden gebruikt. Opmerking: De ernst van de waarschuwingen moet gelijk zijn aan of lager zijn dan de ernst van de waarschuwingen die voor waarschuwingen worden gedefinieerd."
 
-#: thold.php:1862 thold_templates.php:1419
+#: thold.php:1892 thold_templates.php:1444
 #, fuzzy
 msgid "Notify accounts"
 msgstr "Rekeningen aanmelden"
 
-#: thold.php:1864
+#: thold.php:1894
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr "Dit is een lijst van rekeningen die zullen worden gemeld wanneer deze drempel wordt overschreden."
 
-#: thold.php:1869 thold_templates.php:1426
+#: thold.php:1899 thold_templates.php:1451
 #, fuzzy
 msgid "Alert Emails"
 msgstr "Waarschuwingsmails"
 
-#: thold.php:1873
+#: thold.php:1903
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr "U kunt hier extra E-mails specificeren om waarschuwingen te ontvangen voor deze gegevensbron (gescheiden door komma's)"
 
-#: thold.php:1877 thold_templates.php:1434
+#: thold.php:1907 thold_templates.php:1459
 #, fuzzy
 msgid "Warning Emails"
 msgstr "Waarschuwing E-mails"
 
-#: thold.php:1881
+#: thold.php:1911
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr "U kunt hier extra E-mails specificeren om waarschuwingen te ontvangen voor deze gegevensbron (gescheiden door komma's)"
 
-#: thold.php:1915 thold_templates.php:1472
+#: thold.php:1945 thold_templates.php:1497
 #, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "Als deze optie is aangevinkt, wordt er een drempelwaardebericht naar uw lokale syslog gestuurd."
 
-#: thold.php:1921 thold_templates.php:1478
+#: thold.php:1951 thold_templates.php:1503
 #, fuzzy
 msgid "Priority/Level"
 msgstr "Prioriteit/niveau"
 
-#: thold.php:1922 thold_templates.php:1479
+#: thold.php:1952 thold_templates.php:1504
 #, fuzzy
 msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr "Dit is het prioriteitsniveau dat in uw syslogberichten wordt ingelogd."
 
-#: thold.php:1929 thold_templates.php:1486
+#: thold.php:1959 thold_templates.php:1511
 msgid "Facility"
 msgstr "Faciliteit"
 
-#: thold.php:1930 thold_templates.php:1487
+#: thold.php:1960 thold_templates.php:1512
 #, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "Dit is de faciliteit die voor deze drempel zal worden gebruikt."
 
-#: thold.php:1951 thold_templates.php:1508
+#: thold.php:1981 thold_templates.php:1533
 #, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "Evenement triggeren (Shell Commando)"
 
-#: thold.php:1956 thold_templates.php:1513
+#: thold.php:1986 thold_templates.php:1538
 #, fuzzy
 msgid "High Trigger Command"
 msgstr "Hoog Trigger Commando"
 
-#: thold.php:1957 thold_templates.php:1514
+#: thold.php:1987 thold_templates.php:1539
 #, fuzzy
-msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Indien ingesteld, en indien een Hoge Drempel wordt overschreden, zal dit commando worden uitgevoerd.  Voer een geldige opdracht in.  Daarnaast zijn er verschillende vervangende tags beschikbaar die gebruikt kunnen worden om informatie uit de Threshold door te geven aan het script.  Zij omvatten: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060GEBROKEN_ITEMS&#062.  Tot slot kunnen Host, Data Query en Data Input vervanging worden gemaakt.  Als u bijvoorbeeld een gegevensinvoer van aangepaste gegevens hebt die hangende is, om het vervangende gebruik uit te voeren |pending|.  Voor Data Query en Host Replacement gebruiken we respectievelijk Cacti conventies |query_xxxxxx|, en |host_xxxxxx|."
 
-#: thold.php:1964 thold_templates.php:1521
+#: thold.php:1994 thold_templates.php:1546
 #, fuzzy
 msgid "Low Trigger Command"
 msgstr "Laag Trigger Commando"
 
-#: thold.php:1965 thold_templates.php:1522
+#: thold.php:1995 thold_templates.php:1547
 #, fuzzy
-msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Als deze optie is ingesteld, en als een Lage Drempel wordt overschreden, wordt dit commando uitgevoerd. Voer een geldige opdracht in.  Daarnaast zijn er verschillende vervangende tags beschikbaar die gebruikt kunnen worden om informatie uit de Threshold door te geven aan het script.  Zij omvatten: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060GEBROKEN_ITEMS&#062.  Tot slot kunnen Host, Data Query en Data input vervanging worden gemaakt.  Als u bijvoorbeeld een gegevensinvoer van aangepaste gegevens hebt die hangende is, om het vervangende gebruik uit te voeren |pending|.  Voor Data Query en Host Replacement gebruiken we respectievelijk Cacti conventies |query_xxxxxx|, en |host_xxxxxx|."
 
-#: thold.php:1972 thold_templates.php:1529
+#: thold.php:2002 thold_templates.php:1554
 #, fuzzy
 msgid "Norm Trigger Command"
 msgstr "Normaal Trigger Commando"
 
-#: thold.php:1973 thold_templates.php:1530
+#: thold.php:2003 thold_templates.php:1555
 #, fuzzy
-msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Als deze optie is ingesteld, wordt dit commando uitgevoerd wanneer een thold terugvalt naar een normale waarde.  Voer een geldige opdracht in.  Daarnaast zijn er verschillende vervangende tags beschikbaar die gebruikt kunnen worden om informatie uit de Threshold door te geven aan het script.  Zij omvatten: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060GEBROKEN_ITEMS&#062.  Tot slot kunnen Host, Data Query en Data input vervanging worden gemaakt.  Als u bijvoorbeeld een gegevensinvoer van aangepaste gegevens hebt die hangende is, om het vervangende gebruik uit te voeren |pending|.  Voor Data Query en Host Replacement gebruiken we respectievelijk Cacti conventies |query_xxxxxx|, en |host_xxxxxx|."
 
-#: thold.php:1986 thold_templates.php:1543
+#: thold.php:2016 thold_templates.php:1568
 msgid "Other Settings"
 msgstr "Andere instellingen"
 
-#: thold.php:1991 thold_templates.php:1548
+#: thold.php:2021 thold_templates.php:1573
 #, fuzzy
 msgid "Operator Notes"
 msgstr "Aanwijzingen voor de operator"
 
-#: thold.php:1995 thold_templates.php:1552
+#: thold.php:2025 thold_templates.php:1577
 #, fuzzy
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr "Voer hier instructies in voor een operator die mogelijk het Drempelbericht ontvangt."
 
-#: thold.php:2245
+#: thold.php:2277
 #, fuzzy
 msgid "Select Users(s)"
 msgstr "Selecteer Gebruikers(s)"
 
-#: thold.php:2247
+#: thold.php:2279
 #, fuzzy
 msgid "Users Selected"
 msgstr "Geselecteerde gebruikers"
 
-#: thold.php:2250
+#: thold.php:2282
 #, fuzzy
 msgid "All Users Selected"
 msgstr "Alle gebruikers geselecteerd"
 
-#: thold_functions.php:78
+#: thold_functions.php:82
 #, fuzzy
 msgid "< 1 Minute"
 msgstr "1 Minuut"
 
-#: thold_functions.php:80
+#: thold_functions.php:84
 #, fuzzy
 msgid "Since Created"
 msgstr "Maken"
 
-#: thold_functions.php:140
+#: thold_functions.php:144
 msgid "Log"
 msgstr "Log"
 
-#: thold_functions.php:264
+#: thold_functions.php:268
 msgid "Time:"
 msgstr "Tijd:"
 
-#: thold_functions.php:265
+#: thold_functions.php:269
 msgid "User:"
 msgstr "Gebruiker:"
 
-#: thold_functions.php:266
+#: thold_functions.php:270
 msgid "System:"
 msgstr "Systeem:"
 
-#: thold_functions.php:267
+#: thold_functions.php:271
 #, fuzzy
 msgid "Swaps:"
 msgstr "Swaps:"
 
-#: thold_functions.php:268
+#: thold_functions.php:272
 msgid "Pages:"
 msgstr "Pagina’s:"
 
-#: thold_functions.php:3608
+#: thold_functions.php:2223 thold_functions.php:2337 thold_functions.php:2400
+#: thold_functions.php:2551 thold_functions.php:2636 thold_functions.php:2745
+#: thold_functions.php:2764 thold_functions.php:2953 thold_functions.php:2970
+#: thold_functions.php:3089 thold_functions.php:3109 thold_functions.php:3126
+#: thold_functions.php:3193 thold_functions.php:3266
+msgid "Only logging, maint device"
+msgstr ""
+
+#: thold_functions.php:3615
 #, fuzzy
 msgid "Link to Graph in Cacti"
 msgstr "Link naar grafiek in cactussen"
 
-#: thold_functions.php:3637
+#: thold_functions.php:3644
 #, fuzzy
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body>Er is een waarschuwing gegeven die uw aandacht vereist.<br><br><br><b></b>Apparaat</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b><b>Bericht</b>: <SUBJECT><br><br><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3664
+#: thold_functions.php:3671
 #, fuzzy
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body><body>Er is een waarschuwing uitgegeven die uw aandacht vereist.<br><br><br><b></b>Apparaat</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b><b>Bericht</b>: <SUBJECT><br><br><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3691
+#: thold_functions.php:3698
 #, fuzzy
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "Er is een Alert uitgegeven dat uw aandacht vraagt. <br><br><br><sterk>Apparaat</sterk>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><sterk>Bericht</sterk>: <SUBJECT><br><br><br><br><GRAPH>"
 
-#: thold_functions.php:4456
+#: thold_functions.php:4472
 #, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "De apparaat-ID is niet ingesteld tijdens het maken van Graph en Threshold"
 
-#: thold_functions.php:4471
+#: thold_functions.php:4487
 #, fuzzy
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr "De Threshold Template ID is niet ingesteld tijdens het maken van Graph en Threshold"
 
-#: thold_functions.php:4478
+#: thold_functions.php:4494
 #, fuzzy
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr "De Threshold Template ID is niet ingesteld tijdens het maken van Graph en Threshold"
 
-#: thold_functions.php:4511
+#: thold_functions.php:4527
 #, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "De Graph Creation is mislukt voor Threshold Template"
 
-#: thold_functions.php:4541
+#: thold_functions.php:4557
 #, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr "Drempel werd automatisch gecreëerd dankzij Device Template mapping"
 
-#: thold_functions.php:4575 thold_functions.php:4882
+#: thold_functions.php:4591 thold_functions.php:4904
 msgid "Permission Denied"
 msgstr "Toegang geweigerd"
 
-#: thold_functions.php:4589 thold_functions.php:4951
+#: thold_functions.php:4605 thold_functions.php:4977
 #, fuzzy
 msgid "Record Updated"
 msgstr "Record bijgewerkt"
 
-#: thold_functions.php:4639
+#: thold_functions.php:4655
 #, fuzzy
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!<br>RECORD NOT UPDATED!"
 msgstr "U moet ofwel 'Hoge Waarschuwingsdrempel' of 'Lage Waarschuwingsdrempel' of beide specificeren!<br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:4651
+#: thold_functions.php:4667
 #, fuzzy
 msgid "Impossible thresholds: 'High Threshold' smaller than or equal to 'Low Threshold'<br>RECORD NOT UPDATED!"
 msgstr "Onmogelijke drempels: 'High Threshold' kleiner dan of gelijk aan 'Low Threshold'<br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:4663
+#: thold_functions.php:4679
 #, fuzzy
 msgid "Impossible thresholds: 'High Warning Threshold' smaller than or equal to 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
 msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:4671
+#: thold_functions.php:4687
 #, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "Met ingeschakelde basislijndrempels."
 
-#: thold_functions.php:4680
+#: thold_functions.php:4696
 #, fuzzy
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!<br>RECORD NOT UPDATED!"
 msgstr "U moet ofwel 'Baseline Deviation UP' of 'Baseline Deviation DOWN' of beide specificeren: <br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:4872
+#: thold_functions.php:4894
 #, fuzzy, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "Geen gekoppelde Grafieksjabloonitem '%d' op Drempel '%d' gevonden"
 
-#: thold_functions.php:4949 thold_functions.php:5363
+#: thold_functions.php:4975 thold_functions.php:5393
 #, fuzzy, php-format
 msgid "Created Threshold: %s"
 msgstr "Gemaakte drempel: %s"
 
-#: thold_functions.php:5018
+#: thold_functions.php:5044
 #, fuzzy, php-format
 msgid "'%s' must be set to positive integer value!<br>RECORD NOT UPDATED!"
 msgstr "%s' moet worden ingesteld op de positieve gehele waarde <br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:5191
+#: thold_functions.php:5219
 #, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "Geen Drempelwaarden Sjablonen geassocieerd met de Template van het apparaat."
 
-#: thold_functions.php:5398
+#: thold_functions.php:5428
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr "Fout in de mailer: Nee <b>TO</b> adres ingesteld! <br>Als u de link <i>Test Mail</i> gebruikt, stelt u de instelling <b>Alert Email</b> in."
 
-#: thold_functions.php:5775 thold_graph.php:586
+#: thold_functions.php:5808 thold_graph.php:625
 #, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "Onbekende drempel"
 
-#: thold_functions.php:5777
+#: thold_functions.php:5810
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "Klik op 'Doorgaan' om de volgende drempel(s) te bevestigen."
 
-#: thold_functions.php:6197
+#: thold_functions.php:6219
 #, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "Drempelwaarde sjabloon Ondergeschikte gegevenssjabloon niet gevonden!"
 
-#: thold_functions.php:6212
+#: thold_functions.php:6234
 #, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "Drempelwaarde sjabloon Ondergeschikte gegevensbron niet gevonden!"
 
-#: thold_functions.php:6248
+#: thold_functions.php:6270
 #, fuzzy
 msgid "Threshold Template import columns do not match the database schema"
 msgstr "Drempelsjabloonimportkolommen komen niet overeen met het databaseschema"
 
-#: thold_functions.php:6256
+#: thold_functions.php:6279 thold_functions.php:6281
 msgid "Imported"
 msgstr "Geïmporteerd"
 
-#: thold_functions.php:6256
+#: thold_functions.php:6279 thold_functions.php:6281
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "Drempelwaarde Sjabloon '%s' %s!"
 
-#: thold_functions.php:6256
+#: thold_functions.php:6279 thold_functions.php:6281
 msgid "Updated"
 msgstr "Bijgewerkt"
 
-#: thold_functions.php:6258 thold_templates.php:1889 thold_templates.php:2145
+#: thold_functions.php:6285 thold_functions.php:6287 thold_templates.php:1914
+#: thold_templates.php:2168
 msgid "Import"
 msgstr "Importeren"
 
-#: thold_functions.php:6258
+#: thold_functions.php:6285 thold_functions.php:6287
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "Drempelwaarde sjabloon '%s' %s Mislukt!"
 
-#: thold_functions.php:6258
+#: thold_functions.php:6285 thold_functions.php:6287
 msgid "Update"
 msgstr "Bijwerken"
 
-#: thold_functions.php:6261
+#: thold_functions.php:6291
 #, fuzzy
 msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr "Er zijn fouten opgetreden bij het importeren van drempelsjabloongegevens."
 
-#: thold_functions.php:6265
+#: thold_functions.php:6295
 #, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "Drempelwaarde sjabloon Ondergeschikte gegevenssjabloon niet gevonden!"
 
-#: thold_functions.php:6268
+#: thold_functions.php:6298
 #, fuzzy
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr "De Threshold Template ID is niet ingesteld tijdens het maken van Graph en Threshold"
@@ -2932,189 +2974,211 @@ msgstr "De drempel genereert niet langer waarschuwingen, meldingen of voert opdr
 msgid "The Threshold will restart generating Alerts."
 msgstr "Hoge Drempelwaarden voor Waarschuwing/Alarm"
 
-#: thold_graph.php:344
+#: thold_graph.php:380
 #, fuzzy
 msgid "Threshold Status"
 msgstr "Drempel Status"
 
-#: thold_graph.php:410 thold_graph.php:829
+#: thold_graph.php:446 thold_graph.php:907
 msgid "Actions"
 msgstr "Acties"
 
-#: thold_graph.php:567
+#: thold_graph.php:461
+msgid "Ack Detail"
+msgstr ""
+
+#: thold_graph.php:606
 #, fuzzy
 msgid "Edit Threshold"
 msgstr "Bewerk Drempel"
 
-#: thold_graph.php:572
+#: thold_graph.php:611
 #, fuzzy
 msgid "Disable Threshold"
 msgstr "Drempelwaarde uitschakelen"
 
-#: thold_graph.php:574
+#: thold_graph.php:613
 #, fuzzy
 msgid "Enable Threshold"
 msgstr "Drempelwaarde inschakelen"
 
-#: thold_graph.php:580
+#: thold_graph.php:619
 msgid "View Graph"
 msgstr "Grafiek bekijken"
 
-#: thold_graph.php:582
+#: thold_graph.php:621
 #, fuzzy
 msgid "View Threshold History"
 msgstr "Bekijk Drempelwaarde Geschiedenis"
 
-#: thold_graph.php:589
+#: thold_graph.php:628
 #, fuzzy
 msgid "Suspend Notifications until the Threshold clears"
 msgstr "Dubbele kennisgevingslijst(en)"
 
-#: thold_graph.php:592
+#: thold_graph.php:631
 #, fuzzy
 msgid "Resume Notifications for this breached Threshold"
 msgstr "Kennisgevingslijst(en) verwijderen"
 
-#: thold_graph.php:608
+#: thold_graph.php:656
+#, fuzzy
+#| msgid "Acknowledgment"
+msgid "Acknowledgement Message"
+msgstr "Dankbetuiging"
+
+#: thold_graph.php:657
+msgid "Date"
+msgstr ""
+
+#: thold_graph.php:665
+msgid "Comment Not Found"
+msgstr ""
+
+#: thold_graph.php:674
+msgid "Ack History"
+msgstr ""
+
+#: thold_graph.php:684
 #, fuzzy
 msgid "No name set"
 msgstr "Geen naamsverzameling"
 
-#: thold_graph.php:832
+#: thold_graph.php:910
 #, fuzzy
 msgid "Hover over icons for help"
 msgstr "Beweeg de muis over pictogrammen voor hulp"
 
-#: thold_graph.php:838
+#: thold_graph.php:916
 #, fuzzy
 msgid "A description for the Device"
 msgstr "Een beschrijving van het apparaat"
 
-#: thold_graph.php:844
+#: thold_graph.php:922
 #, fuzzy
 msgid "A Cacti unique identifier for the Device"
 msgstr "Een unieke Cactus-identificatiecode voor het apparaat"
 
-#: thold_graph.php:850
+#: thold_graph.php:928
 #, fuzzy
 msgid "The number of Graphs for this Device"
 msgstr "Het aantal grafieken voor dit apparaat"
 
-#: thold_graph.php:856
+#: thold_graph.php:934
 #, fuzzy
 msgid "The number of Data Sources for this Device"
 msgstr "Het aantal gegevensbronnen voor dit apparaat"
 
-#: thold_graph.php:862
+#: thold_graph.php:940
 #, fuzzy
 msgid "The status for this Device as of the last time it was polled"
 msgstr "De status van dit apparaat vanaf de laatste keer dat het werd gepeild"
 
-#: thold_graph.php:868
+#: thold_graph.php:946
 #, fuzzy
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
 msgstr "De laatste keer dat Cactussen een probleem met dit apparaat vonden.  Het kan hoger zijn dan de Uptime voor het Apparaat, als het werd herstart tussen de Cacti polling cycli"
 
-#: thold_graph.php:871
+#: thold_graph.php:949
 msgid "Uptime"
 msgstr "Uptime"
 
-#: thold_graph.php:874
+#: thold_graph.php:952
 #, fuzzy
 msgid "The official uptime of the Device as reported by SNMP"
 msgstr "De officiële uptime van het apparaat zoals gerapporteerd door SNMP"
 
-#: thold_graph.php:880
+#: thold_graph.php:958
 #, fuzzy
 msgid "The official hostname for this Device"
 msgstr "De officiële hostnaam voor dit apparaat"
 
-#: thold_graph.php:883
+#: thold_graph.php:961
 msgid "Current (ms)"
 msgstr "Huidig (ms)"
 
-#: thold_graph.php:886
+#: thold_graph.php:964
 #, fuzzy
 msgid "The current response time for the Cacti Availability check"
 msgstr "De huidige responstijd voor de Cacti Availability check"
 
-#: thold_graph.php:889
+#: thold_graph.php:967
 msgid "Average (ms)"
 msgstr "Gemiddeld (ms)"
 
-#: thold_graph.php:892
+#: thold_graph.php:970
 #, fuzzy
 msgid "The average response time for the Cacti Availability check"
 msgstr "De gemiddelde responstijd voor de Cacti Availability check"
 
-#: thold_graph.php:895
+#: thold_graph.php:973
 msgid "Availability"
 msgstr "Beschikbaarheid"
 
-#: thold_graph.php:898
+#: thold_graph.php:976
 #, fuzzy
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
 msgstr "De algemene beschikbaarheid van dit apparaat sinds de laatste teller is gereset in Cacti"
 
-#: thold_graph.php:926 thold_graph.php:952
+#: thold_graph.php:1004 thold_graph.php:1030
 msgid "Edit Device"
 msgstr "Wijzig apparaat"
 
-#: thold_graph.php:928 thold_graph.php:954
+#: thold_graph.php:1006 thold_graph.php:1032
 msgid "View Graphs"
 msgstr "Toon grafieken"
 
-#: thold_graph.php:977
+#: thold_graph.php:1055
 #, fuzzy
 msgid "No Devices"
 msgstr "Apparaten"
 
-#: thold_graph.php:1034
+#: thold_graph.php:1112
 msgid "Not Up"
 msgstr "Niet online"
 
-#: thold_graph.php:1241
+#: thold_graph.php:1321
 msgid "No Export Rows Found."
 msgstr ""
 
-#: thold_graph.php:1269
+#: thold_graph.php:1349
 #, fuzzy, php-format
 msgid "Threshold Log for [ %s ]"
 msgstr "Drempelwaarde Logboek voor [ %s ]"
 
-#: thold_graph.php:1322
+#: thold_graph.php:1402
 msgid "Log Entries"
 msgstr "Log regels"
 
-#: thold_graph.php:1330 thold_webapi.php:492 thold_webapi.php:640
+#: thold_graph.php:1410 thold_webapi.php:492 thold_webapi.php:640
 #: thold_webapi.php:660
 msgid "Device"
 msgstr "Apparaat"
 
-#: thold_graph.php:1335
+#: thold_graph.php:1415
 msgid "Time"
 msgstr "Tijd"
 
-#: thold_graph.php:1345
+#: thold_graph.php:1425
 msgid "Event Description"
 msgstr "Beschrijving Evenement"
 
-#: thold_graph.php:1350
+#: thold_graph.php:1430
 #, fuzzy
 msgid "Alert Value"
 msgstr "Waarde van het alarm"
 
-#: thold_graph.php:1355
+#: thold_graph.php:1435
 #, fuzzy
 msgid "Measured Value"
 msgstr "Gemeten waarde"
 
-#: thold_graph.php:1399
+#: thold_graph.php:1478
 #, fuzzy
 msgid "No Threshold Logs Found"
 msgstr "Geen drempelwaarde logs gevonden"
 
-#: thold_graph.php:1512
+#: thold_graph.php:1593
 msgid "Entries"
 msgstr "Regels"
 
@@ -3158,314 +3222,314 @@ msgstr "Klik op 'Doorgaan' om de voorgestelde namen opnieuw toe te passen op Dre
 msgid "Reapply Suggested Names to Template(s)"
 msgstr "Herhaal de voorgestelde namen op sjabloon (sjablonen)"
 
-#: thold_templates.php:354
+#: thold_templates.php:356
 #, fuzzy
 msgid "Threshold Template Creation Wizard"
 msgstr "Wizard Drempelwaarde sjabloon maken"
 
-#: thold_templates.php:441 thold_webapi.php:710
+#: thold_templates.php:443 thold_webapi.php:710
 msgid "Data Source"
 msgstr "Data bron"
 
-#: thold_templates.php:459
+#: thold_templates.php:461
 #, fuzzy
 msgid "Please select a Data Template"
 msgstr "Selecteer een datasjabloon"
 
-#: thold_templates.php:461
+#: thold_templates.php:463
 #, fuzzy
 msgid "Please select a Data Source"
 msgstr "Selecteer een gegevensbron"
 
-#: thold_templates.php:463
+#: thold_templates.php:465
 #, fuzzy
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Druk op 'Creëer' om uw drempelwaarde sjabloon aan te maken"
 
-#: thold_templates.php:467 thold_webapi.php:743
+#: thold_templates.php:469 thold_webapi.php:743
 msgid "Create"
 msgstr "Maken"
 
-#: thold_templates.php:1006
+#: thold_templates.php:1014
 #, fuzzy
 msgid "Provide the Threshold Template a meaningful name."
 msgstr "Geef de Threshold Template een betekenisvolle naam."
 
-#: thold_templates.php:1010
+#: thold_templates.php:1018
 #, fuzzy
 msgid "Suggested Threshold Name"
 msgstr "Voorgestelde Drempelwaarde Naam"
 
-#: thold_templates.php:1015
+#: thold_templates.php:1023
 #, fuzzy
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr "Geef de voorgestelde naam voor een drempelwaarde die met deze sjabloon is gemaakt.  Standaardapparaat (|host_*|), Data Query (|query_*|) en Input (|input_*||) substitutievariabelen kunnen worden gebruikt, evenals |graph_title| voor de Graph Title."
 
-#: thold_templates.php:1022
+#: thold_templates.php:1030
 #, fuzzy
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "Datasjabloon dat u gebruikt. (Dit kan niet worden gewijzigd)"
 
-#: thold_templates.php:1027
+#: thold_templates.php:1035
 msgid "Data Field"
 msgstr "Gegevensveld"
 
-#: thold_templates.php:1030
+#: thold_templates.php:1038
 #, fuzzy
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr "Dataveld dat u gebruikt. (Dit kan niet worden gewijzigd)"
 
-#: thold_templates.php:1106
+#: thold_templates.php:1121
 #, fuzzy
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr "Herhaal de waarschuwing nadat deze tijd is verstreken sinds de laatste waarschuwing."
 
-#: thold_templates.php:1130 thold_templates.php:1157
+#: thold_templates.php:1145 thold_templates.php:1172
 #, fuzzy
 msgid "Min Trigger Duration"
 msgstr "Min. duur van de trekker"
 
-#: thold_templates.php:1133 thold_templates.php:1160
+#: thold_templates.php:1148 thold_templates.php:1175
 #, fuzzy
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr "De tijd die de gegevensbron nodig heeft om een waarschuwing op te nemen, moet in een inbreukvoorwaarde verkeren."
 
-#: thold_templates.php:1184 thold_templates.php:1220
+#: thold_templates.php:1199 thold_templates.php:1235
 #, fuzzy
 msgid "Trigger Count"
 msgstr "Triggertelling"
 
-#: thold_templates.php:1189
+#: thold_templates.php:1204
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr "Het aantal keren dat de gegevensbron in strijd met de voorschriften moet zijn voordat een waarschuwing wordt gegeven."
 
-#: thold_templates.php:1193 thold_templates.php:1228
+#: thold_templates.php:1208 thold_templates.php:1243
 #, fuzzy
 msgid "Time Period Length"
 msgstr "Tijdsperiode Lengte"
 
-#: thold_templates.php:1224
+#: thold_templates.php:1239
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr "Het aantal keren dat de gegevensbron in strijd met de voorschriften moet zijn voordat een waarschuwing wordt afgegeven."
 
-#: thold_templates.php:1235
+#: thold_templates.php:1250
 #, fuzzy
 msgid "Baseline Monitoring"
 msgstr "Basislijn monitoring"
 
-#: thold_templates.php:1239
+#: thold_templates.php:1254
 #, fuzzy
 msgid "Time reference in the past"
 msgstr "Tijdreferentie in het verleden"
 
-#: thold_templates.php:1242
+#: thold_templates.php:1257
 #, fuzzy
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference"
 msgstr "Specificeert het punt in het verleden (gebaseerd op rrd resolutie) dat als referentie zal worden gebruikt"
 
-#: thold_templates.php:1246
+#: thold_templates.php:1261
 #, fuzzy
 msgid "Baseline Deviation UP"
 msgstr "Basislijnafwijking UP"
 
-#: thold_templates.php:1254
+#: thold_templates.php:1269
 #, fuzzy
 msgid "Baseline Deviation DOWN"
 msgstr "Basislijnafwijking DOWN"
 
-#: thold_templates.php:1266
+#: thold_templates.php:1281
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr "Aantal opeenvolgende keren dat de gegevensbron in een verbroken toestand moet zijn om een waarschuwing te kunnen verhogen.<br>Laat leeg om de standaardwaarde te gebruiken (Standaard: %s cycli"
 
-#: thold_templates.php:1290
+#: thold_templates.php:1305
 #, fuzzy
 msgid "Percent Datasource"
 msgstr "Percentage Gegevensbron"
 
-#: thold_templates.php:1293
+#: thold_templates.php:1308
 #, fuzzy
 msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr "Tweede gegevensbron Item te gebruiken als totale waarde om het percentage uit te berekenen."
 
-#: thold_templates.php:1303
+#: thold_templates.php:1318
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "Een RPN-expressie is een RRDtoolcompatibele RPN-expressie.  Syntax bevat alle onderstaande functies, naast de vervangingsuitdrukkingen voor apparaat- en gegevensvragen, zoals <span style=\"color:blue;\">|query_ifSpeed|</span>.  Om een gegevensbron in de RPN-expressie te gebruiken, moet u de syntaxis gebruiken: <span style=\"kleur: blauw;\">|ds:dsname|</span>.  Bijvoorbeeld, <span style=\"color:blue;\">|ds:traffic_in|</span> krijgt de huidige waarde van de traffic_in Data Source voor de RRDfile(s) geassocieerd met de Graph. Elke gegevensbron voor een grafiek kan worden opgenomen.<br>Math Operators: <span style=\"kleur: blauw;\">+, -, /, /, *, &#37;, ^</span><br><br>Functies: <spanstijl=\"kleur: blauw;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br><br>Flow Operators: <span stijl=\"kleur: blauw;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br><br>Vergelijkingsfuncties: <span style=\"kleur: blauw;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
-#: thold_templates.php:1310
+#: thold_templates.php:1325
 #, fuzzy
 msgid "Upper data source to use to calculate the total value."
 msgstr "Bovenste gegevensbron om te gebruiken om de totale waarde te berekenen."
 
-#: thold_templates.php:1354
+#: thold_templates.php:1369
 #, fuzzy
 msgid "Notification List Read Only"
 msgstr "Alleen kennisgevingslijst"
 
-#: thold_templates.php:1355
+#: thold_templates.php:1370
 #, fuzzy
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr "Als deze optie is aangevinkt, wordt er een drempelwaardebericht naar uw lokale syslog gestuurd."
 
-#: thold_templates.php:1392
+#: thold_templates.php:1417
 #, fuzzy
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "Ernst die voor waarschuwingen moet worden gebruikt. (Lage impact -> Kritische impact)"
 
-#: thold_templates.php:1421
+#: thold_templates.php:1446
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr "Dit is een lijst van accounts die een melding krijgen wanneer deze drempel wordt overschreden.<br><br><br><br><br><br><br><br>."
 
-#: thold_templates.php:1430
+#: thold_templates.php:1455
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr "U kunt hier extra E-mails specificeren om waarschuwingen te ontvangen voor deze gegevensbron (gescheiden door komma's)"
 
-#: thold_templates.php:1438
+#: thold_templates.php:1463
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr "U kunt hier extra E-mails specificeren om waarschuwingen te ontvangen voor deze gegevensbron (gescheiden door komma's)"
 
-#: thold_templates.php:1775
+#: thold_templates.php:1800
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "%d Maanden, %d Dagen, %d Uren, %d Minuten, %d Seconden (gemiddeld)"
 
-#: thold_templates.php:1777
+#: thold_templates.php:1802
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "%d Maanden, %d Dagen, %d Uren, %d Minuten, %d Seconden"
 
-#: thold_templates.php:1781
+#: thold_templates.php:1806
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "%d Dagen, %d Uren, %d Minuten, %d Seconden (Gemiddeld)"
 
-#: thold_templates.php:1783
+#: thold_templates.php:1808
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "%d Dagen, %d Uren, %d Minuten, %d Seconden"
 
-#: thold_templates.php:1787
+#: thold_templates.php:1812
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "Uren, Minuten, Seconden (Gemiddeld)"
 
-#: thold_templates.php:1789
+#: thold_templates.php:1814
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr "Uren, Minuten, Seconden"
 
-#: thold_templates.php:1793
+#: thold_templates.php:1818
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr "%d Notulen, %d Seconden (gemiddeld)"
 
-#: thold_templates.php:1795
+#: thold_templates.php:1820
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr "%d Notulen, %d Seconden"
 
-#: thold_templates.php:1799
+#: thold_templates.php:1824
 #, fuzzy, php-format
 msgid "%d Seconds (Average)"
 msgstr "%d Seconden (Gemiddeld)"
 
-#: thold_templates.php:1801
+#: thold_templates.php:1826
 #, php-format
 msgid "%d Seconds"
 msgstr "%d Seconden"
 
-#: thold_templates.php:1982
+#: thold_templates.php:2007
 #, fuzzy
 msgid "DS Name"
 msgstr "DS naam"
 
-#: thold_templates.php:1990
+#: thold_templates.php:2015
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "De hoge waarschuwings- / waarschuwingswaarden. OPMERKING: basislijnwaarden zijn een percentage, alle andere waarden zijn RAW-waarden die niet zijn gewijzigd door een cdef."
 
-#: thold_templates.php:1996
+#: thold_templates.php:2021
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "De lage waarschuwings- / waarschuwingswaarden. OPMERKING: basislijnwaarden zijn een percentage, alle andere waarden zijn RAW-waarden die niet zijn gewijzigd door een cdef."
 
-#: thold_templates.php:2084
+#: thold_templates.php:2107
 #, fuzzy
 msgid "No Threshold Templates"
 msgstr "Geen drempelwaarde sjablonen"
 
-#: thold_templates.php:2102
+#: thold_templates.php:2125
 msgid "Import Template from Local File"
 msgstr "Importeer template vanaf een lokaal bestand"
 
-#: thold_templates.php:2103
+#: thold_templates.php:2126
 #, fuzzy
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr "Als het XML-bestand met Threshold Template gegevens zich op uw lokale machine bevindt, selecteer het hier."
 
-#: thold_templates.php:2108
+#: thold_templates.php:2131
 msgid "Import Template from Text"
 msgstr "Importeer template vanaf tekst"
 
-#: thold_templates.php:2109
+#: thold_templates.php:2132
 #, fuzzy
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
 msgstr "Als u het XML-bestand met Threshold Template gegevens als tekst heeft, kunt u het in dit vakje plakken om het te importeren."
 
-#: thold_templates.php:2121
+#: thold_templates.php:2144
 msgid "Import Results"
 msgstr "Import resultaten"
 
-#: thold_templates.php:2123
+#: thold_templates.php:2146
 msgid "Cacti has imported the following items:"
 msgstr "Cacti heeft de volgende items geïmporteerd:"
 
-#: thold_templates.php:2133 thold_templates.php:2145
+#: thold_templates.php:2156 thold_templates.php:2168
 #, fuzzy
 msgid "Import Threshold Templates"
 msgstr "Drempel sjablonen importeren"
 
-#: thold_templates.php:2158 thold_templates.php:2161
+#: thold_templates.php:2181 thold_templates.php:2184
 msgid "The file is too big."
 msgstr "Het bestand is te groot."
 
-#: thold_templates.php:2164
+#: thold_templates.php:2187
 #, fuzzy
 msgid "Incomplete file transfer."
 msgstr "Onvolledige bestandsoverdracht."
 
-#: thold_templates.php:2167 thold_templates.php:2194
+#: thold_templates.php:2190 thold_templates.php:2217
 msgid "No file uploaded."
 msgstr "Geen bestand geüpload."
 
-#: thold_templates.php:2170
+#: thold_templates.php:2193
 #, fuzzy
 msgid "Temporary folder missing."
 msgstr "Tijdelijke map ontbreekt."
 
-#: thold_templates.php:2173
+#: thold_templates.php:2196
 msgid "Failed to write file to disk"
 msgstr "Kan bestand niet schrijven naar schijf"
 
-#: thold_templates.php:2176
+#: thold_templates.php:2199
 msgid "File upload stopped by extension"
 msgstr "Het uploaden is gestopt door de extensie"
 
-#: thold_templates.php:2187
+#: thold_templates.php:2210
 msgid "Invalid file extension."
 msgstr "Ongeldige bestandsextensie."
 
-#: thold_templates.php:2213
+#: thold_templates.php:2236
 msgid "NOTE:"
 msgstr "OPMERKING:"
 
-#: thold_templates.php:2220 thold_templates.php:2227
+#: thold_templates.php:2243 thold_templates.php:2250
 msgid "ERROR:"
 msgstr "FOUT:"
 
@@ -3650,6 +3714,18 @@ msgstr "Formaat wijzigen van de selecteerde grafiek template(s)"
 #, php-format
 msgid "Created graph: %s"
 msgstr "Grafiek: %s gemaakt"
+
+#, fuzzy
+#~ msgid "Default Monitor Status"
+#~ msgstr "Standaard monitorstatus"
+
+#, fuzzy
+#~ msgid "Default Threshold Tab filter status."
+#~ msgstr "Default Threshold Tab filterstatus."
+
+#, fuzzy
+#~ msgid "Maximum Concurrent Threshold Processes"
+#~ msgstr "Maximale gelijktijdige drempelwaarden Processen"
 
 #, fuzzy
 #~ msgid "Create a new Threshold"
