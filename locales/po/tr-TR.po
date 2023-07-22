@@ -4,7 +4,19 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2020-12-12 22:16-0500\nPO-Revision-Date: 2022-06-21 05:25+0000\nLast-Translator: San IPE <sanipe1949@krunsea.com>\nLanguage-Team: Turkish <http://translate.cacti.net/projects/cacti/thold/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2023-07-22 13:25-0400\n"
+"PO-Revision-Date: 2022-06-21 05:25+0000\n"
+"Last-Translator: San IPE <sanipe1949@krunsea.com>\n"
+"Language-Team: Turkish <http://translate.cacti.net/projects/cacti/thold/tr/>\n"
+"Language: tr-TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 #, fuzzy
@@ -28,37 +40,36 @@ msgstr "%d Ay"
 msgid "%d Year"
 msgstr "%d Yıl"
 
-#: includes/arrays.php:37 thold_graph.php:694 thold_graph.php:1037
+#: includes/arrays.php:37 thold_graph.php:772 thold_graph.php:1115
 msgid "Down"
 msgstr "Aşağı"
 
 #: includes/arrays.php:41 includes/arrays.php:227 includes/arrays.php:243
-#: thold_graph.php:703
+#: thold_graph.php:781
 msgid "Error"
 msgstr "Hata"
 
-#: includes/arrays.php:45 thold_graph.php:697 thold_graph.php:1038
+#: includes/arrays.php:45 thold_graph.php:775 thold_graph.php:1116
 #, fuzzy
 msgid "Recovering"
 msgstr "kurtarma"
 
-#: includes/arrays.php:49 thold_graph.php:700 thold_graph.php:1036
+#: includes/arrays.php:49 thold_graph.php:778 thold_graph.php:1114
 msgid "Up"
 msgstr "Yukarı"
 
-#: includes/arrays.php:53 thold_graph.php:706 thold_graph.php:1039
+#: includes/arrays.php:53 thold_graph.php:784 thold_graph.php:1117
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
 #: includes/arrays.php:57 includes/arrays.php:198 includes/settings.php:308
-#: includes/settings.php:422 includes/settings.php:435
-#: includes/settings.php:465 notify_lists.php:733 notify_lists.php:1154
-#: notify_lists.php:1318 notify_lists.php:1514 thold.php:704
-#: thold_graph.php:216 thold_graph.php:690 thold_graph.php:1033
+#: includes/settings.php:422 includes/settings.php:458 notify_lists.php:735
+#: notify_lists.php:1165 notify_lists.php:1329 notify_lists.php:1523
+#: thold.php:719 thold_graph.php:218 thold_graph.php:768 thold_graph.php:1111
 msgid "Disabled"
 msgstr "Devre dışı"
 
-#: includes/arrays.php:61 thold_graph.php:964 thold_graph.php:1035
+#: includes/arrays.php:61 thold_graph.php:1042 thold_graph.php:1113
 #, fuzzy
 msgid "Not Monitored"
 msgstr "İzlenmeyen"
@@ -138,7 +149,7 @@ msgstr "Uyarı"
 msgid "Event - Restoral"
 msgstr "Etkinlik - Restoral"
 
-#: includes/arrays.php:112 thold_graph.php:1393
+#: includes/arrays.php:112 thold_graph.php:1472
 #, fuzzy
 msgid "Restoral Event"
 msgstr "Sektörel Etkinlik"
@@ -177,7 +188,7 @@ msgstr "Tetikleme uyar"
 msgid "Alert-Warn"
 msgstr "Uyarı-uyar"
 
-#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1363
+#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1443
 msgid "Acknowledgment"
 msgstr "Bilgilendirme"
 
@@ -198,8 +209,8 @@ msgstr "Tamam"
 msgid "Emergency"
 msgstr "Acil Durum"
 
-#: includes/arrays.php:226 thold.php:1831 thold.php:1850
-#: thold_templates.php:1394 thold_templates.php:1408
+#: includes/arrays.php:226 thold.php:1861 thold.php:1880
+#: thold_templates.php:1419 thold_templates.php:1433
 msgid "Critical"
 msgstr "Kritik"
 
@@ -212,7 +223,7 @@ msgid "Debug"
 msgstr "Hata ayıklama"
 
 #: includes/arrays.php:270 includes/arrays.php:355 includes/arrays.php:421
-#: thold_functions.php:94
+#: thold_functions.php:98
 msgid "Never"
 msgstr "Asla"
 
@@ -225,8 +236,8 @@ msgstr "Dakikada Bir"
 #: includes/arrays.php:278 includes/arrays.php:279 includes/arrays.php:280
 #: includes/arrays.php:356 includes/arrays.php:357 includes/arrays.php:358
 #: includes/arrays.php:359 includes/arrays.php:360 includes/arrays.php:361
-#: includes/settings.php:466 includes/settings.php:467
-#: includes/settings.php:468
+#: includes/settings.php:459 includes/settings.php:460
+#: includes/settings.php:461
 #, php-format
 msgid "Every %d Minutes"
 msgstr "Her %d Dakika"
@@ -239,7 +250,7 @@ msgstr "Her Saat"
 #: includes/arrays.php:285 includes/arrays.php:286 includes/arrays.php:287
 #: includes/arrays.php:363 includes/arrays.php:364 includes/arrays.php:365
 #: includes/arrays.php:366 includes/arrays.php:367 includes/arrays.php:368
-#: includes/settings.php:470
+#: includes/settings.php:463
 #, fuzzy, php-format
 msgid "Every %d Hours"
 msgstr "Her% d saatte bir"
@@ -312,7 +323,7 @@ msgid "%d Day"
 msgstr "%d Gün"
 
 #: includes/arrays.php:314 includes/arrays.php:346 includes/arrays.php:391
-#: includes/arrays.php:412 thold_graph.php:1267
+#: includes/arrays.php:412 thold_graph.php:1347
 #, php-format
 msgid "%d Days"
 msgstr "%d Gün"
@@ -395,7 +406,7 @@ msgstr "CDEF"
 msgid "Percentage"
 msgstr "Yüzde"
 
-#: includes/arrays.php:491 thold.php:1743 thold_templates.php:1298
+#: includes/arrays.php:491 thold.php:1763 thold_templates.php:1313
 #, fuzzy
 msgid "RPN Expression"
 msgstr "RPN İfadesi"
@@ -420,7 +431,7 @@ msgid "Resume Notifications"
 msgstr "SNMP Bildirimleri"
 
 #: includes/arrays.php:499 includes/arrays.php:508 notify_lists.php:31
-#: setup.php:1295
+#: setup.php:1298
 msgid "Delete"
 msgstr "Sil"
 
@@ -442,54 +453,54 @@ msgstr "Önerilen İsimleri Yeniden Uygula"
 msgid "Propagate Template"
 msgstr "Şablonu Yay"
 
-#: includes/arrays.php:507 thold_graph.php:1451
+#: includes/arrays.php:507 thold_graph.php:1530
 msgid "Export"
 msgstr "Dışa Aktar"
 
-#: includes/polling.php:609
+#: includes/polling.php:532
 #, fuzzy
 msgid "SNMP not in use"
 msgstr "SNMP kullanımda değil"
 
-#: includes/polling.php:662 thold.php:956 thold.php:976 thold.php:977
-#: thold.php:1178 thold.php:1227 thold.php:1234 thold.php:1240 thold.php:1248
-#: thold.php:1254 thold.php:1260 thold.php:1262 thold.php:1447
-#: thold_graph.php:621 thold_graph.php:641 thold_graph.php:642
-#: thold_graph.php:917 thold_graph.php:966 thold_graph.php:969
-#: thold_graph.php:970 thold_graph.php:971 thold_graph.php:1394
-#: thold_graph.php:1395
+#: includes/polling.php:591 thold.php:970 thold.php:990 thold.php:991
+#: thold.php:1191 thold.php:1240 thold.php:1247 thold.php:1253 thold.php:1261
+#: thold.php:1267 thold.php:1273 thold.php:1275 thold.php:1460
+#: thold_graph.php:699 thold_graph.php:719 thold_graph.php:720
+#: thold_graph.php:995 thold_graph.php:1044 thold_graph.php:1047
+#: thold_graph.php:1048 thold_graph.php:1049 thold_graph.php:1473
+#: thold_graph.php:1474
 msgid "N/A"
 msgstr "Yok"
 
-#: includes/polling.php:667
+#: includes/polling.php:596
 #, fuzzy
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "Cihazlar haber: <DESCRIPTION> ( <HOSTNAME> ) AŞAĞI durumundan döndü"
 
-#: includes/polling.php:677
+#: includes/polling.php:614
 #, fuzzy
-msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
 msgstr "<br> sistem <DESCRIPTION> ( <HOSTNAME> ) durum: <DOWN/UP><br><br> Mevcut ping cevabı: <CUR_TIME> MS <br> Ortalama sistem yanıtı: <AVG_TIME> MS <br> Sistem kullanılabilirliği: <AVAILABILITY><br> Silinen Toplam Kontrol Sayısı: <TOT_POLL><br> Toplam Başarısız Çekler: <FAIL_POLL><br> Son Kontrol Tarihi: <LAST_FAIL><br> Daha önce AŞAĞI olan cihazlar: <DOWNTIME><br><br> SNMP Bilgisi: <br> İsim - <SNMP_HOSTNAME><br> Yer - <SNMP_LOCATION><br> Çalışma Süresi - <UPTIMETEXT> ( <UPTIME> MS) <br> Sistem - <SNMP_SYSTEM><br><br> NOT: <NOTES>"
 
-#: includes/polling.php:819
+#: includes/polling.php:763
 #, fuzzy
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "Aygıt Hatası: <DESCRIPTION> ( <HOSTNAME> ) Bozuk"
 
-#: includes/polling.php:824 includes/polling.php:840
+#: includes/polling.php:775 includes/polling.php:794
 msgid "DOWN"
 msgstr "AŞAĞI"
 
-#: includes/polling.php:830
+#: includes/polling.php:782
 #, fuzzy
-msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Sistem hatası : <DESCRIPTION> ( <HOSTNAME> ) <DOWN/UP><br> Sebep: <MESSAGE><br><br> Ortalama sistem yanıtı: <AVG_TIME> MS <br> Sistem kullanılabilirliği: <AVAILABILITY><br> Silinen Toplam Kontrol Sayısı: <TOT_POLL><br> Toplam Başarısız Çekler: <FAIL_POLL><br> Son Kontrol Tarihi AŞAĞI: <LAST_FAIL><br> Önceden UP için Aygıtlar: <DOWNTIME><br> NOT: <NOTES>"
 
 #: includes/settings.php:29 includes/settings.php:64 includes/settings.php:71
 #: includes/settings.php:77 includes/settings.php:208 notify_lists.php:44
-#: notify_lists.php:1322 notify_lists.php:1387 notify_lists.php:1997
-#: thold.php:709 thold.php:760 thold_functions.php:139 thold_graph.php:221
-#: thold_templates.php:1967
+#: notify_lists.php:1333 notify_lists.php:1398 notify_lists.php:2010
+#: thold.php:724 thold.php:775 thold_functions.php:143 thold_graph.php:223
+#: thold_templates.php:1992
 msgid "Thresholds"
 msgstr "Sınırlar"
 
@@ -517,7 +528,7 @@ msgstr "(eklemek)"
 msgid "Threshold Logs"
 msgstr "Eşik"
 
-#: includes/settings.php:91 thold_functions.php:141 thold_graph.php:768
+#: includes/settings.php:91 thold_functions.php:145 thold_graph.php:846
 #, fuzzy
 msgid "Device Status"
 msgstr "Cihaz durumu"
@@ -549,7 +560,7 @@ msgstr "Son Aygıt Hataları"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
-#: includes/settings.php:160 thold_templates.php:1856
+#: includes/settings.php:160 thold_templates.php:1881
 #, fuzzy
 msgid "Threshold Templates"
 msgstr "Eşik Şablonları"
@@ -560,7 +571,7 @@ msgid "Threshold Template Import"
 msgstr "Eşik Şablonu İçe Aktarma"
 
 #: includes/settings.php:174 includes/settings.php:188
-#: includes/settings.php:195 includes/settings.php:207 notify_lists.php:1891
+#: includes/settings.php:195 includes/settings.php:207 notify_lists.php:1904
 #, fuzzy
 msgid "Notification Lists"
 msgstr "Bildirim Listeleri"
@@ -574,12 +585,12 @@ msgstr "Bildirim Listeleri (düzenle)"
 msgid "Management"
 msgstr "Kullanıcı Yonetimi"
 
-#: includes/settings.php:209 notify_lists.php:45 notify_lists.php:1998
-#: thold_templates.php:1871 thold_templates.php:1947
+#: includes/settings.php:209 notify_lists.php:45 notify_lists.php:2011
+#: thold_templates.php:1896 thold_templates.php:1972
 msgid "Templates"
 msgstr "Şablonlar"
 
-#: includes/settings.php:209 thold_graph.php:1475
+#: includes/settings.php:209 thold_graph.php:1556
 msgid "Threshold"
 msgstr "Eşik"
 
@@ -632,7 +643,7 @@ msgstr "Cihaz Yukarı / Aşağı Bildirim Ayarları"
 msgid "Threshold Up/Down Email Notification"
 msgstr "Eşik Yukarı / Aşağı E-posta Bildirimi"
 
-#: includes/settings.php:309 notify_lists.php:733 notify_lists.php:1156
+#: includes/settings.php:309 notify_lists.php:735 notify_lists.php:1167
 #, fuzzy
 msgid "Global List"
 msgstr "Genel liste"
@@ -777,483 +788,481 @@ msgstr "Varsayılan Yönetim Durumu"
 msgid "Default Threshold management filter status."
 msgstr "Varsayılan Eşik yönetimi filtre durumu."
 
-#: includes/settings.php:421 includes/settings.php:434 notify_lists.php:966
-#: notify_lists.php:984 notify_lists.php:1283 notify_lists.php:1301
-#: thold.php:687
+#: includes/settings.php:421 notify_lists.php:977 notify_lists.php:995
+#: notify_lists.php:1294 notify_lists.php:1312 thold.php:702
 msgid "Any"
 msgstr "Herhangi"
 
-#: includes/settings.php:423 includes/settings.php:436 notify_lists.php:1317
-#: notify_lists.php:1403 notify_lists.php:1514 thold.php:703 thold.php:1914
-#: thold_graph.php:215 thold_graph.php:1032 thold_templates.php:1035
-#: thold_templates.php:1471
+#: includes/settings.php:423 notify_lists.php:1328 notify_lists.php:1414
+#: notify_lists.php:1523 thold.php:718 thold.php:1944 thold_graph.php:217
+#: thold_graph.php:1110 thold_templates.php:1043 thold_templates.php:1496
 msgid "Enabled"
 msgstr "Etkin"
 
-#: includes/settings.php:424 includes/settings.php:437 notify_lists.php:1315
-#: thold.php:701 thold_graph.php:213
+#: includes/settings.php:424 notify_lists.php:1326 thold.php:716
+#: thold_graph.php:215
 #, fuzzy
 msgid "Breached"
 msgstr "ihlal"
 
-#: includes/settings.php:425 includes/settings.php:438 notify_lists.php:1316
-#: notify_lists.php:1401 thold.php:702 thold.php:823 thold_graph.php:214
-#: thold_graph.php:463
+#: includes/settings.php:425 notify_lists.php:1327 notify_lists.php:1412
+#: thold.php:717 thold.php:838 thold_graph.php:216 thold_graph.php:503
 msgid "Triggered"
 msgstr "Tetikleyici"
 
 #: includes/settings.php:430
 #, fuzzy
-msgid "Default Monitor Status"
-msgstr "Varsayılan İzleme Durumu"
-
-#: includes/settings.php:431
-#, fuzzy
-msgid "Default Threshold Tab filter status."
-msgstr "Varsayılan Eşik Sekmesi filtre durumu."
-
-#: includes/settings.php:443
-#, fuzzy
 msgid "Empty ifHighSpeed Default"
 msgstr "İfHighSpeed Varsayılanını Boşalt"
 
-#: includes/settings.php:444
+#: includes/settings.php:431
 #, fuzzy
 msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
 msgstr "İfade Eşiklerini hesaplarken, ifHighSpeed ve ifSpeed sıfır olarak geri gelirse, bunun yerine ifHighSpeed ayarını kullanın. HighHightSpeed, 10GE arayüzleri için 10000 olacaktır."
 
-#: includes/settings.php:451
+#: includes/settings.php:438
 #, fuzzy
 msgid "Threshold Daemon"
 msgstr "Eşik Daemon"
 
-#: includes/settings.php:455
+#: includes/settings.php:442
 #, fuzzy
 msgid "Enable Threshold Daemon"
 msgstr "Eşik Daemon'unu Etkinleştir"
 
-#: includes/settings.php:456
+#: includes/settings.php:443
 #, fuzzy
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
 msgstr "Bu kutuyu işaretlemek, özel bir Eşik artalanının kullanılmasını sağlayacaktır. Bu, sistem performansını arttırmak ve / veya Eşik izlemeyi ayrı bir sunucuya dağıtmak için kullanılabilir."
 
-#: includes/settings.php:461
+#: includes/settings.php:448
+#, fuzzy
+msgid "Force Threshold Daemon Debug"
+msgstr "Eşik Daemon"
+
+#: includes/settings.php:449
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr ""
+
+#: includes/settings.php:454
 #, fuzzy
 msgid "Daemon Down Notification Frequency"
 msgstr "Cihaz Yukarı / Aşağı Bildirim Ayarları"
 
-#: includes/settings.php:462
+#: includes/settings.php:455
 #, fuzzy
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
 msgstr "Thold Daemon'un çalışmadığı tespit edilirse, bu sıklıkta bir E-posta bildirimi gönderin."
 
-#: includes/settings.php:469
+#: includes/settings.php:462
 #, fuzzy, php-format
 msgid "Every %d Hour"
 msgstr "Her% d saatte bir"
 
-#: includes/settings.php:475
-#, fuzzy
-msgid "Maximum Concurrent Threshold Processes"
-msgstr "Maksimum Eşzamanlı Eşik İşlemleri"
+#: includes/settings.php:468
+msgid "Daemon Threads"
+msgstr ""
 
-#: includes/settings.php:476
+#: includes/settings.php:469
 #, fuzzy
-msgid "The maximum number of concurrent processes to be handled by the Threshold Daemon."
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
 msgstr "Eşik Daemonu tarafından ele alınacak azami eş zamanlı işlem sayısı"
 
-#: includes/settings.php:483
+#: includes/settings.php:472
+msgid "1 Process"
+msgstr ""
+
+#: includes/settings.php:473 includes/settings.php:474
+#: includes/settings.php:475 includes/settings.php:476
+#: includes/settings.php:477 includes/settings.php:478
+#: includes/settings.php:479 includes/settings.php:480
+#: includes/settings.php:481
+#, php-format
+msgid "%d Processes"
+msgstr ""
+
+#: includes/settings.php:486
 msgid "Logging"
 msgstr "Günlükleme"
 
-#: includes/settings.php:487
+#: includes/settings.php:490
 #, fuzzy
 msgid "Log Threshold Breaches"
 msgstr "Günlük Eşik İhlalleri"
 
-#: includes/settings.php:488
+#: includes/settings.php:491
 #, fuzzy
 msgid "Enable logging of all Threshold failures to the Cacti Log."
 msgstr "Tüm Eşik hatalarının Kaktüs Günlüğüne kaydedilmesini etkinleştirin."
 
-#: includes/settings.php:493
+#: includes/settings.php:496
 #, fuzzy
 msgid "Show Data Source in Log"
 msgstr "Günlükte Veri Kaynağını Göster"
 
-#: includes/settings.php:494
+#: includes/settings.php:497
 #, fuzzy
 msgid "Show the Data Source name in the Log if not present."
 msgstr "Var değilse, Veri Kaynağı adını Günlük'te gösterin."
 
-#: includes/settings.php:499
+#: includes/settings.php:502
 #, fuzzy
 msgid "Log Threshold Changes"
 msgstr "Günlük Eşik Değişiklikleri"
 
-#: includes/settings.php:500
+#: includes/settings.php:503
 #, fuzzy
 msgid "Enable logging of all Threshold changes to the Cacti Log."
 msgstr "Tüm Eşik değişikliklerinin Kaktüs Günlüğüne kaydedilmesini etkinleştir."
 
-#: includes/settings.php:505
+#: includes/settings.php:508
 msgid "Debug Log"
 msgstr "Hata ayıklama günlüğü"
 
-#: includes/settings.php:506
+#: includes/settings.php:509
 #, fuzzy
 msgid "Enable logging of debug messages with Threshold"
 msgstr "Eşik ile hata ayıklama mesajları günlüğünü etkinleştir"
 
-#: includes/settings.php:511
+#: includes/settings.php:514
 #, fuzzy
 msgid "Alert Log Retention"
 msgstr "Uyarı Günlüğü Tutma"
 
-#: includes/settings.php:512
+#: includes/settings.php:515
 #, fuzzy
 msgid "Keep Threshold Logs for this number of days."
 msgstr "Bu gün sayısı için Eşik Günlüklerini Koru."
 
-#: includes/settings.php:518 thold.php:1909 thold_templates.php:1466
+#: includes/settings.php:521 thold.php:1939 thold_templates.php:1491
 #, fuzzy
 msgid "Syslog Settings"
 msgstr "Syslog Ayarları"
 
-#: includes/settings.php:522
+#: includes/settings.php:525
 #, fuzzy
 msgid "Syslog Enabled"
 msgstr "Syslog Etkin"
 
-#: includes/settings.php:523
+#: includes/settings.php:526
 #, fuzzy
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "İşaretlenirse, yeni bir Eşik oluştururken, varsayılan olarak yeni Eşik etkinlikleri yerel sisteminize gönderilir. Bu ayar önceden ayarlanmıştır. Eşik ayarları gerçek syslog kontrolünü belirler."
 
-#: includes/settings.php:527
+#: includes/settings.php:530
 #, fuzzy
 msgid "Default Priority/Level"
 msgstr "Varsayılan Öncelik / Seviye"
 
-#: includes/settings.php:528
+#: includes/settings.php:531
 #, fuzzy
 msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Bu, Thold'ün syslog mesajları göndermek için kullanacağı varsayılan Öncelik / Seviyedir. Bu ayar önceden ayarlanmıştır. Eşik ayarları gerçek syslog kontrolünü belirler."
 
-#: includes/settings.php:534
+#: includes/settings.php:537
 #, fuzzy
 msgid "Default Facility"
 msgstr "Varsayılan Tesis"
 
-#: includes/settings.php:535
+#: includes/settings.php:538
 #, fuzzy
 msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Bu, Thold'ün syslog mesajları göndermek için kullanacağı varsayılan Tesis'dir. Bu ayar önceden ayarlanmıştır. Eşik ayarları gerçek syslog kontrolünü belirler."
 
-#: includes/settings.php:541
+#: includes/settings.php:544
 #, fuzzy
 msgid "Alert Presets"
 msgstr "Uyarı Hazır Ayarları"
 
-#: includes/settings.php:545
+#: includes/settings.php:548
 #, fuzzy
 msgid "Weekend exemptions"
 msgstr "Hafta sonu muafiyetleri"
 
-#: includes/settings.php:546
+#: includes/settings.php:549
 #, fuzzy
 msgid "If this is checked, Thold will not run on weekends."
 msgstr "Bu işaretliyse, Thold hafta sonları çalışmaz."
 
-#: includes/settings.php:550
+#: includes/settings.php:553
 #, fuzzy
 msgid "Default Trigger Count"
 msgstr "Varsayılan Tetikleme Sayısı"
 
-#: includes/settings.php:551
+#: includes/settings.php:554
 #, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
 msgstr "Bir Alarmın yükseltilmesi için varsayılan olarak Veri Kaynağının art arda eşik sayısı ihlalinde bulunmalıdır."
 
-#: includes/settings.php:558
+#: includes/settings.php:561
 #, fuzzy
 msgid "Re-Alerting"
 msgstr "Yeniden uyarma"
 
-#: includes/settings.php:559
+#: includes/settings.php:562
 #, fuzzy
 msgid "Repeat Alert after specified number of poller cycles."
 msgstr "Belirtilen sayıda yoklama döngüsünden sonra Uyarı'yı tekrarlayın."
 
-#: includes/settings.php:566
+#: includes/settings.php:569
 #, fuzzy
 msgid "Baseline Presets"
 msgstr "Temel Hazır Ayarlar"
 
-#: includes/settings.php:570
+#: includes/settings.php:573
 #, fuzzy
 msgid "Baseline Time Range Default"
 msgstr "Temel Zaman Aralığı Varsayılan"
 
-#: includes/settings.php:571 includes/settings.php:588
+#: includes/settings.php:574 includes/settings.php:591
 #, fuzzy
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr "Bu, Eşikleri veya şablonları oluştururken kullanılan varsayılan değerdir."
 
-#: includes/settings.php:579 thold.php:1699 thold_templates.php:1262
+#: includes/settings.php:582 thold.php:1719 thold_templates.php:1277
 #, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "Temel Tetikleme Sayısı"
 
-#: includes/settings.php:580
+#: includes/settings.php:583
 #, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
 msgstr "Varsayılan olarak, Veri Kaynağının bir Uyarının yükseltilmesi için hesaplanan Temel Eşik değerini ihlal etmesi gerekir."
 
-#: includes/settings.php:587
+#: includes/settings.php:590
 #, fuzzy
 msgid "Baseline Deviation Percentage"
 msgstr "Temel Sapma Yüzdesi"
 
-#: includes/settings.php:595
+#: includes/settings.php:598
 #, fuzzy
 msgid "SNMP Notification Options"
 msgstr "SNMP Bildirimleri"
 
-#: includes/settings.php:599
+#: includes/settings.php:602
 #, fuzzy
 msgid "SNMP Notifications"
 msgstr "SNMP Bildirimleri"
 
-#: includes/settings.php:600
+#: includes/settings.php:603
 #, fuzzy
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
 msgstr "Eşik durum mesajları (bilgi / tuzaklar) SNMP bildirim alıcılarına gönderilecektir. Buna, varsayılan başına Uyarılar, Uyarılar ve Restorasyon tuzakları dahildir. Not: Bu özellik Cacti SNMPAgent eklentisini gerektirir."
 
-#: includes/settings.php:605
+#: includes/settings.php:608
 #, fuzzy
 msgid "Disable Warning Notifications"
 msgstr "Uyarı Bildirimlerini Devre Dışı Bırak"
 
-#: includes/settings.php:606
+#: includes/settings.php:609
 #, fuzzy
 msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
 msgstr "Bu işaretli ise, bir Eşik uyarısı ihlal edildiğinde Eşik bir bildirim göndermez."
 
-#: includes/settings.php:610
+#: includes/settings.php:613
 #, fuzzy
 msgid "Disable Restoration Notifications"
 msgstr "Restorasyon Bildirimlerini Devre Dışı Bırak"
 
-#: includes/settings.php:611
+#: includes/settings.php:614
 #, fuzzy
 msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
 msgstr "Bu işaretliyse, Eşik normal durumuna döndüğünde Eşik bir bildirim göndermez."
 
-#: includes/settings.php:615
-#, fuzzy
-msgid "SNMP Event Description"
-msgstr "SNMP Olayı Açıklaması"
-
-#: includes/settings.php:616
-#, fuzzy
-msgid "You can customize the event description being sent out to the SNMP notification receivers by using additional varbinds. Following variable bindings will be supported:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr "Ek değişkenleri kullanarak SNMP bildirim alıcılarına gönderilen etkinlik açıklamasını özelleştirebilirsiniz. Aşağıdaki değişken bağlama desteklenecektir: <br> &lt;THRESHOLDNAME&gt; &lt;HOSTNAME&gt; &lt;HOSTIP&gt; &lt;TEMPLATE_ID&gt; &lt;TEMPLATE_NAME&gt; &lt;THR_TYPE&gt; &lt;DS_NAME&gt; &lt;HI&gt; &lt;LOW&gt; &lt;EVENT_CATEGORY&gt; &lt;FAIL_COUNT&gt; &lt;FAIL_DURATION&gt;"
-
-#: includes/settings.php:624
+#: includes/settings.php:618
 #, fuzzy
 msgid "Emailing Options"
 msgstr "E-posta Seçenekleri"
 
-#: includes/settings.php:628
+#: includes/settings.php:622
 #, fuzzy
 msgid "Send Emails with Urgent Priority"
 msgstr "Acil Öncelikli E-postalar Gönder"
 
-#: includes/settings.php:629
+#: includes/settings.php:623
 #, fuzzy
 msgid "Allows you to set Emails with urgent priority"
 msgstr "E-postaları acil bir öncelikle ayarlamanıza"
 
-#: includes/settings.php:634
+#: includes/settings.php:628
 #, fuzzy
 msgid "Send Alerts as Text"
 msgstr "Uyarıları Metin Olarak Gönder"
 
-#: includes/settings.php:635
+#: includes/settings.php:629
 #, fuzzy
 msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
 msgstr "İşaretliyse, bu, tüm Uyarıların grafiksiz düz metin E-postalar olarak gönderilmesine neden olur. Varsayılan ayar, grafik içinde E-postaya gömülü HTML E-postalar'dır."
 
-#: includes/settings.php:640
+#: includes/settings.php:634
 #, fuzzy
 msgid "Send Email separately for each address"
 msgstr "Her adres için ayrı ayrı e-posta gönderin"
 
-#: includes/settings.php:641
+#: includes/settings.php:635
 #, fuzzy
 msgid "If checked, this will cause all Emails to be sent separately for each address."
 msgstr "İşaretlenirse, bu, tüm E-postaların her adres için ayrı ayrı gönderilmesine neden olur."
 
-#: includes/settings.php:646
+#: includes/settings.php:640
 msgid "From Email Address"
 msgstr "E-posta Adresinden"
 
-#: includes/settings.php:647
+#: includes/settings.php:641
 #, fuzzy
 msgid "This is the Email address that the Threshold will appear from."
 msgstr "Bu, Eşiğin görüneceği E-posta adresidir."
 
-#: includes/settings.php:653
+#: includes/settings.php:647
 msgid "From Name"
 msgstr "İsimden"
 
-#: includes/settings.php:654
+#: includes/settings.php:648
 #, fuzzy
 msgid "This is the actual name that the Threshold will appear from."
 msgstr "Eşiğin görüneceği asıl ad budur."
 
-#: includes/settings.php:660
+#: includes/settings.php:654
 #, fuzzy
 msgid "Device Notification Options"
 msgstr "Cihaz Bildirimi Seçenekleri"
 
-#: includes/settings.php:664
+#: includes/settings.php:658
 #, fuzzy
 msgid "Device Notifications"
 msgstr "Ölü Cihaz Bildirimleri"
 
-#: includes/settings.php:665
+#: includes/settings.php:659
 #, fuzzy
 msgid "Enable Dead/Recovering host notification"
 msgstr "Ölü / Kurtarıcı ana bilgisayar bildirimini etkinleştirme"
 
-#: includes/settings.php:670
+#: includes/settings.php:664
 #, fuzzy
 msgid "Device Notifications Email"
 msgstr "Ölü Cihaz Bildirimleri E-postası"
 
-#: includes/settings.php:671
+#: includes/settings.php:665
 #, fuzzy
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
 msgstr "Global Bildirim Listesi seçiliyse Ölü Aygıt Bildirimlerinin gönderileceği E-posta Adresi."
 
-#: includes/settings.php:677
+#: includes/settings.php:671
 #, fuzzy
 msgid "Down Subject"
 msgstr "Aşağı Cihaz Konusu"
 
-#: includes/settings.php:678
+#: includes/settings.php:672
 #, fuzzy
 msgid "This is the Email subject that will be used for Down Device Messages."
 msgstr "Bu, Aşağı Aygıt Mesajları için kullanılacak E-posta konusudur."
 
-#: includes/settings.php:682
+#: includes/settings.php:676
 #, fuzzy
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "Cihaz Hatası: <DESCRIPTION> ( <HOSTNAME> ) Bozuk"
 
-#: includes/settings.php:685
+#: includes/settings.php:679
 #, fuzzy
 msgid "Down Message"
 msgstr "Aşağı Cihaz Mesajı"
 
-#: includes/settings.php:686
+#: includes/settings.php:680
 #, fuzzy
-msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "Bu, tüm YUKARI / AŞAĞI Aygıt Mesajlarının (255 Char MAX) mesaj gövdesi olarak görüntülenecek mesajdır. HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;AŞAĞI / YUKARI &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
 
-#: includes/settings.php:691
+#: includes/settings.php:685
 #, fuzzy
-msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reason: <MESSAGE><br><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
 msgstr "Sistem hatası : <DESCRIPTION> ( <HOSTNAME> ) <DOWN/UP><br> Sebep: <MESSAGE><br><br> Ortalama sistem yanıtı: <AVG_TIME> MS <br> Sistem kullanılabilirliği: <AVAILABILITY><br> Silinen Toplam Kontrol Sayısı: <TOT_POLL><br> Toplam Başarısız Çekler: <FAIL_POLL><br> Son Kontrol Tarihi AŞAĞI: <LAST_FAIL><br> Önceden UP için Aygıt: <DOWNTIME><br> NOTLAR: <NOTES><br> Cihaz notları: <DNOTES>"
 
-#: includes/settings.php:694
+#: includes/settings.php:688
 #, fuzzy
 msgid "Recovering Subject"
 msgstr "Aygıt Konusunu Kurtarma"
 
-#: includes/settings.php:695
+#: includes/settings.php:689
 #, fuzzy
 msgid "This is the Email subject that will be used for Recovering Device Messages."
 msgstr "Bu, Cihaz Mesajlarını Kurtarmak için kullanılacak E-posta konusudur."
 
-#: includes/settings.php:699
+#: includes/settings.php:693
 #, fuzzy
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "Cihaz haber: <DESCRIPTION> ( <HOSTNAME> ) AŞAĞI durumundan döndü"
 
-#: includes/settings.php:702
+#: includes/settings.php:696
 #, fuzzy
 msgid "Recovering Message"
 msgstr "Aygıt İletisini Kurtarma"
 
-#: includes/settings.php:703
+#: includes/settings.php:697
 #, fuzzy
-msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "Bu, tüm YUKARI / AŞAĞI Aygıt Mesajlarının (255 Char MAX) mesaj gövdesi olarak görüntülenecek mesajdır. HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;AŞAĞI / YUKARI &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
 
-#: includes/settings.php:708
+#: includes/settings.php:702
 #, fuzzy
-msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
 msgstr "<br> sistem <DESCRIPTION> ( <HOSTNAME> ) durum: <DOWN/UP><br><br> Mevcut ping cevabı: <CUR_TIME> MS <br> Ortalama sistem yanıtı: <AVG_TIME> MS <br> Sistem kullanılabilirliği: <AVAILABILITY><br> Silinen Toplam Kontrol Sayısı: <TOT_POLL><br> Toplam Başarısız Çekler: <FAIL_POLL><br> Son Kontrol Tarihi: <LAST_FAIL><br> Önceden AŞAĞI için Aygıt: <DOWNTIME><br><br> Snmp Bilgisi: <br> İsim - <SNMP_HOSTNAME><br> Yer - <SNMP_LOCATION><br> Çalışma Süresi - <UPTIMETEXT> ( <UPTIME> MS) <br> Sistem - <SNMP_SYSTEM><br><br> NOT: <NOTES><br> Cihaz Notları: <DNOTES>"
 
-#: includes/settings.php:711
+#: includes/settings.php:705
 #, fuzzy
 msgid "Status Change Command"
 msgstr "Durum Değiştirme Komutu"
 
-#: includes/settings.php:712
+#: includes/settings.php:706
 #, fuzzy
-msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 msgstr "Bu, tüm YUKARI / AŞAĞI Aygıt Mesajlarının (255 Char MAX) mesaj gövdesi olarak görüntülenecek mesajdır. HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;HOSTNAME&gt; &lt;DESCRIPTION&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;AŞAĞI / YUKARI &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
 
-#: includes/settings.php:720
+#: includes/settings.php:714
 #, fuzzy
 msgid "Alert/Warning Message Defaults"
 msgstr "Uyarı / Uyarı Mesajı Varsayılanları"
 
-#: includes/settings.php:724
+#: includes/settings.php:718
 #, fuzzy
 msgid "Threshold Alert Message"
 msgstr "Eşik Uyarı Mesajı"
 
-#: includes/settings.php:725
+#: includes/settings.php:719
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
 
-#: includes/settings.php:730
+#: includes/settings.php:724
 #, fuzzy
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Dikkatinizi gerektiren bir Uyarı yayınlandı. <br><br> <strong>Cihaz</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Mesaj</strong> : <SUBJECT><br><br><GRAPH>"
 
-#: includes/settings.php:733
+#: includes/settings.php:727
 #, fuzzy
 msgid "Threshold Warning Message"
 msgstr "Eşik Uyarı Mesajı"
 
-#: includes/settings.php:734
+#: includes/settings.php:728
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
 
-#: includes/settings.php:739
+#: includes/settings.php:733
 #, fuzzy
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Dikkatinizi gerektiren bir Uyarı verildi. <br><br> <strong>Cihaz</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Mesaj</strong> : <SUBJECT><br><br><GRAPH>"
 
-#: includes/settings.php:742
+#: includes/settings.php:736
 #, fuzzy
 msgid "Threshold Restoral Message"
 msgstr "Eşik Uyarı Mesajı"
 
-#: includes/settings.php:743 thold.php:1790 thold_templates.php:1350
+#: includes/settings.php:737
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
 
-#: includes/settings.php:748
+#: includes/settings.php:742
 #, fuzzy
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Dikkatinizi gerektiren bir Uyarı yayınlandı. <br><br> <strong>Cihaz</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Mesaj</strong> : <SUBJECT><br><br><GRAPH>"
@@ -1276,455 +1285,468 @@ msgstr "Ön Lisans"
 msgid "Disassociate"
 msgstr "ilişkisini"
 
-#: notify_lists.php:43 notify_lists.php:1000 notify_lists.php:1123
-#: notify_lists.php:1996 thold_graph.php:821 thold_graph.php:1071
+#: notify_lists.php:43 notify_lists.php:1011 notify_lists.php:1134
+#: notify_lists.php:2009 thold_graph.php:899 thold_graph.php:1151
 msgid "Devices"
 msgstr "Cihazlar"
 
-#: notify_lists.php:510
+#: notify_lists.php:512
 #, fuzzy
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Bildirim Listelerini (lerini) silmek için 'Devam Et'i tıklayın. Liste ile ilişkili tüm Aygıtlar veya Eşikler, varsayılan değerlere döndürülecektir."
 
-#: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
-#: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1377 thold.php:444
-#: thold_functions.php:5788 thold_templates.php:268
+#: notify_lists.php:517 notify_lists.php:529 notify_lists.php:587
+#: notify_lists.php:598 notify_lists.php:657 notify_lists.php:668
+#: notify_lists.php:728 notify_lists.php:741 setup.php:1380 thold.php:458
+#: thold_functions.php:5821 thold_templates.php:268
 msgid "Cancel"
 msgstr "İptal"
 
-#: notify_lists.php:515 notify_lists.php:527 notify_lists.php:585
-#: notify_lists.php:596 notify_lists.php:655 notify_lists.php:666
-#: notify_lists.php:726 notify_lists.php:739 setup.php:1378 thold.php:446
-#: thold_functions.php:5791 thold_templates.php:270
+#: notify_lists.php:517 notify_lists.php:529 notify_lists.php:587
+#: notify_lists.php:598 notify_lists.php:657 notify_lists.php:668
+#: notify_lists.php:728 notify_lists.php:741 setup.php:1381 thold.php:461
+#: thold_functions.php:5824 thold_templates.php:270
 msgid "Continue"
 msgstr "Devam et"
 
-#: notify_lists.php:515
+#: notify_lists.php:517
 #, fuzzy
 msgid "Delete Notification List(s)"
 msgstr "Bildirim Listesini Sil"
 
-#: notify_lists.php:519
+#: notify_lists.php:521
 #, fuzzy
 msgid "Click 'Continue' to Duplicate the following Notification List(s)."
 msgstr "Aşağıdaki Bildirim Listesini Çoğaltmak için 'Devam Et'i tıklayın."
 
-#: notify_lists.php:521
+#: notify_lists.php:523
 #, fuzzy
 msgid "New List Name"
 msgstr "Yeni Liste Adı"
 
-#: notify_lists.php:522
+#: notify_lists.php:524
 #, fuzzy
 msgid "New Notification List"
 msgstr "Yeni Bildirim Listesi"
 
-#: notify_lists.php:527
+#: notify_lists.php:529
 #, fuzzy
 msgid "Duplicate Notification List(s)"
 msgstr "Yinelenen Bildirim Listesi"
 
-#: notify_lists.php:572
+#: notify_lists.php:574
 #, fuzzy, php-format
 msgid "%s Threshold Template(s)"
 msgstr "%s Eşik Şablonları"
 
-#: notify_lists.php:578
+#: notify_lists.php:580
 #, fuzzy, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
 msgstr "' %s' Bildirim Listesini aşağıdaki Eşik Şablonları ile ilişkilendirmek için 'Devam Et'i tıklayın"
 
-#: notify_lists.php:580 notify_lists.php:581 notify_lists.php:591
-#: notify_lists.php:592 notify_lists.php:650 notify_lists.php:651
-#: notify_lists.php:661 notify_lists.php:662 notify_lists.php:721
-#: notify_lists.php:722 notify_lists.php:734 notify_lists.php:735
+#: notify_lists.php:582 notify_lists.php:583 notify_lists.php:593
+#: notify_lists.php:594 notify_lists.php:652 notify_lists.php:653
+#: notify_lists.php:663 notify_lists.php:664 notify_lists.php:723
+#: notify_lists.php:724 notify_lists.php:736 notify_lists.php:737
 msgid "No Change"
 msgstr "Değişiklik Yok"
 
-#: notify_lists.php:580 notify_lists.php:581 notify_lists.php:650
-#: notify_lists.php:651 notify_lists.php:720 notify_lists.php:721
-#: notify_lists.php:722
+#: notify_lists.php:582 notify_lists.php:583 notify_lists.php:652
+#: notify_lists.php:653 notify_lists.php:722 notify_lists.php:723
+#: notify_lists.php:724
 #, fuzzy
 msgid "Notification List Only"
 msgstr "Sadece Bildirim Listesi"
 
-#: notify_lists.php:580 notify_lists.php:581 notify_lists.php:650
-#: notify_lists.php:651 notify_lists.php:721 notify_lists.php:722
+#: notify_lists.php:582 notify_lists.php:583 notify_lists.php:652
+#: notify_lists.php:653 notify_lists.php:723 notify_lists.php:724
 #, fuzzy
 msgid "Notification List, Retain Other Settings"
 msgstr "Bildirim Listesi, Diğer Ayarları Koru"
 
-#: notify_lists.php:580 notify_lists.php:591 notify_lists.php:650
-#: notify_lists.php:661
+#: notify_lists.php:582 notify_lists.php:593 notify_lists.php:652
+#: notify_lists.php:663
 #, fuzzy
 msgid "Warning Membership:"
 msgstr "Uyarı Üyeliği:"
 
-#: notify_lists.php:581 notify_lists.php:592 notify_lists.php:651
-#: notify_lists.php:662
+#: notify_lists.php:583 notify_lists.php:594 notify_lists.php:653
+#: notify_lists.php:664
 #, fuzzy
 msgid "Alert Membership:"
 msgstr "Uyarı Üyeliği:"
 
-#: notify_lists.php:585 notify_lists.php:655 notify_lists.php:726
+#: notify_lists.php:587 notify_lists.php:657 notify_lists.php:728
 #, fuzzy
 msgid "Associate Notification List(s)"
 msgstr "Ortak Bildirim Listesi"
 
-#: notify_lists.php:589
+#: notify_lists.php:591
 #, fuzzy, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
 msgstr "' %s' Bildirim Listesini aşağıdaki Eşik Şablonlarından Çıkarmak için 'Devam Et'i tıklayın."
 
-#: notify_lists.php:591 notify_lists.php:592 notify_lists.php:661
-#: notify_lists.php:662 notify_lists.php:734 notify_lists.php:735
+#: notify_lists.php:593 notify_lists.php:594 notify_lists.php:663
+#: notify_lists.php:664 notify_lists.php:736 notify_lists.php:737
 msgid "Remove List"
 msgstr "Listeyi Sil"
 
-#: notify_lists.php:596 notify_lists.php:666 notify_lists.php:739
+#: notify_lists.php:598 notify_lists.php:668 notify_lists.php:741
 #, fuzzy
 msgid "Disassociate Notification List(s)"
 msgstr "Bildirim Listesini Kaldır"
 
-#: notify_lists.php:642
+#: notify_lists.php:644
 #, fuzzy, php-format
 msgid "%s Threshold(s)"
 msgstr "%s Eşik (ler)"
 
-#: notify_lists.php:648
+#: notify_lists.php:650
 #, fuzzy, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
 msgstr "' %s' Bildirim Listesini aşağıdaki Eşik (ler) ile ilişkilendirmek için 'Devam Et'i tıklayın."
 
-#: notify_lists.php:659
+#: notify_lists.php:661
 #, fuzzy, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
 msgstr "' %s' Bildirim Listesini aşağıdaki Eşiklerden Çıkarmak için 'Devam Et'i tıklayın."
 
-#: notify_lists.php:717
+#: notify_lists.php:719
 #, fuzzy, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
 msgstr "' %s' Bildirim Listesini aşağıdaki Cihazlarla İlişkilendirmek için 'Devam Et'i tıklayın."
 
-#: notify_lists.php:718
+#: notify_lists.php:720
 #, fuzzy
-msgid "You may also Associate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten."
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "Ayrıca Aygıt Eşiklerini de İlişkilendirebilirsiniz. Bununla birlikte, bu Aygıt Eşikleri, Eşik Bildirim Listesinin üzerine yazılmasına izin vermelidir."
 
-#: notify_lists.php:720
+#: notify_lists.php:722
 #, fuzzy
 msgid "Notification and Global Lists"
 msgstr "Bildirim ve Genel Listeler"
 
-#: notify_lists.php:720 notify_lists.php:733
+#: notify_lists.php:722 notify_lists.php:735
 #, fuzzy
 msgid "Resulting Membership:"
 msgstr "Ortaya Çıkan Üyelik:"
 
-#: notify_lists.php:721 notify_lists.php:734
+#: notify_lists.php:723 notify_lists.php:736
 #, fuzzy
 msgid "Device Threshold Warning Membership:"
 msgstr "Uyarı Üyeliği:"
 
-#: notify_lists.php:722 notify_lists.php:735
+#: notify_lists.php:724 notify_lists.php:737
 #, fuzzy
 msgid "Device Threshold Alert Membership:"
 msgstr "Eşik Uyarı Mesajı"
 
-#: notify_lists.php:730
+#: notify_lists.php:732
 #, fuzzy, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
 msgstr "' %s' Bildirim Listesini aşağıdaki Cihazlardan Çıkarmak için 'Devam Et'i tıklayın"
 
-#: notify_lists.php:731
+#: notify_lists.php:733
 #, fuzzy
-msgid "You may also Disssociate the Devices Thresholds as well. However, these Device Tresholds will must allow the allow the Thrshold Notification List to be overwritten."
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "Ayrıca Cihaz Eşiklerinin ilişkisini de kesebilirsiniz. Bununla birlikte, bu Aygıt Eşikleri, Eşik Bildirim Listesinin üzerine yazılmasına izin vermelidir."
 
-#: notify_lists.php:780
+#: notify_lists.php:782
 #, fuzzy, php-format
 msgid "[edit: %s]"
 msgstr "[değiştir: %s]"
 
-#: notify_lists.php:782
+#: notify_lists.php:784
 #, fuzzy
 msgid "[new]"
 msgstr "[yeni]"
 
-#: notify_lists.php:829
+#: notify_lists.php:831
 #, fuzzy
 msgid "List General Settings"
 msgstr "Genel Ayarları Listele"
 
-#: notify_lists.php:834 notify_lists.php:1396 notify_lists.php:1657
-#: setup.php:1238 thold.php:770 thold_graph.php:415 thold_templates.php:1957
+#: notify_lists.php:836 notify_lists.php:1407 notify_lists.php:1666
+#: setup.php:1241 thold.php:785 thold_graph.php:451 thold_templates.php:1982
 msgid "Name"
 msgstr "İsim"
 
-#: notify_lists.php:835
+#: notify_lists.php:837
 #, fuzzy
 msgid "Enter a name for this Notification List."
 msgstr "Bu Bildirim Listesi için bir ad girin."
 
-#: notify_lists.php:841 notify_lists.php:1132 notify_lists.php:1999
-#: thold_graph.php:835
+#: notify_lists.php:843 notify_lists.php:1143 notify_lists.php:2012
+#: thold_graph.php:913
 msgid "Description"
 msgstr "Açıklama"
 
-#: notify_lists.php:842
+#: notify_lists.php:844
 #, fuzzy
 msgid "Enter a description for this Notification List."
 msgstr "Bu Bildirim Listesi için bir açıklama girin."
 
-#: notify_lists.php:850
-msgid "Email Addresses"
+#: notify_lists.php:852
+#, fuzzy
+#| msgid "Email Addresses"
+msgid "To Email Addresses"
 msgstr "E-Posta Adres"
 
-#: notify_lists.php:851
+#: notify_lists.php:853
 #, fuzzy
 msgid "Enter a comma separated list of Email addresses for this Notification List."
 msgstr "Bu Bildirim Listesi için virgülle ayrılmış bir E-posta adresi listesi girin."
 
-#: notify_lists.php:947
+#: notify_lists.php:861
+#, fuzzy
+#| msgid "Email Addresses"
+msgid "BCC Email Addresses"
+msgstr "E-Posta Adres"
+
+#: notify_lists.php:862
+#, fuzzy
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Bu Bildirim Listesi için virgülle ayrılmış bir E-posta adresi listesi girin."
+
+#: notify_lists.php:958
 #, fuzzy
 msgid "Associated Devices"
 msgstr "İlgili Cihazlar"
 
-#: notify_lists.php:956 notify_lists.php:1273 notify_lists.php:1580
-#: notify_lists.php:1900 thold.php:632 thold.php:2294 thold_graph.php:132
-#: thold_graph.php:1001 thold_graph.php:1421 thold_templates.php:1756
-#: thold_templates.php:1865
+#: notify_lists.php:967 notify_lists.php:1284 notify_lists.php:1589
+#: notify_lists.php:1913 thold.php:647 thold.php:2326 thold_graph.php:132
+#: thold_graph.php:1079 thold_graph.php:1500 thold_templates.php:1781
+#: thold_templates.php:1890
 msgid "Search"
 msgstr "Ara"
 
-#: notify_lists.php:962 notify_lists.php:1133 notify_lists.php:1279
-#: thold.php:638 thold_graph.php:138 thold_graph.php:1007 thold_graph.php:1427
+#: notify_lists.php:973 notify_lists.php:1144 notify_lists.php:1290
+#: thold.php:653 thold_graph.php:138 thold_graph.php:1085 thold_graph.php:1506
 msgid "Site"
 msgstr "Site"
 
-#: notify_lists.php:967 notify_lists.php:985 notify_lists.php:1150
-#: notify_lists.php:1164 notify_lists.php:1284 notify_lists.php:1485
-#: notify_lists.php:1730 setup.php:775 setup.php:793 setup.php:967
-#: setup.php:968 setup.php:1131 thold.php:643 thold.php:674 thold.php:1482
-#: thold.php:1490 thold.php:1798 thold.php:1806 thold.php:2257
-#: thold_graph.php:143 thold_graph.php:172 thold_graph.php:190
-#: thold_graph.php:1012 thold_graph.php:1056 thold_graph.php:1432
-#: thold_graph.php:1462 thold_templates.php:397 thold_templates.php:445
-#: thold_templates.php:1045 thold_templates.php:1053 thold_templates.php:1365
-#: thold_templates.php:1373 thold_templates.php:1719
+#: notify_lists.php:978 notify_lists.php:996 notify_lists.php:1161
+#: notify_lists.php:1175 notify_lists.php:1295 notify_lists.php:1494
+#: notify_lists.php:1738 setup.php:778 setup.php:796 setup.php:970
+#: setup.php:971 setup.php:1134 thold.php:658 thold.php:689 thold.php:1495
+#: thold.php:1503 thold.php:1818 thold.php:1826 thold.php:2289
+#: thold_graph.php:143 thold_graph.php:174 thold_graph.php:192
+#: thold_graph.php:1090 thold_graph.php:1136 thold_graph.php:1511
+#: thold_graph.php:1543 thold_templates.php:399 thold_templates.php:447
+#: thold_templates.php:1053 thold_templates.php:1061 thold_templates.php:1380
+#: thold_templates.php:1388 thold_templates.php:1744
 msgid "None"
 msgstr "Yok"
 
-#: notify_lists.php:980 notify_lists.php:1400 notify_lists.php:1661
-#: thold.php:780 thold_graph.php:425 thold_graph.php:1051 thold_graph.php:1340
-#: thold_templates.php:1977
+#: notify_lists.php:991 notify_lists.php:1411 notify_lists.php:1670
+#: thold.php:795 thold_graph.php:465 thold_graph.php:1131 thold_graph.php:1420
+#: thold_templates.php:2002
 msgid "Type"
 msgstr "Tip"
 
-#: notify_lists.php:1004 notify_lists.php:1326 notify_lists.php:1590
-#: notify_lists.php:1910 thold.php:713 thold_graph.php:225 thold_graph.php:1075
-#: thold_graph.php:1516 thold_templates.php:1875
+#: notify_lists.php:1015 notify_lists.php:1337 notify_lists.php:1599
+#: notify_lists.php:1923 thold.php:728 thold_graph.php:227 thold_graph.php:1155
+#: thold_graph.php:1597 thold_templates.php:1900
 msgid "Default"
 msgstr "Varsayılan"
 
-#: notify_lists.php:1017 notify_lists.php:1339 notify_lists.php:1603
+#: notify_lists.php:1028 notify_lists.php:1350 notify_lists.php:1612
 msgid "Associated"
 msgstr "Associated"
 
-#: notify_lists.php:1022 notify_lists.php:1344 notify_lists.php:1608
-#: notify_lists.php:1921 thold.php:659 thold_graph.php:160 thold_graph.php:1044
-#: thold_graph.php:1449 thold_templates.php:1887
+#: notify_lists.php:1033 notify_lists.php:1355 notify_lists.php:1617
+#: notify_lists.php:1934 thold.php:674 thold_graph.php:160 thold_graph.php:1122
+#: thold_graph.php:1528 thold_templates.php:1912
 msgid "Go"
 msgstr "Git"
 
-#: notify_lists.php:1022 notify_lists.php:1344 notify_lists.php:1608
-#: notify_lists.php:1921
+#: notify_lists.php:1033 notify_lists.php:1355 notify_lists.php:1617
+#: notify_lists.php:1934
 msgid "Set/Refresh Filters"
 msgstr "Filtreleri Ayarla / Yenile"
 
-#: notify_lists.php:1023 notify_lists.php:1345 notify_lists.php:1609
-#: notify_lists.php:1924 thold.php:662 thold_graph.php:161 thold_graph.php:1045
-#: thold_graph.php:1450 thold_templates.php:1888
+#: notify_lists.php:1034 notify_lists.php:1356 notify_lists.php:1618
+#: notify_lists.php:1937 thold.php:677 thold_graph.php:161 thold_graph.php:1123
+#: thold_graph.php:1529 thold_templates.php:1913
 msgid "Clear"
 msgstr "Temizle"
 
-#: notify_lists.php:1023 notify_lists.php:1345 notify_lists.php:1609
-#: notify_lists.php:1924
+#: notify_lists.php:1034 notify_lists.php:1356 notify_lists.php:1618
+#: notify_lists.php:1937
 msgid "Clear Filters"
 msgstr "Filtreleri Temizle"
 
-#: notify_lists.php:1134 notify_lists.php:1397 notify_lists.php:1658
-#: thold.php:775 thold_graph.php:420 thold_graph.php:841
-#: thold_templates.php:1962
+#: notify_lists.php:1145 notify_lists.php:1408 notify_lists.php:1667
+#: thold.php:790 thold_graph.php:456 thold_graph.php:919
+#: thold_templates.php:1987
 msgid "ID"
 msgstr "ID"
 
-#: notify_lists.php:1135
+#: notify_lists.php:1146
 #, fuzzy
 msgid "Associated Lists"
 msgstr "İlgili Listeler"
 
-#: notify_lists.php:1136 thold_graph.php:847
+#: notify_lists.php:1147 thold_graph.php:925
 msgid "Graphs"
 msgstr "Grafikler"
 
-#: notify_lists.php:1137 thold_graph.php:853
+#: notify_lists.php:1148 thold_graph.php:931
 msgid "Data Sources"
 msgstr "Veri Kaynakları"
 
-#: notify_lists.php:1138 setup.php:1238 thold.php:696 thold_graph.php:208
-#: thold_graph.php:859 thold_graph.php:1027 thold_graph.php:1497
+#: notify_lists.php:1149 setup.php:1241 thold.php:711 thold_graph.php:210
+#: thold_graph.php:937 thold_graph.php:1105 thold_graph.php:1578
 msgid "Status"
 msgstr "Durum"
 
-#: notify_lists.php:1139 thold_graph.php:877
+#: notify_lists.php:1150 thold_graph.php:955
 msgid "Hostname"
 msgstr "Sunucu Adı"
 
-#: notify_lists.php:1159
+#: notify_lists.php:1170
 #, fuzzy
 msgid "Current List Only"
 msgstr "Sadece Mevcut Liste"
 
-#: notify_lists.php:1161
+#: notify_lists.php:1172
 #, fuzzy
 msgid "Current and Global List(s)"
 msgstr "Güncel ve Küresel Liste (ler)"
 
-#: notify_lists.php:1183
+#: notify_lists.php:1194
 #, fuzzy
 msgid "No Associated Devices Found"
 msgstr "İlişkili Aygıt Bulunamadı"
 
-#: notify_lists.php:1265
+#: notify_lists.php:1276
 #, fuzzy
 msgid "Associated Thresholds"
 msgstr "İlişkili Eşikler"
 
-#: notify_lists.php:1297 thold.php:669 thold_graph.php:167 thold_graph.php:1457
+#: notify_lists.php:1308 thold.php:684 thold_graph.php:169 thold_graph.php:1538
 msgid "Template"
 msgstr "Şablon"
 
-#: notify_lists.php:1310
+#: notify_lists.php:1321
 msgid "State"
 msgstr "Şehir"
 
-#: notify_lists.php:1314 thold.php:642 thold.php:673 thold.php:700
-#: thold.php:2256 thold_graph.php:142 thold_graph.php:171 thold_graph.php:189
-#: thold_graph.php:212 thold_graph.php:1011 thold_graph.php:1031
-#: thold_graph.php:1055 thold_graph.php:1431 thold_graph.php:1461
-#: thold_graph.php:1479 thold_graph.php:1501 thold_templates.php:1718
+#: notify_lists.php:1325 thold.php:657 thold.php:688 thold.php:715
+#: thold.php:2288 thold_graph.php:142 thold_graph.php:173 thold_graph.php:191
+#: thold_graph.php:214 thold_graph.php:1089 thold_graph.php:1109
+#: thold_graph.php:1135 thold_graph.php:1510 thold_graph.php:1542
+#: thold_graph.php:1560 thold_graph.php:1582 thold_templates.php:1743
 msgid "All"
 msgstr "Tümü"
 
-#: notify_lists.php:1398 notify_lists.php:1659
+#: notify_lists.php:1409 notify_lists.php:1668
 #, fuzzy
 msgid "Warning Lists"
 msgstr "Uyarı Listeleri"
 
-#: notify_lists.php:1399 notify_lists.php:1660
+#: notify_lists.php:1410 notify_lists.php:1669
 #, fuzzy
 msgid "Alert Lists"
 msgstr "Uyarı Listeleri"
 
-#: notify_lists.php:1402 thold.php:834
+#: notify_lists.php:1413 thold.php:849
 #, fuzzy
 msgid "Templated"
 msgstr "şablon siteler"
 
-#: notify_lists.php:1413 thold.php:864 thold.php:987 thold.php:989
-#: thold.php:992 thold_graph.php:496 thold_graph.php:652
+#: notify_lists.php:1423 thold.php:878 thold.php:1001 thold.php:1003
+#: thold.php:1006 thold_graph.php:535 thold_graph.php:730
 msgid "No"
 msgstr "Hayır"
 
-#: notify_lists.php:1417 thold.php:895 thold.php:899 thold.php:987
-#: thold.php:992 thold_graph.php:527 thold_graph.php:531 thold_graph.php:652
+#: notify_lists.php:1426 thold.php:909 thold.php:913 thold.php:1001
+#: thold.php:1006 thold_graph.php:566 thold_graph.php:570 thold_graph.php:730
 msgid "Yes"
 msgstr "Evet"
 
-#: notify_lists.php:1421 thold.php:903 thold_graph.php:535
+#: notify_lists.php:1430 thold.php:917 thold_graph.php:574
 #, fuzzy
 msgid "baseline-LOW"
 msgstr "taban-DÜŞÜK"
 
-#: notify_lists.php:1423 thold.php:905 thold_graph.php:537
+#: notify_lists.php:1432 thold.php:919 thold_graph.php:576
 #, fuzzy
 msgid "baseline-HIGH"
 msgstr "taban-YÜKSEK"
 
-#: notify_lists.php:1435 notify_lists.php:1680
+#: notify_lists.php:1444 notify_lists.php:1688
 msgid "Select Users"
 msgstr "Kullanıcıları Seçin"
 
-#: notify_lists.php:1439 notify_lists.php:1466 notify_lists.php:1684
-#: notify_lists.php:1711
+#: notify_lists.php:1448 notify_lists.php:1475 notify_lists.php:1692
+#: notify_lists.php:1719
 #, fuzzy
 msgid "Specific Emails"
 msgstr "Belirli E-postalar"
 
-#: notify_lists.php:1444 notify_lists.php:1471 notify_lists.php:1689
-#: notify_lists.php:1716
+#: notify_lists.php:1453 notify_lists.php:1480 notify_lists.php:1697
+#: notify_lists.php:1724
 #, fuzzy
 msgid "Current List"
 msgstr "Mevcut liste"
 
-#: notify_lists.php:1454
+#: notify_lists.php:1463
 #, fuzzy
 msgid "Unknown Threshold"
 msgstr "Bilinmeyen Eşik"
 
-#: notify_lists.php:1460 notify_lists.php:1487 notify_lists.php:1705
-#: notify_lists.php:1732
+#: notify_lists.php:1469 notify_lists.php:1496 notify_lists.php:1713
+#: notify_lists.php:1740
 #, fuzzy
 msgid "Log Only"
 msgstr "Sadece hesap aç"
 
-#: notify_lists.php:1513
+#: notify_lists.php:1522
 msgid "Editable"
 msgstr "Düzenlenebilir"
 
-#: notify_lists.php:1513
+#: notify_lists.php:1522
 msgid "Read Only"
 msgstr "Sadece oku"
 
-#: notify_lists.php:1520 thold.php:999 thold_graph.php:657
+#: notify_lists.php:1529 thold.php:1013 thold_graph.php:735
 #, fuzzy
 msgid "No Thresholds"
 msgstr "Sınırlar"
 
-#: notify_lists.php:1572
+#: notify_lists.php:1581
 #, fuzzy
 msgid "Associated Templates"
 msgstr "İlişkili Şablonlar"
 
-#: notify_lists.php:1586
+#: notify_lists.php:1595
 msgid "Rows"
 msgstr "Satırlar"
 
-#: notify_lists.php:1699
+#: notify_lists.php:1707
 #, fuzzy
 msgid "Unknown Template"
 msgstr "Bilinmeyen Şablon"
 
-#: notify_lists.php:1747
+#: notify_lists.php:1755
 #, fuzzy
 msgid "No Templates"
 msgstr "Şablonlar"
 
-#: notify_lists.php:1906 notify_lists.php:1986
+#: notify_lists.php:1919 notify_lists.php:1999
 msgid "Lists"
 msgstr "Listeler"
 
-#: notify_lists.php:1995
+#: notify_lists.php:2008
 msgid "List Name"
 msgstr "Liste İsmi"
 
-#: notify_lists.php:2000
+#: notify_lists.php:2013
 msgid "Emails"
 msgstr "E-postalar"
 
-#: notify_lists.php:2017
+#: notify_lists.php:2033
 #, fuzzy
 msgid "No Notification Lists"
 msgstr "Bildirim Listesi Yok"
@@ -1747,1174 +1769,1206 @@ msgstr "Geçiş Eşiği VRULES %s"
 msgid "Create Threshold"
 msgstr "Eşik Yarat"
 
-#: setup.php:512 setup.php:522
+#: setup.php:513 setup.php:523
 #, fuzzy, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr "%s (%s) için Yüksek Uyarı"
 
-#: setup.php:516 setup.php:526
+#: setup.php:517 setup.php:527
 #, fuzzy, php-format
 msgid "Alert Low for %s (%s)"
 msgstr "%s (%s) için Uyarı Düşük"
 
-#: setup.php:542 setup.php:552
+#: setup.php:543 setup.php:553
 #, fuzzy, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr "Uyarı Listeleri"
 
-#: setup.php:546 setup.php:557
+#: setup.php:547 setup.php:558
 #, fuzzy, php-format
 msgid "Warning Low for %s (%s)"
 msgstr "Uyarı Listeleri"
 
-#: setup.php:577 setup.php:591
+#: setup.php:578 setup.php:592
 #, fuzzy
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "%s için Yüksek Uyarı (%s %%)"
 
-#: setup.php:583 setup.php:597
+#: setup.php:584 setup.php:598
 #, fuzzy
 msgid "Alert Low for %s (%s %%%)"
 msgstr "%s için Uyarı Düşük (%%%)"
 
-#: setup.php:615 setup.php:629
+#: setup.php:616 setup.php:630
 #, fuzzy
 msgid "Warning Hi for %s (%s %%%)"
 msgstr "Uyarı Merhaba%s (%s %%)"
 
-#: setup.php:621 setup.php:635
+#: setup.php:622 setup.php:636
 #, fuzzy
 msgid "Warning Low for %s (%s %%%)"
 msgstr "%s için Uyarı Düşük (%%%)"
 
-#: setup.php:648
+#: setup.php:649
 #, fuzzy
 msgid "Threshold Alert/Warning Values"
 msgstr "Eşik Uyarısı / Uyarı Değerleri"
 
-#: setup.php:701
+#: setup.php:702
 #, fuzzy
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr "Tüm uygun Eşikleri bu Cihazlara uygulamak için 'Devam Et'i tıklayın."
 
-#: setup.php:775 setup.php:793
+#: setup.php:778 setup.php:796
 #, fuzzy
 msgid "Create Threshold from Data Source"
 msgstr "Veri Kaynağından Eşik Oluşturma"
 
-#: setup.php:804
+#: setup.php:807
 #, fuzzy
 msgid "Auto-create Thresholds"
 msgstr "Eşikleri Otomatik Oluştur"
 
-#: setup.php:886 setup.php:1043
+#: setup.php:889 setup.php:1046
 #, fuzzy, php-format
 msgid "Created %s thresholds"
 msgstr "Oluşturulan eşik: %s"
 
-#: setup.php:888 setup.php:1045 thold_functions.php:5290
+#: setup.php:891 setup.php:1048 thold_functions.php:5318
 #, fuzzy
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "Eşik Oluşturulmadı. Ya zaten varlar ya da eşleşen bir kombinasyon bulunamadı."
 
-#: setup.php:891 setup.php:1048
+#: setup.php:894 setup.php:1051
 #, fuzzy
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Eşik Oluşturulmadı. Eşik (ler) Şablon bulunamadı."
 
-#: setup.php:949
+#: setup.php:952
 #, fuzzy
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr "Aşağıdaki Veri Kaynakları, bunlarla ilişkilendirilmiş Eşik Şablonlarına sahip değildir."
 
-#: setup.php:953
+#: setup.php:956
 #, fuzzy
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr "Bu Veri Kaynakları için Eşikler oluşturmak için 'Devam Et'i tıklayın."
 
-#: setup.php:960 setup.php:1124
+#: setup.php:963 setup.php:1127
 #, fuzzy
 msgid "Available Threshold Templates"
 msgstr "Kullanılabilir Eşik Şablonları"
 
-#: setup.php:965 setup.php:1129 thold_webapi.php:339
+#: setup.php:968 setup.php:1132 thold_webapi.php:339
 #, fuzzy
 msgid "Select a Threshold Template"
 msgstr "Bir Eşik Şablonu Seçin"
 
-#: setup.php:981
+#: setup.php:984
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Aşağıdaki Veri Kaynakları ile ilişkilendirilmiş Eşik Şablonları yok"
 
-#: setup.php:993 setup.php:1156 thold_webapi.php:177
+#: setup.php:996 setup.php:1159 thold_webapi.php:177
 #, fuzzy
 msgid "Create Threshold from Template"
 msgstr "Şablondan Eşik Yaratın"
 
-#: setup.php:1113
+#: setup.php:1116
 #, fuzzy
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "Aşağıdaki grafiklerin kendileriyle ilişkilendirilmiş Eşik Şablonları yoktur"
 
-#: setup.php:1117
+#: setup.php:1120
 #, fuzzy
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr "Bu Grafik (ler) için Eşik (ler) oluşturmak istiyorsanız 'Devam' düğmesine basın"
 
-#: setup.php:1144
+#: setup.php:1147
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr "Aşağıdaki Grafiklerle ilişkilendirilmiş Eşik Şablonları yok"
 
-#: setup.php:1226 setup.php:1276
+#: setup.php:1229 setup.php:1279
 #, fuzzy
 msgid "Associated Threshold Templates"
 msgstr "İlişkili Eşik Şablonları"
 
-#: setup.php:1250
+#: setup.php:1253
 #, fuzzy
 msgid "Threshold Exists"
 msgstr "Eşik Var"
 
-#: setup.php:1252
+#: setup.php:1255
 #, fuzzy
 msgid "Threshold Does Not Exist"
 msgstr "Eşik Yok"
 
-#: setup.php:1269 setup.php:1303
+#: setup.php:1272 setup.php:1306
 #, fuzzy
 msgid "No Associated Threshold Templates."
 msgstr "İlişkili Eşik Şablonları Yok."
 
-#: setup.php:1321
+#: setup.php:1324
 #, fuzzy
 msgid "Add Threshold Template"
 msgstr "Eşik Şablonu Ekle"
 
-#: setup.php:1327
+#: setup.php:1330
 msgid "Add"
 msgstr "Ekle"
 
-#: setup.php:1327
+#: setup.php:1330
 #, fuzzy
 msgid "Add Threshold Template to Device Template"
 msgstr "Aygıt Şablonuna Eşik Şablonu Ekleyin"
 
-#: setup.php:1371
+#: setup.php:1374
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr "Aşağıdaki Eşik Şablonunu Silmek için 'Devam Et'i tıklayın, Cihaz Şablonundan ayrıştırılacak."
 
-#: setup.php:1372
+#: setup.php:1375
 #, fuzzy, php-format
 msgid "Threshold Template Name: %s"
 msgstr "Eşik Şablonu Adı: %s"
 
-#: setup.php:1378
+#: setup.php:1381
 #, fuzzy
 msgid "Remove Threshold Template"
 msgstr "Eşik Şablonunu Kaldır"
 
-#: thold.php:94
+#: thold.php:99
 #, fuzzy
 msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
 msgstr "Şablon Yok veya Eşikler Zaten Var - Eşikler oluşturulmadı."
 
-#: thold.php:294
+#: thold.php:302
 #, fuzzy
 msgid "You are not authorized to modify one or more of the Thresholds selected"
 msgstr "Seçilen Eşiklerden birini veya birkaçını değiştirme yetkiniz yok"
 
-#: thold.php:396
+#: thold.php:404
 #, fuzzy
 msgid "Click 'Delete' to delete the following Threshold(s)."
 msgstr "Aşağıdaki Eşikleri silmek için 'Sil' düğmesini tıklayın."
 
-#: thold.php:397
+#: thold.php:405
 #, fuzzy
 msgid "Delete Threshold(s)"
 msgstr "Eşikleri Sil"
 
-#: thold.php:400
+#: thold.php:408
 #, fuzzy
 msgid "Click 'Continue' to enable the following Threshold(s)."
 msgstr "Aşağıdaki Eşikleri / Etkinlikleri etkinleştirmek için 'Devam Et'i tıklayın."
 
-#: thold.php:401
+#: thold.php:409
 #, fuzzy
 msgid "Enable Threshold(s)"
 msgstr "Eşikleri Etkinleştir"
 
-#: thold.php:404
+#: thold.php:412
 #, fuzzy
 msgid "Click 'Continue' to disable the following Threshold(s)."
 msgstr "Aşağıdaki Eşik (ler) i devre dışı bırakmak için 'Devam Et'i tıklayın."
 
-#: thold.php:405
+#: thold.php:413
 #, fuzzy
 msgid "Disable Threshold(s)"
 msgstr "Eşikleri Devre Dışı Bırak"
 
-#: thold.php:408
+#: thold.php:416
 #, fuzzy
 msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
 msgstr "Önerilen adları aşağıdaki Eşiklere tekrar uygulamak için 'Devam Et'i tıklayın."
 
-#: thold.php:409
+#: thold.php:417
 #, fuzzy
 msgid "Apply Suggestion"
 msgstr "Öneri Uygula"
 
-#: thold.php:412
+#: thold.php:420
 #, fuzzy
 msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
 msgstr "Aşağıdaki Eşik (ler) i ortak şablonlarının ayrıntılarıyla güncellemek için 'Devam Et'i tıklayın."
 
-#: thold.php:413
+#: thold.php:421
 #, fuzzy
 msgid "Reapply Template"
 msgstr "Yeniden Uygula Şablonu"
 
-#: thold.php:416
+#: thold.php:424
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Aşağıdaki Eşikleri Onaylamak için 'Devam Et'i tıklayın. Buna izin vermeyen veya tetiklenmeyen eşikler göz ardı edilecektir."
 
-#: thold.php:417 thold_functions.php:5778
+#: thold.php:425 thold_functions.php:5811
 #, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "Teşekkür Şablonları"
 
-#: thold.php:420
+#: thold.php:428
 #, fuzzy
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "Aşağıdaki Eşik (ler) için Bildirimleri Devam Ettirmek İçin 'Devam Et'i tıklayın. Buna izin vermeyen veya tetiklenmeyen eşikler yok sayılacaktır."
 
-#: thold.php:421
+#: thold.php:429
 #, fuzzy
 msgid "Resume Notifications for Threshold(s)"
 msgstr "Bildirim Listesini Sil"
 
-#: thold.php:424
+#: thold.php:432
 #, fuzzy
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "Aşağıdaki Eşik (ler) için Bildirimleri Askıya Almak için 'Devam Et'i tıklayın. Buna izin vermeyen veya tetiklenmeyen eşikler yok sayılacaktır."
 
-#: thold.php:425
+#: thold.php:433
 #, fuzzy
 msgid "Suspend Notification for Threshold(s)"
 msgstr "Yinelenen Bildirim Listesi"
 
-#: thold.php:428 thold_templates.php:256
+#: thold.php:436 thold_templates.php:256
 #, fuzzy
 msgid "Invalid action detected, can not proceed"
 msgstr "Geçersiz işlem algılandı, devam edilemiyor"
 
-#: thold.php:623
+#: thold.php:638
 #, fuzzy
 msgid "Threshold Management"
 msgstr "Eşik Yönetimi"
 
-#: thold.php:659
+#: thold.php:674
 msgid "Apply Filters"
 msgstr "Filtreleri Uygula"
 
-#: thold.php:662
+#: thold.php:677
 #, fuzzy
 msgid "Return to Defaults"
 msgstr "Varsayılanlara Dön"
 
-#: thold.php:683 thold_graph.php:185 thold_templates.php:393
-#: thold_templates.php:1019 thold_templates.php:1972
+#: thold.php:698 thold_graph.php:187 thold_templates.php:395
+#: thold_templates.php:1027 thold_templates.php:1997
 #, fuzzy
 msgid "Data Template"
 msgstr "Veri Şablonu"
 
-#: thold.php:705 thold.php:839 thold_graph.php:217 thold_graph.php:474
+#: thold.php:720 thold.php:854 thold_graph.php:219 thold_graph.php:514
 #, fuzzy
 msgid "Ack Required"
 msgstr "Gerekli Gerekli"
 
-#: thold.php:785
+#: thold.php:800
 #, fuzzy
 msgid "DSName"
 msgstr "DSName"
 
-#: thold.php:790 thold_graph.php:430
+#: thold.php:805 thold_graph.php:470
 msgid "Current"
 msgstr "Şimdiki"
 
-#: thold.php:793 thold_graph.php:433
+#: thold.php:808 thold_graph.php:473
 #, fuzzy
 msgid "The last measured value for the Data Source"
 msgstr "Veri Kaynağı için son ölçülen değer"
 
-#: thold.php:796 thold.php:1830 thold.php:1849 thold_graph.php:436
-#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1987
+#: thold.php:811 thold.php:1860 thold.php:1879 thold_graph.php:476
+#: thold_templates.php:1419 thold_templates.php:1433 thold_templates.php:2012
 msgid "High"
 msgstr "Yüksek"
 
-#: thold.php:799 thold_graph.php:439
+#: thold.php:814 thold_graph.php:479
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "Yüksek Uyarı / Uyarı değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilebilen görüntüleme değerleridir."
 
-#: thold.php:802 thold.php:1828 thold.php:1847 thold_graph.php:442
-#: thold_templates.php:1394 thold_templates.php:1408 thold_templates.php:1993
+#: thold.php:817 thold.php:1858 thold.php:1877 thold_graph.php:482
+#: thold_templates.php:1419 thold_templates.php:1433 thold_templates.php:2018
 msgid "Low"
 msgstr "Düşük"
 
-#: thold.php:805 thold_graph.php:445
+#: thold.php:820 thold_graph.php:485
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "Düşük Uyarı / Uyarı değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilebilen görüntüleme değerleridir."
 
-#: thold.php:808 thold_graph.php:448 thold_templates.php:1999
+#: thold.php:823 thold_graph.php:488 thold_templates.php:2024
 msgid "Trigger"
 msgstr "Tetik"
 
-#: thold.php:813 thold_graph.php:453 thold_templates.php:2004
+#: thold.php:828 thold_graph.php:493 thold_templates.php:2029
 msgid "Duration"
 msgstr "Süre"
 
-#: thold.php:818 thold_graph.php:458 thold_templates.php:2009
+#: thold.php:833 thold_graph.php:498 thold_templates.php:2034
 msgid "Repeat"
 msgstr "Tekrarla"
 
-#: thold.php:828 thold_graph.php:468 thold_graph.php:865
+#: thold.php:843 thold_graph.php:508 thold_graph.php:943
 #, fuzzy
 msgid "In State"
 msgstr "Şehir"
 
-#: thold.php:831 thold_graph.php:471
+#: thold.php:846 thold_graph.php:511
 #, fuzzy
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
 msgstr "Veri kaynağının bir uyarının yükseltilmesi için Eşiğin ihlalinde bulunması gereken süre."
 
-#: thold.php:842 thold_graph.php:477
+#: thold.php:857 thold_graph.php:517
 #, fuzzy
 msgid "Acknowledgment required for this Threshold"
 msgstr "Bu Eşik için Onay Gerekli"
 
-#: thold.php:969 thold_graph.php:634
+#: thold.php:983 thold_graph.php:712
 #, fuzzy, php-format
 msgid "%d Triggers"
 msgstr "% d Tetikleyiciler"
 
-#: thold.php:1031
+#: thold.php:1045
 #, fuzzy
 msgid "Threshold Deleted, can not Edit!"
 msgstr "Eşik Yok"
 
-#: thold.php:1121
+#: thold.php:1135
 #, fuzzy
 msgid "Graph Data"
 msgstr "Grafik Verileri"
 
-#: thold.php:1127
+#: thold.php:1141
 #, fuzzy
 msgid "Data Source Description:"
 msgstr "Veri Kaynağı Açıklaması:"
 
-#: thold.php:1128
+#: thold.php:1142
 #, fuzzy
 msgid "Associated Graph (Graphs using this RRD):"
 msgstr "İlişkili Grafik (Bu RRD'yi kullanan grafikler):"
 
-#: thold.php:1226
+#: thold.php:1239
 #, fuzzy
 msgid "Last:"
 msgstr "Son"
 
-#: thold.php:1233
+#: thold.php:1246
 #, fuzzy
 msgid "WHi:"
 msgstr "Whi:"
 
-#: thold.php:1239
+#: thold.php:1252
 #, fuzzy
 msgid "WLo:"
 msgstr "WLO:"
 
-#: thold.php:1247
+#: thold.php:1260
 #, fuzzy
 msgid "AHi:"
 msgstr "Ahi:"
 
-#: thold.php:1253
+#: thold.php:1266
 #, fuzzy
 msgid "ALo:"
 msgstr "ALo:"
 
-#: thold.php:1259
+#: thold.php:1272
 #, fuzzy
 msgid "BL Up:"
 msgstr "BL Up:"
 
-#: thold.php:1260 thold.php:1262
+#: thold.php:1273 thold.php:1275
 #, fuzzy
 msgid "%s%%%"
 msgstr "%s %s"
 
-#: thold.php:1261
+#: thold.php:1274
 #, fuzzy
 msgid "BL Down:"
 msgstr "BL Aşağı:"
 
-#: thold.php:1299
+#: thold.php:1312
 #, fuzzy, php-format
 msgid "Unknown Template ID %d"
 msgstr "Bilinmeyen Şablon Kimliği% d"
 
-#: thold.php:1301
+#: thold.php:1314
 #, fuzzy
 msgid "Not Templated"
 msgstr "Tapınaklı Değil"
 
-#: thold.php:1318 thold.php:1321
+#: thold.php:1331 thold.php:1334
 #, fuzzy, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "Veri Kaynağı Öğesi [ %s] - Geçerli değer: [ %s]"
 
-#: thold.php:1407 thold_templates.php:971
+#: thold.php:1420 thold_templates.php:979
 #, fuzzy, php-format
 msgid "Replacement Fields: %s"
 msgstr "Değiştirme Alanları: %s"
 
-#: thold.php:1420 thold_templates.php:985
+#: thold.php:1433 thold_templates.php:993
 #, fuzzy, php-format
 msgid "Data Sources: %s"
 msgstr "Veri Kaynakları: %s"
 
-#: thold.php:1432
+#: thold.php:1445
 #, fuzzy
 msgid "Template/Enabled Information"
 msgstr "Şablon / Etkin Bilgiler"
 
-#: thold.php:1436
+#: thold.php:1449
 #, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "Şablon Yayılımı Etkin"
 
-#: thold.php:1439
+#: thold.php:1452
 #, fuzzy
 msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr "Bu ayarların Eşik şablonundan yayılıp dağıtılmayacağı."
 
-#: thold.php:1443 thold_templates.php:1001
+#: thold.php:1456 thold_templates.php:1009
 msgid "Template Name"
 msgstr "Şablon Adı"
 
-#: thold.php:1446
+#: thold.php:1459
 #, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "Eşiğin Oluşturulduğu Eşik Şablonunun Adı."
 
-#: thold.php:1450
+#: thold.php:1463
 #, fuzzy
 msgid "Threshold Enabled"
 msgstr "Eşik Etkin"
 
-#: thold.php:1453 thold_templates.php:1038
+#: thold.php:1466 thold_templates.php:1046
 #, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "Bu Eşiğin kontrol edilip edilmeyeceğine dair bir uyarı verilir."
 
-#: thold.php:1457 thold_templates.php:997
+#: thold.php:1470 thold_templates.php:1005
 msgid "General Settings"
 msgstr "Genel Ayarlar"
 
-#: thold.php:1461
+#: thold.php:1474
 #, fuzzy
 msgid "Name (Displayed)"
 msgstr "İsim (Gösterilen)"
 
-#: thold.php:1466 thold.php:1475
+#: thold.php:1479 thold.php:1488
 #, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "Eşikleri anlamlı bir ad verin"
 
-#: thold.php:1470
+#: thold.php:1483
 #, fuzzy
 msgid "Name (Format)"
 msgstr "İsim biçimi"
 
-#: thold.php:1479 thold_templates.php:1042
+#: thold.php:1492 thold_templates.php:1050
 #, fuzzy
 msgid "Warning HRULE Color"
 msgstr "HRULE Renkli Uyarı"
 
-#: thold.php:1480 thold_templates.php:1043
+#: thold.php:1493 thold_templates.php:1051
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Lütfen Uyarı Eşikleri için Grafik HRULE için bir Renk seçin. HRULE yok için 'Yok' seçeneğini seçin. Not: Bu özellikler yalnızca şu anda 'Tam Değer' ve 'Yüzde' Veri İşleme türleri için desteklenir."
 
-#: thold.php:1487 thold_templates.php:1050
+#: thold.php:1500 thold_templates.php:1058
 #, fuzzy
 msgid "Alert HRULE Color"
 msgstr "HRULE Renkli Uyarı"
 
-#: thold.php:1488 thold_templates.php:1051
+#: thold.php:1501 thold_templates.php:1059
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Lütfen Uyarı Eşikleri için Grafik HRULE için bir Renk seçin. HRULE yok için 'Yok' seçeneğini seçin. Not: Bu özellikler yalnızca şu anda 'Tam Değer' ve 'Yüzde' Veri İşleme türleri için desteklenir."
 
-#: thold.php:1495 thold_templates.php:1058
+#: thold.php:1508 thold_templates.php:1066
+msgid "Skip Scaling on HRULEs"
+msgstr ""
+
+#: thold.php:1511 thold_templates.php:1069
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr ""
+
+#: thold.php:1515 thold_templates.php:1073
 #, fuzzy
 msgid "Weekend Exemption"
 msgstr "Hafta Sonu Muafiyeti"
 
-#: thold.php:1496 thold_templates.php:1059
+#: thold.php:1516 thold_templates.php:1074
 #, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr "Bu işaretliyse, bu Eşik hafta sonları uyarılmayacaktır."
 
-#: thold.php:1502 thold_templates.php:1065
+#: thold.php:1522 thold_templates.php:1080
 #, fuzzy
 msgid "Disable Restoration Email"
 msgstr "Restorasyon E-postasını Devre Dışı Bırak"
 
-#: thold.php:1503 thold_templates.php:1066
+#: thold.php:1523 thold_templates.php:1081
 #, fuzzy
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr "Bu işaretliyse, Eşik normal durumuna döndüğünde Eşik bir uyarı göndermez."
 
-#: thold.php:1509 thold_templates.php:1072
+#: thold.php:1529 thold_templates.php:1087
 #, fuzzy
 msgid "Acknowledgment Options"
 msgstr "Teşekkür Seçenekleri"
 
-#: thold.php:1510 thold_templates.php:1073
+#: thold.php:1530 thold_templates.php:1088
 #, fuzzy
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr "Eşik ihlali durumuna nasıl cevap vermeniz gerektiğini kontrol eden üç Onay düzeyi vardır. Onlar: <br><br><ul><li> <i>Yok Gerekli</i> - Bu seçeneği seçtiğinizde, bir Eşik ihlali için Onay gerekmez. </li><li> <i>Onaylamayı Sıfırla</i> - Bu seçenekle, Eşiği Onayladığınızda, ihlal edildiğinde Artık Bildirimler almayacaksınız. </li><li> <i>Kalıcı Onay</i> - Bu seçenekle, Eşik normale döndükten sonra bile, Eşiği Onaylamanız ve isteğe bağlı bir Operatör Mesajı sağlamanız gerekir. </li></ul>"
 
-#: thold.php:1517 thold_templates.php:1080
+#: thold.php:1537 thold_templates.php:1095
 #, fuzzy
 msgid "None Required"
 msgstr "Yok Gerekli"
 
-#: thold.php:1521 thold_templates.php:1084
+#: thold.php:1541 thold_templates.php:1099
 #, fuzzy
 msgid "Suspendible Notification"
 msgstr "SNMP Bildirimleri"
 
-#: thold.php:1525 thold_templates.php:1088
+#: thold.php:1545 thold_templates.php:1103
 #, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "Israrcı Onay"
 
-#: thold.php:1530 thold_templates.php:1093
+#: thold.php:1550 thold_templates.php:1108
 #, fuzzy
 msgid "Threshold Type"
 msgstr "Eşik tipi"
 
-#: thold.php:1535 thold_templates.php:1098
+#: thold.php:1555 thold_templates.php:1113
 #, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "İzlenecek Eşiğin tipi."
 
-#: thold.php:1539 thold_templates.php:1102
+#: thold.php:1559 thold_templates.php:1117
 #, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "Yeniden Uyarı Döngüsü"
 
-#: thold.php:1543
+#: thold.php:1563
 #, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr "Son alarmdan bu süre geçtikten sonra uyarıyı tekrarlayın."
 
-#: thold.php:1547 thold_templates.php:1110
+#: thold.php:1567 thold_templates.php:1125
 #, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "Uyarı - Yüksek / Düşük Ayarlar"
 
-#: thold.php:1551 thold.php:1578 thold.php:1605 thold.php:1640
-#: thold_templates.php:1114 thold_templates.php:1141 thold_templates.php:1168
-#: thold_templates.php:1204
+#: thold.php:1571 thold.php:1598 thold.php:1625 thold.php:1660
+#: thold_templates.php:1129 thold_templates.php:1156 thold_templates.php:1183
+#: thold_templates.php:1219
 #, fuzzy
 msgid "High Threshold"
 msgstr "Yüksek Eşik"
 
-#: thold.php:1555 thold.php:1609 thold_templates.php:1172
+#: thold.php:1575 thold.php:1629 thold_templates.php:1187
 #, fuzzy
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Ayarlanırsa ve Veri Kaynağı değeri bu sayının üzerine çıkarsa uyarı tetiklenir. NOT: Bu değer bir RAW numarası olmalıdır. Grafikte görüntülenen değer bir cdef tarafından değiştirilebilir."
 
-#: thold.php:1559 thold.php:1586 thold.php:1613 thold.php:1648
-#: thold_templates.php:1122 thold_templates.php:1149 thold_templates.php:1176
-#: thold_templates.php:1212
+#: thold.php:1579 thold.php:1606 thold.php:1633 thold.php:1668
+#: thold_templates.php:1137 thold_templates.php:1164 thold_templates.php:1191
+#: thold_templates.php:1227
 #, fuzzy
 msgid "Low Threshold"
 msgstr "Düşük Eşik"
 
-#: thold.php:1563 thold.php:1617 thold_templates.php:1180
+#: thold.php:1583 thold.php:1637 thold_templates.php:1195
 #, fuzzy
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Ayarlanırsa ve Veri Kaynağı değeri bu sayının altına düşerse uyarı tetiklenir. NOT: Bu değer bir RAW numarası olmalıdır. Grafikte görüntülenen değer bir cdef tarafından değiştirilebilir."
 
-#: thold.php:1567 thold.php:1594
+#: thold.php:1587 thold.php:1614
 #, fuzzy
 msgid "Breach Duration"
 msgstr "İhlal Süresi"
 
-#: thold.php:1570
+#: thold.php:1590
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Veri kaynağının bir uyarının yükseltilmesi için Eşiğin ihlalinde bulunması gereken süre."
 
-#: thold.php:1574 thold_templates.php:1137
+#: thold.php:1594 thold_templates.php:1152
 #, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "Uyarısı - Yüksek / Düşük Ayarları"
 
-#: thold.php:1582 thold.php:1644 thold_templates.php:1118
-#: thold_templates.php:1145 thold_templates.php:1208
+#: thold.php:1602 thold.php:1664 thold_templates.php:1133
+#: thold_templates.php:1160 thold_templates.php:1223
 #, fuzzy
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Ayarlanırsa ve Veri Kaynağı değeri bu sayının üzerine çıkarsa uyarı tetiklenir. NOT: Bu değer bir RAW numarası olmalıdır. Grafikte görüntülenen değer bir cdef tarafından değiştirilebilir."
 
-#: thold.php:1590 thold.php:1652 thold_templates.php:1126
-#: thold_templates.php:1153 thold_templates.php:1216
+#: thold.php:1610 thold.php:1672 thold_templates.php:1141
+#: thold_templates.php:1168 thold_templates.php:1231
 #, fuzzy
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Ayarlanırsa ve Veri Kaynağı değeri bu sayının altına düşerse uyarı tetiklenir. NOT: Bu değer bir RAW numarası olmalıdır. Grafikte görüntülenen değer bir cdef tarafından değiştirilebilir."
 
-#: thold.php:1597
+#: thold.php:1617
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr "Bir alarmın alınabilmesi için veri kaynağının Eşiğin ihlal ettiği süre."
 
-#: thold.php:1601 thold_templates.php:1164
+#: thold.php:1621 thold_templates.php:1179
 #, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "Uyarı - Zamana Dayalı Ayarlar"
 
-#: thold.php:1621 thold.php:1656
+#: thold.php:1641 thold.php:1676
 #, fuzzy
 msgid "Breach Count"
 msgstr "İhlal Sayısı"
 
-#: thold.php:1625 thold.php:1661
+#: thold.php:1645 thold.php:1681
 #, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr "Veri kaynağının Eşiği ihlal ettiği sayı."
 
-#: thold.php:1629 thold.php:1665
+#: thold.php:1649 thold.php:1685
 #, fuzzy
 msgid "Breach Window"
 msgstr "İhlal Penceresi"
 
-#: thold.php:1632 thold.php:1668 thold_templates.php:1196
-#: thold_templates.php:1231
+#: thold.php:1652 thold.php:1688 thold_templates.php:1211
+#: thold_templates.php:1246
 #, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "Eşik ihlallerini kontrol etmek için geçmişte geçen süre."
 
-#: thold.php:1636 thold_templates.php:1200
+#: thold.php:1656 thold_templates.php:1215
 #, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "Uyarı - Zamana Dayalı Ayarlar"
 
-#: thold.php:1672
+#: thold.php:1692
 #, fuzzy
 msgid "Baseline Settings"
 msgstr "Temel Ayarlar"
 
-#: thold.php:1676
+#: thold.php:1696
 msgid "Time range"
 msgstr "Zaman aralığı"
 
-#: thold.php:1679
+#: thold.php:1699
 #, fuzzy
 msgid "Specifies the point in the past (based on RRDfile resolution) that will be used as a reference"
 msgstr "Geçmişte referans olarak kullanılacak noktayı (RRDdosya çözünürlüğüne göre) belirtir"
 
-#: thold.php:1683
+#: thold.php:1703
 #, fuzzy
 msgid "Deviation UP"
 msgstr "Sapma UP"
 
-#: thold.php:1687 thold_templates.php:1250
+#: thold.php:1707 thold_templates.php:1265
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all."
 msgstr "Üst sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, üst sınır Eşiği hiç kontrol edilmeyecektir."
 
-#: thold.php:1691
+#: thold.php:1711
 #, fuzzy
 msgid "Deviation DOWN"
 msgstr "Sapma aşağı"
 
-#: thold.php:1695 thold_templates.php:1258
+#: thold.php:1715 thold_templates.php:1273
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all."
 msgstr "Alt sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, alt sınır Eşiği hiç kontrol edilmeyecektir."
 
-#: thold.php:1703
+#: thold.php:1723
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr "Bir alarmın artması için ardışık kez veri kaynağının temel Eşik değerini ihlal etmesi gerekir. <br> Varsayılan değeri kullanmak için boş bırakın ( <b>Varsayılan: %s döngüleri</b> )"
 
-#: thold.php:1707 thold_templates.php:1270
+#: thold.php:1727 thold_templates.php:1285
 #, fuzzy
 msgid "Data Manipulation"
 msgstr "Veri İşleme"
 
-#: thold.php:1711 thold_templates.php:1274
+#: thold.php:1731 thold_templates.php:1289
 msgid "Data Type"
 msgstr "Veri tipi"
 
-#: thold.php:1716 thold_templates.php:1278
+#: thold.php:1736 thold_templates.php:1293
 #, fuzzy
 msgid "Special formatting for the given data."
 msgstr "Verilen veriler için özel biçimlendirme."
 
-#: thold.php:1720 thold_templates.php:1282
+#: thold.php:1740 thold_templates.php:1297
 #, fuzzy
 msgid "Threshold CDEF"
 msgstr "Eşik CDEF"
 
-#: thold.php:1723 thold_templates.php:1285
+#: thold.php:1743 thold_templates.php:1300
 #, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "Verileri döndürmeden önce bu CDEF'i uygulayın."
 
-#: thold.php:1728
+#: thold.php:1748
 #, fuzzy
 msgid "Percent Data Source"
 msgstr "Veri Kaynağı Yüzdesi"
 
-#: thold.php:1731
+#: thold.php:1751
 #, fuzzy
 msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr "Yüzdeyi hesaplamak için toplam değer olarak kullanılacak İkinci Veri Kaynağı Öğesi."
 
-#: thold.php:1736 thold_templates.php:1315
+#: thold.php:1756 thold_templates.php:1330
 msgid "Show Units"
 msgstr ""
 
-#: thold.php:1739 thold_templates.php:1318
+#: thold.php:1759 thold_templates.php:1333
 msgid "Display units for very large or small numbers."
 msgstr ""
 
-#: thold.php:1748
+#: thold.php:1768
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "RPN İfadesi, RRDtool Uyumlu RPN İfadesidir. Sözdizimi, aşağıdaki gibi tüm işlevleri içerir <span class=\"deviceUp\">| query_ifSpeed |</span> gibi Aygıt ve Veri Sorgusu değiştirme ifadelerine ek olarak . RPN İfadesinde Veri Kaynağı kullanmak için, sözdizimini kullanmanız gerekir: <span class=\"deviceUp\">| ds: dsname |</span> . Örneğin, <span class=\"deviceUp\">| ds: traffic_in |</span> Graph ile ilişkilendirilmiş RRD dosya (ları) için traffic_in Veri Kaynağının geçerli değerini alacaktır. Grafik için herhangi bir Veri Kaynağı dahil edilebilir. <br><br> Matematik Operatörleri: <span class=\"deviceUp\">+, -, /, *,%, ^</span> <br> İşlevler: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, ZEMİN, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Akış Operatörleri: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Karşılaştırma İşlevleri: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
 
-#: thold.php:1754 thold_templates.php:1307
+#: thold.php:1774 thold_templates.php:1322
 #, fuzzy
 msgid "Upper Data Source"
 msgstr "Veri kaynağı"
 
-#: thold.php:1757
+#: thold.php:1777
 #, fuzzy
 msgid "Upper data source to calculate the total value."
 msgstr "Toplam değeri hesaplamak için üst veri kaynağı."
 
-#: thold.php:1762 thold_templates.php:1322
+#: thold.php:1782 thold_templates.php:1337
 msgid "Notification Settings"
 msgstr "Bildirim Ayarları"
 
-#: thold.php:1767 thold_templates.php:1327
+#: thold.php:1787 thold_templates.php:1342
 #, fuzzy
 msgid "Alert Email Body"
 msgstr "Uyarı e-posta gövdesi"
 
-#: thold.php:1772 thold_templates.php:1332
+#: thold.php:1792 thold_templates.php:1347
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca e-postalardaki metinler için kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> Örneğin. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;DUR&gt; &gt;"
 
-#: thold.php:1776 thold_templates.php:1336
+#: thold.php:1796 thold_templates.php:1351
 #, fuzzy
 msgid "Warning Email Body"
 msgstr "Uyarı e-posta gövdesi"
 
-#: thold.php:1781 thold_templates.php:1341
+#: thold.php:1801 thold_templates.php:1356
 #, fuzzy
-msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Bu, tüm Eşik Uyarılarının en üstünde görüntülenecek olan mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca e-postalardaki metinler için kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> Örneğin. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;DUR&gt; &gt;"
 
-#: thold.php:1785 thold_templates.php:1345
+#: thold.php:1805 thold_templates.php:1360
 #, fuzzy
 msgid "Restoral Email Body"
 msgstr "Uyarı e-posta gövdesi"
 
-#: thold.php:1794 thold_templates.php:1361
+#: thold.php:1810 thold_templates.php:1365
+#, fuzzy
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Bu, tüm Eşik uyarılarının üstünde görüntülenecek mesajdır (255 Char MAX). HTML’ye izin verilir, ancak yalnızca metinler için E-postalar kaldırılır. Kullanılabilecek birkaç tanımlayıcı var. <br> &lt;TANIM&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOT&gt;&gt;"
+
+#: thold.php:1814 thold_templates.php:1376
 #, fuzzy
 msgid "Warning Notification List"
 msgstr "Uyarı Bildirim Listesi"
 
-#: thold.php:1796 thold_templates.php:1363
+#: thold.php:1816 thold_templates.php:1378
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr "Bu Veri Kaynağı için Uyarılar almak üzere bir Bildirim Listesi seçebilirsiniz"
 
-#: thold.php:1802 thold_templates.php:1369
+#: thold.php:1822 thold_templates.php:1384
 #, fuzzy
 msgid "Alert Notification List"
 msgstr "Uyarı Bildirim Listesi"
 
-#: thold.php:1804 thold_templates.php:1371
+#: thold.php:1824 thold_templates.php:1386
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr "Bu Veri Kaynağı için Uyarılar almak üzere bir Bildirim Listesi seçebilirsiniz."
 
-#: thold.php:1814 thold_templates.php:1381
+#: thold.php:1834 thold_templates.php:1396
 #, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "SNMP Bildirimi - Etkinlik Kategorisi"
 
-#: thold.php:1816 thold_templates.php:1383
+#: thold.php:1836 thold_templates.php:1398
 #, fuzzy
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr "Bir NMS'nin farklı SNMP bildirimlerini daha kolay sınıflandırmasına izin vermek için lütfen bu şablon için SNMP bildirimlerini kullanması gereken kategoriyi doldurunuz. Örneğin: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 
-#: thold.php:1822 thold_templates.php:1389
+#: thold.php:1842 thold_templates.php:1404
+#, fuzzy
+msgid "SNMP Event Description"
+msgstr "SNMP Olayı Açıklaması"
+
+#: thold.php:1843 thold_templates.php:1405
+#, fuzzy
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Ek değişkenleri kullanarak SNMP bildirim alıcılarına gönderilen etkinlik açıklamasını özelleştirebilirsiniz. Aşağıdaki değişken bağlama desteklenecektir: <br> &lt;THRESHOLDNAME&gt; &lt;HOSTNAME&gt; &lt;HOSTIP&gt; &lt;TEMPLATE_ID&gt; &lt;TEMPLATE_NAME&gt; &lt;THR_TYPE&gt; &lt;DS_NAME&gt; &lt;HI&gt; &lt;LOW&gt; &lt;EVENT_CATEGORY&gt; &lt;FAIL_COUNT&gt; &lt;FAIL_DURATION&gt;"
+
+#: thold.php:1852 thold_templates.php:1414
 #, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "SNMP Bildirimi - Uyarı Olay Önceliği"
 
-#: thold.php:1825
+#: thold.php:1855
 #, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr "Uyarılar için kullanılacak önem derecesi. (düşük etki -> kritik etki)"
 
-#: thold.php:1829 thold.php:1848 thold_templates.php:1394
-#: thold_templates.php:1408
+#: thold.php:1859 thold.php:1878 thold_templates.php:1419
+#: thold_templates.php:1433
 msgid "Medium"
 msgstr "Orta"
 
-#: thold.php:1841 thold_templates.php:1403
+#: thold.php:1871 thold_templates.php:1428
 #, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "SNMP Bildirimi - Uyarı Olay Önceliği"
 
-#: thold.php:1844 thold_templates.php:1406
+#: thold.php:1874 thold_templates.php:1431
 #, fuzzy
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr "Uyarılar için kullanılacak önem derecesi. Düşük etki -> Kritik etki. <br> Not: Uyarıların ciddiyeti, uyarılar için tanımlanmış olan ciddiyetten eşit veya daha düşük olmalıdır."
 
-#: thold.php:1862 thold_templates.php:1419
+#: thold.php:1892 thold_templates.php:1444
 #, fuzzy
 msgid "Notify accounts"
 msgstr "Hesapları bildir"
 
-#: thold.php:1864
+#: thold.php:1894
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr "Bu, bu Eşik ihlal edildiğinde bildirilecek hesapların bir listesidir."
 
-#: thold.php:1869 thold_templates.php:1426
+#: thold.php:1899 thold_templates.php:1451
 #, fuzzy
 msgid "Alert Emails"
 msgstr "Uyarı e-postaları"
 
-#: thold.php:1873
+#: thold.php:1903
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr "Bu veri kaynağına ilişkin uyarıları almak için burada ek E-postalar belirleyebilirsiniz (virgülle ayrılmış)"
 
-#: thold.php:1877 thold_templates.php:1434
+#: thold.php:1907 thold_templates.php:1459
 #, fuzzy
 msgid "Warning Emails"
 msgstr "Uyarı e-postaları"
 
-#: thold.php:1881
+#: thold.php:1911
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr "Bu veri kaynağına ilişkin uyarıları almak için buraya ek E-postalar belirleyebilirsiniz (virgülle ayrılmış)"
 
-#: thold.php:1915 thold_templates.php:1472
+#: thold.php:1945 thold_templates.php:1497
 #, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "İşaretliyse, Eşik bildirimi yerel sistem günlüğünüze gönderilir."
 
-#: thold.php:1921 thold_templates.php:1478
+#: thold.php:1951 thold_templates.php:1503
 #, fuzzy
 msgid "Priority/Level"
 msgstr "Öncelik seviyesi"
 
-#: thold.php:1922 thold_templates.php:1479
+#: thold.php:1952 thold_templates.php:1504
 #, fuzzy
 msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr "Bu, syslog iletilerinize giriş yapacak olan Öncelik Düzeyidir."
 
-#: thold.php:1929 thold_templates.php:1486
+#: thold.php:1959 thold_templates.php:1511
 msgid "Facility"
 msgstr "Tesis"
 
-#: thold.php:1930 thold_templates.php:1487
+#: thold.php:1960 thold_templates.php:1512
 #, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "Bu, bu Eşik için kullanılacak olan Tesis'dir."
 
-#: thold.php:1951 thold_templates.php:1508
+#: thold.php:1981 thold_templates.php:1533
 #, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "Olay Tetiklemesi (Kabuk Komutu)"
 
-#: thold.php:1956 thold_templates.php:1513
+#: thold.php:1986 thold_templates.php:1538
 #, fuzzy
 msgid "High Trigger Command"
 msgstr "Yüksek Tetikleme Komutu"
 
-#: thold.php:1957 thold_templates.php:1514
+#: thold.php:1987 thold_templates.php:1539
 #, fuzzy
-msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Ayarlanırsa ve bir Yüksek Eşik ihlal edilirse, bu komut çalıştırılır. Lütfen geçerli bir komut girin. Ayrıca, Eşik&#39;ten komut dosyasına bilgi aktarmak için kullanılabilecek birkaç yedek etiket vardır. İçerdikleri: &lt;TANIM&gt; &lt;HEDEF ADI&gt; &lt;SAAT&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TURUCU&gt;&gt; &gt; &lt;BREACHED_ITEMS&gt;. Son olarak, Host, Veri Sorgu ve Veri Girişi değiştirme yapılabilir. Örneğin, bekleyen, verili özel veri girişi varsa, değiştirme işlemini gerçekleştirmek için | pending |. Veri Sorgusu ve Ana Bilgisayar değiştirme için Cacti kurallarını | query_xxxx |, ve | host_xxxx | sırasıyla."
 
-#: thold.php:1964 thold_templates.php:1521
+#: thold.php:1994 thold_templates.php:1546
 #, fuzzy
 msgid "Low Trigger Command"
 msgstr "Düşük Tetikleme Komutu"
 
-#: thold.php:1965 thold_templates.php:1522
+#: thold.php:1995 thold_templates.php:1547
 #, fuzzy
-msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Ayarlanırsa ve bir Düşük Eşik ihlal edilirse, bu komut çalıştırılır. Lütfen geçerli bir komut girin. Ayrıca, Eşik&#39;ten komut dosyasına bilgi aktarmak için kullanılabilecek birkaç yedek etiket vardır. İçerdikleri: &lt;TANIM&gt; &lt;HEDEF ADI&gt; &lt;SAAT&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TURUCU&gt;&gt; &gt; &lt;BREACHED_ITEMS&gt;. Son olarak, Host, Veri Sorgu ve Veri girişi değişimi yapılabilir. Örneğin, bekleyen, verili özel veri girişi varsa, değiştirme işlemini gerçekleştirmek için | pending |. Veri Sorgusu ve Ana Bilgisayar değiştirme için Cacti kurallarını | query_xxxx |, ve | host_xxxx | sırasıyla."
 
-#: thold.php:1972 thold_templates.php:1529
+#: thold.php:2002 thold_templates.php:1554
 #, fuzzy
 msgid "Norm Trigger Command"
 msgstr "Norm Tetikleme Komutu"
 
-#: thold.php:1973 thold_templates.php:1530
+#: thold.php:2003 thold_templates.php:1555
 #, fuzzy
-msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Eğer bir dergi normal bir değere düştüğünde, bu komut çalıştırılacaktır. Lütfen geçerli bir komut girin. Ayrıca, Eşik&#39;ten komut dosyasına bilgi aktarmak için kullanılabilecek birkaç yedek etiket vardır. İçerdikleri: &lt;TANIM&gt; &lt;HEDEF ADI&gt; &lt;SAAT&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TURUCU&gt;&gt; &gt; &lt;BREACHED_ITEMS&gt;. Son olarak, Host, Veri Sorgu ve Veri girişi değişimi yapılabilir. Örneğin, bekleyen, verili özel veri girişi varsa, değiştirme işlemini gerçekleştirmek için | pending |. Veri Sorgusu ve Ana Bilgisayar değiştirme için Cacti kurallarını | query_xxxx |, ve | host_xxxx | sırasıyla."
 
-#: thold.php:1986 thold_templates.php:1543
+#: thold.php:2016 thold_templates.php:1568
 msgid "Other Settings"
 msgstr "Diğer Ayarlar"
 
-#: thold.php:1991 thold_templates.php:1548
+#: thold.php:2021 thold_templates.php:1573
 #, fuzzy
 msgid "Operator Notes"
 msgstr "Operatör Notları"
 
-#: thold.php:1995 thold_templates.php:1552
+#: thold.php:2025 thold_templates.php:1577
 #, fuzzy
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr "Eşik mesajı alan bir operatör için talimatları buraya girin."
 
-#: thold.php:2245
+#: thold.php:2277
 #, fuzzy
 msgid "Select Users(s)"
 msgstr "Kullanıcıları Seç"
 
-#: thold.php:2247
+#: thold.php:2279
 #, fuzzy
 msgid "Users Selected"
 msgstr "Seçilmiş Kullanıcılar"
 
-#: thold.php:2250
+#: thold.php:2282
 #, fuzzy
 msgid "All Users Selected"
 msgstr "Tüm Kullanıcılar Seçildi"
 
-#: thold_functions.php:78
+#: thold_functions.php:82
 #, fuzzy
 msgid "< 1 Minute"
 msgstr "1 dakika boyu"
 
-#: thold_functions.php:80
+#: thold_functions.php:84
 #, fuzzy
 msgid "Since Created"
 msgstr "Oluştur"
 
-#: thold_functions.php:140
+#: thold_functions.php:144
 msgid "Log"
 msgstr "Günlük"
 
-#: thold_functions.php:264
+#: thold_functions.php:268
 msgid "Time:"
 msgstr "Zaman:"
 
-#: thold_functions.php:265
+#: thold_functions.php:269
 msgid "User:"
 msgstr "Kullanıcı:"
 
-#: thold_functions.php:266
+#: thold_functions.php:270
 msgid "System:"
 msgstr "Sistem:"
 
-#: thold_functions.php:267
+#: thold_functions.php:271
 #, fuzzy
 msgid "Swaps:"
 msgstr "Swap:"
 
-#: thold_functions.php:268
+#: thold_functions.php:272
 msgid "Pages:"
 msgstr "Sayfalar:"
 
-#: thold_functions.php:3608
+#: thold_functions.php:2223 thold_functions.php:2337 thold_functions.php:2400
+#: thold_functions.php:2551 thold_functions.php:2636 thold_functions.php:2745
+#: thold_functions.php:2764 thold_functions.php:2953 thold_functions.php:2970
+#: thold_functions.php:3089 thold_functions.php:3109 thold_functions.php:3126
+#: thold_functions.php:3193 thold_functions.php:3266
+msgid "Only logging, maint device"
+msgstr ""
+
+#: thold_functions.php:3615
 #, fuzzy
 msgid "Link to Graph in Cacti"
 msgstr "Cacti'deki Grafiğe Bağlantı"
 
-#: thold_functions.php:3637
+#: thold_functions.php:3644
 #, fuzzy
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body> Dikkatinizi gerektiren bir uyarı verildi. <br><br> <b>Cihaz</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Mesaj</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3664
+#: thold_functions.php:3671
 #, fuzzy
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body> Dikkatinizi gerektiren bir uyarı verildi. <br><br> <b>Cihaz</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Mesaj</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3691
+#: thold_functions.php:3698
 #, fuzzy
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "Dikkatinizi gerektiren bir Uyarı yayınlandı. <br><br> <strong>Cihaz</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Mesaj</strong> : <SUBJECT><br><br><GRAPH>"
 
-#: thold_functions.php:4456
+#: thold_functions.php:4472
 #, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "Grafik ve Eşik oluşturmaya çalışırken Cihaz Kimliği ayarlanmadı"
 
-#: thold_functions.php:4471
+#: thold_functions.php:4487
 #, fuzzy
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
 
-#: thold_functions.php:4478
+#: thold_functions.php:4494
 #, fuzzy
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
 
-#: thold_functions.php:4511
+#: thold_functions.php:4527
 #, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "Eşik Şablonu için Grafik Oluşturma başarısız oldu"
 
-#: thold_functions.php:4541
+#: thold_functions.php:4557
 #, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr "Aygıt Şablonu eşlemesi nedeniyle eşik değeri otomatik olarak oluşturuldu"
 
-#: thold_functions.php:4575 thold_functions.php:4882
+#: thold_functions.php:4591 thold_functions.php:4904
 msgid "Permission Denied"
 msgstr "Izin reddedildi"
 
-#: thold_functions.php:4589 thold_functions.php:4951
+#: thold_functions.php:4605 thold_functions.php:4977
 msgid "Record Updated"
 msgstr "Kayıt güncellendi"
 
-#: thold_functions.php:4639
+#: thold_functions.php:4655
 #, fuzzy
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!<br>RECORD NOT UPDATED!"
 msgstr "'Yüksek Uyarı Eşiği' veya 'Düşük Uyarı Eşiği' veya her ikisini de belirtmelisiniz! <br> KAYIT GÜNCELLEME!"
 
-#: thold_functions.php:4651
+#: thold_functions.php:4667
 #, fuzzy
 msgid "Impossible thresholds: 'High Threshold' smaller than or equal to 'Low Threshold'<br>RECORD NOT UPDATED!"
 msgstr "İmkansız eşikler: 'Düşük Eşik' e eşit veya daha küçük 'Yüksek Eşik' <br> KAYIT GÜNCELLEME!"
 
-#: thold_functions.php:4663
+#: thold_functions.php:4679
 #, fuzzy
 msgid "Impossible thresholds: 'High Warning Threshold' smaller than or equal to 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
 msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
 
-#: thold_functions.php:4671
+#: thold_functions.php:4687
 #, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "Temel eşikler etkinken."
 
-#: thold_functions.php:4680
+#: thold_functions.php:4696
 #, fuzzy
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!<br>RECORD NOT UPDATED!"
 msgstr "'Temel Sapma YUKARI' veya 'Temel Sapma AŞAĞI' veya her ikisini de belirtmelisiniz! <br> KAYIT GÜNCELLEME!"
 
-#: thold_functions.php:4872
+#: thold_functions.php:4894
 #, fuzzy, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "'% D' Eşiğindeki '% d' Bağlantılı Grafik Şablonu Öğesi bulunamadı"
 
-#: thold_functions.php:4949 thold_functions.php:5363
+#: thold_functions.php:4975 thold_functions.php:5393
 #, fuzzy, php-format
 msgid "Created Threshold: %s"
 msgstr "Oluşturulan eşik: %s"
 
-#: thold_functions.php:5018
+#: thold_functions.php:5044
 #, fuzzy, php-format
 msgid "'%s' must be set to positive integer value!<br>RECORD NOT UPDATED!"
 msgstr "' %s' pozitif tamsayı değerine ayarlanmış olmalı! <br> KAYIT GÜNCELLEME!"
 
-#: thold_functions.php:5191
+#: thold_functions.php:5219
 #, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "Aygıtın Şablonuyla İlişkili Eşik Yok Şablonları."
 
-#: thold_functions.php:5398
+#: thold_functions.php:5428
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr "Mailer Hata: set adrese <b>İÇİN</b> !! <br> <i>Posta Testi</i> bağlantısını kullanıyorsanız, lütfen <b>Uyarı E-postası</b> ayarını yapın."
 
-#: thold_functions.php:5775 thold_graph.php:586
+#: thold_functions.php:5808 thold_graph.php:625
 #, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "Bilinmeyen Eşik"
 
-#: thold_functions.php:5777
+#: thold_functions.php:5810
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "Aşağıdaki Eşikleri Kabul Etmek için 'Devam Et'i tıklayın."
 
-#: thold_functions.php:6197
+#: thold_functions.php:6219
 #, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "Eşik Şablonu Alt Veri Şablonu Bulunamadı!"
 
-#: thold_functions.php:6212
+#: thold_functions.php:6234
 #, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "Eşik Şablonu Alt Veri Kaynağı Bulunamadı!"
 
-#: thold_functions.php:6248
+#: thold_functions.php:6270
 #, fuzzy
 msgid "Threshold Template import columns do not match the database schema"
 msgstr "Eşik Şablonu içe aktarma sütunları, veritabanı şemasıyla eşleşmiyor"
 
-#: thold_functions.php:6256
+#: thold_functions.php:6279 thold_functions.php:6281
 msgid "Imported"
 msgstr "Eklendi"
 
-#: thold_functions.php:6256
+#: thold_functions.php:6279 thold_functions.php:6281
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "Eşik Şablonu ' %s' %s!"
 
-#: thold_functions.php:6256
+#: thold_functions.php:6279 thold_functions.php:6281
 msgid "Updated"
 msgstr "Güncellendi"
 
-#: thold_functions.php:6258 thold_templates.php:1889 thold_templates.php:2145
+#: thold_functions.php:6285 thold_functions.php:6287 thold_templates.php:1914
+#: thold_templates.php:2168
 msgid "Import"
 msgstr "İçe Aktar"
 
-#: thold_functions.php:6258
+#: thold_functions.php:6285 thold_functions.php:6287
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "Eşik Şablonu ' %s' %s Başarısız!"
 
-#: thold_functions.php:6258
+#: thold_functions.php:6285 thold_functions.php:6287
 msgid "Update"
 msgstr "Güncelle"
 
-#: thold_functions.php:6261
+#: thold_functions.php:6291
 #, fuzzy
 msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr "Eşik Şablonu verilerini içe aktarmaya çalışırken hatalar oluştu."
 
-#: thold_functions.php:6265
+#: thold_functions.php:6295
 #, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "Eşik Şablonu Alt Veri Şablonu Bulunamadı!"
 
-#: thold_functions.php:6268
+#: thold_functions.php:6298
 #, fuzzy
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
@@ -2934,194 +2988,216 @@ msgstr "Eşik artık Uyarılar, Bildirimler oluşturmayacak veya komutları çal
 msgid "The Threshold will restart generating Alerts."
 msgstr "Uyarı / Uyarı için Yüksek Eşik değerleri"
 
-#: thold_graph.php:344
+#: thold_graph.php:380
 #, fuzzy
 msgid "Threshold Status"
 msgstr "Eşik Durumu"
 
-#: thold_graph.php:410 thold_graph.php:829
+#: thold_graph.php:446 thold_graph.php:907
 msgid "Actions"
 msgstr "Eylemler"
 
-#: thold_graph.php:567
+#: thold_graph.php:461
+msgid "Ack Detail"
+msgstr ""
+
+#: thold_graph.php:606
 #, fuzzy
 msgid "Edit Threshold"
 msgstr "Eşiği Düzenle"
 
-#: thold_graph.php:572
+#: thold_graph.php:611
 #, fuzzy
 msgid "Disable Threshold"
 msgstr "Eşiği Devre Dışı Bırak"
 
-#: thold_graph.php:574
+#: thold_graph.php:613
 #, fuzzy
 msgid "Enable Threshold"
 msgstr "Eşiği Etkinleştir"
 
-#: thold_graph.php:580
+#: thold_graph.php:619
 msgid "View Graph"
 msgstr "Grafik göster"
 
-#: thold_graph.php:582
+#: thold_graph.php:621
 #, fuzzy
 msgid "View Threshold History"
 msgstr "Eşik Geçmişini Görüntüle"
 
-#: thold_graph.php:589
+#: thold_graph.php:628
 #, fuzzy
 msgid "Suspend Notifications until the Threshold clears"
 msgstr "Yinelenen Bildirim Listesi"
 
-#: thold_graph.php:592
+#: thold_graph.php:631
 #, fuzzy
 msgid "Resume Notifications for this breached Threshold"
 msgstr "Bildirim Listesini Sil"
 
-#: thold_graph.php:608
+#: thold_graph.php:656
+#, fuzzy
+#| msgid "Acknowledgment"
+msgid "Acknowledgement Message"
+msgstr "Bilgilendirme"
+
+#: thold_graph.php:657
+msgid "Date"
+msgstr ""
+
+#: thold_graph.php:665
+msgid "Comment Not Found"
+msgstr ""
+
+#: thold_graph.php:674
+msgid "Ack History"
+msgstr ""
+
+#: thold_graph.php:684
 #, fuzzy
 msgid "No name set"
 msgstr "İsim ayarlanmadı"
 
-#: thold_graph.php:832
+#: thold_graph.php:910
 #, fuzzy
 msgid "Hover over icons for help"
 msgstr "Yardım için simgelerin üzerine gelin"
 
-#: thold_graph.php:838
+#: thold_graph.php:916
 #, fuzzy
 msgid "A description for the Device"
 msgstr "Cihaz için bir açıklama"
 
-#: thold_graph.php:844
+#: thold_graph.php:922
 #, fuzzy
 msgid "A Cacti unique identifier for the Device"
 msgstr "Aygıt için bir Cacti benzersiz tanımlayıcısı"
 
-#: thold_graph.php:850
+#: thold_graph.php:928
 #, fuzzy
 msgid "The number of Graphs for this Device"
 msgstr "Bu Cihazın Grafik Sayısı"
 
-#: thold_graph.php:856
+#: thold_graph.php:934
 #, fuzzy
 msgid "The number of Data Sources for this Device"
 msgstr "Bu Cihaz İçin Veri Kaynağı Sayısı"
 
-#: thold_graph.php:862
+#: thold_graph.php:940
 #, fuzzy
 msgid "The status for this Device as of the last time it was polled"
 msgstr "Bu Cihazın son sorgulanma tarihi itibariyle durumu"
 
-#: thold_graph.php:868
+#: thold_graph.php:946
 #, fuzzy
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
 msgstr "Cacti, en son bu Cihazla ilgili bir sorun buldu. Cacti yoklama döngüleri arasında yeniden başlatılmışsa, Cihazın Çalışma Süresi'nden daha yüksek olabilir"
 
-#: thold_graph.php:871
+#: thold_graph.php:949
 msgid "Uptime"
 msgstr "Çalışma Süresi"
 
-#: thold_graph.php:874
+#: thold_graph.php:952
 #, fuzzy
 msgid "The official uptime of the Device as reported by SNMP"
 msgstr "SNMP tarafından bildirilen Cihazın resmi çalışma süresi"
 
-#: thold_graph.php:880
+#: thold_graph.php:958
 #, fuzzy
 msgid "The official hostname for this Device"
 msgstr "Bu Cihazın resmi ana bilgisayar adı"
 
-#: thold_graph.php:883
+#: thold_graph.php:961
 #, fuzzy
 msgid "Current (ms)"
 msgstr "Akım (ms)"
 
-#: thold_graph.php:886
+#: thold_graph.php:964
 #, fuzzy
 msgid "The current response time for the Cacti Availability check"
 msgstr "Cacti Kullanılabilirliği kontrolü için geçerli yanıt süresi"
 
-#: thold_graph.php:889
+#: thold_graph.php:967
 #, fuzzy
 msgid "Average (ms)"
 msgstr "Ortalama (ms)"
 
-#: thold_graph.php:892
+#: thold_graph.php:970
 #, fuzzy
 msgid "The average response time for the Cacti Availability check"
 msgstr "Cacti Uygunluk kontrolü için ortalama cevap süresi"
 
-#: thold_graph.php:895
+#: thold_graph.php:973
 msgid "Availability"
 msgstr "Kullanılabilirlik"
 
-#: thold_graph.php:898
+#: thold_graph.php:976
 #, fuzzy
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
 msgstr "Bu Cihazın Cacti'deki son sayaç sıfırlamasından bu yana genel Kullanılabilirliği"
 
-#: thold_graph.php:926 thold_graph.php:952
+#: thold_graph.php:1004 thold_graph.php:1030
 #, fuzzy
 msgid "Edit Device"
 msgstr "Cihazı Düzenle"
 
-#: thold_graph.php:928 thold_graph.php:954
+#: thold_graph.php:1006 thold_graph.php:1032
 #, fuzzy
 msgid "View Graphs"
 msgstr "Grafikleri Görüntüle"
 
-#: thold_graph.php:977
+#: thold_graph.php:1055
 #, fuzzy
 msgid "No Devices"
 msgstr "Cihazlar"
 
-#: thold_graph.php:1034
+#: thold_graph.php:1112
 #, fuzzy
 msgid "Not Up"
 msgstr "Up değil"
 
-#: thold_graph.php:1241
+#: thold_graph.php:1321
 msgid "No Export Rows Found."
 msgstr ""
 
-#: thold_graph.php:1269
+#: thold_graph.php:1349
 #, fuzzy, php-format
 msgid "Threshold Log for [ %s ]"
 msgstr "[ %s] için Eşik Günlüğü"
 
-#: thold_graph.php:1322
+#: thold_graph.php:1402
 msgid "Log Entries"
 msgstr "Log Girdileri"
 
-#: thold_graph.php:1330 thold_webapi.php:492 thold_webapi.php:640
+#: thold_graph.php:1410 thold_webapi.php:492 thold_webapi.php:640
 #: thold_webapi.php:660
 msgid "Device"
 msgstr "Cihaz"
 
-#: thold_graph.php:1335
+#: thold_graph.php:1415
 msgid "Time"
 msgstr "Zaman"
 
-#: thold_graph.php:1345
+#: thold_graph.php:1425
 msgid "Event Description"
 msgstr "Etkinlik Açıklaması"
 
-#: thold_graph.php:1350
+#: thold_graph.php:1430
 #, fuzzy
 msgid "Alert Value"
 msgstr "Uyarı Değeri"
 
-#: thold_graph.php:1355
+#: thold_graph.php:1435
 #, fuzzy
 msgid "Measured Value"
 msgstr "Ölçülmüş değer"
 
-#: thold_graph.php:1399
+#: thold_graph.php:1478
 #, fuzzy
 msgid "No Threshold Logs Found"
 msgstr "Eşik Günlüğü Bulunamadı"
 
-#: thold_graph.php:1512
+#: thold_graph.php:1593
 msgid "Entries"
 msgstr "Kayıtlar"
 
@@ -3165,318 +3241,318 @@ msgstr "Önerilen Eş Adlarını Aşağıdaki Eşik Şablonlarının Eşiklerine
 msgid "Reapply Suggested Names to Template(s)"
 msgstr "Önerilen Adları Şablonlara Yeniden Uygula"
 
-#: thold_templates.php:354
+#: thold_templates.php:356
 #, fuzzy
 msgid "Threshold Template Creation Wizard"
 msgstr "Eşik Şablon Oluşturma Sihirbazı"
 
-#: thold_templates.php:441 thold_webapi.php:710
+#: thold_templates.php:443 thold_webapi.php:710
 msgid "Data Source"
 msgstr "Veri Kaynağı"
 
-#: thold_templates.php:459
+#: thold_templates.php:461
 #, fuzzy
 msgid "Please select a Data Template"
 msgstr "Lütfen bir Veri Şablonu seçin"
 
-#: thold_templates.php:461
+#: thold_templates.php:463
 #, fuzzy
 msgid "Please select a Data Source"
 msgstr "Lütfen bir Veri Kaynağı seçin"
 
-#: thold_templates.php:463
+#: thold_templates.php:465
 #, fuzzy
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Eşik Şablonunuzu oluşturmak için lütfen 'Oluştur'a basın"
 
-#: thold_templates.php:467 thold_webapi.php:743
+#: thold_templates.php:469 thold_webapi.php:743
 msgid "Create"
 msgstr "Oluştur"
 
-#: thold_templates.php:1006
+#: thold_templates.php:1014
 #, fuzzy
 msgid "Provide the Threshold Template a meaningful name."
 msgstr "Eşik Şablonuna anlamlı bir ad verin."
 
-#: thold_templates.php:1010
+#: thold_templates.php:1018
 #, fuzzy
 msgid "Suggested Threshold Name"
 msgstr "Önerilen Eşik Adı"
 
-#: thold_templates.php:1015
+#: thold_templates.php:1023
 #, fuzzy
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr "Bu Şablon kullanılarak oluşturulan bir Eşik için önerilen adı girin. Standart Aygıt (| host_ * |), Veri Sorgusu (| query_ * |) ve Giriş (| input_ * |) ikame değişkenleri ve | graph_title | Grafik Başlığı için."
 
-#: thold_templates.php:1022
+#: thold_templates.php:1030
 #, fuzzy
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "Kullanmakta olduğunuz veri şablonu. (Bu değiştirilemez)"
 
-#: thold_templates.php:1027
+#: thold_templates.php:1035
 #, fuzzy
 msgid "Data Field"
 msgstr "Veri alanı"
 
-#: thold_templates.php:1030
+#: thold_templates.php:1038
 #, fuzzy
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr "Kullanmakta olduğunuz veri alanı. (Bu değiştirilemez)"
 
-#: thold_templates.php:1106
+#: thold_templates.php:1121
 #, fuzzy
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr "Son alarmdan bu süre geçtikten sonra uyarıyı tekrarlayın."
 
-#: thold_templates.php:1130 thold_templates.php:1157
+#: thold_templates.php:1145 thold_templates.php:1172
 #, fuzzy
 msgid "Min Trigger Duration"
 msgstr "Min Tetikleme Süresi"
 
-#: thold_templates.php:1133 thold_templates.php:1160
+#: thold_templates.php:1148 thold_templates.php:1175
 #, fuzzy
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr "Bir uyarının alınabilmesi için veri kaynağının ihlal durumunda olması gerekir."
 
-#: thold_templates.php:1184 thold_templates.php:1220
+#: thold_templates.php:1199 thold_templates.php:1235
 #, fuzzy
 msgid "Trigger Count"
 msgstr "Tetikleyici Sayısı"
 
-#: thold_templates.php:1189
+#: thold_templates.php:1204
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr "Bir uyarı vermeden önce veri kaynağının ihlal durumunda olmaları gerekir."
 
-#: thold_templates.php:1193 thold_templates.php:1228
+#: thold_templates.php:1208 thold_templates.php:1243
 #, fuzzy
 msgid "Time Period Length"
 msgstr "Zaman Dönemi Uzunluğu"
 
-#: thold_templates.php:1224
+#: thold_templates.php:1239
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr "Bir uyarı vermeden önce veri kaynağının ihlal durumunda olmaları gerekir."
 
-#: thold_templates.php:1235
+#: thold_templates.php:1250
 #, fuzzy
 msgid "Baseline Monitoring"
 msgstr "Temel İzleme"
 
-#: thold_templates.php:1239
+#: thold_templates.php:1254
 #, fuzzy
 msgid "Time reference in the past"
 msgstr "Geçmişte zaman referansı"
 
-#: thold_templates.php:1242
+#: thold_templates.php:1257
 #, fuzzy
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference"
 msgstr "Geçmişte referans olarak kullanılacak noktayı (rrd çözünürlüğüne göre) belirtir."
 
-#: thold_templates.php:1246
+#: thold_templates.php:1261
 #, fuzzy
 msgid "Baseline Deviation UP"
 msgstr "Taban çizgisi sapması YUKARI"
 
-#: thold_templates.php:1254
+#: thold_templates.php:1269
 #, fuzzy
 msgid "Baseline Deviation DOWN"
 msgstr "Temel Sapma AŞAĞI"
 
-#: thold_templates.php:1266
+#: thold_templates.php:1281
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr "Bir alarmın artması için veri kaynağının ardışık sürelerinin sayısı ihlal edilmiş durumda olmalıdır. <br> Varsayılan değeri kullanmak için boş bırakın (Varsayılan: %s döngü"
 
-#: thold_templates.php:1290
+#: thold_templates.php:1305
 #, fuzzy
 msgid "Percent Datasource"
 msgstr "Yüzde Veri Kaynağı"
 
-#: thold_templates.php:1293
+#: thold_templates.php:1308
 #, fuzzy
 msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr "İkinci Veri Kaynağı Öğe, yüzdesini hesaplamak için toplam değer olarak kullanılacak."
 
-#: thold_templates.php:1303
+#: thold_templates.php:1318
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "RPN İfadesi, RRDtool Uyumlu RPN İfadesidir. Sözdizimi, aşağıdaki gibi tüm işlevleri içerir <span style=\"color:blue;\">| query_ifSpeed |</span> gibi Aygıt ve Veri Sorgusu değiştirme ifadelerine ek olarak . RPN İfadesinde Veri Kaynağı kullanmak için, sözdizimini kullanmanız gerekir: <span style=\"color:blue;\">| ds: dsname |</span> . Örneğin, <span style=\"color:blue;\">| ds: traffic_in |</span> Graph ile ilişkilendirilmiş RRD dosya (ları) için traffic_in Veri Kaynağının geçerli değerini alacaktır. Grafik için herhangi bir Veri Kaynağı dahil edilebilir. <br> Matematik Operatörleri: <span style=\"color:blue;\">+, -, /, *,%, ^</span> <br> İşlevler: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, ZEMİN, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Akış Operatörleri: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Karşılaştırma İşlevleri: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
 
-#: thold_templates.php:1310
+#: thold_templates.php:1325
 #, fuzzy
 msgid "Upper data source to use to calculate the total value."
 msgstr "Toplam değeri hesaplamak için kullanılacak üst veri kaynağı."
 
-#: thold_templates.php:1354
+#: thold_templates.php:1369
 #, fuzzy
 msgid "Notification List Read Only"
 msgstr "Sadece Bildirim Listesi"
 
-#: thold_templates.php:1355
+#: thold_templates.php:1370
 #, fuzzy
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr "İşaretliyse, Eşik bildirimi yerel sistem günlüğünüze gönderilir."
 
-#: thold_templates.php:1392
+#: thold_templates.php:1417
 #, fuzzy
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "Uyarılar için kullanılacak önem derecesi. (Düşük etki -> Kritik etki)"
 
-#: thold_templates.php:1421
+#: thold_templates.php:1446
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr "Bu, bu Eşik ihlal edildiğinde bildirilecek hesapların bir listesidir. <br><br><br><br>"
 
-#: thold_templates.php:1430
+#: thold_templates.php:1455
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr "Bu veri kaynağına ilişkin uyarıları almak için burada ek E-postalar belirleyebilirsiniz (virgülle ayrılmış)"
 
-#: thold_templates.php:1438
+#: thold_templates.php:1463
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr "Bu veri kaynağına ilişkin uyarıları almak için buraya ek E-postalar belirleyebilirsiniz (virgülle ayrılmış)"
 
-#: thold_templates.php:1775
+#: thold_templates.php:1800
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d Ay,% d Gün,% d Saat,% d Dakika,% d Saniye (Ortalama)"
 
-#: thold_templates.php:1777
+#: thold_templates.php:1802
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d Ay,% d Gün,% d Saat,% d Dakika,% d Saniye"
 
-#: thold_templates.php:1781
+#: thold_templates.php:1806
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d Gün,% d Saat,% d Dakika,% d Saniye (Ortalama)"
 
-#: thold_templates.php:1783
+#: thold_templates.php:1808
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d Gün,% d Saat,% d Dakika,% d Saniye"
 
-#: thold_templates.php:1787
+#: thold_templates.php:1812
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d Saat,% d Dakika,% d Saniye (Ortalama)"
 
-#: thold_templates.php:1789
+#: thold_templates.php:1814
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr "% d Saat,% d Dakika,% d Saniye"
 
-#: thold_templates.php:1793
+#: thold_templates.php:1818
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr "% d Dakika,% d Saniye (Ortalama)"
 
-#: thold_templates.php:1795
+#: thold_templates.php:1820
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr "% d Dakika,% d Saniye"
 
-#: thold_templates.php:1799
+#: thold_templates.php:1824
 #, fuzzy, php-format
 msgid "%d Seconds (Average)"
 msgstr "% d Saniye (Ortalama)"
 
-#: thold_templates.php:1801
+#: thold_templates.php:1826
 #, fuzzy, php-format
 msgid "%d Seconds"
 msgstr "%d saniye"
 
-#: thold_templates.php:1982
+#: thold_templates.php:2007
 #, fuzzy
 msgid "DS Name"
 msgstr "DS Adı"
 
-#: thold_templates.php:1990
+#: thold_templates.php:2015
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "Yüksek Uyarı / Uyarı değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilmeyen RAW değerleridir."
 
-#: thold_templates.php:1996
+#: thold_templates.php:2021
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "Düşük Uyarı / Uyarı değerleri. NOT: Temel değerler bir yüzdedir, diğer tüm değerler bir cdef tarafından değiştirilmeyen RAW değerleridir."
 
-#: thold_templates.php:2084
+#: thold_templates.php:2107
 #, fuzzy
 msgid "No Threshold Templates"
 msgstr "Eşik Şablonu Yok"
 
-#: thold_templates.php:2102
+#: thold_templates.php:2125
 #, fuzzy
 msgid "Import Template from Local File"
 msgstr "Şablonu Yerel Dosyadan İçe Aktar"
 
-#: thold_templates.php:2103
+#: thold_templates.php:2126
 #, fuzzy
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr "Eşik Şablonu verilerini içeren XML dosyası yerel makinenizdeyse, buradan seçin."
 
-#: thold_templates.php:2108
+#: thold_templates.php:2131
 #, fuzzy
 msgid "Import Template from Text"
 msgstr "Şablonu Metinden İçe Aktar"
 
-#: thold_templates.php:2109
+#: thold_templates.php:2132
 #, fuzzy
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
 msgstr "Eşik Şablonu verilerini metin olarak içeren XML dosyanız varsa, içe aktarmak için bu kutuya yapıştırabilirsiniz."
 
-#: thold_templates.php:2121
+#: thold_templates.php:2144
 msgid "Import Results"
 msgstr "İçeri Aktarma Sonuçları"
 
-#: thold_templates.php:2123
+#: thold_templates.php:2146
 #, fuzzy
 msgid "Cacti has imported the following items:"
 msgstr "Cacti aşağıdakileri ithal etti:"
 
-#: thold_templates.php:2133 thold_templates.php:2145
+#: thold_templates.php:2156 thold_templates.php:2168
 #, fuzzy
 msgid "Import Threshold Templates"
 msgstr "Eşik Şablonlarını İçe Aktar"
 
-#: thold_templates.php:2158 thold_templates.php:2161
+#: thold_templates.php:2181 thold_templates.php:2184
 msgid "The file is too big."
 msgstr "Dosya çok büyük."
 
-#: thold_templates.php:2164
+#: thold_templates.php:2187
 #, fuzzy
 msgid "Incomplete file transfer."
 msgstr "Eksik dosya aktarımı."
 
-#: thold_templates.php:2167 thold_templates.php:2194
+#: thold_templates.php:2190 thold_templates.php:2217
 msgid "No file uploaded."
 msgstr "Dosya yüklenmedi."
 
-#: thold_templates.php:2170
+#: thold_templates.php:2193
 #, fuzzy
 msgid "Temporary folder missing."
 msgstr "Geçici klasör eksik."
 
-#: thold_templates.php:2173
+#: thold_templates.php:2196
 msgid "Failed to write file to disk"
 msgstr "Dosya diske yazılamadı"
 
-#: thold_templates.php:2176
+#: thold_templates.php:2199
 msgid "File upload stopped by extension"
 msgstr "Dosya yükleme uzantısı tarafından durduruldu"
 
-#: thold_templates.php:2187
+#: thold_templates.php:2210
 msgid "Invalid file extension."
 msgstr "Geçersiz dosya uzantısı."
 
-#: thold_templates.php:2213
+#: thold_templates.php:2236
 msgid "NOTE:"
 msgstr "NOT:"
 
-#: thold_templates.php:2220 thold_templates.php:2227
+#: thold_templates.php:2243 thold_templates.php:2250
 msgid "ERROR:"
 msgstr "HATA:"
 
@@ -3663,6 +3739,18 @@ msgstr "Seçilmiş Grafik"
 #, fuzzy, php-format
 msgid "Created graph: %s"
 msgstr "Oluşturulan grafik: %s"
+
+#, fuzzy
+#~ msgid "Default Monitor Status"
+#~ msgstr "Varsayılan İzleme Durumu"
+
+#, fuzzy
+#~ msgid "Default Threshold Tab filter status."
+#~ msgstr "Varsayılan Eşik Sekmesi filtre durumu."
+
+#, fuzzy
+#~ msgid "Maximum Concurrent Threshold Processes"
+#~ msgstr "Maksimum Eşzamanlı Eşik İşlemleri"
 
 #, fuzzy
 #~ msgid "Create a new Threshold"
