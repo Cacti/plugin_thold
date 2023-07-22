@@ -645,35 +645,6 @@ function thold_upgrade_database($force = false) {
 		$data['comment'] = 'Table of Poller Outdata needed for queued daemon processes';
 		api_plugin_db_table_create('thold', 'plugin_thold_daemon_data', $data);
 
-		$data = array();
-		$data['columns'][] = array(
-			'name'    => 'pid',
-			'type'    => 'varchar(25)',
-			'NULL'    => false);
-
-		$data['columns'][] = array(
-			'name'    => 'start',
-			'type'    => 'double',
-			'NULL'    => false,
-			'default' => '0');
-
-		$data['columns'][] = array(
-			'name'    => 'end',
-			'type'    => 'double',
-			'NULL'    => false,
-			'default' => '0');
-
-		$data['columns'][] = array(
-			'name'    => 'processed_items',
-			'type'    => 'mediumint(8)',
-			'NULL'    => false,
-			'default' => '0');
-
-		$data['primary'] = 'pid';
-		$data['type']    = 'InnoDB';
-		$data['comment'] = 'Table of Thold Daemon Processes being queued';
-		api_plugin_db_table_create('thold', 'plugin_thold_daemon_processes', $data);
-
 		// Rename some columns
 		if (db_column_exists('thold_data', 'rra_id')) {
 			db_execute('ALTER TABLE thold_data
@@ -833,14 +804,6 @@ function thold_upgrade_database($force = false) {
 	}
 
 	if (cacti_version_compare($oldv, '1.0.4', '<')) {
-		if (!db_column_exists('plugin_thold_daemon_processes', 'poller_id')) {
-			db_execute("ALTER TABLE plugin_thold_daemon_processes
-				ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' FIRST,
-				MODIFY COLUMN start double NOT NULL default '0',
-				MODIFY COLUMN end double NOT NULL default '0',
-				DROP PRIMARY KEY, ADD PRIMARY KEY (`poller_id`, `pid`)");
-		}
-
 		if (!db_column_exists('plugin_thold_daemon_data', 'poller_id')) {
 			db_execute("ALTER TABLE plugin_thold_daemon_data
 				ADD COLUMN poller_id int(10) unsigned NOT NULL default '1' AFTER `id`,
