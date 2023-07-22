@@ -39,6 +39,12 @@ function thold_poller_bottom() {
 		thold_upgrade_database(true);
 	}
 
+	$deadnotify = (read_config_option('alert_deadnotify') == 'on');
+
+	if (!$deadnotify) {
+		db_execute('TRUNCATE plugin_thold_host_failed');
+	}
+
 	/* record the start time */
 	$start = microtime(true);
 
