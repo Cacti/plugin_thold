@@ -10,6 +10,8 @@
 
 * feature#569: Provide enough data in environment of command to get Graph Information about Thold
 
+* feature#486: add ":skipscale" option to prevent diagram area from being scaled by threshold lines, thus losing granularity in the graphs
+
 * feature: Add Site and Location options to Device Up/Down Notifications
 
 * feature: Add the Thold ID to the environment for scripts

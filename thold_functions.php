@@ -4804,6 +4804,7 @@ function save_thold() {
 	// HRULE Settings
 	$save['thold_hrule_warning']  = get_nfilter_request_var('thold_hrule_warning');
 	$save['thold_hrule_alert']    = get_nfilter_request_var('thold_hrule_alert');
+	$save['skipscale']            = isset_request_var('skipscale') ? 'on':'';
 
 	$save['restored_alert']       = isset_request_var('restored_alert') ? 'on':'';
 	$save['thold_type']           = get_request_var('thold_type');
@@ -5112,6 +5113,7 @@ function thold_create_thold_save_from_template($save, $template) {
 	// Hrules
 	$save['thold_hrule_alert']   = $template['thold_hrule_alert'];
 	$save['thold_hrule_warning'] = $template['thold_hrule_warning'];
+	$save['skipscale']           = $template['skipscale'];
 
 	// Syslog
 	$save['syslog_enabled']  = $template['syslog_enabled'];
@@ -5554,7 +5556,7 @@ function thold_template_update_threshold($id, $template) {
 		td.expression = tt.expression, td.upper_ds = tt.upper_ds, td.exempt = tt.exempt,
 		td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
 		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning,
-		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
+		td.skipscale = tt.skipscale, td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
 		td.email_body_warn = tt.email_body_warn, td.email_body_restoral = tt.email_body_restoral,
 		td.trigger_cmd_high = tt.trigger_cmd_high, td.trigger_cmd_low = tt.trigger_cmd_low,
 		td.trigger_cmd_norm = tt.trigger_cmd_norm, td.syslog_enabled = tt.syslog_enabled,
@@ -5601,7 +5603,7 @@ function thold_template_update_thresholds($id) {
 		td.percent_ds = tt.percent_ds, td.expression = tt.expression, td.upper_ds = tt.upper_ds, td.show_units = tt.show_units,
 		td.exempt = tt.exempt, td.reset_ack = tt.reset_ack, td.persist_ack = tt.persist_ack,
 		td.thold_hrule_alert = tt.thold_hrule_alert, td.thold_hrule_warning = tt.thold_hrule_warning,
-		td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
+		td.skipscale = tt.skipscale, td.restored_alert = tt.restored_alert, td.email_body = tt.email_body,
 		td.email_body_warn = tt.email_body_warn, td.email_body_restoral = tt.email_body_restoral,
 		td.trigger_cmd_high = tt.trigger_cmd_high, td.trigger_cmd_low = tt.trigger_cmd_low, td.trigger_cmd_norm = tt.trigger_cmd_norm,
 		td.syslog_enabled = tt.syslog_enabled, td.syslog_priority = tt.syslog_priority,

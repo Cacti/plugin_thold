@@ -1422,6 +1422,24 @@ function thold_upgrade_database($force = false) {
 			'after' => 'emails'));
 	}
 
+	if (!db_column_exists('thold_data', 'skipscale')) {
+		db_add_column('thold_data', array(
+			'name' => 'skipscale',
+			'type' => 'char(3)',
+			'NULL' => true,
+			'after' => 'thold_hrule_warning',
+			'default' => ''));
+	}
+
+	if (!db_column_exists('thold_template', 'skipscale')) {
+		db_add_column('thold_data', array(
+			'name' => 'skipscale',
+			'type' => 'char(3)',
+			'NULL' => true,
+			'after' => 'thold_hrule_warning',
+			'default' => ''));
+	}
+
 	db_execute_prepared('UPDATE plugin_config
 		SET version = ?
 		WHERE directory = "thold"',
@@ -1498,6 +1516,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'acknowledgment', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'thold_hrule_alert', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
 	$data['columns'][] = array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
+	$data['columns'][] = array('name' => 'skipscale', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'reset_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
@@ -1577,6 +1596,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'exempt', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'thold_hrule_alert', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
 	$data['columns'][] = array('name' => 'thold_hrule_warning', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => true);
+	$data['columns'][] = array('name' => 'skipscale', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'reset_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
