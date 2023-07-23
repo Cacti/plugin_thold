@@ -10,6 +10,8 @@
 
 * feature#445: Allow removal of Threshold from a specific device ignoring device template
 
+* feature#471: Add ability to change failure count in change device menu
+
 * feature#497: Show acknowledgment status on Thresholds tab instead of log
 
 * feature#528: Allow Thold to Use the BCC in addition to the TO line for Notification Lists

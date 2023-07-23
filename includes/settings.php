@@ -254,7 +254,7 @@ function thold_config_insert() {
 }
 
 function thold_config_arrays() {
-	global $config, $messages;
+	global $config, $messages, $device_change_fields;
 
 	$messages['thold_save'] = array(
 		'message' => __('A template with that Data Source already exists!', 'thold'),
@@ -267,6 +267,9 @@ function thold_config_arrays() {
 			'type' => 'info'
 		);
 	}
+
+	$device_change_fields['match_field'][] = 'thold_send_email';
+	$device_change_fields['match_field'][] = 'thold_failure_count';
 
 	$realm_array = array(
 		__('Configure Thresholds', 'thold'),
