@@ -28,6 +28,8 @@
 
 * issue#147: Fixed threshold compare negative baseline values.
 
+* issue#396: Baseline Deviation does not work (as expected) 
+
 * issue#451: Creating Threshold from Template Missing from Graph Page
 
 * issue#454: Unite last thold value and ds value
