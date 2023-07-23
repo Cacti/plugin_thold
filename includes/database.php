@@ -1788,7 +1788,6 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'id', 'type' => 'bigint', 'unsigned' => true, 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'event_time', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
-	$data['columns'][] = array('name' => 'environment', 'type' => 'blob', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'event_data', 'type' => 'longblob', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'error_code', 'type' => 'int', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'error_message', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
