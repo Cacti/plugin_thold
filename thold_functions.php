@@ -5684,13 +5684,19 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 	return '';
 }
 
-function thold_notification_add($type, &$data) {
+function thold_notification_add($type, &$data, $id = 'id') {
 	$now = date('Y-m-d H:i:s');
 
+	if (isset($data[$id])) {
+		$id = $data[$id];
+	} else {
+		$id = 0;
+	}
+
 	db_execute_prepared('INSERT INTO notification_queue
-		(type, event_time, event_data) VALUES
-		(?, ?, ?)',
-		array($type, $now, json_encode($data, JSON_THROW_ON_ERROR)));
+		(type, object_id, event_time, event_data) VALUES
+		(?, ?, ?, ?)',
+		array($type, $id, $now, json_encode($data, JSON_THROW_ON_ERROR)));
 }
 
 function thold_notification_execute($pid = 0, $max_records = 'all') {
