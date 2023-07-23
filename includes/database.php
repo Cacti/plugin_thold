@@ -1788,13 +1788,16 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'id', 'type' => 'bigint', 'unsigned' => true, 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'event_time', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
+	$data['columns'][] = array('name' => 'environment', 'type' => 'blob', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'event_data', 'type' => 'longblob', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'error_code', 'type' => 'int', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'error_message', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'process_id', 'type' => 'int', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'event_processed', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'event_processed_time', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00');
 	$data['primary'] = 'id';
 	$data['keys'][]  = array('name' => 'type_processed', 'columns' => 'type`, `event_processed');
+	$data['keys'][]  = array('name' => 'process_id', 'columns' => 'process_id');
 	$data['type']    = 'InnoDB';
 	$data['comment'] = 'Holds Transactions to be processed by Thold';
 	api_plugin_db_table_create('thold', 'notification_queue', $data);
