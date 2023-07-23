@@ -141,27 +141,27 @@ function perform_thold_processes() {
 		thold_cleanup_log();
 
 		if (read_config_option('remote_storage_method') == 1) {
-			$total_hosts = db_fetch_cell_prepared('SELECT count(*)
+			$total_hosts = db_fetch_cell_prepared('SELECT COUNT(*)
 				FROM host
-				WHERE disabled=""
+				WHERE disabled = ""
 				AND poller_id = ?',
 				array($config['poller_id']));
 
-			$down_hosts = db_fetch_cell_prepared('SELECT count(*)
+			$down_hosts = db_fetch_cell_prepared('SELECT COUNT(*)
 				FROM host
-				WHERE status=1
-				AND disabled=""
+				WHERE status = 1
+				AND disabled = ""
 				AND poller_id = ?',
 				array($config['poller_id']));
 		} else {
 			$total_hosts = db_fetch_cell('SELECT count(*)
 				FROM host
-				WHERE disabled=""');
+				WHERE disabled = ""');
 
 			$down_hosts = db_fetch_cell('SELECT count(*)
 				FROM host
-				WHERE status=1
-				AND disabled=""');
+				WHERE status = 1
+				AND disabled = ""');
 		}
 
 		thold_prune_old_data();
@@ -259,7 +259,7 @@ function perform_thold_processes() {
 		$end = microtime(true);
 
 		/* log statistics */
-		$thold_stats = sprintf('TotalTime:%0.3f TotalDevices:%u DownDevices:%u NewDownDevices:%u Threads:%u Thresholds:%u',
+		$thold_stats = sprintf('Time:%0.2f TotalDevices:%u DownDevices:%u NewDownDevices:%u Threads:%u Thresholds:%u',
 			$end - $start, $total_hosts, $down_hosts, $nhosts, $threads, $thresholds);
 
 		cacti_log('THOLD POLLER STATS: ' . $thold_stats, false, 'SYSTEM');

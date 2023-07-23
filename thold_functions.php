@@ -6269,6 +6269,8 @@ function thold_prune_old_data() {
 		set_config_option('time_last_change_thold_device', time());
 	}
 
+	$queue = read_config_option('thold_notification_queue');
+
 	// Remove log entries from removed devices
 	db_execute('DELETE ptl
 		FROM plugin_thold_log AS ptl
@@ -6301,6 +6303,16 @@ function thold_prune_old_data() {
 
 	if (db_affected_rows() > 0) {
 		set_config_option('time_last_change_thold', time());
+	}
+
+	if ($queue == 'on') {
+		db_execute('DELETE FROM notification_queue
+			WHERE event_processed = 1
+			AND event_processed_time < FROM_UNIXTIME(UNIX_TIMESTAMP()-3600)');
+
+		if (db_affected_rows() > 0) {
+			db_execute('OPTIMIZE TABLE notification_queue');
+		}
 	}
 }
 
