@@ -103,8 +103,10 @@ function thold_poller_output(&$rrd_update_array) {
 				}
 
 				if (cacti_sizeof($thold_items)) {
-					/* cache required polling data. prefer bulk inserts for
-					 * performance reasons - start with chunks of 1000 items */
+					/**
+					 * cache required polling data. prefer bulk inserts for
+					 * performance reasons - start with chunks of 1000 items
+					 */
 					$sql_max_inserts = 1000;
 					$thold_items     = array_chunk($thold_items, $sql_max_inserts);
 

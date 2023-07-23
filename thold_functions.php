@@ -5728,15 +5728,17 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 				);
 
 				foreach($attributes as $a) {
-					if (isset($r[$a])) {
-						$$a = $r[$a];
+					if (isset($data[$a])) {
+						$$a = $data[$a];
 					} else {
 						$$a = '';
 					}
 				}
 
-				if ($attachments != '') {
-					$attachments = base64_decode($attachments);
+				if (cacti_sizeof($attachments)) {
+					foreach($attachments as $index => $attach) {
+						$attachments[$index]['attachment'] = base64_decode($attach['attachment']);
+					}
 				}
 
 				$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
@@ -5766,8 +5768,8 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 				);
 
 				foreach($attributes as $a) {
-					if (isset($r[$a])) {
-						$$a = $r[$a];
+					if (isset($data[$a])) {
+						$$a = $data[$a];
 					} else {
 						$$a = '';
 					}
