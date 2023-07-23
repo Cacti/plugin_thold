@@ -49,7 +49,7 @@ if (function_exists('pcntl_signal')) {
 	pcntl_signal(SIGINT, 'sig_handler');
 }
 
-global $cnn_id, $config;
+global $config;
 
 $debug      = false;
 $foreground = false;
@@ -136,7 +136,7 @@ print 'Starting Thold Daemon ... ';
 if (!$foreground) {
 	if (function_exists('pcntl_fork')) {
 		// Close the database connection
-		db_close($cnn_id);
+		db_close();
 
 		// Fork the current process to daemonize
 		$pid = pcntl_fork();
@@ -147,7 +147,8 @@ if (!$foreground) {
 
 			return false;
 		} elseif ($pid == 0) {
-			// We are the child
+			// We are the child reconnect
+			db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_retries, $database_ssl, $database_ssl_key, $database_ssl_cert, $database_ssl_ca);
 		} else {
 			cacti_log('NOTE: Thold Daemon Started on ' . gethostname(), false, 'THOLD');
 
@@ -166,9 +167,6 @@ if (!$foreground) {
 
 sleep(2);
 
-// The database connection looses state as parent, so reconnect regardless
-$cnn_id = thold_db_reconnect($cnn_id);
-
 $processes = read_config_option('thold_max_concurrent_processes');
 
 thold_truncate_daemon_data();
@@ -186,7 +184,7 @@ $start_daemon_items = 0;
 $counter = 0;
 
 while (true) {
-	if (thold_db_connection()) {
+	if (db_check_reconnect()) {
 		$counter++;
 
 		// force the check for the daemon debug
@@ -225,8 +223,6 @@ while (true) {
 		}
 
 		sleep(1);
-
-		$cnn_id = thold_db_reconnect($cnn_id);
 
 		if ($counter == 10) {
 			$counter = 0;
@@ -296,49 +292,6 @@ function sig_handler($signo) {
 	default:
 		/* ignore all other signals */
 	}
-}
-
-function thold_db_connection(){
-	global $cnn_id;
-
-	if (is_object($cnn_id)) {
-		// Avoid showing errors
-		restore_error_handler();
-		set_error_handler('thold_error_handler');
-
-		$cacti_version = db_fetch_cell('SELECT cacti FROM version');
-
-		// Restore Cacti's Error handler
-		restore_error_handler();
-		set_error_handler('CactiErrorHandler');
-
-		return is_null($cacti_version) ? false : true;
-	}
-
-	return false;
-}
-
-function thold_db_reconnect($cnn_id = null) {
-	chdir(dirname(__FILE__));
-
-	include('../../include/config.php');
-
-	if (is_object($cnn_id)) {
-		db_close($cnn_id);
-	}
-
-	// Avoid showing errors
-	restore_error_handler();
-	set_error_handler('thold_error_handler');
-
-	// Connect to the database server
-	$cnn_id = db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_ssl);
-
-	// Restore Cacti's Error handler
-	restore_error_handler();
-	set_error_handler('CactiErrorHandler');
-
-	return $cnn_id;
 }
 
 function thold_launch_worker($thread) {

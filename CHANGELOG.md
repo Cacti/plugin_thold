@@ -28,6 +28,8 @@
 
 * feature: Allow quick links to the Threshold Template when editing a Thold
 
+* feature: Have the thold daemon use the standard cacti reconnect api
+
 * issue#147: Fixed threshold compare negative baseline values.
 
 * issue#396: Baseline Deviation does not work (as expected) 
