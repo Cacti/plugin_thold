@@ -434,6 +434,22 @@ function thold_config_settings() {
 			'max_length' => 6,
 			'default' => '10000'
 		),
+		'notification_header' => array(
+			'friendly_name' => __('Notification Preferences', 'thold'),
+			'method' => 'spacer',
+		),
+		'thold_notification_queue' => array(
+			'friendly_name' => __('Enable Notification Queue', 'thold'),
+			'description' => __('Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
+		),
+		'thold_notification_daemon' => array(
+			'friendly_name' => __('Enable Notification Daemon', 'thold'),
+			'description' => __('Checking this box will enable the use of a dedicated Notification daemon. Note that you must setup the systemd or initd service on your own.  Instructions are in the README.md.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
+		),
 		'daemon_header' => array(
 			'friendly_name' => __('Threshold Daemon', 'thold'),
 			'method' => 'spacer',

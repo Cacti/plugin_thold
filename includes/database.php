@@ -1485,6 +1485,7 @@ function thold_upgrade_database($force = false) {
 	}
 
 	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', 1);
+	api_plugin_register_realm('thold', 'notify_lists.php,notify_queue.php', 'Manage Notification Lists', 1);
 
 	db_execute_prepared('UPDATE plugin_config
 		SET version = ?
@@ -1782,6 +1783,21 @@ function thold_setup_database() {
 	$data['type'] = 'InnoDB';
 	$data['comment'] = 'Table of Device to Supported Threshold Templates';
 	api_plugin_db_table_create('thold', 'plugin_thold_host', $data);
+
+	$data = array();
+	$data['columns'][] = array('name' => 'id', 'type' => 'bigint', 'unsigned' => true, 'NULL' => false, 'auto_increment' => true);
+	$data['columns'][] = array('name' => 'type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'event_time', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
+	$data['columns'][] = array('name' => 'event_data', 'type' => 'longblob', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'error_code', 'type' => 'int', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'error_message', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'event_processed', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'event_processed_time', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00');
+	$data['primary'] = 'id';
+	$data['keys'][]  = array('name' => 'type_processed', 'columns' => 'type`, `event_processed');
+	$data['type']    = 'InnoDB';
+	$data['comment'] = 'Holds Transactions to be processed by Thold';
+	api_plugin_db_table_create('thold', 'notification_queue', $data);
 
 	db_add_index('data_local', 'INDEX', 'data_template_id', array('data_template_id'));
 	db_add_index('data_local', 'INDEX', 'snmp_query_id', array('snmp_query_id'));

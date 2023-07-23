@@ -27,6 +27,7 @@ function thold_poller_bottom() {
 	global $database_username, $database_password, $database_port, $database_ssl;
 
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/lib/poller.php');
 
 	if (read_config_option('thold_empty_if_speed_default') == '') {
 		set_config_option('thold_empty_if_speed_default', '10000');
@@ -48,6 +49,18 @@ function thold_poller_bottom() {
 		db_execute('TRUNCATE plugin_thold_host_failed');
 	} else {
 		db_execute('DELETE FROM plugin_thold_host_failed WHERE host_id NOT IN (SELECT id FROM host)');
+	}
+
+	/* launch the notification background process if required */
+	$notification_queue  = read_config_option('thold_notification_queue');
+	$notification_daemon = read_config_option('thold_notification_daemon');
+
+	if ($notification_queue == 'on' && $notification_daemon == '') {
+		$command_string = cacti_escapeshellcmd(read_config_option('path_php_binary'));
+		$file_path      = $config['base_path'] . '/plugins/thold/thold_notify.php';
+		if (file_exists($file_path)) {
+			exec_background($command_string, $file_path);
+		}
 	}
 
 	if (read_config_option('thold_daemon_enable') == '') {

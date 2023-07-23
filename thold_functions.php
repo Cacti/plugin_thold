@@ -5445,7 +5445,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 }
 
 /* Sends a group of graphs to a user */
-function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $filename, $headers = array()) {
+function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $filename, $headers = array(), $type = 'thold_mail') {
 	thold_debug('Preparing to send email');
 
 	$subject = trim($subject);
@@ -5474,6 +5474,8 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 
 	$attachments = array();
 
+	$notification_queue = read_config_option('thold_notification_queue');
+
 	if (is_array($filename) && sizeof($filename) && strstr($message, '<GRAPH>') !== 0) {
 		if (isset($filename['local_data_id'])) {
 			$tmp      = array();
@@ -5491,8 +5493,14 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 				'disable_cache' => true
 			);
 
+			if ($notification_queue == 'on') {
+				$attach = base64_encode(rrdtool_function_graph($val['local_graph_id'], '', $graph_data_array, ''));
+			} else {
+				$attach = rrdtool_function_graph($val['local_graph_id'], '', $graph_data_array, '');
+			}
+
 			$attachments[] = array(
-				'attachment'     => rrdtool_function_graph($val['local_graph_id'], '', $graph_data_array, ''),
+				'attachment'     => $attach,
 				'filename'       => 'graph_' . $val['local_graph_id'] . '.png',
 				'mime_type'      => 'image/png',
 				'local_graph_id' => $val['local_graph_id'],
@@ -5526,49 +5534,81 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 		$headers['X-Priority'] = '1';
 	}
 
-	thold_debug("Sending email to '" . trim($to_email,', ') . "'");
+	thold_debug("Queuing email to '" . trim($to_email,', ') . "'");
 
-	$thold_send_text_only  = read_config_option('thold_send_text_only');
+	$thold_send_text_only         = read_config_option('thold_send_text_only');
 	$thold_send_email_separately  = read_config_option('thold_send_email_separately');
 
-	$any_error='';
+	$any_error = '';
 
 	if ($thold_send_email_separately != 'on') {
-		$any_error = mailer(
-			array($from_email, $from_name),
-			$to_email,
-			'',
-			$bcc_email,
-			'',
-			$subject,
-			$text['html'],
-			$text['text'],
-			empty($attachments) ? null : $attachments,
-			$headers,
-			$thold_send_text_only != 'on'
-		);
+		if ($notification_queue == 'on') {
+			$data = array(
+				'from'        => array($from_email, $from_name),
+				'to'          => $to_email,
+				'bcc'         => $bcc_email,
+				'subject'     => $subject,
+				'body'        => $text['html'],
+				'body_text'   => $text['text'],
+				'attachments' => empty($attachments) ? null : $attachments,
+				'headers'     => $headers,
+				'html'        => $thold_send_text_only != 'on'
+			);
+
+			thold_notification_add($type, $data);
+		} else {
+			$any_error = mailer(
+				array($from_email, $from_name),
+				$to_email,
+				'',
+				$bcc_email,
+				'',
+				$subject,
+				$text['html'],
+				$text['text'],
+				empty($attachments) ? null : $attachments,
+				$headers,
+				$thold_send_text_only != 'on'
+			);
+		}
 	} else {
 		$ar_to_email = explode(',', $to_email);
 
 		foreach ($ar_to_email as $to) {
-			if (filter_var($to, FILTER_VALIDATE_EMAIL) == $to) { //email
-				$error = mailer(
-					array($from_email, $from_name),
-					$to,
-					'',
-					'',
-					'',
-					$subject,
-					$text['html'],
-					$text['text'],
-					empty($attachments) ? '' : $attachments,
-					$headers,
-					$thold_send_text_only != 'on'
-				);
+			if (filter_var($to, FILTER_VALIDATE_EMAIL) == $to) {
+				if ($notification_queue == 'on') {
+					$data = array(
+						'from'        => array($from_email, $from_name),
+						'to'          => $to,
+						'bcc'         => $bcc_email,
+						'subject'     => $subject,
+						'body'        => $text['html'],
+						'body_text'   => $text['text'],
+						'attachments' => empty($attachments) ? '' : $attachments,
+						'headers'     => $headers,
+						'html'        => $thold_send_text_only != 'on'
+					);
 
-				if (strlen($error)) {
-					cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
-					$any_error = $error;
+					thold_notification_add($type, $data);
+				} else {
+					$error = mailer(
+						array($from_email, $from_name),
+						$to,
+						'',
+						'',
+						'',
+						$subject,
+						$text['html'],
+						$text['text'],
+						empty($attachments) ? '' : $attachments,
+						$headers,
+						$thold_send_text_only != 'on'
+					);
+
+					if (strlen($error)) {
+						cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
+						$any_error = $error;
+					}
 				}
 			}
 		}
@@ -5579,6 +5619,68 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 	}
 
 	return '';
+}
+
+function thold_notification_add($type, &$data) {
+	$now = date('Y-m-d H:i:s');
+
+	db_execute_prepared('INSERT INTO notification_queue
+		(type, event_time, event_data) VALUES
+		(?, ?, ?)',
+		array($type, $now, json_encode($data, JSON_FORCE_OBJECT | JSON_THROW_ON_ERROR)));
+}
+
+function thold_notification_execute($max_records = 'all') {
+	if ($max_records == 'all') {
+		$sql_limit = '';
+	} else {
+		$sql_limit = 'LIMIT ' . $max_records;
+	}
+
+	$records = db_fetch_assoc("SELECT *
+		FROM notification_queue
+		WHERE processed = 0
+		ORDER BY event_time ASC
+		$sql_limit");
+
+	foreach($records as $r) {
+		switch($r) {
+			case 'thold_email':
+			case 'thold_host_email':
+				$data = json_decode($r['event_data'], true);
+
+				$attributes = array(
+					'from', 'to', 'cc', 'bcc', 'replyto', 'subject', 'body', 'body_text', 'attachments', 'headers', 'html'
+				);
+
+				foreach($attributes as $a) {
+					if (isset($r[$a])) {
+						$$a = $r[$a];
+					} else {
+						$$a = '';
+					}
+				}
+
+				$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
+
+				if (strlen($error)) {
+					cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
+					$any_error = $error;
+					$error_code = 1;
+				} else {
+					$error = '';
+					$error_code = 0;
+				}
+
+				db_execute_prepared('UPDATE notification_queue
+					SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW()
+					WHERE id = ?', array($error_code, $error, $r['id']));
+
+				break;
+			default:
+				cacti_log(sprintf('ERROR: Unable to process Thold Notification of type %s', $type), false, 'THOLD');
+		}
+	}
 }
 
 function thold_template_update_threshold($id, $template) {
