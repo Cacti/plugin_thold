@@ -384,29 +384,6 @@ function thold_config_settings() {
 			'method' => 'checkbox',
 			'default' => ''
 		),
-		'thold_disable_legacy' => array(
-			'friendly_name' => __('Disable Legacy Notifications', 'thold'),
-			'description' => __('Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List.', 'thold'),
-			'method' => 'checkbox',
-			'default' => ''
-		),
-		'notify_templated' => array(
-			'friendly_name' => __('Threshold Notification Templated', 'thold'),
-			'description' => __('If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template.', 'thold'),
-			'method' => 'checkbox'
-		),
-		'thold_enable_scripts' => array(
-			'friendly_name' => __('Enable Command Execution', 'thold'),
-			'description' => __('Checking this box will enable the ability to run commands on Threshold breach and restoral events.', 'thold'),
-			'method' => 'checkbox',
-			'default' => ''
-		),
-		'thold_enable_per_thold_body' => array(
-			'friendly_name' => __('Enable Per Thold Notification', 'thold'),
-			'description' => __('Checking this box will enable the ability to maintain custom Email bodies for Thresholds.', 'thold'),
-			'method' => 'checkbox',
-			'default' => ''
-		),
 		'thold_consider_unknown_zero' => array(
 			'friendly_name' => __('Consider Unknown Data as Zero', 'thold'),
 			'description' => __('When checking Thresholds, if a Data Source returns Unknown Data (\'U\'), consider the value as zero for the Threshold check.', 'thold'),
@@ -437,6 +414,29 @@ function thold_config_settings() {
 		'notification_header' => array(
 			'friendly_name' => __('Notification Preferences', 'thold'),
 			'method' => 'spacer',
+		),
+		'thold_disable_legacy' => array(
+			'friendly_name' => __('Disable Legacy Notifications', 'thold'),
+			'description' => __('Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
+		),
+		'notify_templated' => array(
+			'friendly_name' => __('Threshold Notification Templated', 'thold'),
+			'description' => __('If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template.', 'thold'),
+			'method' => 'checkbox'
+		),
+		'thold_enable_scripts' => array(
+			'friendly_name' => __('Enable Command Execution', 'thold'),
+			'description' => __('Checking this box will enable the ability to run commands on Threshold breach and restoral events.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
+		),
+		'thold_enable_per_thold_body' => array(
+			'friendly_name' => __('Enable Per Thold Notification', 'thold'),
+			'description' => __('Checking this box will enable the ability to maintain custom Email bodies for Thresholds.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
 		),
 		'thold_notification_queue' => array(
 			'friendly_name' => __('Enable Notification Queue', 'thold'),
