@@ -4419,7 +4419,7 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 		$ref_values = thold_get_ref_value($thold_data['local_data_id'], $name, $current_time, $t0, $thold_data['bl_ref_time_range'], $thold_data['bl_type']);
 
 		if ($ref_values === false || cacti_sizeof($ref_values) == 0) {
-			cacti_log(sprintf('WARNING: RRDtool was unable to return any reference values to Thold[%s]', $thold_data['id']), false, 'THOLD');
+			cacti_log(sprintf('WARNING: RRDtool was unable to return any reference values to TH[%s]', $thold_data['id']), false, 'THOLD');
 			return -1;
 		}
 
@@ -5690,7 +5690,7 @@ function thold_notification_add($type, &$data) {
 	db_execute_prepared('INSERT INTO notification_queue
 		(type, event_time, event_data) VALUES
 		(?, ?, ?)',
-		array($type, $now, json_encode($data, JSON_FORCE_OBJECT | JSON_THROW_ON_ERROR)));
+		array($type, $now, json_encode($data, JSON_THROW_ON_ERROR)));
 }
 
 function thold_notification_execute($max_records = 'all') {
@@ -5707,7 +5707,8 @@ function thold_notification_execute($max_records = 'all') {
 		$sql_limit");
 
 	foreach($records as $r) {
-		$type = $r['type'];
+		$type      = $r['type'];
+		$processed = false;
 
 		switch($type) {
 			case 'thold_email':
@@ -5727,6 +5728,10 @@ function thold_notification_execute($max_records = 'all') {
 					}
 				}
 
+				if ($attachments != '') {
+					$attachments = base64_decode($attachments);
+				}
+
 				$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
 
 				if (strlen($error)) {
@@ -5740,7 +5745,8 @@ function thold_notification_execute($max_records = 'all') {
 
 				db_execute_prepared('UPDATE notification_queue
 					SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW()
-					WHERE id = ?', array($error_code, $error, $r['id']));
+					WHERE id = ?',
+					array($error_code, str_replace("\n", ' ', $error), $r['id']));
 
 				break;
 			case 'thold_dhost_cmd':
@@ -5772,6 +5778,11 @@ function thold_notification_execute($max_records = 'all') {
 				exec($command, $output, $return);
 
 				thold_process_command_output($output, $return, $type, $data);
+
+				db_execute_prepared('UPDATE notification_queue
+					SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW()
+					WHERE id = ?',
+					array($return, implode("\n", $output), $r['id']));
 
 				break;
 			default:
