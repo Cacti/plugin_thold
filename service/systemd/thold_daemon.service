@@ -19,15 +19,31 @@
 # | http://www.cacti.net/                                                   |
 # +-------------------------------------------------------------------------+
 
+# --------------------------------------------------------------------------
+# To install this service, you will have to make a few changes.  They
+# include:
+#
+# - Change <CACTIDIR> to your installed Cacti directory
+# - Change the mariadb.service to mysql.service if using the MySQL database
+#
+# Then follow these steps:
+#
+# - copy this file into /etc/systemd/system directory
+# - run 'systemctl daemon-reload'
+# - start the service using 'systemctl start thold_daemon'
+# - check that the process is running using 'systemctl status thold_daemon'
+# - enable the Thold Daemon from Console > Configuration > Settings > Thold/Alerting
+
 [Unit]
 Description=Cacti Threshold Daemon Service
-After=network.target auditd.service mariadb.service php7.0-fpm.service nginx.service
+Required=mariadb.service
+After=network.target auditd.service mariadb.service 
 
 [Service]
-Type=forking
 User=apache
 Group=root
-ExecStart=/usr/bin/php -q /usr/share/cacti/site/plugins/thold/thold_daemon.php
+Type=forking
+ExecStart=/usr/bin/php <CACTIDIR>/plugins/thold/thold_daemon.php
 KillMode=process
 Restart=on-failure
 
