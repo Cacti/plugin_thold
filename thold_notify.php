@@ -98,13 +98,21 @@ if (sizeof($parms)) {
 // Record start time for the pid's processing
 $start = microtime(true);
 
+// This is where we can parallelize
 if ($thread === false) {
-	print 'FATAL: The Thread ID must be numeric and greater than 0.' . PHP_EOL;
-	display_help();
-	exit(1);
+	$thread = 1;
+	$pid = getmypid();
+
+	db_execute_prepared('UPDATE notification_queue
+		SET process_id = ?
+		WHERE event_processed = 0',
+		array($pid));
+
+	$total_rows = db_affected_rows();
+} else {
 }
 
-$timeout = 99999999;
+$timeout = 9999999999;
 
 if (!register_process_start('thold_notify', 'child', $thread, $timeout)) {
 	$pid = db_fetch_cell_prepared('SELECT pid
@@ -130,24 +138,15 @@ if (!register_process_start('thold_notify', 'child', $thread, $timeout)) {
     }
 }
 
-while (true) {
-	if (db_check_reconnect()) {
-		// Prime the 'thold_daemon_debug' value
-		$daemon_debug = read_config_option('thold_daemon_debug', true);
+thold_notification_execute();
 
-		// Fix issues with microtime skew
-		usleep(1);
+$end = microtime(true);
 
-		$start = microtime(true);
+cacti_log(sprintf('THOLD NOTIFY STATS: Time:%0.2f Notifications:%s', $end-$start, $total_rows), false, 'SYSTEM');
 
-		// Do something
+unregister_process('thold_notify', 'child', $thread);
 
-		$end = microtime(true);
-	} else {
-		thold_daemon_debug('WARNING: Thold Database Connection Down.  Sleeping 60 Seconds', $thread);
-		sleep(60);
-	}
-}
+exit(0);
 
 /**
  * sig_handler - provides a generic means to catch exceptions to the Cacti log.
@@ -207,7 +206,7 @@ function display_version() {
 function display_help () {
 	display_version();
 
-	print PHP_EOL . 'usage: thold_notify.php --thread=N [--debug]' . PHP_EOL . PHP_EOL;
+	print PHP_EOL . 'usage: thold_notify.php [--thread=N] [--debug]' . PHP_EOL . PHP_EOL;
 	print 'The Threshold Notification Processor for the Thold Plugin.' . PHP_EOL;
 }
 

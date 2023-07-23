@@ -5693,16 +5693,23 @@ function thold_notification_add($type, &$data) {
 		array($type, $now, json_encode($data, JSON_THROW_ON_ERROR)));
 }
 
-function thold_notification_execute($max_records = 'all') {
+function thold_notification_execute($pid = 0, $max_records = 'all') {
 	if ($max_records == 'all') {
 		$sql_limit = '';
 	} else {
 		$sql_limit = 'LIMIT ' . $max_records;
 	}
 
+	if ($pid > 0) {
+		$sql_where = ' AND process_id = ' . $pid;
+	} else {
+		$sql_where = '';
+	}
+
 	$records = db_fetch_assoc("SELECT *
 		FROM notification_queue
-		WHERE processed = 0
+		WHERE event_processed = 0
+		$sql_where
 		ORDER BY event_time ASC
 		$sql_limit");
 
@@ -5711,7 +5718,7 @@ function thold_notification_execute($max_records = 'all') {
 		$processed = false;
 
 		switch($type) {
-			case 'thold_email':
+			case 'thold_mail':
 			case 'thold_dhost_mail':
 			case 'thold_uhost_mail':
 				$data = json_decode($r['event_data'], true);
