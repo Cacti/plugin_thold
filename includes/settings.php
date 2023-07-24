@@ -198,6 +198,20 @@ function thold_draw_navigation_text($nav) {
 		'level' => '1'
 	);
 
+	$nav['notify_queue.php:'] = array(
+		'title' => __('Notification Queue', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'notify_queue.php',
+		'level' => '1'
+	);
+
+	$nav['notify_queue.php:actions'] = array(
+		'title' => __('Notification Queue', 'thold'),
+		'mapping' => 'index.php:',
+		'url' => 'notify_queue.php',
+		'level' => '1'
+	);
+
 	return $nav;
 }
 
@@ -205,6 +219,7 @@ function thold_config_insert() {
 	global $menu;
 
 	$menu[__('Management')]['plugins/thold/notify_lists.php']   = __('Notification Lists', 'thold');
+	$menu[__('Management')]['plugins/thold/notify_queue.php']   = __('Notification Queue', 'thold');
 	$menu[__('Management')]['plugins/thold/thold.php']          = __('Thresholds', 'thold');
 	$menu[__('Templates')]['plugins/thold/thold_templates.php'] = __('Threshold', 'thold');
 
@@ -282,7 +297,7 @@ function thold_config_arrays() {
 		auth_augment_roles(__('Normal User'), array('thold_graph.php'));
 		auth_augment_roles(__('Template Editor'), array('thold_templates.php'));
 		auth_augment_roles(__('General Administration'), array('thold.php'));
-		auth_augment_roles(__('General Administration'), array('notify_lists.php'));
+		auth_augment_roles(__('General Administration'), array('notify_lists.php','notify_queue.php'));
 	}
 
 	kill_session_var('thold_message');
