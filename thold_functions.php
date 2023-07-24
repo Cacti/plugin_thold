@@ -5590,6 +5590,10 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 		FROM plugin_config
 		WHERE directory='thold'");
 
+	if (!is_array($headers)) {
+		$headers = array();
+	}
+
 	$headers['X-Mailer']   = 'Cacti-Thold-v' . $version;
 	$headers['User-Agent'] = 'Cacti-Thold-v' . $version;
 
