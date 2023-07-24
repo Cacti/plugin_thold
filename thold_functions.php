@@ -3541,8 +3541,8 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 	}
 }
 
-function thold_process_command_output(&$output, $return, $type = 'thold', &$data = array()) {
-	if ($type == 'thold') {
+function thold_process_command_output(&$output, $return, $topic = 'thold_cmd', &$data = array()) {
+	if ($topic == 'thold_cmd') {
 		if (cacti_sizeof($output)) {
 			if ($return > 0) {
 				cacti_log('WARNING: Threshold command execution for TH[' . $data['id'] . '] returned ' . $return . ', with output ' . implode(', ', $output), false, 'THOLD');
@@ -3556,9 +3556,9 @@ function thold_process_command_output(&$output, $return, $type = 'thold', &$data
 				cacti_log('NOTE: Threshold command execution for TH[' . $data['id'] . '] returned ' . $return . ', with no output.', false, 'THOLD');
 			}
 		}
-	} elseif ($type == 'thold_dhost_cmd') {
+	} elseif ($topic == 'thold_dhost_cmd') {
 		cacti_log("Device Down Command for Device[" . $data['id'] . '] Command[' . $command . '] ExitStatus[' . $return . '] Output[' . implode(' ', $output) . ']', false, 'THOLD');
-	} elseif ($type == 'thold_uhost_cmd') {
+	} elseif ($topic == 'thold_uhost_cmd') {
 		cacti_log("Device Up Command for Device[" . $data['id'] . '] Command[' . $command . '] ExitStatus[' . $return . '] Output[' . implode(' ', $output) . ']', false, 'THOLD');
 	}
 }
@@ -5531,7 +5531,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 }
 
 /* Sends a group of graphs to a user */
-function thold_mail($notify_list_id, $to_email, $bcc_email, $from_email, $subject, $message, $filename, $headers = array(), $type = 'thold_mail') {
+function thold_mail($notify_list_id, $to_email, $bcc_email, $from_email, $subject, $message, $filename, $headers = array(), $topic = 'thold_mail') {
 	thold_debug('Preparing to send email');
 
 	$subject = trim($subject);
@@ -5645,7 +5645,7 @@ function thold_mail($notify_list_id, $to_email, $bcc_email, $from_email, $subjec
 				'html'        => $thold_send_text_only != 'on'
 			);
 
-			thold_notification_add($type, $data, $notify_list_id);
+			thold_notification_add($topic, $data, $notify_list_id);
 		} else {
 			$any_error = mailer(
 				array($from_email, $from_name),
@@ -5679,7 +5679,7 @@ function thold_mail($notify_list_id, $to_email, $bcc_email, $from_email, $subjec
 						'html'        => $thold_send_text_only != 'on'
 					);
 
-					thold_notification_add($type, $data);
+					thold_notification_add($topic, $data);
 				} else {
 					$error = mailer(
 						array($from_email, $from_name),
@@ -5711,7 +5711,7 @@ function thold_mail($notify_list_id, $to_email, $bcc_email, $from_email, $subjec
 	return '';
 }
 
-function thold_notification_add($type, &$data, $list_id = 0, $id = 'id') {
+function thold_notification_add($topic, &$data, $list_id = 0, $id = 'id') {
 	$now = date('Y-m-d H:i:s');
 
 	if (isset($data[$id])) {
@@ -5731,9 +5731,9 @@ function thold_notification_add($type, &$data, $list_id = 0, $id = 'id') {
 	}
 
 	db_execute_prepared('INSERT INTO notification_queue
-		(type, notification_list_id, object_id, object_name, event_time, event_data) VALUES
+		(topic, notification_list_id, object_id, object_name, event_time, event_data) VALUES
 		(?, ?, ?, ?, ?, ?)',
-		array($type, $list_id, $id, $name, $now, json_encode($data, JSON_THROW_ON_ERROR)));
+		array($topic, $list_id, $id, $name, $now, json_encode($data, JSON_THROW_ON_ERROR)));
 }
 
 function thold_notification_execute($pid = 0, $max_records = 'all') {
@@ -5771,10 +5771,10 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 				break;
 			}
 
-			$type      = $r['type'];
+			$topic     = $r['topic'];
 			$processed = false;
 
-			switch($type) {
+			switch($topic) {
 				case 'thold_mail':
 				case 'thold_dhost_mail':
 				case 'thold_uhost_mail':
@@ -5845,7 +5845,7 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 
 					exec($command, $output, $return);
 
-					thold_process_command_output($output, $return, $type, $data);
+					thold_process_command_output($output, $return, $topic, $data);
 
 					$nend = microtime(true);
 
@@ -5856,7 +5856,7 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 
 					break;
 				default:
-					cacti_log(sprintf('ERROR: Unable to process Thold Notification of type %s', $type), false, 'THOLD');
+					cacti_log(sprintf('ERROR: Unable to process Thold Notification of topic %s', $topic), false, 'THOLD');
 			}
 		}
 	} else {

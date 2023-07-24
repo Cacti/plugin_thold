@@ -515,3 +515,11 @@ $thold_template_actions = array(
 	3 => __('Reapply Suggested Names', 'thold')
 );
 
+$thold_notification_topics = array(
+	'thold_mail'       => __('Threshold Mail', 'thold'),
+	'thold_dhost_mail' => __('Down Host Mail', 'thold'),
+	'thold_uhost_mail' => __('Up Host Mail', 'thold'),
+	'thold_cmd'        => __('Threshold Cmd', 'thold'),
+	'thold_dhost_cmd'  => __('Down Host Cmd', 'thold'),
+	'thold_uhost_cmd'  => __('Up Host Cmd', 'thold')
+);
