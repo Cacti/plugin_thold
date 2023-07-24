@@ -171,7 +171,7 @@ function notify_queue() {
 			),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
-			'default' => 'name',
+			'default' => 'object_name',
 			'options' => array('options' => 'sanitize_search_string')
 			),
 		'sort_direction' => array(
@@ -362,21 +362,15 @@ function notify_queue() {
 		foreach ($notify_list as $n) {
 			$data = json_decode($n['event_data'], true);
 
-			if (isset($data['object']['name'])) {
-				$name = $data['object']['name'];
-			} elseif (isset($data['object']['description'])) {
-				$name = $data['object']['description'];
-			}
-
 			form_alternate_row('line' . $n['id'], false, $disabled);
 
 			form_selectable_cell(filter_value($n['type'], get_request_var('filter')), $n['id']);
 			form_selectable_cell($n['id'], $n['id'], '', 'right');
-			form_selectable_cell($name, $n['id'], '', 'right');
+			form_selectable_cell($n['object_name'], $n['id'], '', 'right');
 			form_selectable_cell($n['event_time'] == 0, $n['id'], '', 'right');
 			form_selectable_cell($n['event_processed'] == 0 ? __('No'):__('Yes'), $n['id'], '', 'right');
 			form_selectable_cell($n['error_code'] > 0 ? __('Errored', 'thold'):__('Success', 'thold'), $n['id'], '', 'right');
-			form_checkbox_cell($name, $n['id'], $disabled);
+			form_checkbox_cell($n['object_name'], $n['id'], $disabled);
 
 			form_end_row();
 		}

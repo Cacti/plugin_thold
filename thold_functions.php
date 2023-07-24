@@ -5732,7 +5732,7 @@ function thold_notification_add($type, &$data, $list_id = 0, $id = 'id') {
 
 	db_execute_prepared('INSERT INTO notification_queue
 		(type, notification_list_id, object_id, object_name, event_time, event_data) VALUES
-		(?, ?, ?, ?)',
+		(?, ?, ?, ?, ?, ?)',
 		array($type, $list_id, $id, $name, $now, json_encode($data, JSON_THROW_ON_ERROR)));
 }
 
