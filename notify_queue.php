@@ -371,7 +371,7 @@ function notify_queue() {
 		foreach ($notify_list as $n) {
 			$data = json_decode($n['event_data'], true);
 
-			form_alternate_row('line' . $n['id'], false, $disabled);
+			form_alternate_row('line' . $n['id'], false);
 
 			form_selectable_cell(filter_value($n['type'], get_request_var('filter')), $n['id']);
 			form_selectable_cell($n['object_name'], $n['id']);
@@ -387,7 +387,7 @@ function notify_queue() {
 				form_selectable_cell(__('N/A', 'thold'), $n['id'], '', 'right');
 			}
 
-			form_checkbox_cell($n['object_name'], $n['id'], $disabled);
+			form_checkbox_cell($n['object_name'], $n['id']);
 
 			form_end_row();
 		}
