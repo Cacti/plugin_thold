@@ -46,6 +46,7 @@ switch (get_request_var('action')) {
 	case 'suspend':
 		set_config_option('thold_notification_suspended', 1);
 		raise_message('notify_suspend', __('Notification has been Suspended.  Press the Resume button to resume it', 'thold'), MESSAGE_LEVEL_INFO);
+		cacti_log(sprintf('WARNING: User %s [%d] has Suspended THOLD notifications!', get_username($_SESSION['sess_user_id']), $_SESSION['sess_user_id']), false, 'THOLD');
 		header('Location: notify_queue.php');
 		exit();
 
@@ -53,6 +54,7 @@ switch (get_request_var('action')) {
 	case 'resume':
 		set_config_option('thold_notification_suspended', 0);
 		raise_message('notify_suspend', __('Notification has been Resumed.  Press the Suspend button to suspend it', 'thold'), MESSAGE_LEVEL_INFO);
+		cacti_log(sprintf('WARNING: User %s [%d] has Resumed THOLD notifications!', get_username($_SESSION['sess_user_id']), $_SESSION['sess_user_id']), false, 'THOLD');
 		header('Location: notify_queue.php');
 		exit();
 
@@ -60,6 +62,7 @@ switch (get_request_var('action')) {
 	case 'purge':
 		db_execute('DELETE FROM notification_queue WHERE event_processed = 0');
 		raise_message('notify_purge', __('Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out.', 'thold'), MESSAGE_LEVEL_INFO);
+		cacti_log(sprintf('WARNING: User %s [%d] has Purged THOLD notifications!', get_username($_SESSION['sess_user_id']), $_SESSION['sess_user_id']), false, 'THOLD');
 		header('Location: notify_queue.php');
 		exit();
 
