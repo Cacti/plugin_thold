@@ -328,15 +328,16 @@ function notify_queue() {
 			'sort'    => 'ASC',
 			'tip'     => __('The supported notification type.')
 		),
+		'object_name' => array(
+			'display' => __('Object Name'),
+			'align'   => 'left',
+			'tip'     => __('The name of the object as defined by the caller.')
+		),
 		'object_id' => array(
 			'display' => __('Object ID'),
 			'align'   => 'right',
+			'sort'    => 'DESC',
 			'tip'     => __('The Object ID defined by the caller.  Generally its unique \'id\'.')
-		),
-		'nosort1' => array(
-			'display' => __('Object Name'),
-			'align'   => 'right',
-			'tip'     => __('The name of the object as defined by the caller.')
 		),
 		'event_time' => array(
 			'display' => __('Event Time'),
@@ -355,12 +356,17 @@ function notify_queue() {
 			'align'   => 'right',
 			'sort'    => 'DESC',
 			'tip'     => __('Did this notification result in an error.  Hover on the error column for details.')
+		),
+		'event_processed_runtime' => array(
+			'display' => __('Run Time'),
+			'align'   => 'right',
+			'sort'    => 'DESC',
+			'tip'     => __('The time in seconds it took to process the event.')
 		)
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
-	$i = 0;
 	if (cacti_sizeof($notify_list)) {
 		foreach ($notify_list as $n) {
 			$data = json_decode($n['event_data'], true);
@@ -368,11 +374,19 @@ function notify_queue() {
 			form_alternate_row('line' . $n['id'], false, $disabled);
 
 			form_selectable_cell(filter_value($n['type'], get_request_var('filter')), $n['id']);
+			form_selectable_cell($n['object_name'], $n['id']);
 			form_selectable_cell($n['id'], $n['id'], '', 'right');
-			form_selectable_cell($n['object_name'], $n['id'], '', 'right');
-			form_selectable_cell($n['event_time'] == 0, $n['id'], '', 'right');
-			form_selectable_cell($n['event_processed'] == 0 ? __('No'):__('Yes'), $n['id'], '', 'right');
-			form_selectable_cell($n['error_code'] > 0 ? __('Errored', 'thold'):__('Success', 'thold'), $n['id'], '', 'right');
+			form_selectable_cell($n['event_time'], $n['id'], '', 'right');
+			form_selectable_cell($n['event_processed'] == 0 ? __('Pending', 'thold'):__('Done', 'thold'), $n['id'], '', 'right');
+
+			if ($n['event_processed'] > 0) {
+				form_selectable_cell($n['error_code'] > 0 ? __('Errored', 'thold'):__('Success', 'thold'), $n['id'], '', 'right');
+				form_selectable_cell(number_format_i18n($n['event_processed_runtime'], 2), $n['id'], '', 'right');
+			} else {
+				form_selectable_cell(__('N/A', 'thold'), $n['id'], '', 'right');
+				form_selectable_cell(__('N/A', 'thold'), $n['id'], '', 'right');
+			}
+
 			form_checkbox_cell($n['object_name'], $n['id'], $disabled);
 
 			form_end_row();
