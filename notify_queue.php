@@ -32,7 +32,7 @@ include_once($config['base_path'] . '/plugins/thold/includes/database.php');
 include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 $actions = array(
-	1 => __('Delete')
+	1 => __('Delete', 'thold')
 );
 
 /* set default action */
@@ -44,25 +44,44 @@ switch (get_request_var('action')) {
 
 		break;
 	case 'suspend':
+		$user = get_username($_SESSION['sess_user_id']);
+
 		set_config_option('thold_notification_suspended', 1);
+		set_config_option('thold_notification_suspended_by', $user);
+		set_config_option('thold_notification_suspended_time', time());
+
 		raise_message('notify_suspend', __('Notification has been Suspended.  Press the Resume button to resume it', 'thold'), MESSAGE_LEVEL_INFO);
-		cacti_log(sprintf('WARNING: User %s [%d] has Suspended THOLD notifications!', get_username($_SESSION['sess_user_id']), $_SESSION['sess_user_id']), false, 'THOLD');
+		cacti_log(sprintf('WARNING: User %s [%d] has Suspended THOLD notifications!', $user, $_SESSION['sess_user_id']), false, 'THOLD');
+
 		header('Location: notify_queue.php');
 		exit();
 
 		break;
 	case 'resume':
+		$user = get_username($_SESSION['sess_user_id']);
+
 		set_config_option('thold_notification_suspended', 0);
+		set_config_option('thold_notification_resumed_by', $user);
+		set_config_option('thold_notification_resumed_time', time());
+
 		raise_message('notify_suspend', __('Notification has been Resumed.  Press the Suspend button to suspend it', 'thold'), MESSAGE_LEVEL_INFO);
-		cacti_log(sprintf('WARNING: User %s [%d] has Resumed THOLD notifications!', get_username($_SESSION['sess_user_id']), $_SESSION['sess_user_id']), false, 'THOLD');
+		cacti_log(sprintf('WARNING: User %s [%d] has Resumed THOLD notifications!', $user, $_SESSION['sess_user_id']), false, 'THOLD');
+
 		header('Location: notify_queue.php');
 		exit();
 
 		break;
 	case 'purge':
+		$user = get_username($_SESSION['sess_user_id']);
+
+		set_config_option('thold_notification_purged_by', $user);
+		set_config_option('thold_notification_purged_time', time());
+
 		db_execute('DELETE FROM notification_queue WHERE event_processed = 0');
+
 		raise_message('notify_purge', __('Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out.', 'thold'), MESSAGE_LEVEL_INFO);
-		cacti_log(sprintf('WARNING: User %s [%d] has Purged THOLD notifications!', get_username($_SESSION['sess_user_id']), $_SESSION['sess_user_id']), false, 'THOLD');
+		cacti_log(sprintf('WARNING: User %s [%d] has Purged THOLD notifications!', $user, $_SESSION['sess_user_id']), false, 'THOLD');
+
 		header('Location: notify_queue.php');
 		exit();
 
@@ -154,7 +173,7 @@ function form_actions() {
 }
 
 function notify_queue() {
-	global $actions, $item_rows;
+	global $actions, $item_rows, $thold_notification_types;
 
 	/* ================= input validation and session storage ================= */
 	$filters = array(
@@ -162,32 +181,36 @@ function notify_queue() {
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
+		'processed' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+		),
 		'page' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
+		),
 		'filter' => array(
 			'filter' => FILTER_DEFAULT,
 			'pageset' => true,
 			'default' => ''
-			),
+		),
+		'type' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'object_name',
+			'options' => array('options' => 'sanitize_search_string')
+		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'object_name',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
 			'options' => array('options' => 'sanitize_search_string')
-			),
-		'has_graphs' => array(
-			'filter' => FILTER_VALIDATE_REGEXP,
-			'options' => array('options' => array('regexp' => '(true|false)')),
-			'pageset' => true,
-			'default' => read_config_option('default_has') == 'on' ? 'true':'false'
-			)
+		)
 	);
 
 	validate_store_request_vars($filters, 'sess_notify_queue');
@@ -200,8 +223,19 @@ function notify_queue() {
 	}
 
 	$state = read_config_option('thold_notification_suspended', true);
+	$suser = read_config_option('thold_notification_suspended_by', true);
+	$sdate = read_config_option('thold_notification_suspended_time', true);
 
-	html_start_box(__('Event Notifications'), '100%', '', '3', 'center', '');
+	if ($state == 1) {
+		$ctime = time();
+		if ($sdate > 0) {
+			$ago = get_daysfromtime(time() - $sdate, true, ' ', DAYS_FORMAT_LONG);
+		}
+
+		html_start_box(__('Event Notifications [ Notifications Suspended by User: %s, %s ago ]', $suser, $ago, 'thold'), '100%', '', '3', 'center', '');
+	} else {
+		html_start_box(__('Event Notifications', 'thold'), '100%', '', '3', 'center', '');
+	}
 
 	?>
 	<tr class='even'>
@@ -210,17 +244,42 @@ function notify_queue() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search');?>
+						<?php print __('Search', 'thold');?>
 					</td>
 					<td>
-						<input type='text' class='ui-state-default ui-corner-all' id='filter' name='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' class='ui-state-default ui-corner-all' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('Notifications');?>
+						<?php print __('Type', 'thold');?>
 					</td>
 					<td>
-						<select id='rows' name='rows' onChange='applyFilter()'>
-							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default');?></option>
+						<select id='type' onChange='applyFilter()'>
+							<option value='-1'<?php print (get_request_var('type') == '-1' ? ' selected>':'>') . __('All', 'thold');?></option>
+							<?php
+							if (cacti_sizeof($thold_notification_types)) {
+								foreach ($thold_notification_types as $key => $value) {
+									print "<option value='" . $key . "'"; if (get_request_var('type') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
+								}
+							}
+							?>
+						</select>
+					</td>
+					<td>
+						<?php print __('Processed', 'thold');?>
+					</td>
+					<td>
+						<select id='processed' onChange='applyFilter()'>
+							<option value='-1'<?php print (get_request_var('processed') == '-1' ? ' selected>':'>') . __('All', 'thold');?></option>
+							<option value='0'<?php print (get_request_var('processed') == '0' ? ' selected>':'>') . __('No', 'thold');?></option>
+							<option value='1'<?php print (get_request_var('processed') == '1' ? ' selected>':'>') . __('Yes', 'thold');?></option>
+						</select>
+					</td>
+					<td>
+						<?php print __('Rows', 'thold');?>
+					</td>
+					<td>
+						<select id='rows' onChange='applyFilter()'>
+							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default', 'thold');?></option>
 							<?php
 							if (cacti_sizeof($item_rows) > 0) {
 								foreach ($item_rows as $key => $value) {
@@ -248,6 +307,8 @@ function notify_queue() {
 				strURL  = 'notify_queue.php?header=false';
 				strURL += '&filter='+$('#filter').val();
 				strURL += '&rows='+$('#rows').val();
+				strURL += '&processed='+$('#processed').val();
+				strURL += '&type='+$('#type').val();
 				loadPageNoHeader(strURL);
 			}
 
@@ -293,11 +354,20 @@ function notify_queue() {
 
 	html_end_box();
 
-	/* form the 'where' clause for our main sql query */
+	$sql_where = '';
+
 	if (get_request_var('filter') != '') {
-		$sql_where = 'WHERE (type LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
-	} else {
-		$sql_where = '';
+		$sql_where = 'WHERE (object_name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
+	}
+
+	if (get_request_var('type') != '' && get_request_var('type') != '-1') {
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' type = ' . db_qstr(get_request_var('type'));
+	}
+
+	if (get_request_var('processed') == 1) {
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' event_processed = 1';
+	} elseif (get_request_var('processed') == 0) {
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' event_processed = 0';
 	}
 
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
@@ -313,7 +383,7 @@ function notify_queue() {
 		$sql_order
 		$sql_limit");
 
-	$nav = html_nav_bar('notify_queue.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Notifications'), 'page', 'main');
+	$nav = html_nav_bar('notify_queue.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Notifications', 'thold'), 'page', 'main');
 
 	form_start('notify_queue.php', 'chk');
 
@@ -323,45 +393,45 @@ function notify_queue() {
 
 	$display_text = array(
 		'type' => array(
-			'display' => __('Type'),
+			'display' => __('Type', 'thold'),
 			'align'   => 'left',
 			'sort'    => 'ASC',
-			'tip'     => __('The supported notification type.')
+			'tip'     => __('The supported notification type.', 'thold')
 		),
 		'object_name' => array(
-			'display' => __('Object Name'),
+			'display' => __('Event Description', 'thold'),
 			'align'   => 'left',
-			'tip'     => __('The name of the object as defined by the caller.')
+			'tip'     => __('The name of the object as defined by the caller.', 'thold')
 		),
 		'object_id' => array(
-			'display' => __('Object ID'),
+			'display' => __('Event Object ID', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
-			'tip'     => __('The Object ID defined by the caller.  Generally its unique \'id\'.')
+			'tip'     => __('The Object ID defined by the caller.  Generally its unique \'id\'.', 'thold')
 		),
 		'event_time' => array(
-			'display' => __('Event Time'),
+			'display' => __('Event Time', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
-			'tip'     => __('The time of the event as defined by the caller.')
+			'tip'     => __('The time of the event as defined by the caller.', 'thold')
 		),
 		'event_processed' => array(
-			'display' => __('Processed'),
+			'display' => __('Processed', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
-			'tip'     => __('Has the Notification Event been processed.')
+			'tip'     => __('Has the Notification Event been processed.', 'thold')
 		),
 		'error_code' => array(
-			'display' => __('Errors'),
+			'display' => __('Errors', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
-			'tip'     => __('Did this notification result in an error.  Hover on the error column for details.')
+			'tip'     => __('Did this notification result in an error.  Hover on the error column for details.', 'thold')
 		),
 		'event_processed_runtime' => array(
-			'display' => __('Run Time'),
+			'display' => __('Run Time', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
-			'tip'     => __('The time in seconds it took to process the event.')
+			'tip'     => __('The time in seconds it took to process the event.', 'thold')
 		)
 	);
 
@@ -373,7 +443,7 @@ function notify_queue() {
 
 			form_alternate_row('line' . $n['id'], false);
 
-			form_selectable_cell(filter_value($n['type'], get_request_var('filter')), $n['id']);
+			form_selectable_cell($thold_notification_types[$n['type']], $n['id']);
 			form_selectable_cell($n['object_name'], $n['id']);
 			form_selectable_cell($n['id'], $n['id'], '', 'right');
 			form_selectable_cell($n['event_time'], $n['id'], '', 'right');
@@ -392,7 +462,7 @@ function notify_queue() {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='tableRow'><td colspan='" . (cacti_sizeof($display_text)+1) . "'><em>" . __('No Notifications') . "</em></td></tr>\n";
+		print "<tr class='tableRow'><td colspan='" . (cacti_sizeof($display_text)+1) . "'><em>" . __('No Notifications', 'thold') . "</em></td></tr>\n";
 	}
 
 	html_end_box(false);
