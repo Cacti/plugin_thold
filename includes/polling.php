@@ -362,6 +362,8 @@ function thold_update_host_status() {
 				WHERE id = ?',
 				array($fh['host_id']));
 
+			$notify_list_id = 0;
+
 			if (!sizeof($host)) {
 				db_execute_prepared('DELETE
 					FROM plugin_thold_host_failed
@@ -505,10 +507,12 @@ function thold_update_host_status() {
 						case '1': // Global List
 							break;
 						case '2': // Devices List Only
-							$alert_email = get_thold_notification_emails($host['thold_host_email']);
+							$alert_email    = get_thold_notification_emails($host['thold_host_email']);
+							$notify_list_id = $host['thold_host_email'];
 							break;
 						case '3': // Global and Devices List
-							$alert_email = $alert_email . ',' . get_thold_notification_emails($host['thold_host_email']);
+							$alert_email    = $alert_email . ',' . get_thold_notification_emails($host['thold_host_email']);
+							$notify_list_id = $host['thold_host_email'];
 							break;
 					}
 
@@ -529,7 +533,7 @@ function thold_update_host_status() {
 					} elseif ($host['thold_send_email'] == '0') {
 						cacti_log('NOTE: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] did not send a Device recovering email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 					} elseif ($alert_email != '') {
-						thold_mail($alert_email, '', '', $subject, $msg, '', '', 'thold_uhost_mail');
+						thold_mail($notify_list_id, $alert_email, '', '', $subject, $msg, '', '', 'thold_uhost_mail');
 					}
 
 					$command = read_config_option('thold_device_command');
@@ -612,6 +616,8 @@ function thold_update_host_status() {
 	$total_hosts = cacti_sizeof($hosts);
 	if ($total_hosts) {
 		foreach ($hosts as $host) {
+			$notify_list_id = 0;
+
 			$alert_email = read_config_option('alert_email');
 
 			if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($host['id']) ) {
@@ -676,10 +682,12 @@ function thold_update_host_status() {
 					case '1': // Global List
 						break;
 					case '2': // Devices List Only
-						$alert_email = get_thold_notification_emails($host['thold_host_email']);
+						$alert_email    = get_thold_notification_emails($host['thold_host_email']);
+						$notify_list_id = $host['thold_host_email'];
 						break;
 					case '3': // Global and Devices List
-						$alert_email = $alert_email . ',' . get_thold_notification_emails($host['thold_host_email']);
+						$alert_email    = $alert_email . ',' . get_thold_notification_emails($host['thold_host_email']);
+						$notify_list_id = $host['thold_host_email'];
 						break;
 				}
 
@@ -700,7 +708,7 @@ function thold_update_host_status() {
 				} elseif ($host['thold_send_email'] == '0') {
 					cacti_log('NOTE: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] did not send a Device down email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 				} elseif ($alert_email != '') {
-					thold_mail($alert_email, '', '', $subject, $msg, '', '', 'thold_dhost_mail');
+					thold_mail($notify_list_id, $alert_email, '', '', $subject, $msg, '', '', 'thold_dhost_mail');
 				}
 
 				$command = read_config_option('thold_device_command');

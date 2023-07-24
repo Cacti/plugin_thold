@@ -1484,6 +1484,13 @@ function thold_upgrade_database($force = false) {
 			ON h.host_template_id = ptht.host_template_id');
 	}
 
+	if (cacti_version_compare($oldv, '2.0', '<')) {
+		db_execute('ALTER TABLE notification_queue
+			ADD COLUMN object_name varchar(64) NOT NULL default "" AFTER object_id,
+			ADD COLUMN event_processed_runtime double unsigned NOT NULL default "0" AFTER event_processed_time,
+			ADD COLUMN notification_list_id int(10) unsigned NOT NULL default "0" after id');
+	}
+
 	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', 1);
 	api_plugin_register_realm('thold', 'notify_lists.php,notify_queue.php', 'Manage Notification Lists', 1);
 
@@ -1786,8 +1793,10 @@ function thold_setup_database() {
 
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'bigint', 'unsigned' => true, 'NULL' => false, 'auto_increment' => true);
+	$data['columns'][] = array('name' => 'notification_list_id', 'type' => 'int', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'type', 'type' => 'varchar(20)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'object_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'object_name', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'event_time', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
 	$data['columns'][] = array('name' => 'event_data', 'type' => 'longblob', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'error_code', 'type' => 'int', 'NULL' => false, 'default' => '0');
@@ -1795,6 +1804,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'process_id', 'type' => 'int', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'event_processed', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'event_processed_time', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00');
+	$data['columns'][] = array('name' => 'event_processed_runtime', 'type' => double, 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['primary'] = 'id';
 	$data['keys'][]  = array('name' => 'type_processed', 'columns' => 'type`, `event_processed');
 	$data['keys'][]  = array('name' => 'process_id', 'columns' => 'process_id');

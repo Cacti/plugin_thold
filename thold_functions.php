@@ -2164,6 +2164,7 @@ function thold_check_threshold(&$thold_data) {
 
 					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
 					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
+					$notify_list_id   = $thold_data['notify_alert'];
 
 					if ($syslog) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
@@ -2171,7 +2172,7 @@ function thold_check_threshold(&$thold_data) {
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array);
+						thold_mail($notify_list_id, $alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, $breach_up, $breach_down);
@@ -2284,10 +2285,14 @@ function thold_check_threshold(&$thold_data) {
 
 					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
 					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+					$notify_list_id     = $thold_data['notify_warning'];
 
 					if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$warn_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $warn_msg, $file_array);
+
+
+
+						thold_mail($notify_list_id, $warning_emails, $warning_bcc_emails, '', $subject, $warn_msg, $file_array);
 					}
 
 					$save = array(
@@ -2345,13 +2350,14 @@ function thold_check_threshold(&$thold_data) {
 				$subject = 'ALERT -> WARNING: ' . thold_get_cached_name($thold_data) . ($thold_show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' Changed to Warning Threshold with Value ' . thold_format_number($thold_data['lastread'], 2, $baseu, $suffix, $show_units);
 
 				if (!$suspend_notify && !$maint_dev) {
-
 					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
 					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
+					$notify_list_id   = $thold_data['notify_alert'];
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$warn_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $warn_msg, $file_array);
+
+						thold_mail($notify_list_id, $alert_emails, $alert_bcc_emails, '', $subject, $warn_msg, $file_array);
 					}
 
 					$save = array(
@@ -2441,10 +2447,12 @@ function thold_check_threshold(&$thold_data) {
 
 					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
 					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+					$notify_list_id     = $thold_data['notify_warning'];
 
 					if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on' && $thold_data['acknowledgment'] == '') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $restoral_msg, $file_array);
+
+						thold_mail($notify_list_id, $warning_emails, $warning_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					$save = array(
@@ -2492,10 +2500,13 @@ function thold_check_threshold(&$thold_data) {
 
 					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
 					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
+					$notify_list_id   = $thold_data['notify_alert'];
+
 
 					if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on' && $thold_data['acknowledgment'] == '') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array);
+
+						thold_mail($notify_list_id, $alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);
@@ -2586,10 +2597,12 @@ function thold_check_threshold(&$thold_data) {
 
 					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
 					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
+					$notify_list_id   = $thold_data['notify_alert'];
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array);
+
+						thold_mail($notify_list_id, $alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);
@@ -2692,10 +2705,11 @@ function thold_check_threshold(&$thold_data) {
 
 					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
 					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
+					$notify_list_id   = $thold_data['notify_alert'];
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array);
+						thold_mail($notify_list_id, $alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, $breach_up, $breach_down, false);
@@ -2903,10 +2917,12 @@ function thold_check_threshold(&$thold_data) {
 
 					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
 					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
+					$notify_list_id   = $thold_data['notify_alert'];
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array);
+
+						thold_mail($notify_list_id, $alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, $breach_up, $breach_down, false);
@@ -3042,9 +3058,12 @@ function thold_check_threshold(&$thold_data) {
 					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
 					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
 
-					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
+					if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$warn_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $warn_msg, $file_array);
+
+						$notify_list_id = $thold_data['notify_warning'];
+
+						thold_mail($notify_list_id, $warning_emails, $warning_bcc_emails, '', $subject, $warn_msg, $file_array);
 					}
 
 					$save = array(
@@ -3151,10 +3170,12 @@ function thold_check_threshold(&$thold_data) {
 
 					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
 					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+					$notify_list_id     = $thold_data['notify_warning'];
 
 					if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $restoral_msg, $file_array);
+
+						thold_mail($notify_list_id, $warning_emails, $warning_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					$save = array(
@@ -3221,10 +3242,12 @@ function thold_check_threshold(&$thold_data) {
 
 					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
 					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
+					$notify_list_id   = $thold_data['notify_alert'];
 
 					if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on') {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array);
+
+						thold_mail($notify_list_id, $alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array);
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);
@@ -5508,7 +5531,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 }
 
 /* Sends a group of graphs to a user */
-function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $filename, $headers = array(), $type = 'thold_mail') {
+function thold_mail($notify_list_id, $to_email, $bcc_email, $from_email, $subject, $message, $filename, $headers = array(), $type = 'thold_mail') {
 	thold_debug('Preparing to send email');
 
 	$subject = trim($subject);
@@ -5622,7 +5645,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 				'html'        => $thold_send_text_only != 'on'
 			);
 
-			thold_notification_add($type, $data);
+			thold_notification_add($type, $data, $notify_list_id);
 		} else {
 			$any_error = mailer(
 				array($from_email, $from_name),
@@ -5688,7 +5711,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 	return '';
 }
 
-function thold_notification_add($type, &$data, $id = 'id') {
+function thold_notification_add($type, &$data, $list_id = 0, $id = 'id') {
 	$now = date('Y-m-d H:i:s');
 
 	if (isset($data[$id])) {
@@ -5697,10 +5720,20 @@ function thold_notification_add($type, &$data, $id = 'id') {
 		$id = 0;
 	}
 
+	if (isset($data['data']['name'])) {
+		$name = $data['data']['name'];
+	} elseif (isset($data['data']['description'])) {
+		$name = $data['data']['description'];
+	} elseif (isset($data['subject'])) {
+		$name = $data['subject'];
+	} else {
+		$name = 'Not Specfified';
+	}
+
 	db_execute_prepared('INSERT INTO notification_queue
-		(type, object_id, event_time, event_data) VALUES
+		(type, notification_list_id, object_id, object_name, event_time, event_data) VALUES
 		(?, ?, ?, ?)',
-		array($type, $id, $now, json_encode($data, JSON_THROW_ON_ERROR)));
+		array($type, $list_id, $id, $name, $now, json_encode($data, JSON_THROW_ON_ERROR)));
 }
 
 function thold_notification_execute($pid = 0, $max_records = 'all') {
@@ -5716,6 +5749,8 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 		$sql_where = '';
 	}
 
+	$prev_suspended = read_config_option('thold_notification_suspended', true);
+
 	$records = db_fetch_assoc("SELECT *
 		FROM notification_queue
 		WHERE event_processed = 0
@@ -5723,90 +5758,109 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 		ORDER BY event_time ASC
 		$sql_limit");
 
-	foreach($records as $r) {
-		$type      = $r['type'];
-		$processed = false;
+	if ($prev_suspended == 0) {
+		foreach($records as $r) {
+			$nstart = microtime(true);
 
-		switch($type) {
-			case 'thold_mail':
-			case 'thold_dhost_mail':
-			case 'thold_uhost_mail':
-				$data = json_decode($r['event_data'], true);
-
-				$attributes = array(
-					'from', 'to', 'cc', 'bcc', 'replyto', 'subject', 'body', 'body_text', 'attachments', 'headers', 'html'
-				);
-
-				foreach($attributes as $a) {
-					if (isset($data[$a])) {
-						$$a = $data[$a];
-					} else {
-						$$a = '';
-					}
+			$suspended = read_config_option('thold_notification_suspended', true);
+			if ($suspended == 1) {
+				if ($prev_suspended == 0) {
+					cacti_log('WARNING: Notifications have been suspended by an operator.  Returning from processing loop', false, 'THOLD');
 				}
-
-				if (cacti_sizeof($attachments)) {
-					foreach($attachments as $index => $attach) {
-						$attachments[$index]['attachment'] = base64_decode($attach['attachment']);
-					}
-				}
-
-				$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
-
-				if (strlen($error)) {
-					cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
-					$any_error = $error;
-					$error_code = 1;
-				} else {
-					$error = '';
-					$error_code = 0;
-				}
-
-				db_execute_prepared('UPDATE notification_queue
-					SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW()
-					WHERE id = ?',
-					array($error_code, str_replace("\n", ' ', $error), $r['id']));
 
 				break;
-			case 'thold_dhost_cmd':
-			case 'thold_uhost_cmd':
-			case 'thold_cmd':
-				$data = json_decode($r['event_data'], true);
+			}
 
-				$attributes = array(
-					'envrionment', 'command', 'data'
-				);
+			$type      = $r['type'];
+			$processed = false;
 
-				foreach($attributes as $a) {
-					if (isset($data[$a])) {
-						$$a = $data[$a];
+			switch($type) {
+				case 'thold_mail':
+				case 'thold_dhost_mail':
+				case 'thold_uhost_mail':
+					$data = json_decode($r['event_data'], true);
+
+					$attributes = array(
+						'from', 'to', 'cc', 'bcc', 'replyto', 'subject', 'body', 'body_text', 'attachments', 'headers', 'html'
+					);
+
+					foreach($attributes as $a) {
+						if (isset($data[$a])) {
+							$$a = $data[$a];
+						} else {
+							$$a = '';
+						}
+					}
+
+					if (cacti_sizeof($attachments)) {
+						foreach($attachments as $index => $attach) {
+							$attachments[$index]['attachment'] = base64_decode($attach['attachment']);
+						}
+					}
+
+					$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
+
+					if (strlen($error)) {
+						cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
+						$any_error = $error;
+						$error_code = 1;
 					} else {
-						$$a = '';
+						$error = '';
+						$error_code = 0;
 					}
-				}
 
-				$output = array();
-				$return = 0;
+					$nend = microtime(true);
 
-				if (cacti_sizeof($data['environment'])) {
-					foreach($data['environment'] as $e) {
-						putenv($e);
+					db_execute_prepared('UPDATE notification_queue
+						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
+						WHERE id = ?',
+						array($error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id']));
+
+					break;
+				case 'thold_dhost_cmd':
+				case 'thold_uhost_cmd':
+				case 'thold_cmd':
+					$data = json_decode($r['event_data'], true);
+
+					$attributes = array(
+						'envrionment', 'command', 'data'
+					);
+
+					foreach($attributes as $a) {
+						if (isset($data[$a])) {
+							$$a = $data[$a];
+						} else {
+							$$a = '';
+						}
 					}
-				}
 
-				exec($command, $output, $return);
+					$output = array();
+					$return = 0;
 
-				thold_process_command_output($output, $return, $type, $data);
+					if (cacti_sizeof($data['environment'])) {
+						foreach($data['environment'] as $e) {
+							putenv($e);
+						}
+					}
 
-				db_execute_prepared('UPDATE notification_queue
-					SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW()
-					WHERE id = ?',
-					array($return, implode("\n", $output), $r['id']));
+					exec($command, $output, $return);
 
-				break;
-			default:
-				cacti_log(sprintf('ERROR: Unable to process Thold Notification of type %s', $type), false, 'THOLD');
+					thold_process_command_output($output, $return, $type, $data);
+
+					$nend = microtime(true);
+
+					db_execute_prepared('UPDATE notification_queue
+						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
+						WHERE id = ?',
+						array($return, implode("\n", $output), $nend - $nstart, $r['id']));
+
+					break;
+				default:
+					cacti_log(sprintf('ERROR: Unable to process Thold Notification of type %s', $type), false, 'THOLD');
+			}
 		}
+	} else {
+		cacti_log('WARNING: Notifications have been suspended by an operator.  Returning from processing loop', false, 'THOLD');
 	}
 }
 
