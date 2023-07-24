@@ -1804,7 +1804,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'process_id', 'type' => 'int', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'event_processed', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'event_processed_time', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00');
-	$data['columns'][] = array('name' => 'event_processed_runtime', 'type' => double, 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'event_processed_runtime', 'type' => 'double', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['primary'] = 'id';
 	$data['keys'][]  = array('name' => 'type_processed', 'columns' => 'type`, `event_processed');
 	$data['keys'][]  = array('name' => 'process_id', 'columns' => 'process_id');
