@@ -250,7 +250,7 @@ function notify_queue() {
 						<input type='text' class='ui-state-default ui-corner-all' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
 					</td>
 					<td>
-						<?php print __('Type', 'thold');?>
+						<?php print __('Topic', 'thold');?>
 					</td>
 					<td>
 						<select id='topic' onChange='applyFilter()'>
@@ -357,7 +357,9 @@ function notify_queue() {
 	$sql_where = '';
 
 	if (get_request_var('filter') != '') {
-		$sql_where = 'WHERE (object_name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
+		$sql_where = 'WHERE (nq.object_name LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR ' .
+			'h.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ' OR ' .
+			'nq.hostname LIKE ' . db_qstr('%' . get_request_var('filter') . '%') . ')';
 	}
 
 	if (get_request_var('topic') != '' && get_request_var('topic') != '-1') {
@@ -371,17 +373,28 @@ function notify_queue() {
 	}
 
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
-		FROM notification_queue
+		FROM notification_queue AS nq
+		LEFT JOIN host AS h
+		ON h.id = nq.host_id
 		$sql_where");
 
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-	$notify_list = db_fetch_assoc("SELECT *
-		FROM notification_queue
+	$notifications = db_fetch_assoc("SELECT *
+		FROM notification_queue AS nq
+		LEFT JOIN host AS h
+		ON h.id = nq.host_id
 		$sql_where
 		$sql_order
 		$sql_limit");
+
+	$lists = array_rekey(
+		db_fetch_assoc('SELECT id, name
+			FROM plugin_notification_lists
+			ORDER BY id'),
+		'id', 'name'
+	);
 
 	$nav = html_nav_bar('notify_queue.php?filter=' . get_request_var('filter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 5, __('Notifications', 'thold'), 'page', 'main');
 
@@ -393,7 +406,7 @@ function notify_queue() {
 
 	$display_text = array(
 		'topic' => array(
-			'display' => __('Type', 'thold'),
+			'display' => __('Topic', 'thold'),
 			'align'   => 'left',
 			'sort'    => 'ASC',
 			'tip'     => __('The supported notification topic.', 'thold')
@@ -403,8 +416,18 @@ function notify_queue() {
 			'align'   => 'left',
 			'tip'     => __('The name of the object as defined by the caller.', 'thold')
 		),
+		'hostname' => array(
+			'display' => __('Hostname', 'thold'),
+			'align'   => 'left',
+			'tip'     => __('The hostname that was the source of this event.', 'thold')
+		),
+		'nosort' => array(
+			'display' => __('Notifaction List', 'thold'),
+			'align'   => 'left',
+			'tip'     => __('The Notification List used if any.', 'thold')
+		),
 		'object_id' => array(
-			'display' => __('Event Object ID', 'thold'),
+			'display' => __('Object ID', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
 			'tip'     => __('The Object ID defined by the caller.  Generally its unique \'id\'.', 'thold')
@@ -437,14 +460,22 @@ function notify_queue() {
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
-	if (cacti_sizeof($notify_list)) {
-		foreach ($notify_list as $n) {
+	if (cacti_sizeof($notifications)) {
+		foreach ($notifications as $n) {
 			$data = json_decode($n['event_data'], true);
 
 			form_alternate_row('line' . $n['id'], false);
 
 			form_selectable_cell($thold_notification_topics[$n['topic']], $n['id']);
 			form_selectable_cell($n['object_name'], $n['id']);
+			form_selectable_cell($n['hostname'], $n['id']);
+
+			if (isset($lists[$n['notification_list_id']])) {
+				form_selectable_cell($lists[$n['notification_list_id']], $n['id']);
+			} else {
+				form_selectable_cell(__('Not Specified', 'thold'), $n['id']);
+			}
+
 			form_selectable_cell($n['id'], $n['id'], '', 'right');
 			form_selectable_cell($n['event_time'], $n['id'], '', 'right');
 			form_selectable_cell($n['event_processed'] == 0 ? __('Pending', 'thold'):__('Done', 'thold'), $n['id'], '', 'right');
@@ -467,7 +498,7 @@ function notify_queue() {
 
 	html_end_box(false);
 
-	if (cacti_sizeof($notify_list)) {
+	if (cacti_sizeof($notifications)) {
 		print $nav;
 	}
 

@@ -522,7 +522,7 @@ function thold_update_host_status() {
 							'device'  => $host,
 							'subject' => $subject,
 							'message' => $msg,
-							'email' => $alert_email
+							'email'   => $alert_email
 						)
 					);
 
@@ -533,7 +533,7 @@ function thold_update_host_status() {
 					} elseif ($host['thold_send_email'] == '0') {
 						cacti_log('NOTE: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] did not send a Device recovering email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 					} elseif ($alert_email != '') {
-						thold_mail($notify_list_id, $alert_email, '', '', $subject, $msg, '', '', 'thold_uhost_mail');
+						thold_mail($alert_email, '', '', $subject, $msg, '', '', '', $notify_list_id, $host, 'thold_uhost_mail');
 					}
 
 					$command = read_config_option('thold_device_command');
@@ -582,7 +582,7 @@ function thold_update_host_status() {
 									'envrionment' => $environment
 								);
 
-								thold_notification_add('thold_uhost_cmd', $data);
+								thold_notification_add('thold_uhost_cmd', $data, 'id', 0, $host);
 							}
 						} else {
 							cacti_log('WARNING: Device Up Command for Device[' . $host['id'] . '] Command[' . $command . '] Is either Not found or Not executable!', false, 'THOLD');
@@ -697,7 +697,7 @@ function thold_update_host_status() {
 						'device'  => $host,
 						'subject' => $subject,
 						'message' => $msg,
-						'email' => $alert_email
+						'email'   => $alert_email
 					)
 				);
 
@@ -708,7 +708,7 @@ function thold_update_host_status() {
 				} elseif ($host['thold_send_email'] == '0') {
 					cacti_log('NOTE: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] did not send a Device down email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 				} elseif ($alert_email != '') {
-					thold_mail($notify_list_id, $alert_email, '', '', $subject, $msg, '', '', 'thold_dhost_mail');
+					thold_mail($alert_email, '', '', $subject, $msg, '', '', '', $notify_list_id, $host, 'thold_dhost_mail');
 				}
 
 				$command = read_config_option('thold_device_command');
@@ -756,7 +756,7 @@ function thold_update_host_status() {
 								'envrionment' => $environment
 							);
 
-							thold_notification_add('thold_dhost_cmd', $data);
+							thold_notification_add('thold_dhost_cmd', $data, 'id', 0, $host);
 						}
 					} else {
 						cacti_log('WARNING: Device Down Command for Device[' . $host['id'] . '] Command[' . $command . '] Is either Not found or Not executable!', false, 'THOLD');
