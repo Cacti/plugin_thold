@@ -78,8 +78,10 @@ function form_save() {
 	if (isset_request_var('save_component')) {
 		$save['id']          = get_filter_request_var('id');
 		$save['name']        = form_input_validate(get_nfilter_request_var('name'), 'name', '', false, 3);
+		$save['enabled']     = isset_request_var('enabled') ? 'on':'';
 		$save['description'] = form_input_validate(get_nfilter_request_var('description'), 'description', '', false, 3);
-		$save['emails']      = form_input_validate(get_nfilter_request_var('emails'), 'emails', '', false, 3);
+		$save['emails']      = form_input_validate(get_nfilter_request_var('emails'), 'emails', '', true, 3);
+		$save['bcc_emails']  = form_input_validate(get_nfilter_request_var('bcc_emails'), 'bcc_emails', '', true, 3);
 
 		if (!is_error_message()) {
 			$id = sql_save($save, 'plugin_notification_lists');
@@ -175,6 +177,7 @@ function form_actions() {
 						$save['name']        = $name;
 						$save['description'] = $list['description'];
 						$save['emails']      = $list['emails'];
+						$save['bcc_emails']  = $list['bcc_emails'];
 
 						$id = sql_save($save, 'plugin_notification_lists');
 
@@ -845,10 +848,26 @@ function edit() {
 				'textarea_rows' => '2',
 				'textarea_cols' => '80'
 			),
+			'enabled' => array(
+				'method' => 'checkbox',
+				'friendly_name' => __('Enabled'),
+				'description' => __('To disable all notifications from this Notification List, you can simply disable it here.', 'thold'),
+				'default' => '',
+				'value' => '|arg1:enabled|'
+			),
 			'emails' => array(
 				'method' => 'textarea',
-				'friendly_name' => __('Email Addresses', 'thold'),
+				'friendly_name' => __('To Email Addresses', 'thold'),
 				'description' => __('Enter a comma separated list of Email addresses for this Notification List.', 'thold'),
+				'value' => '|arg1:emails|',
+				'class' => 'textAreaNotes',
+				'textarea_rows' => '4',
+				'textarea_cols' => '80'
+			),
+			'bcc_emails' => array(
+				'method' => 'textarea',
+				'friendly_name' => __('BCC Email Addresses', 'thold'),
+				'description' => __('Enter a comma separated list of Email addresses for this Notification List to be blind copied.', 'thold'),
 				'value' => '|arg1:emails|',
 				'class' => 'textAreaNotes',
 				'textarea_rows' => '4',
@@ -864,10 +883,12 @@ function edit() {
 			)
 		);
 
-		draw_edit_form(array(
-			'config' => array(),
-			'fields' => inject_form_variables($fields_notification, (isset($list) ? $list : array()))
-			));
+		draw_edit_form(
+			array(
+				'config' => array(),
+				'fields' => inject_form_variables($fields_notification, (isset($list) ? $list : array()))
+			)
+		);
 
 		html_end_box();
 
@@ -1995,6 +2016,7 @@ function lists() {
 
 	$display_text = array(
 		'name'        => array(__('List Name', 'thold'), 'ASC'),
+		'enabled'     => array(__('Enabled', 'thold'), 'ASC'),
 		'nosort1'     => array(__('Devices', 'thold'), ''),
 		'nosort2'     => array(__('Thresholds', 'thold'), ''),
 		'nosort3'     => array(__('Templates', 'thold'), ''),
@@ -2010,6 +2032,7 @@ function lists() {
 
 			form_alternate_row('line' . $item['id'], true);
 			form_selectable_cell(filter_value($item['name'], get_request_var('rfilter'), 'notify_lists.php?action=edit&id=' . $item['id']), $item['id']);
+			form_selectable_cell($item['enabled'] == 'on' ? __('Yes', 'thold'):__('No', 'thold'), $item['id'], '', 'white-space:pre-wrap');
 			form_selectable_cell(filter_value($item['hosts'], get_request_var('rfilter'), 'notify_lists.php?tab=hosts&action=edit&id='.$item['id']), $item['id']);
 			form_selectable_cell(filter_value('Warn: '.$item['thold_warnings'].', Alert: '.$item['thold_alerts'] , get_request_var('rfilter'), 'notify_lists.php?tab=tholds&action=edit&id='.$item['id']), $item['id']);
 			form_selectable_cell(filter_value('Warn: '.$item['template_warnings'].', Alert: '.$item['template_alerts'] , get_request_var('rfilter'), 'notify_lists.php?tab=templates&action=edit&id='.$item['id']), $item['id']);

@@ -6269,6 +6269,10 @@ function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 }
 
 function get_thold_notification_emails($id, $recipient = 'to') {
+	if (!thold_notification_list_enabled($id)) {
+		return '';
+	}
+
 	if (!empty($id)) {
 		if ($recipient == 'to') {
 			return trim(db_fetch_cell_prepared('SELECT emails
@@ -6283,6 +6287,24 @@ function get_thold_notification_emails($id, $recipient = 'to') {
 		}
 	} else {
 		return '';
+	}
+}
+
+function thold_notification_list_enabled($list_id) {
+	static $lists = null;
+
+	if ($lists == null) {
+		$lists = array_rekey(
+			db_fetch_assoc('SELECT id, enabled
+				FROM plugin_notification_lists'),
+			'id', 'enabled'
+		);
+	}
+
+	if (isset($lists[$list_id])) {
+		return $lists[$list_id] == 'on';
+	} else {
+		return true;
 	}
 }
 

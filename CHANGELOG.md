@@ -36,6 +36,8 @@
 
 * feature: Move device down detection and maintenance to a separate background thread
 
+* feature: Allow disabling notifications for a list by simply disabling it.
+
 * issue#147: Fixed threshold compare negative baseline values.
 
 * issue#396: Baseline Deviation does not work (as expected) 

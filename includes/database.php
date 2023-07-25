@@ -422,22 +422,39 @@ function thold_upgrade_database($force = false) {
 		$data['columns'][] = array(
 			'name' => 'id',
 			'type' => 'int(12)',
-			'NULL' => false, 'auto_increment' => true);
+			'NULL' => false, 'auto_increment' => true
+		);
 
 		$data['columns'][] = array(
 			'name' => 'name',
 			'type' => 'varchar(128)',
-			'NULL' => false);
+			'NULL' => false
+		);
+
+		$data['columns'][] = array(
+			'name' => 'enabled',
+			'type' => 'char(3)',
+			'NULL' => false,
+			'default' => ''
+		);
 
 		$data['columns'][] = array(
 			'name' => 'description',
 			'type' => 'varchar(512)',
-			'NULL' => false);
+			'NULL' => false
+		);
 
 		$data['columns'][] = array(
 			'name' => 'emails',
 			'type' => 'varchar(512)',
-			'NULL' => false);
+			'NULL' => false
+		);
+
+		$data['columns'][] = array(
+			'name' => 'bcc_emails',
+			'type' => 'varchar(512)',
+			'NULL' => false
+		);
 
 		$data['primary'] = 'id';
 		$data['type'] = 'InnoDB';
@@ -1482,6 +1499,16 @@ function thold_upgrade_database($force = false) {
 			FROM host AS h
 			INNER JOIN plugin_thold_host_template AS ptht
 			ON h.host_template_id = ptht.host_template_id');
+
+		db_add_column('plugin_notification_lists', array(
+			'name'    => 'enabled',
+			'type'    => 'char(3)',
+			'NULL'    => false,
+			'default' => '',
+			'after'   => 'name')
+		);
+
+		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
 	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', 1);
