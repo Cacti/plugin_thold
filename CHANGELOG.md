@@ -14,13 +14,15 @@
 
 * feature#471: Add ability to change failure count in change device menu
 
+* feature#486: add ":skipscale" option to prevent diagram area from being scaled by threshold lines, thus losing granularity in the graphs
+
 * feature#497: Show acknowledgment status on Thresholds tab instead of log
 
 * feature#528: Allow Thold to Use the BCC in addition to the TO line for Notification Lists
 
 * feature#569: Provide enough data in environment of command to get Graph Information about Thold
 
-* feature#486: add ":skipscale" option to prevent diagram area from being scaled by threshold lines, thus losing granularity in the graphs
+* feature#577: Clear pending device down message queue
 
 * feature: Add Site and Location options to Device Up/Down Notifications
 
