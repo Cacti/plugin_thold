@@ -198,7 +198,8 @@ function notify_queue() {
 		),
 		'topic' => array(
 			'filter' => FILTER_CALLBACK,
-			'default' => 'object_name',
+			'pageset' => true,
+			'default' => '-1',
 			'options' => array('options' => 'sanitize_search_string')
 		),
 		'sort_column' => array(
