@@ -4167,36 +4167,47 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 			$prev_value = $cdef['value'];
 
 			if ($cdef['type'] == 4) {
+				$found        = false;
 				$cdef['type'] = 6;
 
-				switch ($cdef['value']) {
-				case 'CURRENT_DATA_SOURCE':
-					$cdef['value'] = $oldvalue;
+				if (strpos($cdef['value'], 'CURRENT_DATA_SOURCE') !== false) {
+					$cdef['value'] = str_replace('CURRENT_DATA_SOURCE', $oldvalue, $cdef['value']);
+					$found = true;
+				}
 
-					break;
-				case 'CURRENT_GRAPH_MAXIMUM_VALUE':
-					$cdef['value'] = get_current_value($local_data_id, 'upper_limit');
+				if (strpos($cdef['value'], 'CURRENT_GRAPH_MAXIMUM_VALUE') !== false) {
+					$cdef['value'] = str_replace('CURRENT_GRAPH_MAXIMUM_VALUE', get_current_value($local_data_id, 'upper_limit'), $cdef['value']);
+					$found = true;
+				}
 
-					break;
-				case 'CURRENT_GRAPH_MINIMUM_VALUE':
-					$cdef['value'] = get_current_value($local_data_id, 'lower_limit');
+				if (strpos($cdef['value'], 'CURRENT_GRAPH_MINIMUM_VALUE') !== false) {
+					$cdef['value'] = str_replace('CURRENT_GRAPH_MINIMUM_VALUE', get_current_value($local_data_id, 'lower_limit'), $cdef['value']);
+					$found = true;
+				}
 
-					break;
-				case 'CURRENT_DS_MINIMUM_VALUE':
-					$cdef['value'] = get_current_value($local_data_id, 'rrd_minimum');
+				if (strpos($cdef['value'], 'CURRENT_DS_MINIMUM_VALUE') !== false) {
+					$cdef['value'] = str_replace('CURRENT_DS_MINIMUM_VALUE', get_current_value($local_data_id, 'rrd_minimum'), $cdef['value']);
+					$found = true;
+				}
 
-					break;
-				case 'CURRENT_DS_MAXIMUM_VALUE':
-					$cdef['value'] = get_current_value($local_data_id, 'rrd_maximum');
+				if (strpos($cdef['value'], '') !== false) {
+					$cdef['value'] = str_replace('CURRENT_DS_MINIMUM_VALUE', get_current_value($local_data_id, 'rrd_minimum'), $cdef['value']);
+					$found = true;
+				}
 
-					break;
-				case 'VALUE_OF_HDD_TOTAL':
-					$cdef['value'] = get_current_value($local_data_id, 'hdd_total');
+				if (strpos($cdef['value'], 'CURRENT_DS_MAXIMUM_VALUE') !== false) {
+					$cdef['value'] = str_replace('CURRENT_DS_MAXIMUM_VALUE', get_current_value($local_data_id, 'rrd_maximum'), $cdef['value']);
+					$found = true;
+				}
 
-					break;
-				case 'ALL_DATA_SOURCES_NODUPS': // you can't have DUPs in a single data source, really...
-				case 'ALL_DATA_SOURCES_DUPS':
-					$cdef['value'] = 0;
+				if (strpos($cdef['value'], 'VALUE_OF_HDD_TOTAL') !== false) {
+					$cdef['value'] = str_replace('VALUE_OF_HDD_TOTAL', get_current_value($local_data_id, 'hdd_total'), $cdef['value']);
+					$found = true;
+				}
+
+				if (strpos($cdef['value'], 'ALL_DATA_SOURCES_NODUPS') !== false || strpos($cdef['value'], 'ALL_DATA_SOURCES_DUPS') !== false) {
+					$found = true;
+					$total = 0;
 
 					$all_dsns = db_fetch_assoc_prepared('SELECT data_source_name
 						FROM data_template_rrd
@@ -4205,12 +4216,15 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 
 					if (cacti_sizeof($all_dsns)) {
 						foreach ($all_dsns as $dsn) {
-							$cdef['value'] += get_current_value($local_data_id, $dsn['data_source_name']);
+							$total += get_current_value($local_data_id, $dsn['data_source_name']);
 						}
 					}
 
-					break;
-				default:
+					$cdef['value'] = str_replace('ALL_DATA_SOURCES_NODUPS', $total, $cdef['value']);
+					$cdef['value'] = str_replace('ALL_DATA_SOURCES_DUPS', $total, $cdef['value']);
+				}
+
+				if (!$found) {
 					cacti_log('WARNING: CDEF property not implemented yet: ' . $cdef['value'], false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
 
 					return $oldvalue;
@@ -4246,7 +4260,9 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 
 	$x = cacti_count($cdef_array);
 
-	if ($x == 0) return $oldvalue;
+	if ($x == 0) {
+		return $oldvalue;
+	}
 
 	$stack = array(); // operation stack for RPN
 	array_push($stack, $cdef_array[0]); // first one always goes on
