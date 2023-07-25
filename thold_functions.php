@@ -1349,6 +1349,32 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 	return $tholds;
 }
 
+function thold_get_state_filter($state) {
+	$statefilter = '';
+
+	if ($state != '') {
+		if (get_request_var('state') == '-1') { // All
+			$statefilter = '';
+		} elseif (get_request_var('state') == '7') { // Disabled at Template
+			$statefilter = '(td.thold_enabled = "off")';
+		} elseif (get_request_var('state') == '2') { // Enabled
+			$statefilter = '(td.thold_enabled = "on" AND td.thold_per_enabled = "on")';
+		} elseif (get_request_var('state') == '1') { // Breached
+			$statefilter = '((td.thold_enabled = "on" AND td.thold_per_enabled = "on") AND (td.thold_alert != 0 OR td.bl_alert > 0))';
+		} elseif (get_request_var('state') == '3') { // Triggered
+			$statefilter = '((td.thold_enabled = "on" AND td.thold_per_enabled = "on") AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))';
+		} elseif (get_request_var('state') == '4') { // Ack Required
+			$statefilter = '(td.acknowledgment = "on")';
+		} elseif (get_request_var('state') == '5') { // Disabled at Thold
+			$statefilter = '(td.thold_per_enabled = "")';
+		} elseif (get_request_var('state') == '6') { // Disabled all together
+			$statefilter = '(td.thold_per_enabled = "" OR td.thold_enabled = "off")';
+		}
+	}
+
+	return $statefilter;
+}
+
 function is_thold_allowed_graph($local_graph_id) {
 	return is_graph_allowed($local_graph_id);
 }
@@ -1402,7 +1428,7 @@ function thold_log($save) {
 				$desc .= '  Type: ' . $thold_types[$thold['thold_type']];
 			}
 
-			$desc .= '  Enabled: ' . $thold['thold_enabled'];
+			$desc .= '  Enabled: ' . ($thold['thold_enabled'] == 'on' && $thold['thold_per_enabled'] == 'on' ? 'on':'off');
 			switch ($thold['thold_type']) {
 			case 0:
 				$desc .= '  Current: ' . $save['current'];
@@ -1717,7 +1743,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 				$desc .= ' Type Type[' . $thold_types[$thold['thold_type']] . ']';
 			}
 
-			$desc .= ' Enabled[' . $message['thold_enabled'] . ']';
+			$desc .= ' Enabled: ' . ($thold['thold_enabled'] == 'on' && $thold['thold_per_enabled'] == 'on' ? 'on':'off');
 
 			switch ($message['thold_type']) {
 			case 0:
@@ -1809,7 +1835,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			$desc .= ' Thold Type[' . $thold_types[$message['thold_type']] . ']';
 		}
 
-		$desc .= ' Enabled[' . $message['thold_enabled'] . ']';
+		$desc .= ' Enabled: ' . ($thold['thold_enabled'] == 'on' && $thold['thold_per_enabled'] == 'on' ? 'on':'off');
 
 		switch ($message['thold_type']) {
 		case 0:
@@ -1858,7 +1884,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 function get_thold_severity(&$td) {
 	$severity = THOLD_SEVERITY_NORMAL;
 
-	if (!isset($td['thold_enabled']) || $td['thold_enabled'] == 'off') {
+	if ($td['thold_enabled'] == 'off' || $td['thold_per_enabled'] == '') {
 		return THOLD_SEVERITY_DISABLED;
 	}
 
@@ -6117,12 +6143,12 @@ function thold_cacti_log($string, $thread = '') {
 function thold_threshold_enable($id) {
 	if (api_user_realm_auth('thold.php')) {
 		db_execute_prepared("UPDATE thold_data
-			SET thold_enabled='on',
-			thold_fail_count=0,
-			thold_warning_fail_count=0,
-			bl_fail_count=0,
-			thold_alert=0,
-			bl_alert=0
+			SET thold_per_enabled = 'on',
+			thold_fail_count = 0,
+			thold_warning_fail_count = 0,
+			bl_fail_count = 0,
+			thold_alert = 0,
+			bl_alert = 0
 			WHERE id = ?",
 			array($id));
 	}
@@ -6131,12 +6157,12 @@ function thold_threshold_enable($id) {
 function thold_threshold_disable($id) {
 	if (api_user_realm_auth('thold.php')) {
 		db_execute_prepared("UPDATE thold_data
-			SET thold_enabled='off',
-			thold_fail_count=0,
-			thold_warning_fail_count=0,
-			bl_fail_count=0,
-			thold_alert=0,
-			bl_alert=0
+			SET thold_per_enabled = '',
+			thold_fail_count = 0,
+			thold_warning_fail_count = 0,
+			bl_fail_count = 0,
+			thold_alert = 0,
+			bl_alert = 0
 			WHERE id = ?",
 			array($id));
 	}

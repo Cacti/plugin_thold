@@ -253,7 +253,7 @@ function do_actions() {
 							plugin_thold_log_changes($thold_id, 'enabled_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
-								SET thold_enabled="on"
+								SET thold_per_enabled="on"
 								WHERE id = ?',
 								array($thold_id));
 						}
@@ -265,7 +265,7 @@ function do_actions() {
 							plugin_thold_log_changes($thold_id, 'disabled_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
-								SET thold_enabled="off"
+								SET thold_per_enabled=""
 								WHERE id = ?',
 								array($thold_id));
 						}
@@ -563,23 +563,7 @@ function list_tholds() {
 		$rows = get_request_var('rows');
 	}
 
-	$statefilter = '';
-
-	if (isset_request_var('state')) {
-		if (get_request_var('state') == '-1') {
-			$statefilter = '';
-		} elseif (get_request_var('state') == '0') {
-			$statefilter = 'td.thold_enabled = "off"';
-		} elseif (get_request_var('state') == '2') {
-			$statefilter = 'td.thold_enabled = "on"';
-		} elseif (get_request_var('state') == '1') {
-			$statefilter = '(td.thold_enabled = "on" AND (td.thold_alert != 0 OR td.bl_alert > 0))';
-		} elseif (get_request_var('state') == '3') {
-			$statefilter = '(td.thold_enabled = "on" AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))';
-		} elseif (get_request_var('state') == '4') {
-			$statefilter = '(td.acknowledgment = "on")';
-		}
-	}
+	$statefilter = thold_get_state_filter(get_request_var('state'));
 
 	top_header();
 
@@ -718,7 +702,9 @@ function list_tholds() {
 							<option value='1'<?php if (get_request_var('state') == '1') {?> selected<?php }?>><?php print __('Breached', 'thold');?></option>
 							<option value='3'<?php if (get_request_var('state') == '3') {?> selected<?php }?>><?php print __('Triggered', 'thold');?></option>
 							<option value='2'<?php if (get_request_var('state') == '2') {?> selected<?php }?>><?php print __('Enabled', 'thold');?></option>
-							<option value='0'<?php if (get_request_var('state') == '0') {?> selected<?php }?>><?php print __('Disabled', 'thold');?></option>
+							<option value='6'<?php if (get_request_var('state') == '6') {?> selected<?php }?>><?php print __('Disabled', 'thold');?></option>
+							<option value='7'<?php if (get_request_var('state') == '7') {?> selected<?php }?>><?php print __('Disabled at Template', 'thold');?></option>
+							<option value='5'<?php if (get_request_var('state') == '5') {?> selected<?php }?>><?php print __('Disabled at Threshold', 'thold');?></option>
 							<option value='4'<?php if (get_request_var('state') == '4') {?> selected<?php }?>><?php print __('Ack Required', 'thold');?></option>
 						</select>
 					</td>
@@ -786,6 +772,10 @@ function list_tholds() {
 		'name_cache' => array(
 			'display' => __('Name', 'thold'),
 			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'nosort0' => array(
+			'display' => __('Enabled', 'thold'),
 			'align' => 'left'
 		),
 		'id' => array(
@@ -958,6 +948,18 @@ function list_tholds() {
 			thold_modify_values_by_cdef($thold_data);
 
 			form_selectable_cell(filter_value($name, get_request_var('rfilter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
+
+			if ($thold_data['thold_enabled'] == 'on' && $thold_data['thold_per_enabled'] == 'on') {
+				$enabled = __('Yes', 'thold');
+			} elseif ($thold_data['thold_enabled'] == 'off' && $thold_data['thold_per_enabled'] == '') {
+				$enabled = __('No [Template:Thold]', 'thold');
+			} elseif ($thold_data['thold_enabled'] == 'off') {
+				$enabled = __('No [Template]', 'thold');
+			} else {
+				$enabled = __('No [Thold]', 'thold');
+			}
+
+			form_selectable_cell($enabled, $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
 
@@ -1500,11 +1502,18 @@ function thold_edit() {
 			'value' => isset($thold_data['template_name']) ? $thold_data['template_name'] : __('N/A', 'thold'),
 		),
 		'thold_enabled' => array(
-			'friendly_name' => __('Threshold Enabled', 'thold'),
+			'friendly_name' => __('Enabled at Template Level', 'thold'),
 			'method' => 'checkbox',
 			'default' => 'on',
-			'description' => __('Whether or not this Threshold will be checked and alerted upon.', 'thold'),
+			'description' => __('A Threshold must be enabled both at the Template Level and the Threshold level to be checked.', 'thold'),
 			'value' => isset($thold_data['thold_enabled']) ? $thold_data['thold_enabled'] : ''
+		),
+		'thold_per_enabled' => array(
+			'friendly_name' => __('Enabled at Threshold Level', 'thold'),
+			'method' => 'checkbox',
+			'default' => 'on',
+			'description' => __('A Threshold must be enabled both at the Template Level and the Threshold level to be checked.', 'thold'),
+			'value' => isset($thold_data['thold_per_enabled']) ? $thold_data['thold_per_enabled'] : ''
 		),
 		'general_header' => array(
 			'friendly_name' => __('General Settings', 'thold'),

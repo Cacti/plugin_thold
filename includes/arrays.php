@@ -512,6 +512,8 @@ $thold_actions = array(
 $thold_template_actions = array(
 	1 => __('Export', 'thold'),
 	2 => __('Delete', 'thold'),
+	4 => __('Enable', 'thold'),
+	5 => __('Disable', 'thold'),
 	3 => __('Reapply Suggested Names', 'thold')
 );
 

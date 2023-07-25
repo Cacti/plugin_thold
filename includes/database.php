@@ -1508,6 +1508,14 @@ function thold_upgrade_database($force = false) {
 			'after'   => 'name')
 		);
 
+		db_add_column('thold_data', array(
+			'name'    => 'thold_per_enabled',
+			'type'    => 'char(3)',
+			'NULL'    => false,
+			'default' => 'on',
+			'after'   => 'thold_enabled')
+		);
+
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
@@ -1554,6 +1562,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'thold_alert', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'prev_thold_alert', 'type' => 'int(1)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'thold_enabled', 'type' => "enum('on','off')", 'NULL' => false, 'default' => 'on');
+	$data['columns'][] = array('name' => 'thold_per_enabled', 'type' => "char(3)", 'NULL' => false, 'default' => 'on');
 	$data['columns'][] = array('name' => 'thold_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0);
 	$data['columns'][] = array('name' => 'bl_ref_time_range', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_type', 'type' => 'int (3)', 'NULL' => false, 'default' => 0);

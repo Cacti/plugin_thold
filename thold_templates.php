@@ -203,6 +203,28 @@ function do_actions() {
 					}
 
 					break;
+				case 4: // Enable
+					foreach ($selected_items as $thold_id) {
+						db_execute_prepared('UPDATE thold_template
+							SET thold_enabled = "on"
+							WHERE id = ?',
+							array($thold_id));
+
+						thold_template_enable($thold_id);
+					}
+
+					break;
+				case 5: // Disable
+					foreach ($selected_items as $thold_id) {
+						db_execute_prepared('UPDATE thold_template
+							SET thold_enabled = "off"
+							WHERE id = ?',
+							array($thold_id));
+
+						thold_template_disable($thold_id);
+					}
+
+					break;
 			}
 
 			header('Location: thold_templates.php?header=false');
@@ -260,6 +282,14 @@ function do_actions() {
 			case 3:
 				$message = __('Click \'Continue\' to Reapply Suggested Names to Thresholds of the following Threshold Template(s).', 'thold');
 				$button = __esc('Reapply Suggested Names to Template(s)', 'thold');
+				break;
+			case 4:
+				$message = __('Click \'Continue\' to Enable the selected Template(s) and Threshold(s).', 'thold');
+				$button = __esc('Enable Template(s)', 'thold');
+				break;
+			case 5:
+				$message = __('Click \'Continue\' to Disable the selected Template(s) and Threshold(s).', 'thold');
+				$button = __esc('Disable Template(s)', 'thold');
 				break;
 			default:
 				$message = __('Invalid action detected, can not proceed', 'thold');
@@ -595,6 +625,12 @@ function template_add() {
 		if ($id) {
 			plugin_thold_log_changes($id, 'modified_template', $save);
 
+			if ($save['thold_enabled'] == 'off') {
+				thold_template_disable($id);
+			} else {
+				thold_template_enable($id);
+			}
+
 			header("Location: thold_templates.php?action=edit&id=$id&header=false");
 			exit;
 		} else {
@@ -604,6 +640,22 @@ function template_add() {
 			exit;
 		}
 	}
+}
+
+function thold_template_disable($id) {
+	db_execute_prepared('UPDATE thold_data
+		SET thold_enabled = "off"
+		WHERE thold_template_id = ?
+		AND template_enabled = "on"',
+		array($id));
+}
+
+function thold_template_enable($id) {
+	db_execute_prepared('UPDATE thold_data
+		SET thold_enabled = "on"
+		WHERE thold_template_id = ?
+		AND template_enabled = "on"',
+		array($id));
 }
 
 function template_save_edit() {
@@ -846,6 +898,12 @@ function template_save_edit() {
 			}
 
 			thold_template_update_thresholds($id);
+
+			if ($save['thold_enabled'] == 'off') {
+				thold_template_disable($id);
+			} else {
+				thold_template_enable($id);
+			}
 
 			plugin_thold_log_changes($id, 'modified_template', $save);
 		} else {
@@ -2026,6 +2084,11 @@ function templates() {
 			'sort' => 'ASC',
 			'align' => 'left'
 		),
+		'thold_enabled' => array(
+			'display' => __('Enabled', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
 		'id' => array(
 			'display' => __('ID', 'thold'),
 			'sort' => 'ASC',
@@ -2129,6 +2192,7 @@ function templates() {
 
 			form_alternate_row('line' . $template['id']);
 			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name  . '</a>', $template['id']);
+			form_selectable_cell($template['thold_enabled'] == 'on' ? __('Yes', 'thold'):__('No', 'thold'), $template['id']);
 			form_selectable_cell($template['id'], $template['id'], '', 'right');
 			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold.php?reset=1&thold_template_id=' . $template['id']) . '">' . $template['thresholds']  . '</a>', $template['id'], '', 'right');
 			form_selectable_cell(filter_value($template['data_template_name'], get_request_var('filter')), $template['id']);

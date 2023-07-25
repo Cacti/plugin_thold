@@ -210,13 +210,15 @@ function form_thold_filter() {
 						<?php print __('Status', 'thold');?>
 					</td>
 					<td>
-						<select id='status' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
-							<option value='1'<?php if (get_request_var('status') == '1') {?> selected<?php }?>><?php print __('Breached', 'thold');?></option>
-							<option value='3'<?php if (get_request_var('status') == '3') {?> selected<?php }?>><?php print __('Triggered', 'thold');?></option>
-							<option value='2'<?php if (get_request_var('status') == '2') {?> selected<?php }?>><?php print __('Enabled', 'thold');?></option>
-							<option value='0'<?php if (get_request_var('status') == '0') {?> selected<?php }?>><?php print __('Disabled', 'thold');?></option>
-							<option value='4'<?php if (get_request_var('status') == '4') {?> selected<?php }?>><?php print __('Ack Required', 'thold');?></option>
+						<select id='state' onChange='applyFilter()'>
+							<option value='-1'<?php if (get_request_var('state') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
+							<option value='1'<?php if (get_request_var('state') == '1') {?> selected<?php }?>><?php print __('Breached', 'thold');?></option>
+							<option value='3'<?php if (get_request_var('state') == '3') {?> selected<?php }?>><?php print __('Triggered', 'thold');?></option>
+							<option value='2'<?php if (get_request_var('state') == '2') {?> selected<?php }?>><?php print __('Enabled', 'thold');?></option>
+							<option value='6'<?php if (get_request_var('state') == '6') {?> selected<?php }?>><?php print __('Disabled', 'thold');?></option>
+							<option value='7'<?php if (get_request_var('state') == '7') {?> selected<?php }?>><?php print __('Disabled at Template', 'thold');?></option>
+							<option value='5'<?php if (get_request_var('state') == '5') {?> selected<?php }?>><?php print __('Disabled at Threshold', 'thold');?></option>
+							<option value='4'<?php if (get_request_var('state') == '4') {?> selected<?php }?>><?php print __('Ack Required', 'thold');?></option>
 						</select>
 					</td>
 					<td>
@@ -243,7 +245,7 @@ function form_thold_filter() {
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=thold';
-			strURL += '&status=' + $('#status').val();
+			strURL += '&state=' + $('#state').val();
 			strURL += '&thold_template_id=' + $('#thold_template_id').val();
 			strURL += '&data_template_id=' + $('#data_template_id').val();
 			strURL += '&host_id=' + $('#host_id').val();
@@ -320,51 +322,51 @@ function tholds() {
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'page' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
+		),
 		'rfilter' => array(
 			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
-			),
+		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'name_cache',
 			'options' => array('options' => 'sanitize_thold_sort_string')
-			),
+		),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'data_template_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'thold_template_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'host_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'site_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
-		'status' => array(
+		),
+		'state' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => $default_status
-			)
+		)
 	);
 
 	validate_store_request_vars($filters, 'sess_thold');
@@ -388,15 +390,7 @@ function tholds() {
 	$sql_where = '';
 
 	/* status filter */
-	if (get_request_var('status') == '-1') {
-		/* return all rows */
-	} else {
-		if (get_request_var('status') == '0') { $sql_where = "(td.thold_enabled = 'off'"; } /*disabled*/
-		if (get_request_var('status') == '2') { $sql_where = "(td.thold_enabled = 'on'"; } /* enabled */
-		if (get_request_var('status') == '1') { $sql_where = "(td.thold_enabled = 'on' AND ((td.thold_alert != 0 OR td.bl_alert > 0))"; } /* breached */
-		if (get_request_var('status') == '3') { $sql_where = "(td.thold_enabled = 'on' AND (((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))"; } /* status */
-		if (get_request_var('status') == '4') { $sql_where = "(td.acknowledgment = 'on'"; } /* status */
-	}
+	$sql_where = thold_get_state_filter(get_request_var('state'));
 
 	if (get_request_var('rfilter') != '') {
 		$sql_where .= ($sql_where == '' ? '(': ' AND ') . ' td.name_cache RLIKE "' . get_request_var('rfilter') . '"';
@@ -429,10 +423,6 @@ function tholds() {
 		$sql_where .= ($sql_where == '' ? '(':' AND ') . 'h.site_id = ' . get_request_var('site_id');
 	}
 
-	if ($sql_where != '') {
-		$sql_where .= ')';
-	}
-
 	$tholds = get_allowed_thresholds($sql_where, $sql_order, $sql_limit, $total_rows);
 
 	$nav = html_nav_bar('thold_graph.php?action=thold', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 13, 'Thresholds', 'page', 'main');
@@ -450,6 +440,10 @@ function tholds() {
 		'name_cache' => array(
 			'display' => __('Name', 'thold'),
 			'sort' => 'ASC',
+			'align' => 'left'
+		),
+		'nosort99' => array(
+			'display' => __('Enabled', 'thold'),
 			'align' => 'left'
 		),
 		'id' => array(
@@ -607,7 +601,7 @@ function tholds() {
 			}
 
 			if (api_user_realm_auth('thold.php')) {
-				if ($thold_data['thold_enabled'] == 'on') {
+				if ($thold_data['thold_per_enabled'] == 'on') {
 					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $thold_data['id']) . '" title="' . __esc('Disable Threshold', 'thold') . '"><i class="tholdGlyphDisable fas fa-stop-circle"></i></a>';
 				} else {
 					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $thold_data['id']) . '" title="' . __esc('Enable Threshold', 'thold') . '"><i class="tholdGlyphEnable fas fa-play-circle"></i></a>';
@@ -682,6 +676,18 @@ function tholds() {
 			form_selectable_cell($actions_url, $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('rfilter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
+
+			if ($thold_data['thold_enabled'] == 'on' && $thold_data['thold_per_enabled'] == 'on') {
+				$enabled = __('Yes', 'thold');
+			} elseif ($thold_data['thold_enabled'] == 'off' && $thold_data['thold_per_enabled'] == '') {
+				$enabled = __('No [Template:Thold]', 'thold');
+			} elseif ($thold_data['thold_enabled'] == 'off') {
+				$enabled = __('No [Template]', 'thold');
+			} else {
+				$enabled = __('No [Thold]', 'thold');
+			}
+
+			form_selectable_cell($enabled, $thold_data['id'], '', 'right');
 
 			form_selectable_cell($thold_data['id'], $thold_data['id'], '', 'right');
 
@@ -1220,51 +1226,51 @@ function thold_validate_log_vars() {
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'page' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
+		),
 		'rfilter' => array(
 			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
-			),
+		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'time',
 			'options' => array('options' => 'sanitize_thold_sort_string')
-			),
+		),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'DESC',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'threshold_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'thold_template_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'host_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'site_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'status' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			)
+		)
 	);
 
 	validate_store_request_vars($filters, 'sess_thold_log');

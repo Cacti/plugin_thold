@@ -38,6 +38,10 @@
 
 * feature: Allow disabling notifications for a list by simply disabling it.
 
+* feature: Mass Enable/Disable at Template Level
+
+* feature: Make Enabling and Disabling a Thold Different than Enabling or Disabling a Template
+
 * issue#147: Fixed threshold compare negative baseline values.
 
 * issue#396: Baseline Deviation does not work (as expected) 
