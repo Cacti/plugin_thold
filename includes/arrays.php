@@ -525,3 +525,17 @@ $thold_notification_topics = array(
 	'thold_dhost_cmd'  => __('Down Host Cmd', 'thold'),
 	'thold_uhost_cmd'  => __('Up Host Cmd', 'thold')
 );
+
+$thold_units_convert_array = array(
+	'thold_hi',
+	'thold_low',
+	'time_hi',
+	'time_low',
+	'thold_warning_hi',
+	'thold_warning_low',
+	'time_warning_hi',
+	'time_warning_low',
+	'bl_pct_down',
+	'bl_pct_up'
+);
+

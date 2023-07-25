@@ -4669,6 +4669,161 @@ function thold_create_new_graph_from_template() {
 	}
 }
 
+/**
+ * thold_display_to_raw - Converts a displayed number to a raw
+ * numeric value.  This function converts number like '100M'
+ * to the raw number 100,000,000, etc.
+ *
+ * Supported Units
+ *
+ * Unit  Expression
+ * ----  -------------------------------------
+ * f     Fermo (10e-12)
+ * p     Pico  (10e-9)
+ * u     Micro (10e-6)
+ * m     Milli (10e-3)
+ * K     Killo (10e3)
+ * M     Mega  (10e6)
+ * G     Giga  (10e9)
+ * T     Terra (10e12)
+ * P     Peta  (10e15)
+ * E     Exa   (10e18)
+ * Z     Zeta  (10e21)
+ * Y     Yota  (10e24)
+ *
+ */
+function thold_display_to_raw($number, $field_name) {
+	$number = trim($number);
+
+	$_SESSION['sess_field_values'][$field_name] = $number;
+
+	$suffix = substr($number, -1);
+
+	/* if the number is numeric just return */
+	if (is_numeric($suffix)) {
+		return $number;
+	}
+
+	$number = trim(substr($number, 0, -1));
+
+	if (!is_numeric($number)) {
+		$_SESSION['sess_error_fields'][$field_name] = $field_name;
+		raise_message(3);
+		return false;
+	}
+
+	switch($suffix) {
+		case 'f':
+			return $number * 1e-15;
+			break;
+		case 'p':
+			return $number * 1e-9;
+			break;
+		case 'u':
+			return $number * 1e-6;
+			break;
+		case 'm':
+			return $number * 1e-3;
+			break;
+		case 'K':
+			return $number * 1e3;
+			break;
+		case 'M':
+			return $number * 1e6;
+			break;
+		case 'G':
+			return $number * 1e9;
+			break;
+		case 'T':
+			return $number * 1e12;
+			break;
+		case 'P':
+			return $number * 1e15;
+			break;
+		case 'E':
+			return $number * 1e18;
+			break;
+		case 'Z':
+			return $number * 1e21;
+			break;
+		case 'Y':
+			return $number * 1e24;
+			break;
+		default:
+			$_SESSION['sess_error_fields'][$field_name] = $field_name;
+			raise_message(3);
+			return false;
+	}
+}
+
+/**
+ * thold_display_to_raw - Converts a displayed number to a raw
+ * numeric value.  This function converts number like '100M'
+ * to the raw number 100,000,000, etc.
+ *
+ * Supported Units
+ *
+ * Unit  Expression
+ * ----  -------------------------------------
+ * f     Fermo (10e-12)
+ * p     Pico  (10e-9)
+ * u     Micro (10e-6)
+ * m     Milli (10e-3)
+ * K     Killo (10e3)
+ * M     Mega  (10e6)
+ * G     Giga  (10e9)
+ * T     Terra (10e12)
+ * P     Peta  (10e15)
+ * E     Exa   (10e18)
+ * Z     Zeta  (10e21)
+ * Y     Yota  (10e24)
+ *
+ */
+function thold_raw_to_display($number) {
+	$number = trim($number);
+
+	if (!is_numeric($number)) {
+		return false;
+	}
+
+	if ($number > 0) {
+		$multiplier = 1;
+	} else {
+		$multiplier = -1;
+	}
+
+	$number = abs($number);
+	$suffix = '';
+
+	if ($number > 1) {
+		$pattern = 'KMGTPEZY';
+		$count = 0;
+
+		while ($number >= 1e3) {
+			$count++;
+			$number /= 1e3;
+		}
+
+		if ($count > 0) {
+			$suffix = $pattern[$count-1];
+		}
+	} else {
+		$pattern = 'mupf';
+		$count = 0;
+
+		while ($number < 1) {
+			$count++;
+			$number *= 1e3;
+		}
+
+		if ($count > 0) {
+			$suffix = $pattern[$count-1];
+		}
+	}
+
+	return trim(($number * $multiplier) . $suffix);
+}
+
 function save_thold() {
 	global $banner;
 
@@ -4837,23 +4992,15 @@ function save_thold() {
 		return get_filter_request_var('id');
 	}
 
-	get_filter_request_var('thold_hi', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('thold_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('thold_fail_trigger');
-	get_filter_request_var('thold_warning_hi', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('thold_warning_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('thold_warning_fail_trigger');
 
 	get_filter_request_var('repeat_alert');
 
 	get_filter_request_var('thold_type');
 
-	get_filter_request_var('time_hi', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('time_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('time_fail_trigger');
 	get_filter_request_var('time_fail_length');
-	get_filter_request_var('time_warning_hi', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('time_warning_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('time_warning_fail_trigger');
 	get_filter_request_var('time_warning_fail_length');
 
@@ -4865,8 +5012,6 @@ function save_thold() {
 
 	get_filter_request_var('bl_type');
 	get_filter_request_var('bl_ref_time_range');
-	get_filter_request_var('bl_pct_down', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('bl_pct_up', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('bl_fail_trigger');
 
 	get_filter_request_var('syslog_facility');
@@ -4995,7 +5140,7 @@ function save_thold() {
 	}
 
 	$save['exempt']               = isset_request_var('exempt') ? 'on':'';
-	$save['repeat_alert']         = trim_round_request_var('repeat_alert');
+	$save['repeat_alert']         = get_filter_request_var('repeat_alert');
 	$save['data_template_id']     = $data_source_info['data_template_id'];
 	$save['data_source_name']     = $data_source_info['data_source_name'];
 
@@ -5038,26 +5183,26 @@ function save_thold() {
 	$save['template_enabled']     = isset_request_var('template_enabled') ? 'on':'off';
 
 	// High / Low
-	$save['thold_hi']             = trim_round_request_var('thold_hi', 4);
-	$save['thold_low']            = trim_round_request_var('thold_low', 4);
+	$save['thold_hi']             = trim_round_request_var('thold_hi', 4, 'thold_hi');
+	$save['thold_low']            = trim_round_request_var('thold_low', 4, 'thold_low');
 	$save['thold_fail_trigger']   = isempty_request_var('thold_fail_trigger') ? read_config_option('alert_trigger'):get_nfilter_request_var('thold_fail_trigger');
 
 	// Time Based
-	$save['time_hi']              = trim_round_request_var('time_hi', 4);
-	$save['time_low']             = trim_round_request_var('time_low', 4);
+	$save['time_hi']              = trim_round_request_var('time_hi', 4, 'time_hi');
+	$save['time_low']             = trim_round_request_var('time_low', 4, 'time_low');
 	$save['time_fail_trigger']    = isempty_request_var('time_fail_trigger') ? read_config_option('thold_warning_time_fail_trigger'):get_nfilter_request_var('time_fail_trigger');
 
 	$save['time_fail_length']     = isempty_request_var('time_fail_length') ? (read_config_option('thold_warning_time_fail_length') > 0 ?
 		read_config_option('thold_warning_time_fail_length') : 1) : get_nfilter_request_var('time_fail_length');
 
 	// Warning High / Low
-	$save['thold_warning_hi']           = trim_round_request_var('thold_warning_hi', 4);
-	$save['thold_warning_low']          = trim_round_request_var('thold_warning_low', 4);
+	$save['thold_warning_hi']           = trim_round_request_var('thold_warning_hi', 4, 'thold_warning_hi');
+	$save['thold_warning_low']          = trim_round_request_var('thold_warning_low', 4, 'thold_warning_low');
 	$save['thold_warning_fail_trigger'] = isempty_request_var('thold_warning_fail_trigger') ? read_config_option('alert_trigger'):get_nfilter_request_var('thold_warning_fail_trigger');
 
 	// Warning Time Based
-	$save['time_warning_hi']             = trim_round_request_var('time_warning_hi', 4);
-	$save['time_warning_low']            = trim_round_request_var('time_warning_low', 4);
+	$save['time_warning_hi']             = trim_round_request_var('time_warning_hi', 4, 'time_warning_hi');
+	$save['time_warning_low']            = trim_round_request_var('time_warning_low', 4, 'time_warning_low');
 	$save['time_warning_fail_trigger']   = isempty_request_var('time_warning_fail_trigger') ?
 		read_config_option('thold_warning_time_fail_trigger') : get_nfilter_request_var('time_warning_fail_trigger');
 
@@ -5067,17 +5212,17 @@ function save_thold() {
 
 	// Baseline
 	$save['bl_thold_valid']    = '0';
-	$save['bl_type']           = trim_round_request_var('bl_type');
+	$save['bl_type']           = get_filter_request_var('bl_type');
 	$save['bl_ref_time_range'] = isempty_request_var('bl_ref_time_range') ? read_config_option('alert_bl_timerange_def'):get_nfilter_request_var('bl_ref_time_range');
-	$save['bl_pct_down']       = trim_round_request_var('bl_pct_down');
-	$save['bl_pct_up']         = trim_round_request_var('bl_pct_up');
+	$save['bl_pct_down']       = trim_round_request_var('bl_pct_down', 4, 'bl_pct_down');
+	$save['bl_pct_up']         = trim_round_request_var('bl_pct_up', 4, 'bl_pct_up');
 	$save['bl_fail_trigger']   = isempty_request_var('bl_fail_trigger') ? read_config_option('alert_bl_trigger'):get_nfilter_request_var('bl_fail_trigger');
 
 	// Notification
-	$save['notify_extra']         = trim_round_request_var('notify_extra');
-	$save['notify_warning_extra'] = trim_round_request_var('notify_warning_extra');
-	$save['notify_warning']       = trim_round_request_var('notify_warning');
-	$save['notify_alert']         = trim_round_request_var('notify_alert');
+	$save['notify_extra']         = get_nfilter_request_var('notify_extra');
+	$save['notify_warning_extra'] = get_nfilter_request_var('notify_warning_extra');
+	$save['notify_warning']       = get_filter_request_var('notify_warning');
+	$save['notify_alert']         = get_filter_request_var('notify_alert');
 
 	// Notes
 	$save['notes']          = get_nfilter_request_var('notes');
@@ -5087,7 +5232,7 @@ function save_thold() {
 	// Data Manipulation
 	$save['data_type']   = get_nfilter_request_var('data_type');
 	$save['percent_ds']  = (isset_request_var('percent_ds')) ? get_nfilter_request_var('percent_ds') : '';
-	$save['cdef']        = trim_round_request_var('cdef');
+	$save['cdef']        = get_filter_request_var('cdef');
 	$save['expression']  = (isset_request_var('expression')) ? get_nfilter_request_var('expression') : '';
 	$save['upper_ds']    = (isset_request_var('upper_ds')) ? get_nfilter_request_var('upper_ds') : '';
 	$save['show_units'] = isset_request_var('show_units') && get_request_var('show_units') == 'on' ? 'on':'off';
@@ -5103,9 +5248,9 @@ function save_thold() {
 	$save['trigger_cmd_norm'] = get_nfilter_request_var('trigger_cmd_norm');
 
 	// SNMP Information
-	$save['snmp_event_category'] = trim_round_request_var('snmp_event_category');
-	$save['snmp_event_description'] = trim_round_request_var('snmp_event_description');
-	$save['snmp_event_severity'] = isset_request_var('snmp_event_severity') ? get_nfilter_request_var('snmp_event_severity'):4;
+	$save['snmp_event_category']         = get_filter_request_var('snmp_event_category');
+	$save['snmp_event_description']      = get_nfilter_request_var('snmp_event_description');
+	$save['snmp_event_severity']         = isset_request_var('snmp_event_severity') ? get_nfilter_request_var('snmp_event_severity'):4;
 	$save['snmp_event_warning_severity'] = isset_request_var('snmp_event_warning_severity') ? get_nfilter_request_var('snmp_event_warning_severity'):3;
 
 	if ($local_graph_id > 0 && $graph_template_id > 0) {
@@ -5212,8 +5357,12 @@ function save_thold() {
 	return $id;
 }
 
-function trim_round_request_var($variable, $digits = 0) {
+function trim_round_request_var($variable, $digits = 0, $field_name = '') {
 	$variable = trim(get_nfilter_request_var($variable));
+
+	if (!empty($variable)) {
+		$variable = thold_display_to_raw($variable, $field_name);
+	}
 
 	if ($variable == '0') {
 		return '0';

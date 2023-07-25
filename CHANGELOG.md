@@ -4,6 +4,8 @@
 
 * security: Fix potential security exposure with unserialize() function
 
+* feature#79: Allow and correctly handle unit suffix in the context of values
+
 * feature#140: Baseline Deviation Moving Average
 
 * feature#185: Baseline deviation with exact changes

@@ -1500,6 +1500,13 @@ function thold_edit() {
 		}
 	}
 
+	/* convert raw units to display units */
+	if (cacti_sizeof($thold_data)) {
+		foreach($thold_units_convert_array as $variable) {
+			$thold_data[$variable] = thold_raw_to_display($thold_data[$variable]);
+		}
+	}
+
 	$formats = reports_get_format_files();
 
 	$form_array = array(
@@ -1643,6 +1650,7 @@ function thold_edit() {
 		'thold_warning_header' => array(
 			'friendly_name' => __('Warning - High / Low Settings', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'thold_warning_hi' => array(
 			'friendly_name' => __('High Threshold', 'thold'),
@@ -1670,6 +1678,7 @@ function thold_edit() {
 		'thold_header' => array(
 			'friendly_name' => __('Alert - High / Low Settings', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'thold_hi' => array(
 			'friendly_name' => __('High Threshold', 'thold'),
@@ -1697,6 +1706,7 @@ function thold_edit() {
 		'time_warning_header' => array(
 			'friendly_name' => __('Warning - Time Based Settings', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'time_warning_hi' => array(
 			'friendly_name' => __('High Threshold', 'thold'),
@@ -1732,6 +1742,7 @@ function thold_edit() {
 		'time_header' => array(
 			'friendly_name' => __('Alert - Time Based Settings', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'time_hi' => array(
 			'friendly_name' => __('High Threshold', 'thold'),
@@ -1768,6 +1779,7 @@ function thold_edit() {
 		'baseline_header' => array(
 			'friendly_name' => __('Baseline Settings', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'bl_type' => array(
 			'friendly_name' => __('Baseline Type', 'thold'),

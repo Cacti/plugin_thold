@@ -663,11 +663,7 @@ function template_save_edit() {
 	/* ================= input validation ================= */
 	get_filter_request_var('id');
 	get_filter_request_var('thold_type');
-	get_filter_request_var('thold_hi', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('thold_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('thold_fail_trigger');
-	get_filter_request_var('time_hi', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('time_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('time_fail_trigger');
 	get_filter_request_var('time_fail_length');
 	get_filter_request_var('reset_ack');
@@ -675,17 +671,11 @@ function template_save_edit() {
 	get_filter_request_var('syslog_priority');
 	get_filter_request_var('syslog_facility');
 	get_filter_request_var('thold_warning_type');
-	get_filter_request_var('thold_warning_hi', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('thold_warning_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('thold_warning_fail_trigger');
-	get_filter_request_var('time_warning_hi', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('time_warning_low', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('time_warning_fail_trigger');
 	get_filter_request_var('time_warning_fail_length');
 	get_filter_request_var('bl_type');
 	get_filter_request_var('bl_ref_time_range');
-	get_filter_request_var('bl_pct_down', FILTER_VALIDATE_FLOAT);
-	get_filter_request_var('bl_pct_up', FILTER_VALIDATE_FLOAT);
 	get_filter_request_var('bl_fail_trigger');
 	get_filter_request_var('repeat_alert');
 	get_filter_request_var('data_type');
@@ -749,13 +739,13 @@ function template_save_edit() {
 	$save['restored_alert'] = isset_request_var('restored_alert') ? 'on' : '';
 
 	// High / Low
-	$save['thold_hi']           = get_nfilter_request_var('thold_hi');
-	$save['thold_low']          = get_nfilter_request_var('thold_low');
+	$save['thold_hi']           = trim_round_request_var('thold_hi', 4, 'thold_hi');
+	$save['thold_low']          = trim_round_request_var('thold_low', 4, 'thold_low');
 	$save['thold_fail_trigger'] = get_nfilter_request_var('thold_fail_trigger');
 
 	// Time Based
-	$save['time_hi']            = get_nfilter_request_var('time_hi');
-	$save['time_low']           = get_nfilter_request_var('time_low');
+	$save['time_hi']            = trim_round_request_var('time_hi', 4, 'time_hi');
+	$save['time_low']           = trim_round_request_var('time_low', 4, 'time_low');
 	$save['time_fail_trigger']  = get_nfilter_request_var('time_fail_trigger');
 	$save['time_fail_length']   = get_nfilter_request_var('time_fail_length');
 
@@ -771,13 +761,13 @@ function template_save_edit() {
 	}
 
 	// High / Low Warnings
-	$save['thold_warning_hi']           = get_nfilter_request_var('thold_warning_hi');
-	$save['thold_warning_low']          = get_nfilter_request_var('thold_warning_low');
+	$save['thold_warning_hi']           = trim_round_request_var('thold_warning_hi', 4, 'thold_warning_hi');
+	$save['thold_warning_low']          = trim_round_request_var('thold_warning_low', 4, 'thold_warning_low');
 	$save['thold_warning_fail_trigger'] = get_nfilter_request_var('thold_warning_fail_trigger');
 
 	// Time Based Warnings
-	$save['time_warning_hi']            = get_nfilter_request_var('time_warning_hi');
-	$save['time_warning_low']           = get_nfilter_request_var('time_warning_low');
+	$save['time_warning_hi']            = trim_round_request_var('time_warning_hi', 4, 'time_warning_hi');
+	$save['time_warning_low']           = trim_round_request_var('time_warning_low', 4, 'time_warning_low');
 	$save['time_warning_fail_trigger']  = get_nfilter_request_var('time_warning_fail_trigger');
 	$save['time_warning_fail_length']   = get_nfilter_request_var('time_warning_fail_length');
 
@@ -825,8 +815,8 @@ function template_save_edit() {
 	}
 
 	$save['bl_type']     = get_nfilter_request_var('bl_type');
-	$save['bl_pct_down'] = get_nfilter_request_var('bl_pct_down');
-	$save['bl_pct_up']   = get_nfilter_request_var('bl_pct_up');
+	$save['bl_pct_down'] = trim_round_request_var('bl_pct_down', 4, 'bl_pct_down');
+	$save['bl_pct_up']   = trim_round_request_var('bl_pct_up', 4, 'bl_pct_up');
 
 	if (isset_request_var('bl_fail_trigger') && get_nfilter_request_var('bl_fail_trigger') != '') {
 		$save['bl_fail_trigger'] = get_nfilter_request_var('bl_fail_trigger');
@@ -1105,6 +1095,13 @@ function template_edit() {
 
 	$formats = reports_get_format_files();
 
+	/* convert raw units to display units */
+	if (cacti_sizeof($thold_data)) {
+		foreach($thold_units_convert_array as $variable) {
+			$thold_data[$variable] = thold_raw_to_display($thold_data[$variable]);
+		}
+	}
+
 	$form_array = array(
 		'general_header' => array(
 			'friendly_name' => __('General Settings', 'thold'),
@@ -1237,6 +1234,7 @@ function template_edit() {
 		'thold_warning_header' => array(
 			'friendly_name' => __('Warning - High / Low Settings', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'thold_warning_hi' => array(
 			'friendly_name' => __('High Threshold', 'thold'),
@@ -1264,6 +1262,7 @@ function template_edit() {
 		'thold_header' => array(
 			'friendly_name' => __('Alert - High / Low Settings', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'thold_hi' => array(
 			'friendly_name' => __('High Threshold', 'thold'),
@@ -1291,6 +1290,7 @@ function template_edit() {
 		'time_warning_header' => array(
 			'friendly_name' => __('Warning - Time Based Settings', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'time_warning_hi' => array(
 			'friendly_name' => __('High Threshold', 'thold'),
@@ -1327,6 +1327,7 @@ function template_edit() {
 		'time_header' => array(
 			'friendly_name' => __('Alert - Time Based Settings', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'time_hi' => array(
 			'friendly_name' => __('High Threshold', 'thold'),
@@ -1362,6 +1363,7 @@ function template_edit() {
 		'baseline_header' => array(
 			'friendly_name' => __('Baseline Monitoring', 'thold'),
 			'method' => 'spacer',
+			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'bl_type' => array(
 			'friendly_name' => __('Baseline Type', 'thold'),
@@ -1738,7 +1740,7 @@ function template_edit() {
 	draw_edit_form(
 		array(
 			'config' => array('no_form_tag' => true),
-			'fields' => inject_form_variables($form_array, sizeof($thold_data) ? $thold_data : array())
+			'fields' => inject_form_variables($form_array, cacti_sizeof($thold_data) ? $thold_data : array())
 		)
 	);
 
