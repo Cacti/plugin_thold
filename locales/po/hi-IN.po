@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-07-25 14:50-0400\n"
+"POT-Creation-Date: 2023-07-25 19:01-0400\n"
 "PO-Revision-Date: 2019-03-17 15:03-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -220,8 +220,8 @@ msgstr "ठीक"
 msgid "Emergency"
 msgstr "आपातकालीन"
 
-#: includes/arrays.php:226 thold.php:1953 thold.php:1972
-#: thold_templates.php:1547 thold_templates.php:1561
+#: includes/arrays.php:226 thold.php:1965 thold.php:1984
+#: thold_templates.php:1549 thold_templates.php:1563
 #, fuzzy
 msgid "Critical"
 msgstr "गंभीर"
@@ -443,7 +443,7 @@ msgstr "CDEF"
 msgid "Percentage"
 msgstr "प्रतिशत"
 
-#: includes/arrays.php:497 thold.php:1847 thold_templates.php:1433
+#: includes/arrays.php:497 thold.php:1859 thold_templates.php:1435
 #, fuzzy
 msgid "RPN Expression"
 msgstr "RPN अभिव्यक्ति"
@@ -532,7 +532,7 @@ msgstr "SNMP उपयोग में नहीं है"
 #: includes/polling.php:445 notify_queue.php:488 notify_queue.php:489
 #: thold.php:982 thold.php:1014 thold.php:1015 thold.php:1234 thold.php:1283
 #: thold.php:1290 thold.php:1296 thold.php:1304 thold.php:1310 thold.php:1327
-#: thold.php:1329 thold.php:1522 thold_graph.php:709 thold_graph.php:741
+#: thold.php:1329 thold.php:1529 thold_graph.php:709 thold_graph.php:741
 #: thold_graph.php:742 thold_graph.php:1017 thold_graph.php:1066
 #: thold_graph.php:1069 thold_graph.php:1070 thold_graph.php:1071
 #: thold_graph.php:1495 thold_graph.php:1496
@@ -569,7 +569,7 @@ msgstr "सिस्टम में गड़बड़ी : <DESCRIPTION> ( <HO
 #: includes/settings.php:77 includes/settings.php:223 notify_lists.php:45
 #: notify_lists.php:1355 notify_lists.php:1420 notify_lists.php:2033
 #: thold.php:714 thold.php:765 thold_functions.php:143 thold_graph.php:225
-#: thold_templates.php:2125
+#: thold_templates.php:2127
 #, fuzzy
 msgid "Thresholds"
 msgstr "सीमारेखा"
@@ -631,7 +631,7 @@ msgstr "हाल ही में डिवाइस विफलता"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
-#: includes/settings.php:160 thold_templates.php:2009
+#: includes/settings.php:160 thold_templates.php:2011
 #, fuzzy
 msgid "Threshold Templates"
 msgstr "थ्रेशोल्ड टेम्पलेट्स"
@@ -665,7 +665,7 @@ msgid "Management"
 msgstr "उपयोगकर्ता प्रबंधन"
 
 #: includes/settings.php:224 notify_lists.php:46 notify_lists.php:2034
-#: thold_templates.php:2024 thold_templates.php:2100
+#: thold_templates.php:2026 thold_templates.php:2102
 #, fuzzy
 msgid "Templates"
 msgstr "टेम्पलेट्स"
@@ -834,9 +834,9 @@ msgstr "कोई भी"
 
 #: includes/settings.php:418 notify_lists.php:857 notify_lists.php:1350
 #: notify_lists.php:1436 notify_lists.php:1545 notify_lists.php:2031
-#: thold.php:706 thold.php:780 thold.php:2036 thold_graph.php:217
-#: thold_graph.php:446 thold_graph.php:1132 thold_templates.php:1148
-#: thold_templates.php:1624 thold_templates.php:2115
+#: thold.php:706 thold.php:780 thold.php:2048 thold_graph.php:217
+#: thold_graph.php:446 thold_graph.php:1132 thold_templates.php:1145
+#: thold_templates.php:1626 thold_templates.php:2117
 #, fuzzy
 msgid "Enabled"
 msgstr "सक्षम"
@@ -1041,7 +1041,7 @@ msgstr "चेतावनी लॉग प्रतिधारण"
 msgid "Keep Threshold Logs for this number of days."
 msgstr "इस दिनों के लिए थ्रेसहोल्ड लॉग रखें।"
 
-#: includes/settings.php:555 thold.php:2031 thold_templates.php:1619
+#: includes/settings.php:555 thold.php:2043 thold_templates.php:1621
 #, fuzzy
 msgid "Syslog Settings"
 msgstr "Syslog सेटिंग्स"
@@ -1126,7 +1126,7 @@ msgstr "बेसलाइन टाइम रेंज डिफ़ॉल्ट
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr "यह थ्रेसहोल्ड या टेम्पलेट बनाने में उपयोग किया जाने वाला डिफ़ॉल्ट मान है।"
 
-#: includes/settings.php:616 thold.php:1803 thold_templates.php:1397
+#: includes/settings.php:616 thold.php:1815 thold_templates.php:1399
 #, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "बेसलाइन ट्रिगर काउंट"
@@ -1407,7 +1407,7 @@ msgstr "अधिसूचना सूचियाँ हटाने के �
 #: notify_lists.php:520 notify_lists.php:532 notify_lists.php:590
 #: notify_lists.php:601 notify_lists.php:660 notify_lists.php:671
 #: notify_lists.php:731 notify_lists.php:744 notify_queue.php:151
-#: setup.php:1442 thold.php:460 thold_functions.php:6309
+#: setup.php:1442 thold.php:460 thold_functions.php:6468
 #: thold_templates.php:308
 #, fuzzy
 msgid "Cancel"
@@ -1416,7 +1416,7 @@ msgstr "कैंसिल करें"
 #: notify_lists.php:520 notify_lists.php:532 notify_lists.php:590
 #: notify_lists.php:601 notify_lists.php:660 notify_lists.php:671
 #: notify_lists.php:731 notify_lists.php:744 notify_queue.php:151
-#: setup.php:1443 thold.php:463 thold_functions.php:6312
+#: setup.php:1443 thold.php:463 thold_functions.php:6471
 #: thold_templates.php:310
 #, fuzzy
 msgid "Continue"
@@ -1580,7 +1580,7 @@ msgid "List General Settings"
 msgstr "सूची सामान्य सेटिंग्स"
 
 #: notify_lists.php:841 notify_lists.php:1429 notify_lists.php:1688
-#: setup.php:1247 thold.php:775 thold_graph.php:441 thold_templates.php:2110
+#: setup.php:1247 thold.php:775 thold_graph.php:441 thold_templates.php:2112
 #, fuzzy
 msgid "Name"
 msgstr "नाम"
@@ -1625,11 +1625,11 @@ msgstr "ईमेल पता"
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
 msgstr "इस अधिसूचना सूची के लिए ईमेल पतों की अल्पविराम से अलग की गई सूची दर्ज करें।"
 
-#: notify_lists.php:881 thold.php:1871 thold_templates.php:1462
+#: notify_lists.php:881 thold.php:1883 thold_templates.php:1464
 msgid "Email Style/Format File"
 msgstr ""
 
-#: notify_lists.php:884 thold.php:1874 thold_templates.php:1465
+#: notify_lists.php:884 thold.php:1886 thold_templates.php:1467
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr ""
 
@@ -1639,9 +1639,9 @@ msgid "Associated Devices"
 msgstr "संबद्ध उपकरण"
 
 #: notify_lists.php:989 notify_lists.php:1306 notify_lists.php:1611
-#: notify_lists.php:1935 notify_queue.php:248 thold.php:635 thold.php:2418
+#: notify_lists.php:1935 notify_queue.php:248 thold.php:635 thold.php:2430
 #: thold_graph.php:132 thold_graph.php:1101 thold_graph.php:1522
-#: thold_templates.php:1909 thold_templates.php:2018
+#: thold_templates.php:1911 thold_templates.php:2020
 #, fuzzy
 msgid "Search"
 msgstr "खोज"
@@ -1655,27 +1655,27 @@ msgstr "साइट"
 #: notify_lists.php:1000 notify_lists.php:1018 notify_lists.php:1183
 #: notify_lists.php:1197 notify_lists.php:1317 notify_lists.php:1516
 #: notify_lists.php:1760 setup.php:779 setup.php:797 setup.php:971
-#: setup.php:972 setup.php:1135 thold.php:646 thold.php:677 thold.php:1564
-#: thold.php:1572 thold.php:1910 thold.php:1918 thold.php:2381
+#: setup.php:972 setup.php:1135 thold.php:646 thold.php:677 thold.php:1571
+#: thold.php:1579 thold.php:1922 thold.php:1930 thold.php:2393
 #: thold_graph.php:143 thold_graph.php:174 thold_graph.php:192
 #: thold_graph.php:1112 thold_graph.php:1158 thold_graph.php:1533
 #: thold_graph.php:1565 thold_templates.php:458 thold_templates.php:506
-#: thold_templates.php:1158 thold_templates.php:1166 thold_templates.php:1508
-#: thold_templates.php:1516 thold_templates.php:1872
+#: thold_templates.php:1155 thold_templates.php:1163 thold_templates.php:1510
+#: thold_templates.php:1518 thold_templates.php:1874
 #, fuzzy
 msgid "None"
 msgstr "कोई नहीं"
 
 #: notify_lists.php:1013 notify_lists.php:1433 notify_lists.php:1692
 #: thold.php:789 thold_graph.php:459 thold_graph.php:1153 thold_graph.php:1442
-#: thold_templates.php:2135
+#: thold_templates.php:2137
 #, fuzzy
 msgid "Type"
 msgstr "प्रकार"
 
 #: notify_lists.php:1037 notify_lists.php:1359 notify_lists.php:1621
 #: notify_lists.php:1945 notify_queue.php:283 thold.php:718 thold_graph.php:229
-#: thold_graph.php:1177 thold_graph.php:1619 thold_templates.php:2028
+#: thold_graph.php:1177 thold_graph.php:1619 thold_templates.php:2030
 #, fuzzy
 msgid "Default"
 msgstr "चूक"
@@ -1687,7 +1687,7 @@ msgstr "एसोसिएटेड"
 
 #: notify_lists.php:1055 notify_lists.php:1377 notify_lists.php:1639
 #: notify_lists.php:1956 notify_queue.php:295 thold.php:662 thold_graph.php:160
-#: thold_graph.php:1144 thold_graph.php:1550 thold_templates.php:2040
+#: thold_graph.php:1144 thold_graph.php:1550 thold_templates.php:2042
 #, fuzzy
 msgid "Go"
 msgstr "चले जाओ"
@@ -1700,7 +1700,7 @@ msgstr "सेट / फ़िल्टर ताज़ा करें"
 
 #: notify_lists.php:1056 notify_lists.php:1378 notify_lists.php:1640
 #: notify_lists.php:1959 notify_queue.php:296 thold.php:665 thold_graph.php:161
-#: thold_graph.php:1145 thold_graph.php:1551 thold_templates.php:2041
+#: thold_graph.php:1145 thold_graph.php:1551 thold_templates.php:2043
 #, fuzzy
 msgid "Clear"
 msgstr "明确"
@@ -1713,7 +1713,7 @@ msgstr "साफ फिल्टर"
 
 #: notify_lists.php:1167 notify_lists.php:1430 notify_lists.php:1689
 #: thold.php:784 thold_graph.php:450 thold_graph.php:941
-#: thold_templates.php:2120
+#: thold_templates.php:2122
 #, fuzzy
 msgid "ID"
 msgstr "आईडी"
@@ -1775,11 +1775,11 @@ msgid "State"
 msgstr "राज्य"
 
 #: notify_lists.php:1347 notify_queue.php:258 notify_queue.php:273
-#: thold.php:645 thold.php:676 thold.php:703 thold.php:2380 thold_graph.php:142
+#: thold.php:645 thold.php:676 thold.php:703 thold.php:2392 thold_graph.php:142
 #: thold_graph.php:173 thold_graph.php:191 thold_graph.php:214
 #: thold_graph.php:1111 thold_graph.php:1131 thold_graph.php:1157
 #: thold_graph.php:1532 thold_graph.php:1564 thold_graph.php:1582
-#: thold_graph.php:1604 thold_templates.php:1871
+#: thold_graph.php:1604 thold_templates.php:1873
 #, fuzzy
 msgid "All"
 msgstr "所有"
@@ -1801,7 +1801,7 @@ msgstr "टेम्प्लेट की गई"
 
 #: notify_lists.php:1445 notify_lists.php:2047 notify_queue.php:274
 #: thold.php:872 thold.php:1025 thold.php:1027 thold.php:1030
-#: thold_graph.php:529 thold_graph.php:752 thold_templates.php:2222
+#: thold_graph.php:529 thold_graph.php:752 thold_templates.php:2224
 #, fuzzy
 msgid "No"
 msgstr "नहीं"
@@ -1809,7 +1809,7 @@ msgstr "नहीं"
 #: notify_lists.php:1448 notify_lists.php:2047 notify_queue.php:275
 #: thold.php:903 thold.php:907 thold.php:955 thold.php:1025 thold.php:1030
 #: thold_graph.php:560 thold_graph.php:564 thold_graph.php:681
-#: thold_graph.php:752 thold_templates.php:2222
+#: thold_graph.php:752 thold_templates.php:2224
 #, fuzzy
 msgid "Yes"
 msgstr "हाँ"
@@ -2161,7 +2161,7 @@ msgstr "ऑटो-थ्रेशोल्ड बनाएँ"
 msgid "Created %s thresholds"
 msgstr "बनाया गया सीमा: %s"
 
-#: setup.php:892 setup.php:1049 thold_functions.php:5551
+#: setup.php:892 setup.php:1049 thold_functions.php:5710
 #, fuzzy
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "नो थ्रेशोल्ड (ओं) को बनाया गया। वे या तो पहले से ही मौजूद थे, या वहाँ मेल मिलाप नहीं मिला।"
@@ -2340,7 +2340,7 @@ msgstr "फिर से टेम्पलेट"
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr ""
 
-#: thold.php:427 thold_functions.php:6299
+#: thold.php:427 thold_functions.php:6458
 #, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "टेम्पलेट स्वीकार करें"
@@ -2384,7 +2384,7 @@ msgid "Return to Defaults"
 msgstr "चूक पर लौटें"
 
 #: thold.php:686 thold_graph.php:187 thold_templates.php:454
-#: thold_templates.php:1132 thold_templates.php:2130
+#: thold_templates.php:1129 thold_templates.php:2132
 #, fuzzy
 msgid "Data Template"
 msgstr "डेटा टेम्प्लेट"
@@ -2419,8 +2419,8 @@ msgstr "वर्तमान"
 msgid "The last measured value for the Data Source"
 msgstr "डेटा स्रोत के लिए अंतिम मापा गया मान"
 
-#: thold.php:805 thold.php:1952 thold.php:1971 thold_graph.php:470
-#: thold_templates.php:1547 thold_templates.php:1561 thold_templates.php:2145
+#: thold.php:805 thold.php:1964 thold.php:1983 thold_graph.php:470
+#: thold_templates.php:1549 thold_templates.php:1563 thold_templates.php:2147
 #, fuzzy
 msgid "High"
 msgstr "उच्च"
@@ -2429,8 +2429,8 @@ msgstr "उच्च"
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr ""
 
-#: thold.php:811 thold.php:1950 thold.php:1969 thold_graph.php:476
-#: thold_templates.php:1547 thold_templates.php:1561 thold_templates.php:2151
+#: thold.php:811 thold.php:1962 thold.php:1981 thold_graph.php:476
+#: thold_templates.php:1549 thold_templates.php:1563 thold_templates.php:2153
 #, fuzzy
 msgid "Low"
 msgstr "कम"
@@ -2439,17 +2439,17 @@ msgstr "कम"
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr ""
 
-#: thold.php:817 thold_graph.php:482 thold_templates.php:2157
+#: thold.php:817 thold_graph.php:482 thold_templates.php:2159
 #, fuzzy
 msgid "Trigger"
 msgstr "उत्प्रेरक"
 
-#: thold.php:822 thold_graph.php:487 thold_templates.php:2162
+#: thold.php:822 thold_graph.php:487 thold_templates.php:2164
 #, fuzzy
 msgid "Duration"
 msgstr "अवधि"
 
-#: thold.php:827 thold_graph.php:492 thold_templates.php:2167
+#: thold.php:827 thold_graph.php:492 thold_templates.php:2169
 #, fuzzy
 msgid "Repeat"
 msgstr "दोहराना"
@@ -2564,585 +2564,591 @@ msgstr "अस्थायी नहीं है"
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "डेटा स्रोत आइटम [ %s] - वर्तमान मूल्य: [ %s]"
 
-#: thold.php:1474 thold_templates.php:1076
+#: thold.php:1474 thold_templates.php:1066
 #, fuzzy, php-format
 msgid "Replacement Fields: %s"
 msgstr "प्रतिस्थापन फ़ील्ड: %s"
 
-#: thold.php:1487 thold_templates.php:1090
+#: thold.php:1487 thold_templates.php:1080
 #, fuzzy, php-format
 msgid "Data Sources: %s"
 msgstr "डेटा स्रोत: %s"
 
-#: thold.php:1507
+#: thold.php:1514
 #, fuzzy
 msgid "Template/Enabled Information"
 msgstr "टेम्पलेट / सक्षम जानकारी"
 
-#: thold.php:1511
+#: thold.php:1518
 #, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "खाका प्रसार सक्षम"
 
-#: thold.php:1514
+#: thold.php:1521
 #, fuzzy
 msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr "इन सेटिंग्स को थ्रेशोल्ड टेम्पलेट से प्रचारित किया जाएगा या नहीं।"
 
-#: thold.php:1518 thold_templates.php:1114
+#: thold.php:1525 thold_templates.php:1111
 #, fuzzy
 msgid "Template Name"
 msgstr "टेम्पलेट नाम"
 
-#: thold.php:1521
+#: thold.php:1528
 #, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "थ्रेशोल्ड टेम्पलेट का नाम थ्रेशोल्ड से बनाया गया था।"
 
-#: thold.php:1525
+#: thold.php:1532
 msgid "Enabled at Template Level"
 msgstr ""
 
-#: thold.php:1528 thold.php:1535
+#: thold.php:1535 thold.php:1542
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
 msgstr ""
 
-#: thold.php:1532
+#: thold.php:1539
 #, fuzzy
 msgid "Enabled at Threshold Level"
 msgstr "थ्रेशोल्ड सक्षम करें"
 
-#: thold.php:1539 thold_templates.php:1110
+#: thold.php:1546 thold_templates.php:1107
 #, fuzzy
 msgid "General Settings"
 msgstr "सामान्य सेटिंग्स"
 
-#: thold.php:1543
+#: thold.php:1550
 msgid "Name (Displayed)"
 msgstr ""
 
-#: thold.php:1548 thold.php:1557
+#: thold.php:1555 thold.php:1564
 #, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "थ्रेसहोल्ड को एक सार्थक नाम प्रदान करें"
 
-#: thold.php:1552
+#: thold.php:1559
 msgid "Name (Format)"
 msgstr ""
 
-#: thold.php:1561 thold_templates.php:1155
+#: thold.php:1568 thold_templates.php:1152
 #, fuzzy
 msgid "Warning HRULE Color"
 msgstr "चेतावनी HRULE रंग"
 
-#: thold.php:1562 thold_templates.php:1156
+#: thold.php:1569 thold_templates.php:1153
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "कृपया चेतावनी थ्रेशोल्ड के लिए ग्राफ़ HRULE के लिए एक रंग चुनें। बिना HRULE के 'कोई नहीं' चुनें। नोट: यह सुविधाएँ केवल इस समय डेटा हेरफेर प्रकार 'सटीक मान' और 'प्रतिशत' के लिए समर्थित है।"
 
-#: thold.php:1569 thold_templates.php:1163
+#: thold.php:1576 thold_templates.php:1160
 #, fuzzy
 msgid "Alert HRULE Color"
 msgstr "चेतावनी रंग"
 
-#: thold.php:1570 thold_templates.php:1164
+#: thold.php:1577 thold_templates.php:1161
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "कृपया अलर्ट थ्रेशोल्ड के लिए ग्राफ HRULE के लिए एक रंग चुनें। बिना HRULE के 'कोई नहीं' चुनें। नोट: यह सुविधाएँ केवल इस समय डेटा हेरफेर प्रकार 'सटीक मान' और 'प्रतिशत' के लिए समर्थित है।"
 
-#: thold.php:1577 thold_templates.php:1171
+#: thold.php:1584 thold_templates.php:1168
 #, fuzzy
 msgid "Graph Timespan"
 msgstr "ग्राफ टेम्पलेट"
 
-#: thold.php:1580 thold_templates.php:1174
+#: thold.php:1587 thold_templates.php:1171
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
 msgstr ""
 
-#: thold.php:1585 thold_templates.php:1179
+#: thold.php:1592 thold_templates.php:1176
 msgid "Skip Scaling on HRULEs"
 msgstr ""
 
-#: thold.php:1588 thold_templates.php:1182
+#: thold.php:1595 thold_templates.php:1179
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
 msgstr ""
 
-#: thold.php:1592 thold_templates.php:1186
+#: thold.php:1599 thold_templates.php:1183
 #, fuzzy
 msgid "Weekend Exemption"
 msgstr "सप्ताहांत की छूट"
 
-#: thold.php:1593 thold_templates.php:1187
+#: thold.php:1600 thold_templates.php:1184
 #, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr "यदि इसकी जाँच की जाती है, तो यह थ्रेसहोल्ड सप्ताहांत पर सतर्क नहीं होगा।"
 
-#: thold.php:1599 thold_templates.php:1193
+#: thold.php:1606 thold_templates.php:1190
 #, fuzzy
 msgid "Disable Restoration Email"
 msgstr "बहाली ईमेल अक्षम करें"
 
-#: thold.php:1600 thold_templates.php:1194
+#: thold.php:1607 thold_templates.php:1191
 #, fuzzy
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr "यदि इसकी जाँच की जाती है, तो थ्रेशोल्ड सामान्य स्थिति में वापस आने पर थ्रेसहोल्ड अलर्ट नहीं भेजेगा।"
 
-#: thold.php:1606 thold_templates.php:1200
+#: thold.php:1613 thold_templates.php:1197
 #, fuzzy
 msgid "Acknowledgment Options"
 msgstr "पावती विकल्प"
 
-#: thold.php:1607 thold_templates.php:1201
+#: thold.php:1614 thold_templates.php:1198
 #, fuzzy
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr "तीन प्रशंसा स्तर हैं जो नियंत्रित करते हैं कि आपको थ्रेशोल्ड ब्रीच स्थिति का जवाब कैसे देना चाहिए। वो हैं: <br><br><ul><li> <i>कोई भी आवश्यक नहीं</i> - जब आप इस विकल्प का चयन करते हैं, तो थ्रेशोल्ड ब्रीच के लिए कोई पावती की आवश्यकता नहीं होती है। </li><li> <i>रीसेट रीसेट करें</i> - इस विकल्प के साथ, एक बार जब आप थ्रेसहोल्ड को स्वीकार कर लेते हैं, तो आप अब अधिसूचनाएँ प्राप्त नहीं करेंगे जबकि यह भंग हो गई है। </li><li> <i>Persist Acknowledgment</i> - इस विकल्प के साथ, थ्रेशोल्ड सामान्य होने के बाद भी, आपको थ्रेसहोल्ड को स्वीकार करना होगा और एक वैकल्पिक ऑपरेटर संदेश प्रदान करना होगा। </li></ul>"
 
-#: thold.php:1614 thold_templates.php:1208
+#: thold.php:1621 thold_templates.php:1205
 #, fuzzy
 msgid "None Required"
 msgstr "कोई आवश्यकता नहीं"
 
-#: thold.php:1618 thold_templates.php:1212
+#: thold.php:1625 thold_templates.php:1209
 #, fuzzy
 msgid "Suspendible Notification"
 msgstr "SNMP अधिसूचनाएं"
 
-#: thold.php:1622 thold_templates.php:1216
+#: thold.php:1629 thold_templates.php:1213
 #, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "अनुनय विनय"
 
-#: thold.php:1627 thold_templates.php:1221
+#: thold.php:1634 thold_templates.php:1218
 #, fuzzy
 msgid "Threshold Type"
 msgstr "थ्रेशोल्ड प्रकार"
 
-#: thold.php:1632 thold_templates.php:1226
+#: thold.php:1639 thold_templates.php:1223
 #, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "थ्रेशोल्ड का प्रकार जिसे मॉनिटर किया जाएगा।"
 
-#: thold.php:1636 thold_templates.php:1230
+#: thold.php:1643 thold_templates.php:1227
 #, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "री-अलर्ट साइकिल"
 
-#: thold.php:1640
+#: thold.php:1647
 #, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr "अंतिम चेतावनी के बाद समय की इस राशि के बीत जाने के बाद बार-बार चेतावनी।"
 
-#: thold.php:1644 thold_templates.php:1238
+#: thold.php:1651 thold_templates.php:1235
 #, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "चेतावनी - उच्च / निम्न सेटिंग्स"
 
-#: thold.php:1648 thold.php:1675 thold.php:1702 thold.php:1737
-#: thold_templates.php:1242 thold_templates.php:1269 thold_templates.php:1296
-#: thold_templates.php:1332
+#: thold.php:1653 thold.php:1681 thold.php:1709 thold.php:1745 thold.php:1782
+#: thold_templates.php:1237 thold_templates.php:1265 thold_templates.php:1293
+#: thold_templates.php:1330 thold_templates.php:1366
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr ""
+
+#: thold.php:1656 thold.php:1684 thold.php:1712 thold.php:1748
+#: thold_templates.php:1240 thold_templates.php:1268 thold_templates.php:1296
+#: thold_templates.php:1333
 #, fuzzy
 msgid "High Threshold"
 msgstr "उच्च थ्रेसहोल्ड"
 
-#: thold.php:1652 thold.php:1706 thold_templates.php:1300
+#: thold.php:1660 thold.php:1716 thold_templates.php:1300
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1656 thold.php:1683 thold.php:1710 thold.php:1745
-#: thold_templates.php:1250 thold_templates.php:1277 thold_templates.php:1304
-#: thold_templates.php:1340
+#: thold.php:1664 thold.php:1692 thold.php:1720 thold.php:1756
+#: thold_templates.php:1248 thold_templates.php:1276 thold_templates.php:1304
+#: thold_templates.php:1341
 #, fuzzy
 msgid "Low Threshold"
 msgstr "कम दहलीज"
 
-#: thold.php:1660 thold.php:1714 thold_templates.php:1308
+#: thold.php:1668 thold.php:1724 thold_templates.php:1308
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1664 thold.php:1691
+#: thold.php:1672 thold.php:1700
 #, fuzzy
 msgid "Breach Duration"
 msgstr "ब्रीच अवधि"
 
-#: thold.php:1667
+#: thold.php:1675
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "एक चेतावनी के लिए डेटा स्रोत की मात्रा को थ्रेसहोल्ड के उल्लंघन में होना चाहिए।"
 
-#: thold.php:1671 thold_templates.php:1265
+#: thold.php:1679 thold_templates.php:1263
 #, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "चेतावनी - उच्च / निम्न सेटिंग्स"
 
-#: thold.php:1679 thold.php:1741 thold_templates.php:1246
-#: thold_templates.php:1273 thold_templates.php:1336
+#: thold.php:1688 thold.php:1752 thold_templates.php:1244
+#: thold_templates.php:1272 thold_templates.php:1337
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1687 thold.php:1749 thold_templates.php:1254
-#: thold_templates.php:1281 thold_templates.php:1344
+#: thold.php:1696 thold.php:1760 thold_templates.php:1252
+#: thold_templates.php:1280 thold_templates.php:1345
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr ""
 
-#: thold.php:1694
+#: thold.php:1703
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr "किसी अलर्ट को बढ़ाने के लिए डेटा स्रोत की मात्रा थ्रेशोल्ड के उल्लंघन में होनी चाहिए।"
 
-#: thold.php:1698 thold_templates.php:1292
+#: thold.php:1707 thold_templates.php:1291
 #, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "चेतावनी - समय आधारित सेटिंग्स"
 
-#: thold.php:1718 thold.php:1753
+#: thold.php:1728 thold.php:1764
 #, fuzzy
 msgid "Breach Count"
 msgstr "ब्रीच काउंट"
 
-#: thold.php:1722 thold.php:1758
+#: thold.php:1732 thold.php:1769
 #, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr "थ्रेसहोल्ड के उल्लंघन में डेटा स्रोत की संख्या का होना आवश्यक है।"
 
-#: thold.php:1726 thold.php:1762
+#: thold.php:1736 thold.php:1773
 #, fuzzy
 msgid "Breach Window"
 msgstr "ब्रीच विंडो"
 
-#: thold.php:1729 thold.php:1765 thold_templates.php:1324
-#: thold_templates.php:1359
+#: thold.php:1739 thold.php:1776 thold_templates.php:1324
+#: thold_templates.php:1360
 #, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "थ्रेसहोल्ड उल्लंघनों की जांच करने के लिए अतीत में समय की मात्रा।"
 
-#: thold.php:1733 thold_templates.php:1328
+#: thold.php:1743 thold_templates.php:1328
 #, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "चेतावनी - समय आधारित सेटिंग्स"
 
-#: thold.php:1769
+#: thold.php:1780
 #, fuzzy
 msgid "Baseline Settings"
 msgstr "बेसलाइन सेटिंग्स"
 
-#: thold.php:1773 thold_templates.php:1367
+#: thold.php:1785 thold_templates.php:1369
 #, fuzzy
 msgid "Baseline Type"
 msgstr "बेसलाइन अलर्ट"
 
-#: thold.php:1776 thold_templates.php:1370
+#: thold.php:1788 thold_templates.php:1372
 msgid "The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend."
 msgstr ""
 
-#: thold.php:1780
+#: thold.php:1792
 #, fuzzy
 msgid "Time range"
 msgstr "समय सीमा"
 
-#: thold.php:1783 thold_templates.php:1377
+#: thold.php:1795 thold_templates.php:1379
 #, fuzzy
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
 msgstr "पिछले बिंदु को निर्दिष्ट करता है (rrd रेजोल्यूशन के आधार पर) जिसे संदर्भ के रूप में उपयोग किया जाएगा"
 
-#: thold.php:1787
+#: thold.php:1799
 #, fuzzy
 msgid "Deviation UP"
 msgstr "विचलन यूपी"
 
-#: thold.php:1791 thold_templates.php:1385
+#: thold.php:1803 thold_templates.php:1387
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all."
 msgstr "निर्दिष्ट करता है कि ऊपरी बाध्य थ्रेसहोल्ड के लिए प्रतिशत में विचलन की अनुमति है। यदि सेट नहीं किया गया है, तो ऊपरी बाध्य थ्रेसहोल्ड की जांच बिल्कुल नहीं की जाएगी।"
 
-#: thold.php:1795
+#: thold.php:1807
 #, fuzzy
 msgid "Deviation DOWN"
 msgstr "विचलन"
 
-#: thold.php:1799 thold_templates.php:1393
+#: thold.php:1811 thold_templates.php:1395
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all."
 msgstr "निर्दिष्ट बाउंड थ्रेशोल्ड के लिए प्रतिशत में विचलन की अनुमति देता है। यदि सेट नहीं किया जाता है, तो निचले बाउंड थ्रेशोल्ड की जाँच बिल्कुल नहीं की जाएगी।"
 
-#: thold.php:1807
+#: thold.php:1819
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr "आधारभूत डेटा के उठाव के लिए निरंतर समय की संख्या आधार रेखा के उल्लंघन में होनी चाहिए ताकि अलर्ट को उठाया जा सके। <br> डिफ़ॉल्ट मान का उपयोग करने के लिए खाली छोड़ें ( <b>डिफ़ॉल्ट: %s चक्र</b> )"
 
-#: thold.php:1811 thold_templates.php:1405
+#: thold.php:1823 thold_templates.php:1407
 #, fuzzy
 msgid "Data Manipulation"
 msgstr "डेटा मेनिपुलेशन"
 
-#: thold.php:1815 thold_templates.php:1409
+#: thold.php:1827 thold_templates.php:1411
 #, fuzzy
 msgid "Data Type"
 msgstr "डाटा प्रकार"
 
-#: thold.php:1820 thold_templates.php:1413
+#: thold.php:1832 thold_templates.php:1415
 #, fuzzy
 msgid "Special formatting for the given data."
 msgstr "दिए गए डेटा के लिए विशेष स्वरूपण।"
 
-#: thold.php:1824 thold_templates.php:1417
+#: thold.php:1836 thold_templates.php:1419
 #, fuzzy
 msgid "Threshold CDEF"
 msgstr "थ्रेसहोल्ड सीडीईएफ"
 
-#: thold.php:1827 thold_templates.php:1420
+#: thold.php:1839 thold_templates.php:1422
 #, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "डेटा वापस करने से पहले इस सीडीईएफ को लागू करें।"
 
-#: thold.php:1832
+#: thold.php:1844
 #, fuzzy
 msgid "Percent Data Source"
 msgstr "प्रतिशत डेटा स्रोत"
 
-#: thold.php:1835
+#: thold.php:1847
 #, fuzzy
 msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr "प्रतिशत की गणना करने के लिए कुल मूल्य के रूप में उपयोग करने के लिए दूसरा डेटा स्रोत आइटम।"
 
-#: thold.php:1840 thold_templates.php:1450
+#: thold.php:1852 thold_templates.php:1452
 msgid "Show Units"
 msgstr ""
 
-#: thold.php:1843 thold_templates.php:1453
+#: thold.php:1855 thold_templates.php:1455
 msgid "Display units for very large or small numbers."
 msgstr ""
 
-#: thold.php:1852
+#: thold.php:1864
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "एक RPN अभिव्यक्ति एक RRDtool संगत RPN अभिव्यक्ति है। सिंटैक्स में डिवाइस और डेटा क्वेरी रिप्लेसमेंट एक्सप्रेशन जैसे कि क्वेरी <span class=\"deviceUp\">|</span> । RPN अभिव्यक्ति में डेटा स्रोत का उपयोग करने के लिए, आपको सिंटैक्स का उपयोग करना होगा: <span class=\"deviceUp\">| ds: dsname |</span> । उदाहरण के लिए, <span class=\"deviceUp\">| ds: traffic_in |</span> ग्राफ के साथ जुड़े RRDfile (s) के लिए traffic_in Data Source का वर्तमान मान प्राप्त करेगा। ग्राफ़ के लिए कोई भी डेटा स्रोत शामिल किया जा सकता है। <br><br> गणित संचालक: <span class=\"deviceUp\">+, -, /, *,%, ^</span> <br> कार्य: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> फ्लो ऑपरेटर्स: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> तुलना कार्य: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREVI</span> s s"
 
-#: thold.php:1858 thold_templates.php:1442
+#: thold.php:1870 thold_templates.php:1444
 #, fuzzy
 msgid "Upper Data Source"
 msgstr "डेटा स्रोत"
 
-#: thold.php:1861
+#: thold.php:1873
 msgid "Upper data source to calculate the total value."
 msgstr ""
 
-#: thold.php:1866 thold_templates.php:1457
+#: thold.php:1878 thold_templates.php:1459
 #, fuzzy
 msgid "Notification Settings"
 msgstr "अधिसूचना सेटिंग"
 
-#: thold.php:1879 thold_templates.php:1470
+#: thold.php:1891 thold_templates.php:1472
 #, fuzzy
 msgid "Alert Email Body"
 msgstr "अलर्ट ईमेल बॉडी"
 
-#: thold.php:1884 thold_templates.php:1475
+#: thold.php:1896 thold_templates.php:1477
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड अलर्ट (255 Char MAX) के शीर्ष पर प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल ईमेल के लिए पाठ को हटा दिया जाएगा। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> जैसे। &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;&gt; GRAPH&gt; &lt;HI&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;विवरण&gt; &gt;"
 
-#: thold.php:1888 thold_templates.php:1479
+#: thold.php:1900 thold_templates.php:1481
 #, fuzzy
 msgid "Warning Email Body"
 msgstr "चेतावनी ईमेल बॉडी"
 
-#: thold.php:1893 thold_templates.php:1484
+#: thold.php:1905 thold_templates.php:1486
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल ईमेल के लिए पाठ को हटा दिया जाएगा। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> जैसे। &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;&gt; GRAPH&gt; &lt;HI&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;विवरण&gt; &gt;"
 
-#: thold.php:1897 thold_templates.php:1488
+#: thold.php:1909 thold_templates.php:1490
 #, fuzzy
 msgid "Restoral Email Body"
 msgstr "अलर्ट ईमेल बॉडी"
 
-#: thold.php:1902 thold_templates.php:1493
+#: thold.php:1914 thold_templates.php:1495
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
 
-#: thold.php:1906 thold_templates.php:1504
+#: thold.php:1918 thold_templates.php:1506
 #, fuzzy
 msgid "Warning Notification List"
 msgstr "चेतावनी अधिसूचना सूची"
 
-#: thold.php:1908 thold_templates.php:1506
+#: thold.php:1920 thold_templates.php:1508
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr "आप इस डेटा स्रोत के लिए चेतावनी प्राप्त करने के लिए एक अधिसूचना सूची चुन सकते हैं"
 
-#: thold.php:1914 thold_templates.php:1512
+#: thold.php:1926 thold_templates.php:1514
 #, fuzzy
 msgid "Alert Notification List"
 msgstr "अलर्ट सूची"
 
-#: thold.php:1916 thold_templates.php:1514
+#: thold.php:1928 thold_templates.php:1516
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr "आप इस डेटा स्रोत के लिए अलर्ट प्राप्त करने के लिए एक अधिसूचना सूची चुन सकते हैं"
 
-#: thold.php:1926 thold_templates.php:1524
+#: thold.php:1938 thold_templates.php:1526
 #, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "SNMP अधिसूचना - घटना श्रेणी"
 
-#: thold.php:1928 thold_templates.php:1526
+#: thold.php:1940 thold_templates.php:1528
 #, fuzzy
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr "NMS को विभिन्न SNMP सूचनाओं को श्रेणीबद्ध करने की अनुमति देने के लिए कृपया इस टेम्पलेट के उपयोग की श्रेणी में SNMP सूचनाएँ भरें। जैसे: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utization\" ..."
 
-#: thold.php:1934 thold_templates.php:1532
+#: thold.php:1946 thold_templates.php:1534
 #, fuzzy
 msgid "SNMP Event Description"
 msgstr "एसएनएमपी इवेंट विवरण"
 
-#: thold.php:1935 thold_templates.php:1533
+#: thold.php:1947 thold_templates.php:1535
 #, fuzzy
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 msgstr "आप अतिरिक्त varbinds का उपयोग करके SNMP सूचना प्राप्तकर्ताओं को भेजे जा रहे ईवेंट विवरण को कस्टमाइज़ कर सकते हैं। निम्नलिखित चर बाइंडिंग का समर्थन किया जाएगा: <br> &lt;THRESHOLDNAME&gt; &lt;HOSTNAME&gt; &lt;HOSTIP&gt; &lt;TEMPLATE_ID&gt; &lt;TEMPLATE_NAME&gt; &lt;THR_TYPE&gt; &lt;DS_NAME&gt; &lt;HI&gt; &lt;LOW&gt; &lt;EVENT_CATEGORY&gt; &lt;FAIL_COUNT&gt; &lt;FAIL_DURATION&gt;"
 
-#: thold.php:1944 thold_templates.php:1542
+#: thold.php:1956 thold_templates.php:1544
 #, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "SNMP अधिसूचना - चेतावनी घटना गंभीरता"
 
-#: thold.php:1947
+#: thold.php:1959
 #, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr "अलर्ट के लिए उपयोग की जाने वाली गंभीरता। (कम प्रभाव -> महत्वपूर्ण प्रभाव)"
 
-#: thold.php:1951 thold.php:1970 thold_templates.php:1547
-#: thold_templates.php:1561
+#: thold.php:1963 thold.php:1982 thold_templates.php:1549
+#: thold_templates.php:1563
 #, fuzzy
 msgid "Medium"
 msgstr "मध्यम"
 
-#: thold.php:1963 thold_templates.php:1556
+#: thold.php:1975 thold_templates.php:1558
 #, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "SNMP अधिसूचना - चेतावनी घटना गंभीरता"
 
-#: thold.php:1966 thold_templates.php:1559
+#: thold.php:1978 thold_templates.php:1561
 #, fuzzy
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr "चेतावनियों के लिए इस्तेमाल की जाने वाली गंभीरता। (कम प्रभाव -> महत्वपूर्ण प्रभाव)। <br> नोट: चेतावनियों की गंभीरता अलर्ट के लिए परिभाषित की जा रही गंभीरता से बराबर या कम होनी चाहिए।"
 
-#: thold.php:1984 thold_templates.php:1572
+#: thold.php:1996 thold_templates.php:1574
 #, fuzzy
 msgid "Notify accounts"
 msgstr "खातों को सूचित करें"
 
-#: thold.php:1986
+#: thold.php:1998
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr "यह उन खातों की एक सूची है जिन्हें इस थ्रेशोल्ड के भंग होने पर अधिसूचित किया जाएगा।"
 
-#: thold.php:1991 thold_templates.php:1579
+#: thold.php:2003 thold_templates.php:1581
 #, fuzzy
 msgid "Alert Emails"
 msgstr "अलर्ट ईमेल"
 
-#: thold.php:1995
+#: thold.php:2007
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr "आप इस डेटा स्रोत के लिए अलर्ट प्राप्त करने के लिए यहां अतिरिक्त ईमेल निर्दिष्ट कर सकते हैं (अल्पविराम से अलग)"
 
-#: thold.php:1999 thold_templates.php:1587
+#: thold.php:2011 thold_templates.php:1589
 #, fuzzy
 msgid "Warning Emails"
 msgstr "चेतावनी संदेश"
 
-#: thold.php:2003
+#: thold.php:2015
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr "आप इस डेटा स्रोत के लिए चेतावनी प्राप्त करने के लिए यहां अतिरिक्त ईमेल निर्दिष्ट कर सकते हैं (अल्पविराम से अलग)"
 
-#: thold.php:2037 thold_templates.php:1625
+#: thold.php:2049 thold_templates.php:1627
 #, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "यदि जाँच की जाती है, तो थ्रेसहोल्ड अधिसूचना आपके स्थानीय सिसलॉग को भेजी जाएगी।"
 
-#: thold.php:2043 thold_templates.php:1631
+#: thold.php:2055 thold_templates.php:1633
 #, fuzzy
 msgid "Priority/Level"
 msgstr "प्राथमिकता स्तर"
 
-#: thold.php:2044 thold_templates.php:1632
+#: thold.php:2056 thold_templates.php:1634
 #, fuzzy
 msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr "यह प्राथमिकता स्तर है जिसे आपके syslog संदेशों में लॉग इन किया जाएगा।"
 
-#: thold.php:2051 thold_templates.php:1639
+#: thold.php:2063 thold_templates.php:1641
 #, fuzzy
 msgid "Facility"
 msgstr "सुविधा"
 
-#: thold.php:2052 thold_templates.php:1640
+#: thold.php:2064 thold_templates.php:1642
 #, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "यह वह सुविधा है जिसका उपयोग इस थ्रेशोल्ड के लिए किया जाएगा।"
 
-#: thold.php:2073 thold_templates.php:1661
+#: thold.php:2085 thold_templates.php:1663
 #, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "इवेंट ट्रिगरिंग (शेल कमांड)"
 
-#: thold.php:2078 thold_templates.php:1666
+#: thold.php:2090 thold_templates.php:1668
 #, fuzzy
 msgid "High Trigger Command"
 msgstr "हाई ट्रिगर कमांड"
 
-#: thold.php:2079 thold_templates.php:1667
+#: thold.php:2091 thold_templates.php:1669
 #, fuzzy
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "यदि सेट किया गया है, और यदि एक उच्च थ्रेसहोल्ड का उल्लंघन होता है, तो यह कमांड चलाया जाएगा। कृपया एक मान्य कमांड दर्ज करें। इसके अलावा, कई रिप्लेसमेंट टैग उपलब्ध हैं जिनका उपयोग थ्रेशोल्ड से स्क्रिप्ट को जानकारी देने के लिए किया जा सकता है। वे शामिल हैं: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;GRUBH&gt; &lt;GR&gt; &lt;&lt;&gt;&gt; &lt;TR&gt;&gt; विवरण&gt; &lt;TRIGGER&gt; विवरण &gt; &lt;BREACHED_ITEMS&gt;। अंत में, Host, Data Query और Data Input प्रतिस्थापन किया जा सकता है। उदाहरण के लिए, यदि आपके पास कोई डेटा इनपुट कस्टम डेटा है, जिसे प्रतिस्थापन उपयोग करने के लिए लंबित कहा जाता है। डेटा क्वेरी के लिए, और होस्ट प्रतिस्थापन Cacti सम्मेलनों का उपयोग करें | query_xxxx |, and | host_xxxx | क्रमशः।"
 
-#: thold.php:2086 thold_templates.php:1674
+#: thold.php:2098 thold_templates.php:1676
 #, fuzzy
 msgid "Low Trigger Command"
 msgstr "लो ट्रिगर कमांड"
 
-#: thold.php:2087 thold_templates.php:1675
+#: thold.php:2099 thold_templates.php:1677
 #, fuzzy
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "यदि सेट किया गया है, और यदि कम थ्रेसहोल्ड का उल्लंघन होता है, तो यह कमांड चलाया जाएगा। कृपया एक मान्य कमांड दर्ज करें। इसके अलावा, कई रिप्लेसमेंट टैग उपलब्ध हैं जिनका उपयोग थ्रेशोल्ड से स्क्रिप्ट को जानकारी देने के लिए किया जा सकता है। वे शामिल हैं: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;GRUBH&gt; &lt;GR&gt; &lt;&lt;&gt;&gt; &lt;TR&gt;&gt; विवरण&gt; &lt;TRIGGER&gt; विवरण &gt; &lt;BREACHED_ITEMS&gt;। अंत में, होस्ट, डेटा क्वेरी और डेटा इनपुट प्रतिस्थापन बनाया जा सकता है। उदाहरण के लिए, यदि आपके पास कोई डेटा इनपुट कस्टम डेटा है, जिसे प्रतिस्थापन उपयोग करने के लिए लंबित कहा जाता है। डेटा क्वेरी के लिए, और होस्ट प्रतिस्थापन Cacti सम्मेलनों का उपयोग करें | query_xxxx |, and | host_xxxx | क्रमशः।"
 
-#: thold.php:2094 thold_templates.php:1682
+#: thold.php:2106 thold_templates.php:1684
 #, fuzzy
 msgid "Norm Trigger Command"
 msgstr "नॉर्मल ट्रिगर कमांड"
 
-#: thold.php:2095 thold_templates.php:1683
+#: thold.php:2107 thold_templates.php:1685
 #, fuzzy
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "यदि सेट किया जाता है, जब एक थ्रेड वापस सामान्य मूल्य पर आता है, तो यह कमांड चलाया जाएगा कृपया एक मान्य कमांड दर्ज करें। इसके अलावा, कई रिप्लेसमेंट टैग उपलब्ध हैं जिनका उपयोग थ्रेशोल्ड से स्क्रिप्ट को जानकारी देने के लिए किया जा सकता है। वे शामिल हैं: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;GRUBH&gt; &lt;GR&gt; &lt;&lt;&gt;&gt; &lt;TR&gt;&gt; विवरण&gt; &lt;TRIGGER&gt; विवरण &gt; &lt;BREACHED_ITEMS&gt;। अंत में, होस्ट, डेटा क्वेरी और डेटा इनपुट प्रतिस्थापन बनाया जा सकता है। उदाहरण के लिए, यदि आपके पास कोई डेटा इनपुट कस्टम डेटा है, जिसे प्रतिस्थापन उपयोग करने के लिए लंबित कहा जाता है। डेटा क्वेरी के लिए, और होस्ट प्रतिस्थापन Cacti सम्मेलनों का उपयोग करें | query_xxxx |, and | host_xxxx | क्रमशः।"
 
-#: thold.php:2108 thold_templates.php:1696
+#: thold.php:2120 thold_templates.php:1698
 #, fuzzy
 msgid "Other Settings"
 msgstr "अन्य सेटिंग"
 
-#: thold.php:2113 thold_templates.php:1701
+#: thold.php:2125 thold_templates.php:1703
 #, fuzzy
 msgid "Operator Notes"
 msgstr "संचालक नोट्स"
 
-#: thold.php:2117 thold_templates.php:1705
+#: thold.php:2129 thold_templates.php:1707
 #, fuzzy
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr "एक ऑपरेटर के लिए यहां निर्देश दर्ज करें जो थ्रेसहोल्ड संदेश प्राप्त कर रहा हो सकता है।"
 
-#: thold.php:2369
+#: thold.php:2381
 #, fuzzy
 msgid "Select Users(s)"
 msgstr "उपयोगकर्ता चुनें"
 
-#: thold.php:2371
+#: thold.php:2383
 #, fuzzy
 msgid "Users Selected"
 msgstr "उपयोगकर्ताओं का चयन किया"
 
-#: thold.php:2374
+#: thold.php:2386
 #, fuzzy
 msgid "All Users Selected"
 msgstr "सभी उपयोगकर्ता चयनित"
@@ -3215,156 +3221,156 @@ msgstr "<html><body> एक चेतावनी जारी की गई ह
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "एक अलर्ट जारी किया गया है जिसे आपके ध्यान की आवश्यकता है। <br><br> <strong>डिवाइस</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>संदेश</strong> : <SUBJECT><br><br><GRAPH>"
 
-#: thold_functions.php:4691
+#: thold_functions.php:4846
 #, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "ग्राफ़ और थ्रेशोल्ड बनाने का प्रयास करते समय डिवाइस आईडी सेट नहीं की गई थी"
 
-#: thold_functions.php:4706
+#: thold_functions.php:4861
 #, fuzzy
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
 
-#: thold_functions.php:4713
+#: thold_functions.php:4868
 #, fuzzy
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
 
-#: thold_functions.php:4746
+#: thold_functions.php:4901
 #, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "थ्रेशोल्ड टेम्पलेट के लिए ग्राफ़ निर्माण विफल रहा"
 
-#: thold_functions.php:4776
+#: thold_functions.php:4931
 #, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr "डिवाइस टेम्पलेट मैपिंग के कारण थ्रेशोल्ड को स्वतः पूर्ण किया गया"
 
-#: thold_functions.php:4810 thold_functions.php:5134
+#: thold_functions.php:4965 thold_functions.php:5289
 #, fuzzy
 msgid "Permission Denied"
 msgstr "अनुमति नहीं मिली"
 
-#: thold_functions.php:4831 thold_functions.php:5207
+#: thold_functions.php:4986 thold_functions.php:5362
 #, fuzzy
 msgid "Record Updated"
 msgstr "रिकॉर्ड अपडेट किया गया"
 
-#: thold_functions.php:4882
+#: thold_functions.php:5037
 #, fuzzy
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!<br>RECORD NOT UPDATED!"
 msgstr "आपको या तो 'हाई अलर्ट थ्रेशोल्ड' या 'लो अलर्ट थ्रेशोल्ड' या दोनों को निर्दिष्ट करना होगा! <br> अद्यतन नहीं किया गया!"
 
-#: thold_functions.php:4894
+#: thold_functions.php:5049
 #, fuzzy
 msgid "Impossible thresholds: 'High Threshold' smaller than or equal to 'Low Threshold'<br>RECORD NOT UPDATED!"
 msgstr "असंभव थ्रेसहोल्ड: 'हाई थ्रेशोल्ड' 'लो थ्रेशोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
 
-#: thold_functions.php:4906
+#: thold_functions.php:5061
 #, fuzzy
 msgid "Impossible thresholds: 'High Warning Threshold' smaller than or equal to 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
 msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
 
-#: thold_functions.php:4914
+#: thold_functions.php:5069
 #, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "बेसलाइन थ्रेसहोल्ड सक्षम होने के साथ।"
 
-#: thold_functions.php:4923
+#: thold_functions.php:5078
 #, fuzzy
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!<br>RECORD NOT UPDATED!"
 msgstr "आपको 'आधारभूत विचलन उत्तर प्रदेश' या 'आधारभूत विचलन डाउनलोड' या दोनों निर्दिष्ट करना होगा! <br> अद्यतन नहीं किया गया!"
 
-#: thold_functions.php:5124
+#: thold_functions.php:5279
 #, fuzzy, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "लिंक किए गए ग्राफ़ टेम्प्लेट आइटम '% d' को थ्रेशोल्ड '% d' पर खोजने में विफल"
 
-#: thold_functions.php:5205 thold_functions.php:5626
+#: thold_functions.php:5360 thold_functions.php:5785
 #, fuzzy, php-format
 msgid "Created Threshold: %s"
 msgstr "बनाया गया सीमा: %s"
 
-#: thold_functions.php:5274
+#: thold_functions.php:5433
 #, fuzzy, php-format
 msgid "'%s' must be set to positive integer value!<br>RECORD NOT UPDATED!"
 msgstr "' %s' को धनात्मक पूर्णांक मान पर सेट किया जाना चाहिए! <br> अद्यतन नहीं किया गया!"
 
-#: thold_functions.php:5452
+#: thold_functions.php:5611
 #, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "डिवाइस के टेम्प्लेट से जुड़ी कोई थ्रेसहोल्ड टेम्प्लेट नहीं।"
 
-#: thold_functions.php:5661
+#: thold_functions.php:5820
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr "मेलर त्रुटि: कोई सेट <b>को</b> संबोधित <b>करने के</b> !! <br> यदि <i>टेस्ट मेल</i> लिंक का उपयोग कर रहे हैं, तो कृपया <b>अलर्ट ईमेल</b> सेटिंग सेट करें।"
 
-#: thold_functions.php:6296 thold_graph.php:619
+#: thold_functions.php:6455 thold_graph.php:619
 #, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "अज्ञात थ्रेसहोल्ड"
 
-#: thold_functions.php:6298
+#: thold_functions.php:6457
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "निम्न थ्रेसहोल्ड (ओं) को स्वीकार करने के लिए 'जारी रखें' पर क्लिक करें।"
 
-#: thold_functions.php:6741
+#: thold_functions.php:6900
 #, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "थ्रेसहोल्ड टेम्पलेट अधीनस्थ डेटा टेम्पलेट नहीं मिला!"
 
-#: thold_functions.php:6756
+#: thold_functions.php:6915
 #, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "थ्रेशोल्ड टेम्पलेट अधीनस्थ डेटा स्रोत नहीं मिला!"
 
-#: thold_functions.php:6792
+#: thold_functions.php:6951
 msgid "Threshold Template import columns do not match the database schema"
 msgstr ""
 
-#: thold_functions.php:6801 thold_functions.php:6803
+#: thold_functions.php:6960 thold_functions.php:6962
 #, fuzzy
 msgid "Imported"
 msgstr "आयातित"
 
-#: thold_functions.php:6801 thold_functions.php:6803
+#: thold_functions.php:6960 thold_functions.php:6962
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "थ्रेशोल्ड टेम्पलेट ' %s' %s!"
 
-#: thold_functions.php:6801 thold_functions.php:6803
+#: thold_functions.php:6960 thold_functions.php:6962
 #, fuzzy
 msgid "Updated"
 msgstr "अपडेट किया गया"
 
-#: thold_functions.php:6807 thold_functions.php:6809 thold_templates.php:2042
-#: thold_templates.php:2302
+#: thold_functions.php:6966 thold_functions.php:6968 thold_templates.php:2044
+#: thold_templates.php:2304
 #, fuzzy
 msgid "Import"
 msgstr "आयात"
 
-#: thold_functions.php:6807 thold_functions.php:6809
+#: thold_functions.php:6966 thold_functions.php:6968
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "थ्रेशोल्ड टेम्पलेट ' %s' %s विफल!"
 
-#: thold_functions.php:6807 thold_functions.php:6809
+#: thold_functions.php:6966 thold_functions.php:6968
 #, fuzzy
 msgid "Update"
 msgstr "अपडेट करें"
 
-#: thold_functions.php:6813
+#: thold_functions.php:6972
 msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr ""
 
-#: thold_functions.php:6817
+#: thold_functions.php:6976
 #, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "थ्रेसहोल्ड टेम्पलेट अधीनस्थ डेटा टेम्पलेट नहीं मिला!"
 
-#: thold_functions.php:6820
+#: thold_functions.php:6979
 #, fuzzy
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
@@ -3689,62 +3695,62 @@ msgstr "कृपया अपने थ्रेशोल्ड टेम्प
 msgid "Create"
 msgstr "सर्जन करना"
 
-#: thold_templates.php:942
+#: thold_templates.php:932
 #, fuzzy
 msgid "The Threshold Template requested can not be found"
 msgstr "थ्रेशोल्ड क्या नहीं होता है"
 
-#: thold_templates.php:1119
+#: thold_templates.php:1116
 #, fuzzy
 msgid "Provide the Threshold Template a meaningful name."
 msgstr "थ्रेशोल्ड टेम्पलेट को एक सार्थक नाम प्रदान करें।"
 
-#: thold_templates.php:1123
+#: thold_templates.php:1120
 #, fuzzy
 msgid "Suggested Threshold Name"
 msgstr "सुझाया नाम"
 
-#: thold_templates.php:1128
+#: thold_templates.php:1125
 #, fuzzy
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr "इस टेम्पलेट का उपयोग करके बनाए गए थ्रेसहोल्ड के लिए सुझाए गए नाम प्रदान करें। मानक डिवाइस (| host_ * |), डेटा क्वेरी (| क्वेरी_ * |) और इनपुट (! इनपुट_ =) प्रतिस्थापन चर का उपयोग किया जा सकता है। ग्राफ शीर्षक के लिए।"
 
-#: thold_templates.php:1135
+#: thold_templates.php:1132
 #, fuzzy
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "डेटा टेम्प्लेट जो आप उपयोग कर रहे हैं। (इसे बदला नहीं जा सकता)"
 
-#: thold_templates.php:1140
+#: thold_templates.php:1137
 #, fuzzy
 msgid "Data Field"
 msgstr "जानकारी स्थान"
 
-#: thold_templates.php:1143
+#: thold_templates.php:1140
 #, fuzzy
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr "डेटा फ़ील्ड जिसका आप उपयोग कर रहे हैं। (इसे बदला नहीं जा सकता)"
 
-#: thold_templates.php:1151
+#: thold_templates.php:1148
 #, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "इस थ्रेसहोल्ड की जाँच की जाएगी या नहीं।"
 
-#: thold_templates.php:1234
+#: thold_templates.php:1231
 #, fuzzy
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr "अंतिम चेतावनी के बाद समय की इस राशि के बाद चेतावनी दोहराएं।"
 
-#: thold_templates.php:1258 thold_templates.php:1285
+#: thold_templates.php:1256 thold_templates.php:1284
 #, fuzzy
 msgid "Min Trigger Duration"
 msgstr "न्यूनतम ट्रिगर अवधि"
 
-#: thold_templates.php:1261 thold_templates.php:1288
+#: thold_templates.php:1259 thold_templates.php:1287
 #, fuzzy
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr "किसी अलर्ट को बढ़ाने के लिए डेटा स्रोत का ब्रीच स्थिति में होना आवश्यक है।"
 
-#: thold_templates.php:1312 thold_templates.php:1348
+#: thold_templates.php:1312 thold_templates.php:1349
 #, fuzzy
 msgid "Trigger Count"
 msgstr "ट्रिगर की गिनती"
@@ -3754,227 +3760,227 @@ msgstr "ट्रिगर की गिनती"
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr "चेतावनी जारी करने से पहले डेटा स्रोत की संख्या ब्रीच स्थिति में होनी चाहिए।"
 
-#: thold_templates.php:1321 thold_templates.php:1356
+#: thold_templates.php:1321 thold_templates.php:1357
 #, fuzzy
 msgid "Time Period Length"
 msgstr "समय अवधि लंबाई"
 
-#: thold_templates.php:1352
+#: thold_templates.php:1353
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr "अलर्ट जारी करने से पहले डेटा स्रोत की संख्या ब्रीच स्थिति में होनी चाहिए।"
 
-#: thold_templates.php:1363
+#: thold_templates.php:1364
 #, fuzzy
 msgid "Baseline Monitoring"
 msgstr "बेसलाइन मॉनिटरिंग"
 
-#: thold_templates.php:1374
+#: thold_templates.php:1376
 #, fuzzy
 msgid "Time Range"
 msgstr "समय सीमा"
 
-#: thold_templates.php:1381
+#: thold_templates.php:1383
 #, fuzzy
 msgid "Baseline Deviation UP"
 msgstr "बेसलाइन विचलन यू.पी."
 
-#: thold_templates.php:1389
+#: thold_templates.php:1391
 #, fuzzy
 msgid "Baseline Deviation DOWN"
 msgstr "बेसलाइन विचलन"
 
-#: thold_templates.php:1401
+#: thold_templates.php:1403
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr "किसी अलर्ट को बढ़ाए जाने के लिए लगातार डेटा की संख्या का उल्लंघन स्थिति में होना चाहिए। <br> डिफ़ॉल्ट मान (डिफ़ॉल्ट: %s चक्र) का उपयोग करने के लिए खाली छोड़ दें"
 
-#: thold_templates.php:1425
+#: thold_templates.php:1427
 #, fuzzy
 msgid "Percent Datasource"
 msgstr "प्रतिशत डेटा स्रोत"
 
-#: thold_templates.php:1428
+#: thold_templates.php:1430
 #, fuzzy
 msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr "प्रतिशत से गणना करने के लिए कुल मान के रूप में उपयोग करने के लिए दूसरा डेटासोर्स आइटम।"
 
-#: thold_templates.php:1438
+#: thold_templates.php:1440
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "एक RPN अभिव्यक्ति एक RRDtool संगत RPN अभिव्यक्ति है। सिंटैक्स में डिवाइस और डेटा क्वेरी रिप्लेसमेंट एक्सप्रेशन जैसे कि क्वेरी <span style=\"color:blue;\">|</span> । RPN अभिव्यक्ति में डेटा स्रोत का उपयोग करने के लिए, आपको सिंटैक्स का उपयोग करना होगा: <span style=\"color:blue;\">| ds: dsname |</span> । उदाहरण के लिए, <span style=\"color:blue;\">| ds: traffic_in |</span> ग्राफ के साथ जुड़े RRDfile (s) के लिए traffic_in Data Source का वर्तमान मान प्राप्त करेगा। ग्राफ़ के लिए कोई भी डेटा स्रोत शामिल किया जा सकता है। <br> गणित संचालक: <span style=\"color:blue;\">+, -, /, *,%, ^</span> <br> कार्य: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> फ्लो ऑपरेटर्स: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> तुलना कार्य: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREVI</span> s s"
 
-#: thold_templates.php:1445
+#: thold_templates.php:1447
 msgid "Upper data source to use to calculate the total value."
 msgstr ""
 
-#: thold_templates.php:1497
+#: thold_templates.php:1499
 #, fuzzy
 msgid "Notification List Read Only"
 msgstr "केवल अधिसूचना सूची"
 
-#: thold_templates.php:1498
+#: thold_templates.php:1500
 #, fuzzy
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr "यदि जाँच की जाती है, तो थ्रेसहोल्ड अधिसूचना आपके स्थानीय सिसलॉग को भेजी जाएगी।"
 
-#: thold_templates.php:1545
+#: thold_templates.php:1547
 #, fuzzy
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "अलर्ट के लिए उपयोग की जाने वाली गंभीरता। (कम प्रभाव -> महत्वपूर्ण प्रभाव)"
 
-#: thold_templates.php:1574
+#: thold_templates.php:1576
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr "यह उन खातों की एक सूची है जिन्हें इस थ्रेशोल्ड के भंग होने पर अधिसूचित किया जाएगा। <br><br><br><br>"
 
-#: thold_templates.php:1583
+#: thold_templates.php:1585
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr "आप इस डेटा स्रोत के लिए अलर्ट प्राप्त करने के लिए यहां अतिरिक्त ईमेल निर्दिष्ट कर सकते हैं (अल्पविराम से अलग)"
 
-#: thold_templates.php:1591
+#: thold_templates.php:1593
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr "आप इस डेटा स्रोत के लिए चेतावनी प्राप्त करने के लिए यहां अतिरिक्त ईमेल निर्दिष्ट कर सकते हैं (अल्पविराम से अलग)"
 
-#: thold_templates.php:1928
+#: thold_templates.php:1930
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d महीने,% d दिन,% d घंटे,% d मिनट,% d सेकंड (औसत)"
 
-#: thold_templates.php:1930
+#: thold_templates.php:1932
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d माह,% d दिन,% d घंटे,% d मिनट,% d सेकंड"
 
-#: thold_templates.php:1934
+#: thold_templates.php:1936
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d दिन,% d घंटे,% d मिनट,% d सेकंड (औसत)"
 
-#: thold_templates.php:1936
+#: thold_templates.php:1938
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d दिन,% d घंटे,% d मिनट,% d सेकंड"
 
-#: thold_templates.php:1940
+#: thold_templates.php:1942
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d घंटे,% d मिनट,% d सेकंड (औसत)"
 
-#: thold_templates.php:1942
+#: thold_templates.php:1944
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr "% d घंटे,% d मिनट,% d सेकंड"
 
-#: thold_templates.php:1946
+#: thold_templates.php:1948
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr "% d मिनट,% d सेकंड (औसत)"
 
-#: thold_templates.php:1948
+#: thold_templates.php:1950
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr "% d मिनट,% d सेकंड्स"
 
-#: thold_templates.php:1952
+#: thold_templates.php:1954
 #, fuzzy, php-format
 msgid "%d Seconds (Average)"
 msgstr "% d सेकंड (औसत)"
 
-#: thold_templates.php:1954
+#: thold_templates.php:1956
 #, fuzzy, php-format
 msgid "%d Seconds"
 msgstr "% d सेकंड्स"
 
-#: thold_templates.php:2140
+#: thold_templates.php:2142
 #, fuzzy
 msgid "DS Name"
 msgstr "डीएस नाम"
 
-#: thold_templates.php:2148
+#: thold_templates.php:2150
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr ""
 
-#: thold_templates.php:2154
+#: thold_templates.php:2156
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr ""
 
-#: thold_templates.php:2241
+#: thold_templates.php:2243
 #, fuzzy
 msgid "No Threshold Templates"
 msgstr "कोई थ्रेसहोल्ड टेम्पलेट नहीं"
 
-#: thold_templates.php:2259
+#: thold_templates.php:2261
 #, fuzzy
 msgid "Import Template from Local File"
 msgstr "स्थानीय फ़ाइल से आयात टेम्पलेट"
 
-#: thold_templates.php:2260
+#: thold_templates.php:2262
 #, fuzzy
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr "यदि थ्रेसहोल्ड टेम्पलेट डेटा वाली XML फ़ाइल आपके स्थानीय मशीन पर स्थित है, तो इसे यहाँ चुनें"
 
-#: thold_templates.php:2265
+#: thold_templates.php:2267
 #, fuzzy
 msgid "Import Template from Text"
 msgstr "पाठ से आयात टेम्पलेट"
 
-#: thold_templates.php:2266
+#: thold_templates.php:2268
 #, fuzzy
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
 msgstr "यदि आपके पास XML फ़ाइल है जिसमें थ्रेसहोल्ड टेम्प्लेट डेटा पाठ के रूप में है, तो आप इसे आयात करने के लिए इस बॉक्स में पेस्ट कर सकते हैं।"
 
-#: thold_templates.php:2278
+#: thold_templates.php:2280
 #, fuzzy
 msgid "Import Results"
 msgstr "आयात परिणाम"
 
-#: thold_templates.php:2280
+#: thold_templates.php:2282
 #, fuzzy
 msgid "Cacti has imported the following items:"
 msgstr "Cacti ने निम्नलिखित वस्तुओं का आयात किया है:"
 
-#: thold_templates.php:2290 thold_templates.php:2302
+#: thold_templates.php:2292 thold_templates.php:2304
 #, fuzzy
 msgid "Import Threshold Templates"
 msgstr "थ्रेशोल्ड टेम्पलेट्स आयात करें"
 
-#: thold_templates.php:2315 thold_templates.php:2318
+#: thold_templates.php:2317 thold_templates.php:2320
 msgid "The file is too big."
 msgstr ""
 
-#: thold_templates.php:2321
+#: thold_templates.php:2323
 msgid "Incomplete file transfer."
 msgstr ""
 
-#: thold_templates.php:2324 thold_templates.php:2351
+#: thold_templates.php:2326 thold_templates.php:2353
 msgid "No file uploaded."
 msgstr ""
 
-#: thold_templates.php:2327
+#: thold_templates.php:2329
 msgid "Temporary folder missing."
 msgstr ""
 
-#: thold_templates.php:2330
+#: thold_templates.php:2332
 msgid "Failed to write file to disk"
 msgstr ""
 
-#: thold_templates.php:2333
+#: thold_templates.php:2335
 msgid "File upload stopped by extension"
 msgstr ""
 
-#: thold_templates.php:2344
+#: thold_templates.php:2346
 msgid "Invalid file extension."
 msgstr ""
 
-#: thold_templates.php:2370
+#: thold_templates.php:2372
 #, fuzzy
 msgid "NOTE:"
 msgstr "ध्यान दें:"
 
-#: thold_templates.php:2377 thold_templates.php:2384
+#: thold_templates.php:2379 thold_templates.php:2386
 #, fuzzy
 msgid "ERROR:"
 msgstr "त्रुटि"
