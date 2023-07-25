@@ -4803,7 +4803,7 @@ function save_thold() {
 			array($data_template_rrd_id));
 	}
 
-	$template_enabled = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : '';
+	$template_enabled = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : 'off';
 
 	if ($template_enabled == 'on') {
 		if ($local_graph_id > 0 && !is_thold_allowed_graph($local_graph_id)) {
@@ -4811,6 +4811,13 @@ function save_thold() {
 			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
 
 			return false;
+		}
+
+		if (get_request_var('id') > 0) {
+			db_execute_prepared('UPDATE thold_data
+				SET template_enabled = "on"
+				WHERE id = ?',
+				array(get_request_var('id')));
 		}
 
 		$data = db_fetch_row_prepared('SELECT id, thold_template_id
@@ -5028,7 +5035,7 @@ function save_thold() {
 
 	$save['restored_alert']       = isset_request_var('restored_alert') ? 'on':'';
 	$save['thold_type']           = get_request_var('thold_type');
-	$save['template_enabled']     = isset_request_var('template_enabled') ? 'on':'';
+	$save['template_enabled']     = isset_request_var('template_enabled') ? 'on':'off';
 
 	// High / Low
 	$save['thold_hi']             = trim_round_request_var('thold_hi', 4);

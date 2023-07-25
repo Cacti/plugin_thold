@@ -1164,6 +1164,16 @@ function thold_edit() {
 		$template_edit = '';
 	}
 
+	$time = time();
+
+	/* get config option for first-day-of-the-week */
+	$first_weekdayid = read_user_setting('first_weekdayid');
+
+	$timespan = array();
+
+	/* get start/end time-since-epoch for actual time (now()) and given current-session-timespan */
+	get_timespan($timespan, $time, $thold_data['graph_timespan'], $first_weekdayid);
+
 	?>
 	<tr>
 		<td class='textArea' style='vertical-align:text-top;padding:5px;'>
@@ -1190,7 +1200,7 @@ function thold_edit() {
 			<br>
 		</td>
 		<td class='textArea' style='vertical-align:middle;padding:5px'>
-			<img id='graphimage' src='<?php print html_escape($config['url_path'] . 'graph_image.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=0&graph_start=-32400&graph_height=150&graph_width=600&randome=' . rand());?>'>
+			<img id='graphimage' src='<?php print html_escape($config['url_path'] . 'graph_image.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=0&graph_start=' . $timespan['begin_now'] . '&graph_end=' . $timespan['end_now'] . '&graph_height=150&graph_width=600&randome=' . rand());?>'>
 		</td>
 	</tr>
 	<?php
