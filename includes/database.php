@@ -1542,7 +1542,7 @@ function thold_upgrade_database($force = false) {
 			'type'     => 'int(11)',
 			'unsigned' => true,
 			'NULL'     => false,
-			'default'  => '7'
+			'default'  => '7',
 			'after'    => 'format_file')
 		);
 
@@ -1551,7 +1551,7 @@ function thold_upgrade_database($force = false) {
 			'type'     => 'int(11)',
 			'unsigned' => true,
 			'NULL'     => false,
-			'default'  => '7'
+			'default'  => '7',
 			'after'    => 'format_file')
 		);
 
