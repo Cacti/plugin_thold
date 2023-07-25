@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-07-25 14:50-0400\n"
+"POT-Creation-Date: 2023-07-25 19:01-0400\n"
 "PO-Revision-Date: 2021-09-22 14:09+0000\n"
 "Last-Translator: Tadeo Briceño <tadeobriceno@vencable.com>\n"
 "Language-Team: Spanish <http://translate.cacti.net/projects/cacti/thold/es/>\n"
@@ -207,8 +207,8 @@ msgstr "Ok"
 msgid "Emergency"
 msgstr "Emergencia"
 
-#: includes/arrays.php:226 thold.php:1953 thold.php:1972
-#: thold_templates.php:1547 thold_templates.php:1561
+#: includes/arrays.php:226 thold.php:1965 thold.php:1984
+#: thold_templates.php:1549 thold_templates.php:1563
 msgid "Critical"
 msgstr "Crítica"
 
@@ -418,7 +418,7 @@ msgstr "CDEF"
 msgid "Percentage"
 msgstr "Porcentaje"
 
-#: includes/arrays.php:497 thold.php:1847 thold_templates.php:1433
+#: includes/arrays.php:497 thold.php:1859 thold_templates.php:1435
 #, fuzzy
 msgid "RPN Expression"
 msgstr "Expresión RPN"
@@ -503,7 +503,7 @@ msgstr "No usa SNMP"
 #: includes/polling.php:445 notify_queue.php:488 notify_queue.php:489
 #: thold.php:982 thold.php:1014 thold.php:1015 thold.php:1234 thold.php:1283
 #: thold.php:1290 thold.php:1296 thold.php:1304 thold.php:1310 thold.php:1327
-#: thold.php:1329 thold.php:1522 thold_graph.php:709 thold_graph.php:741
+#: thold.php:1329 thold.php:1529 thold_graph.php:709 thold_graph.php:741
 #: thold_graph.php:742 thold_graph.php:1017 thold_graph.php:1066
 #: thold_graph.php:1069 thold_graph.php:1070 thold_graph.php:1071
 #: thold_graph.php:1495 thold_graph.php:1496
@@ -538,7 +538,7 @@ msgstr "Error del sistema <DESCRIPCIÓN> (<NOMBRE DE HOSTALIZACIÓN>) es <DOWN/U
 #: includes/settings.php:77 includes/settings.php:223 notify_lists.php:45
 #: notify_lists.php:1355 notify_lists.php:1420 notify_lists.php:2033
 #: thold.php:714 thold.php:765 thold_functions.php:143 thold_graph.php:225
-#: thold_templates.php:2125
+#: thold_templates.php:2127
 msgid "Thresholds"
 msgstr "Umbrales"
 
@@ -595,7 +595,7 @@ msgstr "Fallos recientes del dispositivo"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
-#: includes/settings.php:160 thold_templates.php:2009
+#: includes/settings.php:160 thold_templates.php:2011
 #, fuzzy
 msgid "Threshold Templates"
 msgstr "Plantillas de umbral"
@@ -629,7 +629,7 @@ msgid "Management"
 msgstr "Administración"
 
 #: includes/settings.php:224 notify_lists.php:46 notify_lists.php:2034
-#: thold_templates.php:2024 thold_templates.php:2100
+#: thold_templates.php:2026 thold_templates.php:2102
 msgid "Templates"
 msgstr "Plantillas"
 
@@ -795,9 +795,9 @@ msgstr "Cualquiera"
 
 #: includes/settings.php:418 notify_lists.php:857 notify_lists.php:1350
 #: notify_lists.php:1436 notify_lists.php:1545 notify_lists.php:2031
-#: thold.php:706 thold.php:780 thold.php:2036 thold_graph.php:217
-#: thold_graph.php:446 thold_graph.php:1132 thold_templates.php:1148
-#: thold_templates.php:1624 thold_templates.php:2115
+#: thold.php:706 thold.php:780 thold.php:2048 thold_graph.php:217
+#: thold_graph.php:446 thold_graph.php:1132 thold_templates.php:1145
+#: thold_templates.php:1626 thold_templates.php:2117
 msgid "Enabled"
 msgstr "Habilitado"
 
@@ -1000,7 +1000,7 @@ msgstr "Retención de registros de alertas"
 msgid "Keep Threshold Logs for this number of days."
 msgstr "Guarde los registros de umbral para este número de días."
 
-#: includes/settings.php:555 thold.php:2031 thold_templates.php:1619
+#: includes/settings.php:555 thold.php:2043 thold_templates.php:1621
 #, fuzzy
 msgid "Syslog Settings"
 msgstr "Configuración de Syslog"
@@ -1085,7 +1085,7 @@ msgstr "Intervalo temporal de referencia predeterminado"
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr "Este es el valor por defecto utilizado en la creación de Thresholds o plantillas."
 
-#: includes/settings.php:616 thold.php:1803 thold_templates.php:1397
+#: includes/settings.php:616 thold.php:1815 thold_templates.php:1399
 #, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "Recuento de disparos en la línea de base"
@@ -1360,7 +1360,7 @@ msgstr "Haga clic en \"Continuar\" para eliminar las listas de notificación.  C
 #: notify_lists.php:520 notify_lists.php:532 notify_lists.php:590
 #: notify_lists.php:601 notify_lists.php:660 notify_lists.php:671
 #: notify_lists.php:731 notify_lists.php:744 notify_queue.php:151
-#: setup.php:1442 thold.php:460 thold_functions.php:6309
+#: setup.php:1442 thold.php:460 thold_functions.php:6468
 #: thold_templates.php:308
 msgid "Cancel"
 msgstr "Cancelar"
@@ -1368,7 +1368,7 @@ msgstr "Cancelar"
 #: notify_lists.php:520 notify_lists.php:532 notify_lists.php:590
 #: notify_lists.php:601 notify_lists.php:660 notify_lists.php:671
 #: notify_lists.php:731 notify_lists.php:744 notify_queue.php:151
-#: setup.php:1443 thold.php:463 thold_functions.php:6312
+#: setup.php:1443 thold.php:463 thold_functions.php:6471
 #: thold_templates.php:310
 msgid "Continue"
 msgstr "Continuar"
@@ -1529,7 +1529,7 @@ msgid "List General Settings"
 msgstr "Parametrizaciones generales de la lista"
 
 #: notify_lists.php:841 notify_lists.php:1429 notify_lists.php:1688
-#: setup.php:1247 thold.php:775 thold_graph.php:441 thold_templates.php:2110
+#: setup.php:1247 thold.php:775 thold_graph.php:441 thold_templates.php:2112
 msgid "Name"
 msgstr "Nombre"
 
@@ -1574,11 +1574,11 @@ msgstr "Direcciones de correo"
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
 msgstr "Introduzca una lista de direcciones de correo electrónico separadas por comas para esta Lista de notificación."
 
-#: notify_lists.php:881 thold.php:1871 thold_templates.php:1462
+#: notify_lists.php:881 thold.php:1883 thold_templates.php:1464
 msgid "Email Style/Format File"
 msgstr ""
 
-#: notify_lists.php:884 thold.php:1874 thold_templates.php:1465
+#: notify_lists.php:884 thold.php:1886 thold_templates.php:1467
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr ""
 
@@ -1587,9 +1587,9 @@ msgid "Associated Devices"
 msgstr "Dispositivos Asociados"
 
 #: notify_lists.php:989 notify_lists.php:1306 notify_lists.php:1611
-#: notify_lists.php:1935 notify_queue.php:248 thold.php:635 thold.php:2418
+#: notify_lists.php:1935 notify_queue.php:248 thold.php:635 thold.php:2430
 #: thold_graph.php:132 thold_graph.php:1101 thold_graph.php:1522
-#: thold_templates.php:1909 thold_templates.php:2018
+#: thold_templates.php:1911 thold_templates.php:2020
 msgid "Search"
 msgstr "Buscar"
 
@@ -1601,25 +1601,25 @@ msgstr "Sitio"
 #: notify_lists.php:1000 notify_lists.php:1018 notify_lists.php:1183
 #: notify_lists.php:1197 notify_lists.php:1317 notify_lists.php:1516
 #: notify_lists.php:1760 setup.php:779 setup.php:797 setup.php:971
-#: setup.php:972 setup.php:1135 thold.php:646 thold.php:677 thold.php:1564
-#: thold.php:1572 thold.php:1910 thold.php:1918 thold.php:2381
+#: setup.php:972 setup.php:1135 thold.php:646 thold.php:677 thold.php:1571
+#: thold.php:1579 thold.php:1922 thold.php:1930 thold.php:2393
 #: thold_graph.php:143 thold_graph.php:174 thold_graph.php:192
 #: thold_graph.php:1112 thold_graph.php:1158 thold_graph.php:1533
 #: thold_graph.php:1565 thold_templates.php:458 thold_templates.php:506
-#: thold_templates.php:1158 thold_templates.php:1166 thold_templates.php:1508
-#: thold_templates.php:1516 thold_templates.php:1872
+#: thold_templates.php:1155 thold_templates.php:1163 thold_templates.php:1510
+#: thold_templates.php:1518 thold_templates.php:1874
 msgid "None"
 msgstr "Ninguno"
 
 #: notify_lists.php:1013 notify_lists.php:1433 notify_lists.php:1692
 #: thold.php:789 thold_graph.php:459 thold_graph.php:1153 thold_graph.php:1442
-#: thold_templates.php:2135
+#: thold_templates.php:2137
 msgid "Type"
 msgstr "Tipo"
 
 #: notify_lists.php:1037 notify_lists.php:1359 notify_lists.php:1621
 #: notify_lists.php:1945 notify_queue.php:283 thold.php:718 thold_graph.php:229
-#: thold_graph.php:1177 thold_graph.php:1619 thold_templates.php:2028
+#: thold_graph.php:1177 thold_graph.php:1619 thold_templates.php:2030
 msgid "Default"
 msgstr "Predeterminado"
 
@@ -1629,7 +1629,7 @@ msgstr "Asociados"
 
 #: notify_lists.php:1055 notify_lists.php:1377 notify_lists.php:1639
 #: notify_lists.php:1956 notify_queue.php:295 thold.php:662 thold_graph.php:160
-#: thold_graph.php:1144 thold_graph.php:1550 thold_templates.php:2040
+#: thold_graph.php:1144 thold_graph.php:1550 thold_templates.php:2042
 msgid "Go"
 msgstr "Ir"
 
@@ -1640,7 +1640,7 @@ msgstr "Definir/Refrescar Filtros"
 
 #: notify_lists.php:1056 notify_lists.php:1378 notify_lists.php:1640
 #: notify_lists.php:1959 notify_queue.php:296 thold.php:665 thold_graph.php:161
-#: thold_graph.php:1145 thold_graph.php:1551 thold_templates.php:2041
+#: thold_graph.php:1145 thold_graph.php:1551 thold_templates.php:2043
 msgid "Clear"
 msgstr "Restablecer"
 
@@ -1651,7 +1651,7 @@ msgstr "Restablecer filtros"
 
 #: notify_lists.php:1167 notify_lists.php:1430 notify_lists.php:1689
 #: thold.php:784 thold_graph.php:450 thold_graph.php:941
-#: thold_templates.php:2120
+#: thold_templates.php:2122
 msgid "ID"
 msgstr "ID"
 
@@ -1705,11 +1705,11 @@ msgid "State"
 msgstr "Estado"
 
 #: notify_lists.php:1347 notify_queue.php:258 notify_queue.php:273
-#: thold.php:645 thold.php:676 thold.php:703 thold.php:2380 thold_graph.php:142
+#: thold.php:645 thold.php:676 thold.php:703 thold.php:2392 thold_graph.php:142
 #: thold_graph.php:173 thold_graph.php:191 thold_graph.php:214
 #: thold_graph.php:1111 thold_graph.php:1131 thold_graph.php:1157
 #: thold_graph.php:1532 thold_graph.php:1564 thold_graph.php:1582
-#: thold_graph.php:1604 thold_templates.php:1871
+#: thold_graph.php:1604 thold_templates.php:1873
 msgid "All"
 msgstr "Todos"
 
@@ -1730,14 +1730,14 @@ msgstr "Sin plantilla"
 
 #: notify_lists.php:1445 notify_lists.php:2047 notify_queue.php:274
 #: thold.php:872 thold.php:1025 thold.php:1027 thold.php:1030
-#: thold_graph.php:529 thold_graph.php:752 thold_templates.php:2222
+#: thold_graph.php:529 thold_graph.php:752 thold_templates.php:2224
 msgid "No"
 msgstr "No"
 
 #: notify_lists.php:1448 notify_lists.php:2047 notify_queue.php:275
 #: thold.php:903 thold.php:907 thold.php:955 thold.php:1025 thold.php:1030
 #: thold_graph.php:560 thold_graph.php:564 thold_graph.php:681
-#: thold_graph.php:752 thold_templates.php:2222
+#: thold_graph.php:752 thold_templates.php:2224
 msgid "Yes"
 msgstr "Sí"
 
@@ -2082,7 +2082,7 @@ msgstr "Creación automática de umbrales"
 msgid "Created %s thresholds"
 msgstr "Umbral creado: %s"
 
-#: setup.php:892 setup.php:1049 thold_functions.php:5551
+#: setup.php:892 setup.php:1049 thold_functions.php:5710
 #, fuzzy
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "No se han creado umbrales.  O bien ya existen, o bien no se encontraron combinaciones coincidentes."
@@ -2260,7 +2260,7 @@ msgstr "Volver a aplicar la plantilla"
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Haga clic en 'Continuar' para reconocer los siguientes umbrales. Los umbrales que no lo permitan, o que no se activen, serán ignorados."
 
-#: thold.php:427 thold_functions.php:6299
+#: thold.php:427 thold_functions.php:6458
 #, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "Confirmar Plantilla(s)"
@@ -2305,7 +2305,7 @@ msgid "Return to Defaults"
 msgstr "Volver a Predeterminados"
 
 #: thold.php:686 thold_graph.php:187 thold_templates.php:454
-#: thold_templates.php:1132 thold_templates.php:2130
+#: thold_templates.php:1129 thold_templates.php:2132
 msgid "Data Template"
 msgstr "Plantilla de datos"
 
@@ -2339,8 +2339,8 @@ msgstr "Actual"
 msgid "The last measured value for the Data Source"
 msgstr "El último valor medido para la fuente de datos"
 
-#: thold.php:805 thold.php:1952 thold.php:1971 thold_graph.php:470
-#: thold_templates.php:1547 thold_templates.php:1561 thold_templates.php:2145
+#: thold.php:805 thold.php:1964 thold.php:1983 thold_graph.php:470
+#: thold_templates.php:1549 thold_templates.php:1563 thold_templates.php:2147
 msgid "High"
 msgstr "Alto"
 
@@ -2349,8 +2349,8 @@ msgstr "Alto"
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "Los valores altos de Advertencia / Alerta. NOTA: Los valores de línea base son un porcentaje, todos los demás valores son valores de visualización que pueden ser modificados por un cdef."
 
-#: thold.php:811 thold.php:1950 thold.php:1969 thold_graph.php:476
-#: thold_templates.php:1547 thold_templates.php:1561 thold_templates.php:2151
+#: thold.php:811 thold.php:1962 thold.php:1981 thold_graph.php:476
+#: thold_templates.php:1549 thold_templates.php:1563 thold_templates.php:2153
 msgid "Low"
 msgstr "Bajo"
 
@@ -2359,15 +2359,15 @@ msgstr "Bajo"
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "Los valores de advertencia / alerta bajos. NOTA: Los valores de línea base son un porcentaje, todos los demás valores son valores de visualización que pueden ser modificados por un cdef."
 
-#: thold.php:817 thold_graph.php:482 thold_templates.php:2157
+#: thold.php:817 thold_graph.php:482 thold_templates.php:2159
 msgid "Trigger"
 msgstr "Activador"
 
-#: thold.php:822 thold_graph.php:487 thold_templates.php:2162
+#: thold.php:822 thold_graph.php:487 thold_templates.php:2164
 msgid "Duration"
 msgstr "Duracion"
 
-#: thold.php:827 thold_graph.php:492 thold_templates.php:2167
+#: thold.php:827 thold_graph.php:492 thold_templates.php:2169
 msgid "Repeat"
 msgstr "Repetir"
 
@@ -2471,580 +2471,586 @@ msgstr "Sin plantilla"
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "Fuente de datos[%s] - Valor actual: [%s]"
 
-#: thold.php:1474 thold_templates.php:1076
+#: thold.php:1474 thold_templates.php:1066
 #, fuzzy, php-format
 msgid "Replacement Fields: %s"
 msgstr "Campos de sustitución: %s"
 
-#: thold.php:1487 thold_templates.php:1090
+#: thold.php:1487 thold_templates.php:1080
 #, fuzzy, php-format
 msgid "Data Sources: %s"
 msgstr "Fuentes de Datos [%s]"
 
-#: thold.php:1507
+#: thold.php:1514
 #, fuzzy
 msgid "Template/Enabled Information"
 msgstr "Plantilla/Información habilitada"
 
-#: thold.php:1511
+#: thold.php:1518
 #, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "Propagación de plantillas activada"
 
-#: thold.php:1514
+#: thold.php:1521
 #, fuzzy
 msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr "Si estos ajustes se propagarán o no desde la plantilla Threshold."
 
-#: thold.php:1518 thold_templates.php:1114
+#: thold.php:1525 thold_templates.php:1111
 msgid "Template Name"
 msgstr "Nombre de Plantilla"
 
-#: thold.php:1521
+#: thold.php:1528
 #, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "Nombre de la plantilla de umbral a partir de la cual se creó el umbral."
 
-#: thold.php:1525
+#: thold.php:1532
 msgid "Enabled at Template Level"
 msgstr ""
 
-#: thold.php:1528 thold.php:1535
+#: thold.php:1535 thold.php:1542
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
 msgstr ""
 
-#: thold.php:1532
+#: thold.php:1539
 #, fuzzy
 msgid "Enabled at Threshold Level"
 msgstr "Activar Umbral"
 
-#: thold.php:1539 thold_templates.php:1110
+#: thold.php:1546 thold_templates.php:1107
 msgid "General Settings"
 msgstr "Opciones generales"
 
-#: thold.php:1543
+#: thold.php:1550
 #, fuzzy
 msgid "Name (Displayed)"
 msgstr "Nombre (mostrado)"
 
-#: thold.php:1548 thold.php:1557
+#: thold.php:1555 thold.php:1564
 #, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "Proporcionar a los Umbrales un nombre significativo"
 
-#: thold.php:1552
+#: thold.php:1559
 msgid "Name (Format)"
 msgstr "Nombre (Formato)"
 
-#: thold.php:1561 thold_templates.php:1155
+#: thold.php:1568 thold_templates.php:1152
 #, fuzzy
 msgid "Warning HRULE Color"
 msgstr "Advertencia HRULE Color"
 
-#: thold.php:1562 thold_templates.php:1156
+#: thold.php:1569 thold_templates.php:1153
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Seleccione un color para el gráfico HRULE para los umbrales de advertencia.  Seleccione'Ninguno' para No HRULE.  Nota: Esta función sólo es compatible con los tipos de manipulación de datos 'Valor exacto' y 'Porcentaje' en este momento."
 
-#: thold.php:1569 thold_templates.php:1163
+#: thold.php:1576 thold_templates.php:1160
 #, fuzzy
 msgid "Alert HRULE Color"
 msgstr "Alerta HRULE Color"
 
-#: thold.php:1570 thold_templates.php:1164
+#: thold.php:1577 thold_templates.php:1161
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Por favor, elija un color para el gráfico HRULE para los umbrales de alerta.  Seleccione'Ninguno' para No HRULE.  Nota: Esta función sólo es compatible con los tipos de manipulación de datos 'Valor exacto' y 'Porcentaje' en este momento."
 
-#: thold.php:1577 thold_templates.php:1171
+#: thold.php:1584 thold_templates.php:1168
 #, fuzzy
 #| msgid "Graph Template"
 msgid "Graph Timespan"
 msgstr "Plantilla de gráficos"
 
-#: thold.php:1580 thold_templates.php:1174
+#: thold.php:1587 thold_templates.php:1171
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
 msgstr ""
 
-#: thold.php:1585 thold_templates.php:1179
+#: thold.php:1592 thold_templates.php:1176
 msgid "Skip Scaling on HRULEs"
 msgstr ""
 
-#: thold.php:1588 thold_templates.php:1182
+#: thold.php:1595 thold_templates.php:1179
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
 msgstr ""
 
-#: thold.php:1592 thold_templates.php:1186
+#: thold.php:1599 thold_templates.php:1183
 #, fuzzy
 msgid "Weekend Exemption"
 msgstr "Exención de fin de semana"
 
-#: thold.php:1593 thold_templates.php:1187
+#: thold.php:1600 thold_templates.php:1184
 #, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr "Si esta opción está seleccionada, este Umbral no alertará los fines de semana."
 
-#: thold.php:1599 thold_templates.php:1193
+#: thold.php:1606 thold_templates.php:1190
 #, fuzzy
 msgid "Disable Restoration Email"
 msgstr "Desactivar correo electrónico de restauración"
 
-#: thold.php:1600 thold_templates.php:1194
+#: thold.php:1607 thold_templates.php:1191
 #, fuzzy
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr "Si esta opción está seleccionada, Threshold no enviará una alerta cuando el Threshold haya vuelto a su estado normal."
 
-#: thold.php:1606 thold_templates.php:1200
+#: thold.php:1613 thold_templates.php:1197
 #, fuzzy
 msgid "Acknowledgment Options"
 msgstr "Opciones de reconocimiento"
 
-#: thold.php:1607 thold_templates.php:1201
+#: thold.php:1614 thold_templates.php:1198
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr "Hay tres niveles de Reconocimiento que controlan cómo debe responder a una condición de traspaso del Umbral.  Son:<br><br><ul><li><i>Ninguno Requerido</i> - Cuando usted selecciona esta opción, no se requiere ningún Reconocimiento para una violación del Umbral.</li><li><i>Notificación suspendible</i> - Con esta opción, una vez que reconozcas o suspendas las notificaciones en el umbral, no recibirás mas notificaciones mientras este sea traspasado.  Puedes resumir las notificaciones subsecuentemente mientras sea traspasado.</li><li><i>Reconocimiento persistente</i> - Con esta opción, aún después de que el umbral ha regresado a la normalidad, debes reconocer el umbral y proveer un mensaje opcional de Operador.</li></ul>"
 
-#: thold.php:1614 thold_templates.php:1208
+#: thold.php:1621 thold_templates.php:1205
 #, fuzzy
 msgid "None Required"
 msgstr "Ninguno Requerido"
 
-#: thold.php:1618 thold_templates.php:1212
+#: thold.php:1625 thold_templates.php:1209
 #, fuzzy
 msgid "Suspendible Notification"
 msgstr "No hay notificaciones SNMP"
 
-#: thold.php:1622 thold_templates.php:1216
+#: thold.php:1629 thold_templates.php:1213
 #, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "Reconocimiento Persistente"
 
-#: thold.php:1627 thold_templates.php:1221
+#: thold.php:1634 thold_templates.php:1218
 msgid "Threshold Type"
 msgstr "Tipo de umbral"
 
-#: thold.php:1632 thold_templates.php:1226
+#: thold.php:1639 thold_templates.php:1223
 #, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "El tipo de umbral que será monitoreado."
 
-#: thold.php:1636 thold_templates.php:1230
+#: thold.php:1643 thold_templates.php:1227
 #, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "Ciclo de Re-Alerta"
 
-#: thold.php:1640
+#: thold.php:1647
 #, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr "Repita la alerta después de que haya transcurrido este tiempo desde la última alerta."
 
-#: thold.php:1644 thold_templates.php:1238
+#: thold.php:1651 thold_templates.php:1235
 #, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "Advertencia - Configuración Alta / Baja"
 
-#: thold.php:1648 thold.php:1675 thold.php:1702 thold.php:1737
-#: thold_templates.php:1242 thold_templates.php:1269 thold_templates.php:1296
-#: thold_templates.php:1332
+#: thold.php:1653 thold.php:1681 thold.php:1709 thold.php:1745 thold.php:1782
+#: thold_templates.php:1237 thold_templates.php:1265 thold_templates.php:1293
+#: thold_templates.php:1330 thold_templates.php:1366
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr ""
+
+#: thold.php:1656 thold.php:1684 thold.php:1712 thold.php:1748
+#: thold_templates.php:1240 thold_templates.php:1268 thold_templates.php:1296
+#: thold_templates.php:1333
 #, fuzzy
 msgid "High Threshold"
 msgstr "Umbral alto"
 
-#: thold.php:1652 thold.php:1706 thold_templates.php:1300
+#: thold.php:1660 thold.php:1716 thold_templates.php:1300
 #, fuzzy
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Si se establece y el valor de la fuente de datos supera este número, se activará una advertencia. NOTA: Este valor debe ser un número RAW. El valor mostrado en el gráfico puede ser modificado por un cdef."
 
-#: thold.php:1656 thold.php:1683 thold.php:1710 thold.php:1745
-#: thold_templates.php:1250 thold_templates.php:1277 thold_templates.php:1304
-#: thold_templates.php:1340
+#: thold.php:1664 thold.php:1692 thold.php:1720 thold.php:1756
+#: thold_templates.php:1248 thold_templates.php:1276 thold_templates.php:1304
+#: thold_templates.php:1341
 #, fuzzy
 msgid "Low Threshold"
 msgstr "Umbral bajo"
 
-#: thold.php:1660 thold.php:1714 thold_templates.php:1308
+#: thold.php:1668 thold.php:1724 thold_templates.php:1308
 #, fuzzy
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Si se establece y el valor de la fuente de datos cae por debajo de este número, se activará una advertencia. NOTA: Este valor debe ser un número RAW. El valor mostrado en el gráfico puede ser modificado por un cdef."
 
-#: thold.php:1664 thold.php:1691
+#: thold.php:1672 thold.php:1700
 #, fuzzy
 msgid "Breach Duration"
 msgstr "Duración del incumplimiento"
 
-#: thold.php:1667
+#: thold.php:1675
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "La cantidad de tiempo que la fuente de datos debe estar en violación del Umbral para que se produzca una advertencia."
 
-#: thold.php:1671 thold_templates.php:1265
+#: thold.php:1679 thold_templates.php:1263
 #, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "Alerta - Configuración Alta / Baja"
 
-#: thold.php:1679 thold.php:1741 thold_templates.php:1246
-#: thold_templates.php:1273 thold_templates.php:1336
+#: thold.php:1688 thold.php:1752 thold_templates.php:1244
+#: thold_templates.php:1272 thold_templates.php:1337
 #, fuzzy
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Si se establece y el valor de la fuente de datos supera este número, se activará la alerta. NOTA: Este valor debe ser un número RAW. El valor mostrado en el gráfico puede ser modificado por un cdef."
 
-#: thold.php:1687 thold.php:1749 thold_templates.php:1254
-#: thold_templates.php:1281 thold_templates.php:1344
+#: thold.php:1696 thold.php:1760 thold_templates.php:1252
+#: thold_templates.php:1280 thold_templates.php:1345
 #, fuzzy
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Si se establece y el valor de la fuente de datos cae por debajo de este número, se activará la alerta. NOTA: Este valor debe ser un número RAW. El valor mostrado en el gráfico puede ser modificado por un cdef."
 
-#: thold.php:1694
+#: thold.php:1703
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr "La cantidad de tiempo que la fuente de datos debe estar en violación del Umbral para que se produzca una alerta."
 
-#: thold.php:1698 thold_templates.php:1292
+#: thold.php:1707 thold_templates.php:1291
 #, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "Advertencia - Ajustes basados en el tiempo"
 
-#: thold.php:1718 thold.php:1753
+#: thold.php:1728 thold.php:1764
 #, fuzzy
 msgid "Breach Count"
 msgstr "Recuento de infracciones"
 
-#: thold.php:1722 thold.php:1758
+#: thold.php:1732 thold.php:1769
 #, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr "El número de veces que la fuente de datos debe estar en violación del Umbral."
 
-#: thold.php:1726 thold.php:1762
+#: thold.php:1736 thold.php:1773
 #, fuzzy
 msgid "Breach Window"
 msgstr "Ventana de Brecha"
 
-#: thold.php:1729 thold.php:1765 thold_templates.php:1324
-#: thold_templates.php:1359
+#: thold.php:1739 thold.php:1776 thold_templates.php:1324
+#: thold_templates.php:1360
 #, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "La cantidad de tiempo en el pasado para comprobar si se ha producido una violación del umbral."
 
-#: thold.php:1733 thold_templates.php:1328
+#: thold.php:1743 thold_templates.php:1328
 #, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "Alerta - Configuración basada en el tiempo"
 
-#: thold.php:1769
+#: thold.php:1780
 #, fuzzy
 msgid "Baseline Settings"
 msgstr "Parametrizaciones básicas"
 
-#: thold.php:1773 thold_templates.php:1367
+#: thold.php:1785 thold_templates.php:1369
 #, fuzzy
 msgid "Baseline Type"
 msgstr "Alerta base"
 
-#: thold.php:1776 thold_templates.php:1370
+#: thold.php:1788 thold_templates.php:1372
 msgid "The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend."
 msgstr ""
 
-#: thold.php:1780
+#: thold.php:1792
 msgid "Time range"
 msgstr "Intervalo de tiempo"
 
-#: thold.php:1783 thold_templates.php:1377
+#: thold.php:1795 thold_templates.php:1379
 #, fuzzy
 #| msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference"
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
 msgstr "Especifica el punto en el pasado (basado en la resolución rrd) que se utilizará como referencia"
 
-#: thold.php:1787
+#: thold.php:1799
 #, fuzzy
 msgid "Deviation UP"
 msgstr "Desviación UP"
 
-#: thold.php:1791 thold_templates.php:1385
+#: thold.php:1803 thold_templates.php:1387
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all."
 msgstr "Especifica la desviación porcentual permitida para el límite superior del umbral. Si no está configurado, el límite superior del umbral no se comprobará en absoluto."
 
-#: thold.php:1795
+#: thold.php:1807
 #, fuzzy
 msgid "Deviation DOWN"
 msgstr "Desviación DOWN"
 
-#: thold.php:1799 thold_templates.php:1393
+#: thold.php:1811 thold_templates.php:1395
 #, fuzzy
 msgid "Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all."
 msgstr "Especifica la desviación permitida en porcentaje para el Umbral de límite inferior. Si no está configurado, el Umbral de límite inferior no se comprobará en absoluto."
 
-#: thold.php:1807
+#: thold.php:1819
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr "Número de veces consecutivas que la fuente de datos debe superar el umbral de referencia para que se produzca una alerta. <br>Dejar vacío para utilizar el valor por defecto (<b>Por defecto: %s cycles</b>)"
 
-#: thold.php:1811 thold_templates.php:1405
+#: thold.php:1823 thold_templates.php:1407
 msgid "Data Manipulation"
 msgstr "Manipulación de datos"
 
-#: thold.php:1815 thold_templates.php:1409
+#: thold.php:1827 thold_templates.php:1411
 msgid "Data Type"
 msgstr "Tipo de Datos"
 
-#: thold.php:1820 thold_templates.php:1413
+#: thold.php:1832 thold_templates.php:1415
 #, fuzzy
 msgid "Special formatting for the given data."
 msgstr "Formato especial para los datos dados."
 
-#: thold.php:1824 thold_templates.php:1417
+#: thold.php:1836 thold_templates.php:1419
 #, fuzzy
 msgid "Threshold CDEF"
 msgstr "Umbral CDEF"
 
-#: thold.php:1827 thold_templates.php:1420
+#: thold.php:1839 thold_templates.php:1422
 #, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "Aplique este CDEF antes de devolver los datos."
 
-#: thold.php:1832
+#: thold.php:1844
 #, fuzzy
 msgid "Percent Data Source"
 msgstr "Porcentaje Fuente de datos"
 
-#: thold.php:1835
+#: thold.php:1847
 #, fuzzy
 msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr "Segundo elemento de la fuente de datos que se utilizará como valor total para calcular el porcentaje de."
 
-#: thold.php:1840 thold_templates.php:1450
+#: thold.php:1852 thold_templates.php:1452
 msgid "Show Units"
 msgstr "Mostrar unidades"
 
-#: thold.php:1843 thold_templates.php:1453
+#: thold.php:1855 thold_templates.php:1455
 msgid "Display units for very large or small numbers."
 msgstr "Mostrar unidades para números muy grandes o pequeños."
 
-#: thold.php:1852
+#: thold.php:1864
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "Una expresión RPN es una expresión RPN compatible con RRDtool.  La sintaxis incluye todas las funciones siguientes además de las expresiones de sustitución de consulta de datos y dispositivos, como <span class=\"deviceUp\">|query_ifSpeed|</span>.  Para utilizar una fuente de datos en la expresión RPN, debe utilizar la sintaxis: <class=\"deviceUp\">|ds:dsname|</span>.  Por ejemplo, <span class=\"deviceUp\">|ds:traffic_in|</span> obtendrá el valor actual de la fuente de datos traffic_in para los archivos RRD asociados con el gráfico. Cualquier fuente de datos para un gráfico puede ser incluida. <br><br>br>Operadores matemáticos: <class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Funciones: <class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
-#: thold.php:1858 thold_templates.php:1442
+#: thold.php:1870 thold_templates.php:1444
 #, fuzzy
 msgid "Upper Data Source"
 msgstr "Data Source"
 
-#: thold.php:1861
+#: thold.php:1873
 #, fuzzy
 msgid "Upper data source to calculate the total value."
 msgstr "Fuente de datos superior para calcular el valor total."
 
-#: thold.php:1866 thold_templates.php:1457
+#: thold.php:1878 thold_templates.php:1459
 msgid "Notification Settings"
 msgstr "Opciones de notificación"
 
-#: thold.php:1879 thold_templates.php:1470
+#: thold.php:1891 thold_templates.php:1472
 #, fuzzy
 msgid "Alert Email Body"
 msgstr "Cuerpo del correo electrónico de alerta"
 
-#: thold.php:1884 thold_templates.php:1475
+#: thold.php:1896 thold_templates.php:1477
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Este es el mensaje que se mostrará en la parte superior de todas las Alertas de Umbral (255 caracteres MAX).  HTML está permitido, pero se eliminará para los correos electrónicos de sólo texto.  Hay varios descriptores que pueden ser usados. <br>eg. &#060DESCRIPCIÓN&#062 &#060HOSTNAME&#060TIME&#060TIME&#062 &#060URL&#060GRAPHID&#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#060THRESEARCH&#060DSNAME&#062 &#060SUBJETO&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#060LOW&#060DURATION&#060TRIGGER&#060DETAILS_URL&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_IACHED_ITEMS&#062"
 
-#: thold.php:1888 thold_templates.php:1479
+#: thold.php:1900 thold_templates.php:1481
 #, fuzzy
 msgid "Warning Email Body"
 msgstr "Cuerpo del correo electrónico de advertencia"
 
-#: thold.php:1893 thold_templates.php:1484
+#: thold.php:1905 thold_templates.php:1486
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Este es el mensaje que se mostrará en la parte superior de todas las advertencias de umbral (255 caracteres MAX).  HTML está permitido, pero se eliminará para los correos electrónicos de sólo texto.  Hay varios descriptores que pueden ser usados. <br>eg. &#060DESCRIPCIÓN&#062 &#060HOSTNAME&#060TIME&#060TIME&#062 &#060URL&#060GRAPHID&#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#060THRESEARCH&#060DSNAME&#062 &#060SUBJETO&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#060LOW&#060DURATION&#060TRIGGER&#060DETAILS_URL&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_IACHED_ITEMS&#062"
 
-#: thold.php:1897 thold_templates.php:1488
+#: thold.php:1909 thold_templates.php:1490
 #, fuzzy
 msgid "Restoral Email Body"
 msgstr "Cuerpo del correo electrónico de alerta"
 
-#: thold.php:1902 thold_templates.php:1493
+#: thold.php:1914 thold_templates.php:1495
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Este es el mensaje que se mostrará en la parte superior de todas las advertencias de umbral (255 caracteres MAX).  HTML está permitido, pero se eliminará para los correos electrónicos de sólo texto.  Hay varios descriptores que pueden ser usados.<br>&#060DESCRIPCIÓN&#062 &#060HOSTNAME&#062 &#060TIME&#060DATE&#060DATE&#062 &#060DATE_RFC822&#060URL&#060GRAPHID&#062 &#060VALOR ACTUAL&#062 &#060NOMBRE DEL UMBRAL&#062 &#060NOMBRE DEL UMBRAL&#060NOMBRE DEL OBJETO&#062 &#060GRÁFICO&#060NOTAS&#62 &#060NOTAS&#060NOTAS&#062"
 
-#: thold.php:1906 thold_templates.php:1504
+#: thold.php:1918 thold_templates.php:1506
 #, fuzzy
 msgid "Warning Notification List"
 msgstr "Lista de avisos de advertencia"
 
-#: thold.php:1908 thold_templates.php:1506
+#: thold.php:1920 thold_templates.php:1508
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr "Puede especificar una lista de notificaciones para recibir advertencias para esta fuente de datos"
 
-#: thold.php:1914 thold_templates.php:1512
+#: thold.php:1926 thold_templates.php:1514
 #, fuzzy
 msgid "Alert Notification List"
 msgstr "Lista de notificación de alertas"
 
-#: thold.php:1916 thold_templates.php:1514
+#: thold.php:1928 thold_templates.php:1516
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr "Puede especificar una lista de notificaciones para recibir alertas de esta fuente de datos"
 
-#: thold.php:1926 thold_templates.php:1524
+#: thold.php:1938 thold_templates.php:1526
 #, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "Notificación SNMP - Categoría de evento"
 
-#: thold.php:1928 thold_templates.php:1526
+#: thold.php:1940 thold_templates.php:1528
 #, fuzzy
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr "Para que un NMS pueda categorizar más fácilmente las diferentes notificaciones SNMP, por favor, rellene la categoría de notificaciones SNMP para esta plantilla. Por ejemplo..: \"uso_del_disco\", \"utilización_de_enlaces\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ...."
 
-#: thold.php:1934 thold_templates.php:1532
+#: thold.php:1946 thold_templates.php:1534
 #, fuzzy
 msgid "SNMP Event Description"
 msgstr "Descripción del evento SNMP"
 
-#: thold.php:1935 thold_templates.php:1533
+#: thold.php:1947 thold_templates.php:1535
 #, fuzzy
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 msgstr "Puede personalizar la descripción del evento que se envía a los receptores de notificaciones SNMP utilizando varbinds adicionales. Se soportarán las siguientes fijaciones de variables:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#0602; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 
-#: thold.php:1944 thold_templates.php:1542
+#: thold.php:1956 thold_templates.php:1544
 #, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "Notificación SNMP - Gravedad del evento de alerta"
 
-#: thold.php:1947
+#: thold.php:1959
 #, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr "Gravedad que se utilizará para las alertas. (bajo impacto -> impacto crítico)"
 
-#: thold.php:1951 thold.php:1970 thold_templates.php:1547
-#: thold_templates.php:1561
+#: thold.php:1963 thold.php:1982 thold_templates.php:1549
+#: thold_templates.php:1563
 msgid "Medium"
 msgstr "Media"
 
-#: thold.php:1963 thold_templates.php:1556
+#: thold.php:1975 thold_templates.php:1558
 #, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "Notificación SNMP - Gravedad del evento de advertencia"
 
-#: thold.php:1966 thold_templates.php:1559
+#: thold.php:1978 thold_templates.php:1561
 #, fuzzy
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr "Gravedad que se utilizará para las advertencias. (Bajo impacto -> Impacto crítico).<br>Nota: La gravedad de las alertas debe ser igual o inferior a la que se está definiendo para las alertas."
 
-#: thold.php:1984 thold_templates.php:1572
+#: thold.php:1996 thold_templates.php:1574
 #, fuzzy
 msgid "Notify accounts"
 msgstr "Notificar a las cuentas"
 
-#: thold.php:1986
+#: thold.php:1998
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr "Este es un listado de las cuentas que serán notificadas cuando este Umbral sea violado."
 
-#: thold.php:1991 thold_templates.php:1579
+#: thold.php:2003 thold_templates.php:1581
 #, fuzzy
 msgid "Alert Emails"
 msgstr "Emails de Alerta"
 
-#: thold.php:1995
+#: thold.php:2007
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr "Puede especificar aquí Emails adicionales para recibir alertas de esta fuente de datos (separados por comas)"
 
-#: thold.php:1999 thold_templates.php:1587
+#: thold.php:2011 thold_templates.php:1589
 #, fuzzy
 msgid "Warning Emails"
 msgstr "Emails de advertencia"
 
-#: thold.php:2003
+#: thold.php:2015
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr "Usted puede especificar aquí Emails adicionales para recibir avisos para esta fuente de datos (separados por comas)"
 
-#: thold.php:2037 thold_templates.php:1625
+#: thold.php:2049 thold_templates.php:1627
 #, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "Si esta opción está seleccionada, la notificación de Umbral será enviada a su syslog local."
 
-#: thold.php:2043 thold_templates.php:1631
+#: thold.php:2055 thold_templates.php:1633
 #, fuzzy
 msgid "Priority/Level"
 msgstr "Prioridad/Nivel"
 
-#: thold.php:2044 thold_templates.php:1632
+#: thold.php:2056 thold_templates.php:1634
 #, fuzzy
 msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr "Este es el nivel de prioridad que se registrará en los mensajes del syslog."
 
-#: thold.php:2051 thold_templates.php:1639
+#: thold.php:2063 thold_templates.php:1641
 msgid "Facility"
 msgstr "Instalaciones"
 
-#: thold.php:2052 thold_templates.php:1640
+#: thold.php:2064 thold_templates.php:1642
 #, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "Esta es la Facilidad que se utilizará para este Umbral."
 
-#: thold.php:2073 thold_templates.php:1661
+#: thold.php:2085 thold_templates.php:1663
 #, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "Disparo de Eventos (Comando Shell)"
 
-#: thold.php:2078 thold_templates.php:1666
+#: thold.php:2090 thold_templates.php:1668
 #, fuzzy
 msgid "High Trigger Command"
 msgstr "Alto Mando de Disparo"
 
-#: thold.php:2079 thold_templates.php:1667
+#: thold.php:2091 thold_templates.php:1669
 #, fuzzy
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Si se establece, y si se rompe un Umbral Alto, se ejecutará esta orden.  Por favor, introduzca un comando válido.  Además, hay varias etiquetas de reemplazo disponibles que se pueden usar para pasar información desde el Umbral al script.  Entre ellas se incluyen &#060DESCRIPCIÓN&#062 &#060HOSTNAME&#060TIME&#060TIME&#062 &#060URL&#060GRAPHID&#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#060THRESEARCH&#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#060LOW&#060DURATION&#060TRIGGER&#060DETAILS_URL&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_IACHED_ITEMS&#062.  Por último, se puede reemplazar el host, la consulta de datos y la entrada de datos.  Por ejemplo, si tiene un dato personalizado de entrada de datos llamado pendiente, para realizar el uso de reemplazo |pendiente|.  Para la consulta de datos y la sustitución de host, utilice las convenciones Cacti |query_xxxx|, y |host_xxxx| respectivamente."
 
-#: thold.php:2086 thold_templates.php:1674
+#: thold.php:2098 thold_templates.php:1676
 #, fuzzy
 msgid "Low Trigger Command"
 msgstr "Mando de disparo bajo"
 
-#: thold.php:2087 thold_templates.php:1675
+#: thold.php:2099 thold_templates.php:1677
 #, fuzzy
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Si está configurado, y si se rompe un Umbral Bajo, se ejecutará esta orden. Por favor, introduzca un comando válido.  Además, hay varias etiquetas de reemplazo disponibles que se pueden usar para pasar información desde el Umbral al script.  Entre ellas se incluyen &#060DESCRIPCIÓN&#062 &#060HOSTNAME&#060TIME&#060TIME&#062 &#060URL&#060GRAPHID&#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#060THRESEARCH&#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#060LOW&#060DURATION&#060TRIGGER&#060DETAILS_URL&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_IACHED_ITEMS&#062.  Por último, se puede reemplazar el host, la consulta de datos y la entrada de datos.  Por ejemplo, si tiene un dato personalizado de entrada de datos llamado pendiente, para realizar el uso de reemplazo |pendiente|.  Para la consulta de datos y la sustitución de host, utilice las convenciones Cacti |query_xxxx|, y |host_xxxx| respectivamente."
 
-#: thold.php:2094 thold_templates.php:1682
+#: thold.php:2106 thold_templates.php:1684
 #, fuzzy
 msgid "Norm Trigger Command"
 msgstr "Comando Norm Trigger"
 
-#: thold.php:2095 thold_templates.php:1683
+#: thold.php:2107 thold_templates.php:1685
 #, fuzzy
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Si está configurado, cuando un thold vuelve a un valor normal, se ejecutará este comando.  Por favor, introduzca un comando válido.  Además, hay varias etiquetas de reemplazo disponibles que se pueden usar para pasar información desde el Umbral al script.  Entre ellas se incluyen &#060DESCRIPCIÓN&#062 &#060HOSTNAME&#060TIME&#060TIME&#062 &#060URL&#060GRAPHID&#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#060THRESEARCH&#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#060LOW&#060DURATION&#060TRIGGER&#060DETAILS_URL&#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_IACHED_ITEMS&#062.  Por último, se puede reemplazar el host, la consulta de datos y la entrada de datos.  Por ejemplo, si tiene un dato personalizado de entrada de datos llamado pendiente, para realizar el uso de reemplazo |pendiente|.  Para la consulta de datos y la sustitución de host, utilice las convenciones Cacti |query_xxxx|, y |host_xxxx| respectivamente."
 
-#: thold.php:2108 thold_templates.php:1696
+#: thold.php:2120 thold_templates.php:1698
 msgid "Other Settings"
 msgstr "Otras opciones"
 
-#: thold.php:2113 thold_templates.php:1701
+#: thold.php:2125 thold_templates.php:1703
 #, fuzzy
 msgid "Operator Notes"
 msgstr "Notas del operador"
 
-#: thold.php:2117 thold_templates.php:1705
+#: thold.php:2129 thold_templates.php:1707
 #, fuzzy
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr "Introduzca aquí las instrucciones para un operador que pueda estar recibiendo el mensaje de Umbral."
 
-#: thold.php:2369
+#: thold.php:2381
 #, fuzzy
 msgid "Select Users(s)"
 msgstr "Seleccione Usuarios(s)"
 
-#: thold.php:2371
+#: thold.php:2383
 #, fuzzy
 msgid "Users Selected"
 msgstr "Usuarios seleccionados"
 
-#: thold.php:2374
+#: thold.php:2386
 #, fuzzy
 msgid "All Users Selected"
 msgstr "Todos los usuarios seleccionados"
@@ -3112,149 +3118,149 @@ msgstr "<Se ha emitido una advertencia que requiere su atención.<br><br><br><b>
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "Se ha emitido una alerta que requiere su atención. <br><br><fuerte>Dispositivo</fuerte>: <DESCRIPCIÓN> (<NOMBRE>)<br><fuerte>URL</fuerte>: <URL><br><fuerte>Mensaje</fuerte>: <TEMA><br><br><br><GRÁFICOS>"
 
-#: thold_functions.php:4691
+#: thold_functions.php:4846
 #, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "El ID de dispositivo no se ha configurado mientras se intentaba crear el gráfico y el umbral"
 
-#: thold_functions.php:4706
+#: thold_functions.php:4861
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr "El ID de la plantilla de umbral no se fue encontrada al intentar crear el gráfico y el umbral"
 
-#: thold_functions.php:4713
+#: thold_functions.php:4868
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr "El ID de la plantilla de umbral no fue configurada mientras se intentaba crear el gráfico y el umbral"
 
-#: thold_functions.php:4746
+#: thold_functions.php:4901
 #, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "La Creación de Gráficos falló para la Plantilla de Umbral"
 
-#: thold_functions.php:4776
+#: thold_functions.php:4931
 #, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr "El umbral fue autocreado debido a la asignación de plantillas de dispositivos"
 
-#: thold_functions.php:4810 thold_functions.php:5134
+#: thold_functions.php:4965 thold_functions.php:5289
 msgid "Permission Denied"
 msgstr "Permiso denegado"
 
-#: thold_functions.php:4831 thold_functions.php:5207
+#: thold_functions.php:4986 thold_functions.php:5362
 msgid "Record Updated"
 msgstr "Registro actualizado"
 
-#: thold_functions.php:4882
+#: thold_functions.php:5037
 #, fuzzy
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!<br>RECORD NOT UPDATED!"
 msgstr "Debe especificar'High Alert Threshold' o'Low Alert Threshold' o ambos!<br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:4894
+#: thold_functions.php:5049
 #, fuzzy
 msgid "Impossible thresholds: 'High Threshold' smaller than or equal to 'Low Threshold'<br>RECORD NOT UPDATED!"
 msgstr "Umbrales imposibles: 'High Threshold' más pequeño que o igual a 'Low Threshold'<br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:4906
+#: thold_functions.php:5061
 #, fuzzy
 msgid "Impossible thresholds: 'High Warning Threshold' smaller than or equal to 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
 msgstr "Umbrales imposibles: 'High Warning Threshold' más pequeño que o igual a 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:4914
+#: thold_functions.php:5069
 #, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "Con los umbrales de línea de base activados."
 
-#: thold_functions.php:4923
+#: thold_functions.php:5078
 #, fuzzy
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!<br>RECORD NOT UPDATED!"
 msgstr "Debe especificar'Baseline Deviation UP' o'Baseline Deviation DOWN' o ambos!<br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:5124
+#: thold_functions.php:5279
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "Fallo al encontrar el elemento vinculado a la plantilla del gráfico '%d' en el umbral '%d'"
 
-#: thold_functions.php:5205 thold_functions.php:5626
+#: thold_functions.php:5360 thold_functions.php:5785
 #, fuzzy, php-format
 msgid "Created Threshold: %s"
 msgstr "Umbral creado: %s"
 
-#: thold_functions.php:5274
+#: thold_functions.php:5433
 #, fuzzy, php-format
 msgid "'%s' must be set to positive integer value!<br>RECORD NOT UPDATED!"
 msgstr "%s' debe ajustarse a un número entero positivo!<br>RECORD NOT UPDATED!"
 
-#: thold_functions.php:5452
+#: thold_functions.php:5611
 #, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "Plantillas sin umbrales asociadas a la plantilla del dispositivo."
 
-#: thold_functions.php:5661
+#: thold_functions.php:5820
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr "Error de correo: No <b>TO</b> dirección!!<br>Si utiliza el enlace <i>Test Mail</i>, configure la opción <b>Alert Email</b>."
 
-#: thold_functions.php:6296 thold_graph.php:619
+#: thold_functions.php:6455 thold_graph.php:619
 #, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "Umbral desconocido"
 
-#: thold_functions.php:6298
+#: thold_functions.php:6457
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "Haga clic en \"Continuar\" para confirmar los siguientes umbrales."
 
-#: thold_functions.php:6741
+#: thold_functions.php:6900
 #, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "Plantilla de umbral Plantilla de datos subordinados no encontrada!"
 
-#: thold_functions.php:6756
+#: thold_functions.php:6915
 #, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "Plantilla de umbral de fuente de datos subordinada no encontrada!"
 
-#: thold_functions.php:6792
+#: thold_functions.php:6951
 #, fuzzy
 msgid "Threshold Template import columns do not match the database schema"
 msgstr "Las columnas de importación de la plantilla de umbral no coinciden con el esquema de la base de datos"
 
-#: thold_functions.php:6801 thold_functions.php:6803
+#: thold_functions.php:6960 thold_functions.php:6962
 msgid "Imported"
 msgstr "Importado"
 
-#: thold_functions.php:6801 thold_functions.php:6803
+#: thold_functions.php:6960 thold_functions.php:6962
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "Plantilla de umbral '%s' %s!"
 
-#: thold_functions.php:6801 thold_functions.php:6803
+#: thold_functions.php:6960 thold_functions.php:6962
 msgid "Updated"
 msgstr "Actualizado"
 
-#: thold_functions.php:6807 thold_functions.php:6809 thold_templates.php:2042
-#: thold_templates.php:2302
+#: thold_functions.php:6966 thold_functions.php:6968 thold_templates.php:2044
+#: thold_templates.php:2304
 msgid "Import"
 msgstr "Importar"
 
-#: thold_functions.php:6807 thold_functions.php:6809
+#: thold_functions.php:6966 thold_functions.php:6968
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "Plantilla de Umbral '%s' %s Fallido!"
 
-#: thold_functions.php:6807 thold_functions.php:6809
+#: thold_functions.php:6966 thold_functions.php:6968
 msgid "Update"
 msgstr "Actualizar"
 
-#: thold_functions.php:6813
+#: thold_functions.php:6972
 #, fuzzy
 msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr "Se han producido errores al intentar importar los datos de la plantilla de umbral."
 
-#: thold_functions.php:6817
+#: thold_functions.php:6976
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "No se encontraron datos XML en los datos importados para la plantilla del umbral."
 
-#: thold_functions.php:6820
+#: thold_functions.php:6979
 #, fuzzy
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr "El ID de la plantilla de umbral no se ha configurado al intentar crear el gráfico y el umbral."
@@ -3564,62 +3570,62 @@ msgstr "Por favor presione'Create' para crear su Plantilla de Umbral"
 msgid "Create"
 msgstr "Crear"
 
-#: thold_templates.php:942
+#: thold_templates.php:932
 #, fuzzy
 #| msgid "Threshold Deleted, can not Edit!"
 msgid "The Threshold Template requested can not be found"
 msgstr "Umbral borrado, ¡no puede ser editado!"
 
-#: thold_templates.php:1119
+#: thold_templates.php:1116
 #, fuzzy
 msgid "Provide the Threshold Template a meaningful name."
 msgstr "Proporcione a la plantilla de umbral un nombre significativo."
 
-#: thold_templates.php:1123
+#: thold_templates.php:1120
 #, fuzzy
 msgid "Suggested Threshold Name"
 msgstr "Nombre de umbral sugerido"
 
-#: thold_templates.php:1128
+#: thold_templates.php:1125
 #, fuzzy
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr "Proporcione el nombre sugerido para un Umbral creado utilizando esta Plantilla.  Las variables de sustitución Dispositivo estándar (|host_*|), Consulta de datos (|query_*|) y Entrada (|input_*|) pueden ser utilizadas, así como |graph_title| para el Título del gráfico."
 
-#: thold_templates.php:1135
+#: thold_templates.php:1132
 #, fuzzy
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "Modelo de datos que está utilizando. (Esto no se puede cambiar)"
 
-#: thold_templates.php:1140
+#: thold_templates.php:1137
 msgid "Data Field"
 msgstr "Campo de datos"
 
-#: thold_templates.php:1143
+#: thold_templates.php:1140
 #, fuzzy
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr "Campo de datos que está utilizando. (Esto no se puede cambiar)"
 
-#: thold_templates.php:1151
+#: thold_templates.php:1148
 #, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "Si este umbral será verificado y alertado."
 
-#: thold_templates.php:1234
+#: thold_templates.php:1231
 #, fuzzy
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr "Repita la alerta después de que se haya pegado esta cantidad de tiempo desde la última alerta."
 
-#: thold_templates.php:1258 thold_templates.php:1285
+#: thold_templates.php:1256 thold_templates.php:1284
 #, fuzzy
 msgid "Min Trigger Duration"
 msgstr "Duración mínima del disparo"
 
-#: thold_templates.php:1261 thold_templates.php:1288
+#: thold_templates.php:1259 thold_templates.php:1287
 #, fuzzy
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr "La cantidad de tiempo que la fuente de datos debe estar en una condición de incumplimiento para que se produzca una alerta."
 
-#: thold_templates.php:1312 thold_templates.php:1348
+#: thold_templates.php:1312 thold_templates.php:1349
 #, fuzzy
 msgid "Trigger Count"
 msgstr "Recuento de disparos"
@@ -3629,227 +3635,227 @@ msgstr "Recuento de disparos"
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr "El número de veces que la fuente de datos debe estar en condiciones de incumplimiento antes de emitir una advertencia."
 
-#: thold_templates.php:1321 thold_templates.php:1356
+#: thold_templates.php:1321 thold_templates.php:1357
 #, fuzzy
 msgid "Time Period Length"
 msgstr "Duración del período"
 
-#: thold_templates.php:1352
+#: thold_templates.php:1353
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr "El número de veces que la fuente de datos debe estar en estado de incumplimiento antes de emitir una alerta."
 
-#: thold_templates.php:1363
+#: thold_templates.php:1364
 #, fuzzy
 msgid "Baseline Monitoring"
 msgstr "Monitoreo de la línea de base"
 
-#: thold_templates.php:1374
+#: thold_templates.php:1376
 #, fuzzy
 #| msgid "Time range"
 msgid "Time Range"
 msgstr "Intervalo de tiempo"
 
-#: thold_templates.php:1381
+#: thold_templates.php:1383
 #, fuzzy
 msgid "Baseline Deviation UP"
 msgstr "Desviación de la línea de base UP"
 
-#: thold_templates.php:1389
+#: thold_templates.php:1391
 #, fuzzy
 msgid "Baseline Deviation DOWN"
 msgstr "Desviación de la línea de base ABAJO"
 
-#: thold_templates.php:1401
+#: thold_templates.php:1403
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr "Número de veces consecutivas que la fuente de datos debe estar en una condición de violación para que se produzca una alerta. <br>Dejar vacío para utilizar el valor predeterminado (Predeterminado: %s ciclos"
 
-#: thold_templates.php:1425
+#: thold_templates.php:1427
 #, fuzzy
 msgid "Percent Datasource"
 msgstr "Fuente de datos porcentual"
 
-#: thold_templates.php:1428
+#: thold_templates.php:1430
 #, fuzzy
 msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr "Segundo elemento de origen de datos que se utilizará como valor total para calcular el porcentaje de."
 
-#: thold_templates.php:1438
+#: thold_templates.php:1440
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "Una expresión RPN es una expresión RPN compatible con RRDtool.  La sintaxis incluye todas las funciones siguientes además de las expresiones de sustitución de consulta de datos y dispositivos, como <span style=\"color:blue;\">|query_ifSpeed|</span>.  Para utilizar una fuente de datos en la expresión RPN, debe utilizar la sintaxis: <style=\"color:blue;\">|ds:dsname|</span>.  Por ejemplo, <span style=\"color:blue;\">|ds:traffic_in|</span> obtendrá el valor actual de la fuente de datos traffic_in para los archivos RRD asociados con el gráfico. Cualquier fuente de datos para un gráfico puede ser incluida. <br>Operadores matemáticos: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Funciones: <style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: estilo <span=\"color:azul;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
-#: thold_templates.php:1445
+#: thold_templates.php:1447
 #, fuzzy
 msgid "Upper data source to use to calculate the total value."
 msgstr "Fuente de datos superior que se utilizará para calcular el valor total."
 
-#: thold_templates.php:1497
+#: thold_templates.php:1499
 #, fuzzy
 msgid "Notification List Read Only"
 msgstr "Sólo lista de avisos"
 
-#: thold_templates.php:1498
+#: thold_templates.php:1500
 #, fuzzy
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr "Si esta opción está seleccionada, la notificación de Umbral será enviada a su syslog local."
 
-#: thold_templates.php:1545
+#: thold_templates.php:1547
 #, fuzzy
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "Gravedad que se utilizará para las alertas. (Bajo impacto -> Impacto crítico)"
 
-#: thold_templates.php:1574
+#: thold_templates.php:1576
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr "Este es un listado de cuentas que serán notificadas cuando este Umbral sea traspasado.<br><br><br><br>"
 
-#: thold_templates.php:1583
+#: thold_templates.php:1585
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr "Puede especificar aquí Emails adicionales para recibir alertas de esta fuente de datos (separados por comas)"
 
-#: thold_templates.php:1591
+#: thold_templates.php:1593
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr "Usted puede especificar aquí Emails adicionales para recibir avisos para esta fuente de datos (separados por comas)"
 
-#: thold_templates.php:1928
+#: thold_templates.php:1930
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "%d Meses, %d Días, %d Horas, %d Minutos, %d Segundos (Promedio)"
 
-#: thold_templates.php:1930
+#: thold_templates.php:1932
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "%d Meses, %d Días, %d Horas, %d Minutos, %d Segundos"
 
-#: thold_templates.php:1934
+#: thold_templates.php:1936
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "%d Días, %d Horas, %d Minutos, %d Segundos (Promedio)"
 
-#: thold_templates.php:1936
+#: thold_templates.php:1938
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "%d Días, %d Horas, %d Minutos, %d Segundos"
 
-#: thold_templates.php:1940
+#: thold_templates.php:1942
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "%d Horas, %d Minutos, %d Segundos (Promedio)"
 
-#: thold_templates.php:1942
+#: thold_templates.php:1944
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr "%d Horas, %d Minutos, %d Segundos"
 
-#: thold_templates.php:1946
+#: thold_templates.php:1948
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr "%d Minutos, %d Segundos (Promedio)"
 
-#: thold_templates.php:1948
+#: thold_templates.php:1950
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr "%d Minutos, %d Segundos"
 
-#: thold_templates.php:1952
+#: thold_templates.php:1954
 #, php-format
 msgid "%d Seconds (Average)"
 msgstr "%d Segundos (Promedio)"
 
-#: thold_templates.php:1954
+#: thold_templates.php:1956
 #, php-format
 msgid "%d Seconds"
 msgstr "%d Segundos"
 
-#: thold_templates.php:2140
+#: thold_templates.php:2142
 msgid "DS Name"
 msgstr "Nombre de DS"
 
-#: thold_templates.php:2148
+#: thold_templates.php:2150
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "Los valores altos de Advertencia / Alerta. NOTA: Los valores de referencia son un porcentaje, todos los demás valores son valores RAW no modificados por un cdef."
 
-#: thold_templates.php:2154
+#: thold_templates.php:2156
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "Los valores de advertencia / alerta bajos. NOTA: Los valores de referencia son un porcentaje, todos los demás valores son valores RAW no modificados por un cdef."
 
-#: thold_templates.php:2241
+#: thold_templates.php:2243
 #, fuzzy
 msgid "No Threshold Templates"
 msgstr "No hay plantillas de umbral"
 
-#: thold_templates.php:2259
+#: thold_templates.php:2261
 msgid "Import Template from Local File"
 msgstr "Importar plantilla desde equipo local"
 
-#: thold_templates.php:2260
+#: thold_templates.php:2262
 #, fuzzy
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr "Si el archivo XML que contiene los datos de la plantilla de umbral se encuentra en su máquina local, selecciónelo aquí."
 
-#: thold_templates.php:2265
+#: thold_templates.php:2267
 msgid "Import Template from Text"
 msgstr "Importar plantilla de texto plano"
 
-#: thold_templates.php:2266
+#: thold_templates.php:2268
 #, fuzzy
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
 msgstr "Si tiene el archivo XML que contiene datos de plantillas de umbral como texto, puede pegarlo en este cuadro para importarlo."
 
-#: thold_templates.php:2278
+#: thold_templates.php:2280
 msgid "Import Results"
 msgstr "Importar resultados"
 
-#: thold_templates.php:2280
+#: thold_templates.php:2282
 msgid "Cacti has imported the following items:"
 msgstr "Cacti ha importado los siguientes items:"
 
-#: thold_templates.php:2290 thold_templates.php:2302
+#: thold_templates.php:2292 thold_templates.php:2304
 #, fuzzy
 msgid "Import Threshold Templates"
 msgstr "Importar Plantillas de Umbral"
 
-#: thold_templates.php:2315 thold_templates.php:2318
+#: thold_templates.php:2317 thold_templates.php:2320
 msgid "The file is too big."
 msgstr "Este archivo es demasiado grande."
 
-#: thold_templates.php:2321
+#: thold_templates.php:2323
 #, fuzzy
 msgid "Incomplete file transfer."
 msgstr "Transferencia de archivo incompleta."
 
-#: thold_templates.php:2324 thold_templates.php:2351
+#: thold_templates.php:2326 thold_templates.php:2353
 #, fuzzy
 msgid "No file uploaded."
 msgstr "No se ha subido ningún archivo."
 
-#: thold_templates.php:2327
+#: thold_templates.php:2329
 #, fuzzy
 msgid "Temporary folder missing."
 msgstr "Falta una carpeta temporal."
 
-#: thold_templates.php:2330
+#: thold_templates.php:2332
 msgid "Failed to write file to disk"
 msgstr "Fallo al escribir el archivo en disco"
 
-#: thold_templates.php:2333
+#: thold_templates.php:2335
 msgid "File upload stopped by extension"
 msgstr "Carga de archivos detenida por extensión"
 
-#: thold_templates.php:2344
+#: thold_templates.php:2346
 msgid "Invalid file extension."
 msgstr "Extensión de archivo no válido."
 
-#: thold_templates.php:2370
+#: thold_templates.php:2372
 msgid "NOTE:"
 msgstr "NOTA:"
 
-#: thold_templates.php:2377 thold_templates.php:2384
+#: thold_templates.php:2379 thold_templates.php:2386
 msgid "ERROR:"
 msgstr "ERROR:"
 
