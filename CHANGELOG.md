@@ -8,6 +8,8 @@
 
 * feature#185: Baseline deviation with exact changes
 
+* feature#435: Allow thold commands to be queued and run in parallel so as to not affect the polling process
+
 * feature#445: Allow removal of Threshold from a specific device ignoring device template
 
 * feature#471: Add ability to change failure count in change device menu
