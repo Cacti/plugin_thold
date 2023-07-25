@@ -1995,7 +1995,7 @@ function lists() {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-	$lists = db_fetch_assoc("SELECT id, name, description, emails,
+	$lists = db_fetch_assoc("SELECT id, name, enabled, description, emails,
 		(SELECT COUNT(id) FROM thold_data WHERE notify_alert = nl.id) as thold_alerts,
 		(SELECT COUNT(id) FROM thold_data WHERE notify_warning = nl.id) as thold_warnings,
 		(SELECT COUNT(id) FROM thold_template WHERE notify_alert = nl.id) as template_alerts,
