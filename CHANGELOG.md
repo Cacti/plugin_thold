@@ -42,6 +42,8 @@
 
 * feature: Make Enabling and Disabling a Thold Different than Enabling or Disabling a Template
 
+* feature: Support Cacti Format Files in Thresholds and Templates
+
 * issue#147: Fixed threshold compare negative baseline values.
 
 * issue#396: Baseline Deviation does not work (as expected) 

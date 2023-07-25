@@ -1516,6 +1516,27 @@ function thold_upgrade_database($force = false) {
 			'after'   => 'thold_enabled')
 		);
 
+		db_add_column('plugin_notification_lists', array(
+			'name'    => 'format_file',
+			'type'    => 'varchar(255)',
+			'NULL'    => false,
+			'default' => '')
+		);
+
+		db_add_column('thold_template', array(
+			'name'    => 'format_file',
+			'type'    => 'varchar(255)',
+			'NULL'    => false,
+			'default' => '')
+		);
+
+		db_add_column('thold_data', array(
+			'name'    => 'format_file',
+			'type'    => 'varchar(255)',
+			'NULL'    => false,
+			'default' => '')
+		);
+
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
@@ -1615,6 +1636,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '');
+	$data['columns'][] = array('name' => 'format_file', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 
 	$data['primary'] = 'id';
 	$data['keys'][] = array('name' => 'host_id', 'columns' => 'host_id');
@@ -1699,6 +1721,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'syslog_facility', 'type' => 'int(2)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'syslog_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '');
+	$data['columns'][] = array('name' => 'format_file', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 
 	$data['primary']   = 'id';
 	$data['keys'][]    = array('name' => 'id', 'columns' => 'id');
@@ -1769,6 +1792,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(512)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'emails', 'type' => 'varchar(512)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'bcc_emails', 'type' => 'varchar(512)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'format_file', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 
 	$data['primary']   = 'id';
 	$data['type']      = 'InnoDB';

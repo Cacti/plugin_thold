@@ -25,6 +25,7 @@
 chdir('../../');
 
 include_once('./include/auth.php');
+include_once($config['base_path'] . '/lib/reports.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
 include_once($config['base_path'] . '/lib/xml.php');
@@ -880,7 +881,8 @@ function template_save_edit() {
 	$save['show_units']  = isset_request_var('show_units') ? 'on' : 'off';
 
 	// Other
-	$save['notes'] = get_nfilter_request_var('notes');
+	$save['notes']       = get_nfilter_request_var('notes');
+	$save['format_file'] = get_nfilter_request_var('format_file');
 
 	// Allow other plugins to modify thrshold contents
 	$save = api_plugin_hook_function('thold_template_edit_save_thold', $save);
@@ -1093,6 +1095,8 @@ function template_edit() {
 	} else {
 		$acknowledgment = 'none';
 	}
+
+	$formats = reports_get_format_files();
 
 	$form_array = array(
 		'general_header' => array(
@@ -1438,6 +1442,14 @@ function template_edit() {
 			'friendly_name' => __('Notification Settings', 'thold'),
 			'collapsible' => 'true',
 			'method' => 'spacer',
+		),
+		'format_file' => array(
+			'friendly_name' => __('Email Style/Format File', 'thold'),
+			'method' => 'drop_array',
+			'default' => 'default.format',
+			'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'thold'),
+			'value' => '|arg1:format_file|',
+			'array' => $formats,
 		),
 		'email_body' => array(
 			'friendly_name' => __('Alert Email Body', 'thold'),

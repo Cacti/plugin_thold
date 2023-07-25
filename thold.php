@@ -34,6 +34,7 @@ include_once($config['base_path'] . '/lib/poller.php');
 include_once($config['base_path'] . '/lib/rrd.php');
 include_once($config['base_path'] . '/lib/template.php');
 include_once($config['base_path'] . '/lib/utility.php');
+include_once($config['base_path'] . '/lib/reports.php');
 include_once($config['base_path'] . '/plugins/thold/thold_webapi.php');
 include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
@@ -1482,6 +1483,8 @@ function thold_edit() {
 		$acknowledgment = 'none';
 	}
 
+	$formats = reports_get_format_files();
+
 	$form_array = array(
 		'template_header' => array(
 			'friendly_name' => __('Template/Enabled Information', 'thold'),
@@ -1838,6 +1841,14 @@ function thold_edit() {
 			'friendly_name' => __('Notification Settings', 'thold'),
 			'collapsible' => 'true',
 			'method' => 'spacer',
+		),
+		'format_file' => array(
+			'friendly_name' => __('Email Style/Format File', 'thold'),
+			'method' => 'drop_array',
+			'default' => 'default.format',
+			'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'thold'),
+			'value' => '|arg1:format_file|',
+			'array' => $formats
 		),
 		'email_body' => array(
 			'friendly_name' => __('Alert Email Body', 'thold'),

@@ -24,6 +24,7 @@
 
 chdir('../..');
 include('./include/auth.php');
+include_once($config['base_path'] . '/lib/reports.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
@@ -82,6 +83,7 @@ function form_save() {
 		$save['description'] = form_input_validate(get_nfilter_request_var('description'), 'description', '', false, 3);
 		$save['emails']      = form_input_validate(get_nfilter_request_var('emails'), 'emails', '', true, 3);
 		$save['bcc_emails']  = form_input_validate(get_nfilter_request_var('bcc_emails'), 'bcc_emails', '', true, 3);
+		$save['format_file'] = form_input_validate(get_nfilter_request_var('format_file'), 'format_file', '', true, 3);
 
 		if (!is_error_message()) {
 			$id = sql_save($save, 'plugin_notification_lists');
@@ -816,6 +818,8 @@ function edit() {
 
 	$header_label = get_notification_header_label();
 
+	$formats = reports_get_format_files();
+
 	if (isset_request_var('id')) {
 		$list = db_fetch_row_prepared('SELECT *
 			FROM plugin_notification_lists
@@ -872,6 +876,14 @@ function edit() {
 				'class' => 'textAreaNotes',
 				'textarea_rows' => '4',
 				'textarea_cols' => '80'
+			),
+			'format_file' => array(
+				'friendly_name' => __('Email Style/Format File', 'thold'),
+				'method' => 'drop_array',
+				'default' => 'default.format',
+				'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'thold'),
+				'value' => '|arg1:format_file|',
+				'array' => $formats
 			),
 			'id' => array(
 				'method' => 'hidden_zero',
