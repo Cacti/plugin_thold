@@ -1357,7 +1357,7 @@ function thold_get_thold_notification_format_file($thold_id, $notify_list) {
 
 	if ($notify_list > 0) {
 		$notify_format_file = db_fetch_cell_prepared('SELECT format_file
-			FROM plugin_notify_list
+			FROM plugin_notification_lists
 			WHERE id = ?',
 			array($notify_list));
 	}
@@ -5673,7 +5673,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 		$timespan = array();
 
 		/* get start/end time-since-epoch for actual time (now()) and given current-session-timespan */
-		get_timespan($timespan, $time, $item['timespan'], $first_weekdayid);
+		get_timespan($timespan, $time, $graph_timespan, $first_weekdayid);
 
 		foreach ($filename as $val) {
 			$graph_data_array = array(
