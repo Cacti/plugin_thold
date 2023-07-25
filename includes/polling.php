@@ -251,6 +251,7 @@ function thold_check_all_thresholds() {
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/lib/time.php');
 
 	if (read_config_option('remote_storage_method') == 1) {
 		if ($config['poller_id'] == 1) {
@@ -533,7 +534,7 @@ function thold_update_host_status() {
 					} elseif ($host['thold_send_email'] == '0') {
 						cacti_log('NOTE: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] did not send a Device recovering email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 					} elseif ($alert_email != '') {
-						thold_mail($alert_email, '', '', $subject, $msg, '', '', '', $notify_list_id, $host, '', 'thold_uhost_mail');
+						thold_mail($alert_email, '', '', $subject, $msg, '', '', '', $notify_list_id, $host, '', '', 'thold_uhost_mail');
 					}
 
 					$command = read_config_option('thold_device_command');
@@ -708,7 +709,7 @@ function thold_update_host_status() {
 				} elseif ($host['thold_send_email'] == '0') {
 					cacti_log('NOTE: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] did not send a Device down email for \'' . $host['description'] . '\', disabled per Device setting!', true, 'THOLD');
 				} elseif ($alert_email != '') {
-					thold_mail($alert_email, '', '', $subject, $msg, '', '', '', $notify_list_id, $host, '', 'thold_dhost_mail');
+					thold_mail($alert_email, '', '', $subject, $msg, '', '', '', $notify_list_id, $host, '', '', 'thold_dhost_mail');
 				}
 
 				$command = read_config_option('thold_device_command');

@@ -881,8 +881,9 @@ function template_save_edit() {
 	$save['show_units']  = isset_request_var('show_units') ? 'on' : 'off';
 
 	// Other
-	$save['notes']       = get_nfilter_request_var('notes');
-	$save['format_file'] = get_nfilter_request_var('format_file');
+	$save['notes']          = get_nfilter_request_var('notes');
+	$save['format_file']    = get_nfilter_request_var('format_file');
+	$save['graph_timespan'] = get_nfilter_request_var('graph_timespan');
 
 	// Allow other plugins to modify thrshold contents
 	$save = api_plugin_hook_function('thold_template_edit_save_thold', $save);
@@ -924,7 +925,7 @@ function template_save_edit() {
 }
 
 function template_edit() {
-	global $config;
+	global $config, $graph_timespans;
 
 	/* ================= input validation ================= */
 	get_filter_request_var('id');
@@ -1096,6 +1097,12 @@ function template_edit() {
 		$acknowledgment = 'none';
 	}
 
+	foreach($graph_timespans as $index => $span) {
+		if ($index >= 20) {
+			unset($graph_timespans[$index]);
+		}
+	}
+
 	$formats = reports_get_format_files();
 
 	$form_array = array(
@@ -1159,6 +1166,14 @@ function template_edit() {
 			'none_value' => __('None', 'thold'),
 			'default' => '0',
 			'value' => isset($thold_data['thold_hrule_alert']) ? $thold_data['thold_hrule_alert'] : '0'
+		),
+		'graph_timespan' => array(
+			'friendly_name' => __('Graph Timespan'),
+			'method' => 'drop_array',
+			'default' => GT_LAST_DAY,
+			'description' => __('The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan.'),
+			'array' => $graph_timespans,
+			'value' => '|arg1:graph_timespan|'
 		),
 		'skipscale' => array(
 			'friendly_name' => __('Skip Scaling on HRULEs', 'thold'),

@@ -1537,6 +1537,24 @@ function thold_upgrade_database($force = false) {
 			'default' => '')
 		);
 
+		db_add_column('thold_template', array(
+			'name'     => 'graph_timespan',
+			'type'     => 'int(11)',
+			'unsigned' => true,
+			'NULL'     => false,
+			'default'  => '7'
+			'after'    => 'format_file')
+		);
+
+		db_add_column('thold_data', array(
+			'name'     => 'graph_timespan',
+			'type'     => 'int(11)',
+			'unsigned' => true,
+			'NULL'     => false,
+			'default'  => '7'
+			'after'    => 'format_file')
+		);
+
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
@@ -1637,6 +1655,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'format_file', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'graph_timespan', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '7');
 
 	$data['primary'] = 'id';
 	$data['keys'][] = array('name' => 'host_id', 'columns' => 'host_id');
@@ -1722,6 +1741,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'syslog_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'format_file', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'graph_timespan', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '7');
 
 	$data['primary']   = 'id';
 	$data['keys'][]    = array('name' => 'id', 'columns' => 'id');

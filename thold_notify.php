@@ -36,6 +36,7 @@ require_once($config['base_path'] . '/lib/rrd.php');
 require($config['base_path'] . '/plugins/thold/includes/arrays.php');
 require_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 require_once($config['library_path'] . '/snmp.php');
+require_once($config['base_path'] . '/lib/time.php');
 
 /* install signal handlers for Linux/UNIX only */
 if (function_exists('pcntl_signal')) {

@@ -35,6 +35,7 @@ include_once($config['base_path'] . '/lib/rrd.php');
 include_once($config['base_path'] . '/lib/template.php');
 include_once($config['base_path'] . '/lib/utility.php');
 include_once($config['base_path'] . '/lib/reports.php');
+include_once($config['base_path'] . '/lib/time.php');
 include_once($config['base_path'] . '/plugins/thold/thold_webapi.php');
 include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
@@ -1056,7 +1057,7 @@ function list_tholds() {
 }
 
 function thold_edit() {
-	global $config, $syslog_facil_array, $syslog_priority_array;
+	global $config, $graph_timespans, $syslog_facil_array, $syslog_priority_array;
 
 	if (isset_request_var('id') && get_filter_request_var('id') > 0) {
 		$thold_data = db_fetch_row_prepared('SELECT *
@@ -1483,6 +1484,12 @@ function thold_edit() {
 		$acknowledgment = 'none';
 	}
 
+	foreach($graph_timespans as $index => $span) {
+		if ($index >= 20) {
+			unset($graph_timespans[$index]);
+		}
+	}
+
 	$formats = reports_get_format_files();
 
 	$form_array = array(
@@ -1555,6 +1562,14 @@ function thold_edit() {
 			'none_value' => __('None', 'thold'),
 			'default' => '0',
 			'value' => isset($thold_data['thold_hrule_alert']) ? $thold_data['thold_hrule_alert'] : '0'
+		),
+		'graph_timespan' => array(
+			'friendly_name' => __('Graph Timespan'),
+			'method' => 'drop_array',
+			'default' => GT_LAST_DAY,
+			'description' => __('The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan.'),
+			'array' => $graph_timespans,
+			'value' => '|arg1:graph_timespan|'
 		),
 		'skipscale' => array(
 			'friendly_name' => __('Skip Scaling on HRULEs', 'thold'),

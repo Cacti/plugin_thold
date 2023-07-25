@@ -44,6 +44,8 @@
 
 * feature: Support Cacti Format Files in Thresholds and Templates
 
+* feature: Allow the specification of the Graph Timespan when editing/creating the Threshold or Template
+
 * issue#147: Fixed threshold compare negative baseline values.
 
 * issue#396: Baseline Deviation does not work (as expected) 
@@ -87,6 +89,8 @@
 * issue#578: Default setting for Threshold Up/Down Email Notification
 
 * issue#582: Baseline deviation tholds generate warnings about alert email
+
+* issue#583: Plugin Thold shows the current value as 0 after executing CDEF
 
 * issue#584: Thold device uptime check still checks uptime when availability method is 0 and snmp_version is > 0
 
