@@ -1873,7 +1873,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'object_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'object_name', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'hostname', 'type' => 'varchar(64)', 'unsigned' => true, 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'hostname', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'event_time', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
 	$data['columns'][] = array('name' => 'event_data', 'type' => 'longblob', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'error_code', 'type' => 'int', 'NULL' => false, 'default' => '0');
@@ -1883,7 +1883,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'event_processed_time', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00');
 	$data['columns'][] = array('name' => 'event_processed_runtime', 'type' => 'double', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['primary'] = 'id';
-	$data['keys'][]  = array('name' => 'topic_processed', 'columns' => 'type`, `event_processed');
+	$data['keys'][]  = array('name' => 'topic_processed', 'columns' => 'topic`, `event_processed');
 	$data['keys'][]  = array('name' => 'process_id', 'columns' => 'process_id');
 	$data['keys'][]  = array('name' => 'object_id', 'columns' => 'object_id');
 	$data['keys'][]  = array('name' => 'host_id', 'columns' => 'host_id');
