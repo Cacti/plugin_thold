@@ -1809,6 +1809,7 @@ function thold_setup_database() {
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(12)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(128)', 'NULL' => false);
+	$data['columns'][] = array('name' => 'enabled', 'type' => 'char(3)', 'NULL' => false ,'default' => '');
 	$data['columns'][] = array('name' => 'description', 'type' => 'varchar(512)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'emails', 'type' => 'varchar(512)', 'NULL' => false);
 	$data['columns'][] = array('name' => 'bcc_emails', 'type' => 'varchar(512)', 'NULL' => false);
