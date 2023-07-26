@@ -91,7 +91,7 @@ $thold_log_states = array(
 	'5' => array(
 		'index' => 'restoral',
 		'display' => __('Notify - Restoral', 'thold'),
-		'display_short' => __('Retoral', 'thold'),
+		'display_short' => __('Restoral', 'thold'),
 		'class' => 'tholdRestoralNotify'
 	),
 	'1' => array(
