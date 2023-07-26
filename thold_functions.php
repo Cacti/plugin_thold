@@ -5592,7 +5592,7 @@ function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thol
 		$templates = db_fetch_assoc_prepared('SELECT tt.*
 			FROM thold_template AS tt
 			INNER JOIN plugin_thold_host AS pth
-			ON tt.id = ptht.thold_template_id
+			ON tt.id = pth.thold_template_id
 			WHERE pth.host_id = ?',
 			array($device_id));
 
