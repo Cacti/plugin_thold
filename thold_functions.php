@@ -1350,26 +1350,29 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 }
 
 function thold_get_thold_notification_format_file($thold_id, $notify_list) {
-	$thold_format_file = db_fetch_cell_prepared('SELECT format_file
-		FROM thold_data
-		WHERE id = ?',
-		array($thold_id));
+    $thold_format_file = db_fetch_cell_prepared('SELECT format_file
+        FROM thold_data
+        WHERE id = ?',
+        array($thold_id));
 
-	if ($notify_list > 0) {
-		$notify_format_file = db_fetch_cell_prepared('SELECT format_file
-			FROM plugin_notification_lists
-			WHERE id = ?',
-			array($notify_list));
-	}
+    $notify_format_file = '';
 
-	if ($notify_format_file != '') {
-		return $notify_format_file;
-	} elseif ($thold_format_file != '') {
-		return $thold_format_file;
-	} else {
-		return '';
-	}
+    if ($notify_list > 0) {
+        $notify_format_file = db_fetch_cell_prepared('SELECT format_file
+            FROM plugin_notification_lists
+            WHERE id = ?',
+            array($notify_list));
+    }
+
+    if ($notify_format_file != '') {
+        return $notify_format_file;
+    } elseif ($thold_format_file != '') {
+        return $thold_format_file;
+    } else {
+        return '';
+    }
 }
+
 
 function thold_get_device_notification_format_file($host_id, $notify_list) {
 	$device_format_file = '';
