@@ -462,12 +462,6 @@ function thold_config_settings() {
 			'method' => 'checkbox',
 			'default' => ''
 		),
-		'thold_notification_daemon' => array(
-			'friendly_name' => __('Enable Notification Daemon', 'thold'),
-			'description' => __('Checking this box will enable the use of a dedicated Notification daemon. Note that you must setup the systemd or initd service on your own.  Instructions are in the README.md.', 'thold'),
-			'method' => 'checkbox',
-			'default' => ''
-		),
 		'daemon_header' => array(
 			'friendly_name' => __('Threshold Daemon', 'thold'),
 			'method' => 'spacer',
@@ -691,6 +685,12 @@ function thold_config_settings() {
 		'alert_deadnotify' => array(
 			'friendly_name' => __('Device Notifications', 'thold'),
 			'description' => __('Enable Dead/Recovering host notification', 'thold'),
+			'method' => 'checkbox',
+			'default' => 'on'
+		),
+		'alert_deadnotify_one_mail' => array(
+			'friendly_name' => __('Device Notifications Single Email', 'thold'),
+			'description' => __('Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices.', 'thold'),
 			'method' => 'checkbox',
 			'default' => 'on'
 		),
