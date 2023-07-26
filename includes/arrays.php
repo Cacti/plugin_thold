@@ -164,7 +164,7 @@ $thold_status_list = array(
 	'8' => array(
 		'index' => 'acknowledgment',
 		'display' => __('Acknowledgment', 'thold'),
-		'classs' => 'tholdAcknowledgment'
+		'class' => 'tholdAcknowledgment'
 	)
 );
 
