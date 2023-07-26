@@ -4,40 +4,28 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Cacti\n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-07-25 19:01-0400\n"
-"PO-Revision-Date: 2023-03-14 01:38+0000\n"
-"Last-Translator: Rostyslav Haitkulov <info@ubilling.net.ua>\n"
-"Language-Team: Ukrainian <http://translate.cacti.net/projects/cacti/thold/uk/>\n"
-"Language: uk-UA\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-07-25 19:01-0400\nPO-Revision-Date: 2023-07-26 12:52+0000\nLast-Translator: Prodan <akapulko@gmail.com>\nLanguage-Team: Ukrainian <http://translate.cacti.net/projects/cacti/thold/uk/>\nLanguage: uk-UA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
-msgstr ""
+msgstr "Завжди"
 
 #: includes/arrays.php:27 includes/arrays.php:317 includes/arrays.php:349
 #: includes/arrays.php:394 includes/arrays.php:415
 #, php-format
 msgid "%d Month"
-msgstr ""
+msgstr "%d Місяць"
 
 #: includes/arrays.php:28 includes/arrays.php:29 includes/arrays.php:30
 #: includes/arrays.php:31
 #, php-format
 msgid "%d Months"
-msgstr ""
+msgstr "%d Місяця"
 
 #: includes/arrays.php:32
 #, php-format
 msgid "%d Year"
-msgstr ""
+msgstr "%d Рік"
 
 #: includes/arrays.php:37 thold_graph.php:794 thold_graph.php:1137
 msgid "Down"
@@ -46,7 +34,7 @@ msgstr "Оффлайн"
 #: includes/arrays.php:41 includes/arrays.php:227 includes/arrays.php:243
 #: thold_graph.php:803
 msgid "Error"
-msgstr ""
+msgstr "Помилка"
 
 #: includes/arrays.php:45 thold_graph.php:797 thold_graph.php:1138
 msgid "Recovering"
@@ -65,28 +53,28 @@ msgstr "Невідомо"
 #: notify_lists.php:1187 notify_lists.php:1351 notify_lists.php:1545
 #: thold.php:707 thold_graph.php:218 thold_graph.php:790 thold_graph.php:1133
 msgid "Disabled"
-msgstr ""
+msgstr "Вимкнен"
 
 #: includes/arrays.php:61 thold_graph.php:1064 thold_graph.php:1135
 msgid "Not Monitored"
-msgstr ""
+msgstr "Не контролюється"
 
 #: includes/arrays.php:69
 msgid "Notify - Alert"
-msgstr ""
+msgstr "Сповіщення - Попередження"
 
 #: includes/arrays.php:70 includes/arrays.php:146 includes/arrays.php:174
 #: includes/arrays.php:225
 msgid "Alert"
-msgstr ""
+msgstr "Сповіщення"
 
 #: includes/arrays.php:75
 msgid "Notify - Alert2Warning"
-msgstr ""
+msgstr "Оповіщення - Попередження2Застередження"
 
 #: includes/arrays.php:76
 msgid "Alert2Warn"
-msgstr ""
+msgstr "Попередження2Застерігти"
 
 #: includes/arrays.php:81
 msgid "Notify - Warning"
@@ -95,7 +83,7 @@ msgstr ""
 #: includes/arrays.php:82 includes/arrays.php:141 includes/arrays.php:182
 #: includes/arrays.php:228
 msgid "Warning"
-msgstr ""
+msgstr "Попередження"
 
 #: includes/arrays.php:87
 msgid "Notify - Re-Trigger"
@@ -147,7 +135,7 @@ msgstr ""
 
 #: includes/arrays.php:126
 msgid "Restore"
-msgstr ""
+msgstr "Відновити"
 
 #: includes/arrays.php:131
 msgid "Alert Trigger"
@@ -175,15 +163,15 @@ msgstr ""
 
 #: includes/arrays.php:186 includes/arrays.php:229
 msgid "Notice"
-msgstr ""
+msgstr "Повідомлення"
 
 #: includes/arrays.php:190
 msgid "Ok"
-msgstr ""
+msgstr "Ок"
 
 #: includes/arrays.php:224
 msgid "Emergency"
-msgstr ""
+msgstr "Аварійний"
 
 #: includes/arrays.php:226 thold.php:1965 thold.php:1984
 #: thold_templates.php:1549 thold_templates.php:1563
@@ -192,7 +180,7 @@ msgstr ""
 
 #: includes/arrays.php:230 includes/arrays.php:244
 msgid "Info"
-msgstr ""
+msgstr "Інформація"
 
 #: includes/arrays.php:231
 msgid "Debug"
@@ -220,7 +208,7 @@ msgstr ""
 
 #: includes/arrays.php:281 includes/arrays.php:362
 msgid "Every Hour"
-msgstr ""
+msgstr "Кожну годину"
 
 #: includes/arrays.php:282 includes/arrays.php:283 includes/arrays.php:284
 #: includes/arrays.php:285 includes/arrays.php:286 includes/arrays.php:287
@@ -229,34 +217,34 @@ msgstr ""
 #: includes/settings.php:497
 #, php-format
 msgid "Every %d Hours"
-msgstr ""
+msgstr "Кожні %d годин"
 
 #: includes/arrays.php:288 includes/arrays.php:369
 msgid "Every Day"
-msgstr ""
+msgstr "Кожен день"
 
 #: includes/arrays.php:289 includes/arrays.php:370
 #, php-format
 msgid "Every %d Days"
-msgstr ""
+msgstr "Кожен %d день"
 
 #: includes/arrays.php:290 includes/arrays.php:371
 msgid "Every Week"
-msgstr ""
+msgstr "Кожний тиждень"
 
 #: includes/arrays.php:291 includes/arrays.php:372
 #, php-format
 msgid "Every %d Weeks"
-msgstr ""
+msgstr "Кожний %d тиждень"
 
 #: includes/arrays.php:292 includes/arrays.php:373
 msgid "Every Month"
-msgstr ""
+msgstr "Кожен місяць"
 
 #: includes/arrays.php:296 includes/arrays.php:321
 #, php-format
 msgid "%d Minute"
-msgstr ""
+msgstr "%d Хвилина"
 
 #: includes/arrays.php:297 includes/arrays.php:298 includes/arrays.php:299
 #: includes/arrays.php:300 includes/arrays.php:301 includes/arrays.php:302
