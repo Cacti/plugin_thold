@@ -31,7 +31,7 @@ If applicable, add screenshots to help explain your problem.
 **Plugin (please complete the following information):**
  - Version: [e.g. 1.2]
  - Source: [e.g. cacti.net, package, github]
- - Identifer: [e.g. apt/yum package name or github commit ref]
+ - Identifier: [e.g. apt/yum package name or github commit ref]
 
 **Desktop (please complete the following information):**
  - OS: [e.g. iOS]
