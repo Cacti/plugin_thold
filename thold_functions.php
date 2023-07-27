@@ -6018,8 +6018,8 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 function thold_notification_add($topic, &$data, $id = 'id', $list_id = 0, &$host = array()) {
 	$now = date('Y-m-d H:i:s');
 
-	if (isset($data[$id])) {
-		$id = $data[$id];
+	if (isset($data['data'][$id])) {
+		$id = $data['data'][$id];
 	} else {
 		$id = 0;
 	}
