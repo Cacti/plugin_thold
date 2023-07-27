@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-07-25 19:01-0400\nPO-Revision-Date: 2023-07-26 12:52+0000\nLast-Translator: Prodan <akapulko@gmail.com>\nLanguage-Team: Ukrainian <http://translate.cacti.net/projects/cacti/thold/uk/>\nLanguage: uk-UA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-07-25 19:01-0400\nPO-Revision-Date: 2023-07-27 15:11+0000\nLast-Translator: Vladyslav V. Prodan <akapulko@gmail.com>\nLanguage-Team: Ukrainian <http://translate.cacti.net/projects/cacti/thold/uk/>\nLanguage: uk-UA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -20,7 +20,7 @@ msgstr "%d Місяць"
 #: includes/arrays.php:31
 #, php-format
 msgid "%d Months"
-msgstr "%d Місяця"
+msgstr "%d Місяців"
 
 #: includes/arrays.php:32
 #, php-format
@@ -66,7 +66,7 @@ msgstr "Сповіщення - Попередження"
 #: includes/arrays.php:70 includes/arrays.php:146 includes/arrays.php:174
 #: includes/arrays.php:225
 msgid "Alert"
-msgstr "Сповіщення"
+msgstr "Попередження"
 
 #: includes/arrays.php:75
 msgid "Notify - Alert2Warning"
@@ -78,20 +78,20 @@ msgstr "Попередження2Застерігти"
 
 #: includes/arrays.php:81
 msgid "Notify - Warning"
-msgstr ""
+msgstr "Оповіщення - Застереження"
 
 #: includes/arrays.php:82 includes/arrays.php:141 includes/arrays.php:182
 #: includes/arrays.php:228
 msgid "Warning"
-msgstr "Попередження"
+msgstr "Застереження"
 
 #: includes/arrays.php:87
 msgid "Notify - Re-Trigger"
-msgstr ""
+msgstr "Повідомити - повторно активувати"
 
 #: includes/arrays.php:88 includes/arrays.php:136
 msgid "Re-Trigger"
-msgstr ""
+msgstr "Повторно активувати"
 
 #: includes/arrays.php:93
 msgid "Notify - Restoral"
@@ -155,11 +155,11 @@ msgstr ""
 
 #: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1465
 msgid "Acknowledgment"
-msgstr ""
+msgstr "Подяка"
 
 #: includes/arrays.php:178
 msgid "Baseline Alert"
-msgstr ""
+msgstr "Базове попередження"
 
 #: includes/arrays.php:186 includes/arrays.php:229
 msgid "Notice"
@@ -278,7 +278,7 @@ msgstr ""
 #: includes/arrays.php:408 includes/arrays.php:409 includes/arrays.php:410
 #, php-format
 msgid "%d Hours"
-msgstr ""
+msgstr "%d Годин"
 
 #: includes/arrays.php:313 includes/arrays.php:345 includes/arrays.php:390
 #: includes/arrays.php:411
@@ -1090,7 +1090,7 @@ msgstr ""
 
 #: includes/settings.php:730
 msgid "Recovering Message"
-msgstr ""
+msgstr "Відновлення повідомлення"
 
 #: includes/settings.php:731
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
@@ -1668,10 +1668,8 @@ msgid "Purge Notification Queue"
 msgstr ""
 
 #: notify_queue.php:400
-#, fuzzy
-#| msgid "Actions"
 msgid "Notifications"
-msgstr "Дії"
+msgstr "Сповіщення"
 
 #: notify_queue.php:413
 msgid "The supported notification topic."
@@ -2035,7 +2033,7 @@ msgstr ""
 
 #: thold.php:799 thold_graph.php:464
 msgid "Current"
-msgstr ""
+msgstr "Поточний"
 
 #: thold.php:802 thold_graph.php:467
 msgid "The last measured value for the Data Source"
@@ -3467,7 +3465,7 @@ msgstr ""
 
 #: thold_webapi.php:684
 msgid "Graph"
-msgstr ""
+msgstr "Графік"
 
 #: thold_webapi.php:685
 msgid "Select the Graph for the Threshold."
@@ -3475,7 +3473,7 @@ msgstr ""
 
 #: thold_webapi.php:689
 msgid "Select a Graph"
-msgstr ""
+msgstr "Виберіть графік"
 
 #: thold_webapi.php:714
 msgid "Select a Data Source for the Threshold."
@@ -3483,7 +3481,7 @@ msgstr ""
 
 #: thold_webapi.php:718
 msgid "Select a Data Source"
-msgstr ""
+msgstr "Виберіть джерело даних"
 
 #: thold_webapi.php:755
 msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
@@ -3495,9 +3493,9 @@ msgstr ""
 
 #: thold_webapi.php:780
 msgid "Selected Graph"
-msgstr ""
+msgstr "Вибраний графік"
 
 #: thold_webapi.php:962 thold_webapi.php:975
 #, php-format
 msgid "Created graph: %s"
-msgstr ""
+msgstr "Створений графік: %s"
