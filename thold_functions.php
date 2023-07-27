@@ -1354,7 +1354,8 @@ function thold_get_thold_notification_format_file($thold_id, $notify_list) {
 		FROM thold_data
 		WHERE id = ?',
 		array($thold_id));
-		$notify_format_file = '';
+
+	$notify_format_file = '';
 
 	if ($notify_list > 0) {
 		$notify_format_file = db_fetch_cell_prepared('SELECT format_file
