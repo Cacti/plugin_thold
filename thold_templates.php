@@ -863,12 +863,14 @@ function template_save_edit() {
 	$save['notify_alert']         = get_nfilter_request_var('notify_alert');
 
 	// Data Manipulation
-	$save['data_type']  = get_nfilter_request_var('data_type');
-	$save['cdef']       = get_nfilter_request_var('cdef');
-	$save['percent_ds'] = get_nfilter_request_var('percent_ds');
-	$save['expression'] = get_nfilter_request_var('expression');
-	$save['upper_ds']   = get_nfilter_request_var('upper_ds');
-	$save['show_units']  = isset_request_var('show_units') ? 'on' : 'off';
+	$save['data_type']    = get_nfilter_request_var('data_type');
+	$save['cdef']         = get_nfilter_request_var('cdef');
+	$save['percent_ds']   = get_nfilter_request_var('percent_ds');
+	$save['expression']   = get_nfilter_request_var('expression');
+	$save['upper_ds']     = get_nfilter_request_var('upper_ds');
+	$save['show_units']   = isset_request_var('show_units') ? 'on' : 'off';
+	$save['units_suffix'] = get_nfilter_request_var('units_suffix');
+	$save['decimals']     = get_nfilter_request_var('decimals');
 
 	// Other
 	$save['notes']          = get_nfilter_request_var('notes');
@@ -1454,6 +1456,23 @@ function template_edit() {
 			'default' => '',
 			'description' => __('Display units for very large or small numbers.', 'thold'),
 			'value' => isset($thold_data['show_units']) ? $thold_data['show_units'] : ''
+		),
+		'units_suffix' => array(
+			'friendly_name' => __('Force Units Suffix', 'thold'),
+			'method' => 'textbox',
+			'default' => '',
+			'max_length' => 10,
+			'size' => 10,
+			'description' => __('If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters.', 'thold'),
+			'value' => isset($thold_data['units_suffix']) ? $thold_data['units_suffix'] : ''
+		),
+		'decimals' => array(
+			'friendly_name' => __('Decimal Digits to Display', 'thold'),
+			'method' => 'drop_array',
+			'default' => 'NULL',
+			'description' => __('The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2.', 'thold'),
+			'value' => isset($thold_data['decimals']) ? $thold_data['decimals'] : 0,
+			'array' => $thold_decimal_digits,
 		),
 		'notify_header' => array(
 			'friendly_name' => __('Notification Settings', 'thold'),

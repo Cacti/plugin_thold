@@ -539,3 +539,18 @@ $thold_units_convert_array = array(
 	'bl_pct_up'
 );
 
+$thold_decimal_digits = array(
+	-1 => __('Auto', 'thold'),
+	0  => __('0 Digits', 'thold'),
+	1  => __('1 Digit', 'thold'),
+	2  => __('%d Digits', 3, 'thold'),
+	3  => __('%d Digits', 3, 'thold'),
+	4  => __('%d Digits', 4, 'thold'),
+	5  => __('%d Digits', 5, 'thold'),
+	6  => __('%d Digits', 6, 'thold'),
+	7  => __('%d Digits', 7, 'thold'),
+	8  => __('%d Digits', 8, 'thold'),
+	9  => __('%d Digits', 9, 'thold'),
+	10 => __('%d Digits', 10, 'thold'),
+);
+

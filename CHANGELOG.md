@@ -48,6 +48,8 @@
 
 * feature: Allow the specification of the Graph Timespan when editing/creating the Threshold or Template
 
+* feature: Allow the specification of the units suffix overriding automatic the number of significant digits to display
+
 * issue#147: Fixed threshold compare negative baseline values.
 
 * issue#396: Baseline Deviation does not work (as expected) 
