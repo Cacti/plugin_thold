@@ -1590,7 +1590,7 @@ function thold_upgrade_database($force = false) {
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
-	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', 1);
+	api_plugin_register_hook('thold',  'device_template_change', 'thold_device_template_change', 'setup.php', 1);
 	api_plugin_register_realm('thold', 'notify_lists.php,notify_queue.php', 'Manage Notification Lists', 1);
 
 	thold_setup_database();

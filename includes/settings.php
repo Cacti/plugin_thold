@@ -683,19 +683,47 @@ function thold_config_settings() {
 			'method' => 'spacer',
 		),
 		'alert_deadnotify' => array(
-			'friendly_name' => __('Device Notifications', 'thold'),
+			'friendly_name' => __('Enable Notifications', 'thold'),
 			'description' => __('Enable Dead/Recovering host notification', 'thold'),
 			'method' => 'checkbox',
 			'default' => 'on'
 		),
 		'alert_deadnotify_one_mail' => array(
-			'friendly_name' => __('Device Notifications Single Email', 'thold'),
+			'friendly_name' => __('Notification Single Email', 'thold'),
 			'description' => __('Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices.', 'thold'),
 			'method' => 'checkbox',
 			'default' => 'on'
 		),
+		'thold_notification_delay' => array(
+			'friendly_name' => __('Device Notification Delay Options', 'thold'),
+			'method' => 'spacer',
+		),
+		'alert_notification_pause' => array(
+			'friendly_name' => __('Notification Delay', 'thold'),
+			'description' => __('If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered.', 'thold'),
+			'array' => $notification_pause_values,
+			'method' => 'drop_array',
+			'default' => '-1'
+		),
+		'alert_notification_delay' => array(
+			'friendly_name' => __('Notification Delay', 'thold'),
+			'description' => __('If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?', 'thold'),
+			'array' => $notification_delay_values,
+			'method' => 'drop_array',
+			'default' => '-1'
+		),
+		'alert_deadnotify_single_transaction' => array(
+			'friendly_name' => __('Notification Delay Single Transaction', 'thold'),
+			'description' => __('When the Notification Delay has been Triggered, and Email and or Command will be executed to indicate that the Notifcation Delay has been triggered.  A separate Email will be sent if and when the event has ended notifying the recipients that the events were canceled.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
+		),
+		'thold_device_email' => array(
+			'friendly_name' => __('Device Notification Email Options', 'thold'),
+			'method' => 'spacer',
+		),
 		'alert_email' => array(
-			'friendly_name' => __('Device Notifications Email', 'thold'),
+			'friendly_name' => __('Global Notification Email', 'thold'),
 			'description' => __('This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected.', 'thold'),
 			'method' => 'textbox',
 			'size' => 80,

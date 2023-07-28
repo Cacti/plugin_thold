@@ -1605,4 +1605,3 @@ function thold_clog_regex_threshold($matches) {
 
 	return $result;
 }
-

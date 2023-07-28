@@ -1368,7 +1368,7 @@ function template_edit() {
 			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
 		),
 		'bl_type' => array(
-			'friendly_name' => __('Baseline Type', 'thold'),
+			'friendly_name' => __('Type', 'thold'),
 			'method' => 'drop_array',
 			'array' => $bl_types,
 			'description' => __('The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend.', 'thold'),
@@ -1382,23 +1382,23 @@ function template_edit() {
 			'value' => isset($thold_data['bl_ref_time_range']) ? $thold_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
 		),
 		'bl_pct_up' => array(
-			'friendly_name' => __('Baseline Deviation UP', 'thold'),
+			'friendly_name' => __('Deviation UP', 'thold'),
 			'method' => 'textbox',
 			'max_length' => 12,
 			'size' => 15,
-			'description' => __('Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.', 'thold'),
+			'description' => __('Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for \'Absolute Value\' Type, and a Percentable for both \'%% Deviation\' and \'%% Floating Average\'', 'thold'),
 			'value' => isset($thold_data['bl_pct_up']) ? $thold_data['bl_pct_up'] : read_config_option('alert_bl_percent_def')
 		),
 		'bl_pct_down' => array(
-			'friendly_name' => __('Baseline Deviation DOWN', 'thold'),
+			'friendly_name' => __('Deviation DOWN', 'thold'),
 			'method' => 'textbox',
 			'max_length' => 12,
 			'size' => 15,
-			'description' => __('Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.', 'thold'),
+			'description' => __('Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for \'Absolute Value\' Type, and a Percentable for both \'%% Deviation\' and \'%% Floating Average\'', 'thold'),
 			'value' => isset($thold_data['bl_pct_down']) ? $thold_data['bl_pct_down'] : read_config_option('alert_bl_percent_def')
 		),
 		'bl_fail_trigger' => array(
-			'friendly_name' => __('Baseline Trigger Count', 'thold'),
+			'friendly_name' => __('Trigger Count', 'thold'),
 			'method' => 'textbox',
 			'max_length' => 3,
 			'size' => 15,

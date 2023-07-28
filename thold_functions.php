@@ -2110,12 +2110,15 @@ function thold_check_threshold(&$thold_data) {
 			thold_debug('Threshold checking halted by Device Status (' . $h['status'] . ')' );
 			return;
 		}
+
+		$h['thold_id'] = $thold_data['id'];
 	} else {
 		/* function called during polling */
 		$h['id']             = $thold_data['host_id'];
 		$h['snmp_engine_id'] = $thold_data['snmp_engine_id'];
 		$h['description']    = $thold_data['description'];
 		$h['hostname']       = $thold_data['hostname'];
+		$h['thold_id']       = $thold_data['id'];
 	}
 
 	/* ensure that Cacti will make of individual defined SNMP Engine IDs */
@@ -5946,7 +5949,8 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 				'body_text'   => $text['text'],
 				'attachments' => empty($attachments) ? null : $attachments,
 				'headers'     => $headers,
-				'html'        => $thold_send_text_only != 'on'
+				'html'        => $thold_send_text_only != 'on',
+				'id'          => (isset($host['thold_id']) ? $host['thold_id']:$host['id'])
 			);
 
 			thold_notification_add($topic, $data, 'id', $notify_list_id, $host);
@@ -5980,7 +5984,8 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 						'body_text'   => $text['text'],
 						'attachments' => empty($attachments) ? '' : $attachments,
 						'headers'     => $headers,
-						'html'        => $thold_send_text_only != 'on'
+						'html'        => $thold_send_text_only != 'on',
+						'id'          => (isset($host['thold_id']) ? $host['thold_id']:$host['id'])
 					);
 
 					thold_notification_add($topic, $data, 'id', $notify_list_id, $host);

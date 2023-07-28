@@ -554,3 +554,34 @@ $thold_decimal_digits = array(
 	10 => __('%d Digits', 10, 'thold'),
 );
 
+/**
+ * Notifcation Pause Settings come in three varieties
+ *
+ * 1 - Global number of notifications
+ * 2 - X% from a Site
+ * 3 - X% globally
+ *
+ */
+$devices_down     = array(10,30,50,100,1000,2000,3000);
+$percentiles_down = array(10,20,30,40,50);
+
+$notification_pause_values[-1] = __('Disabled', 'thold');
+
+foreach($devices_down as $d) {
+	$notification_pause_values["$d|g"] = __('> %d Devices', $d, 'thold');
+}
+
+foreach($percentiles_down as $p) {
+	$notification_pause_values["$p|ps"] = __('> %d%%% of Devices in a Site', $p, 'thold');
+}
+
+foreach($percentiles_down as $p) {
+	$notification_pause_values["$p|pg"] = __('> %d%%% of Devices Globally', $p, 'thold');
+}
+
+$notification_delay_values = array(
+	5  => __('%d Minutes', '5', 'thold'),
+	10 => __('%d Minutes', '10', 'thold'),
+	15 => __('%d Minutes', '15', 'thold'),
+	20 => __('%d Minutes', '20', 'thold')
+);
