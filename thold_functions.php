@@ -2363,6 +2363,7 @@ function thold_check_threshold(&$thold_data) {
 					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
 					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
 					$notify_list_id     = $thold_data['notify_warning'];
+					$format_file        = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
 
 					if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
 						$warn_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
