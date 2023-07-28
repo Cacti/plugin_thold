@@ -1908,7 +1908,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'notification_list_id', 'type' => 'int', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'topic', 'type' => 'varchar(20)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'object_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'object_name', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'object_name', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'hostname', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'event_time', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
