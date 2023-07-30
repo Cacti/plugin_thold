@@ -93,6 +93,9 @@ function plugin_thold_install($upgrade = false) {
 	// Follow New Graph Actions
 	api_plugin_register_hook($plugin, 'api_device_new', 'thold_api_device_new', 'setup.php');
 
+	// Allow settings javascript hooks
+	api_plugin_register_hook('thold', 'settings_bottom', 'thold_settings_bottom', 'setup.php', 1);
+
 	// Miscellaneous hooks
 	api_plugin_register_hook($plugin, 'graphs_new_top_links', 'thold_graphs_new', 'setup.php');
 	api_plugin_register_hook($plugin, 'update_host_status', 'thold_update_host_status', 'includes/polling.php');
@@ -1604,4 +1607,14 @@ function thold_clog_regex_threshold($matches) {
 	}
 
 	return $result;
+}
+
+function thold_settings_bottom() {
+	?>
+	<script type='text/javascript'>
+	$(function() {
+		$('#alert_notification_pause').multiselect();
+	});
+	</script>
+	<?php
 }

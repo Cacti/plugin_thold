@@ -702,7 +702,7 @@ function thold_config_settings() {
 			'friendly_name' => __('Notification Delay', 'thold'),
 			'description' => __('If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered.', 'thold'),
 			'array' => $notification_pause_values,
-			'method' => 'drop_array',
+			'method' => 'drop_multi',
 			'default' => '-1'
 		),
 		'alert_notification_delay' => array(
