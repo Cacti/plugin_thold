@@ -4182,83 +4182,87 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 				$found        = false;
 				$cdef['type'] = 6;
 
-				if (strpos($cdef['value'], 'CURRENT_DATA_SOURCE') !== false) {
-					$cdef['value'] = str_replace('CURRENT_DATA_SOURCE', $oldvalue, $cdef['value']);
-					$found = true;
-				}
-
-				if (strpos($cdef['value'], 'CURRENT_GRAPH_MAXIMUM_VALUE') !== false) {
-					$cdef['value'] = str_replace('CURRENT_GRAPH_MAXIMUM_VALUE', get_current_value($local_data_id, 'upper_limit'), $cdef['value']);
-					$found = true;
-				}
-
-				if (strpos($cdef['value'], 'CURRENT_GRAPH_MINIMUM_VALUE') !== false) {
-					$cdef['value'] = str_replace('CURRENT_GRAPH_MINIMUM_VALUE', get_current_value($local_data_id, 'lower_limit'), $cdef['value']);
-					$found = true;
-				}
-
-				if (strpos($cdef['value'], 'CURRENT_DS_MINIMUM_VALUE') !== false) {
-					$cdef['value'] = str_replace('CURRENT_DS_MINIMUM_VALUE', get_current_value($local_data_id, 'rrd_minimum'), $cdef['value']);
-					$found = true;
-				}
-
-				if (strpos($cdef['value'], '') !== false) {
-					$cdef['value'] = str_replace('CURRENT_DS_MINIMUM_VALUE', get_current_value($local_data_id, 'rrd_minimum'), $cdef['value']);
-					$found = true;
-				}
-
-				if (strpos($cdef['value'], 'CURRENT_DS_MAXIMUM_VALUE') !== false) {
-					$cdef['value'] = str_replace('CURRENT_DS_MAXIMUM_VALUE', get_current_value($local_data_id, 'rrd_maximum'), $cdef['value']);
-					$found = true;
-				}
-
-				if (strpos($cdef['value'], 'VALUE_OF_HDD_TOTAL') !== false) {
-					$cdef['value'] = str_replace('VALUE_OF_HDD_TOTAL', get_current_value($local_data_id, 'hdd_total'), $cdef['value']);
-					$found = true;
-				}
-
-				if (strpos($cdef['value'], 'ALL_DATA_SOURCES_NODUPS') !== false || strpos($cdef['value'], 'ALL_DATA_SOURCES_DUPS') !== false) {
-					$found = true;
-					$total = 0;
-
-					$all_dsns = db_fetch_assoc_prepared('SELECT data_source_name
-						FROM data_template_rrd
-						WHERE local_data_id = ?',
-						array($local_data_id));
-
-					if (cacti_sizeof($all_dsns)) {
-						foreach ($all_dsns as $dsn) {
-							$total += get_current_value($local_data_id, $dsn['data_source_name']);
-						}
+				if ($cdef['value'] != '') {
+					if (strpos($cdef['value'], 'CURRENT_DATA_SOURCE') !== false) {
+						$cdef['value'] = str_replace('CURRENT_DATA_SOURCE', $oldvalue, $cdef['value']);
+						$found = true;
 					}
 
-					$cdef['value'] = str_replace('ALL_DATA_SOURCES_NODUPS', $total, $cdef['value']);
-					$cdef['value'] = str_replace('ALL_DATA_SOURCES_DUPS', $total, $cdef['value']);
+					if (strpos($cdef['value'], 'CURRENT_GRAPH_MAXIMUM_VALUE') !== false) {
+						$cdef['value'] = str_replace('CURRENT_GRAPH_MAXIMUM_VALUE', get_current_value($local_data_id, 'upper_limit'), $cdef['value']);
+						$found = true;
+					}
+
+					if (strpos($cdef['value'], 'CURRENT_GRAPH_MINIMUM_VALUE') !== false) {
+						$cdef['value'] = str_replace('CURRENT_GRAPH_MINIMUM_VALUE', get_current_value($local_data_id, 'lower_limit'), $cdef['value']);
+						$found = true;
+					}
+
+					if (strpos($cdef['value'], 'CURRENT_DS_MINIMUM_VALUE') !== false) {
+						$cdef['value'] = str_replace('CURRENT_DS_MINIMUM_VALUE', get_current_value($local_data_id, 'rrd_minimum'), $cdef['value']);
+						$found = true;
+					}
+
+					if (strpos($cdef['value'], '') !== false) {
+						$cdef['value'] = str_replace('CURRENT_DS_MINIMUM_VALUE', get_current_value($local_data_id, 'rrd_minimum'), $cdef['value']);
+						$found = true;
+					}
+
+					if (strpos($cdef['value'], 'CURRENT_DS_MAXIMUM_VALUE') !== false) {
+						$cdef['value'] = str_replace('CURRENT_DS_MAXIMUM_VALUE', get_current_value($local_data_id, 'rrd_maximum'), $cdef['value']);
+						$found = true;
+					}
+
+					if (strpos($cdef['value'], 'VALUE_OF_HDD_TOTAL') !== false) {
+						$cdef['value'] = str_replace('VALUE_OF_HDD_TOTAL', get_current_value($local_data_id, 'hdd_total'), $cdef['value']);
+						$found = true;
+					}
+
+					if (strpos($cdef['value'], 'ALL_DATA_SOURCES_NODUPS') !== false || strpos($cdef['value'], 'ALL_DATA_SOURCES_DUPS') !== false) {
+						$found = true;
+						$total = 0;
+
+						$all_dsns = db_fetch_assoc_prepared('SELECT data_source_name
+							FROM data_template_rrd
+							WHERE local_data_id = ?',
+							array($local_data_id));
+
+						if (cacti_sizeof($all_dsns)) {
+							foreach ($all_dsns as $dsn) {
+								$total += get_current_value($local_data_id, $dsn['data_source_name']);
+							}
+						}
+
+						$cdef['value'] = str_replace('ALL_DATA_SOURCES_NODUPS', $total, $cdef['value']);
+						$cdef['value'] = str_replace('ALL_DATA_SOURCES_DUPS', $total, $cdef['value']);
+					}
 				}
 
 				if (!$found) {
-					cacti_log('WARNING: CDEF property not implemented yet: ' . $cdef['value'], false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
+					cacti_log('WARNING: Issues with CDEF property: ' . $cdef['value'] . ', CDEF ID: ' . $cdef['id'] . ', Returning Original Data: ' . $oldvalue, false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
 
 					return $oldvalue;
 
 					break;
 				}
 			} elseif ($cdef['type'] == 6) {
-				$regresult = preg_match('/^\|query_([A-Za-z0-9_]+)\|$/', $cdef['value'], $matches);
+				if ($cdef['value'] != '') {
+					$regresult = preg_match('/^\|query_([A-Za-z0-9_]+)\|$/', $cdef['value'], $matches);
 
-				if ($regresult > 0) {
-					$cdef['value'] = db_fetch_cell_prepared('SELECT hsc.field_value
-						FROM data_local AS dl
-						INNER JOIN host_snmp_cache AS hsc
-						ON hsc.host_id = dl.host_id
-						AND hsc.snmp_query_id = dl.snmp_query_id
-						AND hsc.snmp_index = dl.snmp_index
-						WHERE dl.id = ?
-						AND hsc.field_name = ?',
-						array($local_data_id, $matches[1]));
+					if ($regresult > 0) {
+						$cdef['value'] = db_fetch_cell_prepared('SELECT hsc.field_value
+							FROM data_local AS dl
+							INNER JOIN host_snmp_cache AS hsc
+							ON hsc.host_id = dl.host_id
+							AND hsc.snmp_query_id = dl.snmp_query_id
+							AND hsc.snmp_index = dl.snmp_index
+							WHERE dl.id = ?
+							AND hsc.field_name = ?',
+							array($local_data_id, $matches[1]));
 
-					if ($cdef['value'] == '' || !is_numeric($cdef['value'])) {
-						$cdef['value'] = 0;
+						if ($cdef['value'] == '' || !is_numeric($cdef['value'])) {
+							$cdef['value'] = 0;
+						}
 					}
 				}
 			}
