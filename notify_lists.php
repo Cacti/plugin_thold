@@ -1096,9 +1096,9 @@ function hosts($header_label) {
 
 	/* form the 'where' clause for our main sql query */
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where = 'WHERE (
-			host.hostname RLIKE "'       . get_request_var('rfilter') . '"
-			OR host.description RLIKE "' . get_request_var('rfilter')  . '")';
+		$sql_where = "WHERE (
+			host.hostname RLIKE '"       . get_request_var('rfilter') . "'
+			OR host.description RLIKE '" . get_request_var('rfilter')  . "')";
 	} else {
 		$sql_where = '';
 	}
@@ -1276,7 +1276,7 @@ function tholds($header_label) {
 	}
 
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache RLIKE "' . get_request_var('rfilter') . '"';
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . "td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
 	}
 
 	if ($statefilter != '') {
@@ -1589,7 +1589,7 @@ function templates($header_label) {
 	}
 
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_template.name RLIKE "' . get_request_var('rfilter') . '"';
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_template.name RLIKE '" . get_request_var('rfilter') . "'";
 	}
 
 	$sql = "SELECT *
@@ -1991,10 +1991,10 @@ function lists() {
 
 	/* form the 'where' clause for our main sql query */
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where = 'WHERE (
-		name RLIKE "'           . get_request_var('rfilter') . '"
-		OR description RLIKE "' . get_request_var('rfilter') . '"
-		OR emails RLIKE "'      . get_request_var('rfilter') . '")';
+		$sql_where = "WHERE (
+		name RLIKE '"           . get_request_var('rfilter') . "'
+		OR description RLIKE '" . get_request_var('rfilter') . "'
+		OR emails RLIKE '"      . get_request_var('rfilter') . "')";
 	} else {
 		$sql_where = '';
 	}

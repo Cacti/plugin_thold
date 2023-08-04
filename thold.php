@@ -588,7 +588,7 @@ function list_tholds() {
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ($sql_where == '' ? '(': ' AND ') . ' td.name_cache RLIKE "' . get_request_var('rfilter') . '"';
+		$sql_where .= ($sql_where == '' ? '(': ' AND ') . " td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
 	}
 
 	if ($statefilter != '') {

@@ -393,7 +393,7 @@ function tholds() {
 	$sql_where = thold_get_state_filter(get_request_var('state'));
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ($sql_where == '' ? '(': ' AND ') . ' td.name_cache RLIKE "' . get_request_var('rfilter') . '"';
+		$sql_where .= ($sql_where == '' ? '(': ' AND ') . " td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
 	}
 
 	/* data template id filter */
@@ -877,9 +877,9 @@ function hosts() {
 	$sql_where = '';
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ' (h.deleted = ""
-			AND (h.hostname RLIKE "'       . get_request_var('rfilter') . '"
-			OR h.description RLIKE "' . get_request_var('rfilter') . '")';
+		$sql_where .= " (h.deleted = ''
+			AND (h.hostname RLIKE '"       . get_request_var('rfilter') . "'
+			OR h.description RLIKE '" . get_request_var('rfilter') . "')";
 	}
 
 	if (get_request_var('host_status') == '-1') {
@@ -1325,7 +1325,7 @@ function thold_export_log() {
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description RLIKE "' . get_request_var('rfilter') . '"';
+		$sql_where .= ($sql_where == '' ? '':' AND') . " tl.description RLIKE '" . get_request_var('rfilter') . "'";
 	}
 
 	$sql_order  = '';
@@ -1416,7 +1416,7 @@ function thold_show_log() {
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.description RLIKE "' . get_request_var('rfilter') . '"';
+		$sql_where .= ($sql_where == '' ? '':' AND') . " tl.description RLIKE '" . get_request_var('rfilter') . "'";
 	}
 
 	$sql_order = get_order_string();
