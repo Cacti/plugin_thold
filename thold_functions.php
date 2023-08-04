@@ -4213,11 +4213,6 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 						$found = true;
 					}
 
-					if (strpos($cdef['value'], 'CURRENT_DS_MINIMUM_VALUE') !== false) {
-						$cdef['value'] = str_replace('CURRENT_DS_MINIMUM_VALUE', get_current_value($local_data_id, 'rrd_minimum'), $cdef['value']);
-						$found = true;
-					}
-
 					if (strpos($cdef['value'], 'CURRENT_DS_MAXIMUM_VALUE') !== false) {
 						$cdef['value'] = str_replace('CURRENT_DS_MAXIMUM_VALUE', get_current_value($local_data_id, 'rrd_maximum'), $cdef['value']);
 						$found = true;
