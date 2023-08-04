@@ -33,24 +33,24 @@ $thold_log_retention = array(
 );
 
 $thold_timespans = array(
-	3600      => __('Last %d Hour', 1),
-	7200      => __('Last %d Hours', 2),
-	14400     => __('Last %d Hours', 4),
-	21600     => __('Last %d Hours', 6),
-	43200     => __('Last %d Hours', 12),
-	86400     => __('Last %d Day', 1),
-	172800    => __('Last %d Days', 2),
-	345600    => __('Last %d Days', 4),
-	604800    => __('Last %d Week', 1),
-	1209600   => __('Last %d Weeks', 2),
-	1814400   => __('Last %d Weeks', 3),
-	2618784   => __('Last %d Month', 1),
-	5237568   => __('Last %d Months', 2),
-	7856352   => __('Last %d Months', 3),
-	10475136  => __('Last %d Months', 4),
-	15712704  => __('Last %d Months', 6),
-	31536000  => __('Last %d Year', 1),
-	63072000  => __('Last %d Years', 2)
+	3600      => __('From %d Hour Ago', 1),
+	7200      => __('From %d Hours Ago', 2),
+	14400     => __('From %d Hours Ago', 4),
+	21600     => __('From %d Hours Ago', 6),
+	43200     => __('From %d Hours Ago', 12),
+	86400     => __('From %d Day Ago', 1),
+	172800    => __('From %d Days Ago', 2),
+	345600    => __('From %d Days Ago', 4),
+	604800    => __('From %d Week Ago', 1),
+	1209600   => __('From %d Weeks Ago', 2),
+	1814400   => __('From %d Weeks Ago', 3),
+	2618784   => __('From %d Month Ago', 1),
+	5237568   => __('From %d Months Ago', 2),
+	7856352   => __('From %d Months Ago', 3),
+	10475136  => __('From %d Months Ago', 4),
+	15712704  => __('From %d Months Ago', 6),
+	31536000  => __('From %d Year Ago', 1),
+	63072000  => __('From %d Years Ago', 2)
 );
 
 $thold_host_states = array(
