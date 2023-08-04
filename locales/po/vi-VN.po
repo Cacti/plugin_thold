@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-07-25 19:01-0400\n"
+"POT-Creation-Date: 2023-08-04 11:37-0400\n"
 "PO-Revision-Date: 2020-09-13 15:18-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "Indefinitely"
 msgstr "Vô thời hạn"
 
-#: includes/arrays.php:27 includes/arrays.php:317 includes/arrays.php:349
-#: includes/arrays.php:394 includes/arrays.php:415
+#: includes/arrays.php:27 includes/arrays.php:338 includes/arrays.php:370
+#: includes/arrays.php:415 includes/arrays.php:436
 #, fuzzy, php-format
 msgid "%d Month"
 msgstr "% d tháng"
@@ -39,469 +39,579 @@ msgstr "% d tháng"
 msgid "%d Year"
 msgstr "% d Năm"
 
-#: includes/arrays.php:37 thold_graph.php:794 thold_graph.php:1137
+#: includes/arrays.php:36
+#, fuzzy, php-format
+msgid "From %d Hour Ago"
+msgstr "Mỗi% d giờ"
+
+#: includes/arrays.php:37 includes/arrays.php:38 includes/arrays.php:39
+#: includes/arrays.php:40
+#, fuzzy, php-format
+msgid "From %d Hours Ago"
+msgstr "Mỗi% d giờ"
+
+#: includes/arrays.php:41
+#, php-format
+msgid "From %d Day Ago"
+msgstr ""
+
+#: includes/arrays.php:42 includes/arrays.php:43
+#, fuzzy, php-format
+msgid "From %d Days Ago"
+msgstr "Mỗi% d ngày"
+
+#: includes/arrays.php:44
+#, fuzzy, php-format
+msgid "From %d Week Ago"
+msgstr "% d tuần"
+
+#: includes/arrays.php:45 includes/arrays.php:46
+#, fuzzy, php-format
+msgid "From %d Weeks Ago"
+msgstr "Mỗi% d tuần"
+
+#: includes/arrays.php:47
+#, fuzzy, php-format
+msgid "From %d Month Ago"
+msgstr "% d tháng"
+
+#: includes/arrays.php:48 includes/arrays.php:49 includes/arrays.php:50
+#: includes/arrays.php:51
+#, fuzzy, php-format
+msgid "From %d Months Ago"
+msgstr "% d tháng"
+
+#: includes/arrays.php:52
+#, fuzzy, php-format
+msgid "From %d Year Ago"
+msgstr "% d Năm"
+
+#: includes/arrays.php:53
+#, php-format
+msgid "From %d Years Ago"
+msgstr ""
+
+#: includes/arrays.php:58 thold_graph.php:798 thold_graph.php:1141
 msgid "Down"
 msgstr "Xuống"
 
-#: includes/arrays.php:41 includes/arrays.php:227 includes/arrays.php:243
-#: thold_graph.php:803
+#: includes/arrays.php:62 includes/arrays.php:248 includes/arrays.php:264
+#: thold_graph.php:807
 msgid "Error"
 msgstr "Lỗi"
 
-#: includes/arrays.php:45 thold_graph.php:797 thold_graph.php:1138
+#: includes/arrays.php:66 thold_graph.php:801 thold_graph.php:1142
 #, fuzzy
 msgid "Recovering"
 msgstr "Phục hồi"
 
-#: includes/arrays.php:49 thold_graph.php:800 thold_graph.php:1136
+#: includes/arrays.php:70 thold_graph.php:804 thold_graph.php:1140
 msgid "Up"
 msgstr "Lên trên"
 
-#: includes/arrays.php:53 thold_graph.php:806 thold_graph.php:1139
+#: includes/arrays.php:74 thold_graph.php:810 thold_graph.php:1143
 msgid "Unknown"
 msgstr "Không xác định"
 
-#: includes/arrays.php:57 includes/arrays.php:198 includes/settings.php:326
-#: includes/settings.php:417 includes/settings.php:492 notify_lists.php:738
-#: notify_lists.php:1187 notify_lists.php:1351 notify_lists.php:1545
-#: thold.php:707 thold_graph.php:218 thold_graph.php:790 thold_graph.php:1133
+#: includes/arrays.php:78 includes/arrays.php:219 includes/arrays.php:594
+#: includes/settings.php:326 includes/settings.php:417
+#: includes/settings.php:486 notify_lists.php:738 notify_lists.php:1187
+#: notify_lists.php:1351 notify_lists.php:1545 thold.php:707
+#: thold_graph.php:218 thold_graph.php:794 thold_graph.php:1137
 msgid "Disabled"
 msgstr "Vô hiệu hóa"
 
-#: includes/arrays.php:61 thold_graph.php:1064 thold_graph.php:1135
+#: includes/arrays.php:82 thold_graph.php:1068 thold_graph.php:1139
 #, fuzzy
 msgid "Not Monitored"
 msgstr "Không được theo dõi"
 
-#: includes/arrays.php:69
+#: includes/arrays.php:90
 #, fuzzy
 msgid "Notify - Alert"
 msgstr "Thông báo - Thông báo"
 
-#: includes/arrays.php:70 includes/arrays.php:146 includes/arrays.php:174
-#: includes/arrays.php:225
+#: includes/arrays.php:91 includes/arrays.php:167 includes/arrays.php:195
+#: includes/arrays.php:246
 msgid "Alert"
 msgstr "Cảnh báo"
 
-#: includes/arrays.php:75
+#: includes/arrays.php:96
 #, fuzzy
 msgid "Notify - Alert2Warning"
 msgstr "Thông báo - Alert2Warning"
 
-#: includes/arrays.php:76
+#: includes/arrays.php:97
 #, fuzzy
 msgid "Alert2Warn"
 msgstr "Cảnh báo"
 
-#: includes/arrays.php:81
+#: includes/arrays.php:102
 #, fuzzy
 msgid "Notify - Warning"
 msgstr "Thông báo - Cảnh báo"
 
-#: includes/arrays.php:82 includes/arrays.php:141 includes/arrays.php:182
-#: includes/arrays.php:228
+#: includes/arrays.php:103 includes/arrays.php:162 includes/arrays.php:203
+#: includes/arrays.php:249
 msgid "Warning"
 msgstr "Cảnh báo"
 
-#: includes/arrays.php:87
+#: includes/arrays.php:108
 #, fuzzy
 msgid "Notify - Re-Trigger"
 msgstr "Thông báo - Kích hoạt lại"
 
-#: includes/arrays.php:88 includes/arrays.php:136
+#: includes/arrays.php:109 includes/arrays.php:157
 #, fuzzy
 msgid "Re-Trigger"
 msgstr "Kích hoạt lại"
 
-#: includes/arrays.php:93
+#: includes/arrays.php:114
 #, fuzzy
 msgid "Notify - Restoral"
 msgstr "Thông báo - Phục hồi"
 
-#: includes/arrays.php:94
-#, fuzzy
-msgid "Retoral"
-msgstr "Phục hồi"
-
-#: includes/arrays.php:99
-#, fuzzy
-msgid "Event - Alert Trigger"
-msgstr "Sự kiện - Kích hoạt cảnh báo"
-
-#: includes/arrays.php:100
-#, fuzzy
-msgid "Alert Event"
-msgstr "Cài đặt trước cảnh báo"
-
-#: includes/arrays.php:105
-#, fuzzy
-msgid "Event - Warning Trigger"
-msgstr "Sự kiện - Kích hoạt cảnh báo"
-
-#: includes/arrays.php:106
-#, fuzzy
-msgid "Warning Event"
-msgstr "Cảnh báo"
-
-#: includes/arrays.php:111
-#, fuzzy
-msgid "Event - Restoral"
-msgstr "Sự kiện - Phục hồi"
-
-#: includes/arrays.php:112 thold_graph.php:1494
-#, fuzzy
-msgid "Restoral Event"
-msgstr "Sự kiện phục hồi"
-
-#: includes/arrays.php:117
-#, fuzzy
-msgid "Event - Acknowledge"
-msgstr "Công nhận"
-
-#: includes/arrays.php:118
-#, fuzzy
-msgid "Acknowledge Event"
-msgstr "Công nhận"
-
-#: includes/arrays.php:126
-msgid "Restore"
-msgstr "Khôi phục"
-
-#: includes/arrays.php:131
-#, fuzzy
-msgid "Alert Trigger"
-msgstr "Thông báo kích hoạt"
-
-#: includes/arrays.php:151
+#: includes/arrays.php:115 includes/arrays.php:172
 #, fuzzy
 msgid "Restoral"
 msgstr "Phục hồi"
 
-#: includes/arrays.php:156
+#: includes/arrays.php:120
+#, fuzzy
+msgid "Event - Alert Trigger"
+msgstr "Sự kiện - Kích hoạt cảnh báo"
+
+#: includes/arrays.php:121
+#, fuzzy
+msgid "Alert Event"
+msgstr "Cài đặt trước cảnh báo"
+
+#: includes/arrays.php:126
+#, fuzzy
+msgid "Event - Warning Trigger"
+msgstr "Sự kiện - Kích hoạt cảnh báo"
+
+#: includes/arrays.php:127
+#, fuzzy
+msgid "Warning Event"
+msgstr "Cảnh báo"
+
+#: includes/arrays.php:132
+#, fuzzy
+msgid "Event - Restoral"
+msgstr "Sự kiện - Phục hồi"
+
+#: includes/arrays.php:133 thold_graph.php:1499
+#, fuzzy
+msgid "Restoral Event"
+msgstr "Sự kiện phục hồi"
+
+#: includes/arrays.php:138
+#, fuzzy
+msgid "Event - Acknowledge"
+msgstr "Công nhận"
+
+#: includes/arrays.php:139
+#, fuzzy
+msgid "Acknowledge Event"
+msgstr "Công nhận"
+
+#: includes/arrays.php:147
+msgid "Restore"
+msgstr "Khôi phục"
+
+#: includes/arrays.php:152
+#, fuzzy
+msgid "Alert Trigger"
+msgstr "Thông báo kích hoạt"
+
+#: includes/arrays.php:177
 #, fuzzy
 msgid "Warn Trigger"
 msgstr "Kích hoạt cảnh báo"
 
-#: includes/arrays.php:161
+#: includes/arrays.php:182
 #, fuzzy
 msgid "Alert-Warn"
 msgstr "Cảnh báo"
 
-#: includes/arrays.php:166 includes/arrays.php:194 thold_graph.php:1465
+#: includes/arrays.php:187 includes/arrays.php:215 thold_graph.php:1469
 msgid "Acknowledgment"
 msgstr "Lời xác nhận"
 
-#: includes/arrays.php:178
+#: includes/arrays.php:199
 #, fuzzy
 msgid "Baseline Alert"
 msgstr "Thông báo cơ bản"
 
-#: includes/arrays.php:186 includes/arrays.php:229
+#: includes/arrays.php:207 includes/arrays.php:250
 msgid "Notice"
 msgstr "Thông báo"
 
-#: includes/arrays.php:190
+#: includes/arrays.php:211
 msgid "Ok"
 msgstr "Đồng ý"
 
-#: includes/arrays.php:224
+#: includes/arrays.php:245
 msgid "Emergency"
 msgstr "Khẩn cấp"
 
-#: includes/arrays.php:226 thold.php:1965 thold.php:1984
-#: thold_templates.php:1549 thold_templates.php:1563
+#: includes/arrays.php:247 thold.php:2003 thold.php:2022
+#: thold_templates.php:1581 thold_templates.php:1595
 msgid "Critical"
 msgstr "Chỉ trích"
 
-#: includes/arrays.php:230 includes/arrays.php:244
+#: includes/arrays.php:251 includes/arrays.php:265
 msgid "Info"
 msgstr "Thông tin"
 
-#: includes/arrays.php:231
+#: includes/arrays.php:252
 msgid "Debug"
 msgstr "Gỡ rối"
 
-#: includes/arrays.php:270 includes/arrays.php:355 includes/arrays.php:421
+#: includes/arrays.php:291 includes/arrays.php:376 includes/arrays.php:442
 #: thold_functions.php:98
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: includes/arrays.php:271
+#: includes/arrays.php:292
 msgid "Every Minute"
 msgstr "Mỗi phút"
 
-#: includes/arrays.php:272 includes/arrays.php:273 includes/arrays.php:274
-#: includes/arrays.php:275 includes/arrays.php:276 includes/arrays.php:277
-#: includes/arrays.php:278 includes/arrays.php:279 includes/arrays.php:280
-#: includes/arrays.php:356 includes/arrays.php:357 includes/arrays.php:358
-#: includes/arrays.php:359 includes/arrays.php:360 includes/arrays.php:361
-#: includes/settings.php:493 includes/settings.php:494
-#: includes/settings.php:495
+#: includes/arrays.php:293 includes/arrays.php:294 includes/arrays.php:295
+#: includes/arrays.php:296 includes/arrays.php:297 includes/arrays.php:298
+#: includes/arrays.php:299 includes/arrays.php:300 includes/arrays.php:301
+#: includes/arrays.php:377 includes/arrays.php:378 includes/arrays.php:379
+#: includes/arrays.php:380 includes/arrays.php:381 includes/arrays.php:382
+#: includes/settings.php:487 includes/settings.php:488
+#: includes/settings.php:489
 #, php-format
 msgid "Every %d Minutes"
 msgstr "Mỗi% d Phút"
 
-#: includes/arrays.php:281 includes/arrays.php:362
+#: includes/arrays.php:302 includes/arrays.php:383
 #, fuzzy
 msgid "Every Hour"
 msgstr "Mỗi tiếng"
 
-#: includes/arrays.php:282 includes/arrays.php:283 includes/arrays.php:284
-#: includes/arrays.php:285 includes/arrays.php:286 includes/arrays.php:287
-#: includes/arrays.php:363 includes/arrays.php:364 includes/arrays.php:365
-#: includes/arrays.php:366 includes/arrays.php:367 includes/arrays.php:368
-#: includes/settings.php:497
+#: includes/arrays.php:303 includes/arrays.php:304 includes/arrays.php:305
+#: includes/arrays.php:306 includes/arrays.php:307 includes/arrays.php:308
+#: includes/arrays.php:384 includes/arrays.php:385 includes/arrays.php:386
+#: includes/arrays.php:387 includes/arrays.php:388 includes/arrays.php:389
+#: includes/settings.php:491
 #, fuzzy, php-format
 msgid "Every %d Hours"
 msgstr "Mỗi% d giờ"
 
-#: includes/arrays.php:288 includes/arrays.php:369
+#: includes/arrays.php:309 includes/arrays.php:390
 #, fuzzy
 msgid "Every Day"
 msgstr "Hàng ngày"
 
-#: includes/arrays.php:289 includes/arrays.php:370
+#: includes/arrays.php:310 includes/arrays.php:391
 #, fuzzy, php-format
 msgid "Every %d Days"
 msgstr "Mỗi% d ngày"
 
-#: includes/arrays.php:290 includes/arrays.php:371
+#: includes/arrays.php:311 includes/arrays.php:392
 #, fuzzy
 msgid "Every Week"
 msgstr "Mỗi tuần"
 
-#: includes/arrays.php:291 includes/arrays.php:372
+#: includes/arrays.php:312 includes/arrays.php:393
 #, fuzzy, php-format
 msgid "Every %d Weeks"
 msgstr "Mỗi% d tuần"
 
-#: includes/arrays.php:292 includes/arrays.php:373
+#: includes/arrays.php:313 includes/arrays.php:394
 #, fuzzy
 msgid "Every Month"
 msgstr "Mỗi tháng"
 
-#: includes/arrays.php:296 includes/arrays.php:321
+#: includes/arrays.php:317 includes/arrays.php:342
 #, php-format
 msgid "%d Minute"
 msgstr "%d phút"
 
-#: includes/arrays.php:297 includes/arrays.php:298 includes/arrays.php:299
-#: includes/arrays.php:300 includes/arrays.php:301 includes/arrays.php:302
-#: includes/arrays.php:303 includes/arrays.php:304 includes/arrays.php:305
-#: includes/arrays.php:322 includes/arrays.php:323 includes/arrays.php:324
-#: includes/arrays.php:325 includes/arrays.php:326 includes/arrays.php:327
-#: includes/arrays.php:328 includes/arrays.php:329 includes/arrays.php:330
-#: includes/arrays.php:331 includes/arrays.php:332 includes/arrays.php:333
-#: includes/arrays.php:334 includes/arrays.php:335 includes/arrays.php:336
-#: includes/arrays.php:377 includes/arrays.php:378 includes/arrays.php:379
-#: includes/arrays.php:380 includes/arrays.php:381 includes/arrays.php:382
+#: includes/arrays.php:318 includes/arrays.php:319 includes/arrays.php:320
+#: includes/arrays.php:321 includes/arrays.php:322 includes/arrays.php:323
+#: includes/arrays.php:324 includes/arrays.php:325 includes/arrays.php:326
+#: includes/arrays.php:343 includes/arrays.php:344 includes/arrays.php:345
+#: includes/arrays.php:346 includes/arrays.php:347 includes/arrays.php:348
+#: includes/arrays.php:349 includes/arrays.php:350 includes/arrays.php:351
+#: includes/arrays.php:352 includes/arrays.php:353 includes/arrays.php:354
+#: includes/arrays.php:355 includes/arrays.php:356 includes/arrays.php:357
 #: includes/arrays.php:398 includes/arrays.php:399 includes/arrays.php:400
 #: includes/arrays.php:401 includes/arrays.php:402 includes/arrays.php:403
+#: includes/arrays.php:419 includes/arrays.php:420 includes/arrays.php:421
+#: includes/arrays.php:422 includes/arrays.php:423 includes/arrays.php:424
+#: includes/arrays.php:609 includes/arrays.php:610 includes/arrays.php:611
+#: includes/arrays.php:612
 #, php-format
 msgid "%d Minutes"
 msgstr "%d phút"
 
-#: includes/arrays.php:306 includes/arrays.php:337 includes/arrays.php:383
-#: includes/arrays.php:404
+#: includes/arrays.php:327 includes/arrays.php:358 includes/arrays.php:404
+#: includes/arrays.php:425
 #, fuzzy, php-format
 msgid "%d Hour"
 msgstr "% d giờ"
 
-#: includes/arrays.php:307 includes/arrays.php:308 includes/arrays.php:309
-#: includes/arrays.php:310 includes/arrays.php:311 includes/arrays.php:312
-#: includes/arrays.php:338 includes/arrays.php:339 includes/arrays.php:340
-#: includes/arrays.php:342 includes/arrays.php:343 includes/arrays.php:344
-#: includes/arrays.php:384 includes/arrays.php:385 includes/arrays.php:386
-#: includes/arrays.php:387 includes/arrays.php:388 includes/arrays.php:389
+#: includes/arrays.php:328 includes/arrays.php:329 includes/arrays.php:330
+#: includes/arrays.php:331 includes/arrays.php:332 includes/arrays.php:333
+#: includes/arrays.php:359 includes/arrays.php:360 includes/arrays.php:361
+#: includes/arrays.php:363 includes/arrays.php:364 includes/arrays.php:365
 #: includes/arrays.php:405 includes/arrays.php:406 includes/arrays.php:407
 #: includes/arrays.php:408 includes/arrays.php:409 includes/arrays.php:410
+#: includes/arrays.php:426 includes/arrays.php:427 includes/arrays.php:428
+#: includes/arrays.php:429 includes/arrays.php:430 includes/arrays.php:431
 #, fuzzy, php-format
 msgid "%d Hours"
 msgstr "% d giờ"
 
-#: includes/arrays.php:313 includes/arrays.php:345 includes/arrays.php:390
-#: includes/arrays.php:411
+#: includes/arrays.php:334 includes/arrays.php:366 includes/arrays.php:411
+#: includes/arrays.php:432
 #, fuzzy, php-format
 msgid "%d Day"
 msgstr "% d ngày"
 
-#: includes/arrays.php:314 includes/arrays.php:346 includes/arrays.php:391
-#: includes/arrays.php:412 thold_graph.php:1369
+#: includes/arrays.php:335 includes/arrays.php:367 includes/arrays.php:412
+#: includes/arrays.php:433 thold_graph.php:1373
 #, fuzzy, php-format
 msgid "%d Days"
 msgstr "% d ngày"
 
-#: includes/arrays.php:315 includes/arrays.php:347 includes/arrays.php:392
-#: includes/arrays.php:413
+#: includes/arrays.php:336 includes/arrays.php:368 includes/arrays.php:413
+#: includes/arrays.php:434
 #, fuzzy, php-format
 msgid "%d Week"
 msgstr "% d tuần"
 
-#: includes/arrays.php:316 includes/arrays.php:348 includes/arrays.php:393
-#: includes/arrays.php:414
+#: includes/arrays.php:337 includes/arrays.php:369 includes/arrays.php:414
+#: includes/arrays.php:435
 #, fuzzy, php-format
 msgid "%d Weeks"
 msgstr "% d tuần"
 
-#: includes/arrays.php:341
+#: includes/arrays.php:362
 #, fuzzy, php-format
 msgid "%0.1f Hours"
 msgstr "% 0,1f giờ"
 
-#: includes/arrays.php:422
+#: includes/arrays.php:443
 #, fuzzy
 msgid "Every Polling"
 msgstr "Mỗi cuộc bỏ phiếu"
 
-#: includes/arrays.php:423 includes/arrays.php:424 includes/arrays.php:425
-#: includes/arrays.php:426 includes/arrays.php:427 includes/arrays.php:428
-#: includes/arrays.php:429 includes/arrays.php:430 includes/arrays.php:431
-#: includes/arrays.php:432 includes/arrays.php:433 includes/arrays.php:434
-#: includes/arrays.php:435 includes/arrays.php:436 includes/arrays.php:437
+#: includes/arrays.php:444 includes/arrays.php:445 includes/arrays.php:446
+#: includes/arrays.php:447 includes/arrays.php:448 includes/arrays.php:449
+#: includes/arrays.php:450 includes/arrays.php:451 includes/arrays.php:452
+#: includes/arrays.php:453 includes/arrays.php:454 includes/arrays.php:455
+#: includes/arrays.php:456 includes/arrays.php:457 includes/arrays.php:458
 #, fuzzy, php-format
 msgid "Every %d Pollings"
 msgstr "Mỗi% d Thăm dò ý kiến"
 
-#: includes/arrays.php:441 includes/arrays.php:460
+#: includes/arrays.php:462 includes/arrays.php:481
 #, fuzzy, php-format
 msgid "%d Polling"
 msgstr "% d Bỏ phiếu"
 
-#: includes/arrays.php:442 includes/arrays.php:443 includes/arrays.php:444
-#: includes/arrays.php:445 includes/arrays.php:446 includes/arrays.php:447
-#: includes/arrays.php:448 includes/arrays.php:449 includes/arrays.php:450
-#: includes/arrays.php:451 includes/arrays.php:452 includes/arrays.php:453
-#: includes/arrays.php:454 includes/arrays.php:455 includes/arrays.php:456
-#: includes/arrays.php:461 includes/arrays.php:462 includes/arrays.php:463
-#: includes/arrays.php:464 includes/arrays.php:465 includes/arrays.php:466
-#: includes/arrays.php:467 includes/arrays.php:468 includes/arrays.php:469
-#: includes/arrays.php:470 includes/arrays.php:471 includes/arrays.php:472
-#: includes/arrays.php:473 includes/arrays.php:474 includes/arrays.php:475
+#: includes/arrays.php:463 includes/arrays.php:464 includes/arrays.php:465
+#: includes/arrays.php:466 includes/arrays.php:467 includes/arrays.php:468
+#: includes/arrays.php:469 includes/arrays.php:470 includes/arrays.php:471
+#: includes/arrays.php:472 includes/arrays.php:473 includes/arrays.php:474
+#: includes/arrays.php:475 includes/arrays.php:476 includes/arrays.php:477
+#: includes/arrays.php:482 includes/arrays.php:483 includes/arrays.php:484
+#: includes/arrays.php:485 includes/arrays.php:486 includes/arrays.php:487
+#: includes/arrays.php:488 includes/arrays.php:489 includes/arrays.php:490
+#: includes/arrays.php:491 includes/arrays.php:492 includes/arrays.php:493
+#: includes/arrays.php:494 includes/arrays.php:495 includes/arrays.php:496
 #, fuzzy, php-format
 msgid "%d Pollings"
 msgstr "% d Thăm dò ý kiến"
 
-#: includes/arrays.php:482
+#: includes/arrays.php:503
 #, fuzzy
 msgid "High / Low"
 msgstr "Cao thấp"
 
-#: includes/arrays.php:483
+#: includes/arrays.php:504
 #, fuzzy
 msgid "Baseline Deviation"
 msgstr "Độ lệch đường cơ sở"
 
-#: includes/arrays.php:484
+#: includes/arrays.php:505
 msgid "Time Based"
 msgstr "Dựa theo thời gian"
 
-#: includes/arrays.php:488
+#: includes/arrays.php:509
 #, fuzzy, php-format
-msgid "%% Deviation"
+msgid "%% Deviation Min/Max [TIP]"
 msgstr "Độ lệch LÊN"
 
-#: includes/arrays.php:489
+#: includes/arrays.php:510
+#, fuzzy, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "Độ lệch LÊN"
+
+#: includes/arrays.php:511
 #, fuzzy
-msgid "Absolute Value"
+msgid "Absolute Val Min/Max [TIP]"
 msgstr "Giá trị cảnh báo"
 
-#: includes/arrays.php:490
-#, php-format
-msgid "%% Floating Avg"
-msgstr ""
+#: includes/arrays.php:512
+#, fuzzy
+msgid "Absolute Val of CF [TIP]"
+msgstr "Giá trị cảnh báo"
 
-#: includes/arrays.php:494
+#: includes/arrays.php:513
+#, fuzzy, php-format
+msgid "%% Deviation [AOT]"
+msgstr "Độ lệch LÊN"
+
+#: includes/arrays.php:514
+#, fuzzy, php-format
+msgid "%% Deviation of CF [AOT]"
+msgstr "Độ lệch LÊN"
+
+#: includes/arrays.php:515
+#, fuzzy
+msgid "Absolute Val [AOT]"
+msgstr "Giá trị cảnh báo"
+
+#: includes/arrays.php:516
+#, fuzzy
+msgid "Absolute Val of CF [AOT]"
+msgstr "Giá trị cảnh báo"
+
+#: includes/arrays.php:520
 #, fuzzy
 msgid "Exact Value"
 msgstr "Giá trị chính xác"
 
-#: includes/arrays.php:495
+#: includes/arrays.php:521
 #, fuzzy
 msgid "CDEF"
 msgstr "CDEF"
 
-#: includes/arrays.php:496
+#: includes/arrays.php:522
 msgid "Percentage"
 msgstr "Phần trăm"
 
-#: includes/arrays.php:497 thold.php:1859 thold_templates.php:1435
+#: includes/arrays.php:523 thold.php:1897 thold_templates.php:1450
 #, fuzzy
 msgid "RPN Expression"
 msgstr "Biểu thức RPN"
 
-#: includes/arrays.php:498
+#: includes/arrays.php:524
 #, fuzzy
 msgid "Upper + Lower bytes"
 msgstr "Trên + byte dưới"
 
-#: includes/arrays.php:502
+#: includes/arrays.php:528
 #, fuzzy
 msgid "Acknowledge"
 msgstr "Công nhận"
 
-#: includes/arrays.php:503
+#: includes/arrays.php:529
 #, fuzzy
 msgid "Suspend Notifications"
 msgstr "Thông báo SNMP"
 
-#: includes/arrays.php:504
+#: includes/arrays.php:530
 #, fuzzy
 msgid "Resume Notifications"
 msgstr "Thông báo SNMP"
 
-#: includes/arrays.php:505 includes/arrays.php:514 notify_lists.php:32
-#: notify_queue.php:35 setup.php:1360
+#: includes/arrays.php:531 includes/arrays.php:540 notify_lists.php:32
+#: notify_queue.php:35 setup.php:1363
 msgid "Delete"
 msgstr "Xóa"
 
-#: includes/arrays.php:506 includes/arrays.php:515
+#: includes/arrays.php:532 includes/arrays.php:541
 msgid "Enable"
 msgstr "Bật"
 
-#: includes/arrays.php:507 includes/arrays.php:516
+#: includes/arrays.php:533 includes/arrays.php:542
 msgid "Disable"
 msgstr "Vô hiệu hóa"
 
-#: includes/arrays.php:508 includes/arrays.php:517
+#: includes/arrays.php:534 includes/arrays.php:543
 #, fuzzy
 msgid "Reapply Suggested Names"
 msgstr "Tên được đề xuất lại"
 
-#: includes/arrays.php:509
+#: includes/arrays.php:535
 #, fuzzy
 msgid "Propagate Template"
 msgstr "Mẫu tuyên truyền"
 
-#: includes/arrays.php:513 thold_graph.php:1552
+#: includes/arrays.php:539 thold_graph.php:1557
 msgid "Export"
 msgstr "Xuất ra"
 
-#: includes/arrays.php:521
+#: includes/arrays.php:547
 #, fuzzy
 #| msgid "Threshold"
 msgid "Threshold Mail"
 msgstr "Ngưỡng"
 
-#: includes/arrays.php:522
+#: includes/arrays.php:548
 msgid "Down Host Mail"
 msgstr ""
 
-#: includes/arrays.php:523
+#: includes/arrays.php:549
 msgid "Up Host Mail"
 msgstr ""
 
-#: includes/arrays.php:524
+#: includes/arrays.php:550
 #, fuzzy
 #| msgid "Threshold"
 msgid "Threshold Cmd"
 msgstr "Ngưỡng"
 
-#: includes/arrays.php:525
+#: includes/arrays.php:551
 msgid "Down Host Cmd"
 msgstr ""
 
-#: includes/arrays.php:526
+#: includes/arrays.php:552
 msgid "Up Host Cmd"
+msgstr ""
+
+#: includes/arrays.php:569
+msgid "Auto"
+msgstr ""
+
+#: includes/arrays.php:570
+msgid "0 Digits"
+msgstr ""
+
+#: includes/arrays.php:571
+msgid "1 Digit"
+msgstr ""
+
+#: includes/arrays.php:572 includes/arrays.php:573 includes/arrays.php:574
+#: includes/arrays.php:575 includes/arrays.php:576 includes/arrays.php:577
+#: includes/arrays.php:578 includes/arrays.php:579 includes/arrays.php:580
+#, fuzzy, php-format
+msgid "%d Digits"
+msgstr "% d ngày"
+
+#: includes/arrays.php:597
+#, fuzzy, php-format
+#| msgid "Devices"
+msgid "> %d Devices"
+msgstr "Thiết bị"
+
+#: includes/arrays.php:601
+#, php-format
+msgid "> %d%%% of Devices in a Site"
+msgstr ""
+
+#: includes/arrays.php:605
+#, php-format
+msgid "> %d%%% of Devices Globally"
 msgstr ""
 
 #: includes/polling.php:386
@@ -510,12 +620,12 @@ msgid "SNMP not in use"
 msgstr "SNMP không được sử dụng"
 
 #: includes/polling.php:445 notify_queue.php:488 notify_queue.php:489
-#: thold.php:982 thold.php:1014 thold.php:1015 thold.php:1234 thold.php:1283
-#: thold.php:1290 thold.php:1296 thold.php:1304 thold.php:1310 thold.php:1327
-#: thold.php:1329 thold.php:1529 thold_graph.php:709 thold_graph.php:741
-#: thold_graph.php:742 thold_graph.php:1017 thold_graph.php:1066
-#: thold_graph.php:1069 thold_graph.php:1070 thold_graph.php:1071
-#: thold_graph.php:1495 thold_graph.php:1496
+#: thold.php:986 thold.php:1018 thold.php:1019 thold.php:1238 thold.php:1290
+#: thold.php:1297 thold.php:1303 thold.php:1311 thold.php:1317 thold.php:1334
+#: thold.php:1336 thold.php:1538 thold_graph.php:713 thold_graph.php:745
+#: thold_graph.php:746 thold_graph.php:1021 thold_graph.php:1070
+#: thold_graph.php:1073 thold_graph.php:1074 thold_graph.php:1075
+#: thold_graph.php:1500 thold_graph.php:1501
 msgid "N/A"
 msgstr "N/A"
 
@@ -547,7 +657,7 @@ msgstr "Lỗi hệ thống : <DESCRIPTION> ( <HOSTNAME> ) Là <DOWN/UP><br> Lý 
 #: includes/settings.php:77 includes/settings.php:223 notify_lists.php:45
 #: notify_lists.php:1355 notify_lists.php:1420 notify_lists.php:2033
 #: thold.php:714 thold.php:765 thold_functions.php:143 thold_graph.php:225
-#: thold_templates.php:2127
+#: thold_templates.php:2169
 #, fuzzy
 msgid "Thresholds"
 msgstr "Ngưỡng"
@@ -576,7 +686,7 @@ msgstr "(thêm vào)"
 msgid "Threshold Logs"
 msgstr "Ngưỡng"
 
-#: includes/settings.php:91 thold_functions.php:145 thold_graph.php:868
+#: includes/settings.php:91 thold_functions.php:145 thold_graph.php:872
 #, fuzzy
 msgid "Device Status"
 msgstr "Tình trạng thiết bị"
@@ -608,7 +718,7 @@ msgstr "Lỗi thiết bị gần đây"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
-#: includes/settings.php:160 thold_templates.php:2011
+#: includes/settings.php:160 thold_templates.php:2053
 #, fuzzy
 msgid "Threshold Templates"
 msgstr "Mẫu ngưỡng"
@@ -641,11 +751,11 @@ msgid "Management"
 msgstr "Sự quản lý"
 
 #: includes/settings.php:224 notify_lists.php:46 notify_lists.php:2034
-#: thold_templates.php:2026 thold_templates.php:2102
+#: thold_templates.php:2068 thold_templates.php:2144
 msgid "Templates"
 msgstr "Giao diện"
 
-#: includes/settings.php:224 thold_graph.php:1578
+#: includes/settings.php:224 thold_graph.php:1583
 msgid "Threshold"
 msgstr "Ngưỡng"
 
@@ -810,9 +920,9 @@ msgstr "Bất kỳ"
 
 #: includes/settings.php:418 notify_lists.php:857 notify_lists.php:1350
 #: notify_lists.php:1436 notify_lists.php:1545 notify_lists.php:2031
-#: thold.php:706 thold.php:780 thold.php:2048 thold_graph.php:217
-#: thold_graph.php:446 thold_graph.php:1132 thold_templates.php:1145
-#: thold_templates.php:1626 thold_templates.php:2117
+#: thold.php:706 thold.php:780 thold.php:2086 thold_graph.php:217
+#: thold_graph.php:446 thold_graph.php:1136 thold_templates.php:1148
+#: thold_templates.php:1658 thold_templates.php:2159
 msgid "Enabled"
 msgstr "Bật"
 
@@ -823,7 +933,7 @@ msgid "Breached"
 msgstr "Vi phạm"
 
 #: includes/settings.php:420 notify_lists.php:1349 notify_lists.php:1434
-#: thold.php:705 thold.php:832 thold_graph.php:216 thold_graph.php:497
+#: thold.php:705 thold.php:833 thold_graph.php:216 thold_graph.php:498
 #, fuzzy
 msgid "Triggered"
 msgstr "Kích hoạt"
@@ -894,457 +1004,490 @@ msgstr ""
 
 #: includes/settings.php:466
 #, fuzzy
-msgid "Enable Notification Daemon"
-msgstr "Kích hoạt thông báo mỗi lần"
-
-#: includes/settings.php:467
-#, fuzzy
-msgid "Checking this box will enable the use of a dedicated Notification daemon. Note that you must setup the systemd or initd service on your own.  Instructions are in the README.md."
-msgstr "Chọn hộp này sẽ cho phép sử dụng trình nền Ngưỡng chuyên dụng. Điều này có thể được sử dụng để tăng hiệu suất hệ thống và / hoặc để phân phối giám sát Ngưỡng cho một máy chủ riêng biệt."
-
-#: includes/settings.php:472
-#, fuzzy
 msgid "Threshold Daemon"
 msgstr "Ngưỡng Daemon"
 
-#: includes/settings.php:476
+#: includes/settings.php:470
 #, fuzzy
 msgid "Enable Threshold Daemon"
 msgstr "Kích hoạt ngưỡng Daemon"
 
-#: includes/settings.php:477
+#: includes/settings.php:471
 #, fuzzy
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
 msgstr "Chọn hộp này sẽ cho phép sử dụng trình nền Ngưỡng chuyên dụng. Điều này có thể được sử dụng để tăng hiệu suất hệ thống và / hoặc để phân phối giám sát Ngưỡng cho một máy chủ riêng biệt."
 
-#: includes/settings.php:482
+#: includes/settings.php:476
 #, fuzzy
 msgid "Force Threshold Daemon Debug"
 msgstr "Ngưỡng Daemon"
 
-#: includes/settings.php:483
+#: includes/settings.php:477
 msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
 msgstr ""
 
-#: includes/settings.php:488
+#: includes/settings.php:482
 #, fuzzy
 msgid "Daemon Down Notification Frequency"
 msgstr "Cài đặt thông báo lên / xuống thiết bị"
 
-#: includes/settings.php:489
+#: includes/settings.php:483
 #, fuzzy
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
 msgstr "Nếu phát hiện thấy Thold Daemon không hoạt động, hãy gửi Email thông báo theo tần suất này."
 
-#: includes/settings.php:496
+#: includes/settings.php:490
 #, fuzzy, php-format
 msgid "Every %d Hour"
 msgstr "Mỗi% d giờ"
 
-#: includes/settings.php:502
+#: includes/settings.php:496
 msgid "Daemon Threads"
 msgstr ""
 
-#: includes/settings.php:503
+#: includes/settings.php:497
 #, fuzzy
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
 msgstr "Số lượng quy trình đồng thời tối đa được xử lý bởi Ngưỡng Daemon."
 
-#: includes/settings.php:506
+#: includes/settings.php:500
 msgid "1 Process"
 msgstr ""
 
+#: includes/settings.php:501 includes/settings.php:502
+#: includes/settings.php:503 includes/settings.php:504
+#: includes/settings.php:505 includes/settings.php:506
 #: includes/settings.php:507 includes/settings.php:508
-#: includes/settings.php:509 includes/settings.php:510
-#: includes/settings.php:511 includes/settings.php:512
-#: includes/settings.php:513 includes/settings.php:514
-#: includes/settings.php:515
+#: includes/settings.php:509
 #, php-format
 msgid "%d Processes"
 msgstr ""
 
-#: includes/settings.php:520
+#: includes/settings.php:514
 msgid "Logging"
 msgstr "Đăng nhập"
 
-#: includes/settings.php:524
+#: includes/settings.php:518
 #, fuzzy
 msgid "Log Threshold Breaches"
 msgstr "Đăng nhập Ngưỡng vi phạm"
 
-#: includes/settings.php:525
+#: includes/settings.php:519
 #, fuzzy
 msgid "Enable logging of all Threshold failures to the Cacti Log."
 msgstr "Cho phép ghi nhật ký tất cả các lỗi Ngưỡng vào Nhật ký Cacti."
 
-#: includes/settings.php:530
+#: includes/settings.php:524
 #, fuzzy
 msgid "Show Data Source in Log"
 msgstr "Hiển thị nguồn dữ liệu trong nhật ký"
 
-#: includes/settings.php:531
+#: includes/settings.php:525
 #, fuzzy
 msgid "Show the Data Source name in the Log if not present."
 msgstr "Hiển thị tên Nguồn dữ liệu trong Nhật ký nếu không có."
 
-#: includes/settings.php:536
+#: includes/settings.php:530
 #, fuzzy
 msgid "Log Threshold Changes"
 msgstr "Thay đổi ngưỡng đăng nhập"
 
-#: includes/settings.php:537
+#: includes/settings.php:531
 #, fuzzy
 msgid "Enable logging of all Threshold changes to the Cacti Log."
 msgstr "Cho phép ghi nhật ký tất cả các thay đổi Ngưỡng vào Nhật ký Cacti."
 
-#: includes/settings.php:542
+#: includes/settings.php:536
 msgid "Debug Log"
 msgstr "Nhật ký gỡ lỗi"
 
-#: includes/settings.php:543
+#: includes/settings.php:537
 #, fuzzy
 msgid "Enable logging of debug messages with Threshold"
 msgstr "Cho phép ghi nhật ký các thông báo gỡ lỗi với Ngưỡng"
 
-#: includes/settings.php:548
+#: includes/settings.php:542
 #, fuzzy
 msgid "Alert Log Retention"
 msgstr "Lưu giữ nhật ký thông báo"
 
-#: includes/settings.php:549
+#: includes/settings.php:543
 #, fuzzy
 msgid "Keep Threshold Logs for this number of days."
 msgstr "Giữ Nhật ký Ngưỡng cho số ngày này."
 
-#: includes/settings.php:555 thold.php:2043 thold_templates.php:1621
+#: includes/settings.php:549 thold.php:2081 thold_templates.php:1653
 #, fuzzy
 msgid "Syslog Settings"
 msgstr "Cài đặt nhật ký hệ thống"
 
-#: includes/settings.php:559
+#: includes/settings.php:553
 #, fuzzy
 msgid "Syslog Enabled"
 msgstr "Syslog kích hoạt"
 
-#: includes/settings.php:560
+#: includes/settings.php:554
 #, fuzzy
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Nếu được chọn, khi tạo Ngưỡng mới, theo mặc định, các sự kiện Ngưỡng mới sẽ được gửi đến nhật ký hệ thống cục bộ của bạn. Cài đặt này là một cài đặt trước. Cài đặt ngưỡng cho phép điều khiển nhật ký hệ thống thực tế."
 
-#: includes/settings.php:564
+#: includes/settings.php:558
 #, fuzzy
 msgid "Default Priority/Level"
 msgstr "Mức độ ưu tiên / mức độ mặc định"
 
-#: includes/settings.php:565
+#: includes/settings.php:559
 #, fuzzy
 msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Đây là Mức ưu tiên / Mức mặc định mà Thold sẽ sử dụng để gửi tin nhắn nhật ký hệ thống. Cài đặt này là một cài đặt trước. Cài đặt ngưỡng cho phép điều khiển nhật ký hệ thống thực tế."
 
-#: includes/settings.php:571
+#: includes/settings.php:565
 #, fuzzy
 msgid "Default Facility"
 msgstr "Cơ sở mặc định"
 
-#: includes/settings.php:572
+#: includes/settings.php:566
 #, fuzzy
 msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Đây là Cơ sở mặc định mà Thold sẽ sử dụng để gửi tin nhắn nhật ký hệ thống. Cài đặt này là một cài đặt trước. Cài đặt ngưỡng cho phép điều khiển nhật ký hệ thống thực tế."
 
-#: includes/settings.php:578
+#: includes/settings.php:572
 #, fuzzy
 msgid "Alert Presets"
 msgstr "Cài đặt trước cảnh báo"
 
-#: includes/settings.php:582
+#: includes/settings.php:576
 #, fuzzy
 msgid "Weekend exemptions"
 msgstr "Miễn cuối tuần"
 
-#: includes/settings.php:583
+#: includes/settings.php:577
 #, fuzzy
 msgid "If this is checked, Thold will not run on weekends."
 msgstr "Nếu điều này được kiểm tra, Thold sẽ không chạy vào cuối tuần."
 
-#: includes/settings.php:587
+#: includes/settings.php:581
 #, fuzzy
 msgid "Default Trigger Count"
 msgstr "Số lượng kích hoạt mặc định"
 
-#: includes/settings.php:588
+#: includes/settings.php:582
 #, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
 msgstr "Số lần mặc định liên tiếp Nguồn dữ liệu phải vi phạm Ngưỡng để cảnh báo được đưa ra."
 
-#: includes/settings.php:595
+#: includes/settings.php:589
 #, fuzzy
 msgid "Re-Alerting"
 msgstr "Cảnh báo lại"
 
-#: includes/settings.php:596
+#: includes/settings.php:590
 #, fuzzy
 msgid "Repeat Alert after specified number of poller cycles."
 msgstr "Lặp lại cảnh báo sau khi xác định số chu kỳ pug."
 
-#: includes/settings.php:603
+#: includes/settings.php:597
 #, fuzzy
 msgid "Baseline Presets"
 msgstr "Đặt trước đường cơ sở"
 
-#: includes/settings.php:607
+#: includes/settings.php:601
 #, fuzzy
 msgid "Baseline Time Range Default"
 msgstr "Đường cơ sở thời gian mặc định"
 
-#: includes/settings.php:608 includes/settings.php:625
+#: includes/settings.php:602 includes/settings.php:619
 #, fuzzy
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr "Đây là giá trị mặc định được sử dụng trong việc tạo Ngưỡng hoặc mẫu."
 
-#: includes/settings.php:616 thold.php:1815 thold_templates.php:1399
+#: includes/settings.php:610
 #, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "Số lượng kích hoạt cơ bản"
 
-#: includes/settings.php:617
+#: includes/settings.php:611
 #, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
 msgstr "Số lần mặc định liên tiếp Nguồn dữ liệu phải vi phạm Ngưỡng cơ sở được tính toán để Cảnh báo được đưa ra."
 
-#: includes/settings.php:624
+#: includes/settings.php:618
 #, fuzzy
 msgid "Baseline Deviation Percentage"
 msgstr "Tỷ lệ sai lệch cơ sở"
 
-#: includes/settings.php:632
+#: includes/settings.php:626
 #, fuzzy
 msgid "SNMP Notification Options"
 msgstr "Thông báo SNMP"
 
-#: includes/settings.php:636
+#: includes/settings.php:630
 #, fuzzy
 msgid "SNMP Notifications"
 msgstr "Thông báo SNMP"
 
-#: includes/settings.php:637
+#: includes/settings.php:631
 #, fuzzy
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
 msgstr "Thông báo trạng thái ngưỡng (thông báo / bẫy) sẽ được gửi đến người nhận thông báo SNMP. Điều này bao gồm Cảnh báo, Cảnh báo và bẫy khôi phục theo mặc định. Lưu ý: Tính năng này yêu cầu plugin Cacti SNMPAgent."
 
-#: includes/settings.php:642
+#: includes/settings.php:636
 #, fuzzy
 msgid "Disable Warning Notifications"
 msgstr "Vô hiệu hóa thông báo cảnh báo"
 
-#: includes/settings.php:643
+#: includes/settings.php:637
 #, fuzzy
 msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
 msgstr "Nếu điều này được chọn, Ngưỡng sẽ không gửi thông báo khi Ngưỡng cảnh báo đã bị vi phạm."
 
-#: includes/settings.php:647
+#: includes/settings.php:641
 #, fuzzy
 msgid "Disable Restoration Notifications"
 msgstr "Vô hiệu hóa thông báo khôi phục"
 
-#: includes/settings.php:648
+#: includes/settings.php:642
 #, fuzzy
 msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
 msgstr "Nếu điều này được chọn, Ngưỡng sẽ không gửi thông báo khi Ngưỡng đã trở lại trạng thái bình thường."
 
-#: includes/settings.php:652
+#: includes/settings.php:646
 #, fuzzy
 msgid "Emailing Options"
 msgstr "Tùy chọn gửi email"
 
-#: includes/settings.php:656
+#: includes/settings.php:650
 #, fuzzy
 msgid "Send Emails with Urgent Priority"
 msgstr "Gửi email với mức độ ưu tiên khẩn cấp"
 
-#: includes/settings.php:657
+#: includes/settings.php:651
 #, fuzzy
 msgid "Allows you to set Emails with urgent priority"
 msgstr "Cho phép bạn đặt Email với mức độ ưu tiên khẩn cấp"
 
-#: includes/settings.php:662
+#: includes/settings.php:656
 #, fuzzy
 msgid "Send Alerts as Text"
 msgstr "Gửi cảnh báo dưới dạng văn bản"
 
-#: includes/settings.php:663
+#: includes/settings.php:657
 #, fuzzy
 msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
 msgstr "Nếu được chọn, điều này sẽ khiến tất cả Cảnh báo được gửi dưới dạng Email văn bản thuần túy không có biểu đồ. Mặc định là Email HTML với biểu đồ được nhúng trong Email."
 
-#: includes/settings.php:668
+#: includes/settings.php:662
 #, fuzzy
 msgid "Send Email separately for each address"
 msgstr "Gửi Email riêng cho từng địa chỉ"
 
-#: includes/settings.php:669
+#: includes/settings.php:663
 #, fuzzy
 msgid "If checked, this will cause all Emails to be sent separately for each address."
 msgstr "Nếu được chọn, điều này sẽ khiến tất cả các Email được gửi riêng cho từng địa chỉ."
 
-#: includes/settings.php:674
+#: includes/settings.php:668
 msgid "From Email Address"
 msgstr "Email người gửi"
 
-#: includes/settings.php:675
+#: includes/settings.php:669
 #, fuzzy
 msgid "This is the Email address that the Threshold will appear from."
 msgstr "Đây là địa chỉ Email mà Ngưỡng sẽ xuất hiện."
 
-#: includes/settings.php:681
+#: includes/settings.php:675
 msgid "From Name"
 msgstr "Tên người gửi"
 
-#: includes/settings.php:682
+#: includes/settings.php:676
 #, fuzzy
 msgid "This is the actual name that the Threshold will appear from."
 msgstr "Đây là tên thực tế mà Ngưỡng sẽ xuất hiện."
 
-#: includes/settings.php:688
+#: includes/settings.php:682
 #, fuzzy
 msgid "Device Notification Options"
 msgstr "Tùy chọn thông báo thiết bị"
 
-#: includes/settings.php:692
+#: includes/settings.php:686
 #, fuzzy
-msgid "Device Notifications"
-msgstr "Thông báo thiết bị chết"
+msgid "Enable Notifications"
+msgstr "Kích hoạt thông báo mỗi lần"
 
-#: includes/settings.php:693
+#: includes/settings.php:687
 #, fuzzy
 msgid "Enable Dead/Recovering host notification"
 msgstr "Bật thông báo máy chủ chết / khôi phục"
 
+#: includes/settings.php:692
+#, fuzzy
+#| msgid "Notification Settings"
+msgid "Notification Single Email"
+msgstr "Thiết lập Thông báo"
+
+#: includes/settings.php:693
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr ""
+
 #: includes/settings.php:698
 #, fuzzy
-msgid "Device Notifications Email"
+msgid "Device Notification Delay Options"
+msgstr "Tùy chọn thông báo thiết bị"
+
+#: includes/settings.php:702 includes/settings.php:709
+#, fuzzy
+msgid "Notification Delay"
+msgstr "Danh sách thông báo"
+
+#: includes/settings.php:703
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr ""
+
+#: includes/settings.php:710
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr ""
+
+#: includes/settings.php:716
+#, fuzzy
+#| msgid "Notification Settings"
+msgid "Notification Delay Single Transaction"
+msgstr "Thiết lập Thông báo"
+
+#: includes/settings.php:717
+msgid "When the Notification Delay has been Triggered, and Email and or Command will be executed to indicate that the Notifcation Delay has been triggered.  A separate Email will be sent if and when the event has ended notifying the recipients that the events were canceled."
+msgstr ""
+
+#: includes/settings.php:722
+#, fuzzy
+msgid "Device Notification Email Options"
+msgstr "Tùy chọn thông báo thiết bị"
+
+#: includes/settings.php:726
+#, fuzzy
+msgid "Global Notification Email"
 msgstr "Email thông báo thiết bị chết"
 
-#: includes/settings.php:699
+#: includes/settings.php:727
 #, fuzzy
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
 msgstr "Đây là Địa chỉ Email mà Thông báo thiết bị chết sẽ được gửi đến nếu Danh sách thông báo toàn cầu được chọn."
 
-#: includes/settings.php:705
+#: includes/settings.php:733
 #, fuzzy
 msgid "Down Subject"
 msgstr "Tiêu đề thiết bị"
 
-#: includes/settings.php:706
+#: includes/settings.php:734
 #, fuzzy
 msgid "This is the Email subject that will be used for Down Device Messages."
 msgstr "Đây là chủ đề Email sẽ được sử dụng cho Tin nhắn thiết bị xuống."
 
-#: includes/settings.php:710
+#: includes/settings.php:738
 #, fuzzy
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "Lỗi thiết bị: <DESCRIPTION> ( <HOSTNAME> ) là XUỐNG"
 
-#: includes/settings.php:713
+#: includes/settings.php:741
 #, fuzzy
 msgid "Down Message"
 msgstr "Thông báo thiết bị xuống"
 
-#: includes/settings.php:714
+#: includes/settings.php:742
 #, fuzzy
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "Đây là thông báo sẽ được hiển thị dưới dạng nội dung tin nhắn của tất cả Tin nhắn thiết bị LÊN / Xuống (255 Char MAX). HTML được cho phép, nhưng sẽ bị xóa chỉ đối với văn bản Email. Có một số mô tả có thể được sử dụng. <br> &lt;HOSTNAME&gt; &lt;MÔ TẢ&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;THỜI GIAN &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;GHI CHÚ&gt;"
 
-#: includes/settings.php:719
+#: includes/settings.php:747
 #, fuzzy
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
 msgstr "Lỗi hệ thống : <DESCRIPTION> ( <HOSTNAME> ) Là <DOWN/UP><br> Lý do: <MESSAGE><br><br> Đáp ứng hệ thống trung bình: <AVG_TIME> Cô <br> Hệ thống sẵn có: <AVAILABILITY><br> Tổng số kiểm tra kể từ khi xóa: <TOT_POLL><br> Tổng số kiểm tra thất bại: <FAIL_POLL><br> Ngày cuối cùng được kiểm tra XUỐNG: <LAST_FAIL><br> Thiết bị trước đây UP cho: <DOWNTIME><br> GHI CHÚ: <NOTES><br> GHI CHÚ thiết bị: <DNOTES>"
 
-#: includes/settings.php:722
+#: includes/settings.php:750
 #, fuzzy
 msgid "Recovering Subject"
 msgstr "Phục hồi chủ đề thiết bị"
 
-#: includes/settings.php:723
+#: includes/settings.php:751
 #, fuzzy
 msgid "This is the Email subject that will be used for Recovering Device Messages."
 msgstr "Đây là chủ đề Email sẽ được sử dụng để khôi phục tin nhắn thiết bị."
 
-#: includes/settings.php:727
+#: includes/settings.php:755
 #, fuzzy
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "Thông báo thiết bị: <DESCRIPTION> ( <HOSTNAME> ) được trả về từ trạng thái DOWN"
 
-#: includes/settings.php:730
+#: includes/settings.php:758
 #, fuzzy
 msgid "Recovering Message"
 msgstr "Phục hồi tin nhắn thiết bị"
 
-#: includes/settings.php:731
+#: includes/settings.php:759
 #, fuzzy
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "Đây là thông báo sẽ được hiển thị dưới dạng nội dung tin nhắn của tất cả Tin nhắn thiết bị LÊN / Xuống (255 Char MAX). HTML được cho phép, nhưng sẽ bị xóa chỉ đối với văn bản Email. Có một số mô tả có thể được sử dụng. <br> &lt;HOSTNAME&gt; &lt;MÔ TẢ&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;THỜI GIAN &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;GHI CHÚ&gt;"
 
-#: includes/settings.php:736
+#: includes/settings.php:764
 #, fuzzy
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
 msgstr "<br> Hệ thống <DESCRIPTION> ( <HOSTNAME> ) trạng thái: <DOWN/UP><br><br> Phản hồi ping hiện tại: <CUR_TIME> Cô <br> Đáp ứng hệ thống trung bình: <AVG_TIME> Cô <br> Hệ thống sẵn có: <AVAILABILITY><br> Tổng số kiểm tra kể từ khi xóa: <TOT_POLL><br> Tổng số kiểm tra thất bại: <FAIL_POLL><br> Ngày cuối cùng được kiểm tra LÊN: <LAST_FAIL><br> Thiết bị trước đó XUỐNG cho: <DOWNTIME><br><br> Thông tin Snmp: <br> Tên - <SNMP_HOSTNAME><br> Vị trí - <SNMP_LOCATION><br> Thời gian hoạt động - <UPTIMETEXT> ( <UPTIME> Cô) <br> Hệ thống - <SNMP_SYSTEM><br><br> CHÚ THÍCH: <NOTES><br> Ghi chú thiết bị: <DNOTES>"
 
-#: includes/settings.php:739
+#: includes/settings.php:767
 #, fuzzy
 msgid "Status Change Command"
 msgstr "Lệnh thay đổi trạng thái"
 
-#: includes/settings.php:740
+#: includes/settings.php:768
 #, fuzzy
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 msgstr "Đây là thông báo sẽ được hiển thị dưới dạng nội dung tin nhắn của tất cả Tin nhắn thiết bị LÊN / Xuống (255 Char MAX). HTML được cho phép, nhưng sẽ bị xóa chỉ đối với văn bản Email. Có một số mô tả có thể được sử dụng. <br> &lt;HOSTNAME&gt; &lt;MÔ TẢ&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;THỜI GIAN &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;GHI CHÚ&gt;"
 
-#: includes/settings.php:748
+#: includes/settings.php:776
 #, fuzzy
 msgid "Alert/Warning Message Defaults"
 msgstr "Thông báo cảnh báo / cảnh báo mặc định"
 
-#: includes/settings.php:752
+#: includes/settings.php:780
 #, fuzzy
 msgid "Threshold Alert Message"
 msgstr "Thông báo ngưỡng"
 
-#: includes/settings.php:753
+#: includes/settings.php:781
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Đây là thông báo sẽ được hiển thị ở đầu tất cả Cảnh báo Ngưỡng (255 Char MAX). HTML được cho phép, nhưng sẽ bị xóa chỉ đối với văn bản Email. Có một số mô tả có thể được sử dụng. <br> &lt;MÔ TẢ&gt; &lt;HOSTNAME&gt; &lt;THỜI GIAN"
 
-#: includes/settings.php:758
+#: includes/settings.php:786
 #, fuzzy
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Một thông báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <strong>Thiết bị</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Tin nhắn</strong> : <SUBJECT><br><br><GRAPH>"
 
-#: includes/settings.php:761
+#: includes/settings.php:789
 #, fuzzy
 msgid "Threshold Warning Message"
 msgstr "Thông báo cảnh báo ngưỡng"
 
-#: includes/settings.php:762
+#: includes/settings.php:790
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Đây là thông báo sẽ được hiển thị ở đầu tất cả các cảnh báo Ngưỡng (255 Char MAX). HTML được cho phép, nhưng sẽ bị xóa chỉ đối với văn bản Email. Có một số mô tả có thể được sử dụng. <br> &lt;MÔ TẢ&gt; &lt;HOSTNAME&gt; &lt;THỜI GIAN"
 
-#: includes/settings.php:767
+#: includes/settings.php:795
 #, fuzzy
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Một cảnh báo đã được ban hành đòi hỏi sự chú ý của bạn. <br><br> <strong>Thiết bị</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Tin nhắn</strong> : <SUBJECT><br><br><GRAPH>"
 
-#: includes/settings.php:770
+#: includes/settings.php:798
 #, fuzzy
 msgid "Threshold Restoral Message"
 msgstr "Thông báo ngưỡng"
 
-#: includes/settings.php:771
+#: includes/settings.php:799
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Đây là thông báo sẽ được hiển thị ở đầu tất cả các cảnh báo Ngưỡng (255 Char MAX). HTML được cho phép, nhưng sẽ bị xóa chỉ đối với văn bản Email. Có một số mô tả có thể được sử dụng. <br> &lt;MÔ TẢ&gt; &lt;HOSTNAME&gt; &lt;THỜI GIAN"
 
-#: includes/settings.php:776
+#: includes/settings.php:804
 #, fuzzy
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Một thông báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <strong>Thiết bị</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Tin nhắn</strong> : <SUBJECT><br><br><GRAPH>"
@@ -1368,7 +1511,7 @@ msgid "Disassociate"
 msgstr "Không liên quan"
 
 #: notify_lists.php:44 notify_lists.php:1033 notify_lists.php:1156
-#: notify_lists.php:2032 thold_graph.php:921 thold_graph.php:1173
+#: notify_lists.php:2032 thold_graph.php:925 thold_graph.php:1177
 msgid "Devices"
 msgstr "Thiết bị"
 
@@ -1380,7 +1523,7 @@ msgstr "Nhấp vào 'Tiếp tục' để xóa (các) danh sách thông báo. B�
 #: notify_lists.php:520 notify_lists.php:532 notify_lists.php:590
 #: notify_lists.php:601 notify_lists.php:660 notify_lists.php:671
 #: notify_lists.php:731 notify_lists.php:744 notify_queue.php:151
-#: setup.php:1442 thold.php:460 thold_functions.php:6468
+#: setup.php:1445 thold.php:460 thold_functions.php:6597
 #: thold_templates.php:308
 msgid "Cancel"
 msgstr "Hủy"
@@ -1388,7 +1531,7 @@ msgstr "Hủy"
 #: notify_lists.php:520 notify_lists.php:532 notify_lists.php:590
 #: notify_lists.php:601 notify_lists.php:660 notify_lists.php:671
 #: notify_lists.php:731 notify_lists.php:744 notify_queue.php:151
-#: setup.php:1443 thold.php:463 thold_functions.php:6471
+#: setup.php:1446 thold.php:463 thold_functions.php:6600
 #: thold_templates.php:310
 msgid "Continue"
 msgstr "Tiếp tục"
@@ -1552,7 +1695,7 @@ msgid "List General Settings"
 msgstr "Liệt kê cài đặt chung"
 
 #: notify_lists.php:841 notify_lists.php:1429 notify_lists.php:1688
-#: setup.php:1247 thold.php:775 thold_graph.php:441 thold_templates.php:2112
+#: setup.php:1250 thold.php:775 thold_graph.php:441 thold_templates.php:2154
 msgid "Name"
 msgstr "Tên"
 
@@ -1562,7 +1705,7 @@ msgid "Enter a name for this Notification List."
 msgstr "Nhập tên cho Danh sách thông báo này."
 
 #: notify_lists.php:848 notify_lists.php:1165 notify_lists.php:2035
-#: thold_graph.php:935
+#: thold_graph.php:939
 msgid "Description"
 msgstr "Mô tả"
 
@@ -1597,11 +1740,11 @@ msgstr "Địa chỉ Email"
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
 msgstr "Nhập danh sách địa chỉ Email được phân tách bằng dấu phẩy cho Danh sách thông báo này."
 
-#: notify_lists.php:881 thold.php:1883 thold_templates.php:1464
+#: notify_lists.php:881 thold.php:1921 thold_templates.php:1496
 msgid "Email Style/Format File"
 msgstr ""
 
-#: notify_lists.php:884 thold.php:1886 thold_templates.php:1467
+#: notify_lists.php:884 thold.php:1924 thold_templates.php:1499
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr ""
 
@@ -1611,39 +1754,39 @@ msgid "Associated Devices"
 msgstr "Thiết bị liên kết"
 
 #: notify_lists.php:989 notify_lists.php:1306 notify_lists.php:1611
-#: notify_lists.php:1935 notify_queue.php:248 thold.php:635 thold.php:2430
-#: thold_graph.php:132 thold_graph.php:1101 thold_graph.php:1522
-#: thold_templates.php:1911 thold_templates.php:2020
+#: notify_lists.php:1935 notify_queue.php:248 thold.php:635 thold.php:2475
+#: thold_graph.php:132 thold_graph.php:1105 thold_graph.php:1527
+#: thold_templates.php:1953 thold_templates.php:2062
 msgid "Search"
 msgstr "Tìm kiếm"
 
 #: notify_lists.php:995 notify_lists.php:1166 notify_lists.php:1312
-#: thold.php:641 thold_graph.php:138 thold_graph.php:1107 thold_graph.php:1528
+#: thold.php:641 thold_graph.php:138 thold_graph.php:1111 thold_graph.php:1533
 msgid "Site"
 msgstr "Trang"
 
 #: notify_lists.php:1000 notify_lists.php:1018 notify_lists.php:1183
 #: notify_lists.php:1197 notify_lists.php:1317 notify_lists.php:1516
-#: notify_lists.php:1760 setup.php:779 setup.php:797 setup.php:971
-#: setup.php:972 setup.php:1135 thold.php:646 thold.php:677 thold.php:1571
-#: thold.php:1579 thold.php:1922 thold.php:1930 thold.php:2393
+#: notify_lists.php:1760 setup.php:782 setup.php:800 setup.php:974
+#: setup.php:975 setup.php:1138 thold.php:646 thold.php:677 thold.php:1580
+#: thold.php:1588 thold.php:1960 thold.php:1968 thold.php:2438
 #: thold_graph.php:143 thold_graph.php:174 thold_graph.php:192
-#: thold_graph.php:1112 thold_graph.php:1158 thold_graph.php:1533
-#: thold_graph.php:1565 thold_templates.php:458 thold_templates.php:506
-#: thold_templates.php:1155 thold_templates.php:1163 thold_templates.php:1510
-#: thold_templates.php:1518 thold_templates.php:1874
+#: thold_graph.php:1116 thold_graph.php:1162 thold_graph.php:1538
+#: thold_graph.php:1570 thold_templates.php:458 thold_templates.php:506
+#: thold_templates.php:1158 thold_templates.php:1166 thold_templates.php:1542
+#: thold_templates.php:1550 thold_templates.php:1916
 msgid "None"
 msgstr "Không"
 
 #: notify_lists.php:1013 notify_lists.php:1433 notify_lists.php:1692
-#: thold.php:789 thold_graph.php:459 thold_graph.php:1153 thold_graph.php:1442
-#: thold_templates.php:2137
+#: thold.php:789 thold.php:1794 thold_graph.php:459 thold_graph.php:1157
+#: thold_graph.php:1446 thold_templates.php:1372 thold_templates.php:2179
 msgid "Type"
 msgstr "Loại"
 
 #: notify_lists.php:1037 notify_lists.php:1359 notify_lists.php:1621
 #: notify_lists.php:1945 notify_queue.php:283 thold.php:718 thold_graph.php:229
-#: thold_graph.php:1177 thold_graph.php:1619 thold_templates.php:2030
+#: thold_graph.php:1181 thold_graph.php:1624 thold_templates.php:2072
 msgid "Default"
 msgstr "Mặc định"
 
@@ -1654,7 +1797,7 @@ msgstr "Liên kết"
 
 #: notify_lists.php:1055 notify_lists.php:1377 notify_lists.php:1639
 #: notify_lists.php:1956 notify_queue.php:295 thold.php:662 thold_graph.php:160
-#: thold_graph.php:1144 thold_graph.php:1550 thold_templates.php:2042
+#: thold_graph.php:1148 thold_graph.php:1555 thold_templates.php:2084
 msgid "Go"
 msgstr "Đi"
 
@@ -1666,7 +1809,7 @@ msgstr "Đặt / Làm mới Bộ lọc"
 
 #: notify_lists.php:1056 notify_lists.php:1378 notify_lists.php:1640
 #: notify_lists.php:1959 notify_queue.php:296 thold.php:665 thold_graph.php:161
-#: thold_graph.php:1145 thold_graph.php:1551 thold_templates.php:2043
+#: thold_graph.php:1149 thold_graph.php:1556 thold_templates.php:2085
 msgid "Clear"
 msgstr "Xóa"
 
@@ -1677,8 +1820,8 @@ msgid "Clear Filters"
 msgstr "Xóa bộ lọc"
 
 #: notify_lists.php:1167 notify_lists.php:1430 notify_lists.php:1689
-#: thold.php:784 thold_graph.php:450 thold_graph.php:941
-#: thold_templates.php:2122
+#: thold.php:784 thold_graph.php:450 thold_graph.php:945
+#: thold_templates.php:2164
 msgid "ID"
 msgstr "ID"
 
@@ -1687,20 +1830,20 @@ msgstr "ID"
 msgid "Associated Lists"
 msgstr "Danh sách liên kết"
 
-#: notify_lists.php:1169 thold_graph.php:947
+#: notify_lists.php:1169 thold_graph.php:951
 msgid "Graphs"
 msgstr "Đồ thị"
 
-#: notify_lists.php:1170 thold_graph.php:953
+#: notify_lists.php:1170 thold_graph.php:957
 msgid "Data Sources"
 msgstr "Nguồn dữ liệu"
 
-#: notify_lists.php:1171 setup.php:1247 thold.php:699 thold_graph.php:210
-#: thold_graph.php:959 thold_graph.php:1127 thold_graph.php:1600
+#: notify_lists.php:1171 setup.php:1250 thold.php:699 thold_graph.php:210
+#: thold_graph.php:963 thold_graph.php:1131 thold_graph.php:1605
 msgid "Status"
 msgstr "Trạng thái"
 
-#: notify_lists.php:1172 notify_queue.php:421 thold_graph.php:977
+#: notify_lists.php:1172 notify_queue.php:421 thold_graph.php:981
 msgid "Hostname"
 msgstr "Tên máy chủ"
 
@@ -1724,7 +1867,7 @@ msgstr "Không tìm thấy thiết bị liên kết"
 msgid "Associated Thresholds"
 msgstr "Ngưỡng liên kết"
 
-#: notify_lists.php:1330 thold.php:672 thold_graph.php:169 thold_graph.php:1560
+#: notify_lists.php:1330 thold.php:672 thold_graph.php:169 thold_graph.php:1565
 msgid "Template"
 msgstr "Mẫu"
 
@@ -1733,11 +1876,11 @@ msgid "State"
 msgstr "Tỉnh"
 
 #: notify_lists.php:1347 notify_queue.php:258 notify_queue.php:273
-#: thold.php:645 thold.php:676 thold.php:703 thold.php:2392 thold_graph.php:142
+#: thold.php:645 thold.php:676 thold.php:703 thold.php:2437 thold_graph.php:142
 #: thold_graph.php:173 thold_graph.php:191 thold_graph.php:214
-#: thold_graph.php:1111 thold_graph.php:1131 thold_graph.php:1157
-#: thold_graph.php:1532 thold_graph.php:1564 thold_graph.php:1582
-#: thold_graph.php:1604 thold_templates.php:1873
+#: thold_graph.php:1115 thold_graph.php:1135 thold_graph.php:1161
+#: thold_graph.php:1537 thold_graph.php:1569 thold_graph.php:1587
+#: thold_graph.php:1609 thold_templates.php:1915
 msgid "All"
 msgstr "Tất cả"
 
@@ -1751,30 +1894,30 @@ msgstr "Danh sách cảnh báo"
 msgid "Alert Lists"
 msgstr "Danh sách cảnh báo"
 
-#: notify_lists.php:1435 thold.php:843
+#: notify_lists.php:1435 thold.php:844
 #, fuzzy
 msgid "Templated"
 msgstr "Templated"
 
 #: notify_lists.php:1445 notify_lists.php:2047 notify_queue.php:274
-#: thold.php:872 thold.php:1025 thold.php:1027 thold.php:1030
-#: thold_graph.php:529 thold_graph.php:752 thold_templates.php:2224
+#: thold.php:873 thold.php:1029 thold.php:1031 thold.php:1034
+#: thold_graph.php:530 thold_graph.php:756 thold_templates.php:2267
 msgid "No"
 msgstr "Không"
 
 #: notify_lists.php:1448 notify_lists.php:2047 notify_queue.php:275
-#: thold.php:903 thold.php:907 thold.php:955 thold.php:1025 thold.php:1030
-#: thold_graph.php:560 thold_graph.php:564 thold_graph.php:681
-#: thold_graph.php:752 thold_templates.php:2224
+#: thold.php:904 thold.php:908 thold.php:958 thold.php:1029 thold.php:1034
+#: thold_graph.php:561 thold_graph.php:565 thold_graph.php:684
+#: thold_graph.php:756 thold_templates.php:2267
 msgid "Yes"
 msgstr "Có"
 
-#: notify_lists.php:1452 thold.php:911 thold_graph.php:568
+#: notify_lists.php:1452 thold.php:912 thold_graph.php:569
 #, fuzzy
 msgid "baseline-LOW"
 msgstr "đường cơ sở-THẤP"
 
-#: notify_lists.php:1454 thold.php:913 thold_graph.php:570
+#: notify_lists.php:1454 thold.php:914 thold_graph.php:571
 #, fuzzy
 msgid "baseline-HIGH"
 msgstr "đường cơ sở-CAO"
@@ -1814,7 +1957,7 @@ msgstr "Có thể chỉnh sửa"
 msgid "Read Only"
 msgstr "Chỉ đọc"
 
-#: notify_lists.php:1551 thold.php:1037 thold_graph.php:757
+#: notify_lists.php:1551 thold.php:1041 thold_graph.php:761
 #, fuzzy
 msgid "No Thresholds"
 msgstr "Không có ngưỡng"
@@ -1936,7 +2079,7 @@ msgstr "Danh sách thông báo"
 msgid "The supported notification topic."
 msgstr "Mẫu ngưỡng"
 
-#: notify_queue.php:416 thold_graph.php:1447
+#: notify_queue.php:416 thold_graph.php:1451
 msgid "Event Description"
 msgstr "Mô tả sự kiện"
 
@@ -2027,199 +2170,199 @@ msgstr ""
 msgid "No Notifications"
 msgstr "Thông báo SNMP"
 
-#: setup.php:241
+#: setup.php:244
 msgid "Off"
 msgstr "Tắt"
 
-#: setup.php:241
+#: setup.php:244
 msgid "On"
 msgstr "Bật"
 
-#: setup.php:241
+#: setup.php:244
 #, fuzzy, php-format
 msgid "Toggle Threshold VRULES %s"
 msgstr "Chuyển đổi ngưỡng VRULES %s"
 
-#: setup.php:260
+#: setup.php:263
 #, fuzzy
 msgid "Create Threshold"
 msgstr "Tạo Ngưỡng"
 
-#: setup.php:514 setup.php:524
+#: setup.php:517 setup.php:527
 #, fuzzy, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr "Thông báo xin chào cho%s (%s)"
 
-#: setup.php:518 setup.php:528
+#: setup.php:521 setup.php:531
 #, fuzzy, php-format
 msgid "Alert Low for %s (%s)"
 msgstr "Thông báo Thấp cho%s (%s)"
 
-#: setup.php:544 setup.php:554
+#: setup.php:547 setup.php:557
 #, fuzzy, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr "Danh sách cảnh báo"
 
-#: setup.php:548 setup.php:559
+#: setup.php:551 setup.php:562
 #, fuzzy, php-format
 msgid "Warning Low for %s (%s)"
 msgstr "Danh sách cảnh báo"
 
-#: setup.php:579 setup.php:593
+#: setup.php:582 setup.php:596
 #, fuzzy
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "Thông báo Xin chào cho%s (%s %%)"
 
-#: setup.php:585 setup.php:599
+#: setup.php:588 setup.php:602
 #, fuzzy
 msgid "Alert Low for %s (%s %%%)"
 msgstr "Thông báo Thấp cho%s (%s %%)"
 
-#: setup.php:617 setup.php:631
+#: setup.php:620 setup.php:634
 #, fuzzy
 msgid "Warning Hi for %s (%s %%%)"
 msgstr "Cảnh báo Xin chào cho%s (%s %%)"
 
-#: setup.php:623 setup.php:637
+#: setup.php:626 setup.php:640
 #, fuzzy
 msgid "Warning Low for %s (%s %%%)"
 msgstr "Cảnh báo Thấp cho%s (%s %%)"
 
-#: setup.php:650
+#: setup.php:653
 #, fuzzy
 msgid "Threshold Alert/Warning Values"
 msgstr "Ngưỡng cảnh báo / Giá trị cảnh báo"
 
-#: setup.php:703
+#: setup.php:706
 #, fuzzy
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr "Nhấp vào 'Tiếp tục' để áp dụng tất cả Ngưỡng phù hợp cho (các) Thiết bị này."
 
-#: setup.php:779 setup.php:797
+#: setup.php:782 setup.php:800
 #, fuzzy
 msgid "Create Threshold from Data Source"
 msgstr "Tạo Ngưỡng từ Nguồn dữ liệu"
 
-#: setup.php:808
+#: setup.php:811
 #, fuzzy
 msgid "Auto-create Thresholds"
 msgstr "Tự động tạo Ngưỡng"
 
-#: setup.php:890 setup.php:1047
+#: setup.php:893 setup.php:1050
 #, fuzzy, php-format
 msgid "Created %s thresholds"
 msgstr "Đã tạo ngưỡng: %s"
 
-#: setup.php:892 setup.php:1049 thold_functions.php:5710
+#: setup.php:895 setup.php:1052 thold_functions.php:5836
 #, fuzzy
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "Không có ngưỡng (s) được tạo. Chúng hoặc đã tồn tại hoặc không tìm thấy kết hợp phù hợp."
 
-#: setup.php:895 setup.php:1052
+#: setup.php:898 setup.php:1055
 #, fuzzy
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Không có ngưỡng (s) được tạo. Không tìm thấy mẫu ngưỡng."
 
-#: setup.php:953
+#: setup.php:956
 #, fuzzy
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr "Các nguồn dữ liệu sau không có Mẫu ngưỡng được liên kết với chúng"
 
-#: setup.php:957
+#: setup.php:960
 #, fuzzy
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr "Nhấp vào 'Tiếp tục' để tạo Ngưỡng cho các Nguồn dữ liệu này?"
 
-#: setup.php:964 setup.php:1128
+#: setup.php:967 setup.php:1131
 #, fuzzy
 msgid "Available Threshold Templates"
 msgstr "Mẫu ngưỡng có sẵn"
 
-#: setup.php:969 setup.php:1133 thold_webapi.php:342
+#: setup.php:972 setup.php:1136 thold_webapi.php:342
 #, fuzzy
 msgid "Select a Threshold Template"
 msgstr "Chọn một mẫu ngưỡng"
 
-#: setup.php:985
+#: setup.php:988
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Không có Mẫu Ngưỡng nào được liên kết với các Nguồn dữ liệu sau"
 
-#: setup.php:997 setup.php:1160 thold_webapi.php:177
+#: setup.php:1000 setup.php:1163 thold_webapi.php:177
 #, fuzzy
 msgid "Create Threshold from Template"
 msgstr "Tạo Ngưỡng từ Mẫu"
 
-#: setup.php:1117
+#: setup.php:1120
 #, fuzzy
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "Các biểu đồ sau không có Mẫu Ngưỡng liên quan đến chúng"
 
-#: setup.php:1121
+#: setup.php:1124
 #, fuzzy
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr "Nhấn 'Tiếp tục' nếu bạn muốn tạo Ngưỡng cho các Biểu đồ này"
 
-#: setup.php:1148
+#: setup.php:1151
 #, fuzzy
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr "Không có Mẫu Ngưỡng nào được liên kết với Biểu đồ sau"
 
-#: setup.php:1230 setup.php:1341
+#: setup.php:1233 setup.php:1344
 #, fuzzy
 msgid "Associated Threshold Templates"
 msgstr "Mẫu ngưỡng liên kết"
 
-#: setup.php:1259
+#: setup.php:1262
 #, fuzzy
 msgid "Threshold Exists"
 msgstr "Ngưỡng tồn tại"
 
-#: setup.php:1261
+#: setup.php:1264
 #, fuzzy
 msgid "Threshold Does Not Exist"
 msgstr "Ngưỡng không tồn tại"
 
-#: setup.php:1273
+#: setup.php:1276
 #, fuzzy
 msgid "Delete Threshold Template Association"
 msgstr "Chọn một mẫu ngưỡng"
 
-#: setup.php:1281 setup.php:1368
+#: setup.php:1284 setup.php:1371
 #, fuzzy
 msgid "No Associated Threshold Templates."
 msgstr "Không có mẫu Ngưỡng liên kết."
 
-#: setup.php:1298 setup.php:1386
+#: setup.php:1301 setup.php:1389
 #, fuzzy
 msgid "Add Threshold Template"
 msgstr "Thêm mẫu ngưỡng"
 
-#: setup.php:1304 setup.php:1392
+#: setup.php:1307 setup.php:1395
 msgid "Add"
 msgstr "Thêm"
 
-#: setup.php:1304
+#: setup.php:1307
 #, fuzzy
 msgid "Add Threshold Template to Device"
 msgstr "Thêm mẫu ngưỡng vào mẫu thiết bị"
 
-#: setup.php:1392
+#: setup.php:1395
 #, fuzzy
 msgid "Add Threshold Template to Device Template"
 msgstr "Thêm mẫu ngưỡng vào mẫu thiết bị"
 
-#: setup.php:1436
+#: setup.php:1439
 #, fuzzy
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr "Nhấp vào 'Tiếp tục' để xóa Mẫu Ngưỡng sau sẽ bị tách khỏi Mẫu thiết bị."
 
-#: setup.php:1437
+#: setup.php:1440
 #, fuzzy, php-format
 msgid "Threshold Template Name: %s"
 msgstr "Tên mẫu ngưỡng: %s"
 
-#: setup.php:1443
+#: setup.php:1446
 #, fuzzy
 msgid "Remove Threshold Template"
 msgstr "Xóa mẫu ngưỡng"
@@ -2289,7 +2432,7 @@ msgstr "Áp dụng lại mẫu"
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Nhấp vào 'Tiếp tục' để Xác nhận (các) Ngưỡng sau. Các ngưỡng không cho phép điều này hoặc không được kích hoạt sẽ bị bỏ qua."
 
-#: thold.php:427 thold_functions.php:6458
+#: thold.php:427 thold_functions.php:6587
 #, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "Mẫu xác nhận"
@@ -2334,7 +2477,7 @@ msgid "Return to Defaults"
 msgstr "Quay trở lại mặc định"
 
 #: thold.php:686 thold_graph.php:187 thold_templates.php:454
-#: thold_templates.php:1129 thold_templates.php:2132
+#: thold_templates.php:1132 thold_templates.php:2174
 #, fuzzy
 msgid "Data Template"
 msgstr "Mẫu dữ liệu"
@@ -2349,751 +2492,800 @@ msgstr "Mẫu dữ liệu"
 msgid "Disabled at Threshold"
 msgstr "Vô hiệu hóa Ngưỡng"
 
-#: thold.php:710 thold.php:848 thold_graph.php:221 thold_graph.php:508
+#: thold.php:710 thold.php:849 thold_graph.php:221 thold_graph.php:509
 #, fuzzy
 msgid "Ack Required"
 msgstr "Yêu cầu Ack"
 
-#: thold.php:794
+#: thold.php:791 thold_graph.php:461 thold_templates.php:2181
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr ""
+
+#: thold.php:795
 #, fuzzy
 msgid "DSName"
 msgstr "Tên DS"
 
-#: thold.php:799 thold_graph.php:464
+#: thold.php:800 thold_graph.php:465
 msgid "Current"
 msgstr "Hiện hành"
 
-#: thold.php:802 thold_graph.php:467
+#: thold.php:803 thold_graph.php:468
 #, fuzzy
 msgid "The last measured value for the Data Source"
 msgstr "Giá trị đo cuối cùng cho Nguồn dữ liệu"
 
-#: thold.php:805 thold.php:1964 thold.php:1983 thold_graph.php:470
-#: thold_templates.php:1549 thold_templates.php:1563 thold_templates.php:2147
+#: thold.php:806 thold.php:2002 thold.php:2021 thold_graph.php:471
+#: thold_templates.php:1581 thold_templates.php:1595 thold_templates.php:2190
 msgid "High"
 msgstr "Cao"
 
-#: thold.php:808 thold_graph.php:473
+#: thold.php:809 thold_graph.php:474
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "Các giá trị Cảnh báo / Cảnh báo cao. LƯU Ý: Giá trị đường cơ sở là phần trăm, tất cả các giá trị khác là giá trị hiển thị có thể được sửa đổi bởi cdef."
 
-#: thold.php:811 thold.php:1962 thold.php:1981 thold_graph.php:476
-#: thold_templates.php:1549 thold_templates.php:1563 thold_templates.php:2153
+#: thold.php:812 thold.php:2000 thold.php:2019 thold_graph.php:477
+#: thold_templates.php:1581 thold_templates.php:1595 thold_templates.php:2196
 msgid "Low"
 msgstr "Thấp"
 
-#: thold.php:814 thold_graph.php:479
+#: thold.php:815 thold_graph.php:480
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "Các giá trị Cảnh báo / Cảnh báo thấp. LƯU Ý: Giá trị đường cơ sở là phần trăm, tất cả các giá trị khác là giá trị hiển thị có thể được sửa đổi bởi cdef."
 
-#: thold.php:817 thold_graph.php:482 thold_templates.php:2159
+#: thold.php:818 thold_graph.php:483 thold_templates.php:2202
 msgid "Trigger"
 msgstr "Nút kích hoạt"
 
-#: thold.php:822 thold_graph.php:487 thold_templates.php:2164
+#: thold.php:823 thold_graph.php:488 thold_templates.php:2207
 msgid "Duration"
 msgstr "Thời lượng"
 
-#: thold.php:827 thold_graph.php:492 thold_templates.php:2169
+#: thold.php:828 thold_graph.php:493 thold_templates.php:2212
 msgid "Repeat"
 msgstr "Lặp lại"
 
-#: thold.php:837 thold_graph.php:502 thold_graph.php:965
+#: thold.php:838 thold_graph.php:503 thold_graph.php:969
 #, fuzzy
 msgid "In State"
 msgstr "Tỉnh"
 
-#: thold.php:840 thold_graph.php:505
+#: thold.php:841 thold_graph.php:506
 #, fuzzy
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
 msgstr "Lượng thời gian mà nguồn dữ liệu phải vi phạm Ngưỡng để cảnh báo được đưa ra."
 
-#: thold.php:851 thold_graph.php:511
+#: thold.php:852 thold_graph.php:512
 #, fuzzy
 msgid "Acknowledgment required for this Threshold"
 msgstr "Lời cảm ơn cần thiết cho Ngưỡng này"
 
-#: thold.php:957 thold_graph.php:683
+#: thold.php:960 thold_graph.php:686
 #, fuzzy
 msgid "No [Template:Thold]"
 msgstr "Không khuôn mẫu"
 
-#: thold.php:959 thold_graph.php:685
+#: thold.php:962 thold_graph.php:688
 #, fuzzy
 msgid "No [Template]"
 msgstr "Giao diện"
 
-#: thold.php:961 thold_graph.php:687
+#: thold.php:964 thold_graph.php:690
 #, fuzzy
 msgid "No [Thold]"
 msgstr "Không có ngưỡng"
 
-#: thold.php:1007 thold_graph.php:734
+#: thold.php:1011 thold_graph.php:738
 #, fuzzy, php-format
 msgid "%d Triggers"
 msgstr "% d Kích hoạt"
 
-#: thold.php:1069
+#: thold.php:1073
 #, fuzzy
 msgid "Threshold Deleted, can not Edit!"
 msgstr "Ngưỡng không tồn tại"
 
-#: thold.php:1159
+#: thold.php:1163
 #, fuzzy
 msgid "Graph Data"
 msgstr "Dữ liệu đồ thị"
 
-#: thold.php:1162
+#: thold.php:1166
 #, fuzzy
 msgid "Edit Threshold Template"
 msgstr "Thêm mẫu ngưỡng"
 
-#: thold.php:1184
+#: thold.php:1188
 #, fuzzy
 msgid "Data Source Description:"
 msgstr "Mô tả nguồn dữ liệu:"
 
-#: thold.php:1185
+#: thold.php:1189
 #, fuzzy
 msgid "Associated Graph (Graphs using this RRD):"
 msgstr "Biểu đồ liên kết (Đồ thị sử dụng RRD này):"
 
-#: thold.php:1282
+#: thold.php:1289
 #, fuzzy
 msgid "Last:"
 msgstr "Cuối cùng"
 
-#: thold.php:1289
+#: thold.php:1296
 #, fuzzy
 msgid "WHi:"
 msgstr "Cái gì"
 
-#: thold.php:1295
+#: thold.php:1302
 #, fuzzy
 msgid "WLo:"
 msgstr "Làm thế nào"
 
-#: thold.php:1303
+#: thold.php:1310
 #, fuzzy
 msgid "AHi:"
 msgstr "À"
 
-#: thold.php:1309
+#: thold.php:1316
 #, fuzzy
 msgid "ALo:"
 msgstr "À"
 
-#: thold.php:1326
+#: thold.php:1333
 #, fuzzy
 msgid "BL Up:"
 msgstr "BL lên:"
 
-#: thold.php:1328
+#: thold.php:1335
 #, fuzzy
 msgid "BL Down:"
 msgstr "BL xuống:"
 
-#: thold.php:1366
+#: thold.php:1373
 #, fuzzy, php-format
 msgid "Unknown Template ID %d"
 msgstr "ID mẫu không xác định% d"
 
-#: thold.php:1368
+#: thold.php:1375
 #, fuzzy
 msgid "Not Templated"
 msgstr "Không khuôn mẫu"
 
-#: thold.php:1385 thold.php:1388
+#: thold.php:1394 thold.php:1397
 #, fuzzy, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "Mục nguồn dữ liệu [ %s] - Giá trị hiện tại: [ %s]"
 
-#: thold.php:1474 thold_templates.php:1066
+#: thold.php:1483 thold_templates.php:1069
 #, fuzzy, php-format
 msgid "Replacement Fields: %s"
 msgstr "Trường thay thế: %s"
 
-#: thold.php:1487 thold_templates.php:1080
+#: thold.php:1496 thold_templates.php:1083
 #, fuzzy, php-format
 msgid "Data Sources: %s"
 msgstr "Nguồn dữ liệu: %s"
 
-#: thold.php:1514
+#: thold.php:1523
 #, fuzzy
 msgid "Template/Enabled Information"
 msgstr "Mẫu / Thông tin kích hoạt"
 
-#: thold.php:1518
+#: thold.php:1527
 #, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "Mẫu tuyên truyền được kích hoạt"
 
-#: thold.php:1521
+#: thold.php:1530
 #, fuzzy
 msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr "Liệu các cài đặt này có được truyền bá từ mẫu Ngưỡng hay không."
 
-#: thold.php:1525 thold_templates.php:1111
+#: thold.php:1534 thold_templates.php:1114
 msgid "Template Name"
 msgstr "Tên mẫu"
 
-#: thold.php:1528
+#: thold.php:1537
 #, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "Tên của Mẫu Ngưỡng Ngưỡng được tạo từ."
 
-#: thold.php:1532
+#: thold.php:1541
 msgid "Enabled at Template Level"
 msgstr ""
 
-#: thold.php:1535 thold.php:1542
+#: thold.php:1544 thold.php:1551
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
 msgstr ""
 
-#: thold.php:1539
+#: thold.php:1548
 #, fuzzy
 msgid "Enabled at Threshold Level"
 msgstr "Kích hoạt ngưỡng"
 
-#: thold.php:1546 thold_templates.php:1107
+#: thold.php:1555 thold_templates.php:1110
 msgid "General Settings"
 msgstr "Cài đặt chung"
 
-#: thold.php:1550
+#: thold.php:1559
 #, fuzzy
 msgid "Name (Displayed)"
 msgstr "Tên (Hiển thị)"
 
-#: thold.php:1555 thold.php:1564
+#: thold.php:1564 thold.php:1573
 #, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "Cung cấp Ngưỡng một tên có ý nghĩa"
 
-#: thold.php:1559
+#: thold.php:1568
 #, fuzzy
 msgid "Name (Format)"
 msgstr "Định dạng Tên"
 
-#: thold.php:1568 thold_templates.php:1152
+#: thold.php:1577 thold_templates.php:1155
 #, fuzzy
 msgid "Warning HRULE Color"
 msgstr "Màu cảnh báo HRULE"
 
-#: thold.php:1569 thold_templates.php:1153
+#: thold.php:1578 thold_templates.php:1156
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Vui lòng chọn Màu cho Biểu đồ HRULE cho Ngưỡng cảnh báo. Chọn 'Không' cho Không có HRULE. Lưu ý: Tính năng này được hỗ trợ cho các loại Thao tác dữ liệu 'Giá trị chính xác' và 'Tỷ lệ phần trăm' chỉ tại thời điểm này."
 
-#: thold.php:1576 thold_templates.php:1160
+#: thold.php:1585 thold_templates.php:1163
 #, fuzzy
 msgid "Alert HRULE Color"
 msgstr "Thông báo màu HRULE"
 
-#: thold.php:1577 thold_templates.php:1161
+#: thold.php:1586 thold_templates.php:1164
 #, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Vui lòng chọn Màu cho Biểu đồ HRULE cho Ngưỡng cảnh báo. Chọn 'Không' cho Không có HRULE. Lưu ý: Tính năng này được hỗ trợ cho các loại Thao tác dữ liệu 'Giá trị chính xác' và 'Tỷ lệ phần trăm' chỉ tại thời điểm này."
 
-#: thold.php:1584 thold_templates.php:1168
+#: thold.php:1593 thold_templates.php:1171
 #, fuzzy
 msgid "Graph Timespan"
 msgstr "Mẫu biểu đồ"
 
-#: thold.php:1587 thold_templates.php:1171
+#: thold.php:1596 thold_templates.php:1174
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
 msgstr ""
 
-#: thold.php:1592 thold_templates.php:1176
+#: thold.php:1601 thold_templates.php:1179
 msgid "Skip Scaling on HRULEs"
 msgstr ""
 
-#: thold.php:1595 thold_templates.php:1179
+#: thold.php:1604 thold_templates.php:1182
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
 msgstr ""
 
-#: thold.php:1599 thold_templates.php:1183
+#: thold.php:1608 thold_templates.php:1186
 #, fuzzy
 msgid "Weekend Exemption"
 msgstr "Miễn cuối tuần"
 
-#: thold.php:1600 thold_templates.php:1184
+#: thold.php:1609 thold_templates.php:1187
 #, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr "Nếu điều này được chọn, Ngưỡng này sẽ không cảnh báo vào cuối tuần."
 
-#: thold.php:1606 thold_templates.php:1190
+#: thold.php:1615 thold_templates.php:1193
 #, fuzzy
 msgid "Disable Restoration Email"
 msgstr "Vô hiệu hóa email khôi phục"
 
-#: thold.php:1607 thold_templates.php:1191
+#: thold.php:1616 thold_templates.php:1194
 #, fuzzy
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr "Nếu điều này được chọn, Ngưỡng sẽ không gửi cảnh báo khi Ngưỡng đã trở lại trạng thái bình thường."
 
-#: thold.php:1613 thold_templates.php:1197
+#: thold.php:1622 thold_templates.php:1200
 #, fuzzy
 msgid "Acknowledgment Options"
 msgstr "Tùy chọn công nhận"
 
-#: thold.php:1614 thold_templates.php:1198
+#: thold.php:1623 thold_templates.php:1201
 #, fuzzy
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr "Có ba cấp độ Xác nhận kiểm soát cách bạn phải phản ứng với điều kiện vi phạm Ngưỡng. Họ đang: <br><br><ul><li> <i>Không bắt buộc</i> - Khi bạn chọn tùy chọn này, không yêu cầu Xác nhận đối với vi phạm Ngưỡng. </li><li> <i>Đặt lại xác nhận</i> - Với tùy chọn này, một khi bạn xác nhận Ngưỡng, bạn sẽ không còn nhận được Thông báo trong khi nó bị vi phạm. </li><li> <i>Xác nhận bền bỉ</i> - Với tùy chọn này, ngay cả sau khi Ngưỡng trở lại bình thường, bạn phải Xác nhận Ngưỡng và cung cấp Thông báo Người vận hành tùy chọn. </li></ul>"
 
-#: thold.php:1621 thold_templates.php:1205
+#: thold.php:1630 thold_templates.php:1208
 #, fuzzy
 msgid "None Required"
 msgstr "Không cần thiết"
 
-#: thold.php:1625 thold_templates.php:1209
+#: thold.php:1634 thold_templates.php:1212
 #, fuzzy
 msgid "Suspendible Notification"
 msgstr "Thông báo SNMP"
 
-#: thold.php:1629 thold_templates.php:1213
+#: thold.php:1638 thold_templates.php:1216
 #, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "Lời cảm ơn bền bỉ"
 
-#: thold.php:1634 thold_templates.php:1218
+#: thold.php:1643 thold_templates.php:1221
 #, fuzzy
 msgid "Threshold Type"
 msgstr "Loại ngưỡng"
 
-#: thold.php:1639 thold_templates.php:1223
+#: thold.php:1648 thold_templates.php:1226
 #, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "Loại Ngưỡng sẽ được theo dõi."
 
-#: thold.php:1643 thold_templates.php:1227
+#: thold.php:1652 thold_templates.php:1230
 #, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "Chu kỳ cảnh báo lại"
 
-#: thold.php:1647
+#: thold.php:1656
 #, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr "Lặp lại cảnh báo sau khi khoảng thời gian này trôi qua kể từ lần cảnh báo cuối cùng."
 
-#: thold.php:1651 thold_templates.php:1235
+#: thold.php:1660 thold_templates.php:1238
 #, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "Cảnh báo - Cài đặt cao / thấp"
 
-#: thold.php:1653 thold.php:1681 thold.php:1709 thold.php:1745 thold.php:1782
-#: thold_templates.php:1237 thold_templates.php:1265 thold_templates.php:1293
-#: thold_templates.php:1330 thold_templates.php:1366
+#: thold.php:1662 thold.php:1690 thold.php:1718 thold.php:1754 thold.php:1791
+#: thold_templates.php:1240 thold_templates.php:1268 thold_templates.php:1296
+#: thold_templates.php:1333 thold_templates.php:1369
 msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
 msgstr ""
 
-#: thold.php:1656 thold.php:1684 thold.php:1712 thold.php:1748
-#: thold_templates.php:1240 thold_templates.php:1268 thold_templates.php:1296
-#: thold_templates.php:1333
+#: thold.php:1665 thold.php:1693 thold.php:1721 thold.php:1757
+#: thold_templates.php:1243 thold_templates.php:1271 thold_templates.php:1299
+#: thold_templates.php:1336
 #, fuzzy
 msgid "High Threshold"
 msgstr "Ngưỡng cao"
 
-#: thold.php:1660 thold.php:1716 thold_templates.php:1300
+#: thold.php:1669 thold.php:1725 thold_templates.php:1303
 #, fuzzy
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Nếu giá trị được đặt và Nguồn dữ liệu vượt quá con số này, cảnh báo sẽ được kích hoạt. LƯU Ý: Giá trị này phải là số RAW. Giá trị hiển thị trên Đồ thị có thể được sửa đổi bởi một cdef."
 
-#: thold.php:1664 thold.php:1692 thold.php:1720 thold.php:1756
-#: thold_templates.php:1248 thold_templates.php:1276 thold_templates.php:1304
-#: thold_templates.php:1341
+#: thold.php:1673 thold.php:1701 thold.php:1729 thold.php:1765
+#: thold_templates.php:1251 thold_templates.php:1279 thold_templates.php:1307
+#: thold_templates.php:1344
 #, fuzzy
 msgid "Low Threshold"
 msgstr "Ngưỡng thấp"
 
-#: thold.php:1668 thold.php:1724 thold_templates.php:1308
+#: thold.php:1677 thold.php:1733 thold_templates.php:1311
 #, fuzzy
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Nếu giá trị được đặt và Nguồn dữ liệu thấp hơn con số này, cảnh báo sẽ được kích hoạt. LƯU Ý: Giá trị này phải là số RAW. Giá trị hiển thị trên Đồ thị có thể được sửa đổi bởi một cdef."
 
-#: thold.php:1672 thold.php:1700
+#: thold.php:1681 thold.php:1709
 #, fuzzy
 msgid "Breach Duration"
 msgstr "Thời gian vi phạm"
 
-#: thold.php:1675
+#: thold.php:1684
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Lượng thời gian mà nguồn dữ liệu phải vi phạm Ngưỡng để cảnh báo được đưa ra."
 
-#: thold.php:1679 thold_templates.php:1263
+#: thold.php:1688 thold_templates.php:1266
 #, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "Thông báo - Cài đặt cao / thấp"
 
-#: thold.php:1688 thold.php:1752 thold_templates.php:1244
-#: thold_templates.php:1272 thold_templates.php:1337
+#: thold.php:1697 thold.php:1761 thold_templates.php:1247
+#: thold_templates.php:1275 thold_templates.php:1340
 #, fuzzy
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Nếu giá trị được đặt và Nguồn dữ liệu vượt quá con số này, cảnh báo sẽ được kích hoạt. LƯU Ý: Giá trị này phải là số RAW. Giá trị hiển thị trên Đồ thị có thể được sửa đổi bởi một cdef."
 
-#: thold.php:1696 thold.php:1760 thold_templates.php:1252
-#: thold_templates.php:1280 thold_templates.php:1345
+#: thold.php:1705 thold.php:1769 thold_templates.php:1255
+#: thold_templates.php:1283 thold_templates.php:1348
 #, fuzzy
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Nếu giá trị được đặt và Nguồn dữ liệu thấp hơn con số này, cảnh báo sẽ được kích hoạt. LƯU Ý: Giá trị này phải là số RAW. Giá trị hiển thị trên Đồ thị có thể được sửa đổi bởi một cdef."
 
-#: thold.php:1703
+#: thold.php:1712
 #, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr "Lượng thời gian mà nguồn dữ liệu phải vi phạm Ngưỡng để cảnh báo được đưa ra."
 
-#: thold.php:1707 thold_templates.php:1291
+#: thold.php:1716 thold_templates.php:1294
 #, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "Cảnh báo - Cài đặt dựa trên thời gian"
 
-#: thold.php:1728 thold.php:1764
+#: thold.php:1737 thold.php:1773
 #, fuzzy
 msgid "Breach Count"
 msgstr "Số lượng vi phạm"
 
-#: thold.php:1732 thold.php:1769
+#: thold.php:1741 thold.php:1778
 #, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr "Số lần nguồn dữ liệu phải vi phạm Ngưỡng."
 
-#: thold.php:1736 thold.php:1773
+#: thold.php:1745 thold.php:1782
 #, fuzzy
 msgid "Breach Window"
 msgstr "Cửa sổ vi phạm"
 
-#: thold.php:1739 thold.php:1776 thold_templates.php:1324
-#: thold_templates.php:1360
+#: thold.php:1748 thold.php:1785 thold_templates.php:1327
+#: thold_templates.php:1363
 #, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "Lượng thời gian trong quá khứ để kiểm tra các vi phạm Ngưỡng."
 
-#: thold.php:1743 thold_templates.php:1328
+#: thold.php:1752 thold_templates.php:1331
 #, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "Thông báo - Cài đặt dựa trên thời gian"
 
-#: thold.php:1780
+#: thold.php:1789
 #, fuzzy
 msgid "Baseline Settings"
 msgstr "Cài đặt đường cơ sở"
 
-#: thold.php:1785 thold_templates.php:1369
-#, fuzzy
-msgid "Baseline Type"
-msgstr "Thông báo cơ bản"
-
-#: thold.php:1788 thold_templates.php:1372
-msgid "The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend."
+#: thold.php:1797 thold_templates.php:1375
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
 msgstr ""
 
-#: thold.php:1792
-msgid "Time range"
+#: thold.php:1801 thold_templates.php:1379
+msgid "Consolidation Function"
+msgstr ""
+
+#: thold.php:1804 thold_templates.php:1382
+#, fuzzy
+msgid "Average"
+msgstr "Trung bình (ms)"
+
+#: thold.php:1805 thold_templates.php:1383
+msgid "Minimum"
+msgstr ""
+
+#: thold.php:1806 thold_templates.php:1384
+msgid "Maximum"
+msgstr ""
+
+#: thold.php:1807 thold_templates.php:1385
+#, fuzzy
+msgid "Last"
+msgstr "Cuối cùng"
+
+#: thold.php:1809 thold_templates.php:1387
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr ""
+
+#: thold.php:1813 thold_templates.php:1391
+#, fuzzy
+#| msgid "Time range"
+msgid "Time Range"
 msgstr "Khoảng thời gian"
 
-#: thold.php:1795 thold_templates.php:1379
+#: thold.php:1816 thold_templates.php:1394
 #, fuzzy
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
 msgstr "Chỉ định điểm trong quá khứ (dựa trên độ phân giải rrd) sẽ được sử dụng làm tham chiếu"
 
-#: thold.php:1799
+#: thold.php:1820 thold_templates.php:1398
 #, fuzzy
 msgid "Deviation UP"
 msgstr "Độ lệch LÊN"
 
-#: thold.php:1803 thold_templates.php:1387
-#, fuzzy
-msgid "Specifies allowed deviation in percentage for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all."
+#: thold.php:1824
+#, fuzzy, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Chỉ định độ lệch cho phép theo tỷ lệ phần trăm cho Ngưỡng giới hạn trên. Nếu không được đặt, Ngưỡng giới hạn trên sẽ không được kiểm tra."
 
-#: thold.php:1807
+#: thold.php:1828 thold_templates.php:1406
 #, fuzzy
 msgid "Deviation DOWN"
 msgstr "Độ lệch XUỐNG"
 
-#: thold.php:1811 thold_templates.php:1395
-#, fuzzy
-msgid "Specifies allowed deviation in percentage for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all."
+#: thold.php:1832
+#, fuzzy, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Chỉ định độ lệch cho phép theo tỷ lệ phần trăm cho Ngưỡng giới hạn dưới. Nếu không được đặt, Ngưỡng giới hạn thấp hơn sẽ không được kiểm tra."
 
-#: thold.php:1819
+#: thold.php:1836 thold_templates.php:1315 thold_templates.php:1352
+#: thold_templates.php:1414
+#, fuzzy
+msgid "Trigger Count"
+msgstr "Số lượng kích hoạt"
+
+#: thold.php:1840
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr "Số lần liên tiếp mà nguồn dữ liệu phải vi phạm Ngưỡng cơ sở để cảnh báo được đưa ra. <br> Để trống để sử dụng giá trị mặc định ( <b>Mặc định: %s chu kỳ</b> )"
 
-#: thold.php:1823 thold_templates.php:1407
+#: thold.php:1844 thold_templates.php:1422
 #, fuzzy
 msgid "Data Manipulation"
 msgstr "Thao tác dữ liệu"
 
-#: thold.php:1827 thold_templates.php:1411
+#: thold.php:1848 thold_templates.php:1426
 msgid "Data Type"
 msgstr "Loại dữ liệu"
 
-#: thold.php:1832 thold_templates.php:1415
+#: thold.php:1853 thold_templates.php:1430
 #, fuzzy
 msgid "Special formatting for the given data."
 msgstr "Định dạng đặc biệt cho dữ liệu đã cho."
 
-#: thold.php:1836 thold_templates.php:1419
+#: thold.php:1857 thold_templates.php:1434
 #, fuzzy
 msgid "Threshold CDEF"
 msgstr "Ngưỡng CDEF"
 
-#: thold.php:1839 thold_templates.php:1422
+#: thold.php:1860 thold_templates.php:1437
 #, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "Áp dụng CDEF này trước khi trả lại dữ liệu."
 
-#: thold.php:1844
+#: thold.php:1865
 #, fuzzy
 msgid "Percent Data Source"
 msgstr "Phần trăm nguồn dữ liệu"
 
-#: thold.php:1847
+#: thold.php:1868
 #, fuzzy
 msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr "Mục nguồn dữ liệu thứ hai để sử dụng làm tổng giá trị để tính tỷ lệ phần trăm từ."
 
-#: thold.php:1852 thold_templates.php:1452
+#: thold.php:1873 thold_templates.php:1467
 msgid "Show Units"
 msgstr ""
 
-#: thold.php:1855 thold_templates.php:1455
+#: thold.php:1876 thold_templates.php:1470
 msgid "Display units for very large or small numbers."
 msgstr ""
 
-#: thold.php:1864
+#: thold.php:1880 thold_templates.php:1474
+msgid "Force Units Suffix"
+msgstr ""
+
+#: thold.php:1885 thold_templates.php:1479
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr ""
+
+#: thold.php:1889 thold_templates.php:1483
+msgid "Decimal Digits to Display"
+msgstr ""
+
+#: thold.php:1892 thold_templates.php:1486
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr ""
+
+#: thold.php:1902
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "Biểu thức RPN là Biểu thức RPN tương thích RRDtool. Cú pháp bao gồm tất cả các chức năng bên dưới ngoài các biểu thức thay thế Truy vấn dữ liệu và thiết bị, chẳng hạn như <span class=\"deviceUp\">| query_ifSpeed |</span> . Để sử dụng Nguồn dữ liệu trong Biểu thức RPN, bạn phải sử dụng cú pháp: <span class=\"deviceUp\">| ds: dsname |</span> . Ví dụ <span class=\"deviceUp\">: | DS: Traffic_in |</span> sẽ nhận được giá trị hiện tại của Nguồn dữ liệu Traffic_in cho (các) RRDfile được liên kết với Biểu đồ. Bất kỳ nguồn dữ liệu cho đồ thị có thể được bao gồm. <br><br> Toán tử toán học: <span class=\"deviceUp\">+, -, /, *,%, ^</span> <br> Chức năng: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Các nhà khai thác dòng chảy: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Hàm so sánh: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
 
-#: thold.php:1870 thold_templates.php:1444
+#: thold.php:1908 thold_templates.php:1459
 #, fuzzy
 msgid "Upper Data Source"
 msgstr "Nguồn dữ liệu"
 
-#: thold.php:1873
+#: thold.php:1911
 #, fuzzy
 msgid "Upper data source to calculate the total value."
 msgstr "Nguồn dữ liệu trên để tính tổng giá trị."
 
-#: thold.php:1878 thold_templates.php:1459
+#: thold.php:1916 thold_templates.php:1491
 msgid "Notification Settings"
 msgstr "Thiết lập Thông báo"
 
-#: thold.php:1891 thold_templates.php:1472
+#: thold.php:1929 thold_templates.php:1504
 #, fuzzy
 msgid "Alert Email Body"
 msgstr "Thông báo Email"
 
-#: thold.php:1896 thold_templates.php:1477
+#: thold.php:1934 thold_templates.php:1509
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Đây là thông báo sẽ được hiển thị ở đầu tất cả Cảnh báo Ngưỡng (255 Char MAX). HTML được cho phép, nhưng sẽ bị xóa đối với các email chỉ có văn bản. Có một số mô tả có thể được sử dụng. <br> ví dụ. &lt;MÔ TẢ&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;CHỦ ĐỀ&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;THẤP&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;CHIẾN &gt;"
 
-#: thold.php:1900 thold_templates.php:1481
+#: thold.php:1938 thold_templates.php:1513
 #, fuzzy
 msgid "Warning Email Body"
 msgstr "Thân email cảnh báo"
 
-#: thold.php:1905 thold_templates.php:1486
+#: thold.php:1943 thold_templates.php:1518
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Đây là thông báo sẽ được hiển thị ở đầu tất cả các Cảnh báo Ngưỡng (255 Char MAX). HTML được cho phép, nhưng sẽ bị xóa đối với các email chỉ có văn bản. Có một số mô tả có thể được sử dụng. <br> ví dụ. &lt;MÔ TẢ&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;CHỦ ĐỀ&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;THẤP&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;CHIẾN &gt;"
 
-#: thold.php:1909 thold_templates.php:1490
+#: thold.php:1947 thold_templates.php:1522
 #, fuzzy
 msgid "Restoral Email Body"
 msgstr "Thông báo Email"
 
-#: thold.php:1914 thold_templates.php:1495
+#: thold.php:1952 thold_templates.php:1527
 #, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Đây là thông báo sẽ được hiển thị ở đầu tất cả các cảnh báo Ngưỡng (255 Char MAX). HTML được cho phép, nhưng sẽ bị xóa chỉ đối với văn bản Email. Có một số mô tả có thể được sử dụng. <br> &lt;MÔ TẢ&gt; &lt;HOSTNAME&gt; &lt;THỜI GIAN"
 
-#: thold.php:1918 thold_templates.php:1506
+#: thold.php:1956 thold_templates.php:1538
 #, fuzzy
 msgid "Warning Notification List"
 msgstr "Danh sách thông báo cảnh báo"
 
-#: thold.php:1920 thold_templates.php:1508
+#: thold.php:1958 thold_templates.php:1540
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr "Bạn có thể chỉ định chọn Danh sách thông báo để nhận Cảnh báo cho Nguồn dữ liệu này"
 
-#: thold.php:1926 thold_templates.php:1514
+#: thold.php:1964 thold_templates.php:1546
 #, fuzzy
 msgid "Alert Notification List"
 msgstr "Danh sách thông báo"
 
-#: thold.php:1928 thold_templates.php:1516
+#: thold.php:1966 thold_templates.php:1548
 #, fuzzy
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr "Bạn có thể chỉ định chọn Danh sách thông báo để nhận Thông báo cho Nguồn dữ liệu này"
 
-#: thold.php:1938 thold_templates.php:1526
+#: thold.php:1976 thold_templates.php:1558
 #, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "Thông báo SNMP - Danh mục sự kiện"
 
-#: thold.php:1940 thold_templates.php:1528
+#: thold.php:1978 thold_templates.php:1560
 #, fuzzy
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr "Để cho phép NMS phân loại các thông báo SNMP khác nhau dễ dàng hơn, vui lòng điền vào danh mục thông báo SNMP cho mẫu này nên sử dụng. Ví dụ: \"đĩa_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 
-#: thold.php:1946 thold_templates.php:1534
+#: thold.php:1984 thold_templates.php:1566
 #, fuzzy
 msgid "SNMP Event Description"
 msgstr "Mô tả sự kiện SNMP"
 
-#: thold.php:1947 thold_templates.php:1535
+#: thold.php:1985 thold_templates.php:1567
 #, fuzzy
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 msgstr "Bạn có thể tùy chỉnh mô tả sự kiện được gửi đến bộ nhận thông báo SNMP bằng cách sử dụng các varbinds bổ sung. Các ràng buộc sau đây sẽ được hỗ trợ: <br> &lt;THRESHOLDNAME&gt; &lt;HOSTNAME&gt; &lt;HOSTIP&gt; &lt;TEMPLATE_ID&gt; &lt;TEMPLATE_NAME&gt; &lt;THR_TYPE&gt; &lt;DS tận thế"
 
-#: thold.php:1956 thold_templates.php:1544
+#: thold.php:1994 thold_templates.php:1576
 #, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "Thông báo SNMP - Mức độ nghiêm trọng của sự kiện cảnh báo"
 
-#: thold.php:1959
+#: thold.php:1997
 #, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr "Mức độ nghiêm trọng được sử dụng để cảnh báo. (tác động thấp -> tác động tới hạn)"
 
-#: thold.php:1963 thold.php:1982 thold_templates.php:1549
-#: thold_templates.php:1563
+#: thold.php:2001 thold.php:2020 thold_templates.php:1581
+#: thold_templates.php:1595
 msgid "Medium"
 msgstr "Trung bình"
 
-#: thold.php:1975 thold_templates.php:1558
+#: thold.php:2013 thold_templates.php:1590
 #, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "Thông báo SNMP - Mức độ nghiêm trọng của sự kiện cảnh báo"
 
-#: thold.php:1978 thold_templates.php:1561
+#: thold.php:2016 thold_templates.php:1593
 #, fuzzy
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr "Mức độ nghiêm trọng được sử dụng để cảnh báo. (Tác động thấp -> Tác động quan trọng). <br> Lưu ý: Mức độ nghiêm trọng của các cảnh báo phải bằng hoặc thấp hơn mức độ nghiêm trọng được xác định cho các cảnh báo."
 
-#: thold.php:1996 thold_templates.php:1574
+#: thold.php:2034 thold_templates.php:1606
 #, fuzzy
 msgid "Notify accounts"
 msgstr "Thông báo tài khoản"
 
-#: thold.php:1998
+#: thold.php:2036
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr "Đây là danh sách các tài khoản sẽ được thông báo khi Ngưỡng này bị vi phạm."
 
-#: thold.php:2003 thold_templates.php:1581
+#: thold.php:2041 thold_templates.php:1613
 #, fuzzy
 msgid "Alert Emails"
 msgstr "Email cảnh báo"
 
-#: thold.php:2007
+#: thold.php:2045
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr "Bạn có thể chỉ định ở đây thêm Email để nhận thông báo cho nguồn dữ liệu này (được phân tách bằng dấu phẩy)"
 
-#: thold.php:2011 thold_templates.php:1589
+#: thold.php:2049 thold_templates.php:1621
 #, fuzzy
 msgid "Warning Emails"
 msgstr "Email cảnh báo"
 
-#: thold.php:2015
+#: thold.php:2053
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr "Bạn có thể chỉ định ở đây thêm Email để nhận cảnh báo cho nguồn dữ liệu này (được phân tách bằng dấu phẩy)"
 
-#: thold.php:2049 thold_templates.php:1627
+#: thold.php:2087 thold_templates.php:1659
 #, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "Nếu được chọn, thông báo Ngưỡng sẽ được gửi đến nhật ký hệ thống cục bộ của bạn."
 
-#: thold.php:2055 thold_templates.php:1633
+#: thold.php:2093 thold_templates.php:1665
 #, fuzzy
 msgid "Priority/Level"
 msgstr "Mức độ ưu tiên"
 
-#: thold.php:2056 thold_templates.php:1634
+#: thold.php:2094 thold_templates.php:1666
 #, fuzzy
 msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr "Đây là Mức độ ưu tiên sẽ được đăng nhập vào tin nhắn nhật ký hệ thống của bạn."
 
-#: thold.php:2063 thold_templates.php:1641
+#: thold.php:2101 thold_templates.php:1673
 msgid "Facility"
 msgstr "Tiện ích"
 
-#: thold.php:2064 thold_templates.php:1642
+#: thold.php:2102 thold_templates.php:1674
 #, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "Đây là Cơ sở sẽ được sử dụng cho Ngưỡng này."
 
-#: thold.php:2085 thold_templates.php:1663
+#: thold.php:2123 thold_templates.php:1695
 #, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "Kích hoạt sự kiện (Lệnh Shell)"
 
-#: thold.php:2090 thold_templates.php:1668
+#: thold.php:2128 thold_templates.php:1700
 #, fuzzy
 msgid "High Trigger Command"
 msgstr "Lệnh kích hoạt cao"
 
-#: thold.php:2091 thold_templates.php:1669
+#: thold.php:2129 thold_templates.php:1701
 #, fuzzy
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Nếu được đặt và nếu Ngưỡng cao bị vi phạm, lệnh này sẽ được chạy. Vui lòng nhập một lệnh hợp lệ. Ngoài ra, có một số thẻ thay thế có sẵn có thể được sử dụng để chuyển thông tin từ Ngưỡng đến tập lệnh. Chúng bao gồm: &lt;MÔ TẢ&gt; &lt;HOSTNAME&gt; &lt;THỜI GIAN &gt; &lt;BREACHED_ITEMS&gt;. Cuối cùng, có thể thực hiện thay thế Máy chủ, Truy vấn Dữ liệu và Nhập dữ liệu. Ví dụ: nếu bạn có dữ liệu tùy chỉnh nhập dữ liệu được gọi là đang chờ xử lý, để thực hiện việc sử dụng thay thế | cấp phát |. Đối với Truy vấn dữ liệu và thay thế máy chủ, hãy sử dụng các quy ước Cacti | query_xxxx | và | host_xxxx | tương ứng."
 
-#: thold.php:2098 thold_templates.php:1676
+#: thold.php:2136 thold_templates.php:1708
 #, fuzzy
 msgid "Low Trigger Command"
 msgstr "Lệnh kích hoạt thấp"
 
-#: thold.php:2099 thold_templates.php:1677
+#: thold.php:2137 thold_templates.php:1709
 #, fuzzy
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Nếu được đặt và nếu Ngưỡng thấp bị vi phạm, lệnh này sẽ được chạy. Vui lòng nhập một lệnh hợp lệ. Ngoài ra, có một số thẻ thay thế có sẵn có thể được sử dụng để chuyển thông tin từ Ngưỡng đến tập lệnh. Chúng bao gồm: &lt;MÔ TẢ&gt; &lt;HOSTNAME&gt; &lt;THỜI GIAN &gt; &lt;BREACHED_ITEMS&gt;. Cuối cùng, Host, Data Query và Data thay thế đầu vào có thể được thực hiện. Ví dụ: nếu bạn có dữ liệu tùy chỉnh nhập dữ liệu được gọi là đang chờ xử lý, để thực hiện việc sử dụng thay thế | cấp phát |. Đối với Truy vấn dữ liệu và thay thế máy chủ, hãy sử dụng các quy ước Cacti | query_xxxx | và | host_xxxx | tương ứng."
 
-#: thold.php:2106 thold_templates.php:1684
+#: thold.php:2144 thold_templates.php:1716
 #, fuzzy
 msgid "Norm Trigger Command"
 msgstr "Lệnh kích hoạt Norm"
 
-#: thold.php:2107 thold_templates.php:1685
+#: thold.php:2145 thold_templates.php:1717
 #, fuzzy
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Nếu được đặt, khi một mức giảm trở lại giá trị bình thường, lệnh này sẽ được chạy. Vui lòng nhập một lệnh hợp lệ. Ngoài ra, có một số thẻ thay thế có sẵn có thể được sử dụng để chuyển thông tin từ Ngưỡng đến tập lệnh. Chúng bao gồm: &lt;MÔ TẢ&gt; &lt;HOSTNAME&gt; &lt;THỜI GIAN &gt; &lt;BREACHED_ITEMS&gt;. Cuối cùng, Host, Data Query và Data thay thế đầu vào có thể được thực hiện. Ví dụ: nếu bạn có dữ liệu tùy chỉnh nhập dữ liệu được gọi là đang chờ xử lý, để thực hiện việc sử dụng thay thế | cấp phát |. Đối với Truy vấn dữ liệu và thay thế máy chủ, hãy sử dụng các quy ước Cacti | query_xxxx | và | host_xxxx | tương ứng."
 
-#: thold.php:2120 thold_templates.php:1698
+#: thold.php:2158 thold_templates.php:1730
 msgid "Other Settings"
 msgstr "Các thiết lập khác"
 
-#: thold.php:2125 thold_templates.php:1703
+#: thold.php:2163 thold_templates.php:1735
 #, fuzzy
 msgid "Operator Notes"
 msgstr "Ghi chú của người vận hành"
 
-#: thold.php:2129 thold_templates.php:1707
+#: thold.php:2167 thold_templates.php:1739
 #, fuzzy
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr "Nhập hướng dẫn ở đây cho một nhà điều hành có thể nhận được thông báo Ngưỡng."
 
-#: thold.php:2381
+#: thold.php:2426
 #, fuzzy
 msgid "Select Users(s)"
 msgstr "Chọn người dùng"
 
-#: thold.php:2383
+#: thold.php:2428
 #, fuzzy
 msgid "Users Selected"
 msgstr "Người dùng đã chọn"
 
-#: thold.php:2386
+#: thold.php:2431
 #, fuzzy
 msgid "All Users Selected"
 msgstr "Tất cả người dùng đã chọn"
@@ -3133,182 +3325,202 @@ msgstr "Hoán đổi:"
 msgid "Pages:"
 msgstr "Trang:"
 
-#: thold_functions.php:2296 thold_functions.php:2412 thold_functions.php:2477
-#: thold_functions.php:2633 thold_functions.php:2721 thold_functions.php:2833
-#: thold_functions.php:2852 thold_functions.php:3044 thold_functions.php:3061
-#: thold_functions.php:3184 thold_functions.php:3204 thold_functions.php:3221
-#: thold_functions.php:3291 thold_functions.php:3367
+#: thold_functions.php:2313 thold_functions.php:2430 thold_functions.php:2495
+#: thold_functions.php:2651 thold_functions.php:2739 thold_functions.php:2851
+#: thold_functions.php:2870 thold_functions.php:3062 thold_functions.php:3079
+#: thold_functions.php:3202 thold_functions.php:3222 thold_functions.php:3239
+#: thold_functions.php:3309 thold_functions.php:3385
 msgid "Only logging, maint device"
 msgstr ""
 
-#: thold_functions.php:3779
+#: thold_functions.php:3797
 #, fuzzy
 msgid "Link to Graph in Cacti"
 msgstr "Liên kết với đồ thị trong Cacti"
 
-#: thold_functions.php:3808
+#: thold_functions.php:3826
 #, fuzzy
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body> Một cảnh báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <b>Thiết bị</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Tin nhắn</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3835
+#: thold_functions.php:3853
 #, fuzzy
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body> Một cảnh báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <b>Thiết bị</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Tin nhắn</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
-#: thold_functions.php:3862
+#: thold_functions.php:3880
 #, fuzzy
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "Một thông báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <strong>Thiết bị</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Tin nhắn</strong> : <SUBJECT><br><br><GRAPH>"
 
-#: thold_functions.php:4846
+#: thold_functions.php:4750
+#, fuzzy, php-format
+msgid "%% Deviation [TIP:%s]"
+msgstr "Độ lệch LÊN"
+
+#: thold_functions.php:4754
+#, fuzzy, php-format
+msgid "Absolute Value [TIP:%s]"
+msgstr "Giá trị cảnh báo"
+
+#: thold_functions.php:4758
+#, fuzzy
+msgid "%%% Deviation [AOT:%s]"
+msgstr "Độ lệch LÊN"
+
+#: thold_functions.php:4762
+#, fuzzy, php-format
+msgid "Absolute Val [AOT:%s]"
+msgstr "Giá trị cảnh báo"
+
+#: thold_functions.php:4978
 #, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "ID thiết bị không được đặt trong khi cố gắng tạo đồ thị và ngưỡng"
 
-#: thold_functions.php:4861
+#: thold_functions.php:4993
 #, fuzzy
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr "ID mẫu Ngưỡng không được đặt trong khi cố gắng tạo Đồ thị và Ngưỡng"
 
-#: thold_functions.php:4868
+#: thold_functions.php:5000
 #, fuzzy
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr "ID mẫu Ngưỡng không được đặt trong khi cố gắng tạo Đồ thị và Ngưỡng"
 
-#: thold_functions.php:4901
+#: thold_functions.php:5033
 #, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "Tạo đồ thị không thành công cho Mẫu ngưỡng"
 
-#: thold_functions.php:4931
+#: thold_functions.php:5063
 #, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr "Ngưỡng được Tự động xử lý do ánh xạ Mẫu thiết bị"
 
-#: thold_functions.php:4965 thold_functions.php:5289
+#: thold_functions.php:5097 thold_functions.php:5414
 #, fuzzy
 msgid "Permission Denied"
 msgstr "Quyền bị từ chối"
 
-#: thold_functions.php:4986 thold_functions.php:5362
+#: thold_functions.php:5118 thold_functions.php:5487
 #, fuzzy
 msgid "Record Updated"
 msgstr "Cập nhật hồ sơ"
 
-#: thold_functions.php:5037
+#: thold_functions.php:5159
 #, fuzzy
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!<br>RECORD NOT UPDATED!"
 msgstr "Bạn phải chỉ định 'Ngưỡng cảnh báo cao' hoặc 'Ngưỡng cảnh báo thấp' hoặc cả hai! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
 
-#: thold_functions.php:5049
+#: thold_functions.php:5171
 #, fuzzy
 msgid "Impossible thresholds: 'High Threshold' smaller than or equal to 'Low Threshold'<br>RECORD NOT UPDATED!"
 msgstr "Ngưỡng không thể: 'Ngưỡng cao' nhỏ hơn hoặc bằng 'Ngưỡng thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
 
-#: thold_functions.php:5061
+#: thold_functions.php:5183
 #, fuzzy
 msgid "Impossible thresholds: 'High Warning Threshold' smaller than or equal to 'Low Warning Threshold'<br>RECORD NOT UPDATED!"
 msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
 
-#: thold_functions.php:5069
+#: thold_functions.php:5191
 #, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "Với ngưỡng cơ sở được kích hoạt."
 
-#: thold_functions.php:5078
+#: thold_functions.php:5200
 #, fuzzy
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!<br>RECORD NOT UPDATED!"
 msgstr "Bạn phải chỉ định 'Độ lệch đường cơ sở LÊN' hoặc 'Độ lệch đường cơ sở XUỐNG' hoặc cả hai! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
 
-#: thold_functions.php:5279
+#: thold_functions.php:5404
 #, fuzzy, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "Không thể tìm thấy Mục mẫu biểu đồ được liên kết '% d' trên Ngưỡng '% d'"
 
-#: thold_functions.php:5360 thold_functions.php:5785
+#: thold_functions.php:5485 thold_functions.php:5911
 #, fuzzy, php-format
 msgid "Created Threshold: %s"
 msgstr "Đã tạo ngưỡng: %s"
 
-#: thold_functions.php:5433
+#: thold_functions.php:5558
 #, fuzzy, php-format
 msgid "'%s' must be set to positive integer value!<br>RECORD NOT UPDATED!"
 msgstr "' %s' phải được đặt thành giá trị nguyên dương! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
 
-#: thold_functions.php:5611
+#: thold_functions.php:5737
 #, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "Không có Mẫu Ngưỡng nào được liên kết với Mẫu của Thiết bị."
 
-#: thold_functions.php:5820
+#: thold_functions.php:5946
 #, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr "Lỗi Mailer: Không đặt địa chỉ <b>TO</b> !! <br> Nếu sử dụng liên kết <i>Kiểm tra Thư</i> , vui lòng đặt cài đặt <b>Email Thông báo</b> ."
 
-#: thold_functions.php:6455 thold_graph.php:619
+#: thold_functions.php:6584 thold_graph.php:622
 #, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "Ngưỡng không xác định"
 
-#: thold_functions.php:6457
+#: thold_functions.php:6586
 #, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "Nhấp vào 'Tiếp tục' để xác nhận Ngưỡng sau (s)."
 
-#: thold_functions.php:6900
+#: thold_functions.php:7029
 #, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "Không tìm thấy Mẫu Ngưỡng Mẫu dữ liệu phụ!"
 
-#: thold_functions.php:6915
+#: thold_functions.php:7044
 #, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "Mẫu ngưỡng Ngưỡng nguồn dữ liệu phụ không tìm thấy!"
 
-#: thold_functions.php:6951
+#: thold_functions.php:7080
 #, fuzzy
 msgid "Threshold Template import columns do not match the database schema"
 msgstr "Các cột nhập Mẫu ngưỡng không khớp với lược đồ cơ sở dữ liệu"
 
-#: thold_functions.php:6960 thold_functions.php:6962
+#: thold_functions.php:7089 thold_functions.php:7091
 msgid "Imported"
 msgstr "Đã nhập"
 
-#: thold_functions.php:6960 thold_functions.php:6962
+#: thold_functions.php:7089 thold_functions.php:7091
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "Mẫu ngưỡng ' %s' %s!"
 
-#: thold_functions.php:6960 thold_functions.php:6962
+#: thold_functions.php:7089 thold_functions.php:7091
 msgid "Updated"
 msgstr "Đã cập nhật"
 
-#: thold_functions.php:6966 thold_functions.php:6968 thold_templates.php:2044
-#: thold_templates.php:2304
+#: thold_functions.php:7095 thold_functions.php:7097 thold_templates.php:2086
+#: thold_templates.php:2355
 msgid "Import"
 msgstr "Nhập"
 
-#: thold_functions.php:6966 thold_functions.php:6968
+#: thold_functions.php:7095 thold_functions.php:7097
 #, fuzzy, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "Mẫu ngưỡng ' %s' %s Không thành công!"
 
-#: thold_functions.php:6966 thold_functions.php:6968
+#: thold_functions.php:7095 thold_functions.php:7097
 msgid "Update"
 msgstr "Cập nhật"
 
-#: thold_functions.php:6972
+#: thold_functions.php:7101
 #, fuzzy
 msgid "Errors enountered while attempting to import Threshold Template data."
 msgstr "Đã xử lý lỗi khi cố gắng nhập dữ liệu Mẫu ngưỡng."
 
-#: thold_functions.php:6976
+#: thold_functions.php:7105
 #, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "Không tìm thấy Mẫu Ngưỡng Mẫu dữ liệu phụ!"
 
-#: thold_functions.php:6979
+#: thold_functions.php:7108
 #, fuzzy
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr "ID mẫu Ngưỡng không được đặt trong khi cố gắng tạo Đồ thị và Ngưỡng"
@@ -3333,7 +3545,7 @@ msgstr "Giá trị ngưỡng cao cho Cảnh báo / Cảnh báo"
 msgid "Threshold Status"
 msgstr "Trạng thái ngưỡng"
 
-#: thold_graph.php:436 thold_graph.php:929
+#: thold_graph.php:436 thold_graph.php:933
 msgid "Actions"
 msgstr "Hành động"
 
@@ -3341,200 +3553,200 @@ msgstr "Hành động"
 msgid "Ack Detail"
 msgstr ""
 
-#: thold_graph.php:600
+#: thold_graph.php:603
 #, fuzzy
 msgid "Edit Threshold"
 msgstr "Chỉnh sửa Ngưỡng"
 
-#: thold_graph.php:605
+#: thold_graph.php:608
 #, fuzzy
 msgid "Disable Threshold"
 msgstr "Vô hiệu hóa Ngưỡng"
 
-#: thold_graph.php:607
+#: thold_graph.php:610
 #, fuzzy
 msgid "Enable Threshold"
 msgstr "Kích hoạt ngưỡng"
 
-#: thold_graph.php:613
+#: thold_graph.php:616
 #, fuzzy
 msgid "View Graph"
 msgstr "Xem biểu đồ"
 
-#: thold_graph.php:615
+#: thold_graph.php:618
 #, fuzzy
 msgid "View Threshold History"
 msgstr "Xem lịch sử ngưỡng"
 
-#: thold_graph.php:622
+#: thold_graph.php:625
 #, fuzzy
 msgid "Suspend Notifications until the Threshold clears"
 msgstr "Danh sách thông báo trùng lặp"
 
-#: thold_graph.php:625
+#: thold_graph.php:628
 #, fuzzy
 msgid "Resume Notifications for this breached Threshold"
 msgstr "Xóa danh sách thông báo"
 
-#: thold_graph.php:650
+#: thold_graph.php:653
 #, fuzzy
 #| msgid "Acknowledgment"
 msgid "Acknowledgement Message"
 msgstr "Lời xác nhận"
 
-#: thold_graph.php:651
+#: thold_graph.php:654
 msgid "Date"
 msgstr ""
 
-#: thold_graph.php:659
+#: thold_graph.php:662
 msgid "Comment Not Found"
 msgstr ""
 
-#: thold_graph.php:668
+#: thold_graph.php:671
 msgid "Ack History"
 msgstr ""
 
-#: thold_graph.php:678
+#: thold_graph.php:681
 #, fuzzy
 msgid "No name set"
 msgstr "Không đặt tên"
 
-#: thold_graph.php:932
+#: thold_graph.php:936
 #, fuzzy
 msgid "Hover over icons for help"
 msgstr "Di chuột qua các biểu tượng để được giúp đỡ"
 
-#: thold_graph.php:938
+#: thold_graph.php:942
 #, fuzzy
 msgid "A description for the Device"
 msgstr "Mô tả cho thiết bị"
 
-#: thold_graph.php:944
+#: thold_graph.php:948
 #, fuzzy
 msgid "A Cacti unique identifier for the Device"
 msgstr "Một định danh duy nhất Cacti cho thiết bị"
 
-#: thold_graph.php:950
+#: thold_graph.php:954
 #, fuzzy
 msgid "The number of Graphs for this Device"
 msgstr "Số lượng biểu đồ cho thiết bị này"
 
-#: thold_graph.php:956
+#: thold_graph.php:960
 #, fuzzy
 msgid "The number of Data Sources for this Device"
 msgstr "Số lượng nguồn dữ liệu cho thiết bị này"
 
-#: thold_graph.php:962
+#: thold_graph.php:966
 #, fuzzy
 msgid "The status for this Device as of the last time it was polled"
 msgstr "Trạng thái của Thiết bị này kể từ lần cuối cùng được thăm dò"
 
-#: thold_graph.php:968
+#: thold_graph.php:972
 #, fuzzy
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
 msgstr "Lần cuối cùng Cacti tìm thấy sự cố với Thiết bị này. Nó có thể cao hơn Thời gian hoạt động của thiết bị, nếu nó được khởi động lại giữa các chu kỳ bỏ phiếu của Cacti"
 
-#: thold_graph.php:971
+#: thold_graph.php:975
 msgid "Uptime"
 msgstr "Thời gian hoạt động"
 
-#: thold_graph.php:974
+#: thold_graph.php:978
 #, fuzzy
 msgid "The official uptime of the Device as reported by SNMP"
 msgstr "Thời gian hoạt động chính thức của Thiết bị theo báo cáo của SNMP"
 
-#: thold_graph.php:980
+#: thold_graph.php:984
 #, fuzzy
 msgid "The official hostname for this Device"
 msgstr "Tên máy chủ chính thức cho thiết bị này"
 
-#: thold_graph.php:983
+#: thold_graph.php:987
 #, fuzzy
 msgid "Current (ms)"
 msgstr "Hiện tại (ms)"
 
-#: thold_graph.php:986
+#: thold_graph.php:990
 #, fuzzy
 msgid "The current response time for the Cacti Availability check"
 msgstr "Thời gian phản hồi hiện tại cho kiểm tra Tính khả dụng của Cacti"
 
-#: thold_graph.php:989
+#: thold_graph.php:993
 #, fuzzy
 msgid "Average (ms)"
 msgstr "Trung bình (ms)"
 
-#: thold_graph.php:992
+#: thold_graph.php:996
 #, fuzzy
 msgid "The average response time for the Cacti Availability check"
 msgstr "Thời gian phản hồi trung bình cho kiểm tra Tính khả dụng của Cacti"
 
-#: thold_graph.php:995
+#: thold_graph.php:999
 msgid "Availability"
 msgstr "Tình trạng"
 
-#: thold_graph.php:998
+#: thold_graph.php:1002
 #, fuzzy
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
 msgstr "Tính khả dụng chung của Thiết bị này kể từ lần đặt lại bộ đếm cuối cùng trong Cacti"
 
-#: thold_graph.php:1026 thold_graph.php:1052
+#: thold_graph.php:1030 thold_graph.php:1056
 msgid "Edit Device"
 msgstr "Chỉnh sửa thiết bị"
 
-#: thold_graph.php:1028 thold_graph.php:1054
+#: thold_graph.php:1032 thold_graph.php:1058
 #, fuzzy
 msgid "View Graphs"
 msgstr "Xem đồ thị"
 
-#: thold_graph.php:1077
+#: thold_graph.php:1081
 #, fuzzy
 msgid "No Devices"
 msgstr "Thiết bị"
 
-#: thold_graph.php:1134
+#: thold_graph.php:1138
 #, fuzzy
 msgid "Not Up"
 msgstr "Không lên"
 
-#: thold_graph.php:1343
+#: thold_graph.php:1347
 msgid "No Export Rows Found."
 msgstr ""
 
-#: thold_graph.php:1371
+#: thold_graph.php:1375
 #, fuzzy, php-format
 msgid "Threshold Log for [ %s ]"
 msgstr "Nhật ký ngưỡng cho [ %s]"
 
-#: thold_graph.php:1424
+#: thold_graph.php:1428
 #, fuzzy
 msgid "Log Entries"
 msgstr "Đăng nhập"
 
-#: thold_graph.php:1432 thold_webapi.php:495 thold_webapi.php:643
+#: thold_graph.php:1436 thold_webapi.php:495 thold_webapi.php:643
 #: thold_webapi.php:663
 msgid "Device"
 msgstr "Thiết bị"
 
-#: thold_graph.php:1437
+#: thold_graph.php:1441
 msgid "Time"
 msgstr "Thời gian"
 
-#: thold_graph.php:1452
+#: thold_graph.php:1456
 #, fuzzy
 msgid "Alert Value"
 msgstr "Giá trị cảnh báo"
 
-#: thold_graph.php:1457
+#: thold_graph.php:1461
 #, fuzzy
 msgid "Measured Value"
 msgstr "Gia trị đo"
 
-#: thold_graph.php:1500
+#: thold_graph.php:1505
 #, fuzzy
 msgid "No Threshold Logs Found"
 msgstr "Không tìm thấy Nhật ký Ngưỡng"
 
-#: thold_graph.php:1615
+#: thold_graph.php:1620
 msgid "Entries"
 msgstr "Mục"
 
@@ -3626,299 +3838,288 @@ msgstr "Vui lòng nhấn 'Tạo' để tạo Mẫu Ngưỡng của bạn"
 msgid "Create"
 msgstr "Tạo"
 
-#: thold_templates.php:932
+#: thold_templates.php:935
 #, fuzzy
 msgid "The Threshold Template requested can not be found"
 msgstr "Ngưỡng không tồn tại"
 
-#: thold_templates.php:1116
+#: thold_templates.php:1119
 #, fuzzy
 msgid "Provide the Threshold Template a meaningful name."
 msgstr "Cung cấp Mẫu Ngưỡng một tên có ý nghĩa."
 
-#: thold_templates.php:1120
+#: thold_templates.php:1123
 #, fuzzy
 msgid "Suggested Threshold Name"
 msgstr "Tên ngưỡng đề xuất"
 
-#: thold_templates.php:1125
+#: thold_templates.php:1128
 #, fuzzy
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr "Cung cấp tên được đề xuất cho Ngưỡng được tạo bằng Mẫu này. Có thể sử dụng các biến thay thế Thiết bị Chuẩn (| host_ * |), Truy vấn Dữ liệu (| query_ * |) và Đầu vào (| input_ * |) cũng như | graph_title | cho Tiêu đề đồ thị."
 
-#: thold_templates.php:1132
+#: thold_templates.php:1135
 #, fuzzy
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "Mẫu dữ liệu mà bạn đang sử dụng. (Điều này không thể thay đổi)"
 
-#: thold_templates.php:1137
+#: thold_templates.php:1140
 msgid "Data Field"
 msgstr "Trường dữ liệu"
 
-#: thold_templates.php:1140
+#: thold_templates.php:1143
 #, fuzzy
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr "Trường dữ liệu mà bạn đang sử dụng. (Điều này không thể thay đổi)"
 
-#: thold_templates.php:1148
+#: thold_templates.php:1151
 #, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "Có hay không ngưỡng này sẽ được kiểm tra và cảnh báo."
 
-#: thold_templates.php:1231
+#: thold_templates.php:1234
 #, fuzzy
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr "Lặp lại cảnh báo sau khi khoảng thời gian này đã được dán kể từ cảnh báo cuối cùng."
 
-#: thold_templates.php:1256 thold_templates.php:1284
+#: thold_templates.php:1259 thold_templates.php:1287
 #, fuzzy
 msgid "Min Trigger Duration"
 msgstr "Thời lượng kích hoạt tối thiểu"
 
-#: thold_templates.php:1259 thold_templates.php:1287
+#: thold_templates.php:1262 thold_templates.php:1290
 #, fuzzy
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr "Lượng thời gian mà nguồn dữ liệu phải ở trong tình trạng vi phạm để cảnh báo được đưa ra."
 
-#: thold_templates.php:1312 thold_templates.php:1349
-#, fuzzy
-msgid "Trigger Count"
-msgstr "Số lượng kích hoạt"
-
-#: thold_templates.php:1317
+#: thold_templates.php:1320
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr "Số lần nguồn dữ liệu phải ở trong tình trạng vi phạm trước khi đưa ra cảnh báo."
 
-#: thold_templates.php:1321 thold_templates.php:1357
+#: thold_templates.php:1324 thold_templates.php:1360
 #, fuzzy
 msgid "Time Period Length"
 msgstr "Khoảng thời gian"
 
-#: thold_templates.php:1353
+#: thold_templates.php:1356
 #, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr "Số lần nguồn dữ liệu phải ở trong tình trạng vi phạm trước khi đưa ra cảnh báo."
 
-#: thold_templates.php:1364
+#: thold_templates.php:1367
 #, fuzzy
 msgid "Baseline Monitoring"
 msgstr "Giám sát đường cơ sở"
 
-#: thold_templates.php:1376
-#, fuzzy
-#| msgid "Time range"
-msgid "Time Range"
-msgstr "Khoảng thời gian"
+#: thold_templates.php:1402
+#, fuzzy, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Chỉ định độ lệch cho phép theo tỷ lệ phần trăm cho Ngưỡng giới hạn trên. Nếu không được đặt, Ngưỡng giới hạn trên sẽ không được kiểm tra."
 
-#: thold_templates.php:1383
-#, fuzzy
-msgid "Baseline Deviation UP"
-msgstr "Độ lệch đường cơ sở LÊN"
+#: thold_templates.php:1410
+#, fuzzy, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Chỉ định độ lệch cho phép theo tỷ lệ phần trăm cho Ngưỡng giới hạn dưới. Nếu không được đặt, Ngưỡng giới hạn thấp hơn sẽ không được kiểm tra."
 
-#: thold_templates.php:1391
-#, fuzzy
-msgid "Baseline Deviation DOWN"
-msgstr "Độ lệch đường cơ sở DOWN"
-
-#: thold_templates.php:1403
+#: thold_templates.php:1418
 #, fuzzy, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr "Số lần liên tiếp nguồn dữ liệu phải ở trong tình trạng bị vi phạm để cảnh báo được đưa ra. <br> Để trống để sử dụng giá trị mặc định (Mặc định: %s chu kỳ"
 
-#: thold_templates.php:1427
+#: thold_templates.php:1442
 #, fuzzy
 msgid "Percent Datasource"
 msgstr "Phần trăm dữ liệu"
 
-#: thold_templates.php:1430
+#: thold_templates.php:1445
 #, fuzzy
 msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr "Mục dữ liệu thứ hai để sử dụng làm tổng giá trị để tính tỷ lệ phần trăm từ."
 
-#: thold_templates.php:1440
+#: thold_templates.php:1455
 #, fuzzy, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "Biểu thức RPN là Biểu thức RPN tương thích RRDtool. Cú pháp bao gồm tất cả các chức năng bên dưới ngoài các biểu thức thay thế Truy vấn dữ liệu và thiết bị, chẳng hạn như <span style=\"color:blue;\">| query_ifSpeed |</span> . Để sử dụng Nguồn dữ liệu trong Biểu thức RPN, bạn phải sử dụng cú pháp: <span style=\"color:blue;\">| ds: dsname |</span> . Ví dụ <span style=\"color:blue;\">: | DS: Traffic_in |</span> sẽ nhận được giá trị hiện tại của Nguồn dữ liệu Traffic_in cho (các) RRDfile được liên kết với Biểu đồ. Bất kỳ nguồn dữ liệu cho đồ thị có thể được bao gồm. <br> Toán tử toán học: <span style=\"color:blue;\">+, -, /, *,%, ^</span> <br> Chức năng: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Các nhà khai thác dòng chảy: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Hàm so sánh: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
 
-#: thold_templates.php:1447
+#: thold_templates.php:1462
 #, fuzzy
 msgid "Upper data source to use to calculate the total value."
 msgstr "Nguồn dữ liệu trên để sử dụng để tính toán tổng giá trị."
 
-#: thold_templates.php:1499
+#: thold_templates.php:1531
 #, fuzzy
 msgid "Notification List Read Only"
 msgstr "Chỉ thông báo danh sách"
 
-#: thold_templates.php:1500
+#: thold_templates.php:1532
 #, fuzzy
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr "Nếu được chọn, thông báo Ngưỡng sẽ được gửi đến nhật ký hệ thống cục bộ của bạn."
 
-#: thold_templates.php:1547
+#: thold_templates.php:1579
 #, fuzzy
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "Mức độ nghiêm trọng được sử dụng để cảnh báo. (Tác động thấp -> Tác động quan trọng)"
 
-#: thold_templates.php:1576
+#: thold_templates.php:1608
 #, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr "Đây là danh sách các tài khoản sẽ được thông báo khi Ngưỡng này bị vi phạm. <br><br><br><br>"
 
-#: thold_templates.php:1585
+#: thold_templates.php:1617
 #, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr "Bạn có thể chỉ định ở đây thêm Email để nhận thông báo cho nguồn dữ liệu này (được phân tách bằng dấu phẩy)"
 
-#: thold_templates.php:1593
+#: thold_templates.php:1625
 #, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr "Bạn có thể chỉ định ở đây thêm Email để nhận cảnh báo cho nguồn dữ liệu này (được phân tách bằng dấu phẩy)"
 
-#: thold_templates.php:1930
+#: thold_templates.php:1972
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d Tháng,% d Ngày,% d Giờ,% d Phút,% d Giây (Trung bình)"
 
-#: thold_templates.php:1932
+#: thold_templates.php:1974
 #, fuzzy, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d Tháng,% d Ngày,% d Giờ,% d Phút,% d Giây"
 
-#: thold_templates.php:1936
+#: thold_templates.php:1978
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d Ngày,% d Giờ,% d Phút,% d Giây (Trung bình)"
 
-#: thold_templates.php:1938
+#: thold_templates.php:1980
 #, fuzzy, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d Ngày,% d Giờ,% d Phút,% d Giây"
 
-#: thold_templates.php:1942
+#: thold_templates.php:1984
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d Giờ,% d Phút,% d Giây (Trung bình)"
 
-#: thold_templates.php:1944
+#: thold_templates.php:1986
 #, fuzzy, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr "% d Giờ,% d Phút,% d Giây"
 
-#: thold_templates.php:1948
+#: thold_templates.php:1990
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr "% d Phút,% d Giây (Trung bình)"
 
-#: thold_templates.php:1950
+#: thold_templates.php:1992
 #, fuzzy, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr "% d Phút,% d Giây"
 
-#: thold_templates.php:1954
+#: thold_templates.php:1996
 #, fuzzy, php-format
 msgid "%d Seconds (Average)"
 msgstr "% d Giây (Trung bình)"
 
-#: thold_templates.php:1956
+#: thold_templates.php:1998
 #, fuzzy, php-format
 msgid "%d Seconds"
 msgstr "% d Giây"
 
-#: thold_templates.php:2142
+#: thold_templates.php:2185
 #, fuzzy
 msgid "DS Name"
 msgstr "Tên DS"
 
-#: thold_templates.php:2150
+#: thold_templates.php:2193
 #, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "Các giá trị Cảnh báo / Cảnh báo cao. LƯU Ý: Giá trị đường cơ sở là phần trăm, tất cả các giá trị khác là giá trị RAW không được sửa đổi bởi cdef."
 
-#: thold_templates.php:2156
+#: thold_templates.php:2199
 #, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "Các giá trị Cảnh báo / Cảnh báo thấp. LƯU Ý: Giá trị đường cơ sở là phần trăm, tất cả các giá trị khác là giá trị RAW không được sửa đổi bởi cdef."
 
-#: thold_templates.php:2243
+#: thold_templates.php:2294
 #, fuzzy
 msgid "No Threshold Templates"
 msgstr "Không có mẫu ngưỡng"
 
-#: thold_templates.php:2261
+#: thold_templates.php:2312
 #, fuzzy
 msgid "Import Template from Local File"
 msgstr "Nhập mẫu từ tệp cục bộ"
 
-#: thold_templates.php:2262
+#: thold_templates.php:2313
 #, fuzzy
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr "Nếu tệp XML chứa dữ liệu Mẫu Ngưỡng được đặt trên máy cục bộ của bạn, hãy chọn nó ở đây."
 
-#: thold_templates.php:2267
+#: thold_templates.php:2318
 #, fuzzy
 msgid "Import Template from Text"
 msgstr "Nhập mẫu từ văn bản"
 
-#: thold_templates.php:2268
+#: thold_templates.php:2319
 #, fuzzy
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
 msgstr "Nếu bạn có tệp XML chứa dữ liệu Ngưỡng mẫu dưới dạng văn bản, bạn có thể dán tệp vào hộp này để nhập tệp."
 
-#: thold_templates.php:2280
+#: thold_templates.php:2331
 msgid "Import Results"
 msgstr "Nhập khẩu kết quả"
 
-#: thold_templates.php:2282
+#: thold_templates.php:2333
 #, fuzzy
 msgid "Cacti has imported the following items:"
 msgstr "Cacti đã nhập các mặt hàng sau:"
 
-#: thold_templates.php:2292 thold_templates.php:2304
+#: thold_templates.php:2343 thold_templates.php:2355
 #, fuzzy
 msgid "Import Threshold Templates"
 msgstr "Mẫu ngưỡng nhập"
 
-#: thold_templates.php:2317 thold_templates.php:2320
+#: thold_templates.php:2368 thold_templates.php:2371
 #, fuzzy
 msgid "The file is too big."
 msgstr "Tệp quá lớn."
 
-#: thold_templates.php:2323
+#: thold_templates.php:2374
 #, fuzzy
 msgid "Incomplete file transfer."
 msgstr "Chuyển tệp chưa hoàn tất."
 
-#: thold_templates.php:2326 thold_templates.php:2353
+#: thold_templates.php:2377 thold_templates.php:2404
 #, fuzzy
 msgid "No file uploaded."
 msgstr "Chưa có file nào được tải lên."
 
-#: thold_templates.php:2329
+#: thold_templates.php:2380
 #, fuzzy
 msgid "Temporary folder missing."
 msgstr "Thư mục tạm thời không có."
 
-#: thold_templates.php:2332
+#: thold_templates.php:2383
 msgid "Failed to write file to disk"
 msgstr "Ghi tệp vào đĩa không thành công"
 
-#: thold_templates.php:2335
+#: thold_templates.php:2386
 #, fuzzy
 msgid "File upload stopped by extension"
 msgstr "Upload tập tin bị dừng bởi mở rộng."
 
-#: thold_templates.php:2346
+#: thold_templates.php:2397
 #, fuzzy
 msgid "Invalid file extension."
 msgstr "Tiện ích mở rộng tệp không hợp lệ."
 
-#: thold_templates.php:2372
+#: thold_templates.php:2423
 msgid "NOTE:"
 msgstr "CHÚ Ý:"
 
-#: thold_templates.php:2379 thold_templates.php:2386
+#: thold_templates.php:2430 thold_templates.php:2437
 msgid "ERROR:"
 msgstr "Lỗi:"
 
@@ -4104,6 +4305,37 @@ msgstr "Đồ thị đã chọn"
 #, fuzzy, php-format
 msgid "Created graph: %s"
 msgstr "Biểu đồ đã tạo: %s"
+
+#, fuzzy
+#~ msgid "Retoral"
+#~ msgstr "Phục hồi"
+
+#, fuzzy
+#~ msgid "Enable Notification Daemon"
+#~ msgstr "Kích hoạt thông báo mỗi lần"
+
+#, fuzzy
+#~ msgid "Checking this box will enable the use of a dedicated Notification daemon. Note that you must setup the systemd or initd service on your own.  Instructions are in the README.md."
+#~ msgstr "Chọn hộp này sẽ cho phép sử dụng trình nền Ngưỡng chuyên dụng. Điều này có thể được sử dụng để tăng hiệu suất hệ thống và / hoặc để phân phối giám sát Ngưỡng cho một máy chủ riêng biệt."
+
+#, fuzzy
+#~ msgid "Device Notifications"
+#~ msgstr "Thông báo thiết bị chết"
+
+#, fuzzy
+#~ msgid "Baseline Type"
+#~ msgstr "Thông báo cơ bản"
+
+#~ msgid "Time range"
+#~ msgstr "Khoảng thời gian"
+
+#, fuzzy
+#~ msgid "Baseline Deviation UP"
+#~ msgstr "Độ lệch đường cơ sở LÊN"
+
+#, fuzzy
+#~ msgid "Baseline Deviation DOWN"
+#~ msgstr "Độ lệch đường cơ sở DOWN"
 
 #, fuzzy
 #~ msgid "%s%%%"
