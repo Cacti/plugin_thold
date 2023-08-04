@@ -458,6 +458,7 @@ function tholds() {
 		'thold_type' => array(
 			'display' => __('Type', 'thold'),
 			'sort' => 'ASC',
+			'tip' => __('The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function.', 'thold'),
 			'align' => 'right'
 		),
 		'flastread' => array(
@@ -698,7 +699,8 @@ function tholds() {
 			if ($thold_data['thold_type'] != 1) {
 				form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
 			} else {
-				form_selectable_cell($bl_types[$thold_data['bl_type']], $thold_data['id'], '', 'right');
+				$bl_type = get_bl_type($thold_data['bl_type'], $thold_data['bl_cf']);
+				form_selectable_cell($bl_type, $thold_data['id'], '', 'right');
 			}
 
 			form_selectable_cell(thold_format_number($thold_data['lastread'], $decimals, $baseu, $suffix, $show_units, $units_suffix), $thold_data['id'], '', 'right');

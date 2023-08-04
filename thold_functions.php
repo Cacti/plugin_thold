@@ -1800,6 +1800,11 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 				break;
 			case 1:
 				$desc .= ' BL Type[' . (!isset($message['bl_type']) ? 0:$message['bl_type']) . ']';
+
+				if ($message['bl_type'] == 1) {
+					$desc .= ' BL CF[' . (!isset($message['bl_cf']) ? 'AVG':$message['bl_cf']) . ']';
+				}
+
 				$desc .= ' Range[' . $message['bl_ref_time_range'] . ']';
 				$desc .= ' DevUp[' . $message['bl_pct_up'] . ']';
 				$desc .= ' DevDown[' . $message['bl_pct_down'] . ']';
@@ -1892,6 +1897,11 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			break;
 		case 1:
 			$desc .= ' BL Type[' . (!isset($message['bl_type']) ? 0:$message['bl_type']) . ']';
+
+			if ($message['bl_type'] == 1) {
+				$desc .= ' BL CF[' . (!isset($message['bl_cf']) ? 'AVG':$message['bl_cf']) . ']';
+			}
+
 			$desc .= ' Range[' . $message['bl_ref_time_range'] . ']';
 			$desc .= ' DevUp[' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : '' ) . ']';
 			$desc .= ' DevDown[' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : '' ) . ']';
@@ -4459,24 +4469,14 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 	return round($value, 4);
 }
 
-function thold_get_ref_value($local_data_id, $name, $current_time, $ref_time, $time_range, $thold_type) {
-	if ($thold_type < 2) {
-		$result = rrdtool_function_fetch($local_data_id, $ref_time-$time_range, $ref_time-1, $time_range);
-	} else {
-		$result = rrdtool_function_fetch($local_data_id, $current_time-$time_range, $current_time);
-	}
+function thold_get_ref_values($local_data_id, $data_source_name, $current_time, $prev_time, $avg_of_cf) {
+	$data = thold_get_rrd_statistics($local_data_id, $current_time, $prev_time, $avg_of_cf);
 
-	$idx = array_search($name, $result['data_source_names']);
-
-	if (!isset($result['values'][$idx]) || cacti_sizeof($result['values'][$idx]) == 0) {
+	if (!isset($data[$data_source_name])) {
 		return false;
 	}
 
-	if ($thold_type < 2) {
-		return $result['values'][$idx];
-	} else {
-		return array(array_sum($result['values'][$idx]) / count($result['values'][$idx]));
-	}
+	return $data[$data_source_name];
 }
 
 /**
@@ -4514,12 +4514,9 @@ function thold_check_exception_periods($local_data_id, $ref_time, $ref_range) {
  * allowed deviations from those values.
  *
  * @param $local_data_id - the data source to check the data
- * @param $data_template_rrd_id - Index of the data_source in the RRD
- * @param $ref_time - Integer value representing reference offset in seconds
- * @param $ref_range - Integer value indicating reference time range in seconds
- * @param $current_value - Current "value" of the data source
- * @param $pct_down - Allowed baseline deviation in % - if set to false will not be considered
- * @param $pct_up - Allowed baseline deviation in % - if set to false will not be considered
+ * @param $data_source_name - the data source name to gather data from
+ * @param $current_value - the current data source value
+ * @param $thold_data - The thold data structure
  *
  * @return integer - integer value that indicates status
  *   -2 if the exception is active
@@ -4528,96 +4525,185 @@ function thold_check_exception_periods($local_data_id, $ref_time, $ref_range) {
  *   1 if the current value is below the calculated threshold
  *   2 if the current value is above the calculated threshold
  */
-function thold_check_baseline($local_data_id, $name, $current_value, &$thold_data) {
+function thold_check_baseline($local_data_id, $data_source_name, $current_value, &$thold_data) {
 	global $debug;
 
 	$now = time();
 
-	// See if we have a valid cached thold_high and thold_low value
-	if ($thold_data['bl_type'] < 2 && $thold_data['bl_thold_valid'] && $now < $thold_data['bl_thold_valid']) {
-		if ($thold_data['thold_hi'] && $current_value > $thold_data['thold_hi']) {
-			$failed = 2;
-		} elseif ($thold_data['thold_low'] && $current_value < $thold_data['thold_low']) {
-			$failed = 1;
+	$current_time = time() - read_config_option('poller_interval');
+	$prev_time    = $current_time - $thold_data['bl_ref_time_range'];
+	$avg_of_cf    = '';
+
+	if ($thold_data['bl_type'] < 4) {
+		if ($thold_data['bl_ref_time_range'] > 86400 * 2) {
+			$current_time = $prev_time + 86400;
+		} elseif ($thold_data['bl_ref_time_range'] > 3600 * 2) {
+			$current_time = $prev_time + 3600;
 		} else {
-			$failed = 0;
+			$current_time = $prev_time;
+		}
+	} elseif ($thold_data['bl_type'] == 5 || $thold_data['bl_type'] == 7) {
+		$avg_of_cf = $thold_data['bl_cf'];
+	}
+
+	$ref_values = thold_get_ref_values($thold_data['local_data_id'], $data_source_name, $current_time, $prev_time, $avg_of_cf);
+
+	if ($ref_values === false || cacti_sizeof($ref_values) == 0) {
+		cacti_log(sprintf('WARNING: RRDtool was unable to return any reference values to TH[%s]', $thold_data['id']), false, 'THOLD');
+		return -1;
+	}
+
+	$ref_value_min  = 0;
+	$ref_value_max  = 0;
+	$ref_value_avg  = 0;
+	$ref_value_last = 0;
+	$ref_value_cfa  = 0;
+
+	if (isset($ref_values['MIN'])) {
+		$ref_value_min = $ref_values['MIN'];
+	}
+
+	if (isset($ref_values['MIN'])) {
+		$ref_value_max = $ref_values['MAX'];
+	}
+
+	if (isset($ref_values['AVG'])) {
+		$ref_value_max = $ref_values['AVG'];
+	}
+
+	if (isset($ref_values['LAST'])) {
+		$ref_value_max = $ref_values['LAST'];
+	}
+
+	if (isset($ref_values['CFA'])) {
+		$ref_value_cfa = $ref_values['CFA'];
+	}
+
+	if ($thold_data['cdef'] > 0 && $thold_data['data_type'] == 1) {
+		$ref_value_min  = thold_build_cdef($thold_data['cdef'], $ref_value_min, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+		$ref_value_max  = thold_build_cdef($thold_data['cdef'], $ref_value_max, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+		$ref_value_avg  = thold_build_cdef($thold_data['cdef'], $ref_value_avg, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+		$ref_value_last = thold_build_cdef($thold_data['cdef'], $ref_value_last, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+		$ref_value_cfa  = thold_build_cdef($thold_data['cdef'], $ref_value_cfa, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
+	}
+
+	db_execute_prepared('UPDATE thold_data
+		SET bl_reference_min = ?, bl_reference_max = ?, bl_reference_avg = ?, bl_reference_last = ?
+		WHERE id = ?',
+		array($ref_value_min, $ref_value_max, $ref_value_avg, $ref_value_last, $thold_data['id']));
+
+	$blt_low  = '';
+	$blt_high = '';
+
+	/* setup for CF based deviations */
+	switch($thold_data['bl_cf']) {
+		case 'AVG':
+			$ref_value = $ref_value_avg;
+			break;
+		case 'MIN':
+			$ref_value = $ref_value_min;
+			break;
+		case 'MAX':
+			$ref_value = $ref_value_max;
+			break;
+		case 'LAST':
+			$ref_value = $ref_value_last;
+			break;
+	}
+
+	/**
+	 * Baseline types
+	 *
+	 * 0 - % Deviation of Min/Max from Time in the past 'LAST'
+	 * 1 - % Deviation of CF in the past
+	 * 2 - Absolute Value Deviation of Min/Max from Time in the past
+	 * 3 - Absolute Value Deviation of CF from Time in the past
+	 * 4 - % Deviation from Floating Average of over the time period
+	 * 5 - % Deviation from Floating Average of CF over time period
+	 * 6 - Absolute Value Deviation of Floating Average over the time period
+	 * 7 - Absolute Value Deviation of CF over the time period
+	 */
+	if ($thold_data['bl_type'] == 0) {
+		if ($thold_data['bl_pct_down'] != '') {
+			$blt_low  = $ref_value_min - (abs($ref_value_min) * $thold_data['bl_pct_down'] / 100);
+		}
+
+		if ($thold_data['bl_pct_up'] != '') {
+			$blt_high = $ref_value_max + (abs($ref_value_max) * $thold_data['bl_pct_up'] / 100);
+		}
+	} elseif ($thold_data['bl_type'] == 1) {
+		if ($thold_data['bl_pct_down'] != '') {
+			$blt_low  = $ref_value - (abs($ref_value) * $thold_data['bl_pct_down'] / 100);
+		}
+
+		if ($thold_data['bl_pct_up'] != '') {
+			$blt_high = $ref_value + (abs($ref_value) * $thold_data['bl_pct_up'] / 100);
+		}
+	} elseif ($thold_data['bl_type'] == 2) {
+		if ($thold_data['bl_pct_down'] != '') {
+			$blt_low  = $ref_value_min - $thold_data['bl_pct_down'];
+		}
+
+		if ($thold_data['bl_pct_up'] != '') {
+			$blt_high = $ref_value_max + $thold_data['bl_pct_up'];
+		}
+	} elseif ($thold_data['bl_type'] == 3) {
+		if ($thold_data['bl_pct_down'] != '') {
+			$blt_low  = $ref_value - $thold_data['bl_pct_down'];
+		}
+
+		if ($thold_data['bl_pct_up'] != '') {
+			$blt_high = $ref_value + $thold_data['bl_pct_up'];
+		}
+	} elseif ($thold_data['bl_type'] == 4) {
+		if ($thold_data['bl_pct_down'] != '') {
+			$blt_low  = $ref_value_avg - (abs($ref_value_avg) * $thold_data['bl_pct_down'] / 100);
+		}
+
+		if ($thold_data['bl_pct_up'] != '') {
+			$blt_high = $ref_value_avg + (abs($ref_value_avg) * $thold_data['bl_pct_up'] / 100);
+		}
+	} elseif ($thold_data['bl_type'] == 5) {
+		if ($thold_data['bl_pct_down'] != '') {
+			$blt_low  = $ref_value_avg - (abs($ref_value_avg) * $thold_data['bl_pct_down'] / 100);
+		}
+
+		if ($thold_data['bl_pct_up'] != '') {
+			$blt_high = $ref_value_avg + (abs($ref_value_avg) * $thold_data['bl_pct_up'] / 100);
+		}
+	} elseif ($thold_data['bl_type'] == 6) {
+		if ($thold_data['bl_pct_down'] != '') {
+			$blt_low  = $ref_value_avg - $thold_data['bl_pct_down'];
+		}
+
+		if ($thold_data['bl_pct_up'] != '') {
+			$blt_high = $ref_value_avg + $thold_data['bl_pct_up'];
 		}
 	} else {
-		$midnight =  gmmktime(0,0,0);
-		$t0 = $midnight + floor(($now - $midnight) / $thold_data['bl_ref_time_range']) * $thold_data['bl_ref_time_range'];
-		$current_time = time() - read_config_option('poller_interval');
-
-		$ref_values = thold_get_ref_value($thold_data['local_data_id'], $name, $current_time, $t0, $thold_data['bl_ref_time_range'], $thold_data['bl_type']);
-
-		if ($ref_values === false || cacti_sizeof($ref_values) == 0) {
-			cacti_log(sprintf('WARNING: RRDtool was unable to return any reference values to TH[%s]', $thold_data['id']), false, 'THOLD');
-			return -1;
+		if ($thold_data['bl_pct_down'] != '') {
+			$blt_low  = $ref_value_cfa - $thold_data['bl_pct_down'];
 		}
 
-		/**
-		 * Note: any values are returned indexed by timestamp, not 0-based
-		 * no reason we can't still use min() or max()
-		 */
-		if (cacti_sizeof($ref_values)) {
-			$ref_value_min = min($ref_values);
-			$ref_value_max = max($ref_values);
+		if ($thold_data['bl_pct_up'] != '') {
+			$blt_high = $ref_value_cfa + $thold_data['bl_pct_up'];
 		}
+	}
 
-		if ($thold_data['cdef'] > 0 && $thold_data['data_type'] == 1) {
-			$ref_value_min = thold_build_cdef($thold_data['cdef'], $ref_value_min, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
-			$ref_value_max = thold_build_cdef($thold_data['cdef'], $ref_value_max, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
-		}
+	// Cache the calculated or empty values
+	$thold_data['thold_low']      = $blt_low;
+	$thold_data['thold_hi']       = $blt_high;
+	$thold_data['bl_thold_valid'] = 0;
 
-		db_execute_prepared('UPDATE thold_data
-			SET bl_reference_min = ?, bl_reference_max = ?
-			WHERE id = ?',
-			array($ref_value_min, $ref_value_max, $thold_data['id']));
+	$failed = 0;
 
-		$blt_low  = '';
-		$blt_high = '';
+	// Check low boundary
+	if ($blt_low != '' && $current_value < $blt_low) {
+		$failed = 1;
+	}
 
-		if ($thold_data['bl_type'] == 0) {
-			if ($thold_data['bl_pct_down'] != '') {
-				$blt_low  = $ref_value_min - (abs($ref_value_min) * $thold_data['bl_pct_down'] / 100);
-			}
-
-			if ($thold_data['bl_pct_up'] != '') {
-				$blt_high = $ref_value_max + (abs($ref_value_max) * $thold_data['bl_pct_up'] / 100);
-			}
-		} elseif ($thold_data['bl_type'] == 1) {
-			if ($thold_data['bl_pct_down'] != '') {
-				$blt_low  = $ref_value_min - $thold_data['bl_pct_down'];
-			}
-
-			if ($thold_data['bl_pct_up'] != '') {
-				$blt_high = $ref_value_max + $thold_data['bl_pct_up'];
-			}
-		} else {
-			if ($thold_data['bl_pct_down'] != '') {
-				$blt_low  = $ref_value_min - (abs($ref_value_min) * $thold_data['bl_pct_down'] / 100);
-			}
-
-			if ($thold_data['bl_pct_up'] != '') {
-				$blt_high = $ref_value_max + (abs($ref_value_max) * $thold_data['bl_pct_up'] / 100);
-			}
-		}
-
-		// Cache the calculated or empty values
-		$thold_data['thold_low']      = $blt_low;
-		$thold_data['thold_hi']       = $blt_high;
-		$thold_data['bl_thold_valid'] = $t0 + $thold_data['bl_ref_time_range'];
-
-		$failed = 0;
-
-		// Check low boundary
-		if ($blt_low != '' && $current_value < $blt_low) {
-			$failed = 1;
-		}
-
-		// Check up boundary
-		if ($failed == 0 && $blt_high != '' && $current_value > $blt_high) {
-			$failed = 2;
-		}
+	// Check up boundary
+	if ($failed == 0 && $blt_high != '' && $current_value > $blt_high) {
+		$failed = 2;
 	}
 
 	if ($debug) {
@@ -4647,6 +4733,36 @@ function thold_check_baseline($local_data_id, $name, $current_value, &$thold_dat
 	}
 
 	return $failed;
+}
+
+function get_bl_type($type, $cf) {
+	global $bl_types;
+
+	switch($type) {
+		case '0':
+		case '2':
+		case '4':
+		case '6':
+			return $bl_types[$type];
+
+			break;
+		case '1':
+			return __('%% Deviation [TIP:%s]', $cf, 'thold');
+
+			break;
+		case '3':
+			return __('Absolute Value [TIP:%s]', $cf, 'thold');
+
+			break;
+		case '5':
+			return __('%%% Deviation [AOT:%s]', $cf, 'thold');
+
+			break;
+		case '7':
+			return __('Absolute Val [AOT:%s]', $cf, 'thold');
+
+			break;
+	}
 }
 
 function thold_create_new_graph_from_template() {
@@ -5229,6 +5345,7 @@ function save_thold() {
 	// Baseline
 	$save['bl_thold_valid']    = '0';
 	$save['bl_type']           = get_filter_request_var('bl_type');
+	$save['bl_cf']             = get_filter_request_var('bl_cf');
 	$save['bl_ref_time_range'] = isempty_request_var('bl_ref_time_range') ? read_config_option('alert_bl_timerange_def'):get_nfilter_request_var('bl_ref_time_range');
 	$save['bl_pct_down']       = trim_round_request_var('bl_pct_down', 4, 'bl_pct_down');
 	$save['bl_pct_up']         = trim_round_request_var('bl_pct_up', 4, 'bl_pct_up');
@@ -5488,6 +5605,7 @@ function thold_create_thold_save_from_template($save, $template) {
 
 	// Baseline
 	$save['bl_type']           = $template['bl_type'];
+	$save['bl_cf']             = $template['bl_cf'];
 	$save['bl_ref_time_range'] = $template['bl_ref_time_range'];
 	$save['bl_pct_down']       = $template['bl_pct_down'];
 	$save['bl_pct_up']         = $template['bl_pct_up'];
@@ -6206,7 +6324,7 @@ function thold_template_update_threshold($id, $template) {
 		td.thold_warning_fail_trigger = tt.thold_warning_fail_trigger, td.time_warning_hi = tt.time_warning_hi,
 		td.time_warning_low = tt.time_warning_low, td.time_warning_fail_trigger = tt.time_warning_fail_trigger,
 		td.time_warning_fail_length = tt.time_warning_fail_length, td.thold_enabled = tt.thold_enabled,
-		td.thold_type = tt.thold_type, td.bl_type = tt.bl_type, td.bl_ref_time_range = tt.bl_ref_time_range,
+		td.thold_type = tt.thold_type, td.bl_type = tt.bl_type, td.bl_cf = tt.bl_cf, td.bl_ref_time_range = tt.bl_ref_time_range,
 		td.bl_pct_up = tt.bl_pct_up, td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up,
 		td.bl_fail_trigger = tt.bl_fail_trigger, td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0,
 		td.repeat_alert = tt.repeat_alert, td.data_type = tt.data_type, td.cdef = tt.cdef,
@@ -6253,7 +6371,7 @@ function thold_template_update_thresholds($id) {
 		td.thold_warning_low = tt.thold_warning_low, td.thold_warning_fail_trigger = tt.thold_warning_fail_trigger,
 		td.time_warning_hi = tt.time_warning_hi, td.time_warning_low = tt.time_warning_low,
 		td.time_warning_fail_trigger = tt.time_warning_fail_trigger, td.time_warning_fail_length = tt.time_warning_fail_length,
-		td.thold_type = tt.thold_type, td.bl_type = tt.bl_type, td.bl_ref_time_range = tt.bl_ref_time_range,
+		td.thold_type = tt.thold_type, td.bl_type = tt.bl_type, td.bl_cf = tt.bl_cf, td.bl_ref_time_range = tt.bl_ref_time_range,
 		td.bl_pct_up = tt.bl_pct_up, td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up,
 		td.bl_fail_trigger = tt.bl_fail_trigger, td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0,
 		td.repeat_alert = tt.repeat_alert, td.data_type = tt.data_type, td.cdef = tt.cdef,
@@ -7051,4 +7169,258 @@ function thold_error_handler($errno, $errmsg, $filename, $linenum, $vars = []) {
 	return;
 }
 
+/**
+ * thold_get_rrd_statistics - given the local_data_id, the data source name, the interval and
+ *   consolidation function.  Return some statistics to the caller.
+ *
+ * @param $local_data_id  - (int) The local_data_id of the data source
+ * @param $current_time - (int) The end time for the RRDtool call
+ * @param $prev_time - (int) The start time for the RRDtool call
+ * @param $avg_of_cf - (string) Get the Average of the chosen CF
+ *
+ * @return - (boolean|array) The value requested by the caller
+ */
+function thold_get_rrd_statistics($local_data_id, $current_time, $prev_time, $avg_of_cf) {
+	global $config;
 
+	$use_proxy = (read_config_option('storage_location') ? true : false);
+
+	$rrdfile = db_fetch_cell_prepared('SELECT rrd_path
+		FROM poller_item
+		WHERE local_data_id = ?',
+		array($local_data_id));
+
+	if ($rrdfile == '') {
+		return false;
+	}
+
+	if ($use_proxy) {
+		$file_exists = rrdtool_execute("file_exists $rrdfile", true, RRDTOOL_OUTPUT_BOOLEAN, false, 'THOLD');
+	} else {
+		clearstatcache();
+		$file_exists = file_exists($rrdfile);
+	}
+
+	/* don't attempt to get information if the file does not exist */
+	if ($file_exists) {
+		$info = rrdtool_execute("info $rrdfile", false, RRDTOOL_OUTPUT_STDOUT, false, 'THOLD');
+
+		/* don't do anything if RRDfile did not return data */
+		if ($info != '') {
+			$info_array = explode("\n", $info);
+
+			$average = false;
+			$max     = false;
+			$min     = false;
+			$last    = false;
+			$dsnames = array();
+
+			/* figure out what is in this RRDfile.  Assume CF Uniformity as Cacti does not allow async rrdfiles.
+			 * also verify the consolidation functions in the RRDfile for average and max calculations.
+			 */
+			if (cacti_sizeof($info_array)) {
+				foreach ($info_array as $line) {
+					if (substr_count($line, 'ds[')) {
+						$parts  = explode(']', $line);
+						$parts2 = explode('[', $parts[0]);
+
+						$dsnames[trim($parts2[1])] = 1;
+					} elseif (substr_count($line, '.cf')) {
+						$parts = explode('=', $line);
+
+						if (substr_count($parts[1], 'AVERAGE')) {
+							$average = true;
+						} elseif (substr_count($parts[1], 'MAX')) {
+							$max = true;
+						} elseif (substr_count($parts[1], 'MIN')) {
+							$min = true;
+						} elseif (substr_count($parts[1], 'LAST')) {
+							$last = true;
+						}
+					} elseif (substr_count($line, 'step')) {
+						$parts = explode('=', $line);
+
+						$poller_interval = trim($parts[1]);
+					}
+				}
+			}
+
+			/* create the command syntax to get data */
+			/* assume that an RRDfile has not more than 62 data sources */
+			$defs     = 'abcdefghijklmnopqrstuvwxyz012345789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			$i        = 0;
+			$j        = 0;
+			$def      = '';
+			$command  = '';
+			$dsvalues = array();
+
+			/* escape the file name if on Windows */
+			if ($config['cacti_server_os'] != 'unix') {
+				$rrdfile = str_replace(':', "\\:", $rrdfile);
+			}
+
+			/* setup the graph command by parsing through the internal data source names */
+			if (cacti_sizeof($dsnames)) {
+				foreach ($dsnames as $dsname => $present) {
+					if ($average) {
+						$def .= 'DEF:' . $defs[$j] . $defs[$i] . "=\"" . $rrdfile . "\":" . $dsname . ':AVERAGE ';
+						$command .= ' VDEF:' . $defs[$j] . $defs[$i] . '_out=' . $defs[$j] . $defs[$i] . ',AVERAGE PRINT:' . $defs[$j] . $defs[$i] . '_out:%lf';
+						$i++;
+					}
+
+					if ($max) {
+						$def .= 'DEF:' . $defs[$j] . $defs[$i] . "=\"" . $rrdfile . "\":" . $dsname . ':MAX ';
+						$command .= ' VDEF:' . $defs[$j] . $defs[$i] . '_out=' . $defs[$j] . $defs[$i] . ',MAXIMUM PRINT:' . $defs[$j] . $defs[$i] . '_out:%lf';
+						$i++;
+					}
+
+					if ($min) {
+						$def .= 'DEF:' . $defs[$j] . $defs[$i] . "=\"" . $rrdfile . "\":" . $dsname . ':MIN ';
+						$command .= ' VDEF:' . $defs[$j] . $defs[$i] . '_out=' . $defs[$j] . $defs[$i] . ',MINIMUM PRINT:' . $defs[$j] . $defs[$i] . '_out:%lf';
+						$i++;
+					}
+
+					if ($last) {
+						$def .= 'DEF:' . $defs[$j] . $defs[$i] . "=\"" . $rrdfile . "\":" . $dsname . ':LAST ';
+						$command .= ' VDEF:' . $defs[$j] . $defs[$i] . '_out=' . $defs[$j] . $defs[$i] . ',LAST PRINT:' . $defs[$j] . $defs[$i] . '_out:%lf';
+						$i++;
+					}
+
+					if ($i > 50) {
+						$j++;
+						$i = 0;
+					}
+				}
+			}
+
+			if ($avg_of_cf != '') {
+				switch($avg_of_cf) {
+					case 'MIN':
+						if ($min) {
+							$def .= 'DEF:' . $defs[$j] . $defs[$i] . "=\"" . $rrdfile . "\":" . $dsname . ':MIN ';
+							$command .= ' VDEF:' . $defs[$j] . $defs[$i] . '_cfa=' . $defs[$j] . $defs[$i] . ',AVERAGE PRINT:' . $defs[$j] . $defs[$i] . '_cfa:%lf';
+							$i++;
+						}
+
+						break;
+					case 'MAX':
+						if ($max) {
+							$def .= 'DEF:' . $defs[$j] . $defs[$i] . "=\"" . $rrdfile . "\":" . $dsname . ':MAX ';
+							$command .= ' VDEF:' . $defs[$j] . $defs[$i] . '_cfa=' . $defs[$j] . $defs[$i] . ',AVERAGE PRINT:' . $defs[$j] . $defs[$i] . '_cfa:%lf';
+							$i++;
+						}
+
+						break;
+					case 'AVG':
+						if ($avg) {
+							$def .= 'DEF:' . $defs[$j] . $defs[$i] . "=\"" . $rrdfile . "\":" . $dsname . ':AVERAGE ';
+							$command .= ' VDEF:' . $defs[$j] . $defs[$i] . '_cfa=' . $defs[$j] . $defs[$i] . ',AVERAGE PRINT:' . $defs[$j] . $defs[$i] . '_cfa:%lf';
+							$i++;
+						}
+
+						break;
+					case 'LAST':
+						if ($last) {
+							$def .= 'DEF:' . $defs[$j] . $defs[$i] . "=\"" . $rrdfile . "\":" . $dsname . ':LAST ';
+							$command .= ' VDEF:' . $defs[$j] . $defs[$i] . '_cfa=' . $defs[$j] . $defs[$i] . ',AVERAGE PRINT:' . $defs[$j] . $defs[$i] . '_cfa:%lf';
+							$i++;
+						}
+
+						break;
+				}
+			}
+
+			/* now execute the graph command */
+			$stats_cmd = 'graph x --start ' . $prev_time . ' --end ' . $current_time . ' ' . trim($def) . ' ' . trim($command);
+
+			/* uncomment for diagnostics */
+			//cacti_log($stats_cmd, false, 'THOLD');
+
+			$xport_data = rrdtool_execute($stats_cmd, false, RRDTOOL_OUTPUT_STDOUT, false, 'THOLD');
+
+			$position   = array();
+			$position[] = array('RETURN' => 'RETURN');
+
+			/* initialize the array of return values */
+			foreach($dsnames as $dsname => $present) {
+				$dsvalues[$dsname]['AVG']  = 0;
+				$dsvalues[$dsname]['MAX']  = 0;
+				$dsvalues[$dsname]['MIN']  = 0;
+				$dsvalues[$dsname]['LAST'] = 0;
+
+				if ($avg_of_cf != '') {
+					$dsvalues[$dsname]['CFA'] = 0;
+				}
+
+				if ($average) {
+					$position[] = array($dsname => 'AVG');
+				}
+
+				if ($max) {
+					$position[] = array($dsname => 'MAX');
+				}
+
+				if ($min) {
+					$position[] = array($dsname => 'MIN');
+				}
+
+				if ($last) {
+					$position[] = array($dsname => 'LAST');
+				}
+
+				if ($avg_of_cf != '') {
+					$position[] = array($dsname => 'CFA');
+				}
+			}
+
+			/* process the xport array and return average and peak values */
+			if ($xport_data != '') {
+				$xport_array = explode("\n", $xport_data);
+				//print_r($xport_array);
+
+				if (cacti_sizeof($xport_array)) {
+					foreach($xport_array as $index => $line) {
+						if ($line == '') {
+							continue;
+						}
+
+						if ($index > 0) {
+							// Catch the last line
+							if (substr($line, 0, 2) == 'OK') {
+								$line  = trim($line, ' OK');
+								$parts = explode(' ', $line);
+								//print $line . PHP_EOL;
+
+								foreach($parts as $line) {
+									$sparts = explode(':', $line);
+
+									switch($sparts[0]) {
+										case 'u':
+											$user_time = $sparts[1];
+											break;
+										case 's':
+											$system_time = $sparts[1];
+											break;
+										case 'r':
+											$real_time = $sparts[1];
+											break;
+									}
+								}
+
+								break;
+							} else {
+								foreach($position[$index] as $dsname => $stat) {
+									$dsvalues[$dsname][$stat] = trim($line);
+								}
+							}
+						}
+					}
+
+					return $dsvalues;
+				}
+			}
+		}
+	}
+
+	return false;
+}

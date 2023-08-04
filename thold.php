@@ -788,6 +788,7 @@ function list_tholds() {
 		'thold_type' => array(
 			'display' => __('Type', 'thold'),
 			'sort' => 'ASC',
+			'tip' => __('The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function.', 'thold'),
 			'align' => 'right'
 		),
 		'data_source' => array(
@@ -970,7 +971,8 @@ function list_tholds() {
 			if ($thold_data['thold_type'] != 1) {
 				form_selectable_cell($thold_types[$thold_data['thold_type']], $thold_data['id'], '', 'right');
 			} else {
-				form_selectable_cell($bl_types[$thold_data['bl_type']], $thold_data['id'], '', 'right');
+				$bl_type = get_bl_type($thold_data['bl_type'], $thold_data['bl_cf']);
+				form_selectable_cell($bl_type, $thold_data['id'], '', 'right');
 			}
 
 			form_selectable_cell($data_source, $thold_data['id'], '', 'right');
@@ -1792,13 +1794,25 @@ function thold_edit() {
 			'friendly_name' => __('Type', 'thold'),
 			'method' => 'drop_array',
 			'array' => $bl_types,
-			'description' => __('The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend.', 'thold'),
+			'description' => __('The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time.', 'thold'),
 			'value' => isset($thold_data['bl_type']) ? $thold_data['bl_type'] : 0
+		),
+		'bl_cf' => array(
+			'friendly_name' => __('Consolidation Function', 'thold'),
+			'method' => 'drop_array',
+			'array' => array(
+				'AVG'  => __('Average', 'thold'),
+				'MIN'  => __('Minimum', 'thold'),
+				'MAX'  => __('Maximum', 'thold'),
+				'LAST' => __('Last', 'thold'),
+			),
+			'description' => __('The Consolidation function to use for the Baseline Type value calculation.', 'thold'),
+			'value' => isset($thold_data['bl_cf']) ? $thold_data['bl_cf'] : 'AVG'
 		),
 		'bl_ref_time_range' => array(
 			'friendly_name' => __('Time Range', 'thold'),
 			'method' => 'drop_array',
-			'array' => $reference_types,
+			'array' => $thold_timespans,
 			'description' => __('Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold', 'thold'),
 			'value' => isset($thold_data['bl_ref_time_range']) ? $thold_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
 		),
@@ -2358,9 +2372,15 @@ function thold_edit() {
 		if (status == '') {
 			$('#row_baseline_header, #row_bl_ref_time_range').show();
 			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').show();
+
+			if ($('#bl_type').val() == 1 || $('#bl_type').val() == 3 || $('#bl_type').val() == 5) {
+				$('#row_bl_cf').show();
+			} else {
+				$('#row_bl_cf').hide();
+			}
 		} else {
 			$('#row_baseline_header, #row_bl_ref_time_range').hide();
-			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').hide();
+			$('#row_bl_pct_up, #row_bl_cf, #row_bl_pct_down, #row_bl_fail_trigger').hide();
 		}
 	}
 
@@ -2467,6 +2487,10 @@ function thold_edit() {
 
 		changeTholdType ();
 		changeDataType ();
+
+		$('#bl_type').on('change', function() {
+			thold_toggle_baseline('');
+		});
 
 		$('#local_graph_id').on('change', function() {
 			graphImage();

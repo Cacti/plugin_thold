@@ -815,6 +815,7 @@ function template_save_edit() {
 	}
 
 	$save['bl_type']     = get_nfilter_request_var('bl_type');
+	$save['bl_cf']       = get_nfilter_request_var('bl_cf');
 	$save['bl_pct_down'] = trim_round_request_var('bl_pct_down', 4, 'bl_pct_down');
 	$save['bl_pct_up']   = trim_round_request_var('bl_pct_up', 4, 'bl_pct_up');
 
@@ -1371,13 +1372,25 @@ function template_edit() {
 			'friendly_name' => __('Type', 'thold'),
 			'method' => 'drop_array',
 			'array' => $bl_types,
-			'description' => __('The type of Baseline.  Percentage Deviation is a percentage value from the historical trend.  Absolute Value is a deviation either above or below the Baseline over that historical trend.', 'thold'),
+			'description' => __('The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time.', 'thold'),
 			'value' => isset($thold_data['bl_type']) ? $thold_data['bl_type'] : 0
+		),
+		'bl_cf' => array(
+			'friendly_name' => __('Consolidation Function', 'thold'),
+			'method' => 'drop_array',
+			'array' => array(
+				'AVG'  => __('Average', 'thold'),
+				'MIN'  => __('Minimum', 'thold'),
+				'MAX'  => __('Maximum', 'thold'),
+				'LAST' => __('Last', 'thold'),
+			),
+			'description' => __('The Consolidation function to use for the Baseline Type value calculation.', 'thold'),
+			'value' => isset($thold_data['bl_cf']) ? $thold_data['bl_cf'] : 'AVG'
 		),
 		'bl_ref_time_range' => array(
 			'friendly_name' => __('Time Range', 'thold'),
 			'method' => 'drop_array',
-			'array' => $reference_types,
+			'array' => $thold_timespans,
 			'description' => __('Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold', 'thold'),
 			'value' => isset($thold_data['bl_ref_time_range']) ? $thold_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
 		),
@@ -1840,9 +1853,15 @@ function template_edit() {
 		if (status == '') {
 			$('#row_baseline_header, #row_bl_ref_time_range').show();
 			$('#row_bl_type, #row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').show();
+
+			if ($('#bl_type').val() == 1 || $('#bl_type').val() == 3 || $('#bl_type').val() == 5) {
+				$('#row_bl_cf').show();
+			} else {
+				$('#row_bl_cf').hide();
+			}
 		} else {
 			$('#row_baseline_header, #row_bl_ref_time_range').hide();
-			$('#row_bl_type, #row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').hide();
+			$('#row_bl_type, #row_bl_cf, #row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').hide();
 		}
 	}
 
@@ -1863,6 +1882,10 @@ function template_edit() {
 	$(function() {
 		changeTholdType();
 		changeDataType();
+
+		$('#bl_type').on('change', function() {
+			thold_toggle_baseline('');
+		});
 
 		if ($('#notify_accounts option').length == 0) {
 			$('#row_notify_accounts').hide();
@@ -2016,7 +2039,7 @@ function template_request_validation() {
 }
 
 function templates() {
-	global $config, $thold_template_actions, $item_rows, $thold_types;
+	global $config, $thold_template_actions, $item_rows, $thold_types, $bl_types;
 
 	template_request_validation();
 
@@ -2155,6 +2178,7 @@ function templates() {
 		'thold_type' => array(
 			'display' => __('Type', 'thold'),
 			'sort' => 'ASC',
+			'tip' => __('The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function.', 'thold'),
 			'align' => 'left'
 		),
 		'data_source_name' => array(
@@ -2244,7 +2268,15 @@ function templates() {
 			form_selectable_cell($template['id'], $template['id'], '', 'right');
 			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold.php?reset=1&thold_template_id=' . $template['id']) . '">' . $template['thresholds']  . '</a>', $template['id'], '', 'right');
 			form_selectable_cell(filter_value($template['data_template_name'], get_request_var('filter')), $template['id']);
-			form_selectable_cell($thold_types[$template['thold_type']], $template['id'], '', 'left');
+
+			if ($template['thold_type'] != 1) {
+				form_selectable_cell($thold_types[$template['thold_type']], $template['id']);
+			} else {
+				$bl_type = get_bl_type($template['bl_type'], $template['bl_cf']);
+				form_selectable_cell($bl_type, $template['id']);
+			}
+
+//			form_selectable_cell($thold_types[$template['thold_type']], $template['id'], '', 'left');
 			form_selectable_cell($template['data_source_name'], $template['id'], '', 'left');
 			form_selectable_cell($value_hi . ' / ' . $value_warning_hi, $template['id'], '', 'center');
 			form_selectable_cell($value_lo . ' / ' . $value_warning_lo, $template['id'], '', 'center');

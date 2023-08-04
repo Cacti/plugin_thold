@@ -32,6 +32,27 @@ $thold_log_retention = array(
 	'365' => __('%d Year', 1, 'thold')
 );
 
+$thold_timespans = array(
+	3600      => __('Last %d Hour', 1),
+	7200      => __('Last %d Hours', 2),
+	14400     => __('Last %d Hours', 4),
+	21600     => __('Last %d Hours', 6),
+	43200     => __('Last %d Hours', 12),
+	86400     => __('Last %d Day', 1),
+	172800    => __('Last %d Days', 2),
+	345600    => __('Last %d Days', 4),
+	604800    => __('Last %d Week', 1),
+	1209600   => __('Last %d Weeks', 2),
+	1814400   => __('Last %d Weeks', 3),
+	2618784   => __('Last %d Month', 1),
+	5237568   => __('Last %d Months', 2),
+	7856352   => __('Last %d Months', 3),
+	10475136  => __('Last %d Months', 4),
+	15712704  => __('Last %d Months', 6),
+	31536000  => __('Last %d Year', 1),
+	63072000  => __('Last %d Years', 2)
+);
+
 $thold_host_states = array(
 	HOST_DOWN => array(
 		'display' => __('Down', 'thold'),
@@ -485,9 +506,14 @@ $thold_types = array (
 );
 
 $bl_types = array(
-	0 => __('%% Deviation', 'thold'),
-	1 => __('Absolute Value', 'thold'),
-	2 => __('%% Floating Avg', 'thold'),
+	0 => __('%% Deviation Min/Max [TIP]', 'thold'),
+	1 => __('%% Deviation CF [TIP]', 'thold'),
+	2 => __('Absolute Val Min/Max [TIP]', 'thold'),
+	3 => __('Absolute Val of CF [TIP]', 'thold'),
+	4 => __('%% Deviation [AOT]', 'thold'),
+	5 => __('%% Deviation of CF [AOT]', 'thold'),
+	6 => __('Absolute Val [AOT]', 'thold'),
+	7 => __('Absolute Val of CF [AOT]', 'thold'),
 );
 
 $data_types = array (

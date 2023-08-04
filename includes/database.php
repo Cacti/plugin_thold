@@ -1587,6 +1587,38 @@ function thold_upgrade_database($force = false) {
 			'after'    => 'units_suffix')
 		);
 
+		db_add_column('thold_template', array(
+			'name'     => 'bl_cf',
+			'type'     => 'varchar(4)',
+			'NULL'     => false,
+			'default'  => 'AVG',
+			'after'    => 'bl_alert')
+		);
+
+		db_add_column('thold_data', array(
+			'name'     => 'bl_cf',
+			'type'     => 'varchar(4)',
+			'NULL'     => false,
+			'default'  => 'AVG',
+			'after'    => 'bl_alert')
+		);
+
+		db_add_column('thold_data', array(
+			'name'     => 'bl_reference_avg',
+			'type'     => 'double',
+			'NULL'     => false,
+			'default'  => '0',
+			'after'    => 'bl_reference_max')
+		);
+
+		db_add_column('thold_data', array(
+			'name'     => 'bl_reference_last',
+			'type'     => 'double',
+			'NULL'     => false,
+			'default'  => '0',
+			'after'    => 'bl_reference_avg')
+		);
+
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
@@ -1644,8 +1676,11 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'bl_fail_trigger', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_fail_count', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_alert', 'type' => 'int(2)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'bl_cf', 'type' => 'varchar(4)', 'NULL' => false, 'default' => 'AVG');
 	$data['columns'][] = array('name' => 'bl_reference_min', 'type' => 'double', 'NULL' => true, 'default' => '0');
 	$data['columns'][] = array('name' => 'bl_reference_max', 'type' => 'double', 'NULL' => true, 'default' => '0');
+	$data['columns'][] = array('name' => 'bl_reference_avg', 'type' => 'double', 'NULL' => true, 'default' => '0');
+	$data['columns'][] = array('name' => 'bl_reference_last', 'type' => 'double', 'NULL' => true, 'default' => '0');
 	$data['columns'][] = array('name' => 'bl_thold_valid', 'type' => 'int(11)', 'NULL' => false, 'default' => '0', 'unsigned' => true);
 	$data['columns'][] = array('name' => 'lastread', 'type' => 'varchar(100)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'lasttime', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00 00:00:00');
@@ -1743,6 +1778,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'bl_fail_trigger', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_fail_count', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'bl_alert', 'type' => 'int(2)', 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'bl_cf', 'type' => 'varchar(4)', 'NULL' => false, 'default' => 'AVG');
 	$data['columns'][] = array('name' => 'repeat_alert', 'type' => 'int(11)', 'NULL' => true, 'unsigned' => true);
 	$data['columns'][] = array('name' => 'notify_extra', 'type' => 'varchar(512)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'notify_warning_extra', 'type' => 'varchar(512)', 'NULL' => true);
