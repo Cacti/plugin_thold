@@ -1619,6 +1619,54 @@ function thold_upgrade_database($force = false) {
 			'after'    => 'bl_reference_avg')
 		);
 
+		db_add_column('thold_data', array(
+			'name'     => 'email_subject',
+			'type'     => 'varchar(128)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'persist_ack')
+		);
+
+		db_add_column('thold_template', array(
+			'name'     => 'email_subject',
+			'type'     => 'varchar(128)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'persist_ack')
+		);
+
+		db_add_column('thold_data', array(
+			'name'     => 'email_subject_warn',
+			'type'     => 'varchar(128)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'email_subject')
+		);
+
+		db_add_column('thold_template', array(
+			'name'     => 'email_subject_warn',
+			'type'     => 'varchar(128)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'email_subject')
+		);
+
+		db_add_column('thold_data', array(
+			'name'     => 'email_subject_restoral',
+			'type'     => 'varchar(128)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'email_subject_warn')
+		);
+
+		db_add_column('thold_template', array(
+			'name'     => 'email_subject_restoral',
+			'type'     => 'varchar(128)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'email_subject_warn')
+		);
+
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
@@ -1718,6 +1766,9 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'reset_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_subject', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_subject_warn', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_subject_restoral', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_restoral', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
@@ -1804,6 +1855,9 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'restored_alert', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'reset_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'persist_ack', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_subject', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_subject_warn', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'email_subject_restoral', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_warn', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'email_body_restoral', 'type' => 'varchar(1024)', 'NULL' => false, 'default' => '');

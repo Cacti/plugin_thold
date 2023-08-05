@@ -792,6 +792,11 @@ function template_save_edit() {
 	$save['trigger_cmd_low']  = get_nfilter_request_var('trigger_cmd_low');
 	$save['trigger_cmd_norm'] = get_nfilter_request_var('trigger_cmd_norm');
 
+	// Email Subject
+	$save['email_subject']          = get_nfilter_request_var('email_subject');
+	$save['email_subject_warn']     = get_nfilter_request_var('email_subject_warn');
+	$save['email_subject_restoral'] = get_nfilter_request_var('email_subject_restoral');
+
 	// Email Body
 	$save['email_body']          = get_nfilter_request_var('email_body');
 	$save['email_body_warn']     = get_nfilter_request_var('email_body_warn');
@@ -1492,13 +1497,14 @@ function template_edit() {
 			'collapsible' => 'true',
 			'method' => 'spacer',
 		),
-		'format_file' => array(
-			'friendly_name' => __('Email Style/Format File', 'thold'),
-			'method' => 'drop_array',
-			'default' => 'default.format',
-			'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'thold'),
-			'value' => '|arg1:format_file|',
-			'array' => $formats,
+		'email_subject' => array(
+			'friendly_name' => __('Alert Email Subject', 'thold'),
+			'method' => ($email_body == 'on' ? 'textbox':'hidden'),
+			'default' => '',
+			'size' => 80,
+			'max_length' => 128,
+			'description' => __('This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
+			'value' => isset($thold_data['email_subject']) ? $thold_data['email_subject'] : ''
 		),
 		'email_body' => array(
 			'friendly_name' => __('Alert Email Body', 'thold'),
@@ -1509,8 +1515,17 @@ function template_edit() {
 			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
 			'value' => isset($thold_data['email_body']) ? $thold_data['email_body'] : ''
 		),
+		'email_subject_warn' => array(
+			'friendly_name' => __('Warning Subject', 'thold'),
+			'method' => ($email_body == 'on' ? 'textbox':'hidden'),
+			'default' => '',
+			'size' => 80,
+			'max_length' => 128,
+			'description' => __('This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
+			'value' => isset($thold_data['email_subject']) ? $thold_data['email_subject'] : ''
+		),
 		'email_body_warn' => array(
-			'friendly_name' => __('Warning Email Body', 'thold'),
+			'friendly_name' => __('Warning Body', 'thold'),
 			'method' => ($email_body == 'on' ? 'textarea':'hidden'),
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
@@ -1518,8 +1533,17 @@ function template_edit() {
 			'description' => __('This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
 			'value' => isset($thold_data['email_body_warn']) ? $thold_data['email_body_warn'] : ''
 		),
+		'email_subject_restoral' => array(
+			'friendly_name' => __('Restoral Subject', 'thold'),
+			'method' => ($email_body == 'on' ? 'textbox':'hidden'),
+			'default' => '',
+			'size' => 80,
+			'max_length' => 128,
+			'description' => __('This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
+			'value' => isset($thold_data['email_subject_restoral']) ? $thold_data['email_subject_restoral'] : ''
+		),
 		'email_body_restoral' => array(
-			'friendly_name' => __('Restoral Email Body', 'thold'),
+			'friendly_name' => __('Restoral Body', 'thold'),
 			'method' => ($email_body == 'on' ? 'textarea':'hidden'),
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
@@ -1549,7 +1573,15 @@ function template_edit() {
 			'value' => isset($thold_data['notify_alert']) ? $thold_data['notify_alert'] : '',
 			'none_value' => __('None', 'thold'),
 			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
-		)
+		),
+		'format_file' => array(
+			'friendly_name' => __('Style/Format File', 'thold'),
+			'method' => 'drop_array',
+			'default' => 'default.format',
+			'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'thold'),
+			'value' => '|arg1:format_file|',
+			'array' => $formats,
+		),
 	);
 
 	if (read_config_option('thold_alert_snmp') == 'on') {
