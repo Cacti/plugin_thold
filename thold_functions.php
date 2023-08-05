@@ -4525,7 +4525,13 @@ function thold_check_baseline($local_data_id, $data_source_name, $current_value,
 
 	$now = time();
 
-	$current_time = time() - read_config_option('poller_interval');
+	$poller_interval = read_config_options('poller_interva');
+
+	if (empty($poller_interval)) {
+		$poller_interval = 300;
+	}
+
+	$current_time = time() - $poller_interval;
 	$prev_time    = $current_time - $thold_data['bl_ref_time_range'];
 	$avg_of_cf    = '';
 
