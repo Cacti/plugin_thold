@@ -2161,7 +2161,18 @@ function thold_check_threshold(&$thold_data) {
 	$warning_trigger = ($thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger']);
 	$alertstat       = $thold_data['thold_alert'];
 
-	// Setup base units
+	/* see if we have two notification lists or one */
+	$notify_different = false;
+
+	if ($thold_data['notify_warning'] > 0) {
+		if ($thold_data['notify_warning'] != $thold_data['notify_alert']) {
+			if (read_config_option('thold_notify_alerts_to_warning_recipients') == 'on') {
+				$notify_different = true;
+			}
+		}
+	}
+
+	/* setup base units */
 	$baseu = db_fetch_cell_prepared('SELECT base_value
 		FROM graph_templates_graph
 		WHERE local_graph_id = ?',
@@ -2260,6 +2271,17 @@ function thold_check_threshold(&$thold_data) {
 						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
 
 						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array, '', $notify_list_id, $h, $format_file);
+					}
+
+					if ($notify_different) {
+						$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+						$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+						$notify_list_id     = $thold_data['notify_warning'];
+						$format_file        = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
+
+						if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $alert_msg, $file_array, '', $notify_list_id, $h, $format_file);
+						}
 					}
 
 					thold_command_execution($thold_data, $h, $breach_up, $breach_down);
@@ -2363,9 +2385,6 @@ function thold_check_threshold(&$thold_data) {
 				if (!$suspend_notify && !$maint_dev) {
 					thold_debug('Alerting is necessary');
 
-					$alert_emails     = get_thold_emails($thold_data, 'alert', 'to');
-					$alert_bcc_emails = get_thold_emails($thold_data, 'alert', 'bcc');
-
 					if ($syslog) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
@@ -2442,9 +2461,20 @@ function thold_check_threshold(&$thold_data) {
 					$format_file      = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
 
 					if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-						$warn_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+						$alert_msg = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
 
 						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $warn_msg, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
+					}
+
+					if ($notify_different) {
+						$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+						$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+						$notify_list_id     = $thold_data['notify_warning'];
+						$format_file        = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
+
+						if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $alert_msg, $file_array, '', $notify_list_id, $h, $format_file);
+						}
 					}
 
 					$save = array(
@@ -2596,6 +2626,17 @@ function thold_check_threshold(&$thold_data) {
 						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
 					}
 
+					if ($notify_different) {
+						$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+						$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+						$notify_list_id     = $thold_data['notify_warning'];
+						$format_file        = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
+
+						if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $restoral_msg, $file_array, '', $notify_list_id, $h, $format_file);
+						}
+					}
+
 					thold_command_execution($thold_data, $h, false, false, true);
 
 					$save = array(
@@ -2691,6 +2732,17 @@ function thold_check_threshold(&$thold_data) {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
 
 						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
+					}
+
+					if ($notify_different) {
+						$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+						$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+						$notify_list_id     = $thold_data['notify_warning'];
+						$format_file        = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
+
+						if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $restoral_msg, $file_array, '', $notify_list_id, $h, $format_file);
+						}
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);
@@ -2800,6 +2852,17 @@ function thold_check_threshold(&$thold_data) {
 						$alert_msg = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
 
 						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
+					}
+
+					if ($notify_different) {
+						$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+						$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+						$notify_list_id     = $thold_data['notify_warning'];
+						$format_file        = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
+
+						if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $alert_msg, $file_array, '', $notify_list_id, $h, $format_file);
+						}
 					}
 
 					thold_command_execution($thold_data, $h, $breach_up, $breach_down, false);
@@ -3016,6 +3079,17 @@ function thold_check_threshold(&$thold_data) {
 						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $alert_msg, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
 					}
 
+					if ($notify_different) {
+						$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+						$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+						$notify_list_id     = $thold_data['notify_warning'];
+						$format_file        = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
+
+						if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $alert_msg, $file_array, '', $notify_list_id, $h, $format_file);
+						}
+					}
+
 					thold_command_execution($thold_data, $h, $breach_up, $breach_down, false);
 
 					$save = array(
@@ -3144,8 +3218,6 @@ function thold_check_threshold(&$thold_data) {
 						logger($subject, $url, $syslog_priority, $syslog_facility);
 					}
 
-					$alert_emails       = get_thold_emails($thold_data, 'alert', 'to');
-					$alert_bcc_emails   = get_thold_emails($thold_data, 'alert', 'bcc');
 					$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
 					$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
 
@@ -3342,6 +3414,17 @@ function thold_check_threshold(&$thold_data) {
 						$restoral_msg = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
 
 						thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $restoral_msg, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
+					}
+
+					if ($notify_different) {
+						$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
+						$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+						$notify_list_id     = $thold_data['notify_warning'];
+						$format_file        = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
+
+						if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $restoral_msg, $file_array, '', $notify_list_id, $h, $format_file);
+						}
 					}
 
 					thold_command_execution($thold_data, $h, false, false, true);

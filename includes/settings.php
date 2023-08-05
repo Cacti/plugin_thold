@@ -462,6 +462,12 @@ function thold_config_settings() {
 			'method' => 'checkbox',
 			'default' => ''
 		),
+		'thold_notify_alerts_to_warning_recipients' => array(
+			'friendly_name' => __('Enable Sending Alert Emails to Warning Notfication Lists', 'thold'),
+			'description' => __('Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notfication list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management.', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
+		),
 		'daemon_header' => array(
 			'friendly_name' => __('Threshold Daemon', 'thold'),
 			'method' => 'spacer',
