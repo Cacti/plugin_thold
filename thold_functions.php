@@ -2340,8 +2340,8 @@ function thold_check_threshold(&$thold_data) {
 			}
 
 			db_execute_prepared('UPDATE thold_data
-				SET thold_alert = ?
-				thold_fail_count = ?
+				SET thold_alert = ?,
+				thold_fail_count = ?,
 				thold_warning_fail_count = 0
 				WHERE id = ?',
 				array($thold_data['thold_alert'], $thold_data['thold_fail_count'], $thold_data['id']));
