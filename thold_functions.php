@@ -4868,67 +4868,67 @@ function thold_check_baseline($local_data_id, $data_source_name, $current_value,
 	 * 7 - Absolute Value Deviation of CF over the time period
 	 */
 	if ($thold_data['bl_type'] == 0) {
-		if ($thold_data['bl_pct_down'] != '') {
+		if ($thold_data['bl_pct_down'] != '' && is_numeric($ref_value_min)) {
 			$blt_low  = $ref_value_min - (abs($ref_value_min) * $thold_data['bl_pct_down'] / 100);
 		}
 
-		if ($thold_data['bl_pct_up'] != '') {
+		if ($thold_data['bl_pct_up'] != '' && is_numeric($ref_value_max)) {
 			$blt_high = $ref_value_max + (abs($ref_value_max) * $thold_data['bl_pct_up'] / 100);
 		}
 	} elseif ($thold_data['bl_type'] == 1) {
-		if ($thold_data['bl_pct_down'] != '') {
+		if ($thold_data['bl_pct_down'] != '' && is_numeric($ref_value)) {
 			$blt_low  = $ref_value - (abs($ref_value) * $thold_data['bl_pct_down'] / 100);
 		}
 
-		if ($thold_data['bl_pct_up'] != '') {
+		if ($thold_data['bl_pct_up'] != '' && is_numeric($ref_value)) {
 			$blt_high = $ref_value + (abs($ref_value) * $thold_data['bl_pct_up'] / 100);
 		}
 	} elseif ($thold_data['bl_type'] == 2) {
-		if ($thold_data['bl_pct_down'] != '') {
+		if ($thold_data['bl_pct_down'] != '' && is_numeric($ref_value_min)) {
 			$blt_low  = $ref_value_min - $thold_data['bl_pct_down'];
 		}
 
-		if ($thold_data['bl_pct_up'] != '') {
+		if ($thold_data['bl_pct_up'] != '' && is_numeric($ref_value_max)) {
 			$blt_high = $ref_value_max + $thold_data['bl_pct_up'];
 		}
 	} elseif ($thold_data['bl_type'] == 3) {
-		if ($thold_data['bl_pct_down'] != '') {
+		if ($thold_data['bl_pct_down'] != '' && is_numeric($ref_value)) {
 			$blt_low  = $ref_value - $thold_data['bl_pct_down'];
 		}
 
-		if ($thold_data['bl_pct_up'] != '') {
+		if ($thold_data['bl_pct_up'] != '' && is_numeric($ref_value)) {
 			$blt_high = $ref_value + $thold_data['bl_pct_up'];
 		}
 	} elseif ($thold_data['bl_type'] == 4) {
-		if ($thold_data['bl_pct_down'] != '') {
+		if ($thold_data['bl_pct_down'] != '' && is_numeric($ref_value_avg)) {
 			$blt_low  = $ref_value_avg - (abs($ref_value_avg) * $thold_data['bl_pct_down'] / 100);
 		}
 
-		if ($thold_data['bl_pct_up'] != '') {
+		if ($thold_data['bl_pct_up'] != '' && is_numeric($ref_value_avg)) {
 			$blt_high = $ref_value_avg + (abs($ref_value_avg) * $thold_data['bl_pct_up'] / 100);
 		}
 	} elseif ($thold_data['bl_type'] == 5) {
-		if ($thold_data['bl_pct_down'] != '') {
+		if ($thold_data['bl_pct_down'] != '' && is_numeric($ref_value_avg)) {
 			$blt_low  = $ref_value_avg - (abs($ref_value_avg) * $thold_data['bl_pct_down'] / 100);
 		}
 
-		if ($thold_data['bl_pct_up'] != '') {
+		if ($thold_data['bl_pct_up'] != '' && is_numeric($ref_value_avg)) {
 			$blt_high = $ref_value_avg + (abs($ref_value_avg) * $thold_data['bl_pct_up'] / 100);
 		}
 	} elseif ($thold_data['bl_type'] == 6) {
-		if ($thold_data['bl_pct_down'] != '') {
+		if ($thold_data['bl_pct_down'] != '' && is_numeric($ref_value_avg)) {
 			$blt_low  = $ref_value_avg - $thold_data['bl_pct_down'];
 		}
 
-		if ($thold_data['bl_pct_up'] != '') {
+		if ($thold_data['bl_pct_up'] != '' && is_numeric($ref_value_avg)) {
 			$blt_high = $ref_value_avg + $thold_data['bl_pct_up'];
 		}
 	} else {
-		if ($thold_data['bl_pct_down'] != '') {
+		if ($thold_data['bl_pct_down'] != '' && is_numeric($ref_value_cfa)) {
 			$blt_low  = $ref_value_cfa - $thold_data['bl_pct_down'];
 		}
 
-		if ($thold_data['bl_pct_up'] != '') {
+		if ($thold_data['bl_pct_up'] != '' && is_numeric($ref_value_cfa)) {
 			$blt_high = $ref_value_cfa + $thold_data['bl_pct_up'];
 		}
 	}
