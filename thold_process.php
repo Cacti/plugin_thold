@@ -160,7 +160,7 @@ while (true) {
 				$item = array();
 
 				if (substr($thold_data['rrd_reindexed'], 0, 1) == 'a') {
-					$rrd_reindexed[$thold_data['local_data_id']] = unserialize($thold_data['rrd_reindexed']);
+					$rrd_reindexed[$thold_data['local_data_id']] = cacti_unserialize($thold_data['rrd_reindexed']);
 				} else {
 					$rrd_reindexed[$thold_data['local_data_id']] = json_decode($thold_data['rrd_reindexed'], true);
 				}

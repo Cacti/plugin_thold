@@ -859,7 +859,7 @@ function thold_wizard() {
 function thold_new_graphs_save($host_id) {
 	$return_array = false;
 
-	$selected_graphs_array = unserialize(stripslashes(get_nfilter_request_var('selected_graphs_array')), array('allowed_classes' => false));
+	$selected_graphs_array = cacti_unserialize(stripslashes(get_nfilter_request_var('selected_graphs_array')));
 
 	$values = array();
 
