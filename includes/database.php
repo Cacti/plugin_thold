@@ -855,7 +855,7 @@ function thold_upgrade_database($force = false) {
 		// Add additional columns for new features
 		db_add_column('thold_data', array(
 			'name'    => 'name_cache',
-			'type'    => 'varchar(100)',
+			'type'    => 'varchar(150)',
 			'NULL'    => false,
 			'default' => '',
 			'after'   => 'name'));
@@ -1687,8 +1687,8 @@ function thold_setup_database() {
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'thread_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(100)', 'NULL' => true);
-	$data['columns'][] = array('name' => 'name_cache', 'type' => 'varchar(100)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(150)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'name_cache', 'type' => 'varchar(150)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'local_data_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_template_rrd_id', 'type' => 'int(11)', 'NULL' => false, 'unsigned' => true, 'default' => '0');
 	$data['columns'][] = array('name' => 'local_graph_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
