@@ -2229,7 +2229,7 @@ function thold_edit() {
 
 	html_end_box();
 
-	form_save_button('thold.php' . (!empty($thold_data['id']) ? '?id=' . $thold_data['id']: ''), 'return', 'id');
+	form_save_button(isset($_SESSION['data_return']) ? $_SESSION['data_return'] : 'thold.php' . (!empty($thold_data['id']) ? '?id=' . $thold_data['id']: ''), 'return', 'id');
 
 	?>
 
