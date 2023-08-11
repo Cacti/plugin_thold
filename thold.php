@@ -43,9 +43,11 @@ include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 set_default_action();
 
 if (isset($_SERVER['HTTP_REFERER'])) {
-	if (preg_match('/(data_sources.php|graph_view.php|thold_graph.php|graph.php)/', $_SERVER['HTTP_REFERER'])) {
-		cacti_log('The return location is: ' . $_SERVER['HTTP_REFERER']);
-		$_SESSION['data_return'] = $_SERVER['HTTP_REFERER'];
+	if (preg_match('/(data_sources.php|graph_view.php|thold_graph.php|graph.php|thold.php)/', $_SERVER['HTTP_REFERER'])) {
+		if(!preg_match('/thold.php/', $_SERVER['HTTP_REFERER'])
+			|| !preg_match('/action=edit/', $_SERVER['HTTP_REFERER'])) {
+			$_SESSION['data_return'] = $_SERVER['HTTP_REFERER'];
+		}
 	} else {
 		kill_session_var('data_return');
 	}
