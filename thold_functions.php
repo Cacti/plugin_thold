@@ -4987,23 +4987,23 @@ function get_bl_type($type, $cf) {
 		case '2':
 		case '4':
 		case '6':
-			return $bl_types[$type];
+			return str_replace(array('Deviation', 'Absolute'), array('Dev', 'Abs'), $bl_types[$type]);
 
 			break;
 		case '1':
-			return __('%% Deviation [TIP:%s]', $cf, 'thold');
+			return __('%% Dev [TIP:%s]', $cf, 'thold');
 
 			break;
 		case '3':
-			return __('Absolute Value [TIP:%s]', $cf, 'thold');
+			return __('Abs Val [TIP:%s]', $cf, 'thold');
 
 			break;
 		case '5':
-			return __('%%% Deviation [AOT:%s]', $cf, 'thold');
+			return __('%%% Dev [AOT:%s]', $cf, 'thold');
 
 			break;
 		case '7':
-			return __('Absolute Val [AOT:%s]', $cf, 'thold');
+			return __('Abs Val [AOT:%s]', $cf, 'thold');
 
 			break;
 	}

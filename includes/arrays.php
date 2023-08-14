@@ -510,10 +510,10 @@ $bl_types = array(
 	1 => __('%% Deviation CF [TIP]', 'thold'),
 	2 => __('Absolute Val Min/Max [TIP]', 'thold'),
 	3 => __('Absolute Val of CF [TIP]', 'thold'),
-	4 => __('%% Deviation [AOT]', 'thold'),
-	5 => __('%% Deviation of CF [AOT]', 'thold'),
-	6 => __('Absolute Val [AOT]', 'thold'),
-	7 => __('Absolute Val of CF [AOT]', 'thold'),
+	4 => __('%% Deviation Avg [AOT]', 'thold'),
+	5 => __('%% Deviation Avg of CF [AOT]', 'thold'),
+	6 => __('Absolute Val Avg [AOT]', 'thold'),
+	7 => __('Absolute Val Avg of CF [AOT]', 'thold'),
 );
 
 $data_types = array (
