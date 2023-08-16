@@ -594,15 +594,19 @@ $percentiles_down = array(10,20,30,40,50);
 $notification_pause_values[-1] = __('Disabled', 'thold');
 
 foreach($devices_down as $d) {
-	$notification_pause_values["$d|g"] = __('> %d Devices', $d, 'thold');
+	$notification_pause_values["$d|eg"] = __('> %d Devices', $d, 'thold');
 }
 
 foreach($percentiles_down as $p) {
-	$notification_pause_values["$p|ps"] = __('> %d%%% of Devices in a Site', $p, 'thold');
+	$notification_pause_values["$p|peg"] = __('> %d%%% of Devices Globally', $p, 'thold');
+}
+
+foreach($devices_down as $d) {
+	$notification_pause_values["$d|es"] = __('> %d Devices in a Site', $d, 'thold');
 }
 
 foreach($percentiles_down as $p) {
-	$notification_pause_values["$p|pg"] = __('> %d%%% of Devices Globally', $p, 'thold');
+	$notification_pause_values["$p|pes"] = __('> %d%%% of Devices in a Site', $p, 'thold');
 }
 
 $notification_delay_values = array(

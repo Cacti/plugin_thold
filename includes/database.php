@@ -1667,6 +1667,15 @@ function thold_upgrade_database($force = false) {
 			'after'    => 'email_subject_warn')
 		);
 
+		db_add_column('notification_queue', array(
+			'name'     => 'delay_notify',
+			'type'     => 'tinyint',
+			'unsigned' => true,
+			'NULL'     => false,
+			'default'  => '0',
+			'after'    => 'email_subject_warn')
+		);
+
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
@@ -2003,6 +2012,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'object_name', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'hostname', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
+	$data['columns'][] = array('name' => 'delay_notify', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'event_time', 'type' => 'timestamp', 'NULL' => false, 'default' => 'CURRENT_TIMESTAMP');
 	$data['columns'][] = array('name' => 'event_data', 'type' => 'longblob', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'error_code', 'type' => 'int', 'NULL' => false, 'default' => '0');

@@ -6438,6 +6438,278 @@ function thold_notification_add($topic, &$data, $id = 'id', $list_id = 0, &$host
 		array($topic, $list_id, $id, $name, $host_id, $hostname, $now, json_encode($data, JSON_THROW_ON_ERROR)));
 }
 
+function thold_check_for_notification_delay() {
+	$delay_criteria = read_config_option('alert_notification_pause');
+	$last_check     = read_config_option('alert_deadnotify_last_check');
+	$last_trigger   = json_decode(read_config_option('alert_deadnotify_state'), true);
+	$now            = time();
+	$triggers       = array();
+
+	if ($delay_criteria != '') {
+		$options = explode(',', $delay_criteria);
+
+		foreach($options as $option) {
+			list($value, $type) = explode('|', $option);
+
+			switch($type) {
+				case 'eg':  // Global events
+					$events = db_fetch_cell_prepared('SELECT COUNT(*) AS events
+						FROM notification_queue
+						WHERE event_processed = 0
+						AND topic IN ("thold_dhost_mail", "thold_dhost_cmd")
+						AND event_time BETWEEN ? AND ?',
+						array(
+							date('Y-m-d H:i:s', $last_check),
+							date('Y-m-d H:i:s', $now)
+						)
+					);
+
+					if ($events > $value) {
+						$triggers[$option] = array(
+							'events' => $events,
+							'time' => $now
+						);
+					}
+
+					break;
+				case 'es': // Events per Site
+					$events = db_fetch_assoc_prepared('SELECT site_id, COUNT(*) AS events
+						FROM notification_queue AS nq
+						INNER JOIN host AS h
+						ON nq.host_id = h.id
+						WHERE event_processed = 0
+						AND topic IN ("thold_dhost_mail", "thold_dhost_cmd")
+						AND event_time BETWEEN ? AND ?
+						GROUP BY site_id
+						HAVING events > ?',
+						array(
+							date('Y-m-d H:i:s', $last_check),
+							date('Y-m-d H:i:s', $now),
+							$value
+						)
+					);
+
+					if (cacti_sizeof($events)) {
+						foreach($events as $e) {
+							$triggers[$option . '|' . $e['site_id']] = array(
+								'events' => $e['events'],
+								'time' => $now
+							);
+						}
+					}
+
+					break;
+				case 'es': // Percent of events per Site
+					$events = db_fetch_assoc_prepared('SELECT h.site_id, COUNT(*) AS events, th.total_hosts
+						FROM notification_queue AS nq
+						INNER JOIN host AS h
+						ON nq.host_id = h.id
+						INNER JOIN (
+							SELECT site_id, COUNT(*) AS total_hosts
+							FROM host
+							WHERE disabled = ""
+							AND deleted = ""
+							GROUP BY site_id
+						) AS th
+						ON th.site_id = h.site_id
+						WHERE nq.event_processed = 0
+						AND nq.topic IN ("thold_dhost_mail", "thold_dhost_cmd")
+						AND nq.event_time BETWEEN ? AND ?
+						GROUP BY h.site_id
+						HAVING (events / total_hosts) * 100 > ?',
+						array(
+							date('Y-m-d H:i:s', $last_check),
+							date('Y-m-d H:i:s', $now),
+							$value
+						)
+					);
+
+					if (cacti_sizeof($events)) {
+						foreach($events as $e) {
+							$triggers[$option . '|' . $e['site_id']] = array(
+								'events' => $e['hosts'],
+								'time'   => $now
+							);
+						}
+					}
+
+					break;
+				case 'peg': // Percent of events Globally
+					$events = db_fetch_row_prepared('SELECT
+						(SELECT COUNT(*) FROM host WHERE disabled = "" AND deleted = "") AS total_hosts,
+						COUNT(nq.host_id) AS events
+						FROM notification_queue AS nq
+						INNER JOIN host AS h
+						ON h.id = nq.host_id
+						WHERE h.disabled = ""
+						AND h.deleted = ""
+						AND nq.event_processed = 0
+						AND nq.topic IN ("thold_dhost_mail", "thold_dhost_cmd")
+						AND nq.event_time BETWEEN ? AND ?
+						HAVING (events / total_hosts) * 100 > ?',
+						array(
+							date('Y-m-d H:i:s', $last_check),
+							date('Y-m-d H:i:s', $now),
+							$value
+						)
+					);
+
+					if (cacti_sizeof($events)) {
+						$triggers[$option] = array(
+							'events' => $events['events'],
+							'time'   => $now
+						);
+					}
+			}
+		}
+	}
+
+	/**
+	 * Review the old triggers first to see if the trigger period is over
+	 * and it's time to provide final notification and communication
+	 *
+	 * This function will provide initial notification to the notification
+	 * list associated with the devices of the initial event.
+	 */
+	check_for_expired_delays($last_trigger, $triggers, $now, $last_check);
+
+	/**
+	 * Review the new triggers now to see if there are any new triggers
+	 * and to setup notification delay for them.  The prior step will
+	 * unset any active triggers leaving only new triggers to setup
+	 * and deal with.
+	 *
+	 * This function will also provide any final notification and set the
+	 * JSON config option for future notification delay actions
+	 */
+	check_for_new_delays($last_trigger, $triggers, $now, $last_check);
+}
+
+/**
+ * check_for_expired_delays - This function will look at the start time of
+ *   any trigger delays, and if the delay time has expired, it will check
+ *   the status of the hosts in question, and if they are still in a down
+ *   state, a final notification will be sent via Email and or Command with
+ *
+ * @param array - Any active triggers that may or may not remain active
+ * @param array - Any new triggers that may be part of an existing delay
+ *                or a new delay besed upon the ruleset.
+ * @param int   - The Unix Timestamp of the start time for the sample period
+ * @param int   - The Unix Timestamp of the last time that a check was performed.
+ *
+ * @return null - Though the two trigger variables that were passed by reference
+ *                will be modified based upon the findings.  For example, if a
+ *                delay has expired and we provided notification the delay will
+ *                be unset, also if we find additional events for and existing
+ *                delay, it will be removed from the new events.
+ */
+function check_for_expired_delays(&$last_trigger, $triggers, $now, $last_check) {
+	$delay_period   = read_config_option('alert_notification_delay');
+	$delay_single   = read_config_option('alert_deadnotify_single_transaction') == 'on' ? true:false;
+
+	if (cacti_sizeof($last_trigger)) {
+		foreach($last_trigger as $type => $details) {
+			$parts = explode('|', $type);
+
+			/**
+			 * Its time to provide the final notification for this notification
+			 * delay.  Check the type, the variout notification lists and the
+			 * status of the hosts.  If they are no longer down, you can cancel
+			 * any notifications if not and send out an all clear event.
+			 * Otherwise, trigger the notfications as directed.
+			 */
+			if ($now - $details['start_time'] >= $delay_period) {
+				switch($parts[0]) {
+					case 'eg':
+					case 'peg':
+						$hosts_down = db_fetch_assoc_prepared('SELECT h.*,
+							nq.id AS notification_id, nq.notification_list_id, nq.topic,
+							nq.event_data, nq.event_time
+							FROM host AS h
+							INNER JOIN notification_queue AS nq
+							ON h.id = nq.host_id
+							WHERE nq.event_processed = 0
+							AND nq.topic IN ("thold_dhost_mail", "thold_dhost_cmd")
+							AND nq.event_time BETWEEN ? AND ?
+							AND h.status NOT IN (?, ?)',
+							array(
+								date('Y-m-d H:i:s', $details['start_time']),
+								date('Y-m-d H:i:s', $now),
+								HOST_RECOVERING,
+								HOST_UP
+							)
+						);
+
+						if (cacti_sizeof($host_down)) {
+							/* perform notification of errors */
+							$hosts = array_rekey($hosts_down, 'id', 'id');
+						} else {
+							/* perform notification of clearing of errors */
+						}
+
+						if (isset($triggers[$type])) {
+							unset($triggers[$type]);
+						}
+
+						break;
+					case 'es':
+					case 'pes':
+						$hosts_down = db_fetch_assoc_prepared('SELECT h.*,
+							nq.id AS notification_id, nq.notification_list_id, nq.topic,
+							nq.event_data, nq.event_time
+							FROM host AS h
+							INNER JOIN notification_queue AS nq
+							ON h.id = nq.host_id
+							WHERE nq.event_processed = 0
+							AND h.site_id = ?
+							AND nq.topic IN ("thold_dhost_mail", "thold_dhost_cmd")
+							AND nq.event_time BETWEEN ? AND ?
+							AND h.status NOT IN (?, ?)',
+							array(
+								$parts[2],
+								date('Y-m-d H:i:s', $details['start_time']),
+								date('Y-m-d H:i:s', $now),
+								HOST_RECOVERING,
+								HOST_UP
+							)
+						);
+
+						if (cacti_sizeof($host_down)) {
+							/* perform notification of errors */
+							$hosts = array_rekey($hosts_down, 'id', 'id');
+						} else {
+							/* perform notification of clearing of errors */
+						}
+
+						if (isset($triggers[$type])) {
+							unset($triggers[$type]);
+						}
+				}
+			}
+		}
+	}
+}
+
+/**
+ * check_for_new_delays - Given the list of existing triggers and any
+ *   new triggers, we will re-establish the triggers and provide the
+ *   appropriate initial notfication as required.  The function in the
+ *   end will set the config option for the next sampling interval to
+ *   evaluate.
+ *
+ * @param array - Any active triggers that may or may not remain active
+ * @param array - Any new triggers that may be part of an existing delay
+ *                or a new delay besed upon the ruleset.
+ * @param int   - The Unix Timestamp of the start time for the sample period
+ * @param int   - The Unix Timestamp of the last time that a check was performed.
+ *
+ * @return null
+ */
+function check_for_new_delays($last_trigger, $triggers, $now, $last_check) {
+	$delay_period   = read_config_option('alert_notification_delay');
+	$delay_single   = read_config_option('alert_deadnotify_single_transaction') == 'on' ? true:false;
+}
+
 function thold_notification_execute($pid = 0, $max_records = 'all') {
 	if ($max_records == 'all') {
 		$sql_limit = '';
@@ -6451,11 +6723,19 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 		$sql_where = '';
 	}
 
+	/* See if and administrator has suspended notifications */
 	$prev_suspended = read_config_option('thold_notification_suspended', true);
+
+	/**
+	 * See if notification delay is active and mark the events as such,
+	 * which will potentially leave less events to process.
+	 */
+	thold_check_for_notification_delay();
 
 	$records = db_fetch_assoc("SELECT *
 		FROM notification_queue
 		WHERE event_processed = 0
+		AND delay_notify = 0
 		$sql_where
 		ORDER BY event_time ASC
 		$sql_limit");
