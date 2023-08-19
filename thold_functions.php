@@ -6440,10 +6440,14 @@ function thold_notification_add($topic, &$data, $id = 'id', $list_id = 0, &$host
 
 function thold_check_for_notification_delay() {
 	$delay_criteria = read_config_option('alert_notification_pause');
-	$last_check     = read_config_option('alert_deadnotify_last_check');
-	$last_trigger   = json_decode(read_config_option('alert_deadnotify_state'), true);
 	$now            = time();
 	$triggers       = array();
+	$last_check     = read_config_option('alert_deadnotify_last_check');
+	$last_trigger   = read_config_option('alert_deadnotify_state');
+
+	if ($last_trigger != '') {
+		$last_trigger = json_decode($last_trigger, true);
+	}
 
 	if ($delay_criteria != '') {
 		$options = explode(',', $delay_criteria);
