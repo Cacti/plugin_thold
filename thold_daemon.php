@@ -120,7 +120,7 @@ if (!register_process_start('thold', 'parent', 0, $timeout)) {
 			exit(1);
 		} else {
 			unregister_process('thold', 'parent', 0);
-			register_process('thold', 'parent', 0, $timeout);
+			register_process_start('thold', 'parent', 0, $timeout);
 		}
 	}
 }

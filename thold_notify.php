@@ -134,7 +134,7 @@ if (!register_process_start('thold_notify', 'child', $thread, $timeout)) {
 			exit(1);
 		} else {
 			unregister_process('thold_notify', 'child', $thread);
-			register_process('thold_notify', 'child', $thread, $timeout);
+			register_process_start('thold_notify', 'child', $thread, $timeout);
 		}
     }
 }

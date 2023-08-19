@@ -125,7 +125,7 @@ if (!register_process_start('thold', 'child', $thread, $timeout)) {
 			exit(1);
 		} else {
 			unregister_process('thold', 'child', $thread);
-			register_process('thold', 'child', $thread, $timeout);
+			register_process_start('thold', 'child', $thread, $timeout);
 		}
     }
 }
