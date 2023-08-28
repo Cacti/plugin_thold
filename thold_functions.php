@@ -5589,7 +5589,7 @@ function save_thold() {
 	// Baseline
 	$save['bl_thold_valid']    = '0';
 	$save['bl_type']           = get_filter_request_var('bl_type');
-	$save['bl_cf']             = get_filter_request_var('bl_cf');
+	$save['bl_cf']             = get_nfilter_request_var('bl_cf');
 	$save['bl_ref_time_range'] = isempty_request_var('bl_ref_time_range') ? read_config_option('alert_bl_timerange_def'):get_nfilter_request_var('bl_ref_time_range');
 	$save['bl_pct_down']       = trim_round_request_var('bl_pct_down', 4, 'bl_pct_down');
 	$save['bl_pct_up']         = trim_round_request_var('bl_pct_up', 4, 'bl_pct_up');
