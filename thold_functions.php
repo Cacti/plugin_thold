@@ -4115,7 +4115,7 @@ function get_thold_restoral_text($data_source_name, $thold, $h, $currentval, $lo
 	$peralert   = read_config_option('thold_enable_per_thold_body');
 
 	if ($peralert == 'on') {
-		$restoral_text = $thold['email_body_resotral'];
+		$restoral_text = $thold['email_body_restoral'];
 	}
 
 	/* make sure the alert text has been set */
