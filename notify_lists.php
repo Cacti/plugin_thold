@@ -513,21 +513,21 @@ function form_actions() {
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default.', 'thold'). "</p>
-						<ul>$list</ul>
+						<div class='itemlist'><ul>$list</ul></div>
 					</td>
-				</tr>\n";
+				</tr>";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Delete Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { /* duplicate */
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __('Click \'Continue\' to Duplicate the following Notification List(s).', 'thold') . "</p>
-						<ul>$list</ul>
+						<div class='itemlist'><ul>$list</ul></div>
 					<p>" . __('New List Name') . '<br>';
 					form_text_box('name', __('New Notification List'), '', '255', '40', 'text');
 
 				print "</p></td>
-				</tr>\n";
+				</tr>";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Duplicate Notification List(s)', 'thold') . "'>";
 			}
@@ -545,7 +545,7 @@ function form_actions() {
 				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 				$save_html
 			</td>
-		</tr>\n";
+		</tr>";
 
 		html_end_box();
 
@@ -581,22 +581,22 @@ function form_actions() {
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __esc('Click \'Continue\' to Association the Notification List \'%s\' with the Threshold Template(s) below.', $list_name, 'thold') . "</p>
-						<ul>$list</ul>
+						<div class='itemlist'><ul>$list</ul></div>
 						<p>" . __('Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 						<p>" . __('Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
-				</tr>\n";
+				</tr>";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __esc('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Thresholds Template(s) below.', $list_name, 'thold') . "</p>
-						<ul>$list</ul>
+						<div class='itemlist'><ul>$list</ul></div>
 						<p>" . __('Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 						<p>" . __('Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
-				</tr>\n";
+				</tr>";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
@@ -615,7 +615,7 @@ function form_actions() {
 				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 				$save_html
 			</td>
-		</tr>\n";
+		</tr>";
 
 		html_end_box();
 
@@ -651,22 +651,22 @@ function form_actions() {
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __esc('Click \'Continue\' to Associate the Notification List \'%s\' with the Threshold(s) below.', $list_name, 'thold') . "</p>
-						<ul>$list</ul>
+						<div class='itemlist'><ul>$list</ul></div>
 						<p>" . __('Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 						<p>" . __('Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
-				</tr>\n";
+				</tr>";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
 				print "<tr>
 					<td class='textArea'>
 						<p>" . __esc('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Thresholds(s) below.', $list_name, 'thold') . "</p>
-						<ul>$list</ul>
+						<div class='itemlist'><ul>$list</ul></div>
 						<p>" . __('Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 						<p>" . __('Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
-				</tr>\n";
+				</tr>";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
@@ -685,7 +685,7 @@ function form_actions() {
 				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 				$save_html
 			</td>
-		</tr>\n";
+		</tr>";
 
 		html_end_box();
 
@@ -721,12 +721,12 @@ function form_actions() {
 					<td class='textArea'>
 						<p>" . __esc('Click \'Continue\' to Associate the Notification List \'%s\' with the Device(s) below.', $list_name, 'thold') . "</p>
 						<p>" . __('You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten.', 'thold') . "</p>
-						<ul>$list</ul>
+						<div class='itemlist'><ul>$list</ul></div>
 						<p>" . __('Resulting Membership:', 'thold'). "<br>"; form_dropdown('notification_action', array(2 => __('Notification List Only', 'thold'), 3 => __('Notification and Global Lists', 'thold')), '', '', 2, '', ''); print "</p>
 						<p>" . __('Device Threshold Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 						<p>" . __('Device Threshold Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Notification List Only', 'thold'), 2 => __('Notification List, Retain Other Settings', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
-				</tr>\n";
+				</tr>";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold'). "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold'). "' title='" . __esc('Associate Notification List(s)', 'thold'). "'>";
 			} elseif (get_request_var('drp_action') == '2') { /* disassociate */
@@ -734,12 +734,12 @@ function form_actions() {
 					<td class='textArea'>
 						<p>" . __esc('Click \'Continue\' to Disassociate the Notification List \'%s\' from the Device(s) below.', $list_name, 'thold') . "</p>
 						<p>" . __('You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten.', 'thold') . "</p>
-						<ul>$list</ul>
+						<div class='itemlist'><ul>$list</ul></div>
 						<p>" . __('Resulting Membership:', 'thold') . "<br>"; form_dropdown('notification_action', array(1 => __('Global List', 'thold'), 0 => __('Disabled', 'thold')), '', '', 1, '', ''); print "</p>
 						<p>" . __('Device Threshold Warning Membership:', 'thold') . "<br>"; form_dropdown('notification_warning_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 						<p>" . __('Device Threshold Alert Membership:', 'thold') . "<br>"; form_dropdown('notification_alert_action', array(0 => __('No Change', 'thold'), 1 => __('Remove List', 'thold')), '', '', 1, '', ''); print "</p>
 					</td>
-				</tr>\n";
+				</tr>";
 
 				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
@@ -758,7 +758,7 @@ function form_actions() {
 				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
 				$save_html
 			</td>
-		</tr>\n";
+		</tr>";
 
 		html_end_box();
 
@@ -803,17 +803,17 @@ function edit() {
 	$current_tab = get_request_var('tab');
 
 	if (cacti_sizeof($tabs_thold) && isset_request_var('id')) {
-		print "<div class='tabs'><nav><ul>\n";
+		print "<div class='tabs'><nav><ul>";
 
 		foreach (array_keys($tabs_thold) as $tab_short_name) {
 			print "<li><a class='pic" . (($tab_short_name == $current_tab) ? ' selected' : '') .  "' href='" . $config['url_path'] .
 				'plugins/thold/notify_lists.php' .
 				'?action=edit&id=' . get_filter_request_var('id') .
 				'&tab=' . $tab_short_name .
-				"'>" . $tabs_thold[$tab_short_name] . "</a></li>\n";
+				"'>" . $tabs_thold[$tab_short_name] . '</a></li>';
 		}
 
-		print "</ul></nav></div>\n";
+		print '</ul></nav></div>';
 	}
 
 	$header_label = get_notification_header_label();
@@ -1003,7 +1003,7 @@ function hosts($header_label) {
 
 							if (cacti_sizeof($sites)) {
 								foreach ($sites as $site) {
-									print "<option value='" . $site['id'] . "'"; if (get_request_var('site_id') == $site['id']) { print ' selected'; } print '>' . html_escape($site['name']) . "</option>\n";
+									print "<option value='" . $site['id'] . "'" . (get_request_var('site_id') == $site['id'] ? ' selected':'') . '>' . html_escape($site['name']) . '</option>';
 								}
 							}
 							?>
@@ -1023,7 +1023,7 @@ function hosts($header_label) {
 
 							if (cacti_sizeof($host_templates)) {
 								foreach ($host_templates as $host_template) {
-									print "<option value='" . $host_template['id'] . "'"; if (get_request_var('host_template_id') == $host_template['id']) { print ' selected'; } print '>' . html_escape($host_template['name']) . "</option>\n";
+									print "<option value='" . $host_template['id'] . "'" . (get_request_var('host_template_id') == $host_template['id'] ? ' selected':'') . '>' . html_escape($host_template['name']) . '</option>';
 								}
 							}
 							?>
@@ -1038,7 +1038,7 @@ function hosts($header_label) {
 							<?php
 							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
+									print "<option value='" . $key . "'" . (get_request_var('rows') == $key ? ' selected':'') . '>' . html_escape($value) . '</option>';
 								}
 							}
 							?>
@@ -1266,9 +1266,9 @@ function hosts($header_label) {
 		print $nav;
 	}
 
-//	form_hidden_box('tab', 'hosts', '');
-//	form_hidden_box('id', get_request_var('id'), '');
-//	form_hidden_box('save_associate', '1', '');
+	form_hidden_box('tab', 'hosts', '');
+	form_hidden_box('id', get_request_var('id'), '');
+	form_hidden_box('save_associate', '1', '');
 
 	draw_actions_dropdown($assoc_actions);
 
@@ -1367,7 +1367,7 @@ function tholds($header_label) {
 
 							if (cacti_sizeof($sites)) {
 								foreach ($sites as $site) {
-									print "<option value='" . $site['id'] . "'"; if (get_request_var('site_id') == $site['id']) { print ' selected'; } print '>' . html_escape($site['name']) . "</option>\n";
+									print "<option value='" . $site['id'] . "'" . (get_request_var('site_id') == $site['id'] ? ' selected':'') . '>' . html_escape($site['name']) . '</option>';
 								}
 							}
 							?>
@@ -1407,7 +1407,7 @@ function tholds($header_label) {
 							<?php
 							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
+									print "<option value='" . $key . "'" . (get_request_var('rows') == $key ? ' selected':'') . '>' . html_escape($value) . '</option>';
 								}
 							}
 							?>
@@ -1619,12 +1619,12 @@ function tholds($header_label) {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='even' <td colspan='" . (cacti_sizeof($display_text) + 1) . "'><i>" . __('No Thresholds', 'thold'). "</i></td></tr>\n";
+		print "<tr class='even'><td colspan='" . (cacti_sizeof($display_text) + 1) . "'><i>" . __('No Thresholds Found', 'thold'). "</i></td></tr>";
 	}
 
 	html_end_box(false);
 
-	if (count($result)) {
+	if (cacti_sizeof($result)) {
 		print $nav;
 	}
 
@@ -1693,7 +1693,7 @@ function templates($header_label) {
 							<?php
 							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
+									print "<option value='" . $key . "'" . (get_request_var('rows') == $key ? ' selected':'') . '>' . html_escape($value) . '</option>';
 								}
 							}
 							?>
@@ -1845,7 +1845,7 @@ function templates($header_label) {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='even'><td colspan='" . (cacti_sizeof($display_text) + 1) . "'><i>" . __('No Templates', 'thold') . "</i></td></tr>\n";
+		print "<tr class='even'><td colspan='" . (cacti_sizeof($display_text) + 1) . "'><i>" . __('No Threshold Templates', 'thold') . "</i></td></tr>";
 	}
 
 	html_end_box(false);
@@ -2017,7 +2017,7 @@ function lists() {
 							<?php
 							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . "</option>\n";
+									print "<option value='" . $key . "'" . (get_request_var('rows') == $key ? ' selected':'') . '>' . html_escape($value) . '</option>';
 								}
 							}
 							?>
