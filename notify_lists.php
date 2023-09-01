@@ -930,41 +930,41 @@ function hosts($header_label) {
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'page' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
+		),
 		'site_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'rfilter' => array(
 			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
-			),
+		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'description',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'ASC',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'associated' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'true',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'host_template_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			)
+		)
 	);
 
 	validate_store_request_vars($filters, 'sess_nlh');
@@ -1010,7 +1010,7 @@ function hosts($header_label) {
 						</select>
 					</td>
 					<td>
-						<?php print __('Type', 'thold');?>
+						<?php print __('Device Template', 'thold');?>
 					</td>
 					<td>
 						<select id='host_template_id' onChange='applyFilter()'>
@@ -1094,41 +1094,52 @@ function hosts($header_label) {
 
 	html_end_box();
 
+	$sql_where  = '';
+	$sql_params = array();
+
 	/* form the 'where' clause for our main sql query */
 	if (strlen(get_request_var('rfilter'))) {
 		$sql_where = "WHERE (
-			host.hostname RLIKE '"       . get_request_var('rfilter') . "'
-			OR host.description RLIKE '" . get_request_var('rfilter')  . "')";
-	} else {
-		$sql_where = '';
+			h.hostname RLIKE ?
+			OR h.description RLIKE ?)";
+
+		$sql_params[] = get_request_var('rfilter');
+		$sql_params[] = get_request_var('rfilter');
 	}
 
 	if (get_request_var('site_id') == '-1') {
 		/* Show all items */
 	} elseif (get_request_var('site_id') == '0') {
-		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' host.site_id=0';
+		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id = 0';
 	} elseif (!isempty_request_var('site_id')) {
-		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' host.site_id=' . get_request_var('site_id');
+		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id = ?';
+		$sql_params[] = get_request_var('site_id');
 	}
 
 	if (get_request_var('host_template_id') == '-1') {
 		/* Show all items */
 	} elseif (get_request_var('host_template_id') == '0') {
-		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' host.host_template_id=0';
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' h.host_template_id = 0';
 	} elseif (!isempty_request_var('host_template_id')) {
-		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' host.host_template_id=' . get_request_var('host_template_id');
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' h.host_template_id = ?';
+		$sql_params[] = get_request_var('host_template_id');
 	}
 
 	if (get_request_var('associated') == 'false') {
 		/* Show all items */
 	} else {
-		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' (host.thold_send_email>1 AND host.thold_host_email=' . get_request_var('id') . ')';
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' (h.thold_send_email > 1 AND h.thold_host_email = ?)';
+		$sql_params[] = get_request_var('id');
 	}
 
-	$total_rows = db_fetch_cell("select
-		COUNT(host.id)
-		from host
-		$sql_where");
+	$sql_limit = 'LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_order = get_order_string();
+
+	$total_rows = db_fetch_cell_prepared("SELECT
+		COUNT(h.id)
+		FROM host AS h
+		$sql_where",
+		$sql_params);
 
 	$host_graphs = array_rekey(
 		db_fetch_assoc('SELECT host_id, COUNT(*) AS graphs
@@ -1139,19 +1150,20 @@ function hosts($header_label) {
 
 	$host_data_sources = array_rekey(
 		db_fetch_assoc('SELECT host_id, COUNT(*) AS data_sources
-			FROM data_local GROUP BY host_id'),
+			FROM data_local
+			GROUP BY host_id'),
 		'host_id', 'data_sources'
 	);
 
-	$sql_query = "SELECT host.*, sites.name AS site_name
-		FROM host
-		LEFT JOIN sites
-		ON host.site_id = sites.id
+	$sql_query = "SELECT h.*, s.name AS site_name
+		FROM host AS h
+		LEFT JOIN sites AS s
+		ON h.site_id = s.id
 		$sql_where
-		ORDER BY description
-		LIMIT " . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+		$sql_order
+		$sql_limit";
 
-	$hosts = db_fetch_assoc($sql_query);
+	$hosts = db_fetch_assoc_prepared($sql_query, $sql_params);
 
 	$nav = html_nav_bar('notify_lists.php?action=edit&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Devices', 'thold'), 'page', 'main');
 
@@ -1162,17 +1174,49 @@ function hosts($header_label) {
 	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
-		__('Description', 'thold'),
-		__('Site', 'thold'),
-		__('ID', 'thold'),
-		__('Associated Lists', 'thold'),
-		__('Graphs', 'thold'),
-		__('Data Sources', 'thold'),
-		__('Status', 'thold'),
-		__('Hostname', 'thold')
+		'description' => array(
+			'display' => __('Description', 'thold'),
+			'align'   => 'left',
+			'sort'    => 'ASC',
+		),
+		'site_name' => array(
+			'display' => __('Site', 'thold'),
+			'align'   => 'left',
+			'sort'    => 'ASC',
+		),
+		'h.id' => array(
+			'display' => __('ID', 'thold'),
+			'align'   => 'left',
+			'sort'    => 'ASC',
+		),
+		'h.status' => array(
+			'display' => __('Status', 'thold'),
+			'align'   => 'left',
+			'sort'    => 'ASC',
+		),
+		'nosort0' => array(
+			'display' => __('Associated Lists', 'thold'),
+			'align'   => 'left',
+			'sort'    => 'ASC',
+		),
+		'nosort1' => array(
+			'display' => __('Graphs', 'thold'),
+			'align'   => 'right',
+			'sort'    => 'DESC',
+		),
+		'nosort2' => array(
+			'display' => __('Data Sources', 'thold'),
+			'align'   => 'right',
+			'sort'    => 'DESC',
+		),
+		'h.hostname' => array(
+			'display' => __('Hostname', 'thold'),
+			'align'   => 'right',
+			'sort'    => 'ASC',
+		)
 	);
 
-	html_header_checkbox($display_text);
+	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
 	if (cacti_sizeof($hosts)) {
 		foreach ($hosts as $host) {
@@ -1182,6 +1226,7 @@ function hosts($header_label) {
 
 			form_selectable_ecell($host['site_name'] != '' ? $host['site_name'] : __('None', 'thold'), $host['id']);
 			form_selectable_cell($host['id'], $host['id']);
+			form_selectable_cell(get_colored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']), $host['id']);
 
 			if ($host['thold_send_email'] == 0) {
 				form_selectable_cell('<span class="deviceDisabled">' . __('Disabled', 'thold') . '</span>', $host['id']);
@@ -1204,10 +1249,9 @@ function hosts($header_label) {
 				form_selectable_cell('<span class="deviceDown">' . html_escape($name) . '</span>', $host['id']);
 			}
 
-			form_selectable_cell((isset($host_graphs[$host['id']]) ? $host_graphs[$host['id']] : 0), $host['id']);
-			form_selectable_cell((isset($host_data_sources[$host['id']]) ? $host_data_sources[$host['id']] : 0), $host['id']);
-			form_selectable_cell(get_colored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']), $host['id']);
-			form_selectable_cell(filter_value($host['hostname'], get_request_var('rfilter')), $host['id']);
+			form_selectable_cell((isset($host_graphs[$host['id']]) ? $host_graphs[$host['id']] : 0), $host['id'], '', 'right');
+			form_selectable_cell((isset($host_data_sources[$host['id']]) ? $host_data_sources[$host['id']] : 0), $host['id'], '', 'right');
+			form_selectable_cell(filter_value($host['hostname'], get_request_var('rfilter')), $host['id'], '', 'right');
 			form_checkbox_cell($host['description'], $host['id']);
 
 			form_end_row();
@@ -1216,15 +1260,15 @@ function hosts($header_label) {
 		print '<tr><td colspan="' . (cacti_sizeof($display_text) + 1) . '"><em>' . __('No Associated Devices Found', 'thold') . '</em></td></tr>';
 	}
 
-	html_end_box(false);
+	html_end_box();
 
 	if (cacti_sizeof($hosts)) {
 		print $nav;
 	}
 
-	form_hidden_box('tab', 'hosts', '');
-	form_hidden_box('id', get_request_var('id'), '');
-	form_hidden_box('save_associate', '1', '');
+//	form_hidden_box('tab', 'hosts', '');
+//	form_hidden_box('id', get_request_var('id'), '');
+//	form_hidden_box('save_associate', '1', '');
 
 	draw_actions_dropdown($assoc_actions);
 
@@ -1243,11 +1287,14 @@ function tholds($header_label) {
 	if (isset_request_var('state')) {
 		if (get_request_var('state') == '-1') {
 			$statefilter = '';
-		} else {
-			if (get_request_var('state') == '0') { $statefilter = "td.thold_enabled='off'"; }
-			if (get_request_var('state') == '2') { $statefilter = "td.thold_enabled='on'"; }
-			if (get_request_var('state') == '1') { $statefilter = '(td.thold_alert!=0 OR td.bl_alert>0)'; }
-			if (get_request_var('state') == '3') { $statefilter = '(td.thold_alert!=0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert>0 AND td.bl_fail_count >= td.bl_fail_trigger)'; }
+		} elseif (get_request_var('state') == '0') {
+			$statefilter = "td.thold_enabled = 'off'";
+		} elseif (get_request_var('state') == '2') {
+			$statefilter = "td.thold_enabled = 'on'";
+		} elseif (get_request_var('state') == '1') {
+			$statefilter = '(td.thold_alert != 0 OR td.bl_alert > 0)';
+		} elseif (get_request_var('state') == '3') {
+			$statefilter = '(td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)';
 		}
 	}
 
@@ -1426,14 +1473,38 @@ function tholds($header_label) {
 	html_start_box('', '100%', false, '3', 'center', '');
 
 	$display_text = array(
-		'name_cache'    => array(__('Name', 'thold'), 'ASC'),
-		'id'            => array(__('ID', 'thold'), 'ASC'),
-		'nosort1'       => array(__('Warning Lists', 'thold'), 'ASC'),
-		'nosort2'       => array(__('Alert Lists', 'thold'), 'ASC'),
-		'thold_type'    => array(__('Type', 'thold'), 'ASC'),
-		'thold_alert'   => array(__('Triggered', 'thold'), 'ASC'),
-		'nosort3'       => array(__('Templated', 'thold'), 'ASC'),
-		'thold_enabled' => array(__('Enabled', 'thold'), 'ASC')
+		'name_cache' => array(
+			'display' => __('Name', 'thold'),
+			'sort'    => 'ASC'
+		),
+		'id' => array(
+			'display' => __('ID', 'thold'),
+			'sort'    => 'ASC'
+		),
+		'nosort1' => array(
+			'display' => __('Warning Lists', 'thold'),
+			'sort'    => 'ASC'
+		),
+		'nosort2' => array(
+			'display' => __('Alert Lists', 'thold'),
+			'sort'    => 'ASC'
+		),
+		'thold_type' => array(
+			'display' => __('Type', 'thold'),
+			'sort'    => 'ASC'
+		),
+		'thold_alert' => array(
+			'display' => __('Triggered', 'thold'),
+			'sort'    => 'ASC'
+		),
+		'nosort3' => array(
+			'display' => __('Templated', 'thold'),
+			'sort'    => 'ASC'
+		),
+		'thold_enabled' => array(
+			'display' => __('Enabled', 'thold'),
+			'sort'    => 'ASC'
+		)
 	);
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'notify_lists.php?action=edit&tab=tholds&id=' . get_filter_request_var('id'));

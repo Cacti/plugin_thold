@@ -6453,7 +6453,18 @@ function thold_check_for_notification_delay() {
 		$options = explode(',', $delay_criteria);
 
 		foreach($options as $option) {
-			list($value, $type) = explode('|', $option);
+			$value_array = explode('|', $option);
+			if (isset($value_array[0])) {
+				$value = $value_array[0];
+			} else {
+				$value = '';
+			}
+
+			if (isset($value_array[1])) {
+				$type = $value_array[1];
+			} else {
+				$type = '';
+			}
 
 			switch($type) {
 				case 'eg':  // Global events
@@ -6564,6 +6575,13 @@ function thold_check_for_notification_delay() {
 							'time'   => $now
 						);
 					}
+
+					break;
+				default:
+					$events   = array();
+					$triggers = array();
+
+					break;
 			}
 		}
 	}
@@ -6751,7 +6769,7 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 			$suspended = read_config_option('thold_notification_suspended', true);
 			if ($suspended == 1) {
 				if ($prev_suspended == 0) {
-					cacti_log('WARNING: Notifications have been suspended by an operator.  Returning from processing loop', false, 'THOLD');
+					debounce_run_notification('notify_suspend', 'WARNING: Notifications have been suspended by an operator.  Returning from processing loop');
 				}
 
 				break;
@@ -6846,7 +6864,7 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 			}
 		}
 	} else {
-		cacti_log('WARNING: Notifications have been suspended by an operator.  Returning from processing loop', false, 'THOLD');
+		debounce_run_notification('notify_suspend', 'WARNING: Notifications have been suspended by an operator.  Returning from processing loop');
 	}
 }
 

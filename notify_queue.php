@@ -44,14 +44,15 @@ switch (get_request_var('action')) {
 
 		break;
 	case 'suspend':
-		$user = get_username($_SESSION['sess_user_id']);
+		$user_id = $_SESSION['sess_user_id'];
+		$user    = get_username($_SESSION['sess_user_id']);
 
 		set_config_option('thold_notification_suspended', 1);
 		set_config_option('thold_notification_suspended_by', $user);
 		set_config_option('thold_notification_suspended_time', time());
 
 		raise_message('notify_suspend', __('Notification has been Suspended.  Press the Resume button to resume it', 'thold'), MESSAGE_LEVEL_INFO);
-		cacti_log(sprintf('WARNING: User %s [%d] has Suspended THOLD notifications!', $user, $_SESSION['sess_user_id']), false, 'THOLD');
+		debounce_run_notification('notify_suspend_by_' . $user_id, sprintf('WARNING: User %s [%d] has Suspended THOLD notifications!', $user, $user_id), 300);
 
 		header('Location: notify_queue.php');
 		exit();
