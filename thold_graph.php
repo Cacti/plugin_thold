@@ -1065,7 +1065,7 @@ function hosts() {
 				form_selectable_cell(number_format_i18n($host['graphs'], -1), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($host['data_sources'], -1), $host['id'], '', 'right');
 
-				form_selectable_cell(__('Not Monitored', 'thold'), $host['id'], '', 'center');
+				form_selectable_cell(__('Not Monitored', 'thold'), $host['id'], '', 'right');
 
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
