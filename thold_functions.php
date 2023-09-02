@@ -5156,7 +5156,9 @@ function thold_display_to_raw($number, $field_name) {
  *
  */
 function thold_raw_to_display($number) {
-	$number = trim($number);
+	if ($number != '') {
+		$number = trim($number);
+	}
 
 	if (!is_numeric($number)) {
 		return false;
