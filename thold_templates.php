@@ -1085,7 +1085,7 @@ function template_edit() {
 		}
 	}
 
-	$datasources = '<br>' . __esc('Data Sources: %s', implode(', ', $dsname), 'thold');
+	$datasources = '<br>' . __('Data Sources: %s', implode(', ', $dsname), 'thold');
 
 	$email_body = read_config_option('thold_enable_per_thold_body');
 
