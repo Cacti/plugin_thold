@@ -387,21 +387,18 @@ function tholds() {
 	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;
 	$sql_order = str_replace('ORDER BY ', '', $sql_order);
 
-	$sql_where = '';
+	$statefilter = thold_get_state_filter(get_request_var('state'));
 
-	/* status filter */
-	$sql_where = thold_get_state_filter(get_request_var('state'));
+	$sql_where = '';
 
 	if (get_request_var('rfilter') != '') {
 		$sql_where .= ($sql_where == '' ? '(': ' AND ') . " td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
 	}
 
-	/* data template id filter */
 	if (get_request_var('data_template_id') != '-1') {
 		$sql_where .= ($sql_where == '' ? '(':' AND') . ' td.data_template_id = ' . get_request_var('data_template_id');
 	}
 
-	/* thold template id filter */
 	if (!isempty_request_var('thold_template_id')) {
 		if (get_request_var('thold_template_id') > 0) {
 			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.thold_template_id = ' . get_request_var('thold_template_id') . ' AND td.template_enabled = "on")';
@@ -410,9 +407,12 @@ function tholds() {
 		}
 	}
 
-	/* host id filter */
 	if (get_request_var('host_id') != '-1') {
 		$sql_where .= ($sql_where == '' ? '(':' AND') . ' td.host_id = ' . get_request_var('host_id');
+	}
+
+	if ($statefilter != '') {
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . $statefilter;
 	}
 
 	if (get_request_var('site_id') == '-1') {
@@ -421,6 +421,10 @@ function tholds() {
 		$sql_where .= ($sql_where == '' ? '(':' AND ') . 'h.site_id IS NULL';
 	} elseif (!isempty_request_var('site_id')) {
 		$sql_where .= ($sql_where == '' ? '(':' AND ') . 'h.site_id = ' . get_request_var('site_id');
+	}
+
+	if ($sql_where != '') {
+		$sql_where .= ')';
 	}
 
 	$tholds = get_allowed_thresholds($sql_where, $sql_order, $sql_limit, $total_rows);
