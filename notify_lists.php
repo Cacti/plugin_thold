@@ -872,7 +872,7 @@ function edit() {
 				'method' => 'textarea',
 				'friendly_name' => __('BCC Email Addresses', 'thold'),
 				'description' => __('Enter a comma separated list of Email addresses for this Notification List to be blind copied.', 'thold'),
-				'value' => '|arg1:emails|',
+				'value' => '|arg1:bcc_emails|',
 				'class' => 'textAreaNotes',
 				'textarea_rows' => '4',
 				'textarea_cols' => '80'
