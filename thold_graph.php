@@ -1489,6 +1489,7 @@ function thold_show_log() {
 
 			$show_units   = (db_fetch_cell_prepared('SELECT show_units FROM thold_data WHERE id = ?', array($l['threshold_id'])) ? true : false);
 			$units_suffix = db_fetch_cell_prepared('SELECT units_suffix FROM thold_data WHERE id = ?', array($l['threshold_id']));
+			$decimals     = db_fetch_cell_prepared('SELECT decimals FROM thold_data WHERE id = ?', array($l['threshold_id']));
 
 			if (empty($baseu)) {
 				cacti_log('WARNING: Graph Template for local_graph_id ' . $l['local_graph_id'] . ' has been removed!');
