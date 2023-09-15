@@ -4575,10 +4575,12 @@ function thold_rpn($x, $y, $z) {
 
 	if (!is_numeric($x)) {
 		cacti_log("WARNING: Erroneous CDEF logic, the first value should be numeric, but is '$x'", false, 'THOLD');
+		return '';
 	}
 
 	if (!is_numeric($y)) {
 		cacti_log("WARNING: Erroneous CDEF logic, the second value should be numeric, but is '$y'", false, 'THOLD');
+		return '';
 	}
 
 	switch ($z) {
