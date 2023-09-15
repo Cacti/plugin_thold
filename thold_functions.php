@@ -5164,6 +5164,10 @@ function thold_raw_to_display($number) {
 		return false;
 	}
 
+	if ($number == 0) {
+		return trim($number);
+	}
+	
 	if ($number > 0) {
 		$multiplier = 1;
 	} else {
