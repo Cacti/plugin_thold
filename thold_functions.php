@@ -7558,7 +7558,7 @@ function thold_get_cached_name(&$thold_data) {
 }
 
 function thold_str_replace($search, $replace, $subject) {
-	if (empty($replace) && $replace != 0) {
+	if (empty($replace) || $replace == 0) {
 		$replace = '';
 	}
 
