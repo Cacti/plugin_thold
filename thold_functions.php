@@ -3717,7 +3717,7 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 function thold_expand_string($thold_data, $string) {
 	global $config;
 
-	include_once($config['base_path'] . '/lib/variables.php');
+	include_once($config['library_path'] . '/variables.php');
 
 	$str = $string;
 
@@ -4544,7 +4544,7 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 			$v1 = thold_expression_rpn_pop($stack);
 			$v2 = thold_expression_rpn_pop($stack);
 
-			$result = thold_rpn($v2['value'], $v1['value'], $cdef_array[$cursor]['value']);
+			$result = thold_rpn($v2['value'], $v1['value'], $cdef_array[$cursor]['value'], $local_data_id);
 
 			// put the result back on the stack.
 			array_push($stack, array('type' => 6, 'value' => $result));
@@ -4564,7 +4564,7 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 	return $stack[0]['value'];
 }
 
-function thold_rpn($x, $y, $z) {
+function thold_rpn($x, $y, $z, $local_data_id = 0) {
 	if (empty($x) || $x == 'U') {
 		$x = 0;
 	}
@@ -4574,12 +4574,12 @@ function thold_rpn($x, $y, $z) {
 	}
 
 	if (!is_numeric($x)) {
-		cacti_log("WARNING: Erroneous CDEF logic, the first value should be numeric, but is '$x'", false, 'THOLD');
+		cacti_log("WARNING: Erroneous CDEF logic, the first value should be numeric, but is '$x'. Data ID $local_data_id", false, 'THOLD');
 		return '';
 	}
 
 	if (!is_numeric($y)) {
-		cacti_log("WARNING: Erroneous CDEF logic, the second value should be numeric, but is '$y'", false, 'THOLD');
+		cacti_log("WARNING: Erroneous CDEF logic, the second value should be numeric, but is '$y'. Data ID $local_data_id", false, 'THOLD');
 		return '';
 	}
 
@@ -4809,16 +4809,16 @@ function thold_check_baseline($local_data_id, $data_source_name, $current_value,
 		$ref_value_min = $ref_values['MIN'];
 	}
 
-	if (isset($ref_values['MIN'])) {
+	if (isset($ref_values['MAX'])) {
 		$ref_value_max = $ref_values['MAX'];
 	}
 
 	if (isset($ref_values['AVG'])) {
-		$ref_value_max = $ref_values['AVG'];
+		$ref_value_avg = $ref_values['AVG'];
 	}
 
 	if (isset($ref_values['LAST'])) {
-		$ref_value_max = $ref_values['LAST'];
+		$ref_value_last = $ref_values['LAST'];
 	}
 
 	if (isset($ref_values['CFA'])) {
@@ -4826,6 +4826,11 @@ function thold_check_baseline($local_data_id, $data_source_name, $current_value,
 	}
 
 	if ($thold_data['cdef'] > 0 && $thold_data['data_type'] == 1) {
+		if ($ref_value_min == '-nan' || $ref_value_max == '-nan' || $ref_value_avg == '-nan' ) {
+			cacti_log( "WARNING: CDEF values are -nan: MIN $ref_value_min MAX $ref_value_max AVG $ref_value_avg LAST $ref_value_last " .
+				" Threshold {$thold_data['id']}:{$thold_data['name_cache']} :" . __FILE__ . " " . __FUNCTION__ . ":" . __LINE__, false, 'THOLD' );
+		}
+		
 		$ref_value_min  = thold_build_cdef($thold_data['cdef'], $ref_value_min, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 		$ref_value_max  = thold_build_cdef($thold_data['cdef'], $ref_value_max, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 		$ref_value_avg  = thold_build_cdef($thold_data['cdef'], $ref_value_avg, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
@@ -6183,6 +6188,7 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 /* Sends a group of graphs to a user */
 function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $filename, $headers = array(), $notify_list_id = 0, &$host = array(), $format_file = '', $graph_timespan = 7, $topic = 'thold_mail') {
 	thold_debug('Preparing to send email');
+	global $config;
 
 	$subject = trim($subject);
 	$message = thold_str_replace('<SUBJECT>', $subject, $message);
@@ -6280,6 +6286,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 
     /* process the format file as applicable */
     if ($format_file != '') {
+		include_once($config['library_path'] . '/reports.php');
         $format_ok = reports_load_format_file($format_file, $format_data, $report_tag, $theme);
     }
 

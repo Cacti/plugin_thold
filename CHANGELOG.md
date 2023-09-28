@@ -114,6 +114,10 @@
 
 * issue: Fix potential divide by zero errors with an empty baseu
 
+* issue: Fix undefined function reports_load_format_file
+
+* issue: Fix table columns bi_reference_* values
+
 --- 1.6.0 ---
 
 * feature: Enhance thold daemon to work more efficiently
