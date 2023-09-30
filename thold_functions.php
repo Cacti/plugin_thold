@@ -883,12 +883,15 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					AND td.local_data_id = ?',
 					array($dsname, $thold['local_data_id']));
 
+				$value = '';
 				if (cacti_sizeof($thold_item)) {
 					$item = array();
 					$currenttime = 0;
-					$expression[$key] = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
-				} else {
-					$value = '';
+					$value = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
+				}
+
+				/*  Previous returns 'U' after device recovers.  Try alternate */
+				if (empty($value) || $value == 'U') {
 					if (read_config_option('dsstats_enable') == 'on') {
 						$value = db_fetch_cell_prepared('SELECT calculated
 							FROM data_source_stats_hourly_last
@@ -897,12 +900,12 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 							array($thold['local_data_id'], $dsname));
 					}
 
-					if (empty($value) || $value == '-90909090909') {
-						$expression[$key] = get_current_value($thold['local_data_id'], $dsname);
-					} else {
-						$expression[$key] = $value;
+					if (empty($value) || $value = 'U' || $value == '-90909090909') {
+						$value = get_current_value($thold['local_data_id'], $dsname);
 					}
 				}
+
+				$expression[$key] = $value;
 
 				if ($expression[$key] == '') $expression[$key] = '0';
 			} elseif (strpos($item, '|') !== false) {
@@ -4697,11 +4700,13 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 	$idx = array_search($data_template_rrd_id, $result['data_source_names']);
 
 	// Return Blank if the value was not found (Cache Cleared?)
-	if (!isset($result['values'][$idx][0])) {
+
+	if (!cacti_count($result['values'][$idx])) {
 		return '';
 	}
 
-	$value = $result['values'][$idx][0];
+	$value = array_values($result['values'][$idx])[0];
+
 	if ($cdef > 0) {
 		$value = thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id);
 	}
