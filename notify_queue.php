@@ -469,11 +469,11 @@ function notify_queue() {
 			form_alternate_row('line' . $n['id'], false);
 
 			form_selectable_cell($thold_notification_topics[$n['topic']], $n['id']);
-			form_selectable_cell($n['object_name'], $n['id']);
-			form_selectable_cell($n['hostname'], $n['id']);
+			form_selectable_cell(html_escape($n['object_name']), $n['id']);
+			form_selectable_cell(html_escape($n['hostname']), $n['id']);
 
 			if (isset($lists[$n['notification_list_id']])) {
-				form_selectable_cell($lists[$n['notification_list_id']], $n['id']);
+				form_selectable_cell(html_escape($lists[$n['notification_list_id']]), $n['id']);
 			} else {
 				form_selectable_cell(__('Not Specified', 'thold'), $n['id']);
 			}
