@@ -1886,7 +1886,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			$desc .= ' Thold Type[' . $thold_types[$message['thold_type']] . ']';
 		}
 
-		$desc .= ' Enabled: ' . ($thold['thold_enabled'] == 'on' && $thold['thold_per_enabled'] == 'on' ? 'on':'off');
+		$desc .= ' Enabled: ' . ($thold['thold_enabled'] == 'on' ? 'on':'off');
 
 		switch ($message['thold_type']) {
 		case 0:
@@ -5887,11 +5887,14 @@ function thold_create_thold_save_from_template($save, $template) {
 	$save['notify_warning_extra'] = $template['notify_warning_extra'];
 
 	// Data Manipulation
-	$save['data_type']  = $template['data_type'];
-	$save['cdef']       = $template['cdef'];
-	$save['percent_ds'] = $template['percent_ds'];
-	$save['expression'] = $template['expression'];
-	$save['upper_ds']   = $template['upper_ds'];
+	$save['data_type']    = $template['data_type'];
+	$save['cdef']         = $template['cdef'];
+	$save['percent_ds']   = $template['percent_ds'];
+	$save['expression']   = $template['expression'];
+	$save['upper_ds']     = $template['upper_ds'];
+	$save['decimals']     = $template['decimals'];
+	$save['units_suffix'] = $template['units_suffix'];
+	$save['show_units']   = $template['show_units'];
 
 	// Hrules
 	$save['thold_hrule_alert']   = $template['thold_hrule_alert'];
