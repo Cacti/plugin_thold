@@ -448,7 +448,7 @@ function tholds() {
 		),
 		'nosort99' => array(
 			'display' => __('Enabled', 'thold'),
-			'align' => 'left'
+			'align' => 'right'
 		),
 		'id' => array(
 			'display' => __('ID', 'thold'),
@@ -610,8 +610,10 @@ function tholds() {
 			if (api_user_realm_auth('thold.php')) {
 				if ($thold_data['thold_per_enabled'] == 'on') {
 					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $thold_data['id']) . '" title="' . __esc('Disable Threshold', 'thold') . '"><i class="tholdGlyphDisable fas fa-stop-circle"></i></a>';
-				} else {
+				} elseif ($thold_data['thold_enabled'] == 'on') {
 					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $thold_data['id']) . '" title="' . __esc('Enable Threshold', 'thold') . '"><i class="tholdGlyphEnable fas fa-play-circle"></i></a>';
+				} else {
+					$actions_url .= '<a class="pic" href="#" title="' . __esc('To enable the Threshold, enable the Template first', 'thold') . '"><i class="deviceDisabled fas fa-play-circle"></i></a>';
 				}
 			}
 

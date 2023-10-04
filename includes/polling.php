@@ -264,6 +264,11 @@ function thold_check_all_thresholds() {
 				ON dtr.id = td.data_template_rrd_id
 				WHERE td.thold_enabled = 'on'
 				AND (h.poller_id = 1 OR h.poller_id IS NULL)
+				AND (
+					(thold_template_id > 0 AND td.template_enabled = 'on' AND td.thold_enabled = 'on') OR
+					(thold_template_id = 0 AND td.thold_enabled = 'on')
+				)
+				AND td.thold_per_enabled = 'on'
 				AND td.tcheck = 1
 				AND h.status = 3";
 		} else {
@@ -276,6 +281,11 @@ function thold_check_all_thresholds() {
 				ON dtr.id = td.data_template_rrd_id
 				WHERE td.thold_enabled = 'on'
 				AND h.poller_id = " . $config['poller_id'] . "
+				AND (
+					(thold_template_id > 0 AND td.template_enabled = 'on' AND td.thold_enabled = 'on') OR
+					(thold_template_id = 0 AND td.thold_enabled = 'on')
+				)
+				AND td.thold_per_enabled = 'on'
 				AND td.tcheck = 1
 				AND h.status = 3";
 		}
@@ -288,6 +298,11 @@ function thold_check_all_thresholds() {
 			LEFT JOIN host as h
 			ON td.host_id = h.id
 			WHERE td.thold_enabled = 'on'
+			AND (
+				(thold_template_id > 0 AND td.template_enabled = 'on' AND td.thold_enabled = 'on') OR
+				(thold_template_id = 0 AND td.thold_enabled = 'on')
+			)
+			AND td.thold_per_enabled = 'on'
 			AND td.tcheck = 1
 			AND h.status = 3";
 	}

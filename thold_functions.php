@@ -5724,17 +5724,17 @@ function save_thold() {
 			UNIX_TIMESTAMP() - UNIX_TIMESTAMP(lastchanged) AS `instate`
 			FROM thold_data AS td
 			INNER JOIN graph_local AS gl
-			ON gl.id=td.local_graph_id
+			ON gl.id = td.local_graph_id
 			LEFT JOIN graph_templates AS gt
-			ON gt.id=gl.graph_template_id
+			ON gt.id = gl.graph_template_id
 			LEFT JOIN host AS h
-			ON h.id=gl.host_id
+			ON h.id = gl.host_id
 			LEFT JOIN thold_template AS tt
-			ON tt.id=td.thold_template_id
+			ON tt.id = td.thold_template_id
 			LEFT JOIN data_template_data AS dtd
-			ON dtd.local_data_id=td.local_data_id
+			ON dtd.local_data_id = td.local_data_id
 			LEFT JOIN data_template_rrd AS dtr
-			ON dtr.id=td.data_template_rrd_id
+			ON dtr.id = td.data_template_rrd_id
 			WHERE td.id = ?";
 
 		$thold = db_fetch_row_prepared($thold_sql, array($id));
@@ -6949,7 +6949,8 @@ function thold_template_update_thresholds($id) {
 		td.thold_warning_low = tt.thold_warning_low, td.thold_warning_fail_trigger = tt.thold_warning_fail_trigger,
 		td.time_warning_hi = tt.time_warning_hi, td.time_warning_low = tt.time_warning_low,
 		td.time_warning_fail_trigger = tt.time_warning_fail_trigger, td.time_warning_fail_length = tt.time_warning_fail_length,
-		td.thold_type = tt.thold_type, td.bl_type = tt.bl_type, td.bl_cf = tt.bl_cf, td.bl_ref_time_range = tt.bl_ref_time_range,
+		td.thold_enabled = tt.thold_enabled, td.thold_type = tt.thold_type,
+		td.bl_type = tt.bl_type, td.bl_cf = tt.bl_cf, td.bl_ref_time_range = tt.bl_ref_time_range,
 		td.bl_pct_up = tt.bl_pct_up, td.bl_pct_down = tt.bl_pct_down, td.bl_pct_up = tt.bl_pct_up,
 		td.bl_fail_trigger = tt.bl_fail_trigger, td.bl_alert = tt.bl_alert, td.bl_thold_valid = 0,
 		td.repeat_alert = tt.repeat_alert, td.data_type = tt.data_type, td.cdef = tt.cdef,
