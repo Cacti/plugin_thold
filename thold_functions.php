@@ -1940,7 +1940,7 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 function get_thold_severity(&$td) {
 	$severity = THOLD_SEVERITY_NORMAL;
 
-	if ($td['thold_enabled'] == 'off' || $td['thold_per_enabled'] == '') {
+	if (($td['template_enabled'] == 'on' && $td['thold_enabled'] == 'off') || $td['thold_per_enabled'] == '') {
 		return THOLD_SEVERITY_DISABLED;
 	}
 

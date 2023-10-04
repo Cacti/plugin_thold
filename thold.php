@@ -956,11 +956,11 @@ function list_tholds() {
 
 			form_selectable_cell(filter_value($name, get_request_var('rfilter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
 
-			if ($thold_data['thold_enabled'] == 'on' && $thold_data['thold_per_enabled'] == 'on') {
+			if ((($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'on') || $thold_data['template_enabled'] == '') && $thold_data['thold_per_enabled'] == 'on') {
 				$enabled = __('Yes', 'thold');
-			} elseif ($thold_data['thold_enabled'] == 'off' && $thold_data['thold_per_enabled'] == '') {
+			} elseif ($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'off' && $thold_data['thold_per_enabled'] == '') {
 				$enabled = __('No [Template:Thold]', 'thold');
-			} elseif ($thold_data['thold_enabled'] == 'off') {
+			} elseif ($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'off') {
 				$enabled = __('No [Template]', 'thold');
 			} else {
 				$enabled = __('No [Thold]', 'thold');

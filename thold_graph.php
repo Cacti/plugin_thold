@@ -610,7 +610,8 @@ function tholds() {
 			if (api_user_realm_auth('thold.php')) {
 				if ($thold_data['thold_per_enabled'] == 'on') {
 					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=disable&id=' . $thold_data['id']) . '" title="' . __esc('Disable Threshold', 'thold') . '"><i class="tholdGlyphDisable fas fa-stop-circle"></i></a>';
-				} elseif ($thold_data['thold_enabled'] == 'on') {
+				} elseif ((($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'on') ||
+					($thold_data['template_enabled'] == '')) && $thold_data['thold_per_enabled'] == '') {
 					$actions_url .= '<a class="pic" href="' .  html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=enable&id=' . $thold_data['id']) . '" title="' . __esc('Enable Threshold', 'thold') . '"><i class="tholdGlyphEnable fas fa-play-circle"></i></a>';
 				} else {
 					$actions_url .= '<a class="pic" href="#" title="' . __esc('To enable the Threshold, enable the Template first', 'thold') . '"><i class="deviceDisabled fas fa-play-circle"></i></a>';
@@ -686,11 +687,11 @@ function tholds() {
 
 			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('rfilter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
 
-			if ($thold_data['thold_enabled'] == 'on' && $thold_data['thold_per_enabled'] == 'on') {
+			if ((($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'on') || $thold_data['template_enabled'] == '') && $thold_data['thold_per_enabled'] == 'on') {
 				$enabled = __('Yes', 'thold');
-			} elseif ($thold_data['thold_enabled'] == 'off' && $thold_data['thold_per_enabled'] == '') {
+			} elseif ($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'off' && $thold_data['thold_per_enabled'] == '') {
 				$enabled = __('No [Template:Thold]', 'thold');
-			} elseif ($thold_data['thold_enabled'] == 'off') {
+			} elseif ($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'off') {
 				$enabled = __('No [Template]', 'thold');
 			} else {
 				$enabled = __('No [Thold]', 'thold');
