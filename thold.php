@@ -1100,6 +1100,22 @@ function thold_edit() {
 			FROM data_template_rrd
 			WHERE id = ?',
 			array($thold_data['data_template_rrd_id']));
+
+		/* default some additional values */
+		$thold_data['graph_timespan']    = 7;
+		$thold_data['show_units']        = '';
+		$thold_data['units_suffix']      = '';
+		$thold_data['decimals']          = -1;
+		$thold_data['thold_hi']          = 0;
+		$thold_data['thold_low']         = 0;
+		$thold_data['thold_warning_hi']  = 0;
+		$thold_data['thold_warning_low'] = 0;
+		$thold_data['time_hi']           = 0;
+		$thold_data['time_low']          = 0;
+		$thold_data['time_warning_hi']   = 0;
+		$thold_data['time_warning_low']  = 0;
+		$thold_data['bl_pct_up']         = 0;
+		$thold_data['bl_pct_down']       = 0;
 	} else {
 		exit;
 	}
