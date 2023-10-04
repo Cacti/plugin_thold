@@ -1886,42 +1886,42 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			$desc .= ' Thold Type[' . $thold_types[$message['thold_type']] . ']';
 		}
 
-		$desc .= ' Enabled: ' . ($thold['thold_enabled'] == 'on' && $thold['thold_per_enabled'] == 'on' ? 'on':'off');
+		$desc .= ' Enabled: ' . ($thold['thold_enabled'] == 'on' ? 'on':'off');
 
 		switch ($message['thold_type']) {
-		case 0:
-			$desc .= ' High[' . (isset($message['thold_hi']) ? $message['thold_hi'] : '') . ']';
-			$desc .= ' Low[' . (isset($message['thold_low']) ? $message['thold_low'] : '') . ']';
-			$desc .= ' Trigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
-			$desc .= ' WarnHigh[' . (isset($message['thold_warning_hi']) ? $message['thold_warning_hi'] : '') . ']';
-			$desc .= ' WarnLow[' . (isset($message['thold_warning_low']) ? $message['thold_warning_low'] : '') . ']';
-			$desc .= ' WarnTrigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_warning_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
+			case 0:
+				$desc .= ' High[' . (isset($message['thold_hi']) ? $message['thold_hi'] : '') . ']';
+				$desc .= ' Low[' . (isset($message['thold_low']) ? $message['thold_low'] : '') . ']';
+				$desc .= ' Trigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
+				$desc .= ' WarnHigh[' . (isset($message['thold_warning_hi']) ? $message['thold_warning_hi'] : '') . ']';
+				$desc .= ' WarnLow[' . (isset($message['thold_warning_low']) ? $message['thold_warning_low'] : '') . ']';
+				$desc .= ' WarnTrigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_warning_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
 
-			break;
-		case 1:
-			$desc .= ' BL Type[' . (!isset($message['bl_type']) ? 0:$message['bl_type']) . ']';
+				break;
+			case 1:
+				$desc .= ' BL Type[' . (!isset($message['bl_type']) ? 0:$message['bl_type']) . ']';
 
-			if ($message['bl_type'] == 1) {
-				$desc .= ' BL CF[' . (!isset($message['bl_cf']) ? 'AVG':$message['bl_cf']) . ']';
-			}
+				if ($message['bl_type'] == 1) {
+					$desc .= ' BL CF[' . (!isset($message['bl_cf']) ? 'AVG':$message['bl_cf']) . ']';
+				}
 
-			$desc .= ' Range[' . $message['bl_ref_time_range'] . ']';
-			$desc .= ' DevUp[' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : '' ) . ']';
-			$desc .= ' DevDown[' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : '' ) . ']';
-			$desc .= ' Trigger[' . $message['bl_fail_trigger'] . ']';
+				$desc .= ' Range[' . $message['bl_ref_time_range'] . ']';
+				$desc .= ' DevUp[' . (isset($message['bl_pct_up'])? $message['bl_pct_up'] : '' ) . ']';
+				$desc .= ' DevDown[' . (isset($message['bl_pct_down'])? $message['bl_pct_down'] : '' ) . ']';
+				$desc .= ' Trigger[' . $message['bl_fail_trigger'] . ']';
 
-			break;
-		case 2:
-			$desc .= ' High[' . $message['time_hi'] . ']';
-			$desc .= ' Low[' . $message['time_low'] . ']';
-			$desc .= ' Trigger[' . $message['time_fail_trigger'] . ']';
-			$desc .= ' Time[' . plugin_thold_duration_convert($thold['data_template_id'], $message['time_fail_length'], 'alert', 'data_template_id') . ']';
-			$desc .= ' WarnHigh[' . $message['time_warning_hi'] . ']';
-			$desc .= ' WarnLow[' . $message['time_warning_low'] . ']';
-			$desc .= ' WarnTrigger[' . $message['time_warning_fail_trigger'] . ']';
-			$desc .= ' WarnTime[' . plugin_thold_duration_convert($thold['data_template_id'], $message['time_warning_fail_length'], 'alert', 'data_template_id') . ']';
+				break;
+			case 2:
+				$desc .= ' High[' . $message['time_hi'] . ']';
+				$desc .= ' Low[' . $message['time_low'] . ']';
+				$desc .= ' Trigger[' . $message['time_fail_trigger'] . ']';
+				$desc .= ' Time[' . plugin_thold_duration_convert($thold['data_template_id'], $message['time_fail_length'], 'alert', 'data_template_id') . ']';
+				$desc .= ' WarnHigh[' . $message['time_warning_hi'] . ']';
+				$desc .= ' WarnLow[' . $message['time_warning_low'] . ']';
+				$desc .= ' WarnTrigger[' . $message['time_warning_fail_trigger'] . ']';
+				$desc .= ' WarnTime[' . plugin_thold_duration_convert($thold['data_template_id'], $message['time_warning_fail_length'], 'alert', 'data_template_id') . ']';
 
-			break;
+				break;
 		}
 
 		$desc .= ' CDEF[' . (isset($message['cdef']) ? $message['cdef']: '') . ']';
@@ -4835,7 +4835,7 @@ function thold_check_baseline($local_data_id, $data_source_name, $current_value,
 			cacti_log( "WARNING: CDEF values are -nan: MIN $ref_value_min MAX $ref_value_max AVG $ref_value_avg LAST $ref_value_last " .
 				" Threshold {$thold_data['id']}:{$thold_data['name_cache']} :" . __FILE__ . " " . __FUNCTION__ . ":" . __LINE__, false, 'THOLD' );
 		}
-		
+
 		$ref_value_min  = thold_build_cdef($thold_data['cdef'], $ref_value_min, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 		$ref_value_max  = thold_build_cdef($thold_data['cdef'], $ref_value_max, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 		$ref_value_avg  = thold_build_cdef($thold_data['cdef'], $ref_value_avg, $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
@@ -5179,7 +5179,7 @@ function thold_raw_to_display($number) {
 	if ($number == 0) {
 		return trim($number);
 	}
-	
+
 	if ($number > 0) {
 		$multiplier = 1;
 	} else {
