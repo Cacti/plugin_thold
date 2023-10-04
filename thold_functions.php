@@ -4655,7 +4655,7 @@ function thold_api_thold_template_remove($id) {
 		array($id));
 
 	db_execute_prepared('UPDATE thold_data
-		SET thold_template_id = 0, template_enabled = ""
+		SET thold_template_id = 0, template_enabled = "off"
 		WHERE thold_template_id = ?',
 		array($id));
 }
@@ -6976,7 +6976,7 @@ function thold_template_update_thresholds($id) {
 	$rows = db_fetch_assoc_prepared("SELECT id, thold_template_id
 		FROM thold_data
 		WHERE thold_data.thold_template_id = ?
-		AND thold_data.template_enabled='on'",
+		AND thold_data.template_enabled = 'on'",
 		array($id));
 
 	if (cacti_sizeof($rows)) {

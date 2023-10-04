@@ -142,7 +142,7 @@ function do_actions() {
 								array($id));
 
 							db_execute_prepared("UPDATE thold_data
-								SET thold_template_id = '', template_enabled = ''
+								SET thold_template_id = '', template_enabled = 'off'
 								WHERE thold_template_id = ?",
 								array($id));
 						}
