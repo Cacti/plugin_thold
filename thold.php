@@ -1560,14 +1560,14 @@ function thold_edit() {
 			'method' => 'checkbox',
 			'default' => 'on',
 			'description' => __('A Threshold must be enabled both at the Template Level and the Threshold level to be checked.', 'thold'),
-			'value' => isset($thold_data['thold_enabled']) ? $thold_data['thold_enabled'] : ''
+			'value' => isset($thold_data['thold_enabled']) && $thold_data['thold_enabled'] == 'on' ? $thold_data['thold_enabled'] : 'off'
 		),
 		'thold_per_enabled' => array(
 			'friendly_name' => __('Enabled at Threshold Level', 'thold'),
 			'method' => 'checkbox',
 			'default' => 'on',
 			'description' => __('A Threshold must be enabled both at the Template Level and the Threshold level to be checked.', 'thold'),
-			'value' => isset($thold_data['thold_per_enabled']) ? $thold_data['thold_per_enabled'] : ''
+			'value' => isset($thold_data['thold_per_enabled']) && $thold_data['thold_per_enabled'] == 'on' ? $thold_data['thold_per_enabled'] : 'off'
 		),
 		'general_header' => array(
 			'friendly_name' => __('General Settings', 'thold'),
@@ -1613,7 +1613,7 @@ function thold_edit() {
 			'default' => GT_LAST_DAY,
 			'description' => __('The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan.'),
 			'array' => $graph_timespans,
-			'value' => '|arg1:graph_timespan|'
+			'value' => isset($thold_data['graph_timespan']) ? $thold_data['graph_timespan'] : '',
 		),
 		'skipscale' => array(
 			'friendly_name' => __('Skip Scaling on HRULEs', 'thold'),
@@ -2010,7 +2010,7 @@ function thold_edit() {
 			'method' => 'drop_array',
 			'default' => 'default.format',
 			'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'thold'),
-			'value' => '|arg1:format_file|',
+			'value' => isset($thold_data['format_file']) ? $thold_data['format_file'] : '',
 			'array' => $formats
 		),
 	);
@@ -2241,7 +2241,7 @@ function thold_edit() {
 	draw_edit_form(
 		array(
 			'config' => array('no_form_tag' => true),
-			'fields' => inject_form_variables($form_array, isset($thold_data) ? $thold_data : array())
+			'fields' => $form_array
 		)
 	);
 
@@ -2257,7 +2257,7 @@ function thold_edit() {
 		var status = $('#template_enabled').is(':checked');
 
 		$('#name').prop('disabled', status);
-		$('#thold_enabled').prop('disabled', status);
+		$('#thold_enabled').prop('disabled', true);
 
 		// General Settings
 		$('#exempt').prop('disabled', status);
