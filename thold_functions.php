@@ -6650,7 +6650,6 @@ function thold_check_for_notification_delay() {
  */
 function check_for_expired_delays(&$last_trigger, $triggers, $now, $last_check) {
 	$delay_period   = read_config_option('alert_notification_delay');
-	$delay_single   = read_config_option('alert_deadnotify_single_transaction') == 'on' ? true:false;
 
 	if (cacti_sizeof($last_trigger)) {
 		foreach($last_trigger as $type => $details) {
@@ -6752,7 +6751,6 @@ function check_for_expired_delays(&$last_trigger, $triggers, $now, $last_check) 
  */
 function check_for_new_delays($last_trigger, $triggers, $now, $last_check) {
 	$delay_period   = read_config_option('alert_notification_delay');
-	$delay_single   = read_config_option('alert_deadnotify_single_transaction') == 'on' ? true:false;
 }
 
 function thold_notification_execute($pid = 0, $max_records = 'all') {

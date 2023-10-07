@@ -718,12 +718,6 @@ function thold_config_settings() {
 			'method' => 'drop_array',
 			'default' => '-1'
 		),
-		'alert_deadnotify_single_transaction' => array(
-			'friendly_name' => __('Notification Delay Single Transaction', 'thold'),
-			'description' => __('When the Notification Delay has been Triggered, and Email and or Command will be executed to indicate that the Notifcation Delay has been triggered.  A separate Email will be sent if and when the event has ended notifying the recipients that the events were canceled.', 'thold'),
-			'method' => 'checkbox',
-			'default' => ''
-		),
 		'thold_device_email' => array(
 			'friendly_name' => __('Device Notification Email Options', 'thold'),
 			'method' => 'spacer',
