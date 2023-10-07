@@ -3599,7 +3599,7 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 					($breach_up ? 'above' : 'below') .
 					($thold_data['thold_type'] == 1 ? ' Baseline Threshold of ':' Threshold of ') .
 					($breach_up ? thold_format_number($value, $decimals, $baseu, $suffix, $show_units, $units_suffix):
-						thold_format_number($value, $decimals, $baseu, $suffix, $show_units, $units_suffix)) . ' with ' .
+					thold_format_number($value, $decimals, $baseu, $suffix, $show_units, $units_suffix)) . ' with ' .
 					thold_format_number($lastread, $decimals, $baseu, $suffix, $show_units, $units_suffix);
 			}
 		} else {
@@ -3627,7 +3627,7 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 
 			return str_replace($find, $replace, $thold_data['email_subject_warn']);
 		}
-	} else{
+	} else {
 		if ($trigger) {
 			$phase = 'TRIGGER';
 		}
@@ -3639,7 +3639,7 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 				($breach_up ? 'above' : 'below') .
 				($thold_data['thold_type'] == 1 ? ' Baseline Threshold of ':' Threshold of ') .
 				($breach_up ? thold_format_number($value, $decimals, $baseu, $suffix, $show_units, $units_suffix):
-					thold_format_number($value, $decimals, $baseu, $suffix, $show_units, $units_suffix)) . ' with ' .
+				thold_format_number($value, $decimals, $baseu, $suffix, $show_units, $units_suffix)) . ' with ' .
 				thold_format_number($lastread, $decimals, $baseu, $suffix, $show_units, $units_suffix);
 		} else {
 			$find = array(
