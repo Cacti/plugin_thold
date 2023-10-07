@@ -257,7 +257,7 @@ function do_actions() {
 							plugin_thold_log_changes($thold_id, 'enabled_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
-								SET thold_per_enabled="on"
+								SET thold_per_enabled = "on"
 								WHERE id = ?',
 								array($thold_id));
 						}
@@ -269,7 +269,7 @@ function do_actions() {
 							plugin_thold_log_changes($thold_id, 'disabled_threshold', array('id' => $thold_id));
 
 							db_execute_prepared('UPDATE thold_data
-								SET thold_per_enabled=""
+								SET thold_per_enabled = ""
 								WHERE id = ?',
 								array($thold_id));
 						}
