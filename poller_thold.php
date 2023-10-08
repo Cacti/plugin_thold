@@ -155,11 +155,11 @@ function perform_thold_processes() {
 				AND poller_id = ?',
 				array($config['poller_id']));
 		} else {
-			$total_hosts = db_fetch_cell('SELECT count(*)
+			$total_hosts = db_fetch_cell('SELECT COUNT(*)
 				FROM host
 				WHERE disabled = ""');
 
-			$down_hosts = db_fetch_cell('SELECT count(*)
+			$down_hosts = db_fetch_cell('SELECT COUNT(*)
 				FROM host
 				WHERE status = 1
 				AND disabled = ""');
@@ -212,13 +212,13 @@ function perform_thold_processes() {
 
 			thold_cleanup_log();
 
-			$total_hosts = db_fetch_cell_prepared('SELECT count(*)
+			$total_hosts = db_fetch_cell_prepared('SELECT COUNT(*)
 				FROM host
 				WHERE disabled = ""
 				AND poller_id = ?',
 				array($config['poller_id']));
 
-			$down_hosts = db_fetch_cell_prepared('SELECT count(*)
+			$down_hosts = db_fetch_cell_prepared('SELECT COUNT(*)
 				FROM host
 				WHERE status = 1
 				AND disabled = ""
@@ -238,11 +238,11 @@ function perform_thold_processes() {
 
 			thold_cleanup_log();
 
-			$total_hosts = db_fetch_cell('SELECT count(*)
+			$total_hosts = db_fetch_cell('SELECT COUNT(*)
 				FROM host
 				WHERE disabled=""');
 
-			$down_hosts = db_fetch_cell('SELECT count(*)
+			$down_hosts = db_fetch_cell('SELECT COUNT(*)
 				FROM host
 				WHERE status = 1
 				AND disabled = ""');
