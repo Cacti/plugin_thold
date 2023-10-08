@@ -2257,7 +2257,13 @@ function thold_edit() {
 		var status = $('#template_enabled').is(':checked');
 
 		$('#name').prop('disabled', status);
-		$('#thold_enabled').prop('disabled', true);
+
+		if (status) {
+			$('#thold_enabled').prop('disabled', true);
+			$('#row_thold_enabled').show();
+		} else {
+			$('#row_thold_enabled').hide();
+		}
 
 		// General Settings
 		$('#exempt').prop('disabled', status);
@@ -2415,7 +2421,7 @@ function thold_edit() {
 
 	function thold_toggle_baseline(status) {
 		if (status == '') {
-			$('#row_baseline_header, #row_bl_ref_time_range').show();
+			$('#row_baseline_header, #row_bl_ref_time_range, #row_bl_type').show();
 			$('#row_bl_pct_up, #row_bl_pct_down, #row_bl_fail_trigger').show();
 
 			if ($('#bl_type').val() == 1 || $('#bl_type').val() == 3 || $('#bl_type').val() == 5) {
@@ -2424,7 +2430,7 @@ function thold_edit() {
 				$('#row_bl_cf').hide();
 			}
 		} else {
-			$('#row_baseline_header, #row_bl_ref_time_range').hide();
+			$('#row_baseline_header, #row_bl_ref_time_range, #row_bl_type').hide();
 			$('#row_bl_pct_up, #row_bl_cf, #row_bl_pct_down, #row_bl_fail_trigger').hide();
 		}
 	}
@@ -2527,7 +2533,7 @@ function thold_edit() {
 		});
 
 		<?php if (!isset($thold_data['thold_template_id']) || $thold_data['thold_template_id'] == '') { ?>
-		$('#templated_enabled').prop('disabled', true);
+		$('#template_enabled').prop('disabled', true);
 		<?php } ?>
 
 		changeTholdType ();
