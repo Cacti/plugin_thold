@@ -391,6 +391,9 @@ function tholds() {
 
 	$sql_where = '';
 
+	/* Excluded disabled hosts */
+	$sql_where = '( h.status = 3';
+
 	if (get_request_var('rfilter') != '') {
 		$sql_where .= ($sql_where == '' ? '(': ' AND ') . " td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
 	}
