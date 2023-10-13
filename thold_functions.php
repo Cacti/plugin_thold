@@ -2071,7 +2071,9 @@ function thold_check_threshold(&$thold_data) {
 	thold_modify_values_by_cdef($thold_data);
 
 	thold_debug('Checking Threshold:' .
-		' Name: ' . var_export($thold_data['data_source_name'],true) .
+		' ID: ' . var_export($thold_data['id'],true) .
+		', name: ' . var_export($thold_data['name_cache'],true) .
+		', data source: ' . var_export($thold_data['data_source_name'],true) .
 		', local_data_id: ' . var_export($thold_data['local_data_id'],true) .
 		', data_template_rrd_id: ' . var_export($thold_data['data_template_rrd_id'],true) .
 		', value: ' . var_export($thold_data['lastread'],true));
@@ -5352,7 +5354,8 @@ function save_thold() {
 			array($data_template_rrd_id));
 	}
 
-	$template_enabled = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : 'off';
+	$template_enabled  = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : 'off';
+	$thold_per_enabled = isset_request_var('thold_per_enabled'   ) && get_nfilter_request_var('thold_per_enabled'   ) == 'on' ? 'on' : '';
 
 	if ($template_enabled == 'on') {
 		if ($local_graph_id > 0 && !is_thold_allowed_graph($local_graph_id)) {
@@ -5364,9 +5367,9 @@ function save_thold() {
 
 		if (get_request_var('id') > 0) {
 			db_execute_prepared('UPDATE thold_data
-				SET template_enabled = "on"
+				SET template_enabled = "on", thold_per_enabled = ?
 				WHERE id = ?',
-				array(get_request_var('id')));
+				array($thold_per_enabled, get_request_var('id')));
 		}
 
 		$data = db_fetch_row_prepared('SELECT id, thold_template_id
@@ -5528,6 +5531,7 @@ function save_thold() {
 	$save['data_template_rrd_id'] = $data_template_rrd_id;
 	$save['local_data_id']        = $local_data_id;
 	$save['thold_enabled']        = isset_request_var('thold_enabled') && get_request_var('thold_enabled') == 'on' ? 'on':'off';
+	$save['thold_per_enabled']    = isset_request_var('thold_per_enabled') && get_request_var('thold_per_enabled') == 'on' ? 'on':'';
 
 	if ($thold_template_id > 0) {
 		$save['thold_template_id'] = $thold_template_id;
