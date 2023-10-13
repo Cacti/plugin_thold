@@ -1106,16 +1106,18 @@ function thold_edit() {
 		$thold_data['show_units']        = '';
 		$thold_data['units_suffix']      = '';
 		$thold_data['decimals']          = -1;
-		$thold_data['thold_hi']          = 0;
-		$thold_data['thold_low']         = 0;
-		$thold_data['thold_warning_hi']  = 0;
-		$thold_data['thold_warning_low'] = 0;
-		$thold_data['time_hi']           = 0;
-		$thold_data['time_low']          = 0;
-		$thold_data['time_warning_hi']   = 0;
-		$thold_data['time_warning_low']  = 0;
+		$thold_data['thold_hi']          = '';
+		$thold_data['thold_low']         = '';
+		$thold_data['thold_warning_hi']  = '';
+		$thold_data['thold_warning_low'] = '';
+		$thold_data['time_hi']           = '';
+		$thold_data['time_low']          = '';
+		$thold_data['time_warning_hi']   = '';
+		$thold_data['time_warning_low']  = '';
 		$thold_data['bl_pct_up']         = 0;
 		$thold_data['bl_pct_down']       = 0;
+		$thold_data['template_enabled']  = 'off';
+		$thold_data['thold_per_enabled'] = 'on';
 	} else {
 		exit;
 	}
