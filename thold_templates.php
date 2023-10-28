@@ -1640,6 +1640,7 @@ function template_edit() {
 				'description' => __('This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>', 'thold'),
 				'array' => $send_notification_array,
 				'sql' => $sql,
+				'value' => isset($thold_data['notify_accounts']) ? $thold_data['notify_accounts'] : ''
 			),
 			'notify_extra' => array(
 				'friendly_name' => __('Alert Emails', 'thold'),
