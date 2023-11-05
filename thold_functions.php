@@ -4703,7 +4703,7 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 
 	// Return Blank if the value was not found (Cache Cleared?)
 
-	if (!cacti_count($result['values'][$idx])) {
+	if (!isset($result['values']) || $idx === null || !cacti_sizeof($result['values'][$idx])) {
 		return '';
 	}
 
