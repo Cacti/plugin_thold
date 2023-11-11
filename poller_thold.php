@@ -34,6 +34,7 @@ if (strpos($dir, 'plugins') !== false) {
 }
 
 include('./include/cli_check.php');
+include_once($config['base_path'] . '/plugins/thold/setup.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 include_once($config['base_path'] . '/plugins/thold/includes/polling.php');
 include_once($config['base_path'] . '/lib/rrd.php');
@@ -46,6 +47,8 @@ array_shift($parms);
 $debug = false;
 $force = false;
 $start = microtime(true);
+
+global $debug;
 
 $poller_id = $config['poller_id'];
 
@@ -110,11 +113,18 @@ function perform_thold_processes() {
 
 	// Force upgrade the database if there is a problem
 	if (!db_column_exists('thold_data', 'name_cache')) {
+		thold_debug('Upgrading Thold database now.');
+
 		include_once($config['base_path'] . '/plugins/thold/includes/database.php');
+
 		thold_upgrade_database(true);
+	} else {
+		thold_debug('Not upgrading Thold database.');
 	}
 
 	/* handle changes in deadnotify */
+	thold_debug('Pruning stale dead host notifications.');
+
 	$deadnotify = (read_config_option('alert_deadnotify') == 'on');
 	if (!$deadnotify) {
 		db_execute('TRUNCATE plugin_thold_host_failed');
@@ -127,6 +137,8 @@ function perform_thold_processes() {
 	$notification_daemon = read_config_option('thold_notification_daemon');
 
 	if ($notification_queue == 'on' && $notification_daemon == '') {
+		thold_debug('Launching Thold notification process.');
+
 		$command_string = cacti_escapeshellcmd(read_config_option('path_php_binary'));
 		$file_path      = $config['base_path'] . '/plugins/thold/thold_notify.php';
 		if (file_exists($file_path)) {
@@ -135,11 +147,20 @@ function perform_thold_processes() {
 	}
 
 	if (read_config_option('thold_daemon_enable') == '') {
-		/* perform all thold checks */
-		$tholds = thold_check_all_thresholds();
-		$nhosts = thold_update_host_status();
+		thold_debug('Thold daemon not enabled.  Preparing to perform checks.');
 
+		/* perform all thold checks */
+		thold_debug('Thold checks started.');
+		$tholds = thold_check_all_thresholds();
+		thold_debug('Thold checks finished.');
+
+		thold_debug('Down device checks started.');
+		$nhosts = thold_update_host_status();
+		thold_debug('Down device checks finished.');
+
+		thold_debug('Thold Log Cleanup started.');
 		thold_cleanup_log();
+		thold_debug('Thold Log Cleanup finished.');
 
 		if (read_config_option('remote_storage_method') == 1) {
 			$total_hosts = db_fetch_cell_prepared('SELECT COUNT(*)
@@ -165,7 +186,9 @@ function perform_thold_processes() {
 				AND disabled = ""');
 		}
 
+		thold_debug('Prune old data started.');
 		thold_prune_old_data();
+		thold_debug('Prune old data finished.');
 
 		/* record the end time */
 		$end = microtime(true);

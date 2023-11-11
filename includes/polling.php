@@ -148,6 +148,7 @@ function thold_poller_output(&$rrd_update_array) {
 
 	if (cacti_sizeof($tholds)) {
 		$sql = array();
+
 		foreach ($tholds as $thold_data) {
 			thold_debug("Checking Threshold: Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
 
@@ -214,15 +215,16 @@ function thold_poller_output(&$rrd_update_array) {
 
 		if (cacti_sizeof($sql)) {
 			$chunks = array_chunk($sql, 400);
+
 			foreach ($chunks as $c) {
 				db_execute('INSERT INTO thold_data
 					(id, tcheck, lastread, lasttime, oldvalue)
 					VALUES ' . implode(', ', $c) . '
 					ON DUPLICATE KEY UPDATE
-						tcheck=VALUES(tcheck),
-						lastread=VALUES(lastread),
-						lasttime=VALUES(lasttime),
-						oldvalue=VALUES(oldvalue)');
+						tcheck = VALUES(tcheck),
+						lastread = VALUES(lastread),
+						lasttime = VALUES(lasttime),
+						oldvalue = VALUES(oldvalue)');
 			}
 
 			/* accomodate deleted tholds */

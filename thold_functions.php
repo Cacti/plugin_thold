@@ -172,7 +172,7 @@ function thold_debug($txt, $thread = '') {
 	global $debug;
 
 	if (read_config_option('thold_log_debug') == 'on' || $debug) {
-		thold_cacti_log($txt, $thread);
+		thold_cacti_log($txt, $thread, true);
 	}
 }
 
@@ -2071,14 +2071,12 @@ function thold_check_threshold(&$thold_data) {
 	thold_modify_values_by_cdef($thold_data);
 
 	thold_debug('Checking Threshold:' .
-		' ID: ' . var_export($thold_data['id'],true) .
-		', name: ' . var_export($thold_data['name_cache'],true) .
-		', data source: ' . var_export($thold_data['data_source_name'],true) .
-		', local_data_id: ' . var_export($thold_data['local_data_id'],true) .
-		', data_template_rrd_id: ' . var_export($thold_data['data_template_rrd_id'],true) .
-		', value: ' . var_export($thold_data['lastread'],true));
-
-	$debug = false;
+		' id: '                    . var_export($thold_data['id'], true) .
+		', name: '                 . var_export($thold_data['name_cache'], true) .
+		', data source: '          . var_export($thold_data['data_source_name'], true) .
+		', local_data_id: '        . var_export($thold_data['local_data_id'], true) .
+		', data_template_rrd_id: ' . var_export($thold_data['data_template_rrd_id'], true) .
+		', value: '                . var_export($thold_data['lastread'], true));
 
 	// Do not proceed if we have chosen to globally disable all alerts
 	if (read_config_option('thold_disable_all') == 'on') {
@@ -5530,8 +5528,14 @@ function save_thold() {
 	$save['host_id']              = $device_id;
 	$save['data_template_rrd_id'] = $data_template_rrd_id;
 	$save['local_data_id']        = $local_data_id;
-	$save['thold_enabled']        = isset_request_var('thold_enabled') && get_request_var('thold_enabled') == 'on' ? 'on':'off';
-	$save['thold_per_enabled']    = isset_request_var('thold_per_enabled') && get_request_var('thold_per_enabled') == 'on' ? 'on':'';
+
+	if ($thold_template_id == 0) {
+		$save['thold_enabled'] = 'on';
+	} else {
+		$save['thold_enabled'] = isset_request_var('thold_enabled') && get_request_var('thold_enabled') == 'on' ? 'on':'off';
+	}
+
+	$save['thold_per_enabled'] = isset_request_var('thold_per_enabled') && get_request_var('thold_per_enabled') == 'on' ? 'on':'';
 
 	if ($thold_template_id > 0) {
 		$save['thold_template_id'] = $thold_template_id;
@@ -6465,7 +6469,7 @@ function thold_notification_add($topic, &$data, $id = 'id', $list_id = 0, &$host
 		array($topic, $list_id, $id, $name, $host_id, $hostname, $now, json_encode($data, JSON_THROW_ON_ERROR)));
 }
 
-function thold_check_for_notification_delay() {
+function pre_process_device_notifications() {
 	$delay_criteria = read_config_option('alert_notification_pause');
 	$now            = time();
 	$triggers       = array();
@@ -6776,13 +6780,42 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 	/**
 	 * See if notification delay is active and mark the events as such,
 	 * which will potentially leave less events to process.
+	 * This process will also enable notification once the delay is over
+	 * for the devices or allow them to be sent.
 	 */
-	thold_check_for_notification_delay();
+	pre_process_device_notifications($pid, $max_records);
+
+	/**
+	 * Process any non-device up/down notifications first.  These
+	 * notifications are not subject to notification delay
+	 */
+	process_non_device_notifications($pid, $max_records, $prev_suspended);
+
+	/**
+	 * Last process expired notification delays or device
+	 * notifications that are not subject to notification delay
+	 * not maching any rule type.
+	 */
+	process_device_notifications($pid, $max_records, $prev_suspended);
+}
+
+function process_device_notifications($pid, $max_records, $prev_suspended) {
+	if ($max_records == 'all') {
+		$sql_limit = '';
+	} else {
+		$sql_limit = 'LIMIT ' . $max_records;
+	}
+
+	if ($pid > 0) {
+		$sql_where = ' AND process_id = ' . $pid;
+	} else {
+		$sql_where = '';
+	}
 
 	$records = db_fetch_assoc("SELECT *
 		FROM notification_queue
 		WHERE event_processed = 0
-		AND delay_notify = 0
+		AND topic NOT IN ('thold_dhost_mail', 'thold_uhost_mail', 'thold_dhost_cmd', 'thold_uhost_cmd')
 		$sql_where
 		ORDER BY event_time ASC
 		$sql_limit");
@@ -6791,6 +6824,7 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 		foreach($records as $r) {
 			$nstart = microtime(true);
 
+			/* if notification is suspended, break from this loop */
 			$suspended = read_config_option('thold_notification_suspended', true);
 			if ($suspended == 1) {
 				if ($prev_suspended == 0) {
@@ -6804,7 +6838,6 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 			$processed = false;
 
 			switch($topic) {
-				case 'thold_mail':
 				case 'thold_dhost_mail':
 				case 'thold_uhost_mail':
 					$data = json_decode($r['event_data'], true);
@@ -6848,6 +6881,129 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 					break;
 				case 'thold_dhost_cmd':
 				case 'thold_uhost_cmd':
+					$data = json_decode($r['event_data'], true);
+
+					$attributes = array(
+						'envrionment', 'command', 'data'
+					);
+
+					foreach($attributes as $a) {
+						if (isset($data[$a])) {
+							$$a = $data[$a];
+						} else {
+							$$a = '';
+						}
+					}
+
+					$output = array();
+					$return = 0;
+
+					if (cacti_sizeof($data['environment'])) {
+						foreach($data['environment'] as $e) {
+							putenv($e);
+						}
+					}
+
+					exec($command, $output, $return);
+
+					thold_process_command_output($output, $return, $topic, $data);
+
+					$nend = microtime(true);
+
+					db_execute_prepared('UPDATE notification_queue
+						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
+						WHERE id = ?',
+						array($return, implode("\n", $output), $nend - $nstart, $r['id']));
+
+					break;
+				default:
+					cacti_log(sprintf('ERROR: Unable to process Thold Notification of topic %s', $topic), false, 'THOLD');
+			}
+		}
+	} else {
+		debounce_run_notification('notify_suspend', 'WARNING: Notifications have been suspended by an operator.  Returning from processing loop');
+	}
+}
+
+function process_non_device_notifications($pid, $max_records, $prev_suspended) {
+	if ($max_records == 'all') {
+		$sql_limit = '';
+	} else {
+		$sql_limit = 'LIMIT ' . $max_records;
+	}
+
+	if ($pid > 0) {
+		$sql_where = ' AND process_id = ' . $pid;
+	} else {
+		$sql_where = '';
+	}
+
+	$records = db_fetch_assoc("SELECT *
+		FROM notification_queue
+		WHERE event_processed = 0
+		AND topic NOT IN ('thold_dhost_mail', 'thold_uhost_mail', 'thold_dhost_cmd', 'thold_uhost_cmd')
+		$sql_where
+		ORDER BY event_time ASC
+		$sql_limit");
+
+	if ($prev_suspended == 0) {
+		foreach($records as $r) {
+			$nstart = microtime(true);
+
+			/* if notification is suspended, break from this loop */
+			$suspended = read_config_option('thold_notification_suspended', true);
+			if ($suspended == 1) {
+				if ($prev_suspended == 0) {
+					debounce_run_notification('notify_suspend', 'WARNING: Notifications have been suspended by an operator.  Returning from processing loop');
+				}
+
+				break;
+			}
+
+			$topic     = $r['topic'];
+			$processed = false;
+
+			switch($topic) {
+				case 'thold_mail':
+					$data = json_decode($r['event_data'], true);
+
+					$attributes = array(
+						'from', 'to', 'cc', 'bcc', 'replyto', 'subject', 'body', 'body_text', 'attachments', 'headers', 'html'
+					);
+
+					foreach($attributes as $a) {
+						if (isset($data[$a])) {
+							$$a = $data[$a];
+						} else {
+							$$a = '';
+						}
+					}
+
+					if (cacti_sizeof($attachments)) {
+						foreach($attachments as $index => $attach) {
+							$attachments[$index]['attachment'] = base64_decode($attach['attachment']);
+						}
+					}
+
+					$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
+
+					if (strlen($error)) {
+						cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
+						$any_error = $error;
+						$error_code = 1;
+					} else {
+						$error = '';
+						$error_code = 0;
+					}
+
+					$nend = microtime(true);
+
+					db_execute_prepared('UPDATE notification_queue
+						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
+						WHERE id = ?',
+						array($error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id']));
+
+					break;
 				case 'thold_cmd':
 					$data = json_decode($r['event_data'], true);
 
@@ -7058,8 +7214,9 @@ function update_suggested_names_from_template($id, $thold_id = -1) {
 	}
 }
 
-function thold_cacti_log($string, $thread = '') {
-	global $config;
+function thold_cacti_log($string, $thread = '', $stdout = false) {
+	global $config, $debug;
+	static $start = null;
 
 	$environ = 'THOLD' . ($thread != '' ? ' THREAD[' . $thread . ']':'');
 
@@ -7075,7 +7232,22 @@ function thold_cacti_log($string, $thread = '') {
 	$logfile        = read_config_option('path_cactilog');
 
 	/* format the message */
-	$message = "$date - " . $environ . ': ' . $string . "\n";
+	if ($stdout) {
+		if ($start == null) {
+			$start = microtime(true);
+			$total = 0.00;
+		} else {
+			$total = microtime(true) - $start;
+		}
+
+		if (!$debug) {
+			printf("Total[%0.4f] - %s: %s" . PHP_EOL, $total, $environ, trim($string));
+		} else {
+			printf("Total[%0.4f] DEBUG: %s" . PHP_EOL, $total, trim($string));
+		}
+	}
+
+	$message = "$date - " . $environ . ': ' . trim($string) . "\n";
 
 	/* Log to Logfile */
 	if ((($logdestination == 1) || ($logdestination == 2)) && (read_config_option('log_verbosity') != POLLER_VERBOSITY_NONE)) {

@@ -1668,6 +1668,15 @@ function thold_upgrade_database($force = false) {
 		);
 
 		db_add_column('notification_queue', array(
+			'name'     => 'site_id',
+			'type'     => 'int',
+			'unsigned' => true,
+			'NULL'     => false,
+			'default'  => '0',
+			'after'    => 'host_id')
+		);
+
+		db_add_column('notification_queue', array(
 			'name'     => 'delay_notify',
 			'type'     => 'tinyint',
 			'unsigned' => true,
@@ -2044,6 +2053,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'object_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'object_name', 'type' => 'varchar(128)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'host_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
+	$data['columns'][] = array('name' => 'site_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'hostname', 'type' => 'varchar(64)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'delay_notify', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'delay_type', 'type' => 'varchar(10)', 'NULL' => false, 'default' => '');
@@ -2079,5 +2089,9 @@ function thold_setup_database() {
 
 	db_execute('ALTER TABLE plugin_thold_log
 		MODIFY COLUMN current varchar(64) NOT NULL default ""');
+
+	db_execute('UPDATE thold_data
+		SET thold_enabled = "on"
+		WHERE thold_template_id = 0 OR template_enabled = "off"');
 }
 
