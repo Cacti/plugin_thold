@@ -276,7 +276,7 @@ function display_version() {
 	global $config;
 
 	if (!function_exists('plugin_thold_version')) {
-		include_once($config['base_path'] . '/plugins/webseer/setup.php');
+		include_once($config['base_path'] . '/plugins/thold/setup.php');
 	}
 
     $info = plugin_thold_version();
