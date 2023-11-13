@@ -1668,6 +1668,15 @@ function thold_upgrade_database($force = false) {
 		);
 
 		db_add_column('notification_queue', array(
+			'name'     => 'host_id',
+			'type'     => 'int(11)',
+			'unsigned' => true,
+			'NULL'     => false,
+			'default'  => '0',
+			'after'    => 'object_name')
+		);
+
+		db_add_column('notification_queue', array(
 			'name'     => 'site_id',
 			'type'     => 'int',
 			'unsigned' => true,
