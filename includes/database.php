@@ -1668,6 +1668,14 @@ function thold_upgrade_database($force = false) {
 		);
 
 		db_add_column('notification_queue', array(
+			'name'     => 'topic',
+			'type'     => 'varchar(20)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'notification_list_id')
+		);
+
+		db_add_column('notification_queue', array(
 			'name'     => 'host_id',
 			'type'     => 'int(11)',
 			'unsigned' => true,
@@ -1686,12 +1694,20 @@ function thold_upgrade_database($force = false) {
 		);
 
 		db_add_column('notification_queue', array(
+			'name'     => 'hostname',
+			'type'     => 'varchar(64)',
+			'NULL'     => false,
+			'default'  => '',
+			'after'    => 'site_id')
+		);
+
+		db_add_column('notification_queue', array(
 			'name'     => 'delay_notify',
 			'type'     => 'tinyint',
 			'unsigned' => true,
 			'NULL'     => false,
 			'default'  => '0',
-			'after'    => 'email_subject_warn')
+			'after'    => 'hostname')
 		);
 
 		db_add_column('notification_queue', array(
