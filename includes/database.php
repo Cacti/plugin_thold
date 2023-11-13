@@ -1743,6 +1743,12 @@ function thold_upgrade_database($force = false) {
 			'after'    => 'delay_end')
 		);
 
+		db_add_index('notification_queue', 'INDEX', 'topic_processed', array('topic','event_processed'));
+		db_add_index('notification_queue', 'INDEX', 'process_id', array('process_id'));
+		db_add_index('notification_queue', 'INDEX', 'object_id', array('object_id'));
+		db_add_index('notification_queue', 'INDEX', 'host_id', array('host_id'));
+		db_add_index('notification_queue', 'INDEX', 'hostname', array('hostname'));
+
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
