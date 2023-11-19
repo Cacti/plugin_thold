@@ -556,11 +556,7 @@ function template_add() {
 			$('#go').button().click(function() {
 				strURL = $('#tholdform').attr('action');
 				json   = $('input, select').serializeObject();
-				$.post(strURL, json).done(function(data) {
-					$('#main').html(data);
-					applySkin();
-					window.scrollTo(0, 0);
-				});
+				loadPageUsingPost(strURL, json);
 			});
 		});
 
