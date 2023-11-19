@@ -630,7 +630,7 @@ function list_tholds() {
 	?>
 	<tr class='even'>
 		<td>
-		<form id='thold' action='thold.php' method='post'>
+		<form id='thold' action='thold.php'>
 			<table class='filterTable'>
 				<tr>
 					<td>
