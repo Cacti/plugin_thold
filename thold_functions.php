@@ -5429,7 +5429,7 @@ function save_thold() {
 		if (get_request_var('thold_type') == 0 &&
 			get_request_var('thold_hi') != '' &&
 			get_request_var('thold_low') != '' &&
-			round(get_request_var('thold_low'),4) >= round(get_request_var('thold_hi'), 4)) {
+			trim_round_request_var('thold_low', 4, 'thold_low') >= trim_round_request_var('thold_hi', 4, 'thold_hi')) {
 
 			$banner = __('Impossible thresholds: \'High Threshold\' smaller than or equal to \'Low Threshold\'<br>RECORD NOT UPDATED!', 'thold');
 
@@ -5441,7 +5441,7 @@ function save_thold() {
 		if (get_request_var('thold_type') == 0 &&
 			get_request_var('thold_warning_hi') != '' &&
 			get_request_var('thold_warning_low') != '' &&
-			round(get_request_var('thold_warning_low'),4) >= round(get_request_var('thold_warning_hi'), 4)) {
+			trim_round_request_var('thold_warning_low', 4, 'thold_warning_low') >= trim_round_request_var('thold_warning_hi', 4, 'thold_warning_hi')) {
 
 			$banner = __('Impossible thresholds: \'High Warning Threshold\' smaller than or equal to \'Low Warning Threshold\'<br>RECORD NOT UPDATED!', 'thold');
 
