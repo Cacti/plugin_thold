@@ -1398,14 +1398,10 @@ function thold_device_template_edit() {
 				</table>
 				<script type='text/javascript'>
 				$('#add_tt').click(function() {
-					$.post('host_templates.php?header=false&action=item_add_tt', {
+					loadPageUsingPost('host_templates.php?header=false&action=item_add_tt', {
 						host_template_id: $('#id').val(),
 						thold_template_id: $('#thold_template_id').val(),
 						__csrf_magic: csrfMagicToken
-					}).done(function(data) {
-						$('div[class^="ui-"]').remove();
-						$('#main').html(data);
-						applySkin();
 					});
 				});
 				</script>
