@@ -197,7 +197,7 @@ TcEventRealertStatus ::= TEXTUAL-CONVENTION
 tholdAppl OBJECT-IDENTITY
     STATUS          current
     DESCRIPTION
-        "resevered for Thold application data"
+        "reserved for Thold application data"
     ::= { thold 1 }
 
 --
@@ -206,7 +206,7 @@ tholdAppl OBJECT-IDENTITY
 tholdStats OBJECT-IDENTITY
     STATUS          current
     DESCRIPTION
-        "resevered for statistics"
+        "reserved for statistics"
     ::= { thold 2 }
 
 --
@@ -215,13 +215,13 @@ tholdStats OBJECT-IDENTITY
 tholdEvents OBJECT-IDENTITY
     STATUS          current
     DESCRIPTION
-        "resevered for events"
+        "reserved for events"
     ::= { thold 3 }
 
 tholdEventObjects OBJECT-IDENTITY
     STATUS          current
     DESCRIPTION
-        "resevered for event attributes"
+        "reserved for event attributes"
     ::= { tholdEvents 1 }
 
 eventDateRFC822 OBJECT-TYPE
@@ -229,7 +229,7 @@ eventDateRFC822 OBJECT-TYPE
     MAX-ACCESS      accessible-for-notify
     STATUS          current
     DESCRIPTION
-        "The curent date/time of when the event was detected by Thold."
+        "The current date/time of when the event was detected by Thold."
     ::= { tholdEventObjects 1 }
 
 eventClass OBJECT-TYPE
@@ -280,7 +280,7 @@ eventSource OBJECT-TYPE
     MAX-ACCESS      accessible-for-notify
     STATUS          current
     DESCRIPTION
-        "Contains the threshold name to identifiy the threshold (source)
+        "Contains the threshold name to identify the threshold (source)
          generating this event."
     DEFVAL { "" }
     ::= { tholdEventObjects 5 }
@@ -470,7 +470,7 @@ eventFailCountTrigger OBJECT-TYPE
 tholdEventNotifications OBJECT-IDENTITY
     STATUS          current
     DESCRIPTION
-        "resevered for event attributes"
+        "reserved for event attributes"
     ::= { tholdEvents 2 }
 
 tholdNotify NOTIFICATION-TYPE
@@ -507,7 +507,7 @@ tholdNotify NOTIFICATION-TYPE
 tholdMibGroups OBJECT-IDENTITY
     STATUS          current
     DESCRIPTION
-        "resevered for group definitions"
+        "reserved for group definitions"
     ::= { thold 4 }
 
 tholdEventGroup OBJECT-GROUP
