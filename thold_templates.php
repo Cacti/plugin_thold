@@ -2388,7 +2388,7 @@ function import() {
 }
 
 function validate_upload() {
-	/* check file tranfer if used */
+	/* check file transfer if used */
 	if (isset($_FILES['import_file'])) {
 		/* check for errors first */
 		if ($_FILES['import_file']['error'] != 0) {

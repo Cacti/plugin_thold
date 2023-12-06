@@ -162,7 +162,7 @@ function sig_handler($signo) {
 	switch ($signo) {
 		case SIGTERM:
 		case SIGINT:
-			thold_cacti_log('WARNING: Thold Daemon Notifcation Child Process with PID[' . getmypid() . '] terminated by user', $thread);
+			thold_cacti_log('WARNING: Thold Daemon Notification Child Process with PID[' . getmypid() . '] terminated by user', $thread);
 			unregister_process('thold_notify', 'child', $thread);
 
 			exit;

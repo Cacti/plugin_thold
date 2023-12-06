@@ -581,7 +581,7 @@ $thold_decimal_digits = array(
 );
 
 /**
- * Notifcation Pause Settings come in three varieties
+ * Notification Pause Settings come in three varieties
  *
  * 1 - Global number of notifications
  * 2 - X% from a Site

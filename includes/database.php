@@ -928,7 +928,7 @@ function thold_upgrade_database($force = false) {
 			set_config_option('thold_enable_scripts', 'on');
 		}
 
-		// Move modifyable Email body into thold
+		// Move modifiable Email body into thold
 		db_add_column('thold_data', array(
 			'name' => 'email_body',
 			'type' => 'varchar(1024)',
@@ -1021,7 +1021,7 @@ function thold_upgrade_database($force = false) {
 			'default' => 'off',
 			'after' => 'reset_ack'));
 
-		// Move modifyable Email body into thold
+		// Move modifiable Email body into thold
 		db_add_column('thold_template', array(
 			'name' => 'email_body',
 			'type' => 'varchar(1024)',

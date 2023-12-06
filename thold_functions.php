@@ -208,7 +208,7 @@ function thold_template_avail_devices($thold_template_id = 0) {
 			AND gt.id=td.graph_template_id'), 'id', 'id');
 	}
 
-	// Limit ths hosts to only hosts that either have a graph template
+	// Limit the hosts to only hosts that either have a graph template
 	// Listed as multiple, or do not have a threshold created
 	// Using the Graph Template listed
 	$device_ids = array();
@@ -3049,7 +3049,7 @@ function thold_check_threshold(&$thold_data) {
 				$trigger = true;
 			}
 
-			$subject = get_email_subject('ALERT', $tigger, $lastread, $ra, $breach_up, $thold_data);
+			$subject = get_email_subject('ALERT', $trigger, $lastread, $ra, $breach_up, $thold_data);
 
 			if ($notify) {
 				if (!$suspend_notify && !$maint_dev) {
@@ -3203,7 +3203,7 @@ function thold_check_threshold(&$thold_data) {
 
 			$ra = ($warning_failures > $warning_trigger) ? true:false;
 
-			$subject = get_email_subject('WARNING', $tigger, $lastread, $ra, $warning_breach_up, $thold_data);
+			$subject = get_email_subject('WARNING', $trigger, $lastread, $ra, $warning_breach_up, $thold_data);
 
 			if ($notify) {
 				if (!$suspend_notify && !$maint_dev) {
@@ -3829,7 +3829,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$cmd = thold_expand_string($thold_data, $cmd);
 
-			$enviornment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
 			if ($queue == 'on') {
 				$data = array(
@@ -3990,7 +3990,7 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	thold_putenv('THOLD_DATE='         . date(CACTI_DATE_TIME_FORMAT));
 	thold_putenv('THOLD_DATE_RFC822='  . date(DATE_RFC822));
 
-	$enviornment = thold_putenv('THOLD_URL=' . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id"));
+	$environment = thold_putenv('THOLD_URL=' . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id"));
 
 	return $environment;
 }
@@ -6646,7 +6646,7 @@ function pre_process_device_notifications() {
  *
  * @param array - Any active triggers that may or may not remain active
  * @param array - Any new triggers that may be part of an existing delay
- *                or a new delay besed upon the ruleset.
+ *                or a new delay based upon the ruleset.
  * @param int   - The Unix Timestamp of the start time for the sample period
  * @param int   - The Unix Timestamp of the last time that a check was performed.
  *
@@ -6668,7 +6668,7 @@ function check_for_expired_delays(&$last_trigger, $triggers, $now, $last_check) 
 			 * delay.  Check the type, the variout notification lists and the
 			 * status of the hosts.  If they are no longer down, you can cancel
 			 * any notifications if not and send out an all clear event.
-			 * Otherwise, trigger the notfications as directed.
+			 * Otherwise, trigger the notifications as directed.
 			 */
 			if ($now - $details['start_time'] >= $delay_period) {
 				switch($parts[0]) {
@@ -6745,13 +6745,13 @@ function check_for_expired_delays(&$last_trigger, $triggers, $now, $last_check) 
 /**
  * check_for_new_delays - Given the list of existing triggers and any
  *   new triggers, we will re-establish the triggers and provide the
- *   appropriate initial notfication as required.  The function in the
+ *   appropriate initial notification as required.  The function in the
  *   end will set the config option for the next sampling interval to
  *   evaluate.
  *
  * @param array - Any active triggers that may or may not remain active
  * @param array - Any new triggers that may be part of an existing delay
- *                or a new delay besed upon the ruleset.
+ *                or a new delay based upon the ruleset.
  * @param int   - The Unix Timestamp of the start time for the sample period
  * @param int   - The Unix Timestamp of the last time that a check was performed.
  *
@@ -6794,7 +6794,7 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 	/**
 	 * Last process expired notification delays or device
 	 * notifications that are not subject to notification delay
-	 * not maching any rule type.
+	 * not matching any rule type.
 	 */
 	process_device_notifications($pid, $max_records, $prev_suspended);
 }
@@ -6884,7 +6884,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 					$data = json_decode($r['event_data'], true);
 
 					$attributes = array(
-						'envrionment', 'command', 'data'
+						'environment', 'command', 'data'
 					);
 
 					foreach($attributes as $a) {
@@ -7008,7 +7008,7 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended) {
 					$data = json_decode($r['event_data'], true);
 
 					$attributes = array(
-						'envrionment', 'command', 'data'
+						'environment', 'command', 'data'
 					);
 
 					foreach($attributes as $a) {
@@ -7856,7 +7856,7 @@ function thold_template_import($xml_data) {
 						}
 					}
 				} else {
-					$debug_data['failure'][] = __('Errors enountered while attempting to import Threshold Template data.', 'thold');
+					$debug_data['failure'][] = __('Errors encountered while attempting to import Threshold Template data.', 'thold');
 				}
 			}
 		} else {

@@ -227,7 +227,7 @@ function thold_poller_output(&$rrd_update_array) {
 						oldvalue = VALUES(oldvalue)');
 			}
 
-			/* accomodate deleted tholds */
+			/* accommodate deleted tholds */
 			db_execute('DELETE FROM thold_data WHERE local_data_id = 0');
 
 			if (db_affected_rows() > 0) {
@@ -609,7 +609,7 @@ function thold_update_host_status() {
 								$data = array(
 									'command'     => $command,
 									'data'        => $host,
-									'envrionment' => $environment
+									'environment' => $environment
 								);
 
 								thold_notification_add('thold_uhost_cmd', $data, 'id', $notify_list_id, $host);
@@ -783,7 +783,7 @@ function thold_update_host_status() {
 							$data = array(
 								'command'     => $command,
 								'data'        => $host,
-								'envrionment' => $environment
+								'environment' => $environment
 							);
 
 							thold_notification_add('thold_dhost_cmd', $data, 'id', $notify_list_id, $host);

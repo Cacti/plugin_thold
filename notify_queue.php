@@ -424,7 +424,7 @@ function notify_queue() {
 			'tip'     => __('The hostname that was the source of this event.', 'thold')
 		),
 		'nosort' => array(
-			'display' => __('Notifaction List', 'thold'),
+			'display' => __('Notification List', 'thold'),
 			'align'   => 'left',
 			'tip'     => __('The Notification List used if any.', 'thold')
 		),
