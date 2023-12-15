@@ -22,6 +22,10 @@
  +-------------------------------------------------------------------------+
 */
 
+chdir('../../');
+include_once($config['base_path'] . '/lib/time.php');
+include_once($config['base_path'] . '/plugins/thold/includes/settings.php');
+
 if (!defined('MESSAGE_LEVEL_NONE')) {
 	define('MESSAGE_LEVEL_NONE',  0);
 	define('MESSAGE_LEVEL_INFO',  1);
