@@ -30,6 +30,8 @@
 
 * feature#577: Clear pending device down message queue
 
+* feature#650: Consider Unknown Data as Zero setting not working as expected
+
 * feature: Add Site and Location options to Device Up/Down Notifications
 
 * feature: Add the Thold ID to the environment for scripts
