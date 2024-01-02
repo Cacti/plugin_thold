@@ -751,7 +751,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		$step = read_config_option('poller_interval');
 	}
 
-	$currentval = 0;
+	$currentval = '';
 
 	if (isset($rrd_reindexed[$thold_data['local_data_id']])) {
 		$item = $rrd_reindexed[$thold_data['local_data_id']];
@@ -1143,6 +1143,10 @@ function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data
 
 function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 	$ds = $thold['percent_ds'];
+
+	if (!is_numeric($currentval)) {
+		return '';
+	}
 
 	if (isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
 		$t = (int) $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
