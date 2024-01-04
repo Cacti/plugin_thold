@@ -1501,9 +1501,8 @@ function thold_log($save) {
 				break;
 			}
 
-			$desc .= ' ' .
-				'SentTo: ' . (isset($save['emails']) && $save['emails'] != '' ? $save['emails']:'None') .
-				'SendBCC: ' . (isset($save['bcc_emails']) && $save['bcc_emails'] != '' ? $save['bcc_emails']:'None');
+			$desc .= ' SentTo: ' . (isset($save['emails']) && $save['emails'] != '' ? $save['emails']:'None');
+			$desc .= ' SendBCC: ' . (isset($save['bcc_emails']) && $save['bcc_emails'] != '' ? $save['bcc_emails']:'None');
 		} elseif (isset($save['description'])) {
 			$desc = $save['description'];
 		} else {
