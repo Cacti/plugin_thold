@@ -192,6 +192,10 @@ function thold_poller_output(&$rrd_update_array) {
 					$currentval = strtolower($currentval);
 					if ($currentval == 'u' || $currentval == 'nan' || $currentval == '') {
 						$currentval = 0;
+						thold_debug('Threshold: ' . $thold_data['thold_name'] . ' changing unknown value to zero', 'thold');
+						if (read_config_option('thold_log_unknown_to_zero') == 'on') {
+							cacti_log('NOTE: Threshold \'' . $thold_data['thold_name'] . '\' changing unknown value to zero', true, 'THOLD');
+						}
 					} else {
 						$currentval = '';
 					}
