@@ -404,7 +404,7 @@ function thold_config_settings() {
 		),
 		'thold_consider_unknown_zero' => array(
 			'friendly_name' => __('Consider Unknown Data as Zero', 'thold'),
-			'description' => __('When checking Thresholds, if a Data Source returns Unknown Data (\'U\'), consider the value as zero for the Threshold check.', 'thold'),
+			'description' => __('When checking Thresholds, if a Data Source returns Unknown Data (\'U\'), consider the value as zero for the Threshold check. You can also enable log this issue.', 'thold'),
 			'method' => 'checkbox',
 			'default' => ''
 		),
@@ -550,6 +550,12 @@ function thold_config_settings() {
 			'method' => 'drop_array',
 			'default' => '31',
 			'array' => $thold_log_retention
+		),
+		'thold_log_unknown_to_zero' => array(
+			'friendly_name' => __('Log action Consider Unknown Data as Zero', 'thold'),
+			'description' => __('When \'Consider Unknown Data as Zero\' is enabled, log when it occurs', 'thold'),
+			'method' => 'checkbox',
+			'default' => ''
 		),
 		'syslog_header' => array(
 			'friendly_name' => __('Syslog Settings', 'thold'),
