@@ -23,7 +23,7 @@
 */
 
 /* let PHP run just as long as it has to and to chew up memory too */
-ini_set('max_execution_time', '-1');
+ini_set('max_execution_time', '0');
 ini_set('memory_limit', '-1');
 
 $dir = dirname(__FILE__);
