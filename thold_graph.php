@@ -694,7 +694,7 @@ function tholds() {
 			form_selectable_cell($actions_url, $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('rfilter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
-			form_selectable_cell($thold_data['external_id'], $thold_data['id']);
+			form_selectable_cell($thold_data['external_id'], $thold_data['id'], '', 'left');
 
 			if ((($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'on') || ($thold_data['template_enabled'] == 'off' || $thold_data['template_enabled'] == '')) && $thold_data['thold_per_enabled'] == 'on') {
 				$enabled = __('Yes', 'thold');
