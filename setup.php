@@ -1239,7 +1239,7 @@ function thold_device_edit_pre_bottom() {
 		WHERE id = ?',
 		array($host_id));
 
-	$threshold_templates = db_fetch_assoc_prepared('SELECT pth.thold_template_id, tt.name
+	$threshold_templates = db_fetch_assoc_prepared('SELECT DISTINCT pth.thold_template_id, tt.name
 		FROM plugin_thold_host AS pth
 		INNER JOIN thold_template AS tt
 		ON tt.id = pth.thold_template_id
