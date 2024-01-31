@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2023 The Cacti Group                                 |
+ | Copyright (C) 2006-2024 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -3970,6 +3970,10 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 		thold_putenv('THOLD_NOTES='  . '');
 	}
 
+	if ($thold['external_id'] != '') {
+		thold_putenv('THOLD_EXTERNAL_ID='  . $thold['external_id']);
+	}
+
 	thold_putenv('THOLD_DEVICENOTE=' . $thold['dnotes']);
 
 	if ($thold['thold_type'] == 0) {
@@ -4030,6 +4034,7 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	$text = thold_str_replace('<NOTES>',         $thold['notes'], $text);
 	$text = thold_str_replace('<DNOTES>',        $thold['dnotes'], $text);
 	$text = thold_str_replace('<DEVICENOTE>',    $thold['dnotes'], $text);
+	$text = thold_str_replace('<EXTERNALID>',    $thold['external_id'], $text);
 
 	if ($thold['thold_type'] == 0) {
 		$text = thold_str_replace('<HI>',        $thold['thold_hi'], $text);
@@ -5632,6 +5637,7 @@ function save_thold() {
 
 	// Notes
 	$save['notes']          = get_nfilter_request_var('notes');
+	$save['external_id']    = get_nfilter_request_var('external_id');
 	$save['format_file']    = get_nfilter_request_var('format_file');
 	$save['graph_timespan'] = get_nfilter_request_var('graph_timespan');
 
@@ -5944,6 +5950,7 @@ function thold_create_thold_save_from_template($save, $template) {
 
 	// Other
 	$save['notes']          = $template['notes'];
+	$save['external_id']    = $template['external_id'];
 	$save['format_file']    = $template['format_file'];
 	$save['graph_timespan'] = $template['graph_timespan'];
 
@@ -7080,7 +7087,8 @@ function thold_template_update_threshold($id, $template) {
 		td.syslog_priority = tt.syslog_priority, td.syslog_facility = tt.syslog_facility,
 		td.snmp_event_category = tt.snmp_event_category, td.snmp_event_description = tt.snmp_event_description,
 		td.snmp_event_severity = tt.snmp_event_severity, td.snmp_event_warning_severity = tt.snmp_event_warning_severity,
-		td.notes = tt.notes, td.format_file = tt.format_file, td.graph_timespan = tt.graph_timespan
+		td.notes = tt.notes, td.external_id = tt.external_id, td.format_file = tt.format_file,
+		td.graph_timespan = tt.graph_timespan
 		WHERE td.id = ?
 		AND td.template_enabled = 'on'
 		AND tt.id = ?",
@@ -7131,7 +7139,8 @@ function thold_template_update_thresholds($id) {
 		td.syslog_facility = tt.syslog_facility,
 		td.snmp_event_category = tt.snmp_event_category, td.snmp_event_description = tt.snmp_event_description,
 		td.snmp_event_severity = tt.snmp_event_severity, td.snmp_event_warning_severity = tt.snmp_event_warning_severity,
-		td.notes = tt.notes, td.format_file = tt.format_file, td.graph_timespan = tt.graph_timespan
+		td.notes = tt.notes, td.external_id = tt.external_id, td.format_file = tt.format_file,
+		td.graph_timespan = tt.graph_timespan
 		WHERE td.thold_template_id = ?
 		AND td.template_enabled = 'on'
 		AND tt.id = ?",

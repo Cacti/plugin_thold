@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2023 The Cacti Group                                 |
+ | Copyright (C) 2004-2024 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -362,7 +362,7 @@ function thold_wizard() {
 				'id', 'name'
 			);
 
-			// Limit the hosts to only hosts that either have a graph template
+			// Limit ths hosts to only hosts that either have a graph template
 			// Listed as multiple, or do not have a threshold created
 			// Using the Graph Template listed
 			// If the Graph Template is associated with a Data Query

@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2023 The Cacti Group                                 |
+ | Copyright (C) 2004-2024 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -778,6 +778,11 @@ function list_tholds() {
 			'sort' => 'ASC',
 			'align' => 'left'
 		),
+		'external_id' => array(
+			'display' => __('External ID', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
 		'nosort0' => array(
 			'display' => __('Enabled', 'thold'),
 			'align' => 'left'
@@ -965,6 +970,8 @@ function list_tholds() {
 			} else {
 				$enabled = __('No [Thold]', 'thold');
 			}
+
+			form_selectable_cell($thold_data['external_id'], $thold_data['id'], '', 'left');
 
 			form_selectable_cell($enabled, $thold_data['id'], '', 'left');
 
@@ -2206,6 +2213,15 @@ function thold_edit() {
 			'collapsible' => 'true',
 			'method' => 'spacer',
 		),
+		'external_id' => array(
+			'friendly_name' => __('External ID', 'thold'),
+			'method' => 'textbox',
+			'description' => __('Enter an Eternal ID for this Threshold.', 'thold'),
+			'value' => isset($thold_data['external_id']) ? $thold_data['external_id'] : '',
+			'default' => '',
+			'size' => '20',
+			'max_length' => '20',
+		),
 		'notes' => array(
 			'friendly_name' => __('Operator Notes', 'thold'),
 			'method' => 'textarea',
@@ -2336,6 +2352,7 @@ function thold_edit() {
 
 		// Other options
 		$('#notes').prop('disabled', status);
+		$('#external_id').prop('disabled', status);
 
 		if (status) {
 			$('input:not(:button):not(:submit), textarea, select').each(function() {

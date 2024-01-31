@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2023 The Cacti Group                                 |
+ | Copyright (C) 2004-2024 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -876,6 +876,7 @@ function template_save_edit() {
 
 	// Other
 	$save['notes']          = get_nfilter_request_var('notes');
+	$save['external_id']    = get_nfilter_request_var('external_id');
 	$save['format_file']    = get_nfilter_request_var('format_file');
 	$save['graph_timespan'] = get_nfilter_request_var('graph_timespan');
 
@@ -1760,6 +1761,15 @@ function template_edit() {
 			'collapsible' => 'true',
 			'method' => 'spacer',
 		),
+		'external_id' => array(
+			'friendly_name' => __('External ID', 'thold'),
+			'method' => 'textbox',
+			'description' => __('Enter an Eternal ID for this Thold Template.', 'thold'),
+			'value' => isset($thold_data['external_id']) ? $thold_data['external_id'] : '',
+			'default' => '',
+			'size' => '20',
+			'max_length' => '20',
+		),
 		'notes' => array(
 			'friendly_name' => __('Operator Notes', 'thold'),
 			'method' => 'textarea',
@@ -2184,6 +2194,11 @@ function templates() {
 			'sort' => 'ASC',
 			'align' => 'left'
 		),
+		'external_id' => array(
+			'display' => __('External ID', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
 		'thold_enabled' => array(
 			'display' => __('Enabled', 'thold'),
 			'sort' => 'ASC',
@@ -2292,7 +2307,9 @@ function templates() {
 			$name = filter_value($name, get_request_var('filter'));
 
 			form_alternate_row('line' . $template['id']);
+
 			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name  . '</a>', $template['id']);
+			form_selectable_cell($template['external_id'], $template['id']);
 			form_selectable_cell($template['thold_enabled'] == 'on' ? __('Yes', 'thold'):__('No', 'thold'), $template['id']);
 			form_selectable_cell($template['id'], $template['id'], '', 'right');
 			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold.php?reset=1&thold_template_id=' . $template['id']) . '">' . $template['thresholds']  . '</a>', $template['id'], '', 'right');

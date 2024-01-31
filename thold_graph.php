@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2023 The Cacti Group                                 |
+ | Copyright (C) 2004-2024 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -449,6 +449,11 @@ function tholds() {
 			'sort' => 'ASC',
 			'align' => 'left'
 		),
+		'external_id' => array(
+			'display' => __('External ID', 'thold'),
+			'sort' => 'ASC',
+			'align' => 'left'
+		),
 		'nosort99' => array(
 			'display' => __('Enabled', 'thold'),
 			'align' => 'right'
@@ -689,6 +694,7 @@ function tholds() {
 			form_selectable_cell($actions_url, $thold_data['id'], '', 'left');
 
 			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('rfilter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
+			form_selectable_cell($thold_data['external_id'], $thold_data['id']);
 
 			if ((($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'on') || ($thold_data['template_enabled'] == 'off' || $thold_data['template_enabled'] == '')) && $thold_data['thold_per_enabled'] == 'on') {
 				$enabled = __('Yes', 'thold');

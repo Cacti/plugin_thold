@@ -32,6 +32,8 @@
 
 * feature#650: Consider Unknown Data as Zero setting not working as expected, add log setting when Unknown data to zero occurs
 
+* feature: Allow Templates and Thresholds to include an External ID
+
 * feature: Add Site and Location options to Device Up/Down Notifications
 
 * feature: Add the Thold ID to the environment for scripts

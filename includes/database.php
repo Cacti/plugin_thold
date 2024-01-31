@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2023 The Cacti Group                                 |
+ | Copyright (C) 2004-2024 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -1752,6 +1752,22 @@ function thold_upgrade_database($force = false) {
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
+	db_add_column('thold_data', array(
+		'name'     => 'external_id',
+		'type'     => 'varchar(20)',
+		'NULL'     => true,
+		'default'  => '',
+		'after'    => 'notes')
+	);
+
+	db_add_column('thold_template', array(
+		'name'     => 'external_id',
+		'type'     => 'varchar(20)',
+		'NULL'     => true,
+		'default'  => '',
+		'after'    => 'notes')
+	);
+
 	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', 1);
 	api_plugin_register_hook('thold', 'settings_bottom', 'thold_settings_bottom', 'setup.php', 1);
 
@@ -1858,6 +1874,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'trigger_cmd_low', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'trigger_cmd_norm', 'type'=> 'varchar(512)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '');
+	$data['columns'][] = array('name' => 'external_id', 'type' => 'varchar(20)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'format_file', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'graph_timespan', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '7');
 
@@ -1950,6 +1967,7 @@ function thold_setup_database() {
 	$data['columns'][] = array('name' => 'syslog_facility', 'type' => 'int(2)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'syslog_enabled', 'type' => 'char(3)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'notes', 'type' => 'varchar(1024)', 'NULL' => true, 'default' => '');
+	$data['columns'][] = array('name' => 'external_id', 'type' => 'varchar(20)', 'NULL' => true, 'default' => '');
 	$data['columns'][] = array('name' => 'format_file', 'type' => 'varchar(255)', 'NULL' => false, 'default' => '');
 	$data['columns'][] = array('name' => 'graph_timespan', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '7');
 
