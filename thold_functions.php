@@ -7794,6 +7794,7 @@ function thold_template_import($xml_data) {
 
 								if (!empty($found)) {
 									$save['data_template_id'] = $found;
+									$save['data_template_hash'] = $value;
 								} else {
 									$error = true;
 									$debug_data['errors'][] = __('Threshold Template Subordinate Data Template Not Found!', 'thold');
