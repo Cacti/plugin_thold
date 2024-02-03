@@ -708,20 +708,23 @@ function thold_config_settings() {
 		),
 		'thold_notification_delay' => array(
 			'friendly_name' => __('Device Notification Delay Options', 'thold'),
-			'method' => 'spacer',
+			'method' => 'hidden',
+			//'method' => 'spacer',
 		),
 		'alert_notification_pause' => array(
 			'friendly_name' => __('Notification Delay', 'thold'),
 			'description' => __('If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered.', 'thold'),
 			'array' => $notification_pause_values,
-			'method' => 'drop_multi',
+			'method' => 'hidden',
+			//'method' => 'drop_multi',
 			'default' => '-1'
 		),
 		'alert_notification_delay' => array(
 			'friendly_name' => __('Notification Delay', 'thold'),
 			'description' => __('If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?', 'thold'),
 			'array' => $notification_delay_values,
-			'method' => 'drop_array',
+			'method' => 'hidden',
+			//'method' => 'drop_array',
 			'default' => '-1'
 		),
 		'thold_device_email' => array(
