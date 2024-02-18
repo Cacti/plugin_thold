@@ -2362,7 +2362,7 @@ function thold_check_threshold(&$thold_data) {
 			$notify = false;
 
 			thold_debug('Threshold HI / Low Warning check breached HI:' . $thold_data['thold_warning_hi'] . '  LOW:' . $thold_data['thold_warning_low'] . ' VALUE:' . $thold_data['lastread']
-				 . ' TRIGGER:' . $trigger . ' warn count:' . $thold_data['thold_warning_fail_count']);
+				 . ' TRIGGER:' . $trigger . ' WRNCNT:' . $thold_data['thold_warning_fail_count']);
 
 			if (!$maint_dev) {
 				$thold_data['thold_warning_fail_count']++;
@@ -2371,6 +2371,7 @@ function thold_check_threshold(&$thold_data) {
 
 			/* include untriggered alerts, could add to more than initial warning trigger */
 			if ($thold_data['thold_fail_count'] > 0 && $thold_data['thold_fail_count'] < $trigger) {
+
 				$pretrigger = false;
 				if ($thold_data['thold_warning_fail_count'] <= $warning_trigger) {
 					$pretrigger = true;
@@ -3674,7 +3675,7 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 		}
 
 		if ($thold_data['email_subject'] == '' || $peralert == '') {
-			return $phase . ':' . thold_get_cached_name($thold_data) .
+			return $phase . ': ' . thold_get_cached_name($thold_data) .
 				($show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' .
 				($ra ? 'is still' : 'went') . ' ' .
 				($breach_up ? 'above' : 'below') .
