@@ -124,6 +124,8 @@
 
 * issue: Fix table columns bi_reference_* values
 
+* issue: Make sure if a device is in maintenance, that notifications are not set
+
 --- 1.6.0 ---
 
 * feature: Enhance thold daemon to work more efficiently

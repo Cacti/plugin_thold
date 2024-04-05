@@ -2233,13 +2233,16 @@ function thold_check_threshold(&$thold_data) {
 
 			thold_debug('Threshold HI / Low check breached HI:' . $thold_data['thold_hi'] . '  LOW:' . $thold_data['thold_low'] . ' VALUE:' . $thold_data['lastread']);
 
-			$thold_data['thold_fail_count']++;
+			if (!$maint_dev) {
+				$thold_data['thold_fail_count']++;
+			}
+
 			$thold_data['thold_alert'] = ($breach_up ? STAT_HI : STAT_LO);
 
 			/* Re-Alert? */
 			$ra = ($thold_data['thold_fail_count'] > $trigger && $thold_data['repeat_alert'] != 0 && $thold_data['thold_fail_count'] % $thold_data['repeat_alert'] == 0);
 
-			if ($thold_data['thold_fail_count'] == $trigger || $ra) {
+			if (($thold_data['thold_fail_count'] == $trigger || $ra) && !$maint_dev) {
 				$notify = true;
 			}
 
@@ -2356,13 +2359,16 @@ function thold_check_threshold(&$thold_data) {
 
 			thold_debug('Threshold HI / Low Warning check breached HI:' . $thold_data['thold_warning_hi'] . '  LOW:' . $thold_data['thold_warning_low'] . ' VALUE:' . $thold_data['lastread']);
 
-			$thold_data['thold_warning_fail_count']++;
+			if (!$maint_dev) {
+				$thold_data['thold_warning_fail_count']++;
+			}
+
 			$thold_data['thold_alert'] = ($warning_breach_up ? STAT_HI:STAT_LO);
 
 			/* re-alert? */
 			$ra = ($thold_data['thold_warning_fail_count'] > $warning_trigger && $thold_data['repeat_alert'] != 0 && $thold_data['thold_warning_fail_count'] % $thold_data['repeat_alert'] == 0);
 
-			if ($thold_data['thold_warning_fail_count'] == $warning_trigger || $ra) {
+			if (($thold_data['thold_warning_fail_count'] == $warning_trigger || $ra) && !$maint_dev) {
 				$notify = true;
 			}
 
@@ -2796,7 +2802,10 @@ function thold_check_threshold(&$thold_data) {
 				break;
 			case 1: /* value is below calculated threshold */
 			case 2: /* value is above calculated threshold */
-				$thold_data['bl_fail_count']++;
+				if (!$maint_dev) {
+					$thold_data['bl_fail_count']++;
+				}
+
 				$breach_up   = ($thold_data['bl_alert'] == STAT_HI);
 				$breach_down = ($thold_data['bl_alert'] == STAT_LO);
 
@@ -2964,6 +2973,7 @@ function thold_check_threshold(&$thold_data) {
 		/* alerts */
 		$trigger  = $thold_data['time_fail_trigger'];
 		$time     = time() - ($thold_data['time_fail_length'] * $step);
+
 		$failures = db_fetch_cell_prepared('SELECT count(id)
 			FROM plugin_thold_log
 			WHERE threshold_id = ?
@@ -2981,6 +2991,7 @@ function thold_check_threshold(&$thold_data) {
 		/* warnings */
 		$warning_trigger  = $thold_data['time_warning_fail_trigger'];
 		$warning_time     = time() - ($thold_data['time_warning_fail_length'] * $step);
+
 		$warning_failures = db_fetch_cell_prepared('SELECT count(id)
 			FROM plugin_thold_log
 			WHERE threshold_id = ?
@@ -3017,11 +3028,13 @@ function thold_check_threshold(&$thold_data) {
 
 			$ra = ($failures > $trigger && $thold_data['repeat_alert'] && !empty($lastemailtime) && ($lastemailtime+$realerttime <= time()));
 
-			$failures++;
+			if (!$maint_dev) {
+				$failures++;
+			}
 
 			thold_debug("Alert Time:'$time', Alert Trigger:'$trigger', Alert Failures:'$failures', RealertTime:'$realerttime', LastTime:'$lastemailtime', RA:'$ra', Diff:'" . ($realerttime+$lastemailtime) . "'<'". time() . "'");
 
-			if ($failures == $trigger || $ra) {
+			if (($failures == $trigger || $ra) && !$maint_dev) {
 				$notify = true;
 			}
 
@@ -3169,11 +3182,13 @@ function thold_check_threshold(&$thold_data) {
 
 			$ra = ($warning_failures > $warning_trigger && $thold_data['time_warning_fail_length'] && !empty($lastemailtime) && ($lastemailtime+$realerttime <= time()));
 
-			$warning_failures++;
+			if (!$maint_dev) {
+				$warning_failures++;
+			}
 
 			thold_debug("Warn Time:'$warning_time', Warn Trigger:'$warning_trigger', Warn Failures:'$warning_failures', RealertTime:'$realerttime', LastTime:'$lastemailtime', RA:'$ra', Diff:'" . ($realerttime+$lastemailtime) . "'<'". time() . "'");
 
-			if ($warning_failures == $warning_trigger || $ra) {
+			if (($warning_failures == $warning_trigger || $ra) && !$maint_dev) {
 				$notify = true;
 			}
 
