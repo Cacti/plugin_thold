@@ -2357,7 +2357,11 @@ function thold_check_threshold(&$thold_data) {
 		} elseif ($warning_breach_up || $warning_breach_down) {
 			$notify = false;
 
-			thold_debug('Threshold HI / Low Warning check breached HI:' . $thold_data['thold_warning_hi'] . '  LOW:' . $thold_data['thold_warning_low'] . ' VALUE:' . $thold_data['lastread']);
+			thold_debug('Threshold HI / Low Warning check breached HI:' . $thold_data['thold_warning_hi'] .
+				' LOW:'     . $thold_data['thold_warning_low'] .
+				' VALUE:'   . $thold_data['lastread'] .
+				' TRIGGER:' . $trigger .
+				' WRNCNT:'  . $thold_data['thold_warning_fail_count']);
 
 			if (!$maint_dev) {
 				$thold_data['thold_warning_fail_count']++;
