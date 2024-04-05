@@ -2049,6 +2049,7 @@ function thold_setup_database() {
 	api_plugin_db_table_create('thold', 'plugin_notification_lists', $data);
 
 	api_plugin_register_hook('thold', 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php', '1');
+	api_plugin_register_hook('thold', 'device_top', 'thold_device_top', 'setup.php', '1');
 
 	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled'));
 	api_plugin_db_add_column('thold', 'host', array('name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => true, 'after' => 'thold_send_email'));

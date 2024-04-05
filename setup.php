@@ -89,6 +89,7 @@ function plugin_thold_install($upgrade = false) {
 
 	// Display Threshold Templates in Devices
 	api_plugin_register_hook($plugin, 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php');
+	api_plugin_register_hook($plugin, 'device_top', 'thold_device_top', 'setup.php');
 
 	// Follow New Graph Actions
 	api_plugin_register_hook($plugin, 'api_device_new', 'thold_api_device_new', 'setup.php');
@@ -1230,7 +1231,7 @@ function thold_page_head() {
 }
 
 function thold_device_edit_pre_bottom() {
-	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
+	html_start_box(__('Associated Threshold Templates Boy', 'thold'), '100%', false, '3', 'center', '');
 
 	$host_id = get_request_var('id');
 
@@ -1286,11 +1287,11 @@ function thold_device_edit_pre_bottom() {
 
 	$available_thold_templates = db_fetch_assoc_prepared('SELECT DISTINCT tt.id, tt.name
 		FROM thold_template AS tt
-		LEFT JOIN plugin_thold_host_template AS ptht
-		ON ptht.thold_template_id = tt.id
-		WHERE ptht.host_template_id = ?
-		AND tt.id NOT IN (SELECT thold_template_id FROM plugin_thold_host WHERE host_id = ?)',
-		array($host_template_id, $host_id));
+		LEFT JOIN plugin_thold_host AS pth
+		ON pth.thold_template_id = tt.id
+		AND pth.host_id = ?
+		WHERE tt.id NOT IN (SELECT thold_template_id FROM plugin_thold_host WHERE host_id = ?)',
+		array($host_id, $host_id));
 
 	?>
 	<tr class='odd'>
@@ -1304,32 +1305,25 @@ function thold_device_edit_pre_bottom() {
 						<?php form_dropdown('thold_template_id', $available_thold_templates, 'name', 'id', '', '', '');?>
 					</td>
 					<td class='noHide'>
-						<input type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Add');?>' id='add_tt' title='<?php print __esc('Add Threshold Template to Device');?>'>
+						<input id='add_tt' type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Add');?>' title='<?php print __esc('Add Threshold Template to Device');?>'>
 					</td>
 				</tr>
 			</table>
 			<script type='text/javascript'>
-			$(function() {
-				$('[id^="ttremove"]').click(function(data) {
-					scrollTop = $(window).scrollTop();
-					$.post(urlPath+'plugins/thold/thold_templates.php?action=tt_remove', {
-						thold_template_id: $(this).attr('data-id'),
-						host_id: $('#id').val(),
-						__csrf_magic: csrfMagicToken }).done(function(data) {
-						loadPageNoHeader('host.php?header=false&action=edit&id='+$('#id').val());
-						$(window).scrollTop(scrollTop);
-					});
+			$('[id^="ttremove"]').click(function(data) {
+				scrollTop = $(window).scrollTop();
+				loadPageUsingPost(urlPath+'host.php?action=tt_remove', {
+					thold_template_id: $(this).attr('data-id'),
+					host_id: $('#id').val(),
+					__csrf_magic: csrfMagicToken
 				});
+			});
 
-				$('#add_tt').click(function() {
-					scrollTop = $(window).scrollTop();
-					$.post(urlPath+'/plugins/thold/thold_templates.php?action=add_tt', {
-						host_id: $('#id').val(),
-						thold_template_id: $('#thold_template_id').val(),
-						__csrf_magic: csrfMagicToken }).done(function(data) {
-						loadPageNoHeader('host.php?header=false&action=edit&id='+$('#id').val());
-						$(window).scrollTop(scrollTop);
-					});
+			$('#add_tt').on('click', function() {
+				loadPageUsingPost(urlPath+'host.php?action=add_tt', {
+					host_id: $('#id').val(),
+					thold_template_id: $('#thold_template_id').val(),
+					__csrf_magic: csrfMagicToken
 				});
 			});
 			</script>
@@ -1338,6 +1332,92 @@ function thold_device_edit_pre_bottom() {
 	<?php
 
 	html_end_box();
+}
+
+function thold_device_top() {
+	if (get_request_var('action') == 'item_remove_tt_confirm') {
+		/* ================= input validation ================= */
+		get_filter_request_var('id');
+		get_filter_request_var('host_id');
+		/* ==================================================== */
+
+		form_start('host.php?action=edit&id' . get_request_var('host_id'));
+
+		html_start_box('', '100%', false, '3', 'center', '');
+
+		$template = db_fetch_row_prepared('SELECT *
+			FROM thold_template
+			WHERE id = ?',
+			array(get_request_var('id')));
+
+		?>
+		<tr>
+			<td class='topBoxAlt'>
+				<p><?php print __('Click \'Continue\' to Delete the following Threshold Template will be disassociated from the Device.', 'thold');?></p>
+				<p><?php print __esc('Threshold Template Name: %s', $template['name'], 'thold');?>'<br>
+			</td>
+		</tr>
+		<tr>
+			<td align='right'>
+				<input id='cancel' type='button' value='<?php print __esc('Cancel', 'thold');?>' onClick='$("#cdialog").dialog("close")' name='cancel'>
+				<input id='continue' type='button' value='<?php print __esc('Continue', 'thold');?>' name='continue' title='<?php print __esc('Remove Threshold Template', 'thold');?>'>
+			</td>
+		</tr>
+		<?php
+
+		html_end_box();
+
+		form_end();
+
+		?>
+		<script type='text/javascript'>
+		$(function() {
+			$('#cdialog').dialog();
+		});
+
+		$('#continue').click(function(data) {
+			$.post('host.php?action=item_remove_tt', {
+				__csrf_magic: csrfMagicToken,
+				host_id: <?php print get_request_var('host_id');?>,
+				id: <?php print get_request_var('id');?>
+			}, function(data) {
+				$('#cdialog').dialog('close');
+				loadPageNoHeader('host.php?action=edit&header=false&id=<?php print get_request_var('host_id');?>');
+			});
+		});
+		</script>
+		<?php
+
+		exit;
+	} elseif (get_request_var('action') == 'item_remove_tt') {
+		/* ================= input validation ================= */
+		get_filter_request_var('id');
+		get_filter_request_var('host_id');
+		/* ==================================================== */
+
+		db_execute_prepared('DELETE
+			FROM plugin_thold_host
+			WHERE thold_template_id = ?
+			AND host_id = ?',
+			array(get_request_var('id'), get_request_var('host_id')));
+
+		header('Location: host.php?header=false&action=edit&id=' . get_request_var('host_id'));
+
+		exit;
+	} elseif (get_request_var('action') == 'item_add_tt') {
+		/* ================= input validation ================= */
+		get_filter_request_var('host_id');
+		get_filter_request_var('thold_template_id');
+		/* ==================================================== */
+
+		db_execute_prepared('REPLACE INTO plugin_thold_host
+			(host_id, thold_template_id) VALUES (?, ?)',
+			array(get_request_var('host_id'), get_request_var('thold_template_id')));
+
+		header('Location: host.php?header=false&action=edit&id=' . get_request_var('host_id'));
+
+		exit;
+	}
 }
 
 function thold_device_template_edit() {
