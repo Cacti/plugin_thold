@@ -1231,7 +1231,7 @@ function thold_page_head() {
 }
 
 function thold_device_edit_pre_bottom() {
-	html_start_box(__('Associated Threshold Templates Boy', 'thold'), '100%', false, '3', 'center', '');
+	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
 	$host_id = get_request_var('id');
 
@@ -1274,7 +1274,7 @@ function thold_device_edit_pre_bottom() {
 				<?php print $exists;?>
 			</td>
 			<td class='nowrap right'>
-				<span title='<?php print __esc('Delete Threshold Template Association');?>' class='deletequery fa fa-times' id='ttremove<?php print $item['thold_template_id'];?>' data-id='<?php print $item['thold_template_id'];?>'></span>
+				<a class='delete deleteMarker fa fa-times' title='<?php print __esc('Delete Threshold Template Association', 'thold');?>' href='<?php print html_escape('host.php?action=item_remove_tt_confirm&id=' . $item['thold_template_id'] . '&host_id=' . get_request_var('id'));?>'></a>
 			</td>
 			<?php
 			form_end_row();
@@ -1293,43 +1293,39 @@ function thold_device_edit_pre_bottom() {
 		WHERE tt.id NOT IN (SELECT thold_template_id FROM plugin_thold_host WHERE host_id = ?)',
 		array($host_id, $host_id));
 
-	?>
-	<tr class='odd'>
-		<td class='saveRow' colspan='3'>
-			<table>
-				<tr style='line-height:10px;'>
-					<td class='nowrap templateAdd' style='padding-right:15px;'>
-						<?php print __('Add Threshold Template');?>
-					</td>
-					<td class='noHide'>
-						<?php form_dropdown('thold_template_id', $available_thold_templates, 'name', 'id', '', '', '');?>
-					</td>
-					<td class='noHide'>
-						<input id='add_tt' type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Add');?>' title='<?php print __esc('Add Threshold Template to Device');?>'>
-					</td>
-				</tr>
-			</table>
-			<script type='text/javascript'>
-			$('[id^="ttremove"]').click(function(data) {
-				scrollTop = $(window).scrollTop();
-				loadPageUsingPost(urlPath+'host.php?action=tt_remove', {
-					thold_template_id: $(this).attr('data-id'),
-					host_id: $('#id').val(),
-					__csrf_magic: csrfMagicToken
-				});
-			});
-
-			$('#add_tt').on('click', function() {
-				loadPageUsingPost(urlPath+'host.php?action=add_tt', {
-					host_id: $('#id').val(),
-					thold_template_id: $('#thold_template_id').val(),
-					__csrf_magic: csrfMagicToken
-				});
-			});
-			</script>
-		</td>
-	</tr>
-	<?php
+	if (cacti_sizeof($available_thold_templates)) {
+		?>
+		<tr class='odd'>
+			<td class='saveRow' colspan='3'>
+				<table>
+					<tr style='line-height:10px;'>
+						<td class='nowrap templateAdd' style='padding-right:15px;'>
+							<?php print __('Add Threshold Template');?>
+						</td>
+						<td class='noHide'>
+							<?php form_dropdown('thold_template_id', $available_thold_templates, 'name', 'id', '', '', '');?>
+						</td>
+						<td class='noHide'>
+							<input id='add_tt' type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Add');?>' title='<?php print __esc('Add Threshold Template to Device');?>' onClick='addThresholdTemplate()'>
+						</td>
+					</tr>
+				</table>
+				<script type='text/javascript'>
+				function addThresholdTemplate() {
+					scrollTop = $(window).scrollTop();
+					$.post(urlPath+'host.php?header=false&action=item_add_tt', {
+						host_id: $('#id').val(),
+						thold_template_id: $('#thold_template_id').val(),
+						__csrf_magic: csrfMagicToken})
+					.done(function() {
+						loadPageNoHeader(urlPath+'host.php?header=false&action=edit&id='+$('#id').val());
+					});
+				}
+				</script>
+			</td>
+		</tr>
+		<?php
+	}
 
 	html_end_box();
 }
@@ -1380,7 +1376,7 @@ function thold_device_top() {
 				__csrf_magic: csrfMagicToken,
 				host_id: <?php print get_request_var('host_id');?>,
 				id: <?php print get_request_var('id');?>
-			}, function(data) {
+			}).done(function(data) {
 				$('#cdialog').dialog('close');
 				loadPageNoHeader('host.php?action=edit&header=false&id=<?php print get_request_var('host_id');?>');
 			});
@@ -1473,18 +1469,23 @@ function thold_device_template_edit() {
 							<?php form_dropdown('thold_template_id', $unmapped, 'name', 'id', '', '', '');?>
 						</td>
 						<td>
-							<input type='button' value='<?php print __esc('Add', 'thold');?>' id='add_tt' title='<?php print __esc('Add Threshold Template to Device Template', 'thold');?>'>
+							<input type='button' value='<?php print __esc('Add', 'thold');?>' id='add_tt' title='<?php print __esc('Add Threshold Template to Device Template', 'thold');?>' onClick='addThresholdTemplate()'>
 						</td>
 					</tr>
 				</table>
 				<script type='text/javascript'>
-				$('#add_tt').click(function() {
-					loadPageUsingPost('host_templates.php?header=false&action=item_add_tt', {
-						host_template_id: $('#id').val(),
-						thold_template_id: $('#thold_template_id').val(),
-						__csrf_magic: csrfMagicToken
+				function addThresholdTemplate() {
+					$('#add_tt').click(function() {
+						scrollTop = $(window).scrollTop();
+						$.post('host_templates.php?header=false&action=item_add_tt', {
+							host_template_id: $('#id').val(),
+							thold_template_id: $('#thold_template_id').val(),
+							__csrf_magic: csrfMagicToken})
+						.done(function(data) {
+							loadPageNoHeader(urlPath+'host_templates.php?header=false&action=edit&id='+$('#id').val());
+						});
 					});
-				});
+				}
 				</script>
 			</td>
 		</tr>
@@ -1540,7 +1541,7 @@ function thold_device_template_top() {
 				__csrf_magic: csrfMagicToken,
 				host_template_id: <?php print get_request_var('host_template_id');?>,
 				id: <?php print get_request_var('id');?>
-			}, function(data) {
+			}).done(function(data) {
 				$('#cdialog').dialog('close');
 				loadPageNoHeader('host_templates.php?action=edit&header=false&id=<?php print get_request_var('host_template_id');?>');
 			});
