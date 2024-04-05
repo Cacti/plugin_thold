@@ -1374,10 +1374,11 @@ function thold_device_template_edit() {
 	$unmapped = db_fetch_assoc_prepared('SELECT DISTINCT tt.id, tt.name
 		FROM thold_template AS tt
 		LEFT JOIN plugin_thold_host_template AS ptdt
-		ON tt.id=ptdt.thold_template_id
+		ON tt.id = ptdt.thold_template_id
+		AND ptdt.host_template_id = ?
 		WHERE ptdt.host_template_id IS NULL OR ptdt.host_template_id != ?
 		ORDER BY tt.name',
-		array(get_request_var('id')));
+		array(get_request_var('id'), get_request_var('id')));
 
 	if (cacti_sizeof($unmapped)) {
 		?>
