@@ -2398,12 +2398,12 @@ function thold_check_threshold(&$thold_data) {
 			}
 
 			if ($notify) {
-				$trigger = false;
+				$etrigger = false;
 			} else {
-				$trigger = true;
+				$etrigger = true;
 			}
 
-			$subject = get_email_subject('WARNING', $trigger, $lastread, $ra, $warning_breach_up, $thold_data);
+			$subject = get_email_subject('WARNING', $etrigger, $lastread, $ra, $warning_breach_up, $thold_data);
 
 			if ($notify) {
 				if (!$suspend_notify && !$maint_dev) {
@@ -3544,7 +3544,7 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 			break;
 		case '1': // Baseline
 			if ($breach_up) {
-				$value = $thold_data['thold_id'];
+				$value = $thold_data['thold_hi'];
 			} else {
 				$value = $thold_data['thold_low'];
 			}
@@ -3615,7 +3615,7 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 					' changed to Warning Threshold with value ' .
 					thold_format_number($thold_data['lastread'], $decimals, $baseu, $suffix, $show_units, $units_suffix);
 			} else {
-				return $phase . ':' . thold_get_cached_name($thold_data) .
+				return $phase . ': ' . thold_get_cached_name($thold_data) .
 					($show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' .
 					($ra ? 'is still' : 'went') . ' ' .
 					($breach_up ? 'above' : 'below') .
@@ -3655,7 +3655,7 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 		}
 
 		if ($thold_data['email_subject'] == '' || $peralert == '') {
-			return $phase . ':' . thold_get_cached_name($thold_data) .
+			return $phase . ': ' . thold_get_cached_name($thold_data) .
 				($show_datasource ? ' [' . $thold_data['data_source_name'] . ']' : '') . ' ' .
 				($ra ? 'is still' : 'went') . ' ' .
 				($breach_up ? 'above' : 'below') .
