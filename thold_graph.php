@@ -798,7 +798,7 @@ function form_host_status_row_color($host) {
 		$class = $thold_host_states['disabled']['class'];
 	} else {
 		if ($host['thold_failure_count'] > 0) {
-			if ($host['status_event_count'] >= $host['thold_failure_count']) {
+			if ($status != HOST_RECOVERING && $host['status_event_count'] >= $host['thold_failure_count']) {
 				$class = $thold_host_states['1']['class'];
 			} else {
 				$class = $thold_host_states[$status]['class'];
