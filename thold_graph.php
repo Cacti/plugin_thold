@@ -786,7 +786,7 @@ function tholds() {
 
 
 /* form_host_status_row_color - returns a color to use based upon the host's current status*/
-function form_host_status_row_color($host) {
+function form_host_status_row_color(&$host) {
 	global $thold_host_states;
 
 	$disabled = $host['disabled'];
@@ -797,8 +797,8 @@ function form_host_status_row_color($host) {
 	if ($disabled) {
 		$class = $thold_host_states['disabled']['class'];
 	} else {
-		if ($host['thold_failure_count'] > 0) {
-			if ($status != HOST_RECOVERING && $host['status_event_count'] >= $host['thold_failure_count']) {
+		if ($host['thold_failure_count'] > 0 && $host['status'] != HOST_RECOVERING) {
+			if ($host['status_event_count'] >= $host['thold_failure_count']) {
 				$class = $thold_host_states['1']['class'];
 			} else {
 				$class = $thold_host_states[$status]['class'];
@@ -813,10 +813,19 @@ function form_host_status_row_color($host) {
 	return $class;
 }
 
-function get_uncolored_device_status($disabled, $status) {
+function get_uncolored_device_status(&$host) {
+	$disabled = $host['disabled'];
+	$status   = $host['status'];
+
 	if ($disabled) {
 		return __('Disabled', 'thold');
 	} else {
+		if ($host['thold_failure_count'] > 0 && $host['status'] != HOST_RECOVERING) {
+			if ($host['status_event_count'] >= $host['thold_failure_count']) {
+				return __('Down', 'thold');
+			}
+		}
+
 		switch ($status) {
 			case HOST_DOWN:
 				return __('Down', 'thold');
@@ -1063,7 +1072,7 @@ function hosts() {
 				form_selectable_cell(number_format_i18n($host['graphs'], -1), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($host['data_sources'], -1), $host['id'], '', 'right');
 
-				form_selectable_cell(get_uncolored_device_status(($host['disabled'] == 'on' ? true : false), $host['status']), $host['id'], '', 'right');
+				form_selectable_cell(get_uncolored_device_status($host), $host['id'], '', 'center');
 
 				form_selectable_cell(get_timeinstate($host), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
