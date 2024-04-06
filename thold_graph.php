@@ -786,14 +786,26 @@ function tholds() {
 
 
 /* form_host_status_row_color - returns a color to use based upon the host's current status*/
-function form_host_status_row_color($status, $disabled, $id) {
+function form_host_status_row_color($host) {
 	global $thold_host_states;
+
+	$disabled = $host['disabled'];
+	$status   = $host['status'];
+	$id       = $host['id'];
 
 	// Determine the color to use
 	if ($disabled) {
 		$class = $thold_host_states['disabled']['class'];
 	} else {
-		$class = $thold_host_states[$status]['class'];
+		if ($host['thold_failure_count'] > 0) {
+			if ($host['status_event_count'] >= $host['thold_failure_count']) {
+				$class = $thold_host_states['1']['class'];
+			} else {
+				$class = $thold_host_states[$status]['class'];
+			}
+		} else {
+			$class = $thold_host_states[$status]['class'];
+		}
 	}
 
 	print "<tr class='tableRow selectable $class' id='line" . $id . "'>";
@@ -907,7 +919,7 @@ function hosts() {
 	} elseif (get_request_var('host_status') == '3') {
 		$sql_where .= ($sql_where == '' ? '(':' AND ') . "(h.availability_method != 0 AND h.status = 3 AND h.disabled = '')";
 	} else {
-		$sql_where .= ($sql_where == '' ? '(':' AND ') . '(h.status = ' . get_request_var('host_status') . " AND h.disabled = '')";
+		$sql_where .= ($sql_where == '' ? '(':' AND ') . '((h.status = ' . get_request_var('host_status') . " OR h.thold_failure_count > 0 AND h.status_event_count > h.thold_failure_count) AND h.disabled = '')";
 	}
 
 	if (get_request_var('host_template_id') == '-1') {
@@ -1034,7 +1046,7 @@ function hosts() {
 			}
 
 			if ($host['availability_method'] != 0) {
-				form_host_status_row_color($host['status'], $host['disabled'], $host['id']);
+				form_host_status_row_color($host);
 
 				$actions_url = '';
 

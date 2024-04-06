@@ -34,6 +34,7 @@
 * issue#396: Baseline Deviation does not work (as expected) 
 * issue#451: Creating Threshold from Template Missing from Graph Page
 * issue#454: Unite last thold value and ds value
+* issue#470: Device failure count setting not respected
 * issue#487: If Dead Host Notification is disabled, prune the dead host table
 * issue#489: A non-numeric value encountered in thold_functions.php on line 3223
 * issue#514: When saving a thold template, tholds disassociated from their template are re-templated and re-enabled
