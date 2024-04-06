@@ -760,7 +760,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 			case 2:	// COUNTER
 				if ($thold_data['oldvalue'] != 0 && is_numeric($thold_data['oldvalue'])) {
 					if ($item[$thold_data['name']] >= $thold_data['oldvalue']) {
-						// Everything is normal
+						// Everything is Normal
 						$currentval = $item[$thold_data['name']] - $thold_data['oldvalue'];
 					} else {
 						// Possible overflow, see if its 32bit or 64bit
@@ -1957,16 +1957,16 @@ function get_thold_severity(&$td) {
 				if ($td['thold_hi'] != '' || $td['thold_low'] != '') {
 					if ($td['thold_fail_count'] >= $td['thold_fail_trigger']) {
 						$severity = THOLD_SEVERITY_ALERT;
-					} elseif ($td['lastread'] > $td['thold_hi'] && $td['thold_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] >= $td['thold_hi'] && $td['thold_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_ALERT;
-					} elseif ($td['lastread'] < $td['thold_low'] && $td['thold_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] <= $td['thold_low'] && $td['thold_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_ALERT;
 					} elseif ($td['thold_warning_hi'] != '' || $td['thold_warning_low'] != '') {
 						if ($td['thold_warning_fail_count'] >= $td['thold_warning_fail_trigger']) {
 							$severity = THOLD_SEVERITY_WARNING;
-						} elseif ($td['lastread'] > $td['thold_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
+						} elseif ($td['lastread'] >= $td['thold_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
 							$severity = THOLD_SEVERITY_WARNING;
-						} elseif ($td['lastread'] < $td['thold_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
+						} elseif ($td['lastread'] <= $td['thold_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
 							$severity = THOLD_SEVERITY_WARNING;
 						} else {
 							$severity = THOLD_SEVERITY_NOTICE;
@@ -1977,9 +1977,9 @@ function get_thold_severity(&$td) {
 				} elseif ($td['thold_warning_hi'] != '' || $td['thold_warning_low'] != '') {
 					if ($td['thold_warning_fail_count'] >= $td['thold_warning_fail_trigger']) {
 						$severity = THOLD_SEVERITY_WARNING;
-					} elseif ($td['lastread'] > $td['thold_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] >= $td['thold_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_WARNING;
-					} elseif ($td['lastread'] < $td['thold_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] <= $td['thold_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_WARNING;
 					} else {
 						$severity = THOLD_SEVERITY_NOTICE;
@@ -2013,16 +2013,16 @@ function get_thold_severity(&$td) {
 				if ($td['time_hi'] != '' || $td['time_low'] != '') {
 					if ($td['thold_fail_count'] >= $td['time_fail_trigger']) {
 						$severity = THOLD_SEVERITY_ALERT;
-					} elseif ($td['lastread'] > $td['time_hi'] && $td['thold_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] >= $td['time_hi'] && $td['time_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_ALERT;
-					} elseif ($td['lastread'] < $td['time_low'] && $td['thold_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] <= $td['time_low'] && $td['time_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_ALERT;
 					} elseif ($td['time_warning_hi'] != '' || $td['time_warning_low']) {
 						if ($td['thold_warning_fail_count'] >= $td['time_warning_fail_trigger']) {
 							$severity = THOLD_SEVERITY_WARNING;
-						} elseif ($td['lastread'] > $td['time_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
+						} elseif ($td['lastread'] >= $td['time_warning_hi'] && $td['time_warning_fail_trigger'] == 0) {
 							$severity = THOLD_SEVERITY_WARNING;
-						} elseif ($td['lastread'] < $td['time_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
+						} elseif ($td['lastread'] <= $td['time_warning_low'] && $td['time_warning_fail_trigger'] == 0) {
 							$severity = THOLD_SEVERITY_WARNING;
 						} else {
 							$severity = THOLD_SEVERITY_NOTICE;
@@ -2033,9 +2033,9 @@ function get_thold_severity(&$td) {
 				} elseif ($td['time_warning_hi'] != '' || $td['time_warning_low']) {
 					if ($td['thold_warning_fail_count'] >= $td['time_warning_fail_trigger']) {
 						$severity = THOLD_SEVERITY_WARNING;
-					} elseif ($td['lastread'] > $td['time_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] >= $td['time_warning_hi'] && $td['time_warning_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_WARNING;
-					} elseif ($td['lastread'] < $td['time_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] <= $td['time_warning_low'] && $td['time_warning_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_WARNING;
 					} else {
 						$severity = THOLD_SEVERITY_NOTICE;
@@ -2219,10 +2219,10 @@ function thold_check_threshold(&$thold_data) {
 	switch ($thold_data['thold_type']) {
 	case 0:	/* hi/low */
 		if (is_numeric($thold_data['lastread'])) {
-			$breach_up           = ($thold_data['thold_hi'] != '' && $thold_data['lastread'] > $thold_data['thold_hi']);
-			$breach_down         = ($thold_data['thold_low'] != '' && $thold_data['lastread'] < $thold_data['thold_low']);
-			$warning_breach_up   = ($thold_data['thold_warning_hi'] != '' && $thold_data['lastread'] > $thold_data['thold_warning_hi']);
-			$warning_breach_down = ($thold_data['thold_warning_low'] != '' && $thold_data['lastread'] < $thold_data['thold_warning_low']);
+			$breach_up           = ($thold_data['thold_hi'] != '' && $thold_data['lastread'] >= $thold_data['thold_hi']);
+			$breach_down         = ($thold_data['thold_low'] != '' && $thold_data['lastread'] <= $thold_data['thold_low']);
+			$warning_breach_up   = ($thold_data['thold_warning_hi'] != '' && $thold_data['lastread'] >= $thold_data['thold_warning_hi']);
+			$warning_breach_down = ($thold_data['thold_warning_low'] != '' && $thold_data['lastread'] <= $thold_data['thold_warning_low']);
 		} else {
 			$breach_up           = $breach_down = $warning_breach_up = $warning_breach_down = false;
 		}
@@ -2443,7 +2443,7 @@ function thold_check_threshold(&$thold_data) {
 						$thold_snmp_data['eventSeverity']            = $thold_data['snmp_event_warning_severity'];
 						$thold_snmp_data['eventStatus']              = $thold_data['thold_alert']+1;
 						$thold_snmp_data['eventRealertStatus']       = ($ra ? ($warning_breach_up ? 3:2) :1);
-						$thold_snmp_data['eventNotificationType']    = ($ra ? ST_NOTIFYRA:ST_NOTIFYWA)+1;
+						$thold_snmp_data['eventNotificationType']    = ($ra ? ST_NOTIFYRAW:ST_NOTIFYWA)+1;
 						$thold_snmp_data['eventFailCount']           = $thold_data['thold_warning_fail_count'];
 						$thold_snmp_data['eventFailDuration']        = $thold_data['thold_warning_fail_count'] * $cacti_polling_interval;
 						$thold_snmp_data['eventFailDurationTrigger'] = $warning_trigger * $cacti_polling_interval;
@@ -2466,7 +2466,7 @@ function thold_check_threshold(&$thold_data) {
 					'threshold_id'    => $thold_data['id'],
 					'threshold_value' => ($warning_breach_up ? $thold_data['thold_warning_hi'] : $thold_data['thold_warning_low']),
 					'current'         => $thold_data['lastread'],
-					'status'          => ($ra ? ST_NOTIFYRA:ST_NOTIFYWA),
+					'status'          => ($ra ? ST_NOTIFYRAW:ST_NOTIFYWA),
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
 					'emails'          => $alert_emails,
 					'bcc_emails'      => $alert_bcc_emails)
@@ -2550,7 +2550,7 @@ function thold_check_threshold(&$thold_data) {
 				WHERE id = ?',
 				array($thold_data['thold_alert'], $thold_data['thold_warning_fail_count'], $thold_data['id']));
 		} else {
-			thold_debug('Threshold HI / Low check is normal HI:' . $thold_data['thold_hi'] . '  LOW:' . $thold_data['thold_low'] . ' VALUE:' . $thold_data['lastread']);
+			thold_debug('Threshold HI / Low check is Normal HI:' . $thold_data['thold_hi'] . '  LOW:' . $thold_data['thold_low'] . ' VALUE:' . $thold_data['lastread']);
 
 			$subject = get_email_subject('NORMAL', false, $lastread, false, false, $thold_data);
 
@@ -2722,7 +2722,7 @@ function thold_check_threshold(&$thold_data) {
 			case 0:		/* all clear */
 				/* if we were at an alert status before */
 				if ($bl_alert_prev != 0) {
-					thold_debug('Threshold Baseline check is normal');
+					thold_debug('Threshold Baseline check is Normal');
 
 					$subject = get_email_subject('NORMAL', false, $lastread, false, false, $thold_data);
 
@@ -2961,10 +2961,10 @@ function thold_check_threshold(&$thold_data) {
 		break;
 	case 2:	/* time based */
 		if (is_numeric($thold_data['lastread'])) {
-			$breach_up           = ($thold_data['time_hi']          != '' && $thold_data['lastread'] > $thold_data['time_hi']);
-			$breach_down         = ($thold_data['time_low']         != '' && $thold_data['lastread'] < $thold_data['time_low']);
-			$warning_breach_up   = ($thold_data['time_warning_hi']  != '' && $thold_data['lastread'] > $thold_data['time_warning_hi']);
-			$warning_breach_down = ($thold_data['time_warning_low'] != '' && $thold_data['lastread'] < $thold_data['time_warning_low']);
+			$breach_up           = ($thold_data['time_hi']          != '' && $thold_data['lastread'] >= $thold_data['time_hi']);
+			$breach_down         = ($thold_data['time_low']         != '' && $thold_data['lastread'] <= $thold_data['time_low']);
+			$warning_breach_up   = ($thold_data['time_warning_hi']  != '' && $thold_data['lastread'] >= $thold_data['time_warning_hi']);
+			$warning_breach_down = ($thold_data['time_warning_low'] != '' && $thold_data['lastread'] <= $thold_data['time_warning_low']);
 		} else {
 			$breach_up = $breach_down = $warning_breach_up = $warning_breach_down = false;
 		}
@@ -2978,7 +2978,7 @@ function thold_check_threshold(&$thold_data) {
 		$trigger  = $thold_data['time_fail_trigger'];
 		$time     = time() - ($thold_data['time_fail_length'] * $step);
 
-		$failures = db_fetch_cell_prepared('SELECT count(id)
+		$failures = db_fetch_cell_prepared('SELECT COUNT(id)
 			FROM plugin_thold_log
 			WHERE threshold_id = ?
 			AND status IN (?, ?, ?)
@@ -2996,15 +2996,16 @@ function thold_check_threshold(&$thold_data) {
 		$warning_trigger  = $thold_data['time_warning_fail_trigger'];
 		$warning_time     = time() - ($thold_data['time_warning_fail_length'] * $step);
 
-		$warning_failures = db_fetch_cell_prepared('SELECT count(id)
+		$warning_failures = db_fetch_cell_prepared('SELECT COUNT(id)
 			FROM plugin_thold_log
 			WHERE threshold_id = ?
-			AND status IN (?, ?)
+			AND status IN (?, ?, ?)
 			AND time > ?',
 			array(
 				$thold_data['id'],
 				ST_NOTIFYWA,
 				ST_TRIGGERW,
+				ST_NOTIFYRAW,
 				$warning_time
 			)
 		) + $failures;
@@ -3120,7 +3121,7 @@ function thold_check_threshold(&$thold_data) {
 						$thold_snmp_data['eventSeverity']         = $thold_data['snmp_event_severity'];
 						$thold_snmp_data['eventStatus']           = $thold_data['thold_alert']+1;
 						$thold_snmp_data['eventRealertStatus']    = ($ra ? ($breach_up ? 3:2) :1);
-						$thold_snmp_data['eventNotificationType'] = ($failures > $trigger ? ST_NOTIFYAL:ST_NOTIFYRA)+1;
+						$thold_snmp_data['eventNotificationType'] = ($ra ? ST_NOTIFYRA:ST_NOTIFYAL)+1;
 						$thold_snmp_data['eventFailCount']        = $failures;
 						$thold_snmp_data['eventFailCountTrigger'] = $trigger;
 						$thold_snmp_data['eventDeviceIp']         = gethostbyname($h['hostname']);
@@ -3138,7 +3139,7 @@ function thold_check_threshold(&$thold_data) {
 					'threshold_id'    => $thold_data['id'],
 					'threshold_value' => ($breach_up ? $thold_data['time_hi'] : $thold_data['time_low']),
 					'current'         => $thold_data['lastread'],
-					'status'          => ($failures > $trigger ? ST_NOTIFYAL:ST_NOTIFYRA),
+					'status'          => ($ra ? ST_NOTIFYRA:ST_NOTIFYAL),
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
 					'emails'          => $alert_emails,
 					'bcc_emails'      => $alert_bcc_emails)
@@ -3182,7 +3183,7 @@ function thold_check_threshold(&$thold_data) {
 				AND status IN (?, ?)
 				ORDER BY time DESC
 				LIMIT 1',
-				array($thold_data['id'], ST_NOTIFYRA, ST_NOTIFYWA));
+				array($thold_data['id'], ST_NOTIFYRAW, ST_NOTIFYWA));
 
 			$ra = ($warning_failures > $warning_trigger && $thold_data['time_warning_fail_length'] && !empty($lastemailtime) && ($lastemailtime+$realerttime <= time()));
 
@@ -3263,7 +3264,7 @@ function thold_check_threshold(&$thold_data) {
 						$thold_snmp_data['eventSeverity']         = $thold_data['snmp_event_warning_severity'];
 						$thold_snmp_data['eventStatus']           = $thold_data['thold_alert']+1;
 						$thold_snmp_data['eventRealertStatus']    = ($ra ? ($warning_breach_up ? 3:2) :1);
-						$thold_snmp_data['eventNotificationType'] = ($warning_failures > $warning_trigger ? ST_NOTIFYRA:ST_NOTIFYWA)+1;
+						$thold_snmp_data['eventNotificationType'] = ($ra ? ST_NOTIFYRAW:ST_NOTIFYWA)+1;
 						$thold_snmp_data['eventFailCount']        = $warning_failures;
 						$thold_snmp_data['eventFailCountTrigger'] = $warning_trigger;
 						$thold_snmp_data['eventDeviceIp']         = gethostbyname($h['hostname']);
@@ -3281,7 +3282,7 @@ function thold_check_threshold(&$thold_data) {
 					'threshold_id'    => $thold_data['id'],
 					'threshold_value' => ($breach_up ? $thold_data['time_hi'] : $thold_data['time_low']),
 					'current'         => $thold_data['lastread'],
-					'status'          => ($warning_failures > $warning_trigger ? ST_NOTIFYRA:ST_NOTIFYWA),
+					'status'          => ($ra ? ST_NOTIFYRAW:ST_NOTIFYWA),
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
 					'emails'          => $alert_emails,
 					'bcc_emails'      => $alert_bcc_emails)
@@ -3298,7 +3299,7 @@ function thold_check_threshold(&$thold_data) {
 					'threshold_id'    => $thold_data['id'],
 					'threshold_value' => ($warning_breach_up ? $thold_data['time_hi'] : $thold_data['time_low']),
 					'current'         => $thold_data['lastread'],
-					'status'          => ST_NOTIFYAW,
+					'status'          => ST_NOTIFYRAW,
 					'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
 					'emails'          => $alert_emails,
 					'bcc_emails'      => $alert_bcc_emails)
@@ -3326,7 +3327,7 @@ function thold_check_threshold(&$thold_data) {
 				WHERE id = ?',
 				array($thold_data['thold_alert'], $warning_failures, $failures, $thold_data['id']));
 		} else {
-			thold_debug('Threshold Time Based check is normal HI:' . $thold_data['time_hi'] . ' LOW:' . $thold_data['time_low'] . ' VALUE:' . $thold_data['lastread']);
+			thold_debug('Threshold Time Based check is Normal HI:' . $thold_data['time_hi'] . ' LOW:' . $thold_data['time_low'] . ' VALUE:' . $thold_data['lastread']);
 
 			$subject = get_email_subject('NORMAL', false, $lastread, false, false, $thold_data);
 

@@ -233,14 +233,15 @@ function thold_config_insert() {
 	}
 
 	if (!defined('ST_RESTORAL')) {
-		define('ST_RESTORAL', 0); // Restoral
-		define('ST_TRIGGERA', 1); // Trigger Alert
-		define('ST_NOTIFYRA', 2); // Notify Alert Retrigger
-		define('ST_NOTIFYWA', 3); // Notify Warning
-		define('ST_NOTIFYAL', 4); // Notify Alert
-		define('ST_NOTIFYRS', 5); // Notify Restoral
-		define('ST_TRIGGERW', 6); // Trigger Warning
-		define('ST_NOTIFYAW', 7); // Notify Restoral to Warning
+		define('ST_RESTORAL', 0);  // Restoral
+		define('ST_TRIGGERA', 1);  // Trigger Alert
+		define('ST_NOTIFYRA', 2);  // Notify Alert Retrigger
+		define('ST_NOTIFYWA', 3);  // Notify Warning
+		define('ST_NOTIFYAL', 4);  // Notify Alert
+		define('ST_NOTIFYRS', 5);  // Notify Restoral
+		define('ST_TRIGGERW', 6);  // Trigger Warning
+		define('ST_NOTIFYAW', 7);  // Notify Restoral to Warning
+		define('ST_NOTIFYRAW', 8); // Notify Warning Retrigger
 	}
 
 	if (!defined('MESSAGE_LEVEL_NONE')) {

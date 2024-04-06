@@ -1428,7 +1428,11 @@ function thold_show_log() {
 	}
 
 	if (get_request_var('status') != '-1') {
-		$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status = ' . get_request_var('status');
+		if (get_request_var('status') == 2) {
+			$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status IN (2,8)';
+		} else {
+			$sql_where .= ($sql_where == '' ? '':' AND') . ' tl.status = ' . get_request_var('status');
+		}
 	}
 
 	if (get_request_var('rfilter') != '') {
@@ -1486,6 +1490,10 @@ function thold_show_log() {
 
 	if (cacti_sizeof($logs)) {
 		foreach ($logs as $l) {
+			if ($l['status'] == 8) {
+				$l['status'] = 2;
+			}
+
 			$baseu = db_fetch_cell_prepared('SELECT base_value
 				FROM graph_templates_graph
 				WHERE local_graph_id = ?',
