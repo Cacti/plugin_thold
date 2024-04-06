@@ -496,57 +496,63 @@ function do_actions() {
 function thold_request_validation() {
 	global $title, $rows_selector, $config, $reset_multi;
 
+	$default_status = read_config_option('thold_filter_default');
+	if (!is_numeric($default_status)) {
+		set_config_option('thold_filter_default', '-1');
+		$default_status = '-1';
+	}
+
     /* ================= input validation and session storage ================= */
     $filters = array(
 		'rows' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'page' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
+		),
 		'rfilter' => array(
 			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => ''
-			),
+		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'thold_alert',
 			'options' => array('options' => 'sanitize_thold_sort_string')
-			),
+		),
 		'sort_direction' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'DESC',
 			'options' => array('options' => 'sanitize_search_string')
-			),
+		),
 		'state' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
-			'default' => read_config_option('thold_filter_default')
-			),
+			'default' => $default_status
+		),
 		'data_template_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'thold_template_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'host_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
+		),
 		'site_id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			)
+		)
 	);
 
 	validate_store_request_vars($filters, 'sess_lth');
@@ -567,11 +573,11 @@ function list_tholds() {
 		$rows = get_request_var('rows');
 	}
 
-	$statefilter = thold_get_state_filter(get_request_var('state'));
-
 	top_header();
 
-	$sql_where = '';
+	$sql_where   = '(h.status = 3';
+
+	$statefilter = thold_get_state_filter(get_request_var('state'));
 
 	if (!isempty_request_var('host_id') && get_request_var('host_id') != '-1') {
 		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.host_id = ' . get_request_var('host_id');
@@ -703,6 +709,7 @@ function list_tholds() {
 					<td>
 						<select id='state' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('state') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
+							<option value='0'<?php if (get_request_var('state') == '0') {?> selected<?php }?>><?php print __('Breached or Triggered', 'thold');?></option>
 							<option value='1'<?php if (get_request_var('state') == '1') {?> selected<?php }?>><?php print __('Breached', 'thold');?></option>
 							<option value='3'<?php if (get_request_var('state') == '3') {?> selected<?php }?>><?php print __('Triggered', 'thold');?></option>
 							<option value='2'<?php if (get_request_var('state') == '2') {?> selected<?php }?>><?php print __('Enabled', 'thold');?></option>

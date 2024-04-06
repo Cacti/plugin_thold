@@ -1405,6 +1405,9 @@ function thold_get_state_filter($state) {
 	if ($state != '') {
 		if (get_request_var('state') == '-1') { // All
 			$statefilter = '';
+		} elseif (get_request_var('state') == '0') { // Breached or Triggered
+			$statefilter = '((td.thold_enabled = "on" AND td.thold_per_enabled = "on") AND
+				(td.thold_alert != 0 OR td.bl_alert > 0 OR ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger))))';
 		} elseif (get_request_var('state') == '7') { // Disabled at Template
 			$statefilter = '(td.thold_enabled = "off")';
 		} elseif (get_request_var('state') == '2') { // Enabled

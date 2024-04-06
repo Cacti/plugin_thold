@@ -56,6 +56,7 @@
 * issue#585:  The return Web page is wrong after clicking the "return" button in the "edit threshold"
 * issue#586: Attempting to edit a non-existing thold template results in plugin being disabled
 * issue#660: data_template_hash is wrongly empty after import thold template by CLI
+* issue#664: Inconsistent counts in thold tab and management -> thresholds
 * issue#666: Thresholds should breach at or above, or at or below a value not below or above
 * issue: Fix issues associated with PHP8.1.2 on transactions.  By default Cacti uses autocommit, so don't use them.
 * issue: Fix issues where thold daemon could possibly loose events due to an array chunking issue identified through PHP8.1.2 testing.

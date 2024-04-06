@@ -415,10 +415,11 @@ function thold_config_settings() {
 			'method' => 'drop_array',
 			'array' => array(
 				'-1' => __('Any', 'thold'),
-				'0'  => __('Disabled', 'thold'),
-				'2'  => __('Enabled', 'thold'),
+				'0'  => __('Breached or Triggered', 'thold'),
 				'1'  => __('Breached', 'thold'),
-				'3'  => __('Triggered', 'thold')
+				'3'  => __('Triggered', 'thold'),
+				'6'  => __('Disabled', 'thold'),
+				'2'  => __('Enabled', 'thold'),
 			),
 			'default' => -1
 		),

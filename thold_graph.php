@@ -212,6 +212,7 @@ function form_thold_filter() {
 					<td>
 						<select id='state' onChange='applyFilter()'>
 							<option value='-1'<?php if (get_request_var('state') == '-1') {?> selected<?php }?>><?php print __('All', 'thold');?></option>
+							<option value='0'<?php if (get_request_var('state') == '0') {?> selected<?php }?>><?php print __('Breached or Triggered', 'thold');?></option>
 							<option value='1'<?php if (get_request_var('state') == '1') {?> selected<?php }?>><?php print __('Breached', 'thold');?></option>
 							<option value='3'<?php if (get_request_var('state') == '3') {?> selected<?php }?>><?php print __('Triggered', 'thold');?></option>
 							<option value='2'<?php if (get_request_var('state') == '2') {?> selected<?php }?>><?php print __('Enabled', 'thold');?></option>
@@ -311,7 +312,7 @@ function tholds() {
 	global $config, $device_actions, $item_rows, $thold_classes, $thold_states;
 
 	$default_status = read_config_option('thold_filter_default');
-	if (empty($default_status)) {
+	if (!is_numeric($default_status)) {
 		set_config_option('thold_filter_default', '-1');
 		$default_status = '-1';
 	}
@@ -383,16 +384,11 @@ function tholds() {
 	form_thold_filter();
 	html_end_box();
 
-	$sql_order = get_order_string();
-	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;
-	$sql_order = str_replace('ORDER BY ', '', $sql_order);
-
+	$sql_order   = get_order_string();
+	$sql_limit   = ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_order   = str_replace('ORDER BY ', '', $sql_order);
+	$sql_where   = '(h.status = 3';
 	$statefilter = thold_get_state_filter(get_request_var('state'));
-
-	$sql_where = '';
-
-	/* Excluded disabled hosts */
-	$sql_where = '( h.status = 3';
 
 	if (get_request_var('rfilter') != '') {
 		$sql_where .= ($sql_where == '' ? '(': ' AND ') . " td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
