@@ -1960,16 +1960,16 @@ function get_thold_severity(&$td) {
 				if ($td['thold_hi'] != '' || $td['thold_low'] != '') {
 					if ($td['thold_fail_count'] >= $td['thold_fail_trigger']) {
 						$severity = THOLD_SEVERITY_ALERT;
-					} elseif ($td['lastread'] >= $td['thold_hi'] && $td['thold_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] > $td['thold_hi'] && $td['thold_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_ALERT;
-					} elseif ($td['lastread'] <= $td['thold_low'] && $td['thold_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] < $td['thold_low'] && $td['thold_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_ALERT;
 					} elseif ($td['thold_warning_hi'] != '' || $td['thold_warning_low'] != '') {
 						if ($td['thold_warning_fail_count'] >= $td['thold_warning_fail_trigger']) {
 							$severity = THOLD_SEVERITY_WARNING;
-						} elseif ($td['lastread'] >= $td['thold_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
+						} elseif ($td['lastread'] > $td['thold_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
 							$severity = THOLD_SEVERITY_WARNING;
-						} elseif ($td['lastread'] <= $td['thold_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
+						} elseif ($td['lastread'] < $td['thold_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
 							$severity = THOLD_SEVERITY_WARNING;
 						} else {
 							$severity = THOLD_SEVERITY_NOTICE;
@@ -1980,9 +1980,9 @@ function get_thold_severity(&$td) {
 				} elseif ($td['thold_warning_hi'] != '' || $td['thold_warning_low'] != '') {
 					if ($td['thold_warning_fail_count'] >= $td['thold_warning_fail_trigger']) {
 						$severity = THOLD_SEVERITY_WARNING;
-					} elseif ($td['lastread'] >= $td['thold_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] > $td['thold_warning_hi'] && $td['thold_warning_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_WARNING;
-					} elseif ($td['lastread'] <= $td['thold_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] < $td['thold_warning_low'] && $td['thold_warning_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_WARNING;
 					} else {
 						$severity = THOLD_SEVERITY_NOTICE;
@@ -2016,16 +2016,16 @@ function get_thold_severity(&$td) {
 				if ($td['time_hi'] != '' || $td['time_low'] != '') {
 					if ($td['thold_fail_count'] >= $td['time_fail_trigger']) {
 						$severity = THOLD_SEVERITY_ALERT;
-					} elseif ($td['lastread'] >= $td['time_hi'] && $td['time_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] > $td['time_hi'] && $td['time_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_ALERT;
-					} elseif ($td['lastread'] <= $td['time_low'] && $td['time_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] < $td['time_low'] && $td['time_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_ALERT;
 					} elseif ($td['time_warning_hi'] != '' || $td['time_warning_low']) {
 						if ($td['thold_warning_fail_count'] >= $td['time_warning_fail_trigger']) {
 							$severity = THOLD_SEVERITY_WARNING;
-						} elseif ($td['lastread'] >= $td['time_warning_hi'] && $td['time_warning_fail_trigger'] == 0) {
+						} elseif ($td['lastread'] > $td['time_warning_hi'] && $td['time_warning_fail_trigger'] == 0) {
 							$severity = THOLD_SEVERITY_WARNING;
-						} elseif ($td['lastread'] <= $td['time_warning_low'] && $td['time_warning_fail_trigger'] == 0) {
+						} elseif ($td['lastread'] < $td['time_warning_low'] && $td['time_warning_fail_trigger'] == 0) {
 							$severity = THOLD_SEVERITY_WARNING;
 						} else {
 							$severity = THOLD_SEVERITY_NOTICE;
@@ -2036,9 +2036,9 @@ function get_thold_severity(&$td) {
 				} elseif ($td['time_warning_hi'] != '' || $td['time_warning_low']) {
 					if ($td['thold_warning_fail_count'] >= $td['time_warning_fail_trigger']) {
 						$severity = THOLD_SEVERITY_WARNING;
-					} elseif ($td['lastread'] >= $td['time_warning_hi'] && $td['time_warning_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] > $td['time_warning_hi'] && $td['time_warning_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_WARNING;
-					} elseif ($td['lastread'] <= $td['time_warning_low'] && $td['time_warning_fail_trigger'] == 0) {
+					} elseif ($td['lastread'] < $td['time_warning_low'] && $td['time_warning_fail_trigger'] == 0) {
 						$severity = THOLD_SEVERITY_WARNING;
 					} else {
 						$severity = THOLD_SEVERITY_NOTICE;
@@ -2222,10 +2222,10 @@ function thold_check_threshold(&$thold_data) {
 	switch ($thold_data['thold_type']) {
 	case 0:	/* hi/low */
 		if (is_numeric($thold_data['lastread'])) {
-			$breach_up           = ($thold_data['thold_hi'] != '' && $thold_data['lastread'] >= $thold_data['thold_hi']);
-			$breach_down         = ($thold_data['thold_low'] != '' && $thold_data['lastread'] <= $thold_data['thold_low']);
-			$warning_breach_up   = ($thold_data['thold_warning_hi'] != '' && $thold_data['lastread'] >= $thold_data['thold_warning_hi']);
-			$warning_breach_down = ($thold_data['thold_warning_low'] != '' && $thold_data['lastread'] <= $thold_data['thold_warning_low']);
+			$breach_up           = ($thold_data['thold_hi'] != '' && $thold_data['lastread'] > $thold_data['thold_hi']);
+			$breach_down         = ($thold_data['thold_low'] != '' && $thold_data['lastread'] < $thold_data['thold_low']);
+			$warning_breach_up   = ($thold_data['thold_warning_hi'] != '' && $thold_data['lastread'] > $thold_data['thold_warning_hi']);
+			$warning_breach_down = ($thold_data['thold_warning_low'] != '' && $thold_data['lastread'] < $thold_data['thold_warning_low']);
 		} else {
 			$breach_up           = $breach_down = $warning_breach_up = $warning_breach_down = false;
 		}
@@ -2964,10 +2964,10 @@ function thold_check_threshold(&$thold_data) {
 		break;
 	case 2:	/* time based */
 		if (is_numeric($thold_data['lastread'])) {
-			$breach_up           = ($thold_data['time_hi']          != '' && $thold_data['lastread'] >= $thold_data['time_hi']);
-			$breach_down         = ($thold_data['time_low']         != '' && $thold_data['lastread'] <= $thold_data['time_low']);
-			$warning_breach_up   = ($thold_data['time_warning_hi']  != '' && $thold_data['lastread'] >= $thold_data['time_warning_hi']);
-			$warning_breach_down = ($thold_data['time_warning_low'] != '' && $thold_data['lastread'] <= $thold_data['time_warning_low']);
+			$breach_up           = ($thold_data['time_hi']          != '' && $thold_data['lastread'] > $thold_data['time_hi']);
+			$breach_down         = ($thold_data['time_low']         != '' && $thold_data['lastread'] < $thold_data['time_low']);
+			$warning_breach_up   = ($thold_data['time_warning_hi']  != '' && $thold_data['lastread'] > $thold_data['time_warning_hi']);
+			$warning_breach_down = ($thold_data['time_warning_low'] != '' && $thold_data['lastread'] < $thold_data['time_warning_low']);
 		} else {
 			$breach_up = $breach_down = $warning_breach_up = $warning_breach_down = false;
 		}
