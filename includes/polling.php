@@ -458,7 +458,7 @@ function thold_update_host_status() {
 					}
 				}
 
-				if ($host['status_fail_date'] != '0000-00-00 00:00:00') {
+				if (strtotime($host['status_fail_date']) > 192800) {
 					$downtime         = time() - strtotime($host['status_fail_date']);
 					$downtime_days    = floor($downtime / 86400);
 					$downtime_hours   = floor(($downtime - ($downtime_days * 86400)) / 3600);
@@ -658,8 +658,7 @@ function thold_update_host_status() {
 				cacti_log('WARNING: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] is DOWN. Only logging, maint device', true, 'THOLD');
 			} else {
 
-				if ($host['status_fail_date'] != '0000-00-00 00:00:00' || $host['status_rec_date'] != '0000-00-00 00:00:00') {
-
+				if (strtotime($host['status_fail_date']) > 192800 || strtotime($host['status_rec_date']) > 192800) {
 					$down_sec = db_fetch_cell_prepared('SELECT unix_timestamp(status_rec_date)-unix_timestamp(status_fail_date)
 						FROM host WHERE id = ?',
 						array($host['id']));
