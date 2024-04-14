@@ -657,7 +657,22 @@ function thold_update_host_status() {
 			if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($host['id']) ) {
 				cacti_log('WARNING: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] is DOWN. Only logging, maint device', true, 'THOLD');
 			} else {
-				$downtimemsg = get_timeinstate($host);
+
+				if ($host['status_fail_date'] != '0000-00-00 00:00:00' || $host['status_rec_date'] != '0000-00-00 00:00:00') {
+
+					$down_sec = db_fetch_cell_prepared('SELECT unix_timestamp(status_rec_date)-unix_timestamp(status_fail_date)
+						FROM host WHERE id = ?',
+						array($host['id']));
+
+						$days       = intval($down_sec / (60 * 60 * 24));
+						$remainder  = $down_sec % (60 * 60 * 24);
+						$hours      = intval($remainder / (60 * 60));
+						$remainder  = $remainder % (60 * 60);
+						$minutes    = intval($remainder / (60));
+						$downtimemsg = $days . 'd ' . $hours . 'h ' . $minutes . 'm';
+				} else {
+					$downtimemsg = __('N/A', 'thold');
+				}
 
 				$subject = read_config_option('thold_down_subject');
 				if ($subject == '') {
