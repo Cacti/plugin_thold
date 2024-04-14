@@ -2433,7 +2433,24 @@ function thold_edit() {
 		}
 	}
 
-	function thold_toggle_hilow (status) {
+	function checkSetErrors() {
+		$('.txtErrorTextBox').each(function() {
+			id = $(this).attr('id');
+			if (id.match('^thold_')) {
+				$('#thold_type').val('0');
+			} else if (id.match('^time_')) {
+				$('#thold_type').val('2');
+			} else if (id.match('^bl_')) {
+				$('#thold_type').val('1');
+			}
+
+			if ($('#thold_type').selectmenu('instance')) {
+				$('#thold_type').selectmenu('refresh');
+			}
+		});
+	}
+
+	function thold_toggle_hilow(status) {
 		if (status == '') {
 			$('#row_thold_header, #row_thold_hi, #row_thold_low, #row_thold_fail_trigger').show();
 			$('#row_thold_warning_header, #row_thold_warning_hi').show();
@@ -2562,8 +2579,9 @@ function thold_edit() {
 		$('#template_enabled').prop('disabled', true);
 		<?php } ?>
 
-		changeTholdType ();
-		changeDataType ();
+		checkSetErrors();
+		changeTholdType();
+		changeDataType();
 
 		$('#bl_type').on('change', function() {
 			thold_toggle_baseline('');

@@ -617,6 +617,11 @@ function template_add() {
 		// Allow other plugins to modify thrshold contents
 		$save = api_plugin_hook_function('thold_template_edit_save_thold', $save);
 
+		if (!thold_validate_save($save)) {
+			header("Location: thold_templates.php?action=edit&header=false&id=" . ($save['id'] > 0 ? $save['id']:''));
+			exit;
+		}
+
 		$id = sql_save($save, 'thold_template');
 
 		if ($id) {
@@ -884,6 +889,11 @@ function template_save_edit() {
 	$save = api_plugin_hook_function('thold_template_edit_save_thold', $save);
 
 	if (!is_error_message()) {
+		if (!thold_validate_save($save)) {
+			header("Location: thold_templates.php?action=edit&header=false&id=" . ($save['id'] > 0 ? $save['id']:''));
+			exit;
+		}
+
 		$id = sql_save($save, 'thold_template');
 
 		if ($id) {
@@ -1918,7 +1928,25 @@ function template_edit() {
 		}
 	}
 
+	function checkSetErrors() {
+		$('.txtErrorTextBox').each(function() {
+			id = $(this).attr('id');
+			if (id.match('^thold_')) {
+				$('#thold_type').val('0');
+			} else if (id.match('^time_')) {
+				$('#thold_type').val('2');
+			} else if (id.match('^bl_')) {
+				$('#thold_type').val('1');
+			}
+
+			if ($('#thold_type').selectmenu('instance')) {
+				$('#thold_type').selectmenu('refresh');
+			}
+		});
+	}
+
 	$(function() {
+		checkSetErrors();
 		changeTholdType();
 		changeDataType();
 

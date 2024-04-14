@@ -30,6 +30,8 @@
 * feature: Support Cacti Format Files in Thresholds and Templates
 * feature: Allow the specification of the Graph Timespan when editing/creating the Threshold or Template
 * feature: Allow the specification of the units suffix overriding automatic the number of significant digits to display
+* feature: Better validation of Threshold values to reduce human error
+* feature: Validate Threshold Template values identical to normal Threshold values
 * issue#147: Fixed threshold compare negative baseline values.
 * issue#396: Baseline Deviation does not work (as expected) 
 * issue#451: Creating Threshold from Template Missing from Graph Page

@@ -116,6 +116,7 @@ function thold_add_graphs_action_execute() {
 
 					if (count($existing) == 0) {
 						$save['id'] = 0;
+
 						$id = sql_save($save, 'thold_data');
 
 						if ($id) {

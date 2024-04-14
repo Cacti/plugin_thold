@@ -5443,63 +5443,6 @@ function save_thold() {
 	get_filter_request_var('syslog_facility');
 	get_filter_request_var('syslog_priority');
 
-	if (isset_request_var('id')) {
-		/* Do Some error Checks */
-		if (get_request_var('thold_type') == 0 &&
-			get_request_var('thold_hi') == '' &&
-			get_request_var('thold_low') == '' &&
-			get_request_var('thold_fail_trigger') != 0) {
-
-			$banner = __('You must specify either \'High Alert Threshold\' or \'Low Alert Threshold\' or both!<br>RECORD NOT UPDATED!', 'thold');
-
-			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
-
-			return get_request_var('id');
-		}
-
-		if (get_request_var('thold_type') == 0 &&
-			get_request_var('thold_hi') != '' &&
-			get_request_var('thold_low') != '' &&
-			trim_round_request_var('thold_low', 4, 'thold_low') >= trim_round_request_var('thold_hi', 4, 'thold_hi')) {
-
-			$banner = __('Impossible thresholds: \'High Threshold\' smaller than or equal to \'Low Threshold\'<br>RECORD NOT UPDATED!', 'thold');
-
-			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
-
-			return get_request_var('id');
-		}
-
-		if (get_request_var('thold_type') == 0 &&
-			get_request_var('thold_warning_hi') != '' &&
-			get_request_var('thold_warning_low') != '' &&
-			trim_round_request_var('thold_warning_low', 4, 'thold_warning_low') >= trim_round_request_var('thold_warning_hi', 4, 'thold_warning_hi')) {
-
-			$banner = __('Impossible thresholds: \'High Warning Threshold\' smaller than or equal to \'Low Warning Threshold\'<br>RECORD NOT UPDATED!', 'thold');
-
-			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
-
-			return get_request_var('id');
-		}
-
-		if (get_request_var('thold_type') == 1) {
-			$banner = __('With baseline thresholds enabled.', 'thold');
-
-			if (!thold_mandatory_field_ok('bl_ref_time_range', 'Time reference in the past')) {
-				thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
-
-				return get_request_var('id');
-			}
-
-			if (isempty_request_var('bl_pct_down') && isempty_request_var('bl_pct_up')) {
-				$banner .= __('You must specify either \'Baseline Deviation UP\' or \'Baseline Deviation DOWN\' or both!<br>RECORD NOT UPDATED!', 'thold');
-
-				thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
-
-				return get_request_var('id');
-			}
-		}
-	}
-
 	$save = array();
 
 	if ($thold_template_id > 0 && !isset_request_var('id')) {
@@ -5736,6 +5679,11 @@ function save_thold() {
 
 	$save = api_plugin_hook_function('thold_edit_save_thold', $save);
 
+	if (!thold_validate_save($save, 'thold')) {
+		header("Location: thold.php?action=edit&header=false&id=" . ($save['id'] > 0 ? $save['id']:''));
+		exit;
+	}
+
 	$id = sql_save($save , 'thold_data');
 
 	if (isempty_request_var('id')) {
@@ -5857,12 +5805,151 @@ function thold_save_threshold_contacts($id, $contacts) {
 	}
 }
 
-function thold_mandatory_field_ok($name, $friendly_name) {
-	global $banner;
+function thold_validate_save($save, $type = 'thold_template') {
+	/**
+	 * Type Types:
+	 * 0 - Hi / Low
+	 * 1 - Baseline Deviation
+	 * 2 - Time Based
+	 */
+	$banner = '';
 
-	if (!isset_request_var($name) || (isset_request_var($name) &&
-		(trim(get_nfilter_request_var($name)) == '' || get_nfilter_request_var($name) <= 0))) {
-		$banner .= __('\'%s\' must be set to positive integer value!<br>RECORD NOT UPDATED!', $friendly_name, 'thold');
+	/**
+	 * Only validate thresholds once they are created
+	 * This is required due to the wizard control on the
+	 * Thold page.
+	 */
+	if ($type == 'thold' && empty($save['id'])) {
+		return true;
+	}
+
+	if ($save['thold_type'] == 0) {
+		/* Hi / Low Checks */
+		/* Alert must always be set! */
+		if ($save['thold_hi'] == '' && $save['thold_low'] == '') {
+			$banner .= ($banner != '' ? '<br>':'') . __('You must specify either \'High Alert Threshold\' or \'Low Alert Threshold\' or both!', 'thold');
+
+			$_SESSION['sess_error_fields']['thold_hi']  = 'thold_hi';
+			$_SESSION['sess_error_fields']['thold_low'] = 'thold_low';
+		}
+
+		if ($save['thold_hi'] != '' && $save['thold_low'] != '' && $save['thold_low'] >= $save['thold_hi']) {
+			$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Alert Threshold\' smaller than the \'Low Alert Threshold\'!', 'thold');
+
+			$_SESSION['sess_error_fields']['thold_hi']  = 'thold_hi';
+			$_SESSION['sess_error_fields']['thold_low'] = 'thold_low';
+		}
+
+		/* Warning is optional.  Check if set! */
+		if ($save['thold_warning_hi'] != '' || $save['thold_warning_low'] != '') {
+			if ($save['thold_warning_hi'] != '' && $save['thold_warning_low'] != '' && $save['thold_warning_low'] >= $save['thold_warning_hi']) {
+				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Warning Threshold\' smaller than the \'Low Warning Threshold\'!', 'thold');
+
+				$_SESSION['sess_error_fields']['thold_warning_hi']  = 'thold_warning_hi';
+				$_SESSION['sess_error_fields']['thold_warning_low'] = 'thold_warning_low';
+			}
+
+			if (!empty($save['thold_warning_hi']) && $save['thold_hi'] <= $save['thold_warning_hi']) {
+				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Warning Threshold\' larger than the \'High Alert Threshold\'!', 'thold');
+
+				$_SESSION['sess_error_fields']['thold_hi']         = 'thold_hi';
+				$_SESSION['sess_error_fields']['thold_warning_hi'] = 'thold_warning_hi';
+			}
+
+			if (!empty($save['thold_warning_low']) && $save['thold_low'] >= $save['thold_warning_low']) {
+				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'Low Alert Threshold\' larger than the \'Low Warning Threshold\'!', 'thold');
+
+				$_SESSION['sess_error_fields']['thold_low']         = 'thold_low';
+				$_SESSION['sess_error_fields']['thold_warning_low'] = 'thold_warning_low';
+			}
+		}
+	} elseif ($save['thold_type'] == 1) {
+		/* Baseline Deviation Checks */
+		$banner .= ($banner != '' ? '<br>':'') . __('With baseline thresholds enabled.', 'thold');
+
+		if (empty($save['bl_ref_time_range']) || $save['bl_ref_time_range'] <= 0) {
+			$banner .= ($banner != '' ? '<br>':'') . __('Time reference in the past must be set to positive integer value!', 'thold');
+
+			$_SESSION['sess_error_fields']['bl_ref_time_range'] = 'bl_ref_time_range';
+		}
+
+		if (empty($save['bl_pct_down']) && empty($save['bl_pct_up'])) {
+			$banner .= ($banner != '' ? '<br>':'') . __('You must specify either \'Baseline Deviation UP\' or \'Baseline Deviation DOWN\' or both!', 'thold');
+
+			$_SESSION['sess_error_fields']['bl_pct_up']   = 'bl_pct_up';
+			$_SESSION['sess_error_fields']['bl_pct_down'] = 'bl_pct_down';
+		}
+	} elseif ($save['thold_type'] == 2) {
+		/* Time Based Checks */
+		/* Alert must always be set! */
+		if ($save['time_hi'] == '' && $save['time_low'] == '') {
+			$banner .= ($banner != '' ? '<br>':'') . __('You must specify either \'High Alert Threshold\' or \'Low Alert Threshold\' or both!', 'thold');
+
+			$_SESSION['sess_error_fields']['time_hi']  = 'time_hi';
+			$_SESSION['sess_error_fields']['time_low'] = 'time_low';
+		}
+
+		if ($save['time_hi'] != '' && $save['time_low'] != '' && $save['time_low'] >= $save['time_hi']) {
+			$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Alert Threshold\' smaller than the \'Low Alert Threshold\'', 'thold');
+
+			$_SESSION['sess_error_fields']['time_hi']  = 'time_hi';
+			$_SESSION['sess_error_fields']['time_low'] = 'time_low';
+		}
+
+		if (empty($save['time_fail_trigger']) || $save['time_fail_trigger'] <= 0) {
+			$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: The Alert Trigger Count must be greater or eval to 1!', 'thold');
+
+			$_SESSION['sess_error_fields']['time_fail_trigger'] = 'time_fail_trigger';
+		}
+
+		if ($save['time_fail_length'] < $save['time_fail_trigger']) {
+			$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!', 'thold');
+
+			$_SESSION['sess_error_fields']['time_fail_length'] = 'time_fail_length';
+			$_SESSION['sess_error_fields']['time_fail_trigger'] = 'time_fail_trigger';
+		}
+
+		/* Warning is optional.  Check if set! */
+		if ($save['time_warning_hi'] != '' || $save['time_warning_low'] != '') {
+			if ($save['time_warning_hi'] != '' && $save['time_warning_low'] != '' && $save['time_warning_low'] >= $save['time_warning_hi']) {
+				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Warning Threshold\' smaller than the \'Low Warning Threshold\'!', 'thold');
+
+				$_SESSION['sess_error_fields']['time_warning_hi']  = 'time_warning_hi';
+				$_SESSION['sess_error_fields']['time_warning_low'] = 'time_warning_low';
+			}
+
+			if (empty($save['time_warning_fail_trigger']) || $save['time_warning_fail_trigger'] <= 0) {
+				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: The Warning Trigger Count must be greater or eval to 1!', 'thold');
+
+				$_SESSION['sess_error_fields']['time_warning_fail_trigger'] = 'time_warning_fail_trigger';
+			}
+
+			if ($save['time_warning_fail_length'] < $save['time_warning_fail_trigger']) {
+				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!', 'thold');
+				$_SESSION['sess_error_fields']['time_warning_fail_trigger'] = 'time_warning_fail_trigger';
+				$_SESSION['sess_error_fields']['time_warning_fail_length']  = 'time_warning_fail_length';
+			}
+
+			if (!empty($save['time_warning_hi']) && $save['time_hi'] <= $save['time_warning_hi']) {
+				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Warning Threshold\' larger than the \'High Alert Threshold\'!', 'thold');
+
+				$_SESSION['sess_error_fields']['time_hi']         = 'time_hi';
+				$_SESSION['sess_error_fields']['time_warning_hi'] = 'time_warning_hi';
+			}
+
+			if (!empty($save['time_warning_low']) && $save['time_low'] >= $save['time_warning_low']) {
+				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'Low Warning Threshold\' smaller than the \'Low Alert Threshold\'!', 'thold');
+
+				$_SESSION['sess_error_fields']['time_low']         = 'time_low';
+				$_SESSION['sess_error_fields']['time_warning_low'] = 'time_warning_low';
+			}
+		}
+	} else {
+		$banner .= ($banner != '' ? '<br>':'') . __('Unknown Threshold Type!', 'thold');
+	}
+
+	if ($banner != '') {
+		thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
 
 		return false;
 	}
@@ -6215,6 +6302,11 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 			$save['name_cache'] = thold_expand_string($save, $save['name']);
 
 			$save = api_plugin_hook_function('thold_edit_save_thold', $save);
+
+			if (!thold_validate_save($save, 'thold')) {
+				header("Location: thold.php?action=edit&header=false&id=" . ($save['id'] > 0 ? $save['id']:''));
+				exit;
+			}
 
 			$id = sql_save($save, 'thold_data');
 
