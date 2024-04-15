@@ -591,7 +591,7 @@ function list_tholds() {
 		if (get_request_var('thold_template_id') > 0) {
 			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.thold_template_id = ' . get_request_var('thold_template_id') . ' AND td.template_enabled = "on")';
 		} elseif (get_request_var('thold_template_id') == '-2') {
-			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.template_enabled = "off" OR td.template_enabled = "")';
+			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.template_enabled != "on")';
 		}
 	}
 
@@ -968,7 +968,7 @@ function list_tholds() {
 
 			form_selectable_cell(filter_value($name, get_request_var('rfilter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
 
-			if ((($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'on') || ($thold_data['template_enabled'] == 'off' || $thold_data['template_enabled'] == '')) && $thold_data['thold_per_enabled'] == 'on') {
+			if ((($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'on') || $thold_data['template_enabled'] != 'on') && $thold_data['thold_per_enabled'] == 'on') {
 				$enabled = __('Yes', 'thold');
 			} elseif ($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'off' && $thold_data['thold_per_enabled'] == '') {
 				$enabled = __('No [Template:Thold]', 'thold');
@@ -1042,7 +1042,7 @@ function list_tholds() {
 			form_selectable_cell('<i>' . get_time_since_last_event($thold_data) . '</i>',  $thold_data['id'], '', 'right');
 
 			if ($thold_data['thold_template_id'] != 0) {
-				form_selectable_cell($thold_data['template_enabled'] == 'off' || $thold_data['template_enabled'] == '' ? __('No', 'thold'):__('Yes', 'thold'), $thold_data['id'], '', 'right');
+				form_selectable_cell($thold_data['template_enabled'] != 'on' ? __('No', 'thold'):__('Yes', 'thold'), $thold_data['id'], '', 'right');
 			} else {
 				form_selectable_cell(__('No', 'thold'), $thold_data['id'], '', 'right');
 			}
@@ -1562,7 +1562,7 @@ function thold_edit() {
 			'method' => 'checkbox',
 			'default' => '',
 			'description' => __('Whether or not these settings will be propagated from the Threshold template.', 'thold'),
-			'value' => $thold_data['template_enabled'] == 'off' || $thold_data['template_enabled'] == '' ? 'off':'on',
+			'value' => $thold_data['template_enabled'] != 'on' ? 'off':'on',
 		),
 		'template_name' => array(
 			'friendly_name' => __('Template Name', 'thold'),

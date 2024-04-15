@@ -274,7 +274,7 @@ function thold_check_all_thresholds() {
 					OR (
 						thold_template_id > 0
 						AND (
-							template_enabled = 'off' OR (template_enabled = 'on' AND thold_enabled = 'on')
+							template_enabled != 'on' OR (template_enabled = 'on' AND thold_enabled = 'on')
 						)
 					)
 				)
@@ -296,7 +296,7 @@ function thold_check_all_thresholds() {
 					OR (
 						thold_template_id > 0
 						AND (
-							template_enabled = 'off' OR (template_enabled = 'on' AND thold_enabled = 'on')
+							template_enabled != 'on' OR (template_enabled = 'on' AND thold_enabled = 'on')
 						)
 					)
 				)
@@ -317,7 +317,7 @@ function thold_check_all_thresholds() {
 				OR (
 					thold_template_id > 0
 					AND (
-						template_enabled = 'off' OR (template_enabled = 'on' AND thold_enabled = 'on')
+						template_enabled != 'on' OR (template_enabled = 'on' AND thold_enabled = 'on')
 					)
 				)
 			)

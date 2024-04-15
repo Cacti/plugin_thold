@@ -5383,8 +5383,8 @@ function save_thold() {
 			array($data_template_rrd_id));
 	}
 
-	$template_enabled  = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on' : 'off';
-	$thold_per_enabled = isset_request_var('thold_per_enabled'   ) && get_nfilter_request_var('thold_per_enabled'   ) == 'on' ? 'on' : '';
+	$template_enabled  = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled')   == 'on' ? 'on' : 'off';
+	$thold_per_enabled = isset_request_var('thold_per_enabled') && get_nfilter_request_var('thold_per_enabled') == 'on' ? 'on' : '';
 
 	if ($template_enabled == 'on') {
 		if ($local_graph_id > 0 && !is_thold_allowed_graph($local_graph_id)) {
@@ -5556,7 +5556,7 @@ function save_thold() {
 
 	$save['restored_alert']       = isset_request_var('restored_alert') ? 'on':'';
 	$save['thold_type']           = get_request_var('thold_type');
-	$save['template_enabled']     = isset_request_var('template_enabled') ? 'on':'off';
+	$save['template_enabled']     = isset_request_var('template_enabled') && get_nfilter_request_var('template_enabled') == 'on' ? 'on':'off';
 
 	// High / Low
 	$save['thold_hi']             = trim_round_request_var('thold_hi', 4, 'thold_hi');
@@ -6059,10 +6059,10 @@ function thold_create_thold_save_from_template($save, $template) {
 	$save['snmp_event_warning_severity'] = $template['snmp_event_warning_severity'];
 
 	// Other
-	$save['notes']          = $template['notes'];
-	$save['external_id']    = $template['external_id'];
-	$save['format_file']    = $template['format_file'];
-	$save['graph_timespan'] = $template['graph_timespan'];
+	$save['notes']            = $template['notes'];
+	$save['external_id']      = $template['external_id'];
+	$save['format_file']      = $template['format_file'];
+	$save['graph_timespan']   = $template['graph_timespan'];
 
 	return $save;
 }

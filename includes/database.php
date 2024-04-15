@@ -2142,6 +2142,6 @@ function thold_setup_database() {
 
 	db_execute('UPDATE thold_data
 		SET thold_enabled = "on"
-		WHERE thold_template_id = 0 OR template_enabled = "off"');
+		WHERE thold_template_id = 0 OR template_enabled != "on"');
 }
 
