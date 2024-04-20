@@ -1,6 +1,6 @@
 ## ChangeLog
 
---- develop ---
+--- 1.8 ---
 
 * security: Fix potential security exposure with unserialize() function
 * feature#79: Allow and correctly handle unit suffix in the context of values
