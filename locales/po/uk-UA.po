@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2024-04-20 16:30-0400\n"
-"PO-Revision-Date: 2023-07-27 15:11+0000\n"
+"PO-Revision-Date: 2024-04-20 16:44-0400\n"
 "Last-Translator: Vladyslav V. Prodan <akapulko@gmail.com>\n"
 "Language-Team: Ukrainian <http://translate.cacti.net/projects/cacti/thold/uk/>\n"
-"Language: uk-UA\n"
+"Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -53,7 +53,7 @@ msgstr "Кожні %d годин"
 #: includes/arrays.php:41
 #, php-format
 msgid "From %d Day Ago"
-msgstr ""
+msgstr "З %d дня тому"
 
 #: includes/arrays.php:42 includes/arrays.php:43
 #, php-format
@@ -89,7 +89,7 @@ msgstr "%d Рік"
 #: includes/arrays.php:53
 #, php-format
 msgid "From %d Years Ago"
-msgstr ""
+msgstr "З %d років тому"
 
 #: includes/arrays.php:58 thold_graph.php:825 thold_graph.php:831
 #: thold_graph.php:1174
@@ -161,43 +161,43 @@ msgstr "Повторно активувати"
 
 #: includes/arrays.php:114
 msgid "Notify - Restoral"
-msgstr ""
+msgstr "Повідомити - Restoral"
 
 #: includes/arrays.php:115 includes/arrays.php:172
 msgid "Restoral"
-msgstr ""
+msgstr "Ресторал"
 
 #: includes/arrays.php:120
 msgid "Event - Alert Trigger"
-msgstr ""
+msgstr "Подія - тригер попередження"
 
 #: includes/arrays.php:121
 msgid "Alert Event"
-msgstr ""
+msgstr "Попереджувальна подія"
 
 #: includes/arrays.php:126
 msgid "Event - Warning Trigger"
-msgstr ""
+msgstr "Подія - Попереджувальний тригер"
 
 #: includes/arrays.php:127
 msgid "Warning Event"
-msgstr ""
+msgstr "Попереджувальна подія"
 
 #: includes/arrays.php:132
 msgid "Event - Restoral"
-msgstr ""
+msgstr "Подія - Restoral"
 
 #: includes/arrays.php:133 thold_graph.php:1541
 msgid "Restoral Event"
-msgstr ""
+msgstr "Відновлювальна подія"
 
 #: includes/arrays.php:138
 msgid "Event - Acknowledge"
-msgstr ""
+msgstr "Подія - Подяка"
 
 #: includes/arrays.php:139
 msgid "Acknowledge Event"
-msgstr ""
+msgstr "Подяка: подія"
 
 #: includes/arrays.php:147
 msgid "Restore"
@@ -205,15 +205,15 @@ msgstr "Відновити"
 
 #: includes/arrays.php:152
 msgid "Alert Trigger"
-msgstr ""
+msgstr "Тригер оповіщення"
 
 #: includes/arrays.php:177
 msgid "Warn Trigger"
-msgstr ""
+msgstr "Попереджувальний тригер"
 
 #: includes/arrays.php:182
 msgid "Alert-Warn"
-msgstr ""
+msgstr "Оповіщення-попередження"
 
 #: includes/arrays.php:187 includes/arrays.php:215 thold_graph.php:1506
 msgid "Acknowledgment"
@@ -238,7 +238,7 @@ msgstr "Аварійний"
 #: includes/arrays.php:247 thold.php:2064 thold.php:2083
 #: thold_templates.php:1620 thold_templates.php:1634
 msgid "Critical"
-msgstr ""
+msgstr "Критичний"
 
 #: includes/arrays.php:251 includes/arrays.php:265
 msgid "Info"
@@ -246,16 +246,16 @@ msgstr "Інформація"
 
 #: includes/arrays.php:252
 msgid "Debug"
-msgstr ""
+msgstr "Налагодження"
 
 #: includes/arrays.php:291 includes/arrays.php:376 includes/arrays.php:442
 #: thold_functions.php:98
 msgid "Never"
-msgstr ""
+msgstr "Ніколи"
 
 #: includes/arrays.php:292
 msgid "Every Minute"
-msgstr ""
+msgstr "Щохвилини"
 
 #: includes/arrays.php:293 includes/arrays.php:294 includes/arrays.php:295
 #: includes/arrays.php:296 includes/arrays.php:297 includes/arrays.php:298
@@ -266,7 +266,7 @@ msgstr ""
 #: includes/settings.php:497
 #, php-format
 msgid "Every %d Minutes"
-msgstr ""
+msgstr "Кожні %d хвилин"
 
 #: includes/arrays.php:302 includes/arrays.php:383
 msgid "Every Hour"
@@ -324,13 +324,13 @@ msgstr "%d Хвилина"
 #: includes/arrays.php:616
 #, php-format
 msgid "%d Minutes"
-msgstr ""
+msgstr "%d хвилин"
 
 #: includes/arrays.php:327 includes/arrays.php:358 includes/arrays.php:404
 #: includes/arrays.php:425
 #, php-format
 msgid "%d Hour"
-msgstr ""
+msgstr "%d година"
 
 #: includes/arrays.php:328 includes/arrays.php:329 includes/arrays.php:330
 #: includes/arrays.php:331 includes/arrays.php:332 includes/arrays.php:333
@@ -348,34 +348,34 @@ msgstr "%d Годин"
 #: includes/arrays.php:432
 #, php-format
 msgid "%d Day"
-msgstr ""
+msgstr "%d день"
 
 #: includes/arrays.php:335 includes/arrays.php:367 includes/arrays.php:412
 #: includes/arrays.php:433 thold_graph.php:1406
-#, php-format
+#, fuzzy, php-format
 msgid "%d Days"
-msgstr ""
+msgstr "0 днів30 days from now"
 
 #: includes/arrays.php:336 includes/arrays.php:368 includes/arrays.php:413
 #: includes/arrays.php:434
 #, php-format
 msgid "%d Week"
-msgstr ""
+msgstr "%d тиждень"
 
 #: includes/arrays.php:337 includes/arrays.php:369 includes/arrays.php:414
 #: includes/arrays.php:435
 #, php-format
 msgid "%d Weeks"
-msgstr ""
+msgstr "%d тижнів"
 
 #: includes/arrays.php:362
 #, php-format
 msgid "%0.1f Hours"
-msgstr ""
+msgstr "%0.1f годин"
 
 #: includes/arrays.php:443
 msgid "Every Polling"
-msgstr ""
+msgstr "Кожне опитування"
 
 #: includes/arrays.php:444 includes/arrays.php:445 includes/arrays.php:446
 #: includes/arrays.php:447 includes/arrays.php:448 includes/arrays.php:449
@@ -384,12 +384,12 @@ msgstr ""
 #: includes/arrays.php:456 includes/arrays.php:457 includes/arrays.php:458
 #, php-format
 msgid "Every %d Pollings"
-msgstr ""
+msgstr "Кожні %d опитування"
 
 #: includes/arrays.php:462 includes/arrays.php:481
-#, php-format
+#, fuzzy, php-format
 msgid "%d Polling"
-msgstr ""
+msgstr "Опитування"
 
 #: includes/arrays.php:463 includes/arrays.php:464 includes/arrays.php:465
 #: includes/arrays.php:466 includes/arrays.php:467 includes/arrays.php:468
@@ -403,179 +403,182 @@ msgstr ""
 #: includes/arrays.php:494 includes/arrays.php:495 includes/arrays.php:496
 #, php-format
 msgid "%d Pollings"
-msgstr ""
+msgstr "%d Опитування"
 
 #: includes/arrays.php:503
 msgid "High / Low"
-msgstr ""
+msgstr "Високий / Низький"
 
 #: includes/arrays.php:504
 msgid "Baseline Deviation"
-msgstr ""
+msgstr "Відхилення від базової лінії"
 
 #: includes/arrays.php:505
+#, fuzzy
 msgid "Time Based"
-msgstr ""
+msgstr "На основі часу"
 
 #: includes/arrays.php:509
 #, php-format
 msgid "%% Deviation Min/Max [TIP]"
-msgstr ""
+msgstr "Мін./макс. відхилення %% [ЧАЙОВІ]"
 
 #: includes/arrays.php:510
 #, php-format
 msgid "%% Deviation CF [TIP]"
-msgstr ""
+msgstr "%% Відхилення CF [ЧАЙОВІ]"
 
 #: includes/arrays.php:511
 msgid "Absolute Val Min/Max [TIP]"
-msgstr ""
+msgstr "Абсолютне значення мін/макс [ЧАЙОВІ]"
 
 #: includes/arrays.php:512
 msgid "Absolute Val of CF [TIP]"
-msgstr ""
+msgstr "Абсолютна вала КФ [НАКОНЕЧНИК]"
 
 #: includes/arrays.php:513
 #, php-format
 msgid "%% Deviation Avg [AOT]"
-msgstr ""
+msgstr "%% Середнє відхилення [AOT]"
 
 #: includes/arrays.php:514
 #, php-format
 msgid "%% Deviation Avg of CF [AOT]"
-msgstr ""
+msgstr "%% Середнє відхилення CF [AOT]"
 
 #: includes/arrays.php:515
 msgid "Absolute Val Avg [AOT]"
-msgstr ""
+msgstr "Абсолютне середнє значення [AOT]"
 
 #: includes/arrays.php:516
 msgid "Absolute Val Avg of CF [AOT]"
-msgstr ""
+msgstr "Абсолютне середнє значення КФ [AOT]"
 
 #: includes/arrays.php:520
 msgid "Exact Value"
-msgstr ""
+msgstr "Точне значення"
 
 #: includes/arrays.php:521
 msgid "CDEF"
-msgstr ""
+msgstr "CDEF"
 
 #: includes/arrays.php:522
 msgid "Percentage"
-msgstr ""
+msgstr "Відсоток"
 
 #: includes/arrays.php:523 thold.php:1931 thold_templates.php:1462
 msgid "RPN Expression"
-msgstr ""
+msgstr "Вираз RPN"
 
 #: includes/arrays.php:524
 msgid "Upper + Lower bytes"
-msgstr ""
+msgstr "Верхній + нижній байти"
 
 #: includes/arrays.php:528
 msgid "Acknowledge"
-msgstr ""
+msgstr "Підтвердити"
 
 #: includes/arrays.php:529
 msgid "Suspend Notifications"
-msgstr ""
+msgstr "Призупинити сповіщення"
 
 #: includes/arrays.php:530
 msgid "Resume Notifications"
-msgstr ""
+msgstr "Відновити сповіщення"
 
 #: includes/arrays.php:531 includes/arrays.php:540 notify_lists.php:32
 #: notify_queue.php:35 setup.php:1439
 msgid "Delete"
-msgstr ""
+msgstr "Видалити"
 
 #: includes/arrays.php:532 includes/arrays.php:541
 msgid "Enable"
-msgstr ""
+msgstr "Увімкнути"
 
 #: includes/arrays.php:533 includes/arrays.php:542
 msgid "Disable"
-msgstr ""
+msgstr "Вимкнути"
 
 #: includes/arrays.php:534 includes/arrays.php:543
 msgid "Reapply Suggested Names"
-msgstr ""
+msgstr "Повторно застосувати запропоновані імена"
 
 #: includes/arrays.php:535
 msgid "Propagate Template"
-msgstr ""
+msgstr "Поширити шаблон"
 
 #: includes/arrays.php:539 thold_graph.php:1599
 msgid "Export"
-msgstr ""
+msgstr "Експорт"
 
 #: includes/arrays.php:547
 msgid "Threshold Mail"
-msgstr ""
+msgstr "Порогова пошта"
 
 #: includes/arrays.php:548
 msgid "Down Host Mail"
-msgstr ""
+msgstr "Вниз за поштою господаря"
 
 #: includes/arrays.php:549
 msgid "Up Host Mail"
-msgstr ""
+msgstr "Пошта вгору для господарів"
 
 #: includes/arrays.php:550
 msgid "Threshold Cmd"
-msgstr ""
+msgstr "Поріг Cmd"
 
 #: includes/arrays.php:551
 msgid "Down Host Cmd"
-msgstr ""
+msgstr "Командир нижнього вузла"
 
 #: includes/arrays.php:552
 msgid "Up Host Cmd"
-msgstr ""
+msgstr "Командир хосту вгору"
 
 #: includes/arrays.php:569
 msgid "Auto"
-msgstr ""
+msgstr "Авто"
 
 #: includes/arrays.php:570
+#, fuzzy
 msgid "0 Digits"
-msgstr ""
+msgstr "Цифри"
 
 #: includes/arrays.php:571
 msgid "1 Digit"
-msgstr ""
+msgstr "1 цифра"
 
 #: includes/arrays.php:572 includes/arrays.php:573 includes/arrays.php:574
 #: includes/arrays.php:575 includes/arrays.php:576 includes/arrays.php:577
 #: includes/arrays.php:578 includes/arrays.php:579 includes/arrays.php:580
-#, php-format
+#, fuzzy, php-format
 msgid "%d Digits"
-msgstr ""
+msgstr "Цифри"
 
 #: includes/arrays.php:597
 #, php-format
 msgid "> %d Devices"
-msgstr ""
+msgstr "> %d пристроїв"
 
 #: includes/arrays.php:601
 #, php-format
 msgid "> %d %%% of Devices Globally"
-msgstr ""
+msgstr "> %d %%% of Пристрої по всьому світу"
 
 #: includes/arrays.php:605
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr ""
+msgstr "> %d пристроїв на сайті"
 
 #: includes/arrays.php:609
 #, php-format
 msgid "> %d %%% of Devices in a Site"
-msgstr ""
+msgstr "> %d %%% of пристроїв на сайті"
 
 #: includes/polling.php:419
+#, fuzzy
 msgid "SNMP not in use"
-msgstr ""
+msgstr "Не використовується"
 
 #: includes/polling.php:478 includes/polling.php:673 notify_queue.php:489
 #: notify_queue.php:490 thold.php:1002 thold.php:1034 thold.php:1035
@@ -586,11 +589,11 @@ msgstr ""
 #: thold_graph.php:1107 thold_graph.php:1108 thold_graph.php:1542
 #: thold_graph.php:1543
 msgid "N/A"
-msgstr ""
+msgstr "(відсутній)"
 
 #: includes/polling.php:483
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
-msgstr ""
+msgstr "Повідомлення про пристрої: <DESCRIPTION> (<HOSTNAME>) повернуто зі стану \"ВНИЗ\""
 
 #: includes/polling.php:501
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
@@ -598,7 +601,7 @@ msgstr ""
 
 #: includes/polling.php:678
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
-msgstr ""
+msgstr "Помилка пристрою: <DESCRIPTION> (<HOSTNAME>) не ПРАЦЮЄ"
 
 #: includes/polling.php:690 includes/polling.php:709
 msgid "DOWN"
@@ -614,235 +617,242 @@ msgstr ""
 #: thold.php:723 thold.php:774 thold_functions.php:143 thold_graph.php:226
 #: thold_templates.php:2241
 msgid "Thresholds"
-msgstr ""
+msgstr "Порогові значення"
 
 #: includes/settings.php:36
+#, fuzzy
 msgid "(actions)"
-msgstr ""
+msgstr "Дії"
 
 #: includes/settings.php:43
+#, fuzzy
 msgid "(edit)"
-msgstr ""
+msgstr "(Редагувати)"
 
 #: includes/settings.php:50
+#, fuzzy
 msgid "(save)"
-msgstr ""
+msgstr "Зберегти"
 
 #: includes/settings.php:57
+#, fuzzy
 msgid "(add)"
-msgstr ""
+msgstr "(Адреса)"
 
 #: includes/settings.php:84
 msgid "Threshold Logs"
-msgstr ""
+msgstr "Журнали порогових значень"
 
 #: includes/settings.php:91 thold_functions.php:145 thold_graph.php:905
 msgid "Device Status"
-msgstr ""
+msgstr "Стан пристрою"
 
 #: includes/settings.php:98
 msgid "Thresholds - Failures"
-msgstr ""
+msgstr "Порогові значення - несправності"
 
 #: includes/settings.php:105
 msgid "Thresholds - Normal"
-msgstr ""
+msgstr "Порогові значення - в нормі"
 
 #: includes/settings.php:112
 msgid "Thresholds - Recovering"
-msgstr ""
+msgstr "Порогові значення - відновлення"
 
 #: includes/settings.php:118
 msgid "Recent Thresholds"
-msgstr ""
+msgstr "Нещодавні порогові значення"
 
 #: includes/settings.php:125
 msgid "Recent Device Failures"
-msgstr ""
+msgstr "Нещодавні збої пристрою"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
 #: includes/settings.php:160 thold_templates.php:2120
 msgid "Threshold Templates"
-msgstr ""
+msgstr "Шаблони порогових значень"
 
 #: includes/settings.php:167
 msgid "Threshold Template Import"
-msgstr ""
+msgstr "Імпорт порогового шаблону"
 
 #: includes/settings.php:174 includes/settings.php:188
 #: includes/settings.php:195 includes/settings.php:221 notify_lists.php:1997
 msgid "Notification Lists"
-msgstr ""
+msgstr "Списки сповіщень"
 
 #: includes/settings.php:181
 msgid "Notification Lists (edit)"
-msgstr ""
+msgstr "Списки сповіщень (редагувати)"
 
 #: includes/settings.php:202 includes/settings.php:209
 #: includes/settings.php:222
 msgid "Notification Queue"
-msgstr ""
+msgstr "Черга сповіщень"
 
 #: includes/settings.php:221 includes/settings.php:222
 #: includes/settings.php:223
 msgid "Management"
-msgstr ""
+msgstr "Управління"
 
 #: includes/settings.php:224 notify_lists.php:46 notify_lists.php:2105
 #: thold_templates.php:2135 thold_templates.php:2211
 msgid "Templates"
-msgstr ""
+msgstr "Шаблон"
 
 #: includes/settings.php:224 thold_graph.php:1625
 msgid "Threshold"
-msgstr ""
+msgstr "Граничне значення"
 
 #: includes/settings.php:276
 msgid "A template with that Data Source already exists!"
-msgstr ""
+msgstr "Шаблон з цим джерелом даних вже існує!"
 
 #: includes/settings.php:291
 msgid "Configure Thresholds"
-msgstr ""
+msgstr "Налаштувати порогові значення"
 
 #: includes/settings.php:292
 msgid "Configure Threshold Templates"
-msgstr ""
+msgstr "Налаштувати порогові шаблони"
 
 #: includes/settings.php:293
 msgid "Manage Notification Lists"
-msgstr ""
+msgstr "Керування списками сповіщень"
 
 #: includes/settings.php:294
 msgid "View Thresholds"
-msgstr ""
+msgstr "Переглянути порогові значення"
 
 #: includes/settings.php:298
+#, fuzzy
 msgid "Normal User"
-msgstr ""
+msgstr "звичайний користувач"
 
 #: includes/settings.php:299
 msgid "Template Editor"
-msgstr ""
+msgstr "Редактор шаблонів"
 
 #: includes/settings.php:300 includes/settings.php:301
+#, fuzzy
 msgid "General Administration"
-msgstr ""
+msgstr "Загальне управління"
 
 #: includes/settings.php:318
 msgid "Device Up/Down Notification Settings"
-msgstr ""
+msgstr "Налаштування сповіщень про збільшення/зменшення пристрою"
 
 #: includes/settings.php:324
 msgid "Threshold Up/Down Email Notification"
-msgstr ""
+msgstr "Порогове сповіщення електронною поштою вгору/вниз"
 
 #: includes/settings.php:328 notify_lists.php:738 notify_lists.php:1234
 msgid "Global List"
-msgstr ""
+msgstr "Глобальний список"
 
 #: includes/settings.php:329
 msgid "List Below"
-msgstr ""
+msgstr "Список нижче"
 
 #: includes/settings.php:330
 msgid "Global and List Below"
-msgstr ""
+msgstr "Глобальний і список нижче"
 
 #: includes/settings.php:332
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
-msgstr ""
+msgstr "Які списки сповіщень слід повідомляти про події ввімкнення/вимкнення пристрою?"
 
 #: includes/settings.php:340 notify_queue.php:427
 msgid "Notification List"
-msgstr ""
+msgstr "Список сповіщень"
 
 #: includes/settings.php:341
 msgid "Additional Email address, separated by commas for multiple Emails."
-msgstr ""
+msgstr "Додаткова адреса електронної пошти, розділена комами для декількох електронних листів."
 
 #: includes/settings.php:350
 msgid "Host Failure Count"
-msgstr ""
+msgstr "Кількість помилок хоста"
 
 #: includes/settings.php:351
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
-msgstr ""
+msgstr "Кількість інтервалів опитування на цьому господарі має бути зниженою, перш ніж Thold зареєструє помилку та повідомить господаря про зниження. За замовчуванням - 0 (використовуйте налаштування Cacti)"
 
 #: includes/settings.php:356
 msgid "Use Cacti Setting"
-msgstr ""
+msgstr "Використовувати налаштування кактусів"
 
 #: includes/settings.php:357
-#, php-format
+#, fuzzy, php-format
 msgid "%d Polling Interval"
-msgstr ""
+msgstr "Інтервал опитування"
 
 #: includes/settings.php:358 includes/settings.php:359
 #: includes/settings.php:360 includes/settings.php:361
 #, php-format
 msgid "%d Polling Intervals"
-msgstr ""
+msgstr "Інтервали опитування: %d"
 
 #: includes/settings.php:383
 msgid "Alerting/Thold"
-msgstr ""
+msgstr "Оповіщення/Thold"
 
 #: includes/settings.php:391 notify_lists.php:43
 msgid "General"
-msgstr ""
+msgstr "Загальні"
 
 #: includes/settings.php:395
 msgid "Disable All Thresholds"
-msgstr ""
+msgstr "Вимкнути всі порогові значення"
 
 #: includes/settings.php:396
 msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
-msgstr ""
+msgstr "Якщо встановити цей прапорець, буде вимкнено сповіщення про всі порогові значення.  Це можна використовувати, коли необхідно виконати технічне обслуговування вашої мережі."
 
 #: includes/settings.php:401
 msgid "Auto Create Thresholds"
-msgstr ""
+msgstr "Автоматичне створення порогових значень"
 
 #: includes/settings.php:402
 msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
-msgstr ""
+msgstr "Якщо вибрано, при запуску автоматизації або при створенні/збереженні пристрою будуть створені всі порогові значення, пов 'язані з шаблоном пристрою."
 
 #: includes/settings.php:407
 msgid "Consider Unknown Data as Zero"
-msgstr ""
+msgstr "Вважати невідомі дані нульовими"
 
 #: includes/settings.php:408
 msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
-msgstr ""
+msgstr "Під час перевірки порогових значень, якщо джерело даних повертає невідомі дані ('U'), вважайте значення нульовим для перевірки порогових значень. Ви також можете ввімкнути реєстрацію цієї проблеми."
 
 #: includes/settings.php:413
 msgid "Default Management Status"
-msgstr ""
+msgstr "Статус управління за замовчуванням"
 
 #: includes/settings.php:414
 msgid "Default Threshold management filter status."
-msgstr ""
+msgstr "Стан фільтра управління пороговими значеннями за замовчуванням."
 
 #: includes/settings.php:417 notify_lists.php:999 notify_lists.php:1017
 #: notify_lists.php:1363 notify_lists.php:1381 thold.php:698
 msgid "Any"
-msgstr ""
+msgstr "Будь-який"
 
 #: includes/settings.php:418 thold.php:712 thold_graph.php:215
 msgid "Breached or Triggered"
-msgstr ""
+msgstr "Порушено або спрацьовує"
 
 #: includes/settings.php:419 notify_lists.php:1395 thold.php:713
 #: thold_graph.php:216
 msgid "Breached"
-msgstr ""
+msgstr "Порушено"
 
 #: includes/settings.php:420 notify_lists.php:1396 notify_lists.php:1497
 #: thold.php:714 thold.php:847 thold_graph.php:217 thold_graph.php:506
+#, fuzzy
 msgid "Triggered"
-msgstr ""
+msgstr "(аварійної ситуації)"
 
 #: includes/settings.php:422 notify_lists.php:857 notify_lists.php:1397
 #: notify_lists.php:1505 notify_lists.php:1616 notify_lists.php:2102
@@ -850,329 +860,331 @@ msgstr ""
 #: thold_graph.php:454 thold_graph.php:1169 thold_templates.php:1160
 #: thold_templates.php:1698 thold_templates.php:2231
 msgid "Enabled"
-msgstr ""
+msgstr "Увімкнути"
 
 #: includes/settings.php:427
 msgid "Empty ifHighSpeed Default"
-msgstr ""
+msgstr "Порожній ifHighSpeed за замовчуванням"
 
 #: includes/settings.php:428
 msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
-msgstr ""
+msgstr "Під час обчислення порогів вираження, якщо ifHighSpeed і ifSpeed повертаються до нуля, замість цього використовуйте наступне налаштування ifHighSpeed.  За замовчуванням ifHighSpeed буде 10000 для інтерфейсів 10GE."
 
 #: includes/settings.php:435
+#, fuzzy
 msgid "Notification Preferences"
-msgstr ""
+msgstr "Мої налаштування повідомлень"
 
 #: includes/settings.php:439
 msgid "Disable Legacy Notifications"
-msgstr ""
+msgstr "Вимкнути застарілі сповіщення"
 
 #: includes/settings.php:440
 msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
-msgstr ""
+msgstr "Позначення цього пункту вимикає попереднє сповіщення про всі порогові значення.  Попередні сповіщення визначаються як будь-які конкретні сповіщення електронною поштою, не пов 'язані зі списком сповіщень."
 
 #: includes/settings.php:445
 msgid "Threshold Notification Templated"
-msgstr ""
+msgstr "Шаблон порогового сповіщення"
 
 #: includes/settings.php:446
 msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
-msgstr ""
+msgstr "Якщо позначено, при створенні в шаблоні порогового значення його налаштування сповіщень за замовчуванням будуть належати шаблону порогового значення."
 
 #: includes/settings.php:450
 msgid "Enable Command Execution"
-msgstr ""
+msgstr "Увімкнути виконання команди"
 
 #: includes/settings.php:451
 msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
-msgstr ""
+msgstr "Позначення цього пункту дозволить запускати команди при порушенні порогового значення та відновленні."
 
 #: includes/settings.php:456
 msgid "Enable Per Thold Notification"
-msgstr ""
+msgstr "Увімкнути сповіщення за раз"
 
 #: includes/settings.php:457
 msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
-msgstr ""
+msgstr "Позначення цього пункту дозволить підтримувати користувацькі тіла електронної пошти для порогових значень."
 
 #: includes/settings.php:462
 msgid "Enable Notification Queue"
-msgstr ""
+msgstr "Увімкнути чергу сповіщень"
 
 #: includes/settings.php:463
 msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
-msgstr ""
+msgstr "Позначення цього пункту перемикає Thold з виконання вбудованого сповіщення на використання фонової служби сповіщень або сповіщень, виконаних поза смугою запитувачем сповіщень."
 
 #: includes/settings.php:468
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
-msgstr ""
+msgstr "Увімкнути надсилання сповіщень електронною поштою до списків попереджень"
 
 #: includes/settings.php:469
 msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
-msgstr ""
+msgstr "Установіть цей прапорець, якщо ви хочете, щоб одержувачі списку попереджень отримували електронні листи з попередженнями на додаток до одержувачів списку сповіщень.  Цей випадок застосовується, коли сповіщення про попередження надходять адміністраторам, а сповіщення про оповіщення - керівництву."
 
 #: includes/settings.php:474
 msgid "Threshold Daemon"
-msgstr ""
+msgstr "Пороговий демон"
 
 #: includes/settings.php:478
 msgid "Enable Threshold Daemon"
-msgstr ""
+msgstr "Увімкнути порогову фонову службу"
 
 #: includes/settings.php:479
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
-msgstr ""
+msgstr "Позначення цього пункту дозволить використовувати спеціальний демон Threshold. Це може бути використано для підвищення продуктивності системи та/або для розподілу моніторингу порогових значень на окремий сервер."
 
 #: includes/settings.php:484
 msgid "Force Threshold Daemon Debug"
-msgstr ""
+msgstr "Примусове налагодження фонової служби"
 
 #: includes/settings.php:485
 msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
-msgstr ""
+msgstr "Позначення цього пункту увімкне зневадження Threshold Daemon під час роботи з SystemD або через командний рядок.  Ця зміна є динамічною і набуде чинності, як тільки почнеться наступний цикл порогу."
 
 #: includes/settings.php:490
 msgid "Daemon Down Notification Frequency"
-msgstr ""
+msgstr "Частота сповіщень про відключення фонової служби"
 
 #: includes/settings.php:491
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
-msgstr ""
+msgstr "Якщо виявлено, що фонова служба Thold не працює, надішліть сповіщення електронною поштою з такою частотою."
 
 #: includes/settings.php:498
 #, php-format
 msgid "Every %d Hour"
-msgstr ""
+msgstr "Кожні %d години"
 
 #: includes/settings.php:504
 msgid "Daemon Threads"
-msgstr ""
+msgstr "Потоки фонової служби"
 
 #: includes/settings.php:505
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
-msgstr ""
+msgstr "Кількість потоків фонової служби, які повинні оброблятися пороговим фоновою службою."
 
 #: includes/settings.php:508
 msgid "1 Process"
-msgstr ""
+msgstr "1 Процес"
 
 #: includes/settings.php:509 includes/settings.php:510
 #: includes/settings.php:511 includes/settings.php:512
 #: includes/settings.php:513 includes/settings.php:514
 #: includes/settings.php:515 includes/settings.php:516
 #: includes/settings.php:517
-#, php-format
+#, fuzzy, php-format
 msgid "%d Processes"
-msgstr ""
+msgstr "Процеси"
 
 #: includes/settings.php:522
 msgid "Logging"
-msgstr ""
+msgstr "Ведення журналу подій"
 
 #: includes/settings.php:526
 msgid "Log Threshold Breaches"
-msgstr ""
+msgstr "Порушення порогових значень журналу"
 
 #: includes/settings.php:527
 msgid "Enable logging of all Threshold failures to the Cacti Log."
-msgstr ""
+msgstr "Увімкнути реєстрацію всіх порогових збоїв до журналу Cacti."
 
 #: includes/settings.php:532
 msgid "Show Data Source in Log"
-msgstr ""
+msgstr "Показати джерело даних у журналі"
 
 #: includes/settings.php:533
 msgid "Show the Data Source name in the Log if not present."
-msgstr ""
+msgstr "Показувати ім 'я джерела даних у журналі, якщо його немає."
 
 #: includes/settings.php:538
 msgid "Log Threshold Changes"
-msgstr ""
+msgstr "Зареєструвати зміни порогового значення"
 
 #: includes/settings.php:539
 msgid "Enable logging of all Threshold changes to the Cacti Log."
-msgstr ""
+msgstr "Увімкнути реєстрацію всіх порогових змін до журналу Cacti."
 
 #: includes/settings.php:544
 msgid "Debug Log"
-msgstr ""
+msgstr "Журнал налагодження"
 
 #: includes/settings.php:545
 msgid "Enable logging of debug messages with Threshold"
-msgstr ""
+msgstr "Увімкнути реєстрацію повідомлень налагодження з пороговим значенням"
 
 #: includes/settings.php:550
 msgid "Alert Log Retention"
-msgstr ""
+msgstr "Збереження журналу сповіщень"
 
 #: includes/settings.php:551
 msgid "Keep Threshold Logs for this number of days."
-msgstr ""
+msgstr "Зберігайте журнали порогових значень протягом такої кількості днів."
 
 #: includes/settings.php:557
 msgid "Log action Consider Unknown Data as Zero"
-msgstr ""
+msgstr "Дія журналу Розглядати невідомі дані як нуль"
 
 #: includes/settings.php:558
 msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
-msgstr ""
+msgstr "Якщо ввімкнено опцію «Розглядати невідомі дані як нуль», реєструйте, коли це відбувається"
 
 #: includes/settings.php:563 thold.php:2142 thold_templates.php:1693
 msgid "Syslog Settings"
-msgstr ""
+msgstr "Налаштування системного журналу"
 
 #: includes/settings.php:567
 msgid "Syslog Enabled"
-msgstr ""
+msgstr "Системний журнал увімкнено"
 
 #: includes/settings.php:568
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
-msgstr ""
+msgstr "Якщо позначено, під час створення нового Порогового значення нові Порогові значення за замовчуванням надсилатимуться до вашого локального системного журналу.  Це налаштування є попередньо встановленим. Налаштування порогових значень диктують фактичне керування системним журналом."
 
 #: includes/settings.php:572
 msgid "Default Priority/Level"
-msgstr ""
+msgstr "Пріоритет/рівень за замовчуванням"
 
 #: includes/settings.php:573
 msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
-msgstr ""
+msgstr "Це пріоритет/рівень за замовчуванням, який Thold буде використовувати для надсилання повідомлень системного журналу.  Це налаштування є попередньо встановленим. Налаштування порогових значень диктують фактичне керування системним журналом."
 
 #: includes/settings.php:579
 msgid "Default Facility"
-msgstr ""
+msgstr "Об 'єкт за замовчуванням"
 
 #: includes/settings.php:580
 msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
-msgstr ""
+msgstr "Це об 'єкт за замовчуванням, який Thold використовуватиме для надсилання повідомлень системного журналу.  Це налаштування є попередньо встановленим. Налаштування порогових значень диктують фактичне керування системним журналом."
 
 #: includes/settings.php:586
 msgid "Alert Presets"
-msgstr ""
+msgstr "Попередні налаштування сповіщень"
 
 #: includes/settings.php:590
 msgid "Weekend exemptions"
-msgstr ""
+msgstr "Звільнення на вихідні"
 
 #: includes/settings.php:591
 msgid "If this is checked, Thold will not run on weekends."
-msgstr ""
+msgstr "Якщо це позначено, Thold не працюватиме у вихідні дні."
 
 #: includes/settings.php:595
 msgid "Default Trigger Count"
-msgstr ""
+msgstr "Кількість тригерів за замовчуванням"
 
 #: includes/settings.php:596
 msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
-msgstr ""
+msgstr "Кількість послідовних порушень Порогового значення для підняття Попередження джерелом даних за замовчуванням."
 
 #: includes/settings.php:603
 msgid "Re-Alerting"
-msgstr ""
+msgstr "Повторне сповіщення"
 
 #: includes/settings.php:604
 msgid "Repeat Alert after specified number of poller cycles."
-msgstr ""
+msgstr "Повторіть попередження після вказаної кількості циклів опитування."
 
 #: includes/settings.php:611
 msgid "Baseline Presets"
-msgstr ""
+msgstr "Попередні налаштування базової лінії"
 
 #: includes/settings.php:615
 msgid "Baseline Time Range Default"
-msgstr ""
+msgstr "Базовий часовий діапазон за замовчуванням"
 
 #: includes/settings.php:616 includes/settings.php:633
 msgid "This is the default value used in creating Thresholds or templates."
-msgstr ""
+msgstr "Це значення за замовчуванням, яке використовується при створенні порогових значень або шаблонів."
 
 #: includes/settings.php:624
 msgid "Baseline Trigger Count"
-msgstr ""
+msgstr "Кількість тригерів на етапі включення"
 
 #: includes/settings.php:625
 msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
-msgstr ""
+msgstr "Кількість послідовних порушень джерелом даних розрахованого базового порогу для підвищення рівня сповіщення за замовчуванням."
 
 #: includes/settings.php:632
 msgid "Baseline Deviation Percentage"
-msgstr ""
+msgstr "Відсоток відхилення від початкового рівня"
 
 #: includes/settings.php:640
+#, fuzzy
 msgid "SNMP Notification Options"
-msgstr ""
+msgstr "Параметри сповіщень"
 
 #: includes/settings.php:644
 msgid "SNMP Notifications"
-msgstr ""
+msgstr "Сповіщення SNMP"
 
 #: includes/settings.php:645
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
-msgstr ""
+msgstr "Повідомлення про пороговий стан (інформує/пастки) надсилатимуться одержувачам повідомлень SNMP. Це включає сповіщення, попередження та відновлення пасток за замовчуванням. Примітка. Для цієї функції потрібен плагін Cacti SNMPAgent."
 
 #: includes/settings.php:650
 msgid "Disable Warning Notifications"
-msgstr ""
+msgstr "Вимкнути попереджувальні сповіщення"
 
 #: includes/settings.php:651
 msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
-msgstr ""
+msgstr "Якщо цей прапорець встановлено, Threshold не надсилатиме сповіщення про порушення порогового значення попередження."
 
 #: includes/settings.php:655
 msgid "Disable Restoration Notifications"
-msgstr ""
+msgstr "Вимкнути сповіщення про відновлення"
 
 #: includes/settings.php:656
 msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
-msgstr ""
+msgstr "Якщо цей прапорець встановлено, Threshold не надсилатиме сповіщення, коли Threshold повернеться до нормального стану."
 
 #: includes/settings.php:660
 msgid "Emailing Options"
-msgstr ""
+msgstr "Параметри надсилання електронною поштою"
 
 #: includes/settings.php:664
 msgid "Send Emails with Urgent Priority"
-msgstr ""
+msgstr "Надсилати електронні листи з терміновим пріоритетом"
 
 #: includes/settings.php:665
 msgid "Allows you to set Emails with urgent priority"
-msgstr ""
+msgstr "Дозволяє встановлювати електронні листи з терміновим пріоритетом"
 
 #: includes/settings.php:670
 msgid "Send Alerts as Text"
-msgstr ""
+msgstr "Надіслати сповіщення у вигляді тексту"
 
 #: includes/settings.php:671
 msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
-msgstr ""
+msgstr "Якщо позначено, це призведе до надсилання всіх сповіщень у вигляді звичайних текстових електронних листів без графіка.  За замовчуванням - це HTML-повідомлення електронної пошти з графіком, вбудованим в повідомлення електронної пошти."
 
 #: includes/settings.php:676
 msgid "Send Email separately for each address"
-msgstr ""
+msgstr "Надіслати електронний лист окремо для кожної адреси"
 
 #: includes/settings.php:677
 msgid "If checked, this will cause all Emails to be sent separately for each address."
-msgstr ""
+msgstr "Якщо позначено, це призведе до надсилання всіх електронних листів окремо для кожної адреси."
 
 #: includes/settings.php:682
 msgid "From Email Address"
-msgstr ""
+msgstr "З електронної адреси"
 
 #: includes/settings.php:683
 msgid "This is the Email address that the Threshold will appear from."
-msgstr ""
+msgstr "Це адреса електронної пошти, з якої з 'явиться Порогове значення."
 
 #: includes/settings.php:689
 msgid "From Name"
-msgstr ""
+msgstr "Від імені"
 
 #: includes/settings.php:690
 msgid "This is the actual name that the Threshold will appear from."
-msgstr ""
+msgstr "Це фактична назва, з якої з 'явиться Порогове значення."
 
 #: includes/settings.php:696
 msgid "Device Notification Options"
-msgstr ""
+msgstr "Параметри сповіщень про пристрій"
 
 #: includes/settings.php:700
 msgid "Enable Notifications"
@@ -1180,7 +1192,7 @@ msgstr "Сповіщення"
 
 #: includes/settings.php:701
 msgid "Enable Dead/Recovering host notification"
-msgstr ""
+msgstr "Увімкнути сповіщення про смерть/відновлення хоста"
 
 #: includes/settings.php:706
 msgid "Notification Single Email"
@@ -1188,11 +1200,11 @@ msgstr "Сповіщення"
 
 #: includes/settings.php:707
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
-msgstr ""
+msgstr "Підтримується лише для списків сповіщень і черги сповіщень.  Якщо є сповіщення про відключення пристрою в одному циклі обробки.  Надішліть лише один електронний лист репієнтам списку сповіщень для всіх пристроїв."
 
 #: includes/settings.php:712
 msgid "Device Notification Delay Options"
-msgstr ""
+msgstr "Параметри затримки сповіщення пристрою"
 
 #: includes/settings.php:717 includes/settings.php:725
 msgid "Notification Delay"
@@ -1200,15 +1212,15 @@ msgstr "Сповіщення"
 
 #: includes/settings.php:718
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
-msgstr ""
+msgstr "Якщо надходить великий наплив сповіщень про відключення пристроїв, Cacti може призупинити надсилання цих сповіщень на певний період часу, щоб перевірити, чи є проблема тимчасовою, перш ніж надсилати їх.  Виберіть порогове значення Down Device Notifications (Сповіщення пристрою вниз), перш ніж буде запущено Pause (Пауза)."
 
 #: includes/settings.php:726
 msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
-msgstr ""
+msgstr "Якщо ви вирішите затримати сповіщення для великого поштовху сповіщень пристроїв, як довго ви готові чекати, перш ніж дозволити обробку сповіщень?"
 
 #: includes/settings.php:733
 msgid "Device Notification Email Options"
-msgstr ""
+msgstr "Параметри електронної пошти для сповіщень про пристрій"
 
 #: includes/settings.php:737
 msgid "Global Notification Email"
@@ -1216,23 +1228,23 @@ msgstr "Сповіщення"
 
 #: includes/settings.php:738
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
-msgstr ""
+msgstr "Це адреса електронної пошти, на яку будуть надсилатися сповіщення про мертві пристрої, якщо вибрано Глобальний список сповіщень."
 
 #: includes/settings.php:744
 msgid "Down Subject"
-msgstr ""
+msgstr "Вниз за темою"
 
 #: includes/settings.php:745
 msgid "This is the Email subject that will be used for Down Device Messages."
-msgstr ""
+msgstr "Це тема електронного листа, яка буде використовуватися для повідомлень на пристрої."
 
 #: includes/settings.php:749
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
-msgstr ""
+msgstr "Помилка пристрою: <DESCRIPTION> (<HOSTNAME>) не ПРАЦЮЄ"
 
 #: includes/settings.php:752
 msgid "Down Message"
-msgstr ""
+msgstr "Повідомлення внизу"
 
 #: includes/settings.php:753
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
@@ -1244,15 +1256,15 @@ msgstr ""
 
 #: includes/settings.php:761
 msgid "Recovering Subject"
-msgstr ""
+msgstr "Відновлення суб 'єкта"
 
 #: includes/settings.php:762
 msgid "This is the Email subject that will be used for Recovering Device Messages."
-msgstr ""
+msgstr "Це тема електронного листа, яка буде використовуватися для відновлення повідомлень пристрою."
 
 #: includes/settings.php:766
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
-msgstr ""
+msgstr "Примітка про пристрій: <DESCRIPTION> (<HOSTNAME>) повернуто зі стану \"ВНИЗ\""
 
 #: includes/settings.php:769
 msgid "Recovering Message"
@@ -1268,7 +1280,7 @@ msgstr ""
 
 #: includes/settings.php:778
 msgid "Status Change Command"
-msgstr ""
+msgstr "Команда зміни статусу"
 
 #: includes/settings.php:779
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
@@ -1276,11 +1288,11 @@ msgstr ""
 
 #: includes/settings.php:787
 msgid "Alert/Warning Message Defaults"
-msgstr ""
+msgstr "Попередження/попереджувальні повідомлення за замовчуванням"
 
 #: includes/settings.php:791
 msgid "Threshold Alert Message"
-msgstr ""
+msgstr "Повідомлення попередження про порогове значення"
 
 #: includes/settings.php:792
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
@@ -1288,11 +1300,11 @@ msgstr ""
 
 #: includes/settings.php:797
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr ""
+msgstr "Було видано сповіщення, яке вимагає вашої уваги. <br><br><strong>Пристрій</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Повідомлення</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php:800
 msgid "Threshold Warning Message"
-msgstr ""
+msgstr "Порогове попереджувальне повідомлення"
 
 #: includes/settings.php:801
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
@@ -1300,11 +1312,11 @@ msgstr ""
 
 #: includes/settings.php:806
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr ""
+msgstr "Видано попередження, яке потребує вашої уваги. <br><br><strong>Пристрій</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Повідомлення</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php:809
 msgid "Threshold Restoral Message"
-msgstr ""
+msgstr "Порогове відновлювальне повідомлення"
 
 #: includes/settings.php:810
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
@@ -1312,32 +1324,32 @@ msgstr ""
 
 #: includes/settings.php:815
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr ""
+msgstr "Поріг повернувся до нормального стану. <br><br><strong>Пристрій</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Повідомлення</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php:33
 msgid "Thold"
-msgstr ""
+msgstr "Thold"
 
 #: notify_lists.php:33
 msgid "Duplicate"
-msgstr ""
+msgstr "Дублювати"
 
 #: notify_lists.php:37
 msgid "Associate"
-msgstr ""
+msgstr "Пов'язати"
 
 #: notify_lists.php:38
 msgid "Disassociate"
-msgstr ""
+msgstr "Роз 'єднати"
 
 #: notify_lists.php:44 notify_lists.php:1033 notify_lists.php:1168
 #: notify_lists.php:2103 thold_graph.php:958 thold_graph.php:1210
 msgid "Devices"
-msgstr ""
+msgstr "Пристрої"
 
 #: notify_lists.php:515
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб видалити списки сповіщень.  Будь-який пристрій(и) або порогове значення(и), пов 'язані зі списком(ами), буде повернуто до значення за замовчуванням."
 
 #: notify_lists.php:520 notify_lists.php:532 notify_lists.php:590
 #: notify_lists.php:601 notify_lists.php:660 notify_lists.php:671
@@ -1345,7 +1357,7 @@ msgstr ""
 #: setup.php:1358 setup.php:1523 thold.php:462 thold_functions.php:7482
 #: thold_templates.php:308
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: notify_lists.php:520 notify_lists.php:532 notify_lists.php:590
 #: notify_lists.php:601 notify_lists.php:660 notify_lists.php:671
@@ -1353,202 +1365,207 @@ msgstr ""
 #: setup.php:1359 setup.php:1524 thold.php:465 thold_functions.php:7485
 #: thold_templates.php:310
 msgid "Continue"
-msgstr ""
+msgstr "Продовжити"
 
 #: notify_lists.php:520
 msgid "Delete Notification List(s)"
-msgstr ""
+msgstr "Видалити список(и) сповіщень"
 
 #: notify_lists.php:524
 msgid "Click 'Continue' to Duplicate the following Notification List(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб дублювати наведені нижче списки сповіщень."
 
 #: notify_lists.php:526
 msgid "New List Name"
-msgstr ""
+msgstr "Назва нового списку"
 
 #: notify_lists.php:527
+#, fuzzy
 msgid "New Notification List"
-msgstr ""
+msgstr "Нове сповіщення"
 
 #: notify_lists.php:532
 msgid "Duplicate Notification List(s)"
-msgstr ""
+msgstr "Дублікати списків сповіщень"
 
 #: notify_lists.php:577
 #, php-format
 msgid "%s Threshold Template(s)"
-msgstr ""
+msgstr "Шаблон(и) порогових значень: %s"
 
 #: notify_lists.php:583
 #, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб пов 'язати список сповіщень \"%s\" з нижченаведеними пороговими шаблонами."
 
 #: notify_lists.php:585 notify_lists.php:586 notify_lists.php:596
 #: notify_lists.php:597 notify_lists.php:655 notify_lists.php:656
 #: notify_lists.php:666 notify_lists.php:667 notify_lists.php:726
 #: notify_lists.php:727 notify_lists.php:739 notify_lists.php:740
 msgid "No Change"
-msgstr ""
+msgstr "Без змін"
 
 #: notify_lists.php:585 notify_lists.php:586 notify_lists.php:655
 #: notify_lists.php:656 notify_lists.php:725 notify_lists.php:726
 #: notify_lists.php:727
 msgid "Notification List Only"
-msgstr ""
+msgstr "Лише список сповіщень"
 
 #: notify_lists.php:585 notify_lists.php:586 notify_lists.php:655
 #: notify_lists.php:656 notify_lists.php:726 notify_lists.php:727
 msgid "Notification List, Retain Other Settings"
-msgstr ""
+msgstr "Список сповіщень, зберегти інші налаштування"
 
 #: notify_lists.php:585 notify_lists.php:596 notify_lists.php:655
 #: notify_lists.php:666
 msgid "Warning Membership:"
-msgstr ""
+msgstr "Увага Членство:"
 
 #: notify_lists.php:586 notify_lists.php:597 notify_lists.php:656
 #: notify_lists.php:667
 msgid "Alert Membership:"
-msgstr ""
+msgstr "Підписка на сповіщення:"
 
 #: notify_lists.php:590 notify_lists.php:660 notify_lists.php:731
 msgid "Associate Notification List(s)"
-msgstr ""
+msgstr "Список(и) сповіщень асоційованих осіб"
 
 #: notify_lists.php:594
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб від 'єднати список сповіщень \"%s\" від шаблонів порогових значень нижче."
 
 #: notify_lists.php:596 notify_lists.php:597 notify_lists.php:666
 #: notify_lists.php:667 notify_lists.php:739 notify_lists.php:740
 msgid "Remove List"
-msgstr ""
+msgstr "Вилучити список"
 
 #: notify_lists.php:601 notify_lists.php:671 notify_lists.php:744
 msgid "Disassociate Notification List(s)"
-msgstr ""
+msgstr "Роз 'єднати списки сповіщень"
 
 #: notify_lists.php:647
 #, php-format
 msgid "%s Threshold(s)"
-msgstr ""
+msgstr "Порогові значення: %s"
 
 #: notify_lists.php:653
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб пов 'язати список сповіщень \"%s\" з нижченаведеними пороговими значеннями."
 
 #: notify_lists.php:664
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб від 'єднати список сповіщень \"%s\" від порогових значень нижче."
 
 #: notify_lists.php:722
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб пов 'язати список сповіщень \"%s\" з наведеними нижче пристроями."
 
 #: notify_lists.php:723
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
-msgstr ""
+msgstr "Ви також можете пов 'язати порогові значення пристроїв. Однак ці порогові значення пристрою дозволять перезаписати список порогових сповіщень."
 
 #: notify_lists.php:725
 msgid "Notification and Global Lists"
-msgstr ""
+msgstr "Сповіщення та глобальні списки"
 
 #: notify_lists.php:725 notify_lists.php:738
 msgid "Resulting Membership:"
-msgstr ""
+msgstr "Підсумкове членство:"
 
 #: notify_lists.php:726 notify_lists.php:739
 msgid "Device Threshold Warning Membership:"
-msgstr ""
+msgstr "Підписка на попередження про порогове значення пристрою:"
 
 #: notify_lists.php:727 notify_lists.php:740
 msgid "Device Threshold Alert Membership:"
-msgstr ""
+msgstr "Підписка на сповіщення про порогові значення пристрою:"
 
 #: notify_lists.php:735
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб від 'єднати список сповіщень \"%s\" від наведених нижче пристроїв."
 
 #: notify_lists.php:736
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
-msgstr ""
+msgstr "Ви також можете від 'єднати порогові значення пристроїв. Однак ці порогові значення пристрою дозволять перезаписати список порогових сповіщень."
 
 #: notify_lists.php:785
-#, php-format
+#, fuzzy, php-format
 msgid "[edit: %s]"
-msgstr ""
+msgstr "Редагувати:"
 
 #: notify_lists.php:787
+#, fuzzy
 msgid "[new]"
-msgstr ""
+msgstr "Нові"
 
 #: notify_lists.php:836
+#, fuzzy
 msgid "List General Settings"
-msgstr ""
+msgstr "Загальні Налаштування"
 
 #: notify_lists.php:841 notify_lists.php:1477 notify_lists.php:1759
 #: setup.php:1251 thold.php:784 thold_graph.php:444 thold_templates.php:2221
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 #: notify_lists.php:842
 msgid "Enter a name for this Notification List."
-msgstr ""
+msgstr "Введіть назву для цього списку сповіщень."
 
 #: notify_lists.php:848 notify_lists.php:1178 notify_lists.php:2106
 #: thold_graph.php:972
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #: notify_lists.php:849
 msgid "Enter a description for this Notification List."
-msgstr ""
+msgstr "Введіть опис для цього списку сповіщень."
 
 #: notify_lists.php:858
 msgid "To disable all notifications from this Notification List, you can simply disable it here."
-msgstr ""
+msgstr "Щоб вимкнути всі сповіщення зі списку сповіщень, ви можете просто вимкнути його тут."
 
 #: notify_lists.php:864
+#, fuzzy
 msgid "To Email Addresses"
-msgstr ""
+msgstr "Адреси електронної пошти"
 
 #: notify_lists.php:865
 msgid "Enter a comma separated list of Email addresses for this Notification List."
-msgstr ""
+msgstr "Введіть розділений комами список адрес електронної пошти для цього списку сповіщень."
 
 #: notify_lists.php:873
+#, fuzzy
 msgid "BCC Email Addresses"
-msgstr ""
+msgstr "Адреси електронної пошти"
 
 #: notify_lists.php:874
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
-msgstr ""
+msgstr "Введіть розділений комами список адрес електронної пошти для сліпого копіювання цього списку сповіщень."
 
 #: notify_lists.php:881
 msgid "Email Style/Format File"
-msgstr ""
+msgstr "Файл стилю/формату електронної пошти"
 
 #: notify_lists.php:884 thold.php:2028 thold_templates.php:1588
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr ""
+msgstr "Виберіть користувацьку HTML-обгортку та CSS-файл для використання.  Цей файл містить як HTML, так і CSS для обгортання вашого звіту.  Якщо він містить більше, ніж просто CSS, вам потрібно розмістити спеціальний <REPORT> тег всередині файлу.  Цей тег формату буде замінено вмістом звіту.  Ці файли знаходяться в каталозі «формати»."
 
 #: notify_lists.php:980
 msgid "Associated Devices"
-msgstr ""
+msgstr "Пов 'язані пристрої"
 
 #: notify_lists.php:989 notify_lists.php:1353 notify_lists.php:1682
 #: notify_lists.php:2006 notify_queue.php:249 thold.php:643 thold.php:2569
 #: thold_graph.php:132 thold_graph.php:1138 thold_graph.php:1569
 #: thold_templates.php:2020 thold_templates.php:2129
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 #: notify_lists.php:995 notify_lists.php:1183 notify_lists.php:1359
 #: thold.php:649 thold_graph.php:138 thold_graph.php:1144 thold_graph.php:1575
@@ -1566,66 +1583,67 @@ msgstr "Вузол"
 #: thold_templates.php:1170 thold_templates.php:1178 thold_templates.php:1573
 #: thold_templates.php:1581 thold_templates.php:1983
 msgid "None"
-msgstr ""
+msgstr "Немає"
 
 #: notify_lists.php:1013
 msgid "Device Template"
-msgstr ""
+msgstr "Шаблон пристрою"
 
 #: notify_lists.php:1037 notify_lists.php:1406 notify_lists.php:1692
 #: notify_lists.php:2016 notify_queue.php:284 thold.php:727 thold_graph.php:230
 #: thold_graph.php:1214 thold_graph.php:1666 thold_templates.php:2139
 msgid "Default"
-msgstr ""
+msgstr "За замовчуванням"
 
 #: notify_lists.php:1050 notify_lists.php:1419 notify_lists.php:1705
+#, fuzzy
 msgid "Associated"
-msgstr ""
+msgstr "хвороб, пов’язаних з наданням"
 
 #: notify_lists.php:1055 notify_lists.php:1424 notify_lists.php:1710
 #: notify_lists.php:2027 notify_queue.php:296 thold.php:670 thold_graph.php:160
 #: thold_graph.php:1181 thold_graph.php:1597 thold_templates.php:2151
 msgid "Go"
-msgstr ""
+msgstr "Перейти"
 
 #: notify_lists.php:1055 notify_lists.php:1424 notify_lists.php:1710
 #: notify_lists.php:2027 notify_queue.php:296
 msgid "Set/Refresh Filters"
-msgstr ""
+msgstr "Встановити/оновити фільтри"
 
 #: notify_lists.php:1056 notify_lists.php:1425 notify_lists.php:1711
 #: notify_lists.php:2030 notify_queue.php:297 thold.php:673 thold_graph.php:161
 #: thold_graph.php:1182 thold_graph.php:1598 thold_templates.php:2152
 msgid "Clear"
-msgstr ""
+msgstr "Очистити"
 
 #: notify_lists.php:1056 notify_lists.php:1425 notify_lists.php:1711
 #: notify_lists.php:2030 notify_queue.php:297
 msgid "Clear Filters"
-msgstr ""
+msgstr "Очистити фільтри"
 
 #: notify_lists.php:1188 notify_lists.php:1481 notify_lists.php:1760
 #: thold.php:798 thold_graph.php:458 thold_graph.php:978
 #: thold_templates.php:2236
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: notify_lists.php:1193 setup.php:1251 thold.php:707 thold_graph.php:210
 #: thold_graph.php:996 thold_graph.php:1164 thold_graph.php:1647
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: notify_lists.php:1198
 msgid "Associated Lists"
-msgstr ""
+msgstr "Пов 'язані списки"
 
 #: notify_lists.php:1203 thold_graph.php:984
 msgid "Graphs"
-msgstr ""
+msgstr "Графіки"
 
 #: notify_lists.php:1208 thold_graph.php:990
 msgid "Data Sources"
-msgstr ""
+msgstr "Джерела даних"
 
 #: notify_lists.php:1213 notify_queue.php:422 thold_graph.php:1014
 msgid "Hostname"
@@ -1633,27 +1651,27 @@ msgstr "Ім'я хоста"
 
 #: notify_lists.php:1237
 msgid "Current List Only"
-msgstr ""
+msgstr "Лише поточний список"
 
 #: notify_lists.php:1239
 msgid "Current and Global List(s)"
-msgstr ""
+msgstr "Поточний та глобальний список(и)"
 
 #: notify_lists.php:1260
 msgid "No Associated Devices Found"
-msgstr ""
+msgstr "Пов 'язаних пристроїв не знайдено"
 
 #: notify_lists.php:1345
 msgid "Associated Thresholds"
-msgstr ""
+msgstr "Пов 'язані порогові значення"
 
 #: notify_lists.php:1377 thold.php:680 thold_graph.php:169 thold_graph.php:1607
 msgid "Template"
-msgstr ""
+msgstr "Шаблон"
 
 #: notify_lists.php:1390
 msgid "State"
-msgstr ""
+msgstr "Область"
 
 #: notify_lists.php:1394 notify_queue.php:259 notify_queue.php:274
 #: thold.php:653 thold.php:684 thold.php:711 thold.php:2531 thold_graph.php:142
@@ -1662,180 +1680,181 @@ msgstr ""
 #: thold_graph.php:1579 thold_graph.php:1611 thold_graph.php:1629
 #: thold_graph.php:1651 thold_templates.php:1982
 msgid "All"
-msgstr ""
+msgstr "Усі"
 
 #: notify_lists.php:1485 notify_lists.php:1761
 msgid "Warning Lists"
-msgstr ""
+msgstr "Списки попереджень"
 
 #: notify_lists.php:1489 notify_lists.php:1762
 msgid "Alert Lists"
-msgstr ""
+msgstr "Списки сповіщень"
 
 #: notify_lists.php:1493 notify_lists.php:1763 thold.php:803 thold.php:1828
 #: thold_graph.php:467 thold_graph.php:1190 thold_graph.php:1483
 #: thold_templates.php:1384 thold_templates.php:2251
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: notify_lists.php:1501 thold.php:858
 msgid "Templated"
-msgstr ""
+msgstr "Шаблонний"
 
 #: notify_lists.php:1516 notify_lists.php:2118 notify_queue.php:275
 #: thold.php:887 thold.php:1045 thold.php:1047 thold.php:1050
 #: thold_graph.php:538 thold_graph.php:768 thold_templates.php:2341
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 #: notify_lists.php:1519 notify_lists.php:2118 notify_queue.php:276
 #: thold.php:918 thold.php:922 thold.php:972 thold.php:1045 thold.php:1050
 #: thold_graph.php:569 thold_graph.php:573 thold_graph.php:696
 #: thold_graph.php:768 thold_templates.php:2341
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 #: notify_lists.php:1523 thold.php:926 thold_graph.php:577
 msgid "baseline-LOW"
-msgstr ""
+msgstr "вихідний рівень-LOW"
 
 #: notify_lists.php:1525 thold.php:928 thold_graph.php:579
 msgid "baseline-HIGH"
-msgstr ""
+msgstr "вихідний рівень-Високий"
 
 #: notify_lists.php:1537 notify_lists.php:1781
 msgid "Select Users"
-msgstr ""
+msgstr "Виберіть Користувачів"
 
 #: notify_lists.php:1541 notify_lists.php:1568 notify_lists.php:1785
 #: notify_lists.php:1812
 msgid "Specific Emails"
-msgstr ""
+msgstr "Конкретні електронні адреси"
 
 #: notify_lists.php:1546 notify_lists.php:1573 notify_lists.php:1790
 #: notify_lists.php:1817
 msgid "Current List"
-msgstr ""
+msgstr "Поточний список"
 
 #: notify_lists.php:1556
 msgid "Unknown Threshold"
-msgstr ""
+msgstr "Невідоме порогове значення"
 
 #: notify_lists.php:1562 notify_lists.php:1589 notify_lists.php:1806
 #: notify_lists.php:1833
 msgid "Log Only"
-msgstr ""
+msgstr "Лише журнал"
 
 #: notify_lists.php:1615
 msgid "Editable"
-msgstr ""
+msgstr "Редагування"
 
 #: notify_lists.php:1615
 msgid "Read Only"
-msgstr ""
+msgstr "Лише для читання"
 
 #: notify_lists.php:1622
 msgid "No Thresholds Found"
-msgstr ""
+msgstr "Порогових значень не знайдено"
 
 #: notify_lists.php:1674
 msgid "Associated Templates"
-msgstr ""
+msgstr "Пов 'язані шаблони"
 
 #: notify_lists.php:1688 notify_queue.php:280
 msgid "Rows"
-msgstr ""
+msgstr "Рядки"
 
 #: notify_lists.php:1800
 msgid "Unknown Template"
-msgstr ""
+msgstr "Невідомий шаблон"
 
 #: notify_lists.php:1848 thold_templates.php:2368
 msgid "No Threshold Templates"
-msgstr ""
+msgstr "Немає порогових шаблонів"
 
 #: notify_lists.php:2012 notify_lists.php:2092
 msgid "Lists"
-msgstr ""
+msgstr "Списки"
 
 #: notify_lists.php:2101
 msgid "List Name"
-msgstr ""
+msgstr "Назва списку"
 
 #: notify_lists.php:2107
 msgid "Emails"
-msgstr ""
+msgstr "Електронні адреси"
 
 #: notify_lists.php:2128
 msgid "No Notification Lists"
-msgstr ""
+msgstr "Немає списків сповіщень"
 
 #: notify_queue.php:54
 msgid "Notification has been Suspended.  Press the Resume button to resume it"
-msgstr ""
+msgstr "Сповіщення призупинено.  Натисніть кнопку Resume (Відновити), щоб відновити його"
 
 #: notify_queue.php:68
 msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
-msgstr ""
+msgstr "Сповіщення відновлено.  Натисніть кнопку Призупинити, щоб призупинити його"
 
 #: notify_queue.php:83
 msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
-msgstr ""
+msgstr "Очікуючі сповіщення видалено з бази даних.  Раніше надіслане сповіщення, не очищене, залишатиметься до тих пір, поки не старіє."
 
 #: notify_queue.php:147
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] ""
+msgstr[0] "Натисніть \"Продовжити\", щоб видалити наступне сповіщення."
 msgstr[1] ""
 msgstr[2] ""
 
 #: notify_queue.php:152
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] ""
+msgstr[0] "Видалити сповіщення"
 msgstr[1] ""
 msgstr[2] ""
 
 #: notify_queue.php:237
 #, php-format
 msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
-msgstr ""
+msgstr "Сповіщення про події [ Сповіщення призупинені користувачем: %s, %s тому ]"
 
 #: notify_queue.php:239
+#, fuzzy
 msgid "Event Notifications"
-msgstr ""
+msgstr "Сповіщення про події"
 
 #: notify_queue.php:255 notify_queue.php:411
 msgid "Topic"
-msgstr ""
+msgstr "Тема"
 
 #: notify_queue.php:270 notify_queue.php:444
 msgid "Processed"
-msgstr ""
+msgstr "В обробц"
 
 #: notify_queue.php:298
 msgid "Suspend"
-msgstr ""
+msgstr "Призупинити"
 
 #: notify_queue.php:298
 msgid "Suspend Notification Processing"
-msgstr ""
+msgstr "Призупинити обробку сповіщень"
 
 #: notify_queue.php:299
 msgid "Resume"
-msgstr ""
+msgstr "Продовжити"
 
 #: notify_queue.php:299
 msgid "Resume Notification Processing"
-msgstr ""
+msgstr "Відновити обробку сповіщень"
 
 #: notify_queue.php:300
 msgid "Purge"
-msgstr ""
+msgstr "Очищення"
 
 #: notify_queue.php:300
 msgid "Purge Notification Queue"
-msgstr ""
+msgstr "Черга сповіщень про очищення"
 
 #: notify_queue.php:401
 msgid "Notifications"
@@ -1843,372 +1862,374 @@ msgstr "Сповіщення"
 
 #: notify_queue.php:414
 msgid "The supported notification topic."
-msgstr ""
+msgstr "Підтримувана тема сповіщень."
 
 #: notify_queue.php:417 thold_graph.php:1488
 msgid "Event Description"
-msgstr ""
+msgstr "Опис події"
 
 #: notify_queue.php:419
 msgid "The name of the object as defined by the caller."
-msgstr ""
+msgstr "Назва об 'єкта, визначена абонентом."
 
 #: notify_queue.php:424
 msgid "The hostname that was the source of this event."
-msgstr ""
+msgstr "Ім 'я хосту, яке було джерелом цієї події."
 
 #: notify_queue.php:429
 msgid "The Notification List used if any."
-msgstr ""
+msgstr "Список сповіщень, що використовується, якщо такий є."
 
 #: notify_queue.php:432
 msgid "Object ID"
-msgstr ""
+msgstr "ID об’єкта"
 
 #: notify_queue.php:435
 msgid "The Object ID defined by the caller.  Generally its unique 'id'."
-msgstr ""
+msgstr "Ідентифікатор об 'єкта, визначений абонентом.  Як правило, це його унікальний \"ідентифікатор\"."
 
 #: notify_queue.php:438
 msgid "Event Time"
-msgstr ""
+msgstr "事件时间"
 
 #: notify_queue.php:441
 msgid "The time of the event as defined by the caller."
-msgstr ""
+msgstr "Час події, визначений абонентом."
 
 #: notify_queue.php:447
 msgid "Has the Notification Event been processed."
-msgstr ""
+msgstr "Чи була оброблена подія сповіщення."
 
 #: notify_queue.php:450
 msgid "Errors"
-msgstr ""
+msgstr "Помилки"
 
 #: notify_queue.php:453
 msgid "Did this notification result in an error.  Hover on the error column for details."
-msgstr ""
+msgstr "Чи призвело це сповіщення до помилки.  Наведіть курсор на стовпець помилки, щоб дізнатися подробиці."
 
 #: notify_queue.php:456
+#, fuzzy
 msgid "Run Time"
-msgstr ""
+msgstr "Тривалість роботи"
 
 #: notify_queue.php:459
 msgid "The time in seconds it took to process the event."
-msgstr ""
+msgstr "Час у секундах, необхідний для обробки події."
 
 #: notify_queue.php:478
 msgid "Not Specified"
-msgstr ""
+msgstr "Не визначено"
 
 #: notify_queue.php:483
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 
 #: notify_queue.php:483
 msgid "Pending"
-msgstr ""
+msgstr "В очікуванні"
 
 #: notify_queue.php:486
 msgid "Errored"
-msgstr ""
+msgstr "Помилка"
 
 #: notify_queue.php:486
 msgid "Success"
-msgstr ""
+msgstr "Успіх"
 
 #: notify_queue.php:498
 msgid "No Notifications"
-msgstr ""
+msgstr "Немає сповіщень"
 
 #: setup.php:245
 msgid "Off"
-msgstr ""
+msgstr "Вимкнуто"
 
 #: setup.php:245
 msgid "On"
-msgstr ""
+msgstr "Увімкнуто"
 
 #: setup.php:245
 #, php-format
 msgid "Toggle Threshold VRULES %s"
-msgstr ""
+msgstr "Перемкнути порогові значення VRULES %s"
 
 #: setup.php:264
 msgid "Create Threshold"
-msgstr ""
+msgstr "Створити порогове значення"
 
 #: setup.php:518 setup.php:528
 #, php-format
 msgid "Alert Hi for %s (%s)"
-msgstr ""
+msgstr "Вітаємо, %s (%s)"
 
 #: setup.php:522 setup.php:532
 #, php-format
 msgid "Alert Low for %s (%s)"
-msgstr ""
+msgstr "Низький рівень попередження для %s (%s)"
 
 #: setup.php:548 setup.php:558
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr ""
+msgstr "Попередження Привіт для %s (%s)"
 
 #: setup.php:552 setup.php:563
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr ""
+msgstr "Низький рівень попередження для %s (%s)"
 
 #: setup.php:583 setup.php:597
 msgid "Alert Hi for %s (%s %%%)"
-msgstr ""
+msgstr "Сповіщення для %s (%s %%%)"
 
 #: setup.php:589 setup.php:603
 msgid "Alert Low for %s (%s %%%)"
-msgstr ""
+msgstr "Низький рівень сповіщення для %s (%s %%%)"
 
 #: setup.php:621 setup.php:635
 msgid "Warning Hi for %s (%s %%%)"
-msgstr ""
+msgstr "Попередження Привіт для %s (%s %%%)"
 
 #: setup.php:627 setup.php:641
 msgid "Warning Low for %s (%s %%%)"
-msgstr ""
+msgstr "Низький рівень попередження для %s (%s %%%)"
 
 #: setup.php:654
 msgid "Threshold Alert/Warning Values"
-msgstr ""
+msgstr "Порогові/попереджувальні значення"
 
 #: setup.php:707
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб застосувати всі відповідні порогові значення до цих пристроїв."
 
 #: setup.php:783 setup.php:801
 msgid "Create Threshold from Data Source"
-msgstr ""
+msgstr "Створити порогове значення з джерела даних"
 
 #: setup.php:812
 msgid "Auto-create Thresholds"
-msgstr ""
+msgstr "Автоматичне створення порогових значень"
 
 #: setup.php:894 setup.php:1051
 #, php-format
 msgid "Created %s thresholds"
-msgstr ""
+msgstr "Створено порогових значень: %s"
 
 #: setup.php:896 setup.php:1053 thold_functions.php:6239
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr ""
+msgstr "Не створено порогових значень.  Або вони вже існують, або відповідних збігів не знайдено."
 
 #: setup.php:899 setup.php:1056
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
-msgstr ""
+msgstr "Не створено порогових значень. Шаблон (и) порогових значень не знайдено."
 
 #: setup.php:957
 msgid "The following Data Sources have no Threshold Templates associated with them"
-msgstr ""
+msgstr "Наступні джерела даних не мають пов 'язаних з ними порогових шаблонів"
 
 #: setup.php:961
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб створити порогові значення для цих джерел даних?"
 
 #: setup.php:968 setup.php:1132
 msgid "Available Threshold Templates"
-msgstr ""
+msgstr "Доступні шаблони порогових значень"
 
 #: setup.php:973 setup.php:1137 thold_webapi.php:343
 msgid "Select a Threshold Template"
-msgstr ""
+msgstr "Виберіть пороговий шаблон"
 
 #: setup.php:989
 msgid "There are no Threshold Templates associated with the following Data Sources"
-msgstr ""
+msgstr "Немає шаблонів порогових значень, пов 'язаних з наступними джерелами даних"
 
 #: setup.php:1001 setup.php:1164 thold_webapi.php:178
 msgid "Create Threshold from Template"
-msgstr ""
+msgstr "Створити порогове значення з шаблону"
 
 #: setup.php:1121
 msgid "The following Graphs have no Threshold Templates associated with them"
-msgstr ""
+msgstr "Наступні графіки не мають пов 'язаних з ними порогових шаблонів"
 
 #: setup.php:1125
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr ""
+msgstr "Натисніть \"Продовжити\", якщо ви хочете створити порогові значення для цих графіків"
 
 #: setup.php:1152
 msgid "There are no Threshold Templates associated with the following Graphs"
-msgstr ""
+msgstr "Немає шаблонів порогових значень, пов 'язаних з наступними графіками"
 
 #: setup.php:1234 setup.php:1420
 msgid "Associated Threshold Templates"
-msgstr ""
+msgstr "Пов 'язані шаблони порогових значень"
 
 #: setup.php:1263
 msgid "Threshold Exists"
-msgstr ""
+msgstr "Існує порогове значення"
 
 #: setup.php:1265
 msgid "Threshold Does Not Exist"
-msgstr ""
+msgstr "Поріг не існує"
 
 #: setup.php:1277
 msgid "Delete Threshold Template Association"
-msgstr ""
+msgstr "Видалити прив 'язку порогового шаблону"
 
 #: setup.php:1285 setup.php:1447
 msgid "No Associated Threshold Templates."
-msgstr ""
+msgstr "Немає пов 'язаних шаблонів порогових значень."
 
 #: setup.php:1303 setup.php:1466
 msgid "Add Threshold Template"
-msgstr ""
+msgstr "Додати шаблон порогового значення"
 
 #: setup.php:1309 setup.php:1472
 msgid "Add"
-msgstr ""
+msgstr "Додати"
 
 #: setup.php:1309
 msgid "Add Threshold Template to Device"
-msgstr ""
+msgstr "Додати шаблон порогового значення до пристрою"
 
 #: setup.php:1352
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб видалити наступний пороговий шаблон, який буде від 'єднано від пристрою."
 
 #: setup.php:1353 setup.php:1518
 #, php-format
 msgid "Threshold Template Name: %s"
-msgstr ""
+msgstr "Ім 'я порогового шаблону: %s"
 
 #: setup.php:1359 setup.php:1524
 msgid "Remove Threshold Template"
-msgstr ""
+msgstr "Вилучити шаблон порогового значення"
 
 #: setup.php:1472
 msgid "Add Threshold Template to Device Template"
-msgstr ""
+msgstr "Додати шаблон порогового значення до шаблону пристрою"
 
 #: setup.php:1517
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб видалити наступний пороговий шаблон, який буде відокремлено від шаблону пристрою."
 
 #: thold.php:103
 msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
-msgstr ""
+msgstr "Або шаблони відсутні, або порогові значення вже існують - порогові значення не створені."
 
 #: thold.php:306
 msgid "You are not authorized to modify one or more of the Thresholds selected"
-msgstr ""
+msgstr "Ви не маєте права змінювати один або кілька вибраних порогових значень"
 
 #: thold.php:408
 msgid "Click 'Delete' to delete the following Threshold(s)."
-msgstr ""
+msgstr "Натисніть \"Видалити\", щоб видалити наступні порогові значення."
 
 #: thold.php:409
 msgid "Delete Threshold(s)"
-msgstr ""
+msgstr "Видалити порогові значення"
 
 #: thold.php:412
 msgid "Click 'Continue' to enable the following Threshold(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб увімкнути наступні порогові значення."
 
 #: thold.php:413
 msgid "Enable Threshold(s)"
-msgstr ""
+msgstr "Увімкнути порогові значення"
 
 #: thold.php:416
 msgid "Click 'Continue' to disable the following Threshold(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб вимкнути наступні порогові значення."
 
 #: thold.php:417
 msgid "Disable Threshold(s)"
-msgstr ""
+msgstr "Вимкнути порогові значення"
 
 #: thold.php:420
 msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб повторно застосувати запропоновані імена до наступних порогових значень."
 
 #: thold.php:421
 msgid "Apply Suggestion"
-msgstr ""
+msgstr "Застосувати пропозицію"
 
 #: thold.php:424
 msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб оновити наступні порогові значення з деталями пов 'язаного шаблону."
 
 #: thold.php:425
 msgid "Reapply Template"
-msgstr ""
+msgstr "Повторно застосувати шаблон"
 
 #: thold.php:428
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб підтвердити наступні порогові значення.  Порогові значення, які цього не дозволяють або не спрацьовують, будуть проігноровані."
 
 #: thold.php:429 thold_functions.php:7472
 msgid "Acknowledge Threshold(s)"
-msgstr ""
+msgstr "Поріг(и) підтвердження"
 
 #: thold.php:432
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб відновити сповіщення для наступних порогових значень.  Порогові значення, які цього не дозволяють або не спрацьовують, будуть проігноровані."
 
 #: thold.php:433
 msgid "Resume Notifications for Threshold(s)"
-msgstr ""
+msgstr "Відновити сповіщення для порогових значень"
 
 #: thold.php:436
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб призупинити сповіщення для наступних порогових значень.  Порогові значення, які цього не дозволяють або не спрацьовують, будуть проігноровані."
 
 #: thold.php:437
 msgid "Suspend Notification for Threshold(s)"
-msgstr ""
+msgstr "Призупинити сповіщення про порогові значення"
 
 #: thold.php:440 thold_templates.php:296
 msgid "Invalid action detected, can not proceed"
-msgstr ""
+msgstr "Виявлено недійсну дію, неможливо продовжити"
 
 #: thold.php:634
 msgid "Threshold Management"
-msgstr ""
+msgstr "Управління пороговими значеннями"
 
 #: thold.php:670
 msgid "Apply Filters"
-msgstr ""
+msgstr "Застосувати фільтри"
 
 #: thold.php:673
 msgid "Return to Defaults"
-msgstr ""
+msgstr "Повернутися до налаштувань за замовчуванням"
 
 #: thold.php:694 thold_graph.php:187 thold_templates.php:454
 #: thold_templates.php:1144 thold_templates.php:2246
 msgid "Data Template"
-msgstr ""
+msgstr "Шаблон даних"
 
 #: thold.php:717 thold_graph.php:220
 msgid "Disabled at Template"
-msgstr ""
+msgstr "Вимкнено в шаблоні"
 
 #: thold.php:718 thold_graph.php:221
 msgid "Disabled at Threshold"
-msgstr ""
+msgstr "Вимкнено при порогових значеннях"
 
 #: thold.php:719 thold.php:863 thold_graph.php:222 thold_graph.php:517
 msgid "Ack Required"
-msgstr ""
+msgstr "Обов 'язкова перевірка"
 
 #: thold.php:789 thold.php:2224 thold_graph.php:449 thold_templates.php:1775
 #: thold_templates.php:2226
+#, fuzzy
 msgid "External ID"
-msgstr ""
+msgstr "Зовнішній ідентифікатор:"
 
 #: thold.php:805 thold_graph.php:469 thold_templates.php:2253
 msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
-msgstr ""
+msgstr "Тип порогового значення.  Для базових типів: [TIP] означає час у минулому з МІНІМАЛЬНИМ, МАКСИМАЛЬНИМ, середнім значенням і ОСТАННІМ не більше ніж за день з цього періоду.  [AOT] - середнє значення за весь період часу.  Якщо є двокрапка, за якою йдуть MIN, MAX, AVG, ОСТАННЄ, значення прийшло з цієї функції консолідації."
 
 #: thold.php:809
 msgid "DSName"
-msgstr ""
+msgstr "DSName"
 
 #: thold.php:814 thold_graph.php:473
 msgid "Current"
@@ -2216,37 +2237,37 @@ msgstr "Поточний"
 
 #: thold.php:817 thold_graph.php:476
 msgid "The last measured value for the Data Source"
-msgstr ""
+msgstr "Останнє виміряне значення для джерела даних"
 
 #: thold.php:820 thold.php:2063 thold.php:2082 thold_graph.php:479
 #: thold_templates.php:1620 thold_templates.php:1634 thold_templates.php:2262
 msgid "High"
-msgstr ""
+msgstr "Високий"
 
 #: thold.php:823 thold_graph.php:482
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr ""
+msgstr "Значення High Warning / Alert.  ПРИМІТКА: Базові значення є відсотками, всі інші значення є відображуваними значеннями, які можуть бути змінені за допомогою cdef."
 
 #: thold.php:826 thold.php:2061 thold.php:2080 thold_graph.php:485
 #: thold_templates.php:1620 thold_templates.php:1634 thold_templates.php:2268
 msgid "Low"
-msgstr ""
+msgstr "Низький"
 
 #: thold.php:829 thold_graph.php:488
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr ""
+msgstr "Значення Low Warning / Alert.  ПРИМІТКА: Базові значення є відсотками, всі інші значення є відображуваними значеннями, які можуть бути змінені за допомогою cdef."
 
 #: thold.php:832 thold_graph.php:491 thold_templates.php:2274
 msgid "Trigger"
-msgstr ""
+msgstr "Тригер"
 
 #: thold.php:837 thold_graph.php:496 thold_templates.php:2279
 msgid "Duration"
-msgstr ""
+msgstr "Тривалість"
 
 #: thold.php:842 thold_graph.php:501 thold_templates.php:2284
 msgid "Repeat"
-msgstr ""
+msgstr "Повторити"
 
 #: thold.php:852 thold_graph.php:511 thold_graph.php:1002
 msgid "In State"
@@ -2254,321 +2275,327 @@ msgstr "В стані"
 
 #: thold.php:855 thold_graph.php:514
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr ""
+msgstr "Кількість часу, що минув з моменту порушення або спрацьовування порогового значення"
 
 #: thold.php:866 thold_graph.php:520
 msgid "Acknowledgment required for this Threshold"
-msgstr ""
+msgstr "Необхідне підтвердження для цього порогового значення"
 
 #: thold.php:974 thold_graph.php:698
 msgid "No [Template:Thold]"
-msgstr ""
+msgstr "Ні [Template:Thold]"
 
 #: thold.php:976 thold_graph.php:700
 msgid "No [Template]"
-msgstr ""
+msgstr "Ні [Шаблон]"
 
 #: thold.php:978 thold_graph.php:702
 msgid "No [Thold]"
-msgstr ""
+msgstr "Ні [Thold]"
 
 #: thold.php:1027 thold_graph.php:750
-#, php-format
+#, fuzzy, php-format
 msgid "%d Triggers"
-msgstr ""
+msgstr "Тригери"
 
 #: thold.php:1057 thold_graph.php:773
 msgid "No Thresholds"
-msgstr ""
+msgstr "Немає порогових значень"
 
 #: thold.php:1089
 msgid "Threshold Deleted, can not Edit!"
-msgstr ""
+msgstr "Поріг видалено, редагувати неможливо!"
 
 #: thold.php:1197
+#, fuzzy
 msgid "Graph Data"
-msgstr ""
+msgstr "Дані графіка"
 
 #: thold.php:1200
 msgid "Edit Threshold Template"
-msgstr ""
+msgstr "Редагувати пороговий шаблон"
 
 #: thold.php:1222
 msgid "Data Source Description:"
-msgstr ""
+msgstr "Опис джерела даних:"
 
 #: thold.php:1223
 msgid "Associated Graph (Graphs using this RRD):"
-msgstr ""
+msgstr "Пов 'язаний граф (графіки з використанням цього RRD):"
 
 #: thold.php:1323
+#, fuzzy
 msgid "Last:"
-msgstr ""
+msgstr "Остання"
 
 #: thold.php:1330
 msgid "WHi:"
-msgstr ""
+msgstr "WHi:"
 
 #: thold.php:1336
 msgid "WLo:"
-msgstr ""
+msgstr "WLo:"
 
 #: thold.php:1344
+#, fuzzy
 msgid "AHi:"
-msgstr ""
+msgstr "AHI"
 
 #: thold.php:1350
+#, fuzzy
 msgid "ALo:"
-msgstr ""
+msgstr "оксид алюмінію"
 
 #: thold.php:1367
 msgid "BL Up:"
-msgstr ""
+msgstr "BL Up:"
 
 #: thold.php:1369
 msgid "BL Down:"
-msgstr ""
+msgstr "BL Down:"
 
 #: thold.php:1407
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr ""
+msgstr "Невідомий ідентифікатор шаблону %d"
 
 #: thold.php:1409
 msgid "Not Templated"
-msgstr ""
+msgstr "Не шаблонний"
 
 #: thold.php:1428 thold.php:1431
 #, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
-msgstr ""
+msgstr "Елемент джерела даних [ %s ] - Поточне значення: [ %s ]"
 
 #: thold.php:1517 thold_templates.php:1081
 #, php-format
 msgid "Replacement Fields: %s"
-msgstr ""
+msgstr "Поля заміни: %s"
 
 #: thold.php:1530 thold_templates.php:1095
-#, php-format
+#, fuzzy, php-format
 msgid "Data Sources: %s"
-msgstr ""
+msgstr "Джерела даних:"
 
 #: thold.php:1557
 msgid "Template/Enabled Information"
-msgstr ""
+msgstr "Шаблон/Увімкнена інформація"
 
 #: thold.php:1561
 msgid "Template Propagation Enabled"
-msgstr ""
+msgstr "Розповсюдження шаблонів увімкнено"
 
 #: thold.php:1564
 msgid "Whether or not these settings will be propagated from the Threshold template."
-msgstr ""
+msgstr "Чи будуть ці налаштування поширюватися з шаблону Threshold."
 
 #: thold.php:1568 thold_templates.php:1126
 msgid "Template Name"
-msgstr ""
+msgstr "Ім'я шаблону"
 
 #: thold.php:1571
 msgid "Name of the Threshold Template the Threshold was created from."
-msgstr ""
+msgstr "Назва шаблону порогового значення, з якого було створено порогове значення."
 
 #: thold.php:1575
 msgid "Enabled at Template Level"
-msgstr ""
+msgstr "Увімкнено на рівні шаблону"
 
 #: thold.php:1578 thold.php:1585
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
-msgstr ""
+msgstr "Потрібно увімкнути порогове значення як на рівні шаблону, так і на рівні порогового значення, який потрібно перевірити."
 
 #: thold.php:1582
 msgid "Enabled at Threshold Level"
-msgstr ""
+msgstr "Увімкнено на пороговому рівні"
 
 #: thold.php:1589 thold_templates.php:1122
 msgid "General Settings"
-msgstr ""
+msgstr "Загальні налаштування"
 
 #: thold.php:1593
 msgid "Name (Displayed)"
-msgstr ""
+msgstr "Ім 'я (відображається)"
 
 #: thold.php:1598 thold.php:1607
 msgid "Provide the Thresholds a meaningful name"
-msgstr ""
+msgstr "Надайте Порогам осмислене ім 'я"
 
 #: thold.php:1602
+#, fuzzy
 msgid "Name (Format)"
-msgstr ""
+msgstr "Назва і формат"
 
 #: thold.php:1611 thold_templates.php:1167
 msgid "Warning HRULE Color"
-msgstr ""
+msgstr "Попередження: колір HRULE"
 
 #: thold.php:1612 thold_templates.php:1168
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
-msgstr ""
+msgstr "Будь ласка, виберіть колір для HRULE графіка для порогових значень попередження.  Виберіть \"Немає\" для Немає HRULE.  Примітка. Наразі ця функція підтримується лише для типів маніпулювання даними \"Точне значення\" та \"Відсоток\"."
 
 #: thold.php:1619 thold_templates.php:1175
 msgid "Alert HRULE Color"
-msgstr ""
+msgstr "Колір попередження HRULE"
 
 #: thold.php:1620 thold_templates.php:1176
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
-msgstr ""
+msgstr "Будь ласка, виберіть колір для HRULE графіка для порогових значень сповіщень.  Виберіть \"Немає\" для Немає HRULE.  Примітка. Наразі ця функція підтримується лише для типів маніпулювання даними \"Точне значення\" та \"Відсоток\"."
 
 #: thold.php:1627 thold_templates.php:1183
 msgid "Graph Timespan"
-msgstr ""
+msgstr "Часовий проміжок графіка"
 
 #: thold.php:1630 thold_templates.php:1186
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
-msgstr ""
+msgstr "Час закінчення графіка буде встановлено під час запуску. Час початку графіка буде часом закінчення мінус проміжок часу графіка."
 
 #: thold.php:1635 thold_templates.php:1191
 msgid "Skip Scaling on HRULEs"
-msgstr ""
+msgstr "Пропустити масштабування на HRULE"
 
 #: thold.php:1638 thold_templates.php:1194
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
-msgstr ""
+msgstr "Якщо позначено, на шкалу на графіку не впливатимуть ані попереджувальні, ані попереджувальні HRULE."
 
 #: thold.php:1642 thold_templates.php:1198
 msgid "Weekend Exemption"
-msgstr ""
+msgstr "Звільнення від реєстрації на вихідні"
 
 #: thold.php:1643 thold_templates.php:1199
 msgid "If this is checked, this Threshold will not alert on weekends."
-msgstr ""
+msgstr "Якщо цей прапорець встановлено, це порогове значення не буде попереджати у вихідні дні."
 
 #: thold.php:1649 thold_templates.php:1205
 msgid "Disable Restoration Email"
-msgstr ""
+msgstr "Вимкнути електронну пошту для відновлення"
 
 #: thold.php:1650 thold_templates.php:1206
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
-msgstr ""
+msgstr "Якщо цей прапорець встановлено, Threshold не надсилатиме сповіщення, коли Threshold повернеться до нормального стану."
 
 #: thold.php:1656 thold_templates.php:1212
 msgid "Acknowledgment Options"
-msgstr ""
+msgstr "Варіанти підтвердження"
 
 #: thold.php:1657 thold_templates.php:1213
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr ""
 
 #: thold.php:1664 thold_templates.php:1220
+#, fuzzy
 msgid "None Required"
-msgstr ""
+msgstr "Не вимагається"
 
 #: thold.php:1668 thold_templates.php:1224
 msgid "Suspendible Notification"
-msgstr ""
+msgstr "Призупиняється сповіщення"
 
 #: thold.php:1672 thold_templates.php:1228
 msgid "Persistent Acknowledgment"
-msgstr ""
+msgstr "Постійне підтвердження"
 
 #: thold.php:1677 thold_templates.php:1233
 msgid "Threshold Type"
-msgstr ""
+msgstr "Тип порогового значення"
 
 #: thold.php:1682 thold_templates.php:1238
 msgid "The type of Threshold that will be monitored."
-msgstr ""
+msgstr "Тип порогового значення, яке буде контролюватися."
 
 #: thold.php:1686 thold_templates.php:1242
 msgid "Re-Alert Cycle"
-msgstr ""
+msgstr "Цикл повторного сповіщення"
 
 #: thold.php:1690
 msgid "Repeat alert after this amount of time has passed since the last alert."
-msgstr ""
+msgstr "Повторіть сповіщення через цей проміжок часу з моменту останнього сповіщення."
 
 #: thold.php:1694 thold_templates.php:1250
 msgid "Warning - High / Low Settings"
-msgstr ""
+msgstr "Попередження - Налаштування високого / низького рівня"
 
 #: thold.php:1696 thold.php:1724 thold.php:1752 thold.php:1788 thold.php:1825
 #: thold_templates.php:1252 thold_templates.php:1280 thold_templates.php:1308
 #: thold_templates.php:1345 thold_templates.php:1381
 msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
-msgstr ""
+msgstr "Числові значення для високих і низьких порогових значень можуть включати наступні суфікси для чисел від більше 1 до 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', а також для чисел менше 1 'm', 'u', 'p', 'f'."
 
 #: thold.php:1699 thold.php:1727 thold.php:1755 thold.php:1791
 #: thold_templates.php:1255 thold_templates.php:1283 thold_templates.php:1311
 #: thold_templates.php:1348
 msgid "High Threshold"
-msgstr ""
+msgstr "Високий поріг"
 
 #: thold.php:1703 thold.php:1759 thold_templates.php:1315
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "Якщо встановлено, а значення джерела даних перевищує це число, спрацює попередження.  ПРИМІТКА. Це значення має бути НЕОБРОБЛЕНИМ числом.  Значення, що відображається на графіку, може бути змінено за допомогою cdef."
 
 #: thold.php:1707 thold.php:1735 thold.php:1763 thold.php:1799
 #: thold_templates.php:1263 thold_templates.php:1291 thold_templates.php:1319
 #: thold_templates.php:1356
 msgid "Low Threshold"
-msgstr ""
+msgstr "Низький поріг"
 
 #: thold.php:1711 thold.php:1767 thold_templates.php:1323
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "Якщо встановлено, а значення джерела даних стає нижчим за це число, спрацює попередження.  ПРИМІТКА. Це значення має бути НЕОБРОБЛЕНИМ числом.  Значення, що відображається на графіку, може бути змінено за допомогою cdef."
 
 #: thold.php:1715 thold.php:1743
 msgid "Breach Duration"
-msgstr ""
+msgstr "Тривалість витоку"
 
 #: thold.php:1718
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "Кількість часу, протягом якого Джерело даних має порушувати Порогове значення для підвищення попередження.  ПРИМІТКА. Це значення має бути НЕОБРОБЛЕНИМ числом.  Значення, що відображається на графіку, може бути змінено за допомогою cdef."
 
 #: thold.php:1722 thold_templates.php:1278
 msgid "Alert - High / Low Settings"
-msgstr ""
+msgstr "Сповіщення - налаштування високого / низького рівня"
 
 #: thold.php:1731 thold.php:1795 thold_templates.php:1259
 #: thold_templates.php:1287 thold_templates.php:1352
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "Якщо встановлено, а значення джерела даних перевищує це число, спрацює сповіщення.  ПРИМІТКА. Це значення має бути НЕОБРОБЛЕНИМ числом.  Значення, що відображається на графіку, може бути змінено за допомогою cdef."
 
 #: thold.php:1739 thold.php:1803 thold_templates.php:1267
 #: thold_templates.php:1295 thold_templates.php:1360
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "Якщо встановлено, а значення джерела даних стає нижчим за це число, спрацює сповіщення.  ПРИМІТКА. Це значення має бути НЕОБРОБЛЕНИМ числом.  Значення, що відображається на графіку, може бути змінено за допомогою cdef."
 
 #: thold.php:1746
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
-msgstr ""
+msgstr "Кількість часу, протягом якого Джерело даних має порушувати Порогове значення для підняття попередження."
 
 #: thold.php:1750 thold_templates.php:1306
 msgid "Warning - Time Based Settings"
-msgstr ""
+msgstr "Попередження - Налаштування на основі часу"
 
 #: thold.php:1771 thold.php:1807
 msgid "Breach Count"
-msgstr ""
+msgstr "Кількість порушень"
 
 #: thold.php:1775 thold.php:1812
 msgid "The number of times the Data Source must be in breach of the Threshold."
-msgstr ""
+msgstr "Кількість разів, коли Джерело даних повинно порушувати Порогове значення."
 
 #: thold.php:1779 thold.php:1816
 msgid "Breach Window"
-msgstr ""
+msgstr "Вікно порушення"
 
 #: thold.php:1782 thold.php:1819 thold_templates.php:1339
 #: thold_templates.php:1375
 msgid "The amount of time in the past to check for Threshold breaches."
-msgstr ""
+msgstr "Кількість часу в минулому для перевірки порушень порогових значень."
 
 #: thold.php:1786 thold_templates.php:1343
 msgid "Alert - Time Based Settings"
-msgstr ""
+msgstr "Сповіщення - Налаштування на основі часу"
 
 #: thold.php:1823
 msgid "Baseline Settings"
-msgstr ""
+msgstr "Налаштування базової лінії"
 
 #: thold.php:1831 thold_templates.php:1387
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
@@ -2576,7 +2603,7 @@ msgstr ""
 
 #: thold.php:1835 thold_templates.php:1391
 msgid "Consolidation Function"
-msgstr ""
+msgstr "Функція консолідації"
 
 #: thold.php:1838 thold_templates.php:1394
 msgid "Average"
@@ -2584,107 +2611,108 @@ msgstr "Середній (ms)"
 
 #: thold.php:1839 thold_templates.php:1395
 msgid "Minimum"
-msgstr ""
+msgstr "Мінімум"
 
 #: thold.php:1840 thold_templates.php:1396
 msgid "Maximum"
-msgstr ""
+msgstr "Максимум"
 
 #: thold.php:1841 thold_templates.php:1397
 msgid "Last"
-msgstr ""
+msgstr "Останній"
 
 #: thold.php:1843 thold_templates.php:1399
 msgid "The Consolidation function to use for the Baseline Type value calculation."
-msgstr ""
+msgstr "Функція консолідації, яку слід використовувати для розрахунку значення базового типу."
 
 #: thold.php:1847 thold_templates.php:1403
 msgid "Time Range"
-msgstr ""
+msgstr "Часовий діапазон"
 
 #: thold.php:1850 thold_templates.php:1406
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
-msgstr ""
+msgstr "Вказує точку в минулому (на основі дозволу rrd), яка буде використовуватися як посилання або тривалість, яку слід використовувати для плаваючого середнього значення при використанні порогу типу плаваючого середнього"
 
 #: thold.php:1854 thold_templates.php:1410
 msgid "Deviation UP"
-msgstr ""
+msgstr "Відхилення вгору"
 
 #: thold.php:1858
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr ""
+msgstr "Вказує допустиме відхилення для верхньої межі порогового значення. Якщо не встановлено, верхня межа порогового значення взагалі не перевірятиметься.  Одиниця виміру - це абсолютні значення для типу \"Абсолютне значення\" та відсоткове значення як для \"Відхилення %%\", так і для \"Плаваючого середнього %%\""
 
 #: thold.php:1862 thold_templates.php:1418
 msgid "Deviation DOWN"
-msgstr ""
+msgstr "Відхилення ВНИЗ"
 
 #: thold.php:1866
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr ""
+msgstr "Вказує допустиме відхилення для нижньої межі порогового значення. Якщо не встановлено, нижня межа порогового значення взагалі не перевірятиметься.  Одиниця виміру - це абсолютні значення для типу \"Абсолютне значення\" та відсоткове значення як для \"Відхилення %%\", так і для \"Плаваючого середнього %%\""
 
 #: thold.php:1870 thold_templates.php:1327 thold_templates.php:1364
 #: thold_templates.php:1426
 msgid "Trigger Count"
-msgstr ""
+msgstr "Кількість тригерів"
 
 #: thold.php:1874
 #, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
-msgstr ""
+msgstr "Кількість послідовних порушень джерелом даних базового порогу для підвищення рівня попередження.<br>Залиште порожнім, щоб використовувати значення за замовчуванням (<b>за замовчуванням: %s циклів</b>)"
 
 #: thold.php:1878 thold_templates.php:1434
 msgid "Data Manipulation"
-msgstr ""
+msgstr "Маніпулювання даними"
 
 #: thold.php:1882 thold_templates.php:1438
 msgid "Data Type"
-msgstr ""
+msgstr "Тип даних"
 
 #: thold.php:1887 thold_templates.php:1442
 msgid "Special formatting for the given data."
-msgstr ""
+msgstr "Спеціальне форматування для заданих даних."
 
 #: thold.php:1891 thold_templates.php:1446
 msgid "Threshold CDEF"
-msgstr ""
+msgstr "Поріг CDEF"
 
 #: thold.php:1894 thold_templates.php:1449
 msgid "Apply this CDEF before returning the data."
-msgstr ""
+msgstr "Застосуйте цей CDEF перед поверненням даних."
 
 #: thold.php:1899
 msgid "Percent Data Source"
-msgstr ""
+msgstr "Відсоток джерела даних"
 
 #: thold.php:1902
 msgid "Second Data Source Item to use as total value to calculate percentage from."
-msgstr ""
+msgstr "Другий елемент джерела даних, який буде використовуватися як загальне значення для обчислення відсотка."
 
 #: thold.php:1907 thold_templates.php:1479
+#, fuzzy
 msgid "Show Units"
-msgstr ""
+msgstr "Показати мої уроки"
 
 #: thold.php:1910 thold_templates.php:1482
 msgid "Display units for very large or small numbers."
-msgstr ""
+msgstr "Дисплеї для дуже великих або малих номерів."
 
 #: thold.php:1914 thold_templates.php:1486
 msgid "Force Units Suffix"
-msgstr ""
+msgstr "Примусовий суфікс одиниць"
 
 #: thold.php:1919 thold_templates.php:1491
 msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
-msgstr ""
+msgstr "Якщо ви хочете відобразити примусовий суфікс одиниць на різних сторінках Threshold (Порогові значення) та Notifications (Сповіщення), введіть його тут.  Розмір не може перевищувати 10 символів."
 
 #: thold.php:1923 thold_templates.php:1495
 msgid "Decimal Digits to Display"
-msgstr ""
+msgstr "Десятичні цифри для відображення"
 
 #: thold.php:1926 thold_templates.php:1498
 msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
-msgstr ""
+msgstr "Кількість десяткових цифр для відображення порогових та поточних значень.  За замовчуванням автоматично або 2."
 
 #: thold.php:1936
 #, php-format
@@ -2693,23 +2721,23 @@ msgstr ""
 
 #: thold.php:1942 thold_templates.php:1471
 msgid "Upper Data Source"
-msgstr ""
+msgstr "Верхнє джерело даних"
 
 #: thold.php:1945
 msgid "Upper data source to calculate the total value."
-msgstr ""
+msgstr "Верхнє джерело даних для обчислення загального значення."
 
 #: thold.php:1950 thold_templates.php:1503
 msgid "Notification Settings"
-msgstr ""
+msgstr "Налаштування сповіщень"
 
 #: thold.php:1955
 msgid "Alert Subject"
-msgstr ""
+msgstr "Сповіщення суб 'єкта"
 
 #: thold.php:1960 thold_templates.php:1513
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr ""
+msgstr "Це тема електронного листа, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
 
 #: thold.php:1964
 msgid "Alert Body"
@@ -2745,7 +2773,7 @@ msgstr ""
 
 #: thold.php:2000
 msgid "Restoral Email Body"
-msgstr ""
+msgstr "Відновлення тіла електронної пошти"
 
 #: thold.php:2005 thold_templates.php:1558
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
@@ -2753,35 +2781,36 @@ msgstr ""
 
 #: thold.php:2009 thold_templates.php:1569
 msgid "Warning Notification List"
-msgstr ""
+msgstr "Список попереджень"
 
 #: thold.php:2011 thold_templates.php:1571
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
-msgstr ""
+msgstr "Ви можете вказати список сповіщень для отримання попереджень для цього джерела даних"
 
 #: thold.php:2017 thold_templates.php:1577
 msgid "Alert Notification List"
-msgstr ""
+msgstr "Список сповіщень"
 
 #: thold.php:2019 thold_templates.php:1579
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
-msgstr ""
+msgstr "Ви можете вказати список сповіщень для отримання сповіщень для цього джерела даних"
 
 #: thold.php:2025 thold_templates.php:1585
 msgid "Style/Format File"
-msgstr ""
+msgstr "Файл стилю/формату"
 
 #: thold.php:2037 thold_templates.php:1597
 msgid "SNMP Notification - Event Category"
-msgstr ""
+msgstr "Сповіщення SNMP - Категорія події"
 
 #: thold.php:2039 thold_templates.php:1599
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
-msgstr ""
+msgstr "Щоб NMS могла легше класифікувати різні сповіщення SNMP, будь ласка, заповніть категорію SNMP-сповіщення для цього шаблону. Наприклад: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 
 #: thold.php:2045 thold_templates.php:1605
+#, fuzzy
 msgid "SNMP Event Description"
-msgstr ""
+msgstr "Опис події"
 
 #: thold.php:2046 thold_templates.php:1606
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
@@ -2789,76 +2818,77 @@ msgstr ""
 
 #: thold.php:2055 thold_templates.php:1615
 msgid "SNMP Notification - Alert Event Severity"
-msgstr ""
+msgstr "Сповіщення SNMP - серйозність події сповіщення"
 
 #: thold.php:2058
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
-msgstr ""
+msgstr "Серйозність, яка буде використовуватися для попереджень. (низький вплив -> критичний вплив)"
 
 #: thold.php:2062 thold.php:2081 thold_templates.php:1620
 #: thold_templates.php:1634
 msgid "Medium"
-msgstr ""
+msgstr "Середній"
 
 #: thold.php:2074 thold_templates.php:1629
 msgid "SNMP Notification - Warning Event Severity"
-msgstr ""
+msgstr "Сповіщення SNMP - серйозність попереджувальної події"
 
 #: thold.php:2077 thold_templates.php:1632
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
-msgstr ""
+msgstr "Серйозність, яку слід використовувати для попереджень. (Низький вплив -> Критичний вплив).<br>Примітка. Тяжкість попереджень повинна бути рівною або нижчою, ніж тяжкість, визначена для попереджень."
 
 #: thold.php:2095 thold_templates.php:1645
 msgid "Notify accounts"
-msgstr ""
+msgstr "Сповістити облікові записи"
 
 #: thold.php:2097
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
-msgstr ""
+msgstr "Це перелік облікових записів, які будуть повідомлені, коли цей поріг буде порушено."
 
 #: thold.php:2102 thold_templates.php:1653
 msgid "Alert Emails"
-msgstr ""
+msgstr "Електронні листи з оповіщеннями"
 
 #: thold.php:2106
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
-msgstr ""
+msgstr "Тут ви можете вказати додаткові електронні листи для отримання сповіщень для цього джерела даних (розділені комами)"
 
 #: thold.php:2110 thold_templates.php:1661
 msgid "Warning Emails"
-msgstr ""
+msgstr "Попереджувальні електронні листи"
 
 #: thold.php:2114
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
-msgstr ""
+msgstr "Тут ви можете вказати додаткові електронні листи для отримання попереджень для цього джерела даних (розділені комами)"
 
 #: thold.php:2148 thold_templates.php:1699
 msgid "If checked, Threshold notification will be sent to your local syslog."
-msgstr ""
+msgstr "Якщо позначено, сповіщення про порогове значення буде надіслано до вашого локального системного журналу."
 
 #: thold.php:2154 thold_templates.php:1705
+#, fuzzy
 msgid "Priority/Level"
-msgstr ""
+msgstr "Priority-Level"
 
 #: thold.php:2155 thold_templates.php:1706
 msgid "This is the Priority Level that will be logged into your syslog messages."
-msgstr ""
+msgstr "Це рівень пріоритету, який буде зареєстровано у ваших повідомленнях системного журналу."
 
 #: thold.php:2162 thold_templates.php:1713
 msgid "Facility"
-msgstr ""
+msgstr "Об'єкт"
 
 #: thold.php:2163 thold_templates.php:1714
 msgid "This is the Facility that will be used for this Threshold."
-msgstr ""
+msgstr "Це об 'єкт, який буде використовуватися для цього порогового значення."
 
 #: thold.php:2184 thold_templates.php:1735
 msgid "Event Triggering (Shell Command)"
-msgstr ""
+msgstr "Запуск події (команда оболонки)"
 
 #: thold.php:2189 thold_templates.php:1740
 msgid "High Trigger Command"
-msgstr ""
+msgstr "Команда високого тригера"
 
 #: thold.php:2190 thold_templates.php:1741
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
@@ -2866,7 +2896,7 @@ msgstr ""
 
 #: thold.php:2197 thold_templates.php:1748
 msgid "Low Trigger Command"
-msgstr ""
+msgstr "Низька команда запуску"
 
 #: thold.php:2198 thold_templates.php:1749
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
@@ -2874,7 +2904,7 @@ msgstr ""
 
 #: thold.php:2205 thold_templates.php:1756
 msgid "Norm Trigger Command"
-msgstr ""
+msgstr "Нормальна команда запуску"
 
 #: thold.php:2206 thold_templates.php:1757
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
@@ -2882,63 +2912,67 @@ msgstr ""
 
 #: thold.php:2219 thold_templates.php:1770
 msgid "Other Settings"
-msgstr ""
+msgstr "Інші налаштування"
 
 #: thold.php:2226
 msgid "Enter an Eternal ID for this Threshold."
-msgstr ""
+msgstr "Введіть вічний ідентифікатор для цього порогового значення."
 
 #: thold.php:2233 thold_templates.php:1784
 msgid "Operator Notes"
-msgstr ""
+msgstr "Примітки оператора"
 
 #: thold.php:2237 thold_templates.php:1788
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
-msgstr ""
+msgstr "Введіть тут інструкції для оператора, який може отримувати повідомлення про порогове значення."
 
 #: thold.php:2520
 msgid "Select Users(s)"
-msgstr ""
+msgstr "Виберіть користувачів"
 
 #: thold.php:2522
+#, fuzzy
 msgid "Users Selected"
-msgstr ""
+msgstr "Вибрано користувачів:"
 
 #: thold.php:2525
+#, fuzzy
 msgid "All Users Selected"
-msgstr ""
+msgstr "Вибрано користувачів:"
 
 #: thold_functions.php:82
+#, fuzzy
 msgid "< 1 Minute"
-msgstr ""
+msgstr "1 хвилина"
 
 #: thold_functions.php:84
 msgid "Since Created"
-msgstr ""
+msgstr "З моменту створення"
 
 #: thold_functions.php:144
 msgid "Log"
-msgstr ""
+msgstr "Журнал"
 
 #: thold_functions.php:268
 msgid "Time:"
-msgstr ""
+msgstr "Час:"
 
 #: thold_functions.php:269
 msgid "User:"
-msgstr ""
+msgstr "Користувач:"
 
 #: thold_functions.php:270
+#, fuzzy
 msgid "System:"
-msgstr ""
+msgstr "Cистема:"
 
 #: thold_functions.php:271
 msgid "Swaps:"
-msgstr ""
+msgstr "Свопи:"
 
 #: thold_functions.php:272
 msgid "Pages:"
-msgstr ""
+msgstr "Сторінки:"
 
 #: thold_functions.php:2348 thold_functions.php:2473 thold_functions.php:2543
 #: thold_functions.php:2704 thold_functions.php:2800 thold_functions.php:2920
@@ -2946,223 +2980,224 @@ msgstr ""
 #: thold_functions.php:3289 thold_functions.php:3306 thold_functions.php:3320
 #: thold_functions.php:3387 thold_functions.php:3469
 msgid "Only logging, maint device"
-msgstr ""
+msgstr "Тільки ведення журналу, основний пристрій"
 
 #: thold_functions.php:4083
 msgid "Link to Graph in Cacti"
-msgstr ""
+msgstr "Посилання на графік у Cacti"
 
 #: thold_functions.php:4109
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr ""
+msgstr "<html><body>Видано попередження, яке потребує вашої уваги.<br><br><b>Пристрій</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Повідомлення</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: thold_functions.php:4133
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr ""
+msgstr "<html><body>Видано попередження, яке потребує вашої уваги.<br><br><b>Пристрій</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Повідомлення</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: thold_functions.php:4157
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr ""
+msgstr "<html><body>Поріг повернувся до нормального стану. <br><br><strong>Пристрій</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Повідомлення</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: thold_functions.php:5037
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr ""
+msgstr "%% Dev [ПОРАДА:%s]"
 
 #: thold_functions.php:5041
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr ""
+msgstr "Abs Val [ЧАЙОВІ:%s]"
 
 #: thold_functions.php:5045
 msgid "%%% Dev [AOT:%s]"
-msgstr ""
+msgstr "%%% відхилення [AOT:%s]"
 
 #: thold_functions.php:5049
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr ""
+msgstr "Abs Val [AOT:%s]"
 
 #: thold_functions.php:5271
 msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr ""
+msgstr "Ідентифікатор пристрою не було встановлено під час спроби створити графік і порогове значення"
 
 #: thold_functions.php:5286
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr ""
+msgstr "Ідентифікатор порогового шаблону не знайдено під час спроби створення графіка та порогового значення"
 
 #: thold_functions.php:5293
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr ""
+msgstr "Ідентифікатор шаблону порогового значення не було встановлено під час спроби створення графіка та порогового значення"
 
 #: thold_functions.php:5326
 msgid "The Graph Creation failed for Threshold Template"
-msgstr ""
+msgstr "Не вдалося створити графік для порогового шаблону"
 
 #: thold_functions.php:5356
 msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr ""
+msgstr "Порогове значення було створено автоматично через відображення шаблону пристрою"
 
 #: thold_functions.php:5391 thold_functions.php:5664
 msgid "Permission Denied"
-msgstr ""
+msgstr "У дозволі Відмовлено"
 
 #: thold_functions.php:5412 thold_functions.php:5742
+#, fuzzy
 msgid "Record Updated"
-msgstr ""
+msgstr "Актовий запис поновлено:"
 
 #: thold_functions.php:5654
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr ""
+msgstr "Не вдалося знайти пов 'язаний елемент шаблону графіка' %d 'на порозі' %d '"
 
 #: thold_functions.php:5740 thold_functions.php:6319
 #, php-format
 msgid "Created Threshold: %s"
-msgstr ""
+msgstr "Створено порогове значення: %s"
 
 #: thold_functions.php:5830 thold_functions.php:5886
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr ""
+msgstr "Ви повинні вказати або «Високий поріг попередження», або «Низький поріг попередження», або обидва!"
 
 #: thold_functions.php:5837
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr ""
+msgstr "Неможливий поріг: «Високий поріг попередження» менше, ніж «Низький поріг попередження»!"
 
 #: thold_functions.php:5846 thold_functions.php:5915
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr ""
+msgstr "Неможливий поріг: «Високий поріг попередження» менше, ніж «Низький поріг попередження»!"
 
 #: thold_functions.php:5853 thold_functions.php:5934
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr ""
+msgstr "Неможливий поріг: «Високий поріг попередження» більше, ніж «Високий поріг попередження»!"
 
 #: thold_functions.php:5860
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr ""
+msgstr "Неможливий поріг: «Низький поріг попередження» більше, ніж «Низький поріг попередження»!"
 
 #: thold_functions.php:5868
 msgid "With baseline thresholds enabled."
-msgstr ""
+msgstr "З увімкненими пороговими значеннями вихідного рівня."
 
 #: thold_functions.php:5871
 msgid "Time reference in the past must be set to positive integer value!"
-msgstr ""
+msgstr "Орієнтир часу в минулому повинен бути встановлений на додатне ціле значення!"
 
 #: thold_functions.php:5877
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr ""
+msgstr "Ви повинні вказати або «Базове відхилення вгору», або «Базове відхилення ВНИЗ», або обидва варіанти!"
 
 #: thold_functions.php:5893
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr ""
+msgstr "Неможливий поріг: «Високий поріг попередження» менше, ніж «Низький поріг попередження»"
 
 #: thold_functions.php:5900
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Неможливий поріг: Кількість тригерів сповіщень повинна бути більшою або дорівнювати 1!"
 
 #: thold_functions.php:5906
 msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
+msgstr "Неможливий поріг: Кількість тригерів сповіщень повинна бути менше або дорівнювати кількості тригерів або дорівнювати 1!"
 
 #: thold_functions.php:5922
 msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Неможливий поріг: Кількість тригерів попередження повинна бути більшою або перевищувати 1!"
 
 #: thold_functions.php:5928
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
+msgstr "Неможливий поріг: Кількість тригерів попередження повинна бути менше або дорівнювати кількості тригерів або дорівнювати 1!"
 
 #: thold_functions.php:5941
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr ""
+msgstr "Неможливий поріг: «Низький поріг попередження» менше, ніж «Низький поріг попередження»!"
 
 #: thold_functions.php:5948
 msgid "Unknown Threshold Type!"
-msgstr ""
+msgstr "Невідомий тип порогу!"
 
 #: thold_functions.php:6140
 msgid "No Thresholds Templates associated with the Device's Template."
-msgstr ""
+msgstr "Немає шаблонів порогових значень, пов 'язаних з шаблоном пристрою."
 
 #: thold_functions.php:6355
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr ""
+msgstr "Помилка поштової скриньки: <b>НІ</b> для встановленої адреси!!<br>Якщо ви використовуєте посилання \"<i>Тестова пошта</i>\", встановіть параметр <b>\"Електронна пошта сповіщень\"</b>."
 
 #: thold_functions.php:7469 thold_graph.php:633
 msgid "Acknowledge Threshold"
-msgstr ""
+msgstr "Поріг підтвердження"
 
 #: thold_functions.php:7471
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб підтвердити наступні порогові значення."
 
 #: thold_functions.php:7915
 msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr ""
+msgstr "Пороговий шаблон Шаблон даних підлеглих не знайдено!"
 
 #: thold_functions.php:7930
 msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr ""
+msgstr "Пороговий шаблон підлеглих джерел даних не знайдено!"
 
 #: thold_functions.php:7966
 msgid "Threshold Template import columns do not match the database schema"
-msgstr ""
+msgstr "Стовпці імпорту шаблону порогового значення не відповідають схемі бази даних"
 
 #: thold_functions.php:7975 thold_functions.php:7977
 msgid "Imported"
-msgstr ""
+msgstr "Імпортується"
 
 #: thold_functions.php:7975 thold_functions.php:7977
 #, php-format
 msgid "Threshold Template '%s' %s!"
-msgstr ""
+msgstr "Шаблон порогового значення '%s' %s!"
 
 #: thold_functions.php:7975 thold_functions.php:7977
 msgid "Updated"
-msgstr ""
+msgstr "Оновлено"
 
 #: thold_functions.php:7981 thold_functions.php:7983 thold_templates.php:2153
 #: thold_templates.php:2429
 msgid "Import"
-msgstr ""
+msgstr "Імпорт"
 
 #: thold_functions.php:7981 thold_functions.php:7983
 #, php-format
 msgid "Threshold Template '%s' %s Failed!"
-msgstr ""
+msgstr "Не вдалося створити пороговий шаблон '%s' %s!"
 
 #: thold_functions.php:7981 thold_functions.php:7983
 msgid "Update"
-msgstr ""
+msgstr "Оновити"
 
 #: thold_functions.php:7987
 msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr ""
+msgstr "Під час спроби імпортувати дані порогового шаблону виникли помилки."
 
 #: thold_functions.php:7991
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr ""
+msgstr "Не було виявлено, що дані імпорту порогового шаблону є даними XML."
 
 #: thold_functions.php:7994
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr ""
+msgstr "Дані імпорту порогового шаблону були неправильними під час імпорту порогового шаблону."
 
 #: thold_graph.php:66
 msgid "The Threshold has been Ascknowledged."
-msgstr ""
+msgstr "Порогове значення було підтверджено."
 
 #: thold_graph.php:73
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
-msgstr ""
+msgstr "Порогове значення більше не буде генерувати сповіщення, сповіщення або виконувати команди."
 
 #: thold_graph.php:80
 msgid "The Threshold will restart generating Alerts."
-msgstr ""
+msgstr "Порогове значення перезапустить генерування сповіщень."
 
 #: thold_graph.php:383
 msgid "Threshold Status"
-msgstr ""
+msgstr "Пороговий статус"
 
 #: thold_graph.php:439 thold_graph.php:966
 msgid "Actions"
@@ -3170,99 +3205,100 @@ msgstr "Дії"
 
 #: thold_graph.php:463
 msgid "Ack Detail"
-msgstr ""
+msgstr "Подробиці перевірки"
 
 #: thold_graph.php:611
 msgid "Edit Threshold"
-msgstr ""
+msgstr "Редагувати порогове значення"
 
 #: thold_graph.php:616
 msgid "Disable Threshold"
-msgstr ""
+msgstr "Вимкнути порогове значення"
 
 #: thold_graph.php:619
 msgid "Enable Threshold"
-msgstr ""
+msgstr "Увімкнути порогове значення"
 
 #: thold_graph.php:621
 msgid "To enable the Threshold, enable the Template first"
-msgstr ""
+msgstr "Щоб увімкнути порогове значення, спочатку увімкніть шаблон"
 
 #: thold_graph.php:627
 msgid "View Graph"
-msgstr ""
+msgstr "Переглянути графік"
 
 #: thold_graph.php:629
 msgid "View Threshold History"
-msgstr ""
+msgstr "Переглянути історію порогових значень"
 
 #: thold_graph.php:636
 msgid "Suspend Notifications until the Threshold clears"
-msgstr ""
+msgstr "Призупинити сповіщення, поки порогове значення не зникне"
 
 #: thold_graph.php:639
 msgid "Resume Notifications for this breached Threshold"
-msgstr ""
+msgstr "Відновити сповіщення щодо цього порушеного порогу"
 
 #: thold_graph.php:664
 msgid "Acknowledgement Message"
-msgstr ""
+msgstr "Повідомлення з підтвердженням"
 
 #: thold_graph.php:665
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: thold_graph.php:673
+#, fuzzy
 msgid "Comment Not Found"
-msgstr ""
+msgstr "Коментар не знайдено"
 
 #: thold_graph.php:682
 msgid "Ack History"
-msgstr ""
+msgstr "Історія Ack"
 
 #: thold_graph.php:692
 msgid "No name set"
-msgstr ""
+msgstr "Ім 'я не встановлено"
 
 #: thold_graph.php:969
 msgid "Hover over icons for help"
-msgstr ""
+msgstr "Наведіть курсор на значки довідки"
 
 #: thold_graph.php:975
 msgid "A description for the Device"
-msgstr ""
+msgstr "Опис пристрою"
 
 #: thold_graph.php:981
 msgid "A Cacti unique identifier for the Device"
-msgstr ""
+msgstr "Унікальний ідентифікатор Cacti для пристрою"
 
 #: thold_graph.php:987
 msgid "The number of Graphs for this Device"
-msgstr ""
+msgstr "Кількість графіків для цього пристрою"
 
 #: thold_graph.php:993
 msgid "The number of Data Sources for this Device"
-msgstr ""
+msgstr "Кількість джерел даних для цього пристрою"
 
 #: thold_graph.php:999
 msgid "The status for this Device as of the last time it was polled"
-msgstr ""
+msgstr "Статус цього пристрою на момент останнього опитування"
 
 #: thold_graph.php:1005
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
-msgstr ""
+msgstr "Востаннє Cacti виявляла проблему з цим пристроєм.  Він може бути вищим, ніж час безвідмовної роботи пристрою, якщо він був перезавантажений між циклами опитування Cacti"
 
 #: thold_graph.php:1008
 msgid "Uptime"
-msgstr ""
+msgstr "Час роботи"
 
 #: thold_graph.php:1011
 msgid "The official uptime of the Device as reported by SNMP"
-msgstr ""
+msgstr "Офіційний час безвідмовної роботи пристрою за даними SNMP"
 
 #: thold_graph.php:1017
 msgid "The official hostname for this Device"
-msgstr ""
+msgstr "Офіційне ім 'я хосту для цього пристрою"
 
 #: thold_graph.php:1020
 msgid "Current (ms)"
@@ -3270,7 +3306,7 @@ msgstr "Поточний (ms)"
 
 #: thold_graph.php:1023
 msgid "The current response time for the Cacti Availability check"
-msgstr ""
+msgstr "Поточний час відповіді для перевірки доступності Cacti"
 
 #: thold_graph.php:1026
 msgid "Average (ms)"
@@ -3278,7 +3314,7 @@ msgstr "Середній (ms)"
 
 #: thold_graph.php:1029
 msgid "The average response time for the Cacti Availability check"
-msgstr ""
+msgstr "Середній час відповіді на перевірку доступності Cacti"
 
 #: thold_graph.php:1032
 msgid "Availability"
@@ -3286,19 +3322,20 @@ msgstr "Доступність"
 
 #: thold_graph.php:1035
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
-msgstr ""
+msgstr "Загальна доступність цього пристрою з моменту останнього скидання лічильника в Cacti"
 
 #: thold_graph.php:1063 thold_graph.php:1089
 msgid "Edit Device"
-msgstr ""
+msgstr "Редагувати пристрій"
 
 #: thold_graph.php:1065 thold_graph.php:1091
 msgid "View Graphs"
-msgstr ""
+msgstr "Перегляд графіків"
 
 #: thold_graph.php:1114
+#, fuzzy
 msgid "No Devices"
-msgstr ""
+msgstr "Немає пристроїв. NAME OF TRANSLATORS"
 
 #: thold_graph.php:1171
 msgid "Not Up"
@@ -3306,197 +3343,198 @@ msgstr "Оффлайн"
 
 #: thold_graph.php:1380
 msgid "No Export Rows Found."
-msgstr ""
+msgstr "Рядків експорту не знайдено."
 
 #: thold_graph.php:1408
 #, php-format
 msgid "Threshold Log for [ %s ]"
-msgstr ""
+msgstr "Журнал порогових значень для [ %s ]"
 
 #: thold_graph.php:1465
 msgid "Log Entries"
-msgstr ""
+msgstr "Записи журналу"
 
 #: thold_graph.php:1473 thold_webapi.php:496 thold_webapi.php:644
 #: thold_webapi.php:664
 msgid "Device"
-msgstr ""
+msgstr "Пристрій"
 
 #: thold_graph.php:1478
 msgid "Time"
-msgstr ""
+msgstr "Час"
 
 #: thold_graph.php:1493
 msgid "Alert Value"
-msgstr ""
+msgstr "Значення сповіщення"
 
 #: thold_graph.php:1498
 msgid "Measured Value"
-msgstr ""
+msgstr "Виміряне значення"
 
 #: thold_graph.php:1547
 msgid "No Threshold Logs Found"
-msgstr ""
+msgstr "Порогових журналів не знайдено"
 
 #: thold_graph.php:1662
 msgid "Entries"
-msgstr ""
+msgstr "Записи"
 
 #: thold_templates.php:196
 msgid "You are not authorised to modify one or more of the Thresholds selected"
-msgstr ""
+msgstr "Ви не маєте права змінювати один або кілька вибраних порогових значень"
 
 #: thold_templates.php:255
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr ""
+msgstr "%s (%d порогових значень)"
 
 #: thold_templates.php:276
 msgid "Click 'Continue' to export the following Threshold Template(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб експортувати наступні порогові шаблони."
 
 #: thold_templates.php:277
 msgid "Export Template(s)"
-msgstr ""
+msgstr "Експортувати шаблон(и)"
 
 #: thold_templates.php:280
 msgid "Click 'Continue' to delete the following Threshold Template(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб видалити наступні порогові шаблони."
 
 #: thold_templates.php:281
 msgid "Delete Template(s)"
-msgstr ""
+msgstr "Видалити шаблон(и)"
 
 #: thold_templates.php:284
 msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб повторно застосувати запропоновані імена до порогових значень наступних порогових шаблонів."
 
 #: thold_templates.php:285
 msgid "Reapply Suggested Names to Template(s)"
-msgstr ""
+msgstr "Повторно застосувати запропоновані імена до шаблонів"
 
 #: thold_templates.php:288
 msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб увімкнути вибрані шаблони та порогові значення."
 
 #: thold_templates.php:289
 msgid "Enable Template(s)"
-msgstr ""
+msgstr "Увімкнути шаблон(и)"
 
 #: thold_templates.php:292
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
-msgstr ""
+msgstr "Натисніть \"Продовжити\", щоб вимкнути вибрані шаблони та порогові значення."
 
 #: thold_templates.php:293
 msgid "Disable Template(s)"
-msgstr ""
+msgstr "Вимкнути шаблони"
 
 #: thold_templates.php:415
 msgid "Threshold Template Creation Wizard"
-msgstr ""
+msgstr "Майстер створення порогового шаблону"
 
 #: thold_templates.php:502 thold_webapi.php:714
 msgid "Data Source"
-msgstr ""
+msgstr "Джерело даних"
 
 #: thold_templates.php:520
 msgid "Please select a Data Template"
-msgstr ""
+msgstr "Виберіть шаблон даних"
 
 #: thold_templates.php:522
 msgid "Please select a Data Source"
-msgstr ""
+msgstr "Виберіть джерело даних"
 
 #: thold_templates.php:524
 msgid "Please press 'Create' to create your Threshold Template"
-msgstr ""
+msgstr "Будь ласка, натисніть \"Створити\" , щоб створити свій пороговий шаблон"
 
 #: thold_templates.php:528 thold_webapi.php:747
 msgid "Create"
-msgstr ""
+msgstr "Створити"
 
 #: thold_templates.php:947
 msgid "The Threshold Template requested can not be found"
-msgstr ""
+msgstr "Запитуваний шаблон порогового значення не знайдено"
 
 #: thold_templates.php:1131
 msgid "Provide the Threshold Template a meaningful name."
-msgstr ""
+msgstr "Надайте шаблону порогового значення змістовну назву."
 
 #: thold_templates.php:1135
 msgid "Suggested Threshold Name"
-msgstr ""
+msgstr "Запропонована порогова назва"
 
 #: thold_templates.php:1140
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
-msgstr ""
+msgstr "Вкажіть запропоновану назву порогового значення, створеного за допомогою цього шаблону.  Стандартні змінні заміни пристрою (|host_*|), запиту даних (| query_* |) та вводу (| input_*|), а також |graph_title| для заголовка графіка."
 
 #: thold_templates.php:1147
 msgid "Data Template that you are using. (This cannot be changed)"
-msgstr ""
+msgstr "Шаблон даних, який ви використовуєте. (Це не може бути змінено)"
 
 #: thold_templates.php:1152
+#, fuzzy
 msgid "Data Field"
-msgstr ""
+msgstr "Поле даних"
 
 #: thold_templates.php:1155
 msgid "Data Field that you are using. (This cannot be changed)"
-msgstr ""
+msgstr "Поле даних, яке ви використовуєте. (Це не може бути змінено)"
 
 #: thold_templates.php:1163
 msgid "Whether or not this Threshold will be checked and alerted upon."
-msgstr ""
+msgstr "Незалежно від того, чи буде це порогове значення перевірено та попереджено."
 
 #: thold_templates.php:1246
 msgid "Repeat alert after this amount of time has pasted since the last alert."
-msgstr ""
+msgstr "Повторіть сповіщення через цей проміжок часу після останнього сповіщення."
 
 #: thold_templates.php:1271 thold_templates.php:1299
 msgid "Min Trigger Duration"
-msgstr ""
+msgstr "Мінімальна тривалість тригера"
 
 #: thold_templates.php:1274 thold_templates.php:1302
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
-msgstr ""
+msgstr "Кількість часу, протягом якого Джерело даних має перебувати в стані порушення для підняття попередження."
 
 #: thold_templates.php:1332
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
-msgstr ""
+msgstr "Кількість разів, коли Джерело даних повинно бути в стані порушення до видачі попередження."
 
 #: thold_templates.php:1336 thold_templates.php:1372
 msgid "Time Period Length"
-msgstr ""
+msgstr "Тривалість періоду часу"
 
 #: thold_templates.php:1368
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
-msgstr ""
+msgstr "Кількість разів, коли Джерело даних повинно бути в стані порушення до видачі попередження."
 
 #: thold_templates.php:1379
 msgid "Baseline Monitoring"
-msgstr ""
+msgstr "Початковий моніторинг"
 
 #: thold_templates.php:1414
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr ""
+msgstr "Вказує допустиме відхилення для верхньої межі порогового значення. Якщо не встановлено, верхня межа порогового значення взагалі не перевірятиметься.  Одиниця виміру - це абсолютні значення для типу \"Абсолютне значення\" та відсоткове значення як для \"Відхилення %%\", так і для \"Плаваючого середнього %%\""
 
 #: thold_templates.php:1422
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr ""
+msgstr "Вказує допустиме відхилення для нижньої межі порогового значення. Якщо не встановлено, нижня межа порогового значення взагалі не перевірятиметься.  Одиниця виміру - це абсолютні значення для типу \"Абсолютне значення\" та відсоткове значення як для \"Відхилення %%\", так і для \"Плаваючого середнього %%\""
 
 #: thold_templates.php:1430
 #, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
-msgstr ""
+msgstr "Кількість послідовних випадків, коли джерело даних повинно перебувати в порушеному стані, щоб було піднято попередження.<br>Залиште порожнім, щоб використовувати значення за замовчуванням (за замовчуванням: %s циклів"
 
 #: thold_templates.php:1454
 msgid "Percent Datasource"
-msgstr ""
+msgstr "Відсоток джерела даних"
 
 #: thold_templates.php:1457
 msgid "Second Datasource Item to use as total value to calculate percentage from."
-msgstr ""
+msgstr "Другий елемент джерела даних, який буде використовуватися як загальне значення для обчислення відсотка від."
 
 #: thold_templates.php:1467
 #, php-format
@@ -3505,19 +3543,20 @@ msgstr ""
 
 #: thold_templates.php:1474
 msgid "Upper data source to use to calculate the total value."
-msgstr ""
+msgstr "Верхнє джерело даних для обчислення загального значення."
 
 #: thold_templates.php:1508
 msgid "Alert Email Subject"
-msgstr ""
+msgstr "Тема електронного сповіщення"
 
 #: thold_templates.php:1517
+#, fuzzy
 msgid "Alert Email Body"
-msgstr ""
+msgstr "Текст електронного сповіщення"
 
 #: thold_templates.php:1531
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr ""
+msgstr "Це тема попередження, яка відображатиметься в електронному листі (МАКСИМУМ 128 символів).  Залиште порожнім для параметра за замовчуванням.  Існує кілька поширених тегів заміни, які можуть використовуватися в:<br>&# 060PHASE &#062 &# 060THRESHOLDVALUE &#062 &# 060CURRENTVALUE &#062 &# 060THRESHOLDNAME &#062 &# 060DSNAME &#062 &# 060BREACHUP &#062 &# 060REALERT &#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php:1553
 msgid "Restoral Body"
@@ -3525,265 +3564,270 @@ msgstr "Відновити"
 
 #: thold_templates.php:1562
 msgid "Notification List Read Only"
-msgstr ""
+msgstr "Список сповіщень лише для читання"
 
 #: thold_templates.php:1563
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
-msgstr ""
+msgstr "Якщо позначено, списки порогових сповіщень у шаблоні перезапишуть списки порогових значень."
 
 #: thold_templates.php:1618
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
-msgstr ""
+msgstr "Серйозність, яка буде використовуватися для попереджень. (Низький вплив -> Критичний вплив)"
 
 #: thold_templates.php:1647
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
-msgstr ""
+msgstr "Це перелік облікових записів, які будуть повідомлені, коли цей поріг буде порушено.<br><br><br><br>"
 
 #: thold_templates.php:1657
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
-msgstr ""
+msgstr "Тут ви можете вказати додаткові електронні листи для отримання сповіщень для цього джерела даних (розділені комами)"
 
 #: thold_templates.php:1665
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
-msgstr ""
+msgstr "Тут ви можете вказати додаткові електронні листи для отримання попереджень для цього джерела даних (розділені комами)"
 
 #: thold_templates.php:1777
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr ""
+msgstr "Введіть вічний ідентифікатор для цього шаблону Thold."
 
 #: thold_templates.php:2039
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr ""
+msgstr "%d місяців, %d днів, %d годин, %d хвилин, %d секунд (в середньому)"
 
 #: thold_templates.php:2041
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr ""
+msgstr "%d місяців, %d днів, %d годин, %d хвилин, %d секунд"
 
 #: thold_templates.php:2045
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr ""
+msgstr "%d днів, %d годин, %d хвилин, %d секунд (в середньому)"
 
 #: thold_templates.php:2047
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr ""
+msgstr "%d днів, %d годин, %d хвилин, %d секунд"
 
 #: thold_templates.php:2051
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr ""
+msgstr "%d годин, %d хвилин, %d секунд (в середньому)"
 
 #: thold_templates.php:2053
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr ""
+msgstr "%d годин, %d хвилин, %d секунд"
 
 #: thold_templates.php:2057
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr ""
+msgstr "%d хвилин, %d секунд (в середньому)"
 
 #: thold_templates.php:2059
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr ""
+msgstr "%d хвилин, %d секунд"
 
 #: thold_templates.php:2063
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr ""
+msgstr "%d секунд (в середньому)"
 
 #: thold_templates.php:2065
-#, php-format
+#, fuzzy, php-format
 msgid "%d Seconds"
-msgstr ""
+msgstr "Секунди"
 
 #: thold_templates.php:2257
 msgid "DS Name"
-msgstr ""
+msgstr "Назва DS"
 
 #: thold_templates.php:2265
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr ""
+msgstr "Значення High Warning / Alert.  ПРИМІТКА: Базові значення є відсотками, всі інші значення є НЕОБРОБЛЕНИМИ значеннями, які не змінюються за допомогою cdef."
 
 #: thold_templates.php:2271
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr ""
+msgstr "Значення Low Warning / Alert.  ПРИМІТКА: Базові значення є відсотками, всі інші значення є НЕОБРОБЛЕНИМИ значеннями, які не змінюються за допомогою cdef."
 
 #: thold_templates.php:2386
 msgid "Import Template from Local File"
-msgstr ""
+msgstr "Імпортувати шаблон з локального файлу"
 
 #: thold_templates.php:2387
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
-msgstr ""
+msgstr "Якщо XML-файл, що містить дані шаблону порогового значення, розташований на вашому локальному комп 'ютері, виберіть його тут."
 
 #: thold_templates.php:2392
 msgid "Import Template from Text"
-msgstr ""
+msgstr "Імпортувати шаблон з тексту"
 
 #: thold_templates.php:2393
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
-msgstr ""
+msgstr "Якщо у вас є XML-файл, що містить дані Threshold Template у вигляді тексту, ви можете вставити його в це поле, щоб імпортувати його."
 
 #: thold_templates.php:2405
+#, fuzzy
 msgid "Import Results"
-msgstr ""
+msgstr "Імпортувати результати"
 
 #: thold_templates.php:2407
 msgid "Cacti has imported the following items:"
-msgstr ""
+msgstr "Яктуси імпортували наступні товари:"
 
 #: thold_templates.php:2417 thold_templates.php:2429
 msgid "Import Threshold Templates"
-msgstr ""
+msgstr "Імпортувати шаблони порогових значень"
 
 #: thold_templates.php:2442 thold_templates.php:2445
 msgid "The file is too big."
-msgstr ""
+msgstr "Файл завеликий."
 
 #: thold_templates.php:2448
 msgid "Incomplete file transfer."
-msgstr ""
+msgstr "Неповне перенесення файлу."
 
 #: thold_templates.php:2451 thold_templates.php:2478
+#, fuzzy
 msgid "No file uploaded."
-msgstr ""
+msgstr "Файл не завантажено."
 
 #: thold_templates.php:2454
 msgid "Temporary folder missing."
-msgstr ""
+msgstr "Відсутня тимчасова папка."
 
 #: thold_templates.php:2457
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Не вдалося записати файл на диск"
 
 #: thold_templates.php:2460
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Завантаження файлу зупинено розширенням"
 
 #: thold_templates.php:2471
+#, fuzzy
 msgid "Invalid file extension."
-msgstr ""
+msgstr "Неприпустиме розширення файлу"
 
 #: thold_templates.php:2497
 msgid "NOTE:"
-msgstr ""
+msgstr "ПРИМІТКА:"
 
 #: thold_templates.php:2504 thold_templates.php:2511
 msgid "ERROR:"
-msgstr ""
+msgstr "Помилка:"
 
 #: thold_webapi.php:151
 msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr ""
+msgstr "Порогові значення вже існують - порогові значення не створені"
 
 #: thold_webapi.php:286
 msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr ""
+msgstr "Майстер створення порогового значення [ Виберіть тип порогового значення]"
 
 #: thold_webapi.php:290
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr ""
+msgstr "Майстер створення порогового значення [ Введіть користувацькі дані та натисніть \"Створити\" , щоб створити порогове значення та графік ]"
 
 #: thold_webapi.php:292
 msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr ""
+msgstr "Майстер створення порогових значень [ Виберіть доступні рядки запиту даних]"
 
 #: thold_webapi.php:294 thold_webapi.php:309
 msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr ""
+msgstr "Майстер створення порогових значень [ Виберіть пристрій ]"
 
 #: thold_webapi.php:296
 msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr ""
+msgstr "Майстер створення порогового значення [ Виберіть шаблон графіка]"
 
 #: thold_webapi.php:298
 msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr ""
+msgstr "Майстер створення порогового значення [ Select a Threshold Template ]"
 
 #: thold_webapi.php:303
 msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr ""
+msgstr "Майстер створення порогового значення [ Натисніть \"Створити\" , щоб створити порогове значення ]"
 
 #: thold_webapi.php:305
 msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr ""
+msgstr "Майстер створення порогових значень [ Виберіть джерело даних]"
 
 #: thold_webapi.php:307
 msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr ""
+msgstr "Майстер створення порогових значень [ Виберіть графік ]"
 
 #: thold_webapi.php:316
 msgid "Threshold Creation Criteria"
-msgstr ""
+msgstr "Критерії створення порогового значення"
 
 #: thold_webapi.php:321
+#, fuzzy
 msgid "Create Type"
-msgstr ""
+msgstr "Створити тип"
 
 #: thold_webapi.php:322
 msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr ""
+msgstr "Виберіть тип порогу для створення цього порогу."
 
 #: thold_webapi.php:326
 msgid "Select a Threshold Type"
-msgstr ""
+msgstr "Виберіть тип порогового значення"
 
 #: thold_webapi.php:327
 msgid "Non Templated"
-msgstr ""
+msgstr "Не шаблонний"
 
 #: thold_webapi.php:332 thold_webapi.php:338
 msgid "Threshold Template"
-msgstr ""
+msgstr "Шаблон порогового значення"
 
 #: thold_webapi.php:339
 msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr ""
+msgstr "Виберіть шаблон порогового значення, на якому будуть ґрунтуватися графік та порогове значення."
 
 #: thold_webapi.php:476
 msgid "Graph Template"
-msgstr ""
+msgstr "Шаблон графіка"
 
 #: thold_webapi.php:477
 msgid "Select a Graph Template to use for the Graph to be created."
-msgstr ""
+msgstr "Виберіть шаблон графіка, який буде використано для створення графіка."
 
 #: thold_webapi.php:481
 msgid "Select a Graph Template"
-msgstr ""
+msgstr "Вибір шаблону графіка"
 
 #: thold_webapi.php:497 thold_webapi.php:645 thold_webapi.php:665
 msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr ""
+msgstr "Виберіть пристрій для створення порогового значення та графіка."
 
 #: thold_webapi.php:501 thold_webapi.php:651 thold_webapi.php:669
+#, fuzzy
 msgid "Select a Device"
-msgstr ""
+msgstr "Виберіть пристрій."
 
 #: thold_webapi.php:514
 msgid "Select and Available Item"
-msgstr ""
+msgstr "Виберіть і доступний елемент"
 
 #: thold_webapi.php:547
 msgid "Data Query Item"
-msgstr ""
+msgstr "Елемент запиту даних"
 
 #: thold_webapi.php:548
 msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr ""
+msgstr "Виберіть відповідний рядок із запиту даних для графіка та порогового значення."
 
 #: thold_webapi.php:596 thold_webapi.php:754 thold_webapi.php:774
 msgid "Creation Notes"
-msgstr ""
+msgstr "Примітки щодо створення"
 
 #: thold_webapi.php:597 thold_webapi.php:755 thold_webapi.php:775
 msgid "Important Note:"
-msgstr ""
+msgstr "Важлива примітка:"
 
 #: thold_webapi.php:598
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
@@ -3795,7 +3839,7 @@ msgstr "Графік"
 
 #: thold_webapi.php:686
 msgid "Select the Graph for the Threshold."
-msgstr ""
+msgstr "Виберіть графік для порогового значення."
 
 #: thold_webapi.php:690
 msgid "Select a Graph"
@@ -3803,7 +3847,7 @@ msgstr "Виберіть графік"
 
 #: thold_webapi.php:715
 msgid "Select a Data Source for the Threshold."
-msgstr ""
+msgstr "Виберіть джерело даних для порогового значення."
 
 #: thold_webapi.php:719
 msgid "Select a Data Source"
@@ -3811,11 +3855,11 @@ msgstr "Виберіть джерело даних"
 
 #: thold_webapi.php:756
 msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr ""
+msgstr "Це порогове значення <b>НЕ</b> буде шаблоном і працюватиме лише на існуючих графіках.  Якщо ви хочете створити графік і порогове значення одночасно, виберіть Threshold Template (Пороговий шаблон) у спадному списку і продовжуйте, поки не з 'явиться кнопка \"Create\" (Створити)."
 
 #: thold_webapi.php:776
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr ""
+msgstr "Це порогове значення <b>НЕ</b> буде шаблоном.  Ви можете вибрати або \"За графіком\", де ви потім виберете існуючий пристрій, графік та джерело даних перед створенням вашого порогового значення, або ви можете вибрати \"Пороговий шаблон\", який дозволить вам одночасно створювати нешаблонне порогове значення та відповідний графік"
 
 #: thold_webapi.php:781
 msgid "Selected Graph"
