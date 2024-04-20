@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2024-04-14 11:37-0400\n"
-"PO-Revision-Date: 2020-09-13 14:53-0400\n"
+"POT-Creation-Date: 2024-04-20 16:30-0400\n"
+"PO-Revision-Date: 2024-04-20 14:55-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -39,59 +40,56 @@ msgid "%d Year"
 msgstr "% d Έτος"
 
 #: includes/arrays.php:36
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Hour Ago"
 msgstr "Κάθε% d Ώρες"
 
 #: includes/arrays.php:37 includes/arrays.php:38 includes/arrays.php:39
 #: includes/arrays.php:40
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Hours Ago"
 msgstr "Κάθε% d Ώρες"
 
 #: includes/arrays.php:41
 #, php-format
 msgid "From %d Day Ago"
-msgstr ""
+msgstr "Από %d ημέρα πριν"
 
 #: includes/arrays.php:42 includes/arrays.php:43
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Days Ago"
 msgstr "Κάθε% d ημέρες"
 
 #: includes/arrays.php:44
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Week Ago"
 msgstr "% d Εβδομάδα"
 
 #: includes/arrays.php:45 includes/arrays.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Weeks Ago"
 msgstr "Κάθε% d εβδομάδες"
 
 #: includes/arrays.php:47
-#, fuzzy, php-format
-#| msgid "%d Month"
+#, php-format
 msgid "From %d Month Ago"
 msgstr "% d Μήνα"
 
 #: includes/arrays.php:48 includes/arrays.php:49 includes/arrays.php:50
 #: includes/arrays.php:51
-#, fuzzy, php-format
-#| msgid "%d Months"
+#, php-format
 msgid "From %d Months Ago"
 msgstr "% d Μήνας"
 
 #: includes/arrays.php:52
-#, fuzzy, php-format
-#| msgid "%d Year"
+#, php-format
 msgid "From %d Year Ago"
 msgstr "% d Έτος"
 
 #: includes/arrays.php:53
 #, php-format
 msgid "From %d Years Ago"
-msgstr ""
+msgstr "Από %d χρόνια πριν"
 
 #: includes/arrays.php:58 thold_graph.php:825 thold_graph.php:831
 #: thold_graph.php:1174
@@ -124,12 +122,10 @@ msgid "Disabled"
 msgstr "Απενεργοποιημένο"
 
 #: includes/arrays.php:82 thold_graph.php:1101 thold_graph.php:1172
-#, fuzzy
 msgid "Not Monitored"
 msgstr "Δεν παρακολουθήθηκε"
 
 #: includes/arrays.php:90
-#, fuzzy
 msgid "Notify - Alert"
 msgstr "Ειδοποίηση - ειδοποίηση"
 
@@ -139,17 +135,14 @@ msgid "Alert"
 msgstr "Ειδοποίηση"
 
 #: includes/arrays.php:96
-#, fuzzy
 msgid "Notify - Alert2Warning"
 msgstr "Ειδοποίηση - Alert2Warning"
 
 #: includes/arrays.php:97
-#, fuzzy
 msgid "Alert2Warn"
 msgstr "Προειδοποίηση-Προειδοποίηση"
 
 #: includes/arrays.php:102
-#, fuzzy
 msgid "Notify - Warning"
 msgstr "Ειδοποίηση - Προειδοποίηση"
 
@@ -159,62 +152,50 @@ msgid "Warning"
 msgstr "Προσοχή"
 
 #: includes/arrays.php:108
-#, fuzzy
 msgid "Notify - Re-Trigger"
 msgstr "Ειδοποίηση - Επαναφορά"
 
 #: includes/arrays.php:109 includes/arrays.php:157
-#, fuzzy
 msgid "Re-Trigger"
 msgstr "Επανάκτηση"
 
 #: includes/arrays.php:114
-#, fuzzy
 msgid "Notify - Restoral"
 msgstr "Ειδοποίηση - Επαναφορά"
 
 #: includes/arrays.php:115 includes/arrays.php:172
-#, fuzzy
 msgid "Restoral"
 msgstr "Ανακαίνιση"
 
 #: includes/arrays.php:120
-#, fuzzy
 msgid "Event - Alert Trigger"
 msgstr "Εκδήλωση - ενεργοποίηση ειδοποίησης"
 
 #: includes/arrays.php:121
-#, fuzzy
 msgid "Alert Event"
 msgstr "Προεπιλογές ειδοποίησης"
 
 #: includes/arrays.php:126
-#, fuzzy
 msgid "Event - Warning Trigger"
 msgstr "Εκδήλωση - Προειδοποίηση ενεργοποίησης"
 
 #: includes/arrays.php:127
-#, fuzzy
 msgid "Warning Event"
 msgstr "Προσοχή"
 
 #: includes/arrays.php:132
-#, fuzzy
 msgid "Event - Restoral"
 msgstr "Εκδήλωση - Αναπαλαίωση"
 
 #: includes/arrays.php:133 thold_graph.php:1541
-#, fuzzy
 msgid "Restoral Event"
 msgstr "Εκδήλωση αναπαλαίωσης"
 
 #: includes/arrays.php:138
-#, fuzzy
 msgid "Event - Acknowledge"
 msgstr "Αναγνώριση"
 
 #: includes/arrays.php:139
-#, fuzzy
 msgid "Acknowledge Event"
 msgstr "Αναγνώριση"
 
@@ -223,17 +204,14 @@ msgid "Restore"
 msgstr "Επαναφορά"
 
 #: includes/arrays.php:152
-#, fuzzy
 msgid "Alert Trigger"
 msgstr "Ειδοποίηση ενεργοποίησης"
 
 #: includes/arrays.php:177
-#, fuzzy
 msgid "Warn Trigger"
 msgstr "Προειδοποίηση Trigger"
 
 #: includes/arrays.php:182
-#, fuzzy
 msgid "Alert-Warn"
 msgstr "Προειδοποίηση-Προειδοποίηση"
 
@@ -242,7 +220,6 @@ msgid "Acknowledgment"
 msgstr "Αποδοχή"
 
 #: includes/arrays.php:199
-#, fuzzy
 msgid "Baseline Alert"
 msgstr "Ειδοποίηση βάσης"
 
@@ -292,7 +269,6 @@ msgid "Every %d Minutes"
 msgstr "Κάθε %d λεπτά"
 
 #: includes/arrays.php:302 includes/arrays.php:383
-#, fuzzy
 msgid "Every Hour"
 msgstr "Κάθε ώρα"
 
@@ -301,7 +277,7 @@ msgstr "Κάθε ώρα"
 #: includes/arrays.php:384 includes/arrays.php:385 includes/arrays.php:386
 #: includes/arrays.php:387 includes/arrays.php:388 includes/arrays.php:389
 #: includes/settings.php:499
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hours"
 msgstr "Κάθε% d Ώρες"
 
@@ -310,7 +286,7 @@ msgid "Every Day"
 msgstr "Καθημερινά"
 
 #: includes/arrays.php:310 includes/arrays.php:391
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Days"
 msgstr "Κάθε% d ημέρες"
 
@@ -319,7 +295,7 @@ msgid "Every Week"
 msgstr "Κάθε Εβδομάδα"
 
 #: includes/arrays.php:312 includes/arrays.php:393
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Weeks"
 msgstr "Κάθε% d εβδομάδες"
 
@@ -328,7 +304,7 @@ msgid "Every Month"
 msgstr "Κάθε Μήνα"
 
 #: includes/arrays.php:317 includes/arrays.php:342
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minute"
 msgstr "% d λεπτά"
 
@@ -346,15 +322,15 @@ msgstr "% d λεπτά"
 #: includes/arrays.php:422 includes/arrays.php:423 includes/arrays.php:424
 #: includes/arrays.php:613 includes/arrays.php:614 includes/arrays.php:615
 #: includes/arrays.php:616
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes"
 msgstr "%d λεπτά"
 
 #: includes/arrays.php:327 includes/arrays.php:358 includes/arrays.php:404
 #: includes/arrays.php:425
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hour"
-msgstr "% d ώρα"
+msgstr "%d ώρα"
 
 #: includes/arrays.php:328 includes/arrays.php:329 includes/arrays.php:330
 #: includes/arrays.php:331 includes/arrays.php:332 includes/arrays.php:333
@@ -364,13 +340,13 @@ msgstr "% d ώρα"
 #: includes/arrays.php:408 includes/arrays.php:409 includes/arrays.php:410
 #: includes/arrays.php:426 includes/arrays.php:427 includes/arrays.php:428
 #: includes/arrays.php:429 includes/arrays.php:430 includes/arrays.php:431
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours"
-msgstr "% d Ώρες"
+msgstr "%d ώρες"
 
 #: includes/arrays.php:334 includes/arrays.php:366 includes/arrays.php:411
 #: includes/arrays.php:432
-#, fuzzy, php-format
+#, php-format
 msgid "%d Day"
 msgstr "% d Ημέρα"
 
@@ -382,23 +358,22 @@ msgstr "%d Ημέρες"
 
 #: includes/arrays.php:336 includes/arrays.php:368 includes/arrays.php:413
 #: includes/arrays.php:434
-#, fuzzy, php-format
+#, php-format
 msgid "%d Week"
 msgstr "% d Εβδομάδα"
 
 #: includes/arrays.php:337 includes/arrays.php:369 includes/arrays.php:414
 #: includes/arrays.php:435
-#, fuzzy, php-format
+#, php-format
 msgid "%d Weeks"
 msgstr "% d εβδομάδες"
 
 #: includes/arrays.php:362
-#, fuzzy, php-format
+#, php-format
 msgid "%0.1f Hours"
 msgstr "% 0.1f Ώρες"
 
 #: includes/arrays.php:443
-#, fuzzy
 msgid "Every Polling"
 msgstr "Κάθε ψηφοφορία"
 
@@ -407,12 +382,12 @@ msgstr "Κάθε ψηφοφορία"
 #: includes/arrays.php:450 includes/arrays.php:451 includes/arrays.php:452
 #: includes/arrays.php:453 includes/arrays.php:454 includes/arrays.php:455
 #: includes/arrays.php:456 includes/arrays.php:457 includes/arrays.php:458
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Pollings"
 msgstr "Κάθε% d Δημοσκοπήσεις"
 
 #: includes/arrays.php:462 includes/arrays.php:481
-#, fuzzy, php-format
+#, php-format
 msgid "%d Polling"
 msgstr "% d Δημοσκόπηση"
 
@@ -426,62 +401,55 @@ msgstr "% d Δημοσκόπηση"
 #: includes/arrays.php:488 includes/arrays.php:489 includes/arrays.php:490
 #: includes/arrays.php:491 includes/arrays.php:492 includes/arrays.php:493
 #: includes/arrays.php:494 includes/arrays.php:495 includes/arrays.php:496
-#, fuzzy, php-format
+#, php-format
 msgid "%d Pollings"
 msgstr "% d Δημοσκοπήσεις"
 
 #: includes/arrays.php:503
-#, fuzzy
 msgid "High / Low"
 msgstr "Υψηλή χαμηλή"
 
 #: includes/arrays.php:504
-#, fuzzy
 msgid "Baseline Deviation"
 msgstr "Απόκλιση βασικής γραμμής"
 
 #: includes/arrays.php:505
-#, fuzzy
 msgid "Time Based"
 msgstr "Χρονική βάση"
 
 #: includes/arrays.php:509
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Min/Max [TIP]"
 msgstr "Απόκλιση UP"
 
 #: includes/arrays.php:510
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation CF [TIP]"
 msgstr "Απόκλιση UP"
 
 #: includes/arrays.php:511
-#, fuzzy
 msgid "Absolute Val Min/Max [TIP]"
 msgstr "Τιμή ειδοποίησης"
 
 #: includes/arrays.php:512
-#, fuzzy
 msgid "Absolute Val of CF [TIP]"
 msgstr "Τιμή ειδοποίησης"
 
 #: includes/arrays.php:513
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Avg [AOT]"
 msgstr "Απόκλιση UP"
 
 #: includes/arrays.php:514
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Avg of CF [AOT]"
 msgstr "Απόκλιση UP"
 
 #: includes/arrays.php:515
-#, fuzzy
 msgid "Absolute Val Avg [AOT]"
 msgstr "Τιμή ειδοποίησης"
 
 #: includes/arrays.php:516
-#, fuzzy
 msgid "Absolute Val Avg of CF [AOT]"
 msgstr "Τιμή ειδοποίησης"
 
@@ -490,7 +458,6 @@ msgid "Exact Value"
 msgstr "Ακριβής τιμή"
 
 #: includes/arrays.php:521
-#, fuzzy
 msgid "CDEF"
 msgstr "CDEF"
 
@@ -499,12 +466,10 @@ msgid "Percentage"
 msgstr "Ποσοστό"
 
 #: includes/arrays.php:523 thold.php:1931 thold_templates.php:1462
-#, fuzzy
 msgid "RPN Expression"
 msgstr "Έκφραση RPN"
 
 #: includes/arrays.php:524
-#, fuzzy
 msgid "Upper + Lower bytes"
 msgstr "Άνω + Κάτω byte"
 
@@ -513,12 +478,10 @@ msgid "Acknowledge"
 msgstr "Αναγνώριση"
 
 #: includes/arrays.php:529
-#, fuzzy
 msgid "Suspend Notifications"
 msgstr "Ειδοποιήσεις SNMP"
 
 #: includes/arrays.php:530
-#, fuzzy
 msgid "Resume Notifications"
 msgstr "Ειδοποιήσεις SNMP"
 
@@ -536,12 +499,10 @@ msgid "Disable"
 msgstr "Απενεργοποίηση"
 
 #: includes/arrays.php:534 includes/arrays.php:543
-#, fuzzy
 msgid "Reapply Suggested Names"
 msgstr "Επαναπροσδιορισμός προτεινόμενων ονομάτων"
 
 #: includes/arrays.php:535
-#, fuzzy
 msgid "Propagate Template"
 msgstr "Προώθηση προτύπου"
 
@@ -550,111 +511,100 @@ msgid "Export"
 msgstr "Εξαγωγή"
 
 #: includes/arrays.php:547
-#, fuzzy
-#| msgid "Threshold"
 msgid "Threshold Mail"
 msgstr "Όριο"
 
 #: includes/arrays.php:548
 msgid "Down Host Mail"
-msgstr ""
+msgstr "Κάτω αλληλογραφία κεντρικού υπολογιστή"
 
 #: includes/arrays.php:549
 msgid "Up Host Mail"
-msgstr ""
+msgstr "Επάνω Host Mail"
 
 #: includes/arrays.php:550
-#, fuzzy
-#| msgid "Threshold"
 msgid "Threshold Cmd"
 msgstr "Όριο"
 
 #: includes/arrays.php:551
 msgid "Down Host Cmd"
-msgstr ""
+msgstr "Κάτω Host Cmd"
 
 #: includes/arrays.php:552
 msgid "Up Host Cmd"
-msgstr ""
+msgstr "Επάνω cmd κεντρικού υπολογιστή"
 
 #: includes/arrays.php:569
 msgid "Auto"
-msgstr ""
+msgstr "Αυτόματα"
 
 #: includes/arrays.php:570
 msgid "0 Digits"
-msgstr ""
+msgstr "0 ψηφία"
 
 #: includes/arrays.php:571
 msgid "1 Digit"
-msgstr ""
+msgstr "1 ψηφίο"
 
 #: includes/arrays.php:572 includes/arrays.php:573 includes/arrays.php:574
 #: includes/arrays.php:575 includes/arrays.php:576 includes/arrays.php:577
 #: includes/arrays.php:578 includes/arrays.php:579 includes/arrays.php:580
-#, fuzzy, php-format
-#| msgid "%d Days"
+#, php-format
 msgid "%d Digits"
 msgstr "%d Ημέρες"
 
 #: includes/arrays.php:597
-#, fuzzy, php-format
-#| msgid "Devices"
+#, php-format
 msgid "> %d Devices"
 msgstr "Τύπος Συσκευής"
 
 #: includes/arrays.php:601
-#, php-format
-msgid "> %d%%% of Devices Globally"
-msgstr ""
+#, fuzzy, php-format
+msgid "> %d %%% of Devices Globally"
+msgstr "> %d%%% συσκευών παγκοσμίως"
 
 #: includes/arrays.php:605
-#, fuzzy, php-format
-#| msgid "Devices"
+#, php-format
 msgid "> %d Devices in a Site"
 msgstr "Τύπος Συσκευής"
 
 #: includes/arrays.php:609
-#, php-format
-msgid "> %d%%% of Devices in a Site"
-msgstr ""
+#, fuzzy, php-format
+msgid "> %d %%% of Devices in a Site"
+msgstr "> %d%%% συσκευών σε μια τοποθεσία"
 
 #: includes/polling.php:419
-#, fuzzy
 msgid "SNMP not in use"
 msgstr "Το SNMP δεν χρησιμοποιείται"
 
-#: includes/polling.php:478 notify_queue.php:489 notify_queue.php:490
-#: thold.php:1002 thold.php:1034 thold.php:1035 thold.php:1272 thold.php:1324
-#: thold.php:1331 thold.php:1337 thold.php:1345 thold.php:1351 thold.php:1368
-#: thold.php:1370 thold.php:1572 thold_graph.php:725 thold_graph.php:757
-#: thold_graph.php:758 thold_graph.php:1054 thold_graph.php:1103
-#: thold_graph.php:1106 thold_graph.php:1107 thold_graph.php:1108
-#: thold_graph.php:1542 thold_graph.php:1543
+#: includes/polling.php:478 includes/polling.php:673 notify_queue.php:489
+#: notify_queue.php:490 thold.php:1002 thold.php:1034 thold.php:1035
+#: thold.php:1272 thold.php:1324 thold.php:1331 thold.php:1337 thold.php:1345
+#: thold.php:1351 thold.php:1368 thold.php:1370 thold.php:1572
+#: thold_graph.php:725 thold_graph.php:757 thold_graph.php:758
+#: thold_graph.php:1054 thold_graph.php:1103 thold_graph.php:1106
+#: thold_graph.php:1107 thold_graph.php:1108 thold_graph.php:1542
+#: thold_graph.php:1543
 msgid "N/A"
 msgstr "Μη Διαθέσιμο"
 
 #: includes/polling.php:483
-#, fuzzy
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "Συσκευές Σημείωση: <DESCRIPTION> ( <HOSTNAME> ) επέστρεψε από την κατάσταση ΚΑΤΩ"
 
 #: includes/polling.php:501
-#, fuzzy
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
 msgstr "<br> Σύστημα <DESCRIPTION> ( <HOSTNAME> ) κατάσταση: <DOWN/UP><br><br> Τρέχουσα απόκριση ping: <CUR_TIME> Κυρία <br> Μέση απόκριση συστήματος: <AVG_TIME> Κυρία <br> Διαθεσιμότητα συστήματος: <AVAILABILITY><br> Συνολικές Επιταγές: <TOT_POLL><br> Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br> Τελευταία ημερομηνία ελέγχου: <LAST_FAIL><br> Συσκευές προηγουμένως ΚΑΤΩ για: <DOWNTIME><br><br> Πληροφορίες SNMP: <br> Ονομα - <SNMP_HOSTNAME><br> Τοποθεσία - <SNMP_LOCATION><br> Uptime - <UPTIMETEXT> ( <UPTIME> Κυρία) <br> Σύστημα - <SNMP_SYSTEM><br><br> ΣΗΜΕΙΩΣΗ: <NOTES>"
 
-#: includes/polling.php:664
-#, fuzzy
+#: includes/polling.php:678
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "Σφάλματα συσκευών: <DESCRIPTION> ( <HOSTNAME> ) είναι κάτω"
 
-#: includes/polling.php:676 includes/polling.php:695
+#: includes/polling.php:690 includes/polling.php:709
 msgid "DOWN"
 msgstr "ΚΑΤΩ"
 
-#: includes/polling.php:683
-#, fuzzy
+#: includes/polling.php:697
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Σφάλμα συστήματος : <DESCRIPTION> ( <HOSTNAME> ) είναι <DOWN/UP><br> Λόγος: <MESSAGE><br><br> Μέση απόκριση συστήματος: <AVG_TIME> Κυρία <br> Διαθεσιμότητα συστήματος: <AVAILABILITY><br> Συνολικές Επιταγές: <TOT_POLL><br> Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br> Τελευταία ημερομηνία που έχει ελεγχθεί ΚΑΤΩ: <LAST_FAIL><br> Προηγούμενες συσκευές για: <DOWNTIME><br> ΣΗΜΕΙΩΣΗ: <NOTES>"
 
@@ -667,27 +617,22 @@ msgid "Thresholds"
 msgstr "Κατώφλια/'Ορια"
 
 #: includes/settings.php:36
-#, fuzzy
 msgid "(actions)"
 msgstr "Ενέργειες"
 
 #: includes/settings.php:43
-#, fuzzy
 msgid "(edit)"
 msgstr "(Eπεξεργασία)"
 
 #: includes/settings.php:50
-#, fuzzy
 msgid "(save)"
 msgstr "Αποθήκευση"
 
 #: includes/settings.php:57
-#, fuzzy
 msgid "(add)"
 msgstr "(προσθέτω)"
 
 #: includes/settings.php:84
-#, fuzzy
 msgid "Threshold Logs"
 msgstr "Κατώτατα όρια"
 
@@ -696,56 +641,46 @@ msgid "Device Status"
 msgstr "Κατάσταση συσκευών"
 
 #: includes/settings.php:98
-#, fuzzy
 msgid "Thresholds - Failures"
 msgstr "Κατώτατα όρια - Αποτυχίες"
 
 #: includes/settings.php:105
-#, fuzzy
 msgid "Thresholds - Normal"
 msgstr "Κατώτατα όρια - Κανονικά"
 
 #: includes/settings.php:112
-#, fuzzy
 msgid "Thresholds - Recovering"
 msgstr "Κατώτατα όρια - Ανάκτηση"
 
 #: includes/settings.php:118
-#, fuzzy
 msgid "Recent Thresholds"
 msgstr "Πρόσφατα όρια"
 
 #: includes/settings.php:125
-#, fuzzy
 msgid "Recent Device Failures"
 msgstr "Πρόσφατες αποτυχίες συσκευής"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
 #: includes/settings.php:160 thold_templates.php:2120
-#, fuzzy
 msgid "Threshold Templates"
 msgstr "Πρότυπα κατωφλίου"
 
 #: includes/settings.php:167
-#, fuzzy
 msgid "Threshold Template Import"
 msgstr "Εισαγωγή πρότυπου ορίου"
 
 #: includes/settings.php:174 includes/settings.php:188
 #: includes/settings.php:195 includes/settings.php:221 notify_lists.php:1997
-#, fuzzy
 msgid "Notification Lists"
 msgstr "Λίστες ειδοποιήσεων"
 
 #: includes/settings.php:181
-#, fuzzy
 msgid "Notification Lists (edit)"
 msgstr "Λίστες ειδοποιήσεων (επεξεργασία)"
 
 #: includes/settings.php:202 includes/settings.php:209
 #: includes/settings.php:222
-#, fuzzy
 msgid "Notification Queue"
 msgstr "Λίστα ειδοποιήσεων"
 
@@ -764,27 +699,22 @@ msgid "Threshold"
 msgstr "Όριο"
 
 #: includes/settings.php:276
-#, fuzzy
 msgid "A template with that Data Source already exists!"
 msgstr "Ένα πρότυπο με αυτή την Πηγή δεδομένων υπάρχει ήδη!"
 
 #: includes/settings.php:291
-#, fuzzy
 msgid "Configure Thresholds"
 msgstr "Ρύθμιση κατωφλιών"
 
 #: includes/settings.php:292
-#, fuzzy
 msgid "Configure Threshold Templates"
 msgstr "Ρύθμιση πρότυπων ορίων"
 
 #: includes/settings.php:293
-#, fuzzy
 msgid "Manage Notification Lists"
 msgstr "Διαχείριση λιστών ειδοποιήσεων"
 
 #: includes/settings.php:294
-#, fuzzy
 msgid "View Thresholds"
 msgstr "Προβολή ορίων"
 
@@ -797,78 +727,65 @@ msgid "Template Editor"
 msgstr "Πρόγραμμα επεξεργασίας προτύπων"
 
 #: includes/settings.php:300 includes/settings.php:301
-#, fuzzy
 msgid "General Administration"
 msgstr "Γενικές Ρυθμίσεις"
 
 #: includes/settings.php:318
-#, fuzzy
 msgid "Device Up/Down Notification Settings"
 msgstr "Ρυθμίσεις ειδοποίησης επάνω / κάτω συσκευής"
 
 #: includes/settings.php:324
-#, fuzzy
 msgid "Threshold Up/Down Email Notification"
 msgstr "Ειδοποίηση ηλεκτρονικού ταχυδρομείου προς τα πάνω / κάτω"
 
 #: includes/settings.php:328 notify_lists.php:738 notify_lists.php:1234
-#, fuzzy
 msgid "Global List"
 msgstr "Παγκόσμιος κατάλογος"
 
 #: includes/settings.php:329
-#, fuzzy
 msgid "List Below"
 msgstr "Λίστα παρακάτω"
 
 #: includes/settings.php:330
-#, fuzzy
 msgid "Global and List Below"
 msgstr "Παγκόσμια και λίστα παρακάτω"
 
 #: includes/settings.php:332
-#, fuzzy
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgstr "Ποιες λίστες ειδοποιήσεων πρέπει να ενημερώνονται σχετικά με τα συμβάντα Συσκευές προς τα πάνω / κάτω;"
 
 #: includes/settings.php:340 notify_queue.php:427
-#, fuzzy
 msgid "Notification List"
 msgstr "Λίστα ειδοποιήσεων"
 
 #: includes/settings.php:341
-#, fuzzy
 msgid "Additional Email address, separated by commas for multiple Emails."
 msgstr "Πρόσθετη διεύθυνση ηλεκτρονικού ταχυδρομείου, διαχωρισμένη με κόμματα για πολλά μηνύματα ηλεκτρονικού ταχυδρομείου."
 
 #: includes/settings.php:350
-#, fuzzy
 msgid "Host Failure Count"
 msgstr "Αριθμός αποτυχιών κεντρικού υπολογιστή"
 
 #: includes/settings.php:351
-#, fuzzy
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
 msgstr "Ο αριθμός των διαστημάτων ψηφοφορίας σε αυτόν τον κεντρικό υπολογιστή πρέπει να είναι μειωμένος πριν ο Thold καταγράψει ένα σφάλμα και να αναφέρει τον κεντρικό υπολογιστή ως Down. Η προεπιλογή είναι 0 (χρήση ρύθμισης Cacti)"
 
 #: includes/settings.php:356
-#, fuzzy
 msgid "Use Cacti Setting"
 msgstr "Ρυθμίσεις γραμμής βάσης"
 
 #: includes/settings.php:357
-#, fuzzy, php-format
+#, php-format
 msgid "%d Polling Interval"
 msgstr "% d Δημοσκόπηση"
 
 #: includes/settings.php:358 includes/settings.php:359
 #: includes/settings.php:360 includes/settings.php:361
-#, fuzzy, php-format
+#, php-format
 msgid "%d Polling Intervals"
 msgstr "% d Δημοσκοπήσεις"
 
 #: includes/settings.php:383
-#, fuzzy
 msgid "Alerting/Thold"
 msgstr "Alerting / Thold"
 
@@ -877,42 +794,34 @@ msgid "General"
 msgstr "Γενικά"
 
 #: includes/settings.php:395
-#, fuzzy
 msgid "Disable All Thresholds"
 msgstr "Απενεργοποιήστε όλα τα όρια"
 
 #: includes/settings.php:396
-#, fuzzy
 msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
 msgstr "Ο έλεγχος αυτού του πλαισίου θα απενεργοποιήσει την ειδοποίηση σε όλα τα όρια. Αυτό μπορεί να χρησιμοποιηθεί όταν είναι απαραίτητο να πραγματοποιηθεί συντήρηση στο δίκτυό σας."
 
 #: includes/settings.php:401
-#, fuzzy
 msgid "Auto Create Thresholds"
 msgstr "Αυτόματη δημιουργία κατωφλιών"
 
 #: includes/settings.php:402
-#, fuzzy
 msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
 msgstr "Αν επιλεγεί, όταν εκτελείται αυτοματοποίηση ή όταν δημιουργείτε / αποθηκεύετε μια Συσκευή, θα δημιουργηθούν όλα τα Κατώτατα όρια που σχετίζονται με το Πρότυπο Συσκευής."
 
 #: includes/settings.php:407
-#, fuzzy
 msgid "Consider Unknown Data as Zero"
 msgstr "Θεωρήστε τα άγνωστα δεδομένα ως μηδέν"
 
 #: includes/settings.php:408
-#, fuzzy
 msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
 msgstr "Κατά τον έλεγχο κατωφλίων, εάν μια προέλευση δεδομένων επιστρέφει άγνωστα δεδομένα ('U'), θεωρήστε την τιμή ως μηδέν για τον έλεγχο κατωφλίου."
 
 #: includes/settings.php:413
-#, fuzzy
 msgid "Default Management Status"
 msgstr "Προεπιλεγμένη κατάσταση διαχείρισης"
 
 #: includes/settings.php:414
-#, fuzzy
 msgid "Default Threshold management filter status."
 msgstr "Προεπιλεγμένη κατάσταση φίλτρου διαχείρισης κατωφλίου."
 
@@ -922,19 +831,16 @@ msgid "Any"
 msgstr "Οποιοδήποτε"
 
 #: includes/settings.php:418 thold.php:712 thold_graph.php:215
-#, fuzzy
 msgid "Breached or Triggered"
 msgstr "Προειδοποίηση Trigger"
 
 #: includes/settings.php:419 notify_lists.php:1395 thold.php:713
 #: thold_graph.php:216
-#, fuzzy
 msgid "Breached"
 msgstr "Παραβιάστηκε"
 
 #: includes/settings.php:420 notify_lists.php:1396 notify_lists.php:1497
 #: thold.php:714 thold.php:847 thold_graph.php:217 thold_graph.php:506
-#, fuzzy
 msgid "Triggered"
 msgstr "Ξεκίνησε"
 
@@ -947,129 +853,109 @@ msgid "Enabled"
 msgstr "Ενεργοποιημένο"
 
 #: includes/settings.php:427
-#, fuzzy
 msgid "Empty ifHighSpeed Default"
 msgstr "Κενό ifHighSpeed Default"
 
 #: includes/settings.php:428
-#, fuzzy
 msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
 msgstr "Κατά τον υπολογισμό των ορίων έκφρασης, αν τα ifHighSpeed και ifSpeed επανέλθουν ως μηδέν, χρησιμοποιήστε την ακόλουθη ρύθμιση ifHighSpeed. Η προεπιλογή ifHighSpeed θα είναι 10000 για διασυνδέσεις 10GE."
 
 #: includes/settings.php:435
-#, fuzzy
 msgid "Notification Preferences"
-msgstr "Προεπιλογές ειδοποίησης SNMP"
+msgstr "Επιλογές Ειδοποιήσεων"
 
 #: includes/settings.php:439
-#, fuzzy
 msgid "Disable Legacy Notifications"
 msgstr "Απενεργοποίηση ειδοποιήσεων παλαιού τύπου"
 
 #: includes/settings.php:440
-#, fuzzy
 msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
 msgstr "Ο έλεγχος αυτού του πλαισίου θα απενεργοποιήσει την ειδοποίηση κληρονομιών σε όλα τα όρια. Η Ειδοποίηση Κληρονομιών ορίζεται ως κάθε συγκεκριμένη Ειδοποίηση Email που δεν σχετίζεται με μια Λίστα ειδοποιήσεων."
 
 #: includes/settings.php:445
-#, fuzzy
 msgid "Threshold Notification Templated"
 msgstr "Πρότυπο κατωφλίου"
 
 #: includes/settings.php:446
-#, fuzzy
 msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
 msgstr "Εάν επιλεγεί, κατά τη δημιουργία στο Threshold Template, οι Ρυθμίσεις ειδοποιήσεων θα ανήκουν, από προεπιλογή, στο Threshold Template."
 
 #: includes/settings.php:450
-#, fuzzy
 msgid "Enable Command Execution"
 msgstr "Ενεργοποιήστε την εκτέλεση εντολών"
 
 #: includes/settings.php:451
-#, fuzzy
 msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
 msgstr "Έλεγχος αυτού του κουτιού θα επιτρέψει τη δυνατότητα εκτέλεσης εντολών σε συμβάντα παραβίασης κατώτατων ορίων και επαναφοράς."
 
 #: includes/settings.php:456
-#, fuzzy
 msgid "Enable Per Thold Notification"
 msgstr "Ενεργοποίηση ανά ειδοποίηση"
 
 #: includes/settings.php:457
-#, fuzzy
 msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
 msgstr "Έλεγχος αυτού του κουτιού θα επιτρέψει τη δυνατότητα διατήρησης προσαρμοσμένων σωμάτων ηλεκτρονικού ταχυδρομείου για κατώτατα όρια."
 
 #: includes/settings.php:462
-#, fuzzy
 msgid "Enable Notification Queue"
 msgstr "Ενεργοποίηση ανά ειδοποίηση"
 
 #: includes/settings.php:463
 msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
-msgstr ""
+msgstr "Επιλέγοντας αυτό το πλαίσιο, το Thold θα αλλάξει από την εκτέλεση ενσωματωμένης ειδοποίησης στη χρήση είτε του δαίμονα ειδοποίησης είτε των ειδοποιήσεων που εκτελούνται εκτός ζώνης από τον δημοκριτή ειδοποιήσεων."
 
 #: includes/settings.php:468
-#, fuzzy
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
 msgstr "Λίστα ειδοποιήσεων προειδοποίησης"
 
 #: includes/settings.php:469
 msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
-msgstr ""
+msgstr "Επιλέξτε αυτό το πλαίσιο εάν θέλετε οι παραλήπτες της λίστας ειδοποιήσεων να λαμβάνουν μηνύματα ηλεκτρονικού ταχυδρομείου ειδοποίησης εκτός από τους δέκτες της λίστας ειδοποιήσεων.  Αυτή η περίπτωση ισχύει όταν οι Ειδοποιήσεις μεταβαίνουν στους Διαχειριστές και οι Ειδοποιήσεις μεταβαίνουν στη Διαχείριση."
 
 #: includes/settings.php:474
-#, fuzzy
 msgid "Threshold Daemon"
 msgstr "Δαίμονας κατωφλίου"
 
 #: includes/settings.php:478
-#, fuzzy
 msgid "Enable Threshold Daemon"
 msgstr "Ενεργοποίηση του Daemon κατωφλίου"
 
 #: includes/settings.php:479
-#, fuzzy
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
 msgstr "Ο έλεγχος αυτού του πλαισίου θα επιτρέψει τη χρήση ενός αποκλειστικού δαίμονα Threshold. Αυτό μπορεί να χρησιμοποιηθεί για την αύξηση της απόδοσης του συστήματος ή / και για τη διανομή της παρακολούθησης Threshold σε ένα ξεχωριστό διακομιστή."
 
 #: includes/settings.php:484
-#, fuzzy
 msgid "Force Threshold Daemon Debug"
 msgstr "Δαίμονας κατωφλίου"
 
 #: includes/settings.php:485
 msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
-msgstr ""
+msgstr "Επιλέγοντας αυτό το πλαίσιο θα ενεργοποιηθεί ο εντοπισμός σφαλμάτων Threshold Daemon κατά τη λειτουργία από το SystemD ή μέσω της γραμμής εντολών.  Αυτή η αλλαγή είναι δυναμική και θα τεθεί σε ισχύ μόλις ξεκινήσει ο επόμενος βρόχος κατωφλίου."
 
 #: includes/settings.php:490
-#, fuzzy
 msgid "Daemon Down Notification Frequency"
 msgstr "Ρυθμίσεις ειδοποίησης επάνω / κάτω συσκευής"
 
 #: includes/settings.php:491
-#, fuzzy
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
 msgstr "Εάν το Thold Daemon βρίσκεται εκτός λειτουργίας, στείλτε μια ειδοποίηση μέσω email σε αυτήν τη συχνότητα."
 
 #: includes/settings.php:498
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hour"
 msgstr "Κάθε% d Ώρες"
 
 #: includes/settings.php:504
 msgid "Daemon Threads"
-msgstr ""
+msgstr "Νήματα δαίμονα"
 
 #: includes/settings.php:505
-#, fuzzy
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
 msgstr "Ο μέγιστος αριθμός ταυτόχρονων διεργασιών που πρέπει να χειριστεί ο δαίμονας κατωφλίου."
 
 #: includes/settings.php:508
 msgid "1 Process"
-msgstr ""
+msgstr "1 Διαδικασία"
 
 #: includes/settings.php:509 includes/settings.php:510
 #: includes/settings.php:511 includes/settings.php:512
@@ -1078,39 +964,33 @@ msgstr ""
 #: includes/settings.php:517
 #, php-format
 msgid "%d Processes"
-msgstr ""
+msgstr "%d Διαδικασίες"
 
 #: includes/settings.php:522
 msgid "Logging"
 msgstr "Υλοτομία"
 
 #: includes/settings.php:526
-#, fuzzy
 msgid "Log Threshold Breaches"
 msgstr "Καταχωρήσεις κατωφλίων καταγραφής"
 
 #: includes/settings.php:527
-#, fuzzy
 msgid "Enable logging of all Threshold failures to the Cacti Log."
 msgstr "Ενεργοποιήστε την καταγραφή όλων των αποτυχιών Threshold στο αρχείο καταγραφής Cacti."
 
 #: includes/settings.php:532
-#, fuzzy
 msgid "Show Data Source in Log"
 msgstr "Εμφάνιση της προέλευσης δεδομένων στο αρχείο καταγραφής"
 
 #: includes/settings.php:533
-#, fuzzy
 msgid "Show the Data Source name in the Log if not present."
 msgstr "Εμφάνιση του ονόματος προέλευσης δεδομένων στο αρχείο καταγραφής αν δεν υπάρχει."
 
 #: includes/settings.php:538
-#, fuzzy
 msgid "Log Threshold Changes"
 msgstr "Αλλαγές κατωφλίου καταγραφής"
 
 #: includes/settings.php:539
-#, fuzzy
 msgid "Enable logging of all Threshold changes to the Cacti Log."
 msgstr "Ενεργοποιήστε την καταγραφή όλων των αλλαγών Threshold στο αρχείο καταγραφής Cacti."
 
@@ -1119,197 +999,158 @@ msgid "Debug Log"
 msgstr "Μητρώο Εντοπισμού Σφαλμάτων"
 
 #: includes/settings.php:545
-#, fuzzy
 msgid "Enable logging of debug messages with Threshold"
 msgstr "Ενεργοποιήστε την καταγραφή των μηνυμάτων εντοπισμού σφαλμάτων με το Threshold"
 
 #: includes/settings.php:550
-#, fuzzy
 msgid "Alert Log Retention"
 msgstr "Διατήρηση καταγραφής συναγερμών"
 
 #: includes/settings.php:551
-#, fuzzy
 msgid "Keep Threshold Logs for this number of days."
 msgstr "Διατηρήστε τα αρχεία καταγραφής κατωφλιών για αυτόν τον αριθμό ημερών."
 
 #: includes/settings.php:557
-#, fuzzy
 msgid "Log action Consider Unknown Data as Zero"
 msgstr "Θεωρήστε τα άγνωστα δεδομένα ως μηδέν"
 
 #: includes/settings.php:558
-#, fuzzy
 msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
 msgstr "Θεωρήστε τα άγνωστα δεδομένα ως μηδέν"
 
 #: includes/settings.php:563 thold.php:2142 thold_templates.php:1693
-#, fuzzy
 msgid "Syslog Settings"
 msgstr "Ρυθμίσεις Syslog"
 
 #: includes/settings.php:567
-#, fuzzy
 msgid "Syslog Enabled"
 msgstr "Το Syslog Ενεργοποιήθηκε"
 
 #: includes/settings.php:568
-#, fuzzy
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Εάν είναι επιλεγμένο, κατά τη δημιουργία ενός νέου κατώτατου ορίου, από προεπιλογή νέα συμβάντα Threshold θα σταλούν στο τοπικό syslog. Αυτή η ρύθμιση είναι προκαθορισμένη. Οι ρυθμίσεις κατωφλίου υπαγορεύουν τον πραγματικό έλεγχο syslog."
 
 #: includes/settings.php:572
-#, fuzzy
 msgid "Default Priority/Level"
 msgstr "Προεπιλεγμένη προτεραιότητα / επίπεδο"
 
 #: includes/settings.php:573
-#, fuzzy
 msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Αυτή είναι η προεπιλεγμένη προτεραιότητα / επίπεδο που το Thold θα χρησιμοποιήσει για την αποστολή μηνυμάτων syslog. Αυτή η ρύθμιση είναι προκαθορισμένη. Οι ρυθμίσεις κατωφλίου υπαγορεύουν τον πραγματικό έλεγχο syslog."
 
 #: includes/settings.php:579
-#, fuzzy
 msgid "Default Facility"
 msgstr "Προκαθορισμένη διευκόλυνση"
 
 #: includes/settings.php:580
-#, fuzzy
 msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "Αυτή είναι η προεπιλεγμένη διευκόλυνση που θα χρησιμοποιήσει ο Thold για την αποστολή μηνυμάτων syslog. Αυτή η ρύθμιση είναι προκαθορισμένη. Οι ρυθμίσεις κατωφλίου υπαγορεύουν τον πραγματικό έλεγχο syslog."
 
 #: includes/settings.php:586
-#, fuzzy
 msgid "Alert Presets"
 msgstr "Προεπιλογές ειδοποίησης"
 
 #: includes/settings.php:590
-#, fuzzy
 msgid "Weekend exemptions"
 msgstr "Εξαιρέσεις για το Σαββατοκύριακο"
 
 #: includes/settings.php:591
-#, fuzzy
 msgid "If this is checked, Thold will not run on weekends."
 msgstr "Αν το ελέγξετε αυτό, το Thold δεν θα λειτουργήσει τα Σαββατοκύριακα."
 
 #: includes/settings.php:595
-#, fuzzy
 msgid "Default Trigger Count"
 msgstr "Προεπιλεγμένος αριθμός ενεργοποίησης"
 
 #: includes/settings.php:596
-#, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
 msgstr "Ο προεπιλεγμένος αριθμός συνεχόμενων φορών της πηγής δεδομένων πρέπει να παραβιάζει το κατώτατο όριο για μια ειδοποίηση που πρέπει να αυξηθεί."
 
 #: includes/settings.php:603
-#, fuzzy
 msgid "Re-Alerting"
 msgstr "Επαναλάβατε"
 
 #: includes/settings.php:604
-#, fuzzy
 msgid "Repeat Alert after specified number of poller cycles."
 msgstr "Επαναλάβετε την ειδοποίηση μετά από καθορισμένο αριθμό κύκλων πολεμιστών."
 
 #: includes/settings.php:611
-#, fuzzy
 msgid "Baseline Presets"
 msgstr "Βασικές προεπιλογές"
 
 #: includes/settings.php:615
-#, fuzzy
 msgid "Baseline Time Range Default"
 msgstr "Προκαθορισμένο χρονικό εύρος βασικής γραμμής"
 
 #: includes/settings.php:616 includes/settings.php:633
-#, fuzzy
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr "Αυτή είναι η προεπιλεγμένη τιμή που χρησιμοποιείται για τη δημιουργία κατώτατων ορίων ή προτύπων."
 
 #: includes/settings.php:624
-#, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "Αρίθμηση εκκίνησης βασικής γραμμής"
 
 #: includes/settings.php:625
-#, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
 msgstr "Ο προεπιλεγμένος αριθμός συνεχόμενων φορών της πηγής δεδομένων πρέπει να παραβιάζει το υπολογισμένο κατώτατο όριο αναφοράς για μια ειδοποίηση που πρέπει να αυξηθεί."
 
 #: includes/settings.php:632
-#, fuzzy
 msgid "Baseline Deviation Percentage"
 msgstr "Ποσοστό Απόκλισης Βασικής Γραμμής"
 
 #: includes/settings.php:640
-#, fuzzy
 msgid "SNMP Notification Options"
 msgstr "Ειδοποιήσεις SNMP"
 
 #: includes/settings.php:644
-#, fuzzy
 msgid "SNMP Notifications"
 msgstr "Ειδοποιήσεις SNMP"
 
 #: includes/settings.php:645
-#, fuzzy
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
 msgstr "Τα μηνύματα κατάστασης κατωφλίου (ενημερώσεις / παγίδες) θα αποστέλλονται στους δέκτες ειδοποίησης SNMP. Αυτό περιλαμβάνει παγίδες ειδοποιήσεων, προειδοποιήσεων και αποκατάστασης ανά προεπιλογή. Σημείωση: Αυτή η λειτουργία απαιτεί την προσθήκη Cacti SNMPAgent."
 
 #: includes/settings.php:650
-#, fuzzy
 msgid "Disable Warning Notifications"
 msgstr "Απενεργοποιήστε τις ειδοποιήσεις προειδοποίησης"
 
 #: includes/settings.php:651
-#, fuzzy
 msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
 msgstr "Εάν αυτό είναι επιλεγμένο, το Threshold δεν θα στείλει ειδοποίηση όταν έχει παραβιαστεί ένα προειδοποιητικό όριο."
 
 #: includes/settings.php:655
-#, fuzzy
 msgid "Disable Restoration Notifications"
 msgstr "Απενεργοποιήστε τις ειδοποιήσεις αποκατάστασης"
 
 #: includes/settings.php:656
-#, fuzzy
 msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
 msgstr "Εάν αυτό είναι επιλεγμένο, το Threshold δεν θα στείλει ειδοποίηση όταν το Threshold έχει επιστρέψει στην κανονική κατάσταση."
 
 #: includes/settings.php:660
-#, fuzzy
 msgid "Emailing Options"
 msgstr "Επιλογές ηλεκτρονικού ταχυδρομείου"
 
 #: includes/settings.php:664
-#, fuzzy
 msgid "Send Emails with Urgent Priority"
 msgstr "Αποστολή μηνυμάτων ηλεκτρονικού ταχυδρομείου με επείγουσα προτεραιότητα"
 
 #: includes/settings.php:665
-#, fuzzy
 msgid "Allows you to set Emails with urgent priority"
 msgstr "Σας δίνει τη δυνατότητα να ορίσετε τα μηνύματα ηλεκτρονικού ταχυδρομείου με επείγουσα προτεραιότητα"
 
 #: includes/settings.php:670
-#, fuzzy
 msgid "Send Alerts as Text"
 msgstr "Αποστολή ειδοποιήσεων ως κειμένου"
 
 #: includes/settings.php:671
-#, fuzzy
 msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
 msgstr "Εάν είναι επιλεγμένο, αυτό θα προκαλέσει την αποστολή όλων των ειδοποιήσεων ως απλού κειμένου μηνύματα ηλεκτρονικού ταχυδρομείου χωρίς γράφημα. Η προεπιλογή είναι τα μηνύματα ηλεκτρονικού ταχυδρομείου HTML με το γράφημα ενσωματωμένο στο μήνυμα ηλεκτρονικού ταχυδρομείου."
 
 #: includes/settings.php:676
-#, fuzzy
 msgid "Send Email separately for each address"
 msgstr "Στείλτε email ξεχωριστά για κάθε διεύθυνση"
 
 #: includes/settings.php:677
-#, fuzzy
 msgid "If checked, this will cause all Emails to be sent separately for each address."
 msgstr "Εάν επιλεγεί, αυτό θα προκαλέσει την αποστολή ξεχωριστών μηνυμάτων για κάθε διεύθυνση."
 
@@ -1318,7 +1159,6 @@ msgid "From Email Address"
 msgstr "Από διεύθυνση email"
 
 #: includes/settings.php:683
-#, fuzzy
 msgid "This is the Email address that the Threshold will appear from."
 msgstr "Αυτή είναι η διεύθυνση ηλεκτρονικού ταχυδρομείου από την οποία θα εμφανιστεί το κατώφλι."
 
@@ -1327,190 +1167,154 @@ msgid "From Name"
 msgstr "Από Όνομα"
 
 #: includes/settings.php:690
-#, fuzzy
 msgid "This is the actual name that the Threshold will appear from."
 msgstr "Αυτό είναι το πραγματικό όνομα από το οποίο θα εμφανιστεί το Κατώφλι."
 
 #: includes/settings.php:696
-#, fuzzy
 msgid "Device Notification Options"
 msgstr "Επιλογές ειδοποίησης συσκευής"
 
 #: includes/settings.php:700
-#, fuzzy
 msgid "Enable Notifications"
 msgstr "Ενεργοποίηση ανά ειδοποίηση"
 
 #: includes/settings.php:701
-#, fuzzy
 msgid "Enable Dead/Recovering host notification"
 msgstr "Ενεργοποίηση ειδοποίησης υποδοχής Dead / Recovering"
 
 #: includes/settings.php:706
-#, fuzzy
-#| msgid "Notification Settings"
 msgid "Notification Single Email"
 msgstr "Ρυθμίσεις ειδοποιήσεων"
 
 #: includes/settings.php:707
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
-msgstr ""
+msgstr "Υποστηρίζεται μόνο για λίστες ειδοποιήσεων και ουρά ειδοποιήσεων.  Εάν υπάρχουν ειδοποιήσεις εκτός συσκευής σε έναν μόνο κύκλο επεξεργασίας.  Στείλτε μόνο ένα μήνυμα ηλεκτρονικού ταχυδρομείου στη λίστα ειδοποιήσεων για όλες τις συσκευές."
 
 #: includes/settings.php:712
-#, fuzzy
 msgid "Device Notification Delay Options"
 msgstr "Επιλογές ειδοποίησης συσκευής"
 
 #: includes/settings.php:717 includes/settings.php:725
-#, fuzzy
 msgid "Notification Delay"
 msgstr "Λίστα ειδοποιήσεων"
 
 #: includes/settings.php:718
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
-msgstr ""
+msgstr "Εάν εμφανιστεί μεγάλη εισροή ειδοποιήσεων εκτός συσκευής, η Cacti μπορεί να διακόψει την αποστολή αυτών των ειδοποιήσεων για ορισμένο χρονικό διάστημα για να δει εάν το πρόβλημα είναι παροδικό πριν τις στείλει.  Επιλέξτε το όριο Ειδοποιήσεις συσκευής προς τα κάτω πριν ενεργοποιηθεί η Παύση."
 
 #: includes/settings.php:726
 msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
-msgstr ""
+msgstr "Εάν επιλέξετε να καθυστερήσετε τις ειδοποιήσεις για μια μεγάλη είσοδο ειδοποιήσεων εκτός συσκευών, πόσο καιρό είστε διατεθειμένοι να περιμένετε πριν επιτρέψετε την επεξεργασία των ειδοποιήσεων;"
 
 #: includes/settings.php:733
-#, fuzzy
 msgid "Device Notification Email Options"
 msgstr "Επιλογές ειδοποίησης συσκευής"
 
 #: includes/settings.php:737
-#, fuzzy
 msgid "Global Notification Email"
 msgstr "E-mail ειδοποιήσεων νεκρών συσκευών"
 
 #: includes/settings.php:738
-#, fuzzy
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
 msgstr "Αυτή είναι η διεύθυνση ηλεκτρονικού ταχυδρομείου στην οποία θα αποστέλλονται οι Ειδοποιήσεις Νεκτής Συσκευής, αν έχει επιλεγεί η Παγκόσμια Λίστα ειδοποιήσεων."
 
 #: includes/settings.php:744
-#, fuzzy
 msgid "Down Subject"
 msgstr "Κάτω θέμα συσκευής"
 
 #: includes/settings.php:745
-#, fuzzy
 msgid "This is the Email subject that will be used for Down Device Messages."
 msgstr "Αυτό είναι το θέμα ηλεκτρονικού ταχυδρομείου που θα χρησιμοποιηθεί για τα μηνύματα συσκευής κάτω."
 
 #: includes/settings.php:749
-#, fuzzy
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "Σφάλμα συσκευής: <DESCRIPTION> ( <HOSTNAME> ) είναι κάτω"
 
 #: includes/settings.php:752
-#, fuzzy
 msgid "Down Message"
 msgstr "Μήνυμα συσκευής κάτω"
 
 #: includes/settings.php:753
-#, fuzzy
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται ως το σώμα μηνυμάτων όλων των μηνυμάτων συσκευών UP / Down (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;HOSTNAME&gt; &lt;ΠΕΡΙΓΡΑΦΗ&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;SNMP_SYSTEM&gt; &lt;SNMP_CONTACT&gt; &lt;ΔΙΑΘΕΣΙΜΟΤΗΤΑ&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;ΣΗΜΕΙΩΣΕΙΣ&gt;"
 
 #: includes/settings.php:758
-#, fuzzy
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
 msgstr "Σφάλμα συστήματος : <DESCRIPTION> ( <HOSTNAME> ) είναι <DOWN/UP><br> Λόγος: <MESSAGE><br><br> Μέση απόκριση συστήματος: <AVG_TIME> Κυρία <br> Διαθεσιμότητα συστήματος: <AVAILABILITY><br> Συνολικές Επιταγές: <TOT_POLL><br> Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br> Τελευταία ημερομηνία που έχει ελεγχθεί ΚΑΤΩ: <LAST_FAIL><br> Συσκευή προηγούμενη UP για: <DOWNTIME><br> ΣΗΜΕΙΩΣΕΙΣ: <NOTES><br> Συσκευές ΣΗΜΕΙΩΣΕΙΣ: <DNOTES>"
 
 #: includes/settings.php:761
-#, fuzzy
 msgid "Recovering Subject"
 msgstr "Ανάκτηση αντικειμένου συσκευής"
 
 #: includes/settings.php:762
-#, fuzzy
 msgid "This is the Email subject that will be used for Recovering Device Messages."
 msgstr "Αυτό είναι το θέμα ηλεκτρονικού ταχυδρομείου που θα χρησιμοποιηθεί για την ανάκτηση μηνυμάτων συσκευής."
 
 #: includes/settings.php:766
-#, fuzzy
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "Σημείωση συσκευής: <DESCRIPTION> ( <HOSTNAME> ) επέστρεψε από την κατάσταση ΚΑΤΩ"
 
 #: includes/settings.php:769
-#, fuzzy
 msgid "Recovering Message"
 msgstr "Ανάκτηση μηνύματος συσκευής"
 
 #: includes/settings.php:770
-#, fuzzy
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται ως το σώμα μηνυμάτων όλων των μηνυμάτων συσκευών UP / Down (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;HOSTNAME&gt; &lt;ΠΕΡΙΓΡΑΦΗ&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;SNMP_SYSTEM&gt; &lt;SNMP_CONTACT&gt; &lt;ΔΙΑΘΕΣΙΜΟΤΗΤΑ&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;ΣΗΜΕΙΩΣΕΙΣ&gt;"
 
 #: includes/settings.php:775
-#, fuzzy
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
 msgstr "<br> Σύστημα <DESCRIPTION> ( <HOSTNAME> ) κατάσταση: <DOWN/UP><br><br> Τρέχουσα απόκριση ping: <CUR_TIME> Κυρία <br> Μέση απόκριση συστήματος: <AVG_TIME> Κυρία <br> Διαθεσιμότητα συστήματος: <AVAILABILITY><br> Συνολικές Επιταγές: <TOT_POLL><br> Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br> Τελευταία ημερομηνία ελέγχου: <LAST_FAIL><br> Συσκευή προηγουμένως ΚΑΤΩ για: <DOWNTIME><br><br> Πληροφορίες Snmp: <br> Ονομα - <SNMP_HOSTNAME><br> Τοποθεσία - <SNMP_LOCATION><br> Uptime - <UPTIMETEXT> ( <UPTIME> Κυρία) <br> Σύστημα - <SNMP_SYSTEM><br><br> ΣΗΜΕΙΩΣΗ: <NOTES><br> Σημειώσεις συσκευής: <DNOTES>"
 
 #: includes/settings.php:778
-#, fuzzy
 msgid "Status Change Command"
 msgstr "Εντολή αλλαγής κατάστασης"
 
 #: includes/settings.php:779
-#, fuzzy
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται ως το σώμα μηνυμάτων όλων των μηνυμάτων συσκευών UP / Down (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;HOSTNAME&gt; &lt;ΠΕΡΙΓΡΑΦΗ&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;SNMP_SYSTEM&gt; &lt;SNMP_CONTACT&gt; &lt;ΔΙΑΘΕΣΙΜΟΤΗΤΑ&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;ΣΗΜΕΙΩΣΕΙΣ&gt;"
 
 #: includes/settings.php:787
-#, fuzzy
 msgid "Alert/Warning Message Defaults"
 msgstr "Προεπιλογή μηνύματος ειδοποίησης / προειδοποίησης"
 
 #: includes/settings.php:791
-#, fuzzy
 msgid "Threshold Alert Message"
 msgstr "Μήνυμα ειδοποίησης κατωφλίου"
 
 #: includes/settings.php:792
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων κατωφλίου (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
 
 #: includes/settings.php:797
-#, fuzzy
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Έχει εκδοθεί μια ειδοποίηση που απαιτεί την προσοχή σας. <br><br> <strong>Συσκευή</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Μήνυμα</strong> : <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php:800
-#, fuzzy
 msgid "Threshold Warning Message"
 msgstr "Μήνυμα προειδοποίησης κατωφλίου"
 
 #: includes/settings.php:801
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
 
 #: includes/settings.php:806
-#, fuzzy
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Έχει εκδοθεί προειδοποίηση που απαιτεί την προσοχή σας. <br><br> <strong>Συσκευή</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Μήνυμα</strong> : <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php:809
-#, fuzzy
 msgid "Threshold Restoral Message"
 msgstr "Μήνυμα ειδοποίησης κατωφλίου"
 
 #: includes/settings.php:810
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
 
 #: includes/settings.php:815
-#, fuzzy
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "Έχει εκδοθεί μια ειδοποίηση που απαιτεί την προσοχή σας. <br><br> <strong>Συσκευή</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Μήνυμα</strong> : <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php:33
-#, fuzzy
 msgid "Thold"
 msgstr "Πάμε"
 
@@ -1523,7 +1327,6 @@ msgid "Associate"
 msgstr "Συνάδελφος"
 
 #: notify_lists.php:38
-#, fuzzy
 msgid "Disassociate"
 msgstr "διαχωρίσει"
 
@@ -1533,7 +1336,6 @@ msgid "Devices"
 msgstr "Τύπος Συσκευής"
 
 #: notify_lists.php:515
-#, fuzzy
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις λίστες ειδοποιήσεων. Οποιεσδήποτε συσκευές ή κατώτατα όρια που σχετίζονται με τις λίστες θα επανέλθουν στην προεπιλογή."
 
@@ -1554,37 +1356,32 @@ msgid "Continue"
 msgstr "Συνέχεια"
 
 #: notify_lists.php:520
-#, fuzzy
 msgid "Delete Notification List(s)"
 msgstr "Διαγραφή λίστας ειδοποιήσεων"
 
 #: notify_lists.php:524
-#, fuzzy
 msgid "Click 'Continue' to Duplicate the following Notification List(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να αντιγράψετε την ακόλουθη λίστα ειδοποιήσεων."
 
 #: notify_lists.php:526
-#, fuzzy
 msgid "New List Name"
 msgstr "Νέο όνομα λίστας"
 
 #: notify_lists.php:527
-#, fuzzy
 msgid "New Notification List"
 msgstr "Νέα λίστα ειδοποιήσεων"
 
 #: notify_lists.php:532
-#, fuzzy
 msgid "Duplicate Notification List(s)"
 msgstr "Διπλή λίστα ειδοποιήσεων"
 
 #: notify_lists.php:577
-#, fuzzy, php-format
+#, php-format
 msgid "%s Threshold Template(s)"
 msgstr "%s Πρότυπο (-τα)"
 
 #: notify_lists.php:583
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να συνδέσετε τη λίστα ειδοποιήσεων ' %s' με τα παρακάτω πρότυπα κατωφλίου."
 
@@ -1598,35 +1395,30 @@ msgstr "Καμία αλλαγή"
 #: notify_lists.php:585 notify_lists.php:586 notify_lists.php:655
 #: notify_lists.php:656 notify_lists.php:725 notify_lists.php:726
 #: notify_lists.php:727
-#, fuzzy
 msgid "Notification List Only"
 msgstr "Μόνο λίστα ειδοποιήσεων"
 
 #: notify_lists.php:585 notify_lists.php:586 notify_lists.php:655
 #: notify_lists.php:656 notify_lists.php:726 notify_lists.php:727
-#, fuzzy
 msgid "Notification List, Retain Other Settings"
 msgstr "Λίστα ειδοποιήσεων, διατηρήστε άλλες ρυθμίσεις"
 
 #: notify_lists.php:585 notify_lists.php:596 notify_lists.php:655
 #: notify_lists.php:666
-#, fuzzy
 msgid "Warning Membership:"
 msgstr "Προειδοποίηση:"
 
 #: notify_lists.php:586 notify_lists.php:597 notify_lists.php:656
 #: notify_lists.php:667
-#, fuzzy
 msgid "Alert Membership:"
 msgstr "Ειδοποίηση Μέλους:"
 
 #: notify_lists.php:590 notify_lists.php:660 notify_lists.php:731
-#, fuzzy
 msgid "Associate Notification List(s)"
 msgstr "Συμπληρωματικές λίστες ειδοποιήσεων"
 
 #: notify_lists.php:594
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
 msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να διαχωρίσετε τη λίστα ειδοποιήσεων ' %s' από τα παρακάτω πρότυπα κατωφλιών."
 
@@ -1636,77 +1428,68 @@ msgid "Remove List"
 msgstr "Αφαίρεση λίστας"
 
 #: notify_lists.php:601 notify_lists.php:671 notify_lists.php:744
-#, fuzzy
 msgid "Disassociate Notification List(s)"
 msgstr "Διαχωρισμός λίστας (ων) κοινοποίησης"
 
 #: notify_lists.php:647
-#, fuzzy, php-format
+#, php-format
 msgid "%s Threshold(s)"
 msgstr "%s Κατώτατο όριο"
 
 #: notify_lists.php:653
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
 msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να συσχετίσετε τη λίστα ειδοποιήσεων ' %s' με τα παρακάτω όρια."
 
 #: notify_lists.php:664
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
 msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να διαχωρίσετε τη λίστα ειδοποιήσεων ' %s' από τα κατώτατα όρια παρακάτω."
 
 #: notify_lists.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
 msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να συσχετίσετε τη Λίστα ειδοποιήσεων ' %s' με τις παρακάτω συσκευές."
 
 #: notify_lists.php:723
-#, fuzzy
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "Μπορείτε επίσης να συσχετίσετε τα όρια συσκευών. Ωστόσο, αυτά τα όρια συσκευής πρέπει να επιτρέπουν την επιτρεπόμενη αντικατάσταση της λίστας ειδοποιήσεων κατωφλίου."
 
 #: notify_lists.php:725
-#, fuzzy
 msgid "Notification and Global Lists"
 msgstr "Ειδοποίηση και παγκόσμιες λίστες"
 
 #: notify_lists.php:725 notify_lists.php:738
-#, fuzzy
 msgid "Resulting Membership:"
 msgstr "Αποτελέσματα:"
 
 #: notify_lists.php:726 notify_lists.php:739
-#, fuzzy
 msgid "Device Threshold Warning Membership:"
 msgstr "Προειδοποίηση:"
 
 #: notify_lists.php:727 notify_lists.php:740
-#, fuzzy
 msgid "Device Threshold Alert Membership:"
 msgstr "Μήνυμα ειδοποίησης κατωφλίου"
 
 #: notify_lists.php:735
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
 msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να Διαχωρίστε τη λίστα ειδοποιήσεων ' %s' από τις παρακάτω συσκευές."
 
 #: notify_lists.php:736
-#, fuzzy
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "Μπορείτε επίσης να Διαχωρίσετε τα Όρια Συσκευών. Ωστόσο, αυτά τα όρια συσκευής πρέπει να επιτρέπουν την επιτρεπόμενη αντικατάσταση της λίστας ειδοποιήσεων κατωφλίου."
 
 #: notify_lists.php:785
-#, fuzzy, php-format
+#, php-format
 msgid "[edit: %s]"
 msgstr "[επεξεργασία: %s]"
 
 #: notify_lists.php:787
-#, fuzzy
 msgid "[new]"
 msgstr "[νέος]"
 
 #: notify_lists.php:836
-#, fuzzy
 msgid "List General Settings"
 msgstr "Λίστα γενικών ρυθμίσεων"
 
@@ -1716,7 +1499,6 @@ msgid "Name"
 msgstr "Όνομα"
 
 #: notify_lists.php:842
-#, fuzzy
 msgid "Enter a name for this Notification List."
 msgstr "Καταχωρίστε ένα όνομα για αυτήν τη λίστα ειδοποιήσεων."
 
@@ -1726,44 +1508,38 @@ msgid "Description"
 msgstr "Περιγραφή"
 
 #: notify_lists.php:849
-#, fuzzy
 msgid "Enter a description for this Notification List."
 msgstr "Καταχωρίστε μια περιγραφή αυτής της λίστας ειδοποιήσεων."
 
 #: notify_lists.php:858
 msgid "To disable all notifications from this Notification List, you can simply disable it here."
-msgstr ""
+msgstr "Για να απενεργοποιήσετε όλες τις ειδοποιήσεις από αυτήν τη λίστα ειδοποιήσεων, μπορείτε απλά να την απενεργοποιήσετε εδώ."
 
 #: notify_lists.php:864
-#, fuzzy
 msgid "To Email Addresses"
 msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου"
 
 #: notify_lists.php:865
-#, fuzzy
 msgid "Enter a comma separated list of Email addresses for this Notification List."
 msgstr "Καταχωρίστε μια λίστα διευθύνσεων ηλεκτρονικού ταχυδρομείου χωρισμένη με κόμματα για αυτήν τη λίστα ειδοποιήσεων."
 
 #: notify_lists.php:873
-#, fuzzy
 msgid "BCC Email Addresses"
 msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου"
 
 #: notify_lists.php:874
-#, fuzzy
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
 msgstr "Καταχωρίστε μια λίστα διευθύνσεων ηλεκτρονικού ταχυδρομείου χωρισμένη με κόμματα για αυτήν τη λίστα ειδοποιήσεων."
 
 #: notify_lists.php:881
 msgid "Email Style/Format File"
-msgstr ""
+msgstr "Αρχείο στυλ / μορφής ηλεκτρονικού ταχυδρομείου"
 
 #: notify_lists.php:884 thold.php:2028 thold_templates.php:1588
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr ""
+msgstr "Επιλέξτε το προσαρμοσμένο πρόγραμμα περιτυλίγματος html και το αρχείο CSS που θα χρησιμοποιήσετε.  Αυτό το αρχείο περιέχει html και CSS για να τυλίξετε γύρω από την αναφορά σας.  Εάν περιέχει περισσότερα από απλά CSS, πρέπει να τοποθετήσετε μια ειδική <REPORT> ετικέτα μέσα στο αρχείο.  Αυτή η ετικέτα μορφής θα αντικατασταθεί από το περιεχόμενο της αναφοράς.  Αυτά τα αρχεία βρίσκονται στον κατάλογο «μορφές».</REPORT>"
 
 #: notify_lists.php:980
-#, fuzzy
 msgid "Associated Devices"
 msgstr "Συσχετισμένες συσκευές"
 
@@ -1793,7 +1569,6 @@ msgid "None"
 msgstr "Κανένα"
 
 #: notify_lists.php:1013
-#, fuzzy
 msgid "Device Template"
 msgstr "Διαγραφή προτύπου"
 
@@ -1815,7 +1590,6 @@ msgstr "Πήγαινε"
 
 #: notify_lists.php:1055 notify_lists.php:1424 notify_lists.php:1710
 #: notify_lists.php:2027 notify_queue.php:296
-#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "Ρύθμιση / Ανανέωση φίλτρων"
 
@@ -1842,7 +1616,6 @@ msgid "Status"
 msgstr "Κατάσταση"
 
 #: notify_lists.php:1198
-#, fuzzy
 msgid "Associated Lists"
 msgstr "Συναφείς λίστες"
 
@@ -1851,7 +1624,6 @@ msgid "Graphs"
 msgstr "Γραφήματα"
 
 #: notify_lists.php:1208 thold_graph.php:990
-#, fuzzy
 msgid "Data Sources"
 msgstr "Πηγές δεδομένων"
 
@@ -1860,22 +1632,18 @@ msgid "Hostname"
 msgstr "Νέο όνομα φιλοξενίας"
 
 #: notify_lists.php:1237
-#, fuzzy
 msgid "Current List Only"
 msgstr "Μόνο τρέχουσα λίστα"
 
 #: notify_lists.php:1239
-#, fuzzy
 msgid "Current and Global List(s)"
 msgstr "Τρέχουσα και Παγκόσμια Λίστα"
 
 #: notify_lists.php:1260
-#, fuzzy
 msgid "No Associated Devices Found"
 msgstr "Δεν βρέθηκαν συσχετισμένες συσκευές"
 
 #: notify_lists.php:1345
-#, fuzzy
 msgid "Associated Thresholds"
 msgstr "Συγκεκριμένα όρια"
 
@@ -1897,12 +1665,10 @@ msgid "All"
 msgstr "Όλα"
 
 #: notify_lists.php:1485 notify_lists.php:1761
-#, fuzzy
 msgid "Warning Lists"
 msgstr "Λίστα προειδοποιήσεων"
 
 #: notify_lists.php:1489 notify_lists.php:1762
-#, fuzzy
 msgid "Alert Lists"
 msgstr "Λίστα ειδοποιήσεων"
 
@@ -1913,7 +1679,6 @@ msgid "Type"
 msgstr "Τύπος"
 
 #: notify_lists.php:1501 thold.php:858
-#, fuzzy
 msgid "Templated"
 msgstr "Προκαθορισμένο"
 
@@ -1931,12 +1696,10 @@ msgid "Yes"
 msgstr "Ναι"
 
 #: notify_lists.php:1523 thold.php:926 thold_graph.php:577
-#, fuzzy
 msgid "baseline-LOW"
 msgstr "βασική γραμμή-ΧΑΜΗΛΗ"
 
 #: notify_lists.php:1525 thold.php:928 thold_graph.php:579
-#, fuzzy
 msgid "baseline-HIGH"
 msgstr "βασική γραμμή-ΥΨΗΛΗ"
 
@@ -1946,24 +1709,20 @@ msgstr "Χρήστες"
 
 #: notify_lists.php:1541 notify_lists.php:1568 notify_lists.php:1785
 #: notify_lists.php:1812
-#, fuzzy
 msgid "Specific Emails"
 msgstr "Ειδικά μηνύματα ηλεκτρονικού ταχυδρομείου"
 
 #: notify_lists.php:1546 notify_lists.php:1573 notify_lists.php:1790
 #: notify_lists.php:1817
-#, fuzzy
 msgid "Current List"
 msgstr "Τρέχουσα λίστα"
 
 #: notify_lists.php:1556
-#, fuzzy
 msgid "Unknown Threshold"
 msgstr "Άγνωστο όριο"
 
 #: notify_lists.php:1562 notify_lists.php:1589 notify_lists.php:1806
 #: notify_lists.php:1833
-#, fuzzy
 msgid "Log Only"
 msgstr "Μόνο εγγραφή"
 
@@ -1976,12 +1735,10 @@ msgid "Read Only"
 msgstr "Μόνο για ανάγνωση"
 
 #: notify_lists.php:1622
-#, fuzzy
 msgid "No Thresholds Found"
 msgstr "Δεν βρέθηκαν αρχεία καταγραφής κατωφλιών"
 
 #: notify_lists.php:1674
-#, fuzzy
 msgid "Associated Templates"
 msgstr "Συσχετισμένα πρότυπα"
 
@@ -1990,12 +1747,10 @@ msgid "Rows"
 msgstr "Σειρές"
 
 #: notify_lists.php:1800
-#, fuzzy
 msgid "Unknown Template"
 msgstr "Άγνωστο πρότυπο"
 
 #: notify_lists.php:1848 thold_templates.php:2368
-#, fuzzy
 msgid "No Threshold Templates"
 msgstr "Δεν υπάρχουν πρότυπα ουδού"
 
@@ -2012,31 +1767,28 @@ msgid "Emails"
 msgstr "Emails"
 
 #: notify_lists.php:2128
-#, fuzzy
 msgid "No Notification Lists"
 msgstr "Δεν υπάρχουν λίστες ειδοποιήσεων"
 
 #: notify_queue.php:54
 msgid "Notification has been Suspended.  Press the Resume button to resume it"
-msgstr ""
+msgstr "Η ειδοποίηση έχει ανασταλεί.  Πατήστε το κουμπί Συνέχιση για να το συνεχίσετε"
 
 #: notify_queue.php:68
 msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
-msgstr ""
+msgstr "Η ειδοποίηση συνεχίστηκε.  Πατήστε το κουμπί Αναστολή για να την αναστείλετε"
 
 #: notify_queue.php:83
 msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
-msgstr ""
+msgstr "Οι εκκρεμείς ειδοποιήσεις έχουν καταργηθεί από τη βάση δεδομένων.  Οι ειδοποιήσεις που είχαν σταλεί προηγουμένως και δεν έχουν εκκαθαριστεί θα παραμείνουν μέχρι να γεράσουν."
 
 #: notify_queue.php:147
-#, fuzzy
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
 msgstr[0] "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να αντιγράψετε την ακόλουθη λίστα ειδοποιήσεων."
 msgstr[1] "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να αντιγράψετε την ακόλουθη λίστα ειδοποιήσεων."
 
 #: notify_queue.php:152
-#, fuzzy
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
 msgstr[0] "Διαγραφή λίστας ειδοποιήσεων"
@@ -2045,55 +1797,49 @@ msgstr[1] "Διαγραφή λίστας ειδοποιήσεων"
 #: notify_queue.php:237
 #, php-format
 msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
-msgstr ""
+msgstr "Ειδοποιήσεις συμβάντων [ Ειδοποιήσεις που έχουν ανασταλεί από το χρήστη: %s, %s πριν ]"
 
 #: notify_queue.php:239
-#, fuzzy
 msgid "Event Notifications"
 msgstr "Ειδοποιήσεις Νεκτής Συσκευής"
 
 #: notify_queue.php:255 notify_queue.php:411
 msgid "Topic"
-msgstr ""
+msgstr "Θέμα"
 
 #: notify_queue.php:270 notify_queue.php:444
 msgid "Processed"
-msgstr ""
+msgstr "Επεξεργασμένο"
 
 #: notify_queue.php:298
 msgid "Suspend"
-msgstr ""
+msgstr "Αναστολή"
 
 #: notify_queue.php:298
-#, fuzzy
 msgid "Suspend Notification Processing"
 msgstr "Ειδοποιήσεις SNMP"
 
 #: notify_queue.php:299
 msgid "Resume"
-msgstr ""
+msgstr "Βιογραφικό"
 
 #: notify_queue.php:299
-#, fuzzy
 msgid "Resume Notification Processing"
 msgstr "Ειδοποιήσεις SNMP"
 
 #: notify_queue.php:300
 msgid "Purge"
-msgstr ""
+msgstr "Διαγραφή"
 
 #: notify_queue.php:300
-#, fuzzy
 msgid "Purge Notification Queue"
 msgstr "Προεπιλογές ειδοποίησης SNMP"
 
 #: notify_queue.php:401
-#, fuzzy
 msgid "Notifications"
-msgstr "Λίστα ειδοποιήσεων"
+msgstr "Ειδοποιήσεις"
 
 #: notify_queue.php:414
-#, fuzzy
 msgid "The supported notification topic."
 msgstr "Πρότυπο κατωφλίου"
 
@@ -2103,85 +1849,75 @@ msgstr "Περιγραφή Εκδήλωσης"
 
 #: notify_queue.php:419
 msgid "The name of the object as defined by the caller."
-msgstr ""
+msgstr "Το όνομα του αντικειμένου όπως ορίζεται από τον καλούντα."
 
 #: notify_queue.php:424
-#, fuzzy
 msgid "The hostname that was the source of this event."
 msgstr "Ο αριθμός των πηγών δεδομένων για αυτήν τη συσκευή"
 
 #: notify_queue.php:429
-#, fuzzy
 msgid "The Notification List used if any."
 msgstr "Μόνο λίστα ειδοποιήσεων"
 
 #: notify_queue.php:432
 msgid "Object ID"
-msgstr ""
+msgstr "Αναγνωριστικό αντικειμένου"
 
 #: notify_queue.php:435
 msgid "The Object ID defined by the caller.  Generally its unique 'id'."
-msgstr ""
+msgstr "Το αναγνωριστικό αντικειμένου που ορίζεται από τον καλούντα.  Γενικά το μοναδικό του «id»."
 
 #: notify_queue.php:438
 msgid "Event Time"
-msgstr ""
+msgstr "Ώρα Εκδήλωσης"
 
 #: notify_queue.php:441
-#, fuzzy
 msgid "The time of the event as defined by the caller."
 msgstr "Ο επίσημος χρόνος λειτουργίας της συσκευής όπως αναφέρθηκε από το SNMP"
 
 #: notify_queue.php:447
 msgid "Has the Notification Event been processed."
-msgstr ""
+msgstr "Έχει γίνει επεξεργασία του συμβάντος ειδοποίησης."
 
 #: notify_queue.php:450
-#, fuzzy
-#| msgid "Error"
 msgid "Errors"
-msgstr "Σφάλμα"
+msgstr "Σφάλματα"
 
 #: notify_queue.php:453
 msgid "Did this notification result in an error.  Hover on the error column for details."
-msgstr ""
+msgstr "Αυτή η ειδοποίηση οδήγησε σε σφάλμα.  Τοποθετήστε το δείκτη του ποντικιού στη στήλη σφάλματος για λεπτομέρειες."
 
 #: notify_queue.php:456
-#, fuzzy
-#| msgid "Time"
 msgid "Run Time"
 msgstr "Ώρα"
 
 #: notify_queue.php:459
 msgid "The time in seconds it took to process the event."
-msgstr ""
+msgstr "Ο χρόνος σε δευτερόλεπτα που χρειάστηκε για την επεξεργασία του συμβάντος."
 
 #: notify_queue.php:478
 msgid "Not Specified"
-msgstr ""
+msgstr "Δεν προσδιορίζεται"
 
 #: notify_queue.php:483
 msgid "Done"
-msgstr ""
+msgstr "Ολοκληρώθηκε"
 
 #: notify_queue.php:483
 msgid "Pending"
-msgstr ""
+msgstr "Εκκρεμεί"
 
 #: notify_queue.php:486
-#, fuzzy
-#| msgid "Error"
 msgid "Errored"
 msgstr "Σφάλμα"
 
 #: notify_queue.php:486
 msgid "Success"
-msgstr ""
+msgstr "Επιτυχία"
 
 #: notify_queue.php:498
-#, fuzzy
 msgid "No Notifications"
-msgstr "Ειδοποιήσεις SNMP"
+msgstr "Δεν υπάρχουν ειδοποιήσεις"
 
 #: setup.php:245
 msgid "Off"
@@ -2192,162 +1928,136 @@ msgid "On"
 msgstr "Ενεργό"
 
 #: setup.php:245
-#, fuzzy, php-format
+#, php-format
 msgid "Toggle Threshold VRULES %s"
 msgstr "Εναλλαγή τιμής κατωφλίου VRULES %s"
 
 #: setup.php:264
-#, fuzzy
 msgid "Create Threshold"
 msgstr "Δημιουργία κατώτατου ορίου"
 
 #: setup.php:518 setup.php:528
-#, fuzzy, php-format
+#, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr "Γεια ειδοποίησης για %s ( %s)"
 
 #: setup.php:522 setup.php:532
-#, fuzzy, php-format
+#, php-format
 msgid "Alert Low for %s (%s)"
 msgstr "Χαμηλή ειδοποίηση για %s ( %s)"
 
 #: setup.php:548 setup.php:558
-#, fuzzy, php-format
+#, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr "Λίστα προειδοποιήσεων"
 
 #: setup.php:552 setup.php:563
-#, fuzzy, php-format
+#, php-format
 msgid "Warning Low for %s (%s)"
 msgstr "Λίστα προειδοποιήσεων"
 
 #: setup.php:583 setup.php:597
-#, fuzzy
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "Γεια ειδοποίησης για %s ( %s %%)"
 
 #: setup.php:589 setup.php:603
-#, fuzzy
 msgid "Alert Low for %s (%s %%%)"
 msgstr "Χαμηλή ειδοποίηση για %s ( %s %%)"
 
 #: setup.php:621 setup.php:635
-#, fuzzy
 msgid "Warning Hi for %s (%s %%%)"
 msgstr "Προειδοποίηση Γεια για %s ( %s %%)"
 
 #: setup.php:627 setup.php:641
-#, fuzzy
 msgid "Warning Low for %s (%s %%%)"
 msgstr "Χαμηλή προειδοποίηση για %s ( %s %%)"
 
 #: setup.php:654
-#, fuzzy
 msgid "Threshold Alert/Warning Values"
 msgstr "Τιμές προειδοποίησης / προειδοποίησης κατωφλίου"
 
 #: setup.php:707
-#, fuzzy
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να εφαρμόσετε όλα τα κατάλληλα όρια σε αυτές τις συσκευές."
 
 #: setup.php:783 setup.php:801
-#, fuzzy
 msgid "Create Threshold from Data Source"
 msgstr "Δημιουργία κατώτατου ορίου από την προέλευση δεδομένων"
 
 #: setup.php:812
-#, fuzzy
 msgid "Auto-create Thresholds"
 msgstr "Αυτόματη δημιουργία κατωφλιών"
 
 #: setup.php:894 setup.php:1051
-#, fuzzy, php-format
+#, php-format
 msgid "Created %s thresholds"
 msgstr "Δημιουργήθηκε όριο: %s"
 
 #: setup.php:896 setup.php:1053 thold_functions.php:6239
-#, fuzzy
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "Δεν δημιουργήθηκαν κατώτατα όρια. Αυτά είτε υπάρχουν ήδη, είτε δεν βρέθηκαν συνδυασμοί που να ταιριάζουν."
 
 #: setup.php:899 setup.php:1056
-#, fuzzy
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Δεν δημιουργήθηκαν κατώτατα όρια. Κατώτατα όρια Το πρότυπο δεν βρέθηκε."
 
 #: setup.php:957
-#, fuzzy
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr "Οι ακόλουθες πηγές δεδομένων δεν έχουν πρότυπα κατωφλίου που σχετίζονται με αυτά"
 
 #: setup.php:961
-#, fuzzy
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να δημιουργήσετε Κατώτατα όρια για αυτές τις Πηγές Δεδομένων;"
 
 #: setup.php:968 setup.php:1132
-#, fuzzy
 msgid "Available Threshold Templates"
 msgstr "Διαθέσιμα πρότυπα ορίων"
 
 #: setup.php:973 setup.php:1137 thold_webapi.php:343
-#, fuzzy
 msgid "Select a Threshold Template"
 msgstr "Επιλέξτε ένα πρότυπο ορίου"
 
 #: setup.php:989
-#, fuzzy
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Δεν υπάρχουν πρότυπα κατωφλίου που να σχετίζονται με τις ακόλουθες Πηγές δεδομένων"
 
 #: setup.php:1001 setup.php:1164 thold_webapi.php:178
-#, fuzzy
 msgid "Create Threshold from Template"
 msgstr "Δημιουργία κατώτατου ορίου από το πρότυπο"
 
 #: setup.php:1121
-#, fuzzy
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "Τα παρακάτω γραφήματα δεν έχουν πρότυπα κατωφλιών που να συνδέονται με αυτά"
 
 #: setup.php:1125
-#, fuzzy
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr "Πατήστε 'Συνέχεια' αν θέλετε να δημιουργήσετε κατώφλια για αυτά τα γράμματα"
 
 #: setup.php:1152
-#, fuzzy
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr "Δεν υπάρχουν πρότυπα κατωφλιών που να σχετίζονται με τα παρακάτω γραφήματα"
 
 #: setup.php:1234 setup.php:1420
-#, fuzzy
 msgid "Associated Threshold Templates"
 msgstr "Συσχετισμένα πρότυπα ορίων"
 
 #: setup.php:1263
-#, fuzzy
 msgid "Threshold Exists"
 msgstr "Υπάρχει όριο"
 
 #: setup.php:1265
-#, fuzzy
 msgid "Threshold Does Not Exist"
 msgstr "Το όριο δεν υπάρχει"
 
 #: setup.php:1277
-#, fuzzy
 msgid "Delete Threshold Template Association"
 msgstr "Επιλέξτε ένα πρότυπο ορίου"
 
 #: setup.php:1285 setup.php:1447
-#, fuzzy
 msgid "No Associated Threshold Templates."
 msgstr "Δεν υπάρχουν πρότυπα συνδεδεμένου ορίου."
 
 #: setup.php:1303 setup.php:1466
-#, fuzzy
 msgid "Add Threshold Template"
 msgstr "Προσθήκη πρότυπου ουδού"
 
@@ -2356,177 +2066,145 @@ msgid "Add"
 msgstr "Προσθήκη"
 
 #: setup.php:1309
-#, fuzzy
 msgid "Add Threshold Template to Device"
 msgstr "Προσθήκη προτύπου ουράς σε πρότυπο συσκευής"
 
 #: setup.php:1352
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε το ακόλουθο πρότυπο ορίου θα διαχωριστεί από το πρότυπο συσκευής."
 
 #: setup.php:1353 setup.php:1518
-#, fuzzy, php-format
+#, php-format
 msgid "Threshold Template Name: %s"
 msgstr "Όνομα προτύπου ορίου: %s"
 
 #: setup.php:1359 setup.php:1524
-#, fuzzy
 msgid "Remove Threshold Template"
 msgstr "Κατάργηση πρότυπου ορίου"
 
 #: setup.php:1472
-#, fuzzy
 msgid "Add Threshold Template to Device Template"
 msgstr "Προσθήκη προτύπου ουράς σε πρότυπο συσκευής"
 
 #: setup.php:1517
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε το ακόλουθο πρότυπο ορίου θα διαχωριστεί από το πρότυπο συσκευής."
 
 #: thold.php:103
-#, fuzzy
 msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
 msgstr "Είτε δεν υπάρχουν πρότυπα ή κατώτατα όρια ήδη υπάρχουν - Δεν δημιουργήθηκαν όρια."
 
 #: thold.php:306
-#, fuzzy
 msgid "You are not authorized to modify one or more of the Thresholds selected"
 msgstr "Δεν έχετε εξουσιοδότηση να τροποποιήσετε ένα ή περισσότερα από τα Κατώτατα όρια που έχετε επιλέξει"
 
 #: thold.php:408
-#, fuzzy
 msgid "Click 'Delete' to delete the following Threshold(s)."
 msgstr "Κάντε κλικ στο στοιχείο \"Διαγραφή\" για να διαγράψετε τα παρακάτω όρια."
 
 #: thold.php:409
-#, fuzzy
 msgid "Delete Threshold(s)"
 msgstr "Διαγραφή ορίων"
 
 #: thold.php:412
-#, fuzzy
 msgid "Click 'Continue' to enable the following Threshold(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να ενεργοποιήσετε τα παρακάτω όρια."
 
 #: thold.php:413
-#, fuzzy
 msgid "Enable Threshold(s)"
 msgstr "Ενεργοποίηση κατώτατων ορίων"
 
 #: thold.php:416
-#, fuzzy
 msgid "Click 'Continue' to disable the following Threshold(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να απενεργοποιήσετε τα παρακάτω όρια."
 
 #: thold.php:417
-#, fuzzy
 msgid "Disable Threshold(s)"
 msgstr "Απενεργοποίηση κατώτατων ορίων"
 
 #: thold.php:420
-#, fuzzy
 msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να εφαρμόσετε ξανά τα προτεινόμενα ονόματα στα παρακάτω όρια."
 
 #: thold.php:421
-#, fuzzy
 msgid "Apply Suggestion"
 msgstr "Εφαρμογή προτάσεων"
 
 #: thold.php:424
-#, fuzzy
 msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να ενημερώσετε τα παρακάτω Κατώτατα όρια με τα στοιχεία του σχετικού προτύπου."
 
 #: thold.php:425
-#, fuzzy
 msgid "Reapply Template"
 msgstr "Επαναλάβετε το πρότυπο"
 
 #: thold.php:428
-#, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Κάντε κλικ στο «Συνέχεια» για να αναγνωρίσετε τα ακόλουθα όρια. Τα όρια που δεν το επιτρέπουν, ή που δεν ενεργοποιούνται, θα αγνοηθούν."
 
 #: thold.php:429 thold_functions.php:7472
-#, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "Αναγνώριση προτύπου"
 
 #: thold.php:432
-#, fuzzy
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "Κάντε κλικ στην επιλογή \"Συνέχεια\" για να συνεχίσετε τις ειδοποιήσεις για τα ακόλουθα όρια. Τα όρια που δεν το επιτρέπουν ή δεν ενεργοποιούνται θα αγνοηθούν."
 
 #: thold.php:433
-#, fuzzy
 msgid "Resume Notifications for Threshold(s)"
 msgstr "Διαγραφή λίστας ειδοποιήσεων"
 
 #: thold.php:436
-#, fuzzy
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "Κάντε κλικ στην επιλογή \"Συνέχεια\" για αναστολή ειδοποιήσεων για τα ακόλουθα όρια. Τα όρια που δεν το επιτρέπουν ή δεν ενεργοποιούνται θα αγνοηθούν."
 
 #: thold.php:437
-#, fuzzy
 msgid "Suspend Notification for Threshold(s)"
 msgstr "Διπλή λίστα ειδοποιήσεων"
 
 #: thold.php:440 thold_templates.php:296
-#, fuzzy
 msgid "Invalid action detected, can not proceed"
 msgstr "Εντοπίστηκε μη έγκυρη ενέργεια, δεν μπορεί να συνεχιστεί"
 
 #: thold.php:634
-#, fuzzy
 msgid "Threshold Management"
 msgstr "Διαχείριση κατωφλίου"
 
 #: thold.php:670
-#, fuzzy
 msgid "Apply Filters"
-msgstr "Εφαρμόστε φίλτρα"
+msgstr "ΕΦΑΡΜΟΓΗ ΦΙΛΤΡΩΝ"
 
 #: thold.php:673
-#, fuzzy
 msgid "Return to Defaults"
 msgstr "Επιστροφή στις προεπιλογές"
 
 #: thold.php:694 thold_graph.php:187 thold_templates.php:454
 #: thold_templates.php:1144 thold_templates.php:2246
-#, fuzzy
 msgid "Data Template"
 msgstr "Πρότυπο δεδομένων"
 
 #: thold.php:717 thold_graph.php:220
-#, fuzzy
 msgid "Disabled at Template"
 msgstr "Πρότυπο δεδομένων"
 
 #: thold.php:718 thold_graph.php:221
-#, fuzzy
 msgid "Disabled at Threshold"
 msgstr "Απενεργοποιήστε το όριο"
 
 #: thold.php:719 thold.php:863 thold_graph.php:222 thold_graph.php:517
-#, fuzzy
 msgid "Ack Required"
 msgstr "Απαιτείται"
 
 #: thold.php:789 thold.php:2224 thold_graph.php:449 thold_templates.php:1775
 #: thold_templates.php:2226
 msgid "External ID"
-msgstr ""
+msgstr "Εξωτερικό αναγνωριστικό (ID)"
 
 #: thold.php:805 thold_graph.php:469 thold_templates.php:2253
 msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
-msgstr ""
+msgstr "Ο τύπος κατωφλίου.  Για τύπους γραμμής βάσης: Το [TIP] αναφέρεται στον χρόνο στο παρελθόν με MIN, MAX, AVG και LAST από όχι περισσότερο από μία ημέρα σε χρόνο από αυτήν την περίοδο.  Το [AOT] αναφέρεται στον Μέσο όρο ολόκληρης της Χρονικής περιόδου.  Εάν υπάρχει άνω και κάτω τελεία ακολουθούμενη από MIN, MAX, AVG, LAST, η τιμή προήλθε από αυτήν τη συνάρτηση ενοποίησης."
 
 #: thold.php:809
-#, fuzzy
 msgid "DSName"
 msgstr "DSName"
 
@@ -2535,7 +2213,6 @@ msgid "Current"
 msgstr "Τρέχων"
 
 #: thold.php:817 thold_graph.php:476
-#, fuzzy
 msgid "The last measured value for the Data Source"
 msgstr "Η τελευταία τιμή μέτρησης για την Πηγή Δεδομένων"
 
@@ -2545,7 +2222,6 @@ msgid "High"
 msgstr "Υψηλή"
 
 #: thold.php:823 thold_graph.php:482
-#, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "Οι τιμές υψηλής προειδοποίησης / ειδοποίησης. ΣΗΜΕΙΩΣΗ: Οι τιμές βάσης είναι τοις εκατό, όλες οι άλλες τιμές είναι τιμές εμφάνισης που μπορεί να τροποποιηθούν από ένα cdef."
 
@@ -2555,7 +2231,6 @@ msgid "Low"
 msgstr "Χαμηλός"
 
 #: thold.php:829 thold_graph.php:488
-#, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "Οι τιμές χαμηλής προειδοποίησης / ειδοποίησης. ΣΗΜΕΙΩΣΗ: Οι τιμές βάσης είναι τοις εκατό, όλες οι άλλες τιμές είναι τιμές εμφάνισης που μπορεί να τροποποιηθούν από ένα cdef."
 
@@ -2572,67 +2247,55 @@ msgid "Repeat"
 msgstr "Επανάληψη"
 
 #: thold.php:852 thold_graph.php:511 thold_graph.php:1002
-#, fuzzy
 msgid "In State"
 msgstr "Νομός"
 
 #: thold.php:855 thold_graph.php:514
-#, fuzzy
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
 msgstr "Ο χρόνος που η πηγή δεδομένων πρέπει να παραβιάζει το όριο για μια προειδοποίηση που πρέπει να εγείρεται."
 
 #: thold.php:866 thold_graph.php:520
-#, fuzzy
 msgid "Acknowledgment required for this Threshold"
 msgstr "Απαιτείται επιβεβαίωση για αυτό το κατώφλι"
 
 #: thold.php:974 thold_graph.php:698
-#, fuzzy
 msgid "No [Template:Thold]"
 msgstr "Δεν προτύπωνε"
 
 #: thold.php:976 thold_graph.php:700
-#, fuzzy
 msgid "No [Template]"
-msgstr "Πρότυπα"
+msgstr "Πρότυπο"
 
 #: thold.php:978 thold_graph.php:702
-#, fuzzy
 msgid "No [Thold]"
 msgstr "Κατώφλια/'Ορια"
 
 #: thold.php:1027 thold_graph.php:750
-#, fuzzy, php-format
+#, php-format
 msgid "%d Triggers"
 msgstr "% dΑνεργοποιητές"
 
 #: thold.php:1057 thold_graph.php:773
-#, fuzzy
 msgid "No Thresholds"
 msgstr "Κατώφλια/'Ορια"
 
 #: thold.php:1089
-#, fuzzy
 msgid "Threshold Deleted, can not Edit!"
 msgstr "Το όριο δεν υπάρχει"
 
 #: thold.php:1197
-#, fuzzy
 msgid "Graph Data"
 msgstr "Δεδομένα γραφήματος"
 
 #: thold.php:1200
-#, fuzzy
 msgid "Edit Threshold Template"
 msgstr "Προσθήκη πρότυπου ουδού"
 
 #: thold.php:1222
-#, fuzzy
 msgid "Data Source Description:"
 msgstr "Πηγή δεδομένων Περιγραφή:"
 
 #: thold.php:1223
-#, fuzzy
 msgid "Associated Graph (Graphs using this RRD):"
 msgstr "Σχετικό γράφημα (Γραφήματα που χρησιμοποιούν αυτό το RRD):"
 
@@ -2641,72 +2304,62 @@ msgid "Last:"
 msgstr "Επίθετο:"
 
 #: thold.php:1330
-#, fuzzy
 msgid "WHi:"
 msgstr "WHi:"
 
 #: thold.php:1336
-#, fuzzy
 msgid "WLo:"
 msgstr "WLo:"
 
 #: thold.php:1344
-#, fuzzy
 msgid "AHi:"
 msgstr "AHi:"
 
 #: thold.php:1350
-#, fuzzy
 msgid "ALo:"
 msgstr "ALo:"
 
 #: thold.php:1367
-#, fuzzy
 msgid "BL Up:"
 msgstr "BL Up:"
 
 #: thold.php:1369
-#, fuzzy
 msgid "BL Down:"
 msgstr "BL Κάτω:"
 
 #: thold.php:1407
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown Template ID %d"
 msgstr "Άγνωστο αναγνωριστικό προτύπου% d"
 
 #: thold.php:1409
-#, fuzzy
 msgid "Not Templated"
 msgstr "Δεν προτύπωνε"
 
 #: thold.php:1428 thold.php:1431
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "Στοιχείο πηγής δεδομένων [ %s] - Τρέχουσα τιμή: [ %s]"
 
 #: thold.php:1517 thold_templates.php:1081
-#, fuzzy, php-format
+#, php-format
 msgid "Replacement Fields: %s"
 msgstr "Πεδία αντικατάστασης: %s"
 
 #: thold.php:1530 thold_templates.php:1095
-#, fuzzy, php-format
+#, php-format
 msgid "Data Sources: %s"
 msgstr "Πηγές δεδομένων: %s"
 
 #: thold.php:1557
-#, fuzzy
 msgid "Template/Enabled Information"
 msgstr "Πρότυπο / Ενεργοποιημένες πληροφορίες"
 
 #: thold.php:1561
-#, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "Η ενεργοποίηση του προτύπου"
 
 #: thold.php:1564
-#, fuzzy
 msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr "Εάν αυτές οι ρυθμίσεις θα διαδοθούν ή όχι από το πρότυπο Threshold."
 
@@ -2715,20 +2368,18 @@ msgid "Template Name"
 msgstr "Όνομα πρότυπου"
 
 #: thold.php:1571
-#, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "Το όνομα του προτύπου ουράς προέκυψε από το κατώφλι."
 
 #: thold.php:1575
 msgid "Enabled at Template Level"
-msgstr ""
+msgstr "Ενεργοποιημένη σε επίπεδο προτύπου"
 
 #: thold.php:1578 thold.php:1585
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
-msgstr ""
+msgstr "Ένα κατώτατο όριο πρέπει να είναι ενεργοποιημένο τόσο στο επίπεδο υποδείγματος όσο και στο επίπεδο κατωφλίου που πρόκειται να ελεγχθεί."
 
 #: thold.php:1582
-#, fuzzy
 msgid "Enabled at Threshold Level"
 msgstr "Ενεργοποίηση κατώτατου ορίου"
 
@@ -2737,124 +2388,102 @@ msgid "General Settings"
 msgstr "Γενικές Ρυθμίσεις"
 
 #: thold.php:1593
-#, fuzzy
 msgid "Name (Displayed)"
 msgstr "Όνομα (Εμφανίζεται)"
 
 #: thold.php:1598 thold.php:1607
-#, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "Δώστε τα όρια σε ένα νόημα"
 
 #: thold.php:1602
-#, fuzzy
 msgid "Name (Format)"
-msgstr "Όνομα (Μορφή)"
+msgstr "Μορφή ονόματος"
 
 #: thold.php:1611 thold_templates.php:1167
-#, fuzzy
 msgid "Warning HRULE Color"
 msgstr "Προειδοποίηση Χρώμα HRULE"
 
 #: thold.php:1612 thold_templates.php:1168
-#, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Επιλέξτε ένα χρώμα για το γράφημα HRULE για τα όρια προειδοποίησης. Επιλέξτε 'Κανένας' για Χωρίς ΧΡΟΝΟ. Σημείωση: Αυτή η λειτουργία υποστηρίζεται μόνο για τους τύπους χειρισμού δεδομένων \"Exact Value\" και \"Percentage\" μόνο αυτή τη στιγμή."
 
 #: thold.php:1619 thold_templates.php:1175
-#, fuzzy
 msgid "Alert HRULE Color"
 msgstr "Προειδοποίηση ΧΡΩΜΑ ΧΡΩΜΑ"
 
 #: thold.php:1620 thold_templates.php:1176
-#, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "Επιλέξτε ένα χρώμα για το γράφημα HRULE για τα όρια ειδοποίησης. Επιλέξτε 'Κανένας' για Χωρίς ΧΡΟΝΟ. Σημείωση: Αυτή η λειτουργία υποστηρίζεται μόνο για τους τύπους χειρισμού δεδομένων \"Exact Value\" και \"Percentage\" μόνο αυτή τη στιγμή."
 
 #: thold.php:1627 thold_templates.php:1183
-#, fuzzy
 msgid "Graph Timespan"
 msgstr "Πρότυπο γραφήματος"
 
 #: thold.php:1630 thold_templates.php:1186
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
-msgstr ""
+msgstr "Η ώρα λήξης του γραφήματος θα οριστεί τη στιγμή της ενεργοποίησης.  Η ώρα έναρξης του γραφήματος θα είναι η ώρα λήξης μείον το χρονικό διάστημα του γραφήματος."
 
 #: thold.php:1635 thold_templates.php:1191
 msgid "Skip Scaling on HRULEs"
-msgstr ""
+msgstr "Παράλειψη κλιμάκωσης σε HRULEs"
 
 #: thold.php:1638 thold_templates.php:1194
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
-msgstr ""
+msgstr "Εάν επιλεγεί, η κλίμακα στο γράφημα δεν θα επηρεαστεί ούτε από τους κανόνες προειδοποίησης ούτε από τους κανόνες προειδοποίησης."
 
 #: thold.php:1642 thold_templates.php:1198
-#, fuzzy
 msgid "Weekend Exemption"
 msgstr "Εξαίρεση για Σαββατοκύριακο"
 
 #: thold.php:1643 thold_templates.php:1199
-#, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr "Αν αυτό έχει ελεγχθεί, αυτό το κατώφλι δεν θα ειδοποιεί τα Σαββατοκύριακα."
 
 #: thold.php:1649 thold_templates.php:1205
-#, fuzzy
 msgid "Disable Restoration Email"
 msgstr "Απενεργοποίηση ηλεκτρονικού ταχυδρομείου αποκατάστασης"
 
 #: thold.php:1650 thold_templates.php:1206
-#, fuzzy
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr "Εάν αυτό είναι επιλεγμένο, το Threshold δεν θα στείλει ειδοποίηση όταν το Threshold έχει επιστρέψει στην κανονική κατάσταση."
 
 #: thold.php:1656 thold_templates.php:1212
-#, fuzzy
 msgid "Acknowledgment Options"
 msgstr "Επιλογές επιβεβαίωσης"
 
 #: thold.php:1657 thold_templates.php:1213
-#, fuzzy
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr "Υπάρχουν τρία επίπεδα επιβεβαίωσης που ελέγχουν τον τρόπο με τον οποίο πρέπει να ανταποκριθείτε σε μια κατάσταση παραβίασης του Threshold. Αυτοί είναι: <br><br><ul><li> <i>Κανένα Απαιτείται</i> - Όταν επιλέγετε αυτή την επιλογή, δεν απαιτείται επιβεβαίωση για παραβίαση ορίων. </li><li> <i>Επαναφορά επιβεβαίωσης</i> - Με αυτήν την επιλογή, μόλις αναγνωρίσετε το κατώφλι, δεν θα λαμβάνετε πλέον Ειδοποιήσεις ενώ παραβιάζεται. </li><li> <i>Διατήρηση της επιβεβαίωσης</i> - Με αυτήν την επιλογή, ακόμα και μετά την επαναφορά του κατώτατου ορίου στο φυσιολογικό, πρέπει να επιβεβαιώσετε το κατώφλι και να δώσετε ένα προαιρετικό μήνυμα χειριστή. </li></ul>"
 
 #: thold.php:1664 thold_templates.php:1220
-#, fuzzy
 msgid "None Required"
 msgstr "Δεν απαιτείται"
 
 #: thold.php:1668 thold_templates.php:1224
-#, fuzzy
 msgid "Suspendible Notification"
 msgstr "Ειδοποιήσεις SNMP"
 
 #: thold.php:1672 thold_templates.php:1228
-#, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "Διατηρήστε την επιβεβαίωση"
 
 #: thold.php:1677 thold_templates.php:1233
-#, fuzzy
 msgid "Threshold Type"
 msgstr "Τύπος κατωφλίου"
 
 #: thold.php:1682 thold_templates.php:1238
-#, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "Ο τύπος του κατώτατου ορίου που θα παρακολουθείται."
 
 #: thold.php:1686 thold_templates.php:1242
-#, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "Κύκλος επανάληψης"
 
 #: thold.php:1690
-#, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr "Επαναλάβετε την ειδοποίηση αφού παρέλθει αυτό το χρονικό διάστημα από την τελευταία ειδοποίηση."
 
 #: thold.php:1694 thold_templates.php:1250
-#, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "Προειδοποίηση - Ρυθμίσεις υψηλής / χαμηλής"
 
@@ -2862,175 +2491,148 @@ msgstr "Προειδοποίηση - Ρυθμίσεις υψηλής / χαμη�
 #: thold_templates.php:1252 thold_templates.php:1280 thold_templates.php:1308
 #: thold_templates.php:1345 thold_templates.php:1381
 msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
-msgstr ""
+msgstr "Οι αριθμητικές τιμές για τα υψηλά και χαμηλά όρια μπορούν να περιλαμβάνουν τα ακόλουθα επιθήματα για αριθμούς μεγαλύτερους από 1 έως 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y' και για αριθμούς μικρότερους από 1 'm', 'u', 'p', 'f'."
 
 #: thold.php:1699 thold.php:1727 thold.php:1755 thold.php:1791
 #: thold_templates.php:1255 thold_templates.php:1283 thold_templates.php:1311
 #: thold_templates.php:1348
-#, fuzzy
 msgid "High Threshold"
 msgstr "Υψηλό Όριο"
 
 #: thold.php:1703 thold.php:1759 thold_templates.php:1315
-#, fuzzy
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Εάν οριστεί και η τιμή της πηγής δεδομένων υπερβεί αυτόν τον αριθμό, θα ενεργοποιηθεί η προειδοποίηση. ΣΗΜΕΙΩΣΗ: Αυτή η τιμή πρέπει να είναι αριθμός RAW. Η τιμή που εμφανίζεται στο γράφημα μπορεί να τροποποιηθεί από ένα cdef."
 
 #: thold.php:1707 thold.php:1735 thold.php:1763 thold.php:1799
 #: thold_templates.php:1263 thold_templates.php:1291 thold_templates.php:1319
 #: thold_templates.php:1356
-#, fuzzy
 msgid "Low Threshold"
 msgstr "Χαμηλό όριο"
 
 #: thold.php:1711 thold.php:1767 thold_templates.php:1323
-#, fuzzy
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Εάν οριστεί και η τιμή της πηγής δεδομένων είναι χαμηλότερη από αυτόν τον αριθμό, θα ενεργοποιηθεί η προειδοποίηση. ΣΗΜΕΙΩΣΗ: Αυτή η τιμή πρέπει να είναι αριθμός RAW. Η τιμή που εμφανίζεται στο γράφημα μπορεί να τροποποιηθεί από ένα cdef."
 
 #: thold.php:1715 thold.php:1743
-#, fuzzy
 msgid "Breach Duration"
 msgstr "Διάρκεια παράβασης"
 
 #: thold.php:1718
-#, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Ο χρόνος που η πηγή δεδομένων πρέπει να παραβιάζει το όριο για μια προειδοποίηση που πρέπει να εγείρεται."
 
 #: thold.php:1722 thold_templates.php:1278
-#, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "Ειδοποίηση - Ρυθμίσεις υψηλής / χαμηλής"
 
 #: thold.php:1731 thold.php:1795 thold_templates.php:1259
 #: thold_templates.php:1287 thold_templates.php:1352
-#, fuzzy
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Εάν οριστεί και η τιμή της πηγής δεδομένων υπερβεί αυτόν τον αριθμό, θα ενεργοποιηθεί η ειδοποίηση. ΣΗΜΕΙΩΣΗ: Αυτή η τιμή πρέπει να είναι αριθμός RAW. Η τιμή που εμφανίζεται στο γράφημα μπορεί να τροποποιηθεί από ένα cdef."
 
 #: thold.php:1739 thold.php:1803 thold_templates.php:1267
 #: thold_templates.php:1295 thold_templates.php:1360
-#, fuzzy
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "Εάν οριστεί και η τιμή της πηγής δεδομένων είναι χαμηλότερη από αυτόν τον αριθμό, θα ενεργοποιηθεί η ειδοποίηση. ΣΗΜΕΙΩΣΗ: Αυτή η τιμή πρέπει να είναι αριθμός RAW. Η τιμή που εμφανίζεται στο γράφημα μπορεί να τροποποιηθεί από ένα cdef."
 
 #: thold.php:1746
-#, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr "Ο χρόνος που η πηγή δεδομένων πρέπει να παραβιάζει το κατώτατο όριο για την αύξηση της ειδοποίησης."
 
 #: thold.php:1750 thold_templates.php:1306
-#, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "Προειδοποίηση - Ρυθμίσεις βάσει χρόνου"
 
 #: thold.php:1771 thold.php:1807
-#, fuzzy
 msgid "Breach Count"
 msgstr "Αρίθμηση παραβιάσεων"
 
 #: thold.php:1775 thold.php:1812
-#, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr "Ο αριθμός των φορών που η πηγή δεδομένων πρέπει να παραβιάζει το όριο."
 
 #: thold.php:1779 thold.php:1816
-#, fuzzy
 msgid "Breach Window"
 msgstr "Παράθυρο παραβιάσεων"
 
 #: thold.php:1782 thold.php:1819 thold_templates.php:1339
 #: thold_templates.php:1375
-#, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "Το χρονικό διάστημα στο παρελθόν για να ελέγξετε για παραβιάσεις Threshold."
 
 #: thold.php:1786 thold_templates.php:1343
-#, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "Ρυθμίσεις συναγερμού - χρόνου"
 
 #: thold.php:1823
-#, fuzzy
 msgid "Baseline Settings"
 msgstr "Ρυθμίσεις γραμμής βάσης"
 
 #: thold.php:1831 thold_templates.php:1387
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
-msgstr ""
+msgstr "Ο τύπος της γραμμής βάσης.  [TIP] είναι ο χρόνος στο παρελθόν, [AOT] είναι ο μέσος όρος με την πάροδο του χρόνου.  Η ποσοστιαία απόκλιση είναι μια ποσοστιαία τιμή από την τιμή ιστορικού.  Απόλυτη τιμή είναι μια απόκλιση είτε πάνω είτε κάτω από τη γραμμή βάσης πάνω από αυτήν την ιστορική τιμή.  Για τους τύπους γραμμής βάσης [TIP], τα MIN, MAX, AVG και LAST δεν θα προέρχονται από μια χρονική περίοδο μίας ημέρας το πολύ εκείνη τη χρονική στιγμή."
 
 #: thold.php:1835 thold_templates.php:1391
 msgid "Consolidation Function"
-msgstr ""
+msgstr "Λειτουργία ενοποίησης"
 
 #: thold.php:1838 thold_templates.php:1394
-#, fuzzy
 msgid "Average"
-msgstr "Μέσος (ms)"
+msgstr "Μέτριο"
 
 #: thold.php:1839 thold_templates.php:1395
 msgid "Minimum"
-msgstr ""
+msgstr "Ελάχιστο"
 
 #: thold.php:1840 thold_templates.php:1396
 msgid "Maximum"
-msgstr ""
+msgstr "Μέγιστο"
 
 #: thold.php:1841 thold_templates.php:1397
-#, fuzzy
-#| msgid "Last:"
 msgid "Last"
-msgstr "Επίθετο:"
+msgstr "Τελευταίο"
 
 #: thold.php:1843 thold_templates.php:1399
 msgid "The Consolidation function to use for the Baseline Type value calculation."
-msgstr ""
+msgstr "Η συνάρτηση Consolidation που θα χρησιμοποιηθεί για τον υπολογισμό της τιμής τύπου γραμμής βάσης."
 
 #: thold.php:1847 thold_templates.php:1403
-#, fuzzy
-#| msgid "Time range"
 msgid "Time Range"
-msgstr "Εύρος ώρας"
+msgstr "Εύρος Ώρας"
 
 #: thold.php:1850 thold_templates.php:1406
-#, fuzzy
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
 msgstr "Καθορίζει το σημείο στο παρελθόν (με βάση την ανάλυση rrd) που θα χρησιμοποιηθεί ως αναφορά"
 
 #: thold.php:1854 thold_templates.php:1410
-#, fuzzy
 msgid "Deviation UP"
 msgstr "Απόκλιση UP"
 
 #: thold.php:1858
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το ανώτατο οριακό όριο. Εάν δεν έχει οριστεί, το άνω όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου."
 
 #: thold.php:1862 thold_templates.php:1418
-#, fuzzy
 msgid "Deviation DOWN"
 msgstr "Απόκλιση προς τα κάτω"
 
 #: thold.php:1866
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το κάτω όριο Κατώφλι. Εάν δεν έχει οριστεί, το κατώτατο όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου."
 
 #: thold.php:1870 thold_templates.php:1327 thold_templates.php:1364
 #: thold_templates.php:1426
-#, fuzzy
 msgid "Trigger Count"
 msgstr "Μετρητής ενεργοποίησης"
 
 #: thold.php:1874
-#, fuzzy, php-format
+#, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr "Ο αριθμός των συνεχόμενων φορών που η πηγή δεδομένων πρέπει να παραβιάζει το βασικό κατώτατο όριο για μια ειδοποίηση που πρέπει να εγείρεται. <br> Αφήστε κενό για να χρησιμοποιήσετε την προεπιλεγμένη τιμή ( <b>Προεπιλογή: %s κύκλοι</b> )"
 
 #: thold.php:1878 thold_templates.php:1434
-#, fuzzy
 msgid "Data Manipulation"
 msgstr "ΧΕΙΡΑΓΩΓΗΣΗ ΔΕΔΟΜΕΝΩΝ"
 
@@ -3039,66 +2641,59 @@ msgid "Data Type"
 msgstr "Τύπος δεδομένων"
 
 #: thold.php:1887 thold_templates.php:1442
-#, fuzzy
 msgid "Special formatting for the given data."
 msgstr "Ειδική μορφοποίηση για τα δεδομένα δεδομένα."
 
 #: thold.php:1891 thold_templates.php:1446
-#, fuzzy
 msgid "Threshold CDEF"
 msgstr "Κατώφλι CDEF"
 
 #: thold.php:1894 thold_templates.php:1449
-#, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "Εφαρμόστε αυτό το CDEF πριν επιστρέψετε τα δεδομένα."
 
 #: thold.php:1899
-#, fuzzy
 msgid "Percent Data Source"
 msgstr "Ποσοστό ποσοστού δεδομένων"
 
 #: thold.php:1902
-#, fuzzy
 msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr "Δεύτερο στοιχείο προέλευσης δεδομένων για χρήση ως συνολική τιμή για τον υπολογισμό του ποσοστού από."
 
 #: thold.php:1907 thold_templates.php:1479
 msgid "Show Units"
-msgstr ""
+msgstr "Εμφάνιση μονάδων"
 
 #: thold.php:1910 thold_templates.php:1482
 msgid "Display units for very large or small numbers."
-msgstr ""
+msgstr "Μονάδες προβολής για πολύ μεγάλους ή μικρούς αριθμούς."
 
 #: thold.php:1914 thold_templates.php:1486
 msgid "Force Units Suffix"
-msgstr ""
+msgstr "Επίθημα μονάδων δύναμης"
 
 #: thold.php:1919 thold_templates.php:1491
 msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
-msgstr ""
+msgstr "Εάν θέλετε να εμφανίσετε ένα επίθημα αναγκαστικής μονάδας στις διάφορες σελίδες κατωφλίου και ειδοποιήσεις, εισαγάγετε το εδώ.  Το μέγεθος περιορίζεται σε όχι περισσότερους από 10 χαρακτήρες."
 
 #: thold.php:1923 thold_templates.php:1495
 msgid "Decimal Digits to Display"
-msgstr ""
+msgstr "Δεκαδικά ψηφία προς εμφάνιση"
 
 #: thold.php:1926 thold_templates.php:1498
 msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
-msgstr ""
+msgstr "Ο αριθμός των δεκαδικών ψηφίων που θα εμφανίζονται για τις τιμές κατωφλίου και τρέχουσας.  Η προεπιλογή είναι αυτόματη ή 2."
 
 #: thold.php:1936
-#, fuzzy, php-format
+#, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "Μια έκφραση RPN είναι μια RRDtool συμβατή έκφραση RPN. Η σύνταξη περιλαμβάνει όλες τις παρακάτω λειτουργίες εκτός από τις εκφράσεις αντικατάστασης συσκευής και δεδομένων Query, όπως <span class=\"deviceUp\">| query_ifSpeed |</span> . Για να χρησιμοποιήσετε μια προέλευση δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span class=\"deviceUp\">| ds: dsname |</span> . Για παράδειγμα, <span class=\"deviceUp\">| ds: traffic_in |</span> θα πάρει την τρέχουσα τιμή της traffic_in προέλευσης δεδομένων για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε πηγή δεδομένων για ένα γράφημα. <br><br> Μαθητικοί χειριστές: <span class=\"deviceUp\">+, -, /, *,%, ^</span> <br> Λειτουργίες: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Χειριστές ροής: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Λειτουργίες σύγκρισης: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
 
 #: thold.php:1942 thold_templates.php:1471
-#, fuzzy
 msgid "Upper Data Source"
 msgstr "Πηγή δεδομένων"
 
 #: thold.php:1945
-#, fuzzy
 msgid "Upper data source to calculate the total value."
 msgstr "Πάνω πηγή δεδομένων για τον υπολογισμό της συνολικής τιμής."
 
@@ -3107,116 +2702,94 @@ msgid "Notification Settings"
 msgstr "Ρυθμίσεις ειδοποιήσεων"
 
 #: thold.php:1955
-#, fuzzy
 msgid "Alert Subject"
 msgstr "Προεπιλογές ειδοποίησης"
 
 #: thold.php:1960 thold_templates.php:1513
-#, fuzzy
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
 
 #: thold.php:1964
-#, fuzzy
 msgid "Alert Body"
 msgstr "Φόρμα ηλεκτρονικού ταχυδρομείου ειδοποίησης"
 
 #: thold.php:1969 thold_templates.php:1522
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων κατωφλίου (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί για μηνύματα ηλεκτρονικού ταχυδρομείου μόνο σε κείμενο. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> π.χ. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &lt;&lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt;"
 
 #: thold.php:1973 thold_templates.php:1526
-#, fuzzy
 msgid "Warning Subject"
 msgstr "Ανάκτηση αντικειμένου συσκευής"
 
 #: thold.php:1978
-#, fuzzy
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
 
 #: thold.php:1982 thold_templates.php:1535
-#, fuzzy
 msgid "Warning Body"
 msgstr "Προειδοποιητικό σώμα ηλεκτρονικού ταχυδρομείου"
 
 #: thold.php:1987 thold_templates.php:1540
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στην κορυφή όλων των Προειδοποιήσεων Κατωφλίου (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί για μηνύματα ηλεκτρονικού ταχυδρομείου μόνο σε κείμενο. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> π.χ. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &lt;&lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt;"
 
 #: thold.php:1991 thold_templates.php:1544
-#, fuzzy
 msgid "Restoral Subject"
 msgstr "Εκδήλωση αναπαλαίωσης"
 
 #: thold.php:1996 thold_templates.php:1549
-#, fuzzy
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
 
 #: thold.php:2000
-#, fuzzy
 msgid "Restoral Email Body"
 msgstr "Φόρμα ηλεκτρονικού ταχυδρομείου ειδοποίησης"
 
 #: thold.php:2005 thold_templates.php:1558
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
 
 #: thold.php:2009 thold_templates.php:1569
-#, fuzzy
 msgid "Warning Notification List"
 msgstr "Λίστα ειδοποιήσεων προειδοποίησης"
 
 #: thold.php:2011 thold_templates.php:1571
-#, fuzzy
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr "Μπορείτε να ορίσετε την επιλογή μιας λίστας ειδοποιήσεων για να λάβετε προειδοποιήσεις για αυτήν την πηγή δεδομένων"
 
 #: thold.php:2017 thold_templates.php:1577
-#, fuzzy
 msgid "Alert Notification List"
 msgstr "Λίστα ειδοποιήσεων ειδοποίησης"
 
 #: thold.php:2019 thold_templates.php:1579
-#, fuzzy
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr "Μπορείτε να ορίσετε την επιλογή μιας λίστας ειδοποιήσεων για να λαμβάνετε ειδοποιήσεις για αυτήν την πηγή δεδομένων"
 
 #: thold.php:2025 thold_templates.php:1585
 msgid "Style/Format File"
-msgstr ""
+msgstr "Αρχείο στυλ/μορφής"
 
 #: thold.php:2037 thold_templates.php:1597
-#, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "Ειδοποίηση SNMP - Κατηγορία συμβάντων"
 
 #: thold.php:2039 thold_templates.php:1599
-#, fuzzy
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr "Για να επιτρέψετε σε ένα NMS να κατηγοριοποιήσει τις διάφορες κοινοποιήσεις SNMP ευκολότερα, συμπληρώστε την κατηγορία των κοινοποιήσεων SNMP για αυτό το πρότυπο που πρέπει να χρησιμοποιήσετε. Π.χ.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 
 #: thold.php:2045 thold_templates.php:1605
-#, fuzzy
 msgid "SNMP Event Description"
 msgstr "Περιγραφή συμβάντος SNMP"
 
 #: thold.php:2046 thold_templates.php:1606
-#, fuzzy
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 msgstr "Μπορείτε να προσαρμόσετε την περιγραφή συμβάντος που αποστέλλεται στους δέκτες ειδοποίησης SNMP χρησιμοποιώντας πρόσθετες varbinds. Ακολουθούν οι ακόλουθες μεταβλητές συνδέσεις: <br> &lt;THRESHOLDNAME&gt; &lt;HOSTNAME&gt; &lt;HOSTIP&gt; &lt;TEMPLATE_ID&gt; &lt;TEMPLATE_NAME&gt; &lt;THR_TYPE&gt; &lt;DS_NAME&gt; &lt;HI&gt; &lt;LOW&gt; &lt;EVENT_CATEGORY&gt; &lt;FAIL_COUNT&gt; &lt;FAIL_DURATION&gt;"
 
 #: thold.php:2055 thold_templates.php:1615
-#, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "Ειδοποίηση SNMP - Σοβαρότητα συμβάντος συναγερμού"
 
 #: thold.php:2058
-#, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr "Σοβαρότητα που πρέπει να χρησιμοποιείται για ειδοποιήσεις. (χαμηλός αντίκτυπος -> κρίσιμος αντίκτυπος)"
 
@@ -3226,57 +2799,46 @@ msgid "Medium"
 msgstr "Μεσαίο"
 
 #: thold.php:2074 thold_templates.php:1629
-#, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "Ειδοποίηση SNMP - Προειδοποίηση Σοβαρότητα συμβάντος"
 
 #: thold.php:2077 thold_templates.php:1632
-#, fuzzy
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr "Σοβαρότητα που πρέπει να χρησιμοποιείται για προειδοποιήσεις. (Χαμηλή επίδραση -> Κρίσιμη επίδραση). <br> Σημείωση: Η σοβαρότητα των προειδοποιήσεων πρέπει να είναι ίση ή μικρότερη από τη σοβαρότητα που ορίζεται για τις ειδοποιήσεις."
 
 #: thold.php:2095 thold_templates.php:1645
-#, fuzzy
 msgid "Notify accounts"
 msgstr "Ειδοποιήστε τους λογαριασμούς"
 
 #: thold.php:2097
-#, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr "Πρόκειται για μια λίστα λογαριασμών που θα ειδοποιούνται όταν παραβιάζεται αυτό το όριο."
 
 #: thold.php:2102 thold_templates.php:1653
-#, fuzzy
 msgid "Alert Emails"
 msgstr "Ειδοποιήσεις ηλεκτρονικού ταχυδρομείου"
 
 #: thold.php:2106
-#, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr "Μπορείτε να ορίσετε εδώ επιπλέον μηνύματα ηλεκτρονικού ταχυδρομείου για να λαμβάνετε ειδοποιήσεις για αυτήν την πηγή δεδομένων (διαχωρισμένο με κόμμα)"
 
 #: thold.php:2110 thold_templates.php:1661
-#, fuzzy
 msgid "Warning Emails"
 msgstr "Προειδοποίηση μηνύματα ηλεκτρονικού ταχυδρομείου"
 
 #: thold.php:2114
-#, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr "Μπορείτε να ορίσετε εδώ επιπλέον μηνύματα ηλεκτρονικού ταχυδρομείου για να λαμβάνετε προειδοποιήσεις για αυτήν την πηγή δεδομένων (διαχωρισμένα με κόμμα)"
 
 #: thold.php:2148 thold_templates.php:1699
-#, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "Εάν είναι επιλεγμένο, η κοινοποίηση κατωφλίου θα αποσταλεί στο τοπικό syslog."
 
 #: thold.php:2154 thold_templates.php:1705
-#, fuzzy
 msgid "Priority/Level"
 msgstr "Προτεραιότητα / Επίπεδο"
 
 #: thold.php:2155 thold_templates.php:1706
-#, fuzzy
 msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr "Αυτό είναι το επίπεδο προτεραιότητας που θα συνδεθεί στα μηνύματα syslog σας."
 
@@ -3285,42 +2847,34 @@ msgid "Facility"
 msgstr "Εγκατάσταση"
 
 #: thold.php:2163 thold_templates.php:1714
-#, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "Αυτή είναι η διευκόλυνση που θα χρησιμοποιηθεί για αυτό το κατώφλι."
 
 #: thold.php:2184 thold_templates.php:1735
-#, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "Ενεργοποίηση συμβάντος (Command Shell)"
 
 #: thold.php:2189 thold_templates.php:1740
-#, fuzzy
 msgid "High Trigger Command"
 msgstr "Εντολή υψηλής εκκίνησης"
 
 #: thold.php:2190 thold_templates.php:1741
-#, fuzzy
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Εάν έχει οριστεί και αν παραβιαστεί ένα υψηλό όριο, αυτή η εντολή θα εκτελεστεί. Εισαγάγετε μια έγκυρη εντολή. Επιπλέον, υπάρχουν διαθέσιμες αρκετές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν για τη μετάδοση πληροφοριών από το Κατώτατο όριο στο σενάριο. Περιλαμβάνουν: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATA_RFC822 &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt; &lt;BREACHED_ITEMS&gt;. Τέλος, μπορείτε να πραγματοποιήσετε αντικατάσταση Host, Data Query και Data Input. Για παράδειγμα, αν έχετε προσαρμοσμένα δεδομένα εισαγωγής δεδομένων που καλούνται εκκρεμή, για να εκτελέσετε τη χρήση αντικατάστασης | εκκρεμής |. Για την ερώτηση δεδομένων και την αντικατάσταση κεντρικού υπολογιστή χρησιμοποιήστε τις συμβάσεις Cacti | query_xxxx |, and | host_xxxx | αντίστοιχα."
 
 #: thold.php:2197 thold_templates.php:1748
-#, fuzzy
 msgid "Low Trigger Command"
 msgstr "Εντολή χαμηλής σκανδάλισης"
 
 #: thold.php:2198 thold_templates.php:1749
-#, fuzzy
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Εάν έχει οριστεί και αν παραβιαστεί ένα χαμηλό όριο, θα εκτελεστεί αυτή η εντολή. Εισαγάγετε μια έγκυρη εντολή. Επιπλέον, υπάρχουν διαθέσιμες αρκετές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν για τη μετάδοση πληροφοριών από το Κατώτατο όριο στο σενάριο. Περιλαμβάνουν: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATA_RFC822 &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt; &lt;BREACHED_ITEMS&gt;. Τέλος, μπορείτε να πραγματοποιήσετε αντικατάσταση Host, Data Query και εισαγωγής δεδομένων. Για παράδειγμα, αν έχετε προσαρμοσμένα δεδομένα εισαγωγής δεδομένων που καλούνται εκκρεμή, για να εκτελέσετε τη χρήση αντικατάστασης | εκκρεμής |. Για την ερώτηση δεδομένων και την αντικατάσταση κεντρικού υπολογιστή χρησιμοποιήστε τις συμβάσεις Cacti | query_xxxx |, and | host_xxxx | αντίστοιχα."
 
 #: thold.php:2205 thold_templates.php:1756
-#, fuzzy
 msgid "Norm Trigger Command"
 msgstr "Κανονική εντολή ενεργοποίησης"
 
 #: thold.php:2206 thold_templates.php:1757
-#, fuzzy
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "Εάν οριστεί, όταν ένα thold πέσει πίσω σε μια κανονική τιμή, αυτή η εντολή θα τρέξει. Εισαγάγετε μια έγκυρη εντολή. Επιπλέον, υπάρχουν διαθέσιμες αρκετές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν για τη μετάδοση πληροφοριών από το Κατώτατο όριο στο σενάριο. Περιλαμβάνουν: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATA_RFC822 &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt; &lt;BREACHED_ITEMS&gt;. Τέλος, μπορείτε να πραγματοποιήσετε αντικατάσταση Host, Data Query και εισαγωγής δεδομένων. Για παράδειγμα, αν έχετε προσαρμοσμένα δεδομένα εισαγωγής δεδομένων που καλούνται εκκρεμή, για να εκτελέσετε τη χρήση αντικατάστασης | εκκρεμής |. Για την ερώτηση δεδομένων και την αντικατάσταση κεντρικού υπολογιστή χρησιμοποιήστε τις συμβάσεις Cacti | query_xxxx |, and | host_xxxx | αντίστοιχα."
 
@@ -3329,42 +2883,34 @@ msgid "Other Settings"
 msgstr "Άλλες Ρυθμίσεις"
 
 #: thold.php:2226
-#, fuzzy
 msgid "Enter an Eternal ID for this Threshold."
 msgstr "Επιλέξτε το γράφημα για το κατώφλι."
 
 #: thold.php:2233 thold_templates.php:1784
-#, fuzzy
 msgid "Operator Notes"
 msgstr "Σημειώσεις χειριστή"
 
 #: thold.php:2237 thold_templates.php:1788
-#, fuzzy
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr "Πληκτρολογήστε εδώ τις οδηγίες για έναν χειριστή που μπορεί να λαμβάνει το μήνυμα Threshold."
 
 #: thold.php:2520
-#, fuzzy
 msgid "Select Users(s)"
 msgstr "Επιλέξτε χρήστες"
 
 #: thold.php:2522
-#, fuzzy
 msgid "Users Selected"
 msgstr "Οι χρήστες επιλέχθηκαν"
 
 #: thold.php:2525
-#, fuzzy
 msgid "All Users Selected"
 msgstr "Όλοι οι χρήστες έχουν επιλεγεί"
 
 #: thold_functions.php:82
-#, fuzzy
 msgid "< 1 Minute"
 msgstr "1 λεπτό"
 
 #: thold_functions.php:84
-#, fuzzy
 msgid "Since Created"
 msgstr "Δημιουργία"
 
@@ -3385,7 +2931,6 @@ msgid "System:"
 msgstr "Σύστημα:"
 
 #: thold_functions.php:271
-#, fuzzy
 msgid "Swaps:"
 msgstr "Ανταλλαγές:"
 
@@ -3399,70 +2944,60 @@ msgstr "Σελίδες:"
 #: thold_functions.php:3289 thold_functions.php:3306 thold_functions.php:3320
 #: thold_functions.php:3387 thold_functions.php:3469
 msgid "Only logging, maint device"
-msgstr ""
+msgstr "Μόνο καταγραφή, maint συσκευή"
 
 #: thold_functions.php:4083
-#, fuzzy
 msgid "Link to Graph in Cacti"
 msgstr "Σύνδεση με το γράφημα σε κάκτους"
 
 #: thold_functions.php:4109
-#, fuzzy
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body> Έχει εκδοθεί μια προειδοποίηση που απαιτεί την προσοχή σας. <br><br> <b>Συσκευή</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Μήνυμα</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
 #: thold_functions.php:4133
-#, fuzzy
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body> Έχει εκδοθεί μια προειδοποίηση που απαιτεί την προσοχή σας. <br><br> <b>Συσκευή</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Μήνυμα</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
 #: thold_functions.php:4157
-#, fuzzy
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "Έχει εκδοθεί μια ειδοποίηση που απαιτεί την προσοχή σας. <br><br> <strong>Συσκευή</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Μήνυμα</strong> : <SUBJECT><br><br><GRAPH>"
 
 #: thold_functions.php:5037
-#, fuzzy, php-format
+#, php-format
 msgid "%% Dev [TIP:%s]"
 msgstr "Απόκλιση UP"
 
 #: thold_functions.php:5041
-#, fuzzy, php-format
+#, php-format
 msgid "Abs Val [TIP:%s]"
 msgstr "Τιμή ειδοποίησης"
 
 #: thold_functions.php:5045
-#, fuzzy
 msgid "%%% Dev [AOT:%s]"
 msgstr "Απόκλιση UP"
 
 #: thold_functions.php:5049
-#, fuzzy, php-format
+#, php-format
 msgid "Abs Val [AOT:%s]"
 msgstr "Τιμή ειδοποίησης"
 
 #: thold_functions.php:5271
-#, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "Το αναγνωριστικό συσκευής δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
 
 #: thold_functions.php:5286
-#, fuzzy
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
 
 #: thold_functions.php:5293
-#, fuzzy
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
 
 #: thold_functions.php:5326
-#, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "Η δημιουργία γραφήματος απέτυχε για το πρότυπο κατωφλίου"
 
 #: thold_functions.php:5356
-#, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr "Το όριο ήταν αυτόματη λόγω της χαρτογράφησης του προτύπου συσκευής"
 
@@ -3471,124 +3006,104 @@ msgid "Permission Denied"
 msgstr "Δεν επιτρέπεται η πρόσβαση"
 
 #: thold_functions.php:5412 thold_functions.php:5742
-#, fuzzy
 msgid "Record Updated"
 msgstr "Εγγραφή ενημερωμένη"
 
 #: thold_functions.php:5654
-#, fuzzy, php-format
+#, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "Αποτυχία εύρεσης συνδεδεμένου στοιχείου πρότυπου γραφήματος '% d' στο κατώφλι '% d'"
 
 #: thold_functions.php:5740 thold_functions.php:6319
-#, fuzzy, php-format
+#, php-format
 msgid "Created Threshold: %s"
 msgstr "Δημιουργήθηκε όριο: %s"
 
 #: thold_functions.php:5830 thold_functions.php:5886
-#, fuzzy
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
 msgstr "Πρέπει να ορίσετε είτε το \"Κατώτατο όριο ειδοποίησης\" είτε το κατώτατο όριο ειδοποίησης ή και τα δύο! <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5837
-#, fuzzy
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
 msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\" <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5846 thold_functions.php:5915
-#, fuzzy
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
 msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5853 thold_functions.php:5934
-#, fuzzy
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
 msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5860
-#, fuzzy
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
 msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5868
-#, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "Με τα βασικά όρια ενεργοποιημένα."
 
 #: thold_functions.php:5871
-#, fuzzy
 msgid "Time reference in the past must be set to positive integer value!"
 msgstr "Το ' %s' πρέπει να ρυθμιστεί σε θετική ακέραια τιμή! <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5877
-#, fuzzy
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
 msgstr "Πρέπει να καθορίσετε είτε την \"Απόκλιση βασικής γραμμής UP\" είτε την \"Απόκλιση βασικής γραμμής κάτω\" ή και τα δύο! <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5893
-#, fuzzy
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
 msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\" <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5900
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Αδύνατο όριο: Ο αριθμός ενεργοποίησης ειδοποίησης πρέπει να είναι μεγαλύτερος ή να είναι μεγαλύτερος ή να είναι ίσος με 1!"
 
 #: thold_functions.php:5906
 msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
+msgstr "Αδύνατο όριο: Ο αριθμός ενεργοποίησης ειδοποίησης πρέπει να είναι μικρότερος ή ίσος με τον αριθμό ενεργοποίησης ή eval με 1!"
 
 #: thold_functions.php:5922
 msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Αδύνατο όριο: Ο αριθμός προειδοποιητικών σκανδάλων πρέπει να είναι μεγαλύτερος ή να είναι μεγαλύτερος ή να είναι ίσος με 1!"
 
 #: thold_functions.php:5928
-#, fuzzy
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
 msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5941
-#, fuzzy
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
 msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
 
 #: thold_functions.php:5948
-#, fuzzy
 msgid "Unknown Threshold Type!"
 msgstr "Άγνωστο όριο"
 
 #: thold_functions.php:6140
-#, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "Δεν υπάρχουν πρότυπα κατώτατων ορίων που σχετίζονται με το πρότυπο της συσκευής."
 
 #: thold_functions.php:6355
-#, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr "Mailer Σφάλμα: Δεν <b>Για την</b> αντιμετώπιση που !! <br> Εάν χρησιμοποιείτε το σύνδεσμο <i>Δοκιμή αλληλογραφίας</i> , ορίστε τη ρύθμιση <b>Email alert</b> ."
 
 #: thold_functions.php:7469 thold_graph.php:633
-#, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "Άγνωστο όριο"
 
 #: thold_functions.php:7471
-#, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να επιβεβαιώσετε τα παρακάτω όρια."
 
 #: thold_functions.php:7915
-#, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "Το πρότυπο δεδομένων υποδείγματος κατωφλίου δεν βρέθηκε!"
 
 #: thold_functions.php:7930
-#, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "Πρότυπο κατώτατου ορίου προέλευσης δεδομένων δεν βρέθηκε!"
 
 #: thold_functions.php:7966
-#, fuzzy
 msgid "Threshold Template import columns do not match the database schema"
 msgstr "Οι στήλες εισαγωγής προτύπου κατωφλίου δεν ταιριάζουν με το σχήμα βάσης δεδομένων"
 
@@ -3597,7 +3112,7 @@ msgid "Imported"
 msgstr "Εισήχθει"
 
 #: thold_functions.php:7975 thold_functions.php:7977
-#, fuzzy, php-format
+#, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "Πρότυπο καμπύλης ' %s' %s!"
 
@@ -3611,7 +3126,7 @@ msgid "Import"
 msgstr "Εισαγωγή"
 
 #: thold_functions.php:7981 thold_functions.php:7983
-#, fuzzy, php-format
+#, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "Πρότυπο καμπύλης ' %s' %s Αποτυχία!"
 
@@ -3620,37 +3135,30 @@ msgid "Update"
 msgstr "Ενημέρωση"
 
 #: thold_functions.php:7987
-#, fuzzy
 msgid "Errors encountered while attempting to import Threshold Template data."
 msgstr "Παρουσιάστηκαν σφάλματα κατά την προσπάθεια εισαγωγής δεδομένων προτύπου κατωφλίου."
 
 #: thold_functions.php:7991
-#, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "Το πρότυπο δεδομένων υποδείγματος κατωφλίου δεν βρέθηκε!"
 
 #: thold_functions.php:7994
-#, fuzzy
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
 
 #: thold_graph.php:66
-#, fuzzy
 msgid "The Threshold has been Ascknowledged."
 msgstr "Ο τύπος του κατώτατου ορίου που θα παρακολουθείται."
 
 #: thold_graph.php:73
-#, fuzzy
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
 msgstr "Το όριο δεν θα δημιουργεί πλέον ειδοποιήσεις, ειδοποιήσεις ή εκτελεί εντολές."
 
 #: thold_graph.php:80
-#, fuzzy
 msgid "The Threshold will restart generating Alerts."
 msgstr "Υψηλές τιμές κατωφλίου για προειδοποίηση / ειδοποίηση"
 
 #: thold_graph.php:383
-#, fuzzy
 msgid "Threshold Status"
 msgstr "Κατάσταση κατωφλίου"
 
@@ -3660,103 +3168,85 @@ msgstr "Ενέργειες"
 
 #: thold_graph.php:463
 msgid "Ack Detail"
-msgstr ""
+msgstr "Ack Λεπτομέρεια"
 
 #: thold_graph.php:611
-#, fuzzy
 msgid "Edit Threshold"
 msgstr "Επεξεργασία κατωφλίου"
 
 #: thold_graph.php:616
-#, fuzzy
 msgid "Disable Threshold"
 msgstr "Απενεργοποιήστε το όριο"
 
 #: thold_graph.php:619
-#, fuzzy
 msgid "Enable Threshold"
 msgstr "Ενεργοποίηση κατώτατου ορίου"
 
 #: thold_graph.php:621
-#, fuzzy
 msgid "To enable the Threshold, enable the Template first"
 msgstr "Επιλέξτε ένα πρότυπο ορίου"
 
 #: thold_graph.php:627
-#, fuzzy
 msgid "View Graph"
 msgstr "Προβολή γραφήματος"
 
 #: thold_graph.php:629
-#, fuzzy
 msgid "View Threshold History"
 msgstr "Προβολή ιστορικού κατωφλίου"
 
 #: thold_graph.php:636
-#, fuzzy
 msgid "Suspend Notifications until the Threshold clears"
 msgstr "Διπλή λίστα ειδοποιήσεων"
 
 #: thold_graph.php:639
-#, fuzzy
 msgid "Resume Notifications for this breached Threshold"
 msgstr "Διαγραφή λίστας ειδοποιήσεων"
 
 #: thold_graph.php:664
-#, fuzzy
-#| msgid "Acknowledgment"
 msgid "Acknowledgement Message"
 msgstr "Αποδοχή"
 
 #: thold_graph.php:665
 msgid "Date"
-msgstr ""
+msgstr "Ημερομηνία"
 
 #: thold_graph.php:673
 msgid "Comment Not Found"
-msgstr ""
+msgstr "Το σχόλιο δεν βρέθηκε"
 
 #: thold_graph.php:682
 msgid "Ack History"
-msgstr ""
+msgstr "Ack Ιστορία"
 
 #: thold_graph.php:692
-#, fuzzy
 msgid "No name set"
 msgstr "Δεν έχει οριστεί όνομα"
 
 #: thold_graph.php:969
-#, fuzzy
 msgid "Hover over icons for help"
 msgstr "Τοποθετήστε το δείκτη του ποντικιού στα εικονίδια για βοήθεια"
 
 #: thold_graph.php:975
-#, fuzzy
 msgid "A description for the Device"
 msgstr "Περιγραφή της συσκευής"
 
 #: thold_graph.php:981
-#, fuzzy
 msgid "A Cacti unique identifier for the Device"
 msgstr "Ένα μοναδικό αναγνωριστικό του Cacti για τη συσκευή"
 
 #: thold_graph.php:987
-#, fuzzy
 msgid "The number of Graphs for this Device"
 msgstr "Ο αριθμός των γραφημάτων για αυτήν τη συσκευή"
 
 #: thold_graph.php:993
-#, fuzzy
 msgid "The number of Data Sources for this Device"
 msgstr "Ο αριθμός των πηγών δεδομένων για αυτήν τη συσκευή"
 
 #: thold_graph.php:999
-#, fuzzy
 msgid "The status for this Device as of the last time it was polled"
 msgstr "Η κατάσταση αυτής της συσκευής από την τελευταία φορά που ερωτήθηκε"
 
 #: thold_graph.php:1005
-#, fuzzy
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
 msgstr "Την τελευταία φορά που ο Cacti βρήκε ένα πρόβλημα με αυτήν τη Συσκευή. Μπορεί να είναι υψηλότερο από το Uptime για τη συσκευή, εάν επανεκκινήθηκε μεταξύ των κύκλων αναζήτησης Cacti"
 
@@ -3765,32 +3255,26 @@ msgid "Uptime"
 msgstr "Χρόνος λειτουργίας"
 
 #: thold_graph.php:1011
-#, fuzzy
 msgid "The official uptime of the Device as reported by SNMP"
 msgstr "Ο επίσημος χρόνος λειτουργίας της συσκευής όπως αναφέρθηκε από το SNMP"
 
 #: thold_graph.php:1017
-#, fuzzy
 msgid "The official hostname for this Device"
 msgstr "Το επίσημο όνομα κεντρικού υπολογιστή για αυτήν τη Συσκευή"
 
 #: thold_graph.php:1020
-#, fuzzy
 msgid "Current (ms)"
 msgstr "Τρέχουσα (ms)"
 
 #: thold_graph.php:1023
-#, fuzzy
 msgid "The current response time for the Cacti Availability check"
 msgstr "Ο τρέχων χρόνος απόκρισης για τον έλεγχο διαθεσιμότητας του Cacti"
 
 #: thold_graph.php:1026
-#, fuzzy
 msgid "Average (ms)"
 msgstr "Μέσος (ms)"
 
 #: thold_graph.php:1029
-#, fuzzy
 msgid "The average response time for the Cacti Availability check"
 msgstr "Ο μέσος χρόνος απόκρισης για τον έλεγχο διαθεσιμότητας του Cacti"
 
@@ -3799,7 +3283,6 @@ msgid "Availability"
 msgstr "Διαθεσιμότητα"
 
 #: thold_graph.php:1035
-#, fuzzy
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
 msgstr "Η συνολική Διαθεσιμότητα αυτής της Συσκευής από την τελευταία επαναφορά του μετρητή στο Cacti"
 
@@ -3808,31 +3291,27 @@ msgid "Edit Device"
 msgstr "Επεξεργασία συσκευής"
 
 #: thold_graph.php:1065 thold_graph.php:1091
-#, fuzzy
 msgid "View Graphs"
 msgstr "Προβολή γραφημάτων"
 
 #: thold_graph.php:1114
-#, fuzzy
 msgid "No Devices"
 msgstr "Τύπος Συσκευής"
 
 #: thold_graph.php:1171
-#, fuzzy
 msgid "Not Up"
 msgstr "Δεν είναι επάνω"
 
 #: thold_graph.php:1380
 msgid "No Export Rows Found."
-msgstr ""
+msgstr "Δεν βρέθηκαν γραμμές εξαγωγής."
 
 #: thold_graph.php:1408
-#, fuzzy, php-format
+#, php-format
 msgid "Threshold Log for [ %s ]"
 msgstr "Καταγραφή κατωφλίου για [ %s]"
 
 #: thold_graph.php:1465
-#, fuzzy
 msgid "Log Entries"
 msgstr "Καταχωρίσεις καταγραφών"
 
@@ -3846,17 +3325,14 @@ msgid "Time"
 msgstr "Ώρα"
 
 #: thold_graph.php:1493
-#, fuzzy
 msgid "Alert Value"
 msgstr "Τιμή ειδοποίησης"
 
 #: thold_graph.php:1498
-#, fuzzy
 msgid "Measured Value"
 msgstr "Μετρούμενη τιμή"
 
 #: thold_graph.php:1547
-#, fuzzy
 msgid "No Threshold Logs Found"
 msgstr "Δεν βρέθηκαν αρχεία καταγραφής κατωφλιών"
 
@@ -3865,67 +3341,55 @@ msgid "Entries"
 msgstr "Εγγραφές"
 
 #: thold_templates.php:196
-#, fuzzy
 msgid "You are not authorised to modify one or more of the Thresholds selected"
 msgstr "Δεν έχετε εξουσιοδότηση να τροποποιήσετε ένα ή περισσότερα από τα Κατώτατα όρια που έχετε επιλέξει"
 
 #: thold_templates.php:255
-#, fuzzy, php-format
+#, php-format
 msgid "%s (%d Thresholds)"
 msgstr "%s (% d Κατώτατα όρια)"
 
 #: thold_templates.php:276
-#, fuzzy
 msgid "Click 'Continue' to export the following Threshold Template(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να εξαγάγετε τα ακόλουθα πρότυπα."
 
 #: thold_templates.php:277
-#, fuzzy
 msgid "Export Template(s)"
 msgstr "Εξαγωγή προτύπου"
 
 #: thold_templates.php:280
-#, fuzzy
 msgid "Click 'Continue' to delete the following Threshold Template(s)."
 msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να διαγράψετε τα παρακάτω πρότυπα."
 
 #: thold_templates.php:281
-#, fuzzy
 msgid "Delete Template(s)"
 msgstr "Διαγραφή προτύπου"
 
 #: thold_templates.php:284
-#, fuzzy
 msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να υποβάλετε ξανά τα προτεινόμενα ονόματα στα κατώφλια των ακόλουθων προτύπων κατωφλίου."
 
 #: thold_templates.php:285
-#, fuzzy
 msgid "Reapply Suggested Names to Template(s)"
 msgstr "Επαναπροσδιορισμός προτεινόμενων ονομάτων σε πρότυπα"
 
 #: thold_templates.php:288
-#, fuzzy
 msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να ενεργοποιήσετε τα παρακάτω όρια."
 
 #: thold_templates.php:289
-#, fuzzy
 msgid "Enable Template(s)"
 msgstr "Διαγραφή προτύπου"
 
 #: thold_templates.php:292
-#, fuzzy
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να απενεργοποιήσετε τα παρακάτω όρια."
 
 #: thold_templates.php:293
-#, fuzzy
 msgid "Disable Template(s)"
 msgstr "Διαγραφή προτύπου"
 
 #: thold_templates.php:415
-#, fuzzy
 msgid "Threshold Template Creation Wizard"
 msgstr "Οδηγός δημιουργίας προτύπου ουράς"
 
@@ -3934,17 +3398,14 @@ msgid "Data Source"
 msgstr "Ανεπεξέργαστη πηγή"
 
 #: thold_templates.php:520
-#, fuzzy
 msgid "Please select a Data Template"
 msgstr "Επιλέξτε ένα πρότυπο δεδομένων"
 
 #: thold_templates.php:522
-#, fuzzy
 msgid "Please select a Data Source"
 msgstr "Επιλέξτε μια πηγή δεδομένων"
 
 #: thold_templates.php:524
-#, fuzzy
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Πατήστε 'Δημιουργία' για να δημιουργήσετε το πρόγραμμά σας"
 
@@ -3953,252 +3414,216 @@ msgid "Create"
 msgstr "Δημιουργία"
 
 #: thold_templates.php:947
-#, fuzzy
 msgid "The Threshold Template requested can not be found"
 msgstr "Το όριο δεν υπάρχει"
 
 #: thold_templates.php:1131
-#, fuzzy
 msgid "Provide the Threshold Template a meaningful name."
 msgstr "Δώστε ένα πρότυπο όνομα στο πρότυπο κατωφλίου."
 
 #: thold_templates.php:1135
-#, fuzzy
 msgid "Suggested Threshold Name"
 msgstr "Προτεινόμενο όριο ορίου"
 
 #: thold_templates.php:1140
-#, fuzzy
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr "Παρέχετε το προτεινόμενο όνομα για ένα κατώφλι που δημιουργήθηκε χρησιμοποιώντας αυτό το Πρότυπο. Μπορούν να χρησιμοποιηθούν τυπικές συσκευές (| host_ * |), μεταβλητές αντικατάστασης δεδομένων Query (| query_ * |) και input (| input_ * |), καθώς και | graph_title | για τον τίτλο γραφήματος."
 
 #: thold_templates.php:1147
-#, fuzzy
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "Πρότυπο δεδομένων που χρησιμοποιείτε. (Αυτό δεν μπορεί να αλλάξει)"
 
 #: thold_templates.php:1152
-#, fuzzy
 msgid "Data Field"
 msgstr "Πεδίο δεδομένων"
 
 #: thold_templates.php:1155
-#, fuzzy
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr "Πεδίο δεδομένων που χρησιμοποιείτε. (Αυτό δεν μπορεί να αλλάξει)"
 
 #: thold_templates.php:1163
-#, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "Είτε θα ελέγχεται και θα ειδοποιείται το συγκεκριμένο Κατώτατο όριο."
 
 #: thold_templates.php:1246
-#, fuzzy
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr "Επαναλάβετε την ειδοποίηση μετά την επικόλληση αυτού του χρονικού διαστήματος από την τελευταία ειδοποίηση."
 
 #: thold_templates.php:1271 thold_templates.php:1299
-#, fuzzy
 msgid "Min Trigger Duration"
 msgstr "Ελάχιστη διάρκεια ενεργοποίησης"
 
 #: thold_templates.php:1274 thold_templates.php:1302
-#, fuzzy
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr "Ο χρόνος κατά τον οποίο η πηγή δεδομένων πρέπει να είναι σε κατάσταση παραβίασης για να εγγραφεί μια ειδοποίηση."
 
 #: thold_templates.php:1332
-#, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr "Ο αριθμός των φορών που η πηγή δεδομένων πρέπει να είναι σε κατάσταση παραβίασης πριν από την έκδοση προειδοποίησης."
 
 #: thold_templates.php:1336 thold_templates.php:1372
-#, fuzzy
 msgid "Time Period Length"
 msgstr "Μήκος χρονικής περιόδου"
 
 #: thold_templates.php:1368
-#, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr "Ο αριθμός των φορών που η πηγή δεδομένων πρέπει να είναι σε κατάσταση παραβίασης πριν από την έκδοση ειδοποίησης."
 
 #: thold_templates.php:1379
-#, fuzzy
 msgid "Baseline Monitoring"
 msgstr "Παρακολούθηση βάσης"
 
 #: thold_templates.php:1414
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το ανώτατο οριακό όριο. Εάν δεν έχει οριστεί, το άνω όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου."
 
 #: thold_templates.php:1422
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το κάτω όριο Κατώφλι. Εάν δεν έχει οριστεί, το κατώτατο όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου."
 
 #: thold_templates.php:1430
-#, fuzzy, php-format
+#, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr "Ο αριθμός των συνεχόμενων φορών που η πηγή δεδομένων πρέπει να βρίσκεται σε κατάσταση παραβίασης για να εγγραφεί μια ειδοποίηση. <br> Αφήστε κενό για να χρησιμοποιήσετε την προεπιλεγμένη τιμή (Προεπιλογή: %s κύκλοι"
 
 #: thold_templates.php:1454
-#, fuzzy
 msgid "Percent Datasource"
 msgstr "Ποσοστιαία πηγή δεδομένων"
 
 #: thold_templates.php:1457
-#, fuzzy
 msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr "Δεύτερο στοιχείο προέλευσης δεδομένων για χρήση ως συνολική τιμή για τον υπολογισμό του ποσοστού από."
 
 #: thold_templates.php:1467
-#, fuzzy, php-format
+#, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "Μια έκφραση RPN είναι μια RRDtool συμβατή έκφραση RPN. Η σύνταξη περιλαμβάνει όλες τις παρακάτω λειτουργίες εκτός από τις εκφράσεις αντικατάστασης συσκευής και δεδομένων Query, όπως <span style=\"color:blue;\">| query_ifSpeed |</span> . Για να χρησιμοποιήσετε μια προέλευση δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span style=\"color:blue;\">| ds: dsname |</span> . Για παράδειγμα, <span style=\"color:blue;\">| ds: traffic_in |</span> θα πάρει την τρέχουσα τιμή της traffic_in προέλευσης δεδομένων για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε πηγή δεδομένων για ένα γράφημα. <br> Μαθητικοί χειριστές: <span style=\"color:blue;\">+, -, /, *,%, ^</span> <br> Λειτουργίες: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Χειριστές ροής: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Λειτουργίες σύγκρισης: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
 
 #: thold_templates.php:1474
-#, fuzzy
 msgid "Upper data source to use to calculate the total value."
 msgstr "Πάνω πηγή δεδομένων για χρήση για τον υπολογισμό της συνολικής τιμής."
 
 #: thold_templates.php:1508
-#, fuzzy
 msgid "Alert Email Subject"
-msgstr "Ειδοποιήσεις ηλεκτρονικού ταχυδρομείου"
+msgstr "Ειδοποίηση θέματος του email"
 
 #: thold_templates.php:1517
-#, fuzzy
 msgid "Alert Email Body"
 msgstr "Φόρμα ηλεκτρονικού ταχυδρομείου ειδοποίησης"
 
 #: thold_templates.php:1531
-#, fuzzy
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
 
 #: thold_templates.php:1553
-#, fuzzy
 msgid "Restoral Body"
 msgstr "Φόρμα ηλεκτρονικού ταχυδρομείου ειδοποίησης"
 
 #: thold_templates.php:1562
-#, fuzzy
 msgid "Notification List Read Only"
 msgstr "Μόνο λίστα ειδοποιήσεων"
 
 #: thold_templates.php:1563
-#, fuzzy
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr "Εάν είναι επιλεγμένο, η κοινοποίηση κατωφλίου θα αποσταλεί στο τοπικό syslog."
 
 #: thold_templates.php:1618
-#, fuzzy
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "Σοβαρότητα που πρέπει να χρησιμοποιείται για ειδοποιήσεις. (Χαμηλή επίδραση -> Κρίσιμη επίδραση)"
 
 #: thold_templates.php:1647
-#, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr "Πρόκειται για μια λίστα λογαριασμών που θα ειδοποιούνται όταν παραβιάζεται αυτό το όριο. <br><br><br><br>"
 
 #: thold_templates.php:1657
-#, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr "Μπορείτε να ορίσετε εδώ επιπλέον μηνύματα ηλεκτρονικού ταχυδρομείου για να λαμβάνετε ειδοποιήσεις για αυτήν την πηγή δεδομένων (διαχωρισμένο με κόμμα)"
 
 #: thold_templates.php:1665
-#, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr "Μπορείτε να ορίσετε εδώ επιπλέον μηνύματα ηλεκτρονικού ταχυδρομείου για να λαμβάνετε προειδοποιήσεις για αυτήν την πηγή δεδομένων (διαχωρισμένα με κόμμα)"
 
 #: thold_templates.php:1777
-#, fuzzy
 msgid "Enter an Eternal ID for this Thold Template."
 msgstr "Η δημιουργία γραφήματος απέτυχε για το πρότυπο κατωφλίου"
 
 #: thold_templates.php:2039
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d Μήνες,% d Ημέρες,% d Ώρες,% d Λεπτά,% d Δευτερόλεπτα (Μέσος όρος)"
 
 #: thold_templates.php:2041
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d Μήνες,% d Ημέρες,% d Ώρες,% d Λεπτά,% d Δευτερόλεπτα"
 
 #: thold_templates.php:2045
-#, fuzzy, php-format
+#, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d ημέρες,% d ώρες,% d λεπτά,% d δευτερόλεπτα (μέσος όρος)"
 
 #: thold_templates.php:2047
-#, fuzzy, php-format
+#, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d ημέρες,% d ώρες,% d λεπτά,% d δευτερόλεπτα"
 
 #: thold_templates.php:2051
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d Ώρες,% d Λεπτά,% d Δευτερόλεπτα (Μέσος όρος)"
 
 #: thold_templates.php:2053
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr "% d ώρες,% d λεπτά,% d δευτερόλεπτα"
 
 #: thold_templates.php:2057
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr "% d Λεπτά,% d Δευτερόλεπτα (Μέσος όρος)"
 
 #: thold_templates.php:2059
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr "% d Λεπτά,% d Δευτερόλεπτα"
 
 #: thold_templates.php:2063
-#, fuzzy, php-format
+#, php-format
 msgid "%d Seconds (Average)"
 msgstr "% d Δευτερόλεπτα (Μέσος όρος)"
 
 #: thold_templates.php:2065
-#, fuzzy, php-format
+#, php-format
 msgid "%d Seconds"
 msgstr "%d δευτερόλεπτα"
 
 #: thold_templates.php:2257
-#, fuzzy
 msgid "DS Name"
 msgstr "Όνομα DS"
 
 #: thold_templates.php:2265
-#, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "Οι τιμές υψηλής προειδοποίησης / ειδοποίησης. ΣΗΜΕΙΩΣΗ: Οι τιμές βάσης είναι ένα ποσοστό, όλες οι άλλες τιμές είναι τιμές RAW που δεν τροποποιούνται από ένα cdef."
 
 #: thold_templates.php:2271
-#, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "Οι τιμές χαμηλής προειδοποίησης / ειδοποίησης. ΣΗΜΕΙΩΣΗ: Οι τιμές βάσης είναι ένα ποσοστό, όλες οι άλλες τιμές είναι τιμές RAW που δεν τροποποιούνται από ένα cdef."
 
 #: thold_templates.php:2386
-#, fuzzy
 msgid "Import Template from Local File"
 msgstr "Εισαγωγή προτύπου από τοπικό αρχείο"
 
 #: thold_templates.php:2387
-#, fuzzy
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr "Εάν το αρχείο XML που περιέχει δεδομένα προτύπου ουράς βρίσκεται στο τοπικό σας μηχάνημα, επιλέξτε το εδώ."
 
 #: thold_templates.php:2392
-#, fuzzy
 msgid "Import Template from Text"
 msgstr "Εισαγωγή προτύπου από κείμενο"
 
 #: thold_templates.php:2393
-#, fuzzy
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
 msgstr "Αν έχετε το αρχείο XML που περιέχει δεδομένα προτύπου ουράς ως κείμενο, μπορείτε να το επικολλήσετε σε αυτό το πλαίσιο για να το εισαγάγετε."
 
@@ -4207,12 +3632,10 @@ msgid "Import Results"
 msgstr "Εισαγωγή Αποτελεσμάτων"
 
 #: thold_templates.php:2407
-#, fuzzy
 msgid "Cacti has imported the following items:"
 msgstr "Ο Cacti εισήγαγε τα ακόλουθα στοιχεία:"
 
 #: thold_templates.php:2417 thold_templates.php:2429
-#, fuzzy
 msgid "Import Threshold Templates"
 msgstr "Πρότυπα πρότυπα εισαγωγής"
 
@@ -4221,34 +3644,28 @@ msgid "The file is too big."
 msgstr "Το αρχείο είναι πολύ μεγάλο."
 
 #: thold_templates.php:2448
-#, fuzzy
 msgid "Incomplete file transfer."
 msgstr "Μη ολοκληρωμένη μεταφορά αρχείων."
 
 #: thold_templates.php:2451 thold_templates.php:2478
-#, fuzzy
 msgid "No file uploaded."
-msgstr "Δεν μεταφορτώθηκε αρχείο."
+msgstr "Δεν έχει μεταφορτωθεί κάποιο αρχείο."
 
 #: thold_templates.php:2454
-#, fuzzy
 msgid "Temporary folder missing."
 msgstr "Λείπει προσωρινός φάκελος."
 
 #: thold_templates.php:2457
-#, fuzzy
 msgid "Failed to write file to disk"
 msgstr "Αποτυχία εγγραφής αρχείου σε δίσκο"
 
 #: thold_templates.php:2460
-#, fuzzy
 msgid "File upload stopped by extension"
 msgstr "Η μεταφόρτωση αρχείου σταμάτησε κατά επέκταση"
 
 #: thold_templates.php:2471
-#, fuzzy
 msgid "Invalid file extension."
-msgstr "Μη έγκυρη επέκταση αρχείου."
+msgstr "Μη έγκυρη επέκταση αρχείου: %s"
 
 #: thold_templates.php:2497
 msgid "NOTE:"
@@ -4259,132 +3676,106 @@ msgid "ERROR:"
 msgstr "ΣΦΑΛΜΑ:"
 
 #: thold_webapi.php:151
-#, fuzzy
 msgid "Threshold(s) Already Exists - No Thresholds Created"
 msgstr "Όρια ήδη υπάρχουν - Δεν δημιουργήθηκαν κατώτατα όρια"
 
 #: thold_webapi.php:286
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
 msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλέξτε τύπο κατωφλίου]"
 
 #: thold_webapi.php:290
-#, fuzzy
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
 msgstr "Οδηγός δημιουργίας κατωφλιών [Εισάγετε προσαρμοσμένα δεδομένα και πατήστε 'Δημιουργία' για να δημιουργήσετε το κατώφλι και το γράφημά σας]"
 
 #: thold_webapi.php:292
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
 msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή διαθέσιμων σειρών ερωτημάτων δεδομένων]"
 
 #: thold_webapi.php:294 thold_webapi.php:309
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Device ]"
 msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή συσκευής]"
 
 #: thold_webapi.php:296
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Graph Template ]"
 msgstr "Οδηγός δημιουργίας κατωφλιών [Επιλέξτε ένα πρότυπο γραφήματος]"
 
 #: thold_webapi.php:298
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
 msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλέξτε ένα πρότυπο κατωφλίου]"
 
 #: thold_webapi.php:303
-#, fuzzy
 msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
 msgstr "Οδηγός δημιουργίας κατωφλίου [Πατήστε 'Δημιουργία' για να δημιουργήσετε το κατώφλι σας]"
 
 #: thold_webapi.php:305
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Data Source ]"
 msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή προέλευσης δεδομένων]"
 
 #: thold_webapi.php:307
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Graph ]"
 msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή γραφήματος]"
 
 #: thold_webapi.php:316
-#, fuzzy
 msgid "Threshold Creation Criteria"
 msgstr "Κριτήρια δημιουργίας κατωφλίου"
 
 #: thold_webapi.php:321
-#, fuzzy
 msgid "Create Type"
 msgstr "Δημιουργία τύπου"
 
 #: thold_webapi.php:322
-#, fuzzy
 msgid "Select a Threshold Type to use for creating this Threshold."
 msgstr "Επιλέξτε έναν τύπο κατώτατου ορίου που θα χρησιμοποιηθεί για τη δημιουργία αυτού του κατώτατου ορίου."
 
 #: thold_webapi.php:326
-#, fuzzy
 msgid "Select a Threshold Type"
 msgstr "Επιλέξτε έναν τύπο κατώτατου ορίου"
 
 #: thold_webapi.php:327
-#, fuzzy
 msgid "Non Templated"
 msgstr "Μη προτυποποιημένο"
 
 #: thold_webapi.php:332 thold_webapi.php:338
-#, fuzzy
 msgid "Threshold Template"
 msgstr "Πρότυπο κατωφλίου"
 
 #: thold_webapi.php:339
-#, fuzzy
 msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
 msgstr "Επιλέξτε ένα πρότυπο κατωφλίου που θα βασίζεται στο γράφημα και το κατώφλι."
 
 #: thold_webapi.php:476
-#, fuzzy
 msgid "Graph Template"
 msgstr "Πρότυπο γραφήματος"
 
 #: thold_webapi.php:477
-#, fuzzy
 msgid "Select a Graph Template to use for the Graph to be created."
 msgstr "Επιλέξτε ένα πρότυπο γραφήματος που θα χρησιμοποιηθεί για τη δημιουργία του γραφήματος."
 
 #: thold_webapi.php:481
-#, fuzzy
 msgid "Select a Graph Template"
 msgstr "Επιλέξτε ένα πρότυπο γραφήματος"
 
 #: thold_webapi.php:497 thold_webapi.php:645 thold_webapi.php:665
-#, fuzzy
 msgid "Select a Device to use for the Threshold and Graph to be created."
 msgstr "Επιλέξτε μια συσκευή που θέλετε να χρησιμοποιήσετε για να δημιουργήσετε το κατώφλι και το γράφημα."
 
 #: thold_webapi.php:501 thold_webapi.php:651 thold_webapi.php:669
-#, fuzzy
 msgid "Select a Device"
 msgstr "Επιλέξτε μια συσκευή"
 
 #: thold_webapi.php:514
-#, fuzzy
 msgid "Select and Available Item"
 msgstr "Επιλέξτε και Διαθέσιμο στοιχείο"
 
 #: thold_webapi.php:547
-#, fuzzy
 msgid "Data Query Item"
 msgstr "Στοιχείο ερώτησης δεδομένων"
 
 #: thold_webapi.php:548
-#, fuzzy
 msgid "Select the applicable row from the Data Query for the Graph and Threshold."
 msgstr "Επιλέξτε την κατάλληλη σειρά από το ερώτημα δεδομένων για το γράφημα και το κατώφλι."
 
 #: thold_webapi.php:596 thold_webapi.php:754 thold_webapi.php:774
-#, fuzzy
 msgid "Creation Notes"
 msgstr "Σημειώσεις Δημιουργίας"
 
@@ -4393,7 +3784,6 @@ msgid "Important Note:"
 msgstr "Σημαντική σημείωση:"
 
 #: thold_webapi.php:598
-#, fuzzy
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
 msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί. Όταν χρησιμοποιείτε την επιλογή Template Template, θα σας ζητηθεί να λάβετε πληροφορίες σχετικά με το πρότυπο Threshold Template, Template Template, Device και ενδεχομένως Data Query Data πριν λάβετε την εντολή 'Create', οπότε επιτρέπονται τυχόν επικαλυπτόμενες πληροφορίες Graf ή Data Source στο Graph και επίπεδο προτύπου πηγής δεδομένων, θα σας ζητηθεί. Στη συνέχεια, πατώντας το κουμπί \"Δημιουργία\", θα δημιουργηθούν ταυτόχρονα το γράφημα και το κατώφλι."
 
@@ -4402,209 +3792,34 @@ msgid "Graph"
 msgstr "Γραφικό Σχήμα"
 
 #: thold_webapi.php:686
-#, fuzzy
 msgid "Select the Graph for the Threshold."
 msgstr "Επιλέξτε το γράφημα για το κατώφλι."
 
 #: thold_webapi.php:690
-#, fuzzy
 msgid "Select a Graph"
 msgstr "Επιλέξτε ένα γράφημα"
 
 #: thold_webapi.php:715
-#, fuzzy
 msgid "Select a Data Source for the Threshold."
 msgstr "Επιλέξτε μια προέλευση δεδομένων για το κατώφλι."
 
 #: thold_webapi.php:719
-#, fuzzy
 msgid "Select a Data Source"
 msgstr "Επιλέξτε μια πηγή δεδομένων"
 
 #: thold_webapi.php:756
-#, fuzzy
 msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
 msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί και θα λειτουργεί μόνο σε υπάρχοντες Γράφημα. Αν θέλετε ταυτόχρονα να δημιουργήσετε το Γράφημα και το Κατώφλι, επιλέξτε Template Template από το αναπτυσσόμενο μενού και συνεχίστε μέχρι να εμφανιστεί το κουμπί 'Δημιουργία'."
 
 #: thold_webapi.php:776
-#, fuzzy
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
 msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί. Μπορείτε να επιλέξετε είτε με γράφημα όπου θα επιλέξετε μια υπάρχουσα συσκευή, γράφημα και πηγή δεδομένων πριν δημιουργήσετε το κατώφλι σας, είτε μπορείτε να επιλέξετε Template Template που θα σας επιτρέψει να δημιουργήσετε ένα μη προτυποποιημένο κατώφλι και αντίστοιχο Graph ταυτόχρονα"
 
 #: thold_webapi.php:781
-#, fuzzy
 msgid "Selected Graph"
 msgstr "Επιλεγμένο γράφημα"
 
 #: thold_webapi.php:963 thold_webapi.php:976
-#, fuzzy, php-format
+#, php-format
 msgid "Created graph: %s"
 msgstr "Δημιουργήθηκε γράφημα: %s"
-
-#, fuzzy
-#~| msgid "Notification Settings"
-#~ msgid "Notification Delay Single Transaction"
-#~ msgstr "Ρυθμίσεις ειδοποιήσεων"
-
-#, fuzzy
-#~ msgid "No Templates"
-#~ msgstr "Πρότυπα"
-
-#, fuzzy
-#~ msgid "Notifaction List"
-#~ msgstr "Λίστα ειδοποιήσεων"
-
-#, fuzzy
-#~ msgid "Retoral"
-#~ msgstr "Ανακαίνιση"
-
-#, fuzzy
-#~ msgid "Enable Notification Daemon"
-#~ msgstr "Ενεργοποίηση ανά ειδοποίηση"
-
-#, fuzzy
-#~ msgid "Checking this box will enable the use of a dedicated Notification daemon. Note that you must setup the systemd or initd service on your own.  Instructions are in the README.md."
-#~ msgstr "Ο έλεγχος αυτού του πλαισίου θα επιτρέψει τη χρήση ενός αποκλειστικού δαίμονα Threshold. Αυτό μπορεί να χρησιμοποιηθεί για την αύξηση της απόδοσης του συστήματος ή / και για τη διανομή της παρακολούθησης Threshold σε ένα ξεχωριστό διακομιστή."
-
-#, fuzzy
-#~ msgid "Device Notifications"
-#~ msgstr "Ειδοποιήσεις Νεκτής Συσκευής"
-
-#, fuzzy
-#~ msgid "Baseline Type"
-#~ msgstr "Ειδοποίηση βάσης"
-
-#~ msgid "Time range"
-#~ msgstr "Εύρος ώρας"
-
-#, fuzzy
-#~ msgid "Baseline Deviation UP"
-#~ msgstr "Απόκλιση βασικής γραμμής UP"
-
-#, fuzzy
-#~ msgid "Baseline Deviation DOWN"
-#~ msgstr "Απόκλιση βασικής γραμμής ΚΑΤΩ"
-
-#, fuzzy
-#~ msgid "%s%%%"
-#~ msgstr "%s %s"
-
-#, fuzzy
-#~ msgid "Threshold Enabled"
-#~ msgstr "Ενεργοποιημένο όριο"
-
-#, fuzzy
-#~ msgid "Specifies the point in the past (based on RRDfile resolution) that will be used as a reference"
-#~ msgstr "Καθορίζει το σημείο στο παρελθόν (με βάση την ανάλυση RRDfile) που θα χρησιμοποιηθεί ως αναφορά"
-
-#, fuzzy
-#~ msgid "Time reference in the past"
-#~ msgstr "Αναφορά χρόνου στο παρελθόν"
-
-#, fuzzy
-#~ msgid "Default Monitor Status"
-#~ msgstr "Προεπιλεγμένη κατάσταση παρακολούθησης"
-
-#, fuzzy
-#~ msgid "Default Threshold Tab filter status."
-#~ msgstr "Κατάσταση φίλτρου προεπιλεγμένης καμπύλης."
-
-#, fuzzy
-#~ msgid "Maximum Concurrent Threshold Processes"
-#~ msgstr "Μέγιστες παράλληλες διαδικασίες κατωφλίου"
-
-#, fuzzy
-#~ msgid "Create a new Threshold"
-#~ msgstr "Δημιουργήστε ένα νέο όριο"
-
-#, fuzzy
-#~ msgid "Create a Threshold Template"
-#~ msgstr "Δημιουργήστε ένα πρότυπο ορίου"
-
-#, fuzzy
-#~ msgid "You may either create a new Threshold Template, or an non-templated Threshold from this screen."
-#~ msgstr "Μπορείτε είτε να δημιουργήσετε ένα νέο πρότυπο κατωφλιού είτε ένα μη προτυποποιημένο όριο από αυτήν την οθόνη."
-
-#, fuzzy
-#~ msgid "Threshold Action"
-#~ msgstr "Δράση κατωφλίου"
-
-#, fuzzy
-#~ msgid "Select an action"
-#~ msgstr "Επιλέξτε μια ενέργεια"
-
-#, fuzzy
-#~ msgid "There are no Threshold Templates associated with the following Graph."
-#~ msgstr "Δεν υπάρχουν πρότυπα κατωφλιών που να συσχετίζονται με το ακόλουθο γράφημα."
-
-#, fuzzy
-#~ msgid "Press 'Continue' after you have selected the Threshold Template to utilize."
-#~ msgstr "Πατήστε 'Συνέχεια' αφού έχετε επιλέξει το πρότυπο Κατώφλι για χρήση."
-
-#, fuzzy
-#~ msgid "The following Graph has no Threshold Templates associated with them."
-#~ msgstr "Το παρακάτω γράφημα δεν έχει πρότυπα κατωφλίου που σχετίζονται με αυτά."
-
-#, fuzzy
-#~ msgid " What? Permission Denied"
-#~ msgstr "Τι? Η άδεια αρνήθηκε"
-
-#, fuzzy
-#~ msgid "BL Duration"
-#~ msgstr "Διάρκεια BL"
-
-#, fuzzy
-#~ msgid "Baseline-HIGH"
-#~ msgstr "Βασική γραμμή-ΥΨΗΛΗ"
-
-#, fuzzy
-#~ msgid "Baseline-LOW"
-#~ msgstr "Βασική γραμμή-ΧΑΜΗΛΗ"
-
-#, fuzzy
-#~ msgid "BL Hi/Lo"
-#~ msgstr "BL Hi / Lo"
-
-#, fuzzy
-#~ msgid "Alert Hi/Lo"
-#~ msgstr "Alert Hi / Lo"
-
-#, fuzzy
-#~ msgid "Warn Hi/Lo"
-#~ msgstr "Προειδοποίηση Hi / Lo"
-
-#, fuzzy
-#~ msgid "If set and data source value goes below this number, alert will be triggered"
-#~ msgstr "Εάν η τιμή της πηγής και της πηγής δεδομένων πέσει κάτω από αυτόν τον αριθμό, θα ενεργοποιηθεί η ειδοποίηση"
-
-#, fuzzy
-#~ msgid "If set and data source value goes above this number, alert will be triggered"
-#~ msgstr "Εάν η τιμή της πηγής και της πηγής δεδομένων υπερβεί αυτόν τον αριθμό, θα ενεργοποιηθεί η ειδοποίηση"
-
-#, fuzzy
-#~ msgid "If set and data source value goes below this number, warning will be triggered"
-#~ msgstr "Εάν η τιμή της πηγής και της πηγής δεδομένων πέσει κάτω από αυτόν τον αριθμό, θα προκληθεί προειδοποίηση"
-
-#, fuzzy
-#~ msgid "If set and data source value goes above this number, warning will be triggered"
-#~ msgstr "Εάν η τιμή της πηγής και της πηγής δεδομένων υπερβεί αυτόν τον αριθμό, θα προκληθεί προειδοποίηση"
-
-#, fuzzy
-#~ msgid "Low Threshold values for Warning/Alert"
-#~ msgstr "Χαμηλές τιμές κατωφλίου για προειδοποίηση / ειδοποίηση"
-
-#, fuzzy
-#~ msgid "Reset Acknowledgment"
-#~ msgstr "Επαναφορά επιβεβαίωσης"
-
-#, fuzzy
-#~ msgid "Created Threshold: %s<br>"
-#~ msgstr "Δημιουργήθηκε όριο: %s"
-
-#, fuzzy
-#~ msgid "Default Syslog Settings"
-#~ msgstr "Προεπιλεγμένες ρυθμίσεις Syslog"
-
-#, fuzzy
-#~ msgid "Reset Acknowledgment for Template(s)"
-#~ msgstr "Επαναφορά επιβεβαίωσης για πρότυπα ή πρότυπα"

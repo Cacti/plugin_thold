@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2024-04-14 11:37-0400\n"
+"POT-Creation-Date: 2024-04-20 16:30-0400\n"
 "PO-Revision-Date: 2020-09-13 15:02-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,35 +18,34 @@ msgstr ""
 "X-Generator: Poedit 2.4.1\n"
 
 #: includes/arrays.php:26
-#, fuzzy
 msgid "Indefinitely"
 msgstr "무기한으로"
 
 #: includes/arrays.php:27 includes/arrays.php:338 includes/arrays.php:370
 #: includes/arrays.php:415 includes/arrays.php:436
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
 msgstr "% d 개월"
 
 #: includes/arrays.php:28 includes/arrays.php:29 includes/arrays.php:30
 #: includes/arrays.php:31
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
 msgstr "개월 % d 개월"
 
 #: includes/arrays.php:32
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
 msgstr "% d 년"
 
 #: includes/arrays.php:36
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Hour Ago"
 msgstr "% d 시간마다"
 
 #: includes/arrays.php:37 includes/arrays.php:38 includes/arrays.php:39
 #: includes/arrays.php:40
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Hours Ago"
 msgstr "% d 시간마다"
 
@@ -56,33 +55,33 @@ msgid "From %d Day Ago"
 msgstr ""
 
 #: includes/arrays.php:42 includes/arrays.php:43
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Days Ago"
 msgstr "매 % d 일"
 
 #: includes/arrays.php:44
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Week Ago"
 msgstr "% d주의"
 
 #: includes/arrays.php:45 includes/arrays.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Weeks Ago"
 msgstr "% d 주마다"
 
 #: includes/arrays.php:47
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Month Ago"
 msgstr "% d 개월"
 
 #: includes/arrays.php:48 includes/arrays.php:49 includes/arrays.php:50
 #: includes/arrays.php:51
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Months Ago"
 msgstr "개월 % d 개월"
 
 #: includes/arrays.php:52
-#, fuzzy, php-format
+#, php-format
 msgid "From %d Year Ago"
 msgstr "% d 년"
 
@@ -102,7 +101,6 @@ msgid "Error"
 msgstr "오류"
 
 #: includes/arrays.php:66 thold_graph.php:834 thold_graph.php:1175
-#, fuzzy
 msgid "Recovering"
 msgstr "복구 중"
 
@@ -123,12 +121,10 @@ msgid "Disabled"
 msgstr "비활성화"
 
 #: includes/arrays.php:82 thold_graph.php:1101 thold_graph.php:1172
-#, fuzzy
 msgid "Not Monitored"
 msgstr "모니터되지 않음"
 
 #: includes/arrays.php:90
-#, fuzzy
 msgid "Notify - Alert"
 msgstr "알림 - 알리미"
 
@@ -138,17 +134,14 @@ msgid "Alert"
 msgstr "경고"
 
 #: includes/arrays.php:96
-#, fuzzy
 msgid "Notify - Alert2Warning"
 msgstr "알림 - Alert2Warning"
 
 #: includes/arrays.php:97
-#, fuzzy
 msgid "Alert2Warn"
 msgstr "경고 - 경고"
 
 #: includes/arrays.php:102
-#, fuzzy
 msgid "Notify - Warning"
 msgstr "알림 - 경고"
 
@@ -158,62 +151,50 @@ msgid "Warning"
 msgstr "경고"
 
 #: includes/arrays.php:108
-#, fuzzy
 msgid "Notify - Re-Trigger"
 msgstr "알림 - 재 트리거"
 
 #: includes/arrays.php:109 includes/arrays.php:157
-#, fuzzy
 msgid "Re-Trigger"
 msgstr "다시 트리거"
 
 #: includes/arrays.php:114
-#, fuzzy
 msgid "Notify - Restoral"
 msgstr "알림 - 복구"
 
 #: includes/arrays.php:115 includes/arrays.php:172
-#, fuzzy
 msgid "Restoral"
 msgstr "회복력있는"
 
 #: includes/arrays.php:120
-#, fuzzy
 msgid "Event - Alert Trigger"
 msgstr "이벤트 - 경고 트리거"
 
 #: includes/arrays.php:121
-#, fuzzy
 msgid "Alert Event"
 msgstr "경고 사전 설정"
 
 #: includes/arrays.php:126
-#, fuzzy
 msgid "Event - Warning Trigger"
 msgstr "이벤트 - 경고 트리거"
 
 #: includes/arrays.php:127
-#, fuzzy
 msgid "Warning Event"
 msgstr "경고"
 
 #: includes/arrays.php:132
-#, fuzzy
 msgid "Event - Restoral"
 msgstr "이벤트 - 복구"
 
 #: includes/arrays.php:133 thold_graph.php:1541
-#, fuzzy
 msgid "Restoral Event"
 msgstr "회복 운동"
 
 #: includes/arrays.php:138
-#, fuzzy
 msgid "Event - Acknowledge"
 msgstr "인정"
 
 #: includes/arrays.php:139
-#, fuzzy
 msgid "Acknowledge Event"
 msgstr "인정"
 
@@ -222,27 +203,22 @@ msgid "Restore"
 msgstr "복구"
 
 #: includes/arrays.php:152
-#, fuzzy
 msgid "Alert Trigger"
 msgstr "경고 트리거"
 
 #: includes/arrays.php:177
-#, fuzzy
 msgid "Warn Trigger"
 msgstr "경고 발생"
 
 #: includes/arrays.php:182
-#, fuzzy
 msgid "Alert-Warn"
 msgstr "경고 - 경고"
 
 #: includes/arrays.php:187 includes/arrays.php:215 thold_graph.php:1506
-#, fuzzy
 msgid "Acknowledgment"
 msgstr "인정"
 
 #: includes/arrays.php:199
-#, fuzzy
 msgid "Baseline Alert"
 msgstr "기본 경고"
 
@@ -300,7 +276,7 @@ msgstr "매시간"
 #: includes/arrays.php:384 includes/arrays.php:385 includes/arrays.php:386
 #: includes/arrays.php:387 includes/arrays.php:388 includes/arrays.php:389
 #: includes/settings.php:499
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hours"
 msgstr "% d 시간마다"
 
@@ -309,7 +285,7 @@ msgid "Every Day"
 msgstr "매일"
 
 #: includes/arrays.php:310 includes/arrays.php:391
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Days"
 msgstr "매 % d 일"
 
@@ -318,7 +294,7 @@ msgid "Every Week"
 msgstr "매주"
 
 #: includes/arrays.php:312 includes/arrays.php:393
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Weeks"
 msgstr "% d 주마다"
 
@@ -327,7 +303,7 @@ msgid "Every Month"
 msgstr "매월"
 
 #: includes/arrays.php:317 includes/arrays.php:342
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minute"
 msgstr "% d 분"
 
@@ -345,13 +321,13 @@ msgstr "% d 분"
 #: includes/arrays.php:422 includes/arrays.php:423 includes/arrays.php:424
 #: includes/arrays.php:613 includes/arrays.php:614 includes/arrays.php:615
 #: includes/arrays.php:616
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes"
 msgstr "%d 분"
 
 #: includes/arrays.php:327 includes/arrays.php:358 includes/arrays.php:404
 #: includes/arrays.php:425
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hour"
 msgstr "% d 시간"
 
@@ -363,13 +339,13 @@ msgstr "% d 시간"
 #: includes/arrays.php:408 includes/arrays.php:409 includes/arrays.php:410
 #: includes/arrays.php:426 includes/arrays.php:427 includes/arrays.php:428
 #: includes/arrays.php:429 includes/arrays.php:430 includes/arrays.php:431
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours"
 msgstr "% d 시간"
 
 #: includes/arrays.php:334 includes/arrays.php:366 includes/arrays.php:411
 #: includes/arrays.php:432
-#, fuzzy, php-format
+#, php-format
 msgid "%d Day"
 msgstr "% d 일"
 
@@ -381,23 +357,22 @@ msgstr "%d일"
 
 #: includes/arrays.php:336 includes/arrays.php:368 includes/arrays.php:413
 #: includes/arrays.php:434
-#, fuzzy, php-format
+#, php-format
 msgid "%d Week"
 msgstr "% d주의"
 
 #: includes/arrays.php:337 includes/arrays.php:369 includes/arrays.php:414
 #: includes/arrays.php:435
-#, fuzzy, php-format
+#, php-format
 msgid "%d Weeks"
 msgstr "% d 주"
 
 #: includes/arrays.php:362
-#, fuzzy, php-format
+#, php-format
 msgid "%0.1f Hours"
 msgstr "% 0.1f 시간"
 
 #: includes/arrays.php:443
-#, fuzzy
 msgid "Every Polling"
 msgstr "모든 폴링"
 
@@ -406,12 +381,12 @@ msgstr "모든 폴링"
 #: includes/arrays.php:450 includes/arrays.php:451 includes/arrays.php:452
 #: includes/arrays.php:453 includes/arrays.php:454 includes/arrays.php:455
 #: includes/arrays.php:456 includes/arrays.php:457 includes/arrays.php:458
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Pollings"
 msgstr "% d마다 설문 조사"
 
 #: includes/arrays.php:462 includes/arrays.php:481
-#, fuzzy, php-format
+#, php-format
 msgid "%d Polling"
 msgstr "폴링 % d 개"
 
@@ -425,62 +400,55 @@ msgstr "폴링 % d 개"
 #: includes/arrays.php:488 includes/arrays.php:489 includes/arrays.php:490
 #: includes/arrays.php:491 includes/arrays.php:492 includes/arrays.php:493
 #: includes/arrays.php:494 includes/arrays.php:495 includes/arrays.php:496
-#, fuzzy, php-format
+#, php-format
 msgid "%d Pollings"
 msgstr "% d 개의 투표"
 
 #: includes/arrays.php:503
-#, fuzzy
 msgid "High / Low"
 msgstr "저 높은"
 
 #: includes/arrays.php:504
-#, fuzzy
 msgid "Baseline Deviation"
 msgstr "기준 편차"
 
 #: includes/arrays.php:505
-#, fuzzy
 msgid "Time Based"
 msgstr "시간 기준"
 
 #: includes/arrays.php:509
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Min/Max [TIP]"
 msgstr "편차 UP"
 
 #: includes/arrays.php:510
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation CF [TIP]"
 msgstr "편차 UP"
 
 #: includes/arrays.php:511
-#, fuzzy
 msgid "Absolute Val Min/Max [TIP]"
 msgstr "알림 값"
 
 #: includes/arrays.php:512
-#, fuzzy
 msgid "Absolute Val of CF [TIP]"
 msgstr "알림 값"
 
 #: includes/arrays.php:513
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Avg [AOT]"
 msgstr "편차 UP"
 
 #: includes/arrays.php:514
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Avg of CF [AOT]"
 msgstr "편차 UP"
 
 #: includes/arrays.php:515
-#, fuzzy
 msgid "Absolute Val Avg [AOT]"
 msgstr "알림 값"
 
 #: includes/arrays.php:516
-#, fuzzy
 msgid "Absolute Val Avg of CF [AOT]"
 msgstr "알림 값"
 
@@ -489,7 +457,6 @@ msgid "Exact Value"
 msgstr "입력 값과 일치"
 
 #: includes/arrays.php:521
-#, fuzzy
 msgid "CDEF"
 msgstr "CDEF"
 
@@ -498,12 +465,10 @@ msgid "Percentage"
 msgstr "백분율"
 
 #: includes/arrays.php:523 thold.php:1931 thold_templates.php:1462
-#, fuzzy
 msgid "RPN Expression"
 msgstr "RPN 표현식"
 
 #: includes/arrays.php:524
-#, fuzzy
 msgid "Upper + Lower bytes"
 msgstr "상위 + 하위 바이트"
 
@@ -512,12 +477,10 @@ msgid "Acknowledge"
 msgstr "확인"
 
 #: includes/arrays.php:529
-#, fuzzy
 msgid "Suspend Notifications"
 msgstr "SNMP 알림"
 
 #: includes/arrays.php:530
-#, fuzzy
 msgid "Resume Notifications"
 msgstr "SNMP 알림"
 
@@ -535,12 +498,10 @@ msgid "Disable"
 msgstr "비활성화"
 
 #: includes/arrays.php:534 includes/arrays.php:543
-#, fuzzy
 msgid "Reapply Suggested Names"
 msgstr "제안 된 이름 재 적용"
 
 #: includes/arrays.php:535
-#, fuzzy
 msgid "Propagate Template"
 msgstr "템플릿 전파"
 
@@ -549,8 +510,6 @@ msgid "Export"
 msgstr "내보내기"
 
 #: includes/arrays.php:547
-#, fuzzy
-#| msgid "Threshold"
 msgid "Threshold Mail"
 msgstr "임계값"
 
@@ -563,8 +522,6 @@ msgid "Up Host Mail"
 msgstr ""
 
 #: includes/arrays.php:550
-#, fuzzy
-#| msgid "Threshold"
 msgid "Threshold Cmd"
 msgstr "임계값"
 
@@ -591,69 +548,62 @@ msgstr ""
 #: includes/arrays.php:572 includes/arrays.php:573 includes/arrays.php:574
 #: includes/arrays.php:575 includes/arrays.php:576 includes/arrays.php:577
 #: includes/arrays.php:578 includes/arrays.php:579 includes/arrays.php:580
-#, fuzzy, php-format
-#| msgid "%d Days"
+#, php-format
 msgid "%d Digits"
 msgstr "%d일"
 
 #: includes/arrays.php:597
-#, fuzzy, php-format
-#| msgid "Devices"
+#, php-format
 msgid "> %d Devices"
 msgstr "장치"
 
 #: includes/arrays.php:601
-#, php-format
-msgid "> %d%%% of Devices Globally"
-msgstr ""
+#, fuzzy, php-format
+msgid "> %d %%% of Devices Globally"
+msgstr "장치"
 
 #: includes/arrays.php:605
-#, fuzzy, php-format
-#| msgid "Devices"
+#, php-format
 msgid "> %d Devices in a Site"
 msgstr "장치"
 
 #: includes/arrays.php:609
-#, php-format
-msgid "> %d%%% of Devices in a Site"
-msgstr ""
+#, fuzzy, php-format
+msgid "> %d %%% of Devices in a Site"
+msgstr "장치"
 
 #: includes/polling.php:419
-#, fuzzy
 msgid "SNMP not in use"
 msgstr "사용하지 않는 SNMP"
 
-#: includes/polling.php:478 notify_queue.php:489 notify_queue.php:490
-#: thold.php:1002 thold.php:1034 thold.php:1035 thold.php:1272 thold.php:1324
-#: thold.php:1331 thold.php:1337 thold.php:1345 thold.php:1351 thold.php:1368
-#: thold.php:1370 thold.php:1572 thold_graph.php:725 thold_graph.php:757
-#: thold_graph.php:758 thold_graph.php:1054 thold_graph.php:1103
-#: thold_graph.php:1106 thold_graph.php:1107 thold_graph.php:1108
-#: thold_graph.php:1542 thold_graph.php:1543
+#: includes/polling.php:478 includes/polling.php:673 notify_queue.php:489
+#: notify_queue.php:490 thold.php:1002 thold.php:1034 thold.php:1035
+#: thold.php:1272 thold.php:1324 thold.php:1331 thold.php:1337 thold.php:1345
+#: thold.php:1351 thold.php:1368 thold.php:1370 thold.php:1572
+#: thold_graph.php:725 thold_graph.php:757 thold_graph.php:758
+#: thold_graph.php:1054 thold_graph.php:1103 thold_graph.php:1106
+#: thold_graph.php:1107 thold_graph.php:1108 thold_graph.php:1542
+#: thold_graph.php:1543
 msgid "N/A"
 msgstr "N/A"
 
 #: includes/polling.php:483
-#, fuzzy
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "장치 알림 : <DESCRIPTION> ( <HOSTNAME> )가 DOWN 상태에서 반환 됨"
 
 #: includes/polling.php:501
-#, fuzzy
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
 msgstr "<br> 체계 <DESCRIPTION> ( <HOSTNAME> ) 상태 : <DOWN/UP><br><br> 현재 핑 응답 : <CUR_TIME> ms <br> 평균 시스템 응답 : <AVG_TIME> ms <br> 시스템 가용성: <AVAILABILITY><br> 지우기 이후의 총 수표 : <TOT_POLL><br> 총 실패한 수표 : <FAIL_POLL><br> 마지막 날짜 확인 : <LAST_FAIL><br> 이전 장치 : <DOWNTIME><br><br> SNMP 정보 : <br> 이름 - <SNMP_HOSTNAME><br> 위치 - <SNMP_LOCATION><br> 가동 시간 - <UPTIMETEXT> ( <UPTIME> ms) <br> 시스템 - <SNMP_SYSTEM><br><br> 노트: <NOTES>"
 
-#: includes/polling.php:664
-#, fuzzy
+#: includes/polling.php:678
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "기기 오류 : <DESCRIPTION> ( <HOSTNAME> )는 아래로"
 
-#: includes/polling.php:676 includes/polling.php:695
+#: includes/polling.php:690 includes/polling.php:709
 msgid "DOWN"
 msgstr "아래로 항목 이동"
 
-#: includes/polling.php:683
-#, fuzzy
+#: includes/polling.php:697
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "시스템 오류 : <DESCRIPTION> ( <HOSTNAME> )입니다. <DOWN/UP><br> 이유: <MESSAGE><br><br> 평균 시스템 응답 : <AVG_TIME> ms <br> 시스템 가용성: <AVAILABILITY><br> 지우기 이후의 총 수표 : <TOT_POLL><br> 총 실패한 수표 : <FAIL_POLL><br> 마지막 날짜 확인 DOWN : <LAST_FAIL><br> 기기 이전에 UP : <DOWNTIME><br> 노트: <NOTES>"
 
@@ -662,12 +612,10 @@ msgstr "시스템 오류 : <DESCRIPTION> ( <HOSTNAME> )입니다. <DOWN/UP><br> 
 #: notify_lists.php:1402 notify_lists.php:1467 notify_lists.php:2104
 #: thold.php:723 thold.php:774 thold_functions.php:143 thold_graph.php:226
 #: thold_templates.php:2241
-#, fuzzy
 msgid "Thresholds"
 msgstr "임계 값"
 
 #: includes/settings.php:36
-#, fuzzy
 msgid "(actions)"
 msgstr "작업"
 
@@ -676,76 +624,62 @@ msgid "(edit)"
 msgstr "(편집)"
 
 #: includes/settings.php:50
-#, fuzzy
 msgid "(save)"
 msgstr "저장"
 
 #: includes/settings.php:57
-#, fuzzy
 msgid "(add)"
 msgstr "(더하다)"
 
 #: includes/settings.php:84
-#, fuzzy
 msgid "Threshold Logs"
 msgstr "임계 값"
 
 #: includes/settings.php:91 thold_functions.php:145 thold_graph.php:905
-#, fuzzy
 msgid "Device Status"
 msgstr "장치 상태"
 
 #: includes/settings.php:98
-#, fuzzy
 msgid "Thresholds - Failures"
 msgstr "임계 값 - 실패"
 
 #: includes/settings.php:105
-#, fuzzy
 msgid "Thresholds - Normal"
 msgstr "임계 값 - 보통"
 
 #: includes/settings.php:112
-#, fuzzy
 msgid "Thresholds - Recovering"
 msgstr "임계 값 - 복구 중"
 
 #: includes/settings.php:118
-#, fuzzy
 msgid "Recent Thresholds"
 msgstr "최근 임계 값"
 
 #: includes/settings.php:125
-#, fuzzy
 msgid "Recent Device Failures"
 msgstr "최근 장치 오류"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
 #: includes/settings.php:160 thold_templates.php:2120
-#, fuzzy
 msgid "Threshold Templates"
 msgstr "임계 값 템플릿"
 
 #: includes/settings.php:167
-#, fuzzy
 msgid "Threshold Template Import"
 msgstr "임계 값 템플릿 가져 오기"
 
 #: includes/settings.php:174 includes/settings.php:188
 #: includes/settings.php:195 includes/settings.php:221 notify_lists.php:1997
-#, fuzzy
 msgid "Notification Lists"
 msgstr "알림 목록"
 
 #: includes/settings.php:181
-#, fuzzy
 msgid "Notification Lists (edit)"
 msgstr "알림 목록 (편집)"
 
 #: includes/settings.php:202 includes/settings.php:209
 #: includes/settings.php:222
-#, fuzzy
 msgid "Notification Queue"
 msgstr "알림 목록"
 
@@ -764,113 +698,93 @@ msgid "Threshold"
 msgstr "임계값"
 
 #: includes/settings.php:276
-#, fuzzy
 msgid "A template with that Data Source already exists!"
 msgstr "해당 데이터 소스가있는 템플릿이 이미 존재합니다!"
 
 #: includes/settings.php:291
-#, fuzzy
 msgid "Configure Thresholds"
 msgstr "임계 값 구성"
 
 #: includes/settings.php:292
-#, fuzzy
 msgid "Configure Threshold Templates"
 msgstr "임계 값 템플릿 구성"
 
 #: includes/settings.php:293
-#, fuzzy
 msgid "Manage Notification Lists"
 msgstr "알림 목록 관리"
 
 #: includes/settings.php:294
-#, fuzzy
 msgid "View Thresholds"
 msgstr "임계 값보기"
 
 #: includes/settings.php:298
-#, fuzzy
 msgid "Normal User"
 msgstr "보통"
 
 #: includes/settings.php:299
-#, fuzzy
 msgid "Template Editor"
 msgstr "템플리트"
 
 #: includes/settings.php:300 includes/settings.php:301
-#, fuzzy
 msgid "General Administration"
 msgstr "일반 설정"
 
 #: includes/settings.php:318
-#, fuzzy
 msgid "Device Up/Down Notification Settings"
 msgstr "장치 위 / 아래 알림 설정"
 
 #: includes/settings.php:324
-#, fuzzy
 msgid "Threshold Up/Down Email Notification"
 msgstr "임계 값 위 / 아래 전자 메일 알림"
 
 #: includes/settings.php:328 notify_lists.php:738 notify_lists.php:1234
-#, fuzzy
 msgid "Global List"
 msgstr "전체 목록"
 
 #: includes/settings.php:329
-#, fuzzy
 msgid "List Below"
 msgstr "아래 목록"
 
 #: includes/settings.php:330
-#, fuzzy
 msgid "Global and List Below"
 msgstr "글로벌 및 아래 목록"
 
 #: includes/settings.php:332
-#, fuzzy
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgstr "Device Up / Down 이벤트에 대해 어떤 알림 목록을 통보해야합니까?"
 
 #: includes/settings.php:340 notify_queue.php:427
-#, fuzzy
 msgid "Notification List"
 msgstr "알림 목록"
 
 #: includes/settings.php:341
-#, fuzzy
 msgid "Additional Email address, separated by commas for multiple Emails."
 msgstr "여러 개의 전자 메일에 대해 쉼표로 구분 된 추가 전자 메일 주소입니다."
 
 #: includes/settings.php:350
-#, fuzzy
 msgid "Host Failure Count"
 msgstr "호스트 실패 수"
 
 #: includes/settings.php:351
-#, fuzzy
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
 msgstr "이 호스트에서 폴링 간격의 수는 Thold가 오류를 기록하고 호스트를 중단으로보고하기 전에 중단되어야합니다. 기본값은 0 (Cacti 설정 사용)입니다."
 
 #: includes/settings.php:356
-#, fuzzy
 msgid "Use Cacti Setting"
 msgstr "기준선 설정"
 
 #: includes/settings.php:357
-#, fuzzy, php-format
+#, php-format
 msgid "%d Polling Interval"
 msgstr "폴링 % d 개"
 
 #: includes/settings.php:358 includes/settings.php:359
 #: includes/settings.php:360 includes/settings.php:361
-#, fuzzy, php-format
+#, php-format
 msgid "%d Polling Intervals"
 msgstr "% d 개의 투표"
 
 #: includes/settings.php:383
-#, fuzzy
 msgid "Alerting/Thold"
 msgstr "경고하는 / Thold"
 
@@ -879,42 +793,34 @@ msgid "General"
 msgstr "일반"
 
 #: includes/settings.php:395
-#, fuzzy
 msgid "Disable All Thresholds"
 msgstr "모든 임계 값 사용 불가"
 
 #: includes/settings.php:396
-#, fuzzy
 msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
 msgstr "이 상자를 선택하면 모든 임계 값에서 경고가 비활성화됩니다. 이 기능은 네트워크에서 유지 관리를 수행해야 할 때 사용할 수 있습니다."
 
 #: includes/settings.php:401
-#, fuzzy
 msgid "Auto Create Thresholds"
 msgstr "자동 작성 임계 값"
 
 #: includes/settings.php:402
-#, fuzzy
 msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
 msgstr "이 옵션을 선택하면 자동화를 실행하거나 장치를 생성 / 저장할 때 장치 템플릿과 관련된 모든 임계 값이 생성됩니다."
 
 #: includes/settings.php:407
-#, fuzzy
 msgid "Consider Unknown Data as Zero"
 msgstr "알 수없는 데이터를 0으로 간주"
 
 #: includes/settings.php:408
-#, fuzzy
 msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
 msgstr "임계 값을 확인할 때 데이터 소스가 알 수없는 데이터 ( 'U')를 반환하는 경우 임계 값 확인에 대해 값을 0으로 간주합니다."
 
 #: includes/settings.php:413
-#, fuzzy
 msgid "Default Management Status"
 msgstr "기본 관리 상태"
 
 #: includes/settings.php:414
-#, fuzzy
 msgid "Default Threshold management filter status."
 msgstr "기본 임계 값 관리 필터 상태."
 
@@ -924,13 +830,11 @@ msgid "Any"
 msgstr "일부"
 
 #: includes/settings.php:418 thold.php:712 thold_graph.php:215
-#, fuzzy
 msgid "Breached or Triggered"
 msgstr "경고 발생"
 
 #: includes/settings.php:419 notify_lists.php:1395 thold.php:713
 #: thold_graph.php:216
-#, fuzzy
 msgid "Breached"
 msgstr "위반 한"
 
@@ -948,62 +852,50 @@ msgid "Enabled"
 msgstr "활성화"
 
 #: includes/settings.php:427
-#, fuzzy
 msgid "Empty ifHighSpeed Default"
 msgstr "Empty ifHighSpeed Default"
 
 #: includes/settings.php:428
-#, fuzzy
 msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
 msgstr "Expression Thresholds를 계산할 때 ifHighSpeed 및 ifSpeed가 0으로 돌아 오면 다음 ifHighSpeed 설정을 대신 사용하십시오. 기본 ifHighSpeed는 10GE 인터페이스의 경우 10000입니다."
 
 #: includes/settings.php:435
-#, fuzzy
 msgid "Notification Preferences"
 msgstr "SNMP 알림 사전 설정"
 
 #: includes/settings.php:439
-#, fuzzy
 msgid "Disable Legacy Notifications"
 msgstr "기존 알림 사용 안 함"
 
 #: includes/settings.php:440
-#, fuzzy
 msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
 msgstr "이 확인란을 선택하면 모든 임계 값에서 레거시 경고가 비활성화됩니다. 레거시 경고는 알림 목록과 관련되지 않은 특정 전자 메일 경고로 정의됩니다."
 
 #: includes/settings.php:445
-#, fuzzy
 msgid "Threshold Notification Templated"
 msgstr "임계 값 템플릿"
 
 #: includes/settings.php:446
-#, fuzzy
 msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
 msgstr "선택하면 임계 값 템플릿에서 생성 할 때 해당 알림 설정은 기본적으로 임계 값 템플릿이 소유합니다."
 
 #: includes/settings.php:450
-#, fuzzy
 msgid "Enable Command Execution"
 msgstr "명령 실행 사용"
 
 #: includes/settings.php:451
-#, fuzzy
 msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
 msgstr "이 상자를 선택하면 임계 값 위반 및 복원 이벤트에 대한 명령을 실행할 수 있습니다."
 
 #: includes/settings.php:456
-#, fuzzy
 msgid "Enable Per Thold Notification"
 msgstr "깔끔한 알림 사용"
 
 #: includes/settings.php:457
-#, fuzzy
 msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
 msgstr "이 확인란을 선택하면 임계 값에 대한 맞춤 이메일 본문을 유지 관리 할 수 있습니다."
 
 #: includes/settings.php:462
-#, fuzzy
 msgid "Enable Notification Queue"
 msgstr "깔끔한 알림 사용"
 
@@ -1012,7 +904,6 @@ msgid "Checking this box will switch Thold from performing inline Notification t
 msgstr ""
 
 #: includes/settings.php:468
-#, fuzzy
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
 msgstr "경고 알림 목록"
 
@@ -1021,22 +912,18 @@ msgid "Check this box if you wish Warning Notification List recipients to receiv
 msgstr ""
 
 #: includes/settings.php:474
-#, fuzzy
 msgid "Threshold Daemon"
 msgstr "임계 값 데몬"
 
 #: includes/settings.php:478
-#, fuzzy
 msgid "Enable Threshold Daemon"
 msgstr "임계 값 데몬 활성화"
 
 #: includes/settings.php:479
-#, fuzzy
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
 msgstr "이 상자를 선택하면 전용 Threshold 데몬을 사용할 수 있습니다. 이는 시스템 성능을 높이거나 임계 값 모니터링을 별도의 서버에 배포하는 데 사용할 수 있습니다."
 
 #: includes/settings.php:484
-#, fuzzy
 msgid "Force Threshold Daemon Debug"
 msgstr "임계 값 데몬"
 
@@ -1045,17 +932,15 @@ msgid "Checking this box will enable Threshold Daemon debug when operating from 
 msgstr ""
 
 #: includes/settings.php:490
-#, fuzzy
 msgid "Daemon Down Notification Frequency"
 msgstr "장치 위 / 아래 알림 설정"
 
 #: includes/settings.php:491
-#, fuzzy
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
 msgstr "Thold 데몬이 다운 된 것으로 확인되면이 빈도로 이메일 알림을 보냅니다."
 
 #: includes/settings.php:498
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hour"
 msgstr "% d 시간마다"
 
@@ -1064,7 +949,6 @@ msgid "Daemon Threads"
 msgstr ""
 
 #: includes/settings.php:505
-#, fuzzy
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
 msgstr "Threshold Daemon이 처리 할 동시 프로세스의 최대 수"
 
@@ -1086,32 +970,26 @@ msgid "Logging"
 msgstr "로그 기록"
 
 #: includes/settings.php:526
-#, fuzzy
 msgid "Log Threshold Breaches"
 msgstr "로그 임계 값 위반"
 
 #: includes/settings.php:527
-#, fuzzy
 msgid "Enable logging of all Threshold failures to the Cacti Log."
 msgstr "Cacti Log에 모든 임계 값 오류를 기록 할 수 있습니다."
 
 #: includes/settings.php:532
-#, fuzzy
 msgid "Show Data Source in Log"
 msgstr "로그에 데이터 소스 표시"
 
 #: includes/settings.php:533
-#, fuzzy
 msgid "Show the Data Source name in the Log if not present."
 msgstr "로그에 데이터 소스 이름을 표시하십시오 (존재하지 않는 경우)."
 
 #: includes/settings.php:538
-#, fuzzy
 msgid "Log Threshold Changes"
 msgstr "로그 임계 값 변경"
 
 #: includes/settings.php:539
-#, fuzzy
 msgid "Enable logging of all Threshold changes to the Cacti Log."
 msgstr "Cacti Log에 대한 모든 Threshold 변경 사항 로깅을 활성화합니다."
 
@@ -1120,197 +998,158 @@ msgid "Debug Log"
 msgstr "디버그 로그"
 
 #: includes/settings.php:545
-#, fuzzy
 msgid "Enable logging of debug messages with Threshold"
 msgstr "임계 값을 사용하여 디버그 메시지 로깅 사용"
 
 #: includes/settings.php:550
-#, fuzzy
 msgid "Alert Log Retention"
 msgstr "경고 로그 보존"
 
 #: includes/settings.php:551
-#, fuzzy
 msgid "Keep Threshold Logs for this number of days."
 msgstr "이 기간 동안 임계 값 로그를 유지하십시오."
 
 #: includes/settings.php:557
-#, fuzzy
 msgid "Log action Consider Unknown Data as Zero"
 msgstr "알 수없는 데이터를 0으로 간주"
 
 #: includes/settings.php:558
-#, fuzzy
 msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
 msgstr "알 수없는 데이터를 0으로 간주"
 
 #: includes/settings.php:563 thold.php:2142 thold_templates.php:1693
-#, fuzzy
 msgid "Syslog Settings"
 msgstr "Syslog 설정"
 
 #: includes/settings.php:567
-#, fuzzy
 msgid "Syslog Enabled"
 msgstr "Syslog 사용"
 
 #: includes/settings.php:568
-#, fuzzy
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "이 옵션을 선택하면 새 임계 값을 만들 때 기본적으로 새 임계 값 이벤트가 로컬 syslog로 전송됩니다. 이 설정은 사전 설정입니다. 임계 값 설정은 실제 syslog 제어를 나타냅니다."
 
 #: includes/settings.php:572
-#, fuzzy
 msgid "Default Priority/Level"
 msgstr "기본 우선 순위 / 레벨"
 
 #: includes/settings.php:573
-#, fuzzy
 msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "이것이 Thold이 syslog 메시지를 보내는 데 사용할 기본 우선 순위 / 레벨입니다. 이 설정은 사전 설정입니다. 임계 값 설정은 실제 syslog 제어를 나타냅니다."
 
 #: includes/settings.php:579
-#, fuzzy
 msgid "Default Facility"
 msgstr "기본 시설"
 
 #: includes/settings.php:580
-#, fuzzy
 msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
 msgstr "이것이 Thold가 syslog 메시지를 보내는 데 사용하는 기본 기능입니다. 이 설정은 사전 설정입니다. 임계 값 설정은 실제 syslog 제어를 나타냅니다."
 
 #: includes/settings.php:586
-#, fuzzy
 msgid "Alert Presets"
 msgstr "경고 사전 설정"
 
 #: includes/settings.php:590
-#, fuzzy
 msgid "Weekend exemptions"
 msgstr "주말 면제"
 
 #: includes/settings.php:591
-#, fuzzy
 msgid "If this is checked, Thold will not run on weekends."
 msgstr "이 옵션을 선택하면 주말에는 Thold가 실행되지 않습니다."
 
 #: includes/settings.php:595
-#, fuzzy
 msgid "Default Trigger Count"
 msgstr "기본 트리거 수"
 
 #: includes/settings.php:596
-#, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
 msgstr "경고 발생을위한 임계 값을 위반 한 데이터 소스의 연속 연속 횟수입니다."
 
 #: includes/settings.php:603
-#, fuzzy
 msgid "Re-Alerting"
 msgstr "재 경보"
 
 #: includes/settings.php:604
-#, fuzzy
 msgid "Repeat Alert after specified number of poller cycles."
 msgstr "지정된 폴링주기 수 이후에 경고를 반복하십시오."
 
 #: includes/settings.php:611
-#, fuzzy
 msgid "Baseline Presets"
 msgstr "기본 사전 설정"
 
 #: includes/settings.php:615
-#, fuzzy
 msgid "Baseline Time Range Default"
 msgstr "기준 시간 범위 기본값"
 
 #: includes/settings.php:616 includes/settings.php:633
-#, fuzzy
 msgid "This is the default value used in creating Thresholds or templates."
 msgstr "이는 임계 값 또는 템플리트 작성에 사용되는 기본값입니다."
 
 #: includes/settings.php:624
-#, fuzzy
 msgid "Baseline Trigger Count"
 msgstr "기준 트리거 수"
 
 #: includes/settings.php:625
-#, fuzzy
 msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
 msgstr "경고가 발생하기 위해 계산 된 기준 임계 값을 위반 한 데이터 소스가 연속적으로 연속적으로 나타나는 횟수."
 
 #: includes/settings.php:632
-#, fuzzy
 msgid "Baseline Deviation Percentage"
 msgstr "기준 편차 백분율"
 
 #: includes/settings.php:640
-#, fuzzy
 msgid "SNMP Notification Options"
 msgstr "SNMP 알림"
 
 #: includes/settings.php:644
-#, fuzzy
 msgid "SNMP Notifications"
 msgstr "SNMP 알림"
 
 #: includes/settings.php:645
-#, fuzzy
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
 msgstr "임계 값 상태 메시지 (알림 / 트랩)는 SNMP 통지 수신자에게 전송됩니다. 여기에는 기본값 당 경고, 경고 및 복원 트랩이 포함됩니다. 참고 :이 기능을 사용하려면 Cacti SNMPAgent 플러그인이 필요합니다."
 
 #: includes/settings.php:650
-#, fuzzy
 msgid "Disable Warning Notifications"
 msgstr "경고 알림 사용 안 함"
 
 #: includes/settings.php:651
-#, fuzzy
 msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
 msgstr "이 옵션을 선택하면 경고 임계 값이 위반되었을 때 임계 값이 알림을 보내지 않습니다."
 
 #: includes/settings.php:655
-#, fuzzy
 msgid "Disable Restoration Notifications"
 msgstr "복원 알림 사용 안 함"
 
 #: includes/settings.php:656
-#, fuzzy
 msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
 msgstr "이 옵션을 선택하면 임계 값이 정상 상태로 돌아 왔을 때 임계 값은 알림을 보내지 않습니다."
 
 #: includes/settings.php:660
-#, fuzzy
 msgid "Emailing Options"
 msgstr "이메일 옵션"
 
 #: includes/settings.php:664
-#, fuzzy
 msgid "Send Emails with Urgent Priority"
 msgstr "긴급한 우선 순위로 이메일 보내기"
 
 #: includes/settings.php:665
-#, fuzzy
 msgid "Allows you to set Emails with urgent priority"
 msgstr "긴급한 우선 순위로 이메일을 설정할 수 있습니다."
 
 #: includes/settings.php:670
-#, fuzzy
 msgid "Send Alerts as Text"
 msgstr "텍스트로 경고 보내기"
 
 #: includes/settings.php:671
-#, fuzzy
 msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
 msgstr "이 옵션을 선택하면 모든 경고가 그래프가없는 일반 텍스트 전자 메일로 전송됩니다. 기본값은 전자 메일에 그래프가 포함 된 HTML 전자 메일입니다."
 
 #: includes/settings.php:676
-#, fuzzy
 msgid "Send Email separately for each address"
 msgstr "각 주소에 대해 개별적으로 이메일 보내기"
 
 #: includes/settings.php:677
-#, fuzzy
 msgid "If checked, this will cause all Emails to be sent separately for each address."
 msgstr "선택하면 모든 이메일이 각 주소에 대해 개별적으로 전송됩니다."
 
@@ -1319,7 +1158,6 @@ msgid "From Email Address"
 msgstr "보낸 사람 이메일 주소"
 
 #: includes/settings.php:683
-#, fuzzy
 msgid "This is the Email address that the Threshold will appear from."
 msgstr "이는 임계 값이 표시 될 전자 메일 주소입니다."
 
@@ -1328,28 +1166,22 @@ msgid "From Name"
 msgstr "발신자 이름"
 
 #: includes/settings.php:690
-#, fuzzy
 msgid "This is the actual name that the Threshold will appear from."
 msgstr "이는 임계 값이 표시되는 실제 이름입니다."
 
 #: includes/settings.php:696
-#, fuzzy
 msgid "Device Notification Options"
 msgstr "장치 알림 옵션"
 
 #: includes/settings.php:700
-#, fuzzy
 msgid "Enable Notifications"
 msgstr "깔끔한 알림 사용"
 
 #: includes/settings.php:701
-#, fuzzy
 msgid "Enable Dead/Recovering host notification"
 msgstr "Dead / Recovering 호스트 알림 사용"
 
 #: includes/settings.php:706
-#, fuzzy
-#| msgid "Notification Settings"
 msgid "Notification Single Email"
 msgstr "알림 설정"
 
@@ -1358,12 +1190,10 @@ msgid "Supported for Notification Lists and the Notification Queue only.  If the
 msgstr ""
 
 #: includes/settings.php:712
-#, fuzzy
 msgid "Device Notification Delay Options"
 msgstr "장치 알림 옵션"
 
 #: includes/settings.php:717 includes/settings.php:725
-#, fuzzy
 msgid "Notification Delay"
 msgstr "알림 목록"
 
@@ -1376,142 +1206,114 @@ msgid "If you choose to delay Notifications for a large Down Devices Notificatio
 msgstr ""
 
 #: includes/settings.php:733
-#, fuzzy
 msgid "Device Notification Email Options"
 msgstr "장치 알림 옵션"
 
 #: includes/settings.php:737
-#, fuzzy
 msgid "Global Notification Email"
 msgstr "죽은 장치 알림 전자 메일"
 
 #: includes/settings.php:738
-#, fuzzy
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
 msgstr "이것은 전체 알림 목록이 선택되면 데드 장비 알림이 전송 될 전자 메일 주소입니다."
 
 #: includes/settings.php:744
-#, fuzzy
 msgid "Down Subject"
 msgstr "다운 장치 제목"
 
 #: includes/settings.php:745
-#, fuzzy
 msgid "This is the Email subject that will be used for Down Device Messages."
 msgstr "이것은 다운 장치 메시지에 사용될 전자 메일 제목입니다."
 
 #: includes/settings.php:749
-#, fuzzy
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr "기기 오류 : <DESCRIPTION> ( <HOSTNAME> )는 아래로"
 
 #: includes/settings.php:752
-#, fuzzy
 msgid "Down Message"
 msgstr "다운 장치 메시지"
 
 #: includes/settings.php:753
-#, fuzzy
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "이 메시지는 모든 UP / DOWN 장치 메시지 (255 Char MAX)의 메시지 본문으로 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;HOSTNAME&gt; &lt;DATE&gt; &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
 
 #: includes/settings.php:758
-#, fuzzy
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
 msgstr "시스템 오류 : <DESCRIPTION> ( <HOSTNAME> )입니다. <DOWN/UP><br> 이유: <MESSAGE><br><br> 평균 시스템 응답 : <AVG_TIME> ms <br> 시스템 가용성: <AVAILABILITY><br> 지우기 이후의 총 수표 : <TOT_POLL><br> 총 실패한 수표 : <FAIL_POLL><br> 마지막 날짜 확인 DOWN : <LAST_FAIL><br> 기기 이전에 UP : <DOWNTIME><br> 노트: <NOTES><br> 장치 참고 사항 : <DNOTES>"
 
 #: includes/settings.php:761
-#, fuzzy
 msgid "Recovering Subject"
 msgstr "복구 장치 제목"
 
 #: includes/settings.php:762
-#, fuzzy
 msgid "This is the Email subject that will be used for Recovering Device Messages."
 msgstr "장치 메시지 복구에 사용될 전자 메일 제목입니다."
 
 #: includes/settings.php:766
-#, fuzzy
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
 msgstr "기기 공지 사항 : <DESCRIPTION> ( <HOSTNAME> )가 DOWN 상태에서 반환 됨"
 
 #: includes/settings.php:769
-#, fuzzy
 msgid "Recovering Message"
 msgstr "장치 메시지 복구"
 
 #: includes/settings.php:770
-#, fuzzy
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgstr "이 메시지는 모든 UP / DOWN 장치 메시지 (255 Char MAX)의 메시지 본문으로 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;HOSTNAME&gt; &lt;DATE&gt; &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
 
 #: includes/settings.php:775
-#, fuzzy
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
 msgstr "<br> 체계 <DESCRIPTION> ( <HOSTNAME> ) 상태 : <DOWN/UP><br><br> 현재 핑 응답 : <CUR_TIME> ms <br> 평균 시스템 응답 : <AVG_TIME> ms <br> 시스템 가용성: <AVAILABILITY><br> 지우기 이후의 총 수표 : <TOT_POLL><br> 총 실패한 수표 : <FAIL_POLL><br> 마지막 날짜 확인 : <LAST_FAIL><br> 이전에 DOWN 장치 : <DOWNTIME><br><br> SNMP 정보 : <br> 이름 - <SNMP_HOSTNAME><br> 위치 - <SNMP_LOCATION><br> 가동 시간 - <UPTIMETEXT> ( <UPTIME> ms) <br> 시스템 - <SNMP_SYSTEM><br><br> 노트: <NOTES><br> 장치 참고 사항 : <DNOTES>"
 
 #: includes/settings.php:778
-#, fuzzy
 msgid "Status Change Command"
 msgstr "상태 변경 명령"
 
 #: includes/settings.php:779
-#, fuzzy
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 msgstr "이 메시지는 모든 UP / DOWN 장치 메시지 (255 Char MAX)의 메시지 본문으로 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;HOSTNAME&gt; &lt;DATE&gt; &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
 
 #: includes/settings.php:787
-#, fuzzy
 msgid "Alert/Warning Message Defaults"
 msgstr "경고 / 경고 메시지 기본값"
 
 #: includes/settings.php:791
-#, fuzzy
 msgid "Threshold Alert Message"
 msgstr "임계 값 경고 메시지"
 
 #: includes/settings.php:792
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
 #: includes/settings.php:797
-#, fuzzy
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "주의가 필요한 경고가 발행되었습니다. <br><br> <strong>기기</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>메시지</strong> : <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php:800
-#, fuzzy
 msgid "Threshold Warning Message"
 msgstr "임계 값 경고 메시지"
 
 #: includes/settings.php:801
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
 #: includes/settings.php:806
-#, fuzzy
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "주의가 필요한 경고가 발행되었습니다. <br><br> <strong>기기</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>메시지</strong> : <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php:809
-#, fuzzy
 msgid "Threshold Restoral Message"
 msgstr "임계 값 경고 메시지"
 
 #: includes/settings.php:810
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
 #: includes/settings.php:815
-#, fuzzy
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
 msgstr "주의가 필요한 경고가 발행되었습니다. <br><br> <strong>기기</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>메시지</strong> : <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php:33
-#, fuzzy
 msgid "Thold"
 msgstr "덤프"
 
@@ -1533,7 +1335,6 @@ msgid "Devices"
 msgstr "장치"
 
 #: notify_lists.php:515
-#, fuzzy
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "알림 목록을 삭제하려면 '계속'을 클릭하십시오. 목록과 연결된 모든 장치 또는 임계 값은 기본값으로 되돌려집니다."
 
@@ -1554,37 +1355,32 @@ msgid "Continue"
 msgstr "계속"
 
 #: notify_lists.php:520
-#, fuzzy
 msgid "Delete Notification List(s)"
 msgstr "알림 목록 삭제"
 
 #: notify_lists.php:524
-#, fuzzy
 msgid "Click 'Continue' to Duplicate the following Notification List(s)."
 msgstr "다음 알림 목록을 복제하려면 '계속'을 클릭하십시오."
 
 #: notify_lists.php:526
-#, fuzzy
 msgid "New List Name"
 msgstr "새 목록 이름"
 
 #: notify_lists.php:527
-#, fuzzy
 msgid "New Notification List"
 msgstr "새 알림 목록"
 
 #: notify_lists.php:532
-#, fuzzy
 msgid "Duplicate Notification List(s)"
 msgstr "중복 된 알림 목록"
 
 #: notify_lists.php:577
-#, fuzzy, php-format
+#, php-format
 msgid "%s Threshold Template(s)"
 msgstr "%s 임계 값 템플릿"
 
 #: notify_lists.php:583
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
 msgstr "알림 목록 ' %s'을 (를) 아래의 임계 값 템플릿과 연결하려면 '계속'을 클릭하십시오."
 
@@ -1598,116 +1394,101 @@ msgstr "변경 없음"
 #: notify_lists.php:585 notify_lists.php:586 notify_lists.php:655
 #: notify_lists.php:656 notify_lists.php:725 notify_lists.php:726
 #: notify_lists.php:727
-#, fuzzy
 msgid "Notification List Only"
 msgstr "알림 목록 만"
 
 #: notify_lists.php:585 notify_lists.php:586 notify_lists.php:655
 #: notify_lists.php:656 notify_lists.php:726 notify_lists.php:727
-#, fuzzy
 msgid "Notification List, Retain Other Settings"
 msgstr "알림 목록, 다른 설정 유지"
 
 #: notify_lists.php:585 notify_lists.php:596 notify_lists.php:655
 #: notify_lists.php:666
-#, fuzzy
 msgid "Warning Membership:"
 msgstr "경고 회원 :"
 
 #: notify_lists.php:586 notify_lists.php:597 notify_lists.php:656
 #: notify_lists.php:667
-#, fuzzy
 msgid "Alert Membership:"
 msgstr "회원 알림 :"
 
 #: notify_lists.php:590 notify_lists.php:660 notify_lists.php:731
-#, fuzzy
 msgid "Associate Notification List(s)"
 msgstr "관련 알림 목록"
 
 #: notify_lists.php:594
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
 msgstr "아래 '임계 값 템플릿'에서 알림 목록 ' %s'의 연결을 해제하려면 '계속'을 클릭하십시오."
 
 #: notify_lists.php:596 notify_lists.php:597 notify_lists.php:666
 #: notify_lists.php:667 notify_lists.php:739 notify_lists.php:740
-#, fuzzy
 msgid "Remove List"
 msgstr "목록 삭제"
 
 #: notify_lists.php:601 notify_lists.php:671 notify_lists.php:744
-#, fuzzy
 msgid "Disassociate Notification List(s)"
 msgstr "알림 목록 연결 해제"
 
 #: notify_lists.php:647
-#, fuzzy, php-format
+#, php-format
 msgid "%s Threshold(s)"
 msgstr "%s 임계 값"
 
 #: notify_lists.php:653
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
 msgstr "알림 목록 ' %s'을 아래의 임계 값과 연결하려면 '계속'을 클릭하십시오."
 
 #: notify_lists.php:664
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
 msgstr "아래의 임계 값에서 알림 목록 ' %s'의 연결을 해제하려면 '계속'을 클릭하십시오."
 
 #: notify_lists.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
 msgstr "알림 목록 ' %s'을 (를) 아래의 장치와 연결하려면 '계속'을 클릭하십시오."
 
 #: notify_lists.php:723
-#, fuzzy
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "장치 임계 값도 연결할 수 있습니다. 그러나 이러한 장치 임계 값은 임계 값 알림 목록을 덮어 쓸 수 있도록 허용해야합니다."
 
 #: notify_lists.php:725
-#, fuzzy
 msgid "Notification and Global Lists"
 msgstr "알림 및 전체 목록"
 
 #: notify_lists.php:725 notify_lists.php:738
-#, fuzzy
 msgid "Resulting Membership:"
 msgstr "회원 가입 :"
 
 #: notify_lists.php:726 notify_lists.php:739
-#, fuzzy
 msgid "Device Threshold Warning Membership:"
 msgstr "경고 회원 :"
 
 #: notify_lists.php:727 notify_lists.php:740
-#, fuzzy
 msgid "Device Threshold Alert Membership:"
 msgstr "임계 값 경고 메시지"
 
 #: notify_lists.php:735
-#, fuzzy, php-format
+#, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
 msgstr "아래 '장치'에서 알림 목록 ' %s'의 연결을 해제하려면 '계속'을 클릭하십시오."
 
 #: notify_lists.php:736
-#, fuzzy
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
 msgstr "또한 장치 임계 값을 분리 할 수도 있습니다. 그러나 이러한 장치 임계 값은 임계 값 알림 목록을 덮어 쓸 수 있도록 허용해야합니다."
 
 #: notify_lists.php:785
-#, fuzzy, php-format
+#, php-format
 msgid "[edit: %s]"
 msgstr "[편집 :  %s]"
 
 #: notify_lists.php:787
-#, fuzzy
 msgid "[new]"
 msgstr "새 보고서"
 
 #: notify_lists.php:836
-#, fuzzy
 msgid "List General Settings"
 msgstr "일반 설정 나열"
 
@@ -1717,7 +1498,6 @@ msgid "Name"
 msgstr "이름"
 
 #: notify_lists.php:842
-#, fuzzy
 msgid "Enter a name for this Notification List."
 msgstr "이 알림 목록의 이름을 입력하십시오."
 
@@ -1727,7 +1507,6 @@ msgid "Description"
 msgstr "설명"
 
 #: notify_lists.php:849
-#, fuzzy
 msgid "Enter a description for this Notification List."
 msgstr "이 알림 목록에 대한 설명을 입력하십시오."
 
@@ -1736,24 +1515,18 @@ msgid "To disable all notifications from this Notification List, you can simply 
 msgstr ""
 
 #: notify_lists.php:864
-#, fuzzy
-#| msgid "Email Addresses"
 msgid "To Email Addresses"
 msgstr "이메일 주소"
 
 #: notify_lists.php:865
-#, fuzzy
 msgid "Enter a comma separated list of Email addresses for this Notification List."
 msgstr "이 알림 목록의 쉼표로 구분 된 이메일 주소 목록을 입력하십시오."
 
 #: notify_lists.php:873
-#, fuzzy
-#| msgid "Email Addresses"
 msgid "BCC Email Addresses"
 msgstr "이메일 주소"
 
 #: notify_lists.php:874
-#, fuzzy
 msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
 msgstr "이 알림 목록의 쉼표로 구분 된 이메일 주소 목록을 입력하십시오."
 
@@ -1766,7 +1539,6 @@ msgid "Choose the custom html wrapper and CSS file to use.  This file contains b
 msgstr ""
 
 #: notify_lists.php:980
-#, fuzzy
 msgid "Associated Devices"
 msgstr "관련 장치"
 
@@ -1796,7 +1568,6 @@ msgid "None"
 msgstr "없음"
 
 #: notify_lists.php:1013
-#, fuzzy
 msgid "Device Template"
 msgstr "템플릿 삭제"
 
@@ -1818,7 +1589,6 @@ msgstr "가기"
 
 #: notify_lists.php:1055 notify_lists.php:1424 notify_lists.php:1710
 #: notify_lists.php:2027 notify_queue.php:296
-#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "필터 설정 / 새로 고침"
 
@@ -1845,7 +1615,6 @@ msgid "Status"
 msgstr "상태"
 
 #: notify_lists.php:1198
-#, fuzzy
 msgid "Associated Lists"
 msgstr "관련 목록"
 
@@ -1862,22 +1631,18 @@ msgid "Hostname"
 msgstr "호스트명"
 
 #: notify_lists.php:1237
-#, fuzzy
 msgid "Current List Only"
 msgstr "현재 목록 만"
 
 #: notify_lists.php:1239
-#, fuzzy
 msgid "Current and Global List(s)"
 msgstr "현재 및 전체 목록"
 
 #: notify_lists.php:1260
-#, fuzzy
 msgid "No Associated Devices Found"
 msgstr "연결된 장치가 없습니다."
 
 #: notify_lists.php:1345
-#, fuzzy
 msgid "Associated Thresholds"
 msgstr "연관된 임계 값"
 
@@ -1899,12 +1664,10 @@ msgid "All"
 msgstr "모두"
 
 #: notify_lists.php:1485 notify_lists.php:1761
-#, fuzzy
 msgid "Warning Lists"
 msgstr "경고 목록"
 
 #: notify_lists.php:1489 notify_lists.php:1762
-#, fuzzy
 msgid "Alert Lists"
 msgstr "경고 목록"
 
@@ -1915,7 +1678,6 @@ msgid "Type"
 msgstr "유형"
 
 #: notify_lists.php:1501 thold.php:858
-#, fuzzy
 msgid "Templated"
 msgstr "템플리트"
 
@@ -1933,12 +1695,10 @@ msgid "Yes"
 msgstr "예"
 
 #: notify_lists.php:1523 thold.php:926 thold_graph.php:577
-#, fuzzy
 msgid "baseline-LOW"
 msgstr "기준선 - 낮음"
 
 #: notify_lists.php:1525 thold.php:928 thold_graph.php:579
-#, fuzzy
 msgid "baseline-HIGH"
 msgstr "기준선 HIGH"
 
@@ -1948,24 +1708,20 @@ msgstr "사용자 선택"
 
 #: notify_lists.php:1541 notify_lists.php:1568 notify_lists.php:1785
 #: notify_lists.php:1812
-#, fuzzy
 msgid "Specific Emails"
 msgstr "특정 이메일"
 
 #: notify_lists.php:1546 notify_lists.php:1573 notify_lists.php:1790
 #: notify_lists.php:1817
-#, fuzzy
 msgid "Current List"
 msgstr "현재 목록"
 
 #: notify_lists.php:1556
-#, fuzzy
 msgid "Unknown Threshold"
 msgstr "알 수없는 임계 값"
 
 #: notify_lists.php:1562 notify_lists.php:1589 notify_lists.php:1806
 #: notify_lists.php:1833
-#, fuzzy
 msgid "Log Only"
 msgstr "로그 만"
 
@@ -1978,12 +1734,10 @@ msgid "Read Only"
 msgstr "읽기 전용"
 
 #: notify_lists.php:1622
-#, fuzzy
 msgid "No Thresholds Found"
 msgstr "임계 값 로그가 없습니다."
 
 #: notify_lists.php:1674
-#, fuzzy
 msgid "Associated Templates"
 msgstr "연결된 템플릿"
 
@@ -1992,12 +1746,10 @@ msgid "Rows"
 msgstr "행"
 
 #: notify_lists.php:1800
-#, fuzzy
 msgid "Unknown Template"
 msgstr "알 수없는 템플릿"
 
 #: notify_lists.php:1848 thold_templates.php:2368
-#, fuzzy
 msgid "No Threshold Templates"
 msgstr "임계 값 템플릿 없음"
 
@@ -2014,7 +1766,6 @@ msgid "Emails"
 msgstr "이메일"
 
 #: notify_lists.php:2128
-#, fuzzy
 msgid "No Notification Lists"
 msgstr "알림 목록 없음"
 
@@ -2031,14 +1782,12 @@ msgid "Pending Notifications have been removed from the database.  Previously se
 msgstr ""
 
 #: notify_queue.php:147
-#, fuzzy
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
 msgstr[0] "다음 알림 목록을 복제하려면 '계속'을 클릭하십시오."
 msgstr[1] "다음 알림 목록을 복제하려면 '계속'을 클릭하십시오."
 
 #: notify_queue.php:152
-#, fuzzy
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
 msgstr[0] "알림 목록 삭제"
@@ -2050,7 +1799,6 @@ msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
 msgstr ""
 
 #: notify_queue.php:239
-#, fuzzy
 msgid "Event Notifications"
 msgstr "불량 장치 알림"
 
@@ -2067,7 +1815,6 @@ msgid "Suspend"
 msgstr ""
 
 #: notify_queue.php:298
-#, fuzzy
 msgid "Suspend Notification Processing"
 msgstr "SNMP 알림"
 
@@ -2076,7 +1823,6 @@ msgid "Resume"
 msgstr ""
 
 #: notify_queue.php:299
-#, fuzzy
 msgid "Resume Notification Processing"
 msgstr "SNMP 알림"
 
@@ -2085,17 +1831,14 @@ msgid "Purge"
 msgstr ""
 
 #: notify_queue.php:300
-#, fuzzy
 msgid "Purge Notification Queue"
 msgstr "SNMP 알림 사전 설정"
 
 #: notify_queue.php:401
-#, fuzzy
 msgid "Notifications"
 msgstr "알림 목록"
 
 #: notify_queue.php:414
-#, fuzzy
 msgid "The supported notification topic."
 msgstr "임계 값 템플릿"
 
@@ -2108,12 +1851,10 @@ msgid "The name of the object as defined by the caller."
 msgstr ""
 
 #: notify_queue.php:424
-#, fuzzy
 msgid "The hostname that was the source of this event."
 msgstr "이 장치의 데이터 소스 수"
 
 #: notify_queue.php:429
-#, fuzzy
 msgid "The Notification List used if any."
 msgstr "알림 목록 만"
 
@@ -2130,7 +1871,6 @@ msgid "Event Time"
 msgstr ""
 
 #: notify_queue.php:441
-#, fuzzy
 msgid "The time of the event as defined by the caller."
 msgstr "SNMP에 의해보고 된 장치의 공식 가동 시간"
 
@@ -2139,8 +1879,6 @@ msgid "Has the Notification Event been processed."
 msgstr ""
 
 #: notify_queue.php:450
-#, fuzzy
-#| msgid "Error"
 msgid "Errors"
 msgstr "오류"
 
@@ -2149,8 +1887,6 @@ msgid "Did this notification result in an error.  Hover on the error column for 
 msgstr ""
 
 #: notify_queue.php:456
-#, fuzzy
-#| msgid "Time"
 msgid "Run Time"
 msgstr "시간"
 
@@ -2171,8 +1907,6 @@ msgid "Pending"
 msgstr ""
 
 #: notify_queue.php:486
-#, fuzzy
-#| msgid "Error"
 msgid "Errored"
 msgstr "오류"
 
@@ -2181,7 +1915,6 @@ msgid "Success"
 msgstr ""
 
 #: notify_queue.php:498
-#, fuzzy
 msgid "No Notifications"
 msgstr "SNMP 알림"
 
@@ -2194,162 +1927,136 @@ msgid "On"
 msgstr "On"
 
 #: setup.php:245
-#, fuzzy, php-format
+#, php-format
 msgid "Toggle Threshold VRULES %s"
 msgstr "임계 값 토글 VRRES  %s"
 
 #: setup.php:264
-#, fuzzy
 msgid "Create Threshold"
 msgstr "임계 값 생성"
 
 #: setup.php:518 setup.php:528
-#, fuzzy, php-format
+#, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr "%s (%s)에 대한 Hi 경고"
 
 #: setup.php:522 setup.php:532
-#, fuzzy, php-format
+#, php-format
 msgid "Alert Low for %s (%s)"
 msgstr "%s (%s)에 대한 경고 낮음"
 
 #: setup.php:548 setup.php:558
-#, fuzzy, php-format
+#, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr "경고 목록"
 
 #: setup.php:552 setup.php:563
-#, fuzzy, php-format
+#, php-format
 msgid "Warning Low for %s (%s)"
 msgstr "경고 목록"
 
 #: setup.php:583 setup.php:597
-#, fuzzy
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "%s (%s %%)에 대한 Hi 경고"
 
 #: setup.php:589 setup.php:603
-#, fuzzy
 msgid "Alert Low for %s (%s %%%)"
 msgstr "%s (%s %%)에 대한 경고 낮음"
 
 #: setup.php:621 setup.php:635
-#, fuzzy
 msgid "Warning Hi for %s (%s %%%)"
 msgstr "%s (%s %%)에 대해 안녕하세요."
 
 #: setup.php:627 setup.php:641
-#, fuzzy
 msgid "Warning Low for %s (%s %%%)"
 msgstr "%s (%s %%)에 대해 낮음 경고"
 
 #: setup.php:654
-#, fuzzy
 msgid "Threshold Alert/Warning Values"
 msgstr "임계 값 경고 / 경고 값"
 
 #: setup.php:707
-#, fuzzy
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr "'계속'을 클릭하여 해당하는 모든 임계 값을이 장치에 적용하십시오."
 
 #: setup.php:783 setup.php:801
-#, fuzzy
 msgid "Create Threshold from Data Source"
 msgstr "데이터 원본에서 임계 값 만들기"
 
 #: setup.php:812
-#, fuzzy
 msgid "Auto-create Thresholds"
 msgstr "임계 값 자동 생성"
 
 #: setup.php:894 setup.php:1051
-#, fuzzy, php-format
+#, php-format
 msgid "Created %s thresholds"
 msgstr "생성 된 임계 값 :  %s"
 
 #: setup.php:896 setup.php:1053 thold_functions.php:6239
-#, fuzzy
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "생성 된 임계 값 없음. 이미 존재하거나 일치하는 조합을 찾지 못했습니다."
 
 #: setup.php:899 setup.php:1056
-#, fuzzy
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "생성 된 임계 값 없음. 임계 값 템플릿을 찾을 수 없습니다."
 
 #: setup.php:957
-#, fuzzy
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr "다음 데이터 소스에는 임계 값 템플릿이 연결되어 있지 않습니다."
 
 #: setup.php:961
-#, fuzzy
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr "이 데이터 소스에 대한 임계 값을 만들려면 '계속'을 클릭하십시오."
 
 #: setup.php:968 setup.php:1132
-#, fuzzy
 msgid "Available Threshold Templates"
 msgstr "사용 가능한 임계 값 템플릿"
 
 #: setup.php:973 setup.php:1137 thold_webapi.php:343
-#, fuzzy
 msgid "Select a Threshold Template"
 msgstr "임계 값 템플릿 선택"
 
 #: setup.php:989
-#, fuzzy
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "다음 데이터 소스와 연관된 임계 값 템플리트가 없습니다."
 
 #: setup.php:1001 setup.php:1164 thold_webapi.php:178
-#, fuzzy
 msgid "Create Threshold from Template"
 msgstr "템플리트에서 임계 값 작성"
 
 #: setup.php:1121
-#, fuzzy
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "다음 그래프에는 연관된 임계 값 템플릿이 없습니다."
 
 #: setup.php:1125
-#, fuzzy
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr "이 그래프에 대한 임계 값을 만들려면 '계속'을 누르십시오."
 
 #: setup.php:1152
-#, fuzzy
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr "다음 그래프와 연관된 임계 값 템플릿이 없습니다."
 
 #: setup.php:1234 setup.php:1420
-#, fuzzy
 msgid "Associated Threshold Templates"
 msgstr "연관된 임계 값 템플릿"
 
 #: setup.php:1263
-#, fuzzy
 msgid "Threshold Exists"
 msgstr "임계 값 있음"
 
 #: setup.php:1265
-#, fuzzy
 msgid "Threshold Does Not Exist"
 msgstr "임계 값이 존재하지 않음"
 
 #: setup.php:1277
-#, fuzzy
 msgid "Delete Threshold Template Association"
 msgstr "임계 값 템플릿 선택"
 
 #: setup.php:1285 setup.php:1447
-#, fuzzy
 msgid "No Associated Threshold Templates."
 msgstr "연관된 임계 값 템플릿이 없습니다."
 
 #: setup.php:1303 setup.php:1466
-#, fuzzy
 msgid "Add Threshold Template"
 msgstr "임계 값 템플릿 추가"
 
@@ -2358,132 +2065,107 @@ msgid "Add"
 msgstr "추가"
 
 #: setup.php:1309
-#, fuzzy
 msgid "Add Threshold Template to Device"
 msgstr "장치 템플릿에 임계 값 템플릿 추가"
 
 #: setup.php:1352
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
 msgstr "다음 임계 값 템플릿을 삭제하려면 '계속'을 클릭하고 장치 템플릿에서 연결 해제됩니다."
 
 #: setup.php:1353 setup.php:1518
-#, fuzzy, php-format
+#, php-format
 msgid "Threshold Template Name: %s"
 msgstr "임계 값 템플릿 이름 :  %s"
 
 #: setup.php:1359 setup.php:1524
-#, fuzzy
 msgid "Remove Threshold Template"
 msgstr "임계 값 템플릿 제거"
 
 #: setup.php:1472
-#, fuzzy
 msgid "Add Threshold Template to Device Template"
 msgstr "장치 템플릿에 임계 값 템플릿 추가"
 
 #: setup.php:1517
-#, fuzzy
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr "다음 임계 값 템플릿을 삭제하려면 '계속'을 클릭하고 장치 템플릿에서 연결 해제됩니다."
 
 #: thold.php:103
-#, fuzzy
 msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
 msgstr "템플리트 없음 또는 임계 값이 이미 있음 - 임계 값이 작성되지 않았습니다."
 
 #: thold.php:306
-#, fuzzy
 msgid "You are not authorized to modify one or more of the Thresholds selected"
 msgstr "선택한 임계 값 중 하나 이상을 수정할 수있는 권한이 없습니다"
 
 #: thold.php:408
-#, fuzzy
 msgid "Click 'Delete' to delete the following Threshold(s)."
 msgstr "다음 임계 값을 삭제하려면 '삭제'를 클릭하십시오."
 
 #: thold.php:409
-#, fuzzy
 msgid "Delete Threshold(s)"
 msgstr "임계 값 삭제"
 
 #: thold.php:412
-#, fuzzy
 msgid "Click 'Continue' to enable the following Threshold(s)."
 msgstr "다음 임계 값을 사용하려면 '계속'을 클릭하십시오."
 
 #: thold.php:413
-#, fuzzy
 msgid "Enable Threshold(s)"
 msgstr "임계 값 사용"
 
 #: thold.php:416
-#, fuzzy
 msgid "Click 'Continue' to disable the following Threshold(s)."
 msgstr "다음 임계 값을 사용하지 않으려면 '계속'을 클릭하십시오."
 
 #: thold.php:417
-#, fuzzy
 msgid "Disable Threshold(s)"
 msgstr "임계 값 사용 불가"
 
 #: thold.php:420
-#, fuzzy
 msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
 msgstr "제안 된 이름을 다음 임계 값에 다시 적용하려면 '계속'을 클릭하십시오."
 
 #: thold.php:421
-#, fuzzy
 msgid "Apply Suggestion"
 msgstr "제안 신청"
 
 #: thold.php:424
-#, fuzzy
 msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
 msgstr "'계속'을 클릭하여 다음 임계 값을 연관 템플릿의 세부 정보로 업데이트하십시오."
 
 #: thold.php:425
-#, fuzzy
 msgid "Reapply Template"
 msgstr "템플릿 다시 적용"
 
 #: thold.php:428
-#, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "다음 임계 값을 확인하려면 '계속'을 클릭하십시오. 이를 허용하지 않거나 트리거되지 않는 임계 값은 무시됩니다."
 
 #: thold.php:429 thold_functions.php:7472
-#, fuzzy
 msgid "Acknowledge Threshold(s)"
 msgstr "템플릿 수신 확인"
 
 #: thold.php:432
-#, fuzzy
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "다음 임계 값에 대한 알림을 재개하려면 '계속'을 클릭하십시오. 이를 허용하지 않거나 트리거되지 않는 임계 값은 무시됩니다."
 
 #: thold.php:433
-#, fuzzy
 msgid "Resume Notifications for Threshold(s)"
 msgstr "알림 목록 삭제"
 
 #: thold.php:436
-#, fuzzy
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
 msgstr "다음 임계 값에 대한 알림을 일시 중지하려면 '계속'을 클릭하십시오. 이를 허용하지 않거나 트리거되지 않는 임계 값은 무시됩니다."
 
 #: thold.php:437
-#, fuzzy
 msgid "Suspend Notification for Threshold(s)"
 msgstr "중복 된 알림 목록"
 
 #: thold.php:440 thold_templates.php:296
-#, fuzzy
 msgid "Invalid action detected, can not proceed"
 msgstr "잘못된 동작이 감지되었습니다. 계속할 수 없습니다."
 
 #: thold.php:634
-#, fuzzy
 msgid "Threshold Management"
 msgstr "임계 값 관리"
 
@@ -2492,28 +2174,23 @@ msgid "Apply Filters"
 msgstr "필터 적용"
 
 #: thold.php:673
-#, fuzzy
 msgid "Return to Defaults"
 msgstr "기본값으로 돌아 가기"
 
 #: thold.php:694 thold_graph.php:187 thold_templates.php:454
 #: thold_templates.php:1144 thold_templates.php:2246
-#, fuzzy
 msgid "Data Template"
 msgstr "데이터 템플릿"
 
 #: thold.php:717 thold_graph.php:220
-#, fuzzy
 msgid "Disabled at Template"
 msgstr "데이터 템플릿"
 
 #: thold.php:718 thold_graph.php:221
-#, fuzzy
 msgid "Disabled at Threshold"
 msgstr "임계 값 사용 안 함"
 
 #: thold.php:719 thold.php:863 thold_graph.php:222 thold_graph.php:517
-#, fuzzy
 msgid "Ack Required"
 msgstr "승인 필요"
 
@@ -2527,7 +2204,6 @@ msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the 
 msgstr ""
 
 #: thold.php:809
-#, fuzzy
 msgid "DSName"
 msgstr "DSName"
 
@@ -2536,7 +2212,6 @@ msgid "Current"
 msgstr "현재 비번"
 
 #: thold.php:817 thold_graph.php:476
-#, fuzzy
 msgid "The last measured value for the Data Source"
 msgstr "데이터 소스의 마지막 측정 값"
 
@@ -2546,7 +2221,6 @@ msgid "High"
 msgstr "높음"
 
 #: thold.php:823 thold_graph.php:482
-#, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "높은 경고 / 경고 값. 참고 : 기준 값은 백분율이며 다른 모든 값은 cdef로 수정할 수있는 표시 값입니다."
 
@@ -2556,7 +2230,6 @@ msgid "Low"
 msgstr "낮음"
 
 #: thold.php:829 thold_graph.php:488
-#, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
 msgstr "낮은 경고 / 경고 값입니다. 참고 : 기준 값은 백분율이며 다른 모든 값은 cdef로 수정할 수있는 표시 값입니다."
 
@@ -2573,67 +2246,55 @@ msgid "Repeat"
 msgstr "반복"
 
 #: thold.php:852 thold_graph.php:511 thold_graph.php:1002
-#, fuzzy
 msgid "In State"
 msgstr "주"
 
 #: thold.php:855 thold_graph.php:514
-#, fuzzy
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
 msgstr "경고를 발생시키기 위해 데이터 소스가 임계 값을 위반해야하는 시간입니다."
 
 #: thold.php:866 thold_graph.php:520
-#, fuzzy
 msgid "Acknowledgment required for this Threshold"
 msgstr "이 임계 값에 필요한 확인 응답"
 
 #: thold.php:974 thold_graph.php:698
-#, fuzzy
 msgid "No [Template:Thold]"
 msgstr "템플리트되지 않음"
 
 #: thold.php:976 thold_graph.php:700
-#, fuzzy
 msgid "No [Template]"
 msgstr "템플릿"
 
 #: thold.php:978 thold_graph.php:702
-#, fuzzy
 msgid "No [Thold]"
 msgstr "임계 값 없음"
 
 #: thold.php:1027 thold_graph.php:750
-#, fuzzy, php-format
+#, php-format
 msgid "%d Triggers"
 msgstr "% d 트리거"
 
 #: thold.php:1057 thold_graph.php:773
-#, fuzzy
 msgid "No Thresholds"
 msgstr "임계 값 없음"
 
 #: thold.php:1089
-#, fuzzy
 msgid "Threshold Deleted, can not Edit!"
 msgstr "임계 값이 존재하지 않음"
 
 #: thold.php:1197
-#, fuzzy
 msgid "Graph Data"
 msgstr "그래프 데이터"
 
 #: thold.php:1200
-#, fuzzy
 msgid "Edit Threshold Template"
 msgstr "임계 값 템플릿 추가"
 
 #: thold.php:1222
-#, fuzzy
 msgid "Data Source Description:"
 msgstr "데이터 원본 설명 :"
 
 #: thold.php:1223
-#, fuzzy
 msgid "Associated Graph (Graphs using this RRD):"
 msgstr "연결된 그래프 (이 RRD를 사용하는 그래프) :"
 
@@ -2642,72 +2303,62 @@ msgid "Last:"
 msgstr "최근:"
 
 #: thold.php:1330
-#, fuzzy
 msgid "WHi:"
 msgstr "WHI :"
 
 #: thold.php:1336
-#, fuzzy
 msgid "WLo:"
 msgstr "WLo :"
 
 #: thold.php:1344
-#, fuzzy
 msgid "AHi:"
 msgstr "안녕하세요."
 
 #: thold.php:1350
-#, fuzzy
 msgid "ALo:"
 msgstr "알로 :"
 
 #: thold.php:1367
-#, fuzzy
 msgid "BL Up:"
 msgstr "BL 위로 :"
 
 #: thold.php:1369
-#, fuzzy
 msgid "BL Down:"
 msgstr "BL 다운 :"
 
 #: thold.php:1407
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown Template ID %d"
 msgstr "알 수없는 템플릿 ID % d"
 
 #: thold.php:1409
-#, fuzzy
 msgid "Not Templated"
 msgstr "템플리트되지 않음"
 
 #: thold.php:1428 thold.php:1431
-#, fuzzy, php-format
+#, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
 msgstr "데이터 소스 항목 [ %s] - 현재 값 : [ %s]"
 
 #: thold.php:1517 thold_templates.php:1081
-#, fuzzy, php-format
+#, php-format
 msgid "Replacement Fields: %s"
 msgstr "대체 필드 :  %s"
 
 #: thold.php:1530 thold_templates.php:1095
-#, fuzzy, php-format
+#, php-format
 msgid "Data Sources: %s"
 msgstr "데이터 출처 :  %s"
 
 #: thold.php:1557
-#, fuzzy
 msgid "Template/Enabled Information"
 msgstr "템플릿 / 사용 가능 정보"
 
 #: thold.php:1561
-#, fuzzy
 msgid "Template Propagation Enabled"
 msgstr "템플릿 전파 사용"
 
 #: thold.php:1564
-#, fuzzy
 msgid "Whether or not these settings will be propagated from the Threshold template."
 msgstr "이러한 설정이 임계 값 템플릿에서 전파되는지 여부입니다."
 
@@ -2716,7 +2367,6 @@ msgid "Template Name"
 msgstr "템플릿 이름"
 
 #: thold.php:1571
-#, fuzzy
 msgid "Name of the Threshold Template the Threshold was created from."
 msgstr "임계 값이 작성된 임계 값 템플리트의 이름."
 
@@ -2729,7 +2379,6 @@ msgid "A Threshold must be enabled both at the Template Level and the Threshold 
 msgstr ""
 
 #: thold.php:1582
-#, fuzzy
 msgid "Enabled at Threshold Level"
 msgstr "임계 값 사용"
 
@@ -2738,42 +2387,34 @@ msgid "General Settings"
 msgstr "일반 설정"
 
 #: thold.php:1593
-#, fuzzy
 msgid "Name (Displayed)"
 msgstr "이름 (표시됨)"
 
 #: thold.php:1598 thold.php:1607
-#, fuzzy
 msgid "Provide the Thresholds a meaningful name"
 msgstr "임계 값에 의미있는 이름을 제공하십시오."
 
 #: thold.php:1602
-#, fuzzy
 msgid "Name (Format)"
 msgstr "이름 형식"
 
 #: thold.php:1611 thold_templates.php:1167
-#, fuzzy
 msgid "Warning HRULE Color"
 msgstr "경고 HRULE 색상"
 
 #: thold.php:1612 thold_templates.php:1168
-#, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "경고 임계 값에 대한 그래프 HRULE의 색상을 선택하십시오. HRULE 없음에 대해 '없음'을 선택하십시오. 참고 :이 기능은 현재 데이터 조작 유형 '정확한 값'과 '백분율'에서만 지원됩니다."
 
 #: thold.php:1619 thold_templates.php:1175
-#, fuzzy
 msgid "Alert HRULE Color"
 msgstr "HRULE 색상 경고"
 
 #: thold.php:1620 thold_templates.php:1176
-#, fuzzy
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
 msgstr "경고 임계 값에 대한 그래프 HRULE의 색상을 선택하십시오. HRULE 없음에 대해 '없음'을 선택하십시오. 참고 :이 기능은 현재 데이터 조작 유형 '정확한 값'과 '백분율'에서만 지원됩니다."
 
 #: thold.php:1627 thold_templates.php:1183
-#, fuzzy
 msgid "Graph Timespan"
 msgstr "그래프 템플릿"
 
@@ -2790,72 +2431,58 @@ msgid "If Checked, the Scale on the Graph will not be impacted by either the Ale
 msgstr ""
 
 #: thold.php:1642 thold_templates.php:1198
-#, fuzzy
 msgid "Weekend Exemption"
 msgstr "주말 면제"
 
 #: thold.php:1643 thold_templates.php:1199
-#, fuzzy
 msgid "If this is checked, this Threshold will not alert on weekends."
 msgstr "이 옵션을 선택하면 주말에는이 임계 값이 경고되지 않습니다."
 
 #: thold.php:1649 thold_templates.php:1205
-#, fuzzy
 msgid "Disable Restoration Email"
 msgstr "복원 전자 메일 사용 안 함"
 
 #: thold.php:1650 thold_templates.php:1206
-#, fuzzy
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
 msgstr "이 옵션을 선택하면 임계 값이 정상 상태로 돌아 왔을 때 임계 값은 경고를 보내지 않습니다."
 
 #: thold.php:1656 thold_templates.php:1212
-#, fuzzy
 msgid "Acknowledgment Options"
 msgstr "수신 확인 옵션"
 
 #: thold.php:1657 thold_templates.php:1213
-#, fuzzy
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
 msgstr "임계 값 위반 조건에 응답해야하는 방법을 제어하는 세 가지 승인 수준이 있습니다. 그들은: <br><br><ul><li> <i>없음 필수</i> -이 옵션을 선택하면 임계 값 위반에 대해 확인 응답이 필요하지 않습니다. </li><li> <i>Reset Acknowledgement (수신 확인 재설정)</i> -이 옵션을 사용하면 임계 값을 확인하면 더 이상 알림이 수신되지 않습니다. </li><li> <i>Persistent Acknowledgement</i> -이 옵션을 사용하면 Threshold가 정상으로 돌아온 후에도 Threshold를 확인하고 선택적 Operator Message를 제공해야합니다. </li></ul>"
 
 #: thold.php:1664 thold_templates.php:1220
-#, fuzzy
 msgid "None Required"
 msgstr "필요 없음"
 
 #: thold.php:1668 thold_templates.php:1224
-#, fuzzy
 msgid "Suspendible Notification"
 msgstr "SNMP 알림"
 
 #: thold.php:1672 thold_templates.php:1228
-#, fuzzy
 msgid "Persistent Acknowledgment"
 msgstr "Persistent Acknowledgement"
 
 #: thold.php:1677 thold_templates.php:1233
-#, fuzzy
 msgid "Threshold Type"
 msgstr "임계 값 유형"
 
 #: thold.php:1682 thold_templates.php:1238
-#, fuzzy
 msgid "The type of Threshold that will be monitored."
 msgstr "모니터링 할 임계 값 유형입니다."
 
 #: thold.php:1686 thold_templates.php:1242
-#, fuzzy
 msgid "Re-Alert Cycle"
 msgstr "재 경보주기"
 
 #: thold.php:1690
-#, fuzzy
 msgid "Repeat alert after this amount of time has passed since the last alert."
 msgstr "마지막 경고 이후이 시간이 지난 후에 경고를 반복하십시오."
 
 #: thold.php:1694 thold_templates.php:1250
-#, fuzzy
 msgid "Warning - High / Low Settings"
 msgstr "경고 - 높음 / 낮음 설정"
 
@@ -2868,92 +2495,75 @@ msgstr ""
 #: thold.php:1699 thold.php:1727 thold.php:1755 thold.php:1791
 #: thold_templates.php:1255 thold_templates.php:1283 thold_templates.php:1311
 #: thold_templates.php:1348
-#, fuzzy
 msgid "High Threshold"
 msgstr "높은 임계 값"
 
 #: thold.php:1703 thold.php:1759 thold_templates.php:1315
-#, fuzzy
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "설정하고 데이터 소스 값이이 숫자를 초과하면 경고가 발생합니다. 참고 :이 값은 RAW 숫자 여야합니다. 그래프에 표시되는 값은 cdef로 수정할 수 있습니다."
 
 #: thold.php:1707 thold.php:1735 thold.php:1763 thold.php:1799
 #: thold_templates.php:1263 thold_templates.php:1291 thold_templates.php:1319
 #: thold_templates.php:1356
-#, fuzzy
 msgid "Low Threshold"
 msgstr "낮은 임계 값"
 
 #: thold.php:1711 thold.php:1767 thold_templates.php:1323
-#, fuzzy
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "설정하고 데이터 소스 값이이 숫자보다 작 으면 경고가 발생합니다. 참고 :이 값은 RAW 숫자 여야합니다. 그래프에 표시되는 값은 cdef로 수정할 수 있습니다."
 
 #: thold.php:1715 thold.php:1743
-#, fuzzy
 msgid "Breach Duration"
 msgstr "위반 시간"
 
 #: thold.php:1718
-#, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "경고를 발생시키기 위해 데이터 소스가 임계 값을 위반해야하는 시간입니다."
 
 #: thold.php:1722 thold_templates.php:1278
-#, fuzzy
 msgid "Alert - High / Low Settings"
 msgstr "알림 - 높음 / 낮음 설정"
 
 #: thold.php:1731 thold.php:1795 thold_templates.php:1259
 #: thold_templates.php:1287 thold_templates.php:1352
-#, fuzzy
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "설정하고 데이터 소스 값이이 숫자를 초과하면 경고가 트리거됩니다. 참고 :이 값은 RAW 숫자 여야합니다. 그래프에 표시되는 값은 cdef로 수정할 수 있습니다."
 
 #: thold.php:1739 thold.php:1803 thold_templates.php:1267
 #: thold_templates.php:1295 thold_templates.php:1360
-#, fuzzy
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
 msgstr "설정하고 데이터 소스 값이이 숫자 아래로 떨어지면 경고가 발생합니다. 참고 :이 값은 RAW 숫자 여야합니다. 그래프에 표시되는 값은 cdef로 수정할 수 있습니다."
 
 #: thold.php:1746
-#, fuzzy
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
 msgstr "경고를 발생시키기 위해 데이터 소스가 임계 값을 위반해야하는 시간입니다."
 
 #: thold.php:1750 thold_templates.php:1306
-#, fuzzy
 msgid "Warning - Time Based Settings"
 msgstr "경고 - 시간 기반 설정"
 
 #: thold.php:1771 thold.php:1807
-#, fuzzy
 msgid "Breach Count"
 msgstr "위반 수"
 
 #: thold.php:1775 thold.php:1812
-#, fuzzy
 msgid "The number of times the Data Source must be in breach of the Threshold."
 msgstr "데이터 소스가 임계 값을 위반해야하는 횟수입니다."
 
 #: thold.php:1779 thold.php:1816
-#, fuzzy
 msgid "Breach Window"
 msgstr "위반 창"
 
 #: thold.php:1782 thold.php:1819 thold_templates.php:1339
 #: thold_templates.php:1375
-#, fuzzy
 msgid "The amount of time in the past to check for Threshold breaches."
 msgstr "과거에 임계 값 위반 여부를 확인하는 데 소요 된 시간."
 
 #: thold.php:1786 thold_templates.php:1343
-#, fuzzy
 msgid "Alert - Time Based Settings"
 msgstr "알림 - 시간 기반 설정"
 
 #: thold.php:1823
-#, fuzzy
 msgid "Baseline Settings"
 msgstr "기준선 설정"
 
@@ -2966,7 +2576,6 @@ msgid "Consolidation Function"
 msgstr ""
 
 #: thold.php:1838 thold_templates.php:1394
-#, fuzzy
 msgid "Average"
 msgstr "평균 (ms)"
 
@@ -2979,8 +2588,6 @@ msgid "Maximum"
 msgstr ""
 
 #: thold.php:1841 thold_templates.php:1397
-#, fuzzy
-#| msgid "Last:"
 msgid "Last"
 msgstr "최근:"
 
@@ -2989,49 +2596,42 @@ msgid "The Consolidation function to use for the Baseline Type value calculation
 msgstr ""
 
 #: thold.php:1847 thold_templates.php:1403
-#, fuzzy
-#| msgid "Time range"
 msgid "Time Range"
 msgstr "시간 범위"
 
 #: thold.php:1850 thold_templates.php:1406
-#, fuzzy
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
 msgstr "참조로 사용할 과거 (rrd 해상도 기준) 지점을 지정합니다."
 
 #: thold.php:1854 thold_templates.php:1410
-#, fuzzy
 msgid "Deviation UP"
 msgstr "편차 UP"
 
 #: thold.php:1858
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "상한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 상한 임계 값이 전혀 점검되지 않습니다."
 
 #: thold.php:1862 thold_templates.php:1418
-#, fuzzy
 msgid "Deviation DOWN"
 msgstr "편차 감소"
 
 #: thold.php:1866
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "하한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 하한 임계 값은 전혀 점검되지 않습니다."
 
 #: thold.php:1870 thold_templates.php:1327 thold_templates.php:1364
 #: thold_templates.php:1426
-#, fuzzy
 msgid "Trigger Count"
 msgstr "트리거 수"
 
 #: thold.php:1874
-#, fuzzy, php-format
+#, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
 msgstr "경고가 발생하는 기준 임계 값을 위반 한 데이터 소스의 연속 횟수입니다. <br> 기본값을 사용하려면 비워 두십시오 ( <b>기본값 :  %s주기</b> )."
 
 #: thold.php:1878 thold_templates.php:1434
-#, fuzzy
 msgid "Data Manipulation"
 msgstr "데이터 조작"
 
@@ -3040,27 +2640,22 @@ msgid "Data Type"
 msgstr "데이터 유형"
 
 #: thold.php:1887 thold_templates.php:1442
-#, fuzzy
 msgid "Special formatting for the given data."
 msgstr "주어진 데이터에 대한 특수 서식."
 
 #: thold.php:1891 thold_templates.php:1446
-#, fuzzy
 msgid "Threshold CDEF"
 msgstr "임계 값 CDEF"
 
 #: thold.php:1894 thold_templates.php:1449
-#, fuzzy
 msgid "Apply this CDEF before returning the data."
 msgstr "데이터를 반환하기 전에이 CDEF를 적용하십시오."
 
 #: thold.php:1899
-#, fuzzy
 msgid "Percent Data Source"
 msgstr "데이터 원본 비율"
 
 #: thold.php:1902
-#, fuzzy
 msgid "Second Data Source Item to use as total value to calculate percentage from."
 msgstr "둘째 데이터 원본에서 백분율을 계산하기위한 총 값으로 사용할 항목입니다."
 
@@ -3089,17 +2684,15 @@ msgid "The number of decimal digits to display for Threshold and Current Values.
 msgstr ""
 
 #: thold.php:1936
-#, fuzzy, php-format
+#, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "RPN 표현식은 RRDtool 호환 RPN 표현식입니다. 구문에는 다음과 같은 장치 및 데이터 쿼리 대체 표현식 외에도 모든 함수가 포함됩니다. <span class=\"deviceUp\">| query_ifSpeed |</span> . RPN 표현식에서 데이터 소스를 사용하려면 다음 구문을 사용해야합니다. <span class=\"deviceUp\">| ds : dsname |</span> . 예를 들어, <span class=\"deviceUp\">| ds : traffic_in |</span> 그래프와 연관된 RRD 파일에 대한 traffic_in 데이터 소스의 현재 값을 가져옵니다. 그래프의 모든 데이터 소스를 포함 할 수 있습니다. <br><br> 수학 연산자 : <span class=\"deviceUp\">+, -, /, *, %, ^</span> <br> 함수 : <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, 바닥, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> 흐름 운영자 : <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> 비교 함수 : <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s  %s"
 
 #: thold.php:1942 thold_templates.php:1471
-#, fuzzy
 msgid "Upper Data Source"
 msgstr "데이터 원본"
 
 #: thold.php:1945
-#, fuzzy
 msgid "Upper data source to calculate the total value."
 msgstr "총 값을 계산할 상위 데이터 소스입니다."
 
@@ -3108,82 +2701,66 @@ msgid "Notification Settings"
 msgstr "알림 설정"
 
 #: thold.php:1955
-#, fuzzy
 msgid "Alert Subject"
 msgstr "경고 사전 설정"
 
 #: thold.php:1960 thold_templates.php:1513
-#, fuzzy
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
 #: thold.php:1964
-#, fuzzy
 msgid "Alert Body"
 msgstr "알리미 이메일 본문"
 
 #: thold.php:1969 thold_templates.php:1522
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 전용 전자 메일에서는 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> 예 : &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
 
 #: thold.php:1973 thold_templates.php:1526
-#, fuzzy
 msgid "Warning Subject"
 msgstr "복구 장치 제목"
 
 #: thold.php:1978
-#, fuzzy
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
 #: thold.php:1982 thold_templates.php:1535
-#, fuzzy
 msgid "Warning Body"
 msgstr "경고 이메일 본문"
 
 #: thold.php:1987 thold_templates.php:1540
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 전용 전자 메일에서는 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> 예 : &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
 
 #: thold.php:1991 thold_templates.php:1544
-#, fuzzy
 msgid "Restoral Subject"
 msgstr "회복 운동"
 
 #: thold.php:1996 thold_templates.php:1549
-#, fuzzy
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
 #: thold.php:2000
-#, fuzzy
 msgid "Restoral Email Body"
 msgstr "알리미 이메일 본문"
 
 #: thold.php:2005 thold_templates.php:1558
-#, fuzzy
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
 #: thold.php:2009 thold_templates.php:1569
-#, fuzzy
 msgid "Warning Notification List"
 msgstr "경고 알림 목록"
 
 #: thold.php:2011 thold_templates.php:1571
-#, fuzzy
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
 msgstr "이 데이터 소스에 대한 경고를 받으려면 알림 목록을 지정하도록 지정할 수 있습니다"
 
 #: thold.php:2017 thold_templates.php:1577
-#, fuzzy
 msgid "Alert Notification List"
 msgstr "알림 알림 목록"
 
 #: thold.php:2019 thold_templates.php:1579
-#, fuzzy
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
 msgstr "알림 목록을 선택하여이 데이터 소스에 대한 알림을 수신하도록 지정할 수 있습니다."
 
@@ -3192,32 +2769,26 @@ msgid "Style/Format File"
 msgstr ""
 
 #: thold.php:2037 thold_templates.php:1597
-#, fuzzy
 msgid "SNMP Notification - Event Category"
 msgstr "SNMP 알림 - 이벤트 범주"
 
 #: thold.php:2039 thold_templates.php:1599
-#, fuzzy
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 msgstr "NMS가 서로 다른 SNMP 알림을 더 쉽게 분류 할 수있게하려면이 템플릿의 SNMP 알림 카테고리를 작성하십시오. 예 : \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\"..."
 
 #: thold.php:2045 thold_templates.php:1605
-#, fuzzy
 msgid "SNMP Event Description"
 msgstr "SNMP 이벤트 설명"
 
 #: thold.php:2046 thold_templates.php:1606
-#, fuzzy
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 msgstr "추가 varbind를 사용하여 SNMP 통지 수신자에게 전송되는 이벤트 설명을 사용자 정의 할 수 있습니다. 다음 변수 바인딩이 지원됩니다. <br> &lt;THRESHOLDNAME&gt; &lt;HOSTNAME&gt; &lt;HOSTP&gt; &lt;TEMPLATE_ID&gt; &lt;TEMPLATE_NAME&gt; &lt;THR_TYPE&gt; &lt;DS_NAME&gt; &lt;HI&gt; &lt;LOW&gt; &lt;EVENT_CATEGORY&gt; &lt;FAIL_COUNT&gt; &lt;FAIL_DURATION&gt;"
 
 #: thold.php:2055 thold_templates.php:1615
-#, fuzzy
 msgid "SNMP Notification - Alert Event Severity"
 msgstr "SNMP 알림 - 경고 이벤트 심각도"
 
 #: thold.php:2058
-#, fuzzy
 msgid "Severity to be used for alerts. (low impact -> critical impact)"
 msgstr "경고에 사용될 심각도. (낮은 영향 -> 중대한 영향)"
 
@@ -3227,57 +2798,46 @@ msgid "Medium"
 msgstr "중간"
 
 #: thold.php:2074 thold_templates.php:1629
-#, fuzzy
 msgid "SNMP Notification - Warning Event Severity"
 msgstr "SNMP 알림 - 경고 이벤트 심각도"
 
 #: thold.php:2077 thold_templates.php:1632
-#, fuzzy
 msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
 msgstr "경고에 사용될 심각도. (낮은 영향 -> 중대한 영향). <br> 참고 : 경고의 심각도는 경고에 대해 정의 된 심각도와 같거나 낮아야합니다."
 
 #: thold.php:2095 thold_templates.php:1645
-#, fuzzy
 msgid "Notify accounts"
 msgstr "계정에 알림"
 
 #: thold.php:2097
-#, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
 msgstr "이 임계 값이 위반되었을 때 알림을받을 계정 목록입니다."
 
 #: thold.php:2102 thold_templates.php:1653
-#, fuzzy
 msgid "Alert Emails"
 msgstr "알림 이메일"
 
 #: thold.php:2106
-#, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
 msgstr "이 데이터 소스에 대한 경고를 수신하려면 추가 이메일을 여기에서 지정할 수 있습니다 (쉼표로 구분)."
 
 #: thold.php:2110 thold_templates.php:1661
-#, fuzzy
 msgid "Warning Emails"
 msgstr "경고 이메일"
 
 #: thold.php:2114
-#, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
 msgstr "이 데이터 소스 (쉼표로 구분)에 대한 경고를 받으려면 여기서 추가 이메일을 지정할 수 있습니다."
 
 #: thold.php:2148 thold_templates.php:1699
-#, fuzzy
 msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "이 옵션을 선택하면 임계 값 알림이 로컬 syslog로 전송됩니다."
 
 #: thold.php:2154 thold_templates.php:1705
-#, fuzzy
 msgid "Priority/Level"
 msgstr "우선 순위 / 레벨"
 
 #: thold.php:2155 thold_templates.php:1706
-#, fuzzy
 msgid "This is the Priority Level that will be logged into your syslog messages."
 msgstr "이것은 syslog 메시지에 기록 될 우선 순위입니다."
 
@@ -3286,42 +2846,34 @@ msgid "Facility"
 msgstr "시설"
 
 #: thold.php:2163 thold_templates.php:1714
-#, fuzzy
 msgid "This is the Facility that will be used for this Threshold."
 msgstr "이것은이 임계 값에 사용될 시설입니다."
 
 #: thold.php:2184 thold_templates.php:1735
-#, fuzzy
 msgid "Event Triggering (Shell Command)"
 msgstr "이벤트 트리거링 (셸 명령)"
 
 #: thold.php:2189 thold_templates.php:1740
-#, fuzzy
 msgid "High Trigger Command"
 msgstr "하이 트리거 명령"
 
 #: thold.php:2190 thold_templates.php:1741
-#, fuzzy
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "설정되어 있고 높은 임계 값이 위반 된 경우이 명령이 실행됩니다. 올바른 명령을 입력하십시오. 또한 임계 값에서 스크립트로 정보를 전달하는 데 사용할 수있는 몇 가지 대체 태그가 있습니다. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. 마지막으로 호스트, 데이터 질의 및 데이터 입력 대체가 가능합니다. 예를 들어, 보류라는 데이터 입력 사용자 정의 데이터가있는 경우 대체를 수행하려면 보류를 사용하십시오. 데이터 쿼리 및 호스트 교체를 위해 Cacti 규칙 | query_xxxx | 및 host_xxxx | 각기."
 
 #: thold.php:2197 thold_templates.php:1748
-#, fuzzy
 msgid "Low Trigger Command"
 msgstr "낮은 트리거 명령"
 
 #: thold.php:2198 thold_templates.php:1749
-#, fuzzy
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "설정되어 있고 Low Threshold가 위반 된 경우이 명령이 실행됩니다. 올바른 명령을 입력하십시오. 또한 임계 값에서 스크립트로 정보를 전달하는 데 사용할 수있는 몇 가지 대체 태그가 있습니다. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. 마지막으로 호스트, 데이터 쿼리 및 데이터 입력 대체가 가능합니다. 예를 들어, 보류라는 데이터 입력 사용자 정의 데이터가있는 경우 대체를 수행하려면 보류를 사용하십시오. 데이터 쿼리 및 호스트 교체를 위해 Cacti 규칙 | query_xxxx | 및 host_xxxx | 각기."
 
 #: thold.php:2205 thold_templates.php:1756
-#, fuzzy
 msgid "Norm Trigger Command"
 msgstr "Norm 트리거 명령"
 
 #: thold.php:2206 thold_templates.php:1757
-#, fuzzy
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
 msgstr "설정된 경우, thold가 정상 값으로 돌아 가면이 명령이 실행됩니다. 올바른 명령을 입력하십시오. 또한 임계 값에서 스크립트로 정보를 전달하는 데 사용할 수있는 몇 가지 대체 태그가 있습니다. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. 마지막으로 호스트, 데이터 쿼리 및 데이터 입력 대체가 가능합니다. 예를 들어, 보류라는 데이터 입력 사용자 정의 데이터가있는 경우 대체를 수행하려면 보류를 사용하십시오. 데이터 쿼리 및 호스트 교체를 위해 Cacti 규칙 | query_xxxx | 및 host_xxxx | 각기."
 
@@ -3330,42 +2882,34 @@ msgid "Other Settings"
 msgstr "기타 설정"
 
 #: thold.php:2226
-#, fuzzy
 msgid "Enter an Eternal ID for this Threshold."
 msgstr "임계 값에 대한 그래프를 선택하십시오."
 
 #: thold.php:2233 thold_templates.php:1784
-#, fuzzy
 msgid "Operator Notes"
 msgstr "운영자 노트"
 
 #: thold.php:2237 thold_templates.php:1788
-#, fuzzy
 msgid "Enter instructions here for an operator who may be receiving the Threshold message."
 msgstr "임계 값 메시지를 수신하는 운영자를 위해 여기에 지침을 입력하십시오."
 
 #: thold.php:2520
-#, fuzzy
 msgid "Select Users(s)"
 msgstr "사용자 선택"
 
 #: thold.php:2522
-#, fuzzy
 msgid "Users Selected"
 msgstr "선택된 사용자"
 
 #: thold.php:2525
-#, fuzzy
 msgid "All Users Selected"
 msgstr "모든 사용자 선택"
 
 #: thold_functions.php:82
-#, fuzzy
 msgid "< 1 Minute"
 msgstr "1분"
 
 #: thold_functions.php:84
-#, fuzzy
 msgid "Since Created"
 msgstr "생성"
 
@@ -3382,12 +2926,10 @@ msgid "User:"
 msgstr "회원:"
 
 #: thold_functions.php:270
-#, fuzzy
 msgid "System:"
 msgstr "시스템"
 
 #: thold_functions.php:271
-#, fuzzy
 msgid "Swaps:"
 msgstr "스왑 :"
 
@@ -3404,67 +2946,57 @@ msgid "Only logging, maint device"
 msgstr ""
 
 #: thold_functions.php:4083
-#, fuzzy
 msgid "Link to Graph in Cacti"
 msgstr "Cacti의 그래프에 링크"
 
 #: thold_functions.php:4109
-#, fuzzy
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body> 주의가 필요한 경고가 발행되었습니다. <br><br> <b>기기</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>메시지</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
 #: thold_functions.php:4133
-#, fuzzy
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "<html><body> 주의가 필요한 경고가 발행되었습니다. <br><br> <b>기기</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>메시지</b> : <SUBJECT><br><br><GRAPH></body></html>"
 
 #: thold_functions.php:4157
-#, fuzzy
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr "주의가 필요한 경고가 발행되었습니다. <br><br> <strong>기기</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>메시지</strong> : <SUBJECT><br><br><GRAPH>"
 
 #: thold_functions.php:5037
-#, fuzzy, php-format
+#, php-format
 msgid "%% Dev [TIP:%s]"
 msgstr "편차 UP"
 
 #: thold_functions.php:5041
-#, fuzzy, php-format
+#, php-format
 msgid "Abs Val [TIP:%s]"
 msgstr "알림 값"
 
 #: thold_functions.php:5045
-#, fuzzy
 msgid "%%% Dev [AOT:%s]"
 msgstr "편차 UP"
 
 #: thold_functions.php:5049
-#, fuzzy, php-format
+#, php-format
 msgid "Abs Val [AOT:%s]"
 msgstr "알림 값"
 
 #: thold_functions.php:5271
-#, fuzzy
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr "그래프 및 임계 값을 만들려고 시도하는 동안 장치 ID가 설정되지 않았습니다."
 
 #: thold_functions.php:5286
-#, fuzzy
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
 
 #: thold_functions.php:5293
-#, fuzzy
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
 
 #: thold_functions.php:5326
-#, fuzzy
 msgid "The Graph Creation failed for Threshold Template"
 msgstr "임계 값 템플릿에 대한 그래프 작성 실패"
 
 #: thold_functions.php:5356
-#, fuzzy
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr "장치 템플릿 매핑으로 인해 임계 값이 자동 생성되었습니다."
 
@@ -3473,62 +3005,52 @@ msgid "Permission Denied"
 msgstr "사용 권한이 거부되었습니다."
 
 #: thold_functions.php:5412 thold_functions.php:5742
-#, fuzzy
 msgid "Record Updated"
 msgstr "레코드 업데이트 됨"
 
 #: thold_functions.php:5654
-#, fuzzy, php-format
+#, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr "임계 값 '% d'에서 연결된 그래프 템플릿 항목 '% d'을 (를) 찾지 못했습니다."
 
 #: thold_functions.php:5740 thold_functions.php:6319
-#, fuzzy, php-format
+#, php-format
 msgid "Created Threshold: %s"
 msgstr "생성 된 임계 값 :  %s"
 
 #: thold_functions.php:5830 thold_functions.php:5886
-#, fuzzy
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
 msgstr "'높은 경고 임계 값'또는 '낮은 경고 임계 값'또는 둘 모두를 지정해야합니다! <br> 기록이 업데이트되지 않았습니다!"
 
 #: thold_functions.php:5837
-#, fuzzy
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
 msgstr "불가능한 문턱 값 : '높은 문턱 값'이 '낮은 문턱 값'보다 작거나 같음 <br> 기록이 업데이트되지 않았습니다!"
 
 #: thold_functions.php:5846 thold_functions.php:5915
-#, fuzzy
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
 msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
 
 #: thold_functions.php:5853 thold_functions.php:5934
-#, fuzzy
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
 msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
 
 #: thold_functions.php:5860
-#, fuzzy
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
 msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
 
 #: thold_functions.php:5868
-#, fuzzy
 msgid "With baseline thresholds enabled."
 msgstr "기본 임계 값을 사용합니다."
 
 #: thold_functions.php:5871
-#, fuzzy
 msgid "Time reference in the past must be set to positive integer value!"
 msgstr "' %s'은 (는) 양의 정수 값으로 설정되어야합니다! <br> 기록이 업데이트되지 않았습니다!"
 
 #: thold_functions.php:5877
-#, fuzzy
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
 msgstr "'Baseline Deviation UP'또는 'Baseline Deviation DOWN'또는 둘 다를 지정해야합니다! <br> 기록이 업데이트되지 않았습니다!"
 
 #: thold_functions.php:5893
-#, fuzzy
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
 msgstr "불가능한 문턱 값 : '높은 문턱 값'이 '낮은 문턱 값'보다 작거나 같음 <br> 기록이 업데이트되지 않았습니다!"
 
@@ -3545,52 +3067,42 @@ msgid "Impossible threshold: The Warning Trigger Count must be greater or eval t
 msgstr ""
 
 #: thold_functions.php:5928
-#, fuzzy
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
 msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
 
 #: thold_functions.php:5941
-#, fuzzy
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
 msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
 
 #: thold_functions.php:5948
-#, fuzzy
 msgid "Unknown Threshold Type!"
 msgstr "알 수없는 임계 값"
 
 #: thold_functions.php:6140
-#, fuzzy
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr "임계 값 없음 장치 템플리트와 연관된 템플리트."
 
 #: thold_functions.php:6355
-#, fuzzy
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr "메일러 오류 : <b>TO</b> 주소 세트가 없습니다! <br> <i>메일 테스트</i> 링크를 사용하는 경우 <b>알림 이메일</b> 설정을 지정하십시오."
 
 #: thold_functions.php:7469 thold_graph.php:633
-#, fuzzy
 msgid "Acknowledge Threshold"
 msgstr "알 수없는 임계 값"
 
 #: thold_functions.php:7471
-#, fuzzy
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr "다음 임계 값을 확인하려면 '계속'을 클릭하십시오."
 
 #: thold_functions.php:7915
-#, fuzzy
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr "임계 값 템플릿 종속 데이터 템플릿을 찾을 수 없습니다!"
 
 #: thold_functions.php:7930
-#, fuzzy
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr "임계 값 템플릿 종속 데이터 소스를 찾을 수 없습니다!"
 
 #: thold_functions.php:7966
-#, fuzzy
 msgid "Threshold Template import columns do not match the database schema"
 msgstr "임계 값 템플릿 가져 오기 열이 데이터베이스 스키마와 일치하지 않습니다."
 
@@ -3599,7 +3111,7 @@ msgid "Imported"
 msgstr "가져오기 완료"
 
 #: thold_functions.php:7975 thold_functions.php:7977
-#, fuzzy, php-format
+#, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr "임계 값 템플릿 ' %s' %s!"
 
@@ -3613,7 +3125,7 @@ msgid "Import"
 msgstr "가져오기"
 
 #: thold_functions.php:7981 thold_functions.php:7983
-#, fuzzy, php-format
+#, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr "임계 값 템플릿 ' %s' %s에 실패했습니다!"
 
@@ -3622,37 +3134,30 @@ msgid "Update"
 msgstr "업데이트"
 
 #: thold_functions.php:7987
-#, fuzzy
 msgid "Errors encountered while attempting to import Threshold Template data."
 msgstr "임계 값 템플릿 데이터를 가져 오는 동안 오류가 발생했습니다."
 
 #: thold_functions.php:7991
-#, fuzzy
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr "임계 값 템플릿 종속 데이터 템플릿을 찾을 수 없습니다!"
 
 #: thold_functions.php:7994
-#, fuzzy
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
 
 #: thold_graph.php:66
-#, fuzzy
 msgid "The Threshold has been Ascknowledged."
 msgstr "모니터링 할 임계 값 유형입니다."
 
 #: thold_graph.php:73
-#, fuzzy
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
 msgstr "임계 값은 더 이상 경고, 알림을 생성하거나 명령을 실행하지 않습니다."
 
 #: thold_graph.php:80
-#, fuzzy
 msgid "The Threshold will restart generating Alerts."
 msgstr "경고 / 경고에 대한 높은 임계 값"
 
 #: thold_graph.php:383
-#, fuzzy
 msgid "Threshold Status"
 msgstr "임계 값 상태"
 
@@ -3665,47 +3170,38 @@ msgid "Ack Detail"
 msgstr ""
 
 #: thold_graph.php:611
-#, fuzzy
 msgid "Edit Threshold"
 msgstr "임계 값 편집"
 
 #: thold_graph.php:616
-#, fuzzy
 msgid "Disable Threshold"
 msgstr "임계 값 사용 안 함"
 
 #: thold_graph.php:619
-#, fuzzy
 msgid "Enable Threshold"
 msgstr "임계 값 사용"
 
 #: thold_graph.php:621
-#, fuzzy
 msgid "To enable the Threshold, enable the Template first"
 msgstr "임계 값 템플릿 선택"
 
 #: thold_graph.php:627
-#, fuzzy
 msgid "View Graph"
 msgstr "그래프보기"
 
 #: thold_graph.php:629
-#, fuzzy
 msgid "View Threshold History"
 msgstr "임계 값 기록보기"
 
 #: thold_graph.php:636
-#, fuzzy
 msgid "Suspend Notifications until the Threshold clears"
 msgstr "중복 된 알림 목록"
 
 #: thold_graph.php:639
-#, fuzzy
 msgid "Resume Notifications for this breached Threshold"
 msgstr "알림 목록 삭제"
 
 #: thold_graph.php:664
-#, fuzzy
 msgid "Acknowledgement Message"
 msgstr "인정"
 
@@ -3722,42 +3218,34 @@ msgid "Ack History"
 msgstr ""
 
 #: thold_graph.php:692
-#, fuzzy
 msgid "No name set"
 msgstr "이름이 설정되지 않았습니다."
 
 #: thold_graph.php:969
-#, fuzzy
 msgid "Hover over icons for help"
 msgstr "도움말 아이콘 위로 마우스를 이동하십시오."
 
 #: thold_graph.php:975
-#, fuzzy
 msgid "A description for the Device"
 msgstr "장치에 대한 설명"
 
 #: thold_graph.php:981
-#, fuzzy
 msgid "A Cacti unique identifier for the Device"
 msgstr "장치에 대한 선인 고유 식별자"
 
 #: thold_graph.php:987
-#, fuzzy
 msgid "The number of Graphs for this Device"
 msgstr "이 장치의 그래프 수"
 
 #: thold_graph.php:993
-#, fuzzy
 msgid "The number of Data Sources for this Device"
 msgstr "이 장치의 데이터 소스 수"
 
 #: thold_graph.php:999
-#, fuzzy
 msgid "The status for this Device as of the last time it was polled"
 msgstr "마지막으로 폴링 된이 장치의 상태"
 
 #: thold_graph.php:1005
-#, fuzzy
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
 msgstr "Cacti가이 장치에 문제가 있음을 마지막으로 발견했습니다. Cacti 폴링주기 사이에 재부팅 된 경우 장치의 가동 시간보다 높을 수 있습니다"
 
@@ -3766,32 +3254,26 @@ msgid "Uptime"
 msgstr "운영 시간"
 
 #: thold_graph.php:1011
-#, fuzzy
 msgid "The official uptime of the Device as reported by SNMP"
 msgstr "SNMP에 의해보고 된 장치의 공식 가동 시간"
 
 #: thold_graph.php:1017
-#, fuzzy
 msgid "The official hostname for this Device"
 msgstr "이 장치의 공식 호스트 이름"
 
 #: thold_graph.php:1020
-#, fuzzy
 msgid "Current (ms)"
 msgstr "현재 (ms)"
 
 #: thold_graph.php:1023
-#, fuzzy
 msgid "The current response time for the Cacti Availability check"
 msgstr "Cacti 가용성 검사에 대한 현재 응답 시간"
 
 #: thold_graph.php:1026
-#, fuzzy
 msgid "Average (ms)"
 msgstr "평균 (ms)"
 
 #: thold_graph.php:1029
-#, fuzzy
 msgid "The average response time for the Cacti Availability check"
 msgstr "Cacti 가용성 검사의 평균 응답 시간"
 
@@ -3800,27 +3282,22 @@ msgid "Availability"
 msgstr "예약가능 상태설정"
 
 #: thold_graph.php:1035
-#, fuzzy
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
 msgstr "Cacti의 마지막 카운터 재설정 이후이 장치의 전체 가용성"
 
 #: thold_graph.php:1063 thold_graph.php:1089
-#, fuzzy
 msgid "Edit Device"
 msgstr "장치 편집"
 
 #: thold_graph.php:1065 thold_graph.php:1091
-#, fuzzy
 msgid "View Graphs"
 msgstr "그래프보기"
 
 #: thold_graph.php:1114
-#, fuzzy
 msgid "No Devices"
 msgstr "장치"
 
 #: thold_graph.php:1171
-#, fuzzy
 msgid "Not Up"
 msgstr "안 함"
 
@@ -3829,12 +3306,11 @@ msgid "No Export Rows Found."
 msgstr ""
 
 #: thold_graph.php:1408
-#, fuzzy, php-format
+#, php-format
 msgid "Threshold Log for [ %s ]"
 msgstr "[ %s]에 대한 임계 값 로그"
 
 #: thold_graph.php:1465
-#, fuzzy
 msgid "Log Entries"
 msgstr "로그 항목"
 
@@ -3848,17 +3324,14 @@ msgid "Time"
 msgstr "시간"
 
 #: thold_graph.php:1493
-#, fuzzy
 msgid "Alert Value"
 msgstr "알림 값"
 
 #: thold_graph.php:1498
-#, fuzzy
 msgid "Measured Value"
 msgstr "측정 된 가치"
 
 #: thold_graph.php:1547
-#, fuzzy
 msgid "No Threshold Logs Found"
 msgstr "임계 값 로그가 없습니다."
 
@@ -3867,67 +3340,55 @@ msgid "Entries"
 msgstr "입력 항목"
 
 #: thold_templates.php:196
-#, fuzzy
 msgid "You are not authorised to modify one or more of the Thresholds selected"
 msgstr "선택한 임계 값 중 하나 이상을 수정할 수있는 권한이 없습니다"
 
 #: thold_templates.php:255
-#, fuzzy, php-format
+#, php-format
 msgid "%s (%d Thresholds)"
 msgstr "%s (% d 개 임계 값)"
 
 #: thold_templates.php:276
-#, fuzzy
 msgid "Click 'Continue' to export the following Threshold Template(s)."
 msgstr "다음 임계 값 템플릿을 내보내려면 '계속'을 클릭하십시오."
 
 #: thold_templates.php:277
-#, fuzzy
 msgid "Export Template(s)"
 msgstr "템플릿 내보내기"
 
 #: thold_templates.php:280
-#, fuzzy
 msgid "Click 'Continue' to delete the following Threshold Template(s)."
 msgstr "다음 임계 값 템플릿을 삭제하려면 '계속'을 클릭하십시오."
 
 #: thold_templates.php:281
-#, fuzzy
 msgid "Delete Template(s)"
 msgstr "템플릿 삭제"
 
 #: thold_templates.php:284
-#, fuzzy
 msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
 msgstr "제안 된 이름을 다음 임계 값 템플리트의 임계 값에 다시 적용하려면 '계속'을 클릭하십시오."
 
 #: thold_templates.php:285
-#, fuzzy
 msgid "Reapply Suggested Names to Template(s)"
 msgstr "제안 된 이름을 템플릿에 다시 적용하십시오."
 
 #: thold_templates.php:288
-#, fuzzy
 msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
 msgstr "다음 임계 값을 사용하려면 '계속'을 클릭하십시오."
 
 #: thold_templates.php:289
-#, fuzzy
 msgid "Enable Template(s)"
 msgstr "템플릿 삭제"
 
 #: thold_templates.php:292
-#, fuzzy
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
 msgstr "다음 임계 값을 사용하지 않으려면 '계속'을 클릭하십시오."
 
 #: thold_templates.php:293
-#, fuzzy
 msgid "Disable Template(s)"
 msgstr "템플릿 삭제"
 
 #: thold_templates.php:415
-#, fuzzy
 msgid "Threshold Template Creation Wizard"
 msgstr "임계 값 템플릿 생성 마법사"
 
@@ -3936,17 +3397,14 @@ msgid "Data Source"
 msgstr "데이터 원본"
 
 #: thold_templates.php:520
-#, fuzzy
 msgid "Please select a Data Template"
 msgstr "데이터 템플릿을 선택하십시오."
 
 #: thold_templates.php:522
-#, fuzzy
 msgid "Please select a Data Source"
 msgstr "데이터 소스를 선택하십시오."
 
 #: thold_templates.php:524
-#, fuzzy
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "'생성'을 눌러 임계 템플릿을 만드십시오."
 
@@ -3955,27 +3413,22 @@ msgid "Create"
 msgstr "생성"
 
 #: thold_templates.php:947
-#, fuzzy
 msgid "The Threshold Template requested can not be found"
 msgstr "임계 값이 존재하지 않음"
 
 #: thold_templates.php:1131
-#, fuzzy
 msgid "Provide the Threshold Template a meaningful name."
 msgstr "임계 값 템플리트를 의미있는 이름으로 제공하십시오."
 
 #: thold_templates.php:1135
-#, fuzzy
 msgid "Suggested Threshold Name"
 msgstr "제안 된 임계 값 이름"
 
 #: thold_templates.php:1140
-#, fuzzy
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
 msgstr "이 템플리트를 사용하여 작성된 임계 값에 제안 된 이름을 제공하십시오. 표준 장치 (| host_ * |), 데이터 조회 (| query_ * |) 및 입력 (| input_ * |) 대체 변수는 | graph_title | 그래프 제목."
 
 #: thold_templates.php:1147
-#, fuzzy
 msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "사용중인 데이터 템플릿. (변경할 수 없음)"
 
@@ -3984,237 +3437,204 @@ msgid "Data Field"
 msgstr "데이터 필드"
 
 #: thold_templates.php:1155
-#, fuzzy
 msgid "Data Field that you are using. (This cannot be changed)"
 msgstr "사용중인 데이터 필드. (변경할 수 없음)"
 
 #: thold_templates.php:1163
-#, fuzzy
 msgid "Whether or not this Threshold will be checked and alerted upon."
 msgstr "이 임계 값이 점검되고 경고되는지 여부."
 
 #: thold_templates.php:1246
-#, fuzzy
 msgid "Repeat alert after this amount of time has pasted since the last alert."
 msgstr "마지막 경고 이후이 시간이 지나면 경고를 반복하십시오."
 
 #: thold_templates.php:1271 thold_templates.php:1299
-#, fuzzy
 msgid "Min Trigger Duration"
 msgstr "최소 트리거 지속 시간"
 
 #: thold_templates.php:1274 thold_templates.php:1302
-#, fuzzy
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
 msgstr "경고를 발생시키기 위해 데이터 소스가 위반 조건에 있어야하는 시간입니다."
 
 #: thold_templates.php:1332
-#, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
 msgstr "경고를 내기 전에 데이터 소스가 위반 조건에 있어야하는 횟수입니다."
 
 #: thold_templates.php:1336 thold_templates.php:1372
-#, fuzzy
 msgid "Time Period Length"
 msgstr "기간 기간"
 
 #: thold_templates.php:1368
-#, fuzzy
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
 msgstr "경고를 내기 전에 데이터 소스가 위반 조건에 있어야하는 횟수입니다."
 
 #: thold_templates.php:1379
-#, fuzzy
 msgid "Baseline Monitoring"
 msgstr "기준선 모니터링"
 
 #: thold_templates.php:1414
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "상한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 상한 임계 값이 전혀 점검되지 않습니다."
 
 #: thold_templates.php:1422
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "하한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 하한 임계 값은 전혀 점검되지 않습니다."
 
 #: thold_templates.php:1430
-#, fuzzy, php-format
+#, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
 msgstr "경고를 발생시키기 위해 데이터 소스가 위반 조건에 있어야하는 연속 횟수. <br> 기본값을 사용하려면 비워 둡니다 (기본값 :  %s cycles"
 
 #: thold_templates.php:1454
-#, fuzzy
 msgid "Percent Datasource"
 msgstr "Percent Datasource"
 
 #: thold_templates.php:1457
-#, fuzzy
 msgid "Second Datasource Item to use as total value to calculate percentage from."
 msgstr "두 번째 데이터 소스에서 백분율을 계산하기 위해 총 값으로 사용할 항목입니다."
 
 #: thold_templates.php:1467
-#, fuzzy, php-format
+#, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 msgstr "RPN 표현식은 RRDtool 호환 RPN 표현식입니다. 구문에는 다음과 같은 장치 및 데이터 쿼리 대체 표현식 외에도 모든 함수가 포함됩니다. <span style=\"color:blue;\">| query_ifSpeed |</span> . RPN 표현식에서 데이터 소스를 사용하려면 다음 구문을 사용해야합니다. <span style=\"color:blue;\">| ds : dsname |</span> . 예를 들어, <span style=\"color:blue;\">| ds : traffic_in |</span> 그래프와 연관된 RRD 파일에 대한 traffic_in 데이터 소스의 현재 값을 가져옵니다. 그래프의 모든 데이터 소스를 포함 할 수 있습니다. <br> 수학 연산자 : <span style=\"color:blue;\">+, -, /, *, %, ^</span> <br> 함수 : <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, 바닥, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> 흐름 운영자 : <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> 비교 함수 : <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s  %s"
 
 #: thold_templates.php:1474
-#, fuzzy
 msgid "Upper data source to use to calculate the total value."
 msgstr "총 값을 계산하는 데 사용할 상위 데이터 소스입니다."
 
 #: thold_templates.php:1508
-#, fuzzy
 msgid "Alert Email Subject"
 msgstr "알림 이메일"
 
 #: thold_templates.php:1517
-#, fuzzy
 msgid "Alert Email Body"
 msgstr "알리미 이메일 본문"
 
 #: thold_templates.php:1531
-#, fuzzy
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgstr "이 메시지는 모든 임계 값 경고 (255 Char MAX)의 맨 위에 표시됩니다. HTML은 허용되지만 텍스트 만 전자 메일은 제거됩니다. 사용할 수있는 몇 가지 설명자가 있습니다. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
 
 #: thold_templates.php:1553
-#, fuzzy
 msgid "Restoral Body"
 msgstr "알리미 이메일 본문"
 
 #: thold_templates.php:1562
-#, fuzzy
 msgid "Notification List Read Only"
 msgstr "알림 목록 만"
 
 #: thold_templates.php:1563
-#, fuzzy
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
 msgstr "이 옵션을 선택하면 임계 값 알림이 로컬 syslog로 전송됩니다."
 
 #: thold_templates.php:1618
-#, fuzzy
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
 msgstr "경고에 사용될 심각도. (저 영향 -> 중대한 영향)"
 
 #: thold_templates.php:1647
-#, fuzzy
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
 msgstr "이 임계 값이 위반되었을 때 알림을받을 계정 목록입니다. <br><br><br><br>"
 
 #: thold_templates.php:1657
-#, fuzzy
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
 msgstr "이 데이터 소스에 대한 경고를 수신하려면 추가 이메일을 여기에서 지정할 수 있습니다 (쉼표로 구분)."
 
 #: thold_templates.php:1665
-#, fuzzy
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
 msgstr "이 데이터 소스 (쉼표로 구분)에 대한 경고를 받으려면 여기서 추가 이메일을 지정할 수 있습니다."
 
 #: thold_templates.php:1777
-#, fuzzy
 msgid "Enter an Eternal ID for this Thold Template."
 msgstr "임계 값 템플릿에 대한 그래프 작성 실패"
 
 #: thold_templates.php:2039
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d 개월, % d 일, % d 시간, % d 분, % d 초 (평균)"
 
 #: thold_templates.php:2041
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d 개월, % d 일, % d 시간, % d 분, % d 초"
 
 #: thold_templates.php:2045
-#, fuzzy, php-format
+#, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d 일, % d 시간, % d 분, % d 초 (평균)"
 
 #: thold_templates.php:2047
-#, fuzzy, php-format
+#, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
 msgstr "% d 일, % d 시간, % d 분, % d 초"
 
 #: thold_templates.php:2051
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
 msgstr "% d 시간, % d 분, % d 초 (평균)"
 
 #: thold_templates.php:2053
-#, fuzzy, php-format
+#, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
 msgstr "% d 시간, % d 분, % d 초"
 
 #: thold_templates.php:2057
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes, %d Seconds (Average)"
 msgstr "% d 분, % d 초 (평균)"
 
 #: thold_templates.php:2059
-#, fuzzy, php-format
+#, php-format
 msgid "%d Minutes, %d Seconds"
 msgstr "% d 분, % d 초"
 
 #: thold_templates.php:2063
-#, fuzzy, php-format
+#, php-format
 msgid "%d Seconds (Average)"
 msgstr "% d 초 (평균)"
 
 #: thold_templates.php:2065
-#, fuzzy, php-format
+#, php-format
 msgid "%d Seconds"
 msgstr "%d 초"
 
 #: thold_templates.php:2257
-#, fuzzy
 msgid "DS Name"
 msgstr "DS 이름"
 
 #: thold_templates.php:2265
-#, fuzzy
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "높은 경고 / 경고 값. 참고 : 기준선 값은 백분율이고 다른 모든 값은 cdef로 수정되지 않은 RAW 값입니다."
 
 #: thold_templates.php:2271
-#, fuzzy
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
 msgstr "낮은 경고 / 경고 값입니다. 참고 : 기준선 값은 백분율이고 다른 모든 값은 cdef로 수정되지 않은 RAW 값입니다."
 
 #: thold_templates.php:2386
-#, fuzzy
 msgid "Import Template from Local File"
 msgstr "로컬 파일에서 템플릿 가져 오기"
 
 #: thold_templates.php:2387
-#, fuzzy
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
 msgstr "Threshold Template 데이터가 포함 된 XML 파일이 로컬 시스템에있는 경우 여기에서 선택하십시오."
 
 #: thold_templates.php:2392
-#, fuzzy
 msgid "Import Template from Text"
 msgstr "텍스트에서 템플릿 가져 오기"
 
 #: thold_templates.php:2393
-#, fuzzy
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
 msgstr "임계 값 템플릿 데이터가 포함 된 XML 파일이 텍스트 인 경우이 상자에 붙여 넣으면 가져올 수 있습니다."
 
 #: thold_templates.php:2405
-#, fuzzy
 msgid "Import Results"
 msgstr "결과 가져 오기"
 
 #: thold_templates.php:2407
-#, fuzzy
 msgid "Cacti has imported the following items:"
 msgstr "Cacti는 다음 항목을 가져 왔습니다."
 
 #: thold_templates.php:2417 thold_templates.php:2429
-#, fuzzy
 msgid "Import Threshold Templates"
 msgstr "임계 값 템플릿 가져 오기"
 
@@ -4223,17 +3643,14 @@ msgid "The file is too big."
 msgstr "파일이 너무 큽니다."
 
 #: thold_templates.php:2448
-#, fuzzy
 msgid "Incomplete file transfer."
 msgstr "불완전한 파일 전송."
 
 #: thold_templates.php:2451 thold_templates.php:2478
-#, fuzzy
 msgid "No file uploaded."
 msgstr "파일이 업로드되었습니다."
 
 #: thold_templates.php:2454
-#, fuzzy
 msgid "Temporary folder missing."
 msgstr "임시 폴더가 없습니다."
 
@@ -4258,132 +3675,106 @@ msgid "ERROR:"
 msgstr "오류:"
 
 #: thold_webapi.php:151
-#, fuzzy
 msgid "Threshold(s) Already Exists - No Thresholds Created"
 msgstr "임계 값이 이미 있음 - 임계 값이 생성되지 않음"
 
 #: thold_webapi.php:286
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
 msgstr "임계 값 생성 마법사 [임계 값 유형 선택]"
 
 #: thold_webapi.php:290
-#, fuzzy
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
 msgstr "임계 값 생성 마법사 [사용자 정의 데이터 입력 후 '생성'을 눌러 임계 값 및 그래프 생성]"
 
 #: thold_webapi.php:292
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
 msgstr "임계 값 생성 마법사 [사용 가능한 데이터 쿼리 행 선택]"
 
 #: thold_webapi.php:294 thold_webapi.php:309
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Device ]"
 msgstr "임계 값 생성 마법사 [장치 선택]"
 
 #: thold_webapi.php:296
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Graph Template ]"
 msgstr "임계 값 생성 마법사 [그래프 템플릿 선택]"
 
 #: thold_webapi.php:298
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
 msgstr "임계 값 생성 마법사 [임계 값 템플릿 선택]"
 
 #: thold_webapi.php:303
-#, fuzzy
 msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
 msgstr "임계 값 생성 마법사 [ '생성'을 눌러 임계 값 생성]"
 
 #: thold_webapi.php:305
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Data Source ]"
 msgstr "임계 값 생성 마법사 [데이터 소스 선택]"
 
 #: thold_webapi.php:307
-#, fuzzy
 msgid "Threshold Creation Wizard [ Select a Graph ]"
 msgstr "임계 값 생성 마법사 [그래프 선택]"
 
 #: thold_webapi.php:316
-#, fuzzy
 msgid "Threshold Creation Criteria"
 msgstr "임계 값 생성 기준"
 
 #: thold_webapi.php:321
-#, fuzzy
 msgid "Create Type"
 msgstr "유형 생성"
 
 #: thold_webapi.php:322
-#, fuzzy
 msgid "Select a Threshold Type to use for creating this Threshold."
 msgstr "이 임계 값을 작성하는 데 사용할 임계 값 유형을 선택하십시오."
 
 #: thold_webapi.php:326
-#, fuzzy
 msgid "Select a Threshold Type"
 msgstr "임계 값 유형 선택"
 
 #: thold_webapi.php:327
-#, fuzzy
 msgid "Non Templated"
 msgstr "템플릿이없는"
 
 #: thold_webapi.php:332 thold_webapi.php:338
-#, fuzzy
 msgid "Threshold Template"
 msgstr "임계 값 템플릿"
 
 #: thold_webapi.php:339
-#, fuzzy
 msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
 msgstr "그래프 및 임계 값을 기반으로하는 임계 값 템플리트를 선택하십시오."
 
 #: thold_webapi.php:476
-#, fuzzy
 msgid "Graph Template"
 msgstr "그래프 템플릿"
 
 #: thold_webapi.php:477
-#, fuzzy
 msgid "Select a Graph Template to use for the Graph to be created."
 msgstr "그래프를 만들 때 사용할 그래프 템플릿을 선택하십시오."
 
 #: thold_webapi.php:481
-#, fuzzy
 msgid "Select a Graph Template"
 msgstr "그래프 템플릿 선택"
 
 #: thold_webapi.php:497 thold_webapi.php:645 thold_webapi.php:665
-#, fuzzy
 msgid "Select a Device to use for the Threshold and Graph to be created."
 msgstr "임계 값 및 그래프를 만들 때 사용할 장치를 선택하십시오."
 
 #: thold_webapi.php:501 thold_webapi.php:651 thold_webapi.php:669
-#, fuzzy
 msgid "Select a Device"
 msgstr "장치 선택"
 
 #: thold_webapi.php:514
-#, fuzzy
 msgid "Select and Available Item"
 msgstr "선택 가능 품목"
 
 #: thold_webapi.php:547
-#, fuzzy
 msgid "Data Query Item"
 msgstr "데이터 쿼리 항목"
 
 #: thold_webapi.php:548
-#, fuzzy
 msgid "Select the applicable row from the Data Query for the Graph and Threshold."
 msgstr "그래프 및 임계 값에 대한 데이터 쿼리에서 해당 행을 선택합니다."
 
 #: thold_webapi.php:596 thold_webapi.php:754 thold_webapi.php:774
-#, fuzzy
 msgid "Creation Notes"
 msgstr "창조 노트"
 
@@ -4392,7 +3783,6 @@ msgid "Important Note:"
 msgstr "중요 정보:"
 
 #: thold_webapi.php:598
-#, fuzzy
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
 msgstr "이 임계 값은 템플리트 <b>되지 않습니다</b> . 임계 값 템플리트 옵션을 사용하는 경우 Graph에서 대체 가능한 그래프 또는 데이터 소스 정보가 허용되는 경우 'Create'프롬프트를 수신하기 전에 임계 값 템플리트, 그래프 템플리트, 디바이스 및 가능한 경우 데이터 쿼리 항목 정보를 묻는 메시지가 표시됩니다 및 데이터 소스 템플릿 수준을 선택하면 메시지가 표시됩니다. 그런 다음 '생성'버튼을 누르면 그래프와 임계 값이 동시에 생성됩니다."
 
@@ -4401,209 +3791,34 @@ msgid "Graph"
 msgstr "그래프"
 
 #: thold_webapi.php:686
-#, fuzzy
 msgid "Select the Graph for the Threshold."
 msgstr "임계 값에 대한 그래프를 선택하십시오."
 
 #: thold_webapi.php:690
-#, fuzzy
 msgid "Select a Graph"
 msgstr "그래프 선택"
 
 #: thold_webapi.php:715
-#, fuzzy
 msgid "Select a Data Source for the Threshold."
 msgstr "임계 값에 대한 데이터 소스를 선택하십시오."
 
 #: thold_webapi.php:719
-#, fuzzy
 msgid "Select a Data Source"
 msgstr "데이터 소스 선택"
 
 #: thold_webapi.php:756
-#, fuzzy
 msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
 msgstr "이 임계 값은 템플리트 <b>되지</b> 않으며 기존 그래프에서만 작동합니다. 그래프와 임계 값을 동시에 생성하려면 드롭 다운에서 임계 값 템플릿을 선택하고 '생성'버튼이 나타날 때까지 계속하십시오."
 
 #: thold_webapi.php:776
-#, fuzzy
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
 msgstr "이 임계 값은 템플리트 <b>되지 않습니다</b> . 임계 값을 만들기 전에 기존 장치, 그래프 및 데이터 소스를 선택할 그래프로 선택하거나 임계 값 템플릿을 선택하면 템플릿이없는 임계 값과 해당 그래프를 동시에 만들 수 있습니다"
 
 #: thold_webapi.php:781
-#, fuzzy
 msgid "Selected Graph"
 msgstr "선택된 그래프"
 
 #: thold_webapi.php:963 thold_webapi.php:976
-#, fuzzy, php-format
+#, php-format
 msgid "Created graph: %s"
 msgstr "그래프 생성 :  %s"
-
-#, fuzzy
-#~| msgid "Notification Settings"
-#~ msgid "Notification Delay Single Transaction"
-#~ msgstr "알림 설정"
-
-#, fuzzy
-#~ msgid "No Templates"
-#~ msgstr "템플릿"
-
-#, fuzzy
-#~ msgid "Notifaction List"
-#~ msgstr "알림 목록"
-
-#, fuzzy
-#~ msgid "Retoral"
-#~ msgstr "회복력있는"
-
-#, fuzzy
-#~ msgid "Enable Notification Daemon"
-#~ msgstr "깔끔한 알림 사용"
-
-#, fuzzy
-#~ msgid "Checking this box will enable the use of a dedicated Notification daemon. Note that you must setup the systemd or initd service on your own.  Instructions are in the README.md."
-#~ msgstr "이 상자를 선택하면 전용 Threshold 데몬을 사용할 수 있습니다. 이는 시스템 성능을 높이거나 임계 값 모니터링을 별도의 서버에 배포하는 데 사용할 수 있습니다."
-
-#, fuzzy
-#~ msgid "Device Notifications"
-#~ msgstr "불량 장치 알림"
-
-#, fuzzy
-#~ msgid "Baseline Type"
-#~ msgstr "기본 경고"
-
-#~ msgid "Time range"
-#~ msgstr "시간 범위"
-
-#, fuzzy
-#~ msgid "Baseline Deviation UP"
-#~ msgstr "베이스 라인 편차 UP"
-
-#, fuzzy
-#~ msgid "Baseline Deviation DOWN"
-#~ msgstr "베이스 라인 편차 감소"
-
-#, fuzzy
-#~ msgid "%s%%%"
-#~ msgstr "%s %s"
-
-#, fuzzy
-#~ msgid "Threshold Enabled"
-#~ msgstr "임계 값 사용"
-
-#, fuzzy
-#~ msgid "Specifies the point in the past (based on RRDfile resolution) that will be used as a reference"
-#~ msgstr "참조로 사용될 과거의 지점을 지정합니다 (RRDfile 해상도 기준)."
-
-#, fuzzy
-#~ msgid "Time reference in the past"
-#~ msgstr "과거의 시간 참조"
-
-#, fuzzy
-#~ msgid "Default Monitor Status"
-#~ msgstr "기본 모니터 상태"
-
-#, fuzzy
-#~ msgid "Default Threshold Tab filter status."
-#~ msgstr "기본 임계 값 탭 필터 상태."
-
-#, fuzzy
-#~ msgid "Maximum Concurrent Threshold Processes"
-#~ msgstr "최대 동시 임계 값 프로세스"
-
-#, fuzzy
-#~ msgid "Create a new Threshold"
-#~ msgstr "새 임계 값 만들기"
-
-#, fuzzy
-#~ msgid "Create a Threshold Template"
-#~ msgstr "임계 값 템플릿 만들기"
-
-#, fuzzy
-#~ msgid "You may either create a new Threshold Template, or an non-templated Threshold from this screen."
-#~ msgstr "이 화면에서 새 임계 값 템플리트 또는 템플리트되지 않은 임계 값을 작성할 수 있습니다."
-
-#, fuzzy
-#~ msgid "Threshold Action"
-#~ msgstr "임계 값 조치"
-
-#, fuzzy
-#~ msgid "Select an action"
-#~ msgstr "작업 선택"
-
-#, fuzzy
-#~ msgid "There are no Threshold Templates associated with the following Graph."
-#~ msgstr "다음 그래프와 연관된 임계 값 템플리트가 없습니다."
-
-#, fuzzy
-#~ msgid "Press 'Continue' after you have selected the Threshold Template to utilize."
-#~ msgstr "활용할 임계 값 템플릿을 선택한 후 '계속'을 누릅니다."
-
-#, fuzzy
-#~ msgid "The following Graph has no Threshold Templates associated with them."
-#~ msgstr "다음 그래프에는 임계 값 템플리트가 연결되어 있지 않습니다."
-
-#, fuzzy
-#~ msgid " What? Permission Denied"
-#~ msgstr "뭐? 사용 권한이 거부되었습니다."
-
-#, fuzzy
-#~ msgid "BL Duration"
-#~ msgstr "BL 기간"
-
-#, fuzzy
-#~ msgid "Baseline-HIGH"
-#~ msgstr "기준선 높음"
-
-#, fuzzy
-#~ msgid "Baseline-LOW"
-#~ msgstr "베이스 라인 - 로우"
-
-#, fuzzy
-#~ msgid "BL Hi/Lo"
-#~ msgstr "BL Hi / Lo"
-
-#, fuzzy
-#~ msgid "Alert Hi/Lo"
-#~ msgstr "알림 Hi / Lo"
-
-#, fuzzy
-#~ msgid "Warn Hi/Lo"
-#~ msgstr "하이 / 로우 경고"
-
-#, fuzzy
-#~ msgid "If set and data source value goes below this number, alert will be triggered"
-#~ msgstr "설정되어 있고 데이터 소스 값이이 숫자보다 낮 으면 경고가 트리거됩니다"
-
-#, fuzzy
-#~ msgid "If set and data source value goes above this number, alert will be triggered"
-#~ msgstr "설정되고 데이터 소스 값이이 숫자를 초과하면 경고가 트리거됩니다"
-
-#, fuzzy
-#~ msgid "If set and data source value goes below this number, warning will be triggered"
-#~ msgstr "설정되고 데이터 소스 값이이 숫자보다 작 으면 경고가 트리거됩니다"
-
-#, fuzzy
-#~ msgid "If set and data source value goes above this number, warning will be triggered"
-#~ msgstr "설정되고 데이터 소스 값이이 수를 초과하면 경고가 트리거됩니다"
-
-#, fuzzy
-#~ msgid "Low Threshold values for Warning/Alert"
-#~ msgstr "경고 / 경고에 대한 낮은 임계 값"
-
-#, fuzzy
-#~ msgid "Reset Acknowledgment"
-#~ msgstr "재설정 수신 확인"
-
-#, fuzzy
-#~ msgid "Created Threshold: %s<br>"
-#~ msgstr "생성 된 임계 값 :  %s"
-
-#, fuzzy
-#~ msgid "Default Syslog Settings"
-#~ msgstr "기본 Syslog 설정"
-
-#, fuzzy
-#~ msgid "Reset Acknowledgment for Template(s)"
-#~ msgstr "템플릿에 대한 수신 확인 재설정"

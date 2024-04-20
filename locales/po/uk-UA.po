@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2024-04-14 11:37-0400\n"
+"POT-Creation-Date: 2024-04-20 16:30-0400\n"
 "PO-Revision-Date: 2023-07-27 15:11+0000\n"
 "Last-Translator: Vladyslav V. Prodan <akapulko@gmail.com>\n"
 "Language-Team: Ukrainian <http://translate.cacti.net/projects/cacti/thold/uk/>\n"
@@ -40,15 +40,13 @@ msgid "%d Year"
 msgstr "%d Рік"
 
 #: includes/arrays.php:36
-#, fuzzy, php-format
-#| msgid "Every %d Hours"
+#, php-format
 msgid "From %d Hour Ago"
 msgstr "Кожні %d годин"
 
 #: includes/arrays.php:37 includes/arrays.php:38 includes/arrays.php:39
 #: includes/arrays.php:40
-#, fuzzy, php-format
-#| msgid "Every %d Hours"
+#, php-format
 msgid "From %d Hours Ago"
 msgstr "Кожні %d годин"
 
@@ -58,39 +56,33 @@ msgid "From %d Day Ago"
 msgstr ""
 
 #: includes/arrays.php:42 includes/arrays.php:43
-#, fuzzy, php-format
-#| msgid "Every %d Days"
+#, php-format
 msgid "From %d Days Ago"
 msgstr "Кожен %d день"
 
 #: includes/arrays.php:44
-#, fuzzy, php-format
-#| msgid "Every %d Weeks"
+#, php-format
 msgid "From %d Week Ago"
 msgstr "Кожний %d тиждень"
 
 #: includes/arrays.php:45 includes/arrays.php:46
-#, fuzzy, php-format
-#| msgid "Every %d Weeks"
+#, php-format
 msgid "From %d Weeks Ago"
 msgstr "Кожний %d тиждень"
 
 #: includes/arrays.php:47
-#, fuzzy, php-format
-#| msgid "%d Month"
+#, php-format
 msgid "From %d Month Ago"
 msgstr "%d Місяць"
 
 #: includes/arrays.php:48 includes/arrays.php:49 includes/arrays.php:50
 #: includes/arrays.php:51
-#, fuzzy, php-format
-#| msgid "%d Months"
+#, php-format
 msgid "From %d Months Ago"
 msgstr "%d Місяців"
 
 #: includes/arrays.php:52
-#, fuzzy, php-format
-#| msgid "%d Year"
+#, php-format
 msgid "From %d Year Ago"
 msgstr "%d Рік"
 
@@ -568,7 +560,7 @@ msgstr ""
 
 #: includes/arrays.php:601
 #, php-format
-msgid "> %d%%% of Devices Globally"
+msgid "> %d %%% of Devices Globally"
 msgstr ""
 
 #: includes/arrays.php:605
@@ -578,20 +570,21 @@ msgstr ""
 
 #: includes/arrays.php:609
 #, php-format
-msgid "> %d%%% of Devices in a Site"
+msgid "> %d %%% of Devices in a Site"
 msgstr ""
 
 #: includes/polling.php:419
 msgid "SNMP not in use"
 msgstr ""
 
-#: includes/polling.php:478 notify_queue.php:489 notify_queue.php:490
-#: thold.php:1002 thold.php:1034 thold.php:1035 thold.php:1272 thold.php:1324
-#: thold.php:1331 thold.php:1337 thold.php:1345 thold.php:1351 thold.php:1368
-#: thold.php:1370 thold.php:1572 thold_graph.php:725 thold_graph.php:757
-#: thold_graph.php:758 thold_graph.php:1054 thold_graph.php:1103
-#: thold_graph.php:1106 thold_graph.php:1107 thold_graph.php:1108
-#: thold_graph.php:1542 thold_graph.php:1543
+#: includes/polling.php:478 includes/polling.php:673 notify_queue.php:489
+#: notify_queue.php:490 thold.php:1002 thold.php:1034 thold.php:1035
+#: thold.php:1272 thold.php:1324 thold.php:1331 thold.php:1337 thold.php:1345
+#: thold.php:1351 thold.php:1368 thold.php:1370 thold.php:1572
+#: thold_graph.php:725 thold_graph.php:757 thold_graph.php:758
+#: thold_graph.php:1054 thold_graph.php:1103 thold_graph.php:1106
+#: thold_graph.php:1107 thold_graph.php:1108 thold_graph.php:1542
+#: thold_graph.php:1543
 msgid "N/A"
 msgstr ""
 
@@ -603,15 +596,15 @@ msgstr ""
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
 msgstr ""
 
-#: includes/polling.php:664
+#: includes/polling.php:678
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
 msgstr ""
 
-#: includes/polling.php:676 includes/polling.php:695
+#: includes/polling.php:690 includes/polling.php:709
 msgid "DOWN"
 msgstr "Оффлайн"
 
-#: includes/polling.php:683
+#: includes/polling.php:697
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr ""
 
@@ -1182,8 +1175,6 @@ msgid "Device Notification Options"
 msgstr ""
 
 #: includes/settings.php:700
-#, fuzzy
-#| msgid "Notifications"
 msgid "Enable Notifications"
 msgstr "Сповіщення"
 
@@ -1192,8 +1183,6 @@ msgid "Enable Dead/Recovering host notification"
 msgstr ""
 
 #: includes/settings.php:706
-#, fuzzy
-#| msgid "Notifications"
 msgid "Notification Single Email"
 msgstr "Сповіщення"
 
@@ -1206,8 +1195,6 @@ msgid "Device Notification Delay Options"
 msgstr ""
 
 #: includes/settings.php:717 includes/settings.php:725
-#, fuzzy
-#| msgid "Notifications"
 msgid "Notification Delay"
 msgstr "Сповіщення"
 
@@ -1224,8 +1211,6 @@ msgid "Device Notification Email Options"
 msgstr ""
 
 #: includes/settings.php:737
-#, fuzzy
-#| msgid "Notifications"
 msgid "Global Notification Email"
 msgstr "Сповіщення"
 
@@ -2594,8 +2579,6 @@ msgid "Consolidation Function"
 msgstr ""
 
 #: thold.php:1838 thold_templates.php:1394
-#, fuzzy
-#| msgid "Average (ms)"
 msgid "Average"
 msgstr "Середній (ms)"
 
@@ -2729,8 +2712,6 @@ msgid "This is the Email subject that will be displayed in the Email (128 Char M
 msgstr ""
 
 #: thold.php:1964
-#, fuzzy
-#| msgid "Alert"
 msgid "Alert Body"
 msgstr "Попередження"
 
@@ -2739,8 +2720,6 @@ msgid "This is the message that will be displayed at the top of all Threshold Al
 msgstr ""
 
 #: thold.php:1973 thold_templates.php:1526
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning Subject"
 msgstr "Застереження"
 
@@ -2749,8 +2728,6 @@ msgid "This is the Warning Email subject that will be displayed in the Email aft
 msgstr ""
 
 #: thold.php:1982 thold_templates.php:1535
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning Body"
 msgstr "Застереження"
 
@@ -2759,8 +2736,6 @@ msgid "This is the message that will be displayed at the top of all Threshold Wa
 msgstr ""
 
 #: thold.php:1991 thold_templates.php:1544
-#, fuzzy
-#| msgid "Restore"
 msgid "Restoral Subject"
 msgstr "Відновити"
 
@@ -3545,8 +3520,6 @@ msgid "This is the Warning subject that will be displayed in the Email (128 Char
 msgstr ""
 
 #: thold_templates.php:1553
-#, fuzzy
-#| msgid "Restore"
 msgid "Restoral Body"
 msgstr "Відновити"
 

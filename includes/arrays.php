@@ -598,7 +598,7 @@ foreach($devices_down as $d) {
 }
 
 foreach($percentiles_down as $p) {
-	$notification_pause_values["$p|peg"] = __('> %d%%% of Devices Globally', $p, 'thold');
+	$notification_pause_values["$p|peg"] = __('> %d %%% of Devices Globally', $p, 'thold');
 }
 
 foreach($devices_down as $d) {
@@ -606,7 +606,7 @@ foreach($devices_down as $d) {
 }
 
 foreach($percentiles_down as $p) {
-	$notification_pause_values["$p|pes"] = __('> %d%%% of Devices in a Site', $p, 'thold');
+	$notification_pause_values["$p|pes"] = __('> %d %%% of Devices in a Site', $p, 'thold');
 }
 
 $notification_delay_values = array(
