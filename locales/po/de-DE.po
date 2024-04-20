@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2024-04-20 16:30-0400\n"
-"PO-Revision-Date: 2024-04-20 15:24-0400\n"
+"PO-Revision-Date: 2024-04-20 16:53-0400\n"
 "Last-Translator: Larry Adams <larryjadams@comcast.net>\n"
 "Language-Team: German <http://translate.cacti.net/projects/cacti/thold/de-DE/>\n"
 "Language: de_DE\n"
@@ -418,12 +418,12 @@ msgid "Time Based"
 msgstr "Zeitabhängig"
 
 #: includes/arrays.php:509
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Min/Max [TIP]"
 msgstr "Abweichung UP"
 
 #: includes/arrays.php:510
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation CF [TIP]"
 msgstr "Abweichung UP"
 
@@ -436,12 +436,12 @@ msgid "Absolute Val of CF [TIP]"
 msgstr "Warnwert"
 
 #: includes/arrays.php:513
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Avg [AOT]"
 msgstr "Abweichung UP"
 
 #: includes/arrays.php:514
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Avg of CF [AOT]"
 msgstr "Abweichung UP"
 
@@ -559,7 +559,7 @@ msgid "> %d Devices"
 msgstr "> %d Geräte"
 
 #: includes/arrays.php:601
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices Globally"
 msgstr "> %d % of Geräte weltweit"
 
@@ -569,7 +569,7 @@ msgid "> %d Devices in a Site"
 msgstr "> %d von Geräten an einem Standort"
 
 #: includes/arrays.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices in a Site"
 msgstr "> %d % of Geräte an einem Standort"
 
@@ -1957,22 +1957,18 @@ msgid "Warning Low for %s (%s)"
 msgstr "Warnung Niedrig für %s (%s)"
 
 #: setup.php:583 setup.php:597
-#, fuzzy
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "Alarm Hallo für %s (%s %)"
 
 #: setup.php:589 setup.php:603
-#, fuzzy
 msgid "Alert Low for %s (%s %%%)"
 msgstr "Alarm niedrig für %s (%s %)"
 
 #: setup.php:621 setup.php:635
-#, fuzzy
 msgid "Warning Hi for %s (%s %%%)"
 msgstr "Warnung Hallo für %s (%s %)"
 
 #: setup.php:627 setup.php:641
-#, fuzzy
 msgid "Warning Low for %s (%s %%%)"
 msgstr "Warnung Niedrig für %s (%s %)"
 
@@ -2613,7 +2609,7 @@ msgid "Deviation UP"
 msgstr "Abweichung UP"
 
 #: thold.php:1858
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Gibt die zulässige Abweichung in Prozent für die obere Grenze an. Wenn nicht gesetzt, wird die obere Grenze der Schwelle überhaupt nicht überprüft."
 
@@ -2622,7 +2618,7 @@ msgid "Deviation DOWN"
 msgstr "Abweichung nach unten"
 
 #: thold.php:1866
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Gibt die zulässige prozentuale Abweichung für den unteren Grenzwert an. Wenn nicht gesetzt, wird die untere Grenze der Schwelle überhaupt nicht überprüft."
 
@@ -2967,9 +2963,9 @@ msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>De
 msgstr "Es wurde eine Warnung ausgegeben, die Ihre Aufmerksamkeit erfordert. <br><br><br><strong>Gerät</strong>: <BESCHREIBUNG> (<HOSTNAME>)<br><stark>URL</stark>: <URL><br><stark>Meldung</stark>: <Fächer><br><br><br><br><GRAPH><GRAPH>>"
 
 #: thold_functions.php:5037
-#, fuzzy, php-format
+#, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "Abweichung UP"
+msgstr "%% Dev [TIPP:%s]"
 
 #: thold_functions.php:5041
 #, php-format
@@ -2977,7 +2973,6 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Bauchmuskeln Val [TIPP:%s]"
 
 #: thold_functions.php:5045
-#, fuzzy
 msgid "%%% Dev [AOT:%s]"
 msgstr "Abweichung UP"
 
@@ -3479,12 +3474,12 @@ msgid "Baseline Monitoring"
 msgstr "Basislinienüberwachung"
 
 #: thold_templates.php:1414
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Gibt die zulässige Abweichung in Prozent für die obere Grenze an. Wenn nicht gesetzt, wird die obere Grenze der Schwelle überhaupt nicht überprüft."
 
 #: thold_templates.php:1422
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Gibt die zulässige prozentuale Abweichung für den unteren Grenzwert an. Wenn nicht gesetzt, wird die untere Grenze der Schwelle überhaupt nicht überprüft."
 

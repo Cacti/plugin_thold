@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2024-04-20 16:30-0400\n"
-"PO-Revision-Date: 2024-04-20 14:40-0400\n"
+"PO-Revision-Date: 2024-04-20 16:51-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: bg_BG\n"
@@ -419,12 +419,12 @@ msgstr "Базирано на време"
 
 #: includes/arrays.php:509
 #, php-format
-msgid "%% Deviation Min/Max [TIP]"
+msgid "%%% Deviation Min/Max [TIP]"
 msgstr "Отклонение UP"
 
 #: includes/arrays.php:510
 #, php-format
-msgid "%% Deviation CF [TIP]"
+msgid "%%% Deviation CF [TIP]"
 msgstr "Отклонение UP"
 
 #: includes/arrays.php:511
@@ -437,12 +437,12 @@ msgstr "Стойност на предупреждението"
 
 #: includes/arrays.php:513
 #, php-format
-msgid "%% Deviation Avg [AOT]"
+msgid "%%% Deviation Avg [AOT]"
 msgstr "Отклонение UP"
 
 #: includes/arrays.php:514
 #, php-format
-msgid "%% Deviation Avg of CF [AOT]"
+msgid "%%% Deviation Avg of CF [AOT]"
 msgstr "Отклонение UP"
 
 #: includes/arrays.php:515
@@ -556,22 +556,22 @@ msgstr "% d дни"
 #: includes/arrays.php:597
 #, php-format
 msgid "> %d Devices"
-msgstr "Устройства"
+msgstr "> %d устройства"
 
 #: includes/arrays.php:601
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices Globally"
-msgstr "> %d%%% на устройства в световен мащаб"
+msgstr "> %d %%% oе устройства в световен мащаб"
 
 #: includes/arrays.php:605
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "Устройства"
+msgstr "> %d Устройства в даден сайт"
 
 #: includes/arrays.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices in a Site"
-msgstr "> %d%%% на устройства в даден сайт"
+msgstr "> %d %% на устройства в даден сайт"
 
 #: includes/polling.php:419
 msgid "SNMP not in use"
@@ -1949,12 +1949,12 @@ msgstr "Сигнал за ниско за %s ( %s)"
 #: setup.php:548 setup.php:558
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Предупредителни списъци"
+msgstr "Предупреждение: Здравейте, %s (%s)"
 
 #: setup.php:552 setup.php:563
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "Предупредителни списъци"
+msgstr "Предупреждението е ниско за %s (%s)"
 
 #: setup.php:583 setup.php:597
 msgid "Alert Hi for %s (%s %%%)"
@@ -2610,7 +2610,7 @@ msgstr "Отклонение UP"
 
 #: thold.php:1858
 #, php-format
-msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%%% Deviation' and '%%% Floating Average'"
 msgstr "Определя допустимото отклонение в проценти за горната граница на прага. Ако не е зададен, прагът на горната граница изобщо не се проверява."
 
 #: thold.php:1862 thold_templates.php:1418
@@ -2619,7 +2619,7 @@ msgstr "Отклонение надолу"
 
 #: thold.php:1866
 #, php-format
-msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%%% Deviation' and '%%% Floating Average'"
 msgstr "Задава допустимото отклонение в проценти за долния праг. Ако не е зададен, прагът на долната граница няма да се проверява изобщо."
 
 #: thold.php:1870 thold_templates.php:1327 thold_templates.php:1364
@@ -2687,7 +2687,7 @@ msgstr "Броят на десетичните цифри за показван�
 #: thold.php:1936
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Едно RPN израз е RRDtool съвместимо RPN израз. Синтаксисът включва всички функции, <span class=\"deviceUp\">описани</span> по-долу, в допълнение към изразите за замяна на устройства и данни, като например <span class=\"deviceUp\">query_ifSpeed |</span> , За да използвате Източник на данни в RPN Expression, трябва да използвате синтаксиса: <span class=\"deviceUp\">| ds: dsname |</span> , Например, <span class=\"deviceUp\">| ds: traffic_in |</span> ще получи текущата стойност на Traffic_in Източник на данни за RRDfile (s), асоциирани с Graph. Всеки източник на данни за графика може да бъде включен. <br><br> Математически оператори: <span class=\"deviceUp\">+, -, /, *,%, ^</span> <br> Функции: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, ЕТАЖ, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Оператори на потоци: <span class=\"deviceUp\">ООН, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Функции за сравнение: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
+msgstr ""
 
 #: thold.php:1942 thold_templates.php:1471
 msgid "Upper Data Source"
@@ -2964,13 +2964,13 @@ msgstr "Издаден е сигнал, който изисква вашето �
 
 #: thold_functions.php:5037
 #, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "Отклонение UP"
+msgid "%%% Dev [TIP:%s]"
+msgstr "%%% Разработка [СЪВЕТ :{ 1}]"
 
 #: thold_functions.php:5041
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Стойност на предупреждението"
+msgstr "Абс Вал [СЪВЕТ:%s]"
 
 #: thold_functions.php:5045
 msgid "%%% Dev [AOT:%s]"
@@ -2979,7 +2979,7 @@ msgstr "Отклонение UP"
 #: thold_functions.php:5049
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Стойност на предупреждението"
+msgstr "Abs Val [AOT:%s]"
 
 #: thold_functions.php:5271
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -3475,12 +3475,12 @@ msgstr "Базисно наблюдение"
 
 #: thold_templates.php:1414
 #, php-format
-msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%%% Deviation' and '%%% Floating Average'"
 msgstr "Определя допустимото отклонение в проценти за горната граница на прага. Ако не е зададен, прагът на горната граница изобщо не се проверява."
 
 #: thold_templates.php:1422
 #, php-format
-msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%%% Deviation' and '%%% Floating Average'"
 msgstr "Задава допустимото отклонение в проценти за долния праг. Ако не е зададен, прагът на долната граница няма да се проверява изобщо."
 
 #: thold_templates.php:1430
@@ -3499,7 +3499,7 @@ msgstr "Втори елемент от източника на данни, ко�
 #: thold_templates.php:1467
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Едно RPN израз е RRDtool съвместимо RPN израз. Синтаксисът включва всички функции, <span style=\"color:blue;\">описани</span> по-долу, в допълнение към изразите за замяна на устройства и данни, като например <span style=\"color:blue;\">query_ifSpeed |</span> , За да използвате Източник на данни в RPN Expression, трябва да използвате синтаксиса: <span style=\"color:blue;\">| ds: dsname |</span> , Например, <span style=\"color:blue;\">| ds: traffic_in |</span> ще получи текущата стойност на Traffic_in Източник на данни за RRDfile (s), асоциирани с Graph. Всеки източник на данни за графика може да бъде включен. <br> Математически оператори: <span style=\"color:blue;\">+, -, /, *,%, ^</span> <br> Функции: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, ЕТАЖ, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Оператори на потоци: <span style=\"color:blue;\">ООН, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Функции за сравнение: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
+msgstr ""
 
 #: thold_templates.php:1474
 msgid "Upper data source to use to calculate the total value."
