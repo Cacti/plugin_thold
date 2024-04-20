@@ -559,7 +559,7 @@ msgid "> %d Devices"
 msgstr "设备"
 
 #: includes/arrays.php:601
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices Globally"
 msgstr "设备"
 
@@ -569,7 +569,7 @@ msgid "> %d Devices in a Site"
 msgstr "设备"
 
 #: includes/arrays.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices in a Site"
 msgstr "设备"
 

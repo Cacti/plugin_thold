@@ -558,7 +558,7 @@ msgid "> %d Devices"
 msgstr "장치"
 
 #: includes/arrays.php:601
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices Globally"
 msgstr "장치"
 
@@ -568,7 +568,7 @@ msgid "> %d Devices in a Site"
 msgstr "장치"
 
 #: includes/arrays.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices in a Site"
 msgstr "장치"
 

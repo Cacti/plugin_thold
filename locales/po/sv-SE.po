@@ -550,7 +550,7 @@ msgstr ""
 #: includes/arrays.php:578 includes/arrays.php:579 includes/arrays.php:580
 #, php-format
 msgid "%d Digits"
-msgstr "<ph id=\"mtc_1\" equiv-text=\"base64:JWQ=\"/> Dagar"
+msgstr "%d Dagar"
 
 #: includes/arrays.php:597
 #, php-format
@@ -558,7 +558,7 @@ msgid "> %d Devices"
 msgstr "Enheter"
 
 #: includes/arrays.php:601
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices Globally"
 msgstr "Enheter"
 
@@ -568,7 +568,7 @@ msgid "> %d Devices in a Site"
 msgstr "Enheter"
 
 #: includes/arrays.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices in a Site"
 msgstr "Enheter"
 
@@ -3202,7 +3202,6 @@ msgid "Resume Notifications for this breached Threshold"
 msgstr "Radera Notifieringslista (s)"
 
 #: thold_graph.php:664
-#, fuzzy
 msgid "Acknowledgement Message"
 msgstr "Tack"
 

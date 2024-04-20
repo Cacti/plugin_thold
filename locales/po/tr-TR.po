@@ -559,7 +559,7 @@ msgid "> %d Devices"
 msgstr "Cihazlar"
 
 #: includes/arrays.php:601
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices Globally"
 msgstr "Cihazlar"
 
@@ -569,7 +569,7 @@ msgid "> %d Devices in a Site"
 msgstr "Cihazlar"
 
 #: includes/arrays.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices in a Site"
 msgstr "Cihazlar"
 

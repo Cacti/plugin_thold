@@ -418,12 +418,12 @@ msgid "Time Based"
 msgstr "Basado en el tiempo"
 
 #: includes/arrays.php:509
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Min/Max [TIP]"
 msgstr "Desviación UP"
 
 #: includes/arrays.php:510
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation CF [TIP]"
 msgstr "Desviación UP"
 
@@ -436,12 +436,12 @@ msgid "Absolute Val of CF [TIP]"
 msgstr "Valor de alerta"
 
 #: includes/arrays.php:513
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Avg [AOT]"
 msgstr "Desviación UP"
 
 #: includes/arrays.php:514
-#, fuzzy, php-format
+#, php-format
 msgid "%% Deviation Avg of CF [AOT]"
 msgstr "Desviación UP"
 
@@ -559,7 +559,7 @@ msgid "> %d Devices"
 msgstr "Dispositivos > %d"
 
 #: includes/arrays.php:601
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices Globally"
 msgstr "Dispositivos > %d%%%% of en todo el mundo"
 
@@ -569,7 +569,7 @@ msgid "> %d Devices in a Site"
 msgstr "> %d dispositivos en un sitio"
 
 #: includes/arrays.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices in a Site"
 msgstr "> %d%%%% of Dispositivos en un sitio"
 
@@ -1957,24 +1957,20 @@ msgid "Warning Low for %s (%s)"
 msgstr "Advertencia baja para %s (%s)"
 
 #: setup.php:583 setup.php:597
-#, fuzzy
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "Alerta alta para %s ( %s %%%)"
 
 #: setup.php:589 setup.php:603
-#, fuzzy
 msgid "Alert Low for %s (%s %%%)"
-msgstr "Alerta baja para %s ( %s %%%)"
+msgstr "Alerta baja para %s (%s %%%)"
 
 #: setup.php:621 setup.php:635
-#, fuzzy
 msgid "Warning Hi for %s (%s %%%)"
-msgstr "Advertencia Hola para %s ( %s %%%)"
+msgstr "Advertencia Hola para %s (%s %%%)"
 
 #: setup.php:627 setup.php:641
-#, fuzzy
 msgid "Warning Low for %s (%s %%%)"
-msgstr "Advertencia baja para %s ( %s %%%)"
+msgstr "Advertencia baja para %s (%s %%%)"
 
 #: setup.php:654
 msgid "Threshold Alert/Warning Values"
@@ -2613,7 +2609,7 @@ msgid "Deviation UP"
 msgstr "Desviación UP"
 
 #: thold.php:1858
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Especifica la desviación porcentual permitida para el límite superior del umbral. Si no está configurado, el límite superior del umbral no se comprobará en absoluto."
 
@@ -2622,7 +2618,7 @@ msgid "Deviation DOWN"
 msgstr "Desviación DOWN"
 
 #: thold.php:1866
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Especifica la desviación permitida en porcentaje para el Umbral de límite inferior. Si no está configurado, el Umbral de límite inferior no se comprobará en absoluto."
 
@@ -2967,7 +2963,7 @@ msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>De
 msgstr "Se ha emitido una alerta que requiere su atención. <br><br><fuerte>Dispositivo</fuerte>: <DESCRIPCIÓN> (<NOMBRE>)<br><fuerte>URL</fuerte>: <URL><br><fuerte>Mensaje</fuerte>: <TEMA><br><br><br><GRÁFICOS>"
 
 #: thold_functions.php:5037
-#, fuzzy, php-format
+#, php-format
 msgid "%% Dev [TIP:%s]"
 msgstr "Desviación UP"
 
@@ -2977,7 +2973,6 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Abs Val [CONSEJO:%s]"
 
 #: thold_functions.php:5045
-#, fuzzy
 msgid "%%% Dev [AOT:%s]"
 msgstr "Desviación UP"
 
@@ -3479,12 +3474,12 @@ msgid "Baseline Monitoring"
 msgstr "Monitoreo de la línea de base"
 
 #: thold_templates.php:1414
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Especifica la desviación porcentual permitida para el límite superior del umbral. Si no está configurado, el límite superior del umbral no se comprobará en absoluto."
 
 #: thold_templates.php:1422
-#, fuzzy, php-format
+#, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
 msgstr "Especifica la desviación permitida en porcentaje para el Umbral de límite inferior. Si no está configurado, el Umbral de límite inferior no se comprobará en absoluto."
 

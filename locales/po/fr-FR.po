@@ -559,9 +559,9 @@ msgid "> %d Devices"
 msgstr "> %d Appareils"
 
 #: includes/arrays.php:601
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices Globally"
-msgstr "> %d%%% d’appareils dans le monde"
+msgstr "> %d %%% d’appareils dans le monde"
 
 #: includes/arrays.php:605
 #, php-format
@@ -569,9 +569,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d appareils d’un site"
 
 #: includes/arrays.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %%% of Devices in a Site"
-msgstr "> %d%%% d’appareils dans un site"
+msgstr "> %d %%% d’appareils dans un site"
 
 #: includes/polling.php:419
 msgid "SNMP not in use"

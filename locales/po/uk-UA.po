@@ -352,7 +352,7 @@ msgstr "%d день"
 
 #: includes/arrays.php:335 includes/arrays.php:367 includes/arrays.php:412
 #: includes/arrays.php:433 thold_graph.php:1406
-#, fuzzy, php-format
+#, php-format
 msgid "%d Days"
 msgstr "0 днів30 days from now"
 
@@ -387,7 +387,7 @@ msgid "Every %d Pollings"
 msgstr "Кожні %d опитування"
 
 #: includes/arrays.php:462 includes/arrays.php:481
-#, fuzzy, php-format
+#, php-format
 msgid "%d Polling"
 msgstr "Опитування"
 
@@ -414,7 +414,6 @@ msgid "Baseline Deviation"
 msgstr "Відхилення від базової лінії"
 
 #: includes/arrays.php:505
-#, fuzzy
 msgid "Time Based"
 msgstr "На основі часу"
 
@@ -540,7 +539,6 @@ msgid "Auto"
 msgstr "Авто"
 
 #: includes/arrays.php:570
-#, fuzzy
 msgid "0 Digits"
 msgstr "Цифри"
 
@@ -551,7 +549,7 @@ msgstr "1 цифра"
 #: includes/arrays.php:572 includes/arrays.php:573 includes/arrays.php:574
 #: includes/arrays.php:575 includes/arrays.php:576 includes/arrays.php:577
 #: includes/arrays.php:578 includes/arrays.php:579 includes/arrays.php:580
-#, fuzzy, php-format
+#, php-format
 msgid "%d Digits"
 msgstr "Цифри"
 
@@ -576,7 +574,6 @@ msgid "> %d %%% of Devices in a Site"
 msgstr "> %d %%% of пристроїв на сайті"
 
 #: includes/polling.php:419
-#, fuzzy
 msgid "SNMP not in use"
 msgstr "Не використовується"
 
@@ -620,22 +617,18 @@ msgid "Thresholds"
 msgstr "Порогові значення"
 
 #: includes/settings.php:36
-#, fuzzy
 msgid "(actions)"
 msgstr "Дії"
 
 #: includes/settings.php:43
-#, fuzzy
 msgid "(edit)"
 msgstr "(Редагувати)"
 
 #: includes/settings.php:50
-#, fuzzy
 msgid "(save)"
 msgstr "Зберегти"
 
 #: includes/settings.php:57
-#, fuzzy
 msgid "(add)"
 msgstr "(Адреса)"
 
@@ -726,7 +719,6 @@ msgid "View Thresholds"
 msgstr "Переглянути порогові значення"
 
 #: includes/settings.php:298
-#, fuzzy
 msgid "Normal User"
 msgstr "звичайний користувач"
 
@@ -735,7 +727,6 @@ msgid "Template Editor"
 msgstr "Редактор шаблонів"
 
 #: includes/settings.php:300 includes/settings.php:301
-#, fuzzy
 msgid "General Administration"
 msgstr "Загальне управління"
 
@@ -784,7 +775,7 @@ msgid "Use Cacti Setting"
 msgstr "Використовувати налаштування кактусів"
 
 #: includes/settings.php:357
-#, fuzzy, php-format
+#, php-format
 msgid "%d Polling Interval"
 msgstr "Інтервал опитування"
 
@@ -850,7 +841,6 @@ msgstr "Порушено"
 
 #: includes/settings.php:420 notify_lists.php:1396 notify_lists.php:1497
 #: thold.php:714 thold.php:847 thold_graph.php:217 thold_graph.php:506
-#, fuzzy
 msgid "Triggered"
 msgstr "(аварійної ситуації)"
 
@@ -871,7 +861,6 @@ msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed co
 msgstr "Під час обчислення порогів вираження, якщо ifHighSpeed і ifSpeed повертаються до нуля, замість цього використовуйте наступне налаштування ifHighSpeed.  За замовчуванням ifHighSpeed буде 10000 для інтерфейсів 10GE."
 
 #: includes/settings.php:435
-#, fuzzy
 msgid "Notification Preferences"
 msgstr "Мої налаштування повідомлень"
 
@@ -973,7 +962,7 @@ msgstr "1 Процес"
 #: includes/settings.php:513 includes/settings.php:514
 #: includes/settings.php:515 includes/settings.php:516
 #: includes/settings.php:517
-#, fuzzy, php-format
+#, php-format
 msgid "%d Processes"
 msgstr "Процеси"
 
@@ -1110,7 +1099,6 @@ msgid "Baseline Deviation Percentage"
 msgstr "Відсоток відхилення від початкового рівня"
 
 #: includes/settings.php:640
-#, fuzzy
 msgid "SNMP Notification Options"
 msgstr "Параметри сповіщень"
 
@@ -1380,7 +1368,6 @@ msgid "New List Name"
 msgstr "Назва нового списку"
 
 #: notify_lists.php:527
-#, fuzzy
 msgid "New Notification List"
 msgstr "Нове сповіщення"
 
@@ -1494,17 +1481,15 @@ msgid "You may also Disassociate the Devices Thresholds as well. However, these 
 msgstr "Ви також можете від 'єднати порогові значення пристроїв. Однак ці порогові значення пристрою дозволять перезаписати список порогових сповіщень."
 
 #: notify_lists.php:785
-#, fuzzy, php-format
+#, php-format
 msgid "[edit: %s]"
 msgstr "Редагувати:"
 
 #: notify_lists.php:787
-#, fuzzy
 msgid "[new]"
 msgstr "Нові"
 
 #: notify_lists.php:836
-#, fuzzy
 msgid "List General Settings"
 msgstr "Загальні Налаштування"
 
@@ -1531,7 +1516,6 @@ msgid "To disable all notifications from this Notification List, you can simply 
 msgstr "Щоб вимкнути всі сповіщення зі списку сповіщень, ви можете просто вимкнути його тут."
 
 #: notify_lists.php:864
-#, fuzzy
 msgid "To Email Addresses"
 msgstr "Адреси електронної пошти"
 
@@ -1540,7 +1524,6 @@ msgid "Enter a comma separated list of Email addresses for this Notification Lis
 msgstr "Введіть розділений комами список адрес електронної пошти для цього списку сповіщень."
 
 #: notify_lists.php:873
-#, fuzzy
 msgid "BCC Email Addresses"
 msgstr "Адреси електронної пошти"
 
@@ -1596,7 +1579,6 @@ msgid "Default"
 msgstr "За замовчуванням"
 
 #: notify_lists.php:1050 notify_lists.php:1419 notify_lists.php:1705
-#, fuzzy
 msgid "Associated"
 msgstr "хвороб, пов’язаних з наданням"
 
@@ -1820,7 +1802,6 @@ msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
 msgstr "Сповіщення про події [ Сповіщення призупинені користувачем: %s, %s тому ]"
 
 #: notify_queue.php:239
-#, fuzzy
 msgid "Event Notifications"
 msgstr "Сповіщення про події"
 
@@ -1909,7 +1890,6 @@ msgid "Did this notification result in an error.  Hover on the error column for 
 msgstr "Чи призвело це сповіщення до помилки.  Наведіть курсор на стовпець помилки, щоб дізнатися подробиці."
 
 #: notify_queue.php:456
-#, fuzzy
 msgid "Run Time"
 msgstr "Тривалість роботи"
 
@@ -2219,7 +2199,6 @@ msgstr "Обов 'язкова перевірка"
 
 #: thold.php:789 thold.php:2224 thold_graph.php:449 thold_templates.php:1775
 #: thold_templates.php:2226
-#, fuzzy
 msgid "External ID"
 msgstr "Зовнішній ідентифікатор:"
 
@@ -2294,7 +2273,7 @@ msgid "No [Thold]"
 msgstr "Ні [Thold]"
 
 #: thold.php:1027 thold_graph.php:750
-#, fuzzy, php-format
+#, php-format
 msgid "%d Triggers"
 msgstr "Тригери"
 
@@ -2307,7 +2286,6 @@ msgid "Threshold Deleted, can not Edit!"
 msgstr "Поріг видалено, редагувати неможливо!"
 
 #: thold.php:1197
-#, fuzzy
 msgid "Graph Data"
 msgstr "Дані графіка"
 
@@ -2324,7 +2302,6 @@ msgid "Associated Graph (Graphs using this RRD):"
 msgstr "Пов 'язаний граф (графіки з використанням цього RRD):"
 
 #: thold.php:1323
-#, fuzzy
 msgid "Last:"
 msgstr "Остання"
 
@@ -2337,12 +2314,10 @@ msgid "WLo:"
 msgstr "WLo:"
 
 #: thold.php:1344
-#, fuzzy
 msgid "AHi:"
 msgstr "AHI"
 
 #: thold.php:1350
-#, fuzzy
 msgid "ALo:"
 msgstr "оксид алюмінію"
 
@@ -2374,7 +2349,7 @@ msgid "Replacement Fields: %s"
 msgstr "Поля заміни: %s"
 
 #: thold.php:1530 thold_templates.php:1095
-#, fuzzy, php-format
+#, php-format
 msgid "Data Sources: %s"
 msgstr "Джерела даних:"
 
@@ -2423,7 +2398,6 @@ msgid "Provide the Thresholds a meaningful name"
 msgstr "Надайте Порогам осмислене ім 'я"
 
 #: thold.php:1602
-#, fuzzy
 msgid "Name (Format)"
 msgstr "Назва і формат"
 
@@ -2484,7 +2458,6 @@ msgid "There are three Acknowledgment levels that control how you must respond t
 msgstr ""
 
 #: thold.php:1664 thold_templates.php:1220
-#, fuzzy
 msgid "None Required"
 msgstr "Не вимагається"
 
@@ -2690,7 +2663,6 @@ msgid "Second Data Source Item to use as total value to calculate percentage fro
 msgstr "Другий елемент джерела даних, який буде використовуватися як загальне значення для обчислення відсотка."
 
 #: thold.php:1907 thold_templates.php:1479
-#, fuzzy
 msgid "Show Units"
 msgstr "Показати мої уроки"
 
@@ -2808,7 +2780,6 @@ msgid "To allow a NMS to categorize different SNMP notifications more easily ple
 msgstr "Щоб NMS могла легше класифікувати різні сповіщення SNMP, будь ласка, заповніть категорію SNMP-сповіщення для цього шаблону. Наприклад: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 
 #: thold.php:2045 thold_templates.php:1605
-#, fuzzy
 msgid "SNMP Event Description"
 msgstr "Опис події"
 
@@ -2866,7 +2837,6 @@ msgid "If checked, Threshold notification will be sent to your local syslog."
 msgstr "Якщо позначено, сповіщення про порогове значення буде надіслано до вашого локального системного журналу."
 
 #: thold.php:2154 thold_templates.php:1705
-#, fuzzy
 msgid "Priority/Level"
 msgstr "Priority-Level"
 
@@ -2931,17 +2901,14 @@ msgid "Select Users(s)"
 msgstr "Виберіть користувачів"
 
 #: thold.php:2522
-#, fuzzy
 msgid "Users Selected"
 msgstr "Вибрано користувачів:"
 
 #: thold.php:2525
-#, fuzzy
 msgid "All Users Selected"
 msgstr "Вибрано користувачів:"
 
 #: thold_functions.php:82
-#, fuzzy
 msgid "< 1 Minute"
 msgstr "1 хвилина"
 
@@ -2962,7 +2929,6 @@ msgid "User:"
 msgstr "Користувач:"
 
 #: thold_functions.php:270
-#, fuzzy
 msgid "System:"
 msgstr "Cистема:"
 
@@ -3042,7 +3008,6 @@ msgid "Permission Denied"
 msgstr "У дозволі Відмовлено"
 
 #: thold_functions.php:5412 thold_functions.php:5742
-#, fuzzy
 msgid "Record Updated"
 msgstr "Актовий запис поновлено:"
 
@@ -3248,7 +3213,6 @@ msgid "Date"
 msgstr "Дата"
 
 #: thold_graph.php:673
-#, fuzzy
 msgid "Comment Not Found"
 msgstr "Коментар не знайдено"
 
@@ -3333,7 +3297,6 @@ msgid "View Graphs"
 msgstr "Перегляд графіків"
 
 #: thold_graph.php:1114
-#, fuzzy
 msgid "No Devices"
 msgstr "Немає пристроїв. NAME OF TRANSLATORS"
 
@@ -3473,7 +3436,6 @@ msgid "Data Template that you are using. (This cannot be changed)"
 msgstr "Шаблон даних, який ви використовуєте. (Це не може бути змінено)"
 
 #: thold_templates.php:1152
-#, fuzzy
 msgid "Data Field"
 msgstr "Поле даних"
 
@@ -3550,7 +3512,6 @@ msgid "Alert Email Subject"
 msgstr "Тема електронного сповіщення"
 
 #: thold_templates.php:1517
-#, fuzzy
 msgid "Alert Email Body"
 msgstr "Текст електронного сповіщення"
 
@@ -3636,7 +3597,7 @@ msgid "%d Seconds (Average)"
 msgstr "%d секунд (в середньому)"
 
 #: thold_templates.php:2065
-#, fuzzy, php-format
+#, php-format
 msgid "%d Seconds"
 msgstr "Секунди"
 
@@ -3669,7 +3630,6 @@ msgid "If you have the XML file containing Threshold Template data as text, you 
 msgstr "Якщо у вас є XML-файл, що містить дані Threshold Template у вигляді тексту, ви можете вставити його в це поле, щоб імпортувати його."
 
 #: thold_templates.php:2405
-#, fuzzy
 msgid "Import Results"
 msgstr "Імпортувати результати"
 
@@ -3690,7 +3650,6 @@ msgid "Incomplete file transfer."
 msgstr "Неповне перенесення файлу."
 
 #: thold_templates.php:2451 thold_templates.php:2478
-#, fuzzy
 msgid "No file uploaded."
 msgstr "Файл не завантажено."
 
@@ -3707,7 +3666,6 @@ msgid "File upload stopped by extension"
 msgstr "Завантаження файлу зупинено розширенням"
 
 #: thold_templates.php:2471
-#, fuzzy
 msgid "Invalid file extension."
 msgstr "Неприпустиме розширення файлу"
 
@@ -3764,7 +3722,6 @@ msgid "Threshold Creation Criteria"
 msgstr "Критерії створення порогового значення"
 
 #: thold_webapi.php:321
-#, fuzzy
 msgid "Create Type"
 msgstr "Створити тип"
 
@@ -3805,7 +3762,6 @@ msgid "Select a Device to use for the Threshold and Graph to be created."
 msgstr "Виберіть пристрій для створення порогового значення та графіка."
 
 #: thold_webapi.php:501 thold_webapi.php:651 thold_webapi.php:669
-#, fuzzy
 msgid "Select a Device"
 msgstr "Виберіть пристрій."
 
@@ -3869,3 +3825,4 @@ msgstr "Вибраний графік"
 #, php-format
 msgid "Created graph: %s"
 msgstr "Створений графік: %s"
+
