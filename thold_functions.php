@@ -7792,49 +7792,91 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
 	}
 
-	$host_list = db_fetch_assoc("SELECT h1.*, graphs, data_sources,
-		CAST(IF(availability_method = 0, '0',
-			IF(status_event_count > 0 AND status IN (1, 2), status_event_count*$poller_interval,
-			IF(UNIX_TIMESTAMP(status_rec_date) < 943916400 AND status IN (0, 3), total_polls*$poller_interval,
-			IF(UNIX_TIMESTAMP(status_rec_date) > 943916400, UNIX_TIMESTAMP() - UNIX_TIMESTAMP(status_rec_date),
-			IF(snmp_sysUptimeInstance>0 AND snmp_version > 0, snmp_sysUptimeInstance/100, UNIX_TIMESTAMP()
-		))))) AS unsigned) AS instate
-		FROM host AS h1
-		INNER JOIN (
-			SELECT DISTINCT id
+	if (db_column_exists('host', 'graphs')) {
+		$host_list = db_fetch_assoc("SELECT h1.*, graphs, data_sources,
+			CAST(IF(availability_method = 0, '0',
+				IF(status_event_count > 0 AND status IN (1, 2), status_event_count*$poller_interval,
+				IF(UNIX_TIMESTAMP(status_rec_date) < 943916400 AND status IN (0, 3), total_polls*$poller_interval,
+				IF(UNIX_TIMESTAMP(status_rec_date) > 943916400, UNIX_TIMESTAMP() - UNIX_TIMESTAMP(status_rec_date),
+				IF(snmp_sysUptimeInstance>0 AND snmp_version > 0, snmp_sysUptimeInstance/100, UNIX_TIMESTAMP()
+			))))) AS unsigned) AS instate
+			FROM host AS h1
+			INNER JOIN (
+				SELECT DISTINCT id
+				FROM (
+					SELECT h.id
+					FROM host AS h
+					LEFT JOIN graph_local AS gl
+					ON h.id = gl.host_id
+					LEFT JOIN graph_templates AS gt
+					ON gt.id = gl.graph_template_id
+					LEFT JOIN host_template AS ht
+					ON h.host_template_id = ht.id
+					$sql_where
+				) AS rs1
+			) AS rs2
+			ON rs2.id = h1.id
+			$order_by
+			$sql_limit"
+		);
+
+		$sql = "SELECT COUNT(DISTINCT id)
 			FROM (
 				SELECT h.id
 				FROM host AS h
 				LEFT JOIN graph_local AS gl
 				ON h.id = gl.host_id
 				LEFT JOIN graph_templates AS gt
-				ON gt.id=gl.graph_template_id
+				ON gt.id = gl.graph_template_id
 				LEFT JOIN host_template AS ht
 				ON h.host_template_id = ht.id
 				$sql_where
-			) AS rs1
-		) AS rs2
-		ON rs2.id = h1.id
-		LEFT JOIN (SELECT host_id, COUNT(*) AS graphs FROM graph_local GROUP BY host_id) AS gl
-		ON h1.id = gl.host_id
-		LEFT JOIN (SELECT host_id, COUNT(*) AS data_sources FROM data_local GROUP BY host_id) AS dl
-		ON h1.id = dl.host_id
-		$order_by
-		$sql_limit"
-	);
+			) AS rower";
+	} else {
+		$host_list = db_fetch_assoc("SELECT h1.*, graphs, data_sources,
+			CAST(IF(availability_method = 0, '0',
+				IF(status_event_count > 0 AND status IN (1, 2), status_event_count*$poller_interval,
+				IF(UNIX_TIMESTAMP(status_rec_date) < 943916400 AND status IN (0, 3), total_polls*$poller_interval,
+				IF(UNIX_TIMESTAMP(status_rec_date) > 943916400, UNIX_TIMESTAMP() - UNIX_TIMESTAMP(status_rec_date),
+				IF(snmp_sysUptimeInstance>0 AND snmp_version > 0, snmp_sysUptimeInstance/100, UNIX_TIMESTAMP()
+			))))) AS unsigned) AS instate
+			FROM host AS h1
+			INNER JOIN (
+				SELECT DISTINCT id
+				FROM (
+					SELECT h.id
+					FROM host AS h
+					LEFT JOIN graph_local AS gl
+					ON h.id = gl.host_id
+					LEFT JOIN graph_templates AS gt
+					ON gt.id = gl.graph_template_id
+					LEFT JOIN host_template AS ht
+					ON h.host_template_id = ht.id
+					$sql_where
+				) AS rs1
+			) AS rs2
+			ON rs2.id = h1.id
+			LEFT JOIN (SELECT host_id, COUNT(*) AS graphs FROM graph_local GROUP BY host_id) AS gl
+			ON h1.id = gl.host_id
+			LEFT JOIN (SELECT host_id, COUNT(*) AS data_sources FROM data_local GROUP BY host_id) AS dl
+			ON h1.id = dl.host_id
+			$order_by
+			$sql_limit"
+		);
 
-	$sql = "SELECT COUNT(DISTINCT id)
-		FROM (
-			SELECT h.id
-			FROM host AS h
-			LEFT JOIN graph_local AS gl
-			ON h.id=gl.host_id
-			LEFT JOIN graph_templates AS gt
-			ON gt.id=gl.graph_template_id
-			LEFT JOIN host_template AS ht
-			ON h.host_template_id=ht.id
-			$sql_where
-		) AS rower";
+		$sql = "SELECT COUNT(DISTINCT id)
+			FROM (
+				SELECT h.id
+				FROM host AS h
+				LEFT JOIN graph_local AS gl
+				ON h.id = gl.host_id
+				LEFT JOIN graph_templates AS gt
+				ON gt.id = gl.graph_template_id
+				LEFT JOIN host_template AS ht
+				ON h.host_template_id = ht.id
+				$sql_where
+			) AS rower";
+	}
 
 	if (function_exists('get_total_row_data') && $device_id == 0) {
 		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_device');

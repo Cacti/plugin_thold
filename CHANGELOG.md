@@ -1,5 +1,10 @@
 ## ChangeLog
 
+--- develop ---
+
+* issue#669: Thold Graph tab subtab 'Device Status' complains about duplicate column in Cacti develop
+* feature: Complete translations of Thold to 23 languages
+
 --- 1.8 ---
 
 * security: Fix potential security exposure with unserialize() function
