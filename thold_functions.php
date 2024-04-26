@@ -5824,47 +5824,57 @@ function thold_validate_save($save, $type = 'thold_template') {
 	}
 
 	if ($save['thold_type'] == 0) {
-		/* Hi / Low Checks */
-		/* Alert must always be set! */
-		if ($save['thold_hi'] == '' && $save['thold_low'] == '') {
-			$banner .= ($banner != '' ? '<br>':'') . __('You must specify either \'High Alert Threshold\' or \'Low Alert Threshold\' or both!', 'thold');
+		/**
+		 * Hi / Low Checks
+		 *
+		 * Alert must always be set except when first creating a thold!
+		 */
+		if (isset($save['thold_hi'])) {
+			if ($save['thold_hi'] == '' && $save['thold_low'] == '') {
+				$banner .= ($banner != '' ? '<br>':'') . __('You must specify either \'High Alert Threshold\' or \'Low Alert Threshold\' or both!', 'thold');
 
-			$_SESSION['sess_error_fields']['thold_hi']  = 'thold_hi';
-			$_SESSION['sess_error_fields']['thold_low'] = 'thold_low';
-		}
-
-		if ($save['thold_hi'] != '' && $save['thold_low'] != '' && $save['thold_low'] >= $save['thold_hi']) {
-			$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Alert Threshold\' smaller than the \'Low Alert Threshold\'!', 'thold');
-
-			$_SESSION['sess_error_fields']['thold_hi']  = 'thold_hi';
-			$_SESSION['sess_error_fields']['thold_low'] = 'thold_low';
-		}
-
-		/* Warning is optional.  Check if set! */
-		if ($save['thold_warning_hi'] != '' || $save['thold_warning_low'] != '') {
-			if ($save['thold_warning_hi'] != '' && $save['thold_warning_low'] != '' && $save['thold_warning_low'] >= $save['thold_warning_hi']) {
-				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Warning Threshold\' smaller than the \'Low Warning Threshold\'!', 'thold');
-
-				$_SESSION['sess_error_fields']['thold_warning_hi']  = 'thold_warning_hi';
-				$_SESSION['sess_error_fields']['thold_warning_low'] = 'thold_warning_low';
+				$_SESSION['sess_error_fields']['thold_hi']  = 'thold_hi';
+				$_SESSION['sess_error_fields']['thold_low'] = 'thold_low';
 			}
 
-			if (!empty($save['thold_warning_hi']) && $save['thold_hi'] <= $save['thold_warning_hi']) {
-				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Warning Threshold\' larger than the \'High Alert Threshold\'!', 'thold');
+			if ($save['thold_hi'] != '' && $save['thold_low'] != '' && $save['thold_low'] >= $save['thold_hi']) {
+				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Alert Threshold\' smaller than the \'Low Alert Threshold\'!', 'thold');
 
-				$_SESSION['sess_error_fields']['thold_hi']         = 'thold_hi';
-				$_SESSION['sess_error_fields']['thold_warning_hi'] = 'thold_warning_hi';
+				$_SESSION['sess_error_fields']['thold_hi']  = 'thold_hi';
+				$_SESSION['sess_error_fields']['thold_low'] = 'thold_low';
 			}
 
-			if (!empty($save['thold_warning_low']) && $save['thold_low'] >= $save['thold_warning_low']) {
-				$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'Low Alert Threshold\' larger than the \'Low Warning Threshold\'!', 'thold');
+			/* Warning is optional.  Check if set! */
+			if ($save['thold_warning_hi'] != '' || $save['thold_warning_low'] != '') {
+				if ($save['thold_warning_hi'] != '' && $save['thold_warning_low'] != '' && $save['thold_warning_low'] >= $save['thold_warning_hi']) {
+					$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Warning Threshold\' smaller than the \'Low Warning Threshold\'!', 'thold');
 
-				$_SESSION['sess_error_fields']['thold_low']         = 'thold_low';
-				$_SESSION['sess_error_fields']['thold_warning_low'] = 'thold_warning_low';
+					$_SESSION['sess_error_fields']['thold_warning_hi']  = 'thold_warning_hi';
+					$_SESSION['sess_error_fields']['thold_warning_low'] = 'thold_warning_low';
+				}
+
+				if (!empty($save['thold_warning_hi']) && $save['thold_hi'] <= $save['thold_warning_hi']) {
+					$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'High Warning Threshold\' larger than the \'High Alert Threshold\'!', 'thold');
+
+					$_SESSION['sess_error_fields']['thold_hi']         = 'thold_hi';
+					$_SESSION['sess_error_fields']['thold_warning_hi'] = 'thold_warning_hi';
+				}
+
+				if (!empty($save['thold_warning_low']) && $save['thold_low'] >= $save['thold_warning_low']) {
+					$banner .= ($banner != '' ? '<br>':'') . __('Impossible threshold: \'Low Alert Threshold\' larger than the \'Low Warning Threshold\'!', 'thold');
+
+					$_SESSION['sess_error_fields']['thold_low']         = 'thold_low';
+					$_SESSION['sess_error_fields']['thold_warning_low'] = 'thold_warning_low';
+				}
 			}
 		}
 	} elseif ($save['thold_type'] == 1) {
-		/* Baseline Deviation Checks */
+		/**
+		 * Baseline Deviation Checks
+		 *
+		 * The initial template creation is always hi/low.  So, we
+		 * do not require an isset in this section.
+		 */
 		$banner .= ($banner != '' ? '<br>':'') . __('With baseline thresholds enabled.', 'thold');
 
 		if (empty($save['bl_ref_time_range']) || $save['bl_ref_time_range'] <= 0) {
@@ -5880,8 +5890,12 @@ function thold_validate_save($save, $type = 'thold_template') {
 			$_SESSION['sess_error_fields']['bl_pct_down'] = 'bl_pct_down';
 		}
 	} elseif ($save['thold_type'] == 2) {
-		/* Time Based Checks */
-		/* Alert must always be set! */
+		/**
+		 * Time Based Checks
+		 *
+		 * The initial template creation is always hi/low.  So, we
+		 * do not require an isset in this section.
+		 */
 		if ($save['time_hi'] == '' && $save['time_low'] == '') {
 			$banner .= ($banner != '' ? '<br>':'') . __('You must specify either \'High Alert Threshold\' or \'Low Alert Threshold\' or both!', 'thold');
 
