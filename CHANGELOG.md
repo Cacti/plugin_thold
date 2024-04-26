@@ -1,6 +1,6 @@
 ## ChangeLog
 
---- develop ---
+--- 1.8.1 ---
 
 * issue#669: Thold Graph tab subtab 'Device Status' complains about duplicate column in Cacti develop
 * issue#670: Cannot create new thold template
