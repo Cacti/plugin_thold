@@ -1,5 +1,9 @@
 ## ChangeLog
 
+--- develop ---
+
+* issue#674: Thold Current Value is incorrect in 1.8.1
+
 --- 1.8.1 ---
 
 * issue#669: Thold Graph tab subtab 'Device Status' complains about duplicate column in Cacti develop

@@ -7599,7 +7599,11 @@ function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 	return $emails;
 }
 
-function get_thold_notification_emails($id, $recipient = 'to') {
+function get_thold_notification_emails($id = '', $recipient = 'to') {
+	if ($id == '' || $id === null) {
+		return '';
+	}
+
 	if (!thold_notification_list_enabled($id)) {
 		return '';
 	}
