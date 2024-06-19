@@ -7587,13 +7587,13 @@ function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 			}
 		}
 
-		$emails .= (strlen($emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert'], $recipient);
+		$emails .= (is_string($emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert'], $recipient);
 	} else {
 		if (read_config_option('thold_disable_legacy') != 'on' && $recipient == 'to') {
 			$emails = $thold['notify_warning_extra'];
 		}
 
-		$emails .= (strlen($emails) ? ',':'') . get_thold_notification_emails($thold['notify_warning'], $recipient);
+		$emails .= (is_string($emails) ? ',':'') . get_thold_notification_emails($thold['notify_warning'], $recipient);
 	}
 
 	return $emails;
