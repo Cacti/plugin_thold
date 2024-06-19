@@ -7563,7 +7563,7 @@ function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 
 	if ($class == 'alert') {
 		if (read_config_option('thold_disable_legacy') != 'on' && $recipient == 'to') {
-			$emails = array();
+			$email_addresses = array();
 
 			$rows = db_fetch_assoc_prepared('SELECT ptc.data
 				FROM plugin_thold_contacts AS ptc
@@ -7572,13 +7572,13 @@ function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 				WHERE pttc.thold_id = ?',
 				array($thold['id']));
 
-			if (count($rows)) {
+			if (cacti_sizeof($rows)) {
 				foreach ($rows as $row) {
-					$emails[] = $row['data'];
+					$email_addresses[] = $row['data'];
 				}
 			}
 
-			$emails = implode(',', $emails);
+			$emails = implode(',', $email_addresses);
 
 			if ($emails != '') {
 				$emails .= ',' . $thold['notify_extra'];
@@ -7587,13 +7587,13 @@ function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 			}
 		}
 
-		$emails .= (strlen($emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert'], $recipient);
+		$emails .= ($emails != '' ? ',':'') . get_thold_notification_emails($thold['notify_alert'], $recipient);
 	} else {
 		if (read_config_option('thold_disable_legacy') != 'on' && $recipient == 'to') {
 			$emails = $thold['notify_warning_extra'];
 		}
 
-		$emails .= (strlen($emails) ? ',':'') . get_thold_notification_emails($thold['notify_warning'], $recipient);
+		$emails .= ($emails != '' ? ',':'') . get_thold_notification_emails($thold['notify_warning'], $recipient);
 	}
 
 	return $emails;
