@@ -7057,7 +7057,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 								$emails[$id]['attachments'] = array();
 							}
 						} else {
-							$emails[$id]['body_text']     .= PHP_EOL . TEX_SEP . PHP_EOL . $body_text;
+							$emails[$id]['body_text']     .= PHP_EOL . TXT_SEP . PHP_EOL . $body_text;
 							$emails[$id]['body']          .= str_replace(array('<body>', '</body>'), '', $body);
 							$emails[$id]['pre_body_text'] .= PHP_EOL . $subject;
 							$emails[$id]['pre_body']      .= '<br>' . $subject;
