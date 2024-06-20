@@ -703,10 +703,18 @@ function thold_config_settings() {
 			'default' => 'on'
 		),
 		'alert_deadnotify_one_mail' => array(
-			'friendly_name' => __('Notification Single Email', 'thold'),
+			'friendly_name' => __('Single Email Notification', 'thold'),
 			'description' => __('Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices.', 'thold'),
 			'method' => 'checkbox',
 			'default' => 'on'
+		),
+		'alert_deadnotify_subject' => array(
+			'friendly_name' => __('Single Email Notification Subject', 'thold'),
+			'description' => __('This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices.', 'thold'),
+			'method' => 'textbox',
+			'default' => 'Thold Device Notification: Up/Down Devices Found',
+			'size' => 80,
+			'max_length' => 255,
 		),
 		'thold_notification_delay' => array(
 			'friendly_name' => __('Device Notification Delay Options', 'thold'),

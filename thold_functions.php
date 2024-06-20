@@ -6939,6 +6939,9 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 }
 
 function process_device_notifications($pid, $max_records, $prev_suspended) {
+	$one_email = read_config_option('alert_deadnotify_one_mail') == 'on' ? true:false;
+	$emails    = array();
+
 	if ($max_records == 'all') {
 		$sql_limit = '';
 	} else {
@@ -6954,13 +6957,13 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 	$records = db_fetch_assoc("SELECT *
 		FROM notification_queue
 		WHERE event_processed = 0
-		AND topic NOT IN ('thold_dhost_mail', 'thold_uhost_mail', 'thold_dhost_cmd', 'thold_uhost_cmd')
+		AND topic IN ('thold_dhost_mail', 'thold_uhost_mail', 'thold_dhost_cmd', 'thold_uhost_cmd')
 		$sql_where
 		ORDER BY event_time ASC
 		$sql_limit");
 
 	if ($prev_suspended == 0) {
-		foreach($records as $r) {
+		foreach($records as $index => $r) {
 			$nstart = microtime(true);
 
 			/* if notification is suspended, break from this loop */
@@ -6975,6 +6978,14 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 
 			$topic     = $r['topic'];
 			$processed = false;
+
+			if ($one_email) {
+				$host_subject = read_config_option('alert_deadnotify_subject');
+
+				if ($host_subject == '') {
+					$host_subject = 'Thold Device Notification: Up/Down Devices Found';
+				}
+			}
 
 			switch($topic) {
 				case 'thold_dhost_mail':
@@ -6993,29 +7004,65 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 						}
 					}
 
-					if (cacti_sizeof($attachments)) {
-						foreach($attachments as $index => $attach) {
-							$attachments[$index]['attachment'] = base64_decode($attach['attachment']);
+					if (!$one_email) {
+						if (cacti_sizeof($attachments)) {
+							foreach($attachments as $index => $attach) {
+								$attachments[$index]['attachment'] = base64_decode($attach['attachment']);
+							}
 						}
-					}
 
-					$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
+						$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
 
-					if (strlen($error)) {
-						cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
-						$any_error = $error;
-						$error_code = 1;
+						if (strlen($error)) {
+							cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
+							$any_error = $error;
+							$error_code = 1;
+						} else {
+							$error = '';
+							$error_code = 0;
+						}
+
+						$nend = microtime(true);
+
+						db_execute_prepared('UPDATE notification_queue
+							SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
+							WHERE id = ?',
+							array($error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id']));
 					} else {
-						$error = '';
-						$error_code = 0;
+						$id = md5(json_encode(array($from, $to, $cc, $bcc, $replyto)));
+
+						if (!isset($emails[$id])) {
+							$emails[$id]['from']          = $from;
+							$emails[$id]['to']            = $to;
+							$emails[$id]['cc']            = $cc;
+							$emails[$id]['bcc']           = $bcc;
+							$emails[$id]['replyto']       = $replyto;
+							$emails[$id]['subject']       = $host_subject;
+							$emails[$id]['body_text']     = $body_text;
+							$emails[$id]['body']          = str_replace(array('<body>', '</body>'), '', $body);
+							$emails[$id]['pre_body']      = $subject;
+							$emails[$id]['pre_body_text'] = $subject;
+							$emails[$id]['html']          = $html;
+							$emails[$id]['headers']       = $headers;
+
+							if (cacti_sizeof($attachments)) {
+								$emails[$id]['attachments'] = $attachments;
+							} else {
+								$emails[$id]['attachments'] = array();
+							}
+						} else {
+							$emails[$id]['body_text']     .= PHP_EOL . $body_text;
+							$emails[$id]['body']          .= str_replace(array('<body>', '</body>'), '', $body);
+							$emails[$id]['pre_body_text'] .= PHP_EOL . $subject;
+							$emails[$id]['pre_body']      .= '<br>' . $subject;
+
+							if (cacti_sizeof($attachments)) {
+								$emails[$id]['attachments'] += $attachments;
+							}
+						}
+
+						$emails[$id]['ids'][] = $r['id'];
 					}
-
-					$nend = microtime(true);
-
-					db_execute_prepared('UPDATE notification_queue
-						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
-						WHERE id = ?',
-						array($error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id']));
 
 					break;
 				case 'thold_dhost_cmd':
@@ -7057,6 +7104,55 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 					break;
 				default:
 					cacti_log(sprintf('ERROR: Unable to process Thold Notification of topic %s', $topic), false, 'THOLD');
+			}
+		}
+
+		if (cacti_sizeof($emails) && $one_email) {
+			foreach($emails as $email) {
+				$attachments = array();
+				$from          = $email['from'];
+				$to            = $email['to'];
+				$cc            = $email['cc'];
+				$bcc           = $email['bcc'];
+				$replyto       = $email['replyto'];
+				$subject       = $email['subject'];
+				$body          = $email['body'];
+				$body_text     = $email['body_text'];
+				$headers       = $email['headers'];
+				$html          = $email['html'];
+				$pre_body      = $email['pre_body'];
+				$pre_body_text = $email['pre_body_text'];
+
+				if (cacti_sizeof($email['attachments'])) {
+					foreach($email['attachments'] as $index => $attach) {
+						$attachments[$index]['attachment'] = base64_decode($attach['attachment']);
+					}
+				}
+
+				$body      = $pre_body      . '<br><hr><br>'    . $body;
+				$body_text = $pre_body_text . PHP_EOL . PHP_EOL . $body_text;
+
+				cacti_log("NOTE: Sending One Email Device Notification to:$to, bcc:$bcc, from:{$from[0]}, subject: $subject", false, 'THOLD');
+
+				$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
+
+				if (strlen($error)) {
+					cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
+					$any_error = $error;
+					$error_code = 1;
+				} else {
+					$error = '';
+					$error_code = 0;
+				}
+
+				$nend = microtime(true);
+
+				$ids = implode(', ', $email['ids']);
+
+				db_execute_prepared("UPDATE notification_queue
+					SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
+					WHERE id IN ($ids)",
+					array($error_code, str_replace("\n", ' ', $error), $nend - $nstart));
 			}
 		}
 	} else {

@@ -39,7 +39,7 @@ $actions = array(
 set_default_action();
 
 switch (get_request_var('action')) {
-	case 'action':
+	case 'actions':
 		form_actions();
 
 		break;
@@ -127,7 +127,7 @@ function form_actions() {
 			input_validate_input_number($matches[1]);
 			/* ==================================================== */
 
-			$notify_list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT topic FROM notification_queue WHERE id = ?', array($matches[1]))) . '</li>';
+			$notify_list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT CONCAT(UPPER(topic), ": ", object_name) AS name FROM notification_queue WHERE id = ?', array($matches[1]))) . '</li>';
 			$notify_array[$i] = $matches[1];
 
 			$i++;
@@ -383,7 +383,7 @@ function notify_queue() {
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
 
-	$notifications = db_fetch_assoc("SELECT *
+	$notifications = db_fetch_assoc("SELECT nq.*, h.hostname
 		FROM notification_queue AS nq
 		LEFT JOIN host AS h
 		ON h.id = nq.host_id

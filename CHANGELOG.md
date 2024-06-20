@@ -2,7 +2,10 @@
 
 --- develop ---
 
+* issue#673: Device up/down notification emails don't appear to be sent if the notification queue is enabled
 * issue#674: Thold Current Value is incorrect in 1.8.1
+* issue#678: Unable to remove suspended notifications one by one
+* feature#677: Allow the Administrator to create a default Single Email Notification Subject
 
 --- 1.8.1 ---
 

@@ -101,6 +101,8 @@ $start = microtime(true);
 
 // This is where we can parallelize
 if ($thread === false) {
+	thold_cli_debug('Thold Notification Main Collector Started');
+
 	$thread = 1;
 	$pid = getmypid();
 
@@ -111,10 +113,12 @@ if ($thread === false) {
 
 	$total_rows = db_affected_rows();
 } else {
+	thold_cli_debug("Thold Notification Child Thread $thread Started");
 }
 
 $timeout = 9999999999;
 
+/* kill any running services that have run outside of their timeout */
 if (!register_process_start('thold_notify', 'child', $thread, $timeout)) {
 	$pid = db_fetch_cell_prepared('SELECT pid
 		FROM processes
