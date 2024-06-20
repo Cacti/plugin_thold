@@ -85,6 +85,43 @@ function form_save() {
 		$save['bcc_emails']  = form_input_validate(get_nfilter_request_var('bcc_emails'), 'bcc_emails', '', true, 3);
 		$save['format_file'] = form_input_validate(get_nfilter_request_var('format_file'), 'format_file', '', true, 3);
 
+		$bccs   = explode(',', $save['bcc_emails']);
+		$emails = explode(',', $save['emails']);
+
+		$bad = false;
+
+		foreach($bccs as $email) {
+			if (array_search(trim($email), $emails) !== false) {
+				raise_message(
+					'duplicate_email',
+					__('ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s', $email, 'THOLD'),
+					MESSAGE_LEVEL_WARN
+				);
+
+				$_SESSION['sess_error_fields']['bcc_emails'] = 'bcc_emails';
+				$bad = true;
+
+				break;
+			}
+		}
+
+		if (!$bad) {
+			foreach($emails as $email) {
+				if (array_search(trim($email), $bccs) !== false) {
+					raise_message(
+						'duplicate_email',
+						__('ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s', $email, 'THOLD'),
+						MESSAGE_LEVEL_WARN
+					);
+
+					$_SESSION['sess_error_fields']['bcc_emails'] = 'bcc_emails';
+					$bad = true;
+
+					break;
+				}
+			}
+		}
+
 		if (!is_error_message()) {
 			$id = sql_save($save, 'plugin_notification_lists');
 

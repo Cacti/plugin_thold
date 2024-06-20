@@ -6551,8 +6551,9 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 						$thold_send_text_only != 'on'
 					);
 
-					if (strlen($error)) {
-						cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
+					if ($error != '') {
+						cacti_log("ERROR: Sending Email Failed To:$to Subject:$subject.  Error was:'$error'", true, 'THOLD');
+
 						$any_error = $error;
 					}
 				}
@@ -6560,7 +6561,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 		}
 	}
 
-	if (strlen($any_error)) {
+	if ($any_error != '') {
 		return $any_error;
 	}
 
@@ -6942,6 +6943,10 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 	$one_email = read_config_option('alert_deadnotify_one_mail') == 'on' ? true:false;
 	$emails    = array();
 
+	if (!defined('TXT_SEP')) {
+		define('TXT_SEP', '----------------------------------------------------------');
+	}
+
 	if ($max_records == 'all') {
 		$sql_limit = '';
 	} else {
@@ -7004,21 +7009,22 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 						}
 					}
 
-					if (!$one_email) {
-						if (cacti_sizeof($attachments)) {
-							foreach($attachments as $index => $attach) {
-								$attachments[$index]['attachment'] = base64_decode($attach['attachment']);
-							}
+					/* reverse the base64 encoding */
+					if (cacti_sizeof($attachments)) {
+						foreach($attachments as $index => $attach) {
+							$attachments[$index]['attachment'] = base64_decode($attach['attachment']);
 						}
+					}
 
+					if (!$one_email) {
 						$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
 
-						if (strlen($error)) {
-							cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
-							$any_error = $error;
+						if ($error != '') {
+							cacti_log("ERROR: Sending Email Failed To:$to Subject:$subject.  Error was:'$error'", true, 'THOLD');
+
+							$any_error  = $error;
 							$error_code = 1;
 						} else {
-							$error = '';
 							$error_code = 0;
 						}
 
@@ -7051,13 +7057,13 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 								$emails[$id]['attachments'] = array();
 							}
 						} else {
-							$emails[$id]['body_text']     .= PHP_EOL . $body_text;
+							$emails[$id]['body_text']     .= PHP_EOL . TEX_SEP . PHP_EOL . $body_text;
 							$emails[$id]['body']          .= str_replace(array('<body>', '</body>'), '', $body);
 							$emails[$id]['pre_body_text'] .= PHP_EOL . $subject;
 							$emails[$id]['pre_body']      .= '<br>' . $subject;
 
 							if (cacti_sizeof($attachments)) {
-								$emails[$id]['attachments'] += $attachments;
+								$emails[$id]['attachments'] += array_merge($emails['id']['attachments'], $attachments);
 							}
 						}
 
@@ -7136,12 +7142,12 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 
 				$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
 
-				if (strlen($error)) {
-					cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
-					$any_error = $error;
+				if ($error != '') {
+					cacti_log("ERROR: Sending Email Failed To:$to Subject:$subject.  Error was:'$error'", true, 'THOLD');
+
+					$any_error  = $error;
 					$error_code = 1;
 				} else {
-					$error = '';
 					$error_code = 0;
 				}
 
@@ -7222,12 +7228,12 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended) {
 
 					$error = mailer($from, $to, $cc, $bcc, $replyto, $subject, $body, $body_text, $attachments, $headers, $html);
 
-					if (strlen($error)) {
-						cacti_log('ERROR: Sending Email To ' . $to . ' Failed.  Error was ' . $error, true, 'THOLD');
-						$any_error = $error;
+					if ($error != '') {
+						cacti_log("ERROR: Sending Email Failed To:$to Subject:$subject.  Error was:'$error'", true, 'THOLD');
+
+						$any_error  = $error;
 						$error_code = 1;
 					} else {
-						$error = '';
 						$error_code = 0;
 					}
 
