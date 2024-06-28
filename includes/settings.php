@@ -718,6 +718,7 @@ function thold_config_settings() {
 		),
 		'thold_notification_delay' => array(
 			'friendly_name' => __('Device Notification Delay Options', 'thold'),
+			'description' => __('Device Notification Delay Options', 'thold'),
 			'method' => 'hidden',
 			//'method' => 'spacer',
 		),
