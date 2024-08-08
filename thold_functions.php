@@ -5875,7 +5875,6 @@ function thold_validate_save($save, $type = 'thold_template') {
 		 * The initial template creation is always hi/low.  So, we
 		 * do not require an isset in this section.
 		 */
-		$banner .= ($banner != '' ? '<br>':'') . __('With baseline thresholds enabled.', 'thold');
 
 		if (empty($save['bl_ref_time_range']) || $save['bl_ref_time_range'] <= 0) {
 			$banner .= ($banner != '' ? '<br>':'') . __('Time reference in the past must be set to positive integer value!', 'thold');
