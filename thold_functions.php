@@ -3911,12 +3911,12 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		}
 
 		if ($queue == '' && $command_executed) {
-			thold_process_command_output($output, $return, 'thold', $thold_data);
+			thold_process_command_output($output, $return, 'thold', $thold_data, $cmd);
 		}
 	}
 }
 
-function thold_process_command_output(&$output, $return, $topic = 'thold_cmd', &$data = array()) {
+function thold_process_command_output(&$output, $return, $topic = 'thold_cmd', &$data = array(), $command = '') {
 	if ($topic == 'thold_cmd') {
 		if (cacti_sizeof($output)) {
 			if ($return > 0) {
@@ -7098,7 +7098,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 
 					exec($command, $output, $return);
 
-					thold_process_command_output($output, $return, $topic, $data);
+					thold_process_command_output($output, $return, $topic, $data, $command);
 
 					$nend = microtime(true);
 
@@ -7271,7 +7271,7 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended) {
 
 					exec($command, $output, $return);
 
-					thold_process_command_output($output, $return, $topic, $data);
+					thold_process_command_output($output, $return, $topic, $data, $command);
 
 					$nend = microtime(true);
 
