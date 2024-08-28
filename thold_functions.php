@@ -696,13 +696,13 @@ function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $c
 		array_push($stack, $currentval);
 		break;
 	case 'CURRENT_GRAPH_MAXIMUM_VALUE':
-		array_push(get_current_value($local_data_id, 'upper_limit'));
+		array_push($stack, get_current_value($local_data_id, 'upper_limit'));
 		break;
 	case 'CURRENT_GRAPH_MINIMUM_VALUE':
-		array_push(get_current_value($local_data_id, 'lower_limit'));
+		array_push($stack, get_current_value($local_data_id, 'lower_limit'));
 		break;
 	case 'CURRENT_DS_MINIMUM_VALUE':
-		array_push(get_current_value($local_data_id, 'rrd_minimum'));
+		array_push($stack, get_current_value($local_data_id, 'rrd_minimum'));
 		break;
 	case 'CURRENT_DS_MAXIMUM_VALUE':
 		array_push($stack, get_current_value($local_data_id, 'rrd_maximum'));
