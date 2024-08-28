@@ -205,7 +205,7 @@ function thold_add() {
 }
 
 function do_actions() {
-	global $host_id, $thold_actions;
+	global $config, $host_id, $thold_actions;
 
 	$tholds = array();
 

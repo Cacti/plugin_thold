@@ -6832,7 +6832,7 @@ function check_for_expired_delays(&$last_trigger, $triggers, $now, $last_check) 
 							)
 						);
 
-						if (cacti_sizeof($host_down)) {
+						if (cacti_sizeof($hosts_down)) {
 							/* perform notification of errors */
 							$hosts = array_rekey($hosts_down, 'id', 'id');
 						} else {
@@ -6866,7 +6866,7 @@ function check_for_expired_delays(&$last_trigger, $triggers, $now, $last_check) 
 							)
 						);
 
-						if (cacti_sizeof($host_down)) {
+						if (cacti_sizeof($hosts_down)) {
 							/* perform notification of errors */
 							$hosts = array_rekey($hosts_down, 'id', 'id');
 						} else {
@@ -8360,7 +8360,7 @@ function thold_get_rrd_statistics($local_data_id, $current_time, $prev_time, $av
 
 						break;
 					case 'AVG':
-						if ($avg) {
+						if ($average) {
 							$def .= 'DEF:' . $defs[$j] . $defs[$i] . "=\"" . $rrdfile . "\":" . $dsname . ':AVERAGE ';
 							$command .= ' VDEF:' . $defs[$j] . $defs[$i] . '_cfa=' . $defs[$j] . $defs[$i] . ',AVERAGE PRINT:' . $defs[$j] . $defs[$i] . '_cfa:%lf';
 							$i++;
