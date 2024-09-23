@@ -3523,6 +3523,16 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 		WHERE id = ?',
 		array($thold_data['host_id']));
 
+	$site = db_fetch_cell_prepared('SELECT s.name
+		FROM sites AS s
+		JOIN host AS h ON h.site_id = s.id
+		WHERE h.id = ?',
+		array($thold_data['host_id']));
+
+	if (!$site) {
+		$site = __('Default', 'thold');
+	}
+
 	switch($thold_data['thold_type']) {
 		case '0': // High Low
 			if ($phase == 'ALERT') {
@@ -3578,6 +3588,10 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 			break;
 	}
 
+	if (!isset($value)) {
+		$value = $thold_data['lastread'];
+	}
+
 	if ($phase == 'NORMAL') {
 		if ($thold_data['email_subject_restoral'] == '' || $peralert == '') {
 			return 'NORMAL: '. thold_get_cached_name($thold_data) .
@@ -3593,7 +3607,9 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 				'<DSNAME>',
 				'<HOSTNAME>',
 				'<BREACHUP>',
-				'<REALERT>'
+				'<REALERT>',
+				'<LOCATION>',
+				'<SITE>'
 			);
 
 			$replace = array(
@@ -3605,7 +3621,11 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 				$hostname,
 				($breach_up ? 'above':'below'),
 				($ra ? 'is still':'went'),
+				$thold_data['location'],
+				$site
 			);
+
+			return str_replace($find, $replace, $thold_data['email_subject_restoral']);
 		}
 	} elseif ($phase == 'WARNING' || $phase == 'ALERT > WARNING') {
 		if ($trigger) {
@@ -3637,7 +3657,9 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 				'<DSNAME>',
 				'<HOSTNAME>',
 				'<BREACHUP>',
-				'<REALERT>'
+				'<REALERT>',
+				'<LOCATION>',
+				'<SITE>'
 			);
 
 			$replace = array(
@@ -3649,6 +3671,8 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 				$hostname,
 				($breach_up ? 'above':'below'),
 				($ra ? 'is still':'went'),
+				$thold_data['location'],
+				$site
 			);
 
 			return str_replace($find, $replace, $thold_data['email_subject_warn']);
@@ -3676,7 +3700,9 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 				'<DSNAME>',
 				'<HOSTNAME>',
 				'<BREACHUP>',
-				'<REALERT>'
+				'<REALERT>',
+				'<LOCATION>',
+				'<SITE>'
 			);
 
 			$replace = array(
@@ -3688,6 +3714,8 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 				$hostname,
 				($breach_up ? 'above':'below'),
 				($ra ? 'is still':'went'),
+				$thold_data['location'],
+				$site
 			);
 
 			return str_replace($find, $replace, $thold_data['email_subject']);
@@ -4040,9 +4068,20 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 
 	$httpurl = read_config_option('base_url', true);
 
+	$site = db_fetch_cell_prepared('SELECT name
+		FROM sites
+		WHERE id = ?',
+		array($h['site_id']));
+
+	if (!$site) {
+		$site = __('Default', 'thold');
+	}
+
 	// Do some replacement of variables
 	$text = thold_str_replace('<DESCRIPTION>',   $h['description'], $text);
 	$text = thold_str_replace('<HOSTNAME>',      $h['hostname'], $text);
+	$text = thold_str_replace('<LOCATION>',      $h['location'], $text);
+	$text = thold_str_replace('<SITE>',          $site, $text);
 	$text = thold_str_replace('<GRAPHID>',       $local_graph_id, $text);
 	$text = thold_str_replace('<THOLD_ID>',      $thold['id'], $text);
 

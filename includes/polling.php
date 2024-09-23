@@ -493,6 +493,7 @@ function thold_update_host_status() {
 				$subject = thold_str_replace('<SITE>', $site, $subject);
 				$subject = thold_str_replace('<LOCATION>', $host['location'], $subject);
 				$subject = thold_str_replace('<DOWN/UP>', 'UP', $subject);
+				$subject = thold_str_replace('<DOWNTIME>', $downtimemsg, $subject);
 				$subject = thold_str_replace('<NOTES>', $host['notes'], $subject);
 				$subject = strip_tags($subject);
 
@@ -668,9 +669,9 @@ function thold_update_host_status() {
 						$hours      = intval($remainder / (60 * 60));
 						$remainder  = $remainder % (60 * 60);
 						$minutes    = intval($remainder / (60));
-						$downtimemsg = $days . 'd ' . $hours . 'h ' . $minutes . 'm';
+						$last_state_duration = $days . 'd ' . $hours . 'h ' . $minutes . 'm';
 				} else {
-					$downtimemsg = __('N/A', 'thold');
+					$last_state_duration = __('N/A', 'thold');
 				}
 
 				$subject = read_config_option('thold_down_subject');
@@ -688,7 +689,7 @@ function thold_update_host_status() {
 				$subject = thold_str_replace('<SITE>', $site, $subject);
 				$subject = thold_str_replace('<LOCATION>', $host['location'], $subject);
 				$subject = thold_str_replace('<DOWN/UP>', __('DOWN', 'thold'), $subject);
-				$subject = thold_str_replace('<DOWNTIME>', $downtimemsg, $subject);
+				$subject = thold_str_replace('<DOWNTIME>', $last_state_duration, $subject);
 				$subject = thold_str_replace('<NOTES>', $host['notes'], $subject);
 				$subject = strip_tags($subject);
 
@@ -704,7 +705,12 @@ function thold_update_host_status() {
 				$msg = thold_str_replace('<SITE>', $site, $msg);
 				$msg = thold_str_replace('<LOCATION>', $host['location'], $msg);
 				$msg = thold_str_replace('<UPTIME>', '', $msg);
-				$msg = thold_str_replace('<DOWNTIME>', $downtimemsg, $msg);
+				$msg = thold_str_replace('<DOWNTIME>', $last_state_duration, $msg);
+
+				$msg = thold_str_replace('<TIME>', time(), $msg);
+				$msg = thold_str_replace('<DATE>', date(CACTI_DATE_TIME_FORMAT), $msg);
+				$msg = thold_str_replace('<DATE_RFC822>', date(DATE_RFC822), $msg);
+
 				$msg = thold_str_replace('<MESSAGE>', $host['status_last_error'], $msg);
 				$msg = thold_str_replace('<DOWN/UP>', __('DOWN', 'thold'), $msg);
 				$msg = thold_str_replace('<SNMP_HOSTNAME>', '', $msg);
@@ -718,9 +724,6 @@ function thold_update_host_status() {
 				$msg = thold_str_replace('<FAIL_POLL>', $host['failed_polls'], $msg);
 				$msg = thold_str_replace('<AVG_TIME>', round(($host['avg_time']), 2), $msg);
 				$msg = thold_str_replace('<NOTES>', $host['notes'], $msg);
-				$msg = thold_str_replace('<TIME>', time(), $msg);
-				$msg = thold_str_replace('<DATE>', date(CACTI_DATE_TIME_FORMAT), $msg);
-				$msg = thold_str_replace('<DATE_RFC822>', date(DATE_RFC822), $msg);
 				$msg = thold_str_replace("\n", '<br>', $msg);
 
 				switch ($host['thold_send_email']) {
@@ -773,7 +776,7 @@ function thold_update_host_status() {
 					thold_putenv('THOLD_DATE_RFC822='   . date(DATE_RFC822));
 
 					thold_putenv('THOLD_UPTIME=');
-					thold_putenv('THOLD_DOWNTIME='      . $downtimemsg);
+					thold_putenv('THOLD_DOWNTIME='      . $last_time_duration);
 					thold_putenv('THOLD_MESSAGE='       . $host['status_last_error']);
 					thold_putenv('THOLD_DOWNUP='        . 'DOWN');
 
