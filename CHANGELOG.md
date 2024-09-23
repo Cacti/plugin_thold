@@ -8,6 +8,7 @@
 * issue#678: Unable to remove suspended notifications one by one
 * issue#679: The PHP Mailer does not allow for the to and bcc addresses to be the same
 * feature#677: Allow the Administrator to create a default Single Email Notification Subject
+* feature#696: Extend email replacement (location, site, ...) for subject and email body
 
 --- 1.8.1 ---
 
