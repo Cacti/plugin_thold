@@ -1394,7 +1394,7 @@ function thold_upgrade_database($force = false) {
 
 		if (db_column_exists('plugin_thold_daemon_data', 'pid')) {
 			db_execute('ALTER TABLE plugin_thold_daemon_data
-				CHANGE COLUMN pid thread_id int UNSIGNED NOT NULL default "0"');
+				CHANGE COLUMN pid thread_id int(11) UNSIGNED NOT NULL default "0"');
 		}
 
 		if (db_table_exists('plugin_thold_daemon_processes')) {

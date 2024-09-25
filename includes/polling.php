@@ -97,7 +97,7 @@ function thold_poller_output(&$rrd_update_array) {
 				}
 
 				if ($local_data_ids != '') {
-					$thold_items = db_fetch_assoc("SELECT id, local_data_id
+					$thold_items = db_fetch_assoc("SELECT id, local_data_id, thread_id
 						FROM thold_data
 						WHERE thold_data.local_data_id IN ($local_data_ids)");
 				}
@@ -111,13 +111,13 @@ function thold_poller_output(&$rrd_update_array) {
 					$thold_items     = array_chunk($thold_items, $sql_max_inserts);
 
 					$sql_insert = 'INSERT INTO plugin_thold_daemon_data
-						(poller_id, id, rrd_reindexed, rrd_time_reindexed) VALUES ';
+						(poller_id, id, thread_id, rrd_reindexed, rrd_time_reindexed) VALUES ';
 
 					foreach ($thold_items as $packet) {
 						$sql_values = '';
 
 						foreach ($packet as $thold_item) {
-							$sql_values .= ($sql_values != '' ? ', ' : '') . '(' . $config['poller_id'] . ', ' . $thold_item['id'] . ",  " . db_qstr(json_encode($rrd_reindexed[$thold_item['local_data_id']])) . ', ' . $rrd_time_reindexed[$thold_item['local_data_id']] . ')';
+							$sql_values .= ($sql_values != '' ? ', ' : '') . '(' . $config['poller_id'] . ', ' . $thold_item['id'] . ', ' . $thold_item['thread_id'] . ",  " . db_qstr(json_encode($rrd_reindexed[$thold_item['local_data_id']])) . ', ' . $rrd_time_reindexed[$thold_item['local_data_id']] . ')';
 
 						}
 
