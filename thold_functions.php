@@ -4764,7 +4764,7 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 
 	// Return Blank if the data source is not found (Newly created?)
 	if (!isset($result['data_source_names'])) {
-		return '';
+		return 0;
 	}
 
 	$idx = array_search($data_template_rrd_id, $result['data_source_names']);
@@ -4772,7 +4772,7 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 	// Return Blank if the value was not found (Cache Cleared?)
 
 	if (!isset($result['values']) || $idx === null || !cacti_sizeof($result['values'][$idx])) {
-		return '';
+		return 0;
 	}
 
 	$value = array_values($result['values'][$idx])[0];
