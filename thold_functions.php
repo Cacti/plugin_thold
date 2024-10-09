@@ -1767,11 +1767,27 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			}
 		}
 
-		$alert_emails .= (strlen($alert_emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert']);
+		$list = get_thold_notification_emails($thold['notify_alert']);
+		if ($list != '') {
+			if ($alert_emails != '') {
+				$alert_emails .= ',' . $list;
+			} else {
+				$alert_emails .= $list;
+			}
+		}
 
 		$warning_emails = '';
 		if (read_config_option('thold_disable_legacy') != 'on') {
 			$warning_emails = $thold['notify_warning_extra'];
+		}
+
+		$list = get_thold_notification_emails($thold['notify_warning']);
+		if ($list != '') {
+			if ($warning_emails != '') {
+				$warning_emails .= ',' . $list;
+			} else {
+				$warning_emails .= $list;
+			}
 		}
 
 		if ($message['id'] > 0) {
@@ -1872,11 +1888,27 @@ function plugin_thold_log_changes($id, $changed, $message = array()) {
 			}
 		}
 
-		$alert_emails .= (strlen($alert_emails) ? ',':'') . get_thold_notification_emails($thold['notify_alert']);
+		$list = get_thold_notification_emails($thold['notify_alert']);
+		if ($list != '') {
+			if ($alert_emails != '') {
+				$alert_emails .= ',' . $list;
+			} else {
+				$alert_emails .= $list;
+			}
+		}
 
 		$warning_emails = '';
 		if (read_config_option('thold_disable_legacy') != 'on') {
 			$warning_emails = $thold['notify_warning_extra'];
+		}
+
+		$list = get_thold_notification_emails($thold['notify_warning']);
+		if ($list != '') {
+			if ($warning_emails != '') {
+				$warning_emails .= ',' . $list;
+			} else {
+				$warning_emails .= $list;
+			}
 		}
 
 		if ($message['id'] > 0) {
