@@ -1147,9 +1147,9 @@ function hosts($header_label) {
 	if (get_request_var('site_id') == '-1') {
 		/* Show all items */
 	} elseif (get_request_var('site_id') == '0') {
-		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id = 0';
+		$sql_where .= ($sql_where == '' ? 'WHERE' : ' AND ') . ' h.site_id = 0';
 	} elseif (!isempty_request_var('site_id')) {
-		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id = ?';
+		$sql_where .= ($sql_where == '' ? 'WHERE' : ' AND ') . ' h.site_id = ?';
 		$sql_params[] = get_request_var('site_id');
 	}
 
@@ -1253,7 +1253,7 @@ function hosts($header_label) {
 		)
 	);
 
-	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
+	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false, 'notify_lists.php?action=edit&id=' . get_filter_request_var('id'));
 
 	if (cacti_sizeof($hosts)) {
 		foreach ($hosts as $host) {

@@ -8,6 +8,8 @@
 * issue#678: Unable to remove suspended notifications one by one
 * issue#679: The PHP Mailer does not allow for the to and bcc addresses to be the same
 * issue#700: PHP8.x issue - addition a non-numeric value
+* issue#701: Site filter on notification list doesn't work
+* issue#703: Fix sorting column links 
 * feature#677: Allow the Administrator to create a default Single Email Notification Subject
 * feature#696: Extend email replacement (location, site, ...) for subject and email body
 
