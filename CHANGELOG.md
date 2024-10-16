@@ -2,14 +2,19 @@
 
 --- develop ---
 
+
+--- 1.8.2 ---
+
 * issue#682: Setting.php thold_notification_delay field does not have 'description' key
 * issue#673: Device up/down notification emails don't appear to be sent if the notification queue is enabled
 * issue#674: Thold Current Value is incorrect in 1.8.1
 * issue#678: Unable to remove suspended notifications one by one
 * issue#679: The PHP Mailer does not allow for the to and bcc addresses to be the same
+* issue#698: Add missing thread id to polling process
 * issue#700: PHP8.x issue - addition a non-numeric value
 * issue#701: Site filter on notification list doesn't work
-* issue#703: Fix sorting column links 
+* issue#703: Fix sorting column links
+* issue#704: Fix change thold log message - missing information about email addresses
 * feature#677: Allow the Administrator to create a default Single Email Notification Subject
 * feature#696: Extend email replacement (location, site, ...) for subject and email body
 
