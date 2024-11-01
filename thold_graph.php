@@ -770,7 +770,7 @@ function tholds() {
 			form_end_row();
 		}
 	} else {
-		print '<tr class="tableRow even"><td class="center" colspan="13">' . __('No Thresholds', 'thold'). '</td></tr>';
+		print '<tr class="tableRow"><td class="center" colspan="' . cacti_sizeof($display_text) . '">' . __('No Thresholds', 'thold'). '</td></tr>';
 	}
 
 	html_end_box(false);
