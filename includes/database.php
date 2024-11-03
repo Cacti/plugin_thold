@@ -1775,10 +1775,14 @@ function thold_upgrade_database($force = false) {
 
 	thold_setup_database();
 
-	db_execute_prepared('UPDATE plugin_config
-		SET version = ?
-		WHERE directory = "thold"',
-		array($v['version']));
+	if (function_exists('api_plugin_upgrade_register')) {
+		api_plugin_upgrade_register('thold');
+	} else {
+		db_execute_prepared('UPDATE plugin_config
+			SET version = ?
+			WHERE directory = "thold"',
+			array($v['version']));
+	}
 }
 
 function thold_setup_database() {
