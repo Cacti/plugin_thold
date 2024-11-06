@@ -36,7 +36,7 @@
 
 [Unit]
 Description=Cacti Threshold Daemon Service
-Required=mariadb.service
+Requires=mariadb.service
 After=network.target auditd.service mariadb.service 
 
 [Service]
