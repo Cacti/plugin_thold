@@ -363,7 +363,7 @@ function thold_wizard() {
 				'id', 'name'
 			);
 
-			// Limit ths hosts to only hosts that either have a graph template
+			// Limit the hosts to only hosts that either have a graph template
 			// Listed as multiple, or do not have a threshold created
 			// Using the Graph Template listed
 			// If the Graph Template is associated with a Data Query
