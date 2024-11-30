@@ -1049,7 +1049,7 @@ function list_tholds() {
 
 			form_selectable_cell(($thold_data['acknowledgment'] == '' ? __('No', 'thold'):__('Yes', 'thold')), $thold_data['id'], '', 'right ' . ($thold_data['acknowledgment'] == '' ? '':'tholdAckCol'));
 
-			form_checkbox_cell($thold_data['name_cache'], $thold_data['id'], '', 'left');
+			form_checkbox_cell($thold_data['name_cache'], $thold_data['id']);
 
 			form_end_row();
 		}

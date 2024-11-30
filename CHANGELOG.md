@@ -3,6 +3,7 @@
 --- develop ---
 
 * issue#710: Fixing Typo in thold_daemons.service File
+* issue: All Columns checkd on Thresholds page
 
 --- 1.8.2 ---
 
