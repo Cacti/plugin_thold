@@ -310,10 +310,16 @@ function thold_config_form() {
 	$fields_host_edit2 = $fields_host_edit;
 	$fields_host_edit3 = array();
 
+	if (array_key_exists('snmp_options', $fields_host_edit2)) {
+		$insert_field = 'snmp_options';
+	} else {
+		$insert_field = 'disabled';
+	}
+
 	foreach ($fields_host_edit2 as $f => $a) {
 		$fields_host_edit3[$f] = $a;
 
-		if ($f == 'disabled') {
+		if ($f == $insert_field) {
 			$fields_host_edit3['thold_mail_spacer'] = array(
 				'friendly_name' => __('Device Up/Down Notification Settings', 'thold'),
 				'method' => 'spacer',
