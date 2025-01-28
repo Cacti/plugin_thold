@@ -310,8 +310,8 @@ function thold_config_form() {
 	$fields_host_edit2 = $fields_host_edit;
 	$fields_host_edit3 = array();
 
-	if (array_key_exists('snmp_options', $fields_host_edit2)) {
-		$insert_field = 'snmp_options';
+	if (array_key_exists('bulk_walk_size', $fields_host_edit2)) {
+		$insert_field = 'bulk_walk_size';
 	} else {
 		$insert_field = 'disabled';
 	}
