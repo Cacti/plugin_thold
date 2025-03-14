@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2024-04-20 16:30-0400\n"
-"PO-Revision-Date: 2020-09-13 15:12-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: sv_SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-03-14 13:09+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -25,70 +14,70 @@ msgstr "Ingen gräns"
 #: includes/arrays.php:415 includes/arrays.php:436
 #, php-format
 msgid "%d Month"
-msgstr "% d månad"
+msgstr "%d månad"
 
 #: includes/arrays.php:28 includes/arrays.php:29 includes/arrays.php:30
 #: includes/arrays.php:31
 #, php-format
 msgid "%d Months"
-msgstr "% d månader"
+msgstr "%d månader"
 
 #: includes/arrays.php:32
 #, php-format
 msgid "%d Year"
-msgstr "% d år"
+msgstr "%d år"
 
 #: includes/arrays.php:36
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "Varje% d timmar"
+msgstr "Från %d timme sedan"
 
 #: includes/arrays.php:37 includes/arrays.php:38 includes/arrays.php:39
 #: includes/arrays.php:40
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "Varje% d timmar"
+msgstr "Från %d timmar sedan"
 
 #: includes/arrays.php:41
 #, php-format
 msgid "From %d Day Ago"
-msgstr ""
+msgstr "Från %d dygn sedan"
 
 #: includes/arrays.php:42 includes/arrays.php:43
 #, php-format
 msgid "From %d Days Ago"
-msgstr "Varje% d dagar"
+msgstr "Från %d dagar sedan"
 
 #: includes/arrays.php:44
 #, php-format
 msgid "From %d Week Ago"
-msgstr "% d veckan"
+msgstr "Från %d vecka sedan"
 
 #: includes/arrays.php:45 includes/arrays.php:46
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "Varje% d veckor"
+msgstr "Från %d veckor sedan"
 
 #: includes/arrays.php:47
 #, php-format
 msgid "From %d Month Ago"
-msgstr "% d månad"
+msgstr "Från %d månad sedan"
 
 #: includes/arrays.php:48 includes/arrays.php:49 includes/arrays.php:50
 #: includes/arrays.php:51
 #, php-format
 msgid "From %d Months Ago"
-msgstr "% d månader"
+msgstr "Från %d månader sedan"
 
 #: includes/arrays.php:52
 #, php-format
 msgid "From %d Year Ago"
-msgstr "% d år"
+msgstr "Från %d år sedan"
 
 #: includes/arrays.php:53
 #, php-format
 msgid "From %d Years Ago"
-msgstr ""
+msgstr "Från %d år sedan"
 
 #: includes/arrays.php:58 thold_graph.php:825 thold_graph.php:831
 #: thold_graph.php:1174
@@ -278,7 +267,7 @@ msgstr "Varje timme"
 #: includes/settings.php:499
 #, php-format
 msgid "Every %d Hours"
-msgstr "Varje% d timmar"
+msgstr "Varje %d timme"
 
 #: includes/arrays.php:309 includes/arrays.php:390
 msgid "Every Day"
@@ -287,7 +276,7 @@ msgstr "Varje dag"
 #: includes/arrays.php:310 includes/arrays.php:391
 #, php-format
 msgid "Every %d Days"
-msgstr "Varje% d dagar"
+msgstr "Varje %d dygn"
 
 #: includes/arrays.php:311 includes/arrays.php:392
 msgid "Every Week"
@@ -296,7 +285,7 @@ msgstr "Varje vecka"
 #: includes/arrays.php:312 includes/arrays.php:393
 #, php-format
 msgid "Every %d Weeks"
-msgstr "Varje% d veckor"
+msgstr "Varje %d veckor"
 
 #: includes/arrays.php:313 includes/arrays.php:394
 msgid "Every Month"
@@ -305,7 +294,7 @@ msgstr "Varje månad"
 #: includes/arrays.php:317 includes/arrays.php:342
 #, php-format
 msgid "%d Minute"
-msgstr "% d minut"
+msgstr "%d minut"
 
 #: includes/arrays.php:318 includes/arrays.php:319 includes/arrays.php:320
 #: includes/arrays.php:321 includes/arrays.php:322 includes/arrays.php:323
@@ -329,7 +318,7 @@ msgstr "Var %d minut"
 #: includes/arrays.php:425
 #, php-format
 msgid "%d Hour"
-msgstr "% d timme"
+msgstr "%d timme"
 
 #: includes/arrays.php:328 includes/arrays.php:329 includes/arrays.php:330
 #: includes/arrays.php:331 includes/arrays.php:332 includes/arrays.php:333
@@ -341,36 +330,36 @@ msgstr "% d timme"
 #: includes/arrays.php:429 includes/arrays.php:430 includes/arrays.php:431
 #, php-format
 msgid "%d Hours"
-msgstr "% d timmar"
+msgstr "%d timmar"
 
 #: includes/arrays.php:334 includes/arrays.php:366 includes/arrays.php:411
 #: includes/arrays.php:432
 #, php-format
 msgid "%d Day"
-msgstr "%D-dagen"
+msgstr "%d dygn"
 
 #: includes/arrays.php:335 includes/arrays.php:367 includes/arrays.php:412
 #: includes/arrays.php:433 thold_graph.php:1406
 #, php-format
 msgid "%d Days"
-msgstr "<ph id=\"mtc_1\" equiv-text=\"base64:JWQ=\"/> Dagar"
+msgstr "%d dygn"
 
 #: includes/arrays.php:336 includes/arrays.php:368 includes/arrays.php:413
 #: includes/arrays.php:434
 #, php-format
 msgid "%d Week"
-msgstr "% d veckan"
+msgstr "%d vecka"
 
 #: includes/arrays.php:337 includes/arrays.php:369 includes/arrays.php:414
 #: includes/arrays.php:435
 #, php-format
 msgid "%d Weeks"
-msgstr "% d veckor"
+msgstr "%d veckor"
 
 #: includes/arrays.php:362
 #, php-format
 msgid "%0.1f Hours"
-msgstr "% 0.1f timmar"
+msgstr "%0.1f timmar"
 
 #: includes/arrays.php:443
 msgid "Every Polling"
@@ -383,12 +372,12 @@ msgstr "Varje polling"
 #: includes/arrays.php:456 includes/arrays.php:457 includes/arrays.php:458
 #, php-format
 msgid "Every %d Pollings"
-msgstr "Varje% d pollningar"
+msgstr "Varje %d opinionsundersökning"
 
 #: includes/arrays.php:462 includes/arrays.php:481
 #, php-format
 msgid "%d Polling"
-msgstr "% d pollning"
+msgstr "%d Pollning"
 
 #: includes/arrays.php:463 includes/arrays.php:464 includes/arrays.php:465
 #: includes/arrays.php:466 includes/arrays.php:467 includes/arrays.php:468
@@ -402,7 +391,7 @@ msgstr "% d pollning"
 #: includes/arrays.php:494 includes/arrays.php:495 includes/arrays.php:496
 #, php-format
 msgid "%d Pollings"
-msgstr "% d pollningar"
+msgstr "%d Opinionsundersökningar"
 
 #: includes/arrays.php:503
 msgid "High / Low"
@@ -511,39 +500,39 @@ msgstr "Exportera"
 
 #: includes/arrays.php:547
 msgid "Threshold Mail"
-msgstr "tröskel"
+msgstr "Tröskel Mail"
 
 #: includes/arrays.php:548
 msgid "Down Host Mail"
-msgstr ""
+msgstr "Ned Host Mail"
 
 #: includes/arrays.php:549
 msgid "Up Host Mail"
-msgstr ""
+msgstr "Upp Host Mail"
 
 #: includes/arrays.php:550
 msgid "Threshold Cmd"
-msgstr "tröskel"
+msgstr "Tröskelvärde Cmd"
 
 #: includes/arrays.php:551
 msgid "Down Host Cmd"
-msgstr ""
+msgstr "Ned Host Cmd"
 
 #: includes/arrays.php:552
 msgid "Up Host Cmd"
-msgstr ""
+msgstr "Upp värd Cmd"
 
 #: includes/arrays.php:569
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: includes/arrays.php:570
 msgid "0 Digits"
-msgstr ""
+msgstr "0 siffror"
 
 #: includes/arrays.php:571
 msgid "1 Digit"
-msgstr ""
+msgstr "1 siffra"
 
 #: includes/arrays.php:572 includes/arrays.php:573 includes/arrays.php:574
 #: includes/arrays.php:575 includes/arrays.php:576 includes/arrays.php:577
@@ -555,22 +544,22 @@ msgstr "%d Dagar"
 #: includes/arrays.php:597
 #, php-format
 msgid "> %d Devices"
-msgstr "Enheter"
+msgstr "> %d Enheter"
 
 #: includes/arrays.php:601
 #, php-format
 msgid "> %d %%% of Devices Globally"
-msgstr "Enheter"
+msgstr "> %d %%% of Enheter globalt"
 
 #: includes/arrays.php:605
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "Enheter"
+msgstr "> %d Enheter på en plats"
 
 #: includes/arrays.php:609
 #, php-format
 msgid "> %d %%% of Devices in a Site"
-msgstr "Enheter"
+msgstr "> %d %%% of Enheter på en plats"
 
 #: includes/polling.php:419
 msgid "SNMP not in use"
@@ -633,7 +622,7 @@ msgstr "(Lägg till)"
 
 #: includes/settings.php:84
 msgid "Threshold Logs"
-msgstr "trösklar"
+msgstr "Tröskelvärde Loggar"
 
 #: includes/settings.php:91 thold_functions.php:145 thold_graph.php:905
 msgid "Device Status"
@@ -695,7 +684,7 @@ msgstr "Mallar"
 
 #: includes/settings.php:224 thold_graph.php:1625
 msgid "Threshold"
-msgstr "tröskel"
+msgstr "Tröskel"
 
 #: includes/settings.php:276
 msgid "A template with that Data Source already exists!"
@@ -719,7 +708,7 @@ msgstr "Visa tröskelvärden"
 
 #: includes/settings.php:298
 msgid "Normal User"
-msgstr "normal användare"
+msgstr "Normal användare"
 
 #: includes/settings.php:299
 msgid "Template Editor"
@@ -776,13 +765,13 @@ msgstr "Grundinställningsinställningar"
 #: includes/settings.php:357
 #, php-format
 msgid "%d Polling Interval"
-msgstr "% d pollning"
+msgstr "%d Pollningsintervall"
 
 #: includes/settings.php:358 includes/settings.php:359
 #: includes/settings.php:360 includes/settings.php:361
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "% d pollningar"
+msgstr "%d Pollningsintervall"
 
 #: includes/settings.php:383
 msgid "Alerting/Thold"
@@ -836,12 +825,12 @@ msgstr "Varna utlösare"
 #: includes/settings.php:419 notify_lists.php:1395 thold.php:713
 #: thold_graph.php:216
 msgid "Breached"
-msgstr "brutit"
+msgstr "Intrång"
 
 #: includes/settings.php:420 notify_lists.php:1396 notify_lists.php:1497
 #: thold.php:714 thold.php:847 thold_graph.php:217 thold_graph.php:506
 msgid "Triggered"
-msgstr "utlöst"
+msgstr "Utlöst"
 
 #: includes/settings.php:422 notify_lists.php:857 notify_lists.php:1397
 #: notify_lists.php:1505 notify_lists.php:1616 notify_lists.php:2102
@@ -901,7 +890,7 @@ msgstr "Aktivera per tjock meddelande"
 
 #: includes/settings.php:463
 msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
-msgstr ""
+msgstr "Om du markerar den här rutan ändras Thold från att utföra inline-notifieringar till att använda antingen Notification Daemon eller notifieringar som utförs utanför bandet av Notification poller."
 
 #: includes/settings.php:468
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
@@ -909,7 +898,7 @@ msgstr "Varning Notifieringslista"
 
 #: includes/settings.php:469
 msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
-msgstr ""
+msgstr "Markera den här rutan om du vill att mottagarna i listan över varningsmeddelanden ska få e-postmeddelanden om varningar utöver mottagarna i listan över varningsmeddelanden.  Detta fall är tillämpligt när varningsmeddelanden går till Administratörer och varningsmeddelanden går till Hantering."
 
 #: includes/settings.php:474
 msgid "Threshold Daemon"
@@ -929,7 +918,7 @@ msgstr "Threshold Daemon"
 
 #: includes/settings.php:485
 msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
-msgstr ""
+msgstr "Om du markerar den här rutan aktiveras felsökning av Threshold Daemon när du arbetar från SystemD eller via kommandoraden.  Den här ändringen är dynamisk och träder i kraft så snart nästa Threshold-loop påbörjas."
 
 #: includes/settings.php:490
 msgid "Daemon Down Notification Frequency"
@@ -942,11 +931,11 @@ msgstr "Om Thold Daemon visar sig vara nere, skicka ut ett e-postmeddelande vid 
 #: includes/settings.php:498
 #, php-format
 msgid "Every %d Hour"
-msgstr "Varje% d timmar"
+msgstr "Varje %d timme"
 
 #: includes/settings.php:504
 msgid "Daemon Threads"
-msgstr ""
+msgstr "Daemon-trådar"
 
 #: includes/settings.php:505
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
@@ -954,7 +943,7 @@ msgstr "Det maximala antalet samtidiga processer som ska hanteras av Threshold D
 
 #: includes/settings.php:508
 msgid "1 Process"
-msgstr ""
+msgstr "1 Process"
 
 #: includes/settings.php:509 includes/settings.php:510
 #: includes/settings.php:511 includes/settings.php:512
@@ -963,7 +952,7 @@ msgstr ""
 #: includes/settings.php:517
 #, php-format
 msgid "%d Processes"
-msgstr ""
+msgstr "%d Processer"
 
 #: includes/settings.php:522
 msgid "Logging"
@@ -1187,7 +1176,7 @@ msgstr "Inställningar för aviseringar"
 
 #: includes/settings.php:707
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
-msgstr ""
+msgstr "Stödjs endast för aviseringslistor och aviseringskö.  Om det finns Down Device Notifications i en enda bearbetningscykel.  Skicka endast ett e-postmeddelande till mottagarna i aviseringslistan för alla enheter."
 
 #: includes/settings.php:712
 msgid "Device Notification Delay Options"
@@ -1199,11 +1188,11 @@ msgstr "Notifieringslista"
 
 #: includes/settings.php:718
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
-msgstr ""
+msgstr "Om ett stort antal meddelanden om nedstängda enheter kommer in kan Cacti pausa utskicket av dessa meddelanden under en viss tidsperiod för att se om problemet är övergående innan de skickas ut.  Välj tröskelvärdet för meddelanden om nedstängda enheter innan pausen utlöses."
 
 #: includes/settings.php:726
 msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
-msgstr ""
+msgstr "Om du väljer att fördröja notifieringar för en stor mängd notifieringar för Down Devices, hur länge är du villig att vänta innan du låter notifieringarna behandlas?"
 
 #: includes/settings.php:733
 msgid "Device Notification Email Options"
@@ -1235,7 +1224,7 @@ msgstr "Nedkopplingsmeddelande"
 
 #: includes/settings.php:753
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Detta är meddelandet som kommer att visas som meddelandekroppen för alla UP / Down Device Messages (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;HOSTNAME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;NED / UPP&gt; &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;TILLGÄNGLIGHET&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
+msgstr "Detta är det meddelande som kommer att visas som meddelandetexten i alla UP / Down Device-meddelanden (1024 Char MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060DESCRIPTION&amp;#062 &amp;#060SITE&amp;#062 &amp;#060LOCATION&amp;#062 &amp;#060UPTIME&amp;#062 &amp;#060UPTIMETEXT&amp;#062 &amp;#060NEDTID&amp;#062 &amp;#060TID&amp;#062 &amp;#060DATUM&amp;#062 &amp;#060DATUM_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062 &amp;#060MEDDELANDE&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060DOWN/UP&amp;#062 &amp;#060SNMP_HOSTNAME&amp;#062 &amp;#060SNMP_LOCATION&amp;#062 &amp;#060SNMP_CONTACT&amp;#062 &amp;#060SNMP_SYSTEM&amp;#062 &amp;#060LAST_FAIL&amp;#062 &amp;#060AVAILABILITY&amp;#062 &amp;#060TOT_POLL&amp;#062 &amp;#060FAIL_POLL&amp;#062 &amp;#060CUR_TIME&amp;#062 &amp;#060AVG_TIME&amp;#062 &amp;#060NOTES&amp;#062"
 
 #: includes/settings.php:758
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
@@ -1259,7 +1248,7 @@ msgstr "Återställ enhetsmeddelande"
 
 #: includes/settings.php:770
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Detta är meddelandet som kommer att visas som meddelandekroppen för alla UP / Down Device Messages (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;HOSTNAME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;NED / UPP&gt; &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;TILLGÄNGLIGHET&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
+msgstr "Detta är det meddelande som kommer att visas som meddelandetexten i alla UP / Down Device-meddelanden (1024 Char MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060DESCRIPTION&amp;#062 &amp;#060SITE&amp;#062 &amp;#060LOCATION&amp;#062 &amp;#060UPTIME&amp;#062 &amp;#060UPTIMETEXT&amp;#062 &amp;#060NEDTID&amp;#062 &amp;#060TID&amp;#062 &amp;#060DATUM&amp;#062 &amp;#060DATUM_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062 &amp;#060MEDDELANDE&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060DOWN/UP&amp;#062 &amp;#060SNMP_HOSTNAME&amp;#062 &amp;#060SNMP_LOCATION&amp;#062 &amp;#060SNMP_CONTACT&amp;#062 &amp;#060SNMP_SYSTEM&amp;#062 &amp;#060LAST_FAIL&amp;#062 &amp;#060AVAILABILITY&amp;#062 &amp;#060TOT_POLL&amp;#062 &amp;#060FAIL_POLL&amp;#062 &amp;#060CUR_TIME&amp;#062 &amp;#060AVG_TIME&amp;#062 &amp;#060NOTES&amp;#062"
 
 #: includes/settings.php:775
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
@@ -1271,7 +1260,7 @@ msgstr "Kommando för statusändring"
 
 #: includes/settings.php:779
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
-msgstr "Detta är meddelandet som kommer att visas som meddelandekroppen för alla UP / Down Device Messages (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;HOSTNAME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;NED / UPP&gt; &lt;SNMP_HOSTNAME&gt; &lt;SNMP_LOCATION&gt; &lt;SNMP_CONTACT&gt; &lt;SNMP_SYSTEM&gt; &lt;LAST_FAIL&gt; &lt;TILLGÄNGLIGHET&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
+msgstr "När en enhet ändrar status ur ett Cacti-perspektiv (UP till DOWN eller DOWN till RECOVERING/UP) kör du följande kommando.  Detta kommando får INTE innehålla kommandoradsargument.  Följande variabler kan dock hämtas från skriptets miljö:<br>&amp;#060THOLD_HOSTNAME&amp;#062 &amp;#060THOLD_SITE&amp;#062 &amp;#060THOLD_LOCATION&amp;#062 &amp;#060THOLD_HOST_ID&amp;#062 &amp;#060THOLD_DESCRIPTION&amp;#062 &amp;#060THOLD_UPTIME&amp;#062 &amp;#060THOLD_UPTIMETEXT&amp;#062 &amp;#060THOLD_DOWNTIME&amp;#062 &amp;#060THOLD_TIME&amp;#062 &amp;#060THOLD_DATE&amp;#062 &amp;#060THOLD_DATE_RFC822&amp;#062 &amp;#060THOLD_BREACHED_ITEMS&amp;#062 &amp;#060THOLD_MESSAGE&amp;#062 &amp;#060THOLD_SUBJECT&amp;#062 &amp;#060THOLD_DOWNUP&amp;#062 &amp;#060THOLD_SNMP_HOSTNAME&amp;#062 &amp;#060THOLD_SNMP_LOCATION&amp;#062 &amp;#060THOLD_SNMP_CONTACT&amp;#062 &amp;#060THOLD_SNMP_SYSTEM&amp;#062 &amp;#060THOLD_LAST_FAIL&amp;#062 &amp;#060THOLD_AVAILABILITY&amp;#062 &amp;#060THOLD_TOT_POLL&amp;#062 &amp;#060THOLD_FAIL_POLL&amp;#062 &amp;#060THOLD_CUR_TIME&amp;#062 &amp;#060THOLD_AVG_TIME&amp;#062 &amp;#060THOLD_NOTES&amp;#062"
 
 #: includes/settings.php:787
 msgid "Alert/Warning Message Defaults"
@@ -1283,7 +1272,7 @@ msgstr "Meddelande om tröskelvarning"
 
 #: includes/settings.php:792
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Detta är det meddelande som visas högst upp i alla tröskelvärdesmeddelanden (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060SITE&amp;#062 &amp;#060LOCATION&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062  &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060THOLD_ID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#60NOTES&amp;#062 &amp;#060DNOTES&amp;#062"
 
 #: includes/settings.php:797
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1295,7 +1284,7 @@ msgstr "Tröskel varningsmeddelande"
 
 #: includes/settings.php:801
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Detta är det meddelande som visas högst upp i alla Threshold-varningar (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060SITE&amp;#062 &amp;#060LOCATION&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062  &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060THOLD_ID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#60NOTES&amp;#062 &amp;#060DNOTES&amp;#062"
 
 #: includes/settings.php:806
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1307,7 +1296,7 @@ msgstr "Meddelande om tröskelvarning"
 
 #: includes/settings.php:810
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Detta är det meddelande som kommer att visas högst upp i alla meddelanden om återställande av tröskelvärden (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060SITE&amp;#062 &amp;#060LOCATION&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062  &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060THOLD_ID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#60NOTES&amp;#062 &amp;#060DNOTES&amp;#062"
 
 #: includes/settings.php:815
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1327,7 +1316,7 @@ msgstr "Koppla"
 
 #: notify_lists.php:38
 msgid "Disassociate"
-msgstr "ta avstånd"
+msgstr "Icke-associera"
 
 #: notify_lists.php:44 notify_lists.php:1033 notify_lists.php:1168
 #: notify_lists.php:2103 thold_graph.php:958 thold_graph.php:1210
@@ -1468,7 +1457,7 @@ msgstr "Varning Medlemskap:"
 
 #: notify_lists.php:727 notify_lists.php:740
 msgid "Device Threshold Alert Membership:"
-msgstr "Meddelande om tröskelvarning"
+msgstr "Medlemskap för varningsmeddelande om enhetströskel:"
 
 #: notify_lists.php:735
 #, php-format
@@ -1512,7 +1501,7 @@ msgstr "Ange en beskrivning för denna meddelandelista."
 
 #: notify_lists.php:858
 msgid "To disable all notifications from this Notification List, you can simply disable it here."
-msgstr ""
+msgstr "Om du vill inaktivera alla meddelanden från den här meddelandelistan kan du inaktivera den här."
 
 #: notify_lists.php:864
 msgid "To Email Addresses"
@@ -1532,11 +1521,11 @@ msgstr "Ange en kommaseparerad lista med e-postadresser för denna meddelandelis
 
 #: notify_lists.php:881
 msgid "Email Style/Format File"
-msgstr ""
+msgstr "E-post stil/format fil"
 
 #: notify_lists.php:884 thold.php:2028 thold_templates.php:1588
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr ""
+msgstr "Välj den anpassade html-omslaget och CSS-filen som ska användas.  Den här filen innehåller både html och CSS för att omsluta din rapport.  Om den innehåller mer än bara CSS måste du placera en särskild <REPORT> -tagg inuti filen.  Denna format-tagg kommer att ersättas av rapportens innehåll.  Dessa filer finns i katalogen \"formats\"."
 
 #: notify_lists.php:980
 msgid "Associated Devices"
@@ -1679,7 +1668,7 @@ msgstr "Typ"
 
 #: notify_lists.php:1501 thold.php:858
 msgid "Templated"
-msgstr "templated"
+msgstr "Templat"
 
 #: notify_lists.php:1516 notify_lists.php:2118 notify_queue.php:275
 #: thold.php:887 thold.php:1045 thold.php:1047 thold.php:1050
@@ -1771,21 +1760,21 @@ msgstr "Inga anmälningslistor"
 
 #: notify_queue.php:54
 msgid "Notification has been Suspended.  Press the Resume button to resume it"
-msgstr ""
+msgstr "Meddelandet har avbrutits.  Tryck på knappen Återuppta för att återuppta den"
 
 #: notify_queue.php:68
 msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
-msgstr ""
+msgstr "Notifieringen har återupptagits.  Tryck på Suspend-knappen för att avbryta den"
 
 #: notify_queue.php:83
 msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
-msgstr ""
+msgstr "Väntande notifieringar har tagits bort från databasen.  Tidigare skickade meddelanden som inte rensats bort kommer att finnas kvar tills de åldras ut."
 
 #: notify_queue.php:147
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Klicka på \"Fortsätt\" för att duplicera följande anmälningslista."
-msgstr[1] "Klicka på \"Fortsätt\" för att duplicera följande anmälningslista."
+msgstr[0] "Klicka på \"Fortsätt\" för att ta bort följande anmälan."
+msgstr[1] "Klicka på \"Fortsätt\" för att radera alla följande notifieringar."
 
 #: notify_queue.php:152
 msgid "Delete Notification"
@@ -1796,7 +1785,7 @@ msgstr[1] "Radera Notifieringslista (s)"
 #: notify_queue.php:237
 #, php-format
 msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
-msgstr ""
+msgstr "Händelseaviseringar [ Aviseringar avstängda av användare: %s, %s sedan ]"
 
 #: notify_queue.php:239
 msgid "Event Notifications"
@@ -1804,15 +1793,15 @@ msgstr "Enhetsaviseringar"
 
 #: notify_queue.php:255 notify_queue.php:411
 msgid "Topic"
-msgstr ""
+msgstr "Ämne"
 
 #: notify_queue.php:270 notify_queue.php:444
 msgid "Processed"
-msgstr ""
+msgstr "Behandlad"
 
 #: notify_queue.php:298
 msgid "Suspend"
-msgstr ""
+msgstr "Pausa"
 
 #: notify_queue.php:298
 msgid "Suspend Notification Processing"
@@ -1820,7 +1809,7 @@ msgstr "SNMP-meddelanden"
 
 #: notify_queue.php:299
 msgid "Resume"
-msgstr ""
+msgstr "Återuppta"
 
 #: notify_queue.php:299
 msgid "Resume Notification Processing"
@@ -1828,7 +1817,7 @@ msgstr "SNMP-meddelanden"
 
 #: notify_queue.php:300
 msgid "Purge"
-msgstr ""
+msgstr "Rensa"
 
 #: notify_queue.php:300
 msgid "Purge Notification Queue"
@@ -1840,7 +1829,7 @@ msgstr "Notifieringslista"
 
 #: notify_queue.php:414
 msgid "The supported notification topic."
-msgstr "Tröskelmall"
+msgstr "Det ämne som stöds för meddelanden."
 
 #: notify_queue.php:417 thold_graph.php:1488
 msgid "Event Description"
@@ -1848,35 +1837,35 @@ msgstr "Eventbeskrivning"
 
 #: notify_queue.php:419
 msgid "The name of the object as defined by the caller."
-msgstr ""
+msgstr "Namnet på objektet som definierats av den som anropar."
 
 #: notify_queue.php:424
 msgid "The hostname that was the source of this event."
-msgstr "Antal datakällor för den här enheten"
+msgstr "Det värdnamn som var källan till denna händelse."
 
 #: notify_queue.php:429
 msgid "The Notification List used if any."
-msgstr "Endast anmälningslista"
+msgstr "Den eventuella meddelandelista som används."
 
 #: notify_queue.php:432
 msgid "Object ID"
-msgstr ""
+msgstr "Objekt-ID"
 
 #: notify_queue.php:435
 msgid "The Object ID defined by the caller.  Generally its unique 'id'."
-msgstr ""
+msgstr "Objektets ID som definieras av den som ringer.  I allmänhet dess unika \"id\"."
 
 #: notify_queue.php:438
 msgid "Event Time"
-msgstr ""
+msgstr "Tid för evenemanget"
 
 #: notify_queue.php:441
 msgid "The time of the event as defined by the caller."
-msgstr "Den officiella uppetiden för enheten som rapporterats av SNMP"
+msgstr "Tidpunkten för händelsen enligt den inringande partens definition."
 
 #: notify_queue.php:447
 msgid "Has the Notification Event been processed."
-msgstr ""
+msgstr "Har anmälningshändelsen behandlats."
 
 #: notify_queue.php:450
 msgid "Errors"
@@ -1884,7 +1873,7 @@ msgstr "Fel"
 
 #: notify_queue.php:453
 msgid "Did this notification result in an error.  Hover on the error column for details."
-msgstr ""
+msgstr "Resulterade detta meddelande i ett fel?  Håll muspekaren över felkolumnen för mer information."
 
 #: notify_queue.php:456
 msgid "Run Time"
@@ -1892,19 +1881,19 @@ msgstr "Tid"
 
 #: notify_queue.php:459
 msgid "The time in seconds it took to process the event."
-msgstr ""
+msgstr "Den tid i sekunder som det tog att bearbeta händelsen."
 
 #: notify_queue.php:478
 msgid "Not Specified"
-msgstr ""
+msgstr "Inte angivet"
 
 #: notify_queue.php:483
 msgid "Done"
-msgstr ""
+msgstr "Klar"
 
 #: notify_queue.php:483
 msgid "Pending"
-msgstr ""
+msgstr "Väntande"
 
 #: notify_queue.php:486
 msgid "Errored"
@@ -1912,7 +1901,7 @@ msgstr "Fel"
 
 #: notify_queue.php:486
 msgid "Success"
-msgstr ""
+msgstr "Lyckades"
 
 #: notify_queue.php:498
 msgid "No Notifications"
@@ -1948,12 +1937,12 @@ msgstr "Varning låg för%s (%s)"
 #: setup.php:548 setup.php:558
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Varningslistor"
+msgstr "Varning Hi för %s (%s)"
 
 #: setup.php:552 setup.php:563
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "Varningslistor"
+msgstr "Varning Låg för %s (%s)"
 
 #: setup.php:583 setup.php:597
 msgid "Alert Hi for %s (%s %%%)"
@@ -2197,11 +2186,11 @@ msgstr "Ack krävs"
 #: thold.php:789 thold.php:2224 thold_graph.php:449 thold_templates.php:1775
 #: thold_templates.php:2226
 msgid "External ID"
-msgstr ""
+msgstr "Externt ID"
 
 #: thold.php:805 thold_graph.php:469 thold_templates.php:2253
 msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
-msgstr ""
+msgstr "Typ av tröskelvärde.  För baslinjetyper: [TIP] avser tid i det förflutna med MIN, MAX, AVG och LAST från högst en dag i tiden från den perioden.  [AOT] avser genomsnittet under hela tidsperioden.  Om det finns ett kolon följt av MIN, MAX, AVG, LAST kommer värdet från den konsolideringsfunktionen."
 
 #: thold.php:809
 msgid "DSName"
@@ -2251,7 +2240,7 @@ msgstr "Län"
 
 #: thold.php:855 thold_graph.php:514
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Den tid som datakällan måste strida mot tröskeln för att en varning ska höjas."
+msgstr "Den tid som har gått sedan tröskelvärdet antingen överskreds eller utlöstes"
 
 #: thold.php:866 thold_graph.php:520
 msgid "Acknowledgment required for this Threshold"
@@ -2272,7 +2261,7 @@ msgstr "Tröskelvärden"
 #: thold.php:1027 thold_graph.php:750
 #, php-format
 msgid "%d Triggers"
-msgstr "% d utlöses"
+msgstr "%d Utlösare"
 
 #: thold.php:1057 thold_graph.php:773
 msgid "No Thresholds"
@@ -2280,7 +2269,7 @@ msgstr "Tröskelvärden"
 
 #: thold.php:1089
 msgid "Threshold Deleted, can not Edit!"
-msgstr "Tröskeln existerar inte"
+msgstr "Tröskel Borttagen, kan inte Redigera!"
 
 #: thold.php:1197
 msgid "Graph Data"
@@ -2329,7 +2318,7 @@ msgstr "BL Ned:"
 #: thold.php:1407
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "Okänt Mall ID% d"
+msgstr "Okänt mall-ID %d"
 
 #: thold.php:1409
 msgid "Not Templated"
@@ -2372,11 +2361,11 @@ msgstr "Namn på tröskelmallan tröskeln skapades från."
 
 #: thold.php:1575
 msgid "Enabled at Template Level"
-msgstr ""
+msgstr "Aktiverad på mallnivå"
 
 #: thold.php:1578 thold.php:1585
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
-msgstr ""
+msgstr "Ett tröskelvärde måste vara aktiverat både på mallnivå och på tröskelvärdesnivå för att kunna kontrolleras."
 
 #: thold.php:1582
 msgid "Enabled at Threshold Level"
@@ -2420,15 +2409,15 @@ msgstr "Grafmall"
 
 #: thold.php:1630 thold_templates.php:1186
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
-msgstr ""
+msgstr "Grafens sluttid kommer att ställas in vid tidpunkten för utlösningen.  Grafens starttid kommer att vara sluttiden minus grafens tidsintervall."
 
 #: thold.php:1635 thold_templates.php:1191
 msgid "Skip Scaling on HRULEs"
-msgstr ""
+msgstr "Hoppa över skalning på HRULEs"
 
 #: thold.php:1638 thold_templates.php:1194
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
-msgstr ""
+msgstr "Om Checked markeras kommer skalan i diagrammet inte att påverkas av HRULE:erna Alert eller Warning."
 
 #: thold.php:1642 thold_templates.php:1198
 msgid "Weekend Exemption"
@@ -2490,7 +2479,7 @@ msgstr "Varning - Hög / Låg Inställningar"
 #: thold_templates.php:1252 thold_templates.php:1280 thold_templates.php:1308
 #: thold_templates.php:1345 thold_templates.php:1381
 msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
-msgstr ""
+msgstr "Numeriska värden för höga och låga tröskelvärden kan innehålla följande suffix för tal större än 1 till \"K\", \"M\", \"G\", \"T\", \"P\", \"E\", \"Z\", \"Y\", och för tal mindre än 1 \"m\", \"u\", \"p\", \"f\"."
 
 #: thold.php:1699 thold.php:1727 thold.php:1755 thold.php:1791
 #: thold_templates.php:1255 thold_templates.php:1283 thold_templates.php:1311
@@ -2569,11 +2558,11 @@ msgstr "Grundinställningsinställningar"
 
 #: thold.php:1831 thold_templates.php:1387
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
-msgstr ""
+msgstr "Typ av baslinje.  [TIP] är tid i det förflutna, [AOT] är genomsnitt över tid.  Procentuell avvikelse är ett procentuellt värde från det historiska värdet.  Absolut värde är en avvikelse antingen över eller under baslinjen jämfört med det historiska värdet.  För baslinjetyperna [TIP] kommer MIN, MAX, AVG och LAST inte från mer än en dagsperiod vid den aktuella tidpunkten."
 
 #: thold.php:1835 thold_templates.php:1391
 msgid "Consolidation Function"
-msgstr ""
+msgstr "Konsolideringsfunktion"
 
 #: thold.php:1838 thold_templates.php:1394
 msgid "Average"
@@ -2581,19 +2570,19 @@ msgstr "Genomsnitt"
 
 #: thold.php:1839 thold_templates.php:1395
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 #: thold.php:1840 thold_templates.php:1396
 msgid "Maximum"
-msgstr ""
+msgstr "Maximal"
 
 #: thold.php:1841 thold_templates.php:1397
 msgid "Last"
-msgstr "Senaste:"
+msgstr "Sista"
 
 #: thold.php:1843 thold_templates.php:1399
 msgid "The Consolidation function to use for the Baseline Type value calculation."
-msgstr ""
+msgstr "Den konsolideringsfunktion som ska användas för beräkning av värdet för Baseline Type."
 
 #: thold.php:1847 thold_templates.php:1403
 msgid "Time Range"
@@ -2661,32 +2650,32 @@ msgstr "Andra datakälla, som ska användas som totalt värde för att beräkna 
 
 #: thold.php:1907 thold_templates.php:1479
 msgid "Show Units"
-msgstr ""
+msgstr "Visa enheter"
 
 #: thold.php:1910 thold_templates.php:1482
 msgid "Display units for very large or small numbers."
-msgstr ""
+msgstr "Displayenheter för mycket stora eller små antal."
 
 #: thold.php:1914 thold_templates.php:1486
 msgid "Force Units Suffix"
-msgstr ""
+msgstr "Force Units Suffix"
 
 #: thold.php:1919 thold_templates.php:1491
 msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
-msgstr ""
+msgstr "Om du vill visa ett suffix för tvångsenhet på de olika tröskelsidorna och aviseringarna anger du det här.  Storleken är begränsad till högst 10 tecken."
 
 #: thold.php:1923 thold_templates.php:1495
 msgid "Decimal Digits to Display"
-msgstr ""
+msgstr "Decimalsiffror som ska visas"
 
 #: thold.php:1926 thold_templates.php:1498
 msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
-msgstr ""
+msgstr "Antalet decimaler som ska visas för tröskelvärden och aktuella värden.  Standardvärdet är auto eller 2."
 
 #: thold.php:1936
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "En RPN-uttryck är en RRDtool-kompatibel RPN-uttryck. Syntaxen innehåller alla funktioner nedan förutom utbytesuttryck för enhet och data Query, t.ex. <span class=\"deviceUp\">| query_ifSpeed |</span> . För att använda en datakälla i RPN-uttrycket måste du använda syntaxen: <span class=\"deviceUp\">| ds: dsname |</span> . Till exempel, <span class=\"deviceUp\">| ds: traffic_in |</span> kommer att få det aktuella värdet av traffic_in Datakälla för RRDfile (er) som är associerade med grafen. Alla datakällor för en graf kan inkluderas. <br><br> Math Operatörer: <span class=\"deviceUp\">+, -, /, *,%, ^</span> <br> Funktioner: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Flödesoperatörer: <span class=\"deviceUp\">FN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Jämförelsefunktioner: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
+msgstr "Ett RPN-uttryck är ett RRDtool-kompatibelt RPN-uttryck.  Syntaxen inkluderar alla funktioner nedan förutom ersättningsuttryck för både enhet och datafråga, t.ex. <span class=\"deviceUp\">|query_ifSpeed|</span>.  Om du vill använda en datakälla i RPN-uttrycket måste du använda syntaxen: <span class=\"deviceUp\">|ds:dsname|</span>.  Till exempel kommer <span class=\"deviceUp\">|ds:traffic_in|</span> att hämta det aktuella värdet för datakällan traffic_in för den eller de RRD-filer som är associerade med grafen. Alla datakällor för en graf kan inkluderas.<br><br>Matematiska operatorer: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Funktioner: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flödesoperatorer: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Jämförelsefunktioner: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php:1942 thold_templates.php:1471
 msgid "Upper Data Source"
@@ -2706,7 +2695,7 @@ msgstr "Alert Presets"
 
 #: thold.php:1960 thold_templates.php:1513
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Detta är e-postens ämne som kommer att visas i e-postmeddelandet (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
 
 #: thold.php:1964
 msgid "Alert Body"
@@ -2714,7 +2703,7 @@ msgstr "Alert Email Body"
 
 #: thold.php:1969 thold_templates.php:1522
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> t.ex. &lt;BESKRIVNING&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
+msgstr "Detta är det meddelande som visas högst upp i alla tröskelvärdesmeddelanden (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>t.ex. &amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#060HI&amp;#062 &amp;#060LOW&amp;#062 &amp;#060DURATION&amp;#062 &amp;#060TRIGGER&amp;#062 &amp;#060DETAILS_URL&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062"
 
 #: thold.php:1973 thold_templates.php:1526
 msgid "Warning Subject"
@@ -2722,7 +2711,7 @@ msgstr "Återställa enhetens ämne"
 
 #: thold.php:1978
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Detta är ämnet för varningsmeddelandet som kommer att visas i e-postmeddelandet när det ändras till Warning (128 Char MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
 
 #: thold.php:1982 thold_templates.php:1535
 msgid "Warning Body"
@@ -2730,7 +2719,7 @@ msgstr "Varning Email Body"
 
 #: thold.php:1987 thold_templates.php:1540
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> t.ex. &lt;BESKRIVNING&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &gt;"
+msgstr "Detta är det meddelande som visas högst upp i alla tröskelvärdesvarningar (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>t.ex. &amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#060HI&amp;#062 &amp;#060LOW&amp;#062 &amp;#060DURATION&amp;#062 &amp;#060TRIGGER&amp;#062 &amp;#060DETAILS_URL&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062"
 
 #: thold.php:1991 thold_templates.php:1544
 msgid "Restoral Subject"
@@ -2738,7 +2727,7 @@ msgstr "Restoral Event"
 
 #: thold.php:1996 thold_templates.php:1549
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Det här är ämnet för e-postmeddelandet som visas i e-postmeddelandet efter en återgång till det normala (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
 
 #: thold.php:2000
 msgid "Restoral Email Body"
@@ -2746,7 +2735,7 @@ msgstr "Alert Email Body"
 
 #: thold.php:2005 thold_templates.php:1558
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Detta är det meddelande som kommer att visas högst upp i alla meddelanden om återställande av tröskelvärden (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062 &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#60NOTES&amp;#62 &amp;#060DNOTES&amp;#062"
 
 #: thold.php:2009 thold_templates.php:1569
 msgid "Warning Notification List"
@@ -2766,7 +2755,7 @@ msgstr "Du kan ange välja en meddelandelista för att ta emot varningar för de
 
 #: thold.php:2025 thold_templates.php:1585
 msgid "Style/Format File"
-msgstr ""
+msgstr "Stil/Format Fil"
 
 #: thold.php:2037 thold_templates.php:1597
 msgid "SNMP Notification - Event Category"
@@ -2927,11 +2916,11 @@ msgstr "Användare:"
 
 #: thold_functions.php:270
 msgid "System:"
-msgstr "System"
+msgstr "System:"
 
 #: thold_functions.php:271
 msgid "Swaps:"
-msgstr "swappar:"
+msgstr "Byten:"
 
 #: thold_functions.php:272
 msgid "Pages:"
@@ -2943,7 +2932,7 @@ msgstr "Sidor:"
 #: thold_functions.php:3289 thold_functions.php:3306 thold_functions.php:3320
 #: thold_functions.php:3387 thold_functions.php:3469
 msgid "Only logging, maint device"
-msgstr ""
+msgstr "Endast loggning, underhållsanordning"
 
 #: thold_functions.php:4083
 msgid "Link to Graph in Cacti"
@@ -2964,12 +2953,12 @@ msgstr "En Alert har utfärdats som kräver din uppmärksamhet. <br><br> <strong
 #: thold_functions.php:5037
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "Avvikelse UP"
+msgstr "%% Dev [TIP:%s]"
 
 #: thold_functions.php:5041
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Varningsvärde"
+msgstr "Abs Val [TIP:%s]"
 
 #: thold_functions.php:5045
 msgid "%%% Dev [AOT:%s]"
@@ -2978,7 +2967,7 @@ msgstr "Avvikelse UP"
 #: thold_functions.php:5049
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Varningsvärde"
+msgstr "Abs Val [AOT:%s]"
 
 #: thold_functions.php:5271
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -3011,7 +3000,7 @@ msgstr "Post uppdaterad"
 #: thold_functions.php:5654
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Misslyckades med att hitta länkad grafmallpunkt '% d' på tröskelvärdet '% d'"
+msgstr "Hittade inte länkat Graph Template Item '%d' på Threshold '%d'"
 
 #: thold_functions.php:5740 thold_functions.php:6319
 #, php-format
@@ -3056,15 +3045,15 @@ msgstr "Omöjliga tröskelvärden: \"Hög tröskel\" mindre än eller lika med \
 
 #: thold_functions.php:5900
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Omöjligt tröskelvärde: Alert Trigger Count måste vara större än eller lika med 1!"
 
 #: thold_functions.php:5906
 msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
+msgstr "Omöjligt tröskelvärde: Alert Trigger Count måste vara mindre än eller lika med Trigger Count eller eval till 1!"
 
 #: thold_functions.php:5922
 msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Omöjligt tröskelvärde: Antalet varningstriggers måste vara större än eller lika med 1!"
 
 #: thold_functions.php:5928
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
@@ -3076,7 +3065,7 @@ msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika me
 
 #: thold_functions.php:5948
 msgid "Unknown Threshold Type!"
-msgstr "Okänd tröskel"
+msgstr "Okänd tröskeltyp!"
 
 #: thold_functions.php:6140
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -3139,11 +3128,11 @@ msgstr "Fel uppstod när du försökte importera data om tröskelmall."
 
 #: thold_functions.php:7991
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Terskelmall Underordnad dataskabel hittades inte!"
+msgstr "Importdata för tröskelvärdesmallar visade sig inte vara XML-data."
 
 #: thold_functions.php:7994
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Terskelmall-iden var inte inställd när du försökte skapa Grafik och tröskel"
+msgstr "Importdata för tröskelvärdesmall var inte korrekta vid import av tröskelvärdesmall."
 
 #: thold_graph.php:66
 msgid "The Threshold has been Ascknowledged."
@@ -3155,7 +3144,7 @@ msgstr "Tröskeln genererar inte längre varningar, aviseringar eller kör komma
 
 #: thold_graph.php:80
 msgid "The Threshold will restart generating Alerts."
-msgstr "Hög tröskelvärden för varning / varning"
+msgstr "Tröskeln kommer att börja generera varningar igen."
 
 #: thold_graph.php:383
 msgid "Threshold Status"
@@ -3167,7 +3156,7 @@ msgstr "Åtgärder"
 
 #: thold_graph.php:463
 msgid "Ack Detail"
-msgstr ""
+msgstr "Ack Detalj"
 
 #: thold_graph.php:611
 msgid "Edit Threshold"
@@ -3207,15 +3196,15 @@ msgstr "Tack"
 
 #: thold_graph.php:665
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: thold_graph.php:673
 msgid "Comment Not Found"
-msgstr ""
+msgstr "Kommentar hittades inte"
 
 #: thold_graph.php:682
 msgid "Ack History"
-msgstr ""
+msgstr "Ack Historia"
 
 #: thold_graph.php:692
 msgid "No name set"
@@ -3303,7 +3292,7 @@ msgstr "Inte upp"
 
 #: thold_graph.php:1380
 msgid "No Export Rows Found."
-msgstr ""
+msgstr "Inga exportrader hittades."
 
 #: thold_graph.php:1408
 #, php-format
@@ -3346,7 +3335,7 @@ msgstr "Du är inte behörig att ändra en eller flera av de valda trösklarna"
 #: thold_templates.php:255
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (% d trösklar)"
+msgstr "%s (%d Tröskelvärden)"
 
 #: thold_templates.php:276
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3498,7 +3487,7 @@ msgstr "Andra Datasource-objekt som ska användas som totalt värde för att ber
 #: thold_templates.php:1467
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "En RPN-uttryck är en RRDtool-kompatibel RPN-uttryck. Syntaxen innehåller alla funktioner nedan förutom utbytesuttryck för enhet och data Query, t.ex. <span style=\"color:blue;\">| query_ifSpeed |</span> . För att använda en datakälla i RPN-uttrycket måste du använda syntaxen: <span style=\"color:blue;\">| ds: dsname |</span> . Till exempel, <span style=\"color:blue;\">| ds: traffic_in |</span> kommer att få det aktuella värdet av traffic_in Datakälla för RRDfile (er) som är associerade med grafen. Alla datakällor för en graf kan inkluderas. <br> Math Operatörer: <span style=\"color:blue;\">+, -, /, *,%, ^</span> <br> Funktioner: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Flödesoperatörer: <span style=\"color:blue;\">FN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Jämförelsefunktioner: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
+msgstr "Ett RPN-uttryck är ett RRDtool-kompatibelt RPN-uttryck.  Syntaxen inkluderar alla funktioner nedan förutom ersättningsuttryck för både enhet och datafråga, t.ex. <span style=\"color:blue;\">|query_ifSpeed|</span>.  Om du vill använda en datakälla i RPN-uttrycket måste du använda syntaxen: <span style=\"color:blue;\">|ds:dsname|</span>.  Till exempel kommer <span style=\"color:blue;\">|ds:traffic_in|</span> att hämta det aktuella värdet för datakällan traffic_in för den eller de RRD-filer som är associerade med grafen. Alla datakällor för en graf kan inkluderas.<br>Matematiska operatorer: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Funktioner: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flödesoperatorer: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Jämförelsefunktioner: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php:1474
 msgid "Upper data source to use to calculate the total value."
@@ -3514,7 +3503,7 @@ msgstr "Alert Email Body"
 
 #: thold_templates.php:1531
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Det här meddelandet kommer att visas överst på alla tröskelvarningar (255 Char MAX). HTML är tillåtet, men kommer att tas bort endast för e-postmeddelanden. Det finns flera beskrivare som kan användas. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;NOTES&gt; &lt;DNOTES&gt;"
+msgstr "Detta är ämnet för varningen som kommer att visas i e-postmeddelandet (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
 
 #: thold_templates.php:1553
 msgid "Restoral Body"
@@ -3546,52 +3535,52 @@ msgstr "Du kan ange här extra e-postmeddelanden för att få varningar för den
 
 #: thold_templates.php:1777
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Grafgranskningen misslyckades för tröskelmallan"
+msgstr "Ange ett evigt ID för denna Thold-mall."
 
 #: thold_templates.php:2039
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d Månader,% d dagar,% d timmar,% d minuter,% d sekunder (genomsnitt)"
+msgstr "%d månader, %d dagar, %d timmar, %d minuter, %d sekunder (genomsnitt)"
 
 #: thold_templates.php:2041
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d Månader,% d dagar,% d timmar,% d minuter,% d sekunder"
+msgstr "%d månader, %d dagar, %d timmar, %d minuter, %d sekunder"
 
 #: thold_templates.php:2045
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d dagar,% d timmar,% d minuter,% d sekunder (genomsnitt)"
+msgstr "%d Dagar, %d Timmar, %d Minuter, %d Sekunder (genomsnitt)"
 
 #: thold_templates.php:2047
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d dagar,% d timmar,% d minuter,% d sekunder"
+msgstr "%d Dagar, %d Timmar, %d Minuter, %d Sekunder"
 
 #: thold_templates.php:2051
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d timmar,% d minuter,% d sekunder (genomsnitt)"
+msgstr "%d timmar, %d minuter, %d sekunder (genomsnitt)"
 
 #: thold_templates.php:2053
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "% d timmar,% d minuter,% d sekunder"
+msgstr "%d timmar, %d minuter, %d sekunder"
 
 #: thold_templates.php:2057
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "% d Minuter,% d Sekunder (Genomsnitt)"
+msgstr "%d Minuter, %d Sekunder (genomsnitt)"
 
 #: thold_templates.php:2059
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "% d minuter,% d sekunder"
+msgstr "%d Minuter, %d Sekunder"
 
 #: thold_templates.php:2063
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "% d sekunder (medelvärde)"
+msgstr "%d Sekunder (genomsnitt)"
 
 #: thold_templates.php:2065
 #, php-format
@@ -3664,7 +3653,7 @@ msgstr "Filuppladdningen stoppades av ett tillägg"
 
 #: thold_templates.php:2471
 msgid "Invalid file extension."
-msgstr "Ogiltigt filtillägg: <ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>"
+msgstr "Ogiltig filändelse."
 
 #: thold_templates.php:2497
 msgid "NOTE:"
