@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-03-14 13:09+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-03-18 07:08+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -312,7 +312,7 @@ msgstr "%d minut"
 #: includes/arrays.php:616
 #, php-format
 msgid "%d Minutes"
-msgstr "Var %d minut"
+msgstr "%d minuter"
 
 #: includes/arrays.php:327 includes/arrays.php:358 includes/arrays.php:404
 #: includes/arrays.php:425
@@ -1541,7 +1541,7 @@ msgstr "Sök"
 #: notify_lists.php:995 notify_lists.php:1183 notify_lists.php:1359
 #: thold.php:649 thold_graph.php:138 thold_graph.php:1144 thold_graph.php:1575
 msgid "Site"
-msgstr "Webbplats"
+msgstr "Plats"
 
 #: notify_lists.php:1000 notify_lists.php:1018 notify_lists.php:1227
 #: notify_lists.php:1242 notify_lists.php:1364 notify_lists.php:1587
@@ -3540,22 +3540,22 @@ msgstr "Ange ett evigt ID för denna Thold-mall."
 #: thold_templates.php:2039
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d månader, %d dagar, %d timmar, %d minuter, %d sekunder (genomsnitt)"
+msgstr "%d månader, %d dygn, %d timmar, %d minuter, %d sekunder (genomsnitt)"
 
 #: thold_templates.php:2041
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d månader, %d dagar, %d timmar, %d minuter, %d sekunder"
+msgstr "%d månader, %d dygn, %d timmar, %d minuter, %d sekunder"
 
 #: thold_templates.php:2045
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d Dagar, %d Timmar, %d Minuter, %d Sekunder (genomsnitt)"
+msgstr "%d dygn, %d timmar, %d minuter, %d sekunder (genomsnitt)"
 
 #: thold_templates.php:2047
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d Dagar, %d Timmar, %d Minuter, %d Sekunder"
+msgstr "%d dygn, %d timmar, %d minuter, %d sekunder"
 
 #: thold_templates.php:2051
 #, php-format
@@ -3570,12 +3570,12 @@ msgstr "%d timmar, %d minuter, %d sekunder"
 #: thold_templates.php:2057
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "%d Minuter, %d Sekunder (genomsnitt)"
+msgstr "%d minuter, %d sekunder (genomsnitt)"
 
 #: thold_templates.php:2059
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "%d Minuter, %d Sekunder"
+msgstr "%d minuter, %d sekunder"
 
 #: thold_templates.php:2063
 #, php-format
