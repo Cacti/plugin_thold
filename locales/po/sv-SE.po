@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-03-18 07:08+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-03-18 09:57+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -377,7 +377,7 @@ msgstr "Varje %d opinionsundersökning"
 #: includes/arrays.php:462 includes/arrays.php:481
 #, php-format
 msgid "%d Polling"
-msgstr "%d Pollning"
+msgstr "%d pollning"
 
 #: includes/arrays.php:463 includes/arrays.php:464 includes/arrays.php:465
 #: includes/arrays.php:466 includes/arrays.php:467 includes/arrays.php:468
@@ -391,7 +391,7 @@ msgstr "%d Pollning"
 #: includes/arrays.php:494 includes/arrays.php:495 includes/arrays.php:496
 #, php-format
 msgid "%d Pollings"
-msgstr "%d Opinionsundersökningar"
+msgstr "%d pollningar"
 
 #: includes/arrays.php:503
 msgid "High / Low"
@@ -539,12 +539,12 @@ msgstr "1 siffra"
 #: includes/arrays.php:578 includes/arrays.php:579 includes/arrays.php:580
 #, php-format
 msgid "%d Digits"
-msgstr "%d Dagar"
+msgstr "%d siffror"
 
 #: includes/arrays.php:597
 #, php-format
 msgid "> %d Devices"
-msgstr "> %d Enheter"
+msgstr "> %d enheter"
 
 #: includes/arrays.php:601
 #, php-format
@@ -610,7 +610,7 @@ msgstr "Åtgärder"
 
 #: includes/settings.php:43
 msgid "(edit)"
-msgstr "(Redigera)"
+msgstr "(redigera)"
 
 #: includes/settings.php:50
 msgid "(save)"
@@ -618,7 +618,7 @@ msgstr "Spara"
 
 #: includes/settings.php:57
 msgid "(add)"
-msgstr "(Lägg till)"
+msgstr "(lägg till)"
 
 #: includes/settings.php:84
 msgid "Threshold Logs"
@@ -765,13 +765,13 @@ msgstr "Grundinställningsinställningar"
 #: includes/settings.php:357
 #, php-format
 msgid "%d Polling Interval"
-msgstr "%d Pollningsintervall"
+msgstr "%d pollningsintervall"
 
 #: includes/settings.php:358 includes/settings.php:359
 #: includes/settings.php:360 includes/settings.php:361
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "%d Pollningsintervall"
+msgstr "%d pollningsintervall"
 
 #: includes/settings.php:383
 msgid "Alerting/Thold"
@@ -943,7 +943,7 @@ msgstr "Det maximala antalet samtidiga processer som ska hanteras av Threshold D
 
 #: includes/settings.php:508
 msgid "1 Process"
-msgstr "1 Process"
+msgstr "1 process"
 
 #: includes/settings.php:509 includes/settings.php:510
 #: includes/settings.php:511 includes/settings.php:512
@@ -952,7 +952,7 @@ msgstr "1 Process"
 #: includes/settings.php:517
 #, php-format
 msgid "%d Processes"
-msgstr "%d Processer"
+msgstr "%d processer"
 
 #: includes/settings.php:522
 msgid "Logging"
@@ -1096,7 +1096,7 @@ msgstr "SNMP-meddelanden"
 
 #: includes/settings.php:645
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
-msgstr "Tröskelstatusmeddelanden (information / fällor) kommer att skickas till SNMP-meddelandemottagare. Detta inkluderar varningar, varningar och återställningsfält per standard. Obs! Den här funktionen kräver plugin för Cacti SNMPAgent."
+msgstr "Tröskelstatusmeddelanden (information / fällor) kommer att skickas till SNMP-meddelandemottagare. Detta inkluderar varningar, varningar och återställningsfält per standard. Obs! Den här funktionen kräver tillägget för Cacti SNMPAgent."
 
 #: includes/settings.php:650
 msgid "Disable Warning Notifications"
@@ -1422,7 +1422,7 @@ msgstr "Disassociera Notifieringslista (er)"
 #: notify_lists.php:647
 #, php-format
 msgid "%s Threshold(s)"
-msgstr "%s Tröskel (ar)"
+msgstr "%s Tröskelvärde(n)"
 
 #: notify_lists.php:653
 #, php-format
@@ -2896,7 +2896,7 @@ msgstr "Alla användare valda"
 
 #: thold_functions.php:82
 msgid "< 1 Minute"
-msgstr "1 Minut"
+msgstr "1 minut"
 
 #: thold_functions.php:84
 msgid "Since Created"
@@ -3204,7 +3204,7 @@ msgstr "Kommentar hittades inte"
 
 #: thold_graph.php:682
 msgid "Ack History"
-msgstr "Ack Historia"
+msgstr "Ack Historik"
 
 #: thold_graph.php:692
 msgid "No name set"
@@ -3580,7 +3580,7 @@ msgstr "%d minuter, %d sekunder"
 #: thold_templates.php:2063
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "%d Sekunder (genomsnitt)"
+msgstr "%d sekunder (genomsnitt)"
 
 #: thold_templates.php:2065
 #, php-format
