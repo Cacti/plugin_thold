@@ -1307,7 +1307,7 @@ function thold_upgrade_database($force = false) {
 			'after'    => 'notify_warning_extra'));
 	}
 
-	if (cacti_version_compare($oldv, '1.5', '<')) {
+	if (cacti_version_compare($oldv, '1.5.1', '<')) {
 		api_plugin_db_add_column('thold', 'host', array(
 			'name'     => 'thold_failure_count',
 			'type'     => 'int(10)',
