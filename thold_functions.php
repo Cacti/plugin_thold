@@ -6676,7 +6676,7 @@ function thold_notification_add($topic, &$data, $id = 'id', $list_id = 0, &$host
 	db_execute_prepared('INSERT INTO notification_queue
 		(topic, notification_list_id, object_id, object_name, host_id, hostname, event_time, event_data) VALUES
 		(?, ?, ?, ?, ?, ?, ?, ?)',
-		array($topic, $list_id, $id, $name, $host_id, $hostname, $now, json_encode($data, JSON_THROW_ON_ERROR)));
+		array($topic, $list_id, $id, $name, $host_id, $hostname, $now, json_encode($data, JSON_PRETTY_PRINT)));
 }
 
 function pre_process_device_notifications() {
