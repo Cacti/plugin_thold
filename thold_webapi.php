@@ -525,8 +525,7 @@ function thold_wizard() {
 						ON hsc.host_id = gl.host_id
 						AND hsc.snmp_query_id = gl.snmp_query_id
 						AND hsc.snmp_index = gl.snmp_index
-						WHERE gl.snmp_index IS NULL
-						AND hsc.host_id = ?
+						WHERE hsc.host_id = ?
 						AND hsc.snmp_query_id = ?
 						AND field_name = ?',
 						array(
@@ -1017,6 +1016,7 @@ function thold_graph_new_graphs($page, $host_id, $host_template_id, $selected_gr
 	if (isset($_SERVER['HTTP_REFERER']) && !substr_count($_SERVER['HTTP_REFERER'], 'graphs_new')) {
 		set_request_var('returnto', basename($_SERVER['HTTP_REFERER']));
 	}
+
 	load_current_session_value('returnto', 'sess_grn_returnto', '');
 
 	form_save_button(get_nfilter_request_var('returnto'));

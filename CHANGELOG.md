@@ -2,6 +2,7 @@
 
 --- develop ---
 
+* issue#686: Applying a templated threshold to a graph via the wrench icon, creates a duplicate graph
 * issue#710: Fixing Typo in thold_daemons.service File
 * issue: All Columns checkd on Thresholds page
 
