@@ -375,9 +375,9 @@ function tholds() {
 
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
-		$rows = read_config_option('num_rows_table');
+		$rows = intval(read_config_option('num_rows_table'));
 	} else {
-		$rows = get_request_var('rows');
+		$rows = intval(get_request_var('rows'));
 	}
 
 	html_start_box(__('Threshold Status', 'thold'), '100%', false, '3', 'center', '');
