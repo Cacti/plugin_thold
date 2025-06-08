@@ -4,6 +4,7 @@
 
 * issue#686: Applying a templated threshold to a graph via the wrench icon, creates a duplicate graph
 * issue#710: Fixing Typo in thold_daemons.service File
+* issue#714: Increase the Name column to 255 characters
 * issue#719: Plugin Disabled due to mix of string and int
 * issue: All Columns checkd on Thresholds page
 
