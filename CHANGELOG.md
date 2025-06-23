@@ -3,6 +3,7 @@
 --- develop ---
 
 * issue#686: Applying a templated threshold to a graph via the wrench icon, creates a duplicate graph
+* issue#707: Excessive timeout for row caching prevents data from being updated timely
 * issue#710: Fixing Typo in thold_daemons.service File
 * issue#714: Increase the Name column to 255 characters
 * issue#719: Plugin Disabled due to mix of string and int

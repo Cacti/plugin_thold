@@ -1258,7 +1258,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold');
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold', 10);
 	} else {
 		$total_rows = db_fetch_cell($sql);
 	}
@@ -1348,7 +1348,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_log');
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_log', 10);
 	} else {
 		$total_rows = db_fetch_cell($sql);
 	}
@@ -8142,7 +8142,7 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 	}
 
 	if (function_exists('get_total_row_data') && $device_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_device');
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_device', 10);
 	} else {
 		$total_rows = db_fetch_cell($sql);
 	}
