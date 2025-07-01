@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-01 06:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-01 15:52+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -330,7 +330,7 @@ msgstr "%d საათი"
 #: includes/arrays.php:429 includes/arrays.php:430 includes/arrays.php:431
 #, php-format
 msgid "%d Hours"
-msgstr ""
+msgstr "%d საათი"
 
 #: includes/arrays.php:334 includes/arrays.php:366 includes/arrays.php:411
 #: includes/arrays.php:432
@@ -354,7 +354,7 @@ msgstr "%d კვირა"
 #: includes/arrays.php:435
 #, php-format
 msgid "%d Weeks"
-msgstr ""
+msgstr "%d კვირა"
 
 #: includes/arrays.php:362
 #, php-format
@@ -716,7 +716,7 @@ msgstr ""
 
 #: includes/settings.php:300 includes/settings.php:301
 msgid "General Administration"
-msgstr ""
+msgstr "ზოგადი ადმინისტრირება"
 
 #: includes/settings.php:318
 msgid "Device Up/Down Notification Settings"
@@ -1012,7 +1012,7 @@ msgstr ""
 
 #: includes/settings.php:567
 msgid "Syslog Enabled"
-msgstr ""
+msgstr "Syslog ჩართულია"
 
 #: includes/settings.php:568
 msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
@@ -1579,7 +1579,7 @@ msgstr "მიდი"
 #: notify_lists.php:1055 notify_lists.php:1424 notify_lists.php:1710
 #: notify_lists.php:2027 notify_queue.php:296
 msgid "Set/Refresh Filters"
-msgstr ""
+msgstr "ფილტრების დაყენება/განახლება"
 
 #: notify_lists.php:1056 notify_lists.php:1425 notify_lists.php:1711
 #: notify_lists.php:2030 notify_queue.php:297 thold.php:673 thold_graph.php:161
@@ -1590,7 +1590,7 @@ msgstr "გასუფთავება"
 #: notify_lists.php:1056 notify_lists.php:1425 notify_lists.php:1711
 #: notify_lists.php:2030 notify_queue.php:297
 msgid "Clear Filters"
-msgstr ""
+msgstr "ფილტრების გასუფთავება"
 
 #: notify_lists.php:1188 notify_lists.php:1481 notify_lists.php:1760
 #: thold.php:798 thold_graph.php:458 thold_graph.php:978
@@ -1703,7 +1703,7 @@ msgstr ""
 #: notify_lists.php:1546 notify_lists.php:1573 notify_lists.php:1790
 #: notify_lists.php:1817
 msgid "Current List"
-msgstr ""
+msgstr "მიმდინარე სია"
 
 #: notify_lists.php:1556
 msgid "Unknown Threshold"
@@ -1857,7 +1857,7 @@ msgstr ""
 
 #: notify_queue.php:438
 msgid "Event Time"
-msgstr ""
+msgstr "მოვლენის დრო"
 
 #: notify_queue.php:441
 msgid "The time of the event as defined by the caller."
@@ -1885,7 +1885,7 @@ msgstr ""
 
 #: notify_queue.php:478
 msgid "Not Specified"
-msgstr ""
+msgstr "მითითებული არაა"
 
 #: notify_queue.php:483
 msgid "Done"
@@ -2186,7 +2186,7 @@ msgstr ""
 #: thold.php:789 thold.php:2224 thold_graph.php:449 thold_templates.php:1775
 #: thold_templates.php:2226
 msgid "External ID"
-msgstr ""
+msgstr "გარე ID"
 
 #: thold.php:805 thold_graph.php:469 thold_templates.php:2253
 msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
@@ -2322,7 +2322,7 @@ msgstr ""
 
 #: thold.php:1409
 msgid "Not Templated"
-msgstr ""
+msgstr "არადაშაბლონებულები"
 
 #: thold.php:1428 thold.php:1431
 #, php-format
@@ -2445,7 +2445,7 @@ msgstr ""
 
 #: thold.php:1664 thold_templates.php:1220
 msgid "None Required"
-msgstr ""
+msgstr "აუცილებელი არცერთია"
 
 #: thold.php:1668 thold_templates.php:1224
 msgid "Suspendible Notification"
@@ -2626,7 +2626,7 @@ msgstr "მანიპულაცია მონაცემებით"
 
 #: thold.php:1882 thold_templates.php:1438
 msgid "Data Type"
-msgstr ""
+msgstr "მონაცემების ტიპი"
 
 #: thold.php:1887 thold_templates.php:1442
 msgid "Special formatting for the given data."
@@ -3260,7 +3260,7 @@ msgstr ""
 
 #: thold_graph.php:1026
 msgid "Average (ms)"
-msgstr ""
+msgstr "საშუალო (მწმ)"
 
 #: thold_graph.php:1029
 msgid "The average response time for the Cacti Availability check"
@@ -3314,7 +3314,7 @@ msgstr "დრო"
 
 #: thold_graph.php:1493
 msgid "Alert Value"
-msgstr ""
+msgstr "განგაშის მნიშვნელობა"
 
 #: thold_graph.php:1498
 msgid "Measured Value"
@@ -3375,7 +3375,7 @@ msgstr ""
 
 #: thold_templates.php:293
 msgid "Disable Template(s)"
-msgstr ""
+msgstr "შაბლონ(ებ)-ის გამორთვა"
 
 #: thold_templates.php:415
 msgid "Threshold Template Creation Wizard"
