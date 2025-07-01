@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: ka\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-01 06:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
-msgstr ""
+msgstr "განუსაზღვრელად"
 
 #: includes/arrays.php:27 includes/arrays.php:338 includes/arrays.php:370
 #: includes/arrays.php:415 includes/arrays.php:436
 #, php-format
 msgid "%d Month"
-msgstr ""
+msgstr "%d თვე"
 
 #: includes/arrays.php:28 includes/arrays.php:29 includes/arrays.php:30
 #: includes/arrays.php:31
@@ -25,7 +25,7 @@ msgstr ""
 #: includes/arrays.php:32
 #, php-format
 msgid "%d Year"
-msgstr ""
+msgstr "%d წელი"
 
 #: includes/arrays.php:36
 #, php-format
@@ -82,24 +82,24 @@ msgstr ""
 #: includes/arrays.php:58 thold_graph.php:825 thold_graph.php:831
 #: thold_graph.php:1174
 msgid "Down"
-msgstr ""
+msgstr "გამორთ"
 
 #: includes/arrays.php:62 includes/arrays.php:248 includes/arrays.php:264
 #: thold_graph.php:840
 msgid "Error"
-msgstr ""
+msgstr "შეცდომა"
 
 #: includes/arrays.php:66 thold_graph.php:834 thold_graph.php:1175
 msgid "Recovering"
-msgstr ""
+msgstr "მიმდინარეობს აღდგენა"
 
 #: includes/arrays.php:70 thold_graph.php:837 thold_graph.php:1173
 msgid "Up"
-msgstr ""
+msgstr "ჩართ"
 
 #: includes/arrays.php:74 thold_graph.php:843 thold_graph.php:1176
 msgid "Unknown"
-msgstr ""
+msgstr "უცნობი"
 
 #: includes/arrays.php:78 includes/arrays.php:219 includes/arrays.php:594
 #: includes/settings.php:327 includes/settings.php:421
@@ -107,7 +107,7 @@ msgstr ""
 #: notify_lists.php:1398 notify_lists.php:1616 thold.php:716
 #: thold_graph.php:219 thold_graph.php:821 thold_graph.php:1170
 msgid "Disabled"
-msgstr ""
+msgstr "გათიშულია"
 
 #: includes/arrays.php:82 thold_graph.php:1101 thold_graph.php:1172
 msgid "Not Monitored"
@@ -120,7 +120,7 @@ msgstr ""
 #: includes/arrays.php:91 includes/arrays.php:167 includes/arrays.php:195
 #: includes/arrays.php:246
 msgid "Alert"
-msgstr ""
+msgstr "განგაში"
 
 #: includes/arrays.php:96
 msgid "Notify - Alert2Warning"
@@ -128,7 +128,7 @@ msgstr ""
 
 #: includes/arrays.php:97
 msgid "Alert2Warn"
-msgstr ""
+msgstr "ყურადღება"
 
 #: includes/arrays.php:102
 msgid "Notify - Warning"
@@ -137,7 +137,7 @@ msgstr ""
 #: includes/arrays.php:103 includes/arrays.php:162 includes/arrays.php:203
 #: includes/arrays.php:249
 msgid "Warning"
-msgstr ""
+msgstr "გაფრთხილება"
 
 #: includes/arrays.php:108
 msgid "Notify - Re-Trigger"
@@ -145,7 +145,7 @@ msgstr ""
 
 #: includes/arrays.php:109 includes/arrays.php:157
 msgid "Re-Trigger"
-msgstr ""
+msgstr "თავიდან დატრიგერება"
 
 #: includes/arrays.php:114
 msgid "Notify - Restoral"
@@ -153,7 +153,7 @@ msgstr ""
 
 #: includes/arrays.php:115 includes/arrays.php:172
 msgid "Restoral"
-msgstr ""
+msgstr "აღმდგენი"
 
 #: includes/arrays.php:120
 msgid "Event - Alert Trigger"
@@ -189,7 +189,7 @@ msgstr ""
 
 #: includes/arrays.php:147
 msgid "Restore"
-msgstr ""
+msgstr "აღდგენა"
 
 #: includes/arrays.php:152
 msgid "Alert Trigger"
@@ -201,11 +201,11 @@ msgstr ""
 
 #: includes/arrays.php:182
 msgid "Alert-Warn"
-msgstr ""
+msgstr "განგაში-გაფრთხ"
 
 #: includes/arrays.php:187 includes/arrays.php:215 thold_graph.php:1506
 msgid "Acknowledgment"
-msgstr ""
+msgstr "დადასტურება"
 
 #: includes/arrays.php:199
 msgid "Baseline Alert"
@@ -213,33 +213,33 @@ msgstr ""
 
 #: includes/arrays.php:207 includes/arrays.php:250
 msgid "Notice"
-msgstr ""
+msgstr "ცნობა"
 
 #: includes/arrays.php:211
 msgid "Ok"
-msgstr ""
+msgstr "დიახ"
 
 #: includes/arrays.php:245
 msgid "Emergency"
-msgstr ""
+msgstr "სასწრაფო"
 
 #: includes/arrays.php:247 thold.php:2064 thold.php:2083
 #: thold_templates.php:1620 thold_templates.php:1634
 msgid "Critical"
-msgstr ""
+msgstr "კრიტიკული"
 
 #: includes/arrays.php:251 includes/arrays.php:265
 msgid "Info"
-msgstr ""
+msgstr "ინფორმაცია"
 
 #: includes/arrays.php:252
 msgid "Debug"
-msgstr ""
+msgstr "გამართვა"
 
 #: includes/arrays.php:291 includes/arrays.php:376 includes/arrays.php:442
 #: thold_functions.php:98
 msgid "Never"
-msgstr ""
+msgstr "არასდროს"
 
 #: includes/arrays.php:292
 msgid "Every Minute"
@@ -294,7 +294,7 @@ msgstr ""
 #: includes/arrays.php:317 includes/arrays.php:342
 #, php-format
 msgid "%d Minute"
-msgstr ""
+msgstr "%d წუთი"
 
 #: includes/arrays.php:318 includes/arrays.php:319 includes/arrays.php:320
 #: includes/arrays.php:321 includes/arrays.php:322 includes/arrays.php:323
@@ -312,13 +312,13 @@ msgstr ""
 #: includes/arrays.php:616
 #, php-format
 msgid "%d Minutes"
-msgstr ""
+msgstr "%d წუთი"
 
 #: includes/arrays.php:327 includes/arrays.php:358 includes/arrays.php:404
 #: includes/arrays.php:425
 #, php-format
 msgid "%d Hour"
-msgstr ""
+msgstr "%d საათი"
 
 #: includes/arrays.php:328 includes/arrays.php:329 includes/arrays.php:330
 #: includes/arrays.php:331 includes/arrays.php:332 includes/arrays.php:333
@@ -348,7 +348,7 @@ msgstr ""
 #: includes/arrays.php:434
 #, php-format
 msgid "%d Week"
-msgstr ""
+msgstr "%d კვირა"
 
 #: includes/arrays.php:337 includes/arrays.php:369 includes/arrays.php:414
 #: includes/arrays.php:435
@@ -443,15 +443,15 @@ msgstr ""
 
 #: includes/arrays.php:520
 msgid "Exact Value"
-msgstr ""
+msgstr "ზუსტი მნიშვნელობა"
 
 #: includes/arrays.php:521
 msgid "CDEF"
-msgstr ""
+msgstr "CDEF"
 
 #: includes/arrays.php:522
 msgid "Percentage"
-msgstr ""
+msgstr "პროცენტულობა"
 
 #: includes/arrays.php:523 thold.php:1931 thold_templates.php:1462
 msgid "RPN Expression"
@@ -463,7 +463,7 @@ msgstr ""
 
 #: includes/arrays.php:528
 msgid "Acknowledge"
-msgstr ""
+msgstr "დამოწმება"
 
 #: includes/arrays.php:529
 msgid "Suspend Notifications"
@@ -476,15 +476,15 @@ msgstr ""
 #: includes/arrays.php:531 includes/arrays.php:540 notify_lists.php:32
 #: notify_queue.php:35 setup.php:1439
 msgid "Delete"
-msgstr ""
+msgstr "წაშლა"
 
 #: includes/arrays.php:532 includes/arrays.php:541
 msgid "Enable"
-msgstr ""
+msgstr "ჩართვა"
 
 #: includes/arrays.php:533 includes/arrays.php:542
 msgid "Disable"
-msgstr ""
+msgstr "გათიშვა"
 
 #: includes/arrays.php:534 includes/arrays.php:543
 msgid "Reapply Suggested Names"
@@ -492,11 +492,11 @@ msgstr ""
 
 #: includes/arrays.php:535
 msgid "Propagate Template"
-msgstr ""
+msgstr "შაბლონის გავრცელება"
 
 #: includes/arrays.php:539 thold_graph.php:1599
 msgid "Export"
-msgstr ""
+msgstr "გატანa"
 
 #: includes/arrays.php:547
 msgid "Threshold Mail"
@@ -524,7 +524,7 @@ msgstr ""
 
 #: includes/arrays.php:569
 msgid "Auto"
-msgstr ""
+msgstr "ავტო"
 
 #: includes/arrays.php:570
 msgid "0 Digits"
@@ -532,7 +532,7 @@ msgstr ""
 
 #: includes/arrays.php:571
 msgid "1 Digit"
-msgstr ""
+msgstr "1 ციფრი"
 
 #: includes/arrays.php:572 includes/arrays.php:573 includes/arrays.php:574
 #: includes/arrays.php:575 includes/arrays.php:576 includes/arrays.php:577
@@ -574,7 +574,7 @@ msgstr ""
 #: thold_graph.php:1107 thold_graph.php:1108 thold_graph.php:1542
 #: thold_graph.php:1543
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: includes/polling.php:483
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -590,7 +590,7 @@ msgstr ""
 
 #: includes/polling.php:690 includes/polling.php:709
 msgid "DOWN"
-msgstr ""
+msgstr "გამორთ"
 
 #: includes/polling.php:697
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
@@ -602,27 +602,27 @@ msgstr ""
 #: thold.php:723 thold.php:774 thold_functions.php:143 thold_graph.php:226
 #: thold_templates.php:2241
 msgid "Thresholds"
-msgstr ""
+msgstr "ზღვრები"
 
 #: includes/settings.php:36
 msgid "(actions)"
-msgstr ""
+msgstr "(ქმედებები)"
 
 #: includes/settings.php:43
 msgid "(edit)"
-msgstr ""
+msgstr "(ჩასწორება)"
 
 #: includes/settings.php:50
 msgid "(save)"
-msgstr ""
+msgstr "(შენახვა)"
 
 #: includes/settings.php:57
 msgid "(add)"
-msgstr ""
+msgstr "(დამატება)"
 
 #: includes/settings.php:84
 msgid "Threshold Logs"
-msgstr ""
+msgstr "ზღვრის ჟურნალი"
 
 #: includes/settings.php:91 thold_functions.php:145 thold_graph.php:905
 msgid "Device Status"
@@ -661,7 +661,7 @@ msgstr ""
 #: includes/settings.php:174 includes/settings.php:188
 #: includes/settings.php:195 includes/settings.php:221 notify_lists.php:1997
 msgid "Notification Lists"
-msgstr ""
+msgstr "გაფრთხილების სიები"
 
 #: includes/settings.php:181
 msgid "Notification Lists (edit)"
@@ -675,16 +675,16 @@ msgstr ""
 #: includes/settings.php:221 includes/settings.php:222
 #: includes/settings.php:223
 msgid "Management"
-msgstr ""
+msgstr "მართვა"
 
 #: includes/settings.php:224 notify_lists.php:46 notify_lists.php:2105
 #: thold_templates.php:2135 thold_templates.php:2211
 msgid "Templates"
-msgstr ""
+msgstr "შაბლონები"
 
 #: includes/settings.php:224 thold_graph.php:1625
 msgid "Threshold"
-msgstr ""
+msgstr "ზღვარი"
 
 #: includes/settings.php:276
 msgid "A template with that Data Source already exists!"
@@ -744,7 +744,7 @@ msgstr ""
 
 #: includes/settings.php:340 notify_queue.php:427
 msgid "Notification List"
-msgstr ""
+msgstr "გაფრთხილებების სია"
 
 #: includes/settings.php:341
 msgid "Additional Email address, separated by commas for multiple Emails."
@@ -775,11 +775,11 @@ msgstr ""
 
 #: includes/settings.php:383
 msgid "Alerting/Thold"
-msgstr ""
+msgstr "განგაში/ზღვარი"
 
 #: includes/settings.php:391 notify_lists.php:43
 msgid "General"
-msgstr ""
+msgstr "ზოგადი"
 
 #: includes/settings.php:395
 msgid "Disable All Thresholds"
@@ -816,7 +816,7 @@ msgstr ""
 #: includes/settings.php:417 notify_lists.php:999 notify_lists.php:1017
 #: notify_lists.php:1363 notify_lists.php:1381 thold.php:698
 msgid "Any"
-msgstr ""
+msgstr "ნებისმიერი"
 
 #: includes/settings.php:418 thold.php:712 thold_graph.php:215
 msgid "Breached or Triggered"
@@ -825,12 +825,12 @@ msgstr ""
 #: includes/settings.php:419 notify_lists.php:1395 thold.php:713
 #: thold_graph.php:216
 msgid "Breached"
-msgstr ""
+msgstr "დარღვეულია"
 
 #: includes/settings.php:420 notify_lists.php:1396 notify_lists.php:1497
 #: thold.php:714 thold.php:847 thold_graph.php:217 thold_graph.php:506
 msgid "Triggered"
-msgstr ""
+msgstr "დატრიგერებულია"
 
 #: includes/settings.php:422 notify_lists.php:857 notify_lists.php:1397
 #: notify_lists.php:1505 notify_lists.php:1616 notify_lists.php:2102
@@ -838,7 +838,7 @@ msgstr ""
 #: thold_graph.php:454 thold_graph.php:1169 thold_templates.php:1160
 #: thold_templates.php:1698 thold_templates.php:2231
 msgid "Enabled"
-msgstr ""
+msgstr "ჩართულია"
 
 #: includes/settings.php:427
 msgid "Empty ifHighSpeed Default"
@@ -902,7 +902,7 @@ msgstr ""
 
 #: includes/settings.php:474
 msgid "Threshold Daemon"
-msgstr ""
+msgstr "შეზღუდვის დემონი"
 
 #: includes/settings.php:478
 msgid "Enable Threshold Daemon"
@@ -956,7 +956,7 @@ msgstr ""
 
 #: includes/settings.php:522
 msgid "Logging"
-msgstr ""
+msgstr "ჟურნალი"
 
 #: includes/settings.php:526
 msgid "Log Threshold Breaches"
@@ -1020,7 +1020,7 @@ msgstr ""
 
 #: includes/settings.php:572
 msgid "Default Priority/Level"
-msgstr ""
+msgstr "ნაგულისხმევი პრიორიტეტი/დონე"
 
 #: includes/settings.php:573
 msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
@@ -1056,7 +1056,7 @@ msgstr ""
 
 #: includes/settings.php:603
 msgid "Re-Alerting"
-msgstr ""
+msgstr "განგაში თავიდან"
 
 #: includes/settings.php:604
 msgid "Repeat Alert after specified number of poller cycles."
@@ -1116,7 +1116,7 @@ msgstr ""
 
 #: includes/settings.php:660
 msgid "Emailing Options"
-msgstr ""
+msgstr "ელფოსტის მორგება"
 
 #: includes/settings.php:664
 msgid "Send Emails with Urgent Priority"
@@ -1304,24 +1304,24 @@ msgstr ""
 
 #: includes/tab.php:33
 msgid "Thold"
-msgstr ""
+msgstr "ზღვარი"
 
 #: notify_lists.php:33
 msgid "Duplicate"
-msgstr ""
+msgstr "დუბლირება"
 
 #: notify_lists.php:37
 msgid "Associate"
-msgstr ""
+msgstr "ასოცირება"
 
 #: notify_lists.php:38
 msgid "Disassociate"
-msgstr ""
+msgstr "დისასოცირება"
 
 #: notify_lists.php:44 notify_lists.php:1033 notify_lists.php:1168
 #: notify_lists.php:2103 thold_graph.php:958 thold_graph.php:1210
 msgid "Devices"
-msgstr ""
+msgstr "მოწყობილობები"
 
 #: notify_lists.php:515
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
@@ -1333,7 +1333,7 @@ msgstr ""
 #: setup.php:1358 setup.php:1523 thold.php:462 thold_functions.php:7482
 #: thold_templates.php:308
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
 
 #: notify_lists.php:520 notify_lists.php:532 notify_lists.php:590
 #: notify_lists.php:601 notify_lists.php:660 notify_lists.php:671
@@ -1341,7 +1341,7 @@ msgstr ""
 #: setup.php:1359 setup.php:1524 thold.php:465 thold_functions.php:7485
 #: thold_templates.php:310
 msgid "Continue"
-msgstr ""
+msgstr "გაგრძელება"
 
 #: notify_lists.php:520
 msgid "Delete Notification List(s)"
@@ -1449,7 +1449,7 @@ msgstr ""
 
 #: notify_lists.php:725 notify_lists.php:738
 msgid "Resulting Membership:"
-msgstr ""
+msgstr "მიღებული წევრობა:"
 
 #: notify_lists.php:726 notify_lists.php:739
 msgid "Device Threshold Warning Membership:"
@@ -1475,7 +1475,7 @@ msgstr ""
 
 #: notify_lists.php:787
 msgid "[new]"
-msgstr ""
+msgstr "[ახალი]"
 
 #: notify_lists.php:836
 msgid "List General Settings"
@@ -1484,7 +1484,7 @@ msgstr ""
 #: notify_lists.php:841 notify_lists.php:1477 notify_lists.php:1759
 #: setup.php:1251 thold.php:784 thold_graph.php:444 thold_templates.php:2221
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: notify_lists.php:842
 msgid "Enter a name for this Notification List."
@@ -1493,7 +1493,7 @@ msgstr ""
 #: notify_lists.php:848 notify_lists.php:1178 notify_lists.php:2106
 #: thold_graph.php:972
 msgid "Description"
-msgstr ""
+msgstr "აღწერა"
 
 #: notify_lists.php:849
 msgid "Enter a description for this Notification List."
@@ -1536,12 +1536,12 @@ msgstr ""
 #: thold_graph.php:132 thold_graph.php:1138 thold_graph.php:1569
 #: thold_templates.php:2020 thold_templates.php:2129
 msgid "Search"
-msgstr ""
+msgstr "ძებნა"
 
 #: notify_lists.php:995 notify_lists.php:1183 notify_lists.php:1359
 #: thold.php:649 thold_graph.php:138 thold_graph.php:1144 thold_graph.php:1575
 msgid "Site"
-msgstr ""
+msgstr "საიტი"
 
 #: notify_lists.php:1000 notify_lists.php:1018 notify_lists.php:1227
 #: notify_lists.php:1242 notify_lists.php:1364 notify_lists.php:1587
@@ -1554,27 +1554,27 @@ msgstr ""
 #: thold_templates.php:1170 thold_templates.php:1178 thold_templates.php:1573
 #: thold_templates.php:1581 thold_templates.php:1983
 msgid "None"
-msgstr ""
+msgstr "არცერთი"
 
 #: notify_lists.php:1013
 msgid "Device Template"
-msgstr ""
+msgstr "მოწყობილობის შაბლონი"
 
 #: notify_lists.php:1037 notify_lists.php:1406 notify_lists.php:1692
 #: notify_lists.php:2016 notify_queue.php:284 thold.php:727 thold_graph.php:230
 #: thold_graph.php:1214 thold_graph.php:1666 thold_templates.php:2139
 msgid "Default"
-msgstr ""
+msgstr "ნაგულისხმევი"
 
 #: notify_lists.php:1050 notify_lists.php:1419 notify_lists.php:1705
 msgid "Associated"
-msgstr ""
+msgstr "ასოცირებული"
 
 #: notify_lists.php:1055 notify_lists.php:1424 notify_lists.php:1710
 #: notify_lists.php:2027 notify_queue.php:296 thold.php:670 thold_graph.php:160
 #: thold_graph.php:1181 thold_graph.php:1597 thold_templates.php:2151
 msgid "Go"
-msgstr ""
+msgstr "მიდი"
 
 #: notify_lists.php:1055 notify_lists.php:1424 notify_lists.php:1710
 #: notify_lists.php:2027 notify_queue.php:296
@@ -1585,7 +1585,7 @@ msgstr ""
 #: notify_lists.php:2030 notify_queue.php:297 thold.php:673 thold_graph.php:161
 #: thold_graph.php:1182 thold_graph.php:1598 thold_templates.php:2152
 msgid "Clear"
-msgstr ""
+msgstr "გასუფთავება"
 
 #: notify_lists.php:1056 notify_lists.php:1425 notify_lists.php:1711
 #: notify_lists.php:2030 notify_queue.php:297
@@ -1596,12 +1596,12 @@ msgstr ""
 #: thold.php:798 thold_graph.php:458 thold_graph.php:978
 #: thold_templates.php:2236
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: notify_lists.php:1193 setup.php:1251 thold.php:707 thold_graph.php:210
 #: thold_graph.php:996 thold_graph.php:1164 thold_graph.php:1647
 msgid "Status"
-msgstr ""
+msgstr "სტატუსი"
 
 #: notify_lists.php:1198
 msgid "Associated Lists"
@@ -1609,7 +1609,7 @@ msgstr ""
 
 #: notify_lists.php:1203 thold_graph.php:984
 msgid "Graphs"
-msgstr ""
+msgstr "გრაფიკები"
 
 #: notify_lists.php:1208 thold_graph.php:990
 msgid "Data Sources"
@@ -1617,7 +1617,7 @@ msgstr ""
 
 #: notify_lists.php:1213 notify_queue.php:422 thold_graph.php:1014
 msgid "Hostname"
-msgstr ""
+msgstr "ჰოსტის სახელი"
 
 #: notify_lists.php:1237
 msgid "Current List Only"
@@ -1637,11 +1637,11 @@ msgstr ""
 
 #: notify_lists.php:1377 thold.php:680 thold_graph.php:169 thold_graph.php:1607
 msgid "Template"
-msgstr ""
+msgstr "ნიმუში"
 
 #: notify_lists.php:1390
 msgid "State"
-msgstr ""
+msgstr "შტატი"
 
 #: notify_lists.php:1394 notify_queue.php:259 notify_queue.php:274
 #: thold.php:653 thold.php:684 thold.php:711 thold.php:2531 thold_graph.php:142
@@ -1650,7 +1650,7 @@ msgstr ""
 #: thold_graph.php:1579 thold_graph.php:1611 thold_graph.php:1629
 #: thold_graph.php:1651 thold_templates.php:1982
 msgid "All"
-msgstr ""
+msgstr "ყველა"
 
 #: notify_lists.php:1485 notify_lists.php:1761
 msgid "Warning Lists"
@@ -1664,32 +1664,32 @@ msgstr ""
 #: thold_graph.php:467 thold_graph.php:1190 thold_graph.php:1483
 #: thold_templates.php:1384 thold_templates.php:2251
 msgid "Type"
-msgstr ""
+msgstr "ტიპი"
 
 #: notify_lists.php:1501 thold.php:858
 msgid "Templated"
-msgstr ""
+msgstr "შაბლონით"
 
 #: notify_lists.php:1516 notify_lists.php:2118 notify_queue.php:275
 #: thold.php:887 thold.php:1045 thold.php:1047 thold.php:1050
 #: thold_graph.php:538 thold_graph.php:768 thold_templates.php:2341
 msgid "No"
-msgstr ""
+msgstr "არა"
 
 #: notify_lists.php:1519 notify_lists.php:2118 notify_queue.php:276
 #: thold.php:918 thold.php:922 thold.php:972 thold.php:1045 thold.php:1050
 #: thold_graph.php:569 thold_graph.php:573 thold_graph.php:696
 #: thold_graph.php:768 thold_templates.php:2341
 msgid "Yes"
-msgstr ""
+msgstr "კი"
 
 #: notify_lists.php:1523 thold.php:926 thold_graph.php:577
 msgid "baseline-LOW"
-msgstr ""
+msgstr "საბაზისო ხაზი-დაბალი"
 
 #: notify_lists.php:1525 thold.php:928 thold_graph.php:579
 msgid "baseline-HIGH"
-msgstr ""
+msgstr "საბაზისო ხაზი-მაღალი"
 
 #: notify_lists.php:1537 notify_lists.php:1781
 msgid "Select Users"
@@ -1716,7 +1716,7 @@ msgstr ""
 
 #: notify_lists.php:1615
 msgid "Editable"
-msgstr ""
+msgstr "ჩასწორებადი"
 
 #: notify_lists.php:1615
 msgid "Read Only"
@@ -1728,11 +1728,11 @@ msgstr ""
 
 #: notify_lists.php:1674
 msgid "Associated Templates"
-msgstr ""
+msgstr "ასოცირებული შაბლონები"
 
 #: notify_lists.php:1688 notify_queue.php:280
 msgid "Rows"
-msgstr ""
+msgstr "მწკრივები"
 
 #: notify_lists.php:1800
 msgid "Unknown Template"
@@ -1744,7 +1744,7 @@ msgstr ""
 
 #: notify_lists.php:2012 notify_lists.php:2092
 msgid "Lists"
-msgstr ""
+msgstr "სიები"
 
 #: notify_lists.php:2101
 msgid "List Name"
@@ -1752,7 +1752,7 @@ msgstr ""
 
 #: notify_lists.php:2107
 msgid "Emails"
-msgstr ""
+msgstr "ელფოსტები"
 
 #: notify_lists.php:2128
 msgid "No Notification Lists"
@@ -1793,15 +1793,15 @@ msgstr ""
 
 #: notify_queue.php:255 notify_queue.php:411
 msgid "Topic"
-msgstr ""
+msgstr "თემა"
 
 #: notify_queue.php:270 notify_queue.php:444
 msgid "Processed"
-msgstr ""
+msgstr "დამუშავებულია"
 
 #: notify_queue.php:298
 msgid "Suspend"
-msgstr ""
+msgstr "დროებით შეჩერება"
 
 #: notify_queue.php:298
 msgid "Suspend Notification Processing"
@@ -1809,7 +1809,7 @@ msgstr ""
 
 #: notify_queue.php:299
 msgid "Resume"
-msgstr ""
+msgstr "განგრძობა"
 
 #: notify_queue.php:299
 msgid "Resume Notification Processing"
@@ -1817,7 +1817,7 @@ msgstr ""
 
 #: notify_queue.php:300
 msgid "Purge"
-msgstr ""
+msgstr "გაწმენდა"
 
 #: notify_queue.php:300
 msgid "Purge Notification Queue"
@@ -1825,7 +1825,7 @@ msgstr ""
 
 #: notify_queue.php:401
 msgid "Notifications"
-msgstr ""
+msgstr "ცნობები"
 
 #: notify_queue.php:414
 msgid "The supported notification topic."
@@ -1869,7 +1869,7 @@ msgstr ""
 
 #: notify_queue.php:450
 msgid "Errors"
-msgstr ""
+msgstr "შედომები"
 
 #: notify_queue.php:453
 msgid "Did this notification result in an error.  Hover on the error column for details."
@@ -1889,19 +1889,19 @@ msgstr ""
 
 #: notify_queue.php:483
 msgid "Done"
-msgstr ""
+msgstr "მზადაა"
 
 #: notify_queue.php:483
 msgid "Pending"
-msgstr ""
+msgstr "რიგშია"
 
 #: notify_queue.php:486
 msgid "Errored"
-msgstr ""
+msgstr "შეცდომიანი"
 
 #: notify_queue.php:486
 msgid "Success"
-msgstr ""
+msgstr "წარმატებულია"
 
 #: notify_queue.php:498
 msgid "No Notifications"
@@ -1909,11 +1909,11 @@ msgstr ""
 
 #: setup.php:245
 msgid "Off"
-msgstr ""
+msgstr "გამრთ"
 
 #: setup.php:245
 msgid "On"
-msgstr ""
+msgstr "ჩრთ"
 
 #: setup.php:245
 #, php-format
@@ -2051,7 +2051,7 @@ msgstr ""
 
 #: setup.php:1309 setup.php:1472
 msgid "Add"
-msgstr ""
+msgstr "დამატება"
 
 #: setup.php:1309
 msgid "Add Threshold Template to Device"
@@ -2100,7 +2100,7 @@ msgstr ""
 
 #: thold.php:413
 msgid "Enable Threshold(s)"
-msgstr ""
+msgstr "შეზღუდვების ჩართვა"
 
 #: thold.php:416
 msgid "Click 'Continue' to disable the following Threshold(s)."
@@ -2108,7 +2108,7 @@ msgstr ""
 
 #: thold.php:417
 msgid "Disable Threshold(s)"
-msgstr ""
+msgstr "შეზღუდვების გამორთვა"
 
 #: thold.php:420
 msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
@@ -2194,11 +2194,11 @@ msgstr ""
 
 #: thold.php:809
 msgid "DSName"
-msgstr ""
+msgstr "DSName"
 
 #: thold.php:814 thold_graph.php:473
 msgid "Current"
-msgstr ""
+msgstr "მიმდინარე"
 
 #: thold.php:817 thold_graph.php:476
 msgid "The last measured value for the Data Source"
@@ -2207,7 +2207,7 @@ msgstr ""
 #: thold.php:820 thold.php:2063 thold.php:2082 thold_graph.php:479
 #: thold_templates.php:1620 thold_templates.php:1634 thold_templates.php:2262
 msgid "High"
-msgstr ""
+msgstr "მაღალი"
 
 #: thold.php:823 thold_graph.php:482
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
@@ -2216,7 +2216,7 @@ msgstr ""
 #: thold.php:826 thold.php:2061 thold.php:2080 thold_graph.php:485
 #: thold_templates.php:1620 thold_templates.php:1634 thold_templates.php:2268
 msgid "Low"
-msgstr ""
+msgstr "დაბალი"
 
 #: thold.php:829 thold_graph.php:488
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
@@ -2224,19 +2224,19 @@ msgstr ""
 
 #: thold.php:832 thold_graph.php:491 thold_templates.php:2274
 msgid "Trigger"
-msgstr ""
+msgstr "ტრიგერი"
 
 #: thold.php:837 thold_graph.php:496 thold_templates.php:2279
 msgid "Duration"
-msgstr ""
+msgstr "ხანგრძლივობა"
 
 #: thold.php:842 thold_graph.php:501 thold_templates.php:2284
 msgid "Repeat"
-msgstr ""
+msgstr "გამეორება"
 
 #: thold.php:852 thold_graph.php:511 thold_graph.php:1002
 msgid "In State"
-msgstr ""
+msgstr "მდგომარეობაში"
 
 #: thold.php:855 thold_graph.php:514
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
@@ -2289,23 +2289,23 @@ msgstr ""
 
 #: thold.php:1323
 msgid "Last:"
-msgstr ""
+msgstr "სია:"
 
 #: thold.php:1330
 msgid "WHi:"
-msgstr ""
+msgstr "WHI:"
 
 #: thold.php:1336
 msgid "WLo:"
-msgstr ""
+msgstr "WLo:"
 
 #: thold.php:1344
 msgid "AHi:"
-msgstr ""
+msgstr "AHi:"
 
 #: thold.php:1350
 msgid "ALo:"
-msgstr ""
+msgstr "ALo:"
 
 #: thold.php:1367
 msgid "BL Up:"
@@ -2353,7 +2353,7 @@ msgstr ""
 
 #: thold.php:1568 thold_templates.php:1126
 msgid "Template Name"
-msgstr ""
+msgstr "შაბლონის სახელი"
 
 #: thold.php:1571
 msgid "Name of the Threshold Template the Threshold was created from."
@@ -2449,7 +2449,7 @@ msgstr ""
 
 #: thold.php:1668 thold_templates.php:1224
 msgid "Suspendible Notification"
-msgstr ""
+msgstr "გაჩერებადი გაფრთხილება"
 
 #: thold.php:1672 thold_templates.php:1228
 msgid "Persistent Acknowledgment"
@@ -2562,23 +2562,23 @@ msgstr ""
 
 #: thold.php:1835 thold_templates.php:1391
 msgid "Consolidation Function"
-msgstr ""
+msgstr "კონსოლიდაციის ფუნქცია"
 
 #: thold.php:1838 thold_templates.php:1394
 msgid "Average"
-msgstr ""
+msgstr "საშუალო"
 
 #: thold.php:1839 thold_templates.php:1395
 msgid "Minimum"
-msgstr ""
+msgstr "მინიმუმი"
 
 #: thold.php:1840 thold_templates.php:1396
 msgid "Maximum"
-msgstr ""
+msgstr "მაქსიმუმი"
 
 #: thold.php:1841 thold_templates.php:1397
 msgid "Last"
-msgstr ""
+msgstr "ბოლო"
 
 #: thold.php:1843 thold_templates.php:1399
 msgid "The Consolidation function to use for the Baseline Type value calculation."
@@ -2622,7 +2622,7 @@ msgstr ""
 
 #: thold.php:1878 thold_templates.php:1434
 msgid "Data Manipulation"
-msgstr ""
+msgstr "მანიპულაცია მონაცემებით"
 
 #: thold.php:1882 thold_templates.php:1438
 msgid "Data Type"
@@ -2687,7 +2687,7 @@ msgstr ""
 
 #: thold.php:1950 thold_templates.php:1503
 msgid "Notification Settings"
-msgstr ""
+msgstr "გაფრთხილებების მორგება"
 
 #: thold.php:1955
 msgid "Alert Subject"
@@ -2784,7 +2784,7 @@ msgstr ""
 #: thold.php:2062 thold.php:2081 thold_templates.php:1620
 #: thold_templates.php:1634
 msgid "Medium"
-msgstr ""
+msgstr "საშუალო"
 
 #: thold.php:2074 thold_templates.php:1629
 msgid "SNMP Notification - Warning Event Severity"
@@ -2796,7 +2796,7 @@ msgstr ""
 
 #: thold.php:2095 thold_templates.php:1645
 msgid "Notify accounts"
-msgstr ""
+msgstr "გაფრთხილება ანგარიშებისთვის"
 
 #: thold.php:2097
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
@@ -2824,7 +2824,7 @@ msgstr ""
 
 #: thold.php:2154 thold_templates.php:1705
 msgid "Priority/Level"
-msgstr ""
+msgstr "პრიორიტეტი/დონე"
 
 #: thold.php:2155 thold_templates.php:1706
 msgid "This is the Priority Level that will be logged into your syslog messages."
@@ -2832,7 +2832,7 @@ msgstr ""
 
 #: thold.php:2162 thold_templates.php:1713
 msgid "Facility"
-msgstr ""
+msgstr "ობიექტი"
 
 #: thold.php:2163 thold_templates.php:1714
 msgid "This is the Facility that will be used for this Threshold."
@@ -2904,27 +2904,27 @@ msgstr ""
 
 #: thold_functions.php:144
 msgid "Log"
-msgstr ""
+msgstr "ჟურნალი"
 
 #: thold_functions.php:268
 msgid "Time:"
-msgstr ""
+msgstr "დრო:"
 
 #: thold_functions.php:269
 msgid "User:"
-msgstr ""
+msgstr "მომხმარებელი:"
 
 #: thold_functions.php:270
 msgid "System:"
-msgstr ""
+msgstr "სისტემა:"
 
 #: thold_functions.php:271
 msgid "Swaps:"
-msgstr ""
+msgstr "გაცვლები:"
 
 #: thold_functions.php:272
 msgid "Pages:"
-msgstr ""
+msgstr "გვერდები:"
 
 #: thold_functions.php:2348 thold_functions.php:2473 thold_functions.php:2543
 #: thold_functions.php:2704 thold_functions.php:2800 thold_functions.php:2920
@@ -3097,7 +3097,7 @@ msgstr ""
 
 #: thold_functions.php:7975 thold_functions.php:7977
 msgid "Imported"
-msgstr ""
+msgstr "შემოტანილია"
 
 #: thold_functions.php:7975 thold_functions.php:7977
 #, php-format
@@ -3106,12 +3106,12 @@ msgstr ""
 
 #: thold_functions.php:7975 thold_functions.php:7977
 msgid "Updated"
-msgstr ""
+msgstr "განახლებულია"
 
 #: thold_functions.php:7981 thold_functions.php:7983 thold_templates.php:2153
 #: thold_templates.php:2429
 msgid "Import"
-msgstr ""
+msgstr "შემოტანა"
 
 #: thold_functions.php:7981 thold_functions.php:7983
 #, php-format
@@ -3120,7 +3120,7 @@ msgstr ""
 
 #: thold_functions.php:7981 thold_functions.php:7983
 msgid "Update"
-msgstr ""
+msgstr "განახლება"
 
 #: thold_functions.php:7987
 msgid "Errors encountered while attempting to import Threshold Template data."
@@ -3152,7 +3152,7 @@ msgstr ""
 
 #: thold_graph.php:439 thold_graph.php:966
 msgid "Actions"
-msgstr ""
+msgstr "ქმედებები"
 
 #: thold_graph.php:463
 msgid "Ack Detail"
@@ -3160,11 +3160,11 @@ msgstr ""
 
 #: thold_graph.php:611
 msgid "Edit Threshold"
-msgstr ""
+msgstr "შეზღუდვის ჩასწორება"
 
 #: thold_graph.php:616
 msgid "Disable Threshold"
-msgstr ""
+msgstr "შეზღუდვის გამორთვა"
 
 #: thold_graph.php:619
 msgid "Enable Threshold"
@@ -3196,7 +3196,7 @@ msgstr ""
 
 #: thold_graph.php:665
 msgid "Date"
-msgstr ""
+msgstr "თარიღი"
 
 #: thold_graph.php:673
 msgid "Comment Not Found"
@@ -3240,7 +3240,7 @@ msgstr ""
 
 #: thold_graph.php:1008
 msgid "Uptime"
-msgstr ""
+msgstr "გაშვებულობის დრო"
 
 #: thold_graph.php:1011
 msgid "The official uptime of the Device as reported by SNMP"
@@ -3268,7 +3268,7 @@ msgstr ""
 
 #: thold_graph.php:1032
 msgid "Availability"
-msgstr ""
+msgstr "წვდომადობა"
 
 #: thold_graph.php:1035
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
@@ -3301,16 +3301,16 @@ msgstr ""
 
 #: thold_graph.php:1465
 msgid "Log Entries"
-msgstr ""
+msgstr "ჟურნალის ჩანაწერები"
 
 #: thold_graph.php:1473 thold_webapi.php:496 thold_webapi.php:644
 #: thold_webapi.php:664
 msgid "Device"
-msgstr ""
+msgstr "მოწყობილობა"
 
 #: thold_graph.php:1478
 msgid "Time"
-msgstr ""
+msgstr "დრო"
 
 #: thold_graph.php:1493
 msgid "Alert Value"
@@ -3326,7 +3326,7 @@ msgstr ""
 
 #: thold_graph.php:1662
 msgid "Entries"
-msgstr ""
+msgstr "ჩანაწერები"
 
 #: thold_templates.php:196
 msgid "You are not authorised to modify one or more of the Thresholds selected"
@@ -3367,7 +3367,7 @@ msgstr ""
 
 #: thold_templates.php:289
 msgid "Enable Template(s)"
-msgstr ""
+msgstr "შაბლონების ჩართვა"
 
 #: thold_templates.php:292
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
@@ -3399,7 +3399,7 @@ msgstr ""
 
 #: thold_templates.php:528 thold_webapi.php:747
 msgid "Create"
-msgstr ""
+msgstr "შექმნა"
 
 #: thold_templates.php:947
 msgid "The Threshold Template requested can not be found"
@@ -3585,7 +3585,7 @@ msgstr ""
 #: thold_templates.php:2065
 #, php-format
 msgid "%d Seconds"
-msgstr ""
+msgstr "%d წამი"
 
 #: thold_templates.php:2257
 msgid "DS Name"
@@ -3657,11 +3657,11 @@ msgstr ""
 
 #: thold_templates.php:2497
 msgid "NOTE:"
-msgstr ""
+msgstr "შენიშვნა:"
 
 #: thold_templates.php:2504 thold_templates.php:2511
 msgid "ERROR:"
-msgstr ""
+msgstr "შეცდომა:"
 
 #: thold_webapi.php:151
 msgid "Threshold(s) Already Exists - No Thresholds Created"
@@ -3725,7 +3725,7 @@ msgstr ""
 
 #: thold_webapi.php:332 thold_webapi.php:338
 msgid "Threshold Template"
-msgstr ""
+msgstr "შეზღუდვის შაბლონი"
 
 #: thold_webapi.php:339
 msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
@@ -3733,7 +3733,7 @@ msgstr ""
 
 #: thold_webapi.php:476
 msgid "Graph Template"
-msgstr ""
+msgstr "გრაფიკის შაბლონი"
 
 #: thold_webapi.php:477
 msgid "Select a Graph Template to use for the Graph to be created."
@@ -3777,7 +3777,7 @@ msgstr ""
 
 #: thold_webapi.php:685
 msgid "Graph"
-msgstr ""
+msgstr "გრაფიკი"
 
 #: thold_webapi.php:686
 msgid "Select the Graph for the Threshold."
