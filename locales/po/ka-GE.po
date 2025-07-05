@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-04 04:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-05 07:08+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -181,7 +181,7 @@ msgstr "აღდგენის მოვლენა"
 
 #: includes/arrays.php:138
 msgid "Event - Acknowledge"
-msgstr ""
+msgstr "მოვლენა - დადასტურება"
 
 #: includes/arrays.php:139
 msgid "Acknowledge Event"
@@ -197,7 +197,7 @@ msgstr "განგაშის ტრიგერი"
 
 #: includes/arrays.php:177
 msgid "Warn Trigger"
-msgstr ""
+msgstr "გაფრთხილების ტრიგერი"
 
 #: includes/arrays.php:182
 msgid "Alert-Warn"
@@ -372,12 +372,12 @@ msgstr "თითოეული გამოთხოვნა"
 #: includes/arrays.php:456 includes/arrays.php:457 includes/arrays.php:458
 #, php-format
 msgid "Every %d Pollings"
-msgstr ""
+msgstr "ყოველ %d გამოთხოვაში"
 
 #: includes/arrays.php:462 includes/arrays.php:481
 #, php-format
 msgid "%d Polling"
-msgstr ""
+msgstr "%d გამოთხოვა"
 
 #: includes/arrays.php:463 includes/arrays.php:464 includes/arrays.php:465
 #: includes/arrays.php:466 includes/arrays.php:467 includes/arrays.php:468
@@ -467,7 +467,7 @@ msgstr "დამოწმება"
 
 #: includes/arrays.php:529
 msgid "Suspend Notifications"
-msgstr ""
+msgstr "ცნობების შეჩერება"
 
 #: includes/arrays.php:530
 msgid "Resume Notifications"
@@ -488,7 +488,7 @@ msgstr "გათიშვა"
 
 #: includes/arrays.php:534 includes/arrays.php:543
 msgid "Reapply Suggested Names"
-msgstr ""
+msgstr "შეთავაზებული სახელების თავიდან გადატარება"
 
 #: includes/arrays.php:535
 msgid "Propagate Template"
@@ -500,7 +500,7 @@ msgstr "გატანa"
 
 #: includes/arrays.php:547
 msgid "Threshold Mail"
-msgstr ""
+msgstr "ზღვრის ელფოსტა"
 
 #: includes/arrays.php:548
 msgid "Down Host Mail"
@@ -630,7 +630,7 @@ msgstr "მოწყობილობის სტატუსი"
 
 #: includes/settings.php:98
 msgid "Thresholds - Failures"
-msgstr ""
+msgstr "ზღვრები - ჩავარდნები"
 
 #: includes/settings.php:105
 msgid "Thresholds - Normal"
@@ -642,7 +642,7 @@ msgstr ""
 
 #: includes/settings.php:118
 msgid "Recent Thresholds"
-msgstr ""
+msgstr "უახლესი ზღვრები"
 
 #: includes/settings.php:125
 msgid "Recent Device Failures"
@@ -700,7 +700,7 @@ msgstr ""
 
 #: includes/settings.php:293
 msgid "Manage Notification Lists"
-msgstr ""
+msgstr "გაფრთხილების სიების მართვა"
 
 #: includes/settings.php:294
 msgid "View Thresholds"
@@ -732,7 +732,7 @@ msgstr "გლობალური სია"
 
 #: includes/settings.php:329
 msgid "List Below"
-msgstr ""
+msgstr "სია ქვემოთ"
 
 #: includes/settings.php:330
 msgid "Global and List Below"
@@ -752,7 +752,7 @@ msgstr ""
 
 #: includes/settings.php:350
 msgid "Host Failure Count"
-msgstr ""
+msgstr "ჰოსტის ჩავარდნების რაოდენობა"
 
 #: includes/settings.php:351
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
@@ -791,7 +791,7 @@ msgstr ""
 
 #: includes/settings.php:401
 msgid "Auto Create Thresholds"
-msgstr ""
+msgstr "ზღვრების ავტომატური შექმნა"
 
 #: includes/settings.php:402
 msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
@@ -1028,7 +1028,7 @@ msgstr ""
 
 #: includes/settings.php:579
 msgid "Default Facility"
-msgstr ""
+msgstr "ნაგულისხმევი ობიექტი"
 
 #: includes/settings.php:580
 msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
@@ -1108,7 +1108,7 @@ msgstr ""
 
 #: includes/settings.php:655
 msgid "Disable Restoration Notifications"
-msgstr ""
+msgstr "აღდგების გაფრთხილებების გათიშვა"
 
 #: includes/settings.php:656
 msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
@@ -1144,7 +1144,7 @@ msgstr ""
 
 #: includes/settings.php:682
 msgid "From Email Address"
-msgstr ""
+msgstr "ელფოსტის მისამართიდან"
 
 #: includes/settings.php:683
 msgid "This is the Email address that the Threshold will appear from."
@@ -1256,7 +1256,7 @@ msgstr ""
 
 #: includes/settings.php:778
 msgid "Status Change Command"
-msgstr ""
+msgstr "სტატუსის შეცვლის ბრძანება"
 
 #: includes/settings.php:779
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
@@ -1366,7 +1366,7 @@ msgstr ""
 #: notify_lists.php:577
 #, php-format
 msgid "%s Threshold Template(s)"
-msgstr ""
+msgstr "%s ზღვრის შაბლონი"
 
 #: notify_lists.php:583
 #, php-format
@@ -1658,7 +1658,7 @@ msgstr "გაფრთხილებების სიები"
 
 #: notify_lists.php:1489 notify_lists.php:1762
 msgid "Alert Lists"
-msgstr ""
+msgstr "განგაშის სიები"
 
 #: notify_lists.php:1493 notify_lists.php:1763 thold.php:803 thold.php:1828
 #: thold_graph.php:467 thold_graph.php:1190 thold_graph.php:1483
@@ -1698,7 +1698,7 @@ msgstr "აირჩიეთ მომხმარებლები"
 #: notify_lists.php:1541 notify_lists.php:1568 notify_lists.php:1785
 #: notify_lists.php:1812
 msgid "Specific Emails"
-msgstr ""
+msgstr "მითითებული ელფოსტები"
 
 #: notify_lists.php:1546 notify_lists.php:1573 notify_lists.php:1790
 #: notify_lists.php:1817
@@ -1849,7 +1849,7 @@ msgstr ""
 
 #: notify_queue.php:432
 msgid "Object ID"
-msgstr ""
+msgstr "ობიექტის ID"
 
 #: notify_queue.php:435
 msgid "The Object ID defined by the caller.  Generally its unique 'id'."
@@ -2047,7 +2047,7 @@ msgstr ""
 
 #: setup.php:1303 setup.php:1466
 msgid "Add Threshold Template"
-msgstr ""
+msgstr "ზღვრის შაბლონის დამატება"
 
 #: setup.php:1309 setup.php:1472
 msgid "Add"
@@ -2132,7 +2132,7 @@ msgstr ""
 
 #: thold.php:429 thold_functions.php:7472
 msgid "Acknowledge Threshold(s)"
-msgstr ""
+msgstr "ზღვრების დადასტურება"
 
 #: thold.php:432
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2309,7 +2309,7 @@ msgstr "ALo:"
 
 #: thold.php:1367
 msgid "BL Up:"
-msgstr ""
+msgstr "BL Up:"
 
 #: thold.php:1369
 msgid "BL Down:"
@@ -2353,7 +2353,7 @@ msgstr ""
 
 #: thold.php:1568 thold_templates.php:1126
 msgid "Template Name"
-msgstr "შაბლონის სახელი"
+msgstr "საბლონის სახელი"
 
 #: thold.php:1571
 msgid "Name of the Threshold Template the Threshold was created from."
@@ -2429,7 +2429,7 @@ msgstr ""
 
 #: thold.php:1649 thold_templates.php:1205
 msgid "Disable Restoration Email"
-msgstr ""
+msgstr "აღდგენის ელფოსტის გამორთვა"
 
 #: thold.php:1650 thold_templates.php:1206
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
@@ -2495,7 +2495,7 @@ msgstr ""
 #: thold_templates.php:1263 thold_templates.php:1291 thold_templates.php:1319
 #: thold_templates.php:1356
 msgid "Low Threshold"
-msgstr ""
+msgstr "ქვედა ზღვარი"
 
 #: thold.php:1711 thold.php:1767 thold_templates.php:1323
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
@@ -2603,7 +2603,7 @@ msgstr ""
 
 #: thold.php:1862 thold_templates.php:1418
 msgid "Deviation DOWN"
-msgstr ""
+msgstr "გადახრა ქვემოთ"
 
 #: thold.php:1866
 #, php-format
@@ -2613,7 +2613,7 @@ msgstr ""
 #: thold.php:1870 thold_templates.php:1327 thold_templates.php:1364
 #: thold_templates.php:1426
 msgid "Trigger Count"
-msgstr ""
+msgstr "ტრიგერების რაოდენობა"
 
 #: thold.php:1874
 #, php-format
@@ -2650,7 +2650,7 @@ msgstr ""
 
 #: thold.php:1907 thold_templates.php:1479
 msgid "Show Units"
-msgstr ""
+msgstr "ერთეულების ჩვენება"
 
 #: thold.php:1910 thold_templates.php:1482
 msgid "Display units for very large or small numbers."
@@ -2658,7 +2658,7 @@ msgstr ""
 
 #: thold.php:1914 thold_templates.php:1486
 msgid "Force Units Suffix"
-msgstr ""
+msgstr "ნაძალადევი ერთეულის სუფიქსი"
 
 #: thold.php:1919 thold_templates.php:1491
 msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
@@ -2767,7 +2767,7 @@ msgstr ""
 
 #: thold.php:2045 thold_templates.php:1605
 msgid "SNMP Event Description"
-msgstr ""
+msgstr "SNMP მოვლენის აღწერა"
 
 #: thold.php:2046 thold_templates.php:1606
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
@@ -2852,7 +2852,7 @@ msgstr ""
 
 #: thold.php:2197 thold_templates.php:1748
 msgid "Low Trigger Command"
-msgstr ""
+msgstr "დაბალი ტრიგერის ბრძანება"
 
 #: thold.php:2198 thold_templates.php:1749
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
@@ -2892,7 +2892,7 @@ msgstr "მონიშნული მომხმარებლები"
 
 #: thold.php:2525
 msgid "All Users Selected"
-msgstr ""
+msgstr "ყველა მონიშნული მომხმარებელი"
 
 #: thold_functions.php:82
 msgid "< 1 Minute"
@@ -3005,7 +3005,7 @@ msgstr ""
 #: thold_functions.php:5740 thold_functions.php:6319
 #, php-format
 msgid "Created Threshold: %s"
-msgstr ""
+msgstr "შეიქმნა ზღვარი: %s"
 
 #: thold_functions.php:5830 thold_functions.php:5886
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
@@ -3451,7 +3451,7 @@ msgstr ""
 
 #: thold_templates.php:1336 thold_templates.php:1372
 msgid "Time Period Length"
-msgstr ""
+msgstr "დროის შუალედის სიგრძე"
 
 #: thold_templates.php:1368
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
@@ -3495,7 +3495,7 @@ msgstr ""
 
 #: thold_templates.php:1508
 msgid "Alert Email Subject"
-msgstr ""
+msgstr "განგაშის ელფოსტის თემა"
 
 #: thold_templates.php:1517
 msgid "Alert Email Body"
@@ -3637,7 +3637,7 @@ msgstr ""
 
 #: thold_templates.php:2451 thold_templates.php:2478
 msgid "No file uploaded."
-msgstr ""
+msgstr "ფაილი არ ატვირთულა."
 
 #: thold_templates.php:2454
 msgid "Temporary folder missing."
@@ -3653,7 +3653,7 @@ msgstr ""
 
 #: thold_templates.php:2471
 msgid "Invalid file extension."
-msgstr ""
+msgstr "არასწორი ფაილის გაფართოება."
 
 #: thold_templates.php:2497
 msgid "NOTE:"
