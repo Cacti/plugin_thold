@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-05 07:08+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-06 07:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -115,7 +115,7 @@ msgstr "მონიტორინგის გარეშე"
 
 #: includes/arrays.php:90
 msgid "Notify - Alert"
-msgstr ""
+msgstr "შეტყობინება - განგაში"
 
 #: includes/arrays.php:91 includes/arrays.php:167 includes/arrays.php:195
 #: includes/arrays.php:246
@@ -124,7 +124,7 @@ msgstr "განგაში"
 
 #: includes/arrays.php:96
 msgid "Notify - Alert2Warning"
-msgstr ""
+msgstr "გაფრთხილება - Alert2Warning"
 
 #: includes/arrays.php:97
 msgid "Alert2Warn"
@@ -132,7 +132,7 @@ msgstr "ყურადღება"
 
 #: includes/arrays.php:102
 msgid "Notify - Warning"
-msgstr ""
+msgstr "ცნობა - გაფრთხილება"
 
 #: includes/arrays.php:103 includes/arrays.php:162 includes/arrays.php:203
 #: includes/arrays.php:249
@@ -173,7 +173,7 @@ msgstr "გაფრთხილების მოვლენა"
 
 #: includes/arrays.php:132
 msgid "Event - Restoral"
-msgstr ""
+msgstr "მოვლენა - აღდგენის"
 
 #: includes/arrays.php:133 thold_graph.php:1541
 msgid "Restoral Event"
@@ -254,7 +254,7 @@ msgstr "ყოველ წუთს"
 #: includes/settings.php:497
 #, php-format
 msgid "Every %d Minutes"
-msgstr ""
+msgstr "ყოველ %d წუთში"
 
 #: includes/arrays.php:302 includes/arrays.php:383
 msgid "Every Hour"
@@ -267,7 +267,7 @@ msgstr "ყოველ საათში"
 #: includes/settings.php:499
 #, php-format
 msgid "Every %d Hours"
-msgstr ""
+msgstr "ყოველ %d საათში"
 
 #: includes/arrays.php:309 includes/arrays.php:390
 msgid "Every Day"
@@ -276,7 +276,7 @@ msgstr "ყოველდღე"
 #: includes/arrays.php:310 includes/arrays.php:391
 #, php-format
 msgid "Every %d Days"
-msgstr ""
+msgstr "ყოველ %d დღეში"
 
 #: includes/arrays.php:311 includes/arrays.php:392
 msgid "Every Week"
@@ -285,7 +285,7 @@ msgstr "ყოველკვირა"
 #: includes/arrays.php:312 includes/arrays.php:393
 #, php-format
 msgid "Every %d Weeks"
-msgstr ""
+msgstr "ყოველ %dკვირაში"
 
 #: includes/arrays.php:313 includes/arrays.php:394
 msgid "Every Month"
@@ -395,7 +395,7 @@ msgstr "%d გამოთხოვა"
 
 #: includes/arrays.php:503
 msgid "High / Low"
-msgstr ""
+msgstr "მაღალი / დაბალი"
 
 #: includes/arrays.php:504
 msgid "Baseline Deviation"
@@ -504,11 +504,11 @@ msgstr "ზღვრის ელფოსტა"
 
 #: includes/arrays.php:548
 msgid "Down Host Mail"
-msgstr ""
+msgstr "გამორთული ჰოსტის ელფოსტა"
 
 #: includes/arrays.php:549
 msgid "Up Host Mail"
-msgstr ""
+msgstr "ჰოსტის ჩართულობის ფოსტა"
 
 #: includes/arrays.php:550
 msgid "Threshold Cmd"
@@ -544,7 +544,7 @@ msgstr "%d ციფრი"
 #: includes/arrays.php:597
 #, php-format
 msgid "> %d Devices"
-msgstr ""
+msgstr "> %d მოწყობილობა"
 
 #: includes/arrays.php:601
 #, php-format
@@ -656,7 +656,7 @@ msgstr "ზღვრის შაბლონები"
 
 #: includes/settings.php:167
 msgid "Threshold Template Import"
-msgstr ""
+msgstr "ზღვრის შაბლონის შემოტანა"
 
 #: includes/settings.php:174 includes/settings.php:188
 #: includes/settings.php:195 includes/settings.php:221 notify_lists.php:1997
@@ -760,7 +760,7 @@ msgstr ""
 
 #: includes/settings.php:356
 msgid "Use Cacti Setting"
-msgstr ""
+msgstr "Cacti-ის პარამეტრის გამოყენება"
 
 #: includes/settings.php:357
 #, php-format
@@ -783,7 +783,7 @@ msgstr "ზოგადი"
 
 #: includes/settings.php:395
 msgid "Disable All Thresholds"
-msgstr ""
+msgstr "ყველა ზღვრის გამორთვა"
 
 #: includes/settings.php:396
 msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
@@ -820,7 +820,7 @@ msgstr "ნებისმიერი"
 
 #: includes/settings.php:418 thold.php:712 thold_graph.php:215
 msgid "Breached or Triggered"
-msgstr ""
+msgstr "დარღვეულია თუ დატრიგერებული"
 
 #: includes/settings.php:419 notify_lists.php:1395 thold.php:713
 #: thold_graph.php:216
@@ -842,7 +842,7 @@ msgstr "ჩართულია"
 
 #: includes/settings.php:427
 msgid "Empty ifHighSpeed Default"
-msgstr ""
+msgstr "ცარიელი ifHighSpeed ნაგულისხმევი"
 
 #: includes/settings.php:428
 msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
@@ -862,7 +862,7 @@ msgstr ""
 
 #: includes/settings.php:445
 msgid "Threshold Notification Templated"
-msgstr ""
+msgstr "ზღვრის გაფრთხილება დაშაბლონებულია"
 
 #: includes/settings.php:446
 msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
@@ -976,7 +976,7 @@ msgstr ""
 
 #: includes/settings.php:538
 msgid "Log Threshold Changes"
-msgstr ""
+msgstr "ჟურნალის ზღვრის ცვლილებები"
 
 #: includes/settings.php:539
 msgid "Enable logging of all Threshold changes to the Cacti Log."
@@ -992,7 +992,7 @@ msgstr ""
 
 #: includes/settings.php:550
 msgid "Alert Log Retention"
-msgstr ""
+msgstr "განგაშის ჟურნალის შენარჩუნება"
 
 #: includes/settings.php:551
 msgid "Keep Threshold Logs for this number of days."
@@ -1048,7 +1048,7 @@ msgstr ""
 
 #: includes/settings.php:595
 msgid "Default Trigger Count"
-msgstr ""
+msgstr "ნაგულისხმევი ტრიგერების რაოდენობა"
 
 #: includes/settings.php:596
 msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
@@ -1084,11 +1084,11 @@ msgstr ""
 
 #: includes/settings.php:632
 msgid "Baseline Deviation Percentage"
-msgstr ""
+msgstr "საბაზისო ხაზიდან აცდენის პროცენტულობა"
 
 #: includes/settings.php:640
 msgid "SNMP Notification Options"
-msgstr ""
+msgstr "SNMP გაფრთხილების პარამეტრები"
 
 #: includes/settings.php:644
 msgid "SNMP Notifications"
@@ -1160,7 +1160,7 @@ msgstr ""
 
 #: includes/settings.php:696
 msgid "Device Notification Options"
-msgstr ""
+msgstr "მოწყობილობის გაფრთხილების მორგება"
 
 #: includes/settings.php:700
 msgid "Enable Notifications"
@@ -1172,7 +1172,7 @@ msgstr ""
 
 #: includes/settings.php:706
 msgid "Notification Single Email"
-msgstr ""
+msgstr "შეტყობინება ერთი ელფოსტით"
 
 #: includes/settings.php:707
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
@@ -1268,7 +1268,7 @@ msgstr ""
 
 #: includes/settings.php:791
 msgid "Threshold Alert Message"
-msgstr ""
+msgstr "ზღვრის განგაშის შეტყობინება"
 
 #: includes/settings.php:792
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
@@ -1292,7 +1292,7 @@ msgstr ""
 
 #: includes/settings.php:809
 msgid "Threshold Restoral Message"
-msgstr ""
+msgstr "ზღვრის აღდგენის შეტყობინება"
 
 #: includes/settings.php:810
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
@@ -1361,7 +1361,7 @@ msgstr ""
 
 #: notify_lists.php:532
 msgid "Duplicate Notification List(s)"
-msgstr ""
+msgstr "გაფრთხილების სიების დუბლირება"
 
 #: notify_lists.php:577
 #, php-format
@@ -1403,7 +1403,7 @@ msgstr "განგაში წევრობაზე:"
 
 #: notify_lists.php:590 notify_lists.php:660 notify_lists.php:731
 msgid "Associate Notification List(s)"
-msgstr ""
+msgstr "გაფრთხილების სიების მინიჭება"
 
 #: notify_lists.php:594
 #, php-format
@@ -1479,7 +1479,7 @@ msgstr "[ახალი]"
 
 #: notify_lists.php:836
 msgid "List General Settings"
-msgstr ""
+msgstr "ზოგადი პარამეტრების სია"
 
 #: notify_lists.php:841 notify_lists.php:1477 notify_lists.php:1759
 #: setup.php:1251 thold.php:784 thold_graph.php:444 thold_templates.php:2221
@@ -1621,7 +1621,7 @@ msgstr "ჰოსტის სახელი"
 
 #: notify_lists.php:1237
 msgid "Current List Only"
-msgstr ""
+msgstr "მხოლოდ მიმდინარე სია"
 
 #: notify_lists.php:1239
 msgid "Current and Global List(s)"
@@ -1724,7 +1724,7 @@ msgstr "მხოლოდ-კითხვადი"
 
 #: notify_lists.php:1622
 msgid "No Thresholds Found"
-msgstr ""
+msgstr "ზღვრების გარეშე"
 
 #: notify_lists.php:1674
 msgid "Associated Templates"
@@ -1740,7 +1740,7 @@ msgstr "უცნობი შაბლონი"
 
 #: notify_lists.php:1848 thold_templates.php:2368
 msgid "No Threshold Templates"
-msgstr ""
+msgstr "შეზღუდვის შაბლონების გარეშე"
 
 #: notify_lists.php:2012 notify_lists.php:2092
 msgid "Lists"
@@ -1821,7 +1821,7 @@ msgstr "გაწმენდა"
 
 #: notify_queue.php:300
 msgid "Purge Notification Queue"
-msgstr ""
+msgstr "გაფრთხილებების სიის გასუფთავება"
 
 #: notify_queue.php:401
 msgid "Notifications"
@@ -1962,7 +1962,7 @@ msgstr ""
 
 #: setup.php:654
 msgid "Threshold Alert/Warning Values"
-msgstr ""
+msgstr "ზღვრის განგაშის/გაფრთხილების მნიშვნელობები"
 
 #: setup.php:707
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
@@ -2164,7 +2164,7 @@ msgstr "ფილტრების გადატარება"
 
 #: thold.php:673
 msgid "Return to Defaults"
-msgstr ""
+msgstr "დაბრუნება ნაგულისხმევზე"
 
 #: thold.php:694 thold_graph.php:187 thold_templates.php:454
 #: thold_templates.php:1144 thold_templates.php:2246
@@ -2173,11 +2173,11 @@ msgstr "მონაცემების შაბლონი"
 
 #: thold.php:717 thold_graph.php:220
 msgid "Disabled at Template"
-msgstr ""
+msgstr "გათიშულია შაბლონზე"
 
 #: thold.php:718 thold_graph.php:221
 msgid "Disabled at Threshold"
-msgstr ""
+msgstr "გამორთულია ზღვართან"
 
 #: thold.php:719 thold.php:863 thold_graph.php:222 thold_graph.php:517
 msgid "Ack Required"
@@ -2277,7 +2277,7 @@ msgstr "გრაფიკის მონაცემები"
 
 #: thold.php:1200
 msgid "Edit Threshold Template"
-msgstr ""
+msgstr "ზღვრის შაბლონის ჩასწორება"
 
 #: thold.php:1222
 msgid "Data Source Description:"
@@ -2332,12 +2332,12 @@ msgstr ""
 #: thold.php:1517 thold_templates.php:1081
 #, php-format
 msgid "Replacement Fields: %s"
-msgstr ""
+msgstr "ჩანაცვლების ველები: %s"
 
 #: thold.php:1530 thold_templates.php:1095
 #, php-format
 msgid "Data Sources: %s"
-msgstr ""
+msgstr "მონაცემთა წყარო: %s"
 
 #: thold.php:1557
 msgid "Template/Enabled Information"
@@ -2389,7 +2389,7 @@ msgstr "სახელი (ფორმატი)"
 
 #: thold.php:1611 thold_templates.php:1167
 msgid "Warning HRULE Color"
-msgstr ""
+msgstr "ფრთხილად HRULE ფერი"
 
 #: thold.php:1612 thold_templates.php:1168
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
@@ -2679,7 +2679,7 @@ msgstr ""
 
 #: thold.php:1942 thold_templates.php:1471
 msgid "Upper Data Source"
-msgstr ""
+msgstr "ზედა მონაცემების წყარო"
 
 #: thold.php:1945
 msgid "Upper data source to calculate the total value."
@@ -2731,7 +2731,7 @@ msgstr ""
 
 #: thold.php:2000
 msgid "Restoral Email Body"
-msgstr ""
+msgstr "აღდგენის ელფოსტის სხეული"
 
 #: thold.php:2005 thold_templates.php:1558
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
@@ -2739,7 +2739,7 @@ msgstr ""
 
 #: thold.php:2009 thold_templates.php:1569
 msgid "Warning Notification List"
-msgstr ""
+msgstr "გაფრთხილების შეტყობინების სია"
 
 #: thold.php:2011 thold_templates.php:1571
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
@@ -2747,7 +2747,7 @@ msgstr ""
 
 #: thold.php:2017 thold_templates.php:1577
 msgid "Alert Notification List"
-msgstr ""
+msgstr "განგაშის გაფრთხილების სია"
 
 #: thold.php:2019 thold_templates.php:1579
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
@@ -2860,7 +2860,7 @@ msgstr ""
 
 #: thold.php:2205 thold_templates.php:1756
 msgid "Norm Trigger Command"
-msgstr ""
+msgstr "ნორმალურობის ტრიგერის ბრძანება"
 
 #: thold.php:2206 thold_templates.php:1757
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
@@ -2958,7 +2958,7 @@ msgstr ""
 #: thold_functions.php:5041
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr ""
+msgstr "აბს მნ [მინიშნ:%s]"
 
 #: thold_functions.php:5045
 msgid "%%% Dev [AOT:%s]"
@@ -3180,7 +3180,7 @@ msgstr "გრაფიკის ნახვა"
 
 #: thold_graph.php:629
 msgid "View Threshold History"
-msgstr ""
+msgstr "ზღვრის ისტორიის ნახვა"
 
 #: thold_graph.php:636
 msgid "Suspend Notifications until the Threshold clears"
@@ -3200,7 +3200,7 @@ msgstr "თარიღი"
 
 #: thold_graph.php:673
 msgid "Comment Not Found"
-msgstr ""
+msgstr "კომენტარი აღმოჩენილი არაა"
 
 #: thold_graph.php:682
 msgid "Ack History"
@@ -3439,7 +3439,7 @@ msgstr ""
 
 #: thold_templates.php:1271 thold_templates.php:1299
 msgid "Min Trigger Duration"
-msgstr ""
+msgstr "მინ. ტრიგერის ხანგრძლივობა"
 
 #: thold_templates.php:1274 thold_templates.php:1302
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
@@ -3580,7 +3580,7 @@ msgstr ""
 #: thold_templates.php:2063
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr ""
+msgstr "%d წამი (საშ)"
 
 #: thold_templates.php:2065
 #, php-format
@@ -3633,7 +3633,7 @@ msgstr ""
 
 #: thold_templates.php:2448
 msgid "Incomplete file transfer."
-msgstr ""
+msgstr "დაუსრულებელი ფაილის გადაცემა."
 
 #: thold_templates.php:2451 thold_templates.php:2478
 msgid "No file uploaded."
@@ -3641,7 +3641,7 @@ msgstr "ფაილი არ ატვირთულა."
 
 #: thold_templates.php:2454
 msgid "Temporary folder missing."
-msgstr ""
+msgstr "დროებითი საქაღალდე აკლია."
 
 #: thold_templates.php:2457
 msgid "Failed to write file to disk"
@@ -3705,7 +3705,7 @@ msgstr ""
 
 #: thold_webapi.php:316
 msgid "Threshold Creation Criteria"
-msgstr ""
+msgstr "ზღვრის შექმნის პირობა"
 
 #: thold_webapi.php:321
 msgid "Create Type"
@@ -3757,7 +3757,7 @@ msgstr ""
 
 #: thold_webapi.php:547
 msgid "Data Query Item"
-msgstr ""
+msgstr "მონაცემის მოთხოვნის ელემენტი"
 
 #: thold_webapi.php:548
 msgid "Select the applicable row from the Data Query for the Graph and Threshold."
@@ -3810,4 +3810,4 @@ msgstr "არჩეული გრაფიკი"
 #: thold_webapi.php:963 thold_webapi.php:976
 #, php-format
 msgid "Created graph: %s"
-msgstr ""
+msgstr "შეიქმნა გრაფიკი: %s"
