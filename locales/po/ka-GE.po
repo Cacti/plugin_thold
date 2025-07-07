@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-06 07:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-07 08:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -906,7 +906,7 @@ msgstr "შეზღუდვის დემონი"
 
 #: includes/settings.php:478
 msgid "Enable Threshold Daemon"
-msgstr ""
+msgstr "ზღვრის დემონის ჩართვა"
 
 #: includes/settings.php:479
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
@@ -1280,7 +1280,7 @@ msgstr ""
 
 #: includes/settings.php:800
 msgid "Threshold Warning Message"
-msgstr ""
+msgstr "ზღვრის გაფრთხილების შეტყობინება"
 
 #: includes/settings.php:801
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
@@ -1805,7 +1805,7 @@ msgstr "დროებით შეჩერება"
 
 #: notify_queue.php:298
 msgid "Suspend Notification Processing"
-msgstr ""
+msgstr "შეტყობინებების დამუშავების შეჩერება"
 
 #: notify_queue.php:299
 msgid "Resume"
@@ -1813,7 +1813,7 @@ msgstr "განგრძობა"
 
 #: notify_queue.php:299
 msgid "Resume Notification Processing"
-msgstr ""
+msgstr "გაფრთხილებების დამუშავების გაგრძელება"
 
 #: notify_queue.php:300
 msgid "Purge"
@@ -2397,7 +2397,7 @@ msgstr ""
 
 #: thold.php:1619 thold_templates.php:1175
 msgid "Alert HRULE Color"
-msgstr ""
+msgstr "განგაშის HRULE ფერი"
 
 #: thold.php:1620 thold_templates.php:1176
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
@@ -3065,7 +3065,7 @@ msgstr ""
 
 #: thold_functions.php:5948
 msgid "Unknown Threshold Type!"
-msgstr ""
+msgstr "უცნობი ზღვრის ტიპი!"
 
 #: thold_functions.php:6140
 msgid "No Thresholds Templates associated with the Device's Template."
