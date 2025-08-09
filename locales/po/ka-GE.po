@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-07-07 08:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-08-09 09:57+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -141,7 +141,7 @@ msgstr "გაფრთხილება"
 
 #: includes/arrays.php:108
 msgid "Notify - Re-Trigger"
-msgstr ""
+msgstr "გაფრთხილება - თავიდან ტრიგერი"
 
 #: includes/arrays.php:109 includes/arrays.php:157
 msgid "Re-Trigger"
@@ -1264,7 +1264,7 @@ msgstr ""
 
 #: includes/settings.php:787
 msgid "Alert/Warning Message Defaults"
-msgstr ""
+msgstr "განგაშის/გაფრთხილების შეტყობინების ნაგულისხმევი პარამეტრები"
 
 #: includes/settings.php:791
 msgid "Threshold Alert Message"
@@ -2345,7 +2345,7 @@ msgstr "შაბლონის/ჩართულობის ინფორ�
 
 #: thold.php:1561
 msgid "Template Propagation Enabled"
-msgstr ""
+msgstr "შაბლონის გავრცელება ჩართულია"
 
 #: thold.php:1564
 msgid "Whether or not these settings will be propagated from the Threshold template."
@@ -2953,7 +2953,7 @@ msgstr ""
 #: thold_functions.php:5037
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr ""
+msgstr "%% მოწყ [TIP:%s]"
 
 #: thold_functions.php:5041
 #, php-format
@@ -2967,7 +2967,7 @@ msgstr ""
 #: thold_functions.php:5049
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr ""
+msgstr "აბს. მნ. [AOT:%s]"
 
 #: thold_functions.php:5271
 msgid "The Device ID was not set while trying to create Graph and Threshold"
