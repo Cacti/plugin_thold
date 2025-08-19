@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-08-09 09:57+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-08-19 17:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -854,7 +854,7 @@ msgstr "გაფრთხილებების მორგება"
 
 #: includes/settings.php:439
 msgid "Disable Legacy Notifications"
-msgstr ""
+msgstr "მოძველებული გაფრთხილებების გამორთვა"
 
 #: includes/settings.php:440
 msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
@@ -1345,7 +1345,7 @@ msgstr "გაგრძელება"
 
 #: notify_lists.php:520
 msgid "Delete Notification List(s)"
-msgstr ""
+msgstr "გაფრთხილების სიების წაშლა"
 
 #: notify_lists.php:524
 msgid "Click 'Continue' to Duplicate the following Notification List(s)."
@@ -2068,7 +2068,7 @@ msgstr ""
 
 #: setup.php:1359 setup.php:1524
 msgid "Remove Threshold Template"
-msgstr ""
+msgstr "ზღვრის შაბლონის წაშლა"
 
 #: setup.php:1472
 msgid "Add Threshold Template to Device Template"
@@ -2844,7 +2844,7 @@ msgstr ""
 
 #: thold.php:2189 thold_templates.php:1740
 msgid "High Trigger Command"
-msgstr ""
+msgstr "მაღალი ტრიგერის ბრძანება"
 
 #: thold.php:2190 thold_templates.php:1741
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
