@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-03-18 09:57+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-09-18 16:07+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -744,7 +744,7 @@ msgstr "Vilken anmälningslista ska aviseras om Device Up / Down-händelser?"
 
 #: includes/settings.php:340 notify_queue.php:427
 msgid "Notification List"
-msgstr "Notifieringslista"
+msgstr "Aviseringslista"
 
 #: includes/settings.php:341
 msgid "Additional Email address, separated by commas for multiple Emails."
@@ -1877,7 +1877,7 @@ msgstr "Resulterade detta meddelande i ett fel?  Håll muspekaren över felkolum
 
 #: notify_queue.php:456
 msgid "Run Time"
-msgstr "Tid"
+msgstr "Körtid"
 
 #: notify_queue.php:459
 msgid "The time in seconds it took to process the event."
@@ -2198,7 +2198,7 @@ msgstr "DSName"
 
 #: thold.php:814 thold_graph.php:473
 msgid "Current"
-msgstr "Nuvarande"
+msgstr "Aktuell"
 
 #: thold.php:817 thold_graph.php:476
 msgid "The last measured value for the Data Source"
