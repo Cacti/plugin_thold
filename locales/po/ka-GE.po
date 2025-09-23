@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-08-19 17:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-09-23 05:09+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -696,7 +696,7 @@ msgstr "ზღვრების მორგება"
 
 #: includes/settings.php:292
 msgid "Configure Threshold Templates"
-msgstr ""
+msgstr "ზღვრის შაბლონების მორგება"
 
 #: includes/settings.php:293
 msgid "Manage Notification Lists"
@@ -1200,7 +1200,7 @@ msgstr ""
 
 #: includes/settings.php:737
 msgid "Global Notification Email"
-msgstr ""
+msgstr "გლობალური გაფრთხილების ელფოსტა"
 
 #: includes/settings.php:738
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
@@ -1357,7 +1357,7 @@ msgstr ""
 
 #: notify_lists.php:527
 msgid "New Notification List"
-msgstr ""
+msgstr "ახალი გაფრთხილებების სია"
 
 #: notify_lists.php:532
 msgid "Duplicate Notification List(s)"
@@ -1384,7 +1384,7 @@ msgstr "ცვლილებების გარეშე"
 #: notify_lists.php:656 notify_lists.php:725 notify_lists.php:726
 #: notify_lists.php:727
 msgid "Notification List Only"
-msgstr ""
+msgstr "მხოლოდ გაფრთხილებების სია"
 
 #: notify_lists.php:585 notify_lists.php:586 notify_lists.php:655
 #: notify_lists.php:656 notify_lists.php:726 notify_lists.php:727
@@ -1505,7 +1505,7 @@ msgstr ""
 
 #: notify_lists.php:864
 msgid "To Email Addresses"
-msgstr ""
+msgstr "ელფოსტის მისამართებზე"
 
 #: notify_lists.php:865
 msgid "Enter a comma separated list of Email addresses for this Notification List."
