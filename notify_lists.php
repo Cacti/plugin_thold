@@ -81,8 +81,8 @@ function form_save() {
 		$save['name']        = form_input_validate(get_nfilter_request_var('name'), 'name', '', false, 3);
 		$save['enabled']     = isset_request_var('enabled') ? 'on':'';
 		$save['description'] = form_input_validate(get_nfilter_request_var('description'), 'description', '', false, 3);
-		$save['emails']      = form_input_validate(get_nfilter_request_var('emails'), 'emails', '', true, 3);
-		$save['bcc_emails']  = form_input_validate(get_nfilter_request_var('bcc_emails'), 'bcc_emails', '', true, 3);
+		$save['emails']      = preg_replace('/\s+/', '', form_input_validate(get_nfilter_request_var('emails'), 'emails', '', true, 3));
+		$save['bcc_emails']  = preg_replace('/\s+/', '', form_input_validate(get_nfilter_request_var('bcc_emails'), 'bcc_emails', '', true, 3));
 		$save['format_file'] = form_input_validate(get_nfilter_request_var('format_file'), 'format_file', '', true, 3);
 
 		$bccs   = explode(',', $save['bcc_emails']);

@@ -5577,10 +5577,10 @@ function save_thold() {
 	if ($thold_template_id == 0) {
 		$save['thold_enabled'] = 'on';
 	} else {
-		$save['thold_enabled'] = isset_request_var('thold_enabled') && get_request_var('thold_enabled') == 'on' ? 'on':'off';
+		$save['thold_enabled'] = isset_request_var('thold_enabled') && get_nfilter_request_var('thold_enabled') == 'on' ? 'on':'off';
 	}
 
-	$save['thold_per_enabled'] = isset_request_var('thold_per_enabled') && get_request_var('thold_per_enabled') == 'on' ? 'on':'';
+	$save['thold_per_enabled'] = isset_request_var('thold_per_enabled') && get_nfilter_request_var('thold_per_enabled') == 'on' ? 'on':'';
 
 	if ($thold_template_id > 0) {
 		$save['thold_template_id'] = $thold_template_id;
@@ -7782,15 +7782,15 @@ function get_thold_notification_emails($id = '', $recipient = 'to') {
 
 	if (!empty($id)) {
 		if ($recipient == 'to') {
-			return trim(db_fetch_cell_prepared('SELECT emails
+			return preg_replace('/\s+/', '', trim(db_fetch_cell_prepared('SELECT emails
 				FROM plugin_notification_lists
 				WHERE id = ?',
-				array($id)));
+				array($id))));
 		} else {
-			return trim(db_fetch_cell_prepared('SELECT bcc_emails
+			return preg_replace('/\s+/', '', trim(db_fetch_cell_prepared('SELECT bcc_emails
 				FROM plugin_notification_lists
 				WHERE id = ?',
-				array($id)));
+				array($id))));
 		}
 	} else {
 		return '';
