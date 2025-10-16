@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-09-18 16:07+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-16 18:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
-msgstr "Ingen gräns"
+msgstr "Obegränsad"
 
 #: includes/arrays.php:27 includes/arrays.php:338 includes/arrays.php:370
 #: includes/arrays.php:415 includes/arrays.php:436
@@ -107,7 +107,7 @@ msgstr "Okänd"
 #: notify_lists.php:1398 notify_lists.php:1616 thold.php:716
 #: thold_graph.php:219 thold_graph.php:821 thold_graph.php:1170
 msgid "Disabled"
-msgstr "Inaktiverad"
+msgstr "Inaktiverat"
 
 #: includes/arrays.php:82 thold_graph.php:1101 thold_graph.php:1172
 msgid "Not Monitored"
@@ -574,7 +574,7 @@ msgstr "SNMP är inte i bruk"
 #: thold_graph.php:1107 thold_graph.php:1108 thold_graph.php:1542
 #: thold_graph.php:1543
 msgid "N/A"
-msgstr "N/A"
+msgstr "Inte tillgänglig"
 
 #: includes/polling.php:483
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -816,7 +816,7 @@ msgstr "Standard tröskelhanteringsfiltrets status."
 #: includes/settings.php:417 notify_lists.php:999 notify_lists.php:1017
 #: notify_lists.php:1363 notify_lists.php:1381 thold.php:698
 msgid "Any"
-msgstr "Vilken som helst"
+msgstr "Alla"
 
 #: includes/settings.php:418 thold.php:712 thold_graph.php:215
 msgid "Breached or Triggered"
@@ -838,7 +838,7 @@ msgstr "Utlöst"
 #: thold_graph.php:454 thold_graph.php:1169 thold_templates.php:1160
 #: thold_templates.php:1698 thold_templates.php:2231
 msgid "Enabled"
-msgstr "Aktiverad"
+msgstr "Aktiverat"
 
 #: includes/settings.php:427
 msgid "Empty ifHighSpeed Default"
@@ -1312,11 +1312,11 @@ msgstr "Duplicera"
 
 #: notify_lists.php:37
 msgid "Associate"
-msgstr "Koppla"
+msgstr "Associera"
 
 #: notify_lists.php:38
 msgid "Disassociate"
-msgstr "Icke-associera"
+msgstr "Ta bort associering"
 
 #: notify_lists.php:44 notify_lists.php:1033 notify_lists.php:1168
 #: notify_lists.php:2103 thold_graph.php:958 thold_graph.php:1210
@@ -1585,12 +1585,12 @@ msgstr "Ange / Uppdatera filter"
 #: notify_lists.php:2030 notify_queue.php:297 thold.php:673 thold_graph.php:161
 #: thold_graph.php:1182 thold_graph.php:1598 thold_templates.php:2152
 msgid "Clear"
-msgstr "Rensa"
+msgstr "Töm"
 
 #: notify_lists.php:1056 notify_lists.php:1425 notify_lists.php:1711
 #: notify_lists.php:2030 notify_queue.php:297
 msgid "Clear Filters"
-msgstr "Rensa filter"
+msgstr "Töm filter"
 
 #: notify_lists.php:1188 notify_lists.php:1481 notify_lists.php:1760
 #: thold.php:798 thold_graph.php:458 thold_graph.php:978
@@ -1857,7 +1857,7 @@ msgstr "Objektets ID som definieras av den som ringer.  I allmänhet dess unika 
 
 #: notify_queue.php:438
 msgid "Event Time"
-msgstr "Tid för evenemanget"
+msgstr "Händelsetid"
 
 #: notify_queue.php:441
 msgid "The time of the event as defined by the caller."
@@ -2405,7 +2405,7 @@ msgstr "Välj en färg för grafen HRULE för varningsgränserna. Välj 'None' f
 
 #: thold.php:1627 thold_templates.php:1183
 msgid "Graph Timespan"
-msgstr "Grafmall"
+msgstr "Diagrammets tidsintervall"
 
 #: thold.php:1630 thold_templates.php:1186
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
