@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-16 18:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-18 11:25+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -712,7 +712,7 @@ msgstr "Normal användare"
 
 #: includes/settings.php:299
 msgid "Template Editor"
-msgstr "Mall Redigerare"
+msgstr "Mallredigerare"
 
 #: includes/settings.php:300 includes/settings.php:301
 msgid "General Administration"
@@ -838,7 +838,7 @@ msgstr "Utlöst"
 #: thold_graph.php:454 thold_graph.php:1169 thold_templates.php:1160
 #: thold_templates.php:1698 thold_templates.php:2231
 msgid "Enabled"
-msgstr "Aktiverat"
+msgstr "Aktiverad"
 
 #: includes/settings.php:427
 msgid "Empty ifHighSpeed Default"
