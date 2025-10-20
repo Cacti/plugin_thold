@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-20 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-20 20:28+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -606,7 +606,7 @@ msgstr "Tröskelvärden"
 
 #: includes/settings.php:36
 msgid "(actions)"
-msgstr "Åtgärder"
+msgstr "(åtgärder)"
 
 #: includes/settings.php:43
 msgid "(edit)"
@@ -614,7 +614,7 @@ msgstr "(redigera)"
 
 #: includes/settings.php:50
 msgid "(save)"
-msgstr "Spara"
+msgstr "(spara)"
 
 #: includes/settings.php:57
 msgid "(add)"
@@ -716,7 +716,7 @@ msgstr "Mallredigerare"
 
 #: includes/settings.php:300 includes/settings.php:301
 msgid "General Administration"
-msgstr "Allmän administration u Stöd till transaktioner Jürgen MOEHRKE"
+msgstr "Allmän administration"
 
 #: includes/settings.php:318
 msgid "Device Up/Down Notification Settings"
@@ -779,7 +779,7 @@ msgstr "Varna / THOLD"
 
 #: includes/settings.php:391 notify_lists.php:43
 msgid "General"
-msgstr "Allmän"
+msgstr "Allmänt"
 
 #: includes/settings.php:395
 msgid "Disable All Thresholds"
@@ -1609,7 +1609,7 @@ msgstr "Associerade listor"
 
 #: notify_lists.php:1203 thold_graph.php:984
 msgid "Graphs"
-msgstr "Grafer"
+msgstr "Diagram"
 
 #: notify_lists.php:1208 thold_graph.php:990
 msgid "Data Sources"
