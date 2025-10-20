@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-18 11:25+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-20 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -107,7 +107,7 @@ msgstr "Okänd"
 #: notify_lists.php:1398 notify_lists.php:1616 thold.php:716
 #: thold_graph.php:219 thold_graph.php:821 thold_graph.php:1170
 msgid "Disabled"
-msgstr "Inaktiverat"
+msgstr "Inaktiverad"
 
 #: includes/arrays.php:82 thold_graph.php:1101 thold_graph.php:1172
 msgid "Not Monitored"
@@ -744,7 +744,7 @@ msgstr "Vilken anmälningslista ska aviseras om Device Up / Down-händelser?"
 
 #: includes/settings.php:340 notify_queue.php:427
 msgid "Notification List"
-msgstr "Aviseringslista"
+msgstr "Notifieringslista"
 
 #: includes/settings.php:341
 msgid "Additional Email address, separated by commas for multiple Emails."
@@ -1641,7 +1641,7 @@ msgstr "Mall"
 
 #: notify_lists.php:1390
 msgid "State"
-msgstr "Län"
+msgstr "Tillstånd"
 
 #: notify_lists.php:1394 notify_queue.php:259 notify_queue.php:274
 #: thold.php:653 thold.php:684 thold.php:711 thold.php:2531 thold_graph.php:142
@@ -2796,7 +2796,7 @@ msgstr "Allvarlighet som ska användas för varningar. (Låg påverkan -> Kritis
 
 #: thold.php:2095 thold_templates.php:1645
 msgid "Notify accounts"
-msgstr "Meddela konton"
+msgstr "Avisera konton"
 
 #: thold.php:2097
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
