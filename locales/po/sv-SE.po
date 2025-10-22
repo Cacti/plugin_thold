@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-20 20:28+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-22 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -91,7 +91,7 @@ msgstr "Fel"
 
 #: includes/arrays.php:66 thold_graph.php:834 thold_graph.php:1175
 msgid "Recovering"
-msgstr "Påväg upp"
+msgstr "Återhämtar"
 
 #: includes/arrays.php:70 thold_graph.php:837 thold_graph.php:1173
 msgid "Up"
@@ -1152,7 +1152,7 @@ msgstr "Det här är den e-postadress som tröskeln kommer att visas från."
 
 #: includes/settings.php:689
 msgid "From Name"
-msgstr "Från namn"
+msgstr "Från-namn"
 
 #: includes/settings.php:690
 msgid "This is the actual name that the Threshold will appear from."
@@ -3280,7 +3280,7 @@ msgstr "Redigera enhet"
 
 #: thold_graph.php:1065 thold_graph.php:1091
 msgid "View Graphs"
-msgstr "Se grafer"
+msgstr "Visa diagram"
 
 #: thold_graph.php:1114
 msgid "No Devices"
@@ -3617,11 +3617,11 @@ msgstr "Om du har XML-filen som innehåller Threshold Template-data som text kan
 
 #: thold_templates.php:2405
 msgid "Import Results"
-msgstr "Importera resultat"
+msgstr "Importresultat"
 
 #: thold_templates.php:2407
 msgid "Cacti has imported the following items:"
-msgstr "Cacti har importerat följande:"
+msgstr "Cacti har importerat följande objekt:"
 
 #: thold_templates.php:2417 thold_templates.php:2429
 msgid "Import Threshold Templates"
