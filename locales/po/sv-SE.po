@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-22 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-25 08:48+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -271,7 +271,7 @@ msgstr "Varje %d timme"
 
 #: includes/arrays.php:309 includes/arrays.php:390
 msgid "Every Day"
-msgstr "Varje dag"
+msgstr "Varje dygn"
 
 #: includes/arrays.php:310 includes/arrays.php:391
 #, php-format
@@ -684,7 +684,7 @@ msgstr "Mallar"
 
 #: includes/settings.php:224 thold_graph.php:1625
 msgid "Threshold"
-msgstr "Tröskel"
+msgstr "Tröskelvärde"
 
 #: includes/settings.php:276
 msgid "A template with that Data Source already exists!"
@@ -825,7 +825,7 @@ msgstr "Varna utlösare"
 #: includes/settings.php:419 notify_lists.php:1395 thold.php:713
 #: thold_graph.php:216
 msgid "Breached"
-msgstr "Intrång"
+msgstr "Uppnåddes"
 
 #: includes/settings.php:420 notify_lists.php:1396 notify_lists.php:1497
 #: thold.php:714 thold.php:847 thold_graph.php:217 thold_graph.php:506
@@ -2198,7 +2198,7 @@ msgstr "DSName"
 
 #: thold.php:814 thold_graph.php:473
 msgid "Current"
-msgstr "Aktuell"
+msgstr "Aktuellt"
 
 #: thold.php:817 thold_graph.php:476
 msgid "The last measured value for the Data Source"
@@ -2784,7 +2784,7 @@ msgstr "Allvarlighet som ska användas för varningar. (låg effekt -> kritisk p
 #: thold.php:2062 thold.php:2081 thold_templates.php:1620
 #: thold_templates.php:1634
 msgid "Medium"
-msgstr "Medium"
+msgstr "Medel"
 
 #: thold.php:2074 thold_templates.php:1629
 msgid "SNMP Notification - Warning Event Severity"
@@ -3240,7 +3240,7 @@ msgstr "Den sista gången Cacti hittade ett problem med den här enheten. Det ka
 
 #: thold_graph.php:1008
 msgid "Uptime"
-msgstr "Drifttid"
+msgstr "Upptid"
 
 #: thold_graph.php:1011
 msgid "The official uptime of the Device as reported by SNMP"
@@ -3268,7 +3268,7 @@ msgstr "Den genomsnittliga svarstiden för Cacti Tillgänglighetskontrollen"
 
 #: thold_graph.php:1032
 msgid "Availability"
-msgstr "Åtkomstbarhet"
+msgstr "Tillgänglighet"
 
 #: thold_graph.php:1035
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
