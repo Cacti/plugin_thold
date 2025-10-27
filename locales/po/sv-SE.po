@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-25 08:48+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-27 10:09+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -744,7 +744,7 @@ msgstr "Vilken anmälningslista ska aviseras om Device Up / Down-händelser?"
 
 #: includes/settings.php:340 notify_queue.php:427
 msgid "Notification List"
-msgstr "Notifieringslista"
+msgstr "Aviseringslista"
 
 #: includes/settings.php:341
 msgid "Additional Email address, separated by commas for multiple Emails."
@@ -2687,7 +2687,7 @@ msgstr "Övre datakälla för att beräkna det totala värdet."
 
 #: thold.php:1950 thold_templates.php:1503
 msgid "Notification Settings"
-msgstr "Inställningar för aviseringar"
+msgstr "Aviseringsinställningar"
 
 #: thold.php:1955
 msgid "Alert Subject"
@@ -2796,7 +2796,7 @@ msgstr "Allvarlighet som ska användas för varningar. (Låg påverkan -> Kritis
 
 #: thold.php:2095 thold_templates.php:1645
 msgid "Notify accounts"
-msgstr "Avisera konton"
+msgstr "Aviseringskonton"
 
 #: thold.php:2097
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
@@ -3176,7 +3176,7 @@ msgstr "Välj en tröskelmall"
 
 #: thold_graph.php:627
 msgid "View Graph"
-msgstr "Se diagram"
+msgstr "Visa diagram"
 
 #: thold_graph.php:629
 msgid "View Threshold History"
@@ -3535,7 +3535,7 @@ msgstr "Du kan ange här extra e-postmeddelanden för att få varningar för den
 
 #: thold_templates.php:1777
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Ange ett evigt ID för denna Thold-mall."
+msgstr "Ange ett Eternal ID för den här tröskelmallen."
 
 #: thold_templates.php:2039
 #, php-format
