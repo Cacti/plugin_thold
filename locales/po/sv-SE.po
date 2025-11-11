@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-10-27 10:09+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-11-11 04:26+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -177,7 +177,7 @@ msgstr "Händelse - Restoral"
 
 #: includes/arrays.php:133 thold_graph.php:1541
 msgid "Restoral Event"
-msgstr "Restoral Event"
+msgstr "Återställningshändelse"
 
 #: includes/arrays.php:138
 msgid "Event - Acknowledge"
@@ -193,7 +193,7 @@ msgstr "Återställ"
 
 #: includes/arrays.php:152
 msgid "Alert Trigger"
-msgstr "Alert Trigger"
+msgstr "Larmutlösare"
 
 #: includes/arrays.php:177
 msgid "Warn Trigger"
@@ -992,7 +992,7 @@ msgstr "Aktivera loggning av felsökningsmeddelanden med tröskelvärdet"
 
 #: includes/settings.php:550
 msgid "Alert Log Retention"
-msgstr "Alert Log Retention"
+msgstr "Lagring av larmloggar"
 
 #: includes/settings.php:551
 msgid "Keep Threshold Logs for this number of days."
@@ -1036,7 +1036,7 @@ msgstr "Det här är standardfaciliteten som Thold kommer att använda för att 
 
 #: includes/settings.php:586
 msgid "Alert Presets"
-msgstr "Alert Presets"
+msgstr "Larmförval"
 
 #: includes/settings.php:590
 msgid "Weekend exemptions"
@@ -1116,7 +1116,7 @@ msgstr "Om detta är markerat, kommer tröskelvärdet inte att skicka en anmäla
 
 #: includes/settings.php:660
 msgid "Emailing Options"
-msgstr "Emailing Options"
+msgstr "E-postalternativ"
 
 #: includes/settings.php:664
 msgid "Send Emails with Urgent Priority"
@@ -1658,7 +1658,7 @@ msgstr "Varningslistor"
 
 #: notify_lists.php:1489 notify_lists.php:1762
 msgid "Alert Lists"
-msgstr "Alert Lists"
+msgstr "Larmlistor"
 
 #: notify_lists.php:1493 notify_lists.php:1763 thold.php:803 thold.php:1828
 #: thold_graph.php:467 thold_graph.php:1190 thold_graph.php:1483
@@ -1779,8 +1779,8 @@ msgstr[1] "Klicka på \"Fortsätt\" för att radera alla följande notifieringar
 #: notify_queue.php:152
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Radera Notifieringslista (s)"
-msgstr[1] "Radera Notifieringslista (s)"
+msgstr[0] "Ta bort avisering"
+msgstr[1] "Ta bort aviseringar"
 
 #: notify_queue.php:237
 #, php-format
@@ -2599,7 +2599,7 @@ msgstr "Avvikelse UP"
 #: thold.php:1858
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåtet avvikelse i procent för övre gräns tröskeln. Om den inte är inställd kommer inte övre gräns tröskeln att kontrolleras alls."
+msgstr "Anger tillåten avvikelse för den övre gränsen för tröskelvärdet. Om detta inte anges kommer den övre gränsen för tröskelvärdet inte att kontrolleras alls. Måttenheten är ett absolut värde för typen ”Absolut värde” och en procentandel för både ”%% Avvikelse” och ”%% Flytande genomsnitt”"
 
 #: thold.php:1862 thold_templates.php:1418
 msgid "Deviation DOWN"
@@ -2608,7 +2608,7 @@ msgstr "Avvikelse NED"
 #: thold.php:1866
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåtet avvikelse i procent för den nedre gränsen. Om den inte är inställd kommer inte den nedre gränsen tröskeln att kontrolleras alls."
+msgstr "Anger tillåten avvikelse för den nedre gränsen för tröskelvärdet. Om detta inte anges kommer den nedre gränsen för tröskelvärdet inte att kontrolleras alls. Måttenheten är ett absolut värde för typen ”Absolut värde” och en procentandel för både ”%% Avvikelse” och ”%% Flytande genomsnitt”"
 
 #: thold.php:1870 thold_templates.php:1327 thold_templates.php:1364
 #: thold_templates.php:1426
@@ -2856,7 +2856,7 @@ msgstr "Low Trigger Command"
 
 #: thold.php:2198 thold_templates.php:1749
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Om den är inställd och om en tröskel tröskel bryts kommer det här kommandot att köras. Ange ett giltigt kommando. Dessutom finns det flera ersättningsetiketter som kan användas för att skicka information från tröskeln till skriptet. De inkluderar: &lt;BESKRIVNING&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. Slutligen kan Host, Data Query och Data input ersättas. Om du till exempel har en datainmatad anpassad data som kallas väntande, utför du ersättningsanvändningen | väntar |. För datasök och värdutbyte använd Cacti-konventioner | query_xxxx |, och | host_xxxx | respektive."
+msgstr "Om detta är inställt och om ett lågt tröskelvärde överskrids, kommer detta kommando att köras. Ange ett giltigt kommando. Dessutom finns det flera ersättningstaggar som kan användas för att överföra information från tröskelvärdet till skriptet. Du kan göra detta som argument på kommandoraden eller, helst, i skriptets miljö. Alla ersättningsvärden visas i skriptets miljö med prefixet THOLD_. Så till exempel blir CURRENTVALUE THOLD_CURRENTVALUE, och så vidare. Variablerna inkluderar: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&# 062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&# 062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Slutligen kan ersättning av värd, datakonsultation och datainmatning göras. Om du till exempel har en anpassad datainmatning som heter pending, använder du |pending| för att utföra ersättningen. För ersättning av datakonsultation och värd använder du Cacti-konventionerna |query_xxxx| respektive |host_xxxx|."
 
 #: thold.php:2205 thold_templates.php:1756
 msgid "Norm Trigger Command"
@@ -3041,7 +3041,7 @@ msgstr "Du måste ange antingen 'Baseline Deviation UP' eller 'Baseline Deviatio
 
 #: thold_functions.php:5893
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Omöjliga tröskelvärden: \"Hög tröskel\" mindre än eller lika med \"Låg tröskel\" <br> RECORD NOT UPDATED!"
+msgstr "Omöjlig tröskel: ”Hög varningsgräns” mindre än ”Låg varningsgräns”"
 
 #: thold_functions.php:5900
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -3464,12 +3464,12 @@ msgstr "Gränsvärdeövervakning"
 #: thold_templates.php:1414
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåtet avvikelse i procent för övre gräns tröskeln. Om den inte är inställd kommer inte övre gräns tröskeln att kontrolleras alls."
+msgstr "Anger tillåten avvikelse för den övre gränsen för tröskelvärdet. Om detta inte anges kommer den övre gränsen för tröskelvärdet inte att kontrolleras alls. Måttenheten är ett absolut värde för typen ”Absolut värde” och en procentandel för både ”%% Avvikelse” och ”%% Flytande genomsnitt”"
 
 #: thold_templates.php:1422
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåtet avvikelse i procent för den nedre gränsen. Om den inte är inställd kommer inte den nedre gränsen tröskeln att kontrolleras alls."
+msgstr "Anger tillåten avvikelse för den nedre gränsen för tröskelvärdet. Om detta inte anges kommer den nedre gränsen för tröskelvärdet inte att kontrolleras alls. Måttenheten är ett absolut värde för typen ”Absolut värde” och en procentandel för både ”%% Avvikelse” och ”%% Flytande genomsnitt”"
 
 #: thold_templates.php:1430
 #, php-format
