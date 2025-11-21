@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2006-2024 The Cacti Group                                 |
+ | Copyright (C) 2004-2025 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -1258,7 +1258,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold');
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold', 10);
 	} else {
 		$total_rows = db_fetch_cell($sql);
 	}
@@ -1348,7 +1348,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_log');
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_log', 10);
 	} else {
 		$total_rows = db_fetch_cell($sql);
 	}
@@ -5368,37 +5368,110 @@ function save_thold() {
 			return false;
 		}
 
-		$graph_array = thold_new_graphs_save($device_id);
+		/**
+		 * attempt to see if the graph already exists for this thold
+		 * if it's template based.
+		 */
+		if (isset_request_var('type_id') && get_nfilter_request_var('type_id') == 'template') {
+			if (get_filter_request_var('data_query_id') > 0) {
+				$local_graph_id = db_fetch_cell_prepared('SELECT gl.id
+					FROM graph_local AS gl
+					INNER JOIN snmp_query_graph AS sqg
+					ON sqg.snmp_query_id = gl.snmp_query_id
+					AND sqg.graph_template_id = gl.graph_template_id
+					WHERE sqg.id = ?
+					AND gl.host_id = ?
+					AND gl.snmp_query_id = ?
+					AND gl.snmp_index = ?
+					ORDER BY id ASC
+					LIMIT 1',
+					array(
+						get_filter_request_var('graph_template_id'),
+						get_filter_request_var('host_id'),
+						get_filter_request_var('data_query_id'),
+						get_request_var('snmp_index')
+					)
+				);
 
-		if ($graph_array !== false) {
-			if (isset($graph_array['local_graph_id'])) {
-				set_request_var('local_graph_id', $graph_array['local_graph_id']);
+				if ($local_graph_id > 0) {
+					$graph_template_id = db_fetch_cell_prepared('SELECT graph_template_id
+						FROM graph_local
+						WHERE id = ?',
+						array($local_graph_id));
+
+					set_request_var('graph_template_id', $graph_template_id);
+				}
+			} else {
+				$local_graph_id = db_fetch_cell_prepared('SELECT id
+					FROM graph_local
+					WHERE graph_template_id = ?
+					AND host_id = ?
+					AND snmp_query_id = ?
+					AND snmp_index = ?
+					ORDER BY id ASC
+					LIMIT 1',
+					array(
+						get_filter_request_var('graph_template_id'),
+						get_filter_request_var('host_id'),
+						get_filter_request_var('data_query_id'),
+						get_request_var('snmp_index')
+					)
+				);
 			}
 
-			if (empty($data_template_id)) {
-				$data_template_id = db_fetch_cell_prepared('SELECT data_template_id
-					FROM thold_template
-					WHERE id = ?',
-					array($thold_template_id));
+			if ($local_graph_id > 0) {
+				$local_data = db_fetch_row_prepared('SELECT dtr.id, dtr.local_data_id
+					FROM data_template_rrd AS dtr
+					INNER JOIN graph_templates_item AS gti
+					ON gti.task_item_id = dtr.id
+					AND gti.local_graph_id = ?',
+					array($local_graph_id));
+
+				if (isset($local_data['local_data_id']) && $local_data['local_data_id'] > 0) {
+					set_request_var('local_graph_id', $local_graph_id);
+					set_request_var('local_data_id', $local_data['local_data_id']);
+					set_request_var('data_template_rrd_id', $local_data['id']);
+				}
 			}
 
-			if (isset($graph_array['local_data_id'][$data_template_id])) {
-				set_request_var('local_data_id', $graph_array['local_data_id'][$data_template_id]);
+			set_request_var('thold_per_enabled', 'on');
+		}
+
+		if (!isset_request_var('local_graph_id')) {
+			$graph_array = thold_new_graphs_save($device_id);
+
+			if ($graph_array !== false) {
+				if (isset($graph_array['local_graph_id'])) {
+					set_request_var('local_graph_id', $graph_array['local_graph_id']);
+				}
+
+				if (empty($data_template_id)) {
+					$data_template_id = db_fetch_cell_prepared('SELECT data_template_id
+						FROM thold_template
+						WHERE id = ?',
+						array($thold_template_id));
+				}
+
+				if (isset($graph_array['local_data_id'][$data_template_id])) {
+					set_request_var('local_data_id', $graph_array['local_data_id'][$data_template_id]);
+				}
+
+				$temp = db_fetch_cell_prepared('SELECT dtr.id
+					FROM data_template_rrd AS dtr
+					WHERE local_data_id = ?
+					AND data_source_name = ?',
+					array(get_request_var('local_data_id'), $template['data_source_name']));
+
+				set_request_var('data_template_rrd_id', $temp);
+			} else {
+				$banner = __('The Graph Creation failed for Threshold Template', 'thold');
+				thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
+				cacti_log('ERROR: Graph Creation failed for Threshold Template', false, 'THOLD');
+
+				return false;
 			}
 
-			$temp = db_fetch_cell_prepared('SELECT dtr.id
-				FROM data_template_rrd AS dtr
-				WHERE local_data_id = ?
-				AND data_source_name = ?',
-				array(get_request_var('local_data_id'), $template['data_source_name']));
-
-			set_request_var('data_template_rrd_id', $temp);
-		} else {
-			$banner = __('The Graph Creation failed for Threshold Template', 'thold');
-			thold_raise_message($banner, MESSAGE_LEVEL_ERROR);
-			cacti_log('ERROR: Graph Creation failed for Threshold Template', false, 'THOLD');
-
-			return false;
+			set_request_var('thold_per_enabled', 'on');
 		}
 
 		if (!isset_request_var('save_autocreate') || get_filter_request_var('save_autocreate') == 1) {
@@ -6676,7 +6749,7 @@ function thold_notification_add($topic, &$data, $id = 'id', $list_id = 0, &$host
 	db_execute_prepared('INSERT INTO notification_queue
 		(topic, notification_list_id, object_id, object_name, host_id, hostname, event_time, event_data) VALUES
 		(?, ?, ?, ?, ?, ?, ?, ?)',
-		array($topic, $list_id, $id, $name, $host_id, $hostname, $now, json_encode($data, JSON_THROW_ON_ERROR)));
+		array($topic, $list_id, $id, $name, $host_id, $hostname, $now, json_encode($data, JSON_PRETTY_PRINT)));
 }
 
 function pre_process_device_notifications() {
@@ -8069,7 +8142,7 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 	}
 
 	if (function_exists('get_total_row_data') && $device_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_device');
+		$total_rows = get_total_row_data($user_id, $sql, array(), 'thold_device', 10);
 	} else {
 		$total_rows = db_fetch_cell($sql);
 	}

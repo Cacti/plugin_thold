@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2024 The Cacti Group                                 |
+ | Copyright (C) 2004-2025 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -375,9 +375,9 @@ function tholds() {
 
 	/* if the number of rows is -1, set it to the default */
 	if (get_request_var('rows') == -1) {
-		$rows = read_config_option('num_rows_table');
+		$rows = intval(read_config_option('num_rows_table'));
 	} else {
-		$rows = get_request_var('rows');
+		$rows = intval(get_request_var('rows'));
 	}
 
 	html_start_box(__('Threshold Status', 'thold'), '100%', false, '3', 'center', '');

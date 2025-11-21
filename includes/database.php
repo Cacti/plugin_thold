@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2024 The Cacti Group                                 |
+ | Copyright (C) 2004-2025 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -1768,6 +1768,8 @@ function thold_upgrade_database($force = false) {
 		'after'    => 'notes')
 	);
 
+	db_execute('ALTER TABLE thold_data MODIFY COLUMN name varchar(255) NOT NULL default ""');
+
 	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', 1);
 	api_plugin_register_hook('thold', 'settings_bottom', 'thold_settings_bottom', 'setup.php', 1);
 
@@ -1789,7 +1791,7 @@ function thold_setup_database() {
 	$data = array();
 	$data['columns'][] = array('name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true);
 	$data['columns'][] = array('name' => 'thread_id', 'type' => 'int(11)', 'unsigned' => true, 'NULL' => false, 'default' => '0');
-	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(150)', 'NULL' => true);
+	$data['columns'][] = array('name' => 'name', 'type' => 'varchar(255)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'name_cache', 'type' => 'varchar(150)', 'NULL' => true);
 	$data['columns'][] = array('name' => 'local_data_id', 'type' => 'int(11)', 'NULL' => false, 'default' => '0');
 	$data['columns'][] = array('name' => 'data_template_rrd_id', 'type' => 'int(11)', 'NULL' => false, 'unsigned' => true, 'default' => '0');

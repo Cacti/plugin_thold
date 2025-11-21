@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2024 The Cacti Group                                 |
+ | Copyright (C) 2004-2025 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -256,7 +256,7 @@ function thold_wizard() {
 			set_request_var('data_template_rrd_id', $data_template_rrd_id);
 			set_request_var('data_template_id', $data_template_id);
 			set_request_var('data_query_id', $data_query_id);
-			set_request_var('snmp_index', $snmp_index);
+			set_request_var('snmp_index', urlencode($snmp_index));
 		} else {
 			return false;
 		}
@@ -269,7 +269,7 @@ function thold_wizard() {
 		$data_template_rrd_id = get_filter_request_var('data_template_rrd_id');
 		$data_template_id     = get_filter_request_var('data_template_id');
 		$data_query_id        = get_filter_request_var('data_query_id');
-		$snmp_index           = get_nfilter_request_var('snmp_index');
+		$snmp_index           = urldecode(get_nfilter_request_var('snmp_index'));
 
 		$templates = db_fetch_assoc('SELECT id, name
 			FROM thold_template
@@ -312,19 +312,19 @@ function thold_wizard() {
 
 	/* display the type dropdown */
 	$form_array['spacer']  = array(
-		'method' => 'spacer',
+		'method'        => 'spacer',
 		'friendly_name' => __('Threshold Creation Criteria', 'thold'),
 	);
 
 	$form_array['type_id'] = array(
-		'method' => 'drop_array',
+		'method'        => 'drop_array',
 		'friendly_name' => __('Create Type', 'thold'),
-		'description' => __('Select a Threshold Type to use for creating this Threshold.', 'thold'),
-		'on_change' => 'applyTholdFilter()',
-		'value' => $type_id,
-		'array' => array(
-			'none'     => __('Select a Threshold Type', 'thold'),
-			'thold'    => __('Non Templated', 'thold'),
+		'description'   => __('Select a Threshold Type to use for creating this Threshold.', 'thold'),
+		'on_change'     => 'applyTholdFilter()',
+		'value'         => $type_id,
+		'array'         => array(
+			'none'  => __('Select a Threshold Type', 'thold'),
+			'thold' => __('Non Templated', 'thold'),
 		)
 	);
 
@@ -334,17 +334,17 @@ function thold_wizard() {
 
 	if ($type_id == 'template') {
 		$form_array['thold_template_id'] = array(
-			'method' => 'drop_sql',
+			'method'        => 'drop_sql',
 			'friendly_name' => __('Threshold Template', 'thold'),
-			'description' => __('Select a Threshold Template that the Graph and Threshold will be based upon.', 'thold'),
-			'on_change' => 'applyTholdFilter()',
-			'value' => $thold_template_id,
-			'sql' => 'SELECT id, name FROM thold_template WHERE thold_enabled="on" ORDER BY name',
-			'none_value' => __('Select a Threshold Template', 'thold')
+			'description'   => __('Select a Threshold Template that the Graph and Threshold will be based upon.', 'thold'),
+			'on_change'     => 'applyTholdFilter()',
+			'value'         => $thold_template_id,
+			'sql'           => 'SELECT id, name FROM thold_template WHERE thold_enabled="on" ORDER BY name',
+			'none_value'    => __('Select a Threshold Template', 'thold')
 		);
 
 		$host_ids = array();
-		$in_sql = array();
+		$in_sql   = array();
 
 		if ($thold_template_id != '') {
 			/* display the host dropdown */
@@ -472,13 +472,13 @@ function thold_wizard() {
 			}
 
 			$form_array['graph_template_id'] = array(
-				'method' => 'drop_sql',
+				'method'        => 'drop_sql',
 				'friendly_name' => __('Graph Template', 'thold'),
-				'description' => __('Select a Graph Template to use for the Graph to be created.', 'thold'),
-				'on_change' => 'applyTholdFilter()',
-				'value' => $graph_template_id,
-				'sql' => $gr_sql,
-				'none_value' => __('Select a Graph Template', 'thold')
+				'description'   => __('Select a Graph Template to use for the Graph to be created.', 'thold'),
+				'on_change'     => 'applyTholdFilter()',
+				'value'         => $graph_template_id,
+				'sql'           => $gr_sql,
+				'none_value'    => __('Select a Graph Template', 'thold')
 			);
 		}
 
@@ -492,13 +492,13 @@ function thold_wizard() {
 			}
 
 			$form_array['my_host_id'] = array(
-				'method' => 'drop_sql',
+				'method'        => 'drop_sql',
 				'friendly_name' => __('Device', 'thold'),
-				'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
-				'on_change' => 'applyTholdFilter()',
-				'value' => $host_id,
-				'sql' => $sql,
-				'none_value' => __('Select a Device', 'thold')
+				'description'   => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
+				'on_change'     => 'applyTholdFilter()',
+				'value'         => $host_id,
+				'sql'           => $sql,
+				'none_value'    => __('Select a Device', 'thold')
 			);
 		}
 
@@ -511,7 +511,8 @@ function thold_wizard() {
 				array($host_id, $data_query_id));
 
 			if ($sort_field != '') {
-				$available_items = array('noneselected' => __('Select and Available Item', 'thold'));
+				$available_items = array('noneselected' => __('Select an Available Item', 'thold'));
+
 				$available_items += array_rekey(
 					db_fetch_assoc_prepared('SELECT hsc.snmp_index AS id, hsc.field_value AS name
 						FROM host_snmp_cache AS hsc
@@ -525,8 +526,7 @@ function thold_wizard() {
 						ON hsc.host_id = gl.host_id
 						AND hsc.snmp_query_id = gl.snmp_query_id
 						AND hsc.snmp_index = gl.snmp_index
-						WHERE gl.snmp_index IS NULL
-						AND hsc.host_id = ?
+						WHERE hsc.host_id = ?
 						AND hsc.snmp_query_id = ?
 						AND field_name = ?',
 						array(
@@ -543,13 +543,13 @@ function thold_wizard() {
 			}
 
 			$form_array['snmp_index'] = array(
-				'method' => 'drop_array',
+				'method'        => 'drop_array',
 				'friendly_name' => __('Data Query Item', 'thold'),
-				'description' => __('Select the applicable row from the Data Query for the Graph and Threshold.', 'thold'),
-				'on_change' => 'applyTholdFilter()',
-				'value' => $snmp_index,
-				'array' => $available_items,
-				'default' => ''
+				'description'   => __('Select the applicable row from the Data Query for the Graph and Threshold.', 'thold'),
+				'on_change'     => 'applyTholdFilter()',
+				'value'         => $snmp_index,
+				'array'         => $available_items,
+				'default'       => ''
 			);
 		} else {
 			$local_graph_id       = 0;
@@ -559,22 +559,22 @@ function thold_wizard() {
 		if ($data_query_id) {
 			$form_array['data_query_id'] = array(
 				'method' => 'hidden',
-				'value' => $data_query_id
+				'value'  => $data_query_id
 			);
 
 			$form_array['data_template_id'] = array(
 				'method' => 'hidden',
-				'value' => $data_template_id
+				'value'  => $data_template_id
 			);
 		} else {
 			$form_array['data_query_id'] = array(
 				'method' => 'hidden',
-				'value' => '0'
+				'value'  => '0'
 			);
 
 			$form_array['data_template_id'] = array(
 				'method' => 'hidden',
-				'value' => '0'
+				'value'  => '0'
 			);
 		}
 
@@ -640,15 +640,15 @@ function thold_wizard() {
 
 		if (get_selected_theme() != 'classic') {
 			$form_array['my_host_id'] = array(
-				'method' => 'drop_callback',
+				'method'        => 'drop_callback',
 				'friendly_name' => __('Device', 'thold'),
-				'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
-				'on_change' => 'applyTholdFilter()',
-				'action' => 'ajax_hosts',
-				'id' => $host_id,
-				'sql' => 'SELECT id, description AS name FROM host WHERE disabled != "" AND deleted != ""' . $hiql,
-				'value' => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
-				'none_value' => __('Select a Device', 'thold')
+				'description'   => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
+				'on_change'     => 'applyTholdFilter()',
+				'action'        => 'ajax_hosts',
+				'id'            => $host_id,
+				'sql'           => 'SELECT id, description AS name FROM host WHERE disabled != "" AND deleted != ""' . $hiql,
+				'value'         => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
+				'none_value'    => __('Select a Device', 'thold')
 			);
 		} else {
 			if ($hiql == ' AND 0 = 1') {
@@ -660,13 +660,13 @@ function thold_wizard() {
 			);
 
 			$form_array['my_host_id'] = array(
-				'method' => 'drop_array',
+				'method'        => 'drop_array',
 				'friendly_name' => __('Device', 'thold'),
-				'description' => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
-				'on_change' => 'applyTholdFilter()',
-				'array' => $hosts,
-				'value' => $host_id,
-				'none_value' => __('Select a Device', 'thold')
+				'description'   => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
+				'on_change'     => 'applyTholdFilter()',
+				'array'         => $hosts,
+				'value'         => $host_id,
+				'none_value'    => __('Select a Device', 'thold')
 			);
 		}
 
@@ -681,13 +681,13 @@ function thold_wizard() {
 			}
 
 			$form_array['local_graph_id'] = array(
-				'method' => 'drop_array',
+				'method'        => 'drop_array',
 				'friendly_name' => __('Graph', 'thold'),
-				'description' => __('Select the Graph for the Threshold.', 'thold'),
-				'on_change' => 'applyTholdFilter()',
-				'value' => $local_graph_id,
-				'array' => $ng,
-				'none_value' => __('Select a Graph', 'thold')
+				'description'   => __('Select the Graph for the Threshold.', 'thold'),
+				'on_change'     => 'applyTholdFilter()',
+				'value'         => $local_graph_id,
+				'array'         => $ng,
+				'none_value'    => __('Select a Graph', 'thold')
 			);
 		}
 
@@ -710,13 +710,13 @@ function thold_wizard() {
 				'id', 'name');
 
 			$form_array['data_template_rrd_id'] = array(
-				'method' => 'drop_array',
+				'method'        => 'drop_array',
 				'friendly_name' => __('Data Source', 'thold'),
-				'description' => __('Select a Data Source for the Threshold.', 'thold'),
-				'on_change' => 'applyTholdFilter()',
-				'value' => $data_template_rrd_id,
-				'array' => $dss,
-				'none_value' => __('Select a Data Source', 'thold')
+				'description'   => __('Select a Data Source for the Threshold.', 'thold'),
+				'on_change'     => 'applyTholdFilter()',
+				'value'         => $data_template_rrd_id,
+				'array'         => $dss,
+				'none_value'    => __('Select a Data Source', 'thold')
 			);
 
 			$form_array['local_data_id'] = array(
@@ -828,7 +828,7 @@ function thold_wizard() {
 			}
 
 			if ($('#snmp_index').length && $('#snmp_index').val() != '') {
-				strURL += '&snmp_index=' + $('#snmp_index').val();
+				strURL += '&snmp_index=' + encodeURIComponent($('#snmp_index').val());
 			}
 		}
 
@@ -945,8 +945,8 @@ function thold_new_graphs_save($host_id) {
 				foreach ($form_array2 as $form_id2 => $form_array3) {
 					$snmp_index_array = $form_array3;
 
-					$snmp_query_array['snmp_query_id'] = $form_id1;
-					$snmp_query_array['snmp_index_on'] = get_best_data_query_index_type($host_id, $form_id1);
+					$snmp_query_array['snmp_query_id']       = $form_id1;
+					$snmp_query_array['snmp_index_on']       = get_best_data_query_index_type($host_id, $form_id1);
 					$snmp_query_array['snmp_query_graph_id'] = $form_id2;
 				}
 
@@ -974,6 +974,7 @@ function thold_new_graphs_save($host_id) {
 
 					if (cacti_sizeof($return_array)) {
 						thold_raise_message(__esc('Created graph: %s', get_graph_title($return_array['local_graph_id']), 'thold'), MESSAGE_LEVEL_INFO);
+
 						/* lastly push host-specific information to our data sources */
 						foreach ($return_array['local_data_id'] as $item) {
 							push_out_host($host_id, $item);
@@ -1017,6 +1018,7 @@ function thold_graph_new_graphs($page, $host_id, $host_template_id, $selected_gr
 	if (isset($_SERVER['HTTP_REFERER']) && !substr_count($_SERVER['HTTP_REFERER'], 'graphs_new')) {
 		set_request_var('returnto', basename($_SERVER['HTTP_REFERER']));
 	}
+
 	load_current_session_value('returnto', 'sess_grn_returnto', '');
 
 	form_save_button(get_nfilter_request_var('returnto'));
