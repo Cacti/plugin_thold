@@ -66,7 +66,7 @@ jobs:
         repository: Cacti/cacti
         path: cacti
     
-    - name: Checkout Syslog Plugin
+    - name: Checkout Thold Plugin
       uses: actions/checkout@v4
       with:
         path: cacti/plugins/thold
