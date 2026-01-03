@@ -1169,7 +1169,7 @@ function hosts($header_label) {
 		$sql_params[] = get_request_var('id');
 	}
 
-	$sql_limit = 'LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = 'LIMIT ' . ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
 	$sql_order = get_order_string();
 
 	$total_rows = db_fetch_cell_prepared("SELECT
@@ -1345,7 +1345,7 @@ function tholds($header_label) {
 	$sql_where = '';
 
 	$sort  = get_request_var('sort_column') . ' ' . get_request_var('sort_direction');
-	$limit = ($rows*(get_request_var('page')-1)) . ", $rows";
+	$limit = ($rows*(intval(get_request_var('page'))-1)) . ", $rows";
 
 	if (!isempty_request_var('template') && get_request_var('template') != '-1') {
 		$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.data_template_id = ' . get_request_var('template');
@@ -1690,7 +1690,7 @@ function templates($header_label) {
 
 	$sql_where = '';
 	$sql_order = get_order_string();
-	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = ' LIMIT ' . ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
 
 	if (get_request_var('associated') == 'true') {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . '(notify_warning=' . get_request_var('id') . ' OR notify_alert=' . get_request_var('id') . ')';
@@ -2113,7 +2113,7 @@ function lists() {
 		$sql_where");
 
 	$sql_order = get_order_string();
-	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = ' LIMIT ' . ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
 
 	$lists = db_fetch_assoc("SELECT id, name, enabled, description, emails,
 		(SELECT COUNT(id) FROM thold_data WHERE notify_alert = nl.id) as thold_alerts,
