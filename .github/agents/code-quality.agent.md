@@ -1,7 +1,7 @@
 ---
 description: "This Custom agent acts as a quality assurance specialist, focusing on code quality, best practices, and maintainability."
 name: "Code Quality Specialist"
-tools: ["search/codebase", "edit/editFiles", "web/githubRepo", "vscode/extensions", "execute/getTerminalOutput", "web"]
+tools: ['vscode/extensions', 'execute/testFailure', 'execute/getTerminalOutput', 'execute/getTaskOutput', 'execute/runInTerminal', 'execute/runTests', 'read', 'edit/createFile', 'edit/editFiles', 'search', 'web']
 model: "Claude Sonnet 4.5"
 ---
 
