@@ -381,7 +381,7 @@ function notify_queue() {
 		$sql_where");
 
 	$sql_order = get_order_string();
-	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = ' LIMIT ' . ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
 
 	$notifications = db_fetch_assoc("SELECT nq.*, h.hostname
 		FROM notification_queue AS nq

@@ -385,7 +385,7 @@ function tholds() {
 	html_end_box();
 
 	$sql_order   = get_order_string();
-	$sql_limit   = ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit   = ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
 	$sql_order   = str_replace('ORDER BY ', '', $sql_order);
 	$sql_where   = '(h.status = 3';
 	$statefilter = thold_get_state_filter(get_request_var('state'));
@@ -950,7 +950,7 @@ function hosts() {
 	$sql_where .= ($sql_where != '' ? ')':'');
 
 	$sql_order = get_order_string();
-	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
 	$sql_order = str_replace('ORDER BY ', '', $sql_order);
 
 	$hosts = thold_get_allowed_devices($sql_where, $sql_order, $sql_limit, $total_rows);
@@ -1457,7 +1457,7 @@ function thold_show_log() {
 	}
 
 	$sql_order = get_order_string();
-	$sql_limit = ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
 	$sql_order = str_replace('ORDER BY ', '', $sql_order);
 
 	$logs = get_allowed_threshold_logs($sql_where, $sql_order, $sql_limit, $total_rows);
