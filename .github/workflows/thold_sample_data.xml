@@ -1,0 +1,79 @@
+<templates>
+<template1>
+	<hash>0757348c8bf2c998d95034f03b0c9a1c</hash>
+	<name>Linux - Memory - Free [mem_buffers]</name>
+	<suggested_name>|data_source_description| [|data_source_name|]</suggested_name>
+	<data_template_id>dc33aa9a8e71fb7c61ec0e7a6da074aa</data_template_id>
+	<data_template_hash>dc33aa9a8e71fb7c61ec0e7a6da074aa</data_template_hash>
+	<data_template_name>Linux - Memory - Free</data_template_name>
+	<data_source_id>a4df3de5238d3beabee1a2fe140d3d80</data_source_id>
+	<data_source_name>mem_buffers</data_source_name>
+	<data_source_friendly>Result (in Kilobytes)</data_source_friendly>
+	<thold_hi>10</thold_hi>
+	<thold_low>5</thold_low>
+	<thold_fail_trigger>1</thold_fail_trigger>
+	<time_hi></time_hi>
+	<time_low></time_low>
+	<time_fail_trigger>1</time_fail_trigger>
+	<time_fail_length>1</time_fail_length>
+	<thold_warning_hi></thold_warning_hi>
+	<thold_warning_low></thold_warning_low>
+	<thold_warning_fail_trigger>1</thold_warning_fail_trigger>
+	<thold_warning_fail_count>0</thold_warning_fail_count>
+	<time_warning_hi></time_warning_hi>
+	<time_warning_low></time_warning_low>
+	<time_warning_fail_trigger>1</time_warning_fail_trigger>
+	<time_warning_fail_length>1</time_warning_fail_length>
+	<thold_enabled>on</thold_enabled>
+	<thold_type>0</thold_type>
+	<bl_ref_time_range>86400</bl_ref_time_range>
+	<bl_type>0</bl_type>
+	<bl_pct_down></bl_pct_down>
+	<bl_pct_up></bl_pct_up>
+	<bl_fail_trigger>2</bl_fail_trigger>
+	<bl_fail_count></bl_fail_count>
+	<bl_alert>0</bl_alert>
+	<bl_cf>AVG</bl_cf>
+	<repeat_alert>0</repeat_alert>
+	<notify_extra></notify_extra>
+	<notify_warning_extra></notify_warning_extra>
+	<notify_templated>on</notify_templated>
+	<notify_warning>0</notify_warning>
+	<notify_alert>0</notify_alert>
+	<snmp_event_category></snmp_event_category>
+	<snmp_event_description></snmp_event_description>
+	<snmp_event_severity>3</snmp_event_severity>
+	<snmp_event_warning_severity>2</snmp_event_warning_severity>
+	<data_type>0</data_type>
+	<show_units>off</show_units>
+	<units_suffix></units_suffix>
+	<decimals>-1</decimals>
+	<cdef>0</cdef>
+	<percent_ds>mem_buffers</percent_ds>
+	<expression></expression>
+	<upper_ds>mem_buffers</upper_ds>
+	<exempt></exempt>
+	<thold_hrule_alert>0</thold_hrule_alert>
+	<thold_hrule_warning>0</thold_hrule_warning>
+	<skipscale></skipscale>
+	<restored_alert></restored_alert>
+	<reset_ack></reset_ack>
+	<persist_ack></persist_ack>
+	<email_subject></email_subject>
+	<email_subject_warn></email_subject_warn>
+	<email_subject_restoral></email_subject_restoral>
+	<email_body>An Alert has been issued that requires your attention. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Device&lt;/strong&gt;: &lt;DESCRIPTION&gt; (&lt;HOSTNAME&gt;)&lt;br&gt;&lt;strong&gt;URL&lt;/strong&gt;: &lt;URL&gt;&lt;br&gt;&lt;strong&gt;Message&lt;/strong&gt;: &lt;SUBJECT&gt;&lt;br&gt;&lt;br&gt;&lt;GRAPH&gt;</email_body>
+	<email_body_warn>A Warning has been issued that requires your attention. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Device&lt;/strong&gt;: &lt;DESCRIPTION&gt; (&lt;HOSTNAME&gt;)&lt;br&gt;&lt;strong&gt;URL&lt;/strong&gt;: &lt;URL&gt;&lt;br&gt;&lt;strong&gt;Message&lt;/strong&gt;: &lt;SUBJECT&gt;&lt;br&gt;&lt;br&gt;&lt;GRAPH&gt;</email_body_warn>
+	<email_body_restoral>A Threshold has returned to normal status. &lt;br&gt;&lt;br&gt;&lt;strong&gt;Device&lt;/strong&gt;: &lt;DESCRIPTION&gt; (&lt;HOSTNAME&gt;)&lt;br&gt;&lt;strong&gt;URL&lt;/strong&gt;: &lt;URL&gt;&lt;br&gt;&lt;strong&gt;Message&lt;/strong&gt;: &lt;SUBJECT&gt;&lt;br&gt;&lt;br&gt;&lt;GRAPH&gt;</email_body_restoral>
+	<trigger_cmd_high></trigger_cmd_high>
+	<trigger_cmd_low></trigger_cmd_low>
+	<trigger_cmd_norm></trigger_cmd_norm>
+	<syslog_priority>4</syslog_priority>
+	<syslog_facility>24</syslog_facility>
+	<syslog_enabled></syslog_enabled>
+	<notes></notes>
+	<external_id></external_id>
+	<format_file>default.format</format_file>
+	<graph_timespan>7</graph_timespan>
+</template1>
+</templates>
