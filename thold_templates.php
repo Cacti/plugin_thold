@@ -2195,7 +2195,7 @@ function templates() {
 	}
 
 	$sql_order = get_order_string();
-	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = ' LIMIT ' . ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
 
 	$total_rows = db_fetch_cell('SELECT count(*)
 		FROM thold_template');
