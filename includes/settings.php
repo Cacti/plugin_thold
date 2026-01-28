@@ -285,6 +285,7 @@ function thold_config_arrays() {
 	}
 
 	$device_change_fields['match_field'][] = 'thold_send_email';
+	$device_change_fields['match_field'][] = 'thold_host_email';
 	$device_change_fields['match_field'][] = 'thold_failure_count';
 
 	$realm_array = array(
