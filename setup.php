@@ -58,6 +58,7 @@ function plugin_thold_install($upgrade = false) {
 	api_plugin_register_hook($plugin, 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php');
 	api_plugin_register_hook($plugin, 'device_threshold_autocreate', 'thold_device_autocreate', 'setup.php');
 	api_plugin_register_hook($plugin, 'device_template_change', 'thold_device_template_change', 'setup.php');
+	api_plugin_register_hook($plugin, 'device_change_javascript', 'thold_host_edit_bottom', 'setup.php');
 
 	// Automation Hooks
 	api_plugin_register_hook($plugin, 'create_complete_graph_from_template', 'thold_create_graph_thold', 'setup.php');
