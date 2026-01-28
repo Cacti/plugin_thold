@@ -335,7 +335,7 @@ function thold_config_form() {
 					'2' => __('List Below', 'thold'),
 					'3' => __('Global and List Below', 'thold')
 				),
-				'description' => __('Which Notification List(s) of should be notified about Device Up/Down events?', 'thold'),
+				'description' => __('Which Type of Notification List(s) should be used for Device Up/Down events?', 'thold'),
 				'value' => '|arg1:thold_send_email|',
 				'on_change' => 'changeNotify()',
 				'default' => '1',
@@ -344,7 +344,7 @@ function thold_config_form() {
 
 			$fields_host_edit3['thold_host_email'] = array(
 				'friendly_name' => __('Notification List', 'thold'),
-				'description' => __('Additional Email address, separated by commas for multiple Emails.', 'thold'),
+				'description' => __('Which Notification List(s) of should be notified about Device Up/Down events?', 'thold'),
 				'method' => 'drop_sql',
 				'sql' => 'SELECT id,name FROM plugin_notification_lists ORDER BY name',
 				'value' => '|arg1:thold_host_email|',
