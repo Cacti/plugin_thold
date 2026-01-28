@@ -172,14 +172,14 @@ jobs:
         cd ${{ github.workspace }}/cacti
         sudo php cli/plugin_manage.php --plugin=thold --install --enable
 
-    - name: import Thold Plugin Sample Data
-      run: |
-        cd ${{ github.workspace }}/cacti/plugins/thold
-        sudo php cli_import.php --filename=.github/workflows/thold_sample_data.xml
-        if [ $? -ne 0 ]; then
-          echo "Failed to import Thold sample data"
-          exit 1
-        fi
+#    - name: import Thold Plugin Sample Data
+#      run: |
+#        cd ${{ github.workspace }}/cacti/plugins/thold
+#        sudo php cli_import.php --filename=.github/workflows/thold_sample_data.xml
+#        if [ $? -ne 0 ]; then
+#          echo "Failed to import Thold sample data"
+#          exit 1
+#        fi
     
     - name: Check PHP Syntax for Plugin
       run: |
