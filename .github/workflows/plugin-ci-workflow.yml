@@ -42,7 +42,7 @@ jobs:
         os: [ubuntu-latest]
     
     services:
-      maraidb:
+      mariadb:
         image: mariadb:10.6
         env:
           MYSQL_ROOT_PASSWORD: cactiroot
