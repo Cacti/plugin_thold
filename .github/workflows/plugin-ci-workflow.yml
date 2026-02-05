@@ -38,12 +38,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.1', '8.2', '8.3']
+        php: ['8.1', '8.2', '8.3', '8.4']
         os: [ubuntu-latest]
     
     services:
-      mysql:
-        image: mysql:8.0
+      maraidb:
+        image: mariadb:10.6
         env:
           MYSQL_ROOT_PASSWORD: cactiroot
           MYSQL_DATABASE: cacti
@@ -80,7 +80,6 @@ jobs:
     
     - name: Check PHP version
       run: php -v
-    
     
     - name: Run apt-get update
       run: sudo apt-get update
@@ -141,7 +140,6 @@ jobs:
         sed -r "s/'cactiuser'/'cactiuser'/g" > ${{ github.workspace }}/cacti/include/config.php
         sudo chmod 664 ${{ github.workspace }}/cacti/include/config.php
     
-    
     - name: Configure Apache
       run: |
         cat << 'EOF' | sed 's#GITHUB_WORKSPACE#${{ github.workspace }}#g' > /tmp/cacti.conf
@@ -189,7 +187,24 @@ jobs:
           exit 1
         fi
     
+    - name: Remove the plugins directory exclusion from the .phpstan.neon
+      run: sed '/plugins/d' -i .phpstan.neon
+      working-directory: ${{ github.workspace }}/cacti
 
+    - name: Mark composer scripts executable
+      run: sudo chmod +x ${{ github.workspace }}/cacti/include/vendor/bin/*
+
+    - name: Run Linter on base code
+      run: composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
+      working-directory: ${{ github.workspace }}/cacti
+
+    - name: Checking coding standards on base code
+      run: composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
+      working-directory: ${{ github.workspace }}/cacti
+
+#    - name: Run PHPStan at Level 6 on base code outside of Composer due to technical issues
+#      run: ./include/vendor/bin/phpstan analyze --level 6 ${{ github.workspace }}/cacti/plugins/thold
+#      working-directory: ${{ github.workspace }}/cacti
     
     - name: Run Cacti Poller
       run: |
@@ -201,8 +216,6 @@ jobs:
           exit 1
         fi
     
-
-    
     - name: View Cacti Logs
       if: always()
       run: |
@@ -210,5 +223,3 @@ jobs:
           echo "=== Cacti Log ==="
           sudo cat ${{ github.workspace }}/cacti/log/cacti.log
         fi
-
-
