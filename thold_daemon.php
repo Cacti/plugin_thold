@@ -29,21 +29,21 @@ if (function_exists('pcntl_async_signals')) {
 	declare(ticks = 100);
 }
 
-/* allow the script to hang around waiting for connections. */
+// allow the script to hang around waiting for connections.
 set_time_limit(0);
 
 ini_set('memory_limit', '800M');
 ini_set('max_execution_time', '0');
 ini_set('output_buffering', 'Off');
 
-chdir(dirname(__FILE__));
+chdir(__DIR__);
 chdir('../../');
 
 include_once('./include/cli_check.php');
 include_once($config['base_path'] . '/lib/poller.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-/* install signal handlers for Linux/UNIX only */
+// install signal handlers for Linux/UNIX only
 if (function_exists('pcntl_signal')) {
 	pcntl_signal(SIGTERM, 'sig_handler');
 	pcntl_signal(SIGINT, 'sig_handler');
@@ -54,16 +54,16 @@ global $config;
 $debug      = false;
 $foreground = false;
 
-/* process calling arguments */
+// process calling arguments
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
 if (sizeof($parms)) {
 	foreach ($parms as $parameter) {
 		if (strpos($parameter, '=')) {
-			list ($arg, $value) = explode('=', $parameter);
+			[$arg, $value] = explode('=', $parameter);
 		} else {
-			$arg = $parameter;
+			$arg   = $parameter;
 			$value = '';
 		}
 
@@ -71,6 +71,7 @@ if (sizeof($parms)) {
 			case '-d':
 			case '--debug':
 				$debug = true;
+
 				break;
 			case '-f':
 			case '--foreground':
@@ -94,7 +95,7 @@ if (sizeof($parms)) {
 	}
 }
 
-/* redirect standard error to dev/null */
+// redirect standard error to dev/null
 if ($config['cacti_server_os'] == 'unix') {
 	fclose(STDERR);
 	$STDERR = fopen('/dev/null', 'wb');
@@ -105,12 +106,12 @@ if ($config['cacti_server_os'] == 'unix') {
 
 $timeout = 99999999;
 
-/* enable thold daemon in the GUI */
+// enable thold daemon in the GUI
 thold_daemon_debug('Enabling Thold Daemon in Database.');
 
 set_config_option('thold_daemon_enable', 'on');
 
-/* check if poller daemon is already running */
+// check if poller daemon is already running
 if (!register_process_start('thold', 'parent', 0, $timeout)) {
 	if ($config['cacti_server_os'] == 'unix') {
 		exec('pgrep -a php | grep thold_daemon.php', $output);
@@ -125,7 +126,7 @@ if (!register_process_start('thold', 'parent', 0, $timeout)) {
 	}
 }
 
-/* do not run the thold daemon on the remote server in central storage mode */
+// do not run the thold daemon on the remote server in central storage mode
 if (read_config_option('remote_storage_method') != 1 && $config['poller_id'] > 1) {
 	print 'In Central Storage Mode, the thold_daemon only runs on the main data collector.' . PHP_EOL;
 	exit(1);
@@ -146,7 +147,9 @@ if (!$foreground) {
 			print '[FAILED]' . PHP_EOL;
 
 			return false;
-		} elseif ($pid == 0) {
+		}
+
+		if ($pid == 0) {
 			// We are the child reconnect
 			db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_retries, $database_ssl, $database_ssl_key, $database_ssl_cert, $database_ssl_ca);
 		} else {
@@ -155,7 +158,7 @@ if (!$foreground) {
 			// We are the parent, output and exit
 			print '[OK]' . PHP_EOL;
 
-	        exit;
+			exit;
 		}
 	} else {
 		// Windows.... awesome! But no worries
@@ -175,13 +178,13 @@ thold_prime_distribution($processes);
 
 thold_daemon_debug('Forking Thold Daemon Child Processes');
 
-for($i = 1; $i <= $processes; $i++) {
+for ($i = 1; $i <= $processes; $i++) {
 	thold_launch_worker($i);
 }
 
-$prev_running = false;
+$prev_running       = false;
 $start_daemon_items = 0;
-$counter = 0;
+$counter            = 0;
 
 while (true) {
 	if (db_check_reconnect()) {
@@ -203,10 +206,10 @@ while (true) {
 
 			thold_daemon_debug('Detected Cacti Poller Start at ' . date('Y-m-d H:i:s'));
 
-			$start_items = db_fetch_cell('SELECT COUNT(*) FROM plugin_thold_daemon_data');
+			$start_items  = db_fetch_cell('SELECT COUNT(*) FROM plugin_thold_daemon_data');
 			$prev_running = true;
 		} elseif (!$running && $prev_running) {
-			$end_items = db_fetch_cell('SELECT COUNT(*) FROM plugin_thold_daemon_data');
+			$end_items    = db_fetch_cell('SELECT COUNT(*) FROM plugin_thold_daemon_data');
 			$prev_running = false;
 
 			$tholds = db_fetch_cell('SELECT COUNT(*) FROM thold_data WHERE thold_enabled = "on"');
@@ -243,7 +246,6 @@ while (true) {
 
 			heartbeat_process('thold', 'parent', 0);
 		}
-
 	} else {
 		thold_daemon_debug('WARNING: No database connection.  Sleeping for 60 seconds.');
 
@@ -272,25 +274,25 @@ function sig_handler($signo) {
 	global $config;
 
 	switch ($signo) {
-	case SIGTERM:
-	case SIGINT:
-		/* kill any child processes */
-		$processes = db_fetch_assoc('SELECT * FROM processes WHERE tasktype = "thold" AND taskname = "child"');
+		case SIGTERM:
+		case SIGINT:
+			// kill any child processes
+			$processes = db_fetch_assoc('SELECT * FROM processes WHERE tasktype = "thold" AND taskname = "child"');
 
-		if (cacti_sizeof($processes)) {
-			foreach($processes as $p) {
-				thold_daemon_debug(sprintf('Killing Child Process with the pid of %u', $p['pid']));
-				posix_kill($p['pid'], SIGTERM);
+			if (cacti_sizeof($processes)) {
+				foreach ($processes as $p) {
+					thold_daemon_debug(sprintf('Killing Child Process with the pid of %u', $p['pid']));
+					posix_kill($p['pid'], SIGTERM);
+				}
 			}
-		}
 
-		thold_cacti_log('WARNING: Thold Daemon Parent Process with PID[' . getmypid() . '] terminated by user', 0);
+			thold_cacti_log('WARNING: Thold Daemon Parent Process with PID[' . getmypid() . '] terminated by user', 0);
 
-		unregister_process('thold', 'parent', 0);
+			unregister_process('thold', 'parent', 0);
 
-		exit;
-	default:
-		/* ignore all other signals */
+			exit;
+		default:
+			// ignore all other signals
 	}
 }
 
@@ -299,10 +301,10 @@ function thold_launch_worker($thread) {
 
 	$path_php  = read_config_option('path_php_binary');
 
-	$process   = $config['base_path']       .
+	$process   = $config['base_path'] .
 		'/plugins/thold/thold_process.php ' .
-		' --thread=' . $thread              .
-		($debug ? ' --debug':'')            .
+		' --thread=' . $thread .
+		($debug ? ' --debug' : '') .
 		' > /dev/null';
 
 	thold_daemon_debug('Starting Process: ' . $path_php . ' ' . $process);
@@ -323,13 +325,14 @@ function thold_heartbeat_processes($processes, $new_processes) {
 
 	// Check for a crashed process
 	$process_num = -1;
-	foreach($procs as $id => $p) {
+
+	foreach ($procs as $id => $p) {
 		// Check for crashed processes first
 		if ($process_num != -1) {
 			if ($process_num - 1 != $p['taskid']) {
 				thold_daemon_debug(sprintf('WARNING: Detected Crashed Thold Thread.  Relaunching Crashed Thread %s', $process_num - 1));
 
-				thold_launch_worker($process_num -1);
+				thold_launch_worker($process_num - 1);
 
 				$running_processes++;
 			}
@@ -337,6 +340,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 			// Check for hung processes next
 			$lastupdate = strtotime($p['last_update']);
 			$now        = time();
+
 			if ($lastupdate + 120 < $now) {
 				thold_daemon_debug(sprintf('WARNING: Detected Hung Thold Thread.  Killing/Relaunching Hung Thread %s', $p['taskid']));
 
@@ -349,7 +353,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 		$process_num = $p['taskid'];
 	}
 
-	foreach($procs as $id => $p) {
+	foreach ($procs as $id => $p) {
 		if (function_exists('posix_getpgid')) {
 			$running = posix_getpgid($p['pid']);
 		} elseif (function_exists('posix_kill')) {
@@ -370,9 +374,10 @@ function thold_heartbeat_processes($processes, $new_processes) {
 		if ($running_processes > $new_processes) {
 			thold_daemon_debug(sprintf('Thold Thread Detected Process Count Change.  Reducing Process Count by %s', $running_processes - $new_processes));
 
-			foreach($procs as $id => $p) {
+			foreach ($procs as $id => $p) {
 				posix_kill($p['pid'], SIGTERM);
 				$running_processes--;
+
 				if ($running_processes == $new_processes) {
 					break;
 				}
@@ -380,7 +385,7 @@ function thold_heartbeat_processes($processes, $new_processes) {
 		} else {
 			thold_daemon_debug(sprintf('Thold Thread Detected Process Count Change.  Increasing Process Count by %s', $new_processes - $running_processes));
 
-			while($running_processes < $new_processes) {
+			while ($running_processes < $new_processes) {
 				$running_processes++;
 
 				thold_launch_worker($running_processes);
@@ -415,7 +420,7 @@ function thold_prime_distribution($processes, $truncate = false) {
 
 		$thread_num = 1;
 
-		foreach($tholds as $t) {
+		foreach ($tholds as $t) {
 			if (!isset($threads[$t['host_id']])) {
 				$threads[$t['host_id']] = $thread_num;
 				$thread_num++;
@@ -426,11 +431,11 @@ function thold_prime_distribution($processes, $truncate = false) {
 			}
 		}
 
-		foreach($threads as $host_id => $thread) {
+		foreach ($threads as $host_id => $thread) {
 			db_execute_prepared('UPDATE thold_data
 				SET thread_id = ?
 				WHERE host_id = ?',
-				array($thread, $host_id));
+				[$thread, $host_id]);
 		}
 	}
 
@@ -461,12 +466,10 @@ function display_version() {
 	print 'Threshold Daemon, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-
-/*	display_help - displays the usage of the function */
-function display_help () {
+// display_help - displays the usage of the function
+function display_help() {
 	display_version();
 
 	print PHP_EOL . 'usage: thold_daemon.php [ --foreground | -f ] [ --debug ]' . PHP_EOL . PHP_EOL;
 	print 'The Threshold Daemon processor for the Thold Plugin.' . PHP_EOL;
 }
-

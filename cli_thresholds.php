@@ -22,11 +22,11 @@
  +-------------------------------------------------------------------------+
 */
 
-/* let PHP run just as long as it has to */
+// let PHP run just as long as it has to
 ini_set('max_execution_time', '0');
 
 error_reporting(E_ALL);
-$dir = dirname(__FILE__);
+$dir = __DIR__;
 chdir($dir);
 
 if (strpos($dir, 'plugins') !== false) {
@@ -37,7 +37,7 @@ include('./include/cli_check.php');
 
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-/* set the defaults */
+// set the defaults
 $force     = false;
 $debug     = false;
 $gtemplate = 0;
@@ -45,16 +45,16 @@ $ttemplate = 0;
 $hids      = '';
 $gids      = '';
 
-/* process calling arguments */
+// process calling arguments
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
 if (sizeof($parms)) {
-	foreach($parms as $parameter) {
+	foreach ($parms as $parameter) {
 		if (strpos($parameter, '=')) {
-			list($arg, $value) = explode('=', $parameter);
+			[$arg, $value] = explode('=', $parameter);
 		} else {
-			$arg = $parameter;
+			$arg   = $parameter;
 			$value = '';
 		}
 
@@ -72,25 +72,31 @@ if (sizeof($parms)) {
 			case '--debug':
 			case '-d':
 				$debug = true;
+
 				break;
 			case '--force':
 			case '-f':
 				$force = true;
+
 				break;
 			case '--graph-template':
 			case '-gt':
 				$gtemplate = $value;
+
 				break;
 			case '--thold-template':
 			case '-tt':
 				$ttemplate = $value;
+
 				break;
 			case '--graph-ids':
 			case '-ids':
 				$gids = $value;
+
 				break;
 			case '--host-ids':
 				$hids = $value;
+
 				break;
 			case '--version':
 			case '-V':
@@ -110,10 +116,11 @@ if (sizeof($parms)) {
 	}
 }
 
-/* validate device ids */
+// validate device ids
 if (strlen($hids)) {
 	$hids = explode(' ', $hids);
-	foreach($hids as $id) {
+
+	foreach ($hids as $id) {
 		if (!is_numeric($id)) {
 			print 'ERROR: The Device ID \'' . $id . '\' is NOT numeric.  All Device IDs must be numeric.' . PHP_EOL . PHP_EOL;
 			display_help();
@@ -122,24 +129,25 @@ if (strlen($hids)) {
 	}
 }
 
-/* validate values */
+// validate values
 if (!is_numeric($ttemplate)) {
 	print 'ERROR: The Thold Template must be numeric.' . PHP_EOL . PHP_EOL;
 	display_help();
 	exit(-1);
 }
 
-/* validate values */
+// validate values
 if (!is_numeric($gtemplate)) {
 	print 'ERROR: The Graph Template must be numeric.' . PHP_EOL . PHP_EOL;
 	display_help();
 	exit(-1);
 }
 
-/* validate graph ids */
+// validate graph ids
 if (strlen($gids)) {
 	$gids = explode(' ', $gids);
-	foreach($gids as $id) {
+
+	foreach ($gids as $id) {
 		if (!is_numeric($id)) {
 			print 'ERROR: The Graph ID \'' . $id . '\' is NOT numeric.  All Graph IDs must be numeric.' . PHP_EOL . PHP_EOL;
 			display_help();
@@ -148,7 +156,7 @@ if (strlen($gids)) {
 	}
 }
 
-/* perform some checks */
+// perform some checks
 if ($ttemplate == 0 && $gtemplate == 0 && $hids == '' && $gids == '') {
 	print 'ERROR: You must choose either --auto-create or a combination of Devices, Graphs,' . PHP_EOL;
 	print 'a Graph Template of Threshold Template.' . PHP_EOL . PHP_EOL;
@@ -174,6 +182,7 @@ function thold_cli_autocreate($hids = '', $gids = '', $gtemplate = 0, $ttemplate
 
 function display_version() {
 	global $config;
+
 	if (!function_exists('plugin_thold_version')) {
 		include_once($config['base_path'] . '/plugins/thold/setup.php');
 	}
@@ -182,9 +191,8 @@ function display_version() {
 	print 'Threshold Command Line Interface, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-
-/*	display_help - displays the usage of the function */
-function display_help () {
+// display_help - displays the usage of the function
+function display_help() {
 	display_version();
 
 	print PHP_EOL;
@@ -206,4 +214,3 @@ function display_help () {
 	print '--thold-template=N      - The Threshold Template to use for creating Thresholds' . PHP_EOL;
 	print '--graph-ids=\'N1 N2 ...\' - The Threshold Template to use for creating Thresholds' . PHP_EOL . PHP_EOL;
 }
-

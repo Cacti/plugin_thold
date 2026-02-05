@@ -22,11 +22,11 @@
  +-------------------------------------------------------------------------+
 */
 
-/* let PHP run just as long as it has to and to chew up memory too */
+// let PHP run just as long as it has to and to chew up memory too
 ini_set('max_execution_time', '0');
 ini_set('memory_limit', '-1');
 
-$dir = dirname(__FILE__);
+$dir = __DIR__;
 chdir($dir);
 
 if (strpos($dir, 'plugins') !== false) {
@@ -40,7 +40,7 @@ include_once($config['base_path'] . '/plugins/thold/includes/polling.php');
 include_once($config['base_path'] . '/lib/rrd.php');
 include_once($config['base_path'] . '/lib/poller.php');
 
-/* process calling arguments */
+// process calling arguments
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
@@ -53,11 +53,11 @@ global $debug;
 $poller_id = $config['poller_id'];
 
 if (cacti_sizeof($parms)) {
-	foreach($parms as $parameter) {
+	foreach ($parms as $parameter) {
 		if (strpos($parameter, '=')) {
-			list($arg, $value) = explode('=', $parameter);
+			[$arg, $value] = explode('=', $parameter);
 		} else {
-			$arg = $parameter;
+			$arg   = $parameter;
 			$value = '';
 		}
 
@@ -65,10 +65,12 @@ if (cacti_sizeof($parms)) {
 			case '-f':
 			case '--force':
 				$force = true;
+
 				break;
 			case '-d':
 			case '--debug':
 				$debug = true;
+
 				break;
 			case '--version':
 			case '-V':
@@ -81,7 +83,7 @@ if (cacti_sizeof($parms)) {
 				display_help();
 				exit;
 			default:
-				print "ERROR: Invalid Parameter " . $parameter . "\n\n";
+				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
 				display_help();
 				exit;
 		}
@@ -90,12 +92,12 @@ if (cacti_sizeof($parms)) {
 
 print "Starting the Thold Poller Process\n";
 
-/* silently end if the registered process is still running, or process table missing */
+// silently end if the registered process is still running, or process table missing
 if (!register_process_start('thold', 'master', $config['poller_id'], read_config_option('poller_interval'))) {
 	exit(0);
 }
 
-/* perform all key thold functions */
+// perform all key thold functions
 perform_thold_processes();
 
 unregister_process('thold', 'master', $config['poller_id']);
@@ -103,7 +105,7 @@ unregister_process('thold', 'master', $config['poller_id']);
 function perform_thold_processes() {
 	global $config;
 
-	/* record the start time */
+	// record the start time
 	$start = microtime(true);
 
 	if (read_config_option('thold_empty_if_speed_default') == '') {
@@ -122,17 +124,18 @@ function perform_thold_processes() {
 		thold_debug('Not upgrading Thold database.');
 	}
 
-	/* handle changes in deadnotify */
+	// handle changes in deadnotify
 	thold_debug('Pruning stale dead host notifications.');
 
 	$deadnotify = (read_config_option('alert_deadnotify') == 'on');
+
 	if (!$deadnotify) {
 		db_execute('TRUNCATE plugin_thold_host_failed');
 	} else {
 		db_execute('DELETE FROM plugin_thold_host_failed WHERE host_id NOT IN (SELECT id FROM host)');
 	}
 
-	/* launch the notification background process if required */
+	// launch the notification background process if required
 	$notification_queue  = read_config_option('thold_notification_queue');
 	$notification_daemon = read_config_option('thold_notification_daemon');
 
@@ -141,6 +144,7 @@ function perform_thold_processes() {
 
 		$command_string = cacti_escapeshellcmd(read_config_option('path_php_binary'));
 		$file_path      = $config['base_path'] . '/plugins/thold/thold_notify.php';
+
 		if (file_exists($file_path)) {
 			exec_background($command_string, $file_path);
 		}
@@ -149,7 +153,7 @@ function perform_thold_processes() {
 	if (read_config_option('thold_daemon_enable') == '') {
 		thold_debug('Thold daemon not enabled.  Preparing to perform checks.');
 
-		/* perform all thold checks */
+		// perform all thold checks
 		thold_debug('Thold checks started.');
 		$tholds = thold_check_all_thresholds();
 		thold_debug('Thold checks finished.');
@@ -167,14 +171,14 @@ function perform_thold_processes() {
 				FROM host
 				WHERE disabled = ""
 				AND poller_id = ?',
-				array($config['poller_id']));
+				[$config['poller_id']]);
 
 			$down_hosts = db_fetch_cell_prepared('SELECT COUNT(*)
 				FROM host
 				WHERE status = 1
 				AND disabled = ""
 				AND poller_id = ?',
-				array($config['poller_id']));
+				[$config['poller_id']]);
 		} else {
 			$total_hosts = db_fetch_cell('SELECT COUNT(*)
 				FROM host
@@ -190,20 +194,20 @@ function perform_thold_processes() {
 		thold_prune_old_data();
 		thold_debug('Prune old data finished.');
 
-		/* record the end time */
+		// record the end time
 		$end = microtime(true);
 
-		/* log statistics */
+		// log statistics
 		$thold_stats = sprintf('Time:%0.2f Tholds:%d TotalDevices:%d DownDevices:%d NewDownDevices:%d', $end - $start, $tholds, $total_hosts, $down_hosts, $nhosts);
 
 		cacti_log('THOLD STATS: ' . $thold_stats, false, 'SYSTEM');
 
 		set_config_option('stats_thold', $thold_stats);
 	} else {
-		/* collect some stats */
+		// collect some stats
 		$now = microtime(true);
 
-		/* get the last update from the daemon */
+		// get the last update from the daemon
 		$heartbeat       = read_config_option('thold_daemon_heartbeat');
 		$poller_interval = read_config_option('poller_interval');
 		$curtime         = time();
@@ -230,7 +234,7 @@ function perform_thold_processes() {
 		$threads = read_config_option('thold_max_concurrent_processes');
 
 		if (read_config_option('remote_storage_method') == 1) {
-			/* host_status processed by thold server */
+			// host_status processed by thold server
 			$nhosts = thold_update_host_status();
 
 			thold_cleanup_log();
@@ -239,14 +243,14 @@ function perform_thold_processes() {
 				FROM host
 				WHERE disabled = ""
 				AND poller_id = ?',
-				array($config['poller_id']));
+				[$config['poller_id']]);
 
 			$down_hosts = db_fetch_cell_prepared('SELECT COUNT(*)
 				FROM host
 				WHERE status = 1
 				AND disabled = ""
 				AND poller_id = ?',
-				array($config['poller_id']));
+				[$config['poller_id']]);
 
 			$thresholds = db_fetch_cell_prepared('SELECT COUNT(*)
 				FROM thold_data
@@ -254,9 +258,9 @@ function perform_thold_processes() {
 				ON host.id = thold_data.host_id
 				WHERE poller_id = ?
 				AND disabled = ""',
-				array($config['poller_id']));
+				[$config['poller_id']]);
 		} else {
-			/* host_status processed by thold server */
+			// host_status processed by thold server
 			$nhosts = thold_update_host_status();
 
 			thold_cleanup_log();
@@ -279,10 +283,10 @@ function perform_thold_processes() {
 
 		thold_prune_old_data();
 
-		/* record the end time */
+		// record the end time
 		$end = microtime(true);
 
-		/* log statistics */
+		// log statistics
 		$thold_stats = sprintf('Time:%0.2f TotalDevices:%u DownDevices:%u NewDownDevices:%u Threads:%u Thresholds:%u',
 			$end - $start, $total_hosts, $down_hosts, $nhosts, $threads, $thresholds);
 
@@ -302,21 +306,20 @@ function display_version() {
 		include_once($config['base_path'] . '/plugins/thold/setup.php');
 	}
 
-    $info = plugin_thold_version();
+	$info = plugin_thold_version();
 
-    print "Cacti Thold Master Process, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
+	print 'Cacti Thold Master Process, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . "\n";
 }
 
 /**
  * display_help - displays the usage of the function
  */
-function display_help () {
-    display_version();
+function display_help() {
+	display_version();
 
-    print "\nusage: poller_thold.php [--debug] [--force]\n\n";
+	print "\nusage: poller_thold.php [--debug] [--force]\n\n";
 	print "This binary run various Threshold data collection and\n";
 	print "Management function.\n\n";
-    print "--force    - Force all the service checks to run now\n";
-    print "--debug    - Display verbose output during execution\n\n";
+	print "--force    - Force all the service checks to run now\n";
+	print "--debug    - Display verbose output during execution\n\n";
 }
-

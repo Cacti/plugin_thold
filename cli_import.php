@@ -22,31 +22,31 @@
  +-------------------------------------------------------------------------+
 */
 
-/* let PHP run just as long as it has to */
+// let PHP run just as long as it has to
 ini_set('max_execution_time', '0');
 
 error_reporting(E_ALL);
 
-include(dirname(__FILE__) . '/../../include/cli_check.php');
+include(__DIR__ . '/../../include/cli_check.php');
 include_once($config['base_path'] . '/lib/xml.php');
 include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-/* set the defaults */
+// set the defaults
 $force    = false;
 $debug    = false;
 $filename = false;
 $errors   = 0;
 
-/* process calling arguments */
+// process calling arguments
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
 if (sizeof($parms)) {
-	foreach($parms as $parameter) {
+	foreach ($parms as $parameter) {
 		if (strpos($parameter, '=')) {
-			list($arg, $value) = explode('=', $parameter);
+			[$arg, $value] = explode('=', $parameter);
 		} else {
-			$arg = $parameter;
+			$arg   = $parameter;
 			$value = '';
 		}
 
@@ -54,10 +54,12 @@ if (sizeof($parms)) {
 			case '--debug':
 			case '-d':
 				$debug = true;
+
 				break;
 			case '--filename':
 			case '-f':
 				$filename = $value;
+
 				break;
 			case '--version':
 			case '-V':
@@ -77,28 +79,28 @@ if (sizeof($parms)) {
 	}
 }
 
-/* validate filename set */
+// validate filename set
 if ($filename === false) {
 	print 'ERROR: You must specify a filename using either the --filename of -f options.' . PHP_EOL . PHP_EOL;
 	display_help();
 	exit(-1);
 }
 
-/* validate exists */
+// validate exists
 if (!file_exists($filename)) {
 	print 'ERROR: The filename \'' . $filename . '\' does not exist.' . PHP_EOL . PHP_EOL;
 	display_help();
 	exit(-1);
 }
 
-/* validate readable */
+// validate readable
 if (!is_readable($filename)) {
 	print 'ERROR: The filename \'' . $filename . '\' is not readable.' . PHP_EOL . PHP_EOL;
 	display_help();
 	exit(-1);
 }
 
-/* validate good xml */
+// validate good xml
 $data = file_get_contents($filename);
 
 $xml  = xml2array($data);
@@ -112,19 +114,19 @@ if (!is_array($xml) || !cacti_sizeof($xml)) {
 $return_data = thold_template_import($data);
 
 if (sizeof($return_data) && isset($return_data['success'])) {
-	foreach($return_data['success'] as $message) {
+	foreach ($return_data['success'] as $message) {
 		print 'NOTE: ' . $message . PHP_EOL;
 	}
 }
 
 if (isset($return_data['errors'])) {
-	foreach($return_data['errors'] as $error) {
+	foreach ($return_data['errors'] as $error) {
 		print 'ERROR: ' . $error . PHP_EOL;
 	}
 }
 
 if (isset($return_data['failure'])) {
-	foreach($return_data['failure'] as $error) {
+	foreach ($return_data['failure'] as $error) {
 		print 'ERROR: ' . $error . PHP_EOL;
 	}
 
@@ -160,9 +162,8 @@ function display_version() {
 	print 'Threshold Template Import Utility, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-
-/*	display_help - displays the usage of the function */
-function display_help () {
+// display_help - displays the usage of the function
+function display_help() {
 	display_version();
 
 	print PHP_EOL;
@@ -172,4 +173,3 @@ function display_help () {
 	print 'Simple CLI command to import a threshold template.' . PHP_EOL . PHP_EOL;
 	print '--filename=N  - A valid threshold template exported using the thold plugin.' . PHP_EOL . PHP_EOL;
 }
-

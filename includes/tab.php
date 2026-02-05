@@ -22,15 +22,16 @@
  +-------------------------------------------------------------------------+
 */
 
-function thold_show_tab () {
+function thold_show_tab() {
 	global $config;
+
 	if (api_user_realm_auth('thold_graph.php')) {
 		$cp = false;
+
 		if (get_current_page() == 'thold_graph.php' || get_current_page() == 'thold_view_failures.php' || get_current_page() == 'thold_view_normal.php') {
 			$cp = true;
 		}
 
-		print '<a href="' . $config['url_path'] . 'plugins/thold/thold_graph.php"><img src="' . $config['url_path'] . 'plugins/thold/images/tab_thold' . ($cp ? '_down': '') . '.gif" alt="' . __esc('Thold', 'thold') . '"></a>';
+		print '<a href="' . $config['url_path'] . 'plugins/thold/thold_graph.php"><img src="' . $config['url_path'] . 'plugins/thold/images/tab_thold' . ($cp ? '_down' : '') . '.gif" alt="' . __esc('Thold', 'thold') . '"></a>';
 	}
 }
-

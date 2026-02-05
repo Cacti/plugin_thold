@@ -37,16 +37,16 @@ require($config['base_path'] . '/plugins/thold/includes/arrays.php');
 require_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 require_once($config['library_path'] . '/snmp.php');
 
-/* install signal handlers for Linux/UNIX only */
+// install signal handlers for Linux/UNIX only
 if (function_exists('pcntl_signal')) {
 	pcntl_signal(SIGTERM, 'sig_handler');
 	pcntl_signal(SIGINT, 'sig_handler');
 }
 
-/* help with microtime(true) */
-#ini_set('precision', 16);
+// help with microtime(true)
+// ini_set('precision', 16);
 
-/* process calling arguments */
+// process calling arguments
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
@@ -56,11 +56,11 @@ $debug  = false;
 global $thread, $cnn_id;
 
 if (sizeof($parms)) {
-	foreach($parms as $parameter) {
+	foreach ($parms as $parameter) {
 		if (strpos($parameter, '=')) {
-			list ($arg, $value) = explode('=', $parameter);
+			[$arg, $value] = explode('=', $parameter);
 		} else {
-			$arg = $parameter;
+			$arg   = $parameter;
 			$value = '';
 		}
 
@@ -68,6 +68,7 @@ if (sizeof($parms)) {
 			case '-d':
 			case '--debug':
 				$debug = true;
+
 				break;
 			case '--thread':
 				$thread = $value;
@@ -77,6 +78,7 @@ if (sizeof($parms)) {
 					display_help();
 					exit(1);
 				}
+
 				break;
 			case '-v':
 			case '--version':
@@ -112,14 +114,14 @@ if (!register_process_start('thold', 'child', $thread, $timeout)) {
 		WHERE tasktype = "thold"
 		AND taskname = "child"
 		AND taskid = ?',
-		array($thread));
+		[$thread]);
 
 	if ($config['cacti_server_os'] == 'unix') {
-        if (function_exists('posix_getpgid')) {
-            $running = posix_getpgid($pid);
-        } elseif (function_exists('posix_kill')) {
-            $running = posix_kill($pid, 0);
-        }
+		if (function_exists('posix_getpgid')) {
+			$running = posix_getpgid($pid);
+		} elseif (function_exists('posix_kill')) {
+			$running = posix_kill($pid, 0);
+		}
 
 		if ($running) {
 			exit(1);
@@ -127,7 +129,7 @@ if (!register_process_start('thold', 'child', $thread, $timeout)) {
 			unregister_process('thold', 'child', $thread);
 			register_process_start('thold', 'child', $thread, $timeout);
 		}
-    }
+	}
 }
 
 db_close($cnn_id);
@@ -151,13 +153,13 @@ while (true) {
 		thold_daemon_debug(sprintf('Found %u Thresholds to check for current values.', $total_tholds), $thread);
 
 		if (cacti_sizeof($tholds)) {
-			$rrd_reindexed      = array();
-			$rrd_time_reindexed = array();
+			$rrd_reindexed      = [];
+			$rrd_time_reindexed = [];
 
 			thold_daemon_debug('Getting current values and normalizing multi-item Data Sources for Thresholds', $thread);
 
 			foreach ($tholds as $thold_data) {
-				$item = array();
+				$item = [];
 
 				if (substr($thold_data['rrd_reindexed'], 0, 1) == 'a') {
 					$rrd_reindexed[$thold_data['local_data_id']] = cacti_unserialize($thold_data['rrd_reindexed']);
@@ -172,7 +174,6 @@ while (true) {
 
 				switch ($thold_data['data_type']) {
 					case 0:
-
 						break;
 					case 1:
 						if ($thold_data['cdef'] > 0) {
@@ -218,7 +219,7 @@ while (true) {
 					SET tcheck = 1, lastread = ?,
 					lasttime = FROM_UNIXTIME(?), oldvalue = ?
 					WHERE id = ?',
-					array($currentval, $currenttime, $lasttime, $thold_data['thold_id'])
+					[$currentval, $currenttime, $lasttime, $thold_data['thold_id']]
 				);
 			}
 
@@ -235,7 +236,7 @@ while (true) {
 					db_execute_prepared('UPDATE thold_data
 						SET tcheck = 0
 						WHERE id = ?',
-						array($thold['id'])
+						[$thold['id']]
 					);
 				}
 			}
@@ -250,7 +251,7 @@ while (true) {
 					WHERE ptdd.poller_id = ?
 					AND td.thread_id = ?
 					AND ptdd.time <= FROM_UNIXTIME(?)',
-					array($config['poller_id'], $thread, $start_time));
+					[$config['poller_id'], $thread, $start_time]);
 			} else {
 				db_execute_prepared('DELETE ptdd
 					FROM plugin_thold_daemon_data AS ptdd
@@ -258,7 +259,7 @@ while (true) {
 					ON ptdd.id = td.id
 					WHERE td.thread_id = ?
 					AND ptdd.time <= FROM_UNIXTIME(?)',
-					array($thread, $start_time));
+					[$thread, $start_time]);
 			}
 		} else {
 			sleep(5);
@@ -290,9 +291,10 @@ function sig_handler($signo) {
 			unregister_process('thold', 'child', $thread);
 
 			exit;
+
 			break;
 		default:
-			/* ignore all other signals */
+			// ignore all other signals
 	}
 }
 
@@ -309,7 +311,7 @@ function thold_daemon_debug($message, $thread) {
 function thold_get_thresholds_tholdcheck($thread, $start_time) {
 	global $config;
 
-	/* check all thresholds */
+	// check all thresholds
 	if (read_config_option('remote_storage_method') == 1) {
 		$sql_query = "SELECT td.*, h.hostname,
 			h.description, h.notes AS dnotes, h.snmp_engine_id
@@ -329,7 +331,7 @@ function thold_get_thresholds_tholdcheck($thread, $start_time) {
 			AND h.status = 3";
 
 		$tholds = api_plugin_hook_function('thold_get_live_hosts',
-			db_fetch_assoc_prepared($sql_query, array($thread, $config['poller_id'], $start_time))
+			db_fetch_assoc_prepared($sql_query, [$thread, $config['poller_id'], $start_time])
 		);
 	} else {
 		$sql_query = "SELECT td.*, h.hostname,
@@ -349,7 +351,7 @@ function thold_get_thresholds_tholdcheck($thread, $start_time) {
 			AND h.status = 3";
 
 		$tholds = api_plugin_hook_function('thold_get_live_hosts',
-			db_fetch_assoc_prepared($sql_query, array($thread, $start_time))
+			db_fetch_assoc_prepared($sql_query, [$thread, $start_time])
 		);
 	}
 
@@ -379,7 +381,7 @@ function thold_get_thresholds_precheck($thread, $start_time) {
 			AND tdd.time <= FROM_UNIXTIME(?)
 			AND dtr.data_source_name != ''";
 
-		$tholds = db_fetch_assoc_prepared($sql_query, array($thread, $config['poller_id'], $start_time));
+		$tholds = db_fetch_assoc_prepared($sql_query, [$thread, $config['poller_id'], $start_time]);
 	} else {
 		$sql_query = "SELECT tdd.id, tdd.rrd_reindexed, tdd.rrd_time_reindexed,
 			td.id AS thold_id, td.name_cache AS thold_name, td.local_graph_id,
@@ -399,13 +401,13 @@ function thold_get_thresholds_precheck($thread, $start_time) {
 			AND tdd.time <= FROM_UNIXTIME(?)
 			AND dtr.data_source_name != ''";
 
-		$tholds = db_fetch_assoc_prepared($sql_query, array($thread, $start_time));
+		$tholds = db_fetch_assoc_prepared($sql_query, [$thread, $start_time]);
 	}
 
 	return $tholds;
 }
 
-function thold_db_connection(){
+function thold_db_connection() {
 	global $cnn_id;
 
 	if (is_object($cnn_id)) {
@@ -426,7 +428,7 @@ function thold_db_connection(){
 }
 
 function thold_db_reconnect($cnn_id = null) {
-	chdir(dirname(__FILE__));
+	chdir(__DIR__);
 
 	include('../../include/config.php');
 
@@ -469,11 +471,10 @@ function display_version() {
 	print 'Threshold Processor, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-/*	display_help - displays the usage of the function */
-function display_help () {
+// display_help - displays the usage of the function
+function display_help() {
 	display_version();
 
 	print PHP_EOL . 'usage: thold_process.php --thread=N [--debug]' . PHP_EOL . PHP_EOL;
 	print 'The main Threshold Processor for the Thold Plugin.' . PHP_EOL;
 }
-
