@@ -22,29 +22,28 @@
  +-------------------------------------------------------------------------+
 */
 
-include_once(dirname(__FILE__) . "/../../../include/cli_check.php");
+include_once(__DIR__ . '/../../../include/cli_check.php');
 
 // Get the current users
-$users = db_fetch_assoc("SELECT id FROM user_auth");
+$users = db_fetch_assoc('SELECT id FROM user_auth');
 
 // Get the realm for threshold viewing, increase 100 per plugin realm standards
 $realm = db_fetch_cell("SELECT id FROM plugin_realms WHERE display = 'View Thresholds'");
 $realm = $realm + 100;
 
 print "Threshold Viewing Realm: $realm\n";
-print "Found " . count($users) . " users\n";
+print 'Found ' . count($users) . " users\n";
 
 // Loop through and update each users permissions
 print "Updating Realm Permissions\n";
 
 foreach ($users as $user) {
-	print ".";
+	print '.';
 	$u = $user['id'];
 	db_execute_prepared('REPLACE INTO user_auth_realm
 		(realm_id, user_id) VALUES
 		(?, ?)',
-		array($realm, $u));
+		[$realm, $u]);
 }
 
 print "\n";
-

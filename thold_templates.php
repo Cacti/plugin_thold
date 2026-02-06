@@ -92,11 +92,11 @@ exit;
 function do_actions() {
 	global $thold_template_actions;
 
-	/* ================= input validation ================= */
-	$drp_action = get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^([a-zA-Z0-9_]+)$/')));
-	/* ==================================================== */
+	// ================= input validation =================
+	$drp_action = get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/^([a-zA-Z0-9_]+)$/']]);
+	// ====================================================
 
-	/* if we are to save this form, instead of display it */
+	// if we are to save this form, instead of display it
 	if (isset_request_var('selected_items')) {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
@@ -126,36 +126,38 @@ function do_actions() {
 				case 2:
 					foreach ($selected_items as $id) {
 						if ($id > 0) {
-							plugin_thold_log_changes($id, 'deleted_template', array('id' => $id));
+							plugin_thold_log_changes($id, 'deleted_template', ['id' => $id]);
 
 							db_execute_prepared('DELETE FROM thold_template
 								WHERE id = ?
 								LIMIT 1',
-								array($id));
+								[$id]);
 
 							db_execute_prepared('DELETE FROM plugin_thold_template_contact
 								WHERE template_id = ?',
-								array($id));
+								[$id]);
 
 							db_execute_prepared('DELETE FROM plugin_thold_host_template
 								WHERE thold_template_id = ?',
-								array($id));
+								[$id]);
 
 							db_execute_prepared("UPDATE thold_data
 								SET thold_template_id = '', template_enabled = 'off'
 								WHERE thold_template_id = ?",
-								array($id));
+								[$id]);
 						}
 					}
+
 					break;
 				case 3:
-					$message = array();
+					$message = [];
+
 					foreach ($selected_items as $id) {
 						$tholds = array_rekey(
 							db_fetch_assoc_prepared('SELECT id, local_graph_id
 								FROM thold_data
 								WHERE thold_template_id = ?',
-								array($id)),
+								[$id]),
 							'id', 'local_graph_id'
 						);
 
@@ -165,14 +167,14 @@ function do_actions() {
 									$thold = db_fetch_row_prepared('SELECT *
 										FROM thold_data
 										WHERE id = ?',
-										array($thold_id));
+										[$thold_id]);
 
-									/* check if thold templated */
+									// check if thold templated
 									if ($thold['template_enabled'] == 'on') {
 										$template = db_fetch_row_prepared('SELECT *
 											FROM thold_template
 											WHERE id = ?',
-											array($thold['thold_template_id']));
+											[$thold['thold_template_id']]);
 									} else {
 										$template = false;
 									}
@@ -186,12 +188,12 @@ function do_actions() {
 										$name_cache = $thold['name_cache'];
 									}
 
-									plugin_thold_log_changes($thold_id, 'reapply_name', array('id' => $thold_id));
+									plugin_thold_log_changes($thold_id, 'reapply_name', ['id' => $thold_id]);
 
 									db_execute_prepared('UPDATE thold_data
 										SET name = ?, name_cache = ?
 										WHERE id = ?',
-										array($thold['name'], $name_cache, $thold_id));
+										[$thold['name'], $name_cache, $thold_id]);
 								} else {
 									$message['security'] = __('You are not authorised to modify one or more of the Thresholds selected','thold');
 								}
@@ -209,7 +211,7 @@ function do_actions() {
 						db_execute_prepared('UPDATE thold_template
 							SET thold_enabled = "on"
 							WHERE id = ?',
-							array($thold_id));
+							[$thold_id]);
 
 						thold_template_enable($thold_id);
 					}
@@ -220,7 +222,7 @@ function do_actions() {
 						db_execute_prepared('UPDATE thold_template
 							SET thold_enabled = "off"
 							WHERE id = ?',
-							array($thold_id));
+							[$thold_id]);
 
 						thold_template_disable($thold_id);
 					}
@@ -233,7 +235,7 @@ function do_actions() {
 		}
 	}
 
-	$tholds     = array();
+	$tholds     = [];
 	$thold_list = '';
 
 	foreach ($_POST as $var => $val) {
@@ -244,13 +246,13 @@ function do_actions() {
 			$template = db_fetch_row_prepared('SELECT id, name
 				FROM thold_template
 				WHERE id = ?',
-				array($id));
+				[$id]);
 
 			if (cacti_sizeof($template)) {
 				$count = db_fetch_cell_prepared('SELECT count(id)
 					FROM thold_data
 					WHERE thold_template_id = ?',
-					array($id));
+					[$id]);
 
 				$tholds[$id]   = __esc('%s (%d Thresholds)', $template['name'], $count, 'thold');
 				$tholds_list[] = $id;
@@ -274,27 +276,33 @@ function do_actions() {
 		switch ($drp_action) {
 			case 1:
 				$message = __('Click \'Continue\' to export the following Threshold Template(s).', 'thold');
-				$button = __esc('Export Template(s)', 'thold');
+				$button  = __esc('Export Template(s)', 'thold');
+
 				break;
 			case 2:
 				$message = __('Click \'Continue\' to delete the following Threshold Template(s).', 'thold');
-				$button = __esc('Delete Template(s)', 'thold');
+				$button  = __esc('Delete Template(s)', 'thold');
+
 				break;
 			case 3:
 				$message = __('Click \'Continue\' to Reapply Suggested Names to Thresholds of the following Threshold Template(s).', 'thold');
-				$button = __esc('Reapply Suggested Names to Template(s)', 'thold');
+				$button  = __esc('Reapply Suggested Names to Template(s)', 'thold');
+
 				break;
 			case 4:
 				$message = __('Click \'Continue\' to Enable the selected Template(s) and Threshold(s).', 'thold');
-				$button = __esc('Enable Template(s)', 'thold');
+				$button  = __esc('Enable Template(s)', 'thold');
+
 				break;
 			case 5:
 				$message = __('Click \'Continue\' to Disable the selected Template(s) and Threshold(s).', 'thold');
-				$button = __esc('Disable Template(s)', 'thold');
+				$button  = __esc('Disable Template(s)', 'thold');
+
 				break;
 			default:
 				$message = __('Invalid action detected, can not proceed', 'thold');
-				$button = '';
+				$button  = '';
+
 				break;
 		}
 
@@ -306,6 +314,7 @@ function do_actions() {
 			</tr>\n";
 
 		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>";
+
 		if (!empty($button)) {
 			$save_html .= "&nbsp;<input type='submit' class='ui-button ui-corner-all ui-widget' value='" . __esc('Continue', 'thold') . "' title='$button'>";
 		}
@@ -334,52 +343,54 @@ function do_actions() {
 }
 
 function template_remove_host_from_template() {
-	$host_id = get_filter_request_var('host_id');
+	$host_id           = get_filter_request_var('host_id');
 	$thold_template_id = get_filter_request_var('thold_template_id');
 
 	db_execute_prepared('DELETE FROM plugin_thold_host
 		WHERE host_id = ?
 		AND thold_template_id = ?',
-		array($host_id, $thold_template_id));
+		[$host_id, $thold_template_id]);
 }
 
 function template_add_host_to_template() {
-	$host_id = get_filter_request_var('host_id');
+	$host_id           = get_filter_request_var('host_id');
 	$thold_template_id = get_filter_request_var('thold_template_id');
 
 	db_execute_prepared('REPLACE INTO plugin_thold_host
 		(host_id, thold_template_id) VALUES (?, ?)',
-		array($host_id, $thold_template_id));
+		[$host_id, $thold_template_id]);
 }
 
 function template_export() {
-	/* if we are to save this form, instead of display it */
+	// if we are to save this form, instead of display it
 	if (isset_request_var('selected_items')) {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 		if ($selected_items != false) {
 			$export_file_name = 'thold_template_export.xml';
-			if(cacti_sizeof($selected_items) == 1) {
-				$export_file_name = 'thold_template_' . strtolower(clean_up_file_name(db_fetch_cell_prepared('SELECT name FROM thold_template WHERE id = ?', array($selected_items[0])))) . '.xml';
+
+			if (cacti_sizeof($selected_items) == 1) {
+				$export_file_name = 'thold_template_' . strtolower(clean_up_file_name(db_fetch_cell_prepared('SELECT name FROM thold_template WHERE id = ?', [$selected_items[0]]))) . '.xml';
 			}
 			$output = "<templates>\n";
+
 			foreach ($selected_items as $id) {
 				if ($id > 0) {
 					$data = db_fetch_row_prepared('SELECT *
 						FROM thold_template
 						WHERE id = ?',
-						array($id));
+						[$id]);
 
 					if (cacti_sizeof($data)) {
 						$data_template_hash = db_fetch_cell_prepared('SELECT hash
 							FROM data_template
 							WHERE id = ?',
-							array($data['data_template_id']));
+							[$data['data_template_id']]);
 
 						$data_source_hash   = db_fetch_cell_prepared('SELECT hash
 							FROM data_template_rrd
 							WHERE id = ?',
-							array($data['data_source_id']));
+							[$data['data_source_id']]);
 
 						unset($data['id']);
 						$data['data_template_id'] = $data_template_hash;
@@ -438,7 +449,7 @@ function template_add() {
 
 		html_start_box('', '70%', false, '3', 'center', '');
 
-		/* display the data template dropdown */
+		// display the data template dropdown
 		if ($data_template_id == 0 && sizeof($data_templates) == 1) {
 			// Reset template array to ensure first element
 			reset($data_templates);
@@ -451,11 +462,11 @@ function template_add() {
 		<tr><td><table class='filterTable' align='center'>
 			<tr>
 				<td>
-					<?php print __('Data Template', 'thold');?>
+					<?php print __('Data Template', 'thold'); ?>
 				</td>
 				<td>
 					<select id='data_template_id' name='data_template_id' onChange='applyFilter("dt")'>
-						<option value=''><?php print __('None', 'thold');?></option><?php
+						<option value=''><?php print __('None', 'thold'); ?></option><?php
 						foreach ($data_templates as $id => $name) {
 							print "<option value='" . $id . "'" . ($id == $data_template_id ? ' selected' : '') . '>' . html_escape($name) . '</option>';
 						}?>
@@ -464,25 +475,25 @@ function template_add() {
 			</tr><?php
 
 		if ($data_template_id != 0) {
-			$data_fields = array();
+			$data_fields = [];
 
 			$temp = db_fetch_assoc_prepared('SELECT id, local_data_template_rrd_id,
 				data_source_name, data_input_field_id
 				FROM data_template_rrd
 				WHERE local_data_template_rrd_id = 0
 				AND data_template_id = ?',
-				array($data_template_id));
+				[$data_template_id]);
 
 			foreach ($temp as $d) {
 				if ($d['data_input_field_id'] != 0) {
 					$temp2 = db_fetch_assoc_prepared('SELECT name, data_name
 						FROM data_input_fields
 						WHERE id = ?',
-						array($d['data_input_field_id']));
+						[$d['data_input_field_id']]);
 
 					$data_fields[$d['id']] = $temp2[0]['data_name'] . ' (' . $temp2[0]['name'] . ')';
 				} else {
-					$temp2[0]['name'] = $d['data_source_name'];
+					$temp2[0]['name']      = $d['data_source_name'];
 					$data_fields[$d['id']] = $temp2[0]['name'];
 				}
 			}
@@ -495,15 +506,15 @@ function template_add() {
 				$data_source_id = key($data_fields);
 			}
 
-			/* display the data source dropdown */
+			// display the data source dropdown
 			?>
 			<tr>
 				<td>
-					<?php print __('Data Source', 'thold');?>
+					<?php print __('Data Source', 'thold'); ?>
 				</td>
 				<td>
 					<select id='data_source_id' name='data_source_id' onChange='applyFilter("ds")'>
-						<option value=''><?php print __('None', 'thold');?></option><?php
+						<option value=''><?php print __('None', 'thold'); ?></option><?php
 						foreach ($data_fields as $id => $name) {
 							print "<option value='" . $id . "'" . ($id == $data_source_id ? ' selected' : '') . '>' . html_escape($name) . '</option>';
 						}?>
@@ -516,6 +527,7 @@ function template_add() {
 		}
 
 		print '<tr><td class="center" colspan="2">&nbsp;</td></tr>';
+
 		if ($data_template_id == 0) {
 			print '<tr><td class="center" colspan="2">' . __('Please select a Data Template', 'thold') . '</td></tr>';
 		} elseif ($data_source_id == 0) {
@@ -580,7 +592,7 @@ function template_add() {
 		$temp = db_fetch_row_prepared('SELECT id, hash, name
 			FROM data_template
 			WHERE id = ?',
-			array($data_template_id));
+			[$data_template_id]);
 
 		$save['id']   = '';
 		$save['hash'] = get_hash_thold_template(0);
@@ -595,16 +607,16 @@ function template_add() {
 			data_source_name, data_input_field_id
 			FROM data_template_rrd
 			WHERE id = ?',
-			array($data_source_id));
+			[$data_source_id]);
 
 		$save['data_source_name']  = $temp['data_source_name'];
-		$save['name']             .= ' [' . $temp['data_source_name'] . ']';
+		$save['name'] .= ' [' . $temp['data_source_name'] . ']';
 
 		if ($temp['data_input_field_id'] != 0) {
 			$temp2['name'] = db_fetch_cell_prepared('SELECT name
 				FROM data_input_fields
 				WHERE id = ?',
-				array($temp['data_input_field_id']));
+				[$temp['data_input_field_id']]);
 		} else {
 			$temp2['name'] = $temp['data_source_name'];
 		}
@@ -618,7 +630,7 @@ function template_add() {
 		$save = api_plugin_hook_function('thold_template_edit_save_thold', $save);
 
 		if (!thold_validate_save($save)) {
-			header("Location: thold_templates.php?action=edit&header=false&id=" . ($save['id'] > 0 ? $save['id']:''));
+			header('Location: thold_templates.php?action=edit&header=false&id=' . ($save['id'] > 0 ? $save['id'] : ''));
 			exit;
 		}
 
@@ -649,7 +661,7 @@ function thold_template_disable($id) {
 		SET thold_enabled = "off"
 		WHERE thold_template_id = ?
 		AND template_enabled = "on"',
-		array($id));
+		[$id]);
 }
 
 function thold_template_enable($id) {
@@ -657,11 +669,11 @@ function thold_template_enable($id) {
 		SET thold_enabled = "on"
 		WHERE thold_template_id = ?
 		AND template_enabled = "on"',
-		array($id));
+		[$id]);
 }
 
 function template_save_edit() {
-	/* ================= input validation ================= */
+	// ================= input validation =================
 	get_filter_request_var('id');
 	get_filter_request_var('thold_type');
 	get_filter_request_var('thold_fail_trigger');
@@ -685,23 +697,23 @@ function template_save_edit() {
 	get_filter_request_var('notify_alert');
 	get_filter_request_var('snmp_event_severity');
 	get_filter_request_var('snmp_event_warning_severity');
-	/* ==================================================== */
+	// ====================================================
 
-	/* clean up strings */
+	// clean up strings
 	if (isset_request_var('name')) {
-		set_request_var('name', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('name'))));
+		set_request_var('name', trim(str_replace(['\\', "'", '"'], '', get_nfilter_request_var('name'))));
 	}
 
 	if (isset_request_var('suggested_name')) {
-		set_request_var('suggested_name', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('suggested_name'))));
+		set_request_var('suggested_name', trim(str_replace(['\\', "'", '"'], '', get_nfilter_request_var('suggested_name'))));
 	}
 
 	if (isset_request_var('snmp_event_category')) {
-		set_request_var('snmp_event_category', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_category'))));
+		set_request_var('snmp_event_category', trim(str_replace(['\\', "'", '"'], '', get_nfilter_request_var('snmp_event_category'))));
 	}
 
 	if (isset_request_var('snmp_event_description')) {
-		set_request_var('snmp_event_description', trim(str_replace(array("\\", "'", '"'), '', get_nfilter_request_var('snmp_event_description'))));
+		set_request_var('snmp_event_description', trim(str_replace(['\\', "'", '"'], '', get_nfilter_request_var('snmp_event_description'))));
 	}
 
 	// General Information
@@ -711,7 +723,7 @@ function template_save_edit() {
 	$save['suggested_name'] = get_nfilter_request_var('suggested_name');
 	$save['thold_type']     = get_nfilter_request_var('thold_type');
 	$save['thold_enabled']  = isset_request_var('thold_enabled') ? 'on' : 'off';
-	$save['exempt']         = isset_request_var('exempt')        ? 'on' : '';
+	$save['exempt']         = isset_request_var('exempt') ? 'on' : '';
 
 	// Acknowledgment
 	if (isset_request_var('acknowledgment')) {
@@ -754,6 +766,7 @@ function template_save_edit() {
 		$save['thold_fail_trigger'] = get_nfilter_request_var('thold_fail_trigger');
 	} else {
 		$alert_trigger = read_config_option('alert_trigger');
+
 		if ($alert_trigger != '' && is_numeric($alert_trigger)) {
 			$save['thold_fail_trigger'] = $alert_trigger;
 		} else {
@@ -776,6 +789,7 @@ function template_save_edit() {
 		$save['thold_warning_fail_trigger'] = get_nfilter_request_var('thold_warning_fail_trigger');
 	} else {
 		$alert_trigger = read_config_option('alert_trigger');
+
 		if ($alert_trigger != '' && is_numeric($alert_trigger)) {
 			$save['thold_warning_fail_trigger'] = $alert_trigger;
 		} else {
@@ -806,13 +820,14 @@ function template_save_edit() {
 	// HRULE Display
 	$save['thold_hrule_warning'] = get_nfilter_request_var('thold_hrule_warning');
 	$save['thold_hrule_alert']   = get_nfilter_request_var('thold_hrule_alert');
-	$save['skipscale']           = isset_request_var('skipscale') ? 'on':'';
+	$save['skipscale']           = isset_request_var('skipscale') ? 'on' : '';
 
 	// Baseline settings
 	if (isset_request_var('bl_ref_time_range') && get_nfilter_request_var('bl_ref_time_range') != '') {
 		$save['bl_ref_time_range'] = get_nfilter_request_var('bl_ref_time_range');
 	} else {
 		$alert_bl_timerange_def = read_config_option('alert_bl_timerange_def');
+
 		if ($alert_bl_timerange_def != '' && is_numeric($alert_bl_timerange_def)) {
 			$save['bl_ref_time_range'] = $alert_bl_timerange_def;
 		} else {
@@ -829,6 +844,7 @@ function template_save_edit() {
 		$save['bl_fail_trigger'] = get_nfilter_request_var('bl_fail_trigger');
 	} else {
 		$alert_bl_trigger = read_config_option('alert_bl_trigger');
+
 		if ($alert_bl_trigger != '' && is_numeric($alert_bl_trigger)) {
 			$save['bl_fail_trigger'] = $alert_bl_trigger;
 		} else {
@@ -840,6 +856,7 @@ function template_save_edit() {
 		$save['repeat_alert'] = get_nfilter_request_var('repeat_alert');
 	} else {
 		$alert_repeat = read_config_option('alert_repeat');
+
 		if ($alert_repeat != '' && is_numeric($alert_repeat)) {
 			$save['repeat_alert'] = $alert_repeat;
 		} else {
@@ -865,7 +882,7 @@ function template_save_edit() {
 	// Email Notification
 	$save['notify_extra']         = get_nfilter_request_var('notify_extra');
 	$save['notify_warning_extra'] = get_nfilter_request_var('notify_warning_extra');
-	$save['notify_templated']     = isset_request_var('notify_templated') ? 'on':'';
+	$save['notify_templated']     = isset_request_var('notify_templated') ? 'on' : '';
 	$save['notify_warning']       = get_nfilter_request_var('notify_warning');
 	$save['notify_alert']         = get_nfilter_request_var('notify_alert');
 
@@ -890,7 +907,7 @@ function template_save_edit() {
 
 	if (!is_error_message()) {
 		if (!thold_validate_save($save)) {
-			header("Location: thold_templates.php?action=edit&header=false&id=" . ($save['id'] > 0 ? $save['id']:''));
+			header('Location: thold_templates.php?action=edit&header=false&id=' . ($save['id'] > 0 ? $save['id'] : ''));
 			exit;
 		}
 
@@ -902,7 +919,7 @@ function template_save_edit() {
 			if (isset_request_var('notify_accounts') && is_array(get_nfilter_request_var('notify_accounts'))) {
 				thold_save_template_contacts($id, get_nfilter_request_var('notify_accounts'));
 			} elseif (!isset_request_var('notify_accounts')) {
-				thold_save_template_contacts($id, array());
+				thold_save_template_contacts($id, []);
 			}
 
 			thold_template_update_thresholds($id);
@@ -932,16 +949,16 @@ function template_save_edit() {
 function template_edit() {
 	global $config, $graph_timespans;
 
-	/* ================= input validation ================= */
+	// ================= input validation =================
 	get_filter_request_var('id');
-	/* ==================================================== */
+	// ====================================================
 
 	$id = get_request_var('id');
 
 	$thold_data = db_fetch_row_prepared('SELECT *
 		FROM thold_template
 		WHERE id = ?',
-		array($id));
+		[$id]);
 
 	if (!cacti_sizeof($thold_data)) {
 		raise_message('template_not_found', __('The Threshold Template requested can not be found', 'thold'), MESSAGE_LEVEL_ERROR);
@@ -952,16 +969,17 @@ function template_edit() {
 	$temp = db_fetch_row_prepared('SELECT id, name
 		FROM data_template
 		WHERE id = ?',
-		array($thold_data['data_template_id']));
+		[$thold_data['data_template_id']]);
 
 	$data_templates[$temp['id']] = $temp['name'];
 
 	$temp = db_fetch_row_prepared('SELECT id, data_source_name, data_input_field_id
 		FROM data_template_rrd
 		WHERE id = ?',
-		array($thold_data['data_source_id']));
+		[$thold_data['data_source_id']]);
 
-	$data_fields = array();
+	$data_fields = [];
+
 	if (cacti_sizeof($temp)) {
 		$source_id = $temp['data_input_field_id'];
 
@@ -969,21 +987,21 @@ function template_edit() {
 			$temp2 = db_fetch_row_prepared('SELECT id, name
 				FROM data_input_fields
 				WHERE id = ?',
-				array($source_id));
+				[$source_id]);
 
 			$data_fields[$temp2['id']] = $temp2['name'];
-			$data_source_name = $temp2['name'];
+			$data_source_name          = $temp2['name'];
 		} else {
 			$data_fields[$temp['id']]  = $temp['data_source_name'];
-			$data_source_name = $temp['data_source_name'];
+			$data_source_name          = $temp['data_source_name'];
 		}
 	} else {
-		/* should not be reached */
+		// should not be reached
 		cacti_log('ERROR: Thold Template ID:' . $thold_data['id'] . ' references a deleted Data Source.');
 		$data_source_name = '';
 	}
 
-	$send_notification_array = array();
+	$send_notification_array = [];
 
 	$users = db_fetch_assoc("SELECT plugin_thold_contacts.id, plugin_thold_contacts.data,
 		plugin_thold_contacts.type, user_auth.full_name
@@ -997,6 +1015,7 @@ function template_edit() {
 			$send_notification_array[$user['id']] = $user['full_name'] . ' - ' . ucfirst($user['type']);
 		}
 	}
+
 	if (isset($thold_data['id'])) {
 		$sql = 'SELECT contact_id as id FROM plugin_thold_template_contact WHERE template_id=' . $thold_data['id'];
 	} else {
@@ -1006,7 +1025,7 @@ function template_edit() {
 	$step = db_fetch_cell_prepared('SELECT rrd_step
 		FROM data_template_data
 		WHERE data_template_id = ?',
-		array($thold_data['data_template_id']));
+		[$thold_data['data_template_id']]);
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
@@ -1020,23 +1039,24 @@ function template_edit() {
 		AND dtd.data_template_id = ?
 	    AND dtd.local_data_template_data_id=0
 		ORDER BY steps',
-		array($thold_data['data_template_id']));
+		[$thold_data['data_template_id']]);
 
-	$reference_types = array();
+	$reference_types = [];
+
 	foreach ($rra_steps as $rra_step) {
-	    $seconds = $step * $rra_step['steps'];
+		$seconds                   = $step * $rra_step['steps'];
 		$reference_types[$seconds] = template_calculate_reference_avg($seconds, 'avg');
 	}
 
-	/* calculate percentage ds data sources */
-	$data_fields2 = array();
-	$temp = db_fetch_assoc_prepared('SELECT id, local_data_template_rrd_id, data_source_name,
+	// calculate percentage ds data sources
+	$data_fields2 = [];
+	$temp         = db_fetch_assoc_prepared('SELECT id, local_data_template_rrd_id, data_source_name,
 		data_input_field_id
 		FROM data_template_rrd
 		WHERE local_data_template_rrd_id = 0
 		AND data_source_name NOT IN(?)
 		AND data_template_id = ?',
-		array($data_source_name, $thold_data['data_template_id']));
+		[$data_source_name, $thold_data['data_template_id']]);
 
 	if (cacti_sizeof($temp)) {
 		foreach ($temp as $d) {
@@ -1045,7 +1065,7 @@ function template_edit() {
 					FROM data_input_fields
 					WHERE id = ?
 					ORDER BY data_name',
-					array($d['data_input_field_id']));
+					[$d['data_input_field_id']]);
 
 				$data_fields2[$d['data_source_name']] = $temp2['data_name'] . ' (' . $temp2['name'] . ')';
 			} else {
@@ -1062,19 +1082,21 @@ function template_edit() {
 		) AS hsc
 		ON dl.snmp_query_id=hsc.snmp_query_id
 		WHERE dl.data_template_id = ?',
-		array($thold_data['data_template_id']));
+		[$thold_data['data_template_id']]);
 
-	$nr = array();
+	$nr = [];
+
 	if (cacti_sizeof($replacements)) {
 		foreach ($replacements as $r) {
-			$nr[] = "<span style='color:blue;'>|query_" . $r['field_name'] . "|</span>";
+			$nr[] = "<span style='color:blue;'>|query_" . $r['field_name'] . '|</span>';
 		}
 	}
 
 	$vhf = explode('|', trim(VALID_HOST_FIELDS, '()'));
+
 	if (cacti_sizeof($vhf)) {
 		foreach ($vhf as $r) {
-			$nr[] = "<span style='color:blue;'>|" . $r . "|</span>";
+			$nr[] = "<span style='color:blue;'>|" . $r . '|</span>';
 		}
 	}
 
@@ -1084,11 +1106,11 @@ function template_edit() {
 		FROM data_template_rrd
 		WHERE data_template_id= ?
 		AND local_data_id=0',
-		array($thold_data['data_template_id']));
+		[$thold_data['data_template_id']]);
 
 	if (cacti_sizeof($dss)) {
 		foreach ($dss as $ds) {
-			$dsname[] = "<span style='color:blue;'>|ds:" . $ds['data_source_name'] . "|</span>";
+			$dsname[] = "<span style='color:blue;'>|ds:" . $ds['data_source_name'] . '|</span>';
 		}
 	}
 
@@ -1097,12 +1119,12 @@ function template_edit() {
 	$email_body = read_config_option('thold_enable_per_thold_body');
 
 	if (cacti_sizeof($thold_data) && isset($thold_data['reset_ack'])) {
-		$acknowledgment = ($thold_data['reset_ack'] == 'on' ? 'reset_ack': ($thold_data['persist_ack'] == 'on' ? 'persist_ack':'none'));
+		$acknowledgment = ($thold_data['reset_ack'] == 'on' ? 'reset_ack' : ($thold_data['persist_ack'] == 'on' ? 'persist_ack' : 'none'));
 	} else {
 		$acknowledgment = 'none';
 	}
 
-	foreach($graph_timespans as $index => $span) {
+	foreach ($graph_timespans as $index => $span) {
 		if ($index >= 20) {
 			unset($graph_timespans[$index]);
 		}
@@ -1110,706 +1132,706 @@ function template_edit() {
 
 	$formats = reports_get_format_files();
 
-	/* convert raw units to display units */
+	// convert raw units to display units
 	if (cacti_sizeof($thold_data)) {
-		foreach($thold_units_convert_array as $variable) {
+		foreach ($thold_units_convert_array as $variable) {
 			$thold_data[$variable] = thold_raw_to_display($thold_data[$variable]);
 		}
 	}
 
-	$form_array = array(
-		'general_header' => array(
+	$form_array = [
+		'general_header' => [
 			'friendly_name' => __('General Settings', 'thold'),
-			'method' => 'spacer',
-		),
-		'name' => array(
+			'method'        => 'spacer',
+		],
+		'name' => [
 			'friendly_name' => __('Template Name', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 255,
-			'size' => '60',
-			'default' => thold_get_default_template_name($thold_data),
-			'description' => __('Provide the Threshold Template a meaningful name.', 'thold'),
-			'value' => isset($thold_data['name']) ? $thold_data['name'] : ''
-		),
-		'suggested_name' => array(
+			'method'        => 'textbox',
+			'max_length'    => 255,
+			'size'          => '60',
+			'default'       => thold_get_default_template_name($thold_data),
+			'description'   => __('Provide the Threshold Template a meaningful name.', 'thold'),
+			'value'         => isset($thold_data['name']) ? $thold_data['name'] : ''
+		],
+		'suggested_name' => [
 			'friendly_name' => __('Suggested Threshold Name', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 255,
-			'size' => '60',
-			'default' => thold_get_default_suggested_name($thold_data),
-			'description' => __('Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title.', 'thold'),
-			'value' => isset($thold_data['suggested_name']) ? $thold_data['suggested_name'] : ''
-		),
-		'data_template_name' => array(
+			'method'        => 'textbox',
+			'max_length'    => 255,
+			'size'          => '60',
+			'default'       => thold_get_default_suggested_name($thold_data),
+			'description'   => __('Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title.', 'thold'),
+			'value'         => isset($thold_data['suggested_name']) ? $thold_data['suggested_name'] : ''
+		],
+		'data_template_name' => [
 			'friendly_name' => __('Data Template', 'thold'),
-			'method' => 'drop_array',
-			'default' => 'NULL',
-			'description' => __('Data Template that you are using. (This cannot be changed)', 'thold'),
-			'value' => $thold_data['data_template_id'],
-			'array' => $data_templates,
-		),
-		'data_field_name' => array(
+			'method'        => 'drop_array',
+			'default'       => 'NULL',
+			'description'   => __('Data Template that you are using. (This cannot be changed)', 'thold'),
+			'value'         => $thold_data['data_template_id'],
+			'array'         => $data_templates,
+		],
+		'data_field_name' => [
 			'friendly_name' => __('Data Field', 'thold'),
-			'method' => 'drop_array',
-			'default' => 'NULL',
-			'description' => __('Data Field that you are using. (This cannot be changed)', 'thold'),
-			'value' => $thold_data['id'],
-			'array' => $data_fields,
-		),
-		'thold_enabled' => array(
+			'method'        => 'drop_array',
+			'default'       => 'NULL',
+			'description'   => __('Data Field that you are using. (This cannot be changed)', 'thold'),
+			'value'         => $thold_data['id'],
+			'array'         => $data_fields,
+		],
+		'thold_enabled' => [
 			'friendly_name' => __('Enabled', 'thold'),
-			'method' => 'checkbox',
-			'default' => 'on',
-			'description' => __('Whether or not this Threshold will be checked and alerted upon.', 'thold'),
-			'value' => isset($thold_data['thold_enabled']) ? $thold_data['thold_enabled'] : ''
-		),
-		'thold_hrule_warning' => array(
+			'method'        => 'checkbox',
+			'default'       => 'on',
+			'description'   => __('Whether or not this Threshold will be checked and alerted upon.', 'thold'),
+			'value'         => isset($thold_data['thold_enabled']) ? $thold_data['thold_enabled'] : ''
+		],
+		'thold_hrule_warning' => [
 			'friendly_name' => __('Warning HRULE Color', 'thold'),
-			'description' => __('Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose \'None\' for No HRULE.  Note: This features is supported for Data Manipulation types \'Exact Value\' and \'Percentage\' only at this time.', 'thold'),
-			'method' => 'drop_color',
-			'none_value' => __('None', 'thold'),
-			'default' => '0',
-			'value' => isset($thold_data['thold_hrule_warning']) ? $thold_data['thold_hrule_warning'] : '0'
-		),
-		'thold_hrule_alert' => array(
+			'description'   => __('Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose \'None\' for No HRULE.  Note: This features is supported for Data Manipulation types \'Exact Value\' and \'Percentage\' only at this time.', 'thold'),
+			'method'        => 'drop_color',
+			'none_value'    => __('None', 'thold'),
+			'default'       => '0',
+			'value'         => isset($thold_data['thold_hrule_warning']) ? $thold_data['thold_hrule_warning'] : '0'
+		],
+		'thold_hrule_alert' => [
 			'friendly_name' => __('Alert HRULE Color', 'thold'),
-			'description' => __('Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose \'None\' for No HRULE.  Note: This features is supported for Data Manipulation types \'Exact Value\' and \'Percentage\' only at this time.', 'thold'),
-			'method' => 'drop_color',
-			'none_value' => __('None', 'thold'),
-			'default' => '0',
-			'value' => isset($thold_data['thold_hrule_alert']) ? $thold_data['thold_hrule_alert'] : '0'
-		),
-		'graph_timespan' => array(
+			'description'   => __('Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose \'None\' for No HRULE.  Note: This features is supported for Data Manipulation types \'Exact Value\' and \'Percentage\' only at this time.', 'thold'),
+			'method'        => 'drop_color',
+			'none_value'    => __('None', 'thold'),
+			'default'       => '0',
+			'value'         => isset($thold_data['thold_hrule_alert']) ? $thold_data['thold_hrule_alert'] : '0'
+		],
+		'graph_timespan' => [
 			'friendly_name' => __('Graph Timespan'),
-			'method' => 'drop_array',
-			'default' => GT_LAST_DAY,
-			'description' => __('The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan.'),
-			'array' => $graph_timespans,
-			'value' => '|arg1:graph_timespan|'
-		),
-		'skipscale' => array(
+			'method'        => 'drop_array',
+			'default'       => GT_LAST_DAY,
+			'description'   => __('The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan.'),
+			'array'         => $graph_timespans,
+			'value'         => '|arg1:graph_timespan|'
+		],
+		'skipscale' => [
 			'friendly_name' => __('Skip Scaling on HRULEs', 'thold'),
-			'method' => 'checkbox',
-			'default' => '',
-			'description' => __('If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs.', 'thold'),
-			'value' => isset($thold_data['skipscale']) ? $thold_data['skipscale'] : ''
-		),
-		'exempt' => array(
+			'method'        => 'checkbox',
+			'default'       => '',
+			'description'   => __('If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs.', 'thold'),
+			'value'         => isset($thold_data['skipscale']) ? $thold_data['skipscale'] : ''
+		],
+		'exempt' => [
 			'friendly_name' => __('Weekend Exemption', 'thold'),
-			'description' => __('If this is checked, this Threshold will not alert on weekends.', 'thold'),
-			'method' => 'checkbox',
-			'default' => '',
-			'value' => isset($thold_data['exempt']) ? $thold_data['exempt'] : ''
-		),
-		'restored_alert' => array(
+			'description'   => __('If this is checked, this Threshold will not alert on weekends.', 'thold'),
+			'method'        => 'checkbox',
+			'default'       => '',
+			'value'         => isset($thold_data['exempt']) ? $thold_data['exempt'] : ''
+		],
+		'restored_alert' => [
 			'friendly_name' => __('Disable Restoration Email', 'thold'),
-			'description' => __('If this is checked, Threshold will not send an alert when the Threshold has returned to normal status.', 'thold'),
-			'method' => 'checkbox',
-			'default' => '',
-			'value' => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''
-		),
-		'acknowledgment' => array(
+			'description'   => __('If this is checked, Threshold will not send an alert when the Threshold has returned to normal status.', 'thold'),
+			'method'        => 'checkbox',
+			'default'       => '',
+			'value'         => isset($thold_data['restored_alert']) ? $thold_data['restored_alert'] : ''
+		],
+		'acknowledgment' => [
 			'friendly_name' => __('Acknowledgment Options'),
-			'description' => __('There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>'),
-			'method' => 'radio',
-			'value' => $acknowledgment,
-			'default' => 'none',
-			'items' => array(
-				0 => array(
-					'radio_value' => 'none',
+			'description'   => __('There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>'),
+			'method'        => 'radio',
+			'value'         => $acknowledgment,
+			'default'       => 'none',
+			'items'         => [
+				0 => [
+					'radio_value'   => 'none',
 					'radio_caption' => __('None Required', 'thold'),
-					),
-				1 => array(
-					'radio_value' => 'reset_ack',
+					],
+				1 => [
+					'radio_value'   => 'reset_ack',
 					'radio_caption' => __('Suspendible Notification', 'thold'),
-					),
-				2 => array(
-					'radio_value' => 'persist_ack',
+					],
+				2 => [
+					'radio_value'   => 'persist_ack',
 					'radio_caption' => __('Persistent Acknowledgment', 'thold')
-				)
-			)
-		),
-		'thold_type' => array(
+				]
+			]
+		],
+		'thold_type' => [
 			'friendly_name' => __('Threshold Type', 'thold'),
-			'method' => 'drop_array',
-			'on_change' => 'changeTholdType()',
-			'array' => $thold_types,
-			'default' => read_config_option('thold_type'),
-			'description' => __('The type of Threshold that will be monitored.', 'thold'),
-			'value' => isset($thold_data['thold_type']) ? $thold_data['thold_type'] : ''
-		),
-		'repeat_alert' => array(
+			'method'        => 'drop_array',
+			'on_change'     => 'changeTholdType()',
+			'array'         => $thold_types,
+			'default'       => read_config_option('thold_type'),
+			'description'   => __('The type of Threshold that will be monitored.', 'thold'),
+			'value'         => isset($thold_data['thold_type']) ? $thold_data['thold_type'] : ''
+		],
+		'repeat_alert' => [
 			'friendly_name' => __('Re-Alert Cycle', 'thold'),
-			'method' => 'drop_array',
-			'array' => $repeatarray,
-			'default' => read_config_option('alert_repeat'),
-			'description' => __('Repeat alert after this amount of time has pasted since the last alert.', 'thold'),
-			'value' => isset($thold_data['repeat_alert']) ? $thold_data['repeat_alert'] : ''
-		),
-		'thold_warning_header' => array(
+			'method'        => 'drop_array',
+			'array'         => $repeatarray,
+			'default'       => read_config_option('alert_repeat'),
+			'description'   => __('Repeat alert after this amount of time has pasted since the last alert.', 'thold'),
+			'value'         => isset($thold_data['repeat_alert']) ? $thold_data['repeat_alert'] : ''
+		],
+		'thold_warning_header' => [
 			'friendly_name' => __('Warning - High / Low Settings', 'thold'),
-			'method' => 'spacer',
-			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
-		),
-		'thold_warning_hi' => array(
+			'method'        => 'spacer',
+			'description'   => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
+		],
+		'thold_warning_hi' => [
 			'friendly_name' => __('High Threshold', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 100,
-			'size' => 15,
-			'description' => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
-			'value' => isset($thold_data['thold_warning_hi']) ? $thold_data['thold_warning_hi'] : ''
-		),
-		'thold_warning_low' => array(
+			'method'        => 'textbox',
+			'max_length'    => 100,
+			'size'          => 15,
+			'description'   => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
+			'value'         => isset($thold_data['thold_warning_hi']) ? $thold_data['thold_warning_hi'] : ''
+		],
+		'thold_warning_low' => [
 			'friendly_name' => __('Low Threshold', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 100,
-			'size' => 15,
-			'description' => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
-			'value' => isset($thold_data['thold_warning_low']) ? $thold_data['thold_warning_low'] : ''
-		),
-		'thold_warning_fail_trigger' => array(
+			'method'        => 'textbox',
+			'max_length'    => 100,
+			'size'          => 15,
+			'description'   => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
+			'value'         => isset($thold_data['thold_warning_low']) ? $thold_data['thold_warning_low'] : ''
+		],
+		'thold_warning_fail_trigger' => [
 			'friendly_name' => __('Min Trigger Duration', 'thold'),
-			'method' => 'drop_array',
-			'array' => $alertarray,
-			'description' => __('The amount of time the Data Source must be in a breach condition for an alert to be raised.', 'thold'),
-			'value' => isset($thold_data['thold_warning_fail_trigger']) ? $thold_data['thold_warning_fail_trigger'] : read_config_option('alert_trigger')
-		),
-		'thold_header' => array(
+			'method'        => 'drop_array',
+			'array'         => $alertarray,
+			'description'   => __('The amount of time the Data Source must be in a breach condition for an alert to be raised.', 'thold'),
+			'value'         => isset($thold_data['thold_warning_fail_trigger']) ? $thold_data['thold_warning_fail_trigger'] : read_config_option('alert_trigger')
+		],
+		'thold_header' => [
 			'friendly_name' => __('Alert - High / Low Settings', 'thold'),
-			'method' => 'spacer',
-			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
-		),
-		'thold_hi' => array(
+			'method'        => 'spacer',
+			'description'   => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
+		],
+		'thold_hi' => [
 			'friendly_name' => __('High Threshold', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 100,
-			'size' => 15,
-			'description' => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
-			'value' => isset($thold_data['thold_hi']) ? $thold_data['thold_hi'] : ''
-		),
-		'thold_low' => array(
+			'method'        => 'textbox',
+			'max_length'    => 100,
+			'size'          => 15,
+			'description'   => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
+			'value'         => isset($thold_data['thold_hi']) ? $thold_data['thold_hi'] : ''
+		],
+		'thold_low' => [
 			'friendly_name' => __('Low Threshold', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 100,
-			'size' => 15,
-			'description' => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
-			'value' => isset($thold_data['thold_low']) ? $thold_data['thold_low'] : ''
-		),
-		'thold_fail_trigger' => array(
+			'method'        => 'textbox',
+			'max_length'    => 100,
+			'size'          => 15,
+			'description'   => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
+			'value'         => isset($thold_data['thold_low']) ? $thold_data['thold_low'] : ''
+		],
+		'thold_fail_trigger' => [
 			'friendly_name' => __('Min Trigger Duration', 'thold'),
-			'method' => 'drop_array',
-			'array' => $alertarray,
-			'description' => __('The amount of time the Data Source must be in a breach condition for an alert to be raised.', 'thold'),
-			'value' => isset($thold_data['thold_fail_trigger']) ? $thold_data['thold_fail_trigger'] : read_config_option('alert_trigger')
-		),
-		'time_warning_header' => array(
+			'method'        => 'drop_array',
+			'array'         => $alertarray,
+			'description'   => __('The amount of time the Data Source must be in a breach condition for an alert to be raised.', 'thold'),
+			'value'         => isset($thold_data['thold_fail_trigger']) ? $thold_data['thold_fail_trigger'] : read_config_option('alert_trigger')
+		],
+		'time_warning_header' => [
 			'friendly_name' => __('Warning - Time Based Settings', 'thold'),
-			'method' => 'spacer',
-			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
-		),
-		'time_warning_hi' => array(
+			'method'        => 'spacer',
+			'description'   => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
+		],
+		'time_warning_hi' => [
 			'friendly_name' => __('High Threshold', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 100,
-			'size' => 15,
-			'description' => __('If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
-			'value' => isset($thold_data['time_warning_hi']) ? $thold_data['time_warning_hi'] : ''
-		),
-		'time_warning_low' => array(
+			'method'        => 'textbox',
+			'max_length'    => 100,
+			'size'          => 15,
+			'description'   => __('If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
+			'value'         => isset($thold_data['time_warning_hi']) ? $thold_data['time_warning_hi'] : ''
+		],
+		'time_warning_low' => [
 			'friendly_name' => __('Low Threshold', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 100,
-			'size' => 15,
-			'description' => __('If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
-			'value' => isset($thold_data['time_warning_low']) ? $thold_data['time_warning_low'] : ''
-		),
-		'time_warning_fail_trigger' => array(
+			'method'        => 'textbox',
+			'max_length'    => 100,
+			'size'          => 15,
+			'description'   => __('If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
+			'value'         => isset($thold_data['time_warning_low']) ? $thold_data['time_warning_low'] : ''
+		],
+		'time_warning_fail_trigger' => [
 			'friendly_name' => __('Trigger Count', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 5,
-			'size' => 15,
-			'default' => read_config_option('thold_warning_time_fail_trigger'),
-			'description' => __('The number of times the Data Source must be in breach condition prior to issuing a warning.', 'thold'),
-			'value' => isset($thold_data['time_warning_fail_trigger']) ? $thold_data['time_warning_fail_trigger'] : read_config_option('alert_trigger')
-		),
-		'time_warning_fail_length' => array(
+			'method'        => 'textbox',
+			'max_length'    => 5,
+			'size'          => 15,
+			'default'       => read_config_option('thold_warning_time_fail_trigger'),
+			'description'   => __('The number of times the Data Source must be in breach condition prior to issuing a warning.', 'thold'),
+			'value'         => isset($thold_data['time_warning_fail_trigger']) ? $thold_data['time_warning_fail_trigger'] : read_config_option('alert_trigger')
+		],
+		'time_warning_fail_length' => [
 			'friendly_name' => __('Time Period Length', 'thold'),
-			'method' => 'drop_array',
-			'array' => $timearray,
-			'description' => __('The amount of time in the past to check for Threshold breaches.', 'thold'),
-			'value' => isset($thold_data['time_warning_fail_length']) ? $thold_data['time_warning_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1)
-		),
-		'time_header' => array(
+			'method'        => 'drop_array',
+			'array'         => $timearray,
+			'description'   => __('The amount of time in the past to check for Threshold breaches.', 'thold'),
+			'value'         => isset($thold_data['time_warning_fail_length']) ? $thold_data['time_warning_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1)
+		],
+		'time_header' => [
 			'friendly_name' => __('Alert - Time Based Settings', 'thold'),
-			'method' => 'spacer',
-			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
-		),
-		'time_hi' => array(
+			'method'        => 'spacer',
+			'description'   => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
+		],
+		'time_hi' => [
 			'friendly_name' => __('High Threshold', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 100,
-			'size' => 15,
-			'description' => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
-			'value' => isset($thold_data['time_hi']) ? $thold_data['time_hi'] : ''
-		),
-		'time_low' => array(
+			'method'        => 'textbox',
+			'max_length'    => 100,
+			'size'          => 15,
+			'description'   => __('If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
+			'value'         => isset($thold_data['time_hi']) ? $thold_data['time_hi'] : ''
+		],
+		'time_low' => [
 			'friendly_name' => __('Low Threshold', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 100,
-			'size' => 15,
-			'description' => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
-			'value' => isset($thold_data['time_low']) ? $thold_data['time_low'] : ''
-		),
-		'time_fail_trigger' => array(
+			'method'        => 'textbox',
+			'max_length'    => 100,
+			'size'          => 15,
+			'description'   => __('If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef.', 'thold'),
+			'value'         => isset($thold_data['time_low']) ? $thold_data['time_low'] : ''
+		],
+		'time_fail_trigger' => [
 			'friendly_name' => __('Trigger Count', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 5,
-			'size' => 15,
-			'description' => __('The number of times the Data Source must be in breach condition prior to issuing an alert.', 'thold'),
-			'value' => isset($thold_data['time_fail_trigger']) ? $thold_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
-		),
-		'time_fail_length' => array(
+			'method'        => 'textbox',
+			'max_length'    => 5,
+			'size'          => 15,
+			'description'   => __('The number of times the Data Source must be in breach condition prior to issuing an alert.', 'thold'),
+			'value'         => isset($thold_data['time_fail_trigger']) ? $thold_data['time_fail_trigger'] : read_config_option('thold_time_fail_trigger')
+		],
+		'time_fail_length' => [
 			'friendly_name' => __('Time Period Length', 'thold'),
-			'method' => 'drop_array',
-			'array' => $timearray,
-			'description' => __('The amount of time in the past to check for Threshold breaches.', 'thold'),
-			'value' => isset($thold_data['time_fail_length']) ? $thold_data['time_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 2)
-		),
-		'baseline_header' => array(
+			'method'        => 'drop_array',
+			'array'         => $timearray,
+			'description'   => __('The amount of time in the past to check for Threshold breaches.', 'thold'),
+			'value'         => isset($thold_data['time_fail_length']) ? $thold_data['time_fail_length'] : (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_time_fail_length') : 2)
+		],
+		'baseline_header' => [
 			'friendly_name' => __('Baseline Monitoring', 'thold'),
-			'method' => 'spacer',
-			'description' => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
-		),
-		'bl_type' => array(
+			'method'        => 'spacer',
+			'description'   => __("Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'.", 'thold')
+		],
+		'bl_type' => [
 			'friendly_name' => __('Type', 'thold'),
-			'method' => 'drop_array',
-			'array' => $bl_types,
-			'description' => __('The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time.', 'thold'),
-			'value' => isset($thold_data['bl_type']) ? $thold_data['bl_type'] : 0
-		),
-		'bl_cf' => array(
+			'method'        => 'drop_array',
+			'array'         => $bl_types,
+			'description'   => __('The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time.', 'thold'),
+			'value'         => isset($thold_data['bl_type']) ? $thold_data['bl_type'] : 0
+		],
+		'bl_cf' => [
 			'friendly_name' => __('Consolidation Function', 'thold'),
-			'method' => 'drop_array',
-			'array' => array(
+			'method'        => 'drop_array',
+			'array'         => [
 				'AVG'  => __('Average', 'thold'),
 				'MIN'  => __('Minimum', 'thold'),
 				'MAX'  => __('Maximum', 'thold'),
 				'LAST' => __('Last', 'thold'),
-			),
+			],
 			'description' => __('The Consolidation function to use for the Baseline Type value calculation.', 'thold'),
-			'value' => isset($thold_data['bl_cf']) ? $thold_data['bl_cf'] : 'AVG'
-		),
-		'bl_ref_time_range' => array(
+			'value'       => isset($thold_data['bl_cf']) ? $thold_data['bl_cf'] : 'AVG'
+		],
+		'bl_ref_time_range' => [
 			'friendly_name' => __('Time Range', 'thold'),
-			'method' => 'drop_array',
-			'array' => $thold_timespans,
-			'description' => __('Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold', 'thold'),
-			'value' => isset($thold_data['bl_ref_time_range']) ? $thold_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
-		),
-		'bl_pct_up' => array(
+			'method'        => 'drop_array',
+			'array'         => $thold_timespans,
+			'description'   => __('Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold', 'thold'),
+			'value'         => isset($thold_data['bl_ref_time_range']) ? $thold_data['bl_ref_time_range'] : read_config_option('alert_bl_timerange_def')
+		],
+		'bl_pct_up' => [
 			'friendly_name' => __('Deviation UP', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 12,
-			'size' => 15,
-			'description' => __('Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for \'Absolute Value\' Type, and a Percentable for both \'%% Deviation\' and \'%% Floating Average\'', 'thold'),
-			'value' => isset($thold_data['bl_pct_up']) ? $thold_data['bl_pct_up'] : read_config_option('alert_bl_percent_def')
-		),
-		'bl_pct_down' => array(
+			'method'        => 'textbox',
+			'max_length'    => 12,
+			'size'          => 15,
+			'description'   => __('Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for \'Absolute Value\' Type, and a Percentable for both \'%% Deviation\' and \'%% Floating Average\'', 'thold'),
+			'value'         => isset($thold_data['bl_pct_up']) ? $thold_data['bl_pct_up'] : read_config_option('alert_bl_percent_def')
+		],
+		'bl_pct_down' => [
 			'friendly_name' => __('Deviation DOWN', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 12,
-			'size' => 15,
-			'description' => __('Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for \'Absolute Value\' Type, and a Percentable for both \'%% Deviation\' and \'%% Floating Average\'', 'thold'),
-			'value' => isset($thold_data['bl_pct_down']) ? $thold_data['bl_pct_down'] : read_config_option('alert_bl_percent_def')
-		),
-		'bl_fail_trigger' => array(
+			'method'        => 'textbox',
+			'max_length'    => 12,
+			'size'          => 15,
+			'description'   => __('Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for \'Absolute Value\' Type, and a Percentable for both \'%% Deviation\' and \'%% Floating Average\'', 'thold'),
+			'value'         => isset($thold_data['bl_pct_down']) ? $thold_data['bl_pct_down'] : read_config_option('alert_bl_percent_def')
+		],
+		'bl_fail_trigger' => [
 			'friendly_name' => __('Trigger Count', 'thold'),
-			'method' => 'textbox',
-			'max_length' => 3,
-			'size' => 15,
-			'description' => __('Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles', read_config_option('alert_bl_trigger'), 'thold'),
-			'value' => isset($thold_data['bl_fail_trigger']) ? $thold_data['bl_fail_trigger'] : read_config_option('alert_bl_trigger')
-		),
-		'data_manipulation' => array(
+			'method'        => 'textbox',
+			'max_length'    => 3,
+			'size'          => 15,
+			'description'   => __('Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles', read_config_option('alert_bl_trigger'), 'thold'),
+			'value'         => isset($thold_data['bl_fail_trigger']) ? $thold_data['bl_fail_trigger'] : read_config_option('alert_bl_trigger')
+		],
+		'data_manipulation' => [
 			'friendly_name' => __('Data Manipulation', 'thold'),
-			'method' => 'spacer',
-		),
-		'data_type' => array(
+			'method'        => 'spacer',
+		],
+		'data_type' => [
 			'friendly_name' => __('Data Type', 'thold'),
-			'method' => 'drop_array',
-			'on_change' => 'changeDataType()',
-			'array' => $data_types,
-			'description' => __('Special formatting for the given data.', 'thold'),
-			'value' => isset($thold_data['data_type']) ? $thold_data['data_type'] : read_config_option('data_type')
-		),
-		'cdef' => array(
+			'method'        => 'drop_array',
+			'on_change'     => 'changeDataType()',
+			'array'         => $data_types,
+			'description'   => __('Special formatting for the given data.', 'thold'),
+			'value'         => isset($thold_data['data_type']) ? $thold_data['data_type'] : read_config_option('data_type')
+		],
+		'cdef' => [
 			'friendly_name' => __('Threshold CDEF', 'thold'),
-			'method' => 'drop_array',
-			'default' => 'NULL',
-			'description' => __('Apply this CDEF before returning the data.', 'thold'),
-			'value' => isset($thold_data['cdef']) ? $thold_data['cdef'] : 0,
-			'array' => thold_cdef_select_usable_names()
-		),
-		'percent_ds' => array(
+			'method'        => 'drop_array',
+			'default'       => 'NULL',
+			'description'   => __('Apply this CDEF before returning the data.', 'thold'),
+			'value'         => isset($thold_data['cdef']) ? $thold_data['cdef'] : 0,
+			'array'         => thold_cdef_select_usable_names()
+		],
+		'percent_ds' => [
 			'friendly_name' => __('Percent Datasource', 'thold'),
-			'method' => 'drop_array',
-			'default' => 'NULL',
-			'description' => __('Second Datasource Item to use as total value to calculate percentage from.', 'thold'),
-			'value' => isset($thold_data['percent_ds']) ? $thold_data['percent_ds'] : 0,
-			'array' => $data_fields2,
-		),
-		'expression' => array(
+			'method'        => 'drop_array',
+			'default'       => 'NULL',
+			'description'   => __('Second Datasource Item to use as total value to calculate percentage from.', 'thold'),
+			'value'         => isset($thold_data['percent_ds']) ? $thold_data['percent_ds'] : 0,
+			'array'         => $data_fields2,
+		],
+		'expression' => [
 			'friendly_name' => __('RPN Expression', 'thold'),
-			'method' => 'textarea',
+			'method'        => 'textarea',
 			'textarea_rows' => 5,
 			'textarea_cols' => 80,
-			'default' => '',
-			'description' => __('An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style="color:blue;">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style="color:blue;">|ds:dsname|</span>.  For example, <span style="color:blue;">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style="color:blue;">+, -, /, *, &#37;, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s', $replacements, $datasources, 'thold'),
-			'value' => isset($thold_data['expression']) ? $thold_data['expression'] : ''
-		),
-		'upper_ds' => array(
+			'default'       => '',
+			'description'   => __('An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style="color:blue;">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style="color:blue;">|ds:dsname|</span>.  For example, <span style="color:blue;">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style="color:blue;">+, -, /, *, &#37;, ^</span><br>Functions: <span style="color:blue;">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style="color:blue;">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style="color:blue;">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s', $replacements, $datasources, 'thold'),
+			'value'         => isset($thold_data['expression']) ? $thold_data['expression'] : ''
+		],
+		'upper_ds' => [
 			'friendly_name' => __('Upper Data Source', 'thold'),
-			'method' => 'drop_array',
-			'default' => 'NULL',
-			'description' => __('Upper data source to use to calculate the total value.', 'thold'),
-			'value' => isset($thold_data['upper_ds']) ? $thold_data['upper_ds'] : 0,
-			'array' => $data_fields2,
-		),
-		'show_units' => array(
+			'method'        => 'drop_array',
+			'default'       => 'NULL',
+			'description'   => __('Upper data source to use to calculate the total value.', 'thold'),
+			'value'         => isset($thold_data['upper_ds']) ? $thold_data['upper_ds'] : 0,
+			'array'         => $data_fields2,
+		],
+		'show_units' => [
 			'friendly_name' => __('Show Units', 'thold'),
-			'method' => 'checkbox',
-			'default' => '',
-			'description' => __('Display units for very large or small numbers.', 'thold'),
-			'value' => isset($thold_data['show_units']) ? $thold_data['show_units'] : ''
-		),
-		'units_suffix' => array(
+			'method'        => 'checkbox',
+			'default'       => '',
+			'description'   => __('Display units for very large or small numbers.', 'thold'),
+			'value'         => isset($thold_data['show_units']) ? $thold_data['show_units'] : ''
+		],
+		'units_suffix' => [
 			'friendly_name' => __('Force Units Suffix', 'thold'),
-			'method' => 'textbox',
-			'default' => '',
-			'max_length' => 10,
-			'size' => 10,
-			'description' => __('If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters.', 'thold'),
-			'value' => isset($thold_data['units_suffix']) ? $thold_data['units_suffix'] : ''
-		),
-		'decimals' => array(
+			'method'        => 'textbox',
+			'default'       => '',
+			'max_length'    => 10,
+			'size'          => 10,
+			'description'   => __('If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters.', 'thold'),
+			'value'         => isset($thold_data['units_suffix']) ? $thold_data['units_suffix'] : ''
+		],
+		'decimals' => [
 			'friendly_name' => __('Decimal Digits to Display', 'thold'),
-			'method' => 'drop_array',
-			'default' => 'NULL',
-			'description' => __('The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2.', 'thold'),
-			'value' => isset($thold_data['decimals']) ? $thold_data['decimals'] : 0,
-			'array' => $thold_decimal_digits,
-		),
-		'notify_header' => array(
+			'method'        => 'drop_array',
+			'default'       => 'NULL',
+			'description'   => __('The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2.', 'thold'),
+			'value'         => isset($thold_data['decimals']) ? $thold_data['decimals'] : 0,
+			'array'         => $thold_decimal_digits,
+		],
+		'notify_header' => [
 			'friendly_name' => __('Notification Settings', 'thold'),
-			'collapsible' => 'true',
-			'method' => 'spacer',
-		),
-		'email_subject' => array(
+			'collapsible'   => 'true',
+			'method'        => 'spacer',
+		],
+		'email_subject' => [
 			'friendly_name' => __('Alert Email Subject', 'thold'),
-			'method' => ($email_body == 'on' ? 'textbox':'hidden'),
-			'default' => '',
-			'size' => 80,
-			'max_length' => 128,
-			'description' => __('This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
-			'value' => isset($thold_data['email_subject']) ? $thold_data['email_subject'] : ''
-		),
-		'email_body' => array(
+			'method'        => ($email_body == 'on' ? 'textbox' : 'hidden'),
+			'default'       => '',
+			'size'          => 80,
+			'max_length'    => 128,
+			'description'   => __('This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
+			'value'         => isset($thold_data['email_subject']) ? $thold_data['email_subject'] : ''
+		],
+		'email_body' => [
 			'friendly_name' => __('Alert Email Body', 'thold'),
-			'method' => ($email_body == 'on' ? 'textarea':'hidden'),
+			'method'        => ($email_body == 'on' ? 'textarea' : 'hidden'),
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
-			'default' => read_config_option('thold_alert_text'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
-			'value' => isset($thold_data['email_body']) ? $thold_data['email_body'] : ''
-		),
-		'email_subject_warn' => array(
+			'default'       => read_config_option('thold_alert_text'),
+			'description'   => __('This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
+			'value'         => isset($thold_data['email_body']) ? $thold_data['email_body'] : ''
+		],
+		'email_subject_warn' => [
 			'friendly_name' => __('Warning Subject', 'thold'),
-			'method' => ($email_body == 'on' ? 'textbox':'hidden'),
-			'default' => '',
-			'size' => 80,
-			'max_length' => 128,
-			'description' => __('This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
-			'value' => isset($thold_data['email_subject']) ? $thold_data['email_subject'] : ''
-		),
-		'email_body_warn' => array(
+			'method'        => ($email_body == 'on' ? 'textbox' : 'hidden'),
+			'default'       => '',
+			'size'          => 80,
+			'max_length'    => 128,
+			'description'   => __('This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
+			'value'         => isset($thold_data['email_subject']) ? $thold_data['email_subject'] : ''
+		],
+		'email_body_warn' => [
 			'friendly_name' => __('Warning Body', 'thold'),
-			'method' => ($email_body == 'on' ? 'textarea':'hidden'),
+			'method'        => ($email_body == 'on' ? 'textarea' : 'hidden'),
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
-			'default' => read_config_option('thold_warning_text'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
-			'value' => isset($thold_data['email_body_warn']) ? $thold_data['email_body_warn'] : ''
-		),
-		'email_subject_restoral' => array(
+			'default'       => read_config_option('thold_warning_text'),
+			'description'   => __('This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062', 'thold'),
+			'value'         => isset($thold_data['email_body_warn']) ? $thold_data['email_body_warn'] : ''
+		],
+		'email_subject_restoral' => [
 			'friendly_name' => __('Restoral Subject', 'thold'),
-			'method' => ($email_body == 'on' ? 'textbox':'hidden'),
-			'default' => '',
-			'size' => 80,
-			'max_length' => 128,
-			'description' => __('This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
-			'value' => isset($thold_data['email_subject_restoral']) ? $thold_data['email_subject_restoral'] : ''
-		),
-		'email_body_restoral' => array(
+			'method'        => ($email_body == 'on' ? 'textbox' : 'hidden'),
+			'default'       => '',
+			'size'          => 80,
+			'max_length'    => 128,
+			'description'   => __('This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
+			'value'         => isset($thold_data['email_subject_restoral']) ? $thold_data['email_subject_restoral'] : ''
+		],
+		'email_body_restoral' => [
 			'friendly_name' => __('Restoral Body', 'thold'),
-			'method' => ($email_body == 'on' ? 'textarea':'hidden'),
+			'method'        => ($email_body == 'on' ? 'textarea' : 'hidden'),
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
-			'default' => read_config_option('thold_restoral_text'),
-			'description' => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
-			'value' => isset($thold_data['email_body_restoral']) ? $thold_data['email_body_restoral'] : ''
-		),
-		'notify_templated' => array(
+			'default'       => read_config_option('thold_restoral_text'),
+			'description'   => __('This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062', 'thold'),
+			'value'         => isset($thold_data['email_body_restoral']) ? $thold_data['email_body_restoral'] : ''
+		],
+		'notify_templated' => [
 			'friendly_name' => __('Notification List Read Only', 'thold'),
-			'description' => __('If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold.', 'thold'),
-			'method' => 'checkbox',
-			'default' => read_config_option('notify_templated'),
-			'value' => isset($thold_data['notify_templated']) ? $thold_data['notify_templated'] : ''
-		),
-		'notify_warning' => array(
+			'description'   => __('If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold.', 'thold'),
+			'method'        => 'checkbox',
+			'default'       => read_config_option('notify_templated'),
+			'value'         => isset($thold_data['notify_templated']) ? $thold_data['notify_templated'] : ''
+		],
+		'notify_warning' => [
 			'friendly_name' => __('Warning Notification List', 'thold'),
-			'method' => 'drop_sql',
-			'description' => __('You may specify choose a Notification List to receive Warnings for this Data Source', 'thold'),
-			'value' => isset($thold_data['notify_warning']) ? $thold_data['notify_warning'] : '',
-			'none_value' => __('None', 'thold'),
-			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
-		),
-		'notify_alert' => array(
+			'method'        => 'drop_sql',
+			'description'   => __('You may specify choose a Notification List to receive Warnings for this Data Source', 'thold'),
+			'value'         => isset($thold_data['notify_warning']) ? $thold_data['notify_warning'] : '',
+			'none_value'    => __('None', 'thold'),
+			'sql'           => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
+		],
+		'notify_alert' => [
 			'friendly_name' => __('Alert Notification List', 'thold'),
-			'method' => 'drop_sql',
-			'description' => __('You may specify choose a Notification List to receive Alerts for this Data Source', 'thold'),
-			'value' => isset($thold_data['notify_alert']) ? $thold_data['notify_alert'] : '',
-			'none_value' => __('None', 'thold'),
-			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
-		),
-		'format_file' => array(
+			'method'        => 'drop_sql',
+			'description'   => __('You may specify choose a Notification List to receive Alerts for this Data Source', 'thold'),
+			'value'         => isset($thold_data['notify_alert']) ? $thold_data['notify_alert'] : '',
+			'none_value'    => __('None', 'thold'),
+			'sql'           => 'SELECT id, name FROM plugin_notification_lists ORDER BY name'
+		],
+		'format_file' => [
 			'friendly_name' => __('Style/Format File', 'thold'),
-			'method' => 'drop_array',
-			'default' => 'default.format',
-			'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'thold'),
-			'value' => '|arg1:format_file|',
-			'array' => $formats,
-		),
-	);
+			'method'        => 'drop_array',
+			'default'       => 'default.format',
+			'description'   => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'thold'),
+			'value'         => '|arg1:format_file|',
+			'array'         => $formats,
+		],
+	];
 
 	if (read_config_option('thold_alert_snmp') == 'on') {
-		$extra = array(
-			'snmp_event_category' => array(
+		$extra = [
+			'snmp_event_category' => [
 				'friendly_name' => __('SNMP Notification - Event Category', 'thold'),
-				'method' => 'textbox',
-				'description' => __('To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: "disk_usage", "link_utilization", "ping_test", "nokia_firewall_cpu_utilization" ...', 'thold'),
-				'value' => isset($thold_data['snmp_event_category']) ? $thold_data['snmp_event_category'] : '',
-				'default' => '',
-				'max_length' => '255',
-			),
-			'snmp_event_description' => array(
+				'method'        => 'textbox',
+				'description'   => __('To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: "disk_usage", "link_utilization", "ping_test", "nokia_firewall_cpu_utilization" ...', 'thold'),
+				'value'         => isset($thold_data['snmp_event_category']) ? $thold_data['snmp_event_category'] : '',
+				'default'       => '',
+				'max_length'    => '255',
+			],
+			'snmp_event_description' => [
 				'friendly_name' => __('SNMP Event Description', 'thold'),
-				'description' => __('You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;', 'thold'),
-				'method' => 'textarea',
-				'class' => 'textAreaNotes',
+				'description'   => __('You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;', 'thold'),
+				'method'        => 'textarea',
+				'class'         => 'textAreaNotes',
 				'textarea_rows' => '5',
 				'textarea_cols' => '80',
-				'value' => isset($thold_data['snmp_event_description']) ? $thold_data['snmp_event_description'] : '',
-				'default' => '',
-			),
-			'snmp_event_severity' => array(
+				'value'         => isset($thold_data['snmp_event_description']) ? $thold_data['snmp_event_description'] : '',
+				'default'       => '',
+			],
+			'snmp_event_severity' => [
 				'friendly_name' => __('SNMP Notification - Alert Event Severity', 'thold'),
-				'method' => 'drop_array',
-				'default' => '3',
-				'description' => __('Severity to be used for alerts. (Low impact -> Critical impact)', 'thold'),
-				'value' => isset($thold_data['snmp_event_severity']) ? $thold_data['snmp_event_severity'] : 3,
-				'array' => array(1 => __('Low', 'thold'), 2 => __('Medium', 'thold'), 3 => __('High', 'thold'), 4 => __('Critical', 'thold')),
-			),
-		);
+				'method'        => 'drop_array',
+				'default'       => '3',
+				'description'   => __('Severity to be used for alerts. (Low impact -> Critical impact)', 'thold'),
+				'value'         => isset($thold_data['snmp_event_severity']) ? $thold_data['snmp_event_severity'] : 3,
+				'array'         => [1 => __('Low', 'thold'), 2 => __('Medium', 'thold'), 3 => __('High', 'thold'), 4 => __('Critical', 'thold')],
+			],
+		];
 
 		$form_array += $extra;
 
 		if (read_config_option('thold_alert_snmp_warning') != 'on') {
-			$extra = array(
-				'snmp_event_warning_severity' => array(
+			$extra = [
+				'snmp_event_warning_severity' => [
 					'friendly_name' => __('SNMP Notification - Warning Event Severity', 'thold'),
-					'method' => 'drop_array',
-					'default' => '2',
-					'description' => __('Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts.', 'thold'),
-					'value' => isset($thold_data['snmp_event_warning_severity']) ? $thold_data['snmp_event_warning_severity'] : 2,
-					'array' => array(1 => __('Low', 'thold'), 2 => __('Medium', 'thold'), 3 => __('High', 'thold'), 4 => __('Critical', 'thold')),
-				),
-			);
+					'method'        => 'drop_array',
+					'default'       => '2',
+					'description'   => __('Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts.', 'thold'),
+					'value'         => isset($thold_data['snmp_event_warning_severity']) ? $thold_data['snmp_event_warning_severity'] : 2,
+					'array'         => [1 => __('Low', 'thold'), 2 => __('Medium', 'thold'), 3 => __('High', 'thold'), 4 => __('Critical', 'thold')],
+				],
+			];
 		}
 
 		$form_array += $extra;
 	}
 
 	if (read_config_option('thold_disable_legacy') != 'on') {
-		$extra = array(
-			'notify_accounts' => array(
+		$extra = [
+			'notify_accounts' => [
 				'friendly_name' => __('Notify accounts', 'thold'),
-				'method' => 'drop_multi',
-				'description' => __('This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>', 'thold'),
-				'array' => $send_notification_array,
-				'sql' => $sql,
-				'value' => isset($thold_data['notify_accounts']) ? $thold_data['notify_accounts'] : ''
-			),
-			'notify_extra' => array(
+				'method'        => 'drop_multi',
+				'description'   => __('This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>', 'thold'),
+				'array'         => $send_notification_array,
+				'sql'           => $sql,
+				'value'         => isset($thold_data['notify_accounts']) ? $thold_data['notify_accounts'] : ''
+			],
+			'notify_extra' => [
 				'friendly_name' => __('Alert Emails', 'thold'),
-				'method' => 'textarea',
+				'method'        => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,
-				'description' => __('You may specify here extra Emails to receive alerts for this Data Source (comma separated)', 'thold'),
-				'value' => isset($thold_data['notify_extra']) ? $thold_data['notify_extra'] : ''
-			),
-			'notify_warning_extra' => array(
+				'description'   => __('You may specify here extra Emails to receive alerts for this Data Source (comma separated)', 'thold'),
+				'value'         => isset($thold_data['notify_extra']) ? $thold_data['notify_extra'] : ''
+			],
+			'notify_warning_extra' => [
 				'friendly_name' => __('Warning Emails', 'thold'),
-				'method' => 'textarea',
+				'method'        => 'textarea',
 				'textarea_rows' => 3,
 				'textarea_cols' => 50,
-				'description' => __('You may specify here extra Emails to receive warnings for this Data Source (comma separated)', 'thold'),
-				'value' => isset($thold_data['notify_warning_extra']) ? $thold_data['notify_warning_extra'] : ''
-			)
-		);
+				'description'   => __('You may specify here extra Emails to receive warnings for this Data Source (comma separated)', 'thold'),
+				'value'         => isset($thold_data['notify_warning_extra']) ? $thold_data['notify_warning_extra'] : ''
+			]
+		];
 
 		$form_array += $extra;
 	} else {
-		$extra = array(
-			'notify_accounts' => array(
+		$extra = [
+			'notify_accounts' => [
 				'method' => 'hidden',
-				'value' => 'ignore',
-			),
-			'notify_extra' => array(
+				'value'  => 'ignore',
+			],
+			'notify_extra' => [
 				'method' => 'hidden',
-				'value' => isset($thold_data['notify_extra']) ? $thold_data['notify_extra'] : ''
-			),
-			'notify_warning_extra' => array(
+				'value'  => isset($thold_data['notify_extra']) ? $thold_data['notify_extra'] : ''
+			],
+			'notify_warning_extra' => [
 				'method' => 'hidden',
-				'value' => isset($thold_data['notify_warning_extra']) ? $thold_data['notify_warning_extra'] : ''
-			)
-		);
+				'value'  => isset($thold_data['notify_warning_extra']) ? $thold_data['notify_warning_extra'] : ''
+			]
+		];
 
 		$form_array += $extra;
 	}
 
 	if ($config['cacti_server_os'] != 'win32') {
-		$extra = array(
-			'syslog_settings' => array(
+		$extra = [
+			'syslog_settings' => [
 				'friendly_name' => __('Syslog Settings', 'thold'),
-				'collapsible' => 'true',
-				'method' => 'spacer',
-			),
-			'syslog_enabled' => array(
+				'collapsible'   => 'true',
+				'method'        => 'spacer',
+			],
+			'syslog_enabled' => [
 				'friendly_name' => __('Enabled', 'thold'),
-				'description' => __('If checked, Threshold notification will be sent to your local syslog.', 'thold'),
-				'method' => 'checkbox',
-				'default' => read_config_option('alert_syslog'),
-				'value' => isset($thold_data['syslog_enabled']) ? $thold_data['syslog_enabled'] : ''
-			),
-			'syslog_priority' => array(
+				'description'   => __('If checked, Threshold notification will be sent to your local syslog.', 'thold'),
+				'method'        => 'checkbox',
+				'default'       => read_config_option('alert_syslog'),
+				'value'         => isset($thold_data['syslog_enabled']) ? $thold_data['syslog_enabled'] : ''
+			],
+			'syslog_priority' => [
 				'friendly_name' => __('Priority/Level', 'thold'),
-				'description' => __('This is the Priority Level that will be logged into your syslog messages.', 'thold'),
-				'method' => 'drop_array',
-				'default' => read_config_option('thold_syslog_priority'),
-				'array' => $syslog_priority_array,
-				'value' => isset($thold_data['syslog_priority']) ? $thold_data['syslog_priority'] : ''
-			),
-			'syslog_facility' => array(
+				'description'   => __('This is the Priority Level that will be logged into your syslog messages.', 'thold'),
+				'method'        => 'drop_array',
+				'default'       => read_config_option('thold_syslog_priority'),
+				'array'         => $syslog_priority_array,
+				'value'         => isset($thold_data['syslog_priority']) ? $thold_data['syslog_priority'] : ''
+			],
+			'syslog_facility' => [
 				'friendly_name' => __('Facility', 'thold'),
-				'description' => __('This is the Facility that will be used for this Threshold.', 'thold'),
-				'method' => 'drop_array',
-				'default' => read_config_option('thold_syslog_facility'),
-				'array' => $syslog_facil_array,
-				'value' => isset($thold_data['syslog_facility']) ? $thold_data['syslog_facility'] : ''
-			)
-		);
+				'description'   => __('This is the Facility that will be used for this Threshold.', 'thold'),
+				'method'        => 'drop_array',
+				'default'       => read_config_option('thold_syslog_facility'),
+				'array'         => $syslog_facil_array,
+				'value'         => isset($thold_data['syslog_facility']) ? $thold_data['syslog_facility'] : ''
+			]
+		];
 	} else {
-		$extra = array(
-			'syslog_settings' => array('method' => 'hidden'),
-			'thold_syslog_enabled' => array('method' => 'hidden', 'value' => ''),
-			'thold_syslog_priority' => array('method' => 'hidden', 'value' => ''),
-			'thold_syslog_facility' => array('method' => 'hidden', 'value' => '')
-		);
+		$extra = [
+			'syslog_settings'       => ['method' => 'hidden'],
+			'thold_syslog_enabled'  => ['method' => 'hidden', 'value' => ''],
+			'thold_syslog_priority' => ['method' => 'hidden', 'value' => ''],
+			'thold_syslog_facility' => ['method' => 'hidden', 'value' => '']
+		];
 	}
 
 	$form_array += $extra;
 
 	if (read_config_option('thold_enable_scripts') == 'on') {
-		$extra = array(
-			'event_trigger' => array(
+		$extra = [
+			'event_trigger' => [
 				'friendly_name' => __('Event Triggering (Shell Command)', 'thold'),
-				'collapsible' => 'true',
-				'method' => 'spacer',
-			),
-			'trigger_cmd_high' => array(
+				'collapsible'   => 'true',
+				'method'        => 'spacer',
+			],
+			'trigger_cmd_high' => [
 				'friendly_name' => __('High Trigger Command', 'thold'),
-				'description' => __('If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
-				'method' => 'textarea',
+				'description'   => __('If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
+				'method'        => 'textarea',
 				'textarea_rows' => '4',
 				'textarea_cols' => '80',
-				'value' => isset($thold_data['trigger_cmd_high']) ? $thold_data['trigger_cmd_high'] : ''
-			),
-			'trigger_cmd_low' => array(
-   				'friendly_name' => __('Low Trigger Command', 'thold'),
-				'description' => __('If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
-				'method' => 'textarea',
+				'value'         => isset($thold_data['trigger_cmd_high']) ? $thold_data['trigger_cmd_high'] : ''
+			],
+			'trigger_cmd_low' => [
+				'friendly_name' => __('Low Trigger Command', 'thold'),
+				'description'   => __('If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
+				'method'        => 'textarea',
 				'textarea_rows' => '4',
 				'textarea_cols' => '80',
-				'value' => isset($thold_data['trigger_cmd_low']) ? $thold_data['trigger_cmd_low'] : ''
-			),
-			'trigger_cmd_norm' => array(
+				'value'         => isset($thold_data['trigger_cmd_low']) ? $thold_data['trigger_cmd_low'] : ''
+			],
+			'trigger_cmd_norm' => [
 				'friendly_name' => __('Norm Trigger Command', 'thold'),
-				'description' => __('If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
-				'method' => 'textarea',
+				'description'   => __('If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively.', 'thold'),
+				'method'        => 'textarea',
 				'textarea_rows' => '4',
 				'textarea_cols' => '80',
-				'value' => isset($thold_data['trigger_cmd_norm']) ? $thold_data['trigger_cmd_norm'] : ''
-			),
-		);
+				'value'         => isset($thold_data['trigger_cmd_norm']) ? $thold_data['trigger_cmd_norm'] : ''
+			],
+		];
 
 		$form_array += $extra;
 	}
 
-	$extra = array(
-		'other_settings' => array(
+	$extra = [
+		'other_settings' => [
 			'friendly_name' => __('Other Settings', 'thold'),
-			'collapsible' => 'true',
-			'method' => 'spacer',
-		),
-		'external_id' => array(
+			'collapsible'   => 'true',
+			'method'        => 'spacer',
+		],
+		'external_id' => [
 			'friendly_name' => __('External ID', 'thold'),
-			'method' => 'textbox',
-			'description' => __('Enter an Eternal ID for this Thold Template.', 'thold'),
-			'value' => isset($thold_data['external_id']) ? $thold_data['external_id'] : '',
-			'default' => '',
-			'size' => '20',
-			'max_length' => '20',
-		),
-		'notes' => array(
+			'method'        => 'textbox',
+			'description'   => __('Enter an Eternal ID for this Thold Template.', 'thold'),
+			'value'         => isset($thold_data['external_id']) ? $thold_data['external_id'] : '',
+			'default'       => '',
+			'size'          => '20',
+			'max_length'    => '20',
+		],
+		'notes' => [
 			'friendly_name' => __('Operator Notes', 'thold'),
-			'method' => 'textarea',
+			'method'        => 'textarea',
 			'textarea_rows' => 3,
 			'textarea_cols' => 50,
-			'description' => __('Enter instructions here for an operator who may be receiving the Threshold message.', 'thold'),
-			'value' => isset($thold_data['notes']) ? $thold_data['notes'] : ''
-		)
-	);
+			'description'   => __('Enter instructions here for an operator who may be receiving the Threshold message.', 'thold'),
+			'value'         => isset($thold_data['notes']) ? $thold_data['notes'] : ''
+		]
+	];
 
 	$form_array += $extra;
 
-	$form_array += array(
-		'id' => array(
+	$form_array += [
+		'id' => [
 			'method' => 'hidden',
-			'value' => !empty($thold_data['id']) ? $thold_data['id'] : '0'
-		),
-		'data_template_id' => array(
+			'value'  => !empty($thold_data['id']) ? $thold_data['id'] : '0'
+		],
+		'data_template_id' => [
 			'method' => 'hidden',
-			'value' => (isset($thold_data['data_template_id']) ? $thold_data['data_template_id'] : '0')
-		),
-		'data_source_id' => array(
+			'value'  => (isset($thold_data['data_template_id']) ? $thold_data['data_template_id'] : '0')
+		],
+		'data_source_id' => [
 			'method' => 'hidden',
-			'value' => $thold_data['data_source_id']
-		),
-		'save' => array(
+			'value'  => $thold_data['data_source_id']
+		],
+		'save' => [
 			'method' => 'hidden',
-			'value' => 'edit'
-		)
-	);
+			'value'  => 'edit'
+		]
+	];
 
 	// Allow plugins to hook the edit form
 	$form_array = api_plugin_hook_function('thold_template_edit_form_array', $form_array);
@@ -1819,10 +1841,10 @@ function template_edit() {
 	html_start_box('', '100%', false, '3', 'center', '');
 
 	draw_edit_form(
-		array(
-			'config' => array('no_form_tag' => true),
-			'fields' => inject_form_variables($form_array, cacti_sizeof($thold_data) ? $thold_data : array())
-		)
+		[
+			'config' => ['no_form_tag' => true],
+			'fields' => inject_form_variables($form_array, cacti_sizeof($thold_data) ? $thold_data : [])
+		]
 	);
 
 	html_end_box();
@@ -1979,8 +2001,8 @@ function template_edit() {
 				});
 				return myReturn;
 			},
-			checkAllText: '<?php print __esc('All', 'thold');?>',
-			uncheckAllText: '<?php print __esc('None', 'thold');?>',
+			checkAllText: '<?php print __esc('All', 'thold'); ?>',
+			uncheckAllText: '<?php print __esc('None', 'thold'); ?>',
 			uncheckall: function() {
 				$(this).multiselect('widget').find(':checkbox:first').each(function() {
 					$(this).prop('checked', true);
@@ -2017,10 +2039,10 @@ function template_edit() {
 				}
 			}
 		}).multiselectfilter( {
-			label: '<?php print __esc('Search', 'thold');?>', width: '150'
+			label: '<?php print __esc('Search', 'thold'); ?>', width: '150'
 		});
 
-		<?php api_plugin_hook_function('thold_template_edit_javascript', $thold_data);?>
+		<?php api_plugin_hook_function('thold_template_edit_javascript', $thold_data); ?>
 	});
 
 	</script>
@@ -2068,41 +2090,41 @@ function template_calculate_reference_avg($seconds, $suffix = 'avg') {
 }
 
 function template_request_validation() {
-    /* ================= input validation and session storage ================= */
-    $filters = array(
-		'rows' => array(
-			'filter' => FILTER_VALIDATE_INT,
+	// ================= input validation and session storage =================
+	$filters = [
+		'rows' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-			),
-		'page' => array(
-			'filter' => FILTER_VALIDATE_INT,
+			],
+		'page' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'default' => '1'
-			),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+			],
+		'filter' => [
+			'filter'  => FILTER_DEFAULT,
 			'pageset' => true,
 			'default' => ''
-			),
-		'sort_column' => array(
-			'filter' => FILTER_CALLBACK,
+			],
+		'sort_column' => [
+			'filter'  => FILTER_CALLBACK,
 			'default' => 'name',
-			'options' => array('options' => 'sanitize_search_string')
-			),
-		'sort_direction' => array(
-			'filter' => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string']
+			],
+		'sort_direction' => [
+			'filter'  => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
-			),
-		'associated' => array(
-			'filter' => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string']
+			],
+		'associated' => [
+			'filter'  => FILTER_CALLBACK,
 			'default' => 'true',
-			'options' => array('options' => 'sanitize_search_string')
-			)
-	);
+			'options' => ['options' => 'sanitize_search_string']
+			]
+	];
 
 	validate_store_request_vars($filters, 'sess_tt');
-	/* ================= input validation ================= */
+	// ================= input validation =================
 }
 
 function templates() {
@@ -2110,7 +2132,7 @@ function templates() {
 
 	template_request_validation();
 
-	/* if the number of rows is -1, set it to the default */
+	// if the number of rows is -1, set it to the default
 	if (get_request_var('rows') == -1) {
 		$rows = read_config_option('num_rows_table');
 	} else {
@@ -2126,31 +2148,35 @@ function templates() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search', 'thold');?>
+						<?php print __('Search', 'thold'); ?>
 					</td>
 					<td>
-						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' id='filter' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
-						<?php print __('Templates', 'thold');?>
+						<?php print __('Templates', 'thold'); ?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold');?></option>
+							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 							if (cacti_sizeof($item_rows)) {
 								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . $value . "</option>\n";
+									print "<option value='" . $key . "'";
+
+									if (get_request_var('rows') == $key) {
+										print ' selected';
+									} print '>' . $value . "</option>\n";
 								}
 							}
-							?>
+	?>
 						</select>
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold');?>' onClick='applyFilter()'>
-							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold');?>' onClick='clearFilter()'>
-							<input id='import' type='button' value='<?php print __esc('Import', 'thold');?>' onClick='importTemplate()'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold'); ?>' onClick='applyFilter()'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>' onClick='clearFilter()'>
+							<input id='import' type='button' value='<?php print __esc('Import', 'thold'); ?>' onClick='importTemplate()'>
 						</span>
 					</td>
 				</tr>
@@ -2191,11 +2217,11 @@ function templates() {
 	$sql_where = '';
 
 	if (strlen(get_request_var('filter'))) {
-		$sql_where .= (strlen($sql_where) ? ' AND': 'WHERE') . ' thold_template.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
+		$sql_where .= (strlen($sql_where) ? ' AND' : 'WHERE') . ' thold_template.name LIKE ' . db_qstr('%' . get_request_var('filter') . '%');
 	}
 
 	$sql_order = get_order_string();
-	$sql_limit = ' LIMIT ' . ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
+	$sql_limit = ' LIMIT ' . ($rows * (intval(get_request_var('page')) - 1)) . ',' . $rows;
 
 	$total_rows = db_fetch_cell('SELECT count(*)
 		FROM thold_template');
@@ -2216,119 +2242,120 @@ function templates() {
 
 	html_start_box('', '100%', false, '3', 'center', '');
 
-	$display_text = array(
-		'name' => array(
+	$display_text = [
+		'name' => [
 			'display' => __('Name', 'thold'),
-			'sort' => 'ASC',
-			'align' => 'left'
-		),
-		'external_id' => array(
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		],
+		'external_id' => [
 			'display' => __('External ID', 'thold'),
-			'sort' => 'ASC',
-			'align' => 'left'
-		),
-		'thold_enabled' => array(
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		],
+		'thold_enabled' => [
 			'display' => __('Enabled', 'thold'),
-			'sort' => 'ASC',
-			'align' => 'left'
-		),
-		'id' => array(
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		],
+		'id' => [
 			'display' => __('ID', 'thold'),
-			'sort' => 'ASC',
-			'align' => 'right'
-		),
-		'thresholds' => array(
+			'sort'    => 'ASC',
+			'align'   => 'right'
+		],
+		'thresholds' => [
 			'display' => __('Thresholds', 'thold'),
-			'sort' => '',
-			'align' => 'right'
-		),
-		'data_template_name' => array(
+			'sort'    => '',
+			'align'   => 'right'
+		],
+		'data_template_name' => [
 			'display' => __('Data Template', 'thold'),
-			'sort' => 'ASC',
-			'align' => 'left'
-		),
-		'thold_type' => array(
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		],
+		'thold_type' => [
 			'display' => __('Type', 'thold'),
-			'sort' => 'ASC',
-			'tip' => __('The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function.', 'thold'),
-			'align' => 'left'
-		),
-		'data_source_name' => array(
+			'sort'    => 'ASC',
+			'tip'     => __('The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function.', 'thold'),
+			'align'   => 'left'
+		],
+		'data_source_name' => [
 			'display' => __('DS Name', 'thold'),
-			'sort' => 'ASC',
-			'align' => 'left'
-		),
-		'nosort1' => array(
+			'sort'    => 'ASC',
+			'align'   => 'left'
+		],
+		'nosort1' => [
 			'display' => __('High', 'thold'),
-			'sort' => '',
-			'align' => 'center',
-			'tip' => __('The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef.', 'thold')
-		),
-		'nosort2' => array(
+			'sort'    => '',
+			'align'   => 'center',
+			'tip'     => __('The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef.', 'thold')
+		],
+		'nosort2' => [
 			'display' => __('Low', 'thold'),
-			'sort' => '',
-			'align' => 'center',
-			'tip' => __('The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef.', 'thold')
-		),
-		'nosort3' => array(
+			'sort'    => '',
+			'align'   => 'center',
+			'tip'     => __('The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef.', 'thold')
+		],
+		'nosort3' => [
 			'display' => __('Trigger', 'thold'),
-			'sort' => '',
-			'align' => 'left'
-		),
-		'nosort4' => array(
+			'sort'    => '',
+			'align'   => 'left'
+		],
+		'nosort4' => [
 			'display' => __('Duration', 'thold'),
-			'sort' => '',
-			'align' => 'left'
-		),
-		'nosort5' => array(
+			'sort'    => '',
+			'align'   => 'left'
+		],
+		'nosort5' => [
 			'display' => __('Repeat', 'thold'),
-			'sort' => '',
-			'align' => 'left'
-		)
-	);
+			'sort'    => '',
+			'align'   => 'left'
+		]
+	];
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
 	$i = 0;
+
 	if (cacti_sizeof($template_list)) {
 		foreach ($template_list as $template) {
 			switch ($template['thold_type']) {
-			case 0:					# hi/lo
-				$value_hi               = thold_format_number($template['thold_hi'], 2, 1000);
-				$value_lo               = thold_format_number($template['thold_low'], 2, 1000);
-				$value_trig             = $template['thold_fail_trigger'];
-				$value_duration         = '';
-				$value_warning_hi       = thold_format_number($template['thold_warning_hi'], 2, 1000);
-				$value_warning_lo       = thold_format_number($template['thold_warning_low'], 2, 1000);
-				$value_warning_trig     = $template['thold_warning_fail_trigger'];
-				$value_warning_duration = '';
+				case 0:					// hi/lo
+					$value_hi               = thold_format_number($template['thold_hi'], 2, 1000);
+					$value_lo               = thold_format_number($template['thold_low'], 2, 1000);
+					$value_trig             = $template['thold_fail_trigger'];
+					$value_duration         = '';
+					$value_warning_hi       = thold_format_number($template['thold_warning_hi'], 2, 1000);
+					$value_warning_lo       = thold_format_number($template['thold_warning_low'], 2, 1000);
+					$value_warning_trig     = $template['thold_warning_fail_trigger'];
+					$value_warning_duration = '';
 
-				break;
-			case 1:					# baseline
-				$value_hi   = $template['bl_pct_up'] . (strlen($template['bl_pct_up']) ? '%':'-');
-				$value_lo   = $template['bl_pct_down'] . (strlen($template['bl_pct_down']) ? '%':'-');
-				$value_warning_hi = '-';
-				$value_warning_lo = '-';
-				$value_trig = $template['bl_fail_trigger'];
+					break;
+				case 1:					// baseline
+					$value_hi         = $template['bl_pct_up'] . (strlen($template['bl_pct_up']) ? '%' : '-');
+					$value_lo         = $template['bl_pct_down'] . (strlen($template['bl_pct_down']) ? '%' : '-');
+					$value_warning_hi = '-';
+					$value_warning_lo = '-';
+					$value_trig       = $template['bl_fail_trigger'];
 
-				$step = db_fetch_cell_prepared('SELECT rrd_step
+					$step = db_fetch_cell_prepared('SELECT rrd_step
 					FROM data_template_data
 					WHERE data_template_id = ?
 					LIMIT 1',
-					array($template['data_template_id']));
+						[$template['data_template_id']]);
 
-				$value_duration = $template['bl_ref_time_range'] / $step;
+					$value_duration = $template['bl_ref_time_range'] / $step;
 
-				break;
-			case 2:					#time
-				$value_hi         = thold_format_number($template['time_hi'], 2, 1000);
-				$value_lo         = thold_format_number($template['time_low'], 2, 1000);
-				$value_warning_hi = thold_format_number($template['thold_warning_hi'], 2, 1000);
-				$value_warning_lo = thold_format_number($template['thold_warning_low'], 2, 1000);
-				$value_trig       = $template['time_fail_trigger'];
-				$value_duration   = $template['time_fail_length'];
+					break;
+				case 2:					// time
+					$value_hi         = thold_format_number($template['time_hi'], 2, 1000);
+					$value_lo         = thold_format_number($template['time_low'], 2, 1000);
+					$value_warning_hi = thold_format_number($template['thold_warning_hi'], 2, 1000);
+					$value_warning_lo = thold_format_number($template['thold_warning_low'], 2, 1000);
+					$value_trig       = $template['time_fail_trigger'];
+					$value_duration   = $template['time_fail_length'];
 
-				break;
+					break;
 			}
 
 			$name = ($template['name'] == '' ? $template['data_template_name'] . ' [' . $template['data_source_name'] . ']' : $template['name']);
@@ -2336,11 +2363,11 @@ function templates() {
 
 			form_alternate_row('line' . $template['id']);
 
-			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name  . '</a>', $template['id']);
+			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold_templates.php?action=edit&id=' . $template['id']) . '">' . $name . '</a>', $template['id']);
 			form_selectable_cell($template['external_id'], $template['id']);
-			form_selectable_cell($template['thold_enabled'] == 'on' ? __('Yes', 'thold'):__('No', 'thold'), $template['id']);
+			form_selectable_cell($template['thold_enabled'] == 'on' ? __('Yes', 'thold') : __('No', 'thold'), $template['id']);
 			form_selectable_cell($template['id'], $template['id'], '', 'right');
-			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold.php?reset=1&thold_template_id=' . $template['id']) . '">' . $template['thresholds']  . '</a>', $template['id'], '', 'right');
+			form_selectable_cell('<a class="linkEditMain" href="' . html_escape('thold.php?reset=1&thold_template_id=' . $template['id']) . '">' . $template['thresholds'] . '</a>', $template['id'], '', 'right');
 			form_selectable_cell(filter_value($template['data_template_name'], get_request_var('filter')), $template['id']);
 
 			if ($template['thold_type'] != 1) {
@@ -2356,16 +2383,16 @@ function templates() {
 			form_selectable_cell($value_lo . ' / ' . $value_warning_lo, $template['id'], '', 'center');
 
 			$trigger =  plugin_thold_duration_convert($template['data_template_id'], $value_trig, 'alert', 'data_template_id');
-			form_selectable_cell((strlen($trigger) ? '<i>' . $trigger . '</i>':'-'), $template['id'], '', 'left');
+			form_selectable_cell((strlen($trigger) ? '<i>' . $trigger . '</i>' : '-'), $template['id'], '', 'left');
 
 			$duration = plugin_thold_duration_convert($template['data_template_id'], $value_duration, 'time', 'data_template_id');
-			form_selectable_cell((strlen($duration) ? $duration:'-'), $template['id'], '', 'left');
+			form_selectable_cell((strlen($duration) ? $duration : '-'), $template['id'], '', 'left');
 			form_selectable_cell(plugin_thold_duration_convert($template['data_template_id'], $template['repeat_alert'], 'repeat', 'data_template_id'), $template['id'], '', 'left');
 			form_checkbox_cell($template['data_template_name'], $template['id']);
 			form_end_row();
 		}
 	} else {
-		print "<tr><td><em>" . __('No Threshold Templates', 'thold') . "</em></td></tr>\n";
+		print '<tr><td><em>' . __('No Threshold Templates', 'thold') . "</em></td></tr>\n";
 	}
 
 	html_end_box(false);
@@ -2374,37 +2401,38 @@ function templates() {
 		print $nav;
 	}
 
-	/* draw the dropdown containing a list of available actions for this form */
+	// draw the dropdown containing a list of available actions for this form
 	draw_actions_dropdown($thold_template_actions);
 
 	thold_form_end();
 }
 
 function import() {
-	$form_data = array(
-		'import_file' => array(
+	$form_data = [
+		'import_file' => [
 			'friendly_name' => __('Import Template from Local File', 'thold'),
-			'description' => __('If the XML file containing Threshold Template data is located on your local machine, select it here.', 'thold'),
-			'method' => 'file'
-		),
-		'import_text' => array(
-			'method' => 'textarea',
+			'description'   => __('If the XML file containing Threshold Template data is located on your local machine, select it here.', 'thold'),
+			'method'        => 'file'
+		],
+		'import_text' => [
+			'method'        => 'textarea',
 			'friendly_name' => __('Import Template from Text', 'thold'),
-			'description' => __('If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it.', 'thold'),
-			'value' => '',
-			'default' => '',
+			'description'   => __('If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it.', 'thold'),
+			'value'         => '',
+			'default'       => '',
 			'textarea_rows' => '10',
 			'textarea_cols' => '80',
-			'class' => 'textAreaNotes'
-		)
-	);
+			'class'         => 'textAreaNotes'
+		]
+	];
 
 	form_start('thold_templates.php', 'chk', true);
 
 	if ((isset($_SESSION['import_debug_info'])) && (is_array($_SESSION['import_debug_info']))) {
 		html_start_box(__('Import Results', 'thold'), '80%', false, '3', 'center', '');
 
-		print '<tr><td>' . __('Cacti has imported the following items:', 'thold'). '</td></tr>';
+		print '<tr><td>' . __('Cacti has imported the following items:', 'thold') . '</td></tr>';
+
 		foreach ($_SESSION['import_debug_info'] as $line) {
 			print '<tr><td>' . $line . '</td></tr>';
 		}
@@ -2416,10 +2444,10 @@ function import() {
 
 	html_start_box(__('Import Threshold Templates', 'thold'), '80%', false, '3', 'center', '');
 
-	draw_edit_form(array(
-		'config' => array('no_form_tag' => true),
+	draw_edit_form([
+		'config' => ['no_form_tag' => true],
 		'fields' => $form_data
-		));
+		]);
 
 	form_hidden_box('save_component_import','1','');
 
@@ -2433,31 +2461,38 @@ function import() {
 }
 
 function validate_upload() {
-	/* check file transfer if used */
+	// check file transfer if used
 	if (isset($_FILES['import_file'])) {
-		/* check for errors first */
+		// check for errors first
 		if ($_FILES['import_file']['error'] != 0) {
 			switch ($_FILES['import_file']['error']) {
 				case 1:
 					thold_raise_message(__('The file is too big.', 'thold'), MESSAGE_LEVEL_ERROR);
+
 					break;
 				case 2:
 					thold_raise_message(__('The file is too big.', 'thold'), MESSAGE_LEVEL_ERROR);
+
 					break;
 				case 3:
 					thold_raise_message(__('Incomplete file transfer.', 'thold'), MESSAGE_LEVEL_ERROR);
+
 					break;
 				case 4:
 					thold_raise_message(__('No file uploaded.', 'thold'), MESSAGE_LEVEL_ERROR);
+
 					break;
 				case 6:
 					thold_raise_message(__('Temporary folder missing.', 'thold'), MESSAGE_LEVEL_ERROR);
+
 					break;
 				case 7:
 					thold_raise_message(__('Failed to write file to disk', 'thold'), MESSAGE_LEVEL_ERROR);
+
 					break;
 				case 8:
 					thold_raise_message(__('File upload stopped by extension', 'thold'), MESSAGE_LEVEL_ERROR);
+
 					break;
 			}
 
@@ -2466,9 +2501,10 @@ function validate_upload() {
 			}
 		}
 
-		/* check mine type of the uploaded file */
+		// check mine type of the uploaded file
 		if ($_FILES['import_file']['type'] != 'text/xml') {
 			thold_raise_message(__('Invalid file extension.', 'thold'), MESSAGE_LEVEL_ERROR);
+
 			return false;
 		}
 
@@ -2495,21 +2531,21 @@ function template_import() {
 	if (sizeof($return_data) && isset($return_data['success'])) {
 		foreach ($return_data['success'] as $message) {
 			$debug_data[] = '<span class="deviceUp">' . __('NOTE:', 'thold') . '</span> ' . $message;
-			cacti_log('NOTE: Template Import Succeeded!.  Message: '. $message, false, 'THOLD');
+			cacti_log('NOTE: Template Import Succeeded!.  Message: ' . $message, false, 'THOLD');
 		}
 	}
 
 	if (isset($return_data['errors'])) {
 		foreach ($return_data['errors'] as $error) {
 			$debug_data[] = '<span class="deviceDown">' . __('ERROR:', 'thold') . '</span> ' . $error;
-			cacti_log('NOTE: Template Import Error!.  Message: '. $message, false, 'THOLD');
+			cacti_log('NOTE: Template Import Error!.  Message: ' . $message, false, 'THOLD');
 		}
 	}
 
 	if (isset($return_data['failure'])) {
 		foreach ($return_data['failure'] as $message) {
 			$debug_data[] = '<span class="deviceDown">' . __('ERROR:', 'thold') . '</span> ' . $message;
-			cacti_log('NOTE: Template Import Failed!.  Message: '. $message, false, 'THOLD');
+			cacti_log('NOTE: Template Import Failed!.  Message: ' . $message, false, 'THOLD');
 		}
 	}
 
@@ -2521,7 +2557,7 @@ function template_import() {
 	exit();
 }
 
-/* form_end - draws post form end. To be combined with form_start() */
+// form_end - draws post form end. To be combined with form_start()
 function thold_form_end($ajax = true) {
 	global $form_id, $form_action;
 
@@ -2530,12 +2566,12 @@ function thold_form_end($ajax = true) {
 	if ($ajax) { ?>
 		<script type='text/javascript'>
 		$(function() {
-			$('#<?php print $form_id;?>').submit(function(event) {
+			$('#<?php print $form_id; ?>').submit(function(event) {
 				if ($('#drp_action').val() != '1') {
 					event.preventDefault();
-					strURL  = '<?php print $form_action;?>';
+					strURL  = '<?php print $form_action; ?>';
 					strURL += (strURL.indexOf('?') >= 0 ? '&':'?') + 'header=false';
-					json =  $('#<?php print $form_id;?>').serializeObject();
+					json =  $('#<?php print $form_id; ?>').serializeObject();
 					loadPageUsingPost(strURL, json);
 				}
 			});
@@ -2544,4 +2580,3 @@ function thold_form_end($ajax = true) {
 		<?php
 	}
 }
-

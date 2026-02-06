@@ -31,11 +31,11 @@ include_once($config['base_path'] . '/plugins/thold/setup.php');
 include_once($config['base_path'] . '/plugins/thold/includes/database.php');
 include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
-$actions = array(
+$actions = [
 	1 => __('Delete', 'thold')
-);
+];
 
-/* set default action */
+// set default action
 set_default_action();
 
 switch (get_request_var('action')) {
@@ -93,22 +93,23 @@ switch (get_request_var('action')) {
 		notify_queue();
 
 		bottom_footer();
+
 		break;
 }
 
 function form_actions() {
 	global $actions;
 
-	/* ================= input validation ================= */
-	get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^([a-zA-Z0-9_]+)$/')));
-	/* ==================================================== */
+	// ================= input validation =================
+	get_filter_request_var('drp_action', FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/^([a-zA-Z0-9_]+)$/']]);
+	// ====================================================
 
-	/* if we are to save this form, instead of display it */
+	// if we are to save this form, instead of display it
 	if (isset_request_var('selected_items')) {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 		if ($selected_items != false) {
-			if (get_nfilter_request_var('drp_action') == '1') { /* delete */
+			if (get_nfilter_request_var('drp_action') == '1') { // delete
 				db_execute('DELETE FROM notification_queue WHERE ' . array_to_sql_or($selected_items, 'id'));
 			}
 		}
@@ -117,17 +118,18 @@ function form_actions() {
 		exit;
 	}
 
-	/* setup some variables */
-	$notify_list = ''; $i = 0;
+	// setup some variables
+	$notify_list = '';
+	$i           = 0;
 
-	/* loop through each of the graphs selected on the previous page and get more info about them */
+	// loop through each of the graphs selected on the previous page and get more info about them
 	foreach ($_POST as $var => $val) {
 		if (preg_match('/^chk_([0-9]+)$/', $var, $matches)) {
-			/* ================= input validation ================= */
+			// ================= input validation =================
 			input_validate_input_number($matches[1]);
-			/* ==================================================== */
+			// ====================================================
 
-			$notify_list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT CONCAT(UPPER(topic), ": ", object_name) AS name FROM notification_queue WHERE id = ?', array($matches[1]))) . '</li>';
+			$notify_list .= '<li>' . html_escape(db_fetch_cell_prepared('SELECT CONCAT(UPPER(topic), ": ", object_name) AS name FROM notification_queue WHERE id = ?', [$matches[1]])) . '</li>';
 			$notify_array[$i] = $matches[1];
 
 			$i++;
@@ -141,7 +143,7 @@ function form_actions() {
 	html_start_box($actions[get_nfilter_request_var('drp_action')], '60%', '', '3', 'center', '');
 
 	if (isset($notify_array) && cacti_sizeof($notify_array)) {
-		if (get_nfilter_request_var('drp_action') == '1') { /* delete */
+		if (get_nfilter_request_var('drp_action') == '1') { // delete
 			print "<tr>
 				<td class='textArea'>
 					<p>" . __n('Click \'Continue\' to delete the following Notification.', 'Click \'Continue\' to delete all following Notifications.', cacti_sizeof($notify_array)) . "</p>
@@ -176,47 +178,47 @@ function form_actions() {
 function notify_queue() {
 	global $actions, $item_rows, $thold_notification_topics;
 
-	/* ================= input validation and session storage ================= */
-	$filters = array(
-		'rows' => array(
-			'filter' => FILTER_VALIDATE_INT,
+	// ================= input validation and session storage =================
+	$filters = [
+		'rows' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-		),
-		'processed' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'processed' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => '-1'
-		),
-		'page' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'page' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'default' => '1'
-		),
-		'filter' => array(
-			'filter' => FILTER_DEFAULT,
+		],
+		'filter' => [
+			'filter'  => FILTER_DEFAULT,
 			'pageset' => true,
 			'default' => ''
-		),
-		'topic' => array(
-			'filter' => FILTER_CALLBACK,
+		],
+		'topic' => [
+			'filter'  => FILTER_CALLBACK,
 			'pageset' => true,
 			'default' => '-1',
-			'options' => array('options' => 'sanitize_search_string')
-		),
-		'sort_column' => array(
-			'filter' => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string']
+		],
+		'sort_column' => [
+			'filter'  => FILTER_CALLBACK,
 			'default' => 'object_name',
-			'options' => array('options' => 'sanitize_search_string')
-		),
-		'sort_direction' => array(
-			'filter' => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string']
+		],
+		'sort_direction' => [
+			'filter'  => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
-		)
-	);
+			'options' => ['options' => 'sanitize_search_string']
+		]
+	];
 
 	validate_store_request_vars($filters, 'sess_notify_queue');
-	/* ================= input validation ================= */
+	// ================= input validation =================
 
 	if (get_request_var('rows') == '-1') {
 		$rows = read_config_option('num_rows_table');
@@ -230,6 +232,7 @@ function notify_queue() {
 
 	if ($state == 1) {
 		$ctime = time();
+
 		if ($sdate > 0) {
 			$ago = get_daysfromtime(time() - $sdate, true, ' ', DAYS_FORMAT_LONG);
 		}
@@ -246,58 +249,66 @@ function notify_queue() {
 			<table class='filterTable'>
 				<tr>
 					<td>
-						<?php print __('Search', 'thold');?>
+						<?php print __('Search', 'thold'); ?>
 					</td>
 					<td>
-						<input type='text' class='ui-state-default ui-corner-all' id='filter' size='25' value='<?php print html_escape_request_var('filter');?>'>
+						<input type='text' class='ui-state-default ui-corner-all' id='filter' size='25' value='<?php print html_escape_request_var('filter'); ?>'>
 					</td>
 					<td>
-						<?php print __('Topic', 'thold');?>
+						<?php print __('Topic', 'thold'); ?>
 					</td>
 					<td>
 						<select id='topic' onChange='applyFilter()'>
-							<option value='-1'<?php print (get_request_var('topic') == '-1' ? ' selected>':'>') . __('All', 'thold');?></option>
+							<option value='-1'<?php print (get_request_var('topic') == '-1' ? ' selected>' : '>') . __('All', 'thold'); ?></option>
 							<?php
 							if (cacti_sizeof($thold_notification_topics)) {
 								foreach ($thold_notification_topics as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('topic') == $key) { print ' selected'; } print '>' . html_escape($value) . '</option>';
+									print "<option value='" . $key . "'";
+
+									if (get_request_var('topic') == $key) {
+										print ' selected';
+									} print '>' . html_escape($value) . '</option>';
 								}
 							}
-							?>
+	?>
 						</select>
 					</td>
 					<td>
-						<?php print __('Processed', 'thold');?>
+						<?php print __('Processed', 'thold'); ?>
 					</td>
 					<td>
 						<select id='processed' onChange='applyFilter()'>
-							<option value='-1'<?php print (get_request_var('processed') == '-1' ? ' selected>':'>') . __('All', 'thold');?></option>
-							<option value='0'<?php print (get_request_var('processed') == '0' ? ' selected>':'>') . __('No', 'thold');?></option>
-							<option value='1'<?php print (get_request_var('processed') == '1' ? ' selected>':'>') . __('Yes', 'thold');?></option>
+							<option value='-1'<?php print (get_request_var('processed') == '-1' ? ' selected>' : '>') . __('All', 'thold'); ?></option>
+							<option value='0'<?php print (get_request_var('processed') == '0' ? ' selected>' : '>') . __('No', 'thold'); ?></option>
+							<option value='1'<?php print (get_request_var('processed') == '1' ? ' selected>' : '>') . __('Yes', 'thold'); ?></option>
 						</select>
 					</td>
 					<td>
-						<?php print __('Rows', 'thold');?>
+						<?php print __('Rows', 'thold'); ?>
 					</td>
 					<td>
 						<select id='rows' onChange='applyFilter()'>
-							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>':'>') . __('Default', 'thold');?></option>
+							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>' : '>') . __('Default', 'thold'); ?></option>
 							<?php
-							if (cacti_sizeof($item_rows) > 0) {
-								foreach ($item_rows as $key => $value) {
-									print "<option value='" . $key . "'"; if (get_request_var('rows') == $key) { print ' selected'; } print '>' . html_escape($value) . '</option>';
-								}
-							}
-							?>
+	if (cacti_sizeof($item_rows) > 0) {
+		foreach ($item_rows as $key => $value) {
+			print "<option value='" . $key . "'";
+
+			if (get_request_var('rows') == $key) {
+				print ' selected';
+			} print '>' . html_escape($value) . '</option>';
+		}
+	}
+	?>
 						</select>
 					</td>
 					<td>
 						<span>
-							<input type='button' class='ui-button ui-corner-all ui-widget' id='refresh' value='<?php print __esc('Go');?>' title='<?php print __esc('Set/Refresh Filters');?>'>
-							<input type='button' class='ui-button ui-corner-all ui-widget' id='clear' value='<?php print __esc('Clear');?>' title='<?php print __esc('Clear Filters');?>'>
-							<?php if ($state == 0) {?><input type='button' class='ui-button ui-corner-all ui-widget' id='suspend' value='<?php print __esc('Suspend');?>' title='<?php print __esc('Suspend Notification Processing');?>'><?php } else {?>
-							<input type='button' class='ui-button ui-corner-all ui-widget' id='resume' value='<?php print __esc('Resume');?>' title='<?php print __esc('Resume Notification Processing');?>'><?php }?>
-							<input type='button' class='ui-button ui-corner-all ui-widget' id='purge' value='<?php print __esc('Purge');?>' title='<?php print __esc('Purge Notification Queue');?>'>
+							<input type='button' class='ui-button ui-corner-all ui-widget' id='refresh' value='<?php print __esc('Go'); ?>' title='<?php print __esc('Set/Refresh Filters'); ?>'>
+							<input type='button' class='ui-button ui-corner-all ui-widget' id='clear' value='<?php print __esc('Clear'); ?>' title='<?php print __esc('Clear Filters'); ?>'>
+							<?php if ($state == 0) {?><input type='button' class='ui-button ui-corner-all ui-widget' id='suspend' value='<?php print __esc('Suspend'); ?>' title='<?php print __esc('Suspend Notification Processing'); ?>'><?php } else {?>
+							<input type='button' class='ui-button ui-corner-all ui-widget' id='resume' value='<?php print __esc('Resume'); ?>' title='<?php print __esc('Resume Notification Processing'); ?>'><?php }?>
+							<input type='button' class='ui-button ui-corner-all ui-widget' id='purge' value='<?php print __esc('Purge'); ?>' title='<?php print __esc('Purge Notification Queue'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -365,13 +376,13 @@ function notify_queue() {
 	}
 
 	if (get_request_var('topic') != '' && get_request_var('topic') != '-1') {
-		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' topic = ' . db_qstr(get_request_var('topic'));
+		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . ' topic = ' . db_qstr(get_request_var('topic'));
 	}
 
 	if (get_request_var('processed') == 1) {
-		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' event_processed = 1';
+		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . ' event_processed = 1';
 	} elseif (get_request_var('processed') == 0) {
-		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' event_processed = 0';
+		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . ' event_processed = 0';
 	}
 
 	$total_rows = db_fetch_cell("SELECT COUNT(*)
@@ -381,7 +392,7 @@ function notify_queue() {
 		$sql_where");
 
 	$sql_order = get_order_string();
-	$sql_limit = ' LIMIT ' . ($rows*(intval(get_request_var('page'))-1)) . ',' . $rows;
+	$sql_limit = ' LIMIT ' . ($rows * (intval(get_request_var('page')) - 1)) . ',' . $rows;
 
 	$notifications = db_fetch_assoc("SELECT nq.*, h.hostname
 		FROM notification_queue AS nq
@@ -406,59 +417,59 @@ function notify_queue() {
 
 	html_start_box('', '100%', '', '3', 'center', '');
 
-	$display_text = array(
-		'topic' => array(
+	$display_text = [
+		'topic' => [
 			'display' => __('Topic', 'thold'),
 			'align'   => 'left',
 			'sort'    => 'ASC',
 			'tip'     => __('The supported notification topic.', 'thold')
-		),
-		'object_name' => array(
+		],
+		'object_name' => [
 			'display' => __('Event Description', 'thold'),
 			'align'   => 'left',
 			'tip'     => __('The name of the object as defined by the caller.', 'thold')
-		),
-		'hostname' => array(
+		],
+		'hostname' => [
 			'display' => __('Hostname', 'thold'),
 			'align'   => 'left',
 			'tip'     => __('The hostname that was the source of this event.', 'thold')
-		),
-		'nosort' => array(
+		],
+		'nosort' => [
 			'display' => __('Notification List', 'thold'),
 			'align'   => 'left',
 			'tip'     => __('The Notification List used if any.', 'thold')
-		),
-		'object_id' => array(
+		],
+		'object_id' => [
 			'display' => __('Object ID', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
 			'tip'     => __('The Object ID defined by the caller.  Generally its unique \'id\'.', 'thold')
-		),
-		'event_time' => array(
+		],
+		'event_time' => [
 			'display' => __('Event Time', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
 			'tip'     => __('The time of the event as defined by the caller.', 'thold')
-		),
-		'event_processed' => array(
+		],
+		'event_processed' => [
 			'display' => __('Processed', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
 			'tip'     => __('Has the Notification Event been processed.', 'thold')
-		),
-		'error_code' => array(
+		],
+		'error_code' => [
 			'display' => __('Errors', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
 			'tip'     => __('Did this notification result in an error.  Hover on the error column for details.', 'thold')
-		),
-		'event_processed_runtime' => array(
+		],
+		'event_processed_runtime' => [
 			'display' => __('Run Time', 'thold'),
 			'align'   => 'right',
 			'sort'    => 'DESC',
 			'tip'     => __('The time in seconds it took to process the event.', 'thold')
-		)
-	);
+		]
+	];
 
 	html_header_sort_checkbox($display_text, get_request_var('sort_column'), get_request_var('sort_direction'), false);
 
@@ -480,10 +491,10 @@ function notify_queue() {
 
 			form_selectable_cell($n['id'], $n['id'], '', 'right');
 			form_selectable_cell($n['event_time'], $n['id'], '', 'right');
-			form_selectable_cell($n['event_processed'] == 0 ? __('Pending', 'thold'):__('Done', 'thold'), $n['id'], '', 'right');
+			form_selectable_cell($n['event_processed'] == 0 ? __('Pending', 'thold') : __('Done', 'thold'), $n['id'], '', 'right');
 
 			if ($n['event_processed'] > 0) {
-				form_selectable_cell($n['error_code'] > 0 ? __('Errored', 'thold'):__('Success', 'thold'), $n['id'], '', 'right');
+				form_selectable_cell($n['error_code'] > 0 ? __('Errored', 'thold') : __('Success', 'thold'), $n['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($n['event_processed_runtime'], 2), $n['id'], '', 'right');
 			} else {
 				form_selectable_cell(__('N/A', 'thold'), $n['id'], '', 'right');
@@ -495,7 +506,7 @@ function notify_queue() {
 			form_end_row();
 		}
 	} else {
-		print "<tr class='tableRow'><td colspan='" . (cacti_sizeof($display_text)+1) . "'><em>" . __('No Notifications', 'thold') . "</em></td></tr>";
+		print "<tr class='tableRow'><td colspan='" . (cacti_sizeof($display_text) + 1) . "'><em>" . __('No Notifications', 'thold') . '</em></td></tr>';
 	}
 
 	html_end_box(false);
@@ -504,9 +515,8 @@ function notify_queue() {
 		print $nav;
 	}
 
-	/* draw the dropdown containing a list of available actions for this form */
+	// draw the dropdown containing a list of available actions for this form
 	draw_actions_dropdown($actions);
 
 	form_end();
 }
-

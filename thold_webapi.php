@@ -36,7 +36,7 @@ function thold_add_graphs_action_execute() {
 	$template = db_fetch_row_prepared('SELECT *
 		FROM thold_template
 		WHERE id = ?',
-		array($thold_template_id));
+		[$thold_template_id]);
 
 	$temp = db_fetch_row_prepared('SELECT dtr.*
 		FROM data_template_rrd AS dtr
@@ -46,7 +46,7 @@ function thold_add_graphs_action_execute() {
 		ON gl.id=gti.local_graph_id
 		WHERE gl.id = ?
 		LIMIT 1' ,
-		array($local_graph_id));
+		[$local_graph_id]);
 
 	$data_template_id = $temp['data_template_id'];
 	$local_data_id    = $temp['local_data_id'];
@@ -54,18 +54,18 @@ function thold_add_graphs_action_execute() {
 	$data_source = db_fetch_row_prepared('SELECT *
 		FROM data_local
 		WHERE id = ?',
-		array($local_data_id));
+		[$local_data_id]);
 
 	$data_template_id = $data_source['data_template_id'];
 
-	/* allow duplicate thresholds, but only from differing templates */
+	// allow duplicate thresholds, but only from differing templates
 	$existing = db_fetch_assoc_prepared('SELECT id
 		FROM thold_data
 		WHERE local_data_id = ?
 		AND data_template_rrd_id = ?
 		AND thold_template_id = ?
 		AND template_enabled = "on"',
-		array($local_data_id, $data_template_id, $template['id']));
+		[$local_data_id, $data_template_id, $template['id']]);
 
 	if (!cacti_sizeof($existing) && cacti_sizeof($template)) {
 		if ($local_graph_id) {
@@ -73,17 +73,17 @@ function thold_add_graphs_action_execute() {
 				FROM data_template_rrd
 				WHERE local_data_id = ?
 				ORDER BY id LIMIT 1',
-				array($local_data_id));
+				[$local_data_id]);
 
 			$graph_template_id = db_fetch_cell_prepared('SELECT graph_template_id
 				FROM graph_templates_item
 				WHERE task_item_id = ?
 				AND local_graph_id = ?',
-				array($rrd_id, $local_graph_id));
+				[$rrd_id, $local_graph_id]);
 
 			$data_source_name = $template['data_source_name'];
 
-			$save = array();
+			$save = [];
 
 			$save['host_id']            = $data_source['host_id'];
 			$save['local_data_id']      = $local_data_id;
@@ -99,11 +99,11 @@ function thold_add_graphs_action_execute() {
 				FROM data_template_rrd
 				WHERE local_data_id = ?
 				AND data_source_name = ?',
-				array($local_data_id, $data_source_name));
+				[$local_data_id, $data_source_name]);
 
 			if (cacti_sizeof($rrdlist)) {
 				foreach ($rrdlist as $rrdrow) {
-					$data_rrd_id = $rrdrow['id'];
+					$data_rrd_id                  = $rrdrow['id'];
 					$save['data_template_rrd_id'] = $data_rrd_id;
 
 					$existing = db_fetch_assoc_prepared("SELECT id
@@ -112,7 +112,7 @@ function thold_add_graphs_action_execute() {
 						AND data_template_rrd_id = ?
 						AND thold_template_id = ?
 						AND template_enabled='on'",
-						array($local_data_id, $data_rrd_id, $template['id']));
+						[$local_data_id, $data_rrd_id, $template['id']]);
 
 					if (count($existing) == 0) {
 						$save['id'] = 0;
@@ -125,14 +125,15 @@ function thold_add_graphs_action_execute() {
 							$tname = db_fetch_cell_prepared('SELECT name
 								FROM data_template
 								WHERE id = ?',
-								array($data_template_id));
+								[$data_template_id]);
 
 							$name = $data_source_name;
+
 							if ($rrdrow['data_input_field_id'] != 0) {
 								$name = db_fetch_cell_prepared('SELECT name
 									FROM data_input_fields
 									WHERE id = ?',
-									array($rrdrow['data_input_field_id']));
+									[$rrdrow['data_input_field_id']]);
 							}
 
 							plugin_thold_log_changes($id, 'created', " $tname [$name]");
@@ -158,7 +159,7 @@ function thold_add_graphs_action_execute() {
 
 		kill_session_var('graph_return');
 
-		header('Location: ' . $return_to . (strpos($return_to, '?') !== false ? '&':'?') . 'header=false');
+		header('Location: ' . $return_to . (strpos($return_to, '?') !== false ? '&' : '?') . 'header=false');
 	} else {
 		header('Location:' . $config['url_path'] . 'plugins/thold/thold.php?header=false');
 	}
@@ -191,7 +192,7 @@ function thold_wizard() {
 		$graph_local = db_fetch_row_prepared('SELECT *
 			FROM graph_local
 			WHERE id = ?',
-			array($local_graph_id));
+			[$local_graph_id]);
 
 		if (cacti_sizeof($graph_local)) {
 			if ($graph_local['snmp_query_id'] > 0) {
@@ -222,7 +223,7 @@ function thold_wizard() {
 				AND td.data_template_rrd_id = dtr.id
 				WHERE gti.local_graph_id = ?
 				AND td.id IS NULL',
-				array($host_id, $local_graph_id));
+				[$host_id, $local_graph_id]);
 
 			if ($data_source_info != '') {
 				$templates = db_fetch_assoc('SELECT id, name
@@ -232,19 +233,19 @@ function thold_wizard() {
 
 				if (cacti_sizeof($templates)) {
 					$thold_template_id = $templates[0]['id'];
-					$type_id = 'template';
+					$type_id           = 'template';
 				} else {
 					$thold_template_id = '';
-					$type_id = 'thold';
+					$type_id           = 'thold';
 				}
 
-				$parts = explode(',', $data_source_info);
+				$parts            = explode(',', $data_source_info);
 				$data_template_id = $parts[0];
 			} else {
 				$thold_template_id = '';
 				$data_template_id  = '';
 				$type_id           = 'thold';
-				$templates         = array();
+				$templates         = [];
 			}
 
 			$data_template_rrd_id = '';
@@ -280,7 +281,7 @@ function thold_wizard() {
 	$hosts = get_allowed_devices();
 
 	$show_go    = false;
-	$form_array = array();
+	$form_array = [];
 
 	if ($type_id == '') {
 		$message = __('Threshold Creation Wizard [ Select a Threshold Type ]', 'thold');
@@ -310,30 +311,30 @@ function thold_wizard() {
 		}
 	}
 
-	/* display the type dropdown */
-	$form_array['spacer']  = array(
+	// display the type dropdown
+	$form_array['spacer']  = [
 		'method'        => 'spacer',
 		'friendly_name' => __('Threshold Creation Criteria', 'thold'),
-	);
+	];
 
-	$form_array['type_id'] = array(
+	$form_array['type_id'] = [
 		'method'        => 'drop_array',
 		'friendly_name' => __('Create Type', 'thold'),
 		'description'   => __('Select a Threshold Type to use for creating this Threshold.', 'thold'),
 		'on_change'     => 'applyTholdFilter()',
 		'value'         => $type_id,
-		'array'         => array(
+		'array'         => [
 			'none'  => __('Select a Threshold Type', 'thold'),
 			'thold' => __('Non Templated', 'thold'),
-		)
-	);
+		]
+	];
 
 	if (cacti_sizeof($templates)) {
 		$form_array['type_id']['array']['template'] = __('Threshold Template', 'thold');
 	}
 
 	if ($type_id == 'template') {
-		$form_array['thold_template_id'] = array(
+		$form_array['thold_template_id'] = [
 			'method'        => 'drop_sql',
 			'friendly_name' => __('Threshold Template', 'thold'),
 			'description'   => __('Select a Threshold Template that the Graph and Threshold will be based upon.', 'thold'),
@@ -341,13 +342,13 @@ function thold_wizard() {
 			'value'         => $thold_template_id,
 			'sql'           => 'SELECT id, name FROM thold_template WHERE thold_enabled="on" ORDER BY name',
 			'none_value'    => __('Select a Threshold Template', 'thold')
-		);
+		];
 
-		$host_ids = array();
-		$in_sql   = array();
+		$host_ids = [];
+		$in_sql   = [];
 
 		if ($thold_template_id != '') {
-			/* display the host dropdown */
+			// display the host dropdown
 			$graph_templates = array_rekey(
 				db_fetch_assoc_prepared('SELECT DISTINCT gt.id, gt.name
 					FROM graph_templates AS gt
@@ -359,7 +360,7 @@ function thold_wizard() {
 					INNER JOIN thold_template AS tt
 					ON tt.data_template_id=dtr.data_template_id
 					AND tt.id = ?',
-					array($thold_template_id)),
+					[$thold_template_id]),
 				'id', 'name'
 			);
 
@@ -369,8 +370,8 @@ function thold_wizard() {
 			// If the Graph Template is associated with a Data Query
 			// make sure that your get all the Data Query based Graph Templates
 			if (cacti_sizeof($graph_templates)) {
-				$new_templates = array();
-				$hql = '';
+				$new_templates = [];
+				$hql           = '';
 
 				$data_query_id = db_fetch_cell('SELECT snmp_query_id
 					FROM snmp_query_graph
@@ -380,7 +381,7 @@ function thold_wizard() {
 					$data_template_id = db_fetch_cell_prepared('SELECT data_template_id
 						FROM thold_template
 						WHERE id = ?',
-						array($thold_template_id));
+						[$thold_template_id]);
 
 					$templates = db_fetch_assoc_prepared('SELECT DISTINCT sqg.id, sqg.name
 						FROM snmp_query_graph AS sqg
@@ -396,7 +397,7 @@ function thold_wizard() {
 							WHERE graph_template_id IN (' . implode(', ', array_keys($graph_templates)) . ')
 						)
 						AND dtr.data_template_id = ?',
-						array($data_template_id));
+						[$data_template_id]);
 
 					if (cacti_sizeof($templates)) {
 						$new_templates = $templates;
@@ -410,20 +411,20 @@ function thold_wizard() {
 						db_fetch_assoc_prepared('SELECT host_template_id AS id
 							FROM host_template_snmp_query
 							WHERE snmp_query_id = ?',
-							array($data_query_id)),
+							[$data_query_id]),
 						'id', 'id');
 
 					if (cacti_sizeof($host_templates)) {
 						$hql = 'h.host_template_id IN(' . implode(', ', $host_templates) . ')';
 					} else {
-						$hosts_ids = array();
+						$hosts_ids = [];
 					}
 				} else {
 					$host_template_ids = array_rekey(
 						db_fetch_assoc_prepared('SELECT host_template_id
 							FROM host_template_graph
 							WHERE graph_template_id = ?',
-							array($graph_template_id)),
+							[$graph_template_id]),
 						'host_template_id', 'host_template_id');
 
 					if (cacti_sizeof($host_template_ids)) {
@@ -433,7 +434,7 @@ function thold_wizard() {
 					}
 
 					foreach ($graph_templates as $key => $name) {
-						$new_templates[] = array('id' => $key, 'name' => $name);
+						$new_templates[] = ['id' => $key, 'name' => $name];
 
 						$in_sql[$key] = $key;
 					}
@@ -452,7 +453,7 @@ function thold_wizard() {
 						OR rs.multiple = "on"'), 'id', 'id');
 				}
 			} else {
-				$host_ids = array('0');
+				$host_ids = ['0'];
 			}
 
 			if (!cacti_sizeof($in_sql)) {
@@ -471,7 +472,7 @@ function thold_wizard() {
 					ORDER BY name';
 			}
 
-			$form_array['graph_template_id'] = array(
+			$form_array['graph_template_id'] = [
 				'method'        => 'drop_sql',
 				'friendly_name' => __('Graph Template', 'thold'),
 				'description'   => __('Select a Graph Template to use for the Graph to be created.', 'thold'),
@@ -479,7 +480,7 @@ function thold_wizard() {
 				'value'         => $graph_template_id,
 				'sql'           => $gr_sql,
 				'none_value'    => __('Select a Graph Template', 'thold')
-			);
+			];
 		}
 
 		if ($graph_template_id > 0) {
@@ -488,10 +489,10 @@ function thold_wizard() {
 			} elseif (cacti_sizeof($host_ids)) {
 				$sql = 'SELECT id, description AS name FROM host AS h WHERE h.id IN (' . implode(', ', $host_ids) . ') ORDER BY description';
 			} else {
-				$sql = "SELECT id, description AS name FROM host AS h ORDER BY description";
+				$sql = 'SELECT id, description AS name FROM host AS h ORDER BY description';
 			}
 
-			$form_array['my_host_id'] = array(
+			$form_array['my_host_id'] = [
 				'method'        => 'drop_sql',
 				'friendly_name' => __('Device', 'thold'),
 				'description'   => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
@@ -499,19 +500,19 @@ function thold_wizard() {
 				'value'         => $host_id,
 				'sql'           => $sql,
 				'none_value'    => __('Select a Device', 'thold')
-			);
+			];
 		}
 
 		if ($host_id > 0 && $data_query_id > 0) {
-			$available_items = array();
-			$sort_field = db_fetch_cell_prepared('SELECT sort_field
+			$available_items = [];
+			$sort_field      = db_fetch_cell_prepared('SELECT sort_field
 				FROM host_snmp_query
 				WHERE host_id = ?
 				AND snmp_query_id = ?',
-				array($host_id, $data_query_id));
+				[$host_id, $data_query_id]);
 
 			if ($sort_field != '') {
-				$available_items = array('noneselected' => __('Select an Available Item', 'thold'));
+				$available_items = ['noneselected' => __('Select an Available Item', 'thold')];
 
 				$available_items += array_rekey(
 					db_fetch_assoc_prepared('SELECT hsc.snmp_index AS id, hsc.field_value AS name
@@ -529,20 +530,20 @@ function thold_wizard() {
 						WHERE hsc.host_id = ?
 						AND hsc.snmp_query_id = ?
 						AND field_name = ?',
-						array(
+						[
 							$data_query_id,
 							$host_id,
 							$graph_template_id,
 							$host_id,
 							$data_query_id,
 							$sort_field
-						)
+						]
 					),
 					'id', 'name'
 				);
 			}
 
-			$form_array['snmp_index'] = array(
+			$form_array['snmp_index'] = [
 				'method'        => 'drop_array',
 				'friendly_name' => __('Data Query Item', 'thold'),
 				'description'   => __('Select the applicable row from the Data Query for the Graph and Threshold.', 'thold'),
@@ -550,32 +551,32 @@ function thold_wizard() {
 				'value'         => $snmp_index,
 				'array'         => $available_items,
 				'default'       => ''
-			);
+			];
 		} else {
 			$local_graph_id       = 0;
 			$data_template_rrd_id = 0;
 		}
 
 		if ($data_query_id) {
-			$form_array['data_query_id'] = array(
+			$form_array['data_query_id'] = [
 				'method' => 'hidden',
 				'value'  => $data_query_id
-			);
+			];
 
-			$form_array['data_template_id'] = array(
+			$form_array['data_template_id'] = [
 				'method' => 'hidden',
 				'value'  => $data_template_id
-			);
+			];
 		} else {
-			$form_array['data_query_id'] = array(
+			$form_array['data_query_id'] = [
 				'method' => 'hidden',
 				'value'  => '0'
-			);
+			];
 
-			$form_array['data_template_id'] = array(
+			$form_array['data_template_id'] = [
 				'method' => 'hidden',
 				'value'  => '0'
-			);
+			];
 		}
 
 		top_header();
@@ -585,16 +586,16 @@ function thold_wizard() {
 		html_start_box($message, '100%', false, '3', 'center', '');
 
 		draw_edit_form(
-			array(
-				'config' => array('no_form_tag' => true),
+			[
+				'config' => ['no_form_tag' => true],
 				'fields' => $form_array
-			)
+			]
 		);
 
 		html_end_box(false);
 
 		html_start_box(__('Creation Notes', 'thold'), '100%', false, '3', 'center', '');
-		print '<tr><td><p style="padding:0px 5px"><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
+		print '<tr><td><p style="padding:0px 5px"><b><font color=\'red\'>' . __('Important Note:', 'thold') . '&nbsp;&nbsp;</font></b>';
 		print __('This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the \'Create\' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the \'Create\' button, both the Graph and Threshold will be created simultaneously.', 'thold') . '</p></td></tr>';
 		html_end_box(false);
 
@@ -603,7 +604,7 @@ function thold_wizard() {
 				$host_template_id = db_fetch_cell_prepared('SELECT host_template_id
 					FROM host
 					WHERE id = ?',
-					array($host_id));
+					[$host_id]);
 
 				$selected_graphs['sg'][$data_query_id][$graph_template_id][encode_data_query_index($snmp_index)] = true;
 
@@ -615,7 +616,7 @@ function thold_wizard() {
 			$host_template_id = db_fetch_cell_prepared('SELECT host_template_id
 				FROM host
 				WHERE id = ?',
-				array($host_id));
+				[$host_id]);
 
 			$selected_graphs['cg'][$graph_template_id][$graph_template_id] = true;
 
@@ -623,13 +624,12 @@ function thold_wizard() {
 
 			form_end();
 		}
-
 	} elseif ($type_id == 'thold') {
 		$host_template_ids = array_rekey(
 			db_fetch_assoc_prepared('SELECT host_template_id
 				FROM host_template_graph
 				WHERE graph_template_id = ?',
-				array($graph_template_id)),
+				[$graph_template_id]),
 			'host_template_id', 'host_template_id');
 
 		if (cacti_sizeof($host_template_ids)) {
@@ -639,7 +639,7 @@ function thold_wizard() {
 		}
 
 		if (get_selected_theme() != 'classic') {
-			$form_array['my_host_id'] = array(
+			$form_array['my_host_id'] = [
 				'method'        => 'drop_callback',
 				'friendly_name' => __('Device', 'thold'),
 				'description'   => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
@@ -647,9 +647,9 @@ function thold_wizard() {
 				'action'        => 'ajax_hosts',
 				'id'            => $host_id,
 				'sql'           => 'SELECT id, description AS name FROM host WHERE disabled != "" AND deleted != ""' . $hiql,
-				'value'         => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', array($host_id)),
+				'value'         => db_fetch_cell_prepared('SELECT description FROM host WHERE id = ?', [$host_id]),
 				'none_value'    => __('Select a Device', 'thold')
-			);
+			];
 		} else {
 			if ($hiql == ' AND 0 = 1') {
 				$hiql = '';
@@ -659,7 +659,7 @@ function thold_wizard() {
 				'id', 'description'
 			);
 
-			$form_array['my_host_id'] = array(
+			$form_array['my_host_id'] = [
 				'method'        => 'drop_array',
 				'friendly_name' => __('Device', 'thold'),
 				'description'   => __('Select a Device to use for the Threshold and Graph to be created.', 'thold'),
@@ -667,20 +667,21 @@ function thold_wizard() {
 				'array'         => $hosts,
 				'value'         => $host_id,
 				'none_value'    => __('Select a Device', 'thold')
-			);
+			];
 		}
 
 		if ($host_id > 0) {
 			$graphs = get_allowed_graphs('gl.host_id=' . $host_id);
 
-			$ng = array();
+			$ng = [];
+
 			if (cacti_sizeof($graphs)) {
 				foreach ($graphs as $g) {
 					$ng[$g['local_graph_id']] = $g['title_cache'];
 				}
 			}
 
-			$form_array['local_graph_id'] = array(
+			$form_array['local_graph_id'] = [
 				'method'        => 'drop_array',
 				'friendly_name' => __('Graph', 'thold'),
 				'description'   => __('Select the Graph for the Threshold.', 'thold'),
@@ -688,7 +689,7 @@ function thold_wizard() {
 				'value'         => $local_graph_id,
 				'array'         => $ng,
 				'none_value'    => __('Select a Graph', 'thold')
-			);
+			];
 		}
 
 		if ($local_graph_id != '' && $host_id > 0) {
@@ -709,7 +710,7 @@ function thold_wizard() {
 					ORDER BY data_source_name'),
 				'id', 'name');
 
-			$form_array['data_template_rrd_id'] = array(
+			$form_array['data_template_rrd_id'] = [
 				'method'        => 'drop_array',
 				'friendly_name' => __('Data Source', 'thold'),
 				'description'   => __('Select a Data Source for the Threshold.', 'thold'),
@@ -717,12 +718,12 @@ function thold_wizard() {
 				'value'         => $data_template_rrd_id,
 				'array'         => $dss,
 				'none_value'    => __('Select a Data Source', 'thold')
-			);
+			];
 
-			$form_array['local_data_id'] = array(
+			$form_array['local_data_id'] = [
 				'method' => 'hidden',
-				'value' => $local_data_id
-			);
+				'value'  => $local_data_id
+			];
 		} else {
 			$local_graph_id       = 0;
 			$data_template_rrd_id = 0;
@@ -735,10 +736,10 @@ function thold_wizard() {
 		html_start_box($message, '100%', false, '3', 'center', '');
 
 		draw_edit_form(
-			array(
-				'config' => array('no_form_tag' => true),
+			[
+				'config' => ['no_form_tag' => true],
 				'fields' => $form_array
-			)
+			]
 		);
 
 		if ($data_template_rrd_id > 0) {
@@ -752,7 +753,7 @@ function thold_wizard() {
 		html_end_box(false);
 
 		html_start_box(__('Creation Notes', 'thold'), '100%', false, '3', 'center', '');
-		print '<tr><td><p style="padding:0px 5px"><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
+		print '<tr><td><p style="padding:0px 5px"><b><font color=\'red\'>' . __('Important Note:', 'thold') . '&nbsp;&nbsp;</font></b>';
 		print __('This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the \'Create\' button appears.', 'thold') . '</p></td></tr>';
 		html_end_box(false);
 	} else {
@@ -763,16 +764,16 @@ function thold_wizard() {
 		html_start_box($message, '100%', false, '3', 'center', '');
 
 		draw_edit_form(
-			array(
-				'config' => array('no_form_tag' => true),
+			[
+				'config' => ['no_form_tag' => true],
 				'fields' => $form_array
-			)
+			]
 		);
 
 		html_end_box(false);
 
 		html_start_box(__('Creation Notes', 'thold'), '100%', false, '3', 'center', '');
-		print '<tr><td><p style="padding:0px 5px"><b><font color=\'red\'>' . __('Important Note:', 'thold') .'&nbsp;&nbsp;</font></b>';
+		print '<tr><td><p style="padding:0px 5px"><b><font color=\'red\'>' . __('Important Note:', 'thold') . '&nbsp;&nbsp;</font></b>';
 		print __('This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously', 'thold') . '</p></td></tr>';
 		html_end_box(false);
 	}
@@ -862,71 +863,71 @@ function thold_new_graphs_save($host_id) {
 
 	$selected_graphs_array = cacti_unserialize(stripslashes(get_nfilter_request_var('selected_graphs_array')));
 
-	$values = array();
+	$values = [];
 
-	/* form an array that contains all of the data on the previous form */
+	// form an array that contains all of the data on the previous form
 	foreach ($_POST as $var => $val) {
 		if (preg_match('/^g_(\d+)_(\d+)_(\w+)/', $var, $matches)) {
-			/* 1: snmp_query_id, 2: graph_template_id, 3: field_name */
+			// 1: snmp_query_id, 2: graph_template_id, 3: field_name
 
-			/* this is a new graph from template field */
+			// this is a new graph from template field
 			if (empty($matches[1])) {
 				$values['cg'][$matches[2]]['graph_template'][$matches[3]] = $val;
-			} else { /* this is a data query field */
+			} else { // this is a data query field
 				$values['sg'][$matches[1]][$matches[2]]['graph_template'][$matches[3]] = $val;
 			}
 		} elseif (preg_match('/^gi_(\d+)_(\d+)_(\d+)_(\w+)/', $var, $matches)) {
-			/* 1: snmp_query_id, 2: graph_template_id, 3: graph_template_input_id, 4:field_name */
+			// 1: snmp_query_id, 2: graph_template_id, 3: graph_template_input_id, 4:field_name
 
-			/* ================= input validation ================= */
+			// ================= input validation =================
 			input_validate_input_number($matches[3]);
-			/* ==================================================== */
+			// ====================================================
 
-			/* we need to find out which graph items will be affected by saving this particular item */
+			// we need to find out which graph items will be affected by saving this particular item
 			$item_list = db_fetch_assoc_prepared('SELECT
 				graph_template_item_id
 				FROM graph_template_input_defs
 				WHERE graph_template_input_id = ?',
-				array($matches[3]));
+				[$matches[3]]);
 
-			/* loop through each item affected and update column data */
+			// loop through each item affected and update column data
 			if (cacti_sizeof($item_list)) {
 				foreach ($item_list as $item) {
-					/* this is a new graph from template field */
+					// this is a new graph from template field
 					if (empty($matches[1])) {
 						$values['cg'][$matches[2]]['graph_template_item'][$item['graph_template_item_id']][$matches[4]] = $val;
 					} else {
-						/* this is a data query field */
+						// this is a data query field
 						$values['sg'][$matches[1]][$matches[2]]['graph_template_item'][$item['graph_template_item_id']][$matches[4]] = $val;
 					}
 				}
 			}
 		} elseif (preg_match('/^d_(\d+)_(\d+)_(\d+)_(\w+)/', $var, $matches)) {
-			/* 1: snmp_query_id, 2: graph_template_id, 3: data_template_id, 4:field_name */
+			// 1: snmp_query_id, 2: graph_template_id, 3: data_template_id, 4:field_name
 
-			/* this is a new graph from template field */
+			// this is a new graph from template field
 			if (empty($matches[1])) {
 				$values['cg'][$matches[2]]['data_template'][$matches[3]][$matches[4]] = $val;
 			} else {
-				/* this is a data query field */
+				// this is a data query field
 				$values['sg'][$matches[1]][$matches[2]]['data_template'][$matches[3]][$matches[4]] = $val;
 			}
 		} elseif (preg_match('/^c_(\d+)_(\d+)_(\d+)_(\d+)/', $var, $matches)) {
-			/* 1: snmp_query_id, 2: graph_template_id, 3: data_template_id, 4:data_input_field_id */
+			// 1: snmp_query_id, 2: graph_template_id, 3: data_template_id, 4:data_input_field_id
 
-			/* this is a new graph from template field */
+			// this is a new graph from template field
 			if (empty($matches[1])) {
 				$values['cg'][$matches[2]]['custom_data'][$matches[3]][$matches[4]] = $val;
-			} else { /* this is a data query field */
+			} else { // this is a data query field
 				$values['sg'][$matches[1]][$matches[2]]['custom_data'][$matches[3]][$matches[4]] = $val;
 			}
-		} elseif (preg_match('/^di_(\d+)_(\d+)_(\d+)_(\d+)_(\w+)/', $var, $matches)) { /* 1: snmp_query_id, 2: graph_template_id, 3: data_template_id, 4:local_data_template_rrd_id, 5:field_name */
-			/* 1: snmp_query_id, 2: graph_template_id, 3: data_template_id, 4:local_data_template_rrd_id, 5:field_name */
+		} elseif (preg_match('/^di_(\d+)_(\d+)_(\d+)_(\d+)_(\w+)/', $var, $matches)) { // 1: snmp_query_id, 2: graph_template_id, 3: data_template_id, 4:local_data_template_rrd_id, 5:field_name
+			// 1: snmp_query_id, 2: graph_template_id, 3: data_template_id, 4:local_data_template_rrd_id, 5:field_name
 
-			/* this is a new graph from template field */
-			if (empty($matches[1])) { /* this is a new graph from template field */
+			// this is a new graph from template field
+			if (empty($matches[1])) { // this is a new graph from template field
 				$values['cg'][$matches[2]]['data_template_item'][$matches[4]][$matches[5]] = $val;
-			} else { /* this is a data query field */
+			} else { // this is a data query field
 				$values['sg'][$matches[1]][$matches[2]]['data_template_item'][$matches[4]][$matches[5]] = $val;
 			}
 		}
@@ -938,7 +939,7 @@ function thold_new_graphs_save($host_id) {
 		$current_form_type = $form_type;
 
 		foreach ($form_array as $form_id1 => $form_array2) {
-			/* enumerate information from the arrays stored in post variables */
+			// enumerate information from the arrays stored in post variables
 			if ($form_type == 'cg') {
 				$graph_template_id = $form_id1;
 			} elseif ($form_type == 'sg') {
@@ -953,7 +954,7 @@ function thold_new_graphs_save($host_id) {
 				$graph_template_id = db_fetch_cell_prepared('SELECT graph_template_id
 					FROM snmp_query_graph
 					WHERE id = ?',
-					array($snmp_query_array['snmp_query_graph_id']));
+					[$snmp_query_array['snmp_query_graph_id']]);
 			}
 
 			if ($current_form_type == 'cg') {
@@ -961,13 +962,14 @@ function thold_new_graphs_save($host_id) {
 
 				if (cacti_sizeof($return_array)) {
 					thold_raise_message(__esc('Created graph: %s', get_graph_title($return_array['local_graph_id']), 'thold'), MESSAGE_LEVEL_INFO);
-					/* lastly push host-specific information to our data sources */
+
+					// lastly push host-specific information to our data sources
 					foreach ($return_array['local_data_id'] as $item) {
 						push_out_host($host_id, $item);
 					}
 				}
 			} elseif ($current_form_type == 'sg') {
-				foreach($snmp_index_array as $snmp_index => $true) {
+				foreach ($snmp_index_array as $snmp_index => $true) {
 					$snmp_query_array['snmp_index'] = decode_data_query_index($snmp_index, $snmp_query_array['snmp_query_id'], $host_id);
 
 					$return_array = create_complete_graph_from_template($graph_template_id, $host_id, $snmp_query_array, $values['sg'][$snmp_query_array['snmp_query_id']]);
@@ -975,7 +977,7 @@ function thold_new_graphs_save($host_id) {
 					if (cacti_sizeof($return_array)) {
 						thold_raise_message(__esc('Created graph: %s', get_graph_title($return_array['local_graph_id']), 'thold'), MESSAGE_LEVEL_INFO);
 
-						/* lastly push host-specific information to our data sources */
+						// lastly push host-specific information to our data sources
 						foreach ($return_array['local_data_id'] as $item) {
 							push_out_host($host_id, $item);
 						}
@@ -997,8 +999,8 @@ function thold_graph_new_graphs($page, $host_id, $host_template_id, $selected_gr
 
 	form_start($page);
 
-	$snmp_query_id = 0;
-	$num_output_fields = array();
+	$snmp_query_id     = 0;
+	$num_output_fields = [];
 
 	foreach ($selected_graphs_array as $form_type => $form_array) {
 		foreach ($form_array as $form_id1 => $form_array2) {
@@ -1006,7 +1008,7 @@ function thold_graph_new_graphs($page, $host_id, $host_template_id, $selected_gr
 		}
 	}
 
-	/* flush the current output buffer to the browser */
+	// flush the current output buffer to the browser
 	ob_end_flush();
 
 	form_hidden_box('host_template_id', $host_template_id, '0');

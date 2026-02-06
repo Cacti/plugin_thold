@@ -38,16 +38,16 @@ require_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 require_once($config['library_path'] . '/snmp.php');
 require_once($config['base_path'] . '/lib/time.php');
 
-/* install signal handlers for Linux/UNIX only */
+// install signal handlers for Linux/UNIX only
 if (function_exists('pcntl_signal')) {
 	pcntl_signal(SIGTERM, 'sig_handler');
 	pcntl_signal(SIGINT, 'sig_handler');
 }
 
-/* help with microtime(true) */
-#ini_set('precision', 16);
+// help with microtime(true)
+// ini_set('precision', 16);
 
-/* process calling arguments */
+// process calling arguments
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
@@ -57,11 +57,11 @@ $debug  = false;
 global $thread;
 
 if (sizeof($parms)) {
-	foreach($parms as $parameter) {
+	foreach ($parms as $parameter) {
 		if (strpos($parameter, '=')) {
-			list ($arg, $value) = explode('=', $parameter);
+			[$arg, $value] = explode('=', $parameter);
 		} else {
-			$arg = $parameter;
+			$arg   = $parameter;
 			$value = '';
 		}
 
@@ -69,6 +69,7 @@ if (sizeof($parms)) {
 			case '-d':
 			case '--debug':
 				$debug = true;
+
 				break;
 			case '--thread':
 				$thread = $value;
@@ -78,6 +79,7 @@ if (sizeof($parms)) {
 					display_help();
 					exit(1);
 				}
+
 				break;
 			case '-v':
 			case '--version':
@@ -104,12 +106,12 @@ if ($thread === false) {
 	thold_cli_debug('Thold Notification Main Collector Started');
 
 	$thread = 1;
-	$pid = getmypid();
+	$pid    = getmypid();
 
 	db_execute_prepared('UPDATE notification_queue
 		SET process_id = ?
 		WHERE event_processed = 0',
-		array($pid));
+		[$pid]);
 
 	$total_rows = db_affected_rows();
 } else {
@@ -118,21 +120,21 @@ if ($thread === false) {
 
 $timeout = 9999999999;
 
-/* kill any running services that have run outside of their timeout */
+// kill any running services that have run outside of their timeout
 if (!register_process_start('thold_notify', 'child', $thread, $timeout)) {
 	$pid = db_fetch_cell_prepared('SELECT pid
 		FROM processes
 		WHERE tasktype = "thold_notify"
 		AND taskname = "child"
 		AND taskid = ?',
-		array($thread));
+		[$thread]);
 
 	if ($config['cacti_server_os'] == 'unix') {
-        if (function_exists('posix_getpgid')) {
-            $running = posix_getpgid($pid);
-        } elseif (function_exists('posix_kill')) {
-            $running = posix_kill($pid, 0);
-        }
+		if (function_exists('posix_getpgid')) {
+			$running = posix_getpgid($pid);
+		} elseif (function_exists('posix_kill')) {
+			$running = posix_kill($pid, 0);
+		}
 
 		if ($running) {
 			exit(1);
@@ -140,14 +142,14 @@ if (!register_process_start('thold_notify', 'child', $thread, $timeout)) {
 			unregister_process('thold_notify', 'child', $thread);
 			register_process_start('thold_notify', 'child', $thread, $timeout);
 		}
-    }
+	}
 }
 
 thold_notification_execute();
 
 $end = microtime(true);
 
-cacti_log(sprintf('THOLD NOTIFY STATS: Time:%0.2f Notifications:%s', $end-$start, $total_rows), false, 'SYSTEM');
+cacti_log(sprintf('THOLD NOTIFY STATS: Time:%0.2f Notifications:%s', $end - $start, $total_rows), false, 'SYSTEM');
 
 unregister_process('thold_notify', 'child', $thread);
 
@@ -170,9 +172,10 @@ function sig_handler($signo) {
 			unregister_process('thold_notify', 'child', $thread);
 
 			exit;
+
 			break;
 		default:
-			/* ignore all other signals */
+			// ignore all other signals
 	}
 }
 
@@ -207,11 +210,10 @@ function display_version() {
 	print 'Threshold Notification Processor, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-/*	display_help - displays the usage of the function */
-function display_help () {
+// display_help - displays the usage of the function
+function display_help() {
 	display_version();
 
 	print PHP_EOL . 'usage: thold_notify.php [--thread=N] [--debug]' . PHP_EOL . PHP_EOL;
 	print 'The Threshold Notification Processor for the Thold Plugin.' . PHP_EOL;
 }
-

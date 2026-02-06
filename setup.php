@@ -116,6 +116,7 @@ function plugin_thold_install($upgrade = false) {
 
 	if ($upgrade) {
 		thold_upgrade_database();
+
 		if (api_plugin_is_enabled($plugin)) {
 			api_plugin_enable_hooks($plugin);
 		}
@@ -137,6 +138,7 @@ function plugin_thold_uninstall() {
 function plugin_thold_check_config() {
 	// Here we will check to ensure everything is configured
 	plugin_thold_upgrade();
+
 	return true;
 }
 
@@ -145,8 +147,9 @@ function plugin_thold_upgrade() {
 	global $config;
 
 	// Let's only run this check if we are on a page that actually needs the data
-	$files = array('thold.php', 'thold_graph.php', 'thold_templates.php', 'poller.php', 'plugins.php', 'clog.php');
-	if (!in_array(get_current_page(), $files)) {
+	$files = ['thold.php', 'thold_graph.php', 'thold_templates.php', 'poller.php', 'plugins.php', 'clog.php'];
+
+	if (!in_array(get_current_page(), $files, true)) {
 		return false;
 	}
 
@@ -175,8 +178,9 @@ function thold_check_dependencies() {
 }
 
 function plugin_thold_check_strict() {
-	$mode = db_fetch_cell("select @@global.sql_mode", false);
-	if (stristr($mode, 'strict') !== FALSE) {
+	$mode = db_fetch_cell('select @@global.sql_mode', false);
+
+	if (stristr($mode, 'strict') !== false) {
 		return false;
 	}
 
@@ -191,9 +195,10 @@ function thold_graph_button($data) {
 	$thold_id = db_fetch_cell_prepared('SELECT id
 		FROM thold_data
 		WHERE local_graph_id = ?',
-		array($local_graph_id));
+		[$local_graph_id]);
 
 	$rra_id = $data[1]['rra'];
+
 	if (isset_request_var('view_type') && !isempty_request_var('view_type')) {
 		$view_type = get_request_var('view_type');
 	} else {
@@ -228,7 +233,7 @@ function thold_graph_button($data) {
 			$vrules = $_SESSION['sess_config_array']['thold_draw_vrules'];
 		}
 	} else {
-		$vrules = 'off';
+		$vrules                                             = 'off';
 		$_SESSION['sess_config_array']['thold_draw_vrules'] = $vrules;
 	}
 
@@ -243,7 +248,7 @@ function thold_graph_button($data) {
 	}
 
 	if (api_user_realm_auth('thold_graph.php') && !empty($thold_id)) {
-		print '<a class="iconLink tholdVRule" href="' .  html_escape($url . $separator . 'thold_vrule=' . $vrules) . '" title="' . __esc('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"><i class="tholdVRules far fa-chart-bar"></i></a><br>';
+		print '<a class="iconLink tholdVRule" href="' . html_escape($url . $separator . 'thold_vrule=' . $vrules) . '" title="' . __esc('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"><i class="tholdVRules far fa-chart-bar"></i></a><br>';
 	}
 
 	// Add Threshold Creation button
@@ -259,7 +264,7 @@ function thold_graph_button($data) {
 		$is_aggregate = db_fetch_cell_prepared('SELECT id
 			FROM aggregate_graphs
 			WHERE local_graph_id = ?',
-			array($local_graph_id));
+			[$local_graph_id]);
 
 		if (empty($is_aggregate)) {
 			print '<a class="iconLink" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=add' . '&usetemplate=1&local_graph_id=' . $local_graph_id) . '" title="' . __esc('Create Threshold', 'thold') . '"><i class="tholdEdit fas fa-wrench"></i></a><br>';
@@ -269,7 +274,8 @@ function thold_graph_button($data) {
 
 function thold_multiexplode($delimiters, $string) {
 	$ready = str_replace($delimiters, $delimiters[0], $string);
-	return  @explode($delimiters[0], $ready);
+
+	return @explode($delimiters[0], $ready);
 }
 
 function thold_rrd_graph_graph_options($g) {
@@ -277,72 +283,74 @@ function thold_rrd_graph_graph_options($g) {
 
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
-	/* handle thold replacement variables */
-	$needles      = array();
-	$replacements = array();
+	// handle thold replacement variables
+	$needles      = [];
+	$replacements = [];
 
-	/* map the data_template_rrd_id's to the datasource names */
+	// map the data_template_rrd_id's to the datasource names
 	$defs = explode("\\\n", $g['graph_defs'], -1);
+
 	if (is_array($defs)) {
 		foreach ($defs as $def) {
 			if (!substr_count($def, 'CDEF') && !substr_count($def, 'VDEF')) {
-				$ddef   = thold_multiexplode(array('"', "'"), $def);
+				$ddef   = thold_multiexplode(['"', "'"], $def);
 				$kdef   = explode(':', $def);
 				$dsname = $kdef[2];
 				$temp1  = str_replace('.rrd', '', basename($ddef[1]));
+
 				if (substr_count(basename($ddef[1]), '_') == 0) {
 					$local_data_id = $temp1;
 				} else {
-					$temp2 = explode('_', $temp1);
-					$local_data_id = $temp2[sizeof($temp2)-1];
+					$temp2         = explode('_', $temp1);
+					$local_data_id = $temp2[sizeof($temp2) - 1];
 				}
-				$dsname = trim($dsname, "'\" ");
+				$dsname                     = trim($dsname, "'\" ");
 				$data_template_rrd[$dsname] = $local_data_id;
 
 				// Map the dsnames to def id's for percentile
-				$ndef = explode('=', $kdef[1]);
+				$ndef               = explode('=', $kdef[1]);
 				$data_defs[$dsname] = $ndef[0];
 			}
 		}
 	}
 
-	/* look for any variables to replace */
+	// look for any variables to replace
 	$txt_items = explode("\\\n", $g['txt_graph_items']);
+
 	foreach ($txt_items as $item) {
 		if (substr_count($item, '|thold')) {
 			preg_match("/\|thold\\\:(hi|low)\\\:(.+)\|/", $item, $matches);
 
 			if (count($matches) == 3) {
-				$needles[] = $matches[0];
+				$needles[]   = $matches[0];
 				$data_source = explode('|', $matches[2]);
 
-				/* look up the data_id from the data source name and data_template_rrd */
+				// look up the data_id from the data source name and data_template_rrd
 				$data_template_rrd_id = db_fetch_cell_prepared('SELECT id
 					FROM data_template_rrd
 					WHERE local_data_id = ?
 					AND data_source_name = ?',
-					array($data_template_rrd[$data_source[0]], $data_source[0]));
+					[$data_template_rrd[$data_source[0]], $data_source[0]]);
 
 				$thold_type = db_fetch_cell_prepared('SELECT thold_type
 					FROM thold_data
 					WHERE thold_enabled="on"
 					AND data_template_rrd_id = ?',
-					array($data_template_rrd_id));
+					[$data_template_rrd_id]);
 
-				/* fetch the value from thold */
+				// fetch the value from thold
 				if ($thold_type == '') {
 					$value = '';
 				} elseif ($thold_type == 0 || $thold_type == 1) { // Hi/Low & Baseline
 					$value = db_fetch_cell_prepared('SELECT thold_' . $matches[1] . '
 						FROM thold_data
 						WHERE data_template_rrd_id = ?',
-						array($data_template_rrd_id));
-
+						[$data_template_rrd_id]);
 				} elseif ($thold_type == 1) {  // Time Based
 					$value = db_fetch_cell_prepared('SELECT time_' . $matches[1] . '
 						FROM thold_data
 						WHERE data_template_rrd_id = ?',
-						array($data_template_rrd_id));
+						[$data_template_rrd_id]);
 				}
 
 				if ($value == '' || !is_numeric($value)) {
@@ -355,35 +363,35 @@ function thold_rrd_graph_graph_options($g) {
 			preg_match("/\|thold\\\:(warning_hi|warning_low)\\\:(.+)\|/", $item, $matches);
 
 			if (count($matches) == 3) {
-				$needles[] = $matches[0];
+				$needles[]   = $matches[0];
 				$data_source = explode('|', $matches[2]);
 
-				/* look up the data_id from the data source name and data_template_rrd_id */
+				// look up the data_id from the data source name and data_template_rrd_id
 				$data_template_rrd_id = db_fetch_cell_prepared('SELECT id
 					FROM data_template_rrd
 					WHERE local_data_id = ?
 					AND data_source_name = ?',
-					array($data_template_rrd[$data_source[0]], $data_source[0]));
+					[$data_template_rrd[$data_source[0]], $data_source[0]]);
 
 				$thold_type = db_fetch_cell_prepared('SELECT thold_type
 					FROM thold_data
 					WHERE thold_enabled="on"
 					AND data_template_rrd_id = ?',
-					array($data_template_rrd_id));
+					[$data_template_rrd_id]);
 
-				/* fetch the value from thold */
+				// fetch the value from thold
 				if ($thold_type == '') {
 					$value = '';
 				} elseif ($thold_type == 0 || $thold_type == 1) { // Hi/Low & Baseline
 					$value = db_fetch_cell_prepared('SELECT thold_' . $matches[1] . '
 						FROM thold_data
 						WHERE data_template_rrd_id = ?',
-						array($data_template_rrd_id));
+						[$data_template_rrd_id]);
 				} elseif ($thold_type == 1) { // Time Based
 					$value = db_fetch_cell_prepared('SELECT time_' . $matches[1] . '
 						FROM thold_data
 						WHERE data_template_rrd_id = ?',
-						array($data_template_rrd_id));
+						[$data_template_rrd_id]);
 				}
 
 				if ($value == '' || !is_numeric($value)) {
@@ -396,12 +404,13 @@ function thold_rrd_graph_graph_options($g) {
 	}
 
 	// do we have any needles to replace?
-	$i = 0;
-	$unsets = array();
+	$i      = 0;
+	$unsets = [];
+
 	if (is_array($replacements)) {
-		foreach($txt_items as $item) {
-			foreach($replacements as $key => $replace) {
-				//cacti_log('Key:' . $key . ', Replace:' . $replace, false);
+		foreach ($txt_items as $item) {
+			foreach ($replacements as $key => $replace) {
+				// cacti_log('Key:' . $key . ', Replace:' . $replace, false);
 				if (substr_count($item, $key)) {
 					if ($replace == 'strip') {
 						$unsets[] = $i;
@@ -415,7 +424,7 @@ function thold_rrd_graph_graph_options($g) {
 		}
 
 		if (cacti_sizeof($unsets)) {
-			foreach($unsets as $i) {
+			foreach ($unsets as $i) {
 				unset($txt_items[$i]);
 			}
 		}
@@ -425,17 +434,21 @@ function thold_rrd_graph_graph_options($g) {
 
 	$id = $g['graph_id'];
 
-	//print "<pre>"; print_r($g);print "</pre>";
+	// print "<pre>"; print_r($g);print "</pre>";
 
 	if (isset($_SESSION['sess_config_array']['thold_draw_vrules']) && $_SESSION['sess_config_array']['thold_draw_vrules'] == 'on') {
 		$end = $g['end'];
-		if ($end < 0)
+
+		if ($end < 0) {
 			$end = time() + $end;
+		}
 		$end++;
 
 		$start = $g['start'];
-		if ($start < 0)
+
+		if ($start < 0) {
 			$start = $end + $start;
+		}
 		$start--;
 
 		if ($id) {
@@ -445,25 +458,29 @@ function thold_rrd_graph_graph_options($g) {
 				AND type = 0
 				AND time > ?
 				AND time < ?',
-				array($id, $start, $end));
+				[$id, $start, $end]);
 
 			if (cacti_sizeof($rows)) {
 				$color = '';
 
 				foreach ($rows as $row) {
 					switch($row['status']) {
-					case '3':
-						$color = '#CC6600';
-						break;
-					case '4':
-						$color = '#FF0000';
-						break;
-					case '5':
-						$color = '#00FF00';
-						break;
-					default:
-						$color = '';
-						break;
+						case '3':
+							$color = '#CC6600';
+
+							break;
+						case '4':
+							$color = '#FF0000';
+
+							break;
+						case '5':
+							$color = '#00FF00';
+
+							break;
+						default:
+							$color = '';
+
+							break;
 					}
 
 					if ($color != '') {
@@ -480,19 +497,20 @@ function thold_rrd_graph_graph_options($g) {
 		AND data_type IN (0, 1, 2)
 		AND (thold_hrule_alert > 0 || thold_hrule_warning > 0)
 		&& local_graph_id = ?',
-		array($id));
+		[$id]);
 
-	$thold_id = 0;
+	$thold_id        = 0;
 	$txt_graph_items = '';
+
 	if (cacti_sizeof($tholds_w_hrule)) {
-		foreach($tholds_w_hrule as $t) {
+		foreach ($tholds_w_hrule as $t) {
 			// Adjust number for graph
 			thold_modify_values_by_cdef($t);
 
 			$baseu = db_fetch_cell_prepared('SELECT base_value
 				FROM graph_templates_graph
 				WHERE local_graph_id = ?',
-				array($t['local_graph_id']));
+				[$t['local_graph_id']]);
 
 			if ($t['data_type'] == 2) {
 				$suffix = false;
@@ -501,158 +519,157 @@ function thold_rrd_graph_graph_options($g) {
 			}
 
 			$show_units = ($t['show_units'] ? true : false);
-			$skipscale  = ($t['skipscale'] == 'on' ? ':skipscale':'');
+			$skipscale  = ($t['skipscale'] == 'on' ? ':skipscale' : '');
 
 			switch($t['data_type']) {
-			case '0': // Exact value
-			case '1': // CDEF
-			case '3': // Upper+Lower
-				if ($t['thold_hrule_alert'] > 0) {
-					$color = db_fetch_cell_prepared('SELECT hex
-						FROM colors
-						WHERE id = ?',
-						array($t['thold_hrule_alert']));
-
-					switch($t['thold_type']) {
-					case '0': // Hi / Low
-						if ($t['thold_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s)', $t['name_cache'], thold_format_number($t['thold_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
-						}
-
-						if ($t['thold_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s)', $t['name_cache'], thold_format_number($t['thold_low'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
-						}
-
-						break;
-					case '2': // Time Based
-						if ($t['time_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s)', $t['name_cache'], thold_format_number($t['time_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
-						}
-
-						if ($t['time_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s)', $t['name_cache'], thold_format_number($t['time_low'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
-						}
-
-						break;
-					}
-				}
-
-				if ($t['thold_hrule_warning'] > 0) {
-					$color = db_fetch_cell_prepared('SELECT hex
-						FROM colors
-						WHERE id = ?',
-						array($t['thold_hrule_warning']));
-
-					switch($t['thold_type']) {
-					case '0': // Hi / Low
-						if ($t['thold_warning_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_warning_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s)', $t['name_cache'], thold_format_number($t['thold_warning_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
-						}
-
-						if ($t['thold_warning_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['thold_warning_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s)', $t['name_cache'], thold_format_number($t['thold_warning_low'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
-						}
-
-						break;
-					case '2': // Time Based
-						if ($t['time_warning_hi'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_warning_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s)', $t['name_cache'], thold_format_number($t['time_warning_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
-
-						}
-
-						if ($t['time_warning_low'] != '') {
-							$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s)', $t['name_cache'], thold_format_number($t['time_warning_low'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
-						}
-
-						break;
-					}
-				}
-
-				break;
-			case '2': // Percentage
-				if (isset($data_defs[$t['percent_ds']])) {
+				case '0': // Exact value
+				case '1': // CDEF
+				case '3': // Upper+Lower
 					if ($t['thold_hrule_alert'] > 0) {
 						$color = db_fetch_cell_prepared('SELECT hex
-							FROM colors
-							WHERE id = ?',
-							array($t['thold_hrule_alert']));
+						FROM colors
+						WHERE id = ?',
+							[$t['thold_hrule_alert']]);
 
 						switch($t['thold_type']) {
-						case '0': // Hi / Low
-							if ($t['thold_hi'] != '') {
-								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_hi']), 'thold')) . $skipscale . ' \\' . "\n";
-								$thold_id++;
-							}
+							case '0': // Hi / Low
+								if ($t['thold_hi'] != '') {
+									$txt_graph_items .= 'LINE1:' . $t['thold_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s)', $t['name_cache'], thold_format_number($t['thold_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
+								}
 
-							if ($t['thold_low'] != '') {
-								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_low']), 'thold')) . $skipscale . ' \\' . "\n";
-								$thold_id++;
-							}
+								if ($t['thold_low'] != '') {
+									$txt_graph_items .= 'LINE1:' . $t['thold_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s)', $t['name_cache'], thold_format_number($t['thold_low'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
+								}
 
-							break;
-						case '2': // Time Based
-							if ($t['time_hi'] != '') {
-								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_hi']), 'thold')) . $skipscale . ' \\' . "\n";
-								$thold_id++;
-							}
+								break;
+							case '2': // Time Based
+								if ($t['time_hi'] != '') {
+									$txt_graph_items .= 'LINE1:' . $t['time_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s)', $t['name_cache'], thold_format_number($t['time_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
+								}
 
-							if ($t['time_low'] != '') {
-								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_low']), 'thold')) . $skipscale . ' \\' . "\n";
-								$thold_id++;
-							}
+								if ($t['time_low'] != '') {
+									$txt_graph_items .= 'LINE1:' . $t['time_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s)', $t['name_cache'], thold_format_number($t['time_low'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
+								}
 
-							break;
+								break;
 						}
 					}
 
 					if ($t['thold_hrule_warning'] > 0) {
 						$color = db_fetch_cell_prepared('SELECT hex
-							FROM colors
-							WHERE id = ?',
-							array($t['thold_hrule_warning']));
+						FROM colors
+						WHERE id = ?',
+							[$t['thold_hrule_warning']]);
 
 						switch($t['thold_type']) {
-						case '0': // Hi / Low
-							if ($t['thold_warning_hi'] != '') {
-								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_warning_hi']), 'thold')) . $skipscale . ' \\' . "\n";
-								$thold_id++;
-							}
+							case '0': // Hi / Low
+								if ($t['thold_warning_hi'] != '') {
+									$txt_graph_items .= 'LINE1:' . $t['thold_warning_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s)', $t['name_cache'], thold_format_number($t['thold_warning_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
+								}
 
-							if ($t['thold_warning_low'] != '') {
-								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_warning_low']), 'thold')) . $skipscale . ' \\' . "\n";
-								$thold_id++;
-							}
+								if ($t['thold_warning_low'] != '') {
+									$txt_graph_items .= 'LINE1:' . $t['thold_warning_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s)', $t['name_cache'], thold_format_number($t['thold_warning_low'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
+								}
 
-							break;
-						case '2': // Time Based
-							if ($t['time_warning_hi'] != '') {
-								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_hi'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_warning_hi']), 'thold')) . $skipscale . ' \\' . "\n";
-								$thold_id++;
-							}
+								break;
+							case '2': // Time Based
+								if ($t['time_warning_hi'] != '') {
+									$txt_graph_items .= 'LINE1:' . $t['time_warning_hi'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s)', $t['name_cache'], thold_format_number($t['time_warning_hi'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
+								}
 
-							if ($t['time_warning_low'] != '') {
-								$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_low'] . ',100,/,* \\' . "\n";
-								$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_warning_low']), 'thold')) . $skipscale . ' \\' . "\n";
-								$thold_id++;
-							}
+								if ($t['time_warning_low'] != '') {
+									$txt_graph_items .= 'LINE1:' . $t['time_warning_low'] . '#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s)', $t['name_cache'], thold_format_number($t['time_warning_low'], 2, $baseu, $suffix, $show_units), 'thold')) . $skipscale . ' \\' . "\n";
+								}
 
-							break;
+								break;
 						}
 					}
-				}
+
+					break;
+				case '2': // Percentage
+					if (isset($data_defs[$t['percent_ds']])) {
+						if ($t['thold_hrule_alert'] > 0) {
+							$color = db_fetch_cell_prepared('SELECT hex
+							FROM colors
+							WHERE id = ?',
+								[$t['thold_hrule_alert']]);
+
+							switch($t['thold_type']) {
+								case '0': // Hi / Low
+									if ($t['thold_hi'] != '') {
+										$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_hi'] . ',100,/,* \\' . "\n";
+										$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_hi']), 'thold')) . $skipscale . ' \\' . "\n";
+										$thold_id++;
+									}
+
+									if ($t['thold_low'] != '') {
+										$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_low'] . ',100,/,* \\' . "\n";
+										$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_low']), 'thold')) . $skipscale . ' \\' . "\n";
+										$thold_id++;
+									}
+
+									break;
+								case '2': // Time Based
+									if ($t['time_hi'] != '') {
+										$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'ahi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_hi'] . ',100,/,* \\' . "\n";
+										$txt_graph_items .= 'LINE1:th' . $thold_id . 'ahi#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_hi']), 'thold')) . $skipscale . ' \\' . "\n";
+										$thold_id++;
+									}
+
+									if ($t['time_low'] != '') {
+										$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'alow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_low'] . ',100,/,* \\' . "\n";
+										$txt_graph_items .= 'LINE1:th' . $thold_id . 'alow#' . $color . ':' . thold_prep_rrd_string(__esc('Alert Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_low']), 'thold')) . $skipscale . ' \\' . "\n";
+										$thold_id++;
+									}
+
+									break;
+							}
+						}
+
+						if ($t['thold_hrule_warning'] > 0) {
+							$color = db_fetch_cell_prepared('SELECT hex
+							FROM colors
+							WHERE id = ?',
+								[$t['thold_hrule_warning']]);
+
+							switch($t['thold_type']) {
+								case '0': // Hi / Low
+									if ($t['thold_warning_hi'] != '') {
+										$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_hi'] . ',100,/,* \\' . "\n";
+										$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_warning_hi']), 'thold')) . $skipscale . ' \\' . "\n";
+										$thold_id++;
+									}
+
+									if ($t['thold_warning_low'] != '') {
+										$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['thold_warning_low'] . ',100,/,* \\' . "\n";
+										$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['thold_warning_low']), 'thold')) . $skipscale . ' \\' . "\n";
+										$thold_id++;
+									}
+
+									break;
+								case '2': // Time Based
+									if ($t['time_warning_hi'] != '') {
+										$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'whi=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_hi'] . ',100,/,* \\' . "\n";
+										$txt_graph_items .= 'LINE1:th' . $thold_id . 'whi#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Hi for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_warning_hi']), 'thold')) . $skipscale . ' \\' . "\n";
+										$thold_id++;
+									}
+
+									if ($t['time_warning_low'] != '') {
+										$g['graph_defs'] .= 'CDEF:th' . $thold_id . 'wlow=' . $data_defs[$t['percent_ds']] . ',' . $t['time_warning_low'] . ',100,/,* \\' . "\n";
+										$txt_graph_items .= 'LINE1:th' . $thold_id . 'wlow#' . $color . ':' . thold_prep_rrd_string(__esc('Warning Low for %s (%s %%%)', $t['name_cache'], number_format_i18n($t['time_warning_low']), 'thold')) . $skipscale . ' \\' . "\n";
+										$thold_id++;
+									}
+
+									break;
+							}
+						}
+					}
 			}
 		}
 	}
 
 	if ($txt_graph_items) {
-		$g['txt_graph_items'] .= ' \\' . "\n" . 'COMMENT:\' ' . "\\n" . '\' \\' . "\n" . 'COMMENT:\'<u><b>' . __('Threshold Alert/Warning Values', 'thold') . '</b></u>' . "\\n" . '\' \\' . "\n" . $txt_graph_items;
+		$g['txt_graph_items'] .= ' \\' . "\n" . 'COMMENT:\' ' . '\\n' . '\' \\' . "\n" . 'COMMENT:\'<u><b>' . __('Threshold Alert/Warning Values', 'thold') . '</b></u>' . '\\n' . '\' \\' . "\n" . $txt_graph_items;
 	}
 
 	return $g;
@@ -674,7 +691,7 @@ function thold_device_action_execute($action) {
 	$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 	if ($selected_items != false) {
-		for ($i=0; ($i < count($selected_items)); $i++) {
+		for ($i = 0; ($i < count($selected_items)); $i++) {
 			autocreate($selected_items[$i]);
 		}
 	}
@@ -706,9 +723,9 @@ function thold_device_action_prepare($save) {
 	print "<tr>
 		<td colspan='2' class='textArea'>
 			<p>" . __('Click \'Continue\' to apply all appropriate Thresholds to these Device(s).', 'thold') . "</p>
-			<div class='itemlist'><ul>" . $save['host_list'] . "</ul></div>
+			<div class='itemlist'><ul>" . $save['host_list'] . '</ul></div>
 		</td>
-	</tr>";
+	</tr>';
 
 	return $save;
 }
@@ -725,7 +742,7 @@ function thold_api_device_save($save) {
 	$result = db_fetch_row_prepared('SELECT disabled
 		FROM host
 		WHERE id = ?',
-		array($save['id']));
+		[$save['id']]);
 
 	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
 
@@ -737,14 +754,14 @@ function thold_api_device_save($save) {
 				db_execute_prepared('UPDATE thold_data
 					SET thold_enabled = "on"
 					WHERE host_id = ?',
-					array($save['id']));
+					[$save['id']]);
 			} else {
 				plugin_thold_log_changes($save['id'], 'disabled_host');
 
 				db_execute_prepared('UPDATE thold_data
 					SET thold_enabled = "off"
 					WHERE host_id = ?',
-					array($save['id']));
+					[$save['id']]);
 			}
 		}
 	}
@@ -778,10 +795,10 @@ function thold_data_sources_table($ds) {
 			FROM thold_data
 			WHERE local_data_id = ?
 			LIMIT 1',
-			array($ds['local_data_id']));
+			[$ds['local_data_id']]);
 
 		if ($exists) {
-			$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='linkEditMain' href='" . html_escape('plugins/thold/thold.php?action=edit&id=' . $exists) . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold'). '</em>' : html_escape($ds['data_template_name'])) . '</a>';
+			$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='linkEditMain' href='" . html_escape('plugins/thold/thold.php?action=edit&id=' . $exists) . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold') . '</em>' : html_escape($ds['data_template_name'])) . '</a>';
 		} else {
 			$graph_exists = db_fetch_cell_prepared('SELECT DISTINCT gl.id
 				FROM graph_local AS gl
@@ -791,12 +808,12 @@ function thold_data_sources_table($ds) {
 				ON gti.task_item_id = dtr.id
 				WHERE dtr.local_data_id = ?
 				LIMIT 1',
-				array($ds['local_data_id']));
+				[$ds['local_data_id']]);
 
 			$data_template_id = db_fetch_cell_prepared('SELECT data_template_id
 				FROM data_local
 				WHERE id = ?',
-				array($ds['local_data_id']));
+				[$ds['local_data_id']]);
 
 			if ($graph_exists) {
 				$ds['data_template_name'] = "<a title='" . __esc('Create Threshold from Data Source', 'thold') . "' class='linkEditMain' href='" . html_escape('plugins/thold/thold.php?action=edit&local_data_id=' . $ds['local_data_id'] . '&host_id=' . $ds['host_id'] . '&data_template_id=' . $data_template_id . '&data_template_rrd_id=&local_graph_id=' . $graph_exists . '&thold_template_id=0') . "'>" . ((empty($ds['data_template_name'])) ? '<em>' . __('None', 'thold') . '</em>' : html_escape($ds['data_template_name'])) . '</a>';
@@ -810,7 +827,7 @@ function thold_data_sources_table($ds) {
 function thold_graphs_new() {
 	global $config;
 
-	print '<span class="linkMarker">*</span><a class="autocreate linkEditMain" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create Thresholds', 'thold'). '</a><br>';
+	print '<span class="linkMarker">*</span><a class="autocreate linkEditMain" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create Thresholds', 'thold') . '</a><br>';
 }
 
 function thold_user_admin_setup_sql_save($save) {
@@ -820,6 +837,7 @@ function thold_user_admin_setup_sql_save($save) {
 
 	if (isset_request_var('email') || isset_request_var('email_address')) {
 		$email = form_input_validate(get_nfilter_request_var('email_address'), 'email_address', '', true, 3);
+
 		if ($save['id'] == 0) {
 			$save['id'] = sql_save($save, 'user_auth');
 		}
@@ -828,18 +846,18 @@ function thold_user_admin_setup_sql_save($save) {
 			FROM plugin_thold_contacts
 			WHERE type = "email"
 			AND user_id = ?',
-			array($save['id']));
+			[$save['id']]);
 
 		if ($cid) {
 			db_execute_prepared('REPLACE INTO plugin_thold_contacts
 				(id, user_id, type, data) VALUES
 				(?, ?, "email", ?)',
-				array($cid, $save['id'], $email));
+				[$cid, $save['id'], $email]);
 		} else {
 			db_execute_prepared('REPLACE INTO plugin_thold_contacts
 				(user_id, type, data) VALUES
 				(?, "email", ?)',
-				array($save['id'], $email));
+				[$save['id'], $email]);
 		}
 	}
 
@@ -863,10 +881,10 @@ function thold_data_source_action_execute($action) {
 			$template = db_fetch_row_prepared('SELECT *
 				FROM thold_template
 				WHERE id = ?',
-				array(get_request_var('thold_template_id')));
+				[get_request_var('thold_template_id')]);
 
 			if (cacti_sizeof($template)) {
-				foreach($selected_items as $local_data_id) {
+				foreach ($selected_items as $local_data_id) {
 					$data_sources = db_fetch_assoc_prepared('SELECT DISTINCT
 						dtr.id, gl.id AS local_graph_id, dtr.local_data_id
 						FROM data_template_rrd AS dtr
@@ -876,10 +894,10 @@ function thold_data_source_action_execute($action) {
 						ON gl.id=gti.local_graph_id
 						WHERE dtr.local_data_id = ?
 						AND dtr.data_source_name = ?',
-						array($local_data_id, $template['data_source_name']));
+						[$local_data_id, $template['data_source_name']]);
 
 					if (cacti_sizeof($data_sources)) {
-						foreach($data_sources as $data_source) {
+						foreach ($data_sources as $data_source) {
 							$local_data_id        = $data_source['local_data_id'];
 							$local_graph_id       = $data_source['local_graph_id'];
 							$data_template_rrd_id = $data_source['id'];
@@ -917,24 +935,25 @@ function thold_data_source_action_prepare($save) {
 		$not_found  = '';
 
 		if (cacti_sizeof($save['ds_array'])) {
-			foreach($save['ds_array'] as $item) {
+			foreach ($save['ds_array'] as $item) {
 				$data_template_id = db_fetch_cell_prepared('SELECT data_template_id
 					FROM data_local
 					WHERE id = ?',
-					array($item));
+					[$item]);
 
 				if ($data_template_id != '') {
 					$templates_ids = db_fetch_assoc_prepared('SELECT id
 						FROM thold_template
 						WHERE data_template_id = ?',
-						array($data_template_id));
+						[$data_template_id]);
 
 					if (cacti_sizeof($templates_ids)) {
 						$found_list .= '<li>' . html_escape(get_data_source_title($item)) . '</li>';
+
 						if (strlen($templates)) {
-								$templates .= ", $data_template_id";
+							$templates .= ", $data_template_id";
 						} else {
-								$templates  = "$data_template_id";
+							$templates  = "$data_template_id";
 						}
 					} else {
 						$not_found .= '<li>' . html_escape(get_data_source_title($item)) . '</li>';
@@ -964,30 +983,30 @@ function thold_data_source_action_prepare($save) {
 				</td>
 			</tr></table><table class='cactiTable'><tr><td>";
 
-			$form_array = array(
-				'general_header' => array(
+			$form_array = [
+				'general_header' => [
 					'friendly_name' => __('Available Threshold Templates', 'thold'),
-					'method' => 'spacer',
-				),
-				'thold_template_id' => array(
-					'method' => 'drop_sql',
+					'method'        => 'spacer',
+				],
+				'thold_template_id' => [
+					'method'        => 'drop_sql',
 					'friendly_name' => __('Select a Threshold Template', 'thold'),
-					'description' => '',
-					'none_value' => __('None', 'thold'),
-					'value' => __('None', 'thold'),
-					'sql' => $sql
-				)
-			);
+					'description'   => '',
+					'none_value'    => __('None', 'thold'),
+					'value'         => __('None', 'thold'),
+					'sql'           => $sql
+				]
+			];
 
 			draw_edit_form(
-				array(
-					'config' => array('no_form_tag' => true),
+				[
+					'config' => ['no_form_tag' => true],
 					'fields' => $form_array
-				)
+				]
 			);
 		} else {
 			if (strlen($not_found)) {
-				print '<p>' . __('There are no Threshold Templates associated with the following Data Sources', 'thold'). '</p>';
+				print '<p>' . __('There are no Threshold Templates associated with the following Data Sources', 'thold') . '</p>';
 				print '<div class="itemlist"><ul>' . $not_found . '</ul></div>';
 			}
 		}
@@ -1000,6 +1019,7 @@ function thold_data_source_action_prepare($save) {
 
 function thold_data_source_action_array($action) {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
+
 	return $action;
 }
 
@@ -1020,10 +1040,10 @@ function thold_graphs_action_execute($action) {
 			$template = db_fetch_row_prepared('SELECT *
 				FROM thold_template
 				WHERE id = ?',
-				array(get_request_var('thold_template_id')));
+				[get_request_var('thold_template_id')]);
 
 			if (cacti_sizeof($template)) {
-				foreach($selected_items as $local_graph_id) {
+				foreach ($selected_items as $local_graph_id) {
 					$data_sources = db_fetch_assoc_prepared('SELECT DISTINCT
 						dtr.id, gl.id AS local_graph_id, dtr.local_data_id
 						FROM data_template_rrd AS dtr
@@ -1033,10 +1053,10 @@ function thold_graphs_action_execute($action) {
 						ON gl.id=gti.local_graph_id
 						WHERE gl.id = ?
 						AND dtr.data_source_name = ?',
-						array($local_graph_id, $template['data_source_name']));
+						[$local_graph_id, $template['data_source_name']]);
 
 					if (cacti_sizeof($data_sources)) {
-						foreach($data_sources as $data_source) {
+						foreach ($data_sources as $data_source) {
 							$local_data_id        = $data_source['local_data_id'];
 							$local_graph_id       = $data_source['local_graph_id'];
 							$data_template_rrd_id = $data_source['id'];
@@ -1071,11 +1091,11 @@ function thold_graphs_action_prepare($save) {
 		 */
 		$found_list   = '';
 		$not_found    = '';
-		$template_ids = array();
+		$template_ids = [];
 
 		if (cacti_sizeof($save['graph_array'])) {
-			foreach($save['graph_array'] as $item) {
-				$item_found = false;
+			foreach ($save['graph_array'] as $item) {
+				$item_found        = false;
 				$data_template_ids = db_fetch_assoc_prepared('SELECT DISTINCT dtr.data_template_id
 					FROM data_template_rrd AS dtr
 					LEFT JOIN graph_templates_item AS gti
@@ -1083,7 +1103,7 @@ function thold_graphs_action_prepare($save) {
 					LEFT JOIN graph_local AS gl
 					ON gl.id=gti.local_graph_id
 					WHERE gl.id = ?',
-					array($item));
+					[$item]);
 
 				if (cacti_sizeof($data_template_ids)) {
 					foreach ($data_template_ids as $i => $data_template_rec) {
@@ -1092,10 +1112,10 @@ function thold_graphs_action_prepare($save) {
 						$templates = db_fetch_assoc_prepared('SELECT id
 							FROM thold_template
 							WHERE data_template_id = ?',
-							array($data_template_id));
+							[$data_template_id]);
 
 						if (cacti_sizeof($templates)) {
-							$item_found = true;
+							$item_found     = true;
 							$template_ids[] = $data_template_id;
 						}
 					}
@@ -1104,7 +1124,7 @@ function thold_graphs_action_prepare($save) {
 				if (!$item_found) {
 					$not_found .= '<li>' . html_escape(get_graph_title($item)) . '</li>';
 				} else {
-					$found_list.= '<li>' . html_escape(get_graph_title($item)) . '</li>';
+					$found_list .= '<li>' . html_escape(get_graph_title($item)) . '</li>';
 				}
 			}
 		}
@@ -1128,25 +1148,25 @@ function thold_graphs_action_prepare($save) {
 				</td>
 			</tr></table><table class='cactiTable'><tr><td>";
 
-			$form_array = array(
-				'general_header' => array(
+			$form_array = [
+				'general_header' => [
 					'friendly_name' => __('Available Threshold Templates', 'thold'),
-					'method' => 'spacer',
-				),
-				'thold_template_id' => array(
-					'method' => 'drop_sql',
+					'method'        => 'spacer',
+				],
+				'thold_template_id' => [
+					'method'        => 'drop_sql',
 					'friendly_name' => __('Select a Threshold Template', 'thold'),
-					'description' => '',
-					'value' => __('None', 'thold'),
-					'sql' => $sql
-				)
-			);
+					'description'   => '',
+					'value'         => __('None', 'thold'),
+					'sql'           => $sql
+				]
+			];
 
 			draw_edit_form(
-				array(
-					'config' => array('no_form_tag' => true),
+				[
+					'config' => ['no_form_tag' => true],
 					'fields' => $form_array
-				)
+				]
 			);
 		} else {
 			if (strlen($not_found)) {
@@ -1163,6 +1183,7 @@ function thold_graphs_action_prepare($save) {
 
 function thold_graphs_action_array($action) {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
+
 	return $action;
 }
 
@@ -1239,7 +1260,7 @@ function thold_device_edit_pre_bottom() {
 	$host_template_id = db_fetch_cell_prepared('SELECT host_template_id
 		FROM host
 		WHERE id = ?',
-		array($host_id));
+		[$host_id]);
 
 	$threshold_templates = db_fetch_assoc_prepared('SELECT DISTINCT pth.thold_template_id, tt.name
 		FROM plugin_thold_host AS pth
@@ -1247,18 +1268,19 @@ function thold_device_edit_pre_bottom() {
 		ON tt.id = pth.thold_template_id
 		WHERE pth.host_id = ?
 		ORDER BY name',
-		array($host_id));
+		[$host_id]);
 
-	html_header(array(__('Name', 'thold'), __('Status', 'thold')), 2);
+	html_header([__('Name', 'thold'), __('Status', 'thold')], 2);
 
 	$i = 1;
+
 	if (cacti_sizeof($threshold_templates)) {
 		foreach ($threshold_templates as $item) {
 			$exists = db_fetch_cell_prepared('SELECT id
 				FROM thold_data
 				WHERE host_id = ?
 				AND thold_template_id = ?',
-				array(get_request_var('id'), $item['thold_template_id']));
+				[get_request_var('id'), $item['thold_template_id']]);
 
 			if ($exists) {
 				$exists = __('Threshold Exists', 'thold');
@@ -1269,13 +1291,13 @@ function thold_device_edit_pre_bottom() {
 			form_alternate_row("tt$i", true);
 			?>
 			<td class='left'>
-				<strong><?php print $i;?>)</strong> <?php print html_escape($item['name']);?>
+				<strong><?php print $i; ?>)</strong> <?php print html_escape($item['name']); ?>
 			</td>
 			<td>
-				<?php print $exists;?>
+				<?php print $exists; ?>
 			</td>
 			<td class='nowrap right'>
-				<a class='delete deleteMarker fa fa-times' title='<?php print __esc('Delete Threshold Template Association', 'thold');?>' href='<?php print html_escape('host.php?action=item_remove_tt_confirm&id=' . $item['thold_template_id'] . '&host_id=' . get_request_var('id'));?>'></a>
+				<a class='delete deleteMarker fa fa-times' title='<?php print __esc('Delete Threshold Template Association', 'thold'); ?>' href='<?php print html_escape('host.php?action=item_remove_tt_confirm&id=' . $item['thold_template_id'] . '&host_id=' . get_request_var('id')); ?>'></a>
 			</td>
 			<?php
 			form_end_row();
@@ -1292,7 +1314,7 @@ function thold_device_edit_pre_bottom() {
 		ON pth.thold_template_id = tt.id
 		AND pth.host_id = ?
 		WHERE tt.id NOT IN (SELECT thold_template_id FROM plugin_thold_host WHERE host_id = ?)',
-		array($host_id, $host_id));
+		[$host_id, $host_id]);
 
 	if (cacti_sizeof($available_thold_templates)) {
 		?>
@@ -1301,13 +1323,13 @@ function thold_device_edit_pre_bottom() {
 				<table>
 					<tr style='line-height:10px;'>
 						<td class='nowrap templateAdd' style='padding-right:15px;'>
-							<?php print __('Add Threshold Template');?>
+							<?php print __('Add Threshold Template'); ?>
 						</td>
 						<td class='noHide'>
-							<?php form_dropdown('thold_template_id', $available_thold_templates, 'name', 'id', '', '', '');?>
+							<?php form_dropdown('thold_template_id', $available_thold_templates, 'name', 'id', '', '', ''); ?>
 						</td>
 						<td class='noHide'>
-							<input id='add_tt' type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Add');?>' title='<?php print __esc('Add Threshold Template to Device');?>' onClick='addThresholdTemplate()'>
+							<input id='add_tt' type='button' class='ui-button ui-corner-all ui-widget' value='<?php print __esc('Add'); ?>' title='<?php print __esc('Add Threshold Template to Device'); ?>' onClick='addThresholdTemplate()'>
 						</td>
 					</tr>
 				</table>
@@ -1333,10 +1355,10 @@ function thold_device_edit_pre_bottom() {
 
 function thold_device_top() {
 	if (get_request_var('action') == 'item_remove_tt_confirm') {
-		/* ================= input validation ================= */
+		// ================= input validation =================
 		get_filter_request_var('id');
 		get_filter_request_var('host_id');
-		/* ==================================================== */
+		// ====================================================
 
 		form_start('host.php?action=edit&id' . get_request_var('host_id'));
 
@@ -1345,19 +1367,19 @@ function thold_device_top() {
 		$template = db_fetch_row_prepared('SELECT *
 			FROM thold_template
 			WHERE id = ?',
-			array(get_request_var('id')));
+			[get_request_var('id')]);
 
 		?>
 		<tr>
 			<td class='topBoxAlt'>
-				<p><?php print __('Click \'Continue\' to Delete the following Threshold Template will be disassociated from the Device.', 'thold');?></p>
-				<p><?php print __esc('Threshold Template Name: %s', $template['name'], 'thold');?>'<br>
+				<p><?php print __('Click \'Continue\' to Delete the following Threshold Template will be disassociated from the Device.', 'thold'); ?></p>
+				<p><?php print __esc('Threshold Template Name: %s', $template['name'], 'thold'); ?>'<br>
 			</td>
 		</tr>
 		<tr>
 			<td align='right'>
-				<input id='cancel' type='button' value='<?php print __esc('Cancel', 'thold');?>' onClick='$("#cdialog").dialog("close")' name='cancel'>
-				<input id='continue' type='button' value='<?php print __esc('Continue', 'thold');?>' name='continue' title='<?php print __esc('Remove Threshold Template', 'thold');?>'>
+				<input id='cancel' type='button' value='<?php print __esc('Cancel', 'thold'); ?>' onClick='$("#cdialog").dialog("close")' name='cancel'>
+				<input id='continue' type='button' value='<?php print __esc('Continue', 'thold'); ?>' name='continue' title='<?php print __esc('Remove Threshold Template', 'thold'); ?>'>
 			</td>
 		</tr>
 		<?php
@@ -1375,41 +1397,45 @@ function thold_device_top() {
 		$('#continue').click(function(data) {
 			$.post('host.php?action=item_remove_tt', {
 				__csrf_magic: csrfMagicToken,
-				host_id: <?php print get_request_var('host_id');?>,
-				id: <?php print get_request_var('id');?>
+				host_id: <?php print get_request_var('host_id'); ?>,
+				id: <?php print get_request_var('id'); ?>
 			}).done(function(data) {
 				$('#cdialog').dialog('close');
-				loadPageNoHeader('host.php?action=edit&header=false&id=<?php print get_request_var('host_id');?>');
+				loadPageNoHeader('host.php?action=edit&header=false&id=<?php print get_request_var('host_id'); ?>');
 			});
 		});
 		</script>
 		<?php
 
 		exit;
-	} elseif (get_request_var('action') == 'item_remove_tt') {
-		/* ================= input validation ================= */
+	}
+
+	if (get_request_var('action') == 'item_remove_tt') {
+		// ================= input validation =================
 		get_filter_request_var('id');
 		get_filter_request_var('host_id');
-		/* ==================================================== */
+		// ====================================================
 
 		db_execute_prepared('DELETE
 			FROM plugin_thold_host
 			WHERE thold_template_id = ?
 			AND host_id = ?',
-			array(get_request_var('id'), get_request_var('host_id')));
+			[get_request_var('id'), get_request_var('host_id')]);
 
 		header('Location: host.php?header=false&action=edit&id=' . get_request_var('host_id'));
 
 		exit;
-	} elseif (get_request_var('action') == 'item_add_tt') {
-		/* ================= input validation ================= */
+	}
+
+	if (get_request_var('action') == 'item_add_tt') {
+		// ================= input validation =================
 		get_filter_request_var('host_id');
 		get_filter_request_var('thold_template_id');
-		/* ==================================================== */
+		// ====================================================
 
 		db_execute_prepared('REPLACE INTO plugin_thold_host
 			(host_id, thold_template_id) VALUES (?, ?)',
-			array(get_request_var('host_id'), get_request_var('thold_template_id')));
+			[get_request_var('host_id'), get_request_var('thold_template_id')]);
 
 		header('Location: host.php?header=false&action=edit&id=' . get_request_var('host_id'));
 
@@ -1426,18 +1452,19 @@ function thold_device_template_edit() {
 		ON tt.id=ptdt.thold_template_id
 		WHERE ptdt.host_template_id = ?
 		ORDER BY name',
-		array(get_request_var('id')));
+		[get_request_var('id')]);
 
 	$i = 0;
+
 	if (cacti_sizeof($threshold_templates)) {
 		foreach ($threshold_templates as $item) {
 			form_alternate_row("tt$i", true);
 			?>
 				<td class='left'>
-					<strong><?php print $i;?>)</strong> <?php print html_escape($item['name']);?>
+					<strong><?php print $i; ?>)</strong> <?php print html_escape($item['name']); ?>
 				</td>
 				<td class='right'>
-					<a class='delete deleteMarker fa fa-times' title='<?php print __esc('Delete', 'thold');?>' href='<?php print html_escape('host_templates.php?action=item_remove_tt_confirm&id=' . $item['thold_template_id'] . '&host_template_id=' . get_request_var('id'));?>'></a>
+					<a class='delete deleteMarker fa fa-times' title='<?php print __esc('Delete', 'thold'); ?>' href='<?php print html_escape('host_templates.php?action=item_remove_tt_confirm&id=' . $item['thold_template_id'] . '&host_template_id=' . get_request_var('id')); ?>'></a>
 				</td>
 			<?php
 			form_end_row();
@@ -1455,7 +1482,7 @@ function thold_device_template_edit() {
 		AND ptdt.host_template_id = ?
 		WHERE ptdt.host_template_id IS NULL OR ptdt.host_template_id != ?
 		ORDER BY tt.name',
-		array(get_request_var('id'), get_request_var('id')));
+		[get_request_var('id'), get_request_var('id')]);
 
 	if (cacti_sizeof($unmapped)) {
 		?>
@@ -1464,13 +1491,13 @@ function thold_device_template_edit() {
 				<table>
 					<tr style='line-height:10px;'>
 						<td style='padding-right: 15px;'>
-							<?php print __('Add Threshold Template', 'thold');?>
+							<?php print __('Add Threshold Template', 'thold'); ?>
 						</td>
 						<td>
-							<?php form_dropdown('thold_template_id', $unmapped, 'name', 'id', '', '', '');?>
+							<?php form_dropdown('thold_template_id', $unmapped, 'name', 'id', '', '', ''); ?>
 						</td>
 						<td>
-							<input type='button' value='<?php print __esc('Add', 'thold');?>' id='add_tt' title='<?php print __esc('Add Threshold Template to Device Template', 'thold');?>' onClick='addThresholdTemplate()'>
+							<input type='button' value='<?php print __esc('Add', 'thold'); ?>' id='add_tt' title='<?php print __esc('Add Threshold Template to Device Template', 'thold'); ?>' onClick='addThresholdTemplate()'>
 						</td>
 					</tr>
 				</table>
@@ -1498,10 +1525,10 @@ function thold_device_template_edit() {
 
 function thold_device_template_top() {
 	if (get_request_var('action') == 'item_remove_tt_confirm') {
-		/* ================= input validation ================= */
+		// ================= input validation =================
 		get_filter_request_var('id');
 		get_filter_request_var('host_template_id');
-		/* ==================================================== */
+		// ====================================================
 
 		form_start('host_templates.php?action=edit&id' . get_request_var('host_template_id'));
 
@@ -1510,19 +1537,19 @@ function thold_device_template_top() {
 		$template = db_fetch_row_prepared('SELECT *
 			FROM thold_template
 			WHERE id = ?',
-			array(get_request_var('id')));
+			[get_request_var('id')]);
 
 		?>
 		<tr>
 			<td class='topBoxAlt'>
-				<p><?php print __('Click \'Continue\' to Delete the following Threshold Template will be disassociated from the Device Template.', 'thold');?></p>
-				<p><?php print __esc('Threshold Template Name: %s', $template['name'], 'thold');?>'<br>
+				<p><?php print __('Click \'Continue\' to Delete the following Threshold Template will be disassociated from the Device Template.', 'thold'); ?></p>
+				<p><?php print __esc('Threshold Template Name: %s', $template['name'], 'thold'); ?>'<br>
 			</td>
 		</tr>
 		<tr>
 			<td align='right'>
-				<input id='cancel' type='button' value='<?php print __esc('Cancel', 'thold');?>' onClick='$("#cdialog").dialog("close")' name='cancel'>
-				<input id='continue' type='button' value='<?php print __esc('Continue', 'thold');?>' name='continue' title='<?php print __esc('Remove Threshold Template', 'thold');?>'>
+				<input id='cancel' type='button' value='<?php print __esc('Cancel', 'thold'); ?>' onClick='$("#cdialog").dialog("close")' name='cancel'>
+				<input id='continue' type='button' value='<?php print __esc('Continue', 'thold'); ?>' name='continue' title='<?php print __esc('Remove Threshold Template', 'thold'); ?>'>
 			</td>
 		</tr>
 		<?php
@@ -1540,41 +1567,45 @@ function thold_device_template_top() {
 	    $('#continue').click(function(data) {
 			$.post('host_templates.php?action=item_remove_tt', {
 				__csrf_magic: csrfMagicToken,
-				host_template_id: <?php print get_request_var('host_template_id');?>,
-				id: <?php print get_request_var('id');?>
+				host_template_id: <?php print get_request_var('host_template_id'); ?>,
+				id: <?php print get_request_var('id'); ?>
 			}).done(function(data) {
 				$('#cdialog').dialog('close');
-				loadPageNoHeader('host_templates.php?action=edit&header=false&id=<?php print get_request_var('host_template_id');?>');
+				loadPageNoHeader('host_templates.php?action=edit&header=false&id=<?php print get_request_var('host_template_id'); ?>');
 			});
 		});
 		</script>
 		<?php
 
 		exit;
-	} elseif (get_request_var('action') == 'item_remove_tt') {
-		/* ================= input validation ================= */
+	}
+
+	if (get_request_var('action') == 'item_remove_tt') {
+		// ================= input validation =================
 		get_filter_request_var('id');
 		get_filter_request_var('host_template_id');
-		/* ==================================================== */
+		// ====================================================
 
 		db_execute_prepared('DELETE
 			FROM plugin_thold_host_template
 			WHERE thold_template_id = ?
 			AND host_template_id = ?',
-			array(get_request_var('id'), get_request_var('host_template_id')));
+			[get_request_var('id'), get_request_var('host_template_id')]);
 
 		header('Location: host_templates.php?header=false&action=edit&id=' . get_request_var('host_template_id'));
 
 		exit;
-	} elseif (get_request_var('action') == 'item_add_tt') {
-		/* ================= input validation ================= */
+	}
+
+	if (get_request_var('action') == 'item_add_tt') {
+		// ================= input validation =================
 		get_filter_request_var('host_template_id');
 		get_filter_request_var('thold_template_id');
-		/* ==================================================== */
+		// ====================================================
 
 		db_execute_prepared('REPLACE INTO plugin_thold_host_template
 			(host_template_id, thold_template_id) VALUES (?, ?)',
-			array(get_request_var('host_template_id'), get_request_var('thold_template_id')));
+			[get_request_var('host_template_id'), get_request_var('thold_template_id')]);
 
 		header('Location: host_templates.php?header=false&action=edit&id=' . get_request_var('host_template_id'));
 
@@ -1583,18 +1614,18 @@ function thold_device_template_top() {
 }
 
 function thold_device_template_change($data) {
-	$device_id = $data['device_id'];
+	$device_id          = $data['device_id'];
 	$device_template_id = $data['device_template_id'];
 
 	$thold_templates = db_fetch_assoc_prepared('SELECT *
 		FROM plugin_thold_host_template
 		WHERE host_template_id = ?',
-		array($device_template_id));
+		[$device_template_id]);
 
 	if (cacti_sizeof($thold_templates)) {
-		foreach($thold_templates as $tt) {
+		foreach ($thold_templates as $tt) {
 			db_execute_prepared('REPLACE INTO plugin_thold_host (host_id, thold_template_id) VALUES (?, ?)',
-			array($device_id, $tt['thold_template_id']));
+				[$device_id, $tt['thold_template_id']]);
 		}
 	}
 
@@ -1603,6 +1634,7 @@ function thold_device_template_change($data) {
 
 function thold_device_autocreate($host_id) {
 	autocreate($host_id);
+
 	return $host_id;
 }
 
@@ -1615,10 +1647,10 @@ function thold_create_graph_thold($save) {
 		$graph = db_fetch_row_prepared('SELECT *
 			FROM graph_local
 			WHERE id = ?',
-			array($save['id']));
+			[$save['id']]);
 
 		if (cacti_sizeof($graph)) {
-			autocreate($graph['host_id'], array($graph['id']));
+			autocreate($graph['host_id'], [$graph['id']]);
 		}
 	}
 
@@ -1638,8 +1670,8 @@ function thold_data_source_remove($data_ids) {
 	);
 
 	if (cacti_sizeof($tholds)) {
-		foreach($tholds as $thold) {
-			plugin_thold_log_changes($thold, 'deleted', array('message' => 'Deleted due to Data Source removal'));
+		foreach ($tholds as $thold) {
+			plugin_thold_log_changes($thold, 'deleted', ['message' => 'Deleted due to Data Source removal']);
 			thold_api_thold_remove($thold);
 		}
 	}
@@ -1648,7 +1680,8 @@ function thold_data_source_remove($data_ids) {
 }
 
 function thold_clog_regex_array($regex_array) {
-	$regex_array[] = array('name' => 'TH', 'regex' => '( TH\[)([, \d]+)(\])', 'func' => 'thold_clog_regex_threshold');
+	$regex_array[] = ['name' => 'TH', 'regex' => '( TH\[)([, \d]+)(\])', 'func' => 'thold_clog_regex_threshold'];
+
 	return $regex_array;
 }
 
@@ -1660,13 +1693,15 @@ function thold_clog_regex_threshold($matches) {
 	$result = $matches[0];
 
 	$threshold_ids = explode(',', str_replace(' ', '', $matches[2]));
+
 	if (cacti_sizeof($threshold_ids)) {
-		$result = '';
+		$result     = '';
 		$thresholds = db_fetch_assoc('SELECT id, name, name_cache, local_data_id
 			FROM thold_data
 			WHERE id IN (' . implode(',',$threshold_ids) . ')');
 
-		$thresholdDescriptions = array();
+		$thresholdDescriptions = [];
+
 		if (cacti_sizeof($thresholds)) {
 			foreach ($thresholds as $threshold) {
 				$thresholdDescriptions[$threshold['id']] = html_escape(

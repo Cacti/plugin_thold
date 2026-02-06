@@ -22,15 +22,14 @@
  +-------------------------------------------------------------------------+
 */
 
-include_once(dirname(__FILE__) . '/../../../include/cli_check.php');
+include_once(__DIR__ . '/../../../include/cli_check.php');
 
 chdir($config['base_path']);
 
 include_once('./plugins/thold/includes/database.php');
 
-print 'Force Running Thold Upgrade' . PHP_EOL;;
+print 'Force Running Thold Upgrade' . PHP_EOL;
 thold_upgrade_database(true);
 print 'Upgrade Complete!' . PHP_EOL;
 print 'Check your cacti.log for errors.' . PHP_EOL;
 print 'If you find them, please report on GitHub!' . PHP_EOL;
-

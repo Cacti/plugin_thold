@@ -22,7 +22,7 @@
  +-------------------------------------------------------------------------+
 */
 
-$thold_log_retention = array(
+$thold_log_retention = [
 	'-1'  => __('Indefinitely', 'thold'),
 	'31'  => __('%d Month', 1, 'thold'),
 	'62'  => __('%d Months', 2, 'thold'),
@@ -30,9 +30,9 @@ $thold_log_retention = array(
 	'124' => __('%d Months', 4, 'thold'),
 	'186' => __('%d Months', 6, 'thold'),
 	'365' => __('%d Year', 1, 'thold')
-);
+];
 
-$thold_timespans = array(
+$thold_timespans = [
 	3600      => __('From %d Hour Ago', 1),
 	7200      => __('From %d Hours Ago', 2),
 	14400     => __('From %d Hours Ago', 4),
@@ -51,177 +51,177 @@ $thold_timespans = array(
 	15712704  => __('From %d Months Ago', 6),
 	31536000  => __('From %d Year Ago', 1),
 	63072000  => __('From %d Years Ago', 2)
-);
+];
 
-$thold_host_states = array(
-	HOST_DOWN => array(
+$thold_host_states = [
+	HOST_DOWN => [
 		'display' => __('Down', 'thold'),
-		'class' => 'deviceDownFull'
-	),
-	HOST_ERROR => array(
+		'class'   => 'deviceDownFull'
+	],
+	HOST_ERROR => [
 		'display' => __('Error', 'thold'),
-		'class' => 'deviceErrorFull'
-	),
-	HOST_RECOVERING => array(
+		'class'   => 'deviceErrorFull'
+	],
+	HOST_RECOVERING => [
 		'display' => __('Recovering', 'thold'),
-		'class' => 'deviceRecoveringFull'
-	),
-	HOST_UP => array(
+		'class'   => 'deviceRecoveringFull'
+	],
+	HOST_UP => [
 		'display' => __('Up', 'thold'),
-		'class' => 'deviceUpFull'
-	),
-	HOST_UNKNOWN => array(
+		'class'   => 'deviceUpFull'
+	],
+	HOST_UNKNOWN => [
 		'display' => __('Unknown', 'thold'),
-		'class' => 'deviceUnknownFull'
-	),
-	'disabled' => array(
+		'class'   => 'deviceUnknownFull'
+	],
+	'disabled' => [
 		'display' => __('Disabled', 'thold'),
-		'class' => 'deviceDisabledFull'
-	),
-	'notmon' => array(
+		'class'   => 'deviceDisabledFull'
+	],
+	'notmon' => [
 		'display' => __('Not Monitored', 'thold'),
-		'class' => 'deviceNotMonFull'
-	)
-);
+		'class'   => 'deviceNotMonFull'
+	]
+];
 
-$thold_log_states = array(
-	'4' => array(
-		'index' => 'alarm',
-		'display' => __('Notify - Alert', 'thold'),
+$thold_log_states = [
+	'4' => [
+		'index'         => 'alarm',
+		'display'       => __('Notify - Alert', 'thold'),
 		'display_short' => __('Alert', 'thold'),
-		'class' => 'tholdAlertNotify'
-	),
-	'7' => array(
-		'index' => 'alarm',
-		'display' => __('Notify - Alert2Warning', 'thold'),
+		'class'         => 'tholdAlertNotify'
+	],
+	'7' => [
+		'index'         => 'alarm',
+		'display'       => __('Notify - Alert2Warning', 'thold'),
 		'display_short' => __('Alert2Warn', 'thold'),
-		'class' => 'tholdAlert2Warn'
-	),
-	'3' => array(
-		'index' => 'warning',
-		'display' => __('Notify - Warning', 'thold'),
+		'class'         => 'tholdAlert2Warn'
+	],
+	'3' => [
+		'index'         => 'warning',
+		'display'       => __('Notify - Warning', 'thold'),
 		'display_short' => __('Warning', 'thold'),
-		'class' => 'tholdWarningNotify'
-	),
-	'2' => array(
-		'index' => 'retrigger',
-		'display' => __('Notify - Re-Trigger', 'thold'),
+		'class'         => 'tholdWarningNotify'
+	],
+	'2' => [
+		'index'         => 'retrigger',
+		'display'       => __('Notify - Re-Trigger', 'thold'),
 		'display_short' => __('Re-Trigger', 'thold'),
-		'class' => 'tholdReTriggerEvent'
-	),
-	'5' => array(
-		'index' => 'restoral',
-		'display' => __('Notify - Restoral', 'thold'),
+		'class'         => 'tholdReTriggerEvent'
+	],
+	'5' => [
+		'index'         => 'restoral',
+		'display'       => __('Notify - Restoral', 'thold'),
 		'display_short' => __('Restoral', 'thold'),
-		'class' => 'tholdRestoralNotify'
-	),
-	'1' => array(
-		'index' => 'trigger',
-		'display' => __('Event - Alert Trigger', 'thold'),
+		'class'         => 'tholdRestoralNotify'
+	],
+	'1' => [
+		'index'         => 'trigger',
+		'display'       => __('Event - Alert Trigger', 'thold'),
 		'display_short' => __('Alert Event', 'thold'),
-		'class' => 'tholdTriggerEvent'
-	),
-	'6' => array(
-		'index' => 'restoral',
-		'display' => __('Event - Warning Trigger', 'thold'),
+		'class'         => 'tholdTriggerEvent'
+	],
+	'6' => [
+		'index'         => 'restoral',
+		'display'       => __('Event - Warning Trigger', 'thold'),
 		'display_short' => __('Warning Event', 'thold'),
-		'class' => 'tholdWarnTrigger'
-	),
-	'0' => array(
-		'index' => 'restore',
-		'display' => __('Event - Restoral', 'thold'),
+		'class'         => 'tholdWarnTrigger'
+	],
+	'0' => [
+		'index'         => 'restore',
+		'display'       => __('Event - Restoral', 'thold'),
 		'display_short' => __('Restoral Event', 'thold'),
-		'class' => 'tholdRestoralEvent'
-	),
-	'99' => array(
-		'index' => 'acknowledgment',
-		'display' => __('Event - Acknowledge', 'thold'),
+		'class'         => 'tholdRestoralEvent'
+	],
+	'99' => [
+		'index'         => 'acknowledgment',
+		'display'       => __('Event - Acknowledge', 'thold'),
 		'display_short' => __('Acknowledge Event', 'thold'),
-		'class' => 'tholdAcknowledgment'
-	)
-);
+		'class'         => 'tholdAcknowledgment'
+	]
+];
 
-$thold_status_list = array(
-	'0' => array(
-		'index' => 'restore',
+$thold_status_list = [
+	'0' => [
+		'index'   => 'restore',
 		'display' => __('Restore', 'thold'),
-		'class' => 'tholdRestore'
-	),
-	'1' => array(
-		'index' => 'trigger',
+		'class'   => 'tholdRestore'
+	],
+	'1' => [
+		'index'   => 'trigger',
 		'display' => __('Alert Trigger', 'thold'),
-		'class' => 'tholdAlertTrigger'
-	),
-	'2' => array(
-		'index' => 'retrigger',
+		'class'   => 'tholdAlertTrigger'
+	],
+	'2' => [
+		'index'   => 'retrigger',
 		'display' => __('Re-Trigger', 'thold'),
-		'class' => 'tholdReTrigger'
-	),
-	'3' => array(
-		'index' => 'warning',
+		'class'   => 'tholdReTrigger'
+	],
+	'3' => [
+		'index'   => 'warning',
 		'display' => __('Warning', 'thold'),
-		'class' => 'tholdWarning'
-	),
-	'4' => array(
-		'index' => 'alarm',
+		'class'   => 'tholdWarning'
+	],
+	'4' => [
+		'index'   => 'alarm',
 		'display' => __('Alert', 'thold'),
-		'class' => 'tholdAlert'
-	),
-	'5' => array(
-		'index' => 'restoral',
+		'class'   => 'tholdAlert'
+	],
+	'5' => [
+		'index'   => 'restoral',
 		'display' => __('Restoral', 'thold'),
-		'class' => 'tholdRestoral'
-	),
-	'6' => array(
-		'index' => 'wtrigger',
+		'class'   => 'tholdRestoral'
+	],
+	'6' => [
+		'index'   => 'wtrigger',
 		'display' => __('Warn Trigger', 'thold'),
-		'class' => 'tholdWarnTrigger'
-	),
-	'7' => array(
-		'index' => 'alarmwarn',
+		'class'   => 'tholdWarnTrigger'
+	],
+	'7' => [
+		'index'   => 'alarmwarn',
 		'display' => __('Alert-Warn', 'thold'),
-		'class' => 'tholdAlert2Warn'
-	),
-	'8' => array(
-		'index' => 'acknowledgment',
+		'class'   => 'tholdAlert2Warn'
+	],
+	'8' => [
+		'index'   => 'acknowledgment',
 		'display' => __('Acknowledgment', 'thold'),
-		'class' => 'tholdAcknowledgment'
-	)
-);
+		'class'   => 'tholdAcknowledgment'
+	]
+];
 
-$thold_states = array(
-	'red' => array(
-		'class' => 'tholdAlert',
+$thold_states = [
+	'red' => [
+		'class'   => 'tholdAlert',
 		'display' => __('Alert', 'thold')
-	),
-	'orange' => array(
-		'class' => 'tholdBaseAlert',
+	],
+	'orange' => [
+		'class'   => 'tholdBaseAlert',
 		'display' => __('Baseline Alert', 'thold')
-	),
-	'warning' => array(
-		'class' => 'tholdWarning',
+	],
+	'warning' => [
+		'class'   => 'tholdWarning',
 		'display' => __('Warning', 'thold')
-	),
-	'yellow' => array(
-		'class' => 'tholdNotice',
+	],
+	'yellow' => [
+		'class'   => 'tholdNotice',
 		'display' => __('Notice', 'thold')
-	),
-	'green' => array(
-		'class' => 'tholdOk',
+	],
+	'green' => [
+		'class'   => 'tholdOk',
 		'display' => __('Ok', 'thold')
-	),
-	'purple' => array(
-		'class' => 'tholdAcknowledgment',
+	],
+	'purple' => [
+		'class'   => 'tholdAcknowledgment',
 		'display' => __('Acknowledgment', 'thold')
-	),
-	'grey' => array(
-		'class' => 'tholdDisabled',
+	],
+	'grey' => [
+		'class'   => 'tholdDisabled',
 		'display' => __('Disabled', 'thold')
-	)
-);
+	]
+];
 
 if ($config['cacti_server_os'] == 'unix') {
-	$syslog_facil_array = array(
+	$syslog_facil_array = [
 		LOG_AUTH     => 'Auth',
 		LOG_AUTHPRIV => 'Auth Private',
 		LOG_CRON     => 'Cron',
@@ -237,11 +237,11 @@ if ($config['cacti_server_os'] == 'unix') {
 		LOG_LOCAL7   => 'Local 7',
 		LOG_SYSLOG   => 'Syslog',
 		LOG_USER     => 'User',
-	);
+	];
 
 	$default_facility = LOG_DAEMON;
 
-	$syslog_priority_array = array(
+	$syslog_priority_array = [
 		LOG_EMERG   => __('Emergency', 'thold'),
 		LOG_ALERT   => __('Alert', 'thold'),
 		LOG_CRIT    => __('Critical', 'thold'),
@@ -250,20 +250,20 @@ if ($config['cacti_server_os'] == 'unix') {
 		LOG_NOTICE  => __('Notice', 'thold'),
 		LOG_INFO    => __('Info', 'thold'),
 		LOG_DEBUG   => __('Debug', 'thold')
-	);
+	];
 
 	$default_priority = LOG_WARNING;
 } else {
-	$syslog_facil_array = array(
+	$syslog_facil_array = [
 		LOG_USER => 'User'
-	);
+	];
 
 	$default_facility = LOG_USER;
 
-	$syslog_priority_array = array(
+	$syslog_priority_array = [
 		LOG_ERR     => __('Error', 'thold'),
 		LOG_INFO    => __('Info', 'thold'),
-	);
+	];
 
 	$default_priority = LOG_WARNING;
 }
@@ -287,92 +287,92 @@ switch($step) {
 			$factor = 1;
 		}
 
-		$repeatarray = array(
+		$repeatarray = [
 			0               => __('Never', 'thold'),
-			1     * $factor => __('Every Minute', 'thold'),
-			2     * $factor => __('Every %d Minutes', 2, 'thold'),
-			3     * $factor => __('Every %d Minutes', 3, 'thold'),
-			4     * $factor => __('Every %d Minutes', 4, 'thold'),
-			5     * $factor => __('Every %d Minutes', 5, 'thold'),
-			10    * $factor => __('Every %d Minutes', 10, 'thold'),
-			15    * $factor => __('Every %d Minutes', 15, 'thold'),
-			20    * $factor => __('Every %d Minutes', 20, 'thold'),
-			30    * $factor => __('Every %d Minutes', 30, 'thold'),
-			45    * $factor => __('Every %d Minutes', 45, 'thold'),
-			60    * $factor => __('Every Hour', 'thold'),
-			120   * $factor => __('Every %d Hours', 2, 'thold'),
-			180   * $factor => __('Every %d Hours', 3, 'thold'),
-			240   * $factor => __('Every %d Hours', 4, 'thold'),
-			360   * $factor => __('Every %d Hours', 6, 'thold'),
-			480   * $factor => __('Every %d Hours', 8, 'thold'),
-			720   * $factor => __('Every %d Hours', 12, 'thold'),
-			1440  * $factor => __('Every Day', 'thold'),
-			2880  * $factor => __('Every %d Days', 2, 'thold'),
+			1 * $factor     => __('Every Minute', 'thold'),
+			2 * $factor     => __('Every %d Minutes', 2, 'thold'),
+			3 * $factor     => __('Every %d Minutes', 3, 'thold'),
+			4 * $factor     => __('Every %d Minutes', 4, 'thold'),
+			5 * $factor     => __('Every %d Minutes', 5, 'thold'),
+			10 * $factor    => __('Every %d Minutes', 10, 'thold'),
+			15 * $factor    => __('Every %d Minutes', 15, 'thold'),
+			20 * $factor    => __('Every %d Minutes', 20, 'thold'),
+			30 * $factor    => __('Every %d Minutes', 30, 'thold'),
+			45 * $factor    => __('Every %d Minutes', 45, 'thold'),
+			60 * $factor    => __('Every Hour', 'thold'),
+			120 * $factor   => __('Every %d Hours', 2, 'thold'),
+			180 * $factor   => __('Every %d Hours', 3, 'thold'),
+			240 * $factor   => __('Every %d Hours', 4, 'thold'),
+			360 * $factor   => __('Every %d Hours', 6, 'thold'),
+			480 * $factor   => __('Every %d Hours', 8, 'thold'),
+			720 * $factor   => __('Every %d Hours', 12, 'thold'),
+			1440 * $factor  => __('Every Day', 'thold'),
+			2880 * $factor  => __('Every %d Days', 2, 'thold'),
 			10080 * $factor => __('Every Week', 'thold'),
 			20160 * $factor => __('Every %d Weeks', 2, 'thold'),
 			43200 * $factor => __('Every Month', 'thold')
-		);
+		];
 
-		$alertarray  = array(
-			1     * $factor => __('%d Minute', 1, 'thold'),
-			2     * $factor => __('%d Minutes', 2, 'thold'),
-			3     * $factor => __('%d Minutes', 3, 'thold'),
-			4     * $factor => __('%d Minutes', 4, 'thold'),
-			5     * $factor => __('%d Minutes', 5, 'thold'),
-			10    * $factor => __('%d Minutes', 10, 'thold'),
-			15    * $factor => __('%d Minutes', 15, 'thold'),
-			20    * $factor => __('%d Minutes', 20, 'thold'),
-			30    * $factor => __('%d Minutes', 30, 'thold'),
-			45    * $factor => __('%d Minutes', 45, 'thold'),
-			60    * $factor => __('%d Hour', 1, 'thold'),
-			120   * $factor => __('%d Hours', 2, 'thold'),
-			180   * $factor => __('%d Hours', 3, 'thold'),
-			240   * $factor => __('%d Hours', 4, 'thold'),
-			360   * $factor => __('%d Hours', 6, 'thold'),
-			480   * $factor => __('%d Hours', 8, 'thold'),
-			720   * $factor => __('%d Hours', 12, 'thold'),
-			1440  * $factor => __('%d Day', 1, 'thold'),
-			2880  * $factor => __('%d Days', 2, 'thold'),
+		$alertarray  = [
+			1 * $factor     => __('%d Minute', 1, 'thold'),
+			2 * $factor     => __('%d Minutes', 2, 'thold'),
+			3 * $factor     => __('%d Minutes', 3, 'thold'),
+			4 * $factor     => __('%d Minutes', 4, 'thold'),
+			5 * $factor     => __('%d Minutes', 5, 'thold'),
+			10 * $factor    => __('%d Minutes', 10, 'thold'),
+			15 * $factor    => __('%d Minutes', 15, 'thold'),
+			20 * $factor    => __('%d Minutes', 20, 'thold'),
+			30 * $factor    => __('%d Minutes', 30, 'thold'),
+			45 * $factor    => __('%d Minutes', 45, 'thold'),
+			60 * $factor    => __('%d Hour', 1, 'thold'),
+			120 * $factor   => __('%d Hours', 2, 'thold'),
+			180 * $factor   => __('%d Hours', 3, 'thold'),
+			240 * $factor   => __('%d Hours', 4, 'thold'),
+			360 * $factor   => __('%d Hours', 6, 'thold'),
+			480 * $factor   => __('%d Hours', 8, 'thold'),
+			720 * $factor   => __('%d Hours', 12, 'thold'),
+			1440 * $factor  => __('%d Day', 1, 'thold'),
+			2880 * $factor  => __('%d Days', 2, 'thold'),
 			10080 * $factor => __('%d Week', 1, 'thold'),
 			20160 * $factor => __('%d Weeks', 2, 'thold'),
 			43200 * $factor => __('%d Month', 1, 'thold')
-		);
+		];
 
-		$timearray   = array(
-			1     * $factor => __('%d Minute', 1, 'thold'),
-			2     * $factor => __('%d Minutes', 2, 'thold'),
-			3     * $factor => __('%d Minutes', 3, 'thold'),
-			4     * $factor => __('%d Minutes', 4, 'thold'),
-			5     * $factor => __('%d Minutes', 5, 'thold'),
-			6     * $factor => __('%d Minutes', 6, 'thold'),
-			7     * $factor => __('%d Minutes', 7, 'thold'),
-			8     * $factor => __('%d Minutes', 8, 'thold'),
-			9     * $factor => __('%d Minutes', 9, 'thold'),
-			10    * $factor => __('%d Minutes', 10, 'thold'),
-			12    * $factor => __('%d Minutes', 12, 'thold'),
-			15    * $factor => __('%d Minutes', 15, 'thold'),
-			20    * $factor => __('%d Minutes', 20, 'thold'),
-			24    * $factor => __('%d Minutes', 24, 'thold'),
-			30    * $factor => __('%d Minutes', 30, 'thold'),
-			45    * $factor => __('%d Minutes', 45, 'thold'),
-			60    * $factor => __('%d Hour', 1, 'thold'),
-			120   * $factor => __('%d Hours', 2, 'thold'),
-			180   * $factor => __('%d Hours', 3, 'thold'),
-			240   * $factor => __('%d Hours', 4, 'thold'),
-			288   * $factor => __('%0.1f Hours', 4.8, 'thold'),
-			360   * $factor => __('%d Hours', 6, 'thold'),
-			480   * $factor => __('%d Hours', 8, 'thold'),
-			720   * $factor => __('%d Hours', 12, 'thold'),
-			1440  * $factor => __('%d Day', 1, 'thold'),
-			2880  * $factor => __('%d Days', 2, 'thold'),
+		$timearray   = [
+			1 * $factor     => __('%d Minute', 1, 'thold'),
+			2 * $factor     => __('%d Minutes', 2, 'thold'),
+			3 * $factor     => __('%d Minutes', 3, 'thold'),
+			4 * $factor     => __('%d Minutes', 4, 'thold'),
+			5 * $factor     => __('%d Minutes', 5, 'thold'),
+			6 * $factor     => __('%d Minutes', 6, 'thold'),
+			7 * $factor     => __('%d Minutes', 7, 'thold'),
+			8 * $factor     => __('%d Minutes', 8, 'thold'),
+			9 * $factor     => __('%d Minutes', 9, 'thold'),
+			10 * $factor    => __('%d Minutes', 10, 'thold'),
+			12 * $factor    => __('%d Minutes', 12, 'thold'),
+			15 * $factor    => __('%d Minutes', 15, 'thold'),
+			20 * $factor    => __('%d Minutes', 20, 'thold'),
+			24 * $factor    => __('%d Minutes', 24, 'thold'),
+			30 * $factor    => __('%d Minutes', 30, 'thold'),
+			45 * $factor    => __('%d Minutes', 45, 'thold'),
+			60 * $factor    => __('%d Hour', 1, 'thold'),
+			120 * $factor   => __('%d Hours', 2, 'thold'),
+			180 * $factor   => __('%d Hours', 3, 'thold'),
+			240 * $factor   => __('%d Hours', 4, 'thold'),
+			288 * $factor   => __('%0.1f Hours', 4.8, 'thold'),
+			360 * $factor   => __('%d Hours', 6, 'thold'),
+			480 * $factor   => __('%d Hours', 8, 'thold'),
+			720 * $factor   => __('%d Hours', 12, 'thold'),
+			1440 * $factor  => __('%d Day', 1, 'thold'),
+			2880 * $factor  => __('%d Days', 2, 'thold'),
 			10080 * $factor => __('%d Week', 1, 'thold'),
 			20160 * $factor => __('%d Weeks', 2, 'thold'),
 			43200 * $factor => __('%d Month', 1, 'thold')
-		);
+		];
 
 		break;
 	case '300':
-		$repeatarray = array(
+		$repeatarray = [
 			0    => __('Never', 'thold'),
 			1    => __('Every %d Minutes', 5, 'thold'),
 			2    => __('Every %d Minutes', 10, 'thold'),
@@ -392,9 +392,9 @@ switch($step) {
 			2016 => __('Every Week', 'thold'),
 			4032 => __('Every %d Weeks', 2, 'thold'),
 			8640 => __('Every Month', 'thold')
-		);
+		];
 
-		$alertarray  = array(
+		$alertarray  = [
 			1    => __('%d Minutes', 5, 'thold'),
 			2    => __('%d Minutes', 10, 'thold'),
 			3    => __('%d Minutes', 15, 'thold'),
@@ -413,15 +413,15 @@ switch($step) {
 			2016 => __('%d Week', 1, 'thold'),
 			4032 => __('%d Weeks', 2, 'thold'),
 			8640 => __('%d Month', 1, 'thold')
-		);
+		];
 
-		$timearray   = array(
-			1   => __('%d Minutes', 5, 'thold'),
-			2   => __('%d Minutes', 10, 'thold'),
-			3   => __('%d Minutes', 15, 'thold'),
-			4   => __('%d Minutes', 20, 'thold'),
-			6   => __('%d Minutes', 30, 'thold'),
-			8   => __('%d Minutes', 45, 'thold'),
+		$timearray   = [
+			1    => __('%d Minutes', 5, 'thold'),
+			2    => __('%d Minutes', 10, 'thold'),
+			3    => __('%d Minutes', 15, 'thold'),
+			4    => __('%d Minutes', 20, 'thold'),
+			6    => __('%d Minutes', 30, 'thold'),
+			8    => __('%d Minutes', 45, 'thold'),
 			12   => __('%d Hour', 1, 'thold'),
 			24   => __('%d Hours', 2, 'thold'),
 			36   => __('%d Hours', 3, 'thold'),
@@ -434,11 +434,11 @@ switch($step) {
 			2016 => __('%d Week', 1, 'thold'),
 			4032 => __('%d Weeks', 2, 'thold'),
 			8640 => __('%d Month', 1, 'thold')
-		);
+		];
 
 		break;
 	default:
-		$repeatarray = array(
+		$repeatarray = [
 			0    => __('Never', 'thold'),
 			1    => __('Every Polling', 'thold'),
 			2    => __('Every %d Pollings', 1, 'thold'),
@@ -456,9 +456,9 @@ switch($step) {
 			288  => __('Every %d Pollings', 288, 'thold'),
 			576  => __('Every %d Pollings', 576, 'thold'),
 			2016 => __('Every %d Pollings', 2016, 'thold')
-		);
+		];
 
-		$alertarray  = array(
+		$alertarray  = [
 			1    => __('%d Polling', 1, 'thold'),
 			2    => __('%d Pollings', 2, 'thold'),
 			3    => __('%d Pollings', 3, 'thold'),
@@ -475,9 +475,9 @@ switch($step) {
 			288  => __('%d Pollings', 288, 'thold'),
 			576  => __('%d Pollings', 576, 'thold'),
 			2016 => __('%d Pollings', 2016, 'thold')
-		);
+		];
 
-		$timearray   = array(
+		$timearray   = [
 			1    => __('%d Polling', 1, 'thold'),
 			2    => __('%d Pollings', 2, 'thold'),
 			3    => __('%d Pollings', 3, 'thold'),
@@ -494,18 +494,18 @@ switch($step) {
 			288  => __('%d Pollings', 288, 'thold'),
 			576  => __('%d Pollings', 576, 'thold'),
 			2016 => __('%d Pollings', 2016, 'thold')
-		);
+		];
 
 		break;
 }
 
-$thold_types = array (
+$thold_types =  [
 	0 => __('High / Low', 'thold'),
 	1 => __('Baseline Deviation', 'thold'),
 	2 => __('Time Based', 'thold')
-);
+];
 
-$bl_types = array(
+$bl_types = [
 	0 => __('%% Deviation Min/Max [TIP]', 'thold'),
 	1 => __('%% Deviation CF [TIP]', 'thold'),
 	2 => __('Absolute Val Min/Max [TIP]', 'thold'),
@@ -514,17 +514,17 @@ $bl_types = array(
 	5 => __('%% Deviation Avg of CF [AOT]', 'thold'),
 	6 => __('Absolute Val Avg [AOT]', 'thold'),
 	7 => __('Absolute Val Avg of CF [AOT]', 'thold'),
-);
+];
 
-$data_types = array (
+$data_types =  [
 	0 => __('Exact Value', 'thold'),
 	1 => __('CDEF', 'thold'),
 	2 => __('Percentage', 'thold'),
 	3 => __('RPN Expression', 'thold'),
 	4 => __('Upper + Lower bytes', 'thold'),
-);
+];
 
-$thold_actions = array(
+$thold_actions = [
 	6 => __('Acknowledge', 'thold'),
 	8 => __('Suspend Notifications', 'thold'),
 	7 => __('Resume Notifications', 'thold'),
@@ -533,26 +533,26 @@ $thold_actions = array(
 	3 => __('Disable', 'thold'),
 	4 => __('Reapply Suggested Names', 'thold'),
 	5 => __('Propagate Template', 'thold'),
-);
+];
 
-$thold_template_actions = array(
+$thold_template_actions = [
 	1 => __('Export', 'thold'),
 	2 => __('Delete', 'thold'),
 	4 => __('Enable', 'thold'),
 	5 => __('Disable', 'thold'),
 	3 => __('Reapply Suggested Names', 'thold')
-);
+];
 
-$thold_notification_topics = array(
+$thold_notification_topics = [
 	'thold_mail'       => __('Threshold Mail', 'thold'),
 	'thold_dhost_mail' => __('Down Host Mail', 'thold'),
 	'thold_uhost_mail' => __('Up Host Mail', 'thold'),
 	'thold_cmd'        => __('Threshold Cmd', 'thold'),
 	'thold_dhost_cmd'  => __('Down Host Cmd', 'thold'),
 	'thold_uhost_cmd'  => __('Up Host Cmd', 'thold')
-);
+];
 
-$thold_units_convert_array = array(
+$thold_units_convert_array = [
 	'thold_hi',
 	'thold_low',
 	'time_hi',
@@ -563,9 +563,9 @@ $thold_units_convert_array = array(
 	'time_warning_low',
 	'bl_pct_down',
 	'bl_pct_up'
-);
+];
 
-$thold_decimal_digits = array(
+$thold_decimal_digits = [
 	-1 => __('Auto', 'thold'),
 	0  => __('0 Digits', 'thold'),
 	1  => __('1 Digit', 'thold'),
@@ -578,7 +578,7 @@ $thold_decimal_digits = array(
 	8  => __('%d Digits', 8, 'thold'),
 	9  => __('%d Digits', 9, 'thold'),
 	10 => __('%d Digits', 10, 'thold'),
-);
+];
 
 /**
  * Notification Pause Settings come in three varieties
@@ -588,30 +588,30 @@ $thold_decimal_digits = array(
  * 3 - X% globally
  *
  */
-$devices_down     = array(10,30,50,100,1000,2000,3000);
-$percentiles_down = array(10,20,30,40,50);
+$devices_down     = [10, 30, 50, 100, 1000, 2000, 3000];
+$percentiles_down = [10, 20, 30, 40, 50];
 
 $notification_pause_values[-1] = __('Disabled', 'thold');
 
-foreach($devices_down as $d) {
+foreach ($devices_down as $d) {
 	$notification_pause_values["$d|eg"] = __('> %d Devices', $d, 'thold');
 }
 
-foreach($percentiles_down as $p) {
+foreach ($percentiles_down as $p) {
 	$notification_pause_values["$p|peg"] = __('> %d %%% of Devices Globally', $p, 'thold');
 }
 
-foreach($devices_down as $d) {
+foreach ($devices_down as $d) {
 	$notification_pause_values["$d|es"] = __('> %d Devices in a Site', $d, 'thold');
 }
 
-foreach($percentiles_down as $p) {
+foreach ($percentiles_down as $p) {
 	$notification_pause_values["$p|pes"] = __('> %d %%% of Devices in a Site', $p, 'thold');
 }
 
-$notification_delay_values = array(
+$notification_delay_values = [
 	5  => __('%d Minutes', '5', 'thold'),
 	10 => __('%d Minutes', '10', 'thold'),
 	15 => __('%d Minutes', '15', 'thold'),
 	20 => __('%d Minutes', '20', 'thold')
-);
+];
