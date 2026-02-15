@@ -59,4 +59,4 @@ Follow the steps below to install the thold daemon on a SystemD system.
 * System V init?  Upgrade your Linux!
 
 -----------------------------------------------
-Copyright (c) 2004-2025 - The Cacti Group, Inc.
+Copyright (c) 2004-2026 - The Cacti Group, Inc.
