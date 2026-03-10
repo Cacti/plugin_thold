@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-11-11 04:26+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2026-03-10 07:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -670,7 +670,7 @@ msgstr "Notifieringslistor (redigera)"
 #: includes/settings.php:202 includes/settings.php:209
 #: includes/settings.php:222
 msgid "Notification Queue"
-msgstr "Notifieringslista"
+msgstr "Aviseringskö"
 
 #: includes/settings.php:221 includes/settings.php:222
 #: includes/settings.php:223
@@ -1184,7 +1184,7 @@ msgstr "Enhetsanmälningsalternativ"
 
 #: includes/settings.php:717 includes/settings.php:725
 msgid "Notification Delay"
-msgstr "Notifieringslista"
+msgstr "Aviseringsfördröjning"
 
 #: includes/settings.php:718
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
@@ -1825,7 +1825,7 @@ msgstr "SNMP-meddelandeinställningar"
 
 #: notify_queue.php:401
 msgid "Notifications"
-msgstr "Notifieringslista"
+msgstr "Aviseringar"
 
 #: notify_queue.php:414
 msgid "The supported notification topic."
@@ -2236,7 +2236,7 @@ msgstr "Upprepa"
 
 #: thold.php:852 thold_graph.php:511 thold_graph.php:1002
 msgid "In State"
-msgstr "Län"
+msgstr "I tillstånd"
 
 #: thold.php:855 thold_graph.php:514
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
@@ -2613,7 +2613,7 @@ msgstr "Anger tillåten avvikelse för den nedre gränsen för tröskelvärdet. 
 #: thold.php:1870 thold_templates.php:1327 thold_templates.php:1364
 #: thold_templates.php:1426
 msgid "Trigger Count"
-msgstr "Trigger Count"
+msgstr "Utlösarantal"
 
 #: thold.php:1874
 #, php-format
@@ -3351,7 +3351,7 @@ msgstr "Klicka på \"Fortsätt\" för att ta bort följande tröskelmallar."
 
 #: thold_templates.php:281
 msgid "Delete Template(s)"
-msgstr "Radera mall (er)"
+msgstr "Ta bort mall(ar)"
 
 #: thold_templates.php:284
 msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
@@ -3367,7 +3367,7 @@ msgstr "Klicka på \"Fortsätt\" för att aktivera följande tröskelvärden."
 
 #: thold_templates.php:289
 msgid "Enable Template(s)"
-msgstr "Radera mall (er)"
+msgstr "Aktivera mall(ar)"
 
 #: thold_templates.php:292
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
@@ -3375,7 +3375,7 @@ msgstr "Klicka på \"Fortsätt\" för att inaktivera följande tröskelvärden."
 
 #: thold_templates.php:293
 msgid "Disable Template(s)"
-msgstr "Radera mall (er)"
+msgstr "Inaktivera mall(ar)"
 
 #: thold_templates.php:415
 msgid "Threshold Template Creation Wizard"
