@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2026-03-10 07:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2026-03-11 22:33+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -492,7 +492,7 @@ msgstr "Tillåta föreslagna namn"
 
 #: includes/arrays.php:535
 msgid "Propagate Template"
-msgstr "Förökningsmall"
+msgstr "Propageringsmall"
 
 #: includes/arrays.php:539 thold_graph.php:1599
 msgid "Export"
@@ -646,7 +646,7 @@ msgstr "Senaste tröskelvärdena"
 
 #: includes/settings.php:125
 msgid "Recent Device Failures"
-msgstr "Senaste Device Failures"
+msgstr "Senaste enhetsproblem"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
@@ -720,7 +720,7 @@ msgstr "Allmän administration"
 
 #: includes/settings.php:318
 msgid "Device Up/Down Notification Settings"
-msgstr "Anordning Upp / Ned Anmälningsinställningar"
+msgstr "Aviseringsinställningar för enhet upp / ned"
 
 #: includes/settings.php:324
 msgid "Threshold Up/Down Email Notification"
@@ -740,7 +740,7 @@ msgstr "Global och listan nedan"
 
 #: includes/settings.php:332
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
-msgstr "Vilken anmälningslista ska aviseras om Device Up / Down-händelser?"
+msgstr "Vilken aviseringslista ska aviseras om Device Up / Down-händelser?"
 
 #: includes/settings.php:340 notify_queue.php:427
 msgid "Notification List"
@@ -1160,7 +1160,7 @@ msgstr "Detta är det faktiska namnet som tröskeln kommer att visas från."
 
 #: includes/settings.php:696
 msgid "Device Notification Options"
-msgstr "Enhetsanmälningsalternativ"
+msgstr "Alternativ för enhetsavisering"
 
 #: includes/settings.php:700
 msgid "Enable Notifications"
@@ -1345,7 +1345,7 @@ msgstr "Fortsätt"
 
 #: notify_lists.php:520
 msgid "Delete Notification List(s)"
-msgstr "Radera Notifieringslista (s)"
+msgstr "Ta bort aviseringslistor"
 
 #: notify_lists.php:524
 msgid "Click 'Continue' to Duplicate the following Notification List(s)."
@@ -1558,7 +1558,7 @@ msgstr "Ingen"
 
 #: notify_lists.php:1013
 msgid "Device Template"
-msgstr "Radera mall (er)"
+msgstr "Enhetsmall"
 
 #: notify_lists.php:1037 notify_lists.php:1406 notify_lists.php:1692
 #: notify_lists.php:2016 notify_queue.php:284 thold.php:727 thold_graph.php:230
