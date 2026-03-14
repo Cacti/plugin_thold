@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2026-03-11 22:33+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2026-03-14 09:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -403,17 +403,17 @@ msgstr "Baslinjeavvikelse"
 
 #: includes/arrays.php:505
 msgid "Time Based"
-msgstr "Tids baserad"
+msgstr "%% Tidsbaserad avvikelse"
 
 #: includes/arrays.php:509
 #, php-format
 msgid "%% Deviation Min/Max [TIP]"
-msgstr "Avvikelse UP"
+msgstr "%% Avvikelse Min/Max [TIP]"
 
 #: includes/arrays.php:510
 #, php-format
 msgid "%% Deviation CF [TIP]"
-msgstr "Avvikelse UP"
+msgstr "%% Avvikelse CF [TIP]"
 
 #: includes/arrays.php:511
 msgid "Absolute Val Min/Max [TIP]"
@@ -426,12 +426,12 @@ msgstr "Varningsvärde"
 #: includes/arrays.php:513
 #, php-format
 msgid "%% Deviation Avg [AOT]"
-msgstr "Avvikelse UP"
+msgstr "%% Avvikelse genomsn. [AOT]"
 
 #: includes/arrays.php:514
 #, php-format
 msgid "%% Deviation Avg of CF [AOT]"
-msgstr "Avvikelse UP"
+msgstr "%% Avvikelse genomsn. av CF [AOT]"
 
 #: includes/arrays.php:515
 msgid "Absolute Val Avg [AOT]"
@@ -492,7 +492,7 @@ msgstr "Tillåta föreslagna namn"
 
 #: includes/arrays.php:535
 msgid "Propagate Template"
-msgstr "Propageringsmall"
+msgstr "Spridningsmall"
 
 #: includes/arrays.php:539 thold_graph.php:1599
 msgid "Export"
@@ -2594,7 +2594,7 @@ msgstr "Anger punkten i det förflutna (baserat på rrd-upplösning) som kommer 
 
 #: thold.php:1854 thold_templates.php:1410
 msgid "Deviation UP"
-msgstr "Avvikelse UP"
+msgstr "Avvikelse UPP"
 
 #: thold.php:1858
 #, php-format
@@ -2962,7 +2962,7 @@ msgstr "Abs Val [TIP:%s]"
 
 #: thold_functions.php:5045
 msgid "%%% Dev [AOT:%s]"
-msgstr "Avvikelse UP"
+msgstr "%%% Avvik [AOT:%s]"
 
 #: thold_functions.php:5049
 #, php-format
