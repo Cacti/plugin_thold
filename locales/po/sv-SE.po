@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2026-03-14 09:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2026-03-16 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -787,7 +787,7 @@ msgstr "Inaktivera alla tröskelvärden"
 
 #: includes/settings.php:396
 msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
-msgstr "Om du markerar den här rutan avaktiveras varning på alla trösklar. Detta kan användas när det är nödvändigt att utföra underhåll på ditt nätverk."
+msgstr "Om du markerar den här rutan inaktiveras varning på alla trösklar. Detta kan användas när det är nödvändigt att utföra underhåll på ditt nätverk."
 
 #: includes/settings.php:401
 msgid "Auto Create Thresholds"
@@ -1585,7 +1585,7 @@ msgstr "Ange / Uppdatera filter"
 #: notify_lists.php:2030 notify_queue.php:297 thold.php:673 thold_graph.php:161
 #: thold_graph.php:1182 thold_graph.php:1598 thold_templates.php:2152
 msgid "Clear"
-msgstr "Töm"
+msgstr "Rensa"
 
 #: notify_lists.php:1056 notify_lists.php:1425 notify_lists.php:1711
 #: notify_lists.php:2030 notify_queue.php:297
