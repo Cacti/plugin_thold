@@ -602,19 +602,19 @@ function list_tholds() {
 	}
 
 	if (!isempty_request_var('data_template_id') && get_request_var('data_template_id') != '-1') {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.data_template_id = ' . get_request_var('data_template_id');
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.data_template_id = ' . intval(get_request_var('data_template_id'));
 	}
 
 	if (!isempty_request_var('thold_template_id')) {
 		if (get_request_var('thold_template_id') > 0) {
-			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.thold_template_id = ' . get_request_var('thold_template_id') . ' AND td.template_enabled = "on")';
+			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.thold_template_id = ' . intval(get_request_var('thold_template_id')) . ' AND td.template_enabled = "on")';
 		} elseif (get_request_var('thold_template_id') == '-2') {
 			$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(td.template_enabled != "on")';
 		}
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . " td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . ' td.name_cache RLIKE ' . db_qstr(get_request_var('rfilter'));
 	}
 
 	if ($statefilter != '') {
@@ -625,7 +625,7 @@ function list_tholds() {
 		if (get_request_var('site_id') == '0') {
 			$sql_where .= ($sql_where == '' ? '(' : ' AND') . ' h.site_id IS NULL';
 		} elseif (!isempty_request_var('site_id')) {
-			$sql_where .= ($sql_where == '' ? '(' : ' AND') . ' h.site_id = ' . get_request_var('site_id');
+			$sql_where .= ($sql_where == '' ? '(' : ' AND') . ' h.site_id = ' . intval(get_request_var('site_id'));
 		}
 	}
 

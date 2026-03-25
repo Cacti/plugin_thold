@@ -1,0 +1,23 @@
+{
+    "name": "cacti/plugin_thold",
+    "description": "Cacti plugin_thold plugin",
+    "type": "cacti-plugin",
+    "require": {"php": ">=8.4"},
+    "require-dev": {
+        "pestphp/pest": "^4.0",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "ergebnis/phpstan-rules": "^2.0",
+        "infection/infection": "^0.29",
+        "rector/rector": "^2.0",
+        "mockery/mockery": "^1.6"
+    },
+    "autoload": {"psr-4": {"Cacti\\PluginThold\\": "src/"}},
+    "autoload-dev": {"psr-4": {"Cacti\\PluginThold\\Tests\\": "tests/"}},
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=512M",
+        "mutate": "vendor/bin/infection --threads=4"
+    },
+    "config": {"allow-plugins": {"pestphp/pest-plugin": true, "infection/extension-installer": true}}
+}
