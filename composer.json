@@ -2,7 +2,7 @@
     "name": "cacti/plugin_thold",
     "description": "Cacti plugin_thold plugin",
     "type": "cacti-plugin",
-    "require": {"php": ">=8.4"},
+    "require": {"php": ">=8.1"},
     "require-dev": {
         "pestphp/pest": "^4.0",
         "phpstan/phpstan": "^2.0",

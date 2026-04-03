@@ -3,10 +3,13 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['8.1', '8.2', '8.3', '8.4']
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - uses: shivammathur/setup-php@728c6c6b8cf02c2e48117716a91ee48313958a19 # v2
-        with: {php-version: '8.4', coverage: xdebug}
+        with: {php-version: '${{ matrix.php-version }}', coverage: xdebug}
       - run: composer install --no-interaction
       - run: vendor/bin/pest --coverage
       - run: vendor/bin/phpstan analyse --memory-limit=512M

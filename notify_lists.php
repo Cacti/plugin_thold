@@ -1720,8 +1720,8 @@ function templates($header_label) {
 
 	if (get_request_var('associated') == 'true') {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . '(notify_warning = ? OR notify_alert = ?)';
-		$sql_params[] = get_request_var('id');
-		$sql_params[] = get_request_var('id');
+		$sql_params[] = intval(get_request_var('id'));
+		$sql_params[] = intval(get_request_var('id'));
 	}
 
 	if (strlen(get_request_var('rfilter'))) {

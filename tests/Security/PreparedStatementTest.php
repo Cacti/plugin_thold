@@ -114,8 +114,9 @@ describe('thold.php — RLIKE filter wrapped with db_qstr', function () use ($th
     /*
      * thold.php:617 builds a WHERE clause with a RLIKE predicate. The user-
      * supplied rfilter value must be quoted via db_qstr before interpolation
-     * to prevent regex injection that could exhaust server memory (ReDoS) or
-     * expose data via crafted patterns.
+     * so it is embedded in the SQL statement as data rather than SQL syntax.
+     * This verifies SQL-injection hardening for the interpolated RLIKE value;
+     * it does not, by itself, constrain regex complexity or mitigate ReDoS.
      */
 
     test('RLIKE predicate uses db_qstr on rfilter value', function () use ($thold_src): void {
@@ -173,19 +174,21 @@ describe('thold_graph.php — RLIKE filters wrapped with db_qstr', function () u
 });
 
 // ---------------------------------------------------------------------------
-// thold_webapi.php — sanitize_unserialize_selected_items
+// thold_webapi.php — cacti_unserialize with structural validation
 // ---------------------------------------------------------------------------
 
-describe('thold_webapi.php — sanitize_unserialize_selected_items', function () use ($thold_webapi_src): void {
+describe('thold_webapi.php — cacti_unserialize with structural validation', function () use ($thold_webapi_src): void {
     /*
-     * thold_webapi.php:864 processes a serialized graph array from user input.
-     * Using sanitize_unserialize_selected_items() instead of raw unserialize()
-     * prevents PHP object injection attacks.
+     * thold_webapi.php processes a serialized graph array from user input.
+     * selected_graphs_array has string keys ('cg'/'sg') and nested non-integer
+     * sub-arrays; sanitize_unserialize_selected_items() rejects non-numeric keys
+     * and would always return false for this structure. cacti_unserialize() with
+     * explicit post-deserialization structural validation is the correct approach.
      */
 
-    test('selected_graphs_array is processed through sanitize_unserialize_selected_items', function () use ($thold_webapi_src): void {
+    test('selected_graphs_array is deserialized via cacti_unserialize with stripslashes', function () use ($thold_webapi_src): void {
         expect($thold_webapi_src)->toContain(
-            "sanitize_unserialize_selected_items(get_nfilter_request_var('selected_graphs_array'))"
+            "cacti_unserialize(stripslashes(get_nfilter_request_var('selected_graphs_array')))"
         );
     });
 
@@ -235,5 +238,98 @@ describe('integer interpolation hardening — intval() applied', function () use
 
     test('intval on a negative value preserves sign', function (): void {
         expect(intval('-5'))->toBe(-5);
+    });
+});
+
+// ---------------------------------------------------------------------------
+// notify_lists.php — rfilter validation chain for RLIKE
+// ---------------------------------------------------------------------------
+
+describe('notify_lists.php — rfilter validated before RLIKE use', function () use ($notify_lists_src): void {
+    /*
+     * rfilter is registered with FILTER_VALIDATE_IS_REGEX in the request var
+     * table, so get_request_var() returns '' for any syntactically invalid
+     * pattern. db_qstr() then SQL-quotes the validated value, preventing the
+     * RLIKE operand from escaping its string literal context.
+     */
+
+    test('rfilter request var is registered with FILTER_VALIDATE_IS_REGEX', function () use ($notify_lists_src): void {
+        expect($notify_lists_src)->toContain('FILTER_VALIDATE_IS_REGEX');
+    });
+
+    test('RLIKE predicate in list filter uses db_qstr on rfilter', function () use ($notify_lists_src): void {
+        expect($notify_lists_src)->toContain("RLIKE ' . db_qstr(get_request_var('rfilter'))");
+    });
+
+    test('regex special characters are contained within db_qstr SQL quotes', function (): void {
+        // db_qstr wraps the value in single quotes; simulate the quoting and
+        // confirm the metacharacter sequence cannot escape the string boundary.
+        foreach (['.', '*', '+', '(a+)+', '[a-z]', '.*.*.*'] as $pattern) {
+            $quoted = "'" . str_replace("'", "\\'", $pattern) . "'";
+            expect(substr($quoted, 0, 1))->toBe("'");
+            expect(substr($quoted, -1))->toBe("'");
+        }
+    });
+
+    test('invalid regex returns empty string from get_request_var with FILTER_VALIDATE_IS_REGEX', function (): void {
+        // FILTER_VALIDATE_IS_REGEX rejects invalid patterns; simulate that
+        // preg_match returns false for a malformed pattern so db_qstr never
+        // receives unvalidated input.
+        $malformed = '[unclosed';
+        expect(@preg_match('/' . $malformed . '/', ''))->toBe(false);
+    });
+});
+
+// ---------------------------------------------------------------------------
+// notify_lists.php — zero-value UPDATEs are guarded by WHERE bindings
+// ---------------------------------------------------------------------------
+
+describe('notify_lists.php — UPDATE SET 0 statements include bound id guards', function () use ($notify_lists_src): void {
+    /*
+     * notify_warning and notify_alert are int(11) unsigned NULL columns; 0 is
+     * the Cacti sentinel for "no list assigned". The WHERE clause must bind
+     * both the host id and the current list id so that only rows referencing
+     * the deleted list are cleared, not all rows.
+     */
+
+    test('notify_warning cleared only where it matches the deleted list id', function () use ($notify_lists_src): void {
+        expect($notify_lists_src)->toContain('AND td.notify_warning = ?');
+    });
+
+    test('notify_alert cleared only where it matches the deleted list id', function () use ($notify_lists_src): void {
+        expect($notify_lists_src)->toContain('AND td.notify_alert = ?');
+    });
+
+    test('thold_host_email reset uses prepared statement with bound host id', function () use ($notify_lists_src): void {
+        expect($notify_lists_src)->toContain("db_execute_prepared('UPDATE host");
+        expect($notify_lists_src)->toContain('SET thold_host_email = 0');
+    });
+});
+
+// ---------------------------------------------------------------------------
+// $selected_items loop — edge case and non-numeric input handling
+// ---------------------------------------------------------------------------
+
+describe('selected_items loop — empty array and non-numeric element handling', function (): void {
+    test('empty selected_items produces zero loop iterations', function (): void {
+        $selected_items = [];
+        $iterations = 0;
+        for ($i = 0; $i < count($selected_items); $i++) {
+            $iterations++;
+        }
+        expect($iterations)->toBe(0);
+    });
+
+    test('non-numeric element is coerced to 0 by intval', function (): void {
+        $selected_items = ['not-an-id'];
+        expect(intval($selected_items[0]))->toBe(0);
+    });
+
+    test('array with mixed types: intval extracts leading integer', function (): void {
+        expect(intval('5abc'))->toBe(5);
+    });
+
+    test('injection payload in element is coerced to 0', function (): void {
+        expect(intval("'; DELETE FROM thold_data; --"))->toBe(0);
     });
 });

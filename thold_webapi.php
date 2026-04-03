@@ -861,7 +861,27 @@ function thold_wizard() {
 function thold_new_graphs_save($host_id) {
 	$return_array = false;
 
-	$selected_graphs_array = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_graphs_array'));
+	$selected_graphs_array = cacti_unserialize(stripslashes(get_nfilter_request_var('selected_graphs_array')));
+
+	// Validate structure: top-level keys must be 'cg' or 'sg' (form types); sub-keys
+	// must be numeric (graph template / snmp query IDs). Rejects object injection and
+	// unexpected payloads that sanitize_unserialize_selected_items would also reject.
+	if (is_array($selected_graphs_array)) {
+		foreach ($selected_graphs_array as $k => $v) {
+			if (!in_array($k, ['cg', 'sg'], true) || !is_array($v)) {
+				$selected_graphs_array = false;
+				break;
+			}
+			foreach ($v as $sk => $sv) {
+				if (!is_numeric($sk)) {
+					$selected_graphs_array = false;
+					break 2;
+				}
+			}
+		}
+	} else {
+		$selected_graphs_array = false;
+	}
 
 	$values = [];
 

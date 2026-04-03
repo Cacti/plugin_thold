@@ -69,7 +69,7 @@ if (!function_exists('html_escape')) {
 	/* Must match Cacti's own implementation: ENT_QUOTES|ENT_HTML5, UTF-8. */
 	function html_escape(mixed $value): string
 	{
-		return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+		return htmlspecialchars((string) $value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 	}
 }
 
