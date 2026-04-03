@@ -8,4 +8,17 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <source>
+        <include>
+            <directory suffix=".php">.</directory>
+        </include>
+        <exclude>
+            <directory>tests</directory>
+            <directory>vendor</directory>
+            <directory>locales</directory>
+            <directory>themes</directory>
+            <directory>images</directory>
+            <directory>extras</directory>
+        </exclude>
+    </source>
 </phpunit>
