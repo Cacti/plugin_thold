@@ -268,9 +268,7 @@ if ($config['cacti_server_os'] == 'unix') {
 	$default_priority = LOG_WARNING;
 }
 
-if (!isset($step)) {
-	$step = read_config_option('poller_interval');
-}
+$step ??= read_config_option('poller_interval');
 
 switch($step) {
 	case '10':

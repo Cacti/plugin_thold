@@ -842,7 +842,7 @@ function form_actions() {
 
 		bottom_footer();
 	} else {
-		$save = ['post' => $_POST, 'selected_items' => isset($selected_items) ? $selected_items : ''];
+		$save = ['post' => $_POST, 'selected_items' => $selected_items ?? ''];
 		api_plugin_hook_function('notify_list_form_confirm', $save);
 	}
 }
@@ -974,7 +974,7 @@ function edit() {
 		draw_edit_form(
 			[
 				'config' => [],
-				'fields' => inject_form_variables($fields_notification, (isset($list) ? $list : []))
+				'fields' => inject_form_variables($fields_notification, ($list ?? []))
 			]
 		);
 

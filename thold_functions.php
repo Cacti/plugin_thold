@@ -1997,11 +1997,11 @@ function plugin_thold_log_changes($id, $changed, $message = []) {
 
 			switch ($message['thold_type']) {
 				case 0:
-					$desc .= ' High[' . (isset($message['thold_hi']) ? $message['thold_hi'] : '') . ']';
-					$desc .= ' Low[' . (isset($message['thold_low']) ? $message['thold_low'] : '') . ']';
-					$desc .= ' Trigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
-					$desc .= ' WarnHigh[' . (isset($message['thold_warning_hi']) ? $message['thold_warning_hi'] : '') . ']';
-					$desc .= ' WarnLow[' . (isset($message['thold_warning_low']) ? $message['thold_warning_low'] : '') . ']';
+					$desc .= ' High[' . ($message['thold_hi'] ?? '') . ']';
+					$desc .= ' Low[' . ($message['thold_low'] ?? '') . ']';
+					$desc .= ' Trigger[' . plugin_thold_duration_convert($thold['data_template_id'], ($message['thold_fail_trigger'] ?? ''), 'alert', 'data_template_id') . ']';
+					$desc .= ' WarnHigh[' . ($message['thold_warning_hi'] ?? '') . ']';
+					$desc .= ' WarnLow[' . ($message['thold_warning_low'] ?? '') . ']';
 					$desc .= ' WarnTrigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_warning_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
 
 					break;
@@ -2013,8 +2013,8 @@ function plugin_thold_log_changes($id, $changed, $message = []) {
 					}
 
 					$desc .= ' Range[' . $message['bl_ref_time_range'] . ']';
-					$desc .= ' DevUp[' . (isset($message['bl_pct_up']) ? $message['bl_pct_up'] : '') . ']';
-					$desc .= ' DevDown[' . (isset($message['bl_pct_down']) ? $message['bl_pct_down'] : '') . ']';
+					$desc .= ' DevUp[' . ($message['bl_pct_up'] ?? '') . ']';
+					$desc .= ' DevDown[' . ($message['bl_pct_down'] ?? '') . ']';
 					$desc .= ' Trigger[' . $message['bl_fail_trigger'] . ']';
 
 					break;
@@ -2031,7 +2031,7 @@ function plugin_thold_log_changes($id, $changed, $message = []) {
 					break;
 			}
 
-			$desc .= ' CDEF[' . (isset($message['cdef']) ? $message['cdef'] : '') . ']';
+			$desc .= ' CDEF[' . ($message['cdef'] ?? '') . ']';
 			$desc .= ' ReAlert[' . plugin_thold_duration_convert($thold['data_template_id'], $message['repeat_alert'], 'alert', 'data_template_id') . ']';
 			$desc .= ' AlertEmails[' . $alert_emails . ']';
 			$desc .= ' WarnEmails[' . $warning_emails . ']';
@@ -3694,9 +3694,7 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 			break;
 	}
 
-	if (!isset($value)) {
-		$value = $thold_data['lastread'];
-	}
+	$value ??= $thold_data['lastread'];
 
 	if ($phase == 'NORMAL') {
 		if ($thold_data['email_subject_restoral'] == '' || $peralert == '') {
@@ -3866,7 +3864,7 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	$snmp_event_description              = thold_str_replace('<THRESHOLDNAME>', $thold_snmp_data['eventSource'], $snmp_event_description);
 	$snmp_event_description              = thold_str_replace('<HOSTNAME>', $thold_snmp_data['eventDevice'], $snmp_event_description);
 	$snmp_event_description              = thold_str_replace('<TEMPLATE_ID>', ($thold['thold_template_id'] ? $thold['thold_template_id'] : 'none'), $snmp_event_description);
-	$snmp_event_description              = thold_str_replace('<TEMPLATE_NAME>', (isset($thold['name_cache']) ? $thold['name_cache'] : 'none'), $snmp_event_description);
+	$snmp_event_description              = thold_str_replace('<TEMPLATE_NAME>', ($thold['name_cache'] ?? 'none'), $snmp_event_description);
 	$snmp_event_description              = thold_str_replace('<THR_TYPE>', $thold_snmp_data['eventThresholdType'], $snmp_event_description);
 	$snmp_event_description              = thold_str_replace('<DS_NAME>', $thold_snmp_data['eventDataSource'], $snmp_event_description);
 	$snmp_event_description              = thold_str_replace('<HI>', $thold_snmp_data['eventHigh'], $snmp_event_description);
@@ -5161,11 +5159,11 @@ function thold_check_baseline($local_data_id, $data_source_name, $current_value,
 	if ($debug) {
 		print 'Local Data Id: ' . $local_data_id . ':' . $thold_data['data_template_rrd_id'] . "\n";
 		print 'Ref. values count: ' . (isset($ref_values) ? count($ref_values) : 'N/A') . "\n";
-		print 'Ref. value (min): ' . (isset($ref_value_min) ? $ref_value_min : 'N/A') . "\n";
-		print 'Ref. value (max): ' . (isset($ref_value_max) ? $ref_value_max : 'N/A') . "\n";
+		print 'Ref. value (min): ' . ($ref_value_min ?? 'N/A') . "\n";
+		print 'Ref. value (max): ' . ($ref_value_max ?? 'N/A') . "\n";
 		print 'Cur. value: ' . $current_value . "\n";
-		print 'Low bl thresh: ' . (isset($blt_low) ? $blt_low : 'N/A') . "\n";
-		print 'High bl thresh: ' . (isset($blt_high) ? $blt_high : 'N/A') . "\n";
+		print 'Low bl thresh: ' . ($blt_low ?? 'N/A') . "\n";
+		print 'High bl thresh: ' . ($blt_high ?? 'N/A') . "\n";
 		print 'Check against baseline: ';
 
 		switch($failed) {
@@ -6760,7 +6758,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 				'attachments' => empty($attachments) ? null : $attachments,
 				'headers'     => $headers,
 				'html'        => $thold_send_text_only != 'on',
-				'id'          => (isset($host['thold_id']) ? $host['thold_id'] : $host['id'])
+				'id'          => ($host['thold_id'] ?? $host['id'])
 			];
 
 			thold_notification_add($topic, $data, 'id', $notify_list_id, $host);
@@ -6795,7 +6793,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 						'attachments' => empty($attachments) ? '' : $attachments,
 						'headers'     => $headers,
 						'html'        => $thold_send_text_only != 'on',
-						'id'          => (isset($host['thold_id']) ? $host['thold_id'] : $host['id'])
+						'id'          => ($host['thold_id'] ?? $host['id'])
 					];
 
 					thold_notification_add($topic, $data, 'id', $notify_list_id, $host);
