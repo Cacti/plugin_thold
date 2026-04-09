@@ -1138,7 +1138,7 @@ function hosts($header_label) {
 		<script type='text/javascript'>
 
 		function applyFilter() {
-			strURL  = '?header=false&action=edit&id=<?php print get_request_var('id'); ?>'
+			strURL  = '?header=false&action=edit&id=<?php print (int)get_filter_request_var('id'); ?>'
 			strURL += '&rows=' + $('#rows').val();
 			strURL += '&host_template_id=' + $('#host_template_id').val();
 			strURL += '&site_id=' + $('#site_id').val();
@@ -1148,7 +1148,7 @@ function hosts($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'notify_lists.php?header=false&action=edit&id=<?php print get_request_var('id'); ?>&clear=true'
+			strURL = 'notify_lists.php?header=false&action=edit&id=<?php print (int)get_filter_request_var('id'); ?>&clear=true'
 			loadPageNoHeader(strURL);
 		}
 
@@ -1507,7 +1507,7 @@ function tholds($header_label) {
 		<script type='text/javascript'>
 
 		function applyFilter() {
-			strURL  = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print get_request_var('id'); ?>'
+			strURL  = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print (int)get_filter_request_var('id'); ?>'
 			strURL += '&associated=' + $('#associated').is(':checked');
 			strURL += '&state=' + $('#state').val();
 			strURL += '&site_id=' + $('#site_id').val();
@@ -1518,7 +1518,7 @@ function tholds($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print get_request_var('id'); ?>&clear=true'
+			strURL = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print (int)get_filter_request_var('id'); ?>&clear=true'
 			loadPageNoHeader(strURL);
 		}
 
@@ -1796,7 +1796,7 @@ function templates($header_label) {
 		<script type='text/javascript'>
 
 		function applyFilter() {
-			strURL  = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print get_request_var('id'); ?>'
+			strURL  = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print (int)get_filter_request_var('id'); ?>'
 			strURL += '&associated=' + $('#associated').is(':checked');
 			strURL += '&rows=' + $('#rows').val();
 			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
@@ -1804,7 +1804,7 @@ function templates($header_label) {
 		}
 
 		function clearFilter() {
-			strURL = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print get_request_var('id'); ?>&clear=true'
+			strURL = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print (int)get_filter_request_var('id'); ?>&clear=true'
 			loadPageNoHeader(strURL);
 		}
 

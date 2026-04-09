@@ -251,7 +251,7 @@ function form_thold_filter() {
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' value='<?php print get_request_var('page'); ?>'>
+			<input type='hidden' id='page' value='<?php print html_escape_request_var('page'); ?>'>
 			<input type='hidden' id='tab' value='thold'>
 		</form>
 		<script type='text/javascript'>
@@ -1261,7 +1261,7 @@ function form_host_filter() {
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' name='page' value='<?php print get_request_var('page'); ?>'>
+			<input type='hidden' name='page' value='<?php print html_escape_request_var('page'); ?>'>
 			<input type='hidden' name='tab' value='hoststat'>
 		</form>
 		<script type='text/javascript'>

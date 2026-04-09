@@ -162,7 +162,7 @@ while (true) {
 				$item = [];
 
 				if (substr($thold_data['rrd_reindexed'], 0, 1) == 'a') {
-					$rrd_reindexed[$thold_data['local_data_id']] = cacti_unserialize($thold_data['rrd_reindexed']);
+					$rrd_reindexed[$thold_data['local_data_id']] = cacti_unserialize($thold_data['rrd_reindexed'], array('allowed_classes' => false));
 				} else {
 					$rrd_reindexed[$thold_data['local_data_id']] = json_decode($thold_data['rrd_reindexed'], true);
 				}
