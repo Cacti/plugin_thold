@@ -565,7 +565,7 @@ function template_add() {
 		}
 
 		$(function() {
-			$('#go').button().click(function() {
+			$('#go').button().on('click', function() {
 				strURL = $('#tholdform').attr('action');
 				json   = $('input, select').serializeObject();
 				loadPageUsingPost(strURL, json);
@@ -2201,7 +2201,7 @@ function templates() {
 			}
 
 			$(function() {
-				$('#listthold').submit(function(event) {
+				$('#listthold').on('submit', function(event) {
 					event.preventDefault();
 					applyFilter();
 				});
@@ -2566,7 +2566,7 @@ function thold_form_end($ajax = true) {
 	if ($ajax) { ?>
 		<script type='text/javascript'>
 		$(function() {
-			$('#<?php print $form_id; ?>').submit(function(event) {
+			$('#<?php print $form_id; ?>').on('submit', function(event) {
 				if ($('#drp_action').val() != '1') {
 					event.preventDefault();
 					strURL  = '<?php print $form_action; ?>';

@@ -274,7 +274,7 @@ function form_thold_filter() {
 		}
 
 		$(function() {
-			$('#thold').submit(function(event) {
+			$('#thold').on('submit', function(event) {
 				event.preventDefault();
 				applyFilter();
 			});
@@ -1282,7 +1282,7 @@ function form_host_filter() {
 		}
 
 		$(function() {
-			$('#form_devices').submit(function(event) {
+			$('#form_devices').on('submit', function(event) {
 				event.preventDefault();
 				applyFilter();
 			});
@@ -1763,7 +1763,7 @@ function form_thold_log_filter() {
 		}
 
 		$(function() {
-			$('#form_log').submit(function(event) {
+			$('#form_log').on('submit', function(event) {
 				event.preventDefault();
 				applyFilter();
 			});

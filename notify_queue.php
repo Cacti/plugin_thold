@@ -331,30 +331,30 @@ function notify_queue() {
 			}
 
 			$(function() {
-				$('#refresh').click(function() {
+				$('#refresh').on('click', function() {
 					applyFilter();
 				});
 
-				$('#clear').click(function() {
+				$('#clear').on('click', function() {
 					clearFilter();
 				});
 
-				$('#suspend').click(function() {
+				$('#suspend').on('click', function() {
 					strURL = 'notify_queue.php?action=suspend';
 					loadPage(strURL);
 				});
 
-				$('#resume').click(function() {
+				$('#resume').on('click', function() {
 					strURL = 'notify_queue.php?action=resume';
 					loadPage(strURL);
 				});
 
-				$('#purge').click(function() {
+				$('#purge').on('click', function() {
 					strURL = 'notify_queue.php?action=purge';
 					loadPage(strURL);
 				});
 
-				$('#form_notify').submit(function(event) {
+				$('#form_notify').on('submit', function(event) {
 					event.preventDefault();
 					applyFilter();
 				});

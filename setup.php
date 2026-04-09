@@ -1233,7 +1233,7 @@ function thold_page_head() {
 	<script type='text/javascript'>
 	$(function() {
 		$(document).ajaxComplete(function() {
-			$('.tholdVRule').unbind().click(function(event) {
+			$('.tholdVRule').off().on('click', function(event) {
 				event.preventDefault();
 
 				href = $(this).attr('href');
@@ -1394,7 +1394,7 @@ function thold_device_top() {
 			$('#cdialog').dialog();
 		});
 
-		$('#continue').click(function(data) {
+		$('#continue').on('click', function(data) {
 			$.post('host.php?action=item_remove_tt', {
 				__csrf_magic: csrfMagicToken,
 				host_id: <?php print (int)get_filter_request_var('host_id'); ?>,
@@ -1503,7 +1503,7 @@ function thold_device_template_edit() {
 				</table>
 				<script type='text/javascript'>
 				function addThresholdTemplate() {
-					$('#add_tt').click(function() {
+					$('#add_tt').on('click', function() {
 						scrollTop = $(window).scrollTop();
 						$.post('host_templates.php?header=false&action=item_add_tt', {
 							host_template_id: $('#id').val(),
@@ -1564,7 +1564,7 @@ function thold_device_template_top() {
 			$('#cdialog').dialog();
 		});
 
-	    $('#continue').click(function(data) {
+	    $('#continue').on('click', function(data) {
 			$.post('host_templates.php?action=item_remove_tt', {
 				__csrf_magic: csrfMagicToken,
 				host_template_id: <?php print (int)get_filter_request_var('host_template_id'); ?>,

@@ -1153,7 +1153,7 @@ function hosts($header_label) {
 		}
 
 		$(function() {
-			$('#form_devices').submit(function(event) {
+			$('#form_devices').on('submit', function(event) {
 				event.preventDefault();
 				applyFilter();
 			});
@@ -1523,7 +1523,7 @@ function tholds($header_label) {
 		}
 
 		$(function() {
-			$('#listthold').submit(function(event) {
+			$('#listthold').on('submit', function(event) {
 				event.preventDefault();
 				applyFilter();
 			});
@@ -1809,7 +1809,7 @@ function templates($header_label) {
 		}
 
 		$(function() {
-			$('#listthold').submit(function(event) {
+			$('#listthold').on('submit', function(event) {
 				event.preventDefault();
 				applyFilter();
 			});
@@ -2128,7 +2128,7 @@ function lists() {
 		}
 
 		$(function() {
-			$('#lists').submit(function(event) {
+			$('#lists').on('submit', function(event) {
 				event.preventDefault();
 				applyFilter();
 			});

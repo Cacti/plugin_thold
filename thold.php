@@ -784,7 +784,7 @@ function list_tholds() {
 		}
 
 		$(function() {
-			$('#thold').submit(function(event) {
+			$('#thold').on('submit', function(event) {
 				event.preventDefault();
 				applyFilter();
 			});

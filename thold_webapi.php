@@ -839,7 +839,7 @@ function thold_wizard() {
 	$(function() {
 		if ($('#type_id').val() == 'template') {
 			$('#submit').prev().hide();
-			$('#submit').off().click(function(event) {
+			$('#submit').off().on('click', function(event) {
 				event.preventDefault();
 
 				json = $('input, select').serializeObject();
