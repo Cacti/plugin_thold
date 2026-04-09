@@ -2133,11 +2133,7 @@ function templates() {
 	template_request_validation();
 
 	// if the number of rows is -1, set it to the default
-	if (get_request_var('rows') == -1) {
-		$rows = read_config_option('num_rows_table');
-	} else {
-		$rows = get_request_var('rows');
-	}
+	$rows = plugin_get_rows_per_page();
 
 	html_start_box(__('Threshold Templates', 'thold'), '100%', false, '3', 'center', 'thold_templates.php?action=add');
 

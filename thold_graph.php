@@ -922,11 +922,7 @@ function hosts() {
 	// ================= input validation =================
 
 	// if the number of rows is -1, set it to the default
-	if (get_request_var('rows') == -1) {
-		$rows = read_config_option('num_rows_table');
-	} else {
-		$rows = get_request_var('rows');
-	}
+	$rows = plugin_get_rows_per_page();
 
 	html_start_box(__('Device Status', 'thold'), '100%', false, '3', 'center', '');
 	form_host_filter();
@@ -1426,11 +1422,7 @@ function thold_show_log() {
 	thold_validate_log_vars();
 
 	// if the number of rows is -1, set it to the default
-	if (get_request_var('rows') == -1) {
-		$rows = read_config_option('num_rows_table');
-	} else {
-		$rows = get_request_var('rows');
-	}
+	$rows = plugin_get_rows_per_page();
 
 	$days = read_config_option('thold_log_storage');
 

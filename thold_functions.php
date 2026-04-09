@@ -54,6 +54,25 @@ if (!defined('THOLD_SEVERITY_NORMAL')) {
  *
  * @return - the sanitized search string
  */
+
+/**
+ * plugin_get_rows_per_page - resolve rows-per-page from request vars
+ *
+ * @return int
+ */
+function plugin_get_rows_per_page() {
+	$rows = get_request_var('rows');
+
+	if ($rows == -1) {
+		return read_config_option('num_rows_table');
+	} elseif ($rows == -2) {
+		return 999999;
+	}
+
+	return $rows;
+}
+
+
 function sanitize_thold_sort_string($string) {
 	static $drop_char_match   = ['^', '$', '<', '>', '`', '\'', '"', '|', '?', '+', '[', ']', '{', '}', '#', ';', '!', '=', '*'];
 	static $drop_char_replace = [' ', ' ', ' ', ' ', '', '', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];

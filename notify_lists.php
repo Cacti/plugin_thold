@@ -1047,11 +1047,7 @@ function hosts($header_label) {
 	// ================= input validation =================
 
 	// if the number of rows is -1, set it to the default
-	if (get_request_var('rows') == -1) {
-		$rows = read_config_option('num_rows_table');
-	} else {
-		$rows = get_request_var('rows');
-	}
+	$rows = plugin_get_rows_per_page();
 
 	html_start_box(__('Associated Devices', 'thold') . ' ' . html_escape($header_label), '100%', false, '3', 'center', '');
 
@@ -1375,11 +1371,7 @@ function tholds($header_label) {
 	}
 
 	// if the number of rows is -1, set it to the default
-	if (get_request_var('rows') == -1) {
-		$rows = read_config_option('num_rows_table');
-	} else {
-		$rows = get_request_var('rows');
-	}
+	$rows = plugin_get_rows_per_page();
 
 	$sql_where = '';
 
@@ -1724,11 +1716,7 @@ function templates($header_label) {
 	thold_template_request_validation();
 
 	// if the number of rows is -1, set it to the default
-	if (get_request_var('rows') == -1) {
-		$rows = read_config_option('num_rows_table');
-	} else {
-		$rows = get_request_var('rows');
-	}
+	$rows = plugin_get_rows_per_page();
 
 	$sql_where = '';
 	$sql_order = get_order_string();
@@ -2069,11 +2057,7 @@ function lists() {
 	// ================= input validation =================
 
 	// if the number of rows is -1, set it to the default
-	if (get_request_var('rows') == -1) {
-		$rows = read_config_option('num_rows_table');
-	} else {
-		$rows = get_request_var('rows');
-	}
+	$rows = plugin_get_rows_per_page();
 
 	html_start_box(__('Notification Lists', 'thold'), '100%', false, '3', 'center', 'notify_lists.php?action=edit');
 
