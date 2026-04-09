@@ -4009,7 +4009,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
-			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$environment = thold_set_environ($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
 			if ($queue == 'on') {
 				$data = [
@@ -4028,7 +4028,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
-			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$environment = thold_set_environ($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
 			if ($queue == 'on') {
 				$data = [

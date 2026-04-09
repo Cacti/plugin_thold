@@ -1730,16 +1730,18 @@ function templates($header_label) {
 		$rows = get_request_var('rows');
 	}
 
-	$sql_where = '';
-	$sql_order = get_order_string();
-	$sql_limit = ' LIMIT ' . ($rows * (intval(get_request_var('page')) - 1)) . ',' . $rows;
+	$sql_where  = '';
+	$sql_params = array();
+	$sql_order  = get_order_string();
+	$sql_limit  = ' LIMIT ' . ($rows * (intval(get_request_var('page')) - 1)) . ',' . $rows;
 
 	if (get_request_var('associated') == 'true') {
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . '(notify_warning=' . get_request_var('id') . ' OR notify_alert=' . get_request_var('id') . ')';
 	}
 
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_template.name RLIKE " . db_qstr(get_request_var('rfilter')) . "";
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_template.name RLIKE ?';
+		$sql_params[] = get_request_var('rfilter');
 	}
 
 	$sql = "SELECT *
@@ -1748,7 +1750,7 @@ function templates($header_label) {
 		$sql_order
 		$sql_limit";
 
-	$result = db_fetch_assoc($sql);
+	$result = db_fetch_assoc_prepared($sql, $sql_params);
 
 	html_start_box(__('Associated Templates', 'thold') . ' ' . html_escape($header_label), '100%', false, '3', 'center', '');
 	?>
@@ -2142,24 +2144,24 @@ function lists() {
 	html_end_box();
 
 	// form the 'where' clause for our main sql query
+	$sql_params = array();
+
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where = "WHERE (
-		name RLIKE " . db_qstr(get_request_var('rfilter')) . "
-		OR description RLIKE " . db_qstr(get_request_var('rfilter')) . "
-		OR emails RLIKE " . db_qstr(get_request_var('rfilter')) . ")";
+		$sql_where  = 'WHERE (name RLIKE ? OR description RLIKE ? OR emails RLIKE ?)';
+		$sql_params = array(get_request_var('rfilter'), get_request_var('rfilter'), get_request_var('rfilter'));
 	} else {
 		$sql_where = '';
 	}
 
-	$total_rows = db_fetch_cell("SELECT
+	$total_rows = db_fetch_cell_prepared("SELECT
 		COUNT(*)
 		FROM plugin_notification_lists
-		$sql_where");
+		$sql_where", $sql_params);
 
 	$sql_order = get_order_string();
 	$sql_limit = ' LIMIT ' . ($rows * (intval(get_request_var('page')) - 1)) . ',' . $rows;
 
-	$lists = db_fetch_assoc("SELECT id, name, enabled, description, emails,
+	$lists = db_fetch_assoc_prepared("SELECT id, name, enabled, description, emails,
 		(SELECT COUNT(id) FROM thold_data WHERE notify_alert = nl.id) as thold_alerts,
 		(SELECT COUNT(id) FROM thold_data WHERE notify_warning = nl.id) as thold_warnings,
 		(SELECT COUNT(id) FROM thold_template WHERE notify_alert = nl.id) as template_alerts,
@@ -2168,7 +2170,7 @@ function lists() {
 		FROM plugin_notification_lists nl
 		$sql_where
 		$sql_order
-		$sql_limit");
+		$sql_limit", $sql_params);
 
 	$nav = html_nav_bar('notify_lists.php', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Lists', 'thold'), 'page', 'main');
 
