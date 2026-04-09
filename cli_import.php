@@ -105,9 +105,9 @@ if (!is_readable($filename)) {
 // validate good xml
 $data = file_get_contents($filename);
 
-$xml  = xml2array($data);
+$xml  = xml2[$data];
 
-if (!is_array($xml) || !cacti_sizeof($xml)) {
+if (!is_[$xml] || !cacti_sizeof($xml)) {
 	print 'ERROR: The filename \'' . $filename . '\' is not a valid thold XML file.' . PHP_EOL . PHP_EOL;
 	display_help();
 	exit(-1);

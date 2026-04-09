@@ -177,7 +177,7 @@ function thold_add_graphs_action_prepare() {
 	bottom_footer();
 }
 
-function thold_add_graphs_action_array($action) {
+function thold_add_graphs_action_[$action] {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
 
 	return $action;
