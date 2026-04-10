@@ -2430,7 +2430,7 @@ function import() {
 
 	form_start('thold_templates.php', 'chk', true);
 
-	if ((isset($_SESSION['import_debug_info'])) && (is_[$_SESSION['import_debug_info']])) {
+	if ((isset($_SESSION['import_debug_info'])) && (is_array($_SESSION['import_debug_info')])) {
 		html_start_box(__('Import Results', 'thold'), '80%', false, '3', 'center', '');
 
 		print '<tr><td>' . __('Cacti has imported the following items:', 'thold') . '</td></tr>';

@@ -867,7 +867,7 @@ function thold_update_host_status() {
 
 		foreach ($hosts as $host) {
 			// hosts in recovery status record only if they was in failed status
-			if (($host['status'] != HOST_RECOVERING) || ($host['status'] == HOST_RECOVERING && (is_[$failed] && array_search($host['id'], array_column($failed, 'host_id'), true) !== false))) {
+			if (($host['status'] != HOST_RECOVERING) || ($host['status'] == HOST_RECOVERING && (is_array($failed) && array_search($host['id'], array_column($failed, 'host_id'), true) !== false))) {
 				$failed_ids .= ($failed_ids != '' ? '), (' : '(') . $host['id'];
 			}
 		}

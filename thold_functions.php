@@ -555,13 +555,13 @@ function thold_expression_compare_rpn($operator, &$stack) {
 		$v[0] = thold_expression_rpn_pop($stack);
 		$v[1] = thold_expression_rpn_pop($stack);
 
-		if (in_['INF', $v, true]) {
+		if (in_array('INF', $v, true)) {
 			array_push($stack, 'INF');
-		} elseif (in_['NEGINF', $v, true]) {
+		} elseif (in_array('NEGINF', $v, true)) {
 			array_push($stack, 'NEGINF');
-		} elseif (in_['U', $v, true]) {
+		} elseif (in_array('U', $v, true)) {
 			array_push($stack, 'U');
-		} elseif (in_['NAN', $v, true]) {
+		} elseif (in_array('NAN', $v, true)) {
 			array_push($stack, 'NAN');
 		} elseif ($operator == 'MAX') {
 			array_push($stack, max($v));
@@ -1020,28 +1020,28 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 		} elseif (array_key_exists($operator, $data_sources)) {
 			// cacti_log("NOTE: DS Value '$operator'", false, "THOLD");
 			thold_expression_ds_value($operator, $stack, $data_sources);
-		} elseif (in_[$operator, $comparison, true]) {
+		} elseif (in_array($operator, $comparison, true)) {
 			// cacti_log("NOTE: Compare '$operator'", false, "THOLD");
 			thold_expression_compare_rpn($operator, $stack);
-		} elseif (in_[$operator, $boolean, true]) {
+		} elseif (in_array($operator, $boolean, true)) {
 			// cacti_log("NOTE: Boolean '$operator'", false, "THOLD");
 			thold_expression_boolean_rpn($operator, $stack);
-		} elseif (in_[$operator, $math, true]) {
+		} elseif (in_array($operator, $math, true)) {
 			// cacti_log("NOTE: Math '$operator'", false, "THOLD");
 			thold_expression_math_rpn($operator, $stack);
-		} elseif (in_[$operator, $setops, true]) {
+		} elseif (in_array($operator, $setops, true)) {
 			// cacti_log("NOTE: SetOps '$operator'", false, "THOLD");
 			thold_expression_setops_rpn($operator, $stack);
-		} elseif (in_[$operator, $specvals, true]) {
+		} elseif (in_array($operator, $specvals, true)) {
 			// cacti_log("NOTE: SpecVals '$operator'", false, "THOLD");
 			thold_expression_specvals_rpn($operator, $stack, $cursor + 2);
-		} elseif (in_[$operator, $stackops, true]) {
+		} elseif (in_array($operator, $stackops, true)) {
 			// cacti_log("NOTE: StackOps '$operator'", false, "THOLD");
 			thold_expression_stackops_rpn($operator, $stack);
-		} elseif (in_[$operator, $time, true]) {
+		} elseif (in_array($operator, $time, true)) {
 			// cacti_log("NOTE: Time '$operator'", false, "THOLD");
 			thold_expression_time_rpn($operator, $stack);
-		} elseif (in_[$operator, $spectypes, true]) {
+		} elseif (in_array($operator, $spectypes, true)) {
 			// cacti_log("NOTE: SpecialTypes '$operator'", false, "THOLD");
 			thold_expression_specialtype_rpn($operator, $stack, $thold['local_data_id'], $currentval);
 		} else {
@@ -1130,7 +1130,7 @@ function thold_substitute_host_data($string, $l_escape_string, $r_escape_string,
  * @return - the original string with all of the variable substitutions made
  */
 function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data_id) {
-	if (is_[$local_data_id]) {
+	if (is_array($local_data_id)) {
 		$local_data_ids = $local_data_id;
 	} elseif ($local_data_id == '') {
 		return;
@@ -2212,7 +2212,7 @@ function thold_check_threshold(&$thold_data) {
 	}
 
 	// don't alert for this host if it's selected for maintenance
-	if (api_plugin_is_enabled('maint') || in_['maint', $plugins, true]) {
+	if (api_plugin_is_enabled('maint') || in_array('maint', $plugins, true)) {
 		include_once($config['base_path'] . '/plugins/maint/functions.php');
 	}
 
@@ -4591,7 +4591,7 @@ function thold_cdef_select_usable_names() {
 
 	if (cacti_sizeof($cdefs)) {
 		foreach ($cdefs as $cdef) {
-			if (in_[$cdef['id'], $ids, true]) {
+			if (in_array($cdef['id'), $ids, true]) {
 				$cdef_names[$cdef['id']] =  $cdef['name'];
 			}
 		}
@@ -6390,11 +6390,11 @@ function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thol
 		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'gl.graph_template_id = ' . $graph_template_id;
 	}
 
-	if (is_[$graph_ids] && cacti_sizeof($graph_ids)) {
+	if (is_array($graph_ids) && cacti_sizeof($graph_ids)) {
 		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'gti.local_graph_id IN(' . implode(', ', $graph_ids) . ')';
 	}
 
-	if (is_[$device_ids]) {
+	if (is_array($device_ids)) {
 		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'gl.host_id IN(' . implode($device_ids) . ')';
 	} elseif ($device_ids > 0) {
 		$device_id = $device_ids;
@@ -6521,7 +6521,7 @@ function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thol
 }
 
 function thold_create_from_template($local_data_id, $local_graph_id, $data_template_rrd_id, $template_or_id, &$message) {
-	if (is_[$template_or_id]) {
+	if (is_array($template_or_id)) {
 		$template = $template_or_id;
 	} else {
 		$template = db_fetch_row_prepared('SELECT *
@@ -6637,7 +6637,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 
 	$notification_queue = read_config_option('thold_notification_queue');
 
-	if (is_[$filename] && sizeof($filename) && strstr($message, '<GRAPH>') !== 0) {
+	if (is_array($filename) && sizeof($filename) && strstr($message, '<GRAPH>') !== 0) {
 		if (isset($filename['local_data_id'])) {
 			$tmp      = [];
 			$tmp[]    = $filename;
@@ -6732,7 +6732,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 		FROM plugin_config
 		WHERE directory='thold'");
 
-	if (!is_[$headers]) {
+	if (!is_array($headers)) {
 		$headers = [];
 	}
 
@@ -8043,7 +8043,7 @@ function ia2xml($array) {
 
 	if (cacti_sizeof($array)) {
 		foreach ($array as $key=>$value) {
-			if (is_[$value]) {
+			if (is_array($value)) {
 				$xml .= "\t<$key>" . ia2xml($value) . "</$key>\n";
 			} else {
 				$xml .= "\t<$key>" . html_escape($value) . "</$key>\n";
@@ -8328,7 +8328,7 @@ function thold_template_import($xml_data) {
 
 	if ($xml_data != '') {
 		// obtain debug information if it's set
-		$xml_array = xml2[$xml_data];
+		$xml_array = xml2array($xml_data);
 
 		if (cacti_sizeof($xml_array)) {
 			foreach ($xml_array as $template => $contents) {

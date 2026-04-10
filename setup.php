@@ -292,7 +292,7 @@ function thold_rrd_graph_graph_options($g) {
 	// map the data_template_rrd_id's to the datasource names
 	$defs = explode("\\\n", $g['graph_defs'], -1);
 
-	if (is_[$defs]) {
+	if (is_array($defs)) {
 		foreach ($defs as $def) {
 			if (!substr_count($def, 'CDEF') && !substr_count($def, 'VDEF')) {
 				$ddef   = thold_multiexplode(['"', "'"], $def);
@@ -409,7 +409,7 @@ function thold_rrd_graph_graph_options($g) {
 	$i      = 0;
 	$unsets = [];
 
-	if (is_[$replacements]) {
+	if (is_array($replacements)) {
 		foreach ($txt_items as $item) {
 			foreach ($replacements as $key => $replace) {
 				// cacti_log('Key:' . $key . ', Replace:' . $replace, false);
