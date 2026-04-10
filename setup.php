@@ -1503,15 +1503,13 @@ function thold_device_template_edit() {
 				</table>
 				<script type='text/javascript'>
 				function addThresholdTemplate() {
-					$('#add_tt').on('click', function() {
-						scrollTop = $(window).scrollTop();
-						$.post('host_templates.php?header=false&action=item_add_tt', {
-							host_template_id: $('#id').val(),
-							thold_template_id: $('#thold_template_id').val(),
-							__csrf_magic: csrfMagicToken})
-						.done(function(data) {
-							loadPageNoHeader(urlPath+'host_templates.php?header=false&action=edit&id='+$('#id').val());
-						});
+					scrollTop = $(window).scrollTop();
+					$.post('host_templates.php?header=false&action=item_add_tt', {
+						host_template_id: $('#id').val(),
+						thold_template_id: $('#thold_template_id').val(),
+						__csrf_magic: csrfMagicToken})
+					.done(function(data) {
+						loadPageNoHeader(urlPath+'host_templates.php?header=false&action=edit&id='+$('#id').val());
 					});
 				}
 				</script>
