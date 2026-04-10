@@ -4591,7 +4591,7 @@ function thold_cdef_select_usable_names() {
 
 	if (cacti_sizeof($cdefs)) {
 		foreach ($cdefs as $cdef) {
-			if (in_array($cdef['id'), $ids, true]) {
+			if (in_array($cdef['id'], $ids, true)) {
 				$cdef_names[$cdef['id']] =  $cdef['name'];
 			}
 		}

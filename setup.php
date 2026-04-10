@@ -732,7 +732,7 @@ function thold_device_action_prepare($save) {
 	return $save;
 }
 
-function thold_device_action_[$device_action_array] {
+function thold_device_action_array($device_action_array) {
 	$device_action_array['thold'] = 'Apply Thresholds';
 
 	return $device_action_array;
@@ -1019,7 +1019,7 @@ function thold_data_source_action_prepare($save) {
 	}
 }
 
-function thold_data_source_action_[$action] {
+function thold_data_source_action_array($action) {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
 
 	return $action;
@@ -1183,7 +1183,7 @@ function thold_graphs_action_prepare($save) {
 	}
 }
 
-function thold_graphs_action_[$action] {
+function thold_graphs_action_array($action) {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
 
 	return $action;
@@ -1681,7 +1681,7 @@ function thold_data_source_remove($data_ids) {
 	return $data_ids;
 }
 
-function thold_clog_regex_[$regex_array] {
+function thold_clog_regex_array($regex_array) {
 	$regex_array[] = ['name' => 'TH', 'regex' => '( TH\[)([, \d]+)(\])', 'func' => 'thold_clog_regex_threshold'];
 
 	return $regex_array;
