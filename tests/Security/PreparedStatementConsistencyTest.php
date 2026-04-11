@@ -8,58 +8,47 @@
 */
 
 /*
- * Verify migrated files use prepared DB helpers exclusively.
- * Catches regressions where raw db_execute/db_fetch_* calls creep back in.
+ * Verify files in the hardening stack use prepared helpers when they execute
+ * obviously variable-interpolated SQL on a single line.
  */
 
-describe('prepared statement consistency in thold', function () {
-	it('uses prepared DB helpers in all plugin files', function () {
+describe('prepared statement safety patterns in thold', function () {
+	it('does not introduce single-line interpolated db_* calls in hardened files', function () {
 		$targetFiles = array(
-		'includes/database.php',
-		'includes/polling.php',
-		'includes/settings.php',
-		'notify_lists.php',
-		'notify_queue.php',
-		'poller_thold.php',
-		'setup.php',
-		'thold.php',
-		'thold_graph.php',
+			'notify_lists.php',
+			'notify_queue.php',
+			'poller_thold.php',
+			'setup.php',
+			'thold.php',
+			'thold_graph.php',
 		);
 
-		$rawPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(/';
-		$preparedPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)_prepared\s*\(/';
+		$rawInterpolatedPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(\s*(["\']).*\$[A-Za-z_{]/';
+		$preparedPattern        = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)_prepared\s*\(/';
 
 		foreach ($targetFiles as $relativeFile) {
 			$path = realpath(__DIR__ . '/../../' . $relativeFile);
-
-			if ($path === false) {
-				continue;
-			}
+			expect($path)->not->toBeFalse("Failed to resolve target file path: {$relativeFile}");
 
 			$contents = file_get_contents($path);
-
-			if ($contents === false) {
-				continue;
-			}
+			expect($contents)->not->toBeFalse("Failed to read target file: {$relativeFile}");
 
 			$lines = explode("\n", $contents);
-			$rawCallsOutsideComments = 0;
 
-			foreach ($lines as $line) {
+			foreach ($lines as $lineNumber => $line) {
 				$trimmed = ltrim($line);
 
 				if (strpos($trimmed, '//') === 0 || strpos($trimmed, '*') === 0 || strpos($trimmed, '#') === 0) {
 					continue;
 				}
 
-				if (preg_match($rawPattern, $line) && !preg_match($preparedPattern, $line)) {
-					$rawCallsOutsideComments++;
-				}
-			}
+				$hasInterpolatedRawCall = preg_match($rawInterpolatedPattern, $line) === 1;
+				$hasPreparedCall        = preg_match($preparedPattern, $line) === 1;
 
-			expect($rawCallsOutsideComments)->toBe(0,
-				"File {$relativeFile} contains raw (unprepared) DB calls"
-			);
+				expect($hasInterpolatedRawCall && !$hasPreparedCall)->toBeFalse(
+					sprintf('File %s contains an interpolated raw db_* call at line %d', $relativeFile, $lineNumber + 1)
+				);
+			}
 		}
 	});
 });

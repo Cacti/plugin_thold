@@ -13,6 +13,11 @@
  */
 
 $GLOBALS['__test_db_calls'] = array();
+$GLOBALS['config'] = array(
+	'base_path'     => '/var/www/html/cacti',
+	'url_path'      => '/cacti/',
+	'cacti_version' => '1.2.999',
+);
 
 if (!function_exists('db_execute')) {
 	function db_execute($sql) {
