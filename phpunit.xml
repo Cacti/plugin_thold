@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+	 colors="true"
+	 cacheResult="false">
+	<testsuites>
+		<testsuite name="plugin_thold">
+			<directory>tests</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>
