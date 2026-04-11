@@ -93,24 +93,14 @@ cacti_log('There I am');
 	case 'disable':
 		thold_threshold_disable(get_filter_request_var('id'));
 
-		if (isset($_SERVER['HTTP_REFERER'])) {
-			$return_to = $_SERVER['HTTP_REFERER'];
-		}else{
-			$return_to = 'thold.php';
-		}
-
+		$return_to = validate_redirect_url(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'thold.php');
 		header('Location: ' . $return_to . (strpos($return_to, '?') !== false ? '&':'?') . 'header=false');
 
 		exit;
 	case 'enable':
 		thold_threshold_enable(get_filter_request_var('id'));
 
-		if (isset($_SERVER['HTTP_REFERER'])) {
-			$return_to = $_SERVER['HTTP_REFERER'];
-		}else{
-			$return_to = 'thold.php';
-		}
-
+		$return_to = validate_redirect_url(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'thold.php');
 		header('Location: ' . $return_to . (strpos($return_to, '?') !== false ? '&':'?') . 'header=false');
 
 		exit;
