@@ -2002,7 +2002,7 @@ function thold_edit() {
 			'size'          => 80,
 			'max_length'    => 128,
 			'description'   => __('This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62', 'thold'),
-			'value'         => $thold_data['email_subject'] ?? ''
+			'value'         => $thold_data['email_subject_warn'] ?? ''
 		],
 		'email_body' => [
 			'friendly_name' => __('Alert Body', 'thold'),
@@ -2267,7 +2267,7 @@ function thold_edit() {
 		'external_id' => [
 			'friendly_name' => __('External ID', 'thold'),
 			'method'        => 'textbox',
-			'description'   => __('Enter an Eternal ID for this Threshold.', 'thold'),
+			'description'   => __('Enter an External ID for this Threshold.', 'thold'),
 			'value'         => $thold_data['external_id'] ?? '',
 			'default'       => '',
 			'size'          => '20',

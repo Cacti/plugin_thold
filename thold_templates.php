@@ -1352,14 +1352,14 @@ function template_edit() {
 			'size'          => 15,
 			'default'       => read_config_option('thold_warning_time_fail_trigger'),
 			'description'   => __('The number of times the Data Source must be in breach condition prior to issuing a warning.', 'thold'),
-			'value'         => $thold_data['time_warning_fail_trigger'] ?? read_config_option('alert_trigger')
+			'value'         => $thold_data['time_warning_fail_trigger'] ?? read_config_option('thold_warning_time_fail_trigger')
 		],
 		'time_warning_fail_length' => [
 			'friendly_name' => __('Time Period Length', 'thold'),
 			'method'        => 'drop_array',
 			'array'         => $timearray,
 			'description'   => __('The amount of time in the past to check for Threshold breaches.', 'thold'),
-			'value'         => $thold_data['time_warning_fail_length'] ?? (read_config_option('thold_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1)
+			'value'         => $thold_data['time_warning_fail_length'] ?? (read_config_option('thold_warning_time_fail_length') > 0 ? read_config_option('thold_warning_time_fail_length') : 1)
 		],
 		'time_header' => [
 			'friendly_name' => __('Alert - Time Based Settings', 'thold'),
@@ -1449,7 +1449,7 @@ function template_edit() {
 			'method'        => 'textbox',
 			'max_length'    => 3,
 			'size'          => 15,
-			'description'   => __('Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles', read_config_option('alert_bl_trigger'), 'thold'),
+			'description'   => __('Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles)', read_config_option('alert_bl_trigger'), 'thold'),
 			'value'         => $thold_data['bl_fail_trigger'] ?? read_config_option('alert_bl_trigger')
 		],
 		'data_manipulation' => [
@@ -1533,7 +1533,7 @@ function template_edit() {
 			'size'          => 80,
 			'max_length'    => 128,
 			'description'   => __('This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62', 'thold'),
-			'value'         => $thold_data['email_subject'] ?? ''
+			'value'         => $thold_data['email_subject_warn'] ?? ''
 		],
 		'email_body' => [
 			'friendly_name' => __('Alert Email Body', 'thold'),
@@ -1796,7 +1796,7 @@ function template_edit() {
 		'external_id' => [
 			'friendly_name' => __('External ID', 'thold'),
 			'method'        => 'textbox',
-			'description'   => __('Enter an Eternal ID for this Thold Template.', 'thold'),
+			'description'   => __('Enter an External ID for this Thold Template.', 'thold'),
 			'value'         => $thold_data['external_id'] ?? '',
 			'default'       => '',
 			'size'          => '20',
