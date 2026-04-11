@@ -590,7 +590,7 @@ function form_actions() {
 				<input type='hidden' name='action' value='actions'>
 				<input type='hidden' name='save_list' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -665,10 +665,10 @@ function form_actions() {
 		print "	<tr>
 				<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
+				<input type='hidden' name='id' value='" . html_escape(get_request_var('id')) . "'>
 				<input type='hidden' name='save_templates' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -743,10 +743,10 @@ function form_actions() {
 		print "	<tr>
 				<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
+				<input type='hidden' name='id' value='" . html_escape(get_request_var('id')) . "'>
 				<input type='hidden' name='save_tholds' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -828,10 +828,10 @@ function form_actions() {
 		print "<tr>
 			<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
+				<input type='hidden' name='id' value='" . html_escape(get_request_var('id')) . "'>
 				<input type='hidden' name='save_associate' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -1241,7 +1241,7 @@ function hosts($header_label) {
 
 	$hosts = db_fetch_assoc_prepared($sql_query, $sql_params);
 
-	$nav = html_nav_bar('notify_lists.php?action=edit&id=' . get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Devices', 'thold'), 'page', 'main');
+	$nav = html_nav_bar('notify_lists.php?action=edit&id=' . (int)get_request_var('id'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 10, __('Devices', 'thold'), 'page', 'main');
 
 	form_start('notify_lists.php', 'chk');
 
@@ -1387,7 +1387,7 @@ function tholds($header_label) {
 	$limit = ($rows * (intval(get_request_var('page')) - 1)) . ", $rows";
 
 	if (!isempty_request_var('template') && get_request_var('template') != '-1') {
-		$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.data_template_id = ' . get_request_var('template');
+		$sql_where .= ($sql_where == '' ? '' : ' AND ') . 'td.data_template_id = ' . (int)get_request_var('template');
 	}
 
 	if (get_request_var('site_id') == '-1') {
@@ -1395,11 +1395,11 @@ function tholds($header_label) {
 	} elseif (get_request_var('site_id') == '0') {
 		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id=0';
 	} elseif (!isempty_request_var('site_id')) {
-		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id=' . get_request_var('site_id');
+		$sql_where .= ($sql_where == '' ? '' : ' AND ') . ' h.site_id=' . (int)get_request_var('site_id');
 	}
 
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . "td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache RLIKE ' . db_qstr(get_request_var('rfilter'));
 	}
 
 	if ($statefilter != '') {
@@ -1407,7 +1407,7 @@ function tholds($header_label) {
 	}
 
 	if (get_request_var('associated') == 'true') {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . '(td.notify_warning=' . get_request_var('id') . ' OR td.notify_alert=' . get_request_var('id') . ')';
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . '(td.notify_warning=' . (int)get_request_var('id') . ' OR td.notify_alert=' . (int)get_request_var('id') . ')';
 	}
 
 	$result = get_allowed_thresholds($sql_where, $sort, $limit, $total_rows);
