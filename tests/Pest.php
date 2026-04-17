@@ -7,8 +7,6 @@
  +-------------------------------------------------------------------------+
 */
 
-/*
- * Pest configuration file.
- */
+// Pest configuration file.
 
 require_once __DIR__ . '/bootstrap.php';
