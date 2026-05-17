@@ -72,10 +72,25 @@ it('notify_lists.php drp_action guard converts keys to strings before strict com
 });
 
 it('notify_lists.php bulk write actions are wrapped in transactions', function () use ($notify_src) {
-	// All four bulk action blocks must begin and commit a transaction atomically.
-	$beginCount  = substr_count($notify_src, 'db_begin_transaction()');
-	$commitCount = substr_count($notify_src, 'db_commit_transaction()');
-
+	// All four bulk action blocks must begin a transaction.
+	$beginCount = substr_count($notify_src, 'db_begin_transaction()');
 	expect($beginCount)->toBe(4);
+});
+
+it('notify_lists.php bulk write actions commit on success', function () use ($notify_src) {
+	$commitCount = substr_count($notify_src, 'db_commit_transaction()');
 	expect($commitCount)->toBe(4);
+});
+
+it('notify_lists.php bulk write actions rollback on failure', function () use ($notify_src) {
+	// Each transaction block must have a matching rollback path for when db_execute_prepared returns false.
+	$rollbackCount = substr_count($notify_src, 'db_rollback_transaction()');
+	expect($rollbackCount)->toBe(4);
+});
+
+it('notify_lists.php bulk write actions track $ok flag for all db_execute_prepared calls', function () use ($notify_src) {
+	// Every db_execute_prepared result must be ANDed into $ok so partial failure triggers rollback.
+	expect($notify_src)->toContain('$ok = true');
+	expect(preg_match('/\$ok\s*=\s*db_execute_prepared/', $notify_src))->toBe(1);
+	expect(preg_match('/db_execute_prepared\([^)]+\)\s*&&\s*\$ok/', $notify_src))->toBe(1);
 });
