@@ -318,10 +318,10 @@ function notify_queue() {
 
 			function applyFilter() {
 				strURL  = 'notify_queue.php?header=false';
-				strURL += '&filter='+$('#filter').val();
-				strURL += '&rows='+$('#rows').val();
-				strURL += '&processed='+$('#processed').val();
-				strURL += '&topic='+$('#topic').val();
+				strURL += '&filter='+encodeURIComponent($('#filter').val());
+				strURL += '&rows='+encodeURIComponent($('#rows').val());
+				strURL += '&processed='+encodeURIComponent($('#processed').val());
+				strURL += '&topic='+encodeURIComponent($('#topic').val());
 				loadPageNoHeader(strURL);
 			}
 

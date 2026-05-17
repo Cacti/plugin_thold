@@ -769,12 +769,12 @@ function list_tholds() {
 
 		function applyFilter() {
 			strURL  = 'thold.php?header=false&host_id=' + $('#host_id').val();
-			strURL += '&state=' + $('#state').val();
-			strURL += '&thold_template_id=' + $('#thold_template_id').val();
-			strURL += '&data_template_id=' + $('#data_template_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&state=' + encodeURIComponent($('#state').val());
+			strURL += '&thold_template_id=' + encodeURIComponent($('#thold_template_id').val());
+			strURL += '&data_template_id=' + encodeURIComponent($('#data_template_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 

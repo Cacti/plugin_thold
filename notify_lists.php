@@ -147,6 +147,15 @@ function form_actions() {
 
 	// ================= input validation =================
 	get_filter_request_var('drp_action');
+
+	$valid_actions = array_keys($actions + $assoc_actions);
+
+	if (!in_array(get_request_var('drp_action'), $valid_actions, true) &&
+		!in_array((int) get_request_var('drp_action'), $valid_actions, true)) {
+		raise_message(40);
+		header('Location: notify_lists.php');
+		exit;
+	}
 	// ====================================================
 
 	// if we are to save this form, instead of display it
@@ -1181,11 +1190,11 @@ function hosts($header_label) {
 
 		function applyFilter() {
 			strURL  = '?header=false&action=edit&id=<?php print get_request_var('id'); ?>'
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&host_template_id=' + $('#host_template_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&host_template_id=' + encodeURIComponent($('#host_template_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
 			strURL += '&associated=' + $('#associated').is(':checked');
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -1551,11 +1560,11 @@ function tholds($header_label) {
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print get_request_var('id'); ?>'
 			strURL += '&associated=' + $('#associated').is(':checked');
-			strURL += '&state=' + $('#state').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&template=' + $('#template').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&state=' + encodeURIComponent($('#state').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&template=' + encodeURIComponent($('#template').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -1840,8 +1849,8 @@ function templates($header_label) {
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print get_request_var('id'); ?>'
 			strURL += '&associated=' + $('#associated').is(':checked');
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -2159,8 +2168,8 @@ function lists() {
 
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false';
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 

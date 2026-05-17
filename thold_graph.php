@@ -258,13 +258,13 @@ function form_thold_filter() {
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=thold';
-			strURL += '&state=' + $('#state').val();
-			strURL += '&thold_template_id=' + $('#thold_template_id').val();
-			strURL += '&data_template_id=' + $('#data_template_id').val();
-			strURL += '&host_id=' + $('#host_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&state=' + encodeURIComponent($('#state').val());
+			strURL += '&thold_template_id=' + encodeURIComponent($('#thold_template_id').val());
+			strURL += '&data_template_id=' + encodeURIComponent($('#data_template_id').val());
+			strURL += '&host_id=' + encodeURIComponent($('#host_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -1268,11 +1268,11 @@ function form_host_filter() {
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=hoststat';
-			strURL += '&host_status=' + $('#host_status').val();
-			strURL += '&host_template_id=' + $('#host_template_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&host_status=' + encodeURIComponent($('#host_status').val());
+			strURL += '&host_template_id=' + encodeURIComponent($('#host_template_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -1734,13 +1734,13 @@ function form_thold_log_filter() {
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=log';
-			strURL += '&status=' + $('#status').val();
-			strURL += '&threshold_id=' + $('#threshold_id').val();
-			strURL += '&thold_template_id=' + $('#thold_template_id').val();
-			strURL += '&host_id=' + $('#host_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&status=' + encodeURIComponent($('#status').val());
+			strURL += '&threshold_id=' + encodeURIComponent($('#threshold_id').val());
+			strURL += '&thold_template_id=' + encodeURIComponent($('#thold_template_id').val());
+			strURL += '&host_id=' + encodeURIComponent($('#host_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -1751,13 +1751,13 @@ function form_thold_log_filter() {
 
 		function exportLog() {
 			strURL  = 'thold_graph.php?action=exportlog';
-			strURL += '&status=' + $('#status').val();
-			strURL += '&threshold_id=' + $('#threshold_id').val();
-			strURL += '&thold_template_id=' + $('#thold_template_id').val();
-			strURL += '&host_id=' + $('#host_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&status=' + encodeURIComponent($('#status').val());
+			strURL += '&threshold_id=' + encodeURIComponent($('#threshold_id').val());
+			strURL += '&thold_template_id=' + encodeURIComponent($('#thold_template_id').val());
+			strURL += '&host_id=' + encodeURIComponent($('#host_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			document.location = strURL;
 			Pace.stop();
 		}

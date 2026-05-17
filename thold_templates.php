@@ -2186,7 +2186,7 @@ function templates() {
 
 			function applyFilter() {
 				strURL  = 'thold_templates.php?header=false&rows=' + $('#rows').val();
-				strURL += '&filter=' + $('#filter').val();
+				strURL += '&filter=' + encodeURIComponent($('#filter').val());
 				loadPageNoHeader(strURL);
 			}
 
