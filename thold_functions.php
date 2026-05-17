@@ -1310,6 +1310,8 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 			$sql_where
 		) AS rower";
 
+	// get_total_row_data signature: ($user_id, $sql, $sql_params, $class, $timeout)
+	// The third param is accepted since Cacti 1.2.x (lib/auth.php:3120).
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
 		$total_rows = get_total_row_data($user_id, $sql, $sql_params, 'thold', 10);
 	} else {
@@ -1401,6 +1403,8 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 			$sql_where
 		) AS rower";
 
+	// get_total_row_data signature: ($user_id, $sql, $sql_params, $class, $timeout)
+	// The third param is accepted since Cacti 1.2.x (lib/auth.php:3120).
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
 		$total_rows = get_total_row_data($user_id, $sql, $sql_params, 'thold_log', 10);
 	} else {
