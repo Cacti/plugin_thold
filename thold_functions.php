@@ -1226,7 +1226,7 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	return $currentval;
 }
 
-function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
+function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
 	}
@@ -1236,7 +1236,8 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 	}
 
 	if ($graph_id > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id=$graph_id";
+		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . ' gl.id = ?';
+		$sql_params[] = $graph_id;
 	}
 
 	if (strlen($sql_where)) {
@@ -1292,7 +1293,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		$order_by
 		$sql_limit");
 
-	$tholds = db_fetch_assoc($tholds_sql);
+	$tholds = db_fetch_assoc_prepared($tholds_sql, $sql_params);
 
 	$sql = "SELECT COUNT(*)
 		FROM (
@@ -1310,15 +1311,15 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, [], 'thold', 10);
+		$total_rows = get_total_row_data($user_id, $sql, $sql_params, 'thold', 10);
 	} else {
-		$total_rows = db_fetch_cell($sql);
+		$total_rows = db_fetch_cell_prepared($sql, $sql_params);
 	}
 
 	return $tholds;
 }
 
-function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
+function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
 	}
@@ -1328,7 +1329,8 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 	}
 
 	if ($graph_id > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id = $graph_id";
+		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . ' gl.id = ?';
+		$sql_params[] = $graph_id;
 	}
 
 	if (strlen($sql_where)) {
@@ -1362,7 +1364,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
 	}
 
-	$tholds = db_fetch_assoc("SELECT
+	$tholds = db_fetch_assoc_prepared("SELECT
 		tl.`id`, tl.`time`, tl.`host_id`, tl.`local_graph_id`, tl.`threshold_id`,
 		IF(IFNULL(tl.`threshold_value`,'')='',NULL,(tl.`threshold_value` + 0.0)) AS `threshold_value`,
 		IF(IFNULL(tl.`current`,'')='',NULL,(tl.`current` + 0.0)) AS `current`, tl.`status`, tl.`type`,
@@ -1380,7 +1382,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		ON h.id=gl.host_id
 		$sql_where
 		$order_by
-		$sql_limit");
+		$sql_limit", $sql_params);
 
 	$sql = "SELECT COUNT(*)
 		FROM (
@@ -1400,9 +1402,9 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, [], 'thold_log', 10);
+		$total_rows = get_total_row_data($user_id, $sql, $sql_params, 'thold_log', 10);
 	} else {
-		$total_rows = db_fetch_cell($sql);
+		$total_rows = db_fetch_cell_prepared($sql, $sql_params);
 	}
 
 	return $tholds;
