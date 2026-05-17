@@ -6393,7 +6393,7 @@ function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thol
 	}
 
 	if (is_array($device_ids)) {
-		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'gl.host_id IN(' . implode(', ', $device_ids) . ')';
+		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'gl.host_id IN(' . implode(', ', array_map('intval', $device_ids)) . ')';
 	} elseif ($device_ids > 0) {
 		$device_id = $device_ids;
 	}
@@ -6635,7 +6635,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 
 	$notification_queue = read_config_option('thold_notification_queue');
 
-	if (is_array($filename) && sizeof($filename) && strstr($message, '<GRAPH>') !== false) {
+	if (cacti_sizeof($filename) && strstr($message, '<GRAPH>') !== false) {
 		if (isset($filename['local_data_id'])) {
 			$tmp      = [];
 			$tmp[]    = $filename;
