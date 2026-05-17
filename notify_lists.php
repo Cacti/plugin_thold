@@ -255,7 +255,10 @@ function form_actions() {
 
 		if (isset_request_var('save_associate')) {
 			if ($selected_items != false) {
+				get_filter_request_var('id');
 				get_filter_request_var('notification_action');
+				get_filter_request_var('notification_warning_action');
+				get_filter_request_var('notification_alert_action');
 
 				if (get_request_var('drp_action') == '1') { // associate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -397,7 +400,10 @@ function form_actions() {
 
 		if (isset_request_var('save_templates')) {
 			if ($selected_items != false) {
+				get_filter_request_var('id');
 				get_filter_request_var('notification_action');
+				get_filter_request_var('notification_warning_action');
+				get_filter_request_var('notification_alert_action');
 
 				if (get_request_var('drp_action') == '1') { // associate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -484,7 +490,10 @@ function form_actions() {
 
 		if (isset_request_var('save_tholds')) {
 			if ($selected_items != false) {
+				get_filter_request_var('id');
 				get_filter_request_var('notification_action');
+				get_filter_request_var('notification_warning_action');
+				get_filter_request_var('notification_alert_action');
 
 				if (get_request_var('drp_action') == '1') { // associate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -1449,6 +1458,8 @@ function tholds($header_label) {
 	}
 
 	if (strlen(get_request_var('rfilter'))) {
+		// rfilter is pre-validated as a legal PHP regex by FILTER_VALIDATE_IS_REGEX in the
+		// request validation array; db_qstr() SQL-escapes the already-validated value.
 		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache RLIKE ' . db_qstr(get_request_var('rfilter'));
 	}
 
@@ -1789,6 +1800,8 @@ function templates($header_label) {
 	}
 
 	if (strlen(get_request_var('rfilter'))) {
+		// rfilter is pre-validated as a legal PHP regex by FILTER_VALIDATE_IS_REGEX in the
+		// request validation array; db_qstr() SQL-escapes the already-validated value.
 		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_template.name RLIKE ' . db_qstr(get_request_var('rfilter'));
 	}
 
@@ -2193,6 +2206,8 @@ function lists() {
 
 	// form the 'where' clause for our main sql query
 	if (strlen(get_request_var('rfilter'))) {
+		// rfilter is pre-validated as a legal PHP regex by FILTER_VALIDATE_IS_REGEX in the
+		// request validation array; db_qstr() SQL-escapes the already-validated value.
 		$sql_where = 'WHERE (
 		name RLIKE ' . db_qstr(get_request_var('rfilter')) . '
 		OR description RLIKE ' . db_qstr(get_request_var('rfilter')) . '
