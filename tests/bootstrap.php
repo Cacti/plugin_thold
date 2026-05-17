@@ -77,6 +77,30 @@ if (!function_exists('db_qstr')) {
 	}
 }
 
+if (!function_exists('db_begin_transaction')) {
+	function db_begin_transaction() {
+		$GLOBALS['__test_db_calls'][] = ['fn' => 'db_begin_transaction', 'sql' => '', 'params' => []];
+
+		return true;
+	}
+}
+
+if (!function_exists('db_commit_transaction')) {
+	function db_commit_transaction() {
+		$GLOBALS['__test_db_calls'][] = ['fn' => 'db_commit_transaction', 'sql' => '', 'params' => []];
+
+		return true;
+	}
+}
+
+if (!function_exists('db_rollback_transaction')) {
+	function db_rollback_transaction() {
+		$GLOBALS['__test_db_calls'][] = ['fn' => 'db_rollback_transaction', 'sql' => '', 'params' => []];
+
+		return true;
+	}
+}
+
 if (!function_exists('html_escape')) {
 	function html_escape($string) {
 		return htmlspecialchars($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');

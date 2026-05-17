@@ -70,3 +70,12 @@ it('notify_lists.php drp_action guard converts keys to strings before strict com
 	expect($notify_src)->toContain("array_map('strval', array_keys(\$actions + \$assoc_actions))");
 	expect($notify_src)->toContain("in_array(get_request_var('drp_action'), \$valid_actions, true)");
 });
+
+it('notify_lists.php bulk write actions are wrapped in transactions', function () use ($notify_src) {
+	// All four bulk action blocks must begin and commit a transaction atomically.
+	$beginCount  = substr_count($notify_src, 'db_begin_transaction()');
+	$commitCount = substr_count($notify_src, 'db_commit_transaction()');
+
+	expect($beginCount)->toBe(4);
+	expect($commitCount)->toBe(4);
+});

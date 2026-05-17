@@ -166,6 +166,8 @@ function form_actions() {
 				if (get_request_var('drp_action') == '1') { // delete
 					$placeholders = implode(',', array_fill(0, cacti_sizeof($selected_items), '?'));
 
+					db_begin_transaction();
+
 					db_execute_prepared('DELETE FROM plugin_notification_lists
 						WHERE id IN (' . $placeholders . ')',
 						$selected_items);
@@ -209,6 +211,8 @@ function form_actions() {
 						SET notify_alert = 0
 						WHERE notify_alert IN (' . $placeholders . ')',
 						$selected_items);
+
+					db_commit_transaction();
 				} elseif (get_request_var('drp_action') == '2') { // duplicate
 					$i = 1;
 
@@ -259,6 +263,8 @@ function form_actions() {
 				get_filter_request_var('notification_action');
 				get_filter_request_var('notification_warning_action');
 				get_filter_request_var('notification_alert_action');
+
+				db_begin_transaction();
 
 				if (get_request_var('drp_action') == '1') { // associate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -392,6 +398,8 @@ function form_actions() {
 						}
 					}
 				}
+
+				db_commit_transaction();
 			}
 
 			header('Location: notify_lists.php?header=false&action=edit&tab=hosts&id=' . get_request_var('id'));
@@ -404,6 +412,8 @@ function form_actions() {
 				get_filter_request_var('notification_action');
 				get_filter_request_var('notification_warning_action');
 				get_filter_request_var('notification_alert_action');
+
+				db_begin_transaction();
 
 				if (get_request_var('drp_action') == '1') { // associate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -482,6 +492,8 @@ function form_actions() {
 						thold_template_update_thresholds($selected_items[$i]);
 					}
 				}
+
+				db_commit_transaction();
 			}
 
 			header('Location: notify_lists.php?header=false&action=edit&tab=templates&id=' . get_request_var('id'));
@@ -494,6 +506,8 @@ function form_actions() {
 				get_filter_request_var('notification_action');
 				get_filter_request_var('notification_warning_action');
 				get_filter_request_var('notification_alert_action');
+
+				db_begin_transaction();
 
 				if (get_request_var('drp_action') == '1') { // associate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -568,6 +582,8 @@ function form_actions() {
 						}
 					}
 				}
+
+				db_commit_transaction();
 			}
 
 			header('Location: notify_lists.php?header=false&action=edit&tab=tholds&id=' . get_request_var('id'));
