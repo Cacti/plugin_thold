@@ -150,8 +150,7 @@ function form_actions() {
 
 	$valid_actions = array_keys($actions + $assoc_actions);
 
-	if (!in_array(get_request_var('drp_action'), $valid_actions, true) &&
-		!in_array((int) get_request_var('drp_action'), $valid_actions, true)) {
+	if (!in_array(get_request_var('drp_action'), $valid_actions, true)) {
 		raise_message(40);
 		header('Location: notify_lists.php');
 		exit;

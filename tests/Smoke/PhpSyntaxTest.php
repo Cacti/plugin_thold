@@ -30,11 +30,11 @@ foreach ($iter as $file) {
 
 	$rel = ltrim(str_replace($root, '', $file->getPathname()), DIRECTORY_SEPARATOR);
 
-	if (str_starts_with($rel, 'vendor' . DIRECTORY_SEPARATOR)) {
+	if (strncmp($rel, 'vendor' . DIRECTORY_SEPARATOR, strlen('vendor' . DIRECTORY_SEPARATOR)) === 0) {
 		continue;
 	}
 
-	if (str_starts_with($rel, 'tests' . DIRECTORY_SEPARATOR)) {
+	if (strncmp($rel, 'tests' . DIRECTORY_SEPARATOR, strlen('tests' . DIRECTORY_SEPARATOR)) === 0) {
 		continue;
 	}
 
