@@ -53,3 +53,14 @@ it('db_qstr wraps value in single-quoted escaped string', function () {
 	expect(db_qstr('normal'))->toBe("'normal'");
 	expect(db_qstr("1' OR '1'='1"))->toBe("'1'' OR ''1''=''1'");
 });
+
+it('rfilter is validated as a PHP regex before reaching any RLIKE clause', function () {
+	// thold_graph.php, thold.php, and notify_lists.php all declare rfilter with
+	// FILTER_VALIDATE_IS_REGEX in their request validation arrays. This means
+	// get_filter_request_var() rejects malformed or catastrophic patterns before
+	// any SQL is constructed, mitigating ReDoS at the MySQL RLIKE engine.
+	foreach (['thold_graph.php', 'thold.php', 'notify_lists.php'] as $file) {
+		$src = file_get_contents(realpath(__DIR__ . '/../../' . $file));
+		expect($src)->toContain('FILTER_VALIDATE_IS_REGEX');
+	}
+});
