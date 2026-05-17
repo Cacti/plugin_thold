@@ -107,6 +107,7 @@ if (!function_exists('html_escape')) {
 	}
 }
 
+// KEEP IN SYNC with Cacti core lib/functions.php sanitize_unserialize_selected_items()
 if (!function_exists('sanitize_unserialize_selected_items')) {
 	function sanitize_unserialize_selected_items($items) {
 		if (empty($items)) {
