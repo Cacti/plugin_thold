@@ -3896,7 +3896,7 @@ function thold_expand_string($thold_data, $string) {
 				$str = '|data_source_description| [|data_source_name|]';
 			}
 		} elseif (isset($thold_data['data_source_name']) && strlen($thold_data['data_source_name']) > 0) {
-			$str = thold_get_default_suggested_name(['data_source_name' => $data_source_name], 0);
+			$str = thold_get_default_suggested_name(['data_source_name' => $thold_data['data_source_name']], 0);
 		}
 	}
 
