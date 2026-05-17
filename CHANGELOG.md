@@ -2,6 +2,15 @@
 
 --- develop ---
 
+* security: Replace array_to_sql_or() and direct $selected_items concatenation with db_execute_prepared() and IN(?,?,?) placeholders in notify_lists.php bulk form actions
+* security: Wrap all four bulk action blocks in db_begin_transaction()/db_commit_transaction(); rollback on db_execute_prepared() failure; break per-item loops immediately on error
+* security: Move thold_template_update_thresholds() cascade after db_commit_transaction() so it does not participate in the transaction boundary
+* security: Parameterize $graph_id in get_allowed_thresholds() and get_allowed_threshold_logs() using gl.id = ? placeholder; switch to db_fetch_assoc_prepared() and db_fetch_cell_prepared()
+* security: Validate rfilter via FILTER_VALIDATE_IS_REGEX and escape with db_qstr() before use in RLIKE clauses
+* security: Apply html_escape() to get_request_var('page') in thold.php and thold_graph.php hidden inputs; wrap AJAX filter URL params with encodeURIComponent()
+* security: Apply sanitize_unserialize_selected_items() to selected_graphs_array in thold_webapi.php
+* security: Cast drp_action allowlist keys to strings via array_map('strval', array_keys(...)) for correct strict in_array() comparison
+* security: Add Pest v1 security test suite covering prepared statements, RLIKE injection, XSS escaping, unserialize hardening, PHP 7.4 compatibility, and smoke linting
 * issue#686: Applying a templated threshold to a graph via the wrench icon, creates a duplicate graph
 * issue#707: Excessive timeout for row caching prevents data from being updated timely
 * issue#710: Fixing Typo in thold_daemons.service File
