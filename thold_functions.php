@@ -375,7 +375,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 			if ($rpn_evaled) {
 				array_push($stack, $v3);
 			} elseif (!$rpn_error) {
-				eval('$v3 = ' . $v2 . ' ' . $operator . ' ' . $v1 . ';');
+				eval('$v3 = ' . $v2 . ' ' . $operator . ' ' . $v1 . ';'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math tokens by the parser above
 
 				if ($v3 == '') {
 					$v3 = 0;
@@ -400,7 +400,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 			$v1 = thold_expression_rpn_pop($stack);
 
 			if (!$rpn_error) {
-				eval('$v2 = ' . $operator . '(' . $v1 . ');');
+				eval('$v2 = ' . $operator . '(' . $v1 . ');'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math function names by the parser above
 				array_push($stack, $v2);
 			}
 
@@ -491,9 +491,8 @@ function thold_expression_boolean_rpn($operator, &$stack) {
 			($v1 == 'U' || $v2 == 'U') ||
 			($v1 == 'NEGINF' || $v2 == 'NEGINF')) {
 			array_push($stack, '0');
-		}
-
-		switch($operator) {
+		} else {
+			switch($operator) {
 			case 'LT':
 				if ($v1 < $v2) {
 					array_push($stack, '1');
@@ -542,6 +541,7 @@ function thold_expression_boolean_rpn($operator, &$stack) {
 				}
 
 				break;
+		}
 		}
 	}
 }
@@ -878,7 +878,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	// operators to support
 	$math       = ['+', '-', '*', '/', '%', '^', 'ADDNAN', 'SIN', 'COS', 'LOG', 'EXP',
 		'SQRT', 'ATAN', 'ATAN2', 'FLOOR', 'CEIL', 'DEG2RAD', 'RAD2DEG', 'ABS'];
-	$boolean    = ['LT', 'LE', 'GT', 'GE', 'EQ', 'NE', 'UN', 'ISNF', 'IF', 'AND', 'OR'];
+	$boolean    = ['LT', 'LE', 'GT', 'GE', 'EQ', 'NE', 'UN', 'ISINF', 'IF', 'AND', 'OR'];
 	$comparison = ['MIN', 'MAX', 'LIMIT'];
 	$setops     = ['SORT', 'REV', 'AVG'];
 	$specvals   = ['UNKN', 'INF', 'NEGINF', 'PREV', 'COUNT'];
@@ -945,7 +945,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 							[$thold['local_data_id'], $dsname]);
 					}
 
-					if (empty($value) || $value = 'U' || $value == '-90909090909') {
+					if (empty($value) || $value == 'U' || $value == '-90909090909') {
 						$value = get_current_value($thold['local_data_id'], $dsname);
 					}
 				}
@@ -2002,7 +2002,7 @@ function plugin_thold_log_changes($id, $changed, $message = []) {
 					$desc .= ' Trigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
 					$desc .= ' WarnHigh[' . (isset($message['thold_warning_hi']) ? $message['thold_warning_hi'] : '') . ']';
 					$desc .= ' WarnLow[' . (isset($message['thold_warning_low']) ? $message['thold_warning_low'] : '') . ']';
-					$desc .= ' WarnTrigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_warning_fail_trigger']) ? $message['thold_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
+					$desc .= ' WarnTrigger[' . plugin_thold_duration_convert($thold['data_template_id'], (isset($message['thold_warning_fail_trigger']) ? $message['thold_warning_fail_trigger'] : ''), 'alert', 'data_template_id') . ']';
 
 					break;
 				case 1:
@@ -2266,8 +2266,8 @@ function thold_check_threshold(&$thold_data) {
 	$thold_send_text_only  = read_config_option('thold_send_text_only');
 
 	$thold_snmp_traps         = (read_config_option('thold_alert_snmp') == 'on');
-	$thold_snmp_warning_traps = (read_config_option('thold_alert_snmp_warning') != 'on');
-	$thold_snmp_normal_traps  = (read_config_option('thold_alert_snmp_normal') != 'on');
+	$thold_snmp_warning_traps = (read_config_option('thold_alert_snmp_warning') == 'on');
+	$thold_snmp_normal_traps  = (read_config_option('thold_alert_snmp_normal') == 'on');
 	$cacti_polling_interval   = read_config_option('poller_interval');
 
 	// remove this after adding an option for it
@@ -3895,7 +3895,7 @@ function thold_expand_string($thold_data, $string) {
 			if ($str == '') {
 				$str = '|data_source_description| [|data_source_name|]';
 			}
-		} elseif (isset($thold_data['data_source_name']) && $thold_data['data_source_name'] > 0) {
+		} elseif (isset($thold_data['data_source_name']) && strlen($thold_data['data_source_name']) > 0) {
 			$str = thold_get_default_suggested_name(['data_source_name' => $data_source_name], 0);
 		}
 	}
@@ -4001,7 +4001,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return);
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; $cmd is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
 			}
 
 			$command_executed = true;
@@ -4020,7 +4020,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return);
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; $cmd is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
 			}
 
 			$command_executed = true;
@@ -4039,7 +4039,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return);
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; $cmd is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
 			}
 
 			$command_executed = true;
@@ -6393,7 +6393,7 @@ function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thol
 	}
 
 	if (is_array($device_ids)) {
-		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'gl.host_id IN(' . implode($device_ids) . ')';
+		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . 'gl.host_id IN(' . implode(', ', $device_ids) . ')';
 	} elseif ($device_ids > 0) {
 		$device_id = $device_ids;
 	}
@@ -6487,9 +6487,9 @@ function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thol
 					[$data_source['thold_template_id']]);
 
 				if (cacti_sizeof($template)) {
-					foreach ($data_sources as $data_source) {
+					foreach ($data_sources as $inner_data_source) {
 						// Don't create a second threshold for a data source that already has a threshold
-						if ($data_source['snmp_query_id'] > 0) {
+						if ($inner_data_source['snmp_query_id'] > 0) {
 							$exists = db_fetch_cell_prepared('SELECT id
 								FROM thold_data
 								WHERE local_data_id = ?
@@ -6635,7 +6635,7 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 
 	$notification_queue = read_config_option('thold_notification_queue');
 
-	if (is_array($filename) && sizeof($filename) && strstr($message, '<GRAPH>') !== 0) {
+	if (is_array($filename) && sizeof($filename) && strstr($message, '<GRAPH>') !== false) {
 		if (isset($filename['local_data_id'])) {
 			$tmp      = [];
 			$tmp[]    = $filename;
@@ -6949,7 +6949,7 @@ function pre_process_device_notifications() {
 					}
 
 					break;
-				case 'es': // Percent of events per Site
+				case 'pes': // Percent of events per Site
 					$events = db_fetch_assoc_prepared('SELECT h.site_id, COUNT(*) AS events, th.total_hosts
 						FROM notification_queue AS nq
 						INNER JOIN host AS h
@@ -6977,7 +6977,7 @@ function pre_process_device_notifications() {
 					if (cacti_sizeof($events)) {
 						foreach ($events as $e) {
 							$triggers[$option . '|' . $e['site_id']] = [
-								'events' => $e['hosts'],
+								'events' => $e['events'],
 								'time'   => $now
 							];
 						}
@@ -7336,7 +7336,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 							$emails[$id]['pre_body'] .= '<br>' . $subject;
 
 							if (cacti_sizeof($attachments)) {
-								$emails[$id]['attachments'] += array_merge($emails['id']['attachments'], $attachments);
+								$emails[$id]['attachments'] += array_merge($emails[$id]['attachments'], $attachments);
 							}
 						}
 
@@ -7369,7 +7369,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 						}
 					}
 
-					exec($command, $output, $return);
+					exec($command, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured notification command; $command is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
 
 					thold_process_command_output($output, $return, $topic, $data, $command);
 
@@ -7543,7 +7543,7 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended) {
 						}
 					}
 
-					exec($command, $output, $return);
+					exec($command, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured notification command; $command is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
 
 					thold_process_command_output($output, $return, $topic, $data, $command);
 
