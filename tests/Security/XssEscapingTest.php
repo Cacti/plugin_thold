@@ -51,3 +51,9 @@ it('notify_lists.php AJAX filter uses encodeURIComponent for URL params', functi
 	$src = file_get_contents(realpath(__DIR__ . '/../../notify_lists.php'));
 	expect($src)->toContain('encodeURIComponent');
 });
+
+it('thold.php hidden page input uses html_escape', function () {
+	$src = file_get_contents(realpath(__DIR__ . '/../../thold.php'));
+	expect($src)->toContain("html_escape(get_filter_request_var('page'))");
+	expect($src)->not->toContain("print get_filter_request_var('page')");
+});

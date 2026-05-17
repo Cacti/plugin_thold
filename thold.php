@@ -763,7 +763,7 @@ function list_tholds() {
 				</tr>
 			</table>
 			<input type='hidden' name='search' value='search'>
-			<input type='hidden' id='page' value='<?php print get_filter_request_var('page'); ?>'>
+			<input type='hidden' id='page' value='<?php print html_escape(get_filter_request_var('page')); ?>'>
 		</form>
 		<script type='text/javascript'>
 

@@ -94,3 +94,24 @@ it('notify_lists.php bulk write actions track $ok flag for all db_execute_prepar
 	expect(preg_match('/\$ok\s*=\s*db_execute_prepared/', $notify_src))->toBe(1);
 	expect(preg_match('/db_execute_prepared\([^)]+\)\s*&&\s*\$ok/', $notify_src))->toBe(1);
 });
+
+it('notify_lists.php per-item loops break immediately on first failure', function () use ($notify_src) {
+	// Each loop must break as soon as $ok is false rather than continuing to issue DB calls.
+	// associate (2 loops) + save_templates (2 loops) + save_tholds (2 loops) = 6 break guards.
+	// The flat delete sequence has no loop and therefore no break guard.
+	$breakCount = substr_count($notify_src, 'if (!$ok) {');
+	expect($breakCount)->toBeGreaterThanOrEqual(6);
+	expect($notify_src)->toContain('if (!$ok) {');
+	expect($notify_src)->toContain('break;');
+});
+
+it('notify_lists.php save_templates calls thold_template_update_thresholds after commit only', function () use ($notify_src) {
+	// thold_template_update_thresholds must not run inside the transaction boundary
+	// (it should be called after db_commit_transaction() in the on-success path).
+	$commitPos  = strpos($notify_src, 'db_commit_transaction();' . "\n\n\t\t\t\t\t// Propagate");
+	expect($commitPos)->not->toBeFalse();
+	// The function must not appear between db_begin_transaction and db_commit_transaction in this block.
+	$beginPos = strrpos(substr($notify_src, 0, $commitPos), 'db_begin_transaction()');
+	$between  = substr($notify_src, $beginPos, $commitPos - $beginPos);
+	expect($between)->not->toContain('thold_template_update_thresholds');
+});

@@ -362,6 +362,10 @@ function form_actions() {
 									[get_request_var('id'), $selected_items[$i]]) && $ok;
 							}
 						}
+
+						if (!$ok) {
+							break;
+						}
 					}
 				} elseif (get_request_var('drp_action') == '2') { // disassociate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -402,6 +406,10 @@ function form_actions() {
 								AND td.notify_alert = ?',
 								[$selected_items[$i], get_request_var('id')]) && $ok;
 						}
+
+						if (!$ok) {
+							break;
+						}
 					}
 				}
 
@@ -425,7 +433,8 @@ function form_actions() {
 
 				db_begin_transaction();
 
-				$ok = true;
+				$ok              = true;
+				$update_template = [];
 
 				if (get_request_var('drp_action') == '1') { // associate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -479,7 +488,11 @@ function form_actions() {
 							}
 						}
 
-						thold_template_update_thresholds($selected_items[$i]);
+						$update_template[] = $selected_items[$i];
+
+						if (!$ok) {
+							break;
+						}
 					}
 				} elseif (get_request_var('drp_action') == '2') { // disassociate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -501,12 +514,23 @@ function form_actions() {
 								[$selected_items[$i], get_request_var('id')]) && $ok;
 						}
 
-						thold_template_update_thresholds($selected_items[$i]);
+						$update_template[] = $selected_items[$i];
+
+						if (!$ok) {
+							break;
+						}
 					}
 				}
 
 				if ($ok) {
 					db_commit_transaction();
+
+					// Propagate template changes to threshold instances after the
+					// notification assignment is committed so this cascade does not
+					// participate in the transaction boundary.
+					foreach ($update_template as $template_id) {
+						thold_template_update_thresholds($template_id);
+					}
 				} else {
 					db_rollback_transaction();
 				}
@@ -578,6 +602,10 @@ function form_actions() {
 									[get_request_var('id'), $selected_items[$i]]) && $ok;
 							}
 						}
+
+						if (!$ok) {
+							break;
+						}
 					}
 				} elseif (get_request_var('drp_action') == '2') { // disassociate
 					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
@@ -597,6 +625,10 @@ function form_actions() {
 								WHERE id = ?
 								AND notify_alert = ?',
 								[$selected_items[$i], get_request_var('id')]) && $ok;
+						}
+
+						if (!$ok) {
+							break;
 						}
 					}
 				}
