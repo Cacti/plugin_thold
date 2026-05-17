@@ -92,7 +92,8 @@ it('notify_lists.php bulk write actions track $ok flag for all db_execute_prepar
 	// Every db_execute_prepared result must be ANDed into $ok so partial failure triggers rollback.
 	expect($notify_src)->toContain('$ok = true');
 	expect(preg_match('/\$ok\s*=\s*db_execute_prepared/', $notify_src))->toBe(1);
-	expect(preg_match('/db_execute_prepared\([^)]+\)\s*&&\s*\$ok/', $notify_src))->toBe(1);
+	// [^)]+ stops at the first ) inside multi-argument calls; use substr_count instead
+	expect(substr_count($notify_src, ') && $ok'))->toBeGreaterThanOrEqual(6);
 });
 
 it('notify_lists.php per-item loops break immediately on first failure', function () use ($notify_src) {

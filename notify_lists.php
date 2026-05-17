@@ -168,49 +168,50 @@ function form_actions() {
 
 					db_begin_transaction();
 
+					// Chain with && so the first failure short-circuits the remaining statements.
 					$ok  = db_execute_prepared('DELETE FROM plugin_notification_lists
 						WHERE id IN (' . $placeholders . ')',
-						$selected_items);
+						$selected_items)
 
-					$ok = db_execute_prepared('UPDATE host
+						&& db_execute_prepared('UPDATE host
 						SET thold_send_email = 0
 						WHERE thold_send_email = 2
 						AND deleted = ""
 						AND thold_host_email IN (' . $placeholders . ')',
-						$selected_items) && $ok;
+						$selected_items)
 
-					$ok = db_execute_prepared('UPDATE host
+						&& db_execute_prepared('UPDATE host
 						SET thold_send_email = 1
 						WHERE thold_send_email = 3
 						AND deleted = ""
 						AND thold_host_email IN (' . $placeholders . ')',
-						$selected_items) && $ok;
+						$selected_items)
 
-					$ok = db_execute_prepared('UPDATE host
+						&& db_execute_prepared('UPDATE host
 						SET thold_host_email = 0
 						WHERE thold_host_email IN (' . $placeholders . ')
 						AND deleted = ""',
-						$selected_items) && $ok;
+						$selected_items)
 
-					$ok = db_execute_prepared('UPDATE thold_data
+						&& db_execute_prepared('UPDATE thold_data
 						SET notify_warning = 0
 						WHERE notify_warning IN (' . $placeholders . ')',
-						$selected_items) && $ok;
+						$selected_items)
 
-					$ok = db_execute_prepared('UPDATE thold_data
+						&& db_execute_prepared('UPDATE thold_data
 						SET notify_alert = 0
 						WHERE notify_alert IN (' . $placeholders . ')',
-						$selected_items) && $ok;
+						$selected_items)
 
-					$ok = db_execute_prepared('UPDATE thold_template
+						&& db_execute_prepared('UPDATE thold_template
 						SET notify_warning = 0
 						WHERE notify_warning IN (' . $placeholders . ')',
-						$selected_items) && $ok;
+						$selected_items)
 
-					$ok = db_execute_prepared('UPDATE thold_template
+						&& db_execute_prepared('UPDATE thold_template
 						SET notify_alert = 0
 						WHERE notify_alert IN (' . $placeholders . ')',
-						$selected_items) && $ok;
+						$selected_items);
 
 					if ($ok) {
 						db_commit_transaction();
