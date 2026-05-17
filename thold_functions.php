@@ -1226,6 +1226,8 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	return $currentval;
 }
 
+// $sql_where may contain ? placeholders; supply matching values via $sql_params.
+// Callers passing a literal WHERE fragment without placeholders pass $sql_params = [].
 function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
@@ -1321,6 +1323,8 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 	return $tholds;
 }
 
+// $sql_where may contain ? placeholders; supply matching values via $sql_params.
+// Callers passing a literal WHERE fragment without placeholders pass $sql_params = [].
 function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
