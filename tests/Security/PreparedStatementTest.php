@@ -64,3 +64,9 @@ it('thold_functions.php get_allowed_thresholds does not interpolate graph_id dir
 it('thold_functions.php get_allowed_threshold_logs uses db_fetch_assoc_prepared', function () use ($funcs_src) {
 	expect($funcs_src)->toContain('db_fetch_assoc_prepared("SELECT');
 });
+
+it('notify_lists.php drp_action guard converts keys to strings before strict comparison', function () use ($notify_src) {
+	// array_keys() returns int keys; POST values are strings; strval() cast allows strict in_array()
+	expect($notify_src)->toContain("array_map('strval', array_keys(\$actions + \$assoc_actions))");
+	expect($notify_src)->toContain("in_array(get_request_var('drp_action'), \$valid_actions, true)");
+});

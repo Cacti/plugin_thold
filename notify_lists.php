@@ -148,7 +148,7 @@ function form_actions() {
 	// ================= input validation =================
 	get_filter_request_var('drp_action');
 
-	$valid_actions = array_keys($actions + $assoc_actions);
+	$valid_actions = array_map('strval', array_keys($actions + $assoc_actions));
 
 	if (!in_array(get_request_var('drp_action'), $valid_actions, true)) {
 		raise_message(40);
