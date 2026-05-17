@@ -34,3 +34,20 @@ it('html_escape converts single quotes to entities', function () {
 	// ENT_QUOTES|ENT_HTML5 encodes single quotes as &apos; (HTML5 named entity)
 	expect(html_escape("O'Brien"))->toBe('O&apos;Brien');
 });
+
+it('thold.php AJAX filter uses encodeURIComponent for URL params', function () {
+	$src = file_get_contents(realpath(__DIR__ . '/../../thold.php'));
+	// rfilter is base64-encoded then URI-encoded; other params are URI-encoded directly
+	expect($src)->toContain("encodeURIComponent(base64_encode($('#rfilter').val()))");
+	expect($src)->toContain("encodeURIComponent($('#rows').val())");
+});
+
+it('thold_graph.php AJAX filter uses encodeURIComponent for URL params', function () {
+	$src = file_get_contents(realpath(__DIR__ . '/../../thold_graph.php'));
+	expect($src)->toContain('encodeURIComponent');
+});
+
+it('notify_lists.php AJAX filter uses encodeURIComponent for URL params', function () {
+	$src = file_get_contents(realpath(__DIR__ . '/../../notify_lists.php'));
+	expect($src)->toContain('encodeURIComponent');
+});
