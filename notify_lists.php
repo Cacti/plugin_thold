@@ -302,12 +302,12 @@ function form_actions() {
 									[get_request_var('id'), $selected_items[$i]]) && $ok;
 
 								// clear other items
-								$ok = db_execute_prepared("UPDATE thold_data AS td
+								$ok = db_execute_prepared('UPDATE thold_data AS td
 									LEFT JOIN thold_template AS tt
 									ON td.thold_template_id = tt.id
-									SET td.notify_warning_extra = ''
+									SET td.notify_warning_extra = \'\'
 									WHERE td.host_id = ?
-									AND (tt.notify_templated = \"\" OR tt.notify_templated IS NULL)",
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)',
 									[$selected_items[$i]]) && $ok;
 							} else {
 								// set the notification list
@@ -334,12 +334,12 @@ function form_actions() {
 									[get_request_var('id'), $selected_items[$i]]) && $ok;
 
 								// clear other items
-								$ok = db_execute_prepared("UPDATE thold_data AS td
+								$ok = db_execute_prepared('UPDATE thold_data AS td
 									LEFT JOIN thold_template AS tt
 									ON td.thold_template_id = tt.id
-									SET td.notify_extra = ''
+									SET td.notify_extra = \'\'
 									WHERE host_id = ?
-									AND (tt.notify_templated = \"\" OR tt.notify_templated IS NULL)",
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)',
 									[$selected_items[$i]]) && $ok;
 
 								// remove legacy contacts
