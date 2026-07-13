@@ -375,7 +375,21 @@ function thold_expression_math_rpn($operator, &$stack) {
 			if ($rpn_evaled) {
 				array_push($stack, $v3);
 			} elseif (!$rpn_error) {
-				eval('$v3 = ' . $v2 . ' ' . $operator . ' ' . $v1 . ';'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math tokens by the parser above
+				// Operands are validated numeric above and the operator is a fixed
+				// whitelist, so compute natively instead of eval() to remove the
+				// code-execution sink. The + 0 coercion and int casts preserve the
+				// integer semantics eval() applied to the % and ^ operators.
+				$n1 = $v1 + 0;
+				$n2 = $v2 + 0;
+
+				switch ($operator) {
+					case '+': $v3 = $n2 + $n1;             break;
+					case '-': $v3 = $n2 - $n1;             break;
+					case '*': $v3 = $n2 * $n1;             break;
+					case '/': $v3 = $n2 / $n1;             break;
+					case '%': $v3 = (int) $n2 % (int) $n1; break;
+					case '^': $v3 = (int) $n2 ^ (int) $n1; break;
+				}
 
 				if ($v3 == '') {
 					$v3 = 0;
@@ -399,8 +413,31 @@ function thold_expression_math_rpn($operator, &$stack) {
 		case 'LOG':
 			$v1 = thold_expression_rpn_pop($stack);
 
+			if (!$rpn_error && !is_numeric($v1)) {
+				cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is Not valid for operator "' . $operator . '".', false, 'THOLD');
+				$rpn_error = true;
+			}
+
 			if (!$rpn_error) {
-				eval('$v2 = ' . $operator . '(' . $v1 . ');'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math function names by the parser above
+				// Validated numeric above; dispatch to the native math function
+				// instead of eval() to remove the code-execution sink.
+				$n1 = $v1 + 0;
+
+				switch ($operator) {
+					case 'SIN':     $v2 = sin($n1);     break;
+					case 'COS':     $v2 = cos($n1);     break;
+					case 'TAN':     $v2 = tan($n1);     break;
+					case 'ATAN':    $v2 = atan($n1);    break;
+					case 'SQRT':    $v2 = sqrt($n1);    break;
+					case 'FLOOR':   $v2 = floor($n1);   break;
+					case 'CEIL':    $v2 = ceil($n1);    break;
+					case 'DEG2RAD': $v2 = deg2rad($n1); break;
+					case 'RAD2DEG': $v2 = rad2deg($n1); break;
+					case 'ABS':     $v2 = abs($n1);     break;
+					case 'EXP':     $v2 = exp($n1);     break;
+					case 'LOG':     $v2 = log($n1);     break;
+				}
+
 				array_push($stack, $v2);
 			}
 
@@ -3995,7 +4032,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		$queue            = read_config_option('thold_notification_queue');
 
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 
 			$cmd = thold_expand_string($thold_data, $cmd);
 
@@ -4015,7 +4052,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
 			// thold_set_environ calls thold_putenv which calls putenv(); exec() inherits the process environment
@@ -4035,7 +4072,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
@@ -4170,8 +4207,16 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	return $environment;
 }
 
-function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
+function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false) {
 	global $thold_types;
+
+	// When building a shell command (trigger_cmd_*), escape every substituted
+	// value with cacti_escapeshellarg() so device/user-derived data cannot break
+	// out of the admin-configured command line. Email/HTML callers use the
+	// default $shell = false and are unaffected.
+	$esc = static function ($value) use ($shell) {
+		return $shell ? cacti_escapeshellarg((string) $value) : $value;
+	};
 
 	if (substr(read_config_option('base_url'), 0, 4) != 'http') {
 		if (read_config_option('force_https') == 'on') {
@@ -4195,25 +4240,25 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	}
 
 	// Do some replacement of variables
-	$text = thold_str_replace('<DESCRIPTION>',   $h['description'], $text);
-	$text = thold_str_replace('<HOSTNAME>',      $h['hostname'], $text);
-	$text = thold_str_replace('<LOCATION>',      $h['location'], $text);
-	$text = thold_str_replace('<SITE>',          $site, $text);
+	$text = thold_str_replace('<DESCRIPTION>',   $esc($h['description']), $text);
+	$text = thold_str_replace('<HOSTNAME>',      $esc($h['hostname']), $text);
+	$text = thold_str_replace('<LOCATION>',      $esc($h['location']), $text);
+	$text = thold_str_replace('<SITE>',          $esc($site), $text);
 	$text = thold_str_replace('<GRAPHID>',       $local_graph_id, $text);
 	$text = thold_str_replace('<THOLD_ID>',      $thold['id'], $text);
 
 	$text = thold_str_replace('<CURRENTVALUE>',  $currentval, $text);
-	$text = thold_str_replace('<THRESHOLDNAME>', $thold['name_cache'], $text);
-	$text = thold_str_replace('<DSNAME>',        $data_source_name, $text);
+	$text = thold_str_replace('<THRESHOLDNAME>', $esc($thold['name_cache']), $text);
+	$text = thold_str_replace('<DSNAME>',        $esc($data_source_name), $text);
 
 	if (isset($thold_types[$thold['thold_type']])) {
 		$text = thold_str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);
 	}
 
-	$text = thold_str_replace('<NOTES>',         $thold['notes'], $text);
-	$text = thold_str_replace('<DNOTES>',        $thold['dnotes'], $text);
-	$text = thold_str_replace('<DEVICENOTE>',    $thold['dnotes'], $text);
-	$text = thold_str_replace('<EXTERNALID>',    $thold['external_id'], $text);
+	$text = thold_str_replace('<NOTES>',         $esc($thold['notes']), $text);
+	$text = thold_str_replace('<DNOTES>',        $esc($thold['dnotes']), $text);
+	$text = thold_str_replace('<DEVICENOTE>',    $esc($thold['dnotes']), $text);
+	$text = thold_str_replace('<EXTERNALID>',    $esc($thold['external_id']), $text);
 
 	if ($thold['thold_type'] == 0) {
 		$text = thold_str_replace('<HI>',        $thold['thold_hi'], $text);
