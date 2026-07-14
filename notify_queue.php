@@ -110,7 +110,13 @@ function form_actions() {
 
 		if ($selected_items != false) {
 			if (get_nfilter_request_var('drp_action') == '1') { // delete
-				db_execute('DELETE FROM notification_queue WHERE ' . array_to_sql_or($selected_items, 'id'));
+				$placeholders = implode(', ', array_fill(0, cacti_sizeof($selected_items), '?'));
+				$params       = array_map('intval', array_values($selected_items));
+
+				db_execute_prepared(
+					"DELETE FROM notification_queue WHERE id IN ($placeholders)",
+					$params
+				);
 			}
 		}
 

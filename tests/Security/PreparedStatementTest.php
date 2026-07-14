@@ -21,10 +21,18 @@
  */
 
 $notify_src = file_get_contents(realpath(__DIR__ . '/../../notify_lists.php'));
+$queue_src  = file_get_contents(realpath(__DIR__ . '/../../notify_queue.php'));
 $funcs_src  = file_get_contents(realpath(__DIR__ . '/../../thold_functions.php'));
 
 it('notify_lists.php does not use array_to_sql_or for bulk operations', function () use ($notify_src) {
 	expect($notify_src)->not->toContain('array_to_sql_or($selected_items');
+});
+
+it('notify_queue.php bulk delete uses prepared IN placeholders', function () use ($queue_src) {
+	expect($queue_src)->not->toContain('array_to_sql_or($selected_items');
+	expect($queue_src)->toContain('db_execute_prepared(');
+	expect($queue_src)->toContain('DELETE FROM notification_queue WHERE id IN ($placeholders)');
+	expect($queue_src)->toContain("array_map('intval', array_values(\$selected_items))");
 });
 
 it('notify_lists.php delete action uses db_execute_prepared with IN placeholders', function () use ($notify_src) {
