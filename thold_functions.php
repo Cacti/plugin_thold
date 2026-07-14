@@ -383,12 +383,24 @@ function thold_expression_math_rpn($operator, &$stack) {
 				$n2 = $v2 + 0;
 
 				switch ($operator) {
-					case '+': $v3 = $n2 + $n1;             break;
-					case '-': $v3 = $n2 - $n1;             break;
-					case '*': $v3 = $n2 * $n1;             break;
-					case '/': $v3 = $n2 / $n1;             break;
-					case '%': $v3 = (int) $n2 % (int) $n1; break;
-					case '^': $v3 = (int) $n2 ^ (int) $n1; break;
+					case '+': $v3 = $n2 + $n1;
+
+						break;
+					case '-': $v3 = $n2 - $n1;
+
+						break;
+					case '*': $v3 = $n2 * $n1;
+
+						break;
+					case '/': $v3 = $n2 / $n1;
+
+						break;
+					case '%': $v3 = (int) $n2 % (int) $n1;
+
+						break;
+					case '^': $v3 = (int) $n2 ^ (int) $n1;
+
+						break;
 				}
 
 				if ($v3 == '') {
@@ -424,18 +436,42 @@ function thold_expression_math_rpn($operator, &$stack) {
 				$n1 = $v1 + 0;
 
 				switch ($operator) {
-					case 'SIN':     $v2 = sin($n1);     break;
-					case 'COS':     $v2 = cos($n1);     break;
-					case 'TAN':     $v2 = tan($n1);     break;
-					case 'ATAN':    $v2 = atan($n1);    break;
-					case 'SQRT':    $v2 = sqrt($n1);    break;
-					case 'FLOOR':   $v2 = floor($n1);   break;
-					case 'CEIL':    $v2 = ceil($n1);    break;
-					case 'DEG2RAD': $v2 = deg2rad($n1); break;
-					case 'RAD2DEG': $v2 = rad2deg($n1); break;
-					case 'ABS':     $v2 = abs($n1);     break;
-					case 'EXP':     $v2 = exp($n1);     break;
-					case 'LOG':     $v2 = log($n1);     break;
+					case 'SIN':     $v2 = sin($n1);
+
+						break;
+					case 'COS':     $v2 = cos($n1);
+
+						break;
+					case 'TAN':     $v2 = tan($n1);
+
+						break;
+					case 'ATAN':    $v2 = atan($n1);
+
+						break;
+					case 'SQRT':    $v2 = sqrt($n1);
+
+						break;
+					case 'FLOOR':   $v2 = floor($n1);
+
+						break;
+					case 'CEIL':    $v2 = ceil($n1);
+
+						break;
+					case 'DEG2RAD': $v2 = deg2rad($n1);
+
+						break;
+					case 'RAD2DEG': $v2 = rad2deg($n1);
+
+						break;
+					case 'ABS':     $v2 = abs($n1);
+
+						break;
+					case 'EXP':     $v2 = exp($n1);
+
+						break;
+					case 'LOG':     $v2 = log($n1);
+
+						break;
 				}
 
 				array_push($stack, $v2);
