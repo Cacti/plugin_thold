@@ -198,7 +198,10 @@ jobs:
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Mark composer scripts executable
-      run: sudo chmod +x ${{ github.workspace }}/cacti/include/vendor/bin/*
+      run: |
+        if [ -d "${{ github.workspace }}/cacti/include/vendor/bin" ]; then
+          sudo find "${{ github.workspace }}/cacti/include/vendor/bin" -maxdepth 1 -type f -exec chmod +x {} +
+        fi
 
     - name: Run Linter on base code
       run: composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
