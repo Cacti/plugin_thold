@@ -23,7 +23,7 @@ it('thold_webapi.php does not use flat sanitize_unserialize_selected_items for w
 it('thold_webapi.php deserializes selected_graphs_array without object injection', function () {
 	$src = file_get_contents(realpath(__DIR__ . '/../../thold_webapi.php'));
 	// Prefer the graphs-specific sanitizer, or allowed_classes => false unserialize.
-	$uses_graphs_helper = str_contains($src, 'sanitize_unserialize_selected_graphs');
+	$uses_graphs_helper    = str_contains($src, 'sanitize_unserialize_selected_graphs');
 	$uses_safe_unserialize = str_contains($src, "allowed_classes' => false")
 		|| str_contains($src, 'cacti_unserialize');
 	expect($uses_graphs_helper || $uses_safe_unserialize)->toBeTrue();
@@ -48,7 +48,7 @@ it('nested wizard payload shape is accepted by the graphs sanitizer when present
 	} else {
 		// Fallback path used on older Cacti without the graphs helper.
 		$unstripped = stripslashes($payload);
-		$result = unserialize($unstripped, ['allowed_classes' => false]);
+		$result     = unserialize($unstripped, ['allowed_classes' => false]);
 		expect($result)->toBeArray();
 		expect($result)->toHaveKey('cg');
 	}
