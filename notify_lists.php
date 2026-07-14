@@ -178,40 +178,40 @@ function form_actions() {
 						WHERE thold_send_email = 2
 						AND deleted = ""
 						AND thold_host_email IN (' . $placeholders . ')',
-						$selected_items)
+							$selected_items)
 
 						&& db_execute_prepared('UPDATE host
 						SET thold_send_email = 1
 						WHERE thold_send_email = 3
 						AND deleted = ""
 						AND thold_host_email IN (' . $placeholders . ')',
-						$selected_items)
+							$selected_items)
 
 						&& db_execute_prepared('UPDATE host
 						SET thold_host_email = 0
 						WHERE thold_host_email IN (' . $placeholders . ')
 						AND deleted = ""',
-						$selected_items)
+							$selected_items)
 
 						&& db_execute_prepared('UPDATE thold_data
 						SET notify_warning = 0
 						WHERE notify_warning IN (' . $placeholders . ')',
-						$selected_items)
+							$selected_items)
 
 						&& db_execute_prepared('UPDATE thold_data
 						SET notify_alert = 0
 						WHERE notify_alert IN (' . $placeholders . ')',
-						$selected_items)
+							$selected_items)
 
 						&& db_execute_prepared('UPDATE thold_template
 						SET notify_warning = 0
 						WHERE notify_warning IN (' . $placeholders . ')',
-						$selected_items)
+							$selected_items)
 
 						&& db_execute_prepared('UPDATE thold_template
 						SET notify_alert = 0
 						WHERE notify_alert IN (' . $placeholders . ')',
-						$selected_items);
+							$selected_items);
 
 					if ($ok) {
 						db_commit_transaction();

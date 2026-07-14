@@ -13,7 +13,7 @@
  */
 
 function thold_security_compatibility_files() {
-	return array(
+	return [
 		'includes/database.php',
 		'includes/polling.php',
 		'includes/settings.php',
@@ -23,7 +23,7 @@ function thold_security_compatibility_files() {
 		'setup.php',
 		'thold.php',
 		'thold_graph.php',
-	);
+	];
 }
 
 function thold_security_read_file($relativeFile) {

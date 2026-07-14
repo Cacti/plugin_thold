@@ -36,7 +36,7 @@ it('thold_graph.php RLIKE patterns use db_qstr escaping', function () {
 });
 
 it('thold.php has no raw rfilter concatenated into RLIKE', function () {
-	$src = file_get_contents(realpath(__DIR__ . '/../../thold.php'));
+	$src           = file_get_contents(realpath(__DIR__ . '/../../thold.php'));
 	$vulnerable_dq = <<<'EOT'
 RLIKE '" . get_request_var('rfilter') . "'
 EOT;
@@ -49,7 +49,7 @@ it('thold.php RLIKE pattern uses db_qstr escaping', function () {
 });
 
 it('notify_lists.php has no raw rfilter concatenated into RLIKE', function () {
-	$src = file_get_contents(realpath(__DIR__ . '/../../notify_lists.php'));
+	$src           = file_get_contents(realpath(__DIR__ . '/../../notify_lists.php'));
 	$vulnerable_dq = <<<'EOT'
 RLIKE '" . get_request_var('rfilter') . "'
 EOT;

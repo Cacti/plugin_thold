@@ -13,12 +13,12 @@
  */
 
 it('does not introduce single-line interpolated db_* calls in hardened files', function () {
-	$targetFiles = array(
+	$targetFiles = [
 		'poller_thold.php',
 		'setup.php',
 		'thold.php',
 		'thold_graph.php',
-	);
+	];
 
 	$rawInterpolatedPattern = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)\s*\(\s*(["\']).*\$[A-Za-z_{]/';
 	$preparedPattern        = '/\bdb_(?:execute|fetch_row|fetch_assoc|fetch_cell)_prepared\s*\(/';
@@ -40,7 +40,7 @@ it('does not introduce single-line interpolated db_* calls in hardened files', f
 			}
 
 			$hasInterpolatedRawCall = preg_match($rawInterpolatedPattern, $line) === 1;
-			$hasPreparedCall        = preg_match($preparedPattern, $line) === 1;
+			$hasPreparedCall        = preg_match($preparedPattern, $line)        === 1;
 
 			expect($hasInterpolatedRawCall && !$hasPreparedCall)->toBeFalse(
 				sprintf('File %s contains an interpolated raw db_* call at line %d', $relativeFile, $lineNumber + 1)
