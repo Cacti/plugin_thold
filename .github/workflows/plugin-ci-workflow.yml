@@ -204,11 +204,21 @@ jobs:
         fi
 
     - name: Run Linter on base code
-      run: composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
+      run: |
+        if composer run-script --list | grep -qE '^  lint'; then
+          composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
+        else
+          echo 'Composer lint script is not defined; skipping.'
+        fi
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Checking coding standards on base code
-      run: composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
+      run: |
+        if composer run-script --list | grep -qE '^  phpcsfixer'; then
+          composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
+        else
+          echo 'Composer phpcsfixer script is not defined; skipping.'
+        fi
       working-directory: ${{ github.workspace }}/cacti
 
 #    - name: Run PHPStan at Level 6 on base code outside of Composer due to technical issues
