@@ -191,7 +191,10 @@ jobs:
         fi
     
     - name: Remove the plugins directory exclusion from the .phpstan.neon
-      run: sed '/plugins/d' -i .phpstan.neon
+      run: |
+        if [ -f .phpstan.neon ]; then
+          sed '/plugins/d' -i .phpstan.neon
+        fi
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Mark composer scripts executable
