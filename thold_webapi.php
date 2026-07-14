@@ -861,7 +861,37 @@ function thold_wizard() {
 function thold_new_graphs_save($host_id) {
 	$return_array = false;
 
-	$selected_graphs_array = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_graphs_array'));
+	// Nested wizard structure (cg/sg), not a flat ID list. Flat
+	// sanitize_unserialize_selected_items() rejects nested arrays and would
+	// break graph creation. Prefer the graphs-specific sanitizer when present
+	// (Cacti develop+); otherwise unserialize with allowed_classes => false.
+	$raw = get_nfilter_request_var('selected_graphs_array');
+
+	if (function_exists('sanitize_unserialize_selected_graphs')) {
+		$selected_graphs_array = sanitize_unserialize_selected_graphs($raw);
+	} elseif (function_exists('cacti_unserialize') && is_string($raw) && $raw !== '') {
+		$selected_graphs_array = cacti_unserialize(stripslashes($raw));
+	} elseif (is_string($raw) && $raw !== '') {
+		$unstripped = stripslashes($raw);
+
+		if (preg_match('/^a:[0-9]+:{/', $unstripped) && !preg_match('/(^|;|{|})O:\+?[0-9]+:"/', $unstripped)) {
+			$selected_graphs_array = unserialize($unstripped, ['allowed_classes' => false]);
+		} else {
+			$selected_graphs_array = false;
+		}
+	} else {
+		$selected_graphs_array = false;
+	}
+
+	if (!is_array($selected_graphs_array)) {
+		return false;
+	}
+
+	foreach ($selected_graphs_array as $form_type => $form_array) {
+		if (($form_type !== 'cg' && $form_type !== 'sg') || !is_array($form_array)) {
+			return false;
+		}
+	}
 
 	$values = [];
 

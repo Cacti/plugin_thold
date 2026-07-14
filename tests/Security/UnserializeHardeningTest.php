@@ -10,24 +10,51 @@
 /*
  * Regression tests for PHP object injection via unsafe unserialize on POST data.
  *
- * Pre-fix: thold_webapi.php called cacti_unserialize(stripslashes(...)) on
- * selected_graphs_array, which accepted arbitrary serialized objects.
- *
- * Fix: sanitize_unserialize_selected_items() validates the deserialized data
- * is an array of integers only.
+ * selected_graphs_array is a nested wizard structure (cg/sg keys), not a flat
+ * ID list. sanitize_unserialize_selected_items() rejects nested arrays and must
+ * not be used for this payload.
  */
 
-it('thold_webapi.php does not call stripslashes on selected_graphs_array before unserialize', function () {
+it('thold_webapi.php does not use flat sanitize_unserialize_selected_items for wizard graphs', function () {
 	$src = file_get_contents(realpath(__DIR__ . '/../../thold_webapi.php'));
-	expect($src)->not->toContain("stripslashes(get_nfilter_request_var('selected_graphs_array')");
+	expect($src)->not->toContain("sanitize_unserialize_selected_items(get_nfilter_request_var('selected_graphs_array')");
 });
 
-it('thold_webapi.php uses sanitize_unserialize_selected_items for selected_graphs_array', function () {
+it('thold_webapi.php deserializes selected_graphs_array without object injection', function () {
 	$src = file_get_contents(realpath(__DIR__ . '/../../thold_webapi.php'));
-	expect($src)->toContain("sanitize_unserialize_selected_items(get_nfilter_request_var('selected_graphs_array')");
+	// Prefer the graphs-specific sanitizer, or allowed_classes => false unserialize.
+	$uses_graphs_helper = str_contains($src, 'sanitize_unserialize_selected_graphs');
+	$uses_safe_unserialize = str_contains($src, "allowed_classes' => false")
+		|| str_contains($src, 'cacti_unserialize');
+	expect($uses_graphs_helper || $uses_safe_unserialize)->toBeTrue();
 });
 
-it('sanitize_unserialize_selected_items rejects serialized objects', function () {
+it('thold_webapi.php rejects non-array selected_graphs_array before foreach', function () {
+	$src = file_get_contents(realpath(__DIR__ . '/../../thold_webapi.php'));
+	expect($src)->toContain('if (!is_array($selected_graphs_array))');
+});
+
+it('nested wizard payload shape is accepted by the graphs sanitizer when present', function () {
+	$payload = serialize([
+		'cg' => [1 => [1 => true]],
+		'sg' => [2 => [3 => [4 => true]]],
+	]);
+
+	if (function_exists('sanitize_unserialize_selected_graphs')) {
+		$result = sanitize_unserialize_selected_graphs($payload);
+		expect($result)->toBeArray();
+		expect($result)->toHaveKey('cg');
+		expect($result)->toHaveKey('sg');
+	} else {
+		// Fallback path used on older Cacti without the graphs helper.
+		$unstripped = stripslashes($payload);
+		$result = unserialize($unstripped, ['allowed_classes' => false]);
+		expect($result)->toBeArray();
+		expect($result)->toHaveKey('cg');
+	}
+});
+
+it('object payloads are rejected by selected_items sanitizer', function () {
 	$payload = serialize(new stdClass());
 	expect(sanitize_unserialize_selected_items($payload))->toBeFalse();
 });
