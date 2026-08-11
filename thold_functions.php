@@ -493,55 +493,55 @@ function thold_expression_boolean_rpn($operator, &$stack) {
 			array_push($stack, '0');
 		} else {
 			switch($operator) {
-			case 'LT':
-				if ($v1 < $v2) {
-					array_push($stack, '1');
-				} else {
-					array_push($stack, '0');
-				}
+				case 'LT':
+					if ($v1 < $v2) {
+						array_push($stack, '1');
+					} else {
+						array_push($stack, '0');
+					}
 
-				break;
-			case 'GT':
-				if ($v1 > $v2) {
-					array_push($stack, '1');
-				} else {
-					array_push($stack, '0');
-				}
+					break;
+				case 'GT':
+					if ($v1 > $v2) {
+						array_push($stack, '1');
+					} else {
+						array_push($stack, '0');
+					}
 
-				break;
-			case 'LE':
-				if ($v1 <= $v2) {
-					array_push($stack, '1');
-				} else {
-					array_push($stack, '0');
-				}
+					break;
+				case 'LE':
+					if ($v1 <= $v2) {
+						array_push($stack, '1');
+					} else {
+						array_push($stack, '0');
+					}
 
-				break;
-			case 'GE':
-				if ($v1 >= $v2) {
-					array_push($stack, '1');
-				} else {
-					array_push($stack, '0');
-				}
+					break;
+				case 'GE':
+					if ($v1 >= $v2) {
+						array_push($stack, '1');
+					} else {
+						array_push($stack, '0');
+					}
 
-				break;
-			case 'EQ':
-				if ($v1 == $v2) {
-					array_push($stack, '1');
-				} else {
-					array_push($stack, '0');
-				}
+					break;
+				case 'EQ':
+					if ($v1 == $v2) {
+						array_push($stack, '1');
+					} else {
+						array_push($stack, '0');
+					}
 
-				break;
-			case 'NE':
-				if ($v1 != $v2) {
-					array_push($stack, '1');
-				} else {
-					array_push($stack, '0');
-				}
+					break;
+				case 'NE':
+					if ($v1 != $v2) {
+						array_push($stack, '1');
+					} else {
+						array_push($stack, '0');
+					}
 
-				break;
-		}
+					break;
+			}
 		}
 	}
 }
