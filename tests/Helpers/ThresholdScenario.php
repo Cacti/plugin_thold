@@ -267,7 +267,7 @@ final class ThresholdScenario {
 		$maint = dirname(__DIR__, 3) . '/maint';
 
 		if (!is_dir($maint)) {
-			mkdir($maint, 0777, true);
+			mkdir($maint, 0755, true);
 		}
 
 		if (!file_exists($maint . '/functions.php')) {
