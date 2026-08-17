@@ -3440,7 +3440,7 @@ function thold_check_threshold(&$thold_data) {
 
 				$subject = get_email_subject('NORMAL', false, $lastread, false, false, $thold_data);
 
-				if ($alertstat != 0 && $warning_failures < $warning_trigger && $thold_data['restored_alert'] != 'on') {
+				if ($alertstat != 0 && $warning_failures >= $warning_trigger && $thold_data['restored_alert'] != 'on') {
 					if (!$maint_dev) {
 						if ($syslog) {
 							logger($subject, $url, $syslog_priority, $syslog_facility);
@@ -3509,7 +3509,7 @@ function thold_check_threshold(&$thold_data) {
 						WHERE id = ?',
 							[$thold_data['id']]);
 					}
-				} elseif ($alertstat != 0 && $failures < $trigger && $thold_data['restored_alert'] != 'on') {
+				} elseif ($alertstat != 0 && $failures >= $trigger && $thold_data['restored_alert'] != 'on') {
 					$subject = get_email_subject('NORMAL', false, $lastread, false, false, $thold_data);
 
 					if (!$maint_dev) {
