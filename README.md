@@ -94,6 +94,14 @@ different sources.  These forks of thold are not necessarily compatible with the
 current version of Cacti's thold plugin.  Please be aware of this when
 installing thold for the first time.
 
+## Development and testing
+
+Thold's unit suite runs with [Pest](https://pestphp.com/) and the Composer
+toolchain supplied by Cacti.  The plugin intentionally does not maintain its
+own `composer.json`, `composer.lock`, or vendor directory.  See
+[Testing and contributing](docs/TESTING.md) for the supported local workflow,
+test layout, and pull request checks.
+
 ## Authors
 
 The thold plugin has been in development for well over a decade with increasing
