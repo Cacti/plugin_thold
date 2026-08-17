@@ -26,4 +26,4 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_NO_INTERACTION=1 \
     COMPOSER_CACHE_DIR=/tmp/composer-cache
 
-CMD ["sh", "-c", "composer install --no-progress --no-ansi && vendor/bin/phpunit"]
+CMD ["sh", "-c", "composer install --no-progress --no-ansi && composer test"]
