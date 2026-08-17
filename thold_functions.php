@@ -4203,8 +4203,13 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 			$command_executed = true;
 		}
 
-		if ($queue == '' && $command_executed) {
-			thold_process_command_output($output, $return, 'thold', $thold_data, $cmd);
+		/*
+		 * Topic has to be thold_cmd: thold_process_command_output() dispatches
+		 * on it, and 'thold' matched no branch, so an inline trigger command
+		 * logged neither its exit status nor its output.
+		 */
+		if ($queue != 'on' && $command_executed) {
+			thold_process_command_output($output, $return, 'thold_cmd', $thold_data, $cmd);
 		}
 	}
 }
