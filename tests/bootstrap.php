@@ -323,3 +323,30 @@ if (!defined('CACTI_DATE_TIME_FORMAT')) {
 if (!defined('CACTI_PATH_BASE')) {
 	define('CACTI_PATH_BASE', $GLOBALS['config']['base_path']);
 }
+
+/**
+ * Load a plugin source file at global scope.
+ *
+ * Several plugin files (includes/arrays.php in particular) define their data
+ * as file-scope variables that the rest of the plugin reads as globals, and
+ * they read $config while doing so. Requiring them from inside a method would
+ * make both halves of that method-local, so the require happens here and any
+ * variable the file introduced is published to $GLOBALS.
+ *
+ * @param string $path Absolute path to the file.
+ *
+ * @return void
+ */
+function thold_test_load($path) {
+	global $config;
+
+	$__before = get_defined_vars();
+
+	require_once $path;
+
+	foreach (get_defined_vars() as $__name => $__value) {
+		if (!array_key_exists($__name, $__before) && strncmp($__name, '__', 2) !== 0) {
+			$GLOBALS[$__name] = $__value;
+		}
+	}
+}

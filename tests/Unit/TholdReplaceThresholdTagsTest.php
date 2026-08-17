@@ -28,6 +28,9 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 */
 	public static function setUpBeforeClass(): void {
 		self::loadPluginSource('thold_functions.php');
+
+		/* Defines $thold_types, which the <THOLDTYPE> substitution reads. */
+		self::loadPluginSource('includes/arrays.php');
 	}
 
 	/**
@@ -240,6 +243,24 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 		$result = $this->substitute('<URL>', $this->threshold(), $this->device(), false);
 
 		$this->assertStringContainsString('graph.php?local_graph_id=7', $result);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testThresholdTypeNameIsSubstituted(): void {
+		$result = $this->substitute('<THOLDTYPE>', $this->threshold(), $this->device(), false);
+
+		$this->assertSame('High / Low', $result);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testUnknownThresholdTypeLeavesTheTagInPlace(): void {
+		$result = $this->substitute('<THOLDTYPE>', $this->threshold(array('thold_type' => 99)), $this->device(), false);
+
+		$this->assertSame('<THOLDTYPE>', $result);
 	}
 
 	/**
