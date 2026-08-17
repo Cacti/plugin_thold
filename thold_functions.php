@@ -2202,25 +2202,6 @@ function thold_datasource_required($name, $data_source) {
 }
 
 /**
- * Gather the settings a threshold evaluation reads, in one place.
- *
- * Everything here is derived from the threshold row and the Cacti settings; it
- * does not decide anything and has no side effects, which is what lets it move
- * out of thold_check_threshold() without changing behaviour.
- *
- * @param array<string, mixed> $thold_data Threshold row.
- * @param mixed                $recipients
- * @param mixed                $bcc
- * @param mixed                $subject
- * @param mixed                $text_type
- * @param mixed                $list_id
- * @param mixed                $file_array
- * @param mixed                $h
- * @param mixed                $timespan
- *
- * @return array<string, mixed>
- */
-/**
  * Deliver one notification to one recipient list.
  *
  * The eighteen send sites in thold_check_threshold() all resolve the list's
