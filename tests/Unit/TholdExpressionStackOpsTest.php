@@ -91,6 +91,22 @@ final class TholdExpressionStackOpsTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testDupOnAnEmptyStackFlagsAnError(): void {
+		$this->assertSame([], $this->stackOp([], 'DUP'));
+		$this->assertTrue($GLOBALS['rpn_error']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testUnrecognisedSetOperatorLeavesTheStackUntouched(): void {
+		$this->assertSame([1, 2], $this->setOp([1, 2], 'NOSUCHOP'));
+		$this->assertFalse($GLOBALS['rpn_error']);
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testRevReversesTheRequestedNumberOfElements(): void {
 		$this->assertSame([3, 2, 1], $this->setOp([1, 2, 3, 3], 'REV'));
 	}
