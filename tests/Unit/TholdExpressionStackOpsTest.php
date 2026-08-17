@@ -128,6 +128,14 @@ final class TholdExpressionStackOpsTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testFractionalSetCountIsRejected(): void {
+		$this->assertSame([1, 2, 3], $this->setOp([1, 2, 3, 2.5], 'REV'));
+		$this->assertTrue($GLOBALS['rpn_error']);
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testSortOrdersTheRequestedElementsAscending(): void {
 		$this->assertSame([1, 2, 3], $this->setOp([3, 1, 2, 3], 'SORT'));
 	}

@@ -685,6 +685,14 @@ function thold_expression_setops_rpn(string $operator, array &$stack): void {
 		return;
 	}
 
+	if ((float) $count !== floor((float) $count)) {
+		$rpn_error = true;
+
+		return;
+	}
+
+	$count = (int) $count;
+
 	// Popping yields the span top-down; keep it that way and index deliberately.
 	$values = [];
 
