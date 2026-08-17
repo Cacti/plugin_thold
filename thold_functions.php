@@ -4861,8 +4861,9 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 
 	$last_time_entry = thold_rrd_last($local_data_id);
 
-	// This should fix and 'did you really mean month 899 errors', this is because your RRD has not polled yet
-	if ($last_time_entry == -1) {
+	// This should fix and 'did you really mean month 899 errors', this is because your RRD has not polled yet.
+	// A missing or unreadable RRD makes rrdtool print nothing, which is not a timestamp either.
+	if (!is_numeric($last_time_entry) || $last_time_entry == -1) {
 		$last_time_entry = time();
 	}
 
@@ -4884,11 +4885,13 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 		return 0;
 	}
 
+	// array_search() reports a miss as false. Testing for null let the miss
+	// through, and $result['values'][false] then read index 0, so a lookup for
+	// a data source that does not exist returned the first one's value.
 	$idx = array_search($data_template_rrd_id, $result['data_source_names'], true);
 
 	// Return Blank if the value was not found (Cache Cleared?)
-
-	if (!isset($result['values']) || $idx === null || !cacti_sizeof($result['values'][$idx])) {
+	if ($idx === false || !isset($result['values'][$idx]) || !cacti_sizeof($result['values'][$idx])) {
 		return 0;
 	}
 
