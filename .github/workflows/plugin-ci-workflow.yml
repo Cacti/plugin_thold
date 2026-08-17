@@ -79,13 +79,15 @@ jobs:
         ini-values: "post_max_size=256M, max_execution_time=60, date.timezone=America/New_York"
     
     - name: Check PHP version
-      run: php -v
+      run: |
+        php -v
+        echo "PHP_BINARY=$(command -v php)" >> "$GITHUB_ENV"
     
     - name: Run apt-get update
       run: sudo apt-get update
     
     - name: Install System Dependencies
-      run: sudo apt-get install -y apache2 snmp snmpd rrdtool fping libapache2-mod-php
+      run: sudo apt-get install -y apache2 snmp snmpd rrdtool fping
     
     - name: Start SNMPD Agent and Test
       run: |
@@ -115,7 +117,7 @@ jobs:
         mysql $MYSQL_AUTH_USR -e "GRANT SELECT ON mysql.time_zone_name TO 'cactiuser'@'localhost';"
         mysql $MYSQL_AUTH_USR -e "FLUSH PRIVILEGES;"
         mysql $MYSQL_AUTH_USR cacti < ${{ github.workspace }}/cacti/cacti.sql
-        mysql $MYSQL_AUTH_USR -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '/usr/bin/php')" cacti
+        mysql $MYSQL_AUTH_USR -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '$PHP_BINARY')" cacti
     
     - name: Validate composer files
       run: |
@@ -163,12 +165,12 @@ jobs:
     - name: Install Cacti via CLI
       run: |
         cd ${{ github.workspace }}/cacti
-        sudo php cli/install_cacti.php --accept-eula --install --force
+        sudo "$PHP_BINARY" cli/install_cacti.php --accept-eula --install --force
     
     - name: Install Thold Plugin
       run: |
         cd ${{ github.workspace }}/cacti
-        sudo php cli/plugin_manage.php --plugin=thold --install --enable
+        sudo "$PHP_BINARY" cli/plugin_manage.php --plugin=thold --install --enable
 
 #    - name: import Thold Plugin Sample Data
 #      run: |
@@ -209,7 +211,7 @@ jobs:
     - name: Run Cacti Poller
       run: |
         cd ${{ github.workspace }}/cacti
-        sudo php poller.php --poller=1 --force --debug
+        sudo "$PHP_BINARY" poller.php --poller=1 --force --debug
         if ! grep -q "SYSTEM STATS" log/cacti.log; then
           echo "Cacti poller did not finish successfully"
           cat log/cacti.log
