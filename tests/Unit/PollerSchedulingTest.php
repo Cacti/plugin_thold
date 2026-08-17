@@ -177,6 +177,44 @@ final class PollerSchedulingTest extends TestCase {
 	}
 
 	/**
+	 * The daemon path batches readings before writing them, and the batch size
+	 * is what array_chunk() takes. Passing a count meant 500 readings became
+	 * 50 batches of 10 rather than 10 of 50, and each batch costs a round trip.
+	 *
+	 * @return void
+	 */
+	public function testTheDaemonWritesReadingsInBatchesOfFifty(): void {
+		CactiStubs::$configOptions['thold_daemon_enable'] = 'on';
+
+		$readings = [];
+
+		for ($i = 1; $i <= 120; $i++) {
+			$readings[] = ['local_data_id' => $i, 'times' => [1700000000 => ['traffic_in' => 5]]];
+		}
+
+		// One threshold per reading, answering with just the batch that was asked
+		// about so each write matches the readings it was given.
+		CactiStubs::willReturnFor('db_fetch_assoc', 'SELECT id, local_data_id, thread_id', static function ($sql) {
+			preg_match('/IN \(([^)]*)\)/', $sql, $matches);
+
+			return array_map(static function ($id) {
+				$id = (int) trim($id);
+
+				return ['id' => $id, 'local_data_id' => $id, 'thread_id' => 1];
+			}, explode(',', $matches[1]));
+		});
+
+		thold_poller_output($readings);
+
+		$inserts = array_values(array_filter(CactiStubs::$calls, static function ($call) {
+			return strpos($call['sql'], 'plugin_thold_daemon_data') !== false;
+		}));
+
+		// 120 readings at 50 to a batch is three writes, not one per reading.
+		$this->assertCount(3, $inserts);
+	}
+
+	/**
 	 * A structural guard rather than a behavioural one: the defect is SQL
 	 * operator precedence, and proving it needs a database to run the query
 	 * against. Without the parentheses, AND binds tighter than OR and the
