@@ -482,7 +482,7 @@ if (!function_exists('rrdtool_execute')) {
 	function rrdtool_execute($command, $log_to_stdout = false, $output_flag = 1, $rrdtool_pipe = false, $logopt = 'WEBLOG') {
 		CactiStubs::record('rrdtool_execute', $command);
 
-		return CactiStubs::nextReturn('rrdtool_execute', '');
+		return CactiStubs::nextReturn('rrdtool_execute', '', $command);
 	}
 }
 
@@ -521,8 +521,13 @@ foreach (['HOST_UNKNOWN' => 0, 'HOST_DOWN' => 1, 'HOST_RECOVERING' => 2, 'HOST_U
 	}
 }
 
-if (!defined('RRDTOOL_OUTPUT_STDOUT')) {
-	define('RRDTOOL_OUTPUT_STDOUT', 1);
+// rrdtool output modes, from Cacti include/global_constants.php.
+foreach (['RRDTOOL_OUTPUT_NULL' => 0, 'RRDTOOL_OUTPUT_STDOUT' => 1, 'RRDTOOL_OUTPUT_STDERR' => 2,
+	'RRDTOOL_OUTPUT_GRAPH_DATA'    => 3, 'RRDTOOL_OUTPUT_BOOLEAN' => 4,
+	'RRDTOOL_OUTPUT_RETURN_STDERR' => 5] as $name => $value) {
+	if (!defined($name)) {
+		define($name, $value);
+	}
 }
 
 if (!defined('CACTI_DATE_TIME_FORMAT')) {
