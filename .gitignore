@@ -20,3 +20,10 @@
 # +-------------------------------------------------------------------------+
 
 locales/po/*.mo
+
+/vendor/
+/composer.lock
+/.phpunit.cache/
+/coverage/
+/coverage/
+/.phpunit.result.cache
