@@ -4815,21 +4815,13 @@ function thold_rpn($x, $y, $z, $local_data_id = 0) {
 			break;
 		case 4:
 			if ($y == 0) {
-				cacti_log("WARNING: Erroneous CDEF logic, division by zero. Data ID $local_data_id", false, 'THOLD');
-
-				return '';
+				return (-1);
 			}
 
 			return $x / $y;
 
 			break;
 		case 5:
-			if ((int) $y == 0) {
-				cacti_log("WARNING: Erroneous CDEF logic, modulo by zero. Data ID $local_data_id", false, 'THOLD');
-
-				return '';
-			}
-
 			return $x % $y;
 
 			break;
