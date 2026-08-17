@@ -64,6 +64,8 @@ final class ThresholdScenario {
 
 			'time_hi'                   => '',
 			'time_low'                  => '',
+			'time_warning_hi'           => '',
+			'time_warning_low'          => '',
 			'time_fail_trigger'         => 1,
 			'time_warning_fail_trigger' => 1,
 			'time_fail_length'          => 300,
@@ -125,6 +127,15 @@ final class ThresholdScenario {
 		$scenario = new self($overrides);
 
 		$scenario->device();
+
+		/*
+		 * The time-based arm multiplies this into a window bound; an empty
+		 * value is a fatal on PHP 8 rather than a missing step.
+		 */
+		CactiStub::willReturnFor('db_fetch_cell_prepared', 'SELECT rrd_step', 300);
+
+		// Counts of prior log rows; the arms add these together arithmetically.
+		CactiStub::willReturnFor('db_fetch_cell_prepared', 'SELECT COUNT(id)', 0);
 
 		return $scenario;
 	}

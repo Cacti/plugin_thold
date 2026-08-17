@@ -100,11 +100,17 @@ if (!function_exists('db_fetch_row_prepared')) {
 	}
 }
 
+/*
+ * Cacti's cell fetchers return false, not '', when the query matches no row.
+ * The difference matters on PHP 8: false coerces to 0 in arithmetic while ''
+ * raises a TypeError, so a stub returning '' invents failures that production
+ * does not have.
+ */
 if (!function_exists('db_fetch_cell')) {
 	function db_fetch_cell($sql, $col_name = '', $log = true, $db_conn = false) {
 		CactiStub::record('db_fetch_cell', $sql);
 
-		return CactiStub::nextReturn('db_fetch_cell', '', $sql);
+		return CactiStub::nextReturn('db_fetch_cell', false, $sql);
 	}
 }
 
@@ -112,7 +118,7 @@ if (!function_exists('db_fetch_cell_prepared')) {
 	function db_fetch_cell_prepared($sql, $params = [], $col_name = '', $log = true, $db_conn = false) {
 		CactiStub::record('db_fetch_cell_prepared', $sql, $params);
 
-		return CactiStub::nextReturn('db_fetch_cell_prepared', '', $sql);
+		return CactiStub::nextReturn('db_fetch_cell_prepared', false, $sql);
 	}
 }
 
