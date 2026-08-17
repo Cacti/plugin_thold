@@ -116,13 +116,16 @@ final class TholdCalculateExpressionTest extends TestCase {
 	 * @return void
 	 */
 	public function testSpecialGraphTokensReachTheirHandler($token): void {
+		// The handler reads the step off the data source before asking rrdtool.
+		CactiStubs::willReturnFor('db_fetch_row_prepared', 'FROM data_template_data', ['rrd_step' => 300]);
+
 		try {
 			$this->evaluate($token);
 		} catch (Throwable $reached_the_rrd_layer) {
 			// Expected: the handler runs and asks rrdtool for a value.
 		}
 
-		$unsupported = array_filter(CactiStub::$log, static function ($message) {
+		$unsupported = array_filter(CactiStubs::$log, static function ($message) {
 			return strpos($message, 'Unsupported Field') !== false;
 		});
 

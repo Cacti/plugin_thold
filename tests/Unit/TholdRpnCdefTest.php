@@ -98,7 +98,7 @@ final class TholdRpnCdefTest extends TestCase {
 	 */
 	public function testNonNumericOperandsReturnTheInvalidSentinel($x, $y): void {
 		$this->assertSame('', thold_rpn($x, $y, self::ADD));
-		$this->assertNotEmpty(CactiStub::$log);
+		$this->assertNotEmpty(CactiStubs::$log);
 	}
 
 	/**
