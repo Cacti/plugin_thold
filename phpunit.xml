@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="tests/bootstrap-unit.php"
+         cacheDirectory=".phpunit.cache"
+         colors="true"
+         failOnWarning="true"
+         failOnNotice="true"
+         failOnDeprecation="true"
+         beStrictAboutOutputDuringTests="false">
+	<php>
+		<ini name="error_reporting" value="-1"/>
+		<env name="CACTI_TEST_BOOTSTRAP" value="1"/>
+	</php>
+	<testsuites>
+		<testsuite name="Unit">
+			<directory>./tests/Unit</directory>
+		</testsuite>
+	</testsuites>
+
+	<!--
+		thold_functions.php is the only plugin source that loads without a
+		running Cacti; every other file includes ./include/auth.php and
+		dispatches on the request at top level.
+	-->
+	<source>
+		<include>
+			<file>thold_functions.php</file>
+
+		</include>
+	</source>
+</phpunit>
