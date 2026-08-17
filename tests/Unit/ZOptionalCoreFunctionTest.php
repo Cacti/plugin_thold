@@ -18,11 +18,8 @@
  * Behaviour when the running Cacti provides the functions the plugin treats as
  * optional.
  *
- * These run in their own process so that defining the functions does not
- * change which branch every other test takes.
- *
- * @runTestsInSeparateProcesses
- * @preserveGlobalState disabled
+ * The file is sorted after the fallback-path tests so defining these optional
+ * functions cannot change the code paths exercised by earlier tests.
  */
 final class OptionalCoreFunctionTest extends TestCase {
 	/**
