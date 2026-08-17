@@ -35,10 +35,10 @@ final class GetCurrentValueTest extends TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		CactiStub::willReturn('db_fetch_row_prepared', ['rrd_step' => 300]);
+		CactiStubs::willReturn('db_fetch_row_prepared', ['rrd_step' => 300]);
 
 		// thold_rrd_last() returns whatever `rrdtool last` printed.
-		CactiStub::willReturn('rrdtool_execute', '1700000000');
+		CactiStubs::willReturn('rrdtool_execute', '1700000000');
 	}
 
 	/**
@@ -47,7 +47,7 @@ final class GetCurrentValueTest extends TestCase {
 	 * @return void
 	 */
 	private function rrdReturns(array $fetch) {
-		CactiStub::willReturn('rrdtool_function_fetch', $fetch);
+		CactiStubs::willReturn('rrdtool_function_fetch', $fetch);
 	}
 
 	/**
@@ -126,9 +126,9 @@ final class GetCurrentValueTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnreadableRrdReturnsZeroRatherThanThrowing(): void {
-		CactiStub::reset();
-		CactiStub::willReturn('db_fetch_row_prepared', ['rrd_step' => 300]);
-		CactiStub::willReturn('rrdtool_execute', '');
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', ['rrd_step' => 300]);
+		CactiStubs::willReturn('rrdtool_execute', '');
 		$this->rrdReturns([]);
 
 		$this->assertSame(0, get_current_value(4, 'traffic_in'));
