@@ -203,7 +203,7 @@ jobs:
     - name: Remove the plugins directory exclusion from the .phpstan.neon
       run: |
         if [ -f .phpstan.neon ]; then
-          sed '/plugins/d' -i .phpstan.neon
+          sed -i '/plugins/d' .phpstan.neon
         fi
       working-directory: ${{ github.workspace }}/cacti
 
@@ -215,7 +215,7 @@ jobs:
 
     - name: Run Linter on base code
       run: |
-        if composer run-script --list | grep -qE '^  lint'; then
+        if composer --no-ansi run-script --list | grep -qE '^[[:space:]]+lint([[:space:]]|$)'; then
           composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
         else
           echo 'Composer lint script is not defined; skipping.'
@@ -224,7 +224,7 @@ jobs:
 
     - name: Checking coding standards on base code
       run: |
-        if composer run-script --list | grep -qE '^  phpcsfixer'; then
+        if composer --no-ansi run-script --list | grep -qE '^[[:space:]]+phpcsfixer([[:space:]]|$)'; then
           composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
         else
           echo 'Composer phpcsfixer script is not defined; skipping.'
