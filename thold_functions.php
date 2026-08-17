@@ -611,20 +611,42 @@ function thold_expression_specvals_rpn($operator, &$stack, $count) {
 	}
 }
 
-function thold_expression_stackops_rpn($operator, &$stack) {
+/**
+ * Apply one stack-manipulation RPN operator.
+ *
+ * @param string           $operator DUP, POP or EXC.
+ * @param array<int,mixed> $stack    Evaluation stack, modified in place.
+ */
+function thold_expression_stackops_rpn(string $operator, array &$stack): void {
 	global $rpn_error;
 
-	if ($operator == 'DUP') {
-		$v1 = thold_expression_rpn_pop($stack);
-		array_push($stack, $v1);
-		array_push($stack, $v1);
-	} elseif ($operator == 'POP') {
-		thold_expression_rpn_pop($stack);
-	} else {
-		$v1 = thold_expression_rpn_pop($stack);
-		$v2 = thold_expression_rpn_pop($stack);
-		array_push($stack, $v2);
-		array_push($stack, $v1);
+	switch ($operator) {
+		case 'DUP':
+			$v1 = thold_expression_rpn_pop($stack);
+
+			if ($rpn_error) {
+				return;
+			}
+
+			array_push($stack, $v1, $v1);
+
+			break;
+		case 'POP':
+			thold_expression_rpn_pop($stack);
+
+			break;
+		default:
+			// EXC. Popping already reverses the pair, so push them back in pop order.
+			$v1 = thold_expression_rpn_pop($stack);
+			$v2 = thold_expression_rpn_pop($stack);
+
+			if ($rpn_error) {
+				return;
+			}
+
+			array_push($stack, $v1, $v2);
+
+			break;
 	}
 }
 
@@ -640,68 +662,72 @@ function thold_expression_time_rpn($operator, &$stack) {
 	}
 }
 
-function thold_expression_setops_rpn($operator, &$stack) {
+/**
+ * Apply one set RPN operator to the top $count elements of the stack.
+ *
+ * SORT, REV and AVG each pop a count first. AVG follows rrdtool: unknown
+ * samples are skipped rather than poisoning the sum, and an all-unknown span
+ * yields UNKN.
+ *
+ * @param string           $operator SORT, REV or AVG.
+ * @param array<int,mixed> $stack    Evaluation stack, modified in place.
+ */
+function thold_expression_setops_rpn(string $operator, array &$stack): void {
 	global $rpn_error;
 
-	if ($operator == 'SORT') {
-		$count = thold_expression_rpn_pop($stack);
-		$v     = [];
-
-		if ($count > 0) {
-			for ($i = 0; $i < $count; $i++) {
-				$v[] = thold_expression_rpn_pop($stack);
-			}
-
-			sort($v, SORT_NUMERIC);
-
-			foreach ($v as $val) {
-				array_push($stack, $val);
-			}
-		}
-	} elseif ($operator == 'REV') {
-		$count = thold_expression_rpn_pop($stack);
-		$v     = [];
-
-		if ($count > 0) {
-			for ($i = 0; $i < $count; $i++) {
-				$v[] = thold_expression_rpn_pop($stack);
-			}
-
-			$v = array_reverse($v);
-
-			foreach ($v as $val) {
-				array_push($stack, $val);
-			}
-		}
-	} elseif ($operator == 'AVG') {
-		$count = thold_expression_rpn_pop($stack);
-
-		if ($count > 0) {
-			$total  = 0;
-			$inf    = false;
-			$neginf = false;
-
-			for ($i = 0; $i < $count; $i++) {
-				$v = thold_expression_rpn_pop($stack);
-
-				if ($v == 'INF') {
-					$inf = true;
-				} elseif ($v == 'NEGINF') {
-					$neginf = true;
-				} else {
-					$total += $v;
-				}
-			}
-
-			if ($inf) {
-				array_push($stack, 'INF');
-			} elseif ($neginf) {
-				array_push($stack, 'NEGINF');
-			} else {
-				array_push($stack, $total / $count);
-			}
-		}
+	if (!in_array($operator, ['SORT', 'REV', 'AVG'], true)) {
+		return;
 	}
+
+	$count = thold_expression_rpn_pop($stack);
+
+	if ($rpn_error || !is_numeric($count) || $count <= 0) {
+		return;
+	}
+
+	// Popping yields the span top-down; keep it that way and index deliberately.
+	$values = [];
+
+	for ($i = 0; $i < $count; $i++) {
+		$values[] = thold_expression_rpn_pop($stack);
+	}
+
+	if ($rpn_error) {
+		return;
+	}
+
+	if ($operator === 'SORT') {
+		sort($values, SORT_NUMERIC);
+	}
+
+	// REV needs no work: $values is already reversed relative to the stack.
+	if ($operator !== 'AVG') {
+		foreach ($values as $value) {
+			$stack[] = $value;
+		}
+
+		return;
+	}
+
+	$total = 0;
+	$known = 0;
+
+	foreach ($values as $value) {
+		if ($value == 'INF' || $value == 'NEGINF') {
+			$stack[] = $value == 'INF' ? 'INF' : 'NEGINF';
+
+			return;
+		}
+
+		if (!is_numeric($value)) {
+			continue;
+		}
+
+		$total += $value;
+		$known++;
+	}
+
+	$stack[] = $known === 0 ? 'U' : $total / $known;
 }
 
 function thold_expression_ds_value($operator, &$stack, $data_sources) {
@@ -885,23 +911,16 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	$stackops   = ['DUP', 'POP', 'EXC'];
 	$time       = ['NOW', 'TIME', 'LTIME'];
 	$spectypes  = ['CURRENT_DATA_SOURCE', 'CURRENT_GRAPH_MINIMUM_VALUE',
-		'CURRENT_GRAPH_MINIMUM_VALUE', 'CURRENT_DS_MINIMUM_VALUE',
+		'CURRENT_GRAPH_MAXIMUM_VALUE', 'CURRENT_DS_MINIMUM_VALUE',
 		'CURRENT_DS_MAXIMUM_VALUE', 'VALUE_OF_HDD_TOTAL',
 		'ALL_DATA_SOURCES_NODUPS', 'ALL_DATA_SOURCES_DUPS'];
 
 	// our expression array
 	$expression = explode(',', $thold['expression']);
 
-	// out current data sources
-	$data_sources = $rrd_reindexed[$thold['local_data_id']];
-
-	if (cacti_sizeof($data_sources)) {
-		foreach ($data_sources as $key => $value) {
-			$nds[$key] = $value;
-		}
-
-		$data_sources = $nds;
-	}
+	// out current data sources. A threshold whose data source produced no
+	// readings this cycle has no entry here, so default rather than index blind.
+	$data_sources = $rrd_reindexed[$thold['local_data_id']] ?? [];
 
 	// replace all data tabs in the rpn with values
 	if (cacti_sizeof($expression)) {
@@ -1056,7 +1075,16 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 		}
 	}
 
-	return $stack[0];
+	// rrdtool yields the top of the stack. Anything left below it means the
+	// expression was unbalanced, which is an authoring error worth reporting.
+	if (cacti_sizeof($stack) != 1) {
+		cacti_log("ERROR: RPN Expression did not reduce to a single value! THold:'" . $thold['name'] . "', Expression:'" . $thold['expression'] . "', Stack:'" . implode(',', $stack) . "'", false, 'THOLD');
+		$rpn_error = true;
+
+		return 0;
+	}
+
+	return end($stack);
 }
 
 function thold_substitute_snmp_query_data($string, $device_id, $snmp_query_id, $snmp_index, $max_chars = 0) {
@@ -4787,13 +4815,21 @@ function thold_rpn($x, $y, $z, $local_data_id = 0) {
 			break;
 		case 4:
 			if ($y == 0) {
-				return (-1);
+				cacti_log("WARNING: Erroneous CDEF logic, division by zero. Data ID $local_data_id", false, 'THOLD');
+
+				return '';
 			}
 
 			return $x / $y;
 
 			break;
 		case 5:
+			if ((int) $y == 0) {
+				cacti_log("WARNING: Erroneous CDEF logic, modulo by zero. Data ID $local_data_id", false, 'THOLD');
+
+				return '';
+			}
+
 			return $x % $y;
 
 			break;
