@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="/work/include/vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="tests/bootstrap-unit.php"
          cacheDirectory=".phpunit.cache"
          colors="true"
@@ -19,6 +19,9 @@
 	</testsuites>
 
 	<!--
+		Pest reads this PHPUnit-compatible configuration through Cacti's
+		Composer-managed vendor tree.
+
 		thold_functions.php is the only plugin source that loads without a
 		running Cacti; every other file includes ./include/auth.php and
 		dispatches on the request at top level.
