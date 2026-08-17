@@ -2258,7 +2258,6 @@ function thold_check_threshold(&$thold_data) {
 	$syslog_priority       = $thold_data['syslog_priority'];
 	$syslog_facility       = $thold_data['syslog_facility'];
 
-	$deadnotify            = (read_config_option('alert_deadnotify') == 'on');
 	$realert               = read_config_option('alert_repeat');
 	$alert_trigger         = read_config_option('alert_trigger');
 	$alert_bl_trigger      = read_config_option('alert_bl_trigger');
