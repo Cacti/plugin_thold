@@ -2585,6 +2585,13 @@ function thold_check_threshold(&$thold_data) {
 				} elseif (($thold_data['thold_warning_fail_count'] >= $warning_trigger) && ($thold_data['thold_fail_count'] >= $trigger)) {
 					$subject = get_email_subject('ALERT > WARNING', false, $lastread, $ra, $warning_breach_up, $thold_data);
 
+					// If this is a realert and the operator has reset the ack, don't notify
+					if ($ra && $thold_data['reset_ack'] == 'on' && $thold_data['acknowledgment'] == '') {
+						$suspend_notify = true;
+					} else {
+						$suspend_notify = false;
+					}
+
 					if (!$suspend_notify && !$maint_dev) {
 						$notify_list_id = $thold_data['notify_alert'];
 						$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
