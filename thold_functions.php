@@ -2209,9 +2209,65 @@ function thold_datasource_required($name, $data_source) {
  * out of thold_check_threshold() without changing behaviour.
  *
  * @param array<string, mixed> $thold_data Threshold row.
+ * @param mixed                $recipients
+ * @param mixed                $bcc
+ * @param mixed                $subject
+ * @param mixed                $text_type
+ * @param mixed                $list_id
+ * @param mixed                $file_array
+ * @param mixed                $h
+ * @param mixed                $timespan
  *
  * @return array<string, mixed>
  */
+/**
+ * Deliver one notification to one recipient list.
+ *
+ * The eighteen send sites in thold_check_threshold() all resolve the list's
+ * format file, then mail the list unless it is empty or the threshold has been
+ * acknowledged. The message body is built inside that guard rather than by the
+ * caller, because building it queries and an empty recipient list should not
+ * pay for a message nobody receives.
+ *
+ * @param string               $recipients Comma separated addresses, possibly empty.
+ * @param string               $bcc        Comma separated blind addresses.
+ * @param string               $subject    Subject line, already composed.
+ * @param string               $text_type  alert, warning or restoral.
+ * @param int                  $list_id    Notification list supplying the format.
+ * @param array<string, mixed> $file_array Graph attachment, or empty for none.
+ * @param array<string, mixed> $thold_data Threshold row.
+ * @param array<string, mixed> $h          Device row.
+ * @param int                  $timespan   Graph timespan for the attachment.
+ *
+ * @return string The message that was sent, or '' when nothing was.
+ */
+function thold_mail_notification($recipients, $bcc, $subject, $text_type, $list_id, $file_array, &$thold_data, &$h, $timespan = 7) {
+	$format_file = thold_get_thold_notification_format_file($thold_data['id'], $list_id);
+
+	if (trim($recipients) == '' || $thold_data['acknowledgment'] != '') {
+		return '';
+	}
+
+	switch ($text_type) {
+		case 'alert':
+			$message = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+
+			break;
+		case 'warning':
+			$message = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+
+			break;
+		default:
+			$message = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+
+			break;
+	}
+
+	thold_mail($recipients, $bcc, '', $subject, $message, $file_array, '', $list_id, $h, $format_file, $timespan);
+
+	return $message;
+}
+
 function thold_evaluation_context(array $thold_data) {
 	$alert_trigger        = read_config_option('alert_trigger');
 	$httpurl              = read_config_option('base_url');
@@ -2565,14 +2621,7 @@ function thold_check_threshold(&$thold_data) {
 							logger($subject, $url, $syslog_priority, $syslog_facility);
 						}
 
-						$notify_list_id = $thold_data['notify_warning'];
-						$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-						if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
-							$message = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-						}
+						$message = thold_mail_notification($warning_emails, $warning_bcc_emails, $subject, 'warning', $thold_data['notify_warning'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 						$save = [
 							'class'               => 'warn',
@@ -2627,14 +2676,7 @@ function thold_check_threshold(&$thold_data) {
 					$subject = get_email_subject('ALERT > WARNING', false, $lastread, $ra, $warning_breach_up, $thold_data);
 
 					if (!$suspend_notify && !$maint_dev) {
-						$notify_list_id = $thold_data['notify_alert'];
-						$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-						if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-							$message = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-							thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-						}
+						$message = thold_mail_notification($alert_emails, $alert_bcc_emails, $subject, 'warning', $thold_data['notify_alert'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 						if ($notify_different) {
 							$notify_list_id = $thold_data['notify_warning'];
@@ -2885,14 +2927,7 @@ function thold_check_threshold(&$thold_data) {
 								logger($subject, $url, $syslog_priority, $syslog_facility);
 							}
 
-							$notify_list_id = $thold_data['notify_alert'];
-							$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-							if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-								$message = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-								thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-							}
+							$message = thold_mail_notification($alert_emails, $alert_bcc_emails, $subject, 'restoral', $thold_data['notify_alert'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 							if ($notify_different) {
 								$notify_list_id = $thold_data['notify_warning'];
@@ -3003,14 +3038,7 @@ function thold_check_threshold(&$thold_data) {
 								logger($subject, $url, $syslog_priority, $syslog_facility);
 							}
 
-							$notify_list_id = $thold_data['notify_alert'];
-							$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-							if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-								$message = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-								thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-							}
+							$message = thold_mail_notification($alert_emails, $alert_bcc_emails, $subject, 'alert', $thold_data['notify_alert'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 							if ($notify_different) {
 								$notify_list_id = $thold_data['notify_warning'];
@@ -3232,14 +3260,7 @@ function thold_check_threshold(&$thold_data) {
 							logger($subject, $url, $syslog_priority, $syslog_facility);
 						}
 
-						$notify_list_id = $thold_data['notify_alert'];
-						$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-						if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-							$message = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-							thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-						}
+						$message = thold_mail_notification($alert_emails, $alert_bcc_emails, $subject, 'alert', $thold_data['notify_alert'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 						if ($notify_different) {
 							$notify_list_id = $thold_data['notify_warning'];
