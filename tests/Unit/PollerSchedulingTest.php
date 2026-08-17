@@ -34,6 +34,17 @@ final class PollerSchedulingTest extends TestCase {
 		parent::setUp();
 
 		$GLOBALS['config']['poller_id'] = 1;
+		$GLOBALS['config']['base_path'] = sys_get_temp_dir() . '/thold-poller-scheduling';
+
+		$plugins = $GLOBALS['config']['base_path'] . '/plugins';
+
+		if (!is_dir($plugins)) {
+			mkdir($plugins, 0777, true);
+		}
+
+		if (!file_exists($plugins . '/thold')) {
+			symlink(dirname(__DIR__, 2), $plugins . '/thold');
+		}
 
 		/*
 		 * includes/polling.php includes Cacti's lib/time.php at call time.
