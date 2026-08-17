@@ -4317,22 +4317,28 @@ function get_thold_restoral_text($data_source_name, $thold, $h, $currentval, $lo
 function thold_modify_values_by_cdef(&$thold_data) {
 	$cdef = false;
 
-	if ($thold_data['data_type'] != 1 || empty($thold_data['cdef'])) {
-		// Check is the graph item has a cdef
-		$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
-			FROM graph_templates_item AS gti
-			INNER JOIN data_template_rrd AS dtr
-			ON gti.task_item_id = dtr.id
-			WHERE local_graph_id = ?
-			AND dtr.id = ?
-			AND gti.graph_type_id IN (4, 5, 6, 7, 8, 20)
-			AND dtr.data_source_name = ?',
-			[$thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']]);
+	if ($thold_data['data_type'] == 1) {
+		if (!empty($thold_data['cdef'])) {
+			// Use the CDEF explicitly configured on the threshold
+			$cdef = $thold_data['cdef'];
+		} else {
+			// Auto-detect a CDEF from the graph item for this data source
+			$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
+				FROM graph_templates_item AS gti
+				INNER JOIN data_template_rrd AS dtr
+				ON gti.task_item_id = dtr.id
+				WHERE local_graph_id = ?
+				AND dtr.id = ?
+				AND gti.graph_type_id IN (4, 5, 6, 7, 8, 20)
+				AND dtr.data_source_name = ?',
+				[$thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']]);
+		}
 	}
 
-	if ($cdef !== false && $cdef > 0 && $thold_data['data_type'] == 1) {
-		$thold_data['lastread']  = thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
-
+	if ($cdef !== false && $cdef > 0) {
+		// Note: lastread is already CDEF-transformed by thold_poller_output before
+		// being stored, so we must not apply the CDEF to it again here. We only
+		// transform the threshold values so the comparison is consistent.
 		if ($thold_data['thold_type'] == 0) {
 			$thold_data['thold_hi']  = thold_build_cdef($cdef, $thold_data['thold_hi'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 			$thold_data['thold_low'] = thold_build_cdef($cdef, $thold_data['thold_low'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
