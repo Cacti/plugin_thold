@@ -5279,6 +5279,40 @@ function thold_create_new_graph_from_template() {
  * @param mixed $number
  * @param mixed $field_name
  */
+/**
+ * SI suffixes thold accepts on a threshold bound, smallest first.
+ *
+ * thold_display_to_raw() and thold_raw_to_display() are inverses of each
+ * other, so they read the same table rather than each carrying their own
+ * copy. They previously disagreed: 'p' scaled by 1e-9 on the way in while
+ * 1e-12 rendered as 'f' on the way out, so a bound was divided by a thousand
+ * every time its form was opened and saved.
+ *
+ * @return array<string, float> Suffix to the factor it multiplies by.
+ */
+function thold_unit_suffixes() {
+	static $suffixes = [
+		'y' => 1e-24,
+		'z' => 1e-21,
+		'a' => 1e-18,
+		'f' => 1e-15,
+		'p' => 1e-12,
+		'n' => 1e-9,
+		'u' => 1e-6,
+		'm' => 1e-3,
+		'K' => 1e3,
+		'M' => 1e6,
+		'G' => 1e9,
+		'T' => 1e12,
+		'P' => 1e15,
+		'E' => 1e18,
+		'Z' => 1e21,
+		'Y' => 1e24,
+	];
+
+	return $suffixes;
+}
+
 function thold_display_to_raw($number, $field_name) {
 	$number = trim($number);
 
@@ -5291,96 +5325,19 @@ function thold_display_to_raw($number, $field_name) {
 		return $number;
 	}
 
-	$number = trim(substr($number, 0, -1));
+	$number   = trim(substr($number, 0, -1));
+	$suffixes = thold_unit_suffixes();
 
-	if (!is_numeric($number)) {
+	if (!is_numeric($number) || !isset($suffixes[$suffix])) {
 		$_SESSION['sess_error_fields'][$field_name] = $field_name;
 		raise_message(3);
 
 		return false;
 	}
 
-	switch($suffix) {
-		case 'f':
-			return $number * 1e-15;
-
-			break;
-		case 'p':
-			return $number * 1e-9;
-
-			break;
-		case 'u':
-			return $number * 1e-6;
-
-			break;
-		case 'm':
-			return $number * 1e-3;
-
-			break;
-		case 'K':
-			return $number * 1e3;
-
-			break;
-		case 'M':
-			return $number * 1e6;
-
-			break;
-		case 'G':
-			return $number * 1e9;
-
-			break;
-		case 'T':
-			return $number * 1e12;
-
-			break;
-		case 'P':
-			return $number * 1e15;
-
-			break;
-		case 'E':
-			return $number * 1e18;
-
-			break;
-		case 'Z':
-			return $number * 1e21;
-
-			break;
-		case 'Y':
-			return $number * 1e24;
-
-			break;
-		default:
-			$_SESSION['sess_error_fields'][$field_name] = $field_name;
-			raise_message(3);
-
-			return false;
-	}
+	return $number * $suffixes[$suffix];
 }
 
-/**
- * thold_display_to_raw - Converts a displayed number to a raw
- * numeric value.  This function converts number like '100M'
- * to the raw number 100,000,000, etc.
- *
- * Supported Units
- *
- * Unit  Expression
- * ----  -------------------------------------
- * f     Fermo (10e-12)
- * p     Pico  (10e-9)
- * u     Micro (10e-6)
- * m     Milli (10e-3)
- * K     Killo (10e3)
- * M     Mega  (10e6)
- * G     Giga  (10e9)
- * T     Terra (10e12)
- * P     Peta  (10e15)
- * E     Exa   (10e18)
- * Z     Zeta  (10e21)
- * Y     Yota  (10e24)
- *
- * @param mixed $number
- */
 function thold_raw_to_display($number) {
 	if ($number != '') {
 		$number = trim($number);
@@ -5394,42 +5351,26 @@ function thold_raw_to_display($number) {
 		return trim($number);
 	}
 
-	if ($number > 0) {
-		$multiplier = 1;
-	} else {
-		$multiplier = -1;
-	}
+	$multiplier = $number > 0 ? 1 : -1;
+	$number     = abs($number);
 
-	$number = abs($number);
+	// The largest scale that still leaves a value of one or more, where the
+	// empty suffix stands for a scale of one. Factors ascend, so the ratio
+	// falls monotonically and the last match is the one wanted.
+	$scales = thold_unit_suffixes();
+	$scales = array_slice($scales, 0, 8, true) + ['' => 1.0] + array_slice($scales, 8, null, true);
+
 	$suffix = '';
+	$factor = 1.0;
 
-	if ($number > 1) {
-		$pattern = 'KMGTPEZY';
-		$count   = 0;
-
-		while ($number >= 1e3) {
-			$count++;
-			$number /= 1e3;
-		}
-
-		if ($count > 0) {
-			$suffix = $pattern[$count - 1];
-		}
-	} else {
-		$pattern = 'mupf';
-		$count   = 0;
-
-		while ($number < 1) {
-			$count++;
-			$number *= 1e3;
-		}
-
-		if ($count > 0) {
-			$suffix = $pattern[$count - 1];
+	foreach ($scales as $candidate => $candidate_factor) {
+		if ($number / $candidate_factor >= 1) {
+			$suffix = $candidate;
+			$factor = $candidate_factor;
 		}
 	}
 
-	return trim(($number * $multiplier) . $suffix);
+	return trim((($number / $factor) * $multiplier) . $suffix);
 }
 
 function save_thold() {
