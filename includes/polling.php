@@ -75,13 +75,8 @@ function thold_poller_output(&$rrd_update_array) {
 
 	if ($local_data_ids != '') {
 		if (read_config_option('thold_daemon_enable') == 'on') {
-			$chunks = ceil(sizeof($rrd_update_array) / 50);
-
-			if ($chunks < 1) {
-				$chunks = 1;
-			}
-
-			$rrd_update_array_chunks = array_chunk($rrd_update_array, $chunks, true);
+			// array_chunk() takes the size of each chunk, not how many to make.
+			$rrd_update_array_chunks = array_chunk($rrd_update_array, 50, true);
 
 			foreach ($rrd_update_array_chunks as $rrd_update_array_chunk) {
 				$rrd_reindexed      = [];
@@ -271,7 +266,7 @@ function thold_check_all_thresholds() {
 						)
 					)
 				)
-				AND h.poller_id = 1 OR h.poller_id IS NULL
+				AND (h.poller_id = 1 OR h.poller_id IS NULL)
 				AND td.tcheck = 1
 				AND h.status = 3";
 		} else {
@@ -322,28 +317,28 @@ function thold_check_all_thresholds() {
 
 	$total_tholds = sizeof($tholds);
 
+	$checked = [];
+
 	foreach ($tholds as $thold) {
 		thold_check_threshold($thold);
+
+		$checked[] = (int) $thold['id'];
 	}
 
-	if (read_config_option('remote_storage_method') == 1) {
-		if ($config['poller_id'] == 1) {
-			db_execute('UPDATE thold_data AS td
-				LEFT JOIN host AS h
-				ON td.host_id = h.id
-				SET tcheck = 0
-				WHERE h.poller_id = 1
-				OR h.poller_id IS NULL');
-		} else {
-			db_execute_prepared('UPDATE thold_data AS td
-				INNER JOIN host AS h
-				ON td.host_id = h.id
-				SET td.tcheck = 0
-				WHERE h.poller_id = ?',
-				[$config['poller_id']]);
-		}
-	} else {
-		db_execute('UPDATE thold_data AS td SET td.tcheck = 0');
+	/*
+	 * Clear the dirty flag on what was evaluated, and nothing else. Clearing
+	 * by poller, or across the whole table, also cleared the thresholds whose
+	 * data arrived after the select above, so those readings were dropped
+	 * without ever being checked. The select already scopes to this poller,
+	 * so the identifiers carry that scoping with them.
+	 */
+	if (cacti_sizeof($checked)) {
+		$placeholders = implode(', ', array_fill(0, cacti_sizeof($checked), '?'));
+
+		db_execute_prepared('UPDATE thold_data
+			SET tcheck = 0
+			WHERE id IN (' . $placeholders . ')',
+			$checked);
 	}
 
 	return $total_tholds;
