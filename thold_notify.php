@@ -102,18 +102,14 @@ if (sizeof($parms)) {
 $start = microtime(true);
 
 // This is where we can parallelize
-if ($thread === false) {
+$collector  = ($thread === false);
+$pid        = 0;
+$total_rows = 0;
+
+if ($collector) {
 	thold_cli_debug('Thold Notification Main Collector Started');
 
 	$thread = 1;
-	$pid    = getmypid();
-
-	db_execute_prepared('UPDATE notification_queue
-		SET process_id = ?
-		WHERE event_processed = 0',
-		[$pid]);
-
-	$total_rows = db_affected_rows();
 } else {
 	thold_cli_debug("Thold Notification Child Thread $thread Started");
 }
@@ -122,30 +118,55 @@ $timeout = 9999999999;
 
 // kill any running services that have run outside of their timeout
 if (!register_process_start('thold_notify', 'child', $thread, $timeout)) {
-	$pid = db_fetch_cell_prepared('SELECT pid
+	$running_pid = db_fetch_cell_prepared('SELECT pid
 		FROM processes
 		WHERE tasktype = "thold_notify"
 		AND taskname = "child"
 		AND taskid = ?',
 		[$thread]);
 
-	if ($config['cacti_server_os'] == 'unix') {
-		if (function_exists('posix_getpgid')) {
-			$running = posix_getpgid($pid);
-		} elseif (function_exists('posix_kill')) {
-			$running = posix_kill($pid, 0);
-		}
-
-		if ($running) {
-			exit(1);
-		} else {
-			unregister_process('thold_notify', 'child', $thread);
-			register_process_start('thold_notify', 'child', $thread, $timeout);
-		}
+	if ($config['cacti_server_os'] == 'unix' && function_exists('posix_getpgid')) {
+		$running = posix_getpgid($running_pid);
+	} elseif ($config['cacti_server_os'] == 'unix' && function_exists('posix_kill')) {
+		$running = posix_kill($running_pid, 0);
+	} else {
+		/*
+		 * Without a way to ask whether the recorded process is alive, assume
+		 * it is. Carrying on regardless is what let a second instance run
+		 * beside the first and mail the same queue twice.
+		 */
+		$running = true;
 	}
+
+	if ($running) {
+		exit(1);
+	}
+
+	unregister_process('thold_notify', 'child', $thread);
+	register_process_start('thold_notify', 'child', $thread, $timeout);
 }
 
-thold_notification_execute();
+/*
+ * Claim the queue only once this instance is the registered one, and only the
+ * rows nobody else holds. Claiming before the registration above meant a
+ * second instance stamped its own identifier over the first instance's rows
+ * even in the case where it went on to exit.
+ */
+if ($collector) {
+	$pid = getmypid();
+
+	db_execute_prepared('UPDATE notification_queue
+		SET process_id = ?
+		WHERE event_processed = 0
+		AND process_id = 0',
+		[$pid]);
+
+	$total_rows = db_affected_rows();
+}
+
+// Drain only what was claimed. Passing nothing selected every unprocessed row,
+// so two overlapping runs both mailed the same notifications.
+thold_notification_execute($pid);
 
 $end = microtime(true);
 

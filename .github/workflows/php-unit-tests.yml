@@ -1,0 +1,92 @@
+# +-------------------------------------------------------------------------+
+# | Copyright (C) 2004-2026 The Cacti Group                                 |
+# |                                                                         |
+# | This program is free software; you can redistribute it and/or           |
+# | modify it under the terms of the GNU General Public License             |
+# | as published by the Free Software Foundation; either version 2          |
+# | of the License, or (at your option) any later version.                  |
+# |                                                                         |
+# | This program is distributed in the hope that it will be useful,         |
+# | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+# | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+# | GNU General Public License for more details.                            |
+# +-------------------------------------------------------------------------+
+# | Cacti: The Complete RRDtool-based Graphing Solution                     |
+# +-------------------------------------------------------------------------+
+# | This code is designed, written, and maintained by the Cacti Group. See  |
+# | about.php and/or the AUTHORS file for specific developer information.   |
+# +-------------------------------------------------------------------------+
+# | http://www.cacti.net/                                                   |
+# +-------------------------------------------------------------------------+
+
+
+name: PHP Unit Tests
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-test:
+    name: PHPUnit on PHP 8.1 (Docker)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Thold Plugin
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # patch-coverage.php diffs against the base branch.
+          fetch-depth: 0
+
+      # The image is the same one developers run locally via
+      # `composer test:docker`, so a green run here is reproducible off-CI.
+      - name: Build test image
+        run: docker build --tag cacti-thold-test:php8.1 --file tests/docker/Dockerfile tests/docker
+
+      - name: Validate composer.json
+        run: docker run --rm --volume "$PWD":/cacti/plugins/thold cacti-thold-test:php8.1 composer validate --strict --no-check-lock
+
+      - name: Install dependencies
+        run: docker run --rm --volume "$PWD":/cacti/plugins/thold cacti-thold-test:php8.1 composer install --no-progress --no-ansi
+
+      # Same scripts a developer runs locally, and the same names Cacti core uses.
+      - name: Lint every PHP source file
+        run: docker run --rm --volume "$PWD":/cacti/plugins/thold cacti-thold-test:php8.1 composer lint
+
+      - name: Run unit tests with coverage
+        run: |
+          docker run --rm --volume "$PWD":/cacti/plugins/thold cacti-thold-test:php8.1 \
+            composer test:coverage
+
+      # Whole-file coverage is meaningless here: most of the plugin only runs
+      # inside a live Cacti. What is enforceable is that a change covers the
+      # lines it adds.
+      - name: Enforce coverage of changed lines
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: origin/${{ github.base_ref }}
+        run: |
+          docker run --rm --volume "$PWD":/cacti/plugins/thold --env BASE_REF \
+            cacti-thold-test:php8.1 \
+            sh -c 'git config --global --add safe.directory /cacti/plugins/thold && php tests/bin/patch-coverage.php coverage/clover.xml "$BASE_REF" 100'
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: coverage
+          path: coverage/
+          if-no-files-found: warn
