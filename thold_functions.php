@@ -772,6 +772,30 @@ function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $c
 	}
 }
 
+/**
+ * Counts a wrapped counter has advanced by, given the previous and current
+ * readings.
+ *
+ * The modulus is 2^32 or 2^64, not one less than it, so the previous code lost
+ * exactly one count per wrap. 2^64 is above PHP_INT_MAX and would be parsed as
+ * a float, losing about eleven bits at that magnitude, so the 64-bit case goes
+ * through GMP. Cacti already requires ext-gmp.
+ *
+ * @param float|int|string $oldvalue Previous reading.
+ * @param float|int|string $newvalue Current reading.
+ *
+ * @return float|int
+ */
+function thold_counter_wrap_delta($oldvalue, $newvalue) {
+	if ($oldvalue > 4294967295) {
+		$delta = gmp_add(gmp_sub(gmp_pow(2, 64), gmp_init((string) $oldvalue, 10)), gmp_init((string) $newvalue, 10));
+
+		return (float) gmp_strval($delta);
+	}
+
+	return (4294967296 - $oldvalue) + $newvalue;
+}
+
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
 	// adjust the polling interval by the last read, if applicable
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
@@ -798,17 +822,14 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		if (isset($item[$thold_data['name']]) && is_numeric($item[$thold_data['name']])) {
 			switch ($thold_data['data_source_type_id']) {
 				case 2:	// COUNTER
-					if ($thold_data['oldvalue'] != 0 && is_numeric($thold_data['oldvalue'])) {
+					// A previous reading of zero is a real reading, not a missing one.
+					if (is_numeric($thold_data['oldvalue']) && $thold_data['oldvalue'] !== '') {
 						if ($item[$thold_data['name']] >= $thold_data['oldvalue']) {
 							// Everything is Normal
 							$currentval = $item[$thold_data['name']] - $thold_data['oldvalue'];
 						} else {
 							// Possible overflow, see if its 32bit or 64bit
-							if ($thold_data['oldvalue'] > 4294967295) {
-								$currentval = (18446744073709551615 - $thold_data['oldvalue']) + $item[$thold_data['name']];
-							} else {
-								$currentval = (4294967295 - $thold_data['oldvalue']) + $item[$thold_data['name']];
-							}
+							$currentval = thold_counter_wrap_delta($thold_data['oldvalue'], $item[$thold_data['name']]);
 						}
 
 						if (strpos($thold_data['rrd_maximum'], '|query_') !== false) {
@@ -1201,9 +1222,11 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 	}
 
 	if (isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
-		$t = (int) $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
+		// Not cast to int: a denominator below one truncated to zero, which
+		// forced the percentage to zero and kept a low threshold alerting.
+		$t = $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
 
-		if ($t > 0) {
+		if (is_numeric($t) && $t != 0) {
 			$currentval = ($currentval / $t) * 100;
 		} else {
 			$currentval = 0;
