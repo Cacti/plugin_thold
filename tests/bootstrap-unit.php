@@ -30,6 +30,7 @@
 $cacti_root = dirname(__DIR__, 3);
 $autoload   = $cacti_root . '/include/vendor/autoload.php';
 $version    = $cacti_root . '/include/cacti_version';
+$expected   = __DIR__ . '/.cacti-version';
 
 if (!is_readable($autoload)) {
 	throw new RuntimeException("Cacti Composer autoloader is not readable: $autoload");
@@ -39,10 +40,23 @@ if (!is_readable($version)) {
 	throw new RuntimeException("Cacti version file is not readable: $version");
 }
 
+if (!is_readable($expected)) {
+	throw new RuntimeException("Expected Cacti version file is not readable: $expected");
+}
+
 $cacti_version = trim((string) file_get_contents($version));
+$expected_version = trim((string) file_get_contents($expected));
 
 if ($cacti_version === '') {
 	throw new RuntimeException("Cacti version file is empty: $version");
+}
+
+if ($expected_version === '') {
+	throw new RuntimeException("Expected Cacti version file is empty: $expected");
+}
+
+if ($cacti_version !== $expected_version) {
+	throw new RuntimeException("Expected Cacti $expected_version, found $cacti_version in $version");
 }
 
 require_once $autoload;

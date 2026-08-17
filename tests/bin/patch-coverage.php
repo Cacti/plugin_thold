@@ -61,9 +61,9 @@ function changed_lines($base_ref) {
 	$output  = [];
 	$status  = 0;
 
-	exec($command, $output, $status);
+	$last_line = exec($command, $output, $status);
 
-	if ($status !== 0) {
+	if ($last_line === false || $status !== 0) {
 		fwrite(STDERR, "git diff failed\n");
 
 		exit(2);
