@@ -59,10 +59,10 @@ final class OptionalCoreFunctionTest extends TestCase {
 	 * @return array<string, array{0: string, 1: string}>
 	 */
 	public static function accessorProvider() {
-		return array(
-			'thresholds' => array('get_allowed_thresholds', 'thold'),
-			'logs'       => array('get_allowed_threshold_logs', 'thold_log'),
-		);
+		return [
+			'thresholds' => ['get_allowed_thresholds', 'thold'],
+			'logs'       => ['get_allowed_threshold_logs', 'thold_log'],
+		];
 	}
 
 	/**
@@ -83,7 +83,7 @@ final class OptionalCoreFunctionTest extends TestCase {
 		$function('', 'td.name', '', $total, -1, 0);
 
 		$this->assertSame(12, $total);
-		$this->assertSame(array(), CactiStub::callsTo('db_fetch_cell_prepared'));
+		$this->assertSame([], CactiStub::callsTo('db_fetch_cell_prepared'));
 	}
 
 	/**
@@ -98,7 +98,7 @@ final class OptionalCoreFunctionTest extends TestCase {
 		$total = 0;
 		$function('', 'td.name', '', $total, -1, 5);
 
-		$this->assertSame(array(), CactiStub::callsTo('get_total_row_data'));
+		$this->assertSame([], CactiStub::callsTo('get_total_row_data'));
 		$this->assertNotEmpty(CactiStub::callsTo('db_fetch_cell_prepared'));
 	}
 }

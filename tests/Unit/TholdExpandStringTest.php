@@ -32,25 +32,25 @@ final class TholdExpandStringTest extends TestCase {
 	/**
 	 * @return array<string, mixed>
 	 */
-	private function thresholdData(array $overrides = array()) {
-		return $overrides + array(
+	private function thresholdData(array $overrides = []) {
+		return $overrides + [
 			'local_graph_id'    => 7,
 			'local_data_id'     => 4,
 			'data_source_name'  => 'traffic_in',
 			'thold_template_id' => 0,
-		);
+		];
 	}
 
 	/**
 	 * @return void
 	 */
 	private function graphExists() {
-		CactiStub::willReturn('db_fetch_row_prepared', array(
+		CactiStub::willReturn('db_fetch_row_prepared', [
 			'id'            => 7,
 			'host_id'       => 2,
 			'snmp_query_id' => 3,
 			'snmp_index'    => '1',
-		));
+		]);
 	}
 
 	/**
@@ -109,7 +109,7 @@ final class TholdExpandStringTest extends TestCase {
 	 * @return void
 	 */
 	public function testTextIsReturnedUnchangedWhenTheGraphIsMissing(): void {
-		CactiStub::willReturn('db_fetch_row_prepared', array());
+		CactiStub::willReturn('db_fetch_row_prepared', []);
 
 		$this->assertSame('static text', thold_expand_string($this->thresholdData(), 'static text'));
 	}
@@ -124,7 +124,7 @@ final class TholdExpandStringTest extends TestCase {
 		$this->graphExists();
 		CactiStub::willReturn('db_fetch_cell_prepared', 'Suggested |data_source_name|');
 
-		$result = thold_expand_string($this->thresholdData(array('thold_template_id' => 5)), '');
+		$result = thold_expand_string($this->thresholdData(['thold_template_id' => 5]), '');
 
 		$this->assertSame('Suggested traffic_in', $result);
 	}
@@ -133,7 +133,7 @@ final class TholdExpandStringTest extends TestCase {
 	 * @return void
 	 */
 	public function testSurroundingWhitespaceIsTrimmed(): void {
-		CactiStub::willReturn('db_fetch_row_prepared', array());
+		CactiStub::willReturn('db_fetch_row_prepared', []);
 
 		$this->assertSame('alert', thold_expand_string($this->thresholdData(), '  alert  '));
 	}

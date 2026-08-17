@@ -34,10 +34,10 @@ final class GetAllowedThresholdsTest extends TestCase {
 	 * @return array<string, array{0: string}>
 	 */
 	public static function accessorProvider() {
-		return array(
-			'thresholds' => array('get_allowed_thresholds'),
-			'logs'       => array('get_allowed_threshold_logs'),
-		);
+		return [
+			'thresholds' => ['get_allowed_thresholds'],
+			'logs'       => ['get_allowed_threshold_logs'],
+		];
 	}
 
 	/**
@@ -55,7 +55,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 
 		$this->assertStringContainsString('gl.id = ?', $call['sql']);
 		$this->assertStringNotContainsString('42', $call['sql']);
-		$this->assertSame(array(42), $call['params']);
+		$this->assertSame([42], $call['params']);
 	}
 
 	/**
@@ -91,11 +91,11 @@ final class GetAllowedThresholdsTest extends TestCase {
 	 */
 	public function testCallerParametersAreBoundBeforeTheGraphIdParameter($function): void {
 		$total = 0;
-		$function('td.thold_type = ?', 'td.name', '', $total, -1, 7, array(3));
+		$function('td.thold_type = ?', 'td.name', '', $total, -1, 7, [3]);
 
 		$call = CactiStub::callsTo('db_fetch_assoc_prepared')[0];
 
-		$this->assertSame(array(3, 7), $call['params']);
+		$this->assertSame([3, 7], $call['params']);
 		$this->assertStringContainsString('td.thold_type = ? AND  gl.id = ?', $call['sql']);
 	}
 
@@ -113,7 +113,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 		$call = CactiStub::callsTo('db_fetch_assoc_prepared')[0];
 
 		$this->assertStringNotContainsString('WHERE', $call['sql']);
-		$this->assertSame(array(), $call['params']);
+		$this->assertSame([], $call['params']);
 	}
 
 	/**
@@ -128,11 +128,11 @@ final class GetAllowedThresholdsTest extends TestCase {
 	 */
 	public function testRowCountQueryBindsTheSameParameters($function): void {
 		$total = 0;
-		$function('td.thold_type = ?', 'td.name', '', $total, -1, 7, array(3));
+		$function('td.thold_type = ?', 'td.name', '', $total, -1, 7, [3]);
 
 		$count = CactiStub::callsTo('db_fetch_cell_prepared')[0];
 
-		$this->assertSame(array(3, 7), $count['params']);
+		$this->assertSame([3, 7], $count['params']);
 	}
 
 	/**
@@ -160,12 +160,12 @@ final class GetAllowedThresholdsTest extends TestCase {
 	 * @return void
 	 */
 	public function testResultRowsAreReturnedToTheCaller($function): void {
-		CactiStub::willReturn('db_fetch_assoc_prepared', array(array('id' => 5)));
+		CactiStub::willReturn('db_fetch_assoc_prepared', [['id' => 5]]);
 
 		$total = 0;
 		$rows  = $function('', 'td.name', '', $total, -1, 0);
 
-		$this->assertSame(array(array('id' => 5)), $rows);
+		$this->assertSame([['id' => 5]], $rows);
 	}
 
 	/**
@@ -201,8 +201,8 @@ final class GetAllowedThresholdsTest extends TestCase {
 		$total = 0;
 		$rows  = $function('', 'td.name', '', $total, 0, 0);
 
-		$this->assertSame(array(), $rows);
-		$this->assertSame(array(), CactiStub::callsTo('db_fetch_assoc_prepared'));
+		$this->assertSame([], $rows);
+		$this->assertSame([], CactiStub::callsTo('db_fetch_assoc_prepared'));
 	}
 
 	/**

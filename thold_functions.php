@@ -381,7 +381,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 				cacti_log('ERROR: RPN value: v2 "' . $v2 . '" is Not valid for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
-				/* A counter that has not moved divides to zero rather than erroring. */
+				// A counter that has not moved divides to zero rather than erroring.
 				$v3         = 0;
 				$rpn_evaled = true;
 			} elseif ($v1 == 0 && ($operator == '/' || $operator == '%')) {
@@ -4124,7 +4124,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		$queue            = read_config_option('thold_notification_queue');
 
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
-			/* Expand before the tags, so quoting is applied to the final text. */
+			// Expand before the tags, so quoting is applied to the final text.
 			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_high']);
 
 			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
@@ -4146,7 +4146,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
-			/* Expand before the tags, so quoting is applied to the final text. */
+			// Expand before the tags, so quoting is applied to the final text.
 			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_low']);
 
 			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
@@ -4168,7 +4168,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
-			/* Expand before the tags, so quoting is applied to the final text. */
+			// Expand before the tags, so quoting is applied to the final text.
 			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_norm']);
 
 			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
@@ -4409,7 +4409,7 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	$text = thold_str_replace('<DATE_RFC822>',   date(DATE_RFC822), $text);
 
 	if ($shell) {
-		/* An anchor in a command line would be parsed as redirections, so a trigger command gets the bare URL. */
+		// An anchor in a command line would be parsed as redirections, so a trigger command gets the bare URL.
 		$text = thold_str_replace('<URL>', $esc("$httpurl/graph.php?local_graph_id=$local_graph_id"), $text);
 	} else {
 		$text = thold_str_replace('<URL>', "<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . '</a>', $text);

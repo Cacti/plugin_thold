@@ -43,8 +43,8 @@ final class TholdSetEnvironTest extends TestCase {
 	/**
 	 * @return array<string, mixed>
 	 */
-	private function threshold(array $overrides = array()) {
-		return $overrides + array(
+	private function threshold(array $overrides = []) {
+		return $overrides + [
 			'id'                 => 3,
 			'local_data_id'      => 4,
 			'local_graph_id'     => 7,
@@ -60,14 +60,14 @@ final class TholdSetEnvironTest extends TestCase {
 			'time_low'           => 20,
 			'time_fail_trigger'  => 2,
 			'time_fail_length'   => 300,
-		);
+		];
 	}
 
 	/**
 	 * @return array<string, mixed>
 	 */
-	private function device(array $overrides = array()) {
-		return $overrides + array(
+	private function device(array $overrides = []) {
+		return $overrides + [
 			'description'       => 'router1',
 			'hostname'          => '10.0.0.1',
 			'location'          => 'rack 4',
@@ -76,7 +76,7 @@ final class TholdSetEnvironTest extends TestCase {
 			'status_fail_date'  => '2026-01-01 00:00:00',
 			'status_rec_date'   => '2026-01-02 00:00:00',
 			'status_last_error' => '',
-		);
+		];
 	}
 
 	/**
@@ -89,10 +89,10 @@ final class TholdSetEnvironTest extends TestCase {
 	 */
 	private function environment(array $thold, array $device) {
 		$pairs = thold_set_environ('', $thold, $device, 42, 7, 'traffic_in');
-		$map   = array();
+		$map   = [];
 
 		foreach ($pairs as $pair) {
-			list($name, $value) = explode('=', $pair, 2);
+			[$name, $value] = explode('=', $pair, 2);
 
 			$map[$name] = $value;
 		}
@@ -122,7 +122,7 @@ final class TholdSetEnvironTest extends TestCase {
 	 */
 	public function testEachCallStartsFromAnEmptyEnvironment(): void {
 		$this->environment($this->threshold(), $this->device());
-		$env = $this->environment($this->threshold(array('id' => 9)), $this->device());
+		$env = $this->environment($this->threshold(['id' => 9]), $this->device());
 
 		$this->assertSame('9', $env['THOLD_ID']);
 		$this->assertCount(1, array_keys(array_filter(array_keys($env), function ($name) {
@@ -146,7 +146,7 @@ final class TholdSetEnvironTest extends TestCase {
 	 * @return void
 	 */
 	public function testTimeBasedThresholdExportsTheTimeBoundsAndADuration(): void {
-		$env = $this->environment($this->threshold(array('thold_type' => 2)), $this->device());
+		$env = $this->environment($this->threshold(['thold_type' => 2]), $this->device());
 
 		$this->assertSame('80', $env['THOLD_HI']);
 		$this->assertSame('20', $env['THOLD_LOW']);
@@ -158,7 +158,7 @@ final class TholdSetEnvironTest extends TestCase {
 	 * @return void
 	 */
 	public function testBaselineThresholdExportsEmptyBounds(): void {
-		$env = $this->environment($this->threshold(array('thold_type' => 1)), $this->device());
+		$env = $this->environment($this->threshold(['thold_type' => 1]), $this->device());
 
 		$this->assertSame('', $env['THOLD_HI']);
 		$this->assertSame('', $env['THOLD_LOW']);
@@ -170,7 +170,7 @@ final class TholdSetEnvironTest extends TestCase {
 	 * @return void
 	 */
 	public function testNotesAreTagExpandedWhenPresent(): void {
-		$env = $this->environment($this->threshold(array('notes' => 'see <HOSTNAME>')), $this->device());
+		$env = $this->environment($this->threshold(['notes' => 'see <HOSTNAME>']), $this->device());
 
 		$this->assertSame('see 10.0.0.1', $env['THOLD_NOTES']);
 	}
@@ -191,7 +191,7 @@ final class TholdSetEnvironTest extends TestCase {
 		$env = $this->environment($this->threshold(), $this->device());
 		$this->assertArrayNotHasKey('THOLD_EXTERNAL_ID', $env);
 
-		$env = $this->environment($this->threshold(array('external_id' => 'INC-42')), $this->device());
+		$env = $this->environment($this->threshold(['external_id' => 'INC-42']), $this->device());
 		$this->assertSame('INC-42', $env['THOLD_EXTERNAL_ID']);
 	}
 
@@ -199,7 +199,7 @@ final class TholdSetEnvironTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnknownThresholdTypeExportsAnEmptyTypeName(): void {
-		$env = $this->environment($this->threshold(array('thold_type' => 99)), $this->device());
+		$env = $this->environment($this->threshold(['thold_type' => 99]), $this->device());
 
 		$this->assertSame('', $env['THOLD_THOLDTYPE']);
 	}

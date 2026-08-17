@@ -190,7 +190,7 @@ function form_actions() {
 					 * siblings carry: a soft-deleted device that is later restored must
 					 * not come back pointing at a list that no longer exists.
 					 */
-					$statements = array(
+					$statements = [
 						'DELETE FROM plugin_notification_lists WHERE id IN (' . $placeholders . ')',
 						'UPDATE host SET thold_send_email = 0 WHERE thold_send_email = 2 AND deleted = "" AND thold_host_email IN (' . $placeholders . ')',
 						'UPDATE host SET thold_send_email = 1 WHERE thold_send_email = 3 AND deleted = "" AND thold_host_email IN (' . $placeholders . ')',
@@ -199,7 +199,7 @@ function form_actions() {
 						'UPDATE thold_data SET notify_alert = 0 WHERE notify_alert IN (' . $placeholders . ')',
 						'UPDATE thold_template SET notify_warning = 0 WHERE notify_warning IN (' . $placeholders . ')',
 						'UPDATE thold_template SET notify_alert = 0 WHERE notify_alert IN (' . $placeholders . ')'
-					);
+					];
 
 					$ok = true;
 

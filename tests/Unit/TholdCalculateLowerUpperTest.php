@@ -31,8 +31,8 @@ final class TholdCalculateLowerUpperTest extends TestCase {
 	 * @return void
 	 */
 	public function testHighWordIsShiftedAndCombinedWithTheLowWord(): void {
-		$thold = array('upper_ds' => 'octets_hi', 'local_data_id' => 4);
-		$rrd   = array(4 => array('octets_hi' => 2));
+		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
+		$rrd   = [4 => ['octets_hi' => 2]];
 
 		$this->assertSame((2 << 32) + 100, thold_calculate_lower_upper($thold, 100, $rrd));
 	}
@@ -41,8 +41,8 @@ final class TholdCalculateLowerUpperTest extends TestCase {
 	 * @return void
 	 */
 	public function testValuePassesThroughWhenTheHighWordIsAbsent(): void {
-		$thold = array('upper_ds' => 'octets_hi', 'local_data_id' => 4);
-		$rrd   = array(4 => array('octets_lo' => 5));
+		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
+		$rrd   = [4 => ['octets_lo' => 5]];
 
 		$this->assertSame(100, thold_calculate_lower_upper($thold, 100, $rrd));
 	}
@@ -51,17 +51,17 @@ final class TholdCalculateLowerUpperTest extends TestCase {
 	 * @return void
 	 */
 	public function testValuePassesThroughWhenTheDataSourceHasNoReadings(): void {
-		$thold = array('upper_ds' => 'octets_hi', 'local_data_id' => 4);
+		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
 
-		$this->assertSame(100, thold_calculate_lower_upper($thold, 100, array()));
+		$this->assertSame(100, thold_calculate_lower_upper($thold, 100, []));
 	}
 
 	/**
 	 * @return void
 	 */
 	public function testHighWordOfZeroLeavesTheValueUnchanged(): void {
-		$thold = array('upper_ds' => 'octets_hi', 'local_data_id' => 4);
-		$rrd   = array(4 => array('octets_hi' => 0));
+		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
+		$rrd   = [4 => ['octets_hi' => 0]];
 
 		$this->assertSame(100, thold_calculate_lower_upper($thold, 100, $rrd));
 	}

@@ -30,10 +30,10 @@ final class TholdGetCachedNameTest extends TestCase {
 	 * @return void
 	 */
 	public function testCachedNameIsReturnedWithoutQueryingTheDatabase(): void {
-		$thold = array('name' => '|data_source_description|', 'name_cache' => 'CPU load', 'local_data_id' => 4);
+		$thold = ['name' => '|data_source_description|', 'name_cache' => 'CPU load', 'local_data_id' => 4];
 
 		$this->assertSame('CPU load', thold_get_cached_name($thold));
-		$this->assertSame(array(), CactiStub::callsTo('db_fetch_cell_prepared'));
+		$this->assertSame([], CactiStub::callsTo('db_fetch_cell_prepared'));
 	}
 
 	/**
@@ -42,7 +42,7 @@ final class TholdGetCachedNameTest extends TestCase {
 	public function testEmptyCacheIsFilledFromTheDataSourceDescription(): void {
 		CactiStub::willReturn('db_fetch_cell_prepared', 'Router - Traffic');
 
-		$thold = array('name' => '|data_source_description|', 'name_cache' => '', 'local_data_id' => 4);
+		$thold = ['name' => '|data_source_description|', 'name_cache' => '', 'local_data_id' => 4];
 
 		$this->assertSame('Router - Traffic', thold_get_cached_name($thold));
 		$this->assertSame('Router - Traffic', $thold['name_cache']);
@@ -52,7 +52,7 @@ final class TholdGetCachedNameTest extends TestCase {
 	 * @return void
 	 */
 	public function testNameIsKeptWhenTheDataSourceHasNoDescription(): void {
-		$thold = array('name' => 'Manual name', 'name_cache' => '', 'local_data_id' => 4);
+		$thold = ['name' => 'Manual name', 'name_cache' => '', 'local_data_id' => 4];
 
 		$this->assertSame('Manual name', thold_get_cached_name($thold));
 	}

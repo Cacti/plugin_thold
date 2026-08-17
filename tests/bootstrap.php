@@ -33,17 +33,17 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
  * base_path has to point at the Cacti root two levels above this plugin:
  * thold_functions.php builds include paths from it at runtime.
  */
-$GLOBALS['config'] = array(
-	'base_path'     => dirname(dirname(dirname(__DIR__))),
-	'url_path'      => '/cacti/',
-	'cacti_version' => '1.2.31',
+$GLOBALS['config'] = [
+	'base_path'       => dirname(dirname(dirname(__DIR__))),
+	'url_path'        => '/cacti/',
+	'cacti_version'   => '1.2.31',
 	'cacti_server_os' => 'unix',
-);
+];
 
-/* thold_expand_string() include_once()s library_path/variables.php at call time. */
+// thold_expand_string() include_once()s library_path/variables.php at call time.
 $GLOBALS['config']['library_path'] = __DIR__ . '/fixtures/cacti-lib';
 
-/* thold reads and writes this on every RPN evaluation. */
+// thold reads and writes this on every RPN evaluation.
 $GLOBALS['rpn_error'] = false;
 
 if (!function_exists('db_execute')) {
@@ -55,7 +55,7 @@ if (!function_exists('db_execute')) {
 }
 
 if (!function_exists('db_execute_prepared')) {
-	function db_execute_prepared($sql, $params = array(), $log = true, $db_conn = false) {
+	function db_execute_prepared($sql, $params = [], $log = true, $db_conn = false) {
 		CactiStub::record('db_execute_prepared', $sql, $params);
 
 		return CactiStub::nextReturn('db_execute_prepared', true);
@@ -66,15 +66,15 @@ if (!function_exists('db_fetch_assoc')) {
 	function db_fetch_assoc($sql, $log = true, $db_conn = false) {
 		CactiStub::record('db_fetch_assoc', $sql);
 
-		return CactiStub::nextReturn('db_fetch_assoc', array());
+		return CactiStub::nextReturn('db_fetch_assoc', []);
 	}
 }
 
 if (!function_exists('db_fetch_assoc_prepared')) {
-	function db_fetch_assoc_prepared($sql, $params = array(), $log = true, $db_conn = false) {
+	function db_fetch_assoc_prepared($sql, $params = [], $log = true, $db_conn = false) {
 		CactiStub::record('db_fetch_assoc_prepared', $sql, $params);
 
-		return CactiStub::nextReturn('db_fetch_assoc_prepared', array());
+		return CactiStub::nextReturn('db_fetch_assoc_prepared', []);
 	}
 }
 
@@ -82,15 +82,15 @@ if (!function_exists('db_fetch_row')) {
 	function db_fetch_row($sql, $log = true, $db_conn = false) {
 		CactiStub::record('db_fetch_row', $sql);
 
-		return CactiStub::nextReturn('db_fetch_row', array());
+		return CactiStub::nextReturn('db_fetch_row', []);
 	}
 }
 
 if (!function_exists('db_fetch_row_prepared')) {
-	function db_fetch_row_prepared($sql, $params = array(), $log = true, $db_conn = false) {
+	function db_fetch_row_prepared($sql, $params = [], $log = true, $db_conn = false) {
 		CactiStub::record('db_fetch_row_prepared', $sql, $params);
 
-		return CactiStub::nextReturn('db_fetch_row_prepared', array());
+		return CactiStub::nextReturn('db_fetch_row_prepared', []);
 	}
 }
 
@@ -103,7 +103,7 @@ if (!function_exists('db_fetch_cell')) {
 }
 
 if (!function_exists('db_fetch_cell_prepared')) {
-	function db_fetch_cell_prepared($sql, $params = array(), $col_name = '', $log = true, $db_conn = false) {
+	function db_fetch_cell_prepared($sql, $params = [], $col_name = '', $log = true, $db_conn = false) {
 		CactiStub::record('db_fetch_cell_prepared', $sql, $params);
 
 		return CactiStub::nextReturn('db_fetch_cell_prepared', '');
@@ -156,7 +156,7 @@ if (!function_exists('sanitize_unserialize_selected_items')) {
 			return false;
 		}
 
-		$data = unserialize($items, array('allowed_classes' => false)); // nosemgrep: php.lang.security.unserialize-use.unserialize-use -- test stub mirroring Cacti core; allowed_classes:false blocks object injection
+		$data = unserialize($items, ['allowed_classes' => false]); // nosemgrep: php.lang.security.unserialize-use.unserialize-use -- test stub mirroring Cacti core; allowed_classes:false blocks object injection
 
 		if (!is_array($data)) {
 			return false;
@@ -188,8 +188,8 @@ if (!function_exists('__')) {
 	function __($text) {
 		$args = array_slice(func_get_args(), 1);
 
-		/* Cacti's __() accepts sprintf arguments after the format string. */
-		return $args === array() ? $text : vsprintf($text, $args);
+		// Cacti's __() accepts sprintf arguments after the format string.
+		return $args === [] ? $text : vsprintf($text, $args);
 	}
 }
 
@@ -230,7 +230,7 @@ if (!function_exists('get_nfilter_request_var')) {
 }
 
 if (!function_exists('get_filter_request_var')) {
-	function get_filter_request_var($name, $filter = FILTER_VALIDATE_INT, $options = array()) {
+	function get_filter_request_var($name, $filter = FILTER_VALIDATE_INT, $options = []) {
 		return get_request_var($name);
 	}
 }
@@ -261,7 +261,7 @@ if (!function_exists('get_simple_graph_perms')) {
 
 if (!function_exists('get_policies')) {
 	function get_policies($user_id) {
-		return CactiStub::nextReturn('get_policies', array());
+		return CactiStub::nextReturn('get_policies', []);
 	}
 }
 
@@ -309,8 +309,8 @@ if (!defined('FILTER_VALIDATE_IS_REGEX')) {
 	define('FILTER_VALIDATE_IS_REGEX', 99999);
 }
 
-/* Device states, from Cacti include/global_constants.php. */
-foreach (array('HOST_UNKNOWN' => 0, 'HOST_DOWN' => 1, 'HOST_RECOVERING' => 2, 'HOST_UP' => 3, 'HOST_ERROR' => 4) as $name => $value) {
+// Device states, from Cacti include/global_constants.php.
+foreach (['HOST_UNKNOWN' => 0, 'HOST_DOWN' => 1, 'HOST_RECOVERING' => 2, 'HOST_UP' => 3, 'HOST_ERROR' => 4] as $name => $value) {
 	if (!defined($name)) {
 		define($name, $value);
 	}

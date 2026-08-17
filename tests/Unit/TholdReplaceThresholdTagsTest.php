@@ -29,15 +29,15 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	public static function setUpBeforeClass(): void {
 		self::loadPluginSource('thold_functions.php');
 
-		/* Defines $thold_types, which the <THOLDTYPE> substitution reads. */
+		// Defines $thold_types, which the <THOLDTYPE> substitution reads.
 		self::loadPluginSource('includes/arrays.php');
 	}
 
 	/**
 	 * @return array<string, mixed>
 	 */
-	private function threshold(array $overrides = array()) {
-		return $overrides + array(
+	private function threshold(array $overrides = []) {
+		return $overrides + [
 			'id'                 => 1,
 			'name_cache'         => 'CPU',
 			'notes'              => '',
@@ -52,19 +52,19 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 			'time_fail_trigger'  => 2,
 			'time_fail_length'   => 300,
 			'local_data_id'      => 4,
-		);
+		];
 	}
 
 	/**
 	 * @return array<string, mixed>
 	 */
-	private function device(array $overrides = array()) {
-		return $overrides + array(
+	private function device(array $overrides = []) {
+		return $overrides + [
 			'description' => 'router1',
 			'hostname'    => '10.0.0.1',
 			'location'    => 'rack 4',
 			'site_id'     => 1,
-		);
+		];
 	}
 
 	/**
@@ -86,15 +86,15 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return array<string, array{0: string, 1: string, 2: string}>
 	 */
 	public static function deviceDerivedTagProvider() {
-		return array(
-			'description' => array('<DESCRIPTION>', 'description', 'device'),
-			'hostname'    => array('<HOSTNAME>', 'hostname', 'device'),
-			'location'    => array('<LOCATION>', 'location', 'device'),
-			'notes'       => array('<NOTES>', 'notes', 'threshold'),
-			'device note' => array('<DEVICENOTE>', 'dnotes', 'threshold'),
-			'external id' => array('<EXTERNALID>', 'external_id', 'threshold'),
-			'name'        => array('<THRESHOLDNAME>', 'name_cache', 'threshold'),
-		);
+		return [
+			'description' => ['<DESCRIPTION>', 'description', 'device'],
+			'hostname'    => ['<HOSTNAME>', 'hostname', 'device'],
+			'location'    => ['<LOCATION>', 'location', 'device'],
+			'notes'       => ['<NOTES>', 'notes', 'threshold'],
+			'device note' => ['<DEVICENOTE>', 'dnotes', 'threshold'],
+			'external id' => ['<EXTERNALID>', 'external_id', 'threshold'],
+			'name'        => ['<THRESHOLDNAME>', 'name_cache', 'threshold'],
+		];
 	}
 
 	/**
@@ -108,13 +108,13 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 */
 	public function testShellModeQuotesEveryDeviceDerivedTag($tag, $column, $source): void {
 		$payload = '; touch /tmp/pwned';
-		$thold   = $this->threshold($source === 'threshold' ? array($column => $payload) : array());
-		$device  = $this->device($source === 'device' ? array($column => $payload) : array());
+		$thold   = $this->threshold($source === 'threshold' ? [$column => $payload] : []);
+		$device  = $this->device($source === 'device' ? [$column => $payload] : []);
 
 		$result = $this->substitute("/usr/bin/alert $tag", $thold, $device, true);
 
 		$this->assertStringContainsString(escapeshellarg($payload), $result);
-		$this->assertStringNotContainsString("alert ; touch", $result);
+		$this->assertStringNotContainsString('alert ; touch', $result);
 	}
 
 	/**
@@ -127,8 +127,8 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return void
 	 */
 	public function testEmailModeLeavesDeviceDerivedTagsUnquoted($tag, $column, $source): void {
-		$thold  = $this->threshold($source === 'threshold' ? array($column => "O'Brien") : array());
-		$device = $this->device($source === 'device' ? array($column => "O'Brien") : array());
+		$thold  = $this->threshold($source === 'threshold' ? [$column => "O'Brien"] : []);
+		$device = $this->device($source === 'device' ? [$column => "O'Brien"] : []);
 
 		$result = $this->substitute("Alert on $tag", $thold, $device, false);
 
@@ -187,7 +187,7 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return void
 	 */
 	public function testGraphAndThresholdIdentifiersAreSubstituted(): void {
-		$result = $this->substitute('<GRAPHID>/<THOLD_ID>', $this->threshold(array('id' => 5)), $this->device(), false);
+		$result = $this->substitute('<GRAPHID>/<THOLD_ID>', $this->threshold(['id' => 5]), $this->device(), false);
 
 		$this->assertSame('7/5', $result);
 	}
@@ -208,7 +208,7 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return void
 	 */
 	public function testTimeBasedThresholdSubstitutesTheTimeBounds(): void {
-		$result = $this->substitute('[<HI>][<LOW>][<TRIGGER>]', $this->threshold(array('thold_type' => 2)), $this->device(), false);
+		$result = $this->substitute('[<HI>][<LOW>][<TRIGGER>]', $this->threshold(['thold_type' => 2]), $this->device(), false);
 
 		$this->assertSame('[80][20][2]', $result);
 	}
@@ -220,7 +220,7 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return void
 	 */
 	public function testBaselineThresholdClearsTheBoundTags(): void {
-		$result = $this->substitute('[<HI>][<LOW>][<TRIGGER>][<DURATION>]', $this->threshold(array('thold_type' => 1)), $this->device(), false);
+		$result = $this->substitute('[<HI>][<LOW>][<TRIGGER>][<DURATION>]', $this->threshold(['thold_type' => 1]), $this->device(), false);
 
 		$this->assertSame('[][][][]', $result);
 	}
@@ -258,7 +258,7 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnknownThresholdTypeLeavesTheTagInPlace(): void {
-		$result = $this->substitute('<THOLDTYPE>', $this->threshold(array('thold_type' => 99)), $this->device(), false);
+		$result = $this->substitute('<THOLDTYPE>', $this->threshold(['thold_type' => 99]), $this->device(), false);
 
 		$this->assertSame('<THOLDTYPE>', $result);
 	}

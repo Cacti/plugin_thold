@@ -43,8 +43,8 @@ final class TholdCommandExecutionTest extends TestCase {
 	/**
 	 * @return array<string, mixed>
 	 */
-	private function threshold(array $overrides = array()) {
-		return $overrides + array(
+	private function threshold(array $overrides = []) {
+		return $overrides + [
 			'id'                 => 3,
 			'local_data_id'      => 4,
 			'local_graph_id'     => 7,
@@ -63,14 +63,14 @@ final class TholdCommandExecutionTest extends TestCase {
 			'trigger_cmd_high'   => '',
 			'trigger_cmd_low'    => '',
 			'trigger_cmd_norm'   => '',
-		);
+		];
 	}
 
 	/**
 	 * @return array<string, mixed>
 	 */
-	private function device(array $overrides = array()) {
-		return $overrides + array(
+	private function device(array $overrides = []) {
+		return $overrides + [
 			'id'                => 2,
 			'description'       => 'router1',
 			'hostname'          => '10.0.0.1',
@@ -80,7 +80,7 @@ final class TholdCommandExecutionTest extends TestCase {
 			'status_fail_date'  => '2026-01-01 00:00:00',
 			'status_rec_date'   => '2026-01-02 00:00:00',
 			'status_last_error' => '',
-		);
+		];
 	}
 
 	/**
@@ -106,23 +106,23 @@ final class TholdCommandExecutionTest extends TestCase {
 	 * @return array<string, array{0: string, 1: array<int, bool>}>
 	 */
 	public static function breachDirectionProvider() {
-		return array(
-			'high'    => array('trigger_cmd_high', array(true, false, false)),
-			'low'     => array('trigger_cmd_low', array(false, true, false)),
-			'restore' => array('trigger_cmd_norm', array(false, false, true)),
-		);
+		return [
+			'high'    => ['trigger_cmd_high', [true, false, false]],
+			'low'     => ['trigger_cmd_low', [false, true, false]],
+			'restore' => ['trigger_cmd_norm', [false, false, true]],
+		];
 	}
 
 	/**
 	 * @dataProvider breachDirectionProvider
 	 *
-	 * @param string            $column
-	 * @param array<int, bool>  $breaches
+	 * @param string           $column
+	 * @param array<int, bool> $breaches
 	 *
 	 * @return void
 	 */
 	public function testEachBreachDirectionRunsItsOwnCommand($column, array $breaches): void {
-		$thold  = $this->threshold(array($column => '/usr/bin/alert <HOSTNAME>'));
+		$thold  = $this->threshold([$column => '/usr/bin/alert <HOSTNAME>']);
 		$device = $this->device();
 
 		thold_command_execution($thold, $device, $breaches[0], $breaches[1], $breaches[2]);
@@ -139,8 +139,8 @@ final class TholdCommandExecutionTest extends TestCase {
 	 * @return void
 	 */
 	public function testShellMetacharactersInDeviceDataAreQuoted($column, array $breaches): void {
-		$thold  = $this->threshold(array($column => '/usr/bin/alert <DESCRIPTION>'));
-		$device = $this->device(array('description' => '; touch /tmp/pwned'));
+		$thold  = $this->threshold([$column => '/usr/bin/alert <DESCRIPTION>']);
+		$device = $this->device(['description' => '; touch /tmp/pwned']);
 
 		thold_command_execution($thold, $device, $breaches[0], $breaches[1], $breaches[2]);
 
@@ -153,7 +153,7 @@ final class TholdCommandExecutionTest extends TestCase {
 	public function testNothingRunsWhenScriptsAreDisabled(): void {
 		CactiStub::$configOptions['thold_enable_scripts'] = '';
 
-		$thold  = $this->threshold(array('trigger_cmd_high' => '/usr/bin/alert'));
+		$thold  = $this->threshold(['trigger_cmd_high' => '/usr/bin/alert']);
 		$device = $this->device();
 
 		thold_command_execution($thold, $device, true, false, false);
@@ -180,10 +180,10 @@ final class TholdCommandExecutionTest extends TestCase {
 	 * @return void
 	 */
 	public function testHighBreachTakesPrecedenceOverLow(): void {
-		$thold = $this->threshold(array(
+		$thold = $this->threshold([
 			'trigger_cmd_high' => '/usr/bin/high',
 			'trigger_cmd_low'  => '/usr/bin/low',
-		));
+		]);
 		$device = $this->device();
 
 		thold_command_execution($thold, $device, true, true, false);
@@ -205,7 +205,7 @@ final class TholdCommandExecutionTest extends TestCase {
 	public function testInlineExecutionLogsTheCommandOutput($column, array $breaches): void {
 		CactiStub::$configOptions['thold_notification_queue'] = '';
 
-		$thold  = $this->threshold(array($column => '/bin/echo breach'));
+		$thold  = $this->threshold([$column => '/bin/echo breach']);
 		$device = $this->device();
 
 		thold_command_execution($thold, $device, $breaches[0], $breaches[1], $breaches[2]);
@@ -218,12 +218,12 @@ final class TholdCommandExecutionTest extends TestCase {
 	 * @return array<string, array{0: string, 1: string}>
 	 */
 	public static function inlineOutcomeProvider() {
-		return array(
-			'success without output' => array('/bin/true', 'NOTE'),
-			'success with output'    => array('/bin/echo ok', 'NOTE'),
-			'failure without output' => array('/bin/false', 'WARNING'),
-			'failure with output'    => array("/bin/sh -c 'echo oops; exit 1'", 'WARNING'),
-		);
+		return [
+			'success without output' => ['/bin/true', 'NOTE'],
+			'success with output'    => ['/bin/echo ok', 'NOTE'],
+			'failure without output' => ['/bin/false', 'WARNING'],
+			'failure with output'    => ["/bin/sh -c 'echo oops; exit 1'", 'WARNING'],
+		];
 	}
 
 	/**
@@ -240,7 +240,7 @@ final class TholdCommandExecutionTest extends TestCase {
 	public function testInlineExecutionLogsTheExitStatus($command, $level): void {
 		CactiStub::$configOptions['thold_notification_queue'] = '';
 
-		$thold  = $this->threshold(array('trigger_cmd_high' => $command));
+		$thold  = $this->threshold(['trigger_cmd_high' => $command]);
 		$device = $this->device();
 
 		thold_command_execution($thold, $device, true, false, false);

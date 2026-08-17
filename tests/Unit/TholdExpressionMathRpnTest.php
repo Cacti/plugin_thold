@@ -48,16 +48,16 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return array<string, array{0: array<int, mixed>, 1: string, 2: float|int}>
 	 */
 	public static function binaryOperatorProvider() {
-		return array(
-			'addition'                 => array(array(8, 2), '+', 10),
-			'subtraction keeps order'  => array(array(8, 2), '-', 6),
-			'multiplication'           => array(array(8, 2), '*', 16),
-			'division keeps order'     => array(array(8, 2), '/', 4),
-			'modulo'                   => array(array(8, 3), '%', 2),
-			'float addition'           => array(array(1.5, 2.25), '+', 3.75),
-			'numeric string operands'  => array(array('8', '2'), '-', 6),
-			'negative operands'        => array(array(-8, 2), '/', -4),
-		);
+		return [
+			'addition'                 => [[8, 2], '+', 10],
+			'subtraction keeps order'  => [[8, 2], '-', 6],
+			'multiplication'           => [[8, 2], '*', 16],
+			'division keeps order'     => [[8, 2], '/', 4],
+			'modulo'                   => [[8, 3], '%', 2],
+			'float addition'           => [[1.5, 2.25], '+', 3.75],
+			'numeric string operands'  => [['8', '2'], '-', 6],
+			'negative operands'        => [[-8, 2], '/', -4],
+		];
 	}
 
 	/**
@@ -70,7 +70,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testBinaryOperatorsComputeInStackOrder(array $stack, $operator, $expected): void {
-		$this->assertSame(array($expected), $this->evaluate($stack, $operator));
+		$this->assertSame([$expected], $this->evaluate($stack, $operator));
 		$this->assertFalse($GLOBALS['rpn_error']);
 	}
 
@@ -83,22 +83,22 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testCaretOperatorIsIntegerXorNotExponentiation(): void {
-		$this->assertSame(array(6), $this->evaluate(array(5, 3), '^'));
-		$this->assertSame(array(1), $this->evaluate(array(2, 3), '^'));
+		$this->assertSame([6], $this->evaluate([5, 3], '^'));
+		$this->assertSame([1], $this->evaluate([2, 3], '^'));
 	}
 
 	/**
 	 * @return void
 	 */
 	public function testCaretOperatorTruncatesFloatOperandsToIntegers(): void {
-		$this->assertSame(array(6), $this->evaluate(array(5.9, 3.9), '^'));
+		$this->assertSame([6], $this->evaluate([5.9, 3.9], '^'));
 	}
 
 	/**
 	 * @return void
 	 */
 	public function testModuloTruncatesFloatOperandsToIntegers(): void {
-		$this->assertSame(array(1), $this->evaluate(array(7.9, 3.2), '%'));
+		$this->assertSame([1], $this->evaluate([7.9, 3.2], '%'));
 	}
 
 	/**
@@ -108,7 +108,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testZeroDividedByZeroYieldsZeroWithoutError(): void {
-		$this->assertSame(array(0), $this->evaluate(array(0, 0), '/'));
+		$this->assertSame([0], $this->evaluate([0, 0], '/'));
 		$this->assertFalse($GLOBALS['rpn_error']);
 	}
 
@@ -116,7 +116,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testDivisionByZeroFlagsErrorAndPushesNothing(): void {
-		$this->assertSame(array(), $this->evaluate(array(8, 0), '/'));
+		$this->assertSame([], $this->evaluate([8, 0], '/'));
 		$this->assertTrue($GLOBALS['rpn_error']);
 	}
 
@@ -124,7 +124,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testModuloByZeroFlagsErrorInsteadOfThrowing(): void {
-		$this->assertSame(array(), $this->evaluate(array(8, 0), '%'));
+		$this->assertSame([], $this->evaluate([8, 0], '%'));
 		$this->assertTrue($GLOBALS['rpn_error']);
 	}
 
@@ -132,12 +132,12 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return array<string, array{0: array<int, mixed>, 1: string}>
 	 */
 	public static function nonNumericOperandProvider() {
-		return array(
-			'unknown right operand' => array(array(8, 'U'), '+'),
-			'unknown left operand'  => array(array('U', 8), '+'),
-			'NaN right operand'     => array(array(8, 'NAN'), '*'),
-			'text operand'          => array(array(8, 'abc'), '-'),
-		);
+		return [
+			'unknown right operand' => [[8, 'U'], '+'],
+			'unknown left operand'  => [['U', 8], '+'],
+			'NaN right operand'     => [[8, 'NAN'], '*'],
+			'text operand'          => [[8, 'abc'], '-'],
+		];
 	}
 
 	/**
@@ -149,7 +149,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testNonNumericOperandsFlagErrorAndPushNothing(array $stack, $operator): void {
-		$this->assertSame(array(), $this->evaluate($stack, $operator));
+		$this->assertSame([], $this->evaluate($stack, $operator));
 		$this->assertTrue($GLOBALS['rpn_error']);
 		$this->assertNotEmpty(CactiStub::$log);
 	}
@@ -158,20 +158,20 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return array<string, array{0: float|int, 1: string, 2: float|int}>
 	 */
 	public static function unaryFunctionProvider() {
-		return array(
-			'SIN'     => array(0, 'SIN', 0.0),
-			'COS'     => array(0, 'COS', 1.0),
-			'TAN'     => array(0, 'TAN', 0.0),
-			'ATAN'    => array(0, 'ATAN', 0.0),
-			'SQRT'    => array(9, 'SQRT', 3.0),
-			'FLOOR'   => array(2.7, 'FLOOR', 2.0),
-			'CEIL'    => array(2.1, 'CEIL', 3.0),
-			'DEG2RAD' => array(180, 'DEG2RAD', M_PI),
-			'RAD2DEG' => array(M_PI, 'RAD2DEG', 180.0),
-			'ABS'     => array(-5, 'ABS', 5),
-			'EXP'     => array(0, 'EXP', 1.0),
-			'LOG'     => array(M_E, 'LOG', 1.0),
-		);
+		return [
+			'SIN'     => [0, 'SIN', 0.0],
+			'COS'     => [0, 'COS', 1.0],
+			'TAN'     => [0, 'TAN', 0.0],
+			'ATAN'    => [0, 'ATAN', 0.0],
+			'SQRT'    => [9, 'SQRT', 3.0],
+			'FLOOR'   => [2.7, 'FLOOR', 2.0],
+			'CEIL'    => [2.1, 'CEIL', 3.0],
+			'DEG2RAD' => [180, 'DEG2RAD', M_PI],
+			'RAD2DEG' => [M_PI, 'RAD2DEG', 180.0],
+			'ABS'     => [-5, 'ABS', 5],
+			'EXP'     => [0, 'EXP', 1.0],
+			'LOG'     => [M_E, 'LOG', 1.0],
+		];
 	}
 
 	/**
@@ -184,7 +184,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnaryFunctionsDispatchToNativeMath($operand, $operator, $expected): void {
-		$stack = $this->evaluate(array($operand), $operator);
+		$stack = $this->evaluate([$operand], $operator);
 
 		$this->assertCount(1, $stack);
 		$this->assertEqualsWithDelta($expected, $stack[0], 1.0e-9);
@@ -195,7 +195,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnaryFunctionRejectsNonNumericOperand(): void {
-		$this->assertSame(array(), $this->evaluate(array('U'), 'SQRT'));
+		$this->assertSame([], $this->evaluate(['U'], 'SQRT'));
 		$this->assertTrue($GLOBALS['rpn_error']);
 	}
 
@@ -207,11 +207,11 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return array<string, array{0: float|int, 1: string}>
 	 */
 	public static function undefinedResultProvider() {
-		return array(
-			'square root of a negative' => array(-1, 'SQRT'),
-			'log of zero'               => array(0, 'LOG'),
-			'log of a negative'         => array(-1, 'LOG'),
-		);
+		return [
+			'square root of a negative' => [-1, 'SQRT'],
+			'log of zero'               => [0, 'LOG'],
+			'log of a negative'         => [-1, 'LOG'],
+		];
 	}
 
 	/**
@@ -223,7 +223,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testUndefinedResultsFlagErrorInsteadOfPushingNanOrInf($operand, $operator): void {
-		$this->assertSame(array(), $this->evaluate(array($operand), $operator));
+		$this->assertSame([], $this->evaluate([$operand], $operator));
 		$this->assertTrue($GLOBALS['rpn_error']);
 	}
 
@@ -231,7 +231,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testAtan2ComputesAgainstBothOperands(): void {
-		$stack = $this->evaluate(array(1, 1), 'ATAN2');
+		$stack = $this->evaluate([1, 1], 'ATAN2');
 
 		$this->assertEqualsWithDelta(M_PI / 4, $stack[0], 1.0e-9);
 	}
@@ -243,13 +243,13 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return array<string, array{0: array<int, mixed>, 1: float|int}>
 	 */
 	public static function addNanProvider() {
-		return array(
-			'both known'      => array(array(3, 4), 7),
-			'right unknown'   => array(array(3, 'U'), 3),
-			'left unknown'    => array(array('U', 4), 4),
-			'right NaN'       => array(array(3, 'NAN'), 3),
-			'both unknown'    => array(array('U', 'NAN'), 0),
-		);
+		return [
+			'both known'      => [[3, 4], 7],
+			'right unknown'   => [[3, 'U'], 3],
+			'left unknown'    => [['U', 4], 4],
+			'right NaN'       => [[3, 'NAN'], 3],
+			'both unknown'    => [['U', 'NAN'], 0],
+		];
 	}
 
 	/**
@@ -261,21 +261,21 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	 * @return void
 	 */
 	public function testAddNanTreatsUnknownOperandsAsZero(array $stack, $expected): void {
-		$this->assertSame(array($expected), $this->evaluate($stack, 'ADDNAN'));
+		$this->assertSame([$expected], $this->evaluate($stack, 'ADDNAN'));
 	}
 
 	/**
 	 * @return void
 	 */
 	public function testUnknownOperatorLeavesStackUntouched(): void {
-		$this->assertSame(array(1, 2), $this->evaluate(array(1, 2), 'NOSUCHOP'));
+		$this->assertSame([1, 2], $this->evaluate([1, 2], 'NOSUCHOP'));
 	}
 
 	/**
 	 * @return void
 	 */
 	public function testUnderflowFlagsErrorRatherThanPoppingAnEmptyStack(): void {
-		$this->evaluate(array(), '+');
+		$this->evaluate([], '+');
 
 		$this->assertTrue($GLOBALS['rpn_error']);
 	}

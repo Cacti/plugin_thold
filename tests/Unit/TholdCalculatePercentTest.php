@@ -33,14 +33,14 @@ final class TholdCalculatePercentTest extends TestCase {
 	 * @return array<string, mixed>
 	 */
 	private function threshold() {
-		return array('percent_ds' => 'total', 'local_data_id' => 4);
+		return ['percent_ds' => 'total', 'local_data_id' => 4];
 	}
 
 	/**
 	 * @return void
 	 */
 	public function testReadingIsExpressedAsAPercentageOfTheReferenceDataSource(): void {
-		$rrd = array(4 => array('total' => 200));
+		$rrd = [4 => ['total' => 200]];
 
 		$this->assertSame(25.0, thold_calculate_percent($this->threshold(), 50, $rrd));
 	}
@@ -49,7 +49,7 @@ final class TholdCalculatePercentTest extends TestCase {
 	 * @return void
 	 */
 	public function testNonNumericReadingYieldsTheNoValueSentinel(): void {
-		$rrd = array(4 => array('total' => 200));
+		$rrd = [4 => ['total' => 200]];
 
 		$this->assertSame('', thold_calculate_percent($this->threshold(), 'U', $rrd));
 	}
@@ -58,7 +58,7 @@ final class TholdCalculatePercentTest extends TestCase {
 	 * @return void
 	 */
 	public function testMissingReferenceDataSourceYieldsTheNoValueSentinel(): void {
-		$rrd = array(4 => array('other' => 200));
+		$rrd = [4 => ['other' => 200]];
 
 		$this->assertSame('', thold_calculate_percent($this->threshold(), 50, $rrd));
 	}
@@ -67,7 +67,7 @@ final class TholdCalculatePercentTest extends TestCase {
 	 * @return void
 	 */
 	public function testZeroReferenceYieldsZeroRatherThanDividingByZero(): void {
-		$rrd = array(4 => array('total' => 0));
+		$rrd = [4 => ['total' => 0]];
 
 		$this->assertSame(0, thold_calculate_percent($this->threshold(), 50, $rrd));
 	}
@@ -76,7 +76,7 @@ final class TholdCalculatePercentTest extends TestCase {
 	 * @return void
 	 */
 	public function testNegativeReferenceYieldsZero(): void {
-		$rrd = array(4 => array('total' => -5));
+		$rrd = [4 => ['total' => -5]];
 
 		$this->assertSame(0, thold_calculate_percent($this->threshold(), 50, $rrd));
 	}

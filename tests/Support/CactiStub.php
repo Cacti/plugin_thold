@@ -80,9 +80,9 @@ final class CactiStub {
 	/**
 	 * Record one Cacti function call.
 	 *
-	 * @param string             $fn     Cacti function name.
-	 * @param string             $sql    SQL text, or '' for non-query calls.
-	 * @param array<int, mixed>  $params Bound parameters, if any.
+	 * @param string            $fn     Cacti function name.
+	 * @param string            $sql    SQL text, or '' for non-query calls.
+	 * @param array<int, mixed> $params Bound parameters, if any.
 	 *
 	 * @return void
 	 */
