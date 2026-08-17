@@ -338,6 +338,24 @@ function thold_expression_rpn_pop(&$stack) {
 	}
 }
 
+/**
+ * Apply one arithmetic RPN operator to the evaluation stack.
+ *
+ * The right operand is popped first, so a stack of [a, b] with operator '-'
+ * computes a - b. Operands are validated numeric before use and the operator
+ * set is closed, which is what lets this dispatch natively instead of through
+ * eval(). Note that '^' is bitwise XOR, not exponentiation; that is the
+ * semantics existing user thresholds were written against.
+ *
+ * On any error the global $rpn_error is raised and nothing is pushed, which
+ * causes the caller to abandon the expression rather than compare against a
+ * meaningless value.
+ *
+ * @param string            $operator Operator token, e.g. '+', '%', 'SQRT', 'ADDNAN'.
+ * @param array<int, mixed> $stack    Evaluation stack, modified in place.
+ *
+ * @return void
+ */
 function thold_expression_math_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -363,12 +381,11 @@ function thold_expression_math_rpn($operator, &$stack) {
 				cacti_log('ERROR: RPN value: v2 "' . $v2 . '" is Not valid for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
+				/* A counter that has not moved divides to zero rather than erroring. */
 				$v3         = 0;
 				$rpn_evaled = true;
-
-				break;
-			} elseif ($v1 == 0 && $operator == '/') {
-				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "/".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+			} elseif ($v1 == 0 && ($operator == '/' || $operator == '%')) {
+				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "' . $operator . '".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			}
 
@@ -427,6 +444,16 @@ function thold_expression_math_rpn($operator, &$stack) {
 
 			if (!$rpn_error && !is_numeric($v1)) {
 				cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is Not valid for operator "' . $operator . '".', false, 'THOLD');
+				$rpn_error = true;
+			}
+
+			if (!$rpn_error && ($operator == 'SQRT' && $v1 < 0 || $operator == 'LOG' && $v1 <= 0)) {
+				/*
+				 * sqrt(-1) is NAN and log(0) is -INF. Both compare false against
+				 * every threshold bound, so a breach would pass unnoticed; fail
+				 * the expression instead of pushing them onto the stack.
+				 */
+				cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is out of domain for operator "' . $operator . '".', false, 'THOLD');
 				$rpn_error = true;
 			}
 
@@ -1299,8 +1326,24 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	return $currentval;
 }
 
-// $sql_where may contain ? placeholders; supply matching values via $sql_params.
-// Callers passing a literal WHERE fragment without placeholders pass $sql_params = [].
+/**
+ * Fetch the thresholds the given user may see.
+ *
+ * $sql_where is appended to a fixed WHERE clause and may carry ? placeholders;
+ * the caller supplies their values, in order, via $sql_params. The $graph_id
+ * filter appends its own placeholder after the caller's fragment, so any
+ * caller-supplied values must already be in $sql_params when the call is made.
+ *
+ * @param string            $sql_where  Extra WHERE conditions, without the leading AND.
+ * @param string            $order_by   ORDER BY expression, or '' for none.
+ * @param string            $sql_limit  LIMIT expression, or '' for none.
+ * @param int               $total_rows Set by reference to the unlimited row count.
+ * @param int               $user_id    User whose permissions apply; 0 means the current user.
+ * @param int               $graph_id   Restrict to one graph, or 0 for all graphs.
+ * @param array<int, mixed> $sql_params Values bound to the placeholders in $sql_where.
+ *
+ * @return array<int, array<string, mixed>>
+ */
 function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
@@ -1386,7 +1429,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		) AS rower";
 
 	// get_total_row_data signature: ($user_id, $sql, $sql_params, $class, $timeout)
-	// The third param is accepted since Cacti 1.2.x (lib/auth.php:3120).
+	// The third param is accepted since Cacti 1.2.x (lib/auth.php:3164).
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
 		$total_rows = get_total_row_data($user_id, $sql, $sql_params, 'thold', 10);
 	} else {
@@ -1396,8 +1439,21 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 	return $tholds;
 }
 
-// $sql_where may contain ? placeholders; supply matching values via $sql_params.
-// Callers passing a literal WHERE fragment without placeholders pass $sql_params = [].
+/**
+ * Fetch the threshold log entries the given user may see.
+ *
+ * Placeholder and $sql_params contract is the same as get_allowed_thresholds().
+ *
+ * @param string            $sql_where  Extra WHERE conditions, without the leading AND.
+ * @param string            $order_by   ORDER BY expression, or '' for none.
+ * @param string            $sql_limit  LIMIT expression, or '' for none.
+ * @param int               $total_rows Set by reference to the unlimited row count.
+ * @param int               $user_id    User whose permissions apply; 0 means the current user.
+ * @param int               $graph_id   Restrict to one graph, or 0 for all graphs.
+ * @param array<int, mixed> $sql_params Values bound to the placeholders in $sql_where.
+ *
+ * @return array<int, array<string, mixed>>
+ */
 function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
@@ -1481,7 +1537,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		) AS rower";
 
 	// get_total_row_data signature: ($user_id, $sql, $sql_params, $class, $timeout)
-	// The third param is accepted since Cacti 1.2.x (lib/auth.php:3120).
+	// The third param is accepted since Cacti 1.2.x (lib/auth.php:3164).
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
 		$total_rows = get_total_row_data($user_id, $sql, $sql_params, 'thold_log', 10);
 	} else {
@@ -4068,9 +4124,14 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		$queue            = read_config_option('thold_notification_queue');
 
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
+			/*
+			 * Expansion runs first: it splices |query_*| and |host_*| values in
+			 * verbatim, so running it after the tag escaping would let a device
+			 * field expand inside the quotes the escaping just added.
+			 */
+			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_high']);
 
-			$cmd = thold_expand_string($thold_data, $cmd);
+			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 
 			// thold_set_environ calls thold_putenv which calls putenv(); exec() inherits the process environment
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
@@ -4084,13 +4145,19 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; $cmd is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; <TAG> values are quoted by thold_replace_threshold_tags, |query_*| values are not
 			}
 
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
-			$cmd = thold_expand_string($thold_data, $cmd);
+			/*
+			 * Expansion runs first: it splices |query_*| and |host_*| values in
+			 * verbatim, so running it after the tag escaping would let a device
+			 * field expand inside the quotes the escaping just added.
+			 */
+			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_low']);
+
+			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 
 			// thold_set_environ calls thold_putenv which calls putenv(); exec() inherits the process environment
 			$environment = thold_set_environ($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
@@ -4104,13 +4171,19 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; $cmd is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; <TAG> values are quoted by thold_replace_threshold_tags, |query_*| values are not
 			}
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
-			$cmd = thold_expand_string($thold_data, $cmd);
+			/*
+			 * Expansion runs first: it splices |query_*| and |host_*| values in
+			 * verbatim, so running it after the tag escaping would let a device
+			 * field expand inside the quotes the escaping just added.
+			 */
+			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_norm']);
+
+			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 
 			// thold_set_environ calls thold_putenv which calls putenv(); exec() inherits the process environment
 			$environment = thold_set_environ($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
@@ -4124,7 +4197,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; $cmd is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; <TAG> values are quoted by thold_replace_threshold_tags, |query_*| values are not
 			}
 
 			$command_executed = true;
@@ -4245,6 +4318,29 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	return $environment;
 }
 
+/**
+ * Substitute the <TAG> placeholders in a notification or trigger-command
+ * template.
+ *
+ * With $shell set, every substituted value is quoted with
+ * cacti_escapeshellarg() and the result is safe to hand to exec(); the
+ * <URL> tag also resolves to a bare URL rather than an anchor. Without it the
+ * result is raw text for an email or the web UI.
+ *
+ * Note that the thold_replacement_text plugin hook runs on the finished string,
+ * after escaping, so a hook that rewrites a shell template is responsible for
+ * its own quoting.
+ *
+ * @param string               $text             Template containing <TAG> placeholders.
+ * @param array<string, mixed> $thold            Threshold row, by reference for the hook.
+ * @param array<string, mixed> $h                Device row, by reference for the hook.
+ * @param mixed                $currentval       Reading that triggered the notification.
+ * @param int                  $local_graph_id   Graph the threshold belongs to.
+ * @param string               $data_source_name Data source the threshold reads.
+ * @param bool                 $shell            Quote substituted values for a shell command.
+ *
+ * @return string
+ */
 function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false) {
 	global $thold_types;
 
@@ -4285,12 +4381,12 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	$text = thold_str_replace('<GRAPHID>',       $local_graph_id, $text);
 	$text = thold_str_replace('<THOLD_ID>',      $thold['id'], $text);
 
-	$text = thold_str_replace('<CURRENTVALUE>',  $currentval, $text);
+	$text = thold_str_replace('<CURRENTVALUE>',  $esc($currentval), $text);
 	$text = thold_str_replace('<THRESHOLDNAME>', $esc($thold['name_cache']), $text);
 	$text = thold_str_replace('<DSNAME>',        $esc($data_source_name), $text);
 
 	if (isset($thold_types[$thold['thold_type']])) {
-		$text = thold_str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);
+		$text = thold_str_replace('<THOLDTYPE>', $esc($thold_types[$thold['thold_type']]), $text);
 	}
 
 	$text = thold_str_replace('<NOTES>',         $esc($thold['notes']), $text);
@@ -4307,7 +4403,7 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 		$text = thold_str_replace('<HI>',        $thold['time_hi'], $text);
 		$text = thold_str_replace('<LOW>',       $thold['time_low'], $text);
 		$text = thold_str_replace('<TRIGGER>',   $thold['time_fail_trigger'], $text);
-		$text = thold_str_replace('<DURATION>',  plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time'), $text);
+		$text = thold_str_replace('<DURATION>',  $esc(plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time')), $text);
 	} else {
 		$text = thold_str_replace('<HI>',        '', $text);
 		$text = thold_str_replace('<LOW>',       '', $text);
@@ -4319,7 +4415,12 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	$text = thold_str_replace('<DATE>',          date(CACTI_DATE_TIME_FORMAT), $text);
 	$text = thold_str_replace('<DATE_RFC822>',   date(DATE_RFC822), $text);
 
-	$text = thold_str_replace('<URL>', "<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . '</a>', $text);
+	if ($shell) {
+		/* An anchor in a command line would be parsed as redirections, so a trigger command gets the bare URL. */
+		$text = thold_str_replace('<URL>', $esc("$httpurl/graph.php?local_graph_id=$local_graph_id"), $text);
+	} else {
+		$text = thold_str_replace('<URL>', "<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . '</a>', $text);
+	}
 
 	$data = [
 		'thold_data' => $thold,
@@ -8402,6 +8503,27 @@ function thold_get_cached_name(&$thold_data) {
 	}
 
 	return $thold_data['name_cache'];
+}
+
+/**
+ * Quote a user-supplied value for use as the operand of an RLIKE comparison.
+ *
+ * Cacti 1.2.31 added db_qstr_rlike() as the remediation for GHSA-69gg-xrh3-gp82:
+ * on top of quoting, it caps the operand at 255 bytes and strips the alternation
+ * and quantifier characters that made the regular expression a denial-of-service
+ * vector. The plugin still supports 1.2.25, which predates that helper, so fall
+ * back to plain quoting there.
+ *
+ * @param string $value Raw filter value.
+ *
+ * @return string RLIKE operator and quoted operand, ready to concatenate.
+ */
+function thold_rlike_clause($value) {
+	if (function_exists('db_qstr_rlike')) {
+		return db_qstr_rlike($value);
+	}
+
+	return 'RLIKE ' . db_qstr($value);
 }
 
 function thold_str_replace($search, $replace, $subject) {
