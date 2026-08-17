@@ -132,10 +132,10 @@ final class ThresholdScenario {
 		 * The time-based arm multiplies this into a window bound; an empty
 		 * value is a fatal on PHP 8 rather than a missing step.
 		 */
-		CactiStub::willReturnFor('db_fetch_cell_prepared', 'SELECT rrd_step', 300);
+		CactiStubs::willReturnFor('db_fetch_cell_prepared', 'SELECT rrd_step', 300);
 
 		// Counts of prior log rows; the arms add these together arithmetically.
-		CactiStub::willReturnFor('db_fetch_cell_prepared', 'SELECT COUNT(id)', 0);
+		CactiStubs::willReturnFor('db_fetch_cell_prepared', 'SELECT COUNT(id)', 0);
 
 		return $scenario;
 	}
@@ -148,7 +148,7 @@ final class ThresholdScenario {
 	 * @return self
 	 */
 	public function device(array $overrides = []) {
-		CactiStub::willReturnFor('db_fetch_row_prepared', 'FROM host WHERE id = ?', $overrides + [
+		CactiStubs::willReturnFor('db_fetch_row_prepared', 'FROM host WHERE id = ?', $overrides + [
 			'id'                => 2,
 			'description'       => 'core-switch-1',
 			'hostname'          => '10.0.0.1',
@@ -174,7 +174,7 @@ final class ThresholdScenario {
 	 * @return self
 	 */
 	public function alertRecipient($address) {
-		CactiStub::willReturnFor('db_fetch_assoc_prepared', 'FROM plugin_thold_contacts', [['data' => $address]]);
+		CactiStubs::willReturnFor('db_fetch_assoc_prepared', 'FROM plugin_thold_contacts', [['data' => $address]]);
 
 		return $this;
 	}
@@ -186,7 +186,7 @@ final class ThresholdScenario {
 	 * @return self
 	 */
 	public function option($name, $value) {
-		CactiStub::$configOptions[$name] = $value;
+		CactiStubs::$configOptions[$name] = $value;
 
 		return $this;
 	}
@@ -198,8 +198,8 @@ final class ThresholdScenario {
 	 */
 	public function inMaintenance() {
 		// Asked more than once per poll, so a queued value would run out.
-		CactiStub::willAlwaysReturn('api_plugin_is_enabled', true);
-		CactiStub::willAlwaysReturn('plugin_maint_check_cacti_host', true);
+		CactiStubs::willAlwaysReturn('api_plugin_is_enabled', true);
+		CactiStubs::willAlwaysReturn('plugin_maint_check_cacti_host', true);
 
 		/*
 		 * thold include_once()s the maint plugin when it reports enabled. The

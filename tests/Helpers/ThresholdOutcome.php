@@ -41,7 +41,7 @@ final class ThresholdOutcome {
 	 * @return array<int, string>
 	 */
 	public function subjects() {
-		return array_column(CactiStub::$mail, 'subject');
+		return array_column(CactiStubs::$mail, 'subject');
 	}
 
 	/**
@@ -50,14 +50,14 @@ final class ThresholdOutcome {
 	 * @return array<int, string>
 	 */
 	public function recipients() {
-		return array_column(CactiStub::$mail, 'to');
+		return array_column(CactiStubs::$mail, 'to');
 	}
 
 	/**
 	 * @return int
 	 */
 	public function mailCount() {
-		return count(CactiStub::$mail);
+		return count(CactiStubs::$mail);
 	}
 
 	/**
@@ -71,7 +71,7 @@ final class ThresholdOutcome {
 	public function logStatuses() {
 		$statuses = [];
 
-		foreach (CactiStub::callsTo('sql_save') as $call) {
+		foreach (CactiStubs::callsTo('sql_save') as $call) {
 			if ($call['sql'] === 'plugin_thold_log' && isset($call['params']['status'])) {
 				$statuses[] = (int) $call['params']['status'];
 			}
@@ -84,7 +84,7 @@ final class ThresholdOutcome {
 	 * @return int
 	 */
 	public function trapCount() {
-		return count(CactiStub::callsTo('cacti_snmp_send'));
+		return count(CactiStubs::callsTo('cacti_snmp_send'));
 	}
 
 	/**
@@ -93,7 +93,7 @@ final class ThresholdOutcome {
 	 * @return bool
 	 */
 	public function touchedLastChanged() {
-		foreach (CactiStub::callsTo('db_execute_prepared') as $call) {
+		foreach (CactiStubs::callsTo('db_execute_prepared') as $call) {
 			if (strpos($call['sql'], 'lastchanged = NOW()') !== false) {
 				return true;
 			}
@@ -108,7 +108,7 @@ final class ThresholdOutcome {
 	 * @return bool
 	 */
 	public function acknowledged() {
-		foreach (CactiStub::callsTo('db_execute_prepared') as $call) {
+		foreach (CactiStubs::callsTo('db_execute_prepared') as $call) {
 			if (strpos($call['sql'], 'acknowledgment = "on"') !== false) {
 				return true;
 			}
@@ -129,7 +129,7 @@ final class ThresholdOutcome {
 	public function persistedColumns() {
 		$columns = [];
 
-		foreach (CactiStub::callsTo('db_execute_prepared') as $call) {
+		foreach (CactiStubs::callsTo('db_execute_prepared') as $call) {
 			if (strpos($call['sql'], 'UPDATE thold_data') === false) {
 				continue;
 			}
@@ -197,9 +197,9 @@ final class ThresholdOutcome {
 	 * @return bool
 	 */
 	public function isSilent() {
-		return $this->mailCount()                         === 0
-			&& $this->logStatuses()                          === []
-			&& $this->trapCount()                            === 0
-			&& CactiStub::callsTo('thold_command_execution') === [];
+		return $this->mailCount()                          === 0
+			&& $this->logStatuses()                           === []
+			&& $this->trapCount()                             === 0
+			&& CactiStubs::callsTo('thold_command_execution') === [];
 	}
 }
