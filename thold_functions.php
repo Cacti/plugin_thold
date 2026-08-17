@@ -3176,12 +3176,12 @@ function thold_check_threshold(&$thold_data) {
 				}
 
 				if ($notify) {
-					$trigger = false;
+					$etrigger = false;
 				} else {
-					$trigger = true;
+					$etrigger = true;
 				}
 
-				$subject = get_email_subject('ALERT', $trigger, $lastread, $ra, $breach_up, $thold_data);
+				$subject = get_email_subject('ALERT', $etrigger, $lastread, $ra, $breach_up, $thold_data);
 
 				if ($notify) {
 					if (!$suspend_notify && !$maint_dev) {
@@ -3390,7 +3390,7 @@ function thold_check_threshold(&$thold_data) {
 						'host_id'         => $thold_data['host_id'],
 						'local_graph_id'  => $thold_data['local_graph_id'],
 						'threshold_id'    => $thold_data['id'],
-						'threshold_value' => ($breach_up ? $thold_data['time_hi'] : $thold_data['time_low']),
+						'threshold_value' => ($warning_breach_up ? $thold_data['time_warning_hi'] : $thold_data['time_warning_low']),
 						'current'         => $thold_data['lastread'],
 						'status'          => ($ra ? ST_NOTIFYRAW : ST_NOTIFYWA),
 						'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
@@ -3406,7 +3406,7 @@ function thold_check_threshold(&$thold_data) {
 						'host_id'         => $thold_data['host_id'],
 						'local_graph_id'  => $thold_data['local_graph_id'],
 						'threshold_id'    => $thold_data['id'],
-						'threshold_value' => ($warning_breach_up ? $thold_data['time_hi'] : $thold_data['time_low']),
+						'threshold_value' => ($warning_breach_up ? $thold_data['time_warning_hi'] : $thold_data['time_warning_low']),
 						'current'         => $thold_data['lastread'],
 						'status'          => ST_NOTIFYRAW,
 						'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
@@ -3420,7 +3420,7 @@ function thold_check_threshold(&$thold_data) {
 						'host_id'         => $thold_data['host_id'],
 						'local_graph_id'  => $thold_data['local_graph_id'],
 						'threshold_id'    => $thold_data['id'],
-						'threshold_value' => ($warning_breach_up ? $thold_data['time_hi'] : $thold_data['time_low']),
+						'threshold_value' => ($warning_breach_up ? $thold_data['time_warning_hi'] : $thold_data['time_warning_low']),
 						'current'         => $thold_data['lastread'],
 						'status'          => ST_TRIGGERW,
 						'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
