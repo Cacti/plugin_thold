@@ -7307,7 +7307,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 							WHERE id = ?',
 							[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id']]);
 					} else {
-						$id = md5(json_encode([$from, $to, $cc, $bcc, $replyto]));
+						$id = hash('sha256', json_encode([$from, $to, $cc, $bcc, $replyto]));
 
 						if (!isset($emails[$id])) {
 							$emails[$id]['from']          = $from;
