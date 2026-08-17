@@ -80,6 +80,7 @@ final class ThresholdScenario {
 			'bl_type'                   => 0,
 			'bl_cf'                     => 'AVG',
 			'bl_thold_valid'            => 0,
+			'cdef'                      => 0,
 
 			'notify_warning'            => 0,
 			'notify_alert'              => 0,
@@ -187,6 +188,63 @@ final class ThresholdScenario {
 	 */
 	public function option($name, $value) {
 		CactiStubs::$configOptions[$name] = $value;
+
+		return $this;
+	}
+
+	/**
+	 * Give the RRD a set of reference statistics for the baseline arm.
+	 *
+	 * thold reaches these through three rrdtool calls: file_exists, info to
+	 * discover the data sources and consolidation functions, then a graph
+	 * command whose PRINT output is decoded by position. The doubles below
+	 * answer all three in the shapes that decode expects.
+	 *
+	 * @param float|int $average
+	 * @param float|int $max
+	 * @param float|int $min
+	 * @param float|int $last
+	 * @param string    $dsname
+	 *
+	 * @return self
+	 */
+	public function referenceStatistics($average, $max, $min, $last, $dsname = 'traffic_in') {
+		/*
+		 * With a storage location set, thold asks rrdtool whether the file
+		 * exists rather than touching the filesystem, which keeps the fixture
+		 * off disk.
+		 */
+		CactiStubs::$configOptions['storage_location'] = 1;
+
+		CactiStubs::willReturnFor('db_fetch_cell_prepared', 'SELECT rrd_path', '/var/lib/cacti/rra/test.rrd');
+		CactiStubs::willReturnFor('rrdtool_execute', 'file_exists', true);
+
+		/*
+		 * One rra line per consolidation function: the info parser sets a
+		 * single flag per line, and the number of flags set has to match the
+		 * number of values the graph command below prints.
+		 */
+		CactiStubs::willReturnFor('rrdtool_execute', 'info ', implode("\n", [
+			'ds[' . $dsname . '].type = "COUNTER"',
+			'rra[0].cf = "AVERAGE"',
+			'rra[1].cf = "MAX"',
+			'rra[2].cf = "MIN"',
+			'rra[3].cf = "LAST"',
+			'step = 300',
+		]));
+
+		/*
+		 * First line is the graph size and is skipped; then one value per
+		 * PRINT in AVG, MAX, MIN, LAST order; then the timing line.
+		 */
+		CactiStubs::willReturnFor('rrdtool_execute', 'graph x --start', implode("\n", [
+			'0x0',
+			(string) $average,
+			(string) $max,
+			(string) $min,
+			(string) $last,
+			'OK u:0.01 s:0.00 r:0.01',
+		]));
 
 		return $this;
 	}
