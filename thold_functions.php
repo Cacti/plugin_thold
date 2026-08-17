@@ -8310,12 +8310,19 @@ function thold_get_cached_name(&$thold_data) {
 	return $thold_data['name_cache'];
 }
 
-function thold_str_replace($search, $replace, $subject) {
-	if (empty($replace) || $replace === 0) {
-		$replace = '';
-	}
-
-	return str_replace($search, $replace, $subject);
+/**
+ * Substitute one tag, rendering an absent value as an empty string.
+ *
+ * Only null and false count as absent. Zero is a legitimate reading, and
+ * blanking it produced alert bodies reading "Current value is " for exactly
+ * the case an operator most needs to see.
+ *
+ * @param string $search  Tag to replace.
+ * @param mixed  $replace Value to substitute.
+ * @param string $subject Text containing the tag.
+ */
+function thold_str_replace(string $search, $replace, string $subject): string {
+	return str_replace($search, $replace ?? '', $subject);
 }
 
 function thold_template_import($xml_data) {
