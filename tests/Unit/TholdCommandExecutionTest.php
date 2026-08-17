@@ -215,16 +215,36 @@ final class TholdCommandExecutionTest extends TestCase {
 	}
 
 	/**
+	 * @return array<string, array{0: string, 1: string}>
+	 */
+	public static function inlineOutcomeProvider() {
+		return array(
+			'success without output' => array('/bin/true', 'NOTE'),
+			'success with output'    => array('/bin/echo ok', 'NOTE'),
+			'failure without output' => array('/bin/false', 'WARNING'),
+			'failure with output'    => array("/bin/sh -c 'echo oops; exit 1'", 'WARNING'),
+		);
+	}
+
+	/**
+	 * A trigger command that fails is the operator's only signal that their
+	 * alerting is broken, so the exit status has to reach the log either way.
+	 *
+	 * @dataProvider inlineOutcomeProvider
+	 *
+	 * @param string $command
+	 * @param string $level
+	 *
 	 * @return void
 	 */
-	public function testInlineExecutionLogsANonZeroExitStatus(): void {
+	public function testInlineExecutionLogsTheExitStatus($command, $level): void {
 		CactiStub::$configOptions['thold_notification_queue'] = '';
 
-		$thold  = $this->threshold(array('trigger_cmd_high' => '/bin/false'));
+		$thold  = $this->threshold(array('trigger_cmd_high' => $command));
 		$device = $this->device();
 
 		thold_command_execution($thold, $device, true, false, false);
 
-		$this->assertNotEmpty(CactiStub::$log);
+		$this->assertStringStartsWith($level, CactiStub::$log[0]);
 	}
 }

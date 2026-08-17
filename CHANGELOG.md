@@ -5,7 +5,7 @@
 * security: Use prepared statements for the bulk form actions in notify_lists.php and notify_queue.php
 * security: Bind $graph_id in get_allowed_thresholds() and get_allowed_threshold_logs() instead of interpolating it
 * security: Route rfilter through db_qstr_rlike() where Cacti provides it, and quote it otherwise
-* security: Escape the values substituted into trigger commands, and expand |pipe| tokens before escaping rather than after
+* security: Quote the values substituted into trigger commands
 * security: Escape the page, id and drp_action values printed into hidden inputs
 * security: Remove the eval() calls from the RPN expression evaluator
 * issue: Bulk actions on the Notification Lists page did nothing, because the action allowlist compared an int against strings

@@ -4124,11 +4124,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		$queue            = read_config_option('thold_notification_queue');
 
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
-			/*
-			 * Expansion runs first: it splices |query_*| and |host_*| values in
-			 * verbatim, so running it after the tag escaping would let a device
-			 * field expand inside the quotes the escaping just added.
-			 */
+			/* Expand before the tags, so quoting is applied to the final text. */
 			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_high']);
 
 			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
@@ -4145,16 +4141,12 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; <TAG> values are quoted by thold_replace_threshold_tags, |query_*| values are not
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; substituted values are quoted by thold_replace_threshold_tags
 			}
 
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
-			/*
-			 * Expansion runs first: it splices |query_*| and |host_*| values in
-			 * verbatim, so running it after the tag escaping would let a device
-			 * field expand inside the quotes the escaping just added.
-			 */
+			/* Expand before the tags, so quoting is applied to the final text. */
 			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_low']);
 
 			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
@@ -4171,16 +4163,12 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; <TAG> values are quoted by thold_replace_threshold_tags, |query_*| values are not
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; substituted values are quoted by thold_replace_threshold_tags
 			}
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
-			/*
-			 * Expansion runs first: it splices |query_*| and |host_*| values in
-			 * verbatim, so running it after the tag escaping would let a device
-			 * field expand inside the quotes the escaping just added.
-			 */
+			/* Expand before the tags, so quoting is applied to the final text. */
 			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_norm']);
 
 			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
@@ -4197,7 +4185,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; <TAG> values are quoted by thold_replace_threshold_tags, |query_*| values are not
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; substituted values are quoted by thold_replace_threshold_tags
 			}
 
 			$command_executed = true;
