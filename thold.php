@@ -614,7 +614,7 @@ function list_tholds() {
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . ' td.name_cache RLIKE ' . db_qstr(get_request_var('rfilter'));
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . ' td.name_cache ' . thold_rlike_clause(get_request_var('rfilter'));
 	}
 
 	if ($statefilter != '') {
