@@ -3176,12 +3176,12 @@ function thold_check_threshold(&$thold_data) {
 				}
 
 				if ($notify) {
-					$trigger = false;
+					$etrigger = false;
 				} else {
-					$trigger = true;
+					$etrigger = true;
 				}
 
-				$subject = get_email_subject('ALERT', $trigger, $lastread, $ra, $breach_up, $thold_data);
+				$subject = get_email_subject('ALERT', $etrigger, $lastread, $ra, $breach_up, $thold_data);
 
 				if ($notify) {
 					if (!$suspend_notify && !$maint_dev) {
