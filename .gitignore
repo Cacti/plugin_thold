@@ -20,3 +20,7 @@
 # +-------------------------------------------------------------------------+
 
 locales/po/*.mo
+
+/.phpunit.cache/
+/coverage/
+/.phpunit.result.cache

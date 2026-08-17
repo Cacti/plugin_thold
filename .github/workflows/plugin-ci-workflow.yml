@@ -35,11 +35,21 @@ jobs:
   integration-test:
     runs-on: ${{ matrix.os }}
     
+    # A failure against the pinned release is a real failure. The develop entry
+    # is advisory: it is how a core regression becomes visible here, but it must
+    # not turn the plugin's own pull requests red.
+    continue-on-error: ${{ matrix.cacti != 'release/1.2.31' }}
+
     strategy:
       fail-fast: false
       matrix:
         php: ['8.1', '8.2', '8.3', '8.4']
         os: [ubuntu-latest]
+        cacti: ['release/1.2.31']
+        include:
+          - php: '8.4'
+            os: ubuntu-latest
+            cacti: 'develop'
     
     services:
       mariadb:
@@ -57,13 +67,14 @@ jobs:
           --health-timeout=5s
           --health-retries=3
     
-    name: PHP ${{ matrix.php }} Integration Test on ${{ matrix.os }}
+    name: PHP ${{ matrix.php }} Integration Test on ${{ matrix.os }} against Cacti ${{ matrix.cacti }}
     
     steps:
     - name: Checkout Cacti
       uses: actions/checkout@v7
       with:
         repository: Cacti/cacti
+        ref: ${{ matrix.cacti }}
         path: cacti
     
     - name: Checkout Thold Plugin
@@ -190,18 +201,34 @@ jobs:
         fi
     
     - name: Remove the plugins directory exclusion from the .phpstan.neon
-      run: sed '/plugins/d' -i .phpstan.neon
+      run: |
+        if [ -f .phpstan.neon ]; then
+          sed -i '/plugins/d' .phpstan.neon
+        fi
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Mark composer scripts executable
-      run: sudo chmod +x ${{ github.workspace }}/cacti/include/vendor/bin/*
+      run: |
+        if [ -d "${{ github.workspace }}/cacti/include/vendor/bin" ]; then
+          sudo find "${{ github.workspace }}/cacti/include/vendor/bin" -maxdepth 1 -type f -exec chmod +x {} +
+        fi
 
     - name: Run Linter on base code
-      run: composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
+      run: |
+        if composer --no-ansi run-script --list | grep -qE '^[[:space:]]+lint([[:space:]]|$)'; then
+          composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
+        else
+          echo 'Composer lint script is not defined; skipping.'
+        fi
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Checking coding standards on base code
-      run: composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
+      run: |
+        if composer --no-ansi run-script --list | grep -qE '^[[:space:]]+phpcsfixer([[:space:]]|$)'; then
+          composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
+        else
+          echo 'Composer phpcsfixer script is not defined; skipping.'
+        fi
       working-directory: ${{ github.workspace }}/cacti
 
 #    - name: Run PHPStan at Level 6 on base code outside of Composer due to technical issues

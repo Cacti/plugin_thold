@@ -1,0 +1,116 @@
+# +-------------------------------------------------------------------------+
+# | Copyright (C) 2004-2026 The Cacti Group                                 |
+# |                                                                         |
+# | This program is free software; you can redistribute it and/or           |
+# | modify it under the terms of the GNU General Public License             |
+# | as published by the Free Software Foundation; either version 2          |
+# | of the License, or (at your option) any later version.                  |
+# |                                                                         |
+# | This program is distributed in the hope that it will be useful,         |
+# | but WITHOUT ANY WARRANTY; without even the implied warranty of          |
+# | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           |
+# | GNU General Public License for more details.                            |
+# +-------------------------------------------------------------------------+
+# | Cacti: The Complete RRDtool-based Graphing Solution                     |
+# +-------------------------------------------------------------------------+
+# | This code is designed, written, and maintained by the Cacti Group. See  |
+# | about.php and/or the AUTHORS file for specific developer information.   |
+# +-------------------------------------------------------------------------+
+# | http://www.cacti.net/                                                   |
+# +-------------------------------------------------------------------------+
+
+
+name: Pest Tests
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-test:
+    name: Pest using Cacti Composer (Docker)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Thold Plugin
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # patch-coverage.php diffs against the base branch.
+          fetch-depth: 0
+
+      - name: Checkout Cacti 1.2.31 runtime
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Cacti/cacti
+          # Commit behind the annotated release/1.2.31 tag.
+          ref: 1e8eaca26b84b128c39ce8cc8ece42d7ff76aac1
+          path: cacti-runtime
+
+      - name: Checkout Cacti test toolchain
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Cacti/cacti
+          # Pin Composer, Pest, the lock file, and Cacti's Docker test image.
+          ref: 298bd51eca843490fb90b27ada6b3fecc9b9a7d8
+          path: cacti-toolchain
+
+      # Build the same Linux image used by Cacti's tests/tools/docker_pest.sh.
+      # Composer installs and executes Cacti's locked Pest toolchain in /work;
+      # Thold contributes no parallel vendor directory or PHPUnit dependency.
+      - name: Build Cacti test image
+        run: |
+          docker build --tag cacti-web --file cacti-toolchain/docker/Dockerfile cacti-toolchain/docker
+          docker build --tag cacti-thold-test --file cacti-toolchain/docker/Dockerfile.test cacti-toolchain
+
+      - name: Lint every PHP source file
+        run: |
+          docker run --rm --volume "$PWD":/work/plugins/thold \
+            --env COMPOSER_ROOT_VERSION=1.3.0-dev \
+            --entrypoint composer cacti-thold-test \
+            run-script lint /work/plugins/thold
+
+      - name: Run Pest with coverage
+        run: |
+          docker run --rm \
+            --volume "$PWD/cacti-runtime":/cacti \
+            --volume "$PWD":/cacti/plugins/thold \
+            --env COMPOSER_ROOT_VERSION=1.3.0-dev \
+            --env XDEBUG_MODE=coverage \
+            --user root \
+            --entrypoint composer cacti-thold-test \
+            test -- --configuration=/cacti/plugins/thold/phpunit.xml \
+            --coverage-clover=/cacti/plugins/thold/coverage/clover.xml \
+            /cacti/plugins/thold/tests/Unit
+
+      # Whole-file coverage is meaningless here: most of the plugin only runs
+      # inside a live Cacti. What is enforceable is that a change covers the
+      # lines it adds.
+      - name: Enforce coverage of changed lines
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.sha }}
+        run: |
+          docker run --rm --volume "$PWD":/plugin --workdir /plugin \
+            --env BASE_REF --user root --entrypoint sh cacti-thold-test \
+            -c 'git config --global --add safe.directory /plugin && php tests/bin/patch-coverage.php coverage/clover.xml "$BASE_REF" 100'
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: coverage
+          path: coverage/
+          if-no-files-found: warn
