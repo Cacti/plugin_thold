@@ -159,7 +159,7 @@ if (!function_exists('db_fetch_cell_prepared')) {
 }
 
 if (!function_exists('db_qstr')) {
-	function db_qstr($string) {
+	function db_qstr($string, $db_conn = false) {
 		return "'" . str_replace("'", "''", (string) $string) . "'";
 	}
 }
