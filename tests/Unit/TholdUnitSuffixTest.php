@@ -35,6 +35,9 @@ final class TholdUnitSuffixTest extends TestCase {
 	 */
 	public static function suffixProvider() {
 		return [
+			'yocto' => ['5y', 5.0e-24],
+			'zepto' => ['5z', 5.0e-21],
+			'atto'  => ['5a', 5.0e-18],
 			'femto' => ['5f', 5.0e-15],
 			'pico'  => ['5p', 5.0e-12],
 			'nano'  => ['5n', 5.0e-9],

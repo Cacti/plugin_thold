@@ -5358,7 +5358,8 @@ function thold_raw_to_display($number) {
 	// empty suffix stands for a scale of one. Factors ascend, so the ratio
 	// falls monotonically and the last match is the one wanted.
 	$scales = thold_unit_suffixes();
-	$scales = array_slice($scales, 0, 8, true) + ['' => 1.0] + array_slice($scales, 8, null, true);
+	$scales[''] = 1.0;
+	asort($scales, SORT_NUMERIC);
 
 	$suffix = '';
 	$factor = 1.0;
