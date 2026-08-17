@@ -151,7 +151,7 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	public function testNonNumericOperandsFlagErrorAndPushNothing(array $stack, $operator): void {
 		$this->assertSame([], $this->evaluate($stack, $operator));
 		$this->assertTrue($GLOBALS['rpn_error']);
-		$this->assertNotEmpty(CactiStub::$log);
+		$this->assertNotEmpty(CactiStubs::$log);
 	}
 
 	/**

@@ -45,7 +45,7 @@ final class TholdExpandStringTest extends TestCase {
 	 * @return void
 	 */
 	private function graphExists() {
-		CactiStub::willReturn('db_fetch_row_prepared', [
+		CactiStubs::willReturn('db_fetch_row_prepared', [
 			'id'            => 7,
 			'host_id'       => 2,
 			'snmp_query_id' => 3,
@@ -76,7 +76,7 @@ final class TholdExpandStringTest extends TestCase {
 	 */
 	public function testDataSourceDescriptionTokenIsResolvedFromTheDatabase(): void {
 		$this->graphExists();
-		CactiStub::willReturn('db_fetch_cell_prepared', 'Router - Traffic');
+		CactiStubs::willReturn('db_fetch_cell_prepared', 'Router - Traffic');
 
 		$this->assertSame('Router - Traffic', thold_expand_string($this->thresholdData(), '|data_source_description|'));
 	}
@@ -86,10 +86,10 @@ final class TholdExpandStringTest extends TestCase {
 	 */
 	public function testTextIsPassedThroughExpandTitleForDataQueryTokens(): void {
 		$this->graphExists();
-		CactiStub::willReturn('expand_title', 'alert eth0');
+		CactiStubs::willReturn('expand_title', 'alert eth0');
 
 		$this->assertSame('alert eth0', thold_expand_string($this->thresholdData(), 'alert |query_ifName|'));
-		$this->assertNotEmpty(CactiStub::callsTo('expand_title'));
+		$this->assertNotEmpty(CactiStubs::callsTo('expand_title'));
 	}
 
 	/**
@@ -97,8 +97,8 @@ final class TholdExpandStringTest extends TestCase {
 	 */
 	public function testInterfaceSpeedFallsBackToTheConfiguredDefaultWhenUnknown(): void {
 		$this->graphExists();
-		CactiStub::$configOptions['thold_empty_if_speed_default'] = '1000000000';
-		CactiStub::willReturn('db_fetch_cell_prepared', '');
+		CactiStubs::$configOptions['thold_empty_if_speed_default'] = '1000000000';
+		CactiStubs::willReturn('db_fetch_cell_prepared', '');
 
 		$result = thold_expand_string($this->thresholdData(), '|query_ifHighSpeed|');
 
@@ -109,7 +109,7 @@ final class TholdExpandStringTest extends TestCase {
 	 * @return void
 	 */
 	public function testTextIsReturnedUnchangedWhenTheGraphIsMissing(): void {
-		CactiStub::willReturn('db_fetch_row_prepared', []);
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
 
 		$this->assertSame('static text', thold_expand_string($this->thresholdData(), 'static text'));
 	}
@@ -122,7 +122,7 @@ final class TholdExpandStringTest extends TestCase {
 	 */
 	public function testEmptyStringFallsBackToTheExpandedTemplateSuggestedName(): void {
 		$this->graphExists();
-		CactiStub::willReturn('db_fetch_cell_prepared', 'Suggested |data_source_name|');
+		CactiStubs::willReturn('db_fetch_cell_prepared', 'Suggested |data_source_name|');
 
 		$result = thold_expand_string($this->thresholdData(['thold_template_id' => 5]), '');
 
@@ -133,7 +133,7 @@ final class TholdExpandStringTest extends TestCase {
 	 * @return void
 	 */
 	public function testSurroundingWhitespaceIsTrimmed(): void {
-		CactiStub::willReturn('db_fetch_row_prepared', []);
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
 
 		$this->assertSame('alert', thold_expand_string($this->thresholdData(), '  alert  '));
 	}

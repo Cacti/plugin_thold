@@ -143,7 +143,7 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return void
 	 */
 	public function testShellModeQuotesTheSiteName(): void {
-		CactiStub::willReturn('db_fetch_cell_prepared', '$(id)');
+		CactiStubs::willReturn('db_fetch_cell_prepared', '$(id)');
 
 		$result = $this->substitute('/usr/bin/alert <SITE>', $this->threshold(), $this->device(), true);
 
@@ -154,7 +154,7 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return void
 	 */
 	public function testSiteFallsBackToDefaultWhenTheDeviceHasNoSite(): void {
-		CactiStub::willReturn('db_fetch_cell_prepared', '');
+		CactiStubs::willReturn('db_fetch_cell_prepared', '');
 
 		$result = $this->substitute('site=<SITE>', $this->threshold(), $this->device(), false);
 
@@ -238,7 +238,7 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return void
 	 */
 	public function testUrlTagRendersALinkToTheGraph(): void {
-		CactiStub::$configOptions['base_url'] = 'http://cacti.example.org';
+		CactiStubs::$configOptions['base_url'] = 'http://cacti.example.org';
 
 		$result = $this->substitute('<URL>', $this->threshold(), $this->device(), false);
 

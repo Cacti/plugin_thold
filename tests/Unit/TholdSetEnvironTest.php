@@ -36,8 +36,8 @@ final class TholdSetEnvironTest extends TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		CactiStub::$configOptions['thold_notification_queue'] = 'on';
-		CactiStub::$configOptions['base_url']                 = 'http://cacti.example.org';
+		CactiStubs::$configOptions['thold_notification_queue'] = 'on';
+		CactiStubs::$configOptions['base_url']                 = 'http://cacti.example.org';
 	}
 
 	/**

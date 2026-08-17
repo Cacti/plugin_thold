@@ -35,9 +35,9 @@ final class TholdCommandExecutionTest extends TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		CactiStub::$configOptions['thold_enable_scripts']      = 'on';
-		CactiStub::$configOptions['thold_notification_queue']  = 'on';
-		CactiStub::$configOptions['base_url']                  = 'http://cacti.example.org';
+		CactiStubs::$configOptions['thold_enable_scripts']      = 'on';
+		CactiStubs::$configOptions['thold_notification_queue']  = 'on';
+		CactiStubs::$configOptions['base_url']                  = 'http://cacti.example.org';
 	}
 
 	/**
@@ -89,7 +89,7 @@ final class TholdCommandExecutionTest extends TestCase {
 	 * @return string|null
 	 */
 	private function queuedCommand() {
-		foreach (CactiStub::callsTo('db_execute_prepared') as $call) {
+		foreach (CactiStubs::callsTo('db_execute_prepared') as $call) {
 			foreach ($call['params'] as $param) {
 				if (is_string($param) && strpos($param, '"command"') !== false) {
 					$decoded = json_decode($param, true);
@@ -151,7 +151,7 @@ final class TholdCommandExecutionTest extends TestCase {
 	 * @return void
 	 */
 	public function testNothingRunsWhenScriptsAreDisabled(): void {
-		CactiStub::$configOptions['thold_enable_scripts'] = '';
+		CactiStubs::$configOptions['thold_enable_scripts'] = '';
 
 		$thold  = $this->threshold(['trigger_cmd_high' => '/usr/bin/alert']);
 		$device = $this->device();
@@ -203,7 +203,7 @@ final class TholdCommandExecutionTest extends TestCase {
 	 * @return void
 	 */
 	public function testInlineExecutionLogsTheCommandOutput($column, array $breaches): void {
-		CactiStub::$configOptions['thold_notification_queue'] = '';
+		CactiStubs::$configOptions['thold_notification_queue'] = '';
 
 		$thold  = $this->threshold([$column => '/bin/echo breach']);
 		$device = $this->device();
@@ -211,7 +211,7 @@ final class TholdCommandExecutionTest extends TestCase {
 		thold_command_execution($thold, $device, $breaches[0], $breaches[1], $breaches[2]);
 
 		$this->assertNull($this->queuedCommand());
-		$this->assertNotEmpty(CactiStub::$log);
+		$this->assertNotEmpty(CactiStubs::$log);
 	}
 
 	/**
@@ -238,13 +238,13 @@ final class TholdCommandExecutionTest extends TestCase {
 	 * @return void
 	 */
 	public function testInlineExecutionLogsTheExitStatus($command, $level): void {
-		CactiStub::$configOptions['thold_notification_queue'] = '';
+		CactiStubs::$configOptions['thold_notification_queue'] = '';
 
 		$thold  = $this->threshold(['trigger_cmd_high' => $command]);
 		$device = $this->device();
 
 		thold_command_execution($thold, $device, true, false, false);
 
-		$this->assertStringStartsWith($level, CactiStub::$log[0]);
+		$this->assertStringStartsWith($level, CactiStubs::$log[0]);
 	}
 }

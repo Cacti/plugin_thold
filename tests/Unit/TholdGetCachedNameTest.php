@@ -33,14 +33,14 @@ final class TholdGetCachedNameTest extends TestCase {
 		$thold = ['name' => '|data_source_description|', 'name_cache' => 'CPU load', 'local_data_id' => 4];
 
 		$this->assertSame('CPU load', thold_get_cached_name($thold));
-		$this->assertSame([], CactiStub::callsTo('db_fetch_cell_prepared'));
+		$this->assertSame([], CactiStubs::callsTo('db_fetch_cell_prepared'));
 	}
 
 	/**
 	 * @return void
 	 */
 	public function testEmptyCacheIsFilledFromTheDataSourceDescription(): void {
-		CactiStub::willReturn('db_fetch_cell_prepared', 'Router - Traffic');
+		CactiStubs::willReturn('db_fetch_cell_prepared', 'Router - Traffic');
 
 		$thold = ['name' => '|data_source_description|', 'name_cache' => '', 'local_data_id' => 4];
 

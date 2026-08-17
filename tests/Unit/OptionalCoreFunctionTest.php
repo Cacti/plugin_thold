@@ -77,13 +77,13 @@ final class OptionalCoreFunctionTest extends TestCase {
 	 * @return void
 	 */
 	public function testRowCountUsesTheCoreCacheWhenNotFilteredByGraph($function, $class): void {
-		CactiStub::willReturn('get_total_row_data', 12);
+		CactiStubs::willReturn('get_total_row_data', 12);
 
 		$total = 0;
 		$function('', 'td.name', '', $total, -1, 0);
 
 		$this->assertSame(12, $total);
-		$this->assertSame([], CactiStub::callsTo('db_fetch_cell_prepared'));
+		$this->assertSame([], CactiStubs::callsTo('db_fetch_cell_prepared'));
 	}
 
 	/**
@@ -98,7 +98,7 @@ final class OptionalCoreFunctionTest extends TestCase {
 		$total = 0;
 		$function('', 'td.name', '', $total, -1, 5);
 
-		$this->assertSame([], CactiStub::callsTo('get_total_row_data'));
-		$this->assertNotEmpty(CactiStub::callsTo('db_fetch_cell_prepared'));
+		$this->assertSame([], CactiStubs::callsTo('get_total_row_data'));
+		$this->assertNotEmpty(CactiStubs::callsTo('db_fetch_cell_prepared'));
 	}
 }

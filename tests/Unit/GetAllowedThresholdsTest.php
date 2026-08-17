@@ -51,7 +51,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 		$total = 0;
 		$function('', 'td.name', '', $total, -1, 42);
 
-		$call = CactiStub::callsTo('db_fetch_assoc_prepared')[0];
+		$call = CactiStubs::callsTo('db_fetch_assoc_prepared')[0];
 
 		$this->assertStringContainsString('gl.id = ?', $call['sql']);
 		$this->assertStringNotContainsString('42', $call['sql']);
@@ -73,7 +73,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 		$total   = 0;
 		$function('', 'td.name', '', $total, -1, $payload);
 
-		foreach (CactiStub::$calls as $call) {
+		foreach (CactiStubs::$calls as $call) {
 			$this->assertStringNotContainsString('UNION', $call['sql']);
 		}
 	}
@@ -93,7 +93,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 		$total = 0;
 		$function('td.thold_type = ?', 'td.name', '', $total, -1, 7, [3]);
 
-		$call = CactiStub::callsTo('db_fetch_assoc_prepared')[0];
+		$call = CactiStubs::callsTo('db_fetch_assoc_prepared')[0];
 
 		$this->assertSame([3, 7], $call['params']);
 		$this->assertStringContainsString('td.thold_type = ? AND  gl.id = ?', $call['sql']);
@@ -110,7 +110,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 		$total = 0;
 		$function('', 'td.name', '', $total, -1, 0);
 
-		$call = CactiStub::callsTo('db_fetch_assoc_prepared')[0];
+		$call = CactiStubs::callsTo('db_fetch_assoc_prepared')[0];
 
 		$this->assertStringNotContainsString('WHERE', $call['sql']);
 		$this->assertSame([], $call['params']);
@@ -130,7 +130,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 		$total = 0;
 		$function('td.thold_type = ?', 'td.name', '', $total, -1, 7, [3]);
 
-		$count = CactiStub::callsTo('db_fetch_cell_prepared')[0];
+		$count = CactiStubs::callsTo('db_fetch_cell_prepared')[0];
 
 		$this->assertSame([3, 7], $count['params']);
 	}
@@ -146,7 +146,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 		$total = 0;
 		$function('', 'td.id DESC', '0,30', $total, -1, 0);
 
-		$call = CactiStub::callsTo('db_fetch_assoc_prepared')[0];
+		$call = CactiStubs::callsTo('db_fetch_assoc_prepared')[0];
 
 		$this->assertStringContainsString('ORDER BY td.id DESC', $call['sql']);
 		$this->assertStringContainsString('LIMIT 0,30', $call['sql']);
@@ -160,7 +160,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 	 * @return void
 	 */
 	public function testResultRowsAreReturnedToTheCaller($function): void {
-		CactiStub::willReturn('db_fetch_assoc_prepared', [['id' => 5]]);
+		CactiStubs::willReturn('db_fetch_assoc_prepared', [['id' => 5]]);
 
 		$total = 0;
 		$rows  = $function('', 'td.name', '', $total, -1, 0);
@@ -176,7 +176,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 	 * @return void
 	 */
 	public function testTotalRowsIsSetByReference($function): void {
-		CactiStub::willReturn('db_fetch_cell_prepared', 17);
+		CactiStubs::willReturn('db_fetch_cell_prepared', 17);
 
 		$total = 0;
 		$function('', 'td.name', '', $total, -1, 3);
@@ -195,14 +195,14 @@ final class GetAllowedThresholdsTest extends TestCase {
 	 * @return void
 	 */
 	public function testNoQueryRunsWhenAuthenticationIsOnAndNoUserIsResolved($function): void {
-		CactiStub::$configOptions['auth_method'] = 1;
+		CactiStubs::$configOptions['auth_method'] = 1;
 		unset($_SESSION['sess_user_id']);
 
 		$total = 0;
 		$rows  = $function('', 'td.name', '', $total, 0, 0);
 
 		$this->assertSame([], $rows);
-		$this->assertSame([], CactiStub::callsTo('db_fetch_assoc_prepared'));
+		$this->assertSame([], CactiStubs::callsTo('db_fetch_assoc_prepared'));
 	}
 
 	/**
@@ -213,9 +213,9 @@ final class GetAllowedThresholdsTest extends TestCase {
 	 * @return void
 	 */
 	public function testPolicyWhereIsAppliedWhenPermissionsAreNotSimple($function): void {
-		CactiStub::$configOptions['auth_method'] = 1;
-		CactiStub::willReturn('get_simple_graph_perms', false);
-		CactiStub::willReturn('get_policy_where', 'WHERE policy_applied = 1');
+		CactiStubs::$configOptions['auth_method'] = 1;
+		CactiStubs::willReturn('get_simple_graph_perms', false);
+		CactiStubs::willReturn('get_policy_where', 'WHERE policy_applied = 1');
 		$_SESSION['sess_user_id'] = 9;
 
 		$total = 0;
@@ -223,7 +223,7 @@ final class GetAllowedThresholdsTest extends TestCase {
 
 		unset($_SESSION['sess_user_id']);
 
-		$call = CactiStub::callsTo('db_fetch_assoc_prepared')[0];
+		$call = CactiStubs::callsTo('db_fetch_assoc_prepared')[0];
 
 		$this->assertStringContainsString('policy_applied = 1', $call['sql']);
 	}

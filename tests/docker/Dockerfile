@@ -7,7 +7,8 @@ FROM php:8.1-cli-alpine@sha256:7949370448b0b4d9787776dc5968e0fd8d48763292344b5fb
 
 # git is needed by the changed-line coverage gate, which diffs against the
 # base branch.
-RUN apk add --no-cache git \
+RUN apk add --no-cache git gmp-dev \
+	&& docker-php-ext-install gmp \
 	&& apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
 	&& pecl install pcov \
 	&& docker-php-ext-enable pcov \
@@ -25,4 +26,4 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_NO_INTERACTION=1 \
     COMPOSER_CACHE_DIR=/tmp/composer-cache
 
-CMD ["sh", "-c", "composer install --no-progress --no-ansi && vendor/bin/phpunit"]
+CMD ["sh", "-c", "composer install --no-progress --no-ansi && composer test"]
