@@ -58,13 +58,18 @@ if (!is_readable($clover_path)) {
  */
 function changed_lines($base_ref) {
 	$command = 'git diff --no-ext-diff --unified=0 --no-color --diff-filter=AM ' . escapeshellarg($base_ref) . '...HEAD -- "*.php"';
-	$diff    = shell_exec($command);
+	$output  = [];
+	$status  = 0;
 
-	if ($diff === null) {
+	exec($command, $output, $status);
+
+	if ($status !== 0) {
 		fwrite(STDERR, "git diff failed\n");
 
 		exit(2);
 	}
+
+	$diff = implode("\n", $output);
 
 	$changed = [];
 	$file    = null;
