@@ -2250,9 +2250,6 @@ function thold_check_threshold(&$thold_data) {
 	// ensure that Cacti will make of individual defined SNMP Engine IDs
 	$overwrite['snmp_engine_id'] = $h['snmp_engine_id'];
 
-	// pull a few default settings
-	$global_alert_address  = read_config_option('alert_email');
-
 	// Settings for syslogging
 	$syslog                = $thold_data['syslog_enabled'] == 'on' ? true : false;
 	$syslog_priority       = $thold_data['syslog_priority'];
@@ -2269,9 +2266,6 @@ function thold_check_threshold(&$thold_data) {
 	$thold_snmp_normal_traps  = (read_config_option('thold_alert_snmp_normal') == 'on');
 	$cacti_polling_interval   = read_config_option('poller_interval');
 
-	// remove this after adding an option for it
-	$show_datasource = thold_datasource_required(thold_get_cached_name($thold_data), $thold_data['data_source_name']);
-
 	$trigger         = ($thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger']);
 	$warning_trigger = ($thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger']);
 	$alertstat       = $thold_data['thold_alert'];
@@ -2286,22 +2280,6 @@ function thold_check_threshold(&$thold_data) {
 			}
 		}
 	}
-
-	// setup base units
-	$baseu = db_fetch_cell_prepared('SELECT base_value
-		FROM graph_templates_graph
-		WHERE local_graph_id = ?',
-		[$thold_data['local_graph_id']]);
-
-	if ($thold_data['data_type'] == 2) {
-		$suffix = false;
-	} else {
-		$suffix = true;
-	}
-
-	$show_units   = ($thold_data['show_units'] ? true : false);
-	$units_suffix = $thold_data['units_suffix'];
-	$decimals     = $thold_data['decimals'] >= 0 ? $thold_data['decimals'] : 2;
 
 	$file_array = [];
 
