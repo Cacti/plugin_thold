@@ -207,10 +207,13 @@ while (true) {
 					$currentval = '';
 				}
 
+				// Counters, where calculating the difference is important.
+				// The unset case is problematic and may lead to false triggering
+				// events.  So, in those cases, we will store the 'oldvalue'.
 				if (isset($item[$thold_data['name']])) {
-					$lasttime = $item[$thold_data['name']];
+					$rawvalue = $item[$thold_data['name']];
 				} else {
-					$lasttime = $currenttime - $thold_data['rrd_step'];
+					$rawvalue = $thold_data['oldvalue'];
 				}
 
 				thold_daemon_debug(sprintf('Checked Name:%s, Graph:%s, Value:%s, Time:%s', $thold_data['thold_name'], $thold_data['local_graph_id'], $currentval, $currenttime), $thread);
@@ -219,7 +222,7 @@ while (true) {
 					SET tcheck = 1, lastread = ?,
 					lasttime = FROM_UNIXTIME(?), oldvalue = ?
 					WHERE id = ?',
-					[$currentval, $currenttime, $lasttime, $thold_data['thold_id']]
+					[$currentval, $currenttime, $rawvalue, $thold_data['thold_id']]
 				);
 			}
 
