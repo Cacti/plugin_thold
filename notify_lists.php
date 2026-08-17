@@ -173,8 +173,8 @@ function form_actions() {
 
 					db_execute('UPDATE host
 						SET thold_host_email = 0
-						AND deleted=""
-						WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
+						WHERE deleted=""
+						AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
 
 					db_execute('UPDATE thold_data
 						SET notify_warning = 0
