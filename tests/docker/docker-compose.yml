@@ -1,0 +1,15 @@
+# Local mirror of the unit-test CI job.  `docker compose -f
+# tests/docker/docker-compose.yml run --rm phpunit` runs exactly what CI runs.
+services:
+  phpunit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cacti-thold-test:php8.1
+    working_dir: /cacti/plugins/thold
+    volumes:
+      - ../..:/cacti/plugins/thold
+      - composer-cache:/tmp/composer-cache
+
+volumes:
+  composer-cache:
