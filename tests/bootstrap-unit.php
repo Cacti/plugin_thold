@@ -62,6 +62,8 @@ if ($cacti_version !== $expected_version) {
 require_once $autoload;
 require_once __DIR__ . '/Helpers/CactiStubs.php';
 require_once __DIR__ . '/TestCase.php';
+require_once __DIR__ . '/Helpers/ThresholdOutcome.php';
+require_once __DIR__ . '/Helpers/ThresholdScenario.php';
 
 /*
  * base_path has to point at the Cacti root two levels above this plugin:
