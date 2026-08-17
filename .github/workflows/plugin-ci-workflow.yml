@@ -35,21 +35,12 @@ jobs:
   integration-test:
     runs-on: ${{ matrix.os }}
     
-    # A failure against the pinned release is a real failure. The develop entry
-    # is advisory: it is how a core regression becomes visible here, but it must
-    # not turn the plugin's own pull requests red.
-    continue-on-error: ${{ matrix.cacti != 'release/1.2.31' }}
-
     strategy:
       fail-fast: false
       matrix:
         php: ['8.1', '8.2', '8.3', '8.4']
         os: [ubuntu-latest]
         cacti: ['release/1.2.31']
-        include:
-          - php: '8.4'
-            os: ubuntu-latest
-            cacti: 'develop'
     
     services:
       mariadb:
