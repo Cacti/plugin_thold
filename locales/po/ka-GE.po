@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2025-12-11 07:18+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2024-04-20 16:30-0400\nPO-Revision-Date: 2026-08-04 05:18+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php:26
 msgid "Indefinitely"
@@ -646,7 +646,7 @@ msgstr "უახლესი ზღვრები"
 
 #: includes/settings.php:125
 msgid "Recent Device Failures"
-msgstr ""
+msgstr "უახლესი მოწყობილობის ჩავარდნები"
 
 #: includes/settings.php:132 includes/settings.php:139
 #: includes/settings.php:146 includes/settings.php:153
@@ -1353,7 +1353,7 @@ msgstr ""
 
 #: notify_lists.php:526
 msgid "New List Name"
-msgstr ""
+msgstr "ახალი სიის სახელი"
 
 #: notify_lists.php:527
 msgid "New Notification List"
@@ -1417,7 +1417,7 @@ msgstr "სიის წაშლა"
 
 #: notify_lists.php:601 notify_lists.php:671 notify_lists.php:744
 msgid "Disassociate Notification List(s)"
-msgstr ""
+msgstr "გაფრთხილების სიების ასოცირების გაუქმება"
 
 #: notify_lists.php:647
 #, php-format
@@ -1629,7 +1629,7 @@ msgstr ""
 
 #: notify_lists.php:1260
 msgid "No Associated Devices Found"
-msgstr ""
+msgstr "ასოცირებული მოწყობილობები აღმოჩენილი არაა"
 
 #: notify_lists.php:1345
 msgid "Associated Thresholds"
@@ -1979,7 +1979,7 @@ msgstr "ზღვრების ავტოშექმნა"
 #: setup.php:894 setup.php:1051
 #, php-format
 msgid "Created %s thresholds"
-msgstr ""
+msgstr "შეიქმნა %s ზღვარი"
 
 #: setup.php:896 setup.php:1053 thold_functions.php:6239
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
@@ -3499,7 +3499,7 @@ msgstr "განგაშის ელფოსტის თემა"
 
 #: thold_templates.php:1517
 msgid "Alert Email Body"
-msgstr ""
+msgstr "განგაშის ელფოსტის სხეული"
 
 #: thold_templates.php:1531
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
