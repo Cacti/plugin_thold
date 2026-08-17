@@ -207,9 +207,8 @@ while (true) {
 					$currentval = '';
 				}
 
-				// Counters, where calculating the difference is important.
-				// The unset case is problematic and may lead to false triggering
-				// events.  So, in those cases, we will store the 'oldvalue'.
+				// Carry the previous value forward when this cycle has no reading;
+				// storing a timestamp here corrupts the next delta calculation.
 				if (isset($item[$thold_data['name']])) {
 					$rawvalue = $item[$thold_data['name']];
 				} else {

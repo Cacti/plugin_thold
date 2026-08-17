@@ -134,6 +134,18 @@ final class TholdGetCurrentvalTest extends TestCase {
 	}
 
 	/**
+	 * RRD values can arrive in scientific notation. GMP accepts only integer
+	 * strings, so these values must use the non-fatal floating-point fallback.
+	 *
+	 * @return void
+	 */
+	public function testSixtyFourBitWrapAcceptsScientificNotation(): void {
+		$thold = $this->threshold(['oldvalue' => '1.8446744073709552E+19', 'rrd_step' => 1]);
+
+		$this->assertEqualsWithDelta(5, $this->currentValue($thold, 5), 1.0e-9);
+	}
+
+	/**
 	 * @return void
 	 */
 	public function testDeriveDividesTheDeltaByTheStep(): void {

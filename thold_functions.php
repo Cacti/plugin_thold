@@ -788,7 +788,14 @@ function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $c
  */
 function thold_counter_wrap_delta($oldvalue, $newvalue) {
 	if ($oldvalue > 4294967295) {
-		$delta = gmp_add(gmp_sub(gmp_pow(2, 64), gmp_init((string) $oldvalue, 10)), gmp_init((string) $newvalue, 10));
+		$old_integer = trim((string) $oldvalue);
+		$new_integer = trim((string) $newvalue);
+
+		if (!preg_match('/^\d+$/D', $old_integer) || !preg_match('/^\d+$/D', $new_integer)) {
+			return (18446744073709551616.0 - (float) $oldvalue) + (float) $newvalue;
+		}
+
+		$delta = gmp_add(gmp_sub(gmp_pow(2, 64), gmp_init($old_integer, 10)), gmp_init($new_integer, 10));
 
 		return (float) gmp_strval($delta);
 	}
