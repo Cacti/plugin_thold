@@ -146,13 +146,17 @@ function form_actions() {
 	global $actions, $assoc_actions;
 
 	// ================= input validation =================
+	/*
+	 * get_filter_request_var() stores the value as an int, so the comparison
+	 * has to be made on strings for the strict check to mean anything.
+	 */
 	get_filter_request_var('drp_action');
 
 	$valid_actions = array_map('strval', array_keys($actions + $assoc_actions));
 
-	if (!in_array(get_request_var('drp_action'), $valid_actions, true)) {
+	if (!in_array((string) get_request_var('drp_action'), $valid_actions, true)) {
 		raise_message(40);
-		header('Location: notify_lists.php');
+		header('Location: notify_lists.php?header=false');
 		exit;
 	}
 	// ====================================================
@@ -164,59 +168,53 @@ function form_actions() {
 		if (isset_request_var('save_list')) {
 			if ($selected_items != false) {
 				if (get_request_var('drp_action') == '1') { // delete
-					$placeholders = implode(',', array_fill(0, cacti_sizeof($selected_items), '?'));
+					/*
+					 * Bind positionally on the values: sanitize_unserialize_selected_items()
+					 * preserves the submitted array's keys, and a string key would be read
+					 * as a named parameter.
+					 */
+					$ids          = array_map('intval', array_values($selected_items));
+					$placeholders = implode(', ', array_fill(0, cacti_sizeof($ids), '?'));
 
-					db_begin_transaction();
+					/*
+					 * Issued as SQL rather than through db_begin_transaction() and
+					 * friends: Cacti's db_commit_transaction() gates the commit on
+					 * SELECT @@in_transaction, which only MariaDB defines. On MySQL that
+					 * query fails, the commit is skipped, and every write here is
+					 * discarded when the connection closes.
+					 */
+					db_execute('START TRANSACTION');
 
-					// Chain with && so the first failure short-circuits the remaining statements.
-					$ok  = db_execute_prepared('DELETE FROM plugin_notification_lists
-						WHERE id IN (' . $placeholders . ')',
-						$selected_items)
+					/*
+					 * The host reset deliberately omits the deleted = "" predicate its
+					 * siblings carry: a soft-deleted device that is later restored must
+					 * not come back pointing at a list that no longer exists.
+					 */
+					$statements = array(
+						'DELETE FROM plugin_notification_lists WHERE id IN (' . $placeholders . ')',
+						'UPDATE host SET thold_send_email = 0 WHERE thold_send_email = 2 AND deleted = "" AND thold_host_email IN (' . $placeholders . ')',
+						'UPDATE host SET thold_send_email = 1 WHERE thold_send_email = 3 AND deleted = "" AND thold_host_email IN (' . $placeholders . ')',
+						'UPDATE host SET thold_host_email = 0 WHERE thold_host_email IN (' . $placeholders . ')',
+						'UPDATE thold_data SET notify_warning = 0 WHERE notify_warning IN (' . $placeholders . ')',
+						'UPDATE thold_data SET notify_alert = 0 WHERE notify_alert IN (' . $placeholders . ')',
+						'UPDATE thold_template SET notify_warning = 0 WHERE notify_warning IN (' . $placeholders . ')',
+						'UPDATE thold_template SET notify_alert = 0 WHERE notify_alert IN (' . $placeholders . ')'
+					);
 
-						&& db_execute_prepared('UPDATE host
-						SET thold_send_email = 0
-						WHERE thold_send_email = 2
-						AND deleted = ""
-						AND thold_host_email IN (' . $placeholders . ')',
-							$selected_items)
+					$ok = true;
 
-						&& db_execute_prepared('UPDATE host
-						SET thold_send_email = 1
-						WHERE thold_send_email = 3
-						AND deleted = ""
-						AND thold_host_email IN (' . $placeholders . ')',
-							$selected_items)
+					foreach ($statements as $sql) {
+						if (!db_execute_prepared($sql, $ids)) {
+							$ok = false;
 
-						&& db_execute_prepared('UPDATE host
-						SET thold_host_email = 0
-						WHERE thold_host_email IN (' . $placeholders . ')
-						AND deleted = ""',
-							$selected_items)
-
-						&& db_execute_prepared('UPDATE thold_data
-						SET notify_warning = 0
-						WHERE notify_warning IN (' . $placeholders . ')',
-							$selected_items)
-
-						&& db_execute_prepared('UPDATE thold_data
-						SET notify_alert = 0
-						WHERE notify_alert IN (' . $placeholders . ')',
-							$selected_items)
-
-						&& db_execute_prepared('UPDATE thold_template
-						SET notify_warning = 0
-						WHERE notify_warning IN (' . $placeholders . ')',
-							$selected_items)
-
-						&& db_execute_prepared('UPDATE thold_template
-						SET notify_alert = 0
-						WHERE notify_alert IN (' . $placeholders . ')',
-							$selected_items);
+							break;
+						}
+					}
 
 					if ($ok) {
-						db_commit_transaction();
+						db_execute('COMMIT');
 					} else {
-						db_rollback_transaction();
+						db_execute('ROLLBACK');
 					}
 				} elseif (get_request_var('drp_action') == '2') { // duplicate
 					$i = 1;
@@ -269,7 +267,7 @@ function form_actions() {
 				get_filter_request_var('notification_warning_action');
 				get_filter_request_var('notification_alert_action');
 
-				db_begin_transaction();
+				db_execute('START TRANSACTION');
 
 				$ok = true;
 
@@ -415,9 +413,9 @@ function form_actions() {
 				}
 
 				if ($ok) {
-					db_commit_transaction();
+					db_execute('COMMIT');
 				} else {
-					db_rollback_transaction();
+					db_execute('ROLLBACK');
 				}
 			}
 
@@ -432,7 +430,7 @@ function form_actions() {
 				get_filter_request_var('notification_warning_action');
 				get_filter_request_var('notification_alert_action');
 
-				db_begin_transaction();
+				db_execute('START TRANSACTION');
 
 				$ok              = true;
 				$update_template = [];
@@ -524,7 +522,7 @@ function form_actions() {
 				}
 
 				if ($ok) {
-					db_commit_transaction();
+					db_execute('COMMIT');
 
 					// Propagate template changes to threshold instances after the
 					// notification assignment is committed so this cascade does not
@@ -533,7 +531,7 @@ function form_actions() {
 						thold_template_update_thresholds($template_id);
 					}
 				} else {
-					db_rollback_transaction();
+					db_execute('ROLLBACK');
 				}
 			}
 
@@ -548,7 +546,7 @@ function form_actions() {
 				get_filter_request_var('notification_warning_action');
 				get_filter_request_var('notification_alert_action');
 
-				db_begin_transaction();
+				db_execute('START TRANSACTION');
 
 				$ok = true;
 
@@ -635,9 +633,9 @@ function form_actions() {
 				}
 
 				if ($ok) {
-					db_commit_transaction();
+					db_execute('COMMIT');
 				} else {
-					db_rollback_transaction();
+					db_execute('ROLLBACK');
 				}
 			}
 
@@ -720,7 +718,7 @@ function form_actions() {
 				<input type='hidden' name='action' value='actions'>
 				<input type='hidden' name='save_list' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -795,10 +793,10 @@ function form_actions() {
 		print "	<tr>
 				<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
+				<input type='hidden' name='id' value='" . html_escape(get_request_var('id')) . "'>
 				<input type='hidden' name='save_templates' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -873,10 +871,10 @@ function form_actions() {
 		print "	<tr>
 				<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
+				<input type='hidden' name='id' value='" . html_escape(get_request_var('id')) . "'>
 				<input type='hidden' name='save_tholds' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -958,10 +956,10 @@ function form_actions() {
 		print "<tr>
 			<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
+				<input type='hidden' name='id' value='" . html_escape(get_request_var('id')) . "'>
 				<input type='hidden' name='save_associate' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -1531,7 +1529,7 @@ function tholds($header_label) {
 	if (strlen(get_request_var('rfilter'))) {
 		// rfilter is pre-validated as a legal PHP regex by FILTER_VALIDATE_IS_REGEX in the
 		// request validation array; db_qstr() SQL-escapes the already-validated value.
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache RLIKE ' . db_qstr(get_request_var('rfilter'));
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache ' . thold_rlike_clause(get_request_var('rfilter'));
 	}
 
 	if ($statefilter != '') {
@@ -1873,7 +1871,7 @@ function templates($header_label) {
 	if (strlen(get_request_var('rfilter'))) {
 		// rfilter is pre-validated as a legal PHP regex by FILTER_VALIDATE_IS_REGEX in the
 		// request validation array; db_qstr() SQL-escapes the already-validated value.
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_template.name RLIKE ' . db_qstr(get_request_var('rfilter'));
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_template.name ' . thold_rlike_clause(get_request_var('rfilter'));
 	}
 
 	$sql = "SELECT *
@@ -2280,9 +2278,9 @@ function lists() {
 		// rfilter is pre-validated as a legal PHP regex by FILTER_VALIDATE_IS_REGEX in the
 		// request validation array; db_qstr() SQL-escapes the already-validated value.
 		$sql_where = 'WHERE (
-		name RLIKE ' . db_qstr(get_request_var('rfilter')) . '
-		OR description RLIKE ' . db_qstr(get_request_var('rfilter')) . '
-		OR emails RLIKE ' . db_qstr(get_request_var('rfilter')) . ')';
+		name ' . thold_rlike_clause(get_request_var('rfilter')) . '
+		OR description ' . thold_rlike_clause(get_request_var('rfilter')) . '
+		OR emails ' . thold_rlike_clause(get_request_var('rfilter')) . ')';
 	} else {
 		$sql_where = '';
 	}
