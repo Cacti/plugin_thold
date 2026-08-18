@@ -7256,6 +7256,96 @@ function thold_notification_record_delivery($id, $error, $runtime, $previous_att
 		[$error, $attempt, thold_notification_retry_delay($attempt), $runtime, $id]);
 }
 
+/**
+ * Record one grouped mail result with a single prepared update.
+ *
+ * @param array<int,int> $records Record ID => previous attempt count.
+ * @param string         $error
+ * @param float          $runtime
+ *
+ * @return bool
+ */
+function thold_notification_record_deliveries(array $records, $error, $runtime) {
+	if (!cacti_sizeof($records)) {
+		return true;
+	}
+
+	$error          = substr(str_replace("\n", ' ', (string) $error), 0, 128);
+	$attempt_cases  = [];
+	$attempt_params = [];
+	$next_cases     = [];
+	$next_params    = [];
+	$process_cases  = [];
+	$process_params = [];
+	$done_cases     = [];
+	$done_params    = [];
+	$time_cases     = [];
+	$time_params    = [];
+	$ids            = [];
+
+	foreach ($records as $id => $previous_attempts) {
+		$id = (int) $id;
+
+		if ($id <= 0) {
+			continue;
+		}
+
+		$attempt   = max(0, (int) $previous_attempts) + 1;
+		$retryable = $error !== '' && $attempt < 5;
+		$done      = $retryable ? 0 : 1;
+
+		$attempt_cases[]  = 'WHEN ? THEN ?';
+		$attempt_params[] = $id;
+		$attempt_params[] = $attempt;
+
+		if ($retryable) {
+			$next_cases[]     = 'WHEN ? THEN FROM_UNIXTIME(UNIX_TIMESTAMP() + ?)';
+			$next_params[]    = $id;
+			$next_params[]    = thold_notification_retry_delay($attempt);
+			$process_cases[]  = 'WHEN ? THEN 0';
+		} else {
+			$next_cases[]     = 'WHEN ? THEN NULL';
+			$next_params[]    = $id;
+			$process_cases[]  = 'WHEN ? THEN process_id';
+		}
+
+		$process_params[] = $id;
+		$done_cases[]     = 'WHEN ? THEN ?';
+		$done_params[]    = $id;
+		$done_params[]    = $done;
+		$time_cases[]     = $done ? 'WHEN ? THEN NOW()' : 'WHEN ? THEN event_processed_time';
+		$time_params[]    = $id;
+		$ids[]            = $id;
+	}
+
+	if (!cacti_sizeof($ids)) {
+		return true;
+	}
+
+	$placeholders = implode(',', array_fill(0, cacti_sizeof($ids), '?'));
+	$params       = array_merge(
+		[$error === '' ? 0 : 1, $error],
+		$attempt_params,
+		$next_params,
+		$process_params,
+		$done_params,
+		$time_params,
+		[$runtime],
+		$ids
+	);
+
+	return db_execute_prepared('UPDATE notification_queue
+		SET error_code = ?, error_message = ?,
+			attempt_count = CASE id ' . implode(' ', $attempt_cases) . ' ELSE attempt_count END,
+			next_attempt = CASE id ' . implode(' ', $next_cases) . ' ELSE next_attempt END,
+			process_id = CASE id ' . implode(' ', $process_cases) . ' ELSE process_id END,
+			event_processed = CASE id ' . implode(' ', $done_cases) . ' ELSE event_processed END,
+			event_processed_time = CASE id ' . implode(' ', $time_cases) . ' ELSE event_processed_time END,
+			event_processed_runtime = ?
+		WHERE id IN (' . $placeholders . ')',
+		$params);
+}
+
 function process_device_notifications($pid, $max_records, $prev_suspended) {
 	$one_email = read_config_option('alert_deadnotify_one_mail') == 'on' ? true : false;
 	$emails    = [];
@@ -7459,9 +7549,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 
 				$nend = microtime(true);
 
-				foreach ($email['records'] as $record_id => $attempt_count) {
-					thold_notification_record_delivery($record_id, $error, $nend - $nstart, $attempt_count);
-				}
+				thold_notification_record_deliveries($email['records'], $error, $nend - $nstart);
 			}
 		}
 	} else {

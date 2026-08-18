@@ -28,7 +28,7 @@ control of thold, and set defaults for things like Email bodies, weekend
 exemptions, alert log retention, logging, etc.
 
 When the notification queue is enabled, transient email failures are retried
-up to five times with exponential backoff from one minute to one hour. The
+up to five times with exponential backoff from one to eight minutes. The
 Notification Queue page shows the attempt count and next eligible retry time.
 After the fifth failed attempt the row becomes a terminal error so a permanent
 SMTP or address failure cannot retry forever.

@@ -176,7 +176,9 @@ final class NotificationQueueRetryTest extends TestCase {
 		CactiStubs::$configOptions['alert_deadnotify_subject']  = 'Device alerts';
 		CactiStubs::willReturnFor('db_fetch_assoc', "topic IN ('thold_dhost_mail'", [
 			$this->mailRow(61, 'thold_dhost_mail', 0),
+			$this->mailRow(63, 'thold_dhost_mail', 0),
 			$this->mailRow(62, 'thold_uhost_mail', 3),
+			$this->mailRow(64, 'thold_uhost_mail', 4),
 		]);
 		CactiStubs::willReturn('mailer', 'temporary SMTP failure');
 
@@ -186,11 +188,32 @@ final class NotificationQueueRetryTest extends TestCase {
 			return $call['fn'] === 'db_execute_prepared' && strpos($call['sql'], 'attempt_count') !== false;
 		}));
 
-		$this->assertCount(2, $calls);
-		$this->assertSame(61, $calls[0]['params'][4]);
-		$this->assertSame(1, $calls[0]['params'][1]);
-		$this->assertSame(62, $calls[1]['params'][4]);
-		$this->assertSame(4, $calls[1]['params'][1]);
+		$this->assertCount(1, $calls);
+		$this->assertStringContainsString('attempt_count = CASE id', $calls[0]['sql']);
+		$this->assertStringContainsString('event_processed = CASE id', $calls[0]['sql']);
+		$this->assertSame([61, 63, 62, 64], array_slice($calls[0]['params'], -4));
+		$this->assertSame('temporary SMTP failure', $calls[0]['params'][1]);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testGroupedDeliveryHandlesEmptyInvalidAndSuccessfulBatches(): void {
+		$this->assertTrue(thold_notification_record_deliveries([], '', 0.25));
+		$this->assertTrue(thold_notification_record_deliveries([-1 => 0], '', 0.25));
+		$this->assertSame([], CactiStubs::$calls);
+
+		$this->assertTrue(thold_notification_record_deliveries([81 => 0, 82 => 4], '', 0.25));
+
+		$calls = array_values(array_filter(CactiStubs::$calls, static function ($call) {
+			return $call['fn'] === 'db_execute_prepared' && strpos($call['sql'], 'attempt_count = CASE id') !== false;
+		}));
+
+		$this->assertCount(1, $calls);
+		$this->assertSame(0, $calls[0]['params'][0]);
+		$this->assertSame('', $calls[0]['params'][1]);
+		$this->assertSame([81, 82], array_slice($calls[0]['params'], -2));
+		$this->assertStringNotContainsString('FROM_UNIXTIME', $calls[0]['sql']);
 	}
 
 	/**
