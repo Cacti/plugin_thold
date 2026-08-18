@@ -317,6 +317,20 @@ final class TholdGetCurrentvalTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testFirstAbsoluteSampleUsesTheValidatedPollerInterval(): void {
+		CactiStubs::$configOptions['poller_interval'] = 300;
+		$thold = $this->threshold([
+			'data_source_type_id' => self::ABSOLUTE,
+			'lasttime'            => 0,
+			'rrd_step'            => 0,
+		]);
+
+		$this->assertEqualsWithDelta(2, $this->currentValue($thold, 600), 1.0e-9);
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testOutOfOrderCounterAndDeriveSamplesAreUnknown(): void {
 		foreach ([self::COUNTER, self::DERIVE] as $type) {
 			$thold          = $this->threshold(['data_source_type_id' => $type, 'lasttime' => 1700000400]);
