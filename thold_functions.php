@@ -838,6 +838,28 @@ function thold_counter_wrap_delta($oldvalue, $newvalue) {
 }
 
 /**
+ * Whether a valid current sample predates the stored sample clock.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param array<string,mixed> $item
+ * @param int                 $currenttime
+ *
+ * @return bool
+ */
+function thold_sample_clock_moved_backward(array $thold_data, array $item, $currenttime) {
+	$name        = (string) ($thold_data['name'] ?? '');
+	$currenttime = (int) $currenttime;
+	$lasttime    = (int) ($thold_data['lasttime'] ?? 0);
+
+	return $name !== ''
+		&& $currenttime > 0
+		&& $lasttime > 0
+		&& $currenttime < $lasttime
+		&& isset($item[$name])
+		&& is_numeric($item[$name]);
+}
+
+/**
  * Persist a raw sample and its timestamp as one causal pair.
  *
  * `$thold_data` must provide `name`, `lasttime`, and `oldvalue`; absent values
@@ -856,7 +878,7 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
 	$lasttime = (int) ($thold_data['lasttime'] ?? 0);
 
 	if ($name !== '' && $currenttime > 0 && $currenttime !== $lasttime && isset($item[$name]) && is_numeric($item[$name])) {
-		if ($lasttime > 0 && $currenttime < $lasttime) {
+		if (thold_sample_clock_moved_backward($thold_data, $item, $currenttime)) {
 			cacti_log(sprintf(
 				'WARNING: Threshold %s sample clock moved backwards; re-anchoring its value and timestamp.',
 				$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
@@ -910,9 +932,11 @@ function thold_daemon_persist_sample(array $thold_data, array $item, $currentval
 		return false;
 	}
 
-	thold_log_unavailable_transition($thold_data, $currentval);
-
 	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
+
+	if (!thold_sample_clock_moved_backward($thold_data, $item, $currenttime)) {
+		thold_log_unavailable_transition($thold_data, $currentval);
+	}
 
 	if ($sample['lasttime'] <= 0) {
 		return db_execute_prepared('UPDATE thold_data
@@ -946,9 +970,11 @@ function thold_polling_sample_row(array $thold_data, array $item, $currentval, $
 		return ['sample_row' => null, 'status_row' => null];
 	}
 
-	thold_log_unavailable_transition($thold_data, $currentval);
-
 	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
+
+	if (!thold_sample_clock_moved_backward($thold_data, $item, $currenttime)) {
+		thold_log_unavailable_transition($thold_data, $currentval);
+	}
 
 	if ($sample['lasttime'] <= 0) {
 		return [

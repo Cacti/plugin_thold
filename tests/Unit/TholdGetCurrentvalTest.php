@@ -537,13 +537,19 @@ final class TholdGetCurrentvalTest extends TestCase {
 			['lasttime' => 1700000400, 'oldvalue' => 100],
 			thold_sample_persistence($thold, ['traffic_in' => 700], 1700000400)
 		);
+
+		CactiStubs::reset();
 		$this->assertSame([
 			'sample_row' => "(9, 1, '', FROM_UNIXTIME(1700000300), '700')",
 			'status_row' => null,
 		], thold_polling_sample_row($thold, ['traffic_in' => 700], '', 1700000300));
+		$this->assertCount(1, CactiStubs::$log);
+		$this->assertStringContainsString('clock moved backwards', CactiStubs::$log[0]);
 
 		CactiStubs::reset();
 		$this->assertTrue(thold_daemon_persist_sample($thold, ['traffic_in' => 700], '', 1700000300));
+		$this->assertCount(1, CactiStubs::$log);
+		$this->assertStringContainsString('clock moved backwards', CactiStubs::$log[0]);
 		$call = end(CactiStubs::$calls);
 		$this->assertSame([1, '', 1700000300, 700, 9], $call['params']);
 
