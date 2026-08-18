@@ -1135,32 +1135,13 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					AND td.local_data_id = ?',
 					[$dsname, $thold['local_data_id']]);
 
-				$value = '';
-
-				if (cacti_sizeof($thold_item)) {
-					$item        = [];
-					$currenttime = 0;
-					$value       = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
-
-					if (!is_numeric($value)) {
-						return '';
-					}
+				if (!cacti_sizeof($thold_item)) {
+					return '';
 				}
 
-				// Previous returns 'U' after device recovers.  Try alternate
-				if (empty($value) || $value == 'U') {
-					if (read_config_option('dsstats_enable') == 'on') {
-						$value = db_fetch_cell_prepared('SELECT calculated
-							FROM data_source_stats_hourly_last
-							WHERE local_data_id = ?
-							AND rrd_name = ?',
-							[$thold['local_data_id'], $dsname]);
-					}
-
-					if (empty($value) || $value == 'U' || $value == '-90909090909') {
-						$value = get_current_value($thold['local_data_id'], $dsname);
-					}
-				}
+				$item        = [];
+				$currenttime = 0;
+				$value       = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
 
 				if (!is_numeric($value)) {
 					return '';

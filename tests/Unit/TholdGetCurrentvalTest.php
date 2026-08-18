@@ -235,6 +235,15 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$time_reindexed = [4 => 1900];
 
 		$this->assertSame('', thold_calculate_expression($outer, '', $reindexed, $time_reindexed));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', $nested);
+		$time_reindexed[4] = 1300;
+		$this->assertEqualsWithDelta(2, thold_calculate_expression($outer, '', $reindexed, $time_reindexed), 1.0e-9);
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
+		$this->assertSame('', thold_calculate_expression($outer, '', $reindexed, $time_reindexed));
 	}
 
 	/**
