@@ -66,10 +66,35 @@ final class NotificationQueueRetryTest extends TestCase {
 	 * @return void
 	 */
 	public function testRetryDelayUsesBoundedExponentialBackoff(): void {
+		$this->assertSame(60, thold_notification_retry_delay(-1));
+		$this->assertSame(60, thold_notification_retry_delay(0));
 		$this->assertSame(60, thold_notification_retry_delay(1));
 		$this->assertSame(120, thold_notification_retry_delay(2));
 		$this->assertSame(480, thold_notification_retry_delay(4));
+		$this->assertSame(1920, thold_notification_retry_delay(6));
 		$this->assertSame(3600, thold_notification_retry_delay(7));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testQueueStatusCellsFollowTheirHeaderOrder(): void {
+		$cells = thold_notification_queue_status_cells([
+			'event_processed'         => 1,
+			'error_code'              => 1,
+			'attempt_count'           => 4,
+			'next_attempt'            => null,
+			'event_processed_runtime' => 0.25,
+		]);
+
+		$this->assertSame(
+			['event_processed', 'error_code', 'attempt_count', 'next_attempt', 'event_processed_runtime'],
+			array_keys($cells)
+		);
+		$this->assertSame(['Done', 'Errored', 4, 'N/A', '0.25'], array_values($cells));
+
+		$pending = thold_notification_queue_status_cells(['event_processed' => 0]);
+		$this->assertSame(['Pending', 'N/A', 0, 'N/A', 'N/A'], array_values($pending));
 	}
 
 	/**
@@ -191,6 +216,11 @@ final class NotificationQueueRetryTest extends TestCase {
 		$this->assertCount(1, $calls);
 		$this->assertStringContainsString('attempt_count = CASE id', $calls[0]['sql']);
 		$this->assertStringContainsString('event_processed = CASE id', $calls[0]['sql']);
+		$this->assertSame([61, 1, 63, 1, 62, 4, 64, 5], array_slice($calls[0]['params'], 2, 8));
+		$this->assertSame([61, 60, 63, 60, 62, 480, 64], array_slice($calls[0]['params'], 10, 7));
+		$this->assertSame([61, 63, 62, 64], array_slice($calls[0]['params'], 17, 4));
+		$this->assertSame([61, 0, 63, 0, 62, 0, 64, 1], array_slice($calls[0]['params'], 21, 8));
+		$this->assertSame([61, 63, 62, 64], array_slice($calls[0]['params'], 29, 4));
 		$this->assertSame([61, 63, 62, 64], array_slice($calls[0]['params'], -4));
 		$this->assertSame('temporary SMTP failure', $calls[0]['params'][1]);
 	}

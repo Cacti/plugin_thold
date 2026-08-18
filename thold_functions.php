@@ -7217,6 +7217,25 @@ function thold_notification_retry_delay($attempt) {
 }
 
 /**
+ * Values for the delivery-status columns, in the same order as their headers.
+ *
+ * @param array<string,mixed> $notification
+ *
+ * @return array<string,mixed>
+ */
+function thold_notification_queue_status_cells(array $notification) {
+	$processed = (int) ($notification['event_processed'] ?? 0);
+
+	return [
+		'event_processed'          => $processed === 0 ? __('Pending', 'thold') : __('Done', 'thold'),
+		'error_code'               => $processed === 0 ? __('N/A', 'thold') : ((int) ($notification['error_code'] ?? 0) > 0 ? __('Errored', 'thold') : __('Success', 'thold')),
+		'attempt_count'            => (int) ($notification['attempt_count'] ?? 0),
+		'next_attempt'             => !empty($notification['next_attempt']) ? $notification['next_attempt'] : __('N/A', 'thold'),
+		'event_processed_runtime'  => $processed === 0 ? __('N/A', 'thold') : number_format_i18n($notification['event_processed_runtime'] ?? 0, 2),
+	];
+}
+
+/**
  * Record one queued email delivery without losing transient failures.
  *
  * The fifth failed attempt is terminal. Earlier failures release the claim and

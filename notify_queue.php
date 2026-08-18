@@ -503,16 +503,9 @@ function notify_queue() {
 
 			form_selectable_cell($n['id'], $n['id'], '', 'right');
 			form_selectable_cell($n['event_time'], $n['id'], '', 'right');
-			form_selectable_cell($n['event_processed'] == 0 ? __('Pending', 'thold') : __('Done', 'thold'), $n['id'], '', 'right');
-			form_selectable_cell((int) ($n['attempt_count'] ?? 0), $n['id'], '', 'right');
-			form_selectable_cell($n['next_attempt'] ?: __('N/A', 'thold'), $n['id'], '', 'right');
 
-			if ($n['event_processed'] > 0) {
-				form_selectable_cell($n['error_code'] > 0 ? __('Errored', 'thold') : __('Success', 'thold'), $n['id'], '', 'right');
-				form_selectable_cell(number_format_i18n($n['event_processed_runtime'], 2), $n['id'], '', 'right');
-			} else {
-				form_selectable_cell(__('N/A', 'thold'), $n['id'], '', 'right');
-				form_selectable_cell(__('N/A', 'thold'), $n['id'], '', 'right');
+			foreach (thold_notification_queue_status_cells($n) as $cell) {
+				form_selectable_cell($cell, $n['id'], '', 'right');
 			}
 
 			form_checkbox_cell($n['object_name'], $n['id']);
