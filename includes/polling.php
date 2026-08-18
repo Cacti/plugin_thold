@@ -206,17 +206,10 @@ function thold_poller_output(&$rrd_update_array) {
 				}
 			}
 
-			$sample = thold_sample_persistence($thold_data, $item, $currenttime);
+			$sample_row = thold_polling_sample_row($thold_data, $item, $currentval, $currenttime);
 
-			if ($sample['lasttime'] > 0) {
-				$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', FROM_UNIXTIME(' . $sample['lasttime'] . '), ' . db_qstr($sample['oldvalue']) . ')';
-			} else {
-				// A never-sampled threshold has the zero-date schema default. Keep
-				// that pair untouched instead of writing FROM_UNIXTIME(0).
-				db_execute_prepared('UPDATE thold_data
-					SET tcheck = 1, lastread = ?
-					WHERE id = ?',
-					[$currentval, $thold_data['id']]);
+			if ($sample_row !== null) {
+				$sql[] = $sample_row;
 			}
 		}
 

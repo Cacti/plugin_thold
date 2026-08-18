@@ -38,6 +38,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 */
 	private function threshold(array $overrides = []) {
 		return $overrides + [
+			'id'                   => 9,
 			'thold_id'             => 9,
 			'local_data_id'        => 4,
 			'name'                 => 'traffic_in',
@@ -241,6 +242,28 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$this->assertStringNotContainsString('FROM_UNIXTIME', $call['sql']);
 		$this->assertStringNotContainsString('oldvalue', $call['sql']);
 		$this->assertSame(['', 9], $call['params']);
+
+		CactiStubs::reset();
+		$this->assertNull(thold_polling_sample_row($thold, ['traffic_in' => 'U'], '', 1300));
+		$call = end(CactiStubs::$calls);
+		$this->assertStringNotContainsString('FROM_UNIXTIME', $call['sql']);
+		$this->assertSame(['', 9], $call['params']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testPollerBuildsTheSamePersistedPair(): void {
+		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100]);
+
+		$this->assertSame(
+			"(9, 1, '2', FROM_UNIXTIME(1000), '100')",
+			thold_polling_sample_row($thold, [], 2, 1300)
+		);
+		$this->assertSame(
+			"(9, 1, '2', FROM_UNIXTIME(1600), '700')",
+			thold_polling_sample_row($thold, ['traffic_in' => 700], 2, 1600)
+		);
 	}
 
 	/**
@@ -261,8 +284,6 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$poller = file_get_contents(dirname(__DIR__, 2) . '/includes/polling.php');
 
 		$this->assertStringContainsString('thold_daemon_persist_sample($thold_data, $item, $currentval, $currenttime)', $daemon);
-		$this->assertStringContainsString('thold_sample_persistence($thold_data, $item, $currenttime)', $poller);
-		$this->assertStringContainsString("\$sample['lasttime']", $poller);
-		$this->assertStringContainsString("\$sample['oldvalue']", $poller);
+		$this->assertStringContainsString('thold_polling_sample_row($thold_data, $item, $currentval, $currenttime)', $poller);
 	}
 }

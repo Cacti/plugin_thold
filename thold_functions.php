@@ -890,6 +890,32 @@ function thold_daemon_persist_sample(array $thold_data, array $item, $currentval
 		[$currentval, $sample['lasttime'], $sample['oldvalue'], $thold_data['thold_id']]);
 }
 
+/**
+ * Build one poller bulk-update row, or persist only status without a sample.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param array<string,mixed> $item
+ * @param mixed               $currentval
+ * @param int                 $currenttime
+ *
+ * @return string|null
+ */
+function thold_polling_sample_row(array $thold_data, array $item, $currentval, $currenttime) {
+	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
+
+	if ($sample['lasttime'] <= 0) {
+		db_execute_prepared('UPDATE thold_data
+			SET tcheck = 1, lastread = ?
+			WHERE id = ?',
+			[$currentval, $thold_data['id']]);
+
+		return null;
+	}
+
+	return '(' . (int) $thold_data['id'] . ', 1, ' . db_qstr($currentval)
+		. ', FROM_UNIXTIME(' . $sample['lasttime'] . '), ' . db_qstr($sample['oldvalue']) . ')';
+}
+
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
 	// adjust the polling interval by the last read, if applicable
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
