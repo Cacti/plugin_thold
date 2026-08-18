@@ -772,6 +772,37 @@ function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $c
 	}
 }
 
+/**
+ * Counts a wrapped counter has advanced by, given the previous and current
+ * readings.
+ *
+ * The modulus is 2^32 or 2^64, not one less than it, so the previous code lost
+ * exactly one count per wrap. 2^64 is above PHP_INT_MAX and would be parsed as
+ * a float, losing about eleven bits at that magnitude, so the 64-bit case goes
+ * through GMP. Cacti already requires ext-gmp.
+ *
+ * @param float|int|string $oldvalue Previous reading.
+ * @param float|int|string $newvalue Current reading.
+ *
+ * @return float|int
+ */
+function thold_counter_wrap_delta($oldvalue, $newvalue) {
+	if ($oldvalue > 4294967295) {
+		$old_integer = trim((string) $oldvalue);
+		$new_integer = trim((string) $newvalue);
+
+		if (!preg_match('/^\d+$/D', $old_integer) || !preg_match('/^\d+$/D', $new_integer)) {
+			return (18446744073709551616.0 - (float) $oldvalue) + (float) $newvalue;
+		}
+
+		$delta = gmp_add(gmp_sub(gmp_pow(2, 64), gmp_init($old_integer, 10)), gmp_init($new_integer, 10));
+
+		return (float) gmp_strval($delta);
+	}
+
+	return (4294967296 - $oldvalue) + $newvalue;
+}
+
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
 	// adjust the polling interval by the last read, if applicable
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
@@ -798,17 +829,14 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		if (isset($item[$thold_data['name']]) && is_numeric($item[$thold_data['name']])) {
 			switch ($thold_data['data_source_type_id']) {
 				case 2:	// COUNTER
-					if ($thold_data['oldvalue'] != 0 && is_numeric($thold_data['oldvalue'])) {
+					// A previous reading of zero is a real reading, not a missing one.
+					if (is_numeric($thold_data['oldvalue']) && $thold_data['oldvalue'] !== '') {
 						if ($item[$thold_data['name']] >= $thold_data['oldvalue']) {
 							// Everything is Normal
 							$currentval = $item[$thold_data['name']] - $thold_data['oldvalue'];
 						} else {
 							// Possible overflow, see if its 32bit or 64bit
-							if ($thold_data['oldvalue'] > 4294967295) {
-								$currentval = (18446744073709551615 - $thold_data['oldvalue']) + $item[$thold_data['name']];
-							} else {
-								$currentval = (4294967295 - $thold_data['oldvalue']) + $item[$thold_data['name']];
-							}
+							$currentval = thold_counter_wrap_delta($thold_data['oldvalue'], $item[$thold_data['name']]);
 						}
 
 						if (strpos($thold_data['rrd_maximum'], '|query_') !== false) {
@@ -1201,9 +1229,11 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 	}
 
 	if (isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
-		$t = (int) $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
+		// Not cast to int: a denominator below one truncated to zero, which
+		// forced the percentage to zero and kept a low threshold alerting.
+		$t = $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
 
-		if ($t > 0) {
+		if (is_numeric($t) && $t != 0) {
 			$currentval = ($currentval / $t) * 100;
 		} else {
 			$currentval = 0;
@@ -2171,6 +2201,71 @@ function thold_datasource_required($name, $data_source) {
 	return true;
 }
 
+/**
+ * Gather the settings a threshold evaluation reads, in one place.
+ *
+ * Everything here is derived from the threshold row and the Cacti settings; it
+ * does not decide anything and has no side effects, which is what lets it move
+ * out of thold_check_threshold() without changing behaviour.
+ *
+ * @param array<string, mixed> $thold_data Threshold row.
+ *
+ * @return array<string, mixed>
+ */
+function thold_evaluation_context(array $thold_data) {
+	$alert_trigger        = read_config_option('alert_trigger');
+	$httpurl              = read_config_option('base_url');
+	$thold_send_text_only = read_config_option('thold_send_text_only');
+
+	// see if we have two notification lists or one
+	$notify_different = $thold_data['notify_warning'] > 0
+		&& $thold_data['notify_warning'] != $thold_data['notify_alert']
+		&& read_config_option('thold_notify_alerts_to_warning_recipients') == 'on';
+
+	$file_array = [];
+
+	if ($thold_send_text_only != 'on' && !empty($thold_data['local_graph_id'])) {
+		$file_array = [
+			'local_graph_id' => $thold_data['local_graph_id'],
+			'local_data_id'  => $thold_data['local_data_id'],
+			'rra_id'         => 0,
+			'file'           => "$httpurl/graph_image.php?local_graph_id=" . $thold_data['local_graph_id'] . '&rra_id=0&view_type=tree',
+			'mimetype'       => 'image/png',
+			'filename'       => clean_up_name(thold_get_cached_name($thold_data))
+		];
+	}
+
+	return [
+		// Settings for syslogging
+		'syslog'                   => $thold_data['syslog_enabled'] == 'on',
+		'syslog_priority'          => $thold_data['syslog_priority'],
+		'syslog_facility'          => $thold_data['syslog_facility'],
+
+		'realert'                  => read_config_option('alert_repeat'),
+		'alert_bl_trigger'         => read_config_option('alert_bl_trigger'),
+
+		'thold_snmp_traps'         => read_config_option('thold_alert_snmp') == 'on',
+		'thold_snmp_warning_traps' => read_config_option('thold_alert_snmp_warning') == 'on',
+		'thold_snmp_normal_traps'  => read_config_option('thold_alert_snmp_normal') == 'on',
+		'cacti_polling_interval'   => read_config_option('poller_interval'),
+
+		// An unset trigger on the threshold falls back to the global default.
+		'trigger'                  => $thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger'],
+		'warning_trigger'          => $thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger'],
+		'alertstat'                => $thold_data['thold_alert'],
+
+		'notify_different'         => $notify_different,
+		'file_array'               => $file_array,
+		'url'                      => $httpurl . '/graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all',
+		'lastread'                 => $thold_data['lastread'],
+
+		'alert_emails'             => get_thold_emails($thold_data, 'alert', 'to'),
+		'alert_bcc_emails'         => get_thold_emails($thold_data, 'alert', 'bcc'),
+		'warning_emails'           => get_thold_emails($thold_data, 'warning', 'to'),
+		'warning_bcc_emails'       => get_thold_emails($thold_data, 'warning', 'bcc'),
+	];
+}
+
 function thold_check_threshold(&$thold_data) {
 	global $config, $plugins, $debug;
 
@@ -2250,81 +2345,28 @@ function thold_check_threshold(&$thold_data) {
 	// ensure that Cacti will make of individual defined SNMP Engine IDs
 	$overwrite['snmp_engine_id'] = $h['snmp_engine_id'];
 
-	// pull a few default settings
-	$global_alert_address  = read_config_option('alert_email');
+	$context = thold_evaluation_context($thold_data);
 
-	// Settings for syslogging
-	$syslog                = $thold_data['syslog_enabled'] == 'on' ? true : false;
-	$syslog_priority       = $thold_data['syslog_priority'];
-	$syslog_facility       = $thold_data['syslog_facility'];
-
-	$realert               = read_config_option('alert_repeat');
-	$alert_trigger         = read_config_option('alert_trigger');
-	$alert_bl_trigger      = read_config_option('alert_bl_trigger');
-	$httpurl               = read_config_option('base_url');
-	$thold_send_text_only  = read_config_option('thold_send_text_only');
-
-	$thold_snmp_traps         = (read_config_option('thold_alert_snmp') == 'on');
-	$thold_snmp_warning_traps = (read_config_option('thold_alert_snmp_warning') == 'on');
-	$thold_snmp_normal_traps  = (read_config_option('thold_alert_snmp_normal') == 'on');
-	$cacti_polling_interval   = read_config_option('poller_interval');
-
-	// remove this after adding an option for it
-	$show_datasource = thold_datasource_required(thold_get_cached_name($thold_data), $thold_data['data_source_name']);
-
-	$trigger         = ($thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger']);
-	$warning_trigger = ($thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger']);
-	$alertstat       = $thold_data['thold_alert'];
-
-	// see if we have two notification lists or one
-	$notify_different = false;
-
-	if ($thold_data['notify_warning'] > 0) {
-		if ($thold_data['notify_warning'] != $thold_data['notify_alert']) {
-			if (read_config_option('thold_notify_alerts_to_warning_recipients') == 'on') {
-				$notify_different = true;
-			}
-		}
-	}
-
-	// setup base units
-	$baseu = db_fetch_cell_prepared('SELECT base_value
-		FROM graph_templates_graph
-		WHERE local_graph_id = ?',
-		[$thold_data['local_graph_id']]);
-
-	if ($thold_data['data_type'] == 2) {
-		$suffix = false;
-	} else {
-		$suffix = true;
-	}
-
-	$show_units   = ($thold_data['show_units'] ? true : false);
-	$units_suffix = $thold_data['units_suffix'];
-	$decimals     = $thold_data['decimals'] >= 0 ? $thold_data['decimals'] : 2;
-
-	$file_array = [];
-
-	if ($thold_send_text_only != 'on') {
-		if (!empty($thold_data['local_graph_id'])) {
-			$file_array = [
-				'local_graph_id' => $thold_data['local_graph_id'],
-				'local_data_id'  => $thold_data['local_data_id'],
-				'rra_id'         => 0,
-				'file'           => "$httpurl/graph_image.php?local_graph_id=" . $thold_data['local_graph_id'] . '&rra_id=0&view_type=tree',
-				'mimetype'       => 'image/png',
-				'filename'       => clean_up_name(thold_get_cached_name($thold_data))
-			];
-		}
-	}
-
-	$url      = $httpurl . '/graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all';
-	$lastread = $thold_data['lastread'];
-
-	$alert_emails       = get_thold_emails($thold_data, 'alert', 'to');
-	$alert_bcc_emails   = get_thold_emails($thold_data, 'alert', 'bcc');
-	$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
-	$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+	$syslog                   = $context['syslog'];
+	$syslog_priority          = $context['syslog_priority'];
+	$syslog_facility          = $context['syslog_facility'];
+	$realert                  = $context['realert'];
+	$alert_bl_trigger         = $context['alert_bl_trigger'];
+	$thold_snmp_traps         = $context['thold_snmp_traps'];
+	$thold_snmp_warning_traps = $context['thold_snmp_warning_traps'];
+	$thold_snmp_normal_traps  = $context['thold_snmp_normal_traps'];
+	$cacti_polling_interval   = $context['cacti_polling_interval'];
+	$trigger                  = $context['trigger'];
+	$warning_trigger          = $context['warning_trigger'];
+	$alertstat                = $context['alertstat'];
+	$notify_different         = $context['notify_different'];
+	$file_array               = $context['file_array'];
+	$url                      = $context['url'];
+	$lastread                 = $context['lastread'];
+	$alert_emails             = $context['alert_emails'];
+	$alert_bcc_emails         = $context['alert_bcc_emails'];
+	$warning_emails           = $context['warning_emails'];
+	$warning_bcc_emails       = $context['warning_bcc_emails'];
 
 	switch ($thold_data['thold_type']) {
 		case 0:	// hi/low
@@ -4861,8 +4903,9 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 
 	$last_time_entry = thold_rrd_last($local_data_id);
 
-	// This should fix and 'did you really mean month 899 errors', this is because your RRD has not polled yet
-	if ($last_time_entry == -1) {
+	// This should fix and 'did you really mean month 899 errors', this is because your RRD has not polled yet.
+	// A missing or unreadable RRD makes rrdtool print nothing, which is not a timestamp either.
+	if (!is_numeric($last_time_entry) || $last_time_entry == -1) {
 		$last_time_entry = time();
 	}
 
@@ -4884,11 +4927,13 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 		return 0;
 	}
 
+	// array_search() reports a miss as false. Testing for null let the miss
+	// through, and $result['values'][false] then read index 0, so a lookup for
+	// a data source that does not exist returned the first one's value.
 	$idx = array_search($data_template_rrd_id, $result['data_source_names'], true);
 
 	// Return Blank if the value was not found (Cache Cleared?)
-
-	if (!isset($result['values']) || $idx === null || !cacti_sizeof($result['values'][$idx])) {
+	if ($idx === false || !isset($result['values'][$idx]) || !cacti_sizeof($result['values'][$idx])) {
 		return 0;
 	}
 
@@ -7172,21 +7217,253 @@ function check_for_new_delays($last_trigger, $triggers, $now, $last_check) {
 	$delay_period   = read_config_option('alert_notification_delay');
 }
 
-function thold_notification_execute($pid = 0, $max_records = 'all') {
+/**
+ * Decide whether an existing notification worker still owns its slot.
+ *
+ * @param array<string,mixed> $process
+ * @param int                 $timeout
+ * @param bool|null           $running Verified OS-level liveness when available.
+ *
+ * @return bool
+ */
+function thold_notification_process_blocks_start(array $process, $timeout, $running = null) {
+	$running_pid = (int) ($process['pid'] ?? 0);
+
+	if ($running_pid <= 0) {
+		return false;
+	}
+
+	if ($running !== null) {
+		return $running;
+	}
+
+	$started = (int) ($process['heartbeat_at'] ?? ($process['started_at'] ?? 0));
+	$now     = (int) ($process['current_timestamp'] ?? time());
+
+	return $started > 0 && ($now < $started || ($now - $started) < $timeout);
+}
+
+/**
+ * Probe Unix process liveness without mistaking a permission error for death.
+ *
+ * @param int           $pid
+ * @param callable|null $getpgid
+ * @param callable|null $kill
+ * @param callable|null $last_error
+ *
+ * @return bool|null True when alive, false when confirmed gone, null when unknown.
+ */
+function thold_notification_probe_process($pid, $getpgid = null, $kill = null, $last_error = null) {
+	$pid = (int) $pid;
+
+	if ($pid <= 0) {
+		return false;
+	}
+
+	if ($getpgid === null && function_exists('posix_getpgid')) {
+		$getpgid = 'posix_getpgid';
+	}
+
+	if (is_callable($getpgid) && $getpgid($pid) !== false) {
+		return true;
+	}
+
+	if ($kill === null && function_exists('posix_kill')) {
+		$kill = 'posix_kill';
+	}
+
+	if (!is_callable($kill)) {
+		return null;
+	}
+
+	if ($kill($pid, 0)) {
+		return true;
+	}
+
+	if ($last_error === null && function_exists('posix_get_last_error')) {
+		$last_error = 'posix_get_last_error';
+	}
+
+	if (!is_callable($last_error)) {
+		return null;
+	}
+
+	$error = $last_error();
+
+	// EPERM proves that the process exists but belongs to another user.
+	if ($error === 1) {
+		return true;
+	}
+
+	// ESRCH is the only error that proves the process is gone.
+	if ($error === 3) {
+		return false;
+	}
+
+	return null;
+}
+
+/**
+ * Register a worker without treating an unverifiable process as immortal.
+ *
+ * @param int           $thread
+ * @param int           $timeout
+ * @param callable|null $probe   Optional liveness probe used by tests.
+ *
+ * @return bool
+ */
+function thold_notification_register_process($thread, $timeout = 3600, $probe = null) {
+	global $config;
+
+	$process = db_fetch_row_prepared('SELECT pid,
+		UNIX_TIMESTAMP(started) AS started_at,
+		GREATEST(UNIX_TIMESTAMP(started), UNIX_TIMESTAMP(last_update)) AS heartbeat_at,
+		UNIX_TIMESTAMP() AS current_timestamp
+		FROM processes
+		WHERE tasktype = ?
+		AND taskname = ?
+		AND taskid = ?',
+		['thold_notify', 'child', $thread]);
+
+	if ($process === false) {
+		return false;
+	}
+
+	if (!cacti_sizeof($process)) {
+		return register_process_start('thold_notify', 'child', $thread, $timeout);
+	}
+
+	$running_pid = (int) ($process['pid'] ?? 0);
+	$running     = null;
+
+	if (is_callable($probe)) {
+		$running = $probe($running_pid);
+	} elseif (($config['cacti_server_os'] ?? '') === 'unix' && $running_pid > 0) {
+		$running = thold_notification_probe_process($running_pid);
+	}
+
+	if (thold_notification_process_blocks_start($process, $timeout, $running)) {
+		return false;
+	}
+
+	unregister_process('thold_notify', 'child', $thread, $running_pid);
+
+	return register_process_start('thold_notify', 'child', $thread, $timeout);
+}
+
+/**
+ * Claim all currently unowned queue rows for one registered worker.
+ *
+ * @param int $pid
+ *
+ * @return int
+ */
+function thold_notification_claim($pid) {
+	$pid = (int) $pid;
+
+	if ($pid <= 0) {
+		return 0;
+	}
+
+	// A hard-killed worker cannot run its shutdown handler. Once its process
+	// registration is gone, make those unfinished rows eligible again.
+	db_execute_prepared('UPDATE notification_queue AS nq
+		LEFT JOIN processes AS p
+		ON p.pid = nq.process_id
+		AND p.tasktype = ?
+		AND p.taskname = ?
+		SET nq.process_id = 0
+		WHERE nq.event_processed = 0
+		AND nq.process_id <> 0
+		AND p.pid IS NULL',
+		['thold_notify', 'child']);
+
+	db_execute_prepared('UPDATE notification_queue
+		SET process_id = ?
+		WHERE event_processed = 0
+		AND (next_attempt IS NULL OR next_attempt <= NOW())
+		AND process_id = 0',
+		[$pid]);
+
+	return db_affected_rows();
+}
+
+/**
+ * Release unfinished rows when a worker stops or suspends.
+ *
+ * @param int $pid
+ *
+ * @return bool
+ */
+function thold_notification_release_claim($pid) {
+	$pid = (int) $pid;
+
+	if ($pid <= 0) {
+		return true;
+	}
+
+	return db_execute_prepared('UPDATE notification_queue
+		SET process_id = 0
+		WHERE process_id = ?
+		AND event_processed = 0',
+		[$pid]);
+}
+
+/**
+ * Claim, drain, and always release one worker's queue slice.
+ *
+ * @param int           $pid
+ * @param int|string    $max_records
+ * @param callable|null $heartbeat
+ *
+ * @return int
+ */
+function thold_notification_run($pid, $max_records = 'all', $heartbeat = null) {
+	if (is_callable($heartbeat)) {
+		$heartbeat();
+	}
+
+	$total_rows = 0;
+
+	try {
+		$total_rows = thold_notification_claim($pid);
+		thold_notification_execute($pid, $max_records, $heartbeat);
+	} finally {
+		try {
+			if (is_callable($heartbeat)) {
+				$heartbeat();
+			}
+		} finally {
+			thold_notification_release_claim($pid);
+		}
+	}
+
+	return $total_rows;
+}
+
+function thold_notification_execute($pid = 0, $max_records = 'all', $heartbeat = null) {
+	$pid = (int) $pid;
+
+	if ($pid <= 0) {
+		cacti_log('ERROR: Refusing to drain an unclaimed Thold notification queue.', false, 'THOLD');
+
+		return;
+	}
+
 	if ($max_records == 'all') {
 		$sql_limit = '';
 	} else {
 		$sql_limit = 'LIMIT ' . $max_records;
 	}
 
-	if ($pid > 0) {
-		$sql_where = ' AND process_id = ' . $pid;
-	} else {
-		$sql_where = '';
-	}
+	$sql_where = ' AND process_id = ' . $pid;
 
 	// See if and administrator has suspended notifications
 	$prev_suspended = read_config_option('thold_notification_suspended', true);
+
+	if (is_callable($heartbeat)) {
+		$heartbeat();
+	}
 
 	/**
 	 * See if notification delay is active and mark the events as such,
@@ -7196,11 +7473,19 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 	 */
 	pre_process_device_notifications($pid, $max_records);
 
+	if (is_callable($heartbeat)) {
+		$heartbeat();
+	}
+
 	/**
 	 * Process any non-device up/down notifications first.  These
 	 * notifications are not subject to notification delay
 	 */
 	process_non_device_notifications($pid, $max_records, $prev_suspended);
+
+	if (is_callable($heartbeat)) {
+		$heartbeat();
+	}
 
 	/**
 	 * Last process expired notification delays or device
@@ -8441,12 +8726,19 @@ function thold_get_cached_name(&$thold_data) {
 	return $thold_data['name_cache'];
 }
 
-function thold_str_replace($search, $replace, $subject) {
-	if (empty($replace) || $replace === 0) {
-		$replace = '';
-	}
-
-	return str_replace($search, $replace, $subject);
+/**
+ * Substitute one tag, rendering an absent value as an empty string.
+ *
+ * Only null and false count as absent. Zero is a legitimate reading, and
+ * blanking it produced alert bodies reading "Current value is " for exactly
+ * the case an operator most needs to see.
+ *
+ * @param string $search  Tag to replace.
+ * @param mixed  $replace Value to substitute.
+ * @param string $subject Text containing the tag.
+ */
+function thold_str_replace(string $search, $replace, string $subject): string {
+	return str_replace($search, $replace ?? '', $subject);
 }
 
 function thold_template_import($xml_data) {

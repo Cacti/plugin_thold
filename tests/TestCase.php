@@ -34,6 +34,17 @@ abstract class TestCase extends PHPUnit\Framework\TestCase {
 	}
 
 	/**
+	 * Restore global paths changed by filesystem-oriented fixtures.
+	 *
+	 * @return void
+	 */
+	protected function tearDown(): void {
+		$GLOBALS['config']['base_path'] = $GLOBALS['__test_original_base_path'];
+
+		parent::tearDown();
+	}
+
+	/**
 	 * Load a plugin source file once per process.
 	 *
 	 * Requiring it repeatedly would redeclare its functions, so the include

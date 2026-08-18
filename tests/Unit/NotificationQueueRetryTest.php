@@ -157,9 +157,16 @@ final class NotificationQueueRetryTest extends TestCase {
 	 * @return void
 	 */
 	public function testClaimAndBothDrainsIgnoreRetriesThatAreNotReady(): void {
-		$notify = file_get_contents(dirname(__DIR__, 2) . '/thold_notify.php');
+		thold_notification_claim(77);
 
-		$this->assertStringContainsString('(next_attempt IS NULL OR next_attempt <= NOW())', $notify);
+		$claims = array_filter(CactiStubs::$calls, static function ($call) {
+			return $call['fn'] === 'db_execute_prepared' &&
+				strpos($call['sql'], 'SET process_id = ?') !== false;
+		});
+
+		$this->assertCount(1, $claims);
+		$claim = reset($claims);
+		$this->assertStringContainsString('(next_attempt IS NULL OR next_attempt <= NOW())', $claim['sql']);
 
 		thold_notification_execute(77);
 

@@ -31,7 +31,7 @@ final class CactiStubs {
 	/**
 	 * Every Cacti function call the plugin made, in order.
 	 *
-	 * @var array<int, array{fn: string, sql: string, params: array<int, mixed>}>
+	 * @var array<int, array{fn: string, sql: string, params: array<int|string, mixed>}>
 	 */
 	public static $calls = [];
 
@@ -105,9 +105,9 @@ final class CactiStubs {
 	/**
 	 * Record one Cacti function call.
 	 *
-	 * @param string            $fn     Cacti function name.
-	 * @param string            $sql    SQL text, or '' for non-query calls.
-	 * @param array<int, mixed> $params Bound parameters, if any.
+	 * @param string                   $fn     Cacti function name.
+	 * @param string                   $sql    SQL text, or '' for non-query calls.
+	 * @param array<int|string, mixed> $params Bound parameters, if any.
 	 *
 	 * @return void
 	 */
@@ -197,7 +197,7 @@ final class CactiStubs {
 	 *
 	 * @param string $fn Cacti function name.
 	 *
-	 * @return array<int, array{fn: string, sql: string, params: array<int, mixed>}>
+	 * @return array<int, array{fn: string, sql: string, params: array<int|string, mixed>}>
 	 */
 	public static function callsTo($fn) {
 		return array_values(array_filter(self::$calls, function ($call) use ($fn) {
