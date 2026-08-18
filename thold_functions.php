@@ -853,12 +853,14 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
 	$name        = (string) ($thold_data['name'] ?? '');
 	$currenttime = (int) $currenttime;
 
-	if ($name !== '' && $currenttime > 0 && isset($item[$name]) && is_numeric($item[$name])) {
+	$lasttime = (int) ($thold_data['lasttime'] ?? 0);
+
+	if ($name !== '' && $currenttime > 0 && $currenttime >= $lasttime && isset($item[$name]) && is_numeric($item[$name])) {
 		return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
 	}
 
 	return [
-		'lasttime' => (int) ($thold_data['lasttime'] ?? 0),
+		'lasttime' => $lasttime,
 		'oldvalue' => $thold_data['oldvalue'] ?? null,
 	];
 }
@@ -998,7 +1000,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 							$currentval = thold_counter_wrap_delta($thold_data['oldvalue'], $item[$thold_data['name']]);
 						}
 
-						if (strpos($thold_data['rrd_maximum'], '|query_') !== false) {
+						if (strpos((string) $thold_data['rrd_maximum'], '|query_') !== false) {
 							$data_local = db_fetch_row_prepared('SELECT *
 							FROM data_local
 							WHERE id = ?',
@@ -1023,12 +1025,15 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 							}
 						}
 
-						$rrd_maximum = is_numeric($thold_data['rrd_maximum']) ? (float) $thold_data['rrd_maximum'] : null;
+						$maximum_value = $thold_data['rrd_maximum'] ?? '';
+						$rrd_maximum   = trim((string) $maximum_value) === ''
+							? 0.0
+							: (is_numeric($maximum_value) ? (float) $maximum_value : null);
 
 						// assume counter reset if greater than max value
 						if ($rrd_maximum > 0 && ($currentval / $step) > $rrd_maximum) {
 							$currentval = $item[$thold_data['name']] / $step;
-						} elseif ($rrd_maximum === 0.0 && $currentval > 4.25E+9 * max(1, $step / $rrd_step)) {
+						} elseif ($rrd_maximum === 0.0 && $currentval > 4.25E+9 * max(1, $step / $sample_interval)) {
 							$currentval = $item[$thold_data['name']] / $step;
 						} else {
 							$currentval = $currentval / $step;

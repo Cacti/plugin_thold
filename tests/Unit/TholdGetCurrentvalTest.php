@@ -211,22 +211,23 @@ final class TholdGetCurrentvalTest extends TestCase {
 	}
 
 	/**
-	 * @return array<string, array{0: int|string, 1: int, 2: float}>
+	 * @return array<string, array{0: int|string|null, 1: int, 2: float}>
 	 */
 	public static function emptyMaximumProvider() {
 		return [
-			'integer zero'        => [0, 1007500000000, 12500000],
-			'empty string'        => ['', 1008500000100, 8500000100 / 600],
-			'unknown maximum'     => ['U', 1008500000100, 8500000100 / 600],
-			'unresolved if speed' => ['|query_ifSpeed|', 1008500000100, 8500000100 / 600],
-			'explicit maximum'    => [20000000, 1007500000000, 12500000],
+			'integer zero'        => [0, 1009000000100, 1009000000100 / 600],
+			'empty string'        => ['', 1009000000100, 1009000000100 / 600],
+			'null maximum'        => [null, 1009000000100, 1009000000100 / 600],
+			'unknown maximum'     => ['U', 1009000000100, 9000000100 / 600],
+			'unresolved if speed' => ['|query_ifSpeed|', 1009000000100, 9000000100 / 600],
+			'explicit maximum'    => [20000000, 1015000000000, 1015000000000 / 600],
 		];
 	}
 
 	/**
 	 * @dataProvider emptyMaximumProvider
 	 *
-	 * @param int|string $maximum
+	 * @param int|string|null $maximum
 	 * @param int        $reading
 	 * @param float      $expected
 	 *
@@ -262,6 +263,21 @@ final class TholdGetCurrentvalTest extends TestCase {
 			thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime),
 			1.0e-9
 		);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testWrapResetGuardUsesTheEffectiveSampleInterval(): void {
+		CactiStubs::$configOptions['poller_interval'] = 300;
+		$thold = $this->threshold([
+			'lasttime'   => 1700000000,
+			'oldvalue'   => 1000,
+			'rrd_step'   => 60,
+			'rrd_maximum' => 0,
+		]);
+
+		$this->assertEqualsWithDelta(999 / 300, $this->currentValue($thold, 999), 1.0e-9);
 	}
 
 	/**
@@ -341,6 +357,32 @@ final class TholdGetCurrentvalTest extends TestCase {
 
 			$this->assertSame('', thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime));
 		}
+
+		$this->assertSame(
+			['lasttime' => 1700000400, 'oldvalue' => 100],
+			thold_sample_persistence($thold, ['traffic_in' => 700], 1700000300)
+		);
+		$this->assertSame([
+			'sample_row' => "(9, 1, '', FROM_UNIXTIME(1700000400), '100')",
+			'status_row' => null,
+		], thold_polling_sample_row($thold, ['traffic_in' => 700], '', 1700000300));
+
+		CactiStubs::reset();
+		$this->assertTrue(thold_daemon_persist_sample($thold, ['traffic_in' => 700], '', 1700000300));
+		$call = end(CactiStubs::$calls);
+		$this->assertSame(['', 1700000400, 100, 9], $call['params']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testDeriveWithAnInvalidPriorValueIsUnknown(): void {
+		$thold = $this->threshold([
+			'data_source_type_id' => self::DERIVE,
+			'oldvalue'            => 'U',
+		]);
+
+		$this->assertSame('', $this->currentValue($thold, 700));
 	}
 
 	/**
