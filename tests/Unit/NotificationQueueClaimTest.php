@@ -379,6 +379,25 @@ final class NotificationQueueClaimTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testProcessAgeProbeFallsBackToPortablePsOutput(): void {
+		$fields = [];
+		$runner = static function ($field, $pid) use (&$fields) {
+			$fields[] = [$field, $pid];
+
+			return $field === 'etimes' ? [1, []] : [0, ['01:23']];
+		};
+
+		$this->assertSame(83, thold_notification_probe_elapsed(42, $runner));
+		$this->assertSame([['etimes', 42], ['etime', 42]], $fields);
+		$this->assertFalse(thold_notification_probe_elapsed(42, false));
+		$this->assertFalse(thold_notification_probe_elapsed(42, static function () {
+			throw new RuntimeException('ps failed');
+		}));
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testDefaultProcessIdentityProbeIsTimezoneIndependent(): void {
 		$timezone = date_default_timezone_get();
 		$now      = time();

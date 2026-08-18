@@ -7335,22 +7335,8 @@ function thold_notification_process_matches($pid, $registered_at, $current_times
 		} catch (Throwable $error) {
 			return null;
 		}
-	} elseif (function_exists('exec')) {
-		$output = [];
-		$status = 1;
-		exec('LC_ALL=C ps -o etimes= -p ' . $pid, $output, $status);
-
-		if ($status === 0 && isset($output[0])) {
-			$process_age = thold_notification_elapsed_seconds($output[0]);
-		} else {
-			$output = [];
-			$status = 1;
-			exec('LC_ALL=C ps -o etime= -p ' . $pid, $output, $status);
-
-			if ($status === 0 && isset($output[0])) {
-				$process_age = thold_notification_elapsed_seconds($output[0]);
-			}
-		}
+	} else {
+		$process_age = thold_notification_probe_elapsed($pid);
 	}
 
 	if (!is_int($process_age) || $process_age < 0) {
@@ -7362,6 +7348,50 @@ function thold_notification_process_matches($pid, $registered_at, $current_times
 	// The worker necessarily predates its database row. A younger process proves
 	// that the operating system reused the recorded PID.
 	return $process_age + 5 >= $row_age;
+}
+
+/**
+ * Read process age using procps seconds with a portable ps fallback.
+ *
+ * @param int   $pid
+ * @param mixed $runner Optional command runner used by tests.
+ *
+ * @return int|false
+ */
+function thold_notification_probe_elapsed($pid, $runner = null) {
+	$pid = (int) $pid;
+
+	if ($runner === null && function_exists('exec')) {
+		$runner = static function ($field, $process_id) {
+			$output = [];
+			$status = 1;
+			exec('LC_ALL=C ps -o ' . $field . '= -p ' . (int) $process_id, $output, $status);
+
+			return [$status, $output];
+		};
+	}
+
+	if (!is_callable($runner)) {
+		return false;
+	}
+
+	foreach (['etimes', 'etime'] as $field) {
+		try {
+			[$status, $output] = $runner($field, $pid);
+		} catch (Throwable $error) {
+			return false;
+		}
+
+		if ((int) $status === 0 && isset($output[0])) {
+			$seconds = thold_notification_elapsed_seconds($output[0]);
+
+			if ($seconds !== false) {
+				return $seconds;
+			}
+		}
+	}
+
+	return false;
 }
 
 /**
