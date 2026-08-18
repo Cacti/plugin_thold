@@ -7340,8 +7340,16 @@ function thold_notification_process_matches($pid, $registered_at, $current_times
 		$status = 1;
 		exec('LC_ALL=C ps -o etimes= -p ' . $pid, $output, $status);
 
-		if ($status === 0 && isset($output[0]) && ctype_digit(trim($output[0]))) {
-			$process_age = (int) trim($output[0]);
+		if ($status === 0 && isset($output[0])) {
+			$process_age = thold_notification_elapsed_seconds($output[0]);
+		} else {
+			$output = [];
+			$status = 1;
+			exec('LC_ALL=C ps -o etime= -p ' . $pid, $output, $status);
+
+			if ($status === 0 && isset($output[0])) {
+				$process_age = thold_notification_elapsed_seconds($output[0]);
+			}
 		}
 	}
 
@@ -7354,6 +7362,32 @@ function thold_notification_process_matches($pid, $registered_at, $current_times
 	// The worker necessarily predates its database row. A younger process proves
 	// that the operating system reused the recorded PID.
 	return $process_age + 5 >= $row_age;
+}
+
+/**
+ * Parse procps seconds or the portable [[days-]hours:]minutes:seconds format.
+ *
+ * @param mixed $elapsed
+ *
+ * @return int|false
+ */
+function thold_notification_elapsed_seconds($elapsed) {
+	$elapsed = trim((string) $elapsed);
+
+	if (ctype_digit($elapsed)) {
+		return (int) $elapsed;
+	}
+
+	if (!preg_match('/^(?:(\d+)-)?(?:(\d+):)?(\d+):(\d+)$/D', $elapsed, $parts)) {
+		return false;
+	}
+
+	$days    = isset($parts[1]) && $parts[1] !== '' ? (int) $parts[1] : 0;
+	$hours   = isset($parts[2]) && $parts[2] !== '' ? (int) $parts[2] : 0;
+	$minutes = (int) $parts[3];
+	$seconds = (int) $parts[4];
+
+	return $days * 86400 + $hours * 3600 + $minutes * 60 + $seconds;
 }
 
 /**
@@ -7444,7 +7478,7 @@ function thold_notification_register_process($thread, $timeout = 3600, $lock = n
 		)
 		: null;
 
-	if (($running === true && (!$stale || $match === true)) || ($running === null && !$stale)) {
+	if (($running === true && (!$stale || $match !== false)) || ($running === null && !$stale)) {
 		thold_notification_release_lock($thread);
 		cacti_log(sprintf('WARNING: Notification thread %s has an existing worker that is live or cannot be verified dead.', $thread), false, 'THOLD');
 
@@ -7597,6 +7631,16 @@ function thold_notification_complete($sql, array $params, array $ids, $pid) {
 			implode(', ', $ids)
 		);
 		cacti_log($message, false, 'THOLD');
+		$placeholders = implode(', ', array_fill(0, $expected, '?'));
+		$fallback     = $expected > 0 && db_execute_prepared("UPDATE notification_queue
+			SET error_code = 1, error_message = 'Completion update failed',
+				event_processed = 1, event_processed_time = NOW()
+			WHERE id IN ($placeholders)
+			AND process_id = ?", array_merge($ids, [(int) $pid]));
+
+		if ($fallback && db_affected_rows() >= $expected) {
+			return true;
+		}
 
 		throw new UnexpectedValueException($message);
 	}
@@ -7626,6 +7670,10 @@ function thold_notification_complete($sql, array $params, array $ids, $pid) {
  */
 function thold_notification_error_message($message) {
 	$message = str_replace(["\r", "\n"], ' ', (string) $message);
+
+	if (function_exists('mb_check_encoding') && !mb_check_encoding($message, 'UTF-8')) {
+		$message = mb_convert_encoding($message, 'UTF-8', 'UTF-8');
+	}
 
 	return function_exists('mb_substr')
 		? mb_substr($message, 0, 128, 'UTF-8')

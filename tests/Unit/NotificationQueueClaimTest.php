@@ -294,7 +294,7 @@ final class NotificationQueueClaimTest extends TestCase {
 
 		CactiStubs::reset();
 		CactiStubs::willReturn('db_fetch_row_prepared', $expired);
-		$this->assertTrue(thold_notification_register_process(2, 300, $lock, static function () {
+		$this->assertFalse(thold_notification_register_process(2, 300, $lock, static function () {
 			return true;
 		}, static function () {
 			return false;
@@ -363,6 +363,17 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertNull(thold_notification_process_matches(42, 500, 1000, static function () {
 			throw new RuntimeException('process probe failed');
 		}));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testElapsedProcessTimeAcceptsLinuxAndPortableFormats(): void {
+		$this->assertSame(83, thold_notification_elapsed_seconds('83'));
+		$this->assertSame(83, thold_notification_elapsed_seconds('01:23'));
+		$this->assertSame(3723, thold_notification_elapsed_seconds('01:02:03'));
+		$this->assertSame(90123, thold_notification_elapsed_seconds('1-01:02:03'));
+		$this->assertFalse(thold_notification_elapsed_seconds('unknown'));
 	}
 
 	/**
@@ -527,12 +538,36 @@ final class NotificationQueueClaimTest extends TestCase {
 	/**
 	 * @return void
 	 */
-	public function testCompletionDatabaseFailureIsNotReportedAsRevokedOwnership(): void {
+	public function testCompletionDatabaseFailureUsesASafeTerminalFallback(): void {
+		CactiStubs::willReturn('db_execute_prepared', false);
+
+		$this->assertTrue(thold_notification_complete('UPDATE notification_queue SET event_processed = 1', [77], [91], 77));
+		$calls = CactiStubs::callsTo('db_execute_prepared');
+		$this->assertCount(2, $calls);
+		$this->assertStringContainsString('Completion update failed', $calls[1]['sql']);
+		$this->assertSame([91, 77], $calls[1]['params']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testCompletionAbortsWhenBothDatabaseUpdatesFail(): void {
+		CactiStubs::willReturn('db_execute_prepared', false);
 		CactiStubs::willReturn('db_execute_prepared', false);
 
 		$this->expectException(UnexpectedValueException::class);
 		$this->expectExceptionMessage('database update failed');
 		thold_notification_complete('UPDATE notification_queue SET event_processed = 1', [77], [91], 77);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testNotificationErrorsNormalizeInvalidUtf8(): void {
+		$message = thold_notification_error_message("\xff\xfe" . str_repeat('a', 200));
+
+		$this->assertTrue(mb_check_encoding($message, 'UTF-8'));
+		$this->assertLessThanOrEqual(128, mb_strlen($message, 'UTF-8'));
 	}
 
 	/**
