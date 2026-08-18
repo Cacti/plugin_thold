@@ -33,9 +33,10 @@ are suspended, while claims left by a hard-killed worker are recovered after
 its process registration disappears. A cross-platform database advisory lease
 prevents a second worker from taking the same slot. Because a database
 reconnect can drop that lease while PHP is still running, a stale process row
-is reclaimed only when its heartbeat has expired and an operating-system probe
-also confirms that the old PID is gone. If liveness cannot be verified, the new
-worker fails closed.
+is reclaimed immediately when an operating-system probe confirms that the old
+PID is gone. Unknown liveness waits for one expired worker timeout before
+recovery. A PID that appears live but has missed four worker timeouts is also
+recoverable so PID reuse cannot block one notification slot indefinitely.
 
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a

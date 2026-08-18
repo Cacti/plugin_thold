@@ -75,14 +75,13 @@ if (sizeof($parms)) {
 
 				break;
 			case '--thread':
-				$thread = $value;
+				$thread = thold_notification_thread_id($value);
 
-				if (!is_numeric($thread) || $thread <= 0) {
+				if ($thread === false) {
 					print 'FATAL: The Thread ID must be numeric and greater than 0.' . PHP_EOL;
 					display_help();
 					exit(1);
 				}
-
 				break;
 			case '-v':
 			case '--version':
