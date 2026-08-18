@@ -72,8 +72,19 @@ jobs:
       # Thold contributes no parallel vendor directory or PHPUnit dependency.
       - name: Build Cacti test image
         run: |
-          docker build --tag cacti-web --file cacti-toolchain/docker/Dockerfile cacti-toolchain/docker
-          docker build --tag cacti-thold-test --file cacti-toolchain/docker/Dockerfile.test cacti-toolchain
+          for attempt in 1 2 3; do
+            if docker build --tag cacti-web --file cacti-toolchain/docker/Dockerfile cacti-toolchain/docker && \
+              docker build --tag cacti-thold-test --file cacti-toolchain/docker/Dockerfile.test cacti-toolchain; then
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 3 ]; then
+              sleep 10
+            fi
+          done
+
+          echo 'Cacti test image build failed after three attempts.' >&2
+          exit 1
 
       - name: Lint every PHP source file
         run: |
