@@ -8375,8 +8375,8 @@ function thold_rlike_clause($value) {
  * @param mixed  $replace Value to substitute.
  * @param string $subject Text containing the tag.
  */
-function thold_str_replace(string $search, $replace, string $subject): string {
-	return str_replace($search, $replace ?? '', $subject);
+function thold_str_replace($search, $replace, $subject): string {
+	return str_replace((string) ($search ?? ''), (string) ($replace ?? ''), (string) ($subject ?? ''));
 }
 
 function thold_template_import($xml_data) {

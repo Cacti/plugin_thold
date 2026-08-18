@@ -91,4 +91,13 @@ final class TholdStrReplaceTest extends TestCase {
 	public function testSubjectWithoutTheTagIsUnchanged(): void {
 		$this->assertSame('no tags here', thold_str_replace('<X>', 5, 'no tags here'));
 	}
+
+	/**
+	 * @return void
+	 */
+	public function testNullableInputsAreNormalizedAtTheBoundary(): void {
+		$this->assertSame('', thold_str_replace('<X>', 'value', null));
+		$this->assertSame('subject', thold_str_replace(null, 'value', 'subject'));
+		$this->assertSame('', thold_str_replace(null, null, null));
+	}
 }

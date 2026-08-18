@@ -27,6 +27,9 @@ and become familiar with its settings.  From there, you can provide overall
 control of thold, and set defaults for things like Email bodies, weekend
 exemptions, alert log retention, logging, etc.
 
+Optional notification template fields that are unset are treated as empty
+text, so an empty description or replacement does not abort delivery.
+
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a
 pull request with your proposed changes.
