@@ -211,7 +211,7 @@ function thold_poller_output(&$rrd_update_array) {
 
 			if ($sample_rows['sample_row'] !== null) {
 				$sql[] = $sample_rows['sample_row'];
-			} else {
+			} elseif ($sample_rows['status_row'] !== null) {
 				$status_sql[] = $sample_rows['status_row'];
 			}
 		}
@@ -230,12 +230,6 @@ function thold_poller_output(&$rrd_update_array) {
 						oldvalue = VALUES(oldvalue)');
 			}
 
-			// accommodate deleted tholds
-			db_execute('DELETE FROM thold_data WHERE local_data_id = 0');
-
-			if (db_affected_rows() > 0) {
-				set_config_option('time_last_change_thold', time());
-			}
 		}
 
 		if (cacti_sizeof($status_sql)) {
@@ -248,6 +242,8 @@ function thold_poller_output(&$rrd_update_array) {
 						lastread = VALUES(lastread)');
 			}
 		}
+
+		thold_polling_cleanup(cacti_sizeof($sql) || cacti_sizeof($status_sql));
 	}
 
 	return $rrd_update_array;

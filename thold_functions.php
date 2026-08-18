@@ -874,20 +874,26 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
  * @return bool
  */
 function thold_daemon_persist_sample(array $thold_data, array $item, $currentval, $currenttime) {
+	$id = (int) ($thold_data['thold_id'] ?? 0);
+
+	if ($id <= 0) {
+		return false;
+	}
+
 	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
 
 	if ($sample['lasttime'] <= 0) {
 		return db_execute_prepared('UPDATE thold_data
 			SET tcheck = 1, lastread = ?
 			WHERE id = ?',
-			[$currentval, $thold_data['thold_id']]);
+			[$currentval, $id]);
 	}
 
 	return db_execute_prepared('UPDATE thold_data
 		SET tcheck = 1, lastread = ?,
 		lasttime = FROM_UNIXTIME(?), oldvalue = ?
 		WHERE id = ?',
-		[$currentval, $sample['lasttime'], $sample['oldvalue'], $thold_data['thold_id']]);
+		[$currentval, $sample['lasttime'], $sample['oldvalue'], $id]);
 }
 
 /**
@@ -901,25 +907,55 @@ function thold_daemon_persist_sample(array $thold_data, array $item, $currentval
  * @return array{sample_row:string|null,status_row:string|null}
  */
 function thold_polling_sample_row(array $thold_data, array $item, $currentval, $currenttime) {
+	$id = (int) ($thold_data['id'] ?? 0);
+
+	if ($id <= 0) {
+		return ['sample_row' => null, 'status_row' => null];
+	}
+
 	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
 
 	if ($sample['lasttime'] <= 0) {
 		return [
 			'sample_row' => null,
-			'status_row' => '(' . (int) $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ')',
+			'status_row' => '(' . $id . ', 1, ' . db_qstr($currentval) . ')',
 		];
 	}
 
 	return [
-		'sample_row' => '(' . (int) $thold_data['id'] . ', 1, ' . db_qstr($currentval)
+		'sample_row' => '(' . $id . ', 1, ' . db_qstr($currentval)
 			. ', FROM_UNIXTIME(' . $sample['lasttime'] . '), ' . db_qstr($sample['oldvalue']) . ')',
 		'status_row' => null,
 	];
 }
 
+/**
+ * Remove rows deleted during polling after either update batch ran.
+ *
+ * @param bool $has_updates
+ *
+ * @return void
+ */
+function thold_polling_cleanup($has_updates) {
+	if (!$has_updates) {
+		return;
+	}
+
+	db_execute('DELETE FROM thold_data WHERE local_data_id = 0');
+
+	if (db_affected_rows() > 0) {
+		set_config_option('time_last_change_thold', time());
+	}
+}
+
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
 	// adjust the polling interval by the last read, if applicable
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
+	$poller_interval = read_config_option('poller_interval');
+
+	if (!is_numeric($poller_interval) || $poller_interval <= 0) {
+		$poller_interval = 300;
+	}
 
 	if ($thold_data['lasttime'] > 0) {
 		if (is_numeric($currenttime)) {
@@ -932,13 +968,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 	}
 
 	if (empty($step)) {
-		$step = read_config_option('poller_interval');
-	}
-
-	$poller_interval = read_config_option('poller_interval');
-
-	if (!is_numeric($poller_interval) || $poller_interval <= 0) {
-		$poller_interval = 300;
+		$step = $poller_interval;
 	}
 
 	$rrd_step = $thold_data['rrd_step'];
@@ -993,7 +1023,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 							}
 						}
 
-						$rrd_maximum = is_numeric($thold_data['rrd_maximum']) ? (float) $thold_data['rrd_maximum'] : 0.0;
+						$rrd_maximum = is_numeric($thold_data['rrd_maximum']) ? (float) $thold_data['rrd_maximum'] : null;
 
 						// assume counter reset if greater than max value
 						if ($rrd_maximum > 0 && ($currentval / $step) > $rrd_maximum) {

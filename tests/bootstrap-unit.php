@@ -494,6 +494,14 @@ if (!function_exists('rrdtool_function_interface_speed')) {
 	}
 }
 
+if (!function_exists('substitute_snmp_query_data')) {
+	function substitute_snmp_query_data($value, $host_id, $snmp_query_id, $snmp_index) {
+		CactiStubs::record('substitute_snmp_query_data', (string) $value, [$host_id, $snmp_query_id, $snmp_index]);
+
+		return CactiStubs::nextReturn('substitute_snmp_query_data', $value);
+	}
+}
+
 if (!function_exists('get_timeinstate')) {
 	function get_timeinstate($host) {
 		return CactiStubs::nextReturn('get_timeinstate', '1 day');

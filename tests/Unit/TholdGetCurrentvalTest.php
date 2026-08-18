@@ -211,13 +211,15 @@ final class TholdGetCurrentvalTest extends TestCase {
 	}
 
 	/**
-	 * @return array<string, array{0: int|string, 1: int}>
+	 * @return array<string, array{0: int|string, 1: int, 2: float}>
 	 */
 	public static function emptyMaximumProvider() {
 		return [
-			'integer zero'     => [0, 1007500000000],
-			'empty string'     => ['', 1008500000100],
-			'explicit maximum' => [20000000, 1007500000000],
+			'integer zero'        => [0, 1007500000000, 12500000],
+			'empty string'        => ['', 1008500000100, 8500000100 / 600],
+			'unknown maximum'     => ['U', 1008500000100, 8500000100 / 600],
+			'unresolved if speed' => ['|query_ifSpeed|', 1008500000100, 8500000100 / 600],
+			'explicit maximum'    => [20000000, 1007500000000, 12500000],
 		];
 	}
 
@@ -226,17 +228,22 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 *
 	 * @param int|string $maximum
 	 * @param int        $reading
+	 * @param float      $expected
 	 *
 	 * @return void
 	 */
-	public function testMultiIntervalDeltaScalesTheResetGuard($maximum, $reading): void {
+	public function testMultiIntervalDeltaScalesTheResetGuard($maximum, $reading, $expected): void {
+		if ($maximum === '|query_ifSpeed|') {
+			CactiStubs::willReturn('db_fetch_row_prepared', ['host_id' => 1, 'snmp_query_id' => 2, 'snmp_index' => 'eth0']);
+			CactiStubs::willReturn('db_fetch_cell_prepared', '');
+		}
+
 		$thold          = $this->threshold(['lasttime' => 1000, 'oldvalue' => 1000000000000, 'rrd_maximum' => $maximum]);
 		$reindexed      = [4 => ['traffic_in' => $reading]];
 		$time_reindexed = [4 => 1600];
 		$item           = [];
 		$currenttime    = 0;
 
-		$expected = $maximum === '' ? $reading / 600 : 12500000;
 		$this->assertEqualsWithDelta($expected, thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime), 1.0e-9);
 	}
 
@@ -409,5 +416,24 @@ final class TholdGetCurrentvalTest extends TestCase {
 			['lasttime' => 0, 'oldvalue' => null],
 			thold_sample_persistence([], ['traffic_in' => 700], 1600)
 		);
+		$this->assertFalse(thold_daemon_persist_sample([], ['traffic_in' => 700], 2, 1600));
+		$this->assertSame(
+			['sample_row' => null, 'status_row' => null],
+			thold_polling_sample_row([], ['traffic_in' => 700], 2, 1600)
+		);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testPollerCleanupRunsForEitherBatchType(): void {
+		thold_polling_cleanup(false);
+		$this->assertSame([], CactiStubs::$calls);
+
+		CactiStubs::willReturn('db_affected_rows', 1);
+		thold_polling_cleanup(true);
+		$this->assertSame('db_execute', CactiStubs::$calls[0]['fn']);
+		$this->assertStringContainsString('local_data_id = 0', CactiStubs::$calls[0]['sql']);
+		$this->assertArrayHasKey('time_last_change_thold', CactiStubs::$configOptions);
 	}
 }
