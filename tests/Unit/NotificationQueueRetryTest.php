@@ -37,6 +37,9 @@ final class NotificationQueueRetryTest extends TestCase {
 
 	/**
 	 * @return array<string, mixed>
+	 * @param  mixed                $id
+	 * @param  mixed                $topic
+	 * @param  mixed                $attempts
 	 */
 	private function mailRow($id, $topic = 'thold_mail', $attempts = 0) {
 		return [
