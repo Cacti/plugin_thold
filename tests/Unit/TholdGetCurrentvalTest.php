@@ -38,6 +38,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 */
 	private function threshold(array $overrides = []) {
 		return $overrides + [
+			'thold_id'             => 9,
 			'local_data_id'        => 4,
 			'name'                 => 'traffic_in',
 			'data_source_type_id'  => self::COUNTER,
@@ -183,9 +184,15 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$missed = thold_sample_persistence($thold, [], 1300);
 		$this->assertSame(['lasttime' => 1000, 'oldvalue' => 100], $missed);
 		$this->assertSame($missed, thold_sample_persistence($thold, ['traffic_in' => 'U'], 1300));
+		$this->assertSame($missed, thold_sample_persistence($thold, ['traffic_in' => 'nan'], 1300));
+		$this->assertSame($missed, thold_sample_persistence($thold, ['traffic_in' => ''], 1300));
 		$this->assertSame(
 			['lasttime' => 1600, 'oldvalue' => 700],
 			thold_sample_persistence($thold, ['traffic_in' => 700], 1600)
+		);
+		$this->assertSame(
+			['lasttime' => 1600, 'oldvalue' => '700'],
+			thold_sample_persistence($thold, ['traffic_in' => '700'], 1600)
 		);
 
 		$thold['lasttime'] = $missed['lasttime'];
@@ -205,10 +212,57 @@ final class TholdGetCurrentvalTest extends TestCase {
 	/**
 	 * @return void
 	 */
-	public function testDaemonPersistsTheSamplePairHelperResult(): void {
-		$source = file_get_contents(dirname(__DIR__, 2) . '/thold_process.php');
+	public function testDaemonPersistsThePairWithBoundParameters(): void {
+		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100]);
 
-		$this->assertStringContainsString('thold_sample_persistence($thold_data, $item, $currenttime)', $source);
-		$this->assertStringContainsString("\$sample['lasttime'], \$sample['oldvalue']", $source);
+		$this->assertTrue(thold_daemon_persist_sample($thold, [], '', 1300));
+		$call = end(CactiStubs::$calls);
+		$this->assertStringContainsString('lasttime = FROM_UNIXTIME(?)', $call['sql']);
+		$this->assertSame(['', 1000, 100, 9], $call['params']);
+
+		CactiStubs::reset();
+		$this->assertTrue(thold_daemon_persist_sample($thold, ['traffic_in' => 700], 2, 1600));
+		$call = end(CactiStubs::$calls);
+		$this->assertSame([2, 1600, 700, 9], $call['params']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testNeverSampledThresholdLeavesTheTimestampPairUntouched(): void {
+		$thold = $this->threshold(['lasttime' => 0, 'oldvalue' => null]);
+
+		$this->assertSame(
+			['lasttime' => 0, 'oldvalue' => null],
+			thold_sample_persistence($thold, ['traffic_in' => 'U'], 1300)
+		);
+		$this->assertTrue(thold_daemon_persist_sample($thold, ['traffic_in' => 'U'], '', 1300));
+		$call = end(CactiStubs::$calls);
+		$this->assertStringNotContainsString('FROM_UNIXTIME', $call['sql']);
+		$this->assertStringNotContainsString('oldvalue', $call['sql']);
+		$this->assertSame(['', 9], $call['params']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testMissingPersistenceKeysFailClosed(): void {
+		$this->assertSame(
+			['lasttime' => 0, 'oldvalue' => null],
+			thold_sample_persistence([], ['traffic_in' => 700], 1600)
+		);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testDaemonAndPollerBothUseTheSharedPairPolicy(): void {
+		$daemon = file_get_contents(dirname(__DIR__, 2) . '/thold_process.php');
+		$poller = file_get_contents(dirname(__DIR__, 2) . '/includes/polling.php');
+
+		$this->assertStringContainsString('thold_daemon_persist_sample($thold_data, $item, $currentval, $currenttime)', $daemon);
+		$this->assertStringContainsString('thold_sample_persistence($thold_data, $item, $currenttime)', $poller);
+		$this->assertStringContainsString("\$sample['lasttime']", $poller);
+		$this->assertStringContainsString("\$sample['oldvalue']", $poller);
 	}
 }

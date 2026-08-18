@@ -207,16 +207,9 @@ while (true) {
 					$currentval = '';
 				}
 
-				$sample = thold_sample_persistence($thold_data, $item, $currenttime);
-
 				thold_daemon_debug(sprintf('Checked Name:%s, Graph:%s, Value:%s, Time:%s', $thold_data['thold_name'], $thold_data['local_graph_id'], $currentval, $currenttime), $thread);
 
-				db_execute_prepared('UPDATE thold_data
-					SET tcheck = 1, lastread = ?,
-					lasttime = FROM_UNIXTIME(?), oldvalue = ?
-					WHERE id = ?',
-					[$currentval, $sample['lasttime'], $sample['oldvalue'], $thold_data['thold_id']]
-				);
+				thold_daemon_persist_sample($thold_data, $item, $currentval, $currenttime);
 			}
 
 			$tholds = thold_get_thresholds_tholdcheck($thread, $start_time);

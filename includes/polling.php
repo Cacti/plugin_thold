@@ -206,17 +206,18 @@ function thold_poller_output(&$rrd_update_array) {
 				}
 			}
 
-			// This stores the raw value into the data source and is important for
-			// Counters, where calculating the difference is important.
-			// The unset case is problematic and may lead to false triggering
-			// events.  So, in those cases, we will store the 'oldvalue'.
-			if (isset($item[$thold_data['name']])) {
-				$rawvalue = $item[$thold_data['name']];
-			} else {
-				$rawvalue = $thold_data['oldvalue'];
-			}
+			$sample = thold_sample_persistence($thold_data, $item, $currenttime);
 
-			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', FROM_UNIXTIME(' . $currenttime . '), ' . db_qstr($rawvalue) . ')';
+			if ($sample['lasttime'] > 0) {
+				$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', FROM_UNIXTIME(' . $sample['lasttime'] . '), ' . db_qstr($sample['oldvalue']) . ')';
+			} else {
+				// A never-sampled threshold has the zero-date schema default. Keep
+				// that pair untouched instead of writing FROM_UNIXTIME(0).
+				db_execute_prepared('UPDATE thold_data
+					SET tcheck = 1, lastread = ?
+					WHERE id = ?',
+					[$currentval, $thold_data['id']]);
+			}
 		}
 
 		if (cacti_sizeof($sql)) {

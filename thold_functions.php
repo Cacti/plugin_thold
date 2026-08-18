@@ -840,6 +840,9 @@ function thold_counter_wrap_delta($oldvalue, $newvalue) {
 /**
  * Persist a raw sample and its timestamp as one causal pair.
  *
+ * `$thold_data` must provide `name`, `lasttime`, and `oldvalue`; absent values
+ * fail closed to an unavailable prior sample.
+ *
  * @param array<string,mixed> $thold_data
  * @param array<string,mixed> $item
  * @param int                 $currenttime
@@ -847,16 +850,44 @@ function thold_counter_wrap_delta($oldvalue, $newvalue) {
  * @return array{lasttime:mixed,oldvalue:mixed}
  */
 function thold_sample_persistence(array $thold_data, array $item, $currenttime) {
-	$name = $thold_data['name'];
+	$name        = (string) ($thold_data['name'] ?? '');
+	$currenttime = (int) $currenttime;
 
-	if (isset($item[$name]) && is_numeric($item[$name])) {
+	if ($name !== '' && $currenttime > 0 && isset($item[$name]) && is_numeric($item[$name])) {
 		return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
 	}
 
 	return [
-		'lasttime' => $thold_data['lasttime'],
-		'oldvalue' => $thold_data['oldvalue'],
+		'lasttime' => (int) ($thold_data['lasttime'] ?? 0),
+		'oldvalue' => $thold_data['oldvalue'] ?? null,
 	];
+}
+
+/**
+ * Persist one daemon sample without manufacturing a zero SQL timestamp.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param array<string,mixed> $item
+ * @param mixed               $currentval
+ * @param int                 $currenttime
+ *
+ * @return bool
+ */
+function thold_daemon_persist_sample(array $thold_data, array $item, $currentval, $currenttime) {
+	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
+
+	if ($sample['lasttime'] <= 0) {
+		return db_execute_prepared('UPDATE thold_data
+			SET tcheck = 1, lastread = ?
+			WHERE id = ?',
+			[$currentval, $thold_data['thold_id']]);
+	}
+
+	return db_execute_prepared('UPDATE thold_data
+		SET tcheck = 1, lastread = ?,
+		lasttime = FROM_UNIXTIME(?), oldvalue = ?
+		WHERE id = ?',
+		[$currentval, $sample['lasttime'], $sample['oldvalue'], $thold_data['thold_id']]);
 }
 
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
