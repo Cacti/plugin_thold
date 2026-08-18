@@ -18,6 +18,7 @@
 * issue#710: Fixing Typo in thold_daemons.service File
 * issue#714: Increase the Name column to 255 characters
 * issue#719: Plugin Disabled due to mix of string and int
+* issue#784: Retry failed queued email notifications with bounded exponential backoff
 * issue#812: Recover stale notification claims, scope worker drains, and deprecate the ignored notification --thread option
 * issue: All Columns checkd on Thresholds page
 * issue: Special character previous value handling broken on data query indexes with special characters

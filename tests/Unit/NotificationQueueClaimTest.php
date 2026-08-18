@@ -130,6 +130,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertStringContainsString('LEFT JOIN processes', $calls[0]['sql']);
 		$this->assertStringContainsString('p.pid IS NULL', $calls[0]['sql']);
 		$this->assertSame(['thold_notify', 'child'], $calls[0]['params']);
+		$this->assertStringContainsString('(next_attempt IS NULL OR next_attempt <= NOW())', $calls[1]['sql']);
 		$this->assertStringContainsString('AND process_id = 0', $calls[1]['sql']);
 		$this->assertSame([4242], $calls[1]['params']);
 	}
@@ -681,7 +682,9 @@ final class NotificationQueueClaimTest extends TestCase {
 		putenv('THOLD_DEVICE_TEST');
 
 		$updates = array_values(array_filter(CactiStubs::$calls, static function ($call) {
-			return $call['fn'] === 'db_execute_prepared' && strpos($call['sql'], 'event_processed = 1') !== false;
+			return $call['fn'] === 'db_execute_prepared'
+				&& (strpos($call['sql'], 'event_processed = 1') !== false
+					|| strpos($call['sql'], 'attempt_count = CASE id') !== false);
 		}));
 
 		$this->assertCount(2, $updates);
@@ -690,7 +693,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertSame(128, strlen($updates[0]['params'][1]));
 		$this->assertSame(1, $updates[1]['params'][0]);
 		$this->assertSame(128, mb_strlen($updates[1]['params'][1], 'UTF-8'));
-		$this->assertSame(77, $updates[1]['params'][3]);
+		$this->assertSame([102, 77], array_slice($updates[1]['params'], -2));
 		$this->assertStringContainsString('AND process_id = ?', $updates[0]['sql']);
 		$this->assertStringContainsString('AND process_id = ?', $updates[1]['sql']);
 		$this->assertSame(3, $heartbeats);
@@ -723,8 +726,7 @@ final class NotificationQueueClaimTest extends TestCase {
 
 		$this->assertStringContainsString('AND process_id = ?', $call['sql']);
 		$this->assertSame(128, mb_strlen($call['params'][1], 'UTF-8'));
-		$this->assertSame(104, $call['params'][3]);
-		$this->assertSame(77, $call['params'][4]);
+		$this->assertSame([104, 77], array_slice($call['params'], -2));
 	}
 
 	/**
@@ -780,8 +782,7 @@ final class NotificationQueueClaimTest extends TestCase {
 
 		$this->assertStringContainsString('AND process_id = ?', $call['sql']);
 		$this->assertSame(128, mb_strlen($call['params'][1], 'UTF-8'));
-		$this->assertSame(105, $call['params'][3]);
-		$this->assertSame(77, $call['params'][4]);
+		$this->assertSame([105, 77], array_slice($call['params'], -2));
 	}
 
 	/**
