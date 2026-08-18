@@ -7217,6 +7217,21 @@ function thold_notification_lock_name($thread) {
 }
 
 /**
+ * Normalize a CLI worker identifier without accepting exponent notation.
+ *
+ * @param mixed $value
+ *
+ * @return int|false
+ */
+function thold_notification_thread_id($value) {
+	if (!ctype_digit((string) $value) || (int) $value <= 0) {
+		return false;
+	}
+
+	return (int) $value;
+}
+
+/**
  * Acquire the cross-platform worker lease without waiting.
  *
  * @param int $thread
@@ -7381,8 +7396,13 @@ function thold_notification_register_process($thread, $timeout = 3600, $lock = n
 
 	// The advisory lock prevents a new overlap, but it is not evidence that
 	// the recorded process died: a reconnect drops GET_LOCK while PHP lives.
-	// Reclaim only when the heartbeat is stale and liveness is confirmed false.
-	if (!thold_notification_process_is_stale($process, $timeout) || $running !== false) {
+	// Confirmed death can recover immediately. Unknown liveness fails closed;
+	// a live-looking but recycled PID cannot block recovery beyond four
+	// heartbeat timeouts.
+	$stale          = thold_notification_process_is_stale($process, $timeout);
+	$absolute_stale = thold_notification_process_is_stale($process, 4 * $timeout);
+
+	if (($running === null && !$stale) || ($running === true && !$absolute_stale)) {
 		thold_notification_release_lock($thread);
 		cacti_log(sprintf('WARNING: Notification thread %s has an existing worker that is live or cannot be verified dead.', $thread), false, 'THOLD');
 
@@ -7415,18 +7435,33 @@ function thold_notification_claim($pid) {
 		return 0;
 	}
 
-	// SIGKILL cannot run cleanup. A queue owner with no notification process
-	// row is therefore orphaned and must become eligible for the next worker.
-	db_execute_prepared('UPDATE notification_queue AS nq
+	// SIGKILL cannot run cleanup. Probe the small set of currently owned rows
+	// before running the recovery UPDATE; process_id > 0 can use its index and
+	// avoids scanning completed queue history on every poller cycle.
+	$orphaned = db_fetch_cell_prepared('SELECT 1
+		FROM notification_queue AS nq
 		LEFT JOIN processes AS p
 		ON p.pid = nq.process_id
 		AND p.tasktype = ?
 		AND p.taskname = ?
-		SET nq.process_id = 0
-		WHERE nq.event_processed = 0
-		AND nq.process_id <> 0
-		AND p.pid IS NULL',
+		WHERE nq.process_id > 0
+		AND nq.event_processed = 0
+		AND p.pid IS NULL
+		LIMIT 1',
 		['thold_notify', 'child']);
+
+	if ($orphaned) {
+		db_execute_prepared('UPDATE notification_queue AS nq
+			LEFT JOIN processes AS p
+			ON p.pid = nq.process_id
+			AND p.tasktype = ?
+			AND p.taskname = ?
+			SET nq.process_id = 0
+			WHERE nq.process_id > 0
+			AND nq.event_processed = 0
+			AND p.pid IS NULL',
+			['thold_notify', 'child']);
+	}
 
 	db_execute_prepared('UPDATE notification_queue
 		SET process_id = ?
@@ -7472,12 +7507,17 @@ function thold_notification_cleanup($pid, $thread, &$registered) {
 		return true;
 	}
 
-	thold_notification_release_claim($pid);
+	$released = thold_notification_release_claim($pid);
+
+	if (!$released) {
+		cacti_log(sprintf('WARNING: Failed to release unfinished notification claims for process %s.', $pid), false, 'THOLD');
+	}
+
 	unregister_process('thold_notify', 'child', $thread, $pid);
 	thold_notification_release_lock($thread);
 	$registered = false;
 
-	return true;
+	return $released;
 }
 
 /**
@@ -7549,6 +7589,10 @@ function thold_notification_main($thread, $timeout = 3600, $worker_pid = null, $
 		$total_rows = $run_worker($pid, 'all', static function () use ($thread) {
 			thold_notification_heartbeat($thread);
 		});
+	} catch (Throwable $error) {
+		cacti_log('ERROR: Notification worker stopped: ' . $error->getMessage(), false, 'THOLD');
+
+		return false;
 	} finally {
 		thold_notification_shutdown();
 	}
@@ -7569,12 +7613,15 @@ function thold_notification_main($thread, $timeout = 3600, $worker_pid = null, $
  * @return bool
  */
 function thold_notification_reject_unknown_topic($id, $pid, $topic) {
+	$message = 'Unsupported notification topic: ' . (string) $topic;
+	$message = function_exists('mb_substr') ? mb_substr($message, 0, 128, 'UTF-8') : substr($message, 0, 128);
+
 	return db_execute_prepared('UPDATE notification_queue
 		SET error_code = 1, error_message = ?, event_processed = 1,
 			event_processed_time = NOW()
 		WHERE id = ?
 		AND process_id = ?',
-		[substr('Unsupported notification topic: ' . (string) $topic, 0, 128), (int) $id, (int) $pid]);
+		[$message, (int) $id, (int) $pid]);
 }
 
 /**
