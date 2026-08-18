@@ -7217,18 +7217,173 @@ function check_for_new_delays($last_trigger, $triggers, $now, $last_check) {
 	$delay_period   = read_config_option('alert_notification_delay');
 }
 
+/**
+ * Decide whether an existing notification worker still owns its slot.
+ *
+ * @param array<string,mixed> $process
+ * @param int                 $timeout
+ * @param bool|null           $running Verified OS-level liveness when available.
+ *
+ * @return bool
+ */
+function thold_notification_process_blocks_start(array $process, $timeout, $running = null) {
+	$running_pid = (int) ($process['pid'] ?? 0);
+
+	if ($running_pid <= 0) {
+		return false;
+	}
+
+	if ($running !== null) {
+		return $running;
+	}
+
+	$started = (int) ($process['started_at'] ?? 0);
+	$now     = (int) ($process['current_timestamp'] ?? time());
+
+	return $started > 0 && $now >= $started && ($now - $started) < $timeout;
+}
+
+/**
+ * Register a worker without treating an unverifiable process as immortal.
+ *
+ * @param int $thread
+ * @param int $timeout
+ *
+ * @return bool
+ */
+function thold_notification_register_process($thread, $timeout = 300) {
+	global $config;
+
+	$process = db_fetch_row_prepared('SELECT pid,
+		UNIX_TIMESTAMP(started) AS started_at,
+		UNIX_TIMESTAMP() AS current_timestamp
+		FROM processes
+		WHERE tasktype = ?
+		AND taskname = ?
+		AND taskid = ?',
+		['thold_notify', 'child', $thread]);
+
+	if ($process === false) {
+		return false;
+	}
+
+	if (!cacti_sizeof($process)) {
+		return register_process_start('thold_notify', 'child', $thread, $timeout);
+	}
+
+	$running_pid = (int) ($process['pid'] ?? 0);
+	$running     = null;
+
+	if (($config['cacti_server_os'] ?? '') === 'unix' && $running_pid > 0) {
+		if (function_exists('posix_getpgid')) {
+			$running = posix_getpgid($running_pid) !== false;
+		} elseif (function_exists('posix_kill')) {
+			$running = posix_kill($running_pid, 0);
+		}
+	}
+
+	if (thold_notification_process_blocks_start($process, $timeout, $running)) {
+		return false;
+	}
+
+	unregister_process('thold_notify', 'child', $thread);
+
+	return register_process_start('thold_notify', 'child', $thread, $timeout);
+}
+
+/**
+ * Claim all currently unowned queue rows for one registered worker.
+ *
+ * @param int $pid
+ *
+ * @return int
+ */
+function thold_notification_claim($pid) {
+	$pid = (int) $pid;
+
+	if ($pid <= 0) {
+		return 0;
+	}
+
+	// A hard-killed worker cannot run its shutdown handler. Once its process
+	// registration is gone, make those unfinished rows eligible again.
+	db_execute_prepared('UPDATE notification_queue AS nq
+		LEFT JOIN processes AS p
+		ON p.pid = nq.process_id
+		AND p.tasktype = ?
+		AND p.taskname = ?
+		SET nq.process_id = 0
+		WHERE nq.event_processed = 0
+		AND nq.process_id <> 0
+		AND p.pid IS NULL',
+		['thold_notify', 'child']);
+
+	db_execute_prepared('UPDATE notification_queue
+		SET process_id = ?
+		WHERE event_processed = 0
+		AND process_id = 0',
+		[$pid]);
+
+	return db_affected_rows();
+}
+
+/**
+ * Release unfinished rows when a worker stops or suspends.
+ *
+ * @param int $pid
+ *
+ * @return bool
+ */
+function thold_notification_release_claim($pid) {
+	$pid = (int) $pid;
+
+	if ($pid <= 0) {
+		return true;
+	}
+
+	return db_execute_prepared('UPDATE notification_queue
+		SET process_id = 0
+		WHERE process_id = ?
+		AND event_processed = 0',
+		[$pid]);
+}
+
+/**
+ * Claim, drain, and always release one worker's queue slice.
+ *
+ * @param int        $pid
+ * @param int|string $max_records
+ *
+ * @return int
+ */
+function thold_notification_run($pid, $max_records = 'all') {
+	$total_rows = thold_notification_claim($pid);
+
+	try {
+		thold_notification_execute($pid, $max_records);
+	} finally {
+		thold_notification_release_claim($pid);
+	}
+
+	return $total_rows;
+}
+
 function thold_notification_execute($pid = 0, $max_records = 'all') {
+	$pid = (int) $pid;
+
+	if ($pid <= 0) {
+		cacti_log('ERROR: Refusing to drain an unclaimed Thold notification queue.', false, 'THOLD');
+
+		return;
+	}
+
 	if ($max_records == 'all') {
 		$sql_limit = '';
 	} else {
 		$sql_limit = 'LIMIT ' . $max_records;
 	}
 
-	if ($pid > 0) {
-		$sql_where = ' AND process_id = ' . $pid;
-	} else {
-		$sql_where = '';
-	}
+	$sql_where = ' AND process_id = ' . $pid;
 
 	// See if and administrator has suspended notifications
 	$prev_suspended = read_config_option('thold_notification_suspended', true);

@@ -27,6 +27,11 @@ and become familiar with its settings.  From there, you can provide overall
 control of thold, and set defaults for things like Email bodies, weekend
 exemptions, alert log retention, logging, etc.
 
+Notification workers claim queue rows with their process ID and drain only
+that claim. Unfinished rows are released when a worker stops or notifications
+are suspended. If a worker is terminated without cleanup, its orphaned rows
+are recovered after the bounded process registration is replaced.
+
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a
 pull request with your proposed changes.
