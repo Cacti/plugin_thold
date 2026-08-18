@@ -157,8 +157,6 @@ foreach ($clover->xpath('//file') as $file) {
  * here with reviewable justification.
  */
 $unmeasured_allowlist = [
-	'includes/database.php',
-	'notify_queue.php',
 	'thold_notify.php',
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));

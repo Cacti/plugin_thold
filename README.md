@@ -29,8 +29,10 @@ exemptions, alert log retention, logging, etc.
 
 Notification workers claim queue rows with their process ID and drain only
 that claim. Unfinished rows are released when a worker stops or notifications
-are suspended. If a worker is terminated without cleanup, its orphaned rows
-are recovered after the bounded process registration is replaced.
+are suspended. A cross-platform database advisory lease prevents a second
+worker from taking the same slot and is released automatically if the owning
+database connection ends. Stale process rows are recovered only after that
+lease is acquired.
 
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a
