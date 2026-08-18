@@ -96,7 +96,24 @@ final class TholdStrReplaceTest extends TestCase {
 	 * @return void
 	 */
 	public function testNullableSubjectIsNormalizedAtTheBoundary(): void {
-		$this->assertSame('', thold_str_replace('<X>', 'value', null));
-		$this->assertSame('', thold_str_replace('<X>', null, null));
+		$deprecations = [];
+		set_error_handler(static function ($severity, $message) use (&$deprecations) {
+			if ($severity === E_DEPRECATED) {
+				$deprecations[] = $message;
+
+				return true;
+			}
+
+			return false;
+		});
+
+		try {
+			$this->assertSame('', thold_str_replace('<X>', 'value', null));
+			$this->assertSame('', thold_str_replace('<X>', null, null));
+		} finally {
+			restore_error_handler();
+		}
+
+		$this->assertSame([], $deprecations);
 	}
 }
