@@ -86,6 +86,34 @@ final class TholdGetCurrentvalTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testAbsoluteRejectsStaleAndOutOfOrderIntervals(): void {
+		foreach ([1000 + 86400, 900] as $sample_time) {
+			$thold          = $this->threshold(['data_source_type_id' => self::ABSOLUTE, 'lasttime' => 1000]);
+			$reindexed      = [4 => ['traffic_in' => 600]];
+			$time_reindexed = [4 => $sample_time];
+			$item           = [];
+			$currenttime    = 0;
+
+			$this->assertSame('', thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime));
+		}
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testGaugeRemainsValidAcrossAGap(): void {
+		$thold          = $this->threshold(['data_source_type_id' => self::GAUGE, 'lasttime' => 1000]);
+		$reindexed      = [4 => ['traffic_in' => 42]];
+		$time_reindexed = [4 => 1000 + 7 * 86400];
+		$item           = [];
+		$currenttime    = 0;
+
+		$this->assertSame(42, thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime));
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testCounterReturnsTheDeltaOverTheStep(): void {
 		$thold = $this->threshold(['oldvalue' => 100]);
 
@@ -174,6 +202,17 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$currenttime    = 0;
 
 		$this->assertSame('', thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testLowerUpperCombinationRejectsUnknownInputs(): void {
+		$thold = ['local_data_id' => 4, 'upper_ds' => 'upper'];
+
+		$this->assertSame('', thold_calculate_lower_upper($thold, '', [4 => ['upper' => 5]]));
+		$this->assertSame('', thold_calculate_lower_upper($thold, 7, [4 => ['upper' => 'U']]));
+		$this->assertSame((5 << 32) + 7, thold_calculate_lower_upper($thold, 7, [4 => ['upper' => 5]]));
 	}
 
 	/**
@@ -361,6 +400,10 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$this->assertSame(
 			['lasttime' => 1700000400, 'oldvalue' => 100],
 			thold_sample_persistence($thold, ['traffic_in' => 700], 1700000300)
+		);
+		$this->assertSame(
+			['lasttime' => 1700000400, 'oldvalue' => 100],
+			thold_sample_persistence($thold, ['traffic_in' => 700], 1700000400)
 		);
 		$this->assertSame([
 			'sample_row' => "(9, 1, '', FROM_UNIXTIME(1700000400), '100')",

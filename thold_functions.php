@@ -855,7 +855,7 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
 
 	$lasttime = (int) ($thold_data['lasttime'] ?? 0);
 
-	if ($name !== '' && $currenttime > 0 && $currenttime >= $lasttime && isset($item[$name]) && is_numeric($item[$name])) {
+	if ($name !== '' && $currenttime > $lasttime && isset($item[$name]) && is_numeric($item[$name])) {
 		return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
 	}
 
@@ -1052,7 +1052,9 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 
 					break;
 				case 4:	// ABSOLUTE
-					$currentval = $item[$thold_data['name']] / $step;
+					$currentval = ($thold_data['lasttime'] <= 0 || $previous_sample_usable)
+						? $item[$thold_data['name']] / $step
+						: '';
 
 					break;
 				case 1:	// GAUGE
@@ -1420,9 +1422,18 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	$ds = $thold['upper_ds'];
 
+	if (!is_numeric($currentval)) {
+		return '';
+	}
+
 	if (isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
-		$t          = $rrd_reindexed[$thold['local_data_id']][$thold['upper_ds']];
-		$currentval = ($t << 32) + $currentval;
+		$t = $rrd_reindexed[$thold['local_data_id']][$thold['upper_ds']];
+
+		if (!is_numeric($t)) {
+			return '';
+		}
+
+		$currentval = ((int) $t << 32) + $currentval;
 	}
 
 	return $currentval;
