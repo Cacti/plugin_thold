@@ -106,10 +106,13 @@ final class NotificationQueueRetryTest extends TestCase {
 		$call = $this->lastPreparedCall();
 		$sql  = preg_replace('/\s+/', ' ', $call['sql']);
 
-		$this->assertStringContainsString('error_code = 0', $sql);
-		$this->assertStringContainsString('next_attempt = NULL', $sql);
-		$this->assertStringContainsString('event_processed = 1', $sql);
-		$this->assertSame([3, 0.25, 42], $call['params']);
+		$this->assertSame(0, $call['params'][0]);
+		$this->assertSame('', $call['params'][1]);
+		$this->assertStringContainsString('next_attempt = CASE id', $sql);
+		$this->assertStringContainsString('THEN NULL', $sql);
+		$this->assertSame([42, 3], array_slice($call['params'], 2, 2));
+		$this->assertSame(1, $call['params'][7]);
+		$this->assertSame([42, 0.25, 42], array_slice($call['params'], -3));
 	}
 
 	/**
@@ -121,10 +124,12 @@ final class NotificationQueueRetryTest extends TestCase {
 		$call = $this->lastPreparedCall();
 		$sql  = preg_replace('/\s+/', ' ', $call['sql']);
 
-		$this->assertStringContainsString('next_attempt = FROM_UNIXTIME', $sql);
-		$this->assertStringContainsString('process_id = 0', $sql);
-		$this->assertStringContainsString('event_processed = 0', $sql);
-		$this->assertSame(['smtp down', 1, 60, 0.5, 42], $call['params']);
+		$this->assertStringContainsString('THEN FROM_UNIXTIME', $sql);
+		$this->assertStringContainsString('process_id = CASE id', $sql);
+		$this->assertStringContainsString('THEN 0', $sql);
+		$this->assertSame([1, 'smtp down', 42, 1, 42, 60], array_slice($call['params'], 0, 6));
+		$this->assertSame(0, $call['params'][8]);
+		$this->assertSame([42, 0.5, 42], array_slice($call['params'], -3));
 	}
 
 	/**
@@ -136,10 +141,10 @@ final class NotificationQueueRetryTest extends TestCase {
 		$call = $this->lastPreparedCall();
 		$sql  = preg_replace('/\s+/', ' ', $call['sql']);
 
-		$this->assertStringContainsString('error_code = 1', $sql);
-		$this->assertStringContainsString('next_attempt = NULL', $sql);
-		$this->assertStringContainsString('event_processed = 1', $sql);
-		$this->assertSame(['permanent failure', 5, 0.5, 42], $call['params']);
+		$this->assertStringContainsString('THEN NULL', $sql);
+		$this->assertSame([1, 'permanent failure', 42, 5], array_slice($call['params'], 0, 4));
+		$this->assertSame(1, $call['params'][7]);
+		$this->assertSame([42, 0.5, 42], array_slice($call['params'], -3));
 	}
 
 	/**
@@ -150,7 +155,7 @@ final class NotificationQueueRetryTest extends TestCase {
 
 		$call = $this->lastPreparedCall();
 
-		$this->assertSame(128, strlen($call['params'][0]));
+		$this->assertSame(128, strlen($call['params'][1]));
 	}
 
 	/**
@@ -196,8 +201,10 @@ final class NotificationQueueRetryTest extends TestCase {
 
 		$call = $this->lastPreparedCall();
 
-		$this->assertSame(['temporary SMTP failure', 3, 240, $call['params'][3], 51], $call['params']);
-		$this->assertStringContainsString('event_processed = 0', $call['sql']);
+		$this->assertSame([1, 'temporary SMTP failure', 51, 3, 51, 240], array_slice($call['params'], 0, 6));
+		$this->assertSame([51, $call['params'][10], 51], array_slice($call['params'], -3));
+		$this->assertSame(0, $call['params'][8]);
+		$this->assertStringContainsString('process_id = CASE id', $call['sql']);
 	}
 
 	/**
@@ -251,6 +258,25 @@ final class NotificationQueueRetryTest extends TestCase {
 		$this->assertSame('', $calls[0]['params'][1]);
 		$this->assertSame([81, 82], array_slice($calls[0]['params'], -2));
 		$this->assertStringNotContainsString('FROM_UNIXTIME', $calls[0]['sql']);
+		$this->assertStringContainsString('process_id = CASE id', $calls[0]['sql']);
+		$this->assertStringContainsString('THEN process_id', $calls[0]['sql']);
+		$this->assertStringContainsString('THEN NOW()', $calls[0]['sql']);
+		$this->assertSame([81, 1, 82, 1], array_slice($calls[0]['params'], 10, 4));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testGroupedTerminalFailuresStayClaimedAndComplete(): void {
+		$this->assertTrue(thold_notification_record_deliveries([91 => 4, 92 => 5], 'permanent failure', 0.5));
+
+		$call = $this->lastPreparedCall();
+
+		$this->assertSame([91, 5, 92, 6], array_slice($call['params'], 2, 4));
+		$this->assertSame([91, 1, 92, 1], array_slice($call['params'], 10, 4));
+		$this->assertStringNotContainsString('FROM_UNIXTIME', $call['sql']);
+		$this->assertStringContainsString('THEN process_id', $call['sql']);
+		$this->assertStringContainsString('THEN NOW()', $call['sql']);
 	}
 
 	/**
@@ -266,7 +292,9 @@ final class NotificationQueueRetryTest extends TestCase {
 
 		$call = $this->lastPreparedCall();
 
-		$this->assertSame(['temporary SMTP failure', 2, 120, $call['params'][3], 71], $call['params']);
-		$this->assertStringContainsString('event_processed = 0', $call['sql']);
+		$this->assertSame([1, 'temporary SMTP failure', 71, 2, 71, 120], array_slice($call['params'], 0, 6));
+		$this->assertSame([71, $call['params'][10], 71], array_slice($call['params'], -3));
+		$this->assertSame(0, $call['params'][8]);
+		$this->assertStringContainsString('process_id = CASE id', $call['sql']);
 	}
 }

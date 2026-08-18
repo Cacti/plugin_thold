@@ -7533,31 +7533,7 @@ function thold_notification_queue_status_cells(array $notification) {
  * @param mixed $previous_attempts
  */
 function thold_notification_record_delivery($id, $error, $runtime, $previous_attempts = 0) {
-	$attempt = max(0, (int) $previous_attempts) + 1;
-	$error   = substr(str_replace("\n", ' ', (string) $error), 0, 128);
-
-	if ($error === '') {
-		return db_execute_prepared('UPDATE notification_queue
-			SET error_code = 0, error_message = "", attempt_count = ?, next_attempt = NULL,
-				event_processed = 1, event_processed_time = NOW(), event_processed_runtime = ?
-			WHERE id = ?',
-			[$attempt, $runtime, $id]);
-	}
-
-	if ($attempt >= 5) {
-		return db_execute_prepared('UPDATE notification_queue
-			SET error_code = 1, error_message = ?, attempt_count = ?, next_attempt = NULL,
-				event_processed = 1, event_processed_time = NOW(), event_processed_runtime = ?
-			WHERE id = ?',
-			[$error, $attempt, $runtime, $id]);
-	}
-
-	return db_execute_prepared('UPDATE notification_queue
-		SET error_code = 1, error_message = ?, attempt_count = ?,
-			next_attempt = FROM_UNIXTIME(UNIX_TIMESTAMP() + ?), process_id = 0,
-			event_processed = 0, event_processed_runtime = ?
-		WHERE id = ?',
-		[$error, $attempt, thold_notification_retry_delay($attempt), $runtime, $id]);
+	return thold_notification_record_deliveries([(int) $id => $previous_attempts], $error, $runtime);
 }
 
 /**
