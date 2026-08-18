@@ -291,6 +291,14 @@ final class NotificationQueueClaimTest extends TestCase {
 		}));
 
 		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', $expired);
+		$this->assertTrue(thold_notification_register_process(2, 300, $lock, static function () {
+			return true;
+		}, static function () {
+			return false;
+		}));
+
+		CactiStubs::reset();
 		CactiStubs::willReturn('db_fetch_row_prepared', $process);
 		$this->assertTrue(thold_notification_register_process(2, 300, $lock, static function () {
 			return false;
@@ -342,13 +350,16 @@ final class NotificationQueueClaimTest extends TestCase {
 			return 400;
 		}));
 		$this->assertTrue(thold_notification_process_matches(42, 500, static function () {
-			return 502;
+			return 505;
 		}));
 		$this->assertFalse(thold_notification_process_matches(42, 500, static function () {
-			return 700;
+			return 506;
 		}));
 		$this->assertNull(thold_notification_process_matches(42, 500, static function () {
 			return false;
+		}));
+		$this->assertNull(thold_notification_process_matches(42, 500, static function () {
+			throw new RuntimeException('process probe failed');
 		}));
 	}
 
@@ -769,6 +780,34 @@ final class NotificationQueueClaimTest extends TestCase {
 		));
 		$this->assertSame(['shutdown:thold_notification_shutdown', 'register:2:300'], $events);
 		$this->assertFalse($GLOBALS['notification_registered']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testMainLogsAndCleansUpARegistrationException(): void {
+		CactiStubs::willReturn('db_fetch_cell_prepared', 1);
+
+		$this->assertFalse(thold_notification_main(
+			2,
+			300,
+			77,
+			static function () {
+			},
+			static function () {
+				throw new RuntimeException('registration failed');
+			},
+			static function () {
+				throw new RuntimeException('drain must not run');
+			}
+		));
+
+		$this->assertStringContainsString('registration failed', end(CactiStubs::$log));
+		$this->assertFalse($GLOBALS['notification_registered']);
+		$this->assertSame(
+			['db_execute_prepared', 'unregister_process', 'db_fetch_cell_prepared'],
+			array_column(CactiStubs::$calls, 'fn')
+		);
 	}
 
 	/**

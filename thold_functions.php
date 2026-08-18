@@ -7338,8 +7338,16 @@ function thold_notification_process_matches($pid, $registered_at, $started_at = 
 	}
 
 	if (is_callable($started_at)) {
-		$process_started_at = $started_at($pid);
+		try {
+			$process_started_at = $started_at($pid);
+		} catch (Throwable $error) {
+			return null;
+		}
 	} else {
+		if (!function_exists('exec')) {
+			return null;
+		}
+
 		$output = [];
 		$status = 1;
 		exec('LC_ALL=C ps -o lstart= -p ' . $pid, $output, $status);
@@ -7352,7 +7360,7 @@ function thold_notification_process_matches($pid, $registered_at, $started_at = 
 
 	// The worker necessarily starts just before its database registration.
 	// A process starting later proves that the operating system reused its PID.
-	return $process_started_at <= $registered_at + 2;
+	return $process_started_at <= $registered_at + 5;
 }
 
 /**
@@ -7436,8 +7444,9 @@ function thold_notification_register_process($thread, $timeout = 3600, $lock = n
 	$match = $running === true
 		? thold_notification_process_matches($running_pid, $process['started_at'] ?? 0, $identity)
 		: null;
+	$stale_unverified_process = $running === true && $match === null && $stale;
 
-	if (($running === true && $match !== false) || ($running === null && !$stale)) {
+	if (($running === true && $match !== false && !$stale_unverified_process) || ($running === null && !$stale)) {
 		thold_notification_release_lock($thread);
 		cacti_log(sprintf('WARNING: Notification thread %s has an existing worker that is live or cannot be verified dead.', $thread), false, 'THOLD');
 
@@ -7671,15 +7680,15 @@ function thold_notification_main($thread, $timeout = 3600, $worker_pid = null, $
 	// a lease acquired by register_worker even before that call returns.
 	$shutdown_registrar('thold_notification_shutdown');
 
-	if (!$register_worker($thread, $timeout)) {
-		$notification_registered = false;
-
-		return false;
-	}
-
 	$start = microtime(true);
 
 	try {
+		if (!$register_worker($thread, $timeout)) {
+			$notification_registered = false;
+
+			return false;
+		}
+
 		$total_rows = $run_worker($pid, 'all', static function () use ($thread) {
 			thold_notification_heartbeat($thread);
 		});
