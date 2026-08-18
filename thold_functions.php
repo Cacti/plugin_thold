@@ -7217,21 +7217,6 @@ function thold_notification_lock_name($thread) {
 }
 
 /**
- * Normalize a CLI worker identifier without accepting exponent notation.
- *
- * @param mixed $value
- *
- * @return int|false
- */
-function thold_notification_thread_id($value) {
-	if (!ctype_digit((string) $value) || (int) $value <= 0) {
-		return false;
-	}
-
-	return (int) $value;
-}
-
-/**
  * Acquire the cross-platform worker lease without waiting.
  *
  * @param int $thread
@@ -7396,13 +7381,11 @@ function thold_notification_register_process($thread, $timeout = 3600, $lock = n
 
 	// The advisory lock prevents a new overlap, but it is not evidence that
 	// the recorded process died: a reconnect drops GET_LOCK while PHP lives.
-	// Confirmed death can recover immediately. Unknown liveness fails closed;
-	// a live-looking but recycled PID cannot block recovery beyond four
-	// heartbeat timeouts.
-	$stale          = thold_notification_process_is_stale($process, $timeout);
-	$absolute_stale = thold_notification_process_is_stale($process, 4 * $timeout);
+	// Confirmed death can recover immediately. Unknown liveness waits for an
+	// expired heartbeat; a process confirmed alive is never preempted.
+	$stale = thold_notification_process_is_stale($process, $timeout);
 
-	if (($running === null && !$stale) || ($running === true && !$absolute_stale)) {
+	if ($running === true || ($running === null && !$stale)) {
 		thold_notification_release_lock($thread);
 		cacti_log(sprintf('WARNING: Notification thread %s has an existing worker that is live or cannot be verified dead.', $thread), false, 'THOLD');
 
@@ -7532,6 +7515,38 @@ function thold_notification_shutdown() {
 }
 
 /**
+ * Execute a terminal queue update and prove the worker still owns every row.
+ *
+ * @param string     $sql
+ * @param array      $params
+ * @param array<int> $ids
+ * @param int        $pid
+ *
+ * @return bool
+ *
+ * @throws RuntimeException When the claim was revoked before completion.
+ */
+function thold_notification_complete($sql, array $params, array $ids, $pid) {
+	$ids      = array_values(array_filter(array_map('intval', $ids)));
+	$expected = cacti_sizeof($ids);
+	$updated  = db_execute_prepared($sql, $params);
+	$affected = $updated ? db_affected_rows() : 0;
+
+	if ($expected === 0 || $affected < $expected) {
+		$message = sprintf(
+			'ERROR: Notification process %s lost ownership before completing queue row(s) %s.',
+			(int) $pid,
+			implode(', ', $ids)
+		);
+		cacti_log($message, false, 'THOLD');
+
+		throw new RuntimeException($message);
+	}
+
+	return true;
+}
+
+/**
  * Refresh a worker heartbeat only while this connection owns its lease.
  *
  * @param int $thread
@@ -7616,12 +7631,14 @@ function thold_notification_reject_unknown_topic($id, $pid, $topic) {
 	$message = 'Unsupported notification topic: ' . (string) $topic;
 	$message = function_exists('mb_substr') ? mb_substr($message, 0, 128, 'UTF-8') : substr($message, 0, 128);
 
-	return db_execute_prepared('UPDATE notification_queue
+	return thold_notification_complete('UPDATE notification_queue
 		SET error_code = 1, error_message = ?, event_processed = 1,
 			event_processed_time = NOW()
 		WHERE id = ?
 		AND process_id = ?',
-		[$message, (int) $id, (int) $pid]);
+		[$message, (int) $id, (int) $pid],
+		[(int) $id],
+		$pid);
 }
 
 /**
@@ -7793,11 +7810,13 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 
 						$nend = microtime(true);
 
-						db_execute_prepared('UPDATE notification_queue
+						thold_notification_complete('UPDATE notification_queue
 							SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
 							WHERE id = ?
 							AND process_id = ?',
-							[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id'], $pid]);
+							[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id'], $pid],
+							[$r['id']],
+							$pid);
 					} else {
 						$id = md5(json_encode([$from, $to, $cc, $bcc, $replyto]));
 
@@ -7866,11 +7885,13 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 
 					$nend = microtime(true);
 
-					db_execute_prepared('UPDATE notification_queue
+					thold_notification_complete('UPDATE notification_queue
 						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
 						WHERE id = ?
 						AND process_id = ?',
-						[$return, implode("\n", $output), $nend - $nstart, $r['id'], $pid]);
+						[$return, implode("\n", $output), $nend - $nstart, $r['id'], $pid],
+						[$r['id']],
+						$pid);
 
 					break;
 				default:
@@ -7925,11 +7946,13 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 
 				$ids = implode(', ', array_map('intval', $email['ids']));
 
-				db_execute_prepared("UPDATE notification_queue
+				thold_notification_complete("UPDATE notification_queue
 					SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
 					WHERE id IN ($ids)
 					AND process_id = ?",
-					[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $pid]);
+					[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $pid],
+					$email['ids'],
+					$pid);
 			}
 		}
 	} else {
@@ -8010,11 +8033,13 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended, $
 
 					$nend = microtime(true);
 
-					db_execute_prepared('UPDATE notification_queue
+					thold_notification_complete('UPDATE notification_queue
 						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
 						WHERE id = ?
 						AND process_id = ?',
-						[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id'], $pid]);
+						[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id'], $pid],
+						[$r['id']],
+						$pid);
 
 					break;
 				case 'thold_cmd':
@@ -8047,11 +8072,13 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended, $
 
 					$nend = microtime(true);
 
-					db_execute_prepared('UPDATE notification_queue
+					thold_notification_complete('UPDATE notification_queue
 						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
 						WHERE id = ?
 						AND process_id = ?',
-						[$return, implode("\n", $output), $nend - $nstart, $r['id'], $pid]);
+						[$return, implode("\n", $output), $nend - $nstart, $r['id'], $pid],
+						[$r['id']],
+						$pid);
 
 					break;
 				default:

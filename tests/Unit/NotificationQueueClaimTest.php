@@ -191,18 +191,6 @@ final class NotificationQueueClaimTest extends TestCase {
 	/**
 	 * @return void
 	 */
-	public function testThreadIdentifiersAreCanonicalIntegers(): void {
-		$this->assertSame(2, thold_notification_thread_id('2'));
-		$this->assertSame(2, thold_notification_thread_id('02'));
-		$this->assertFalse(thold_notification_thread_id('1e3'));
-		$this->assertFalse(thold_notification_thread_id('2.0'));
-		$this->assertFalse(thold_notification_thread_id('0'));
-		$this->assertFalse(thold_notification_thread_id('-1'));
-	}
-
-	/**
-	 * @return void
-	 */
 	public function testRegistrationRequiresTheLeaseAndHandlesQueryFailures(): void {
 		$this->assertFalse(thold_notification_register_process(2, 300, static function () {
 			return false;
@@ -287,7 +275,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$expired['heartbeat_at']      = 100;
 		$expired['current_timestamp'] = 2000;
 		CactiStubs::willReturn('db_fetch_row_prepared', $expired);
-		$this->assertTrue(thold_notification_register_process(2, 300, $lock, static function () {
+		$this->assertFalse(thold_notification_register_process(2, 300, $lock, static function () {
 			return true;
 		}));
 
@@ -473,6 +461,43 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertSame(128, mb_strlen($call['params'][0], 'UTF-8'));
 		$this->assertSame([91, 77], array_slice($call['params'], 1));
 		$this->assertStringContainsString('AND process_id = ?', $call['sql']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testRevokedSingleRowClaimIsLoggedAndAbortsTheDrain(): void {
+		CactiStubs::willReturn('db_affected_rows', 0);
+
+		try {
+			thold_notification_complete(
+				'UPDATE notification_queue SET event_processed = 1 WHERE id = ? AND process_id = ?',
+				[91, 77],
+				[91],
+				77
+			);
+			$this->fail('Expected revoked ownership to stop the drain.');
+		} catch (RuntimeException $error) {
+			$this->assertStringContainsString('queue row(s) 91', $error->getMessage());
+		}
+
+		$this->assertStringContainsString('process 77', end(CactiStubs::$log));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testPartiallyRevokedGroupedClaimIsLoggedAndAbortsTheDrain(): void {
+		CactiStubs::willReturn('db_affected_rows', 1);
+
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('queue row(s) 91, 92');
+		thold_notification_complete(
+			'UPDATE notification_queue SET event_processed = 1 WHERE id IN (91, 92) AND process_id = ?',
+			[77],
+			[91, 92],
+			77
+		);
 	}
 
 	/**
