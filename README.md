@@ -30,9 +30,11 @@ exemptions, alert log retention, logging, etc.
 Counter, derive, and absolute rate thresholds preserve the previous value and
 timestamp together when a poll has no numeric sample, preventing the next rate
 from using mismatched interval data. A gap of more than two effective sampling
-intervals (the greater of the RRD step and poller interval) is treated as
-unknown while the current sample starts a fresh baseline instead of producing
-a stale rate. Gauge readings remain valid across such a gap.
+intervals (the greater of the RRD step and poller interval), or the configured
+RRD heartbeat when available, is treated as unknown while the current sample
+starts a fresh baseline instead of producing a stale rate. Unknown rates are
+not evaluated, so existing alert state is preserved. Gauge readings remain
+valid across such a gap.
 
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a

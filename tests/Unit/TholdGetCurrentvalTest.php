@@ -136,10 +136,10 @@ final class TholdGetCurrentvalTest extends TestCase {
 	/**
 	 * @return void
 	 */
-	public function testCounterWithNoPreviousReadingYieldsZero(): void {
+	public function testCounterWithNoPreviousReadingYieldsUnknown(): void {
 		$thold = $this->threshold(['lasttime' => 0, 'oldvalue' => '']);
 
-		$this->assertSame(0, $this->currentValue($thold, 600));
+		$this->assertSame('', $this->currentValue($thold, 600));
 	}
 
 	/**
@@ -376,6 +376,41 @@ final class TholdGetCurrentvalTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testRrdHeartbeatControlsGapAcceptance(): void {
+		$accepted       = $this->threshold(['lasttime' => 1000, 'rrd_heartbeat' => 1800]);
+		$reindexed      = [4 => ['traffic_in' => 700]];
+		$time_reindexed = [4 => 1900];
+		$item           = [];
+		$currenttime    = 0;
+
+		$this->assertEqualsWithDelta(
+			600 / 900,
+			thold_get_currentval($accepted, $reindexed, $time_reindexed, $item, $currenttime),
+			1.0e-9
+		);
+
+		$rejected                    = $accepted;
+		$rejected['rrd_heartbeat']   = 300;
+		$time_reindexed[4]           = 1400;
+		$this->assertSame('', thold_get_currentval($rejected, $reindexed, $time_reindexed, $item, $currenttime));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testNonNumericSampleTimeUsesTheRrdStep(): void {
+		$thold          = $this->threshold();
+		$reindexed      = [4 => ['traffic_in' => 700]];
+		$time_reindexed = [4 => 'U'];
+		$item           = [];
+		$currenttime    = 0;
+
+		$this->assertEqualsWithDelta(2, thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime), 1.0e-9);
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testFirstAbsoluteSampleUsesTheValidatedPollerInterval(): void {
 		CactiStubs::$configOptions['poller_interval'] = 300;
 		$thold = $this->threshold([
@@ -410,14 +445,14 @@ final class TholdGetCurrentvalTest extends TestCase {
 			thold_sample_persistence($thold, ['traffic_in' => 700], 1700000400)
 		);
 		$this->assertSame([
-			'sample_row' => "(9, 1, '', FROM_UNIXTIME(1700000400), '100')",
+			'sample_row' => "(9, 0, '', FROM_UNIXTIME(1700000400), '100')",
 			'status_row' => null,
 		], thold_polling_sample_row($thold, ['traffic_in' => 700], '', 1700000300));
 
 		CactiStubs::reset();
 		$this->assertTrue(thold_daemon_persist_sample($thold, ['traffic_in' => 700], '', 1700000300));
 		$call = end(CactiStubs::$calls);
-		$this->assertSame(['', 1700000400, 100, 9], $call['params']);
+		$this->assertSame([0, '', 1700000400, 100, 9], $call['params']);
 	}
 
 	/**
@@ -441,12 +476,12 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$this->assertTrue(thold_daemon_persist_sample($thold, [], '', 1300));
 		$call = end(CactiStubs::$calls);
 		$this->assertStringContainsString('lasttime = FROM_UNIXTIME(?)', $call['sql']);
-		$this->assertSame(['', 1000, 100, 9], $call['params']);
+		$this->assertSame([0, '', 1000, 100, 9], $call['params']);
 
 		CactiStubs::reset();
 		$this->assertTrue(thold_daemon_persist_sample($thold, ['traffic_in' => 700], 2, 1600));
 		$call = end(CactiStubs::$calls);
-		$this->assertSame([2, 1600, 700, 9], $call['params']);
+		$this->assertSame([1, 2, 1600, 700, 9], $call['params']);
 	}
 
 	/**
@@ -485,11 +520,11 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$call = end(CactiStubs::$calls);
 		$this->assertStringNotContainsString('FROM_UNIXTIME', $call['sql']);
 		$this->assertStringNotContainsString('oldvalue', $call['sql']);
-		$this->assertSame(['', 9], $call['params']);
+		$this->assertSame([0, '', 9], $call['params']);
 
 		CactiStubs::reset();
 		$this->assertSame(
-			['sample_row' => null, 'status_row' => "(9, 1, '')"],
+			['sample_row' => null, 'status_row' => "(9, 0, '')"],
 			thold_polling_sample_row($thold, ['traffic_in' => 'U'], '', 1300)
 		);
 		$this->assertSame([], CactiStubs::$calls);

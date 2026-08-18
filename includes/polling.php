@@ -138,7 +138,7 @@ function thold_poller_output(&$rrd_update_array) {
 		td.cdef, td.local_data_id, td.data_template_rrd_id, td.lastread,
 		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
 		td.data_source_name AS name, dtr.data_source_type_id,
-		dtd.rrd_step, dtr.rrd_maximum
+		dtd.rrd_step, dtr.rrd_maximum, dtr.rrd_heartbeat
 		FROM thold_data AS td
 		LEFT JOIN data_template_rrd AS dtr
 		ON dtr.id = td.data_template_rrd_id

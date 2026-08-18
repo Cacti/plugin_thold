@@ -876,7 +876,8 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
  * @return bool
  */
 function thold_daemon_persist_sample(array $thold_data, array $item, $currentval, $currenttime) {
-	$id = (int) ($thold_data['thold_id'] ?? 0);
+	$id     = (int) ($thold_data['thold_id'] ?? 0);
+	$tcheck = is_numeric($currentval) ? 1 : 0;
 
 	if ($id <= 0) {
 		return false;
@@ -886,16 +887,16 @@ function thold_daemon_persist_sample(array $thold_data, array $item, $currentval
 
 	if ($sample['lasttime'] <= 0) {
 		return db_execute_prepared('UPDATE thold_data
-			SET tcheck = 1, lastread = ?
+			SET tcheck = ?, lastread = ?
 			WHERE id = ?',
-			[$currentval, $id]);
+			[$tcheck, $currentval, $id]);
 	}
 
 	return db_execute_prepared('UPDATE thold_data
-		SET tcheck = 1, lastread = ?,
+		SET tcheck = ?, lastread = ?,
 		lasttime = FROM_UNIXTIME(?), oldvalue = ?
 		WHERE id = ?',
-		[$currentval, $sample['lasttime'], $sample['oldvalue'], $id]);
+		[$tcheck, $currentval, $sample['lasttime'], $sample['oldvalue'], $id]);
 }
 
 /**
@@ -909,7 +910,8 @@ function thold_daemon_persist_sample(array $thold_data, array $item, $currentval
  * @return array{sample_row:string|null,status_row:string|null}
  */
 function thold_polling_sample_row(array $thold_data, array $item, $currentval, $currenttime) {
-	$id = (int) ($thold_data['id'] ?? 0);
+	$id     = (int) ($thold_data['id'] ?? 0);
+	$tcheck = is_numeric($currentval) ? 1 : 0;
 
 	if ($id <= 0) {
 		return ['sample_row' => null, 'status_row' => null];
@@ -920,12 +922,12 @@ function thold_polling_sample_row(array $thold_data, array $item, $currentval, $
 	if ($sample['lasttime'] <= 0) {
 		return [
 			'sample_row' => null,
-			'status_row' => '(' . $id . ', 1, ' . db_qstr($currentval) . ')',
+			'status_row' => '(' . $id . ', ' . $tcheck . ', ' . db_qstr($currentval) . ')',
 		];
 	}
 
 	return [
-		'sample_row' => '(' . $id . ', 1, ' . db_qstr($currentval)
+		'sample_row' => '(' . $id . ', ' . $tcheck . ', ' . db_qstr($currentval)
 			. ', FROM_UNIXTIME(' . $sample['lasttime'] . '), ' . db_qstr($sample['oldvalue']) . ')',
 		'status_row' => null,
 	];
@@ -979,10 +981,13 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		? (float) $thold_data['rrd_step']
 		: 0.0;
 	$sample_interval        = max($rrd_step, (float) $poller_interval);
+	$rrd_heartbeat          = is_numeric($thold_data['rrd_heartbeat'] ?? null) && $thold_data['rrd_heartbeat'] > 0
+		? (float) $thold_data['rrd_heartbeat']
+		: 2 * $sample_interval;
 	$previous_sample_usable = $thold_data['lasttime'] > 0
 		&& is_numeric($elapsed_step)
 		&& $elapsed_step > 0
-		&& $elapsed_step <= 2 * $sample_interval;
+		&& $elapsed_step <= $rrd_heartbeat;
 
 	$currentval = '';
 
@@ -1041,7 +1046,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 							$currentval = $currentval / $step;
 						}
 					} else {
-						$currentval = $thold_data['lasttime'] > 0 ? '' : 0;
+						$currentval = '';
 					}
 
 					break;
@@ -1049,7 +1054,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 					if ($previous_sample_usable && is_numeric($thold_data['oldvalue'])) {
 						$currentval = ($item[$thold_data['name']] - $thold_data['oldvalue']) / $step;
 					} else {
-						$currentval = $thold_data['lasttime'] > 0 ? '' : 0;
+						$currentval = '';
 					}
 
 					break;
