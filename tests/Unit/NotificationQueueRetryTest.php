@@ -221,6 +221,7 @@ final class NotificationQueueRetryTest extends TestCase {
 			$this->mailRow(64, 'thold_uhost_mail', 4),
 		]);
 		CactiStubs::willReturn('mailer', 'temporary SMTP failure');
+		CactiStubs::willReturn('db_affected_rows', 4);
 
 		process_device_notifications(77, 'all', 0);
 
@@ -248,6 +249,7 @@ final class NotificationQueueRetryTest extends TestCase {
 		$this->assertTrue(thold_notification_record_deliveries([-1 => 0], 77, '', 0.25));
 		$this->assertSame([], CactiStubs::$calls);
 
+		CactiStubs::willReturn('db_affected_rows', 2);
 		$this->assertTrue(thold_notification_record_deliveries([81 => 0, 82 => 4], 77, '', 0.25));
 
 		$calls = array_values(array_filter(CactiStubs::$calls, static function ($call) {
@@ -269,6 +271,7 @@ final class NotificationQueueRetryTest extends TestCase {
 	 * @return void
 	 */
 	public function testGroupedTerminalFailuresStayClaimedAndComplete(): void {
+		CactiStubs::willReturn('db_affected_rows', 2);
 		$this->assertTrue(thold_notification_record_deliveries([91 => 4, 92 => 5], 77, 'permanent failure', 0.5));
 
 		$call = $this->lastPreparedCall();

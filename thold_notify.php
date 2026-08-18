@@ -24,7 +24,7 @@
 
 $notification_registered = false;
 $pid                     = 0;
-$thread                  = false;
+$thread                  = 1;
 
 if (function_exists('pcntl_async_signals')) {
 	pcntl_async_signals(true);
@@ -75,13 +75,13 @@ if (sizeof($parms)) {
 
 				break;
 			case '--thread':
-				$thread = $value;
-
-				if (!is_numeric($thread) || $thread <= 0) {
+				if (!ctype_digit((string) $value) || (int) $value <= 0) {
 					print 'FATAL: The Thread ID must be numeric and greater than 0.' . PHP_EOL;
 					display_help();
 					exit(1);
 				}
+
+				cacti_log('WARNING: thold_notify.php --thread is deprecated and ignored; notification ownership is automatic.', false, 'THOLD');
 
 				break;
 			case '-v':
@@ -97,20 +97,12 @@ if (sizeof($parms)) {
 			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
 				display_help();
+				exit(1);
 		}
 	}
 }
 
-// This is where we can parallelize
-$collector = ($thread === false);
-
-if ($collector) {
-	thold_cli_debug('Thold Notification Main Collector Started');
-
-	$thread = 1;
-} else {
-	thold_cli_debug("Thold Notification Child Thread $thread Started");
-}
+thold_cli_debug('Thold Notification Main Collector Started');
 
 $timeout = 3600;
 

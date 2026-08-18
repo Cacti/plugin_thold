@@ -117,6 +117,7 @@ final class NotificationQueueClaimTest extends TestCase {
 	 */
 	public function testAClaimRecoversOrphansThenTakesOnlyUnheldRows(): void {
 		$this->assertSame(0, thold_notification_claim(0));
+		CactiStubs::willReturn('db_fetch_cell_prepared', 1);
 		CactiStubs::willReturn('db_affected_rows', 3);
 
 		$this->assertSame(3, thold_notification_claim(4242));
@@ -132,6 +133,17 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertStringContainsString('(next_attempt IS NULL OR next_attempt <= NOW())', $calls[1]['sql']);
 		$this->assertStringContainsString('AND process_id = 0', $calls[1]['sql']);
 		$this->assertSame([4242], $calls[1]['params']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testAClaimSkipsTheRecoveryUpdateWhenNoOrphanExists(): void {
+		thold_notification_claim(4242);
+		$updates = CactiStubs::callsTo('db_execute_prepared');
+
+		$this->assertCount(1, $updates);
+		$this->assertStringContainsString('SET process_id = ?', $updates[0]['sql']);
 	}
 
 	/**
@@ -223,7 +235,7 @@ final class NotificationQueueClaimTest extends TestCase {
 	/**
 	 * @return void
 	 */
-	public function testRegistrationReclaimsOnlyAStaleConfirmedDeadWorker(): void {
+	public function testRegistrationUsesLivenessAndBoundedHeartbeatFallbacks(): void {
 		$process = [
 			'pid'               => 42,
 			'started_at'        => 500,
@@ -233,25 +245,59 @@ final class NotificationQueueClaimTest extends TestCase {
 		$lock = static function () {
 			return true;
 		};
+		$same_process = static function () {
+			return 600;
+		};
 
-		foreach ([true, null] as $liveness) {
-			CactiStubs::reset();
-			CactiStubs::willReturn('db_fetch_row_prepared', $process);
-
-			$this->assertFalse(thold_notification_register_process(2, 300, $lock, static function () use ($liveness) {
-				return $liveness;
-			}));
-			$this->assertSame(
-				['db_fetch_row_prepared', 'db_fetch_cell_prepared'],
-				array_column(CactiStubs::$calls, 'fn')
-			);
-		}
+		CactiStubs::willReturn('db_fetch_row_prepared', $process);
+		$this->assertFalse(thold_notification_register_process(2, 300, $lock, static function () {
+			return true;
+		}, $same_process));
 
 		CactiStubs::reset();
 		$fresh                 = $process;
 		$fresh['heartbeat_at'] = 900;
 		CactiStubs::willReturn('db_fetch_row_prepared', $fresh);
 		$this->assertFalse(thold_notification_register_process(2, 300, $lock, static function () {
+			return null;
+		}));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', $fresh);
+		$this->assertTrue(thold_notification_register_process(2, 300, $lock, static function () {
+			return false;
+		}));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', $process);
+		$this->assertTrue(thold_notification_register_process(2, 300, $lock, static function () {
+			return null;
+		}));
+
+		CactiStubs::reset();
+		$expired                      = $process;
+		$expired['heartbeat_at']      = 100;
+		$expired['current_timestamp'] = 2000;
+		CactiStubs::willReturn('db_fetch_row_prepared', $expired);
+		$this->assertFalse(thold_notification_register_process(2, 300, $lock, static function () {
+			return true;
+		}, static function () {
+			return 1600;
+		}));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', $expired);
+		$this->assertTrue(thold_notification_register_process(2, 300, $lock, static function () {
+			return true;
+		}, static function () {
+			return 700;
+		}));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', $expired);
+		$this->assertFalse(thold_notification_register_process(2, 300, $lock, static function () {
+			return true;
+		}, static function () {
 			return false;
 		}));
 
@@ -301,12 +347,85 @@ final class NotificationQueueClaimTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testProcessIdentityDetectsPidReuse(): void {
+		$this->assertNull(thold_notification_process_matches(0, 500, 1000));
+		$this->assertTrue(thold_notification_process_matches(42, 500, 1000, static function () {
+			return 600;
+		}));
+		$this->assertTrue(thold_notification_process_matches(42, 500, 1000, static function () {
+			return 495;
+		}));
+		$this->assertFalse(thold_notification_process_matches(42, 500, 1000, static function () {
+			return 494;
+		}));
+		$this->assertNull(thold_notification_process_matches(42, 500, 1000, static function () {
+			return false;
+		}));
+		$this->assertNull(thold_notification_process_matches(42, 500, 1000, static function () {
+			throw new RuntimeException('process probe failed');
+		}));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testElapsedProcessTimeAcceptsLinuxAndPortableFormats(): void {
+		$this->assertSame(83, thold_notification_elapsed_seconds('83'));
+		$this->assertSame(83, thold_notification_elapsed_seconds('01:23'));
+		$this->assertSame(3723, thold_notification_elapsed_seconds('01:02:03'));
+		$this->assertSame(90123, thold_notification_elapsed_seconds('1-01:02:03'));
+		$this->assertFalse(thold_notification_elapsed_seconds('unknown'));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testProcessAgeProbeFallsBackToPortablePsOutput(): void {
+		$fields = [];
+		$runner = static function ($field, $pid) use (&$fields) {
+			$fields[] = [$field, $pid];
+
+			return $field === 'etimes' ? [1, []] : [0, ['01:23']];
+		};
+
+		$this->assertSame(83, thold_notification_probe_elapsed(42, $runner));
+		$this->assertSame([['etimes', 42], ['etime', 42]], $fields);
+		$this->assertFalse(thold_notification_probe_elapsed(42, false));
+		$this->assertFalse(thold_notification_probe_elapsed(42, static function () {
+			return [0, ['unknown']];
+		}));
+		$this->assertFalse(thold_notification_probe_elapsed(42, static function () {
+			throw new RuntimeException('ps failed');
+		}));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testDefaultProcessIdentityProbeIsTimezoneIndependent(): void {
+		$timezone = date_default_timezone_get();
+		$now      = time();
+
+		try {
+			foreach (['UTC', 'America/Los_Angeles'] as $candidate) {
+				date_default_timezone_set($candidate);
+				$this->assertTrue(thold_notification_process_matches(getmypid(), $now, $now));
+			}
+		} finally {
+			date_default_timezone_set($timezone);
+		}
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testDefaultUnixProbeKeepsALiveWorkerRegistered(): void {
+		$now = time();
 		CactiStubs::willReturn('db_fetch_row_prepared', [
 			'pid'               => getmypid(),
-			'started_at'        => 500,
-			'heartbeat_at'      => 600,
-			'current_timestamp' => 1000,
+			'started_at'        => $now,
+			'heartbeat_at'      => $now - 400,
+			'current_timestamp' => $now,
 		]);
 
 		$this->assertFalse(thold_notification_register_process(2, 300, static function () {
@@ -354,7 +473,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertSame(5, $heartbeats);
 
 		foreach ($this->queueQueries() as $sql) {
-			if (strpos($sql, 'SELECT') !== false) {
+			if (strpos($sql, 'SELECT *') !== false) {
 				$this->assertStringContainsString('process_id = 77', $sql);
 			}
 		}
@@ -430,13 +549,94 @@ final class NotificationQueueClaimTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnknownTopicMessageIsBoundAndTruncated(): void {
-		$this->assertTrue(thold_notification_reject_unknown_topic(91, 77, str_repeat('x', 200)));
+		$this->assertTrue(thold_notification_reject_unknown_topic(91, 77, str_repeat('é', 200)));
 		$call = end(CactiStubs::$calls);
 
 		$this->assertSame('db_execute_prepared', $call['fn']);
-		$this->assertSame(128, strlen($call['params'][0]));
+		$this->assertSame(128, mb_strlen($call['params'][0], 'UTF-8'));
 		$this->assertSame([91, 77], array_slice($call['params'], 1));
 		$this->assertStringContainsString('AND process_id = ?', $call['sql']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testCompletionDatabaseFailureUsesASafeTerminalFallback(): void {
+		CactiStubs::willReturn('db_execute_prepared', false);
+
+		$this->assertTrue(thold_notification_complete('UPDATE notification_queue SET event_processed = 1', [77], [91], 77));
+		$calls = CactiStubs::callsTo('db_execute_prepared');
+		$this->assertCount(2, $calls);
+		$this->assertStringContainsString('Completion update failed', $calls[1]['sql']);
+		$this->assertSame([91, 77], $calls[1]['params']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testCompletionAbortsWhenBothDatabaseUpdatesFail(): void {
+		CactiStubs::willReturn('db_execute_prepared', false);
+		CactiStubs::willReturn('db_execute_prepared', false);
+
+		$this->expectException(UnexpectedValueException::class);
+		$this->expectExceptionMessage('database update failed');
+		thold_notification_complete('UPDATE notification_queue SET event_processed = 1', [77], [91], 77);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testNotificationErrorsNormalizeInvalidUtf8(): void {
+		$message = thold_notification_error_message("\xff\xfe" . str_repeat('a', 200));
+
+		$this->assertTrue(mb_check_encoding($message, 'UTF-8'));
+		$this->assertLessThanOrEqual(128, mb_strlen($message, 'UTF-8'));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testCompletionRejectsAnEmptyClaim(): void {
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('queue row(s)');
+		thold_notification_complete('UPDATE notification_queue SET event_processed = 1', [77], [], 77);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testRevokedSingleRowClaimIsLoggedAndAbortsTheDrain(): void {
+		CactiStubs::willReturn('db_affected_rows', 0);
+
+		try {
+			thold_notification_complete(
+				'UPDATE notification_queue SET event_processed = 1 WHERE id = ? AND process_id = ?',
+				[91, 77],
+				[91],
+				77
+			);
+			$this->fail('Expected revoked ownership to stop the drain.');
+		} catch (RuntimeException $error) {
+			$this->assertStringContainsString('queue row(s) 91', $error->getMessage());
+		}
+
+		$this->assertStringContainsString('process 77', end(CactiStubs::$log));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testPartiallyRevokedGroupedClaimIsLoggedAndAbortsTheDrain(): void {
+		CactiStubs::willReturn('db_affected_rows', 1);
+
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('queue row(s) 91, 92');
+		thold_notification_complete(
+			'UPDATE notification_queue SET event_processed = 1 WHERE id IN (91, 92) AND process_id = ?',
+			[77],
+			[91, 92],
+			77
+		);
 	}
 
 	/**
@@ -445,14 +645,14 @@ final class NotificationQueueClaimTest extends TestCase {
 	public function testDeviceCommandAndGroupedMailComplete(): void {
 		CactiStubs::$configOptions['alert_deadnotify_one_mail'] = 'on';
 		CactiStubs::$configOptions['alert_deadnotify_subject']  = 'Device alerts';
-		CactiStubs::willReturn('mailer', 'delivery failed');
+		CactiStubs::willReturn('mailer', str_repeat('é', 200));
 		CactiStubs::willReturn('db_fetch_assoc_prepared', [
 			[
 				'id'         => 101,
 				'topic'      => 'thold_dhost_cmd',
 				'event_data' => json_encode([
 					'environment' => ['THOLD_DEVICE_TEST=1'],
-					'command'     => '/bin/true',
+					'command'     => "printf '%0130d' 0",
 					'data'        => ['id' => 7],
 				]),
 			],
@@ -490,7 +690,9 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertCount(2, $updates);
 		$this->assertSame(101, $updates[0]['params'][3]);
 		$this->assertSame(77, $updates[0]['params'][4]);
+		$this->assertSame(128, strlen($updates[0]['params'][1]));
 		$this->assertSame(1, $updates[1]['params'][0]);
+		$this->assertSame(128, mb_strlen($updates[1]['params'][1], 'UTF-8'));
 		$this->assertSame([102, 77], array_slice($updates[1]['params'], -2));
 		$this->assertStringContainsString('AND process_id = ?', $updates[0]['sql']);
 		$this->assertStringContainsString('AND process_id = ?', $updates[1]['sql']);
@@ -501,6 +703,7 @@ final class NotificationQueueClaimTest extends TestCase {
 	 * @return void
 	 */
 	public function testIndividualDeviceMailCompletionRequiresItsOwner(): void {
+		CactiStubs::willReturn('mailer', str_repeat('é', 200));
 		CactiStubs::willReturn('db_fetch_assoc_prepared', [[
 			'id'         => 104,
 			'topic'      => 'thold_dhost_mail',
@@ -522,6 +725,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$call = end(CactiStubs::$calls);
 
 		$this->assertStringContainsString('AND process_id = ?', $call['sql']);
+		$this->assertSame(128, mb_strlen($call['params'][1], 'UTF-8'));
 		$this->assertSame([104, 77], array_slice($call['params'], -2));
 	}
 
@@ -534,7 +738,7 @@ final class NotificationQueueClaimTest extends TestCase {
 			'topic'      => 'thold_cmd',
 			'event_data' => json_encode([
 				'environment' => ['THOLD_COMMAND_TEST=1'],
-				'command'     => '/bin/true',
+				'command'     => "printf '%0130d' 0",
 				'data'        => ['id' => 8],
 			]),
 		]]);
@@ -545,6 +749,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$call = end(CactiStubs::$calls);
 		$this->assertSame('db_execute_prepared', $call['fn']);
 		$this->assertStringContainsString('event_processed = 1', $call['sql']);
+		$this->assertSame(128, strlen($call['params'][1]));
 		$this->assertSame(103, $call['params'][3]);
 		$this->assertSame(77, $call['params'][4]);
 		$this->assertStringContainsString('AND process_id = ?', $call['sql']);
@@ -554,13 +759,13 @@ final class NotificationQueueClaimTest extends TestCase {
 	 * @return void
 	 */
 	public function testNonDeviceMailCompletionRequiresItsOwner(): void {
+		CactiStubs::willReturn('mailer', str_repeat('é', 200));
 		CactiStubs::willReturn('db_fetch_assoc_prepared', [[
 			'id'         => 105,
 			'topic'      => 'thold_mail',
 			'event_data' => json_encode([
 				'from'        => ['sender@example.com'],
 				'to'          => 'recipient@example.com',
-				'cc'          => '',
 				'bcc'         => '',
 				'replyto'     => '',
 				'subject'     => 'Threshold alert',
@@ -576,6 +781,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$call = end(CactiStubs::$calls);
 
 		$this->assertStringContainsString('AND process_id = ?', $call['sql']);
+		$this->assertSame(128, mb_strlen($call['params'][1], 'UTF-8'));
 		$this->assertSame([105, 77], array_slice($call['params'], -2));
 	}
 
@@ -595,6 +801,18 @@ final class NotificationQueueClaimTest extends TestCase {
 
 		$this->assertTrue(thold_notification_cleanup(77, 2, $registered));
 		$this->assertCount(3, CactiStubs::$calls);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testCleanupReportsAClaimReleaseFailure(): void {
+		$registered = true;
+		CactiStubs::willReturn('db_execute_prepared', false);
+
+		$this->assertFalse(thold_notification_cleanup(77, 2, $registered));
+		$this->assertFalse($registered);
+		$this->assertNotEmpty(CactiStubs::$log);
 	}
 
 	/**
@@ -644,6 +862,34 @@ final class NotificationQueueClaimTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testMainLogsAndCleansUpARegistrationException(): void {
+		CactiStubs::willReturn('db_fetch_cell_prepared', 1);
+
+		$this->assertFalse(thold_notification_main(
+			2,
+			300,
+			77,
+			static function () {
+			},
+			static function () {
+				throw new RuntimeException('registration failed');
+			},
+			static function () {
+				throw new RuntimeException('drain must not run');
+			}
+		));
+
+		$this->assertStringContainsString('registration failed', end(CactiStubs::$log));
+		$this->assertFalse($GLOBALS['notification_registered']);
+		$this->assertSame(
+			['db_execute_prepared', 'unregister_process', 'db_fetch_cell_prepared'],
+			array_column(CactiStubs::$calls, 'fn')
+		);
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testMainRunsTheLeaseHeartbeatAndAlwaysCleansUp(): void {
 		$events = [];
 		CactiStubs::willReturn('db_fetch_cell_prepared', 1);
@@ -687,5 +933,28 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->expectException(RuntimeException::class);
 		$this->expectExceptionMessage('Notification worker lease was lost.');
 		thold_notification_heartbeat(2);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testMainLogsLeaseLossAndReturnsFailureAfterCleanup(): void {
+		CactiStubs::willReturn('db_fetch_cell_prepared', 1);
+
+		$this->assertFalse(thold_notification_main(
+			2,
+			300,
+			77,
+			static function () {
+			},
+			static function () {
+				return true;
+			},
+			static function () {
+				throw new RuntimeException('lease lost');
+			}
+		));
+		$this->assertFalse($GLOBALS['notification_registered']);
+		$this->assertStringContainsString('lease lost', end(CactiStubs::$log));
 	}
 }
