@@ -2201,6 +2201,71 @@ function thold_datasource_required($name, $data_source) {
 	return true;
 }
 
+/**
+ * Gather the settings a threshold evaluation reads, in one place.
+ *
+ * Everything here is derived from the threshold row and the Cacti settings; it
+ * does not decide anything and has no side effects, which is what lets it move
+ * out of thold_check_threshold() without changing behaviour.
+ *
+ * @param array<string, mixed> $thold_data Threshold row.
+ *
+ * @return array<string, mixed>
+ */
+function thold_evaluation_context(array $thold_data) {
+	$alert_trigger        = read_config_option('alert_trigger');
+	$httpurl              = read_config_option('base_url');
+	$thold_send_text_only = read_config_option('thold_send_text_only');
+
+	// see if we have two notification lists or one
+	$notify_different = $thold_data['notify_warning'] > 0
+		&& $thold_data['notify_warning'] != $thold_data['notify_alert']
+		&& read_config_option('thold_notify_alerts_to_warning_recipients') == 'on';
+
+	$file_array = [];
+
+	if ($thold_send_text_only != 'on' && !empty($thold_data['local_graph_id'])) {
+		$file_array = [
+			'local_graph_id' => $thold_data['local_graph_id'],
+			'local_data_id'  => $thold_data['local_data_id'],
+			'rra_id'         => 0,
+			'file'           => "$httpurl/graph_image.php?local_graph_id=" . $thold_data['local_graph_id'] . '&rra_id=0&view_type=tree',
+			'mimetype'       => 'image/png',
+			'filename'       => clean_up_name(thold_get_cached_name($thold_data))
+		];
+	}
+
+	return [
+		// Settings for syslogging
+		'syslog'                   => $thold_data['syslog_enabled'] == 'on',
+		'syslog_priority'          => $thold_data['syslog_priority'],
+		'syslog_facility'          => $thold_data['syslog_facility'],
+
+		'realert'                  => read_config_option('alert_repeat'),
+		'alert_bl_trigger'         => read_config_option('alert_bl_trigger'),
+
+		'thold_snmp_traps'         => read_config_option('thold_alert_snmp') == 'on',
+		'thold_snmp_warning_traps' => read_config_option('thold_alert_snmp_warning') == 'on',
+		'thold_snmp_normal_traps'  => read_config_option('thold_alert_snmp_normal') == 'on',
+		'cacti_polling_interval'   => read_config_option('poller_interval'),
+
+		// An unset trigger on the threshold falls back to the global default.
+		'trigger'                  => $thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger'],
+		'warning_trigger'          => $thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger'],
+		'alertstat'                => $thold_data['thold_alert'],
+
+		'notify_different'         => $notify_different,
+		'file_array'               => $file_array,
+		'url'                      => $httpurl . '/graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all',
+		'lastread'                 => $thold_data['lastread'],
+
+		'alert_emails'             => get_thold_emails($thold_data, 'alert', 'to'),
+		'alert_bcc_emails'         => get_thold_emails($thold_data, 'alert', 'bcc'),
+		'warning_emails'           => get_thold_emails($thold_data, 'warning', 'to'),
+		'warning_bcc_emails'       => get_thold_emails($thold_data, 'warning', 'bcc'),
+	];
+}
+
 function thold_check_threshold(&$thold_data) {
 	global $config, $plugins, $debug;
 
@@ -2280,81 +2345,28 @@ function thold_check_threshold(&$thold_data) {
 	// ensure that Cacti will make of individual defined SNMP Engine IDs
 	$overwrite['snmp_engine_id'] = $h['snmp_engine_id'];
 
-	// pull a few default settings
-	$global_alert_address  = read_config_option('alert_email');
+	$context = thold_evaluation_context($thold_data);
 
-	// Settings for syslogging
-	$syslog                = $thold_data['syslog_enabled'] == 'on' ? true : false;
-	$syslog_priority       = $thold_data['syslog_priority'];
-	$syslog_facility       = $thold_data['syslog_facility'];
-
-	$realert               = read_config_option('alert_repeat');
-	$alert_trigger         = read_config_option('alert_trigger');
-	$alert_bl_trigger      = read_config_option('alert_bl_trigger');
-	$httpurl               = read_config_option('base_url');
-	$thold_send_text_only  = read_config_option('thold_send_text_only');
-
-	$thold_snmp_traps         = (read_config_option('thold_alert_snmp') == 'on');
-	$thold_snmp_warning_traps = (read_config_option('thold_alert_snmp_warning') == 'on');
-	$thold_snmp_normal_traps  = (read_config_option('thold_alert_snmp_normal') == 'on');
-	$cacti_polling_interval   = read_config_option('poller_interval');
-
-	// remove this after adding an option for it
-	$show_datasource = thold_datasource_required(thold_get_cached_name($thold_data), $thold_data['data_source_name']);
-
-	$trigger         = ($thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger']);
-	$warning_trigger = ($thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger']);
-	$alertstat       = $thold_data['thold_alert'];
-
-	// see if we have two notification lists or one
-	$notify_different = false;
-
-	if ($thold_data['notify_warning'] > 0) {
-		if ($thold_data['notify_warning'] != $thold_data['notify_alert']) {
-			if (read_config_option('thold_notify_alerts_to_warning_recipients') == 'on') {
-				$notify_different = true;
-			}
-		}
-	}
-
-	// setup base units
-	$baseu = db_fetch_cell_prepared('SELECT base_value
-		FROM graph_templates_graph
-		WHERE local_graph_id = ?',
-		[$thold_data['local_graph_id']]);
-
-	if ($thold_data['data_type'] == 2) {
-		$suffix = false;
-	} else {
-		$suffix = true;
-	}
-
-	$show_units   = ($thold_data['show_units'] ? true : false);
-	$units_suffix = $thold_data['units_suffix'];
-	$decimals     = $thold_data['decimals'] >= 0 ? $thold_data['decimals'] : 2;
-
-	$file_array = [];
-
-	if ($thold_send_text_only != 'on') {
-		if (!empty($thold_data['local_graph_id'])) {
-			$file_array = [
-				'local_graph_id' => $thold_data['local_graph_id'],
-				'local_data_id'  => $thold_data['local_data_id'],
-				'rra_id'         => 0,
-				'file'           => "$httpurl/graph_image.php?local_graph_id=" . $thold_data['local_graph_id'] . '&rra_id=0&view_type=tree',
-				'mimetype'       => 'image/png',
-				'filename'       => clean_up_name(thold_get_cached_name($thold_data))
-			];
-		}
-	}
-
-	$url      = $httpurl . '/graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all';
-	$lastread = $thold_data['lastread'];
-
-	$alert_emails       = get_thold_emails($thold_data, 'alert', 'to');
-	$alert_bcc_emails   = get_thold_emails($thold_data, 'alert', 'bcc');
-	$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
-	$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+	$syslog                   = $context['syslog'];
+	$syslog_priority          = $context['syslog_priority'];
+	$syslog_facility          = $context['syslog_facility'];
+	$realert                  = $context['realert'];
+	$alert_bl_trigger         = $context['alert_bl_trigger'];
+	$thold_snmp_traps         = $context['thold_snmp_traps'];
+	$thold_snmp_warning_traps = $context['thold_snmp_warning_traps'];
+	$thold_snmp_normal_traps  = $context['thold_snmp_normal_traps'];
+	$cacti_polling_interval   = $context['cacti_polling_interval'];
+	$trigger                  = $context['trigger'];
+	$warning_trigger          = $context['warning_trigger'];
+	$alertstat                = $context['alertstat'];
+	$notify_different         = $context['notify_different'];
+	$file_array               = $context['file_array'];
+	$url                      = $context['url'];
+	$lastread                 = $context['lastread'];
+	$alert_emails             = $context['alert_emails'];
+	$alert_bcc_emails         = $context['alert_bcc_emails'];
+	$warning_emails           = $context['warning_emails'];
+	$warning_bcc_emails       = $context['warning_bcc_emails'];
 
 	switch ($thold_data['thold_type']) {
 		case 0:	// hi/low
