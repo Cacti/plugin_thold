@@ -137,6 +137,24 @@ final class ThresholdHiLowCharacterizationTest extends TestCase {
 	}
 
 	/**
+	 * A threshold already in alert whose reading falls back into the warning
+	 * band is a de-escalation, not a restoral, and gets its own notification.
+	 *
+	 * @return void
+	 */
+	public function testFallingFromAlertIntoTheWarningBandNotifiesTheDowngrade(): void {
+		$outcome = $this->bounded([
+			'lastread'                 => 85,
+			'thold_alert'              => STAT_HI,
+			'thold_fail_count'         => 5,
+			'thold_warning_fail_count' => 5,
+		])->poll();
+
+		$this->assertSame([ST_NOTIFYAW], $outcome->logStatuses());
+		$this->assertStringStartsWith('ALERT > WARNING', $outcome->subjects()[0]);
+	}
+
+	/**
 	 * @return void
 	 */
 	public function testRestoralFromAlertNotifiesAndClearsTheState(): void {
