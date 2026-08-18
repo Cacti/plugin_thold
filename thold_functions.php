@@ -7337,17 +7337,15 @@ function thold_notification_process_matches($pid, $registered_at, $started_at = 
 		return null;
 	}
 
+	$process_started_at = false;
+
 	if (is_callable($started_at)) {
 		try {
 			$process_started_at = $started_at($pid);
 		} catch (Throwable $error) {
 			return null;
 		}
-	} else {
-		if (!function_exists('exec')) {
-			return null;
-		}
-
+	} elseif (function_exists('exec')) {
 		$output = [];
 		$status = 1;
 		exec('LC_ALL=C ps -o lstart= -p ' . $pid, $output, $status);
