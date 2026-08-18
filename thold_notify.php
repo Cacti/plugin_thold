@@ -74,16 +74,6 @@ if (sizeof($parms)) {
 				$debug = true;
 
 				break;
-			case '--thread':
-				$thread = thold_notification_thread_id($value);
-
-				if ($thread === false) {
-					print 'FATAL: The Thread ID must be numeric and greater than 0.' . PHP_EOL;
-					display_help();
-					exit(1);
-				}
-
-				break;
 			case '-v':
 			case '--version':
 			case '-V':
@@ -179,6 +169,6 @@ function display_version() {
 function display_help() {
 	display_version();
 
-	print PHP_EOL . 'usage: thold_notify.php [--thread=N] [--debug]' . PHP_EOL . PHP_EOL;
+	print PHP_EOL . 'usage: thold_notify.php [--debug]' . PHP_EOL . PHP_EOL;
 	print 'The Threshold Notification Processor for the Thold Plugin.' . PHP_EOL;
 }
