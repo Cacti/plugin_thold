@@ -218,6 +218,28 @@ final class TholdGetCurrentvalTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testCdefAndNestedExpressionPreserveUnknownValues(): void {
+		$this->assertSame('', thold_build_cdef(1, '', 4, 5));
+		$this->assertSame(
+			['sample_row' => "(9, 0, '', FROM_UNIXTIME(1700000300), '700')", 'status_row' => null],
+			thold_polling_sample_row($this->threshold(), ['traffic_in' => 700], '', 1700000300)
+		);
+
+		$nested = $this->threshold([
+			'lasttime'      => 1000,
+			'rrd_heartbeat' => 600,
+		]);
+		CactiStubs::willReturn('db_fetch_row_prepared', $nested);
+		$outer          = $this->threshold(['expression' => '|ds:traffic_in|']);
+		$reindexed      = [4 => ['traffic_in' => 700]];
+		$time_reindexed = [4 => 1900];
+
+		$this->assertSame('', thold_calculate_expression($outer, '', $reindexed, $time_reindexed));
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testMissedSampleCarriesTheValueAndTimestampTogether(): void {
 		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100]);
 
@@ -376,7 +398,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	/**
 	 * @return void
 	 */
-	public function testRrdHeartbeatControlsGapAcceptance(): void {
+	public function testRrdHeartbeatControlsGapAcceptanceWithASafeFloor(): void {
 		$accepted       = $this->threshold(['lasttime' => 1000, 'rrd_heartbeat' => 1800]);
 		$reindexed      = [4 => ['traffic_in' => 700]];
 		$time_reindexed = [4 => 1900];
@@ -389,10 +411,17 @@ final class TholdGetCurrentvalTest extends TestCase {
 			1.0e-9
 		);
 
-		$rejected                    = $accepted;
-		$rejected['rrd_heartbeat']   = 300;
-		$time_reindexed[4]           = 1400;
-		$this->assertSame('', thold_get_currentval($rejected, $reindexed, $time_reindexed, $item, $currenttime));
+		$floored                  = $accepted;
+		$floored['rrd_heartbeat'] = 120;
+		$time_reindexed[4]        = 1300;
+		$this->assertEqualsWithDelta(
+			2,
+			thold_get_currentval($floored, $reindexed, $time_reindexed, $item, $currenttime),
+			1.0e-9
+		);
+
+		$time_reindexed[4] = 1700;
+		$this->assertSame('', thold_get_currentval($floored, $reindexed, $time_reindexed, $item, $currenttime));
 	}
 
 	/**

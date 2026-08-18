@@ -982,12 +982,20 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		: 0.0;
 	$sample_interval        = max($rrd_step, (float) $poller_interval);
 	$rrd_heartbeat          = is_numeric($thold_data['rrd_heartbeat'] ?? null) && $thold_data['rrd_heartbeat'] > 0
-		? (float) $thold_data['rrd_heartbeat']
+		? max((float) $thold_data['rrd_heartbeat'], 2 * $sample_interval)
 		: 2 * $sample_interval;
 	$previous_sample_usable = $thold_data['lasttime'] > 0
 		&& is_numeric($elapsed_step)
 		&& $elapsed_step > 0
 		&& $elapsed_step <= $rrd_heartbeat;
+
+	if ($thold_data['lasttime'] > 0 && is_numeric($elapsed_step) && $elapsed_step > $rrd_heartbeat && function_exists('thold_debug')) {
+		thold_debug(sprintf(
+			'Threshold sample gap of %s seconds exceeds the effective heartbeat of %s seconds.',
+			$elapsed_step,
+			$rrd_heartbeat
+		), 'thold');
+	}
 
 	$currentval = '';
 
@@ -1117,7 +1125,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					td.host_id, td.cdef, td.local_data_id,
 					td.data_template_rrd_id, td.lastread, UNIX_TIMESTAMP(td.lasttime) AS lasttime,
 					td.oldvalue, dtr.data_source_name as name,
-					dtr.data_source_type_id, dtd.rrd_step, dtr.rrd_maximum
+					dtr.data_source_type_id, dtd.rrd_step, dtr.rrd_maximum, dtr.rrd_heartbeat
 					FROM thold_data AS td
 					LEFT JOIN data_template_rrd AS dtr
 					ON dtr.id = td.data_template_rrd_id
@@ -1133,6 +1141,10 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					$item        = [];
 					$currenttime = 0;
 					$value       = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
+
+					if (!is_numeric($value)) {
+						return '';
+					}
 				}
 
 				// Previous returns 'U' after device recovers.  Try alternate
@@ -1150,11 +1162,11 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					}
 				}
 
-				$expression[$key] = $value;
-
-				if ($expression[$key] == '') {
-					$expression[$key] = '0';
+				if (!is_numeric($value)) {
+					return '';
 				}
+
+				$expression[$key] = $value;
 			} elseif (strpos($item, '|') !== false) {
 				// Remove invalid characters
 				$item = str_replace('\\', '', $item);
@@ -4832,8 +4844,8 @@ function thold_cdef_select_usable_names() {
 }
 
 function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) {
-	if ($value == '') {
-		$value = 0;
+	if (!is_numeric($value)) {
+		return '';
 	}
 
 	$oldvalue = $value;
