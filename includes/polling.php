@@ -148,7 +148,8 @@ function thold_poller_output(&$rrd_update_array) {
 		AND td.local_data_id IN($local_data_ids)");
 
 	if (cacti_sizeof($tholds)) {
-		$sql = [];
+		$sql        = [];
+		$status_sql = [];
 
 		foreach ($tholds as $thold_data) {
 			thold_debug("Checking Threshold: Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
@@ -206,10 +207,12 @@ function thold_poller_output(&$rrd_update_array) {
 				}
 			}
 
-			$sample_row = thold_polling_sample_row($thold_data, $item, $currentval, $currenttime);
+			$sample_rows = thold_polling_sample_row($thold_data, $item, $currentval, $currenttime);
 
-			if ($sample_row !== null) {
-				$sql[] = $sample_row;
+			if ($sample_rows['sample_row'] !== null) {
+				$sql[] = $sample_rows['sample_row'];
+			} else {
+				$status_sql[] = $sample_rows['status_row'];
 			}
 		}
 
@@ -232,6 +235,17 @@ function thold_poller_output(&$rrd_update_array) {
 
 			if (db_affected_rows() > 0) {
 				set_config_option('time_last_change_thold', time());
+			}
+		}
+
+		if (cacti_sizeof($status_sql)) {
+			foreach (array_chunk($status_sql, 400) as $chunk) {
+				db_execute('INSERT INTO thold_data
+					(id, tcheck, lastread)
+					VALUES ' . implode(', ', $chunk) . '
+					ON DUPLICATE KEY UPDATE
+						tcheck = VALUES(tcheck),
+						lastread = VALUES(lastread)');
 			}
 		}
 	}

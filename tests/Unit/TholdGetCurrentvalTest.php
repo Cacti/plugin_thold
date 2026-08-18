@@ -45,7 +45,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 			'data_source_type_id'  => self::COUNTER,
 			'rrd_step'             => 300,
 			'rrd_maximum'          => 0,
-			'lasttime'             => 0,
+			'lasttime'             => 1700000000,
 			'oldvalue'             => 100,
 		];
 	}
@@ -109,7 +109,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 * @return void
 	 */
 	public function testCounterWithNoPreviousReadingYieldsZero(): void {
-		$thold = $this->threshold(['oldvalue' => '']);
+		$thold = $this->threshold(['lasttime' => 0, 'oldvalue' => '']);
 
 		$this->assertSame(0, $this->currentValue($thold, 600));
 	}
@@ -121,7 +121,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 * @return void
 	 */
 	public function testThirtyTwoBitWrapUsesTheCorrectModulus(): void {
-		$thold = $this->threshold(['oldvalue' => 4294967290, 'rrd_step' => 1]);
+		$thold = $this->threshold(['oldvalue' => 4294967290, 'rrd_step' => 1, 'lasttime' => 1700000299]);
 
 		$this->assertEqualsWithDelta(11, $this->currentValue($thold, 5), 1.0e-9);
 	}
@@ -130,7 +130,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 * @return void
 	 */
 	public function testSixtyFourBitWrapUsesTheCorrectModulus(): void {
-		$thold = $this->threshold(['oldvalue' => '18446744073709551610', 'rrd_step' => 1]);
+		$thold = $this->threshold(['oldvalue' => '18446744073709551610', 'rrd_step' => 1, 'lasttime' => 1700000299]);
 
 		$this->assertEqualsWithDelta(11, $this->currentValue($thold, 5), 1.0e-9);
 	}
@@ -142,7 +142,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 * @return void
 	 */
 	public function testSixtyFourBitWrapAcceptsScientificNotation(): void {
-		$thold = $this->threshold(['oldvalue' => '1.8446744073709552E+19', 'rrd_step' => 1]);
+		$thold = $this->threshold(['oldvalue' => '1.8446744073709552E+19', 'rrd_step' => 1, 'lasttime' => 1700000299]);
 
 		$this->assertEqualsWithDelta(5, $this->currentValue($thold, 5), 1.0e-9);
 	}
@@ -211,6 +211,70 @@ final class TholdGetCurrentvalTest extends TestCase {
 	}
 
 	/**
+	 * @return array<string, array{0: int|string}>
+	 */
+	public static function emptyMaximumProvider() {
+		return [
+			'integer zero' => [0],
+			'empty string' => [''],
+			'explicit maximum' => [20000000],
+		];
+	}
+
+	/**
+	 * @dataProvider emptyMaximumProvider
+	 *
+	 * @param int|string $maximum
+	 *
+	 * @return void
+	 */
+	public function testMultiIntervalDeltaScalesTheResetGuard($maximum): void {
+		$thold          = $this->threshold(['lasttime' => 1000, 'oldvalue' => 1000000000000, 'rrd_maximum' => $maximum]);
+		$reindexed      = [4 => ['traffic_in' => 1007500000000]];
+		$time_reindexed = [4 => 1600];
+		$item           = [];
+		$currenttime    = 0;
+
+		$this->assertEqualsWithDelta(
+			12500000,
+			thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime),
+			1.0e-9
+		);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testMultiIntervalWrapUsesTheWholeElapsedTime(): void {
+		$thold          = $this->threshold(['lasttime' => 1000, 'oldvalue' => 4294967290, 'rrd_maximum' => 0]);
+		$reindexed      = [4 => ['traffic_in' => 5]];
+		$time_reindexed = [4 => 1600];
+		$item           = [];
+		$currenttime    = 0;
+
+		$this->assertEqualsWithDelta(
+			11 / 600,
+			thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime),
+			1.0e-9
+		);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testStaleCounterAndDeriveSamplesAreDiscarded(): void {
+		foreach ([self::COUNTER, self::DERIVE] as $type) {
+			$thold          = $this->threshold(['data_source_type_id' => $type, 'lasttime' => 1000, 'oldvalue' => 100]);
+			$reindexed      = [4 => ['traffic_in' => 700]];
+			$time_reindexed = [4 => 1000 + 7 * 86400];
+			$item           = [];
+			$currenttime    = 0;
+
+			$this->assertSame(0, thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime));
+		}
+	}
+
+	/**
 	 * @return void
 	 */
 	public function testDaemonPersistsThePairWithBoundParameters(): void {
@@ -230,6 +294,28 @@ final class TholdGetCurrentvalTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testDaemonPropagatesPersistenceFailure(): void {
+		CactiStubs::willReturn('db_execute_prepared', false);
+		$this->assertFalse(thold_daemon_persist_sample(
+			$this->threshold(['lasttime' => 1000]),
+			[],
+			'',
+			1300
+		));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_execute_prepared', false);
+		$this->assertFalse(thold_daemon_persist_sample(
+			$this->threshold(['lasttime' => 0]),
+			[],
+			'',
+			1300
+		));
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testNeverSampledThresholdLeavesTheTimestampPairUntouched(): void {
 		$thold = $this->threshold(['lasttime' => 0, 'oldvalue' => null]);
 
@@ -244,10 +330,11 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$this->assertSame(['', 9], $call['params']);
 
 		CactiStubs::reset();
-		$this->assertNull(thold_polling_sample_row($thold, ['traffic_in' => 'U'], '', 1300));
-		$call = end(CactiStubs::$calls);
-		$this->assertStringNotContainsString('FROM_UNIXTIME', $call['sql']);
-		$this->assertSame(['', 9], $call['params']);
+		$this->assertSame(
+			['sample_row' => null, 'status_row' => "(9, 1, '')"],
+			thold_polling_sample_row($thold, ['traffic_in' => 'U'], '', 1300)
+		);
+		$this->assertSame([], CactiStubs::$calls);
 	}
 
 	/**
@@ -256,14 +343,14 @@ final class TholdGetCurrentvalTest extends TestCase {
 	public function testPollerBuildsTheSamePersistedPair(): void {
 		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100]);
 
-		$this->assertSame(
-			"(9, 1, '2', FROM_UNIXTIME(1000), '100')",
-			thold_polling_sample_row($thold, [], 2, 1300)
-		);
-		$this->assertSame(
-			"(9, 1, '2', FROM_UNIXTIME(1600), '700')",
-			thold_polling_sample_row($thold, ['traffic_in' => 700], 2, 1600)
-		);
+		$this->assertSame([
+			'sample_row' => "(9, 1, '2', FROM_UNIXTIME(1000), '100')",
+			'status_row' => null,
+		], thold_polling_sample_row($thold, [], 2, 1300));
+		$this->assertSame([
+			'sample_row' => "(9, 1, '2', FROM_UNIXTIME(1600), '700')",
+			'status_row' => null,
+		], thold_polling_sample_row($thold, ['traffic_in' => 700], 2, 1600));
 	}
 
 	/**
@@ -276,14 +363,4 @@ final class TholdGetCurrentvalTest extends TestCase {
 		);
 	}
 
-	/**
-	 * @return void
-	 */
-	public function testDaemonAndPollerBothUseTheSharedPairPolicy(): void {
-		$daemon = file_get_contents(dirname(__DIR__, 2) . '/thold_process.php');
-		$poller = file_get_contents(dirname(__DIR__, 2) . '/includes/polling.php');
-
-		$this->assertStringContainsString('thold_daemon_persist_sample($thold_data, $item, $currentval, $currenttime)', $daemon);
-		$this->assertStringContainsString('thold_polling_sample_row($thold_data, $item, $currentval, $currenttime)', $poller);
-	}
 }

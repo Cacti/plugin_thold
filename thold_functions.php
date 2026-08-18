@@ -891,29 +891,30 @@ function thold_daemon_persist_sample(array $thold_data, array $item, $currentval
 }
 
 /**
- * Build one poller bulk-update row, or persist only status without a sample.
+ * Build one pure poller batching result for sample or status-only updates.
  *
  * @param array<string,mixed> $thold_data
  * @param array<string,mixed> $item
  * @param mixed               $currentval
  * @param int                 $currenttime
  *
- * @return string|null
+ * @return array{sample_row:string|null,status_row:string|null}
  */
 function thold_polling_sample_row(array $thold_data, array $item, $currentval, $currenttime) {
 	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
 
 	if ($sample['lasttime'] <= 0) {
-		db_execute_prepared('UPDATE thold_data
-			SET tcheck = 1, lastread = ?
-			WHERE id = ?',
-			[$currentval, $thold_data['id']]);
-
-		return null;
+		return [
+			'sample_row' => null,
+			'status_row' => '(' . (int) $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ')',
+		];
 	}
 
-	return '(' . (int) $thold_data['id'] . ', 1, ' . db_qstr($currentval)
-		. ', FROM_UNIXTIME(' . $sample['lasttime'] . '), ' . db_qstr($sample['oldvalue']) . ')';
+	return [
+		'sample_row' => '(' . (int) $thold_data['id'] . ', 1, ' . db_qstr($currentval)
+			. ', FROM_UNIXTIME(' . $sample['lasttime'] . '), ' . db_qstr($sample['oldvalue']) . ')',
+		'status_row' => null,
+	];
 }
 
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
@@ -934,6 +935,9 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		$step = read_config_option('poller_interval');
 	}
 
+	$rrd_step              = max(1, (int) $thold_data['rrd_step']);
+	$previous_sample_usable = $thold_data['lasttime'] > 0 && $step > 0 && $step <= 2 * $rrd_step;
+
 	$currentval = '';
 
 	if (isset($rrd_reindexed[$thold_data['local_data_id']])) {
@@ -943,7 +947,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 			switch ($thold_data['data_source_type_id']) {
 				case 2:	// COUNTER
 					// A previous reading of zero is a real reading, not a missing one.
-					if (is_numeric($thold_data['oldvalue']) && $thold_data['oldvalue'] !== '') {
+					if ($previous_sample_usable && is_numeric($thold_data['oldvalue']) && $thold_data['oldvalue'] !== '') {
 						if ($item[$thold_data['name']] >= $thold_data['oldvalue']) {
 							// Everything is Normal
 							$currentval = $item[$thold_data['name']] - $thold_data['oldvalue'];
@@ -980,7 +984,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 						// assume counter reset if greater than max value
 						if ($thold_data['rrd_maximum'] > 0 && ($currentval / $step) > $thold_data['rrd_maximum']) {
 							$currentval = $item[$thold_data['name']] / $step;
-						} elseif ($thold_data['rrd_maximum'] == 0 && $currentval > 4.25E+9) {
+						} elseif ($thold_data['rrd_maximum'] == 0 && $currentval > 4.25E+9 * max(1, $step / $rrd_step)) {
 							$currentval = $item[$thold_data['name']] / $step;
 						} else {
 							$currentval = $currentval / $step;
@@ -991,7 +995,9 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 
 					break;
 				case 3:	// DERIVE
-					$currentval = ($item[$thold_data['name']] - $thold_data['oldvalue']) / $step;
+					$currentval = $previous_sample_usable && is_numeric($thold_data['oldvalue'])
+						? ($item[$thold_data['name']] - $thold_data['oldvalue']) / $step
+						: 0;
 
 					break;
 				case 4:	// ABSOLUTE

@@ -29,7 +29,8 @@ exemptions, alert log retention, logging, etc.
 
 Counter thresholds preserve the previous value and timestamp together when a
 poll has no numeric sample, preventing the next rate from using mismatched
-interval data.
+interval data. A gap of more than two configured RRD steps starts a fresh
+counter baseline instead of calculating a stale multi-day rate.
 
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a
