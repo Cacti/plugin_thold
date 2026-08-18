@@ -104,6 +104,7 @@ final class NotificationQueueClaimTest extends TestCase {
 	 * @return void
 	 */
 	public function testAClaimRecoversOrphansThenTakesOnlyUnheldRows(): void {
+		$this->assertSame(0, thold_notification_claim(0));
 		CactiStubs::willReturn('db_affected_rows', 3);
 
 		$this->assertSame(3, thold_notification_claim(4242));
@@ -124,6 +125,7 @@ final class NotificationQueueClaimTest extends TestCase {
 	 * @return void
 	 */
 	public function testAReleaseReturnsOnlyTheWorkersUnfinishedRows(): void {
+		$this->assertTrue(thold_notification_release_claim(0));
 		$this->assertTrue(thold_notification_release_claim(4242));
 
 		$calls = CactiStubs::$calls;
@@ -160,6 +162,14 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertCount(1, CactiStubs::$calls);
 
 		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
+		$this->assertTrue(thold_notification_register_process(2, 300));
+		$this->assertSame(
+			['db_fetch_row_prepared', 'register_process_start'],
+			array_column(CactiStubs::$calls, 'fn')
+		);
+
+		CactiStubs::reset();
 		CactiStubs::willReturn('db_fetch_row_prepared', [
 			'pid'               => 42,
 			'started_at'        => 600,
@@ -171,6 +181,17 @@ final class NotificationQueueClaimTest extends TestCase {
 			['db_fetch_row_prepared', 'unregister_process', 'register_process_start'],
 			array_column(CactiStubs::$calls, 'fn')
 		);
+
+		CactiStubs::reset();
+		$GLOBALS['config']['cacti_server_os'] = 'unix';
+		CactiStubs::willReturn('db_fetch_row_prepared', [
+			'pid'               => getmypid(),
+			'started_at'        => 600,
+			'current_timestamp' => 1000,
+		]);
+
+		$this->assertFalse(thold_notification_register_process(2, 300));
+		$this->assertSame(['db_fetch_row_prepared'], array_column(CactiStubs::$calls, 'fn'));
 	}
 
 	/**
