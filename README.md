@@ -39,6 +39,10 @@ recovery. A live PID is compared with the process registration time before a
 stale worker is trusted, preventing a recycled operating-system PID from
 blocking notification processing indefinitely.
 
+The legacy `thold_notify.php --thread=N` option remains accepted for operator
+compatibility but is deprecated and ignored; queue ownership and worker
+serialization are automatic.
+
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a
 pull request with your proposed changes.
