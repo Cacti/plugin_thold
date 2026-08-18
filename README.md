@@ -29,10 +29,13 @@ exemptions, alert log retention, logging, etc.
 
 Notification workers claim queue rows with their process ID and drain only
 that claim. Unfinished rows are released when a worker stops or notifications
-are suspended. A cross-platform database advisory lease prevents a second
-worker from taking the same slot and is released automatically if the owning
-database connection ends. Stale process rows are recovered only after that
-lease is acquired.
+are suspended, while claims left by a hard-killed worker are recovered after
+its process registration disappears. A cross-platform database advisory lease
+prevents a second worker from taking the same slot. Because a database
+reconnect can drop that lease while PHP is still running, a stale process row
+is reclaimed only when its heartbeat has expired and an operating-system probe
+also confirms that the old PID is gone. If liveness cannot be verified, the new
+worker fails closed.
 
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a

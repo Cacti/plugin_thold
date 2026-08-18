@@ -7250,15 +7250,92 @@ function thold_notification_release_lock($thread) {
 }
 
 /**
+ * Probe Unix process liveness without treating a permission error as death.
+ *
+ * @param int           $pid
+ * @param callable|null $getpgid
+ * @param callable|null $kill
+ * @param callable|null $last_error
+ *
+ * @return bool|null True when alive, false when confirmed gone, null when unknown.
+ */
+function thold_notification_probe_process($pid, $getpgid = null, $kill = null, $last_error = null) {
+	$pid = (int) $pid;
+
+	if ($pid <= 0) {
+		return false;
+	}
+
+	if ($getpgid === null && function_exists('posix_getpgid')) {
+		$getpgid = 'posix_getpgid';
+	}
+
+	if (is_callable($getpgid) && $getpgid($pid) !== false) {
+		return true;
+	}
+
+	if ($kill === null && function_exists('posix_kill')) {
+		$kill = 'posix_kill';
+	}
+
+	if (!is_callable($kill)) {
+		return null;
+	}
+
+	if ($kill($pid, 0)) {
+		return true;
+	}
+
+	if ($last_error === null && function_exists('posix_get_last_error')) {
+		$last_error = 'posix_get_last_error';
+	}
+
+	if (!is_callable($last_error)) {
+		return null;
+	}
+
+	$error = $last_error();
+
+	if ($error === 1) {
+		return true;
+	}
+
+	if ($error === 3) {
+		return false;
+	}
+
+	return null;
+}
+
+/**
+ * A process row is stale only after its latest heartbeat exceeds the timeout.
+ *
+ * @param array<string,mixed> $process
+ * @param int                 $timeout
+ *
+ * @return bool
+ */
+function thold_notification_process_is_stale(array $process, $timeout) {
+	$heartbeat = (int) ($process['heartbeat_at'] ?? ($process['started_at'] ?? 0));
+	$now       = (int) ($process['current_timestamp'] ?? time());
+	$timeout   = max(1, (int) $timeout);
+
+	return $heartbeat > 0 && $now >= $heartbeat && ($now - $heartbeat) >= $timeout;
+}
+
+/**
  * Register a worker only after acquiring its database-backed lease.
  *
  * @param int           $thread
  * @param int           $timeout
  * @param callable|null $lock    Optional lease acquisition used by tests.
+ * @param callable|null $probe   Optional process liveness probe used by tests.
  *
  * @return bool
  */
-function thold_notification_register_process($thread, $timeout = 3600, $lock = null) {
+function thold_notification_register_process($thread, $timeout = 3600, $lock = null, $probe = null) {
+	global $config;
+
 	$acquired = is_callable($lock) ? (bool) $lock($thread) : thold_notification_acquire_lock($thread);
 
 	if (!$acquired) {
@@ -7267,7 +7344,10 @@ function thold_notification_register_process($thread, $timeout = 3600, $lock = n
 		return false;
 	}
 
-	$process = db_fetch_row_prepared('SELECT pid
+	$process = db_fetch_row_prepared('SELECT pid,
+		UNIX_TIMESTAMP(started) AS started_at,
+		GREATEST(UNIX_TIMESTAMP(started), UNIX_TIMESTAMP(last_update)) AS heartbeat_at,
+		UNIX_TIMESTAMP() AS current_timestamp
 		FROM processes
 		WHERE tasktype = ?
 		AND taskname = ?
@@ -7291,8 +7371,24 @@ function thold_notification_register_process($thread, $timeout = 3600, $lock = n
 	}
 
 	$running_pid = (int) ($process['pid'] ?? 0);
+	$running     = null;
 
-	// GET_LOCK succeeded, so no live database connection owns the old lease.
+	if (is_callable($probe)) {
+		$running = $probe($running_pid);
+	} elseif (($config['cacti_server_os'] ?? '') === 'unix') {
+		$running = thold_notification_probe_process($running_pid);
+	}
+
+	// The advisory lock prevents a new overlap, but it is not evidence that
+	// the recorded process died: a reconnect drops GET_LOCK while PHP lives.
+	// Reclaim only when the heartbeat is stale and liveness is confirmed false.
+	if (!thold_notification_process_is_stale($process, $timeout) || $running !== false) {
+		thold_notification_release_lock($thread);
+		cacti_log(sprintf('WARNING: Notification thread %s has an existing worker that is live or cannot be verified dead.', $thread), false, 'THOLD');
+
+		return false;
+	}
+
 	thold_notification_release_claim($running_pid);
 	unregister_process('thold_notify', 'child', $thread, $running_pid);
 
@@ -7318,6 +7414,19 @@ function thold_notification_claim($pid) {
 	if ($pid <= 0) {
 		return 0;
 	}
+
+	// SIGKILL cannot run cleanup. A queue owner with no notification process
+	// row is therefore orphaned and must become eligible for the next worker.
+	db_execute_prepared('UPDATE notification_queue AS nq
+		LEFT JOIN processes AS p
+		ON p.pid = nq.process_id
+		AND p.tasktype = ?
+		AND p.taskname = ?
+		SET nq.process_id = 0
+		WHERE nq.event_processed = 0
+		AND nq.process_id <> 0
+		AND p.pid IS NULL',
+		['thold_notify', 'child']);
 
 	db_execute_prepared('UPDATE notification_queue
 		SET process_id = ?
@@ -7380,6 +7489,74 @@ function thold_notification_shutdown() {
 	global $notification_registered, $pid, $thread;
 
 	thold_notification_cleanup($pid, $thread, $notification_registered);
+}
+
+/**
+ * Refresh a worker heartbeat only while this connection owns its lease.
+ *
+ * @param int $thread
+ *
+ * @return void
+ *
+ * @throws RuntimeException When the lease was lost.
+ */
+function thold_notification_heartbeat($thread) {
+	if (!thold_notification_owns_lock($thread)) {
+		throw new RuntimeException('Notification worker lease was lost.');
+	}
+
+	heartbeat_process('thold_notify', 'child', $thread);
+}
+
+/**
+ * Own and run one notification worker from registration through cleanup.
+ *
+ * Optional callables keep the startup ordering executable in unit tests. The
+ * CLI passes none of them and therefore uses the production implementations.
+ *
+ * @param int           $thread
+ * @param int           $timeout
+ * @param int|null      $worker_pid
+ * @param callable|null $shutdown_registrar
+ * @param callable|null $register_worker
+ * @param callable|null $run_worker
+ *
+ * @return bool False when registration fails; true after a completed drain.
+ */
+function thold_notification_main($thread, $timeout = 3600, $worker_pid = null, $shutdown_registrar = null, $register_worker = null, $run_worker = null) {
+	global $notification_registered, $pid;
+
+	$pid                     = $worker_pid === null ? getmypid() : (int) $worker_pid;
+	$GLOBALS['thread']       = (int) $thread;
+	$notification_registered = true;
+	$shutdown_registrar      = is_callable($shutdown_registrar) ? $shutdown_registrar : 'register_shutdown_function';
+	$register_worker         = is_callable($register_worker) ? $register_worker : 'thold_notification_register_process';
+	$run_worker              = is_callable($run_worker) ? $run_worker : 'thold_notification_run';
+
+	// Install cleanup before ownership acquisition. A signal can then release
+	// a lease acquired by register_worker even before that call returns.
+	$shutdown_registrar('thold_notification_shutdown');
+
+	if (!$register_worker($thread, $timeout)) {
+		$notification_registered = false;
+
+		return false;
+	}
+
+	$start = microtime(true);
+
+	try {
+		$total_rows = $run_worker($pid, 'all', static function () use ($thread) {
+			thold_notification_heartbeat($thread);
+		});
+	} finally {
+		thold_notification_shutdown();
+	}
+
+	$end = microtime(true);
+	cacti_log(sprintf('THOLD NOTIFY STATS: Time:%0.2f Notifications:%s', $end - $start, $total_rows), false, 'SYSTEM');
+
+	return true;
 }
 
 /**
@@ -7571,8 +7748,9 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 
 						db_execute_prepared('UPDATE notification_queue
 							SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
-							WHERE id = ?',
-							[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id']]);
+							WHERE id = ?
+							AND process_id = ?',
+							[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id'], $pid]);
 					} else {
 						$id = md5(json_encode([$from, $to, $cc, $bcc, $replyto]));
 
@@ -7643,8 +7821,9 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 
 					db_execute_prepared('UPDATE notification_queue
 						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
-						WHERE id = ?',
-						[$return, implode("\n", $output), $nend - $nstart, $r['id']]);
+						WHERE id = ?
+						AND process_id = ?',
+						[$return, implode("\n", $output), $nend - $nstart, $r['id'], $pid]);
 
 					break;
 				default:
@@ -7697,12 +7876,13 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 
 				$nend = microtime(true);
 
-				$ids = implode(', ', $email['ids']);
+				$ids = implode(', ', array_map('intval', $email['ids']));
 
 				db_execute_prepared("UPDATE notification_queue
 					SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
-					WHERE id IN ($ids)",
-					[$error_code, str_replace("\n", ' ', $error), $nend - $nstart]);
+					WHERE id IN ($ids)
+					AND process_id = ?",
+					[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $pid]);
 			}
 		}
 	} else {
@@ -7785,8 +7965,9 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended, $
 
 					db_execute_prepared('UPDATE notification_queue
 						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
-						WHERE id = ?',
-						[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id']]);
+						WHERE id = ?
+						AND process_id = ?',
+						[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id'], $pid]);
 
 					break;
 				case 'thold_cmd':
@@ -7821,8 +8002,9 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended, $
 
 					db_execute_prepared('UPDATE notification_queue
 						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
-						WHERE id = ?',
-						[$return, implode("\n", $output), $nend - $nstart, $r['id']]);
+						WHERE id = ?
+						AND process_id = ?',
+						[$return, implode("\n", $output), $nend - $nstart, $r['id'], $pid]);
 
 					break;
 				default:
