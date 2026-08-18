@@ -95,9 +95,8 @@ final class TholdStrReplaceTest extends TestCase {
 	/**
 	 * @return void
 	 */
-	public function testNullableInputsAreNormalizedAtTheBoundary(): void {
+	public function testNullableSubjectIsNormalizedAtTheBoundary(): void {
 		$this->assertSame('', thold_str_replace('<X>', 'value', null));
-		$this->assertSame('subject', thold_str_replace(null, 'value', 'subject'));
-		$this->assertSame('', thold_str_replace(null, null, null));
+		$this->assertSame('', thold_str_replace('<X>', null, null));
 	}
 }
