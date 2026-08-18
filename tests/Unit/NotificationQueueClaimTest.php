@@ -118,7 +118,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$src = file_get_contents(dirname(__DIR__, 2) . '/thold_notify.php');
 
 		$this->assertMatchesRegularExpression(
-			'/SET process_id = \?\s+WHERE event_processed = 0\s+AND process_id = 0/',
+			'/SET process_id = \?\s+WHERE event_processed = 0\s+AND \(next_attempt IS NULL OR next_attempt <= NOW\(\)\)\s+AND process_id = 0/',
 			$src
 		);
 	}

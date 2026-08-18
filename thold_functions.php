@@ -7210,6 +7210,52 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 	process_device_notifications($pid, $max_records, $prev_suspended);
 }
 
+function thold_notification_retry_delay($attempt) {
+	$attempt = max(1, (int) $attempt);
+
+	return min(3600, 60 * (2 ** ($attempt - 1)));
+}
+
+/**
+ * Record one queued email delivery without losing transient failures.
+ *
+ * The fifth failed attempt is terminal. Earlier failures release the claim and
+ * schedule a bounded exponential retry, so a permanent SMTP error cannot spin
+ * every poller cycle forever.
+ *
+ * @param mixed $id
+ * @param mixed $error
+ * @param mixed $runtime
+ * @param mixed $previous_attempts
+ */
+function thold_notification_record_delivery($id, $error, $runtime, $previous_attempts = 0) {
+	$attempt = max(0, (int) $previous_attempts) + 1;
+	$error   = substr(str_replace("\n", ' ', (string) $error), 0, 128);
+
+	if ($error === '') {
+		return db_execute_prepared('UPDATE notification_queue
+			SET error_code = 0, error_message = "", attempt_count = ?, next_attempt = NULL,
+				event_processed = 1, event_processed_time = NOW(), event_processed_runtime = ?
+			WHERE id = ?',
+			[$attempt, $runtime, $id]);
+	}
+
+	if ($attempt >= 5) {
+		return db_execute_prepared('UPDATE notification_queue
+			SET error_code = 1, error_message = ?, attempt_count = ?, next_attempt = NULL,
+				event_processed = 1, event_processed_time = NOW(), event_processed_runtime = ?
+			WHERE id = ?',
+			[$error, $attempt, $runtime, $id]);
+	}
+
+	return db_execute_prepared('UPDATE notification_queue
+		SET error_code = 1, error_message = ?, attempt_count = ?,
+			next_attempt = FROM_UNIXTIME(UNIX_TIMESTAMP() + ?), process_id = 0,
+			event_processed = 0, event_processed_runtime = ?
+		WHERE id = ?',
+		[$error, $attempt, thold_notification_retry_delay($attempt), $runtime, $id]);
+}
+
 function process_device_notifications($pid, $max_records, $prev_suspended) {
 	$one_email = read_config_option('alert_deadnotify_one_mail') == 'on' ? true : false;
 	$emails    = [];
@@ -7233,6 +7279,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 	$records = db_fetch_assoc("SELECT *
 		FROM notification_queue
 		WHERE event_processed = 0
+		AND (next_attempt IS NULL OR next_attempt <= NOW())
 		AND topic IN ('thold_dhost_mail', 'thold_uhost_mail', 'thold_dhost_cmd', 'thold_uhost_cmd')
 		$sql_where
 		ORDER BY event_time ASC
@@ -7293,19 +7340,11 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 
 						if ($error != '') {
 							cacti_log("ERROR: Sending Email Failed To:$to Subject:$subject.  Error was:'$error'", true, 'THOLD');
-
-							$any_error  = $error;
-							$error_code = 1;
-						} else {
-							$error_code = 0;
 						}
 
 						$nend = microtime(true);
 
-						db_execute_prepared('UPDATE notification_queue
-							SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
-							WHERE id = ?',
-							[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id']]);
+						thold_notification_record_delivery($r['id'], $error, $nend - $nstart, $r['attempt_count'] ?? 0);
 					} else {
 						$id = md5(json_encode([$from, $to, $cc, $bcc, $replyto]));
 
@@ -7339,7 +7378,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 							}
 						}
 
-						$emails[$id]['ids'][] = $r['id'];
+						$emails[$id]['records'][$r['id']] = $r['attempt_count'] ?? 0;
 					}
 
 					break;
@@ -7416,21 +7455,13 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 
 				if ($error != '') {
 					cacti_log("ERROR: Sending Email Failed To:$to Subject:$subject.  Error was:'$error'", true, 'THOLD');
-
-					$any_error  = $error;
-					$error_code = 1;
-				} else {
-					$error_code = 0;
 				}
 
 				$nend = microtime(true);
 
-				$ids = implode(', ', $email['ids']);
-
-				db_execute_prepared("UPDATE notification_queue
-					SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
-					WHERE id IN ($ids)",
-					[$error_code, str_replace("\n", ' ', $error), $nend - $nstart]);
+				foreach ($email['records'] as $record_id => $attempt_count) {
+					thold_notification_record_delivery($record_id, $error, $nend - $nstart, $attempt_count);
+				}
 			}
 		}
 	} else {
@@ -7454,6 +7485,7 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended) {
 	$records = db_fetch_assoc("SELECT *
 		FROM notification_queue
 		WHERE event_processed = 0
+		AND (next_attempt IS NULL OR next_attempt <= NOW())
 		AND topic NOT IN ('thold_dhost_mail', 'thold_uhost_mail', 'thold_dhost_cmd', 'thold_uhost_cmd')
 		$sql_where
 		ORDER BY event_time ASC
@@ -7503,19 +7535,11 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended) {
 
 					if ($error != '') {
 						cacti_log("ERROR: Sending Email Failed To:$to Subject:$subject.  Error was:'$error'", true, 'THOLD');
-
-						$any_error  = $error;
-						$error_code = 1;
-					} else {
-						$error_code = 0;
 					}
 
 					$nend = microtime(true);
 
-					db_execute_prepared('UPDATE notification_queue
-						SET error_code = ?, error_message = ?, event_processed = 1, event_processed_time=NOW(), event_processed_runtime = ?
-						WHERE id = ?',
-						[$error_code, str_replace("\n", ' ', $error), $nend - $nstart, $r['id']]);
+					thold_notification_record_delivery($r['id'], $error, $nend - $nstart, $r['attempt_count'] ?? 0);
 
 					break;
 				case 'thold_cmd':

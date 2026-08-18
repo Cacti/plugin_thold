@@ -158,6 +158,7 @@ if ($collector) {
 	db_execute_prepared('UPDATE notification_queue
 		SET process_id = ?
 		WHERE event_processed = 0
+		AND (next_attempt IS NULL OR next_attempt <= NOW())
 		AND process_id = 0',
 		[$pid]);
 

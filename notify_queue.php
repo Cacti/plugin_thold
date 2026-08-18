@@ -463,6 +463,18 @@ function notify_queue() {
 			'sort'    => 'DESC',
 			'tip'     => __('Did this notification result in an error.  Hover on the error column for details.', 'thold')
 		],
+		'attempt_count' => [
+			'display' => __('Attempts', 'thold'),
+			'align'   => 'right',
+			'sort'    => 'DESC',
+			'tip'     => __('The number of delivery attempts made for this notification.', 'thold')
+		],
+		'next_attempt' => [
+			'display' => __('Next Attempt', 'thold'),
+			'align'   => 'right',
+			'sort'    => 'DESC',
+			'tip'     => __('When a failed notification is eligible for its next retry.', 'thold')
+		],
 		'event_processed_runtime' => [
 			'display' => __('Run Time', 'thold'),
 			'align'   => 'right',
@@ -492,6 +504,8 @@ function notify_queue() {
 			form_selectable_cell($n['id'], $n['id'], '', 'right');
 			form_selectable_cell($n['event_time'], $n['id'], '', 'right');
 			form_selectable_cell($n['event_processed'] == 0 ? __('Pending', 'thold') : __('Done', 'thold'), $n['id'], '', 'right');
+			form_selectable_cell((int) ($n['attempt_count'] ?? 0), $n['id'], '', 'right');
+			form_selectable_cell($n['next_attempt'] ?: __('N/A', 'thold'), $n['id'], '', 'right');
 
 			if ($n['event_processed'] > 0) {
 				form_selectable_cell($n['error_code'] > 0 ? __('Errored', 'thold') : __('Success', 'thold'), $n['id'], '', 'right');

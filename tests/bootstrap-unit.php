@@ -44,7 +44,7 @@ if (!is_readable($expected)) {
 	throw new RuntimeException("Expected Cacti version file is not readable: $expected");
 }
 
-$cacti_version = trim((string) file_get_contents($version));
+$cacti_version    = trim((string) file_get_contents($version));
 $expected_version = trim((string) file_get_contents($expected));
 
 if ($cacti_version === '') {
