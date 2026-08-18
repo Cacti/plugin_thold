@@ -101,12 +101,8 @@ if (sizeof($parms)) {
 	}
 }
 
-// Record start time for the pid's processing
-$start = microtime(true);
-
 // This is where we can parallelize
-$collector  = ($thread === false);
-$total_rows = 0;
+$collector = ($thread === false);
 
 if ($collector) {
 	thold_cli_debug('Thold Notification Main Collector Started');
@@ -117,41 +113,10 @@ if ($collector) {
 }
 
 $timeout = 3600;
-$pid     = getmypid();
 
-// Install cleanup before ownership acquisition so an asynchronous signal at
-// any later instruction can release a partially acquired lease safely.
-$notification_registered = true;
-register_shutdown_function('thold_notification_shutdown');
-
-// The database advisory lease is cross-platform and disappears with the old
-// connection after a crash, so stale process rows can be recovered safely.
-if (!thold_notification_register_process($thread, $timeout)) {
-	$notification_registered = false;
+if (!thold_notification_main($thread, $timeout)) {
 	exit(1);
 }
-
-/*
- * Claim the queue only once this instance is the registered one, and only the
- * rows nobody else holds. Claiming before the registration above meant a
- * second instance stamped its own identifier over the first instance's rows
- * even in the case where it went on to exit.
- */
-// Every collector and child claims its own rows. The run helper releases any
-// unfinished remainder on suspension, exception, or normal completion.
-$total_rows = thold_notification_run($pid, 'all', static function () use ($thread) {
-	if (!thold_notification_owns_lock($thread)) {
-		throw new RuntimeException('Notification worker lease was lost.');
-	}
-
-	heartbeat_process('thold_notify', 'child', $thread);
-});
-
-$end = microtime(true);
-
-cacti_log(sprintf('THOLD NOTIFY STATS: Time:%0.2f Notifications:%s', $end - $start, $total_rows), false, 'SYSTEM');
-
-thold_notification_shutdown();
 
 exit(0);
 

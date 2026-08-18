@@ -121,6 +121,14 @@ if (!function_exists('unregister_process')) {
 	}
 }
 
+if (!function_exists('heartbeat_process')) {
+	function heartbeat_process($tasktype, $taskname, $taskid = 0) {
+		CactiStubs::record('heartbeat_process', '', [$tasktype, $taskname, $taskid]);
+
+		return CactiStubs::nextReturn('heartbeat_process', true);
+	}
+}
+
 if (!function_exists('db_fetch_assoc')) {
 	function db_fetch_assoc($sql, $log = true, $db_conn = false) {
 		CactiStubs::record('db_fetch_assoc', $sql);
