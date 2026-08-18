@@ -35,8 +35,9 @@ prevents a second worker from taking the same slot. Because a database
 reconnect can drop that lease while PHP is still running, a stale process row
 is reclaimed immediately when an operating-system probe confirms that the old
 PID is gone. Unknown liveness waits for one expired worker timeout before
-recovery. A process confirmed alive is never preempted, even if its heartbeat
-is stale, so a slow external mailer or command cannot have its claim stolen.
+recovery. A live PID is compared with the process registration time before a
+stale worker is trusted, preventing a recycled operating-system PID from
+blocking notification processing indefinitely.
 
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a
