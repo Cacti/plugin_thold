@@ -82,6 +82,7 @@ if (sizeof($parms)) {
 					display_help();
 					exit(1);
 				}
+
 				break;
 			case '-v':
 			case '--version':
