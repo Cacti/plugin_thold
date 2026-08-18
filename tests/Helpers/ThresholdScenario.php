@@ -260,19 +260,11 @@ final class ThresholdScenario {
 		CactiStubs::willAlwaysReturn('plugin_maint_check_cacti_host', true);
 
 		/*
-		 * thold include_once()s the maint plugin when it reports enabled. The
-		 * fixture supplies an empty file so the include succeeds; the function
-		 * it would define is already stubbed.
+		 * thold include_once()s the maint plugin when it reports enabled. Point
+		 * base_path at a tracked, repository-contained Cacti root fixture so a
+		 * unit test never writes into the caller's Cacti checkout.
 		 */
-		$maint = dirname(__DIR__, 3) . '/maint';
-
-		if (!is_dir($maint)) {
-			mkdir($maint, 0755, true);
-		}
-
-		if (!file_exists($maint . '/functions.php')) {
-			file_put_contents($maint . '/functions.php', "<?php\n");
-		}
+		$GLOBALS['config']['base_path'] = dirname(__DIR__) . '/fixtures/cacti-root';
 
 		return $this;
 	}
