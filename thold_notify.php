@@ -22,6 +22,10 @@
  +-------------------------------------------------------------------------+
 */
 
+$notification_registered = false;
+$pid                     = 0;
+$thread                  = false;
+
 if (function_exists('pcntl_async_signals')) {
 	pcntl_async_signals(true);
 } else {
@@ -51,7 +55,6 @@ if (function_exists('pcntl_signal')) {
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
-$thread = false;
 $debug  = false;
 
 global $thread;
@@ -98,13 +101,8 @@ if (sizeof($parms)) {
 	}
 }
 
-// Record start time for the pid's processing
-$start = microtime(true);
-
 // This is where we can parallelize
-$collector  = ($thread === false);
-$pid        = 0;
-$total_rows = 0;
+$collector = ($thread === false);
 
 if ($collector) {
 	thold_cli_debug('Thold Notification Main Collector Started');
@@ -116,33 +114,9 @@ if ($collector) {
 
 $timeout = 3600;
 
-// Refuse a live peer, but recover registrations whose owner is gone or whose
-// age exceeds the finite worker timeout when OS liveness is unavailable.
-if (!thold_notification_register_process($thread, $timeout)) {
+if (!thold_notification_main($thread, $timeout)) {
 	exit(1);
 }
-
-$notification_registered = true;
-$pid                     = getmypid();
-register_shutdown_function('thold_notification_shutdown');
-
-/*
- * Claim the queue only once this instance is the registered one, and only the
- * rows nobody else holds. Claiming before the registration above meant a
- * second instance stamped its own identifier over the first instance's rows
- * even in the case where it went on to exit.
- */
-// Every collector and child claims its own rows. The run helper releases any
-// unfinished remainder on suspension, exception, or normal completion.
-$total_rows = thold_notification_run($pid, 'all', static function () use ($thread) {
-	heartbeat_process('thold_notify', 'child', $thread);
-});
-
-$end = microtime(true);
-
-cacti_log(sprintf('THOLD NOTIFY STATS: Time:%0.2f Notifications:%s', $end - $start, $total_rows), false, 'SYSTEM');
-
-thold_notification_shutdown();
 
 exit(0);
 
@@ -168,24 +142,6 @@ function sig_handler($signo) {
 		default:
 			// ignore all other signals
 	}
-}
-
-/**
- * Release queue ownership and the process registration on every clean,
- * signaled, or fatal shutdown path.
- *
- * @return void
- */
-function thold_notification_shutdown() {
-	global $notification_registered, $pid, $thread;
-
-	if (empty($notification_registered)) {
-		return;
-	}
-
-	thold_notification_release_claim($pid);
-	unregister_process('thold_notify', 'child', $thread, $pid);
-	$notification_registered = false;
 }
 
 function thold_daemon_debug($message, $thread) {
