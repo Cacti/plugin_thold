@@ -141,14 +141,47 @@ final class NotificationQueueClaimTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnverifiableWorkersUseABoundedAgeFallback(): void {
-		$fresh = ['pid' => 42, 'started_at' => 900, 'current_timestamp' => 1000];
-		$stale = ['pid' => 42, 'started_at' => 600, 'current_timestamp' => 1000];
+		$fresh = ['pid' => 42, 'started_at' => 500, 'heartbeat_at' => 900, 'current_timestamp' => 1000];
+		$stale = ['pid' => 42, 'started_at' => 500, 'heartbeat_at' => 600, 'current_timestamp' => 1000];
 
 		$this->assertTrue(thold_notification_process_blocks_start($fresh, 300));
 		$this->assertFalse(thold_notification_process_blocks_start($stale, 300));
 		$this->assertTrue(thold_notification_process_blocks_start($stale, 300, true));
 		$this->assertFalse(thold_notification_process_blocks_start($fresh, 300, false));
+		$this->assertTrue(thold_notification_process_blocks_start([
+			'pid'               => 42,
+			'heartbeat_at'      => 1100,
+			'current_timestamp' => 1000,
+		], 300));
 		$this->assertFalse(thold_notification_process_blocks_start(['pid' => 0], 300));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testProcessProbeDistinguishesPermissionAndMissingProcessErrors(): void {
+		$missing_group = static function () {
+			return false;
+		};
+		$failed_signal = static function () {
+			return false;
+		};
+
+		$this->assertTrue(thold_notification_probe_process(42, $missing_group, $failed_signal, static function () {
+			return 1;
+		}));
+		$this->assertFalse(thold_notification_probe_process(42, $missing_group, $failed_signal, static function () {
+			return 3;
+		}));
+		$this->assertNull(thold_notification_probe_process(42, $missing_group, $failed_signal, static function () {
+			return 22;
+		}));
+		$this->assertFalse(thold_notification_probe_process(0));
+		$this->assertTrue(thold_notification_probe_process(getmypid()));
+		$this->assertTrue(thold_notification_probe_process(getmypid(), $missing_group));
+		$this->assertFalse(thold_notification_probe_process(2147483647, $missing_group));
+		$this->assertNull(thold_notification_probe_process(42, $missing_group, 'missing_kill_function'));
+		$this->assertNull(thold_notification_probe_process(42, $missing_group, $failed_signal, 'missing_error_function'));
 	}
 
 	/**
@@ -173,10 +206,13 @@ final class NotificationQueueClaimTest extends TestCase {
 		CactiStubs::willReturn('db_fetch_row_prepared', [
 			'pid'               => 42,
 			'started_at'        => 600,
+			'heartbeat_at'      => 600,
 			'current_timestamp' => 1000,
 		]);
 
-		$this->assertTrue(thold_notification_register_process(2, 300));
+		$this->assertTrue(thold_notification_register_process(2, 300, static function () {
+			return null;
+		}));
 		$this->assertSame(
 			['db_fetch_row_prepared', 'unregister_process', 'register_process_start'],
 			array_column(CactiStubs::$calls, 'fn')
@@ -185,8 +221,22 @@ final class NotificationQueueClaimTest extends TestCase {
 		CactiStubs::reset();
 		$GLOBALS['config']['cacti_server_os'] = 'unix';
 		CactiStubs::willReturn('db_fetch_row_prepared', [
+			'pid'               => 42,
+			'started_at'        => 500,
+			'heartbeat_at'      => 900,
+			'current_timestamp' => 1000,
+		]);
+
+		$this->assertFalse(thold_notification_register_process(2, 300, static function () {
+			return null;
+		}));
+		$this->assertSame(['db_fetch_row_prepared'], array_column(CactiStubs::$calls, 'fn'));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', [
 			'pid'               => getmypid(),
-			'started_at'        => 600,
+			'started_at'        => 500,
+			'heartbeat_at'      => 900,
 			'current_timestamp' => 1000,
 		]);
 
@@ -200,13 +250,45 @@ final class NotificationQueueClaimTest extends TestCase {
 	public function testASuspendedRunReleasesItsClaimAndRemainsScoped(): void {
 		CactiStubs::$configOptions['thold_notification_suspended'] = '1';
 		CactiStubs::willReturn('db_affected_rows', 2);
+		$heartbeats = 0;
 
-		$this->assertSame(2, thold_notification_run(77));
+		$this->assertSame(2, thold_notification_run(77, 'all', static function () use (&$heartbeats) {
+			$heartbeats++;
+		}));
+		$this->assertSame(5, $heartbeats);
 
 		foreach ($this->queueQueries() as $sql) {
 			if (strpos($sql, 'SELECT') !== false) {
 				$this->assertStringContainsString('process_id = 77', $sql);
 			}
+		}
+
+		$calls   = CactiStubs::$calls;
+		$release = end($calls);
+		$this->assertSame('db_execute_prepared', $release['fn']);
+		$this->assertStringContainsString('SET process_id = 0', $release['sql']);
+		$this->assertSame([77], $release['params']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testAHeartbeatFailureCannotSkipClaimRelease(): void {
+		CactiStubs::$configOptions['thold_notification_suspended'] = '1';
+		$heartbeats                                                = 0;
+
+		try {
+			thold_notification_run(77, 'all', static function () use (&$heartbeats) {
+				$heartbeats++;
+
+				if ($heartbeats === 5) {
+					throw new RuntimeException('heartbeat failed');
+				}
+			});
+
+			$this->fail('Expected the heartbeat failure to propagate.');
+		} catch (RuntimeException $error) {
+			$this->assertSame('heartbeat failed', $error->getMessage());
 		}
 
 		$calls   = CactiStubs::$calls;

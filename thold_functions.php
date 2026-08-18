@@ -7225,25 +7225,87 @@ function thold_notification_process_blocks_start(array $process, $timeout, $runn
 		return $running;
 	}
 
-	$started = (int) ($process['started_at'] ?? 0);
+	$started = (int) ($process['heartbeat_at'] ?? ($process['started_at'] ?? 0));
 	$now     = (int) ($process['current_timestamp'] ?? time());
 
-	return $started > 0 && $now >= $started && ($now - $started) < $timeout;
+	return $started > 0 && ($now < $started || ($now - $started) < $timeout);
+}
+
+/**
+ * Probe Unix process liveness without mistaking a permission error for death.
+ *
+ * @param int           $pid
+ * @param callable|null $getpgid
+ * @param callable|null $kill
+ * @param callable|null $last_error
+ *
+ * @return bool|null True when alive, false when confirmed gone, null when unknown.
+ */
+function thold_notification_probe_process($pid, $getpgid = null, $kill = null, $last_error = null) {
+	$pid = (int) $pid;
+
+	if ($pid <= 0) {
+		return false;
+	}
+
+	if ($getpgid === null && function_exists('posix_getpgid')) {
+		$getpgid = 'posix_getpgid';
+	}
+
+	if (is_callable($getpgid) && $getpgid($pid) !== false) {
+		return true;
+	}
+
+	if ($kill === null && function_exists('posix_kill')) {
+		$kill = 'posix_kill';
+	}
+
+	if (!is_callable($kill)) {
+		return null;
+	}
+
+	if ($kill($pid, 0)) {
+		return true;
+	}
+
+	if ($last_error === null && function_exists('posix_get_last_error')) {
+		$last_error = 'posix_get_last_error';
+	}
+
+	if (!is_callable($last_error)) {
+		return null;
+	}
+
+	$error = $last_error();
+
+	// EPERM proves that the process exists but belongs to another user.
+	if ($error === 1) {
+		return true;
+	}
+
+	// ESRCH is the only error that proves the process is gone.
+	if ($error === 3) {
+		return false;
+	}
+
+	return null;
 }
 
 /**
  * Register a worker without treating an unverifiable process as immortal.
  *
- * @param int $thread
- * @param int $timeout
+ * @param int           $thread
+ * @param int           $timeout
+ * @param callable|null $probe   Optional liveness probe used by tests.
  *
  * @return bool
  */
-function thold_notification_register_process($thread, $timeout = 300) {
+function thold_notification_register_process($thread, $timeout = 3600, $probe = null) {
 	global $config;
 
 	$process = db_fetch_row_prepared('SELECT pid,
 		UNIX_TIMESTAMP(started) AS started_at,
+		GREATEST(UNIX_TIMESTAMP(started), UNIX_TIMESTAMP(last_update)) AS heartbeat_at,
 		UNIX_TIMESTAMP() AS current_timestamp
 		FROM processes
 		WHERE tasktype = ?
@@ -7262,15 +7324,17 @@ function thold_notification_register_process($thread, $timeout = 300) {
 	$running_pid = (int) ($process['pid'] ?? 0);
 	$running     = null;
 
-	if (($config['cacti_server_os'] ?? '') === 'unix' && $running_pid > 0 && function_exists('posix_kill')) {
-		$running = posix_kill($running_pid, 0);
+	if (is_callable($probe)) {
+		$running = $probe($running_pid);
+	} elseif (($config['cacti_server_os'] ?? '') === 'unix' && $running_pid > 0) {
+		$running = thold_notification_probe_process($running_pid);
 	}
 
 	if (thold_notification_process_blocks_start($process, $timeout, $running)) {
 		return false;
 	}
 
-	unregister_process('thold_notify', 'child', $thread);
+	unregister_process('thold_notify', 'child', $thread, $running_pid);
 
 	return register_process_start('thold_notify', 'child', $thread, $timeout);
 }
@@ -7335,24 +7399,36 @@ function thold_notification_release_claim($pid) {
 /**
  * Claim, drain, and always release one worker's queue slice.
  *
- * @param int        $pid
- * @param int|string $max_records
+ * @param int           $pid
+ * @param int|string    $max_records
+ * @param callable|null $heartbeat
  *
  * @return int
  */
-function thold_notification_run($pid, $max_records = 'all') {
-	$total_rows = thold_notification_claim($pid);
+function thold_notification_run($pid, $max_records = 'all', $heartbeat = null) {
+	if (is_callable($heartbeat)) {
+		$heartbeat();
+	}
+
+	$total_rows = 0;
 
 	try {
-		thold_notification_execute($pid, $max_records);
+		$total_rows = thold_notification_claim($pid);
+		thold_notification_execute($pid, $max_records, $heartbeat);
 	} finally {
-		thold_notification_release_claim($pid);
+		try {
+			if (is_callable($heartbeat)) {
+				$heartbeat();
+			}
+		} finally {
+			thold_notification_release_claim($pid);
+		}
 	}
 
 	return $total_rows;
 }
 
-function thold_notification_execute($pid = 0, $max_records = 'all') {
+function thold_notification_execute($pid = 0, $max_records = 'all', $heartbeat = null) {
 	$pid = (int) $pid;
 
 	if ($pid <= 0) {
@@ -7372,6 +7448,10 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 	// See if and administrator has suspended notifications
 	$prev_suspended = read_config_option('thold_notification_suspended', true);
 
+	if (is_callable($heartbeat)) {
+		$heartbeat();
+	}
+
 	/**
 	 * See if notification delay is active and mark the events as such,
 	 * which will potentially leave less events to process.
@@ -7380,11 +7460,19 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 	 */
 	pre_process_device_notifications($pid, $max_records);
 
+	if (is_callable($heartbeat)) {
+		$heartbeat();
+	}
+
 	/**
 	 * Process any non-device up/down notifications first.  These
 	 * notifications are not subject to notification delay
 	 */
 	process_non_device_notifications($pid, $max_records, $prev_suspended);
+
+	if (is_callable($heartbeat)) {
+		$heartbeat();
+	}
 
 	/**
 	 * Last process expired notification delays or device

@@ -75,6 +75,7 @@ $GLOBALS['config'] = [
 	'cacti_version'   => $cacti_version,
 	'cacti_server_os' => 'unix',
 ];
+$GLOBALS['__test_original_base_path'] = $cacti_root;
 
 // thold_expand_string() include_once()s library_path/variables.php at call time.
 $GLOBALS['config']['library_path'] = __DIR__ . '/fixtures/cacti-lib';

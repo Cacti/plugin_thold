@@ -114,7 +114,7 @@ if ($collector) {
 	thold_cli_debug("Thold Notification Child Thread $thread Started");
 }
 
-$timeout = 300;
+$timeout = 3600;
 
 // Refuse a live peer, but recover registrations whose owner is gone or whose
 // age exceeds the finite worker timeout when OS liveness is unavailable.
@@ -134,7 +134,9 @@ register_shutdown_function('thold_notification_shutdown');
  */
 // Every collector and child claims its own rows. The run helper releases any
 // unfinished remainder on suspension, exception, or normal completion.
-$total_rows = thold_notification_run($pid);
+$total_rows = thold_notification_run($pid, 'all', static function () use ($thread) {
+	heartbeat_process('thold_notify', 'child', $thread);
+});
 
 $end = microtime(true);
 
@@ -182,7 +184,7 @@ function thold_notification_shutdown() {
 	}
 
 	thold_notification_release_claim($pid);
-	unregister_process('thold_notify', 'child', $thread);
+	unregister_process('thold_notify', 'child', $thread, $pid);
 	$notification_registered = false;
 }
 
