@@ -837,6 +837,28 @@ function thold_counter_wrap_delta($oldvalue, $newvalue) {
 	return (4294967296 - $oldvalue) + $newvalue;
 }
 
+/**
+ * Persist a raw sample and its timestamp as one causal pair.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param array<string,mixed> $item
+ * @param int                 $currenttime
+ *
+ * @return array{lasttime:mixed,oldvalue:mixed}
+ */
+function thold_sample_persistence(array $thold_data, array $item, $currenttime) {
+	$name = $thold_data['name'];
+
+	if (isset($item[$name]) && is_numeric($item[$name])) {
+		return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
+	}
+
+	return [
+		'lasttime' => $thold_data['lasttime'],
+		'oldvalue' => $thold_data['oldvalue'],
+	];
+}
+
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
 	// adjust the polling interval by the last read, if applicable
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];

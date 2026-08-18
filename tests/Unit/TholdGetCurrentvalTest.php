@@ -173,4 +173,42 @@ final class TholdGetCurrentvalTest extends TestCase {
 
 		$this->assertSame('', thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime));
 	}
+
+	/**
+	 * @return void
+	 */
+	public function testMissedSampleCarriesTheValueAndTimestampTogether(): void {
+		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100]);
+
+		$missed = thold_sample_persistence($thold, [], 1300);
+		$this->assertSame(['lasttime' => 1000, 'oldvalue' => 100], $missed);
+		$this->assertSame($missed, thold_sample_persistence($thold, ['traffic_in' => 'U'], 1300));
+		$this->assertSame(
+			['lasttime' => 1600, 'oldvalue' => 700],
+			thold_sample_persistence($thold, ['traffic_in' => 700], 1600)
+		);
+
+		$thold['lasttime'] = $missed['lasttime'];
+		$thold['oldvalue'] = $missed['oldvalue'];
+		$reindexed         = [4 => ['traffic_in' => 700]];
+		$time_reindexed    = [4 => 1600];
+		$item              = [];
+		$currenttime       = 0;
+
+		$this->assertEqualsWithDelta(
+			1,
+			thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime),
+			1.0e-9
+		);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testDaemonPersistsTheSamplePairHelperResult(): void {
+		$source = file_get_contents(dirname(__DIR__, 2) . '/thold_process.php');
+
+		$this->assertStringContainsString('thold_sample_persistence($thold_data, $item, $currenttime)', $source);
+		$this->assertStringContainsString("\$sample['lasttime'], \$sample['oldvalue']", $source);
+	}
 }
