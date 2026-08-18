@@ -234,12 +234,22 @@ function thold_poller_output(&$rrd_update_array) {
 
 		if (cacti_sizeof($status_sql)) {
 			foreach (array_chunk($status_sql, 400) as $chunk) {
-				db_execute('INSERT INTO thold_data
+				$placeholders = implode(', ', array_fill(0, cacti_sizeof($chunk), '(?, ?, ?)'));
+				$params       = [];
+
+				foreach ($chunk as $row) {
+					$params[] = $row['id'];
+					$params[] = $row['tcheck'];
+					$params[] = $row['lastread'];
+				}
+
+				db_execute_prepared('INSERT INTO thold_data
 					(id, tcheck, lastread)
-					VALUES ' . implode(', ', $chunk) . '
+					VALUES ' . $placeholders . '
 					ON DUPLICATE KEY UPDATE
 						tcheck = VALUES(tcheck),
-						lastread = VALUES(lastread)');
+						lastread = VALUES(lastread)',
+					$params);
 			}
 		}
 

@@ -212,7 +212,12 @@ final class TholdGetCurrentvalTest extends TestCase {
 
 		$this->assertSame('', thold_calculate_lower_upper($thold, '', [4 => ['upper' => 5]]));
 		$this->assertSame('', thold_calculate_lower_upper($thold, 7, [4 => ['upper' => 'U']]));
-		$this->assertSame((5 << 32) + 7, thold_calculate_lower_upper($thold, 7, [4 => ['upper' => 5]]));
+		$this->assertSame('', thold_calculate_lower_upper($thold, 7, [4 => []]));
+		$this->assertEqualsWithDelta((5 * 4294967296) + 7, thold_calculate_lower_upper($thold, 7, [4 => ['upper' => 5]]), 1.0e-9);
+		$this->assertEqualsWithDelta((2147483648.0 * 4294967296) + 7, thold_calculate_lower_upper($thold, 7, [4 => ['upper' => 2147483648]]), 1);
+		$this->assertEqualsWithDelta((4294967295.0 * 4294967296) + 7, thold_calculate_lower_upper($thold, 7, [4 => ['upper' => 4294967295]]), 1);
+		$this->assertSame('', thold_calculate_lower_upper($thold, 7, [4 => ['upper' => -1]]));
+		$this->assertSame('', thold_calculate_lower_upper($thold, 7, [4 => ['upper' => 4294967296]]));
 	}
 
 	/**
@@ -221,7 +226,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	public function testCdefAndNestedExpressionPreserveUnknownValues(): void {
 		$this->assertSame('', thold_build_cdef(1, '', 4, 5));
 		$this->assertSame(
-			['sample_row' => "(9, 0, '', FROM_UNIXTIME(1700000300), '700')", 'status_row' => null],
+			['sample_row' => "(9, 1, '', FROM_UNIXTIME(1700000300), '700')", 'status_row' => null],
 			thold_polling_sample_row($this->threshold(), ['traffic_in' => 700], '', 1700000300)
 		);
 
@@ -230,11 +235,12 @@ final class TholdGetCurrentvalTest extends TestCase {
 			'rrd_heartbeat' => 600,
 		]);
 		CactiStubs::willReturn('db_fetch_row_prepared', $nested);
-		$outer          = $this->threshold(['expression' => '|ds:traffic_in|']);
+		$outer          = $this->threshold(['expression' => '|ds:traffic_in|', 'lastread' => 2]);
 		$reindexed      = [4 => ['traffic_in' => 700]];
 		$time_reindexed = [4 => 1900];
 
 		$this->assertSame('', thold_calculate_expression($outer, '', $reindexed, $time_reindexed));
+		$this->assertSame([], CactiStubs::$log);
 
 		CactiStubs::reset();
 		CactiStubs::willReturn('db_fetch_row_prepared', $nested);
@@ -243,7 +249,48 @@ final class TholdGetCurrentvalTest extends TestCase {
 
 		CactiStubs::reset();
 		CactiStubs::willReturn('db_fetch_row_prepared', []);
+		CactiStubs::willReturn('db_fetch_row_prepared', ['data_source_type_id' => self::COUNTER]);
+		CactiStubs::willReturn('db_fetch_row_prepared', ['rrd_step' => 300]);
+		CactiStubs::willReturn('rrdtool_execute', '1700000000');
+		CactiStubs::willReturn('rrdtool_function_fetch', [
+			'data_source_names' => ['traffic_in'],
+			'values'            => [['1700000000' => 2.0]],
+		]);
+		$this->assertEqualsWithDelta(2.0, thold_calculate_expression($outer, '', $reindexed, $time_reindexed), 1.0e-9);
+		$this->assertSame([], CactiStubs::$log);
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
+		CactiStubs::willReturn('db_fetch_row_prepared', ['data_source_type_id' => self::GAUGE]);
+		$this->assertSame('700', thold_calculate_expression($outer, '', $reindexed, $time_reindexed));
+		$this->assertSame([], CactiStubs::callsTo('rrdtool_function_fetch'));
+
+		foreach ([
+			[],
+			['data_source_names' => ['traffic_out'], 'values' => [['1700000000' => 2.0]]],
+		] as $missing_fetch) {
+			CactiStubs::reset();
+			CactiStubs::willReturn('db_fetch_row_prepared', []);
+			CactiStubs::willReturn('db_fetch_row_prepared', ['data_source_type_id' => self::COUNTER]);
+			CactiStubs::willReturn('db_fetch_row_prepared', ['rrd_step' => 300]);
+			CactiStubs::willReturn('rrdtool_execute', '1700000000');
+			CactiStubs::willReturn('rrdtool_function_fetch', $missing_fetch);
+			$this->assertSame('', thold_calculate_expression($outer, '', $reindexed, $time_reindexed));
+		}
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
 		$this->assertSame('', thold_calculate_expression($outer, '', $reindexed, $time_reindexed));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
+		$reindexed = [];
+		$this->assertSame('', thold_calculate_expression($outer, '', $reindexed, $time_reindexed));
+		$this->assertStringContainsString('expression source traffic_in is unavailable', CactiStubs::$log[0]);
+		$log_call = CactiStubs::callsTo('cacti_log')[0];
+		$this->assertSame('THOLD', $log_call['params'][2]);
+		$this->assertSame(POLLER_VERBOSITY_MEDIUM, $log_call['params'][3]);
 	}
 
 	/**
@@ -288,8 +335,8 @@ final class TholdGetCurrentvalTest extends TestCase {
 			'integer zero'        => [0, 1009000000100, 1009000000100 / 600],
 			'empty string'        => ['', 1009000000100, 1009000000100 / 600],
 			'null maximum'        => [null, 1009000000100, 1009000000100 / 600],
-			'unknown maximum'     => ['U', 1009000000100, 9000000100 / 600],
-			'unresolved if speed' => ['|query_ifSpeed|', 1009000000100, 9000000100 / 600],
+			'unknown maximum'     => ['U', 1009000000100, 1009000000100 / 600],
+			'unresolved if speed' => ['|query_ifSpeed|', 1009000000100, 1009000000100 / 600],
 			'explicit maximum'    => [20000000, 1015000000000, 1015000000000 / 600],
 		];
 	}
@@ -475,7 +522,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 		}
 
 		$this->assertSame(
-			['lasttime' => 1700000400, 'oldvalue' => 100],
+			['lasttime' => 1700000300, 'oldvalue' => 700],
 			thold_sample_persistence($thold, ['traffic_in' => 700], 1700000300)
 		);
 		$this->assertSame(
@@ -483,14 +530,25 @@ final class TholdGetCurrentvalTest extends TestCase {
 			thold_sample_persistence($thold, ['traffic_in' => 700], 1700000400)
 		);
 		$this->assertSame([
-			'sample_row' => "(9, 0, '', FROM_UNIXTIME(1700000400), '100')",
+			'sample_row' => "(9, 1, '', FROM_UNIXTIME(1700000300), '700')",
 			'status_row' => null,
 		], thold_polling_sample_row($thold, ['traffic_in' => 700], '', 1700000300));
 
 		CactiStubs::reset();
 		$this->assertTrue(thold_daemon_persist_sample($thold, ['traffic_in' => 700], '', 1700000300));
 		$call = end(CactiStubs::$calls);
-		$this->assertSame([0, '', 1700000400, 100, 9], $call['params']);
+		$this->assertSame([1, '', 1700000300, 700, 9], $call['params']);
+
+		$reanchored     = $this->threshold(['lasttime' => 1700000300, 'oldvalue' => 700]);
+		$reindexed      = [4 => ['traffic_in' => 1000]];
+		$time_reindexed = [4 => 1700000600];
+		$item           = [];
+		$currenttime    = 0;
+		$this->assertEqualsWithDelta(
+			1,
+			thold_get_currentval($reanchored, $reindexed, $time_reindexed, $item, $currenttime),
+			1.0e-9
+		);
 	}
 
 	/**
@@ -514,7 +572,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$this->assertTrue(thold_daemon_persist_sample($thold, [], '', 1300));
 		$call = end(CactiStubs::$calls);
 		$this->assertStringContainsString('lasttime = FROM_UNIXTIME(?)', $call['sql']);
-		$this->assertSame([0, '', 1000, 100, 9], $call['params']);
+		$this->assertSame([1, '', 1000, 100, 9], $call['params']);
 
 		CactiStubs::reset();
 		$this->assertTrue(thold_daemon_persist_sample($thold, ['traffic_in' => 700], 2, 1600));
@@ -558,11 +616,11 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$call = end(CactiStubs::$calls);
 		$this->assertStringNotContainsString('FROM_UNIXTIME', $call['sql']);
 		$this->assertStringNotContainsString('oldvalue', $call['sql']);
-		$this->assertSame([0, '', 9], $call['params']);
+		$this->assertSame([1, '', 9], $call['params']);
 
 		CactiStubs::reset();
 		$this->assertSame(
-			['sample_row' => null, 'status_row' => "(9, 0, '')"],
+			['sample_row' => null, 'status_row' => ['id' => 9, 'tcheck' => 1, 'lastread' => '']],
 			thold_polling_sample_row($thold, ['traffic_in' => 'U'], '', 1300)
 		);
 		$this->assertSame([], CactiStubs::$calls);
@@ -601,6 +659,26 @@ final class TholdGetCurrentvalTest extends TestCase {
 			['sample_row' => null, 'status_row' => null],
 			thold_polling_sample_row([], ['traffic_in' => 700], 2, 1600)
 		);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testUnavailableSampleLogsOnlyOnTheStateTransition(): void {
+		$thold = $this->threshold([
+			'lastread'  => 12,
+			'name_cache' => 'Traffic in',
+		]);
+
+		thold_polling_sample_row($thold, [], '', 1700000300);
+		$this->assertCount(1, CactiStubs::$log);
+		$log_call = CactiStubs::callsTo('cacti_log')[0];
+		$this->assertSame('THOLD', $log_call['params'][2]);
+		$this->assertSame(POLLER_VERBOSITY_MEDIUM, $log_call['params'][3]);
+
+		$thold['lastread'] = '';
+		thold_polling_sample_row($thold, [], '', 1700000600);
+		$this->assertCount(1, CactiStubs::$log);
 	}
 
 	/**

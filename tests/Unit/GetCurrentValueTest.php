@@ -96,6 +96,12 @@ final class GetCurrentValueTest extends TestCase {
 		$this->rrdReturns([]);
 
 		$this->assertSame(0, get_current_value(4, 'traffic_in'));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', ['rrd_step' => 300]);
+		CactiStubs::willReturn('rrdtool_execute', '1700000000');
+		$this->rrdReturns([]);
+		$this->assertSame('', get_current_value(4, 'traffic_in', 0, ''));
 	}
 
 	/**
@@ -105,6 +111,12 @@ final class GetCurrentValueTest extends TestCase {
 		$this->rrdReturns(['data_source_names' => ['traffic_in']]);
 
 		$this->assertSame(0, get_current_value(4, 'traffic_in'));
+
+		CactiStubs::reset();
+		CactiStubs::willReturn('db_fetch_row_prepared', ['rrd_step' => 300]);
+		CactiStubs::willReturn('rrdtool_execute', '1700000000');
+		$this->rrdReturns(['data_source_names' => ['traffic_out'], 'values' => [['1700000000' => 20.0]]]);
+		$this->assertSame('', get_current_value(4, 'traffic_in', 0, ''));
 	}
 
 	/**

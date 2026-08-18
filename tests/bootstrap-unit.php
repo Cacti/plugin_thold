@@ -65,6 +65,10 @@ require_once __DIR__ . '/TestCase.php';
 require_once __DIR__ . '/Helpers/ThresholdOutcome.php';
 require_once __DIR__ . '/Helpers/ThresholdScenario.php';
 
+if (!defined('POLLER_VERBOSITY_MEDIUM')) {
+	define('POLLER_VERBOSITY_MEDIUM', 3);
+}
+
 /*
  * base_path has to point at the Cacti root two levels above this plugin:
  * thold_functions.php builds include paths from it at runtime.
@@ -250,6 +254,7 @@ if (!function_exists('__esc')) {
 if (!function_exists('cacti_log')) {
 	function cacti_log($message, $output = false, $environ = 'CMDPHP', $level = 0) {
 		CactiStubs::$log[] = $message;
+		CactiStubs::record('cacti_log', '', [$message, $output, $environ, $level]);
 	}
 }
 

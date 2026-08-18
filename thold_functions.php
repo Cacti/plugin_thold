@@ -855,7 +855,14 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
 
 	$lasttime = (int) ($thold_data['lasttime'] ?? 0);
 
-	if ($name !== '' && $currenttime > $lasttime && isset($item[$name]) && is_numeric($item[$name])) {
+	if ($name !== '' && $currenttime > 0 && $currenttime !== $lasttime && isset($item[$name]) && is_numeric($item[$name])) {
+		if ($lasttime > 0 && $currenttime < $lasttime) {
+			cacti_log(sprintf(
+				'WARNING: Threshold %s sample clock moved backwards; re-anchoring its value and timestamp.',
+				$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
+			), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
+		}
+
 		return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
 	}
 
@@ -863,6 +870,26 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
 		'lasttime' => $lasttime,
 		'oldvalue' => $thold_data['oldvalue'] ?? null,
 	];
+}
+
+/**
+ * Log only the transition from a numeric result to an unavailable result.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param mixed               $currentval
+ *
+ * @return void
+ */
+function thold_log_unavailable_transition(array $thold_data, $currentval) {
+	if (is_numeric($currentval) || !is_numeric($thold_data['lastread'] ?? null)) {
+		return;
+	}
+
+	cacti_log(sprintf(
+		'WARNING: Threshold %s (%s) current sample is unavailable; preserving its alert state.',
+		$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown'),
+		$thold_data['name_cache'] ?? ($thold_data['thold_name'] ?? ($thold_data['name'] ?? 'unknown'))
+	), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
 }
 
 /**
@@ -877,11 +904,13 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
  */
 function thold_daemon_persist_sample(array $thold_data, array $item, $currentval, $currenttime) {
 	$id     = (int) ($thold_data['thold_id'] ?? 0);
-	$tcheck = is_numeric($currentval) ? 1 : 0;
+	$tcheck = 1;
 
 	if ($id <= 0) {
 		return false;
 	}
+
+	thold_log_unavailable_transition($thold_data, $currentval);
 
 	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
 
@@ -907,22 +936,24 @@ function thold_daemon_persist_sample(array $thold_data, array $item, $currentval
  * @param mixed               $currentval
  * @param int                 $currenttime
  *
- * @return array{sample_row:string|null,status_row:string|null}
+ * @return array{sample_row:string|null,status_row:array{id:int,tcheck:int,lastread:mixed}|null}
  */
 function thold_polling_sample_row(array $thold_data, array $item, $currentval, $currenttime) {
 	$id     = (int) ($thold_data['id'] ?? 0);
-	$tcheck = is_numeric($currentval) ? 1 : 0;
+	$tcheck = 1;
 
 	if ($id <= 0) {
 		return ['sample_row' => null, 'status_row' => null];
 	}
+
+	thold_log_unavailable_transition($thold_data, $currentval);
 
 	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
 
 	if ($sample['lasttime'] <= 0) {
 		return [
 			'sample_row' => null,
-			'status_row' => '(' . $id . ', ' . $tcheck . ', ' . db_qstr($currentval) . ')',
+			'status_row' => ['id' => $id, 'tcheck' => $tcheck, 'lastread' => $currentval],
 		];
 	}
 
@@ -1041,9 +1072,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 						}
 
 						$maximum_value = $thold_data['rrd_maximum'] ?? '';
-						$rrd_maximum   = trim((string) $maximum_value) === ''
-							? 0.0
-							: (is_numeric($maximum_value) ? (float) $maximum_value : null);
+						$rrd_maximum   = is_numeric($maximum_value) ? (float) $maximum_value : 0.0;
 
 						// assume counter reset if greater than max value
 						if ($rrd_maximum > 0 && ($currentval / $step) > $rrd_maximum) {
@@ -1136,6 +1165,39 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					[$dsname, $thold['local_data_id']]);
 
 				if (!cacti_sizeof($thold_item)) {
+					$current_sample = $rrd_reindexed[$thold['local_data_id']][$dsname] ?? '';
+
+					if (is_numeric($current_sample)) {
+						$source = db_fetch_row_prepared('SELECT data_source_type_id
+							FROM data_template_rrd
+							WHERE local_data_id = ?
+							AND data_source_name = ?',
+							[$thold['local_data_id'], $dsname]);
+
+						if (cacti_sizeof($source) && $source['data_source_type_id'] == 1) {
+							$value = $current_sample;
+						} elseif (cacti_sizeof($source)) {
+							$value = get_current_value($thold['local_data_id'], $dsname, 0, '');
+						} else {
+							$value = '';
+						}
+
+						if (is_numeric($value)) {
+							$expression[$key] = $value;
+
+							continue;
+						}
+					}
+
+					if (is_numeric($thold['lastread'] ?? null)) {
+						cacti_log(sprintf(
+							'WARNING: Threshold %s expression source %s is unavailable for local data ID %s.',
+							$thold['id'] ?? 'unknown',
+							$dsname,
+							$thold['local_data_id'] ?? 'unknown'
+						), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
+					}
+
 					return '';
 				}
 
@@ -1426,17 +1488,17 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 		return '';
 	}
 
-	if (isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
-		$t = $rrd_reindexed[$thold['local_data_id']][$thold['upper_ds']];
-
-		if (!is_numeric($t)) {
-			return '';
-		}
-
-		$currentval = ((int) $t << 32) + $currentval;
+	if (!isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
+		return '';
 	}
 
-	return $currentval;
+	$t = $rrd_reindexed[$thold['local_data_id']][$thold['upper_ds']];
+
+	if (!is_numeric($t) || $t < 0 || $t > 4294967295) {
+		return '';
+	}
+
+	return ((float) $t * 4294967296) + $currentval;
 }
 
 function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
@@ -2504,6 +2566,11 @@ function thold_check_threshold(&$thold_data) {
 	if (read_config_option('thold_disable_all') == 'on') {
 		thold_debug('Threshold checking is disabled globally');
 
+		return;
+	}
+
+	// An unavailable sample is not evidence that an active alert recovered.
+	if (!is_numeric($thold_data['lastread'])) {
 		return;
 	}
 
@@ -5088,7 +5155,7 @@ function thold_rrd_last($local_data_id) {
 	return trim($last_time_entry);
 }
 
-function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
+function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0, $missing_value = 0) {
 	// get the information to populate into the rrd files
 	if (function_exists('boost_check_correct_enabled') && boost_check_correct_enabled()) {
 		boost_process_poller_output($local_data_id);
@@ -5117,7 +5184,7 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 
 	// Return Blank if the data source is not found (Newly created?)
 	if (!isset($result['data_source_names'])) {
-		return 0;
+		return $missing_value;
 	}
 
 	// array_search() reports a miss as false. Testing for null let the miss
@@ -5127,7 +5194,7 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 
 	// Return Blank if the value was not found (Cache Cleared?)
 	if ($idx === false || !isset($result['values'][$idx]) || !cacti_sizeof($result['values'][$idx])) {
-		return 0;
+		return $missing_value;
 	}
 
 	$value = array_values($result['values'][$idx])[0];
