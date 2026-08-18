@@ -943,7 +943,7 @@ function thold_polling_cleanup($has_updates) {
 		return;
 	}
 
-	db_execute('DELETE FROM thold_data WHERE local_data_id = 0');
+	db_execute_prepared('DELETE FROM thold_data WHERE local_data_id = 0');
 
 	if (db_affected_rows() > 0) {
 		set_config_option('time_last_change_thold', time());
@@ -969,18 +969,20 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		$step = $thold_data['rrd_step'];
 	}
 
-	if (empty($step)) {
+	$elapsed_step = $step;
+
+	if (!is_numeric($step) || $step <= 0) {
 		$step = $poller_interval;
 	}
 
-	$rrd_step = $thold_data['rrd_step'];
-
-	if (!is_numeric($rrd_step) || $rrd_step <= 0) {
-		$rrd_step = $poller_interval;
-	}
-
-	$sample_interval        = max((float) $rrd_step, (float) $poller_interval);
-	$previous_sample_usable = $thold_data['lasttime'] > 0 && $step > 0 && $step <= 2 * $sample_interval;
+	$rrd_step = is_numeric($thold_data['rrd_step']) && $thold_data['rrd_step'] > 0
+		? (float) $thold_data['rrd_step']
+		: 0.0;
+	$sample_interval        = max($rrd_step, (float) $poller_interval);
+	$previous_sample_usable = $thold_data['lasttime'] > 0
+		&& is_numeric($elapsed_step)
+		&& $elapsed_step > 0
+		&& $elapsed_step <= 2 * $sample_interval;
 
 	$currentval = '';
 

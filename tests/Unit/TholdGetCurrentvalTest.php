@@ -354,9 +354,13 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 */
 	public function testInvalidRrdStepFallsBackToThePollerInterval($rrd_step): void {
 		CactiStubs::$configOptions['poller_interval'] = 300;
-		$thold = $this->threshold(['rrd_step' => $rrd_step]);
+		$thold = $this->threshold([
+			'data_source_type_id' => self::ABSOLUTE,
+			'lasttime'            => 0,
+			'rrd_step'            => $rrd_step,
+		]);
 
-		$this->assertEqualsWithDelta(2, $this->currentValue($thold, 700), 1.0e-9);
+		$this->assertEqualsWithDelta(2, $this->currentValue($thold, 600), 1.0e-9);
 	}
 
 	/**
@@ -505,6 +509,10 @@ final class TholdGetCurrentvalTest extends TestCase {
 			'sample_row' => "(9, 1, '2', FROM_UNIXTIME(1600), '700')",
 			'status_row' => null,
 		], thold_polling_sample_row($thold, ['traffic_in' => 700], 2, 1600));
+		$this->assertSame([
+			'sample_row' => "(9, 1, '2', FROM_UNIXTIME(1000), '')",
+			'status_row' => null,
+		], thold_polling_sample_row($this->threshold(['lasttime' => 1000, 'oldvalue' => null]), [], 2, 1300));
 	}
 
 	/**
@@ -531,7 +539,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 
 		CactiStubs::willReturn('db_affected_rows', 1);
 		thold_polling_cleanup(true);
-		$this->assertSame('db_execute', CactiStubs::$calls[0]['fn']);
+		$this->assertSame('db_execute_prepared', CactiStubs::$calls[0]['fn']);
 		$this->assertStringContainsString('local_data_id = 0', CactiStubs::$calls[0]['sql']);
 		$this->assertArrayHasKey('time_last_change_thold', CactiStubs::$configOptions);
 	}
