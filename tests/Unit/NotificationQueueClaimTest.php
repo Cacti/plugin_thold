@@ -391,6 +391,9 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertSame([['etimes', 42], ['etime', 42]], $fields);
 		$this->assertFalse(thold_notification_probe_elapsed(42, false));
 		$this->assertFalse(thold_notification_probe_elapsed(42, static function () {
+			return [0, ['unknown']];
+		}));
+		$this->assertFalse(thold_notification_probe_elapsed(42, static function () {
 			throw new RuntimeException('ps failed');
 		}));
 	}
