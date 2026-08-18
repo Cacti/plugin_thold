@@ -87,6 +87,7 @@ if (sizeof($parms)) {
 			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
 				display_help();
+				exit(1);
 		}
 	}
 }
