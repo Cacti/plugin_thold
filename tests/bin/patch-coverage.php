@@ -157,6 +157,11 @@ foreach ($clover->xpath('//file') as $file) {
  * here with reviewable justification.
  */
 $unmeasured_allowlist = [
+	// Database migration/schema declarations require a live Cacti database.
+	'includes/database.php',
+	// Authenticated web entry point; its status mapping lives in the covered
+	// thold_notification_queue_status_cells() helper.
+	'notify_queue.php',
 	'thold_notify.php',
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));

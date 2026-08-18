@@ -7892,7 +7892,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 
 						$nend = microtime(true);
 
-					thold_notification_record_delivery($r['id'], $pid, $error, $nend - $nstart, $r['attempt_count'] ?? 0);
+						thold_notification_record_delivery($r['id'], $pid, $error, $nend - $nstart, $r['attempt_count'] ?? 0);
 					} else {
 						$id = md5(json_encode([$from, $to, $cc, $bcc, $replyto]));
 
