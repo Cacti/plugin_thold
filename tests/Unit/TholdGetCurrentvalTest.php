@@ -211,13 +211,13 @@ final class TholdGetCurrentvalTest extends TestCase {
 	}
 
 	/**
-	 * @return array<string, array{0: int|string}>
+	 * @return array<string, array{0: int|string, 1: int}>
 	 */
 	public static function emptyMaximumProvider() {
 		return [
-			'integer zero'     => [0],
-			'empty string'     => [''],
-			'explicit maximum' => [20000000],
+			'integer zero'     => [0, 1007500000000],
+			'empty string'     => ['', 1008500000100],
+			'explicit maximum' => [20000000, 1007500000000],
 		];
 	}
 
@@ -225,21 +225,19 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 * @dataProvider emptyMaximumProvider
 	 *
 	 * @param int|string $maximum
+	 * @param int        $reading
 	 *
 	 * @return void
 	 */
-	public function testMultiIntervalDeltaScalesTheResetGuard($maximum): void {
+	public function testMultiIntervalDeltaScalesTheResetGuard($maximum, $reading): void {
 		$thold          = $this->threshold(['lasttime' => 1000, 'oldvalue' => 1000000000000, 'rrd_maximum' => $maximum]);
-		$reindexed      = [4 => ['traffic_in' => 1007500000000]];
+		$reindexed      = [4 => ['traffic_in' => $reading]];
 		$time_reindexed = [4 => 1600];
 		$item           = [];
 		$currenttime    = 0;
 
-		$this->assertEqualsWithDelta(
-			12500000,
-			thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime),
-			1.0e-9
-		);
+		$expected = $maximum === '' ? $reading / 600 : 12500000;
+		$this->assertEqualsWithDelta($expected, thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime), 1.0e-9);
 	}
 
 	/**
@@ -270,7 +268,57 @@ final class TholdGetCurrentvalTest extends TestCase {
 			$item           = [];
 			$currenttime    = 0;
 
-			$this->assertSame(0, thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime));
+			$this->assertSame('', thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime));
+		}
+	}
+
+	/**
+	 * @return array<string, array{0: mixed}>
+	 */
+	public static function invalidRrdStepProvider() {
+		return [
+			'zero'        => [0],
+			'null'        => [null],
+			'non-numeric' => ['invalid'],
+		];
+	}
+
+	/**
+	 * @dataProvider invalidRrdStepProvider
+	 *
+	 * @param mixed $rrd_step
+	 *
+	 * @return void
+	 */
+	public function testInvalidRrdStepFallsBackToThePollerInterval($rrd_step): void {
+		CactiStubs::$configOptions['poller_interval'] = 300;
+		$thold = $this->threshold(['rrd_step' => $rrd_step]);
+
+		$this->assertEqualsWithDelta(2, $this->currentValue($thold, 700), 1.0e-9);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testEvaluationCadenceMayExceedTheRrdStep(): void {
+		CactiStubs::$configOptions['poller_interval'] = 300;
+		$thold = $this->threshold(['rrd_step' => 60]);
+
+		$this->assertEqualsWithDelta(2, $this->currentValue($thold, 700), 1.0e-9);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testOutOfOrderCounterAndDeriveSamplesAreUnknown(): void {
+		foreach ([self::COUNTER, self::DERIVE] as $type) {
+			$thold          = $this->threshold(['data_source_type_id' => $type, 'lasttime' => 1700000400]);
+			$reindexed      = [4 => ['traffic_in' => 700]];
+			$time_reindexed = [4 => 1700000300];
+			$item           = [];
+			$currenttime    = 0;
+
+			$this->assertSame('', thold_get_currentval($thold, $reindexed, $time_reindexed, $item, $currenttime));
 		}
 	}
 

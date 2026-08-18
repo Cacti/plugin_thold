@@ -935,8 +935,20 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		$step = read_config_option('poller_interval');
 	}
 
-	$rrd_step               = max(1, (int) $thold_data['rrd_step']);
-	$previous_sample_usable = $thold_data['lasttime'] > 0 && $step > 0 && $step <= 2 * $rrd_step;
+	$poller_interval = read_config_option('poller_interval');
+
+	if (!is_numeric($poller_interval) || $poller_interval <= 0) {
+		$poller_interval = 300;
+	}
+
+	$rrd_step = $thold_data['rrd_step'];
+
+	if (!is_numeric($rrd_step) || $rrd_step <= 0) {
+		$rrd_step = $poller_interval;
+	}
+
+	$sample_interval        = max((float) $rrd_step, (float) $poller_interval);
+	$previous_sample_usable = $thold_data['lasttime'] > 0 && $step > 0 && $step <= 2 * $sample_interval;
 
 	$currentval = '';
 
@@ -981,23 +993,27 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 							}
 						}
 
+						$rrd_maximum = is_numeric($thold_data['rrd_maximum']) ? (float) $thold_data['rrd_maximum'] : 0.0;
+
 						// assume counter reset if greater than max value
-						if ($thold_data['rrd_maximum'] > 0 && ($currentval / $step) > $thold_data['rrd_maximum']) {
+						if ($rrd_maximum > 0 && ($currentval / $step) > $rrd_maximum) {
 							$currentval = $item[$thold_data['name']] / $step;
-						} elseif ($thold_data['rrd_maximum'] == 0 && $currentval > 4.25E+9 * max(1, $step / $rrd_step)) {
+						} elseif ($rrd_maximum === 0.0 && $currentval > 4.25E+9 * max(1, $step / $rrd_step)) {
 							$currentval = $item[$thold_data['name']] / $step;
 						} else {
 							$currentval = $currentval / $step;
 						}
 					} else {
-						$currentval = 0;
+						$currentval = $thold_data['lasttime'] > 0 ? '' : 0;
 					}
 
 					break;
 				case 3:	// DERIVE
-					$currentval = $previous_sample_usable && is_numeric($thold_data['oldvalue'])
-						? ($item[$thold_data['name']] - $thold_data['oldvalue']) / $step
-						: 0;
+					if ($previous_sample_usable && is_numeric($thold_data['oldvalue'])) {
+						$currentval = ($item[$thold_data['name']] - $thold_data['oldvalue']) / $step;
+					} else {
+						$currentval = $thold_data['lasttime'] > 0 ? '' : 0;
+					}
 
 					break;
 				case 4:	// ABSOLUTE
