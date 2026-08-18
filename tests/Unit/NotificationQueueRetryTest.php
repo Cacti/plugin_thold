@@ -36,6 +36,30 @@ final class NotificationQueueRetryTest extends TestCase {
 	}
 
 	/**
+	 * @return array<string, mixed>
+	 */
+	private function mailRow($id, $topic = 'thold_mail', $attempts = 0) {
+		return [
+			'id'            => $id,
+			'topic'         => $topic,
+			'attempt_count' => $attempts,
+			'event_data'    => json_encode([
+				'from'        => ['sender@example.com'],
+				'to'          => 'recipient@example.com',
+				'cc'          => '',
+				'bcc'         => '',
+				'replyto'     => '',
+				'subject'     => 'Threshold alert',
+				'body'        => '<body>Alert</body>',
+				'body_text'   => 'Alert',
+				'attachments' => [],
+				'headers'     => [],
+				'html'        => true,
+			]),
+		];
+	}
+
+	/**
 	 * @return void
 	 */
 	public function testRetryDelayUsesBoundedExponentialBackoff(): void {
@@ -121,5 +145,65 @@ final class NotificationQueueRetryTest extends TestCase {
 		foreach ($queries as $call) {
 			$this->assertStringContainsString('(next_attempt IS NULL OR next_attempt <= NOW())', $call['sql']);
 		}
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testIndividualDeviceMailFailureUsesTheRetryRecorder(): void {
+		CactiStubs::$configOptions['alert_deadnotify_one_mail'] = '';
+		CactiStubs::willReturnFor('db_fetch_assoc', "topic IN ('thold_dhost_mail'", [
+			$this->mailRow(51, 'thold_dhost_mail', 2),
+		]);
+		CactiStubs::willReturn('mailer', 'temporary SMTP failure');
+
+		process_device_notifications(77, 'all', 0);
+
+		$call = $this->lastPreparedCall();
+
+		$this->assertSame(['temporary SMTP failure', 3, 240, $call['params'][3], 51], $call['params']);
+		$this->assertStringContainsString('event_processed = 0', $call['sql']);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testGroupedDeviceMailRecordsEveryAttempt(): void {
+		CactiStubs::$configOptions['alert_deadnotify_one_mail'] = 'on';
+		CactiStubs::$configOptions['alert_deadnotify_subject']  = 'Device alerts';
+		CactiStubs::willReturnFor('db_fetch_assoc', "topic IN ('thold_dhost_mail'", [
+			$this->mailRow(61, 'thold_dhost_mail', 0),
+			$this->mailRow(62, 'thold_uhost_mail', 3),
+		]);
+		CactiStubs::willReturn('mailer', 'temporary SMTP failure');
+
+		process_device_notifications(77, 'all', 0);
+
+		$calls = array_values(array_filter(CactiStubs::$calls, static function ($call) {
+			return $call['fn'] === 'db_execute_prepared' && strpos($call['sql'], 'attempt_count') !== false;
+		}));
+
+		$this->assertCount(2, $calls);
+		$this->assertSame(61, $calls[0]['params'][4]);
+		$this->assertSame(1, $calls[0]['params'][1]);
+		$this->assertSame(62, $calls[1]['params'][4]);
+		$this->assertSame(4, $calls[1]['params'][1]);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testNonDeviceMailFailureUsesTheRetryRecorder(): void {
+		CactiStubs::willReturnFor('db_fetch_assoc', "topic NOT IN ('thold_dhost_mail'", [
+			$this->mailRow(71, 'thold_mail', 1),
+		]);
+		CactiStubs::willReturn('mailer', 'temporary SMTP failure');
+
+		process_non_device_notifications(77, 'all', 0);
+
+		$call = $this->lastPreparedCall();
+
+		$this->assertSame(['temporary SMTP failure', 2, 120, $call['params'][3], 71], $call['params']);
+		$this->assertStringContainsString('event_processed = 0', $call['sql']);
 	}
 }
