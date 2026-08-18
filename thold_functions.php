@@ -1012,6 +1012,8 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		? (float) $thold_data['rrd_step']
 		: 0.0;
 	$sample_interval        = max($rrd_step, (float) $poller_interval);
+	// Use a two-cycle floor so normal scheduler jitter does not discard the
+	// only usable pair even when an RRD heartbeat is tighter than poll cadence.
 	$rrd_heartbeat          = is_numeric($thold_data['rrd_heartbeat'] ?? null) && $thold_data['rrd_heartbeat'] > 0
 		? max((float) $thold_data['rrd_heartbeat'], 2 * $sample_interval)
 		: 2 * $sample_interval;
@@ -1177,7 +1179,19 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 						if (cacti_sizeof($source) && $source['data_source_type_id'] == 1) {
 							$value = $current_sample;
 						} elseif (cacti_sizeof($source)) {
-							$value = get_current_value($thold['local_data_id'], $dsname, 0, '');
+							$value = '';
+
+							if (read_config_option('dsstats_enable') == 'on') {
+								$value = db_fetch_cell_prepared('SELECT calculated
+									FROM data_source_stats_hourly_last
+									WHERE local_data_id = ?
+									AND rrd_name = ?',
+									[$thold['local_data_id'], $dsname]);
+							}
+
+							if (!is_numeric($value) || $value == -90909090909) {
+								$value = get_current_value($thold['local_data_id'], $dsname, 0, '');
+							}
 						} else {
 							$value = '';
 						}
@@ -1469,7 +1483,9 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 		// forced the percentage to zero and kept a low threshold alerting.
 		$t = $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
 
-		if (is_numeric($t) && $t != 0) {
+		if (!is_numeric($t)) {
+			$currentval = '';
+		} elseif ($t != 0) {
 			$currentval = ($currentval / $t) * 100;
 		} else {
 			$currentval = 0;

@@ -39,9 +39,11 @@ sample as a restoral. Warnings are emitted only when the threshold enters the
 unavailable state. A backward sample clock is re-anchored without calculating a
 rate for that cycle, so later samples can recover normally. Expression
 thresholds require a numeric sibling value in the current poll and use its
-RRD-calculated value even when the sibling has no threshold row, preserving
-COUNTER and DERIVE rate units. They fail closed when the current sibling value
-is unavailable. Gauge readings remain valid across such a gap.
+cached DSStats rate, with an RRD fallback, even when the sibling has no
+threshold row. This preserves COUNTER and DERIVE rate units without adding an
+rrdtool process per expression during normal operation. They fail closed when
+the current sibling value is unavailable. Gauge readings remain valid across
+such a gap.
 
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a

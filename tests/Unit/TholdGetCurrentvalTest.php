@@ -260,6 +260,14 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$this->assertSame([], CactiStubs::$log);
 
 		CactiStubs::reset();
+		CactiStubs::$configOptions['dsstats_enable'] = 'on';
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
+		CactiStubs::willReturn('db_fetch_row_prepared', ['data_source_type_id' => self::COUNTER]);
+		CactiStubs::willReturn('db_fetch_cell_prepared', 3.5);
+		$this->assertEqualsWithDelta(3.5, thold_calculate_expression($outer, '', $reindexed, $time_reindexed), 1.0e-9);
+		$this->assertSame([], CactiStubs::callsTo('rrdtool_function_fetch'));
+
+		CactiStubs::reset();
 		CactiStubs::willReturn('db_fetch_row_prepared', []);
 		CactiStubs::willReturn('db_fetch_row_prepared', ['data_source_type_id' => self::GAUGE]);
 		$this->assertSame('700', thold_calculate_expression($outer, '', $reindexed, $time_reindexed));
