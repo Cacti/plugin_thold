@@ -7274,12 +7274,8 @@ function thold_notification_register_process($thread, $timeout = 300) {
 	$running_pid = (int) ($process['pid'] ?? 0);
 	$running     = null;
 
-	if (($config['cacti_server_os'] ?? '') === 'unix' && $running_pid > 0) {
-		if (function_exists('posix_getpgid')) {
-			$running = posix_getpgid($running_pid) !== false;
-		} elseif (function_exists('posix_kill')) {
-			$running = posix_kill($running_pid, 0);
-		}
+	if (($config['cacti_server_os'] ?? '') === 'unix' && $running_pid > 0 && function_exists('posix_kill')) {
+		$running = posix_kill($running_pid, 0);
 	}
 
 	if (thold_notification_process_blocks_start($process, $timeout, $running)) {
