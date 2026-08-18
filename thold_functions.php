@@ -935,7 +935,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		$step = read_config_option('poller_interval');
 	}
 
-	$rrd_step              = max(1, (int) $thold_data['rrd_step']);
+	$rrd_step               = max(1, (int) $thold_data['rrd_step']);
 	$previous_sample_usable = $thold_data['lasttime'] > 0 && $step > 0 && $step <= 2 * $rrd_step;
 
 	$currentval = '';

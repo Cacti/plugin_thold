@@ -215,8 +215,8 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 */
 	public static function emptyMaximumProvider() {
 		return [
-			'integer zero' => [0],
-			'empty string' => [''],
+			'integer zero'     => [0],
+			'empty string'     => [''],
 			'explicit maximum' => [20000000],
 		];
 	}
@@ -362,5 +362,4 @@ final class TholdGetCurrentvalTest extends TestCase {
 			thold_sample_persistence([], ['traffic_in' => 700], 1600)
 		);
 	}
-
 }
