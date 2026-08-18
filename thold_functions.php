@@ -7324,41 +7324,48 @@ function thold_notification_probe_process($pid, $getpgid = null, $kill = null, $
  *
  * @param int           $pid
  * @param int           $registered_at
- * @param callable|null $started_at Optional process-start probe used by tests.
+ * @param int           $current_timestamp
+ * @param callable|null $elapsed Optional process-age probe used by tests.
  *
  * @return bool|null True for the registered process, false for a reused PID,
  *                   or null when process identity cannot be verified.
  */
-function thold_notification_process_matches($pid, $registered_at, $started_at = null) {
-	$pid           = (int) $pid;
-	$registered_at = (int) $registered_at;
+function thold_notification_process_matches($pid, $registered_at, $current_timestamp, $elapsed = null) {
+	$pid               = (int) $pid;
+	$registered_at     = (int) $registered_at;
+	$current_timestamp = (int) $current_timestamp;
 
-	if ($pid <= 0 || $registered_at <= 0) {
+	if ($pid <= 0 || $registered_at <= 0 || $current_timestamp < $registered_at) {
 		return null;
 	}
 
-	$process_started_at = false;
+	$process_age = false;
 
-	if (is_callable($started_at)) {
+	if (is_callable($elapsed)) {
 		try {
-			$process_started_at = $started_at($pid);
+			$process_age = $elapsed($pid);
 		} catch (Throwable $error) {
 			return null;
 		}
 	} elseif (function_exists('exec')) {
 		$output = [];
 		$status = 1;
-		exec('LC_ALL=C ps -o lstart= -p ' . $pid, $output, $status);
-		$process_started_at = $status === 0 ? strtotime(trim(implode(' ', $output))) : false;
+		exec('LC_ALL=C ps -o etimes= -p ' . $pid, $output, $status);
+
+		if ($status === 0 && isset($output[0]) && ctype_digit(trim($output[0]))) {
+			$process_age = (int) trim($output[0]);
+		}
 	}
 
-	if (!is_int($process_started_at) || $process_started_at <= 0) {
+	if (!is_int($process_age) || $process_age < 0) {
 		return null;
 	}
 
-	// The worker necessarily starts just before its database registration.
-	// A process starting later proves that the operating system reused its PID.
-	return $process_started_at <= $registered_at + 5;
+	$row_age = $current_timestamp - $registered_at;
+
+	// The worker necessarily predates its database row. A younger process proves
+	// that the operating system reused the recorded PID.
+	return $process_age + 5 >= $row_age;
 }
 
 /**
@@ -7437,14 +7444,19 @@ function thold_notification_register_process($thread, $timeout = 3600, $lock = n
 	// The advisory lock prevents a new overlap, but it is not evidence that
 	// the recorded process died: a reconnect drops GET_LOCK while PHP lives.
 	// Confirmed death can recover immediately. Unknown liveness waits for an
-	// expired heartbeat; a process confirmed alive is never preempted.
+	// expired heartbeat. A live PID is trusted while fresh; after timeout its
+	// elapsed age must prove that it predates the recorded worker row.
 	$stale = thold_notification_process_is_stale($process, $timeout);
-	$match = $running === true
-		? thold_notification_process_matches($running_pid, $process['started_at'] ?? 0, $identity)
+	$match = $running === true && $stale
+		? thold_notification_process_matches(
+			$running_pid,
+			$process['started_at'] ?? 0,
+			$process['current_timestamp'] ?? time(),
+			$identity
+		)
 		: null;
-	$stale_unverified_process = $running === true && $match === null && $stale;
 
-	if (($running === true && $match !== false && !$stale_unverified_process) || ($running === null && !$stale)) {
+	if (($running === true && (!$stale || $match === true)) || ($running === null && !$stale)) {
 		thold_notification_release_lock($thread);
 		cacti_log(sprintf('WARNING: Notification thread %s has an existing worker that is live or cannot be verified dead.', $thread), false, 'THOLD');
 

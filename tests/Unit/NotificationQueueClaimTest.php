@@ -245,7 +245,7 @@ final class NotificationQueueClaimTest extends TestCase {
 			return true;
 		};
 		$same_process = static function () {
-			return 400;
+			return 600;
 		};
 
 		CactiStubs::willReturn('db_fetch_row_prepared', $process);
@@ -280,7 +280,9 @@ final class NotificationQueueClaimTest extends TestCase {
 		CactiStubs::willReturn('db_fetch_row_prepared', $expired);
 		$this->assertFalse(thold_notification_register_process(2, 300, $lock, static function () {
 			return true;
-		}, $same_process));
+		}, static function () {
+			return 1600;
+		}));
 
 		CactiStubs::reset();
 		CactiStubs::willReturn('db_fetch_row_prepared', $expired);
@@ -345,22 +347,39 @@ final class NotificationQueueClaimTest extends TestCase {
 	 * @return void
 	 */
 	public function testProcessIdentityDetectsPidReuse(): void {
-		$this->assertNull(thold_notification_process_matches(0, 500));
-		$this->assertTrue(thold_notification_process_matches(42, 500, static function () {
-			return 400;
+		$this->assertNull(thold_notification_process_matches(0, 500, 1000));
+		$this->assertTrue(thold_notification_process_matches(42, 500, 1000, static function () {
+			return 600;
 		}));
-		$this->assertTrue(thold_notification_process_matches(42, 500, static function () {
-			return 505;
+		$this->assertTrue(thold_notification_process_matches(42, 500, 1000, static function () {
+			return 495;
 		}));
-		$this->assertFalse(thold_notification_process_matches(42, 500, static function () {
-			return 506;
+		$this->assertFalse(thold_notification_process_matches(42, 500, 1000, static function () {
+			return 494;
 		}));
-		$this->assertNull(thold_notification_process_matches(42, 500, static function () {
+		$this->assertNull(thold_notification_process_matches(42, 500, 1000, static function () {
 			return false;
 		}));
-		$this->assertNull(thold_notification_process_matches(42, 500, static function () {
+		$this->assertNull(thold_notification_process_matches(42, 500, 1000, static function () {
 			throw new RuntimeException('process probe failed');
 		}));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testDefaultProcessIdentityProbeIsTimezoneIndependent(): void {
+		$timezone = date_default_timezone_get();
+		$now      = time();
+
+		try {
+			foreach (['UTC', 'America/Los_Angeles'] as $candidate) {
+				date_default_timezone_set($candidate);
+				$this->assertTrue(thold_notification_process_matches(getmypid(), $now, $now));
+			}
+		} finally {
+			date_default_timezone_set($timezone);
+		}
 	}
 
 	/**

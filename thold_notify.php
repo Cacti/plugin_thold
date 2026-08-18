@@ -24,7 +24,7 @@
 
 $notification_registered = false;
 $pid                     = 0;
-$thread                  = false;
+$thread                  = 1;
 
 if (function_exists('pcntl_async_signals')) {
 	pcntl_async_signals(true);
@@ -74,6 +74,16 @@ if (sizeof($parms)) {
 				$debug = true;
 
 				break;
+			case '--thread':
+				if (!ctype_digit((string) $value) || (int) $value <= 0) {
+					print 'FATAL: The Thread ID must be numeric and greater than 0.' . PHP_EOL;
+					display_help();
+					exit(1);
+				}
+
+				cacti_log('WARNING: thold_notify.php --thread is deprecated and ignored; notification ownership is automatic.', false, 'THOLD');
+
+				break;
 			case '-v':
 			case '--version':
 			case '-V':
@@ -92,16 +102,7 @@ if (sizeof($parms)) {
 	}
 }
 
-// This is where we can parallelize
-$collector = ($thread === false);
-
-if ($collector) {
-	thold_cli_debug('Thold Notification Main Collector Started');
-
-	$thread = 1;
-} else {
-	thold_cli_debug("Thold Notification Child Thread $thread Started");
-}
+thold_cli_debug('Thold Notification Main Collector Started');
 
 $timeout = 3600;
 
@@ -170,6 +171,6 @@ function display_version() {
 function display_help() {
 	display_version();
 
-	print PHP_EOL . 'usage: thold_notify.php [--debug]' . PHP_EOL . PHP_EOL;
+	print PHP_EOL . 'usage: thold_notify.php [--thread=N] [--debug]' . PHP_EOL . PHP_EOL;
 	print 'The Threshold Notification Processor for the Thold Plugin.' . PHP_EOL;
 }
