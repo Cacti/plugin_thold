@@ -793,39 +793,39 @@ function thold_wizard() {
 
 	function applyTholdFilter() {
 		strURL  = 'thold.php?action=add&header=false';
-		strURL += '&type_id=' + $('#type_id').val();
+		strURL += '&type_id=' + encodeURIComponent($('#type_id').val());
 
 		if ($('#type_id').val() == 'thold') {
 			if ($('#my_host_id').length && $('#my_host_id').val() > 0) {
-				strURL += '&my_host_id=' + $('#my_host_id').val();
+				strURL += '&my_host_id=' + encodeURIComponent($('#my_host_id').val());
 			}
 
 			if ($('#local_graph_id').length && $('#local_graph_id').val() > 0) {
-				strURL += '&local_graph_id=' + $('#local_graph_id').val();
+				strURL += '&local_graph_id=' + encodeURIComponent($('#local_graph_id').val());
 			}
 
 			if ($('#data_template_rrd_id').length && $('#data_template_rrd_id').val() > 0) {
-				strURL += '&data_template_rrd_id=' + $('#data_template_rrd_id').val();
+				strURL += '&data_template_rrd_id=' + encodeURIComponent($('#data_template_rrd_id').val());
 			}
 		} else {
 			if ($('#thold_template_id').length && $('#thold_template_id').val() > 0) {
-				strURL += '&thold_template_id=' + $('#thold_template_id').val();
+				strURL += '&thold_template_id=' + encodeURIComponent($('#thold_template_id').val());
 			}
 
 			if ($('#graph_template_id').length && $('#graph_template_id').val() > 0) {
-				strURL += '&graph_template_id=' + $('#graph_template_id').val();
+				strURL += '&graph_template_id=' + encodeURIComponent($('#graph_template_id').val());
 			}
 
 			if ($('#data_query_id').length && $('#data_query_id').val() > 0) {
-				strURL += '&data_query_id=' + $('#data_query_id').val();
+				strURL += '&data_query_id=' + encodeURIComponent($('#data_query_id').val());
 			}
 
 			if ($('#data_template_id').length && $('#data_template_id').val() > 0) {
-				strURL += '&data_template_id=' + $('#data_template_id').val();
+				strURL += '&data_template_id=' + encodeURIComponent($('#data_template_id').val());
 			}
 
 			if ($('#my_host_id').length && $('#my_host_id').val() != 0) {
-				strURL += '&my_host_id=' + $('#my_host_id').val();
+				strURL += '&my_host_id=' + encodeURIComponent($('#my_host_id').val());
 			}
 
 			if ($('#snmp_index').length && $('#snmp_index').val() != '') {
@@ -861,7 +861,37 @@ function thold_wizard() {
 function thold_new_graphs_save($host_id) {
 	$return_array = false;
 
-	$selected_graphs_array = cacti_unserialize(stripslashes(get_nfilter_request_var('selected_graphs_array')));
+	// Nested wizard structure (cg/sg), not a flat ID list. Flat
+	// sanitize_unserialize_selected_items() rejects nested arrays and would
+	// break graph creation. Prefer the graphs-specific sanitizer when present
+	// (Cacti develop+); otherwise unserialize with allowed_classes => false.
+	$raw = get_nfilter_request_var('selected_graphs_array');
+
+	if (function_exists('sanitize_unserialize_selected_graphs')) {
+		$selected_graphs_array = sanitize_unserialize_selected_graphs($raw);
+	} elseif (function_exists('cacti_unserialize') && is_string($raw) && $raw !== '') {
+		$selected_graphs_array = cacti_unserialize(stripslashes($raw));
+	} elseif (is_string($raw) && $raw !== '') {
+		$unstripped = stripslashes($raw);
+
+		if (preg_match('/^a:[0-9]+:{/', $unstripped) && !preg_match('/(^|;|{|})O:\+?[0-9]+:"/', $unstripped)) {
+			$selected_graphs_array = unserialize($unstripped, ['allowed_classes' => false]);
+		} else {
+			$selected_graphs_array = false;
+		}
+	} else {
+		$selected_graphs_array = false;
+	}
+
+	if (!is_array($selected_graphs_array)) {
+		return false;
+	}
+
+	foreach ($selected_graphs_array as $form_type => $form_array) {
+		if (($form_type !== 'cg' && $form_type !== 'sg') || !is_array($form_array)) {
+			return false;
+		}
+	}
 
 	$values = [];
 

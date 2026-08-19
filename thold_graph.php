@@ -251,20 +251,20 @@ function form_thold_filter() {
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' id='page' value='<?php print get_request_var('page'); ?>'>
+			<input type='hidden' id='page' value='<?php print html_escape(get_request_var('page')); ?>'>
 			<input type='hidden' id='tab' value='thold'>
 		</form>
 		<script type='text/javascript'>
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=thold';
-			strURL += '&state=' + $('#state').val();
-			strURL += '&thold_template_id=' + $('#thold_template_id').val();
-			strURL += '&data_template_id=' + $('#data_template_id').val();
-			strURL += '&host_id=' + $('#host_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&state=' + encodeURIComponent($('#state').val());
+			strURL += '&thold_template_id=' + encodeURIComponent($('#thold_template_id').val());
+			strURL += '&data_template_id=' + encodeURIComponent($('#data_template_id').val());
+			strURL += '&host_id=' + encodeURIComponent($('#host_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -404,7 +404,7 @@ function tholds() {
 	$statefilter = thold_get_state_filter(get_request_var('state'));
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . " td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . 'td.name_cache ' . 'RLIKE ' . db_qstr(get_request_var('rfilter'));
 	}
 
 	if (get_request_var('data_template_id') != '-1') {
@@ -937,8 +937,8 @@ function hosts() {
 
 	if (get_request_var('rfilter') != '') {
 		$sql_where .= " (h.deleted = ''
-			AND (h.hostname RLIKE '" . get_request_var('rfilter') . "'
-			OR h.description RLIKE '" . get_request_var('rfilter') . "')";
+			AND (h.hostname " . 'RLIKE ' . db_qstr(get_request_var('rfilter')) . '
+			OR h.description ' . 'RLIKE ' . db_qstr(get_request_var('rfilter')) . ')';
 	}
 
 	if (get_request_var('host_status') == '-1') {
@@ -1261,18 +1261,18 @@ function form_host_filter() {
 					</td>
 				</tr>
 			</table>
-			<input type='hidden' name='page' value='<?php print get_request_var('page'); ?>'>
+			<input type='hidden' name='page' value='<?php print html_escape(get_request_var('page')); ?>'>
 			<input type='hidden' name='tab' value='hoststat'>
 		</form>
 		<script type='text/javascript'>
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=hoststat';
-			strURL += '&host_status=' + $('#host_status').val();
-			strURL += '&host_template_id=' + $('#host_template_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&host_status=' + encodeURIComponent($('#host_status').val());
+			strURL += '&host_template_id=' + encodeURIComponent($('#host_template_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -1395,7 +1395,7 @@ function thold_export_log() {
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ($sql_where == '' ? '' : ' AND') . " tl.description RLIKE '" . get_request_var('rfilter') . "'";
+		$sql_where .= ($sql_where == '' ? '' : ' AND') . ' tl.description ' . 'RLIKE ' . db_qstr(get_request_var('rfilter'));
 	}
 
 	$sql_order  = '';
@@ -1490,7 +1490,7 @@ function thold_show_log() {
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$sql_where .= ($sql_where == '' ? '' : ' AND') . " tl.description RLIKE '" . get_request_var('rfilter') . "'";
+		$sql_where .= ($sql_where == '' ? '' : ' AND') . ' tl.description ' . 'RLIKE ' . db_qstr(get_request_var('rfilter'));
 	}
 
 	$sql_order = get_order_string();
@@ -1734,13 +1734,13 @@ function form_thold_log_filter() {
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=log';
-			strURL += '&status=' + $('#status').val();
-			strURL += '&threshold_id=' + $('#threshold_id').val();
-			strURL += '&thold_template_id=' + $('#thold_template_id').val();
-			strURL += '&host_id=' + $('#host_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&status=' + encodeURIComponent($('#status').val());
+			strURL += '&threshold_id=' + encodeURIComponent($('#threshold_id').val());
+			strURL += '&thold_template_id=' + encodeURIComponent($('#thold_template_id').val());
+			strURL += '&host_id=' + encodeURIComponent($('#host_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -1751,13 +1751,13 @@ function form_thold_log_filter() {
 
 		function exportLog() {
 			strURL  = 'thold_graph.php?action=exportlog';
-			strURL += '&status=' + $('#status').val();
-			strURL += '&threshold_id=' + $('#threshold_id').val();
-			strURL += '&thold_template_id=' + $('#thold_template_id').val();
-			strURL += '&host_id=' + $('#host_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&status=' + encodeURIComponent($('#status').val());
+			strURL += '&threshold_id=' + encodeURIComponent($('#threshold_id').val());
+			strURL += '&thold_template_id=' + encodeURIComponent($('#thold_template_id').val());
+			strURL += '&host_id=' + encodeURIComponent($('#host_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			document.location = strURL;
 			Pace.stop();
 		}
