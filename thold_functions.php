@@ -338,24 +338,6 @@ function thold_expression_rpn_pop(&$stack) {
 	}
 }
 
-/**
- * Apply one arithmetic RPN operator to the evaluation stack.
- *
- * The right operand is popped first, so a stack of [a, b] with operator '-'
- * computes a - b. Operands are validated numeric before use and the operator
- * set is closed, which is what lets this dispatch natively instead of through
- * eval(). Note that '^' is bitwise XOR, not exponentiation; that is the
- * semantics existing user thresholds were written against.
- *
- * On any error the global $rpn_error is raised and nothing is pushed, which
- * causes the caller to abandon the expression rather than compare against a
- * meaningless value.
- *
- * @param string            $operator Operator token, e.g. '+', '%', 'SQRT', 'ADDNAN'.
- * @param array<int, mixed> $stack    Evaluation stack, modified in place.
- *
- * @return void
- */
 function thold_expression_math_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -381,44 +363,19 @@ function thold_expression_math_rpn($operator, &$stack) {
 				cacti_log('ERROR: RPN value: v2 "' . $v2 . '" is Not valid for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
-				// A counter that has not moved divides to zero rather than erroring.
 				$v3         = 0;
 				$rpn_evaled = true;
-			} elseif ($v1 == 0 && ($operator == '/' || $operator == '%')) {
-				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "' . $operator . '".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+
+				break;
+			} elseif ($v1 == 0 && $operator == '/') {
+				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "/".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			}
 
 			if ($rpn_evaled) {
 				array_push($stack, $v3);
 			} elseif (!$rpn_error) {
-				// Operands are validated numeric above and the operator is a fixed
-				// whitelist, so compute natively instead of eval() to remove the
-				// code-execution sink. The + 0 coercion and int casts preserve the
-				// integer semantics eval() applied to the % and ^ operators.
-				$n1 = $v1 + 0;
-				$n2 = $v2 + 0;
-
-				switch ($operator) {
-					case '+': $v3 = $n2 + $n1;
-
-						break;
-					case '-': $v3 = $n2 - $n1;
-
-						break;
-					case '*': $v3 = $n2 * $n1;
-
-						break;
-					case '/': $v3 = $n2 / $n1;
-
-						break;
-					case '%': $v3 = (int) $n2 % (int) $n1;
-
-						break;
-					case '^': $v3 = (int) $n2 ^ (int) $n1;
-
-						break;
-				}
+				eval('$v3 = ' . $v2 . ' ' . $operator . ' ' . $v1 . ';'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math tokens by the parser above
 
 				if ($v3 == '') {
 					$v3 = 0;
@@ -442,65 +399,8 @@ function thold_expression_math_rpn($operator, &$stack) {
 		case 'LOG':
 			$v1 = thold_expression_rpn_pop($stack);
 
-			if (!$rpn_error && !is_numeric($v1)) {
-				cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is Not valid for operator "' . $operator . '".', false, 'THOLD');
-				$rpn_error = true;
-			}
-
-			if (!$rpn_error && ($operator == 'SQRT' && $v1 < 0 || $operator == 'LOG' && $v1 <= 0)) {
-				/*
-				 * sqrt(-1) is NAN and log(0) is -INF. Both compare false against
-				 * every threshold bound, so a breach would pass unnoticed; fail
-				 * the expression instead of pushing them onto the stack.
-				 */
-				cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is out of domain for operator "' . $operator . '".', false, 'THOLD');
-				$rpn_error = true;
-			}
-
 			if (!$rpn_error) {
-				// Validated numeric above; dispatch to the native math function
-				// instead of eval() to remove the code-execution sink.
-				$n1 = $v1 + 0;
-
-				switch ($operator) {
-					case 'SIN':     $v2 = sin($n1);
-
-						break;
-					case 'COS':     $v2 = cos($n1);
-
-						break;
-					case 'TAN':     $v2 = tan($n1);
-
-						break;
-					case 'ATAN':    $v2 = atan($n1);
-
-						break;
-					case 'SQRT':    $v2 = sqrt($n1);
-
-						break;
-					case 'FLOOR':   $v2 = floor($n1);
-
-						break;
-					case 'CEIL':    $v2 = ceil($n1);
-
-						break;
-					case 'DEG2RAD': $v2 = deg2rad($n1);
-
-						break;
-					case 'RAD2DEG': $v2 = rad2deg($n1);
-
-						break;
-					case 'ABS':     $v2 = abs($n1);
-
-						break;
-					case 'EXP':     $v2 = exp($n1);
-
-						break;
-					case 'LOG':     $v2 = log($n1);
-
-						break;
-				}
-
+				eval('$v2 = ' . $operator . '(' . $v1 . ');'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math function names by the parser above
 				array_push($stack, $v2);
 			}
 
@@ -711,20 +611,42 @@ function thold_expression_specvals_rpn($operator, &$stack, $count) {
 	}
 }
 
-function thold_expression_stackops_rpn($operator, &$stack) {
+/**
+ * Apply one stack-manipulation RPN operator.
+ *
+ * @param string           $operator DUP, POP or EXC.
+ * @param array<int,mixed> $stack    Evaluation stack, modified in place.
+ */
+function thold_expression_stackops_rpn(string $operator, array &$stack): void {
 	global $rpn_error;
 
-	if ($operator == 'DUP') {
-		$v1 = thold_expression_rpn_pop($stack);
-		array_push($stack, $v1);
-		array_push($stack, $v1);
-	} elseif ($operator == 'POP') {
-		thold_expression_rpn_pop($stack);
-	} else {
-		$v1 = thold_expression_rpn_pop($stack);
-		$v2 = thold_expression_rpn_pop($stack);
-		array_push($stack, $v2);
-		array_push($stack, $v1);
+	switch ($operator) {
+		case 'DUP':
+			$v1 = thold_expression_rpn_pop($stack);
+
+			if ($rpn_error) {
+				return;
+			}
+
+			array_push($stack, $v1, $v1);
+
+			break;
+		case 'POP':
+			thold_expression_rpn_pop($stack);
+
+			break;
+		default:
+			// EXC. Popping already reverses the pair, so push them back in pop order.
+			$v1 = thold_expression_rpn_pop($stack);
+			$v2 = thold_expression_rpn_pop($stack);
+
+			if ($rpn_error) {
+				return;
+			}
+
+			array_push($stack, $v1, $v2);
+
+			break;
 	}
 }
 
@@ -740,68 +662,80 @@ function thold_expression_time_rpn($operator, &$stack) {
 	}
 }
 
-function thold_expression_setops_rpn($operator, &$stack) {
+/**
+ * Apply one set RPN operator to the top $count elements of the stack.
+ *
+ * SORT, REV and AVG each pop a count first. AVG follows rrdtool: unknown
+ * samples are skipped rather than poisoning the sum, and an all-unknown span
+ * yields UNKN.
+ *
+ * @param string           $operator SORT, REV or AVG.
+ * @param array<int,mixed> $stack    Evaluation stack, modified in place.
+ */
+function thold_expression_setops_rpn(string $operator, array &$stack): void {
 	global $rpn_error;
 
-	if ($operator == 'SORT') {
-		$count = thold_expression_rpn_pop($stack);
-		$v     = [];
-
-		if ($count > 0) {
-			for ($i = 0; $i < $count; $i++) {
-				$v[] = thold_expression_rpn_pop($stack);
-			}
-
-			sort($v, SORT_NUMERIC);
-
-			foreach ($v as $val) {
-				array_push($stack, $val);
-			}
-		}
-	} elseif ($operator == 'REV') {
-		$count = thold_expression_rpn_pop($stack);
-		$v     = [];
-
-		if ($count > 0) {
-			for ($i = 0; $i < $count; $i++) {
-				$v[] = thold_expression_rpn_pop($stack);
-			}
-
-			$v = array_reverse($v);
-
-			foreach ($v as $val) {
-				array_push($stack, $val);
-			}
-		}
-	} elseif ($operator == 'AVG') {
-		$count = thold_expression_rpn_pop($stack);
-
-		if ($count > 0) {
-			$total  = 0;
-			$inf    = false;
-			$neginf = false;
-
-			for ($i = 0; $i < $count; $i++) {
-				$v = thold_expression_rpn_pop($stack);
-
-				if ($v == 'INF') {
-					$inf = true;
-				} elseif ($v == 'NEGINF') {
-					$neginf = true;
-				} else {
-					$total += $v;
-				}
-			}
-
-			if ($inf) {
-				array_push($stack, 'INF');
-			} elseif ($neginf) {
-				array_push($stack, 'NEGINF');
-			} else {
-				array_push($stack, $total / $count);
-			}
-		}
+	if (!in_array($operator, ['SORT', 'REV', 'AVG'], true)) {
+		return;
 	}
+
+	$count = thold_expression_rpn_pop($stack);
+
+	if ($rpn_error || !is_numeric($count) || $count <= 0) {
+		return;
+	}
+
+	if ((float) $count !== floor((float) $count)) {
+		$rpn_error = true;
+
+		return;
+	}
+
+	$count = (int) $count;
+
+	// Popping yields the span top-down; keep it that way and index deliberately.
+	$values = [];
+
+	for ($i = 0; $i < $count; $i++) {
+		$values[] = thold_expression_rpn_pop($stack);
+	}
+
+	if ($rpn_error) {
+		return;
+	}
+
+	if ($operator === 'SORT') {
+		sort($values, SORT_NUMERIC);
+	}
+
+	// REV needs no work: $values is already reversed relative to the stack.
+	if ($operator !== 'AVG') {
+		foreach ($values as $value) {
+			$stack[] = $value;
+		}
+
+		return;
+	}
+
+	$total = 0;
+	$known = 0;
+
+	foreach ($values as $value) {
+		if ($value == 'INF' || $value == 'NEGINF') {
+			$stack[] = $value == 'INF' ? 'INF' : 'NEGINF';
+
+			return;
+		}
+
+		if (!is_numeric($value)) {
+			continue;
+		}
+
+		$total += $value;
+		$known++;
+	}
+
+	$stack[] = $known === 0 ? 'U' : $total / $known;
 }
 
 function thold_expression_ds_value($operator, &$stack, $data_sources) {
@@ -872,6 +806,37 @@ function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $c
 	}
 }
 
+/**
+ * Counts a wrapped counter has advanced by, given the previous and current
+ * readings.
+ *
+ * The modulus is 2^32 or 2^64, not one less than it, so the previous code lost
+ * exactly one count per wrap. 2^64 is above PHP_INT_MAX and would be parsed as
+ * a float, losing about eleven bits at that magnitude, so the 64-bit case goes
+ * through GMP. Cacti already requires ext-gmp.
+ *
+ * @param float|int|string $oldvalue Previous reading.
+ * @param float|int|string $newvalue Current reading.
+ *
+ * @return float|int
+ */
+function thold_counter_wrap_delta($oldvalue, $newvalue) {
+	if ($oldvalue > 4294967295) {
+		$old_integer = trim((string) $oldvalue);
+		$new_integer = trim((string) $newvalue);
+
+		if (!preg_match('/^\d+$/D', $old_integer) || !preg_match('/^\d+$/D', $new_integer)) {
+			return (18446744073709551616.0 - (float) $oldvalue) + (float) $newvalue;
+		}
+
+		$delta = gmp_add(gmp_sub(gmp_pow(2, 64), gmp_init($old_integer, 10)), gmp_init($new_integer, 10));
+
+		return (float) gmp_strval($delta);
+	}
+
+	return (4294967296 - $oldvalue) + $newvalue;
+}
+
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
 	// adjust the polling interval by the last read, if applicable
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
@@ -898,17 +863,14 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		if (isset($item[$thold_data['name']]) && is_numeric($item[$thold_data['name']])) {
 			switch ($thold_data['data_source_type_id']) {
 				case 2:	// COUNTER
-					if ($thold_data['oldvalue'] != 0 && is_numeric($thold_data['oldvalue'])) {
+					// A previous reading of zero is a real reading, not a missing one.
+					if (is_numeric($thold_data['oldvalue']) && $thold_data['oldvalue'] !== '') {
 						if ($item[$thold_data['name']] >= $thold_data['oldvalue']) {
 							// Everything is Normal
 							$currentval = $item[$thold_data['name']] - $thold_data['oldvalue'];
 						} else {
 							// Possible overflow, see if its 32bit or 64bit
-							if ($thold_data['oldvalue'] > 4294967295) {
-								$currentval = (18446744073709551615 - $thold_data['oldvalue']) + $item[$thold_data['name']];
-							} else {
-								$currentval = (4294967295 - $thold_data['oldvalue']) + $item[$thold_data['name']];
-							}
+							$currentval = thold_counter_wrap_delta($thold_data['oldvalue'], $item[$thold_data['name']]);
 						}
 
 						if (strpos($thold_data['rrd_maximum'], '|query_') !== false) {
@@ -985,23 +947,16 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	$stackops   = ['DUP', 'POP', 'EXC'];
 	$time       = ['NOW', 'TIME', 'LTIME'];
 	$spectypes  = ['CURRENT_DATA_SOURCE', 'CURRENT_GRAPH_MINIMUM_VALUE',
-		'CURRENT_GRAPH_MINIMUM_VALUE', 'CURRENT_DS_MINIMUM_VALUE',
+		'CURRENT_GRAPH_MAXIMUM_VALUE', 'CURRENT_DS_MINIMUM_VALUE',
 		'CURRENT_DS_MAXIMUM_VALUE', 'VALUE_OF_HDD_TOTAL',
 		'ALL_DATA_SOURCES_NODUPS', 'ALL_DATA_SOURCES_DUPS'];
 
 	// our expression array
 	$expression = explode(',', $thold['expression']);
 
-	// out current data sources
-	$data_sources = $rrd_reindexed[$thold['local_data_id']];
-
-	if (cacti_sizeof($data_sources)) {
-		foreach ($data_sources as $key => $value) {
-			$nds[$key] = $value;
-		}
-
-		$data_sources = $nds;
-	}
+	// out current data sources. A threshold whose data source produced no
+	// readings this cycle has no entry here, so default rather than index blind.
+	$data_sources = $rrd_reindexed[$thold['local_data_id']] ?? [];
 
 	// replace all data tabs in the rpn with values
 	if (cacti_sizeof($expression)) {
@@ -1156,7 +1111,16 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 		}
 	}
 
-	return $stack[0];
+	// rrdtool yields the top of the stack. Anything left below it means the
+	// expression was unbalanced, which is an authoring error worth reporting.
+	if (cacti_sizeof($stack) != 1) {
+		cacti_log("ERROR: RPN Expression did not reduce to a single value! THold:'" . $thold['name'] . "', Expression:'" . $thold['expression'] . "', Stack:'" . implode(',', $stack) . "'", false, 'THOLD');
+		$rpn_error = true;
+
+		return 0;
+	}
+
+	return end($stack);
 }
 
 function thold_substitute_snmp_query_data($string, $device_id, $snmp_query_id, $snmp_index, $max_chars = 0) {
@@ -1301,9 +1265,11 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 	}
 
 	if (isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
-		$t = (int) $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
+		// Not cast to int: a denominator below one truncated to zero, which
+		// forced the percentage to zero and kept a low threshold alerting.
+		$t = $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
 
-		if ($t > 0) {
+		if (is_numeric($t) && $t != 0) {
 			$currentval = ($currentval / $t) * 100;
 		} else {
 			$currentval = 0;
@@ -1326,25 +1292,7 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	return $currentval;
 }
 
-/**
- * Fetch the thresholds the given user may see.
- *
- * $sql_where is appended to a fixed WHERE clause and may carry ? placeholders;
- * the caller supplies their values, in order, via $sql_params. The $graph_id
- * filter appends its own placeholder after the caller's fragment, so any
- * caller-supplied values must already be in $sql_params when the call is made.
- *
- * @param string            $sql_where  Extra WHERE conditions, without the leading AND.
- * @param string            $order_by   ORDER BY expression, or '' for none.
- * @param string            $sql_limit  LIMIT expression, or '' for none.
- * @param int               $total_rows Set by reference to the unlimited row count.
- * @param int               $user_id    User whose permissions apply; 0 means the current user.
- * @param int               $graph_id   Restrict to one graph, or 0 for all graphs.
- * @param array<int, mixed> $sql_params Values bound to the placeholders in $sql_where.
- *
- * @return array<int, array<string, mixed>>
- */
-function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
+function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
 	}
@@ -1354,8 +1302,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 	}
 
 	if ($graph_id > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . ' gl.id = ?';
-		$sql_params[] = $graph_id;
+		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id=$graph_id";
 	}
 
 	if (strlen($sql_where)) {
@@ -1411,7 +1358,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		$order_by
 		$sql_limit");
 
-	$tholds = db_fetch_assoc_prepared($tholds_sql, $sql_params);
+	$tholds = db_fetch_assoc($tholds_sql);
 
 	$sql = "SELECT COUNT(*)
 		FROM (
@@ -1428,33 +1375,16 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 			$sql_where
 		) AS rower";
 
-	// get_total_row_data signature: ($user_id, $sql, $sql_params, $class, $timeout)
-	// The third param is accepted since Cacti 1.2.x (lib/auth.php:3164).
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, $sql_params, 'thold', 10);
+		$total_rows = get_total_row_data($user_id, $sql, [], 'thold', 10);
 	} else {
-		$total_rows = db_fetch_cell_prepared($sql, $sql_params);
+		$total_rows = db_fetch_cell($sql);
 	}
 
 	return $tholds;
 }
 
-/**
- * Fetch the threshold log entries the given user may see.
- *
- * Placeholder and $sql_params contract is the same as get_allowed_thresholds().
- *
- * @param string            $sql_where  Extra WHERE conditions, without the leading AND.
- * @param string            $order_by   ORDER BY expression, or '' for none.
- * @param string            $sql_limit  LIMIT expression, or '' for none.
- * @param int               $total_rows Set by reference to the unlimited row count.
- * @param int               $user_id    User whose permissions apply; 0 means the current user.
- * @param int               $graph_id   Restrict to one graph, or 0 for all graphs.
- * @param array<int, mixed> $sql_params Values bound to the placeholders in $sql_where.
- *
- * @return array<int, array<string, mixed>>
- */
-function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
+function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
 	}
@@ -1464,8 +1394,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 	}
 
 	if ($graph_id > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . ' gl.id = ?';
-		$sql_params[] = $graph_id;
+		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id = $graph_id";
 	}
 
 	if (strlen($sql_where)) {
@@ -1499,7 +1428,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
 	}
 
-	$tholds = db_fetch_assoc_prepared("SELECT
+	$tholds = db_fetch_assoc("SELECT
 		tl.`id`, tl.`time`, tl.`host_id`, tl.`local_graph_id`, tl.`threshold_id`,
 		IF(IFNULL(tl.`threshold_value`,'')='',NULL,(tl.`threshold_value` + 0.0)) AS `threshold_value`,
 		IF(IFNULL(tl.`current`,'')='',NULL,(tl.`current` + 0.0)) AS `current`, tl.`status`, tl.`type`,
@@ -1517,7 +1446,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		ON h.id=gl.host_id
 		$sql_where
 		$order_by
-		$sql_limit", $sql_params);
+		$sql_limit");
 
 	$sql = "SELECT COUNT(*)
 		FROM (
@@ -1536,12 +1465,10 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 			$sql_where
 		) AS rower";
 
-	// get_total_row_data signature: ($user_id, $sql, $sql_params, $class, $timeout)
-	// The third param is accepted since Cacti 1.2.x (lib/auth.php:3164).
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, $sql_params, 'thold_log', 10);
+		$total_rows = get_total_row_data($user_id, $sql, [], 'thold_log', 10);
 	} else {
-		$total_rows = db_fetch_cell_prepared($sql, $sql_params);
+		$total_rows = db_fetch_cell($sql);
 	}
 
 	return $tholds;
@@ -2310,6 +2237,108 @@ function thold_datasource_required($name, $data_source) {
 	return true;
 }
 
+/**
+ * Deliver one notification to one recipient list.
+ *
+ * The eighteen send sites in thold_check_threshold() all resolve the list's
+ * format file, then mail the list unless it is empty or the threshold has been
+ * acknowledged. The message body is built inside that guard rather than by the
+ * caller, because building it queries and an empty recipient list should not
+ * pay for a message nobody receives.
+ *
+ * @param string               $recipients Comma separated addresses, possibly empty.
+ * @param string               $bcc        Comma separated blind addresses.
+ * @param string               $subject    Subject line, already composed.
+ * @param string               $text_type  alert, warning or restoral.
+ * @param int                  $list_id    Notification list supplying the format.
+ * @param array<string, mixed> $file_array Graph attachment, or empty for none.
+ * @param array<string, mixed> $thold_data Threshold row.
+ * @param array<string, mixed> $h          Device row.
+ * @param int                  $timespan   Graph timespan for the attachment.
+ *
+ * @return string The message that was sent, or '' when nothing was.
+ */
+function thold_mail_notification($recipients, $bcc, $subject, $text_type, $list_id, $file_array, &$thold_data, &$h, $timespan = 7) {
+	$format_file = thold_get_thold_notification_format_file($thold_data['id'], $list_id);
+
+	if (trim($recipients) == '' || $thold_data['acknowledgment'] != '') {
+		return '';
+	}
+
+	switch ($text_type) {
+		case 'alert':
+			$message = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+
+			break;
+		case 'warning':
+			$message = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+
+			break;
+		default:
+			$message = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
+
+			break;
+	}
+
+	thold_mail($recipients, $bcc, '', $subject, $message, $file_array, '', $list_id, $h, $format_file, $timespan);
+
+	return $message;
+}
+
+function thold_evaluation_context(array $thold_data) {
+	$alert_trigger        = read_config_option('alert_trigger');
+	$httpurl              = read_config_option('base_url');
+	$thold_send_text_only = read_config_option('thold_send_text_only');
+
+	// see if we have two notification lists or one
+	$notify_different = $thold_data['notify_warning'] > 0
+		&& $thold_data['notify_warning'] != $thold_data['notify_alert']
+		&& read_config_option('thold_notify_alerts_to_warning_recipients') == 'on';
+
+	$file_array = [];
+
+	if ($thold_send_text_only != 'on' && !empty($thold_data['local_graph_id'])) {
+		$file_array = [
+			'local_graph_id' => $thold_data['local_graph_id'],
+			'local_data_id'  => $thold_data['local_data_id'],
+			'rra_id'         => 0,
+			'file'           => "$httpurl/graph_image.php?local_graph_id=" . $thold_data['local_graph_id'] . '&rra_id=0&view_type=tree',
+			'mimetype'       => 'image/png',
+			'filename'       => clean_up_name(thold_get_cached_name($thold_data))
+		];
+	}
+
+	return [
+		// Settings for syslogging
+		'syslog'                   => $thold_data['syslog_enabled'] == 'on',
+		'syslog_priority'          => $thold_data['syslog_priority'],
+		'syslog_facility'          => $thold_data['syslog_facility'],
+
+		'realert'                  => read_config_option('alert_repeat'),
+		'alert_bl_trigger'         => read_config_option('alert_bl_trigger'),
+
+		'thold_snmp_traps'         => read_config_option('thold_alert_snmp') == 'on',
+		'thold_snmp_warning_traps' => read_config_option('thold_alert_snmp_warning') == 'on',
+		'thold_snmp_normal_traps'  => read_config_option('thold_alert_snmp_normal') == 'on',
+		'cacti_polling_interval'   => read_config_option('poller_interval'),
+
+		// An unset trigger on the threshold falls back to the global default.
+		'trigger'                  => $thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger'],
+		'warning_trigger'          => $thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger'],
+		'alertstat'                => $thold_data['thold_alert'],
+
+		'notify_different'         => $notify_different,
+		'file_array'               => $file_array,
+		'url'                      => $httpurl . '/graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all',
+		'lastread'                 => $thold_data['lastread'],
+
+		'alert_emails'             => get_thold_emails($thold_data, 'alert', 'to'),
+		'alert_bcc_emails'         => get_thold_emails($thold_data, 'alert', 'bcc'),
+		'warning_emails'           => get_thold_emails($thold_data, 'warning', 'to'),
+		'warning_bcc_emails'       => get_thold_emails($thold_data, 'warning', 'bcc'),
+	];
+}
+
 function thold_check_threshold(&$thold_data) {
 	global $config, $plugins, $debug;
 
@@ -2389,81 +2418,28 @@ function thold_check_threshold(&$thold_data) {
 	// ensure that Cacti will make of individual defined SNMP Engine IDs
 	$overwrite['snmp_engine_id'] = $h['snmp_engine_id'];
 
-	// pull a few default settings
-	$global_alert_address  = read_config_option('alert_email');
+	$context = thold_evaluation_context($thold_data);
 
-	// Settings for syslogging
-	$syslog                = $thold_data['syslog_enabled'] == 'on' ? true : false;
-	$syslog_priority       = $thold_data['syslog_priority'];
-	$syslog_facility       = $thold_data['syslog_facility'];
-
-	$realert               = read_config_option('alert_repeat');
-	$alert_trigger         = read_config_option('alert_trigger');
-	$alert_bl_trigger      = read_config_option('alert_bl_trigger');
-	$httpurl               = read_config_option('base_url');
-	$thold_send_text_only  = read_config_option('thold_send_text_only');
-
-	$thold_snmp_traps         = (read_config_option('thold_alert_snmp') == 'on');
-	$thold_snmp_warning_traps = (read_config_option('thold_alert_snmp_warning') == 'on');
-	$thold_snmp_normal_traps  = (read_config_option('thold_alert_snmp_normal') == 'on');
-	$cacti_polling_interval   = read_config_option('poller_interval');
-
-	// remove this after adding an option for it
-	$show_datasource = thold_datasource_required(thold_get_cached_name($thold_data), $thold_data['data_source_name']);
-
-	$trigger         = ($thold_data['thold_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_fail_trigger']);
-	$warning_trigger = ($thold_data['thold_warning_fail_trigger'] == '' ? $alert_trigger : $thold_data['thold_warning_fail_trigger']);
-	$alertstat       = $thold_data['thold_alert'];
-
-	// see if we have two notification lists or one
-	$notify_different = false;
-
-	if ($thold_data['notify_warning'] > 0) {
-		if ($thold_data['notify_warning'] != $thold_data['notify_alert']) {
-			if (read_config_option('thold_notify_alerts_to_warning_recipients') == 'on') {
-				$notify_different = true;
-			}
-		}
-	}
-
-	// setup base units
-	$baseu = db_fetch_cell_prepared('SELECT base_value
-		FROM graph_templates_graph
-		WHERE local_graph_id = ?',
-		[$thold_data['local_graph_id']]);
-
-	if ($thold_data['data_type'] == 2) {
-		$suffix = false;
-	} else {
-		$suffix = true;
-	}
-
-	$show_units   = ($thold_data['show_units'] ? true : false);
-	$units_suffix = $thold_data['units_suffix'];
-	$decimals     = $thold_data['decimals'] >= 0 ? $thold_data['decimals'] : 2;
-
-	$file_array = [];
-
-	if ($thold_send_text_only != 'on') {
-		if (!empty($thold_data['local_graph_id'])) {
-			$file_array = [
-				'local_graph_id' => $thold_data['local_graph_id'],
-				'local_data_id'  => $thold_data['local_data_id'],
-				'rra_id'         => 0,
-				'file'           => "$httpurl/graph_image.php?local_graph_id=" . $thold_data['local_graph_id'] . '&rra_id=0&view_type=tree',
-				'mimetype'       => 'image/png',
-				'filename'       => clean_up_name(thold_get_cached_name($thold_data))
-			];
-		}
-	}
-
-	$url      = $httpurl . '/graph.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=all';
-	$lastread = $thold_data['lastread'];
-
-	$alert_emails       = get_thold_emails($thold_data, 'alert', 'to');
-	$alert_bcc_emails   = get_thold_emails($thold_data, 'alert', 'bcc');
-	$warning_emails     = get_thold_emails($thold_data, 'warning', 'to');
-	$warning_bcc_emails = get_thold_emails($thold_data, 'warning', 'bcc');
+	$syslog                   = $context['syslog'];
+	$syslog_priority          = $context['syslog_priority'];
+	$syslog_facility          = $context['syslog_facility'];
+	$realert                  = $context['realert'];
+	$alert_bl_trigger         = $context['alert_bl_trigger'];
+	$thold_snmp_traps         = $context['thold_snmp_traps'];
+	$thold_snmp_warning_traps = $context['thold_snmp_warning_traps'];
+	$thold_snmp_normal_traps  = $context['thold_snmp_normal_traps'];
+	$cacti_polling_interval   = $context['cacti_polling_interval'];
+	$trigger                  = $context['trigger'];
+	$warning_trigger          = $context['warning_trigger'];
+	$alertstat                = $context['alertstat'];
+	$notify_different         = $context['notify_different'];
+	$file_array               = $context['file_array'];
+	$url                      = $context['url'];
+	$lastread                 = $context['lastread'];
+	$alert_emails             = $context['alert_emails'];
+	$alert_bcc_emails         = $context['alert_bcc_emails'];
+	$warning_emails           = $context['warning_emails'];
+	$warning_bcc_emails       = $context['warning_bcc_emails'];
 
 	switch ($thold_data['thold_type']) {
 		case 0:	// hi/low
@@ -2662,14 +2638,7 @@ function thold_check_threshold(&$thold_data) {
 							logger($subject, $url, $syslog_priority, $syslog_facility);
 						}
 
-						$notify_list_id = $thold_data['notify_warning'];
-						$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-						if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
-							$message = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-						}
+						$message = thold_mail_notification($warning_emails, $warning_bcc_emails, $subject, 'warning', $thold_data['notify_warning'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 						$save = [
 							'class'               => 'warn',
@@ -2724,14 +2693,7 @@ function thold_check_threshold(&$thold_data) {
 					$subject = get_email_subject('ALERT > WARNING', false, $lastread, $ra, $warning_breach_up, $thold_data);
 
 					if (!$suspend_notify && !$maint_dev) {
-						$notify_list_id = $thold_data['notify_alert'];
-						$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-						if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-							$message = get_thold_warning_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-							thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-						}
+						$message = thold_mail_notification($alert_emails, $alert_bcc_emails, $subject, 'warning', $thold_data['notify_alert'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 						if ($notify_different) {
 							$notify_list_id = $thold_data['notify_warning'];
@@ -2982,14 +2944,7 @@ function thold_check_threshold(&$thold_data) {
 								logger($subject, $url, $syslog_priority, $syslog_facility);
 							}
 
-							$notify_list_id = $thold_data['notify_alert'];
-							$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-							if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-								$message = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-								thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-							}
+							$message = thold_mail_notification($alert_emails, $alert_bcc_emails, $subject, 'restoral', $thold_data['notify_alert'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 							if ($notify_different) {
 								$notify_list_id = $thold_data['notify_warning'];
@@ -3100,14 +3055,7 @@ function thold_check_threshold(&$thold_data) {
 								logger($subject, $url, $syslog_priority, $syslog_facility);
 							}
 
-							$notify_list_id = $thold_data['notify_alert'];
-							$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-							if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-								$message = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-								thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-							}
+							$message = thold_mail_notification($alert_emails, $alert_bcc_emails, $subject, 'alert', $thold_data['notify_alert'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 							if ($notify_different) {
 								$notify_list_id = $thold_data['notify_warning'];
@@ -3329,14 +3277,7 @@ function thold_check_threshold(&$thold_data) {
 							logger($subject, $url, $syslog_priority, $syslog_facility);
 						}
 
-						$notify_list_id = $thold_data['notify_alert'];
-						$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
-
-						if (trim($alert_emails) != '' && $thold_data['acknowledgment'] == '') {
-							$message = get_thold_alert_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
-
-							thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
-						}
+						$message = thold_mail_notification($alert_emails, $alert_bcc_emails, $subject, 'alert', $thold_data['notify_alert'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
 						if ($notify_different) {
 							$notify_list_id = $thold_data['notify_warning'];
@@ -4124,12 +4065,10 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		$queue            = read_config_option('thold_notification_queue');
 
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
-			// Expand before the tags, so quoting is applied to the final text.
-			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_high']);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
-			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
+			$cmd = thold_expand_string($thold_data, $cmd);
 
-			// thold_set_environ calls thold_putenv which calls putenv(); exec() inherits the process environment
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
 			if ($queue == 'on') {
@@ -4141,18 +4080,15 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; substituted values are quoted by thold_replace_threshold_tags
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; $cmd is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
 			}
 
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
-			// Expand before the tags, so quoting is applied to the final text.
-			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_low']);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_expand_string($thold_data, $cmd);
 
-			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
-
-			// thold_set_environ calls thold_putenv which calls putenv(); exec() inherits the process environment
-			$environment = thold_set_environ($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
 			if ($queue == 'on') {
 				$data = [
@@ -4163,18 +4099,15 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; substituted values are quoted by thold_replace_threshold_tags
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; $cmd is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
 			}
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
-			// Expand before the tags, so quoting is applied to the final text.
-			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_norm']);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_expand_string($thold_data, $cmd);
 
-			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
-
-			// thold_set_environ calls thold_putenv which calls putenv(); exec() inherits the process environment
-			$environment = thold_set_environ($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
 			if ($queue == 'on') {
 				$data = [
@@ -4185,19 +4118,14 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 				thold_notification_add('thold_cmd', $data, 'id', 0, $h);
 			} else {
-				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; substituted values are quoted by thold_replace_threshold_tags
+				exec($cmd, $output, $return); // nosemgrep: php.lang.security.exec-use.exec-use -- admin-configured alert command; $cmd is built from thold_replace_threshold_tags + thold_expand_string with cacti_escapeshellarg protection
 			}
 
 			$command_executed = true;
 		}
 
-		/*
-		 * Topic has to be thold_cmd: thold_process_command_output() dispatches
-		 * on it, and 'thold' matched no branch, so an inline trigger command
-		 * logged neither its exit status nor its output.
-		 */
-		if ($queue != 'on' && $command_executed) {
-			thold_process_command_output($output, $return, 'thold_cmd', $thold_data, $cmd);
+		if ($queue == '' && $command_executed) {
+			thold_process_command_output($output, $return, 'thold', $thold_data, $cmd);
 		}
 	}
 }
@@ -4311,39 +4239,8 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	return $environment;
 }
 
-/**
- * Substitute the <TAG> placeholders in a notification or trigger-command
- * template.
- *
- * With $shell set, every substituted value is quoted with
- * cacti_escapeshellarg() and the result is safe to hand to exec(); the
- * <URL> tag also resolves to a bare URL rather than an anchor. Without it the
- * result is raw text for an email or the web UI.
- *
- * Note that the thold_replacement_text plugin hook runs on the finished string,
- * after escaping, so a hook that rewrites a shell template is responsible for
- * its own quoting.
- *
- * @param string               $text             Template containing <TAG> placeholders.
- * @param array<string, mixed> $thold            Threshold row, by reference for the hook.
- * @param array<string, mixed> $h                Device row, by reference for the hook.
- * @param mixed                $currentval       Reading that triggered the notification.
- * @param int                  $local_graph_id   Graph the threshold belongs to.
- * @param string               $data_source_name Data source the threshold reads.
- * @param bool                 $shell            Quote substituted values for a shell command.
- *
- * @return string
- */
-function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false) {
+function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
 	global $thold_types;
-
-	// When building a shell command (trigger_cmd_*), escape every substituted
-	// value with cacti_escapeshellarg() so device/user-derived data cannot break
-	// out of the admin-configured command line. Email/HTML callers use the
-	// default $shell = false and are unaffected.
-	$esc = static function ($value) use ($shell) {
-		return $shell ? cacti_escapeshellarg((string) $value) : $value;
-	};
 
 	if (substr(read_config_option('base_url'), 0, 4) != 'http') {
 		if (read_config_option('force_https') == 'on') {
@@ -4367,25 +4264,25 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	}
 
 	// Do some replacement of variables
-	$text = thold_str_replace('<DESCRIPTION>',   $esc($h['description']), $text);
-	$text = thold_str_replace('<HOSTNAME>',      $esc($h['hostname']), $text);
-	$text = thold_str_replace('<LOCATION>',      $esc($h['location']), $text);
-	$text = thold_str_replace('<SITE>',          $esc($site), $text);
+	$text = thold_str_replace('<DESCRIPTION>',   $h['description'], $text);
+	$text = thold_str_replace('<HOSTNAME>',      $h['hostname'], $text);
+	$text = thold_str_replace('<LOCATION>',      $h['location'], $text);
+	$text = thold_str_replace('<SITE>',          $site, $text);
 	$text = thold_str_replace('<GRAPHID>',       $local_graph_id, $text);
 	$text = thold_str_replace('<THOLD_ID>',      $thold['id'], $text);
 
-	$text = thold_str_replace('<CURRENTVALUE>',  $esc($currentval), $text);
-	$text = thold_str_replace('<THRESHOLDNAME>', $esc($thold['name_cache']), $text);
-	$text = thold_str_replace('<DSNAME>',        $esc($data_source_name), $text);
+	$text = thold_str_replace('<CURRENTVALUE>',  $currentval, $text);
+	$text = thold_str_replace('<THRESHOLDNAME>', $thold['name_cache'], $text);
+	$text = thold_str_replace('<DSNAME>',        $data_source_name, $text);
 
 	if (isset($thold_types[$thold['thold_type']])) {
-		$text = thold_str_replace('<THOLDTYPE>', $esc($thold_types[$thold['thold_type']]), $text);
+		$text = thold_str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);
 	}
 
-	$text = thold_str_replace('<NOTES>',         $esc($thold['notes']), $text);
-	$text = thold_str_replace('<DNOTES>',        $esc($thold['dnotes']), $text);
-	$text = thold_str_replace('<DEVICENOTE>',    $esc($thold['dnotes']), $text);
-	$text = thold_str_replace('<EXTERNALID>',    $esc($thold['external_id']), $text);
+	$text = thold_str_replace('<NOTES>',         $thold['notes'], $text);
+	$text = thold_str_replace('<DNOTES>',        $thold['dnotes'], $text);
+	$text = thold_str_replace('<DEVICENOTE>',    $thold['dnotes'], $text);
+	$text = thold_str_replace('<EXTERNALID>',    $thold['external_id'], $text);
 
 	if ($thold['thold_type'] == 0) {
 		$text = thold_str_replace('<HI>',        $thold['thold_hi'], $text);
@@ -4396,7 +4293,7 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 		$text = thold_str_replace('<HI>',        $thold['time_hi'], $text);
 		$text = thold_str_replace('<LOW>',       $thold['time_low'], $text);
 		$text = thold_str_replace('<TRIGGER>',   $thold['time_fail_trigger'], $text);
-		$text = thold_str_replace('<DURATION>',  $esc(plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time')), $text);
+		$text = thold_str_replace('<DURATION>',  plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time'), $text);
 	} else {
 		$text = thold_str_replace('<HI>',        '', $text);
 		$text = thold_str_replace('<LOW>',       '', $text);
@@ -4408,12 +4305,7 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	$text = thold_str_replace('<DATE>',          date(CACTI_DATE_TIME_FORMAT), $text);
 	$text = thold_str_replace('<DATE_RFC822>',   date(DATE_RFC822), $text);
 
-	if ($shell) {
-		// An anchor in a command line would be parsed as redirections, so a trigger command gets the bare URL.
-		$text = thold_str_replace('<URL>', $esc("$httpurl/graph.php?local_graph_id=$local_graph_id"), $text);
-	} else {
-		$text = thold_str_replace('<URL>', "<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . '</a>', $text);
-	}
+	$text = thold_str_replace('<URL>', "<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . '</a>', $text);
 
 	$data = [
 		'thold_data' => $thold,
@@ -4975,13 +4867,21 @@ function thold_rpn($x, $y, $z, $local_data_id = 0) {
 			break;
 		case 4:
 			if ($y == 0) {
-				return (-1);
+				cacti_log("WARNING: Erroneous CDEF logic, division by zero. Data ID $local_data_id", false, 'THOLD');
+
+				return '';
 			}
 
 			return $x / $y;
 
 			break;
 		case 5:
+			if ((int) $y == 0) {
+				cacti_log("WARNING: Erroneous CDEF logic, modulo by zero. Data ID $local_data_id", false, 'THOLD');
+
+				return '';
+			}
+
 			return $x % $y;
 
 			break;
@@ -5049,8 +4949,9 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 
 	$last_time_entry = thold_rrd_last($local_data_id);
 
-	// This should fix and 'did you really mean month 899 errors', this is because your RRD has not polled yet
-	if ($last_time_entry == -1) {
+	// This should fix and 'did you really mean month 899 errors', this is because your RRD has not polled yet.
+	// A missing or unreadable RRD makes rrdtool print nothing, which is not a timestamp either.
+	if (!is_numeric($last_time_entry) || $last_time_entry == -1) {
 		$last_time_entry = time();
 	}
 
@@ -5072,11 +4973,13 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 		return 0;
 	}
 
+	// array_search() reports a miss as false. Testing for null let the miss
+	// through, and $result['values'][false] then read index 0, so a lookup for
+	// a data source that does not exist returned the first one's value.
 	$idx = array_search($data_template_rrd_id, $result['data_source_names'], true);
 
 	// Return Blank if the value was not found (Cache Cleared?)
-
-	if (!isset($result['values']) || $idx === null || !cacti_sizeof($result['values'][$idx])) {
+	if ($idx === false || !isset($result['values'][$idx]) || !cacti_sizeof($result['values'][$idx])) {
 		return 0;
 	}
 
@@ -8519,12 +8422,19 @@ function thold_rlike_clause($value) {
 	return 'RLIKE ' . db_qstr($value);
 }
 
-function thold_str_replace($search, $replace, $subject) {
-	if (empty($replace) || $replace === 0) {
-		$replace = '';
-	}
-
-	return str_replace($search, $replace, $subject);
+/**
+ * Substitute one tag, rendering an absent value as an empty string.
+ *
+ * Only null and false count as absent. Zero is a legitimate reading, and
+ * blanking it produced alert bodies reading "Current value is " for exactly
+ * the case an operator most needs to see.
+ *
+ * @param string $search  Tag to replace.
+ * @param mixed  $replace Value to substitute.
+ * @param string $subject Text containing the tag.
+ */
+function thold_str_replace(string $search, $replace, string $subject): string {
+	return str_replace($search, $replace ?? '', $subject);
 }
 
 function thold_template_import($xml_data) {
