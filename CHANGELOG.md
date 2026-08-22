@@ -1,6 +1,11 @@
 ## ChangeLog
 
 --- develop ---
+* issue: Drain only the notifications this run claimed (PR #804)
+* issue: Correct counter delta, wrap modulus and percent denominator (PR #791)
+* issue: Keep zero readings and stop falling back to the wrong data source (PR #790)
+* issue: Correct the expression evaluator against rrdtool semantics (PR #788)
+* issue: Thold integration dependency installation (PR #777)
 
 * issue#686: Applying a templated threshold to a graph via the wrench icon, creates a duplicate graph
 * issue#707: Excessive timeout for row caching prevents data from being updated timely
