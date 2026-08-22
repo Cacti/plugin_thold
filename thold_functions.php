@@ -8402,6 +8402,22 @@ function thold_get_cached_name(&$thold_data) {
 }
 
 /**
+ * Quote a value for an RLIKE comparison using the hardened core helper when
+ * available while retaining compatibility with older supported Cacti builds.
+ *
+ * @param string $value Raw filter value.
+ *
+ * @return string RLIKE operator and quoted operand.
+ */
+function thold_rlike_clause($value) {
+	if (function_exists('db_qstr_rlike')) {
+		return db_qstr_rlike($value);
+	}
+
+	return 'RLIKE ' . db_qstr($value);
+}
+
+/**
  * Substitute one tag, rendering an absent value as an empty string.
  *
  * Only null and false count as absent. Zero is a legitimate reading, and
