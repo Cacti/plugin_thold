@@ -149,7 +149,18 @@ jobs:
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          sudo composer install --prefer-dist --no-progress
+          for attempt in 1 2 3; do
+            if sudo composer install --prefer-dist --no-progress --no-interaction; then
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 3 ]; then
+              sleep 10
+            fi
+          done
+
+          echo 'Composer install failed after three attempts.' >&2
+          exit 1
         fi
     
     - name: Create Cacti config.php
