@@ -8402,6 +8402,27 @@ function thold_get_cached_name(&$thold_data) {
 }
 
 /**
+ * Quote a user-supplied value for use as the operand of an RLIKE comparison.
+ *
+ * Cacti 1.2.31 added db_qstr_rlike() as the remediation for GHSA-69gg-xrh3-gp82:
+ * on top of quoting, it caps the operand at 255 bytes and strips the alternation
+ * and quantifier characters that made the regular expression a denial-of-service
+ * vector. The plugin still supports 1.2.25, which predates that helper, so fall
+ * back to plain quoting there.
+ *
+ * @param string $value Raw filter value.
+ *
+ * @return string RLIKE operator and quoted operand, ready to concatenate.
+ */
+function thold_rlike_clause($value) {
+	if (function_exists('db_qstr_rlike')) {
+		return db_qstr_rlike($value);
+	}
+
+	return 'RLIKE ' . db_qstr($value);
+}
+
+/**
  * Substitute one tag, rendering an absent value as an empty string.
  *
  * Only null and false count as absent. Zero is a legitimate reading, and
