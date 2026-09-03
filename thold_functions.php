@@ -2686,8 +2686,8 @@ function thold_check_threshold(&$thold_data) {
 						'current'         => $thold_data['lastread'],
 						'status'          => ($ra ? ST_NOTIFYRAW : ST_NOTIFYWA),
 						'description'     => ($maint_dev ? $subject . '. ' . __('Only logging, maint device', 'thold') : $subject),
-						'emails'          => $alert_emails,
-						'bcc_emails'      => $alert_bcc_emails]
+						'emails'          => $warning_emails,
+						'bcc_emails'      => $warning_bcc_emails]
 					);
 				} elseif (($thold_data['thold_warning_fail_count'] >= $warning_trigger) && ($thold_data['thold_fail_count'] >= $trigger)) {
 					$subject = get_email_subject('ALERT > WARNING', false, $lastread, $ra, $warning_breach_up, $thold_data);
