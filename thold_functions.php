@@ -338,6 +338,53 @@ function thold_expression_rpn_pop(&$stack) {
 	}
 }
 
+/**
+ * thold_rpn_math_unary - safely evaluates a unary math function
+ * without using eval(). The operator must be one of the whitelisted
+ * RPN unary math function names (SIN, COS, TAN, ATAN, SQRT, FLOOR,
+ * CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG).
+ *
+ * @param string $operator The function name
+ * @param mixed  $v1        The operand (validated numeric)
+ *
+ * @return mixed The result of the function call
+ */
+function thold_rpn_math_unary($operator, $v1) {
+	global $rpn_error;
+
+	switch ($operator) {
+		case 'SIN':
+			return sin($v1);
+		case 'COS':
+			return cos($v1);
+		case 'TAN':
+			return tan($v1);
+		case 'ATAN':
+			return atan($v1);
+		case 'SQRT':
+			return sqrt($v1);
+		case 'FLOOR':
+			return floor($v1);
+		case 'CEIL':
+			return ceil($v1);
+		case 'DEG2RAD':
+			return deg2rad($v1);
+		case 'RAD2DEG':
+			return rad2deg($v1);
+		case 'ABS':
+			return abs($v1);
+		case 'EXP':
+			return exp($v1);
+		case 'LOG':
+			return log($v1);
+		default:
+			cacti_log("ERROR: RPN unknown unary operator '$operator'", false, 'THOLD');
+			$rpn_error = true;
+
+			return 0;
+	}
+}
+
 function thold_expression_math_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -400,7 +447,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 			$v1 = thold_expression_rpn_pop($stack);
 
 			if (!$rpn_error) {
-				eval('$v2 = ' . $operator . '(' . $v1 . ');'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math function names by the parser above
+				$v2 = thold_rpn_math_unary($operator, $v1);
 				array_push($stack, $v2);
 			}
 
