@@ -338,6 +338,41 @@ function thold_expression_rpn_pop(&$stack) {
 	}
 }
 
+/**
+ * thold_rpn_math_binary - safely evaluates a binary arithmetic operation
+ * without using eval(). The operator must be one of the whitelisted RPN
+ * math tokens (+, -, *, /, %, ^).
+ *
+ * @param string $operator The arithmetic operator
+ * @param mixed  $v2        The left operand (validated numeric)
+ * @param mixed  $v1        The right operand (validated numeric)
+ *
+ * @return mixed The result of the operation
+ */
+function thold_rpn_math_binary($operator, $v2, $v1) {
+	global $rpn_error;
+
+	switch ($operator) {
+		case '+':
+			return $v2 + $v1;
+		case '-':
+			return $v2 - $v1;
+		case '*':
+			return $v2 * $v1;
+		case '/':
+			return $v2 / $v1;
+		case '%':
+			return $v2 % $v1;
+		case '^':
+			return pow($v2, $v1);
+		default:
+			cacti_log("ERROR: RPN unknown binary operator '$operator'", false, 'THOLD');
+			$rpn_error = true;
+
+			return 0;
+	}
+}
+
 function thold_expression_math_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -375,7 +410,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 			if ($rpn_evaled) {
 				array_push($stack, $v3);
 			} elseif (!$rpn_error) {
-				eval('$v3 = ' . $v2 . ' ' . $operator . ' ' . $v1 . ';'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math tokens by the parser above
+				$v3 = thold_rpn_math_binary($operator, $v2, $v1);
 
 				if ($v3 == '') {
 					$v3 = 0;
