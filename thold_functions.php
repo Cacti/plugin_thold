@@ -3365,7 +3365,7 @@ function thold_check_threshold(&$thold_data) {
 				 * we should only re-alert X minutes after last email, not every 5 pollings, etc...
 				 * re-alert?
 				 */
-				$realerttime   = ($thold_data['time_warning_fail_length'] - 1) * $step;
+				$realerttime   = ($thold_data['repeat_alert'] - 1) * $step;
 				$lastemailtime = db_fetch_cell_prepared('SELECT time
 				FROM plugin_thold_log
 				WHERE threshold_id = ?
@@ -3374,7 +3374,7 @@ function thold_check_threshold(&$thold_data) {
 				LIMIT 1',
 					[$thold_data['id'], ST_NOTIFYRAW, ST_NOTIFYWA]);
 
-				$ra = ($warning_failures > $warning_trigger && $thold_data['time_warning_fail_length'] && !empty($lastemailtime) && ($lastemailtime + $realerttime <= time()));
+				$ra = ($warning_failures > $warning_trigger && $thold_data['repeat_alert'] && !empty($lastemailtime) && ($lastemailtime + $realerttime <= time()));
 
 				if (!$maint_dev) {
 					$warning_failures++;
