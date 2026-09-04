@@ -837,9 +837,186 @@ function thold_counter_wrap_delta($oldvalue, $newvalue) {
 	return (4294967296 - $oldvalue) + $newvalue;
 }
 
+/**
+ * Whether a valid current sample predates the stored sample clock.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param array<string,mixed> $item
+ * @param int                 $currenttime
+ *
+ * @return bool
+ */
+function thold_sample_clock_moved_backward(array $thold_data, array $item, $currenttime) {
+	$name        = (string) ($thold_data['name'] ?? '');
+	$currenttime = (int) $currenttime;
+	$lasttime    = (int) ($thold_data['lasttime'] ?? 0);
+
+	return $name !== ''
+		&& $currenttime > 0
+		&& $lasttime > 0
+		&& $currenttime < $lasttime
+		&& isset($item[$name])
+		&& is_numeric($item[$name]);
+}
+
+/**
+ * Persist a raw sample and its timestamp as one causal pair.
+ *
+ * `$thold_data` must provide `name`, `lasttime`, and `oldvalue`; absent values
+ * fail closed to an unavailable prior sample.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param array<string,mixed> $item
+ * @param int                 $currenttime
+ *
+ * @return array{lasttime:mixed,oldvalue:mixed}
+ */
+function thold_sample_persistence(array $thold_data, array $item, $currenttime) {
+	$name        = (string) ($thold_data['name'] ?? '');
+	$currenttime = (int) $currenttime;
+
+	$lasttime = (int) ($thold_data['lasttime'] ?? 0);
+
+	if ($name !== '' && $currenttime > 0 && $currenttime !== $lasttime && isset($item[$name]) && is_numeric($item[$name])) {
+		if (thold_sample_clock_moved_backward($thold_data, $item, $currenttime)) {
+			cacti_log(sprintf(
+				'WARNING: Threshold %s sample clock moved backwards; re-anchoring its value and timestamp.',
+				$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
+			), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
+		}
+
+		return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
+	}
+
+	return [
+		'lasttime' => $lasttime,
+		'oldvalue' => $thold_data['oldvalue'] ?? null,
+	];
+}
+
+/**
+ * Log only the transition from a numeric result to an unavailable result.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param mixed               $currentval
+ *
+ * @return void
+ */
+function thold_log_unavailable_transition(array $thold_data, $currentval) {
+	if (is_numeric($currentval) || !is_numeric($thold_data['lastread'] ?? null)) {
+		return;
+	}
+
+	cacti_log(sprintf(
+		'WARNING: Threshold %s (%s) current sample is unavailable; preserving its alert state.',
+		$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown'),
+		$thold_data['name_cache'] ?? ($thold_data['thold_name'] ?? ($thold_data['name'] ?? 'unknown'))
+	), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
+}
+
+/**
+ * Persist one daemon sample without manufacturing a zero SQL timestamp.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param array<string,mixed> $item
+ * @param mixed               $currentval
+ * @param int                 $currenttime
+ *
+ * @return bool
+ */
+function thold_daemon_persist_sample(array $thold_data, array $item, $currentval, $currenttime) {
+	$id     = (int) ($thold_data['thold_id'] ?? 0);
+	$tcheck = 1;
+
+	if ($id <= 0) {
+		return false;
+	}
+
+	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
+
+	if (!thold_sample_clock_moved_backward($thold_data, $item, $currenttime)) {
+		thold_log_unavailable_transition($thold_data, $currentval);
+	}
+
+	if ($sample['lasttime'] <= 0) {
+		return db_execute_prepared('UPDATE thold_data
+			SET tcheck = ?, lastread = ?
+			WHERE id = ?',
+			[$tcheck, $currentval, $id]);
+	}
+
+	return db_execute_prepared('UPDATE thold_data
+		SET tcheck = ?, lastread = ?,
+		lasttime = FROM_UNIXTIME(?), oldvalue = ?
+		WHERE id = ?',
+		[$tcheck, $currentval, $sample['lasttime'], $sample['oldvalue'], $id]);
+}
+
+/**
+ * Build one pure poller batching result for sample or status-only updates.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param array<string,mixed> $item
+ * @param mixed               $currentval
+ * @param int                 $currenttime
+ *
+ * @return array{sample_row:string|null,status_row:array{id:int,tcheck:int,lastread:mixed}|null}
+ */
+function thold_polling_sample_row(array $thold_data, array $item, $currentval, $currenttime) {
+	$id     = (int) ($thold_data['id'] ?? 0);
+	$tcheck = 1;
+
+	if ($id <= 0) {
+		return ['sample_row' => null, 'status_row' => null];
+	}
+
+	$sample = thold_sample_persistence($thold_data, $item, $currenttime);
+
+	if (!thold_sample_clock_moved_backward($thold_data, $item, $currenttime)) {
+		thold_log_unavailable_transition($thold_data, $currentval);
+	}
+
+	if ($sample['lasttime'] <= 0) {
+		return [
+			'sample_row' => null,
+			'status_row' => ['id' => $id, 'tcheck' => $tcheck, 'lastread' => $currentval],
+		];
+	}
+
+	return [
+		'sample_row' => '(' . $id . ', ' . $tcheck . ', ' . db_qstr($currentval)
+			. ', FROM_UNIXTIME(' . $sample['lasttime'] . '), ' . db_qstr($sample['oldvalue']) . ')',
+		'status_row' => null,
+	];
+}
+
+/**
+ * Remove rows deleted during polling after either update batch ran.
+ *
+ * @param bool $has_updates
+ *
+ * @return void
+ */
+function thold_polling_cleanup($has_updates) {
+	if (!$has_updates) {
+		return;
+	}
+
+	db_execute_prepared('DELETE FROM thold_data WHERE local_data_id = 0');
+
+	if (db_affected_rows() > 0) {
+		set_config_option('time_last_change_thold', time());
+	}
+}
+
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
 	// adjust the polling interval by the last read, if applicable
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
+	$poller_interval = read_config_option('poller_interval');
+
+	if (!is_numeric($poller_interval) || $poller_interval <= 0) {
+		$poller_interval = 300;
+	}
 
 	if ($thold_data['lasttime'] > 0) {
 		if (is_numeric($currenttime)) {
@@ -851,8 +1028,32 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 		$step = $thold_data['rrd_step'];
 	}
 
-	if (empty($step)) {
-		$step = read_config_option('poller_interval');
+	$elapsed_step = $step;
+
+	if (!is_numeric($step) || $step <= 0) {
+		$step = $poller_interval;
+	}
+
+	$rrd_step = is_numeric($thold_data['rrd_step']) && $thold_data['rrd_step'] > 0
+		? (float) $thold_data['rrd_step']
+		: 0.0;
+	$sample_interval        = max($rrd_step, (float) $poller_interval);
+	// Use a two-cycle floor so normal scheduler jitter does not discard the
+	// only usable pair even when an RRD heartbeat is tighter than poll cadence.
+	$rrd_heartbeat          = is_numeric($thold_data['rrd_heartbeat'] ?? null) && $thold_data['rrd_heartbeat'] > 0
+		? max((float) $thold_data['rrd_heartbeat'], 2 * $sample_interval)
+		: 2 * $sample_interval;
+	$previous_sample_usable = $thold_data['lasttime'] > 0
+		&& is_numeric($elapsed_step)
+		&& $elapsed_step > 0
+		&& $elapsed_step <= $rrd_heartbeat;
+
+	if ($thold_data['lasttime'] > 0 && is_numeric($elapsed_step) && $elapsed_step > $rrd_heartbeat && function_exists('thold_debug')) {
+		thold_debug(sprintf(
+			'Threshold sample gap of %s seconds exceeds the effective heartbeat of %s seconds.',
+			$elapsed_step,
+			$rrd_heartbeat
+		), 'thold');
 	}
 
 	$currentval = '';
@@ -864,7 +1065,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 			switch ($thold_data['data_source_type_id']) {
 				case 2:	// COUNTER
 					// A previous reading of zero is a real reading, not a missing one.
-					if (is_numeric($thold_data['oldvalue']) && $thold_data['oldvalue'] !== '') {
+					if ($previous_sample_usable && is_numeric($thold_data['oldvalue']) && $thold_data['oldvalue'] !== '') {
 						if ($item[$thold_data['name']] >= $thold_data['oldvalue']) {
 							// Everything is Normal
 							$currentval = $item[$thold_data['name']] - $thold_data['oldvalue'];
@@ -873,7 +1074,7 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 							$currentval = thold_counter_wrap_delta($thold_data['oldvalue'], $item[$thold_data['name']]);
 						}
 
-						if (strpos($thold_data['rrd_maximum'], '|query_') !== false) {
+						if (strpos((string) $thold_data['rrd_maximum'], '|query_') !== false) {
 							$data_local = db_fetch_row_prepared('SELECT *
 							FROM data_local
 							WHERE id = ?',
@@ -898,25 +1099,34 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 							}
 						}
 
+						$maximum_value = $thold_data['rrd_maximum'] ?? '';
+						$rrd_maximum   = is_numeric($maximum_value) ? (float) $maximum_value : 0.0;
+
 						// assume counter reset if greater than max value
-						if ($thold_data['rrd_maximum'] > 0 && ($currentval / $step) > $thold_data['rrd_maximum']) {
+						if ($rrd_maximum > 0 && ($currentval / $step) > $rrd_maximum) {
 							$currentval = $item[$thold_data['name']] / $step;
-						} elseif ($thold_data['rrd_maximum'] == 0 && $currentval > 4.25E+9) {
+						} elseif ($rrd_maximum === 0.0 && $currentval > 4.25E+9 * max(1, $step / $sample_interval)) {
 							$currentval = $item[$thold_data['name']] / $step;
 						} else {
 							$currentval = $currentval / $step;
 						}
 					} else {
-						$currentval = 0;
+						$currentval = '';
 					}
 
 					break;
 				case 3:	// DERIVE
-					$currentval = ($item[$thold_data['name']] - $thold_data['oldvalue']) / $step;
+					if ($previous_sample_usable && is_numeric($thold_data['oldvalue'])) {
+						$currentval = ($item[$thold_data['name']] - $thold_data['oldvalue']) / $step;
+					} else {
+						$currentval = '';
+					}
 
 					break;
 				case 4:	// ABSOLUTE
-					$currentval = $item[$thold_data['name']] / $step;
+					$currentval = ($thold_data['lasttime'] <= 0 || $previous_sample_usable)
+						? $item[$thold_data['name']] / $step
+						: '';
 
 					break;
 				case 1:	// GAUGE
@@ -972,7 +1182,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					td.host_id, td.cdef, td.local_data_id,
 					td.data_template_rrd_id, td.lastread, UNIX_TIMESTAMP(td.lasttime) AS lasttime,
 					td.oldvalue, dtr.data_source_name as name,
-					dtr.data_source_type_id, dtd.rrd_step, dtr.rrd_maximum
+					dtr.data_source_type_id, dtd.rrd_step, dtr.rrd_maximum, dtr.rrd_heartbeat
 					FROM thold_data AS td
 					LEFT JOIN data_template_rrd AS dtr
 					ON dtr.id = td.data_template_rrd_id
@@ -982,34 +1192,64 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					AND td.local_data_id = ?',
 					[$dsname, $thold['local_data_id']]);
 
-				$value = '';
+				if (!cacti_sizeof($thold_item)) {
+					$current_sample = $rrd_reindexed[$thold['local_data_id']][$dsname] ?? '';
 
-				if (cacti_sizeof($thold_item)) {
-					$item        = [];
-					$currenttime = 0;
-					$value       = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
+					if (is_numeric($current_sample)) {
+						$source = db_fetch_row_prepared('SELECT data_source_type_id
+							FROM data_template_rrd
+							WHERE local_data_id = ?
+							AND data_source_name = ?',
+							[$thold['local_data_id'], $dsname]);
+
+						if (cacti_sizeof($source) && $source['data_source_type_id'] == 1) {
+							$value = $current_sample;
+						} elseif (cacti_sizeof($source)) {
+							$value = '';
+
+							if (read_config_option('dsstats_enable') == 'on') {
+								$value = db_fetch_cell_prepared('SELECT calculated
+									FROM data_source_stats_hourly_last
+									WHERE local_data_id = ?
+									AND rrd_name = ?',
+									[$thold['local_data_id'], $dsname]);
+							}
+
+							if (!is_numeric($value) || $value == -90909090909) {
+								$value = get_current_value($thold['local_data_id'], $dsname, 0, '');
+							}
+						} else {
+							$value = '';
+						}
+
+						if (is_numeric($value)) {
+							$expression[$key] = $value;
+
+							continue;
+						}
+					}
+
+					if (is_numeric($thold['lastread'] ?? null)) {
+						cacti_log(sprintf(
+							'WARNING: Threshold %s expression source %s is unavailable for local data ID %s.',
+							$thold['id'] ?? 'unknown',
+							$dsname,
+							$thold['local_data_id'] ?? 'unknown'
+						), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
+					}
+
+					return '';
 				}
 
-				// Previous returns 'U' after device recovers.  Try alternate
-				if (empty($value) || $value == 'U') {
-					if (read_config_option('dsstats_enable') == 'on') {
-						$value = db_fetch_cell_prepared('SELECT calculated
-							FROM data_source_stats_hourly_last
-							WHERE local_data_id = ?
-							AND rrd_name = ?',
-							[$thold['local_data_id'], $dsname]);
-					}
+				$item        = [];
+				$currenttime = 0;
+				$value       = thold_get_currentval($thold_item, $rrd_reindexed, $rrd_time_reindexed, $item, $currenttime);
 
-					if (empty($value) || $value == 'U' || $value == '-90909090909') {
-						$value = get_current_value($thold['local_data_id'], $dsname);
-					}
+				if (!is_numeric($value)) {
+					return '';
 				}
 
 				$expression[$key] = $value;
-
-				if ($expression[$key] == '') {
-					$expression[$key] = '0';
-				}
 			} elseif (strpos($item, '|') !== false) {
 				// Remove invalid characters
 				$item = str_replace('\\', '', $item);
@@ -1269,7 +1509,9 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 		// forced the percentage to zero and kept a low threshold alerting.
 		$t = $rrd_reindexed[$thold['local_data_id']][$thold['percent_ds']];
 
-		if (is_numeric($t) && $t != 0) {
+		if (!is_numeric($t)) {
+			$currentval = '';
+		} elseif ($t != 0) {
 			$currentval = ($currentval / $t) * 100;
 		} else {
 			$currentval = 0;
@@ -1284,12 +1526,21 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	$ds = $thold['upper_ds'];
 
-	if (isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
-		$t          = $rrd_reindexed[$thold['local_data_id']][$thold['upper_ds']];
-		$currentval = ($t << 32) + $currentval;
+	if (!is_numeric($currentval)) {
+		return '';
 	}
 
-	return $currentval;
+	if (!isset($rrd_reindexed[$thold['local_data_id']][$ds])) {
+		return '';
+	}
+
+	$t = $rrd_reindexed[$thold['local_data_id']][$thold['upper_ds']];
+
+	if (!is_numeric($t) || $t < 0 || $t > 4294967295) {
+		return '';
+	}
+
+	return ((float) $t * 4294967296) + $currentval;
 }
 
 function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
@@ -2357,6 +2608,11 @@ function thold_check_threshold(&$thold_data) {
 	if (read_config_option('thold_disable_all') == 'on') {
 		thold_debug('Threshold checking is disabled globally');
 
+		return;
+	}
+
+	// An unavailable sample is not evidence that an active alert recovered.
+	if (!is_numeric($thold_data['lastread'])) {
 		return;
 	}
 
@@ -4678,8 +4934,8 @@ function thold_cdef_select_usable_names() {
 }
 
 function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) {
-	if ($value == '') {
-		$value = 0;
+	if (!is_numeric($value)) {
+		return '';
 	}
 
 	$oldvalue = $value;
@@ -4941,7 +5197,7 @@ function thold_rrd_last($local_data_id) {
 	return trim($last_time_entry);
 }
 
-function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
+function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0, $missing_value = 0) {
 	// get the information to populate into the rrd files
 	if (function_exists('boost_check_correct_enabled') && boost_check_correct_enabled()) {
 		boost_process_poller_output($local_data_id);
@@ -4970,7 +5226,7 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 
 	// Return Blank if the data source is not found (Newly created?)
 	if (!isset($result['data_source_names'])) {
-		return 0;
+		return $missing_value;
 	}
 
 	// array_search() reports a miss as false. Testing for null let the miss
@@ -4980,7 +5236,7 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0) {
 
 	// Return Blank if the value was not found (Cache Cleared?)
 	if ($idx === false || !isset($result['values'][$idx]) || !cacti_sizeof($result['values'][$idx])) {
-		return 0;
+		return $missing_value;
 	}
 
 	$value = array_values($result['values'][$idx])[0];

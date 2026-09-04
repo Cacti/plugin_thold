@@ -80,8 +80,8 @@ final class TholdCalculatePercentTest extends TestCase {
 	/**
 	 * @return void
 	 */
-	public function testNonNumericDenominatorGivesZero(): void {
-		$this->assertSame(0, $this->percent('U'));
+	public function testNonNumericDenominatorYieldsTheNoValueSentinel(): void {
+		$this->assertSame('', $this->percent('U'));
 	}
 
 	/**
