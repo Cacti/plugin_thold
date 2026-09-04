@@ -44,7 +44,7 @@ if (!is_readable($expected)) {
 	throw new RuntimeException("Expected Cacti version file is not readable: $expected");
 }
 
-$cacti_version = trim((string) file_get_contents($version));
+$cacti_version    = trim((string) file_get_contents($version));
 $expected_version = trim((string) file_get_contents($expected));
 
 if ($cacti_version === '') {
@@ -75,6 +75,7 @@ $GLOBALS['config'] = [
 	'cacti_version'   => $cacti_version,
 	'cacti_server_os' => 'unix',
 ];
+$GLOBALS['__test_original_base_path'] = $cacti_root;
 
 // thold_expand_string() include_once()s library_path/variables.php at call time.
 $GLOBALS['config']['library_path'] = __DIR__ . '/fixtures/cacti-lib';
@@ -101,6 +102,30 @@ if (!function_exists('db_execute_prepared')) {
 		CactiStubs::record('db_execute_prepared', $sql, $params);
 
 		return CactiStubs::nextReturn('db_execute_prepared', true, $sql);
+	}
+}
+
+if (!function_exists('register_process_start')) {
+	function register_process_start($tasktype, $taskname, $taskid = 0, $timeout = 300) {
+		CactiStubs::record('register_process_start', '', [$tasktype, $taskname, $taskid, $timeout]);
+
+		return CactiStubs::nextReturn('register_process_start', true);
+	}
+}
+
+if (!function_exists('unregister_process')) {
+	function unregister_process($tasktype, $taskname, $taskid = 0, $pid = -1) {
+		CactiStubs::record('unregister_process', '', [$tasktype, $taskname, $taskid, $pid]);
+
+		return CactiStubs::nextReturn('unregister_process', true);
+	}
+}
+
+if (!function_exists('heartbeat_process')) {
+	function heartbeat_process($tasktype, $taskname, $taskid = 0) {
+		CactiStubs::record('heartbeat_process', '', [$tasktype, $taskname, $taskid]);
+
+		return CactiStubs::nextReturn('heartbeat_process', true);
 	}
 }
 

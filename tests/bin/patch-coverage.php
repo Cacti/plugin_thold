@@ -77,6 +77,13 @@ function changed_lines($base_ref) {
 	foreach (explode("\n", $diff) as $line) {
 		if (strncmp($line, '+++ b/', 6) === 0) {
 			$file           = substr($line, 6);
+
+			if (strncmp($file, 'tests/', 6) === 0) {
+				$file = null;
+
+				continue;
+			}
+
 			$changed[$file] = [];
 		} elseif (strncmp($line, '@@', 2) === 0 && $file !== null) {
 			if (preg_match('/\+(\d+)(?:,(\d+))?/', $line, $match)) {
@@ -102,9 +109,10 @@ if ($clover === false) {
 	exit(2);
 }
 
-$covered = 0;
-$total   = 0;
-$missing = [];
+$covered  = 0;
+$total    = 0;
+$missing  = [];
+$measured = [];
 
 foreach ($clover->xpath('//file') as $file) {
 	$path     = (string) $file['name'];
@@ -122,6 +130,8 @@ foreach ($clover->xpath('//file') as $file) {
 		continue;
 	}
 
+	$measured[$relative] = true;
+
 	foreach ($file->line as $line) {
 		$number = (int) $line['num'];
 
@@ -138,6 +148,34 @@ foreach ($clover->xpath('//file') as $file) {
 			$missing[] = $relative . ':' . $number;
 		}
 	}
+}
+
+/*
+ * These entry points require a complete running Cacti and cannot safely be
+ * loaded into the isolated unit process. Keep the exception explicit: any
+ * newly changed production PHP file must either appear in Clover or be added
+ * here with reviewable justification.
+ */
+$unmeasured_allowlist = [
+	// Database migration/schema declarations require a live Cacti database.
+	'includes/database.php',
+	// Authenticated web entry point; its status mapping lives in the covered
+	// thold_notification_queue_status_cells() helper.
+	'notify_queue.php',
+	'thold_notify.php',
+];
+$unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
+$unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));
+
+if ($unmeasured !== []) {
+	print "Changed production PHP files absent from Clover:\n  " . implode("\n  ", $unmeasured) . "\n";
+}
+
+if ($unexpected_unmeasured !== []) {
+	print "FAIL: changed production PHP files are not measured or allowlisted:\n  "
+		. implode("\n  ", $unexpected_unmeasured) . "\n";
+
+	exit(1);
 }
 
 if ($total === 0) {
