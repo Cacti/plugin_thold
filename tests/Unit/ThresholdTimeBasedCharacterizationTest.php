@@ -134,9 +134,14 @@ final class ThresholdTimeBasedCharacterizationTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnknownReadingEmitsNoAlert(): void {
-		$outcome = $this->bounded(['lastread' => 'U'])->poll();
+		$outcome = $this->bounded([
+			'lastread'         => 'U',
+			'thold_alert'      => 2,
+			'thold_fail_count' => 3,
+		])->poll();
 
 		$this->assertSame(0, $outcome->mailCount());
+		$this->assertNull($outcome->persistedAlertState());
 	}
 
 	/**

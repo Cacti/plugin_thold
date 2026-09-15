@@ -27,6 +27,24 @@ and become familiar with its settings.  From there, you can provide overall
 control of thold, and set defaults for things like Email bodies, weekend
 exemptions, alert log retention, logging, etc.
 
+Counter, derive, and absolute rate thresholds preserve the previous value and
+timestamp together when a poll has no numeric sample, preventing the next rate
+from using mismatched interval data. A gap of more than two effective sampling
+intervals (the greater of the RRD step and poller interval), or the configured
+RRD heartbeat when available, is treated as unknown while the current sample
+starts a fresh baseline instead of producing a stale rate. Thresholds with an
+unknown rate remain eligible for the next poll, but that poll preserves the
+existing alert state and writes a warning instead of treating the missing
+sample as a restoral. Warnings are emitted only when the threshold enters the
+unavailable state. A backward sample clock is re-anchored without calculating a
+rate for that cycle, so later samples can recover normally. Expression
+thresholds require a numeric sibling value in the current poll and use its
+cached DSStats rate, with an RRD fallback, even when the sibling has no
+threshold row. This preserves COUNTER and DERIVE rate units without adding an
+rrdtool process per expression during normal operation. They fail closed when
+the current sibling value is unavailable. Gauge readings remain valid across
+such a gap.
+
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a
 pull request with your proposed changes.

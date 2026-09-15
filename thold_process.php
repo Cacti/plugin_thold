@@ -207,22 +207,11 @@ while (true) {
 					$currentval = '';
 				}
 
-				// Carry the previous value forward when this cycle has no reading;
-				// storing a timestamp here corrupts the next delta calculation.
-				if (isset($item[$thold_data['name']])) {
-					$rawvalue = $item[$thold_data['name']];
-				} else {
-					$rawvalue = $thold_data['oldvalue'];
-				}
-
 				thold_daemon_debug(sprintf('Checked Name:%s, Graph:%s, Value:%s, Time:%s', $thold_data['thold_name'], $thold_data['local_graph_id'], $currentval, $currenttime), $thread);
 
-				db_execute_prepared('UPDATE thold_data
-					SET tcheck = 1, lastread = ?,
-					lasttime = FROM_UNIXTIME(?), oldvalue = ?
-					WHERE id = ?',
-					[$currentval, $currenttime, $rawvalue, $thold_data['thold_id']]
-				);
+				if (!thold_daemon_persist_sample($thold_data, $item, $currentval, $currenttime)) {
+					thold_daemon_debug(sprintf('Failed to persist threshold sample for ID %s.', $thold_data['thold_id']), $thread);
+				}
 			}
 
 			$tholds = thold_get_thresholds_tholdcheck($thread, $start_time);
@@ -370,7 +359,7 @@ function thold_get_thresholds_precheck($thread, $start_time) {
 			td.data_template_rrd_id, td.lastread,
 			UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
 			dtr.data_source_name AS name, dtr.data_source_type_id,
-			dtd.rrd_step, dtr.rrd_maximum
+			dtd.rrd_step, dtr.rrd_maximum, dtr.rrd_heartbeat
 			FROM plugin_thold_daemon_data AS tdd
 			INNER JOIN thold_data AS td
 			ON td.id = tdd.id
@@ -391,7 +380,7 @@ function thold_get_thresholds_precheck($thread, $start_time) {
 			td.data_template_rrd_id, td.lastread,
 			UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
 			dtr.data_source_name AS name, dtr.data_source_type_id,
-			dtd.rrd_step, dtr.rrd_maximum
+			dtd.rrd_step, dtr.rrd_maximum, dtr.rrd_heartbeat
 			FROM plugin_thold_daemon_data AS tdd
 			INNER JOIN thold_data AS td
 			ON td.id = tdd.id
