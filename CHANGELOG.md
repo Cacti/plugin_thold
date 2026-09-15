@@ -20,6 +20,7 @@
 * issue#719: Plugin Disabled due to mix of string and int
 * issue: All Columns checkd on Thresholds page
 * issue: Special character previous value handling broken on data query indexes with special characters
+* security: Replace eval() in RPN unary math functions with safe dispatch function (GHSA-4mmp-mv2x-m9f6, CWE-95)
 
 --- 1.8.2 ---
 
