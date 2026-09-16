@@ -86,6 +86,14 @@ db_fetch_row("SELECT * FROM plugin_thold_thresholds WHERE id = $id");
 ### Input Validation and Sanitization
 Sanitize inputs using `sanitize_thold_sort_string()` or Cacti's built-in input validation functions (`get_filter_request_var()`, `get_nfilter_request_var()`); never read `$_GET`/`$_POST` directly.
 
+`get_filter_request_var()` (and its `gfrv()` shorthand, where available) called with only the
+`$name` argument (no regex/filter as the 2nd/3rd argument) already validates the value as numeric
+and returns it as a **string** -- it does not return an int, and it halts execution if the request
+value is not numeric. Because of this, do NOT cast its output to `(int)` when the result is only
+used for string output (e.g. `print`/`echo`, string concatenation, embedding in HTML/JS); the cast
+is redundant. Only cast when the value is genuinely used in an integer/numeric context (e.g.
+arithmetic, strict `===` comparisons).
+
 ## Database Operations
 
 Use Cacti's global database functions: `db_execute_prepared($sql, $params)` for writes, `db_fetch_assoc($sql)` / `db_fetch_cell($sql)` for reads.
