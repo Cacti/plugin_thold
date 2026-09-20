@@ -226,6 +226,123 @@ final class PollerSchedulingTest extends TestCase {
 	}
 
 	/**
+	 * A threshold row shaped like thold_poller_output()'s non-daemon query
+	 * (td/dtr/dtd columns), evaluating quietly as a gauge.
+	 *
+	 * @param array<string, mixed> $overrides
+	 *
+	 * @return array<string, mixed>
+	 */
+	private function pollerThreshold(array $overrides = []) {
+		return $overrides + [
+			'id'                   => 9,
+			'thold_name'           => 'CPU',
+			'local_graph_id'       => 9,
+			'percent_ds'           => '',
+			'expression'           => '',
+			'upper_ds'             => '',
+			'data_type'            => 0,
+			'cdef'                 => 0,
+			'local_data_id'        => 4,
+			'data_template_rrd_id' => 3,
+			'lastread'             => '',
+			'lasttime'             => 0,
+			'oldvalue'             => '',
+			'name'                 => 'traffic_in',
+			'data_source_type_id'  => 1,
+			'rrd_step'             => 300,
+			'rrd_maximum'          => 0,
+			'rrd_heartbeat'        => 600,
+		];
+	}
+
+	/**
+	 * A numeric reading turns into a sample_row, which is written through the
+	 * FROM_UNIXTIME() upsert - not the status-only insert added alongside it.
+	 *
+	 * @return void
+	 */
+	public function testNonDaemonPathPersistsANumericSampleRow(): void {
+		CactiStubs::willReturnFor('db_fetch_assoc', 'dtr.rrd_maximum, dtr.rrd_heartbeat', [
+			$this->pollerThreshold(),
+		]);
+
+		$readings = [
+			['local_data_id' => 4, 'times' => [1700000300 => ['traffic_in' => 55]]],
+		];
+
+		thold_poller_output($readings);
+
+		$upserts = array_values(array_filter(CactiStubs::$calls, static function ($call) {
+			return strpos($call['sql'], 'FROM_UNIXTIME(1700000300)') !== false;
+		}));
+
+		$this->assertCount(1, $upserts);
+
+		$status_inserts = array_filter(CactiStubs::callsTo('db_execute_prepared'), static function ($call) {
+			return strpos($call['sql'], 'INSERT INTO thold_data') !== false && strpos($call['sql'], 'lasttime') === false;
+		});
+
+		$this->assertSame([], array_values($status_inserts));
+	}
+
+	/**
+	 * An unavailable reading (non-numeric raw value) turns into a status-only
+	 * row instead - persisting tcheck/lastread without fabricating a sample
+	 * time, and without touching the FROM_UNIXTIME() upsert.
+	 *
+	 * @return void
+	 */
+	public function testNonDaemonPathPersistsAStatusOnlyRowForAnUnavailableReading(): void {
+		CactiStubs::willReturnFor('db_fetch_assoc', 'dtr.rrd_maximum, dtr.rrd_heartbeat', [
+			$this->pollerThreshold(),
+		]);
+
+		$readings = [
+			['local_data_id' => 4, 'times' => [1700000300 => ['traffic_in' => 'U']]],
+		];
+
+		thold_poller_output($readings);
+
+		$status_inserts = array_values(array_filter(CactiStubs::callsTo('db_execute_prepared'), static function ($call) {
+			return strpos($call['sql'], 'INSERT INTO thold_data') !== false && strpos($call['sql'], 'lasttime') === false;
+		}));
+
+		$this->assertCount(1, $status_inserts);
+		$this->assertSame([9, 1, ''], $status_inserts[0]['params']);
+
+		$sample_upserts = array_filter(CactiStubs::$calls, static function ($call) {
+			return strpos($call['sql'], 'FROM_UNIXTIME') !== false;
+		});
+
+		$this->assertSame([], array_values($sample_upserts));
+	}
+
+	/**
+	 * Either write path counts as an update, so the deleted-tholds cleanup
+	 * still runs afterwards.
+	 *
+	 * @return void
+	 */
+	public function testNonDaemonPathRunsCleanupAfterWriting(): void {
+		CactiStubs::willReturnFor('db_fetch_assoc', 'dtr.rrd_maximum, dtr.rrd_heartbeat', [
+			$this->pollerThreshold(),
+		]);
+
+		$readings = [
+			['local_data_id' => 4, 'times' => [1700000300 => ['traffic_in' => 55]]],
+		];
+
+		thold_poller_output($readings);
+
+		$cleanup = array_filter(CactiStubs::callsTo('db_execute_prepared'), static function ($call) {
+			return strpos($call['sql'], 'DELETE FROM thold_data WHERE local_data_id = 0') !== false;
+		});
+
+		$this->assertCount(1, $cleanup);
+	}
+
+	/**
 	 * A structural guard rather than a behavioural one: the defect is SQL
 	 * operator precedence, and proving it needs a database to run the query
 	 * against. Without the parentheses, AND binds tighter than OR and the
