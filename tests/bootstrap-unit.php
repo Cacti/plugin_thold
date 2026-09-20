@@ -566,3 +566,35 @@ function thold_test_load($path) {
 		}
 	}
 }
+
+/**
+ * Load a plugin source file that only assigns file-scope variables (no
+ * function/class declarations), publishing them to $GLOBALS the same way as
+ * thold_test_load().
+ *
+ * includes/arrays.php is also included with a plain include() (not
+ * include_once()) from several places in thold_functions.php itself (e.g.
+ * thold_log()), keyed off $config['base_path']. Once any test exercises one
+ * of those call sites, PHP's include-once registry considers the file
+ * already included: a later thold_test_load() (require_once) on the same
+ * resolved path silently no-ops and never (re)publishes $thold_types. Using
+ * a plain require() here sidesteps that registry entirely, so re-running it
+ * is always safe and cheap for a file that just assigns arrays.
+ *
+ * @param string $path Absolute path to the file.
+ *
+ * @return void
+ */
+function thold_test_load_always($path) {
+	global $config;
+
+	$__before = get_defined_vars();
+
+	require $path;
+
+	foreach (get_defined_vars() as $__name => $__value) {
+		if (!array_key_exists($__name, $__before) && strncmp($__name, '__', 2) !== 0) {
+			$GLOBALS[$__name] = $__value;
+		}
+	}
+}
