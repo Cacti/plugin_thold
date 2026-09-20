@@ -32,7 +32,9 @@ test('binary operators use the safe dispatcher', function($operator, $left, $rig
 	'multiplication' => ['*', 8, 2, 16],
 	'division'       => ['/', 8, 2, 4],
 	'modulo'         => ['%', 8, 3, 2],
-	'power'          => ['^', 2, 3, 8],
+	// ^ is bitwise XOR (matching the pre-hardening eval('... ^ ...')), not
+	// exponentiation: existing user thresholds rely on that semantic.
+	'bitwise xor'    => ['^', 5, 3, 6],
 ]);
 
 test('unknown binary operators fail closed', function() {
