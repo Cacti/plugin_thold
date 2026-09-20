@@ -30,7 +30,7 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 		self::loadPluginSource('thold_functions.php');
 
 		// Defines $thold_types, which the <THOLDTYPE> substitution reads.
-		self::loadPluginSource('includes/arrays.php');
+		self::loadPluginSourceAlways('includes/arrays.php');
 	}
 
 	/**
