@@ -338,6 +338,53 @@ function thold_expression_rpn_pop(&$stack) {
 	}
 }
 
+/**
+ * thold_rpn_math_unary - safely evaluates a unary math function
+ * without using eval(). The operator must be one of the whitelisted
+ * RPN unary math function names (SIN, COS, TAN, ATAN, SQRT, FLOOR,
+ * CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG).
+ *
+ * @param string $operator The function name
+ * @param mixed  $v1        The operand (validated numeric)
+ *
+ * @return mixed The result of the function call
+ */
+function thold_rpn_math_unary($operator, $v1) {
+	global $rpn_error;
+
+	switch ($operator) {
+		case 'SIN':
+			return sin($v1);
+		case 'COS':
+			return cos($v1);
+		case 'TAN':
+			return tan($v1);
+		case 'ATAN':
+			return atan($v1);
+		case 'SQRT':
+			return sqrt($v1);
+		case 'FLOOR':
+			return floor($v1);
+		case 'CEIL':
+			return ceil($v1);
+		case 'DEG2RAD':
+			return deg2rad($v1);
+		case 'RAD2DEG':
+			return rad2deg($v1);
+		case 'ABS':
+			return abs($v1);
+		case 'EXP':
+			return exp($v1);
+		case 'LOG':
+			return log($v1);
+		default:
+			cacti_log("ERROR: RPN unknown unary operator '$operator'", false, 'THOLD');
+			$rpn_error = true;
+
+			return 0;
+	}
+}
+
 function thold_expression_math_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -406,7 +453,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 			}
 
 			if (!$rpn_error) {
-				eval('$v2 = ' . $operator . '(' . $v1 . ');'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math function names by the parser above
+				$v2 = thold_rpn_math_unary($operator, $v1);
 
 				if (is_nan($v2) || is_infinite($v2)) {
 					cacti_log('ERROR: RPN value: result of "' . $operator . '(' . $v1 . ')" is undefined. Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
@@ -2710,6 +2757,13 @@ function thold_check_threshold(&$thold_data) {
 				} elseif (($thold_data['thold_warning_fail_count'] >= $warning_trigger) && ($thold_data['thold_fail_count'] >= $trigger)) {
 					$subject = get_email_subject('ALERT > WARNING', false, $lastread, $ra, $warning_breach_up, $thold_data);
 
+					// If this is a realert and the operator has reset the ack, don't notify
+					if ($ra && $thold_data['reset_ack'] == 'on' && $thold_data['acknowledgment'] == '') {
+						$suspend_notify = true;
+					} else {
+						$suspend_notify = false;
+					}
+
 					if (!$suspend_notify && !$maint_dev) {
 						$message = thold_mail_notification($alert_emails, $alert_bcc_emails, $subject, 'warning', $thold_data['notify_alert'], $file_array, $thold_data, $h, $thold_data['graph_timespan']);
 
@@ -3383,7 +3437,7 @@ function thold_check_threshold(&$thold_data) {
 				 * we should only re-alert X minutes after last email, not every 5 pollings, etc...
 				 * re-alert?
 				 */
-				$realerttime   = ($thold_data['time_warning_fail_length'] - 1) * $step;
+				$realerttime   = ($thold_data['repeat_alert'] - 1) * $step;
 				$lastemailtime = db_fetch_cell_prepared('SELECT time
 				FROM plugin_thold_log
 				WHERE threshold_id = ?
@@ -3392,7 +3446,7 @@ function thold_check_threshold(&$thold_data) {
 				LIMIT 1',
 					[$thold_data['id'], ST_NOTIFYRAW, ST_NOTIFYWA]);
 
-				$ra = ($warning_failures > $warning_trigger && $thold_data['time_warning_fail_length'] && !empty($lastemailtime) && ($lastemailtime + $realerttime <= time()));
+				$ra = ($warning_failures > $warning_trigger && $thold_data['repeat_alert'] && !empty($lastemailtime) && ($lastemailtime + $realerttime <= time()));
 
 				if (!$maint_dev) {
 					$warning_failures++;
@@ -3537,7 +3591,7 @@ function thold_check_threshold(&$thold_data) {
 
 				$subject = get_email_subject('NORMAL', false, $lastread, false, false, $thold_data);
 
-				if ($alertstat != 0 && $warning_failures < $warning_trigger && $thold_data['restored_alert'] != 'on') {
+				if ($alertstat != 0 && $warning_failures >= $warning_trigger && $thold_data['restored_alert'] != 'on') {
 					if (!$maint_dev) {
 						if ($syslog) {
 							logger($subject, $url, $syslog_priority, $syslog_facility);
@@ -3606,7 +3660,7 @@ function thold_check_threshold(&$thold_data) {
 						WHERE id = ?',
 							[$thold_data['id']]);
 					}
-				} elseif ($alertstat != 0 && $failures < $trigger && $thold_data['restored_alert'] != 'on') {
+				} elseif ($alertstat != 0 && $failures >= $trigger && $thold_data['restored_alert'] != 'on') {
 					$subject = get_email_subject('NORMAL', false, $lastread, false, false, $thold_data);
 
 					if (!$maint_dev) {
@@ -4421,22 +4475,28 @@ function get_thold_restoral_text($data_source_name, $thold, $h, $currentval, $lo
 function thold_modify_values_by_cdef(&$thold_data) {
 	$cdef = false;
 
-	if ($thold_data['data_type'] != 1 || empty($thold_data['cdef'])) {
-		// Check is the graph item has a cdef
-		$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
-			FROM graph_templates_item AS gti
-			INNER JOIN data_template_rrd AS dtr
-			ON gti.task_item_id = dtr.id
-			WHERE local_graph_id = ?
-			AND dtr.id = ?
-			AND gti.graph_type_id IN (4, 5, 6, 7, 8, 20)
-			AND dtr.data_source_name = ?',
-			[$thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']]);
+	if ($thold_data['data_type'] == 1) {
+		if (!empty($thold_data['cdef'])) {
+			// Use the CDEF explicitly configured on the threshold
+			$cdef = $thold_data['cdef'];
+		} else {
+			// Auto-detect a CDEF from the graph item for this data source
+			$cdef = db_fetch_cell_prepared('SELECT MAX(cdef_id)
+				FROM graph_templates_item AS gti
+				INNER JOIN data_template_rrd AS dtr
+				ON gti.task_item_id = dtr.id
+				WHERE local_graph_id = ?
+				AND dtr.id = ?
+				AND gti.graph_type_id IN (4, 5, 6, 7, 8, 20)
+				AND dtr.data_source_name = ?',
+				[$thold_data['local_graph_id'], $thold_data['data_template_rrd_id'], $thold_data['data_source_name']]);
+		}
 	}
 
-	if ($cdef !== false && $cdef > 0 && $thold_data['data_type'] == 1) {
-		$thold_data['lastread']  = thold_build_cdef($cdef, $thold_data['lastread'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
-
+	if ($cdef !== false && $cdef > 0) {
+		// Note: lastread is already CDEF-transformed by thold_poller_output before
+		// being stored, so we must not apply the CDEF to it again here. We only
+		// transform the threshold values so the comparison is consistent.
 		if ($thold_data['thold_type'] == 0) {
 			$thold_data['thold_hi']  = thold_build_cdef($cdef, $thold_data['thold_hi'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
 			$thold_data['thold_low'] = thold_build_cdef($cdef, $thold_data['thold_low'], $thold_data['local_data_id'], $thold_data['data_template_rrd_id']);
