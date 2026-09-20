@@ -127,17 +127,17 @@ jobs:
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          sudo composer validate --strict || true
+          composer validate --strict || true
         fi
 
     - name: Install Composer Dependencies
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          sudo composer config --no-plugins allow-plugins.pestphp/pest-plugin true
-          sudo composer require --no-progress --no-interaction "pestphp/pest: ^3" "pestphp/pest-plugin-drift: ^3.0"
-          sudo rm -f composer.lock
-          sudo composer install --dev --no-progress
+          composer config --no-plugins allow-plugins.pestphp/pest-plugin true
+          composer require --no-progress --no-interaction "pestphp/pest: ^3" "pestphp/pest-plugin-drift: ^3.0"
+          rm -f composer.lock
+          composer install --dev --no-progress
         fi
 
     - name: Create Cacti config.php
@@ -213,21 +213,21 @@ jobs:
 
     - name: Mark composer scripts executable
       if: ${{ env.CACTI != '1.2.x' }}
-      run: sudo chmod +x ${{ github.workspace }}/cacti/include/vendor/bin/*
+      run: chmod +x ${{ github.workspace }}/cacti/include/vendor/bin/*
 
     - name: Run Linter on base code
       if: ${{ env.CACTI != '1.2.x' }}
-      run: sudo composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
+      run: composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Checking coding standards on base code
       if: ${{ env.CACTI != '1.2.x' }}
-      run: sudo composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
+      run: composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Run PHPStan at Level 6 on base code outside of Composer due to technical issues
       if: ${{ env.CACTI != '1.2.x' }}
-      run: sudo ./include/vendor/bin/phpstan analyze --level 6 ${{ github.workspace }}/cacti/plugins/thold
+      run: ./include/vendor/bin/phpstan analyze --level 6 ${{ github.workspace }}/cacti/plugins/thold
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Re-apply web user ownership before polling
