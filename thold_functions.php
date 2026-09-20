@@ -3537,7 +3537,7 @@ function thold_check_threshold(&$thold_data) {
 
 				$subject = get_email_subject('NORMAL', false, $lastread, false, false, $thold_data);
 
-				if (getenv('THOLD_CI_DEBUG')) {
+				if (getenv('THOLD_CI_DEBUG') !== false || true) {
 					fwrite(STDERR, 'THOLD_CI_DEBUG time-based restoral: alertstat=' . var_export($alertstat, true) . ' warning_failures=' . var_export($warning_failures, true) . ' warning_trigger=' . var_export($warning_trigger, true) . ' restored_alert=' . var_export($thold_data['restored_alert'], true) . PHP_EOL);
 				}
 
@@ -7276,7 +7276,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 	$one_email = read_config_option('alert_deadnotify_one_mail') == 'on' ? true : false;
 	$emails    = [];
 
-	if (getenv('THOLD_CI_DEBUG')) {
+	if (getenv('THOLD_CI_DEBUG') !== false || true) {
 		fwrite(STDERR, 'THOLD_CI_DEBUG process_device_notifications: one_email=' . var_export($one_email, true) . ' raw=' . var_export(read_config_option('alert_deadnotify_one_mail'), true) . PHP_EOL);
 	}
 
@@ -7304,7 +7304,7 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 		ORDER BY event_time ASC
 		$sql_limit");
 
-	if (getenv('THOLD_CI_DEBUG')) {
+	if (getenv('THOLD_CI_DEBUG') !== false || true) {
 		fwrite(STDERR, 'THOLD_CI_DEBUG process_device_notifications: records=' . var_export($records, true) . PHP_EOL);
 	}
 
