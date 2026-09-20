@@ -4396,7 +4396,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		}
 
 		if ($queue == '' && $command_executed) {
-			thold_process_command_output($output, $return, 'thold', $thold_data, $cmd);
+			thold_process_command_output($output, $return, 'thold_cmd', $thold_data, $cmd);
 		}
 	}
 }
