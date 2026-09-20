@@ -22,6 +22,10 @@
  +-------------------------------------------------------------------------+
 */
 
+$notification_registered = false;
+$pid                     = 0;
+$thread                  = 1;
+
 if (function_exists('pcntl_async_signals')) {
 	pcntl_async_signals(true);
 } else {
@@ -51,7 +55,6 @@ if (function_exists('pcntl_signal')) {
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
-$thread = false;
 $debug  = false;
 
 global $thread;
@@ -72,13 +75,13 @@ if (sizeof($parms)) {
 
 				break;
 			case '--thread':
-				$thread = $value;
-
-				if (!is_numeric($thread) || $thread <= 0) {
+				if (!ctype_digit((string) $value) || (int) $value <= 0) {
 					print 'FATAL: The Thread ID must be numeric and greater than 0.' . PHP_EOL;
 					display_help();
 					exit(1);
 				}
+
+				cacti_log('WARNING: thold_notify.php --thread is deprecated and ignored; notification ownership is automatic.', false, 'THOLD');
 
 				break;
 			case '-v':
@@ -94,85 +97,18 @@ if (sizeof($parms)) {
 			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
 				display_help();
+				exit(1);
 		}
 	}
 }
 
-// Record start time for the pid's processing
-$start = microtime(true);
+thold_cli_debug('Thold Notification Main Collector Started');
 
-// This is where we can parallelize
-$collector  = ($thread === false);
-$pid        = 0;
-$total_rows = 0;
+$timeout = 3600;
 
-if ($collector) {
-	thold_cli_debug('Thold Notification Main Collector Started');
-
-	$thread = 1;
-} else {
-	thold_cli_debug("Thold Notification Child Thread $thread Started");
+if (!thold_notification_main($thread, $timeout)) {
+	exit(1);
 }
-
-$timeout = 9999999999;
-
-// kill any running services that have run outside of their timeout
-if (!register_process_start('thold_notify', 'child', $thread, $timeout)) {
-	$running_pid = db_fetch_cell_prepared('SELECT pid
-		FROM processes
-		WHERE tasktype = "thold_notify"
-		AND taskname = "child"
-		AND taskid = ?',
-		[$thread]);
-
-	if ($config['cacti_server_os'] == 'unix' && function_exists('posix_getpgid')) {
-		$running = posix_getpgid($running_pid);
-	} elseif ($config['cacti_server_os'] == 'unix' && function_exists('posix_kill')) {
-		$running = posix_kill($running_pid, 0);
-	} else {
-		/*
-		 * Without a way to ask whether the recorded process is alive, assume
-		 * it is. Carrying on regardless is what let a second instance run
-		 * beside the first and mail the same queue twice.
-		 */
-		$running = true;
-	}
-
-	if ($running) {
-		exit(1);
-	}
-
-	unregister_process('thold_notify', 'child', $thread);
-	register_process_start('thold_notify', 'child', $thread, $timeout);
-}
-
-/*
- * Claim the queue only once this instance is the registered one, and only the
- * rows nobody else holds. Claiming before the registration above meant a
- * second instance stamped its own identifier over the first instance's rows
- * even in the case where it went on to exit.
- */
-if ($collector) {
-	$pid = getmypid();
-
-	db_execute_prepared('UPDATE notification_queue
-		SET process_id = ?
-		WHERE event_processed = 0
-		AND process_id = 0',
-		[$pid]);
-
-	$total_rows = db_affected_rows();
-}
-
-// Drain only what was claimed. Passing nothing selected every unprocessed row,
-// so two overlapping runs both mailed the same notifications.
-thold_notification_execute($pid);
-
-$end = microtime(true);
-
-cacti_log(sprintf('THOLD NOTIFY STATS: Time:%0.2f Notifications:%s', $end - $start, $total_rows), false, 'SYSTEM');
-
-unregister_process('thold_notify', 'child', $thread);
 
 exit(0);
 
@@ -190,7 +126,7 @@ function sig_handler($signo) {
 		case SIGTERM:
 		case SIGINT:
 			thold_cacti_log('WARNING: Thold Daemon Notification Child Process with PID[' . getmypid() . '] terminated by user', $thread);
-			unregister_process('thold_notify', 'child', $thread);
+			thold_notification_shutdown();
 
 			exit;
 
