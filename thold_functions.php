@@ -3950,6 +3950,35 @@ function thold_check_threshold(&$thold_data) {
 						WHERE id = ?',
 							[$thold_data['id']]);
 					}
+				} elseif ($alertstat != 0 && $thold_data['restored_alert'] != 'on') {
+					/*
+					 * Neither the warning nor the alert failure counts reached
+					 * their trigger, but the threshold was alerting last poll
+					 * and is normal now: log the restoral so it is visible in
+					 * the log, without re-sending a notification for a state
+					 * transition that never crossed its own trigger.
+					 */
+					thold_log([
+						'type'            => 2,
+						'time'            => time(),
+						'host_id'         => $thold_data['host_id'],
+						'local_graph_id'  => $thold_data['local_graph_id'],
+						'threshold_id'    => $thold_data['id'],
+						'threshold_value' => '',
+						'current'         => $thold_data['lastread'],
+						'status'          => ST_NOTIFYRS,
+						'description'     => $subject,
+						'emails'          => '',
+						'bcc_emails'      => '']
+					);
+
+					db_execute_prepared('UPDATE thold_data
+					SET thold_alert = 0,
+					lastchanged = NOW(),
+					thold_warning_fail_count = ?,
+					thold_fail_count = ?
+					WHERE id = ?',
+						[$warning_failures, $failures, $thold_data['id']]);
 				} else {
 					db_execute_prepared('UPDATE thold_data
 					SET thold_fail_count = ?,
