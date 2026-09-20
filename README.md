@@ -27,6 +27,28 @@ and become familiar with its settings.  From there, you can provide overall
 control of thold, and set defaults for things like Email bodies, weekend
 exemptions, alert log retention, logging, etc.
 
+When the notification queue is enabled, transient email failures are retried
+up to five times with exponential backoff from one to eight minutes. The
+Notification Queue page shows the attempt count and next eligible retry time.
+After the fifth failed attempt the row becomes a terminal error so a permanent
+SMTP or address failure cannot retry forever.
+
+Notification workers claim queue rows with their process ID and drain only
+that claim. Unfinished rows are released when a worker stops or notifications
+are suspended, while claims left by a hard-killed worker are recovered after
+its process registration disappears. A cross-platform database advisory lease
+prevents a second worker from taking the same slot. Because a database
+reconnect can drop that lease while PHP is still running, a stale process row
+is reclaimed immediately when an operating-system probe confirms that the old
+PID is gone. Unknown liveness waits for one expired worker timeout before
+recovery. A live PID is compared with the process registration time before a
+stale worker is trusted, preventing a recycled operating-system PID from
+blocking notification processing indefinitely.
+
+The legacy `thold_notify.php --thread=N` option remains accepted for operator
+compatibility but is deprecated and ignored; queue ownership and worker
+serialization are automatic.
+
 As with much of Cacti, settings should be documented in line with the actual
 setting.  If you find that any of these settings are ambiguous, please create a
 pull request with your proposed changes.
