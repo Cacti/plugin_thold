@@ -1543,7 +1543,10 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	return ((float) $t * 4294967296) + $currentval;
 }
 
-function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
+function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
+	$graph_id = (int) $graph_id;
+	$params   = $sql_params;
+
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
 	}
@@ -1553,7 +1556,8 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 	}
 
 	if ($graph_id > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id=$graph_id";
+		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . ' gl.id = ?';
+		$params[]   = $graph_id;
 	}
 
 	if (strlen($sql_where)) {
@@ -1609,7 +1613,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		$order_by
 		$sql_limit");
 
-	$tholds = db_fetch_assoc($tholds_sql);
+	$tholds = db_fetch_assoc_prepared($tholds_sql, $params);
 
 	$sql = "SELECT COUNT(*)
 		FROM (
@@ -1627,15 +1631,18 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, [], 'thold', 10);
+		$total_rows = get_total_row_data($user_id, $sql, $params, 'thold', 10);
 	} else {
-		$total_rows = db_fetch_cell($sql);
+		$total_rows = db_fetch_cell_prepared($sql, $params);
 	}
 
 	return $tholds;
 }
 
-function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
+function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
+	$graph_id = (int) $graph_id;
+	$params   = $sql_params;
+
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
 	}
@@ -1645,7 +1652,8 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 	}
 
 	if ($graph_id > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id = $graph_id";
+		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . ' gl.id = ?';
+		$params[]   = $graph_id;
 	}
 
 	if (strlen($sql_where)) {
@@ -1679,7 +1687,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
 	}
 
-	$tholds = db_fetch_assoc("SELECT
+	$tholds = db_fetch_assoc_prepared("SELECT
 		tl.`id`, tl.`time`, tl.`host_id`, tl.`local_graph_id`, tl.`threshold_id`,
 		IF(IFNULL(tl.`threshold_value`,'')='',NULL,(tl.`threshold_value` + 0.0)) AS `threshold_value`,
 		IF(IFNULL(tl.`current`,'')='',NULL,(tl.`current` + 0.0)) AS `current`, tl.`status`, tl.`type`,
@@ -1697,7 +1705,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		ON h.id=gl.host_id
 		$sql_where
 		$order_by
-		$sql_limit");
+		$sql_limit", $params);
 
 	$sql = "SELECT COUNT(*)
 		FROM (
@@ -1717,9 +1725,9 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, [], 'thold_log', 10);
+		$total_rows = get_total_row_data($user_id, $sql, $params, 'thold_log', 10);
 	} else {
-		$total_rows = db_fetch_cell($sql);
+		$total_rows = db_fetch_cell_prepared($sql, $params);
 	}
 
 	return $tholds;
@@ -4328,7 +4336,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		$queue            = read_config_option('thold_notification_queue');
 
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 
 			$cmd = thold_expand_string($thold_data, $cmd);
 
@@ -4348,7 +4356,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
@@ -4367,7 +4375,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
@@ -4502,8 +4510,15 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	return $environment;
 }
 
-function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
+function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false) {
 	global $thold_types;
+
+	// Values below come from device/threshold fields an operator can edit or from the
+	// polled reading itself, so in $shell mode they must be quoted before landing on a
+	// command line; email/HTML callers pass the value through unquoted.
+	$q = function ($value) use ($shell) {
+		return $shell ? escapeshellarg((string) $value) : $value;
+	};
 
 	if (substr(read_config_option('base_url'), 0, 4) != 'http') {
 		if (read_config_option('force_https') == 'on') {
@@ -4527,25 +4542,25 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	}
 
 	// Do some replacement of variables
-	$text = thold_str_replace('<DESCRIPTION>',   $h['description'], $text);
-	$text = thold_str_replace('<HOSTNAME>',      $h['hostname'], $text);
-	$text = thold_str_replace('<LOCATION>',      $h['location'], $text);
-	$text = thold_str_replace('<SITE>',          $site, $text);
+	$text = thold_str_replace('<DESCRIPTION>',   $q($h['description']), $text);
+	$text = thold_str_replace('<HOSTNAME>',      $q($h['hostname']), $text);
+	$text = thold_str_replace('<LOCATION>',      $q($h['location']), $text);
+	$text = thold_str_replace('<SITE>',          $q($site), $text);
 	$text = thold_str_replace('<GRAPHID>',       $local_graph_id, $text);
 	$text = thold_str_replace('<THOLD_ID>',      $thold['id'], $text);
 
-	$text = thold_str_replace('<CURRENTVALUE>',  $currentval, $text);
-	$text = thold_str_replace('<THRESHOLDNAME>', $thold['name_cache'], $text);
+	$text = thold_str_replace('<CURRENTVALUE>',  $q($currentval), $text);
+	$text = thold_str_replace('<THRESHOLDNAME>', $q($thold['name_cache']), $text);
 	$text = thold_str_replace('<DSNAME>',        $data_source_name, $text);
 
 	if (isset($thold_types[$thold['thold_type']])) {
 		$text = thold_str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);
 	}
 
-	$text = thold_str_replace('<NOTES>',         $thold['notes'], $text);
-	$text = thold_str_replace('<DNOTES>',        $thold['dnotes'], $text);
-	$text = thold_str_replace('<DEVICENOTE>',    $thold['dnotes'], $text);
-	$text = thold_str_replace('<EXTERNALID>',    $thold['external_id'], $text);
+	$text = thold_str_replace('<NOTES>',         $q($thold['notes']), $text);
+	$text = thold_str_replace('<DNOTES>',        $q($thold['dnotes']), $text);
+	$text = thold_str_replace('<DEVICENOTE>',    $q($thold['dnotes']), $text);
+	$text = thold_str_replace('<EXTERNALID>',    $q($thold['external_id']), $text);
 
 	if ($thold['thold_type'] == 0) {
 		$text = thold_str_replace('<HI>',        $thold['thold_hi'], $text);
