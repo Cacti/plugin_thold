@@ -121,6 +121,26 @@ final class TholdCalculateExpressionTest extends TestCase {
 	}
 
 	/**
+	 * A |pipe| token thold_expand_string() cannot resolve returns ''.
+	 * Converting that to '0' would let a manufactured zero flow through the
+	 * RPN stack as a valid operand instead of failing the expression closed.
+	 *
+	 * @return void
+	 */
+	public function testUnresolvedPipeTokenFailsClosedRatherThanReturningZero(): void {
+		$graph = ['id' => 7, 'host_id' => 2, 'snmp_query_id' => '0', 'snmp_index' => ''];
+
+		// thold_calculate_expression() and thold_expand_string() each look up
+		// graph_local independently.
+		CactiStubs::willReturn('db_fetch_row_prepared', $graph);
+		CactiStubs::willReturn('db_fetch_row_prepared', $graph);
+		CactiStubs::willReturn('expand_title', '');
+
+		$this->assertSame('', $this->evaluate('|query_ifName|'));
+		$this->assertTrue($GLOBALS['rpn_error']);
+	}
+
+	/**
 	 * @return array<string, array{0: string}>
 	 */
 	public static function specialTokenProvider() {

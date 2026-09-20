@@ -274,7 +274,8 @@ final class PollerSchedulingTest extends TestCase {
 		thold_poller_output($readings);
 
 		$upserts = array_values(array_filter(CactiStubs::$calls, static function ($call) {
-			return strpos($call['sql'], 'FROM_UNIXTIME(1700000300)') !== false;
+			return strpos($call['sql'], 'FROM_UNIXTIME(?)') !== false
+				&& in_array(1700000300, $call['params'], true);
 		}));
 
 		$this->assertCount(1, $upserts);

@@ -1079,7 +1079,7 @@ function thold_daemon_persist_sample(array $thold_data, array $item, $currentval
  * @param mixed               $currentval
  * @param int                 $currenttime
  *
- * @return array{sample_row:string|null,status_row:array{id:int,tcheck:int,lastread:mixed}|null}
+ * @return array{sample_row:array{id:int,tcheck:int,lastread:mixed,lasttime:mixed,oldvalue:mixed}|null,status_row:array{id:int,tcheck:int,lastread:mixed}|null}
  */
 function thold_polling_sample_row(array $thold_data, array $item, $currentval, $currenttime) {
 	$id     = (int) ($thold_data['id'] ?? 0);
@@ -1103,8 +1103,13 @@ function thold_polling_sample_row(array $thold_data, array $item, $currentval, $
 	}
 
 	return [
-		'sample_row' => '(' . $id . ', ' . $tcheck . ', ' . db_qstr($currentval)
-			. ', FROM_UNIXTIME(' . $sample['lasttime'] . '), ' . db_qstr($sample['oldvalue']) . ')',
+		'sample_row' => [
+			'id'       => $id,
+			'tcheck'   => $tcheck,
+			'lastread' => $currentval,
+			'lasttime' => $sample['lasttime'],
+			'oldvalue' => $sample['oldvalue'],
+		],
 		'status_row' => null,
 	];
 }
@@ -1384,10 +1389,6 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 					$expression[$key] = '0';
 					cacti_log("WARNING: Query Replacement for '$item' Does Not Exist");
 				}
-
-				if ($expression[$key] == '') {
-					$expression[$key] = '0';
-				}
 			} else {
 				// normal operator
 			}
@@ -1539,7 +1540,7 @@ function thold_defer_placeholder() {
 	return "\x01THOLD_DEFERRED_{$n}\x01";
 }
 
-function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $device_id, $shell = false, array &$deferred = null) {
+function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $device_id, $shell = false, ?array &$deferred = null) {
 	$defer_internally = $deferred === null;
 
 	if ($defer_internally) {
@@ -1601,7 +1602,7 @@ function thold_substitute_host_data($string, $l_escape_string, $r_escape_string,
  *
  * @return - the original string with all of the variable substitutions made
  */
-function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data_id, $shell = false, array &$deferred = null) {
+function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data_id, $shell = false, ?array &$deferred = null) {
 	$defer_internally = $deferred === null;
 
 	if ($defer_internally) {
@@ -4460,7 +4461,7 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	return $thold_snmp_data;
 }
 
-function thold_expand_string($thold_data, $string, $shell = false, array &$deferred = null) {
+function thold_expand_string($thold_data, $string, $shell = false, ?array &$deferred = null) {
 	global $config;
 
 	include_once($config['library_path'] . '/variables.php');
@@ -4829,7 +4830,7 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	return $environment;
 }
 
-function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false, array &$deferred = null) {
+function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false, ?array &$deferred = null) {
 	global $thold_types;
 
 	$defer_internally = $deferred === null;

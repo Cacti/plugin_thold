@@ -226,7 +226,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	public function testCdefAndNestedExpressionPreserveUnknownValues(): void {
 		$this->assertSame('', thold_build_cdef(1, '', 4, 5));
 		$this->assertSame(
-			['sample_row' => "(9, 1, '', FROM_UNIXTIME(1700000300), '700')", 'status_row' => null],
+			['sample_row' => ['id' => 9, 'tcheck' => 1, 'lastread' => '', 'lasttime' => 1700000300, 'oldvalue' => 700], 'status_row' => null],
 			thold_polling_sample_row($this->threshold(), ['traffic_in' => 700], '', 1700000300)
 		);
 
@@ -684,7 +684,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 
 		CactiStubs::reset();
 		$this->assertSame([
-			'sample_row' => "(9, 1, '', FROM_UNIXTIME(1700000300), '700')",
+			'sample_row' => ['id' => 9, 'tcheck' => 1, 'lastread' => '', 'lasttime' => 1700000300, 'oldvalue' => 700],
 			'status_row' => null,
 		], thold_polling_sample_row($thold, ['traffic_in' => 700], '', 1700000300));
 		$this->assertCount(1, CactiStubs::$log);
@@ -791,15 +791,15 @@ final class TholdGetCurrentvalTest extends TestCase {
 		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100]);
 
 		$this->assertSame([
-			'sample_row' => "(9, 1, '2', FROM_UNIXTIME(1000), '100')",
+			'sample_row' => ['id' => 9, 'tcheck' => 1, 'lastread' => 2, 'lasttime' => 1000, 'oldvalue' => 100],
 			'status_row' => null,
 		], thold_polling_sample_row($thold, [], 2, 1300));
 		$this->assertSame([
-			'sample_row' => "(9, 1, '2', FROM_UNIXTIME(1600), '700')",
+			'sample_row' => ['id' => 9, 'tcheck' => 1, 'lastread' => 2, 'lasttime' => 1600, 'oldvalue' => 700],
 			'status_row' => null,
 		], thold_polling_sample_row($thold, ['traffic_in' => 700], 2, 1600));
 		$this->assertSame([
-			'sample_row' => "(9, 1, '2', FROM_UNIXTIME(1000), '')",
+			'sample_row' => ['id' => 9, 'tcheck' => 1, 'lastread' => 2, 'lasttime' => 1000, 'oldvalue' => null],
 			'status_row' => null,
 		], thold_polling_sample_row($this->threshold(['lasttime' => 1000, 'oldvalue' => null]), [], 2, 1300));
 	}
