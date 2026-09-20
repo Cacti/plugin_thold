@@ -137,4 +137,41 @@ final class TholdExpandStringTest extends TestCase {
 
 		$this->assertSame('alert', thold_expand_string($this->thresholdData(), '  alert  '));
 	}
+
+	/**
+	 * In $shell mode (used when building a trigger command line), host and
+	 * data-query token values come from the polled device and must be shell-
+	 * escaped rather than substituted raw, or a malicious sysDescr/community/
+	 * custom field could inject shell syntax into the command.
+	 *
+	 * @return void
+	 */
+	public function testShellModeEscapesHostTokenValues(): void {
+		CactiStubs::willReturn('db_fetch_row_prepared', [
+			'id'            => 7,
+			'host_id'       => 2,
+			'snmp_query_id' => '0',
+			'snmp_index'    => '',
+		]);
+
+		$malicious = "evil'; touch /tmp/pwned; echo '";
+		CactiStubs::willReturn('substitute_host_data', $malicious);
+
+		$result = thold_expand_string($this->thresholdData(), 'alert |host_description|', true);
+
+		$this->assertSame('alert ' . escapeshellarg($malicious), $result);
+	}
+
+	/**
+	 * Non-shell callers (email/HTML rendering) must not be affected by the
+	 * shell-escaping added for the trigger-command path.
+	 *
+	 * @return void
+	 */
+	public function testNonShellModeLeavesHostTokenValuesUnescaped(): void {
+		$this->graphExists();
+		CactiStubs::willReturn('expand_title', 'alert eth0');
+
+		$this->assertSame('alert eth0', thold_expand_string($this->thresholdData(), 'alert |query_ifName|', false));
+	}
 }

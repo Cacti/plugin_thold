@@ -360,6 +360,20 @@ if (!function_exists('expand_title')) {
 	}
 }
 
+if (!function_exists('substitute_host_data')) {
+	function substitute_host_data($string, $l_escape_string, $r_escape_string, $host_id) {
+		CactiStubs::record('substitute_host_data', $string);
+
+		return CactiStubs::nextReturn('substitute_host_data', $string);
+	}
+}
+
+if (!function_exists('null_out_substitutions')) {
+	function null_out_substitutions($string) {
+		return CactiStubs::nextReturn('null_out_substitutions', $string);
+	}
+}
+
 if (!function_exists('get_graph_title')) {
 	function get_graph_title($local_graph_id) {
 		return CactiStubs::nextReturn('get_graph_title', 'Traffic - eth0');

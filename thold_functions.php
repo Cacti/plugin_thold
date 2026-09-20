@@ -1356,7 +1356,11 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 		if ($rpn_error) {
 			cacti_log("ERROR: RPN Expression is invalid! THold:'" . $thold['name'] . "', Value:'" . $currentval . "', Expression:'" . $thold['expression'] . "', Processed:'" . implode(',', $processed_expression) . "'", false, 'THOLD');
 
-			return 0;
+			// Fail closed: '' is this function's established unavailable-sample
+			// sentinel (see the early returns above). Returning a numeric 0 here
+			// would pass is_numeric() in the polling fail-closed guard and be
+			// persisted/alerted on as a real, valid zero reading.
+			return '';
 		}
 	}
 
@@ -1366,7 +1370,7 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 		cacti_log("ERROR: RPN Expression did not reduce to a single value! THold:'" . $thold['name'] . "', Expression:'" . $thold['expression'] . "', Stack:'" . implode(',', $stack) . "'", false, 'THOLD');
 		$rpn_error = true;
 
-		return 0;
+		return '';
 	}
 
 	return end($stack);
@@ -1406,7 +1410,7 @@ function thold_substitute_data_source_description($string, $local_data_id, $max_
 	}
 }
 
-function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $device_id) {
+function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $device_id, $shell = false) {
 	$field_name = trim(str_replace('|host_', '', $string),"| \n\r");
 
 	if (!isset($_SESSION['sess_host_cache_array'][$device_id])) {
@@ -1418,12 +1422,15 @@ function thold_substitute_host_data($string, $l_escape_string, $r_escape_string,
 	}
 
 	if (isset($_SESSION['sess_host_cache_array'][$device_id][$field_name])) {
-		return $_SESSION['sess_host_cache_array'][$device_id][$field_name];
+		$field_value = $_SESSION['sess_host_cache_array'][$device_id][$field_name];
+
+		return $shell ? escapeshellarg((string) $field_value) : $field_value;
 	}
 
-	$string = str_replace($l_escape_string . 'host_management_ip' . $r_escape_string, $_SESSION['sess_host_cache_array'][$device_id]['hostname'], $string);
-	$temp   = api_plugin_hook_function('substitute_host_data', ['string' => $string, 'l_escape_string' => $l_escape_string, 'r_escape_string' => $r_escape_string, 'host_id' => $device_id]);
-	$string = $temp['string'];
+	$hostname = $_SESSION['sess_host_cache_array'][$device_id]['hostname'];
+	$string   = str_replace($l_escape_string . 'host_management_ip' . $r_escape_string, ($shell ? escapeshellarg((string) $hostname) : $hostname), $string);
+	$temp     = api_plugin_hook_function('substitute_host_data', ['string' => $string, 'l_escape_string' => $l_escape_string, 'r_escape_string' => $r_escape_string, 'host_id' => $device_id]);
+	$string   = $temp['string'];
 
 	return $string;
 }
@@ -1440,7 +1447,7 @@ function thold_substitute_host_data($string, $l_escape_string, $r_escape_string,
  *
  * @return - the original string with all of the variable substitutions made
  */
-function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data_id) {
+function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data_id, $shell = false) {
 	if (is_array($local_data_id)) {
 		$local_data_ids = $local_data_id;
 	} elseif ($local_data_id == '') {
@@ -1496,7 +1503,7 @@ function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data
 			if (cacti_sizeof($custom_data_array)) {
 				foreach ($custom_data_array as $custom_data) {
 					$custom_name  = $custom_data['name'];
-					$custom_value = $custom_data['value'];
+					$custom_value = $shell ? escapeshellarg((string) $custom_data['value']) : $custom_data['value'];
 					$string       = str_replace($l_escape . 'custom_' . $custom_name . $r_escape, $custom_value, $string);
 				}
 			}
@@ -4265,10 +4272,19 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	return $thold_snmp_data;
 }
 
-function thold_expand_string($thold_data, $string) {
+function thold_expand_string($thold_data, $string, $shell = false) {
 	global $config;
 
 	include_once($config['library_path'] . '/variables.php');
+
+	// Values substituted below (data source names/descriptions, graph
+	// titles, and host/data-query fields sourced from the polled device
+	// itself) are not admin-controlled, so in $shell mode they must be
+	// quoted before landing on a command line, same as
+	// thold_replace_threshold_tags()'s $q().
+	$q = function ($value) use ($shell) {
+		return $shell ? escapeshellarg((string) $value) : $value;
+	};
 
 	$str = $string;
 
@@ -4305,7 +4321,7 @@ function thold_expand_string($thold_data, $string) {
 					$value = read_config_option('thold_empty_if_speed_default');
 				}
 
-				$str = str_replace('|query_ifHighSpeed|', $value, $str);
+				$str = str_replace('|query_ifHighSpeed|', $q($value), $str);
 			} elseif (strpos($str, '|query_ifSpeed|') !== false) {
 				$value = thold_substitute_snmp_query_data('|query_ifSpeed|', $lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], read_config_option('max_data_query_field_length'));
 
@@ -4313,11 +4329,42 @@ function thold_expand_string($thold_data, $string) {
 					$value = read_config_option('thold_empty_if_speed_default');
 				}
 
-				$str = str_replace('|query_ifSpeed|', $value, $str);
+				$str = str_replace('|query_ifSpeed|', $q($value), $str);
 			}
 
-			$str = expand_title($lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], $str);
-			$str = thold_substitute_custom_data($str, '|', '|', $thold_data['local_data_id']);
+			if ($shell) {
+				// expand_title() (Cacti core) substitutes |host_*|/|query_*|
+				// tokens with raw values -- hostname, SNMP community/
+				// password, sysDescr/sysContact/sysLocation, polled data
+				// query fields, etc -- with no shell escaping, and any of
+				// them can be set by the polled device itself. Resolve each
+				// token in isolation through the same core helpers so the
+				// substituted value matches what expand_title() would have
+				// produced, but escape it before it lands in the command.
+				preg_match_all('/\|(?:host|query)_[A-Za-z0-9_]+\|/', $str, $host_query_tokens);
+
+				foreach (array_unique($host_query_tokens[0]) as $token) {
+					if ($lg['snmp_query_id'] != '0' && $lg['snmp_index'] != '') {
+						$resolved = substitute_snmp_query_data(
+							null_out_substitutions(substitute_host_data($token, '|', '|', $lg['host_id'])),
+							$lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'],
+							intval(read_config_option('max_data_query_field_length'))
+						);
+					} else {
+						$resolved = null_out_substitutions(substitute_host_data($token, '|', '|', $lg['host_id']));
+					}
+
+					if ($resolved !== $token) {
+						$str = str_replace($token, $q($resolved), $str);
+					}
+				}
+
+				$str = null_out_substitutions($str);
+			} else {
+				$str = expand_title($lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], $str);
+			}
+
+			$str = thold_substitute_custom_data($str, '|', '|', $thold_data['local_data_id'], $shell);
 
 			$data = [
 				'str'         => $str,
@@ -4337,13 +4384,13 @@ function thold_expand_string($thold_data, $string) {
 		}
 
 		if (strpos($str, '|host_') !== false && !empty($device_id)) {
-			$str = thold_substitute_host_data($str, '|', '|', $device_id);
+			$str = thold_substitute_host_data($str, '|', '|', $device_id, $shell);
 		}
 
 		// Replace |graph_title|
 		if (strpos($str, '|graph_title|') !== false) {
 			$title = get_graph_title($thold_data['local_graph_id']);
-			$str   = str_replace('|graph_title|', $title, $str);
+			$str   = str_replace('|graph_title|', $q($title), $str);
 		}
 
 		// Replace |data_source_description|
@@ -4353,12 +4400,12 @@ function thold_expand_string($thold_data, $string) {
 				WHERE local_data_id = ?',
 				[$thold_data['local_data_id']]);
 
-			$str = str_replace('|data_source_description|', $data_source_desc, $str);
+			$str = str_replace('|data_source_description|', $q($data_source_desc), $str);
 		}
 
 		// Replace |data_source_name|
 		if (strpos($str, '|data_source_name|') !== false) {
-			$str = str_replace('|data_source_name|', $thold_data['data_source_name'], $str);
+			$str = str_replace('|data_source_name|', $q($thold_data['data_source_name']), $str);
 		}
 	}
 
@@ -4376,7 +4423,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 
-			$cmd = thold_expand_string($thold_data, $cmd);
+			$cmd = thold_expand_string($thold_data, $cmd, true);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
@@ -4395,7 +4442,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
-			$cmd = thold_expand_string($thold_data, $cmd);
+			$cmd = thold_expand_string($thold_data, $cmd, true);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
@@ -4414,7 +4461,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
 			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
-			$cmd = thold_expand_string($thold_data, $cmd);
+			$cmd = thold_expand_string($thold_data, $cmd, true);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
