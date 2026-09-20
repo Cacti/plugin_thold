@@ -1755,6 +1755,27 @@ function thold_upgrade_database($force = false) {
 		db_execute('UPDATE plugin_notification_lists SET enabled = "on"');
 	}
 
+	if (cacti_version_compare($oldv, '1.8.3', '<')) {
+		db_add_column('notification_queue', [
+			'name'     => 'attempt_count',
+			'type'     => 'int',
+			'unsigned' => true,
+			'NULL'     => false,
+			'default'  => '0',
+			'after'    => 'error_message']
+		);
+
+		db_add_column('notification_queue', [
+			'name'    => 'next_attempt',
+			'type'    => 'timestamp',
+			'NULL'    => true,
+			'default' => null,
+			'after'   => 'attempt_count']
+		);
+
+		db_add_index('notification_queue', 'INDEX', 'retry_ready', ['event_processed', 'process_id', 'next_attempt']);
+	}
+
 	db_add_column('thold_data', [
 		'name'     => 'external_id',
 		'type'     => 'varchar(20)',
@@ -2123,12 +2144,15 @@ function thold_setup_database() {
 	$data['columns'][] = ['name' => 'event_data', 'type' => 'longblob', 'NULL' => false, 'default' => ''];
 	$data['columns'][] = ['name' => 'error_code', 'type' => 'int', 'NULL' => false, 'default' => '0'];
 	$data['columns'][] = ['name' => 'error_message', 'type' => 'varchar(128)', 'NULL' => false, 'default' => ''];
+	$data['columns'][] = ['name' => 'attempt_count', 'type' => 'int', 'unsigned' => true, 'NULL' => false, 'default' => '0'];
+	$data['columns'][] = ['name' => 'next_attempt', 'type' => 'timestamp', 'NULL' => true, 'default' => null];
 	$data['columns'][] = ['name' => 'process_id', 'type' => 'int', 'unsigned' => true, 'NULL' => false, 'default' => '0'];
 	$data['columns'][] = ['name' => 'event_processed', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0'];
 	$data['columns'][] = ['name' => 'event_processed_time', 'type' => 'timestamp', 'NULL' => false, 'default' => '0000-00-00'];
 	$data['columns'][] = ['name' => 'event_processed_runtime', 'type' => 'double', 'unsigned' => true, 'NULL' => false, 'default' => '0'];
 	$data['primary']   = 'id';
 	$data['keys'][]    = ['name' => 'topic_processed', 'columns' => 'topic`, `event_processed'];
+	$data['keys'][]    = ['name' => 'retry_ready', 'columns' => 'event_processed`, `process_id`, `next_attempt'];
 	$data['keys'][]    = ['name' => 'process_id', 'columns' => 'process_id'];
 	$data['keys'][]    = ['name' => 'object_id', 'columns' => 'object_id'];
 	$data['keys'][]    = ['name' => 'host_id', 'columns' => 'host_id'];
