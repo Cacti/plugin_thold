@@ -17,6 +17,10 @@
 
 require_once dirname(__DIR__, 2) . '/setup.php';
 
+beforeEach(function () {
+	CactiStubs::reset();
+});
+
 it('reads name and version from INFO', function () {
 	$info = plugin_thold_version();
 

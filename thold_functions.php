@@ -5319,6 +5319,11 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0, $mi
 		$value = thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id);
 	}
 
+	// A stored 'U'/'nan'/blank reading, or a fail-closed CDEF result, must stay missing rather than crash or coerce to zero.
+	if (!is_numeric($value)) {
+		return $missing_value;
+	}
+
 	return round($value, 4);
 }
 
