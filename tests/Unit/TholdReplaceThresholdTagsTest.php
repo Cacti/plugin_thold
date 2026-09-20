@@ -255,6 +255,25 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	}
 
 	/**
+	 * The rendered <a href='...'>...</a> markup contains literal single
+	 * quotes, so in $shell mode the whole substituted value must be quoted
+	 * as one token or those quotes would terminate the command early.
+	 *
+	 * @return void
+	 */
+	public function testShellModeQuotesTheUrlTag(): void {
+		CactiStubs::$configOptions['base_url'] = 'http://cacti.example.org';
+
+		$result = $this->substitute('/usr/bin/alert <URL>', $this->threshold(), $this->device(), true);
+
+		$this->assertStringContainsString(
+			escapeshellarg("<a href='http://cacti.example.org/graph.php?local_graph_id=7'>" . __('Link to Graph in Cacti', 'thold') . '</a>'),
+			$result
+		);
+		$this->assertStringNotContainsString("alert <a href='", $result);
+	}
+
+	/**
 	 * @return void
 	 */
 	public function testThresholdTypeNameIsSubstituted(): void {

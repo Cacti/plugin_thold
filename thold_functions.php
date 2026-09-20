@@ -4668,7 +4668,7 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	$text = thold_str_replace('<DATE>',          date(CACTI_DATE_TIME_FORMAT), $text);
 	$text = thold_str_replace('<DATE_RFC822>',   date(DATE_RFC822), $text);
 
-	$text = thold_str_replace('<URL>', "<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . '</a>', $text);
+	$text = thold_str_replace('<URL>', $q("<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . '</a>'), $text);
 
 	$data = [
 		'thold_data' => $thold,
