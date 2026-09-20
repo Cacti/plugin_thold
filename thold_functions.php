@@ -874,10 +874,54 @@ function thold_sample_clock_moved_backward(array $thold_data, array $item, $curr
 }
 
 /**
+ * Whether the interval ending at $currenttime is within the effective
+ * heartbeat thold_get_currentval() uses to trust a counter/derive/absolute
+ * baseline, so a rate-bearing source can't advance its pair to a raw sample
+ * that arrived too late for thold_get_currentval() to have trusted the same
+ * interval.
+ *
+ * The caller must already know $currenttime is strictly after a real prior
+ * sample (lasttime > 0, currenttime > lasttime); this only computes the
+ * heartbeat comparison thold_get_currentval() applies in that situation.
+ *
+ * @param array<string,mixed> $thold_data
+ * @param int                 $currenttime
+ *
+ * @return bool
+ */
+function thold_sample_interval_eligible(array $thold_data, $currenttime) {
+	$elapsed = ((int) $currenttime) - (int) ($thold_data['lasttime'] ?? 0);
+
+	$poller_interval = read_config_option('poller_interval');
+
+	if (!is_numeric($poller_interval) || $poller_interval <= 0) {
+		$poller_interval = 300;
+	}
+
+	$rrd_step = is_numeric($thold_data['rrd_step'] ?? null) && $thold_data['rrd_step'] > 0
+		? (float) $thold_data['rrd_step']
+		: 0.0;
+
+	$sample_interval = max($rrd_step, (float) $poller_interval);
+	$rrd_heartbeat   = is_numeric($thold_data['rrd_heartbeat'] ?? null) && $thold_data['rrd_heartbeat'] > 0
+		? max((float) $thold_data['rrd_heartbeat'], 2 * $sample_interval)
+		: 2 * $sample_interval;
+
+	return $elapsed <= $rrd_heartbeat;
+}
+
+/**
  * Persist a raw sample and its timestamp as one causal pair.
  *
  * `$thold_data` must provide `name`, `lasttime`, and `oldvalue`; absent values
- * fail closed to an unavailable prior sample.
+ * fail closed to an unavailable prior sample. For a counter, derive, or
+ * absolute source, a numeric raw sample that arrives after a gap beyond the
+ * effective heartbeat is not eligible to advance the pair on its own -
+ * thold_get_currentval() already rejected that same interval as too stale to
+ * trust, so accepting it here would let the next poll compute a rate across
+ * the missing interval. The first-ever sample and a backward-clock re-anchor
+ * are exempt: both still need to establish or fix the pair regardless of
+ * elapsed time.
  *
  * @param array<string,mixed> $thold_data
  * @param array<string,mixed> $item
@@ -892,14 +936,20 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
 	$lasttime = (int) ($thold_data['lasttime'] ?? 0);
 
 	if ($name !== '' && $currenttime > 0 && $currenttime !== $lasttime && isset($item[$name]) && is_numeric($item[$name])) {
-		if (thold_sample_clock_moved_backward($thold_data, $item, $currenttime)) {
-			cacti_log(sprintf(
-				'WARNING: Threshold %s sample clock moved backwards; re-anchoring its value and timestamp.',
-				$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
-			), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
-		}
+		$is_rate_bearing  = in_array((int) ($thold_data['data_source_type_id'] ?? 0), [2, 3, 4], true);
+		$clock_moved_back = thold_sample_clock_moved_backward($thold_data, $item, $currenttime);
+		$eligible         = $lasttime <= 0 || $clock_moved_back || !$is_rate_bearing || thold_sample_interval_eligible($thold_data, $currenttime);
 
-		return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
+		if ($eligible) {
+			if ($clock_moved_back) {
+				cacti_log(sprintf(
+					'WARNING: Threshold %s sample clock moved backwards; re-anchoring its value and timestamp.',
+					$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
+				), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
+			}
+
+			return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
+		}
 	}
 
 	return [
@@ -4638,49 +4688,56 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 		$site = __('Default', 'thold');
 	}
 
-	// Do some replacement of variables
-	$text = thold_str_replace('<DESCRIPTION>',   $q($h['description']), $text);
-	$text = thold_str_replace('<HOSTNAME>',      $q($h['hostname']), $text);
-	$text = thold_str_replace('<LOCATION>',      $q($h['location']), $text);
-	$text = thold_str_replace('<SITE>',          $q($site), $text);
-	$text = thold_str_replace('<GRAPHID>',       $local_graph_id, $text);
-	$text = thold_str_replace('<THOLD_ID>',      $thold['id'], $text);
-
-	$text = thold_str_replace('<CURRENTVALUE>',  $q($currentval), $text);
-	$text = thold_str_replace('<THRESHOLDNAME>', $q($thold['name_cache']), $text);
-	$text = thold_str_replace('<DSNAME>',        $q($data_source_name), $text);
+	// Do some replacement of variables. Every tag/value pair is collected up
+	// front and substituted in a single strtr() pass: strtr() replaces against
+	// the original text only and never re-scans inserted values, so a value
+	// that happens to contain another tag's literal placeholder (for example
+	// a <DESCRIPTION> of "<HOSTNAME>") can't be substituted a second time
+	// outside of $q()'s quoting.
+	$replacements = [
+		'<DESCRIPTION>'   => $q($h['description']),
+		'<HOSTNAME>'      => $q($h['hostname']),
+		'<LOCATION>'      => $q($h['location']),
+		'<SITE>'          => $q($site),
+		'<GRAPHID>'       => $local_graph_id,
+		'<THOLD_ID>'      => $thold['id'],
+		'<CURRENTVALUE>'  => $q($currentval),
+		'<THRESHOLDNAME>' => $q($thold['name_cache']),
+		'<DSNAME>'        => $q($data_source_name),
+		'<NOTES>'         => $q($thold['notes']),
+		'<DNOTES>'        => $q($thold['dnotes']),
+		'<DEVICENOTE>'    => $q($thold['dnotes']),
+		'<EXTERNALID>'    => $q($thold['external_id']),
+		'<TIME>'          => time(),
+		'<DATE>'          => date(CACTI_DATE_TIME_FORMAT),
+		'<DATE_RFC822>'   => date(DATE_RFC822),
+		'<URL>'           => $q("<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . '</a>'),
+	];
 
 	if (isset($thold_types[$thold['thold_type']])) {
-		$text = thold_str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);
+		$replacements['<THOLDTYPE>'] = $thold_types[$thold['thold_type']];
 	}
-
-	$text = thold_str_replace('<NOTES>',         $q($thold['notes']), $text);
-	$text = thold_str_replace('<DNOTES>',        $q($thold['dnotes']), $text);
-	$text = thold_str_replace('<DEVICENOTE>',    $q($thold['dnotes']), $text);
-	$text = thold_str_replace('<EXTERNALID>',    $q($thold['external_id']), $text);
 
 	if ($thold['thold_type'] == 0) {
-		$text = thold_str_replace('<HI>',        $thold['thold_hi'], $text);
-		$text = thold_str_replace('<LOW>',       $thold['thold_low'], $text);
-		$text = thold_str_replace('<TRIGGER>',   $thold['thold_fail_trigger'], $text);
-		$text = thold_str_replace('<DURATION>',  '', $text);
+		$replacements['<HI>']       = $thold['thold_hi'];
+		$replacements['<LOW>']      = $thold['thold_low'];
+		$replacements['<TRIGGER>']  = $thold['thold_fail_trigger'];
+		$replacements['<DURATION>'] = '';
 	} elseif ($thold['thold_type'] == 2) {
-		$text = thold_str_replace('<HI>',        $thold['time_hi'], $text);
-		$text = thold_str_replace('<LOW>',       $thold['time_low'], $text);
-		$text = thold_str_replace('<TRIGGER>',   $thold['time_fail_trigger'], $text);
-		$text = thold_str_replace('<DURATION>',  plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time'), $text);
+		$replacements['<HI>']       = $thold['time_hi'];
+		$replacements['<LOW>']      = $thold['time_low'];
+		$replacements['<TRIGGER>']  = $thold['time_fail_trigger'];
+		$replacements['<DURATION>'] = plugin_thold_duration_convert($thold['local_data_id'], $thold['time_fail_length'], 'time');
 	} else {
-		$text = thold_str_replace('<HI>',        '', $text);
-		$text = thold_str_replace('<LOW>',       '', $text);
-		$text = thold_str_replace('<TRIGGER>',   '', $text);
-		$text = thold_str_replace('<DURATION>',  '', $text);
+		$replacements['<HI>']       = '';
+		$replacements['<LOW>']      = '';
+		$replacements['<TRIGGER>']  = '';
+		$replacements['<DURATION>'] = '';
 	}
 
-	$text = thold_str_replace('<TIME>',          time(), $text);
-	$text = thold_str_replace('<DATE>',          date(CACTI_DATE_TIME_FORMAT), $text);
-	$text = thold_str_replace('<DATE_RFC822>',   date(DATE_RFC822), $text);
-
-	$text = thold_str_replace('<URL>', $q("<a href='" . html_escape("$httpurl/graph.php?local_graph_id=$local_graph_id") . "'>" . __('Link to Graph in Cacti', 'thold') . '</a>'), $text);
+	$text = strtr($text, array_map(static function ($value) {
+		return (string) ($value ?? '');
+	}, $replacements));
 
 	$data = [
 		'thold_data' => $thold,

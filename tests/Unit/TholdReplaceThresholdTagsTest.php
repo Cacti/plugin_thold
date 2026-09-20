@@ -128,6 +128,30 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	}
 
 	/**
+	 * A device-controlled value (e.g. description) can contain another tag's
+	 * literal placeholder text (e.g. "<HOSTNAME>"). Every value is
+	 * substituted in a single strtr() pass over the original text, so that
+	 * literal text is never re-scanned and substituted a second time - it
+	 * can't land a later value's shell metacharacters outside of its own
+	 * quoting.
+	 *
+	 * @return void
+	 */
+	public function testShellModeDoesNotReSubstituteATagLiteralInsideAnotherValue(): void {
+		$thold  = $this->threshold();
+		$device = $this->device([
+			'description' => '<HOSTNAME>',
+			'hostname'    => '; touch /tmp/pwned',
+		]);
+
+		$result = $this->substitute('/usr/bin/alert <DESCRIPTION> <HOSTNAME>', $thold, $device, true);
+
+		$this->assertStringContainsString(escapeshellarg('<HOSTNAME>'), $result);
+		$this->assertStringContainsString(escapeshellarg('; touch /tmp/pwned'), $result);
+		$this->assertStringNotContainsString("''; touch", $result);
+	}
+
+	/**
 	 * @dataProvider deviceDerivedTagProvider
 	 *
 	 * @param string $tag

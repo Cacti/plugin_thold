@@ -336,6 +336,54 @@ final class TholdGetCurrentvalTest extends TestCase {
 	}
 
 	/**
+	 * A numeric raw sample that arrives after a gap beyond the effective
+	 * heartbeat is not eligible to become the next baseline on its own - the
+	 * same interval is too stale for thold_get_currentval() to have trusted a
+	 * rate from it, so advancing the pair here would let the next poll compute
+	 * a rate across the missing interval instead. A gauge has no rate baseline
+	 * to protect, and the first-ever sample and a backward-clock re-anchor
+	 * still advance the pair regardless of the gap.
+	 *
+	 * @return void
+	 */
+	public function testStaleGapDoesNotAdvanceARateBearingPairButOtherCasesStillAdvance(): void {
+		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100, 'rrd_step' => 300]);
+
+		// 1000 -> 1601: a 601s gap exceeds the 600s effective heartbeat (2 * 300s).
+		$this->assertSame(
+			['lasttime' => 1000, 'oldvalue' => 100],
+			thold_sample_persistence($thold, ['traffic_in' => 700], 1601)
+		);
+
+		// Right at the heartbeat boundary, the pair still advances.
+		$this->assertSame(
+			['lasttime' => 1600, 'oldvalue' => 700],
+			thold_sample_persistence($thold, ['traffic_in' => 700], 1600)
+		);
+
+		// A gauge has no baseline to protect, so the same gap still advances it.
+		$gauge = $this->threshold(['data_source_type_id' => self::GAUGE, 'lasttime' => 1000, 'oldvalue' => 100, 'rrd_step' => 300]);
+		$this->assertSame(
+			['lasttime' => 1601, 'oldvalue' => 700],
+			thold_sample_persistence($gauge, ['traffic_in' => 700], 1601)
+		);
+
+		// No prior sample at all: the gap check does not apply.
+		$firstSample = $this->threshold(['lasttime' => 0, 'oldvalue' => null, 'rrd_step' => 300]);
+		$this->assertSame(
+			['lasttime' => 1601, 'oldvalue' => 700],
+			thold_sample_persistence($firstSample, ['traffic_in' => 700], 1601)
+		);
+
+		// A backward clock always re-anchors, even across a heartbeat-exceeding gap.
+		$backward = $this->threshold(['lasttime' => 5000, 'oldvalue' => 100, 'rrd_step' => 300]);
+		$this->assertSame(
+			['lasttime' => 1601, 'oldvalue' => 700],
+			thold_sample_persistence($backward, ['traffic_in' => 700], 1601)
+		);
+	}
+
+	/**
 	 * @return array<string, array{0: int|string|null, 1: int, 2: float}>
 	 */
 	public static function emptyMaximumProvider() {
