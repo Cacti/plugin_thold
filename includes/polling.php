@@ -190,21 +190,21 @@ function thold_poller_output(&$rrd_update_array) {
 
 			if (!is_numeric($currentval)) {
 				if (read_config_option('thold_consider_unknown_zero') == 'on') {
-					$currentval = strtolower($currentval);
+					$normalized = strtolower($currentval);
 
-					if ($currentval == 'u' || $currentval == 'nan' || $currentval == '') {
-						$currentval = 0;
-						thold_debug('Threshold: ' . $thold_data['thold_name'] . ' changing unknown value to zero', 'thold');
+					if ($normalized == 'u' || $normalized == 'nan' || $normalized == '') {
+						// Fail closed: an unavailable sample must not be persisted as a
+						// manufactured zero, or thold_check_threshold()'s unavailable-sample
+						// guard never sees it and can alert/recover on the fabricated value.
+						thold_debug('Threshold: ' . $thold_data['thold_name'] . ' unknown value would have been treated as zero; preserving unavailable state instead', 'thold');
 
 						if (read_config_option('thold_log_unknown_to_zero') == 'on') {
-							cacti_log('NOTE: Threshold \'' . $thold_data['thold_name'] . '\' changing unknown value to zero', true, 'THOLD');
+							cacti_log('NOTE: Threshold \'' . $thold_data['thold_name'] . '\' unknown value would have been treated as zero; preserving unavailable state instead', true, 'THOLD');
 						}
-					} else {
-						$currentval = '';
 					}
-				} else {
-					$currentval = '';
 				}
+
+				$currentval = '';
 			}
 
 			$sample_rows = thold_polling_sample_row($thold_data, $item, $currentval, $currenttime);

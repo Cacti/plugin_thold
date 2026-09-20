@@ -34,26 +34,26 @@ final class TholdCalculateLowerUpperTest extends TestCase {
 		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
 		$rrd   = [4 => ['octets_hi' => 2]];
 
-		$this->assertSame((2 << 32) + 100, thold_calculate_lower_upper($thold, 100, $rrd));
+		$this->assertSame((float) ((2 << 32) + 100), thold_calculate_lower_upper($thold, 100, $rrd));
 	}
 
 	/**
 	 * @return void
 	 */
-	public function testValuePassesThroughWhenTheHighWordIsAbsent(): void {
+	public function testFailsClosedWhenTheHighWordIsAbsent(): void {
 		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
 		$rrd   = [4 => ['octets_lo' => 5]];
 
-		$this->assertSame(100, thold_calculate_lower_upper($thold, 100, $rrd));
+		$this->assertSame('', thold_calculate_lower_upper($thold, 100, $rrd));
 	}
 
 	/**
 	 * @return void
 	 */
-	public function testValuePassesThroughWhenTheDataSourceHasNoReadings(): void {
+	public function testFailsClosedWhenTheDataSourceHasNoReadings(): void {
 		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
 
-		$this->assertSame(100, thold_calculate_lower_upper($thold, 100, []));
+		$this->assertSame('', thold_calculate_lower_upper($thold, 100, []));
 	}
 
 	/**
@@ -63,6 +63,26 @@ final class TholdCalculateLowerUpperTest extends TestCase {
 		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
 		$rrd   = [4 => ['octets_hi' => 0]];
 
-		$this->assertSame(100, thold_calculate_lower_upper($thold, 100, $rrd));
+		$this->assertSame(100.0, thold_calculate_lower_upper($thold, 100, $rrd));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testFailsClosedWhenTheCurrentValueIsNotNumeric(): void {
+		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
+		$rrd   = [4 => ['octets_hi' => 2]];
+
+		$this->assertSame('', thold_calculate_lower_upper($thold, '', $rrd));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testFailsClosedWhenTheHighWordIsOutOfRange(): void {
+		$thold = ['upper_ds' => 'octets_hi', 'local_data_id' => 4];
+		$rrd   = [4 => ['octets_hi' => 4294967296]];
+
+		$this->assertSame('', thold_calculate_lower_upper($thold, 100, $rrd));
 	}
 }

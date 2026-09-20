@@ -4946,7 +4946,10 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 		ORDER BY sequence',
 		[$cdef]);
 
-	$cdef_array = [];
+	$cdef_array       = [];
+	// Set when a query operand cannot be resolved; 0 stands in so the RPN
+	// stack machine below can still run, but the final result fails closed.
+	$cdef_unavailable = false;
 
 	if (cacti_sizeof($cdefs)) {
 		foreach ($cdefs as $cdef) {
@@ -5030,7 +5033,8 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 							[$local_data_id, $matches[1]]);
 
 						if ($cdef['value'] == '' || !is_numeric($cdef['value'])) {
-							$cdef['value'] = 0;
+							$cdef['value']    = 0;
+							$cdef_unavailable = true;
 						}
 					}
 				}
@@ -5082,6 +5086,10 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 		}
 
 		$cursor++;
+	}
+
+	if ($cdef_unavailable) {
+		return '';
 	}
 
 	return $stack[0]['value'];
