@@ -384,6 +384,38 @@ final class TholdGetCurrentvalTest extends TestCase {
 	}
 
 	/**
+	 * The effective heartbeat thold_sample_interval_eligible() compares
+	 * against honors an explicitly configured rrd_heartbeat, and falls back
+	 * to the poller interval alone when rrd_step is not a usable positive
+	 * number - mirroring thold_get_currentval()'s own fallbacks.
+	 *
+	 * @return void
+	 */
+	public function testEligibilityHonorsAConfiguredHeartbeatAndFallsBackForAnInvalidRrdStep(): void {
+		$withHeartbeat = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100, 'rrd_step' => 300, 'rrd_heartbeat' => 1800]);
+
+		$this->assertSame(
+			['lasttime' => 2800, 'oldvalue' => 700],
+			thold_sample_persistence($withHeartbeat, ['traffic_in' => 700], 2800)
+		);
+		$this->assertSame(
+			['lasttime' => 1000, 'oldvalue' => 100],
+			thold_sample_persistence($withHeartbeat, ['traffic_in' => 700], 2801)
+		);
+
+		$invalidStep = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100, 'rrd_step' => 0]);
+
+		$this->assertSame(
+			['lasttime' => 1600, 'oldvalue' => 700],
+			thold_sample_persistence($invalidStep, ['traffic_in' => 700], 1600)
+		);
+		$this->assertSame(
+			['lasttime' => 1000, 'oldvalue' => 100],
+			thold_sample_persistence($invalidStep, ['traffic_in' => 700], 1601)
+		);
+	}
+
+	/**
 	 * @return array<string, array{0: int|string|null, 1: int, 2: float}>
 	 */
 	public static function emptyMaximumProvider() {
