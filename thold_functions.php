@@ -363,12 +363,13 @@ function thold_expression_math_rpn($operator, &$stack) {
 				cacti_log('ERROR: RPN value: v2 "' . $v2 . '" is Not valid for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
+				// Not a loop/switch context: this only exits the if/elseif
+				// chain below, it must not use "break" (which would exit the
+				// enclosing switch($operator) and skip the array_push below).
 				$v3         = 0;
 				$rpn_evaled = true;
-
-				break;
-			} elseif ($v1 == 0 && $operator == '/') {
-				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "/".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+			} elseif ($v1 == 0 && ($operator == '/' || $operator == '%')) {
+				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "' . $operator . '".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			}
 
@@ -399,9 +400,20 @@ function thold_expression_math_rpn($operator, &$stack) {
 		case 'LOG':
 			$v1 = thold_expression_rpn_pop($stack);
 
+			if (!$rpn_error && !is_numeric($v1)) {
+				cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is Not valid for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+				$rpn_error = true;
+			}
+
 			if (!$rpn_error) {
 				eval('$v2 = ' . $operator . '(' . $v1 . ');'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math function names by the parser above
-				array_push($stack, $v2);
+
+				if (is_nan($v2) || is_infinite($v2)) {
+					cacti_log('ERROR: RPN value: result of "' . $operator . '(' . $v1 . ')" is undefined. Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+					$rpn_error = true;
+				} else {
+					array_push($stack, $v2);
+				}
 			}
 
 			break;
@@ -1292,7 +1304,7 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	return $currentval;
 }
 
-function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
+function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
 	}
@@ -1301,8 +1313,11 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		$order_by = "ORDER BY $order_by";
 	}
 
+	$params = $sql_params;
+
 	if ($graph_id > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id=$graph_id";
+		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id = ?";
+		$params[]   = $graph_id;
 	}
 
 	if (strlen($sql_where)) {
@@ -1358,7 +1373,7 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		$order_by
 		$sql_limit");
 
-	$tholds = db_fetch_assoc($tholds_sql);
+	$tholds = db_fetch_assoc_prepared($tholds_sql, $params);
 
 	$sql = "SELECT COUNT(*)
 		FROM (
@@ -1376,15 +1391,15 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, [], 'thold', 10);
+		$total_rows = get_total_row_data($user_id, $sql, $params, 'thold', 10);
 	} else {
-		$total_rows = db_fetch_cell($sql);
+		$total_rows = db_fetch_cell_prepared($sql, $params);
 	}
 
 	return $tholds;
 }
 
-function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0) {
+function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
 	}
@@ -1393,8 +1408,11 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		$order_by = "ORDER BY $order_by";
 	}
 
+	$params = $sql_params;
+
 	if ($graph_id > 0) {
-		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id = $graph_id";
+		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . " gl.id = ?";
+		$params[]   = $graph_id;
 	}
 
 	if (strlen($sql_where)) {
@@ -1428,7 +1446,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		$sql_where = get_policy_where($graph_auth_method, $policies, $sql_where);
 	}
 
-	$tholds = db_fetch_assoc("SELECT
+	$tholds = db_fetch_assoc_prepared("SELECT
 		tl.`id`, tl.`time`, tl.`host_id`, tl.`local_graph_id`, tl.`threshold_id`,
 		IF(IFNULL(tl.`threshold_value`,'')='',NULL,(tl.`threshold_value` + 0.0)) AS `threshold_value`,
 		IF(IFNULL(tl.`current`,'')='',NULL,(tl.`current` + 0.0)) AS `current`, tl.`status`, tl.`type`,
@@ -1446,7 +1464,7 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		ON h.id=gl.host_id
 		$sql_where
 		$order_by
-		$sql_limit");
+		$sql_limit", $params);
 
 	$sql = "SELECT COUNT(*)
 		FROM (
@@ -1466,9 +1484,9 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 		) AS rower";
 
 	if (function_exists('get_total_row_data') && $graph_id == 0) {
-		$total_rows = get_total_row_data($user_id, $sql, [], 'thold_log', 10);
+		$total_rows = get_total_row_data($user_id, $sql, $params, 'thold_log', 10);
 	} else {
-		$total_rows = db_fetch_cell($sql);
+		$total_rows = db_fetch_cell_prepared($sql, $params);
 	}
 
 	return $tholds;
@@ -4065,7 +4083,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		$queue            = read_config_option('thold_notification_queue');
 
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 
 			$cmd = thold_expand_string($thold_data, $cmd);
 
@@ -4085,7 +4103,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
@@ -4104,7 +4122,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
+			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
 			$cmd = thold_expand_string($thold_data, $cmd);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
@@ -4125,7 +4143,7 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		}
 
 		if ($queue == '' && $command_executed) {
-			thold_process_command_output($output, $return, 'thold', $thold_data, $cmd);
+			thold_process_command_output($output, $return, 'thold_cmd', $thold_data, $cmd);
 		}
 	}
 }
@@ -4239,7 +4257,7 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	return $environment;
 }
 
-function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
+function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false) {
 	global $thold_types;
 
 	if (substr(read_config_option('base_url'), 0, 4) != 'http') {
@@ -4263,26 +4281,33 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 		$site = __('Default', 'thold');
 	}
 
+	// Device and threshold free-text values are admin/user editable. When $text
+	// is a trigger command template ($shell), quote them so they cannot
+	// terminate the command and start another.
+	$quote = function ($value) use ($shell) {
+		return $shell ? cacti_escapeshellarg((string) $value) : $value;
+	};
+
 	// Do some replacement of variables
-	$text = thold_str_replace('<DESCRIPTION>',   $h['description'], $text);
-	$text = thold_str_replace('<HOSTNAME>',      $h['hostname'], $text);
-	$text = thold_str_replace('<LOCATION>',      $h['location'], $text);
-	$text = thold_str_replace('<SITE>',          $site, $text);
+	$text = thold_str_replace('<DESCRIPTION>',   $quote($h['description']), $text);
+	$text = thold_str_replace('<HOSTNAME>',      $quote($h['hostname']), $text);
+	$text = thold_str_replace('<LOCATION>',      $quote($h['location']), $text);
+	$text = thold_str_replace('<SITE>',          $quote($site), $text);
 	$text = thold_str_replace('<GRAPHID>',       $local_graph_id, $text);
 	$text = thold_str_replace('<THOLD_ID>',      $thold['id'], $text);
 
-	$text = thold_str_replace('<CURRENTVALUE>',  $currentval, $text);
-	$text = thold_str_replace('<THRESHOLDNAME>', $thold['name_cache'], $text);
+	$text = thold_str_replace('<CURRENTVALUE>',  $quote($currentval), $text);
+	$text = thold_str_replace('<THRESHOLDNAME>', $quote($thold['name_cache']), $text);
 	$text = thold_str_replace('<DSNAME>',        $data_source_name, $text);
 
 	if (isset($thold_types[$thold['thold_type']])) {
 		$text = thold_str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);
 	}
 
-	$text = thold_str_replace('<NOTES>',         $thold['notes'], $text);
-	$text = thold_str_replace('<DNOTES>',        $thold['dnotes'], $text);
-	$text = thold_str_replace('<DEVICENOTE>',    $thold['dnotes'], $text);
-	$text = thold_str_replace('<EXTERNALID>',    $thold['external_id'], $text);
+	$text = thold_str_replace('<NOTES>',         $quote($thold['notes']), $text);
+	$text = thold_str_replace('<DNOTES>',        $quote($thold['dnotes']), $text);
+	$text = thold_str_replace('<DEVICENOTE>',    $quote($thold['dnotes']), $text);
+	$text = thold_str_replace('<EXTERNALID>',    $quote($thold['external_id']), $text);
 
 	if ($thold['thold_type'] == 0) {
 		$text = thold_str_replace('<HI>',        $thold['thold_hi'], $text);
