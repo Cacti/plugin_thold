@@ -146,7 +146,19 @@ function form_actions() {
 	global $actions, $assoc_actions;
 
 	// ================= input validation =================
+	/*
+	 * get_filter_request_var() stores the value as an int, so the comparison
+	 * has to be made on strings for the strict check to mean anything.
+	 */
 	get_filter_request_var('drp_action');
+
+	$valid_actions = array_map('strval', array_keys($actions + $assoc_actions));
+
+	if (!in_array((string) get_request_var('drp_action'), $valid_actions, true)) {
+		raise_message(40);
+		header('Location: notify_lists.php?header=false');
+		exit;
+	}
 	// ====================================================
 
 	// if we are to save this form, instead of display it
@@ -156,41 +168,54 @@ function form_actions() {
 		if (isset_request_var('save_list')) {
 			if ($selected_items != false) {
 				if (get_request_var('drp_action') == '1') { // delete
-					db_execute('DELETE FROM plugin_notification_lists
-						WHERE ' . array_to_sql_or($selected_items, 'id'));
+					/*
+					 * Bind positionally on the values: sanitize_unserialize_selected_items()
+					 * preserves the submitted array's keys, and a string key would be read
+					 * as a named parameter.
+					 */
+					$ids          = array_map('intval', array_values($selected_items));
+					$placeholders = implode(', ', array_fill(0, cacti_sizeof($ids), '?'));
 
-					db_execute('UPDATE host
-						SET thold_send_email = 0
-						WHERE thold_send_email = 2
-						AND deleted=""
-						AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
+					/*
+					 * Issued as SQL rather than through db_begin_transaction() and
+					 * friends: Cacti's db_commit_transaction() gates the commit on
+					 * SELECT @@in_transaction, which only MariaDB defines. On MySQL that
+					 * query fails, the commit is skipped, and every write here is
+					 * discarded when the connection closes.
+					 */
+					db_execute('START TRANSACTION');
 
-					db_execute('UPDATE host
-						SET thold_send_email = 1
-						WHERE thold_send_email = 3
-						AND deleted=""
-						AND ' . array_to_sql_or($selected_items, 'thold_host_email'));
+					/*
+					 * The host reset deliberately omits the deleted = "" predicate its
+					 * siblings carry: a soft-deleted device that is later restored must
+					 * not come back pointing at a list that no longer exists.
+					 */
+					$statements = [
+						'DELETE FROM plugin_notification_lists WHERE id IN (' . $placeholders . ')',
+						'UPDATE host SET thold_send_email = 0 WHERE thold_send_email = 2 AND deleted = "" AND thold_host_email IN (' . $placeholders . ')',
+						'UPDATE host SET thold_send_email = 1 WHERE thold_send_email = 3 AND deleted = "" AND thold_host_email IN (' . $placeholders . ')',
+						'UPDATE host SET thold_host_email = 0 WHERE thold_host_email IN (' . $placeholders . ')',
+						'UPDATE thold_data SET notify_warning = 0 WHERE notify_warning IN (' . $placeholders . ')',
+						'UPDATE thold_data SET notify_alert = 0 WHERE notify_alert IN (' . $placeholders . ')',
+						'UPDATE thold_template SET notify_warning = 0 WHERE notify_warning IN (' . $placeholders . ')',
+						'UPDATE thold_template SET notify_alert = 0 WHERE notify_alert IN (' . $placeholders . ')'
+					];
 
-					db_execute('UPDATE host
-						SET thold_host_email = 0
-						AND deleted=""
-						WHERE ' . array_to_sql_or($selected_items, 'thold_host_email'));
+					$ok = true;
 
-					db_execute('UPDATE thold_data
-						SET notify_warning = 0
-						WHERE ' . array_to_sql_or($selected_items, 'notify_warning'));
+					foreach ($statements as $sql) {
+						if (!db_execute_prepared($sql, $ids)) {
+							$ok = false;
 
-					db_execute('UPDATE thold_data
-						SET notify_alert = 0
-						WHERE ' . array_to_sql_or($selected_items, 'notify_alert'));
+							break;
+						}
+					}
 
-					db_execute('UPDATE thold_template
-						SET notify_warning = 0
-						WHERE ' . array_to_sql_or($selected_items, 'notify_warning'));
-
-					db_execute('UPDATE thold_template
-						SET notify_alert = 0
-						WHERE ' . array_to_sql_or($selected_items, 'notify_alert'));
+					if ($ok) {
+						db_execute('COMMIT');
+					} else {
+						db_execute('ROLLBACK');
+					}
 				} elseif (get_request_var('drp_action') == '2') { // duplicate
 					$i = 1;
 
@@ -237,48 +262,60 @@ function form_actions() {
 
 		if (isset_request_var('save_associate')) {
 			if ($selected_items != false) {
+				get_filter_request_var('id');
 				get_filter_request_var('notification_action');
+				get_filter_request_var('notification_warning_action');
+				get_filter_request_var('notification_alert_action');
+
+				db_execute('START TRANSACTION');
+
+				$ok = true;
 
 				if (get_request_var('drp_action') == '1') { // associate
-					for ($i = 0; ($i < count($selected_items)); $i++) {
+					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
 						// set the notification list
-						db_execute('UPDATE host
-							SET thold_host_email=' . get_request_var('id') . '
-							WHERE id=' . $selected_items[$i] . '
-							AND deleted=""');
+						$ok = db_execute_prepared('UPDATE host
+							SET thold_host_email = ?
+							WHERE id = ?
+							AND deleted = ""',
+							[get_request_var('id'), $selected_items[$i]]) && $ok;
 
 						// set the global/list election
-						db_execute('UPDATE host
-							SET thold_send_email=' . get_request_var('notification_action') . '
-							WHERE id=' . $selected_items[$i] . '
-							AND deleted=""');
+						$ok = db_execute_prepared('UPDATE host
+							SET thold_send_email = ?
+							WHERE id = ?
+							AND deleted = ""',
+							[get_request_var('notification_action'), $selected_items[$i]]) && $ok;
 
 						if (get_request_var('notification_warning_action') > 0) {
 							// clear other settings
 							if (get_request_var('notification_warning_action') == 1) {
 								// set the notification list
-								db_execute('UPDATE thold_data AS td
+								$ok = db_execute_prepared('UPDATE thold_data AS td
 									LEFT JOIN thold_template AS tt
 									ON td.thold_template_id = tt.id
-									SET td.notify_warning=' . get_request_var('id') . '
-									WHERE td.host_id=' . $selected_items[$i] . '
-									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+									SET td.notify_warning = ?
+									WHERE td.host_id = ?
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 
 								// clear other items
-								db_execute("UPDATE thold_data AS td
+								$ok = db_execute_prepared('UPDATE thold_data AS td
 									LEFT JOIN thold_template AS tt
 									ON td.thold_template_id = tt.id
-									SET td.notify_warning_extra=''
-									WHERE td.host_id=" . $selected_items[$i] . '
-									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+									SET td.notify_warning_extra = \'\'
+									WHERE td.host_id = ?
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)',
+									[$selected_items[$i]]) && $ok;
 							} else {
 								// set the notification list
-								db_execute('UPDATE thold_data AS td
+								$ok = db_execute_prepared('UPDATE thold_data AS td
 									LEFT JOIN thold_template AS tt
 									ON td.thold_template_id = tt.id
-									SET td.notify_warning=' . get_request_var('id') . '
-									WHERE td.host_id=' . $selected_items[$i] . '
-									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+									SET td.notify_warning = ?
+									WHERE td.host_id = ?
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 							}
 						}
 
@@ -286,77 +323,99 @@ function form_actions() {
 							// clear other settings
 							if (get_request_var('notification_alert_action') == 1) {
 								// set the notification list
-								db_execute('UPDATE thold_data AS td
+								$ok = db_execute_prepared('UPDATE thold_data AS td
 									LEFT JOIN thold_template AS tt
 									ON td.thold_template_id = tt.id
-									SET td.notify_alert=' . get_request_var('id') . '
-									WHERE td.host_id=' . $selected_items[$i] . '
-									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+									SET td.notify_alert = ?
+									WHERE td.host_id = ?
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 
 								// clear other items
-								db_execute("UPDATE thold_data AS td
+								$ok = db_execute_prepared('UPDATE thold_data AS td
 									LEFT JOIN thold_template AS tt
 									ON td.thold_template_id = tt.id
-									SET td.notify_extra=''
-									WHERE host_id=" . $selected_items[$i] . '
-									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+									SET td.notify_extra = \'\'
+									WHERE host_id = ?
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)',
+									[$selected_items[$i]]) && $ok;
 
 								// remove legacy contacts
-								db_execute('DELETE pttc
+								$ok = db_execute_prepared('DELETE pttc
 									FROM plugin_thold_threshold_contact AS pttc
 									INNER JOIN thold_data AS td
 									ON pttc.thold_id = td.id
 									LEFT JOIN thold_template AS tt
 									ON td.thold_template_id = tt.id
-									WHERE td.host_id=' . $selected_items[$i] . '
-									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+									WHERE td.host_id = ?
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)',
+									[$selected_items[$i]]) && $ok;
 							} else {
 								// set the notification list
-								db_execute('UPDATE thold_data AS td
+								$ok = db_execute_prepared('UPDATE thold_data AS td
 									LEFT JOIN thold_template AS tt
 									ON td.thold_template_id = tt.id
-									SET td.notify_alert=' . get_request_var('id') . '
-									WHERE td.host_id=' . $selected_items[$i] . '
-									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)');
+									SET td.notify_alert = ?
+									WHERE td.host_id = ?
+									AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 							}
+						}
+
+						if (!$ok) {
+							break;
 						}
 					}
 				} elseif (get_request_var('drp_action') == '2') { // disassociate
-					for ($i = 0; ($i < count($selected_items)); $i++) {
+					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
 						// set the notification list
-						db_execute('UPDATE host
-							SET thold_host_email=0
-							WHERE id=' . $selected_items[$i] . '
-							AND deleted=""');
+						$ok = db_execute_prepared('UPDATE host
+							SET thold_host_email = 0
+							WHERE id = ?
+							AND deleted = ""',
+							[$selected_items[$i]]) && $ok;
 
 						// set the global/list election
-						db_execute('UPDATE host
-							SET thold_send_email=' . get_request_var('notification_action') . '
-							WHERE id=' . $selected_items[$i] . '
-							AND deleted=""');
+						$ok = db_execute_prepared('UPDATE host
+							SET thold_send_email = ?
+							WHERE id = ?
+							AND deleted = ""',
+							[get_request_var('notification_action'), $selected_items[$i]]) && $ok;
 
 						if (get_request_var('notification_warning_action') > 0) {
 							// set the notification list
-							db_execute('UPDATE thold_data AS td
+							$ok = db_execute_prepared('UPDATE thold_data AS td
 								LEFT JOIN thold_template AS tt
 								ON td.thold_template_id = tt.id
 								SET td.notify_warning = 0
-								WHERE td.host_id=' . $selected_items[$i] . '
+								WHERE td.host_id = ?
 								AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)
-								AND td.notify_warning=' . get_request_var('id'));
+								AND td.notify_warning = ?',
+								[$selected_items[$i], get_request_var('id')]) && $ok;
 						}
 
 						if (get_request_var('notification_alert_action') > 0) {
 							// set the notification list
-							db_execute('UPDATE thold_data AS td
+							$ok = db_execute_prepared('UPDATE thold_data AS td
 								LEFT JOIN thold_template AS tt
 								ON td.thold_template_id = tt.id
-								SET td.notify_alert=0
-								WHERE td.host_id=' . $selected_items[$i] . '
+								SET td.notify_alert = 0
+								WHERE td.host_id = ?
 								AND (tt.notify_templated = "" OR tt.notify_templated IS NULL)
-								AND td.notify_alert=' . get_request_var('id'));
+								AND td.notify_alert = ?',
+								[$selected_items[$i], get_request_var('id')]) && $ok;
+						}
+
+						if (!$ok) {
+							break;
 						}
 					}
+				}
+
+				if ($ok) {
+					db_execute('COMMIT');
+				} else {
+					db_execute('ROLLBACK');
 				}
 			}
 
@@ -366,27 +425,38 @@ function form_actions() {
 
 		if (isset_request_var('save_templates')) {
 			if ($selected_items != false) {
+				get_filter_request_var('id');
 				get_filter_request_var('notification_action');
+				get_filter_request_var('notification_warning_action');
+				get_filter_request_var('notification_alert_action');
+
+				db_execute('START TRANSACTION');
+
+				$ok              = true;
+				$update_template = [];
 
 				if (get_request_var('drp_action') == '1') { // associate
-					for ($i = 0; ($i < count($selected_items)); $i++) {
+					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
 						if (get_request_var('notification_warning_action') > 0) {
 							// clear other settings
 							if (get_request_var('notification_warning_action') == 1) {
 								// set the notification list
-								db_execute('UPDATE thold_template
-									SET notify_warning=' . get_request_var('id') . '
-									WHERE id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('UPDATE thold_template
+									SET notify_warning = ?
+									WHERE id = ?',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 
 								// clear other items
-								db_execute("UPDATE thold_template
-									SET notify_warning_extra=''
-									WHERE id=" . $selected_items[$i]);
+								$ok = db_execute_prepared("UPDATE thold_template
+									SET notify_warning_extra = ''
+									WHERE id = ?",
+									[$selected_items[$i]]) && $ok;
 							} else {
 								// set the notification list
-								db_execute('UPDATE thold_template
-									SET notify_warning=' . get_request_var('id') . '
-									WHERE id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('UPDATE thold_template
+									SET notify_warning = ?
+									WHERE id = ?',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 							}
 						}
 
@@ -394,47 +464,74 @@ function form_actions() {
 							// clear other settings
 							if (get_request_var('notification_alert_action') == 1) {
 								// set the notification list
-								db_execute('UPDATE thold_template
-									SET notify_alert=' . get_request_var('id') . '
-									WHERE id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('UPDATE thold_template
+									SET notify_alert = ?
+									WHERE id = ?',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 
 								// clear other items
-								db_execute("UPDATE thold_template
-									SET notify_extra=''
-									WHERE id=" . $selected_items[$i]);
+								$ok = db_execute_prepared("UPDATE thold_template
+									SET notify_extra = ''
+									WHERE id = ?",
+									[$selected_items[$i]]) && $ok;
 
-								db_execute('DELETE FROM plugin_thold_template_contact
-									WHERE template_id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('DELETE FROM plugin_thold_template_contact
+									WHERE template_id = ?',
+									[$selected_items[$i]]) && $ok;
 							} else {
 								// set the notification list
-								db_execute('UPDATE thold_template
-									SET notify_alert=' . get_request_var('id') . '
-									WHERE id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('UPDATE thold_template
+									SET notify_alert = ?
+									WHERE id = ?',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 							}
 						}
 
-						thold_template_update_thresholds($selected_items[$i]);
+						$update_template[] = $selected_items[$i];
+
+						if (!$ok) {
+							break;
+						}
 					}
 				} elseif (get_request_var('drp_action') == '2') { // disassociate
-					for ($i = 0; ($i < count($selected_items)); $i++) {
+					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
 						if (get_request_var('notification_warning_action') > 0) {
 							// set the notification list
-							db_execute('UPDATE thold_template
-								SET notify_warning=0
-								WHERE id=' . $selected_items[$i] . '
-								AND notify_warning=' . get_request_var('id'));
+							$ok = db_execute_prepared('UPDATE thold_template
+								SET notify_warning = 0
+								WHERE id = ?
+								AND notify_warning = ?',
+								[$selected_items[$i], get_request_var('id')]) && $ok;
 						}
 
 						if (get_request_var('notification_alert_action') > 0) {
 							// set the notification list
-							db_execute('UPDATE thold_template
-								SET notify_alert=0
-								WHERE id=' . $selected_items[$i] . '
-								AND notify_alert=' . get_request_var('id'));
+							$ok = db_execute_prepared('UPDATE thold_template
+								SET notify_alert = 0
+								WHERE id = ?
+								AND notify_alert = ?',
+								[$selected_items[$i], get_request_var('id')]) && $ok;
 						}
 
-						thold_template_update_thresholds($selected_items[$i]);
+						$update_template[] = $selected_items[$i];
+
+						if (!$ok) {
+							break;
+						}
 					}
+				}
+
+				if ($ok) {
+					db_execute('COMMIT');
+
+					// Propagate template changes to threshold instances after the
+					// notification assignment is committed so this cascade does not
+					// participate in the transaction boundary.
+					foreach ($update_template as $template_id) {
+						thold_template_update_thresholds($template_id);
+					}
+				} else {
+					db_execute('ROLLBACK');
 				}
 			}
 
@@ -444,27 +541,37 @@ function form_actions() {
 
 		if (isset_request_var('save_tholds')) {
 			if ($selected_items != false) {
+				get_filter_request_var('id');
 				get_filter_request_var('notification_action');
+				get_filter_request_var('notification_warning_action');
+				get_filter_request_var('notification_alert_action');
+
+				db_execute('START TRANSACTION');
+
+				$ok = true;
 
 				if (get_request_var('drp_action') == '1') { // associate
-					for ($i = 0; ($i < count($selected_items)); $i++) {
+					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
 						if (get_request_var('notification_warning_action') > 0) {
 							// clear other settings
 							if (get_request_var('notification_warning_action') == 1) {
 								// set the notification list
-								db_execute('UPDATE thold_data
-									SET notify_warning=' . get_request_var('id') . '
-									WHERE id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('UPDATE thold_data
+									SET notify_warning = ?
+									WHERE id = ?',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 
 								// clear other items
-								db_execute("UPDATE thold_data
-									SET notify_warning_extra=''
-									WHERE id=" . $selected_items[$i]);
+								$ok = db_execute_prepared("UPDATE thold_data
+									SET notify_warning_extra = ''
+									WHERE id = ?",
+									[$selected_items[$i]]) && $ok;
 							} else {
 								// set the notification list
-								db_execute('UPDATE thold_data
-									SET notify_warning=' . get_request_var('id') . '
-									WHERE id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('UPDATE thold_data
+									SET notify_warning = ?
+									WHERE id = ?',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 							}
 						}
 
@@ -472,42 +579,63 @@ function form_actions() {
 							// clear other settings
 							if (get_request_var('notification_alert_action') == 1) {
 								// set the notification list
-								db_execute('UPDATE thold_data
-									SET notify_alert=' . get_request_var('id') . '
-									WHERE id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('UPDATE thold_data
+									SET notify_alert = ?
+									WHERE id = ?',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 
 								// clear other items
-								db_execute("UPDATE thold_data
-									SET notify_extra=''
-									WHERE id=" . $selected_items[$i]);
+								$ok = db_execute_prepared("UPDATE thold_data
+									SET notify_extra = ''
+									WHERE id = ?",
+									[$selected_items[$i]]) && $ok;
 
-								db_execute('DELETE FROM plugin_thold_threshold_contact WHERE thold_id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('DELETE FROM plugin_thold_threshold_contact
+									WHERE thold_id = ?',
+									[$selected_items[$i]]) && $ok;
 							} else {
 								// set the notification list
-								db_execute('UPDATE thold_data
-									SET notify_alert=' . get_request_var('id') . '
-									WHERE id=' . $selected_items[$i]);
+								$ok = db_execute_prepared('UPDATE thold_data
+									SET notify_alert = ?
+									WHERE id = ?',
+									[get_request_var('id'), $selected_items[$i]]) && $ok;
 							}
+						}
+
+						if (!$ok) {
+							break;
 						}
 					}
 				} elseif (get_request_var('drp_action') == '2') { // disassociate
-					for ($i = 0; ($i < count($selected_items)); $i++) {
+					for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
 						if (get_request_var('notification_warning_action') > 0) {
 							// set the notification list
-							db_execute('UPDATE thold_data
-								SET notify_warning=0
-								WHERE id=' . $selected_items[$i] . '
-								AND notify_warning=' . get_request_var('id'));
+							$ok = db_execute_prepared('UPDATE thold_data
+								SET notify_warning = 0
+								WHERE id = ?
+								AND notify_warning = ?',
+								[$selected_items[$i], get_request_var('id')]) && $ok;
 						}
 
 						if (get_request_var('notification_alert_action') > 0) {
 							// set the notification list
-							db_execute('UPDATE thold_data
-								SET notify_alert=0
-								WHERE id=' . $selected_items[$i] . '
-								AND notify_alert=' . get_request_var('id'));
+							$ok = db_execute_prepared('UPDATE thold_data
+								SET notify_alert = 0
+								WHERE id = ?
+								AND notify_alert = ?',
+								[$selected_items[$i], get_request_var('id')]) && $ok;
+						}
+
+						if (!$ok) {
+							break;
 						}
 					}
+				}
+
+				if ($ok) {
+					db_execute('COMMIT');
+				} else {
+					db_execute('ROLLBACK');
 				}
 			}
 
@@ -590,7 +718,7 @@ function form_actions() {
 				<input type='hidden' name='action' value='actions'>
 				<input type='hidden' name='save_list' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -665,10 +793,10 @@ function form_actions() {
 		print "	<tr>
 				<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
+				<input type='hidden' name='id' value='" . html_escape(get_request_var('id')) . "'>
 				<input type='hidden' name='save_templates' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -743,10 +871,10 @@ function form_actions() {
 		print "	<tr>
 				<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
+				<input type='hidden' name='id' value='" . html_escape(get_request_var('id')) . "'>
 				<input type='hidden' name='save_tholds' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -828,10 +956,10 @@ function form_actions() {
 		print "<tr>
 			<td class='saveRow'>
 				<input type='hidden' name='action' value='actions'>
-				<input type='hidden' name='id' value='" . get_request_var('id') . "'>
+				<input type='hidden' name='id' value='" . html_escape(get_request_var('id')) . "'>
 				<input type='hidden' name='save_associate' value='1'>
 				<input type='hidden' name='selected_items' value='" . (isset($array) ? serialize($array) : '') . "'>
-				<input type='hidden' name='drp_action' value='" . get_request_var('drp_action') . "'>
+				<input type='hidden' name='drp_action' value='" . html_escape(get_request_var('drp_action')) . "'>
 				$save_html
 			</td>
 		</tr>";
@@ -1139,11 +1267,11 @@ function hosts($header_label) {
 
 		function applyFilter() {
 			strURL  = '?header=false&action=edit&id=<?php print get_request_var('id'); ?>'
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&host_template_id=' + $('#host_template_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&host_template_id=' + encodeURIComponent($('#host_template_id').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
 			strURL += '&associated=' + $('#associated').is(':checked');
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -1399,7 +1527,9 @@ function tholds($header_label) {
 	}
 
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . "td.name_cache RLIKE '" . get_request_var('rfilter') . "'";
+		// rfilter is pre-validated as a legal PHP regex by FILTER_VALIDATE_IS_REGEX in the
+		// request validation array; db_qstr() SQL-escapes the already-validated value.
+		$sql_where .= (!strlen($sql_where) ? '' : ' AND ') . 'td.name_cache ' . thold_rlike_clause(get_request_var('rfilter'));
 	}
 
 	if ($statefilter != '') {
@@ -1509,11 +1639,11 @@ function tholds($header_label) {
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print get_request_var('id'); ?>'
 			strURL += '&associated=' + $('#associated').is(':checked');
-			strURL += '&state=' + $('#state').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&template=' + $('#template').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&state=' + encodeURIComponent($('#state').val());
+			strURL += '&site_id=' + encodeURIComponent($('#site_id').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&template=' + encodeURIComponent($('#template').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -1739,7 +1869,9 @@ function templates($header_label) {
 	}
 
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . "thold_template.name RLIKE '" . get_request_var('rfilter') . "'";
+		// rfilter is pre-validated as a legal PHP regex by FILTER_VALIDATE_IS_REGEX in the
+		// request validation array; db_qstr() SQL-escapes the already-validated value.
+		$sql_where .= (!strlen($sql_where) ? 'WHERE ' : ' AND ') . 'thold_template.name ' . thold_rlike_clause(get_request_var('rfilter'));
 	}
 
 	$sql = "SELECT *
@@ -1798,8 +1930,8 @@ function templates($header_label) {
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print get_request_var('id'); ?>'
 			strURL += '&associated=' + $('#associated').is(':checked');
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -2117,8 +2249,8 @@ function lists() {
 
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false';
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&rfilter=' + base64_encode($('#rfilter').val());
+			strURL += '&rows=' + encodeURIComponent($('#rows').val());
+			strURL += '&rfilter=' + encodeURIComponent(base64_encode($('#rfilter').val()));
 			loadPageNoHeader(strURL);
 		}
 
@@ -2143,10 +2275,12 @@ function lists() {
 
 	// form the 'where' clause for our main sql query
 	if (strlen(get_request_var('rfilter'))) {
-		$sql_where = "WHERE (
-		name RLIKE '" . get_request_var('rfilter') . "'
-		OR description RLIKE '" . get_request_var('rfilter') . "'
-		OR emails RLIKE '" . get_request_var('rfilter') . "')";
+		// rfilter is pre-validated as a legal PHP regex by FILTER_VALIDATE_IS_REGEX in the
+		// request validation array; db_qstr() SQL-escapes the already-validated value.
+		$sql_where = 'WHERE (
+		name ' . thold_rlike_clause(get_request_var('rfilter')) . '
+		OR description ' . thold_rlike_clause(get_request_var('rfilter')) . '
+		OR emails ' . thold_rlike_clause(get_request_var('rfilter')) . ')';
 	} else {
 		$sql_where = '';
 	}

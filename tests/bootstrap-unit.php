@@ -62,6 +62,8 @@ if ($cacti_version !== $expected_version) {
 require_once $autoload;
 require_once __DIR__ . '/Helpers/CactiStubs.php';
 require_once __DIR__ . '/TestCase.php';
+require_once __DIR__ . '/Helpers/ThresholdOutcome.php';
+require_once __DIR__ . '/Helpers/ThresholdScenario.php';
 
 /*
  * base_path has to point at the Cacti root two levels above this plugin:
@@ -157,7 +159,7 @@ if (!function_exists('db_fetch_cell_prepared')) {
 }
 
 if (!function_exists('db_qstr')) {
-	function db_qstr($string) {
+	function db_qstr($string, $db_conn = false) {
 		return "'" . str_replace("'", "''", (string) $string) . "'";
 	}
 }
@@ -482,7 +484,7 @@ if (!function_exists('rrdtool_execute')) {
 	function rrdtool_execute($command, $log_to_stdout = false, $output_flag = 1, $rrdtool_pipe = false, $logopt = 'WEBLOG') {
 		CactiStubs::record('rrdtool_execute', $command);
 
-		return CactiStubs::nextReturn('rrdtool_execute', '');
+		return CactiStubs::nextReturn('rrdtool_execute', '', $command);
 	}
 }
 
@@ -521,8 +523,13 @@ foreach (['HOST_UNKNOWN' => 0, 'HOST_DOWN' => 1, 'HOST_RECOVERING' => 2, 'HOST_U
 	}
 }
 
-if (!defined('RRDTOOL_OUTPUT_STDOUT')) {
-	define('RRDTOOL_OUTPUT_STDOUT', 1);
+// rrdtool output modes, from Cacti include/global_constants.php.
+foreach (['RRDTOOL_OUTPUT_NULL' => 0, 'RRDTOOL_OUTPUT_STDOUT' => 1, 'RRDTOOL_OUTPUT_STDERR' => 2,
+	'RRDTOOL_OUTPUT_GRAPH_DATA'    => 3, 'RRDTOOL_OUTPUT_BOOLEAN' => 4,
+	'RRDTOOL_OUTPUT_RETURN_STDERR' => 5] as $name => $value) {
+	if (!defined($name)) {
+		define($name, $value);
+	}
 }
 
 if (!defined('CACTI_DATE_TIME_FORMAT')) {

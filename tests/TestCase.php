@@ -31,6 +31,7 @@ abstract class TestCase extends PHPUnit\Framework\TestCase {
 
 		CactiStubs::reset();
 		$GLOBALS['rpn_error'] = false;
+		$_SESSION = [];
 	}
 
 	/**

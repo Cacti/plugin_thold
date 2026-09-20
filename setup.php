@@ -691,7 +691,7 @@ function thold_device_action_execute($action) {
 	$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
 	if ($selected_items != false) {
-		for ($i = 0; ($i < count($selected_items)); $i++) {
+		for ($i = 0; ($i < cacti_sizeof($selected_items)); $i++) {
 			autocreate($selected_items[$i]);
 		}
 	}
