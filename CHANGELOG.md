@@ -23,9 +23,13 @@
 * issue#710: Fixing Typo in thold_daemons.service File
 * issue#714: Increase the Name column to 255 characters
 * issue#719: Plugin Disabled due to mix of string and int
+* issue#814: Normalize nullable notification template text before replacement
+* issue#784: Retry failed queued email notifications with bounded exponential backoff
+* issue#812: Recover stale notification claims, scope worker drains, and deprecate the ignored notification --thread option
 * issue: All Columns checkd on Thresholds page
 * issue: Special character previous value handling broken on data query indexes with special characters
 * security: Replace eval() in RPN binary math operations with safe dispatch function (GHSA-vr4v-qvqm-gm9j, CWE-95)
+* security: Replace eval() in RPN unary math functions with safe dispatch function (GHSA-4mmp-mv2x-m9f6, CWE-95)
 * security: Replace md5() with sha256 for email dedup cache key (GHSA-gf2h-84m3-q6m3, CWE-1240)
 
 --- 1.8.2 ---
