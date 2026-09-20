@@ -84,11 +84,12 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @param array<string, mixed> $device
 	 * @param bool                 $shell
 	 * @param mixed                $currentval
+	 * @param string               $dataSourceName
 	 *
 	 * @return string
 	 */
-	private function substitute($text, array $thold, array $device, $shell, $currentval = 42) {
-		return thold_replace_threshold_tags($text, $thold, $device, $currentval, 7, 'traffic_in', $shell);
+	private function substitute($text, array $thold, array $device, $shell, $currentval = 42, $dataSourceName = 'traffic_in') {
+		return thold_replace_threshold_tags($text, $thold, $device, $currentval, 7, $dataSourceName, $shell);
 	}
 
 	/**
@@ -190,6 +191,29 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 		$result = $this->substitute('value=<CURRENTVALUE>', $this->threshold(), $this->device(), false, 42);
 
 		$this->assertSame('value=42', $result);
+	}
+
+	/**
+	 * The data source name is read straight from the data source table; a
+	 * name containing shell metacharacters must not be able to break out of
+	 * the configured trigger command.
+	 *
+	 * @return void
+	 */
+	public function testShellModeQuotesTheDataSourceName(): void {
+		$result = $this->substitute('/usr/bin/alert <DSNAME>', $this->threshold(), $this->device(), true, 42, '; touch /tmp/pwned');
+
+		$this->assertStringContainsString(escapeshellarg('; touch /tmp/pwned'), $result);
+		$this->assertStringNotContainsString('alert ; touch', $result);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testEmailModeLeavesTheDataSourceNameUnquoted(): void {
+		$result = $this->substitute('ds=<DSNAME>', $this->threshold(), $this->device(), false, 42, "O'Brien");
+
+		$this->assertSame("ds=O'Brien", $result);
 	}
 
 	/**

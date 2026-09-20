@@ -210,7 +210,7 @@ while (true) {
 				thold_daemon_debug(sprintf('Checked Name:%s, Graph:%s, Value:%s, Time:%s', $thold_data['thold_name'], $thold_data['local_graph_id'], $currentval, $currenttime), $thread);
 
 				if (!thold_daemon_persist_sample($thold_data, $item, $currentval, $currenttime)) {
-					thold_daemon_debug(sprintf('Failed to persist threshold sample for ID %s.', $thold_data['thold_id']), $thread);
+					thold_cacti_log(sprintf('WARNING: Failed to persist threshold sample for ID %s.', $thold_data['thold_id']), $thread);
 				}
 			}
 

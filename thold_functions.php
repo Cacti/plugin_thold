@@ -365,7 +365,12 @@ function thold_expression_math_rpn($operator, &$stack) {
 			} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
 				$v3         = 0;
 				$rpn_evaled = true;
-			} elseif ($v1 == 0 && ($operator == '/' || $operator == '%')) {
+			} elseif ($v1 == 0 && $operator == '/') {
+				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "' . $operator . '".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+				$rpn_error = true;
+			} elseif ($operator == '%' && (int) $v1 == 0) {
+				// The % operator truncates both operands to int, so a fractional
+				// divisor such as 0.5 becomes 0 even though $v1 == 0 is false.
 				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "' . $operator . '".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			}
@@ -3986,6 +3991,13 @@ function thold_check_threshold(&$thold_data) {
 					thold_fail_count = ?
 					WHERE id = ?',
 						[$warning_failures, $failures, $thold_data['id']]);
+
+					if ($thold_data['reset_ack'] == 'on') {
+						db_execute_prepared('UPDATE thold_data
+						SET acknowledgment = ""
+						WHERE id = ?',
+							[$thold_data['id']]);
+					}
 				} else {
 					db_execute_prepared('UPDATE thold_data
 					SET thold_fail_count = ?,
@@ -4636,7 +4648,7 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 
 	$text = thold_str_replace('<CURRENTVALUE>',  $q($currentval), $text);
 	$text = thold_str_replace('<THRESHOLDNAME>', $q($thold['name_cache']), $text);
-	$text = thold_str_replace('<DSNAME>',        $data_source_name, $text);
+	$text = thold_str_replace('<DSNAME>',        $q($data_source_name), $text);
 
 	if (isset($thold_types[$thold['thold_type']])) {
 		$text = thold_str_replace('<THOLDTYPE>', $thold_types[$thold['thold_type']], $text);

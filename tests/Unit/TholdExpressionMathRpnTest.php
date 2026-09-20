@@ -129,6 +129,19 @@ final class TholdExpressionMathRpnTest extends TestCase {
 	}
 
 	/**
+	 * The % operator truncates both operands to int before dividing, so a
+	 * divisor such as 0.5 becomes 0 even though it is not "== 0" as a float.
+	 * Without a dedicated int-cast check, this previously reached eval() and
+	 * threw an uncaught DivisionByZeroError instead of failing closed.
+	 *
+	 * @return void
+	 */
+	public function testModuloByFractionalZeroDivisorFlagsErrorInsteadOfThrowing(): void {
+		$this->assertSame([], $this->evaluate([8, 0.5], '%'));
+		$this->assertTrue($GLOBALS['rpn_error']);
+	}
+
+	/**
 	 * @return array<string, array{0: array<int, mixed>, 1: string}>
 	 */
 	public static function nonNumericOperandProvider() {
