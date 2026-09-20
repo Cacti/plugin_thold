@@ -55,7 +55,8 @@ if ($expected_version === '') {
 	throw new RuntimeException("Expected Cacti version file is empty: $expected");
 }
 
-if ($cacti_version !== $expected_version) {
+// The CI workflow tracks a moving branch (1.2.x or develop) rather than a pinned release, so any actual version is accepted.
+if (!in_array($expected_version, ['1.2.x', 'develop'], true) && $cacti_version !== $expected_version) {
 	throw new RuntimeException("Expected Cacti $expected_version, found $cacti_version in $version");
 }
 
