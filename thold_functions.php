@@ -338,6 +338,53 @@ function thold_expression_rpn_pop(&$stack) {
 	}
 }
 
+/**
+ * thold_rpn_math_unary - safely evaluates a unary math function
+ * without using eval(). The operator must be one of the whitelisted
+ * RPN unary math function names (SIN, COS, TAN, ATAN, SQRT, FLOOR,
+ * CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG).
+ *
+ * @param string $operator The function name
+ * @param mixed  $v1        The operand (validated numeric)
+ *
+ * @return mixed The result of the function call
+ */
+function thold_rpn_math_unary($operator, $v1) {
+	global $rpn_error;
+
+	switch ($operator) {
+		case 'SIN':
+			return sin($v1);
+		case 'COS':
+			return cos($v1);
+		case 'TAN':
+			return tan($v1);
+		case 'ATAN':
+			return atan($v1);
+		case 'SQRT':
+			return sqrt($v1);
+		case 'FLOOR':
+			return floor($v1);
+		case 'CEIL':
+			return ceil($v1);
+		case 'DEG2RAD':
+			return deg2rad($v1);
+		case 'RAD2DEG':
+			return rad2deg($v1);
+		case 'ABS':
+			return abs($v1);
+		case 'EXP':
+			return exp($v1);
+		case 'LOG':
+			return log($v1);
+		default:
+			cacti_log("ERROR: RPN unknown unary operator '$operator'", false, 'THOLD');
+			$rpn_error = true;
+
+			return 0;
+	}
+}
+
 function thold_expression_math_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -363,6 +410,9 @@ function thold_expression_math_rpn($operator, &$stack) {
 				cacti_log('ERROR: RPN value: v2 "' . $v2 . '" is Not valid for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
+				// Not a loop/switch context: this only exits the if/elseif
+				// chain below, it must not use "break" (which would exit the
+				// enclosing switch($operator) and skip the array_push below).
 				$v3         = 0;
 				$rpn_evaled = true;
 			} elseif ($v1 == 0 && $operator == '/') {
@@ -408,10 +458,10 @@ function thold_expression_math_rpn($operator, &$stack) {
 			}
 
 			if (!$rpn_error) {
-				eval('$v2 = ' . $operator . '(' . $v1 . ');'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math function names by the parser above
+				$v2 = thold_rpn_math_unary($operator, $v1);
 
 				if (is_nan($v2) || is_infinite($v2)) {
-					cacti_log('ERROR: RPN value: v1 "' . $v1 . '" produced an undefined result for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+					cacti_log('ERROR: RPN value: result of "' . $operator . '(' . $v1 . ')" is undefined. Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 					$rpn_error = true;
 				} else {
 					array_push($stack, $v2);
@@ -1616,7 +1666,6 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 
 function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	$graph_id = (int) $graph_id;
-	$params   = $sql_params;
 
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
@@ -1625,6 +1674,8 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 	if ($order_by != '') {
 		$order_by = "ORDER BY $order_by";
 	}
+
+	$params = $sql_params;
 
 	if ($graph_id > 0) {
 		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . ' gl.id = ?';
@@ -1712,7 +1763,6 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 
 function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	$graph_id = (int) $graph_id;
-	$params   = $sql_params;
 
 	if ($sql_limit != '') {
 		$sql_limit = "LIMIT $sql_limit";
@@ -1721,6 +1771,8 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 	if ($order_by != '') {
 		$order_by = "ORDER BY $order_by";
 	}
+
+	$params = $sql_params;
 
 	if ($graph_id > 0) {
 		$sql_where .= (strlen($sql_where) ? ' AND ' : ' ') . ' gl.id = ?';
@@ -4660,13 +4712,6 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false) {
 	global $thold_types;
 
-	// Values below come from device/threshold fields an operator can edit or from the
-	// polled reading itself, so in $shell mode they must be quoted before landing on a
-	// command line; email/HTML callers pass the value through unquoted.
-	$q = function ($value) use ($shell) {
-		return $shell ? escapeshellarg((string) $value) : $value;
-	};
-
 	if (substr(read_config_option('base_url'), 0, 4) != 'http') {
 		if (read_config_option('force_https') == 'on') {
 			$prefix = 'https://';
@@ -4687,6 +4732,13 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	if (!$site) {
 		$site = __('Default', 'thold');
 	}
+
+	// Device and threshold free-text values are admin/user editable. When $text
+	// is a trigger command template ($shell), quote them so they cannot
+	// terminate the command and start another.
+	$q = function ($value) use ($shell) {
+		return $shell ? cacti_escapeshellarg((string) $value) : $value;
+	};
 
 	// Do some replacement of variables. Every tag/value pair is collected up
 	// front and substituted in a single strtr() pass: strtr() replaces against
@@ -9587,12 +9639,12 @@ function thold_rlike_clause($value) {
  * blanking it produced alert bodies reading "Current value is " for exactly
  * the case an operator most needs to see.
  *
- * @param string $search  Tag to replace.
- * @param mixed  $replace Value to substitute.
- * @param string $subject Text containing the tag.
+ * @param string      $search  Tag to replace.
+ * @param mixed       $replace Value to substitute.
+ * @param string|null $subject Text containing the tag.
  */
-function thold_str_replace(string $search, $replace, string $subject): string {
-	return str_replace($search, $replace ?? '', $subject);
+function thold_str_replace(string $search, $replace, ?string $subject): string {
+	return str_replace($search, $replace ?? '', $subject ?? '');
 }
 
 function thold_template_import($xml_data) {

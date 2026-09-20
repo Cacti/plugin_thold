@@ -91,4 +91,29 @@ final class TholdStrReplaceTest extends TestCase {
 	public function testSubjectWithoutTheTagIsUnchanged(): void {
 		$this->assertSame('no tags here', thold_str_replace('<X>', 5, 'no tags here'));
 	}
+
+	/**
+	 * @return void
+	 */
+	public function testNullableSubjectIsNormalizedAtTheBoundary(): void {
+		$deprecations = [];
+		set_error_handler(static function ($severity, $message) use (&$deprecations) {
+			if ($severity === E_DEPRECATED) {
+				$deprecations[] = $message;
+
+				return true;
+			}
+
+			return false;
+		});
+
+		try {
+			$this->assertSame('', thold_str_replace('<X>', 'value', null));
+			$this->assertSame('', thold_str_replace('<X>', null, null));
+		} finally {
+			restore_error_handler();
+		}
+
+		$this->assertSame([], $deprecations);
+	}
 }

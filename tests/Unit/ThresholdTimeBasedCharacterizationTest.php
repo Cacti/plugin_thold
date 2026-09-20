@@ -27,7 +27,7 @@ final class ThresholdTimeBasedCharacterizationTest extends TestCase {
 	 */
 	public static function setUpBeforeClass(): void {
 		self::loadPluginSource('thold_functions.php');
-		self::loadPluginSource('includes/arrays.php');
+		self::loadPluginSourceAlways('includes/arrays.php');
 		self::loadPluginConstants();
 	}
 

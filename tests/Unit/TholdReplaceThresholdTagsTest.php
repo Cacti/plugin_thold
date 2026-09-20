@@ -29,17 +29,8 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	public static function setUpBeforeClass(): void {
 		self::loadPluginSource('thold_functions.php');
 
-		// Defines $thold_types, which the <THOLDTYPE> substitution reads. A prior
-		// test class may have already required this file once (require_once is
-		// keyed by real path across the whole process, so a second require_once
-		// here is a no-op) - force a fresh include when the global didn't survive.
-		self::loadPluginSource('includes/arrays.php');
-
-		if (empty($GLOBALS['thold_types'])) {
-			include dirname(__DIR__, 2) . '/includes/arrays.php';
-
-			$GLOBALS['thold_types'] = $thold_types;
-		}
+		// Defines $thold_types, which the <THOLDTYPE> substitution reads.
+		self::loadPluginSourceAlways('includes/arrays.php');
 	}
 
 	/**
