@@ -1,6 +1,11 @@
 ## ChangeLog
 
 --- develop ---
+* issue: Drain only the notifications this run claimed (PR #804)
+* issue: Correct counter delta, wrap modulus and percent denominator (PR #791)
+* issue: Keep zero readings and stop falling back to the wrong data source (PR #790)
+* issue: Correct the expression evaluator against rrdtool semantics (PR #788)
+* issue: Thold integration dependency installation (PR #777)
 
 * security: Use prepared statements for the bulk form actions in notify_lists.php and notify_queue.php
 * security: Bind $graph_id in get_allowed_thresholds() and get_allowed_threshold_logs() instead of interpolating it
@@ -21,6 +26,7 @@
 * issue: All Columns checkd on Thresholds page
 * issue: Special character previous value handling broken on data query indexes with special characters
 * security: Replace rand() with hrtime(true) for graph image cache-buster (GHSA-vhwj-hfwg-gfg3, CWE-338)
+* security: Replace md5() with sha256 for email dedup cache key (GHSA-gf2h-84m3-q6m3, CWE-1240)
 
 --- 1.8.2 ---
 
