@@ -3537,8 +3537,6 @@ function thold_check_threshold(&$thold_data) {
 
 					thold_log([
 						'type'            => 2,
-				fwrite(STDERR, 'THOLD_CI_DEBUG time-based restoral: alertstat=' . var_export($alertstat, true) . ' warning_failures=' . var_export($warning_failures, true) . ' warning_trigger=' . var_export($warning_trigger, true) . ' restored_alert=' . var_export($thold_data['restored_alert'], true) . PHP_EOL);
-
 						'time'            => time(),
 						'host_id'         => $thold_data['host_id'],
 						'local_graph_id'  => $thold_data['local_graph_id'],
@@ -7272,9 +7270,7 @@ function check_for_new_delays($last_trigger, $triggers, $now, $last_check) {
 
 function thold_notification_execute($pid = 0, $max_records = 'all') {
 	if ($max_records == 'all') {
-		$sql_limit = ''
-
-	fwrite(STDERR, 'THOLD_CI_DEBUG process_device_notifications: one_email=' . var_export($one_email, true) . ' raw=' . var_export(read_config_option('alert_deadnotify_one_mail'), true) . PHP_EOL);;
+		$sql_limit = '';
 	} else {
 		$sql_limit = 'LIMIT ' . $max_records;
 	}
@@ -7298,9 +7294,7 @@ function thold_notification_execute($pid = 0, $max_records = 'all') {
 
 	/**
 	 * Process any non-device up/down notifications first.  These
-	 * notificatio
-
-	fwrite(STDERR, 'THOLD_CI_DEBUG process_device_notifications: records=' . var_export($records, true) . ' prev_suspended=' . var_export($prev_suspended, true) . PHP_EOL);ns are not subject to notification delay
+	 * notifications are not subject to notification delay
 	 */
 	process_non_device_notifications($pid, $max_records, $prev_suspended);
 
