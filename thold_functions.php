@@ -992,7 +992,12 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
 				'WARNING: Threshold %s sample clock moved backwards; re-anchoring its value and timestamp.',
 				$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
 			), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
-		} elseif ($lasttime > 0 && $is_rate_bearing && !thold_sample_interval_eligible($thold_data, $currenttime)) {
+		} elseif ($lasttime > 0 && $is_rate_bearing && !thold_sample_interval_eligible($thold_data, $currenttime) && is_numeric($thold_data['lastread'] ?? null)) {
+			// Only the poll that first crosses the heartbeat logs: once this
+			// source is already persisted as unavailable, every later poll
+			// re-anchors again (its own gap is now measured from here) but
+			// stays quiet, or a persistently flaky device would flood the
+			// log at medium verbosity.
 			cacti_log(sprintf(
 				'WARNING: Threshold %s sample gap exceeded the effective heartbeat; re-anchoring its rate baseline so the next poll can recover.',
 				$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
@@ -1515,7 +1520,32 @@ function thold_substitute_data_source_description($string, $local_data_id, $max_
 	}
 }
 
-function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $device_id, $shell = false) {
+/**
+ * A token that cannot appear in any admin-authored template and cannot match
+ * any of this file's own token patterns (<TAG>, |pipe|), so a later
+ * substitution phase can never mistake it for real token syntax.
+ *
+ * Used to defer inserting an already-quoted, device/operator-controlled
+ * value until every phase that scans for token syntax has run; only then is
+ * it safe to reveal the value without a later phase re-scanning it and
+ * breaking out of its quoting.
+ *
+ * @return string
+ */
+function thold_defer_placeholder() {
+	static $n = 0;
+	$n++;
+
+	return "\x01THOLD_DEFERRED_{$n}\x01";
+}
+
+function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $device_id, $shell = false, array &$deferred = null) {
+	$defer_internally = $deferred === null;
+
+	if ($defer_internally) {
+		$deferred = [];
+	}
+
 	$field_name = trim(str_replace('|host_', '', $string),"| \n\r");
 
 	if (!isset($_SESSION['sess_host_cache_array'][$device_id])) {
@@ -1529,13 +1559,32 @@ function thold_substitute_host_data($string, $l_escape_string, $r_escape_string,
 	if (isset($_SESSION['sess_host_cache_array'][$device_id][$field_name])) {
 		$field_value = $_SESSION['sess_host_cache_array'][$device_id][$field_name];
 
-		return $shell ? escapeshellarg((string) $field_value) : $field_value;
+		if (!$shell) {
+			return $field_value;
+		}
+
+		$placeholder             = thold_defer_placeholder();
+		$deferred[$placeholder] = cacti_escapeshellarg((string) $field_value);
+
+		return $defer_internally ? $deferred[$placeholder] : $placeholder;
 	}
 
 	$hostname = $_SESSION['sess_host_cache_array'][$device_id]['hostname'];
-	$string   = str_replace($l_escape_string . 'host_management_ip' . $r_escape_string, ($shell ? escapeshellarg((string) $hostname) : $hostname), $string);
+
+	if ($shell) {
+		$placeholder             = thold_defer_placeholder();
+		$deferred[$placeholder] = cacti_escapeshellarg((string) $hostname);
+		$string                  = str_replace($l_escape_string . 'host_management_ip' . $r_escape_string, $placeholder, $string);
+	} else {
+		$string = str_replace($l_escape_string . 'host_management_ip' . $r_escape_string, $hostname, $string);
+	}
+
 	$temp     = api_plugin_hook_function('substitute_host_data', ['string' => $string, 'l_escape_string' => $l_escape_string, 'r_escape_string' => $r_escape_string, 'host_id' => $device_id]);
 	$string   = $temp['string'];
+
+	if ($defer_internally) {
+		$string = strtr($string, $deferred);
+	}
 
 	return $string;
 }
@@ -1552,7 +1601,13 @@ function thold_substitute_host_data($string, $l_escape_string, $r_escape_string,
  *
  * @return - the original string with all of the variable substitutions made
  */
-function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data_id, $shell = false) {
+function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data_id, $shell = false, array &$deferred = null) {
+	$defer_internally = $deferred === null;
+
+	if ($defer_internally) {
+		$deferred = [];
+	}
+
 	if (is_array($local_data_id)) {
 		$local_data_ids = $local_data_id;
 	} elseif ($local_data_id == '') {
@@ -1609,10 +1664,16 @@ function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data
 				$replacements = [];
 
 				foreach ($custom_data_array as $custom_data) {
-					$custom_name  = $custom_data['name'];
-					$custom_value = $shell ? cacti_escapeshellarg((string) $custom_data['value']) : $custom_data['value'];
+					$custom_name = $custom_data['name'];
+					$token       = $l_escape . 'custom_' . $custom_name . $r_escape;
 
-					$replacements[$l_escape . 'custom_' . $custom_name . $r_escape] = $custom_value;
+					if ($shell) {
+						$placeholder             = thold_defer_placeholder();
+						$deferred[$placeholder] = cacti_escapeshellarg((string) $custom_data['value']);
+						$replacements[$token]    = $placeholder;
+					} else {
+						$replacements[$token] = $custom_data['value'];
+					}
 				}
 
 				// A single strtr() pass replaces against the original string only and
@@ -1622,6 +1683,10 @@ function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data
 				$string = strtr($string, $replacements);
 			}
 		}
+	}
+
+	if ($defer_internally) {
+		$string = strtr($string, $deferred);
 	}
 
 	return $string;
@@ -4395,18 +4460,35 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	return $thold_snmp_data;
 }
 
-function thold_expand_string($thold_data, $string, $shell = false) {
+function thold_expand_string($thold_data, $string, $shell = false, array &$deferred = null) {
 	global $config;
 
 	include_once($config['library_path'] . '/variables.php');
+
+	$defer_internally = $deferred === null;
+
+	if ($defer_internally) {
+		$deferred = [];
+	}
 
 	// Values substituted below (data source names/descriptions, graph
 	// titles, and host/data-query fields sourced from the polled device
 	// itself) are not admin-controlled, so in $shell mode they must be
 	// quoted before landing on a command line, same as
-	// thold_replace_threshold_tags()'s $q().
-	$q = function ($value) use ($shell) {
-		return $shell ? cacti_escapeshellarg((string) $value) : $value;
+	// thold_replace_threshold_tags()'s $q(). The quoted value is deferred
+	// behind an opaque placeholder rather than inserted immediately, so a
+	// later phase's token scan (or a caller chaining another substitution
+	// pass afterward) can never mistake it for real token syntax and
+	// re-substitute inside its quoting.
+	$q = function ($value) use ($shell, &$deferred) {
+		if (!$shell) {
+			return $value;
+		}
+
+		$placeholder             = thold_defer_placeholder();
+		$deferred[$placeholder] = cacti_escapeshellarg((string) $value);
+
+		return $placeholder;
 	};
 
 	$str = $string;
@@ -4494,7 +4576,7 @@ function thold_expand_string($thold_data, $string, $shell = false) {
 				$str = expand_title($lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], $str);
 			}
 
-			$str = thold_substitute_custom_data($str, '|', '|', $thold_data['local_data_id'], $shell);
+			$str = thold_substitute_custom_data($str, '|', '|', $thold_data['local_data_id'], $shell, $deferred);
 
 			$data = [
 				'str'         => $str,
@@ -4514,7 +4596,7 @@ function thold_expand_string($thold_data, $string, $shell = false) {
 		}
 
 		if (strpos($str, '|host_') !== false && !empty($device_id)) {
-			$str = thold_substitute_host_data($str, '|', '|', $device_id, $shell);
+			$str = thold_substitute_host_data($str, '|', '|', $device_id, $shell, $deferred);
 		}
 
 		// Replace |graph_title|, |data_source_description|, and |data_source_name|
@@ -4543,6 +4625,10 @@ function thold_expand_string($thold_data, $string, $shell = false) {
 		$str = strtr($str, $direct_replacements);
 	}
 
+	if ($defer_internally) {
+		$str = strtr($str, $deferred);
+	}
+
 	return trim($str);
 }
 
@@ -4555,9 +4641,17 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 		$queue            = read_config_option('thold_notification_queue');
 
 		if ($breach_up && $thold_data['trigger_cmd_high'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
+			$deferred = [];
 
-			$cmd = thold_expand_string($thold_data, $cmd, true);
+			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_high'], true, $deferred);
+			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true, $deferred);
+
+			// Both calls above deferred their quoted values behind opaque
+			// placeholders instead of inserting them immediately, so neither
+			// one's value could be re-scanned (and have its quoting broken) by
+			// the other's token substitution. Resolve every placeholder now
+			// that no further token scanning will happen.
+			$cmd = strtr($cmd, $deferred);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
@@ -4575,8 +4669,11 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_down && $thold_data['trigger_cmd_low'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_low'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
-			$cmd = thold_expand_string($thold_data, $cmd, true);
+			$deferred = [];
+
+			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_low'], true, $deferred);
+			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true, $deferred);
+			$cmd = strtr($cmd, $deferred);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
@@ -4594,8 +4691,11 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 
 			$command_executed = true;
 		} elseif ($breach_norm && $thold_data['trigger_cmd_norm'] != '') {
-			$cmd = thold_replace_threshold_tags($thold_data['trigger_cmd_norm'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true);
-			$cmd = thold_expand_string($thold_data, $cmd, true);
+			$deferred = [];
+
+			$cmd = thold_expand_string($thold_data, $thold_data['trigger_cmd_norm'], true, $deferred);
+			$cmd = thold_replace_threshold_tags($cmd, $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name, true, $deferred);
+			$cmd = strtr($cmd, $deferred);
 
 			$environment = thold_set_environ($thold_data['trigger_cmd_high'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id'], $data_source_name);
 
@@ -4729,8 +4829,14 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	return $environment;
 }
 
-function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false) {
+function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false, array &$deferred = null) {
 	global $thold_types;
+
+	$defer_internally = $deferred === null;
+
+	if ($defer_internally) {
+		$deferred = [];
+	}
 
 	if (substr(read_config_option('base_url'), 0, 4) != 'http') {
 		if (read_config_option('force_https') == 'on') {
@@ -4755,9 +4861,20 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 
 	// Device and threshold free-text values are admin/user editable. When $text
 	// is a trigger command template ($shell), quote them so they cannot
-	// terminate the command and start another.
-	$q = function ($value) use ($shell) {
-		return $shell ? cacti_escapeshellarg((string) $value) : $value;
+	// terminate the command and start another. The quoted value is deferred
+	// behind an opaque placeholder rather than inserted immediately, so a
+	// caller chaining another substitution pass afterward (thold_expand_string())
+	// can never mistake it for real token syntax and re-substitute inside its
+	// quoting.
+	$q = function ($value) use ($shell, &$deferred) {
+		if (!$shell) {
+			return $value;
+		}
+
+		$placeholder             = thold_defer_placeholder();
+		$deferred[$placeholder] = cacti_escapeshellarg((string) $value);
+
+		return $placeholder;
 	};
 
 	// Do some replacement of variables. Every tag/value pair is collected up
@@ -4820,6 +4937,10 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 
 	if (isset($data['text'])) {
 		$text = $data['text'];
+	}
+
+	if ($defer_internally) {
+		$text = strtr($text, $deferred);
 	}
 
 	return $text;

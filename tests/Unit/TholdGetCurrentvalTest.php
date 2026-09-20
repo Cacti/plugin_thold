@@ -348,7 +348,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 	 *
 	 * @return void
 	 */
-	public function testStaleGapDoesNotAdvanceARateBearingPairButOtherCasesStillAdvance(): void {
+	public function testStaleGapReanchorsARateBearingPairAndAllOtherCasesStillAdvance(): void {
 		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100, 'rrd_step' => 300]);
 
 		// 1000 -> 1601: a 601s gap exceeds the 600s effective heartbeat (2 * 300s),
@@ -415,6 +415,34 @@ final class TholdGetCurrentvalTest extends TestCase {
 			thold_get_currentval($recovered, $reindexed, $timeReindexed, $item, $currenttime),
 			1.0e-9
 		);
+	}
+
+	/**
+	 * The re-anchor warning fires only on the poll that first crosses the
+	 * heartbeat, while the prior cycle's persisted rate (lastread) is still
+	 * numeric. A source that stays stale poll after poll has already had its
+	 * rate replaced with an unavailable state, so it must not keep logging,
+	 * or a persistently flaky device floods medium-verbosity logs.
+	 *
+	 * @return void
+	 */
+	public function testStaleGapReanchorLogsOnlyOnceOnTheTransitionIntoUnavailable(): void {
+		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100, 'rrd_step' => 300, 'lastread' => 50]);
+
+		thold_sample_persistence($thold, ['traffic_in' => 700], 1601);
+
+		$this->assertCount(1, CactiStubs::$log);
+		$this->assertStringContainsString('sample gap exceeded', CactiStubs::$log[0]);
+
+		CactiStubs::reset();
+
+		// Same kind of gap, but the previous cycle already persisted the
+		// rate as unavailable: no further warning.
+		$stillStale = $this->threshold(['lasttime' => 1601, 'oldvalue' => 700, 'rrd_step' => 300, 'lastread' => '']);
+
+		thold_sample_persistence($stillStale, ['traffic_in' => 900], 2500);
+
+		$this->assertSame([], CactiStubs::$log);
 	}
 
 	/**

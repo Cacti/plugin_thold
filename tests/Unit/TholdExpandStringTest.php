@@ -302,4 +302,33 @@ final class TholdExpandStringTest extends TestCase {
 			$result
 		);
 	}
+
+	/**
+	 * Every phase (host/query tokens, custom data, direct tokens) defers its
+	 * quoted value behind an opaque placeholder and only reveals it in one
+	 * final pass, so an earlier phase's resolved value containing a later
+	 * phase's literal token text can't be re-substituted by that later
+	 * phase and have its quoting broken.
+	 *
+	 * @return void
+	 */
+	public function testShellModeDoesNotReSubstituteAcrossPhases(): void {
+		CactiStubs::willReturn('db_fetch_row_prepared', [
+			'id'            => 7,
+			'host_id'       => 2,
+			'snmp_query_id' => '0',
+			'snmp_index'    => '',
+		]);
+
+		$malicious = "'; touch /tmp/pwned; echo '";
+		CactiStubs::willReturn('substitute_host_data', '|data_source_name|');
+
+		$result = thold_expand_string(
+			$this->thresholdData(['data_source_name' => $malicious]),
+			'cmd |host_description|',
+			true
+		);
+
+		$this->assertSame('cmd ' . escapeshellarg('|data_source_name|'), $result);
+	}
 }
