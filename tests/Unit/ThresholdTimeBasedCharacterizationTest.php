@@ -110,9 +110,16 @@ final class ThresholdTimeBasedCharacterizationTest extends TestCase {
 	 * @return void
 	 */
 	public function testMaintenanceWindowSuppressesNotification(): void {
-		$outcome = $this->bounded(['lastread' => 95, 'time_fail_trigger' => 1])
-			->inMaintenance()
-			->poll();
+		$scenario = $this->bounded(['lastread' => 95, 'time_fail_trigger' => 1])
+			->inMaintenance();
+		$fixture_root = realpath(dirname(__DIR__) . '/fixtures');
+		$base_path    = realpath($GLOBALS['config']['base_path']);
+
+		$this->assertNotFalse($fixture_root);
+		$this->assertNotFalse($base_path);
+		$this->assertStringStartsWith($fixture_root . DIRECTORY_SEPARATOR, $base_path . DIRECTORY_SEPARATOR);
+
+		$outcome = $scenario->poll();
 
 		$this->assertSame(0, $outcome->mailCount());
 	}

@@ -254,10 +254,27 @@ jobs:
 #      run: ./include/vendor/bin/phpstan analyze --level 6 ${{ github.workspace }}/cacti/plugins/thold
 #      working-directory: ${{ github.workspace }}/cacti
     
+    - name: Re-apply web user ownership before polling
+      run: |
+        # Ancestor directories above the checkout (e.g. /home/runner, .../work)
+        # are typically 750 owned by the runner user, which blocks a non-root
+        # www-data process from traversing down to the checkout at all.
+        p="${{ github.workspace }}"
+        while [ "$p" != "/" ]; do
+          sudo chmod o+x "$p" || true
+          p=$(dirname "$p")
+        done
+
+        sudo chown -R www-data:runner ${{ github.workspace }}/cacti
+        sudo find ${{ github.workspace }}/cacti -type d -exec chmod 775 {} \;
+        sudo find ${{ github.workspace }}/cacti -type f -exec chmod 664 {} \;
+        sudo chmod +x ${{ github.workspace }}/cacti/cmd.php
+        sudo chmod +x ${{ github.workspace }}/cacti/poller.php
+
     - name: Run Cacti Poller
       run: |
         cd ${{ github.workspace }}/cacti
-        sudo "$PHP_BINARY" poller.php --poller=1 --force --debug
+        sudo -u www-data "$PHP_BINARY" poller.php --poller=1 --force --debug
         if ! grep -q "SYSTEM STATS" log/cacti.log; then
           echo "Cacti poller did not finish successfully"
           cat log/cacti.log
@@ -270,4 +287,14 @@ jobs:
         if [ -f ${{ github.workspace }}/cacti/log/cacti.log ]; then
           echo "=== Cacti Log ==="
           sudo cat ${{ github.workspace }}/cacti/log/cacti.log
+        fi
+
+    - name: Check Cacti Logs for Errors
+      if: always()
+      run: |
+        if [ -f ${{ github.workspace }}/cacti/log/cacti.log ]; then
+          if grep -E "FATAL:|ERROR:|WARNING:" ${{ github.workspace }}/cacti/log/cacti.log; then
+            echo "Found FATAL/ERROR/WARNING entries in Cacti log"
+            exit 1
+          fi
         fi
