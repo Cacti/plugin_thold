@@ -14,7 +14,9 @@
 	</php>
 	<testsuites>
 		<testsuite name="Unit">
+			<directory>./tests/Security</directory>
 			<directory>./tests/Unit</directory>
+			<directory>./tests/Integration</directory>
 		</testsuite>
 	</testsuites>
 
@@ -24,11 +26,14 @@
 
 		thold_functions.php is the only plugin source that loads without a
 		running Cacti; every other file includes ./include/auth.php and
-		dispatches on the request at top level.
+		dispatches on the request at top level. setup.php is the exception:
+		its functions are safe to require directly (no top-level side
+		effects), which is what tests/Integration/PluginLifecycleTest.php does.
 	-->
 	<source>
 		<include>
 			<file>thold_functions.php</file>
+			<file>setup.php</file>
 
 		</include>
 	</source>

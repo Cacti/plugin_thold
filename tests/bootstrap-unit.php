@@ -473,6 +473,34 @@ if (!function_exists('api_plugin_hook')) {
 	}
 }
 
+if (!function_exists('api_plugin_register_hook')) {
+	function api_plugin_register_hook($name, $hook, $function, $file, $status = '') {
+		CactiStubs::record('api_plugin_register_hook', $hook, ['name' => $name, 'function' => $function, 'file' => $file]);
+
+		return true;
+	}
+}
+
+if (!function_exists('api_plugin_register_realm')) {
+	function api_plugin_register_realm($name, $files, $title, $navigate = 0) {
+		CactiStubs::record('api_plugin_register_realm', $files, ['name' => $name, 'title' => $title]);
+
+		return true;
+	}
+}
+
+if (!function_exists('api_plugin_enable_hooks')) {
+	function api_plugin_enable_hooks($name) {
+		CactiStubs::record('api_plugin_enable_hooks', $name);
+	}
+}
+
+if (!function_exists('get_current_page')) {
+	function get_current_page() {
+		return CactiStubs::nextReturn('get_current_page', '');
+	}
+}
+
 if (!function_exists('api_user_realm_auth')) {
 	function api_user_realm_auth($filename = '') {
 		return CactiStubs::nextReturn('api_user_realm_auth', true);
@@ -551,6 +579,31 @@ if (!defined('CACTI_DATE_TIME_FORMAT')) {
 
 if (!defined('CACTI_PATH_BASE')) {
 	define('CACTI_PATH_BASE', $GLOBALS['config']['base_path']);
+}
+
+if (!function_exists('plugin_test_read_source')) {
+	/**
+	 * Read a plugin source file's raw contents, relative to the plugin root.
+	 *
+	 * @param string $relative_file Plugin file, relative to the plugin root.
+	 *
+	 * @return string
+	 */
+	function plugin_test_read_source($relative_file) {
+		$path = realpath(__DIR__ . '/../' . $relative_file);
+
+		if ($path === false) {
+			throw new RuntimeException("Unable to resolve required file: {$relative_file}");
+		}
+
+		$contents = file_get_contents($path);
+
+		if ($contents === false) {
+			throw new RuntimeException("Unable to read required file: {$relative_file}");
+		}
+
+		return $contents;
+	}
 }
 
 /**
