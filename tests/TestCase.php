@@ -60,6 +60,25 @@ abstract class TestCase extends PHPUnit\Framework\TestCase {
 	}
 
 	/**
+	 * Load a plugin source file that only assigns file-scope variables (e.g.
+	 * includes/arrays.php), bypassing the include-once registry.
+	 *
+	 * thold_functions.php includes includes/arrays.php with a plain include()
+	 * (not include_once()) from several of its own functions. Once any test
+	 * exercises one of those call sites, a later loadPluginSource() of the
+	 * same file silently no-ops (require_once sees it as already included)
+	 * and never (re)publishes $thold_types to $GLOBALS. Use this for any
+	 * plugin file that only assigns variables, not functions/classes.
+	 *
+	 * @param string $file File name relative to the plugin root.
+	 *
+	 * @return void
+	 */
+	protected static function loadPluginSourceAlways($file) {
+		thold_test_load_always(dirname(__DIR__) . '/' . $file);
+	}
+
+	/**
 	 * Define the plugin's own constants by running the function that owns them.
 	 *
 	 * ST_*, STAT_* and THOLD_SEVERITY_* are defined inside
