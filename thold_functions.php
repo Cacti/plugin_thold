@@ -3575,6 +3575,8 @@ function thold_check_threshold(&$thold_data) {
 
 				$subject = get_email_subject('NORMAL', false, $lastread, false, false, $thold_data);
 
+				fwrite(STDERR, 'THOLD_CI_DEBUG time-based restoral: alertstat=' . var_export($alertstat, true) . ' warning_failures=' . var_export($warning_failures, true) . ' warning_trigger=' . var_export($warning_trigger, true) . ' restored_alert=' . var_export($thold_data['restored_alert'], true) . PHP_EOL);
+
 				if ($alertstat != 0 && $warning_failures < $warning_trigger && $thold_data['restored_alert'] != 'on') {
 					if (!$maint_dev) {
 						if ($syslog) {
@@ -7310,6 +7312,8 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 	$one_email = read_config_option('alert_deadnotify_one_mail') == 'on' ? true : false;
 	$emails    = [];
 
+	fwrite(STDERR, 'THOLD_CI_DEBUG process_device_notifications: one_email=' . var_export($one_email, true) . ' raw=' . var_export(read_config_option('alert_deadnotify_one_mail'), true) . PHP_EOL);
+
 	if (!defined('TXT_SEP')) {
 		define('TXT_SEP', '----------------------------------------------------------');
 	}
@@ -7333,6 +7337,8 @@ function process_device_notifications($pid, $max_records, $prev_suspended) {
 		$sql_where
 		ORDER BY event_time ASC
 		$sql_limit");
+
+	fwrite(STDERR, 'THOLD_CI_DEBUG process_device_notifications: records=' . var_export($records, true) . ' prev_suspended=' . var_export($prev_suspended, true) . PHP_EOL);
 
 	if ($prev_suspended == 0) {
 		foreach ($records as $index => $r) {
