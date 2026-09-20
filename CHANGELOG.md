@@ -1,7 +1,23 @@
 ## ChangeLog
 
 --- develop ---
+* issue: Drain only the notifications this run claimed (PR #804)
+* issue: Correct counter delta, wrap modulus and percent denominator (PR #791)
+* issue: Keep zero readings and stop falling back to the wrong data source (PR #790)
+* issue: Correct the expression evaluator against rrdtool semantics (PR #788)
+* issue: Thold integration dependency installation (PR #777)
 
+* security: Use prepared statements for the bulk form actions in notify_lists.php and notify_queue.php
+* security: Bind $graph_id in get_allowed_thresholds() and get_allowed_threshold_logs() instead of interpolating it
+* security: Route rfilter through db_qstr_rlike() where Cacti provides it, and quote it otherwise
+* security: Quote the values substituted into trigger commands
+* security: Escape the page, id and drp_action values printed into hidden inputs
+* security: Remove the eval() calls from the RPN expression evaluator
+* issue: Bulk actions on the Notification Lists page did nothing, because the action allowlist compared an int against strings
+* issue: Bulk writes were discarded on MySQL, where Cacti's db_commit_transaction() never commits
+* issue: An RPN expression dividing zero by zero pushed no result, corrupting the rest of the stack
+* issue: An RPN expression taking the modulo of zero, the square root of a negative, or the log of zero aborted the poller or produced NAN
+* issue: Deleting a notification list left soft-deleted devices pointing at it
 * issue#686: Applying a templated threshold to a graph via the wrench icon, creates a duplicate graph
 * issue#707: Excessive timeout for row caching prevents data from being updated timely
 * issue#710: Fixing Typo in thold_daemons.service File
@@ -10,6 +26,7 @@
 * issue: All Columns checkd on Thresholds page
 * issue: Special character previous value handling broken on data query indexes with special characters
 * security: Replace eval() in RPN unary math functions with safe dispatch function (GHSA-4mmp-mv2x-m9f6, CWE-95)
+* security: Replace md5() with sha256 for email dedup cache key (GHSA-gf2h-84m3-q6m3, CWE-1240)
 
 --- 1.8.2 ---
 
