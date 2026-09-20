@@ -319,6 +319,40 @@ final class PollerSchedulingTest extends TestCase {
 	}
 
 	/**
+	 * With thold_consider_unknown_zero enabled, an unavailable reading is
+	 * still preserved as unavailable (never manufactured into a zero) - this
+	 * setting only controls whether that fact gets logged, not the outcome.
+	 *
+	 * @return void
+	 */
+	public function testNonDaemonPathLogsAndStillPreservesUnavailableStateWhenConsiderUnknownZeroIsOn(): void {
+		CactiStubs::willReturnFor('db_fetch_assoc', 'dtr.rrd_maximum, dtr.rrd_heartbeat', [
+			$this->pollerThreshold(),
+		]);
+		CactiStubs::$configOptions['thold_consider_unknown_zero'] = 'on';
+		CactiStubs::$configOptions['thold_log_unknown_to_zero']   = 'on';
+
+		$readings = [
+			['local_data_id' => 4, 'times' => [1700000300 => ['traffic_in' => 'U']]],
+		];
+
+		thold_poller_output($readings);
+
+		$notes = array_values(array_filter(CactiStubs::$log, static function ($message) {
+			return strpos($message, 'would have been treated as zero') !== false;
+		}));
+
+		$this->assertNotEmpty($notes);
+
+		$status_inserts = array_values(array_filter(CactiStubs::callsTo('db_execute_prepared'), static function ($call) {
+			return strpos($call['sql'], 'INSERT INTO thold_data') !== false && strpos($call['sql'], 'lasttime') === false;
+		}));
+
+		$this->assertCount(1, $status_inserts);
+		$this->assertSame([9, 1, ''], $status_inserts[0]['params']);
+	}
+
+	/**
 	 * Either write path counts as an update, so the deleted-tholds cleanup
 	 * still runs afterwards.
 	 *

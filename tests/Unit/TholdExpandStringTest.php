@@ -30,6 +30,46 @@ final class TholdExpandStringTest extends TestCase {
 	}
 
 	/**
+	 * Outside the per-graph SNMP substitution below (no graph found for this
+	 * threshold), a |host_management_ip| token is still resolved against
+	 * whatever device the current request is for. Real Cacti's
+	 * lib/variables.php sets $device_id as a side effect of the include()
+	 * inside thold_expand_string(), so this points library_path at a
+	 * one-off fixture that does the same, rather than the shared
+	 * tests/fixtures/cacti-lib one every other test here uses - which
+	 * every other test in this file has typically already include_once()'d
+	 * by the time this runs, so reusing it would silently no-op.
+	 *
+	 * @return void
+	 */
+	public function testShellModeEscapesTheTopLevelHostTokenForTheRequestDevice(): void {
+		$malicious = "10.0.0.1'; touch /tmp/pwned; echo '";
+
+		$fixtureDir = sys_get_temp_dir() . '/thold-variables-' . uniqid();
+		mkdir($fixtureDir, 0777, true);
+		file_put_contents($fixtureDir . '/variables.php', "<?php\n\$device_id = 5;\n");
+
+		$originalLibraryPath               = $GLOBALS['config']['library_path'];
+		$GLOBALS['config']['library_path'] = $fixtureDir;
+
+		// No graph found for this threshold: db_fetch_row_prepared's first
+		// call is the graph_local lookup, its second is thold_substitute_host_data()'s
+		// own host lookup.
+		CactiStubs::willReturn('db_fetch_row_prepared', []);
+		CactiStubs::willReturn('db_fetch_row_prepared', ['hostname' => $malicious]);
+
+		try {
+			$result = thold_expand_string($this->thresholdData(), 'alert |host_management_ip|', true);
+		} finally {
+			$GLOBALS['config']['library_path'] = $originalLibraryPath;
+			unlink($fixtureDir . '/variables.php');
+			rmdir($fixtureDir);
+		}
+
+		$this->assertSame('alert ' . escapeshellarg($malicious), $result);
+	}
+
+	/**
 	 * @return array<string, mixed>
 	 */
 	private function thresholdData(array $overrides = []) {
@@ -108,6 +148,19 @@ final class TholdExpandStringTest extends TestCase {
 	/**
 	 * @return void
 	 */
+	public function testUnthrottledInterfaceSpeedFallsBackToTheConfiguredDefaultWhenUnknown(): void {
+		$this->graphExists();
+		CactiStubs::$configOptions['thold_empty_if_speed_default'] = '1000000000';
+		CactiStubs::willReturn('db_fetch_cell_prepared', '');
+
+		$result = thold_expand_string($this->thresholdData(), '|query_ifSpeed|');
+
+		$this->assertStringNotContainsString('|query_ifSpeed|', $result);
+	}
+
+	/**
+	 * @return void
+	 */
 	public function testTextIsReturnedUnchangedWhenTheGraphIsMissing(): void {
 		CactiStubs::willReturn('db_fetch_row_prepared', []);
 
@@ -160,6 +213,26 @@ final class TholdExpandStringTest extends TestCase {
 		$result = thold_expand_string($this->thresholdData(), 'alert |host_description|', true);
 
 		$this->assertSame('alert ' . escapeshellarg($malicious), $result);
+	}
+
+	/**
+	 * When the graph has an SNMP data query attached, host/query tokens are
+	 * resolved through substitute_snmp_query_data() (so query-indexed fields
+	 * work too) rather than through substitute_host_data() alone - and the
+	 * result is still escaped before landing in the command.
+	 *
+	 * @return void
+	 */
+	public function testShellModeResolvesHostTokensThroughSnmpQueryDataWhenAGraphQueryIsAttached(): void {
+		$this->graphExists();
+
+		$malicious = "evil'; touch /tmp/pwned; echo '";
+		CactiStubs::willReturn('substitute_snmp_query_data', $malicious);
+
+		$result = thold_expand_string($this->thresholdData(), 'alert |host_description|', true);
+
+		$this->assertSame('alert ' . escapeshellarg($malicious), $result);
+		$this->assertNotEmpty(CactiStubs::callsTo('substitute_snmp_query_data'));
 	}
 
 	/**
