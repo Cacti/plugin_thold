@@ -247,4 +247,59 @@ final class TholdExpandStringTest extends TestCase {
 
 		$this->assertSame('alert eth0', thold_expand_string($this->thresholdData(), 'alert |query_ifName|', false));
 	}
+
+	/**
+	 * A single strtr() pass replaces host/query tokens against the original
+	 * string only and never re-scans inserted values, so one token's
+	 * resolved value containing another token's literal text can't be
+	 * substituted a second time outside of its own quoting.
+	 *
+	 * @return void
+	 */
+	public function testShellModeDoesNotReSubstituteAHostTokenLiteralInsideAnotherValue(): void {
+		CactiStubs::willReturn('db_fetch_row_prepared', [
+			'id'            => 7,
+			'host_id'       => 2,
+			'snmp_query_id' => '0',
+			'snmp_index'    => '',
+		]);
+
+		$malicious = "'; touch /tmp/pwned; echo '";
+		CactiStubs::willReturn('substitute_host_data', '|host_bar|');
+		CactiStubs::willReturn('substitute_host_data', $malicious);
+
+		$result = thold_expand_string($this->thresholdData(), 'cmd |host_foo| |host_bar|', true);
+
+		$this->assertSame(
+			'cmd ' . escapeshellarg('|host_bar|') . ' ' . escapeshellarg($malicious),
+			$result
+		);
+	}
+
+	/**
+	 * A single strtr() pass also protects |graph_title|,
+	 * |data_source_description|, and |data_source_name|: a resolved value
+	 * containing another one of these tokens' literal text can't be
+	 * substituted a second time outside of its own quoting.
+	 *
+	 * @return void
+	 */
+	public function testShellModeDoesNotReSubstituteADirectTokenLiteralInsideAnotherValue(): void {
+		$this->graphExists();
+
+		$malicious = "'; touch /tmp/pwned; echo '";
+		CactiStubs::willReturn('get_graph_title', '|data_source_name|');
+		CactiStubs::willReturn('db_fetch_cell_prepared', $malicious);
+
+		$result = thold_expand_string(
+			$this->thresholdData(['data_source_name' => $malicious]),
+			'cmd |graph_title| |data_source_description|',
+			true
+		);
+
+		$this->assertSame(
+			'cmd ' . escapeshellarg('|data_source_name|') . ' ' . escapeshellarg($malicious),
+			$result
+		);
+	}
 }

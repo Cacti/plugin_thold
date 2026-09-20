@@ -926,9 +926,8 @@ function thold_sample_clock_moved_backward(array $thold_data, array $item, $curr
 /**
  * Whether the interval ending at $currenttime is within the effective
  * heartbeat thold_get_currentval() uses to trust a counter/derive/absolute
- * baseline, so a rate-bearing source can't advance its pair to a raw sample
- * that arrived too late for thold_get_currentval() to have trusted the same
- * interval.
+ * baseline. thold_sample_persistence() uses this only to decide whether to
+ * log a stale-gap re-anchor; the pair itself always advances.
  *
  * The caller must already know $currenttime is strictly after a real prior
  * sample (lasttime > 0, currenttime > lasttime); this only computes the
@@ -964,14 +963,13 @@ function thold_sample_interval_eligible(array $thold_data, $currenttime) {
  * Persist a raw sample and its timestamp as one causal pair.
  *
  * `$thold_data` must provide `name`, `lasttime`, and `oldvalue`; absent values
- * fail closed to an unavailable prior sample. For a counter, derive, or
- * absolute source, a numeric raw sample that arrives after a gap beyond the
- * effective heartbeat is not eligible to advance the pair on its own -
- * thold_get_currentval() already rejected that same interval as too stale to
- * trust, so accepting it here would let the next poll compute a rate across
- * the missing interval. The first-ever sample and a backward-clock re-anchor
- * are exempt: both still need to establish or fix the pair regardless of
- * elapsed time.
+ * fail closed to an unavailable prior sample. The pair always re-anchors to
+ * the current sample when one is available: thold_get_currentval() already
+ * rejected the rate for this cycle using the pair as it stood before this
+ * call, so freezing lasttime/oldvalue here would buy no extra protection for
+ * the current read while permanently disqualifying every later poll, whose
+ * elapsed time is measured against that same frozen lasttime and only grows.
+ * Re-anchoring instead lets the very next poll compute a fresh, valid rate.
  *
  * @param array<string,mixed> $thold_data
  * @param array<string,mixed> $item
@@ -988,18 +986,20 @@ function thold_sample_persistence(array $thold_data, array $item, $currenttime) 
 	if ($name !== '' && $currenttime > 0 && $currenttime !== $lasttime && isset($item[$name]) && is_numeric($item[$name])) {
 		$is_rate_bearing  = in_array((int) ($thold_data['data_source_type_id'] ?? 0), [2, 3, 4], true);
 		$clock_moved_back = thold_sample_clock_moved_backward($thold_data, $item, $currenttime);
-		$eligible         = $lasttime <= 0 || $clock_moved_back || !$is_rate_bearing || thold_sample_interval_eligible($thold_data, $currenttime);
 
-		if ($eligible) {
-			if ($clock_moved_back) {
-				cacti_log(sprintf(
-					'WARNING: Threshold %s sample clock moved backwards; re-anchoring its value and timestamp.',
-					$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
-				), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
-			}
-
-			return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
+		if ($clock_moved_back) {
+			cacti_log(sprintf(
+				'WARNING: Threshold %s sample clock moved backwards; re-anchoring its value and timestamp.',
+				$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
+			), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
+		} elseif ($lasttime > 0 && $is_rate_bearing && !thold_sample_interval_eligible($thold_data, $currenttime)) {
+			cacti_log(sprintf(
+				'WARNING: Threshold %s sample gap exceeded the effective heartbeat; re-anchoring its rate baseline so the next poll can recover.',
+				$thold_data['id'] ?? ($thold_data['thold_id'] ?? 'unknown')
+			), false, 'THOLD', POLLER_VERBOSITY_MEDIUM);
 		}
+
+		return ['lasttime' => $currenttime, 'oldvalue' => $item[$name]];
 	}
 
 	return [
@@ -1606,11 +1606,20 @@ function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data
 				$query_array);
 
 			if (cacti_sizeof($custom_data_array)) {
+				$replacements = [];
+
 				foreach ($custom_data_array as $custom_data) {
 					$custom_name  = $custom_data['name'];
-					$custom_value = $shell ? escapeshellarg((string) $custom_data['value']) : $custom_data['value'];
-					$string       = str_replace($l_escape . 'custom_' . $custom_name . $r_escape, $custom_value, $string);
+					$custom_value = $shell ? cacti_escapeshellarg((string) $custom_data['value']) : $custom_data['value'];
+
+					$replacements[$l_escape . 'custom_' . $custom_name . $r_escape] = $custom_value;
 				}
+
+				// A single strtr() pass replaces against the original string only and
+				// never re-scans inserted values, so one custom field's value cannot
+				// contain another field's literal token and have it substituted again
+				// outside of its own quoting.
+				$string = strtr($string, $replacements);
 			}
 		}
 	}
@@ -4397,7 +4406,7 @@ function thold_expand_string($thold_data, $string, $shell = false) {
 	// quoted before landing on a command line, same as
 	// thold_replace_threshold_tags()'s $q().
 	$q = function ($value) use ($shell) {
-		return $shell ? escapeshellarg((string) $value) : $value;
+		return $shell ? cacti_escapeshellarg((string) $value) : $value;
 	};
 
 	$str = $string;
@@ -4457,6 +4466,8 @@ function thold_expand_string($thold_data, $string, $shell = false) {
 				// produced, but escape it before it lands in the command.
 				preg_match_all('/\|(?:host|query)_[A-Za-z0-9_]+\|/', $str, $host_query_tokens);
 
+				$host_query_replacements = [];
+
 				foreach (array_unique($host_query_tokens[0]) as $token) {
 					if ($lg['snmp_query_id'] != '0' && $lg['snmp_index'] != '') {
 						$resolved = substitute_snmp_query_data(
@@ -4469,10 +4480,15 @@ function thold_expand_string($thold_data, $string, $shell = false) {
 					}
 
 					if ($resolved !== $token) {
-						$str = str_replace($token, $q($resolved), $str);
+						$host_query_replacements[$token] = $q($resolved);
 					}
 				}
 
+				// A single strtr() pass replaces against the original string only and
+				// never re-scans inserted values, so a resolved host/query value that
+				// happens to contain another token's literal text can't be substituted
+				// a second time outside of its own quoting.
+				$str = strtr($str, $host_query_replacements);
 				$str = null_out_substitutions($str);
 			} else {
 				$str = expand_title($lg['host_id'], $lg['snmp_query_id'], $lg['snmp_index'], $str);
@@ -4501,26 +4517,30 @@ function thold_expand_string($thold_data, $string, $shell = false) {
 			$str = thold_substitute_host_data($str, '|', '|', $device_id, $shell);
 		}
 
-		// Replace |graph_title|
+		// Replace |graph_title|, |data_source_description|, and |data_source_name|
+		// in a single strtr() pass so a resolved value containing another
+		// token's literal text can't be substituted a second time outside of
+		// its own quoting.
+		$direct_replacements = [];
+
 		if (strpos($str, '|graph_title|') !== false) {
-			$title = get_graph_title($thold_data['local_graph_id']);
-			$str   = str_replace('|graph_title|', $q($title), $str);
+			$direct_replacements['|graph_title|'] = $q(get_graph_title($thold_data['local_graph_id']));
 		}
 
-		// Replace |data_source_description|
 		if (strpos($str, '|data_source_description|') !== false) {
 			$data_source_desc = db_fetch_cell_prepared('SELECT name_cache
 				FROM data_template_data
 				WHERE local_data_id = ?',
 				[$thold_data['local_data_id']]);
 
-			$str = str_replace('|data_source_description|', $q($data_source_desc), $str);
+			$direct_replacements['|data_source_description|'] = $q($data_source_desc);
 		}
 
-		// Replace |data_source_name|
 		if (strpos($str, '|data_source_name|') !== false) {
-			$str = str_replace('|data_source_name|', $q($thold_data['data_source_name']), $str);
+			$direct_replacements['|data_source_name|'] = $q($thold_data['data_source_name']);
 		}
+
+		$str = strtr($str, $direct_replacements);
 	}
 
 	return trim($str);

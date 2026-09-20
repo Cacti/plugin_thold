@@ -337,21 +337,24 @@ final class TholdGetCurrentvalTest extends TestCase {
 
 	/**
 	 * A numeric raw sample that arrives after a gap beyond the effective
-	 * heartbeat is not eligible to become the next baseline on its own - the
-	 * same interval is too stale for thold_get_currentval() to have trusted a
-	 * rate from it, so advancing the pair here would let the next poll compute
-	 * a rate across the missing interval instead. A gauge has no rate baseline
+	 * heartbeat still re-anchors the pair to the current sample and time:
+	 * thold_get_currentval() already rejected this cycle's rate using the
+	 * pair as it stood before this call, so freezing lasttime/oldvalue here
+	 * would buy no extra protection for the current read while permanently
+	 * disqualifying every later poll, whose elapsed time is measured against
+	 * that same frozen lasttime and only grows. A gauge has no rate baseline
 	 * to protect, and the first-ever sample and a backward-clock re-anchor
-	 * still advance the pair regardless of the gap.
+	 * always advance the pair regardless of the gap.
 	 *
 	 * @return void
 	 */
 	public function testStaleGapDoesNotAdvanceARateBearingPairButOtherCasesStillAdvance(): void {
 		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100, 'rrd_step' => 300]);
 
-		// 1000 -> 1601: a 601s gap exceeds the 600s effective heartbeat (2 * 300s).
+		// 1000 -> 1601: a 601s gap exceeds the 600s effective heartbeat (2 * 300s),
+		// but the pair still re-anchors so the next poll can recover.
 		$this->assertSame(
-			['lasttime' => 1000, 'oldvalue' => 100],
+			['lasttime' => 1601, 'oldvalue' => 700],
 			thold_sample_persistence($thold, ['traffic_in' => 700], 1601)
 		);
 
@@ -384,10 +387,43 @@ final class TholdGetCurrentvalTest extends TestCase {
 	}
 
 	/**
+	 * issue #815: a stale gap must not lock a rate-bearing threshold out of
+	 * ever recovering. The first (gap) poll re-anchors the pair; the second
+	 * poll, arriving at a normal interval from that new anchor, must produce
+	 * a real numeric rate rather than being rejected as stale again.
+	 *
+	 * @return void
+	 */
+	public function testASecondPollAtANormalIntervalRecoversAfterAStaleGapReanchors(): void {
+		$thold = $this->threshold(['lasttime' => 1000, 'oldvalue' => 100, 'rrd_step' => 300]);
+
+		// First (gap) poll: re-anchors instead of freezing.
+		$afterGap = thold_sample_persistence($thold, ['traffic_in' => 700], 1601);
+		$this->assertSame(['lasttime' => 1601, 'oldvalue' => 700], $afterGap);
+
+		// Second poll, a normal 300s interval after the re-anchored pair.
+		$recovered = $this->threshold(['lasttime' => $afterGap['lasttime'], 'oldvalue' => $afterGap['oldvalue'], 'rrd_step' => 300]);
+
+		$reindexed     = [4 => ['traffic_in' => 900]];
+		$timeReindexed = [4 => 1901];
+		$item          = [];
+		$currenttime   = 0;
+
+		// A COUNTER's delta is a per-second rate: (900 - 700) / (1901 - 1601).
+		$this->assertEqualsWithDelta(
+			200 / 300,
+			thold_get_currentval($recovered, $reindexed, $timeReindexed, $item, $currenttime),
+			1.0e-9
+		);
+	}
+
+	/**
 	 * The effective heartbeat thold_sample_interval_eligible() compares
 	 * against honors an explicitly configured rrd_heartbeat, and falls back
 	 * to the poller interval alone when rrd_step is not a usable positive
-	 * number - mirroring thold_get_currentval()'s own fallbacks.
+	 * number - mirroring thold_get_currentval()'s own fallbacks. The pair
+	 * always advances; the heartbeat comparison now only affects whether a
+	 * re-anchor is logged.
 	 *
 	 * @return void
 	 */
@@ -399,7 +435,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 			thold_sample_persistence($withHeartbeat, ['traffic_in' => 700], 2800)
 		);
 		$this->assertSame(
-			['lasttime' => 1000, 'oldvalue' => 100],
+			['lasttime' => 2801, 'oldvalue' => 700],
 			thold_sample_persistence($withHeartbeat, ['traffic_in' => 700], 2801)
 		);
 
@@ -410,7 +446,7 @@ final class TholdGetCurrentvalTest extends TestCase {
 			thold_sample_persistence($invalidStep, ['traffic_in' => 700], 1600)
 		);
 		$this->assertSame(
-			['lasttime' => 1000, 'oldvalue' => 100],
+			['lasttime' => 1601, 'oldvalue' => 700],
 			thold_sample_persistence($invalidStep, ['traffic_in' => 700], 1601)
 		);
 	}

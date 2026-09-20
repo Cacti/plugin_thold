@@ -122,4 +122,29 @@ final class TholdSubstituteHostDataTest extends TestCase {
 
 		$this->assertSame('alert public', $result);
 	}
+
+	/**
+	 * A single strtr() pass replaces against the original string only and
+	 * never re-scans inserted values, so one field's value containing
+	 * another field's literal token can't be substituted a second time
+	 * outside of its own quoting.
+	 *
+	 * @return void
+	 */
+	public function testShellModeDoesNotReSubstituteATokenLiteralInsideAnotherValue(): void {
+		$malicious = "'; touch /tmp/pwned; echo '";
+
+		CactiStubs::willReturn('db_fetch_assoc', [['id' => 9]]);
+		CactiStubs::willReturn('db_fetch_assoc_prepared', [
+			['name' => 'description', 'value' => '|custom_secret|'],
+			['name' => 'secret', 'value' => $malicious],
+		]);
+
+		$result = thold_substitute_custom_data('cmd |custom_description| |custom_secret|', '|', '|', 4, true);
+
+		$this->assertSame(
+			'cmd ' . escapeshellarg('|custom_secret|') . ' ' . escapeshellarg($malicious),
+			$result
+		);
+	}
 }
