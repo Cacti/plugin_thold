@@ -365,10 +365,8 @@ function thold_expression_math_rpn($operator, &$stack) {
 			} elseif ($v1 == 0 && $v2 == 0 && $operator == '/') {
 				$v3         = 0;
 				$rpn_evaled = true;
-
-				break;
-			} elseif ($v1 == 0 && $operator == '/') {
-				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "/".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+			} elseif ($v1 == 0 && ($operator == '/' || $operator == '%')) {
+				cacti_log('ERROR: RPN value: v1 can not be "0" when the operator is "' . $operator . '".  Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
 				$rpn_error = true;
 			}
 
@@ -399,9 +397,20 @@ function thold_expression_math_rpn($operator, &$stack) {
 		case 'LOG':
 			$v1 = thold_expression_rpn_pop($stack);
 
+			if (!$rpn_error && !is_numeric($v1)) {
+				cacti_log('ERROR: RPN value: v1 "' . $v1 . '" is Not valid for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+				$rpn_error = true;
+			}
+
 			if (!$rpn_error) {
 				eval('$v2 = ' . $operator . '(' . $v1 . ');'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math function names by the parser above
-				array_push($stack, $v2);
+
+				if (is_nan($v2) || is_infinite($v2)) {
+					cacti_log('ERROR: RPN value: v1 "' . $v1 . '" produced an undefined result for operator "' . $operator . '". Stack:"' . implode(',', $orig_stack) . '"', false, 'THOLD');
+					$rpn_error = true;
+				} else {
+					array_push($stack, $v2);
+				}
 			}
 
 			break;
