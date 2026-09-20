@@ -78,13 +78,19 @@ final class ThresholdTimeBasedCharacterizationTest extends TestCase {
 	 * and clears the state, but sends nothing, so an operator watching a
 	 * time-based threshold sees the alert and never the all-clear.
 	 *
+	 * Restoral requires the log-derived fail count to have reached the trigger
+	 * (issue #746) - the harness always stubs that count to 0, so the trigger
+	 * is set to 0 here to still exercise a threshold with no minimum streak.
+	 *
 	 * @return void
 	 */
 	public function testRestoralLogsButDoesNotMail(): void {
 		$outcome = $this->bounded([
-			'lastread'         => 50,
-			'thold_alert'      => STAT_HI,
-			'thold_fail_count' => 3,
+			'lastread'                  => 50,
+			'thold_alert'               => STAT_HI,
+			'thold_fail_count'          => 3,
+			'time_fail_trigger'         => 0,
+			'time_warning_fail_trigger' => 0,
 		])->poll();
 
 		$this->assertSame([ST_NOTIFYRS], $outcome->logStatuses());
@@ -93,14 +99,18 @@ final class ThresholdTimeBasedCharacterizationTest extends TestCase {
 	}
 
 	/**
+	 * See testRestoralLogsButDoesNotMail() for why the trigger is 0 here.
+	 *
 	 * @return void
 	 */
 	public function testRestoralResetsTheFailCounts(): void {
 		$outcome = $this->bounded([
-			'lastread'                 => 50,
-			'thold_alert'              => STAT_HI,
-			'thold_fail_count'         => 3,
-			'thold_warning_fail_count' => 2,
+			'lastread'                  => 50,
+			'thold_alert'               => STAT_HI,
+			'thold_fail_count'          => 3,
+			'thold_warning_fail_count'  => 2,
+			'time_fail_trigger'         => 0,
+			'time_warning_fail_trigger' => 0,
 		])->poll();
 
 		$this->assertSame(['alert' => 0, 'warning' => 0], $outcome->persistedFailCounts());
