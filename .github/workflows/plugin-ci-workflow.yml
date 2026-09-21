@@ -110,6 +110,7 @@ jobs:
 
     - name: Create MySQL Config
       run: |
+        echo "::add-mask::cactiroot"
         echo -e "[client]\nuser = root\npassword = cactiroot\nhost = 127.0.0.1\n" > ~/.my.cnf
         chmod 600 ~/.my.cnf
 
