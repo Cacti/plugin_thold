@@ -62,6 +62,7 @@ if (!in_array($expected_version, ['1.2.x', 'develop'], true) && $cacti_version !
 
 require_once $autoload;
 require_once __DIR__ . '/Helpers/CactiStubs.php';
+require_once __DIR__ . '/TestCase.php';
 require_once __DIR__ . '/Helpers/ThresholdOutcome.php';
 require_once __DIR__ . '/Helpers/ThresholdScenario.php';
 
