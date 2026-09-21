@@ -133,7 +133,7 @@ function thold_poller_output(&$rrd_update_array) {
 		td.cdef, td.local_data_id, td.data_template_rrd_id, td.lastread,
 		UNIX_TIMESTAMP(td.lasttime) AS lasttime, td.oldvalue,
 		td.data_source_name AS name, dtr.data_source_type_id,
-		dtd.rrd_step, dtr.rrd_maximum
+		dtd.rrd_step, dtr.rrd_maximum, dtr.rrd_heartbeat
 		FROM thold_data AS td
 		LEFT JOIN data_template_rrd AS dtr
 		ON dtr.id = td.data_template_rrd_id
@@ -143,7 +143,8 @@ function thold_poller_output(&$rrd_update_array) {
 		AND td.local_data_id IN($local_data_ids)");
 
 	if (cacti_sizeof($tholds)) {
-		$sql = [];
+		$sql        = [];
+		$status_sql = [];
 
 		foreach ($tholds as $thold_data) {
 			thold_debug("Checking Threshold: Name: '" . $thold_data['thold_name'] . "', Graph: '" . $thold_data['local_graph_id'] . "'");
@@ -184,57 +185,80 @@ function thold_poller_output(&$rrd_update_array) {
 
 			if (!is_numeric($currentval)) {
 				if (read_config_option('thold_consider_unknown_zero') == 'on') {
-					$currentval = strtolower($currentval);
+					$normalized = strtolower($currentval);
 
-					if ($currentval == 'u' || $currentval == 'nan' || $currentval == '') {
-						$currentval = 0;
-						thold_debug('Threshold: ' . $thold_data['thold_name'] . ' changing unknown value to zero', 'thold');
+					if ($normalized == 'u' || $normalized == 'nan' || $normalized == '') {
+						// Fail closed: an unavailable sample must not be persisted as a
+						// manufactured zero, or thold_check_threshold()'s unavailable-sample
+						// guard never sees it and can alert/recover on the fabricated value.
+						thold_debug('Threshold: ' . $thold_data['thold_name'] . ' unknown value would have been treated as zero; preserving unavailable state instead', 'thold');
 
 						if (read_config_option('thold_log_unknown_to_zero') == 'on') {
-							cacti_log('NOTE: Threshold \'' . $thold_data['thold_name'] . '\' changing unknown value to zero', true, 'THOLD');
+							cacti_log('NOTE: Threshold \'' . $thold_data['thold_name'] . '\' unknown value would have been treated as zero; preserving unavailable state instead', true, 'THOLD');
 						}
-					} else {
-						$currentval = '';
 					}
-				} else {
-					$currentval = '';
 				}
+
+				$currentval = '';
 			}
 
-			// This stores the raw value into the data source and is important for
-			// Counters, where calculating the difference is important.
-			// The unset case is problematic and may lead to false triggering
-			// events.  So, in those cases, we will store the 'oldvalue'.
-			if (isset($item[$thold_data['name']])) {
-				$rawvalue = $item[$thold_data['name']];
-			} else {
-				$rawvalue = $thold_data['oldvalue'];
-			}
+			$sample_rows = thold_polling_sample_row($thold_data, $item, $currentval, $currenttime);
 
-			$sql[] = '(' . $thold_data['id'] . ', 1, ' . db_qstr($currentval) . ', FROM_UNIXTIME(' . $currenttime . '), ' . db_qstr($rawvalue) . ')';
+			if ($sample_rows['sample_row'] !== null) {
+				$sql[] = $sample_rows['sample_row'];
+			} elseif ($sample_rows['status_row'] !== null) {
+				$status_sql[] = $sample_rows['status_row'];
+			}
 		}
 
 		if (cacti_sizeof($sql)) {
-			$chunks = array_chunk($sql, 400);
+			foreach (array_chunk($sql, 400) as $chunk) {
+				$placeholders = implode(', ', array_fill(0, cacti_sizeof($chunk), '(?, ?, ?, FROM_UNIXTIME(?), ?)'));
+				$params       = [];
 
-			foreach ($chunks as $c) {
-				db_execute('INSERT INTO thold_data
+				foreach ($chunk as $row) {
+					$params[] = $row['id'];
+					$params[] = $row['tcheck'];
+					$params[] = $row['lastread'];
+					$params[] = $row['lasttime'];
+					$params[] = $row['oldvalue'];
+				}
+
+				db_execute_prepared('INSERT INTO thold_data
 					(id, tcheck, lastread, lasttime, oldvalue)
-					VALUES ' . implode(', ', $c) . '
+					VALUES ' . $placeholders . '
 					ON DUPLICATE KEY UPDATE
 						tcheck = VALUES(tcheck),
 						lastread = VALUES(lastread),
 						lasttime = VALUES(lasttime),
-						oldvalue = VALUES(oldvalue)');
+						oldvalue = VALUES(oldvalue)',
+					$params);
 			}
 
-			// accommodate deleted tholds
-			db_execute('DELETE FROM thold_data WHERE local_data_id = 0');
+		}
 
-			if (db_affected_rows() > 0) {
-				set_config_option('time_last_change_thold', time());
+		if (cacti_sizeof($status_sql)) {
+			foreach (array_chunk($status_sql, 400) as $chunk) {
+				$placeholders = implode(', ', array_fill(0, cacti_sizeof($chunk), '(?, ?, ?)'));
+				$params       = [];
+
+				foreach ($chunk as $row) {
+					$params[] = $row['id'];
+					$params[] = $row['tcheck'];
+					$params[] = $row['lastread'];
+				}
+
+				db_execute_prepared('INSERT INTO thold_data
+					(id, tcheck, lastread)
+					VALUES ' . $placeholders . '
+					ON DUPLICATE KEY UPDATE
+						tcheck = VALUES(tcheck),
+						lastread = VALUES(lastread)',
+					$params);
 			}
 		}
+
+		thold_polling_cleanup(cacti_sizeof($sql) || cacti_sizeof($status_sql));
 	}
 
 	return $rrd_update_array;

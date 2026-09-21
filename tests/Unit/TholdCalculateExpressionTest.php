@@ -79,7 +79,10 @@ final class TholdCalculateExpressionTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnbalancedExpressionIsRejectedRatherThanReturningAnOperand(): void {
-		$this->assertSame(0, $this->evaluate('1,2,3,+'));
+		// '' (not numeric 0) is this function's unavailable-sample sentinel:
+		// polling.php's fail-closed guard only catches non-numeric values, so
+		// a manufactured 0 here would be persisted/alerted on as a real reading.
+		$this->assertSame('', $this->evaluate('1,2,3,+'));
 		$this->assertTrue($GLOBALS['rpn_error']);
 	}
 
@@ -87,7 +90,53 @@ final class TholdCalculateExpressionTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnsupportedTokenFailsTheExpression(): void {
-		$this->assertSame(0, $this->evaluate('2,NOSUCHOP'));
+		$this->assertSame('', $this->evaluate('2,NOSUCHOP'));
+		$this->assertTrue($GLOBALS['rpn_error']);
+	}
+
+	/**
+	 * Division/modulo by zero (with a non-zero numerator) is flagged by
+	 * thold_expression_math_rpn() as an rpn_error. The whole-expression
+	 * evaluator must fail closed with '' rather than a manufactured 0.
+	 *
+	 * @return array<string, array{0: string}>
+	 */
+	public static function zeroDivisorProvider() {
+		return [
+			'division by zero' => ['5,0,/'],
+			'modulo by zero'   => ['5,0,%'],
+		];
+	}
+
+	/**
+	 * @dataProvider zeroDivisorProvider
+	 *
+	 * @param string $expression
+	 *
+	 * @return void
+	 */
+	public function testZeroDivisorFailsClosedRatherThanReturningZero($expression): void {
+		$this->assertSame('', $this->evaluate($expression));
+		$this->assertTrue($GLOBALS['rpn_error']);
+	}
+
+	/**
+	 * A |pipe| token thold_expand_string() cannot resolve returns ''.
+	 * Converting that to '0' would let a manufactured zero flow through the
+	 * RPN stack as a valid operand instead of failing the expression closed.
+	 *
+	 * @return void
+	 */
+	public function testUnresolvedPipeTokenFailsClosedRatherThanReturningZero(): void {
+		$graph = ['id' => 7, 'host_id' => 2, 'snmp_query_id' => '0', 'snmp_index' => ''];
+
+		// thold_calculate_expression() and thold_expand_string() each look up
+		// graph_local independently.
+		CactiStubs::willReturn('db_fetch_row_prepared', $graph);
+		CactiStubs::willReturn('db_fetch_row_prepared', $graph);
+		CactiStubs::willReturn('expand_title', '');
+
+		$this->assertSame('', $this->evaluate('|query_ifName|'));
 		$this->assertTrue($GLOBALS['rpn_error']);
 	}
 

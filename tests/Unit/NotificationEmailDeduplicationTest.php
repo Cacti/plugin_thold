@@ -38,7 +38,7 @@ test('combined device notifications use the sha256 deduplication path', function
 		'html'        => true,
 	];
 
-	CactiStubs::willReturn('db_fetch_assoc', [[
+	CactiStubs::willReturn('db_fetch_assoc_prepared', [[
 		'id'         => 42,
 		'topic'      => 'thold_dhost_mail',
 		'event_data' => json_encode($event),

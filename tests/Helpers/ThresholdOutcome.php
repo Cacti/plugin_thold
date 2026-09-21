@@ -118,6 +118,21 @@ final class ThresholdOutcome {
 	}
 
 	/**
+	 * Whether the run cleared the acknowledgment flag.
+	 *
+	 * @return bool
+	 */
+	public function acknowledgmentCleared() {
+		foreach (CactiStubs::callsTo('db_execute_prepared') as $call) {
+			if (preg_match('/SET\s+acknowledgment\s*=\s*""/', $call['sql'])) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
 	 * Columns the run wrote to thold_data, resolved to their values.
 	 *
 	 * The statements mix placeholders and literals in the same SET clause, so

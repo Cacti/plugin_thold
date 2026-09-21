@@ -163,6 +163,11 @@ $unmeasured_allowlist = [
 	// thold_notification_queue_status_cells() helper.
 	'notify_queue.php',
 	'thold_notify.php',
+	// Daemon entry point: does CLI bootstrap, pcntl signal handling, and
+	// argv parsing at the top level, so it cannot be require()'d into the
+	// isolated unit process. Its persistence/evaluation logic lives in the
+	// covered thold_daemon_persist_sample()/thold_check_threshold() helpers.
+	'thold_process.php',
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));

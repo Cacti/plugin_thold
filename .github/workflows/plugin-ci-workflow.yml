@@ -31,17 +31,20 @@ on:
       - main
       - develop
 
+env:
+  CACTI: 1.2.x
+  COMPOSER_ALLOW_SUPERUSER: 1
+
 jobs:
   integration-test:
     runs-on: ${{ matrix.os }}
-    
+
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.1', '8.2', '8.3', '8.4']
+        php: ['8.2', '8.3', '8.4']
         os: [ubuntu-latest]
-        cacti: ['release/1.2.31']
-    
+
     services:
       mariadb:
         image: mariadb:10.6
@@ -57,62 +60,46 @@ jobs:
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
-    
-    name: PHP ${{ matrix.php }} Integration Test on ${{ matrix.os }} against Cacti ${{ matrix.cacti }}
-    
+
+    name: PHP ${{ matrix.php }} Integration Test on ${{ matrix.os }}
+
     steps:
     - name: Checkout Cacti
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         repository: Cacti/cacti
-        ref: ${{ matrix.cacti }}
+        ref: ${{ env.CACTI }}
         path: cacti
-    
+
     - name: Checkout Thold Plugin
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         path: cacti/plugins/thold
-    
+        # patch-coverage.php diffs against the base branch below.
+        fetch-depth: 0
+
     - name: Install PHP ${{ matrix.php }}
-      uses: shivammathur/setup-php@v2
+      uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
       with:
         php-version: ${{ matrix.php }}
-        extensions: intl, mysql, gd, ldap, gmp, xml, curl, json, mbstring
+        extensions: intl, mysql, gd, ldap, gmp, xml, curl, json, mbstring, snmp
         ini-values: "post_max_size=256M, max_execution_time=60, date.timezone=America/New_York"
-    
+        coverage: xdebug
+
     - name: Check PHP version
-      run: |
-        php -v
-        echo "PHP_BINARY=$(command -v php)" >> "$GITHUB_ENV"
-    
+      run: php -v
+
     - name: Run apt-get update
-      run: |
-        for attempt in 1 2 3; do
-          if sudo timeout 3m apt-get \
-            -o Dpkg::Lock::Timeout=60 \
-            -o Acquire::Retries=3 \
-            -o Acquire::http::Timeout=30 \
-            -o Acquire::https::Timeout=30 \
-            update; then
-            exit 0
-          fi
+      run: sudo apt-get update
 
-          if [ "$attempt" -lt 3 ]; then
-            sleep 10
-          fi
-        done
-
-        echo 'apt-get update failed after three bounded attempts.' >&2
-        exit 1
-    
     - name: Install System Dependencies
-      run: sudo apt-get install -y apache2 snmp snmpd rrdtool fping libapache2-mod-php
-    
+      run: sudo apt-get install -y apache2 snmp snmpd rrdtool fping
+
     - name: Start SNMPD Agent and Test
       run: |
         sudo systemctl start snmpd
         sudo snmpwalk -c public -v2c -On localhost .1.3.6.1.2.1.1
-    
+
     - name: Setup Permissions
       run: |
         sudo chown -R www-data:runner ${{ github.workspace }}/cacti
@@ -120,12 +107,12 @@ jobs:
         sudo find ${{ github.workspace }}/cacti -type f -exec chmod 664 {} \;
         sudo chmod +x ${{ github.workspace }}/cacti/cmd.php
         sudo chmod +x ${{ github.workspace }}/cacti/poller.php
-    
+
     - name: Create MySQL Config
       run: |
         echo -e "[client]\nuser = root\npassword = cactiroot\nhost = 127.0.0.1\n" > ~/.my.cnf
         cat ~/.my.cnf
-    
+
     - name: Initialize Cacti Database
       env:
         MYSQL_AUTH_USR: '--defaults-file=~/.my.cnf'
@@ -136,33 +123,30 @@ jobs:
         mysql $MYSQL_AUTH_USR -e "GRANT SELECT ON mysql.time_zone_name TO 'cactiuser'@'localhost';"
         mysql $MYSQL_AUTH_USR -e "FLUSH PRIVILEGES;"
         mysql $MYSQL_AUTH_USR cacti < ${{ github.workspace }}/cacti/cacti.sql
-        mysql $MYSQL_AUTH_USR -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '$PHP_BINARY')" cacti
-    
+        mysql $MYSQL_AUTH_USR -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '/usr/bin/php')" cacti
+
     - name: Validate composer files
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          composer validate --strict || true
+          sudo composer validate --strict || true
         fi
-    
+
     - name: Install Composer Dependencies
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          for attempt in 1 2 3; do
-            if sudo composer install --prefer-dist --no-progress --no-interaction; then
-              exit 0
-            fi
-
-            if [ "$attempt" -lt 3 ]; then
-              sleep 10
-            fi
-          done
-
-          echo 'Composer install failed after three attempts.' >&2
-          exit 1
+          sudo composer config --no-plugins allow-plugins.pestphp/pest-plugin true
+          sudo composer require --no-progress --no-interaction "pestphp/pest: ^3" "pestphp/pest-plugin-drift: ^3.0"
+          sudo rm -f composer.lock
+          sudo composer install --dev --no-progress
         fi
-    
+
+    - name: Restore vendor ownership for Pest
+      run: |
+        cd ${{ github.workspace }}/cacti
+        sudo chown -R runner:runner include/vendor composer.lock
+
     - name: Create Cacti config.php
       run: |
         cat ${{ github.workspace }}/cacti/include/config.php.dist | \
@@ -171,46 +155,37 @@ jobs:
         sed -r "s/'cactiuser'/'cactiuser'/g" | \
         sed -r "s/'cactiuser'/'cactiuser'/g" > ${{ github.workspace }}/cacti/include/config.php
         sudo chmod 664 ${{ github.workspace }}/cacti/include/config.php
-    
+
     - name: Configure Apache
       run: |
         cat << 'EOF' | sed 's#GITHUB_WORKSPACE#${{ github.workspace }}#g' > /tmp/cacti.conf
         <VirtualHost *:80>
           ServerAdmin webmaster@localhost
           DocumentRoot GITHUB_WORKSPACE/cacti
-          
+
           <Directory GITHUB_WORKSPACE/cacti>
             Options Indexes FollowSymLinks
             AllowOverride All
             Require all granted
           </Directory>
-          
+
           ErrorLog ${APACHE_LOG_DIR}/error.log
           CustomLog ${APACHE_LOG_DIR}/access.log combined
         </VirtualHost>
         EOF
         sudo cp /tmp/cacti.conf /etc/apache2/sites-available/000-default.conf
         sudo systemctl restart apache2
-    
+
     - name: Install Cacti via CLI
       run: |
         cd ${{ github.workspace }}/cacti
-        sudo "$PHP_BINARY" cli/install_cacti.php --accept-eula --install --force
-    
+        sudo php cli/install_cacti.php --accept-eula --install --force
+
     - name: Install Thold Plugin
       run: |
         cd ${{ github.workspace }}/cacti
-        sudo "$PHP_BINARY" cli/plugin_manage.php --plugin=thold --install --enable
+        sudo php cli/plugin_manage.php --plugin=thold --install --enable
 
-#    - name: import Thold Plugin Sample Data
-#      run: |
-#        cd ${{ github.workspace }}/cacti/plugins/thold
-#        sudo php cli_import.php --filename=.github/workflows/thold_sample_data.xml
-#        if [ $? -ne 0 ]; then
-#          echo "Failed to import Thold sample data"
-#          exit 1
-#        fi
-    
     - name: Check PHP Syntax for Plugin
       run: |
         cd ${{ github.workspace }}/cacti/plugins/thold
@@ -218,42 +193,62 @@ jobs:
           echo "Syntax errors found!"
           exit 1
         fi
-    
-    - name: Remove the plugins directory exclusion from the .phpstan.neon
+
+    - name: Set expected Cacti version for unit tests
+      run: echo -n "${{ env.CACTI }}" | sudo tee ${{ github.workspace }}/cacti/plugins/thold/tests/.cacti-version > /dev/null
+
+    - name: Run Pest Unit Tests
+      env:
+        COMPOSER_ROOT_VERSION: 1.3.0-dev
       run: |
-        if [ -f .phpstan.neon ]; then
-          sed -i '/plugins/d' .phpstan.neon
-        fi
+        cd ${{ github.workspace }}/cacti
+        include/vendor/bin/pest --configuration=plugins/thold/phpunit.xml \
+          --coverage-clover=plugins/thold/coverage/clover.xml
+
+    # Whole-file coverage is meaningless here: most of the plugin only runs
+    # inside a live Cacti. What is enforceable is that a change covers the
+    # lines it adds.
+    - name: Enforce coverage of changed lines
+      if: github.event_name == 'pull_request'
+      env:
+        BASE_REF: ${{ github.event.pull_request.base.sha }}
+      run: |
+        cd ${{ github.workspace }}/cacti/plugins/thold
+        git config --global --add safe.directory ${{ github.workspace }}/cacti/plugins/thold
+        php tests/bin/patch-coverage.php coverage/clover.xml "$BASE_REF" 100
+
+    - name: Upload coverage report
+      if: always()
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: coverage-php${{ matrix.php }}
+        path: ${{ github.workspace }}/cacti/plugins/thold/coverage/
+        if-no-files-found: warn
+
+    - name: Remove the plugins directory exclusion from the .phpstan.neon
+      if: ${{ env.CACTI != '1.2.x' }}
+      run: sed '/plugins/d' -i .phpstan.neon
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Mark composer scripts executable
-      run: |
-        if [ -d "${{ github.workspace }}/cacti/include/vendor/bin" ]; then
-          sudo find "${{ github.workspace }}/cacti/include/vendor/bin" -maxdepth 1 -type f -exec chmod +x {} +
-        fi
+      if: ${{ env.CACTI != '1.2.x' }}
+      run: sudo chmod +x ${{ github.workspace }}/cacti/include/vendor/bin/*
 
     - name: Run Linter on base code
-      run: |
-        if composer --no-ansi run-script --list | grep -qE '^[[:space:]]+lint([[:space:]]|$)'; then
-          composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
-        else
-          echo 'Composer lint script is not defined; skipping.'
-        fi
+      if: ${{ env.CACTI != '1.2.x' }}
+      run: sudo composer run-script lint ${{ github.workspace }}/cacti/plugins/thold
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Checking coding standards on base code
-      run: |
-        if composer --no-ansi run-script --list | grep -qE '^[[:space:]]+phpcsfixer([[:space:]]|$)'; then
-          composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
-        else
-          echo 'Composer phpcsfixer script is not defined; skipping.'
-        fi
+      if: ${{ env.CACTI != '1.2.x' }}
+      run: sudo composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/thold
       working-directory: ${{ github.workspace }}/cacti
 
-#    - name: Run PHPStan at Level 6 on base code outside of Composer due to technical issues
-#      run: ./include/vendor/bin/phpstan analyze --level 6 ${{ github.workspace }}/cacti/plugins/thold
-#      working-directory: ${{ github.workspace }}/cacti
-    
+    - name: Run PHPStan at Level 6 on base code outside of Composer due to technical issues
+      if: ${{ env.CACTI != '1.2.x' }}
+      run: sudo ./include/vendor/bin/phpstan analyze --level 6 ${{ github.workspace }}/cacti/plugins/thold
+      working-directory: ${{ github.workspace }}/cacti
+
     - name: Re-apply web user ownership before polling
       run: |
         # Ancestor directories above the checkout (e.g. /home/runner, .../work)
@@ -274,13 +269,14 @@ jobs:
     - name: Run Cacti Poller
       run: |
         cd ${{ github.workspace }}/cacti
-        sudo -u www-data "$PHP_BINARY" poller.php --poller=1 --force --debug
+        sudo -u www-data php poller.php --poller=1 --force --debug
+
         if ! grep -q "SYSTEM STATS" log/cacti.log; then
           echo "Cacti poller did not finish successfully"
           cat log/cacti.log
           exit 1
         fi
-    
+
     - name: View Cacti Logs
       if: always()
       run: |
