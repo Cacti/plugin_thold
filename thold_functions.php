@@ -339,6 +339,44 @@ function thold_expression_rpn_pop(&$stack) {
 }
 
 /**
+ * thold_rpn_math_binary - safely evaluates a binary arithmetic operation
+ * without using eval(). The operator must be one of the whitelisted RPN
+ * math tokens (+, -, *, /, %, ^).
+ *
+ * @param string $operator The arithmetic operator
+ * @param mixed  $v2        The left operand (validated numeric)
+ * @param mixed  $v1        The right operand (validated numeric)
+ *
+ * @return mixed The result of the operation
+ */
+function thold_rpn_math_binary($operator, $v2, $v1) {
+	global $rpn_error;
+
+	switch ($operator) {
+		case '+':
+			return $v2 + $v1;
+		case '-':
+			return $v2 - $v1;
+		case '*':
+			return $v2 * $v1;
+		case '/':
+			return $v2 / $v1;
+		case '%':
+			return $v2 % $v1;
+		case '^':
+			// Bitwise XOR, not exponentiation: eval('$v3 = ' . $v2 . ' ^ ' . $v1 . ';')
+			// always computed XOR (PHP's ^ operator), and existing user thresholds
+			// rely on that. See TholdExpressionMathRpnTest::testCaretOperatorIsIntegerXorNotExponentiation.
+			return $v2 ^ $v1;
+		default:
+			cacti_log("ERROR: RPN unknown binary operator '$operator'", false, 'THOLD');
+			$rpn_error = true;
+
+			return 0;
+	}
+}
+
+/**
  * thold_rpn_math_unary - safely evaluates a unary math function
  * without using eval(). The operator must be one of the whitelisted
  * RPN unary math function names (SIN, COS, TAN, ATAN, SQRT, FLOOR,
@@ -423,7 +461,7 @@ function thold_expression_math_rpn($operator, &$stack) {
 			if ($rpn_evaled) {
 				array_push($stack, $v3);
 			} elseif (!$rpn_error) {
-				eval('$v3 = ' . $v2 . ' ' . $operator . ' ' . $v1 . ';'); // nosemgrep: php.lang.security.eval-use.eval-use -- pre-existing RPN expression evaluator; operator is constrained to whitelisted math tokens by the parser above
+				$v3 = thold_rpn_math_binary($operator, $v2, $v1);
 
 				if ($v3 == '') {
 					$v3 = 0;
@@ -8111,6 +8149,8 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 	$one_email = read_config_option('alert_deadnotify_one_mail') == 'on' ? true : false;
 	$emails    = [];
 
+	fwrite(STDERR, 'THOLD_CI_DEBUG process_device_notifications: one_email=' . var_export($one_email, true) . ' raw=' . var_export(read_config_option('alert_deadnotify_one_mail'), true) . PHP_EOL);
+
 	if (!defined('TXT_SEP')) {
 		define('TXT_SEP', '----------------------------------------------------------');
 	}
@@ -8130,6 +8170,8 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 		ORDER BY event_time ASC
 		$sql_limit",
 		[$pid]);
+
+	fwrite(STDERR, 'THOLD_CI_DEBUG process_device_notifications: records=' . var_export($records, true) . ' prev_suspended=' . var_export($prev_suspended, true) . PHP_EOL);
 
 	if ($prev_suspended == 0) {
 		foreach ($records as $index => $r) {
