@@ -168,10 +168,6 @@ jobs:
         cd ${{ github.workspace }}/cacti
         sudo php cli/plugin_manage.php --plugin=thold --install --enable
 
-    - name: Import Thold Plugin Sample Data
-      run: |
-        bash ${{ github.workspace }}/cacti/plugins/thold/tests/bin/import-sample-data.sh ${{ github.workspace }}/cacti
-
     - name: Check PHP Syntax for Plugin
       run: |
         cd ${{ github.workspace }}/cacti/plugins/thold
