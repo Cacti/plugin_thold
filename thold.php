@@ -1275,7 +1275,7 @@ function thold_edit() {
 			<br>
 		</td>
 		<td class='textArea' style='vertical-align:middle;padding:5px'>
-			<img id='graphimage' src='<?php print html_escape($config['url_path'] . 'graph_image.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=0&graph_start=' . $timespan['begin_now'] . '&graph_end=' . $timespan['end_now'] . '&graph_height=150&graph_width=600&randome=' . rand()); ?>'>
+			<img id='graphimage' src='<?php print html_escape($config['url_path'] . 'graph_image.php?local_graph_id=' . $thold_data['local_graph_id'] . '&rra_id=0&graph_start=' . $timespan['begin_now'] . '&graph_end=' . $timespan['end_now'] . '&graph_height=150&graph_width=600&randome=' . hrtime(true)); ?>'>
 		</td>
 	</tr>
 	<?php
