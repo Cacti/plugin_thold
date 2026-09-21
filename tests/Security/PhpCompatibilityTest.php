@@ -148,7 +148,8 @@ it('does not use each() (removed in PHP 8.0)', function () use ($files) {
         foreach ($files as $relativeFile) {
                 $contents = plugin_test_read_source_file($relativeFile);
 
-                expect(preg_match('/\beach\s*\(/', $contents))->toBe(0,
+                // (?<![.>]) excludes jQuery-style calls like $.each(/.each(/->each( - not the removed global each().
+                expect(preg_match('/(?<![.>])\beach\s*\(/', $contents))->toBe(0,
                         "{$relativeFile} uses each() which was removed in PHP 8.0"
                 );
         }
@@ -158,7 +159,7 @@ it('does not use create_function() (removed in PHP 8.0)', function () use ($file
         foreach ($files as $relativeFile) {
                 $contents = plugin_test_read_source_file($relativeFile);
 
-                expect(preg_match('/\bcreate_function\s*\(/', $contents))->toBe(0,
+                expect(preg_match('/(?<![.>])\bcreate_function\s*\(/', $contents))->toBe(0,
                         "{$relativeFile} uses create_function() which was removed in PHP 8.0"
                 );
         }
