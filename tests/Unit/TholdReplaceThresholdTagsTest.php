@@ -75,11 +75,12 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @param array<string, mixed> $device
 	 * @param bool                 $shell
 	 * @param mixed                $currentval
+	 * @param string               $dataSourceName
 	 *
 	 * @return string
 	 */
-	private function substitute($text, array $thold, array $device, $shell, $currentval = 42) {
-		return thold_replace_threshold_tags($text, $thold, $device, $currentval, 7, 'traffic_in', $shell);
+	private function substitute($text, array $thold, array $device, $shell, $currentval = 42, $dataSourceName = 'traffic_in') {
+		return thold_replace_threshold_tags($text, $thold, $device, $currentval, 7, $dataSourceName, $shell);
 	}
 
 	/**
@@ -115,6 +116,30 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 
 		$this->assertStringContainsString(escapeshellarg($payload), $result);
 		$this->assertStringNotContainsString('alert ; touch', $result);
+	}
+
+	/**
+	 * A device-controlled value (e.g. description) can contain another tag's
+	 * literal placeholder text (e.g. "<HOSTNAME>"). Every value is
+	 * substituted in a single strtr() pass over the original text, so that
+	 * literal text is never re-scanned and substituted a second time - it
+	 * can't land a later value's shell metacharacters outside of its own
+	 * quoting.
+	 *
+	 * @return void
+	 */
+	public function testShellModeDoesNotReSubstituteATagLiteralInsideAnotherValue(): void {
+		$thold  = $this->threshold();
+		$device = $this->device([
+			'description' => '<HOSTNAME>',
+			'hostname'    => '; touch /tmp/pwned',
+		]);
+
+		$result = $this->substitute('/usr/bin/alert <DESCRIPTION> <HOSTNAME>', $thold, $device, true);
+
+		$this->assertStringContainsString(escapeshellarg('<HOSTNAME>'), $result);
+		$this->assertStringContainsString(escapeshellarg('; touch /tmp/pwned'), $result);
+		$this->assertStringNotContainsString("''; touch", $result);
 	}
 
 	/**
@@ -184,6 +209,29 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	}
 
 	/**
+	 * The data source name is read straight from the data source table; a
+	 * name containing shell metacharacters must not be able to break out of
+	 * the configured trigger command.
+	 *
+	 * @return void
+	 */
+	public function testShellModeQuotesTheDataSourceName(): void {
+		$result = $this->substitute('/usr/bin/alert <DSNAME>', $this->threshold(), $this->device(), true, 42, '; touch /tmp/pwned');
+
+		$this->assertStringContainsString(escapeshellarg('; touch /tmp/pwned'), $result);
+		$this->assertStringNotContainsString('alert ; touch', $result);
+	}
+
+	/**
+	 * @return void
+	 */
+	public function testEmailModeLeavesTheDataSourceNameUnquoted(): void {
+		$result = $this->substitute('ds=<DSNAME>', $this->threshold(), $this->device(), false, 42, "O'Brien");
+
+		$this->assertSame("ds=O'Brien", $result);
+	}
+
+	/**
 	 * @return void
 	 */
 	public function testGraphAndThresholdIdentifiersAreSubstituted(): void {
@@ -243,6 +291,25 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 		$result = $this->substitute('<URL>', $this->threshold(), $this->device(), false);
 
 		$this->assertStringContainsString('graph.php?local_graph_id=7', $result);
+	}
+
+	/**
+	 * The rendered <a href='...'>...</a> markup contains literal single
+	 * quotes, so in $shell mode the whole substituted value must be quoted
+	 * as one token or those quotes would terminate the command early.
+	 *
+	 * @return void
+	 */
+	public function testShellModeQuotesTheUrlTag(): void {
+		CactiStubs::$configOptions['base_url'] = 'http://cacti.example.org';
+
+		$result = $this->substitute('/usr/bin/alert <URL>', $this->threshold(), $this->device(), true);
+
+		$this->assertStringContainsString(
+			escapeshellarg("<a href='http://cacti.example.org/graph.php?local_graph_id=7'>" . __('Link to Graph in Cacti', 'thold') . '</a>'),
+			$result
+		);
+		$this->assertStringNotContainsString("alert <a href='", $result);
 	}
 
 	/**

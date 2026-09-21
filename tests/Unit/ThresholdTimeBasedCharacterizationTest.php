@@ -117,6 +117,26 @@ final class ThresholdTimeBasedCharacterizationTest extends TestCase {
 	}
 
 	/**
+	 * The early-restoral branch (neither fail count reached its trigger) must
+	 * apply the same acknowledgment-reset side effect as the two branches
+	 * above it, or an acknowledged threshold that recovers before retriggering
+	 * stays acknowledged forever.
+	 *
+	 * @return void
+	 */
+	public function testRestoralClearsAcknowledgmentWhenResetAckEnabled(): void {
+		$outcome = $this->bounded([
+			'lastread'         => 50,
+			'thold_alert'      => STAT_HI,
+			'thold_fail_count' => 3,
+			'acknowledgment'   => 'on',
+			'reset_ack'        => 'on',
+		])->poll();
+
+		$this->assertTrue($outcome->acknowledgmentCleared());
+	}
+
+	/**
 	 * @return void
 	 */
 	public function testMaintenanceWindowSuppressesNotification(): void {
@@ -151,9 +171,14 @@ final class ThresholdTimeBasedCharacterizationTest extends TestCase {
 	 * @return void
 	 */
 	public function testUnknownReadingEmitsNoAlert(): void {
-		$outcome = $this->bounded(['lastread' => 'U'])->poll();
+		$outcome = $this->bounded([
+			'lastread'         => 'U',
+			'thold_alert'      => 2,
+			'thold_fail_count' => 3,
+		])->poll();
 
 		$this->assertSame(0, $outcome->mailCount());
+		$this->assertNull($outcome->persistedAlertState());
 	}
 
 	/**

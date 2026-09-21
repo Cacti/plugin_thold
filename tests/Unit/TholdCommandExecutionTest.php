@@ -148,6 +148,25 @@ final class TholdCommandExecutionTest extends TestCase {
 	}
 
 	/**
+	 * thold_command_execution() resolves |pipe| tokens (thold_expand_string())
+	 * and <TAG> tokens (thold_replace_threshold_tags()) through a shared
+	 * deferred-placeholder map, so a device value that happens to contain the
+	 * literal text of the other family's token can't be expanded a second
+	 * time and break out of its own quoting.
+	 *
+	 * @return void
+	 */
+	public function testADeviceValueContainingAPipeTokenIsNotReExpandedAsAHostToken(): void {
+		$malicious = "'; touch /tmp/pwned; echo '";
+		$thold     = $this->threshold(['trigger_cmd_high' => '/usr/bin/alert <DESCRIPTION>']);
+		$device    = $this->device(['description' => '|host_hostname|', 'hostname' => $malicious]);
+
+		thold_command_execution($thold, $device, true, false, false);
+
+		$this->assertSame('/usr/bin/alert ' . escapeshellarg('|host_hostname|'), $this->queuedCommand());
+	}
+
+	/**
 	 * @return void
 	 */
 	public function testNothingRunsWhenScriptsAreDisabled(): void {

@@ -14,7 +14,9 @@
 	</php>
 	<testsuites>
 		<testsuite name="Unit">
+			<directory>./tests/Security</directory>
 			<directory>./tests/Unit</directory>
+			<directory>./tests/Integration</directory>
 		</testsuite>
 	</testsuites>
 
@@ -22,13 +24,17 @@
 		Pest reads this PHPUnit-compatible configuration through Cacti's
 		Composer-managed vendor tree.
 
-		thold_functions.php is the only plugin source that loads without a
-		running Cacti; every other file includes ./include/auth.php and
-		dispatches on the request at top level.
+		thold_functions.php, includes/polling.php, and setup.php are the only
+		plugin sources that load without a running Cacti (no top-level side
+		effects); every other file includes ./include/auth.php and dispatches
+		on the request at top level. tests/Integration/PluginLifecycleTest.php
+		is what requires setup.php directly.
 	-->
 	<source>
 		<include>
 			<file>thold_functions.php</file>
+			<file>includes/polling.php</file>
+			<file>setup.php</file>
 
 		</include>
 	</source>

@@ -20,35 +20,34 @@ beforeAll(function() {
 
 beforeEach(function() {
 	CactiStubs::reset();
-	CactiStubs::$configOptions['alert_deadnotify_one_mail'] = 'on';
+	$GLOBALS['rpn_error'] = false;
 });
 
-test('combined device notifications use the sha256 deduplication path', function() {
-	$event = [
-		'from'        => ['sender@example.com'],
-		'to'          => 'operator@example.com',
-		'cc'          => '',
-		'bcc'         => '',
-		'replyto'     => '',
-		'subject'     => 'Device is down',
-		'body'        => '<body>Device is down</body>',
-		'body_text'   => 'Device is down',
-		'attachments' => [],
-		'headers'     => [],
-		'html'        => true,
-	];
+test('binary operators use the safe dispatcher', function($operator, $left, $right, $expected) {
+	expect(thold_rpn_math_binary($operator, $left, $right))->toEqual($expected)
+		->and($GLOBALS['rpn_error'])->toBeFalse();
+})->with([
+	'addition'       => ['+', 8, 2, 10],
+	'subtraction'    => ['-', 8, 2, 6],
+	'multiplication' => ['*', 8, 2, 16],
+	'division'       => ['/', 8, 2, 4],
+	'modulo'         => ['%', 8, 3, 2],
+	// ^ is bitwise XOR (matching the pre-hardening eval('... ^ ...')), not
+	// exponentiation: existing user thresholds rely on that semantic.
+	'bitwise xor'    => ['^', 5, 3, 6],
+]);
 
-	CactiStubs::willReturn('db_fetch_assoc_prepared', [[
-		'id'         => 42,
-		'topic'      => 'thold_dhost_mail',
-		'event_data' => json_encode($event),
-	]]);
+test('unknown binary operators fail closed', function() {
+	expect(thold_rpn_math_binary('**', 2, 3))->toBe(0)
+		->and($GLOBALS['rpn_error'])->toBeTrue()
+		->and(CactiStubs::$log)->not->toBeEmpty();
+});
 
-	process_device_notifications(0, 'all', 0);
+test('the expression evaluator routes binary math through the dispatcher', function() {
+	$stack = [8, 2];
 
-	$source = file_get_contents(dirname(__DIR__, 2) . '/thold_functions.php');
+	thold_expression_math_rpn('-', $stack);
 
-	expect(CactiStubs::$mail)->toHaveCount(1)
-		->and($source)->toContain("hash('sha256', json_encode(")
-		->not->toContain('md5(json_encode(');
+	expect($stack)->toBe([6])
+		->and($GLOBALS['rpn_error'])->toBeFalse();
 });

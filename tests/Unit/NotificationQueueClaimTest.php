@@ -196,7 +196,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertFalse(thold_notification_register_process(2, 300, static function () {
 			return false;
 		}));
-		$this->assertSame([], CactiStubs::$calls);
+		$this->assertSame(['cacti_log'], array_column(CactiStubs::$calls, 'fn'));
 		$this->assertNotEmpty(CactiStubs::$log);
 
 		CactiStubs::reset();
@@ -432,7 +432,7 @@ final class NotificationQueueClaimTest extends TestCase {
 			return true;
 		}));
 		$this->assertSame(
-			['db_fetch_row_prepared', 'db_fetch_cell_prepared'],
+			['db_fetch_row_prepared', 'db_fetch_cell_prepared', 'cacti_log'],
 			array_column(CactiStubs::$calls, 'fn')
 		);
 	}
@@ -882,7 +882,7 @@ final class NotificationQueueClaimTest extends TestCase {
 		$this->assertStringContainsString('registration failed', end(CactiStubs::$log));
 		$this->assertFalse($GLOBALS['notification_registered']);
 		$this->assertSame(
-			['db_execute_prepared', 'unregister_process', 'db_fetch_cell_prepared'],
+			['cacti_log', 'db_execute_prepared', 'unregister_process', 'db_fetch_cell_prepared'],
 			array_column(CactiStubs::$calls, 'fn')
 		);
 	}

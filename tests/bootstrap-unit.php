@@ -55,7 +55,8 @@ if ($expected_version === '') {
 	throw new RuntimeException("Expected Cacti version file is empty: $expected");
 }
 
-if ($cacti_version !== $expected_version) {
+// The CI workflow tracks a moving branch (1.2.x or develop) rather than a pinned release, so any actual version is accepted.
+if (!in_array($expected_version, ['1.2.x', 'develop'], true) && $cacti_version !== $expected_version) {
 	throw new RuntimeException("Expected Cacti $expected_version, found $cacti_version in $version");
 }
 
@@ -64,6 +65,10 @@ require_once __DIR__ . '/Helpers/CactiStubs.php';
 require_once __DIR__ . '/TestCase.php';
 require_once __DIR__ . '/Helpers/ThresholdOutcome.php';
 require_once __DIR__ . '/Helpers/ThresholdScenario.php';
+
+if (!defined('POLLER_VERBOSITY_MEDIUM')) {
+	define('POLLER_VERBOSITY_MEDIUM', 3);
+}
 
 /*
  * base_path has to point at the Cacti root two levels above this plugin:
@@ -275,6 +280,7 @@ if (!function_exists('__esc')) {
 if (!function_exists('cacti_log')) {
 	function cacti_log($message, $output = false, $environ = 'CMDPHP', $level = 0) {
 		CactiStubs::$log[] = $message;
+		CactiStubs::record('cacti_log', '', [$message, $output, $environ, $level]);
 	}
 }
 
@@ -351,6 +357,20 @@ if (!function_exists('expand_title')) {
 		CactiStubs::record('expand_title', $title);
 
 		return CactiStubs::nextReturn('expand_title', $title);
+	}
+}
+
+if (!function_exists('substitute_host_data')) {
+	function substitute_host_data($string, $l_escape_string, $r_escape_string, $host_id) {
+		CactiStubs::record('substitute_host_data', $string);
+
+		return CactiStubs::nextReturn('substitute_host_data', $string);
+	}
+}
+
+if (!function_exists('null_out_substitutions')) {
+	function null_out_substitutions($string) {
+		return CactiStubs::nextReturn('null_out_substitutions', $string);
 	}
 }
 
@@ -493,6 +513,34 @@ if (!function_exists('api_plugin_hook')) {
 	}
 }
 
+if (!function_exists('api_plugin_register_hook')) {
+	function api_plugin_register_hook($name, $hook, $function, $file, $status = '') {
+		CactiStubs::record('api_plugin_register_hook', $hook, ['name' => $name, 'function' => $function, 'file' => $file]);
+
+		return true;
+	}
+}
+
+if (!function_exists('api_plugin_register_realm')) {
+	function api_plugin_register_realm($name, $files, $title, $navigate = 0) {
+		CactiStubs::record('api_plugin_register_realm', $files, ['name' => $name, 'title' => $title]);
+
+		return true;
+	}
+}
+
+if (!function_exists('api_plugin_enable_hooks')) {
+	function api_plugin_enable_hooks($name) {
+		CactiStubs::record('api_plugin_enable_hooks', $name);
+	}
+}
+
+if (!function_exists('get_current_page')) {
+	function get_current_page() {
+		return CactiStubs::nextReturn('get_current_page', '');
+	}
+}
+
 if (!function_exists('api_user_realm_auth')) {
 	function api_user_realm_auth($filename = '') {
 		return CactiStubs::nextReturn('api_user_realm_auth', true);
@@ -516,6 +564,14 @@ if (!function_exists('rrdtool_execute')) {
 if (!function_exists('rrdtool_function_interface_speed')) {
 	function rrdtool_function_interface_speed($data_local) {
 		return CactiStubs::nextReturn('rrdtool_function_interface_speed', 0);
+	}
+}
+
+if (!function_exists('substitute_snmp_query_data')) {
+	function substitute_snmp_query_data($value, $host_id, $snmp_query_id, $snmp_index) {
+		CactiStubs::record('substitute_snmp_query_data', (string) $value, [$host_id, $snmp_query_id, $snmp_index]);
+
+		return CactiStubs::nextReturn('substitute_snmp_query_data', $value);
 	}
 }
 
@@ -563,6 +619,31 @@ if (!defined('CACTI_DATE_TIME_FORMAT')) {
 
 if (!defined('CACTI_PATH_BASE')) {
 	define('CACTI_PATH_BASE', $GLOBALS['config']['base_path']);
+}
+
+if (!function_exists('plugin_test_read_source')) {
+	/**
+	 * Read a plugin source file's raw contents, relative to the plugin root.
+	 *
+	 * @param string $relative_file Plugin file, relative to the plugin root.
+	 *
+	 * @return string
+	 */
+	function plugin_test_read_source($relative_file) {
+		$path = realpath(__DIR__ . '/../' . $relative_file);
+
+		if ($path === false) {
+			throw new RuntimeException("Unable to resolve required file: {$relative_file}");
+		}
+
+		$contents = file_get_contents($path);
+
+		if ($contents === false) {
+			throw new RuntimeException("Unable to read required file: {$relative_file}");
+		}
+
+		return $contents;
+	}
 }
 
 /**
