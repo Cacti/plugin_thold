@@ -28,7 +28,7 @@ final class OptionalCoreFunctionTest extends TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		require_once dirname(__DIR__) . '/fixtures/optional-core-functions.php';
+		require_once dirname(__DIR__) . '/Fixtures/optional-core-functions.php';
 		require_once dirname(__DIR__, 2) . '/thold_functions.php';
 	}
 

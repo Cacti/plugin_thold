@@ -83,7 +83,7 @@ $GLOBALS['config'] = [
 $GLOBALS['__test_original_base_path'] = $cacti_root;
 
 // thold_expand_string() include_once()s library_path/variables.php at call time.
-$GLOBALS['config']['library_path'] = __DIR__ . '/fixtures/cacti-lib';
+$GLOBALS['config']['library_path'] = __DIR__ . '/Fixtures/cacti-lib';
 
 // thold reads and writes this on every RPN evaluation.
 $GLOBALS['rpn_error'] = false;

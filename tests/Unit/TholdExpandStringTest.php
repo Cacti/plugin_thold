@@ -36,7 +36,7 @@ final class TholdExpandStringTest extends TestCase {
 	 * lib/variables.php sets $device_id as a side effect of the include()
 	 * inside thold_expand_string(), so this points library_path at a
 	 * one-off fixture that does the same, rather than the shared
-	 * tests/fixtures/cacti-lib one every other test here uses - which
+	 * tests/Fixtures/cacti-lib one every other test here uses - which
 	 * every other test in this file has typically already include_once()'d
 	 * by the time this runs, so reusing it would silently no-op.
 	 *

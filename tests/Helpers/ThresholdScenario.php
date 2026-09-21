@@ -264,7 +264,7 @@ final class ThresholdScenario {
 		 * base_path at a tracked, repository-contained Cacti root fixture so a
 		 * unit test never writes into the caller's Cacti checkout.
 		 */
-		$GLOBALS['config']['base_path'] = dirname(__DIR__) . '/fixtures/cacti-root';
+		$GLOBALS['config']['base_path'] = dirname(__DIR__) . '/Fixtures/cacti-root';
 
 		return $this;
 	}
