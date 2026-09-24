@@ -795,10 +795,34 @@ function thold_rrd_graph_graph_options($g) {
 	return $g;
 }
 
+/**
+ * Prepares a string value for safe embedding in an RRDtool command
+ * line argument by shell-escaping it, then RRDtool-escaping it, then
+ * wrapping it in single quotes.
+ *
+ * @param string $string The raw string value to prepare.
+ *
+ * @return string The quoted, escaped string ready for RRDtool command
+ *                construction.
+ */
 function thold_prep_rrd_string($string) {
 	return '\'' . trim(cacti_escapeshellarg(rrdtool_escape_string($string)), "'") . '\'';
 }
 
+/**
+ * Executes the "Apply Thresholds" bulk device action: auto-creates
+ * thresholds for each selected device using its device template's
+ * associated threshold templates. Registered as the
+ * 'device_action_execute' Cacti hook; a no-op passthrough for any
+ * other action.
+ *
+ * @param string $action The bulk action identifier being executed.
+ *
+ * @return string The unmodified $action, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_device_action_execute($action) {
 	global $config;
 
@@ -819,6 +843,19 @@ function thold_device_action_execute($action) {
 	return $action;
 }
 
+/**
+ * Auto-creates thresholds for a newly created device when the global
+ * thold_autocreate setting is enabled. Registered as the
+ * 'api_device_new' Cacti hook.
+ *
+ * @param array $save The newly created device's saved field data,
+ *                    including its 'id'.
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_api_device_new($save) {
 	global $config;
 
@@ -833,6 +870,22 @@ function thold_api_device_new($save) {
 	return $save;
 }
 
+/**
+ * Renders the confirmation box listing the devices selected for the
+ * "Apply Thresholds" bulk device action. Registered as the
+ * 'device_action_prepare' Cacti hook; a no-op passthrough for any
+ * other action.
+ *
+ * @param array $save The bulk-action form submission data, including
+ *                    'drp_action' and a pre-built 'host_list' HTML
+ *                    fragment.
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $host_list Reserved/declared for parity with other
+ *                          functions in this file; not used directly
+ *                          here.
+ */
 function thold_device_action_prepare($save) {
 	global $host_list;
 
@@ -850,12 +903,38 @@ function thold_device_action_prepare($save) {
 	return $save;
 }
 
+/**
+ * Adds the "Apply Thresholds" entry to the device management bulk-
+ * actions dropdown. Registered as the 'device_action_array' Cacti
+ * hook.
+ *
+ * @param array $device_action_array The existing bulk-action label
+ *                                  map, keyed by action id.
+ *
+ * @return array The action map with this plugin's entry added.
+ */
 function thold_device_action_array($device_action_array) {
 	$device_action_array['thold'] = 'Apply Thresholds';
 
 	return $device_action_array;
 }
 
+/**
+ * Reacts to a device being saved: when the device's disabled state
+ * changed, triggers this plugin's device up/down/enable/disable
+ * notification handling; and (elsewhere in this function, per the
+ * broader save flow) keeps this plugin's per-device data in sync with
+ * the saved device fields. Registered as the 'api_device_save' Cacti
+ * hook.
+ *
+ * @param array $save The device's saved field data, including 'id' and
+ *                    'disabled'.
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_api_device_save($save) {
 	global $config;
 
@@ -907,6 +986,20 @@ function thold_api_device_save($save) {
 	return $save;
 }
 
+/**
+ * Turns a data source's name cell in the Console data sources table
+ * into a link to either edit its existing threshold, or (when no graph
+ * exists yet for it) create a new one, when applicable. Registered as
+ * the 'data_sources_table' Cacti hook.
+ *
+ * @param array $ds The data source row being rendered.
+ *
+ * @return array The $ds row, with 'data_template_name' replaced by a
+ *               linked HTML fragment when applicable.
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_data_sources_table($ds) {
 	global $config;
 
@@ -944,12 +1037,35 @@ function thold_data_sources_table($ds) {
 	return $ds;
 }
 
+/**
+ * Prints an "Auto-create Thresholds" link on the "new graphs" page for
+ * the current host. Registered as the 'graphs_new_top_links' Cacti
+ * hook.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the link URL.
+ */
 function thold_graphs_new() {
 	global $config;
 
 	print '<span class="linkMarker">*</span><a class="autocreate linkEditMain" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create Thresholds', 'thold') . '</a><br>';
 }
 
+/**
+ * Saves (or clears) a user's notification email address into this
+ * plugin's contacts table whenever a Cacti user account is saved with
+ * an email/email_address field. Registered as the
+ * 'user_admin_setup_sql_save' Cacti hook; a no-op passthrough when the
+ * user save already failed validation.
+ *
+ * @param array $save The user account's saved field data, including
+ *                    'id'.
+ *
+ * @return array The unmodified (or id-populated) $save array, for hook
+ *               chaining.
+ */
 function thold_user_admin_setup_sql_save($save) {
 	if (is_error_message()) {
 		return $save;
@@ -984,6 +1100,23 @@ function thold_user_admin_setup_sql_save($save) {
 	return $save;
 }
 
+/**
+ * Executes the "Create Threshold from Data Source" bulk data source
+ * action: creates thresholds for each selected data source using the
+ * threshold template chosen on the confirmation page. Registered as
+ * the 'data_source_action_execute' Cacti hook; a no-op passthrough for
+ * any other action.
+ *
+ * @param string $action The bulk action identifier being executed.
+ *
+ * @return string The unmodified $action, for hook chaining.
+ *
+ * @global array $config     Cacti global configuration array; used to
+ *                          locate the library file to include.
+ * @global array $form_array Reserved/declared for parity with other
+ *                          functions in this file; not used directly
+ *                          here.
+ */
 function thold_data_source_action_execute($action) {
 	global $config, $form_array;
 
@@ -1043,6 +1176,23 @@ function thold_data_source_action_execute($action) {
 	return $action;
 }
 
+/**
+ * Renders the confirmation page for the "Create Threshold from
+ * Template" bulk data source action, listing which selected data
+ * sources have at least one applicable threshold template (and
+ * offering a template selection), while filtering out any that don't.
+ * Registered as the 'data_source_action_prepare' Cacti hook; a no-op
+ * passthrough for any other action.
+ *
+ * @param array $save The bulk-action form submission data, including
+ *                    'drp_action' and 'ds_array' (selected data source
+ *                    ids).
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_data_source_action_prepare($save) {
 	global $config;
 
@@ -1137,6 +1287,16 @@ function thold_data_source_action_prepare($save) {
 	}
 }
 
+/**
+ * Adds the "Create Threshold from Template" entry to the data source
+ * management bulk-actions dropdown. Registered as the
+ * 'data_source_action_array' Cacti hook.
+ *
+ * @param array $action The existing bulk-action label map, keyed by
+ *                      action id.
+ *
+ * @return array The action map with this plugin's entry added.
+ */
 function thold_data_source_action_array($action) {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
 
