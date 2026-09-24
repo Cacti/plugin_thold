@@ -1538,9 +1538,10 @@ function thold_export_log() {
  * @global array $thold_status         Reserved/declared for parity with
  *                                     other functions in this file; not
  *                                     used directly here.
- * @global array $thold_types          Reserved/declared for parity with
- *                                     other functions in this file; not
- *                                     used directly here.
+ * @global array $thold_types          Map of log entry type id => label,
+ *                                     used to render each log row's
+ *                                     type column ('Acknowledgment'
+ *                                     added here for type 99).
  * @global int   $thold_log_retention  Reserved/declared for parity with
  *                                     other functions in this file; not
  *                                     used directly here.

@@ -309,9 +309,10 @@ function thold_config_insert() {
  * @global array $messages              Cacti flash-message registry;
  *                                      this plugin's messages are
  *                                      added.
- * @global array $device_change_fields  Reserved/declared for parity
- *                                      with other functions in this
- *                                      file; not used directly here.
+ * @global array $device_change_fields  Registry of per-device change
+ *                                      tracking fields; this plugin's
+ *                                      fields are appended to
+ *                                      'match_field'.
  */
 function thold_config_arrays() {
 	global $config, $messages, $device_change_fields;

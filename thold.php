@@ -629,9 +629,10 @@ function thold_request_validation() {
  * @global int   $host_id       Reserved/declared for parity with other
  *                              functions in this file; not used
  *                              directly here.
- * @global array $timearray     Reserved/declared for parity with other
- *                              functions in this file; not used
- *                              directly here.
+ * @global array $timearray     Map of RRD step-normalized range values
+ *                              to display labels, used to render each
+ *                              baseline threshold's reference time
+ *                              range.
  * @global array $thold_types   Reserved/declared for parity with other
  *                              functions in this file; not used
  *                              directly here.

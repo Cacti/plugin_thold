@@ -444,8 +444,9 @@ function thold_check_all_thresholds() {
  * host notification tracking rows, when the alert_deadnotify setting
  * is enabled; a no-op otherwise.
  *
- * @return int 0 immediately if dead-host notifications are disabled;
- *             otherwise no explicit return value.
+ * @return int|null 0 immediately if dead-host notifications are
+ *                  disabled; otherwise no explicit return value
+ *                  (null).
  *
  * @global array $config Cacti global configuration array; used to
  *                       locate library files to include.

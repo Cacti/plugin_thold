@@ -273,8 +273,8 @@ function plugin_thold_check_strict() {
  *
  * @return void
  *
- * @global array $config Cacti global configuration array (declared but
- *                       not used directly here).
+ * @global array $config Cacti global configuration array; used to
+ *                       build the Create Threshold link's URL.
  */
 function thold_graph_button($data) {
 	global $config;
@@ -1188,7 +1188,10 @@ function thold_data_source_action_execute($action) {
  *                    'drp_action' and 'ds_array' (selected data source
  *                    ids).
  *
- * @return array The unmodified $save array, for hook chaining.
+ * @return array|void The unmodified $save array (for hook chaining)
+ *                    when the action isn't 'plugin_thold_create';
+ *                    otherwise this renders the confirmation UI
+ *                    directly and returns nothing.
  *
  * @global array $config Cacti global configuration array (declared but
  *                       not used directly here).
@@ -1391,7 +1394,10 @@ function thold_graphs_action_execute($action) {
  * @param array $save The bulk-action form submission data, including
  *                    'drp_action'.
  *
- * @return array The unmodified $save array, for hook chaining.
+ * @return array|void The unmodified $save array (for hook chaining)
+ *                    when the action isn't 'plugin_thold_create';
+ *                    otherwise this renders the confirmation UI
+ *                    directly and returns nothing.
  *
  * @global array $config Cacti global configuration array (declared but
  *                       not used directly here).
