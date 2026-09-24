@@ -97,6 +97,19 @@ switch (get_request_var('action')) {
 		break;
 }
 
+/**
+ * Handles the bulk-action confirmation page/submission for the
+ * notification queue list (delete): on confirmed submission with
+ * selected_items set, deletes the selected notification_queue rows; on
+ * first display, renders a confirmation box listing the selected
+ * notifications. Called from this script's main request-dispatch
+ * switch when action=actions.
+ *
+ * @return void
+ *
+ * @global array $actions Map of drp_action value => action label, used
+ *                       for the bulk-actions confirmation display.
+ */
 function form_actions() {
 	global $actions;
 
@@ -181,6 +194,24 @@ function form_actions() {
 	bottom_footer();
 }
 
+/**
+ * Renders the main notification queue list page: validates/stores this
+ * view's filter request variables, displays the filter form, then
+ * displays a filtered, sorted, paginated table of pending/sent
+ * notifications with a bulk-actions dropdown. Called from this
+ * script's main request-dispatch switch as the default view.
+ *
+ * @return void
+ *
+ * @global array $actions                    Map of drp_action value =>
+ *                                           action label, used for the
+ *                                           bulk-actions dropdown.
+ * @global array $item_rows                  Default number of rows per
+ *                                           page from Cacti settings.
+ * @global array $thold_notification_topics  Notification topic option
+ *                                           list used by the filter
+ *                                           form.
+ */
 function notify_queue() {
 	global $actions, $item_rows, $thold_notification_topics;
 
