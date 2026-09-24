@@ -77,6 +77,15 @@ switch (get_request_var('action')) {
 	The Save Function
    -------------------------- */
 
+/**
+ * Validates and saves the notification list edit form's submitted
+ * fields, rejecting the save if the same email address appears in both
+ * the To and BCC lists, then redirects back to the edit form for the
+ * saved (or original) list id. Called from this script's main
+ * request-dispatch switch when action=save.
+ *
+ * @return void
+ */
 function form_save() {
 	if (isset_request_var('save_component')) {
 		$save['id']          = get_filter_request_var('id');
@@ -142,6 +151,22 @@ function form_save() {
 	The 'actions' function
    ------------------------ */
 
+/**
+ * Handles the bulk-action confirmation page/submission for the
+ * notification lists view and its host/threshold/template association
+ * sub-views, validating the requested action against the combined set
+ * of list-level and association-level allowed actions before
+ * dispatching. Called from this script's main request-dispatch switch
+ * when action=actions.
+ *
+ * @return void
+ *
+ * @global array $actions       Map of drp_action value => action label
+ *                              for list-level bulk actions.
+ * @global array $assoc_actions Map of drp_action value => action label
+ *                              for host/threshold/template association
+ *                              bulk actions.
+ */
 function form_actions() {
 	global $actions, $assoc_actions;
 
@@ -979,6 +1004,13 @@ function form_actions() {
    Notification List Edit
    ---------------------------- */
 
+/**
+ * Builds the "[edit: name]" or "[new]" header suffix label for the
+ * notification list edit page, based on whether an existing list id
+ * request variable is present.
+ *
+ * @return string The escaped header label suffix.
+ */
 function get_notification_header_label() {
 	if (!isempty_request_var('id')) {
 		$list = db_fetch_row_prepared('SELECT *
@@ -994,6 +1026,21 @@ function get_notification_header_label() {
 	return $header_label;
 }
 
+/**
+ * Renders the tabbed add/edit page for a notification list: displays
+ * the tab bar (General, Devices, Thresholds, Templates) when editing
+ * an existing list, then renders the currently selected tab's content
+ * (the general settings form on the 'general' tab, or delegates to
+ * hosts()/tholds()/templates() for the association tabs). Called from
+ * this script's main request-dispatch switch when action=edit.
+ *
+ * @return void
+ *
+ * @global array $tabs_thold Map of tab short-name => display label,
+ *                          used to render the tab bar.
+ * @global array $config     Cacti global configuration array; used to
+ *                          build tab URLs.
+ */
 function edit() {
 	global $tabs_thold, $config;
 
@@ -1125,6 +1172,24 @@ function edit() {
 	}
 }
 
+/**
+ * Renders the notification list's \"Devices\" tab: validates/stores this
+ * tab's filter request variables, displays the device filter form, then
+ * displays a filtered, sorted, paginated table of devices with their
+ * association status to this list and a bulk-actions dropdown to
+ * associate/disassociate them.
+ *
+ * @param string $header_label The \"[edit: name]\"/\"[new]\" header label
+ *                            suffix to display in the box title.
+ *
+ * @return void
+ *
+ * @global array $assoc_actions Map of drp_action value => action label,
+ *                              used for the bulk-actions dropdown.
+ * @global array $item_rows     Default number of rows per page from
+ *                              Cacti settings.
+ * @global array $config        Cacti global configuration array.
+ */
 function hosts($header_label) {
 	global $assoc_actions, $item_rows, $config;
 
@@ -1479,6 +1544,18 @@ function hosts($header_label) {
 	form_end();
 }
 
+/**
+ * Renders the notification list's \"Thresholds\" tab: validates/stores
+ * this tab's filter request variables, displays the threshold filter
+ * form, then displays a filtered, sorted, paginated table of
+ * thresholds with their association status to this list and a
+ * bulk-actions dropdown to associate/disassociate them.
+ *
+ * @param string $header_label The \"[edit: name]\"/\"[new]\" header label
+ *                            suffix to display in the box title.
+ *
+ * @return void
+ */
 function tholds($header_label) {
 	global $item_rows, $assoc_actions, $config;
 
@@ -1846,6 +1923,18 @@ function tholds($header_label) {
 	form_end();
 }
 
+/**
+ * Renders the notification list's \"Templates\" tab: validates/stores
+ * this tab's filter request variables, displays the template filter
+ * form, then displays a filtered, sorted, paginated table of threshold
+ * templates with their association status to this list and a
+ * bulk-actions dropdown to associate/disassociate them.
+ *
+ * @param string $header_label The \"[edit: name]\"/\"[new]\" header label
+ *                            suffix to display in the box title.
+ *
+ * @return void
+ */
 function templates($header_label) {
 	global $config, $item_rows, $assoc_actions;
 
@@ -2076,6 +2165,14 @@ function templates($header_label) {
 	form_end();
 }
 
+/**
+ * Validates and stores the threshold-templates-tab filter request
+ * variables (rows, page, filter text, sort column/direction,
+ * associated flag) into the session for the notification list's
+ * Templates tab.
+ *
+ * @return void
+ */
 function thold_template_request_validation() {
 	// ================= input validation and session storage =================
 	$filters = [
@@ -2114,6 +2211,13 @@ function thold_template_request_validation() {
 	// ================= input validation =================
 }
 
+/**
+ * Validates and stores the thresholds-tab filter request variables
+ * (rows, page, filter text, sort column/direction, associated flag)
+ * into the session for the notification list's Thresholds tab.
+ *
+ * @return void
+ */
 function thold_request_validation() {
 	// ================= input validation and session storage =================
 	$filters = [
@@ -2166,6 +2270,20 @@ function thold_request_validation() {
 	// ================= input validation =================
 }
 
+/**
+ * Renders the main notification lists list page: validates/stores this
+ * view's filter request variables, then displays a filtered, sorted,
+ * paginated table of notification lists with a bulk-actions dropdown.
+ * Called from this script's main request-dispatch switch as the
+ * default view.
+ *
+ * @return void
+ *
+ * @global array $actions   Map of drp_action value => action label,
+ *                         used for the bulk-actions dropdown.
+ * @global array $item_rows Default number of rows per page from Cacti
+ *                         settings.
+ */
 function lists() {
 	global $actions, $item_rows;
 
