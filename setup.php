@@ -2127,12 +2127,43 @@ function thold_data_source_remove($data_ids) {
 	return $data_ids;
 }
 
+/**
+ * Registers a "TH[id, id, ...]" pattern with Cacti's log viewer (clog)
+ * regex hyperlinking system, so that threshold id references embedded
+ * in log messages are rendered as links via
+ * thold_clog_regex_threshold(). Registered as the 'clog_regex_array'
+ * Cacti hook.
+ *
+ * @param array $regex_array The existing list of clog hyperlink regex
+ *                          definitions.
+ *
+ * @return array The regex definitions list with this plugin's pattern
+ *               added.
+ */
 function thold_clog_regex_array($regex_array) {
 	$regex_array[] = ['name' => 'TH', 'regex' => '( TH\[)([, \d]+)(\])', 'func' => 'thold_clog_regex_threshold'];
 
 	return $regex_array;
 }
 
+/**
+ * Replaces a "TH[id, id, ...]" log-message match with linked threshold
+ * descriptions (falling back to the raw threshold id when no matching
+ * threshold is found), used as the clog regex callback registered by
+ * thold_clog_regex_array().
+ *
+ * @param array $matches The regex match groups: [0] the full match,
+ *                       [1] the opening " TH[" text, [2] the
+ *                       comma-separated threshold ids, [3] the closing
+ *                       "]" text.
+ *
+ * @return string The rendered HTML with each threshold id replaced by a
+ *                link to its edit page.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include and build
+ *                       edit link URLs.
+ */
 function thold_clog_regex_threshold($matches) {
 	global $config;
 
@@ -2171,6 +2202,13 @@ function thold_clog_regex_threshold($matches) {
 	return $result;
 }
 
+/**
+ * Emits the JavaScript that initializes the multiselect widget for the
+ * "Pause Notifications" settings field on the Console settings page.
+ * Registered as the 'settings_bottom' Cacti hook.
+ *
+ * @return void
+ */
 function thold_settings_bottom() {
 	?>
 	<script type='text/javascript'>
