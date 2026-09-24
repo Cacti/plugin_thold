@@ -119,6 +119,17 @@ switch(get_request_var('action')) {
 // Clear the Nav Cache, so that it doesn't know we came from Thold
 $_SESSION['sess_nav_level_cache'] = [];
 
+/**
+ * Renders the search/state/host/site/template filter form controls for
+ * the thresholds list view.
+ *
+ * @return void
+ *
+ * @global array $item_rows Rows-per-page option list used to populate
+ *                         the rows dropdown.
+ * @global array $config    Cacti global configuration array (declared
+ *                         but not used directly here).
+ */
 function form_thold_filter() {
 	global $item_rows, $config;
 
@@ -320,6 +331,28 @@ function form_thold_filter() {
 	<?php
 }
 
+/**
+ * Renders the main thresholds list page (the plugin's primary
+ * dashboard view): validates/stores this view's filter request
+ * variables, displays the threshold filter form, then displays a
+ * filtered, sorted, paginated table of thresholds with a bulk-actions
+ * dropdown and status legend. Called from this script's main
+ * request-dispatch switch as the default 'thold' view.
+ *
+ * @return void
+ *
+ * @global array $config          Cacti global configuration array.
+ * @global array $device_actions  Map of drp_action value => action
+ *                                label, used for the bulk-actions
+ *                                dropdown.
+ * @global array $item_rows       Default number of rows per page from
+ *                                Cacti settings.
+ * @global array $thold_classes   Reserved/declared for parity with
+ *                                other functions in this file; not used
+ *                                directly here.
+ * @global array $thold_states    Threshold state option list used by
+ *                                the filter form.
+ */
 function tholds() {
 	global $config, $device_actions, $item_rows, $thold_classes, $thold_states;
 
@@ -806,7 +839,21 @@ function tholds() {
 	// thold_display_rusage();
 }
 
-// form_host_status_row_color - returns a color to use based upon the host's current status
+/**
+ * Prints the opening `<tr>` tag for a device-status-list row, using a
+ * CSS class derived from the host's disabled flag, current status, and
+ * (when a per-host failure-count override is set) whether its
+ * consecutive down-event count has reached that threshold.
+ *
+ * @param array &$host The host record to determine the row color/class
+ *                     for.
+ *
+ * @return string The CSS class name used for the row.
+ *
+ * @global array $thold_host_states Map of status/state key => display
+ *                                 info (including 'class') used to
+ *                                 determine the row's CSS class.
+ */
 function form_host_status_row_color(&$host) {
 	global $thold_host_states;
 
@@ -834,6 +881,17 @@ function form_host_status_row_color(&$host) {
 	return $class;
 }
 
+/**
+ * Determines a human-readable status label for a host (Disabled, Down,
+ * Recovering, Up, Error, or Unknown), applying the same per-host
+ * failure-count override logic as form_host_status_row_color() but
+ * without any HTML/color output.
+ *
+ * @param array &$host The host record to determine the status label
+ *                     for.
+ *
+ * @return string The human-readable, translated status label.
+ */
 function get_uncolored_device_status(&$host) {
 	$disabled = $host['disabled'];
 	$status   = $host['status'];
@@ -872,6 +930,22 @@ function get_uncolored_device_status(&$host) {
 	}
 }
 
+/**
+ * Renders the device status list view: validates/stores this view's
+ * filter request variables, displays the host filter form, then
+ * displays a filtered, sorted, paginated table of hosts with their
+ * current up/down/recovering status. Called from this script's main
+ * request-dispatch switch when action=hoststat.
+ *
+ * @return void
+ *
+ * @global array $config          Cacti global configuration array.
+ * @global array $device_actions  Map of drp_action value => action
+ *                                label, used for the bulk-actions
+ *                                dropdown.
+ * @global array $item_rows       Default number of rows per page from
+ *                                Cacti settings.
+ */
 function hosts() {
 	global $config, $device_actions, $item_rows;
 
@@ -1151,6 +1225,17 @@ function hosts() {
 	// thold_display_rusage();
 }
 
+/**
+ * Renders the search/site filter form controls for the device status
+ * list view.
+ *
+ * @return void
+ *
+ * @global array $item_rows Rows-per-page option list used to populate
+ *                         the rows dropdown.
+ * @global array $config    Cacti global configuration array (declared
+ *                         but not used directly here).
+ */
 function form_host_filter() {
 	global $item_rows, $config;
 
@@ -1294,6 +1379,14 @@ function form_host_filter() {
 	<?php
 }
 
+/**
+ * Validates and stores this view's filter request variables (rows,
+ * page, filter text, sort column/direction, threshold id, threshold
+ * template id, host id, site id, status) into the session for the
+ * threshold log list view.
+ *
+ * @return void
+ */
 function thold_validate_log_vars() {
 	// ================= input validation and session storage =================
 	$filters = [
@@ -1352,6 +1445,13 @@ function thold_validate_log_vars() {
 	// ================= input validation =================
 }
 
+/**
+ * Exports the current filtered threshold log entries (up to 100000
+ * rows) as a downloaded CSV file. Called from this script's main
+ * request-dispatch switch when action=logexport.
+ *
+ * @return void
+ */
 function thold_export_log() {
 	$sql_where = '';
 
@@ -1420,6 +1520,31 @@ function thold_export_log() {
 	}
 }
 
+/**
+ * Renders the main threshold log list page: validates/stores this
+ * view's filter request variables, displays the log filter form, then
+ * displays a filtered, sorted, paginated table of threshold log
+ * entries. Called from this script's main request-dispatch switch when
+ * action=log.
+ *
+ * @return void
+ *
+ * @global array $config               Cacti global configuration
+ *                                     array.
+ * @global array $item_rows            Default number of rows per page
+ *                                     from Cacti settings.
+ * @global array $thold_log_states     Log status option list used by
+ *                                     the filter form.
+ * @global array $thold_status         Reserved/declared for parity with
+ *                                     other functions in this file; not
+ *                                     used directly here.
+ * @global array $thold_types          Reserved/declared for parity with
+ *                                     other functions in this file; not
+ *                                     used directly here.
+ * @global int   $thold_log_retention  Reserved/declared for parity with
+ *                                     other functions in this file; not
+ *                                     used directly here.
+ */
 function thold_show_log() {
 	global $config, $item_rows, $thold_log_states, $thold_status, $thold_types, $thold_log_retention;
 
@@ -1593,6 +1718,20 @@ function thold_show_log() {
 	log_legend();
 }
 
+/**
+ * Renders the search/site/status/host/template filter form controls for
+ * the threshold log list view.
+ *
+ * @return void
+ *
+ * @global array $item_rows          Rows-per-page option list used to
+ *                                   populate the rows dropdown.
+ * @global array $thold_log_states   Log status option list used to
+ *                                   populate the status dropdown.
+ * @global array $config             Cacti global configuration array
+ *                                   (declared but not used directly
+ *                                   here).
+ */
 function form_thold_log_filter() {
 	global $item_rows, $thold_log_states, $config;
 
