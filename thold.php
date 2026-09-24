@@ -153,6 +153,20 @@ switch(get_request_var('action')) {
 		break;
 }
 
+/**
+ * Dispatches the "add threshold(s)" flow for a graph: routes between
+ * the threshold-template wizard (thold_wizard()), applying a selected
+ * template to create thresholds (thold_add_graphs_action_execute()),
+ * or the template-selection confirmation page
+ * (thold_add_graphs_action_prepare()), depending on which wizard step
+ * request variables are present. Called from this script's main
+ * request-dispatch switch when action=add.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_add() {
 	global $config;
 
@@ -206,6 +220,26 @@ function thold_add() {
 	}
 }
 
+/**
+ * Handles the bulk-action confirmation page/submission for the
+ * thresholds list (delete, enable, disable, and other batch
+ * operations), restricting each action to thresholds on graphs the
+ * current user is permitted to manage, logging each change, and
+ * updating the "last change" timestamps used for change-detection
+ * elsewhere in the plugin. Called from this script's main
+ * request-dispatch switch when action=actions.
+ *
+ * @return void
+ *
+ * @global array $config         Cacti global configuration array
+ *                               (declared but not used directly here).
+ * @global int   $host_id        Reserved/declared for parity with
+ *                               other functions in this file; not used
+ *                               directly here.
+ * @global array $thold_actions  Map of drp_action value => action
+ *                               label, used for the bulk-actions
+ *                               confirmation display.
+ */
 function do_actions() {
 	global $config, $host_id, $thold_actions;
 
@@ -577,6 +611,33 @@ function thold_request_validation() {
 	// ================= input validation =================
 }
 
+/**
+ * Renders the main thresholds list page: validates/stores this view's
+ * filter request variables, then displays a filtered, sorted,
+ * paginated table of thresholds (by host, data/threshold template,
+ * site, state, and name filter) with a bulk-actions dropdown. Called
+ * from this script's main request-dispatch switch as the default view.
+ *
+ * @return void
+ *
+ * @global array $thold_actions Map of drp_action value => action label,
+ *                              used for the bulk-actions dropdown.
+ * @global array $thold_states  Threshold state option list used by the
+ *                              filter form.
+ * @global array $config        Cacti global configuration array; used
+ *                              to locate library files to include.
+ * @global int   $host_id       Reserved/declared for parity with other
+ *                              functions in this file; not used
+ *                              directly here.
+ * @global array $timearray     Reserved/declared for parity with other
+ *                              functions in this file; not used
+ *                              directly here.
+ * @global array $thold_types   Reserved/declared for parity with other
+ *                              functions in this file; not used
+ *                              directly here.
+ * @global array $item_rows     Default number of rows per page from
+ *                              Cacti settings.
+ */
 function list_tholds() {
 	global $thold_actions, $thold_states, $config, $host_id, $timearray, $thold_types, $item_rows;
 
@@ -1109,6 +1170,28 @@ function list_tholds() {
 	bottom_footer();
 }
 
+/**
+ * Renders the add/edit form for a single threshold (thresholds,
+ * expressions, notification/severity settings, syslog options,
+ * graph/time-span preview), loading the existing record when editing
+ * (force-upgrading the schema first if it's missing an expected
+ * column) or seeding a new record's identifying fields from the
+ * request when adding a threshold for a specific graph/data source.
+ * Called from this script's main request-dispatch switch when
+ * action=edit.
+ *
+ * @return void
+ *
+ * @global array $config                 Cacti global configuration
+ *                                       array; used to locate library
+ *                                       files to include.
+ * @global array $graph_timespans        Time span option list used by
+ *                                       the graph preview.
+ * @global array $syslog_facil_array     Syslog facility option list
+ *                                       used by syslog-related fields.
+ * @global array $syslog_priority_array  Syslog priority option list
+ *                                       used by syslog-related fields.
+ */
 function thold_edit() {
 	global $config, $graph_timespans, $syslog_facil_array, $syslog_priority_array;
 
