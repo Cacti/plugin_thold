@@ -22,6 +22,39 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Launches the Thold poller script (poller_thold.php) as a background
+ * process, logging a fatal error instead if the script file is
+ * missing. Registered as the 'poller_bottom' Cacti hook, invoked at
+ * the end of each Cacti poller cycle.
+ *
+ * @return void
+ *
+ * @global array  $config             Cacti global configuration array;
+ *                                   used to build the poller script's
+ *                                   path and command line.
+ * @global string $database_type      Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global string $database_default   Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global string $database_hostname  Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global string $database_username  Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global string $database_password  Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global int    $database_port      Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ * @global bool   $database_ssl       Reserved/declared for parity with
+ *                                   other functions in this file; not
+ *                                   used directly here.
+ */
 function thold_poller_bottom() {
 	global $config, $database_type, $database_default, $database_hostname;
 	global $database_username, $database_password, $database_port, $database_ssl;
@@ -36,6 +69,14 @@ function thold_poller_bottom() {
 	}
 }
 
+/**
+ * Deletes plugin_thold_log entries older than the configured retention
+ * period (thold_log_storage days, defaulting to and persisting 31 if
+ * unset), and updates the last-change timestamp setting when any rows
+ * were actually removed.
+ *
+ * @return void
+ */
 function thold_cleanup_log() {
 	$daysToStoreLogs = read_config_option('thold_log_storage');
 
@@ -55,6 +96,23 @@ function thold_cleanup_log() {
 	}
 }
 
+/**
+ * Cacti poller output-processing hook: intercepts newly collected RRD
+ * data source values, re-indexes them by data source id for threshold
+ * evaluation, and hands them off to the threshold-checking logic
+ * before/alongside the normal RRD update flow. Registered as a Cacti
+ * poller output hook.
+ *
+ * @param array &$rrd_update_array The newly collected poller output
+ *                                data, keyed by local_data_id.
+ *
+ * @return array The (possibly filtered/annotated) $rrd_update_array,
+ *               for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate library files to include.
+ * @global bool  $debug  Whether debug output is enabled.
+ */
 function thold_poller_output(&$rrd_update_array) {
 	global $config, $debug;
 
@@ -264,6 +322,18 @@ function thold_poller_output(&$rrd_update_array) {
 	return $rrd_update_array;
 }
 
+/**
+ * Evaluates every configured threshold against its data source's
+ * current/historical values (fetching remote-poller data directly from
+ * the remote database when remote storage is configured), triggering
+ * notifications/alerts for thresholds that have tripped or recovered.
+ * Invoked once per poller cycle from the main threshold-checking flow.
+ *
+ * @return int The total number of thresholds evaluated.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate library files to include.
+ */
 function thold_check_all_thresholds() {
 	global $config;
 
@@ -368,6 +438,18 @@ function thold_check_all_thresholds() {
 	return $total_tholds;
 }
 
+/**
+ * Checks each monitored host's reachability status (including hosts
+ * managed by the Maint plugin, when enabled) and records/clears dead-
+ * host notification tracking rows, when the alert_deadnotify setting
+ * is enabled; a no-op otherwise.
+ *
+ * @return int 0 immediately if dead-host notifications are disabled;
+ *             otherwise no explicit return value.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate library files to include.
+ */
 function thold_update_host_status() {
 	global $config;
 
