@@ -1576,6 +1576,18 @@ function thold_snmpagent_cache_uninstall() {
 	}
 }
 
+/**
+ * Emits this plugin's theme-specific stylesheet link (when one exists)
+ * and a JavaScript handler that rebinds the threshold-VRULE toggle
+ * link's click behavior to an AJAX partial-page refresh after each AJAX
+ * completion. Registered as the 'page_head' Cacti hook.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       check for a theme-specific stylesheet and build
+ *                       asset URLs.
+ */
 function thold_page_head() {
 	global $config;
 
@@ -1606,6 +1618,15 @@ function thold_page_head() {
 	<?php
 }
 
+/**
+ * Renders the "Associated Threshold Templates" box on the device edit
+ * page, listing threshold templates already associated with the
+ * device (with their per-device threshold existence status and a
+ * remove link) and offering a dropdown to associate an additional
+ * template. Registered as the 'device_edit_pre_bottom' Cacti hook.
+ *
+ * @return void
+ */
 function thold_device_edit_pre_bottom() {
 	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
@@ -1707,6 +1728,16 @@ function thold_device_edit_pre_bottom() {
 	html_end_box();
 }
 
+/**
+ * Renders the confirmation page for removing a threshold template's
+ * association with a device (action=item_remove_tt_confirm), or
+ * otherwise defers to the standard device edit page (this hook is
+ * registered on host.php, whose own action-dispatch relies on this
+ * function to intercept this plugin-specific action). Registered as
+ * the 'device_top' Cacti hook.
+ *
+ * @return void
+ */
 function thold_device_top() {
 	if (get_request_var('action') == 'item_remove_tt_confirm') {
 		// ================= input validation =================
@@ -1797,6 +1828,15 @@ function thold_device_top() {
 	}
 }
 
+/**
+ * Renders the "Associated Threshold Templates" box on the device
+ * template edit page, listing threshold templates already associated
+ * with the device template (with a remove link) and offering a
+ * dropdown to associate an additional template. Registered as the
+ * 'device_template_edit' Cacti hook.
+ *
+ * @return void
+ */
 function thold_device_template_edit() {
 	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
@@ -1877,6 +1917,13 @@ function thold_device_template_edit() {
 	html_end_box();
 }
 
+/**
+ * Renders the confirmation page for removing a threshold template's
+ * association with a device template (action=item_remove_tt_confirm).
+ * Registered as the 'device_template_top' Cacti hook.
+ *
+ * @return void
+ */
 function thold_device_template_top() {
 	if (get_request_var('action') == 'item_remove_tt_confirm') {
 		// ================= input validation =================
@@ -1967,6 +2014,17 @@ function thold_device_template_top() {
 	}
 }
 
+/**
+ * Propagates a device template's associated threshold templates to a
+ * device when its device template is changed, associating the device
+ * with every threshold template linked to the newly selected device
+ * template. Registered as the 'device_template_change' Cacti hook.
+ *
+ * @param array $data The device template change payload, including
+ *                    'device_id' and 'device_template_id'.
+ *
+ * @return array The unmodified $data array, for hook chaining.
+ */
 function thold_device_template_change($data) {
 	$device_id          = $data['device_id'];
 	$device_template_id = $data['device_template_id'];
@@ -1986,12 +2044,35 @@ function thold_device_template_change($data) {
 	return $data;
 }
 
+/**
+ * Auto-creates thresholds for a device using its device template's
+ * associated threshold templates. Registered as the
+ * 'device_threshold_autocreate' Cacti hook.
+ *
+ * @param int $host_id The device id to auto-create thresholds for.
+ *
+ * @return int The unmodified $host_id, for hook chaining.
+ */
 function thold_device_autocreate($host_id) {
 	autocreate($host_id);
 
 	return $host_id;
 }
 
+/**
+ * Auto-creates a threshold for a newly created graph using its host's
+ * associated threshold templates, when the global thold_autocreate
+ * setting is enabled. Registered as the
+ * 'create_complete_graph_from_template' Cacti hook.
+ *
+ * @param array $save The newly created graph's saved field data,
+ *                    including its 'id'.
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_create_graph_thold($save) {
 	global $config;
 
@@ -2011,6 +2092,19 @@ function thold_create_graph_thold($save) {
 	return $save;
 }
 
+/**
+ * Deletes any thresholds associated with data sources that are being
+ * removed, logging each removal for audit purposes. Registered as the
+ * 'data_source_remove' Cacti hook.
+ *
+ * @param array $data_ids The local_data_id values of the data sources
+ *                       being removed.
+ *
+ * @return array The unmodified $data_ids array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_data_source_remove($data_ids) {
 	global $config;
 
