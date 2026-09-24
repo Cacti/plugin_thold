@@ -253,12 +253,25 @@ while (true) {
 	}
 }
 
+/**
+ * Truncates the plugin_thold_daemon_data table, clearing all queued
+ * per-thread threshold work items.
+ *
+ * @return void
+ */
 function thold_truncate_daemon_data() {
 	thold_daemon_debug('Truncating historical Threshold Daemon Data');
 
 	db_execute('TRUNCATE TABLE plugin_thold_daemon_data');
 }
 
+/**
+ * Checks whether a Cacti poller run is currently in progress (has an
+ * unfinished poller_time entry).
+ *
+ * @return int The number of poller_time rows with no end_time set (0
+ *             if none, meaning no poller run is currently active).
+ */
 function thold_poller_running() {
 	return db_fetch_cell('SELECT COUNT(*) FROM poller_time WHERE end_time = "0000-00-00"');
 }
@@ -296,6 +309,19 @@ function sig_handler($signo) {
 	}
 }
 
+/**
+ * Launches a single Thold worker process (thold_process.php) for the
+ * given thread number as a detached background process.
+ *
+ * @param int $thread The worker thread number to launch.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the worker script's command line.
+ * @global bool  $debug  Whether debug output is enabled; passed
+ *                       through to the worker via --debug.
+ */
 function thold_launch_worker($thread) {
 	global $config, $debug;
 
@@ -312,6 +338,24 @@ function thold_launch_worker($thread) {
 	exec_background($path_php, $process);
 }
 
+/**
+ * Monitors the registered Thold worker child processes, detecting and
+ * cleaning up crashed processes, and launching new worker processes
+ * (up to the configured concurrency) to replace missing ones or reach
+ * the desired total, so that exactly $new_processes workers stay
+ * running.
+ *
+ * @param array $processes     The currently known worker process
+ *                            registrations (unused directly; current
+ *                            state is re-fetched from the database).
+ * @param int   $new_processes The desired total number of concurrent
+ *                            worker processes/threads.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used when
+ *                       launching new worker processes.
+ */
 function thold_heartbeat_processes($processes, $new_processes) {
 	global $config;
 
@@ -394,6 +438,23 @@ function thold_heartbeat_processes($processes, $new_processes) {
 	}
 }
 
+/**
+ * (Re)assigns each threshold's thread_id so that thresholds are evenly
+ * distributed across the configured number of worker threads, grouped
+ * by host (so all thresholds for a given host are always processed by
+ * the same thread); only assigns thread ids to thresholds that
+ * currently have none (thread_id = 0), unless a full rebalance is
+ * forced.
+ *
+ * @param int  $processes The current/target number of worker
+ *                       threads/processes to distribute across.
+ * @param bool $truncate  Whether to force a full rebalance by
+ *                       resetting all thread assignments first, even
+ *                       if the thread count appears unchanged (default
+ *                       false).
+ *
+ * @return void
+ */
 function thold_prime_distribution($processes, $truncate = false) {
 	thold_daemon_debug('Rebalancing Thread Allocation by Device');
 
@@ -442,6 +503,16 @@ function thold_prime_distribution($processes, $truncate = false) {
 	thold_daemon_debug('Thread Rebalancing Allocation by Device Completed');
 }
 
+/**
+ * Prints a timestamped debug message directly to stdout when global
+ * debug mode or the thold_daemon_debug setting is enabled.
+ *
+ * @param string $string The message to print.
+ *
+ * @return void
+ *
+ * @global bool $debug Whether debug output is enabled.
+ */
 function thold_daemon_debug($string) {
 	global $debug;
 
@@ -455,6 +526,15 @@ function thold_daemon_debug($string) {
 	}
 }
 
+/**
+ * Prints this script's name, version, and copyright banner to stdout.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate setup.php when plugin_thold_version()
+ *                       isn't already loaded.
+ */
 function display_version() {
 	global $config;
 
@@ -466,7 +546,12 @@ function display_version() {
 	print 'Threshold Daemon, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-// display_help - displays the usage of the function
+/**
+ * Prints this script's version banner followed by its command-line
+ * usage instructions to stdout.
+ *
+ * @return void
+ */
 function display_help() {
 	display_version();
 
