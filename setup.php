@@ -22,6 +22,28 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Registers all of this plugin's hooks (settings, breadcrumbs, poller
+ * output/bottom, device/data-source/graph management actions, graph
+ * buttons, SNMP agent cache, clog regex, and more) and permission
+ * realms with Cacti, then creates/updates its database schema and SNMP
+ * agent cache. Cacti plugin API entry point invoked when the plugin is
+ * installed or re-registered during an upgrade. A no-op returning false
+ * on Cacti versions older than 1.2.
+ *
+ * @param bool $upgrade Whether this call is for an in-place upgrade of
+ *                      an already-installed plugin (true) rather than
+ *                      a fresh install (false, default); affects
+ *                      whether the database is upgraded vs. freshly
+ *                      created.
+ *
+ * @return bool|void False when the Cacti version is too old; otherwise
+ *                    no explicit return value.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       check the Cacti version and locate the database
+ *                       include file.
+ */
 function plugin_thold_install($upgrade = false) {
 	global $config;
 
@@ -126,6 +148,13 @@ function plugin_thold_install($upgrade = false) {
 	}
 }
 
+/**
+ * Removes this plugin's SNMP agent cache entries and all of its
+ * settings table rows. Cacti plugin API entry point invoked when the
+ * plugin is uninstalled.
+ *
+ * @return void
+ */
 function plugin_thold_uninstall() {
 	// Do any extra Uninstall stuff here
 	thold_snmpagent_cache_uninstall();
@@ -135,6 +164,13 @@ function plugin_thold_uninstall() {
 		WHERE name LIKE "%thold%"');
 }
 
+/**
+ * Ensures the plugin's configuration/schema is up to date by delegating
+ * to plugin_thold_upgrade(). Cacti plugin API entry point invoked on
+ * relevant page loads to catch pending upgrades.
+ *
+ * @return bool Always true.
+ */
 function plugin_thold_check_config() {
 	// Here we will check to ensure everything is configured
 	plugin_thold_upgrade();
@@ -142,6 +178,20 @@ function plugin_thold_check_config() {
 	return true;
 }
 
+/**
+ * Detects a version mismatch between the running plugin code and the
+ * version recorded in plugin_config, and when found (and only on a
+ * small set of pages, to limit overhead), re-runs
+ * plugin_thold_install() in upgrade mode to re-register hooks and
+ * upgrade the database schema.
+ *
+ * @return bool True (whether or not an upgrade was actually needed);
+ *              false only when called from a page that doesn't need
+ *              this check.
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function plugin_thold_upgrade() {
 	// Here we will upgrade to the newest version
 	global $config;
@@ -166,6 +216,17 @@ function plugin_thold_upgrade() {
 	return true;
 }
 
+/**
+ * Reads this plugin's version and metadata from its INFO file. Cacti
+ * plugin API entry point used throughout the plugin to display version
+ * information.
+ *
+ * @return array The parsed INFO file's 'info' section (name, author,
+ *               homepage, version, etc.).
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the plugin's INFO file.
+ */
 function plugin_thold_version() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/thold/INFO', true);
@@ -173,10 +234,24 @@ function plugin_thold_version() {
 	return $info['info'];
 }
 
+/**
+ * Checks whether this plugin's dependencies are satisfied. Cacti
+ * plugin API hook point; currently always reports dependencies as
+ * satisfied.
+ *
+ * @return bool Always true.
+ */
 function thold_check_dependencies() {
 	return true;
 }
 
+/**
+ * Checks whether the database session is running in MySQL/MariaDB
+ * STRICT SQL mode, which this plugin (or its schema) is incompatible
+ * with.
+ *
+ * @return bool False if STRICT mode is active, true otherwise.
+ */
 function plugin_thold_check_strict() {
 	$mode = db_fetch_cell('select @@global.sql_mode', false);
 
@@ -187,6 +262,20 @@ function plugin_thold_check_strict() {
 	return true;
 }
 
+/**
+ * Renders this plugin's graph-page action buttons (toggle threshold
+ * VRULE display, create-threshold link) for a graph, shown only to
+ * users with the relevant view/edit permissions. Registered as the
+ * 'graph_buttons' and 'graph_buttons_thumbnails' Cacti hooks.
+ *
+ * @param array $data The graph button hook payload; $data[1] contains
+ *                    the graph's local_graph_id and rra selection.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_graph_button($data) {
 	global $config;
 
@@ -272,12 +361,43 @@ function thold_graph_button($data) {
 	}
 }
 
+/**
+ * Splits a string on any of several delimiter characters at once, by
+ * first collapsing all given delimiters down to the first one and then
+ * exploding on it.
+ *
+ * @param array  $delimiters The list of delimiter characters/strings
+ *                           to split on (the first entry is used as
+ *                           the unified delimiter).
+ * @param string $string     The string to split.
+ *
+ * @return array|false The resulting array of substrings, or false on
+ *                      failure.
+ */
 function thold_multiexplode($delimiters, $string) {
 	$ready = str_replace($delimiters, $delimiters[0], $string);
 
 	return @explode($delimiters[0], $ready);
 }
 
+/**
+ * Substitutes this plugin's `|thold:hi:<ds>|` / `|thold:low:<ds>|`
+ * graph text-item placeholder variables with each referenced data
+ * source's current threshold hi/low values, by mapping the graph's RRD
+ * definitions' data source names to their underlying local_data_id and
+ * looking up the matching threshold. Registered as the
+ * 'rrd_graph_graph_options' Cacti hook.
+ *
+ * @param array $g The graph rendering options array, including
+ *                 'graph_defs' and 'txt_graph_items'.
+ *
+ * @return array The graph rendering options array with thold
+ *               placeholder variables substituted in
+ *               'txt_graph_items'.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_rrd_graph_graph_options($g) {
 	global $config;
 
