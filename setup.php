@@ -1303,6 +1303,24 @@ function thold_data_source_action_array($action) {
 	return $action;
 }
 
+/**
+ * Executes the "Create Threshold from Template" bulk graph action:
+ * applies the selected threshold template to each selected graph's
+ * matching data source(s), creating a new threshold for each one that
+ * doesn't already have one from that template. Registered as the
+ * 'graphs_action_execute' Cacti hook; a no-op passthrough for any
+ * other action.
+ *
+ * @param string $action The bulk action identifier being executed.
+ *
+ * @return string The unmodified $action, for hook chaining.
+ *
+ * @global array $config     Cacti global configuration array; used to
+ *                          locate the library file to include.
+ * @global array $form_array Reserved/declared for parity with other
+ *                          functions in this file; not used directly
+ *                          here.
+ */
 function thold_graphs_action_execute($action) {
 	global $config, $form_array;
 
@@ -1362,6 +1380,22 @@ function thold_graphs_action_execute($action) {
 	return $action;
 }
 
+/**
+ * Renders the confirmation page for the "Create Threshold from
+ * Template" bulk graph action, listing which selected graphs have at
+ * least one applicable threshold template (and offering a template
+ * selection), while filtering out any that don't. Registered as the
+ * 'graphs_action_prepare' Cacti hook; a no-op passthrough for any
+ * other action.
+ *
+ * @param array $save The bulk-action form submission data, including
+ *                    'drp_action'.
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_graphs_action_prepare($save) {
 	global $config;
 
@@ -1461,12 +1495,30 @@ function thold_graphs_action_prepare($save) {
 	}
 }
 
+/**
+ * Adds the "Create Threshold from Template" entry to the graph
+ * management bulk-actions dropdown. Registered as the
+ * 'graphs_action_array' Cacti hook.
+ *
+ * @param array $action The existing bulk-action label map, keyed by
+ *                      action id.
+ *
+ * @return array The action map with this plugin's entry added.
+ */
 function thold_graphs_action_array($action) {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
 
 	return $action;
 }
 
+/**
+ * Emits the JavaScript that shows/hides the notification-list dropdown
+ * on the device edit form based on the selected "Threshold Up/Down
+ * Email Notification" mode. Registered as the 'host_edit_bottom' and
+ * 'device_change_javascript' Cacti hooks.
+ *
+ * @return void
+ */
 function thold_host_edit_bottom() {
 	?>
 	<script type='text/javascript'>
@@ -1484,6 +1536,18 @@ function thold_host_edit_bottom() {
 	<?php
 }
 
+/**
+ * Installs this plugin's CACTI-THOLD-MIB definitions into Cacti's SNMP
+ * agent cache (SNMP Notification Receiver / SNMP Agent support),
+ * when the SNMP agent's MibCache class is available. Registered as the
+ * 'snmpagent_cache_install' Cacti hook, and invoked during plugin
+ * installation.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the MIB definition file.
+ */
 function thold_snmpagent_cache_install() {
 	global $config;
 
@@ -1493,6 +1557,16 @@ function thold_snmpagent_cache_install() {
 	}
 }
 
+/**
+ * Removes this plugin's CACTI-THOLD-MIB definitions from Cacti's SNMP
+ * agent cache, when the SNMP agent's MibCache class is available.
+ * Invoked during plugin uninstallation.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the MIB definition file.
+ */
 function thold_snmpagent_cache_uninstall() {
 	global $config;
 
