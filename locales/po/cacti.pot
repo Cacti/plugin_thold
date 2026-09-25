@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-24 10:41-0400\n"
+"POT-Creation-Date: 2026-09-24 21:39-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -249,7 +249,7 @@ msgid "Debug"
 msgstr ""
 
 #: includes/arrays.php:291 includes/arrays.php:376 includes/arrays.php:442
-#: thold_functions.php:100
+#: thold_functions.php:109
 msgid "Never"
 msgstr ""
 
@@ -580,8 +580,8 @@ msgstr ""
 #: includes/polling.php:574 includes/polling.php:776 thold.php:1097
 #: thold.php:1129 thold.php:1130 thold.php:1394 thold.php:1453 thold.php:1460
 #: thold.php:1466 thold.php:1474 thold.php:1480 thold.php:1497 thold.php:1499
-#: thold.php:1704 thold_functions.php:8587 thold_functions.php:8589
-#: thold_functions.php:8590 thold_graph.php:780 thold_graph.php:812
+#: thold.php:1704 thold_functions.php:9509 thold_functions.php:9511
+#: thold_functions.php:9512 thold_graph.php:780 thold_graph.php:812
 #: thold_graph.php:813 thold_graph.php:1154 thold_graph.php:1203
 #: thold_graph.php:1206 thold_graph.php:1207 thold_graph.php:1208
 #: thold_graph.php:1705 thold_graph.php:1706
@@ -611,7 +611,7 @@ msgstr ""
 #: includes/settings.php:44 includes/settings.php:79 includes/settings.php:86
 #: includes/settings.php:92 includes/settings.php:250 notify_lists.php:45
 #: notify_lists.php:1685 notify_lists.php:1750 notify_lists.php:2437
-#: thold.php:807 thold.php:862 thold_functions.php:145 thold_graph.php:245
+#: thold.php:807 thold.php:862 thold_functions.php:169 thold_graph.php:245
 #: thold_templates.php:2396
 msgid "Thresholds"
 msgstr ""
@@ -636,7 +636,7 @@ msgstr ""
 msgid "Threshold Logs"
 msgstr ""
 
-#: includes/settings.php:106 thold_functions.php:147 thold_graph.php:1005
+#: includes/settings.php:106 thold_functions.php:171 thold_graph.php:1005
 msgid "Device Status"
 msgstr ""
 
@@ -1355,7 +1355,7 @@ msgstr ""
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1772 setup.php:1958 thold.php:513 thold_functions.php:9356
+#: setup.php:1772 setup.php:1958 thold.php:513 thold_functions.php:10385
 #: thold_templates.php:330
 msgid "Cancel"
 msgstr ""
@@ -1363,7 +1363,7 @@ msgstr ""
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1773 setup.php:1959 thold.php:516 thold_functions.php:9359
+#: setup.php:1773 setup.php:1959 thold.php:516 thold_functions.php:10388
 #: thold_templates.php:333
 msgid "Continue"
 msgstr ""
@@ -1587,7 +1587,7 @@ msgstr ""
 
 #: notify_lists.php:1306 notify_lists.php:1689 notify_lists.php:1992
 #: notify_lists.php:2347 notify_queue.php:328 thold.php:811
-#: thold_functions.php:4261 thold_functions.php:4898 thold_graph.php:249
+#: thold_functions.php:4707 thold_functions.php:5448 thold_graph.php:249
 #: thold_graph.php:1333 thold_graph.php:1855 thold_templates.php:2290
 msgid "Default"
 msgstr ""
@@ -2007,7 +2007,7 @@ msgstr ""
 msgid "Created %s thresholds"
 msgstr ""
 
-#: setup.php:1168 setup.php:1375 thold_functions.php:7230
+#: setup.php:1168 setup.php:1375 thold_functions.php:8072
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr ""
 
@@ -2156,7 +2156,7 @@ msgstr ""
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr ""
 
-#: thold.php:476 thold_functions.php:9346
+#: thold.php:476 thold_functions.php:10375
 msgid "Acknowledge Threshold(s)"
 msgstr ""
 
@@ -2920,255 +2920,255 @@ msgstr ""
 msgid "All Users Selected"
 msgstr ""
 
-#: thold_functions.php:82
+#: thold_functions.php:91
 msgid "< 1 Minute"
 msgstr ""
 
-#: thold_functions.php:86
+#: thold_functions.php:95
 msgid "Since Created"
 msgstr ""
 
-#: thold_functions.php:146
+#: thold_functions.php:170
 msgid "Log"
 msgstr ""
 
-#: thold_functions.php:271
+#: thold_functions.php:332
 msgid "Time:"
 msgstr ""
 
-#: thold_functions.php:272
+#: thold_functions.php:333
 msgid "User:"
 msgstr ""
 
-#: thold_functions.php:273
+#: thold_functions.php:334
 msgid "System:"
 msgstr ""
 
-#: thold_functions.php:274
+#: thold_functions.php:335
 msgid "Swaps:"
 msgstr ""
 
-#: thold_functions.php:275
+#: thold_functions.php:336
 msgid "Pages:"
 msgstr ""
 
-#: thold_functions.php:3070 thold_functions.php:3188 thold_functions.php:3258
-#: thold_functions.php:3419 thold_functions.php:3508 thold_functions.php:3621
-#: thold_functions.php:3637 thold_functions.php:3840 thold_functions.php:3854
-#: thold_functions.php:3982 thold_functions.php:3998 thold_functions.php:4012
-#: thold_functions.php:4079 thold_functions.php:4161
+#: thold_functions.php:3500 thold_functions.php:3618 thold_functions.php:3688
+#: thold_functions.php:3849 thold_functions.php:3938 thold_functions.php:4051
+#: thold_functions.php:4067 thold_functions.php:4270 thold_functions.php:4284
+#: thold_functions.php:4412 thold_functions.php:4428 thold_functions.php:4442
+#: thold_functions.php:4509 thold_functions.php:4591
 msgid "Only logging, maint device"
 msgstr ""
 
-#: thold_functions.php:4942
+#: thold_functions.php:5492
 msgid "Link to Graph in Cacti"
 msgstr ""
 
-#: thold_functions.php:4999
+#: thold_functions.php:5562
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr ""
 
-#: thold_functions.php:5023
+#: thold_functions.php:5599
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr ""
 
-#: thold_functions.php:5047
+#: thold_functions.php:5636
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 msgstr ""
 
-#: thold_functions.php:5977
+#: thold_functions.php:6736
 #, php-format
 msgid "%% Dev [TIP:%s]"
 msgstr ""
 
-#: thold_functions.php:5981
+#: thold_functions.php:6740
 #, php-format
 msgid "Abs Val [TIP:%s]"
 msgstr ""
 
-#: thold_functions.php:5985
+#: thold_functions.php:6744
 msgid "%%% Dev [AOT:%s]"
 msgstr ""
 
-#: thold_functions.php:5989
+#: thold_functions.php:6748
 #, php-format
 msgid "Abs Val [AOT:%s]"
 msgstr ""
 
-#: thold_functions.php:6171
+#: thold_functions.php:6940
 msgid "The Device ID was not set while trying to create Graph and Threshold"
 msgstr ""
 
-#: thold_functions.php:6186
+#: thold_functions.php:6955
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
 msgstr ""
 
-#: thold_functions.php:6193
+#: thold_functions.php:6962
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
 msgstr ""
 
-#: thold_functions.php:6296
+#: thold_functions.php:7065
 msgid "The Graph Creation failed for Threshold Template"
 msgstr ""
 
-#: thold_functions.php:6329
+#: thold_functions.php:7098
 msgid "Threshold was Autocreated due to Device Template mapping"
 msgstr ""
 
-#: thold_functions.php:6365 thold_functions.php:6638
+#: thold_functions.php:7134 thold_functions.php:7407
 msgid "Permission Denied"
 msgstr ""
 
-#: thold_functions.php:6386 thold_functions.php:6716
+#: thold_functions.php:7155 thold_functions.php:7485
 msgid "Record Updated"
 msgstr ""
 
-#: thold_functions.php:6628
+#: thold_functions.php:7397
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
 msgstr ""
 
-#: thold_functions.php:6714 thold_functions.php:7310
+#: thold_functions.php:7483 thold_functions.php:8166
 #, php-format
 msgid "Created Threshold: %s"
 msgstr ""
 
-#: thold_functions.php:6812 thold_functions.php:6877
+#: thold_functions.php:7630 thold_functions.php:7695
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
 msgstr ""
 
-#: thold_functions.php:6819
+#: thold_functions.php:7637
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
 msgstr ""
 
-#: thold_functions.php:6828 thold_functions.php:6906
+#: thold_functions.php:7646 thold_functions.php:7724
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
 msgstr ""
 
-#: thold_functions.php:6835 thold_functions.php:6925
+#: thold_functions.php:7653 thold_functions.php:7743
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
 msgstr ""
 
-#: thold_functions.php:6842
+#: thold_functions.php:7660
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
 msgstr ""
 
-#: thold_functions.php:6858
+#: thold_functions.php:7676
 msgid "Time reference in the past must be set to positive integer value!"
 msgstr ""
 
-#: thold_functions.php:6864
+#: thold_functions.php:7682
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
 msgstr ""
 
-#: thold_functions.php:6884
+#: thold_functions.php:7702
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
 msgstr ""
 
-#: thold_functions.php:6891
+#: thold_functions.php:7709
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
 msgstr ""
 
-#: thold_functions.php:6897
+#: thold_functions.php:7715
 msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
 msgstr ""
 
-#: thold_functions.php:6913
+#: thold_functions.php:7731
 msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
 msgstr ""
 
-#: thold_functions.php:6919
+#: thold_functions.php:7737
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
 msgstr ""
 
-#: thold_functions.php:6932
+#: thold_functions.php:7750
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
 msgstr ""
 
-#: thold_functions.php:6939
+#: thold_functions.php:7757
 msgid "Unknown Threshold Type!"
 msgstr ""
 
-#: thold_functions.php:7131
+#: thold_functions.php:7973
 msgid "No Thresholds Templates associated with the Device's Template."
 msgstr ""
 
-#: thold_functions.php:7346
+#: thold_functions.php:8227
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
 msgstr ""
 
-#: thold_functions.php:8586
+#: thold_functions.php:9508
 msgid "Done"
 msgstr ""
 
-#: thold_functions.php:8586
+#: thold_functions.php:9508
 msgid "Pending"
 msgstr ""
 
-#: thold_functions.php:8587
+#: thold_functions.php:9509
 msgid "Errored"
 msgstr ""
 
-#: thold_functions.php:8587
+#: thold_functions.php:9509
 msgid "Success"
 msgstr ""
 
-#: thold_functions.php:9343 thold_graph.php:686
+#: thold_functions.php:10372 thold_graph.php:686
 msgid "Acknowledge Threshold"
 msgstr ""
 
-#: thold_functions.php:9345
+#: thold_functions.php:10374
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
 msgstr ""
 
-#: thold_functions.php:9864
+#: thold_functions.php:11034
 msgid "Threshold Template Subordinate Data Template Not Found!"
 msgstr ""
 
-#: thold_functions.php:9879
+#: thold_functions.php:11049
 msgid "Threshold Template Subordinate Data Source Not Found!"
 msgstr ""
 
-#: thold_functions.php:9915
+#: thold_functions.php:11085
 msgid "Threshold Template import columns do not match the database schema"
 msgstr ""
 
-#: thold_functions.php:9924 thold_functions.php:9926
+#: thold_functions.php:11094 thold_functions.php:11096
 msgid "Imported"
 msgstr ""
 
-#: thold_functions.php:9924 thold_functions.php:9926
+#: thold_functions.php:11094 thold_functions.php:11096
 #, php-format
 msgid "Threshold Template '%s' %s!"
 msgstr ""
 
-#: thold_functions.php:9924 thold_functions.php:9926
+#: thold_functions.php:11094 thold_functions.php:11096
 msgid "Updated"
 msgstr ""
 
-#: thold_functions.php:9930 thold_functions.php:9932 thold_templates.php:2308
+#: thold_functions.php:11100 thold_functions.php:11102 thold_templates.php:2308
 #: thold_templates.php:2594
 msgid "Import"
 msgstr ""
 
-#: thold_functions.php:9930 thold_functions.php:9932
+#: thold_functions.php:11100 thold_functions.php:11102
 #, php-format
 msgid "Threshold Template '%s' %s Failed!"
 msgstr ""
 
-#: thold_functions.php:9930 thold_functions.php:9932
+#: thold_functions.php:11100 thold_functions.php:11102
 msgid "Update"
 msgstr ""
 
-#: thold_functions.php:9936
+#: thold_functions.php:11106
 msgid "Errors encountered while attempting to import Threshold Template data."
 msgstr ""
 
-#: thold_functions.php:9940
+#: thold_functions.php:11110
 msgid "Threshold Template Import data was not found to be XML data."
 msgstr ""
 
-#: thold_functions.php:9943
+#: thold_functions.php:11113
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
 msgstr ""
 
