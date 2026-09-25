@@ -22,6 +22,17 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Renders this plugin's tab icon/link in the graph/console header tab
+ * bar, highlighted when the current page is one of this plugin's
+ * views. Shown only to users with view permission. Registered as a
+ * Cacti header-tabs hook.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build asset and page URLs.
+ */
 function thold_show_tab() {
 	global $config;
 

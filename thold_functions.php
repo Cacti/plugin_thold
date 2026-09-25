@@ -75,6 +75,15 @@ function sanitize_thold_sort_string($string) {
 	return $string;
 }
 
+/**
+ * get_time_since_last_event - renders a human-readable elapsed-time string describing how long a
+ * threshold has been in its current alert state.
+ *
+ * @param array $thold The threshold row, including 'instate' (state-change timestamp) and
+ *   'thold_alert' (alert type).
+ *
+ * @return string The elapsed time (or 'Never'/'Since Created'/'< 1 Minute') as applicable.
+ */
 function get_time_since_last_event($thold) {
 	$local_data_id = $thold['local_data_id'];
 
@@ -101,6 +110,13 @@ function get_time_since_last_event($thold) {
 	}
 }
 
+/**
+ * thold_update_contacts - synchronizes the plugin_thold_contacts email entries from user_auth,
+ * inserting/updating one contact row per user with an email address and removing contacts for
+ * users that no longer exist or no longer have an email address.
+ *
+ * @return void
+ */
 function thold_update_contacts() {
 	$users = db_fetch_assoc("SELECT id, 'email' AS type, email_address
 		FROM user_auth
@@ -137,6 +153,14 @@ function thold_update_contacts() {
 		OR ua.id IS NULL');
 }
 
+/**
+ * thold_tabs - renders the tabbed navigation bar (Thresholds/Log/Device Status, plus any
+ * hook-registered tabs) shown at the top of thold_graph.php.
+ *
+ * @global array $config Cacti's global configuration array.
+ *
+ * @return void
+ */
 function thold_tabs() {
 	global $config;
 
@@ -170,6 +194,17 @@ function thold_tabs() {
 	print "</ul></nav></div>\n";
 }
 
+/**
+ * thold_debug - logs a message via thold_cacti_log() only when the 'thold_log_debug' setting or
+ * the global debug flag is enabled.
+ *
+ * @param string $txt The message to log.
+ * @param string $thread An optional thread/context identifier passed through to the logger.
+ *
+ * @global bool $debug Whether debug logging is enabled for this request.
+ *
+ * @return void
+ */
 function thold_debug($txt, $thread = '') {
 	global $debug;
 
@@ -178,6 +213,16 @@ function thold_debug($txt, $thread = '') {
 	}
 }
 
+/**
+ * thold_template_avail_devices - builds a SQL WHERE-clause fragment restricting a device list to
+ * hosts that are still eligible to have a threshold created from the given (or, if none is
+ * given, any) threshold template - i.e. hosts using a graph template the template applies to that
+ * either allow multiple graphs or don't already have one.
+ *
+ * @param int $thold_template_id The threshold template id to check, or 0 for any template.
+ *
+ * @return string A `h.id IN (...)` SQL fragment, or an empty string when no devices qualify.
+ */
 function thold_template_avail_devices($thold_template_id = 0) {
 	// display the host dropdown
 	if ($thold_template_id > 0) {
@@ -232,6 +277,14 @@ function thold_template_avail_devices($thold_template_id = 0) {
 	return (cacti_sizeof($device_ids) ? 'h.id IN (' . implode(', ', $device_ids) . ')' : '');
 }
 
+/**
+ * thold_initialize_rusage - captures a baseline resource-usage snapshot (and start time) into a
+ * global, for later comparison by thold_display_rusage().
+ *
+ * @global array $thold_start_rusage The captured baseline getrusage() data plus start microtime.
+ *
+ * @return void
+ */
 function thold_initialize_rusage() {
 	global $thold_start_rusage;
 
@@ -242,6 +295,14 @@ function thold_initialize_rusage() {
 	$thold_start_rusage['microtime'] = microtime(true);
 }
 
+/**
+ * thold_display_rusage - prints a one-row table of elapsed wall-clock time, user/system CPU time,
+ * swaps, and page faults since thold_initialize_rusage() was last called.
+ *
+ * @global array $thold_start_rusage The baseline captured by thold_initialize_rusage().
+ *
+ * @return void
+ */
 function thold_display_rusage() {
 	global $thold_start_rusage;
 
@@ -281,6 +342,14 @@ function thold_display_rusage() {
 	}
 }
 
+/**
+ * thold_legend - renders a legend row showing every threshold state's display label styled with
+ * its own CSS class.
+ *
+ * @global array $thold_states The threshold state definitions (class/display per state).
+ *
+ * @return void
+ */
 function thold_legend() {
 	global $thold_states;
 
@@ -296,6 +365,14 @@ function thold_legend() {
 	html_end_box(false);
 }
 
+/**
+ * host_legend - renders a legend row showing every device-status state's display label styled
+ * with its own CSS class.
+ *
+ * @global array $thold_host_states The device-status state definitions (class/display per state).
+ *
+ * @return void
+ */
 function host_legend() {
 	global $thold_host_states;
 
@@ -311,6 +388,14 @@ function host_legend() {
 	html_end_box(false);
 }
 
+/**
+ * log_legend - renders a legend row showing every log-state's short display label styled with
+ * its own CSS class.
+ *
+ * @global array $thold_log_states The log state definitions (class/display_short per state).
+ *
+ * @return void
+ */
 function log_legend() {
 	global $thold_log_states;
 
@@ -326,6 +411,16 @@ function log_legend() {
 	html_end_box(false);
 }
 
+/**
+ * thold_expression_rpn_pop - pops and returns the top value off an RPN evaluation stack,
+ * flagging the shared RPN error state when the stack is empty.
+ *
+ * @param array &$stack The RPN operand stack, modified in place.
+ *
+ * @global bool $rpn_error Set to true when the stack is unexpectedly empty.
+ *
+ * @return mixed The popped value, or false if the stack was empty.
+ */
 function thold_expression_rpn_pop(&$stack) {
 	global $rpn_error;
 
@@ -423,6 +518,18 @@ function thold_rpn_math_unary($operator, $v1) {
 	}
 }
 
+/**
+ * thold_expression_math_rpn - applies one binary/unary RPN math operator (+, -, *, /, %, ^, the
+ * trig/rounding unary functions, ATAN2, ADDNAN) to the top of the evaluation stack, validating
+ * operands and flagging the shared RPN error state on invalid input.
+ *
+ * @param string $operator The RPN math token being applied.
+ * @param array &$stack The RPN evaluation stack, modified in place.
+ *
+ * @global bool $rpn_error Set to true when an operand is invalid or undefined.
+ *
+ * @return void
+ */
 function thold_expression_math_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -536,6 +643,18 @@ function thold_expression_math_rpn($operator, &$stack) {
 	}
 }
 
+/**
+ * thold_expression_boolean_rpn - applies one boolean/comparison RPN operator (UN, ISINF, AND, OR,
+ * IF, LT, GT, LE, GE, EQ, NE) to the top of the evaluation stack, pushing '1'/'0' (or the
+ * selected branch for IF).
+ *
+ * @param string $operator The RPN boolean/comparison token being applied.
+ * @param array &$stack The RPN evaluation stack, modified in place.
+ *
+ * @global bool $rpn_error The shared RPN error state (not modified here).
+ *
+ * @return void
+ */
 function thold_expression_boolean_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -648,6 +767,17 @@ function thold_expression_boolean_rpn($operator, &$stack) {
 	}
 }
 
+/**
+ * thold_expression_compare_rpn - applies one RPN comparison/selection operator (MAX, MIN, or the
+ * 3-value LIMIT-style range check) to the top of the evaluation stack.
+ *
+ * @param string $operator The RPN token being applied (MAX, MIN, or the range-check form).
+ * @param array &$stack The RPN evaluation stack, modified in place.
+ *
+ * @global bool $rpn_error The shared RPN error state (not modified here).
+ *
+ * @return void
+ */
 function thold_expression_compare_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -697,6 +827,18 @@ function thold_expression_compare_rpn($operator, &$stack) {
 	}
 }
 
+/**
+ * thold_expression_specvals_rpn - pushes an RPN special-value token (UNKN, INF, NEGINF, COUNT) or
+ * a placeholder for PREV (not yet implemented) onto the evaluation stack.
+ *
+ * @param string $operator The special-value token being applied.
+ * @param array &$stack The RPN evaluation stack, modified in place.
+ * @param int $count The current CDEF sample count, pushed for the COUNT token.
+ *
+ * @global bool $rpn_error The shared RPN error state (not modified here).
+ *
+ * @return void
+ */
 function thold_expression_specvals_rpn($operator, &$stack, $count) {
 	global $rpn_error;
 
@@ -752,6 +894,17 @@ function thold_expression_stackops_rpn(string $operator, array &$stack): void {
 	}
 }
 
+/**
+ * thold_expression_time_rpn - applies an RPN time operator; only NOW (push the current Unix
+ * timestamp) is currently implemented, TIME/LTIME are reserved for future support.
+ *
+ * @param string $operator The RPN time token being applied.
+ * @param array &$stack The RPN evaluation stack, modified in place.
+ *
+ * @global bool $rpn_error The shared RPN error state (not modified here).
+ *
+ * @return void
+ */
 function thold_expression_time_rpn($operator, &$stack) {
 	global $rpn_error;
 
@@ -840,6 +993,19 @@ function thold_expression_setops_rpn(string $operator, array &$stack): void {
 	$stack[] = $known === 0 ? 'U' : $total / $known;
 }
 
+/**
+ * thold_expression_ds_value - pushes the current value of the named data source (case-insensitive
+ * match on RRD field name) onto the evaluation stack, or 0 if it isn't present in this poll's
+ * data.
+ *
+ * @param string $operator The RRD data-source (field) name being looked up.
+ * @param array &$stack The RPN evaluation stack, modified in place.
+ * @param array $data_sources RRD field name => current value map for this poll cycle.
+ *
+ * @global bool $rpn_error The shared RPN error state (not modified here).
+ *
+ * @return void
+ */
 function thold_expression_ds_value($operator, &$stack, $data_sources) {
 	global $rpn_error;
 
@@ -856,6 +1022,18 @@ function thold_expression_ds_value($operator, &$stack, $data_sources) {
 	array_push($stack, 0);
 }
 
+/**
+ * thold_expression_specialtype_rpn - pushes a Cacti CDEF special-property value (current data
+ * source, graph/data-source min/max, total HDD, or the sum of all data sources for the local
+ * data set) onto the evaluation stack.
+ *
+ * @param string $operator The special-property token being applied.
+ * @param array &$stack The RPN evaluation stack, modified in place.
+ * @param int $local_data_id The local data source id the special value is computed against.
+ * @param mixed $currentval The current data source's already-resolved value.
+ *
+ * @return void
+ */
 function thold_expression_specialtype_rpn($operator, &$stack, $local_data_id, $currentval) {
 	switch ($operator) {
 		case 'CURRENT_DATA_SOURCE':
@@ -1171,6 +1349,20 @@ function thold_polling_cleanup($has_updates) {
 	}
 }
 
+/**
+ * thold_get_currentval - resolves a threshold's current sample value from this cycle's reindexed
+ * poller output, applying the correct COUNTER/DERIVE/ABSOLUTE/GAUGE rate calculation (including
+ * counter-wrap handling and interface-speed-derived maximums) based on the elapsed step since the
+ * last usable sample.
+ *
+ * @param array &$thold_data The threshold's data-source row (lasttime/oldvalue/rrd_* fields).
+ * @param array &$rrd_reindexed local_data_id => (rrd field name => value) map for this poll cycle.
+ * @param array &$rrd_time_reindexed local_data_id => sample Unix timestamp map for this poll cycle.
+ * @param array &$item Set to the current cycle's field-name => value data for this data source.
+ * @param int &$currenttime Set to the current cycle's sample timestamp for this data source.
+ *
+ * @return mixed The resolved current value, or an empty string when no usable sample exists.
+ */
 function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexed, &$item, &$currenttime) {
 	// adjust the polling interval by the last read, if applicable
 	$currenttime = $rrd_time_reindexed[$thold_data['local_data_id']];
@@ -1303,6 +1495,21 @@ function thold_get_currentval(&$thold_data, &$rrd_reindexed, &$rrd_time_reindexe
 	return $currentval;
 }
 
+/**
+ * thold_calculate_expression - evaluates a threshold's RPN CDEF-style expression, resolving
+ * |ds:name| and |...| query-replacement tokens against the current poll's data, then reducing the
+ * resulting RPN token stream on an evaluation stack via the thold_expression_*_rpn() helpers.
+ *
+ * @param array $thold The threshold row, including its 'expression' string and local_data_id.
+ * @param mixed $currentval The threshold's own already-resolved current data source value.
+ * @param array &$rrd_reindexed local_data_id => (rrd field name => value) map for this poll cycle.
+ * @param array &$rrd_time_reindexed local_data_id => sample Unix timestamp map for this poll cycle.
+ *
+ * @global bool $rpn_error Set to true if any token/operand in the expression is invalid.
+ *
+ * @return mixed The reduced expression result, or an empty string when the expression could not
+ *   be evaluated (unavailable source, unsupported token, or an unbalanced RPN stack).
+ */
 function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_time_reindexed) {
 	global $rpn_error;
 
@@ -1525,6 +1732,19 @@ function thold_calculate_expression($thold, $currentval, &$rrd_reindexed, &$rrd_
 	return end($stack);
 }
 
+/**
+ * thold_substitute_snmp_query_data - resolves a `|query_<field>|`-style token to the matching
+ * cached SNMP data-query field value for a device/index, if present.
+ *
+ * @param string $string The raw `|query_<field>|` token to resolve.
+ * @param int $device_id The device (host) id to look up the cached value for.
+ * @param int $snmp_query_id The SNMP data query id the field belongs to.
+ * @param string $snmp_index The data query's index value for the target row.
+ * @param int $max_chars Unused; retained for call-site compatibility with sibling substitute
+ *   helpers.
+ *
+ * @return string The resolved field value, or the original token when no cached value exists.
+ */
 function thold_substitute_snmp_query_data($string, $device_id, $snmp_query_id, $snmp_index, $max_chars = 0) {
 	$field_name = trim(str_replace('|query_', '', $string),"| \n\r");
 
@@ -1543,6 +1763,17 @@ function thold_substitute_snmp_query_data($string, $device_id, $snmp_query_id, $
 	}
 }
 
+/**
+ * thold_substitute_data_source_description - resolves a `|data_source_description|` token to the
+ * data source's cached display name, if present.
+ *
+ * @param string $string The raw `|data_source_description|` token to resolve.
+ * @param int $local_data_id The local data source id to look up the cached name for.
+ * @param int $max_chars Unused; retained for call-site compatibility with sibling substitute
+ *   helpers.
+ *
+ * @return string The resolved description, or the original token when no cached value exists.
+ */
 function thold_substitute_data_source_description($string, $local_data_id, $max_chars = 0) {
 	$field_name = trim(str_replace('|data_source_description', '', $string),"| \n\r");
 
@@ -1578,6 +1809,21 @@ function thold_defer_placeholder() {
 	return "\x01THOLD_DEFERRED_{$n}\x01";
 }
 
+/**
+ * thold_substitute_host_data - resolves `|host_<field>|` tokens (and the special
+ * `|host_management_ip|` alias) in a string against the target device's cached host row.
+ *
+ * @param string $string The raw string containing `|host_*|` tokens to resolve.
+ * @param string $l_escape_string The left delimiter used around each token.
+ * @param string $r_escape_string The right delimiter used around each token.
+ * @param int $device_id The device (host) id to resolve field values against.
+ * @param bool $shell When true, substituted values are shell-escaped and deferred via
+ *   thold_defer_placeholder() until every substitution phase has run.
+ * @param array|null &$deferred Shared placeholder => shell-escaped-value map; pass null to have
+ *   this call resolve its own placeholders before returning.
+ *
+ * @return string The string with all resolvable `|host_*|` tokens substituted.
+ */
 function thold_substitute_host_data($string, $l_escape_string, $r_escape_string, $device_id, $shell = false, ?array &$deferred = null) {
 	$defer_internally = $deferred === null;
 
@@ -1731,6 +1977,16 @@ function thold_substitute_custom_data($string, $l_escape, $r_escape, $local_data
 	return $string;
 }
 
+/**
+ * thold_calculate_percent - converts a threshold's current value into a percentage of a second,
+ * configured 'percent_ds' data source's current value in the same poll cycle.
+ *
+ * @param array $thold The threshold row, including the 'percent_ds' field name.
+ * @param mixed $currentval The threshold's already-resolved current value.
+ * @param array $rrd_reindexed local_data_id => (rrd field name => value) map for this poll cycle.
+ *
+ * @return mixed The percentage value, or an empty string when either value is unavailable.
+ */
 function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 	$ds = $thold['percent_ds'];
 
@@ -1757,6 +2013,17 @@ function thold_calculate_percent($thold, $currentval, $rrd_reindexed) {
 	return $currentval;
 }
 
+/**
+ * thold_calculate_lower_upper - combines a threshold's current value with a second, configured
+ * 'upper_ds' data source's current value into one 64-bit-scale composite reading (used for
+ * upper/lower 32-bit counter pairs that together represent a single wider counter).
+ *
+ * @param array $thold The threshold row, including the 'upper_ds' field name.
+ * @param mixed $currentval The threshold's already-resolved current (lower) value.
+ * @param array $rrd_reindexed local_data_id => (rrd field name => value) map for this poll cycle.
+ *
+ * @return mixed The combined value, or an empty string when either value is unavailable/invalid.
+ */
 function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	$ds = $thold['upper_ds'];
 
@@ -1777,6 +2044,21 @@ function thold_calculate_lower_upper($thold, $currentval, $rrd_reindexed) {
 	return ((float) $t * 4294967296) + $currentval;
 }
 
+/**
+ * get_allowed_thresholds - fetches the thresholds a user is permitted to see, applying graph
+ * authentication policy filtering and optional caller-supplied WHERE/ORDER BY/LIMIT clauses.
+ *
+ * @param string $sql_where Additional SQL WHERE conditions (without the WHERE keyword).
+ * @param string $order_by SQL ORDER BY expression (without the ORDER BY keyword).
+ * @param string $sql_limit SQL LIMIT clause contents (without the LIMIT keyword).
+ * @param int &$total_rows Set to the total matching row count (ignoring $sql_limit).
+ * @param int $user_id The user id to check permissions for; 0 uses the session user, -1 skips
+ *   authentication entirely.
+ * @param int $graph_id Optional graph id to restrict results to a single graph.
+ * @param array $sql_params Bound parameters for any placeholders already present in $sql_where.
+ *
+ * @return array The matching thold_data rows, joined with template/graph/host/data-source info.
+ */
 function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	$graph_id = (int) $graph_id;
 
@@ -1874,6 +2156,22 @@ function get_allowed_thresholds($sql_where = '', $order_by = 'td.name', $sql_lim
 	return $tholds;
 }
 
+/**
+ * get_allowed_threshold_logs - fetches the plugin_thold_log entries a user is permitted to see,
+ * applying graph authentication policy filtering and optional caller-supplied WHERE/ORDER
+ * BY/LIMIT clauses.
+ *
+ * @param string $sql_where Additional SQL WHERE conditions (without the WHERE keyword).
+ * @param string $order_by SQL ORDER BY expression (without the ORDER BY keyword).
+ * @param string $sql_limit SQL LIMIT clause contents (without the LIMIT keyword).
+ * @param int &$total_rows Set to the total matching row count (ignoring $sql_limit).
+ * @param int $user_id The user id to check permissions for; 0 uses the session user, -1 skips
+ *   authentication entirely.
+ * @param int $graph_id Optional graph id to restrict results to a single graph.
+ * @param array $sql_params Bound parameters for any placeholders already present in $sql_where.
+ *
+ * @return array The matching plugin_thold_log rows, joined with threshold/graph/host info.
+ */
 function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql_limit = '', &$total_rows = 0, $user_id = 0, $graph_id = 0, $sql_params = []) {
 	$graph_id = (int) $graph_id;
 
@@ -1969,6 +2267,15 @@ function get_allowed_threshold_logs($sql_where = '', $order_by = 'td.name', $sql
 	return $tholds;
 }
 
+/**
+ * thold_get_thold_notification_format_file - resolves the notification format file to use for a
+ * threshold, preferring the notification list's own format file over the threshold's own.
+ *
+ * @param int $thold_id The threshold id to look up a fallback format file for.
+ * @param int $notify_list The notification list id to prefer a format file from, if set.
+ *
+ * @return string The resolved format file name, or an empty string when neither is set.
+ */
 function thold_get_thold_notification_format_file($thold_id, $notify_list) {
 	$thold_format_file = db_fetch_cell_prepared('SELECT format_file
 		FROM thold_data
@@ -1995,6 +2302,16 @@ function thold_get_thold_notification_format_file($thold_id, $notify_list) {
 	}
 }
 
+/**
+ * thold_get_device_notification_format_file - resolves the notification format file to use for a
+ * device-status event, preferring the notification list's own format file.
+ *
+ * @param int $host_id Unused directly (reserved for a future per-device format file); kept for
+ *   call-site symmetry with thold_get_thold_notification_format_file().
+ * @param int $notify_list The notification list id to look up a format file from, if set.
+ *
+ * @return string The resolved format file name, or an empty string when none is set.
+ */
 function thold_get_device_notification_format_file($host_id, $notify_list) {
 	$device_format_file = '';
 
@@ -2016,6 +2333,14 @@ function thold_get_device_notification_format_file($host_id, $notify_list) {
 	}
 }
 
+/**
+ * thold_get_state_filter - builds a SQL WHERE-clause fragment for the threshold list's 'state'
+ * request-variable filter (All/Breached/Triggered/Enabled/Disabled/Ack Required, etc.).
+ *
+ * @param string $state Non-empty to apply the currently-selected 'state' request variable.
+ *
+ * @return string The SQL fragment for the selected state, or an empty string for 'All'/unset.
+ */
 function thold_get_state_filter($state) {
 	$statefilter = '';
 
@@ -2045,10 +2370,26 @@ function thold_get_state_filter($state) {
 	return $statefilter;
 }
 
+/**
+ * is_thold_allowed_graph - checks whether the current user is permitted to view the graph a
+ * threshold belongs to.
+ *
+ * @param int $local_graph_id The local graph id to check.
+ *
+ * @return bool True if the current user is permitted to view the graph.
+ */
 function is_thold_allowed_graph($local_graph_id) {
 	return is_graph_allowed($local_graph_id);
 }
 
+/**
+ * is_thold_allowed - checks whether the current user is permitted to view the graph a threshold
+ * belongs to, looking the graph up from the threshold id.
+ *
+ * @param int $id The threshold id to check.
+ *
+ * @return bool True if the current user is permitted to view the threshold's graph.
+ */
 function is_thold_allowed($id) {
 	$local_graph_id = db_fetch_cell_prepared('SELECT local_graph_id
 		FROM thold_data
@@ -2058,6 +2399,18 @@ function is_thold_allowed($id) {
 	return is_thold_allowed_graph($local_graph_id);
 }
 
+/**
+ * thold_log - records a threshold breach/restoral (or acknowledgment/custom description) event
+ * into plugin_thold_log, optionally also writing a formatted summary line to the Cacti log, and
+ * refreshes the thold change-tracking timestamps.
+ *
+ * @param array $save The plugin_thold_log row to save (threshold_id/type/status/current/etc.,
+ *   plus optional 'emails'/'bcc_emails' for the Cacti-log summary line only).
+ *
+ * @global array $config Cacti's global configuration array.
+ *
+ * @return void
+ */
 function thold_log($save) {
 	global $config;
 
@@ -2152,6 +2505,23 @@ function thold_log($save) {
 	set_config_option('time_last_change_thold', time());
 }
 
+/**
+ * plugin_thold_duration_convert - converts a stored repeat/alert/time duration code into its
+ * poller-interval-relative display label, using the data source's own rrd_step where applicable.
+ *
+ * @param int $rra The local_data_id (or, per $field, the referenced id) whose rrd_step to use.
+ * @param mixed $data The raw stored duration code to convert.
+ * @param string $type Which lookup array to use: 'repeat', 'alert', or 'time'.
+ * @param string $field The column name to match $rra against (default 'local_data_id').
+ *
+ * @global array $config Cacti's global configuration array.
+ * @global array $repeatarray Repeat-duration code => display label map (loaded from arrays.php).
+ * @global array $alertarray Alert-duration code => display label map (loaded from arrays.php).
+ * @global array $timearray Time-duration code => display label map (loaded from arrays.php).
+ *
+ * @return mixed The display label for the code, or the raw $data when unmapped or $type is
+ *   unrecognized, or an empty string when $data is empty.
+ */
 function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_id') {
 	global $config, $repeatarray, $alertarray, $timearray;
 
@@ -2185,6 +2555,20 @@ function plugin_thold_duration_convert($rra, $data, $type, $field = 'local_data_
 	return $data;
 }
 
+/**
+ * plugin_thold_log_changes - writes a human-readable audit-log line to the Cacti log describing
+ * an administrative change (acknowledge/enable/disable a threshold or device, reapply a
+ * suggested name, template auto-creation, etc.), when the 'thold_log_changes' setting is enabled.
+ *
+ * @param int $id The affected threshold or device id (meaning depends on $changed).
+ * @param string $changed The change type being logged (e.g. 'acknowledge_threshold',
+ *   'enabled_host', 'auto_created').
+ * @param array $message Additional context used by some change types to enrich the log line.
+ *
+ * @global array $config Cacti's global configuration array.
+ *
+ * @return void
+ */
 function plugin_thold_log_changes($id, $changed, $message = []) {
 	global $config;
 
@@ -2605,6 +2989,16 @@ function plugin_thold_log_changes($id, $changed, $message = []) {
 	}
 }
 
+/**
+ * get_thold_severity - derives a threshold's display severity (normal, alert, warning, notice,
+ * ack-required, disabled, or baseline) from its current hi/lo, time-based, or baseline fail
+ * counters and trigger settings.
+ *
+ * @param array &$td The threshold row (thold_type, fail counts/triggers, hi/lo/time bounds,
+ *   acknowledgment, enabled flags).
+ *
+ * @return int One of the THOLD_SEVERITY_* constants.
+ */
 function get_thold_severity(&$td) {
 	$severity = THOLD_SEVERITY_NORMAL;
 
@@ -2718,6 +3112,15 @@ function get_thold_severity(&$td) {
 	return $severity;
 }
 
+/**
+ * thold_datasource_required - checks whether a data source name already embeds its own
+ * `[data_source]` suffix, when the 'show_datasource' setting is enabled.
+ *
+ * @param string $name The label/name string to check for an existing `[data_source]` suffix.
+ * @param string $data_source The data source name to check for.
+ *
+ * @return bool True when the data source suffix still needs to be appended by the caller.
+ */
 function thold_datasource_required($name, $data_source) {
 	$show_datasource = read_config_option('show_datasource');
 
@@ -2780,6 +3183,16 @@ function thold_mail_notification($recipients, $bcc, $subject, $text_type, $list_
 	return $message;
 }
 
+/**
+ * thold_evaluation_context - assembles the shared settings/notification-address/graph-attachment
+ * context thold_check_threshold() needs once per threshold evaluation (syslog/SNMP-trap toggles,
+ * alert/warning trigger overrides, resolved alert/warning recipient lists, and an optional graph
+ * image attachment array).
+ *
+ * @param array $thold_data The threshold row being evaluated.
+ *
+ * @return array The assembled evaluation context, keyed by setting/recipient-list name.
+ */
 function thold_evaluation_context(array $thold_data) {
 	$alert_trigger        = read_config_option('alert_trigger');
 	$httpurl              = read_config_option('base_url');
@@ -2834,6 +3247,23 @@ function thold_evaluation_context(array $thold_data) {
 	];
 }
 
+/**
+ * thold_check_threshold - the core per-poll-cycle threshold evaluator. Applies any configured
+ * CDEF value modification, evaluates the threshold's hi/lo, time-based, or baseline condition
+ * against the current sample, advances/resets its fail and warning-fail counters, and on a state
+ * transition updates thold_data's alert state, sends alert/warning/restoral notifications (email,
+ * SNMP trap, syslog) via thold_mail_notification(), and records the transition via thold_log()/
+ * plugin_thold_log_changes().
+ *
+ * @param array &$thold_data The threshold row to evaluate, updated in place with the new alert
+ *   state and fail counters.
+ *
+ * @global array $config Cacti's global configuration array.
+ * @global array $plugins The list of currently-enabled plugins.
+ * @global bool $debug Whether debug logging is enabled for this request.
+ *
+ * @return void
+ */
 function thold_check_threshold(&$thold_data) {
 	global $config, $plugins, $debug;
 
@@ -4226,6 +4656,22 @@ function thold_check_threshold(&$thold_data) {
 	}
 }
 
+/**
+ * get_email_subject - composes the alert/warning/restoral notification subject line for a
+ * threshold, either from its built-in default wording or from its configured per-phase custom
+ * subject template (with `<PHASE>`/`<THRESHOLDVALUE>`/`<CURRENTVALUE>`/etc. tokens substituted).
+ *
+ * @param string $phase The notification phase: 'ALERT', 'WARNING', 'ALERT > WARNING', or 'NORMAL'.
+ * @param bool $trigger Whether this is a repeat/re-alert ('TRIGGER' wording) rather than the
+ *   initial transition.
+ * @param mixed $lastread The threshold's current sample value.
+ * @param bool $ra Whether the threshold is still in a breached state (re-alert) rather than newly
+ *   transitioning.
+ * @param bool $breach_up Whether the breach is above (true) or below (false) the bound.
+ * @param array &$thold_data The threshold row being notified about.
+ *
+ * @return string The composed subject line.
+ */
 function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold_data) {
 	$peralert = read_config_option('thold_enable_per_thold_body');
 
@@ -4451,6 +4897,20 @@ function get_email_subject($phase, $trigger, $lastread, $ra, $breach_up, &$thold
 	}
 }
 
+/**
+ * get_thold_snmp_data - assembles the CACTI-THOLD-MIB varbind data (with `<TAG>` tokens in the
+ * event description expanded) used to send an SNMP trap for a threshold event.
+ *
+ * @param string $data_source_name The data source name the event pertains to.
+ * @param array $thold The threshold row the event is for.
+ * @param array $h The device row the threshold belongs to.
+ * @param mixed $currentval The threshold's current sample value.
+ *
+ * @global array $thold_types Threshold-type code => display label map, used to validate the
+ *   threshold's configured type.
+ *
+ * @return array The assembled varbind name => value map for thold_snmptrap().
+ */
 function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	global $thold_types;
 
@@ -4499,6 +4959,23 @@ function get_thold_snmp_data($data_source_name, $thold, $h, $currentval) {
 	return $thold_snmp_data;
 }
 
+/**
+ * thold_expand_string - resolves a threshold's data-source/graph/host/query/custom-data tokens
+ * (`|graph_title|`, `|data_source_name|`, `|data_source_description|`, `|host_*|`, `|query_*|`,
+ * `|custom_*|`) in a string, falling back to the threshold template's or the default suggested
+ * name when given an empty string.
+ *
+ * @param array $thold_data The threshold row providing the substitution context.
+ * @param string $string The raw string containing tokens to resolve.
+ * @param bool $shell When true, substituted values are shell-escaped and deferred via
+ *   thold_defer_placeholder() until every substitution phase has run.
+ * @param array|null &$deferred Shared placeholder => shell-escaped-value map; pass null to have
+ *   this call resolve its own placeholders before returning.
+ *
+ * @global array $config Cacti's global configuration array.
+ *
+ * @return string The string with all resolvable tokens substituted.
+ */
 function thold_expand_string($thold_data, $string, $shell = false, ?array &$deferred = null) {
 	global $config;
 
@@ -4671,6 +5148,19 @@ function thold_expand_string($thold_data, $string, $shell = false, ?array &$defe
 	return trim($str);
 }
 
+/**
+ * thold_command_execution - runs (or, when the notification queue is enabled, enqueues) the
+ * threshold's configured high/low/normal trigger command for the breach direction that occurred,
+ * expanding its token placeholders and environment variables first.
+ *
+ * @param array &$thold_data The threshold row, including its trigger_cmd_high/low/norm commands.
+ * @param array &$h The device row the threshold belongs to.
+ * @param bool $breach_up Whether the threshold breached above its high bound.
+ * @param bool $breach_down Whether the threshold breached below its low bound.
+ * @param bool $breach_norm Whether the threshold returned to normal.
+ *
+ * @return void
+ */
 function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $breach_norm = false) {
 	if (read_config_option('thold_enable_scripts') == 'on') {
 		$output           = [];
@@ -4759,6 +5249,21 @@ function thold_command_execution(&$thold_data, &$h, $breach_up, $breach_down, $b
 	}
 }
 
+/**
+ * thold_process_command_output - logs the result of running a threshold trigger command, a
+ * device-down command, or a device-up command, at a verbosity matching whether it exited
+ * successfully.
+ *
+ * @param array &$output The command's captured output lines.
+ * @param int $return The command's exit status.
+ * @param string $topic Which command type this is: 'thold_cmd', 'thold_dhost_cmd', or
+ *   'thold_uhost_cmd'.
+ * @param array &$data The threshold or device row the command was run for (used for its id in
+ *   the log line).
+ * @param string $command The command string, used only in the device up/down log lines.
+ *
+ * @return void
+ */
 function thold_process_command_output(&$output, $return, $topic = 'thold_cmd', &$data = [], $command = '') {
 	if ($topic == 'thold_cmd') {
 		if (cacti_sizeof($output)) {
@@ -4781,6 +5286,15 @@ function thold_process_command_output(&$output, $return, $topic = 'thold_cmd', &
 	}
 }
 
+/**
+ * thold_putenv - sets a process environment variable for a trigger command, or queues it for
+ * later application when the notification queue is enabled.
+ *
+ * @param string $name_value_pair The `NAME=value` pair to set/queue.
+ * @param bool $reset When true, clears the queued environment variables before adding this one.
+ *
+ * @return array The current queued environment variable list.
+ */
 function thold_putenv($name_value_pair, $reset = false) {
 	static $env_queue = [];
 
@@ -4799,6 +5313,22 @@ function thold_putenv($name_value_pair, $reset = false) {
 	return $env_queue;
 }
 
+/**
+ * thold_set_environ - populates the THOLD_* environment variables (id, data/graph ids, device
+ * info, current value, threshold name/type, notes, hi/lo/time bounds, etc.) a trigger command can
+ * reference, via thold_putenv().
+ *
+ * @param string $text The threshold's notes text, expanded via thold_replace_threshold_tags().
+ * @param array &$thold The threshold row providing most of the environment values.
+ * @param array &$h The device row the threshold belongs to.
+ * @param mixed $currentval The threshold's current sample value.
+ * @param int $local_graph_id The local graph id the threshold is attached to.
+ * @param string $data_source_name The data source name the threshold monitors.
+ *
+ * @global array $thold_types Threshold-type code => display label map.
+ *
+ * @return void
+ */
 function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name) {
 	global $thold_types;
 
@@ -4868,6 +5398,26 @@ function thold_set_environ($text, &$thold, &$h, $currentval, $local_graph_id, $d
 	return $environment;
 }
 
+/**
+ * thold_replace_threshold_tags - resolves the general `<TAG>` placeholders (description,
+ * hostname, location, site, current value, threshold name/notes/bounds, URL, date, etc.) used in
+ * threshold notification text, notes, and trigger commands.
+ *
+ * @param string $text The raw text containing `<TAG>` placeholders to resolve.
+ * @param array &$thold The threshold row providing most of the replacement values.
+ * @param array &$h The device row the threshold belongs to.
+ * @param mixed $currentval The threshold's current sample value.
+ * @param int $local_graph_id The local graph id the threshold is attached to.
+ * @param string $data_source_name The data source name the threshold monitors.
+ * @param bool $shell When true, substituted values are shell-escaped and deferred via
+ *   thold_defer_placeholder() until every substitution phase has run.
+ * @param array|null &$deferred Shared placeholder => shell-escaped-value map; pass null to have
+ *   this call resolve its own placeholders before returning.
+ *
+ * @global array $thold_types Threshold-type code => display label map.
+ *
+ * @return string The text with all resolvable tags substituted.
+ */
 function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_graph_id, $data_source_name, $shell = false, ?array &$deferred = null) {
 	global $thold_types;
 
@@ -4985,6 +5535,19 @@ function thold_replace_threshold_tags($text, &$thold, &$h, $currentval, $local_g
 	return $text;
 }
 
+/**
+ * get_thold_alert_text - builds the alert notification body, using the threshold's own custom
+ * body (when per-threshold bodies are enabled) or the global default, with `<TAG>` placeholders
+ * resolved via thold_replace_threshold_tags().
+ *
+ * @param string $data_source_name The data source name the threshold monitors.
+ * @param array $thold The threshold row.
+ * @param array $h The device row the threshold belongs to.
+ * @param mixed $currentval The threshold's current sample value.
+ * @param int $local_graph_id The local graph id the threshold is attached to.
+ *
+ * @return string The resolved alert notification body.
+ */
 function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local_graph_id) {
 	$alert_text = read_config_option('thold_alert_text');
 	$httpurl    = read_config_option('base_url');
@@ -5009,6 +5572,19 @@ function get_thold_alert_text($data_source_name, $thold, $h, $currentval, $local
 	return $alert_text;
 }
 
+/**
+ * get_thold_warning_text - builds the warning notification body, using the threshold's own custom
+ * body (when per-threshold bodies are enabled) or the global default, with `<TAG>` placeholders
+ * resolved via thold_replace_threshold_tags().
+ *
+ * @param string $data_source_name The data source name the threshold monitors.
+ * @param array $thold The threshold row.
+ * @param array $h The device row the threshold belongs to.
+ * @param mixed $currentval The threshold's current sample value.
+ * @param int $local_graph_id The local graph id the threshold is attached to.
+ *
+ * @return string The resolved warning notification body.
+ */
 function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $local_graph_id) {
 	$warning_text = read_config_option('thold_warning_text');
 	$httpurl      = read_config_option('base_url');
@@ -5033,6 +5609,19 @@ function get_thold_warning_text($data_source_name, $thold, $h, $currentval, $loc
 	return $warning_text;
 }
 
+/**
+ * get_thold_restoral_text - builds the restoral notification body, using the threshold's own
+ * custom body (when per-threshold bodies are enabled) or the global default, with `<TAG>`
+ * placeholders resolved via thold_replace_threshold_tags().
+ *
+ * @param string $data_source_name The data source name the threshold monitors.
+ * @param array $thold The threshold row.
+ * @param array $h The device row the threshold belongs to.
+ * @param mixed $currentval The threshold's current sample value.
+ * @param int $local_graph_id The local graph id the threshold is attached to.
+ *
+ * @return string The resolved restoral notification body.
+ */
 function get_thold_restoral_text($data_source_name, $thold, $h, $currentval, $local_graph_id) {
 	$restoral_text = read_config_option('thold_restoral_text');
 	$httpurl       = read_config_option('base_url');
@@ -5057,6 +5646,15 @@ function get_thold_restoral_text($data_source_name, $thold, $h, $currentval, $lo
 	return $restoral_text;
 }
 
+/**
+ * thold_modify_values_by_cdef - applies a graph item's CDEF (explicitly configured on the
+ * threshold, or auto-detected from its graph item) to the threshold's hi/lo (or time-based hi/lo)
+ * bounds in place, so they compare consistently against an already-CDEF-transformed current value.
+ *
+ * @param array &$thold_data The threshold row, modified in place with CDEF-transformed bounds.
+ *
+ * @return void
+ */
 function thold_modify_values_by_cdef(&$thold_data) {
 	$cdef = false;
 
@@ -5098,6 +5696,17 @@ function thold_modify_values_by_cdef(&$thold_data) {
 	}
 }
 
+/**
+ * thold_get_column_by_cdef - resolves a threshold's stored column value (lastread by default)
+ * through its graph item's CDEF, if one applies, for display purposes.
+ *
+ * @param array &$thold_data The threshold row providing the column value and CDEF lookup context.
+ * @param string $column Unused directly; retained for call-site documentation of which column is
+ *   being displayed (the function always transforms 'lastread').
+ *
+ * @return mixed The CDEF-transformed value, the raw lastread value when no CDEF applies, or '-'
+ *   when neither is available.
+ */
 function thold_get_column_by_cdef(&$thold_data, $column = 'lastread') {
 	// Check is the graph item has a cdef
 	if (isset($thold_data['local_data_id'])) {
@@ -5127,6 +5736,20 @@ function thold_get_column_by_cdef(&$thold_data, $column = 'lastread') {
 	return '-';
 }
 
+/**
+ * thold_format_number - formats a numeric value with locale-aware thousands separators and an
+ * optional SI/binary magnitude suffix (m/u/n/p for sub-unit values, K/M/G/T/etc. for large ones)
+ * or a fixed units suffix.
+ *
+ * @param mixed $value The numeric value to format.
+ * @param int $digits The number of decimal digits to display.
+ * @param int $baseu The magnitude base to scale by (1024 for binary, otherwise decimal/1000).
+ * @param bool $show_suffix Whether to append the binary 'i' suffix (e.g. 'Ki') when $baseu is 1024.
+ * @param bool $show_units Whether to auto-scale and append a magnitude suffix at all.
+ * @param string $units_suffix A fixed unit suffix to append instead of auto-scaling.
+ *
+ * @return string The formatted value, or '-' when $value isn't numeric.
+ */
 function thold_format_number($value, $digits = 2, $baseu = 1024, $show_suffix = true, $show_units = false, $units_suffix = '') {
 	$units  = '';
 	$suffix = '';
@@ -5219,6 +5842,19 @@ function thold_format_number($value, $digits = 2, $baseu = 1024, $show_suffix = 
 	return number_format_i18n($value, $digits, $baseu) . $units . $suffix;
 }
 
+/**
+ * get_reference_types - builds a map of RRA step intervals (in seconds) eligible for a
+ * 'reference' time-based lookup to their display label, based on the RRA archives configured
+ * (optionally scoped to a single data source).
+ *
+ * @param int $local_data_id Optional local data source id to scope the eligible RRAs to.
+ *
+ * @global array $config Cacti's global configuration array.
+ * @global array $timearray Poller-interval-multiple code => display label map (loaded from
+ *   arrays.php).
+ *
+ * @return array Step-interval-in-seconds => display label map.
+ */
 function get_reference_types($local_data_id = 0) {
 	global $config, $timearray;
 
@@ -5251,6 +5887,19 @@ function get_reference_types($local_data_id = 0) {
 	return $reference_types;
 }
 
+/**
+ * logger - sends a message to syslog at the configured (or overridden) priority/facility, used for
+ * threshold breach/restoral syslog notifications.
+ *
+ * @param string $subject The message subject/summary text.
+ * @param string $urlbreach Additional detail text appended to the syslog message.
+ * @param int|string $syslog_priority The syslog priority to use; falls back to the
+ *   'thold_syslog_priority' setting (or LOG_WARNING if that's invalid).
+ * @param int|string $syslog_facility The syslog facility to use; falls back to the
+ *   'thold_syslog_facility' setting (or LOG_DAEMON if unset).
+ *
+ * @return void
+ */
 function logger($subject, $urlbreach, $syslog_priority = '', $syslog_facility = '') {
 	if ($syslog_priority == '') {
 		$syslog_priority = read_config_option('thold_syslog_priority');
@@ -5279,6 +5928,15 @@ function logger($subject, $urlbreach, $syslog_priority = '', $syslog_facility = 
 	}
 }
 
+/**
+ * ack_logging - records a threshold acknowledgment: optionally sends a syslog notice, writes a
+ * plugin_thold_log entry, and writes a Cacti log line, all noting any operator comments.
+ *
+ * @param int $thold_id The threshold id being acknowledged.
+ * @param string $desc Optional operator comment to include in the log entries.
+ *
+ * @return void
+ */
 function ack_logging($thold_id, $desc = '') {
 	$thold_data = db_fetch_row_prepared('SELECT name_cache, host_id, thold_hi, thold_low,
 		syslog_enabled, syslog_facility, syslog_priority, lastread, local_graph_id
@@ -5313,6 +5971,12 @@ function ack_logging($thold_id, $desc = '') {
 	cacti_log('Threshold TH[' . $thold_id . '] has been acknowledged. Additional Comments: ' . $desc);
 }
 
+/**
+ * thold_cdef_get_usable - finds the cdef ids that include a `CURRENT_DATA_SOURCE` item, i.e. the
+ * CDEFs usable for threshold value transformation.
+ *
+ * @return array The list of usable cdef ids.
+ */
 function thold_cdef_get_usable() {
 	$cdef_items = db_fetch_assoc('SELECT *
 		FROM cdef_items
@@ -5330,6 +5994,12 @@ function thold_cdef_get_usable() {
 	return $cdef_usable;
 }
 
+/**
+ * thold_cdef_select_usable_names - builds a cdef id => name drop-down options array restricted to
+ * the CDEFs thold_cdef_get_usable() considers usable, plus a blank 'none' entry.
+ *
+ * @return array cdef id => name map, with id 0 mapped to an empty (no CDEF) option.
+ */
 function thold_cdef_select_usable_names() {
 	$ids   = thold_cdef_get_usable();
 	$cdefs = db_fetch_assoc('SELECT id, name FROM cdef');
@@ -5347,6 +6017,20 @@ function thold_cdef_select_usable_names() {
 	return $cdef_names;
 }
 
+/**
+ * thold_build_cdef - evaluates a graph item's CDEF RPN program against a threshold value,
+ * resolving Cacti's special CDEF properties (CURRENT_DATA_SOURCE, graph/data-source min/max, HDD
+ * total, all-data-sources sum) and `|query_*|` cache lookups as needed.
+ *
+ * @param int $cdef The cdef id to evaluate.
+ * @param mixed $value The raw value to transform (used as CURRENT_DATA_SOURCE).
+ * @param int $local_data_id The local data source id providing special-property/query context.
+ * @param int $data_template_rrd_id Unused directly; retained for call-site symmetry with sibling
+ *   CDEF-aware helpers.
+ *
+ * @return mixed The CDEF-transformed value; the original value on an unrecognized CDEF property
+ *   or RPN type; or an empty string when a required `|query_*|` operand could not be resolved.
+ */
 function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) {
 	if (!is_numeric($value)) {
 		return '';
@@ -5509,6 +6193,18 @@ function thold_build_cdef($cdef, $value, $local_data_id, $data_template_rrd_id) 
 	return $stack[0]['value'];
 }
 
+/**
+ * thold_rpn - applies one binary RPN arithmetic operator (add/subtract/multiply/divide/modulo,
+ * selected by numeric code) used by thold_build_cdef()'s CDEF evaluation stack machine.
+ *
+ * @param mixed $x The left operand ('U'/empty is treated as 0).
+ * @param mixed $y The right operand ('U'/empty is treated as 0).
+ * @param int $z The operator code: 1=add, 2=subtract, 3=multiply, 4=divide, 5=modulo.
+ * @param int $local_data_id Used only for the local data source id in error log lines.
+ *
+ * @return mixed The operation result, or an empty string on a non-numeric operand or a
+ *   division/modulo by zero.
+ */
 function thold_rpn($x, $y, $z, $local_data_id = 0) {
 	if (empty($x) || $x == 'U') {
 		$x = 0;
@@ -5568,6 +6264,12 @@ function thold_rpn($x, $y, $z, $local_data_id = 0) {
 	return '';
 }
 
+/**
+ * delete_old_thresholds - removes thresholds whose backing data source no longer exists (an
+ * orphaned data_template_rrd_id), logging each auto-delete before removing it.
+ *
+ * @return void
+ */
 function delete_old_thresholds() {
 	$tholds = db_fetch_assoc('SELECT td.id, td.data_template_rrd_id, td.local_data_id
 		FROM thold_data AS td
@@ -5584,6 +6286,13 @@ function delete_old_thresholds() {
 	}
 }
 
+/**
+ * thold_api_thold_remove - deletes a threshold and its associated contact/daemon-data rows.
+ *
+ * @param int $id The threshold id to remove.
+ *
+ * @return void
+ */
 function thold_api_thold_remove($id) {
 	db_execute_prepared('DELETE FROM thold_data
 		WHERE id = ?',
@@ -5598,6 +6307,14 @@ function thold_api_thold_remove($id) {
 		[$id]);
 }
 
+/**
+ * thold_api_thold_template_remove - deletes a threshold template and its contact rows, and
+ * detaches any thresholds still referencing it.
+ *
+ * @param int $id The threshold template id to remove.
+ *
+ * @return void
+ */
 function thold_api_thold_template_remove($id) {
 	db_execute_prepared('DELETE FROM thold_template
 		WHERE id = ?',
@@ -5613,12 +6330,31 @@ function thold_api_thold_template_remove($id) {
 		[$id]);
 }
 
+/**
+ * thold_rrd_last - fetches the last-updated timestamp recorded in a data source's RRD file.
+ *
+ * @param int $local_data_id The local data source id whose RRD file to check.
+ *
+ * @return string The RRD's last-update Unix timestamp, as returned by rrdtool.
+ */
 function thold_rrd_last($local_data_id) {
 	$last_time_entry = @rrdtool_execute('last ' . trim(get_data_source_path($local_data_id, true)), false, RRDTOOL_OUTPUT_STDOUT);
 
 	return trim($last_time_entry);
 }
 
+/**
+ * get_current_value - fetches a data source's most recent RRD sample directly from its RRD file
+ * (flushing Boost's pending output first, if enabled), optionally CDEF-transformed.
+ *
+ * @param int $local_data_id The local data source id to fetch a sample for.
+ * @param string $data_template_rrd_id The RRD field name to read from the fetch result.
+ * @param int $cdef Optional cdef id to transform the raw value through.
+ * @param mixed $missing_value The value to return when no usable sample is found.
+ *
+ * @return mixed The most recent sample value (rounded to 4 decimals), or $missing_value when the
+ *   data source, field, or a usable sample doesn't exist.
+ */
 function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0, $missing_value = 0) {
 	// get the information to populate into the rrd files
 	if (function_exists('boost_check_correct_enabled') && boost_check_correct_enabled()) {
@@ -5675,6 +6411,18 @@ function get_current_value($local_data_id, $data_template_rrd_id, $cdef = 0, $mi
 	return round($value, 4);
 }
 
+/**
+ * thold_get_ref_values - looks up a data source's historical reference value (min/max/average over
+ * a past window) for baseline threshold comparisons.
+ *
+ * @param int $local_data_id The local data source id to look up.
+ * @param string $data_source_name The RRD field name to look up within the statistics result.
+ * @param int $current_time The current Unix timestamp the reference window is measured from.
+ * @param int $prev_time How many seconds back the reference window starts.
+ * @param string $avg_of_cf The consolidation function to average over.
+ *
+ * @return mixed The reference statistics for the data source, or false when unavailable.
+ */
 function thold_get_ref_values($local_data_id, $data_source_name, $current_time, $prev_time, $avg_of_cf) {
 	$data = thold_get_rrd_statistics($local_data_id, $current_time, $prev_time, $avg_of_cf);
 
@@ -5962,6 +6710,17 @@ function thold_check_baseline($local_data_id, $data_source_name, $current_value,
 	return $failed;
 }
 
+/**
+ * get_bl_type - renders a baseline threshold type's abbreviated display label, substituting the
+ * configured consolidation function into types that reference one.
+ *
+ * @param string $type The baseline type code (0-7).
+ * @param string $cf The consolidation function name to substitute into TIP/AOT-style labels.
+ *
+ * @global array $bl_types Baseline type code => full display label map.
+ *
+ * @return string The abbreviated display label for the type.
+ */
 function get_bl_type($type, $cf) {
 	global $bl_types;
 
@@ -5992,6 +6751,13 @@ function get_bl_type($type, $cf) {
 	}
 }
 
+/**
+ * thold_create_new_graph_from_template - handles the "create graph from host template/SNMP index"
+ * form submission on the threshold graph-creation page, either delegating to Cacti core's new-
+ * graphs UI (to collect the graph selections) or saving the selected graphs once confirmed.
+ *
+ * @return void
+ */
 function thold_create_new_graph_from_template() {
 	if (!isset_request_var('host_id')) {
 		$device_id = 0;
@@ -6029,31 +6795,6 @@ function thold_create_new_graph_from_template() {
 }
 
 /**
- * thold_display_to_raw - Converts a displayed number to a raw
- * numeric value.  This function converts number like '100M'
- * to the raw number 100,000,000, etc.
- *
- * Supported Units
- *
- * Unit  Expression
- * ----  -------------------------------------
- * f     Fermo (10e-12)
- * p     Pico  (10e-9)
- * u     Micro (10e-6)
- * m     Milli (10e-3)
- * K     Killo (10e3)
- * M     Mega  (10e6)
- * G     Giga  (10e9)
- * T     Terra (10e12)
- * P     Peta  (10e15)
- * E     Exa   (10e18)
- * Z     Zeta  (10e21)
- * Y     Yota  (10e24)
- *
- * @param mixed $number
- * @param mixed $field_name
- */
-/**
  * SI suffixes thold accepts on a threshold bound, smallest first.
  *
  * thold_display_to_raw() and thold_raw_to_display() are inverses of each
@@ -6087,6 +6828,16 @@ function thold_unit_suffixes() {
 	return $suffixes;
 }
 
+/**
+ * thold_display_to_raw - converts a displayed number with an optional SI-style unit suffix (e.g.
+ * '100M') into its raw numeric value (e.g. 100000000), per thold_unit_suffixes()'s scale table.
+ *
+ * @param mixed $number The displayed value, optionally suffixed with a unit letter.
+ * @param mixed $field_name The form field name, used to remember the raw entry and flag errors.
+ *
+ * @return mixed The raw numeric value, or false (raising a validation message) when the suffix
+ *   is unrecognized.
+ */
 function thold_display_to_raw($number, $field_name) {
 	$number = trim($number);
 
@@ -6112,6 +6863,15 @@ function thold_display_to_raw($number, $field_name) {
 	return $number * $suffixes[$suffix];
 }
 
+/**
+ * thold_raw_to_display - converts a raw numeric value into a displayed number with the largest SI
+ * suffix (per thold_unit_suffixes()'s scale table) that keeps its scaled magnitude at least one;
+ * the inverse of thold_display_to_raw().
+ *
+ * @param mixed $number The raw numeric value to convert.
+ *
+ * @return mixed The scaled, suffixed display string, or false when $number isn't numeric.
+ */
 function thold_raw_to_display($number) {
 	if ($number != '') {
 		$number = trim($number);
@@ -6148,6 +6908,15 @@ function thold_raw_to_display($number) {
 	return trim((($number / $factor) * $multiplier) . $suffix);
 }
 
+/**
+ * save_thold - handles the threshold add/edit form submission: validates and normalizes every
+ * submitted field (bounds, triggers, notification lists, CDEF, contacts), then inserts or updates
+ * the thold_data row and its associated contact assignments.
+ *
+ * @global array $banner Used by the underlying save/validation helpers for form messaging.
+ *
+ * @return int The saved threshold's id.
+ */
 function save_thold() {
 	global $banner;
 
@@ -6721,6 +7490,17 @@ function save_thold() {
 	return $id;
 }
 
+/**
+ * trim_round_request_var - reads a request variable, converts it from its displayed (optionally
+ * unit-suffixed) form to a raw numeric value, and rounds it to the given precision.
+ *
+ * @param string $variable The request variable name to read.
+ * @param int $digits The number of decimal digits to round to; 0 skips rounding.
+ * @param string $field_name The form field name, passed through to thold_display_to_raw() for
+ *   error tracking.
+ *
+ * @return mixed The rounded raw value, '0' for a literal zero, or an empty string when unset.
+ */
 function trim_round_request_var($variable, $digits = 0, $field_name = '') {
 	$variable = trim(get_nfilter_request_var($variable));
 
@@ -6743,6 +7523,15 @@ function trim_round_request_var($variable, $digits = 0, $field_name = '') {
 	}
 }
 
+/**
+ * thold_save_template_contacts - replaces a threshold template's notification contact
+ * assignments with the given list.
+ *
+ * @param int $id The threshold template id to update contacts for.
+ * @param array $contacts The contact ids to assign to the template.
+ *
+ * @return void
+ */
 function thold_save_template_contacts($id, $contacts) {
 	db_execute_prepared('DELETE
 		FROM plugin_thold_template_contact
@@ -6759,6 +7548,15 @@ function thold_save_template_contacts($id, $contacts) {
 	}
 }
 
+/**
+ * thold_raise_message - raises a Cacti UI message and also records it (with a call stack) to the
+ * Cacti log at debug verbosity, under a uniquely-numbered message id per request.
+ *
+ * @param string $message The message text to display/log.
+ * @param int $level The message severity (one of the MESSAGE_LEVEL_* constants).
+ *
+ * @return void
+ */
 function thold_raise_message($message, $level = MESSAGE_LEVEL_NONE) {
 	static $thold_message_count = 0;
 	$message_id                 = 'thold_message_' . $thold_message_count;
@@ -6769,6 +7567,15 @@ function thold_raise_message($message, $level = MESSAGE_LEVEL_NONE) {
 	$thold_message_count++;
 }
 
+/**
+ * thold_save_threshold_contacts - replaces a threshold's notification contact assignments with
+ * the given list.
+ *
+ * @param int $id The threshold id to update contacts for.
+ * @param array $contacts The contact ids to assign to the threshold.
+ *
+ * @return void
+ */
 function thold_save_threshold_contacts($id, $contacts) {
 	db_execute_prepared('DELETE
 		FROM plugin_thold_threshold_contact
@@ -6783,6 +7590,17 @@ function thold_save_threshold_contacts($id, $contacts) {
 	}
 }
 
+/**
+ * thold_validate_save - validates a submitted threshold/template save against its type's rules
+ * (hi/lo, baseline deviation, or time-based bound/trigger consistency), raising a UI error
+ * message and flagging the offending fields when invalid.
+ *
+ * @param array $save The submitted threshold/template data to validate.
+ * @param string $type Which entity is being validated: 'thold_template' or 'thold'.
+ *
+ * @return bool True when valid (or when validation is skipped for a not-yet-created threshold);
+ *   false when one or more rules failed.
+ */
 function thold_validate_save($save, $type = 'thold_template') {
 	/**
 	 * Type Types:
@@ -6949,6 +7767,16 @@ function thold_validate_save($save, $type = 'thold_template') {
 }
 
 // populate the save structure from a thold template
+/**
+ * thold_create_thold_save_from_template - copies a threshold template's settings (bounds,
+ * triggers, notification, CDEF, syslog, commands, acknowledgment, subjects/bodies, SNMP, notes)
+ * into a threshold save array as the starting point for a template-derived threshold.
+ *
+ * @param array $save The in-progress threshold save array to populate.
+ * @param array $template The threshold template row to copy settings from.
+ *
+ * @return array The populated threshold save array.
+ */
 function thold_create_thold_save_from_template($save, $template) {
 	// General Settings
 	$save['name']              = $template['suggested_name'];
@@ -7059,6 +7887,20 @@ function thold_create_thold_save_from_template($save, $template) {
 }
 
 // Create tholds for all possible data elements for a host
+/**
+ * autocreate - creates thresholds from their associated templates for every eligible data source
+ * on the given device(s)/graph(s)/graph template/threshold template, skipping data sources that
+ * already have a threshold from that template.
+ *
+ * @param int|array $device_ids A single device id, or an array of device ids to scope to.
+ * @param array|string $graph_ids Optional array of local graph ids to further scope to.
+ * @param int|string $graph_template_id Optional graph template id to further scope to.
+ * @param int|string $thold_template_id Optional threshold template id to restrict creation to.
+ * @param bool $log Whether to raise a UI message when no matching templates are found for a
+ *   single device.
+ *
+ * @return int The number of thresholds created.
+ */
 function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thold_template_id = '', $log = false) {
 	$created   = 0;
 	$message   = '';
@@ -7233,6 +8075,20 @@ function autocreate($device_ids, $graph_ids = '', $graph_template_id = '', $thol
 	return $created;
 }
 
+/**
+ * thold_create_from_template - creates a single threshold for a data source from a threshold
+ * template, provided the data source name matches the template and no matching threshold already
+ * exists.
+ *
+ * @param int $local_data_id The local data source id to create the threshold for.
+ * @param int $local_graph_id The local graph id the data source belongs to.
+ * @param int $data_template_rrd_id The data_template_rrd id backing the data source.
+ * @param array|int $template_or_id The threshold template row, or its id to look one up.
+ * @param string &$message Appended with a created-threshold summary line on success.
+ *
+ * @return bool True when a new threshold was created; false when it already existed, the data
+ *   source didn't match the template, or the save failed validation.
+ */
 function thold_create_from_template($local_data_id, $local_graph_id, $data_template_rrd_id, $template_or_id, &$message) {
 	if (is_array($template_or_id)) {
 		$template = $template_or_id;
@@ -7318,6 +8174,31 @@ function thold_create_from_template($local_data_id, $local_graph_id, $data_templ
 }
 
 // Sends a group of graphs to a user
+/**
+ * thold_mail - sends (or, when the notification queue is enabled, enqueues) a threshold/device
+ * notification email, attaching graph images referenced by `<GRAPH>` in the message body and
+ * applying any configured report format file.
+ *
+ * @param string $to_email Comma-separated recipient addresses.
+ * @param string $bcc_email Comma-separated blind-copy addresses.
+ * @param string $from_email Sender address; falls back to the 'thold_from_email' setting (or a
+ *   generated cacti@hostname address) when empty.
+ * @param string $subject The message subject line.
+ * @param string $message The message body (may contain a `<GRAPH>`/`<SUBJECT>` token).
+ * @param array $filename Graph attachment descriptor(s) (local_graph_id/local_data_id), or a
+ *   single descriptor array.
+ * @param array $headers Additional mail headers to merge in.
+ * @param int $notify_list_id The notification list id this send belongs to, when queuing.
+ * @param array &$host The device row associated with this notification.
+ * @param string $format_file Optional report format file to wrap the message body in.
+ * @param int $graph_timespan The graph attachment's timespan, in days.
+ * @param string $topic The notification_queue topic to use when queuing.
+ *
+ * @global array $config Cacti's global configuration array.
+ *
+ * @return string An empty string on success (or successful queuing), or the mailer/validation
+ *   error message on failure.
+ */
 function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $filename, $headers = [], $notify_list_id = 0, &$host = [], $format_file = '', $graph_timespan = 7, $topic = 'thold_mail') {
 	thold_debug('Preparing to send email');
 	global $config;
@@ -7546,6 +8427,18 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 	return '';
 }
 
+/**
+ * thold_notification_add - enqueues one notification (email/command/etc.) into the notification_queue
+ * table for deferred delivery, resolving a display name and originating device from the payload.
+ *
+ * @param string $topic The notification_queue topic identifying the delivery type.
+ * @param array &$data The notification payload to persist (JSON-encoded).
+ * @param string $id The key within $data['data'] holding the source object's id.
+ * @param int $list_id The notification list id this entry belongs to.
+ * @param array &$host The originating device row, if any.
+ *
+ * @return void
+ */
 function thold_notification_add($topic, &$data, $id = 'id', $list_id = 0, &$host = []) {
 	$now = date('Y-m-d H:i:s');
 
@@ -7587,6 +8480,15 @@ function thold_notification_add($topic, &$data, $id = 'id', $list_id = 0, &$host
 		[$topic, $list_id, $id, $name, $host_id, $hostname, $now, json_encode($data, JSON_PRETTY_PRINT)]);
 }
 
+/**
+ * pre_process_device_notifications - implements device-down notification storm suppression:
+ * evaluates the 'alert_notification_pause' rule set (global event count, per-site count, percent
+ * of a site's hosts, or percent of all hosts) against unprocessed device-down queue entries since
+ * the last check, then delegates to check_for_expired_delays()/check_for_new_delays() to send
+ * final notifications for expired delay windows and start delay windows for newly-triggered rules.
+ *
+ * @return void
+ */
 function pre_process_device_notifications() {
 	$delay_criteria = read_config_option('alert_notification_pause');
 	$now            = time();
@@ -8520,6 +9422,18 @@ function thold_notification_run($pid, $max_records = 'all', $heartbeat = null) {
 	return $total_rows;
 }
 
+/**
+ * thold_notification_execute - drains one worker's claimed slice of the notification_queue:
+ * applies device-down notification-storm delay processing, then processes non-device
+ * notifications, then device notifications, with a heartbeat callback invoked between each phase.
+ *
+ * @param int $pid The worker process id that has already claimed queue rows to process.
+ * @param int|string $max_records The maximum number of records to process, or 'all'.
+ * @param callable|null $heartbeat Optional callback invoked between phases to refresh the
+ *   worker's lease.
+ *
+ * @return void
+ */
 function thold_notification_execute($pid = 0, $max_records = 'all', $heartbeat = null) {
 	$pid = (int) $pid;
 
@@ -8566,6 +9480,14 @@ function thold_notification_execute($pid = 0, $max_records = 'all', $heartbeat =
 	process_device_notifications($pid, $max_records, $prev_suspended, $heartbeat);
 }
 
+/**
+ * thold_notification_retry_delay - computes a bounded exponential backoff delay (in seconds) for
+ * a retried notification delivery attempt.
+ *
+ * @param int $attempt The attempt number (1-based; values below 1 are clamped to 1).
+ *
+ * @return int The delay in seconds, doubling per attempt and capped at 3600.
+ */
 function thold_notification_retry_delay($attempt) {
 	$attempt = max(1, (int) $attempt);
 
@@ -8705,6 +9627,21 @@ function thold_notification_record_deliveries(array $records, $pid, $error, $run
 		$pid);
 }
 
+/**
+ * process_device_notifications - drains this worker's claimed device up/down notification_queue
+ * entries (mail and command topics), sending mail (optionally consolidating all device
+ * notifications for this run into a single digest email) or running the configured command, and
+ * recording each delivery result.
+ *
+ * @param int $pid The worker process id that has already claimed the queue rows to process.
+ * @param int|string $max_records The maximum number of records to process, or 'all'.
+ * @param bool $prev_suspended Whether notifications were already suspended before this run
+ *   started (suppresses a duplicate suspend log line).
+ * @param callable|null $heartbeat Optional callback invoked between records to refresh the
+ *   worker's lease.
+ *
+ * @return void
+ */
 function process_device_notifications($pid, $max_records, $prev_suspended, $heartbeat = null) {
 	$one_email = read_config_option('alert_deadnotify_one_mail') == 'on' ? true : false;
 	$emails    = [];
@@ -8927,6 +9864,20 @@ function process_device_notifications($pid, $max_records, $prev_suspended, $hear
 	}
 }
 
+/**
+ * process_non_device_notifications - drains this worker's claimed threshold notification_queue
+ * entries (mail and command topics, excluding device up/down topics), sending mail or running the
+ * configured command, and recording each delivery result.
+ *
+ * @param int $pid The worker process id that has already claimed the queue rows to process.
+ * @param int|string $max_records The maximum number of records to process, or 'all'.
+ * @param bool $prev_suspended Whether notifications were already suspended before this run
+ *   started (suppresses a duplicate suspend log line).
+ * @param callable|null $heartbeat Optional callback invoked between records to refresh the
+ *   worker's lease.
+ *
+ * @return void
+ */
 function process_non_device_notifications($pid, $max_records, $prev_suspended, $heartbeat = null) {
 	if ($max_records == 'all') {
 		$sql_limit = '';
@@ -9048,6 +9999,15 @@ function process_non_device_notifications($pid, $max_records, $prev_suspended, $
 	}
 }
 
+/**
+ * thold_template_update_threshold - re-applies a threshold template's settings, contact
+ * assignments, notification list, and suggested name to a single templated threshold.
+ *
+ * @param int $id The threshold id to update.
+ * @param int $template The threshold template id to copy settings from.
+ *
+ * @return void
+ */
 function thold_template_update_threshold($id, $template) {
 	db_execute_prepared("UPDATE thold_data AS td, thold_template AS tt
 		SET
@@ -9099,6 +10059,15 @@ function thold_template_update_threshold($id, $template) {
 	update_suggested_names_from_template($template, $id);
 }
 
+/**
+ * thold_template_update_thresholds - re-applies a threshold template's settings and contact
+ * assignments to every enabled templated threshold, then refreshes their notification lists and
+ * suggested names.
+ *
+ * @param int $id The threshold template id whose thresholds should be resynced.
+ *
+ * @return void
+ */
 function thold_template_update_thresholds($id) {
 	db_execute_prepared("UPDATE thold_data AS td, thold_template AS tt
 		SET
@@ -9161,6 +10130,16 @@ function thold_template_update_thresholds($id) {
 	update_suggested_names_from_template($id);
 }
 
+/**
+ * update_notification_list_from_template - copies a threshold template's notification list
+ * settings onto its templated threshold(s), when the template is configured to enforce them.
+ *
+ * @param int $id The threshold template id to copy notification settings from.
+ * @param int $thold_id Optional single threshold id to restrict the update to; -1 updates all
+ *   thresholds using the template.
+ *
+ * @return void
+ */
 function update_notification_list_from_template($id, $thold_id = -1) {
 	$templated = db_fetch_cell_prepared('SELECT notify_templated
 		FROM thold_template
@@ -9185,6 +10164,16 @@ function update_notification_list_from_template($id, $thold_id = -1) {
 	}
 }
 
+/**
+ * update_suggested_names_from_template - recomputes and persists the cached display name
+ * (name_cache) for a threshold template's threshold(s) from its suggested_name pattern.
+ *
+ * @param int $id The threshold template id providing the suggested_name pattern.
+ * @param int $thold_id Optional single threshold id to restrict the update to; -1 updates all
+ *   thresholds using the template.
+ *
+ * @return void
+ */
 function update_suggested_names_from_template($id, $thold_id = -1) {
 	$suggested_name = db_fetch_cell_prepared('SELECT suggested_name
 		FROM thold_template
@@ -9215,6 +10204,20 @@ function update_suggested_names_from_template($id, $thold_id = -1) {
 	}
 }
 
+/**
+ * thold_cacti_log - writes a thold-prefixed message to the Cacti log file and/or syslog per the
+ * 'log_destination' setting, optionally also echoing a running-elapsed-time-prefixed line to
+ * stdout.
+ *
+ * @param string $string The message to log.
+ * @param string $thread Optional thread/context identifier included in the log prefix.
+ * @param bool $stdout Whether to also print the message (with elapsed time) to stdout.
+ *
+ * @global array $config Cacti's global configuration array.
+ * @global bool $debug Whether debug logging is enabled for this request.
+ *
+ * @return void
+ */
 function thold_cacti_log($string, $thread = '', $stdout = false) {
 	global $config, $debug;
 	static $start = null;
@@ -9305,6 +10308,14 @@ function thold_cacti_log($string, $thread = '', $stdout = false) {
 	}
 }
 
+/**
+ * thold_threshold_enable - enables a threshold (per-threshold enable flag) and resets its fail
+ * counters/alert state, subject to the caller's realm authorization.
+ *
+ * @param int $id The threshold id to enable.
+ *
+ * @return void
+ */
 function thold_threshold_enable($id) {
 	if (api_user_realm_auth('thold.php')) {
 		db_execute_prepared("UPDATE thold_data
@@ -9319,6 +10330,14 @@ function thold_threshold_enable($id) {
 	}
 }
 
+/**
+ * thold_threshold_disable - disables a threshold (per-threshold enable flag) and resets its fail
+ * counters/alert state, subject to the caller's realm authorization.
+ *
+ * @param int $id The threshold id to disable.
+ *
+ * @return void
+ */
 function thold_threshold_disable($id) {
 	if (api_user_realm_auth('thold.php')) {
 		db_execute_prepared("UPDATE thold_data
@@ -9333,6 +10352,16 @@ function thold_threshold_disable($id) {
 	}
 }
 
+/**
+ * thold_threshold_ack_prompt - renders the confirmation form (with an optional operator comment
+ * field) shown before acknowledging a threshold.
+ *
+ * @param int $id The threshold id being acknowledged.
+ *
+ * @global array $config Cacti's global configuration array.
+ *
+ * @return void
+ */
 function thold_threshold_ack_prompt($id) {
 	global $config;
 
@@ -9374,6 +10403,14 @@ function thold_threshold_ack_prompt($id) {
 	bottom_footer();
 }
 
+/**
+ * thold_threshold_ack - acknowledges a threshold (clearing its acknowledgment flag) and records
+ * the acknowledgment, subject to the caller's realm authorization and graph permissions.
+ *
+ * @param int $id The threshold id to acknowledge.
+ *
+ * @return void
+ */
 function thold_threshold_ack($id) {
 	if (api_user_realm_auth('thold.php')) {
 		if (is_thold_allowed($id)) {
@@ -9389,6 +10426,15 @@ function thold_threshold_ack($id) {
 	}
 }
 
+/**
+ * thold_threshold_suspend_ack - clears a threshold's acknowledgment flag (only when the threshold
+ * is configured to auto-reset acknowledgment), subject to the caller's realm authorization and
+ * graph permissions.
+ *
+ * @param int $id The threshold id to update.
+ *
+ * @return void
+ */
 function thold_threshold_suspend_ack($id) {
 	if (api_user_realm_auth('thold.php')) {
 		if (is_thold_allowed($id)) {
@@ -9403,6 +10449,14 @@ function thold_threshold_suspend_ack($id) {
 	}
 }
 
+/**
+ * thold_threshold_resume_ack - re-applies acknowledgment to a still-alerting threshold configured
+ * to auto-reset acknowledgment, subject to the caller's realm authorization and graph permissions.
+ *
+ * @param int $id The threshold id to update.
+ *
+ * @return void
+ */
 function thold_threshold_resume_ack($id) {
 	if (api_user_realm_auth('thold.php')) {
 		if (is_thold_allowed($id)) {
@@ -9418,6 +10472,18 @@ function thold_threshold_resume_ack($id) {
 	}
 }
 
+/**
+ * get_thold_emails - resolves the recipient (to/bcc) address list for a threshold's alert or
+ * warning notification, combining its legacy per-threshold contacts/extra addresses with its
+ * assigned notification list's addresses.
+ *
+ * @param array $thold The threshold row, including notify_alert/notify_warning list ids and
+ *   notify_extra/notify_warning_extra legacy addresses.
+ * @param string $class Which notification phase to resolve addresses for: 'alert' or 'warning'.
+ * @param string $recipient Which address type to resolve: 'to' or 'bcc'.
+ *
+ * @return string The comma-separated resolved address list.
+ */
 function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 	$emails = '';
 
@@ -9459,6 +10525,15 @@ function get_thold_emails($thold, $class = 'alert', $recipient = 'to') {
 	return $emails;
 }
 
+/**
+ * get_thold_notification_emails - resolves a notification list's to/bcc address list, when the
+ * list is enabled.
+ *
+ * @param int|string $id The notification list id to look up.
+ * @param string $recipient Which address column to resolve: 'to' or 'bcc'.
+ *
+ * @return string The resolved address list, or an empty string when unset or the list is disabled.
+ */
 function get_thold_notification_emails($id = '', $recipient = 'to') {
 	if ($id == '' || $id === null) {
 		return '';
@@ -9485,6 +10560,14 @@ function get_thold_notification_emails($id = '', $recipient = 'to') {
 	}
 }
 
+/**
+ * thold_notification_list_enabled - checks whether a notification list is enabled, caching every
+ * list's enabled state for the rest of the request.
+ *
+ * @param int $list_id The notification list id to check.
+ *
+ * @return bool True when the list is enabled, or when the list id isn't found (fails open).
+ */
 function thold_notification_list_enabled($list_id) {
 	static $lists = null;
 
@@ -9520,6 +10603,13 @@ function get_hash_thold_template($id) {
 	}
 }
 
+/**
+ * ia2xml - recursively renders an associative array as XML elements, HTML-escaping scalar values.
+ *
+ * @param array $array The array to render, with keys used as element names.
+ *
+ * @return string The rendered XML fragment (without a root wrapper element).
+ */
 function ia2xml($array) {
 	$xml = '';
 
@@ -9536,6 +10626,15 @@ function ia2xml($array) {
 	return $xml;
 }
 
+/**
+ * array2xml - wraps an array's rendered XML (via ia2xml()) in a uniquely-numbered root element,
+ * used when exporting multiple threshold templates in one XML document.
+ *
+ * @param array $array The array to render.
+ * @param string $tag The root element name prefix; suffixed with an incrementing index.
+ *
+ * @return string The rendered XML document fragment.
+ */
 function array2xml($array, $tag = 'template') {
 	static $index = 1;
 
@@ -9546,6 +10645,17 @@ function array2xml($array, $tag = 'template') {
 	return $xml;
 }
 
+/**
+ * thold_snmptrap - sends a CACTI-THOLD-MIB SNMP notification for a threshold event, when the
+ * Cacti SNMPAgent plugin is active.
+ *
+ * @param array $varbinds The event varbind data (see get_thold_snmp_data()), with `<HOSTIP>`
+ *   resolved into the event description when present.
+ * @param int $severity The SNMPAgent event severity to send at.
+ * @param bool $overwrite Whether to overwrite any pending notification of the same type.
+ *
+ * @return void
+ */
 function thold_snmptrap($varbinds, $severity = SNMPAGENT_EVENT_SEVERITY_MEDIUM, $overwrite = false) {
 	if (function_exists('snmpagent_notification')) {
 		if (isset($varbinds['eventDescription']) && isset($varbinds['eventDeviceIp'])) {
@@ -9558,6 +10668,12 @@ function thold_snmptrap($varbinds, $severity = SNMPAGENT_EVENT_SEVERITY_MEDIUM, 
 	}
 }
 
+/**
+ * thold_prune_old_data - removes thresholds, logs, and failed-host records left orphaned by
+ * deleted devices/graphs, and purges old processed notification_queue entries.
+ *
+ * @return void
+ */
 function thold_prune_old_data() {
 	// Remove failed entries from removed devices
 	db_execute('DELETE pthf
@@ -9617,6 +10733,21 @@ function thold_prune_old_data() {
 	}
 }
 
+/**
+ * thold_get_allowed_devices - fetches the devices a user is permitted to see (via their graph
+ * permissions), applying graph authentication policy filtering and optional caller-supplied
+ * WHERE/ORDER BY/LIMIT clauses.
+ *
+ * @param string $sql_where Additional SQL WHERE conditions (without the WHERE keyword).
+ * @param string $order_by SQL ORDER BY expression (without the ORDER BY keyword).
+ * @param string $sql_limit SQL LIMIT clause contents (without the LIMIT keyword).
+ * @param int &$total_rows Set to the total matching row count (ignoring $sql_limit).
+ * @param int $user_id The user id to check permissions for; 0 uses the session user, -1 skips
+ *   authentication entirely.
+ * @param int $device_id Optional device id to restrict results to a single device.
+ *
+ * @return array The matching host rows, including computed graph/data-source counts and instate.
+ */
 function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $sql_limit = '', &$total_rows = 0, $user_id = 0, $device_id = 0) {
 	if ($user_id == -1) {
 		$auth_method = 0;
@@ -9766,10 +10897,29 @@ function thold_get_allowed_devices($sql_where = '', $order_by = 'description', $
 	return $host_list;
 }
 
+/**
+ * thold_get_default_template_name - builds a threshold template's default display name from its
+ * data template and data source names.
+ *
+ * @param array $thold_data The threshold row/template providing the name parts.
+ *
+ * @return string The composed default name.
+ */
 function thold_get_default_template_name($thold_data) {
 	return $thold_data['data_template_name'] . ' [' . $thold_data['data_source_name'] . ']';
 }
 
+/**
+ * thold_get_default_suggested_name - resolves the suggested-name token pattern to use for a
+ * threshold, preferring an explicitly configured one over the built-in
+ * `|data_source_description| [|data_source_name|]` default.
+ *
+ * @param array $thold_data The threshold/template row providing a 'suggested_name', if set.
+ * @param int $id Optional threshold template id to look up 'suggested_name' from when
+ *   $thold_data is empty.
+ *
+ * @return string The suggested-name token pattern (not yet expanded).
+ */
 function thold_get_default_suggested_name($thold_data, $id = 0) {
 	if (empty($thold_data) && $id) {
 		$thold_data = db_fetch_row_prepared('SELECT suggested_name
@@ -9787,6 +10937,14 @@ function thold_get_default_suggested_name($thold_data, $id = 0) {
 	return $desc;
 }
 
+/**
+ * thold_get_cached_name - resolves and caches a threshold's display name, substituting the
+ * `|data_source_description|` token if the cached name isn't already set.
+ *
+ * @param array &$thold_data The threshold row, updated in place with 'name_cache' if it was empty.
+ *
+ * @return string The threshold's cached display name.
+ */
 function thold_get_cached_name(&$thold_data) {
 	if (empty($thold_data['name_cache'])) {
 		$thold_data['name_cache'] = thold_substitute_data_source_description($thold_data['name'], $thold_data['local_data_id']);
@@ -9831,6 +10989,18 @@ function thold_str_replace(string $search, $replace, ?string $subject): string {
 	return str_replace($search, $replace ?? '', $subject ?? '');
 }
 
+/**
+ * thold_template_import - imports one or more threshold templates from an XML export, resolving
+ * the referenced data template/data source by hash, creating or updating the matching
+ * thold_template row(s) accordingly.
+ *
+ * @param string $xml_data The raw XML export data to import.
+ *
+ * @global array $config Cacti's global configuration array.
+ *
+ * @return array A debug_data array with 'success'/'failure'/'errors' message lists describing the
+ *   outcome of each template processed.
+ */
 function thold_template_import($xml_data) {
 	global $config;
 
@@ -9946,6 +11116,14 @@ function thold_template_import($xml_data) {
 	return $debug_data;
 }
 
+/**
+ * validate_template_import_columns - verifies every key in an imported threshold template's save
+ * array corresponds to a real thold_template column.
+ *
+ * @param array $template The threshold template save array to validate.
+ *
+ * @return bool True when every column exists (and the array is non-empty); false otherwise.
+ */
 function validate_template_import_columns($template) {
 	if (cacti_sizeof($template)) {
 		foreach ($template as $column => $data) {
@@ -9962,6 +11140,18 @@ function validate_template_import_columns($template) {
 	return true;
 }
 
+/**
+ * thold_error_handler - a PHP error handler that logs errors to the Cacti log (at debug
+ * verbosity), suppressing a couple of known-benign notices (timezone/reference-related).
+ *
+ * @param int $errno The PHP error level constant.
+ * @param string $errmsg The error message text.
+ * @param string $filename The file the error occurred in.
+ * @param int $linenum The line number the error occurred on.
+ * @param array $vars Unused; retained for compatibility with PHP's error handler signature.
+ *
+ * @return void
+ */
 function thold_error_handler($errno, $errmsg, $filename, $linenum, $vars = []) {
 	if (read_config_option('log_verbosity') >= POLLER_VERBOSITY_DEBUG) {
 		// define all error types

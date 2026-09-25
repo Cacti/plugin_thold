@@ -22,6 +22,20 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Executes the "Create Threshold from Template" bulk graph action:
+ * applies a selected threshold template to a graph's matching data
+ * source(s) (across all RRD items sharing the template's configured
+ * data source name), creating a new thold_data row for each RRD item
+ * that doesn't already have a threshold from that template, then
+ * redirects back to the originating page with a summary message.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate library files and build the redirect
+ *                       URL.
+ */
 function thold_add_graphs_action_execute() {
 	global $config;
 
@@ -165,6 +179,16 @@ function thold_add_graphs_action_execute() {
 	}
 }
 
+/**
+ * Renders the confirmation/selection page for the "Create Threshold
+ * from Template" bulk graph action by delegating to thold_wizard().
+ * Cacti device_action_prepare-style hook entry point.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_add_graphs_action_prepare() {
 	global $config;
 
@@ -175,12 +199,34 @@ function thold_add_graphs_action_prepare() {
 	bottom_footer();
 }
 
+/**
+ * Adds the "Create Threshold from Template" entry to the graph
+ * management bulk-actions dropdown. Registered as a Cacti
+ * graph_action_array-style hook.
+ *
+ * @param array $action The existing bulk-action label map, keyed by
+ *                      action id.
+ *
+ * @return array The action map with this plugin's entry added.
+ */
 function thold_add_graphs_action_array($action) {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
 
 	return $action;
 }
 
+/**
+ * Renders the threshold-creation wizard: either the single-graph
+ * "apply a threshold template" confirmation form (when a graph and
+ * template selection was made), or the initial graph/template
+ * selection form used to bulk-create thresholds from a template across
+ * many graphs.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the graph helper library to include.
+ */
 function thold_wizard() {
 	global $config;
 
@@ -858,6 +904,22 @@ function thold_wizard() {
 	bottom_footer();
 }
 
+/**
+ * Processes the "create graphs" wizard's submitted selection of new
+ * graphs/data sources for a host, creating each selected graph (and
+ * its underlying data source) via Cacti's graph creation API, then
+ * applying this plugin's configured auto-threshold-creation behavior
+ * to the newly created graphs. The selected-graphs payload is a nested
+ * (not flat) serialized structure, so it's parsed with a
+ * nested-structure-aware sanitizer/unserializer rather than the
+ * standard flat selected-items sanitizer.
+ *
+ * @param int $host_id The host id the new graphs are being created
+ *                     for.
+ *
+ * @return array|false The created graphs' details, or false if nothing
+ *                     was created/selected.
+ */
 function thold_new_graphs_save($host_id) {
 	$return_array = false;
 
@@ -1020,6 +1082,25 @@ function thold_new_graphs_save($host_id) {
 	return $return_array;
 }
 
+/**
+ * Renders the "create graphs" wizard page for a host/host template,
+ * listing the available graph templates/data queries to select new
+ * graphs from, using output buffering so the page can redirect
+ * elsewhere if no selectable fields end up being drawn.
+ *
+ * @param string $page                   The current page name (used
+ *                                       for wizard step navigation).
+ * @param int    $host_id                The host id to create graphs
+ *                                       for.
+ * @param int    $host_template_id       The host template id providing
+ *                                       candidate graph templates/data
+ *                                       queries.
+ * @param array  $selected_graphs_array  Previously selected graph
+ *                                       choices to preserve across
+ *                                       wizard steps.
+ *
+ * @return void
+ */
 function thold_graph_new_graphs($page, $host_id, $host_template_id, $selected_graphs_array) {
 	/* we use object buffering on this page to allow redirection to another page if no
 	fields are actually drawn */

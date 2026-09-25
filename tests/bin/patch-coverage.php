@@ -168,6 +168,33 @@ $unmeasured_allowlist = [
 	// isolated unit process. Its persistence/evaluation logic lives in the
 	// covered thold_daemon_persist_sample()/thold_check_threshold() helpers.
 	'thold_process.php',
+	// CLI entry points: include cli_check.php / chdir and execute at the
+	// top level, so they cannot be require()'d into the isolated unit process.
+	'cli_import.php',
+	'cli_thresholds.php',
+	// Poller entry point: bootstraps the poller environment and executes
+	// at the top level, so it cannot be require()'d into the isolated unit
+	// process.
+	'poller_thold.php',
+	// Authenticated web entry points: chdir + include(auth.php) and several
+	// lib/* includes at the top level, so they cannot be require()'d into
+	// the isolated unit process.
+	'thold.php',
+	'thold_graph.php',
+	'thold_templates.php',
+	'notify_lists.php',
+	// Daemon entry point, same category as thold_process.php above (pcntl
+	// signal handling at the top level).
+	'thold_daemon.php',
+	// Settings-page and header-tab-bar hook callbacks: only meaningful when
+	// invoked by Cacti's plugin hook dispatcher inside a live page render,
+	// with the real $settings/$config arrays and database populated.
+	'includes/settings.php',
+	'includes/tab.php',
+	// Web-page action handlers (thold_wizard() et al.) that read $_REQUEST
+	// and read/write the Cacti database directly; only meaningful inside a
+	// live authenticated request, not the isolated unit process.
+	'thold_webapi.php',
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));

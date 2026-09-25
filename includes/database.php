@@ -22,6 +22,27 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Runs the plugin's incremental version-to-version schema and settings
+ * migrations, comparing the currently installed plugin_config version
+ * against the running code's version and applying each intervening
+ * upgrade step. Also (re-)creates the full expected schema via
+ * thold_setup_database() first, so this is safe to call for both
+ * fresh installs and upgrades.
+ *
+ * @param bool $force Whether to force re-running every migration step
+ *                    regardless of the recorded installed version
+ *                    (default false).
+ *
+ * @return void
+ *
+ * @global array  $config           Cacti global configuration array;
+ *                                 used to locate library/plugin files
+ *                                 to include.
+ * @global string $database_default Reserved/declared for parity with
+ *                                 other functions in this file; not
+ *                                 used directly here.
+ */
 function thold_upgrade_database($force = false) {
 	global $config, $database_default;
 	include_once($config['library_path'] . '/database.php');
@@ -1811,6 +1832,14 @@ function thold_upgrade_database($force = false) {
 	}
 }
 
+/**
+ * Creates (or updates, via Cacti's schema installer) all of this
+ * plugin's database tables and their columns/keys. Invoked during
+ * plugin installation and as the first step of
+ * thold_upgrade_database().
+ *
+ * @return void
+ */
 function thold_setup_database() {
 	$data              = [];
 	$data['columns'][] = ['name' => 'id', 'type' => 'int(11)', 'NULL' => false, 'auto_increment' => true];

@@ -22,6 +22,21 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Registers this plugin's pages (thresholds, threshold graphs/failure
+ * views, templates, notification lists/queue) and their sub-
+ * actions/edit views into Cacti's breadcrumb navigation array.
+ * Registered as the 'draw_navigation_text' Cacti hook.
+ *
+ * @param array $nav The existing navigation entries array, keyed by
+ *                   "file.php:action".
+ *
+ * @return array The navigation entries array with this plugin's pages
+ *               added.
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_draw_navigation_text($nav) {
 	global $config;
 
@@ -215,6 +230,18 @@ function thold_draw_navigation_text($nav) {
 	return $nav;
 }
 
+/**
+ * Registers this plugin's Console menu entries, applies the current
+ * session's threshold-vertical-rule display preference (and
+ * corresponding BoostFS PNG cache trade-off), and defines this
+ * plugin's global status/severity/message-level constants (guarded so
+ * they're only defined once). Invoked early in plugin initialization.
+ *
+ * @return void
+ *
+ * @global array $menu Cacti Console menu registry; this plugin's
+ *                     entries are added.
+ */
 function thold_config_insert() {
 	global $menu;
 
@@ -269,6 +296,24 @@ function thold_config_insert() {
 	}
 }
 
+/**
+ * Registers this plugin's flash-message templates, surfaces any
+ * pending session-stored message, and (when installed as a fresh
+ * plugin) augments Cacti's built-in user roles with permissions for
+ * this plugin's pages. Registered as the 'config_arrays' Cacti hook.
+ *
+ * @return void
+ *
+ * @global array $config                Cacti global configuration
+ *                                      array.
+ * @global array $messages              Cacti flash-message registry;
+ *                                      this plugin's messages are
+ *                                      added.
+ * @global array $device_change_fields  Registry of per-device change
+ *                                      tracking fields; this plugin's
+ *                                      fields are appended to
+ *                                      'match_field'.
+ */
 function thold_config_arrays() {
 	global $config, $messages, $device_change_fields;
 
@@ -305,6 +350,19 @@ function thold_config_arrays() {
 	kill_session_var('thold_message');
 }
 
+/**
+ * Injects this plugin's device up/down notification settings fields
+ * (notification list selection, email notification mode, failure
+ * count threshold) into the Cacti device edit form's field list,
+ * positioned after the bulk walk size (or disabled) field. Registered
+ * as the 'config_form' Cacti hook.
+ *
+ * @return void
+ *
+ * @global array $fields_host_edit The Cacti device edit form's field
+ *                                definitions; updated in place with
+ *                                this plugin's fields inserted.
+ */
 function thold_config_form() {
 	global $fields_host_edit;
 
@@ -374,6 +432,31 @@ function thold_config_form() {
 	$fields_host_edit = $fields_host_edit3;
 }
 
+/**
+ * Builds this plugin's Console "Settings > Alerting/Thold" tab's field
+ * definitions (thresholds behavior, notification settings, syslog
+ * options, etc.), running any pending plugin upgrade first. Registered
+ * as the 'config_settings' Cacti hook; a no-op outside of settings.php.
+ *
+ * @return void
+ *
+ * @global array $tabs                   Cacti settings tabs registry;
+ *                                       an 'alerts' entry is added.
+ * @global array $settings               Cacti settings field registry;
+ *                                       an 'alerts' section is added.
+ * @global array $item_rows              Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $config                 Cacti global configuration
+ *                                       array; used to locate library
+ *                                       files to include.
+ * @global array $syslog_facil_array     Syslog facility option list
+ *                                       used by syslog-related settings
+ *                                       fields.
+ * @global array $syslog_priority_array  Syslog priority option list
+ *                                       used by syslog-related settings
+ *                                       fields.
+ */
 function thold_config_settings() {
 	global $tabs, $settings, $item_rows, $config, $syslog_facil_array, $syslog_priority_array;
 

@@ -289,6 +289,18 @@ function sig_handler($signo) {
 	}
 }
 
+/**
+ * Logs a debug message from a worker thread to the Cacti log, only
+ * when global debug mode or the thold_daemon_debug setting is enabled.
+ *
+ * @param string $message The message to log.
+ * @param mixed  $thread  The worker thread identifier, passed through
+ *                       to thold_cacti_log() for log-line context.
+ *
+ * @return void
+ *
+ * @global bool $debug Whether debug output is enabled.
+ */
 function thold_daemon_debug($message, $thread) {
 	global $debug;
 
@@ -299,6 +311,25 @@ function thold_daemon_debug($message, $thread) {
 	}
 }
 
+/**
+ * Fetches the set of "live" percent/expression-based thresholds
+ * (thold_enabled and thold_per_enabled, flagged for a tcheck-style
+ * evaluation) queued for a worker thread by the daemon's data
+ * distribution step, restricted to hosts reporting as up. Uses the
+ * remote-poller-aware host status join when remote storage is
+ * configured. Filtered further via the 'thold_get_live_hosts' plugin
+ * hook.
+ *
+ * @param int   $thread     The worker thread id to fetch queued
+ *                         thresholds for.
+ * @param float $start_time The batch's start timestamp; only rows
+ *                         queued at or before this time are included.
+ *
+ * @return array The matching threshold records.
+ *
+ * @global array $config Cacti global configuration array; used when
+ *                       remote storage is configured.
+ */
 function thold_get_thresholds_tholdcheck($thread, $start_time) {
 	global $config;
 
@@ -349,6 +380,24 @@ function thold_get_thresholds_tholdcheck($thread, $start_time) {
 	return $tholds;
 }
 
+/**
+ * Fetches the set of thresholds (with their associated data source
+ * details) queued for a worker thread by the daemon's data
+ * distribution step, for standard (non-percent/expression) threshold
+ * evaluation. Uses the remote-poller-aware query variant when remote
+ * storage is configured.
+ *
+ * @param int   $thread     The worker thread id to fetch queued
+ *                         thresholds for.
+ * @param float $start_time The batch's start timestamp; only rows
+ *                         queued at or before this time are included.
+ *
+ * @return array The matching threshold records joined with data source
+ *               details.
+ *
+ * @global array $config Cacti global configuration array; used when
+ *                       remote storage is configured.
+ */
 function thold_get_thresholds_precheck($thread, $start_time) {
 	global $config;
 
@@ -398,6 +447,16 @@ function thold_get_thresholds_precheck($thread, $start_time) {
 	return $tholds;
 }
 
+/**
+ * Checks whether the current database connection handle is a live,
+ * usable connection by attempting a trivial query against it, ignoring
+ * any resulting error via a temporary error handler swap.
+ *
+ * @return bool True if the connection is a valid object and the test
+ *              query succeeds, false otherwise.
+ *
+ * @global object $cnn_id The current database connection handle.
+ */
 function thold_db_connection() {
 	global $cnn_id;
 
@@ -418,6 +477,18 @@ function thold_db_connection() {
 	return false;
 }
 
+/**
+ * Re-establishes a fresh database connection for a worker process,
+ * closing the given (presumably stale/dead) connection handle first if
+ * it's a valid object, then reloading Cacti's config.php to obtain
+ * current connection credentials and reconnecting.
+ *
+ * @param object|null $cnn_id The existing (possibly stale) database
+ *                           connection handle to close before
+ *                           reconnecting (default null).
+ *
+ * @return object|resource The new database connection handle.
+ */
 function thold_db_reconnect($cnn_id = null) {
 	chdir(__DIR__);
 
@@ -441,6 +512,16 @@ function thold_db_reconnect($cnn_id = null) {
 	return $cnn_id;
 }
 
+/**
+ * Prints a timestamped debug message directly to stdout when global
+ * debug mode is enabled.
+ *
+ * @param string $string The message to print.
+ *
+ * @return void
+ *
+ * @global bool $debug Whether debug output is enabled.
+ */
 function thold_cli_debug($string) {
 	global $debug;
 
@@ -451,6 +532,15 @@ function thold_cli_debug($string) {
 	}
 }
 
+/**
+ * Prints this script's name, version, and copyright banner to stdout.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate setup.php when plugin_thold_version()
+ *                       isn't already loaded.
+ */
 function display_version() {
 	global $config;
 
@@ -462,7 +552,12 @@ function display_version() {
 	print 'Threshold Processor, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-// display_help - displays the usage of the function
+/**
+ * Prints this script's version banner followed by its command-line
+ * usage instructions to stdout.
+ *
+ * @return void
+ */
 function display_help() {
 	display_version();
 

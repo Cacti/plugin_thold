@@ -166,6 +166,22 @@ if ($ttemplate == 0 && $gtemplate == 0 && $hids == '' && $gids == '') {
 
 thold_cli_autocreate($hids, $gids, $gtemplate, $ttemplate);
 
+/**
+ * Auto-creates thresholds for the given devices/graphs by delegating
+ * to autocreate(), then prints any resulting session flash messages
+ * (stripped of HTML) to stdout.
+ *
+ * @param string $hids      Space-delimited host ids to create
+ *                          thresholds for (default '').
+ * @param string $gids      Space-delimited graph ids to create
+ *                          thresholds for (default '').
+ * @param int    $gtemplate The graph template id to filter by (default
+ *                          0).
+ * @param int    $ttemplate The threshold template id to apply (default
+ *                          0).
+ *
+ * @return void
+ */
 function thold_cli_autocreate($hids = '', $gids = '', $gtemplate = 0, $ttemplate = 0) {
 	print 'Auto Creating Thresholds' . PHP_EOL;
 
@@ -180,6 +196,15 @@ function thold_cli_autocreate($hids = '', $gids = '', $gtemplate = 0, $ttemplate
 	}
 }
 
+/**
+ * Prints this script's name, version, and copyright banner to stdout.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate setup.php when plugin_thold_version()
+ *                       isn't already loaded.
+ */
 function display_version() {
 	global $config;
 
@@ -191,7 +216,12 @@ function display_version() {
 	print 'Threshold Command Line Interface, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-// display_help - displays the usage of the function
+/**
+ * Prints this script's version banner followed by its command-line
+ * usage instructions to stdout.
+ *
+ * @return void
+ */
 function display_help() {
 	display_version();
 

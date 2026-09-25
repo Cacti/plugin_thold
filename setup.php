@@ -22,6 +22,28 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Registers all of this plugin's hooks (settings, breadcrumbs, poller
+ * output/bottom, device/data-source/graph management actions, graph
+ * buttons, SNMP agent cache, clog regex, and more) and permission
+ * realms with Cacti, then creates/updates its database schema and SNMP
+ * agent cache. Cacti plugin API entry point invoked when the plugin is
+ * installed or re-registered during an upgrade. A no-op returning false
+ * on Cacti versions older than 1.2.
+ *
+ * @param bool $upgrade Whether this call is for an in-place upgrade of
+ *                      an already-installed plugin (true) rather than
+ *                      a fresh install (false, default); affects
+ *                      whether the database is upgraded vs. freshly
+ *                      created.
+ *
+ * @return bool|void False when the Cacti version is too old; otherwise
+ *                    no explicit return value.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       check the Cacti version and locate the database
+ *                       include file.
+ */
 function plugin_thold_install($upgrade = false) {
 	global $config;
 
@@ -126,6 +148,13 @@ function plugin_thold_install($upgrade = false) {
 	}
 }
 
+/**
+ * Removes this plugin's SNMP agent cache entries and all of its
+ * settings table rows. Cacti plugin API entry point invoked when the
+ * plugin is uninstalled.
+ *
+ * @return void
+ */
 function plugin_thold_uninstall() {
 	// Do any extra Uninstall stuff here
 	thold_snmpagent_cache_uninstall();
@@ -135,6 +164,13 @@ function plugin_thold_uninstall() {
 		WHERE name LIKE "%thold%"');
 }
 
+/**
+ * Ensures the plugin's configuration/schema is up to date by delegating
+ * to plugin_thold_upgrade(). Cacti plugin API entry point invoked on
+ * relevant page loads to catch pending upgrades.
+ *
+ * @return bool Always true.
+ */
 function plugin_thold_check_config() {
 	// Here we will check to ensure everything is configured
 	plugin_thold_upgrade();
@@ -142,6 +178,20 @@ function plugin_thold_check_config() {
 	return true;
 }
 
+/**
+ * Detects a version mismatch between the running plugin code and the
+ * version recorded in plugin_config, and when found (and only on a
+ * small set of pages, to limit overhead), re-runs
+ * plugin_thold_install() in upgrade mode to re-register hooks and
+ * upgrade the database schema.
+ *
+ * @return bool True (whether or not an upgrade was actually needed);
+ *              false only when called from a page that doesn't need
+ *              this check.
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function plugin_thold_upgrade() {
 	// Here we will upgrade to the newest version
 	global $config;
@@ -166,6 +216,17 @@ function plugin_thold_upgrade() {
 	return true;
 }
 
+/**
+ * Reads this plugin's version and metadata from its INFO file. Cacti
+ * plugin API entry point used throughout the plugin to display version
+ * information.
+ *
+ * @return array The parsed INFO file's 'info' section (name, author,
+ *               homepage, version, etc.).
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the plugin's INFO file.
+ */
 function plugin_thold_version() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/thold/INFO', true);
@@ -173,10 +234,24 @@ function plugin_thold_version() {
 	return $info['info'];
 }
 
+/**
+ * Checks whether this plugin's dependencies are satisfied. Cacti
+ * plugin API hook point; currently always reports dependencies as
+ * satisfied.
+ *
+ * @return bool Always true.
+ */
 function thold_check_dependencies() {
 	return true;
 }
 
+/**
+ * Checks whether the database session is running in MySQL/MariaDB
+ * STRICT SQL mode, which this plugin (or its schema) is incompatible
+ * with.
+ *
+ * @return bool False if STRICT mode is active, true otherwise.
+ */
 function plugin_thold_check_strict() {
 	$mode = db_fetch_cell('select @@global.sql_mode', false);
 
@@ -187,6 +262,20 @@ function plugin_thold_check_strict() {
 	return true;
 }
 
+/**
+ * Renders this plugin's graph-page action buttons (toggle threshold
+ * VRULE display, create-threshold link) for a graph, shown only to
+ * users with the relevant view/edit permissions. Registered as the
+ * 'graph_buttons' and 'graph_buttons_thumbnails' Cacti hooks.
+ *
+ * @param array $data The graph button hook payload; $data[1] contains
+ *                    the graph's local_graph_id and rra selection.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the Create Threshold link's URL.
+ */
 function thold_graph_button($data) {
 	global $config;
 
@@ -272,12 +361,43 @@ function thold_graph_button($data) {
 	}
 }
 
+/**
+ * Splits a string on any of several delimiter characters at once, by
+ * first collapsing all given delimiters down to the first one and then
+ * exploding on it.
+ *
+ * @param array  $delimiters The list of delimiter characters/strings
+ *                           to split on (the first entry is used as
+ *                           the unified delimiter).
+ * @param string $string     The string to split.
+ *
+ * @return array|false The resulting array of substrings, or false on
+ *                      failure.
+ */
 function thold_multiexplode($delimiters, $string) {
 	$ready = str_replace($delimiters, $delimiters[0], $string);
 
 	return @explode($delimiters[0], $ready);
 }
 
+/**
+ * Substitutes this plugin's `|thold:hi:<ds>|` / `|thold:low:<ds>|`
+ * graph text-item placeholder variables with each referenced data
+ * source's current threshold hi/low values, by mapping the graph's RRD
+ * definitions' data source names to their underlying local_data_id and
+ * looking up the matching threshold. Registered as the
+ * 'rrd_graph_graph_options' Cacti hook.
+ *
+ * @param array $g The graph rendering options array, including
+ *                 'graph_defs' and 'txt_graph_items'.
+ *
+ * @return array The graph rendering options array with thold
+ *               placeholder variables substituted in
+ *               'txt_graph_items'.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_rrd_graph_graph_options($g) {
 	global $config;
 
@@ -675,10 +795,34 @@ function thold_rrd_graph_graph_options($g) {
 	return $g;
 }
 
+/**
+ * Prepares a string value for safe embedding in an RRDtool command
+ * line argument by shell-escaping it, then RRDtool-escaping it, then
+ * wrapping it in single quotes.
+ *
+ * @param string $string The raw string value to prepare.
+ *
+ * @return string The quoted, escaped string ready for RRDtool command
+ *                construction.
+ */
 function thold_prep_rrd_string($string) {
 	return '\'' . trim(cacti_escapeshellarg(rrdtool_escape_string($string)), "'") . '\'';
 }
 
+/**
+ * Executes the "Apply Thresholds" bulk device action: auto-creates
+ * thresholds for each selected device using its device template's
+ * associated threshold templates. Registered as the
+ * 'device_action_execute' Cacti hook; a no-op passthrough for any
+ * other action.
+ *
+ * @param string $action The bulk action identifier being executed.
+ *
+ * @return string The unmodified $action, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_device_action_execute($action) {
 	global $config;
 
@@ -699,6 +843,19 @@ function thold_device_action_execute($action) {
 	return $action;
 }
 
+/**
+ * Auto-creates thresholds for a newly created device when the global
+ * thold_autocreate setting is enabled. Registered as the
+ * 'api_device_new' Cacti hook.
+ *
+ * @param array $save The newly created device's saved field data,
+ *                    including its 'id'.
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_api_device_new($save) {
 	global $config;
 
@@ -713,6 +870,22 @@ function thold_api_device_new($save) {
 	return $save;
 }
 
+/**
+ * Renders the confirmation box listing the devices selected for the
+ * "Apply Thresholds" bulk device action. Registered as the
+ * 'device_action_prepare' Cacti hook; a no-op passthrough for any
+ * other action.
+ *
+ * @param array $save The bulk-action form submission data, including
+ *                    'drp_action' and a pre-built 'host_list' HTML
+ *                    fragment.
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $host_list Reserved/declared for parity with other
+ *                          functions in this file; not used directly
+ *                          here.
+ */
 function thold_device_action_prepare($save) {
 	global $host_list;
 
@@ -730,12 +903,38 @@ function thold_device_action_prepare($save) {
 	return $save;
 }
 
+/**
+ * Adds the "Apply Thresholds" entry to the device management bulk-
+ * actions dropdown. Registered as the 'device_action_array' Cacti
+ * hook.
+ *
+ * @param array $device_action_array The existing bulk-action label
+ *                                  map, keyed by action id.
+ *
+ * @return array The action map with this plugin's entry added.
+ */
 function thold_device_action_array($device_action_array) {
 	$device_action_array['thold'] = 'Apply Thresholds';
 
 	return $device_action_array;
 }
 
+/**
+ * Reacts to a device being saved: when the device's disabled state
+ * changed, triggers this plugin's device up/down/enable/disable
+ * notification handling; and (elsewhere in this function, per the
+ * broader save flow) keeps this plugin's per-device data in sync with
+ * the saved device fields. Registered as the 'api_device_save' Cacti
+ * hook.
+ *
+ * @param array $save The device's saved field data, including 'id' and
+ *                    'disabled'.
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_api_device_save($save) {
 	global $config;
 
@@ -787,6 +986,20 @@ function thold_api_device_save($save) {
 	return $save;
 }
 
+/**
+ * Turns a data source's name cell in the Console data sources table
+ * into a link to either edit its existing threshold, or (when no graph
+ * exists yet for it) create a new one, when applicable. Registered as
+ * the 'data_sources_table' Cacti hook.
+ *
+ * @param array $ds The data source row being rendered.
+ *
+ * @return array The $ds row, with 'data_template_name' replaced by a
+ *               linked HTML fragment when applicable.
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_data_sources_table($ds) {
 	global $config;
 
@@ -824,12 +1037,35 @@ function thold_data_sources_table($ds) {
 	return $ds;
 }
 
+/**
+ * Prints an "Auto-create Thresholds" link on the "new graphs" page for
+ * the current host. Registered as the 'graphs_new_top_links' Cacti
+ * hook.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the link URL.
+ */
 function thold_graphs_new() {
 	global $config;
 
 	print '<span class="linkMarker">*</span><a class="autocreate linkEditMain" href="' . html_escape($config['url_path'] . 'plugins/thold/thold.php?action=autocreate&host_id=' . get_filter_request_var('host_id')) . '">' . __('Auto-create Thresholds', 'thold') . '</a><br>';
 }
 
+/**
+ * Saves (or clears) a user's notification email address into this
+ * plugin's contacts table whenever a Cacti user account is saved with
+ * an email/email_address field. Registered as the
+ * 'user_admin_setup_sql_save' Cacti hook; a no-op passthrough when the
+ * user save already failed validation.
+ *
+ * @param array $save The user account's saved field data, including
+ *                    'id'.
+ *
+ * @return array The unmodified (or id-populated) $save array, for hook
+ *               chaining.
+ */
 function thold_user_admin_setup_sql_save($save) {
 	if (is_error_message()) {
 		return $save;
@@ -864,6 +1100,23 @@ function thold_user_admin_setup_sql_save($save) {
 	return $save;
 }
 
+/**
+ * Executes the "Create Threshold from Data Source" bulk data source
+ * action: creates thresholds for each selected data source using the
+ * threshold template chosen on the confirmation page. Registered as
+ * the 'data_source_action_execute' Cacti hook; a no-op passthrough for
+ * any other action.
+ *
+ * @param string $action The bulk action identifier being executed.
+ *
+ * @return string The unmodified $action, for hook chaining.
+ *
+ * @global array $config     Cacti global configuration array; used to
+ *                          locate the library file to include.
+ * @global array $form_array Reserved/declared for parity with other
+ *                          functions in this file; not used directly
+ *                          here.
+ */
 function thold_data_source_action_execute($action) {
 	global $config, $form_array;
 
@@ -923,6 +1176,26 @@ function thold_data_source_action_execute($action) {
 	return $action;
 }
 
+/**
+ * Renders the confirmation page for the "Create Threshold from
+ * Template" bulk data source action, listing which selected data
+ * sources have at least one applicable threshold template (and
+ * offering a template selection), while filtering out any that don't.
+ * Registered as the 'data_source_action_prepare' Cacti hook; a no-op
+ * passthrough for any other action.
+ *
+ * @param array $save The bulk-action form submission data, including
+ *                    'drp_action' and 'ds_array' (selected data source
+ *                    ids).
+ *
+ * @return array|void The unmodified $save array (for hook chaining)
+ *                    when the action isn't 'plugin_thold_create';
+ *                    otherwise this renders the confirmation UI
+ *                    directly and returns nothing.
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_data_source_action_prepare($save) {
 	global $config;
 
@@ -1017,12 +1290,40 @@ function thold_data_source_action_prepare($save) {
 	}
 }
 
+/**
+ * Adds the "Create Threshold from Template" entry to the data source
+ * management bulk-actions dropdown. Registered as the
+ * 'data_source_action_array' Cacti hook.
+ *
+ * @param array $action The existing bulk-action label map, keyed by
+ *                      action id.
+ *
+ * @return array The action map with this plugin's entry added.
+ */
 function thold_data_source_action_array($action) {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
 
 	return $action;
 }
 
+/**
+ * Executes the "Create Threshold from Template" bulk graph action:
+ * applies the selected threshold template to each selected graph's
+ * matching data source(s), creating a new threshold for each one that
+ * doesn't already have one from that template. Registered as the
+ * 'graphs_action_execute' Cacti hook; a no-op passthrough for any
+ * other action.
+ *
+ * @param string $action The bulk action identifier being executed.
+ *
+ * @return string The unmodified $action, for hook chaining.
+ *
+ * @global array $config     Cacti global configuration array; used to
+ *                          locate the library file to include.
+ * @global array $form_array Reserved/declared for parity with other
+ *                          functions in this file; not used directly
+ *                          here.
+ */
 function thold_graphs_action_execute($action) {
 	global $config, $form_array;
 
@@ -1082,6 +1383,25 @@ function thold_graphs_action_execute($action) {
 	return $action;
 }
 
+/**
+ * Renders the confirmation page for the "Create Threshold from
+ * Template" bulk graph action, listing which selected graphs have at
+ * least one applicable threshold template (and offering a template
+ * selection), while filtering out any that don't. Registered as the
+ * 'graphs_action_prepare' Cacti hook; a no-op passthrough for any
+ * other action.
+ *
+ * @param array $save The bulk-action form submission data, including
+ *                    'drp_action'.
+ *
+ * @return array|void The unmodified $save array (for hook chaining)
+ *                    when the action isn't 'plugin_thold_create';
+ *                    otherwise this renders the confirmation UI
+ *                    directly and returns nothing.
+ *
+ * @global array $config Cacti global configuration array (declared but
+ *                       not used directly here).
+ */
 function thold_graphs_action_prepare($save) {
 	global $config;
 
@@ -1181,12 +1501,30 @@ function thold_graphs_action_prepare($save) {
 	}
 }
 
+/**
+ * Adds the "Create Threshold from Template" entry to the graph
+ * management bulk-actions dropdown. Registered as the
+ * 'graphs_action_array' Cacti hook.
+ *
+ * @param array $action The existing bulk-action label map, keyed by
+ *                      action id.
+ *
+ * @return array The action map with this plugin's entry added.
+ */
 function thold_graphs_action_array($action) {
 	$action['plugin_thold_create'] = __('Create Threshold from Template', 'thold');
 
 	return $action;
 }
 
+/**
+ * Emits the JavaScript that shows/hides the notification-list dropdown
+ * on the device edit form based on the selected "Threshold Up/Down
+ * Email Notification" mode. Registered as the 'host_edit_bottom' and
+ * 'device_change_javascript' Cacti hooks.
+ *
+ * @return void
+ */
 function thold_host_edit_bottom() {
 	?>
 	<script type='text/javascript'>
@@ -1204,6 +1542,18 @@ function thold_host_edit_bottom() {
 	<?php
 }
 
+/**
+ * Installs this plugin's CACTI-THOLD-MIB definitions into Cacti's SNMP
+ * agent cache (SNMP Notification Receiver / SNMP Agent support),
+ * when the SNMP agent's MibCache class is available. Registered as the
+ * 'snmpagent_cache_install' Cacti hook, and invoked during plugin
+ * installation.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the MIB definition file.
+ */
 function thold_snmpagent_cache_install() {
 	global $config;
 
@@ -1213,6 +1563,16 @@ function thold_snmpagent_cache_install() {
 	}
 }
 
+/**
+ * Removes this plugin's CACTI-THOLD-MIB definitions from Cacti's SNMP
+ * agent cache, when the SNMP agent's MibCache class is available.
+ * Invoked during plugin uninstallation.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the MIB definition file.
+ */
 function thold_snmpagent_cache_uninstall() {
 	global $config;
 
@@ -1222,6 +1582,18 @@ function thold_snmpagent_cache_uninstall() {
 	}
 }
 
+/**
+ * Emits this plugin's theme-specific stylesheet link (when one exists)
+ * and a JavaScript handler that rebinds the threshold-VRULE toggle
+ * link's click behavior to an AJAX partial-page refresh after each AJAX
+ * completion. Registered as the 'page_head' Cacti hook.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       check for a theme-specific stylesheet and build
+ *                       asset URLs.
+ */
 function thold_page_head() {
 	global $config;
 
@@ -1252,6 +1624,15 @@ function thold_page_head() {
 	<?php
 }
 
+/**
+ * Renders the "Associated Threshold Templates" box on the device edit
+ * page, listing threshold templates already associated with the
+ * device (with their per-device threshold existence status and a
+ * remove link) and offering a dropdown to associate an additional
+ * template. Registered as the 'device_edit_pre_bottom' Cacti hook.
+ *
+ * @return void
+ */
 function thold_device_edit_pre_bottom() {
 	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
@@ -1353,6 +1734,16 @@ function thold_device_edit_pre_bottom() {
 	html_end_box();
 }
 
+/**
+ * Renders the confirmation page for removing a threshold template's
+ * association with a device (action=item_remove_tt_confirm), or
+ * otherwise defers to the standard device edit page (this hook is
+ * registered on host.php, whose own action-dispatch relies on this
+ * function to intercept this plugin-specific action). Registered as
+ * the 'device_top' Cacti hook.
+ *
+ * @return void
+ */
 function thold_device_top() {
 	if (get_request_var('action') == 'item_remove_tt_confirm') {
 		// ================= input validation =================
@@ -1443,6 +1834,15 @@ function thold_device_top() {
 	}
 }
 
+/**
+ * Renders the "Associated Threshold Templates" box on the device
+ * template edit page, listing threshold templates already associated
+ * with the device template (with a remove link) and offering a
+ * dropdown to associate an additional template. Registered as the
+ * 'device_template_edit' Cacti hook.
+ *
+ * @return void
+ */
 function thold_device_template_edit() {
 	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
@@ -1523,6 +1923,13 @@ function thold_device_template_edit() {
 	html_end_box();
 }
 
+/**
+ * Renders the confirmation page for removing a threshold template's
+ * association with a device template (action=item_remove_tt_confirm).
+ * Registered as the 'device_template_top' Cacti hook.
+ *
+ * @return void
+ */
 function thold_device_template_top() {
 	if (get_request_var('action') == 'item_remove_tt_confirm') {
 		// ================= input validation =================
@@ -1613,6 +2020,17 @@ function thold_device_template_top() {
 	}
 }
 
+/**
+ * Propagates a device template's associated threshold templates to a
+ * device when its device template is changed, associating the device
+ * with every threshold template linked to the newly selected device
+ * template. Registered as the 'device_template_change' Cacti hook.
+ *
+ * @param array $data The device template change payload, including
+ *                    'device_id' and 'device_template_id'.
+ *
+ * @return array The unmodified $data array, for hook chaining.
+ */
 function thold_device_template_change($data) {
 	$device_id          = $data['device_id'];
 	$device_template_id = $data['device_template_id'];
@@ -1632,12 +2050,35 @@ function thold_device_template_change($data) {
 	return $data;
 }
 
+/**
+ * Auto-creates thresholds for a device using its device template's
+ * associated threshold templates. Registered as the
+ * 'device_threshold_autocreate' Cacti hook.
+ *
+ * @param int $host_id The device id to auto-create thresholds for.
+ *
+ * @return int The unmodified $host_id, for hook chaining.
+ */
 function thold_device_autocreate($host_id) {
 	autocreate($host_id);
 
 	return $host_id;
 }
 
+/**
+ * Auto-creates a threshold for a newly created graph using its host's
+ * associated threshold templates, when the global thold_autocreate
+ * setting is enabled. Registered as the
+ * 'create_complete_graph_from_template' Cacti hook.
+ *
+ * @param array $save The newly created graph's saved field data,
+ *                    including its 'id'.
+ *
+ * @return array The unmodified $save array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_create_graph_thold($save) {
 	global $config;
 
@@ -1657,6 +2098,19 @@ function thold_create_graph_thold($save) {
 	return $save;
 }
 
+/**
+ * Deletes any thresholds associated with data sources that are being
+ * removed, logging each removal for audit purposes. Registered as the
+ * 'data_source_remove' Cacti hook.
+ *
+ * @param array $data_ids The local_data_id values of the data sources
+ *                       being removed.
+ *
+ * @return array The unmodified $data_ids array, for hook chaining.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include.
+ */
 function thold_data_source_remove($data_ids) {
 	global $config;
 
@@ -1679,12 +2133,43 @@ function thold_data_source_remove($data_ids) {
 	return $data_ids;
 }
 
+/**
+ * Registers a "TH[id, id, ...]" pattern with Cacti's log viewer (clog)
+ * regex hyperlinking system, so that threshold id references embedded
+ * in log messages are rendered as links via
+ * thold_clog_regex_threshold(). Registered as the 'clog_regex_array'
+ * Cacti hook.
+ *
+ * @param array $regex_array The existing list of clog hyperlink regex
+ *                          definitions.
+ *
+ * @return array The regex definitions list with this plugin's pattern
+ *               added.
+ */
 function thold_clog_regex_array($regex_array) {
 	$regex_array[] = ['name' => 'TH', 'regex' => '( TH\[)([, \d]+)(\])', 'func' => 'thold_clog_regex_threshold'];
 
 	return $regex_array;
 }
 
+/**
+ * Replaces a "TH[id, id, ...]" log-message match with linked threshold
+ * descriptions (falling back to the raw threshold id when no matching
+ * threshold is found), used as the clog regex callback registered by
+ * thold_clog_regex_array().
+ *
+ * @param array $matches The regex match groups: [0] the full match,
+ *                       [1] the opening " TH[" text, [2] the
+ *                       comma-separated threshold ids, [3] the closing
+ *                       "]" text.
+ *
+ * @return string The rendered HTML with each threshold id replaced by a
+ *                link to its edit page.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the library file to include and build
+ *                       edit link URLs.
+ */
 function thold_clog_regex_threshold($matches) {
 	global $config;
 
@@ -1723,6 +2208,13 @@ function thold_clog_regex_threshold($matches) {
 	return $result;
 }
 
+/**
+ * Emits the JavaScript that initializes the multiselect widget for the
+ * "Pause Notifications" settings field on the Console settings page.
+ * Registered as the 'settings_bottom' Cacti hook.
+ *
+ * @return void
+ */
 function thold_settings_bottom() {
 	?>
 	<script type='text/javascript'>

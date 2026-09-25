@@ -89,6 +89,20 @@ switch ($action) {
 
 exit;
 
+/**
+ * Handles the bulk-action confirmation page/submission for the
+ * threshold templates list (export via an injected download iframe,
+ * and delete). Called from this script's main request-dispatch switch
+ * when action=actions.
+ *
+ * @return void
+ *
+ * @global array $thold_template_actions Map of drp_action value =>
+ *                                      action label (declared but the
+ *                                      action values are switched on
+ *                                      directly rather than read from
+ *                                      this map).
+ */
 function do_actions() {
 	global $thold_template_actions;
 
@@ -342,6 +356,13 @@ function do_actions() {
 	exit;
 }
 
+/**
+ * Removes the association between a host and a threshold template.
+ * Called from this script's main request-dispatch switch when
+ * action=remove_host.
+ *
+ * @return void
+ */
 function template_remove_host_from_template() {
 	$host_id           = get_filter_request_var('host_id');
 	$thold_template_id = get_filter_request_var('thold_template_id');
@@ -352,6 +373,13 @@ function template_remove_host_from_template() {
 		[$host_id, $thold_template_id]);
 }
 
+/**
+ * Creates (or replaces) the association between a host and a threshold
+ * template. Called from this script's main request-dispatch switch
+ * when action=add_host.
+ *
+ * @return void
+ */
 function template_add_host_to_template() {
 	$host_id           = get_filter_request_var('host_id');
 	$thold_template_id = get_filter_request_var('thold_template_id');
@@ -361,6 +389,15 @@ function template_add_host_to_template() {
 		[$host_id, $thold_template_id]);
 }
 
+/**
+ * Exports the selected threshold template(s) as a downloaded XML file,
+ * replacing internal data template/data source ids with their portable
+ * hash identifiers so the export can be re-imported into a different
+ * Cacti instance. Called from this script's main request-dispatch
+ * switch when action=export.
+ *
+ * @return void
+ */
 function template_export() {
 	// if we are to save this form, instead of display it
 	if (isset_request_var('selected_items')) {
@@ -408,6 +445,17 @@ function template_export() {
 	}
 }
 
+/**
+ * Renders the threshold template creation wizard: on first display,
+ * shows the data template/data source selection form; once a selection
+ * is submitted, delegates to the standard template edit form
+ * (template_edit()-style rendering) pre-populated for the chosen data
+ * template/source so the new template's thresholds can be configured.
+ * Called from this script's main request-dispatch switch when
+ * action=template_add.
+ *
+ * @return void
+ */
 function template_add() {
 	if ((!isset_request_var('save')) || (get_nfilter_request_var('save') == '')) {
 		$data_templates = array_rekey(
@@ -656,6 +704,14 @@ function template_add() {
 	}
 }
 
+/**
+ * Disables all thresholds created from a given threshold template
+ * (that still have template-based fields enabled).
+ *
+ * @param int $id The threshold template id to disable thresholds for.
+ *
+ * @return void
+ */
 function thold_template_disable($id) {
 	db_execute_prepared('UPDATE thold_data
 		SET thold_enabled = "off"
@@ -664,6 +720,14 @@ function thold_template_disable($id) {
 		[$id]);
 }
 
+/**
+ * Re-enables all thresholds created from a given threshold template
+ * (that still have template-based fields enabled).
+ *
+ * @param int $id The threshold template id to enable thresholds for.
+ *
+ * @return void
+ */
 function thold_template_enable($id) {
 	db_execute_prepared('UPDATE thold_data
 		SET thold_enabled = "on"
@@ -672,6 +736,16 @@ function thold_template_enable($id) {
 		[$id]);
 }
 
+/**
+ * Validates and saves a threshold template's submitted edit form
+ * fields (name, thresholds/expression settings, notification/severity
+ * settings, host/enabled-state propagation to existing
+ * template-derived thresholds), then redirects back to the template
+ * edit form. Called from this script's main request-dispatch switch
+ * when action=template_save.
+ *
+ * @return void
+ */
 function template_save_edit() {
 	// ================= input validation =================
 	get_filter_request_var('id');
@@ -946,6 +1020,19 @@ function template_save_edit() {
 	}
 }
 
+/**
+ * Renders the add/edit form for a threshold template (thresholds,
+ * expressions, notification/severity settings, associated hosts), with
+ * a graph preview for the underlying data template/source. Called from
+ * this script's main request-dispatch switch when action=edit.
+ *
+ * @return void
+ *
+ * @global array $config          Cacti global configuration array
+ *                                (declared but not used directly here).
+ * @global array $graph_timespans Time span option list used by the
+ *                                graph preview.
+ */
 function template_edit() {
 	global $config, $graph_timespans;
 
@@ -2049,6 +2136,18 @@ function template_edit() {
 	<?php
 }
 
+/**
+ * Formats a duration given in seconds into a human-readable
+ * "X Months, Y Days, Z Hours, ..." style string, showing only the
+ * largest applicable units and omitting zero-valued larger units.
+ *
+ * @param int    $seconds The duration in seconds.
+ * @param string $suffix  Either 'avg' (default, appends " (Average)"
+ *                        to the result) or any other value (no
+ *                        suffix).
+ *
+ * @return string The formatted, translated duration string.
+ */
 function template_calculate_reference_avg($seconds, $suffix = 'avg') {
 	$s = ($seconds % 60);
 	$m = floor(($seconds % 3600) / 60);
@@ -2089,6 +2188,13 @@ function template_calculate_reference_avg($seconds, $suffix = 'avg') {
 	}
 }
 
+/**
+ * Validates and stores this view's filter request variables (rows,
+ * page, filter text, sort column/direction) into the session for the
+ * threshold templates list view.
+ *
+ * @return void
+ */
 function template_request_validation() {
 	// ================= input validation and session storage =================
 	$filters = [
@@ -2127,6 +2233,29 @@ function template_request_validation() {
 	// ================= input validation =================
 }
 
+/**
+ * Renders the main threshold templates list page: validates/stores
+ * this view's filter request variables, then displays a filtered,
+ * sorted, paginated table of threshold templates with a bulk-actions
+ * dropdown. Called from this script's main request-dispatch switch as
+ * the default view.
+ *
+ * @return void
+ *
+ * @global array $config                 Cacti global configuration
+ *                                       array.
+ * @global array $thold_template_actions Map of drp_action value =>
+ *                                       action label, used for the
+ *                                       bulk-actions dropdown.
+ * @global array $item_rows              Default number of rows per
+ *                                       page from Cacti settings.
+ * @global array $thold_types            Threshold type option list
+ *                                       used to display each template's
+ *                                       type.
+ * @global array $bl_types               Baseline type option list used
+ *                                       to display each template's
+ *                                       baseline type.
+ */
 function templates() {
 	global $config, $thold_template_actions, $item_rows, $thold_types, $bl_types;
 
@@ -2407,6 +2536,14 @@ function templates() {
 	thold_form_end();
 }
 
+/**
+ * Renders the threshold template import page: displays results from a
+ * previous import attempt (if any, stashed in the session), and the
+ * file-upload/paste-text import form. Called from this script's main
+ * request-dispatch switch when action=import.
+ *
+ * @return void
+ */
 function import() {
 	$form_data = [
 		'import_file' => [
@@ -2460,6 +2597,15 @@ function import() {
 	html_end_box();
 }
 
+/**
+ * Validates an uploaded threshold template import file (checking for
+ * upload errors and reading its contents), raising an error message
+ * for any upload failure.
+ *
+ * @return string|false The uploaded file's XML contents, or false if
+ *                      no file was uploaded or an upload error
+ *                      occurred.
+ */
 function validate_upload() {
 	// check file transfer if used
 	if (isset($_FILES['import_file'])) {
@@ -2516,6 +2662,16 @@ function validate_upload() {
 	return false;
 }
 
+/**
+ * Processes a submitted threshold template import (from pasted XML
+ * text or an uploaded file via validate_upload()), delegating the
+ * actual parsing/creation to thold_template_import(), then stashes the
+ * resulting success/error/failure messages in the session (also
+ * logging each to the Cacti log) before redirecting back to the import
+ * page.
+ *
+ * @return void This function calls exit() and never returns normally.
+ */
 function template_import() {
 	$xml_data = trim(get_nfilter_request_var('import_text'));
 
@@ -2557,7 +2713,23 @@ function template_import() {
 	exit();
 }
 
-// form_end - draws post form end. To be combined with form_start()
+/**
+ * Prints the closing `</form>` tag for a page's main form, optionally
+ * followed by a JavaScript submit handler that redirects the form's
+ * submission through an AJAX-friendly URL (adding header=false) instead
+ * of a full page reload, unless the delete bulk-action was chosen. To
+ * be paired with an earlier form_start() call.
+ *
+ * @param bool $ajax Whether to emit the AJAX-friendly submit handler
+ *                   script (default true).
+ *
+ * @return void
+ *
+ * @global string $form_id     The id of the form being closed, set by
+ *                             the paired form_start() call.
+ * @global string $form_action The form's action URL, set by the paired
+ *                             form_start() call.
+ */
 function thold_form_end($ajax = true) {
 	global $form_id, $form_action;
 

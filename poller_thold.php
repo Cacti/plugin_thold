@@ -102,6 +102,19 @@ perform_thold_processes();
 
 unregister_process('thold', 'master', $config['poller_id']);
 
+/**
+ * Main Thold poller routine: ensures a sane empty-interface-speed
+ * default, force-upgrades the database when a known-missing column is
+ * detected, prunes stale dead-host notification records, launches the
+ * background notification queue daemon if configured and not already
+ * running, then processes all configured thresholds.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate library files and build the
+ *                       notification daemon's command line.
+ */
 function perform_thold_processes() {
 	global $config;
 

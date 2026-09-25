@@ -136,6 +136,19 @@ function sig_handler($signo) {
 	}
 }
 
+/**
+ * Logs a debug message from the notification daemon to the Cacti log,
+ * only when global debug mode or the thold_daemon_debug setting is
+ * enabled.
+ *
+ * @param string $message The message to log.
+ * @param mixed  $thread  The worker thread identifier, passed through
+ *                       to thold_cacti_log() for log-line context.
+ *
+ * @return void
+ *
+ * @global bool $debug Whether debug output is enabled.
+ */
 function thold_daemon_debug($message, $thread) {
 	global $debug;
 
@@ -146,6 +159,16 @@ function thold_daemon_debug($message, $thread) {
 	}
 }
 
+/**
+ * Prints a timestamped debug message directly to stdout when global
+ * debug mode is enabled.
+ *
+ * @param string $string The message to print.
+ *
+ * @return void
+ *
+ * @global bool $debug Whether debug output is enabled.
+ */
 function thold_cli_debug($string) {
 	global $debug;
 
@@ -156,6 +179,15 @@ function thold_cli_debug($string) {
 	}
 }
 
+/**
+ * Prints this script's name, version, and copyright banner to stdout.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate setup.php when plugin_thold_version()
+ *                       isn't already loaded.
+ */
 function display_version() {
 	global $config;
 
@@ -167,7 +199,12 @@ function display_version() {
 	print 'Threshold Notification Processor, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-// display_help - displays the usage of the function
+/**
+ * Prints this script's version banner followed by its command-line
+ * usage instructions to stdout.
+ *
+ * @return void
+ */
 function display_help() {
 	display_version();
 
