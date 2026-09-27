@@ -1795,6 +1795,7 @@ function thold_device_top() {
 
 		form_end();
 
+		// @codeCoverageIgnoreStart -- item_remove_tt_confirm branch exit()s below; the nonce line cannot be reached without ending the process
 		?>
 		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 		$(function() {
@@ -1813,6 +1814,7 @@ function thold_device_top() {
 		});
 		</script>
 		<?php
+		// @codeCoverageIgnoreEnd
 
 		exit;
 	}
@@ -1981,6 +1983,7 @@ function thold_device_template_top() {
 
 		form_end();
 
+		// @codeCoverageIgnoreStart -- item_remove_tt_confirm branch exit()s below; the nonce line cannot be reached without ending the process
 		?>
 		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 		$(function() {
@@ -1999,6 +2002,7 @@ function thold_device_template_top() {
 		});
 		</script>
 		<?php
+		// @codeCoverageIgnoreEnd
 
 		exit;
 	}
