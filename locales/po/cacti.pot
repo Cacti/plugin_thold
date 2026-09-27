@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-27 12:48-0400\n"
+"POT-Creation-Date: 2026-09-27 12:54-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -486,7 +486,7 @@ msgid "Resume Notifications"
 msgstr ""
 
 #: includes/arrays.php:531 includes/arrays.php:540 notify_lists.php:32
-#: notify_queue.php:35 setup.php:1887
+#: notify_queue.php:35 setup.php:1885
 msgid "Delete"
 msgstr ""
 
@@ -1355,7 +1355,7 @@ msgstr ""
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1790 setup.php:1978 thold.php:513 thold_functions.php:10385
+#: setup.php:1788 setup.php:1976 thold.php:513 thold_functions.php:10385
 #: thold_templates.php:330
 msgid "Cancel"
 msgstr ""
@@ -1363,7 +1363,7 @@ msgstr ""
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1791 setup.php:1979 thold.php:516 thold_functions.php:10388
+#: setup.php:1789 setup.php:1977 thold.php:516 thold_functions.php:10388
 #: thold_templates.php:333
 msgid "Continue"
 msgstr ""
@@ -1507,7 +1507,7 @@ msgid "List General Settings"
 msgstr ""
 
 #: notify_lists.php:1092 notify_lists.php:1760 notify_lists.php:2059
-#: setup.php:1672 thold.php:872 thold_graph.php:490 thold_templates.php:2376
+#: setup.php:1670 thold.php:872 thold_graph.php:490 thold_templates.php:2376
 msgid "Name"
 msgstr ""
 
@@ -1570,8 +1570,8 @@ msgstr ""
 
 #: notify_lists.php:1269 notify_lists.php:1287 notify_lists.php:1496
 #: notify_lists.php:1511 notify_lists.php:1647 notify_lists.php:1873
-#: notify_lists.php:2133 setup.php:1032 setup.php:1050 setup.php:1286
-#: setup.php:1287 setup.php:1498 thold.php:734 thold.php:769 thold.php:1746
+#: notify_lists.php:2133 setup.php:1030 setup.php:1048 setup.php:1284
+#: setup.php:1285 setup.php:1496 thold.php:734 thold.php:769 thold.php:1746
 #: thold.php:1754 thold.php:2145 thold.php:2153 thold.php:2664
 #: thold_graph.php:154 thold_graph.php:189 thold_graph.php:207
 #: thold_graph.php:1260 thold_graph.php:1310 thold_graph.php:1757
@@ -1624,7 +1624,7 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: notify_lists.php:1462 setup.php:1672 thold.php:791 thold_graph.php:229
+#: notify_lists.php:1462 setup.php:1670 thold.php:791 thold_graph.php:229
 #: thold_graph.php:1096 thold_graph.php:1279 thold_graph.php:1832
 msgid "Status"
 msgstr ""
@@ -1933,174 +1933,174 @@ msgstr ""
 msgid "No Notifications"
 msgstr ""
 
-#: setup.php:358
+#: setup.php:356
 msgid "Off"
 msgstr ""
 
-#: setup.php:358
+#: setup.php:356
 msgid "On"
 msgstr ""
 
-#: setup.php:358
+#: setup.php:356
 #, php-format
 msgid "Toggle Threshold VRULES %s"
 msgstr ""
 
-#: setup.php:377
+#: setup.php:375
 msgid "Create Threshold"
 msgstr ""
 
-#: setup.php:675 setup.php:685
+#: setup.php:673 setup.php:683
 #, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr ""
 
-#: setup.php:679 setup.php:689
+#: setup.php:677 setup.php:687
 #, php-format
 msgid "Alert Low for %s (%s)"
 msgstr ""
 
-#: setup.php:705 setup.php:715
+#: setup.php:703 setup.php:713
 #, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr ""
 
-#: setup.php:709 setup.php:719
+#: setup.php:707 setup.php:717
 #, php-format
 msgid "Warning Low for %s (%s)"
 msgstr ""
 
-#: setup.php:739 setup.php:753
+#: setup.php:737 setup.php:751
 msgid "Alert Hi for %s (%s %%%)"
 msgstr ""
 
-#: setup.php:745 setup.php:759
+#: setup.php:743 setup.php:757
 msgid "Alert Low for %s (%s %%%)"
 msgstr ""
 
-#: setup.php:777 setup.php:791
+#: setup.php:775 setup.php:789
 msgid "Warning Hi for %s (%s %%%)"
 msgstr ""
 
-#: setup.php:783 setup.php:797
+#: setup.php:781 setup.php:795
 msgid "Warning Low for %s (%s %%%)"
 msgstr ""
 
-#: setup.php:810
+#: setup.php:808
 msgid "Threshold Alert/Warning Values"
 msgstr ""
 
-#: setup.php:916
+#: setup.php:914
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr ""
 
-#: setup.php:1032 setup.php:1050
+#: setup.php:1030 setup.php:1048
 msgid "Create Threshold from Data Source"
 msgstr ""
 
-#: setup.php:1071
+#: setup.php:1069
 msgid "Auto-create Thresholds"
 msgstr ""
 
-#: setup.php:1184 setup.php:1391
+#: setup.php:1182 setup.php:1389
 #, php-format
 msgid "Created %s thresholds"
 msgstr ""
 
-#: setup.php:1186 setup.php:1393 thold_functions.php:8072
+#: setup.php:1184 setup.php:1391 thold_functions.php:8072
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr ""
 
-#: setup.php:1189 setup.php:1396
+#: setup.php:1187 setup.php:1394
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr ""
 
-#: setup.php:1268
+#: setup.php:1266
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr ""
 
-#: setup.php:1272
+#: setup.php:1270
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr ""
 
-#: setup.php:1279 setup.php:1491
+#: setup.php:1277 setup.php:1489
 msgid "Available Threshold Templates"
 msgstr ""
 
-#: setup.php:1284 setup.php:1496 thold_webapi.php:390
+#: setup.php:1282 setup.php:1494 thold_webapi.php:390
 msgid "Select a Threshold Template"
 msgstr ""
 
-#: setup.php:1300
+#: setup.php:1298
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr ""
 
-#: setup.php:1322 setup.php:1533 thold_webapi.php:213
+#: setup.php:1320 setup.php:1531 thold_webapi.php:213
 msgid "Create Threshold from Template"
 msgstr ""
 
-#: setup.php:1480
+#: setup.php:1478
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr ""
 
-#: setup.php:1484
+#: setup.php:1482
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr ""
 
-#: setup.php:1511
+#: setup.php:1509
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr ""
 
-#: setup.php:1655 setup.php:1867
+#: setup.php:1653 setup.php:1865
 msgid "Associated Threshold Templates"
 msgstr ""
 
-#: setup.php:1685
+#: setup.php:1683
 msgid "Threshold Exists"
 msgstr ""
 
-#: setup.php:1687
+#: setup.php:1685
 msgid "Threshold Does Not Exist"
 msgstr ""
 
-#: setup.php:1699
+#: setup.php:1697
 msgid "Delete Threshold Template Association"
 msgstr ""
 
-#: setup.php:1707 setup.php:1895
+#: setup.php:1705 setup.php:1893
 msgid "No Associated Threshold Templates."
 msgstr ""
 
-#: setup.php:1725 setup.php:1914
+#: setup.php:1723 setup.php:1912
 msgid "Add Threshold Template"
 msgstr ""
 
-#: setup.php:1731 setup.php:1920
+#: setup.php:1729 setup.php:1918
 msgid "Add"
 msgstr ""
 
-#: setup.php:1731
+#: setup.php:1729
 msgid "Add Threshold Template to Device"
 msgstr ""
 
-#: setup.php:1784
+#: setup.php:1782
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
 msgstr ""
 
-#: setup.php:1785 setup.php:1973
+#: setup.php:1783 setup.php:1971
 #, php-format
 msgid "Threshold Template Name: %s"
 msgstr ""
 
-#: setup.php:1791 setup.php:1979
+#: setup.php:1789 setup.php:1977
 msgid "Remove Threshold Template"
 msgstr ""
 
-#: setup.php:1920
+#: setup.php:1918
 msgid "Add Threshold Template to Device Template"
 msgstr ""
 
-#: setup.php:1972
+#: setup.php:1970
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr ""
 
