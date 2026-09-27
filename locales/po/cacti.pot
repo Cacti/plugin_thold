@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-27 12:54-0400\n"
+"POT-Creation-Date: 2026-09-27 12:57-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -486,7 +486,7 @@ msgid "Resume Notifications"
 msgstr ""
 
 #: includes/arrays.php:531 includes/arrays.php:540 notify_lists.php:32
-#: notify_queue.php:35 setup.php:1885
+#: notify_queue.php:35 setup.php:1883
 msgid "Delete"
 msgstr ""
 
@@ -1355,7 +1355,7 @@ msgstr ""
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1788 setup.php:1976 thold.php:513 thold_functions.php:10385
+#: setup.php:1788 setup.php:1974 thold.php:513 thold_functions.php:10385
 #: thold_templates.php:330
 msgid "Cancel"
 msgstr ""
@@ -1363,7 +1363,7 @@ msgstr ""
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1789 setup.php:1977 thold.php:516 thold_functions.php:10388
+#: setup.php:1789 setup.php:1975 thold.php:516 thold_functions.php:10388
 #: thold_templates.php:333
 msgid "Continue"
 msgstr ""
@@ -2051,7 +2051,7 @@ msgstr ""
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr ""
 
-#: setup.php:1653 setup.php:1865
+#: setup.php:1653 setup.php:1863
 msgid "Associated Threshold Templates"
 msgstr ""
 
@@ -2067,15 +2067,15 @@ msgstr ""
 msgid "Delete Threshold Template Association"
 msgstr ""
 
-#: setup.php:1705 setup.php:1893
+#: setup.php:1705 setup.php:1891
 msgid "No Associated Threshold Templates."
 msgstr ""
 
-#: setup.php:1723 setup.php:1912
+#: setup.php:1723 setup.php:1910
 msgid "Add Threshold Template"
 msgstr ""
 
-#: setup.php:1729 setup.php:1918
+#: setup.php:1729 setup.php:1916
 msgid "Add"
 msgstr ""
 
@@ -2087,20 +2087,20 @@ msgstr ""
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
 msgstr ""
 
-#: setup.php:1783 setup.php:1971
+#: setup.php:1783 setup.php:1969
 #, php-format
 msgid "Threshold Template Name: %s"
 msgstr ""
 
-#: setup.php:1789 setup.php:1977
+#: setup.php:1789 setup.php:1975
 msgid "Remove Threshold Template"
 msgstr ""
 
-#: setup.php:1918
+#: setup.php:1916
 msgid "Add Threshold Template to Device Template"
 msgstr ""
 
-#: setup.php:1970
+#: setup.php:1968
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr ""
 
