@@ -351,7 +351,7 @@ function notify_queue() {
 				</tr>
 			</table>
 			</form>
-			<script type='text/javascript'>
+			<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 			function applyFilter() {
 				strURL  = 'notify_queue.php?header=false';

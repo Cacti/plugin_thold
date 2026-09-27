@@ -265,7 +265,7 @@ function form_thold_filter() {
 			<input type='hidden' id='page' value='<?php print html_escape(get_request_var('page')); ?>'>
 			<input type='hidden' id='tab' value='thold'>
 		</form>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=thold';
@@ -1349,7 +1349,7 @@ function form_host_filter() {
 			<input type='hidden' name='page' value='<?php print html_escape(get_request_var('page')); ?>'>
 			<input type='hidden' name='tab' value='hoststat'>
 		</form>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=hoststat';
@@ -1870,7 +1870,7 @@ function form_thold_log_filter() {
 			</table>
 			<input type='hidden' name='tab' value='log'>
 		</form>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 		function applyFilter() {
 			strURL  = 'thold_graph.php?header=false&action=log';

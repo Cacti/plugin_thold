@@ -23,6 +23,22 @@
 */
 
 /**
+ * Return the CSP nonce attribute for inline <script> tags, safely across
+ * Cacti versions. Newer Cacti releases enforce a Content-Security-Policy that
+ * requires a per-request nonce on parser-inserted scripts; older releases lack
+ * the CactiSecureHeaders class, so this returns an empty string there.
+ *
+ * @return string The nonce attribute when supported, otherwise empty string.
+ */
+function plugin_thold_csp_nonce(): string {
+	if (class_exists('CactiSecureHeaders')) {
+		return CactiSecureHeaders::getNonceAttribute();
+	}
+
+	return '';
+}
+
+/**
  * Registers all of this plugin's hooks (settings, breadcrumbs, poller
  * output/bottom, device/data-source/graph management actions, graph
  * buttons, SNMP agent cache, clog regex, and more) and permission
@@ -1527,7 +1543,7 @@ function thold_graphs_action_array($action) {
  */
 function thold_host_edit_bottom() {
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 	changeNotify();
 	function changeNotify() {
@@ -1598,11 +1614,11 @@ function thold_page_head() {
 	global $config;
 
 	if (file_exists($config['base_path'] . '/plugins/thold/themes/' . get_selected_theme() . '/main.css')) {
-		print "<link href='" . $config['url_path'] . 'plugins/thold/themes/' . get_selected_theme() . "/main.css' type='text/css' rel='stylesheet'>\n";
+		print get_md5_include_css('plugins/thold/themes/' . get_selected_theme() . '/main.css');
 	}
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 	$(function() {
 		$(document).ajaxComplete(function() {
 			$('.tholdVRule').unbind().click(function(event) {
@@ -1714,7 +1730,7 @@ function thold_device_edit_pre_bottom() {
 						</td>
 					</tr>
 				</table>
-				<script type='text/javascript'>
+				<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 				function addThresholdTemplate() {
 					scrollTop = $(window).scrollTop();
 					$.post(urlPath+'host.php?header=false&action=item_add_tt', {
@@ -1780,7 +1796,7 @@ function thold_device_top() {
 		form_end();
 
 		?>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 		$(function() {
 			$('#cdialog').dialog();
 		});
@@ -1901,7 +1917,7 @@ function thold_device_template_edit() {
 						</td>
 					</tr>
 				</table>
-				<script type='text/javascript'>
+				<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 				function addThresholdTemplate() {
 					$('#add_tt').click(function() {
 						scrollTop = $(window).scrollTop();
@@ -1966,7 +1982,7 @@ function thold_device_template_top() {
 		form_end();
 
 		?>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 		$(function() {
 			$('#cdialog').dialog();
 		});
@@ -2217,7 +2233,7 @@ function thold_clog_regex_threshold($matches) {
  */
 function thold_settings_bottom() {
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 	$(function() {
 		$('#alert_notification_pause').multiselect();
 	});

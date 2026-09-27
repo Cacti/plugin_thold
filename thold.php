@@ -827,7 +827,7 @@ function list_tholds() {
 			<input type='hidden' name='search' value='search'>
 			<input type='hidden' id='page' value='<?php print html_escape(get_filter_request_var('page')); ?>'>
 		</form>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 		function applyFilter() {
 			strURL  = 'thold.php?header=false&host_id=' + $('#host_id').val();
@@ -2408,7 +2408,7 @@ function thold_edit() {
 
 	?>
 
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 	function templateEnableDisable() {
 		var status = $('#template_enabled').is(':checked');

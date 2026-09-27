@@ -119,7 +119,7 @@ function do_actions() {
 				case 1:
 					top_header();
 
-					print '<script text="text/javascript">
+					print '<script text="text/javascript" ' . plugin_thold_csp_nonce() . '>
 						function DownloadStart(url) {
 							document.getElementById("download_iframe").src = url;
 							setTimeout(function() {
@@ -597,7 +597,7 @@ function template_add() {
 		form_end();
 
 		?>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 		function applyFilter(type) {
 			if (type == 'dt' && $('#data_source_id')) {
@@ -1939,7 +1939,7 @@ function template_edit() {
 	form_save_button('thold_templates.php', 'return');
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 	function changeTholdType() {
 		switch($('#thold_type').val()) {
@@ -2311,7 +2311,7 @@ function templates() {
 				</tr>
 			</table>
 			</form>
-			<script type='text/javascript'>
+			<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 			function applyFilter() {
 				strURL  = 'thold_templates.php?header=false&rows=' + $('#rows').val();
@@ -2736,7 +2736,7 @@ function thold_form_end($ajax = true) {
 	print "</form>\n";
 
 	if ($ajax) { ?>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 		$(function() {
 			$('#<?php print $form_id; ?>').submit(function(event) {
 				if ($('#drp_action').val() != '1') {
