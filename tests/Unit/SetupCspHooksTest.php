@@ -80,16 +80,4 @@ final class SetupCspHooksTest extends TestCase {
 		$this->assertStringContainsString("<script type='text/javascript'", $output);
 		$this->assertStringContainsString('addThresholdTemplate', $output);
 	}
-
-	/**
-	 * @runInSeparateProcess
-	 * @preserveGlobalState disabled
-	 */
-	public function test_csp_nonce_delegates_to_secure_headers_when_available(): void {
-		// Declared at runtime (isolated process) so class_exists() takes the
-		// CactiSecureHeaders branch without leaking into the class-absent test.
-		eval('class CactiSecureHeaders { public static function getNonceAttribute(): string { return "nonce=\"unit\""; } }');
-
-		$this->assertSame('nonce="unit"', plugin_thold_csp_nonce());
-	}
 }

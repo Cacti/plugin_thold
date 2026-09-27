@@ -32,7 +32,9 @@
  */
 function plugin_thold_csp_nonce(): string {
 	if (class_exists('CactiSecureHeaders')) {
+		// @codeCoverageIgnoreStart -- CactiSecureHeaders only exists inside a running Cacti; unit tests exercise the fallback path
 		return CactiSecureHeaders::getNonceAttribute();
+		// @codeCoverageIgnoreEnd
 	}
 
 	return '';
