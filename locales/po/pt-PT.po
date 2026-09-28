@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-24 21:39-0400\n"
+"POT-Creation-Date: 2026-09-27 12:57-0400\n"
 "PO-Revision-Date: 2021-01-18 18:17+0000\n"
 "Last-Translator: Luís Silva <luis.m.ribeiro.silva@tecnico.ulisboa.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.cacti.net/projects/cacti/thold/pt_PT/>\n"
@@ -486,7 +486,7 @@ msgid "Resume Notifications"
 msgstr "Notificações SNMP"
 
 #: includes/arrays.php:531 includes/arrays.php:540 notify_lists.php:32
-#: notify_queue.php:35 setup.php:1867
+#: notify_queue.php:35 setup.php:1883
 msgid "Delete"
 msgstr "Apagar"
 
@@ -1367,7 +1367,7 @@ msgstr "Clique em 'Continuar' para excluir listas de notificação.  Qualquer Di
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1772 setup.php:1958 thold.php:513 thold_functions.php:10385
+#: setup.php:1788 setup.php:1974 thold.php:513 thold_functions.php:10385
 #: thold_templates.php:330
 msgid "Cancel"
 msgstr "Cancelar"
@@ -1375,7 +1375,7 @@ msgstr "Cancelar"
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1773 setup.php:1959 thold.php:516 thold_functions.php:10388
+#: setup.php:1789 setup.php:1975 thold.php:516 thold_functions.php:10388
 #: thold_templates.php:333
 msgid "Continue"
 msgstr "Continuar"
@@ -1519,7 +1519,7 @@ msgid "List General Settings"
 msgstr "Opções gerais da lista"
 
 #: notify_lists.php:1092 notify_lists.php:1760 notify_lists.php:2059
-#: setup.php:1654 thold.php:872 thold_graph.php:490 thold_templates.php:2376
+#: setup.php:1670 thold.php:872 thold_graph.php:490 thold_templates.php:2376
 msgid "Name"
 msgstr "Nome"
 
@@ -1582,8 +1582,8 @@ msgstr "Site"
 
 #: notify_lists.php:1269 notify_lists.php:1287 notify_lists.php:1496
 #: notify_lists.php:1511 notify_lists.php:1647 notify_lists.php:1873
-#: notify_lists.php:2133 setup.php:1014 setup.php:1032 setup.php:1268
-#: setup.php:1269 setup.php:1480 thold.php:734 thold.php:769 thold.php:1746
+#: notify_lists.php:2133 setup.php:1030 setup.php:1048 setup.php:1284
+#: setup.php:1285 setup.php:1496 thold.php:734 thold.php:769 thold.php:1746
 #: thold.php:1754 thold.php:2145 thold.php:2153 thold.php:2664
 #: thold_graph.php:154 thold_graph.php:189 thold_graph.php:207
 #: thold_graph.php:1260 thold_graph.php:1310 thold_graph.php:1757
@@ -1636,7 +1636,7 @@ msgstr "Limpar Filtros"
 msgid "ID"
 msgstr "ID"
 
-#: notify_lists.php:1462 setup.php:1654 thold.php:791 thold_graph.php:229
+#: notify_lists.php:1462 setup.php:1670 thold.php:791 thold_graph.php:229
 #: thold_graph.php:1096 thold_graph.php:1279 thold_graph.php:1832
 msgid "Status"
 msgstr "Estado"
@@ -1947,174 +1947,174 @@ msgstr ""
 msgid "No Notifications"
 msgstr "Notificações SNMP"
 
-#: setup.php:340
+#: setup.php:356
 msgid "Off"
 msgstr "Desligado"
 
-#: setup.php:340
+#: setup.php:356
 msgid "On"
 msgstr "Ligado"
 
-#: setup.php:340
+#: setup.php:356
 #, php-format
 msgid "Toggle Threshold VRULES %s"
 msgstr "Alternar entre VRULES de Limiar %s"
 
-#: setup.php:359
+#: setup.php:375
 msgid "Create Threshold"
 msgstr "Criar limiar"
 
-#: setup.php:657 setup.php:667
+#: setup.php:673 setup.php:683
 #, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr ""
 
-#: setup.php:661 setup.php:671
+#: setup.php:677 setup.php:687
 #, php-format
 msgid "Alert Low for %s (%s)"
 msgstr ""
 
-#: setup.php:687 setup.php:697
+#: setup.php:703 setup.php:713
 #, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr "Listas de advertência"
 
-#: setup.php:691 setup.php:701
+#: setup.php:707 setup.php:717
 #, php-format
 msgid "Warning Low for %s (%s)"
 msgstr "Listas de advertência"
 
-#: setup.php:721 setup.php:735
+#: setup.php:737 setup.php:751
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "Listas de advertência"
 
-#: setup.php:727 setup.php:741
+#: setup.php:743 setup.php:757
 msgid "Alert Low for %s (%s %%%)"
 msgstr "Listas de advertência"
 
-#: setup.php:759 setup.php:773
+#: setup.php:775 setup.php:789
 msgid "Warning Hi for %s (%s %%%)"
 msgstr "Listas de advertência"
 
-#: setup.php:765 setup.php:779
+#: setup.php:781 setup.php:795
 msgid "Warning Low for %s (%s %%%)"
 msgstr "Listas de advertência"
 
-#: setup.php:792
+#: setup.php:808
 msgid "Threshold Alert/Warning Values"
 msgstr "Valores de alerta/aviso de limiar"
 
-#: setup.php:898
+#: setup.php:914
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr "Clique em 'Continuar' para aplicar todos os Limiares apropriados a estes Dispositivos."
 
-#: setup.php:1014 setup.php:1032
+#: setup.php:1030 setup.php:1048
 msgid "Create Threshold from Data Source"
 msgstr "Criar limiar a partir da fonte de dados"
 
-#: setup.php:1053
+#: setup.php:1069
 msgid "Auto-create Thresholds"
 msgstr "Auto-criar Limiares"
 
-#: setup.php:1166 setup.php:1373
+#: setup.php:1182 setup.php:1389
 #, php-format
 msgid "Created %s thresholds"
 msgstr "Limiar criado: %s"
 
-#: setup.php:1168 setup.php:1375 thold_functions.php:8072
+#: setup.php:1184 setup.php:1391 thold_functions.php:8072
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "Sem limiar(s) Criado(s).  Ou já existem, ou não foram encontradas combinações correspondentes."
 
-#: setup.php:1171 setup.php:1378
+#: setup.php:1187 setup.php:1394
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Sem limiar(s) Criado(s).  Limiar(es) Template não encontrado."
 
-#: setup.php:1250
+#: setup.php:1266
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr "As seguintes Fontes de Dados não têm Modelos de Limiar associados a elas"
 
-#: setup.php:1254
+#: setup.php:1270
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr "Clique em 'Continuar' para criar Limiares para essas Fontes de Dados?"
 
-#: setup.php:1261 setup.php:1473
+#: setup.php:1277 setup.php:1489
 msgid "Available Threshold Templates"
 msgstr "Modelos de limiar disponíveis"
 
-#: setup.php:1266 setup.php:1478 thold_webapi.php:390
+#: setup.php:1282 setup.php:1494 thold_webapi.php:390
 msgid "Select a Threshold Template"
 msgstr "Selecione um modelo de limiar"
 
-#: setup.php:1282
+#: setup.php:1298
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Não existem Modelos de Limiar associados às seguintes Fontes de Dados"
 
-#: setup.php:1304 setup.php:1515 thold_webapi.php:213
+#: setup.php:1320 setup.php:1531 thold_webapi.php:213
 msgid "Create Threshold from Template"
 msgstr "Criar limiar a partir do modelo"
 
-#: setup.php:1462
+#: setup.php:1478
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "Os seguintes Gráficos não têm Templates de Limiar associados a eles"
 
-#: setup.php:1466
+#: setup.php:1482
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr "Pressione 'Continuar' se você deseja criar Limiar(s) para este(s) Gráfico(s)"
 
-#: setup.php:1493
+#: setup.php:1509
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr "Não existem Modelos de Limiar associados aos seguintes Gráficos"
 
-#: setup.php:1637 setup.php:1847
+#: setup.php:1653 setup.php:1863
 msgid "Associated Threshold Templates"
 msgstr "Modelos de Limiares Associados"
 
-#: setup.php:1667
+#: setup.php:1683
 msgid "Threshold Exists"
 msgstr "O limiar existe"
 
-#: setup.php:1669
+#: setup.php:1685
 msgid "Threshold Does Not Exist"
 msgstr "O limiar não existe"
 
-#: setup.php:1681
+#: setup.php:1697
 msgid "Delete Threshold Template Association"
 msgstr "Selecione um modelo de limiar"
 
-#: setup.php:1689 setup.php:1875
+#: setup.php:1705 setup.php:1891
 msgid "No Associated Threshold Templates."
 msgstr "Sem Modelos de Limiares Associados."
 
-#: setup.php:1707 setup.php:1894
+#: setup.php:1723 setup.php:1910
 msgid "Add Threshold Template"
 msgstr "Adicionar modelo de limiar"
 
-#: setup.php:1713 setup.php:1900
+#: setup.php:1729 setup.php:1916
 msgid "Add"
 msgstr "Adicionar"
 
-#: setup.php:1713
+#: setup.php:1729
 msgid "Add Threshold Template to Device"
 msgstr "Adicionar modelo de limiar ao modelo do dispositivo"
 
-#: setup.php:1766
+#: setup.php:1782
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
 msgstr "Clique em 'Continuar' para Excluir o seguinte Modelo de Limiar será dissociado do Modelo de Dispositivo."
 
-#: setup.php:1767 setup.php:1953
+#: setup.php:1783 setup.php:1969
 #, php-format
 msgid "Threshold Template Name: %s"
 msgstr "Nome do modelo do limiar: %s"
 
-#: setup.php:1773 setup.php:1959
+#: setup.php:1789 setup.php:1975
 msgid "Remove Threshold Template"
 msgstr "Remover modelo de limiar"
 
-#: setup.php:1900
+#: setup.php:1916
 msgid "Add Threshold Template to Device Template"
 msgstr "Adicionar modelo de limiar ao modelo do dispositivo"
 
-#: setup.php:1952
+#: setup.php:1968
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr "Clique em 'Continuar' para Excluir o seguinte Modelo de Limiar será dissociado do Modelo de Dispositivo."
 
