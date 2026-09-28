@@ -1,6 +1,7 @@
 ## ChangeLog
 
 --- develop ---
+* security: Add a version-safe CSP nonce (`plugin_thold_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
 * issue: Drain only the notifications this run claimed (PR #804)
 * issue: Correct counter delta, wrap modulus and percent denominator (PR #791)
 * issue: Keep zero readings and stop falling back to the wrong data source (PR #790)

@@ -835,7 +835,7 @@ function thold_wizard() {
 	form_end();
 
 	?>
-	<script type='text/javascript'>
+	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 	function applyTholdFilter() {
 		strURL  = 'thold.php?action=add&header=false';

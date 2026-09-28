@@ -1328,7 +1328,7 @@ function hosts($header_label) {
 				</tr>
 			</table>
 		</form>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 		function applyFilter() {
 			strURL  = '?header=false&action=edit&id=<?php print get_request_var('id'); ?>'
@@ -1711,7 +1711,7 @@ function tholds($header_label) {
 				</tr>
 			</table>
 		</form>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false&action=edit&tab=tholds&id=<?php print get_request_var('id'); ?>'
@@ -2014,7 +2014,7 @@ function templates($header_label) {
 				</tr>
 			</table>
 		</form>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false&action=edit&tab=templates&id=<?php print get_request_var('id'); ?>'
@@ -2363,7 +2363,7 @@ function lists() {
 				</tr>
 			</table>
 		</form>
-		<script type='text/javascript'>
+		<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
 		function applyFilter() {
 			strURL  = 'notify_lists.php?header=false';

@@ -224,6 +224,69 @@ if (!function_exists('html_escape')) {
 	}
 }
 
+// Output-only Cacti UI helpers the page_head/device hook callbacks emit
+// through; the tests only care that the surrounding PHP (including the CSP
+// nonce/asset lines) executes, so these are recorded no-ops.
+if (!function_exists('html_header')) {
+	function html_header(...$args) {
+		CactiStubs::record('html_header');
+	}
+}
+
+if (!function_exists('html_start_box')) {
+	function html_start_box(...$args) {
+		CactiStubs::record('html_start_box');
+	}
+}
+
+if (!function_exists('html_end_box')) {
+	function html_end_box(...$args) {
+		CactiStubs::record('html_end_box');
+	}
+}
+
+if (!function_exists('form_start')) {
+	function form_start(...$args) {
+		CactiStubs::record('form_start');
+	}
+}
+
+if (!function_exists('form_end')) {
+	function form_end(...$args) {
+		CactiStubs::record('form_end');
+	}
+}
+
+if (!function_exists('form_alternate_row')) {
+	function form_alternate_row(...$args) {
+		CactiStubs::record('form_alternate_row');
+	}
+}
+
+if (!function_exists('form_end_row')) {
+	function form_end_row(...$args) {
+		CactiStubs::record('form_end_row');
+	}
+}
+
+if (!function_exists('form_dropdown')) {
+	function form_dropdown(...$args) {
+		CactiStubs::record('form_dropdown');
+	}
+}
+
+if (!function_exists('get_md5_include_js')) {
+	function get_md5_include_js($path, $async = false) {
+		return "<script type='text/javascript' src='" . $path . "'></script>";
+	}
+}
+
+if (!function_exists('get_md5_include_css')) {
+	function get_md5_include_css($path) {
+		return "<link href='" . $path . "' type='text/css' rel='stylesheet'>";
+	}
+}
+
 /*
  * Mirrors Cacti 1.2 lib/functions.php. KEEP IN SYNC: if core tightens its
  * checks, tests here would otherwise keep passing while production diverges.
