@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-24 21:39-0400\n"
+"POT-Creation-Date: 2026-09-27 12:57-0400\n"
 "PO-Revision-Date: 2020-09-13 15:02-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -485,7 +485,7 @@ msgid "Resume Notifications"
 msgstr "SNMP 알림"
 
 #: includes/arrays.php:531 includes/arrays.php:540 notify_lists.php:32
-#: notify_queue.php:35 setup.php:1867
+#: notify_queue.php:35 setup.php:1883
 msgid "Delete"
 msgstr "삭제"
 
@@ -1366,7 +1366,7 @@ msgstr "알림 목록을 삭제하려면 '계속'을 클릭하십시오. 목록�
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1772 setup.php:1958 thold.php:513 thold_functions.php:10385
+#: setup.php:1788 setup.php:1974 thold.php:513 thold_functions.php:10385
 #: thold_templates.php:330
 msgid "Cancel"
 msgstr "취소"
@@ -1374,7 +1374,7 @@ msgstr "취소"
 #: notify_lists.php:721 notify_lists.php:733 notify_lists.php:795
 #: notify_lists.php:810 notify_lists.php:873 notify_lists.php:888
 #: notify_lists.php:954 notify_lists.php:973 notify_queue.php:173
-#: setup.php:1773 setup.php:1959 thold.php:516 thold_functions.php:10388
+#: setup.php:1789 setup.php:1975 thold.php:516 thold_functions.php:10388
 #: thold_templates.php:333
 msgid "Continue"
 msgstr "계속"
@@ -1518,7 +1518,7 @@ msgid "List General Settings"
 msgstr "일반 설정 나열"
 
 #: notify_lists.php:1092 notify_lists.php:1760 notify_lists.php:2059
-#: setup.php:1654 thold.php:872 thold_graph.php:490 thold_templates.php:2376
+#: setup.php:1670 thold.php:872 thold_graph.php:490 thold_templates.php:2376
 msgid "Name"
 msgstr "이름"
 
@@ -1581,8 +1581,8 @@ msgstr "사이트"
 
 #: notify_lists.php:1269 notify_lists.php:1287 notify_lists.php:1496
 #: notify_lists.php:1511 notify_lists.php:1647 notify_lists.php:1873
-#: notify_lists.php:2133 setup.php:1014 setup.php:1032 setup.php:1268
-#: setup.php:1269 setup.php:1480 thold.php:734 thold.php:769 thold.php:1746
+#: notify_lists.php:2133 setup.php:1030 setup.php:1048 setup.php:1284
+#: setup.php:1285 setup.php:1496 thold.php:734 thold.php:769 thold.php:1746
 #: thold.php:1754 thold.php:2145 thold.php:2153 thold.php:2664
 #: thold_graph.php:154 thold_graph.php:189 thold_graph.php:207
 #: thold_graph.php:1260 thold_graph.php:1310 thold_graph.php:1757
@@ -1635,7 +1635,7 @@ msgstr "필터 지우기"
 msgid "ID"
 msgstr "ID"
 
-#: notify_lists.php:1462 setup.php:1654 thold.php:791 thold_graph.php:229
+#: notify_lists.php:1462 setup.php:1670 thold.php:791 thold_graph.php:229
 #: thold_graph.php:1096 thold_graph.php:1279 thold_graph.php:1832
 msgid "Status"
 msgstr "상태"
@@ -1946,174 +1946,174 @@ msgstr ""
 msgid "No Notifications"
 msgstr "SNMP 알림"
 
-#: setup.php:340
+#: setup.php:356
 msgid "Off"
 msgstr "끄기"
 
-#: setup.php:340
+#: setup.php:356
 msgid "On"
 msgstr "On"
 
-#: setup.php:340
+#: setup.php:356
 #, php-format
 msgid "Toggle Threshold VRULES %s"
 msgstr "임계 값 토글 VRRES  %s"
 
-#: setup.php:359
+#: setup.php:375
 msgid "Create Threshold"
 msgstr "임계 값 생성"
 
-#: setup.php:657 setup.php:667
+#: setup.php:673 setup.php:683
 #, php-format
 msgid "Alert Hi for %s (%s)"
 msgstr "%s (%s)에 대한 Hi 경고"
 
-#: setup.php:661 setup.php:671
+#: setup.php:677 setup.php:687
 #, php-format
 msgid "Alert Low for %s (%s)"
 msgstr "%s (%s)에 대한 경고 낮음"
 
-#: setup.php:687 setup.php:697
+#: setup.php:703 setup.php:713
 #, php-format
 msgid "Warning Hi for %s (%s)"
 msgstr "경고 목록"
 
-#: setup.php:691 setup.php:701
+#: setup.php:707 setup.php:717
 #, php-format
 msgid "Warning Low for %s (%s)"
 msgstr "경고 목록"
 
-#: setup.php:721 setup.php:735
+#: setup.php:737 setup.php:751
 msgid "Alert Hi for %s (%s %%%)"
 msgstr "%s (%s %%)에 대한 Hi 경고"
 
-#: setup.php:727 setup.php:741
+#: setup.php:743 setup.php:757
 msgid "Alert Low for %s (%s %%%)"
 msgstr "%s (%s %%)에 대한 경고 낮음"
 
-#: setup.php:759 setup.php:773
+#: setup.php:775 setup.php:789
 msgid "Warning Hi for %s (%s %%%)"
 msgstr "%s (%s %%)에 대해 안녕하세요."
 
-#: setup.php:765 setup.php:779
+#: setup.php:781 setup.php:795
 msgid "Warning Low for %s (%s %%%)"
 msgstr "%s (%s %%)에 대해 낮음 경고"
 
-#: setup.php:792
+#: setup.php:808
 msgid "Threshold Alert/Warning Values"
 msgstr "임계 값 경고 / 경고 값"
 
-#: setup.php:898
+#: setup.php:914
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
 msgstr "'계속'을 클릭하여 해당하는 모든 임계 값을이 장치에 적용하십시오."
 
-#: setup.php:1014 setup.php:1032
+#: setup.php:1030 setup.php:1048
 msgid "Create Threshold from Data Source"
 msgstr "데이터 원본에서 임계 값 만들기"
 
-#: setup.php:1053
+#: setup.php:1069
 msgid "Auto-create Thresholds"
 msgstr "임계 값 자동 생성"
 
-#: setup.php:1166 setup.php:1373
+#: setup.php:1182 setup.php:1389
 #, php-format
 msgid "Created %s thresholds"
 msgstr "생성 된 임계 값 :  %s"
 
-#: setup.php:1168 setup.php:1375 thold_functions.php:8072
+#: setup.php:1184 setup.php:1391 thold_functions.php:8072
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
 msgstr "생성 된 임계 값 없음. 이미 존재하거나 일치하는 조합을 찾지 못했습니다."
 
-#: setup.php:1171 setup.php:1378
+#: setup.php:1187 setup.php:1394
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "생성 된 임계 값 없음. 임계 값 템플릿을 찾을 수 없습니다."
 
-#: setup.php:1250
+#: setup.php:1266
 msgid "The following Data Sources have no Threshold Templates associated with them"
 msgstr "다음 데이터 소스에는 임계 값 템플릿이 연결되어 있지 않습니다."
 
-#: setup.php:1254
+#: setup.php:1270
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
 msgstr "이 데이터 소스에 대한 임계 값을 만들려면 '계속'을 클릭하십시오."
 
-#: setup.php:1261 setup.php:1473
+#: setup.php:1277 setup.php:1489
 msgid "Available Threshold Templates"
 msgstr "사용 가능한 임계 값 템플릿"
 
-#: setup.php:1266 setup.php:1478 thold_webapi.php:390
+#: setup.php:1282 setup.php:1494 thold_webapi.php:390
 msgid "Select a Threshold Template"
 msgstr "임계 값 템플릿 선택"
 
-#: setup.php:1282
+#: setup.php:1298
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "다음 데이터 소스와 연관된 임계 값 템플리트가 없습니다."
 
-#: setup.php:1304 setup.php:1515 thold_webapi.php:213
+#: setup.php:1320 setup.php:1531 thold_webapi.php:213
 msgid "Create Threshold from Template"
 msgstr "템플리트에서 임계 값 작성"
 
-#: setup.php:1462
+#: setup.php:1478
 msgid "The following Graphs have no Threshold Templates associated with them"
 msgstr "다음 그래프에는 연관된 임계 값 템플릿이 없습니다."
 
-#: setup.php:1466
+#: setup.php:1482
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
 msgstr "이 그래프에 대한 임계 값을 만들려면 '계속'을 누르십시오."
 
-#: setup.php:1493
+#: setup.php:1509
 msgid "There are no Threshold Templates associated with the following Graphs"
 msgstr "다음 그래프와 연관된 임계 값 템플릿이 없습니다."
 
-#: setup.php:1637 setup.php:1847
+#: setup.php:1653 setup.php:1863
 msgid "Associated Threshold Templates"
 msgstr "연관된 임계 값 템플릿"
 
-#: setup.php:1667
+#: setup.php:1683
 msgid "Threshold Exists"
 msgstr "임계 값 있음"
 
-#: setup.php:1669
+#: setup.php:1685
 msgid "Threshold Does Not Exist"
 msgstr "임계 값이 존재하지 않음"
 
-#: setup.php:1681
+#: setup.php:1697
 msgid "Delete Threshold Template Association"
 msgstr "임계 값 템플릿 선택"
 
-#: setup.php:1689 setup.php:1875
+#: setup.php:1705 setup.php:1891
 msgid "No Associated Threshold Templates."
 msgstr "연관된 임계 값 템플릿이 없습니다."
 
-#: setup.php:1707 setup.php:1894
+#: setup.php:1723 setup.php:1910
 msgid "Add Threshold Template"
 msgstr "임계 값 템플릿 추가"
 
-#: setup.php:1713 setup.php:1900
+#: setup.php:1729 setup.php:1916
 msgid "Add"
 msgstr "추가"
 
-#: setup.php:1713
+#: setup.php:1729
 msgid "Add Threshold Template to Device"
 msgstr "장치 템플릿에 임계 값 템플릿 추가"
 
-#: setup.php:1766
+#: setup.php:1782
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
 msgstr "다음 임계 값 템플릿을 삭제하려면 '계속'을 클릭하고 장치 템플릿에서 연결 해제됩니다."
 
-#: setup.php:1767 setup.php:1953
+#: setup.php:1783 setup.php:1969
 #, php-format
 msgid "Threshold Template Name: %s"
 msgstr "임계 값 템플릿 이름 :  %s"
 
-#: setup.php:1773 setup.php:1959
+#: setup.php:1789 setup.php:1975
 msgid "Remove Threshold Template"
 msgstr "임계 값 템플릿 제거"
 
-#: setup.php:1900
+#: setup.php:1916
 msgid "Add Threshold Template to Device Template"
 msgstr "장치 템플릿에 임계 값 템플릿 추가"
 
-#: setup.php:1952
+#: setup.php:1968
 msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
 msgstr "다음 임계 값 템플릿을 삭제하려면 '계속'을 클릭하고 장치 템플릿에서 연결 해제됩니다."
 
