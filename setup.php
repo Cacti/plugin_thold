@@ -22,21 +22,11 @@
  +-------------------------------------------------------------------------+
 */
 
-/**
- * Return the CSP nonce attribute for inline <script> tags, safely across
- * Cacti versions. Newer Cacti releases enforce a Content-Security-Policy that
- * requires a per-request nonce on parser-inserted scripts; older releases lack
- * the CactiSecureHeaders class, so this returns an empty string there.
- *
- * @return string The nonce attribute when supported, otherwise empty string.
- */
-function plugin_thold_csp_nonce(): string {
-	if (class_exists('CactiSecureHeaders')) {
-		return CactiSecureHeaders::getNonceAttribute();
-	}
-
-	return '';
-}
+// setup.php hook callbacks (page_head, device/settings edit) emit nonce'd
+// inline <script> tags, so pull in the shared library that now defines the
+// plugin_thold_csp_nonce() helper; these hooks also run on core Cacti pages
+// that do not otherwise load thold_functions.php.
+require_once __DIR__ . '/thold_functions.php';
 
 /**
  * Registers all of this plugin's hooks (settings, breadcrumbs, poller
