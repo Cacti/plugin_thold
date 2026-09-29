@@ -192,8 +192,6 @@ jobs:
       run: echo -n "${{ env.CACTI }}" | sudo tee ${{ github.workspace }}/cacti/plugins/thold/tests/.cacti-version > /dev/null
 
     - name: Run Pest Unit Tests
-      env:
-        COMPOSER_ROOT_VERSION: 1.3.0-dev
       run: |
         cd ${{ github.workspace }}/cacti
         include/vendor/bin/pest --configuration=plugins/thold/phpunit.xml \
