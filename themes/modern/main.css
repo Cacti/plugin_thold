@@ -288,3 +288,78 @@
 .tholdLog {
 	white-space: pre-wrap !important;
 }
+
+/*
+ * Status legend. Laid out as an evenly sized, wrapping flex row (flex: 1 1 0
+ * gives every chip the same width) with rounded corners and spacing between
+ * chips. A legend is a colour key, so the chips use their own solid, opaque
+ * colours with white text so they stay legible on every theme rather than
+ * inheriting the subtle row tints.
+ */
+.tholdLegend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	width: 100%;
+}
+
+.tholdLegend .tholdLegendItem {
+	flex: 1 1 0;
+	text-align: center;
+	white-space: nowrap;
+	padding: 4px 6px;
+	border-radius: 3px;
+	color: #ffffff;
+}
+
+.tholdLegend .tholdAlert,
+.tholdLegend .tholdAlertNotify,
+.tholdLegend .deviceDownFull {
+	background-color: #a12820;
+}
+
+.tholdLegend .tholdBaseAlert,
+.tholdLegend .tholdAlert2Warn {
+	background-color: #93302a;
+}
+
+.tholdLegend .tholdWarning,
+.tholdLegend .tholdWarningNotify,
+.tholdLegend .tholdReTriggerEvent {
+	background-color: #a85712;
+}
+
+.tholdLegend .deviceRecoveringFull {
+	background-color: #9a6a1a;
+}
+
+.tholdLegend .tholdNotice,
+.tholdLegend .tholdWarnTrigger,
+.tholdLegend .tholdTriggerEvent {
+	background-color: #7d6f18;
+}
+
+.tholdLegend .tholdOk,
+.tholdLegend .deviceUpFull,
+.tholdLegend .tholdRestoralNotify {
+	background-color: #2f8f3a;
+}
+
+.tholdLegend .tholdRestoralEvent {
+	background-color: #3f7a4a;
+}
+
+.tholdLegend .tholdAcknowledgment {
+	background-color: #6a4a9c;
+}
+
+.tholdLegend .deviceErrorFull {
+	background-color: #86407a;
+}
+
+.tholdLegend .tholdDisabled,
+.tholdLegend .deviceDisabledFull,
+.tholdLegend .deviceUnknownFull,
+.tholdLegend .deviceNotMonFull {
+	background-color: #5f5f57;
+}

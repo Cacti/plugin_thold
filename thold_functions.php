@@ -355,12 +355,15 @@ function thold_legend() {
 
 	html_start_box('', '100%', false, '3', 'center', '');
 
-	print '<tr class="tableRow">';
+	print '<tr class="tableRow"><td>';
+	print '<div class="tholdLegend">';
 
 	foreach ($thold_states as $index => $state) {
-		print "<td class='" . $state['class'] . "'>" . $state['display'] . '</td>';
+		print '<div class="tholdLegendItem ' . $state['class'] . '">' . $state['display'] . '</div>';
 	}
-	print '</tr>';
+
+	print '</div>';
+	print '</td></tr>';
 
 	html_end_box(false);
 }
@@ -378,12 +381,15 @@ function host_legend() {
 
 	html_start_box('', '100%', false, '3', 'center', '');
 
-	print '<tr class="tableRow">';
+	print '<tr class="tableRow"><td>';
+	print '<div class="tholdLegend">';
 
 	foreach ($thold_host_states as $index => $state) {
-		print "<td class='" . $state['class'] . "'>" . $state['display'] . '</td>';
+		print '<div class="tholdLegendItem ' . $state['class'] . '">' . $state['display'] . '</div>';
 	}
-	print '</tr>';
+
+	print '</div>';
+	print '</td></tr>';
 
 	html_end_box(false);
 }
@@ -401,12 +407,15 @@ function log_legend() {
 
 	html_start_box('', '100%', false, '3', 'center', '');
 
-	print '<tr class="tableRow">';
+	print '<tr class="tableRow"><td>';
+	print '<div class="tholdLegend">';
 
 	foreach ($thold_log_states as $index => $state) {
-		print "<td class='" . $state['class'] . "'>" . $state['display_short'] . '</td>';
+		print '<div class="tholdLegendItem ' . $state['class'] . '">' . $state['display_short'] . '</div>';
 	}
-	print '</tr>';
+
+	print '</div>';
+	print '</td></tr>';
 
 	html_end_box(false);
 }
