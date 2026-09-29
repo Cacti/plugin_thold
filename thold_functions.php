@@ -9055,7 +9055,7 @@ function thold_notification_register_process($thread, $timeout = 3600, $lock = n
 	$process = db_fetch_row_prepared('SELECT pid,
 		UNIX_TIMESTAMP(started) AS started_at,
 		GREATEST(UNIX_TIMESTAMP(started), UNIX_TIMESTAMP(last_update)) AS heartbeat_at,
-		UNIX_TIMESTAMP() AS current_timestamp
+		UNIX_TIMESTAMP() AS `current_timestamp`
 		FROM processes
 		WHERE tasktype = ?
 		AND taskname = ?
