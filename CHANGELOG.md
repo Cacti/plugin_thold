@@ -1,6 +1,7 @@
 ## ChangeLog
 
 --- develop ---
+* feature: Restyle the Thold, Host status and Log status legends as rounded, evenly-spaced solid-colour chips for a clearer, more readable status key across every theme
 * security: Add a version-safe CSP nonce (`plugin_thold_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
 * issue: Drain only the notifications this run claimed (PR #804)
 * issue: Correct counter delta, wrap modulus and percent denominator (PR #791)
