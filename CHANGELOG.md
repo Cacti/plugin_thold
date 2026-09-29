@@ -1,6 +1,7 @@
 ## ChangeLog
 
 --- develop ---
+* dev: Remove the inert COMPOSER_ROOT_VERSION env from the Pest CI step
 * feature: Restyle the Thold, Host status and Log status legends as rounded, evenly-spaced solid-colour chips for a clearer, more readable status key across every theme
 * security: Add a version-safe CSP nonce (`plugin_thold_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
 * issue: Center-align the "Not Monitored" status cell on the Device Status page (thold_graph.php) so it matches the other status values instead of rendering right-aligned
