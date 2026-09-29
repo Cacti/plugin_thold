@@ -3,6 +3,7 @@
 --- develop ---
 * feature: Restyle the Thold, Host status and Log status legends as rounded, evenly-spaced solid-colour chips for a clearer, more readable status key across every theme
 * security: Add a version-safe CSP nonce (`plugin_thold_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
+* issue: Center-align the "Not Monitored" status cell on the Device Status page (thold_graph.php) so it matches the other status values instead of rendering right-aligned
 * issue: Define `plugin_thold_csp_nonce()` in thold_functions.php instead of setup.php so it is always available on plugin pages, fixing a fatal "Call to undefined function plugin_thold_csp_nonce()" that disabled the plugin when a page loaded without setup.php
 * issue: Quote the reserved word `current_timestamp` used as a column alias in thold_notification_register_process(), which caused a SQL syntax error that broke notification worker registration on MariaDB/MySQL
 * issue: Drain only the notifications this run claimed (PR #804)
