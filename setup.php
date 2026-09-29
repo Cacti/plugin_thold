@@ -22,12 +22,6 @@
  +-------------------------------------------------------------------------+
 */
 
-// setup.php hook callbacks (page_head, device/settings edit) emit nonce'd
-// inline <script> tags, so pull in the shared library that now defines the
-// plugin_thold_csp_nonce() helper; these hooks also run on core Cacti pages
-// that do not otherwise load thold_functions.php.
-require_once __DIR__ . '/thold_functions.php';
-
 /**
  * Registers all of this plugin's hooks (settings, breadcrumbs, poller
  * output/bottom, device/data-source/graph management actions, graph
@@ -1532,6 +1526,9 @@ function thold_graphs_action_array($action) {
  * @return void
  */
 function thold_host_edit_bottom() {
+	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/thold_functions.php');
+
 	?>
 	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 
@@ -1603,6 +1600,9 @@ function thold_snmpagent_cache_uninstall() {
 function thold_page_head() {
 	global $config;
 
+	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/thold_functions.php');
+
 	if (file_exists($config['base_path'] . '/plugins/thold/themes/' . get_selected_theme() . '/main.css')) {
 		print get_md5_include_css('plugins/thold/themes/' . get_selected_theme() . '/main.css');
 	}
@@ -1640,6 +1640,9 @@ function thold_page_head() {
  * @return void
  */
 function thold_device_edit_pre_bottom() {
+	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/thold_functions.php');
+
 	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
 	$host_id = get_request_var('id');
@@ -1850,6 +1853,9 @@ function thold_device_top() {
  * @return void
  */
 function thold_device_template_edit() {
+	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/thold_functions.php');
+
 	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
 	$threshold_templates = db_fetch_assoc_prepared('SELECT ptdt.thold_template_id, tt.name
@@ -2222,6 +2228,9 @@ function thold_clog_regex_threshold($matches) {
  * @return void
  */
 function thold_settings_bottom() {
+	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/thold_functions.php');
+
 	?>
 	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 	$(function() {
