@@ -129,6 +129,12 @@ thresholds, note that you must modify and install the thold_daemon.service file
 into your systemd configuration, and then start and test the service.  If you
 fail to perform these steps, thold will appear to not work as expected.
 
+When upgrading the plugin while the Threshold Daemon is running, restart the
+`thold_daemon` service (for example `systemctl restart thold_daemon`) after
+the upgrade so the long-lived process picks up the new code. On upgrade the
+plugin also prunes its own bundled development-only files (for example the
+`tests/` directory) from the installed tree.
+
 Lastly, please note that several forks of the thold plugin are available from
 different sources.  These forks of thold are not necessarily compatible with the
 current version of Cacti's thold plugin.  Please be aware of this when

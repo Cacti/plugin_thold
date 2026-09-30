@@ -343,6 +343,7 @@ if (!function_exists('__esc')) {
 if (!function_exists('cacti_log')) {
 	function cacti_log($message, $output = false, $environ = 'CMDPHP', $level = 0) {
 		CactiStubs::$log[] = $message;
+		$GLOBALS['__test_cacti_log'][] = (string) $message;
 		CactiStubs::record('cacti_log', '', [$message, $output, $environ, $level]);
 	}
 }
