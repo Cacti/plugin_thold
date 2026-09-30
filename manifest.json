@@ -3,8 +3,6 @@
         "themes/"
     ],
     "expected": [
-        ".mdl_style.rb",
-        ".mdlrc",
         "CACTI-THOLD-MIB",
         "CHANGELOG.md",
         "INFO",
@@ -21,7 +19,6 @@
         "manifest.json",
         "notify_lists.php",
         "notify_queue.php",
-        "phpunit.xml",
         "poller_thold.php",
         "service/",
         "setup.php",
