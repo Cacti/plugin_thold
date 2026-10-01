@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-04-20 16:06-0400\n"
 "Last-Translator: Olivier VOGEL <olivier.vogel@st.com>\n"
 "Language-Team: French <http://translate.cacti.net/projects/cacti/thold/fr-FR/>\n"
@@ -236,7 +236,7 @@ msgstr "Info"
 msgid "Debug"
 msgstr "Débogage"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "Jamais"
 
@@ -509,13 +509,292 @@ msgstr "> %d appareils d’un site"
 msgid "> %d %%% of Devices in a Site"
 msgstr "> %d %%% d’appareils dans un site"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 minute"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Créer"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Seuils"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Journal"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Statut de l’appareil"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Heure :"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Utilisateur:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Système:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Échanges :"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Pages :"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Journalisation uniquement, maint device"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Défaut"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Lien vers le graphique dans Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>An alert has been issued that requires your attention.<br><br><br><b>Device</b> : <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b> : <URL><br><b>Message</b> : <SUBJET><br><br><br><GRAPH></body></html>>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>A warning has been issued that requires your attention.<br><br><br><b>Device</b> : <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b> : <URL><br><b>Message</b> : <SUBJET><br><br><br><GRAPH></body></html>>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "Une alerte a été émise et requiert votre attention. <br><br><br><strong>Device</strong> : <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong> : <URL><br><strong>Message</strong> : <SUBJET><br><br><br><GRAPH>> Sujet"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Dev [ASTUCE : %s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Abs Val [CONSEIL :%s]"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "Déviation UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Abs Val [AOT :%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Le Device ID n'a pas été défini lors de la création du graphique et du Threshold."
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil."
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil."
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "La création du graphique a échoué pour le modèle de seuil"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Le seuil a été créé automatiquement en raison du mappage des modèles de dispositifs."
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Permission refusée"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Mise à jour du dossier"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "N'a pas réussi à trouver l'élément de modèle graphique lié'%d' sur le seuil'%d'."
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Seuil créé : %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Vous devez spécifier soit'Seuil d'alerte élevé' ou'Seuil d'alerte bas' ou les deux!<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Seuils impossibles:'Seuil haut' inférieur ou égal à'Seuil bas'<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "%s' doit être réglé sur une valeur entière positive!<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Vous devez spécifier'Baseline Deviation UP' ou'Baseline Deviation DOWN' ou les deux!<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Seuils impossibles:'Seuil haut' inférieur ou égal à'Seuil bas'<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Seuil impossible : le nombre de déclencheurs d’alerte doit être supérieur ou égal à 1 !"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Seuil impossible : le nombre de déclencheurs d’alertes doit être inférieur ou égal au nombre de déclencheurs ou égal à 1 !"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Seuil impossible : le nombre de déclencheurs d’avertissement doit être supérieur ou égal à 1 !"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Seuil inconnu Seuil inconnu"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Aucun modèle de seuil associé au modèle du dispositif."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Aucun(s) seuil(s) créé(s).  Soit ils existent déjà, soit on n'a pas trouvé de combinaisons correspondantes."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Erreur d'expéditeur : Si vous utilisez le lien <i>Test Mail</i>, veuillez régler le paramètre <b>Alerter Email</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Terminé"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "En attente"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Erreur"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Succès"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Seuil inconnu Seuil inconnu"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Cliquez sur'Continuer' pour confirmer le(s) seuil(s) suivant(s)."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Accusé de réception Modèle(s)"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Abandonner"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Continuer"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Modèle de seuil Modèle de données subordonnées Modèle de données subordonnées introuvable !"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Source de données subordonnée du modèle de seuil introuvable !"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Les colonnes d'importation du modèle de seuil ne correspondent pas au schéma de base de données"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Importé"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Modèle de seuil '%s' %s !"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Mis à jour"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Importer"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Le modèle de seuil '%s' %s échoué !"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Erreurs rencontrées lors de la tentative d'importation des données du modèle de seuil."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Modèle de seuil Modèle de données subordonnées Modèle de données subordonnées introuvable !"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil."
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP non utilisé"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "N/A"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "Bas"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Erreur système : <DESCRIPTION> (<HOSTNAME>) est <DOWN/UP><br>Reason : <MESSAGE><br><br><br>Réponse système moyenne : <AVG_TIME> ms<br>Disponibilité système : <AVAILABILITÉ><br>Total des contrôles depuis la suppression : <TOT_POLL><br>Total des contrôles qui ont échoué : <FAIL_POLL><br>Dernière date vérifiée DOWN : <LAST_FAIL><br>Devices Previously UP for : <DOWNTIME><br>NOTE : <NOTES>>NOTES"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "Seuils"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "Actions"
@@ -561,10 +835,6 @@ msgstr "(ajouter)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "Seuils"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "Statut de l’appareil"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1517,177 @@ msgstr "Une alerte a été émise et requiert votre attention. <br><br><br><stro
 msgid "Thold"
 msgstr "Thold"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Seuil(s) déjà existant(s) - Aucun seuil créé"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Créer un seuil à partir d'un modèle"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Assistant de création de seuils [ Sélectionner un type de seuil ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Assistant de création de seuils [ Entrez des données personnalisées et appuyez sur'Créer' pour créer votre seuil et votre graphique ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Assistant de création de seuils [ Sélectionner les lignes de requête de données disponibles ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Assistant de création de seuil [ Sélectionner un périphérique ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Assistant de création de seuils [ Sélectionner un modèle de graphique ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Assistant de création de seuils [ Sélectionnez un modèle de seuil ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Assistant de création de seuil [ Appuyez sur'Créer' pour créer votre seuil ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Assistant de création de seuils [ Sélectionner une source de données ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Assistant de création de seuils [ Sélectionner un graphique ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Critères de création des seuils"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Créer un type"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Sélectionnez un type de seuil à utiliser pour créer ce seuil."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Sélectionnez un type de seuil"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Non trempée"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Modèle de seuil"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Sélectionnez un modèle de seuil sur lequel le graphique et le seuil seront basés."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Choisir un modèle de seuil"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Modèle de graphique"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Sélectionnez un modèle de graphique à utiliser pour le graphique à créer."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Sélectionnez un modèle de graphique"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Équipement"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Sélectionner un dispositif à utiliser pour le seuil et le graphique à créer."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Sélectionner une machine"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "Sélectionner et article disponible"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Élément de requête de données"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Sélectionnez la ligne applicable dans la requête de données pour le graphique et le seuil."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Notes de création"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Remarque importante :"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Ce seuil <b>NOT</b> sera Templated.  Lorsque vous utilisez l'option Threshold Template (Modèle de seuil), vous serez invité à fournir un modèle de seuil, un modèle de graphique, un dispositif et éventuellement des informations sur les éléments de requête de données avant de recevoir l'invite'Créer', auquel moment, si des informations sur les graphiques ou les sources de données sont autorisées au niveau graphique et sur le modèle de source de données, vous serez invité à le faire.  Ensuite, en appuyant sur le bouton'Créer', le graphique et le seuil seront créés simultanément."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Graphique"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Sélectionner le graphique pour le seuil."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Sélectionnez un graphique"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Source de donnée"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Sélectionnez une source de données pour le seuil."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Sélectionnez une source de données"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Créer"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Ce Seuil <b>NOT</b> sera Tempéré et ne fonctionnera que sur les Graphiques existants.  Si vous souhaitez créer le graphique et le seuil simultanément, sélectionnez Modèle de seuil dans le menu déroulant et continuez jusqu'à ce que le bouton \" Créer \" apparaisse."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Ce seuil <b>NOT</b> sera Templated.  Vous pouvez sélectionner soit Par Graphique où vous sélectionnerez ensuite un dispositif, un graphique et une source de données existants avant de créer votre seuil, soit vous pouvez sélectionner Modèle de seuil qui vous permettra de créer un seuil non tempéré et un graphique correspondant simultanément."
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Modèle de graphique sélectionné"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Graphique créé : %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "Dupliquer"
@@ -1271,16 +1712,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Cliquez sur'Continuer' pour supprimer les listes de notification.  Tout dispositif ou seuil associé à la liste sera réinitialisé à la valeur par défaut."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "Abandonner"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "Continuer"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1906,6 @@ msgstr "Aucun"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "Supprimer le(s) modèle(s)"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "Défaut"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1879,10 +2305,6 @@ msgstr "Seuils de création automatique"
 msgid "Created %s thresholds"
 msgstr "Seuil créé : %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "Aucun(s) seuil(s) créé(s).  Soit ils existent déjà, soit on n'a pas trouvé de combinaisons correspondantes."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Aucun(s) seuil(s) créé(s).  Seuil(s) Modèle non trouvé."
@@ -1899,17 +2321,9 @@ msgstr "Cliquez sur'Continuer' pour créer des seuils pour ces sources de donné
 msgid "Available Threshold Templates"
 msgstr "Modèles de seuils disponibles"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "Choisir un modèle de seuil"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Aucun modèle de seuil n'est associé aux sources de données suivantes"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "Créer un seuil à partir d'un modèle"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2027,10 +2441,6 @@ msgstr "Réappliquer le modèle"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Cliquez sur «Continuer» pour confirmer le (s) seuil (s) suivant (s). Les seuils qui ne le permettent pas ou qui ne sont pas déclenchés seront ignorés."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "Accusé de réception Modèle(s)"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2789,253 +3199,6 @@ msgstr "Utilisateurs Sélectionnés"
 msgid "All Users Selected"
 msgstr "Tous les utilisateurs sélectionnés"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 minute"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "Créer"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "Journal"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "Heure :"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "Utilisateur:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "Système:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "Échanges :"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "Pages :"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr "Journalisation uniquement, maint device"
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Lien vers le graphique dans Cacti"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>An alert has been issued that requires your attention.<br><br><br><b>Device</b> : <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b> : <URL><br><b>Message</b> : <SUBJET><br><br><br><GRAPH></body></html>>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>A warning has been issued that requires your attention.<br><br><br><b>Device</b> : <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b> : <URL><br><b>Message</b> : <SUBJET><br><br><br><GRAPH></body></html>>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Une alerte a été émise et requiert votre attention. <br><br><br><strong>Device</strong> : <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong> : <URL><br><strong>Message</strong> : <SUBJET><br><br><br><GRAPH>> Sujet"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "%% Dev [ASTUCE : %s]"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Abs Val [CONSEIL :%s]"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "Déviation UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Abs Val [AOT :%s]"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "Le Device ID n'a pas été défini lors de la création du graphique et du Threshold."
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil."
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil."
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "La création du graphique a échoué pour le modèle de seuil"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Le seuil a été créé automatiquement en raison du mappage des modèles de dispositifs."
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "Permission refusée"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "Mise à jour du dossier"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "N'a pas réussi à trouver l'élément de modèle graphique lié'%d' sur le seuil'%d'."
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "Seuil créé : %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Vous devez spécifier soit'Seuil d'alerte élevé' ou'Seuil d'alerte bas' ou les deux!<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Seuils impossibles:'Seuil haut' inférieur ou égal à'Seuil bas'<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "%s' doit être réglé sur une valeur entière positive!<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Vous devez spécifier'Baseline Deviation UP' ou'Baseline Deviation DOWN' ou les deux!<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Seuils impossibles:'Seuil haut' inférieur ou égal à'Seuil bas'<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr "Seuil impossible : le nombre de déclencheurs d’alerte doit être supérieur ou égal à 1 !"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Seuil impossible : le nombre de déclencheurs d’alertes doit être inférieur ou égal au nombre de déclencheurs ou égal à 1 !"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr "Seuil impossible : le nombre de déclencheurs d’avertissement doit être supérieur ou égal à 1 !"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil d'alerte bas'<br>RECORD NOT UPDATED !"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "Seuil inconnu Seuil inconnu"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "Aucun modèle de seuil associé au modèle du dispositif."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Erreur d'expéditeur : Si vous utilisez le lien <i>Test Mail</i>, veuillez régler le paramètre <b>Alerter Email</b>."
-
-#: thold_functions.php
-msgid "Done"
-msgstr "Terminé"
-
-#: thold_functions.php
-msgid "Pending"
-msgstr "En attente"
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "Erreur"
-
-#: thold_functions.php
-msgid "Success"
-msgstr "Succès"
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "Seuil inconnu Seuil inconnu"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "Cliquez sur'Continuer' pour confirmer le(s) seuil(s) suivant(s)."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "Modèle de seuil Modèle de données subordonnées Modèle de données subordonnées introuvable !"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Source de données subordonnée du modèle de seuil introuvable !"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "Les colonnes d'importation du modèle de seuil ne correspondent pas au schéma de base de données"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "Importé"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "Modèle de seuil '%s' %s !"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "Mis à jour"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "Importer"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "Le modèle de seuil '%s' %s échoué !"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "Mettre à jour"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "Erreurs rencontrées lors de la tentative d'importation des données du modèle de seuil."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Modèle de seuil Modèle de données subordonnées Modèle de données subordonnées introuvable !"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil."
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "Le type de seuil qui sera surveillé."
@@ -3205,10 +3368,6 @@ msgstr "Seuil Journal pour [ %s ]"
 msgid "Log Entries"
 msgstr "Entrées de journal"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "Équipement"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "Heure"
@@ -3282,10 +3441,6 @@ msgstr "Supprimer le(s) modèle(s)"
 msgid "Threshold Template Creation Wizard"
 msgstr "Assistant de création de modèles de seuils"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "Source de donnée"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "Veuillez sélectionner un modèle de données"
@@ -3297,10 +3452,6 @@ msgstr "Veuillez sélectionner une source de données"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Veuillez cliquer sur'Créer' pour créer votre modèle de seuil."
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "Créer"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3583,157 +3734,6 @@ msgstr "NOTE:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "ERREUR :"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "Seuil(s) déjà existant(s) - Aucun seuil créé"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Assistant de création de seuils [ Sélectionner un type de seuil ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Assistant de création de seuils [ Entrez des données personnalisées et appuyez sur'Créer' pour créer votre seuil et votre graphique ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Assistant de création de seuils [ Sélectionner les lignes de requête de données disponibles ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Assistant de création de seuil [ Sélectionner un périphérique ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Assistant de création de seuils [ Sélectionner un modèle de graphique ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Assistant de création de seuils [ Sélectionnez un modèle de seuil ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Assistant de création de seuil [ Appuyez sur'Créer' pour créer votre seuil ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Assistant de création de seuils [ Sélectionner une source de données ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "Assistant de création de seuils [ Sélectionner un graphique ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "Critères de création des seuils"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "Créer un type"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "Sélectionnez un type de seuil à utiliser pour créer ce seuil."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "Sélectionnez un type de seuil"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "Non trempée"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "Modèle de seuil"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "Sélectionnez un modèle de seuil sur lequel le graphique et le seuil seront basés."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "Modèle de graphique"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "Sélectionnez un modèle de graphique à utiliser pour le graphique à créer."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "Sélectionnez un modèle de graphique"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "Sélectionner un dispositif à utiliser pour le seuil et le graphique à créer."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "Sélectionner une machine"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "Sélectionner et article disponible"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "Élément de requête de données"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "Sélectionnez la ligne applicable dans la requête de données pour le graphique et le seuil."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "Notes de création"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "Remarque importante :"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Ce seuil <b>NOT</b> sera Templated.  Lorsque vous utilisez l'option Threshold Template (Modèle de seuil), vous serez invité à fournir un modèle de seuil, un modèle de graphique, un dispositif et éventuellement des informations sur les éléments de requête de données avant de recevoir l'invite'Créer', auquel moment, si des informations sur les graphiques ou les sources de données sont autorisées au niveau graphique et sur le modèle de source de données, vous serez invité à le faire.  Ensuite, en appuyant sur le bouton'Créer', le graphique et le seuil seront créés simultanément."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "Graphique"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "Sélectionner le graphique pour le seuil."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "Sélectionnez un graphique"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "Sélectionnez une source de données pour le seuil."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "Sélectionnez une source de données"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Ce Seuil <b>NOT</b> sera Tempéré et ne fonctionnera que sur les Graphiques existants.  Si vous souhaitez créer le graphique et le seuil simultanément, sélectionnez Modèle de seuil dans le menu déroulant et continuez jusqu'à ce que le bouton \" Créer \" apparaisse."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Ce seuil <b>NOT</b> sera Templated.  Vous pouvez sélectionner soit Par Graphique où vous sélectionnerez ensuite un dispositif, un graphique et une source de données existants avant de créer votre seuil, soit vous pouvez sélectionner Modèle de seuil qui vous permettra de créer un seuil non tempéré et un graphique correspondant simultanément."
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "Modèle de graphique sélectionné"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "Graphique créé : %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Adresse électronique supplémentaire, séparée par des virgules pour les courriels multiples."
