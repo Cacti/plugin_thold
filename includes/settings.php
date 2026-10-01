@@ -466,7 +466,7 @@ function thold_config_settings() {
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 	include_once($config['base_path'] . '/plugins/thold/setup.php');
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 	include_once($config['base_path'] . '/plugins/thold/includes/database.php');
 
 	// check to see if there is an upgrade required

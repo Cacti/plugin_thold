@@ -29,7 +29,7 @@ final class TholdLegendTest extends TestCase {
 	 * @return void
 	 */
 	public static function setUpBeforeClass(): void {
-		self::loadPluginSource('thold_functions.php');
+		self::loadPluginSource('includes/functions.php');
 
 		// Publishes $thold_states, $thold_host_states and $thold_log_states.
 		self::loadPluginSourceAlways('includes/arrays.php');

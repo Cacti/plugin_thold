@@ -51,7 +51,7 @@ final class SetupCspHooksTest extends TestCase {
 		thold_page_head();
 		$output = ob_get_clean();
 
-		$this->assertStringContainsString('themes/modern/main.css', $output);
+		$this->assertStringContainsString('css/modern.css', $output);
 		$this->assertStringContainsString("<script type='text/javascript'", $output);
 	}
 

@@ -72,7 +72,7 @@ if (!defined('POLLER_VERBOSITY_MEDIUM')) {
 
 /*
  * base_path has to point at the Cacti root two levels above this plugin:
- * thold_functions.php builds include paths from it at runtime.
+ * includes/functions.php builds include paths from it at runtime.
  */
 $GLOBALS['config'] = [
 	'base_path'       => $cacti_root,
@@ -343,6 +343,7 @@ if (!function_exists('__esc')) {
 if (!function_exists('cacti_log')) {
 	function cacti_log($message, $output = false, $environ = 'CMDPHP', $level = 0) {
 		CactiStubs::$log[] = $message;
+		$GLOBALS['__test_cacti_log'][] = (string) $message;
 		CactiStubs::record('cacti_log', '', [$message, $output, $environ, $level]);
 	}
 }
@@ -742,7 +743,7 @@ function thold_test_load($path) {
  * thold_test_load().
  *
  * includes/arrays.php is also included with a plain include() (not
- * include_once()) from several places in thold_functions.php itself (e.g.
+ * include_once()) from several places in includes/functions.php itself (e.g.
  * thold_log()), keyed off $config['base_path']. Once any test exercises one
  * of those call sites, PHP's include-once registry considers the file
  * already included: a later thold_test_load() (require_once) on the same

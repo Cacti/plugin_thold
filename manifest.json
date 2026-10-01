@@ -1,0 +1,35 @@
+{
+    "tombstones": [
+        "themes/",
+        "thold_functions.php",
+        "thold_webapi.php"
+    ],
+    "expected": [
+        "CACTI-THOLD-MIB",
+        "CHANGELOG.md",
+        "INFO",
+        "LICENSE",
+        "README.md",
+        "cli_import.php",
+        "cli_thresholds.php",
+        "css/",
+        "extras/",
+        "images/",
+        "includes/",
+        "index.php",
+        "locales/",
+        "manifest.json",
+        "notify_lists.php",
+        "notify_queue.php",
+        "poller_thold.php",
+        "service/",
+        "setup.php",
+        "thold.php",
+        "thold_daemon.php",
+        "thold_graph.php",
+        "thold_notify.php",
+        "thold_process.php",
+        "thold_templates.php"
+    ],
+    "whitelist": []
+}

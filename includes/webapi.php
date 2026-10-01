@@ -39,7 +39,7 @@
 function thold_add_graphs_action_execute() {
 	global $config;
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	$host_id           = get_filter_request_var('host_id');
 	$local_graph_id    = get_filter_request_var('local_graph_id');

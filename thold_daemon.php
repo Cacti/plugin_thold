@@ -41,7 +41,7 @@ chdir('../../');
 
 include_once('./include/cli_check.php');
 include_once($config['base_path'] . '/lib/poller.php');
-include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 // install signal handlers for Linux/UNIX only
 if (function_exists('pcntl_signal')) {

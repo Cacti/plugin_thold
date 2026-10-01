@@ -24,7 +24,7 @@ final class TholdSubstituteHostDataTest extends TestCase {
 	 * @return void
 	 */
 	public static function setUpBeforeClass(): void {
-		self::loadPluginSource('thold_functions.php');
+		self::loadPluginSource('includes/functions.php');
 	}
 
 	/**

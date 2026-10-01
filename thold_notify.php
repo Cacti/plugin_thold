@@ -38,7 +38,7 @@ chdir('../../');
 require_once('./include/cli_check.php');
 require_once($config['base_path'] . '/lib/rrd.php');
 require($config['base_path'] . '/plugins/thold/includes/arrays.php');
-require_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+require_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 require_once($config['library_path'] . '/snmp.php');
 require_once($config['base_path'] . '/lib/time.php');
 

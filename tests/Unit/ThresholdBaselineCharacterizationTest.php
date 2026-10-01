@@ -27,7 +27,7 @@ final class ThresholdBaselineCharacterizationTest extends TestCase {
 	 * @return void
 	 */
 	public static function setUpBeforeClass(): void {
-		self::loadPluginSource('thold_functions.php');
+		self::loadPluginSource('includes/functions.php');
 		self::loadPluginSourceAlways('includes/arrays.php');
 		self::loadPluginConstants();
 	}
