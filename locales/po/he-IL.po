@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-04-20 16:09-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -236,7 +236,7 @@ msgstr "מידע"
 msgid "Debug"
 msgstr "איתור באגים"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "לעולם לא"
 
@@ -509,13 +509,292 @@ msgstr "> %d התקנים באתר"
 msgid "> %d %%% of Devices in a Site"
 msgstr "> %d %%% of מכשירים באתר"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 דקה"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "צור"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "ערכי סף"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "יומן"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "מצב מכשיר"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "שעה:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "משתמש:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "מערכת הפעלה:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "החלפות:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "עמודים:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "רק רישום, התקן maint"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "ברירת מחדל"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "קישור לגרף ב Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body style=\";text-align:right;direction:rtl\"> הוצגה התראה המחייבת את תשומת לבך. <br><br> <b>Device</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>כתובת אתר</b> : <URL><br> <b>הודעה</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body style=\";text-align:right;direction:rtl\"> הוצא אזהרה הדורשת את תשומת לבך. <br><br> <b>Device</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>כתובת אתר</b> : <URL><br> <b>הודעה</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "הוצא התראה הדורשת את תשומת הלב שלך. <br><br> <strong>Device</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>כתובת אתר</strong> : <URL><br> <strong>הודעה</strong> : <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Dev [טיפ:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Abs Val [טיפ:%s]"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "%%% חריגה כלפי מעלה"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Abs Val [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "מזהה המכשיר לא הוגדר בעת ניסיון ליצור תרשים וסף"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "המזהה של תבנית הסף לא הוגדר בעת ניסיון ליצור תרשים וסף"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "המזהה של תבנית הסף לא הוגדר בעת ניסיון ליצור תרשים וסף"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "יצירת התרשים נכשלה עבור תבנית סף"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "הסף נוצר באופן אוטומטי בגלל מיפוי תבניות המכשיר"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "ההרשאה נדחתה"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "הרשומה עודכנה"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "הפריט 'תבנית' גרף מקושר '% d' לא נמצא על 'סף'% d '"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "סף שנוצר: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "עליך לציין 'סף התראה גבוהה' או 'סף התראה נמוכה' או שניהם! <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "סף בלתי אפשרי: 'סף גבוה' קטן או שווה ל'סף נמוך ' <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "' %s' חייב להיות מוגדר ערך שלם חיובי! <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "אתה חייב לציין או 'Baseline deviation UP' או 'Baseline Stiation DOWN' או שניהם! <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "סף בלתי אפשרי: 'סף גבוה' קטן או שווה ל'סף נמוך ' <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "סף בלתי אפשרי: ספירת טריגר ההתראה חייבת להיות גדולה יותר או ל-1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "סף בלתי אפשרי: ספירת הטריגרים של התראה חייבת להיות קטנה או שווה לספירת הטריגר או שווה ל-1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "סף בלתי אפשרי: ספירת טריגר האזהרה חייבת להיות גדולה יותר או גדולה יותר ל-1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "סף לא ידוע"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "אין תבניות סף המשויכות לתבנית של המכשיר."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "לא נוצר סף. הם כבר קיימים, או שלא נמצאו שילובים תואמים."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "שגיאת מיילר: לא כתובת <b>TO</b> מוגדר! <br> אם אתה משתמש בקישור ' <i>בדוק דואר'</i> , הגדר את הגדרת <b>ההתראה בדוא\"ל</b> ."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "בוצע"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "בהמתנה"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "שגיאה"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "לא זמין"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "הצלחה"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "סף לא ידוע"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "לחץ על 'המשך' כדי לאשר את הספים הבאים."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "הכרת תבניות (תבניות)"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "ביטול"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "המשך"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "תבנית סף תבנית נתונים כפוף לא נמצא!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "מקור סף מקור נתונים כפוף לא נמצא!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "עמודות ייבוא תבנית סף אינן תואמות לסכמת מסד הנתונים"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "יובא"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "תבנית הסף ' %s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "עודכן"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "ייבוא"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "תבנית סף '%s' %s נכשלה!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "עדכון"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "אירעו שגיאות בעת ניסיון לייבא נתוני תבנית סף."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "תבנית סף תבנית נתונים כפוף לא נמצא!"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "המזהה של תבנית הסף לא הוגדר בעת ניסיון ליצור תרשים וסף"
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP אינו בשימוש"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "לא זמין"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "הפעל דף הפתיחה שמאפשר למשתמשים לדעת שהא
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "שגיאת מערכת : <DESCRIPTION> ( <HOSTNAME> ) J <DOWN/UP><br> סיבה: <MESSAGE><br><br> תגובת מערכת ממוצעת: <AVG_TIME> גברת <br> זמינות מערכת: <AVAILABILITY><br> סה\"כ המחאות מאז נקה: <TOT_POLL><br> סך כל המחסומים שנכשלו: <FAIL_POLL><br> תאריך אחרון מסומן למטה: <LAST_FAIL><br> מכשירים בעבר עבור: <DOWNTIME><br> הערה: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "ערכי סף"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "פעולות"
@@ -561,10 +835,6 @@ msgstr "(הוסף)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "סף"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "מצב מכשיר"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1517,177 @@ msgstr "הוצא התראה הדורשת את תשומת הלב שלך. <br><br>
 msgid "Thold"
 msgstr "ת"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "סף כבר קיים - לא נוצר סף"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "יצירת סף מתבנית"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "אשף יצירת סף [בחר סוג סף]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "אשף יצירת סף [הזן נתונים מותאמים אישית ולחץ על 'צור' כדי ליצור את הסף ואת התרשים]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "אשף יצירת סף [בחר שורות נתונים זמינות]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "אשף יצירת סף [בחר התקן]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "אשף יצירת סף [בחר תבנית תרשים]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "אשף יצירת סף [בחר תבנית סף]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "אשף יצירת סף [לחצו על 'צור' ליצירת הסף שלכם]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "אשף יצירת סף [בחר מקור נתונים]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "אשף יצירת סף [בחר תרשים]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "קריטריונים ליצירת סף"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "סוג יצירה"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "בחר סוג סף שישמש ליצירת סף זה."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "בחר סוג סף"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "לא מתבנית"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "תבנית סף"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "בחר תבנית סף שתתבסס על התרשים ועל סף."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "בחר תבנית סף"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "תבנית גרף"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "בחר תבנית גרף לשימוש כדי ליצור את התרשים."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "בחר תבנית גרף"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "התקן"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "בחר התקן לשימוש בו כדי ליצור את הסף והתרשים."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "בחר התקן"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "בחר פריט זמין"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "פריט שאילתת נתונים"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "בחר בשורה המתאימה משאילת הנתונים עבור התרשים והסף."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "הערות יצירה"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "הערה חשובה:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "סף זה <b>לא</b> יוגדר. בעת שימוש באפשרות 'תבנית תבנית סף', תתבקש להזין תבנית סף, תבנית גרף, מידע על נתוני ההתקן ואולי מידע על שאילתת נתונים לפני קבלת ההנחיה 'יצירה', ובמקרה זה, אם ניתן להשתמש בנתונים גרפיים או נתונים מקוריים גרפיים ואת רמת מקור הנתונים ברמת התבנית, תתבקש לעשות זאת. לאחר מכן, על ידי לחיצה על כפתור 'צור', הן הגרף והן הסף ייווצרו בו זמנית."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Symbol for file attachment annotations"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "בחר את התרשים עבור הסף."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "בחר תרשים"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "מקור"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "בחר מקור נתונים עבור הסף."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "בחר מקור נתונים"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "צור"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "סף זה <b>לא</b> יוגדר <b>ויפעל</b> רק בגרפים קיימים. אם ברצונך ליצור את התרשים ואת הסף בו זמנית, בחר תבנית סף מהתפריט הנפתח והמשך עד שיופיע הלחצן 'יצירה'."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "סף זה <b>לא</b> יוגדר. ניתן לבחור לפי גרף שבו תבחרו לאחר מכן מכשיר קיים, גרף ומקור נתונים לפני יצירת הסף שלכם, או שתוכלו לבחור תבנית סף שתאפשר לכם ליצור סף ללא תבניות וגרף המקביל בו זמנית"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "גרף נבחר"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "גרף שנוצר: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "שכפל"
@@ -1271,16 +1712,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "לחץ על 'המשך' כדי למחוק רשימות הודעות (ים). כל התקן או סף המשויכים לרשימות יופנו לברירת המחדל."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "ביטול"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "המשך"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1906,6 @@ msgstr "ללא"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "מחק תבניות"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "ברירת מחדל"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1883,10 +2309,6 @@ msgstr "יצירה אוטומטית של ספים"
 msgid "Created %s thresholds"
 msgstr "סף שנוצר: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "לא נוצר סף. הם כבר קיימים, או שלא נמצאו שילובים תואמים."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "לא נוצר סף. לא נמצאה תבנית סף."
@@ -1903,17 +2325,9 @@ msgstr "לחץ על 'המשך' כדי ליצור ספים עבור מקורות 
 msgid "Available Threshold Templates"
 msgstr "תבניות סף זמינות"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "בחר תבנית סף"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "אין תבניות סף הקשורות למקורות הנתונים הבאים"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "יצירת סף מתבנית"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2031,10 +2445,6 @@ msgstr "הפעל מחדש את התבנית"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "לחץ על 'המשך' כדי לאשר את הסף / ים הבאים. תיעלם מתנאי סף שאינם מאפשרים זאת, או שאינם מופעלים."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "הכרת תבניות (תבניות)"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2793,253 +3203,6 @@ msgstr "משתמשים נבחרו"
 msgid "All Users Selected"
 msgstr "כל המשתמשים נבחרו"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 דקה"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "צור"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "יומן"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "שעה:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "משתמש:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "מערכת הפעלה:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "החלפות:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "עמודים:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr "רק רישום, התקן maint"
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "קישור לגרף ב Cacti"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body style=\";text-align:right;direction:rtl\"> הוצגה התראה המחייבת את תשומת לבך. <br><br> <b>Device</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>כתובת אתר</b> : <URL><br> <b>הודעה</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body style=\";text-align:right;direction:rtl\"> הוצא אזהרה הדורשת את תשומת לבך. <br><br> <b>Device</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>כתובת אתר</b> : <URL><br> <b>הודעה</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "הוצא התראה הדורשת את תשומת הלב שלך. <br><br> <strong>Device</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>כתובת אתר</strong> : <URL><br> <strong>הודעה</strong> : <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "%% Dev [טיפ:%s]"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Abs Val [טיפ:%s]"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "%%% חריגה כלפי מעלה"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Abs Val [AOT:%s]"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "מזהה המכשיר לא הוגדר בעת ניסיון ליצור תרשים וסף"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "המזהה של תבנית הסף לא הוגדר בעת ניסיון ליצור תרשים וסף"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "המזהה של תבנית הסף לא הוגדר בעת ניסיון ליצור תרשים וסף"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "יצירת התרשים נכשלה עבור תבנית סף"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "הסף נוצר באופן אוטומטי בגלל מיפוי תבניות המכשיר"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "ההרשאה נדחתה"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "הרשומה עודכנה"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "הפריט 'תבנית' גרף מקושר '% d' לא נמצא על 'סף'% d '"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "סף שנוצר: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "עליך לציין 'סף התראה גבוהה' או 'סף התראה נמוכה' או שניהם! <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "סף בלתי אפשרי: 'סף גבוה' קטן או שווה ל'סף נמוך ' <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "' %s' חייב להיות מוגדר ערך שלם חיובי! <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "אתה חייב לציין או 'Baseline deviation UP' או 'Baseline Stiation DOWN' או שניהם! <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "סף בלתי אפשרי: 'סף גבוה' קטן או שווה ל'סף נמוך ' <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr "סף בלתי אפשרי: ספירת טריגר ההתראה חייבת להיות גדולה יותר או ל-1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "סף בלתי אפשרי: ספירת הטריגרים של התראה חייבת להיות קטנה או שווה לספירת הטריגר או שווה ל-1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr "סף בלתי אפשרי: ספירת טריגר האזהרה חייבת להיות גדולה יותר או גדולה יותר ל-1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שווה ל 'סף אזהרה נמוך' <br> הרשומה לא עודכנה!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "סף לא ידוע"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "אין תבניות סף המשויכות לתבנית של המכשיר."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "שגיאת מיילר: לא כתובת <b>TO</b> מוגדר! <br> אם אתה משתמש בקישור ' <i>בדוק דואר'</i> , הגדר את הגדרת <b>ההתראה בדוא\"ל</b> ."
-
-#: thold_functions.php
-msgid "Done"
-msgstr "בוצע"
-
-#: thold_functions.php
-msgid "Pending"
-msgstr "בהמתנה"
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "שגיאה"
-
-#: thold_functions.php
-msgid "Success"
-msgstr "הצלחה"
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "סף לא ידוע"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "לחץ על 'המשך' כדי לאשר את הספים הבאים."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "תבנית סף תבנית נתונים כפוף לא נמצא!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "מקור סף מקור נתונים כפוף לא נמצא!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "עמודות ייבוא תבנית סף אינן תואמות לסכמת מסד הנתונים"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "יובא"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "תבנית הסף ' %s' %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "עודכן"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "ייבוא"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "תבנית סף '%s' %s נכשלה!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "עדכון"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "אירעו שגיאות בעת ניסיון לייבא נתוני תבנית סף."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "תבנית סף תבנית נתונים כפוף לא נמצא!"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "המזהה של תבנית הסף לא הוגדר בעת ניסיון ליצור תרשים וסף"
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "סוג הסף שיש לפקח עליו."
@@ -3209,10 +3372,6 @@ msgstr "יומן סף עבור [ %s]"
 msgid "Log Entries"
 msgstr "רשומות יומן"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "התקן"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "זמן"
@@ -3286,10 +3445,6 @@ msgstr "מחק תבניות"
 msgid "Threshold Template Creation Wizard"
 msgstr "אשף יצירת תבנית סף"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "מקור"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "בחר תבנית נתונים"
@@ -3301,10 +3456,6 @@ msgstr "בחר מקור נתונים"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "לחץ על 'צור' כדי ליצור את תבנית הסף"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "צור"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3587,157 +3738,6 @@ msgstr "הערה:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "שגיאה:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "סף כבר קיים - לא נוצר סף"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "אשף יצירת סף [בחר סוג סף]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "אשף יצירת סף [הזן נתונים מותאמים אישית ולחץ על 'צור' כדי ליצור את הסף ואת התרשים]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "אשף יצירת סף [בחר שורות נתונים זמינות]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "אשף יצירת סף [בחר התקן]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "אשף יצירת סף [בחר תבנית תרשים]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "אשף יצירת סף [בחר תבנית סף]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "אשף יצירת סף [לחצו על 'צור' ליצירת הסף שלכם]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "אשף יצירת סף [בחר מקור נתונים]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "אשף יצירת סף [בחר תרשים]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "קריטריונים ליצירת סף"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "סוג יצירה"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "בחר סוג סף שישמש ליצירת סף זה."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "בחר סוג סף"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "לא מתבנית"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "תבנית סף"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "בחר תבנית סף שתתבסס על התרשים ועל סף."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "תבנית גרף"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "בחר תבנית גרף לשימוש כדי ליצור את התרשים."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "בחר תבנית גרף"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "בחר התקן לשימוש בו כדי ליצור את הסף והתרשים."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "בחר התקן"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "בחר פריט זמין"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "פריט שאילתת נתונים"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "בחר בשורה המתאימה משאילת הנתונים עבור התרשים והסף."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "הערות יצירה"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "הערה חשובה:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "סף זה <b>לא</b> יוגדר. בעת שימוש באפשרות 'תבנית תבנית סף', תתבקש להזין תבנית סף, תבנית גרף, מידע על נתוני ההתקן ואולי מידע על שאילתת נתונים לפני קבלת ההנחיה 'יצירה', ובמקרה זה, אם ניתן להשתמש בנתונים גרפיים או נתונים מקוריים גרפיים ואת רמת מקור הנתונים ברמת התבנית, תתבקש לעשות זאת. לאחר מכן, על ידי לחיצה על כפתור 'צור', הן הגרף והן הסף ייווצרו בו זמנית."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "Symbol for file attachment annotations"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "בחר את התרשים עבור הסף."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "בחר תרשים"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "בחר מקור נתונים עבור הסף."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "בחר מקור נתונים"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "סף זה <b>לא</b> יוגדר <b>ויפעל</b> רק בגרפים קיימים. אם ברצונך ליצור את התרשים ואת הסף בו זמנית, בחר תבנית סף מהתפריט הנפתח והמשך עד שיופיע הלחצן 'יצירה'."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "סף זה <b>לא</b> יוגדר. ניתן לבחור לפי גרף שבו תבחרו לאחר מכן מכשיר קיים, גרף ומקור נתונים לפני יצירת הסף שלכם, או שתוכלו לבחור תבנית סף שתאפשר לכם ליצור סף ללא תבניות וגרף המקביל בו זמנית"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "גרף נבחר"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "גרף שנוצר: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "כתובת דוא\"ל נוספת, מופרדת בפסיקים עבור הודעות דוא\"ל מרובות."
