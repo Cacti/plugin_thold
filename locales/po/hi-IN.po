@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2019-03-17 15:03-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -235,7 +235,7 @@ msgstr "जानकारी"
 msgid "Debug"
 msgstr "डिबग"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "कभी नहीँ"
 
@@ -508,13 +508,292 @@ msgstr "उपकरण"
 msgid "> %d %%% of Devices in a Site"
 msgstr "उपकरण"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "% d मिनट"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "सर्जन करना"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "सीमारेखा"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "लॉग"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "उपकरण की स्थिति"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "पहर:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "उपयोगकर्ता "
+
+#: includes/functions.php
+msgid "System:"
+msgstr "सिस्टम:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "स्वैप:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "पन्ने:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "चूक"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "कैक्टि में ग्राफ से लिंक"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> एक चेतावनी जारी की गई है जिसे आपके ध्यान की आवश्यकता है। <br><br> <b>डिवाइस</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>संदेश</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> एक चेतावनी जारी की गई है जिसे आपके ध्यान की आवश्यकता है। <br><br> <b>डिवाइस</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>संदेश</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "एक अलर्ट जारी किया गया है जिसे आपके ध्यान की आवश्यकता है। <br><br> <strong>डिवाइस</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>संदेश</strong> : <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "विचलन यूपी"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "अलर्ट वैल्यू"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "विचलन यूपी"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "अलर्ट वैल्यू"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "ग्राफ़ और थ्रेशोल्ड बनाने का प्रयास करते समय डिवाइस आईडी सेट नहीं की गई थी"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "थ्रेशोल्ड टेम्पलेट के लिए ग्राफ़ निर्माण विफल रहा"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "डिवाइस टेम्पलेट मैपिंग के कारण थ्रेशोल्ड को स्वतः पूर्ण किया गया"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "अनुमति नहीं मिली"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "रिकॉर्ड अपडेट किया गया"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "लिंक किए गए ग्राफ़ टेम्प्लेट आइटम '% d' को थ्रेशोल्ड '% d' पर खोजने में विफल"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "बनाया गया सीमा: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "आपको या तो 'हाई अलर्ट थ्रेशोल्ड' या 'लो अलर्ट थ्रेशोल्ड' या दोनों को निर्दिष्ट करना होगा! <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "असंभव थ्रेसहोल्ड: 'हाई थ्रेशोल्ड' 'लो थ्रेशोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "' %s' को धनात्मक पूर्णांक मान पर सेट किया जाना चाहिए! <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "आपको 'आधारभूत विचलन उत्तर प्रदेश' या 'आधारभूत विचलन डाउनलोड' या दोनों निर्दिष्ट करना होगा! <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "असंभव थ्रेसहोल्ड: 'हाई थ्रेशोल्ड' 'लो थ्रेशोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "अज्ञात थ्रेसहोल्ड"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "डिवाइस के टेम्प्लेट से जुड़ी कोई थ्रेसहोल्ड टेम्प्लेट नहीं।"
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "नो थ्रेशोल्ड (ओं) को बनाया गया। वे या तो पहले से ही मौजूद थे, या वहाँ मेल मिलाप नहीं मिला।"
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "मेलर त्रुटि: कोई सेट <b>को</b> संबोधित <b>करने के</b> !! <br> यदि <i>टेस्ट मेल</i> लिंक का उपयोग कर रहे हैं, तो कृपया <b>अलर्ट ईमेल</b> सेटिंग सेट करें।"
+
+#: includes/functions.php
+msgid "Done"
+msgstr ""
+
+#: includes/functions.php
+msgid "Pending"
+msgstr ""
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "त्रुटि"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "एन / ए"
+
+#: includes/functions.php
+msgid "Success"
+msgstr ""
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "अज्ञात थ्रेसहोल्ड"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "निम्न थ्रेसहोल्ड (ओं) को स्वीकार करने के लिए 'जारी रखें' पर क्लिक करें।"
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "टेम्पलेट स्वीकार करें"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "कैंसिल करें"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "जारी रखें"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "थ्रेसहोल्ड टेम्पलेट अधीनस्थ डेटा टेम्पलेट नहीं मिला!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "थ्रेशोल्ड टेम्पलेट अधीनस्थ डेटा स्रोत नहीं मिला!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr ""
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "आयातित"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "थ्रेशोल्ड टेम्पलेट ' %s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "अपडेट किया गया"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "आयात"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "थ्रेशोल्ड टेम्पलेट ' %s' %s विफल!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "अपडेट करें"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr ""
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "थ्रेसहोल्ड टेम्पलेट अधीनस्थ डेटा टेम्पलेट नहीं मिला!"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP उपयोग में नहीं है"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "एन / ए"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -536,11 +815,6 @@ msgstr "नीचे"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "सिस्टम में गड़बड़ी : <DESCRIPTION> ( <HOSTNAME> ) है <DOWN/UP><br> कारण: <MESSAGE><br><br> औसत सिस्टम प्रतिक्रिया: <AVG_TIME> सुश्री <br> प्रणाली की उपलब्धता: <AVAILABILITY><br> कुल चेक क्लियर: <TOT_POLL><br> कुल विफल चेक: <FAIL_POLL><br> अंतिम तिथि जाँच की गई: <LAST_FAIL><br> इसके लिए पहले वाले उपकरण: <DOWNTIME><br> ध्यान दें: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "सीमारेखा"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "कार्रवाइयाँ"
@@ -560,10 +834,6 @@ msgstr "(जोड़ें)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "सीमारेखा"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "उपकरण की स्थिति"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1246,6 +1516,177 @@ msgstr "एक अलर्ट जारी किया गया है जि
 msgid "Thold"
 msgstr "Thold"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "थ्रेसहोल्ड (ओं) पहले से ही मौजूद हैं - कोई थ्रेशोल्ड निर्मित नहीं है"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "टेम्पलेट से थ्रेसहोल्ड बनाएँ"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक थ्रेशोल्ड प्रकार का चयन करें]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "थ्रेशोल्ड क्रिएशन जादूगर"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [उपलब्ध डेटा क्वेरी पंक्तियों का चयन करें]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक उपकरण का चयन करें]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक ग्राफ़ टेम्पलेट चुनें]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक थ्रेशोल्ड टेम्पलेट का चयन करें]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [अपने थ्रेशोल्ड बनाने के लिए 'बनाएँ' दबाएँ"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक डेटा स्रोत का चयन करें]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक ग्राफ चुनें]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "थ्रेशोल्ड क्रिएशंस क्राइटेरिया"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "टाइप बनाएं"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "इस थ्रेशोल्ड बनाने के लिए उपयोग करने के लिए एक थ्रेशोल्ड प्रकार का चयन करें।"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "एक थ्रेशोल्ड प्रकार का चयन करें"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "गैर अस्थायी"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "थ्रेशोल्ड टेम्पलेट"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "एक थ्रेशोल्ड टेम्पलेट का चयन करें जो ग्राफ़ और थ्रेशोल्ड पर आधारित होगा।"
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "एक थ्रेशोल्ड टेम्पलेट का चयन करें"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "ग्राफ टेम्पलेट"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "ग्राफ़ बनाने के लिए उपयोग करने के लिए एक ग्राफ़ टेम्पलेट का चयन करें।"
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "एक ग्राफ टेम्पलेट का चयन करें"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "युक्ति"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "थ्रेशोल्ड और ग्राफ़ बनाने के लिए उपयोग करने के लिए डिवाइस का चयन करें।"
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "एक उपकरण का चयन करें"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "आइटम का चयन करें और उपलब्ध"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "डेटा क्वेरी आइटम"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "ग्राफ़ और थ्रेसहोल्ड के लिए डेटा क्वेरी से लागू पंक्ति का चयन करें।"
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "निर्माण नोट्स"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "महत्वपूर्ण लेख:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "यह थ्रेसहोल्ड टेम्पलेटेड <b>नहीं</b> होगा। थ्रेशोल्ड टेम्प्लेट विकल्प का उपयोग करते समय, आपको थ्रेशोल्ड टेम्प्लेट, ग्राफ़ टेम्प्लेट, डिवाइस और संभवतः डेटा क्वेरी आइटम की जानकारी के लिए संकेत दिया जाएगा कि किस समय पर 'क्रिएट ’प्रॉम्प्ट प्राप्त करने से पहले, यदि कोई भी ओवररिएबल ग्राफ़ या डेटा स्रोत की जानकारी ग्राफ़ पर दी गई है और डेटा स्रोत टेम्प्लेट स्तर, आपको इसके लिए संकेत दिया जाएगा। फिर, 'क्रिएट ’बटन दबाकर, ग्राफ़ और थ्रेशोल्ड दोनों एक साथ बनाए जाएंगे।"
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "ग्राफ़"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "थ्रेसहोल्ड के लिए ग्राफ़ का चयन करें।"
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "एक ग्राफ़ चुनें"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "डेटा स्रोत"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "थ्रेसहोल्ड के लिए एक डेटा स्रोत का चयन करें।"
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "एक डेटा स्रोत का चयन करें"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "सर्जन करना"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "यह थ्रेसहोल्ड अस्थायी <b>नहीं</b> होगा और केवल मौजूदा ग्राफ़ पर काम करेगा। यदि आप ग्राफ़ और थ्रेशोल्ड दोनों को एक साथ बनाना चाहते हैं, तो ड्रॉप डाउन से थ्रेशोल्ड टेम्पलेट चुनें और तब तक जारी रखें जब तक कि 'क्रिएट ’बटन दिखाई न दे।"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "यह थ्रेसहोल्ड टेम्पलेटेड <b>नहीं</b> होगा। आप या तो ग्राफ़ के द्वारा चयन कर सकते हैं जहाँ आप अपनी थ्रेसहोल्ड बनाने से पहले एक मौजूदा डिवाइस, ग्राफ़ और डेटा स्रोत का चयन करेंगे, या आप थ्रेसहोल्ड टेम्पलेट का चयन कर सकते हैं जो आपको एक गैर अस्थायी थ्रेसहोल्ड और संबंधित ग्राफ़ बनाने की अनुमति देगा।"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "चयनित ग्राफ़"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "बनाया गया ग्राफ़: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "प्रतिलिपि"
@@ -1270,16 +1711,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "अधिसूचना सूचियाँ हटाने के लिए 'जारी रखें' पर क्लिक करें। किसी भी डिवाइस (ओं) या थ्रेशोल्ड (ओं) को सूची (ओं) के साथ संबद्ध करके डिफ़ॉल्ट पर वापस ले जाया जाएगा।"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "कैंसिल करें"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "जारी रखें"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1474,11 +1905,6 @@ msgstr "कोई नहीं"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "टेम्पलेट हटाएं"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "चूक"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1878,10 +2304,6 @@ msgstr "ऑटो-थ्रेशोल्ड बनाएँ"
 msgid "Created %s thresholds"
 msgstr "बनाया गया सीमा: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "नो थ्रेशोल्ड (ओं) को बनाया गया। वे या तो पहले से ही मौजूद थे, या वहाँ मेल मिलाप नहीं मिला।"
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "नो थ्रेशोल्ड (ओं) को बनाया गया। थ्रेशोल्ड (s) टेम्पलेट नहीं मिला।"
@@ -1898,17 +2320,9 @@ msgstr "इन डेटा स्रोतों के लिए थ्रे�
 msgid "Available Threshold Templates"
 msgstr "उपलब्ध थ्रेसहोल्ड टेम्पलेट"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "एक थ्रेशोल्ड टेम्पलेट का चयन करें"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "निम्नलिखित डेटा स्रोतों से संबंधित कोई थ्रेसहोल्ड टेम्पलेट नहीं हैं"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "टेम्पलेट से थ्रेसहोल्ड बनाएँ"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2026,10 +2440,6 @@ msgstr "फिर से टेम्पलेट"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr ""
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "टेम्पलेट स्वीकार करें"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2788,253 +3198,6 @@ msgstr "उपयोगकर्ताओं का चयन किया"
 msgid "All Users Selected"
 msgstr "सभी उपयोगकर्ता चयनित"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "% d मिनट"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "सर्जन करना"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "लॉग"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "पहर:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "उपयोगकर्ता "
-
-#: thold_functions.php
-msgid "System:"
-msgstr "सिस्टम:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "स्वैप:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "पन्ने:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "कैक्टि में ग्राफ से लिंक"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> एक चेतावनी जारी की गई है जिसे आपके ध्यान की आवश्यकता है। <br><br> <b>डिवाइस</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>संदेश</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> एक चेतावनी जारी की गई है जिसे आपके ध्यान की आवश्यकता है। <br><br> <b>डिवाइस</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>संदेश</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "एक अलर्ट जारी किया गया है जिसे आपके ध्यान की आवश्यकता है। <br><br> <strong>डिवाइस</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>संदेश</strong> : <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "विचलन यूपी"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "अलर्ट वैल्यू"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "विचलन यूपी"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "अलर्ट वैल्यू"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "ग्राफ़ और थ्रेशोल्ड बनाने का प्रयास करते समय डिवाइस आईडी सेट नहीं की गई थी"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "थ्रेशोल्ड टेम्पलेट के लिए ग्राफ़ निर्माण विफल रहा"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "डिवाइस टेम्पलेट मैपिंग के कारण थ्रेशोल्ड को स्वतः पूर्ण किया गया"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "अनुमति नहीं मिली"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "रिकॉर्ड अपडेट किया गया"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "लिंक किए गए ग्राफ़ टेम्प्लेट आइटम '% d' को थ्रेशोल्ड '% d' पर खोजने में विफल"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "बनाया गया सीमा: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "आपको या तो 'हाई अलर्ट थ्रेशोल्ड' या 'लो अलर्ट थ्रेशोल्ड' या दोनों को निर्दिष्ट करना होगा! <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई थ्रेशोल्ड' 'लो थ्रेशोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "' %s' को धनात्मक पूर्णांक मान पर सेट किया जाना चाहिए! <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "आपको 'आधारभूत विचलन उत्तर प्रदेश' या 'आधारभूत विचलन डाउनलोड' या दोनों निर्दिष्ट करना होगा! <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई थ्रेशोल्ड' 'लो थ्रेशोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "अज्ञात थ्रेसहोल्ड"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "डिवाइस के टेम्प्लेट से जुड़ी कोई थ्रेसहोल्ड टेम्प्लेट नहीं।"
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "मेलर त्रुटि: कोई सेट <b>को</b> संबोधित <b>करने के</b> !! <br> यदि <i>टेस्ट मेल</i> लिंक का उपयोग कर रहे हैं, तो कृपया <b>अलर्ट ईमेल</b> सेटिंग सेट करें।"
-
-#: thold_functions.php
-msgid "Done"
-msgstr ""
-
-#: thold_functions.php
-msgid "Pending"
-msgstr ""
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "त्रुटि"
-
-#: thold_functions.php
-msgid "Success"
-msgstr ""
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "अज्ञात थ्रेसहोल्ड"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "निम्न थ्रेसहोल्ड (ओं) को स्वीकार करने के लिए 'जारी रखें' पर क्लिक करें।"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "थ्रेसहोल्ड टेम्पलेट अधीनस्थ डेटा टेम्पलेट नहीं मिला!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "थ्रेशोल्ड टेम्पलेट अधीनस्थ डेटा स्रोत नहीं मिला!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr ""
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "आयातित"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "थ्रेशोल्ड टेम्पलेट ' %s' %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "अपडेट किया गया"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "आयात"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "थ्रेशोल्ड टेम्पलेट ' %s' %s विफल!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "अपडेट करें"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr ""
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "थ्रेसहोल्ड टेम्पलेट अधीनस्थ डेटा टेम्पलेट नहीं मिला!"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "थ्रेशोल्ड का प्रकार जिसे मॉनिटर किया जाएगा।"
@@ -3204,10 +3367,6 @@ msgstr "थ्रेसहोल्ड लॉग [ %s] के लिए"
 msgid "Log Entries"
 msgstr "लॉग इन करें"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "युक्ति"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "समय"
@@ -3281,10 +3440,6 @@ msgstr "टेम्पलेट हटाएं"
 msgid "Threshold Template Creation Wizard"
 msgstr "थ्रेशोल्ड टेम्पलेट निर्माण विज़ार्ड"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "डेटा स्रोत"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "कृपया एक डेटा टेम्प्लेट चुनें"
@@ -3296,10 +3451,6 @@ msgstr "कृपया एक डेटा स्रोत का चयन क
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "कृपया अपने थ्रेशोल्ड टेम्पलेट बनाने के लिए 'बनाएँ' दबाएँ"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "सर्जन करना"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3582,157 +3733,6 @@ msgstr "ध्यान दें:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "त्रुटि"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "थ्रेसहोल्ड (ओं) पहले से ही मौजूद हैं - कोई थ्रेशोल्ड निर्मित नहीं है"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक थ्रेशोल्ड प्रकार का चयन करें]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "थ्रेशोल्ड क्रिएशन जादूगर"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [उपलब्ध डेटा क्वेरी पंक्तियों का चयन करें]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक उपकरण का चयन करें]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक ग्राफ़ टेम्पलेट चुनें]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक थ्रेशोल्ड टेम्पलेट का चयन करें]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [अपने थ्रेशोल्ड बनाने के लिए 'बनाएँ' दबाएँ"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक डेटा स्रोत का चयन करें]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "थ्रेशोल्ड क्रिएशन विज़ार्ड [एक ग्राफ चुनें]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "थ्रेशोल्ड क्रिएशंस क्राइटेरिया"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "टाइप बनाएं"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "इस थ्रेशोल्ड बनाने के लिए उपयोग करने के लिए एक थ्रेशोल्ड प्रकार का चयन करें।"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "एक थ्रेशोल्ड प्रकार का चयन करें"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "गैर अस्थायी"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "थ्रेशोल्ड टेम्पलेट"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "एक थ्रेशोल्ड टेम्पलेट का चयन करें जो ग्राफ़ और थ्रेशोल्ड पर आधारित होगा।"
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "ग्राफ टेम्पलेट"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "ग्राफ़ बनाने के लिए उपयोग करने के लिए एक ग्राफ़ टेम्पलेट का चयन करें।"
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "एक ग्राफ टेम्पलेट का चयन करें"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "थ्रेशोल्ड और ग्राफ़ बनाने के लिए उपयोग करने के लिए डिवाइस का चयन करें।"
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "एक उपकरण का चयन करें"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "आइटम का चयन करें और उपलब्ध"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "डेटा क्वेरी आइटम"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "ग्राफ़ और थ्रेसहोल्ड के लिए डेटा क्वेरी से लागू पंक्ति का चयन करें।"
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "निर्माण नोट्स"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "महत्वपूर्ण लेख:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "यह थ्रेसहोल्ड टेम्पलेटेड <b>नहीं</b> होगा। थ्रेशोल्ड टेम्प्लेट विकल्प का उपयोग करते समय, आपको थ्रेशोल्ड टेम्प्लेट, ग्राफ़ टेम्प्लेट, डिवाइस और संभवतः डेटा क्वेरी आइटम की जानकारी के लिए संकेत दिया जाएगा कि किस समय पर 'क्रिएट ’प्रॉम्प्ट प्राप्त करने से पहले, यदि कोई भी ओवररिएबल ग्राफ़ या डेटा स्रोत की जानकारी ग्राफ़ पर दी गई है और डेटा स्रोत टेम्प्लेट स्तर, आपको इसके लिए संकेत दिया जाएगा। फिर, 'क्रिएट ’बटन दबाकर, ग्राफ़ और थ्रेशोल्ड दोनों एक साथ बनाए जाएंगे।"
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "ग्राफ़"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "थ्रेसहोल्ड के लिए ग्राफ़ का चयन करें।"
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "एक ग्राफ़ चुनें"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "थ्रेसहोल्ड के लिए एक डेटा स्रोत का चयन करें।"
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "एक डेटा स्रोत का चयन करें"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "यह थ्रेसहोल्ड अस्थायी <b>नहीं</b> होगा और केवल मौजूदा ग्राफ़ पर काम करेगा। यदि आप ग्राफ़ और थ्रेशोल्ड दोनों को एक साथ बनाना चाहते हैं, तो ड्रॉप डाउन से थ्रेशोल्ड टेम्पलेट चुनें और तब तक जारी रखें जब तक कि 'क्रिएट ’बटन दिखाई न दे।"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "यह थ्रेसहोल्ड टेम्पलेटेड <b>नहीं</b> होगा। आप या तो ग्राफ़ के द्वारा चयन कर सकते हैं जहाँ आप अपनी थ्रेसहोल्ड बनाने से पहले एक मौजूदा डिवाइस, ग्राफ़ और डेटा स्रोत का चयन करेंगे, या आप थ्रेसहोल्ड टेम्पलेट का चयन कर सकते हैं जो आपको एक गैर अस्थायी थ्रेसहोल्ड और संबंधित ग्राफ़ बनाने की अनुमति देगा।"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "चयनित ग्राफ़"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "बनाया गया ग्राफ़: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "अतिरिक्त ईमेल पता, कई ईमेल के लिए अल्पविराम द्वारा अलग किया गया।"
