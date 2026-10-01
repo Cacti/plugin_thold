@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2022-06-21 05:25+0000\n"
 "Last-Translator: San IPE <sanipe1949@krunsea.com>\n"
 "Language-Team: Turkish <http://translate.cacti.net/projects/cacti/thold/tr/>\n"
@@ -236,7 +236,7 @@ msgstr "Bilgi"
 msgid "Debug"
 msgstr "Hata ayıklama"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "Asla"
 
@@ -509,13 +509,292 @@ msgstr "Cihazlar"
 msgid "> %d %%% of Devices in a Site"
 msgstr "Cihazlar"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 dakika boyu"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Oluştur"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Sınırlar"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Günlük"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Cihaz durumu"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Zaman:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Kullanıcı:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Sistem:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Swap:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Sayfalar:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Varsayılan"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Cacti'deki Grafiğe Bağlantı"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> Dikkatinizi gerektiren bir uyarı verildi. <br><br> <b>Cihaz</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Mesaj</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> Dikkatinizi gerektiren bir uyarı verildi. <br><br> <b>Cihaz</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Mesaj</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "Dikkatinizi gerektiren bir Uyarı yayınlandı. <br><br> <strong>Cihaz</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Mesaj</strong> : <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "Sapma UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Uyarı Değeri"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "Sapma UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Uyarı Değeri"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Grafik ve Eşik oluşturmaya çalışırken Cihaz Kimliği ayarlanmadı"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Eşik Şablonu için Grafik Oluşturma başarısız oldu"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Aygıt Şablonu eşlemesi nedeniyle eşik değeri otomatik olarak oluşturuldu"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Izin reddedildi"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Kayıt güncellendi"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "'% D' Eşiğindeki '% d' Bağlantılı Grafik Şablonu Öğesi bulunamadı"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Oluşturulan eşik: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "'Yüksek Uyarı Eşiği' veya 'Düşük Uyarı Eşiği' veya her ikisini de belirtmelisiniz! <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "İmkansız eşikler: 'Düşük Eşik' e eşit veya daha küçük 'Yüksek Eşik' <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "' %s' pozitif tamsayı değerine ayarlanmış olmalı! <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "'Temel Sapma YUKARI' veya 'Temel Sapma AŞAĞI' veya her ikisini de belirtmelisiniz! <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "İmkansız eşikler: 'Düşük Eşik' e eşit veya daha küçük 'Yüksek Eşik' <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Bilinmeyen Eşik"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Aygıtın Şablonuyla İlişkili Eşik Yok Şablonları."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Eşik Oluşturulmadı. Ya zaten varlar ya da eşleşen bir kombinasyon bulunamadı."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Mailer Hata: set adrese <b>İÇİN</b> !! <br> <i>Posta Testi</i> bağlantısını kullanıyorsanız, lütfen <b>Uyarı E-postası</b> ayarını yapın."
+
+#: includes/functions.php
+msgid "Done"
+msgstr ""
+
+#: includes/functions.php
+msgid "Pending"
+msgstr ""
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Hata"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Yok"
+
+#: includes/functions.php
+msgid "Success"
+msgstr ""
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Bilinmeyen Eşik"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Aşağıdaki Eşikleri Kabul Etmek için 'Devam Et'i tıklayın."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Teşekkür Şablonları"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "İptal"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Devam et"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Eşik Şablonu Alt Veri Şablonu Bulunamadı!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Eşik Şablonu Alt Veri Kaynağı Bulunamadı!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Eşik Şablonu içe aktarma sütunları, veritabanı şemasıyla eşleşmiyor"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Eklendi"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Eşik Şablonu ' %s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Güncellendi"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "İçe Aktar"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Eşik Şablonu ' %s' %s Başarısız!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Güncelle"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Eşik Şablonu verilerini içe aktarmaya çalışırken hatalar oluştu."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Eşik Şablonu Alt Veri Şablonu Bulunamadı!"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP kullanımda değil"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "Yok"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "AŞAĞI"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Sistem hatası : <DESCRIPTION> ( <HOSTNAME> ) <DOWN/UP><br> Sebep: <MESSAGE><br><br> Ortalama sistem yanıtı: <AVG_TIME> MS <br> Sistem kullanılabilirliği: <AVAILABILITY><br> Silinen Toplam Kontrol Sayısı: <TOT_POLL><br> Toplam Başarısız Çekler: <FAIL_POLL><br> Son Kontrol Tarihi AŞAĞI: <LAST_FAIL><br> Önceden UP için Aygıtlar: <DOWNTIME><br> NOT: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "Sınırlar"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "Eylemler"
@@ -561,10 +835,6 @@ msgstr "(eklemek)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "Eşik"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "Cihaz durumu"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1517,177 @@ msgstr "Dikkatinizi gerektiren bir Uyarı yayınlandı. <br><br> <strong>Cihaz</
 msgid "Thold"
 msgstr "Berthold"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Eşikler Zaten Var - Eşikler Oluşturulmadı"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Şablondan Eşik Yaratın"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Eşik Oluşturma Sihirbazı [Bir Eşik Tipi Seçin]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Eşik Oluşturma Sihirbazı [Özel Verileri Girin ve Eşiğinizi ve Grafiğinizi Oluşturmak için 'Oluştur'a basın)"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Eşik Oluşturma Sihirbazı [Kullanılabilir Veri Sorgusu Satırlarını Seç]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Eşik Oluşturma Sihirbazı [Bir Aygıt Seçin]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Eşik Oluşturma Sihirbazı [Bir Grafik Şablonu Seçin]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Eşik Oluşturma Sihirbazı [Bir Eşik Şablonu Seçin]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Eşik Oluşturma Sihirbazı [Eşiğini Yaratmak için 'Oluştur'a basın)"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Eşik Oluşturma Sihirbazı [Bir Veri Kaynağı Seçin]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Eşik Oluşturma Sihirbazı [Bir Grafik Seçin]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Eşik Yaratım Kriterleri"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Tür Yarat"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Bu Eşiği oluşturmak için kullanmak için bir Eşik Türü seçin."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Bir Eşik Türü Seçin"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Tapınaksız"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Eşik Şablonu"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Grafik ve Eşiğin dayanacağı bir Eşik Şablonu seçin."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Bir Eşik Şablonu Seçin"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Grafik Şablonu"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Oluşturulacak Grafik için kullanılacak bir Grafik Şablonu seçin."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Bir Grafik Şablonu Seçin"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Cihaz"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Oluşturulacak Eşik ve Grafik için kullanılacak bir Aygıt seçin."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Bir cihaz seçin"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "Seçin ve Kullanılabilir Öğe"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Veri Sorgu Öğesi"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Grafik ve Eşik için Veri Sorgusu'ndan uygun satırı seçin."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Yaratılış Notları"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Önemli Not:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Bu Eşik Ayarlı <b>DEĞİLDİR</b> . Eşik Şablonu seçeneğini kullanırken, Grafikte geçersiz kılınabilir Grafiğe veya Veri Kaynağı bilgisine izin veriliyorsa, 'Oluşturma' komutunu almadan önce bir Eşik Şablonu, Grafik Şablonu, Cihaz ve muhtemelen Veri Sorgulama Öğesi bilgileri istenir ve Veri Kaynağı Şablonu seviyesi, sizden istenecektir. Ardından, 'Oluştur' düğmesine basılarak, hem Grafik hem de Eşik eşzamanlı olarak oluşturulur."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Grafik"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Eşik için Grafiği seçin."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Bir Grafik Seç"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Veri Kaynağı"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Eşik için bir Veri Kaynağı seçin."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Bir Veri Kaynağı Seçin"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Oluştur"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Bu Eşik Ayarlı <b>DEĞİLDİR</b> ve sadece mevcut Grafikler üzerinde çalışır. Hem Grafiği hem Eşiği aynı anda oluşturmak istiyorsanız, aşağıdan Eşik Şablonu'nu seçin ve 'Oluştur' düğmesi görünene kadar devam edin."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Bu Eşik Ayarlı <b>DEĞİLDİR</b> . Eşiğinizi oluşturmadan önce mevcut bir Cihazı, Grafiği ve Veri Kaynağını seçeceğiniz Grafiğe göre seçebilir veya Eşzamanlı Olmayan Eşiği ve karşılık gelen Grafiği aynı anda oluşturmanıza olanak sağlayacak Eşik Şablonunu seçebilirsiniz"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Seçilmiş Grafik"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Oluşturulan grafik: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "Kopyala"
@@ -1271,16 +1712,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Bildirim Listelerini (lerini) silmek için 'Devam Et'i tıklayın. Liste ile ilişkili tüm Aygıtlar veya Eşikler, varsayılan değerlere döndürülecektir."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "İptal"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "Devam et"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1906,6 @@ msgstr "Yok"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "Şablonları Sil"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "Varsayılan"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1879,10 +2305,6 @@ msgstr "Eşikleri Otomatik Oluştur"
 msgid "Created %s thresholds"
 msgstr "Oluşturulan eşik: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "Eşik Oluşturulmadı. Ya zaten varlar ya da eşleşen bir kombinasyon bulunamadı."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Eşik Oluşturulmadı. Eşik (ler) Şablon bulunamadı."
@@ -1899,17 +2321,9 @@ msgstr "Bu Veri Kaynakları için Eşikler oluşturmak için 'Devam Et'i tıklay
 msgid "Available Threshold Templates"
 msgstr "Kullanılabilir Eşik Şablonları"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "Bir Eşik Şablonu Seçin"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Aşağıdaki Veri Kaynakları ile ilişkilendirilmiş Eşik Şablonları yok"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "Şablondan Eşik Yaratın"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2027,10 +2441,6 @@ msgstr "Yeniden Uygula Şablonu"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Aşağıdaki Eşikleri Onaylamak için 'Devam Et'i tıklayın. Buna izin vermeyen veya tetiklenmeyen eşikler göz ardı edilecektir."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "Teşekkür Şablonları"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2789,253 +3199,6 @@ msgstr "Seçilmiş Kullanıcılar"
 msgid "All Users Selected"
 msgstr "Tüm Kullanıcılar Seçildi"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 dakika boyu"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "Oluştur"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "Günlük"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "Zaman:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "Kullanıcı:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "Sistem:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "Swap:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "Sayfalar:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Cacti'deki Grafiğe Bağlantı"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> Dikkatinizi gerektiren bir uyarı verildi. <br><br> <b>Cihaz</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Mesaj</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> Dikkatinizi gerektiren bir uyarı verildi. <br><br> <b>Cihaz</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Mesaj</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Dikkatinizi gerektiren bir Uyarı yayınlandı. <br><br> <strong>Cihaz</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Mesaj</strong> : <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "Sapma UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Uyarı Değeri"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "Sapma UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Uyarı Değeri"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "Grafik ve Eşik oluşturmaya çalışırken Cihaz Kimliği ayarlanmadı"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "Eşik Şablonu için Grafik Oluşturma başarısız oldu"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Aygıt Şablonu eşlemesi nedeniyle eşik değeri otomatik olarak oluşturuldu"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "Izin reddedildi"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "Kayıt güncellendi"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "'% D' Eşiğindeki '% d' Bağlantılı Grafik Şablonu Öğesi bulunamadı"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "Oluşturulan eşik: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "'Yüksek Uyarı Eşiği' veya 'Düşük Uyarı Eşiği' veya her ikisini de belirtmelisiniz! <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Eşik' e eşit veya daha küçük 'Yüksek Eşik' <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "' %s' pozitif tamsayı değerine ayarlanmış olmalı! <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "'Temel Sapma YUKARI' veya 'Temel Sapma AŞAĞI' veya her ikisini de belirtmelisiniz! <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "İmkansız eşikler: 'Düşük Eşik' e eşit veya daha küçük 'Yüksek Eşik' <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçük 'Yüksek Uyarı Eşiği' <br> KAYIT GÜNCELLEME!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "Bilinmeyen Eşik"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "Aygıtın Şablonuyla İlişkili Eşik Yok Şablonları."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Mailer Hata: set adrese <b>İÇİN</b> !! <br> <i>Posta Testi</i> bağlantısını kullanıyorsanız, lütfen <b>Uyarı E-postası</b> ayarını yapın."
-
-#: thold_functions.php
-msgid "Done"
-msgstr ""
-
-#: thold_functions.php
-msgid "Pending"
-msgstr ""
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "Hata"
-
-#: thold_functions.php
-msgid "Success"
-msgstr ""
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "Bilinmeyen Eşik"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "Aşağıdaki Eşikleri Kabul Etmek için 'Devam Et'i tıklayın."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "Eşik Şablonu Alt Veri Şablonu Bulunamadı!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Eşik Şablonu Alt Veri Kaynağı Bulunamadı!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "Eşik Şablonu içe aktarma sütunları, veritabanı şemasıyla eşleşmiyor"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "Eklendi"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "Eşik Şablonu ' %s' %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "Güncellendi"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "İçe Aktar"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "Eşik Şablonu ' %s' %s Başarısız!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "Güncelle"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "Eşik Şablonu verilerini içe aktarmaya çalışırken hatalar oluştu."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Eşik Şablonu Alt Veri Şablonu Bulunamadı!"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "İzlenecek Eşiğin tipi."
@@ -3205,10 +3368,6 @@ msgstr "[ %s] için Eşik Günlüğü"
 msgid "Log Entries"
 msgstr "Log Girdileri"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "Cihaz"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "Zaman"
@@ -3282,10 +3441,6 @@ msgstr "Şablonları Sil"
 msgid "Threshold Template Creation Wizard"
 msgstr "Eşik Şablon Oluşturma Sihirbazı"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "Veri Kaynağı"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "Lütfen bir Veri Şablonu seçin"
@@ -3297,10 +3452,6 @@ msgstr "Lütfen bir Veri Kaynağı seçin"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Eşik Şablonunuzu oluşturmak için lütfen 'Oluştur'a basın"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "Oluştur"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3583,157 +3734,6 @@ msgstr "NOT:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "HATA:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "Eşikler Zaten Var - Eşikler Oluşturulmadı"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Eşik Oluşturma Sihirbazı [Bir Eşik Tipi Seçin]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Eşik Oluşturma Sihirbazı [Özel Verileri Girin ve Eşiğinizi ve Grafiğinizi Oluşturmak için 'Oluştur'a basın)"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Eşik Oluşturma Sihirbazı [Kullanılabilir Veri Sorgusu Satırlarını Seç]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Eşik Oluşturma Sihirbazı [Bir Aygıt Seçin]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Eşik Oluşturma Sihirbazı [Bir Grafik Şablonu Seçin]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Eşik Oluşturma Sihirbazı [Bir Eşik Şablonu Seçin]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Eşik Oluşturma Sihirbazı [Eşiğini Yaratmak için 'Oluştur'a basın)"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Eşik Oluşturma Sihirbazı [Bir Veri Kaynağı Seçin]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "Eşik Oluşturma Sihirbazı [Bir Grafik Seçin]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "Eşik Yaratım Kriterleri"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "Tür Yarat"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "Bu Eşiği oluşturmak için kullanmak için bir Eşik Türü seçin."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "Bir Eşik Türü Seçin"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "Tapınaksız"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "Eşik Şablonu"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "Grafik ve Eşiğin dayanacağı bir Eşik Şablonu seçin."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "Grafik Şablonu"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "Oluşturulacak Grafik için kullanılacak bir Grafik Şablonu seçin."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "Bir Grafik Şablonu Seçin"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "Oluşturulacak Eşik ve Grafik için kullanılacak bir Aygıt seçin."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "Bir cihaz seçin"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "Seçin ve Kullanılabilir Öğe"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "Veri Sorgu Öğesi"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "Grafik ve Eşik için Veri Sorgusu'ndan uygun satırı seçin."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "Yaratılış Notları"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "Önemli Not:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Bu Eşik Ayarlı <b>DEĞİLDİR</b> . Eşik Şablonu seçeneğini kullanırken, Grafikte geçersiz kılınabilir Grafiğe veya Veri Kaynağı bilgisine izin veriliyorsa, 'Oluşturma' komutunu almadan önce bir Eşik Şablonu, Grafik Şablonu, Cihaz ve muhtemelen Veri Sorgulama Öğesi bilgileri istenir ve Veri Kaynağı Şablonu seviyesi, sizden istenecektir. Ardından, 'Oluştur' düğmesine basılarak, hem Grafik hem de Eşik eşzamanlı olarak oluşturulur."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "Grafik"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "Eşik için Grafiği seçin."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "Bir Grafik Seç"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "Eşik için bir Veri Kaynağı seçin."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "Bir Veri Kaynağı Seçin"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Bu Eşik Ayarlı <b>DEĞİLDİR</b> ve sadece mevcut Grafikler üzerinde çalışır. Hem Grafiği hem Eşiği aynı anda oluşturmak istiyorsanız, aşağıdan Eşik Şablonu'nu seçin ve 'Oluştur' düğmesi görünene kadar devam edin."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Bu Eşik Ayarlı <b>DEĞİLDİR</b> . Eşiğinizi oluşturmadan önce mevcut bir Cihazı, Grafiği ve Veri Kaynağını seçeceğiniz Grafiğe göre seçebilir veya Eşzamanlı Olmayan Eşiği ve karşılık gelen Grafiği aynı anda oluşturmanıza olanak sağlayacak Eşik Şablonunu seçebilirsiniz"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "Seçilmiş Grafik"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "Oluşturulan grafik: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Birden fazla E-posta için virgülle ayrılmış ek E-posta adresi."
