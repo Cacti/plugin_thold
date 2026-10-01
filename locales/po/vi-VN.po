@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-09-13 15:18-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -235,7 +235,7 @@ msgstr "Thông tin"
 msgid "Debug"
 msgstr "Gỡ rối"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "Không bao giờ"
 
@@ -508,13 +508,292 @@ msgstr "Thiết bị"
 msgid "> %d %%% of Devices in a Site"
 msgstr "Thiết bị"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 Phút"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Tạo"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Ngưỡng"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Nhật ký"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Tình trạng thiết bị"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Thời gian:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Thành viên: "
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Hệ thống:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Hoán đổi:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Trang:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Mặc định"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Liên kết với đồ thị trong Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> Một cảnh báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <b>Thiết bị</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Tin nhắn</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> Một cảnh báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <b>Thiết bị</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Tin nhắn</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "Một thông báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <strong>Thiết bị</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Tin nhắn</strong> : <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "Độ lệch LÊN"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Giá trị cảnh báo"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "Độ lệch LÊN"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Giá trị cảnh báo"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "ID thiết bị không được đặt trong khi cố gắng tạo đồ thị và ngưỡng"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "ID mẫu Ngưỡng không được đặt trong khi cố gắng tạo Đồ thị và Ngưỡng"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "ID mẫu Ngưỡng không được đặt trong khi cố gắng tạo Đồ thị và Ngưỡng"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Tạo đồ thị không thành công cho Mẫu ngưỡng"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Ngưỡng được Tự động xử lý do ánh xạ Mẫu thiết bị"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Quyền bị từ chối"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Cập nhật hồ sơ"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Không thể tìm thấy Mục mẫu biểu đồ được liên kết '% d' trên Ngưỡng '% d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Đã tạo ngưỡng: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Bạn phải chỉ định 'Ngưỡng cảnh báo cao' hoặc 'Ngưỡng cảnh báo thấp' hoặc cả hai! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Ngưỡng không thể: 'Ngưỡng cao' nhỏ hơn hoặc bằng 'Ngưỡng thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "' %s' phải được đặt thành giá trị nguyên dương! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Bạn phải chỉ định 'Độ lệch đường cơ sở LÊN' hoặc 'Độ lệch đường cơ sở XUỐNG' hoặc cả hai! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Ngưỡng không thể: 'Ngưỡng cao' nhỏ hơn hoặc bằng 'Ngưỡng thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Ngưỡng không xác định"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Không có Mẫu Ngưỡng nào được liên kết với Mẫu của Thiết bị."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Không có ngưỡng (s) được tạo. Chúng hoặc đã tồn tại hoặc không tìm thấy kết hợp phù hợp."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Lỗi Mailer: Không đặt địa chỉ <b>TO</b> !! <br> Nếu sử dụng liên kết <i>Kiểm tra Thư</i> , vui lòng đặt cài đặt <b>Email Thông báo</b> ."
+
+#: includes/functions.php
+msgid "Done"
+msgstr ""
+
+#: includes/functions.php
+msgid "Pending"
+msgstr ""
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Lỗi"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/functions.php
+msgid "Success"
+msgstr ""
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Ngưỡng không xác định"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Nhấp vào 'Tiếp tục' để xác nhận Ngưỡng sau (s)."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Mẫu xác nhận"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Hủy"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Tiếp tục"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Không tìm thấy Mẫu Ngưỡng Mẫu dữ liệu phụ!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Mẫu ngưỡng Ngưỡng nguồn dữ liệu phụ không tìm thấy!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Các cột nhập Mẫu ngưỡng không khớp với lược đồ cơ sở dữ liệu"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Đã nhập"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Mẫu ngưỡng ' %s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Đã cập nhật"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Nhập"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Mẫu ngưỡng ' %s' %s Không thành công!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Cập nhật"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Đã xử lý lỗi khi cố gắng nhập dữ liệu Mẫu ngưỡng."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Không tìm thấy Mẫu Ngưỡng Mẫu dữ liệu phụ!"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "ID mẫu Ngưỡng không được đặt trong khi cố gắng tạo Đồ thị và Ngưỡng"
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP không được sử dụng"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "N/A"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -536,11 +815,6 @@ msgstr "Xuống"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Lỗi hệ thống : <DESCRIPTION> ( <HOSTNAME> ) Là <DOWN/UP><br> Lý do: <MESSAGE><br><br> Đáp ứng hệ thống trung bình: <AVG_TIME> Cô <br> Hệ thống sẵn có: <AVAILABILITY><br> Tổng số kiểm tra kể từ khi xóa: <TOT_POLL><br> Tổng số kiểm tra thất bại: <FAIL_POLL><br> Ngày cuối cùng được kiểm tra XUỐNG: <LAST_FAIL><br> Các thiết bị trước đây UP cho: <DOWNTIME><br> CHÚ THÍCH: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "Ngưỡng"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "Hành động"
@@ -560,10 +834,6 @@ msgstr "(thêm vào)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "Ngưỡng"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "Tình trạng thiết bị"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1246,6 +1516,177 @@ msgstr "Một thông báo đã được đưa ra đòi hỏi sự chú ý của 
 msgid "Thold"
 msgstr "Đã bán"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Ngưỡng đã tồn tại - Không tạo ngưỡng"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Tạo Ngưỡng từ Mẫu"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Thuật sĩ tạo ngưỡng [Chọn loại ngưỡng]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Thuật sĩ tạo ngưỡng [Nhập dữ liệu tùy chỉnh và nhấn 'Tạo' để tạo Ngưỡng và đồ thị của bạn]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Thuật sĩ tạo ngưỡng [Chọn hàng truy vấn dữ liệu có sẵn]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Thuật sĩ tạo ngưỡng [Chọn thiết bị]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Thuật sĩ tạo ngưỡng [Chọn mẫu biểu đồ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Thuật sĩ tạo ngưỡng [Chọn mẫu ngưỡng]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Thuật sĩ tạo ngưỡng [Nhấn 'Tạo' để tạo Ngưỡng của bạn]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Thuật sĩ tạo ngưỡng [Chọn nguồn dữ liệu]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Thuật sĩ tạo ngưỡng [Chọn biểu đồ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Tiêu chí sáng tạo ngưỡng"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Tạo loại"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Chọn Loại Ngưỡng để sử dụng để tạo Ngưỡng này."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Chọn một loại ngưỡng"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Không khuôn mẫu"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Mẫu ngưỡng"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Chọn Mẫu Ngưỡng mà Biểu đồ và Ngưỡng sẽ dựa trên."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Chọn một mẫu ngưỡng"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Mẫu biểu đồ"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Chọn Mẫu biểu đồ để sử dụng cho Biểu đồ được tạo."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Chọn một mẫu biểu đồ"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Thiết bị"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Chọn một Thiết bị để sử dụng cho Ngưỡng và Đồ thị sẽ được tạo."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Chọn một thiết bị"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "Chọn và có sẵn mặt hàng"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Mục truy vấn dữ liệu"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Chọn hàng áp dụng từ Truy vấn dữ liệu cho Biểu đồ và Ngưỡng."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Ghi chú sáng tạo"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Lưu ý quan trọng:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Ngưỡng này sẽ <b>KHÔNG</b> được Templated. Khi sử dụng tùy chọn Ngưỡng mẫu, bạn sẽ được nhắc về Mẫu ngưỡng, Mẫu biểu đồ, Thiết bị và có thể là thông tin Mục truy vấn dữ liệu trước khi nhận được lời nhắc 'Tạo' tại thời điểm đó, nếu có bất kỳ thông tin nào về Biểu đồ hoặc Nguồn dữ liệu được ghi đè và cấp Mẫu nguồn dữ liệu, bạn sẽ được nhắc về nó. Sau đó, bằng cách nhấn nút 'Tạo', cả Biểu đồ và Ngưỡng sẽ được tạo đồng thời."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Biểu đồ"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Chọn đồ thị cho Ngưỡng."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Chọn một biểu đồ"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Nguồn dữ liệu"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Chọn một nguồn dữ liệu cho ngưỡng."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Chọn nguồn dữ liệu"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Tạo"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Ngưỡng này sẽ <b>KHÔNG</b> được Templated và sẽ chỉ hoạt động trên các Đồ thị hiện có. Nếu bạn muốn đồng thời cả Tạo đồ thị và Ngưỡng, hãy chọn Mẫu ngưỡng từ trình đơn thả xuống và tiếp tục cho đến khi nút 'Tạo' xuất hiện."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Ngưỡng này sẽ <b>KHÔNG</b> được Templated. Bạn có thể chọn Theo đồ thị, sau đó bạn sẽ chọn Nguồn thiết bị, đồ thị và dữ liệu hiện có trước khi tạo Ngưỡng của mình hoặc bạn có thể chọn Mẫu ngưỡng cho phép bạn tạo Ngưỡng không theo khuôn mẫu và Biểu đồ tương ứng"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Đồ thị đã chọn"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Biểu đồ đã tạo: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "Bản sao"
@@ -1270,16 +1711,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Nhấp vào 'Tiếp tục' để xóa (các) danh sách thông báo. Bất kỳ (các) Thiết bị hoặc Ngưỡng nào được liên kết với (các) Danh sách sẽ được hoàn nguyên về mặc định."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "Hủy"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "Tiếp tục"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1474,11 +1905,6 @@ msgstr "Không"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "Xóa (các) mẫu"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "Mặc định"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1878,10 +2304,6 @@ msgstr "Tự động tạo Ngưỡng"
 msgid "Created %s thresholds"
 msgstr "Đã tạo ngưỡng: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "Không có ngưỡng (s) được tạo. Chúng hoặc đã tồn tại hoặc không tìm thấy kết hợp phù hợp."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Không có ngưỡng (s) được tạo. Không tìm thấy mẫu ngưỡng."
@@ -1898,17 +2320,9 @@ msgstr "Nhấp vào 'Tiếp tục' để tạo Ngưỡng cho các Nguồn dữ l
 msgid "Available Threshold Templates"
 msgstr "Mẫu ngưỡng có sẵn"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "Chọn một mẫu ngưỡng"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Không có Mẫu Ngưỡng nào được liên kết với các Nguồn dữ liệu sau"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "Tạo Ngưỡng từ Mẫu"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2026,10 +2440,6 @@ msgstr "Áp dụng lại mẫu"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Nhấp vào 'Tiếp tục' để Xác nhận (các) Ngưỡng sau. Các ngưỡng không cho phép điều này hoặc không được kích hoạt sẽ bị bỏ qua."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "Mẫu xác nhận"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2788,253 +3198,6 @@ msgstr "Người dùng đã chọn"
 msgid "All Users Selected"
 msgstr "Tất cả người dùng đã chọn"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 Phút"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "Tạo"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "Nhật ký"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "Thời gian:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "Thành viên: "
-
-#: thold_functions.php
-msgid "System:"
-msgstr "Hệ thống:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "Hoán đổi:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "Trang:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Liên kết với đồ thị trong Cacti"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> Một cảnh báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <b>Thiết bị</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Tin nhắn</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> Một cảnh báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <b>Thiết bị</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Tin nhắn</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Một thông báo đã được đưa ra đòi hỏi sự chú ý của bạn. <br><br> <strong>Thiết bị</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Tin nhắn</strong> : <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "Độ lệch LÊN"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Giá trị cảnh báo"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "Độ lệch LÊN"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Giá trị cảnh báo"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "ID thiết bị không được đặt trong khi cố gắng tạo đồ thị và ngưỡng"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "ID mẫu Ngưỡng không được đặt trong khi cố gắng tạo Đồ thị và Ngưỡng"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "ID mẫu Ngưỡng không được đặt trong khi cố gắng tạo Đồ thị và Ngưỡng"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "Tạo đồ thị không thành công cho Mẫu ngưỡng"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Ngưỡng được Tự động xử lý do ánh xạ Mẫu thiết bị"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "Quyền bị từ chối"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "Cập nhật hồ sơ"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Không thể tìm thấy Mục mẫu biểu đồ được liên kết '% d' trên Ngưỡng '% d'"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "Đã tạo ngưỡng: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Bạn phải chỉ định 'Ngưỡng cảnh báo cao' hoặc 'Ngưỡng cảnh báo thấp' hoặc cả hai! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Ngưỡng không thể: 'Ngưỡng cao' nhỏ hơn hoặc bằng 'Ngưỡng thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "' %s' phải được đặt thành giá trị nguyên dương! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Bạn phải chỉ định 'Độ lệch đường cơ sở LÊN' hoặc 'Độ lệch đường cơ sở XUỐNG' hoặc cả hai! <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Ngưỡng không thể: 'Ngưỡng cao' nhỏ hơn hoặc bằng 'Ngưỡng thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Ngưỡng không thể: 'Ngưỡng cảnh báo cao' nhỏ hơn hoặc bằng 'Ngưỡng cảnh báo thấp' <br> GHI CHÚ KHÔNG CẬP NHẬT!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "Ngưỡng không xác định"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "Không có Mẫu Ngưỡng nào được liên kết với Mẫu của Thiết bị."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Lỗi Mailer: Không đặt địa chỉ <b>TO</b> !! <br> Nếu sử dụng liên kết <i>Kiểm tra Thư</i> , vui lòng đặt cài đặt <b>Email Thông báo</b> ."
-
-#: thold_functions.php
-msgid "Done"
-msgstr ""
-
-#: thold_functions.php
-msgid "Pending"
-msgstr ""
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "Lỗi"
-
-#: thold_functions.php
-msgid "Success"
-msgstr ""
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "Ngưỡng không xác định"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "Nhấp vào 'Tiếp tục' để xác nhận Ngưỡng sau (s)."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "Không tìm thấy Mẫu Ngưỡng Mẫu dữ liệu phụ!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Mẫu ngưỡng Ngưỡng nguồn dữ liệu phụ không tìm thấy!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "Các cột nhập Mẫu ngưỡng không khớp với lược đồ cơ sở dữ liệu"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "Đã nhập"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "Mẫu ngưỡng ' %s' %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "Đã cập nhật"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "Nhập"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "Mẫu ngưỡng ' %s' %s Không thành công!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "Cập nhật"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "Đã xử lý lỗi khi cố gắng nhập dữ liệu Mẫu ngưỡng."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Không tìm thấy Mẫu Ngưỡng Mẫu dữ liệu phụ!"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "ID mẫu Ngưỡng không được đặt trong khi cố gắng tạo Đồ thị và Ngưỡng"
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "Loại Ngưỡng sẽ được theo dõi."
@@ -3204,10 +3367,6 @@ msgstr "Nhật ký ngưỡng cho [ %s]"
 msgid "Log Entries"
 msgstr "Đăng nhập"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "Thiết bị"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "Thời gian"
@@ -3281,10 +3440,6 @@ msgstr "Xóa (các) mẫu"
 msgid "Threshold Template Creation Wizard"
 msgstr "Thuật sĩ tạo mẫu ngưỡng"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "Nguồn dữ liệu"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "Vui lòng chọn một mẫu dữ liệu"
@@ -3296,10 +3451,6 @@ msgstr "Vui lòng chọn một nguồn dữ liệu"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Vui lòng nhấn 'Tạo' để tạo Mẫu Ngưỡng của bạn"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "Tạo"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3582,157 +3733,6 @@ msgstr "CHÚ Ý:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "Lỗi:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "Ngưỡng đã tồn tại - Không tạo ngưỡng"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Thuật sĩ tạo ngưỡng [Chọn loại ngưỡng]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Thuật sĩ tạo ngưỡng [Nhập dữ liệu tùy chỉnh và nhấn 'Tạo' để tạo Ngưỡng và đồ thị của bạn]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Thuật sĩ tạo ngưỡng [Chọn hàng truy vấn dữ liệu có sẵn]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Thuật sĩ tạo ngưỡng [Chọn thiết bị]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Thuật sĩ tạo ngưỡng [Chọn mẫu biểu đồ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Thuật sĩ tạo ngưỡng [Chọn mẫu ngưỡng]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Thuật sĩ tạo ngưỡng [Nhấn 'Tạo' để tạo Ngưỡng của bạn]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Thuật sĩ tạo ngưỡng [Chọn nguồn dữ liệu]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "Thuật sĩ tạo ngưỡng [Chọn biểu đồ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "Tiêu chí sáng tạo ngưỡng"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "Tạo loại"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "Chọn Loại Ngưỡng để sử dụng để tạo Ngưỡng này."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "Chọn một loại ngưỡng"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "Không khuôn mẫu"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "Mẫu ngưỡng"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "Chọn Mẫu Ngưỡng mà Biểu đồ và Ngưỡng sẽ dựa trên."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "Mẫu biểu đồ"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "Chọn Mẫu biểu đồ để sử dụng cho Biểu đồ được tạo."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "Chọn một mẫu biểu đồ"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "Chọn một Thiết bị để sử dụng cho Ngưỡng và Đồ thị sẽ được tạo."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "Chọn một thiết bị"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "Chọn và có sẵn mặt hàng"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "Mục truy vấn dữ liệu"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "Chọn hàng áp dụng từ Truy vấn dữ liệu cho Biểu đồ và Ngưỡng."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "Ghi chú sáng tạo"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "Lưu ý quan trọng:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Ngưỡng này sẽ <b>KHÔNG</b> được Templated. Khi sử dụng tùy chọn Ngưỡng mẫu, bạn sẽ được nhắc về Mẫu ngưỡng, Mẫu biểu đồ, Thiết bị và có thể là thông tin Mục truy vấn dữ liệu trước khi nhận được lời nhắc 'Tạo' tại thời điểm đó, nếu có bất kỳ thông tin nào về Biểu đồ hoặc Nguồn dữ liệu được ghi đè và cấp Mẫu nguồn dữ liệu, bạn sẽ được nhắc về nó. Sau đó, bằng cách nhấn nút 'Tạo', cả Biểu đồ và Ngưỡng sẽ được tạo đồng thời."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "Biểu đồ"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "Chọn đồ thị cho Ngưỡng."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "Chọn một biểu đồ"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "Chọn một nguồn dữ liệu cho ngưỡng."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "Chọn nguồn dữ liệu"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Ngưỡng này sẽ <b>KHÔNG</b> được Templated và sẽ chỉ hoạt động trên các Đồ thị hiện có. Nếu bạn muốn đồng thời cả Tạo đồ thị và Ngưỡng, hãy chọn Mẫu ngưỡng từ trình đơn thả xuống và tiếp tục cho đến khi nút 'Tạo' xuất hiện."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Ngưỡng này sẽ <b>KHÔNG</b> được Templated. Bạn có thể chọn Theo đồ thị, sau đó bạn sẽ chọn Nguồn thiết bị, đồ thị và dữ liệu hiện có trước khi tạo Ngưỡng của mình hoặc bạn có thể chọn Mẫu ngưỡng cho phép bạn tạo Ngưỡng không theo khuôn mẫu và Biểu đồ tương ứng"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "Đồ thị đã chọn"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "Biểu đồ đã tạo: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Địa chỉ Email bổ sung, được phân tách bằng dấu phẩy cho nhiều Email."
