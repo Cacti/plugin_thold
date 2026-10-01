@@ -482,12 +482,12 @@ function thold_rpn_math_binary($operator, $v2, $v1) {
 		case '/':
 			return $v2 / $v1;
 		case '%':
-			return $v2 % $v1;
+			return (int) $v2 % (int) $v1;
 		case '^':
 			// Bitwise XOR, not exponentiation: eval('$v3 = ' . $v2 . ' ^ ' . $v1 . ';')
 			// always computed XOR (PHP's ^ operator), and existing user thresholds
 			// rely on that. See TholdExpressionMathRpnTest::testCaretOperatorIsIntegerXorNotExponentiation.
-			return $v2 ^ $v1;
+			return (int) $v2 ^ (int) $v1;
 		default:
 			cacti_log("ERROR: RPN unknown binary operator '$operator'", false, 'THOLD');
 			$rpn_error = true;

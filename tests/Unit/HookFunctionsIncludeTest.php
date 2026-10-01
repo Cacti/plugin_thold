@@ -18,7 +18,8 @@ beforeAll(function () {
 });
 
 it('resolves includes/functions.php from every hook that lazy-loads it', function () {
-	$restore                        = $GLOBALS['config']['base_path'] ?? null;
+	$restoreBase                    = $GLOBALS['config']['base_path'] ?? null;
+	$restoreOpts                    = CactiStubs::$configOptions;
 	$GLOBALS['config']['base_path'] = dirname(__DIR__, 4);
 	CactiStubs::$configOptions['alert_deadnotify'] = 'on';
 
@@ -35,19 +36,28 @@ it('resolves includes/functions.php from every hook that lazy-loads it', functio
 		static fn () => thold_update_host_status(),
 	];
 
-	foreach ($hooks as $hook) {
-		ob_start();
+	// This suite runs failOnDeprecation/Warning/Notice; feeding the hooks
+	// placeholder input legitimately trips those, so swallow engine messages
+	// while the include_once lines execute, then return control to PHPUnit.
+	set_error_handler(static fn (): bool => true);
 
-		try {
-			$hook();
-		} catch (\Throwable $e) {
-			// Reaching the include_once at the top of each hook is the point.
-		} finally {
-			ob_end_clean();
+	try {
+		foreach ($hooks as $hook) {
+			ob_start();
+
+			try {
+				$hook();
+			} catch (\Throwable $e) {
+				// Reaching the include_once at the top of each hook is the point.
+			} finally {
+				ob_end_clean();
+			}
 		}
+	} finally {
+		restore_error_handler();
+		CactiStubs::$configOptions      = $restoreOpts;
+		$GLOBALS['config']['base_path'] = $restoreBase;
 	}
-
-	$GLOBALS['config']['base_path'] = $restore;
 
 	expect(function_exists('plugin_thold_csp_nonce'))->toBeTrue();
 });
