@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-12-06 19:24+0000\n"
 "Last-Translator: Anton Zhuravlev <baka109g@gmail.com>\n"
 "Language-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\n"
@@ -236,7 +236,7 @@ msgstr "Информация"
 msgid "Debug"
 msgstr "Отладка"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "Никогда"
 
@@ -509,13 +509,292 @@ msgstr "Устройства"
 msgid "> %d %%% of Devices in a Site"
 msgstr "Устройства"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 минута"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Создать"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Пороговые значения"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Лог"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Статус устройства"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Время:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Пользователь:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Система:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Обмен:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Страницы:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Стандартно"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Ссылка на график в Кактусах"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body><html><body>Вышло предупреждение, которое требует вашего внимания.<br><br><br><b>Устройство</b>: <ОПИСАНИЕ> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Мессендж</b>: <SUBJECT><br><br><br><GRAPH></body></html></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body><html><body>Вышло предупреждение, требующее вашего внимания.<br><br><br><b>Устройство</b>: <ОПИСАНИЕ> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Мессендж</b>: <SUBJECT><br><br><br><GRAPH></body></html></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "Выпущено предупреждение, требующее вашего внимания. <br><br><br><strong>Устройство</strong>: <ОПИСАНИЕ> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><strong>Message</strong>: <SUBJECT><br><br><br><GRAPH><SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "Отклонение UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Значение сигнала тревоги"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "Отклонение UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Значение сигнала тревоги"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "ID устройства не был установлен при попытке создания графика и порогового значения."
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения."
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения."
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Не удалось создать график для Шаблона порогового значения"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Порог был автоматически создан благодаря отображению шаблона устройства."
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Доступ запрещён"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Запись обновлена"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Не удалось найти связанный элемент шаблона графика '%d' на Пороговом уровне '%d'."
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Созданный порог: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Вы должны указать либо 'Порог высокой тревоги', либо 'Порог низкой тревоги', либо оба!<br> Записывать НЕ ПОСЛЕДУЕТСЯ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Невозможные пороги: \"Высокий порог\" меньше или равен \"Низкий порог\" <br> Записывать НЕ УДАЛИТЬСЯ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "\"%s\" должно быть установлено в положительное целое значение!<br>ЗНАЗНАЧИТЬ НЕ ВЫБОРУЕТСЯ!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Вы должны указать либо 'Baseline Deviation UP', либо 'Baseline Deviation DOWN', либо 'Baseline DeOWN', либо оба!<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Невозможные пороги: \"Высокий порог\" меньше или равен \"Низкий порог\" <br> Записывать НЕ УДАЛИТЬСЯ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Неизвестный порог"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Нет пороговых значений Шаблоны, связанные с Шаблоном устройства."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Порог не установлен.  Они либо уже существуют, либо не были найдены совпадающие комбинации."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Почтовая ошибка: Нет <b>TO</b> Адрес установлен!!<br>Если используется ссылка <i>Test Mail</i>, пожалуйста, установите параметр <b>Alert Email</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Готово"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Ожидает"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Ошибка"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Н/Д"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Готово"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Неизвестный порог"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Нажмите кнопку \"Продолжить\", чтобы подтвердить следующий(ые) порог(ы)."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Подтвердить шаблон (шаблоны) подтверждения"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Отмена"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Продолжить"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Пороговый шаблон Шаблон данных субординат Шаблон данных не найден!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Шаблон Шаблон Источник данных субординат Не найден!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Столбцы импорта шаблона пороговых значений не соответствуют схеме базы данных"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Импортировано"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Пороговый Шаблон '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Обновлено"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Импорт"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Пороговый Шаблон '%s' %s Неудачно!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Обновить"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Возникли ошибки при попытке импортировать данные шаблона пороговых значений."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Пороговый шаблон Шаблон данных субординат Шаблон данных не найден!"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения."
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP не используется"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "Н/Д"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "Выкл"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Системная ошибка : <ОПИСАНИЕ> (<ХОСТНАМЕ>) - это <ВНИЗ/П><br>Причина: <MESSAGE><br><br>Средняя реакция системы : <AVG_TIME> ms<br>Наличие системы: <AVAILABILITY><br>Общие проверки с момента очистки: <TOT_POLL><br>Общие неудачные проверки: <FAIL_POLL><br>Последняя проверенная дата ВНИЗ : <LAST_FAIL><br>Устройства, для которых ранее использовался UP: <DOWNTIME><br>NOTE: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "Пороговые значения"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "(действия)"
@@ -561,10 +835,6 @@ msgstr "(добавить)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "Пороговые журналы"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "Статус устройства"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1517,177 @@ msgstr "Выпущено предупреждение, требующее ваш
 msgid "Thold"
 msgstr "Порог"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Порог(ы) уже существует - Пороговые значения не установлены"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Создать порог из Шаблона"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Мастер создания пороговых значений [ Выберите тип порога ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Мастер создания пороговых значений [ Введите пользовательские данные и нажмите кнопку \"Создать\" для создания порогового значения и графика ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Мастер создания пороговых значений [ Выберите доступные строки запроса данных ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Мастер создания пороговых значений [ Выберите устройство ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Мастер создания пороговых значений [ Выберите шаблон графика ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Мастер создания пороговых значений [ Выберите шаблон порогового значения ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Мастер создания пороговых значений [ Нажмите кнопку \"Создать\", чтобы создать пороговый уровень]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Мастер создания пороговых значений [ Выберите источник данных ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Мастер создания пороговых значений [ Выберите график ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Критерии порогового уровня создания"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Создать тип"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Выберите тип порога, который будет использоваться для создания этого порога."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Выберите тип порога"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Нешаблонный"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Пороговый Шаблон Шаблон"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Выберите Пороговый шаблон, на основе которого будут построены график и порог."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Выбор шаблона порогового значения"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Шаблон Графика"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Выберите шаблон графика, который будет использоваться для создания графика."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Выберите шаблон графика"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Устройство"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Выберите устройство, которое будет использоваться для создания порога и графика."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Выберите устройство"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "Выбор и доступный элемент"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Пункт запроса данных"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Выберите подходящую строку в Запросе данных для Графика и Порога."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Примечания к созданию"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Важное Примечание:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Этот порог <b>NOT</b> не будет шаблонирован.  При использовании параметра Шаблон порогового значения вам будет предложено указать шаблон порогового значения, шаблон графика, устройство и, возможно, информацию о элементе запроса данных перед получением запроса 'Создать', после чего, если на уровне шаблона графика и источника данных будет разрешена переопределяемая информация о графике или источнике данных, вам будет предложено сделать это.  Затем, нажав кнопку \"Создать\", одновременно будут созданы и график, и порог."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "График"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Выберите Пороговый график для параметра Порог."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Выбрать график"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Источник Данных"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Выберите источник данных для порога."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Выбор источника данных"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Создать"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Этот Порог будет <b>NOT</b> шаблонирован и будет работать только на существующих графиках.  Если необходимо одновременно создать график и порог, выберите Шаблон порога из выпадающего списка и продолжайте до появления кнопки \"Создать\"."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Этот порог <b>NOT</b> не будет шаблонирован.  Вы можете выбрать либо По графику, где вы затем выберите существующее устройство, график и источник данных перед созданием порога, либо Шаблон порога, который позволит вам создать нешаблонный порог и соответствующий график одновременно."
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Выбранный график"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Созданный график: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "Дублировать"
@@ -1271,16 +1712,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Нажмите кнопку \"Продолжить\", чтобы удалить списки уведомлений.  Любое устройство(ы) или пороговые значения, связанные со Списком(ами), будут возвращены к значениям по умолчанию."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "Отмена"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "Продолжить"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1906,6 @@ msgstr "Нет"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "Удалить шаблон(ы)"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "Стандартно"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1881,10 +2307,6 @@ msgstr "Автоматическое создание порогов"
 msgid "Created %s thresholds"
 msgstr "Созданный порог: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "Порог не установлен.  Они либо уже существуют, либо не были найдены совпадающие комбинации."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Порог не установлен.  Порог(ы) Шаблон не найден."
@@ -1901,17 +2323,9 @@ msgstr "Нажмите кнопку \"Продолжить\", чтобы соз�
 msgid "Available Threshold Templates"
 msgstr "Доступные пороговые шаблоны"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "Выбор шаблона порогового значения"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Пороговых шаблонов, связанных со следующими источниками данных, не существует."
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "Создать порог из Шаблона"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2029,10 +2443,6 @@ msgstr "Повторное применение Шаблона"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Нажмите «Продолжить», чтобы подтвердить следующие пороговые значения. Пороги, которые не позволяют это или не срабатывают, будут игнорироваться."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "Подтвердить шаблон (шаблоны) подтверждения"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2791,253 +3201,6 @@ msgstr "Выбранные пользователи"
 msgid "All Users Selected"
 msgstr "Все выбранные пользователи"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 минута"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "Создать"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "Лог"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "Время:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "Пользователь:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "Система:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "Обмен:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "Страницы:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Ссылка на график в Кактусах"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body><html><body>Вышло предупреждение, которое требует вашего внимания.<br><br><br><b>Устройство</b>: <ОПИСАНИЕ> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Мессендж</b>: <SUBJECT><br><br><br><GRAPH></body></html></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body><html><body>Вышло предупреждение, требующее вашего внимания.<br><br><br><b>Устройство</b>: <ОПИСАНИЕ> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Мессендж</b>: <SUBJECT><br><br><br><GRAPH></body></html></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Выпущено предупреждение, требующее вашего внимания. <br><br><br><strong>Устройство</strong>: <ОПИСАНИЕ> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><strong>Message</strong>: <SUBJECT><br><br><br><GRAPH><SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "Отклонение UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Значение сигнала тревоги"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "Отклонение UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Значение сигнала тревоги"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "ID устройства не был установлен при попытке создания графика и порогового значения."
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения."
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения."
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "Не удалось создать график для Шаблона порогового значения"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Порог был автоматически создан благодаря отображению шаблона устройства."
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "Доступ запрещён"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "Запись обновлена"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Не удалось найти связанный элемент шаблона графика '%d' на Пороговом уровне '%d'."
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "Созданный порог: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Вы должны указать либо 'Порог высокой тревоги', либо 'Порог низкой тревоги', либо оба!<br> Записывать НЕ ПОСЛЕДУЕТСЯ!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Невозможные пороги: \"Высокий порог\" меньше или равен \"Низкий порог\" <br> Записывать НЕ УДАЛИТЬСЯ!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "\"%s\" должно быть установлено в положительное целое значение!<br>ЗНАЗНАЧИТЬ НЕ ВЫБОРУЕТСЯ!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Вы должны указать либо 'Baseline Deviation UP', либо 'Baseline Deviation DOWN', либо 'Baseline DeOWN', либо оба!<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Невозможные пороги: \"Высокий порог\" меньше или равен \"Низкий порог\" <br> Записывать НЕ УДАЛИТЬСЯ!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Невозможные пороги: 'Высокий порог предупреждения' меньше или равен 'Низкий порог предупреждения' <br> Записывать НЕ УДАЛИТЬСЯ!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "Неизвестный порог"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "Нет пороговых значений Шаблоны, связанные с Шаблоном устройства."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Почтовая ошибка: Нет <b>TO</b> Адрес установлен!!<br>Если используется ссылка <i>Test Mail</i>, пожалуйста, установите параметр <b>Alert Email</b>."
-
-#: thold_functions.php
-msgid "Done"
-msgstr "Готово"
-
-#: thold_functions.php
-msgid "Pending"
-msgstr "Ожидает"
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "Ошибка"
-
-#: thold_functions.php
-msgid "Success"
-msgstr "Готово"
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "Неизвестный порог"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "Нажмите кнопку \"Продолжить\", чтобы подтвердить следующий(ые) порог(ы)."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "Пороговый шаблон Шаблон данных субординат Шаблон данных не найден!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Шаблон Шаблон Источник данных субординат Не найден!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "Столбцы импорта шаблона пороговых значений не соответствуют схеме базы данных"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "Импортировано"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "Пороговый Шаблон '%s' %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "Обновлено"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "Импорт"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "Пороговый Шаблон '%s' %s Неудачно!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "Обновить"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "Возникли ошибки при попытке импортировать данные шаблона пороговых значений."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Пороговый шаблон Шаблон данных субординат Шаблон данных не найден!"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения."
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "Тип порога, который будет контролироваться."
@@ -3207,10 +3370,6 @@ msgstr "Пороговый журнал для [ %s ]"
 msgid "Log Entries"
 msgstr "Записи в журнале"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "Устройство"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "Время"
@@ -3284,10 +3443,6 @@ msgstr "Удалить шаблон(ы)"
 msgid "Threshold Template Creation Wizard"
 msgstr "Мастер создания пороговых шаблонов"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "Источник Данных"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "Пожалуйста, выберите шаблон данных"
@@ -3299,10 +3454,6 @@ msgstr "Пожалуйста, выберите источник данных"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Нажмите кнопку \"Создать\", чтобы создать шаблон порогового значения."
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "Создать"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3585,157 +3736,6 @@ msgstr "ПРИМЕЧАНИЕ:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "ОШИБКА:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "Порог(ы) уже существует - Пороговые значения не установлены"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Мастер создания пороговых значений [ Выберите тип порога ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Мастер создания пороговых значений [ Введите пользовательские данные и нажмите кнопку \"Создать\" для создания порогового значения и графика ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Мастер создания пороговых значений [ Выберите доступные строки запроса данных ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Мастер создания пороговых значений [ Выберите устройство ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Мастер создания пороговых значений [ Выберите шаблон графика ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Мастер создания пороговых значений [ Выберите шаблон порогового значения ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Мастер создания пороговых значений [ Нажмите кнопку \"Создать\", чтобы создать пороговый уровень]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Мастер создания пороговых значений [ Выберите источник данных ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "Мастер создания пороговых значений [ Выберите график ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "Критерии порогового уровня создания"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "Создать тип"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "Выберите тип порога, который будет использоваться для создания этого порога."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "Выберите тип порога"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "Нешаблонный"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "Пороговый Шаблон Шаблон"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "Выберите Пороговый шаблон, на основе которого будут построены график и порог."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "Шаблон Графика"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "Выберите шаблон графика, который будет использоваться для создания графика."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "Выберите шаблон графика"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "Выберите устройство, которое будет использоваться для создания порога и графика."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "Выберите устройство"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "Выбор и доступный элемент"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "Пункт запроса данных"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "Выберите подходящую строку в Запросе данных для Графика и Порога."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "Примечания к созданию"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "Важное Примечание:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Этот порог <b>NOT</b> не будет шаблонирован.  При использовании параметра Шаблон порогового значения вам будет предложено указать шаблон порогового значения, шаблон графика, устройство и, возможно, информацию о элементе запроса данных перед получением запроса 'Создать', после чего, если на уровне шаблона графика и источника данных будет разрешена переопределяемая информация о графике или источнике данных, вам будет предложено сделать это.  Затем, нажав кнопку \"Создать\", одновременно будут созданы и график, и порог."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "График"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "Выберите Пороговый график для параметра Порог."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "Выбрать график"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "Выберите источник данных для порога."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "Выбор источника данных"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Этот Порог будет <b>NOT</b> шаблонирован и будет работать только на существующих графиках.  Если необходимо одновременно создать график и порог, выберите Шаблон порога из выпадающего списка и продолжайте до появления кнопки \"Создать\"."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Этот порог <b>NOT</b> не будет шаблонирован.  Вы можете выбрать либо По графику, где вы затем выберите существующее устройство, график и источник данных перед созданием порога, либо Шаблон порога, который позволит вам создать нешаблонный порог и соответствующий график одновременно."
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "Выбранный график"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "Созданный график: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Дополнительный адрес электронной почты, разделенный запятыми для нескольких адресов электронной почты."
