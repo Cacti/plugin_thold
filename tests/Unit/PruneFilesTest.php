@@ -23,7 +23,7 @@
 */
 
 /*
- * Unit coverage for plugin_thold_prune_files(): tombstone/tests removal,
+ * Unit coverage for thold_prune_files(): tombstone/tests removal,
  * whitelist and .git protection, and logging of unaccounted-for entries.
  */
 
@@ -72,7 +72,7 @@ it('removes tombstoned paths and the tests/ tree, keeps whitelist/.git/expected,
 	$GLOBALS['config']['base_path'] = $base;
 
 	try {
-		plugin_thold_prune_files();
+		thold_prune_files();
 	} finally {
 		$GLOBALS['config']['base_path'] = $restore;
 	}
@@ -111,7 +111,7 @@ it('is a safe no-op when the manifest is missing', function () {
 	$GLOBALS['config']['base_path'] = $base;
 
 	try {
-		plugin_thold_prune_files();
+		thold_prune_files();
 	} finally {
 		$GLOBALS['config']['base_path'] = $restore;
 	}
@@ -130,7 +130,7 @@ it('logs and skips pruning when the manifest is malformed', function () {
 	$GLOBALS['config']['base_path'] = $base;
 
 	try {
-		plugin_thold_prune_files();
+		thold_prune_files();
 	} finally {
 		$GLOBALS['config']['base_path'] = $restore;
 	}
@@ -156,7 +156,7 @@ it('refuses to remove a tombstone that resolves outside the plugin directory', f
 	$GLOBALS['config']['base_path'] = $base;
 
 	try {
-		plugin_thold_prune_files();
+		thold_prune_files();
 	} finally {
 		$GLOBALS['config']['base_path'] = $restore;
 	}
@@ -185,7 +185,7 @@ it('warns when a tombstoned path cannot be removed', function () {
 	set_error_handler(static fn () => true); // swallow the expected unlink warning
 
 	try {
-		plugin_thold_prune_files();
+		thold_prune_files();
 	} finally {
 		restore_error_handler();
 		$GLOBALS['config']['base_path'] = $restore;
@@ -215,7 +215,7 @@ it('refuses a tombstone that escapes through a symlinked directory', function ()
 	$GLOBALS['config']['base_path'] = $base;
 
 	try {
-		plugin_thold_prune_files();
+		thold_prune_files();
 	} finally {
 		$GLOBALS['config']['base_path'] = $restore;
 	}
@@ -245,7 +245,7 @@ it('protects a whitelisted file from a tombstone on its parent directory', funct
 	$GLOBALS['config']['base_path'] = $base;
 
 	try {
-		plugin_thold_prune_files();
+		thold_prune_files();
 	} finally {
 		$GLOBALS['config']['base_path'] = $restore;
 	}

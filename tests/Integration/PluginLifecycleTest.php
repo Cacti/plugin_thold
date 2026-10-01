@@ -71,7 +71,7 @@ it('prunes bundled dev-only files on a version-drift upgrade', function () {
 	$restoreCacti = $GLOBALS['config']['cacti_version'];
 	$GLOBALS['config']['cacti_version'] = '1.1';
 
-	// Sandbox base_path so plugin_thold_prune_files() runs against a throwaway
+	// Sandbox base_path so thold_prune_files() runs against a throwaway
 	// tree with a copy of the real INFO (so plugin_thold_version() still
 	// matches) and no manifest.json (prune no-ops), never the real checkout.
 	$restoreBase = $GLOBALS['config']['base_path'];
