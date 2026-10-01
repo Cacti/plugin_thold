@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2022-11-25 18:50+0000\n"
 "Last-Translator: kaktus <kaktus_j_p@o2.pl>\n"
 "Language-Team: Polish <http://translate.cacti.net/projects/cacti/thold/pl/>\n"
@@ -236,7 +236,7 @@ msgstr "Informacja"
 msgid "Debug"
 msgstr "Uruchamianie"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "Nigdy"
 
@@ -509,13 +509,292 @@ msgstr "Urządzenia"
 msgid "> %d %%% of Devices in a Site"
 msgstr "Urządzenia"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 minuta"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Utwórz"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Progi"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Dziennik"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Status Urządzenia"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Czas:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Użytkownik:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "System:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "swapy:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Strony:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Domyślny"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Link do wykresu w kaktusach"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Wysłano powiadomienie, które wymaga Twojej uwagi.<br><br><b>Urządzenie</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></ciało></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Wydano ostrzeżenie, które wymaga Twojej uwagi.<br><br><b>Urządzenie</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></ciało></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "Został wydany alert, który wymaga Państwa uwagi. <br><br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "Odchylenie UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Wartość ostrzeżenia"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "Odchylenie UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Wartość ostrzeżenia"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Identyfikator urządzenia nie został ustawiony podczas próby utworzenia wykresu i progu"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Identyfikator szablonu progów nie został ustawiony podczas próby utworzenia wykresu i progu"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Identyfikator szablonu progów nie został ustawiony podczas próby utworzenia wykresu i progu"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Tworzenie wykresu nie powiodło się w przypadku szablonu progowego"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Próg został automatycznie utworzony dzięki mapowaniu szablonu urządzenia"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Brak uprawnień"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Rejestr uaktualniono"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Nie udało się znaleźć powiązanego elementu szablonu wykresu \"%d\" na Progu \"%d"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Utworzony próg: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Musisz określić albo 'Wysoki próg alarmowy' lub 'Niski próg alarmowy', albo oba!<br>ZAPISZ NIE WOLNO!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Niemożliwe progi: \"Wysoki próg\" mniejszy lub równy \"Niski próg\"<br>ZAPISZ NIE WOLNO!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "%s\" musi być ustawiona na dodatnią wartość całkowitą!<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Musisz określić albo \"odchylenie bazowe w górę\" lub \"odchylenie bazowe w dół\", albo oba te elementy!<br>ZAPISZ NIE WOLNO!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Niemożliwe progi: \"Wysoki próg\" mniejszy lub równy \"Niski próg\"<br>ZAPISZ NIE WOLNO!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Nieznany Próg"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Brak szablonów progów związanych z szablonem urządzenia."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Nie utworzono progu (progów).  Albo już istnieją, albo nie znaleziono pasujących kombinacji."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Błąd mailingowy: Nie <b>TO</b> adres ustawiony! <br>Jeśli korzystasz z linku <i>Test Mail</i>, ustaw ustawienie <b>Alert Email</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr ""
+
+#: includes/functions.php
+msgid "Pending"
+msgstr ""
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Błąd"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "N/D"
+
+#: includes/functions.php
+msgid "Success"
+msgstr ""
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Nieznany Próg"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Kliknij 'Kontynuuj', aby potwierdzić następujący(-e) próg(-y)."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Szablon(-y) potwierdzenia"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Kontynuuj"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Szablon progowy Szablon podrzędny Szablon Danych Nie znaleziono!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Szablon progowy Nie znaleziono podrzędnego źródła danych!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Kolumny importu szablonu progu nie są zgodne ze schematem bazy danych"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Zaimportowane"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Szablon progowy \"%s\" %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Zaktualizowano"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Importuj"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Szablon progowy \"%s\" %s Nie powiodło się!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Aktualizuj"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Błędy napotkane podczas próby zaimportowania danych szablonu progu."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Szablon progowy Szablon podrzędny Szablon Danych Nie znaleziono!"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Identyfikator szablonu progów nie został ustawiony podczas próby utworzenia wykresu i progu"
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP nieużywany"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "N/D"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "DÓŁ"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Błąd systemu : <DESCRIPTION> (<HOSTNAME>) jest <DOWN/UP><br><br>Reason: <MESSAGE><br><br>Średnia odpowiedź systemu : <AVG_TIME> ms<br> Dostępność systemu: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Data ostatnia sprawdzona w dół : <LAST_FAIL><br>Urządzenia wcześniej UP dla: <DOWNTIME><br>NOTE: <NOTES>."
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "Progi"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "Akcje"
@@ -561,10 +835,6 @@ msgstr "(dodaj)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "Progi"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "Status Urządzenia"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1517,177 @@ msgstr "Został wydany alert, który wymaga Państwa uwagi. <br><br><br><strong>
 msgid "Thold"
 msgstr "Thold"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Próg (progi) Już istnieje (istnieją) - nie ma utworzonych progów"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Tworzenie progu z szablonu"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Kreator tworzenia progów [ Wybierz typ progu ]."
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Kreator tworzenia progów [ Wprowadź dane niestandardowe i naciśnij 'Utwórz', aby utworzyć swój próg i wykres]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Kreator tworzenia progów [ Wybierz dostępne wiersze zapytań danych ]."
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Kreator tworzenia progów [ Wybierz urządzenie ]."
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Kreator tworzenia progów [ Wybierz szablon wykresu ]."
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Kreator tworzenia progów [ Wybierz szablon progu ]."
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Kreator tworzenia progów [ Naciśnij 'Utwórz', aby utworzyć swój próg ]."
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Kreator tworzenia progów [ Wybierz źródło danych ]."
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Kreator tworzenia progów [ Wybierz wykres]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Kryteria tworzenia progów"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Utwórz typ"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Wybierz typ progu, który ma być użyty do utworzenia tego progu."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Wybierz typ progu"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Nie szablonowane"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Szablon progu"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Wybierz szablon progów, na podstawie którego będzie tworzony wykres i próg."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Wybierz szablon progu"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Szablon wykresu"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Wybierz szablon wykresu, który ma być użyty do utworzenia wykresu."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Wybierz szablon wykresu"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Urządzenie"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Wybierz urządzenie, które ma być używane dla tworzonego progu i wykresu."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Wybór urządzenia"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "Wybrany i dostępny element"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Pozycja zapytań o dane"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Wybierz odpowiedni wiersz z zapytania o dane dla wykresu i wartości progowej."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Tworzenie notatek"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Ważna uwaga:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Ten próg będzie <b>NOT</b> być Templated.  Podczas korzystania z opcji Threshold Template (Szablon progów), przed otrzymaniem monitu \"Create\" (Utwórz) zostaniesz poproszony o podanie informacji o szablon progów, szablon wykresu, urządzenie i ewentualnie element zapytania o dane, w którym to czasie, jeśli na poziomie Graph and Data Source Template (Szablon wykresu i źródła danych) dozwolone jest uzyskanie nadmiarowych informacji na poziomie Graph and Data Source Template (Wykres i źródło danych), zostaniesz o nie poproszony.  Następnie, po naciśnięciu przycisku \"Utwórz\", wykres i próg zostaną utworzone jednocześnie."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Wykres"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Wybierz wykres dla wartości progowej."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Wybierz wykres"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Źródło danych"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Wybierz źródło danych dla wartości progowej."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Wybór źródła danych"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Utwórz"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Wartość progowa <b>NOT</b> będzie Szablonowana i będzie działać tylko na istniejących wykresach.  Jeśli chcesz jednocześnie utworzyć wykres i próg, wybierz z rozwijanego menu Threshold Template i kontynuuj aż pojawi się przycisk \"Create\" (Utwórz)."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Ten próg będzie <b>NOT</b> być Templated.  Możesz wybrać opcję By Graph (Wykres), gdzie następnie wybierzesz istniejące urządzenie, wykres i źródło danych przed utworzeniem wartości progowej, lub możesz wybrać szablon progów, który pozwoli na jednoczesne utworzenie nieszablonowego progu i odpowiedniego wykresu."
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Wybrany wykres"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Utworzony wykres: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "Duplikuj"
@@ -1271,16 +1712,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Kliknij 'Kontynuuj', aby usunąć listy powiadomień.  Każde urządzenie(-a) lub próg(-y) powiązane z listą(-ami) zostaną przywrócone do wartości domyślnych."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "Anuluj"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "Kontynuuj"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1906,6 @@ msgstr "Brak"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "Usuń szablon(y)"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "Domyślny"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1881,10 +2307,6 @@ msgstr "Automatyczne tworzenie progów"
 msgid "Created %s thresholds"
 msgstr "Utworzony próg: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "Nie utworzono progu (progów).  Albo już istnieją, albo nie znaleziono pasujących kombinacji."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Nie utworzono progu (progów).  Nie znaleziono szablonu (progów)."
@@ -1901,17 +2323,9 @@ msgstr "Kliknij 'Kontynuuj', aby utworzyć progi dla tych źródeł danych?"
 msgid "Available Threshold Templates"
 msgstr "Dostępne szablony progów"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "Wybierz szablon progu"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Nie ma szablonów progów związanych z następującymi źródłami danych"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "Tworzenie progu z szablonu"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2029,10 +2443,6 @@ msgstr "Szablon powtórnego zastosowania"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Kliknij „Kontynuuj”, aby potwierdzić następujące progi. Progi, które na to nie pozwalają lub które nie są wyzwalane, zostaną zignorowane."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "Szablon(-y) potwierdzenia"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2791,253 +3201,6 @@ msgstr "Użytkownicy Wybrani użytkownicy"
 msgid "All Users Selected"
 msgstr "Wszyscy wybrani użytkownicy"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 minuta"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "Utwórz"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "Dziennik"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "Czas:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "Użytkownik:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "System:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "swapy:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "Strony:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Link do wykresu w kaktusach"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>Wysłano powiadomienie, które wymaga Twojej uwagi.<br><br><b>Urządzenie</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></ciało></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>Wydano ostrzeżenie, które wymaga Twojej uwagi.<br><br><b>Urządzenie</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></ciało></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Został wydany alert, który wymaga Państwa uwagi. <br><br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "Odchylenie UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Wartość ostrzeżenia"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "Odchylenie UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Wartość ostrzeżenia"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "Identyfikator urządzenia nie został ustawiony podczas próby utworzenia wykresu i progu"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "Identyfikator szablonu progów nie został ustawiony podczas próby utworzenia wykresu i progu"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "Identyfikator szablonu progów nie został ustawiony podczas próby utworzenia wykresu i progu"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "Tworzenie wykresu nie powiodło się w przypadku szablonu progowego"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Próg został automatycznie utworzony dzięki mapowaniu szablonu urządzenia"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "Brak uprawnień"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "Rejestr uaktualniono"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Nie udało się znaleźć powiązanego elementu szablonu wykresu \"%d\" na Progu \"%d"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "Utworzony próg: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Musisz określić albo 'Wysoki próg alarmowy' lub 'Niski próg alarmowy', albo oba!<br>ZAPISZ NIE WOLNO!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Niemożliwe progi: \"Wysoki próg\" mniejszy lub równy \"Niski próg\"<br>ZAPISZ NIE WOLNO!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "%s\" musi być ustawiona na dodatnią wartość całkowitą!<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Musisz określić albo \"odchylenie bazowe w górę\" lub \"odchylenie bazowe w dół\", albo oba te elementy!<br>ZAPISZ NIE WOLNO!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Niemożliwe progi: \"Wysoki próg\" mniejszy lub równy \"Niski próg\"<br>ZAPISZ NIE WOLNO!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"Niski próg ostrzegawczy\"<br>ZAPISZ NIE DOTYCZY!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "Nieznany Próg"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "Brak szablonów progów związanych z szablonem urządzenia."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Błąd mailingowy: Nie <b>TO</b> adres ustawiony! <br>Jeśli korzystasz z linku <i>Test Mail</i>, ustaw ustawienie <b>Alert Email</b>."
-
-#: thold_functions.php
-msgid "Done"
-msgstr ""
-
-#: thold_functions.php
-msgid "Pending"
-msgstr ""
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "Błąd"
-
-#: thold_functions.php
-msgid "Success"
-msgstr ""
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "Nieznany Próg"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "Kliknij 'Kontynuuj', aby potwierdzić następujący(-e) próg(-y)."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "Szablon progowy Szablon podrzędny Szablon Danych Nie znaleziono!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Szablon progowy Nie znaleziono podrzędnego źródła danych!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "Kolumny importu szablonu progu nie są zgodne ze schematem bazy danych"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "Zaimportowane"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "Szablon progowy \"%s\" %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "Zaktualizowano"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "Importuj"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "Szablon progowy \"%s\" %s Nie powiodło się!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "Aktualizuj"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "Błędy napotkane podczas próby zaimportowania danych szablonu progu."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Szablon progowy Szablon podrzędny Szablon Danych Nie znaleziono!"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Identyfikator szablonu progów nie został ustawiony podczas próby utworzenia wykresu i progu"
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "Typ progu, który będzie monitorowany."
@@ -3207,10 +3370,6 @@ msgstr "Próg Dziennik dla [ %s]"
 msgid "Log Entries"
 msgstr "Wpisy do rejestru"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "Urządzenie"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "Czas"
@@ -3284,10 +3443,6 @@ msgstr "Usuń szablon(y)"
 msgid "Threshold Template Creation Wizard"
 msgstr "Kreator tworzenia szablonów progów"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "Źródło danych"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "Proszę wybrać szablon danych"
@@ -3299,10 +3454,6 @@ msgstr "Proszę wybrać źródło danych"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Proszę nacisnąć 'Utwórz', aby utworzyć szablon progów"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "Utwórz"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3585,157 +3736,6 @@ msgstr "Uwaga:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "BŁĄD:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "Próg (progi) Już istnieje (istnieją) - nie ma utworzonych progów"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Kreator tworzenia progów [ Wybierz typ progu ]."
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Kreator tworzenia progów [ Wprowadź dane niestandardowe i naciśnij 'Utwórz', aby utworzyć swój próg i wykres]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Kreator tworzenia progów [ Wybierz dostępne wiersze zapytań danych ]."
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Kreator tworzenia progów [ Wybierz urządzenie ]."
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Kreator tworzenia progów [ Wybierz szablon wykresu ]."
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Kreator tworzenia progów [ Wybierz szablon progu ]."
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Kreator tworzenia progów [ Naciśnij 'Utwórz', aby utworzyć swój próg ]."
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Kreator tworzenia progów [ Wybierz źródło danych ]."
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "Kreator tworzenia progów [ Wybierz wykres]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "Kryteria tworzenia progów"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "Utwórz typ"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "Wybierz typ progu, który ma być użyty do utworzenia tego progu."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "Wybierz typ progu"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "Nie szablonowane"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "Szablon progu"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "Wybierz szablon progów, na podstawie którego będzie tworzony wykres i próg."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "Szablon wykresu"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "Wybierz szablon wykresu, który ma być użyty do utworzenia wykresu."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "Wybierz szablon wykresu"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "Wybierz urządzenie, które ma być używane dla tworzonego progu i wykresu."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "Wybór urządzenia"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "Wybrany i dostępny element"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "Pozycja zapytań o dane"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "Wybierz odpowiedni wiersz z zapytania o dane dla wykresu i wartości progowej."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "Tworzenie notatek"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "Ważna uwaga:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Ten próg będzie <b>NOT</b> być Templated.  Podczas korzystania z opcji Threshold Template (Szablon progów), przed otrzymaniem monitu \"Create\" (Utwórz) zostaniesz poproszony o podanie informacji o szablon progów, szablon wykresu, urządzenie i ewentualnie element zapytania o dane, w którym to czasie, jeśli na poziomie Graph and Data Source Template (Szablon wykresu i źródła danych) dozwolone jest uzyskanie nadmiarowych informacji na poziomie Graph and Data Source Template (Wykres i źródło danych), zostaniesz o nie poproszony.  Następnie, po naciśnięciu przycisku \"Utwórz\", wykres i próg zostaną utworzone jednocześnie."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "Wykres"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "Wybierz wykres dla wartości progowej."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "Wybierz wykres"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "Wybierz źródło danych dla wartości progowej."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "Wybór źródła danych"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Wartość progowa <b>NOT</b> będzie Szablonowana i będzie działać tylko na istniejących wykresach.  Jeśli chcesz jednocześnie utworzyć wykres i próg, wybierz z rozwijanego menu Threshold Template i kontynuuj aż pojawi się przycisk \"Create\" (Utwórz)."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Ten próg będzie <b>NOT</b> być Templated.  Możesz wybrać opcję By Graph (Wykres), gdzie następnie wybierzesz istniejące urządzenie, wykres i źródło danych przed utworzeniem wartości progowej, lub możesz wybrać szablon progów, który pozwoli na jednoczesne utworzenie nieszablonowego progu i odpowiedniego wykresu."
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "Wybrany wykres"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "Utworzony wykres: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Dodatkowy adres e-mail, oddzielony przecinkami dla wielu wiadomości e-mail."
