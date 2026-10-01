@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-04-20 14:49-0400\n"
 "Last-Translator: \n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -236,7 +236,7 @@ msgstr "معلومات"
 msgid "Debug"
 msgstr "التصحيح"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "أبدا"
 
@@ -509,13 +509,293 @@ msgstr "> %d الأجهزة في الموقع"
 msgid "> %d %%% of Devices in a Site"
 msgstr "> %d %% الأجهزة في الموقع"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 دقيقة"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "منذ إنشائها"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "العتبات"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "سجل"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "حالة الجهاز"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "الوقت:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "المستخدم.:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "النظام:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "مقايضه:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "الصفحات:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "فقط تسجيل الدخول ، صيانة الجهاز"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "الافتراضي"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "رابط إلى الرسم البياني في الصبار"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>تم إصدار تنبيه يتطلب انتباهك.<br><br><b>الجهاز</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>الرابط</b>: <URL><br><b>رسالة</b>: <SUBJECT><br><br><GRAPH></GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>تم إصدار تحذير يتطلب انتباهك.<br><br><b>الجهاز</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>الرابط</b>: <URL><br><b>رسالة</b>: <SUBJECT><br><br><GRAPH></GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>عاد الحد إلى الحالة الطبيعية. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>رسالة</strong>: <SUBJECT><br><br><GRAPH></GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% ديف [نصيحة:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "عبس فال [نصيحة:%s]"
+
+#: includes/functions.php
+#, fuzzy
+msgid "%%% Dev [AOT:%s]"
+msgstr "%% ديف [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "عبس فال [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "لم يتم تعيين معرف الجهاز أثناء محاولة إنشاء الرسم البياني والعتبة"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "لم يتم العثور على معرف قالب العتبة أثناء محاولة إنشاء الرسم البياني والعتبة"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "لم يتم تعيين معرف قالب العتبة أثناء محاولة إنشاء الرسم البياني والعتبة"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "فشل إنشاء الرسم البياني لقالب العتبة"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "تم إنشاء العتبة تلقائيا بسبب تعيين قالب الجهاز"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "تم رفض الإذن"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "تم تحديث السجل"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "فشل العثور على عنصر قالب الرسم البياني المرتبط '%d' على العتبة '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "تم إنشاء العتبة: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "يجب عليك تحديد إما \"عتبة التنبيه العالية\" أو \"عتبة التنبيه المنخفضة\" أو كليهما!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "الحد المستحيل: \"عتبة التأهب العالية\" أصغر من \"عتبة التنبيه المنخفضة\"!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "العتبة المستحيلة: \"عتبة التحذير العالية\" أصغر من \"عتبة التحذير المنخفضة\"!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "عتبة مستحيلة: \"عتبة تحذير عالية\" أكبر من \"عتبة الإنذار العالية\"!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "الحد المستحيل: \"عتبة الإنذار المنخفضة\" أكبر من \"عتبة التحذير المنخفض\"!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "يجب تعيين مرجع الوقت في الماضي على قيمة عدد صحيح موجب!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "يجب عليك تحديد إما \"انحراف خط الأساس لأعلى\" أو \"انحراف خط الأساس لأسفل\" أو كليهما!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "الحد المستحيل: \"عتبة التنبيه العالي\" أصغر من \"عتبة التنبيه المنخفضة\""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "عتبة مستحيلة: يجب أن يكون عدد مشغلات التنبيه أكبر أو يصل إلى 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "الحد المستحيل: يجب أن يكون عدد مشغلات التنبيه أقل من أو يساوي عدد المشغلات أو eval إلى 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "عتبة مستحيلة: يجب أن يكون عدد مشغلات التحذير أكبر أو يصل إلى 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "الحد المستحيل: يجب أن يكون عدد مشغلات التحذير أقل من أو يساوي عدد الزناد أو eval إلى 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "الحد المستحيل: \"عتبة التحذير المنخفضة\" أصغر من \"عتبة الإنذار المنخفضة\"!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "نوع عتبة غير معروف!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "لا توجد قوالب عتبات مرتبطة بقالب الجهاز."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "لم يتم إنشاء عتبة (عتبات).  إما أنها موجودة بالفعل ، أو لم يتم العثور على تطابقات مناسبة."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "خطأ في البريد: لم يتم تعيين عنوان <b>TO</b> !!<br>في حالة استخدام رابط <i>اختبار البريد</i> ، يرجى تعيين إعداد <b>البريد الإلكتروني للتنبيه</b> ."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "تم"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "خطأ"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "نجاح"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "إقرار الحد الأدنى"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "انقر فوق \"متابعة\" للإقرار بالحد (العتبات) التالية."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "إقرار الحد (العتبات)"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "إستمرار"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "لم يتم العثور على قالب البيانات الثانوية لقالب العتبة!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "لم يتم العثور على مصدر البيانات التابع لقالب العتبة!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "لا تتطابق أعمدة استيراد قالب العتبة مع مخطط قاعدة البيانات"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "تم الاستيراد"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "نموذج العتبة \"%s\" %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "تم التحديث"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "استيراد"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "%s فشل قالب العتبة \"%s\"!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "تحديث"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "الأخطاء التي تمت مواجهتها أثناء محاولة استيراد بيانات قالب العتبة."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "قالب العتبة لم يتم العثور على بيانات الاستيراد لتكون بيانات XML."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "قالب العتبة لم تكن بيانات الاستيراد صحيحة أثناء استيراد قالب العتبة."
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP غير مستخدم"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "N/A"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +817,6 @@ msgstr "لاسفل"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "خطأ في النظام: <DESCRIPTION> (<HOSTNAME>) هو <DOWN p=\"\"><br>موقع: <SITE><br>مكان: <LOCATION><br>سبب: <MESSAGE><br><br>متوسط استجابة النظام: <AVG_TIME> مللي ثانية<br>توفر النظام: <AVAILABILITY><br>إجمالي الشيكات منذ الوضوح: <TOT_POLL><br>إجمالي عمليات التحقق الفاشلة: <FAIL_POLL><br>آخر تاريخ تم التحقق منه : <LAST_FAIL><br>الأجهزة التي سبق أن تم تشغيلها من أجل: <DOWNTIME><br>ملاحظه: <NOTES></DOWNTIME></LAST_FAIL></FAIL_POLL></TOT_POLL></AVAILABILITY></AVG_TIME></MESSAGE></LOCATION></SITE></DOWN></HOSTNAME></DESCRIPTION>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "العتبات"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "أفعال"
@@ -561,10 +836,6 @@ msgstr "إضافة"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "سجلات العتبة"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "حالة الجهاز"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1518,177 @@ msgstr "عاد الحد إلى الحالة الطبيعية. <br><br><strong>ا
 msgid "Thold"
 msgstr "ثولد"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "العتبة (العتبات) موجودة بالفعل - لم يتم إنشاء عتبات"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "إنشاء عتبة من القالب"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "معالج إنشاء العتبة [ حدد نوع العتبة ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "معالج إنشاء العتبة [أدخل البيانات المخصصة واضغط على \"إنشاء\" لإنشاء العتبة والرسم البياني]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "معالج إنشاء العتبة [ حدد صفوف استعلام البيانات المتوفرة ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "معالج إنشاء العتبة [ اختر جهازا ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "معالج إنشاء العتبة [ حدد قالب رسم بياني ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "معالج إنشاء العتبة [ حدد قالب عتبة ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "معالج إنشاء العتبة [اضغط على \"إنشاء\" لإنشاء العتبة الخاصة بك]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "معالج إنشاء العتبة [ حدد مصدر بيانات ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "معالج إنشاء العتبة [ حدد رسم بياني ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "معايير إنشاء العتبة"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "إنشاء نوع"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "حدد نوع العتبة لاستخدامه لإنشاء هذا الحد."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "حدد نوع العتبة"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "غير نموذجي"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "قالب العتبة"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "حدد قالب العتبة الذي سيستند إليه الرسم البياني والعتبة."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "حدد قالب عتبة"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "قالب الرسم البياني"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "حدد قالب رسم بياني لاستخدامه في إنشاء الرسم البياني."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "حدد قالب الرسم البياني للمضيف"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "جهاز"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "حدد جهازا لاستخدامه في إنشاء العتبة والرسم البياني."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "حدد قالب الجهاز الذي سيتم مطابقة الأجهزة به."
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "حدد العنصر المتاح"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "عنصر استعلام البيانات"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "حدد الصف القابل للتطبيق من استعلام البيانات للرسم البياني والعتبة."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "ملاحظات الإنشاء"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "ملاحظة هامة:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "سيتم وضع نموذج لهذا الحد.  عند استخدام خيار نموذج العتبة، ستتم مطالبتك بنموذج العتبة وقالب الرسم البياني والجهاز وربما معلومات عنصر استعلام البيانات قبل تلقي مطالبة \"إنشاء\" وفي ذلك الوقت، إذا كان مسموحا بأي معلومات رسم بياني أو مصدر بيانات يمكن تجاوزها على مستوى الرسم البياني وقالب مصدر البيانات، فستتم مطالبتك بذلك.  بعد ذلك ، بالضغط على زر \"إنشاء\" ، سيتم إنشاء كل من الرسم البياني والعتبة في وقت واحد."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "الرسم البياني"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "حدد الرسم البياني للعتبة."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "حدد رسما بيانيا"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "مصدر البيانات"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "حدد مصدر بيانات للعتبة."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "حدد مصدر بيانات"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "أنشأ"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "<b>لن</b> يتم تشكيل هذا الحد وسيعمل فقط على الرسوم البيانية الموجودة.  إذا كنت ترغب في إنشاء كل من الرسم البياني والعتبة في وقت واحد ، فحدد قالب العتبة من القائمة المنسدلة واستمر حتى يظهر الزر \"إنشاء\"."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "<b>لن</b> يتم وضع قالب لهذا الحد.  يمكنك تحديد إما عن طريق الرسم البياني حيث ستقوم بعد ذلك بتحديد جهاز موجود ورسم بياني ومصدر بيانات قبل إنشاء العتبة الخاصة بك ، أو يمكنك تحديد قالب العتبة الذي سيسمح لك بإنشاء عتبة غير نموذجية والرسم البياني المقابل في وقت واحد"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "تغيير حجم قالب محدد (ق)"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "تم إنشاء الرسم البياني: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "تكرار"
@@ -1271,16 +1713,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "انقر فوق \"متابعة\" لحذف قائمة (قوائم) الإشعارات.  سيتم إرجاع أي جهاز (أجهزة) أو عتبة (عتبات) مرتبطة بالقائمة (القوائم) إلى الوضع الافتراضي."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "إلغاء"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "إستمرار"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1907,6 @@ msgstr "لا شيء"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "قالب الجهاز"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "الافتراضي"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1891,10 +2318,6 @@ msgstr "إنشاء الحدود تلقائيا"
 msgid "Created %s thresholds"
 msgstr "تم إنشاء عتبات %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "لم يتم إنشاء عتبة (عتبات).  إما أنها موجودة بالفعل ، أو لم يتم العثور على تطابقات مناسبة."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "لم يتم إنشاء عتبة (عتبات).  لم يتم العثور على العتبة (العتبات) القالب."
@@ -1911,17 +2334,9 @@ msgstr "انقر فوق \"متابعة\" لإنشاء عتبات لمصادر ا
 msgid "Available Threshold Templates"
 msgstr "قوالب العتبة المتاحة"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "حدد قالب عتبة"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "لا توجد قوالب عتبة مقترنة بمصادر البيانات التالية"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "إنشاء عتبة من القالب"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2039,10 +2454,6 @@ msgstr "إعادة تطبيق القالب"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "انقر فوق \"متابعة\" للإقرار بالحد (العتبات) التالية.  سيتم تجاهل العتبات التي لا تسمح بذلك ، أو التي لم يتم تشغيلها."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "إقرار الحد (العتبات)"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2801,254 +3212,6 @@ msgstr "مستخدمين مختارين"
 msgid "All Users Selected"
 msgstr "تم تحديد جميع المستخدمين"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 دقيقة"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "منذ إنشائها"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "سجل"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "الوقت:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "المستخدم.:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "النظام:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "مقايضه:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "الصفحات:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr "فقط تسجيل الدخول ، صيانة الجهاز"
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "رابط إلى الرسم البياني في الصبار"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>تم إصدار تنبيه يتطلب انتباهك.<br><br><b>الجهاز</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>الرابط</b>: <URL><br><b>رسالة</b>: <SUBJECT><br><br><GRAPH></GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>تم إصدار تحذير يتطلب انتباهك.<br><br><b>الجهاز</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>الرابط</b>: <URL><br><b>رسالة</b>: <SUBJECT><br><br><GRAPH></GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>عاد الحد إلى الحالة الطبيعية. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>رسالة</strong>: <SUBJECT><br><br><GRAPH></GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION></body></html>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "%% ديف [نصيحة:%s]"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "عبس فال [نصيحة:%s]"
-
-#: thold_functions.php
-#, fuzzy
-msgid "%%% Dev [AOT:%s]"
-msgstr "%% ديف [AOT:%s]"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "عبس فال [AOT:%s]"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "لم يتم تعيين معرف الجهاز أثناء محاولة إنشاء الرسم البياني والعتبة"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "لم يتم العثور على معرف قالب العتبة أثناء محاولة إنشاء الرسم البياني والعتبة"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "لم يتم تعيين معرف قالب العتبة أثناء محاولة إنشاء الرسم البياني والعتبة"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "فشل إنشاء الرسم البياني لقالب العتبة"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "تم إنشاء العتبة تلقائيا بسبب تعيين قالب الجهاز"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "تم رفض الإذن"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "تم تحديث السجل"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "فشل العثور على عنصر قالب الرسم البياني المرتبط '%d' على العتبة '%d'"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "تم إنشاء العتبة: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "يجب عليك تحديد إما \"عتبة التنبيه العالية\" أو \"عتبة التنبيه المنخفضة\" أو كليهما!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "الحد المستحيل: \"عتبة التأهب العالية\" أصغر من \"عتبة التنبيه المنخفضة\"!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "العتبة المستحيلة: \"عتبة التحذير العالية\" أصغر من \"عتبة التحذير المنخفضة\"!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "عتبة مستحيلة: \"عتبة تحذير عالية\" أكبر من \"عتبة الإنذار العالية\"!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "الحد المستحيل: \"عتبة الإنذار المنخفضة\" أكبر من \"عتبة التحذير المنخفض\"!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "يجب تعيين مرجع الوقت في الماضي على قيمة عدد صحيح موجب!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "يجب عليك تحديد إما \"انحراف خط الأساس لأعلى\" أو \"انحراف خط الأساس لأسفل\" أو كليهما!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "الحد المستحيل: \"عتبة التنبيه العالي\" أصغر من \"عتبة التنبيه المنخفضة\""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr "عتبة مستحيلة: يجب أن يكون عدد مشغلات التنبيه أكبر أو يصل إلى 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "الحد المستحيل: يجب أن يكون عدد مشغلات التنبيه أقل من أو يساوي عدد المشغلات أو eval إلى 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr "عتبة مستحيلة: يجب أن يكون عدد مشغلات التحذير أكبر أو يصل إلى 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "الحد المستحيل: يجب أن يكون عدد مشغلات التحذير أقل من أو يساوي عدد الزناد أو eval إلى 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "الحد المستحيل: \"عتبة التحذير المنخفضة\" أصغر من \"عتبة الإنذار المنخفضة\"!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "نوع عتبة غير معروف!"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "لا توجد قوالب عتبات مرتبطة بقالب الجهاز."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "خطأ في البريد: لم يتم تعيين عنوان <b>TO</b> !!<br>في حالة استخدام رابط <i>اختبار البريد</i> ، يرجى تعيين إعداد <b>البريد الإلكتروني للتنبيه</b> ."
-
-#: thold_functions.php
-msgid "Done"
-msgstr "تم"
-
-#: thold_functions.php
-msgid "Pending"
-msgstr "قيد الانتظار"
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "خطأ"
-
-#: thold_functions.php
-msgid "Success"
-msgstr "نجاح"
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "إقرار الحد الأدنى"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "انقر فوق \"متابعة\" للإقرار بالحد (العتبات) التالية."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "لم يتم العثور على قالب البيانات الثانوية لقالب العتبة!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "لم يتم العثور على مصدر البيانات التابع لقالب العتبة!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "لا تتطابق أعمدة استيراد قالب العتبة مع مخطط قاعدة البيانات"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "تم الاستيراد"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "نموذج العتبة \"%s\" %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "تم التحديث"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "استيراد"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "%s فشل قالب العتبة \"%s\"!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "تحديث"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "الأخطاء التي تمت مواجهتها أثناء محاولة استيراد بيانات قالب العتبة."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "قالب العتبة لم يتم العثور على بيانات الاستيراد لتكون بيانات XML."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "قالب العتبة لم تكن بيانات الاستيراد صحيحة أثناء استيراد قالب العتبة."
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "تم الاعتراف بالعتبة."
@@ -3218,10 +3381,6 @@ msgstr "سجل العتبة ل [ %s ]"
 msgid "Log Entries"
 msgstr "إدخالات السجل"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "جهاز"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "الوقت"
@@ -3295,10 +3454,6 @@ msgstr "تعطيل النموذج (القوالب)"
 msgid "Threshold Template Creation Wizard"
 msgstr "معالج إنشاء قالب العتبة"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "مصدر البيانات"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "الرجاء اختيار نموذج البيانات"
@@ -3310,10 +3465,6 @@ msgstr "الرجاء تحديد مصدر البيانات"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "يرجى الضغط على \"إنشاء\" لإنشاء نموذج العتبة الخاص بك"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "أنشأ"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3596,157 +3747,6 @@ msgstr "ملاحظة:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "خطأ:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "العتبة (العتبات) موجودة بالفعل - لم يتم إنشاء عتبات"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "معالج إنشاء العتبة [ حدد نوع العتبة ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "معالج إنشاء العتبة [أدخل البيانات المخصصة واضغط على \"إنشاء\" لإنشاء العتبة والرسم البياني]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "معالج إنشاء العتبة [ حدد صفوف استعلام البيانات المتوفرة ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "معالج إنشاء العتبة [ اختر جهازا ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "معالج إنشاء العتبة [ حدد قالب رسم بياني ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "معالج إنشاء العتبة [ حدد قالب عتبة ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "معالج إنشاء العتبة [اضغط على \"إنشاء\" لإنشاء العتبة الخاصة بك]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "معالج إنشاء العتبة [ حدد مصدر بيانات ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "معالج إنشاء العتبة [ حدد رسم بياني ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "معايير إنشاء العتبة"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "إنشاء نوع"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "حدد نوع العتبة لاستخدامه لإنشاء هذا الحد."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "حدد نوع العتبة"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "غير نموذجي"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "قالب العتبة"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "حدد قالب العتبة الذي سيستند إليه الرسم البياني والعتبة."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "قالب الرسم البياني"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "حدد قالب رسم بياني لاستخدامه في إنشاء الرسم البياني."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "حدد قالب الرسم البياني للمضيف"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "حدد جهازا لاستخدامه في إنشاء العتبة والرسم البياني."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "حدد قالب الجهاز الذي سيتم مطابقة الأجهزة به."
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "حدد العنصر المتاح"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "عنصر استعلام البيانات"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "حدد الصف القابل للتطبيق من استعلام البيانات للرسم البياني والعتبة."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "ملاحظات الإنشاء"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "ملاحظة هامة:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "سيتم وضع نموذج لهذا الحد.  عند استخدام خيار نموذج العتبة، ستتم مطالبتك بنموذج العتبة وقالب الرسم البياني والجهاز وربما معلومات عنصر استعلام البيانات قبل تلقي مطالبة \"إنشاء\" وفي ذلك الوقت، إذا كان مسموحا بأي معلومات رسم بياني أو مصدر بيانات يمكن تجاوزها على مستوى الرسم البياني وقالب مصدر البيانات، فستتم مطالبتك بذلك.  بعد ذلك ، بالضغط على زر \"إنشاء\" ، سيتم إنشاء كل من الرسم البياني والعتبة في وقت واحد."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "الرسم البياني"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "حدد الرسم البياني للعتبة."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "حدد رسما بيانيا"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "حدد مصدر بيانات للعتبة."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "حدد مصدر بيانات"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "<b>لن</b> يتم تشكيل هذا الحد وسيعمل فقط على الرسوم البيانية الموجودة.  إذا كنت ترغب في إنشاء كل من الرسم البياني والعتبة في وقت واحد ، فحدد قالب العتبة من القائمة المنسدلة واستمر حتى يظهر الزر \"إنشاء\"."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "<b>لن</b> يتم وضع قالب لهذا الحد.  يمكنك تحديد إما عن طريق الرسم البياني حيث ستقوم بعد ذلك بتحديد جهاز موجود ورسم بياني ومصدر بيانات قبل إنشاء العتبة الخاصة بك ، أو يمكنك تحديد قالب العتبة الذي سيسمح لك بإنشاء عتبة غير نموذجية والرسم البياني المقابل في وقت واحد"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "تغيير حجم قالب محدد (ق)"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "تم إنشاء الرسم البياني: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "عنوان بريد إلكتروني إضافي ، مفصول بفواصل لرسائل بريد إلكتروني متعددة."
