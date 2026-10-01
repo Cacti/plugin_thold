@@ -402,7 +402,7 @@ function thold_multiexplode($delimiters, $string) {
 function thold_rrd_graph_graph_options($g) {
 	global $config;
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	// handle thold replacement variables
 	$needles      = [];
@@ -831,7 +831,7 @@ function thold_device_action_execute($action) {
 		return $action;
 	}
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
@@ -860,7 +860,7 @@ function thold_device_action_execute($action) {
 function thold_api_device_new($save) {
 	global $config;
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	if (read_config_option('thold_autocreate') == 'on') {
 		if (!empty($save['id'])) {
@@ -944,7 +944,7 @@ function thold_api_device_save($save) {
 		WHERE id = ?',
 		[$save['id']]);
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	if ($save['id'] > 0) {
 		if ($save['disabled'] != $result['disabled']) {
@@ -1121,7 +1121,7 @@ function thold_user_admin_setup_sql_save($save) {
 function thold_data_source_action_execute($action) {
 	global $config, $form_array;
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	if ($action == 'plugin_thold_create') {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
@@ -1328,7 +1328,7 @@ function thold_data_source_action_array($action) {
 function thold_graphs_action_execute($action) {
 	global $config, $form_array;
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	if ($action == 'plugin_thold_create') {
 		$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
@@ -1527,8 +1527,8 @@ function thold_graphs_action_array($action) {
  * @return void
  */
 function thold_host_edit_bottom() {
-	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
-	require_once(__DIR__ . '/thold_functions.php');
+	// This hook can fire on core pages that have not loaded includes/functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/includes/functions.php');
 
 	?>
 	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
@@ -1601,11 +1601,11 @@ function thold_snmpagent_cache_uninstall() {
 function thold_page_head() {
 	global $config;
 
-	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
-	require_once(__DIR__ . '/thold_functions.php');
+	// This hook can fire on core pages that have not loaded includes/functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/includes/functions.php');
 
-	if (file_exists($config['base_path'] . '/plugins/thold/css/' . get_selected_theme() . '/main.css')) {
-		print get_md5_include_css('plugins/thold/css/' . get_selected_theme() . '/main.css');
+	if (file_exists($config['base_path'] . '/plugins/thold/css/' . get_selected_theme() . '.css')) {
+		print get_md5_include_css('plugins/thold/css/' . get_selected_theme() . '.css');
 	}
 
 	?>
@@ -1641,8 +1641,8 @@ function thold_page_head() {
  * @return void
  */
 function thold_device_edit_pre_bottom() {
-	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
-	require_once(__DIR__ . '/thold_functions.php');
+	// This hook can fire on core pages that have not loaded includes/functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/includes/functions.php');
 
 	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
@@ -1854,8 +1854,8 @@ function thold_device_top() {
  * @return void
  */
 function thold_device_template_edit() {
-	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
-	require_once(__DIR__ . '/thold_functions.php');
+	// This hook can fire on core pages that have not loaded includes/functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/includes/functions.php');
 
 	html_start_box(__('Associated Threshold Templates', 'thold'), '100%', false, '3', 'center', '');
 
@@ -2095,7 +2095,7 @@ function thold_device_autocreate($host_id) {
 function thold_create_graph_thold($save) {
 	global $config;
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	if (read_config_option('thold_autocreate') == 'on') {
 		$graph = db_fetch_row_prepared('SELECT *
@@ -2127,7 +2127,7 @@ function thold_create_graph_thold($save) {
 function thold_data_source_remove($data_ids) {
 	global $config;
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	$tholds = array_rekey(
 		db_fetch_assoc('SELECT id
@@ -2186,7 +2186,7 @@ function thold_clog_regex_array($regex_array) {
 function thold_clog_regex_threshold($matches) {
 	global $config;
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 	$result = $matches[0];
 
@@ -2229,8 +2229,8 @@ function thold_clog_regex_threshold($matches) {
  * @return void
  */
 function thold_settings_bottom() {
-	// This hook can fire on core pages that have not loaded thold_functions.php, where plugin_thold_csp_nonce() lives.
-	require_once(__DIR__ . '/thold_functions.php');
+	// This hook can fire on core pages that have not loaded includes/functions.php, where plugin_thold_csp_nonce() lives.
+	require_once(__DIR__ . '/includes/functions.php');
 
 	?>
 	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>

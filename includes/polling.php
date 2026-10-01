@@ -116,7 +116,7 @@ function thold_cleanup_log() {
 function thold_poller_output(&$rrd_update_array) {
 	global $config, $debug;
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 	include_once($config['library_path'] . '/snmp.php');
 
 	$rrd_reindexed      = [];
@@ -338,7 +338,7 @@ function thold_check_all_thresholds() {
 	global $config;
 
 	include($config['base_path'] . '/plugins/thold/includes/arrays.php');
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 	include_once($config['base_path'] . '/lib/time.php');
 
 	if (read_config_option('remote_storage_method') == 1) {
@@ -461,7 +461,7 @@ function thold_update_host_status() {
 		return 0;
 	}
 
-	include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+	include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 	include_once($config['library_path'] . '/snmp.php');
 
 	if (api_plugin_is_enabled('maint')) {

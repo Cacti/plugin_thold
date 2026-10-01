@@ -35,7 +35,7 @@ if (strpos($dir, 'plugins') !== false) {
 
 include('./include/cli_check.php');
 
-include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 // set the defaults
 $force     = false;

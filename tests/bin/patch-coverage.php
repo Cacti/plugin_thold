@@ -194,7 +194,7 @@ $unmeasured_allowlist = [
 	// Web-page action handlers (thold_wizard() et al.) that read $_REQUEST
 	// and read/write the Cacti database directly; only meaningful inside a
 	// live authenticated request, not the isolated unit process.
-	'thold_webapi.php',
+	'includes/webapi.php',
 ];
 $unmeasured            = array_values(array_diff(array_keys($changed), array_keys($measured)));
 $unexpected_unmeasured = array_values(array_diff($unmeasured, $unmeasured_allowlist));

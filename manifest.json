@@ -1,6 +1,8 @@
 {
     "tombstones": [
-        "themes/"
+        "themes/",
+        "thold_functions.php",
+        "thold_webapi.php"
     ],
     "expected": [
         "CACTI-THOLD-MIB",
@@ -24,12 +26,10 @@
         "setup.php",
         "thold.php",
         "thold_daemon.php",
-        "thold_functions.php",
         "thold_graph.php",
         "thold_notify.php",
         "thold_process.php",
-        "thold_templates.php",
-        "thold_webapi.php"
+        "thold_templates.php"
     ],
     "whitelist": []
 }

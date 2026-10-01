@@ -25,7 +25,7 @@
 /*
  * Unit coverage for plugin_thold_csp_nonce().
  *
- * The helper is defined in thold_functions.php (the library every plugin page
+ * The helper is defined in includes/functions.php (the library every plugin page
  * includes), so these tests load that file directly - without setup.php - to
  * guard against the helper regressing back into a file the pages do not load.
  *
@@ -38,7 +38,7 @@
  */
 
 beforeAll(function () {
-	require_once __DIR__ . '/../../thold_functions.php';
+	require_once __DIR__ . '/../../includes/functions.php';
 });
 
 test('csp nonce returns an empty string when CactiSecureHeaders is unavailable', function () {
@@ -56,10 +56,10 @@ test('csp nonce helper is declared to return a string', function () {
 });
 
 test('csp nonce delegates to CactiSecureHeaders when the class is available', function () {
-	$wrapper = realpath(__DIR__ . '/../../thold_functions.php');
+	$wrapper = realpath(__DIR__ . '/../../includes/functions.php');
 	expect($wrapper)->not->toBeFalse();
 
-	// thold_functions.php loads without a running Cacti, but hand the child the
+	// includes/functions.php loads without a running Cacti, but hand the child the
 	// unit bootstrap too so any Cacti stubs it might reference exist at load time.
 	$bootstrap = realpath(__DIR__ . '/../bootstrap-unit.php');
 

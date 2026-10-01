@@ -36,9 +36,9 @@ include_once($config['base_path'] . '/lib/template.php');
 include_once($config['base_path'] . '/lib/utility.php');
 include_once($config['base_path'] . '/lib/reports.php');
 include_once($config['base_path'] . '/lib/time.php');
-include_once($config['base_path'] . '/plugins/thold/thold_webapi.php');
+include_once($config['base_path'] . '/plugins/thold/includes/webapi.php');
 include_once($config['base_path'] . '/plugins/thold/includes/arrays.php');
-include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 
 set_default_action();
 

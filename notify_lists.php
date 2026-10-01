@@ -25,7 +25,7 @@
 chdir('../..');
 include('./include/auth.php');
 include_once($config['base_path'] . '/lib/reports.php');
-include_once($config['base_path'] . '/plugins/thold/thold_functions.php');
+include_once($config['base_path'] . '/plugins/thold/includes/functions.php');
 include($config['base_path'] . '/plugins/thold/includes/arrays.php');
 
 $actions = [

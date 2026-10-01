@@ -27,7 +27,7 @@ final class TholdReplaceThresholdTagsTest extends TestCase {
 	 * @return void
 	 */
 	public static function setUpBeforeClass(): void {
-		self::loadPluginSource('thold_functions.php');
+		self::loadPluginSource('includes/functions.php');
 
 		// Defines $thold_types, which the <THOLDTYPE> substitution reads.
 		self::loadPluginSourceAlways('includes/arrays.php');

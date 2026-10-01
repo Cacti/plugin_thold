@@ -15,7 +15,7 @@
 */
 
 beforeAll(function() {
-	thold_test_load(dirname(__DIR__, 2) . '/thold_functions.php');
+	thold_test_load(dirname(__DIR__, 2) . '/includes/functions.php');
 });
 
 beforeEach(function() {

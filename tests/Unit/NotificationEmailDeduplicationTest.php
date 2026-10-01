@@ -15,7 +15,7 @@
 */
 
 beforeAll(function() {
-	thold_test_load(dirname(__DIR__, 2) . '/thold_functions.php');
+	thold_test_load(dirname(__DIR__, 2) . '/includes/functions.php');
 });
 
 beforeEach(function() {
@@ -46,7 +46,7 @@ test('combined device notifications use the sha256 deduplication path', function
 
 	process_device_notifications(0, 'all', 0);
 
-	$source = file_get_contents(dirname(__DIR__, 2) . '/thold_functions.php');
+	$source = file_get_contents(dirname(__DIR__, 2) . '/includes/functions.php');
 
 	expect(CactiStubs::$mail)->toHaveCount(1)
 		->and($source)->toContain("hash('sha256', json_encode(")
