@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2026-09-12 08:18+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\n"
@@ -236,7 +236,7 @@ msgstr "Info"
 msgid "Debug"
 msgstr "Debugg"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "Aldrig"
 
@@ -509,13 +509,292 @@ msgstr "> %d Enheter på en plats"
 msgid "> %d %%% of Devices in a Site"
 msgstr "> %d %%% of Enheter på en plats"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 minut"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Skapa"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Tröskelvärden"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Logg"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Enhetsstatus"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Tid:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Användare:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "System:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Byten:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Sidor:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Endast loggning, underhållsanordning"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Standard"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Länk till graf i kaktus"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> En varning har utfärdats som kräver din uppmärksamhet. <br><br> <b>Enhet</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Meddelande</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> En varning har utfärdats som kräver din uppmärksamhet. <br><br> <b>Enhet</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Meddelande</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "En Alert har utfärdats som kräver din uppmärksamhet. <br><br> <strong>Enhet</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Meddelande</strong> : <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Dev [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Abs Val [TIP:%s]"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "Avvikelse UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Abs Val [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Enhets-iden var inte inställd när du försökte skapa Grafik och tröskel"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Terskelmall-iden var inte inställd när du försökte skapa Grafik och tröskel"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Terskelmall-iden var inte inställd när du försökte skapa Grafik och tröskel"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Grafgranskningen misslyckades för tröskelmallan"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Tröskeln var autocreated på grund av mappning av enhetsmall"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Åtkomst nekad"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Post uppdaterad"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Hittade inte länkat Graph Template Item '%d' på Threshold '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Skapat tröskelvärde: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Du måste ange antingen \"High Alert Threshold\" eller \"Low Alert Threshold\" eller båda! <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Omöjliga tröskelvärden: \"Hög tröskel\" mindre än eller lika med \"Låg tröskel\" <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "' %s' måste ställas till positivt heltal värde! <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Du måste ange antingen 'Baseline Deviation UP' eller 'Baseline Deviation DOWN' eller båda! <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Omöjliga tröskelvärden: \"Hög tröskel\" mindre än eller lika med \"Låg tröskel\" <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Omöjligt tröskelvärde: Alert Trigger Count måste vara större än eller lika med 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Omöjligt tröskelvärde: Alert Trigger Count måste vara mindre än eller lika med Trigger Count eller eval till 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Omöjligt tröskelvärde: Antalet varningstriggers måste vara större än eller lika med 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Okänd tröskeltyp!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Inga tröskelmallar som är associerade med enhetens mall."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Ingen tröskel (er) skapad. De finns antingen redan, eller det hittades inte matchande kombinationer."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Mailer Fel: Nej <b>TO</b> adress set !! <br> Om du använder länken <i>Test Mail</i> , ange inställning för <b>Alert Email</b> ."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Klar"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Väntande"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Fel"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Lyckades"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Okänd tröskel"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Klicka på \"Fortsätt\" för att bekräfta följande tröskelvärden."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Bekräfta Mall (er)"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Terskelmall Underordnad dataskabel hittades inte!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Terskelmall Underordnad datakälla hittades inte!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Kolumner för import av tröskelmall matchar inte databasschemat"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Importerad"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Tröskelmallan ' %s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Uppdatera"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Importera"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Tröskelmallan ' %s' %s misslyckades!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Uppdatera"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Fel uppstod när du försökte importera data om tröskelmall."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Importdata för tröskelvärdesmallar visade sig inte vara XML-data."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Importdata för tröskelvärdesmall var inte korrekta vid import av tröskelvärdesmall."
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP är inte i bruk"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "N/A"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "Nere"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Systemfel : <DESCRIPTION> ( <HOSTNAME> ) är <DOWN/UP><br> Anledning: <MESSAGE><br><br> Genomsnittligt systemsvar: <AVG_TIME> Fröken <br> System tillgänglighet: <AVAILABILITY><br> Totala kontroller sedan klar: <TOT_POLL><br> Totalt misslyckade kontroller: <FAIL_POLL><br> Sista Datum Kontrollerat NER: <LAST_FAIL><br> Enheter tidigare UP för: <DOWNTIME><br> NOTERA: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "Tröskelvärden"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "Åtgärder"
@@ -561,10 +835,6 @@ msgstr "(lägg till)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "Tröskelvärde Loggar"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "Enhetsstatus"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1517,177 @@ msgstr "En Alert har utfärdats som kräver din uppmärksamhet. <br><br> <strong
 msgid "Thold"
 msgstr "THOLD"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Tröskel (r) finns redan - inga trösklar skapade"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Skapa tröskel från mall"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Guiden Threshold Creation [Välj en tröskel typ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Guiden Threshold Creation [Ange egna data och tryck på 'Skapa' för att skapa din tröskel och graf]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Guiden Threshold Creation [välj Tillgängliga Data Query Rows]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Guiden Threshold Creation [Välj en enhet]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Guiden Threshold Creation [Välj en grafmall]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Guiden Threshold Creation [Välj en tröskelmall]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Guiden Threshold Creation [Tryck på 'Skapa' för att skapa din tröskel]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Guiden Threshold Creation [Välj en datakälla]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Tröskelskapsguiden [Välj en graf]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Tröskel skapande kriterier"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Skapa typ"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Välj en tröskel typ som ska användas för att skapa denna tröskel."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Välj en tröskel typ"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Inte Templated"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Tröskelmall"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Välj en tröskelmall som grafen och tröskeln baseras på."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Välj en tröskelmall"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Grafmall"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Välj en grafmall som ska användas för den graf som ska skapas."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Välj en grafmall"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Enhet"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Välj en enhet som ska användas för tröskeln och grafen som ska skapas."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Välj en enhet"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "Välj och tillgängligt objekt"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Data Query Item"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Välj den aktuella raden från datasökningen för graf och tröskel."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Skapande anteckningar"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Viktig information:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Denna tröskel kommer <b>INTE</b> att fördjupas. När du använder alternativet Threshold Template, kommer du att bli uppmanad till en tröskelsmall, en grafmall, en enhet och eventuellt datafrågepostinformation innan du får meddelandet \"Skapa\" vid vilken tidpunkt, om någon överskridbar graf eller datakällainformation tillåts vid grafen och datakälla Mall nivå, kommer du att bli uppmanad till det. Då, genom att trycka på \"Skapa\" -knappen, skapas både graf och tröskel samtidigt."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Diagram"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Välj grafen för tröskelvärdet."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Välj en graf"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Datakälla"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Välj en datakälla för tröskeln."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Välj en datakälla"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Skapa"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Denna tröskel kommer <b>INTE</b> att fördjupas och fungerar bara på befintliga grafer. Om du vill skapa både grafen och tröskeln samtidigt väljer du tröskelmallan från rullgardinsmenyn och fortsätter tills knappen \"Skapa\" visas."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Denna tröskel kommer <b>INTE</b> att fördjupas. Du kan välja antingen genom graf där du sedan väljer en befintlig enhet, graf och datakälla innan du skapar tröskelvärdet, eller du kan välja tröskelmall som tillåter dig att skapa en icke-fördröjd tröskel och motsvarande graf samtidigt"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Vald graf"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Skapad graf: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "Duplicera"
@@ -1271,16 +1712,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Klicka på \"Fortsätt\" för att ta bort meddelandelistor (er). Vilken enhet eller enheter som är associerade med listan (listorna) kommer att återställas till standardvärdet."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "Fortsätt"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1906,6 @@ msgstr "inget"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "Enhetsmall"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "Standard"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1879,10 +2305,6 @@ msgstr "Skapa automatiskt tröskelvärden"
 msgid "Created %s thresholds"
 msgstr "Skapat tröskelvärde: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "Ingen tröskel (er) skapad. De finns antingen redan, eller det hittades inte matchande kombinationer."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Ingen tröskel (er) skapad. Tröskel (er) Mall ej hittad."
@@ -1899,17 +2321,9 @@ msgstr "Klicka på \"Fortsätt\" för att skapa trösklar för dessa datakällor
 msgid "Available Threshold Templates"
 msgstr "Tillgängliga tröskelmallar"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "Välj en tröskelmall"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Det finns inga tröskelmallar förknippade med följande datakällor"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "Skapa tröskel från mall"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2027,10 +2441,6 @@ msgstr "Ansök om mall"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Klicka på \"Fortsätt\" för att bekräfta följande tröskelvärden. Tröskelvärden som inte tillåter detta eller som inte utlöses ignoreras."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "Bekräfta Mall (er)"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2789,253 +3199,6 @@ msgstr "Användare valda"
 msgid "All Users Selected"
 msgstr "Alla användare valda"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 minut"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "Skapa"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "Logg"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "Tid:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "Användare:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "System:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "Byten:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "Sidor:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr "Endast loggning, underhållsanordning"
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Länk till graf i kaktus"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> En varning har utfärdats som kräver din uppmärksamhet. <br><br> <b>Enhet</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Meddelande</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> En varning har utfärdats som kräver din uppmärksamhet. <br><br> <b>Enhet</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Meddelande</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "En Alert har utfärdats som kräver din uppmärksamhet. <br><br> <strong>Enhet</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Meddelande</strong> : <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "%% Dev [TIP:%s]"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Abs Val [TIP:%s]"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "Avvikelse UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Abs Val [AOT:%s]"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "Enhets-iden var inte inställd när du försökte skapa Grafik och tröskel"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "Terskelmall-iden var inte inställd när du försökte skapa Grafik och tröskel"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "Terskelmall-iden var inte inställd när du försökte skapa Grafik och tröskel"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "Grafgranskningen misslyckades för tröskelmallan"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Tröskeln var autocreated på grund av mappning av enhetsmall"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "Åtkomst nekad"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "Post uppdaterad"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Hittade inte länkat Graph Template Item '%d' på Threshold '%d'"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "Skapat tröskelvärde: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Du måste ange antingen \"High Alert Threshold\" eller \"Low Alert Threshold\" eller båda! <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Omöjliga tröskelvärden: \"Hög tröskel\" mindre än eller lika med \"Låg tröskel\" <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "' %s' måste ställas till positivt heltal värde! <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Du måste ange antingen 'Baseline Deviation UP' eller 'Baseline Deviation DOWN' eller båda! <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Omöjliga tröskelvärden: \"Hög tröskel\" mindre än eller lika med \"Låg tröskel\" <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr "Omöjligt tröskelvärde: Alert Trigger Count måste vara större än eller lika med 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Omöjligt tröskelvärde: Alert Trigger Count måste vara mindre än eller lika med Trigger Count eller eval till 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr "Omöjligt tröskelvärde: Antalet varningstriggers måste vara större än eller lika med 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika med \"Low Warning Threshold\" <br> RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "Okänd tröskeltyp!"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "Inga tröskelmallar som är associerade med enhetens mall."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Mailer Fel: Nej <b>TO</b> adress set !! <br> Om du använder länken <i>Test Mail</i> , ange inställning för <b>Alert Email</b> ."
-
-#: thold_functions.php
-msgid "Done"
-msgstr "Klar"
-
-#: thold_functions.php
-msgid "Pending"
-msgstr "Väntande"
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "Fel"
-
-#: thold_functions.php
-msgid "Success"
-msgstr "Lyckades"
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "Okänd tröskel"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "Klicka på \"Fortsätt\" för att bekräfta följande tröskelvärden."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "Terskelmall Underordnad dataskabel hittades inte!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Terskelmall Underordnad datakälla hittades inte!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "Kolumner för import av tröskelmall matchar inte databasschemat"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "Importerad"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "Tröskelmallan ' %s' %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "Uppdatera"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "Importera"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "Tröskelmallan ' %s' %s misslyckades!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "Uppdatera"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "Fel uppstod när du försökte importera data om tröskelmall."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Importdata för tröskelvärdesmallar visade sig inte vara XML-data."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Importdata för tröskelvärdesmall var inte korrekta vid import av tröskelvärdesmall."
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "Den typ av tröskel som kommer att övervakas."
@@ -3205,10 +3368,6 @@ msgstr "Tröskellogg för [ %s]"
 msgid "Log Entries"
 msgstr "App loggnoteringar"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "Enhet"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "Tid"
@@ -3282,10 +3441,6 @@ msgstr "Radera mall (er)"
 msgid "Threshold Template Creation Wizard"
 msgstr "Guiden Threshold Template Creation"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "Datakälla"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "Var god välj en dataskabel"
@@ -3297,10 +3452,6 @@ msgstr "Välj en datakälla"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Vänligen tryck på \"Skapa\" för att skapa din tröskelmall"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "Skapa"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3583,157 +3734,6 @@ msgstr "OBS:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "FEL:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "Tröskel (r) finns redan - inga trösklar skapade"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Guiden Threshold Creation [Välj en tröskel typ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Guiden Threshold Creation [Ange egna data och tryck på 'Skapa' för att skapa din tröskel och graf]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Guiden Threshold Creation [välj Tillgängliga Data Query Rows]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Guiden Threshold Creation [Välj en enhet]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Guiden Threshold Creation [Välj en grafmall]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Guiden Threshold Creation [Välj en tröskelmall]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Guiden Threshold Creation [Tryck på 'Skapa' för att skapa din tröskel]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Guiden Threshold Creation [Välj en datakälla]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "Tröskelskapsguiden [Välj en graf]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "Tröskel skapande kriterier"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "Skapa typ"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "Välj en tröskel typ som ska användas för att skapa denna tröskel."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "Välj en tröskel typ"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "Inte Templated"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "Tröskelmall"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "Välj en tröskelmall som grafen och tröskeln baseras på."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "Grafmall"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "Välj en grafmall som ska användas för den graf som ska skapas."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "Välj en grafmall"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "Välj en enhet som ska användas för tröskeln och grafen som ska skapas."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "Välj en enhet"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "Välj och tillgängligt objekt"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "Data Query Item"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "Välj den aktuella raden från datasökningen för graf och tröskel."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "Skapande anteckningar"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "Viktig information:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Denna tröskel kommer <b>INTE</b> att fördjupas. När du använder alternativet Threshold Template, kommer du att bli uppmanad till en tröskelsmall, en grafmall, en enhet och eventuellt datafrågepostinformation innan du får meddelandet \"Skapa\" vid vilken tidpunkt, om någon överskridbar graf eller datakällainformation tillåts vid grafen och datakälla Mall nivå, kommer du att bli uppmanad till det. Då, genom att trycka på \"Skapa\" -knappen, skapas både graf och tröskel samtidigt."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "Diagram"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "Välj grafen för tröskelvärdet."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "Välj en graf"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "Välj en datakälla för tröskeln."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "Välj en datakälla"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Denna tröskel kommer <b>INTE</b> att fördjupas och fungerar bara på befintliga grafer. Om du vill skapa både grafen och tröskeln samtidigt väljer du tröskelmallan från rullgardinsmenyn och fortsätter tills knappen \"Skapa\" visas."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Denna tröskel kommer <b>INTE</b> att fördjupas. Du kan välja antingen genom graf där du sedan väljer en befintlig enhet, graf och datakälla innan du skapar tröskelvärdet, eller du kan välja tröskelmall som tillåter dig att skapa en icke-fördröjd tröskel och motsvarande graf samtidigt"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "Vald graf"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "Skapad graf: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Ytterligare e-postadress, åtskilda av kommatecken för flera e-postmeddelanden."
