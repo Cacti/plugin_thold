@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-04-20 14:55-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -236,7 +236,7 @@ msgstr "Πληροφορίες"
 msgid "Debug"
 msgstr "Εντοπισμός σφαλμάτων"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -509,13 +509,292 @@ msgstr "Τύπος Συσκευής"
 msgid "> %d %%% of Devices in a Site"
 msgstr "> %d%%% συσκευών σε μια τοποθεσία"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 λεπτό"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Δημιουργία"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Κατώφλια/'Ορια"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Αρχείο Καταγραφής"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Κατάσταση συσκευών"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Ώρα:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Χρήστης:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Σύστημα:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Ανταλλαγές:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Σελίδες:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Μόνο καταγραφή, maint συσκευή"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Προεπιλογή"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Σύνδεση με το γράφημα σε κάκτους"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> Έχει εκδοθεί μια προειδοποίηση που απαιτεί την προσοχή σας. <br><br> <b>Συσκευή</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Μήνυμα</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> Έχει εκδοθεί μια προειδοποίηση που απαιτεί την προσοχή σας. <br><br> <b>Συσκευή</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Μήνυμα</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "Έχει εκδοθεί μια ειδοποίηση που απαιτεί την προσοχή σας. <br><br> <strong>Συσκευή</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Μήνυμα</strong> : <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "Απόκλιση UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Τιμή ειδοποίησης"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "Απόκλιση UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Τιμή ειδοποίησης"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Το αναγνωριστικό συσκευής δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Η δημιουργία γραφήματος απέτυχε για το πρότυπο κατωφλίου"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Το όριο ήταν αυτόματη λόγω της χαρτογράφησης του προτύπου συσκευής"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Δεν επιτρέπεται η πρόσβαση"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Εγγραφή ενημερωμένη"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Αποτυχία εύρεσης συνδεδεμένου στοιχείου πρότυπου γραφήματος '% d' στο κατώφλι '% d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Δημιουργήθηκε όριο: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Πρέπει να ορίσετε είτε το \"Κατώτατο όριο ειδοποίησης\" είτε το κατώτατο όριο ειδοποίησης ή και τα δύο! <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\" <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Το ' %s' πρέπει να ρυθμιστεί σε θετική ακέραια τιμή! <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Πρέπει να καθορίσετε είτε την \"Απόκλιση βασικής γραμμής UP\" είτε την \"Απόκλιση βασικής γραμμής κάτω\" ή και τα δύο! <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\" <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Αδύνατο όριο: Ο αριθμός ενεργοποίησης ειδοποίησης πρέπει να είναι μεγαλύτερος ή να είναι μεγαλύτερος ή να είναι ίσος με 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Αδύνατο όριο: Ο αριθμός ενεργοποίησης ειδοποίησης πρέπει να είναι μικρότερος ή ίσος με τον αριθμό ενεργοποίησης ή eval με 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Αδύνατο όριο: Ο αριθμός προειδοποιητικών σκανδάλων πρέπει να είναι μεγαλύτερος ή να είναι μεγαλύτερος ή να είναι ίσος με 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Άγνωστο όριο"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Δεν υπάρχουν πρότυπα κατώτατων ορίων που σχετίζονται με το πρότυπο της συσκευής."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Δεν δημιουργήθηκαν κατώτατα όρια. Αυτά είτε υπάρχουν ήδη, είτε δεν βρέθηκαν συνδυασμοί που να ταιριάζουν."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Mailer Σφάλμα: Δεν <b>Για την</b> αντιμετώπιση που !! <br> Εάν χρησιμοποιείτε το σύνδεσμο <i>Δοκιμή αλληλογραφίας</i> , ορίστε τη ρύθμιση <b>Email alert</b> ."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Ολοκληρώθηκε"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Εκκρεμεί"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Σφάλμα"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Μη Διαθέσιμο"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Επιτυχία"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Άγνωστο όριο"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να επιβεβαιώσετε τα παρακάτω όρια."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Αναγνώριση προτύπου"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Συνέχεια"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Το πρότυπο δεδομένων υποδείγματος κατωφλίου δεν βρέθηκε!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Πρότυπο κατώτατου ορίου προέλευσης δεδομένων δεν βρέθηκε!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Οι στήλες εισαγωγής προτύπου κατωφλίου δεν ταιριάζουν με το σχήμα βάσης δεδομένων"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Εισήχθει"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Πρότυπο καμπύλης ' %s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Ενημερώθηκε"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Εισαγωγή"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Πρότυπο καμπύλης ' %s' %s Αποτυχία!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Ενημέρωση"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Παρουσιάστηκαν σφάλματα κατά την προσπάθεια εισαγωγής δεδομένων προτύπου κατωφλίου."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Το πρότυπο δεδομένων υποδείγματος κατωφλίου δεν βρέθηκε!"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "Το SNMP δεν χρησιμοποιείται"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "Μη Διαθέσιμο"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "ΚΑΤΩ"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Σφάλμα συστήματος : <DESCRIPTION> ( <HOSTNAME> ) είναι <DOWN/UP><br> Λόγος: <MESSAGE><br><br> Μέση απόκριση συστήματος: <AVG_TIME> Κυρία <br> Διαθεσιμότητα συστήματος: <AVAILABILITY><br> Συνολικές Επιταγές: <TOT_POLL><br> Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br> Τελευταία ημερομηνία που έχει ελεγχθεί ΚΑΤΩ: <LAST_FAIL><br> Προηγούμενες συσκευές για: <DOWNTIME><br> ΣΗΜΕΙΩΣΗ: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "Κατώφλια/'Ορια"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "Ενέργειες"
@@ -561,10 +835,6 @@ msgstr "(προσθέτω)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "Κατώτατα όρια"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "Κατάσταση συσκευών"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1517,177 @@ msgstr "Έχει εκδοθεί μια ειδοποίηση που απαιτε�
 msgid "Thold"
 msgstr "Πάμε"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Όρια ήδη υπάρχουν - Δεν δημιουργήθηκαν κατώτατα όρια"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Δημιουργία κατώτατου ορίου από το πρότυπο"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλέξτε τύπο κατωφλίου]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Οδηγός δημιουργίας κατωφλιών [Εισάγετε προσαρμοσμένα δεδομένα και πατήστε 'Δημιουργία' για να δημιουργήσετε το κατώφλι και το γράφημά σας]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή διαθέσιμων σειρών ερωτημάτων δεδομένων]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή συσκευής]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Οδηγός δημιουργίας κατωφλιών [Επιλέξτε ένα πρότυπο γραφήματος]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλέξτε ένα πρότυπο κατωφλίου]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Οδηγός δημιουργίας κατωφλίου [Πατήστε 'Δημιουργία' για να δημιουργήσετε το κατώφλι σας]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή προέλευσης δεδομένων]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή γραφήματος]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Κριτήρια δημιουργίας κατωφλίου"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Δημιουργία τύπου"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Επιλέξτε έναν τύπο κατώτατου ορίου που θα χρησιμοποιηθεί για τη δημιουργία αυτού του κατώτατου ορίου."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Επιλέξτε έναν τύπο κατώτατου ορίου"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Μη προτυποποιημένο"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Πρότυπο κατωφλίου"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Επιλέξτε ένα πρότυπο κατωφλίου που θα βασίζεται στο γράφημα και το κατώφλι."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Επιλέξτε ένα πρότυπο ορίου"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Πρότυπο γραφήματος"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Επιλέξτε ένα πρότυπο γραφήματος που θα χρησιμοποιηθεί για τη δημιουργία του γραφήματος."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Επιλέξτε ένα πρότυπο γραφήματος"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Συσκευή"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Επιλέξτε μια συσκευή που θέλετε να χρησιμοποιήσετε για να δημιουργήσετε το κατώφλι και το γράφημα."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Επιλέξτε μια συσκευή"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "Επιλέξτε και Διαθέσιμο στοιχείο"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Στοιχείο ερώτησης δεδομένων"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Επιλέξτε την κατάλληλη σειρά από το ερώτημα δεδομένων για το γράφημα και το κατώφλι."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Σημειώσεις Δημιουργίας"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Σημαντική σημείωση:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί. Όταν χρησιμοποιείτε την επιλογή Template Template, θα σας ζητηθεί να λάβετε πληροφορίες σχετικά με το πρότυπο Threshold Template, Template Template, Device και ενδεχομένως Data Query Data πριν λάβετε την εντολή 'Create', οπότε επιτρέπονται τυχόν επικαλυπτόμενες πληροφορίες Graf ή Data Source στο Graph και επίπεδο προτύπου πηγής δεδομένων, θα σας ζητηθεί. Στη συνέχεια, πατώντας το κουμπί \"Δημιουργία\", θα δημιουργηθούν ταυτόχρονα το γράφημα και το κατώφλι."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Γραφικό Σχήμα"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Επιλέξτε το γράφημα για το κατώφλι."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Επιλέξτε ένα γράφημα"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Ανεπεξέργαστη πηγή"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Επιλέξτε μια προέλευση δεδομένων για το κατώφλι."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Επιλέξτε μια πηγή δεδομένων"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Δημιουργία"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί και θα λειτουργεί μόνο σε υπάρχοντες Γράφημα. Αν θέλετε ταυτόχρονα να δημιουργήσετε το Γράφημα και το Κατώφλι, επιλέξτε Template Template από το αναπτυσσόμενο μενού και συνεχίστε μέχρι να εμφανιστεί το κουμπί 'Δημιουργία'."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί. Μπορείτε να επιλέξετε είτε με γράφημα όπου θα επιλέξετε μια υπάρχουσα συσκευή, γράφημα και πηγή δεδομένων πριν δημιουργήσετε το κατώφλι σας, είτε μπορείτε να επιλέξετε Template Template που θα σας επιτρέψει να δημιουργήσετε ένα μη προτυποποιημένο κατώφλι και αντίστοιχο Graph ταυτόχρονα"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Επιλεγμένο γράφημα"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Δημιουργήθηκε γράφημα: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "Αντιγραφή"
@@ -1271,16 +1712,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να διαγράψετε τις λίστες ειδοποιήσεων. Οποιεσδήποτε συσκευές ή κατώτατα όρια που σχετίζονται με τις λίστες θα επανέλθουν στην προεπιλογή."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "Ακύρωση"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "Συνέχεια"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1906,6 @@ msgstr "Κανένα"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "Διαγραφή προτύπου"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "Προεπιλογή"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1879,10 +2305,6 @@ msgstr "Αυτόματη δημιουργία κατωφλιών"
 msgid "Created %s thresholds"
 msgstr "Δημιουργήθηκε όριο: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "Δεν δημιουργήθηκαν κατώτατα όρια. Αυτά είτε υπάρχουν ήδη, είτε δεν βρέθηκαν συνδυασμοί που να ταιριάζουν."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Δεν δημιουργήθηκαν κατώτατα όρια. Κατώτατα όρια Το πρότυπο δεν βρέθηκε."
@@ -1899,17 +2321,9 @@ msgstr "Κάντε κλικ στο κουμπί 'Συνέχεια' για να �
 msgid "Available Threshold Templates"
 msgstr "Διαθέσιμα πρότυπα ορίων"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "Επιλέξτε ένα πρότυπο ορίου"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Δεν υπάρχουν πρότυπα κατωφλίου που να σχετίζονται με τις ακόλουθες Πηγές δεδομένων"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "Δημιουργία κατώτατου ορίου από το πρότυπο"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2027,10 +2441,6 @@ msgstr "Επαναλάβετε το πρότυπο"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Κάντε κλικ στο «Συνέχεια» για να αναγνωρίσετε τα ακόλουθα όρια. Τα όρια που δεν το επιτρέπουν, ή που δεν ενεργοποιούνται, θα αγνοηθούν."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "Αναγνώριση προτύπου"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2789,253 +3199,6 @@ msgstr "Οι χρήστες επιλέχθηκαν"
 msgid "All Users Selected"
 msgstr "Όλοι οι χρήστες έχουν επιλεγεί"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 λεπτό"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "Δημιουργία"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "Αρχείο Καταγραφής"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "Ώρα:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "Χρήστης:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "Σύστημα:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "Ανταλλαγές:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "Σελίδες:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr "Μόνο καταγραφή, maint συσκευή"
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Σύνδεση με το γράφημα σε κάκτους"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> Έχει εκδοθεί μια προειδοποίηση που απαιτεί την προσοχή σας. <br><br> <b>Συσκευή</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Μήνυμα</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> Έχει εκδοθεί μια προειδοποίηση που απαιτεί την προσοχή σας. <br><br> <b>Συσκευή</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>Μήνυμα</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Έχει εκδοθεί μια ειδοποίηση που απαιτεί την προσοχή σας. <br><br> <strong>Συσκευή</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Μήνυμα</strong> : <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "Απόκλιση UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Τιμή ειδοποίησης"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "Απόκλιση UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Τιμή ειδοποίησης"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "Το αναγνωριστικό συσκευής δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "Η δημιουργία γραφήματος απέτυχε για το πρότυπο κατωφλίου"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Το όριο ήταν αυτόματη λόγω της χαρτογράφησης του προτύπου συσκευής"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "Δεν επιτρέπεται η πρόσβαση"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "Εγγραφή ενημερωμένη"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Αποτυχία εύρεσης συνδεδεμένου στοιχείου πρότυπου γραφήματος '% d' στο κατώφλι '% d'"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "Δημιουργήθηκε όριο: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Πρέπει να ορίσετε είτε το \"Κατώτατο όριο ειδοποίησης\" είτε το κατώτατο όριο ειδοποίησης ή και τα δύο! <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\" <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "Το ' %s' πρέπει να ρυθμιστεί σε θετική ακέραια τιμή! <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Πρέπει να καθορίσετε είτε την \"Απόκλιση βασικής γραμμής UP\" είτε την \"Απόκλιση βασικής γραμμής κάτω\" ή και τα δύο! <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\" <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr "Αδύνατο όριο: Ο αριθμός ενεργοποίησης ειδοποίησης πρέπει να είναι μεγαλύτερος ή να είναι μεγαλύτερος ή να είναι ίσος με 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Αδύνατο όριο: Ο αριθμός ενεργοποίησης ειδοποίησης πρέπει να είναι μικρότερος ή ίσος με τον αριθμό ενεργοποίησης ή eval με 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr "Αδύνατο όριο: Ο αριθμός προειδοποιητικών σκανδάλων πρέπει να είναι μεγαλύτερος ή να είναι μεγαλύτερος ή να είναι ίσος με 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "Άγνωστο όριο"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "Δεν υπάρχουν πρότυπα κατώτατων ορίων που σχετίζονται με το πρότυπο της συσκευής."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Mailer Σφάλμα: Δεν <b>Για την</b> αντιμετώπιση που !! <br> Εάν χρησιμοποιείτε το σύνδεσμο <i>Δοκιμή αλληλογραφίας</i> , ορίστε τη ρύθμιση <b>Email alert</b> ."
-
-#: thold_functions.php
-msgid "Done"
-msgstr "Ολοκληρώθηκε"
-
-#: thold_functions.php
-msgid "Pending"
-msgstr "Εκκρεμεί"
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "Σφάλμα"
-
-#: thold_functions.php
-msgid "Success"
-msgstr "Επιτυχία"
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "Άγνωστο όριο"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να επιβεβαιώσετε τα παρακάτω όρια."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "Το πρότυπο δεδομένων υποδείγματος κατωφλίου δεν βρέθηκε!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Πρότυπο κατώτατου ορίου προέλευσης δεδομένων δεν βρέθηκε!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "Οι στήλες εισαγωγής προτύπου κατωφλίου δεν ταιριάζουν με το σχήμα βάσης δεδομένων"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "Εισήχθει"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "Πρότυπο καμπύλης ' %s' %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "Ενημερώθηκε"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "Εισαγωγή"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "Πρότυπο καμπύλης ' %s' %s Αποτυχία!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "Ενημέρωση"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "Παρουσιάστηκαν σφάλματα κατά την προσπάθεια εισαγωγής δεδομένων προτύπου κατωφλίου."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Το πρότυπο δεδομένων υποδείγματος κατωφλίου δεν βρέθηκε!"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "Ο τύπος του κατώτατου ορίου που θα παρακολουθείται."
@@ -3205,10 +3368,6 @@ msgstr "Καταγραφή κατωφλίου για [ %s]"
 msgid "Log Entries"
 msgstr "Καταχωρίσεις καταγραφών"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "Συσκευή"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "Ώρα"
@@ -3282,10 +3441,6 @@ msgstr "Διαγραφή προτύπου"
 msgid "Threshold Template Creation Wizard"
 msgstr "Οδηγός δημιουργίας προτύπου ουράς"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "Ανεπεξέργαστη πηγή"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "Επιλέξτε ένα πρότυπο δεδομένων"
@@ -3297,10 +3452,6 @@ msgstr "Επιλέξτε μια πηγή δεδομένων"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Πατήστε 'Δημιουργία' για να δημιουργήσετε το πρόγραμμά σας"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "Δημιουργία"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3583,157 +3734,6 @@ msgstr "ΣΗΜΕΙΩΣΗ:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "ΣΦΑΛΜΑ:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "Όρια ήδη υπάρχουν - Δεν δημιουργήθηκαν κατώτατα όρια"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλέξτε τύπο κατωφλίου]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Οδηγός δημιουργίας κατωφλιών [Εισάγετε προσαρμοσμένα δεδομένα και πατήστε 'Δημιουργία' για να δημιουργήσετε το κατώφλι και το γράφημά σας]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή διαθέσιμων σειρών ερωτημάτων δεδομένων]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή συσκευής]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Οδηγός δημιουργίας κατωφλιών [Επιλέξτε ένα πρότυπο γραφήματος]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλέξτε ένα πρότυπο κατωφλίου]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Οδηγός δημιουργίας κατωφλίου [Πατήστε 'Δημιουργία' για να δημιουργήσετε το κατώφλι σας]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή προέλευσης δεδομένων]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "Οδηγός δημιουργίας κατωφλίου [Επιλογή γραφήματος]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "Κριτήρια δημιουργίας κατωφλίου"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "Δημιουργία τύπου"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "Επιλέξτε έναν τύπο κατώτατου ορίου που θα χρησιμοποιηθεί για τη δημιουργία αυτού του κατώτατου ορίου."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "Επιλέξτε έναν τύπο κατώτατου ορίου"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "Μη προτυποποιημένο"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "Πρότυπο κατωφλίου"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "Επιλέξτε ένα πρότυπο κατωφλίου που θα βασίζεται στο γράφημα και το κατώφλι."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "Πρότυπο γραφήματος"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "Επιλέξτε ένα πρότυπο γραφήματος που θα χρησιμοποιηθεί για τη δημιουργία του γραφήματος."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "Επιλέξτε ένα πρότυπο γραφήματος"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "Επιλέξτε μια συσκευή που θέλετε να χρησιμοποιήσετε για να δημιουργήσετε το κατώφλι και το γράφημα."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "Επιλέξτε μια συσκευή"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "Επιλέξτε και Διαθέσιμο στοιχείο"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "Στοιχείο ερώτησης δεδομένων"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "Επιλέξτε την κατάλληλη σειρά από το ερώτημα δεδομένων για το γράφημα και το κατώφλι."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "Σημειώσεις Δημιουργίας"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "Σημαντική σημείωση:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί. Όταν χρησιμοποιείτε την επιλογή Template Template, θα σας ζητηθεί να λάβετε πληροφορίες σχετικά με το πρότυπο Threshold Template, Template Template, Device και ενδεχομένως Data Query Data πριν λάβετε την εντολή 'Create', οπότε επιτρέπονται τυχόν επικαλυπτόμενες πληροφορίες Graf ή Data Source στο Graph και επίπεδο προτύπου πηγής δεδομένων, θα σας ζητηθεί. Στη συνέχεια, πατώντας το κουμπί \"Δημιουργία\", θα δημιουργηθούν ταυτόχρονα το γράφημα και το κατώφλι."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "Γραφικό Σχήμα"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "Επιλέξτε το γράφημα για το κατώφλι."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "Επιλέξτε ένα γράφημα"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "Επιλέξτε μια προέλευση δεδομένων για το κατώφλι."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "Επιλέξτε μια πηγή δεδομένων"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί και θα λειτουργεί μόνο σε υπάρχοντες Γράφημα. Αν θέλετε ταυτόχρονα να δημιουργήσετε το Γράφημα και το Κατώφλι, επιλέξτε Template Template από το αναπτυσσόμενο μενού και συνεχίστε μέχρι να εμφανιστεί το κουμπί 'Δημιουργία'."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί. Μπορείτε να επιλέξετε είτε με γράφημα όπου θα επιλέξετε μια υπάρχουσα συσκευή, γράφημα και πηγή δεδομένων πριν δημιουργήσετε το κατώφλι σας, είτε μπορείτε να επιλέξετε Template Template που θα σας επιτρέψει να δημιουργήσετε ένα μη προτυποποιημένο κατώφλι και αντίστοιχο Graph ταυτόχρονα"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "Επιλεγμένο γράφημα"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "Δημιουργήθηκε γράφημα: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Πρόσθετη διεύθυνση ηλεκτρονικού ταχυδρομείου, διαχωρισμένη με κόμματα για πολλά μηνύματα ηλεκτρονικού ταχυδρομείου."
