@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2026-01-16 03:18+0000\n"
 "Last-Translator: sucharlie <su.charlie@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/thold/zh_Hant/>\n"
@@ -245,7 +245,7 @@ msgstr "資訊"
 msgid "Debug"
 msgstr "除錯"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 #, fuzzy
 msgid "Never"
 msgstr "從不"
@@ -530,15 +530,304 @@ msgstr "設備"
 msgid "> %d %%% of Devices in a Site"
 msgstr "設備"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 分鐘"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "創建"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "閾值"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "日誌"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+#, fuzzy
+msgid "Device Status"
+msgstr "設備狀態"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "時間:"
+
+#: includes/functions.php
+#, fuzzy
+msgid "User:"
+msgstr "使用者："
+
+#: includes/functions.php
+#, fuzzy
+msgid "System:"
+msgstr "取得系統報表"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "互換："
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "頁面:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+#, fuzzy
+msgid "Default"
+msgstr "默认"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "鏈接到仙人掌中的圖表"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>已發出警報，需要您注意。 <br><br> <b>裝置</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>網址</b> ： <URL><br> <b>消息</b> ： <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>已發出警告，需要您注意。 <br><br> <b>裝置</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>網址</b> ： <URL><br> <b>消息</b> ： <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "已發出警報，需要您注意。 <br><br> <strong>裝置</strong> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <strong>網址</strong> ： <URL><br> <strong>消息</strong> ： <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "偏差UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "警報價值"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "偏差UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "警報價值"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "嘗試創建圖形和閾值時未設置設備ID"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "閾值模板的圖表創建失敗"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "由於設備模板映射，閾值已自動處理"
+
+#: includes/functions.php
+#, fuzzy
+msgid "Permission Denied"
+msgstr "存取被拒"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "記錄更新"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "無法在閾值'％d'上找到鏈接的圖表模板項'％d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "創建的閾值：％s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "您必須指定“高警報閾值”或“低警報閾值”或兩者！ <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "不可能的閾值：“高閾值”小於或等於“低閾值” <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "'％s'必須設置為正整數值！ <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "您必須指定“Baseline Deviation UP”或“Baseline Deviation DOWN”或兩者！ <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "不可能的閾值：“高閾值”小於或等於“低閾值” <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "未知閾值"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "沒有與設備模板關聯的閾值模板。"
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "沒有創建閾值。它們已經存在，或者找不到匹配的組合。"
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "郵件程序錯誤：沒有<b>TO</b>地址集！ <br>如果使用“ <i>測試郵件”</i>鏈接，請設置“ <b>警報電子郵件”</b>設置。"
+
+#: includes/functions.php
+msgid "Done"
+msgstr ""
+
+#: includes/functions.php
+msgid "Pending"
+msgstr ""
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "錯誤"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+#, fuzzy
+msgid "N/A"
+msgstr "不适用"
+
+#: includes/functions.php
+#, fuzzy
+msgid "Success"
+msgstr "成功"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "未知閾值"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "單擊“繼續”以確認以下閾值。"
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "確認模板"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+#, fuzzy
+msgid "Cancel"
+msgstr "取消"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+#, fuzzy
+msgid "Continue"
+msgstr "繼續"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "未找到閾值模板從屬數據模板！"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "未找到閾值模板從屬數據源！"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "閾值模板導入列與數據庫架構不匹配"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "已匯入"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "閾值模板'％s'％s！"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "已更新"
+
+#: includes/functions.php thold_templates.php
+#, fuzzy
+msgid "Import"
+msgstr "匯入"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "閾值模板'％s'％s失敗！"
+
+#: includes/functions.php
+#, fuzzy
+msgid "Update"
+msgstr "更新"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "嘗試導入閾值模板數據時出現錯誤。"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "未找到閾值模板從屬數據模板！"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
+
 #: includes/polling.php
 #, fuzzy
 msgid "SNMP not in use"
 msgstr "SNMP未使用"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-#, fuzzy
-msgid "N/A"
-msgstr "不适用"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -561,11 +850,6 @@ msgstr "向下"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "系統錯誤 ： <DESCRIPTION> （ <HOSTNAME> ）是<DOWN/UP><br>原因： <MESSAGE><br><br>平均係統響應： <AVG_TIME>女士<br>系統可用性： <AVAILABILITY><br>清除後的總檢查： <TOT_POLL><br>總失敗檢查： <FAIL_POLL><br>最後一次檢查DOWN： <LAST_FAIL><br>設備以前用於： <DOWNTIME><br>注意： <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "閾值"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "動作"
@@ -586,11 +870,6 @@ msgstr "（加）"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "閾值"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-#, fuzzy
-msgid "Device Status"
-msgstr "設備狀態"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1287,6 +1566,182 @@ msgstr "已發出警報，需要您注意。 <br><br> <strong>裝置</strong> �
 msgid "Thold"
 msgstr "THOLD"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "閾值已經存在 - 沒有創建閾值"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "從模板創建閾值"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "閾值創建嚮導[選擇閾值類型]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "閾值創建嚮導[輸入自定義數據並按“創建”以創建閾值和圖形]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "閾值創建嚮導[選擇可用數據查詢行]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "閾值創建嚮導[選擇設備]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "閾值創建嚮導[選擇圖表模板]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "閾值創建嚮導[選擇閾值模板]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "閾值創建嚮導[按'創建'創建閾值]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "閾值創建嚮導[選擇數據源]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "閾值創建嚮導[選擇圖表]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "門檻創建標準"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "創建類型"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "選擇用於創建此閾值的閾值類型。"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "選擇閾值類型"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "非模板化"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "閾值模板"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "選擇圖形和閾值將基於的閾值模板。"
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "選擇閾值模板"
+
+#: includes/webapi.php
+#, fuzzy
+msgid "Graph Template"
+msgstr "圖模板"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "選擇要用於創建圖表的圖表模板。"
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "選擇圖表模板"
+
+#: includes/webapi.php thold_graph.php
+#, fuzzy
+msgid "Device"
+msgstr "裝置"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "選擇要用於創建閾值和圖表的設備。"
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "選擇一個設備"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "選擇和可用項目"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "數據查詢項"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "從圖表和閾值的數據查詢中選擇適用的行。"
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "創作筆記"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "重要注意事项："
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "此閾值<b>不會</b>被模板化。使用“閾值模板”選項時，如果圖表中允許任何可覆蓋的圖形或數據源信息，則會在收到“創建”提示之前提示您輸入閾值模板，圖形模板，設備和可能的數據查詢項信息。和數據源模板級別，將提示您。然後，通過按“創建”按鈕，將同時創建圖形和閾值。"
+
+#: includes/webapi.php
+#, fuzzy
+msgid "Graph"
+msgstr "圖表"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "選擇閾值圖表。"
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "選擇圖表"
+
+#: includes/webapi.php thold_templates.php
+#, fuzzy
+msgid "Data Source"
+msgstr "資料來源"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "選擇閾值的數據源。"
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "選擇數據源"
+
+#: includes/webapi.php thold_templates.php
+#, fuzzy
+msgid "Create"
+msgstr "創建"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "此閾值<b>不會</b>被模板化，僅適用於現有圖形。如果您希望同時創建圖表和閾值，請從下拉列表中選擇閾值模板並繼續，直到出現“創建”按鈕。"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "此閾值<b>不會</b>被模板化。您可以選擇按圖表，然後在創建閾值之前選擇現有的設備，圖表和數據源，或者您可以選擇閾值模板，這將允許您同時創建非模板化閾值和相應的圖形"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "選定的圖表"
+
+#: includes/webapi.php
+#, fuzzy, php-format
+msgid "Created graph: %s"
+msgstr "創建圖：%s"
+
 #: notify_lists.php
 #, fuzzy
 msgid "Duplicate"
@@ -1313,18 +1768,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "點擊“繼續”以刪除通知列表。與列表關聯的任何設備或閾值將恢復為默認值。"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-#, fuzzy
-msgid "Cancel"
-msgstr "取消"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-#, fuzzy
-msgid "Continue"
-msgstr "繼續"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1527,12 +1970,6 @@ msgstr "無"
 #, fuzzy
 msgid "Device Template"
 msgstr "設備模板"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-#, fuzzy
-msgid "Default"
-msgstr "默认"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1951,10 +2388,6 @@ msgstr "自動創建閾值"
 msgid "Created %s thresholds"
 msgstr "創建的閾值：％s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "沒有創建閾值。它們已經存在，或者找不到匹配的組合。"
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "沒有創建閾值。閾值未找到模板。"
@@ -1971,17 +2404,9 @@ msgstr "點擊“繼續”為這些數據源創建閾值？"
 msgid "Available Threshold Templates"
 msgstr "可用的閾值模板"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "選擇閾值模板"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "沒有與以下數據源關聯的閾值模板"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "從模板創建閾值"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2100,10 +2525,6 @@ msgstr "重新申請模板"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "單擊“繼續”以確認以下閾值。不允許或未觸發的閾值將被忽略。"
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "確認模板"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2877,259 +3298,6 @@ msgstr "用戶已選中"
 msgid "All Users Selected"
 msgstr "選擇所有用戶"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 分鐘"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "創建"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "日誌"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "時間:"
-
-#: thold_functions.php
-#, fuzzy
-msgid "User:"
-msgstr "使用者："
-
-#: thold_functions.php
-#, fuzzy
-msgid "System:"
-msgstr "取得系統報表"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "互換："
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "頁面:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "鏈接到仙人掌中的圖表"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>已發出警報，需要您注意。 <br><br> <b>裝置</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>網址</b> ： <URL><br> <b>消息</b> ： <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>已發出警告，需要您注意。 <br><br> <b>裝置</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>網址</b> ： <URL><br> <b>消息</b> ： <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "已發出警報，需要您注意。 <br><br> <strong>裝置</strong> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <strong>網址</strong> ： <URL><br> <strong>消息</strong> ： <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "偏差UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "警報價值"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "偏差UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "警報價值"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "嘗試創建圖形和閾值時未設置設備ID"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "閾值模板的圖表創建失敗"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "由於設備模板映射，閾值已自動處理"
-
-#: thold_functions.php
-#, fuzzy
-msgid "Permission Denied"
-msgstr "存取被拒"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "記錄更新"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "無法在閾值'％d'上找到鏈接的圖表模板項'％d'"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "創建的閾值：％s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "您必須指定“高警報閾值”或“低警報閾值”或兩者！ <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "不可能的閾值：“高閾值”小於或等於“低閾值” <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "'％s'必須設置為正整數值！ <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "您必須指定“Baseline Deviation UP”或“Baseline Deviation DOWN”或兩者！ <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "不可能的閾值：“高閾值”小於或等於“低閾值” <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <br>記錄沒有更新！"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "未知閾值"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "沒有與設備模板關聯的閾值模板。"
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "郵件程序錯誤：沒有<b>TO</b>地址集！ <br>如果使用“ <i>測試郵件”</i>鏈接，請設置“ <b>警報電子郵件”</b>設置。"
-
-#: thold_functions.php
-msgid "Done"
-msgstr ""
-
-#: thold_functions.php
-msgid "Pending"
-msgstr ""
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "錯誤"
-
-#: thold_functions.php
-#, fuzzy
-msgid "Success"
-msgstr "成功"
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "未知閾值"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "單擊“繼續”以確認以下閾值。"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "未找到閾值模板從屬數據模板！"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "未找到閾值模板從屬數據源！"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "閾值模板導入列與數據庫架構不匹配"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "已匯入"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "閾值模板'％s'％s！"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "已更新"
-
-#: thold_functions.php thold_templates.php
-#, fuzzy
-msgid "Import"
-msgstr "匯入"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "閾值模板'％s'％s失敗！"
-
-#: thold_functions.php
-#, fuzzy
-msgid "Update"
-msgstr "更新"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "嘗試導入閾值模板數據時出現錯誤。"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "未找到閾值模板從屬數據模板！"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "要監視的閾值類型。"
@@ -3309,11 +3477,6 @@ msgstr "[％s]的閾值日誌"
 msgid "Log Entries"
 msgstr "紀錄細節"
 
-#: thold_graph.php thold_webapi.php
-#, fuzzy
-msgid "Device"
-msgstr "裝置"
-
 #: thold_graph.php
 #, fuzzy
 msgid "Time"
@@ -3389,11 +3552,6 @@ msgstr "刪除模板"
 msgid "Threshold Template Creation Wizard"
 msgstr "閾值模板創建嚮導"
 
-#: thold_templates.php thold_webapi.php
-#, fuzzy
-msgid "Data Source"
-msgstr "資料來源"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "請選擇一個數據模板"
@@ -3405,11 +3563,6 @@ msgstr "請選擇一個數據源"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "請按“創建”以創建閾值模板"
-
-#: thold_templates.php thold_webapi.php
-#, fuzzy
-msgid "Create"
-msgstr "創建"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3697,159 +3850,6 @@ msgstr "備註："
 #, fuzzy
 msgid "ERROR:"
 msgstr "錯誤:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "閾值已經存在 - 沒有創建閾值"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "閾值創建嚮導[選擇閾值類型]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "閾值創建嚮導[輸入自定義數據並按“創建”以創建閾值和圖形]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "閾值創建嚮導[選擇可用數據查詢行]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "閾值創建嚮導[選擇設備]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "閾值創建嚮導[選擇圖表模板]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "閾值創建嚮導[選擇閾值模板]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "閾值創建嚮導[按'創建'創建閾值]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "閾值創建嚮導[選擇數據源]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "閾值創建嚮導[選擇圖表]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "門檻創建標準"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "創建類型"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "選擇用於創建此閾值的閾值類型。"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "選擇閾值類型"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "非模板化"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "閾值模板"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "選擇圖形和閾值將基於的閾值模板。"
-
-#: thold_webapi.php
-#, fuzzy
-msgid "Graph Template"
-msgstr "圖模板"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "選擇要用於創建圖表的圖表模板。"
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "選擇圖表模板"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "選擇要用於創建閾值和圖表的設備。"
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "選擇一個設備"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "選擇和可用項目"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "數據查詢項"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "從圖表和閾值的數據查詢中選擇適用的行。"
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "創作筆記"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "重要注意事项："
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "此閾值<b>不會</b>被模板化。使用“閾值模板”選項時，如果圖表中允許任何可覆蓋的圖形或數據源信息，則會在收到“創建”提示之前提示您輸入閾值模板，圖形模板，設備和可能的數據查詢項信息。和數據源模板級別，將提示您。然後，通過按“創建”按鈕，將同時創建圖形和閾值。"
-
-#: thold_webapi.php
-#, fuzzy
-msgid "Graph"
-msgstr "圖表"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "選擇閾值圖表。"
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "選擇圖表"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "選擇閾值的數據源。"
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "選擇數據源"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "此閾值<b>不會</b>被模板化，僅適用於現有圖形。如果您希望同時創建圖表和閾值，請從下拉列表中選擇閾值模板並繼續，直到出現“創建”按鈕。"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "此閾值<b>不會</b>被模板化。您可以選擇按圖表，然後在創建閾值之前選擇現有的設備，圖表和數據源，或者您可以選擇閾值模板，這將允許您同時創建非模板化閾值和相應的圖形"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "選定的圖表"
-
-#: thold_webapi.php
-#, fuzzy, php-format
-msgid "Created graph: %s"
-msgstr "創建圖：%s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "其他電子郵件地址，以逗號分隔多個電子郵件。"
