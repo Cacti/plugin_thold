@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2026-08-04 05:18+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\n"
@@ -236,7 +236,7 @@ msgstr "ინფორმაცია"
 msgid "Debug"
 msgstr "გამართვა"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "არასდროს"
 
@@ -509,13 +509,292 @@ msgstr ""
 msgid "> %d %%% of Devices in a Site"
 msgstr ""
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr ""
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "შექმნის შემდეგ"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "ზღვრები"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "ჟურნალი"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "მოწყობილობის სტატუსი"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "დრო:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "მომხმარებელი:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "სისტემა:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "გაცვლები:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "გვერდები:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "ნაგულისხმევი"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr ""
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr ""
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr ""
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% მოწყ [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "აბს მნ [მინიშნ:%s]"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "აბს. მნ. [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr ""
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr ""
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr ""
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr ""
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr ""
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "წვდომა აკრძალულია"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "ჩანაწერი განახლდა"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr ""
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "შეიქმნა ზღვარი: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr ""
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "უცნობი ზღვრის ტიპი!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr ""
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr ""
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr ""
+
+#: includes/functions.php
+msgid "Done"
+msgstr "მზადაა"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "რიგშია"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "შეცდომიანი"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "წარმატებულია"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "ზღვრის მიღება"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr ""
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "ზღვრების დადასტურება"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "გაუქმება"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "გაგრძელება"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr ""
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "შემოტანილია"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "განახლებულია"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "შემოტანა"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Update"
+msgstr "განახლება"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr ""
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr ""
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr ""
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr ""
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "N/A"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "გამორთ"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr ""
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "ზღვრები"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "(ქმედებები)"
@@ -561,10 +835,6 @@ msgstr "(დამატება)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "ზღვრის ჟურნალი"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "მოწყობილობის სტატუსი"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1239,6 +1509,175 @@ msgstr ""
 msgid "Thold"
 msgstr "ზღვარი"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr ""
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "ზღვრის შექმნის პირობა"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "ტიპის შექმნა"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr ""
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "არაშაბლონური"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "შეზღუდვის შაბლონი"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr ""
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "გრაფიკის შაბლონი"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr ""
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr ""
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "მოწყობილობა"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr ""
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "მონაცემის მოთხოვნის ელემენტი"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr ""
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "შექმნის შენიშვნები"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "მნიშვნელოვანი შენიშვნა:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr ""
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "გრაფიკი"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr ""
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "აირჩიეთ გრაფიკი"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "მონაცემების წყარო"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr ""
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr ""
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "შექმნა"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr ""
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr ""
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "არჩეული გრაფიკი"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "შეიქმნა გრაფიკი: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "დუბლირება"
@@ -1263,16 +1702,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr ""
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "გაუქმება"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "გაგრძელება"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1467,11 +1896,6 @@ msgstr "არცერთი"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "მოწყობილობის შაბლონი"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "ნაგულისხმევი"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1869,10 +2293,6 @@ msgstr "ზღვრების ავტოშექმნა"
 msgid "Created %s thresholds"
 msgstr "შეიქმნა %s ზღვარი"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr ""
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr ""
@@ -1889,16 +2309,8 @@ msgstr ""
 msgid "Available Threshold Templates"
 msgstr ""
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr ""
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
-msgstr ""
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
 msgstr ""
 
 #: setup.php
@@ -2017,10 +2429,6 @@ msgstr "შაბლონის თავიდან გადატარე�
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr ""
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "ზღვრების დადასტურება"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2767,253 +3175,6 @@ msgstr "მონიშნული მომხმარებლები"
 msgid "All Users Selected"
 msgstr "ყველა მონიშნული მომხმარებელი"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr ""
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "შექმნის შემდეგ"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "ჟურნალი"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "დრო:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "მომხმარებელი:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "სისტემა:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "გაცვლები:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "გვერდები:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr ""
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr ""
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr ""
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr ""
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "%% მოწყ [TIP:%s]"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "აბს მნ [მინიშნ:%s]"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr ""
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "აბს. მნ. [AOT:%s]"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr ""
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr ""
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr ""
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr ""
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr ""
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "წვდომა აკრძალულია"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "ჩანაწერი განახლდა"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr ""
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "შეიქმნა ზღვარი: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr ""
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "უცნობი ზღვრის ტიპი!"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr ""
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr ""
-
-#: thold_functions.php
-msgid "Done"
-msgstr "მზადაა"
-
-#: thold_functions.php
-msgid "Pending"
-msgstr "რიგშია"
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "შეცდომიანი"
-
-#: thold_functions.php
-msgid "Success"
-msgstr "წარმატებულია"
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "ზღვრის მიღება"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr ""
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr ""
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "შემოტანილია"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "განახლებულია"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "შემოტანა"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Update"
-msgstr "განახლება"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr ""
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr ""
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr ""
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr ""
@@ -3183,10 +3344,6 @@ msgstr ""
 msgid "Log Entries"
 msgstr "ჟურნალის ჩანაწერები"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "მოწყობილობა"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "დრო"
@@ -3260,10 +3417,6 @@ msgstr "შაბლონ(ებ)-ის გამორთვა"
 msgid "Threshold Template Creation Wizard"
 msgstr ""
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "მონაცემების წყარო"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr ""
@@ -3275,10 +3428,6 @@ msgstr ""
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr ""
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "შექმნა"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3561,155 +3710,6 @@ msgstr "შენიშვნა:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "შეცდომა:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "ზღვრის შექმნის პირობა"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "ტიპის შექმნა"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr ""
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "არაშაბლონური"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "შეზღუდვის შაბლონი"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr ""
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "გრაფიკის შაბლონი"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr ""
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr ""
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Select an Available Item"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "მონაცემის მოთხოვნის ელემენტი"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr ""
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "შექმნის შენიშვნები"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "მნიშვნელოვანი შენიშვნა:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr ""
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "გრაფიკი"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr ""
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "აირჩიეთ გრაფიკი"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr ""
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr ""
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr ""
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr ""
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "არჩეული გრაფიკი"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "შეიქმნა გრაფიკი: %s"
 
 #~ msgid "Notification Single Email"
 #~ msgstr "შეტყობინება ერთი ელფოსტით"
