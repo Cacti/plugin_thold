@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-04-20 16:51-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -236,7 +236,7 @@ msgstr "Информация"
 msgid "Debug"
 msgstr "отстраняване на грешки"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "Никога"
 
@@ -513,13 +513,293 @@ msgstr "> %d Устройства в даден сайт"
 msgid "> %d %%% of Devices in a Site"
 msgstr "> %d %% на устройства в даден сайт"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "% d Минута"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Създай"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Прагове"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Регистър"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Състояние на устройството"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Време"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Потребител:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Система:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Суаповете:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Страници:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Само регистриране, поддържащо устройство"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "По подразбиране"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Линк към Graph in Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> Издаден е сигнал, който изисква вашето внимание. <br><br> <b>Устройство</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL адрес</b> : <URL><br> <b>Съобщение</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> Издадено е предупреждение, което изисква вашето внимание. <br><br> <b>Устройство</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL адрес</b> : <URL><br> <b>Съобщение</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "Издаден е сигнал, който изисква вашето внимание. <br><br> <strong>Устройство</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL адрес</strong> : <URL><br> <strong>Съобщение</strong> : <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, fuzzy, php-format
+#| msgid "%%% Dev [TIP:%s]"
+msgid "%% Dev [TIP:%s]"
+msgstr "%%% Разработка [СЪВЕТ :{ 1}]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Абс Вал [СЪВЕТ:%s]"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "Отклонение UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Abs Val [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Идентификаторът на устройството не е зададен, докато се опитва да създаде графика и праг"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Идентификационният номер на шаблона за прага не е зададен, докато се опитва да създаде графика и праг"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Идентификационният номер на шаблона за прага не е зададен, докато се опитва да създаде графика и праг"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Създаването на графиката е неуспешно за шаблона за праг"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Прагът бе автоматично създаден поради картографиране на шаблон на устройството"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Отказано разрешение"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Записът е актуализиран"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Неуспешно намиране на свързан шаблон за график „% d“ на праг „% d“"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Праг на създаване: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Трябва да укажете или 'High Alert Threshold' или 'Low Alert Threshold' или и двете! <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Невъзможни прагове: „висок праг“ по-малък или равен на „нисък праг“ <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "„ %s“ трябва да е с положителна цяло число! <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Трябва да посочите или „Базово отклонение UP“, или „Baseline Deviation DOWN“, или и двете! <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Невъзможни прагове: „висок праг“ по-малък или равен на „нисък праг“ <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Невъзможен праг: Броят на задействащите сигнали трябва да бъде по-голям или по-голям до 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Невъзможен праг: Броят на задействащите сигнали трябва да бъде по-малък или равен на броя на спусъците или eval на 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Невъзможен праг: Броят на предупредителните спусъци трябва да бъде по-голям или eval до 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Неизвестен праг"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Без прагови шаблони, свързани с шаблона на устройството."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Не са създадени прагове. Те или вече съществуват, или не са намерени съответстващи комбинации."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Мейлър Грешка: Не е <b>за</b> справяне <b>с</b> определени !! <br> Ако използвате връзката „ <i>Тестова поща</i> “, задайте настройката „ <b>E-mail</b> “."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Готово"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Изчаква одобрение"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Грешка"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Няма"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Готово"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Неизвестен праг"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Кликнете върху „Напред“, за да потвърдите следните прагове."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Потвърдете шаблон (и)"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Отказ"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Продължи"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Шаблонът на подчинените данни за шаблона не е намерен!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Не е намерен подчинен източник на данни от шаблона за прага"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Колоните за импортиране на шаблон за праг не съответстват на схемата на базата данни"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Импортирано"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Шаблон за прага „ %s“ %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Обновена на"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Импорт"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Шаблонът за прага „ %s“ %s е неуспешен!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Обновяване"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Грешки, възникнали при опит за импортиране на данни от праговия шаблон."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Шаблонът на подчинените данни за шаблона не е намерен!"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Идентификационният номер на шаблона за прага не е зададен, докато се опитва да създаде графика и праг"
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP не се използва"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "Няма"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -541,11 +821,6 @@ msgstr "НАДОЛУ"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Системна грешка : <DESCRIPTION> ( <HOSTNAME> ) е <DOWN/UP><br> Причина: <MESSAGE><br><br> Среден отговор на системата: <AVG_TIME> Госпожица <br> Наличност на системата: <AVAILABILITY><br> Общо проверки след изчистване: <TOT_POLL><br> Общо неуспешни проверки: <FAIL_POLL><br> Последна дата, проверена надолу: <LAST_FAIL><br> Устройства преди това UP за: <DOWNTIME><br> ЗАБЕЛЕЖКА: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "Прагове"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "Действия"
@@ -565,10 +840,6 @@ msgstr "ade"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "Прагове"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "Състояние на устройството"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1251,6 +1522,177 @@ msgstr "Издаден е сигнал, който изисква вашето �
 msgid "Thold"
 msgstr "Thold"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Вече съществува праг (и) - не са създадени прагове"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Създаване на праг от шаблона"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Съветник за създаване на праг [Изберете тип праг]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Съветник за създаване на праг [Въведете персонализирани данни и натиснете „Създай”, за да създадете своя праг и графика]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Съветник за създаване на праг [Избор на налични редове от заявки за данни]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Съветник за създаване на праг [Изберете устройство]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Съветник за създаване на праг [Изберете шаблон на графиката]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Съветник за създаване на праг [Изберете шаблон за праг]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Съветник за създаване на праг [Натиснете 'Създай', за да създадете своя праг)"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Съветник за създаване на праг [Изберете източник на данни]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Съветник за създаване на праг [Изберете графика]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Критерии за създаване на прагове"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Създаване на тип"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Изберете тип праг, който да се използва за създаване на този праг."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Изберете тип праг"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Неориентирано"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Шаблон за праг"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Изберете шаблон за праг, на който ще се основава графика и праг."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Изберете шаблон за праг"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Шаблони за елементи на графиката"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Изберете шаблон на графиката, който да се използва за графиката, която ще се създава."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Изберете шаблон на графиката"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Устройство"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Изберете устройство, което да се използва за създаване на праг и графика."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Изберете устройство"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "Изберете и налична позиция"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Елемент на заявка за данни"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Изберете съответния ред от данните за заявката за графика и прага."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Бележки за създаване"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Важна Забележка:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Този праг <b>няма</b> да бъдат шаблонни. Когато използвате опцията Threshold Template, ще бъдете подканени да въведете информация за шаблона на прага, шаблона на графиката, устройството и евентуално в заявката за данни, преди да получите подканата \"Създаване\", когато е разрешена информация за графика или източник на данни в графиката и ниво на шаблон за източник на данни, ще бъдете подканени за това. След това, чрез натискане на бутона 'Създай', едновременно ще се създадат и графика и прагът."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Графика"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Изберете графика за прага."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Изберете графика"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Източник на данни"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Изберете източник на данни за прага."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Изберете източник на данни"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Създай"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Този праг <b>няма</b> да бъдат шаблонни и ще работи само на съществуващи графики. Ако желаете едновременно да създадете графика и прага, изберете \"Threshold Template\" от падащото меню и продължете, докато се появи бутона \"Create\"."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Този праг <b>няма</b> да бъдат шаблонни. Можете да изберете по график, след което да изберете съществуващо устройство, графика и източник на данни, преди да създадете своя праг, или да изберете шаблон за праг, който ще ви позволи да създадете едновременно неопределен праг и съответния график едновременно"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Избрана графика"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Създадена графика: %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "Дублирай"
@@ -1275,16 +1717,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Кликнете върху „Напред“, за да изтриете списъците със съобщения. Всички устройства или прагове, свързани с списъка или списъците, ще бъдат възстановени по подразбиране."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "Отказ"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "Продължи"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1479,11 +1911,6 @@ msgstr "Няма"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "Изтриване на шаблон (и)"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "По подразбиране"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1883,10 +2310,6 @@ msgstr "Автоматично създаване на прагове"
 msgid "Created %s thresholds"
 msgstr "Праг на създаване: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "Не са създадени прагове. Те или вече съществуват, или не са намерени съответстващи комбинации."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Не са създадени прагове. Праг (и) Шаблонът не е намерен."
@@ -1903,17 +2326,9 @@ msgstr "Кликнете върху „Напред“, за да създаде
 msgid "Available Threshold Templates"
 msgstr "Налични шаблони за прагове"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "Изберете шаблон за праг"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Няма шаблони за прагове, свързани със следните източници на данни"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "Създаване на праг от шаблона"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2031,10 +2446,6 @@ msgstr "Приложете отново шаблон"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Щракнете върху „Напред“, за да потвърдите следните прагове. Праговете, които не позволяват това или които не се задействат, ще бъдат игнорирани."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "Потвърдете шаблон (и)"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2795,254 +3206,6 @@ msgstr "Избрани потребители"
 msgid "All Users Selected"
 msgstr "Всички потребители са избрани"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "% d Минута"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "Създай"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "Регистър"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "Време"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "Потребител:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "Система:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "Суаповете:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "Страници:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr "Само регистриране, поддържащо устройство"
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Линк към Graph in Cacti"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> Издаден е сигнал, който изисква вашето внимание. <br><br> <b>Устройство</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL адрес</b> : <URL><br> <b>Съобщение</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> Издадено е предупреждение, което изисква вашето внимание. <br><br> <b>Устройство</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL адрес</b> : <URL><br> <b>Съобщение</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Издаден е сигнал, който изисква вашето внимание. <br><br> <strong>Устройство</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL адрес</strong> : <URL><br> <strong>Съобщение</strong> : <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, fuzzy, php-format
-#| msgid "%%% Dev [TIP:%s]"
-msgid "%% Dev [TIP:%s]"
-msgstr "%%% Разработка [СЪВЕТ :{ 1}]"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Абс Вал [СЪВЕТ:%s]"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "Отклонение UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Abs Val [AOT:%s]"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "Идентификаторът на устройството не е зададен, докато се опитва да създаде графика и праг"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "Идентификационният номер на шаблона за прага не е зададен, докато се опитва да създаде графика и праг"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "Идентификационният номер на шаблона за прага не е зададен, докато се опитва да създаде графика и праг"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "Създаването на графиката е неуспешно за шаблона за праг"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Прагът бе автоматично създаден поради картографиране на шаблон на устройството"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "Отказано разрешение"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "Записът е актуализиран"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Неуспешно намиране на свързан шаблон за график „% d“ на праг „% d“"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "Праг на създаване: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Трябва да укажете или 'High Alert Threshold' или 'Low Alert Threshold' или и двете! <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Невъзможни прагове: „висок праг“ по-малък или равен на „нисък праг“ <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "„ %s“ трябва да е с положителна цяло число! <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Трябва да посочите или „Базово отклонение UP“, или „Baseline Deviation DOWN“, или и двете! <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Невъзможни прагове: „висок праг“ по-малък или равен на „нисък праг“ <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr "Невъзможен праг: Броят на задействащите сигнали трябва да бъде по-голям или по-голям до 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Невъзможен праг: Броят на задействащите сигнали трябва да бъде по-малък или равен на броя на спусъците или eval на 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr "Невъзможен праг: Броят на предупредителните спусъци трябва да бъде по-голям или eval до 1!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Невъзможни прагове: „Голям праг на предупреждение“ по-малък или равен на „Нисък праг на предупреждение“ <br> RECORD НЕ АКТУАЛНО!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "Неизвестен праг"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "Без прагови шаблони, свързани с шаблона на устройството."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Мейлър Грешка: Не е <b>за</b> справяне <b>с</b> определени !! <br> Ако използвате връзката „ <i>Тестова поща</i> “, задайте настройката „ <b>E-mail</b> “."
-
-#: thold_functions.php
-msgid "Done"
-msgstr "Готово"
-
-#: thold_functions.php
-msgid "Pending"
-msgstr "Изчаква одобрение"
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "Грешка"
-
-#: thold_functions.php
-msgid "Success"
-msgstr "Готово"
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "Неизвестен праг"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "Кликнете върху „Напред“, за да потвърдите следните прагове."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "Шаблонът на подчинените данни за шаблона не е намерен!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Не е намерен подчинен източник на данни от шаблона за прага"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "Колоните за импортиране на шаблон за праг не съответстват на схемата на базата данни"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "Импортирано"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "Шаблон за прага „ %s“ %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "Обновена на"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "Импорт"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "Шаблонът за прага „ %s“ %s е неуспешен!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "Обновяване"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "Грешки, възникнали при опит за импортиране на данни от праговия шаблон."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Шаблонът на подчинените данни за шаблона не е намерен!"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Идентификационният номер на шаблона за прага не е зададен, докато се опитва да създаде графика и праг"
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "Типът Праг, който ще бъде наблюдаван."
@@ -3212,10 +3375,6 @@ msgstr "Журнал на прага за [ %s]"
 msgid "Log Entries"
 msgstr "Влизане в дневника"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "Устройство"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "Време"
@@ -3289,10 +3448,6 @@ msgstr "Изтриване на шаблон (и)"
 msgid "Threshold Template Creation Wizard"
 msgstr "Съветник за създаване на шаблон за праг"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "Източник на данни"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "Моля, изберете шаблон за данни"
@@ -3304,10 +3459,6 @@ msgstr "Моля, изберете източник на данни"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Моля, натиснете 'Създай', за да създадете своя шаблон за праг"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "Създай"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3592,157 +3743,6 @@ msgstr "Бележка:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "Грешка: Файлът не може да бъде изтрит"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "Вече съществува праг (и) - не са създадени прагове"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Съветник за създаване на праг [Изберете тип праг]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Съветник за създаване на праг [Въведете персонализирани данни и натиснете „Създай”, за да създадете своя праг и графика]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Съветник за създаване на праг [Избор на налични редове от заявки за данни]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Съветник за създаване на праг [Изберете устройство]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Съветник за създаване на праг [Изберете шаблон на графиката]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Съветник за създаване на праг [Изберете шаблон за праг]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Съветник за създаване на праг [Натиснете 'Създай', за да създадете своя праг)"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Съветник за създаване на праг [Изберете източник на данни]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "Съветник за създаване на праг [Изберете графика]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "Критерии за създаване на прагове"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "Създаване на тип"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "Изберете тип праг, който да се използва за създаване на този праг."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "Изберете тип праг"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "Неориентирано"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "Шаблон за праг"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "Изберете шаблон за праг, на който ще се основава графика и праг."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "Шаблони за елементи на графиката"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "Изберете шаблон на графиката, който да се използва за графиката, която ще се създава."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "Изберете шаблон на графиката"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "Изберете устройство, което да се използва за създаване на праг и графика."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "Изберете устройство"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "Изберете и налична позиция"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "Елемент на заявка за данни"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "Изберете съответния ред от данните за заявката за графика и прага."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "Бележки за създаване"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "Важна Забележка:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Този праг <b>няма</b> да бъдат шаблонни. Когато използвате опцията Threshold Template, ще бъдете подканени да въведете информация за шаблона на прага, шаблона на графиката, устройството и евентуално в заявката за данни, преди да получите подканата \"Създаване\", когато е разрешена информация за графика или източник на данни в графиката и ниво на шаблон за източник на данни, ще бъдете подканени за това. След това, чрез натискане на бутона 'Създай', едновременно ще се създадат и графика и прагът."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "Графика"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "Изберете графика за прага."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "Изберете графика"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "Изберете източник на данни за прага."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "Изберете източник на данни"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Този праг <b>няма</b> да бъдат шаблонни и ще работи само на съществуващи графики. Ако желаете едновременно да създадете графика и прага, изберете \"Threshold Template\" от падащото меню и продължете, докато се появи бутона \"Create\"."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Този праг <b>няма</b> да бъдат шаблонни. Можете да изберете по график, след което да изберете съществуващо устройство, графика и източник на данни, преди да създадете своя праг, или да изберете шаблон за праг, който ще ви позволи да създадете едновременно неопределен праг и съответния график едновременно"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "Избрана графика"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "Създадена графика: %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Допълнителен имейл адрес, разделен със запетаи за няколко имейла."
