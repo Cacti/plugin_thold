@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-01-31 14:27+0000\n"
 "Last-Translator: Edwin Lankamp <edwin.lankamp@gmail.com>\n"
 "Language-Team: Dutch <http://translate.cacti.net/projects/cacti/thold/nl/>\n"
@@ -236,7 +236,7 @@ msgstr "Info"
 msgid "Debug"
 msgstr "Debug"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "Nooit"
 
@@ -509,13 +509,292 @@ msgstr "> %d Apparaten op een site"
 msgid "> %d %%% of Devices in a Site"
 msgstr "> %d Apparaten op een site"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1 Minuut"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Maken"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Drempelwaarden"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Log"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Apparaat status"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Tijd:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Gebruiker:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Systeem:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Swaps:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Pagina’s:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Standaard"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Link naar grafiek in cactussen"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Er is een waarschuwing gegeven die uw aandacht vereist.<br><br><br><b></b>Apparaat</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b><b>Bericht</b>: <SUBJECT><br><br><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body><body>Er is een waarschuwing uitgegeven die uw aandacht vereist.<br><br><br><b></b>Apparaat</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b><b>Bericht</b>: <SUBJECT><br><br><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "Er is een Alert uitgegeven dat uw aandacht vraagt. <br><br><br><sterk>Apparaat</sterk>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><sterk>Bericht</sterk>: <SUBJECT><br><br><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Dev [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Abs Val [TIP:%s]"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "%%% Dev [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Abs Val [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "De apparaat-ID is niet ingesteld tijdens het maken van Graph en Threshold"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "De Threshold Template ID is niet ingesteld tijdens het maken van Graph en Threshold"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "De Threshold Template ID is niet ingesteld tijdens het maken van Graph en Threshold"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "De Graph Creation is mislukt voor Threshold Template"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Drempel werd automatisch gecreëerd dankzij Device Template mapping"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Toegang geweigerd"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Record bijgewerkt"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Geen gekoppelde Grafieksjabloonitem '%d' op Drempel '%d' gevonden"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Gemaakte drempel: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "U moet ofwel 'Hoge Waarschuwingsdrempel' of 'Lage Waarschuwingsdrempel' of beide specificeren!<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Onmogelijke drempels: 'High Threshold' kleiner dan of gelijk aan 'Low Threshold'<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "%s' moet worden ingesteld op de positieve gehele waarde <br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "U moet ofwel 'Baseline Deviation UP' of 'Baseline Deviation DOWN' of beide specificeren: <br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Onmogelijke drempels: 'High Threshold' kleiner dan of gelijk aan 'Low Threshold'<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Onbekende drempel"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Geen Drempelwaarden Sjablonen geassocieerd met de Template van het apparaat."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Geen drempel(s) Gemaakt.  Ze bestaan al, of er zijn geen overeenkomende combinaties gevonden."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Fout in de mailer: Nee <b>TO</b> adres ingesteld! <br>Als u de link <i>Test Mail</i> gebruikt, stelt u de instelling <b>Alert Email</b> in."
+
+#: includes/functions.php
+msgid "Done"
+msgstr ""
+
+#: includes/functions.php
+msgid "Pending"
+msgstr ""
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Fout"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "N/B"
+
+#: includes/functions.php
+msgid "Success"
+msgstr ""
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Onbekende drempel"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Klik op 'Doorgaan' om de volgende drempel(s) te bevestigen."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Erkenningssjabloon(s)"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Annuleer"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Volgende"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Drempelwaarde sjabloon Ondergeschikte gegevenssjabloon niet gevonden!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Drempelwaarde sjabloon Ondergeschikte gegevensbron niet gevonden!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Drempelsjabloonimportkolommen komen niet overeen met het databaseschema"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Geïmporteerd"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Drempelwaarde Sjabloon '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Bijgewerkt"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Importeren"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Drempelwaarde sjabloon '%s' %s Mislukt!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Bijwerken"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Er zijn fouten opgetreden bij het importeren van drempelsjabloongegevens."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Drempelsjabloonimportgegevens bleken geen XML-gegevens te zijn."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Drempelsjabloon Importgegevens waren niet correct tijdens het importeren van drempelsjabloon."
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMP niet in gebruik"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "N/B"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "OMLAAG"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "Systeemfout : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Reden: <MESSAGE><br><br><br><br>Gemiddelde systeemrespons : <AVG_TIME> ms<br>Systeembeschikbaarheid: <AVAILABILITEIT><br><br>Totale Controles Sinds wissen: <TOT_POLL><br>Totale mislukte Controles: <FAIL_POLL><br><br>Laatste datum Gecontroleerde DOWN : <LAST_FAIL><br>Apparaten Voorheen UP voor: <DOWNTIME><br>NOTE: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "Drempelwaarden"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "Acties"
@@ -561,10 +835,6 @@ msgstr "(toevoegen)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "Drempels"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "Apparaat status"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1517,177 @@ msgstr "Er is een Alert uitgegeven dat uw aandacht vraagt. <br><br><br><sterk>Ap
 msgid "Thold"
 msgstr "Driedelig"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Drempel(s) Bestaat/bestaat/bestaat reeds - Geen Drempels Gemaakt"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Creëer Drempelwaarde van Sjabloon"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Wizard Drempelwaarde creëren [ Selecteer een drempeltype ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Wizard voor het maken van drempels [ Voer aangepaste gegevens in en druk op 'Maak' om uw drempel en grafiek te maken ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Wizard voor het creëren van drempels [ Selecteer beschikbare data query rijen ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Wizard voor het maken van een drempel [ Selecteer een apparaat ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Wizard Drempelwaarde creëren [ Selecteer een grafieksjabloon ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Wizard Drempelwaarde creëren [ Selecteer een drempelsjabloon ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Wizard Drempel creëren [ Druk op 'Creëer' om uw drempel aan te maken ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Wizard Drempelwaarde creëren [ Selecteer een gegevensbron ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Wizard Drempelwaarde creëren [ Selecteer een grafiek ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Drempel Creaties Criteria"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Type maken"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Selecteer een drempeltype dat u wilt gebruiken voor het maken van deze drempel."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Selecteer een drempeltype"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Niet getempereerd"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Drempel Sjabloon"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Selecteer een Drempelsjabloon waarop de Grafiek en Drempel gebaseerd zullen zijn."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Selecteer een drempelwaarde sjabloon"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Grafiektemplate"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Selecteer een Grafieksjabloon om te gebruiken voor de aan te maken grafiek."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Selecteer een grafieksjabloon"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Apparaat"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Selecteer een apparaat dat u wilt gebruiken voor de aan te maken drempel en grafiek."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Selecteer een apparaat"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "Selecteer en beschikbaar item"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Het Punt van de gegevensvraag"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Selecteer de toepasselijke rij uit de gegevensvraag voor de grafiek en de drempelwaarde."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Creatie Opmerkingen"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Belangrijke opmerking:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Deze drempelwaarde wordt <b>Niet</b> getempereerd.  Wanneer u de optie Drempelwaarde sjabloon gebruikt, wordt u gevraagd om een Drempelwaarde sjabloon, Grafieksjabloon, Apparaat en eventueel Data Query Item-informatie voordat u de vraag 'Maak' ontvangt, op welk moment, als er op het niveau van de Grafiek- en Data Source sjabloon overrijdbare grafiek- of Data Source-informatie is toegestaan, u hierom wordt gevraagd.  Door op de knop 'Creëer' te drukken, worden vervolgens zowel de grafiek als de drempelwaarde tegelijkertijd aangemaakt."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Grafiek"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Selecteer de grafiek voor de drempelwaarde."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Selecteer een grafiek"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Data bron"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Selecteer een gegevensbron voor de drempelwaarde."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Selecteer een gegevensbron"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Maken"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Deze drempelwaarde wordt <b>Niet</b> getempereerd en werkt alleen op bestaande grafieken.  Als u zowel de grafiek als de drempel tegelijkertijd wilt maken, selecteert u Drempelsjabloon in de vervolgkeuzelijst en gaat u door totdat de knop 'Maak' verschijnt."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Deze drempelwaarde wordt <b>Niet</b> getempereerd.  U kunt ofwel Per grafiek selecteren waar u vervolgens een bestaand apparaat, grafiek en gegevensbron selecteert voordat u uw drempel aanmaakt, of u kunt Drempelsjabloon selecteren waarmee u tegelijkertijd een niet-gesjabloneerde drempel en de bijbehorende grafiek kunt maken"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Formaat wijzigen van de selecteerde grafiek template(s)"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Grafiek: %s gemaakt"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "Dupliceer"
@@ -1271,16 +1712,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "Klik op 'Doorgaan' om de kennisgevingslijsten te verwijderen.  Alle Apparaten of Drempel(s) die bij de Lijst(en) horen, worden teruggezet naar de standaardinstelling."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "Annuleer"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "Volgende"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1906,6 @@ msgstr "Geen"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "Template(s) verwijderen"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "Standaard"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1879,10 +2305,6 @@ msgstr "Auto-creëer Drempels"
 msgid "Created %s thresholds"
 msgstr "Gemaakte drempel: %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "Geen drempel(s) Gemaakt.  Ze bestaan al, of er zijn geen overeenkomende combinaties gevonden."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "Geen drempel(s) Gemaakt.  Drempel(s) Sjabloon niet gevonden."
@@ -1899,17 +2321,9 @@ msgstr "Klik op 'Doorgaan' om Drempels voor deze gegevensbronnen aan te maken?"
 msgid "Available Threshold Templates"
 msgstr "Beschikbare Drempel sjablonen"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "Selecteer een drempelwaarde sjabloon"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "Er zijn geen Drempelwaarde sjablonen geassocieerd met de volgende gegevensbronnen"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "Creëer Drempelwaarde van Sjabloon"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2027,10 +2441,6 @@ msgstr "Opnieuw aanbrengen Sjabloon"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "Klik op 'Doorgaan' om de volgende drempel (en) te erkennen. Drempels die dit niet toestaan of die niet worden geactiveerd, worden genegeerd."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "Erkenningssjabloon(s)"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2789,253 +3199,6 @@ msgstr "Geselecteerde gebruikers"
 msgid "All Users Selected"
 msgstr "Alle gebruikers geselecteerd"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1 Minuut"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "Maken"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "Log"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "Tijd:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "Gebruiker:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "Systeem:"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "Swaps:"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "Pagina’s:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Link naar grafiek in cactussen"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>Er is een waarschuwing gegeven die uw aandacht vereist.<br><br><br><b></b>Apparaat</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b><b>Bericht</b>: <SUBJECT><br><br><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body><body>Er is een waarschuwing uitgegeven die uw aandacht vereist.<br><br><br><b></b>Apparaat</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b><b>Bericht</b>: <SUBJECT><br><br><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Er is een Alert uitgegeven dat uw aandacht vraagt. <br><br><br><sterk>Apparaat</sterk>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><br><sterk>Bericht</sterk>: <SUBJECT><br><br><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "%% Dev [TIP:%s]"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "Abs Val [TIP:%s]"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "%%% Dev [AOT:%s]"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "Abs Val [AOT:%s]"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "De apparaat-ID is niet ingesteld tijdens het maken van Graph en Threshold"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "De Threshold Template ID is niet ingesteld tijdens het maken van Graph en Threshold"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "De Threshold Template ID is niet ingesteld tijdens het maken van Graph en Threshold"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "De Graph Creation is mislukt voor Threshold Template"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Drempel werd automatisch gecreëerd dankzij Device Template mapping"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "Toegang geweigerd"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "Record bijgewerkt"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Geen gekoppelde Grafieksjabloonitem '%d' op Drempel '%d' gevonden"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "Gemaakte drempel: %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "U moet ofwel 'Hoge Waarschuwingsdrempel' of 'Lage Waarschuwingsdrempel' of beide specificeren!<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Onmogelijke drempels: 'High Threshold' kleiner dan of gelijk aan 'Low Threshold'<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "%s' moet worden ingesteld op de positieve gehele waarde <br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "U moet ofwel 'Baseline Deviation UP' of 'Baseline Deviation DOWN' of beide specificeren: <br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Onmogelijke drempels: 'High Threshold' kleiner dan of gelijk aan 'Low Threshold'<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk aan 'Lage Waarschuwingsdrempel'<br>RECORD NOT UPDATED!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "Onbekende drempel"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "Geen Drempelwaarden Sjablonen geassocieerd met de Template van het apparaat."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Fout in de mailer: Nee <b>TO</b> adres ingesteld! <br>Als u de link <i>Test Mail</i> gebruikt, stelt u de instelling <b>Alert Email</b> in."
-
-#: thold_functions.php
-msgid "Done"
-msgstr ""
-
-#: thold_functions.php
-msgid "Pending"
-msgstr ""
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "Fout"
-
-#: thold_functions.php
-msgid "Success"
-msgstr ""
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "Onbekende drempel"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "Klik op 'Doorgaan' om de volgende drempel(s) te bevestigen."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "Drempelwaarde sjabloon Ondergeschikte gegevenssjabloon niet gevonden!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Drempelwaarde sjabloon Ondergeschikte gegevensbron niet gevonden!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "Drempelsjabloonimportkolommen komen niet overeen met het databaseschema"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "Geïmporteerd"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "Drempelwaarde Sjabloon '%s' %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "Bijgewerkt"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "Importeren"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "Drempelwaarde sjabloon '%s' %s Mislukt!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "Bijwerken"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "Er zijn fouten opgetreden bij het importeren van drempelsjabloongegevens."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Drempelsjabloonimportgegevens bleken geen XML-gegevens te zijn."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Drempelsjabloon Importgegevens waren niet correct tijdens het importeren van drempelsjabloon."
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "Het type drempel dat zal worden bewaakt."
@@ -3205,10 +3368,6 @@ msgstr "Drempelwaarde Logboek voor [ %s ]"
 msgid "Log Entries"
 msgstr "Log regels"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "Apparaat"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "Tijd"
@@ -3282,10 +3441,6 @@ msgstr "Template(s) verwijderen"
 msgid "Threshold Template Creation Wizard"
 msgstr "Wizard Drempelwaarde sjabloon maken"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "Data bron"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "Selecteer een datasjabloon"
@@ -3297,10 +3452,6 @@ msgstr "Selecteer een gegevensbron"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "Druk op 'Creëer' om uw drempelwaarde sjabloon aan te maken"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "Maken"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3583,157 +3734,6 @@ msgstr "OPMERKING:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "FOUT:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "Drempel(s) Bestaat/bestaat/bestaat reeds - Geen Drempels Gemaakt"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Wizard Drempelwaarde creëren [ Selecteer een drempeltype ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Wizard voor het maken van drempels [ Voer aangepaste gegevens in en druk op 'Maak' om uw drempel en grafiek te maken ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Wizard voor het creëren van drempels [ Selecteer beschikbare data query rijen ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Wizard voor het maken van een drempel [ Selecteer een apparaat ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Wizard Drempelwaarde creëren [ Selecteer een grafieksjabloon ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Wizard Drempelwaarde creëren [ Selecteer een drempelsjabloon ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Wizard Drempel creëren [ Druk op 'Creëer' om uw drempel aan te maken ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Wizard Drempelwaarde creëren [ Selecteer een gegevensbron ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "Wizard Drempelwaarde creëren [ Selecteer een grafiek ]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "Drempel Creaties Criteria"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "Type maken"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "Selecteer een drempeltype dat u wilt gebruiken voor het maken van deze drempel."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "Selecteer een drempeltype"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "Niet getempereerd"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "Drempel Sjabloon"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "Selecteer een Drempelsjabloon waarop de Grafiek en Drempel gebaseerd zullen zijn."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "Grafiektemplate"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "Selecteer een Grafieksjabloon om te gebruiken voor de aan te maken grafiek."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "Selecteer een grafieksjabloon"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "Selecteer een apparaat dat u wilt gebruiken voor de aan te maken drempel en grafiek."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "Selecteer een apparaat"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "Selecteer en beschikbaar item"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "Het Punt van de gegevensvraag"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "Selecteer de toepasselijke rij uit de gegevensvraag voor de grafiek en de drempelwaarde."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "Creatie Opmerkingen"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "Belangrijke opmerking:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Deze drempelwaarde wordt <b>Niet</b> getempereerd.  Wanneer u de optie Drempelwaarde sjabloon gebruikt, wordt u gevraagd om een Drempelwaarde sjabloon, Grafieksjabloon, Apparaat en eventueel Data Query Item-informatie voordat u de vraag 'Maak' ontvangt, op welk moment, als er op het niveau van de Grafiek- en Data Source sjabloon overrijdbare grafiek- of Data Source-informatie is toegestaan, u hierom wordt gevraagd.  Door op de knop 'Creëer' te drukken, worden vervolgens zowel de grafiek als de drempelwaarde tegelijkertijd aangemaakt."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "Grafiek"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "Selecteer de grafiek voor de drempelwaarde."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "Selecteer een grafiek"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "Selecteer een gegevensbron voor de drempelwaarde."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "Selecteer een gegevensbron"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Deze drempelwaarde wordt <b>Niet</b> getempereerd en werkt alleen op bestaande grafieken.  Als u zowel de grafiek als de drempel tegelijkertijd wilt maken, selecteert u Drempelsjabloon in de vervolgkeuzelijst en gaat u door totdat de knop 'Maak' verschijnt."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Deze drempelwaarde wordt <b>Niet</b> getempereerd.  U kunt ofwel Per grafiek selecteren waar u vervolgens een bestaand apparaat, grafiek en gegevensbron selecteert voordat u uw drempel aanmaakt, of u kunt Drempelsjabloon selecteren waarmee u tegelijkertijd een niet-gesjabloneerde drempel en de bijbehorende grafiek kunt maken"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "Formaat wijzigen van de selecteerde grafiek template(s)"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "Grafiek: %s gemaakt"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Extra e-mailadres, gescheiden door komma's voor meerdere e-mails."
