@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-11-22 02:12+0000\n"
 "Last-Translator: Nakayama Kito <nakayamakito@icloud.com>\n"
 "Language-Team: Japanese <http://translate.cacti.net/projects/cacti/thold/ja/>\n"
@@ -236,7 +236,7 @@ msgstr "情報"
 msgid "Debug"
 msgstr "デバッグ"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "決して"
 
@@ -509,13 +509,292 @@ msgstr "デバイス"
 msgid "> %d %%% of Devices in a Site"
 msgstr "デバイス"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1分"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "作成"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "しきい値"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "ログ"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "デバイスの状態"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "時間："
+
+#: includes/functions.php
+msgid "User:"
+msgstr "ユーザー"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "システム："
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "スワップ："
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "ページ:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "デフォルト"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "サボテンのグラフへのリンク"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>注意が必要な警告が出されました。 <br><br> <b>デバイス</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>URL</b> ： <URL><br> <b>メッセージ</b> ： <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>注意が必要な警告が出されました。 <br><br> <b>デバイス</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>URL</b> ： <URL><br> <b>メッセージ</b> ： <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "注意が必要なアラートが発行されました。 <br><br> <strong>デバイス</strong> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <strong>URL</strong> ： <URL><br> <strong>メッセージ</strong> ： <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "偏差UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "アラート値"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "偏差UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "アラート値"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "グラフとしきい値の作成中にデバイスIDが設定されませんでした"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "グラフとしきい値を作成しようとしたときに、しきい値テンプレートIDが設定されませんでした"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "グラフとしきい値を作成しようとしたときに、しきい値テンプレートIDが設定されませんでした"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "しきい値テンプレートのグラフ作成に失敗しました"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "デバイステンプレートマッピングによりしきい値が自動作成されました"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "権限がありません"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "レコード更新"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "しきい値 '％d'でリンクされたグラフテンプレート項目 '％d'が見つかりませんでした"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "作成されたしきい値：％s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "'High Alert Threshold'または 'Low Alert Threshold'、あるいはその両方を指定する必要があります。 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "不可能なしきい値：「低しきい値」以下の「高しきい値」 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "'％s'は正の整数値に設定する必要があります。 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "'Baseline Deviation UP'または 'Baseline Deviation DOWN'、あるいはその両方を指定する必要があります。 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "不可能なしきい値：「低しきい値」以下の「高しきい値」 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "未知のしきい値"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "デバイスのテンプレートに関連付けられたしきい値テンプレート。"
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "しきい値が作成されていません。それらはすでに存在するか、一致する組み合わせが見つかりませんでした。"
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "メーラーのエラー：いいえ設定したアドレス<b>に</b> !! <br> [ <i>テストメール]</i>リンクを使用している場合は、[ <b>アラートメール]</b>設定を設定してください。"
+
+#: includes/functions.php
+msgid "Done"
+msgstr ""
+
+#: includes/functions.php
+msgid "Pending"
+msgstr ""
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "エラー"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "該当なし"
+
+#: includes/functions.php
+msgid "Success"
+msgstr ""
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "未知のしきい値"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "次のしきい値を承認するには、[続行]をクリックします。"
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "確認テンプレート"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "取り消し"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "続ける"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "しきい値テンプレート下位データテンプレートが見つかりません。"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "しきい値テンプレート下位データソースが見つかりません。"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "しきい値テンプレートのインポート列がデータベーススキーマと一致しません"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "インポート済み"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "しきい値テンプレート '％s'％s！"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "更新しました"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "インポート"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "しきい値テンプレート '％1！'％2！失敗しました。"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "更新"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "しきい値テンプレートデータをインポートしようとしたときにエラーが発生しました。"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "しきい値テンプレート下位データテンプレートが見つかりません。"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "グラフとしきい値を作成しようとしたときに、しきい値テンプレートIDが設定されませんでした"
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "SNMPが使用されていません"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "該当なし"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -537,11 +816,6 @@ msgstr "Vers le bas"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "システムエラー ： <DESCRIPTION> （ <HOSTNAME> ）です<DOWN/UP><br>理由： <MESSAGE><br><br>平均システム応答： <AVG_TIME>ミズ<br>システムの可用性<AVAILABILITY><br>クリア以来の合計チェック数： <TOT_POLL><br>失敗したチェックの総数： <FAIL_POLL><br>最終チェック日下： <LAST_FAIL><br>以前にUPしていたデバイス<DOWNTIME><br>注意： <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "しきい値"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "(操作)"
@@ -561,10 +835,6 @@ msgstr "追加"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "しきい値"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "デバイスの状態"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1247,6 +1517,177 @@ msgstr "注意が必要なアラートが発行されました。 <br><br> <stro
 msgid "Thold"
 msgstr "と言った"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "しきい値はすでに存在します - しきい値は作成されていません"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "テンプレートからしきい値を作成"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "しきい値作成ウィザード[しきい値タイプの選択]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "しきい値作成ウィザード[カスタムデータを入力して[作成]を押すとしきい値とグラフを作成できます]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "しきい値作成ウィザード[利用可能なデータクエリ行の選択]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "しきい値作成ウィザード[デバイスの選択]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "しきい値作成ウィザード[グラフテンプレートの選択]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "しきい値作成ウィザード[しきい値テンプレートの選択]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "しきい値作成ウィザード[しきい値を作成するには[作成]をクリックしてください]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "しきい値作成ウィザード[データソースの選択]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "しきい値作成ウィザード[グラフの選択]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "しきい値作成基準"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "タイプを作成"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "このしきい値の作成に使用するしきい値タイプを選択してください。"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "しきい値の種類を選択"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "テンプレートなし"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "しきい値テンプレート"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "グラフとしきい値の基準となるしきい値テンプレートを選択します。"
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "しきい値テンプレートを選択する"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "グラフのテンプレート"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "作成するグラフに使用するグラフテンプレートを選択します。"
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "グラフテンプレートを選択"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "デバイス"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "作成するしきい値とグラフに使用するデバイスを選択します。"
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "デバイスを選択"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "選択可能なアイテム"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "データ照会項目"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "グラフとしきい値のデータクエリから該当する行を選択します。"
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "作成ノート"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "重要："
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "このしきい値はテンプレート化され<b>ません</b> 。しきい値テンプレートオプションを使用する場合、上書き可能なグラフまたはデータソース情報がグラフで許可されている場合、その時点で「作成」プロンプトを受け取る前に、しきい値テンプレート、グラフテンプレート、デバイス、および場合によってはデータクエリアイテム情報の入力を求められます。データソーステンプレートレベルの場合は、入力を求められます。次に、「作成」ボタンを押すと、グラフとしきい値の両方が同時に作成されます。"
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "グラフ"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "しきい値のグラフを選択します。"
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "グラフを選択"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "データソース"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "しきい値のデータソースを選択します。"
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "データソースを選択してください"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "作成"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "このしきい値は、テンプレート化され<b>ず</b> 、唯一の既存のグラフ上で動作します。グラフとしきい値の両方を同時に作成する場合は、ドロップダウンからしきい値テンプレートを選択し、[作成]ボタンが表示されるまで続けます。"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "このしきい値はテンプレート化され<b>ません</b> 。しきい値を作成する前に既存のデバイス、グラフ、データソースを選択する[グラフ別]を選択するか、非テンプレートしきい値と対応するグラフを同時に作成できる[しきい値テンプレート]を選択できます"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "選択済グラフテンプレート"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "作成したグラフ：％s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "複製"
@@ -1271,16 +1712,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "通知リストを削除するには、[続行]をクリックします。リストに関連付けられているデバイスまたはしきい値は、デフォルトに戻ります。"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "取り消し"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "続ける"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1475,11 +1906,6 @@ msgstr "なし"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "テンプレートを削除"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "デフォルト"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1879,10 +2305,6 @@ msgstr "しきい値の自動作成"
 msgid "Created %s thresholds"
 msgstr "作成されたしきい値：％s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "しきい値が作成されていません。それらはすでに存在するか、一致する組み合わせが見つかりませんでした。"
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "しきい値が作成されていません。しきい値テンプレートが見つかりません。"
@@ -1899,17 +2321,9 @@ msgstr "これらのデータソースのしきい値を作成するには、[�
 msgid "Available Threshold Templates"
 msgstr "利用可能なしきい値テンプレート"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "しきい値テンプレートを選択する"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "以下のデータソースに関連付けられているしきい値テンプレートはありません。"
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "テンプレートからしきい値を作成"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2027,10 +2441,6 @@ msgstr "テンプレートを再適用"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "[続行]をクリックして、次のしきい値を確認します。これを許可しない、またはトリガーされないしきい値は無視されます。"
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "確認テンプレート"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2789,253 +3199,6 @@ msgstr "選択したユーザー"
 msgid "All Users Selected"
 msgstr "選択したすべてのユーザー"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1分"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "作成"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "ログ"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "時間："
-
-#: thold_functions.php
-msgid "User:"
-msgstr "ユーザー"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "システム："
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "スワップ："
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "ページ:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "サボテンのグラフへのリンク"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>注意が必要な警告が出されました。 <br><br> <b>デバイス</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>URL</b> ： <URL><br> <b>メッセージ</b> ： <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body>注意が必要な警告が出されました。 <br><br> <b>デバイス</b> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <b>URL</b> ： <URL><br> <b>メッセージ</b> ： <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "注意が必要なアラートが発行されました。 <br><br> <strong>デバイス</strong> ： <DESCRIPTION> （ <HOSTNAME> ） <br> <strong>URL</strong> ： <URL><br> <strong>メッセージ</strong> ： <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "偏差UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "アラート値"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "偏差UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "アラート値"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "グラフとしきい値の作成中にデバイスIDが設定されませんでした"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "グラフとしきい値を作成しようとしたときに、しきい値テンプレートIDが設定されませんでした"
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "グラフとしきい値を作成しようとしたときに、しきい値テンプレートIDが設定されませんでした"
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "しきい値テンプレートのグラフ作成に失敗しました"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "デバイステンプレートマッピングによりしきい値が自動作成されました"
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "権限がありません"
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "レコード更新"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "しきい値 '％d'でリンクされたグラフテンプレート項目 '％d'が見つかりませんでした"
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "作成されたしきい値：％s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "'High Alert Threshold'または 'Low Alert Threshold'、あるいはその両方を指定する必要があります。 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "不可能なしきい値：「低しきい値」以下の「高しきい値」 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "'％s'は正の整数値に設定する必要があります。 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "'Baseline Deviation UP'または 'Baseline Deviation DOWN'、あるいはその両方を指定する必要があります。 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "不可能なしきい値：「低しきい値」以下の「高しきい値」 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "不可能なしきい値：「低警告しきい値」以下の「高警告しきい値」 <br>記録は更新されていません！"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "未知のしきい値"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "デバイスのテンプレートに関連付けられたしきい値テンプレート。"
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "メーラーのエラー：いいえ設定したアドレス<b>に</b> !! <br> [ <i>テストメール]</i>リンクを使用している場合は、[ <b>アラートメール]</b>設定を設定してください。"
-
-#: thold_functions.php
-msgid "Done"
-msgstr ""
-
-#: thold_functions.php
-msgid "Pending"
-msgstr ""
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "エラー"
-
-#: thold_functions.php
-msgid "Success"
-msgstr ""
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "未知のしきい値"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "次のしきい値を承認するには、[続行]をクリックします。"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "しきい値テンプレート下位データテンプレートが見つかりません。"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "しきい値テンプレート下位データソースが見つかりません。"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "しきい値テンプレートのインポート列がデータベーススキーマと一致しません"
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "インポート済み"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "しきい値テンプレート '％s'％s！"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "更新しました"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "インポート"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "しきい値テンプレート '％1！'％2！失敗しました。"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "更新"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "しきい値テンプレートデータをインポートしようとしたときにエラーが発生しました。"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "しきい値テンプレート下位データテンプレートが見つかりません。"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "グラフとしきい値を作成しようとしたときに、しきい値テンプレートIDが設定されませんでした"
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "監視されるしきい値の種類。"
@@ -3205,10 +3368,6 @@ msgstr "[％s]のしきい値ログ"
 msgid "Log Entries"
 msgstr "エントリー履歴"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "デバイス"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "時間"
@@ -3282,10 +3441,6 @@ msgstr "テンプレートを削除"
 msgid "Threshold Template Creation Wizard"
 msgstr "しきい値テンプレート作成ウィザード"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "データソース"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "データテンプレートを選択してください"
@@ -3297,10 +3452,6 @@ msgstr "データソースを選択してください"
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "しきい値テンプレートを作成するには、[作成]をクリックしてください。"
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "作成"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3583,157 +3734,6 @@ msgstr "メモ："
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "エラー:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "しきい値はすでに存在します - しきい値は作成されていません"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "しきい値作成ウィザード[しきい値タイプの選択]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "しきい値作成ウィザード[カスタムデータを入力して[作成]を押すとしきい値とグラフを作成できます]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "しきい値作成ウィザード[利用可能なデータクエリ行の選択]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "しきい値作成ウィザード[デバイスの選択]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "しきい値作成ウィザード[グラフテンプレートの選択]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "しきい値作成ウィザード[しきい値テンプレートの選択]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "しきい値作成ウィザード[しきい値を作成するには[作成]をクリックしてください]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "しきい値作成ウィザード[データソースの選択]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "しきい値作成ウィザード[グラフの選択]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "しきい値作成基準"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "タイプを作成"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "このしきい値の作成に使用するしきい値タイプを選択してください。"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "しきい値の種類を選択"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "テンプレートなし"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "しきい値テンプレート"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "グラフとしきい値の基準となるしきい値テンプレートを選択します。"
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "グラフのテンプレート"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "作成するグラフに使用するグラフテンプレートを選択します。"
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "グラフテンプレートを選択"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "作成するしきい値とグラフに使用するデバイスを選択します。"
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "デバイスを選択"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "選択可能なアイテム"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "データ照会項目"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "グラフとしきい値のデータクエリから該当する行を選択します。"
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "作成ノート"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "重要："
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "このしきい値はテンプレート化され<b>ません</b> 。しきい値テンプレートオプションを使用する場合、上書き可能なグラフまたはデータソース情報がグラフで許可されている場合、その時点で「作成」プロンプトを受け取る前に、しきい値テンプレート、グラフテンプレート、デバイス、および場合によってはデータクエリアイテム情報の入力を求められます。データソーステンプレートレベルの場合は、入力を求められます。次に、「作成」ボタンを押すと、グラフとしきい値の両方が同時に作成されます。"
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "グラフ"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "しきい値のグラフを選択します。"
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "グラフを選択"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "しきい値のデータソースを選択します。"
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "データソースを選択してください"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "このしきい値は、テンプレート化され<b>ず</b> 、唯一の既存のグラフ上で動作します。グラフとしきい値の両方を同時に作成する場合は、ドロップダウンからしきい値テンプレートを選択し、[作成]ボタンが表示されるまで続けます。"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "このしきい値はテンプレート化され<b>ません</b> 。しきい値を作成する前に既存のデバイス、グラフ、データソースを選択する[グラフ別]を選択するか、非テンプレートしきい値と対応するグラフを同時に作成できる[しきい値テンプレート]を選択できます"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "選択済グラフテンプレート"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "作成したグラフ：％s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "複数のEメールの場合は追加のEメールアドレス。"
