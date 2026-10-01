@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:08-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-09-13 15:02-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -235,7 +235,7 @@ msgstr "정보"
 msgid "Debug"
 msgstr "디버그"
 
-#: includes/arrays.php thold_functions.php
+#: includes/arrays.php includes/functions.php
 msgid "Never"
 msgstr "안함"
 
@@ -508,13 +508,292 @@ msgstr "장치"
 msgid "> %d %%% of Devices in a Site"
 msgstr "장치"
 
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "1분"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "생성"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "임계 값"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "로그"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "장치 상태"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "시간:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "회원:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "시스템"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "스왑 :"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "페이지:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr ""
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "기본값"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Cacti의 그래프에 링크"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> 주의가 필요한 경고가 발행되었습니다. <br><br> <b>기기</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>메시지</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body> 주의가 필요한 경고가 발행되었습니다. <br><br> <b>기기</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>메시지</b> : <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "주의가 필요한 경고가 발행되었습니다. <br><br> <strong>기기</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>메시지</strong> : <SUBJECT><br><br><GRAPH>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "편차 UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "알림 값"
+
+#: includes/functions.php
+msgid "%%% Dev [AOT:%s]"
+msgstr "편차 UP"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "알림 값"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "그래프 및 임계 값을 만들려고 시도하는 동안 장치 ID가 설정되지 않았습니다."
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "임계 값 템플릿에 대한 그래프 작성 실패"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "장치 템플릿 매핑으로 인해 임계 값이 자동 생성되었습니다."
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "사용 권한이 거부되었습니다."
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "레코드 업데이트 됨"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "임계 값 '% d'에서 연결된 그래프 템플릿 항목 '% d'을 (를) 찾지 못했습니다."
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "생성 된 임계 값 :  %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "'높은 경고 임계 값'또는 '낮은 경고 임계 값'또는 둘 모두를 지정해야합니다! <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "불가능한 문턱 값 : '높은 문턱 값'이 '낮은 문턱 값'보다 작거나 같음 <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "' %s'은 (는) 양의 정수 값으로 설정되어야합니다! <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "'Baseline Deviation UP'또는 'Baseline Deviation DOWN'또는 둘 다를 지정해야합니다! <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "불가능한 문턱 값 : '높은 문턱 값'이 '낮은 문턱 값'보다 작거나 같음 <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr ""
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "알 수없는 임계 값"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "임계 값 없음 장치 템플리트와 연관된 템플리트."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "생성 된 임계 값 없음. 이미 존재하거나 일치하는 조합을 찾지 못했습니다."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "메일러 오류 : <b>TO</b> 주소 세트가 없습니다! <br> <i>메일 테스트</i> 링크를 사용하는 경우 <b>알림 이메일</b> 설정을 지정하십시오."
+
+#: includes/functions.php
+msgid "Done"
+msgstr ""
+
+#: includes/functions.php
+msgid "Pending"
+msgstr ""
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "오류"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/functions.php
+msgid "Success"
+msgstr ""
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "알 수없는 임계 값"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "다음 임계 값을 확인하려면 '계속'을 클릭하십시오."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "템플릿 수신 확인"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "취소"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "계속"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "임계 값 템플릿 종속 데이터 템플릿을 찾을 수 없습니다!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "임계 값 템플릿 종속 데이터 소스를 찾을 수 없습니다!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "임계 값 템플릿 가져 오기 열이 데이터베이스 스키마와 일치하지 않습니다."
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "가져오기 완료"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "임계 값 템플릿 ' %s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "업데이트됨"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "가져오기"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "임계 값 템플릿 ' %s' %s에 실패했습니다!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "업데이트"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "임계 값 템플릿 데이터를 가져 오는 동안 오류가 발생했습니다."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "임계 값 템플릿 종속 데이터 템플릿을 찾을 수 없습니다!"
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
+
 #: includes/polling.php
 msgid "SNMP not in use"
 msgstr "사용하지 않는 SNMP"
-
-#: includes/polling.php thold.php thold_functions.php thold_graph.php
-msgid "N/A"
-msgstr "N/A"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -536,11 +815,6 @@ msgstr "아래로 항목 이동"
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
 msgstr "시스템 오류 : <DESCRIPTION> ( <HOSTNAME> )입니다. <DOWN/UP><br> 이유: <MESSAGE><br><br> 평균 시스템 응답 : <AVG_TIME> ms <br> 시스템 가용성: <AVAILABILITY><br> 지우기 이후의 총 수표 : <TOT_POLL><br> 총 실패한 수표 : <FAIL_POLL><br> 마지막 날짜 확인 DOWN : <LAST_FAIL><br> 기기 이전에 UP : <DOWNTIME><br> 노트: <NOTES>"
 
-#: includes/settings.php notify_lists.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Thresholds"
-msgstr "임계 값"
-
 #: includes/settings.php
 msgid "(actions)"
 msgstr "작업"
@@ -560,10 +834,6 @@ msgstr "(더하다)"
 #: includes/settings.php
 msgid "Threshold Logs"
 msgstr "임계 값"
-
-#: includes/settings.php thold_functions.php thold_graph.php
-msgid "Device Status"
-msgstr "장치 상태"
 
 #: includes/settings.php
 msgid "Thresholds - Failures"
@@ -1246,6 +1516,177 @@ msgstr "주의가 필요한 경고가 발행되었습니다. <br><br> <strong>�
 msgid "Thold"
 msgstr "덤프"
 
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "임계 값이 이미 있음 - 임계 값이 생성되지 않음"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "템플리트에서 임계 값 작성"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "임계 값 생성 마법사 [임계 값 유형 선택]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "임계 값 생성 마법사 [사용자 정의 데이터 입력 후 '생성'을 눌러 임계 값 및 그래프 생성]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "임계 값 생성 마법사 [사용 가능한 데이터 쿼리 행 선택]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "임계 값 생성 마법사 [장치 선택]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "임계 값 생성 마법사 [그래프 템플릿 선택]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "임계 값 생성 마법사 [임계 값 템플릿 선택]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "임계 값 생성 마법사 [ '생성'을 눌러 임계 값 생성]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "임계 값 생성 마법사 [데이터 소스 선택]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "임계 값 생성 마법사 [그래프 선택]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "임계 값 생성 기준"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "유형 생성"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "이 임계 값을 작성하는 데 사용할 임계 값 유형을 선택하십시오."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "임계 값 유형 선택"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "템플릿이없는"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "임계 값 템플릿"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "그래프 및 임계 값을 기반으로하는 임계 값 템플리트를 선택하십시오."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "임계 값 템플릿 선택"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "그래프 템플릿"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "그래프를 만들 때 사용할 그래프 템플릿을 선택하십시오."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "그래프 템플릿 선택"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "장치"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "임계 값 및 그래프를 만들 때 사용할 장치를 선택하십시오."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "장치 선택"
+
+#: includes/webapi.php
+#, fuzzy
+#| msgid "Select and Available Item"
+msgid "Select an Available Item"
+msgstr "선택 가능 품목"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "데이터 쿼리 항목"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "그래프 및 임계 값에 대한 데이터 쿼리에서 해당 행을 선택합니다."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "창조 노트"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "중요 정보:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "이 임계 값은 템플리트 <b>되지 않습니다</b> . 임계 값 템플리트 옵션을 사용하는 경우 Graph에서 대체 가능한 그래프 또는 데이터 소스 정보가 허용되는 경우 'Create'프롬프트를 수신하기 전에 임계 값 템플리트, 그래프 템플리트, 디바이스 및 가능한 경우 데이터 쿼리 항목 정보를 묻는 메시지가 표시됩니다 및 데이터 소스 템플릿 수준을 선택하면 메시지가 표시됩니다. 그런 다음 '생성'버튼을 누르면 그래프와 임계 값이 동시에 생성됩니다."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "그래프"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "임계 값에 대한 그래프를 선택하십시오."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "그래프 선택"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "데이터 원본"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "임계 값에 대한 데이터 소스를 선택하십시오."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "데이터 소스 선택"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "생성"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "이 임계 값은 템플리트 <b>되지</b> 않으며 기존 그래프에서만 작동합니다. 그래프와 임계 값을 동시에 생성하려면 드롭 다운에서 임계 값 템플릿을 선택하고 '생성'버튼이 나타날 때까지 계속하십시오."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "이 임계 값은 템플리트 <b>되지 않습니다</b> . 임계 값을 만들기 전에 기존 장치, 그래프 및 데이터 소스를 선택할 그래프로 선택하거나 임계 값 템플릿을 선택하면 템플릿이없는 임계 값과 해당 그래프를 동시에 만들 수 있습니다"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "선택된 그래프"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "그래프 생성 :  %s"
+
 #: notify_lists.php
 msgid "Duplicate"
 msgstr "복사"
@@ -1270,16 +1711,6 @@ msgstr ""
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
 msgstr "알림 목록을 삭제하려면 '계속'을 클릭하십시오. 목록과 연결된 모든 장치 또는 임계 값은 기본값으로 되돌려집니다."
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Cancel"
-msgstr "취소"
-
-#: notify_lists.php notify_queue.php setup.php thold.php thold_functions.php
-#: thold_templates.php
-msgid "Continue"
-msgstr "계속"
 
 #: notify_lists.php
 msgid "Delete Notification List(s)"
@@ -1474,11 +1905,6 @@ msgstr "없음"
 #: notify_lists.php
 msgid "Device Template"
 msgstr "템플릿 삭제"
-
-#: notify_lists.php notify_queue.php thold.php thold_functions.php
-#: thold_graph.php thold_templates.php
-msgid "Default"
-msgstr "기본값"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1878,10 +2304,6 @@ msgstr "임계 값 자동 생성"
 msgid "Created %s thresholds"
 msgstr "생성 된 임계 값 :  %s"
 
-#: setup.php thold_functions.php
-msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "생성 된 임계 값 없음. 이미 존재하거나 일치하는 조합을 찾지 못했습니다."
-
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
 msgstr "생성 된 임계 값 없음. 임계 값 템플릿을 찾을 수 없습니다."
@@ -1898,17 +2320,9 @@ msgstr "이 데이터 소스에 대한 임계 값을 만들려면 '계속'을 �
 msgid "Available Threshold Templates"
 msgstr "사용 가능한 임계 값 템플릿"
 
-#: setup.php thold_webapi.php
-msgid "Select a Threshold Template"
-msgstr "임계 값 템플릿 선택"
-
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
 msgstr "다음 데이터 소스와 연관된 임계 값 템플리트가 없습니다."
-
-#: setup.php thold_webapi.php
-msgid "Create Threshold from Template"
-msgstr "템플리트에서 임계 값 작성"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2026,10 +2440,6 @@ msgstr "템플릿 다시 적용"
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
 msgstr "다음 임계 값을 확인하려면 '계속'을 클릭하십시오. 이를 허용하지 않거나 트리거되지 않는 임계 값은 무시됩니다."
-
-#: thold.php thold_functions.php
-msgid "Acknowledge Threshold(s)"
-msgstr "템플릿 수신 확인"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2788,253 +3198,6 @@ msgstr "선택된 사용자"
 msgid "All Users Selected"
 msgstr "모든 사용자 선택"
 
-#: thold_functions.php
-msgid "< 1 Minute"
-msgstr "1분"
-
-#: thold_functions.php
-msgid "Since Created"
-msgstr "생성"
-
-#: thold_functions.php
-msgid "Log"
-msgstr "로그"
-
-#: thold_functions.php
-msgid "Time:"
-msgstr "시간:"
-
-#: thold_functions.php
-msgid "User:"
-msgstr "회원:"
-
-#: thold_functions.php
-msgid "System:"
-msgstr "시스템"
-
-#: thold_functions.php
-msgid "Swaps:"
-msgstr "스왑 :"
-
-#: thold_functions.php
-msgid "Pages:"
-msgstr "페이지:"
-
-#: thold_functions.php
-msgid "Only logging, maint device"
-msgstr ""
-
-#: thold_functions.php
-msgid "Link to Graph in Cacti"
-msgstr "Cacti의 그래프에 링크"
-
-#: thold_functions.php
-msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> 주의가 필요한 경고가 발행되었습니다. <br><br> <b>기기</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>메시지</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<html><body> 주의가 필요한 경고가 발행되었습니다. <br><br> <b>기기</b> : <DESCRIPTION> ( <HOSTNAME> ) <br> <b>URL</b> : <URL><br> <b>메시지</b> : <SUBJECT><br><br><GRAPH></body></html>"
-
-#: thold_functions.php
-msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "주의가 필요한 경고가 발행되었습니다. <br><br> <strong>기기</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>메시지</strong> : <SUBJECT><br><br><GRAPH>"
-
-#: thold_functions.php
-#, php-format
-msgid "%% Dev [TIP:%s]"
-msgstr "편차 UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [TIP:%s]"
-msgstr "알림 값"
-
-#: thold_functions.php
-msgid "%%% Dev [AOT:%s]"
-msgstr "편차 UP"
-
-#: thold_functions.php
-#, php-format
-msgid "Abs Val [AOT:%s]"
-msgstr "알림 값"
-
-#: thold_functions.php
-msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "그래프 및 임계 값을 만들려고 시도하는 동안 장치 ID가 설정되지 않았습니다."
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
-
-#: thold_functions.php
-msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
-
-#: thold_functions.php
-msgid "The Graph Creation failed for Threshold Template"
-msgstr "임계 값 템플릿에 대한 그래프 작성 실패"
-
-#: thold_functions.php
-msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "장치 템플릿 매핑으로 인해 임계 값이 자동 생성되었습니다."
-
-#: thold_functions.php
-msgid "Permission Denied"
-msgstr "사용 권한이 거부되었습니다."
-
-#: thold_functions.php
-msgid "Record Updated"
-msgstr "레코드 업데이트 됨"
-
-#: thold_functions.php
-#, php-format
-msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "임계 값 '% d'에서 연결된 그래프 템플릿 항목 '% d'을 (를) 찾지 못했습니다."
-
-#: thold_functions.php
-#, php-format
-msgid "Created Threshold: %s"
-msgstr "생성 된 임계 값 :  %s"
-
-#: thold_functions.php
-msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "'높은 경고 임계 값'또는 '낮은 경고 임계 값'또는 둘 모두를 지정해야합니다! <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "불가능한 문턱 값 : '높은 문턱 값'이 '낮은 문턱 값'보다 작거나 같음 <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "Time reference in the past must be set to positive integer value!"
-msgstr "' %s'은 (는) 양의 정수 값으로 설정되어야합니다! <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "'Baseline Deviation UP'또는 'Baseline Deviation DOWN'또는 둘 다를 지정해야합니다! <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "불가능한 문턱 값 : '높은 문턱 값'이 '낮은 문턱 값'보다 작거나 같음 <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
-
-#: thold_functions.php
-msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은 '높은 경고 한계 값' <br> 기록이 업데이트되지 않았습니다!"
-
-#: thold_functions.php
-msgid "Unknown Threshold Type!"
-msgstr "알 수없는 임계 값"
-
-#: thold_functions.php
-msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "임계 값 없음 장치 템플리트와 연관된 템플리트."
-
-#: thold_functions.php
-msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "메일러 오류 : <b>TO</b> 주소 세트가 없습니다! <br> <i>메일 테스트</i> 링크를 사용하는 경우 <b>알림 이메일</b> 설정을 지정하십시오."
-
-#: thold_functions.php
-msgid "Done"
-msgstr ""
-
-#: thold_functions.php
-msgid "Pending"
-msgstr ""
-
-#: thold_functions.php
-msgid "Errored"
-msgstr "오류"
-
-#: thold_functions.php
-msgid "Success"
-msgstr ""
-
-#: thold_functions.php thold_graph.php
-msgid "Acknowledge Threshold"
-msgstr "알 수없는 임계 값"
-
-#: thold_functions.php
-msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
-msgstr "다음 임계 값을 확인하려면 '계속'을 클릭하십시오."
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Template Not Found!"
-msgstr "임계 값 템플릿 종속 데이터 템플릿을 찾을 수 없습니다!"
-
-#: thold_functions.php
-msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "임계 값 템플릿 종속 데이터 소스를 찾을 수 없습니다!"
-
-#: thold_functions.php
-msgid "Threshold Template import columns do not match the database schema"
-msgstr "임계 값 템플릿 가져 오기 열이 데이터베이스 스키마와 일치하지 않습니다."
-
-#: thold_functions.php
-msgid "Imported"
-msgstr "가져오기 완료"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s!"
-msgstr "임계 값 템플릿 ' %s' %s!"
-
-#: thold_functions.php
-msgid "Updated"
-msgstr "업데이트됨"
-
-#: thold_functions.php thold_templates.php
-msgid "Import"
-msgstr "가져오기"
-
-#: thold_functions.php
-#, php-format
-msgid "Threshold Template '%s' %s Failed!"
-msgstr "임계 값 템플릿 ' %s' %s에 실패했습니다!"
-
-#: thold_functions.php
-msgid "Update"
-msgstr "업데이트"
-
-#: thold_functions.php
-msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr "임계 값 템플릿 데이터를 가져 오는 동안 오류가 발생했습니다."
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not found to be XML data."
-msgstr "임계 값 템플릿 종속 데이터 템플릿을 찾을 수 없습니다!"
-
-#: thold_functions.php
-msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
-
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
 msgstr "모니터링 할 임계 값 유형입니다."
@@ -3204,10 +3367,6 @@ msgstr "[ %s]에 대한 임계 값 로그"
 msgid "Log Entries"
 msgstr "로그 항목"
 
-#: thold_graph.php thold_webapi.php
-msgid "Device"
-msgstr "장치"
-
 #: thold_graph.php
 msgid "Time"
 msgstr "시간"
@@ -3281,10 +3440,6 @@ msgstr "템플릿 삭제"
 msgid "Threshold Template Creation Wizard"
 msgstr "임계 값 템플릿 생성 마법사"
 
-#: thold_templates.php thold_webapi.php
-msgid "Data Source"
-msgstr "데이터 원본"
-
 #: thold_templates.php
 msgid "Please select a Data Template"
 msgstr "데이터 템플릿을 선택하십시오."
@@ -3296,10 +3451,6 @@ msgstr "데이터 소스를 선택하십시오."
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
 msgstr "'생성'을 눌러 임계 템플릿을 만드십시오."
-
-#: thold_templates.php thold_webapi.php
-msgid "Create"
-msgstr "생성"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3582,157 +3733,6 @@ msgstr "노트: "
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "오류:"
-
-#: thold_webapi.php
-msgid "Threshold(s) Already Exists - No Thresholds Created"
-msgstr "임계 값이 이미 있음 - 임계 값이 생성되지 않음"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "임계 값 생성 마법사 [임계 값 유형 선택]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "임계 값 생성 마법사 [사용자 정의 데이터 입력 후 '생성'을 눌러 임계 값 및 그래프 생성]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "임계 값 생성 마법사 [사용 가능한 데이터 쿼리 행 선택]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "임계 값 생성 마법사 [장치 선택]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "임계 값 생성 마법사 [그래프 템플릿 선택]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "임계 값 생성 마법사 [임계 값 템플릿 선택]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "임계 값 생성 마법사 [ '생성'을 눌러 임계 값 생성]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "임계 값 생성 마법사 [데이터 소스 선택]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Wizard [ Select a Graph ]"
-msgstr "임계 값 생성 마법사 [그래프 선택]"
-
-#: thold_webapi.php
-msgid "Threshold Creation Criteria"
-msgstr "임계 값 생성 기준"
-
-#: thold_webapi.php
-msgid "Create Type"
-msgstr "유형 생성"
-
-#: thold_webapi.php
-msgid "Select a Threshold Type to use for creating this Threshold."
-msgstr "이 임계 값을 작성하는 데 사용할 임계 값 유형을 선택하십시오."
-
-#: thold_webapi.php
-msgid "Select a Threshold Type"
-msgstr "임계 값 유형 선택"
-
-#: thold_webapi.php
-msgid "Non Templated"
-msgstr "템플릿이없는"
-
-#: thold_webapi.php
-msgid "Threshold Template"
-msgstr "임계 값 템플릿"
-
-#: thold_webapi.php
-msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
-msgstr "그래프 및 임계 값을 기반으로하는 임계 값 템플리트를 선택하십시오."
-
-#: thold_webapi.php
-msgid "Graph Template"
-msgstr "그래프 템플릿"
-
-#: thold_webapi.php
-msgid "Select a Graph Template to use for the Graph to be created."
-msgstr "그래프를 만들 때 사용할 그래프 템플릿을 선택하십시오."
-
-#: thold_webapi.php
-msgid "Select a Graph Template"
-msgstr "그래프 템플릿 선택"
-
-#: thold_webapi.php
-msgid "Select a Device to use for the Threshold and Graph to be created."
-msgstr "임계 값 및 그래프를 만들 때 사용할 장치를 선택하십시오."
-
-#: thold_webapi.php
-msgid "Select a Device"
-msgstr "장치 선택"
-
-#: thold_webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
-msgid "Select an Available Item"
-msgstr "선택 가능 품목"
-
-#: thold_webapi.php
-msgid "Data Query Item"
-msgstr "데이터 쿼리 항목"
-
-#: thold_webapi.php
-msgid "Select the applicable row from the Data Query for the Graph and Threshold."
-msgstr "그래프 및 임계 값에 대한 데이터 쿼리에서 해당 행을 선택합니다."
-
-#: thold_webapi.php
-msgid "Creation Notes"
-msgstr "창조 노트"
-
-#: thold_webapi.php
-msgid "Important Note:"
-msgstr "중요 정보:"
-
-#: thold_webapi.php
-msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "이 임계 값은 템플리트 <b>되지 않습니다</b> . 임계 값 템플리트 옵션을 사용하는 경우 Graph에서 대체 가능한 그래프 또는 데이터 소스 정보가 허용되는 경우 'Create'프롬프트를 수신하기 전에 임계 값 템플리트, 그래프 템플리트, 디바이스 및 가능한 경우 데이터 쿼리 항목 정보를 묻는 메시지가 표시됩니다 및 데이터 소스 템플릿 수준을 선택하면 메시지가 표시됩니다. 그런 다음 '생성'버튼을 누르면 그래프와 임계 값이 동시에 생성됩니다."
-
-#: thold_webapi.php
-msgid "Graph"
-msgstr "그래프"
-
-#: thold_webapi.php
-msgid "Select the Graph for the Threshold."
-msgstr "임계 값에 대한 그래프를 선택하십시오."
-
-#: thold_webapi.php
-msgid "Select a Graph"
-msgstr "그래프 선택"
-
-#: thold_webapi.php
-msgid "Select a Data Source for the Threshold."
-msgstr "임계 값에 대한 데이터 소스를 선택하십시오."
-
-#: thold_webapi.php
-msgid "Select a Data Source"
-msgstr "데이터 소스 선택"
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "이 임계 값은 템플리트 <b>되지</b> 않으며 기존 그래프에서만 작동합니다. 그래프와 임계 값을 동시에 생성하려면 드롭 다운에서 임계 값 템플릿을 선택하고 '생성'버튼이 나타날 때까지 계속하십시오."
-
-#: thold_webapi.php
-msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "이 임계 값은 템플리트 <b>되지 않습니다</b> . 임계 값을 만들기 전에 기존 장치, 그래프 및 데이터 소스를 선택할 그래프로 선택하거나 임계 값 템플릿을 선택하면 템플릿이없는 임계 값과 해당 그래프를 동시에 만들 수 있습니다"
-
-#: thold_webapi.php
-msgid "Selected Graph"
-msgstr "선택된 그래프"
-
-#: thold_webapi.php
-#, php-format
-msgid "Created graph: %s"
-msgstr "그래프 생성 :  %s"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "여러 개의 전자 메일에 대해 쉼표로 구분 된 추가 전자 메일 주소입니다."
