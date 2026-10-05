@@ -234,35 +234,44 @@
 }
 
 .tholdGlyphEdit {
-	color: #666666;
+	color: #b3b3b3;
 }
 
 .tholdGlyphDisable {
-	color: #990000;
+	color: #e06666;
 }
 
 .tholdGlyphEnable {
-	color: #006600;
+	color: #4caf50;
 }
 
 .tholdGlyphChart {
-	color: #996600;
+	color: #d6a13a;
 }
 
 .tholdGlyphLog {
-	color: #999900;
+	color: #c7c04a;
 }
 
 .tholdGlyphAcknowledge {
-	color: #336600;
+	color: #7cb342;
 }
 
 .tholdGlyphAcknowledge {
-	color: #336600;
+	color: #7cb342;
 }
 
 .tholdGlyphAcknowledgeSuspend {
-	color: #336600;
+	color: #7cb342;
+}
+
+/* Graph view action glyphs (toggle threshold VRULEs, create threshold) */
+.tholdVRules {
+	color: #4aa3df;
+}
+
+.tholdEdit {
+	color: #b3b3b3;
 }
 
 .tholdLog {
