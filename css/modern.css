@@ -285,6 +285,15 @@
 	color: #336600;
 }
 
+/* Graph view action glyphs (toggle threshold VRULEs, create threshold) */
+.tholdVRules {
+	color: #1b6ca8;
+}
+
+.tholdEdit {
+	color: #666666;
+}
+
 .tholdLog {
 	white-space: pre-wrap !important;
 }
