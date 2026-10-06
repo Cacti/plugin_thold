@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
-"PO-Revision-Date: 2026-01-16 03:18+0000\n"
-"Last-Translator: sucharlie <su.charlie@gmail.com>\n"
-"Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/thold/zh_Hant/>\n"
-"Language: zh-TW\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-30 21:27-0400\nPO-Revision-Date: 2026-10-06 09:18+0000\nLast-Translator: YU HAO HUANG <mix@b51.tw>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/thold/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -464,7 +452,6 @@ msgid "Propagate Template"
 msgstr "傳播模板"
 
 #: includes/arrays.php thold_graph.php
-#, fuzzy
 msgid "Export"
 msgstr "匯出"
 
@@ -580,9 +567,8 @@ msgstr ""
 
 #: includes/functions.php notify_lists.php notify_queue.php thold.php
 #: thold_graph.php thold_templates.php
-#, fuzzy
 msgid "Default"
-msgstr "默认"
+msgstr "預設"
 
 #: includes/functions.php
 msgid "Link to Graph in Cacti"
@@ -739,9 +725,8 @@ msgid "Errored"
 msgstr "錯誤"
 
 #: includes/functions.php includes/polling.php thold.php thold_graph.php
-#, fuzzy
 msgid "N/A"
-msgstr "不适用"
+msgstr "N/A"
 
 #: includes/functions.php
 #, fuzzy
@@ -1952,7 +1937,6 @@ msgstr "相關設備"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
-#, fuzzy
 msgid "Search"
 msgstr "搜尋"
 
@@ -1977,23 +1961,19 @@ msgstr "關聯的"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
-#, fuzzy
 msgid "Go"
 msgstr "送出"
 
 #: notify_lists.php notify_queue.php
-#, fuzzy
 msgid "Set/Refresh Filters"
 msgstr "設置/刷新過濾器"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
-#, fuzzy
 msgid "Clear"
 msgstr "清除"
 
 #: notify_lists.php notify_queue.php
-#, fuzzy
 msgid "Clear Filters"
 msgstr "清除過濾器"
 
@@ -2054,7 +2034,6 @@ msgstr "州"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
-#, fuzzy
 msgid "All"
 msgstr "全部"
 
@@ -2218,7 +2197,6 @@ msgid "Resume Notification Processing"
 msgstr "SNMP通知"
 
 #: notify_queue.php
-#, fuzzy
 msgid "Purge"
 msgstr "清除"
 
