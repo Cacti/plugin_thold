@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-30 21:27-0400\nPO-Revision-Date: 2026-10-05 09:09+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-30 21:27-0400\nPO-Revision-Date: 2026-10-06 09:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -575,7 +575,7 @@ msgstr "Abs Val [TIP:%s]"
 
 #: includes/functions.php
 msgid "%%% Dev [AOT:%s]"
-msgstr "Avvikelse UP"
+msgstr "%%%-avvikelse [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -642,7 +642,7 @@ msgstr "Omöjliga trösklar: \"High Warning Threshold\" mindre än eller lika me
 
 #: includes/functions.php
 msgid "Time reference in the past must be set to positive integer value!"
-msgstr "' %s' måste ställas till positivt heltal värde! <br> RECORD NOT UPDATED!"
+msgstr "Tidsreferens i det förflutna måste anges som ett positivt heltal!"
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
@@ -790,7 +790,7 @@ msgstr "Anmärkningar för enheter: <DESCRIPTION> ( <HOSTNAME> ) återvände fr�
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr "<br> Systemet <DESCRIPTION> ( <HOSTNAME> ) status: <DOWN/UP><br><br> Nuvarande ping-svar: <CUR_TIME> Fröken <br> Genomsnittligt systemsvar: <AVG_TIME> Fröken <br> System tillgänglighet: <AVAILABILITY><br> Totala kontroller sedan klar: <TOT_POLL><br> Totalt misslyckade kontroller: <FAIL_POLL><br> Sista Datum Kontrollerat UPP: <LAST_FAIL><br> Enheter tidigare NED för: <DOWNTIME><br><br> SNMP Info: <br> Namn - <SNMP_HOSTNAME><br> Plats - <SNMP_LOCATION><br> Uptime - <UPTIMETEXT> ( <UPTIME> Fröken) <br> Systemet - <SNMP_SYSTEM><br><br> NOTERA: <NOTES>"
+msgstr "<br>Systemet <DESCRIPTION> (<HOSTNAME>) har statusen <DOWN/UP><br><br>Plats: <SITE><br>Position: <LOCATION><br>Aktuellt pingsvar: <CUR_TIME> ms<br>Genomsnittligt systemsvar: <AVG_TIME> ms<br>Systemtillgänglighet: <AVAILABILITY><br>Totalt antal kontroller sedan rensning: <TOT_POLL><br>Totalt antal misslyckade kontroller: <FAIL_POLL><br>Senast kontrollerad UP: <LAST_FAIL><br>Enheten var tidigare NERE i: <DOWNTIME><br><br>SNMP-information:<br>Namn – <SNMP_HOSTNAME><br>Plats – <SNMP_LOCATION><br>Drifttid – <UPTIMETEXT> (<UPTIME> ms)<br>System – <SNMP_SYSTEM><br><br>OBS: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -802,7 +802,7 @@ msgstr "Nere"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr "Systemfel : <DESCRIPTION> ( <HOSTNAME> ) är <DOWN/UP><br> Anledning: <MESSAGE><br><br> Genomsnittligt systemsvar: <AVG_TIME> Fröken <br> System tillgänglighet: <AVAILABILITY><br> Totala kontroller sedan klar: <TOT_POLL><br> Totalt misslyckade kontroller: <FAIL_POLL><br> Sista Datum Kontrollerat NER: <LAST_FAIL><br> Enheter tidigare UP för: <DOWNTIME><br> NOTERA: <NOTES>"
+msgstr "Systemfel: <DESCRIPTION> (<HOSTNAME>) är <DOWN/UP><br>Plats: <SITE><br>Position: <LOCATION><br>Orsak: <MESSAGE><br><br>Genomsnittligt systemsvar: <AVG_TIME> ms<br>Systemtillgänglighet: <AVAILABILITY><br>Totalt antal kontroller sedan rensning: <TOT_POLL><br>Totalt antal misslyckade kontroller: <FAIL_POLL><br>Senast kontrollerad NERE: <LAST_FAIL><br>Enheterna var tidigare UPPE i: <DOWNTIME><br>OBS: <NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
@@ -929,10 +929,8 @@ msgid "Global and List Below"
 msgstr "Global och listan nedan"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr "Vilken anmälningslista ska aviseras om Device Up / Down-händelser?"
+msgstr "Vilken typ av aviseringslista ska användas för händelser där enheten går upp eller ned?"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
@@ -1352,24 +1350,20 @@ msgid "Enable Dead/Recovering host notification"
 msgstr "Aktivera Död / Återställ värdmeddelande"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notifications"
 msgid "Single Email Notification"
-msgstr "Aktivera per tjock meddelande"
+msgstr "Separat e-postavisering"
 
 #: includes/settings.php
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
 msgstr "Stödjs endast för aviseringslistor och aviseringskö.  Om det finns Down Device Notifications i en enda bearbetningscykel.  Skicka endast ett e-postmeddelande till mottagarna i aviseringslistan för alla enheter."
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notification Queue"
 msgid "Single Email Notification Subject"
-msgstr "Aktivera per tjock meddelande"
+msgstr "Ämne för separat e-postavisering"
 
 #: includes/settings.php
 msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
-msgstr ""
+msgstr "Detta är e-postämnet som används för alla separata e-postaviseringar, både när enheter går upp och ned."
 
 #: includes/settings.php
 msgid "Device Notification Delay Options"
@@ -1404,10 +1398,8 @@ msgid "Down Subject"
 msgstr "Nedanordning Ämne"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
-msgstr "Detta är e-postens ämne som kommer att visas i e-postmeddelandet (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
+msgstr "Detta är e-postämnet som används för meddelanden om enheter som är nere. Följande vanliga ersättningstaggar kan användas:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -1418,24 +1410,20 @@ msgid "Down Message"
 msgstr "Nedkopplingsmeddelande"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Detta är det meddelande som kommer att visas som meddelandetexten i alla UP / Down Device-meddelanden (1024 Char MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060DESCRIPTION&amp;#062 &amp;#060SITE&amp;#062 &amp;#060LOCATION&amp;#062 &amp;#060UPTIME&amp;#062 &amp;#060UPTIMETEXT&amp;#062 &amp;#060NEDTID&amp;#062 &amp;#060TID&amp;#062 &amp;#060DATUM&amp;#062 &amp;#060DATUM_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062 &amp;#060MEDDELANDE&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060DOWN/UP&amp;#062 &amp;#060SNMP_HOSTNAME&amp;#062 &amp;#060SNMP_LOCATION&amp;#062 &amp;#060SNMP_CONTACT&amp;#062 &amp;#060SNMP_SYSTEM&amp;#062 &amp;#060LAST_FAIL&amp;#062 &amp;#060AVAILABILITY&amp;#062 &amp;#060TOT_POLL&amp;#062 &amp;#060FAIL_POLL&amp;#062 &amp;#060CUR_TIME&amp;#062 &amp;#060AVG_TIME&amp;#062 &amp;#060NOTES&amp;#062"
+msgstr "Detta är meddelandetexten i alla meddelanden om enheter som går upp eller ned (högst 1 024 tecken). HTML tillåts men tas bort i e-postmeddelanden med enbart text. Följande vanliga ersättningstaggar kan användas:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr "Systemfel : <DESCRIPTION> ( <HOSTNAME> ) är <DOWN/UP><br> Anledning: <MESSAGE><br><br> Genomsnittligt systemsvar: <AVG_TIME> Fröken <br> System tillgänglighet: <AVAILABILITY><br> Totala kontroller sedan klar: <TOT_POLL><br> Totalt misslyckade kontroller: <FAIL_POLL><br> Sista Datum Kontrollerat NER: <LAST_FAIL><br> Enhet tidigare UP för: <DOWNTIME><br> OBS: <NOTES><br> Enhet ANMÄRKNINGAR: <DNOTES>"
+msgstr "Systemfel: <DESCRIPTION> (<HOSTNAME>) är <DOWN/UP><br><br>Plats: <SITE><br>Position: <LOCATION><br>Orsak: <MESSAGE><br>Genomsnittligt systemsvar: <AVG_TIME> ms<br>Systemtillgänglighet: <AVAILABILITY><br>Totalt antal kontroller sedan rensning: <TOT_POLL><br>Totalt antal misslyckade kontroller: <FAIL_POLL><br>Senast kontrollerad NERE: <LAST_FAIL><br>Enheten var tidigare UPPE i: <DOWNTIME><br>OBS: <NOTES><br>Enhetsanteckningar: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
 msgstr "Återställa enhetens ämne"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
-msgstr "Detta är e-postens ämne som kommer att visas i e-postmeddelandet (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
+msgstr "Detta är e-postämnet som används för meddelanden om enheter som har återhämtat sig. Följande vanliga ersättningstaggar kan användas:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -1451,7 +1439,7 @@ msgstr "Detta är det meddelande som kommer att visas som meddelandetexten i all
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
-msgstr "<br> Systemet <DESCRIPTION> ( <HOSTNAME> ) status: <DOWN/UP><br><br> Nuvarande ping-svar: <CUR_TIME> Fröken <br> Genomsnittligt systemsvar: <AVG_TIME> Fröken <br> System tillgänglighet: <AVAILABILITY><br> Totala kontroller sedan klar: <TOT_POLL><br> Totalt misslyckade kontroller: <FAIL_POLL><br> Sista Datum Kontrollerat UPP: <LAST_FAIL><br> Enhet tidigare NED för: <DOWNTIME><br><br> Snmp Info: <br> Namn - <SNMP_HOSTNAME><br> Plats - <SNMP_LOCATION><br> Uptime - <UPTIMETEXT> ( <UPTIME> Fröken) <br> Systemet - <SNMP_SYSTEM><br><br> NOTERA: <NOTES><br> Enhetsanvisningar: <DNOTES>"
+msgstr "<br>Systemet <DESCRIPTION> (<HOSTNAME>) har statusen <DOWN/UP><br><br>Plats: <SITE><br>Position: <LOCATION><br>Aktuellt pingsvar: <CUR_TIME> ms<br>Genomsnittligt systemsvar: <AVG_TIME> ms<br>Systemtillgänglighet: <AVAILABILITY><br>Totalt antal kontroller sedan rensning: <TOT_POLL><br>Totalt antal misslyckade kontroller: <FAIL_POLL><br>Senast kontrollerad UP: <LAST_FAIL><br>Enheten var tidigare NERE i: <DOWNTIME><br><br>SNMP-information:<br>Namn – <SNMP_HOSTNAME><br>Plats – <SNMP_LOCATION><br>Drifttid – <UPTIMETEXT> (<UPTIME> ms)<br>System – <SNMP_SYSTEM><br><br>OBS: <NOTES><br>Enhetsanteckningar: <DNOTES>"
 
 #: includes/settings.php
 msgid "Status Change Command"
@@ -1606,10 +1594,8 @@ msgid "Select a Device"
 msgstr "Välj en enhet"
 
 #: includes/webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
 msgid "Select an Available Item"
-msgstr "Välj och tillgängligt objekt"
+msgstr "Välj ett tillgängligt objekt"
 
 #: includes/webapi.php
 msgid "Data Query Item"
@@ -1695,7 +1681,7 @@ msgstr "Enheter"
 #: notify_lists.php
 #, php-format
 msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
-msgstr ""
+msgstr "FEL: Din e-postadress kan inte finnas både på raderna Till och Bcc. E-postadressen nedan är ogiltig!<br><br>%s"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
@@ -2187,21 +2173,19 @@ msgstr "Resulterade detta meddelande i ett fel?  Håll muspekaren över felkolum
 
 #: notify_queue.php
 msgid "Attempts"
-msgstr ""
+msgstr "Försök"
 
 #: notify_queue.php
-#, fuzzy
-#| msgid "The number of Graphs for this Device"
 msgid "The number of delivery attempts made for this notification."
-msgstr "Antalet Grafer för den här enheten"
+msgstr "Antalet leveransförsök som har gjorts för den här aviseringen."
 
 #: notify_queue.php
 msgid "Next Attempt"
-msgstr ""
+msgstr "Nästa försök"
 
 #: notify_queue.php
 msgid "When a failed notification is eligible for its next retry."
-msgstr ""
+msgstr "När en misslyckad avisering kan försöka skickas igen."
 
 #: notify_queue.php
 msgid "Run Time"
@@ -2976,60 +2960,48 @@ msgid "Alert Subject"
 msgstr "Alert Presets"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Detta är e-postens ämne som kommer att visas i e-postmeddelandet (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
+msgstr "Detta är e-postämnet som visas i e-postmeddelandet (högst 128 tecken). Lämna tomt för standardvärdet. Följande vanliga ersättningstaggar kan användas:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
 
 #: thold.php
 msgid "Alert Body"
 msgstr "Alert Email Body"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Detta är det meddelande som visas högst upp i alla tröskelvärdesmeddelanden (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>t.ex. &amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#060HI&amp;#062 &amp;#060LOW&amp;#062 &amp;#060DURATION&amp;#062 &amp;#060TRIGGER&amp;#062 &amp;#060DETAILS_URL&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062"
+msgstr "Detta är meddelandet som visas högst upp i alla tröskelvärdeslarm (högst 1 024 tecken). HTML tillåts men tas bort i e-postmeddelanden med enbart text. Följande vanliga ersättningstaggar kan användas:<br>t.ex. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Subject"
 msgstr "Återställa enhetens ämne"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Detta är ämnet för varningsmeddelandet som kommer att visas i e-postmeddelandet när det ändras till Warning (128 Char MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
+msgstr "Detta är ämnet för varningsmeddelandet som visas i e-postmeddelandet när status ändras till varning (högst 128 tecken). Lämna tomt för standardvärdet. Följande vanliga ersättningstaggar kan användas:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
 
 #: thold.php thold_templates.php
 msgid "Warning Body"
 msgstr "Varning Email Body"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Detta är det meddelande som visas högst upp i alla tröskelvärdesvarningar (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>t.ex. &amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#060HI&amp;#062 &amp;#060LOW&amp;#062 &amp;#060DURATION&amp;#062 &amp;#060TRIGGER&amp;#062 &amp;#060DETAILS_URL&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062"
+msgstr "Detta är meddelandet som visas högst upp i alla tröskelvärdesvarningar (högst 1 024 tecken). HTML tillåts men tas bort i e-postmeddelanden med enbart text. Följande vanliga ersättningstaggar kan användas:<br>t.ex. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
 msgstr "Restoral Event"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Det här är ämnet för e-postmeddelandet som visas i e-postmeddelandet efter en återgång till det normala (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
+msgstr "Detta är e-postämnet som visas efter en återgång till normalt läge (högst 128 tecken). Lämna tomt för standardvärdet. Följande vanliga ersättningstaggar kan användas:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
 
 #: thold.php
 msgid "Restoral Email Body"
 msgstr "Alert Email Body"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Detta är det meddelande som kommer att visas högst upp i alla meddelanden om återställande av tröskelvärden (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062 &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#60NOTES&amp;#62 &amp;#060DNOTES&amp;#062"
+msgstr "Detta är meddelandet som visas högst upp i alla meddelanden om återställda tröskelvärden (högst 1 024 tecken). HTML tillåts men tas bort i e-postmeddelanden med enbart text. Följande vanliga ersättningstaggar kan användas:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Notification List"
