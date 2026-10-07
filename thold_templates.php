@@ -513,7 +513,7 @@ function template_add() {
 					<?php print __('Data Template', 'thold'); ?>
 				</td>
 				<td>
-					<select id='data_template_id' name='data_template_id' onChange='applyFilter("dt")'>
+					<select id='data_template_id' name='data_template_id'>
 						<option value=''><?php print __('None', 'thold'); ?></option><?php
 						foreach ($data_templates as $id => $name) {
 							print "<option value='" . $id . "'" . ($id == $data_template_id ? ' selected' : '') . '>' . html_escape($name) . '</option>';
@@ -561,7 +561,7 @@ function template_add() {
 					<?php print __('Data Source', 'thold'); ?>
 				</td>
 				<td>
-					<select id='data_source_id' name='data_source_id' onChange='applyFilter("ds")'>
+					<select id='data_source_id' name='data_source_id'>
 						<option value=''><?php print __('None', 'thold'); ?></option><?php
 						foreach ($data_fields as $id => $name) {
 							print "<option value='" . $id . "'" . ($id == $data_source_id ? ' selected' : '') . '>' . html_escape($name) . '</option>';
@@ -617,6 +617,14 @@ function template_add() {
 				strURL = $('#tholdform').attr('action');
 				json   = $('input, select').serializeObject();
 				loadPageUsingPost(strURL, json);
+			});
+
+			$('#data_template_id').change(function() {
+				applyFilter('dt');
+			});
+
+			$('#data_source_id').change(function() {
+				applyFilter('ds');
 			});
 		});
 
@@ -2286,7 +2294,7 @@ function templates() {
 						<?php print __('Templates', 'thold'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 							if (cacti_sizeof($item_rows)) {
@@ -2303,9 +2311,9 @@ function templates() {
 					</td>
 					<td>
 						<span>
-							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold'); ?>' onClick='applyFilter()'>
-							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>' onClick='clearFilter()'>
-							<input id='import' type='button' value='<?php print __esc('Import', 'thold'); ?>' onClick='importTemplate()'>
+							<input id='refresh' type='button' value='<?php print __esc('Go', 'thold'); ?>'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>'>
+							<input id='import' type='button' value='<?php print __esc('Import', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -2333,6 +2341,22 @@ function templates() {
 				$('#listthold').submit(function(event) {
 					event.preventDefault();
 					applyFilter();
+				});
+
+				$('#rows').change(function() {
+					applyFilter();
+				});
+
+				$('#refresh').click(function() {
+					applyFilter();
+				});
+
+				$('#clear').click(function() {
+					clearFilter();
+				});
+
+				$('#import').click(function() {
+					importTemplate();
 				});
 			});
 

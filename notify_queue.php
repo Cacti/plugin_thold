@@ -295,7 +295,7 @@ function notify_queue() {
 						<?php print __('Topic', 'thold'); ?>
 					</td>
 					<td>
-						<select id='topic' onChange='applyFilter()'>
+						<select id='topic'>
 							<option value='-1'<?php print (get_request_var('topic') == '-1' ? ' selected>' : '>') . __('All', 'thold'); ?></option>
 							<?php
 							if (cacti_sizeof($thold_notification_topics)) {
@@ -314,7 +314,7 @@ function notify_queue() {
 						<?php print __('Processed', 'thold'); ?>
 					</td>
 					<td>
-						<select id='processed' onChange='applyFilter()'>
+						<select id='processed'>
 							<option value='-1'<?php print (get_request_var('processed') == '-1' ? ' selected>' : '>') . __('All', 'thold'); ?></option>
 							<option value='0'<?php print (get_request_var('processed') == '0' ? ' selected>' : '>') . __('No', 'thold'); ?></option>
 							<option value='1'<?php print (get_request_var('processed') == '1' ? ' selected>' : '>') . __('Yes', 'thold'); ?></option>
@@ -324,7 +324,7 @@ function notify_queue() {
 						<?php print __('Rows', 'thold'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php print (get_request_var('rows') == '-1' ? ' selected>' : '>') . __('Default', 'thold'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows) > 0) {
@@ -368,6 +368,10 @@ function notify_queue() {
 			}
 
 			$(function() {
+				$('#topic, #processed, #rows').change(function() {
+					applyFilter();
+				});
+
 				$('#refresh').click(function() {
 					applyFilter();
 				});

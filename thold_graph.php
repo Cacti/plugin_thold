@@ -149,7 +149,7 @@ function form_thold_filter() {
 						<?php print __('Site', 'thold'); ?>
 					</td>
 					<td>
-						<select id='site_id' onChange='applyFilter()'>
+						<select id='site_id'>
 							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -173,7 +173,7 @@ function form_thold_filter() {
 					<td>
 						<span>
 							<input id='refresh' type='submit' value='<?php print __esc('Go', 'thold'); ?>'>
-							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>' onClick='clearFilter()'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -184,7 +184,7 @@ function form_thold_filter() {
 						<?php print __('Template', 'thold'); ?>
 					</td>
 					<td>
-						<select id='thold_template_id' onChange='applyFilter()'>
+						<select id='thold_template_id'>
 							<option value='-1'<?php if (get_request_var('thold_template_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='-2'<?php if (get_request_var('thold_template_id') == '-2') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -202,7 +202,7 @@ function form_thold_filter() {
 						<?php print __('Data Template', 'thold'); ?>
 					</td>
 					<td>
-						<select id='data_template_id' onChange='applyFilter()'>
+						<select id='data_template_id'>
 							<option value='-1'<?php if (get_request_var('data_template_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('data_template_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -229,7 +229,7 @@ function form_thold_filter() {
 						<?php print __('Status', 'thold'); ?>
 					</td>
 					<td>
-						<select id='state' onChange='applyFilter()'>
+						<select id='state'>
 							<option value='-1'<?php if (get_request_var('state') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('state') == '0') {?> selected<?php }?>><?php print __('Breached or Triggered', 'thold'); ?></option>
 							<option value='1'<?php if (get_request_var('state') == '1') {?> selected<?php }?>><?php print __('Breached', 'thold'); ?></option>
@@ -245,7 +245,7 @@ function form_thold_filter() {
 						<?php print __('Thresholds', 'thold'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -288,6 +288,14 @@ function form_thold_filter() {
 			$('#thold').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
+			});
+
+			$('#site_id, #thold_template_id, #data_template_id, #state, #rows').change(function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
 			});
 
 			$('.ackMessage').tooltip({
@@ -1255,7 +1263,7 @@ function form_host_filter() {
 						<?php print __('Site', 'thold'); ?>
 					</td>
 					<td>
-						<select id='site_id' onChange='applyFilter()'>
+						<select id='site_id'>
 							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -1279,7 +1287,7 @@ function form_host_filter() {
 						<?php print __('Status', 'thold'); ?>
 					</td>
 					<td>
-						<select id='host_status' onChange='applyFilter()'>
+						<select id='host_status'>
 							<option value='-1'<?php if (get_request_var('host_status') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='-3'<?php if (get_request_var('host_status') == '-3') {?> selected<?php }?>><?php print __('Enabled', 'thold'); ?></option>
 							<?php print(read_user_setting('hide_disabled') == '' ? "<option value='-2'" . (get_request_var('host_status') == '-2' ? ' selected' : '') . "'>" . __('Disabled', 'thold') . '</option>' : ''); ?>
@@ -1294,7 +1302,7 @@ function form_host_filter() {
 					<td>
 						<span>
 							<input id='refresh' type='submit' value='<?php print __esc('Go', 'thold'); ?>'>
-							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>' onClick='clearFilter()'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -1305,7 +1313,7 @@ function form_host_filter() {
 						<?php print __('Type', 'thold'); ?>
 					</td>
 					<td>
-						<select id='host_template_id' onChange='applyFilter()'>
+						<select id='host_template_id'>
 							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -1329,7 +1337,7 @@ function form_host_filter() {
 						<?php print __('Devices', 'thold'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -1370,6 +1378,14 @@ function form_host_filter() {
 			$('#form_devices').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
+			});
+
+			$('#site_id, #host_status, #host_template_id, #rows').change(function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
 			});
 		});
 
@@ -1752,7 +1768,7 @@ function form_thold_log_filter() {
 						<?php print __('Site', 'thold'); ?>
 					</td>
 					<td>
-						<select id='site_id' onChange='applyFilter()'>
+						<select id='site_id'>
 							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -1776,8 +1792,8 @@ function form_thold_log_filter() {
 					<td>
 						<span>
 							<input id='refresh' type='submit' value='<?php print __esc('Go', 'thold'); ?>'>
-							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>' onClick='clearFilter()'>
-							<input id='export' type='button' value='<?php print __esc('Export', 'thold'); ?>' onClick='exportLog()'>
+							<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>'>
+							<input id='export' type='button' value='<?php print __esc('Export', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -1788,7 +1804,7 @@ function form_thold_log_filter() {
 						<?php print __('Template', 'thold'); ?>
 					</td>
 					<td>
-						<select id='thold_template_id' onChange='applyFilter()'>
+						<select id='thold_template_id'>
 							<option value='-1'<?php if (get_request_var('thold_template_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='-2'<?php if (get_request_var('thold_template_id') == '-2') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -1806,7 +1822,7 @@ function form_thold_log_filter() {
 						<?php print __('Threshold', 'thold'); ?>
 					</td>
 					<td>
-						<select id='threshold_id' onChange='applyFilter()'>
+						<select id='threshold_id'>
 							<option value='-1'<?php if (get_request_var('threshold_id') == '-1') {?> selected<?php }?>><?php print __('All'); ?></option>
 							<?php
 	$tholds = db_fetch_assoc('SELECT DISTINCT td.id, td.name_cache
@@ -1832,7 +1848,7 @@ function form_thold_log_filter() {
 						<?php print __('Status', 'thold'); ?>
 					</td>
 					<td>
-						<select id='status' onChange='applyFilter()'>
+						<select id='status'>
 							<option value='-1'<?php if (get_request_var('status') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<?php
 	if (cacti_sizeof($thold_log_states)) {
@@ -1851,7 +1867,7 @@ function form_thold_log_filter() {
 						<?php print __('Entries', 'thold'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -1906,6 +1922,18 @@ function form_thold_log_filter() {
 			$('#form_log').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
+			});
+
+			$('#site_id, #thold_template_id, #threshold_id, #status, #rows').change(function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
+			});
+
+			$('#export').click(function() {
+				exportLog();
 			});
 		});
 
