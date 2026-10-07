@@ -381,7 +381,7 @@ function thold_legend() {
 	print '<div class="tholdLegend" style="--thold-chip-min: calc(' . $chip_min . 'ch + 1.5rem)">';
 
 	foreach ($thold_states as $index => $state) {
-		print '<div class="tholdLegendItem ' . $state['class'] . '">' . $state['display'] . '</div>';
+		print '<div class="tholdLegendItem ' . $state['class'] . '">' . html_escape($state['display']) . '</div>';
 	}
 
 	print '</div>';
@@ -413,7 +413,7 @@ function host_legend() {
 	print '<div class="tholdLegend" style="--thold-chip-min: calc(' . $chip_min . 'ch + 1.5rem)">';
 
 	foreach ($thold_host_states as $index => $state) {
-		print '<div class="tholdLegendItem ' . $state['class'] . '">' . $state['display'] . '</div>';
+		print '<div class="tholdLegendItem ' . $state['class'] . '">' . html_escape($state['display']) . '</div>';
 	}
 
 	print '</div>';
@@ -445,7 +445,7 @@ function log_legend() {
 	print '<div class="tholdLegend" style="--thold-chip-min: calc(' . $chip_min . 'ch + 1.5rem)">';
 
 	foreach ($thold_log_states as $index => $state) {
-		print '<div class="tholdLegendItem ' . $state['class'] . '">' . $state['display_short'] . '</div>';
+		print '<div class="tholdLegendItem ' . $state['class'] . '">' . html_escape($state['display_short']) . '</div>';
 	}
 
 	print '</div>';
