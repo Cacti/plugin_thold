@@ -307,7 +307,7 @@
  */
 .tholdLegend {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(var(--thold-chip-min, 8ch), 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(var(--thold-chip-min, 8ch), 1fr));
 	gap: 4px;
 	width: 100%;
 }
