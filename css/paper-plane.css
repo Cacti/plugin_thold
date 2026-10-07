@@ -294,6 +294,7 @@
 
 .tholdLegend .tholdLegendItem {
 	flex: 1 1 0;
+	min-width: var(--thold-chip-min, max-content);
 	text-align: center;
 	white-space: nowrap;
 	padding: 4px 6px;
