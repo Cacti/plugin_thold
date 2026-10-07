@@ -1158,7 +1158,11 @@ function list_tholds() {
 		print $nav;
 	}
 
+	print '<div class="center" style="position:fixed;left:0;bottom:0;display:table;margin-left:auto;margin-right:auto;width:100%;">';
+
 	thold_legend();
+
+	print '</div>';
 
 	draw_actions_dropdown($thold_actions);
 
