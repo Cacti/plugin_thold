@@ -1322,7 +1322,7 @@ function hosts($header_label) {
 					<td>
 						<span>
 							<input type='submit' value='<?php print __esc('Go', 'thold'); ?>' title='<?php print __esc('Set/Refresh Filters', 'thold'); ?>'>
-							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
+							<input type='button' id='clear' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -1713,7 +1713,7 @@ function tholds($header_label) {
 					<td>
 						<span>
 							<input type='submit' value='<?php print __esc('Go', 'thold'); ?>' title='<?php print __esc('Set/Refresh Filters', 'thold'); ?>'>
-							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
+							<input type='button' id='clear' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>
