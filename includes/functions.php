@@ -371,11 +371,17 @@ function thold_legend() {
 
 	html_start_box('', '100%', false, '3', 'center', '');
 
+	$chip_min = 0;
+
+	foreach ($thold_states as $state) {
+		$chip_min = max($chip_min, mb_strlen($state['display']));
+	}
+
 	print '<tr class="tableRow"><td>';
-	print '<div class="tholdLegend">';
+	print '<div class="tholdLegend" style="--thold-chip-min: calc(' . $chip_min . 'ch + 1.5rem)">';
 
 	foreach ($thold_states as $index => $state) {
-		print '<div class="tholdLegendItem ' . $state['class'] . '">' . $state['display'] . '</div>';
+		print '<div class="tholdLegendItem ' . $state['class'] . '">' . html_escape($state['display']) . '</div>';
 	}
 
 	print '</div>';
@@ -397,11 +403,17 @@ function host_legend() {
 
 	html_start_box('', '100%', false, '3', 'center', '');
 
+	$chip_min = 0;
+
+	foreach ($thold_host_states as $state) {
+		$chip_min = max($chip_min, mb_strlen($state['display']));
+	}
+
 	print '<tr class="tableRow"><td>';
-	print '<div class="tholdLegend">';
+	print '<div class="tholdLegend" style="--thold-chip-min: calc(' . $chip_min . 'ch + 1.5rem)">';
 
 	foreach ($thold_host_states as $index => $state) {
-		print '<div class="tholdLegendItem ' . $state['class'] . '">' . $state['display'] . '</div>';
+		print '<div class="tholdLegendItem ' . $state['class'] . '">' . html_escape($state['display']) . '</div>';
 	}
 
 	print '</div>';
@@ -423,11 +435,17 @@ function log_legend() {
 
 	html_start_box('', '100%', false, '3', 'center', '');
 
+	$chip_min = 0;
+
+	foreach ($thold_log_states as $state) {
+		$chip_min = max($chip_min, mb_strlen($state['display_short']));
+	}
+
 	print '<tr class="tableRow"><td>';
-	print '<div class="tholdLegend">';
+	print '<div class="tholdLegend" style="--thold-chip-min: calc(' . $chip_min . 'ch + 1.5rem)">';
 
 	foreach ($thold_log_states as $index => $state) {
-		print '<div class="tholdLegendItem ' . $state['class'] . '">' . $state['display_short'] . '</div>';
+		print '<div class="tholdLegendItem ' . $state['class'] . '">' . html_escape($state['display_short']) . '</div>';
 	}
 
 	print '</div>';

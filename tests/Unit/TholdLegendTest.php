@@ -45,7 +45,12 @@ final class TholdLegendTest extends TestCase {
 
 		$states = $GLOBALS['thold_states'];
 
-		$this->assertStringContainsString('<div class="tholdLegend">', $output);
+		$expected = 0;
+		foreach ($states as $state) {
+			$expected = max($expected, mb_strlen($state['display']));
+		}
+
+		$this->assertStringContainsString('<div class="tholdLegend" style="--thold-chip-min: calc(' . $expected . 'ch + 1.5rem)">', $output);
 		$this->assertSame(count($states), substr_count($output, 'tholdLegendItem'));
 
 		foreach ($states as $state) {
@@ -63,7 +68,12 @@ final class TholdLegendTest extends TestCase {
 
 		$states = $GLOBALS['thold_host_states'];
 
-		$this->assertStringContainsString('<div class="tholdLegend">', $output);
+		$expected = 0;
+		foreach ($states as $state) {
+			$expected = max($expected, mb_strlen($state['display']));
+		}
+
+		$this->assertStringContainsString('<div class="tholdLegend" style="--thold-chip-min: calc(' . $expected . 'ch + 1.5rem)">', $output);
 		$this->assertSame(count($states), substr_count($output, 'tholdLegendItem'));
 
 		foreach ($states as $state) {
@@ -81,7 +91,12 @@ final class TholdLegendTest extends TestCase {
 
 		$states = $GLOBALS['thold_log_states'];
 
-		$this->assertStringContainsString('<div class="tholdLegend">', $output);
+		$expected = 0;
+		foreach ($states as $state) {
+			$expected = max($expected, mb_strlen($state['display_short']));
+		}
+
+		$this->assertStringContainsString('<div class="tholdLegend" style="--thold-chip-min: calc(' . $expected . 'ch + 1.5rem)">', $output);
 		$this->assertSame(count($states), substr_count($output, 'tholdLegendItem'));
 
 		foreach ($states as $state) {

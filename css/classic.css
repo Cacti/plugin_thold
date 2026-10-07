@@ -283,21 +283,20 @@
 }
 
 /*
- * Status legend. Laid out as an evenly sized, wrapping flex row (flex: 1 1 0
- * gives every chip the same width) with rounded corners and spacing between
- * chips. A legend is a colour key, so the chips use their own solid, opaque
+ * Status legend. Laid out as a wrapping CSS grid whose columns share one
+ * width (seeded from the longest label via --thold-chip-min) so every chip is
+ * equal width across all rows, with rounded corners and spacing between chips. A legend is a colour key, so the chips use their own solid, opaque
  * colours with white text so they stay legible on every theme rather than
  * inheriting the subtle row tints.
  */
 .tholdLegend {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(var(--thold-chip-min, 8ch), 1fr));
 	gap: 4px;
 	width: 100%;
 }
 
 .tholdLegend .tholdLegendItem {
-	flex: 1 1 0;
 	text-align: center;
 	white-space: nowrap;
 	padding: 4px 6px;
