@@ -718,7 +718,7 @@ function form_actions() {
 					</td>
 				</tr>";
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Delete Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Delete Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { // duplicate
 				print "<tr>
 					<td class='textArea'>
@@ -730,7 +730,7 @@ function form_actions() {
 				print '</p></td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Duplicate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Duplicate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
 			raise_message(40);
@@ -792,7 +792,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { // disassociate
 				print "<tr>
 					<td class='textArea'>
@@ -807,7 +807,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
 			raise_message(40);
@@ -870,7 +870,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { // disassociate
 				print "<tr>
 					<td class='textArea'>
@@ -885,7 +885,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
 			raise_message(40);
@@ -951,7 +951,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { // disassociate
 				print "<tr>
 					<td class='textArea'>
@@ -970,7 +970,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
 			raise_message(40);

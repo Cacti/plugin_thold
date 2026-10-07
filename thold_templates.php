@@ -327,7 +327,7 @@ function do_actions() {
 			</td>
 			</tr>\n";
 
-		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>";
+		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget cactiReturnTo' value='" . __esc('Cancel', 'thold') . "'>";
 
 		if (!empty($button)) {
 			$save_html .= "&nbsp;<input type='submit' class='ui-button ui-corner-all ui-widget' value='" . __esc('Continue', 'thold') . "' title='$button'>";

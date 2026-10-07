@@ -510,7 +510,7 @@ function do_actions() {
 			$returnTo = $config['url_path'] . 'plugins/thold/thold.php';
 		}
 
-		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo($returnTo)'>";
+		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget cactiReturnTo' value='" . __esc('Cancel', 'thold') . "' data-url='$returnTo'>";
 
 		if (!empty($button)) {
 			$save_html .= "&nbsp;<input type='submit' class='ui-button ui-corner-all ui-widget' value='" . __esc('Continue', 'thold') . "' title='$button'>";
