@@ -312,6 +312,14 @@
 	width: 100%;
 }
 
+/* Legend footer: keeps the legend centered beneath the list in normal
+   document flow, so it never overlays the final rows or action controls. */
+.tholdLegendFooter {
+	display: table;
+	width: 100%;
+	margin: 8px auto 0;
+}
+
 .tholdLegend .tholdLegendItem {
 	box-sizing: border-box;
 	width: 100%;
