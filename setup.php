@@ -51,6 +51,11 @@ function plugin_thold_install($upgrade = false) {
 		return false;
 	}
 
+	// The reinstall below registers the plugin's hooks/realms and provisions
+	// its schema against a live Cacti database (include_once database.php plus
+	// thold_setup_database()/thold_upgrade_database()), so it cannot run in the
+	// isolated unit process.
+	// @codeCoverageIgnoreStart
 	$plugin = 'thold';
 
 	// Insert CSS and JavaScript
@@ -118,7 +123,7 @@ function plugin_thold_install($upgrade = false) {
 	api_plugin_register_hook($plugin, 'api_device_new', 'thold_api_device_new', 'setup.php');
 
 	// Allow settings javascript hooks
-	api_plugin_register_hook('thold', 'settings_bottom', 'thold_settings_bottom', 'setup.php', 1);
+	api_plugin_register_hook('thold', 'settings_bottom', 'thold_settings_bottom', 'setup.php', true);
 
 	// Miscellaneous hooks
 	api_plugin_register_hook($plugin, 'graphs_new_top_links', 'thold_graphs_new', 'setup.php');
@@ -146,6 +151,7 @@ function plugin_thold_install($upgrade = false) {
 		thold_setup_database();
 		thold_snmpagent_cache_install();
 	}
+	// @codeCoverageIgnoreEnd
 }
 
 /**
