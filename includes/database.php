@@ -250,14 +250,14 @@ function thold_upgrade_database($force = false) {
 			AND hook = "poller_bottom"');
 
 		// Register the new hooks
-		api_plugin_register_hook('thold', 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'graph_buttons', 'thold_graph_button', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'data_source_action_array', 'thold_data_source_action_array', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'data_source_action_prepare', 'thold_data_source_action_prepare', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'data_source_action_execute', 'thold_data_source_action_execute', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'graphs_action_array', 'thold_graphs_action_array', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'graphs_action_prepare', 'thold_graphs_action_prepare', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'graphs_action_execute', 'thold_graphs_action_execute', 'setup.php', '1');
+		api_plugin_register_hook('thold', 'rrd_graph_graph_options', 'thold_rrd_graph_graph_options', 'setup.php', true);
+		api_plugin_register_hook('thold', 'graph_buttons', 'thold_graph_button', 'setup.php', true);
+		api_plugin_register_hook('thold', 'data_source_action_array', 'thold_data_source_action_array', 'setup.php', true);
+		api_plugin_register_hook('thold', 'data_source_action_prepare', 'thold_data_source_action_prepare', 'setup.php', true);
+		api_plugin_register_hook('thold', 'data_source_action_execute', 'thold_data_source_action_execute', 'setup.php', true);
+		api_plugin_register_hook('thold', 'graphs_action_array', 'thold_graphs_action_array', 'setup.php', true);
+		api_plugin_register_hook('thold', 'graphs_action_prepare', 'thold_graphs_action_prepare', 'setup.php', true);
+		api_plugin_register_hook('thold', 'graphs_action_execute', 'thold_graphs_action_execute', 'setup.php', true);
 
 		// Fix our realms
 		db_execute('UPDATE plugin_realms
@@ -275,8 +275,8 @@ function thold_upgrade_database($force = false) {
 		db_execute('DELETE FROM plugin_hooks WHERE name = "thold" AND hook = "config_insert"');
 		db_execute('DELETE FROM plugin_hooks WHERE name = "thold" AND hook = "config_arrays"');
 
-		api_plugin_register_hook('thold', 'config_insert', 'thold_config_insert', 'includes/settings.php', '1');
-		api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'includes/settings.php', '1');
+		api_plugin_register_hook('thold', 'config_insert', 'thold_config_insert', 'includes/settings.php', true);
+		api_plugin_register_hook('thold', 'config_arrays', 'thold_config_arrays', 'includes/settings.php', true);
 
 		api_plugin_enable_hooks('thold');
 
@@ -544,7 +544,7 @@ function thold_upgrade_database($force = false) {
 			db_execute('ALTER TABLE thold_template DROP COLUMN bl_enabled', false);
 		}
 
-		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php', '1');
+		api_plugin_register_hook('thold', 'config_form', 'thold_config_form', 'includes/settings.php', true);
 		api_plugin_register_realm('thold', 'notify_lists.php', 'Manage Notification Lists', 1);
 
 		// set unique hash values for all thold templates
@@ -781,10 +781,10 @@ function thold_upgrade_database($force = false) {
 		$data['comment'] = 'Table of Device Template Threshold Templates';
 		api_plugin_db_table_create('thold', 'plugin_thold_host_template', $data);
 
-		api_plugin_register_hook('thold', 'device_template_edit', 'thold_device_template_edit', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'device_template_top', 'thold_device_template_top', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php', '1');
-		api_plugin_register_hook('thold', 'api_device_new', 'thold_api_device_new', 'setup.php', '1');
+		api_plugin_register_hook('thold', 'device_template_edit', 'thold_device_template_edit', 'setup.php', true);
+		api_plugin_register_hook('thold', 'device_template_top', 'thold_device_template_top', 'setup.php', true);
+		api_plugin_register_hook('thold', 'device_edit_pre_bottom', 'thold_device_edit_pre_bottom', 'setup.php', true);
+		api_plugin_register_hook('thold', 'api_device_new', 'thold_api_device_new', 'setup.php', true);
 		api_plugin_register_hook('thold', 'page_head', 'thold_page_head', 'setup.php');
 
 		if (api_plugin_is_enabled('thold')) {
@@ -2107,8 +2107,8 @@ function thold_setup_database() {
 	$data['comment']   = 'Table of Notification Lists';
 	api_plugin_db_table_create('thold', 'plugin_notification_lists', $data);
 
-	api_plugin_register_hook('thold', 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php', '1');
-	api_plugin_register_hook('thold', 'device_top', 'thold_device_top', 'setup.php', '1');
+	api_plugin_register_hook('thold', 'host_edit_bottom', 'thold_host_edit_bottom', 'setup.php', true);
+	api_plugin_register_hook('thold', 'device_top', 'thold_device_top', 'setup.php', true);
 
 	api_plugin_db_add_column('thold', 'host', ['name' => 'thold_send_email', 'type' => 'int(10)', 'NULL' => false, 'default' => '1', 'after' => 'disabled']);
 	api_plugin_db_add_column('thold', 'host', ['name' => 'thold_host_email', 'type' => 'int(10)', 'NULL' => true, 'after' => 'thold_send_email']);
