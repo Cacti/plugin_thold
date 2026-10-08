@@ -2407,6 +2407,8 @@ function thold_get_state_filter($state) {
 			$statefilter = '(td.thold_per_enabled = "")';
 		} elseif (get_request_var('state') == '6') { // Disabled all together
 			$statefilter = '(td.thold_per_enabled = "" OR td.thold_enabled = "off")';
+		} elseif (get_request_var('state') >= 101 && get_request_var('state') <= 107) { // Severity (status pill) 101=Alert .. 107=Disabled
+			$statefilter = '(' . thold_severity_sql() . ' = ' . ((int) get_request_var('state') - 100) . ')';
 		}
 	}
 
@@ -3153,6 +3155,66 @@ function get_thold_severity(&$td) {
 	}
 
 	return $severity;
+}
+
+/**
+ * thold_severity_sql - returns a SQL expression (over the `thold_data td` alias) that computes a
+ * threshold's status as a legend-order rank, mirroring get_thold_severity(): 1=Alert,
+ * 2=Baseline Alert, 3=Warning, 4=Notice, 5=Ok, 6=Acknowledgment, 7=Disabled. Used to make the
+ * status-pill column sortable and to drive the severity options in the Status filter.
+ *
+ * @return string The CASE expression (parenthesised, no alias) for use in ORDER BY / WHERE.
+ */
+function thold_severity_sql() {
+	return <<<'SQL'
+(CASE
+	WHEN ((td.template_enabled = 'on' AND td.thold_enabled = 'off') OR td.thold_per_enabled = '') THEN 7
+	WHEN td.thold_type = 0 THEN (CASE
+		WHEN td.thold_alert != 0 THEN (CASE
+			WHEN (td.thold_hi != '' OR td.thold_low != '') THEN (CASE
+				WHEN td.thold_fail_count >= td.thold_fail_trigger THEN 1
+				WHEN (td.thold_hi != '' AND (td.lastread + 0.0) > (td.thold_hi + 0.0) AND td.thold_fail_trigger = 0) THEN 1
+				WHEN (td.thold_low != '' AND (td.lastread + 0.0) < (td.thold_low + 0.0) AND td.thold_fail_trigger = 0) THEN 1
+				WHEN (td.thold_warning_hi != '' OR td.thold_warning_low != '') THEN (CASE
+					WHEN td.thold_warning_fail_count >= td.thold_warning_fail_trigger THEN 3
+					WHEN (td.thold_warning_hi != '' AND (td.lastread + 0.0) > (td.thold_warning_hi + 0.0) AND td.thold_warning_fail_trigger = 0) THEN 3
+					WHEN (td.thold_warning_low != '' AND (td.lastread + 0.0) < (td.thold_warning_low + 0.0) AND td.thold_warning_fail_trigger = 0) THEN 3
+					ELSE 4 END)
+				ELSE 4 END)
+			WHEN (td.thold_warning_hi != '' OR td.thold_warning_low != '') THEN (CASE
+				WHEN td.thold_warning_fail_count >= td.thold_warning_fail_trigger THEN 3
+				WHEN (td.thold_warning_hi != '' AND (td.lastread + 0.0) > (td.thold_warning_hi + 0.0) AND td.thold_warning_fail_trigger = 0) THEN 3
+				WHEN (td.thold_warning_low != '' AND (td.lastread + 0.0) < (td.thold_warning_low + 0.0) AND td.thold_warning_fail_trigger = 0) THEN 3
+				ELSE 4 END)
+			ELSE 5 END)
+		WHEN td.acknowledgment = 'on' THEN 6
+		ELSE 5 END)
+	WHEN td.thold_type = 1 THEN (CASE
+		WHEN td.bl_alert IN (1, 2) THEN (CASE WHEN td.bl_fail_count >= td.bl_fail_trigger THEN 2 ELSE 4 END)
+		WHEN td.acknowledgment = 'on' THEN 6
+		ELSE 5 END)
+	WHEN td.thold_type = 2 THEN (CASE
+		WHEN td.thold_alert != 0 THEN (CASE
+			WHEN (td.time_hi != '' OR td.time_low != '') THEN (CASE
+				WHEN td.thold_fail_count >= td.time_fail_trigger THEN 1
+				WHEN (td.time_hi != '' AND (td.lastread + 0.0) > (td.time_hi + 0.0) AND td.time_fail_trigger = 0) THEN 1
+				WHEN (td.time_low != '' AND (td.lastread + 0.0) < (td.time_low + 0.0) AND td.time_fail_trigger = 0) THEN 1
+				WHEN (td.time_warning_hi != '' OR td.time_warning_low NOT IN ('', '0')) THEN (CASE
+					WHEN td.thold_warning_fail_count >= td.time_warning_fail_trigger THEN 3
+					WHEN (td.time_warning_hi != '' AND (td.lastread + 0.0) > (td.time_warning_hi + 0.0) AND td.time_warning_fail_trigger = 0) THEN 3
+					WHEN (td.time_warning_low != '' AND (td.lastread + 0.0) < (td.time_warning_low + 0.0) AND td.time_warning_fail_trigger = 0) THEN 3
+					ELSE 4 END)
+				ELSE 4 END)
+			WHEN (td.time_warning_hi != '' OR td.time_warning_low NOT IN ('', '0')) THEN (CASE
+				WHEN td.thold_warning_fail_count >= td.time_warning_fail_trigger THEN 3
+				WHEN (td.time_warning_hi != '' AND (td.lastread + 0.0) > (td.time_warning_hi + 0.0) AND td.time_warning_fail_trigger = 0) THEN 3
+				WHEN (td.time_warning_low != '' AND (td.lastread + 0.0) < (td.time_warning_low + 0.0) AND td.time_warning_fail_trigger = 0) THEN 3
+				ELSE 4 END)
+			ELSE 5 END)
+		WHEN td.acknowledgment = 'on' THEN 6
+		ELSE 5 END)
+	ELSE 5 END)
+SQL;
 }
 
 /**

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-07 15:19-0400\n"
+"POT-Creation-Date: 2026-10-08 14:32-0400\n"
 "PO-Revision-Date: 2024-04-20 14:49-0400\n"
 "Last-Translator: \n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -120,7 +120,7 @@ msgstr "مراقبة"
 msgid "Notify - Alert"
 msgstr "إخطار - تنبيه"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Alert"
 msgstr "إشعار"
 
@@ -136,7 +136,7 @@ msgstr "تنبيه2تحذير"
 msgid "Notify - Warning"
 msgstr "إخطار - تحذير"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Warning"
 msgstr "تحذير"
 
@@ -204,19 +204,19 @@ msgstr "تحذير الزناد"
 msgid "Alert-Warn"
 msgstr "تنبيه-تحذير"
 
-#: includes/arrays.php thold_graph.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
 msgstr "الشكر والتقدير"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Baseline Alert"
 msgstr "تنبيه خط الأساس"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Notice"
 msgstr "تنبيه"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
 msgstr "أوك"
 
@@ -2502,6 +2502,16 @@ msgstr "معطل عند العتبة"
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "مطلوب"
+
+#: thold.php thold_graph.php
+#, fuzzy
+#| msgid "Status"
+msgid "By Status"
+msgstr "الحالة"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr ""
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"

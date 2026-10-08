@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-07 15:19-0400\n"
+"POT-Creation-Date: 2026-10-08 14:32-0400\n"
 "PO-Revision-Date: 2024-11-22 02:12+0000\n"
 "Last-Translator: Nakayama Kito <nakayamakito@icloud.com>\n"
 "Language-Team: Japanese <http://translate.cacti.net/projects/cacti/thold/ja/>\n"
@@ -120,7 +120,7 @@ msgstr "監視されていない"
 msgid "Notify - Alert"
 msgstr "通知 - アラート"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Alert"
 msgstr "アラート"
 
@@ -136,7 +136,7 @@ msgstr "アラート警告"
 msgid "Notify - Warning"
 msgstr "通知 - 警告"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Warning"
 msgstr "警告"
 
@@ -204,19 +204,19 @@ msgstr "トリガーを警告する"
 msgid "Alert-Warn"
 msgstr "アラート警告"
 
-#: includes/arrays.php thold_graph.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
 msgstr "確認"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Baseline Alert"
 msgstr "ベースラインアラート"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Notice"
 msgstr "通知"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
 msgstr "OK"
 
@@ -2489,6 +2489,16 @@ msgstr "しきい値を無効にする"
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "確認が必要"
+
+#: thold.php thold_graph.php
+#, fuzzy
+#| msgid "Status"
+msgid "By Status"
+msgstr "状態"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr ""
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"

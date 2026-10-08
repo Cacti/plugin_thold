@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-07 15:19-0400\n"
+"POT-Creation-Date: 2026-10-08 14:32-0400\n"
 "PO-Revision-Date: 2021-01-18 18:17+0000\n"
 "Last-Translator: Luís Silva <luis.m.ribeiro.silva@tecnico.ulisboa.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.cacti.net/projects/cacti/thold/pt_PT/>\n"
@@ -120,7 +120,7 @@ msgstr "Não Monitorado"
 msgid "Notify - Alert"
 msgstr "Notificar - Alerta"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Alert"
 msgstr "Alerta"
 
@@ -136,7 +136,7 @@ msgstr "Alerta-aviso"
 msgid "Notify - Warning"
 msgstr "Notificar - Aviso"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Warning"
 msgstr "Aviso"
 
@@ -204,19 +204,19 @@ msgstr "Aviso de disparo"
 msgid "Alert-Warn"
 msgstr "Alerta-aviso"
 
-#: includes/arrays.php thold_graph.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
 msgstr "Reconhecimento"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Baseline Alert"
 msgstr "Alerta de linha de base"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Notice"
 msgstr "Aviso"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
 msgstr "OK"
 
@@ -2489,6 +2489,16 @@ msgstr "Desativar Limiar"
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "Ack Necessário"
+
+#: thold.php thold_graph.php
+#, fuzzy
+#| msgid "Status"
+msgid "By Status"
+msgstr "Estado"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr ""
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"

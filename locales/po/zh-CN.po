@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: thold on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-07 15:19-0400\n"
+"POT-Creation-Date: 2026-10-08 14:32-0400\n"
 "PO-Revision-Date: 2024-06-23 01:36+0000\n"
 "Last-Translator: tql <fttx31@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/thold/zh_Hans/>\n"
@@ -120,7 +120,7 @@ msgstr "未监控"
 msgid "Notify - Alert"
 msgstr "通知 - 警报"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Alert"
 msgstr "警报"
 
@@ -136,7 +136,7 @@ msgstr "警报－警告"
 msgid "Notify - Warning"
 msgstr "通知 - 警告"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Warning"
 msgstr "警告"
 
@@ -204,19 +204,19 @@ msgstr "警告触发器"
 msgid "Alert-Warn"
 msgstr "警报－警告"
 
-#: includes/arrays.php thold_graph.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
 msgstr "确认"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Baseline Alert"
 msgstr "基准警报"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Notice"
 msgstr "注意"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
 msgstr "好"
 
@@ -2487,6 +2487,16 @@ msgstr "禁用阈值"
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "需要确认"
+
+#: thold.php thold_graph.php
+#, fuzzy
+#| msgid "Status"
+msgid "By Status"
+msgstr "状态"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr ""
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"

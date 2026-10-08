@@ -2,6 +2,7 @@
 
 --- develop ---
 * bug: Pass a boolean (not the integer `1`) to `api_plugin_register_hook()`'s `$enable` argument so the hook registration stays type-correct under Cacti 1.3's strict `bool $enable` type-hint (the int only coerces while this file lacks `declare(strict_types=1)`)
+* feature: Show each threshold's status as a sortable, clickable pill in a new Status column (right of Name) on the Thresholds and Device Status pages instead of colouring the whole row; rows now zebra-stripe, clicking a pill filters the list to that status, and the Status filter gains per-severity options
 * security: Replace the confirmation pages' inline `onClick='cactiReturnTo()'` Cancel buttons with the CSP-safe `cactiReturnTo` class so they no longer trip Cacti's Content-Security-Policy `script-src-attr` directive
 * security: Move the filter controls' inline `onChange`/`onClick` handlers into jQuery `ready()` event bindings on the threshold, notification list, notification queue, template and device/log status pages so they no longer trip Cacti's Content-Security-Policy `script-src-attr` directive
 * dev: Remove the inert COMPOSER_ROOT_VERSION env from the Pest CI step

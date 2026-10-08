@@ -366,3 +366,13 @@
 .tholdLegend .deviceNotMonFull {
 	background-color: #5f5f57;
 }
+
+.thold-pill.tholdAlert,
+.thold-pill.tholdBaseAlert,
+.thold-pill.tholdWarning,
+.thold-pill.tholdAcknowledgment,
+.thold-pill.tholdNotice,
+.thold-pill.tholdOk,
+.thold-pill.tholdDisabled {
+	color: #202020;
+}
