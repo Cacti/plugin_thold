@@ -51,6 +51,11 @@ function plugin_thold_install($upgrade = false) {
 		return false;
 	}
 
+	// The reinstall below registers the plugin's hooks/realms and provisions
+	// its schema against a live Cacti database (include_once database.php plus
+	// thold_setup_database()/thold_upgrade_database()), so it cannot run in the
+	// isolated unit process.
+	// @codeCoverageIgnoreStart
 	$plugin = 'thold';
 
 	// Insert CSS and JavaScript
@@ -146,6 +151,7 @@ function plugin_thold_install($upgrade = false) {
 		thold_setup_database();
 		thold_snmpagent_cache_install();
 	}
+	// @codeCoverageIgnoreEnd
 }
 
 /**
