@@ -880,51 +880,55 @@ function tholds() {
 }
 
 /**
- * Prints the opening `<tr>` tag for a device-status-list row, using a
+ * Builds a clickable status "pill" for a device-status-list row, using a
  * CSS class derived from the host's disabled flag, current status, and
  * (when a per-host failure-count override is set) whether its
- * consecutive down-event count has reached that threshold.
+ * consecutive down-event count has reached that threshold. The pill's
+ * data-state maps to the Device Status filter so clicking it filters the
+ * list to that status.
  *
- * @param array &$host The host record to determine the row color/class
- *                     for.
+ * @param array &$host The host record to build the status pill for.
  *
- * @return string The CSS class name used for the row.
+ * @return string The status pill markup.
  *
  * @global array $thold_host_states Map of status/state key => display
- *                                 info (including 'class') used to
- *                                 determine the row's CSS class.
+ *                                 info (including 'class') used to pick
+ *                                 the pill's colour class.
  */
-function form_host_status_row_color(&$host) {
+function thold_device_status_pill(&$host) {
 	global $thold_host_states;
 
-	$disabled = $host['disabled'];
-	$status   = $host['status'];
-	$id       = $host['id'];
+	$status = $host['status'];
 
-	// Determine the color to use
-	if ($disabled) {
-		$class = $thold_host_states['disabled']['class'];
+	if ($host['disabled']) {
+		$key = 'disabled';
+	} elseif ($host['thold_failure_count'] > 0 && $status != HOST_RECOVERING && $host['status_event_count'] >= $host['thold_failure_count']) {
+		$key = HOST_DOWN;
+	} elseif (isset($thold_host_states[$status])) {
+		$key = $status;
 	} else {
-		if ($host['thold_failure_count'] > 0 && $host['status'] != HOST_RECOVERING) {
-			if ($host['status_event_count'] >= $host['thold_failure_count']) {
-				$class = $thold_host_states['1']['class'];
-			} else {
-				$class = $thold_host_states[$status]['class'];
-			}
-		} else {
-			$class = $thold_host_states[$status]['class'];
-		}
+		$key = HOST_UNKNOWN;
 	}
 
-	print "<tr class='tableRow selectable $class' id='line" . $id . "'>";
+	// Each state maps to its matching Device Status filter (host_status) value.
+	$state_map = [
+		HOST_DOWN       => '1',
+		HOST_RECOVERING => '2',
+		HOST_UP         => '3',
+		HOST_UNKNOWN    => '0',
+		HOST_ERROR      => '-4',
+		'disabled'      => '-2'
+	];
 
-	return $class;
+	$state = isset($state_map[$key]) ? $state_map[$key] : '-1';
+
+	return "<span class='thold-pill " . $thold_host_states[$key]['class'] . "' data-state='" . $state . "' tabindex='0' role='button'>" . html_escape(get_uncolored_device_status($host)) . '</span>';
 }
 
 /**
  * Determines a human-readable status label for a host (Disabled, Down,
  * Recovering, Up, Error, or Unknown), applying the same per-host
- * failure-count override logic as form_host_status_row_color() but
+ * failure-count override logic as thold_device_status_pill() but
  * without any HTML/color output.
  *
  * @param array &$host The host record to determine the status label
@@ -1195,7 +1199,7 @@ function hosts() {
 			}
 
 			if ($host['availability_method'] != 0) {
-				form_host_status_row_color($host);
+				print "<tr class='tableRow selectable' id='line" . $host['id'] . "'>";
 
 				$actions_url = '';
 
@@ -1212,7 +1216,7 @@ function hosts() {
 				form_selectable_cell(number_format_i18n($host['graphs'], -1), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($host['data_sources'], -1), $host['id'], '', 'right');
 
-				form_selectable_cell(get_uncolored_device_status($host), $host['id'], '', 'center');
+				form_selectable_cell(thold_device_status_pill($host), $host['id'], '', 'center');
 
 				form_selectable_cell(get_timeinstate($host), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
@@ -1221,7 +1225,7 @@ function hosts() {
 				form_selectable_cell(number_format_i18n(($host['avg_time']), 2), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($host['availability'], 2), $host['id'], '', 'right');
 			} else {
-				print "<tr class='selectable deviceNotMonFull' id='line" . $host['id'] . "'>";
+				print "<tr class='tableRow selectable' id='line" . $host['id'] . "'>";
 
 				$actions_url = '';
 
@@ -1238,7 +1242,7 @@ function hosts() {
 				form_selectable_cell(number_format_i18n($host['graphs'], -1), $host['id'], '', 'right');
 				form_selectable_cell(number_format_i18n($host['data_sources'], -1), $host['id'], '', 'right');
 
-				form_selectable_cell(__('Not Monitored', 'thold'), $host['id'], '', 'center');
+				form_selectable_cell("<span class='thold-pill deviceNotMonFull' data-state='-5' tabindex='0' role='button'>" . __esc('Not Monitored', 'thold') . '</span>', $host['id'], '', 'center');
 
 				form_selectable_cell(__('N/A', 'thold'), $host['id'], '', 'right');
 				form_selectable_cell($uptime, $host['id'], '', 'right');
@@ -1417,6 +1421,16 @@ function form_host_filter() {
 			});
 
 			$('#site_id, #host_status, #host_template_id, #rows').change(function() {
+				applyFilter();
+			});
+
+			$('.thold-pill').on('click keydown', function(e) {
+				if (e.type === 'keydown' && e.which !== 13 && e.which !== 32) {
+					return;
+				}
+
+				e.preventDefault();
+				$('#host_status').val($(this).attr('data-state'));
 				applyFilter();
 			});
 
@@ -1677,7 +1691,7 @@ function thold_show_log() {
 
 	$logs = get_allowed_threshold_logs($sql_where, $sql_order, $sql_limit, $total_rows);
 
-	$nav = html_nav_bar('thold_graph.php?action=log', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 8, __('Log Entries', 'thold'), 'page', 'main');
+	$nav = html_nav_bar('thold_graph.php?action=log', MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 9, __('Log Entries', 'thold'), 'page', 'main');
 
 	print $nav;
 
@@ -1697,6 +1711,11 @@ function thold_show_log() {
 		'type' => [
 			'display' => __('Type', 'thold'),
 			'sort'    => 'DESC',
+			'align'   => 'left'
+		],
+		'status' => [
+			'display' => __('Status', 'thold'),
+			'sort'    => '',
 			'align'   => 'left'
 		],
 		'description' => [
@@ -1748,18 +1767,19 @@ function thold_show_log() {
 				$baseu = 1024;
 			}
 
-			print "<tr class='tableRow selectable " . $thold_log_states[$l['status']]['class'] . "' id='line" . $l['id'] . "'>";
+			print "<tr class='tableRow selectable' id='line" . $l['id'] . "'>";
 
 			form_selectable_cell($l['hdescription'], $l['id'], '', 'left');
 			form_selectable_cell(date('Y-m-d H:i:s', $l['time']), $l['id'], '', 'left');
 			form_selectable_cell($thold_types[$l['type']], $l['id'], '', 'left');
+			form_selectable_cell("<span class='thold-pill " . $thold_log_states[$l['status']]['class'] . "' data-state='" . $l['status'] . "' tabindex='0' role='button'>" . html_escape($thold_log_states[$l['status']]['display_short']) . '</span>', $l['id'], '', 'left');
 			form_selectable_cell((strlen($l['description']) ? filter_value($l['description'], get_request_var('rfilter')) : __('Restoral Event', 'thold')), $l['id'], '', 'left tholdLog');
 			form_selectable_cell($l['threshold_value'] != '' ? thold_format_number($l['threshold_value'], $decimals, $baseu, $suffix, $show_units, $units_suffix) : __('N/A', 'thold'), $l['id'], '', 'right');
 			form_selectable_cell($l['current'] != '' ? thold_format_number($l['current'], $decimals, $baseu, $suffix, $show_units, $units_suffix) : __('N/A', 'thold'), $l['id'], '', 'right');
 			form_end_row();
 		}
 	} else {
-		print '<tr class="tableRow"><td class="center" colspan="8">' . __('No Threshold Logs Found', 'thold') . '</td></tr>';
+		print '<tr class="tableRow"><td class="center" colspan="9">' . __('No Threshold Logs Found', 'thold') . '</td></tr>';
 	}
 
 	html_end_box(false);
@@ -1965,6 +1985,16 @@ function form_thold_log_filter() {
 			});
 
 			$('#site_id, #thold_template_id, #threshold_id, #status, #rows').change(function() {
+				applyFilter();
+			});
+
+			$('.thold-pill').on('click keydown', function(e) {
+				if (e.type === 'keydown' && e.which !== 13 && e.which !== 32) {
+					return;
+				}
+
+				e.preventDefault();
+				$('#status').val($(this).attr('data-state'));
 				applyFilter();
 			});
 
