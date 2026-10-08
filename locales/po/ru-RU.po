@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-07 15:19-0400\n"
+"POT-Creation-Date: 2026-10-08 14:32-0400\n"
 "PO-Revision-Date: 2024-12-06 19:24+0000\n"
 "Last-Translator: Anton Zhuravlev <baka109g@gmail.com>\n"
 "Language-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\n"
@@ -120,7 +120,7 @@ msgstr "контролируемый"
 msgid "Notify - Alert"
 msgstr "Уведомить - Предупредить - Предупредить"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Alert"
 msgstr "Оповещение"
 
@@ -136,7 +136,7 @@ msgstr "Внимание, Внимание!"
 msgid "Notify - Warning"
 msgstr "Уведомить - Предупреждение"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Warning"
 msgstr "Предупреждение"
 
@@ -204,19 +204,19 @@ msgstr "Предупреждение Триггер"
 msgid "Alert-Warn"
 msgstr "Внимание, Внимание!"
 
-#: includes/arrays.php thold_graph.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
 msgstr "Подтверждение"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Baseline Alert"
 msgstr "Базовая тревога"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Notice"
 msgstr "Уведомление"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
 msgstr "Ок"
 
@@ -2491,6 +2491,16 @@ msgstr "Отключить пороговый уровень"
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "Требуется подтверждение"
+
+#: thold.php thold_graph.php
+#, fuzzy
+#| msgid "Status"
+msgid "By Status"
+msgstr "Статус"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr ""
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
