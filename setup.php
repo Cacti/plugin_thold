@@ -1608,6 +1608,8 @@ function thold_page_head() {
 		print get_md5_include_css('plugins/thold/css/' . get_selected_theme() . '.css');
 	}
 
+	print get_md5_include_css('plugins/thold/css/pills.css');
+
 	?>
 	<script type='text/javascript' <?php print plugin_thold_csp_nonce(); ?>>
 	$(function() {
