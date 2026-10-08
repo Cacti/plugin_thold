@@ -1815,8 +1815,8 @@ function thold_upgrade_database($force = false) {
 
 	db_execute('ALTER TABLE thold_data MODIFY COLUMN name varchar(255) NOT NULL default ""');
 
-	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', 1);
-	api_plugin_register_hook('thold', 'settings_bottom', 'thold_settings_bottom', 'setup.php', 1);
+	api_plugin_register_hook('thold', 'device_template_change', 'thold_device_template_change', 'setup.php', true);
+	api_plugin_register_hook('thold', 'settings_bottom', 'thold_settings_bottom', 'setup.php', true);
 
 	api_plugin_register_realm('thold', 'notify_lists.php,notify_queue.php', 'Manage Notification Lists', 1);
 
