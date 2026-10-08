@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-07 15:19-0400\n"
+"POT-Creation-Date: 2026-10-08 14:32-0400\n"
 "PO-Revision-Date: 2026-08-04 05:18+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/thold/ka/>\n"
@@ -120,7 +120,7 @@ msgstr "მონიტორინგის გარეშე"
 msgid "Notify - Alert"
 msgstr "შეტყობინება - განგაში"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Alert"
 msgstr "განგაში"
 
@@ -136,7 +136,7 @@ msgstr "ყურადღება"
 msgid "Notify - Warning"
 msgstr "ცნობა - გაფრთხილება"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Warning"
 msgstr "გაფრთხილება"
 
@@ -204,19 +204,19 @@ msgstr "გაფრთხილების ტრიგერი"
 msgid "Alert-Warn"
 msgstr "განგაში-გაფრთხ"
 
-#: includes/arrays.php thold_graph.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
 msgstr "დადასტურება"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Baseline Alert"
 msgstr "საბაზისო ხაზის განგაში"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Notice"
 msgstr "ცნობა"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
 msgstr "დიახ"
 
@@ -2477,6 +2477,16 @@ msgstr "გამორთულია ზღვართან"
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "დადასტურება აუცილებელია"
+
+#: thold.php thold_graph.php
+#, fuzzy
+#| msgid "Status"
+msgid "By Status"
+msgstr "სტატუსი"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr ""
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
