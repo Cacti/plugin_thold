@@ -3199,13 +3199,13 @@ function thold_severity_sql() {
 				WHEN td.thold_fail_count >= td.time_fail_trigger THEN 1
 				WHEN (td.time_hi != '' AND (td.lastread + 0.0) > (td.time_hi + 0.0) AND td.time_fail_trigger = 0) THEN 1
 				WHEN (td.time_low != '' AND (td.lastread + 0.0) < (td.time_low + 0.0) AND td.time_fail_trigger = 0) THEN 1
-				WHEN (td.time_warning_hi != '' OR td.time_warning_low != '') THEN (CASE
+				WHEN (td.time_warning_hi != '' OR td.time_warning_low NOT IN ('', '0')) THEN (CASE
 					WHEN td.thold_warning_fail_count >= td.time_warning_fail_trigger THEN 3
 					WHEN (td.time_warning_hi != '' AND (td.lastread + 0.0) > (td.time_warning_hi + 0.0) AND td.time_warning_fail_trigger = 0) THEN 3
 					WHEN (td.time_warning_low != '' AND (td.lastread + 0.0) < (td.time_warning_low + 0.0) AND td.time_warning_fail_trigger = 0) THEN 3
 					ELSE 4 END)
 				ELSE 4 END)
-			WHEN (td.time_warning_hi != '' OR td.time_warning_low != '') THEN (CASE
+			WHEN (td.time_warning_hi != '' OR td.time_warning_low NOT IN ('', '0')) THEN (CASE
 				WHEN td.thold_warning_fail_count >= td.time_warning_fail_trigger THEN 3
 				WHEN (td.time_warning_hi != '' AND (td.lastread + 0.0) > (td.time_warning_hi + 0.0) AND td.time_warning_fail_trigger = 0) THEN 3
 				WHEN (td.time_warning_low != '' AND (td.lastread + 0.0) < (td.time_warning_low + 0.0) AND td.time_warning_fail_trigger = 0) THEN 3

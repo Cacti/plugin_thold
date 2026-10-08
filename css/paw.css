@@ -392,10 +392,7 @@
 .thold-pill.tholdAlert,
 .thold-pill.tholdBaseAlert,
 .thold-pill.tholdWarning,
-.thold-pill.tholdAcknowledgment {
-	color: #ffffff;
-}
-
+.thold-pill.tholdAcknowledgment,
 .thold-pill.tholdNotice,
 .thold-pill.tholdOk,
 .thold-pill.tholdDisabled {

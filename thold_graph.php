@@ -299,7 +299,12 @@ function form_thold_filter() {
 				applyFilter();
 			});
 
-			$('.thold-pill').click(function() {
+			$('.thold-pill').on('click keydown', function(e) {
+				if (e.type === 'keydown' && e.which !== 13 && e.which !== 32) {
+					return;
+				}
+
+				e.preventDefault();
 				$('#state').val($(this).attr('data-state'));
 				applyFilter();
 			});
@@ -775,7 +780,7 @@ function tholds() {
 
 			form_selectable_cell($thold_data['name_cache'] != '' ? filter_value($thold_data['name_cache'], get_request_var('rfilter')) : __('No name set', 'thold'), $thold_data['id'], '', 'left');
 
-			form_selectable_cell("<span class='thold-pill " . $thold_states[$bgcolor]['class'] . "' data-state='" . ['red' => 101, 'orange' => 102, 'warning' => 103, 'yellow' => 104, 'green' => 105, 'purple' => 106, 'grey' => 107][$bgcolor] . "'>" . html_escape($thold_states[$bgcolor]['display']) . '</span>', $thold_data['id'], '', 'left');
+			form_selectable_cell("<span class='thold-pill " . $thold_states[$bgcolor]['class'] . "' data-state='" . ['red' => 101, 'orange' => 102, 'warning' => 103, 'yellow' => 104, 'green' => 105, 'purple' => 106, 'grey' => 107][$bgcolor] . "' tabindex='0' role='button'>" . html_escape($thold_states[$bgcolor]['display']) . '</span>', $thold_data['id'], '', 'left');
 			form_selectable_cell($thold_data['external_id'], $thold_data['id'], '', 'left');
 
 			if ((($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'on') || $thold_data['template_enabled'] != 'on') && $thold_data['thold_per_enabled'] == 'on') {
