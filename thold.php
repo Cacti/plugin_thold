@@ -510,7 +510,7 @@ function do_actions() {
 			$returnTo = $config['url_path'] . 'plugins/thold/thold.php';
 		}
 
-		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo($returnTo)'>";
+		$save_html = "<input type='button' class='ui-button ui-corner-all ui-widget cactiReturnTo' value='" . __esc('Cancel', 'thold') . "' data-url='$returnTo'>";
 
 		if (!empty($button)) {
 			$save_html .= "&nbsp;<input type='submit' class='ui-button ui-corner-all ui-widget' value='" . __esc('Continue', 'thold') . "' title='$button'>";
@@ -729,7 +729,7 @@ function list_tholds() {
 						<?php print __('Site', 'thold'); ?>
 					</td>
 					<td>
-						<select id='site_id' onChange='applyFilter()'>
+						<select id='site_id'>
 							<option value='-1'<?php if (get_request_var('site_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('site_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -754,7 +754,7 @@ function list_tholds() {
 						<input type='submit' id='refresh' value='<?php print __esc('Go', 'thold'); ?>' title='<?php print __esc('Apply Filters', 'thold'); ?>'>
 					</td>
 					<td>
-						<input type='button' id='clear' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Return to Defaults', 'thold'); ?>' onClick='clearFilter()'>
+						<input type='button' id='clear' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Return to Defaults', 'thold'); ?>'>
 					</td>
 				</tr>
 			</table>
@@ -764,7 +764,7 @@ function list_tholds() {
 						<?php print __('Template', 'thold'); ?>
 					</td>
 					<td>
-						<select id='thold_template_id' onChange='applyFilter()'>
+						<select id='thold_template_id'>
 							<option value='-1'<?php if (get_request_var('thold_template_id') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='-2'<?php if (get_request_var('thold_template_id') == '-2') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -778,7 +778,7 @@ function list_tholds() {
 						<?php print __('Data Template', 'thold'); ?>
 					</td>
 					<td>
-						<select id='data_template_id' onChange='applyFilter()'>
+						<select id='data_template_id'>
 							<option value='-1'><?php print __('Any', 'thold'); ?></option>
 							<?php
 	foreach ($data_templates as $row) {
@@ -791,7 +791,7 @@ function list_tholds() {
 						<?php print __('Status', 'thold'); ?>
 					</td>
 					<td>
-						<select id='state' onChange='applyFilter()'>
+						<select id='state'>
 							<option value='-1'<?php if (get_request_var('state') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('state') == '0') {?> selected<?php }?>><?php print __('Breached or Triggered', 'thold'); ?></option>
 							<option value='1'<?php if (get_request_var('state') == '1') {?> selected<?php }?>><?php print __('Breached', 'thold'); ?></option>
@@ -807,7 +807,7 @@ function list_tholds() {
 						<?php print __('Thresholds', 'thold'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -849,6 +849,14 @@ function list_tholds() {
 			$('#thold').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
+			});
+
+			$('#site_id, #thold_template_id, #data_template_id, #state, #rows').change(function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
 			});
 		});
 

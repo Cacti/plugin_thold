@@ -1,6 +1,8 @@
 ## ChangeLog
 
 --- develop ---
+* security: Replace the confirmation pages' inline `onClick='cactiReturnTo()'` Cancel buttons with the CSP-safe `cactiReturnTo` class so they no longer trip Cacti's Content-Security-Policy `script-src-attr` directive
+* security: Move the filter controls' inline `onChange`/`onClick` handlers into jQuery `ready()` event bindings on the threshold, notification list, notification queue, template and device/log status pages so they no longer trip Cacti's Content-Security-Policy `script-src-attr` directive
 * dev: Remove the inert COMPOSER_ROOT_VERSION env from the Pest CI step
 * feature: Restyle the Thold, Host status and Log status legends as rounded, evenly-spaced solid-colour chips for a clearer, more readable status key across every theme
 * dev: Keep the status-legend chips equal width (sized to the longest label) as the legend wraps responsively

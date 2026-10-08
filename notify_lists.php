@@ -718,7 +718,7 @@ function form_actions() {
 					</td>
 				</tr>";
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Delete Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Delete Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { // duplicate
 				print "<tr>
 					<td class='textArea'>
@@ -730,7 +730,7 @@ function form_actions() {
 				print '</p></td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Duplicate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Duplicate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
 			raise_message(40);
@@ -792,7 +792,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { // disassociate
 				print "<tr>
 					<td class='textArea'>
@@ -807,7 +807,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
 			raise_message(40);
@@ -870,7 +870,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { // disassociate
 				print "<tr>
 					<td class='textArea'>
@@ -885,7 +885,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
 			raise_message(40);
@@ -951,7 +951,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __esc('Continue', 'thold') . "' title='" . __esc('Associate Notification List(s)', 'thold') . "'>";
 			} elseif (get_request_var('drp_action') == '2') { // disassociate
 				print "<tr>
 					<td class='textArea'>
@@ -970,7 +970,7 @@ function form_actions() {
 					</td>
 				</tr>';
 
-				$save_html = "<input type='button' value='" . __esc('Cancel', 'thold') . "' onClick='cactiReturnTo()'>&nbsp;<input type='submit' value='" . __('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
+				$save_html = "<input class='cactiReturnTo' type='button' value='" . __esc('Cancel', 'thold') . "'>&nbsp;<input type='submit' value='" . __('Continue', 'thold') . "' title='" . __esc('Disassociate Notification List(s)', 'thold') . "'>";
 			}
 		} else {
 			raise_message(40);
@@ -1258,7 +1258,7 @@ function hosts($header_label) {
 						<?php print __('Search', 'thold'); ?>
 					</td>
 					<td>
-						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter'); ?>' onChange='applyFilter()'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Site'); ?>
@@ -1282,7 +1282,7 @@ function hosts($header_label) {
 						<?php print __('Device Template', 'thold'); ?>
 					</td>
 					<td>
-						<select id='host_template_id' onChange='applyFilter()'>
+						<select id='host_template_id'>
 							<option value='-1'<?php if (get_request_var('host_template_id') == '-1') {?> selected<?php }?>><?php print __('Any', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('host_template_id') == '0') {?> selected<?php }?>><?php print __('None', 'thold'); ?></option>
 							<?php
@@ -1302,7 +1302,7 @@ function hosts($header_label) {
 						<?php print __('Devices', 'thold'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -1315,14 +1315,14 @@ function hosts($header_label) {
 					</td>
 					<td>
 						<span>
-							<input type='checkbox' id='associated' onChange='applyFilter()' <?php print(get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked' : ''); ?>>
+							<input type='checkbox' id='associated' <?php print(get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked' : ''); ?>>
 							<label for='associated'><?php print __('Associated', 'thold'); ?></label>
 						</span>
 					</td>
 					<td>
 						<span>
 							<input type='submit' value='<?php print __esc('Go', 'thold'); ?>' title='<?php print __esc('Set/Refresh Filters', 'thold'); ?>'>
-							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold'); ?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
+							<input type='button' id='clear' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -1353,6 +1353,14 @@ function hosts($header_label) {
 
 			$('#site_id').off('change').on('change', function() {
 				applyFilter();
+			});
+
+			$('#rfilter, #host_template_id, #rows, #associated').off('change').on('change', function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
 			});
 		});
 
@@ -1636,7 +1644,7 @@ function tholds($header_label) {
 						<?php print __('Search', 'thold'); ?>
 					</td>
 					<td>
-						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter'); ?>' onChange='applyFilter()'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Site'); ?>
@@ -1660,7 +1668,7 @@ function tholds($header_label) {
 						<?php print __('Template', 'thold'); ?>
 					</td>
 					<td>
-						<select id='template' onChange='applyFilter()'>
+						<select id='template'>
 							<option value='-1'><?php print __('Any', 'thold'); ?></option>
 							<?php
 	foreach ($data_templates as $row) {
@@ -1673,7 +1681,7 @@ function tholds($header_label) {
 						<?php print __('State', 'thold'); ?>
 					</td>
 					<td>
-						<select id='state' onChange='applyFilter()'>
+						<select id='state'>
 							<option value='-1'<?php if (get_request_var('state') == '-1') {?> selected<?php }?>><?php print __('All', 'thold'); ?></option>
 							<option value='1'<?php if (get_request_var('state') == '1') {?> selected<?php }?>><?php print __('Breached', 'thold'); ?></option>
 							<option value='3'<?php if (get_request_var('state') == '3') {?> selected<?php }?>><?php print __('Triggered', 'thold'); ?></option>
@@ -1685,7 +1693,7 @@ function tholds($header_label) {
 						<?php print __('Thresholds', 'thold'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 	if (cacti_sizeof($item_rows)) {
@@ -1698,14 +1706,14 @@ function tholds($header_label) {
 					</td>
 					<td>
 						<span>
-							<input type='checkbox' id='associated' onChange='applyFilter()' <?php print(get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked' : ''); ?>>
+							<input type='checkbox' id='associated' <?php print(get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked' : ''); ?>>
 							<label for='associated'><?php print __('Associated', 'thold'); ?></label>
 						</span>
 					</td>
 					<td>
 						<span>
 							<input type='submit' value='<?php print __esc('Go', 'thold'); ?>' title='<?php print __esc('Set/Refresh Filters', 'thold'); ?>'>
-							<input type='button' name='clear' value='<?php print __esc('Clear', 'thold'); ?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
+							<input type='button' id='clear' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -1737,6 +1745,14 @@ function tholds($header_label) {
 
 			$('#site_id').off('change').on('change', function() {
 				applyFilter();
+			});
+
+			$('#rfilter, #template, #state, #rows, #associated').off('change').on('change', function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
 			});
 		});
 
@@ -1982,13 +1998,13 @@ function templates($header_label) {
 						<?php print __('Search', 'thold'); ?>
 					</td>
 					<td>
-						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter'); ?>' onChange='applyFilter()'>
+						<input type='text' id='rfilter' size='30' value='<?php print html_escape_request_var('rfilter'); ?>'>
 					</td>
 					<td>
 						<?php print __('Rows', 'thold'); ?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 							if (cacti_sizeof($item_rows)) {
@@ -2001,14 +2017,14 @@ function templates($header_label) {
 					</td>
 					<td>
 						<span>
-							<input type='checkbox' id='associated' onChange='applyFilter()' <?php print(get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked' : ''); ?>>
+							<input type='checkbox' id='associated' <?php print(get_request_var('associated') == 'true' || get_request_var('associated') == 'on' ? 'checked' : ''); ?>>
 							<label for='associated'><?php print __('Associated', 'thold'); ?></label>
 						</span>
 					</td>
 					<td>
 						<span>
 							<input type='submit' value='<?php print __esc('Go', 'thold'); ?>' title='<?php print __esc('Set/Refresh Filters', 'thold'); ?>'>
-							<input type='button' id='clear' value='<?php print __esc('Clear', 'thold'); ?>' onClick='clearFilter()' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
+							<input type='button' id='clear' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
 						</span>
 					</td>
 				</tr>
@@ -2033,6 +2049,14 @@ function templates($header_label) {
 			$('#listthold').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
+			});
+
+			$('#rfilter, #rows, #associated').off('change').on('change', function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
 			});
 		});
 
@@ -2343,7 +2367,7 @@ function lists() {
 						<?php print __('Lists', 'thold')?>
 					</td>
 					<td>
-						<select id='rows' onChange='applyFilter()'>
+						<select id='rows'>
 							<option value='-1'<?php if (get_request_var('rows') == '-1') {?> selected<?php }?>><?php print __('Default', 'thold'); ?></option>
 							<?php
 							if (cacti_sizeof($item_rows)) {
@@ -2358,7 +2382,7 @@ function lists() {
 						<input id='refresh' type='button' value='<?php print __esc('Go', 'thold'); ?>' title='<?php print __esc('Set/Refresh Filters', 'thold'); ?>'>
 					</td>
 					<td>
-						<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Clear Filters', 'thold'); ?>' onClick='clearFilter()'>
+						<input id='clear' type='button' value='<?php print __esc('Clear', 'thold'); ?>' title='<?php print __esc('Clear Filters', 'thold'); ?>'>
 					</td>
 				</tr>
 			</table>
@@ -2381,6 +2405,14 @@ function lists() {
 			$('#lists').submit(function(event) {
 				event.preventDefault();
 				applyFilter();
+			});
+
+			$('#rows').off('change').on('change', function() {
+				applyFilter();
+			});
+
+			$('#clear').click(function() {
+				clearFilter();
 			});
 		});
 
