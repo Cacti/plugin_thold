@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-07 15:19-0400\n"
+"POT-Creation-Date: 2026-10-08 14:32-0400\n"
 "PO-Revision-Date: 2019-03-17 15:03-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -119,7 +119,7 @@ msgstr "निगरानी नहीं की गई"
 msgid "Notify - Alert"
 msgstr "सूचित करें - चेतावनी"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Alert"
 msgstr "चेतावनी"
 
@@ -135,7 +135,7 @@ msgstr "चेतावनी-चेतावनी दें"
 msgid "Notify - Warning"
 msgstr "सूचित करना - चेतावनी देना"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Warning"
 msgstr "चेतावनी"
 
@@ -203,19 +203,19 @@ msgstr "वार्न ट्रिगर"
 msgid "Alert-Warn"
 msgstr "चेतावनी-चेतावनी दें"
 
-#: includes/arrays.php thold_graph.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
 msgstr "स्वीकार करते हैं"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Baseline Alert"
 msgstr "बेसलाइन अलर्ट"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Notice"
 msgstr "सूचना"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
 msgstr "ठीक"
 
@@ -2488,6 +2488,16 @@ msgstr "थ्रेसहोल्ड अक्षम करें"
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "एक आवश्यक है"
+
+#: thold.php thold_graph.php
+#, fuzzy
+#| msgid "Status"
+msgid "By Status"
+msgstr "ऑर्डर स्थिति"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr ""
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
