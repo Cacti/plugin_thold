@@ -1166,7 +1166,11 @@ function list_tholds() {
 		print $nav;
 	}
 
+	print '<div class="center tholdLegendFooter">';
+
 	thold_legend();
+
+	print '</div>';
 
 	draw_actions_dropdown($thold_actions);
 

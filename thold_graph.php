@@ -842,7 +842,11 @@ function tholds() {
 		print $nav;
 	}
 
+	print '<div class="center tholdLegendFooter">';
+
 	thold_legend();
+
+	print '</div>';
 
 	// thold_display_rusage();
 }
@@ -1228,7 +1232,11 @@ function hosts() {
 		print $nav;
 	}
 
+	print '<div class="center tholdLegendFooter">';
+
 	host_legend();
+
+	print '</div>';
 
 	// thold_display_rusage();
 }
@@ -1732,7 +1740,11 @@ function thold_show_log() {
 		print $nav;
 	}
 
+	print '<div class="center tholdLegendFooter">';
+
 	log_legend();
+
+	print '</div>';
 }
 
 /**
