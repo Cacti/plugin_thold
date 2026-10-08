@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-07 15:19-0400\n"
+"POT-Creation-Date: 2026-10-08 14:32-0400\n"
 "PO-Revision-Date: 2022-06-21 05:25+0000\n"
 "Last-Translator: San IPE <sanipe1949@krunsea.com>\n"
 "Language-Team: Turkish <http://translate.cacti.net/projects/cacti/thold/tr/>\n"
@@ -120,7 +120,7 @@ msgstr "İzlenmeyen"
 msgid "Notify - Alert"
 msgstr "Bildir - Uyarı"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Alert"
 msgstr "Uyarı"
 
@@ -136,7 +136,7 @@ msgstr "Uyarı-uyar"
 msgid "Notify - Warning"
 msgstr "Bildir - Uyarı"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Warning"
 msgstr "Uyarı"
 
@@ -204,19 +204,19 @@ msgstr "Tetikleme uyar"
 msgid "Alert-Warn"
 msgstr "Uyarı-uyar"
 
-#: includes/arrays.php thold_graph.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
 msgstr "Bilgilendirme"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Baseline Alert"
 msgstr "Temel Uyarı"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Notice"
 msgstr "Uyarı"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
 msgstr "Tamam"
 
@@ -2489,6 +2489,16 @@ msgstr "Eşiği Devre Dışı Bırak"
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "Gerekli Gerekli"
+
+#: thold.php thold_graph.php
+#, fuzzy
+#| msgid "Status"
+msgid "By Status"
+msgstr "Durum"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr ""
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
