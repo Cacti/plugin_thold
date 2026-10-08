@@ -699,6 +699,10 @@ function list_tholds() {
 	$sql_limit = ($rows * (intval(get_request_var('page')) - 1)) . ',' . $rows;
 	$sql_order = str_replace('ORDER BY ', '', $sql_order);
 
+	if (get_request_var('sort_column') == 'severity') {
+		$sql_order = thold_severity_sql() . ' ' . (get_request_var('sort_direction') == 'DESC' ? 'DESC' : 'ASC');
+	}
+
 	$tholds = get_allowed_thresholds($sql_where, $sql_order, $sql_limit, $total_rows);
 
 	$data_templates = db_fetch_assoc('SELECT DISTINCT dt.id, dt.name
@@ -801,6 +805,11 @@ function list_tholds() {
 							<option value='7'<?php if (get_request_var('state') == '7') {?> selected<?php }?>><?php print __('Disabled at Template', 'thold'); ?></option>
 							<option value='5'<?php if (get_request_var('state') == '5') {?> selected<?php }?>><?php print __('Disabled at Threshold', 'thold'); ?></option>
 							<option value='4'<?php if (get_request_var('state') == '4') {?> selected<?php }?>><?php print __('Ack Required', 'thold'); ?></option>
+							<optgroup label='<?php print html_escape(__('By Status', 'thold')); ?>'>
+							<?php foreach ([101 => __('Alert', 'thold'), 102 => __('Baseline Alert', 'thold'), 103 => __('Warning', 'thold'), 104 => __('Notice', 'thold'), 105 => __('Ok', 'thold'), 106 => __('Acknowledgment', 'thold'), 107 => __('Disabled', 'thold')] as $sev_value => $sev_label) { ?>
+								<option value='<?php print $sev_value; ?>'<?php if (get_request_var('state') == $sev_value) {?> selected<?php }?>><?php print html_escape($sev_label); ?></option>
+							<?php } ?>
+							</optgroup>
 						</select>
 					</td>
 					<td>
@@ -855,6 +864,11 @@ function list_tholds() {
 				applyFilter();
 			});
 
+			$('.thold-pill').click(function() {
+				$('#state').val($(this).attr('data-state'));
+				applyFilter();
+			});
+
 			$('#clear').click(function() {
 				clearFilter();
 			});
@@ -880,6 +894,12 @@ function list_tholds() {
 			'display' => __('Name', 'thold'),
 			'sort'    => 'ASC',
 			'align'   => 'left'
+		],
+		'severity' => [
+			'display' => __('Status', 'thold'),
+			'sort'    => 'ASC',
+			'align'   => 'left',
+			'tip'     => __('The current threshold status. Click a status pill to filter the list to that status.', 'thold')
 		],
 		'external_id' => [
 			'display' => __('External ID', 'thold'),
@@ -1037,7 +1057,7 @@ function list_tholds() {
 				WHERE id = ?',
 				[$thold_data['data_template_rrd_id']]);
 
-			print "<tr class='selectable " . $thold_states[$bgcolor]['class'] . "' id='line" . $thold_data['id'] . "'>";
+			print "<tr class='selectable' id='line" . $thold_data['id'] . "'>";
 
 			if ($thold_data['name_cache'] != '') {
 				$name = $thold_data['name_cache'];
@@ -1070,6 +1090,8 @@ function list_tholds() {
 			thold_modify_values_by_cdef($thold_data);
 
 			form_selectable_cell(filter_value($name, get_request_var('rfilter'), 'thold.php?action=edit&id=' . $thold_data['id']), $thold_data['id'], '', 'left');
+
+			form_selectable_cell("<span class='thold-pill " . $thold_states[$bgcolor]['class'] . "' data-state='" . ['red' => 101, 'orange' => 102, 'warning' => 103, 'yellow' => 104, 'green' => 105, 'purple' => 106, 'grey' => 107][$bgcolor] . "'>" . html_escape($thold_states[$bgcolor]['display']) . '</span>', $thold_data['id'], '', 'left');
 
 			if ((($thold_data['template_enabled'] == 'on' && $thold_data['thold_enabled'] == 'on') || $thold_data['template_enabled'] != 'on') && $thold_data['thold_per_enabled'] == 'on') {
 				$enabled = __('Yes', 'thold');
