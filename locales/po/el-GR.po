@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-07 15:19-0400\n"
+"POT-Creation-Date: 2026-10-08 14:32-0400\n"
 "PO-Revision-Date: 2024-04-20 14:55-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -120,7 +120,7 @@ msgstr "Δεν παρακολουθήθηκε"
 msgid "Notify - Alert"
 msgstr "Ειδοποίηση - ειδοποίηση"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Alert"
 msgstr "Ειδοποίηση"
 
@@ -136,7 +136,7 @@ msgstr "Προειδοποίηση-Προειδοποίηση"
 msgid "Notify - Warning"
 msgstr "Ειδοποίηση - Προειδοποίηση"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Warning"
 msgstr "Προσοχή"
 
@@ -204,19 +204,19 @@ msgstr "Προειδοποίηση Trigger"
 msgid "Alert-Warn"
 msgstr "Προειδοποίηση-Προειδοποίηση"
 
-#: includes/arrays.php thold_graph.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
 msgstr "Αποδοχή"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Baseline Alert"
 msgstr "Ειδοποίηση βάσης"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Notice"
 msgstr "Σημείωση"
 
-#: includes/arrays.php
+#: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
 msgstr "Εντάξει"
 
@@ -2489,6 +2489,16 @@ msgstr "Απενεργοποιήστε το όριο"
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "Απαιτείται"
+
+#: thold.php thold_graph.php
+#, fuzzy
+#| msgid "Status"
+msgid "By Status"
+msgstr "Κατάσταση"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr ""
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
