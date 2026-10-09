@@ -870,7 +870,8 @@ function list_tholds() {
 				}
 
 				e.preventDefault();
-				$('#state').val($(this).attr('data-state'));
+				var state = $(this).attr('data-state');
+				$('#state').val($('#state').val() === state ? '-1' : state);
 				applyFilter();
 			});
 

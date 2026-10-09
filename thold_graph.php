@@ -305,7 +305,8 @@ function form_thold_filter() {
 				}
 
 				e.preventDefault();
-				$('#state').val($(this).attr('data-state'));
+				var state = $(this).attr('data-state');
+				$('#state').val($('#state').val() === state ? '-1' : state);
 				applyFilter();
 			});
 
@@ -1443,7 +1444,8 @@ function form_host_filter() {
 				}
 
 				e.preventDefault();
-				$('#host_status').val($(this).attr('data-state'));
+				var state = $(this).attr('data-state');
+				$('#host_status').val($('#host_status').val() === state ? '-1' : state);
 				applyFilter();
 			});
 
@@ -2007,7 +2009,8 @@ function form_thold_log_filter() {
 				}
 
 				e.preventDefault();
-				$('#status').val($(this).attr('data-state'));
+				var state = $(this).attr('data-state');
+				$('#status').val($('#status').val() === state ? '-1' : state);
 				applyFilter();
 			});
 

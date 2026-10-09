@@ -22,7 +22,8 @@
 */
 
 /* Threshold status pills - shape only; per-theme .thold<State> rules supply the colours */
-.thold-pill {
+/* Element-qualified to outrank single-class theme rules (e.g. .deviceUpFull width:14%) so the pill hugs its label. */
+span.thold-pill {
 	display: inline-block;
 	width: auto;
 	padding: 1px 9px;
