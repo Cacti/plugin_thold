@@ -1,6 +1,8 @@
 ## ChangeLog
 
 --- develop ---
+* bug: Element-qualify the `.thold-pill` CSS so it outranks the single-class theme rules (e.g. `.deviceUpFull` `width:14%`) that were clipping the pill to a fixed width; status pills now size to their label on the Device Status page and everywhere else
+* feature: Clicking an already-selected status pill now clears that filter (resets to All) instead of re-applying it, on the Thresholds, Device Status and Threshold Log sub-tabs
 * bug: Pass a boolean (not the integer `1`) to `api_plugin_register_hook()`'s `$enable` argument so the hook registration stays type-correct under Cacti 1.3's strict `bool $enable` type-hint (the int only coerces while this file lacks `declare(strict_types=1)`)
 * feature: Show each threshold's status as a sortable, clickable pill in a new Status column (right of Name) on the Thresholds page instead of colouring the whole row; rows now zebra-stripe, clicking a pill filters the list to that status, and the Status filter gains per-severity options
 * feature: Extend the clickable status pills to the Device Status and Threshold Log pages (thold_graph.php) - device rows now show a status pill and zebra-stripe instead of full-row colouring, and the Threshold Log gains a Status pill column right after Type; clicking a pill filters that list to the chosen status, the Device Status filter gains an exact Error option, and each status filter now classifies the per-host failure-count override the same way as the pill so a clicked pill returns exactly the rows showing that state
