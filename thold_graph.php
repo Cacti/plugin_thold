@@ -916,7 +916,7 @@ function thold_device_status_pill(&$host) {
 		HOST_RECOVERING => '2',
 		HOST_UP         => '3',
 		HOST_UNKNOWN    => '0',
-		HOST_ERROR      => '-4',
+		HOST_ERROR      => '4',
 		'disabled'      => '-2'
 	];
 
@@ -1069,10 +1069,22 @@ function hosts() {
 		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "(h.status != '3' OR h.disabled = 'on')";
 	} elseif (get_request_var('host_status') == '-5') {
 		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '(h.availability_method = 0)';
-	} elseif (get_request_var('host_status') == '3') {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "(h.availability_method != 0 AND h.status = 3 AND h.disabled = '')";
 	} else {
-		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . '((h.status = ' . get_request_var('host_status') . " OR h.thold_failure_count > 0 AND h.status_event_count > h.thold_failure_count) AND h.disabled = '')";
+		// Match the exact state-classification rules used by thold_device_status_pill():
+		// a per-host failure-count override (status_event_count >= thold_failure_count, excluding
+		// Recovering) reclassifies the device as Down, so the Down filter includes those hosts and
+		// the Up/Unknown/Error filters exclude them.
+		$override_down = 'h.thold_failure_count > 0 AND h.status != ' . HOST_RECOVERING . ' AND h.status_event_count >= h.thold_failure_count';
+
+		if (get_request_var('host_status') == HOST_DOWN) {
+			$status_clause = '(h.status = ' . HOST_DOWN . " OR ($override_down))";
+		} elseif (get_request_var('host_status') == HOST_RECOVERING) {
+			$status_clause = 'h.status = ' . HOST_RECOVERING;
+		} else {
+			$status_clause = 'h.status = ' . get_request_var('host_status') . " AND NOT ($override_down)";
+		}
+
+		$sql_where .= ($sql_where == '' ? '(' : ' AND ') . "(h.availability_method != 0 AND h.disabled = '' AND $status_clause)";
 	}
 
 	if (get_request_var('host_template_id') == '-1') {
@@ -1337,6 +1349,7 @@ function form_host_filter() {
 							<option value='1'<?php if (get_request_var('host_status') == '1') {?> selected<?php }?>><?php print __('Down', 'thold'); ?></option>
 							<option value='2'<?php if (get_request_var('host_status') == '2') {?> selected<?php }?>><?php print __('Recovering', 'thold'); ?></option>
 							<option value='0'<?php if (get_request_var('host_status') == '0') {?> selected<?php }?>><?php print __('Unknown', 'thold'); ?></option>
+							<option value='4'<?php if (get_request_var('host_status') == '4') {?> selected<?php }?>><?php print __('Error', 'thold'); ?></option>
 						</select>
 					</td>
 					<td>
