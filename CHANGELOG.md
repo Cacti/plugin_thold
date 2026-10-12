@@ -1,6 +1,7 @@
 ## ChangeLog
 
 --- develop ---
+* issue: Log each template import error using its own message (#757)
 * bug: Element-qualify the `.thold-pill` CSS so it outranks the single-class theme rules (e.g. `.deviceUpFull` `width:14%`) that were clipping the pill to a fixed width; status pills now size to their label on the Device Status page and everywhere else
 * feature: Clicking an already-selected status pill now clears that filter (resets to All) instead of re-applying it, on the Thresholds, Device Status and Threshold Log sub-tabs
 * bug: Pass a boolean (not the integer `1`) to `api_plugin_register_hook()`'s `$enable` argument so the hook registration stays type-correct under Cacti 1.3's strict `bool $enable` type-hint (the int only coerces while this file lacks `declare(strict_types=1)`)

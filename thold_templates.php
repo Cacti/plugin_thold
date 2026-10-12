@@ -2718,7 +2718,7 @@ function template_import() {
 	if (isset($return_data['errors'])) {
 		foreach ($return_data['errors'] as $error) {
 			$debug_data[] = '<span class="deviceDown">' . __('ERROR:', 'thold') . '</span> ' . $error;
-			cacti_log('NOTE: Template Import Error!.  Message: ' . $message, false, 'THOLD');
+			cacti_log('NOTE: Template Import Error!.  Message: ' . $error, false, 'THOLD');
 		}
 	}
 
