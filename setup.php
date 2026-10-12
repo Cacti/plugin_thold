@@ -344,7 +344,7 @@ function thold_graph_button($data) {
 	}
 
 	if (api_user_realm_auth('thold_graph.php') && !empty($thold_id)) {
-		print '<a class="iconLink tholdVRule" href="' . html_escape($url . $separator . 'thold_vrule=' . $vrules) . '" title="' . __esc('Toggle Threshold VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"><i class="tholdVRules far fa-chart-bar"></i></a><br>';
+		print '<a class="iconLink tholdVRule" href="' . html_escape($url . $separator . 'thold_vrule=' . $vrules) . '" title="' . __esc('Toggle VRULES %s', ($vrules == 'on' ? __('Off') : __('On')), 'thold') . '"><i class="tholdVRules far fa-chart-bar"></i></a><br>';
 	}
 
 	// Add Threshold Creation button

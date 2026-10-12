@@ -384,6 +384,18 @@ if (!function_exists('isset_request_var')) {
 	}
 }
 
+if (!function_exists('isempty_request_var')) {
+	function isempty_request_var($name) {
+		return !isset(CactiStubs::$requestVars[$name]) || CactiStubs::$requestVars[$name] === '';
+	}
+}
+
+if (!function_exists('set_request_var')) {
+	function set_request_var($name, $value) {
+		CactiStubs::$requestVars[$name] = $value;
+	}
+}
+
 if (!function_exists('cacti_escapeshellarg')) {
 	function cacti_escapeshellarg($string, $quote = true) {
 		return escapeshellarg((string) $string);
