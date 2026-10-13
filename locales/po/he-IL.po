@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-08 16:02-0400\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
 "PO-Revision-Date: 2024-04-20 16:09-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -2236,16 +2236,15 @@ msgid "No Notifications"
 msgstr "הודעות SNMP"
 
 #: setup.php
-msgid "Off"
-msgstr "כבוי"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES Off"
+msgstr "החלף את סף VRULES %s"
 
 #: setup.php
-msgid "On"
-msgstr "דלוק"
-
-#: setup.php
-#, php-format
-msgid "Toggle Threshold VRULES %s"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES On"
 msgstr "החלף את סף VRULES %s"
 
 #: setup.php
@@ -3748,6 +3747,12 @@ msgstr "הערה:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "שגיאה:"
+
+#~ msgid "Off"
+#~ msgstr "כבוי"
+
+#~ msgid "On"
+#~ msgstr "דלוק"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "כתובת דוא\"ל נוספת, מופרדת בפסיקים עבור הודעות דוא\"ל מרובות."
