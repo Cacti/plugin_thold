@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-08 16:02-0400\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
 "PO-Revision-Date: 2019-03-17 15:03-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -2231,16 +2231,15 @@ msgid "No Notifications"
 msgstr "SNMP अधिसूचनाएं"
 
 #: setup.php
-msgid "Off"
-msgstr "बंद करना"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES Off"
+msgstr "टॉगल थ्रेशोल्ड VRULES %s"
 
 #: setup.php
-msgid "On"
-msgstr "चालू करना"
-
-#: setup.php
-#, php-format
-msgid "Toggle Threshold VRULES %s"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES On"
 msgstr "टॉगल थ्रेशोल्ड VRULES %s"
 
 #: setup.php
@@ -3743,6 +3742,12 @@ msgstr "ध्यान दें:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "त्रुटि"
+
+#~ msgid "Off"
+#~ msgstr "बंद करना"
+
+#~ msgid "On"
+#~ msgstr "चालू करना"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "अतिरिक्त ईमेल पता, कई ईमेल के लिए अल्पविराम द्वारा अलग किया गया।"
