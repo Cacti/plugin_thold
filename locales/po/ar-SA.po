@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-08 16:02-0400\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
 "PO-Revision-Date: 2024-04-20 14:49-0400\n"
 "Last-Translator: \n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -2241,16 +2241,15 @@ msgid "No Notifications"
 msgstr "تنبيهات"
 
 #: setup.php
-msgid "Off"
-msgstr "إيقاف"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES Off"
+msgstr "تبديل عتبة VRULES %s"
 
 #: setup.php
-msgid "On"
-msgstr "على"
-
-#: setup.php
-#, php-format
-msgid "Toggle Threshold VRULES %s"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES On"
 msgstr "تبديل عتبة VRULES %s"
 
 #: setup.php
@@ -3757,6 +3756,12 @@ msgstr "ملاحظة:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "خطأ:"
+
+#~ msgid "Off"
+#~ msgstr "إيقاف"
+
+#~ msgid "On"
+#~ msgstr "على"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "عنوان بريد إلكتروني إضافي ، مفصول بفواصل لرسائل بريد إلكتروني متعددة."
