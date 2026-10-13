@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-08 16:02-0400\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
 "PO-Revision-Date: 2020-09-13 15:18-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -2231,16 +2231,15 @@ msgid "No Notifications"
 msgstr "Thông báo SNMP"
 
 #: setup.php
-msgid "Off"
-msgstr "Tắt"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES Off"
+msgstr "Chuyển đổi ngưỡng VRULES %s"
 
 #: setup.php
-msgid "On"
-msgstr "Bật"
-
-#: setup.php
-#, php-format
-msgid "Toggle Threshold VRULES %s"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES On"
 msgstr "Chuyển đổi ngưỡng VRULES %s"
 
 #: setup.php
@@ -3743,6 +3742,12 @@ msgstr "CHÚ Ý:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "Lỗi:"
+
+#~ msgid "Off"
+#~ msgstr "Tắt"
+
+#~ msgid "On"
+#~ msgstr "Bật"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Địa chỉ Email bổ sung, được phân tách bằng dấu phẩy cho nhiều Email."
