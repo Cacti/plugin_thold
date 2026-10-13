@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-08 16:02-0400\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
 "PO-Revision-Date: 2022-11-25 18:50+0000\n"
 "Last-Translator: kaktus <kaktus_j_p@o2.pl>\n"
 "Language-Team: Polish <http://translate.cacti.net/projects/cacti/thold/pl/>\n"
@@ -2234,16 +2234,15 @@ msgid "No Notifications"
 msgstr "Powiadomienia SNMP"
 
 #: setup.php
-msgid "Off"
-msgstr "Wyłącz"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES Off"
+msgstr "Próg przełączania VRULES %s"
 
 #: setup.php
-msgid "On"
-msgstr "Włącz"
-
-#: setup.php
-#, php-format
-msgid "Toggle Threshold VRULES %s"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES On"
 msgstr "Próg przełączania VRULES %s"
 
 #: setup.php
@@ -3746,6 +3745,12 @@ msgstr "Uwaga:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "BŁĄD:"
+
+#~ msgid "Off"
+#~ msgstr "Wyłącz"
+
+#~ msgid "On"
+#~ msgstr "Włącz"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Dodatkowy adres e-mail, oddzielony przecinkami dla wielu wiadomości e-mail."
