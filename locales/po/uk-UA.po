@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-08 16:02-0400\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
 "PO-Revision-Date: 2024-04-20 16:44-0400\n"
 "Last-Translator: Vladyslav V. Prodan <akapulko@gmail.com>\n"
 "Language-Team: Ukrainian <http://translate.cacti.net/projects/cacti/thold/uk/>\n"
@@ -2232,16 +2232,15 @@ msgid "No Notifications"
 msgstr "Немає сповіщень"
 
 #: setup.php
-msgid "Off"
-msgstr "Вимкнуто"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES Off"
+msgstr "Перемкнути порогові значення VRULES %s"
 
 #: setup.php
-msgid "On"
-msgstr "Увімкнуто"
-
-#: setup.php
-#, php-format
-msgid "Toggle Threshold VRULES %s"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES On"
 msgstr "Перемкнути порогові значення VRULES %s"
 
 #: setup.php
@@ -3744,6 +3743,12 @@ msgstr "ПРИМІТКА:"
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "Помилка:"
+
+#~ msgid "Off"
+#~ msgstr "Вимкнуто"
+
+#~ msgid "On"
+#~ msgstr "Увімкнуто"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "Додаткова адреса електронної пошти, розділена комами для декількох електронних листів."
