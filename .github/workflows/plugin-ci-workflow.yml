@@ -142,8 +142,21 @@ jobs:
         mysql "$MYSQL_AUTH_USR" cacti < ${{ github.workspace }}/cacti/cacti.sql
         mysql "$MYSQL_AUTH_USR" -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '/usr/bin/php')" cacti
 
+    # Core's release archives exclude .github and tests. Fetch these paths
+    # through Git at the immutable helper revision instead of an Action archive.
+    - name: Checkout shared CI tooling
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        repository: Cacti/cacti
+        ref: f3ff777992875740e4665fedfe2eff8335f5b894
+        persist-credentials: false
+        path: ci-tools
+        sparse-checkout: |
+          .github/actions/setup-plugin-dependencies
+          tests/tools/plugin-harness
+
     - name: Install locked Cacti and plugin test dependencies
-      uses: Cacti/cacti/.github/actions/setup-plugin-dependencies@b1d8dd6a03a3c756a2b22dfe3a0c744b1f11116c
+      uses: ./ci-tools/.github/actions/setup-plugin-dependencies
       with:
         cacti-directory: cacti
         install-core-dev: 'false'
