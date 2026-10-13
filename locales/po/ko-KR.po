@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-08 16:02-0400\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
 "PO-Revision-Date: 2020-09-13 15:02-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -2231,16 +2231,15 @@ msgid "No Notifications"
 msgstr "SNMP 알림"
 
 #: setup.php
-msgid "Off"
-msgstr "끄기"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES Off"
+msgstr "임계 값 토글 VRRES  %s"
 
 #: setup.php
-msgid "On"
-msgstr "On"
-
-#: setup.php
-#, php-format
-msgid "Toggle Threshold VRULES %s"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES On"
 msgstr "임계 값 토글 VRRES  %s"
 
 #: setup.php
@@ -3743,6 +3742,12 @@ msgstr "노트: "
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "오류:"
+
+#~ msgid "Off"
+#~ msgstr "끄기"
+
+#~ msgid "On"
+#~ msgstr "On"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "여러 개의 전자 메일에 대해 쉼표로 구분 된 추가 전자 메일 주소입니다."
