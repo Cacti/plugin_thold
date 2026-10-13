@@ -17,8 +17,8 @@
 /**
  * thold_graph_button() renders this plugin's graph-page drilldown action
  * icons. This covers the VRULE toggle button's markup, including the
- * shortened 'Toggle VRULES' title that shows as a label in Cacti's graph
- * action menu.
+ * 'Toggle Threshold VRULES On'/'Off' title that shows as a label in Cacti's
+ * graph action menu.
  */
 final class TholdGraphButtonTest extends TestCase {
 	/**
@@ -55,7 +55,9 @@ final class TholdGraphButtonTest extends TestCase {
 
 		$this->assertStringContainsString('iconLink tholdVRule', $html);
 		$this->assertStringContainsString('tholdVRules far fa-chart-bar', $html);
-		$this->assertStringContainsString('Toggle VRULES', $html);
-		$this->assertStringNotContainsString('Toggle Threshold VRULES', $html);
+		// Default state (no session/request var) resolves to the 'On' action and
+		// keeps the Thold-specific 'Threshold' reference.
+		$this->assertStringContainsString('Toggle Threshold VRULES On', $html);
+		$this->assertStringNotContainsString('Toggle VRULES', $html);
 	}
 }
