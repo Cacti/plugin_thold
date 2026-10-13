@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: thold on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-08 16:02-0400\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
 "PO-Revision-Date: 2024-06-23 01:36+0000\n"
 "Last-Translator: tql <fttx31@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/thold/zh_Hans/>\n"
@@ -2230,16 +2230,15 @@ msgid "No Notifications"
 msgstr "SNMP通知"
 
 #: setup.php
-msgid "Off"
-msgstr "关闭"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES Off"
+msgstr "切换阈值 %s"
 
 #: setup.php
-msgid "On"
-msgstr "开启"
-
-#: setup.php
-#, php-format
-msgid "Toggle Threshold VRULES %s"
+#, fuzzy
+#| msgid "Toggle Threshold VRULES %s"
+msgid "Toggle Threshold VRULES On"
 msgstr "切换阈值 %s"
 
 #: setup.php
@@ -3742,6 +3741,12 @@ msgstr "注意："
 #: thold_templates.php
 msgid "ERROR:"
 msgstr "错误："
+
+#~ msgid "Off"
+#~ msgstr "关闭"
+
+#~ msgid "On"
+#~ msgstr "开启"
 
 #~ msgid "Additional Email address, separated by commas for multiple Emails."
 #~ msgstr "额外的电子邮件地址，用逗号分隔多个电子邮件地址。"
