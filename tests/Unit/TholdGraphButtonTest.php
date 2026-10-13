@@ -60,4 +60,22 @@ final class TholdGraphButtonTest extends TestCase {
 		$this->assertStringContainsString('Toggle Threshold VRULES On', $html);
 		$this->assertStringNotContainsString('Toggle VRULES', $html);
 	}
+
+	/**
+	 * @return void
+	 */
+	public function test_it_shows_the_off_title_when_vrules_are_enabled(): void {
+		CactiStubs::willReturnFor('db_fetch_cell_prepared', 'thold_data', 123);
+		CactiStubs::willReturnFor('db_fetch_cell_prepared', 'aggregate_graphs', 5);
+
+		$_SERVER['REQUEST_URI'] = '/cacti/graph_view.php?action=preview';
+		// VRULEs already drawing (session on) resolves to the 'Off' action title.
+		$_SESSION               = ['sess_config_array' => ['thold_draw_vrules' => 'on']];
+
+		ob_start();
+		thold_graph_button([1 => ['local_graph_id' => 10, 'rra' => 5]]);
+		$html = ob_get_clean();
+
+		$this->assertStringContainsString('Toggle Threshold VRULES Off', $html);
+	}
 }
