@@ -465,9 +465,9 @@ function thold_update_host_status() {
 	include_once($config['library_path'] . '/snmp.php');
 
 	if (api_plugin_is_enabled('maint')) {
-		if (file_exists(require_once($config['base_path'] . '/plugins/maint/functions.php'))) {
+		if (file_exists($config['base_path'] . '/plugins/maint/functions.php')) {
 			require_once($config['base_path'] . '/plugins/maint/functions.php');
-		} else if (file_exists(require_once($config['base_path'] . '/plugins/maint/includes/functions.php'))) {
+		} else if (file_exists($config['base_path'] . '/plugins/maint/includes/functions.php')) {
 			require_once($config['base_path'] . '/plugins/maint/includes/functions.php');
 		} else {
 			cacti_log('ERROR: cannot include maint functions', false, 'THOLD');

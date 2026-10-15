@@ -3414,9 +3414,9 @@ function thold_check_threshold(&$thold_data) {
 
 	// don't alert for this host if it's selected for maintenance
 	if (api_plugin_is_enabled('maint') || in_array('maint', $plugins, true)) {
-		if (file_exists(require_once($config['base_path'] . '/plugins/maint/functions.php'))) {
+		if (file_exists($config['base_path'] . '/plugins/maint/functions.php')) {
 			require_once($config['base_path'] . '/plugins/maint/functions.php');
-		} else if (file_exists(require_once($config['base_path'] . '/plugins/maint/includes/functions.php'))) {
+		} else if (file_exists($config['base_path'] . '/plugins/maint/includes/functions.php')) {
 			require_once($config['base_path'] . '/plugins/maint/includes/functions.php');
 		} else {
 			cacti_log('ERROR: cannot include maint functions', false, 'THOLD');
