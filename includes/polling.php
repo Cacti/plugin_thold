@@ -637,7 +637,7 @@ function thold_update_host_status() {
 				$msg = thold_str_replace('<NOTES>', $host['notes'], $msg);
 				$msg = thold_str_replace("\n", '<br>', $msg);
 
-				if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($host['id'])) {
+				if (api_plugin_is_enabled('maint') && function_exists('plugin_maint_check_cacti_host') && plugin_maint_check_cacti_host($host['id'])) {
 					cacti_log('WARNING: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] is recovering! Only logging, maint device', true, 'THOLD');
 				} else {
 					switch ($host['thold_send_email']) {
@@ -764,7 +764,7 @@ function thold_update_host_status() {
 
 			$alert_email = read_config_option('alert_email');
 
-			if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($host['id'])) {
+			if (api_plugin_is_enabled('maint') && function_exists('plugin_maint_check_cacti_host') && plugin_maint_check_cacti_host($host['id'])) {
 				cacti_log('WARNING: Device[' . $host['id'] . '] Hostname[' . $host['hostname'] . '] is DOWN. Only logging, maint device', true, 'THOLD');
 			} else {
 				if (strtotime($host['status_fail_date']) > 192800 || strtotime($host['status_rec_date']) > 192800) {

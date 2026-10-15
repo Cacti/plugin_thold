@@ -3423,7 +3423,7 @@ function thold_check_threshold(&$thold_data) {
 		}
 	}
 
-	if (api_plugin_is_enabled('maint') && plugin_maint_check_cacti_host($thold_data['host_id'])) {
+	if (api_plugin_is_enabled('maint') && function_exists('plugin_maint_check_cacti_host') && plugin_maint_check_cacti_host($thold_data['host_id'])) {
 		$maint_dev = true;
 	} else {
 		$maint_dev = false;

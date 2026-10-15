@@ -669,6 +669,12 @@ if (!function_exists('number_format_i18n')) {
 	}
 }
 
+if (!function_exists('html_split_string')) {
+	function html_split_string($string, $length = 76, $forgiving = 10) {
+		return $string;
+	}
+}
+
 if (!defined('FILTER_VALIDATE_IS_REGEX')) {
 	define('FILTER_VALIDATE_IS_REGEX', 99999);
 }
