@@ -41,9 +41,12 @@ final class MaintCheckGuardTest extends TestCase {
 	}
 
 	/**
-	 * Run thold_update_host_status() against the newer maint layout, swallowing
-	 * engine output and any throw past the maintenance-gated branch, which is
-	 * all these tests need to reach.
+	 * Run thold_update_host_status() against the newer maint layout. A device
+	 * inside a maintenance window is logged and the loop moves on without the
+	 * downstream notification work, so the call returns on its own. Expected
+	 * engine warnings are suppressed, but no Throwable is swallowed, so an
+	 * unexpected error (e.g. a removed guard fataling on an undefined maint
+	 * function) fails the test.
 	 *
 	 * @return void
 	 */
@@ -58,8 +61,6 @@ final class MaintCheckGuardTest extends TestCase {
 
 		try {
 			thold_update_host_status();
-		} catch (\Throwable $e) {
-			// Reaching the maintenance-gated branch is the point.
 		} finally {
 			ob_end_clean();
 			restore_error_handler();
