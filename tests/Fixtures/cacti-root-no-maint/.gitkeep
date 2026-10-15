@@ -1,0 +1,3 @@
+# Cacti root fixture with no maint plugin installed, so neither
+# plugins/maint/functions.php nor plugins/maint/includes/functions.php exists.
+# This drives the "cannot include maint functions" error branch.
