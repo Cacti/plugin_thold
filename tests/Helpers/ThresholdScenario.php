@@ -252,9 +252,13 @@ final class ThresholdScenario {
 	/**
 	 * Put the device into a maintenance window.
 	 *
+	 * @param string|null $cactiRoot Cacti root fixture to resolve the maint
+	 *   include against; defaults to the layout that ships functions.php at the
+	 *   plugin root.
+	 *
 	 * @return self
 	 */
-	public function inMaintenance() {
+	public function inMaintenance($cactiRoot = null) {
 		// Asked more than once per poll, so a queued value would run out.
 		CactiStubs::willAlwaysReturn('api_plugin_is_enabled', true);
 		CactiStubs::willAlwaysReturn('plugin_maint_check_cacti_host', true);
@@ -264,7 +268,7 @@ final class ThresholdScenario {
 		 * base_path at a tracked, repository-contained Cacti root fixture so a
 		 * unit test never writes into the caller's Cacti checkout.
 		 */
-		$GLOBALS['config']['base_path'] = dirname(__DIR__) . '/Fixtures/cacti-root';
+		$GLOBALS['config']['base_path'] = $cactiRoot ?? dirname(__DIR__) . '/Fixtures/cacti-root';
 
 		return $this;
 	}
