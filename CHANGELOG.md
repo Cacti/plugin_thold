@@ -1,6 +1,7 @@
 ## ChangeLog
 
 --- develop ---
+* security: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 * issue: Shorten the VRULE graph drilldown button title so it reads cleanly as a label in Cacti's graph action menu, using two complete 'Toggle Threshold VRULES On'/'Off' strings (keeping the Threshold reference) so the label stays grammatical across translations
 * issue: Log each template import error using its own message (#757)
 * bug: Element-qualify the `.thold-pill` CSS so it outranks the single-class theme rules (e.g. `.deviceUpFull` `width:14%`) that were clipping the pill to a fixed width; status pills now size to their label on the Device Status page and everywhere else
