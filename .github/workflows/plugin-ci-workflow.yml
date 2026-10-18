@@ -36,7 +36,6 @@ permissions:
 
 env:
   CACTI: 1.2.x
-  CACTI_REF: d6d230f712c0af1a0391646f65364950ebf131af # 1.2.x fixture
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
@@ -77,7 +76,7 @@ jobs:
       with:
         persist-credentials: false
         repository: Cacti/cacti
-        ref: ${{ env.CACTI_REF }}
+        ref: ${{ env.CACTI }}
         path: cacti
 
     - name: Checkout Thold Plugin
