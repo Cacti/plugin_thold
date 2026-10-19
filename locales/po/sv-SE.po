@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2026-10-06 09:18+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-19 09:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -97,7 +85,7 @@ msgstr "Fel"
 
 #: includes/arrays.php thold_graph.php
 msgid "Recovering"
-msgstr "Påväg upp"
+msgstr "Återhämtar sig"
 
 #: includes/arrays.php thold_graph.php
 msgid "Up"
@@ -218,7 +206,7 @@ msgstr "Notis"
 
 #: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
-msgstr "Ok"
+msgstr "OK"
 
 #: includes/arrays.php
 msgid "Emergency"
@@ -308,7 +296,7 @@ msgstr "%d Dag"
 #: includes/arrays.php thold_graph.php
 #, php-format
 msgid "%d Days"
-msgstr "%d dygn"
+msgstr "%d dagar"
 
 #: includes/arrays.php
 #, php-format
@@ -520,7 +508,7 @@ msgstr "Skapa"
 #: includes/functions.php includes/settings.php notify_lists.php thold.php
 #: thold_graph.php thold_templates.php
 msgid "Thresholds"
-msgstr "Tröskelvärden"
+msgstr "Trösklar"
 
 #: includes/functions.php
 msgid "Log"
@@ -714,7 +702,7 @@ msgstr "Fel"
 
 #: includes/functions.php includes/polling.php thold.php thold_graph.php
 msgid "N/A"
-msgstr "Ej tillämpligt"
+msgstr "Inte tillämpligt"
 
 #: includes/functions.php
 msgid "Success"
@@ -765,7 +753,7 @@ msgstr "Tröskelmallan ' %s' %s!"
 
 #: includes/functions.php
 msgid "Updated"
-msgstr "Uppdatera"
+msgstr "Uppdaterad"
 
 #: includes/functions.php thold_templates.php
 msgid "Import"
@@ -2165,7 +2153,7 @@ msgstr "Objektets ID som definieras av den som ringer.  I allmänhet dess unika 
 
 #: notify_queue.php
 msgid "Event Time"
-msgstr "Tid för evenemanget"
+msgstr "Händelsetid"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
@@ -2216,16 +2204,12 @@ msgid "No Notifications"
 msgstr "SNMP-meddelanden"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES Off"
-msgstr "Växla tröskelvärden VRULES %s"
+msgstr "Inaktivera tröskelvärdets VRULES"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES On"
-msgstr "Växla tröskelvärden VRULES %s"
+msgstr "Aktivera tröskelvärdets VRULES"
 
 #: setup.php
 msgid "Create Threshold"
@@ -2474,14 +2458,12 @@ msgid "Ack Required"
 msgstr "Ack krävs"
 
 #: thold.php thold_graph.php
-#, fuzzy
-#| msgid "Status"
 msgid "By Status"
-msgstr "Status"
+msgstr "Efter status"
 
 #: thold.php thold_graph.php
 msgid "The current threshold status. Click a status pill to filter the list to that status."
-msgstr ""
+msgstr "Tröskelvärdets aktuella status. Klicka på en statusmarkör för att filtrera listan efter den statusen."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
@@ -2702,7 +2684,7 @@ msgstr "Välj en färg för grafen HRULE för varningsgränserna. Välj 'None' f
 
 #: thold.php thold_templates.php
 msgid "Graph Timespan"
-msgstr "Graf Timespan"
+msgstr "Grafens tidsintervall"
 
 #: thold.php thold_templates.php
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
@@ -2887,7 +2869,7 @@ msgstr "Avvikelse UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåtet avvikelse i procent för övre gräns tröskeln. Om den inte är inställd kommer inte övre gräns tröskeln att kontrolleras alls."
+msgstr "Anger tillåten avvikelse för den övre tröskelgränsen. Om detta inte anges kontrolleras den övre tröskelgränsen inte alls.  Måttenheten utgörs av ett absolut värde för typen ”Absolut värde”, och av en procentsats för både ”% avvikelse” och ”% glidande medelvärde”"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2896,7 +2878,7 @@ msgstr "Avvikelse NED"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåtet avvikelse i procent för den nedre gränsen. Om den inte är inställd kommer inte den nedre gränsen tröskeln att kontrolleras alls."
+msgstr "Anger tillåten avvikelse för det nedre tröskelvärdet. Om detta inte anges kontrolleras det nedre tröskelvärdet inte alls.  Måttenheten utgörs av ett absolut värde när typen är ”Absolut värde”, och av en procentsats när typen är ”% avvikelse” eller ”% glidande medelvärde”"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -3497,12 +3479,12 @@ msgstr "Gränsvärdeövervakning"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåtet avvikelse i procent för övre gräns tröskeln. Om den inte är inställd kommer inte övre gräns tröskeln att kontrolleras alls."
+msgstr "Anger tillåten avvikelse för den övre tröskelgränsen. Om detta inte anges kontrolleras den övre tröskelgränsen inte alls.  Måttenheten utgörs av ett absolut värde när typen är ”Absolut värde”, och av en procentsats när typen är antingen ”% avvikelse” eller ”% glidande medelvärde”"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåtet avvikelse i procent för den nedre gränsen. Om den inte är inställd kommer inte den nedre gränsen tröskeln att kontrolleras alls."
+msgstr "Anger tillåten avvikelse för den nedre tröskelgränsen. Om detta inte anges kontrolleras den nedre tröskelgränsen inte alls. Måttenheten utgörs av ett absolut värde för typen ”Absolut värde”, och av en procentsats för både ”% avvikelse” och ”% glidande medelvärde”"
 
 #: thold_templates.php
 #, php-format
