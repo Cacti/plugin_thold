@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-19 09:25+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-20 10:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -1892,7 +1892,7 @@ msgstr "Start"
 
 #: notify_lists.php notify_queue.php
 msgid "Set/Refresh Filters"
-msgstr "Ställ in/uppdatera filter"
+msgstr "Ange/uppdatera filter"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -2869,7 +2869,7 @@ msgstr "Avvikelse UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåten avvikelse för den övre tröskelgränsen. Om detta inte anges kontrolleras den övre tröskelgränsen inte alls.  Måttenheten utgörs av ett absolut värde för typen ”Absolut värde”, och av en procentsats för både ”% avvikelse” och ”% glidande medelvärde”"
+msgstr "Anger tillåten avvikelse för den övre tröskelgränsen. Om detta inte anges kontrolleras den övre tröskelgränsen inte alls.  Måttenheten utgörs av ett absolut värde för typen ”Absolut värde” och av en procentsats för både ”%% avvikelse” och ”%% glidande medelvärde”"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2878,7 +2878,7 @@ msgstr "Avvikelse NED"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåten avvikelse för det nedre tröskelvärdet. Om detta inte anges kontrolleras det nedre tröskelvärdet inte alls.  Måttenheten utgörs av ett absolut värde när typen är ”Absolut värde”, och av en procentsats när typen är ”% avvikelse” eller ”% glidande medelvärde”"
+msgstr "Anger tillåten avvikelse för det nedre tröskelvärdet. Om detta inte anges kontrolleras det nedre tröskelvärdet inte alls.  Måttenheten utgörs av ett absolut värde när typen är ”Absolut värde” och av en procentsats när typen är ”%% avvikelse” eller ”%% glidande medelvärde”"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -3479,12 +3479,12 @@ msgstr "Baslinjeövervakning"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåten avvikelse för den övre tröskelgränsen. Om detta inte anges kontrolleras den övre tröskelgränsen inte alls.  Måttenheten utgörs av ett absolut värde när typen är ”Absolut värde”, och av en procentsats när typen är antingen ”% avvikelse” eller ”% glidande medelvärde”"
+msgstr "Anger tillåten avvikelse för den övre tröskelgränsen. Om detta inte anges kontrolleras den övre tröskelgränsen inte alls.  Måttenheten utgörs av ett absolut värde när typen är ”Absolut värde” och av en procentsats när typen är antingen ”%% avvikelse” eller ”%% glidande medelvärde”"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåten avvikelse för den nedre tröskelgränsen. Om detta inte anges kontrolleras den nedre tröskelgränsen inte alls. Måttenheten utgörs av ett absolut värde för typen ”Absolut värde”, och av en procentsats för både ”% avvikelse” och ”% glidande medelvärde”"
+msgstr "Anger tillåten avvikelse för den nedre tröskelgränsen. Om detta inte anges kontrolleras den nedre tröskelgränsen inte alls. Måttenheten utgörs av ett absolut värde för typen ”Absolut värde” och av en procentsats för både ”%% avvikelse” och ”%% glidande medelvärde”"
 
 #: thold_templates.php
 #, php-format
