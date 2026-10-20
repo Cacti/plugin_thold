@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-20 10:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-20 16:22+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -1259,7 +1259,7 @@ msgstr "Antal baslinjeutlösningar"
 
 #: includes/settings.php
 msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
-msgstr "Standardantal gånger i följd som datakällan måste överskrida det beräknade baslinjetröskelvärdet för att ett larm ska utlösas."
+msgstr "Standardantalet gånger i följd som datakällan måste överskrida den beräknade baslinjetröskeln innan ett larm utlöses."
 
 #: includes/settings.php
 msgid "Baseline Deviation Percentage"
@@ -1267,15 +1267,15 @@ msgstr "Baslinjeavvikelseprocent"
 
 #: includes/settings.php
 msgid "SNMP Notification Options"
-msgstr "Alternativ för SNMP-aviseringar"
+msgstr "Inställningar för SNMP-aviseringar"
 
 #: includes/settings.php
 msgid "SNMP Notifications"
-msgstr "SNMP-meddelanden"
+msgstr "SNMP-aviseringar"
 
 #: includes/settings.php
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
-msgstr "Statusmeddelanden för tröskelvärden (informeringsmeddelanden/fällor) skickas till mottagarna av SNMP-aviseringar. Som standard omfattar detta larm, varningar och återställningsfällor. Obs! Funktionen kräver insticksmodulen Cacti SNMPAgent."
+msgstr "Tröskelstatusmeddelanden (information/fällor) skickas till mottagare av SNMP-aviseringar. Detta omfattar som standard larm, varningar och återställningsfällor. Obs! Funktionen kräver tillägget Cacti SNMPAgent."
 
 #: includes/settings.php
 msgid "Disable Warning Notifications"
@@ -1295,7 +1295,7 @@ msgstr "Om detta är markerat skickar Thold ingen avisering när tröskelvärdet
 
 #: includes/settings.php
 msgid "Emailing Options"
-msgstr "E-postalternativ"
+msgstr "E-postinställningar"
 
 #: includes/settings.php
 msgid "Send Emails with Urgent Priority"
@@ -2491,7 +2491,7 @@ msgstr "Hög"
 
 #: thold.php thold_graph.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr "Värdena för hög varning / varning. OBS: Basvärden är en procent, alla andra värden är visningsvärden som kan modifieras av en cdef."
+msgstr "Värden för hög varning/högt larm. OBS: Basvärden anges i procent, medan övriga värden är visningsvärden som kan ändras av en CDEF."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Low"
@@ -2499,7 +2499,7 @@ msgstr "Låg"
 
 #: thold.php thold_graph.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr "Värdena för låg varning / varning. OBS: Basvärden är en procent, alla andra värden är visningsvärden som kan modifieras av en cdef."
+msgstr "Värden för låg varning/lågt larm. OBS: Basvärden anges i procent, medan övriga värden är visningsvärden som kan ändras av en CDEF."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Trigger"
@@ -2515,7 +2515,7 @@ msgstr "Upprepa"
 
 #: thold.php thold_graph.php
 msgid "In State"
-msgstr "Län"
+msgstr "I status"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
@@ -3100,11 +3100,11 @@ msgstr "Detta är prioritetsnivån som loggas i syslog-meddelandena."
 
 #: thold.php thold_templates.php
 msgid "Facility"
-msgstr "Facilitet"
+msgstr "Syslog-facilitet"
 
 #: thold.php thold_templates.php
 msgid "This is the Facility that will be used for this Threshold."
-msgstr "Detta är den facilitet som kommer att användas för denna tröskel."
+msgstr "Detta är den syslog-facilitet som används för den här tröskeln."
 
 #: thold.php thold_templates.php
 msgid "Event Triggering (Shell Command)"
@@ -3112,7 +3112,7 @@ msgstr "Händelseutlösning (skal-kommando)"
 
 #: thold.php thold_templates.php
 msgid "High Trigger Command"
-msgstr "Kommando för hög utlösare"
+msgstr "Kommando vid hög tröskel"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
@@ -3120,7 +3120,7 @@ msgstr "Om den är inställd, och om en hög tröskel bryts, kommer det här kom
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
-msgstr "Kommando för låg utlösare"
+msgstr "Kommando vid låg tröskel"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
@@ -3128,7 +3128,7 @@ msgstr "Om den är inställd och om en tröskel tröskel bryts kommer det här k
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
-msgstr "Kommando för normal utlösare"
+msgstr "Kommando vid normal återgång"
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
@@ -3140,7 +3140,7 @@ msgstr "Andra inställningar"
 
 #: thold.php
 msgid "Enter an Eternal ID for this Threshold."
-msgstr "Ange ett externt ID för detta tröskelvärde."
+msgstr "Ange ett Eternal-ID för den här tröskeln."
 
 #: thold.php thold_templates.php
 msgid "Operator Notes"
@@ -3624,7 +3624,7 @@ msgstr "%d sekunder"
 
 #: thold_templates.php
 msgid "DS Name"
-msgstr "DS-namn"
+msgstr "Datakällans namn"
 
 #: thold_templates.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
