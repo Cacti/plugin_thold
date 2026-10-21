@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-20 16:22+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-21 19:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -508,7 +508,7 @@ msgstr "Sedan skapandet"
 #: includes/functions.php includes/settings.php notify_lists.php thold.php
 #: thold_graph.php thold_templates.php
 msgid "Thresholds"
-msgstr "Trösklar"
+msgstr "Tröskelvärden"
 
 #: includes/functions.php
 msgid "Log"
@@ -566,12 +566,12 @@ msgstr "<html><body>Ett tröskelvärde har återgått till normalt tillstånd.<b
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "%% Dev [TIP:%s]"
+msgstr "%%-avvikelse [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Abs Val [TIP:%s]"
+msgstr "Absolut värde [TIP:%s]"
 
 #: includes/functions.php
 msgid "%%% Dev [AOT:%s]"
@@ -580,7 +580,7 @@ msgstr "%%%-avvikelse [AOT:%s]"
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Abs Val [AOT:%s]"
+msgstr "Absolut värde [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -2075,8 +2075,8 @@ msgstr[1] "Klicka på \"Fortsätt\" för att radera alla följande notifieringar
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Radera Notifieringslista (s)"
-msgstr[1] "Radera Notifieringslista (s)"
+msgstr[0] "Ta bort avisering"
+msgstr[1] "Ta bort aviseringar"
 
 #: notify_queue.php
 #, php-format
@@ -2189,7 +2189,7 @@ msgstr "När en misslyckad avisering kan skickas igen."
 
 #: notify_queue.php
 msgid "Run Time"
-msgstr "Tid"
+msgstr "Körtid"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
@@ -3124,7 +3124,7 @@ msgstr "Kommando vid låg tröskel"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Om den är inställd och om en tröskel tröskel bryts kommer det här kommandot att köras. Ange ett giltigt kommando. Dessutom finns det flera ersättningsetiketter som kan användas för att skicka information från tröskeln till skriptet. De inkluderar: &lt;BESKRIVNING&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. Slutligen kan Host, Data Query och Data input ersättas. Om du till exempel har en datainmatad anpassad data som kallas väntande, utför du ersättningsanvändningen | väntar |. För datasök och värdutbyte använd Cacti-konventioner | query_xxxx |, och | host_xxxx | respektive."
+msgstr "Om den är angiven och en nedre tröskel överskrids körs det här kommandot. Ange ett giltigt kommando. Dessutom finns flera ersättningstaggar som kan användas för att föra över information från tröskelvärdet till skriptet. De kan anges som argument på kommandoraden, eller helst i skriptets miljö. Alla ersättningsvärden finns i skriptets miljö med prefixet THOLD_. CURRENTVALUE blir till exempel THOLD_CURRENTVALUE. Variablerna är: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Slutligen kan värden för värd, datafråga och datainmatning ersättas. Om du till exempel har en anpassad datainmatning med namnet pending använder du |pending| för att ersätta den. Använd Cacti-konventionerna |query_xxxx| respektive |host_xxxx| för datafråga och värd."
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
