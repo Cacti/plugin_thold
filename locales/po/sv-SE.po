@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-21 19:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-26 11:10+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -222,7 +222,7 @@ msgstr "Info"
 
 #: includes/arrays.php
 msgid "Debug"
-msgstr "Debugg"
+msgstr "Felsökning"
 
 #: includes/arrays.php includes/functions.php
 msgid "Never"
@@ -235,7 +235,7 @@ msgstr "Varje minut"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Minutes"
-msgstr "Var %d:e minut"
+msgstr "Med %d minuters mellanrum"
 
 #: includes/arrays.php
 msgid "Every Hour"
@@ -244,7 +244,7 @@ msgstr "Varje timme"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Var %d:e timme"
+msgstr "Med %d timmars mellanrum"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -262,7 +262,7 @@ msgstr "Varje vecka"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "Var %d:e vecka"
+msgstr "Intervall: %d veckor"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -414,7 +414,7 @@ msgstr "Återuppta aviseringar"
 
 #: includes/arrays.php notify_lists.php notify_queue.php setup.php
 msgid "Delete"
-msgstr "Radera"
+msgstr "Ta bort"
 
 #: includes/arrays.php
 msgid "Enable"
@@ -968,7 +968,7 @@ msgstr "Larm/Thold"
 
 #: includes/settings.php notify_lists.php
 msgid "General"
-msgstr "Allmän"
+msgstr "Allmänt"
 
 #: includes/settings.php
 msgid "Disable All Thresholds"
@@ -1114,7 +1114,7 @@ msgstr "Om Thold-demonen är nere skickas en e-postavisering med detta intervall
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "Varje %d timme"
+msgstr "Var %d:e timme"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1619,7 +1619,7 @@ msgstr "Detta tröskelvärde använder en mall. När du väljer en tröskelmall 
 
 #: includes/webapi.php
 msgid "Graph"
-msgstr "Diagram"
+msgstr "Graf"
 
 #: includes/webapi.php
 msgid "Select the Graph for the Threshold."
@@ -1871,7 +1871,7 @@ msgstr "Sök"
 
 #: notify_lists.php thold.php thold_graph.php
 msgid "Site"
-msgstr "Webbplats"
+msgstr "Plats"
 
 #: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
 msgid "None"
@@ -1949,7 +1949,7 @@ msgstr "Mall"
 
 #: notify_lists.php
 msgid "State"
-msgstr "Status"
+msgstr "Tillstånd"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -2527,15 +2527,15 @@ msgstr "Bekräftelse krävs för denna tröskel"
 
 #: thold.php thold_graph.php
 msgid "No [Template:Thold]"
-msgstr "Inte Templated"
+msgstr "Nej [mall:tröskelvärde]"
 
 #: thold.php thold_graph.php
 msgid "No [Template]"
-msgstr "Mallar"
+msgstr "Nej [mall]"
 
 #: thold.php thold_graph.php
 msgid "No [Thold]"
-msgstr "Tröskelvärden"
+msgstr "Nej [tröskelvärde]"
 
 #: thold.php thold_graph.php
 #, php-format
@@ -2544,7 +2544,7 @@ msgstr "%d Utlösare"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
-msgstr "Tröskelvärden"
+msgstr "Inga tröskelvärden"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
@@ -2556,7 +2556,7 @@ msgstr "Grafdata"
 
 #: thold.php
 msgid "Edit Threshold Template"
-msgstr "Lägg till tröskelmall"
+msgstr "Redigera tröskelmall"
 
 #: thold.php
 msgid "Data Source Description:"
@@ -2584,7 +2584,7 @@ msgstr "AHI:"
 
 #: thold.php
 msgid "ALo:"
-msgstr "Ålö:"
+msgstr "ALo:"
 
 #: thold.php
 msgid "BL Up:"
@@ -2601,7 +2601,7 @@ msgstr "Okänt mall-ID %d"
 
 #: thold.php
 msgid "Not Templated"
-msgstr "Inte Templated"
+msgstr "Utan mall"
 
 #: thold.php
 #, php-format
@@ -3296,7 +3296,7 @@ msgstr "Den genomsnittliga svarstiden för Cactis tillgänglighetskontroll"
 
 #: thold_graph.php
 msgid "Availability"
-msgstr "Åtkomstbarhet"
+msgstr "Tillgänglighet"
 
 #: thold_graph.php
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
@@ -3680,7 +3680,7 @@ msgstr "Tillfällig mapp saknas."
 
 #: thold_templates.php
 msgid "Failed to write file to disk"
-msgstr "Misslyckades skriva filen till disken"
+msgstr "Kunde inte skriva filen till disken"
 
 #: thold_templates.php
 msgid "File upload stopped by extension"
