@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-26 11:10+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-26 11:51+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -2540,7 +2540,7 @@ msgstr "Nej [tröskelvärde]"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "%d Utlösare"
+msgstr "%d utlösare"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2548,7 +2548,7 @@ msgstr "Inga tröskelvärden"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "Tröskel Borttagen, kan inte Redigera!"
+msgstr "Tröskelvärdet har tagits bort och kan inte redigeras!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2560,11 +2560,11 @@ msgstr "Redigera tröskelmall"
 
 #: thold.php
 msgid "Data Source Description:"
-msgstr "Datakälla Beskrivning:"
+msgstr "Beskrivning av datakällan:"
 
 #: thold.php
 msgid "Associated Graph (Graphs using this RRD):"
-msgstr "Associerad graf (Grafer som använder denna RRD):"
+msgstr "Kopplad graf (grafer som använder denna RRD):"
 
 #: thold.php
 msgid "Last:"
@@ -2572,15 +2572,15 @@ msgstr "Senaste:"
 
 #: thold.php
 msgid "WHi:"
-msgstr "Whi:"
+msgstr "WHi:"
 
 #: thold.php
 msgid "WLo:"
-msgstr "WLO:"
+msgstr "WLo:"
 
 #: thold.php
 msgid "AHi:"
-msgstr "AHI:"
+msgstr "AHi:"
 
 #: thold.php
 msgid "ALo:"
@@ -2592,7 +2592,7 @@ msgstr "BL upp:"
 
 #: thold.php
 msgid "BL Down:"
-msgstr "BL Ned:"
+msgstr "BL ned:"
 
 #: thold.php
 #, php-format
@@ -2606,7 +2606,7 @@ msgstr "Utan mall"
 #: thold.php
 #, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
-msgstr "Datakälla-objekt [ %s] - Nuvarande värde: [ %s]"
+msgstr "Datakällobjekt [ %s ] – aktuellt värde: [ %s ]"
 
 #: thold.php thold_templates.php
 #, php-format
@@ -2620,15 +2620,15 @@ msgstr "Datakällor: %s"
 
 #: thold.php
 msgid "Template/Enabled Information"
-msgstr "Mall / Aktiverad information"
+msgstr "Information om mall och aktivering"
 
 #: thold.php
 msgid "Template Propagation Enabled"
-msgstr "Mallförökning aktiverad"
+msgstr "Tillämpning av malländringar aktiverad"
 
 #: thold.php
 msgid "Whether or not these settings will be propagated from the Threshold template."
-msgstr "Huruvida dessa inställningar kommer att spridas från tröskelmallen."
+msgstr "Om inställningarna ska tillämpas från tröskelmallen."
 
 #: thold.php thold_templates.php
 msgid "Template Name"
@@ -2636,7 +2636,7 @@ msgstr "Mallnamn"
 
 #: thold.php
 msgid "Name of the Threshold Template the Threshold was created from."
-msgstr "Namn på tröskelmallan tröskeln skapades från."
+msgstr "Namnet på tröskelmallen som tröskelvärdet skapades från."
 
 #: thold.php
 msgid "Enabled at Template Level"
@@ -2648,7 +2648,7 @@ msgstr "Ett tröskelvärde måste vara aktiverat både på mallnivå och på tr�
 
 #: thold.php
 msgid "Enabled at Threshold Level"
-msgstr "Aktivera tröskelvärdet"
+msgstr "Aktiverad på tröskelvärdesnivå"
 
 #: thold.php thold_templates.php
 msgid "General Settings"
@@ -2668,19 +2668,19 @@ msgstr "Namnformat"
 
 #: thold.php thold_templates.php
 msgid "Warning HRULE Color"
-msgstr "Varning HRULE Color"
+msgstr "Färg på varningens HRULE"
 
 #: thold.php thold_templates.php
 msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
-msgstr "Välj en färg för grafen HRULE för varningströskelvärdena. Välj 'None' för No HRULE. Obs! Den här funktionen stöds endast för data manipuleringstyper \"Exakt värde\" och \"Procentandel\" just nu."
+msgstr "Välj färg för grafens HRULE vid varningströsklar. Välj ”Ingen” om ingen HRULE ska visas. OBS: Funktionen stöds för närvarande endast för databearbetningstyperna ”Exakt värde” och ”Procent”."
 
 #: thold.php thold_templates.php
 msgid "Alert HRULE Color"
-msgstr "Varning HRULE-färg"
+msgstr "Färg på larmets HRULE"
 
 #: thold.php thold_templates.php
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
-msgstr "Välj en färg för grafen HRULE för varningsgränserna. Välj 'None' för No HRULE. Obs! Den här funktionen stöds endast för data manipuleringstyper \"Exakt värde\" och \"Procentandel\" just nu."
+msgstr "Välj färg för grafens HRULE vid larmtrösklar. Välj ”Ingen” om ingen HRULE ska visas. OBS: Funktionen stöds för närvarande endast för databearbetningstyperna ”Exakt värde” och ”Procent”."
 
 #: thold.php thold_templates.php
 msgid "Graph Timespan"
@@ -2692,7 +2692,7 @@ msgstr "Grafens sluttid kommer att ställas in vid tidpunkten för utlösningen.
 
 #: thold.php thold_templates.php
 msgid "Skip Scaling on HRULEs"
-msgstr "Hoppa över skalning på HRULEs"
+msgstr "Utelämna HRULE från skalning"
 
 #: thold.php thold_templates.php
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
@@ -2700,19 +2700,19 @@ msgstr "Om detta är markerat påverkas grafens skala varken av HRULE för larm 
 
 #: thold.php thold_templates.php
 msgid "Weekend Exemption"
-msgstr "Weekendbefrielse"
+msgstr "Undanta helger"
 
 #: thold.php thold_templates.php
 msgid "If this is checked, this Threshold will not alert on weekends."
-msgstr "Om detta är markerat kommer denna tröskel inte att varna på helgerna."
+msgstr "Om detta är markerat skickar tröskelvärdet inga larm på helger."
 
 #: thold.php thold_templates.php
 msgid "Disable Restoration Email"
-msgstr "Inaktivera återställnings-e-post"
+msgstr "Inaktivera e-post vid återställning"
 
 #: thold.php thold_templates.php
 msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
-msgstr "Om detta är markerat kommer tröskelvärdet inte att skicka en varning när tröskelvärdet har återgått till normal status."
+msgstr "Om detta är markerat skickas inget larm när tröskelvärdet återgår till normal status."
 
 #: thold.php thold_templates.php
 msgid "Acknowledgment Options"
@@ -2720,7 +2720,7 @@ msgstr "Bekräftelsemöjligheter"
 
 #: thold.php thold_templates.php
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
-msgstr "Det finns tre bekräftelsesnivåer som styr hur du måste svara på ett tröskelbrott. Dom är: <br><br><ul><li> <i>Ingen krävs</i> - När du väljer det här alternativet krävs inget bekräftelse för en tröskelbrott. </li><li> <i>Återställ Bekräftelse</i> - Med det här alternativet, när du bekräftar tröskeln, får du inte längre meddelanden när den bryts. </li><li> <i>Fortsätt Bekräftelse</i> - Med det här alternativet, även efter att tröskelvärdet har återgått till normalt, måste du bekräfta tröskeln och ge ett valfritt operatörsmeddelande. </li></ul>"
+msgstr "Det finns tre bekräftelsenivåer som styr hur en överträdelse av tröskelvärdet ska hanteras:<br><br><ul><li><i>Ingen krävs</i> – Ingen bekräftelse krävs vid en överträdelse.</li><li><i>Avisering som kan pausas</i> – När du bekräftar tröskelvärdet eller pausar aviseringarna får du inga fler aviseringar så länge värdet överträds. Du kan återuppta aviseringarna medan överträdelsen pågår.</li><li><i>Bestående bekräftelse</i> – Du måste bekräfta tröskelvärdet även efter att det har återgått till normal status och kan ange ett valfritt operatörsmeddelande.</li></ul>"
 
 #: thold.php thold_templates.php
 msgid "None Required"
@@ -2728,15 +2728,15 @@ msgstr "Ingen krävs"
 
 #: thold.php thold_templates.php
 msgid "Suspendible Notification"
-msgstr "SNMP-meddelanden"
+msgstr "Avisering som kan pausas"
 
 #: thold.php thold_templates.php
 msgid "Persistent Acknowledgment"
-msgstr "Fortsätt Bekräftelse"
+msgstr "Bestående bekräftelse"
 
 #: thold.php thold_templates.php
 msgid "Threshold Type"
-msgstr "Tröskel typ"
+msgstr "Typ av tröskelvärde"
 
 #: thold.php thold_templates.php
 msgid "The type of Threshold that will be monitored."
@@ -2748,15 +2748,15 @@ msgstr "Cykel för upprepat larm"
 
 #: thold.php
 msgid "Repeat alert after this amount of time has passed since the last alert."
-msgstr "Upprepa varning efter det att denna tid har gått sedan den senaste varningen."
+msgstr "Upprepa larmet när den här tiden har gått sedan föregående larm."
 
 #: thold.php thold_templates.php
 msgid "Warning - High / Low Settings"
-msgstr "Varning - Hög / Låg Inställningar"
+msgstr "Inställningar för hög/låg varning"
 
 #: thold.php thold_templates.php
 msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
-msgstr "Numeriska värden för höga och låga tröskelvärden kan innehålla följande suffix för tal större än 1 till \"K\", \"M\", \"G\", \"T\", \"P\", \"E\", \"Z\", \"Y\", och för tal mindre än 1 \"m\", \"u\", \"p\", \"f\"."
+msgstr "Numeriska värden för övre och nedre tröskelvärden kan använda suffixen ”K”, ”M”, ”G”, ”T”, ”P”, ”E”, ”Z” och ”Y” för tal större än 1 och suffixen ”m”, ”u”, ”p” och ”f” för tal mindre än 1."
 
 #: thold.php thold_templates.php
 msgid "High Threshold"
@@ -2764,7 +2764,7 @@ msgstr "Hög tröskel"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "Om inställt och datakällvärdet överstiger detta nummer utlöses en varning. OBS! Detta värde måste vara ett RAW-nummer. Värdet som visas i diagrammet kan ändras av en cdef."
+msgstr "Om ett värde anges utlöses en varning när datakällans värde överstiger det. OBS: Värdet måste vara ett råvärde. Värdet som visas i grafen kan ändras av en CDEF."
 
 #: thold.php thold_templates.php
 msgid "Low Threshold"
@@ -2772,15 +2772,15 @@ msgstr "Låg tröskel"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "Om inställt och datakällvärdet går under detta nummer utlöses varningen. OBS! Detta värde måste vara ett RAW-nummer. Värdet som visas i diagrammet kan ändras av en cdef."
+msgstr "Om ett värde anges utlöses en varning när datakällans värde understiger det. OBS: Värdet måste vara ett råvärde. Värdet som visas i grafen kan ändras av en CDEF."
 
 #: thold.php
 msgid "Breach Duration"
-msgstr "Brottens varaktighet"
+msgstr "Överträdelsens varaktighet"
 
 #: thold.php
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "Den tid som datakällan måste strida mot tröskeln för att en varning ska höjas."
+msgstr "Den tid som datakällans värde måste överträda tröskelvärdet innan en varning utlöses. OBS: Värdet måste vara ett råvärde. Värdet som visas i grafen kan ändras av en CDEF."
 
 #: thold.php thold_templates.php
 msgid "Alert - High / Low Settings"
@@ -2788,43 +2788,43 @@ msgstr "Inställningar för högt/lågt larm"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "Om inställt och datakällvärdet överstiger detta nummer utlöses varningen. OBS! Detta värde måste vara ett RAW-nummer. Värdet som visas i diagrammet kan ändras av en cdef."
+msgstr "Om ett värde anges utlöses ett larm när datakällans värde överstiger det. OBS: Värdet måste vara ett råvärde. Värdet som visas i grafen kan ändras av en CDEF."
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "Om inställt och datakällans värde går under detta nummer utlöses varningen. OBS! Detta värde måste vara ett RAW-nummer. Värdet som visas i diagrammet kan ändras av en cdef."
+msgstr "Om ett värde anges utlöses ett larm när datakällans värde understiger det. OBS: Värdet måste vara ett råvärde. Värdet som visas i grafen kan ändras av en CDEF."
 
 #: thold.php
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
-msgstr "Den tid som datakällan måste strida mot tröskelvärdet för en varning som ska höjas."
+msgstr "Den tid som datakällans värde måste överträda tröskelvärdet innan ett larm utlöses."
 
 #: thold.php thold_templates.php
 msgid "Warning - Time Based Settings"
-msgstr "Varning - Tidsbaserade inställningar"
+msgstr "Tidsbaserade varningsinställningar"
 
 #: thold.php
 msgid "Breach Count"
-msgstr "Brotträkningen"
+msgstr "Antal överträdelser"
 
 #: thold.php
 msgid "The number of times the Data Source must be in breach of the Threshold."
-msgstr "Antalet gånger datakällan måste strida mot tröskeln."
+msgstr "Antalet gånger datakällans värde måste överträda tröskelvärdet."
 
 #: thold.php
 msgid "Breach Window"
-msgstr "Brottfönster"
+msgstr "Tidsfönster för överträdelser"
 
 #: thold.php thold_templates.php
 msgid "The amount of time in the past to check for Threshold breaches."
-msgstr "Mängden tid i det förflutna för att söka efter tröskelbrott."
+msgstr "Hur långt tillbaka i tiden överträdelser av tröskelvärdet ska kontrolleras."
 
 #: thold.php thold_templates.php
 msgid "Alert - Time Based Settings"
-msgstr "Varning - tidsbaserade inställningar"
+msgstr "Tidsbaserade larminställningar"
 
 #: thold.php
 msgid "Baseline Settings"
-msgstr "Grundinställningsinställningar"
+msgstr "Baslinjeinställningar"
 
 #: thold.php thold_templates.php
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
@@ -2860,11 +2860,11 @@ msgstr "Tidsintervall"
 
 #: thold.php thold_templates.php
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
-msgstr "Anger punkten i det förflutna (baserat på rrd-upplösning) som kommer att användas som referens"
+msgstr "Anger tidpunkten i det förflutna som ska användas som referens, baserat på RRD-upplösningen, eller tidsintervallet för det rörliga medelvärdet när den typen av tröskelvärde används"
 
 #: thold.php thold_templates.php
 msgid "Deviation UP"
-msgstr "Avvikelse UP"
+msgstr "Avvikelse uppåt"
 
 #: thold.php
 #, php-format
@@ -2873,7 +2873,7 @@ msgstr "Anger tillåten avvikelse för den övre tröskelgränsen. Om detta inte
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
-msgstr "Avvikelse NED"
+msgstr "Avvikelse nedåt"
 
 #: thold.php
 #, php-format
@@ -2887,7 +2887,7 @@ msgstr "Antal utlösningar"
 #: thold.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
-msgstr "Antalet på varandra följande tider måste datakällan strida mot gränsöverskridande tröskeln för en varning som ska höjas. <br> Lämna tomt för att använda standardvärdet ( <b>Standard: %s cykler</b> )"
+msgstr "Antalet gånger i följd som datakällans värde måste överträda baslinjens tröskelvärde innan ett larm utlöses.<br>Lämna tomt för att använda standardvärdet (<b>Standard: %s cykler</b>)"
 
 #: thold.php thold_templates.php
 msgid "Data Manipulation"
@@ -2944,7 +2944,7 @@ msgstr "Antalet decimaler som ska visas för tröskelvärden och aktuella värde
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Ett RPN-uttryck är ett RRDtool-kompatibelt RPN-uttryck.  Syntaxen inkluderar alla funktioner nedan förutom ersättningsuttryck för både enhet och datafråga, t.ex. <span class=\"deviceUp\">|query_ifSpeed|</span>.  Om du vill använda en datakälla i RPN-uttrycket måste du använda syntaxen: <span class=\"deviceUp\">|ds:dsname|</span>.  Till exempel kommer <span class=\"deviceUp\">|ds:traffic_in|</span> att hämta det aktuella värdet för datakällan traffic_in för den eller de RRD-filer som är associerade med grafen. Alla datakällor för en graf kan inkluderas.<br><br>Matematiska operatorer: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Funktioner: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flödesoperatorer: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Jämförelsefunktioner: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Ett RPN-uttryck är ett RRDtool-kompatibelt RPN-uttryck.  Syntaxen inkluderar alla funktioner nedan samt ersättningsuttryck för både enhet och datafråga, t.ex. <span class=\"deviceUp\">|query_ifSpeed|</span>.  Om du vill använda en datakälla i RPN-uttrycket måste du använda syntaxen: <span class=\"deviceUp\">|ds:dsname|</span>.  Till exempel kommer <span class=\"deviceUp\">|ds:traffic_in|</span> att hämta det aktuella värdet för datakällan traffic_in för den eller de RRD-filer som är associerade med grafen. Alla datakällor för en graf kan inkluderas.<br><br>Matematiska operatorer: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Funktioner: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flödesoperatorer: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Jämförelsefunktioner: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3028,11 +3028,11 @@ msgstr "Fil för stil och format"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Event Category"
-msgstr "SNMP-anmälan - Händelsekategori"
+msgstr "SNMP-avisering – händelsekategori"
 
 #: thold.php thold_templates.php
 msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
-msgstr "För att tillåta en NMS att kategorisera olika SNMP-meddelanden, var vänlig och fyll i kategorin SNMP-notifieringar för den här mallen ska använda. Till exempel: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Ange den kategori som mallens SNMP-aviseringar ska använda, så att ett nätverkshanteringssystem lättare kan kategorisera dem. Exempel: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
 
 #: thold.php thold_templates.php
 msgid "SNMP Event Description"
@@ -3040,7 +3040,7 @@ msgstr "SNMP-händelsebeskrivning"
 
 #: thold.php thold_templates.php
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr "Du kan anpassa händelsebeskrivningen som skickas ut till SNMP-anmälningsmottagarna genom att använda ytterligare varbinds. Följande variabla bindningar kommer att stödjas: <br> &lt;THRESHOLDNAME&gt; &lt;HOSTNAME&gt; &lt;HOSTIP&gt; &lt;TEMPLATE_ID&gt; &lt;TEMPLATE_NAME&gt; &lt;THR_TYPE&gt; &lt;DS_NAME&gt; &lt;HI&gt; &lt;LOW&gt; &lt;EVENT_CATEGORY&gt; &lt;FAIL_COUNT&gt; &lt;FAIL_DURATION&gt;"
+msgstr "Du kan anpassa händelsebeskrivningen som skickas till mottagare av SNMP-aviseringar med hjälp av variabelbindningar. Standardvariabler för enheter (|host_*|) och datafrågor (|query_*|) kan användas tillsammans med följande variabelbindningar:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Alert Event Severity"
@@ -3068,11 +3068,11 @@ msgstr "Meddela konton"
 
 #: thold.php
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
-msgstr "Det här är en lista över konton som kommer att meddelas när denna tröskel bryts."
+msgstr "En lista över konton som får en avisering när tröskelvärdet överträds."
 
 #: thold.php thold_templates.php
 msgid "Alert Emails"
-msgstr "Larm-e-post"
+msgstr "E-postadresser för larm"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
@@ -3080,7 +3080,7 @@ msgstr "Du kan ange ytterligare e-postadresser, kommaseparerade, som ska ta emot
 
 #: thold.php thold_templates.php
 msgid "Warning Emails"
-msgstr "Varningsmeddelanden"
+msgstr "E-postadresser för varningar"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
@@ -3092,7 +3092,7 @@ msgstr "Om den är markerad skickas tröskelmeddelandet till din lokala syslog."
 
 #: thold.php thold_templates.php
 msgid "Priority/Level"
-msgstr "Prioritet/-nivå"
+msgstr "Prioritet/nivå"
 
 #: thold.php thold_templates.php
 msgid "This is the Priority Level that will be logged into your syslog messages."
@@ -3108,7 +3108,7 @@ msgstr "Detta är den syslog-facilitet som används för den här tröskeln."
 
 #: thold.php thold_templates.php
 msgid "Event Triggering (Shell Command)"
-msgstr "Händelseutlösning (skal-kommando)"
+msgstr "Händelseutlösning (skalkommando)"
 
 #: thold.php thold_templates.php
 msgid "High Trigger Command"
@@ -3116,7 +3116,7 @@ msgstr "Kommando vid hög tröskel"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Om den är inställd, och om en hög tröskel bryts, kommer det här kommandot att köras. Ange ett giltigt kommando. Dessutom finns det flera ersättningsetiketter som kan användas för att skicka information från tröskeln till skriptet. De inkluderar: &lt;BESKRIVNING&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. Slutligen kan Host, Data Query och Data Input ersättas. Om du till exempel har en datainmatad anpassad data som kallas väntande, utför du ersättningsanvändningen | väntar |. För datasök och värdutbyte använd Cacti-konventioner | query_xxxx |, och | host_xxxx | respektive."
+msgstr "Om kommandot anges körs det när ett övre tröskelvärde överträds. Ange ett giltigt kommando. Dessutom finns flera ersättningstaggar som kan användas för att föra över information från tröskelvärdet till skriptet. De kan anges som argument på kommandoraden, eller helst i skriptets miljö. Alla ersättningsvärden finns i skriptets miljö med prefixet THOLD_. CURRENTVALUE blir till exempel THOLD_CURRENTVALUE. Variablerna är: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Slutligen kan värden för värd, datafråga och datainmatning ersättas. Om du till exempel har en anpassad datainmatning med namnet pending använder du |pending| för att ersätta den. Använd Cacti-konventionerna |query_xxxx| respektive |host_xxxx| för datafråga och värd."
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
@@ -3132,7 +3132,7 @@ msgstr "Kommando vid normal återgång"
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Om det är inställt, kommer det här kommandot att köras när en told faller tillbaka till ett normalt värde. Ange ett giltigt kommando. Dessutom finns det flera ersättningsetiketter som kan användas för att skicka information från tröskeln till skriptet. De inkluderar: &lt;BESKRIVNING&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;GRAPH&gt; &lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &lt;DATE_RFC822 &gt; &lt;BREACHED_ITEMS&gt;. Slutligen kan Host, Data Query och Data input ersättas. Om du till exempel har en datainmatad anpassad data som kallas väntande, utför du ersättningsanvändningen | väntar |. För datasök och värdutbyte använd Cacti-konventioner | query_xxxx |, och | host_xxxx | respektive."
+msgstr "Om kommandot anges körs det när tröskelvärdet återgår till ett normalt värde. Ange ett giltigt kommando. Dessutom finns flera ersättningstaggar som kan användas för att föra över information från tröskelvärdet till skriptet. De kan anges som argument på kommandoraden, eller helst i skriptets miljö. Alla ersättningsvärden finns i skriptets miljö med prefixet THOLD_. CURRENTVALUE blir till exempel THOLD_CURRENTVALUE. Variablerna är: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Slutligen kan värden för värd, datafråga och datainmatning ersättas. Om du till exempel har en anpassad datainmatning med namnet pending använder du |pending| för att ersätta den. Använd Cacti-konventionerna |query_xxxx| respektive |host_xxxx| för datafråga och värd."
 
 #: thold.php thold_templates.php
 msgid "Other Settings"
@@ -3140,7 +3140,7 @@ msgstr "Andra inställningar"
 
 #: thold.php
 msgid "Enter an Eternal ID for this Threshold."
-msgstr "Ange ett Eternal-ID för den här tröskeln."
+msgstr "Ange ett externt ID för tröskelvärdet."
 
 #: thold.php thold_templates.php
 msgid "Operator Notes"
@@ -3168,11 +3168,11 @@ msgstr "Tröskelvärdet har bekräftats."
 
 #: thold_graph.php
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
-msgstr "Tröskeln genererar inte längre varningar, aviseringar eller kör kommandon."
+msgstr "Tröskelvärdet genererar inte längre larm eller aviseringar och kör inga kommandon."
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Tröskeln kommer att börja generera varningar igen."
+msgstr "Tröskelvärdet börjar generera larm igen."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3184,7 +3184,7 @@ msgstr "Åtgärder"
 
 #: thold_graph.php
 msgid "Ack Detail"
-msgstr "Ack Detalj"
+msgstr "Bekräftelsedetaljer"
 
 #: thold_graph.php
 msgid "Edit Threshold"
@@ -3204,7 +3204,7 @@ msgstr "Aktivera först mallen för att aktivera tröskelvärdet"
 
 #: thold_graph.php
 msgid "View Graph"
-msgstr "Se diagram"
+msgstr "Visa graf"
 
 #: thold_graph.php
 msgid "View Threshold History"
@@ -3240,7 +3240,7 @@ msgstr "Inget namn har angetts"
 
 #: thold_graph.php
 msgid "Hover over icons for help"
-msgstr "Håll över ikoner för hjälp"
+msgstr "Håll muspekaren över ikonerna för hjälp"
 
 #: thold_graph.php
 msgid "A description for the Device"
@@ -3260,7 +3260,7 @@ msgstr "Antal datakällor för den här enheten"
 
 #: thold_graph.php
 msgid "The status for this Device as of the last time it was polled"
-msgstr "Enhetens status vid den senaste avfrågningen"
+msgstr "Enhetens status vid den senaste datainsamlingen"
 
 #: thold_graph.php
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
@@ -3308,7 +3308,7 @@ msgstr "Redigera enhet"
 
 #: thold_graph.php
 msgid "View Graphs"
-msgstr "Se grafer"
+msgstr "Visa grafer"
 
 #: thold_graph.php
 msgid "No Devices"
@@ -3325,7 +3325,7 @@ msgstr "Inga exportrader hittades."
 #: thold_graph.php
 #, php-format
 msgid "Threshold Log for [ %s ]"
-msgstr "Tröskellogg för [ %s]"
+msgstr "Tröskellogg för [ %s ]"
 
 #: thold_graph.php
 msgid "Log Entries"
@@ -3353,7 +3353,7 @@ msgstr "Poster"
 
 #: thold_templates.php
 msgid "You are not authorised to modify one or more of the Thresholds selected"
-msgstr "Du är inte behörig att ändra en eller flera av de valda trösklarna"
+msgstr "Du är inte behörig att ändra ett eller flera av de valda tröskelvärdena"
 
 #: thold_templates.php
 #, php-format
@@ -3386,7 +3386,7 @@ msgstr "Använd föreslagna namn igen för mallar"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
-msgstr "Klicka på \"Fortsätt\" för att aktivera följande tröskelvärden."
+msgstr "Klicka på ”Fortsätt” för att aktivera de valda mallarna och tröskelvärdena."
 
 #: thold_templates.php
 msgid "Enable Template(s)"
@@ -3394,7 +3394,7 @@ msgstr "Aktivera mallar"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
-msgstr "Klicka på \"Fortsätt\" för att inaktivera följande tröskelvärden."
+msgstr "Klicka på ”Fortsätt” för att inaktivera de valda mallarna och tröskelvärdena."
 
 #: thold_templates.php
 msgid "Disable Template(s)"
@@ -3458,11 +3458,11 @@ msgstr "Minsta utlösningsvaraktighet"
 
 #: thold_templates.php
 msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
-msgstr "Tiden som datakällan måste överskrida tröskelvärdet innan ett larm utlöses."
+msgstr "Den tid som datakällans värde måste överträda tröskelvärdet innan ett larm utlöses."
 
 #: thold_templates.php
 msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
-msgstr "Antalet gånger datakällan måste överskrida tröskelvärdet innan en varning utfärdas."
+msgstr "Antalet gånger datakällans värde måste överträda tröskelvärdet innan en varning utfärdas."
 
 #: thold_templates.php
 msgid "Time Period Length"
@@ -3470,7 +3470,7 @@ msgstr "Tidsperiodens längd"
 
 #: thold_templates.php
 msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
-msgstr "Antalet gånger datakällan måste överskrida tröskelvärdet innan ett larm utfärdas."
+msgstr "Antalet gånger datakällans värde måste överträda tröskelvärdet innan ett larm utfärdas."
 
 #: thold_templates.php
 msgid "Baseline Monitoring"
@@ -3489,7 +3489,7 @@ msgstr "Anger tillåten avvikelse för den nedre tröskelgränsen. Om detta inte
 #: thold_templates.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
-msgstr "Antalet på varandra följande tider måste datakällan vara i bruten skick för att en varning ska höjas. <br> Lämna tomma för att använda standardvärdet (Standard: %s cykler"
+msgstr "Antalet gånger i följd som datakällans värde måste överträda tröskelvärdet innan ett larm utlöses.<br>Lämna tomt för att använda standardvärdet (standard: %s cykler"
 
 #: thold_templates.php
 msgid "Percent Datasource"
@@ -3502,7 +3502,7 @@ msgstr "Den andra datakällsposten som används som totalvärde för procentber�
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Ett RPN-uttryck är ett RRDtool-kompatibelt RPN-uttryck.  Syntaxen inkluderar alla funktioner nedan förutom ersättningsuttryck för både enhet och datafråga, t.ex. <span style=\"color:blue;\">|query_ifSpeed|</span>.  Om du vill använda en datakälla i RPN-uttrycket måste du använda syntaxen: <span style=\"color:blue;\">|ds:dsname|</span>.  Till exempel kommer <span style=\"color:blue;\">|ds:traffic_in|</span> att hämta det aktuella värdet för datakällan traffic_in för den eller de RRD-filer som är associerade med grafen. Alla datakällor för en graf kan inkluderas.<br>Matematiska operatorer: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Funktioner: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flödesoperatorer: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Jämförelsefunktioner: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Ett RPN-uttryck är ett RRDtool-kompatibelt RPN-uttryck.  Syntaxen inkluderar alla funktioner nedan samt ersättningsuttryck för både enhet och datafråga, t.ex. <span style=\"color:blue;\">|query_ifSpeed|</span>.  Om du vill använda en datakälla i RPN-uttrycket måste du använda syntaxen: <span style=\"color:blue;\">|ds:dsname|</span>.  Till exempel kommer <span style=\"color:blue;\">|ds:traffic_in|</span> att hämta det aktuella värdet för datakällan traffic_in för den eller de RRD-filer som är associerade med grafen. Alla datakällor för en graf kan inkluderas.<br>Matematiska operatorer: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Funktioner: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flödesoperatorer: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Jämförelsefunktioner: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3514,7 +3514,7 @@ msgstr "Ämne för larm-e-post"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Detta är e-postens ämne som kommer att visas i e-postmeddelandet (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
+msgstr "Ämnesrad för larmmeddelandet (högst 128 tecken). Lämna tomt för standardvärdet. Följande ersättningstaggar kan användas:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Alert Email Body"
@@ -3522,19 +3522,19 @@ msgstr "Text för larm-e-post"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Detta är det meddelande som visas högst upp i alla tröskelvärdesmeddelanden (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>t.ex. &amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#060HI&amp;#062 &amp;#060LOW&amp;#062 &amp;#060DURATION&amp;#062 &amp;#060TRIGGER&amp;#062 &amp;#060DETAILS_URL&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062"
+msgstr "Meddelandet visas högst upp i alla tröskelvärdeslarm (högst 1 024 tecken). HTML tillåts men tas bort i e-postmeddelanden med enbart text. Följande ersättningstaggar kan användas:<br>t.ex. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Detta är ämnet för varningen som kommer att visas i e-postmeddelandet (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
+msgstr "Ämnesrad för varningsmeddelandet (högst 128 tecken). Lämna tomt för standardvärdet. Följande ersättningstaggar kan användas:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Detta är det meddelande som visas högst upp i alla tröskelvärdesvarningar (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>t.ex. &amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#060HI&amp;#062 &amp;#060LOW&amp;#062 &amp;#060DURATION&amp;#062 &amp;#060TRIGGER&amp;#062 &amp;#060DETAILS_URL&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062"
+msgstr "Meddelandet visas högst upp i alla tröskelvärdesvarningar (högst 1 024 tecken). HTML tillåts men tas bort i e-postmeddelanden med enbart text. Följande ersättningstaggar kan användas:<br>t.ex. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Det här är ämnet för e-postmeddelandet som visas i e-postmeddelandet efter en återgång till det normala (128 tecken MAX).  Lämna tomt för standardvärdet.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060PHASE&amp;#062 &amp;#060THRESHOLDVALUE&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060BREACHUP&amp;#062 &amp;#060REALERT&amp;#062 &amp;#60HOSTNAME&amp;#62"
+msgstr "Ämnesrad för meddelandet när tillståndet har återgått till det normala (högst 128 tecken). Lämna tomt för standardvärdet. Följande ersättningstaggar kan användas:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Restoral Body"
@@ -3542,7 +3542,7 @@ msgstr "Text vid återställning"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Detta är det meddelande som kommer att visas högst upp i alla meddelanden om återställande av tröskelvärden (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062 &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#60NOTES&amp;#62 &amp;#060DNOTES&amp;#062"
+msgstr "Meddelandet visas högst upp i alla aviseringar om återställda tröskelvärden (högst 1 024 tecken). HTML tillåts men tas bort i e-postmeddelanden med enbart text. Följande ersättningstaggar kan användas:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 
 #: thold_templates.php
 msgid "Notification List Read Only"
@@ -3628,11 +3628,11 @@ msgstr "Datakällans namn"
 
 #: thold_templates.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr "Värdena för hög varning / varning. OBS! Basvärden är en procent, alla andra värden är RAW-värden som inte ändras av en cdef."
+msgstr "Värden för hög varning och högt larm. OBS: Baslinjevärden anges i procent; övriga värden är råvärden som inte ändras av någon CDEF."
 
 #: thold_templates.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr "Värdena för låg varning / varning. OBS! Basvärden är en procent, alla andra värden är RAW-värden som inte ändras av en cdef."
+msgstr "Värden för låg varning och lågt larm. OBS: Baslinjevärden anges i procent; övriga värden är råvärden som inte ändras av någon CDEF."
 
 #: thold_templates.php
 msgid "Import Template from Local File"
