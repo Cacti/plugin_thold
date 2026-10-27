@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-26 11:51+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-10-27 12:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -253,7 +253,7 @@ msgstr "Varje dag"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "Var %d:e dag"
+msgstr "Med %d dagars mellanrum"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -874,7 +874,7 @@ msgstr "Mallar"
 
 #: includes/settings.php thold_graph.php
 msgid "Threshold"
-msgstr "Tröskel"
+msgstr "Tröskelvärde"
 
 #: includes/settings.php
 msgid "A template with that Data Source already exists!"
@@ -955,12 +955,12 @@ msgstr "Använd Cacti-inställningen"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "%d pollningsintervall"
+msgstr "%d insamlingsintervall"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "%d pollningsintervall"
+msgstr "%d insamlingsintervall"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1073,7 +1073,7 @@ msgstr "Aktivera aviseringskö"
 
 #: includes/settings.php
 msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
-msgstr "Om du markerar den här rutan använder Thold aviseringsdemonen eller aviseringar som utförs utanför processen av aviseringspollern, i stället för infogade aviseringar."
+msgstr "Om du markerar rutan använder Thold aviseringsdemonen eller aviseringsprocessen för aviseringar utanför den ordinarie processen i stället för att skicka dem direkt."
 
 #: includes/settings.php
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
@@ -1081,7 +1081,7 @@ msgstr "Skicka larm-e-post till aviseringslistor för varningar"
 
 #: includes/settings.php
 msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
-msgstr "Markera den här rutan om du vill att mottagarna i listan över varningsmeddelanden ska få e-postmeddelanden om varningar utöver mottagarna i listan över varningsmeddelanden.  Detta fall är tillämpligt när varningsmeddelanden går till Administratörer och varningsmeddelanden går till Hantering."
+msgstr "Markera den här rutan om mottagarna i aviseringslistan för varningar även ska få e-post om larm, utöver mottagarna i aviseringslistan för larm. Detta är användbart när varningar skickas till administratörer och larm till ledningen."
 
 #: includes/settings.php
 msgid "Threshold Daemon"
@@ -1114,7 +1114,7 @@ msgstr "Om Thold-demonen är nere skickas en e-postavisering med detta intervall
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "Var %d:e timme"
+msgstr "Med %d timmes mellanrum"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1239,7 +1239,7 @@ msgstr "Upprepat larm"
 
 #: includes/settings.php
 msgid "Repeat Alert after specified number of poller cycles."
-msgstr "Upprepa larmet efter angivet antal pollercykler."
+msgstr "Upprepa larmet efter angivet antal insamlingscykler."
 
 #: includes/settings.php
 msgid "Baseline Presets"
@@ -1319,7 +1319,7 @@ msgstr "Skicka e-post separat till varje adress"
 
 #: includes/settings.php
 msgid "If checked, this will cause all Emails to be sent separately for each address."
-msgstr "Om markerat skickas alla e-postmeddelanden separat till varje adress."
+msgstr "Om rutan är markerad skickas alla e-postmeddelanden separat till varje adress."
 
 #: includes/settings.php
 msgid "From Email Address"
@@ -1471,7 +1471,7 @@ msgstr "Varningsmeddelande för tröskelvärde"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Detta är det meddelande som visas högst upp i alla Threshold-varningar (1024 tecken MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060DESCRIPTION&amp;#062 &amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060SITE&amp;#062 &amp;#060LOCATION&amp;#062 &amp;#060TIME&amp;#062 &amp;#060DATE&amp;#062 &amp;#060DATE_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062  &amp;#060URL&amp;#062 &amp;#060GRAPHID&amp;#062 &amp;#060THOLD_ID&amp;#062 &amp;#060CURRENTVALUE&amp;#062 &amp;#060THRESHOLDNAME&amp;#062 &amp;#060DSNAME&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060GRAPH&amp;#062 &amp;#60NOTES&amp;#062 &amp;#060DNOTES&amp;#062"
+msgstr "Det här meddelandet visas överst i alla tröskelvarningar (högst 1024 tecken). HTML är tillåtet, men tas bort i e-postmeddelanden med enbart text. Följande ersättningstaggar kan användas:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1949,7 +1949,7 @@ msgstr "Mall"
 
 #: notify_lists.php
 msgid "State"
-msgstr "Tillstånd"
+msgstr "Delstat/region"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -2840,11 +2840,11 @@ msgstr "Medel"
 
 #: thold.php thold_templates.php
 msgid "Minimum"
-msgstr "Minsta"
+msgstr "Minvärde"
 
 #: thold.php thold_templates.php
 msgid "Maximum"
-msgstr "Maximal"
+msgstr "Maxvärde"
 
 #: thold.php thold_templates.php
 msgid "Last"
@@ -3684,7 +3684,7 @@ msgstr "Kunde inte skriva filen till disken"
 
 #: thold_templates.php
 msgid "File upload stopped by extension"
-msgstr "Filuppladdningen stoppades av ett tillägg"
+msgstr "Filuppladdningen stoppades av en PHP-tilläggsmodul"
 
 #: thold_templates.php
 msgid "Invalid file extension."
