@@ -8487,7 +8487,12 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 			);
 		}
 	} else {
-		$ar_to_email = explode(',', $to_email);
+		/**
+		 * Lists are joined with ", " and often end in a stray comma, so trim
+		 * each address and drop the empty ones. Untrimmed, " b@example.com"
+		 * fails validation and was skipped without a word (#754).
+		 */
+		$ar_to_email = array_filter(array_map('trim', explode(',', $to_email)), 'strlen');
 
 		foreach ($ar_to_email as $to) {
 			if (filter_var($to, FILTER_VALIDATE_EMAIL) == $to) {
@@ -8527,6 +8532,8 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 						$any_error = $error;
 					}
 				}
+			} else {
+				cacti_log("WARNING: Not sending Email to invalid address '$to' Subject:$subject", true, 'THOLD');
 			}
 		}
 	}
