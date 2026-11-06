@@ -4461,8 +4461,6 @@ function thold_check_threshold(&$thold_data) {
 					$etrigger = true;
 				}
 
-				$ra = ($warning_failures > $warning_trigger) ? true : false;
-
 				$subject = get_email_subject('WARNING', $etrigger, $lastread, $ra, $warning_breach_up, $thold_data);
 
 				if ($notify) {
