@@ -115,14 +115,25 @@ final class TholdMailNotificationTest extends TestCase {
 	}
 
 	/**
-	 * An acknowledged threshold has already been seen by an operator, so it
-	 * stops mailing even while it keeps breaching.
+	 * acknowledgment = "on" means the breach is waiting for the operator, not
+	 * that it was acknowledged, so alerts and warnings still go out (#729).
 	 *
 	 * @return void
 	 */
-	public function testAcknowledgedThresholdIsNotMailed(): void {
-		$this->assertSame('', $this->deliver('ops@example.org', ['acknowledgment' => 'on']));
-		$this->assertSame([], CactiStubs::$mail);
+	public function testAlertAwaitingAcknowledgmentIsMailed(): void {
+		$this->assertNotSame('', $this->deliver('ops@example.org', ['acknowledgment' => 'on']));
+		$this->assertCount(1, CactiStubs::$mail);
+	}
+
+	/**
+	 * A restoral is mailed before the operator acknowledged the breach too
+	 * (#747).
+	 *
+	 * @return void
+	 */
+	public function testRestoralAwaitingAcknowledgmentIsMailed(): void {
+		$this->assertNotSame('', $this->deliver('ops@example.org', ['acknowledgment' => 'on'], 'restoral'));
+		$this->assertCount(1, CactiStubs::$mail);
 	}
 
 	/**

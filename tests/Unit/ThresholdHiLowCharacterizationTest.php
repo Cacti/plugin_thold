@@ -215,15 +215,18 @@ final class ThresholdHiLowCharacterizationTest extends TestCase {
 	}
 
 	/**
+	 * acknowledgment = "on" means the breach is waiting for the operator (the
+	 * Acknowledge action clears it), so the breach is still mailed (#729).
+	 *
 	 * @return void
 	 */
-	public function testAcknowledgedThresholdDoesNotMailOnBreach(): void {
+	public function testBreachAwaitingAcknowledgmentIsMailed(): void {
 		$outcome = $this->bounded([
 			'lastread'       => 95,
 			'acknowledgment' => 'on',
 		])->poll();
 
-		$this->assertSame(0, $outcome->mailCount());
+		$this->assertSame(1, $outcome->mailCount());
 	}
 
 	/**
