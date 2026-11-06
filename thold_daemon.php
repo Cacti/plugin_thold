@@ -150,7 +150,18 @@ if (!$foreground) {
 		}
 
 		if ($pid == 0) {
-			// We are the child reconnect
+			/**
+			 * We are the child: reconnect on a connection of our own (#711).
+			 *
+			 * include/global.php defaults $database_persist to true, and a
+			 * config.php that does not set it keeps that default. A persistent
+			 * PDO connection is then handed back from the pool this process
+			 * inherited from the parent, i.e. the parent's socket, which the
+			 * parent closes when it exits below. Every query the daemon then
+			 * makes fails with "MySQL server has gone away".
+			 */
+			$database_persist = false;
+
 			db_connect_real($database_hostname, $database_username, $database_password, $database_default, $database_type, $database_port, $database_retries, $database_ssl, $database_ssl_key, $database_ssl_cert, $database_ssl_ca);
 		} else {
 			cacti_log('NOTE: Thold Daemon Started on ' . gethostname(), false, 'THOLD');
