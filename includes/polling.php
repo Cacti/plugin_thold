@@ -982,15 +982,20 @@ function thold_update_host_status() {
 		foreach ($hosts as $host) {
 			// hosts in recovery status record only if they was in failed status
 			if (($host['status'] != HOST_RECOVERING) || ($host['status'] == HOST_RECOVERING && (is_array($failed) && array_search($host['id'], array_column($failed, 'host_id'), true) !== false))) {
-				$failed_ids .= ($failed_ids != '' ? '), (' : '(') . $host['id'];
+				$failed_ids .= ($failed_ids != '' ? '), (' : '(') . (int) $config['poller_id'] . ', ' . (int) $host['id'];
 			}
 		}
 
 		$failed_ids .= $failed_ids != '' ? ')' : '';
 
 		if ($failed_ids != '') {
+			/**
+			 * Record the poller as well: with remote storage the rows are read
+			 * and deleted per poller_id, and the column defaults to 1, so rows
+			 * written by any other poller were never matched again.
+			 */
 			db_execute("INSERT INTO plugin_thold_host_failed
-				(host_id)
+				(poller_id, host_id)
 				VALUES $failed_ids");
 
 			set_config_option('time_last_change_thold_device', time());
