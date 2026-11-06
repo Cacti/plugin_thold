@@ -8485,6 +8485,14 @@ function thold_mail($to_email, $bcc_email, $from_email, $subject, $message, $fil
 				$headers,
 				$thold_send_text_only != 'on'
 			);
+
+			/**
+			 * Every caller ignores the return value, so log the failure here
+			 * the way the send-separately branch below already does (#754).
+			 */
+			if ($any_error != '') {
+				cacti_log("ERROR: Sending Email Failed To:$to_email Subject:$subject.  Error was:'$any_error'", true, 'THOLD');
+			}
 		}
 	} else {
 		/**
