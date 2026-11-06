@@ -3249,10 +3249,11 @@ function thold_datasource_required($name, $data_source) {
  * queries and an empty recipient list should not pay for a message nobody
  * receives.
  *
- * Alerts and warnings are mailed whatever the acknowledgment flag says:
- * acknowledgment = "on" means the breach is still waiting for the operator,
- * and suspending re-alerts once acknowledged is the caller's $suspend_notify
- * decision (#729). Restorals still skip a threshold awaiting acknowledgment.
+ * Nothing here looks at the acknowledgment flag: acknowledgment = "on" means
+ * the breach is still waiting for the operator, suspending re-alerts once
+ * acknowledged is the caller's $suspend_notify decision (#729), and whether a
+ * restoral is mailed is decided by the "Disable Restoration Email" option
+ * alone (#747).
  *
  * @param string               $recipients Comma separated addresses, possibly empty.
  * @param string               $bcc        Comma separated blind addresses.
@@ -3269,7 +3270,7 @@ function thold_datasource_required($name, $data_source) {
 function thold_mail_notification($recipients, $bcc, $subject, $text_type, $list_id, $file_array, &$thold_data, &$h, $timespan = 7) {
 	$format_file = thold_get_thold_notification_format_file($thold_data['id'], $list_id);
 
-	if (trim($recipients) == '' || ($text_type == 'restoral' && $thold_data['acknowledgment'] != '')) {
+	if (trim($recipients) == '') {
 		return '';
 	}
 
@@ -3843,7 +3844,7 @@ function thold_check_threshold(&$thold_data) {
 						$notify_list_id = $thold_data['notify_warning'];
 						$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
 
-						if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on' && $thold_data['acknowledgment'] == '') {
+						if (trim($warning_emails) != '' && $thold_data['restored_alert'] != 'on') {
 							$message = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
 
 							thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
@@ -3895,7 +3896,7 @@ function thold_check_threshold(&$thold_data) {
 						$notify_list_id = $thold_data['notify_alert'];
 						$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
 
-						if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on' && $thold_data['acknowledgment'] == '') {
+						if (trim($alert_emails) != '' && $thold_data['restored_alert'] != 'on') {
 							$message = get_thold_restoral_text($thold_data['data_source_name'], $thold_data, $h, $thold_data['lastread'], $thold_data['local_graph_id']);
 
 							thold_mail($alert_emails, $alert_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file, $thold_data['graph_timespan']);
@@ -3905,7 +3906,7 @@ function thold_check_threshold(&$thold_data) {
 							$notify_list_id = $thold_data['notify_warning'];
 							$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
 
-							if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+							if (trim($warning_emails) != '') {
 								thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file);
 							}
 						}
@@ -4003,7 +4004,7 @@ function thold_check_threshold(&$thold_data) {
 								$notify_list_id = $thold_data['notify_warning'];
 								$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
 
-								if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+								if (trim($warning_emails) != '') {
 									thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file);
 								}
 							}
@@ -4662,7 +4663,7 @@ function thold_check_threshold(&$thold_data) {
 							$notify_list_id = $thold_data['notify_warning'];
 							$format_file    = thold_get_thold_notification_format_file($thold_data['id'], $notify_list_id);
 
-							if (trim($warning_emails) != '' && $thold_data['acknowledgment'] == '') {
+							if (trim($warning_emails) != '') {
 								thold_mail($warning_emails, $warning_bcc_emails, '', $subject, $message, $file_array, '', $notify_list_id, $h, $format_file);
 							}
 						}

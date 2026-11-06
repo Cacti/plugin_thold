@@ -126,11 +126,14 @@ final class TholdMailNotificationTest extends TestCase {
 	}
 
 	/**
+	 * A restoral is mailed before the operator acknowledged the breach too
+	 * (#747).
+	 *
 	 * @return void
 	 */
-	public function testRestoralAwaitingAcknowledgmentIsNotMailed(): void {
-		$this->assertSame('', $this->deliver('ops@example.org', ['acknowledgment' => 'on'], 'restoral'));
-		$this->assertSame([], CactiStubs::$mail);
+	public function testRestoralAwaitingAcknowledgmentIsMailed(): void {
+		$this->assertNotSame('', $this->deliver('ops@example.org', ['acknowledgment' => 'on'], 'restoral'));
+		$this->assertCount(1, CactiStubs::$mail);
 	}
 
 	/**
