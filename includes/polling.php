@@ -679,6 +679,22 @@ function thold_update_host_status() {
 						thold_mail($alert_email, '', '', $subject, $msg, '', '', $notify_list_id, $host, '', 7, 'thold_uhost_mail');
 					}
 
+					/**
+					 * The recovery notice has gone out, so drop this device's row
+					 * now rather than in the rebuild at the end of the run (#737).
+					 * Each device can block on SNMP gets, the up command below and
+					 * mail; a run cut short before the rebuild used to announce
+					 * every device left in the table again on the next cycle.
+					 * Deleting before the up command means a run that dies inside
+					 * the command still does not repeat the notice; a run that dies
+					 * before the notice was sent keeps the row, so it is sent next
+					 * cycle instead.
+					 */
+					db_execute_prepared('DELETE
+						FROM plugin_thold_host_failed
+						WHERE id = ?',
+						[$fh['id']]);
+
 					$command = read_config_option('thold_device_command');
 
 					if ($command != '') {
@@ -732,18 +748,6 @@ function thold_update_host_status() {
 						}
 					}
 				}
-
-				/**
-				 * This device's recovery has been handled, so drop its row now
-				 * rather than in the rebuild at the end of the run. Each device
-				 * can block on SNMP, an up command and mail; if the run is cut
-				 * short before the rebuild, every device left in the table is
-				 * announced as recovered again on the next cycle (#737).
-				 */
-				db_execute_prepared('DELETE
-					FROM plugin_thold_host_failed
-					WHERE id = ?',
-					[$fh['id']]);
 			}
 		}
 	}

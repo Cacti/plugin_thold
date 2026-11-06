@@ -144,6 +144,42 @@ final class RecoveryNoticeRepeatTest extends TestCase {
 	}
 
 	/**
+	 * The run dies inside the first device's up command, as on a poller that
+	 * outlasts its cycle while the command blocks. The notice already went
+	 * out and the row is already gone, so the next cycle does not repeat it.
+	 * (The queue path stands in for the command so nothing is executed.)
+	 *
+	 * @return void
+	 */
+	public function testARunThatDiesInTheUpCommandDoesNotRepeatTheNotice(): void {
+		CactiStubs::$configOptions['thold_device_command']     = '/bin/true';
+		CactiStubs::$configOptions['thold_notification_queue'] = 'on';
+
+		// With the queue on, the recovery mail is queued first; the second
+		// insert is the up command.
+		$queued = 0;
+
+		CactiStubs::willReturnFor('db_execute_prepared', 'INSERT INTO notification_queue', function () use (&$queued) {
+			if (++$queued == 2) {
+				throw new RuntimeException('poller run cut short in the up command');
+			}
+
+			return true;
+		});
+
+		try {
+			$this->runHostStatus([$this->recoveredDevice(42), $this->recoveredDevice(43)]);
+
+			$this->fail('the run was expected to stop in the first up command');
+		} catch (RuntimeException $e) {
+			$this->assertSame('poller run cut short in the up command', $e->getMessage());
+		}
+
+		$this->assertSame(2, $queued, 'the recovery mail and then the up command were queued');
+		$this->assertSame([5], $this->rowsDeleted());
+	}
+
+	/**
 	 * A full run clears each handled row as it goes.
 	 *
 	 * @return void
