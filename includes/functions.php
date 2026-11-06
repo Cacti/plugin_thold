@@ -4456,14 +4456,12 @@ function thold_check_threshold(&$thold_data) {
 				}
 
 				if ($notify) {
-					$trigger = false;
+					$etrigger = false;
 				} else {
-					$trigger = true;
+					$etrigger = true;
 				}
 
-				$ra = ($warning_failures > $warning_trigger) ? true : false;
-
-				$subject = get_email_subject('WARNING', $trigger, $lastread, $ra, $warning_breach_up, $thold_data);
+				$subject = get_email_subject('WARNING', $etrigger, $lastread, $ra, $warning_breach_up, $thold_data);
 
 				if ($notify) {
 					if (!$suspend_notify && !$maint_dev) {
