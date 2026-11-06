@@ -732,6 +732,18 @@ function thold_update_host_status() {
 						}
 					}
 				}
+
+				/**
+				 * This device's recovery has been handled, so drop its row now
+				 * rather than in the rebuild at the end of the run. Each device
+				 * can block on SNMP, an up command and mail; if the run is cut
+				 * short before the rebuild, every device left in the table is
+				 * announced as recovered again on the next cycle (#737).
+				 */
+				db_execute_prepared('DELETE
+					FROM plugin_thold_host_failed
+					WHERE id = ?',
+					[$fh['id']]);
 			}
 		}
 	}
