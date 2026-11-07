@@ -125,6 +125,10 @@ jobs:
           php8.6-intl php8.6-mysql php8.6-gd php8.6-ldap \
           php8.6-gmp php8.6-xml php8.6-curl php8.6-mbstring \
           php8.6-snmp php8.6-sqlite3
+        # Install a coverage driver so the patch-coverage gate can run; the
+        # setup-php legs get xdebug via `coverage: xdebug`. Non-fatal in case
+        # the PPA briefly lacks the matching 8.6 build.
+        sudo apt-get install -y php8.6-xdebug || true
         # Make the Ondřej 8.6 CLI the default `php` so composer and the tests
         # run under the same ABI-coherent build.
         sudo update-alternatives --install /usr/bin/php php /usr/bin/php8.6 86
