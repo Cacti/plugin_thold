@@ -129,6 +129,21 @@ jobs:
         # run under the same ABI-coherent build.
         sudo update-alternatives --install /usr/bin/php php /usr/bin/php8.6 86
         sudo update-alternatives --set php /usr/bin/php8.6
+        # Ondřej's PPA has no prebuilt php8.6-xdebug yet, so build it from PECL
+        # (Xdebug >= 3.5 supports PHP 8.5/8.6). This gives the 8.6 leg a real
+        # coverage driver so the patch-coverage gate and coverage-dependent
+        # tests work the same as the setup-php legs.
+        sudo apt-get install -y php8.6-dev php-pear autoconf gcc make pkg-config
+        sudo update-alternatives --install /usr/bin/phpize phpize /usr/bin/phpize8.6 86
+        sudo update-alternatives --set phpize /usr/bin/phpize8.6
+        sudo update-alternatives --install /usr/bin/php-config php-config /usr/bin/php-config8.6 86
+        sudo update-alternatives --set php-config /usr/bin/php-config8.6
+        yes '' | sudo pecl install -f xdebug || true
+        EXTDIR=$(php -r 'echo ini_get("extension_dir");')
+        if [ -f "$EXTDIR/xdebug.so" ]; then
+          printf '%s\n' 'zend_extension=xdebug.so' 'xdebug.mode=coverage' \
+            | sudo tee /etc/php/8.6/cli/conf.d/20-xdebug.ini >/dev/null
+        fi
         # Mirror the ini values the other legs receive via setup-php.
         printf '%s\n' \
           'post_max_size=256M' \
@@ -257,9 +272,7 @@ jobs:
     # inside a live Cacti. What is enforceable is that a change covers the
     # lines it adds.
     - name: Enforce coverage of changed lines
-      # PHP 8.6 installs from the Ondřej PPA, which has no matching xdebug
-      # build yet, so there is no coverage driver on that experimental leg.
-      if: github.event_name == 'pull_request' && matrix.php != '8.6'
+      if: github.event_name == 'pull_request'
       env:
         BASE_REF: ${{ github.event.pull_request.base.sha }}
       run: |
