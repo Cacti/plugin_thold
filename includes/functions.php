@@ -6446,6 +6446,22 @@ function thold_api_thold_template_remove($id) {
 }
 
 /**
+ * thold_rrd_path_is_safe - checks that a data source RRD path can be passed to rrdtool as a single argument.
+ *
+ * The RRD file name may contain whitespace or quote characters, which split or terminate the argument
+ * when the path is placed in an rrdtool command line, so such files are skipped rather than passed on.
+ *
+ * @param string $path The RRD file path, as stored for the data source.
+ *
+ * @return bool True when the file part of the path has no whitespace or quote characters.
+ */
+function thold_rrd_path_is_safe($path) {
+	$file = basename(str_replace('\\', '/', (string) $path));
+
+	return $file !== '' && preg_match('/[\s\'"`]/', $file) !== 1;
+}
+
+/**
  * thold_rrd_last - fetches the last-updated timestamp recorded in a data source's RRD file.
  *
  * @param int $local_data_id The local data source id whose RRD file to check.
@@ -6453,7 +6469,14 @@ function thold_api_thold_template_remove($id) {
  * @return string The RRD's last-update Unix timestamp, as returned by rrdtool.
  */
 function thold_rrd_last($local_data_id) {
-	$last_time_entry = @rrdtool_execute('last ' . trim(get_data_source_path($local_data_id, true)), false, RRDTOOL_OUTPUT_STDOUT);
+	$rrdfile = trim(get_data_source_path($local_data_id, true));
+
+	// An unusable path yields no timestamp, which callers already treat as 'not polled yet'.
+	if ($rrdfile !== '' && !thold_rrd_path_is_safe($rrdfile)) {
+		return '';
+	}
+
+	$last_time_entry = @rrdtool_execute('last ' . $rrdfile, false, RRDTOOL_OUTPUT_STDOUT);
 
 	return trim($last_time_entry);
 }
@@ -11350,7 +11373,7 @@ function thold_get_rrd_statistics($local_data_id, $current_time, $prev_time, $av
 		WHERE local_data_id = ?',
 		[$local_data_id]);
 
-	if ($rrdfile == '') {
+	if ($rrdfile == '' || !thold_rrd_path_is_safe($rrdfile)) {
 		return false;
 	}
 
