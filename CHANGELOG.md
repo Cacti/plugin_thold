@@ -1,5 +1,8 @@
 ## ChangeLog
 
+Documentation update (unreleased): Refresh README release/source compatibility,
+installation guidance and source-checked behavior.
+
 --- develop ---
 * dev: Run the CI poller with the shared runner group so RRD files and structured directories pass permission verification
 * issue: Shorten the VRULE graph drilldown button title so it reads cleanly as a label in Cacti's graph action menu, using two complete 'Toggle Threshold VRULES On'/'Off' strings (keeping the Threshold reference) so the label stays grammatical across translations

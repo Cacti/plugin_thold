@@ -7,8 +7,26 @@ operations personnel.  It provides Email, Syslog, and SNMP Trap or Inform
 escalations.  In addition, it also can notify personnel of Cacti Device status
 changes through Email, Syslog, and either SNMP Trap or Inform.
 
-NOTE: The Thold plugin that is in GitHub is ONLY compatible with Cacti 1.0.0 and
-above!
+This source branch requires Cacti 1.2.29 or later. Published packages have
+their own compatibility requirements, shown below.
+
+## Versions and compatibility
+
+This README describes the `develop` source branch.
+
+| Code | Plugin version | Minimum Cacti declared in `INFO` |
+| --- | --- | --- |
+| [Source branch](https://github.com/Cacti/plugin_thold/blob/develop/INFO) | 1.8.3 | 1.2.29 |
+| [Published v1.8.2](https://github.com/Cacti/plugin_thold/releases/tag/v1.8.2) | 1.8.2 | 1.2.25 |
+
+Use the published release’s assets and tagged documentation when installing that
+package. Branch code can include later changes, even when its version number
+matches the release. Cacti’s own PHP and database requirements also apply.
+
+Install this plugin in **`<cacti-root>/plugins/thold`**, using the directory
+name `thold` rather than `plugin_thold`.
+
+See [CHANGELOG.md](https://github.com/Cacti/plugin_thold/blob/develop/CHANGELOG.md) for the version history.
 
 ## Cacti compatibility
 
@@ -29,7 +47,9 @@ $(document).off('click.cactiReturnTo', '.cactiReturnTo')
 To install the plugin, simply copy the plugin_thold directory to Cacti's plugins
 directory and rename it to simply 'thold'.  Once this is complete, go to Cacti's
 Plugin Management section, and Install and Enable the plugin.  Once this is
-complete, you can grant users permission to view and create Thresholds.
+complete, you can grant users permission to view and create Thresholds.  The
+plugin registers four realms: **Configure Thresholds**, **Configure Threshold
+Templates**, **Manage Notification** and **View Thresholds**.
 
 Once you have installed thold, you should verify that Email support is
 functioning in Cacti by going to Cacti's Console and under Configuration select
@@ -142,6 +162,13 @@ If you plan on using the Threshold Daemon to increase the scalability of your
 thresholds, note that you must modify and install the thold_daemon.service file
 into your systemd configuration, and then start and test the service.  If you
 fail to perform these steps, thold will appear to not work as expected.
+
+Two command line scripts are included in the plugin directory.  Run
+`cli_thresholds.php --auto-create=N` (or select Devices, Graph Templates,
+Threshold Templates or Graphs with `--host-ids`, `--graph-template`,
+`--thold-template` and `--graph-ids`) to create Thresholds from Threshold
+Templates, and `cli_import.php --filename=N` to import a Threshold Template
+exported from the plugin.
 
 When upgrading the plugin while the Threshold Daemon is running, restart the
 `thold_daemon` service (for example `systemctl restart thold_daemon`) after
