@@ -16,7 +16,7 @@ This README describes the `develop` source branch.
 
 | Code | Plugin version | Minimum Cacti declared in `INFO` |
 | --- | --- | --- |
-| [Source branch](INFO) | 1.8.3 | 1.2.29 |
+| [Source branch](https://github.com/Cacti/plugin_thold/blob/develop/INFO) | 1.8.3 | 1.2.29 |
 | [Published v1.8.2](https://github.com/Cacti/plugin_thold/releases/tag/v1.8.2) | 1.8.2 | 1.2.25 |
 
 Use the published release’s assets and tagged documentation when installing that
@@ -26,7 +26,7 @@ matches the release. Cacti’s own PHP and database requirements also apply.
 Install this plugin in **`<cacti-root>/plugins/thold`**, using the directory
 name `thold` rather than `plugin_thold`.
 
-See [CHANGELOG.md](CHANGELOG.md) for the version history.
+See [CHANGELOG.md](https://github.com/Cacti/plugin_thold/blob/develop/CHANGELOG.md) for the version history.
 
 ## Cacti compatibility
 
