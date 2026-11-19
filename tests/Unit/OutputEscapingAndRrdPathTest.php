@@ -67,6 +67,13 @@ final class OutputEscapingAndRrdPathTest extends TestCase {
 		$this->assertSame([], CactiStubs::callsTo('rrdtool_execute'));
 	}
 
+	public function testLastUpdateSkipsAFileNameWithSpaces(): void {
+		CactiStubs::willReturn('get_data_source_path', '/var/lib/cacti/rra/router 4.rrd');
+
+		$this->assertSame('', thold_rrd_last(4));
+		$this->assertSame([], CactiStubs::callsTo('rrdtool_execute'));
+	}
+
 	/**
 	 * The data template name is user-editable, so the Template filter must
 	 * print it escaped as option text.
