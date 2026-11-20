@@ -1,5 +1,6 @@
 {
     "tombstones": [
+        ".travis.yml",
         "themes/",
         "thold_functions.php",
         "thold_webapi.php"

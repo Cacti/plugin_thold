@@ -54,6 +54,7 @@ installation guidance and source-checked behavior.
 * security: Replace rand() with hrtime(true) for graph image cache-buster (GHSA-vhwj-hfwg-gfg3, CWE-338)
 * security: Replace eval() in RPN unary math functions with safe dispatch function (GHSA-4mmp-mv2x-m9f6, CWE-95)
 * security: Replace md5() with sha256 for email dedup cache key (GHSA-gf2h-84m3-q6m3, CWE-1240)
+* issue: Remove the `.travis.yml` that 1.8.2 and earlier shipped when upgrading, instead of logging it as an unknown file (#877)
 
 --- 1.8.2 ---
 
