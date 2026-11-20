@@ -1672,7 +1672,7 @@ function tholds($header_label) {
 							<option value='-1'><?php print __('Any', 'thold'); ?></option>
 							<?php
 	foreach ($data_templates as $row) {
-		print "<option value='" . $row['id'] . "'" . (isset_request_var('template') && $row['id'] == get_request_var('template') ? ' selected' : '') . '>' . $row['name'] . '</option>';
+		print "<option value='" . $row['id'] . "'" . (isset_request_var('template') && $row['id'] == get_request_var('template') ? ' selected' : '') . '>' . html_escape($row['name']) . '</option>';
 	}
 	?>
 						</select>

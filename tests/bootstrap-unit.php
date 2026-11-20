@@ -466,7 +466,7 @@ if (!function_exists('rrdtool_function_fetch')) {
 
 if (!function_exists('get_data_source_path')) {
 	function get_data_source_path($local_data_id, $expand_paths = true) {
-		return '/var/lib/cacti/rra/test_' . (int) $local_data_id . '.rrd';
+		return CactiStubs::nextReturn('get_data_source_path', '/var/lib/cacti/rra/test_' . (int) $local_data_id . '.rrd');
 	}
 }
 
