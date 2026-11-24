@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-04-20 16:53-0400\n"
-"Last-Translator: Larry Adams <larryjadams@comcast.net>\n"
-"Language-Team: German <http://translate.cacti.net/projects/cacti/thold/de-DE/>\n"
-"Language: de_DE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/thold/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -495,8 +483,9 @@ msgid "> %d Devices"
 msgstr "> %d Geräte"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "> %d % of Geräte weltweit"
 
 #: includes/arrays.php
@@ -505,8 +494,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d von Geräten an einem Standort"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "> %d % of Geräte an einem Standort"
 
 #: includes/functions.php
@@ -540,7 +530,7 @@ msgstr "Benutzer:"
 
 #: includes/functions.php
 msgid "System:"
-msgstr "System"
+msgstr "System:"
 
 #: includes/functions.php
 msgid "Swaps:"
@@ -586,7 +576,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Bauchmuskeln Val [TIPP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "Abweichung UP"
 
 #: includes/functions.php
@@ -596,23 +588,23 @@ msgstr "Bauchmuskeln Val [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "Die Geräte-ID wurde beim Versuch, ein Diagramm und einen Schwellenwert zu erstellen, nicht gesetzt."
+msgstr "Die Geräte-ID wurde beim Versuch, ein Diagramm und einen Schwellenwert zu erstellen, nicht gesetzt"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "Die Threshold Template ID wurde beim Versuch, ein Diagramm zu erstellen, nicht gesetzt."
+msgstr "Die Threshold Template ID wurde beim Versuch, ein Diagramm zu erstellen, nicht gesetzt"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "Die Threshold Template ID wurde beim Versuch, ein Diagramm zu erstellen, nicht gesetzt."
+msgstr "Die Threshold Template ID wurde beim Versuch, ein Diagramm zu erstellen, nicht gesetzt"
 
 #: includes/functions.php
 msgid "The Graph Creation failed for Threshold Template"
-msgstr "Die Diagrammerstellung ist bei der Schwellenwertvorlage fehlgeschlagen."
+msgstr "Die Diagrammerstellung ist bei der Schwellenwertvorlage fehlgeschlagen"
 
 #: includes/functions.php
 msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Die Schwelle wurde aufgrund der Zuordnung von Gerätevorlagen automatisch erstellt."
+msgstr "Die Schwelle wurde aufgrund der Zuordnung von Gerätevorlagen automatisch erstellt"
 
 #: includes/functions.php
 msgid "Permission Denied"
@@ -625,7 +617,7 @@ msgstr "Aufzeichnung aktualisiert"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Das verknüpfte Diagrammvorlagenelement'%d' konnte bei Schwellenwert'%d' nicht gefunden werden."
+msgstr "Das verknüpfte Diagrammvorlagenelement'%d' konnte bei Schwellenwert'%d' nicht gefunden werden"
 
 #: includes/functions.php
 #, php-format
@@ -662,7 +654,7 @@ msgstr "Sie müssen entweder'Basislinienabweichung UP' oder'Basislinienabweichun
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Unmögliche Schwellenwerte:'High Threshold' kleiner oder gleich'Low Threshold'<br>RECORD NOT UPDATED!"
+msgstr "Unmöglicher Schwellenwert: „Hoher Alarmschwellenwert“ kleiner als „Niedriger Alarmschwellenwert“"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +678,7 @@ msgstr "Unmögliche Schwellenwerte:'High Warning Threshold' kleiner oder gleich'
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Unbekannter Schwellenwert"
+msgstr "Unbekannter Schwellenwerttyp!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -786,7 +778,7 @@ msgstr "Beim Importieren von Schwellenwertvorlagendaten sind Fehler aufgetreten.
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Schwellenwertvorlage Untergeordnete Datenvorlage nicht gefunden!"
+msgstr "Die Importdaten der Schwellenwertvorlage waren keine XML-Daten."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
@@ -798,7 +790,7 @@ msgstr "SNMP nicht in Gebrauch"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
-msgstr "Hinweis zum Gerät: <DESCRIPTION> (<HOSTNAME>) wird aus dem Zustand DOWN zurückgegeben."
+msgstr "Hinweis zum Gerät: <DESCRIPTION> (<HOSTNAME>) wird aus dem Zustand DOWN zurückgegeben"
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
@@ -1317,7 +1309,7 @@ msgstr "E-Mails mit dringender Priorität versenden"
 
 #: includes/settings.php
 msgid "Allows you to set Emails with urgent priority"
-msgstr "Ermöglicht es Ihnen, E-Mails mit dringender Priorität einzurichten."
+msgstr "Ermöglicht es Ihnen, E-Mails mit dringender Priorität einzurichten"
 
 #: includes/settings.php
 msgid "Send Alerts as Text"
@@ -1451,7 +1443,7 @@ msgstr "Dies ist die Meldung, die oben bei allen Schwellenwertwarnungen angezeig
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
-msgstr "Gerätehinweis: <DESCRIPTION> (<HOSTNAME>) wird aus dem Zustand DOWN zurückgegeben."
+msgstr "Gerätehinweis: <DESCRIPTION> (<HOSTNAME>) wird aus dem Zustand DOWN zurückgegeben"
 
 #: includes/settings.php
 msgid "Recovering Message"
@@ -1531,7 +1523,7 @@ msgstr "Assistent zur Erstellung von Schwellenwerten [ Wählen Sie einen Schwell
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Assistent zur Erstellung von Schwellenwerten [ Geben Sie benutzerdefinierte Daten ein und klicken Sie auf \"Erstellen\", um Ihre Schwellenwerte und Grafiken zu erstellen]."
+msgstr "Assistent zur Erstellung von Schwellenwerten [ Geben Sie benutzerdefinierte Daten ein und klicken Sie auf \"Erstellen\", um Ihre Schwellenwerte und Grafiken zu erstellen]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
@@ -1551,7 +1543,7 @@ msgstr "Assistent zur Erstellung von Schwellenwerten [ Wählen Sie eine Schwelle
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Assistent zur Erstellung von Schwellenwerten [ Drücken Sie auf \"Erstellen\", um Ihre Schwellenwerte zu erstellen]."
+msgstr "Assistent zur Erstellung von Schwellenwerten [ Drücken Sie auf \"Erstellen\", um Ihre Schwellenwerte zu erstellen]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Data Source ]"
@@ -1677,7 +1669,7 @@ msgstr "Diese Schwelle wird <b>NICHT</b> vordefiniert und funktioniert nur mit b
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Diese Schwelle wird <b>NICHT</b> vordefiniert.  Sie können entweder nach Diagramm auswählen, wo Sie dann ein vorhandenes Gerät, Diagramm und eine Datenquelle auswählen, bevor Sie Ihren Schwellenwert erstellen, oder Sie können eine Schwellenvorlage auswählen, mit der Sie gleichzeitig einen nicht vorgegebenen Schwellenwert und einen entsprechenden Diagramm erstellen können."
+msgstr "Diese Schwelle wird <b>NICHT</b> vordefiniert.  Sie können entweder nach Diagramm auswählen, wo Sie dann ein vorhandenes Gerät, Diagramm und eine Datenquelle auswählen, bevor Sie Ihren Schwellenwert erstellen, oder Sie können eine Schwellenvorlage auswählen, mit der Sie gleichzeitig einen nicht vorgegebenen Schwellenwert und einen entsprechenden Diagramm erstellen können"
 
 #: includes/webapi.php
 msgid "Selected Graph"
@@ -1818,7 +1810,7 @@ msgstr "Warnung vor einer Mitgliedschaft:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "Schwellenwert-Warnmeldung"
+msgstr "Schwellenwert-Warnmeldung:"
 
 #: notify_lists.php
 #, php-format
@@ -2095,8 +2087,8 @@ msgstr "Ausstehende Benachrichtigungen wurden aus der Datenbank entfernt.  Zuvor
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Klicken Sie auf \"Weiter\", um die folgende(n) Benachrichtigungsliste(n) zu duplizieren."
-msgstr[1] "Klicken Sie auf \"Weiter\", um die folgende(n) Benachrichtigungsliste(n) zu duplizieren."
+msgstr[0] "Klicken Sie auf \"Weiter\", um die folgende Benachrichtigung zu löschen."
+msgstr[1] "Klicken Sie auf \"Weiter\", um alle folgenden Benachrichtigungen zu löschen."
 
 #: notify_queue.php
 msgid "Delete Notification"
@@ -2151,7 +2143,7 @@ msgstr "Benachrichtigungen"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Schwellenwert-Template"
+msgstr "Schwellenwert-Template."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2163,11 +2155,11 @@ msgstr "Der Name des Objekts, wie er vom Aufrufer definiert wurde."
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Die Anzahl der Datenquellen für dieses Gerät"
+msgstr "Die Anzahl der Datenquellen für dieses Gerät."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Nur Benachrichtigungsliste"
+msgstr "Nur Benachrichtigungsliste."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2268,19 +2260,27 @@ msgid "Warning Low for %s (%s)"
 msgstr "Warnung Niedrig für %s (%s)"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "Alarm Hallo für %s (%s %)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "Alarm niedrig für %s (%s %)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Warnung Hallo für %s (%s %)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "Warnung Niedrig für %s (%s %)"
 
 #: setup.php
@@ -2326,15 +2326,15 @@ msgstr "Zu den folgenden Datenquellen sind keine Schwellenwertvorlagen vorhanden
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
-msgstr "Den folgenden Diagrammen sind keine Schwellenwertvorlagen zugeordnet."
+msgstr "Den folgenden Diagrammen sind keine Schwellenwertvorlagen zugeordnet"
 
 #: setup.php
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr "Klicken Sie auf \"Fortfahren\", wenn Sie Schwellenwerte für diese Grafiken erstellen möchten."
+msgstr "Klicken Sie auf \"Fortfahren\", wenn Sie Schwellenwerte für diese Grafiken erstellen möchten"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Graphs"
-msgstr "Zu den folgenden Diagrammen sind keine Schwellenwertvorlagen vorhanden."
+msgstr "Zu den folgenden Diagrammen sind keine Schwellenwertvorlagen vorhanden"
 
 #: setup.php
 msgid "Associated Threshold Templates"
@@ -2395,7 +2395,7 @@ msgstr "Entweder keine Vorlagen oder Schwellenwerte sind bereits vorhanden - es 
 
 #: thold.php
 msgid "You are not authorized to modify one or more of the Thresholds selected"
-msgstr "Sie sind nicht berechtigt, eine oder mehrere der ausgewählten Schwellenwerte zu ändern."
+msgstr "Sie sind nicht berechtigt, eine oder mehrere der ausgewählten Schwellenwerte zu ändern"
 
 #: thold.php
 msgid "Click 'Delete' to delete the following Threshold(s)."
@@ -2553,7 +2553,7 @@ msgstr "Bundesland"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Die Zeitspanne, in der die Datenquelle den Schwellenwert für die Auslösung einer Warnung überschreiten muss."
+msgstr "Die Zeitspanne, in der die Datenquelle den Schwellenwert für die Auslösung einer Warnung überschreiten muss"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2582,7 +2582,7 @@ msgstr "Schwellenwerte"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "Schwelle existiert nicht"
+msgstr "Schwellenwert gelöscht, kann nicht bearbeitet werden!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2694,7 +2694,7 @@ msgstr "Name (angezeigt)"
 
 #: thold.php
 msgid "Provide the Thresholds a meaningful name"
-msgstr "Geben Sie den Schwellenwerten einen aussagekräftigen Namen."
+msgstr "Geben Sie den Schwellenwerten einen aussagekräftigen Namen"
 
 #: thold.php
 msgid "Name (Format)"
@@ -2894,7 +2894,7 @@ msgstr "Zeitraum"
 
 #: thold.php thold_templates.php
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
-msgstr "Gibt den Punkt in der Vergangenheit (basierend auf der rrd-Auflösung) an, der als Referenz verwendet wird."
+msgstr "Gibt den Punkt in der Vergangenheit (basierend auf der rrd-Auflösung) an, der als Referenz verwendet wird"
 
 #: thold.php thold_templates.php
 msgid "Deviation UP"
@@ -2903,7 +2903,7 @@ msgstr "Abweichung UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Gibt die zulässige Abweichung in Prozent für die obere Grenze an. Wenn nicht gesetzt, wird die obere Grenze der Schwelle überhaupt nicht überprüft."
+msgstr "Gibt die zulässige Abweichung in Prozent für die obere Grenze an. Wenn nicht gesetzt, wird die obere Grenze der Schwelle überhaupt nicht überprüft"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2912,7 @@ msgstr "Abweichung nach unten"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Gibt die zulässige prozentuale Abweichung für den unteren Grenzwert an. Wenn nicht gesetzt, wird die untere Grenze der Schwelle überhaupt nicht überprüft."
+msgstr "Gibt die zulässige prozentuale Abweichung für den unteren Grenzwert an. Wenn nicht gesetzt, wird die untere Grenze der Schwelle überhaupt nicht überprüft"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2978,7 +2978,7 @@ msgstr "Die Anzahl der Dezimalstellen, die für Schwellenwert und aktuelle Werte
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Ein RPN-Ausdruck ist ein RRDtool-kompatibler RPN-Ausdruck.  Die Syntax umfasst alle unten aufgeführten Funktionen sowie Ersetzungsausdrücke für Geräte und Datenabfragen, z. B. <span class=\"deviceUp\">|query_ifSpeed|</span>.  Um eine Datenquelle im RPN-Ausdruck zu verwenden, müssen Sie die folgende Syntax verwenden: <span class=\"deviceUp\">|ds:dsname|</span>.  Beispielsweise ruft <span class=\"deviceUp\">|ds:traffic_in|</span> den aktuellen Wert der traffic_in-Datenquelle für die RRD-Datei(en) ab, die mit dem Diagramm verknüpft sind. Jede Datenquelle für ein Diagramm kann einbezogen werden.<br><br>Mathematische Operatoren: <span class=\"deviceUp\">+, -, /, *, %, ^</span><br>Funktionen: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow-Operatoren: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Vergleichsfunktionen: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Ein RPN-Ausdruck ist ein RRDtool-kompatibler RPN-Ausdruck.  Die Syntax umfasst alle unten aufgeführten Funktionen sowie Ersetzungsausdrücke für Geräte und Datenabfragen, z. B. <span class=\"deviceUp\">|query_ifSpeed|</span>.  Um eine Datenquelle im RPN-Ausdruck zu verwenden, müssen Sie die folgende Syntax verwenden: <span class=\"deviceUp\">|ds:dsname|</span>.  Beispielsweise ruft <span class=\"deviceUp\">|ds:traffic_in|</span> den aktuellen Wert der traffic_in-Datenquelle für die RRD-Datei(en) ab, die mit dem Diagramm verknüpft sind. Jede Datenquelle für ein Diagramm kann einbezogen werden.<br><br>Mathematische Operatoren: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Funktionen: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow-Operatoren: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Vergleichsfunktionen: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3058,7 +3058,7 @@ msgstr "Warnhinweisliste"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
-msgstr "Sie können festlegen, dass Sie eine Benachrichtigungsliste auswählen, um Warnungen für diese Datenquelle zu erhalten."
+msgstr "Sie können festlegen, dass Sie eine Benachrichtigungsliste auswählen, um Warnungen für diese Datenquelle zu erhalten"
 
 #: thold.php thold_templates.php
 msgid "Alert Notification List"
@@ -3066,7 +3066,7 @@ msgstr "Alarmmeldeliste"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
-msgstr "Sie können festlegen, dass Sie eine Benachrichtigungsliste auswählen, um Benachrichtigungen für diese Datenquelle zu erhalten."
+msgstr "Sie können festlegen, dass Sie eine Benachrichtigungsliste auswählen, um Benachrichtigungen für diese Datenquelle zu erhalten"
 
 #: thold.php thold_templates.php
 msgid "Style/Format File"
@@ -3122,7 +3122,7 @@ msgstr "Benachrichtigungs-E-Mails"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
-msgstr "Sie können hier zusätzliche E-Mails angeben, um Benachrichtigungen für diese Datenquelle zu erhalten (kommagetrennt)."
+msgstr "Sie können hier zusätzliche E-Mails angeben, um Benachrichtigungen für diese Datenquelle zu erhalten (kommagetrennt)"
 
 #: thold.php thold_templates.php
 msgid "Warning Emails"
@@ -3130,7 +3130,7 @@ msgstr "Warnhinweise für E-Mails"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
-msgstr "Sie können hier zusätzliche E-Mails angeben, um Warnungen für diese Datenquelle zu erhalten (kommagetrennt)."
+msgstr "Sie können hier zusätzliche E-Mails angeben, um Warnungen für diese Datenquelle zu erhalten (kommagetrennt)"
 
 #: thold.php thold_templates.php
 msgid "If checked, Threshold notification will be sent to your local syslog."
@@ -3218,7 +3218,7 @@ msgstr "Der Schwellenwert generiert keine Warnungen, Benachrichtigungen oder Aus
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Hohe Schwellenwerte für Warnung/Alarm"
+msgstr "Hohe Schwellenwerte für Warnung/Alarm."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3286,7 +3286,7 @@ msgstr "Kein Name gesetzt"
 
 #: thold_graph.php
 msgid "Hover over icons for help"
-msgstr "Bewegen Sie den Mauszeiger über die Symbole, um Hilfe zu erhalten."
+msgstr "Bewegen Sie den Mauszeiger über die Symbole, um Hilfe zu erhalten"
 
 #: thold_graph.php
 msgid "A description for the Device"
@@ -3306,11 +3306,11 @@ msgstr "Die Anzahl der Datenquellen für dieses Gerät"
 
 #: thold_graph.php
 msgid "The status for this Device as of the last time it was polled"
-msgstr "Der Status für dieses Gerät zum Zeitpunkt der letzten Abfrage."
+msgstr "Der Status für dieses Gerät zum Zeitpunkt der letzten Abfrage"
 
 #: thold_graph.php
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
-msgstr "Das letzte Mal, als Cacti ein Problem mit diesem Gerät fand.  Sie kann höher sein als die Betriebszeit des Geräts, wenn es zwischen den Abfragezyklen von Cacti neu gestartet wurde."
+msgstr "Das letzte Mal, als Cacti ein Problem mit diesem Gerät fand.  Sie kann höher sein als die Betriebszeit des Geräts, wenn es zwischen den Abfragezyklen von Cacti neu gestartet wurde"
 
 #: thold_graph.php
 msgid "Uptime"
@@ -3318,7 +3318,7 @@ msgstr "Laufzeit"
 
 #: thold_graph.php
 msgid "The official uptime of the Device as reported by SNMP"
-msgstr "Die offizielle Betriebszeit des Geräts, wie von SNMP gemeldet."
+msgstr "Die offizielle Betriebszeit des Geräts, wie von SNMP gemeldet"
 
 #: thold_graph.php
 msgid "The official hostname for this Device"
@@ -3330,7 +3330,7 @@ msgstr "Aktuell (ms)"
 
 #: thold_graph.php
 msgid "The current response time for the Cacti Availability check"
-msgstr "Die aktuelle Reaktionszeit für die Kakteen-Verfügbarkeitsprüfung."
+msgstr "Die aktuelle Reaktionszeit für die Kakteen-Verfügbarkeitsprüfung"
 
 #: thold_graph.php
 msgid "Average (ms)"
@@ -3338,7 +3338,7 @@ msgstr "Mittel (ms)"
 
 #: thold_graph.php
 msgid "The average response time for the Cacti Availability check"
-msgstr "Die durchschnittliche Reaktionszeit für die Kakteen-Verfügbarkeitsprüfung."
+msgstr "Die durchschnittliche Reaktionszeit für die Kakteen-Verfügbarkeitsprüfung"
 
 #: thold_graph.php
 msgid "Availability"
@@ -3346,7 +3346,7 @@ msgstr "Verfügbarkeit"
 
 #: thold_graph.php
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
-msgstr "Die Gesamtverfügbarkeit dieses Geräts seit dem letzten Zählerreset in Kakteen."
+msgstr "Die Gesamtverfügbarkeit dieses Geräts seit dem letzten Zählerreset in Kakteen"
 
 #: thold_graph.php
 msgid "Edit Device"
@@ -3399,7 +3399,7 @@ msgstr "Einträge"
 
 #: thold_templates.php
 msgid "You are not authorised to modify one or more of the Thresholds selected"
-msgstr "Sie sind nicht berechtigt, eine oder mehrere der ausgewählten Schwellenwerte zu ändern."
+msgstr "Sie sind nicht berechtigt, eine oder mehrere der ausgewählten Schwellenwerte zu ändern"
 
 #: thold_templates.php
 #, php-format
@@ -3460,7 +3460,7 @@ msgstr "Bitte wählen Sie eine Datenquelle aus"
 
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
-msgstr "Bitte klicken Sie auf'Erstellen', um Ihre Schwellenwertvorlage zu erstellen."
+msgstr "Bitte klicken Sie auf'Erstellen', um Ihre Schwellenwertvorlage zu erstellen"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3525,12 +3525,12 @@ msgstr "Basislinienüberwachung"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Gibt die zulässige Abweichung in Prozent für die obere Grenze an. Wenn nicht gesetzt, wird die obere Grenze der Schwelle überhaupt nicht überprüft."
+msgstr "Gibt die zulässige Abweichung in Prozent für die obere Grenze an. Wenn nicht gesetzt, wird die obere Grenze der Schwelle überhaupt nicht überprüft"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Gibt die zulässige prozentuale Abweichung für den unteren Grenzwert an. Wenn nicht gesetzt, wird die untere Grenze der Schwelle überhaupt nicht überprüft."
+msgstr "Gibt die zulässige prozentuale Abweichung für den unteren Grenzwert an. Wenn nicht gesetzt, wird die untere Grenze der Schwelle überhaupt nicht überprüft"
 
 #: thold_templates.php
 #, php-format
@@ -3548,7 +3548,7 @@ msgstr "Zweites Datenquellenelement, das als Gesamtwert verwendet wird, um den P
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Ein RPN-Ausdruck ist ein RRDtool-kompatibler RPN-Ausdruck.  Die Syntax umfasst alle unten aufgeführten Funktionen sowie Ersetzungsausdrücke für Geräte und Datenabfragen, z. B. <span style=\"color:blue;\">|query_ifSpeed|</span>.  Um eine Datenquelle im RPN-Ausdruck zu verwenden, müssen Sie die folgende Syntax verwenden: <span style=\"color:blue;\">|ds:dsname|</span>.  Beispielsweise ruft <span style=\"color:blue;\">|ds:traffic_in|</span> den aktuellen Wert der traffic_in-Datenquelle für die RRD-Datei(en) ab, die mit dem Diagramm verknüpft sind. Jede Datenquelle für ein Diagramm kann einbezogen werden.<br>Mathematische Operatoren: <span style=\"color:blue;\">+, -, /, *, %, ^</span><br>Funktionen: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow-Operatoren: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Vergleichsfunktionen: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Ein RPN-Ausdruck ist ein RRDtool-kompatibler RPN-Ausdruck.  Die Syntax umfasst alle unten aufgeführten Funktionen sowie Ersetzungsausdrücke für Geräte und Datenabfragen, z. B. <span style=\"color:blue;\">|query_ifSpeed|</span>.  Um eine Datenquelle im RPN-Ausdruck zu verwenden, müssen Sie die folgende Syntax verwenden: <span style=\"color:blue;\">|ds:dsname|</span>.  Beispielsweise ruft <span style=\"color:blue;\">|ds:traffic_in|</span> den aktuellen Wert der traffic_in-Datenquelle für die RRD-Datei(en) ab, die mit dem Diagramm verknüpft sind. Jede Datenquelle für ein Diagramm kann einbezogen werden.<br>Mathematische Operatoren: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Funktionen: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow-Operatoren: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Vergleichsfunktionen: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3608,11 +3608,11 @@ msgstr "Dies ist eine Liste von Konten, die benachrichtigt werden, wenn diese Sc
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
-msgstr "Sie können hier zusätzliche E-Mails angeben, um Benachrichtigungen für diese Datenquelle zu erhalten (kommagetrennt)."
+msgstr "Sie können hier zusätzliche E-Mails angeben, um Benachrichtigungen für diese Datenquelle zu erhalten (kommagetrennt)"
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
-msgstr "Sie können hier zusätzliche E-Mails angeben, um Warnungen für diese Datenquelle zu erhalten (kommagetrennt)."
+msgstr "Sie können hier zusätzliche E-Mails angeben, um Warnungen für diese Datenquelle zu erhalten (kommagetrennt)"
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
