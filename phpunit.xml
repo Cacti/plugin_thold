@@ -32,6 +32,7 @@
 	-->
 	<source>
 		<include>
+			<file>includes/arrays.php</file>
 			<file>includes/functions.php</file>
 			<file>includes/polling.php</file>
 			<file>setup.php</file>
