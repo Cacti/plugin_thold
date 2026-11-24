@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2026-10-06 09:18+0000\n"
-"Last-Translator: YU HAO HUANG <mix@b51.tw>\n"
-"Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/thold/zh_Hant/>\n"
-"Language: zh-TW\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/thold/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -40,12 +28,12 @@ msgstr "%d年"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "每個％d小時"
+msgstr "自 %d 小時前起"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "每個％d小時"
+msgstr "自 %d 小時前起"
 
 #: includes/arrays.php
 #, php-format
@@ -55,32 +43,32 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "每隔％d天"
+msgstr "自 %d 天前起"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "％d週"
+msgstr "自 %d 週前起"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "每個％d週"
+msgstr "自 %d 週前起"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "％d月"
+msgstr "自 %d 個月前起"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "％d個月"
+msgstr "自 %d 個月前起"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "％d年"
+msgstr "自 %d 年前起"
 
 #: includes/arrays.php
 #, php-format
@@ -132,7 +120,7 @@ msgstr "警報"
 
 #: includes/arrays.php
 msgid "Notify - Alert2Warning"
-msgstr "通知 -  Alert2Warning"
+msgstr "通知 - Alert2Warning"
 
 #: includes/arrays.php
 msgid "Alert2Warn"
@@ -278,7 +266,7 @@ msgstr "每天"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "每隔％d天"
+msgstr "每隔 %d 天"
 
 #: includes/arrays.php
 #, fuzzy
@@ -337,7 +325,7 @@ msgstr "%d週"
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "％0.1f小時"
+msgstr "%0.1f 小時"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -346,17 +334,17 @@ msgstr "每一次投票"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "每個％d pollings"
+msgstr "每 %d 次輪詢"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "％d輪詢"
+msgstr "%d 次輪詢"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "％d Pollings"
+msgstr "%d 次輪詢"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -512,21 +500,23 @@ msgstr "%d 天"
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices"
-msgstr "設備"
+msgstr "> %d 個裝置"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "設備"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "設備"
+msgstr "單一站台中 > %d 個裝置"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "設備"
 
 #: includes/functions.php
@@ -601,21 +591,23 @@ msgstr "已發出警報，需要您注意。 <br><br> <strong>裝置</strong> �
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "偏差UP"
+msgstr "%% 偏差 [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "警報價值"
+msgstr "絕對值 [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "偏差UP"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "警報價值"
+msgstr "絕對值 [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -649,12 +641,12 @@ msgstr "記錄更新"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "無法在閾值'％d'上找到鏈接的圖表模板項'％d'"
+msgstr "無法在閾值 '%2$d' 上找到連結的圖表範本項目 '%1$d'"
 
 #: includes/functions.php
 #, php-format
 msgid "Created Threshold: %s"
-msgstr "創建的閾值：％s"
+msgstr "已建立閾值：%s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
@@ -686,7 +678,7 @@ msgstr "您必須指定“Baseline Deviation UP”或“Baseline Deviation DOWN�
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "不可能的閾值：“高閾值”小於或等於“低閾值” <br>記錄沒有更新！"
+msgstr "不可能的閾值：「高警示閾值」小於「低警示閾值」"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -710,7 +702,7 @@ msgstr "不可能的閾值：'高警告閾值'小於或等於'低警告閾值' <
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "未知閾值"
+msgstr "未知的閾值類型！"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -788,7 +780,7 @@ msgstr "已匯入"
 #: includes/functions.php
 #, php-format
 msgid "Threshold Template '%s' %s!"
-msgstr "閾值模板'％s'％s！"
+msgstr "閾值範本 '%s' %s！"
 
 #: includes/functions.php
 msgid "Updated"
@@ -802,7 +794,7 @@ msgstr "匯入"
 #: includes/functions.php
 #, php-format
 msgid "Threshold Template '%s' %s Failed!"
-msgstr "閾值模板'％s'％s失敗！"
+msgstr "閾值範本 '%s' %s失敗！"
 
 #: includes/functions.php
 #, fuzzy
@@ -815,11 +807,11 @@ msgstr "嘗試導入閾值模板數據時出現錯誤。"
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "未找到閾值模板從屬數據模板！"
+msgstr "閾值範本匯入資料並非 XML 資料。"
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "嘗試創建圖形和閾值時未設置閾值模板ID"
+msgstr "嘗試創建圖形和閾值時未設置閾值模板ID。"
 
 #: includes/polling.php
 #, fuzzy
@@ -1007,12 +999,12 @@ msgstr "基線設置"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "％d輪詢"
+msgstr "%d 個輪詢間隔"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "％d Pollings"
+msgstr "%d 個輪詢間隔"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1169,7 +1161,7 @@ msgstr "如果發現Thold守護程序已關閉，則以該頻率發送電子郵�
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "每個％d小時"
+msgstr "每 %d 小時"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1789,12 +1781,12 @@ msgstr "重複的通知清單"
 #: notify_lists.php
 #, php-format
 msgid "%s Threshold Template(s)"
-msgstr "％s閾值模板"
+msgstr "%s 閾值範本"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
-msgstr "單擊“繼續”以將通知列表'％s'與下面的閾值模板相關聯。"
+msgstr "按一下「繼續」將通知清單 '%s' 與下方的閾值範本建立關聯。"
 
 #: notify_lists.php
 msgid "Warning Membership:"
@@ -1823,7 +1815,7 @@ msgstr "關聯通知清單"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
-msgstr "單擊“繼續”以從下面的閾值模板中取消關聯通知列表'％s'。"
+msgstr "按一下「繼續」取消通知清單 '%s' 與下方閾值範本的關聯。"
 
 #: notify_lists.php
 msgid "Remove List"
@@ -1836,22 +1828,22 @@ msgstr "解除關聯通知清單"
 #: notify_lists.php
 #, php-format
 msgid "%s Threshold(s)"
-msgstr "％s門檻（s）"
+msgstr "%s 閾值"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
-msgstr "單擊“繼續”以將通知列表'％s'與下面的閾值相關聯。"
+msgstr "按一下「繼續」將通知清單 '%s' 與下方的閾值建立關聯。"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
-msgstr "單擊“繼續”以從下面的閾值中取消關聯通知列表'％s'。"
+msgstr "按一下「繼續」取消通知清單 '%s' 與下方閾值的關聯。"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
-msgstr "單擊“繼續”以將通知列表'％s'與下面的設備相關聯。"
+msgstr "按一下「繼續」將通知清單 '%s' 與下方的裝置建立關聯。"
 
 #: notify_lists.php
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
@@ -1871,12 +1863,12 @@ msgstr "警告成員："
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "閾值警報消息"
+msgstr "閾值警報消息："
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
-msgstr "單擊“繼續”以從下面的設備中取消關聯通知列表'％s'。"
+msgstr "按一下「繼續」取消通知清單 '%s' 與下方裝置的關聯。"
 
 #: notify_lists.php
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
@@ -2223,7 +2215,7 @@ msgstr "通知"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "閾值模板"
+msgstr "閾值模板。"
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2235,11 +2227,11 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "此設備的數據源數量"
+msgstr "此設備的數據源數量。"
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "僅通知清單"
+msgstr "僅通知清單。"
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2255,7 +2247,7 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "SNMP報告的設備正式正常運行時間"
+msgstr "SNMP報告的設備正式正常運行時間。"
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2323,37 +2315,45 @@ msgstr "創建閾值"
 #: setup.php
 #, php-format
 msgid "Alert Hi for %s (%s)"
-msgstr "％s（％s）的警報高"
+msgstr "%s (%s) 的警報上限"
 
 #: setup.php
 #, php-format
 msgid "Alert Low for %s (%s)"
-msgstr "％s（％s）的警報低"
+msgstr "%s (%s) 的警報下限"
 
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "警告列表"
+msgstr "%s (%s) 的警告上限"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "警告列表"
+msgstr "%s (%s) 的警告下限"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "％s（％s %%）的警報高"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "％s的警報低（％s %%）"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "％s（％s %%）警告高"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "％s的警告低（％s %%）"
 
 #: setup.php
@@ -2375,7 +2375,7 @@ msgstr "自動創建閾值"
 #: setup.php
 #, php-format
 msgid "Created %s thresholds"
-msgstr "創建的閾值：％s"
+msgstr "已建立 %s 個閾值"
 
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
@@ -2449,7 +2449,7 @@ msgstr "單擊“繼續”以刪除以下閾值模板將與設備模板解除關
 #: setup.php
 #, php-format
 msgid "Threshold Template Name: %s"
-msgstr "閾值模板名稱：％s"
+msgstr "閾值範本名稱：%s"
 
 #: setup.php
 msgid "Remove Threshold Template"
@@ -2631,7 +2631,7 @@ msgstr "州"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "數據源必須超出閾值以提出警告的時間量。"
+msgstr "數據源必須超出閾值以提出警告的時間量"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2652,7 +2652,7 @@ msgstr "沒有門檻"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "％d觸發器"
+msgstr "%d 次觸發"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2660,7 +2660,7 @@ msgstr "沒有門檻"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "閾值不存在"
+msgstr "閾值已刪除，無法編輯！"
 
 #: thold.php
 #, fuzzy
@@ -2681,7 +2681,7 @@ msgstr "關聯圖（使用此RRD的圖表）："
 
 #: thold.php
 msgid "Last:"
-msgstr "最後活躍"
+msgstr "最後活躍："
 
 #: thold.php
 msgid "WHi:"
@@ -2710,7 +2710,7 @@ msgstr "BL Down："
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "未知模板ID％d"
+msgstr "未知的範本 ID %d"
 
 #: thold.php
 #, fuzzy
@@ -2720,17 +2720,17 @@ msgstr "沒有模板化"
 #: thold.php
 #, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
-msgstr "數據源項目[％s]  - 當前值：[％s]"
+msgstr "資料來源項目 [ %s ] - 目前值：[ %s ]"
 
 #: thold.php thold_templates.php
 #, php-format
 msgid "Replacement Fields: %s"
-msgstr "替換字段：％s"
+msgstr "取代欄位：%s"
 
 #: thold.php thold_templates.php
 #, php-format
 msgid "Data Sources: %s"
-msgstr "數據來源：％s"
+msgstr "資料來源：%s"
 
 #: thold.php
 msgid "Template/Enabled Information"
@@ -2989,7 +2989,7 @@ msgstr "偏差UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "指定上限閾值的允許偏差百分比。如果未設置，則根本不會檢查上限閾值。"
+msgstr "指定上限閾值的允許偏差百分比。如果未設置，則根本不會檢查上限閾值"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2998,7 +2998,7 @@ msgstr "偏差下降"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "指定下限閾值的允許偏差百分比。如果未設置，則根本不會檢查下限閾值。"
+msgstr "指定下限閾值的允許偏差百分比。如果未設置，則根本不會檢查下限閾值"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -3007,7 +3007,7 @@ msgstr "觸發計數"
 #: thold.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
-msgstr "數據源必須連續多次違反基準閾值才能引發警報。 <br>保留為空以使用默認值（ <b>默認值：％s週期</b> ）"
+msgstr "資料來源必須連續超出基準閾值的次數，才會引發警報。<br>留空以使用預設值（<b>預設值：%s 個週期</b>）"
 
 #: thold.php thold_templates.php
 msgid "Data Manipulation"
@@ -3064,7 +3064,7 @@ msgstr ""
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN表達式是兼容RRDtool的RPN表達式。語法包括以下所有函數以及Device和Data Query替換錶達式，例如<span class=\"deviceUp\">| query_ifSpeed |</span> 。要在RPN表達式中使用數據源，必須使用以下語法： <span class=\"deviceUp\">| ds：dsname |</span> 。例如， <span class=\"deviceUp\">| ds：traffic_in |</span>將獲取與Graph關聯的RRD文件的traffic_in數據源的當前值。可以包含圖表的任何數據源。 <br><br>數學運算符： <span class=\"deviceUp\">+， - ，/，*，％，^</span> <br>功能： <span class=\"deviceUp\">SIN，COS，TAN，ATAN，SQRT，FLOOR，CEIL，DEG2RAD，RAD2DEG，ABS，EXP，LOG，ATAN，ADNAN</span> <br>流量運算符： <span class=\"deviceUp\">UN，ISINF，IF，LT，LE，GT，GE，EQ，NE</span> <br>比較函數： <span class=\"deviceUp\">MAX，MIN，INF，NEGINF，NAN，UNKN，COUNT，PREV</span> ％s％s"
+msgstr "RPN 運算式是與 RRDtool 相容的 RPN 運算式。語法包含下列所有函式，以及裝置與資料查詢取代運算式（例如 <span class=\"deviceUp\">|query_ifSpeed|</span>）。若要在 RPN 運算式中使用資料來源，必須使用語法：<span class=\"deviceUp\">|ds:dsname|</span>。例如，<span class=\"deviceUp\">|ds:traffic_in|</span> 會取得與圖表關聯的 RRD 檔案中 traffic_in 資料來源的目前值。可包含圖表的任何資料來源。<br><br>數學運算子：<span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>函式：<span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>流程運算子：<span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>比較函式：<span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3306,7 +3306,7 @@ msgstr "閾值將不再生成警報，通知或執行命令。"
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "警告/警報的高閾值"
+msgstr "警告/警報的高閾值。"
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3468,7 +3468,7 @@ msgstr ""
 #: thold_graph.php
 #, php-format
 msgid "Threshold Log for [ %s ]"
-msgstr "[％s]的閾值日誌"
+msgstr "[ %s ] 的閾值記錄"
 
 #: thold_graph.php
 #, fuzzy
@@ -3504,7 +3504,7 @@ msgstr "您無權修改所選的一個或多個閾值"
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "％s（％d閾值）"
+msgstr "%s (%d 個閾值)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3625,17 +3625,17 @@ msgstr "基線監測"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "指定上限閾值的允許偏差百分比。如果未設置，則根本不會檢查上限閾值。"
+msgstr "指定上限閾值的允許偏差百分比。如果未設置，則根本不會檢查上限閾值"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "指定下限閾值的允許偏差百分比。如果未設置，則根本不會檢查下限閾值。"
+msgstr "指定下限閾值的允許偏差百分比。如果未設置，則根本不會檢查下限閾值"
 
 #: thold_templates.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
-msgstr "數據源必須處於違規狀態以便引發警報的連續次數。 <br>保留為空以使用默認值（默認值：％s個週期"
+msgstr "資料來源必須連續處於違反閾值狀態的次數，才會引發警報。<br>留空以使用預設值（預設值：%s 個週期"
 
 #: thold_templates.php
 msgid "Percent Datasource"
@@ -3648,7 +3648,7 @@ msgstr "第二個數據源項目用作總計值來計算百分比。"
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN表達式是兼容RRDtool的RPN表達式。語法包括以下所有函數以及Device和Data Query替換錶達式，例如<span style=\"color:blue;\">| query_ifSpeed |</span> 。要在RPN表達式中使用數據源，必須使用以下語法： <span style=\"color:blue;\">| ds：dsname |</span> 。例如， <span style=\"color:blue;\">| ds：traffic_in |</span>將獲取與Graph關聯的RRD文件的traffic_in數據源的當前值。可以包含圖表的任何數據源。 <br>數學運算符： <span style=\"color:blue;\">+， - ，/，*，％，^</span> <br>功能： <span style=\"color:blue;\">SIN，COS，TAN，ATAN，SQRT，FLOOR，CEIL，DEG2RAD，RAD2DEG，ABS，EXP，LOG，ATAN，ADNAN</span> <br>流量運算符： <span style=\"color:blue;\">UN，ISINF，IF，LT，LE，GT，GE，EQ，NE</span> <br>比較函數： <span style=\"color:blue;\">MAX，MIN，INF，NEGINF，NAN，UNKN，COUNT，PREV</span> ％s％s"
+msgstr "RPN 運算式是與 RRDtool 相容的 RPN 運算式。語法包含下列所有函式，以及裝置與資料查詢取代運算式（例如 <span style=\"color:blue;\">|query_ifSpeed|</span>）。若要在 RPN 運算式中使用資料來源，必須使用語法：<span style=\"color:blue;\">|ds:dsname|</span>。例如，<span style=\"color:blue;\">|ds:traffic_in|</span> 會取得與圖表關聯的 RRD 檔案中 traffic_in 資料來源的目前值。可包含圖表的任何資料來源。<br>數學運算子：<span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>函式：<span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>流程運算子：<span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>比較函式：<span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3716,52 +3716,52 @@ msgstr "您可以在此處指定額外的電子郵件以接收此數據源的警
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "閾值模板的圖表創建失敗"
+msgstr "閾值模板的圖表創建失敗。"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "％d個月，％d天，％d小時，％d分鐘，％d秒（平均）"
+msgstr "%d 個月 %d 天 %d 小時 %d 分鐘 %d 秒（平均）"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "％d個月，％d天，％d小時，％d分鐘，％d秒"
+msgstr "%d 個月 %d 天 %d 小時 %d 分鐘 %d 秒"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "％d天，％d小時，％d分鐘，％d秒（平均）"
+msgstr "%d 天 %d 小時 %d 分鐘 %d 秒（平均）"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "％d天，％d小時，％d分鐘，％d秒"
+msgstr "%d 天 %d 小時 %d 分鐘 %d 秒"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "％d小時，％d分鐘，％d秒（平均）"
+msgstr "%d 小時 %d 分鐘 %d 秒（平均）"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "％d小時，％d分鐘，％d秒"
+msgstr "%d 小時 %d 分鐘 %d 秒"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "％d分鐘，％d秒（平均）"
+msgstr "%d 分鐘 %d 秒（平均）"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "％d分鐘，％d秒"
+msgstr "%d 分鐘 %d 秒"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "％d秒（平均）"
+msgstr "%d 秒（平均）"
 
 #: thold_templates.php
 #, fuzzy, php-format
@@ -3814,7 +3814,7 @@ msgstr "導入閾值模板"
 
 #: thold_templates.php
 msgid "The file is too big."
-msgstr "檔案容量過大"
+msgstr "檔案容量過大。"
 
 #: thold_templates.php
 msgid "Incomplete file transfer."
@@ -3822,7 +3822,7 @@ msgstr "文件傳輸不完整。"
 
 #: thold_templates.php
 msgid "No file uploaded."
-msgstr "無上傳文件"
+msgstr "無上傳文件。"
 
 #: thold_templates.php
 msgid "Temporary folder missing."
@@ -3830,7 +3830,7 @@ msgstr "臨時文件夾丟失。"
 
 #: thold_templates.php
 msgid "Failed to write file to disk"
-msgstr "檔案無法寫入。 "
+msgstr "檔案無法寫入"
 
 #: thold_templates.php
 msgid "File upload stopped by extension"
@@ -3838,7 +3838,7 @@ msgstr "擴展文件中斷了上傳"
 
 #: thold_templates.php
 msgid "Invalid file extension."
-msgstr "文件擴展名無效"
+msgstr "文件擴展名無效。"
 
 #: thold_templates.php
 msgid "NOTE:"
