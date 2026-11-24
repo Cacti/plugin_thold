@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2019-03-17 15:03-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: hi_IN\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hindi <https://translate.cacti.net/projects/cacti/thold/hi/>\nLanguage: hi-IN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -24,27 +13,27 @@ msgstr "अनिश्चित काल के लिए"
 #: includes/arrays.php
 #, php-format
 msgid "%d Month"
-msgstr "% d महीना"
+msgstr "%d महीना"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Months"
-msgstr "% d माह"
+msgstr "%d माह"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Year"
-msgstr "% d वष"
+msgstr "%d वर्ष"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "हर द% ख ड"
+msgstr "%d घंटा पहले से"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "हर द% ख ड"
+msgstr "%d घंटे पहले से"
 
 #: includes/arrays.php
 #, php-format
@@ -54,32 +43,32 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "हर% द डेज"
+msgstr "%d दिन पहले से"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "% d वीक"
+msgstr "%d वीक"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "हर% द वीक"
+msgstr "%d सप्ताह पहले से"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "% d महीना"
+msgstr "%d महीना"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "% d माह"
+msgstr "%d माह"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "% d वष"
+msgstr "%d वष"
 
 #: includes/arrays.php
 #, php-format
@@ -246,7 +235,7 @@ msgstr "हर मिनट"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Minutes"
-msgstr "प्रत्येक% d मिनट"
+msgstr "प्रत्येक%d मिनट"
 
 #: includes/arrays.php
 msgid "Every Hour"
@@ -255,7 +244,7 @@ msgstr "प्रत्येक घंटे"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "हर द% ख ड"
+msgstr "हर %d घंटे"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -264,7 +253,7 @@ msgstr "हर दिन"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "हर% द डेज"
+msgstr "हर %d दिन"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -273,7 +262,7 @@ msgstr "प्रति सप्ताह"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "हर% द वीक"
+msgstr "हर %d सप्ताह"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -282,47 +271,47 @@ msgstr "हर महीने"
 #: includes/arrays.php
 #, php-format
 msgid "%d Minute"
-msgstr "% d मिनट"
+msgstr "%d मिनट"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Minutes"
-msgstr "% d मिनट"
+msgstr "%d मिनट"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Hour"
-msgstr "% d घंटा"
+msgstr "%d घंटा"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Hours"
-msgstr "% d घंटे"
+msgstr "%d घंटे"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Day"
-msgstr "% द डे"
+msgstr "%d दिन"
 
 #: includes/arrays.php thold_graph.php
 #, php-format
 msgid "%d Days"
-msgstr "% ड डय"
+msgstr "%d दिन"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Week"
-msgstr "% d वीक"
+msgstr "%d वीक"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Weeks"
-msgstr "% द वीक"
+msgstr "%d सप्ताह"
 
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "% 0.1f घंटे"
+msgstr "%0.1f घंटे"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -331,17 +320,17 @@ msgstr "हर मतदान"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "हर% द पोिलंग"
+msgstr "हर %d पोलिंग"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "% d मतदान"
+msgstr "%d मतदान"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "% d मतदान"
+msgstr "%d मतदान"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -486,26 +475,26 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "%d Digits"
-msgstr "% ड डय"
+msgstr "%d अंक"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices"
-msgstr "उपकरण"
+msgstr "> %d डिवाइस"
 
 #: includes/arrays.php
 #, fuzzy, php-format
-msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "उपकरण"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "उपकरण"
+msgstr "एक साइट में > %d डिवाइस"
 
 #: includes/arrays.php
 #, fuzzy, php-format
-msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "उपकरण"
 
 #: includes/functions.php
@@ -535,11 +524,11 @@ msgstr "पहर:"
 
 #: includes/functions.php
 msgid "User:"
-msgstr "उपयोगकर्ता "
+msgstr "उपयोगकर्ता:"
 
 #: includes/functions.php
 msgid "System:"
-msgstr "सिस्टम:"
+msgstr "तंत्रः:"
 
 #: includes/functions.php
 msgid "Swaps:"
@@ -577,21 +566,23 @@ msgstr "एक अलर्ट जारी किया गया है जि
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "विचलन यूपी"
+msgstr "%% विचलन [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "अलर्ट वैल्यू"
+msgstr "निरपेक्ष मान [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "विचलन यूपी"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "अलर्ट वैल्यू"
+msgstr "निरपेक्ष मान [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -624,7 +615,7 @@ msgstr "रिकॉर्ड अपडेट किया गया"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "लिंक किए गए ग्राफ़ टेम्प्लेट आइटम '% d' को थ्रेशोल्ड '% d' पर खोजने में विफल"
+msgstr "लिंक किए गए ग्राफ़ टेम्प्लेट आइटम '%d' को थ्रेशोल्ड '%d' पर खोजने में विफल"
 
 #: includes/functions.php
 #, php-format
@@ -661,7 +652,7 @@ msgstr "आपको 'आधारभूत विचलन उत्तर प�
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई थ्रेशोल्ड' 'लो थ्रेशोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+msgstr "असंभव थ्रेशोल्ड: 'उच्च चेतावनी थ्रेशोल्ड' 'निम्न चेतावनी थ्रेशोल्ड' से छोटा है"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -685,7 +676,7 @@ msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्�
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "अज्ञात थ्रेसहोल्ड"
+msgstr "अज्ञात थ्रेशोल्ड प्रकार!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -785,11 +776,11 @@ msgstr ""
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "थ्रेसहोल्ड टेम्पलेट अधीनस्थ डेटा टेम्पलेट नहीं मिला!"
+msgstr "थ्रेशोल्ड टेम्पलेट आयात डेटा XML डेटा के रूप में नहीं मिला।"
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी"
+msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी।"
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -968,12 +959,12 @@ msgstr "बेसलाइन सेटिंग्स"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "% d मतदान"
+msgstr "%d मतदान"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "% d मतदान"
+msgstr "%d मतदान"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1127,7 +1118,7 @@ msgstr ""
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "हर द% ख ड"
+msgstr "हर %d घंटा"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1144,7 +1135,7 @@ msgstr ""
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr ""
+msgstr "%d प्रक्रियाएं"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1676,7 +1667,7 @@ msgstr "यह थ्रेसहोल्ड अस्थायी <b>नही
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "यह थ्रेसहोल्ड टेम्पलेटेड <b>नहीं</b> होगा। आप या तो ग्राफ़ के द्वारा चयन कर सकते हैं जहाँ आप अपनी थ्रेसहोल्ड बनाने से पहले एक मौजूदा डिवाइस, ग्राफ़ और डेटा स्रोत का चयन करेंगे, या आप थ्रेसहोल्ड टेम्पलेट का चयन कर सकते हैं जो आपको एक गैर अस्थायी थ्रेसहोल्ड और संबंधित ग्राफ़ बनाने की अनुमति देगा।"
+msgstr "यह थ्रेसहोल्ड टेम्पलेटेड <b>नहीं</b> होगा। आप या तो ग्राफ़ के द्वारा चयन कर सकते हैं जहाँ आप अपनी थ्रेसहोल्ड बनाने से पहले एक मौजूदा डिवाइस, ग्राफ़ और डेटा स्रोत का चयन करेंगे, या आप थ्रेसहोल्ड टेम्पलेट का चयन कर सकते हैं जो आपको एक गैर अस्थायी थ्रेसहोल्ड और संबंधित ग्राफ़ बनाने की अनुमति देगा"
 
 #: includes/webapi.php
 msgid "Selected Graph"
@@ -1740,7 +1731,7 @@ msgstr "%s थ्रेशोल्ड टेम्प्लेट"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
-msgstr "नीचे दिए गए थ्रेशोल्ड टेम्पलेट के साथ अधिसूचना सूची ' %s' को जोड़ने के लिए 'जारी रखें' पर क्लिक करें"
+msgstr "नीचे दिए गए थ्रेशोल्ड टेम्पलेट के साथ अधिसूचना सूची ' %s' को जोड़ने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: notify_lists.php
 msgid "Warning Membership:"
@@ -1769,7 +1760,7 @@ msgstr "एसोसिएट अधिसूचना सूची"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
-msgstr "नीचे दिए गए थ्रेशोल्ड टेम्पलेट से अधिसूचना सूची ' %s' को अलग करने के लिए 'जारी रखें' पर क्लिक करें"
+msgstr "नीचे दिए गए थ्रेशोल्ड टेम्पलेट से अधिसूचना सूची ' %s' को अलग करने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: notify_lists.php
 msgid "Remove List"
@@ -1792,7 +1783,7 @@ msgstr "नीचे की ओर थ्रेसहोल्ड के सा�
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
-msgstr "नीचे की ओर थ्रेसहोल्ड से अधिसूचना सूची ' %s' को अलग करने के लिए 'जारी रखें' पर क्लिक करें"
+msgstr "नीचे की ओर थ्रेसहोल्ड से अधिसूचना सूची ' %s' को अलग करने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: notify_lists.php
 #, php-format
@@ -1817,7 +1808,7 @@ msgstr "चेतावनी सदस्यता:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "थ्रेसहोल्ड अलर्ट संदेश"
+msgstr "थ्रेसहोल्ड अलर्ट संदेश:"
 
 #: notify_lists.php
 #, php-format
@@ -1904,7 +1895,7 @@ msgstr "कोई नहीं"
 
 #: notify_lists.php
 msgid "Device Template"
-msgstr "टेम्पलेट हटाएं"
+msgstr "डिवाइस टेम्पलेट"
 
 #: notify_lists.php
 msgid "Associated"
@@ -1913,7 +1904,7 @@ msgstr "एसोसिएटेड"
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
 msgid "Go"
-msgstr "चले जाओ"
+msgstr "लागू करें"
 
 #: notify_lists.php notify_queue.php
 msgid "Set/Refresh Filters"
@@ -2094,14 +2085,14 @@ msgstr ""
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "निम्नलिखित अधिसूचना सूची (ओं) को डुप्लिकेट करने के लिए 'जारी रखें' पर क्लिक करें।"
-msgstr[1] "निम्नलिखित अधिसूचना सूची (ओं) को डुप्लिकेट करने के लिए 'जारी रखें' पर क्लिक करें।"
+msgstr[0] "निम्नलिखित अधिसूचना को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
+msgstr[1] "निम्नलिखित सभी अधिसूचनाओं को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "अधिसूचना सूची हटाएं"
-msgstr[1] "अधिसूचना सूची हटाएं"
+msgstr[0] "अधिसूचना हटाएं"
+msgstr[1] "अधिसूचनाएं हटाएं"
 
 #: notify_queue.php
 #, php-format
@@ -2150,7 +2141,7 @@ msgstr "अधिसूचना सूची"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "थ्रेशोल्ड टेम्पलेट"
+msgstr "थ्रेशोल्ड टेम्पलेट।"
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2162,11 +2153,11 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "इस उपकरण के लिए डेटा स्रोतों की संख्या"
+msgstr "इस उपकरण के लिए डेटा स्रोतों की संख्या।"
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "केवल अधिसूचना सूची"
+msgstr "केवल अधिसूचना सूची।"
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2182,7 +2173,7 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "SNMP द्वारा रिपोर्ट किए गए अनुसार डिवाइस का आधिकारिक समय"
+msgstr "SNMP द्वारा रिपोर्ट किए गए अनुसार डिवाइस का आधिकारिक समय।"
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2259,27 +2250,35 @@ msgstr ""
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "चेतावनी सूची"
+msgstr "%s (%s) के लिए उच्च चेतावनी"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
+msgstr "%s (%s) के लिए निम्न चेतावनी"
+
+#: setup.php
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "चेतावनी सूची"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "चेतावनी सूची"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "चेतावनी सूची"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
-msgstr "चेतावनी सूची"
-
-#: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "चेतावनी सूची"
 
 #: setup.php
@@ -2329,7 +2328,7 @@ msgstr "निम्नलिखित ग्राफ़ में उनके
 
 #: setup.php
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr "यदि आप इन ग्राफ़ के लिए थ्रेशोल्ड बनाना चाहते हैं तो 'जारी रखें' दबाएँ।"
+msgstr "यदि आप इन ग्राफ़ के लिए थ्रेशोल्ड बनाना चाहते हैं तो 'जारी रखें' दबाएँ"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Graphs"
@@ -2414,7 +2413,7 @@ msgstr "थ्रेसहोल्ड सक्षम करें"
 
 #: thold.php
 msgid "Click 'Continue' to disable the following Threshold(s)."
-msgstr "निम्नलिखित थ्रेसहोल्ड (ओं) को निष्क्रिय करने के लिए 'जारी रखें' पर क्लिक करें"
+msgstr "निम्नलिखित थ्रेसहोल्ड (ओं) को निष्क्रिय करने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: thold.php
 msgid "Disable Threshold(s)"
@@ -2422,7 +2421,7 @@ msgstr "थ्रेसहोल्ड अक्षम करें"
 
 #: thold.php
 msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
-msgstr "निम्नलिखित थ्रेसहोल्ड (ओं) को पुन: सुझाए गए नाम (ओं) पर 'जारी रखें' पर क्लिक करें"
+msgstr "निम्नलिखित थ्रेसहोल्ड (ओं) को पुन: सुझाए गए नाम (ओं) पर 'जारी रखें' पर क्लिक करें।"
 
 #: thold.php
 msgid "Apply Suggestion"
@@ -2552,7 +2551,7 @@ msgstr "राज्य में"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "एक चेतावनी के लिए डेटा स्रोत की मात्रा को थ्रेसहोल्ड के उल्लंघन में होना चाहिए।"
+msgstr "एक चेतावनी के लिए डेटा स्रोत की मात्रा को थ्रेसहोल्ड के उल्लंघन में होना चाहिए"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2573,7 +2572,7 @@ msgstr "कोई थ्रेसहोल्ड नहीं"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "% d ट्रिगर"
+msgstr "%d ट्रिगर"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2581,7 +2580,7 @@ msgstr "कोई थ्रेसहोल्ड नहीं"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "थ्रेशोल्ड क्या नहीं होता है"
+msgstr "थ्रेशोल्ड हटा दिया गया है, संपादित नहीं किया जा सकता!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2630,7 +2629,7 @@ msgstr "बीएल नीचे:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "अज्ञात टेम्पलेट ID% d"
+msgstr "अज्ञात टेम्पलेट ID%d"
 
 #: thold.php
 msgid "Not Templated"
@@ -2881,7 +2880,7 @@ msgstr ""
 
 #: thold.php thold_templates.php
 msgid "Last"
-msgstr "लास्ट:"
+msgstr "लास्ट"
 
 #: thold.php thold_templates.php
 msgid "The Consolidation function to use for the Baseline Type value calculation."
@@ -2902,7 +2901,7 @@ msgstr "विचलन यूपी"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "निर्दिष्ट करता है कि ऊपरी बाध्य थ्रेसहोल्ड के लिए प्रतिशत में विचलन की अनुमति है। यदि सेट नहीं किया गया है, तो ऊपरी बाध्य थ्रेसहोल्ड की जांच बिल्कुल नहीं की जाएगी।"
+msgstr "निर्दिष्ट करता है कि ऊपरी बाध्य थ्रेसहोल्ड के लिए प्रतिशत में विचलन की अनुमति है। यदि सेट नहीं किया गया है, तो ऊपरी बाध्य थ्रेसहोल्ड की जांच बिल्कुल नहीं की जाएगी"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2911,7 +2910,7 @@ msgstr "विचलन"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "निर्दिष्ट बाउंड थ्रेशोल्ड के लिए प्रतिशत में विचलन की अनुमति देता है। यदि सेट नहीं किया जाता है, तो निचले बाउंड थ्रेशोल्ड की जाँच बिल्कुल नहीं की जाएगी।"
+msgstr "निर्दिष्ट बाउंड थ्रेशोल्ड के लिए प्रतिशत में विचलन की अनुमति देता है। यदि सेट नहीं किया जाता है, तो निचले बाउंड थ्रेशोल्ड की जाँच बिल्कुल नहीं की जाएगी"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2977,7 +2976,7 @@ msgstr ""
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "एक RPN अभिव्यक्ति एक RRDtool संगत RPN अभिव्यक्ति है। सिंटैक्स में डिवाइस और डेटा क्वेरी रिप्लेसमेंट एक्सप्रेशन जैसे कि क्वेरी <span class=\"deviceUp\">|</span> । RPN अभिव्यक्ति में डेटा स्रोत का उपयोग करने के लिए, आपको सिंटैक्स का उपयोग करना होगा: <span class=\"deviceUp\">| ds: dsname |</span> । उदाहरण के लिए, <span class=\"deviceUp\">| ds: traffic_in |</span> ग्राफ के साथ जुड़े RRDfile (s) के लिए traffic_in Data Source का वर्तमान मान प्राप्त करेगा। ग्राफ़ के लिए कोई भी डेटा स्रोत शामिल किया जा सकता है। <br><br> गणित संचालक: <span class=\"deviceUp\">+, -, /, *,%, ^</span> <br> कार्य: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> फ्लो ऑपरेटर्स: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> तुलना कार्य: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREVI</span> s s"
+msgstr "RPN अभिव्यक्ति एक RRDtool-संगत RPN अभिव्यक्ति है। सिंटैक्स में <span class=\"deviceUp\">|query_ifSpeed|</span> जैसे डिवाइस और डेटा क्वेरी प्रतिस्थापन अभिव्यक्तियों के अतिरिक्त नीचे दिए गए सभी फ़ंक्शन शामिल हैं। RPN अभिव्यक्ति में डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span class=\"deviceUp\">|ds:dsname|</span>। उदाहरण के लिए, <span class=\"deviceUp\">|ds:traffic_in|</span> ग्राफ़ से संबद्ध RRDfile(s) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के लिए कोई भी डेटा स्रोत शामिल किया जा सकता है।<br><br>गणितीय ऑपरेटर: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3217,7 +3216,7 @@ msgstr ""
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "चेतावनी / चेतावनी के लिए उच्च थ्रेसहोल्ड मान"
+msgstr "चेतावनी / चेतावनी के लिए उच्च थ्रेसहोल्ड मान।"
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3403,7 +3402,7 @@ msgstr "आप चयनित थ्रेसहोल्ड में से �
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (% d थ्रेसहोल्ड)"
+msgstr "%s (%d थ्रेसहोल्ड)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3415,7 +3414,7 @@ msgstr "निर्यात खाका"
 
 #: thold_templates.php
 msgid "Click 'Continue' to delete the following Threshold Template(s)."
-msgstr "निम्न थ्रेशोल्ड टेम्पलेट (ओं) को हटाने के लिए 'जारी रखें' पर क्लिक करें"
+msgstr "निम्न थ्रेशोल्ड टेम्पलेट (ओं) को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: thold_templates.php
 msgid "Delete Template(s)"
@@ -3439,7 +3438,7 @@ msgstr "टेम्पलेट हटाएं"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
-msgstr "निम्नलिखित थ्रेसहोल्ड (ओं) को निष्क्रिय करने के लिए 'जारी रखें' पर क्लिक करें"
+msgstr "निम्नलिखित थ्रेसहोल्ड (ओं) को निष्क्रिय करने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: thold_templates.php
 msgid "Disable Template(s)"
@@ -3524,12 +3523,12 @@ msgstr "बेसलाइन मॉनिटरिंग"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "निर्दिष्ट करता है कि ऊपरी बाध्य थ्रेसहोल्ड के लिए प्रतिशत में विचलन की अनुमति है। यदि सेट नहीं किया गया है, तो ऊपरी बाध्य थ्रेसहोल्ड की जांच बिल्कुल नहीं की जाएगी।"
+msgstr "निर्दिष्ट करता है कि ऊपरी बाध्य थ्रेसहोल्ड के लिए प्रतिशत में विचलन की अनुमति है। यदि सेट नहीं किया गया है, तो ऊपरी बाध्य थ्रेसहोल्ड की जांच बिल्कुल नहीं की जाएगी"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "निर्दिष्ट बाउंड थ्रेशोल्ड के लिए प्रतिशत में विचलन की अनुमति देता है। यदि सेट नहीं किया जाता है, तो निचले बाउंड थ्रेशोल्ड की जाँच बिल्कुल नहीं की जाएगी।"
+msgstr "निर्दिष्ट बाउंड थ्रेशोल्ड के लिए प्रतिशत में विचलन की अनुमति देता है। यदि सेट नहीं किया जाता है, तो निचले बाउंड थ्रेशोल्ड की जाँच बिल्कुल नहीं की जाएगी"
 
 #: thold_templates.php
 #, php-format
@@ -3547,7 +3546,7 @@ msgstr "प्रतिशत से गणना करने के लिए 
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "एक RPN अभिव्यक्ति एक RRDtool संगत RPN अभिव्यक्ति है। सिंटैक्स में डिवाइस और डेटा क्वेरी रिप्लेसमेंट एक्सप्रेशन जैसे कि क्वेरी <span style=\"color:blue;\">|</span> । RPN अभिव्यक्ति में डेटा स्रोत का उपयोग करने के लिए, आपको सिंटैक्स का उपयोग करना होगा: <span style=\"color:blue;\">| ds: dsname |</span> । उदाहरण के लिए, <span style=\"color:blue;\">| ds: traffic_in |</span> ग्राफ के साथ जुड़े RRDfile (s) के लिए traffic_in Data Source का वर्तमान मान प्राप्त करेगा। ग्राफ़ के लिए कोई भी डेटा स्रोत शामिल किया जा सकता है। <br> गणित संचालक: <span style=\"color:blue;\">+, -, /, *,%, ^</span> <br> कार्य: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> फ्लो ऑपरेटर्स: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> तुलना कार्य: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREVI</span> s s"
+msgstr "RPN अभिव्यक्ति एक RRDtool-संगत RPN अभिव्यक्ति है। सिंटैक्स में <span style=\"color:blue;\">|query_ifSpeed|</span> जैसे डिवाइस और डेटा क्वेरी प्रतिस्थापन अभिव्यक्तियों के अतिरिक्त नीचे दिए गए सभी फ़ंक्शन शामिल हैं। RPN अभिव्यक्ति में डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span style=\"color:blue;\">|ds:dsname|</span>। उदाहरण के लिए, <span style=\"color:blue;\">|ds:traffic_in|</span> ग्राफ़ से संबद्ध RRDfile(s) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के लिए कोई भी डेटा स्रोत शामिल किया जा सकता है।<br>गणितीय ऑपरेटर: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3615,57 +3614,57 @@ msgstr "आप इस डेटा स्रोत के लिए चेता
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "थ्रेशोल्ड टेम्पलेट के लिए ग्राफ़ निर्माण विफल रहा"
+msgstr "थ्रेशोल्ड टेम्पलेट के लिए ग्राफ़ निर्माण विफल रहा।"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d महीने,% d दिन,% d घंटे,% d मिनट,% d सेकंड (औसत)"
+msgstr "%d महीने,%d दिन,%d घंटे,%d मिनट,%d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d माह,% d दिन,% d घंटे,% d मिनट,% d सेकंड"
+msgstr "%d माह,%d दिन,%d घंटे,%d मिनट,%d सेकंड"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d दिन,% d घंटे,% d मिनट,% d सेकंड (औसत)"
+msgstr "%d दिन,%d घंटे,%d मिनट,%d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d दिन,% d घंटे,% d मिनट,% d सेकंड"
+msgstr "%d दिन,%d घंटे,%d मिनट,%d सेकंड"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d घंटे,% d मिनट,% d सेकंड (औसत)"
+msgstr "%d घंटे,%d मिनट,%d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "% d घंटे,% d मिनट,% d सेकंड"
+msgstr "%d घंटे,%d मिनट,%d सेकंड"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "% d मिनट,% d सेकंड (औसत)"
+msgstr "%d मिनट,%d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "% d मिनट,% d सेकंड्स"
+msgstr "%d मिनट,%d सेकंड्स"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "% d सेकंड (औसत)"
+msgstr "%d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds"
-msgstr "% d सेकंड्स"
+msgstr "%d सेकंड्स"
 
 #: thold_templates.php
 msgid "DS Name"
@@ -3685,7 +3684,7 @@ msgstr "स्थानीय फ़ाइल से आयात टेम्�
 
 #: thold_templates.php
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
-msgstr "यदि थ्रेसहोल्ड टेम्पलेट डेटा वाली XML फ़ाइल आपके स्थानीय मशीन पर स्थित है, तो इसे यहाँ चुनें"
+msgstr "यदि थ्रेसहोल्ड टेम्पलेट डेटा वाली XML फ़ाइल आपके स्थानीय मशीन पर स्थित है, तो इसे यहाँ चुनें।"
 
 #: thold_templates.php
 msgid "Import Template from Text"
@@ -3741,7 +3740,7 @@ msgstr "ध्यान दें:"
 
 #: thold_templates.php
 msgid "ERROR:"
-msgstr "त्रुटि"
+msgstr "त्रुटि:"
 
 #~ msgid "Off"
 #~ msgstr "बंद करना"
