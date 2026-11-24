@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Cacti\n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-04-20 14:49-0400\n"
-"Last-Translator: \n"
-"Language-Team: Cacti Developers <developers@cacti.net>\n"
-"Language: ar_SA\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
-"X-Generator: Poedit 3.4.2\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/thold/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -89,7 +77,7 @@ msgstr "منذ %d سنوات"
 
 #: includes/arrays.php thold_graph.php
 msgid "Down"
-msgstr "المرض"
+msgstr "متوقف"
 
 #: includes/arrays.php thold_graph.php
 msgid "Error"
@@ -298,7 +286,7 @@ msgstr "%d ساعة"
 #: includes/arrays.php
 #, php-format
 msgid "%d Hours"
-msgstr "%d د ساعات"
+msgstr "%d ساعات"
 
 #: includes/arrays.php
 #, php-format
@@ -308,7 +296,7 @@ msgstr "يوم %d"
 #: includes/arrays.php thold_graph.php
 #, php-format
 msgid "%d Days"
-msgstr "%d أيام"
+msgstr "%d من الأيام"
 
 #: includes/arrays.php
 #, php-format
@@ -496,7 +484,7 @@ msgstr "أجهزة > %d"
 
 #: includes/arrays.php
 #, fuzzy, php-format
-msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "> %d %% الأجهزة على مستوى العالم"
 
 #: includes/arrays.php
@@ -506,7 +494,7 @@ msgstr "> %d الأجهزة في الموقع"
 
 #: includes/arrays.php
 #, fuzzy, php-format
-msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "> %d %% الأجهزة في الموقع"
 
 #: includes/functions.php
@@ -586,8 +574,8 @@ msgid "Abs Val [TIP:%s]"
 msgstr "عبس فال [نصيحة:%s]"
 
 #: includes/functions.php
-#, fuzzy
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+msgid "%% Dev [AOT:%s]"
 msgstr "%% ديف [AOT:%s]"
 
 #: includes/functions.php
@@ -811,7 +799,7 @@ msgstr "خطأ في الأجهزة: <DESCRIPTION> (<HOSTNAME>) لأسفل</HOSTN
 
 #: includes/polling.php
 msgid "DOWN"
-msgstr "لاسفل"
+msgstr "متوقف"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
@@ -1616,7 +1604,7 @@ msgstr "حدد جهازا لاستخدامه في إنشاء العتبة وال
 
 #: includes/webapi.php
 msgid "Select a Device"
-msgstr "حدد قالب الجهاز الذي سيتم مطابقة الأجهزة به."
+msgstr "حدد قالب الجهاز الذي سيتم مطابقة الأجهزة به"
 
 #: includes/webapi.php
 #, fuzzy
@@ -1910,12 +1898,12 @@ msgstr "قالب الجهاز"
 
 #: notify_lists.php
 msgid "Associated"
-msgstr "مربوط بسـلعة، إعلان مربوط بسلعة"
+msgstr "مربوط بسلعة، إعلان مربوط بسلعة"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
 msgid "Go"
-msgstr "أذهب"
+msgstr "انتقال"
 
 #: notify_lists.php notify_queue.php
 msgid "Set/Refresh Filters"
@@ -1924,7 +1912,7 @@ msgstr "مجموعة / تحديث الفلاتر"
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
 msgid "Clear"
-msgstr "واضح"
+msgstr "مسح"
 
 #: notify_lists.php notify_queue.php
 msgid "Clear Filters"
@@ -1932,7 +1920,7 @@ msgstr "مسح الفلتر"
 
 #: notify_lists.php thold.php thold_graph.php thold_templates.php
 msgid "ID"
-msgstr "المعرف"
+msgstr "الهویة الشخصیة"
 
 #: notify_lists.php setup.php thold.php thold_graph.php
 msgid "Status"
@@ -2096,22 +2084,22 @@ msgstr "تمت إزالة الإخطارات المعلقة من قاعدة ال
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "انقر فوق \"متابعة\" لحذف الإشعار التالي."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "انقر فوق \"متابعة\" لحذف جميع الإشعارات التالية."
+msgstr[1] "انقر فوق \"متابعة\" لحذف الإشعار التالي."
+msgstr[2] "انقر فوق \"متابعة\" لحذف الإشعارين التاليين."
+msgstr[3] "انقر فوق \"متابعة\" لحذف جميع الإشعارات التالية."
+msgstr[4] "انقر فوق \"متابعة\" لحذف جميع الإشعارات التالية."
+msgstr[5] "انقر فوق \"متابعة\" لحذف جميع الإشعارات التالية."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "حذف الإشعار"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "حذف الإشعارات"
+msgstr[1] "حذف الإشعار"
+msgstr[2] "حذف الإشعارين"
+msgstr[3] "حذف الإشعارات"
+msgstr[4] "حذف الإشعارات"
+msgstr[5] "حذف الإشعارات"
 
 #: notify_queue.php
 #, php-format
@@ -2148,7 +2136,7 @@ msgstr "استئناف معالجة الإشعارات"
 
 #: notify_queue.php
 msgid "Purge"
-msgstr "شربة، مسهل. يسهل"
+msgstr "تطهير"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
@@ -2277,23 +2265,23 @@ msgid "Warning Low for %s (%s)"
 msgstr "تحذير منخفض ل %s (%s)"
 
 #: setup.php
-#, fuzzy
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+msgid "Alert Hi for %s (%s %%)"
 msgstr "تنبيه مرحبا %s (%s %%)"
 
 #: setup.php
-#, fuzzy
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+msgid "Alert Low for %s (%s %%)"
 msgstr "تنبيه منخفض ل %s (%s %%)"
 
 #: setup.php
-#, fuzzy
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+msgid "Warning Hi for %s (%s %%)"
 msgstr "تحذير مرحبا %s (%s %%)"
 
 #: setup.php
-#, fuzzy
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+msgid "Warning Low for %s (%s %%)"
 msgstr "انخفاض التحذير ل %s (%s %%)"
 
 #: setup.php
@@ -2615,7 +2603,7 @@ msgstr "الرسم البياني المرتبط (الرسوم البيانية 
 
 #: thold.php
 msgid "Last:"
-msgstr "الاخير"
+msgstr "الاخير:"
 
 #: thold.php
 msgid "WHi:"
@@ -2711,7 +2699,7 @@ msgstr "امنح العتبات اسما ذا معنى"
 
 #: thold.php
 msgid "Name (Format)"
-msgstr "تنسيق الاسم:"
+msgstr "تنسيق الاسم"
 
 #: thold.php thold_templates.php
 msgid "Warning HRULE Color"
