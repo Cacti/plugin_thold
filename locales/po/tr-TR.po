@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2022-06-21 05:25+0000\n"
-"Last-Translator: San IPE <sanipe1949@krunsea.com>\n"
-"Language-Team: Turkish <http://translate.cacti.net/projects/cacti/thold/tr/>\n"
-"Language: tr-TR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Turkish <https://translate.cacti.net/projects/cacti/thold/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -40,12 +28,12 @@ msgstr "%d Yıl"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "Her% d saatte bir"
+msgstr "Her%d saatte bir"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "Her% d saatte bir"
+msgstr "Her%d saatte bir"
 
 #: includes/arrays.php
 #, php-format
@@ -55,17 +43,17 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "Her% d Gün"
+msgstr "Her%d Gün"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "% d Hafta"
+msgstr "%d Hafta"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "Her% d Hafta"
+msgstr "Her%d Hafta"
 
 #: includes/arrays.php
 #, php-format
@@ -256,7 +244,7 @@ msgstr "Her Saat"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Her% d saatte bir"
+msgstr "Her%d saatte bir"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -265,7 +253,7 @@ msgstr "Her Gün"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "Her% d Gün"
+msgstr "Her%d Gün"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -274,7 +262,7 @@ msgstr "Her Hafta"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "Her% d Hafta"
+msgstr "Her%d Hafta"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -283,7 +271,7 @@ msgstr "Her Ay"
 #: includes/arrays.php
 #, php-format
 msgid "%d Minute"
-msgstr "% d dakika"
+msgstr "%d dakika"
 
 #: includes/arrays.php
 #, php-format
@@ -313,7 +301,7 @@ msgstr "%d Gün"
 #: includes/arrays.php
 #, php-format
 msgid "%d Week"
-msgstr "% d Hafta"
+msgstr "%d Hafta"
 
 #: includes/arrays.php
 #, php-format
@@ -323,7 +311,7 @@ msgstr "%d Hafta"
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "% 0.1f Saat"
+msgstr "%0.1f Saat"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -332,17 +320,17 @@ msgstr "Her Oylama"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "Her% d Anket"
+msgstr "Her%d Anket"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "% d Yoklama"
+msgstr "%d Yoklama"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "% d Anketler"
+msgstr "%d Anketler"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -492,21 +480,23 @@ msgstr "%d Gün"
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices"
-msgstr "Cihazlar"
+msgstr "> %d Cihaz"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "Cihazlar"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "Cihazlar"
+msgstr "Bir Sitede > %d Cihaz"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "Cihazlar"
 
 #: includes/functions.php
@@ -578,21 +568,23 @@ msgstr "Dikkatinizi gerektiren bir Uyarı yayınlandı. <br><br> <strong>Cihaz</
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "Sapma UP"
+msgstr "%% Sapma [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Uyarı Değeri"
+msgstr "Mutlak Değer [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "Sapma UP"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Uyarı Değeri"
+msgstr "Mutlak Değer [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -625,7 +617,7 @@ msgstr "Kayıt güncellendi"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "'% D' Eşiğindeki '% d' Bağlantılı Grafik Şablonu Öğesi bulunamadı"
+msgstr "Bağlı Grafik Şablonu Öğesi '%d', '%d' Eşiğinde bulunamadı"
 
 #: includes/functions.php
 #, php-format
@@ -662,7 +654,7 @@ msgstr "'Temel Sapma YUKARI' veya 'Temel Sapma AŞAĞI' veya her ikisini de beli
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "İmkansız eşikler: 'Düşük Eşik' e eşit veya daha küçük 'Yüksek Eşik' <br> KAYIT GÜNCELLEME!"
+msgstr "İmkansız eşik: 'Yüksek Uyarı Eşiği' 'Düşük Uyarı Eşiği'nden küçük"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +678,7 @@ msgstr "İmkansız eşikler: 'Düşük Uyarı Eşiğine' eşit veya daha küçü
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Bilinmeyen Eşik"
+msgstr "Bilinmeyen Eşik Türü!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -786,11 +778,11 @@ msgstr "Eşik Şablonu verilerini içe aktarmaya çalışırken hatalar oluştu.
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Eşik Şablonu Alt Veri Şablonu Bulunamadı!"
+msgstr "Eşik Şablonu içe aktarma verisinin XML verisi olmadığı tespit edildi."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı"
+msgstr "Graph ve Threshold oluşturmaya çalışırken Eşik Şablonu Kimliği ayarlanmadı."
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -969,12 +961,12 @@ msgstr "Temel Ayarlar"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "% d Yoklama"
+msgstr "%d Yoklama"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "% d Anketler"
+msgstr "%d Anketler"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1128,7 +1120,7 @@ msgstr "Thold Daemon'un çalışmadığı tespit edilirse, bu sıklıkta bir E-p
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "Her% d saatte bir"
+msgstr "Her%d saatte bir"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1136,7 +1128,7 @@ msgstr ""
 
 #: includes/settings.php
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
-msgstr "Eşik Daemonu tarafından ele alınacak azami eş zamanlı işlem sayısı"
+msgstr "Eşik Daemonu tarafından ele alınacak azami eş zamanlı işlem sayısı."
 
 #: includes/settings.php
 msgid "1 Process"
@@ -1145,7 +1137,7 @@ msgstr ""
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr ""
+msgstr "%d İşlemler"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1741,7 +1733,7 @@ msgstr "%s Eşik Şablonları"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
-msgstr "' %s' Bildirim Listesini aşağıdaki Eşik Şablonları ile ilişkilendirmek için 'Devam Et'i tıklayın"
+msgstr "' %s' Bildirim Listesini aşağıdaki Eşik Şablonları ile ilişkilendirmek için 'Devam Et'i tıklayın."
 
 #: notify_lists.php
 msgid "Warning Membership:"
@@ -1818,12 +1810,12 @@ msgstr "Uyarı Üyeliği:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "Eşik Uyarı Mesajı"
+msgstr "Eşik Uyarı Mesajı:"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
-msgstr "' %s' Bildirim Listesini aşağıdaki Cihazlardan Çıkarmak için 'Devam Et'i tıklayın"
+msgstr "' %s' Bildirim Listesini aşağıdaki Cihazlardan Çıkarmak için 'Devam Et'i tıklayın."
 
 #: notify_lists.php
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
@@ -2095,14 +2087,14 @@ msgstr ""
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Aşağıdaki Bildirim Listesini Çoğaltmak için 'Devam Et'i tıklayın."
-msgstr[1] "Aşağıdaki Bildirim Listesini Çoğaltmak için 'Devam Et'i tıklayın."
+msgstr[0] "Aşağıdaki Bildirimi silmek için 'Devam Et'i tıklayın."
+msgstr[1] "Aşağıdaki tüm Bildirimleri silmek için 'Devam Et'i tıklayın."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Bildirim Listesini Sil"
-msgstr[1] "Bildirim Listesini Sil"
+msgstr[0] "Bildirimi Sil"
+msgstr[1] "Bildirimleri Sil"
 
 #: notify_queue.php
 #, php-format
@@ -2151,7 +2143,7 @@ msgstr "Bildirim Listesi"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Eşik Şablonu"
+msgstr "Eşik Şablonu."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2163,11 +2155,11 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Bu Cihaz İçin Veri Kaynağı Sayısı"
+msgstr "Bu Cihaz İçin Veri Kaynağı Sayısı."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Sadece Bildirim Listesi"
+msgstr "Sadece Bildirim Listesi."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2183,7 +2175,7 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "SNMP tarafından bildirilen Cihazın resmi çalışma süresi"
+msgstr "SNMP tarafından bildirilen Cihazın resmi çalışma süresi."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2260,27 +2252,35 @@ msgstr "%s (%s) için Uyarı Düşük"
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Uyarı Listeleri"
+msgstr "%s (%s) için Yüksek Uyarı"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "Uyarı Listeleri"
+msgstr "%s (%s) için Düşük Uyarı"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "%s için Yüksek Uyarı (%s %%)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "%s için Uyarı Düşük (%%%)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Uyarı Merhaba%s (%s %%)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "%s için Uyarı Düşük (%%%)"
 
 #: setup.php
@@ -2310,11 +2310,11 @@ msgstr "Eşik Oluşturulmadı. Eşik (ler) Şablon bulunamadı."
 
 #: setup.php
 msgid "The following Data Sources have no Threshold Templates associated with them"
-msgstr "Aşağıdaki Veri Kaynakları, bunlarla ilişkilendirilmiş Eşik Şablonlarına sahip değildir."
+msgstr "Aşağıdaki Veri Kaynakları, bunlarla ilişkilendirilmiş Eşik Şablonlarına sahip değildir"
 
 #: setup.php
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
-msgstr "Bu Veri Kaynakları için Eşikler oluşturmak için 'Devam Et'i tıklayın."
+msgstr "Bu Veri Kaynakları için Eşikler oluşturmak için 'Devam Et'i tıklayın?"
 
 #: setup.php
 msgid "Available Threshold Templates"
@@ -2553,7 +2553,7 @@ msgstr "Şehir"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Veri kaynağının bir uyarının yükseltilmesi için Eşiğin ihlalinde bulunması gereken süre."
+msgstr "Veri kaynağının bir uyarının yükseltilmesi için Eşiğin ihlalinde bulunması gereken süre"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2574,7 +2574,7 @@ msgstr "Sınırlar"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "% d Tetikleyiciler"
+msgstr "%d Tetikleyiciler"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2582,7 +2582,7 @@ msgstr "Sınırlar"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "Eşik Yok"
+msgstr "Eşik silindi, düzenlenemez!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2602,7 +2602,7 @@ msgstr "İlişkili Grafik (Bu RRD'yi kullanan grafikler):"
 
 #: thold.php
 msgid "Last:"
-msgstr "Son"
+msgstr "Son:"
 
 #: thold.php
 msgid "WHi:"
@@ -2631,7 +2631,7 @@ msgstr "BL Aşağı:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "Bilinmeyen Şablon Kimliği% d"
+msgstr "Bilinmeyen Şablon Kimliği%d"
 
 #: thold.php
 msgid "Not Templated"
@@ -2894,7 +2894,7 @@ msgstr "Zaman aralığı"
 
 #: thold.php thold_templates.php
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
-msgstr "Geçmişte referans olarak kullanılacak noktayı (rrd çözünürlüğüne göre) belirtir."
+msgstr "Geçmişte referans olarak kullanılacak noktayı (rrd çözünürlüğüne göre) belirtir"
 
 #: thold.php thold_templates.php
 msgid "Deviation UP"
@@ -2903,7 +2903,7 @@ msgstr "Sapma UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Üst sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, üst sınır Eşiği hiç kontrol edilmeyecektir."
+msgstr "Üst sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, üst sınır Eşiği hiç kontrol edilmeyecektir"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2912,7 @@ msgstr "Sapma aşağı"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Alt sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, alt sınır Eşiği hiç kontrol edilmeyecektir."
+msgstr "Alt sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, alt sınır Eşiği hiç kontrol edilmeyecektir"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2978,7 +2978,7 @@ msgstr ""
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN İfadesi, RRDtool Uyumlu RPN İfadesidir. Sözdizimi, aşağıdaki gibi tüm işlevleri içerir <span class=\"deviceUp\">| query_ifSpeed |</span> gibi Aygıt ve Veri Sorgusu değiştirme ifadelerine ek olarak . RPN İfadesinde Veri Kaynağı kullanmak için, sözdizimini kullanmanız gerekir: <span class=\"deviceUp\">| ds: dsname |</span> . Örneğin, <span class=\"deviceUp\">| ds: traffic_in |</span> Graph ile ilişkilendirilmiş RRD dosya (ları) için traffic_in Veri Kaynağının geçerli değerini alacaktır. Grafik için herhangi bir Veri Kaynağı dahil edilebilir. <br><br> Matematik Operatörleri: <span class=\"deviceUp\">+, -, /, *,%, ^</span> <br> İşlevler: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, ZEMİN, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Akış Operatörleri: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Karşılaştırma İşlevleri: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
+msgstr "Bir RPN İfadesi, RRDtool uyumlu bir RPN ifadesidir. Sözdizimi, <span class=\"deviceUp\">|query_ifSpeed|</span> gibi Cihaz ve Veri Sorgusu değiştirme ifadelerine ek olarak aşağıdaki tüm işlevleri içerir. RPN İfadesinde bir Veri Kaynağı kullanmak için şu sözdizimini kullanmalısınız: <span class=\"deviceUp\">|ds:dsname|</span>. Örneğin, <span class=\"deviceUp\">|ds:traffic_in|</span>, Grafik ile ilişkili RRDfile(lar) için traffic_in Veri Kaynağının geçerli değerini alır. Grafikteki herhangi bir Veri Kaynağı dahil edilebilir.<br><br>Matematik İşleçleri: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>İşlevler: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Akış İşleçleri: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Karşılaştırma İşlevleri: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3066,7 +3066,7 @@ msgstr "Uyarı Bildirim Listesi"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
-msgstr "Bu Veri Kaynağı için Uyarılar almak üzere bir Bildirim Listesi seçebilirsiniz."
+msgstr "Bu Veri Kaynağı için Uyarılar almak üzere bir Bildirim Listesi seçebilirsiniz"
 
 #: thold.php thold_templates.php
 msgid "Style/Format File"
@@ -3218,7 +3218,7 @@ msgstr "Eşik artık Uyarılar, Bildirimler oluşturmayacak veya komutları çal
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Uyarı / Uyarı için Yüksek Eşik değerleri"
+msgstr "Uyarı / Uyarı için Yüksek Eşik değerleri."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3404,7 +3404,7 @@ msgstr "Seçilen Eşiklerden birini veya birkaçını değiştirme yetkiniz yok"
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (% d Eşikler)"
+msgstr "%s (%d Eşikler)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3525,12 +3525,12 @@ msgstr "Temel İzleme"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Üst sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, üst sınır Eşiği hiç kontrol edilmeyecektir."
+msgstr "Üst sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, üst sınır Eşiği hiç kontrol edilmeyecektir"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Alt sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, alt sınır Eşiği hiç kontrol edilmeyecektir."
+msgstr "Alt sınır Eşiği için izin verilen sapma yüzdesini belirtir. Ayarlanmazsa, alt sınır Eşiği hiç kontrol edilmeyecektir"
 
 #: thold_templates.php
 #, php-format
@@ -3548,7 +3548,7 @@ msgstr "İkinci Veri Kaynağı Öğe, yüzdesini hesaplamak için toplam değer 
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN İfadesi, RRDtool Uyumlu RPN İfadesidir. Sözdizimi, aşağıdaki gibi tüm işlevleri içerir <span style=\"color:blue;\">| query_ifSpeed |</span> gibi Aygıt ve Veri Sorgusu değiştirme ifadelerine ek olarak . RPN İfadesinde Veri Kaynağı kullanmak için, sözdizimini kullanmanız gerekir: <span style=\"color:blue;\">| ds: dsname |</span> . Örneğin, <span style=\"color:blue;\">| ds: traffic_in |</span> Graph ile ilişkilendirilmiş RRD dosya (ları) için traffic_in Veri Kaynağının geçerli değerini alacaktır. Grafik için herhangi bir Veri Kaynağı dahil edilebilir. <br> Matematik Operatörleri: <span style=\"color:blue;\">+, -, /, *,%, ^</span> <br> İşlevler: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, ZEMİN, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Akış Operatörleri: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Karşılaştırma İşlevleri: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
+msgstr "Bir RPN İfadesi, RRDtool uyumlu bir RPN ifadesidir. Sözdizimi, <span style=\"color:blue;\">|query_ifSpeed|</span> gibi Cihaz ve Veri Sorgusu değiştirme ifadelerine ek olarak aşağıdaki tüm işlevleri içerir. RPN İfadesinde bir Veri Kaynağı kullanmak için şu sözdizimini kullanmalısınız: <span style=\"color:blue;\">|ds:dsname|</span>. Örneğin, <span style=\"color:blue;\">|ds:traffic_in|</span>, Grafik ile ilişkili RRDfile(lar) için traffic_in Veri Kaynağının geçerli değerini alır. Grafikteki herhangi bir Veri Kaynağı dahil edilebilir.<br>Matematik İşleçleri: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>İşlevler: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Akış İşleçleri: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Karşılaştırma İşlevleri: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3616,52 +3616,52 @@ msgstr "Bu veri kaynağına ilişkin uyarıları almak için buraya ek E-postala
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Eşik Şablonu için Grafik Oluşturma başarısız oldu"
+msgstr "Eşik Şablonu için Grafik Oluşturma başarısız oldu."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d Ay,% d Gün,% d Saat,% d Dakika,% d Saniye (Ortalama)"
+msgstr "%d Ay,%d Gün,%d Saat,%d Dakika,%d Saniye (Ortalama)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d Ay,% d Gün,% d Saat,% d Dakika,% d Saniye"
+msgstr "%d Ay,%d Gün,%d Saat,%d Dakika,%d Saniye"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d Gün,% d Saat,% d Dakika,% d Saniye (Ortalama)"
+msgstr "%d Gün,%d Saat,%d Dakika,%d Saniye (Ortalama)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d Gün,% d Saat,% d Dakika,% d Saniye"
+msgstr "%d Gün,%d Saat,%d Dakika,%d Saniye"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d Saat,% d Dakika,% d Saniye (Ortalama)"
+msgstr "%d Saat,%d Dakika,%d Saniye (Ortalama)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "% d Saat,% d Dakika,% d Saniye"
+msgstr "%d Saat,%d Dakika,%d Saniye"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "% d Dakika,% d Saniye (Ortalama)"
+msgstr "%d Dakika,%d Saniye (Ortalama)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "% d Dakika,% d Saniye"
+msgstr "%d Dakika,%d Saniye"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "% d Saniye (Ortalama)"
+msgstr "%d Saniye (Ortalama)"
 
 #: thold_templates.php
 #, php-format
