@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-04-20 16:09-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: he_IL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? 2 : 3);\n"
-"X-Generator: Poedit 3.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/thold/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -25,7 +13,7 @@ msgstr "ללא הגבלת זמן"
 #: includes/arrays.php
 #, php-format
 msgid "%d Month"
-msgstr "% d חודש"
+msgstr "%d חודש"
 
 #: includes/arrays.php
 #, php-format
@@ -35,17 +23,17 @@ msgstr "%d חודשים"
 #: includes/arrays.php
 #, php-format
 msgid "%d Year"
-msgstr "% d שנה"
+msgstr "%d שנה"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "כל% d שעות"
+msgstr "כל%d שעות"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "כל% d שעות"
+msgstr "כל%d שעות"
 
 #: includes/arrays.php
 #, php-format
@@ -55,22 +43,22 @@ msgstr "מלפני %d ימים"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "כל% d ימים"
+msgstr "כל%d ימים"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "% d בשבוע"
+msgstr "%d בשבוע"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "כל% d שבועות"
+msgstr "כל%d שבועות"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "% d חודש"
+msgstr "%d חודש"
 
 #: includes/arrays.php
 #, php-format
@@ -80,7 +68,7 @@ msgstr "מלפני %d חודשים"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "% d שנה"
+msgstr "%d שנה"
 
 #: includes/arrays.php
 #, php-format
@@ -256,7 +244,7 @@ msgstr "כל שעה"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "כל% d שעות"
+msgstr "כל %d שעות"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -265,7 +253,7 @@ msgstr "כל יום"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "כל% d ימים"
+msgstr "כל%d ימים"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -274,7 +262,7 @@ msgstr "כל שבוע"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "כל% d שבועות"
+msgstr "כל %d שבועות"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -298,12 +286,12 @@ msgstr "‫%d שעה"
 #: includes/arrays.php
 #, php-format
 msgid "%d Hours"
-msgstr "% d שעות"
+msgstr "%d שעות"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Day"
-msgstr "% d יום"
+msgstr "%d יום"
 
 #: includes/arrays.php thold_graph.php
 #, php-format
@@ -313,17 +301,17 @@ msgstr "%d ימים"
 #: includes/arrays.php
 #, php-format
 msgid "%d Week"
-msgstr "% d בשבוע"
+msgstr "%d שבוע"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Weeks"
-msgstr "% d שבועות"
+msgstr "%d שבועות"
 
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "% 0.1f שעות"
+msgstr "%0.1f שעות"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -332,17 +320,17 @@ msgstr "כל סקר"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "כל% d סקרים"
+msgstr "כל%d סקרים"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "% d סקר"
+msgstr "%d סקר"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "% d סקרים"
+msgstr "%d סקרים"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -495,8 +483,9 @@ msgid "> %d Devices"
 msgstr "מכשירי > %d"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "> %d %%% of מכשירים ברחבי העולם"
 
 #: includes/arrays.php
@@ -505,8 +494,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d התקנים באתר"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "> %d %%% of מכשירים באתר"
 
 #: includes/functions.php
@@ -586,7 +576,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Abs Val [טיפ:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "%%% חריגה כלפי מעלה"
 
 #: includes/functions.php
@@ -625,7 +617,7 @@ msgstr "הרשומה עודכנה"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "הפריט 'תבנית' גרף מקושר '% d' לא נמצא על 'סף'% d '"
+msgstr "הפריט 'תבנית' גרף מקושר '%d' לא נמצא על 'סף'%d '"
 
 #: includes/functions.php
 #, php-format
@@ -662,7 +654,7 @@ msgstr "אתה חייב לציין או 'Baseline deviation UP' או 'Baseline S
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "סף בלתי אפשרי: 'סף גבוה' קטן או שווה ל'סף נמוך ' <br> הרשומה לא עודכנה!"
+msgstr "סף בלתי אפשרי: 'סף התראה גבוה' קטן מ-'סף התראה נמוך'"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +678,7 @@ msgstr "סף בלתי אפשרי: 'סף אזהרה גבוה' קטן או שוו�
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "סף לא ידוע"
+msgstr "סוג סף לא ידוע!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -786,11 +778,11 @@ msgstr "אירעו שגיאות בעת ניסיון לייבא נתוני תבנ
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "תבנית סף תבנית נתונים כפוף לא נמצא!"
+msgstr "נתוני ייבוא תבנית הסף לא נמצאו כנתוני XML."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "המזהה של תבנית הסף לא הוגדר בעת ניסיון ליצור תרשים וסף"
+msgstr "המזהה של תבנית הסף לא הוגדר בעת ניסיון ליצור תרשים וסף."
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -969,12 +961,12 @@ msgstr "הגדרות בסיסיות"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "% d סקר"
+msgstr "%d סקר"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "% d סקרים"
+msgstr "%d סקרים"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1128,7 +1120,7 @@ msgstr "אם נמצא כי הדמון של Thold נמצא למטה, שלח הו�
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "כל% d שעות"
+msgstr "כל%d שעות"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1145,7 +1137,7 @@ msgstr "1 תהליך"
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr "תהליכי %d"
+msgstr "%d תהליכים"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1645,7 +1637,7 @@ msgstr "סף זה <b>לא</b> יוגדר. בעת שימוש באפשרות 'תב
 
 #: includes/webapi.php
 msgid "Graph"
-msgstr "Symbol for file attachment annotations"
+msgstr "גרף"
 
 #: includes/webapi.php
 msgid "Select the Graph for the Threshold."
@@ -1673,7 +1665,7 @@ msgstr "צור"
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "סף זה <b>לא</b> יוגדר <b>ויפעל</b> רק בגרפים קיימים. אם ברצונך ליצור את התרשים ואת הסף בו זמנית, בחר תבנית סף מהתפריט הנפתח והמשך עד שיופיע הלחצן 'יצירה'."
+msgstr "סף זה <b>לא</b> יוגדר ויפעל רק בגרפים קיימים. אם ברצונך ליצור את התרשים ואת הסף בו זמנית, בחר תבנית סף מהתפריט הנפתח והמשך עד שיופיע הלחצן 'יצירה'."
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
@@ -1702,7 +1694,7 @@ msgstr "להתנתק"
 
 #: notify_lists.php thold_graph.php
 msgid "Devices"
-msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
+msgstr "התקנים"
 
 #: notify_lists.php
 #, php-format
@@ -1818,7 +1810,7 @@ msgstr "אזהרה חברות:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "הודעת התראה על סף"
+msgstr "הודעת התראה על סף:"
 
 #: notify_lists.php
 #, php-format
@@ -2096,17 +2088,17 @@ msgstr "הודעות ממתינות הוסרו ממסד הנתונים.  הוד�
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
 msgstr[0] "לחצו על 'המשך' כדי למחוק את ההודעה הבאה."
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "לחצו על 'המשך' כדי למחוק את כל ההודעות הבאות."
+msgstr[2] "לחצו על 'המשך' כדי למחוק את כל ההודעות הבאות."
+msgstr[3] "לחצו על 'המשך' כדי למחוק את כל ההודעות הבאות."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
 msgstr[0] "מחיקת הודעה"
-msgstr[1] "מחק רשימות הודעות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "מחיקת הודעות"
+msgstr[2] "מחיקת הודעות"
+msgstr[3] "מחיקת הודעות"
 
 #: notify_queue.php
 #, php-format
@@ -2167,11 +2159,11 @@ msgstr "שם האובייקט כפי שהוגדר על-ידי המתקשר."
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "מספר מקורות הנתונים עבור התקן זה"
+msgstr "מספר מקורות הנתונים עבור התקן זה."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "רשימת הודעות בלבד"
+msgstr "רשימת הודעות בלבד."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2187,7 +2179,7 @@ msgstr "זמן האירוע"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "זמן הפעילות הרשמי של ההתקן כפי שדווח על ידי SNMP"
+msgstr "זמן הפעילות הרשמי של ההתקן כפי שדווח על ידי SNMP."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2272,19 +2264,27 @@ msgid "Warning Low for %s (%s)"
 msgstr "אזהרה נמוכה עבור %s (%s)"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "התראה שלום עבור %s (%s %%%)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "התראה נמוכה עבור %s (%s %%%)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "אזהרה שלום ל- %s (%s %%%)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "אזהרה נמוכה עבור %s (%s %%%)"
 
 #: setup.php
@@ -2557,7 +2557,7 @@ msgstr "מדינה"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "משך הזמן שמקור הנתונים חייב להפר את הסף לצורך העלאת אזהרה."
+msgstr "משך הזמן שמקור הנתונים חייב להפר את הסף לצורך העלאת אזהרה"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2578,7 +2578,7 @@ msgstr "ערכי סף"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "% d מפעילים"
+msgstr "%d מפעילים"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2586,7 +2586,7 @@ msgstr "ערכי סף"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "סף אינו קיים"
+msgstr "הסף נמחק, לא ניתן לערוך!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2606,7 +2606,7 @@ msgstr "גרף משויך (גרפים המשתמשים ב- RRD):"
 
 #: thold.php
 msgid "Last:"
-msgstr "אחרון"
+msgstr "אחרון:"
 
 #: thold.php
 msgid "WHi:"
@@ -2635,7 +2635,7 @@ msgstr "BL למטה:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "מזהה תבנית לא ידוע% d"
+msgstr "מזהה תבנית לא ידוע%d"
 
 #: thold.php
 msgid "Not Templated"
@@ -2907,7 +2907,7 @@ msgstr "חריגה כלפי מעלה"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "ציון סטייה מותרת באחוזים עבור הסף המחובר העליון. אם לא הוגדר, סף גבול עליון לא ייבדק כלל."
+msgstr "ציון סטייה מותרת באחוזים עבור הסף המחובר העליון. אם לא הוגדר, סף גבול עליון לא ייבדק כלל"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2916,7 +2916,7 @@ msgstr "סטייה למטה"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "ציון סטייה מותרת באחוזים עבור סף הגבול התחתון. אם לא הוגדר, סף תחתון נמוך לא ייבדק כלל."
+msgstr "ציון סטייה מותרת באחוזים עבור סף הגבול התחתון. אם לא הוגדר, סף תחתון נמוך לא ייבדק כלל"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2982,7 +2982,7 @@ msgstr "מספר הספרות העשרוניות שיש להציג עבור ער
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "ביטוי RPN הוא ביטוי RPN תואם RRDtool.  התחביר כולל את כל הפונקציות שלהלן בנוסף לביטויים חלופיים של התקן ושאילתת נתונים, כגון <span class=\"deviceUp\">|query_ifSpeed|</span>.  כדי להשתמש במקור נתונים בביטוי RPN, עליך להשתמש בתחביר: <span class=\"deviceUp\">|ds:dsname|</span>.  לדוגמה, <span class=\"deviceUp\">|ds:traffic_in|</span> יקבל את הערך הנוכחי של מקור הנתונים traffic_in עבור RRDfile(s) המשויכים ל- Graph. ניתן לכלול כל מקור נתונים עבור גרף.<br><br>אופרטורים מתמטיים: <span class=\"deviceUp\">+, -, /, *, %, %, ^</span><br>פונקציות: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>אופרטורים זרימה: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>פונקציות השוואה: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "ביטוי RPN הוא ביטוי RPN תואם RRDtool. התחביר כולל את כל הפונקציות שלהלן בנוסף לביטויי החלפה של התקן ושאילתת נתונים, כגון <span class=\"deviceUp\">|query_ifSpeed|</span>. כדי להשתמש במקור נתונים בביטוי RPN, עליך להשתמש בתחביר: <span class=\"deviceUp\">|ds:dsname|</span>. לדוגמה, <span class=\"deviceUp\">|ds:traffic_in|</span> יקבל את הערך הנוכחי של מקור הנתונים traffic_in עבור קובצי ה-RRDfile המשויכים לגרף. ניתן לכלול כל מקור נתונים של גרף.<br><br>אופרטורים מתמטיים: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>פונקציות: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>אופרטורי זרימה: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>פונקציות השוואה: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3222,7 +3222,7 @@ msgstr "הסף כבר לא ייצור פקודות התראות, התראות א
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "ערכי סף גבוהים עבור אזהרה / התראה"
+msgstr "ערכי סף גבוהים עבור אזהרה / התראה."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3362,7 +3362,7 @@ msgstr "הצג גרפים"
 
 #: thold_graph.php
 msgid "No Devices"
-msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
+msgstr "אין התקנים"
 
 #: thold_graph.php
 msgid "Not Up"
@@ -3408,7 +3408,7 @@ msgstr "אינך מורשה לשנות אחת או יותר מהספים שנב�
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (% d ספים)"
+msgstr "%s (%d ספים)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3529,12 +3529,12 @@ msgstr "ניטור בסיסי"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "ציון סטייה מותרת באחוזים עבור הסף המחובר העליון. אם לא הוגדר, סף גבול עליון לא ייבדק כלל."
+msgstr "ציון סטייה מותרת באחוזים עבור הסף המחובר העליון. אם לא הוגדר, סף גבול עליון לא ייבדק כלל"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "ציון סטייה מותרת באחוזים עבור סף הגבול התחתון. אם לא הוגדר, סף תחתון נמוך לא ייבדק כלל."
+msgstr "ציון סטייה מותרת באחוזים עבור סף הגבול התחתון. אם לא הוגדר, סף תחתון נמוך לא ייבדק כלל"
 
 #: thold_templates.php
 #, php-format
@@ -3552,7 +3552,7 @@ msgstr "פריט Datasource השני לשימוש כערך כולל לחישוב
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "ביטוי RPN הוא ביטוי RPN תואם RRDtool.  התחביר כולל את כל הפונקציות שלהלן בנוסף לביטויים חלופיים של התקן ושאילתת נתונים, כגון <span style=\"color:blue;\">|query_ifSpeed|</span>.  כדי להשתמש במקור נתונים בביטוי RPN, עליך להשתמש בתחביר: <span style=\"color:blue;\">|ds:dsname|</span>.  לדוגמה, <span style=\"color:blue;\">|ds:traffic_in|</span> יקבל את הערך הנוכחי של מקור הנתונים traffic_in עבור RRDfile(s) המשויכים ל- Graph. ניתן לכלול כל מקור נתונים עבור גרף.<br>אופרטורים מתמטיים: <span style=\"color:blue;\">+, -, /, *, %, %, ^</span><br>פונקציות: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>אופרטורים זרימה: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>פונקציות השוואה: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "ביטוי RPN הוא ביטוי RPN תואם RRDtool.  התחביר כולל את כל הפונקציות שלהלן בנוסף לביטויים חלופיים של התקן ושאילתת נתונים, כגון <span style=\"color:blue;\">|query_ifSpeed|</span>.  כדי להשתמש במקור נתונים בביטוי RPN, עליך להשתמש בתחביר: <span style=\"color:blue;\">|ds:dsname|</span>.  לדוגמה, <span style=\"color:blue;\">|ds:traffic_in|</span> יקבל את הערך הנוכחי של מקור הנתונים traffic_in עבור RRDfile(s) המשויכים ל- Graph. ניתן לכלול כל מקור נתונים עבור גרף.<br>אופרטורים מתמטיים: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>פונקציות: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>אופרטורים זרימה: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>פונקציות השוואה: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3620,52 +3620,52 @@ msgstr "אתה יכול לציין כאן הודעות דוא\"ל נוספות �
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "יצירת התרשים נכשלה עבור תבנית סף"
+msgstr "יצירת התרשים נכשלה עבור תבנית סף."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d חודשים,% d ימים,% d שעות,% d דקות,% d שניות (ממוצע)"
+msgstr "%d חודשים,%d ימים,%d שעות,%d דקות,%d שניות (ממוצע)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d חודשים,% d ימים,% d שעות,% d דקות,% d שניות"
+msgstr "%d חודשים,%d ימים,%d שעות,%d דקות,%d שניות"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d שעות,% d שעות,% d דקות,% d שניות (ממוצע)"
+msgstr "%d שעות,%d שעות,%d דקות,%d שניות (ממוצע)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d ימים,% d שעות,% d דקות,% d שניות"
+msgstr "%d ימים,%d שעות,%d דקות,%d שניות"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d שעות,% d דקות,% d שניות (ממוצע)"
+msgstr "%d שעות,%d דקות,%d שניות (ממוצע)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "% d שעות,% d דקות,% d שניות"
+msgstr "%d שעות,%d דקות,%d שניות"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "% d דקות,% d שניות (ממוצע)"
+msgstr "%d דקות,%d שניות (ממוצע)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "% d דקות,% d שניות"
+msgstr "%d דקות,%d שניות"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "% d שניות (ממוצע)"
+msgstr "%d שניות (ממוצע)"
 
 #: thold_templates.php
 #, php-format
@@ -3734,7 +3734,7 @@ msgstr "נכשלה בכתיבת קובץ בדיסק"
 
 #: thold_templates.php
 msgid "File upload stopped by extension"
-msgstr "תוסף עצר את העלאת הקובץ."
+msgstr "תוסף עצר את העלאת הקובץ"
 
 #: thold_templates.php
 msgid "Invalid file extension."
