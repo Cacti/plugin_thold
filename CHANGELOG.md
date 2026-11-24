@@ -4,7 +4,7 @@ Documentation update (unreleased): Refresh README release/source compatibility,
 installation guidance and source-checked behavior.
 
 --- develop ---
-* issue#882: Replace triple percent (`%%%`) format specifiers with `%%` in `includes/arrays.php`, `includes/functions.php`, and `setup.php` so PHP 8 `sprintf()` and `msgfmt --check-format` handle percent signs cleanly, and refresh `locales/po/cacti.pot`
+* issue#882: Replace triple percent (`%%%`) format specifiers with `%%` in `includes/arrays.php`, `includes/functions.php`, and `setup.php` so PHP 8 `sprintf()` and `msgfmt --check-format` handle percent signs cleanly, and refresh `locales/po/cacti.pot`; also fold the four alert/warning percentage HRULE blocks in `setup.php` into one loop with no behavior change, to keep new-code duplication under the project's quality gate
 * dev: Run the CI poller with the shared runner group so RRD files and structured directories pass permission verification
 * security: Escape the data template name in the Associated Thresholds Template filter, and skip data sources whose RRD file name contains whitespace or quote characters instead of passing the path to rrdtool
 * issue: Shorten the VRULE graph drilldown button title so it reads cleanly as a label in Cacti's graph action menu, using two complete 'Toggle Threshold VRULES On'/'Off' strings (keeping the Threshold reference) so the label stays grammatical across translations
