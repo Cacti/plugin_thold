@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2022-11-25 18:50+0000\n"
-"Last-Translator: kaktus <kaktus_j_p@o2.pl>\n"
-"Language-Team: Polish <http://translate.cacti.net/projects/cacti/thold/pl/>\n"
-"Language: pl-PL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Polish <https://translate.cacti.net/projects/cacti/thold/pl/>\nLanguage: pl-PL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -65,7 +53,7 @@ msgstr "%d Tydzień"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "Co tydzień"
+msgstr "Sprzed %d tygodni"
 
 #: includes/arrays.php
 #, php-format
@@ -274,7 +262,7 @@ msgstr "Raz na tygodzień"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "Co tydzień"
+msgstr "Co %d tygodni"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -293,12 +281,12 @@ msgstr "%d minut"
 #: includes/arrays.php
 #, php-format
 msgid "%d Hour"
-msgstr "%d godzina"
+msgstr "%d godz"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Hours"
-msgstr "%d godzin"
+msgstr "%d godz"
 
 #: includes/arrays.php
 #, php-format
@@ -323,7 +311,7 @@ msgstr "%d tygodni"
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "%0,1f Godziny"
+msgstr "%0.1f godziny"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -492,21 +480,23 @@ msgstr "%d dni"
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices"
-msgstr "Urządzenia"
+msgstr "> %d urządzeń"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "Urządzenia"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "Urządzenia"
+msgstr "> %d urządzeń w lokalizacji"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "Urządzenia"
 
 #: includes/functions.php
@@ -578,21 +568,23 @@ msgstr "Został wydany alert, który wymaga Państwa uwagi. <br><br><br><strong>
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "Odchylenie UP"
+msgstr "%% Odchyl. [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Wartość ostrzeżenia"
+msgstr "Wartość bezwzgl. [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "Odchylenie UP"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Wartość ostrzeżenia"
+msgstr "Wartość bezwzgl. [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -662,7 +654,7 @@ msgstr "Musisz określić albo \"odchylenie bazowe w górę\" lub \"odchylenie b
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Niemożliwe progi: \"Wysoki próg\" mniejszy lub równy \"Niski próg\"<br>ZAPISZ NIE WOLNO!"
+msgstr "Niemożliwy próg: 'Wysoki próg alarmu' mniejszy niż 'Niski próg alarmu'"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +678,7 @@ msgstr "Niemożliwe progi: \"Wysoki próg ostrzegawczy\" mniejszy lub równy \"N
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Nieznany Próg"
+msgstr "Nieznany typ progu!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -786,11 +778,11 @@ msgstr "Błędy napotkane podczas próby zaimportowania danych szablonu progu."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Szablon progowy Szablon podrzędny Szablon Danych Nie znaleziono!"
+msgstr "Dane importu szablonu progowego nie są danymi XML."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Identyfikator szablonu progów nie został ustawiony podczas próby utworzenia wykresu i progu"
+msgstr "Identyfikator szablonu progów nie został ustawiony podczas próby utworzenia wykresu i progu."
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -1527,7 +1519,7 @@ msgstr "Tworzenie progu z szablonu"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
-msgstr "Kreator tworzenia progów [ Wybierz typ progu ]."
+msgstr "Kreator tworzenia progów [ Wybierz typ progu ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
@@ -1535,27 +1527,27 @@ msgstr "Kreator tworzenia progów [ Wprowadź dane niestandardowe i naciśnij 'U
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
-msgstr "Kreator tworzenia progów [ Wybierz dostępne wiersze zapytań danych ]."
+msgstr "Kreator tworzenia progów [ Wybierz dostępne wiersze zapytań danych ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Device ]"
-msgstr "Kreator tworzenia progów [ Wybierz urządzenie ]."
+msgstr "Kreator tworzenia progów [ Wybierz urządzenie ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Graph Template ]"
-msgstr "Kreator tworzenia progów [ Wybierz szablon wykresu ]."
+msgstr "Kreator tworzenia progów [ Wybierz szablon wykresu ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
-msgstr "Kreator tworzenia progów [ Wybierz szablon progu ]."
+msgstr "Kreator tworzenia progów [ Wybierz szablon progu ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Kreator tworzenia progów [ Naciśnij 'Utwórz', aby utworzyć swój próg ]."
+msgstr "Kreator tworzenia progów [ Naciśnij 'Utwórz', aby utworzyć swój próg ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Kreator tworzenia progów [ Wybierz źródło danych ]."
+msgstr "Kreator tworzenia progów [ Wybierz źródło danych ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Graph ]"
@@ -1677,7 +1669,7 @@ msgstr "Wartość progowa <b>NOT</b> będzie Szablonowana i będzie działać ty
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Ten próg będzie <b>NOT</b> być Templated.  Możesz wybrać opcję By Graph (Wykres), gdzie następnie wybierzesz istniejące urządzenie, wykres i źródło danych przed utworzeniem wartości progowej, lub możesz wybrać szablon progów, który pozwoli na jednoczesne utworzenie nieszablonowego progu i odpowiedniego wykresu."
+msgstr "Ten próg będzie <b>NOT</b> być Templated.  Możesz wybrać opcję By Graph (Wykres), gdzie następnie wybierzesz istniejące urządzenie, wykres i źródło danych przed utworzeniem wartości progowej, lub możesz wybrać szablon progów, który pozwoli na jednoczesne utworzenie nieszablonowego progu i odpowiedniego wykresu"
 
 #: includes/webapi.php
 msgid "Selected Graph"
@@ -1798,7 +1790,7 @@ msgstr "Kliknij 'Kontynuuj', aby usunąć listę zgłoszeniową '%s' z poniższy
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
-msgstr "Kliknij \"Kontynuuj\", aby powiązać listę zgłoszeniową \"%\" z urządzeniem(-ami) poniżej."
+msgstr "Kliknij 'Kontynuuj', aby powiązać listę powiadomień '%s' z poniższym(i) urządzeniem(-ami)."
 
 #: notify_lists.php
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
@@ -1818,12 +1810,12 @@ msgstr "Ostrzeżenie o członkostwie:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "Komunikat alertu progowego"
+msgstr "Komunikat alertu progowego:"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
-msgstr "Kliknij \"Continue\" (Kontynuuj), aby usunąć listę zgłoszeniową \"%\" z poniższej(-ych) listy urządzeń."
+msgstr "Kliknij 'Kontynuuj', aby usunąć powiązanie listy powiadomień '%s' z poniższym(i) urządzeniem(-ami)."
 
 #: notify_lists.php
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
@@ -1832,11 +1824,11 @@ msgstr "Możesz także odłączyć progi urządzeń. Jednak te progi urządzeń 
 #: notify_lists.php
 #, php-format
 msgid "[edit: %s]"
-msgstr "[edytuj: %s] [edytuj: %s]."
+msgstr "[edytuj: %s]"
 
 #: notify_lists.php
 msgid "[new]"
-msgstr "nowy] [nowy]."
+msgstr "nowy] [nowy]"
 
 #: notify_lists.php
 msgid "List General Settings"
@@ -2095,16 +2087,16 @@ msgstr ""
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Kliknij \"Continue\" (Kontynuuj), aby powtórzyć poniższą listę(y) powiadomień."
-msgstr[1] "Kliknij \"Continue\" (Kontynuuj), aby powtórzyć poniższą listę(y) powiadomień."
-msgstr[2] "Kliknij \"Continue\" (Kontynuuj), aby powtórzyć poniższą listę(y) powiadomień."
+msgstr[0] "Kliknij 'Kontynuuj', aby usunąć poniższe powiadomienie."
+msgstr[1] "Kliknij 'Kontynuuj', aby usunąć wszystkie poniższe powiadomienia."
+msgstr[2] "Kliknij 'Kontynuuj', aby usunąć wszystkie poniższe powiadomienia."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Skreślenie listy(-ów) zgłoszeniowej(-ych)"
-msgstr[1] "Skreślenie listy(-ów) zgłoszeniowej(-ych)"
-msgstr[2] "Skreślenie listy(-ów) zgłoszeniowej(-ych)"
+msgstr[0] "Usuń powiadomienie"
+msgstr[1] "Usuń powiadomienia"
+msgstr[2] "Usuń powiadomienia"
 
 #: notify_queue.php
 #, php-format
@@ -2153,7 +2145,7 @@ msgstr "Wykaz zgłoszeniowy"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Szablon progu"
+msgstr "Szablon progu."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2165,11 +2157,11 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Liczba źródeł danych dla tego urządzenia"
+msgstr "Liczba źródeł danych dla tego urządzenia."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Tylko lista zgłoszeniowa"
+msgstr "Tylko lista zgłoszeniowa."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2185,7 +2177,7 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "Oficjalny czas sprawności urządzenia zgłoszony przez SNMP"
+msgstr "Oficjalny czas sprawności urządzenia zgłoszony przez SNMP."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2262,27 +2254,35 @@ msgstr "Alert niski dla%s (%s)"
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Listy ostrzegawcze"
+msgstr "Górny próg ostrzeżenia dla %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "Listy ostrzegawcze"
+msgstr "Dolny próg ostrzeżenia dla %s (%s)"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "Alert Cześć dla%s (%s %%)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "Alert niski dla%s (%s %%)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Ostrzeżenie Cześć dla%s (%s %%)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "Ostrzeżenie o niskim poziomie dla%s (%s %%)"
 
 #: setup.php
@@ -2555,7 +2555,7 @@ msgstr "Województwo"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Czas, przez jaki źródło danych musi naruszać próg, aby ostrzeżenie zostało podniesione."
+msgstr "Czas, przez jaki źródło danych musi naruszać próg, aby ostrzeżenie zostało podniesione"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2584,7 +2584,7 @@ msgstr "Progi"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "Próg nie istnieje"
+msgstr "Próg usunięty, nie można edytować!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2884,7 +2884,7 @@ msgstr ""
 
 #: thold.php thold_templates.php
 msgid "Last"
-msgstr "Last:"
+msgstr "Last"
 
 #: thold.php thold_templates.php
 msgid "The Consolidation function to use for the Baseline Type value calculation."
@@ -2905,7 +2905,7 @@ msgstr "Odchylenie UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Określa dopuszczalne odchylenie w procentach dla górnej granicy Próg. Jeśli nie jest ustawiony, górny próg graniczny nie zostanie w ogóle sprawdzony."
+msgstr "Określa dopuszczalne odchylenie w procentach dla górnej granicy Próg. Jeśli nie jest ustawiony, górny próg graniczny nie zostanie w ogóle sprawdzony"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2914,7 +2914,7 @@ msgstr "Odchylenie DÓŁ"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Określa dopuszczalne odchylenie w procentach dla dolnej granicy Próg. Jeśli nie jest ustawiona, dolna granica wartości progowej nie będzie w ogóle sprawdzana."
+msgstr "Określa dopuszczalne odchylenie w procentach dla dolnej granicy Próg. Jeśli nie jest ustawiona, dolna granica wartości progowej nie będzie w ogóle sprawdzana"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2980,7 +2980,7 @@ msgstr ""
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Wyrażenie RPN jest wyrażeniem RPN zgodnym z RRDtool.  Syntaktyka zawiera wszystkie poniższe funkcje oraz wyrażenia zastępujące wyrażenia Device i Data Query, takie jak <span class=\"deviceUp\">|query_ifSpeed|</span>.  Aby użyć źródła danych w wyrażeniu RPN, musisz użyć składni: <span class=\"deviceUp\">|ds:dsname|</span>.  Na przykład, <span class=\"deviceUp\">|ds:traffic_in|</span> otrzyma bieżącą wartość traffic_in Data Source dla pliku RRD związanego z wykresem. Każde źródło danych dla wykresu może być włączone.<br><br><br>Operatorzy matematyczni: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br> Funkcje: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span></span><br>Operatorzy przepływu: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br> Funkcje porównawcze: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s"
+msgstr "Wyrażenie RPN jest wyrażeniem RPN zgodnym z RRDtool.  Składnia obejmuje wszystkie poniższe funkcje oraz wyrażenia zastępujące dla urządzenia i zapytania o dane, takie jak <span class=\"deviceUp\">|query_ifSpeed|</span>.  Aby użyć źródła danych w wyrażeniu RPN, musisz zastosować składnię: <span class=\"deviceUp\">|ds:dsname|</span>.  Na przykład <span class=\"deviceUp\">|ds:traffic_in|</span> pobierze bieżącą wartość źródła danych traffic_in dla pliku(-ów) RRD powiązanego(-ych) z wykresem. Można uwzględnić dowolne źródło danych dla wykresu.<br><br>Operatory matematyczne: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Funkcje: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Operatory sterowania przepływem: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Funkcje porównujące: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3220,7 +3220,7 @@ msgstr "Próg nie będzie już generował alertów, powiadomień ani wykonywał 
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Wysokie wartości progowe dla ostrzeżeń/ostrzeżeń"
+msgstr "Wysokie wartości progowe dla ostrzeżeń/ostrzeżeń."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3527,12 +3527,12 @@ msgstr "Monitorowanie sytuacji wyjściowej"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Określa dopuszczalne odchylenie w procentach dla górnej granicy Próg. Jeśli nie jest ustawiony, górny próg graniczny nie zostanie w ogóle sprawdzony."
+msgstr "Określa dopuszczalne odchylenie w procentach dla górnej granicy Próg. Jeśli nie jest ustawiony, górny próg graniczny nie zostanie w ogóle sprawdzony"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Określa dopuszczalne odchylenie w procentach dla dolnej granicy Próg. Jeśli nie jest ustawiona, dolna granica wartości progowej nie będzie w ogóle sprawdzana."
+msgstr "Określa dopuszczalne odchylenie w procentach dla dolnej granicy Próg. Jeśli nie jest ustawiona, dolna granica wartości progowej nie będzie w ogóle sprawdzana"
 
 #: thold_templates.php
 #, php-format
@@ -3550,7 +3550,7 @@ msgstr "Second Datasource Item to use as total value to calculate percentage fro
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Wyrażenie RPN jest wyrażeniem RPN zgodnym z RRDtool.  Syntaktyka zawiera wszystkie poniższe funkcje, oprócz wyrażeń zastępujących wyrażenia Device i Data Query, takie jak <span style=\"color:blue;\">|query_ifSpeed|</span>.  Aby użyć źródła danych w wyrażeniu RPN, musisz użyć składni: <span style=\"color:blue;\">|ds:dsname|</span>.  Na przykład, <span style=\"color:blue;\">|ds:traffic_in|</span> uzyska bieżącą wartość traffic_in Data Source dla pliku RRD powiązanego z wykresem. Dowolne źródło danych dla wykresu może być dołączone.<br>Math Operators: <span style=\"kolor:niebieski;\">+, -, /, *, &#37;, ^</span><br> Funkcje: <span style=\"kolor:niebieski;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Przewoźnicy: <span style=\"kolor:niebieski;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br> Funkcje porównawcze: <span style=\"kolor:niebieski;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s"
+msgstr "Wyrażenie RPN jest wyrażeniem RPN zgodnym z RRDtool.  Składnia obejmuje wszystkie poniższe funkcje oraz wyrażenia zastępujące dla urządzenia i zapytania o dane, takie jak <span style=\"color:blue;\">|query_ifSpeed|</span>.  Aby użyć źródła danych w wyrażeniu RPN, musisz zastosować składnię: <span style=\"color:blue;\">|ds:dsname|</span>.  Na przykład <span style=\"color:blue;\">|ds:traffic_in|</span> pobierze bieżącą wartość źródła danych traffic_in dla pliku(-ów) RRD powiązanego(-ych) z wykresem. Można uwzględnić dowolne źródło danych dla wykresu.<br>Operatory matematyczne: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Funkcje: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Operatory sterowania przepływem: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Funkcje porównujące: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3618,7 +3618,7 @@ msgstr "Możesz tutaj określić dodatkowe wiadomości e-mail, aby otrzymywać o
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Tworzenie wykresu nie powiodło się w przypadku szablonu progowego"
+msgstr "Tworzenie wykresu nie powiodło się w przypadku szablonu progowego."
 
 #: thold_templates.php
 #, php-format
@@ -3638,7 +3638,7 @@ msgstr "%d dni, %d godzin, %d minut, %d sekund (średnia)"
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d dni, %d godzin, %d minut, %d minut, %d sekund"
+msgstr "%d dni, %d godzin, %d minut, %d sekund"
 
 #: thold_templates.php
 #, php-format
