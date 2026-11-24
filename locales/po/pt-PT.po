@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2021-01-18 18:17+0000\n"
-"Last-Translator: Luís Silva <luis.m.ribeiro.silva@tecnico.ulisboa.pt>\n"
-"Language-Team: Portuguese (Portugal) <http://translate.cacti.net/projects/cacti/thold/pt_PT/>\n"
-"Language: pt-PT\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Portugal) <https://translate.cacti.net/projects/cacti/thold/pt_PT/>\nLanguage: pt-PT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -30,7 +18,7 @@ msgstr "%d Mês"
 #: includes/arrays.php
 #, php-format
 msgid "%d Months"
-msgstr "Meses"
+msgstr "%d Meses"
 
 #: includes/arrays.php
 #, php-format
@@ -75,7 +63,7 @@ msgstr "%d Mês"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "Meses"
+msgstr "De há %d meses"
 
 #: includes/arrays.php
 #, php-format
@@ -323,7 +311,7 @@ msgstr "%d Semanas"
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "%0,1f Horas"
+msgstr "%0.1f Horas"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -492,21 +480,23 @@ msgstr "%d Dias"
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices"
-msgstr "Dispositivos"
+msgstr "> %d Dispositivos"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "Dispositivos"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "Dispositivos"
+msgstr "> %d Dispositivos num Site"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "Dispositivos"
 
 #: includes/functions.php
@@ -532,7 +522,7 @@ msgstr "Estado do dispositivo"
 
 #: includes/functions.php
 msgid "Time:"
-msgstr "Tempo"
+msgstr "Tempo:"
 
 #: includes/functions.php
 msgid "User:"
@@ -540,7 +530,7 @@ msgstr "Utilizador:"
 
 #: includes/functions.php
 msgid "System:"
-msgstr "Sistema"
+msgstr "Sistema:"
 
 #: includes/functions.php
 msgid "Swaps:"
@@ -578,21 +568,23 @@ msgstr "Foi emitido um alerta que requer a sua atenção. <br><br><br>>Força>Di
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "Desvio UP"
+msgstr "%% Desv. [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Valor de alerta"
+msgstr "Val. Abs. [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "Desvio UP"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Valor de alerta"
+msgstr "Val. Abs. [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -662,7 +654,7 @@ msgstr "Você deve especificar 'Baseline Deviation UP' ou 'Baseline Deviation DO
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Limiares impossíveis: 'Limiar alto' menor ou igual a 'Limiar baixo'<br>RECORD NÃO ATUALIZADO!"
+msgstr "Limiar impossível: 'Limiar de alerta alto' menor que 'Limiar de alerta baixo'"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +678,7 @@ msgstr "Limiares impossíveis: 'Limiar de advertência alto' menor ou igual a 'L
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Desconhecido Limiar"
+msgstr "Tipo de limiar desconhecido!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -786,11 +778,11 @@ msgstr ""
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Modelo de Limiar Modelo de Dados Subordinados Não Encontrado!"
+msgstr "Os dados de importação do modelo de limiar não foram identificados como dados XML."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "O ID do modelo Threshold não foi definido ao tentar criar Graph e Threshold"
+msgstr "O ID do modelo Threshold não foi definido ao tentar criar Graph e Threshold."
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -1531,7 +1523,7 @@ msgstr "Assistente de criação de limites [ Selecione um tipo de limite]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]."
+msgstr "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
@@ -1551,11 +1543,11 @@ msgstr "Assistente de criação de limites [ Selecione um modelo de limite]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
-msgstr "Threshold Creation Wizard [ Pressione 'Create' para criar seu Threshold ]."
+msgstr "Threshold Creation Wizard [ Pressione 'Create' para criar seu Threshold ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Data Source ]"
-msgstr "Assistente de criação de limites [ Selecione uma fonte de dados ]."
+msgstr "Assistente de criação de limites [ Selecione uma fonte de dados ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select a Graph ]"
@@ -1677,7 +1669,7 @@ msgstr "Este Limiar <b>NÃO</b> será Templado e só funcionará em Gráficos ex
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Este Limiar irá <b>NÃO</b>ser Gabaritado.  Você pode selecionar Por Gráfico onde você selecionará um Dispositivo, Gráfico e Fonte de Dados existentes antes de criar seu Limiar, ou você pode selecionar Modelo de Limiar que permitirá que você crie um Limiar Não Modelado e o Gráfico correspondente simultaneamente."
+msgstr "Este Limiar irá <b>NÃO</b>ser Gabaritado.  Você pode selecionar Por Gráfico onde você selecionará um Dispositivo, Gráfico e Fonte de Dados existentes antes de criar seu Limiar, ou você pode selecionar Modelo de Limiar que permitirá que você crie um Limiar Não Modelado e o Gráfico correspondente simultaneamente"
 
 #: includes/webapi.php
 msgid "Selected Graph"
@@ -1818,7 +1810,7 @@ msgstr "Aviso de Inscrição:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "Mensagem de Alerta de Limiar"
+msgstr "Mensagem de Alerta de Limiar:"
 
 #: notify_lists.php
 #, php-format
@@ -2095,14 +2087,14 @@ msgstr ""
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Clique em 'Continuar' para duplicar a(s) seguinte(s) lista(s) de notificação."
-msgstr[1] "Clique em 'Continuar' para duplicar a(s) seguinte(s) lista(s) de notificação."
+msgstr[0] "Clique em 'Continuar' para eliminar a seguinte Notificação."
+msgstr[1] "Clique em 'Continuar' para eliminar todas as seguintes Notificações."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Eliminar lista(s) de notas"
-msgstr[1] "Eliminar lista(s) de notas"
+msgstr[0] "Eliminar Notificação"
+msgstr[1] "Eliminar Notificações"
 
 #: notify_queue.php
 #, php-format
@@ -2151,7 +2143,7 @@ msgstr "Lista de notas"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Modelo de limiar"
+msgstr "Modelo de limiar."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2163,11 +2155,11 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "O número de fontes de dados para este dispositivo"
+msgstr "O número de fontes de dados para este dispositivo."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Apenas lista de notas"
+msgstr "Apenas lista de notas."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2183,7 +2175,7 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "O tempo de atividade oficial do Dispositivo conforme relatado pelo SNMP"
+msgstr "O tempo de atividade oficial do Dispositivo conforme relatado pelo SNMP."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2260,27 +2252,35 @@ msgstr ""
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Listas de advertência"
+msgstr "Aviso Superior para %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
+msgstr "Aviso Inferior para %s (%s)"
+
+#: setup.php
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "Listas de advertência"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "Listas de advertência"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Listas de advertência"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
-msgstr "Listas de advertência"
-
-#: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "Listas de advertência"
 
 #: setup.php
@@ -2553,7 +2553,7 @@ msgstr "Estado"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "A quantidade de tempo que a fonte de dados deve estar violando o Limiar para que um aviso seja exibido."
+msgstr "A quantidade de tempo que a fonte de dados deve estar violando o Limiar para que um aviso seja exibido"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2582,7 +2582,7 @@ msgstr "Não Limiares"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "O limiar não existe"
+msgstr "Limiar eliminado, não é possível editar!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2602,7 +2602,7 @@ msgstr "Gráfico Associado (Gráficos usando este RRD):"
 
 #: thold.php
 msgid "Last:"
-msgstr "Último"
+msgstr "Último:"
 
 #: thold.php
 msgid "WHi:"
@@ -2903,7 +2903,7 @@ msgstr "Desvio UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica o desvio permitido em porcentagem para o limite superior Limiar. Se não estiver definido, o Limiar superior não será verificado."
+msgstr "Especifica o desvio permitido em porcentagem para o limite superior Limiar. Se não estiver definido, o Limiar superior não será verificado"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2912,7 @@ msgstr "Desvio para BAIXO"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica o desvio permitido em porcentagem para o limite inferior Limiar. Se não estiver definido, o limite inferior Limiar não será verificado."
+msgstr "Especifica o desvio permitido em porcentagem para o limite inferior Limiar. Se não estiver definido, o limite inferior Limiar não será verificado"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -3218,7 +3218,7 @@ msgstr ""
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Valores limiares elevados para aviso/alerta"
+msgstr "Valores limiares elevados para aviso/alerta."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3525,12 +3525,12 @@ msgstr "Monitoramento de linha de base"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica o desvio permitido em porcentagem para o limite superior Limiar. Se não estiver definido, o Limiar superior não será verificado."
+msgstr "Especifica o desvio permitido em porcentagem para o limite superior Limiar. Se não estiver definido, o Limiar superior não será verificado"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica o desvio permitido em porcentagem para o limite inferior Limiar. Se não estiver definido, o limite inferior Limiar não será verificado."
+msgstr "Especifica o desvio permitido em porcentagem para o limite inferior Limiar. Se não estiver definido, o limite inferior Limiar não será verificado"
 
 #: thold_templates.php
 #, php-format
@@ -3616,27 +3616,27 @@ msgstr "Você pode especificar aqui Emails extras para receber avisos para esta 
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "A criação do gráfico falhou para o modelo de limiar"
+msgstr "A criação do gráfico falhou para o modelo de limiar."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "Meses, %d Dias, %d Horas, %d Minutos, %d Segundos (Média)"
+msgstr "%d Meses, %d Dias, %d Horas, %d Minutos, %d Segundos (Média)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "Meses, %d Dias, %d Horas, %d Minutos, %d Segundos"
+msgstr "%d Meses, %d Dias, %d Horas, %d Minutos, %d Segundos"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "Dias, %d Horas, %d Minutos, %d Segundos (Média)"
+msgstr "%d Dias, %d Horas, %d Minutos, %d Segundos (Média)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "Dias, %d Horas, %d Minutos, %d Segundos"
+msgstr "%d Dias, %d Horas, %d Minutos, %d Segundos"
 
 #: thold_templates.php
 #, php-format
@@ -3646,12 +3646,12 @@ msgstr "%d Horas, %d Minutos, %d Segundos (Média)"
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "Horas, minutos, segundos"
+msgstr "%d Horas, %d Minutos, %d Segundos"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "Minutos, %d Segundos (Média)"
+msgstr "%d Minutos, %d Segundos (Média)"
 
 #: thold_templates.php
 #, php-format
