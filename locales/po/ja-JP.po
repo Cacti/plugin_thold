@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-11-22 02:12+0000\n"
-"Last-Translator: Nakayama Kito <nakayamakito@icloud.com>\n"
-"Language-Team: Japanese <http://translate.cacti.net/projects/cacti/thold/ja/>\n"
-"Language: ja-JP\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Japanese <https://translate.cacti.net/projects/cacti/thold/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -25,27 +13,27 @@ msgstr "無期限に"
 #: includes/arrays.php
 #, php-format
 msgid "%d Month"
-msgstr "％d月"
+msgstr "%dか月"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Months"
-msgstr "％d月"
+msgstr "%dか月"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Year"
-msgstr "％d年"
+msgstr "%d年"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "％d時間ごと"
+msgstr "%d時間前から"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "％d時間ごと"
+msgstr "%d時間前から"
 
 #: includes/arrays.php
 #, php-format
@@ -55,32 +43,32 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "％d日ごと"
+msgstr "%d日前から"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "％d週"
+msgstr "%d週間前から"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "週％dごと"
+msgstr "%d週間前から"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "％d月"
+msgstr "%dか月前から"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "％d月"
+msgstr "%dか月前から"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "％d年"
+msgstr "%d年前から"
 
 #: includes/arrays.php
 #, php-format
@@ -256,7 +244,7 @@ msgstr "毎時"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "％d時間ごと"
+msgstr "%d時間ごと"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -265,7 +253,7 @@ msgstr "毎日"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "％d日ごと"
+msgstr "%d日ごと"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -274,7 +262,7 @@ msgstr "毎週"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "週％dごと"
+msgstr "%d週間ごと"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -293,37 +281,37 @@ msgstr "%d 分ごと"
 #: includes/arrays.php
 #, php-format
 msgid "%d Hour"
-msgstr "％d時間"
+msgstr "%d時間"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Hours"
-msgstr "％d時間"
+msgstr "%d時間"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Day"
-msgstr "％d日"
+msgstr "%d日"
 
 #: includes/arrays.php thold_graph.php
 #, php-format
 msgid "%d Days"
-msgstr "<ph id=\"mtc_1\" equiv-text=\"base64:JWQ=\"/> 日"
+msgstr "%d日"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Week"
-msgstr "％d週"
+msgstr "%d週間"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Weeks"
-msgstr "％d週"
+msgstr "%d週間"
 
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "％0.1f時間"
+msgstr "%0.1f時間"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -332,17 +320,17 @@ msgstr "すべての投票"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "すべての％d個の投票"
+msgstr "%d回のポーリングごと"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "％d投票"
+msgstr "%d回のポーリング"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "％d件の投票"
+msgstr "%d回のポーリング"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -487,26 +475,26 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "%d Digits"
-msgstr "<ph id=\"mtc_1\" equiv-text=\"base64:JWQ=\"/> 日"
+msgstr "%d桁"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices"
-msgstr "デバイス"
+msgstr "> %d台のデバイス"
 
 #: includes/arrays.php
 #, fuzzy, php-format
-msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "デバイス"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "デバイス"
+msgstr "> %d台のデバイス (サイト内)"
 
 #: includes/arrays.php
 #, fuzzy, php-format
-msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "デバイス"
 
 #: includes/functions.php
@@ -536,7 +524,7 @@ msgstr "時間："
 
 #: includes/functions.php
 msgid "User:"
-msgstr "ユーザー"
+msgstr "ユーザー："
 
 #: includes/functions.php
 msgid "System:"
@@ -578,21 +566,23 @@ msgstr "注意が必要なアラートが発行されました。 <br><br> <stro
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "偏差UP"
+msgstr "偏差(%%) [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "アラート値"
+msgstr "絶対値 [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "偏差UP"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "アラート値"
+msgstr "絶対値 [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -625,12 +615,12 @@ msgstr "レコード更新"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "しきい値 '％d'でリンクされたグラフテンプレート項目 '％d'が見つかりませんでした"
+msgstr "しきい値 '%2$d' にリンクされたグラフテンプレート項目 '%1$d' が見つかりませんでした"
 
 #: includes/functions.php
 #, php-format
 msgid "Created Threshold: %s"
-msgstr "作成されたしきい値：％s"
+msgstr "しきい値を作成しました: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
@@ -662,7 +652,7 @@ msgstr "'Baseline Deviation UP'または 'Baseline Deviation DOWN'、あるい�
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "不可能なしきい値：「低しきい値」以下の「高しきい値」 <br>記録は更新されていません！"
+msgstr "不可能なしきい値：「高アラートしきい値」が「低アラートしきい値」より小さいです"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +676,7 @@ msgstr "不可能なしきい値：「低警告しきい値」以下の「高警
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "未知のしきい値"
+msgstr "未知のしきい値タイプ！"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -761,7 +751,7 @@ msgstr "インポート済み"
 #: includes/functions.php
 #, php-format
 msgid "Threshold Template '%s' %s!"
-msgstr "しきい値テンプレート '％s'％s！"
+msgstr "しきい値テンプレート '%s': %s！"
 
 #: includes/functions.php
 msgid "Updated"
@@ -774,7 +764,7 @@ msgstr "インポート"
 #: includes/functions.php
 #, php-format
 msgid "Threshold Template '%s' %s Failed!"
-msgstr "しきい値テンプレート '％1！'％2！失敗しました。"
+msgstr "しきい値テンプレート '%s' の %s に失敗しました！"
 
 #: includes/functions.php
 msgid "Update"
@@ -790,7 +780,7 @@ msgstr "しきい値テンプレート下位データテンプレートが見つ
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "グラフとしきい値を作成しようとしたときに、しきい値テンプレートIDが設定されませんでした"
+msgstr "グラフとしきい値を作成しようとしたときに、しきい値テンプレートIDが設定されませんでした。"
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -969,12 +959,12 @@ msgstr "ベースライン設定"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "％d投票"
+msgstr "%dポーリング間隔"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "％d件の投票"
+msgstr "%dポーリング間隔"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1128,7 +1118,7 @@ msgstr "Thold Daemonがダウンしていることが判明した場合は、こ
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "％d時間ごと"
+msgstr "%d時間ごと"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1253,7 +1243,7 @@ msgstr "再アラート"
 
 #: includes/settings.php
 msgid "Repeat Alert after specified number of poller cycles."
-msgstr "指定されたポーラーサイクル数の後に警告を繰り返す"
+msgstr "指定されたポーラーサイクル数の後に警告を繰り返す。"
 
 #: includes/settings.php
 msgid "Baseline Presets"
@@ -1686,7 +1676,7 @@ msgstr "選択済グラフテンプレート"
 #: includes/webapi.php
 #, php-format
 msgid "Created graph: %s"
-msgstr "作成したグラフ：％s"
+msgstr "グラフを作成しました: %s"
 
 #: notify_lists.php
 msgid "Duplicate"
@@ -1736,12 +1726,12 @@ msgstr "重複した通知リスト"
 #: notify_lists.php
 #, php-format
 msgid "%s Threshold Template(s)"
-msgstr "％sしきい値テンプレート"
+msgstr "しきい値テンプレートの%s"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
-msgstr "[続行]をクリックして、通知リスト '％s'と下のしきい値テンプレートを関連付けます。"
+msgstr "以下のしきい値テンプレートに通知リスト '%s' を関連付けるには、[続行] をクリックしてください。"
 
 #: notify_lists.php
 msgid "Warning Membership:"
@@ -1770,7 +1760,7 @@ msgstr "通知リストの関連付け"
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
-msgstr "[続行]をクリックして、下のしきい値テンプレートから通知リスト '％s'の関連付けを解除してください。"
+msgstr "以下のしきい値テンプレートから通知リスト '%s' の関連付けを解除するには、[続行] をクリックしてください。"
 
 #: notify_lists.php
 msgid "Remove List"
@@ -1783,22 +1773,22 @@ msgstr "通知リストの関連付けを解除"
 #: notify_lists.php
 #, php-format
 msgid "%s Threshold(s)"
-msgstr "％sしきい値"
+msgstr "しきい値の%s"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
-msgstr "[続行]をクリックして、通知リスト '％1！'を以下のしきい値に関連付けます。"
+msgstr "以下のしきい値に通知リスト '%s' を関連付けるには、[続行] をクリックしてください。"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
-msgstr "[続行]をクリックして、下のしきい値から通知リスト '％s'の関連付けを解除してください。"
+msgstr "以下のしきい値から通知リスト '%s' の関連付けを解除するには、[続行] をクリックしてください。"
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
-msgstr "[続行]をクリックして、通知リスト '％s'を以下のデバイスに関連付けます。"
+msgstr "以下のデバイスに通知リスト '%s' を関連付けるには、[続行] をクリックしてください。"
 
 #: notify_lists.php
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
@@ -1818,12 +1808,12 @@ msgstr "警告会員："
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "しきい値アラートメッセージ"
+msgstr "しきい値アラートメッセージ："
 
 #: notify_lists.php
 #, php-format
 msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
-msgstr "下のデバイスから通知リスト '％s'の関連付けを解除するには、 '続行'をクリックしてください。"
+msgstr "以下のデバイスから通知リスト '%s' の関連付けを解除するには、[続行] をクリックしてください。"
 
 #: notify_lists.php
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
@@ -1832,7 +1822,7 @@ msgstr "デバイスのしきい値の関連付けを解除することもでき
 #: notify_lists.php
 #, php-format
 msgid "[edit: %s]"
-msgstr "[編集：％s]"
+msgstr "[編集: %s]"
 
 #: notify_lists.php
 msgid "[new]"
@@ -2151,7 +2141,7 @@ msgstr "通知リスト"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "しきい値テンプレート"
+msgstr "しきい値テンプレート。"
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2163,11 +2153,11 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "このデバイスのデータソース数"
+msgstr "このデバイスのデータソース数。"
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "通知リストのみ"
+msgstr "通知リストのみ。"
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2183,7 +2173,7 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "SNMPによって報告されたデバイスの正式な稼働時間"
+msgstr "SNMPによって報告されたデバイスの正式な稼働時間。"
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2250,37 +2240,45 @@ msgstr "しきい値を作成"
 #: setup.php
 #, php-format
 msgid "Alert Hi for %s (%s)"
-msgstr "％s（％s）のこんにちは"
+msgstr "%s (%s) の上限アラート"
 
 #: setup.php
 #, php-format
 msgid "Alert Low for %s (%s)"
-msgstr "％s（％s）の低アラート"
+msgstr "%s (%s) の下限アラート"
 
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "警告リスト"
+msgstr "%s (%s) の上限警告"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "警告リスト"
+msgstr "%s (%s) の下限警告"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "％sのアラートハイ（％s %%）"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "％sのアラート低（％s %%）"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "％sの警告（％s %%）"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "％sの警告低（％s %%）"
 
 #: setup.php
@@ -2302,7 +2300,7 @@ msgstr "しきい値の自動作成"
 #: setup.php
 #, php-format
 msgid "Created %s thresholds"
-msgstr "作成されたしきい値：％s"
+msgstr "%s個のしきい値を作成しました"
 
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
@@ -2310,7 +2308,7 @@ msgstr "しきい値が作成されていません。しきい値テンプレー
 
 #: setup.php
 msgid "The following Data Sources have no Threshold Templates associated with them"
-msgstr "次のデータソースには、関連付けられているしきい値テンプレートがありません。"
+msgstr "次のデータソースには、関連付けられているしきい値テンプレートがありません"
 
 #: setup.php
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
@@ -2322,15 +2320,15 @@ msgstr "利用可能なしきい値テンプレート"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
-msgstr "以下のデータソースに関連付けられているしきい値テンプレートはありません。"
+msgstr "以下のデータソースに関連付けられているしきい値テンプレートはありません"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
-msgstr "以下のグラフには、関連付けられたしきい値テンプレートがありません。"
+msgstr "以下のグラフには、関連付けられたしきい値テンプレートがありません"
 
 #: setup.php
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr "これらのグラフにしきい値を作成したい場合は、[続行]をクリックしてください。"
+msgstr "これらのグラフにしきい値を作成したい場合は、[続行]をクリックしてください"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Graphs"
@@ -2375,7 +2373,7 @@ msgstr "次のしきい値テンプレートを削除するには、[続行]を�
 #: setup.php
 #, php-format
 msgid "Threshold Template Name: %s"
-msgstr "しきい値テンプレート名：％s"
+msgstr "しきい値テンプレート名: %s"
 
 #: setup.php
 msgid "Remove Threshold Template"
@@ -2475,7 +2473,7 @@ msgstr "デフォルトに戻る"
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Data Template"
-msgstr "データテンプレート"
+msgstr "このデータテンプレートに名前を与えてください"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Template"
@@ -2553,7 +2551,7 @@ msgstr "都道府県"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "警告が発生するためにデータソースがしきい値を超えている必要がある時間。"
+msgstr "警告が発生するためにデータソースがしきい値を超えている必要がある時間"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2574,7 +2572,7 @@ msgstr "しきい値"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "％dトリガー"
+msgstr "%dトリガー"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2582,7 +2580,7 @@ msgstr "しきい値"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "しきい値が存在しません"
+msgstr "しきい値は削除されたため、編集できません！"
 
 #: thold.php
 msgid "Graph Data"
@@ -2602,7 +2600,7 @@ msgstr "関連付けられたグラフ（このRRDを使ったグラフ）："
 
 #: thold.php
 msgid "Last:"
-msgstr "最後"
+msgstr "最後："
 
 #: thold.php
 msgid "WHi:"
@@ -2614,7 +2612,7 @@ msgstr "WLo："
 
 #: thold.php
 msgid "AHi:"
-msgstr "あひ"
+msgstr "あひ："
 
 #: thold.php
 msgid "ALo:"
@@ -2631,7 +2629,7 @@ msgstr "BLダウン："
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "不明なテンプレートID％d"
+msgstr "不明なテンプレート ID %d"
 
 #: thold.php
 msgid "Not Templated"
@@ -2640,17 +2638,17 @@ msgstr "テンプレートなし"
 #: thold.php
 #, php-format
 msgid "Data Source Item [ %s ] - Current value: [ %s ]"
-msgstr "データソースアイテム[％s]  - 現在の値：[％s]"
+msgstr "データソース項目 [ %s ] - 現在の値: [ %s ]"
 
 #: thold.php thold_templates.php
 #, php-format
 msgid "Replacement Fields: %s"
-msgstr "置換フィールド：％s"
+msgstr "置換フィールド: %s"
 
 #: thold.php thold_templates.php
 #, php-format
 msgid "Data Sources: %s"
-msgstr "データソース：％s"
+msgstr "データソース: %s"
 
 #: thold.php
 msgid "Template/Enabled Information"
@@ -2694,7 +2692,7 @@ msgstr "名前（表示）"
 
 #: thold.php
 msgid "Provide the Thresholds a meaningful name"
-msgstr "しきい値にわかりやすい名前を付けます。"
+msgstr "しきい値にわかりやすい名前を付けます"
 
 #: thold.php
 msgid "Name (Format)"
@@ -2903,7 +2901,7 @@ msgstr "偏差UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "上限しきい値に対する許容偏差をパーセントで指定します。設定されていない場合、上限しきい値はまったくチェックされません。"
+msgstr "上限しきい値に対する許容偏差をパーセントで指定します。設定されていない場合、上限しきい値はまったくチェックされません"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2910,7 @@ msgstr "偏差DOWN"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "下限しきい値の許容偏差をパーセントで指定します。設定しないと、下限しきい値はまったくチェックされません。"
+msgstr "下限しきい値の許容偏差をパーセントで指定します。設定しないと、下限しきい値はまったくチェックされません"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2921,7 +2919,7 @@ msgstr "トリガー回数"
 #: thold.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
-msgstr "アラートが発生するために、データソースがベースラインのしきい値に違反しなければならない連続回数。 <br>デフォルト値を使用するには空のままにしてください（ <b>デフォルト：％sサイクル</b> ）"
+msgstr "アラートを発生させるために、データソースがベースラインしきい値に連続して違反する必要がある回数。<br>デフォルト値を使用する場合は空のままにしてください (<b>デフォルト: %s サイクル</b>)"
 
 #: thold.php thold_templates.php
 msgid "Data Manipulation"
@@ -2978,7 +2976,7 @@ msgstr ""
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN式はRRDtool互換のRPN式です。構文には、 <span class=\"deviceUp\">| query_ifSpeed |の</span>ようなDeviceとData Queryの両方の置換表現に加えて、以下のすべての関数が含まれます<span class=\"deviceUp\">。</span> 。 RPN式でデータソースを使用するには、次の構文を使用する必要があります。 <span class=\"deviceUp\">| ds：dsname |</span> 。例えば、 <span class=\"deviceUp\">| ds：traffic_in |です。</span>グラフに関連付けられたRRDファイルのtraffic_inデータソースの現在の値を取得します。グラフのデータソースはすべて含めることができます。 <br><br>数学演算子： <span class=\"deviceUp\">+、 - 、/、*、％、^</span> <br>機能： <span class=\"deviceUp\">SIN、COS、TAN、ATAN、SQRT、フロア、CEIL、DEG2RAD、RAD2DEG、ABS、EXP、LOG、ATAN、ADNAN</span> <br>フロー演算子： <span class=\"deviceUp\">国連、ISINF、IF、LT、LE、GT、GE、EQ、NE</span> <br>比較関数： <span class=\"deviceUp\">MAX、MIN、INF、NEGINF、NAN、UNKN、COUNT、PREV</span> ％s、％s"
+msgstr "RPN 式は RRDtool 互換の RPN 式です。構文には、<span class=\"deviceUp\">|query_ifSpeed|</span> などのデバイスおよびデータクエリの置換式に加えて、以下のすべての関数が含まれます。RPN 式でデータソースを使用するには、<span class=\"deviceUp\">|ds:dsname|</span> の構文を使用する必要があります。たとえば、<span class=\"deviceUp\">|ds:traffic_in|</span> は、グラフに関連付けられた RRD ファイルの traffic_in データソースの現在値を取得します。グラフ内の任意のデータソースを含めることができます。<br><br>算術演算子: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>関数: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>フロー演算子: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>比較関数: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3058,7 +3056,7 @@ msgstr "警告通知リスト"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
-msgstr "このデータソースに対する警告を受け取る通知リストを選択するように指定できます。"
+msgstr "このデータソースに対する警告を受け取る通知リストを選択するように指定できます"
 
 #: thold.php thold_templates.php
 msgid "Alert Notification List"
@@ -3122,7 +3120,7 @@ msgstr "アラートメール"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
-msgstr "このデータソースのアラートを受信するための追加のEメールをここで指定できます（コンマ区切り）。"
+msgstr "このデータソースのアラートを受信するための追加のEメールをここで指定できます（コンマ区切り）"
 
 #: thold.php thold_templates.php
 msgid "Warning Emails"
@@ -3218,7 +3216,7 @@ msgstr "しきい値は、アラート、通知を生成したり、コマンド
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "警告/警告の上限しきい値"
+msgstr "警告/警告の上限しきい値。"
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3314,7 +3312,7 @@ msgstr "最後にCactiがこの機器に問題を見つけた時。 Cactiのポ�
 
 #: thold_graph.php
 msgid "Uptime"
-msgstr "あなたのアップタイムロボットAPIキー："
+msgstr "稼働時間"
 
 #: thold_graph.php
 msgid "The official uptime of the Device as reported by SNMP"
@@ -3371,7 +3369,7 @@ msgstr ""
 #: thold_graph.php
 #, php-format
 msgid "Threshold Log for [ %s ]"
-msgstr "[％s]のしきい値ログ"
+msgstr "[ %s ] のしきい値ログ"
 
 #: thold_graph.php
 msgid "Log Entries"
@@ -3404,7 +3402,7 @@ msgstr "選択した1つ以上のしきい値を変更する権限がありま�
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "％s（％dしきい値）"
+msgstr "%s (%d個のしきい値)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3460,7 +3458,7 @@ msgstr "データソースを選択してください"
 
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
-msgstr "しきい値テンプレートを作成するには、[作成]をクリックしてください。"
+msgstr "しきい値テンプレートを作成するには、[作成]をクリックしてください"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3525,17 +3523,17 @@ msgstr "ベースラインモニタリング"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "上限しきい値に対する許容偏差をパーセントで指定します。設定されていない場合、上限しきい値はまったくチェックされません。"
+msgstr "上限しきい値に対する許容偏差をパーセントで指定します。設定されていない場合、上限しきい値はまったくチェックされません"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "下限しきい値の許容偏差をパーセントで指定します。設定しないと、下限しきい値はまったくチェックされません。"
+msgstr "下限しきい値の許容偏差をパーセントで指定します。設定しないと、下限しきい値はまったくチェックされません"
 
 #: thold_templates.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
-msgstr "アラートを発生させるためにデータソースが違反状態になっている必要がある連続回数。 <br>デフォルト値を使用するには空のままにしてください（デフォルト：％sサイクル）"
+msgstr "アラートを発生させるために、データソースが連続して違反状態になる必要がある回数。<br>デフォルト値を使用する場合は空のままにしてください (デフォルト: %s サイクル)"
 
 #: thold_templates.php
 msgid "Percent Datasource"
@@ -3548,7 +3546,7 @@ msgstr "割合を計算するための合計値として使用する2番目の�
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN式はRRDtool互換のRPN式です。構文には、 <span style=\"color:blue;\">| query_ifSpeed |の</span>ようなDeviceとData Queryの両方の置換表現に加えて、以下のすべての関数が含まれます<span style=\"color:blue;\">。</span> 。 RPN式でデータソースを使用するには、次の構文を使用する必要があります。 <span style=\"color:blue;\">| ds：dsname |</span> 。例えば、 <span style=\"color:blue;\">| ds：traffic_in |です。</span>グラフに関連付けられたRRDファイルのtraffic_inデータソースの現在の値を取得します。グラフのデータソースはすべて含めることができます。 <br>数学演算子： <span style=\"color:blue;\">+、 - 、/、*、％、^</span> <br>機能： <span style=\"color:blue;\">SIN、COS、TAN、ATAN、SQRT、フロア、CEIL、DEG2RAD、RAD2DEG、ABS、EXP、LOG、ATAN、ADNAN</span> <br>フロー演算子： <span style=\"color:blue;\">国連、ISINF、IF、LT、LE、GT、GE、EQ、NE</span> <br>比較関数： <span style=\"color:blue;\">MAX、MIN、INF、NEGINF、NAN、UNKN、COUNT、PREV</span> ％s、％s"
+msgstr "RPN 式は RRDtool 互換の RPN 式です。構文には、<span style=\"color:blue;\">|query_ifSpeed|</span> などのデバイスおよびデータクエリの置換式に加えて、以下のすべての関数が含まれます。RPN 式でデータソースを使用するには、<span style=\"color:blue;\">|ds:dsname|</span> の構文を使用する必要があります。たとえば、<span style=\"color:blue;\">|ds:traffic_in|</span> は、グラフに関連付けられた RRD ファイルの traffic_in データソースの現在値を取得します。グラフ内の任意のデータソースを含めることができます。<br>算術演算子: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>関数: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>フロー演算子: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>比較関数: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3608,7 +3606,7 @@ msgstr "これは、このしきい値に違反したときに通知を受ける
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
-msgstr "このデータソースのアラートを受信するための追加のEメールをここで指定できます（コンマ区切り）。"
+msgstr "このデータソースのアラートを受信するための追加のEメールをここで指定できます（コンマ区切り）"
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
@@ -3616,52 +3614,52 @@ msgstr "このデータソースに対する警告を受け取るためにここ
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "しきい値テンプレートのグラフ作成に失敗しました"
+msgstr "しきい値テンプレートのグラフ作成に失敗しました。"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "％d月、％d日、％d時、％d分、％d秒（平均）"
+msgstr "%dか月、%d日、%d時間、%d分、%d秒 (平均)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "％d月、％d日、％d時、％d分、％d秒"
+msgstr "%dか月、%d日、%d時間、%d分、%d秒"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "％d日、％d時間、％d分、％d秒（平均）"
+msgstr "%d日、%d時間、%d分、%d秒 (平均)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "％d日、％d時間、％d分、％d秒"
+msgstr "%d日、%d時間、%d分、%d秒"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "％d時間、％d分、％d秒（平均）"
+msgstr "%d時間、%d分、%d秒 (平均)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "％d時間、％d分、％d秒"
+msgstr "%d時間、%d分、%d秒"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "％d分、％d秒（平均）"
+msgstr "%d分、%d秒 (平均)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "％d分、％d秒"
+msgstr "%d分、%d秒"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "％d秒（平均）"
+msgstr "%d秒 (平均)"
 
 #: thold_templates.php
 #, php-format
