@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-12-06 19:24+0000\n"
-"Last-Translator: Anton Zhuravlev <baka109g@gmail.com>\n"
-"Language-Team: Russian <http://translate.cacti.net/projects/cacti/thold/ru/>\n"
-"Language: ru-RU\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Russian <https://translate.cacti.net/projects/cacti/thold/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -130,7 +118,7 @@ msgstr "Уведомить - Alert2Warning"
 
 #: includes/arrays.php
 msgid "Alert2Warn"
-msgstr "Внимание, Внимание!"
+msgstr "Тревога в предупреждение"
 
 #: includes/arrays.php
 msgid "Notify - Warning"
@@ -202,7 +190,7 @@ msgstr "Предупреждение Триггер"
 
 #: includes/arrays.php
 msgid "Alert-Warn"
-msgstr "Внимание, Внимание!"
+msgstr "Тревога-Предупреждение"
 
 #: includes/arrays.php thold.php thold_graph.php
 msgid "Acknowledgment"
@@ -323,7 +311,7 @@ msgstr "%d Недели"
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "%0,1f Часы работы"
+msgstr "%0.1f часа"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -492,21 +480,23 @@ msgstr "%d Дня(ей)"
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices"
-msgstr "Устройства"
+msgstr "> %d устройств"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "Устройства"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "Устройства"
+msgstr "> %d устройств на площадке"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "Устройства"
 
 #: includes/functions.php
@@ -578,33 +568,35 @@ msgstr "Выпущено предупреждение, требующее ваш
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "Отклонение UP"
+msgstr "%% откл. [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Значение сигнала тревоги"
+msgstr "Абс. знач. [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "Отклонение UP"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Значение сигнала тревоги"
+msgstr "Абс. знач. [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "ID устройства не был установлен при попытке создания графика и порогового значения."
+msgstr "ID устройства не был установлен при попытке создания графика и порогового значения"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения."
+msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения."
+msgstr "Идентификатор шаблона не был установлен при попытке создания графика и порогового значения"
 
 #: includes/functions.php
 msgid "The Graph Creation failed for Threshold Template"
@@ -612,7 +604,7 @@ msgstr "Не удалось создать график для Шаблона п
 
 #: includes/functions.php
 msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Порог был автоматически создан благодаря отображению шаблона устройства."
+msgstr "Порог был автоматически создан благодаря отображению шаблона устройства"
 
 #: includes/functions.php
 msgid "Permission Denied"
@@ -625,7 +617,7 @@ msgstr "Запись обновлена"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Не удалось найти связанный элемент шаблона графика '%d' на Пороговом уровне '%d'."
+msgstr "Не удалось найти связанный элемент шаблона графика '%d' на Пороговом уровне '%d'"
 
 #: includes/functions.php
 #, php-format
@@ -662,7 +654,7 @@ msgstr "Вы должны указать либо 'Baseline Deviation UP', ли�
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Невозможные пороги: \"Высокий порог\" меньше или равен \"Низкий порог\" <br> Записывать НЕ УДАЛИТЬСЯ!"
+msgstr "Невозможный порог: 'Верхний порог тревоги' меньше 'Нижнего порога тревоги'"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +678,7 @@ msgstr "Невозможные пороги: 'Высокий порог пред
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Неизвестный порог"
+msgstr "Неизвестный тип порога!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -786,7 +778,7 @@ msgstr "Возникли ошибки при попытке импортиров
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Пороговый шаблон Шаблон данных субординат Шаблон данных не найден!"
+msgstr "Импортируемые данные шаблона порога не являются данными XML."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
@@ -969,12 +961,12 @@ msgstr "Базовые настройки"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "d Опрос общественного мнения"
+msgstr "%d интервал опроса"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "d Опросы общественного мнения"
+msgstr "%d интервалов опроса"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1103,7 +1095,7 @@ msgstr "Пороговый уровень Демона"
 
 #: includes/settings.php
 msgid "Enable Threshold Daemon"
-msgstr "Включить Пороговый Демон."
+msgstr "Включить Пороговый Демон"
 
 #: includes/settings.php
 msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
@@ -1313,11 +1305,11 @@ msgstr "Параметры электронной почты"
 
 #: includes/settings.php
 msgid "Send Emails with Urgent Priority"
-msgstr "Отправлять сообщения электронной почты с приоритетом \"Срочный\"."
+msgstr "Отправлять сообщения электронной почты с приоритетом \"Срочный\""
 
 #: includes/settings.php
 msgid "Allows you to set Emails with urgent priority"
-msgstr "Позволяет настроить адреса электронной почты с приоритетом \"Срочно\"."
+msgstr "Позволяет настроить адреса электронной почты с приоритетом \"Срочно\""
 
 #: includes/settings.php
 msgid "Send Alerts as Text"
@@ -1677,7 +1669,7 @@ msgstr "Этот Порог будет <b>NOT</b> шаблонирован и б
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Этот порог <b>NOT</b> не будет шаблонирован.  Вы можете выбрать либо По графику, где вы затем выберите существующее устройство, график и источник данных перед созданием порога, либо Шаблон порога, который позволит вам создать нешаблонный порог и соответствующий график одновременно."
+msgstr "Этот порог <b>NOT</b> не будет шаблонирован.  Вы можете выбрать либо По графику, где вы затем выберите существующее устройство, график и источник данных перед созданием порога, либо Шаблон порога, который позволит вам создать нешаблонный порог и соответствующий график одновременно"
 
 #: includes/webapi.php
 msgid "Selected Graph"
@@ -1818,7 +1810,7 @@ msgstr "Предупреждение о членстве:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "Пороговое предупреждающее сообщение"
+msgstr "Пороговое предупреждающее сообщение:"
 
 #: notify_lists.php
 #, php-format
@@ -2095,16 +2087,16 @@ msgstr ""
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Нажмите кнопку \"Продолжить\", чтобы дублировать следующий(ые) список(ы) уведомлений."
-msgstr[1] "Нажмите кнопку \"Продолжить\", чтобы дублировать следующий(ые) список(ы) уведомлений."
-msgstr[2] "Нажмите кнопку \"Продолжить\", чтобы дублировать следующий(ые) список(ы) уведомлений."
+msgstr[0] "Нажмите кнопку \"Продолжить\", чтобы удалить следующее уведомление."
+msgstr[1] "Нажмите кнопку \"Продолжить\", чтобы удалить все следующие уведомления."
+msgstr[2] "Нажмите кнопку \"Продолжить\", чтобы удалить все следующие уведомления."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Удалить список(ы) уведомлений"
-msgstr[1] "Удалить список(ы) уведомлений"
-msgstr[2] "Удалить список(ы) уведомлений"
+msgstr[0] "Удалить уведомление"
+msgstr[1] "Удалить уведомления"
+msgstr[2] "Удалить уведомления"
 
 #: notify_queue.php
 #, php-format
@@ -2153,7 +2145,7 @@ msgstr "Список уведомлений"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Пороговый Шаблон Шаблон"
+msgstr "Пороговый Шаблон Шаблон."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2165,11 +2157,11 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Количество источников данных для данного устройства"
+msgstr "Количество источников данных для данного устройства."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Только список уведомлений"
+msgstr "Только список уведомлений."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2262,27 +2254,35 @@ msgstr "Предупреждение: низкий уровень для%s (%s)"
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Предупреждающие списки"
+msgstr "Верхний порог предупреждения для %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "Предупреждающие списки"
+msgstr "Нижний порог предупреждения для %s (%s)"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "Оповещение Hi для%s (%s %%)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "Предупреждение: низкий уровень для%s (%s %%)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Предупреждение привет для%s (%s %%)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "Предупреждение: низкий уровень для%s (%s %%)"
 
 #: setup.php
@@ -2324,7 +2324,7 @@ msgstr "Доступные пороговые шаблоны"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
-msgstr "Пороговых шаблонов, связанных со следующими источниками данных, не существует."
+msgstr "Пороговых шаблонов, связанных со следующими источниками данных, не существует"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
@@ -2332,11 +2332,11 @@ msgstr "Следующие графики не имеют связанных с 
 
 #: setup.php
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr "Нажмите \"Продолжить\", если вы хотите создать Порог(ы) для этого Графа(ов)."
+msgstr "Нажмите \"Продолжить\", если вы хотите создать Порог(ы) для этого Графа(ов)"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Graphs"
-msgstr "Пороговых шаблонов, связанных со следующими графиками, не существует."
+msgstr "Пороговых шаблонов, связанных со следующими графиками, не существует"
 
 #: setup.php
 msgid "Associated Threshold Templates"
@@ -2397,7 +2397,7 @@ msgstr "Ни шаблонов, ни пороговых значений не с�
 
 #: thold.php
 msgid "You are not authorized to modify one or more of the Thresholds selected"
-msgstr "Вы не имеете права изменять один или несколько выбранных пороговых значений."
+msgstr "Вы не имеете права изменять один или несколько выбранных пороговых значений"
 
 #: thold.php
 msgid "Click 'Delete' to delete the following Threshold(s)."
@@ -2461,7 +2461,7 @@ msgstr "Дублирующий(ые) список(ы) уведомлений"
 
 #: thold.php thold_templates.php
 msgid "Invalid action detected, can not proceed"
-msgstr "Недействительное действие обнаружено, не может продолжаться."
+msgstr "Недействительное действие обнаружено, не может продолжаться"
 
 #: thold.php
 msgid "Threshold Management"
@@ -2555,7 +2555,7 @@ msgstr "Область"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Срок, в течение которого источник данных должен нарушать Пороговый уровень, чтобы было сделано предупреждение."
+msgstr "Срок, в течение которого источник данных должен нарушать Пороговый уровень, чтобы было сделано предупреждение"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2571,7 +2571,7 @@ msgstr "Нет шаблонов"
 
 #: thold.php thold_graph.php
 msgid "No [Thold]"
-msgstr "Выберите тип используемых слов (частей речи). & kvoctrain; не обращает внимания на подтипы."
+msgstr "Нет [Thold]"
 
 #: thold.php thold_graph.php
 #, php-format
@@ -2580,11 +2580,11 @@ msgstr "d Триггеры %d"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
-msgstr "Выберите тип используемых слов (частей речи). & kvoctrain; не обращает внимания на подтипы."
+msgstr "Нет порогов"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "Пороговый уровень Не существует"
+msgstr "Порог удалён, редактирование невозможно!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2884,7 +2884,7 @@ msgstr "Максимум"
 
 #: thold.php thold_templates.php
 msgid "Last"
-msgstr "Последний:"
+msgstr "Последний"
 
 #: thold.php thold_templates.php
 msgid "The Consolidation function to use for the Baseline Type value calculation."
@@ -2896,7 +2896,7 @@ msgstr "Диапазон времени"
 
 #: thold.php thold_templates.php
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
-msgstr "Указание точки в прошлом (на основе разрешения rrd), которая будет использоваться в качестве ориентира."
+msgstr "Указание точки в прошлом (на основе разрешения rrd), которая будет использоваться в качестве ориентира"
 
 #: thold.php thold_templates.php
 msgid "Deviation UP"
@@ -2905,7 +2905,7 @@ msgstr "Отклонение UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Указание допустимого отклонения в процентах для верхней границы порога. Если верхняя граница не установлена, то пороговый уровень вообще не будет проверяться."
+msgstr "Указание допустимого отклонения в процентах для верхней границы порога. Если верхняя граница не установлена, то пороговый уровень вообще не будет проверяться"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2914,7 +2914,7 @@ msgstr "Отклонение ВНИЗ"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Указание допустимого отклонения в процентах для нижней границы порога. Если порог не установлен, нижняя граница порога вообще не проверяется."
+msgstr "Указание допустимого отклонения в процентах для нижней границы порога. Если порог не установлен, нижняя граница порога вообще не проверяется"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2923,7 +2923,7 @@ msgstr "Количество триггеров"
 #: thold.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
-msgstr "Количество раз подряд источник данных должен нарушать базовый порог для повышения тревоги.<br> Оставьте пустым значение по умолчанию (<b>По умолчанию: %s циклы</b>)."
+msgstr "Количество раз подряд источник данных должен нарушать базовый порог для повышения тревоги.<br> Оставьте пустым значение по умолчанию (<b>По умолчанию: %s циклы</b>)"
 
 #: thold.php thold_templates.php
 msgid "Data Manipulation"
@@ -3060,7 +3060,7 @@ msgstr "Список предупреждающих уведомлений"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
-msgstr "Вы можете указать выбор списка уведомлений для получения Предупреждений для данного Источника данных."
+msgstr "Вы можете указать выбор списка уведомлений для получения Предупреждений для данного Источника данных"
 
 #: thold.php thold_templates.php
 msgid "Alert Notification List"
@@ -3068,7 +3068,7 @@ msgstr "Список уведомлений о тревоге"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
-msgstr "Вы можете выбрать Список уведомлений для получения уведомлений для данного Источника данных."
+msgstr "Вы можете выбрать Список уведомлений для получения уведомлений для данного Источника данных"
 
 #: thold.php thold_templates.php
 msgid "Style/Format File"
@@ -3088,7 +3088,7 @@ msgstr "Описание события SNMP Описание события SNM
 
 #: thold.php thold_templates.php
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr "Описание события, отправляемое на приемники уведомлений SNMP, можно настроить с помощью дополнительных связей varbinds. Будут поддерживаться следующие типы привязки переменных:<br>&#060;THRESHOLDNAME&#062;; &#060;HOSTNAME&#062;, &#060;HOSTIP&#062;, &#060;TEMPLATE_ID&#062;; &#060;TEMPLATE_NAME&#062; и&#060;TEMPLATE_NAME&#062;&#060;;TR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; LOW&#060;062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060; FAIL_COUNT&#062; &#060;FAIL_RURATION&#060;FAIL_062;"
+msgstr "Описание события, отправляемого получателям SNMP-уведомлений, можно настроить с помощью привязок переменных. Можно использовать стандартные переменные подстановки устройства (|host_*|) и запроса данных (|query_*|), а также следующие привязки переменных:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Alert Event Severity"
@@ -3124,7 +3124,7 @@ msgstr "Сообщения по электронной почте"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
-msgstr "Вы можете указать здесь дополнительные адреса электронной почты для получения оповещений для данного источника данных (запятая разделена)."
+msgstr "Вы можете указать здесь дополнительные адреса электронной почты для получения оповещений для данного источника данных (запятая разделена)"
 
 #: thold.php thold_templates.php
 msgid "Warning Emails"
@@ -3132,7 +3132,7 @@ msgstr "Предупреждающие сообщения электронной
 
 #: thold.php
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
-msgstr "Вы можете указать здесь дополнительные сообщения электронной почты для получения предупреждений для данного источника данных (запятая разделена)."
+msgstr "Вы можете указать здесь дополнительные сообщения электронной почты для получения предупреждений для данного источника данных (запятая разделена)"
 
 #: thold.php thold_templates.php
 msgid "If checked, Threshold notification will be sent to your local syslog."
@@ -3220,7 +3220,7 @@ msgstr "Порог больше не будет генерировать опо�
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Высокие пороговые значения для предупреждения/предупреждения"
+msgstr "Высокие пороговые значения для предупреждения/предупреждения."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3308,11 +3308,11 @@ msgstr "Количество источников данных для данно
 
 #: thold_graph.php
 msgid "The status for this Device as of the last time it was polled"
-msgstr "Статус данного устройства на момент последнего опроса."
+msgstr "Статус данного устройства на момент последнего опроса"
 
 #: thold_graph.php
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
-msgstr "В последний раз, когда Какти нашел проблему с этим Устройством.  Это может быть больше, чем время безотказной работы устройства, если оно было перезагружено между циклами опроса Cacti."
+msgstr "В последний раз, когда Какти нашел проблему с этим Устройством.  Это может быть больше, чем время безотказной работы устройства, если оно было перезагружено между циклами опроса Cacti"
 
 #: thold_graph.php
 msgid "Uptime"
@@ -3320,7 +3320,7 @@ msgstr "Аптайм"
 
 #: thold_graph.php
 msgid "The official uptime of the Device as reported by SNMP"
-msgstr "Официальное время безотказной работы устройства согласно отчетам SNMP."
+msgstr "Официальное время безотказной работы устройства согласно отчетам SNMP"
 
 #: thold_graph.php
 msgid "The official hostname for this Device"
@@ -3348,7 +3348,7 @@ msgstr "Доступность"
 
 #: thold_graph.php
 msgid "The overall Availability of this Device since the last counter reset in Cacti"
-msgstr "Общая доступность данного устройства с момента последнего сброса счетчика в Cacti."
+msgstr "Общая доступность данного устройства с момента последнего сброса счетчика в Cacti"
 
 #: thold_graph.php
 msgid "Edit Device"
@@ -3401,7 +3401,7 @@ msgstr "Записи"
 
 #: thold_templates.php
 msgid "You are not authorised to modify one or more of the Thresholds selected"
-msgstr "Вы не имеете права изменять один или несколько выбранных пороговых значений."
+msgstr "Вы не имеете права изменять один или несколько выбранных пороговых значений"
 
 #: thold_templates.php
 #, php-format
@@ -3430,7 +3430,7 @@ msgstr "Нажмите кнопку \"Продолжить\", чтобы пов�
 
 #: thold_templates.php
 msgid "Reapply Suggested Names to Template(s)"
-msgstr "Повторно примените предложенные имена к шаблону(ам)."
+msgstr "Повторно примените предложенные имена к шаблону(ам)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
@@ -3462,7 +3462,7 @@ msgstr "Пожалуйста, выберите источник данных"
 
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
-msgstr "Нажмите кнопку \"Создать\", чтобы создать шаблон порогового значения."
+msgstr "Нажмите кнопку \"Создать\", чтобы создать шаблон порогового значения"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3527,17 +3527,17 @@ msgstr "Базовый мониторинг"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Указание допустимого отклонения в процентах для верхней границы порога. Если верхняя граница не установлена, то пороговый уровень вообще не будет проверяться."
+msgstr "Указание допустимого отклонения в процентах для верхней границы порога. Если верхняя граница не установлена, то пороговый уровень вообще не будет проверяться"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Указание допустимого отклонения в процентах для нижней границы порога. Если порог не установлен, нижняя граница порога вообще не проверяется."
+msgstr "Указание допустимого отклонения в процентах для нижней границы порога. Если порог не установлен, нижняя граница порога вообще не проверяется"
 
 #: thold_templates.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
-msgstr "Количество раз подряд источник данных должен находиться в нарушенном состоянии для поднятия тревоги.<br> Оставьте пустым значение по умолчанию (По умолчанию: %s циклов)."
+msgstr "Количество раз подряд источник данных должен находиться в нарушенном состоянии для поднятия тревоги.<br> Оставьте пустым значение по умолчанию (По умолчанию: %s циклов)"
 
 #: thold_templates.php
 msgid "Percent Datasource"
@@ -3610,15 +3610,15 @@ msgstr "Это список учетных записей, которые буд
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
-msgstr "Вы можете указать здесь дополнительные адреса электронной почты для получения оповещений для данного источника данных (запятая разделена)."
+msgstr "Вы можете указать здесь дополнительные адреса электронной почты для получения оповещений для данного источника данных (запятая разделена)"
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
-msgstr "Вы можете указать здесь дополнительные сообщения электронной почты для получения предупреждений для данного источника данных (запятая разделена)."
+msgstr "Вы можете указать здесь дополнительные сообщения электронной почты для получения предупреждений для данного источника данных (запятая разделена)"
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Не удалось создать график для Шаблона порогового значения"
+msgstr "Не удалось создать график для Шаблона порогового значения."
 
 #: thold_templates.php
 #, php-format
@@ -3736,7 +3736,7 @@ msgstr "Загрузка файла остановлена расширение�
 
 #: thold_templates.php
 msgid "Invalid file extension."
-msgstr "Некорректное расширение файла"
+msgstr "Некорректное расширение файла."
 
 #: thold_templates.php
 msgid "NOTE:"
