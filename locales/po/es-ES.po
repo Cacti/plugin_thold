@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-04-20 16:04-0400\n"
-"Last-Translator: Tadeo Briceño <tadeobriceno@vencable.com>\n"
-"Language-Team: Spanish <http://translate.cacti.net/projects/cacti/thold/es/>\n"
-"Language: es_ES\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Spanish <https://translate.cacti.net/projects/cacti/thold/es/>\nLanguage: es-ES\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -495,8 +483,9 @@ msgid "> %d Devices"
 msgstr "Dispositivos > %d"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "Dispositivos > %d%%%% of en todo el mundo"
 
 #: includes/arrays.php
@@ -505,8 +494,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d dispositivos en un sitio"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "> %d%%%% of Dispositivos en un sitio"
 
 #: includes/functions.php
@@ -578,7 +568,7 @@ msgstr "Se ha emitido una alerta que requiere su atención. <br><br><fuerte>Disp
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "Desviación UP"
+msgstr "%% Desv. [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -586,7 +576,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Abs Val [CONSEJO:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "Desviación UP"
 
 #: includes/functions.php
@@ -662,7 +654,7 @@ msgstr "Debe especificar'Baseline Deviation UP' o'Baseline Deviation DOWN' o amb
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Umbrales imposibles: 'High Threshold' más pequeño que o igual a 'Low Threshold'<br>RECORD NOT UPDATED!"
+msgstr "Umbral imposible: 'Umbral de alerta alto' menor que 'Umbral de alerta bajo'"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -670,7 +662,7 @@ msgstr "Umbral imposible: ¡El recuento de activadores de alertas debe ser mayor
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Umbral imposible: El recuento de activadores de alertas debe ser menor o igual que el recuento de activadores o la evaluación debe ser de 1."
+msgstr "¡Umbral imposible: El recuento de activadores de alertas debe ser menor o igual que el recuento de activadores o la evaluación debe ser de 1!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
@@ -686,7 +678,7 @@ msgstr "Umbrales imposibles: 'High Warning Threshold' más pequeño que o igual 
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Umbral desconocido"
+msgstr "¡Tipo de umbral desconocido!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -2095,14 +2087,14 @@ msgstr "Las notificaciones pendientes se han eliminado de la base de datos.  La 
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Haga clic en'Continuar' para Duplicar la(s) siguiente(s) Lista(s) de Notificaciones."
-msgstr[1] "Haga clic en'Continuar' para Duplicar la(s) siguiente(s) Lista(s) de Notificaciones."
+msgstr[0] "Haga clic en 'Continuar' para eliminar la siguiente notificación."
+msgstr[1] "Haga clic en 'Continuar' para eliminar todas las siguientes notificaciones."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Borrar lista(s) de avisos"
-msgstr[1] "Borrar lista(s) de avisos"
+msgstr[0] "Eliminar notificación"
+msgstr[1] "Eliminar notificaciones"
 
 #: notify_queue.php
 #, php-format
@@ -2151,7 +2143,7 @@ msgstr "Notificaciones"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Plantilla de umbral"
+msgstr "Plantilla de umbral."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2163,11 +2155,11 @@ msgstr "Nombre del objeto definido por el autor de la llamada."
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "El número de fuentes de datos para este dispositivo"
+msgstr "El número de fuentes de datos para este dispositivo."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Sólo lista de avisos"
+msgstr "Sólo lista de avisos."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2183,7 +2175,7 @@ msgstr "Hora del Evento"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "El tiempo de actividad oficial del dispositivo según lo informado por SNMP"
+msgstr "El tiempo de actividad oficial del dispositivo según lo informado por SNMP."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2268,19 +2260,27 @@ msgid "Warning Low for %s (%s)"
 msgstr "Advertencia baja para %s (%s)"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "Alerta alta para %s ( %s %%%)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "Alerta baja para %s (%s %%%)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Advertencia Hola para %s (%s %%%)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "Advertencia baja para %s (%s %%%)"
 
 #: setup.php
@@ -2882,7 +2882,7 @@ msgstr "Máximo"
 
 #: thold.php thold_templates.php
 msgid "Last"
-msgstr "Ultimo:"
+msgstr "Ultimo"
 
 #: thold.php thold_templates.php
 msgid "The Consolidation function to use for the Baseline Type value calculation."
@@ -2903,7 +2903,7 @@ msgstr "Desviación UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica la desviación porcentual permitida para el límite superior del umbral. Si no está configurado, el límite superior del umbral no se comprobará en absoluto."
+msgstr "Especifica la desviación porcentual permitida para el límite superior del umbral. Si no está configurado, el límite superior del umbral no se comprobará en absoluto"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2912,7 @@ msgstr "Desviación DOWN"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica la desviación permitida en porcentaje para el Umbral de límite inferior. Si no está configurado, el Umbral de límite inferior no se comprobará en absoluto."
+msgstr "Especifica la desviación permitida en porcentaje para el Umbral de límite inferior. Si no está configurado, el Umbral de límite inferior no se comprobará en absoluto"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -3464,7 +3464,7 @@ msgstr "Por favor presione'Create' para crear su Plantilla de Umbral"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
-msgstr "Umbral borrado, ¡no puede ser editado!"
+msgstr "No se puede encontrar la plantilla de umbral solicitada"
 
 #: thold_templates.php
 msgid "Provide the Threshold Template a meaningful name."
@@ -3525,12 +3525,12 @@ msgstr "Monitoreo de la línea de base"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica la desviación porcentual permitida para el límite superior del umbral. Si no está configurado, el límite superior del umbral no se comprobará en absoluto."
+msgstr "Especifica la desviación porcentual permitida para el límite superior del umbral. Si no está configurado, el límite superior del umbral no se comprobará en absoluto"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica la desviación permitida en porcentaje para el Umbral de límite inferior. Si no está configurado, el Umbral de límite inferior no se comprobará en absoluto."
+msgstr "Especifica la desviación permitida en porcentaje para el Umbral de límite inferior. Si no está configurado, el Umbral de límite inferior no se comprobará en absoluto"
 
 #: thold_templates.php
 #, php-format
@@ -3616,7 +3616,7 @@ msgstr "Usted puede especificar aquí Emails adicionales para recibir avisos par
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "La Creación de Gráficos falló para la Plantilla de Umbral"
+msgstr "La Creación de Gráficos falló para la Plantilla de Umbral."
 
 #: thold_templates.php
 #, php-format
