@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-04-20 16:51-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: bg_BG\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/thold/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -25,27 +13,27 @@ msgstr "за неопределено време"
 #: includes/arrays.php
 #, php-format
 msgid "%d Month"
-msgstr "% d Месец"
+msgstr "%d Месец"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Months"
-msgstr "% d Месеци"
+msgstr "%d месеца"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Year"
-msgstr "% d Година"
+msgstr "%d Година"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "Всеки% d часа"
+msgstr "Всеки%d часа"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "Всеки% d часа"
+msgstr "Всеки%d часа"
 
 #: includes/arrays.php
 #, php-format
@@ -55,32 +43,32 @@ msgstr "от %d ден преди"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "Всеки% d дни"
+msgstr "Всеки%d дни"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "% d Седмица"
+msgstr "%d Седмица"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "Всеки% d седмици"
+msgstr "Всеки%d седмици"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "% d Месец"
+msgstr "%d Месец"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "% d Месеци"
+msgstr "%d Месеци"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "% d Година"
+msgstr "%d Година"
 
 #: includes/arrays.php
 #, php-format
@@ -105,7 +93,7 @@ msgstr "Нагоре"
 
 #: includes/arrays.php thold_graph.php
 msgid "Unknown"
-msgstr "알려지지 않음"
+msgstr "Неизвестно"
 
 #: includes/arrays.php includes/settings.php notify_lists.php thold.php
 #: thold_graph.php
@@ -247,7 +235,7 @@ msgstr "През 1 минута"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Minutes"
-msgstr "На всеки %d минути"
+msgstr "Всеки%d минути"
 
 #: includes/arrays.php
 msgid "Every Hour"
@@ -256,7 +244,7 @@ msgstr "Всеки час"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Всеки% d часа"
+msgstr "Всеки%d часа"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -265,7 +253,7 @@ msgstr "Всеки ден"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "Всеки% d дни"
+msgstr "Всеки%d дни"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -274,7 +262,7 @@ msgstr "Всяка седмица"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "Всеки% d седмици"
+msgstr "Всеки%d седмици"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -303,27 +291,27 @@ msgstr "%d часа"
 #: includes/arrays.php
 #, php-format
 msgid "%d Day"
-msgstr "% d ден"
+msgstr "%d ден"
 
 #: includes/arrays.php thold_graph.php
 #, php-format
 msgid "%d Days"
-msgstr "% d дни"
+msgstr "%d дни"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Week"
-msgstr "% d Седмица"
+msgstr "%d Седмица"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Weeks"
-msgstr "% d седмици"
+msgstr "%d седмици"
 
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "% 0.1f часа"
+msgstr "%0.1f часа"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -332,17 +320,17 @@ msgstr "Всеки избирателен"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "Всеки% d Анкети"
+msgstr "Всеки%d Анкети"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "% d Откриване"
+msgstr "%d Откриване"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "% d Изследвания"
+msgstr "%d Изследвания"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -418,7 +406,7 @@ msgstr "Горен + Долен байт"
 
 #: includes/arrays.php
 msgid "Acknowledge"
-msgstr "Уведомяване@ info"
+msgstr "Потвърждаване"
 
 #: includes/arrays.php
 msgid "Suspend Notifications"
@@ -491,7 +479,7 @@ msgstr "1 цифра"
 #: includes/arrays.php
 #, php-format
 msgid "%d Digits"
-msgstr "% d дни"
+msgstr "%d дни"
 
 #: includes/arrays.php
 #, php-format
@@ -499,8 +487,9 @@ msgid "> %d Devices"
 msgstr "> %d устройства"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "> %d %%% oе устройства в световен мащаб"
 
 #: includes/arrays.php
@@ -509,8 +498,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d Устройства в даден сайт"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "> %d %% на устройства в даден сайт"
 
 #: includes/functions.php
@@ -536,7 +526,7 @@ msgstr "Състояние на устройството"
 
 #: includes/functions.php
 msgid "Time:"
-msgstr "Време"
+msgstr "Време:"
 
 #: includes/functions.php
 msgid "User:"
@@ -591,7 +581,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Абс Вал [СЪВЕТ:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "Отклонение UP"
 
 #: includes/functions.php
@@ -630,7 +622,7 @@ msgstr "Записът е актуализиран"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Неуспешно намиране на свързан шаблон за график „% d“ на праг „% d“"
+msgstr "Неуспешно намиране на свързан шаблон за график „%d“ на праг „%d“"
 
 #: includes/functions.php
 #, php-format
@@ -667,7 +659,7 @@ msgstr "Трябва да посочите или „Базово отклоне
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Невъзможни прагове: „висок праг“ по-малък или равен на „нисък праг“ <br> RECORD НЕ АКТУАЛНО!"
+msgstr "Невъзможен праг: „Висок праг за известяване“ е по-малък от „Нисък праг за известяване“"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -691,7 +683,7 @@ msgstr "Невъзможни прагове: „Голям праг на пре�
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Неизвестен праг"
+msgstr "Неизвестен тип праг!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -753,7 +745,7 @@ msgstr "Шаблонът на подчинените данни за шабло�
 
 #: includes/functions.php
 msgid "Threshold Template Subordinate Data Source Not Found!"
-msgstr "Не е намерен подчинен източник на данни от шаблона за прага"
+msgstr "Не е намерен подчинен източник на данни от шаблона за прага!"
 
 #: includes/functions.php
 msgid "Threshold Template import columns do not match the database schema"
@@ -791,11 +783,11 @@ msgstr "Грешки, възникнали при опит за импортир
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Шаблонът на подчинените данни за шаблона не е намерен!"
+msgstr "Данните за импортиране на шаблон за праг не са XML данни."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Идентификационният номер на шаблона за прага не е зададен, докато се опитва да създаде графика и праг"
+msgstr "Идентификационният номер на шаблона за прага не е зададен, докато се опитва да създаде графика и праг."
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -974,12 +966,12 @@ msgstr "Основни настройки"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "% d Откриване"
+msgstr "%d Откриване"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "% d Изследвания"
+msgstr "%d Изследвания"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1133,7 +1125,7 @@ msgstr "Ако се установи, че Thold Daemon не работи, из�
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "Всеки% d часа"
+msgstr "Всеки%d часа"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1823,7 +1815,7 @@ msgstr "Предупреждение за членство:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "Съобщение за предупреждение за праг"
+msgstr "Съобщение за предупреждение за праг:"
 
 #: notify_lists.php
 #, php-format
@@ -2100,14 +2092,14 @@ msgstr "Чакащите известия са премахнати от баз�
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Кликнете върху „Напред“, за да дублирате следните списъци с уведомления."
-msgstr[1] "Кликнете върху „Напред“, за да дублирате следните списъци с уведомления."
+msgstr[0] "Кликнете върху „Напред“, за да изтриете следното известие."
+msgstr[1] "Кликнете върху „Напред“, за да изтриете всички следни известия."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Изтриване на списъците със съобщения"
-msgstr[1] "Изтриване на списъците със съобщения"
+msgstr[0] "Изтриване на известие"
+msgstr[1] "Изтриване на известия"
 
 #: notify_queue.php
 #, php-format
@@ -2156,7 +2148,7 @@ msgstr "Уведомления"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Шаблон за праг"
+msgstr "Шаблон за праг."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2168,11 +2160,11 @@ msgstr "Името на обекта, както е дефинирано от п
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Броят на източниците на данни за това устройство"
+msgstr "Броят на източниците на данни за това устройство."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Само списък с уведомления"
+msgstr "Само списък с уведомления."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2188,7 +2180,7 @@ msgstr "Час на събитието"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "Официалното работно време на устройството, както е докладвано от SNMP"
+msgstr "Официалното работно време на устройството, както е докладвано от SNMP."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2273,19 +2265,27 @@ msgid "Warning Low for %s (%s)"
 msgstr "Предупреждението е ниско за %s (%s)"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "Сигнал Здравей за %s ( %s %%)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "Сигнал за ниско за %s ( %s %%)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Предупреждение Здравей за %s ( %s %%)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "Предупреждение Ниско за %s ( %s %%)"
 
 #: setup.php
@@ -2558,7 +2558,7 @@ msgstr "Област"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Времето, през което източникът на данни трябва да е в нарушение на Прага за предупреждение, което трябва да бъде повдигнат."
+msgstr "Времето, през което източникът на данни трябва да е в нарушение на Прага за предупреждение, което трябва да бъде повдигнат"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2579,7 +2579,7 @@ msgstr "Прагове"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "% d Тригери"
+msgstr "%d Тригери"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2587,7 +2587,7 @@ msgstr "Прагове"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "Прагът не съществува"
+msgstr "Прагът е изтрит, не може да се редактира!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2607,7 +2607,7 @@ msgstr "Свързан график (графики, използващи тов
 
 #: thold.php
 msgid "Last:"
-msgstr "Последно"
+msgstr "Последно:"
 
 #: thold.php
 msgid "WHi:"
@@ -2636,7 +2636,7 @@ msgstr "BL Down:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "Идентификатор на неизвестен шаблон% d"
+msgstr "Идентификатор на неизвестен шаблон%d"
 
 #: thold.php
 msgid "Not Templated"
@@ -3225,7 +3225,7 @@ msgstr "Прагът вече няма да генерира сигнали, и�
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Високи прагови стойности за предупреждение / предупреждение"
+msgstr "Високи прагови стойности за предупреждение / предупреждение."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3411,7 +3411,7 @@ msgstr "Нямате право да променяте един или пове
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (% d Прагове)"
+msgstr "%s (%d Прагове)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3435,7 +3435,7 @@ msgstr "Кликнете върху „Напред“, за да приложи
 
 #: thold_templates.php
 msgid "Reapply Suggested Names to Template(s)"
-msgstr "Повторно прилагане на предложените имена към шаблоните."
+msgstr "Повторно прилагане на предложените имена към шаблоните"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
@@ -3625,57 +3625,57 @@ msgstr "Можете да посочите тук допълнителни им�
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Създаването на графиката е неуспешно за шаблона за праг"
+msgstr "Създаването на графиката е неуспешно за шаблона за праг."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d месеца,% d дни,% d часа,% d минути,% d секунди (средно)"
+msgstr "%d месеца,%d дни,%d часа,%d минути,%d секунди (средно)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d месеца,% d дни,% d часа,% d минути,% d секунди"
+msgstr "%d месеца,%d дни,%d часа,%d минути,%d секунди"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d дни,% d часа,% d минути,% d секунди (средно)"
+msgstr "%d дни,%d часа,%d минути,%d секунди (средно)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d дни,% d часа,% d минути,% d секунди"
+msgstr "%d дни,%d часа,%d минути,%d секунди"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d Часове,% d минути,% d секунди (средно)"
+msgstr "%d Часове,%d минути,%d секунди (средно)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "% d Часове,% d Минути,% d Секунди"
+msgstr "%d Часове,%d Минути,%d Секунди"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "% d минути,% d секунди (средно)"
+msgstr "%d минути,%d секунди (средно)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "% d минути,% d секунди"
+msgstr "%d минути,%d секунди"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "% d секунди (средно)"
+msgstr "%d секунди (средно)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds"
-msgstr "% d Секунди"
+msgstr "%d Секунди"
 
 #: thold_templates.php
 msgid "DS Name"
@@ -3727,7 +3727,7 @@ msgstr "Непълно прехвърляне на файлове."
 
 #: thold_templates.php
 msgid "No file uploaded."
-msgstr "Няма качен файл."
+msgstr "Не е избран файл."
 
 #: thold_templates.php
 msgid "Temporary folder missing."
@@ -3751,7 +3751,7 @@ msgstr "Бележка:"
 
 #: thold_templates.php
 msgid "ERROR:"
-msgstr "Грешка: Файлът не може да бъде изтрит"
+msgstr "Грешка: Файлът не може да бъде изтрит:"
 
 #~ msgid "Off"
 #~ msgstr "Изкл."
