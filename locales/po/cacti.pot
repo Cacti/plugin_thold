@@ -496,7 +496,7 @@ msgstr ""
 
 #: includes/arrays.php
 #, php-format
-msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr ""
 
 #: includes/arrays.php
@@ -506,7 +506,7 @@ msgstr ""
 
 #: includes/arrays.php
 #, php-format
-msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr ""
 
 #: includes/functions.php
@@ -586,7 +586,8 @@ msgid "Abs Val [TIP:%s]"
 msgstr ""
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, php-format
+msgid "%% Dev [AOT:%s]"
 msgstr ""
 
 #: includes/functions.php
@@ -2248,19 +2249,23 @@ msgid "Warning Low for %s (%s)"
 msgstr ""
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
 msgstr ""
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, php-format
+msgid "Alert Low for %s (%s %%)"
 msgstr ""
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
 msgstr ""
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, php-format
+msgid "Warning Low for %s (%s %%)"
 msgstr ""
 
 #: setup.php

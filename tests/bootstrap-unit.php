@@ -94,6 +94,16 @@ $GLOBALS['plugins'] = [];
 // Cacti's debug flag, also declared global by thold_check_threshold().
 $GLOBALS['debug'] = false;
 
+if (!function_exists('rrdtool_escape_string')) {
+	function rrdtool_escape_string($text, $ignore_percent = true) {
+		if ($ignore_percent) {
+			return str_replace(['"', ':'], ['\"', '\:'], (string) $text);
+		}
+
+		return str_replace(['"', ':', '%'], ['\"', '\:', '%%'], (string) $text);
+	}
+}
+
 if (!function_exists('db_execute')) {
 	function db_execute($sql, $log = true, $db_conn = false) {
 		CactiStubs::record('db_execute', $sql);

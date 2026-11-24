@@ -6879,7 +6879,7 @@ function get_bl_type($type, $cf) {
 
 			break;
 		case '5':
-			return __('%%% Dev [AOT:%s]', $cf, 'thold');
+			return __('%% Dev [AOT:%s]', $cf, 'thold');
 
 			break;
 		case '7':
