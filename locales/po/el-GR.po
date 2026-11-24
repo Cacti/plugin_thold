@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-04-20 14:55-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: el_GR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/thold/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -25,27 +13,27 @@ msgstr "Απεριόριστη"
 #: includes/arrays.php
 #, php-format
 msgid "%d Month"
-msgstr "% d Μήνα"
+msgstr "%d Μήνα"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Months"
-msgstr "% d Μήνας"
+msgstr "%d Μήνας"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Year"
-msgstr "% d Έτος"
+msgstr "%d Έτος"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "Κάθε% d Ώρες"
+msgstr "Κάθε%d Ώρες"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "Κάθε% d Ώρες"
+msgstr "Κάθε%d Ώρες"
 
 #: includes/arrays.php
 #, php-format
@@ -55,32 +43,32 @@ msgstr "Από %d ημέρα πριν"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "Κάθε% d ημέρες"
+msgstr "Κάθε%d ημέρες"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "% d Εβδομάδα"
+msgstr "%d Εβδομάδα"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "Κάθε% d εβδομάδες"
+msgstr "Κάθε%d εβδομάδες"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "% d Μήνα"
+msgstr "%d Μήνα"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "% d Μήνας"
+msgstr "%d Μήνας"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "% d Έτος"
+msgstr "%d Έτος"
 
 #: includes/arrays.php
 #, php-format
@@ -256,7 +244,7 @@ msgstr "Κάθε ώρα"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Κάθε% d Ώρες"
+msgstr "Κάθε%d Ώρες"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -265,7 +253,7 @@ msgstr "Καθημερινά"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "Κάθε% d ημέρες"
+msgstr "Κάθε%d ημέρες"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -274,7 +262,7 @@ msgstr "Κάθε Εβδομάδα"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "Κάθε% d εβδομάδες"
+msgstr "Κάθε%d εβδομάδες"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -283,7 +271,7 @@ msgstr "Κάθε Μήνα"
 #: includes/arrays.php
 #, php-format
 msgid "%d Minute"
-msgstr "% d λεπτά"
+msgstr "%d λεπτά"
 
 #: includes/arrays.php
 #, php-format
@@ -303,7 +291,7 @@ msgstr "%d ώρες"
 #: includes/arrays.php
 #, php-format
 msgid "%d Day"
-msgstr "% d Ημέρα"
+msgstr "%d Ημέρα"
 
 #: includes/arrays.php thold_graph.php
 #, php-format
@@ -313,17 +301,17 @@ msgstr "%d Ημέρες"
 #: includes/arrays.php
 #, php-format
 msgid "%d Week"
-msgstr "% d Εβδομάδα"
+msgstr "%d Εβδομάδα"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Weeks"
-msgstr "% d εβδομάδες"
+msgstr "%d εβδομάδες"
 
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "% 0.1f Ώρες"
+msgstr "%0.1f Ώρες"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -332,17 +320,17 @@ msgstr "Κάθε ψηφοφορία"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "Κάθε% d Δημοσκοπήσεις"
+msgstr "Κάθε%d Δημοσκοπήσεις"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "% d Δημοσκόπηση"
+msgstr "%d Δημοσκόπηση"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "% d Δημοσκοπήσεις"
+msgstr "%d Δημοσκοπήσεις"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -492,21 +480,21 @@ msgstr "%d Ημέρες"
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices"
-msgstr "Τύπος Συσκευής"
+msgstr "> %d συσκευές"
 
 #: includes/arrays.php
 #, fuzzy, php-format
-msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "> %d%%% συσκευών παγκοσμίως"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "Τύπος Συσκευής"
+msgstr "> %d συσκευές σε τοποθεσία"
 
 #: includes/arrays.php
 #, fuzzy, php-format
-msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "> %d%%% συσκευών σε μια τοποθεσία"
 
 #: includes/functions.php
@@ -578,21 +566,23 @@ msgstr "Έχει εκδοθεί μια ειδοποίηση που απαιτε�
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "Απόκλιση UP"
+msgstr "%% Απόκλ. [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Τιμή ειδοποίησης"
+msgstr "Απόλ. τιμή [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "Απόκλιση UP"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Τιμή ειδοποίησης"
+msgstr "Απόλ. τιμή [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -625,7 +615,7 @@ msgstr "Εγγραφή ενημερωμένη"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Αποτυχία εύρεσης συνδεδεμένου στοιχείου πρότυπου γραφήματος '% d' στο κατώφλι '% d'"
+msgstr "Αποτυχία εύρεσης συνδεδεμένου στοιχείου πρότυπου γραφήματος '%d' στο κατώφλι '%d'"
 
 #: includes/functions.php
 #, php-format
@@ -662,7 +652,7 @@ msgstr "Πρέπει να καθορίσετε είτε την \"Απόκλισ�
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Αδύνατα κατώτατα όρια: \"Υψηλό όριο\" μικρότερο ή ίσο με το \"Χαμηλό όριο\" <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Αδύνατο όριο: το 'Υψηλό όριο ειδοποίησης' είναι μικρότερο από το 'Χαμηλό όριο ειδοποίησης'"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +676,7 @@ msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προ
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Άγνωστο όριο"
+msgstr "Άγνωστος τύπος ορίου!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -786,11 +776,11 @@ msgstr "Παρουσιάστηκαν σφάλματα κατά την προσπ
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Το πρότυπο δεδομένων υποδείγματος κατωφλίου δεν βρέθηκε!"
+msgstr "Τα δεδομένα εισαγωγής προτύπου κατωφλίου δεν βρέθηκαν να είναι δεδομένα XML."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
+msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου."
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -969,12 +959,12 @@ msgstr "Ρυθμίσεις γραμμής βάσης"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "% d Δημοσκόπηση"
+msgstr "%d Δημοσκόπηση"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "% d Δημοσκοπήσεις"
+msgstr "%d Δημοσκοπήσεις"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1128,7 +1118,7 @@ msgstr "Εάν το Thold Daemon βρίσκεται εκτός λειτουργ�
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "Κάθε% d Ώρες"
+msgstr "Κάθε%d Ώρες"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1702,7 +1692,7 @@ msgstr "διαχωρίσει"
 
 #: notify_lists.php thold_graph.php
 msgid "Devices"
-msgstr "Τύπος Συσκευής"
+msgstr "Συσκευές"
 
 #: notify_lists.php
 #, php-format
@@ -1818,7 +1808,7 @@ msgstr "Προειδοποίηση:"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "Μήνυμα ειδοποίησης κατωφλίου"
+msgstr "Μήνυμα ειδοποίησης κατωφλίου:"
 
 #: notify_lists.php
 #, php-format
@@ -1836,7 +1826,7 @@ msgstr "[επεξεργασία: %s]"
 
 #: notify_lists.php
 msgid "[new]"
-msgstr "[νέος]"
+msgstr "[νέο]"
 
 #: notify_lists.php
 msgid "List General Settings"
@@ -2095,14 +2085,14 @@ msgstr "Οι εκκρεμείς ειδοποιήσεις έχουν καταργ
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να αντιγράψετε την ακόλουθη λίστα ειδοποιήσεων."
-msgstr[1] "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να αντιγράψετε την ακόλουθη λίστα ειδοποιήσεων."
+msgstr[0] "Κάντε κλικ στο κουμπί 'Συνέχεια' για να διαγράψετε την ακόλουθη ειδοποίηση."
+msgstr[1] "Κάντε κλικ στο κουμπί 'Συνέχεια' για να διαγράψετε όλες τις ακόλουθες ειδοποιήσεις."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Διαγραφή λίστας ειδοποιήσεων"
-msgstr[1] "Διαγραφή λίστας ειδοποιήσεων"
+msgstr[0] "Διαγραφή ειδοποίησης"
+msgstr[1] "Διαγραφή ειδοποιήσεων"
 
 #: notify_queue.php
 #, php-format
@@ -2151,7 +2141,7 @@ msgstr "Ειδοποιήσεις"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Πρότυπο κατωφλίου"
+msgstr "Πρότυπο κατωφλίου."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2163,11 +2153,11 @@ msgstr "Το όνομα του αντικειμένου όπως ορίζετα�
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Ο αριθμός των πηγών δεδομένων για αυτήν τη συσκευή"
+msgstr "Ο αριθμός των πηγών δεδομένων για αυτήν τη συσκευή."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Μόνο λίστα ειδοποιήσεων"
+msgstr "Μόνο λίστα ειδοποιήσεων."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2183,7 +2173,7 @@ msgstr "Ώρα Εκδήλωσης"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "Ο επίσημος χρόνος λειτουργίας της συσκευής όπως αναφέρθηκε από το SNMP"
+msgstr "Ο επίσημος χρόνος λειτουργίας της συσκευής όπως αναφέρθηκε από το SNMP."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2260,27 +2250,35 @@ msgstr "Χαμηλή ειδοποίηση για %s ( %s)"
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Λίστα προειδοποιήσεων"
+msgstr "Υψηλή προειδοποίηση για %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "Λίστα προειδοποιήσεων"
+msgstr "Χαμηλή προειδοποίηση για %s (%s)"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "Γεια ειδοποίησης για %s ( %s %%)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "Χαμηλή ειδοποίηση για %s ( %s %%)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Προειδοποίηση Γεια για %s ( %s %%)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "Χαμηλή προειδοποίηση για %s ( %s %%)"
 
 #: setup.php
@@ -2553,7 +2551,7 @@ msgstr "Νομός"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Ο χρόνος που η πηγή δεδομένων πρέπει να παραβιάζει το όριο για μια προειδοποίηση που πρέπει να εγείρεται."
+msgstr "Ο χρόνος που η πηγή δεδομένων πρέπει να παραβιάζει το όριο για μια προειδοποίηση που πρέπει να εγείρεται"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2574,7 +2572,7 @@ msgstr "Κατώφλια/'Ορια"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "% dΑνεργοποιητές"
+msgstr "%dΑνεργοποιητές"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2582,7 +2580,7 @@ msgstr "Κατώφλια/'Ορια"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "Το όριο δεν υπάρχει"
+msgstr "Το όριο διαγράφηκε, δεν είναι δυνατή η επεξεργασία!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2631,7 +2629,7 @@ msgstr "BL Κάτω:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "Άγνωστο αναγνωριστικό προτύπου% d"
+msgstr "Άγνωστο αναγνωριστικό προτύπου%d"
 
 #: thold.php
 msgid "Not Templated"
@@ -2903,7 +2901,7 @@ msgstr "Απόκλιση UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το ανώτατο οριακό όριο. Εάν δεν έχει οριστεί, το άνω όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου."
+msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το ανώτατο οριακό όριο. Εάν δεν έχει οριστεί, το άνω όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2910,7 @@ msgstr "Απόκλιση προς τα κάτω"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το κάτω όριο Κατώφλι. Εάν δεν έχει οριστεί, το κατώτατο όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου."
+msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το κάτω όριο Κατώφλι. Εάν δεν έχει οριστεί, το κατώτατο όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2978,7 +2976,7 @@ msgstr "Ο αριθμός των δεκαδικών ψηφίων που θα ε�
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Μια έκφραση RPN είναι μια RRDtool συμβατή έκφραση RPN. Η σύνταξη περιλαμβάνει όλες τις παρακάτω λειτουργίες εκτός από τις εκφράσεις αντικατάστασης συσκευής και δεδομένων Query, όπως <span class=\"deviceUp\">| query_ifSpeed |</span> . Για να χρησιμοποιήσετε μια προέλευση δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span class=\"deviceUp\">| ds: dsname |</span> . Για παράδειγμα, <span class=\"deviceUp\">| ds: traffic_in |</span> θα πάρει την τρέχουσα τιμή της traffic_in προέλευσης δεδομένων για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε πηγή δεδομένων για ένα γράφημα. <br><br> Μαθητικοί χειριστές: <span class=\"deviceUp\">+, -, /, *,%, ^</span> <br> Λειτουργίες: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Χειριστές ροής: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Λειτουργίες σύγκρισης: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
+msgstr "Μια έκφραση RPN είναι μια έκφραση RPN συμβατή με το RRDtool.  Η σύνταξη περιλαμβάνει όλες τις παρακάτω συναρτήσεις, καθώς και εκφράσεις αντικατάστασης συσκευής και ερωτήματος δεδομένων, όπως <span class=\"deviceUp\">|query_ifSpeed|</span>.  Για να χρησιμοποιήσετε μια προέλευση δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span class=\"deviceUp\">|ds:dsname|</span>.  Για παράδειγμα, η έκφραση <span class=\"deviceUp\">|ds:traffic_in|</span> θα ανακτήσει την τρέχουσα τιμή της προέλευσης δεδομένων traffic_in για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε προέλευση δεδομένων ενός γραφήματος.<br><br>Μαθηματικοί τελεστές: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Συναρτήσεις: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Τελεστές ροής: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Συναρτήσεις σύγκρισης: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3218,7 +3216,7 @@ msgstr "Το όριο δεν θα δημιουργεί πλέον ειδοποι
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Υψηλές τιμές κατωφλίου για προειδοποίηση / ειδοποίηση"
+msgstr "Υψηλές τιμές κατωφλίου για προειδοποίηση / ειδοποίηση."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3404,7 +3402,7 @@ msgstr "Δεν έχετε εξουσιοδότηση να τροποποιήσε
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (% d Κατώτατα όρια)"
+msgstr "%s (%d Κατώτατα όρια)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3525,12 +3523,12 @@ msgstr "Παρακολούθηση βάσης"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το ανώτατο οριακό όριο. Εάν δεν έχει οριστεί, το άνω όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου."
+msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το ανώτατο οριακό όριο. Εάν δεν έχει οριστεί, το άνω όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το κάτω όριο Κατώφλι. Εάν δεν έχει οριστεί, το κατώτατο όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου."
+msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το κάτω όριο Κατώφλι. Εάν δεν έχει οριστεί, το κατώτατο όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου"
 
 #: thold_templates.php
 #, php-format
@@ -3548,7 +3546,7 @@ msgstr "Δεύτερο στοιχείο προέλευσης δεδομένων 
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Μια έκφραση RPN είναι μια RRDtool συμβατή έκφραση RPN. Η σύνταξη περιλαμβάνει όλες τις παρακάτω λειτουργίες εκτός από τις εκφράσεις αντικατάστασης συσκευής και δεδομένων Query, όπως <span style=\"color:blue;\">| query_ifSpeed |</span> . Για να χρησιμοποιήσετε μια προέλευση δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span style=\"color:blue;\">| ds: dsname |</span> . Για παράδειγμα, <span style=\"color:blue;\">| ds: traffic_in |</span> θα πάρει την τρέχουσα τιμή της traffic_in προέλευσης δεδομένων για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε πηγή δεδομένων για ένα γράφημα. <br> Μαθητικοί χειριστές: <span style=\"color:blue;\">+, -, /, *,%, ^</span> <br> Λειτουργίες: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> Χειριστές ροής: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> Λειτουργίες σύγκρισης: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s %s"
+msgstr "Μια έκφραση RPN είναι μια έκφραση RPN συμβατή με το RRDtool.  Η σύνταξη περιλαμβάνει όλες τις παρακάτω συναρτήσεις, καθώς και εκφράσεις αντικατάστασης συσκευής και ερωτήματος δεδομένων, όπως <span style=\"color:blue;\">|query_ifSpeed|</span>.  Για να χρησιμοποιήσετε μια προέλευση δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span style=\"color:blue;\">|ds:dsname|</span>.  Για παράδειγμα, η έκφραση <span style=\"color:blue;\">|ds:traffic_in|</span> θα ανακτήσει την τρέχουσα τιμή της προέλευσης δεδομένων traffic_in για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε προέλευση δεδομένων ενός γραφήματος.<br>Μαθηματικοί τελεστές: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Συναρτήσεις: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Τελεστές ροής: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Συναρτήσεις σύγκρισης: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3616,52 +3614,52 @@ msgstr "Μπορείτε να ορίσετε εδώ επιπλέον μηνύμ�
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Η δημιουργία γραφήματος απέτυχε για το πρότυπο κατωφλίου"
+msgstr "Η δημιουργία γραφήματος απέτυχε για το πρότυπο κατωφλίου."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d Μήνες,% d Ημέρες,% d Ώρες,% d Λεπτά,% d Δευτερόλεπτα (Μέσος όρος)"
+msgstr "%d Μήνες,%d Ημέρες,%d Ώρες,%d Λεπτά,%d Δευτερόλεπτα (Μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d Μήνες,% d Ημέρες,% d Ώρες,% d Λεπτά,% d Δευτερόλεπτα"
+msgstr "%d Μήνες,%d Ημέρες,%d Ώρες,%d Λεπτά,%d Δευτερόλεπτα"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d ημέρες,% d ώρες,% d λεπτά,% d δευτερόλεπτα (μέσος όρος)"
+msgstr "%d ημέρες,%d ώρες,%d λεπτά,%d δευτερόλεπτα (μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d ημέρες,% d ώρες,% d λεπτά,% d δευτερόλεπτα"
+msgstr "%d ημέρες,%d ώρες,%d λεπτά,%d δευτερόλεπτα"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d Ώρες,% d Λεπτά,% d Δευτερόλεπτα (Μέσος όρος)"
+msgstr "%d Ώρες,%d Λεπτά,%d Δευτερόλεπτα (Μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "% d ώρες,% d λεπτά,% d δευτερόλεπτα"
+msgstr "%d ώρες,%d λεπτά,%d δευτερόλεπτα"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "% d Λεπτά,% d Δευτερόλεπτα (Μέσος όρος)"
+msgstr "%d Λεπτά,%d Δευτερόλεπτα (Μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "% d Λεπτά,% d Δευτερόλεπτα"
+msgstr "%d Λεπτά,%d Δευτερόλεπτα"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "% d Δευτερόλεπτα (Μέσος όρος)"
+msgstr "%d Δευτερόλεπτα (Μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
@@ -3734,7 +3732,7 @@ msgstr "Η μεταφόρτωση αρχείου σταμάτησε κατά ε�
 
 #: thold_templates.php
 msgid "Invalid file extension."
-msgstr "Μη έγκυρη επέκταση αρχείου: %s"
+msgstr "Μη έγκυρη επέκταση αρχείου."
 
 #: thold_templates.php
 msgid "NOTE:"
