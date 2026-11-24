@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-04-20 16:06-0400\n"
-"Last-Translator: Olivier VOGEL <olivier.vogel@st.com>\n"
-"Language-Team: French <http://translate.cacti.net/projects/cacti/thold/fr-FR/>\n"
-"Language: fr_FR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 3.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: French <https://translate.cacti.net/projects/cacti/thold/fr/>\nLanguage: fr-FR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -495,8 +483,9 @@ msgid "> %d Devices"
 msgstr "> %d Appareils"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "> %d %%% d’appareils dans le monde"
 
 #: includes/arrays.php
@@ -505,8 +494,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d appareils d’un site"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "> %d %%% d’appareils dans un site"
 
 #: includes/functions.php
@@ -536,11 +526,11 @@ msgstr "Heure :"
 
 #: includes/functions.php
 msgid "User:"
-msgstr "Utilisateur:"
+msgstr "Utilisateur :"
 
 #: includes/functions.php
 msgid "System:"
-msgstr "Système:"
+msgstr "Système :"
 
 #: includes/functions.php
 msgid "Swaps:"
@@ -586,7 +576,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Abs Val [CONSEIL :%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "Déviation UP"
 
 #: includes/functions.php
@@ -596,15 +588,15 @@ msgstr "Abs Val [AOT :%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "Le Device ID n'a pas été défini lors de la création du graphique et du Threshold."
+msgstr "Le Device ID n'a pas été défini lors de la création du graphique et du Threshold"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil."
+msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil."
+msgstr "L'ID du modèle de seuil n'a pas été défini lors de la création du graphique et du seuil"
 
 #: includes/functions.php
 msgid "The Graph Creation failed for Threshold Template"
@@ -612,7 +604,7 @@ msgstr "La création du graphique a échoué pour le modèle de seuil"
 
 #: includes/functions.php
 msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "Le seuil a été créé automatiquement en raison du mappage des modèles de dispositifs."
+msgstr "Le seuil a été créé automatiquement en raison du mappage des modèles de dispositifs"
 
 #: includes/functions.php
 msgid "Permission Denied"
@@ -625,7 +617,7 @@ msgstr "Mise à jour du dossier"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "N'a pas réussi à trouver l'élément de modèle graphique lié'%d' sur le seuil'%d'."
+msgstr "N'a pas réussi à trouver l'élément de modèle graphique lié'%d' sur le seuil'%d'"
 
 #: includes/functions.php
 #, php-format
@@ -662,7 +654,7 @@ msgstr "Vous devez spécifier'Baseline Deviation UP' ou'Baseline Deviation DOWN'
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Seuils impossibles:'Seuil haut' inférieur ou égal à'Seuil bas'<br>RECORD NOT UPDATED !"
+msgstr "Seuil impossible : « Seuil d'alerte haut » inférieur à « Seuil d'alerte bas »"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +678,7 @@ msgstr "Seuils impossibles:'Seuil d'alerte élevé' inférieur ou égal à'Seuil
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Seuil inconnu Seuil inconnu"
+msgstr "Type de seuil inconnu !"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -786,7 +778,7 @@ msgstr "Erreurs rencontrées lors de la tentative d'importation des données du 
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Modèle de seuil Modèle de données subordonnées Modèle de données subordonnées introuvable !"
+msgstr "Les données d'importation du modèle de seuil ne sont pas des données XML."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
@@ -1677,7 +1669,7 @@ msgstr "Ce Seuil <b>NOT</b> sera Tempéré et ne fonctionnera que sur les Graphi
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Ce seuil <b>NOT</b> sera Templated.  Vous pouvez sélectionner soit Par Graphique où vous sélectionnerez ensuite un dispositif, un graphique et une source de données existants avant de créer votre seuil, soit vous pouvez sélectionner Modèle de seuil qui vous permettra de créer un seuil non tempéré et un graphique correspondant simultanément."
+msgstr "Ce seuil <b>NOT</b> sera Templated.  Vous pouvez sélectionner soit Par Graphique où vous sélectionnerez ensuite un dispositif, un graphique et une source de données existants avant de créer votre seuil, soit vous pouvez sélectionner Modèle de seuil qui vous permettra de créer un seuil non tempéré et un graphique correspondant simultanément"
 
 #: includes/webapi.php
 msgid "Selected Graph"
@@ -1818,7 +1810,7 @@ msgstr "Avertissement aux membres :"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "Message d'alerte de seuil"
+msgstr "Message d'alerte de seuil :"
 
 #: notify_lists.php
 #, php-format
@@ -2095,14 +2087,14 @@ msgstr "Les notifications en attente ont été supprimées de la base de donnée
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Cliquez sur'Continuer' pour dupliquer la ou les listes de notification suivantes."
-msgstr[1] "Cliquez sur'Continuer' pour dupliquer la ou les listes de notification suivantes."
+msgstr[0] "Cliquez sur 'Continuer' pour supprimer la notification suivante."
+msgstr[1] "Cliquez sur 'Continuer' pour supprimer toutes les notifications suivantes."
 
 #: notify_queue.php
 msgid "Delete Notification"
 msgid_plural "Delete Notifications"
-msgstr[0] "Supprimer liste(s) de notification"
-msgstr[1] "Supprimer liste(s) de notification"
+msgstr[0] "Supprimer la notification"
+msgstr[1] "Supprimer les notifications"
 
 #: notify_queue.php
 #, php-format
@@ -2151,7 +2143,7 @@ msgstr "Liste de notification"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Modèle de seuil"
+msgstr "Modèle de seuil."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2163,11 +2155,11 @@ msgstr "Nom de l’objet tel que défini par l’appelant."
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Le nombre de sources de données pour ce dispositif"
+msgstr "Le nombre de sources de données pour ce dispositif."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Liste de notification seulement"
+msgstr "Liste de notification seulement."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2183,7 +2175,7 @@ msgstr "Heure de l’évènement"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "Le temps de disponibilité officiel de l'appareil tel que rapporté par SNMP"
+msgstr "Le temps de disponibilité officiel de l'appareil tel que rapporté par SNMP."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2268,19 +2260,27 @@ msgid "Warning Low for %s (%s)"
 msgstr "Avertissement Faible pour %s (%s)"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "Alerte salut pour %s ( %s %%)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "Alerte faible pour %s ( %s %%)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Avertissement Salut pour %s ( %s %%)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "Avertissement faible pour %s ( %s %%)"
 
 #: setup.php
@@ -2330,7 +2330,7 @@ msgstr "Les graphiques suivants ne sont associés à aucun modèle de seuil"
 
 #: setup.php
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr "Appuyez sur'Continuer' si vous souhaitez créer un ou plusieurs Seuils pour ce(s) Graphique(s)."
+msgstr "Appuyez sur'Continuer' si vous souhaitez créer un ou plusieurs Seuils pour ce(s) Graphique(s)"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Graphs"
@@ -2395,7 +2395,7 @@ msgstr "Aucun modèle ou seuil n'existe déjà - Aucun seuil n'a été créé."
 
 #: thold.php
 msgid "You are not authorized to modify one or more of the Thresholds selected"
-msgstr "Vous n'êtes pas autorisé à modifier un ou plusieurs des Seuils sélectionnés."
+msgstr "Vous n'êtes pas autorisé à modifier un ou plusieurs des Seuils sélectionnés"
 
 #: thold.php
 msgid "Click 'Delete' to delete the following Threshold(s)."
@@ -2525,7 +2525,7 @@ msgstr "Élevé"
 
 #: thold.php thold_graph.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr "Les valeurs d'avertissement / alerte élevées. REMARQUE: les valeurs de base sont un pourcentage, toutes les autres valeurs sont des valeurs d'affichage qui peuvent être modifiées par un cdef."
+msgstr "Les valeurs d'avertissement / alerte élevées. REMARQUE : les valeurs de base sont un pourcentage, toutes les autres valeurs sont des valeurs d'affichage qui peuvent être modifiées par un cdef."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Low"
@@ -2533,7 +2533,7 @@ msgstr "Basse"
 
 #: thold.php thold_graph.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr "Les valeurs d'avertissement / d'alerte faibles. REMARQUE: les valeurs de base sont un pourcentage, toutes les autres valeurs sont des valeurs d'affichage qui peuvent être modifiées par un cdef."
+msgstr "Les valeurs d'avertissement / d'alerte faibles. REMARQUE : les valeurs de base sont un pourcentage, toutes les autres valeurs sont des valeurs d'affichage qui peuvent être modifiées par un cdef."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Trigger"
@@ -2553,7 +2553,7 @@ msgstr "État"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "La durée pendant laquelle la source de données doit être en dépassement du seuil pour qu'un avertissement soit émis."
+msgstr "La durée pendant laquelle la source de données doit être en dépassement du seuil pour qu'un avertissement soit émis"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2582,7 +2582,7 @@ msgstr "Seuils"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "Le seuil n'existe pas"
+msgstr "Seuil supprimé, impossible de le modifier !"
 
 #: thold.php
 msgid "Graph Data"
@@ -2798,7 +2798,7 @@ msgstr "Seuil élevé"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "Si la valeur définie et que la valeur de la source de données dépasse ce nombre, un avertissement sera déclenché. REMARQUE: cette valeur doit être un nombre RAW. La valeur affichée sur le graphique peut être modifiée par un cdef."
+msgstr "Si la valeur définie et que la valeur de la source de données dépasse ce nombre, un avertissement sera déclenché. REMARQUE : cette valeur doit être un nombre RAW. La valeur affichée sur le graphique peut être modifiée par un cdef."
 
 #: thold.php thold_templates.php
 msgid "Low Threshold"
@@ -2806,7 +2806,7 @@ msgstr "Seuil bas"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "Si la valeur est définie et que la valeur de la source de données est inférieure à ce nombre, un avertissement sera déclenché. REMARQUE: cette valeur doit être un nombre RAW. La valeur affichée sur le graphique peut être modifiée par un cdef."
+msgstr "Si la valeur est définie et que la valeur de la source de données est inférieure à ce nombre, un avertissement sera déclenché. REMARQUE : cette valeur doit être un nombre RAW. La valeur affichée sur le graphique peut être modifiée par un cdef."
 
 #: thold.php
 msgid "Breach Duration"
@@ -2822,11 +2822,11 @@ msgstr "Alerte - Réglages Haut / Bas"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "Si définie et que la valeur de la source de données dépasse ce nombre, l'alerte sera déclenchée. REMARQUE: cette valeur doit être un nombre RAW. La valeur affichée sur le graphique peut être modifiée par un cdef."
+msgstr "Si définie et que la valeur de la source de données dépasse ce nombre, l'alerte sera déclenchée. REMARQUE : cette valeur doit être un nombre RAW. La valeur affichée sur le graphique peut être modifiée par un cdef."
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "Si la valeur est définie et que la valeur de la source de données est inférieure à ce nombre, une alerte sera déclenchée. REMARQUE: cette valeur doit être un nombre RAW. La valeur affichée sur le graphique peut être modifiée par un cdef."
+msgstr "Si la valeur est définie et que la valeur de la source de données est inférieure à ce nombre, une alerte sera déclenchée. REMARQUE : cette valeur doit être un nombre RAW. La valeur affichée sur le graphique peut être modifiée par un cdef."
 
 #: thold.php
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
@@ -2882,7 +2882,7 @@ msgstr "Maximum"
 
 #: thold.php thold_templates.php
 msgid "Last"
-msgstr "Dernier :"
+msgstr "Dernier"
 
 #: thold.php thold_templates.php
 msgid "The Consolidation function to use for the Baseline Type value calculation."
@@ -2894,7 +2894,7 @@ msgstr "Intervalle de temps"
 
 #: thold.php thold_templates.php
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
-msgstr "Spécifie le point dans le passé (basé sur la rrd résolution) qui sera utilisé comme référence."
+msgstr "Spécifie le point dans le passé (basé sur la rrd résolution) qui sera utilisé comme référence"
 
 #: thold.php thold_templates.php
 msgid "Deviation UP"
@@ -2903,7 +2903,7 @@ msgstr "Déviation UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Spécifie l'écart autorisé en pourcentage pour la limite supérieure Seuil. S'il n'est pas réglé, le seuil de la limite supérieure ne sera pas vérifié du tout."
+msgstr "Spécifie l'écart autorisé en pourcentage pour la limite supérieure Seuil. S'il n'est pas réglé, le seuil de la limite supérieure ne sera pas vérifié du tout"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2912,7 @@ msgstr "Déviation DOWN"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Spécifie l'écart autorisé en pourcentage pour la limite inférieure Seuil. S'il n'est pas réglé, le seuil de la limite inférieure n'est pas du tout vérifié."
+msgstr "Spécifie l'écart autorisé en pourcentage pour la limite inférieure Seuil. S'il n'est pas réglé, le seuil de la limite inférieure n'est pas du tout vérifié"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2978,7 +2978,7 @@ msgstr "Nombre de décimales à afficher pour les valeurs de seuil et les valeur
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Une expression RPN est une expression RPN compatible avec RRDtool.  La syntaxe inclut toutes les fonctions ci-dessous, en plus des expressions de remplacement de l’appareil et de la requête de données, telles que <span class=\"deviceUp\">|query_ifSpeed|</span>.  Pour utiliser une source de données dans l’expression RPN, vous devez utiliser la syntaxe : <span class=\"deviceUp\">|ds :dsname|</span>.  Par exemple, <span class=\"deviceUp\">|ds :traffic_in|</span> récupère la valeur actuelle de la source de données traffic_in pour le(s) fichier(s) RRDassocié(s) au graphique. N’importe quelle source de données pour un graphique peut être incluse.<br><br>Opérateurs mathématiques : <span class=\"deviceUp\">+, -, /, *, %, ^</span><br>Fonctions : <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Opérateurs de flux : <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Fonctions de comparaison : <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Une expression RPN est une expression RPN compatible avec RRDtool.  La syntaxe inclut toutes les fonctions ci-dessous, en plus des expressions de remplacement de l’appareil et de la requête de données, telles que <span class=\"deviceUp\">|query_ifSpeed|</span>.  Pour utiliser une source de données dans l’expression RPN, vous devez utiliser la syntaxe : <span class=\"deviceUp\">|ds:dsname|</span>.  Par exemple, <span class=\"deviceUp\">|ds:traffic_in|</span> récupère la valeur actuelle de la source de données traffic_in pour le(s) fichier(s) RRD associé(s) au graphique. N’importe quelle source de données pour un graphique peut être incluse.<br><br>Opérateurs mathématiques : <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Fonctions : <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Opérateurs de flux : <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Fonctions de comparaison : <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3058,7 +3058,7 @@ msgstr "Liste des avis d'alerte"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
-msgstr "Vous pouvez spécifier de choisir une liste de notification pour recevoir des avertissements pour cette source de données."
+msgstr "Vous pouvez spécifier de choisir une liste de notification pour recevoir des avertissements pour cette source de données"
 
 #: thold.php thold_templates.php
 msgid "Alert Notification List"
@@ -3066,7 +3066,7 @@ msgstr "Liste de notification d'alerte"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
-msgstr "Vous pouvez spécifier de choisir une liste de notification pour recevoir des alertes pour cette source de données."
+msgstr "Vous pouvez spécifier de choisir une liste de notification pour recevoir des alertes pour cette source de données"
 
 #: thold.php thold_templates.php
 msgid "Style/Format File"
@@ -3086,7 +3086,7 @@ msgstr "Description de l'événement SNMP"
 
 #: thold.php thold_templates.php
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr "Vous pouvez personnaliser la description de l'événement envoyé aux récepteurs de notification SNMP en utilisant varbinds supplémentaires. Les fixations variables suivantes seront prises en charge :<br>&#060;THRESHOLDNAME&#062 ; &#060;HOSTNAME&#062 ; &#060;HOSTNAME&#062 ; &#060;TEMPLATE_ID&#062 ; &#060;TEMPLATE_NAME&#062 ; &#060;TEMPLATE_NOM&#060 ;THR_TYPE&#062 ; &#060;DS_NAME&#062 ; &#060;HI&#062 ; &#060;LOW&#062 ; &#060;EVENT_CATEGORY&#062 ; &#060;FAIL_COUNT&#062 ; &#060;FAIL_DURATION&#062 ;"
+msgstr "Vous pouvez personnaliser la description de l'événement envoyé aux récepteurs de notification SNMP à l'aide de liaisons de variables. Les variables de substitution standard d'appareil (|host_*|) et de requête de données (|query_*|) peuvent être utilisées, ainsi que les liaisons de variables suivantes :<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Alert Event Severity"
@@ -3218,7 +3218,7 @@ msgstr "Le seuil ne générera plus d'alertes, de notifications ou n'exécutera 
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Valeurs seuils élevées pour l'alerte/alerte"
+msgstr "Valeurs seuils élevées pour l'alerte/alerte."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3306,11 +3306,11 @@ msgstr "Le nombre de sources de données pour ce dispositif"
 
 #: thold_graph.php
 msgid "The status for this Device as of the last time it was polled"
-msgstr "L'état de cet appareil à la dernière fois qu'il a été interrogé."
+msgstr "L'état de cet appareil à la dernière fois qu'il a été interrogé"
 
 #: thold_graph.php
 msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
-msgstr "La dernière fois que Cacti a trouvé un problème avec cet appareil.  Il peut être supérieur au temps de fonctionnement du dispositif, s'il a été redémarré entre les cycles d'interrogation Cacti."
+msgstr "La dernière fois que Cacti a trouvé un problème avec cet appareil.  Il peut être supérieur au temps de fonctionnement du dispositif, s'il a été redémarré entre les cycles d'interrogation Cacti"
 
 #: thold_graph.php
 msgid "Uptime"
@@ -3399,7 +3399,7 @@ msgstr "Entrées"
 
 #: thold_templates.php
 msgid "You are not authorised to modify one or more of the Thresholds selected"
-msgstr "Vous n'êtes pas autorisé à modifier un ou plusieurs des Seuils sélectionnés."
+msgstr "Vous n'êtes pas autorisé à modifier un ou plusieurs des Seuils sélectionnés"
 
 #: thold_templates.php
 #, php-format
@@ -3460,7 +3460,7 @@ msgstr "Veuillez sélectionner une source de données"
 
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
-msgstr "Veuillez cliquer sur'Créer' pour créer votre modèle de seuil."
+msgstr "Veuillez cliquer sur'Créer' pour créer votre modèle de seuil"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3525,12 +3525,12 @@ msgstr "Surveillance de base"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Spécifie l'écart autorisé en pourcentage pour la limite supérieure Seuil. S'il n'est pas réglé, le seuil de la limite supérieure ne sera pas vérifié du tout."
+msgstr "Spécifie l'écart autorisé en pourcentage pour la limite supérieure Seuil. S'il n'est pas réglé, le seuil de la limite supérieure ne sera pas vérifié du tout"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Spécifie l'écart autorisé en pourcentage pour la limite inférieure Seuil. S'il n'est pas réglé, le seuil de la limite inférieure n'est pas du tout vérifié."
+msgstr "Spécifie l'écart autorisé en pourcentage pour la limite inférieure Seuil. S'il n'est pas réglé, le seuil de la limite inférieure n'est pas du tout vérifié"
 
 #: thold_templates.php
 #, php-format
@@ -3548,7 +3548,7 @@ msgstr "Deuxième élément de source de données à utiliser comme valeur total
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Une expression RPN est une expression RPN compatible avec RRDtool.  La syntaxe inclut toutes les fonctions ci-dessous, en plus des expressions de remplacement de l’appareil et de la requête de données, telles que <span style=\"color:blue;\">|query_ifSpeed|</span>.  Pour utiliser une source de données dans l’expression RPN, vous devez utiliser la syntaxe : <span style=\"color:blue;\">|ds :dsname|</span>.  Par exemple, <span style=\"color:blue;\">|ds :traffic_in|</span> récupère la valeur actuelle de la source de données traffic_in pour le(s) fichier(s) RRDassocié(s) au graphique. N’importe quelle source de données pour un graphique peut être incluse.<br>Opérateurs mathématiques : <span style=\"color:blue;\">+, -, /, *, %, ^</span><br>Fonctions : <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Opérateurs de flux : <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Fonctions de comparaison : <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Une expression RPN est une expression RPN compatible avec RRDtool.  La syntaxe inclut toutes les fonctions ci-dessous, en plus des expressions de remplacement de l’appareil et de la requête de données, telles que <span style=\"color:blue;\">|query_ifSpeed|</span>.  Pour utiliser une source de données dans l’expression RPN, vous devez utiliser la syntaxe : <span style=\"color:blue;\">|ds:dsname|</span>.  Par exemple, <span style=\"color:blue;\">|ds:traffic_in|</span> récupère la valeur actuelle de la source de données traffic_in pour le(s) fichier(s) RRDassocié(s) au graphique. N’importe quelle source de données pour un graphique peut être incluse.<br>Opérateurs mathématiques : <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Fonctions : <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Opérateurs de flux : <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Fonctions de comparaison : <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3616,7 +3616,7 @@ msgstr "Vous pouvez spécifier ici des Emails supplémentaires pour recevoir des
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "La création du graphique a échoué pour le modèle de seuil"
+msgstr "La création du graphique a échoué pour le modèle de seuil."
 
 #: thold_templates.php
 #, php-format
@@ -3670,15 +3670,15 @@ msgstr "%d secondes"
 
 #: thold_templates.php
 msgid "DS Name"
-msgstr "DS Nom"
+msgstr "Nom du DS"
 
 #: thold_templates.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr "Les valeurs d'avertissement / alerte élevées. REMARQUE: les valeurs de base sont un pourcentage, toutes les autres valeurs sont des valeurs RAW non modifiées par un cdef."
+msgstr "Les valeurs d'avertissement / alerte élevées. REMARQUE : les valeurs de base sont un pourcentage, toutes les autres valeurs sont des valeurs RAW non modifiées par un cdef."
 
 #: thold_templates.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr "Les valeurs d'avertissement / d'alerte faibles. REMARQUE: les valeurs de base sont un pourcentage, toutes les autres valeurs sont des valeurs RAW non modifiées par un cdef."
+msgstr "Les valeurs d'avertissement / d'alerte faibles. REMARQUE : les valeurs de base sont un pourcentage, toutes les autres valeurs sont des valeurs RAW non modifiées par un cdef."
 
 #: thold_templates.php
 msgid "Import Template from Local File"
@@ -3738,7 +3738,7 @@ msgstr "Extension de ficher invalide."
 
 #: thold_templates.php
 msgid "NOTE:"
-msgstr "NOTE:"
+msgstr "NOTE :"
 
 #: thold_templates.php
 msgid "ERROR:"
