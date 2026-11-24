@@ -1,0 +1,3716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Malagasy\n"
+"Language: mg-MG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "Mandritra ny fotoana tsy voafetra"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "%d Volana"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Volana"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "%d taona"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "Hatramin'ny %d ora lasa"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "Hatramin'ny %d ora lasa"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "Hatramin'ny %d andro lasa"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "Hatramin'ny %d andro lasa"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "Hatramin'ny %d herinandro lasa"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "Hatramin'ny %d herinandro lasa"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "Hatramin'ny %d volana lasa"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "Hatramin'ny %d volana lasa"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "Hatramin'ny %d taona lasa"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "Hatramin'ny %d taona lasa"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "Tsy mandeha"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "Hadisoana"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "Miverina amin'ny laoniny"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "Mandeha"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "Tsy fantatra"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "Tsy mavitrika"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "Tsy arahi-maso"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "Fampandrenesana - Fanairana"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "Fampandrenesana"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "Fampandrenesana - Fanairana ho Fampitandremana"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "Alert2Warn"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "Fampandrenesana - Fampitandremana"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "Fampitandremana"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "Fampandrenesana - Famerenana fanairana"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "Fandrehetana indray"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "Fampandrenesana - Famerenana amin'ny laoniny"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "Famerenana amin'ny laoniny"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "Hetsika - Famelomana fanairana"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "Tranga fampandrenesana"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "Hetsika - Famelomana Fampitandremana"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "Hetsika fampitandremana"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "Hetsika - Famerenana amin'ny laoniny"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "Hetsika famerenana amin'ny laoniny"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "Hetsika - Fanekena"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "Katoavy ny hetsika"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "Avereno amin'ny laoniny"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "Mpamoha fampandrenesana"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "Mpampipoitra fampitandremana"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "Fampandrenesana-Fampitandremana"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "Fankatoavana"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "Fampitandremana mari-pototra"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "Fampahafantarana"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "Ekena"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "Vonjy taitra"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "Henjana"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "Fampahalalana"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "Manala olana"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "Tsy mihitsy"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "Isan-minitra"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Isaky ny %d minitra"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "Isan'ora"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Isaky ny %d ora"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "Isan'andro"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "Isaky ny %d andro"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "Isan-kerinandro"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "Isaky ny %d herinandro"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "Isam-bolana"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "%d minitra"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "%d minitra"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "%d ora"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "%d ora"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "%d Andro"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "%d Andro"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "%d Herinandro"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "%d Herinandro"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "%0.1f Ora"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "Isaky ny Polling"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "Isaky ny Polling %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "%d Fangalana angona"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "%d Fangalana angona"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "Avo / Ambany"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "Fiviliana amin'ny mari-pototra"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "Mifototra amin'ny fotoana"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% Fiviliana Min/Max [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% Fivilian'ny CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "Sanda tsy miovaova kely/lehibe indrindra [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "Sanda tsy miovaovan'ny CF [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% Salan'ny fiviliana [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% Salan'ny fivilian'ny CF [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "Sanda tsy miovaova antonony [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "Sanda tsy miovaova antononin'ny CF [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "Sandany marina"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "Isan-jato"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "Fanehoana RPN"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "Bytes ambony + ambany"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "Katoavy"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "Aato ny fampandrenesana"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "Tohizo indray ny fampandrenesana"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "Fafao"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Alefa"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Ajanony"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "Ampiharo indray ny Anarana Soso-kevitra"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "Ampielezo ny modely"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "Aondrana"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "Mailaka Fetra"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "Mailaka rehefa maty ny Mpampiantrano"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "Mailaka Mpampiantrano mandeha"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "Baiko Fetra"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "Baiko rehefa maty ny Mpampiantrano"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "Baiko Mpampiantrano mandeha"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "Mandeha ho azy"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "Tarehimarika 0"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "Tarehimarika 1"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "%d Tarehimarika"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> %d Fitaovana"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% amin'ny Fitaovana maneran-tany"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> %d Fitaovana ao amin'ny Toerana iray"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% amin'ny Fitaovana ao amin'ny Toerana iray"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< 1 Minitra"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Hatramin'ny namoronana"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Fetra"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Firaketana"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Satan'ny Fitaovana"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Fotoana:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Mpampiasa:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Rafitra:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Swap:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Pejy:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Firaketana ihany, fitaovana eo am-pikojakojana"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Voafaritra mialoha"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Rohy mankany amin'ny Kisary ao amin'ny Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Nisy fanairana navoaka izay mitaky ny fifantohanao.<br><br><b>Fitaovana</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Hafatra</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Nisy fampitandremana navoaka izay mitaky ny fifantohanao.<br><br><b>Fitaovana</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Hafatra</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Niverina amin'ny sata ara-dalàna ny Fetra iray. <br><br><strong>Fitaovana</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Hafatra</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Fiv. [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Sanda Tanteraka [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% Fiv. [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Sanda Tanteraka [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Tsy voafaritra ny ID-n'ny Fitaovana nandritra ny fanandramana hamorona Kisary sy Fetra"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Tsy hita ny ID-n'ny Modely Fetra nandritra ny fanandramana namorona Kisary sy Fetra"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Tsy voafaritra ny ID-n'ny Modely Fetra nandritra ny fanandramana namorona Kisary sy Fetra"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Tsy nahomby ny famoronana Kisary ho an'ny Modely Fetra"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "Noforonina ho azy ny Fetra noho ny fampifandraisana ny Modelin'ny Fitaovana"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "Tsy nahazo alalana"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "Nohavaozina ny firaketana"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "Tsy nahita ny Singan'ny Modely Kisary mifandray '%d' teo amin'ny Fetra '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "Fetra noforonina: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Tsy maintsy mamaritra ny 'Fetra Fanairana Ambony' na 'Fetra Fanairana Ambany' na izy roa ianao!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Fetra tsy azo atao: 'Fetra Fanairana Ambony' kely noho ny 'Fetra Fanairana Ambany'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Fetra tsy azo atao: 'Fetra Fampitandremana Ambony' kely noho ny 'Fetra Fampitandremana Ambany'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Fetra tsy azo atao: 'Fetra Fampitandremana Ambony' lehibe noho ny 'Fetra Fanairana Ambony'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Fetra tsy azo atao: 'Fetra Fanairana Ambany' lehibe noho ny 'Fetra Fampitandremana Ambany'!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Ny fanondroana fotoana tany aloha dia tsy maintsy apetraka amin'ny isa feno miabo!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Tsy maintsy mamaritra ny 'Fivilian'ny Fototra MIHOATRA' na 'Fivilian'ny Fototra MIDINA' na izy roa ianao!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Fetra tsy azo atao: 'Fetra Fanairana Ambony' kely noho ny 'Fetra Fanairana Ambany'"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Fetra tsy azo atao: Ny Isan'ny Fandrisihana Fanairana dia tsy maintsy lehibe na mitovy amin'ny 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Fetra tsy azo atao: Ny Isan'ny Fandrisihana Fanairana dia tsy maintsy kely na mitovy amin'ny Isan'ny Fandrisihana na mitovy amin'ny 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Fetra tsy azo atao: Ny Isan'ny Fandrisihana Fampitandremana dia tsy maintsy lehibe na mitovy amin'ny 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Fetra tsy azo atao: Ny Isan'ny Fandrisihana Fampitandremana dia tsy maintsy kely na mitovy amin'ny Isan'ny Fandrisihana na mitovy amin'ny 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Fetra tsy azo atao: 'Fetra Fampitandremana Ambany' kely noho ny 'Fetra Fanairana Ambany'!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Karazana Fetra tsy fantatra!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Tsy misy Modely Fetra mifandray amin'ny Modelin'ny Fitaovana."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Tsy misy Fetra noforonina. Efa misy izy ireo, na tsy misy mifanaraka sahaza hita."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Hadisoan'ny mpandefa mailaka: Tsy misy adiresy <b>TO</b> napetraka!!<br>Raha mampiasa ny rohy <i>Test Mail</i> ianao, azafady amboary ny fandrindrana <b>Alert Email</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "Vita"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Miandry"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Nisy hadisoana"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Tsy misy"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Nahomby"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Katoavy ny Fetra"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hanekena ireto Fetra manaraka ireto."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Katoavy ny Fetra"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Foano"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Tohizo"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Tsy hita ny Modely angona ambany ao amin'ny Modely Fetra!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Tsy hita ny Loharanon'angona ambany ao amin'ny Modely Fetra!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Tsy mifanaraka amin'ny firafitry ny angona fototra ireo tsanganana fampidirana Modely Fetra"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "Nafarana"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Modely Fetra '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "Nohavaozina"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Manafatra"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Modely Fetra '%s' %s Tsy nahomby!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Fanavaozana"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "Nisy hadisoana teo am-panafarana ny angonan'ny Modelin'ny Fetra."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Tsy hita ho angona XML ny angona fampidirana Modely Fetra."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Tsy marina ny angona fampidirana Modely Fetra nandritra ny fampidirana ny Modely Fetra."
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "Tsy ampiasaina ny SNMP"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Fampahafantarana fitaovana: <DESCRIPTION> (<HOSTNAME>) dia niverina avy tamin'ny sata MATY"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>Sata rafitra <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Toerana: <SITE><br>Toerana misy azy: <LOCATION><br>Valintenin'ny ping ankehitriny: <CUR_TIME> ms<br>Salantsalany valintenin'ny rafitra: <AVG_TIME> ms<br>Fahazoana ampiasaina ny rafitra: <AVAILABILITY><br>Totalin'ny fanamarinana hatramin'ny famafana: <TOT_POLL><br>Totalin'ny fanamarinana tsy nahomby: <FAIL_POLL><br>Daty farany voamarin-tsara: <LAST_FAIL><br>Fitaovana tsy nandeha taloha nandritra ny: <DOWNTIME><br><br>Fampahalalana SNMP:<br>Anarana - <SNMP_HOSTNAME><br>Toerana misy azy - <SNMP_LOCATION><br>Fotoana fiasana - <UPTIMETEXT> (<UPTIME> ms)<br>Rafitra - <SNMP_SYSTEM><br><br>FANAMARIHANA: <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Hadisoan'ny fitaovana: <DESCRIPTION> (<HOSTNAME>) dia MATY"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "TSY MANDEHA"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "Hadisoan'ny rafitra : <DESCRIPTION> (<HOSTNAME>) dia <DOWN/UP><br>Toerana: <SITE><br>Toerana misy azy: <LOCATION><br>Antony: <MESSAGE><br><br>Valinteny antonony avy amin'ny rafitra : <AVG_TIME> ms<br>Fahazoana mampiasa ny rafitra: <AVAILABILITY><br>Totalin'ny fanamarinana hatramin'ny fanadiovana: <TOT_POLL><br>Totalin'ny fanamarinana tsy nahomby: <FAIL_POLL><br>Daty farany nanamarinana fa DOWN : <LAST_FAIL><br>Fitaovana UP teo aloha nandritra ny: <DOWNTIME><br>FANAMARIHANA: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(hetsika)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(ovao)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(tehirizo)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(manampy)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "Rakitry ny Fetra"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "Fetra - Tsy fahombiazana"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "Fetra - Ara-dalàna"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "Fetra - Miverina amin'ny laoniny"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "Fetra vao haingana"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "Tsy fahombiazan'ny Fitaovana vao haingana"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "Modely Fetra"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "Fampidirana Modely Fetra"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "Lisitra fampandrenesana"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "Lisitra fampandrenesana (ovao)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "Filaharan'ny fampandrenesana"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "Fitantanana"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "Modely"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "Fetra"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "Efa misy ny modely manana izany Loharanon'angona izany!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "Rindrao ny fetra"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "Rindrao ny modely fetra"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "Mitantana ny lisitry ny fampahafantarana"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "Jereo ny Fetra"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "Mpampiasa tsotra"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "Mpanova môdely"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "Fitantanana ankapobeny"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "Fandrindrana ny fampandrenesana fitaovana mandeha/maty"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "Fampandrenesana amin'ny Mailaka rehefa Mandeha/Mijanona ny Fetra"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "Lisitra ankapobeny"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "Lisitra eto ambany"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "Ankapobeny sy ny lisitra etsy ambany"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "Iza amin'ny Karazana Lisitry ny Fampandrenesana no tokony hampiasaina amin'ny hetsika Fitaovana Mandeha/Maty?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "Lisitry ny Fampandrenesana"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "Iza amin'ny Lisitry ny Fampandrenesana no tokony hampandrenesina momba ny hetsika Fitaovana Mandeha/Maty?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "Isan'ny tsy fahombiazan'ny Mpampiantrano"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Ny isan'ny Elanelam-potoana Fanangonana tsy maintsy hijanonan'ity Mpampiantrano ity ho Tsy mandeha alohan'ny handraketan'ny Thold hadisoana sy hitaterany fa Tsy mandeha ny Mpampiantrano. Ny mahazatra dia 0 (mampiasa ny fandrindran'ny Cacti)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "Ampiasao ny fandrindrana Cacti"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "%d Elanelam-potoana fangalana angona"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "%d Elanelam-potoana fangalana angona"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "Fampandrenesana/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "Ankapobeny"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "Ataovy tsy mavitrika ny Fetra rehetra"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "Ny fanamarihana ity boaty ity dia hanafoana ny fanairana amin'ny Fetra rehetra. Azo ampiasaina izany rehefa ilaina ny manao fikojakojana eo amin'ny tambajotranao."
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "Famoronana fetra ho azy"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "Raha voafidy, rehefa mandefa automatique na rehefa mamorona/mitahiry Fitaovana, dia hoforonina avokoa ny Fetra rehetra mifandraika amin'ny Modely Fitaovana."
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "Raiso ho aotra ny angona tsy fantatra"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "Rehefa manamarina Fetra, raha mamerina Angona tsy fantatra ('U') ny Loharanon'angona iray, dia raiso ho aotra ny sanda amin'ny fanamarinana Fetra. Azonao atao koa ny mampavitrika ny firaketana an'ity olana ity."
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "Sata fitantanana mahazatra"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "Sata Sivana fitantanana Fetra mahazatra."
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "Na inona na inona"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "Nihoatra na Voatosika"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "Nihoatra"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "Voahetsika"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "Mavitrika"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "Sanda fototra raha banga ny ifHighSpeed"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "Rehefa manao kajy ny Fetra amin'ny teny fanehoana, raha miverina ho aotra ny ifHighSpeed sy ifSpeed, dia ampiasao ity fandrindrana ifHighSpeed manaraka ity. Ny ifHighSpeed mahazatra dia ho 10000 ho an'ny mpampifandray 10GE."
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "Safidin'ny fampandrenesana"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "Ataovy tsy mavitrika ny fampandrenesana taloha"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "Ny fanamarihana ity boaty ity dia hanafoana ny fanairana taloha amin'ny Fetra rehetra. Ny fanairana taloha dia ireo fanairana Mailaka manokana tsy mifandray amin'ny lisitry ny fampandrenesana."
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "Fampandrenesana Fetra Mampiasa Modely"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "Raha voamarika, rehefa mamorona Modely Fetra, dia ho an'ny Modely Fetra ny Fandrindrana Fampahafantarana azy amin'ny fomba mahazatra."
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "Alefaso ny fanatanterahana baiko"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "Ny fanamarihana ity boaty ity dia hampavitrika ny fahafahana mandefa baiko amin'ny hetsika fihoarana sy fiverenana amin'ny laoniny ny Fetra."
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "Alefaso ny fampandrenesana isaky ny Thold"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "Ny fanamarihana ity boaty ity dia hampavitrika ny fahafahana mitazona votoatin'ny Mailaka manokana ho an'ny Fetra."
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "Alefaso ny filaharana fampandrenesana"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "Ny fanamarihana ity boaty ity dia hanova ny Thold tsy hanao fampandrenesana mivantana fa hampiasa ny Notification Daemon, na fampandrenesana tanterahin'ny Poller fampandrenesana ivelan'ny zotra."
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "Alefaso ny fandefasana mailaka fanairana any amin'ny lisitra fampandrenesana Fampitandremana"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "Mariho ity boaty ity raha tianao handray mailaka fampitandremana mahery vaika ireo ao amin'ny lisitry ny fampandrenesana Fampitandremana ho fanampin'ireo mpandray ao amin'ny lisitry ny fampandrenesana fanairana. Miasa izany rehefa mandeha any amin'ny Mpitantana ny fampandrenesana Fampitandremana ary mandeha any amin'ny Fitantanana kosa ny fampandrenesana fanairana."
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "Daemon Fetra"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "Alefaso ny daemon'ny Fetra"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "Ny fanamarihana ity boaty ity dia hampavitrika ny fampiasana daemon Fetra natokana. Azo ampiasaina izany mba hampitomboana ny fahombiazan'ny rafitra sy/na hizarana ny fanaraha-maso Fetra amin'ny lohamilina hafa."
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "Terena ny Debug amin'ny Daemon Fetra"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "Ny fanamarihana ity boaty ity dia hampavitrika ny fizahana hadisoana amin'ny Threshold Daemon rehefa miasa avy amin'ny SystemD na amin'ny alalan'ny andalana baiko. Miova eo no ho eo izany ary hanomboka manan-kery raha vao manomboka ny tsingerina Fetra manaraka."
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "Fahatetehan'ny fampandrenesana rehefa tsy mandeha ny Daemon"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "Raha hita fa maty ny Thold Daemon, mandefasa fampahafantarana amin'ny Mailaka amin'izao elanelam-potoana izao."
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "Isaky ny %d ora"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "Fizaran'asan'ny Daemon"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "Ny isan'ny kofehy daemon horaisin'ny Daemon Fetra."
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "1 Dingana"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "%d Dingana"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "Firaketana"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "Raketo ny fandikana ny Fetra"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "Ataovy mavitrika ny fitahirizana ny tsy fahombiazana rehetra amin'ny Fetra ao amin'ny Diarin'i Cacti."
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "Asehoy ao amin'ny diarin'asa ny loharanon'angona"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "Asehoy ao amin'ny diarin'asa ny anaran'ny loharanon'angona raha tsy misy izany."
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "Raketo ny fiovan'ny Fetra"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "Ataovy mavitrika ny fitahirizana ny fanovana rehetra amin'ny Fetra ao amin'ny Diarin'i Cacti."
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "Firaketana fitiliana hadisoana"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "Ataovy mavitrika ny fitahirizana ny hafatra fanitsiana olana (debug) miaraka amin'ny Fetra"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "Fitazonana ny laogin'ny fampandrenesana"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "Tehirizo mandritra izay andro izay ny firaketana Fetra."
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "Raketo ny hetsika Hevero ho Aotra ny angona tsy fantatra"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "Rehefa mavitrika ny 'Heviho ho aotra ny angona tsy fantatra', raketo an-tsoratra rehefa mitranga izany"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "Fandrindrana Syslog"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "Syslog Mavitrika"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Raha voamarika, rehefa mamorona Fetra vaovao, dia halefa any amin'ny syslog eo an-toerana ireo hetsika Fetra vaovao amin'ny alalan'ny fandrindrana fototra. Fandrindrana mialoha izany. Ny fandrindran'ny Fetra no mamaritra ny tena fifehezana ny syslog."
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "Laharam-pahamehana/Ambaratonga mahazatra"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Ity ny Laharam-pahamehana/Ambaratonga mahazatra hampiasain'ny Thold handefasana hafatra syslog. Ity fandrindrana ity dia fandrindrana mialoha. Ny fandrindran'ny Fetra no mibaiko ny tena fifehezana syslog."
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "Facility mahazatra"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Ity ny Facility mahazatra hampiasain'ny Thold handefasana hafatra syslog. Ity fandrindrana ity dia fandrindrana mialoha. Ny fandrindran'ny Fetra no mibaiko ny tena fifehezana syslog."
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "Fandrindrana mialoha ny fampandrenesana"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "Fanavahana faran'ny herinandro"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "Raha voamarika ity, dia tsy handeha amin'ny faran'ny herinandro ny Thold."
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "Isan'ny fampandehanana mahazatra"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "Isa mahazatra ny fotoana mifanesy tsy maintsy handikan'ny Loharanon'angona ny Fetra mba hamoahana Fanairana."
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "Fampandrenesana miverina"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "Avereno ny fampandrenesana rehefa dila ny isan'ny tsingerin'ny Poller voafaritra."
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "Fandrindrana mari-pototra efa voaomana"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "Fotoana mahazatra ho an'ny mari-pototra"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "Ity ny sanda mahazatra ampiasaina amin'ny famoronana Fetra na modely."
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "Isan'ny fampihetsika mari-pototra"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "Isa mahazatra ny fotoana mifanesy tsy maintsy handikan'ny Loharanon'angona ny Fetra fototra voakajy mba hamoahana Fanairana."
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "Isan-jaton'ny fiviliana amin'ny mari-pototra"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "Safidy fampandrenesana SNMP"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "Fampandrenesana SNMP"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "Halefa any amin'ireo mpandray fampandrenesana SNMP ny hafatra momba ny satan'ny Fetra (informs/traps). Tafiditra ao anatin'izany ny Fanairana, ny Fampitandremana ary ny traps famerenana amin'ny laoniny amin'ny fomba mahazatra. Fanamarihana: Mitaky ny plugin SNMPAgent an'ny Cacti ity endri-javatra ity."
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "Ataovy tsy mavitrika ny fampandrenesana fampitandremana"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "Raha voamarika ity, dia tsy handefa fampahafantarana ny Fetra rehefa voahitsakitsaka ny Fetra Fampitandremana."
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "Ataovy tsy mavitrika ny fampandrenesana famerenana amin'ny laoniny"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "Raha voamarika ity, dia tsy handefa fampahafantarana ny Fetra rehefa niverina amin'ny sata ara-dalàna ny Fetra."
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "Safidy fandefasana mailaka"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "Alefaso miaraka amin'ny laharam-pahamehana maika ny Mailaka"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "Mamela anao hametraka Mailaka manana laharam-pahamehana maika"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "Alefaso ho lahatsoratra ny fanairana"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "Raha voamarika, dia halefa amin'ny endrika Mailaka lahatsoratra tsotra tsy misy kisary ny Fampandrenesana rehetra. Ny mahazatra dia Mailaka HTML misy ny Kisary tafiditra ao anatiny."
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "Alefaso mitokana ny Mailaka ho an'ny adiresy tsirairay"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "Raha voamarika, dia halefa mitokana isaky ny adiresy ny Mailaka rehetra."
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "Adiresy mailaka mpandefa"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "Ity ny adiresy Mailaka izay hiseho ho mpandefa ny Fetra."
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "Anaran'ny mpandefa"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "Ity ny tena anarana izay hiseho ho niavian'ny Fetra."
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "Safidy fampandrenesana fitaovana"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "Alefaso ny fampandrenesana"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "Alefaso ny fampandrenesana mpampiantrano maty/miverina velona"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "Fampandrenesana mailaka tokana"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "Tohana ho an'ny Lisitry ny fampandrenesana sy ny Filaharan'ny fampandrenesana ihany. Raha misy Fampandrenesana Fitaovana maty ao anatin'ny tsingerina fikarakarana tokana, dia mandefasa Mailaka tokana ihany any amin'ireo mpandray ao amin'ny Lisitry ny fampandrenesana ho an'ny Fitaovana rehetra."
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "Lohahevitry ny fampandrenesana mailaka tokana"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "Ity ny Lohahevitry ny Mailaka hampiasaina amin'ny Mailaka Fampahafantarana Tokana rehetra na ho an'ny Fitaovana Mandeha na Maty."
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "Safidy fanemorana fampandrenesana fitaovana"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "Fahatarana amin'ny fampandrenesana"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "Raha betsaka ny Fampandrenesana Fitaovana maty tonga indray mandeha, dia afaka miato kely mandritra ny fotoana voafetra ny Cacti amin'ny fandefasana ireo Fampandrenesana ireo mba hijerena raha mandalo fotsiny ny olana alohan'ny handefasana azy. Safidio ny fetran'ny Fampandrenesana Fitaovana maty alohan'ny hanombohan'ny Fiatoana."
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "Raha misafidy ny hanemotra ny Fampahafantarana ianao rehefa misy firohotan'ny Fampahafantarana Fitaovana Maty maro, hafiriana no vonona hiandry ianao alohan'ny hamelana ny fikirakirana ireo fampahafantarana?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "Safidy Mailaka fampandrenesana fitaovana"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "Mailaka fampandrenesana ankapobeny"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "Ity ny Adiresy Mailaka handefasana ny Fampahafantarana Fitaovana Maty raha toa ka voasafidy ny Lisitra Fampahafantarana Ankapobeny."
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "Lohateny rehefa maty"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "Ity ny lohahevitry ny Mailaka izay hampiasaina amin'ny Hafatra Fitaovana Maty. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (faharetan'ny sata mandeha farany raha hafatra maty) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Hadisoan'ny fitaovana: <DESCRIPTION> (<HOSTNAME>) dia TSY MANDEHA"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "Hafatra rehefa maty"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Ity ny hafatra izay haseho ho votoatin'ny Hafatra Fitaovana Mandeha / Maty rehetra (Litera 1024 FARAFAHABETSANY). Azo atao ny HTML, saingy hesorina ho an'ny Mailaka lahatsoratra ihany. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (faharetan'ny sata mandeha farany raha hafatra maty) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "Hadisoan'ny rafitra : <DESCRIPTION> (<HOSTNAME>) dia <DOWN/UP><br><br>Toerana: <SITE><br>Toerana misy azy: <LOCATION><br>Antony: <MESSAGE><br>Valinteny antonony avy amin'ny rafitra: <AVG_TIME> ms<br>Fahazoana mampiasa ny rafitra: <AVAILABILITY><br>Totalin'ny fanamarinana hatramin'ny fanadiovana: <TOT_POLL><br>Totalin'ny fanamarinana tsy nahomby: <FAIL_POLL><br>Daty farany nanamarinana fa DOWN : <LAST_FAIL><br>Fitaovana UP teo aloha nandritra ny: <DOWNTIME><br>FANAMARIHANA: <NOTES><br>FANAMARIHANA momba ny Fitaovana: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "Lohahevitra fanarenana"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "Ity ny lohahevitry ny Mailaka izay hampiasaina amin'ny Hafatra Fitaovana Miverina Miasa. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Fampandrenesana fitaovana: <DESCRIPTION> (<HOSTNAME>) dia niverina avy tamin'ny toetra TSY MANDEHA"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "Hafatra fanarenana"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Ity ny hafatra izay haseho ho votoatin'ny Hafatra Fitaovana Mandeha / Maty rehetra (Litera 1024 FARAFAHABETSANY). Azo atao ny HTML, saingy hesorina ho an'ny Mailaka lahatsoratra ihany. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>Sata rafitra <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Toerana: <SITE><br>Toerana misy azy: <LOCATION><br>Valintenin'ny ping ankehitriny: <CUR_TIME> ms<br>Salantsalany valintenin'ny rafitra: <AVG_TIME> ms<br>Fahazoana ampiasaina ny rafitra: <AVAILABILITY><br>Totalin'ny fanamarinana hatramin'ny famafana: <TOT_POLL><br>Totalin'ny fanamarinana tsy nahomby: <FAIL_POLL><br>Daty farany voamarin-tsara: <LAST_FAIL><br>Fitaovana tsy nandeha taloha nandritra ny: <DOWNTIME><br><br>Fampahalalana SNMP:<br>Anarana - <SNMP_HOSTNAME><br>Toerana misy azy - <SNMP_LOCATION><br>Fotoana fiasana - <UPTIMETEXT> (<UPTIME> ms)<br>Rafitra - <SNMP_SYSTEM><br><br>FANAMARIHANA: <NOTES><br>Fanamarihana momba ny Fitaovana: <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "Baiko fanovana sata"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "Rehefa miova sata avy amin'ny fomba fijerin'ny Cacti ny Fitaovana iray (UP ho DOWN na DOWN ho RECOVERING/UP), dia alefaso ity baiko manaraka ity. Tsy tokony hisy tohan-kevitra amin'ny tsipika baiko ity baiko ity. Na izany aza, azo alaina avy amin'ny tontolo iainan'ny script ireto ova-ova manaraka ireto:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "Hafatra fampandrenesana/fampitandremana mahazatra"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "Hafatra Fampandrenesana Fetra"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ity no hafatra haseho eo an-tampon'ny Fampandrenesana Fetra rehetra (1024 litera farafahabetsany). Ekena ny HTML, fa hesorina ho an'ny Mailaka lahatsoratra fotsiny. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatiny:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Nisy fanairana navoaka izay mila ny sainao. <br><br><strong>Fitaovana</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Hafatra</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "Hafatra Fampitandremana momba ny Fetra"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ity no hafatra haseho eo an-tampon'ny fampitandremana Fetra rehetra (1024 litera farafahabetsany). Ekena ny HTML, fa hesorina ho an'ny Mailaka lahatsoratra fotsiny. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatiny:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Nisy Fampitandremana navoaka izay mitaky ny fifantohanao. <br><br><strong>Fitaovana</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Hafatra</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "Hafatra Famerenana amin'ny Laoniny ny Fetra"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ity no hafatra haseho eo an-tampon'ny fampandrenesana famerenana amin'ny laoniny ny Fetra rehetra (1024 litera farafahabetsany). Ekena ny HTML, fa hesorina ho an'ny Mailaka lahatsoratra fotsiny. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatiny:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Niverina amin'ny sata ara-dalàna ny Fetra iray. <br><br><strong>Fitaovana</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Hafatra</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Efa misy ny Fetra - Tsy nisy Fetra noforonina"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Mamorona Fetra avy amin'ny Modely"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Mpanampy Famoronana Fetra [ Mifidiana Karazana Fetra ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Mpanampy Famoronana Fetra [ Ampidiro ny angona manokana ary tsindrio ny 'Create' hamoronana ny Fetra sy ny Kisary ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Mpanampy Famoronana Fetra [ Mifidiana Andalan'ny Data Query Misy ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Mpanampy Famoronana Fetra [ Mifidiana Fitaovana ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Mpanampy Famoronana Fetra [ Mifidiana Modely Kisary ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Mpanampy Famoronana Fetra [ Mifidiana Modely Fetra ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Mpanampy Famoronana Fetra [ Tsindrio ny 'Create' hamoronana ny Fetra ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Mpanampy Famoronana Fetra [ Mifidiana Loharanon'angona ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Mpanampy Famoronana Fetra [ Mifidiana Kisary ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Fepetra Famoronana Fetra"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Karazana famoronana"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Misafidiana Karazana Fetra hampiasaina amin'ny famoronana ity Fetra ity."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Misafidiana Karazana Fetra"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Tsy mampiasa lasitra"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Modely Fetra"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Misafidiana Modely Fetra izay hifotoran'ny Kisary sy ny Fetra."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Misafidiana Modely Fetra"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Modely kisary"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Misafidiana Modely Kisary hampiasaina amin'ny Kisary hoforonina."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Misafidiana Modely Kisary"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Fitaovana"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Safidio ny Fitaovana hampiasaina ho an'ny Fetra sy ny Kisary hoforonina."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Misafidiana Fitaovana"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "Misafidiana singa azo ampiasaina"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Singan'ny fangatahana angona"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Misafidiana ny andalana mifanaraka avy amin'ny Fangatahana Angona ho an'ny Kisary sy ny Fetra."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Fanamarihana momba ny famoronana"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Fanamarihana Manan-danja:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Ity Fetra ity dia hatao amin'ny Modely. Rehefa mampiasa ny safidy Modely Fetra dia hasaina hampiditra Modely Fetra, Modely Kisary, Fitaovana ary angamba ny mombamomba ny Singa Fanontaniana Angona ianao alohan'ny handraisana ny hafatra 'Mamorona', ary amin'izay fotoana izay, raha misy mombamomba ny Kisary na Loharanon'angona azo soloina avela eo amin'ny sehatry ny Modely Kisary sy Modely Loharanon'angona, dia hasaina hampiditra izany ianao. Avy eo, amin'ny fanindriana ny bokotra 'Mamorona', dia ho voaforona miaraka na ny Kisary na ny Fetra."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Kisary"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Misafidiana ny Kisary ho an'ny Fetra."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Misafidiana Kisary"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Loharanon'angona"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Safidio ny Loharanon'angona ho an'ny Fetra."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Safidio ny Loharanon'angona"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Mamorona"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Ity Fetra ity dia <b>TSY</b> hatao amin'ny Modely ary amin'ny Kisary efa misy ihany no hiasany. Raha te-hamorona ny Kisary sy ny Fetra miaraka ianao, safidio ny Modely Fetra avy ao amin'ny lisitra midina ary tohizo mandra-pisehon'ny bokotra 'Mamorona'."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Ity Fetra ity dia <b>TSY</b> hatao amin'ny Modely. Azonao safidiana na ny Araka ny Kisary izay ahafahanao misafidy Fitaovana, Kisary ary Loharanon'angona efa misy alohan'ny hamoronana ny Fetra-nao, na azonao safidiana ny Modely Fetra izay hahafahanao mamorona Fetra Tsy Misy Modely sy Kisary mifanaraka aminy miaraka"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Kisary voafidy"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "Kisary noforonina: %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "Dika mitovy"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "Ampifandraiso"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "Esory ny fifandraisana"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "Fitaovana"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "HADISOANA: Tsy azo apetraka ao amin'ny andalana Ho an'ny sy BCC miaraka ny Mailaka. Tsy manan-kery ity Mailaka eto ambany ity!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "Tsindrio ny 'Tohizo' mba hamafana ny Lisitry ny fampandrenesana.  Haverina amin'ny lasitra voalohany izay Fitaovana na Fetra mifandray amin'ny Lisitra."
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "Fafao ny/ireo Lisitry ny fampandrenesana"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hanaovana kopia roa amin'ireto Lisitry ny fampandrenesana manaraka ireto."
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "Anaran'ny lisitra vaovao"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "Lisitra fampahafantarana vaovao"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "Dika mitovy ny lisitry ny fampandrenesana"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "%s Modely Fetra"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "Tsindrio ny 'Tohizo' mba hampifandraisana ny Lisitry ny fampandrenesana '%s' amin'ireto Modely Fetra eto ambany ireto."
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "Fikambanana fampitandremana:"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "Tsy misy fiovana"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "Lisitra fampandrenesana ihany"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "Lisitra fampandrenesana, tazony ny fandrindrana hafa"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "Mpikambana amin'ny fampandrenesana:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "Ampifandraiso ny lisitry ny fampandrenesana"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "Tsindrio ny 'Tohizo' mba hanasarahana ny Lisitry ny fampandrenesana '%s' amin'ireto Modely Fetra eto ambany ireto."
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "Esory ny lisitra"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "Esory ny fifandraisan'ny lisitry ny fampandrenesana"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "%s Fetra"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "Tsindrio ny 'Tohizo' mba hampifandraisana ny Lisitry ny fampandrenesana '%s' amin'ireto Fetra eto ambany ireto."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "Tsindrio ny 'Tohizo' mba hanasarahana ny Lisitry ny fampandrenesana '%s' amin'ireto Fetra eto ambany ireto."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "Tsindrio ny 'Tohizo' mba hampifandraisana ny Lisitry ny fampandrenesana '%s' amin'ireto Fitaovana eto ambany ireto."
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Azonao atao koa ny mampifandray ny Fetra ho an'ny Fitaovana. Na izany aza, ireo Fetran'ny Fitaovana ireo dia hamela ny fanoloana ny Lisitry ny Fampahafantarana Fetra."
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "Fikambanana vokatr'izany:"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "Lisitra fampandrenesana sy lisitra ankapobeny"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "Fikambanana amin'ny fampitandremana fetran'ny fitaovana:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "Fikambanana amin'ny fanairana fetran'ny fitaovana:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "Tsindrio ny 'Tohizo' mba hanasarahana ny Lisitry ny fampandrenesana '%s' amin'ireto Fitaovana eto ambany ireto."
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Azonao atao koa ny manala ny fifandraisan'ny Fetra ho an'ny Fitaovana. Na izany aza, ireo Fetran'ny Fitaovana ireo dia hamela ny fanoloana ny Lisitry ny Fampahafantarana Fetra."
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[fanovana: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[vaovao]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "Lisitry ny Fandrindrana ankapobeny"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "Anarana"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "Ampidiro anarana ho an'ity Lisitra Fampandrenesana ity."
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "Famaritana"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "Ampidiro famaritana ho an'ity Lisitra Fampandrenesana ity."
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "Raha hampiato ny fampandrenesana rehetra avy amin'ity Lisitry ny Fampandrenesana ity, azonao atao tsotra izao ny mametraka azy ho tsy mavitrika eto."
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "Adiresy Mailaka handefasana"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "Ampidiro lisitry ny adiresy Mailaka sarahin'ny faingo ho an'ity Lisitra Fampandrenesana ity."
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "Adiresy Mailaka BCC"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Ampidiro lisitry ny adiresy Mailaka sarahin'ny faingo ho an'ity Lisitra Fampandrenesana ity mba handefasana dika miafina (BCC)."
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "Rakitra endrika/fomba fisehon'ny mailaka"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Safidio ny rakitra fonony html namboarina sy CSS hampiasaina. Ity rakitra ity dia misy html sy CSS hamonosana ny tatitrao. Raha mihoatra noho ny CSS tsotra no ao anatiny dia mila mametraka marika manokana <REPORT> ao anatin'ny rakitra ianao. Io marika endrika io dia hosoloina ny votoatin'ny tatitra. Ireo rakitra ireo dia ao amin'ny lahatahiry 'formats'."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "Fitaovana mifandray"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "Fikarohana"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "Toerana"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "Tsy misy"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "Modely fitaovana"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "Mifandray"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "Alefa"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "Hametraka/Hanavao sivana"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "Fafao"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "Esory ny sivana"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "ID"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "Sata"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "Lisitra mifandray"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "Kisary"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "Loharanon'angona"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "Anaran'ny mpampiantrano"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "Lisitra ankehitriny ihany"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "Lisitra ankehitriny sy ankapobeny"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "Tsy nisy Fitaovana mifandray hita"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "Fetra mifandray"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "Modely"
+
+#: notify_lists.php
+msgid "State"
+msgstr "Faritany"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "Rehetra"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "Lisitra fampitandremana"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "Lisitry ny fampandrenesana"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "Karazana"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "Mampiasa Modely"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "Tsia"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "Eny"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "tsipika fototra-AMBANY"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "tsipika fototra-AMBONY"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "Safidio ny Mpampiasa"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "Mailaka manokana"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "Lisitra ankehitriny"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "Fetra tsy fantatra"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "Firaketana ihany"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "Azo ovaina"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "Vakiana ihany"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "Tsy misy Fetra hita"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "Modely mifandray"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "Andalana"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "Modely tsy fantatra"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "Tsy misy Modely Fetra"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "Lisitra"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "Anaran'ny lisitra"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "Mailaka"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "Tsy misy lisitra fampandrenesana"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "Naato ny fampandrenesana.  Tsindrio ny bokotra Tohizo raha hanohy azy"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "Natomboka indray ny fampandrenesana.  Tsindrio ny bokotra Aato raha hampiato azy"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "Nofafana tao amin'ny tahiry angona ireo fampahafantarana miandry.  Ireo fampahafantarana nalefa teo aloha tsy nofafana dia hijanona mandra-pahatapitry ny fe-potoana itehirizana azy."
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "Tsindrio ny 'Tohizo' mba hamafana ity fampandrenesana manaraka ity."
+msgstr[1] "Tsindrio ny 'Tohizo' mba hamafana ireto fampandrenesana manaraka rehetra ireto."
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "Fafao ny fampandrenesana"
+msgstr[1] "Fafao ireo fampandrenesana"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "Fampandrenesana hetsika [ Fampandrenesana nahanton'ny mpampiasa: %s, %s lasa izay ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "Fampandrenesana hetsika"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "Lohahevitra"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "Voahodina"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "Aato"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "Aato ny fikarakarana fampandrenesana"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "Tohizo indray"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "Tohizo indray ny fikarakarana fampandrenesana"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "Diovy tanteraka"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "Fafao tanteraka ny filaharan'ny fampandrenesana"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "Fampandrenesana"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "Ny lohahevitra fampahafantarana tohanana."
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "Famaritana ny hetsika"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "Ny anaran'ny zavatra araka ny namaritan'ny mpiantso azy."
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "Ny anaran'ny mpampiantrano izay loharanon'ity hetsika ity."
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "Ny lisitry ny fampandrenesana ampiasaina raha misy."
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "ID zavatra"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "Ny Object ID nofaritan'ny mpiantso. Amin'ny ankapobeny dia ny 'id' tokana ananany."
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "Fotoanan'ny hetsika"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "Ny fotoanan'ny hetsika araka ny namaritan'ny mpanao antso azy."
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "Efa voakirakira ve ny hetsika fampandrenesana."
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "Hadisoana"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "Niteraka hadisoana ve ity fampandrenesana ity. Ataovy eo ambonin'ny tsanganana hadisoana ny kursor mba hahitana ny antsipiriany."
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "Fanandramana"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "Ny isan'ny andrana fandefasana natao ho an'ity fampandrenesana ity."
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "Andrana manaraka"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "Rehefa afaka manandrana indray ny fampandrenesana tsy nahomby."
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "Faharetan'ny fampandehanana"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "Ny fotoana tao anatin'ny segondra lany tamin'ny fikarakarana ny hetsika."
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "Tsy voafaritra"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "Tsy misy fampandrenesana"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "Vonoy ny VRULES Fetra"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "Alefaso ny VRULES Fetra"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "Mamorona fetra"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "Fampandrenesana ambony ho an'ny %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "Fampandrenesana ambany ho an'ny %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "Fampitandremana ambony ho an'ny %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "Fampitandremana ambany ho an'ny %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "Fampandrenesana ambony ho an'ny %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "Fampandrenesana ambany ho an'ny %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "Fampitandremana ambony ho an'ny %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "Fampitandremana ambany ho an'ny %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "Sanda Fampandrenesana/Fampitandremana Fetra"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hampihatra ireo Fetra rehetra mifanaraka amin'ireto Fitaovana ireto."
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "Mamorona fetra avy amin'ny loharanon'angona"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "Famoronana fetra ho azy"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "Namorona Fetra %s"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "Tsy misy Fetra noforonina. Tsy hita ny Modely Fetra."
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "Ireto Loharanon'angona manaraka ireto dia tsy manana Modely Fetra mifandray aminy"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "Tsindrio ny 'Tohizo' mba hamorona Fetra ho an'ireto Loharanon'angona ireto?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "Modely Fetra misy"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "Tsy misy Modely Fetra mifandray amin'ireto Loharanon'angona manaraka ireto"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "Ireto Kisary manaraka ireto dia tsy manana Modely Fetra mifandray aminy"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "Tsindrio ny 'Tohizo' raha te hamorona Fetra ho an'ireto Kisary ireto ianao"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "Tsy misy Modely Fetra mifandray amin'ireto Kisary manaraka ireto"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "Modely tokonana mifandray"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "Misy ny Fetra"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "Tsy Misy ny Fetra"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "Fafao ny Fikambanan'ny Modely Fetra"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "Tsy misy Modely Fetra mifandray."
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "Manampy Modely Fetra"
+
+#: setup.php
+msgid "Add"
+msgstr "Manampy"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "Manampy Modely Fetra amin'ny Fitaovana"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "Tsindrio ny 'Tohizo' mba hamafana ireto Modely Fetra manaraka ireto izay hosarahina amin'ny Fitaovana."
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "Anaran'ny Modely Fetra: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "Manaisotra lasitra fetra"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "Manampy Modely Fetra amin'ny Modely Fitaovana"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "Tsindrio ny 'Tohizo' mba hamafana ireto Modely Fetra manaraka ireto izay hosarahina amin'ny Modely Fitaovana."
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "Na tsy misy Modely na efa misy ny Fetra - Tsy nisy Fetra noforonina."
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "Tsy mahazo alalana hanova ny iray na maromaro amin'ireo Fetra voafidy ianao"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "Tsindrio ny 'Fafao' mba hamafa ireto Fetra manaraka ireto."
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "Fafao ny/ireo Fetra"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hampavitrika ireto Fetra manaraka ireto."
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "Alefaso ny Fetra"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hahatonga ireto Fetra manaraka ireto ho tsy mavitrika."
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "Ataovy tsy mavitrika ny Fetra"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hampihatra indray ny Anarana natolotra amin'ireto Fetra manaraka ireto."
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "Ampiharo ny soso-kevitra"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "Tsindrio ny 'Tohizo' mba hanavao ireto Fetra manaraka ireto amin'ny antsipirian'ny Modely mifandray aminy."
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "Ampiharo indray ny Modely"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "Tsindrio ny 'Tohizo' mba hanekena ireto Fetra manaraka ireto.  Hodiana tsy hita ireo Fetra tsy mamela izany, na ireo izay tsy nihetsika."
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Tsindrio ny 'Tohizo' mba hanohy ny Fampandrenesana ho an'ireto Fetra manaraka ireto. Tsy hojerena ireo Fetra tsy mamela izany, na ireo tsy nihetsika."
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "Tohizo indray ny fampandrenesana ho an'ny Fetra"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Tsindrio ny 'Tohizo' mba hampiato ny Fampandrenesana ho an'ireto Fetra manaraka ireto. Tsy hojerena ireo Fetra tsy mamela izany, na ireo tsy nihetsika."
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "Aato ny fampandrenesana ho an'ny Fetra"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "Hetsika tsy manan-kery hita, tsy afaka mitohy"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "Fitantanana Fetra"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "Ampiharo ny sivana"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "Avereno amin'ny sanda fototra"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "Lasitra Angona"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "Tsy mavitrika eo amin'ny Modely"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "Tsy mavitrika eo amin'ny Fetra"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "Ilaina ny fankatoavana"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "Araka ny Sata"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "Ny sata Fetra ankehitriny. Tsindrio ny bokotra sata iray mba hanivanana ny lisitra amin'io sata io."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "Famantarana ivelany"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "Ny Karazana Fetra. Ho an'ny Karazana Fototra (Baseline): [TIP] dia manondro ny Fotoana Tany Aloha misy MIN, MAX, AVG, ary LAST izay tsy mihoatra ny iray andro avy amin'io vanim-potoana io. [AOT] dia manondro ny Salan'isa nandritra ny vanim-potoana manontolo. Raha misy teboka roa arahin'ny MIN, MAX, AVG, LAST, dia avy amin'io Fiasa Fanambatra io ny Sanda."
+
+#: thold.php
+msgid "DSName"
+msgstr "Anaran'ny DS"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "Ankehitriny"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "Ny sanda norefesina farany ho an'ny Loharanon'angona"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "Avo"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Ireo sandan'ny Fampitandremana / Fanairana Ambony. FANAMARIHANA: Isan-jato ny sandan'ny Baseline, fa ny sanda hafa rehetra dia sanda aseho izay mety ho novain'ny cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "Ambany"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Ireo sandan'ny Fampitandremana / Fanairana Ambany. FANAMARIHANA: Isan-jato ny sandan'ny Baseline, fa ny sanda hafa rehetra dia sanda aseho izay mety ho novain'ny cdef."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "Mpandrisika"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "Faharetana"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "Avereno"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "Ao amin'ny toe-javatra"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "Ny faharetan'ny fotoana lasa hatramin'ny nandikana na nihetsehan'ny Fetra"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "Ilaina ny fankatoavana ho an'ity Fetra ity"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "Tsia [Modely:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "Tsia [Modely]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "Tsia [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "%d Mpanetsika"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "Tsy misy Fetra"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "Voafafa ny Fetra, tsy azo ovaina!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "Angon'ny kisary"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "Ovao ny Modely Fetra"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "Famaritana ny Loharanon'angona:"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "Kisary mifandray (Kisary mampiasa ity RRD ity):"
+
+#: thold.php
+msgid "Last:"
+msgstr "Farany:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "Famp. ambony:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "Famp. ambany:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "AHi:"
+
+#: thold.php
+msgid "ALo:"
+msgstr "ALo:"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL Ambony:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL Ambany:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "ID Modely tsy fantatra %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "Tsy misy lasitra"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "Singan'ny Loharanon'angona [ %s ] - Sanda ankehitriny: [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "Saha fanoloana: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "Loharanon'angona: %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "Fampahalalana momba ny Modely/Mavitrika"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "Mavitrika ny fampielezana ny Modely"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "Na haparitaka avy amin'ny Modely Fetra ireto Fandrindrana ireto na tsia."
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "Anaran'ny lasitra"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "Anaran'ny Modely Fetra namoronana ilay Fetra."
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "Mavitrika eo amin'ny ambaratongan'ny Modely"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "Tsy maintsy atao mavitrika na eo amin'ny ambaratongan'ny Modely na eo amin'ny ambaratongan'ny Fetra ny Fetra iray vao azo hamarinina."
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "Mavitrika eo amin'ny ambaratongan'ny Fetra"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "Fikirana ankapobeny"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "Anarana (Aseho)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "Omeo anarana mazava tsara ny Fetra"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "Anarana (Endrika)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "Lokon'ny HRULE fampitandremana"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Misafidiana loko ho an'ny HRULE amin'ny Kisary ho an'ny Fetra Fampitandremana azafady.  Safidio ny 'Tsy misy' raha tsy hisy HRULE.  Fanamarihana: Ity endri-javatra ity dia tohana ho an'ny karazana fanodinana angona 'Sandany marina' sy 'Isan-jato' ihany amin'izao fotoana izao."
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "Lokon'ny HRULE fampandrenesana"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Misafidiana loko ho an'ny HRULE amin'ny Kisary ho an'ny Fetra fampandrenesana azafady.  Safidio ny 'Tsy misy' raha tsy hisy HRULE.  Fanamarihana: Ity endri-javatra ity dia tohana ho an'ny karazana fanodinana angona 'Sandany marina' sy 'Isan-jato' ihany amin'izao fotoana izao."
+
+#: thold.php thold_templates.php
+msgid "Graph Timespan"
+msgstr "Elanelam-potoanan'ny kisary"
+
+#: thold.php thold_templates.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "Ny ora fiafaran'ny Kisary dia hapetraka amin'ny fotoana fipoahan'ny fetra. Ny ora fanombohan'ny Kisary dia ny ora fiafarana analana ny elanelam-potoanan'ny Kisary."
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "Dingano ny fandrefesana ambaratonga amin'ny HRULEs"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "Raha voamarika dia tsy hisy fiantraikany amin'ny maridrefy eo amin'ny Kisary ireo HRULE Fanairana na Fampitandremana."
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "Fanavahana faran'ny herinandro"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "Raha voamarika ity, dia tsy hanome fanairana amin'ny faran'ny herinandro ity Fetra ity."
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "Ataovy tsy mavitrika ny mailaka famerenana amin'ny laoniny"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "Raha voamarika ity, dia tsy handefa fanairana ny Fetra rehefa niverina amin'ny sata ara-dalàna ny Fetra."
+
+#: thold.php thold_templates.php
+msgid "Acknowledgment Options"
+msgstr "Safidy fankatoavana"
+
+#: thold.php thold_templates.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "Misy ambaratonga Fanekena telo izay mifehy ny fomba tsy maintsy hamalianao ny fihoarana Fetra. Ireto avy izy ireo:<br><br><ul><li><i>Tsy Ilaina</i> - Rehefa misafidy ity safidy ity ianao dia tsy ilaina ny Fanekena rehefa misy fihoarana Fetra.</li><li><i>Fampahafantarana Azo Ajanona</i> - Amin'ity safidy ity, raha vao Manaiky na Manajanona ny Fampahafantarana amin'ny Fetra ianao dia tsy hahazo fampahafantarana intsony mandritra ny fihoarany. Azonao atao ny Mamerina ny Fampahafantarana avy eo mandritra ny fihoarany.</li><li><i>Fanekena Maharitra</i> - Amin'ity safidy ity, na dia efa niverina amin'ny laoniny aza ny Fetra, dia tsy maintsy Manaiky ny Fetra ianao ary manome Hafatry ny Mpandrindra raha tiana.</li></ul>"
+
+#: thold.php thold_templates.php
+msgid "None Required"
+msgstr "Tsy misy ilaina"
+
+#: thold.php thold_templates.php
+msgid "Suspendible Notification"
+msgstr "Fampandrenesana azo aato"
+
+#: thold.php thold_templates.php
+msgid "Persistent Acknowledgment"
+msgstr "Fankatoavana maharitra"
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "Karazana Fetra"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "Ny karazana Fetra izay harahi-maso."
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "Tsingerin'ny fampandrenesana miverina"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "Avereno ny fampandrenesana rehefa dila io fe-potoana io hatramin'ny fampandrenesana farany."
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "Fampitandremana - Fandrindrana ambony / ambany"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "Ny sanda isa ho an'ny Fetra ambony sy ambany dia afaka ahitana ireto tovana ireto ho an'ny isa mihoatra ny 1: 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', ary ho an'ny isa latsaky ny 1: 'm', 'u', 'p', 'f'."
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "Fetra ambony"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Raha voafaritra ka mihoatra an'io isa io ny sandan'ny Loharanon'angona, dia hivoaka ny Fampitandremana. FANAMARIHANA: Tsy maintsy isa RAW io sanda io. Mety ho novan'ny cdef ny sanda aseho eo amin'ny Kisary."
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "Fetra ambany"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Raha voafaritra ka latsaka ambanin'io isa io ny sandan'ny Loharanon'angona, dia hivoaka ny Fampitandremana. FANAMARIHANA: Tsy maintsy isa RAW io sanda io. Mety ho novan'ny cdef ny sanda aseho eo amin'ny Kisary."
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "Faharetan'ny fihoarana"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Ny faharetan'ny fotoana tsy maintsy handikan'ny Loharanon'angona ny Fetra mba hisian'ny Fampitandremana. FANAMARIHANA: Tsy maintsy isa RAW io sanda io. Ny sanda aseho eo amin'ny Kisary dia mety ho novaina tamin'ny cdef."
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "Fampandrenesana - Fandrindrana Ambony / Ambany"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Raha voafaritra ka mihoatra an'io isa io ny sandan'ny Loharanon'angona, dia hivoaka ny fanairana. FANAMARIHANA: Tsy maintsy isa RAW io sanda io. Mety ho novan'ny cdef ny sanda aseho eo amin'ny Kisary."
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Raha voafaritra ka latsaka ambanin'io isa io ny sandan'ny Loharanon'angona, dia hivoaka ny fanairana. FANAMARIHANA: Tsy maintsy isa RAW io sanda io. Mety ho novan'ny cdef ny sanda aseho eo amin'ny Kisary."
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "Ny faharetan'ny fotoana tsy maintsy handikan'ny Loharanon'angona ny Fetra mba hisian'ny fanairana."
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "Fampitandremana - Fandrindrana mifototra amin'ny fotoana"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "Isan'ny fihoarana"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "Ny isan'ny fotoana tsy maintsy hanitsakitsahan'ny Loharanon'angona ny Fetra."
+
+#: thold.php
+msgid "Breach Window"
+msgstr "Elanelam-potoanan'ny fihoarana"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "Ny faharetan'ny fotoana tany aloha hijerena ny fandikana ny Fetra."
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "Fampandrenesana - Fandrindrana mifototra amin'ny fotoana"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "Fandrindrana ny mari-pototra"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "Ny karazana Tsipika Fototra. [TIP] dia ny Fotoana tany aloha, [AOT] dia ny Salan'isa nandritra ny Fotoana. Ny Fiviliana amin'ny Isan-jato dia sanda isan-jato avy amin'ny sanda ara-tantara. Ny Sanda Tena Izy dia fiviliana ambony na ambany noho ny Tsipika Fototra mihoatra io sanda ara-tantara io. Ho an'ny Karazana Tsipika Fototra [TIP], ny MIN, MAX, AVG, ary LAST dia hiala avy amin'ny fe-potoana tsy mihoatra ny iray andro amin'izany fotoana izany."
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "Asa fanambarana"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "Salan'isa"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "Farafahakeliny"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "Fara-tampony"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "Farany"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "Ny fiasa fanamafisana (Consolidation function) ampiasaina amin'ny kajy ny sandan'ny Karazana Baseline."
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "Elanelam-potoana"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "Mamaritra ny fotoana tany aloha (mifototra amin'ny fanapahan'ny rrd) izay hampiasaina ho tondro na ny faharetana hampiasaina ho an'ny salan'isa mitsingevana rehefa mampiasa ny Fetra karazana Floating Average"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "Fiviliana MIAKATRA"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Mamaritra ny fiviliana ekena ho an'ny Fetra ambony. Raha tsy napetraka dia tsy hojerena mihitsy ny Fetra ambony.  Ny venty fandrefesana dia sanda tanteraka ho an'ny karazana 'Absolute Value', ary isan-jato ho an'ny '%% Deviation' sy '%% Floating Average'"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "Fiviliana MIDINA"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Mamaritra ny fiviliana ekena ho an'ny Fetra ambany. Raha tsy napetraka dia tsy hojerena mihitsy ny Fetra ambany.  Ny venty fandrefesana dia sanda tanteraka ho an'ny karazana 'Absolute Value', ary isan-jato ho an'ny '%% Deviation' sy '%% Floating Average'"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "Isan'ny mpandrisika"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "Isan'ny fotoana mifanesy tsy maintsy hihoaran'ny Loharanon'angona ny Fetra fototra mba hampiakatra fanairana.<br>Avelao ho foana raha hampiasa ny sanda mahazatra (<b>Mahazatra: tsingerina %s</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "Fikirakirana angona"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "Karazan'angona"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "Fandrafetana manokana ho an'ny angona nomena."
+
+#: thold.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "CDEF Fetra"
+
+#: thold.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "Ampiharo ity CDEF ity alohan'ny hamerenana ny angona."
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "Loharanon'angona isan-jato"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "Singa Loharanon'angona Faharoa ampiasaina ho sanda manontolo hikajiana ny isan-jato."
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "Asehoy ny singa fandrefesana"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "Asehoy ny singa ho an'ny isa lehibe na kely loatra."
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "Terena ny tovan'ny singa fandrefesana"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "Raha te hampiseho tovana aorian'ny singa voatery amin'ny pejy Fetra sy Fampahafantarana isan-karazany ianao, dia ampidiro eto izany. Voafetra ho tsy mihoatra ny 10 endri-tsoratra ny habeny."
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "Isa desimaly haseho"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "Ny isan'ny tarehimarika aorian'ny faingo haseho ho an'ny Fetra sy ny Sanda Ankehitriny. Ny mahazatra dia mandeha ho azy na 2."
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Ny Fomba Fiteny RPN dia Fomba Fiteny RPN mifanaraka amin'ny RRDtool. Ny rafi-panoratana dia ahitana ny asa rehetra eto ambany miaraka amin'ny fomba fiteny fanoloana ho an'ny Fitaovana sy ny Fangatahana Angona toy ny <span class=\"deviceUp\">|query_ifSpeed|</span>. Mba hampiasana Loharanon'angona ao amin'ny Fomba Fiteny RPN dia tsy maintsy mampiasa ity rafi-panoratana ity ianao: <span class=\"deviceUp\">|ds:dsname|</span>. Ohatra, ny <span class=\"deviceUp\">|ds:traffic_in|</span> dia haka ny sanda ankehitriny an'ny Loharanon'angona traffic_in ho an'ny rakitra RRD mifandray amin'ny Kisary. Azo ampidirina ny Loharanon'angona rehetra ho an'ny Kisary iray.<br><br>Mpandraharaha Matematika: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Asa: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Mpandraharaha Fikoriana: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Asa Fampitahana: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "Loharanon'angona ambony"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "Loharanon'angona ambony hikajiana ny sanda manontolo."
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "Fikirana fampandrenesana"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "Lohahevitry ny fampandrenesana"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Ity ny lohahevitry ny Mailaka izay haseho ao amin'ny Mailaka (Litera 128 FARAFAHABETSANY). Avelao ho banga ho an'ny mahazatra. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "Vatan'ny fampandrenesana"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ity no hafatra haseho eo an-tampon'ny Fampandrenesana Fetra rehetra (1024 litera farafahabetsany). Ekena ny HTML, fa hesorina ho an'ny mailaka lahatsoratra fotsiny. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatiny:<br>oh. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "Lohahevitry ny fampitandremana"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Ity ny lohahevitry ny Mailaka Fampitandremana izay haseho ao amin'ny Mailaka aorian'ny fiovana ho amin'ny Fampitandremana (Litera 128 FARAFAHABETSANY). Avelao ho banga ho an'ny mahazatra. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "Vatan'ny fampitandremana"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ity no hafatra haseho eo an-tampon'ny Fampitandremana Fetra rehetra (1024 litera farafahabetsany). Ekena ny HTML, fa hesorina ho an'ny mailaka lahatsoratra fotsiny. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatiny:<br>oh. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "Lohahevitry ny famerenana amin'ny laoniny"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Ity ny lohahevitry ny Mailaka izay haseho ao amin'ny Mailaka aorian'ny Fiverenana amin'ny Laoniny (Litera 128 FARAFAHABETSANY). Avelao ho banga ho an'ny mahazatra. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "Vatan'ny mailaka famerenana amin'ny laoniny"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ity no hafatra haseho eo an-tampon'ny fampandrenesana famerenana amin'ny laoniny ny Fetra rehetra (1024 litera farafahabetsany). Ekena ny HTML, fa hesorina ho an'ny Mailaka lahatsoratra fotsiny. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatiny:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "Lisitra fampahafantarana fampitandremana"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "Azonao atao ny misafidy Lisitry ny Fampahafantarana handraisana Fampitandremana ho an'ity Loharanon'angona ity"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "Lisitry ny filazana fampandrenesana"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "Azonao atao ny misafidy Lisitry ny Fampahafantarana handraisana Fanairana ho an'ity Loharanon'angona ity"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "Rakitra fomba/endrika"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "Fampandrenesana SNMP - Sokajin'ny hetsika"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Mba hahafahan'ny NMS manasokajy mora kokoa ireo fampandrenesana SNMP samihafa, azafady fenoy ny sokajin'ny fampandrenesana SNMP tokony hampiasain'ity modely ity. Ohatra: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "Famaritana hetsika SNMP"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Azonao amboarina ny famaritana ny hetsika alefa any amin'ireo mpandray fampahafantarana SNMP amin'ny alalan'ny fampiasana variable bindings. Azo ampiasaina ireo miovaova fanoloana mahazatra ho an'ny Fitaovana (|host_*|) sy ny Fanontaniana Angona (|query_*|) ary koa ireto varbinds manaraka ireto:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "Fampandrenesana SNMP - Hamafin'ny hetsika fanairana"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "Hamasinana hampiasaina amin'ny fampandrenesana. (fiantraikany kely -> fiantraikany goavana)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "Antonony"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "Fampandrenesana SNMP - Hamafin'ny hetsika Fampitandremana"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "Hamasinana hampiasaina amin'ny fampitandremana. (Fiantraikany kely -> Fiantraikany goavana).<br>Fanamarihana: Ny hamasinan'ny fampitandremana dia tsy maintsy mitovy na ambany noho ny hamasinana voafaritra ho an'ny fampandrenesana."
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "Kaonty ampandrenesina"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "Ity ny lisitry ny kaonty izay hampahafantarina rehefa voahitsakitsaka ity Fetra ity."
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "Mailaka fampandrenesana"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "Azonao faritana eto ireo Mailaka fanampiny handraisana fanairana ho an'ity loharanon'angona ity (sarahina faingo)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "Mailaka fampitandremana"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "Azonao faritana eto ireo Mailaka fanampiny handraisana fampitandremana ho an'ity loharanon'angona ity (sarahina faingo)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "Raha voamarika dia halefa any amin'ny syslog eo an-toerana ny fampandrenesana Fetra."
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "Laharam-pahamehana/Haavo"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "Ity ny Ambaratonga Laharam-pahamehana izay hosoratana ao anatin'ny hafatra syslog-nao."
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "Sampana"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "Ity ny Facility izay hampiasaina amin'ity Fetra ity."
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "Famelomana hetsika (Baiko Shell)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "Baiko fanetsiketsehana ambony"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Raha voafaritra, ary raha voahitsakitsaka ny Fetra Ambony, dia halefa ity baiko ity. Azafady mampidira baiko manan-kery. Ankoatra izany, dia misy marika fanoloana maromaro azo ampiasaina mba hampitana vaovao avy amin'ny Fetra mankany amin'ny script. Azonao atao amin'ny endrika arguments eo amin'ny tsipika baiko izany, na ny tsara kokoa, ao amin'ny tontolon'ny script. Hiseho ao amin'ny tontolon'ny script misy tovana aloha THOLD_ ny sanda fanoloana rehetra. Noho izany, ohatra ny CURRENTVALUE dia ho lasa THOLD_CURRENTVALUE, sy ny sisa. Ny variables dia ahitana: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Farany, azo atao ny fanoloana Mpampiantrano, Data Query ary Data Input. Ohatra, raha manana angona manokana data input antsoina hoe pending ianao, ampiasao |pending| mba hanaovana ny fanoloana. Ho an'ny fanoloana Data Query sy Mpampiantrano dia ampiasao ny fomba fanaon'ny Cacti |query_xxxx| sy |host_xxxx| tsirairay avy."
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "Baiko fanairana ambany"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Raha voafaritra, ary raha voahitsakitsaka ny Fetra Ambany, dia halefa ity baiko ity. Azafady mampidira baiko manan-kery. Ankoatra izany, dia misy marika fanoloana maromaro azo ampiasaina mba hampitana vaovao avy amin'ny Fetra mankany amin'ny script. Azonao atao amin'ny endrika arguments eo amin'ny tsipika baiko izany, na ny tsara kokoa, ao amin'ny tontolon'ny script. Hiseho ao amin'ny tontolon'ny script misy tovana aloha THOLD_ ny sanda fanoloana rehetra. Noho izany, ohatra ny CURRENTVALUE dia ho lasa THOLD_CURRENTVALUE, sy ny sisa. Ny variables dia ahitana: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Farany, azo atao ny fanoloana Mpampiantrano, Data Query ary Data Input. Ohatra, raha manana angona manokana data input antsoina hoe pending ianao, ampiasao |pending| mba hanaovana ny fanoloana. Ho an'ny fanoloana Data Query sy Mpampiantrano dia ampiasao ny fomba fanaon'ny Cacti |query_xxxx| sy |host_xxxx| tsirairay avy."
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "Baiko fanairana ara-dalàna"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Raha voafaritra, rehefa miverina amin'ny sanda ara-dalàna ny thold, dia halefa ity baiko ity. Azafady mampidira baiko manan-kery. Ankoatra izany, dia misy marika fanoloana maromaro azo ampiasaina mba hampitana vaovao avy amin'ny Fetra mankany amin'ny script. Azonao atao amin'ny endrika arguments eo amin'ny tsipika baiko izany, na ny tsara kokoa, ao amin'ny tontolon'ny script. Hiseho ao amin'ny tontolon'ny script misy tovana aloha THOLD_ ny sanda fanoloana rehetra. Noho izany, ohatra ny CURRENTVALUE dia ho lasa THOLD_CURRENTVALUE, sy ny sisa. Ny variables dia ahitana: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Farany, azo atao ny fanoloana Mpampiantrano, Data Query ary Data Input. Ohatra, raha manana angona manokana data input antsoina hoe pending ianao, ampiasao |pending| mba hanaovana ny fanoloana. Ho an'ny fanoloana Data Query sy Mpampiantrano dia ampiasao ny fomba fanaon'ny Cacti |query_xxxx| sy |host_xxxx| tsirairay avy."
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "Fandrindrana hafa"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "Ampidiro ID Maharitra ho an'ity Fetra ity."
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "Naotin'ny mpandraharaha"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "Ampidiro eto ny torolalana ho an'ny mpandraharaha izay mety handray ny hafatra Fetra."
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "Safidio ny Mpampiasa"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "Mpampiasa voafidy"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "Mpampiasa rehetra voafidy"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "Efa nekena ny Fetra."
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "Tsy hamorona Fanairana, Fampandrenesana, na hanatanteraka baiko intsony ny Fetra."
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "Hanomboka hamorona Fanairana indray ny Fetra."
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "Satan'ny Fetra"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "Hetsika"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "Antsipirian'ny fankatoavana"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "Ovao ny Fetra"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "Ataovy tsy mavitrika ny Fetra"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "Alefaso ny Fetra"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "Mba hampavitrika ny Fetra, ataovy mavitrika aloha ny Modely"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "Jereo ny Kisary"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "Jereo ny tantaran'ny Fetra"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Aato ny fampandrenesana mandra-pialan'ny Fetra"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Tohizo indray ny fampandrenesana ho an'ity Fetra nihoatra ity"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "Hafatra fankatoavana"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "Daty"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "Tsy hita ny fanamarihana"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "Tantaran'ny fankatoavana"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "Tsy misy anarana napetraka"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "Mandehana eo ambonin'ireo sary famantarana raha mila fanampiana"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "Famaritana ho an'ny Fitaovana"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "Famantarana manokana Cacti ho an'ny Fitaovana"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "Ny isan'ny Kisary ho an'ity Fitaovana ity"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "Ny isan'ny Loharanon'angona ho an'ity Fitaovana ity"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "Ny Sata ho an'ity Fitaovana ity tamin'ny fotoana nanaovana poller farany"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Ny fotoana farany nahitan'ny Cacti olana tamin'ity Fitaovana ity. Mety ho ambony kokoa noho ny Uptime an'ny Fitaovana izany, raha toa ka naverina novelomina teo anelanelan'ny tsingerina fanangonan'ny Cacti izy"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "Fotoana niasana"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "Ny fotoana fiasan'ny Fitaovana ofisialy araka ny tatitry ny SNMP"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "Ny anaran'ny mpampiantrano ofisialy ho an'ity Fitaovana ity"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "Ankehitriny (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "Ny fotoana famaliana ankehitriny ho an'ny fanamarinana ny Fisian'i Cacti"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "Salany (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "Ny salan'isa fotoana famaliana ho an'ny fanamarinana ny Fisian'i Cacti"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "Fahafahana mifandray"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "Ny fahafahana mampiasa ity Fitaovana ity amin'ny ankapobeny hatramin'ny famerenana ny kaontera farany tao amin'ny Cacti"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "Ahitsio ny Fitaovana"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "Hijery tabilao"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "Tsy misy fitaovana"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "Tsy mandeha"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "Tsy misy andalana fanondranana hita."
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "Rakitry ny Fetra ho an'ny [ %s ]"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "Fampidirana ao amin'ny tantara"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "Fotoana"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "Sanda fampandrenesana"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "Sandany voarefy"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "Tsy misy diarin'ny Fetra hita"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "Andininy"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "Tsy mahazo alalana hanova ny iray na maromaro amin'ireo Fetra voafidy ianao"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (Fetra %d)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hanondrana ireto Modely Fetra manaraka ireto."
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "Fanondranana Modely"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hamafa ireto Modely Fetra manaraka ireto."
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "Fafao ny/ireo Modely"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hampihatra indray ny Anarana natolotra amin'ireo Fetra ao amin'ireto Modely Fetra manaraka ireto."
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "Ampiharo indray ny anarana naroso amin'ny Modely"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hampavitrika ny Modely sy ny Fetra voafidy."
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "Alefaso ny Modely"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "Tsindrio ny 'Tohizo' mba hanaovana ho Tsy mavitrika ireo Modely sy Fetra voafidy."
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "Ataovy tsy mavitrika ny Modely"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "Mpanampy amin'ny famoronana Modely Fetra"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "Azafady, misafidiana Modely angona iray"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "Azafady, misafidiana Loharanon'angona iray"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "Tsindrio ny 'Mamorona' raha hamorona ny Modely Fetra-nao azafady"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "Tsy hita ny Modely Fetra nangatahina"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "Omeo anarana mazava tsara ny Modelin'ny Fetra."
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "Anaran'ny Fetra soso-kevitra"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "Omeo ny anarana soso-kevitra ho an'ny Fetra noforonina tamin'ny fampiasana ity Modely ity. Azo ampiasaina ny variable fanoloana mahazatra ho an'ny Fitaovana (|host_*|), Fangatahana angona (|query_*|) ary Fampidirana (|input_*|), ary koa ny |graph_title| ho an'ny Lohatenin'ny Kisary."
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "Modely angona ampiasainao. (Tsy azo ovaina ity)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "Sahan'angona"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "Sahan'angona ampiasainao. (Tsy azo ovaina ity)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "Na hamarinina sy handefasana fanairana ity Fetra ity na tsia."
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "Avereno ny fampandrenesana rehefa dila io fe-potoana io hatramin'ny fampandrenesana farany."
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "Faharetan'ny fandefasana farafahakeliny"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "Ny faharetan'ny fotoana tsy maintsy hijanonan'ny Loharanon'angona ao anatin'ny fandikana mba hisian'ny fanairana."
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "Ny isan'ny fotoana tsy maintsy hanitsakitsahan'ny Loharanon'angona ny fepetra alohan'ny handefasana fampitandremana."
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "Halavan'ny vanim-potoana"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "Ny isan'ny fotoana tsy maintsy hanitsakitsahan'ny Loharanon'angona ny fepetra alohan'ny handefasana fanairana."
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "Fanaraha-maso ny mari-pototra"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Mamaritra ny fiviliana ekena ho an'ny Fetra ambony. Raha tsy napetraka dia tsy hojerena mihitsy ny Fetra ambony.  Ny venty fandrefesana dia sanda tanteraka ho an'ny karazana 'Absolute Value', ary isan-jato ho an'ny '%% Deviation' sy '%% Floating Average'"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Mamaritra ny fiviliana ekena ho an'ny Fetra ambany. Raha tsy napetraka dia tsy hojerena mihitsy ny Fetra ambany.  Ny venty fandrefesana dia sanda tanteraka ho an'ny karazana 'Absolute Value', ary isan-jato ho an'ny '%% Deviation' sy '%% Floating Average'"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "Isan'ny fotoana mifanesy tsy maintsy hihoaran'ny Loharanon'angona ny fetra mba hampiakatra fanairana.<br>Avelao ho foana raha hampiasa ny sanda mahazatra (Mahazatra: tsingerina %s"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "Loharanon'angona isan-jato"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Singa Loharanon'angona Faharoa ampiasaina ho sanda manontolo hikajiana ny isan-jato."
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Ny Fomba Fiteny RPN dia Fomba Fiteny RPN mifanaraka amin'ny RRDtool. Ny rafi-panoratana dia ahitana ny asa rehetra eto ambany miaraka amin'ny fomba fiteny fanoloana ho an'ny Fitaovana sy ny Fangatahana Angona toy ny <span style=\"color:blue;\">|query_ifSpeed|</span>. Mba hampiasana Loharanon'angona ao amin'ny Fomba Fiteny RPN dia tsy maintsy mampiasa ity rafi-panoratana ity ianao: <span style=\"color:blue;\">|ds:dsname|</span>. Ohatra, ny <span style=\"color:blue;\">|ds:traffic_in|</span> dia haka ny sanda ankehitriny an'ny Loharanon'angona traffic_in ho an'ny rakitra RRD mifandray amin'ny Kisary. Azo ampidirina ny Loharanon'angona rehetra ho an'ny Kisary iray.<br>Mpandraharaha Matematika: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Asa: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Mpandraharaha Fikoriana: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Asa Fampitahana: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "Loharanon'angona ambony hampiasaina hikajiana ny sanda manontolo."
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "Lohahevitry ny mailaka fampandrenesana"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Ity ny lohahevitry ny Mailaka izay haseho ao amin'ny Mailaka (Litera 128 FARAFAHABETSANY). Avelao ho banga ho an'ny mahazatra. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "Vatan'ny mailaka fampandrenesana"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ity no hafatra haseho eo an-tampon'ny Fampandrenesana Fetra rehetra (1024 litera farafahabetsany). Ekena ny HTML, fa hesorina ho an'ny mailaka lahatsoratra fotsiny. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatiny:<br>oh. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Ity ny lohahevitry ny Fampitandremana izay haseho ao amin'ny Mailaka (Litera 128 FARAFAHABETSANY). Avelao ho banga ho an'ny mahazatra. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Ity no hafatra haseho eo an-tampon'ny Fampitandremana Fetra rehetra (1024 litera farafahabetsany). Ekena ny HTML, fa hesorina ho an'ny mailaka lahatsoratra fotsiny. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatiny:<br>oh. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Ity ny lohahevitry ny Mailaka izay haseho ao amin'ny Mailaka aorian'ny Fiverenana amin'ny Laoniny (Litera 128 FARAFAHABETSANY). Avelao ho banga ho an'ny mahazatra. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatin'izany:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "Vatan'ny hafatra famerenana amin'ny laoniny"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Ity no hafatra haseho eo an-tampon'ny fampandrenesana famerenana amin'ny laoniny ny Fetra rehetra (1024 litera farafahabetsany). Ekena ny HTML, fa hesorina ho an'ny Mailaka lahatsoratra fotsiny. Misy marika fanoloana mahazatra maromaro azo ampiasaina ao anatiny:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "Lisitra fampandrenesana vakiana ihany"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "Raha voamarika dia hanolo ny an'ny Fetra ireo Lisitry ny Fampandrenesana Fetra ao amin'ny Modely."
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "Hamasinana hampiasaina amin'ny fampandrenesana. (Fiantraikany kely -> Fiantraikany goavana)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "Ity ny lisitry ny kaonty izay hampahafantarina rehefa voahitsakitsaka ity Fetra ity.<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "Azonao faritana eto ireo Mailaka fanampiny handraisana fanairana ho an'ity Loharanon'angona ity (sarahina faingo)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "Azonao faritana eto ireo Mailaka fanampiny handraisana fampitandremana ho an'ity Loharanon'angona ity (sarahina faingo)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "Ampidiro ID Maharitra ho an'ity Modely Thold ity."
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d Volana, %d Andro, %d Ora, %d Minitra, %d Segondra (Salanisa)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d Volana, %d Andro, %d Ora, %d Minitra, %d Segondra"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d Andro, %d Ora, %d Minitra, %d Segondra (Salanisa)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d Andro, %d Ora, %d Minitra, %d Segondra"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d Ora, %d Minitra, %d Segondra (Salanisa)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "%d Ora, %d Minitra, %d Segondra"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "%d Minitra, %d Segondra (Salanisa)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "%d Minitra, %d Segondra"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "%d Segondra (Salany)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "%d Segondra"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "Anaran'ny DS"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Ireo sandan'ny Fampitandremana / Fanairana Ambony. FANAMARIHANA: Isan-jato ny sandan'ny Baseline, fa ny sanda hafa rehetra dia sanda MANTA tsy novain'ny cdef."
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Ireo sandan'ny Fampitandremana / Fanairana Ambany. FANAMARIHANA: Isan-jato ny sandan'ny Baseline, fa ny sanda hafa rehetra dia sanda MANTA tsy novain'ny cdef."
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "Manafatra modely avy amin'ny rakitra eo an-toerana"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "Raha ao amin'ny solosainao eo an-toerana no misy ny rakitra XML mirakitra ny angona Modely Fetra, dia fidio eto izany."
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "Manafatra Modely avy amin'ny Lahatsoratra"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "Raha manana ny rakitra XML mirakitra ny angona Modely Fetra amin'ny endrika lahatsoratra ianao, dia azonao apetaka ato amin'ity boaty ity izany mba hanafarana azy."
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "Vokatry ny fanafarana"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Nanafatra ireto singa manaraka ireto ny Cacti:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "Manafatra Modely Fetra"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "Lehibe loatra ny rakitra."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "Tsy feno ny famindrana rakitra."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "Tsy misy rakitra nampakarina."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "Tsy hita ny lahatahiry vonjimaika."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "Tsy nahomby ny fanoratana ny rakitra tao amin'ny kapila"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "Nosakanan'ny tovana ny fampakarana rakitra"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "Tsy manan-kery ny tovan'ny rakitra."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "FANAMARIHANA:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "HADISOANA:"
+

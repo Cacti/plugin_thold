@@ -1,0 +1,3716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-13 09:23-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Hausa\n"
+"Language: ha-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/arrays.php
+msgid "Indefinitely"
+msgstr "Ba tare da iyaka ba"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Month"
+msgstr "Wata %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Months"
+msgstr "Watanni %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Year"
+msgstr "Shekara %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hour Ago"
+msgstr "Daga Sa'a %d da Ta Wuce"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Hours Ago"
+msgstr "Daga Sa'o'i %d da Suka Wuce"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Day Ago"
+msgstr "Daga Kwana %d da Ya Wuce"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Days Ago"
+msgstr "Daga Kwanaki %d da Suka Wuce"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Week Ago"
+msgstr "Daga Mako %d da Ya Wuce"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Weeks Ago"
+msgstr "Daga Makonni %d da Suka Wuce"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Month Ago"
+msgstr "Daga Wata %d da Ya Wuce"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Months Ago"
+msgstr "Daga Watanni %d da Suka Wuce"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Year Ago"
+msgstr "Daga Shekara %d da Ta Wuce"
+
+#: includes/arrays.php
+#, php-format
+msgid "From %d Years Ago"
+msgstr "Daga Shekaru %d da Suka Wuce"
+
+#: includes/arrays.php thold_graph.php
+msgid "Down"
+msgstr "Ba Ya Aiki"
+
+#: includes/arrays.php thold_graph.php
+msgid "Error"
+msgstr "Kuskure"
+
+#: includes/arrays.php thold_graph.php
+msgid "Recovering"
+msgstr "Yana Farfaɗowa"
+
+#: includes/arrays.php thold_graph.php
+msgid "Up"
+msgstr "Yana Aiki"
+
+#: includes/arrays.php thold_graph.php
+msgid "Unknown"
+msgstr "Ba a sani ba"
+
+#: includes/arrays.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php
+msgid "Disabled"
+msgstr "An kashe"
+
+#: includes/arrays.php thold_graph.php
+msgid "Not Monitored"
+msgstr "Ba A Kula Da Shi Ba"
+
+#: includes/arrays.php
+msgid "Notify - Alert"
+msgstr "Sanar - Faɗakarwa"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Alert"
+msgstr "Faɗakarwa"
+
+#: includes/arrays.php
+msgid "Notify - Alert2Warning"
+msgstr "Sanar - Faɗakarwa zuwa Gargaɗi"
+
+#: includes/arrays.php
+msgid "Alert2Warn"
+msgstr "FaɗakarwaZuwaGargaɗi"
+
+#: includes/arrays.php
+msgid "Notify - Warning"
+msgstr "Sanar - Gargaɗi"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Warning"
+msgstr "Gargaɗi"
+
+#: includes/arrays.php
+msgid "Notify - Re-Trigger"
+msgstr "Sanar - Sake Tada Faɗakarwa"
+
+#: includes/arrays.php
+msgid "Re-Trigger"
+msgstr "Sake tayarwa"
+
+#: includes/arrays.php
+msgid "Notify - Restoral"
+msgstr "Sanar - Komawa Daidai"
+
+#: includes/arrays.php
+msgid "Restoral"
+msgstr "Maidowa"
+
+#: includes/arrays.php
+msgid "Event - Alert Trigger"
+msgstr "Lamari - Tada Faɗakarwa"
+
+#: includes/arrays.php
+msgid "Alert Event"
+msgstr "Lamarin Faɗakarwa"
+
+#: includes/arrays.php
+msgid "Event - Warning Trigger"
+msgstr "Lamari - Tada Gargaɗi"
+
+#: includes/arrays.php
+msgid "Warning Event"
+msgstr "Lamarin Gargaɗi"
+
+#: includes/arrays.php
+msgid "Event - Restoral"
+msgstr "Lamari - Maido da yanayi"
+
+#: includes/arrays.php thold_graph.php
+msgid "Restoral Event"
+msgstr "Lamarin Maidowa"
+
+#: includes/arrays.php
+msgid "Event - Acknowledge"
+msgstr "Lamari - Tabbatarwa"
+
+#: includes/arrays.php
+msgid "Acknowledge Event"
+msgstr "Tabbatar da Sanin Al'amari"
+
+#: includes/arrays.php
+msgid "Restore"
+msgstr "Maido"
+
+#: includes/arrays.php
+msgid "Alert Trigger"
+msgstr "Mai Tada Faɗakarwa"
+
+#: includes/arrays.php
+msgid "Warn Trigger"
+msgstr "Mai Tada Gargaɗi"
+
+#: includes/arrays.php
+msgid "Alert-Warn"
+msgstr "Faɗakarwa-Gargaɗi"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Acknowledgment"
+msgstr "Tabbatarwa"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Baseline Alert"
+msgstr "Faɗakarwar Ma'aunin Asali"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Notice"
+msgstr "Sanarwa"
+
+#: includes/arrays.php thold.php thold_graph.php
+msgid "Ok"
+msgstr "To"
+
+#: includes/arrays.php
+msgid "Emergency"
+msgstr "Gaggawa"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "Critical"
+msgstr "Mai Tsanani"
+
+#: includes/arrays.php
+msgid "Info"
+msgstr "Bayani"
+
+#: includes/arrays.php
+msgid "Debug"
+msgstr "Binciken Kuskure"
+
+#: includes/arrays.php includes/functions.php
+msgid "Never"
+msgstr "Ba a Taɓa Ba"
+
+#: includes/arrays.php
+msgid "Every Minute"
+msgstr "Kowane Minti"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Kowane Minti %d"
+
+#: includes/arrays.php
+msgid "Every Hour"
+msgstr "Kowace Awa"
+
+#: includes/arrays.php includes/settings.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Kowace Awa %d"
+
+#: includes/arrays.php
+msgid "Every Day"
+msgstr "Kowace Rana"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Days"
+msgstr "Kowane Kwanaki %d"
+
+#: includes/arrays.php
+msgid "Every Week"
+msgstr "Kowane Mako"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Weeks"
+msgstr "Kowane Makonni %d"
+
+#: includes/arrays.php
+msgid "Every Month"
+msgstr "Kowane Wata"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minute"
+msgstr "Minti %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Minutes"
+msgstr "Mintuna %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hour"
+msgstr "Sa'a %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Hours"
+msgstr "Sa'o'i %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Day"
+msgstr "Kwana %d"
+
+#: includes/arrays.php thold_graph.php
+#, php-format
+msgid "%d Days"
+msgstr "Kwanaki %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Week"
+msgstr "Mako %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Weeks"
+msgstr "Makonni %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%0.1f Hours"
+msgstr "%0.1f Awanni"
+
+#: includes/arrays.php
+msgid "Every Polling"
+msgstr "Kowane Tattara Bayanai"
+
+#: includes/arrays.php
+#, php-format
+msgid "Every %d Pollings"
+msgstr "Kowane Tattara Bayanai %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Polling"
+msgstr "Tattara Bayanai %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Pollings"
+msgstr "Tattara Bayanai %d"
+
+#: includes/arrays.php
+msgid "High / Low"
+msgstr "Sama / Ƙasa"
+
+#: includes/arrays.php
+msgid "Baseline Deviation"
+msgstr "Karkatar Ma'aunin Asali"
+
+#: includes/arrays.php
+msgid "Time Based"
+msgstr "Dangane da Lokaci"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Min/Max [TIP]"
+msgstr "%% Karkatar Mafi Ƙanƙanta/Mafi Girma [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation CF [TIP]"
+msgstr "%% Karkatar CF [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val Min/Max [TIP]"
+msgstr "Mafi Ƙanƙanta/Mafi Girma na Cikakkiyar Ƙima [TIP]"
+
+#: includes/arrays.php
+msgid "Absolute Val of CF [TIP]"
+msgstr "Cikakkiyar Ƙima na CF [TIP]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg [AOT]"
+msgstr "%% Matsakaicin Karkata [AOT]"
+
+#: includes/arrays.php
+#, php-format
+msgid "%% Deviation Avg of CF [AOT]"
+msgstr "%% Matsakaicin Karkatar CF [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg [AOT]"
+msgstr "Matsakaicin Cikakkiyar Ƙima [AOT]"
+
+#: includes/arrays.php
+msgid "Absolute Val Avg of CF [AOT]"
+msgstr "Matsakaicin Cikakkiyar Ƙima na CF [AOT]"
+
+#: includes/arrays.php
+msgid "Exact Value"
+msgstr "Takamaiman Daraja"
+
+#: includes/arrays.php
+msgid "CDEF"
+msgstr "CDEF"
+
+#: includes/arrays.php
+msgid "Percentage"
+msgstr "Kashi cikin ɗari"
+
+#: includes/arrays.php thold.php thold_templates.php
+msgid "RPN Expression"
+msgstr "Jimlar lissafin RPN"
+
+#: includes/arrays.php
+msgid "Upper + Lower bytes"
+msgstr "Bytes na Sama + na Ƙasa"
+
+#: includes/arrays.php
+msgid "Acknowledge"
+msgstr "Tabbatar da sani"
+
+#: includes/arrays.php
+msgid "Suspend Notifications"
+msgstr "Dakatar da Sanarwa na Ɗan Lokaci"
+
+#: includes/arrays.php
+msgid "Resume Notifications"
+msgstr "Ci gaba da Sanarwa"
+
+#: includes/arrays.php notify_lists.php notify_queue.php setup.php
+msgid "Delete"
+msgstr "Share"
+
+#: includes/arrays.php
+msgid "Enable"
+msgstr "Kunna"
+
+#: includes/arrays.php
+msgid "Disable"
+msgstr "Kashe"
+
+#: includes/arrays.php
+msgid "Reapply Suggested Names"
+msgstr "Sake Aiwatar da Sunayen da Aka Ba da Shawara"
+
+#: includes/arrays.php
+msgid "Propagate Template"
+msgstr "Yaɗa Samfuri"
+
+#: includes/arrays.php thold_graph.php
+msgid "Export"
+msgstr "Fitarwa"
+
+#: includes/arrays.php
+msgid "Threshold Mail"
+msgstr "Saƙon Imel na Iyaka"
+
+#: includes/arrays.php
+msgid "Down Host Mail"
+msgstr "Imel ɗin Mai Masauki da Ya Daina Aiki"
+
+#: includes/arrays.php
+msgid "Up Host Mail"
+msgstr "Saƙon Mai Masauki mai Aiki"
+
+#: includes/arrays.php
+msgid "Threshold Cmd"
+msgstr "Umarnin Iyaka"
+
+#: includes/arrays.php
+msgid "Down Host Cmd"
+msgstr "Umarnin Mai Masauki da Ya Daina Aiki"
+
+#: includes/arrays.php
+msgid "Up Host Cmd"
+msgstr "Umarnin Mai Masauki mai Aiki"
+
+#: includes/arrays.php
+msgid "Auto"
+msgstr "Atomatik"
+
+#: includes/arrays.php
+msgid "0 Digits"
+msgstr "Lambobi 0"
+
+#: includes/arrays.php
+msgid "1 Digit"
+msgstr "Lamba 1"
+
+#: includes/arrays.php
+#, php-format
+msgid "%d Digits"
+msgstr "%d Lambobi"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices"
+msgstr "> Na'urori %d"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices Globally"
+msgstr "> %d %% na Na'urori a Duniya"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d Devices in a Site"
+msgstr "> Na'urori %d a cikin Wuri"
+
+#: includes/arrays.php
+#, php-format
+msgid "> %d %% of Devices in a Site"
+msgstr "> %d %% na Na'urori a cikin Wuri"
+
+#: includes/functions.php
+msgid "< 1 Minute"
+msgstr "< Minti 1"
+
+#: includes/functions.php
+msgid "Since Created"
+msgstr "Tun Lokacin da Aka Ƙirƙira"
+
+#: includes/functions.php includes/settings.php notify_lists.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Thresholds"
+msgstr "Iyakoki"
+
+#: includes/functions.php
+msgid "Log"
+msgstr "Rajista"
+
+#: includes/functions.php includes/settings.php thold_graph.php
+msgid "Device Status"
+msgstr "Matsayin Na'ura"
+
+#: includes/functions.php
+msgid "Time:"
+msgstr "Lokaci:"
+
+#: includes/functions.php
+msgid "User:"
+msgstr "Mai Amfani:"
+
+#: includes/functions.php
+msgid "System:"
+msgstr "Tsari:"
+
+#: includes/functions.php
+msgid "Swaps:"
+msgstr "Wuraren Swap:"
+
+#: includes/functions.php
+msgid "Pages:"
+msgstr "Shafuka:"
+
+#: includes/functions.php
+msgid "Only logging, maint device"
+msgstr "Rubuta rajista kawai, na'urar gyara"
+
+#: includes/functions.php notify_lists.php notify_queue.php thold.php
+#: thold_graph.php thold_templates.php
+msgid "Default"
+msgstr "Na Asali"
+
+#: includes/functions.php
+msgid "Link to Graph in Cacti"
+msgstr "Hanyar haɗi zuwa Jadawali a Cacti"
+
+#: includes/functions.php
+msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>An fitar da faɗakarwa da ke buƙatar kulawarku.<br><br><b>Na'ura</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Saƙo</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>An fitar da gargaɗi da ke buƙatar kulawarku.<br><br><b>Na'ura</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Saƙo</b>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+msgstr "<html><body>Wata Iyaka ta koma matsayi na yau da kullun. <br><br><strong>Na'ura</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Saƙo</strong>: <SUBJECT><br><br><GRAPH></body></html>"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [TIP:%s]"
+msgstr "%% Karkata [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [TIP:%s]"
+msgstr "Ƙimar Gaske [TIP:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "%% Dev [AOT:%s]"
+msgstr "%% Karkata [AOT:%s]"
+
+#: includes/functions.php
+#, php-format
+msgid "Abs Val [AOT:%s]"
+msgstr "Ƙimar Gaske [AOT:%s]"
+
+#: includes/functions.php
+msgid "The Device ID was not set while trying to create Graph and Threshold"
+msgstr "Ba a saita ID ɗin Na'ura ba yayin ƙoƙarin ƙirƙirar Jadawali da Iyaka"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
+msgstr "Ba a samo ID na Samfurin Iyaka ba yayin ƙoƙarin ƙirƙirar Jadawali da Iyaka"
+
+#: includes/functions.php
+msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
+msgstr "Ba a saita ID na Samfurin Iyaka ba yayin ƙoƙarin ƙirƙirar Jadawali da Iyaka"
+
+#: includes/functions.php
+msgid "The Graph Creation failed for Threshold Template"
+msgstr "Ƙirƙirar Jadawali ta gaza don Samfurin Iyaka"
+
+#: includes/functions.php
+msgid "Threshold was Autocreated due to Device Template mapping"
+msgstr "An ƙirƙiri Iyaka ta atomatik saboda haɗin Samfurin Na'ura"
+
+#: includes/functions.php
+msgid "Permission Denied"
+msgstr "An Hana Izini"
+
+#: includes/functions.php
+msgid "Record Updated"
+msgstr "An sabunta rikodi"
+
+#: includes/functions.php
+#, php-format
+msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
+msgstr "An kasa samun Abun Samfurin Jadawali '%d' mai alaƙa a kan Iyaka '%d'"
+
+#: includes/functions.php
+#, php-format
+msgid "Created Threshold: %s"
+msgstr "An ƙirƙiri Iyaka: %s"
+
+#: includes/functions.php
+msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
+msgstr "Dole ne ka ƙayyade ko dai 'Iyakar Faɗakarwa Mai Yawa' ko 'Iyakar Faɗakarwa Ƙarama' ko duka biyun!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Iyaka da ba ta yiwuwa: 'Babbar Iyakar Faɗakarwa' ta fi ƙanƙanta da 'Ƙaramar Iyakar Faɗakarwa'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
+msgstr "Iyaka da ba ta yiwuwa: 'Babbar Iyakar Gargaɗi' ta fi ƙanƙanta da 'Ƙaramar Iyakar Gargaɗi'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
+msgstr "Iyaka da ba ta yiwuwa: 'Babbar Iyakar Gargaɗi' ta fi girma da 'Babbar Iyakar Faɗakarwa'!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
+msgstr "Iyaka da ba ta yiwuwa: 'Ƙaramar Iyakar Faɗakarwa' ta fi girma da 'Ƙaramar Iyakar Gargaɗi'!"
+
+#: includes/functions.php
+msgid "Time reference in the past must be set to positive integer value!"
+msgstr "Dole ne a saita ma'aunin lokacin baya zuwa cikakkiyar lamba mai ƙima mai kyau!"
+
+#: includes/functions.php
+msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
+msgstr "Dole ne ka ƙayyade ko dai 'Karkatar Asali SAMA' ko 'Karkatar Asali ƘASA' ko duka biyun!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
+msgstr "Iyaka da ba ta yiwuwa: 'Babbar Iyakar Faɗakarwa' ta fi ƙanƙanta da 'Ƙaramar Iyakar Faɗakarwa'"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
+msgstr "Iyaka da ba ta yiwuwa: Adadin Tayar da Faɗakarwa dole ne ya fi ko ya yi daidai da 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Iyaka da ba ta yiwuwa: Adadin Tayar da Faɗakarwa dole ne ya zama ƙasa da ko daidai da Adadin Tayarwa ko daidai da 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
+msgstr "Iyaka da ba ta yiwuwa: Adadin Tayar da Gargaɗi dole ne ya fi ko ya yi daidai da 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
+msgstr "Iyaka da ba ta yiwuwa: Adadin Tayar da Gargaɗi dole ne ya zama ƙasa da ko daidai da Adadin Tayarwa ko daidai da 1!"
+
+#: includes/functions.php
+msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
+msgstr "Iyaka da ba ta yiwuwa: 'Ƙaramar Iyakar Gargaɗi' ta fi ƙanƙanta da 'Ƙaramar Iyakar Faɗakarwa'!"
+
+#: includes/functions.php
+msgid "Unknown Threshold Type!"
+msgstr "Nau'in Iyaka da Ba a Sani Ba!"
+
+#: includes/functions.php
+msgid "No Thresholds Templates associated with the Device's Template."
+msgstr "Babu Samfuran Iyakoki da ke da alaƙa da Samfurin Na'ura."
+
+#: includes/functions.php setup.php
+msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
+msgstr "Ba a Ƙirƙiri Iyaka/Iyakoki ba. Ko dai sun riga sun wanzu, ko kuma ba a samu waɗanda suka dace ba."
+
+#: includes/functions.php
+msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
+msgstr "Kuskuren Mai Aika Saƙo: Ba a saita adireshin <b>TO</b> ba!!<br>Idan kuna amfani da hanyar haɗin <i>Gwajin Imel</i>, da fatan za a saita saitin <b>Imel na Faɗakarwa</b>."
+
+#: includes/functions.php
+msgid "Done"
+msgstr "An gama"
+
+#: includes/functions.php
+msgid "Pending"
+msgstr "Ana jira"
+
+#: includes/functions.php
+msgid "Errored"
+msgstr "Masu Kuskure"
+
+#: includes/functions.php includes/polling.php thold.php thold_graph.php
+msgid "N/A"
+msgstr "Babu"
+
+#: includes/functions.php
+msgid "Success"
+msgstr "Nasara"
+
+#: includes/functions.php thold_graph.php
+msgid "Acknowledge Threshold"
+msgstr "Tabbatar da Sanin Iyaka"
+
+#: includes/functions.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
+msgstr "Danna 'Ci gaba' don Amincewa da waɗannan Iyaka(oki) na gaba."
+
+#: includes/functions.php thold.php
+msgid "Acknowledge Threshold(s)"
+msgstr "Tabbatar da Sanin Iyaka(oki)"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Cancel"
+msgstr "Soke"
+
+#: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
+#: thold_templates.php
+msgid "Continue"
+msgstr "Ci gaba"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Template Not Found!"
+msgstr "Ba a Samo Samfurin Bayanai na Ƙarƙashin Samfurin Iyaka ba!"
+
+#: includes/functions.php
+msgid "Threshold Template Subordinate Data Source Not Found!"
+msgstr "Ba a Samo Tushen Bayanai na Ƙarƙashin Samfurin Iyaka ba!"
+
+#: includes/functions.php
+msgid "Threshold Template import columns do not match the database schema"
+msgstr "Ginshiƙan shigo da Samfurin Iyaka ba su dace da tsarin rumbun adana bayanai ba"
+
+#: includes/functions.php
+msgid "Imported"
+msgstr "An Shigo Da Shi"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s!"
+msgstr "Samfurin Iyaka '%s' %s!"
+
+#: includes/functions.php
+msgid "Updated"
+msgstr "An Sabunta"
+
+#: includes/functions.php thold_templates.php
+msgid "Import"
+msgstr "Shigowa"
+
+#: includes/functions.php
+#, php-format
+msgid "Threshold Template '%s' %s Failed!"
+msgstr "Samfurin Iyaka '%s' %s Ya Gaza!"
+
+#: includes/functions.php
+msgid "Update"
+msgstr "Sabunta"
+
+#: includes/functions.php
+msgid "Errors encountered while attempting to import Threshold Template data."
+msgstr "An ci karo da kurakurai yayin ƙoƙarin shigar da bayanan Samfurin Iyaka."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not found to be XML data."
+msgstr "Ba a ga bayanan shigo da Samfurin Iyaka a matsayin bayanan XML ba."
+
+#: includes/functions.php
+msgid "Threshold Template Import data was not correct while importing Threshold Template."
+msgstr "Bayanan shigo da Samfurin Iyaka ba daidai suke ba yayin shigo da Samfurin Iyaka."
+
+#: includes/polling.php
+msgid "SNMP not in use"
+msgstr "Ba a amfani da SNMP"
+
+#: includes/polling.php
+msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Sanarwar Na'urori: <DESCRIPTION> (<HOSTNAME>) ya dawo daga yanayin faɗuwa (DOWN)"
+
+#: includes/polling.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
+msgstr "<br>Matsayin tsarin <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Wuri: <SITE><br>Muhalli: <LOCATION><br>Martanin ping na yanzu: <CUR_TIME> ms<br>Matsakaicin martanin tsarin: <AVG_TIME> ms<br>Samuwar tsarin: <AVAILABILITY><br>Jimillar bincike tun lokacin sharewa: <TOT_POLL><br>Jimillar binciken da suka kasa: <FAIL_POLL><br>Ranar bincike ta ƙarshe da yake AIKI: <LAST_FAIL><br>Na'urorin da suka taɓa KASANCEWA A KASHE na tsawon: <DOWNTIME><br><br>Bayanin SNMP:<br>Suna - <SNMP_HOSTNAME><br>Muhalli - <SNMP_LOCATION><br>Lokacin aiki - <UPTIMETEXT> (<UPTIME> ms)<br>Tsari - <SNMP_SYSTEM><br><br>LURA: <NOTES>"
+
+#: includes/polling.php
+msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Kuskuren Na'urori: <DESCRIPTION> (<HOSTNAME>) ba ya aiki (DOWN)"
+
+#: includes/polling.php
+msgid "DOWN"
+msgstr "BA YA AIKI"
+
+#: includes/polling.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
+msgstr "Kuskuren Tsari : <DESCRIPTION> (<HOSTNAME>) yana <DOWN/UP><br>Wuri: <SITE><br>Mazauni: <LOCATION><br>Dalili: <MESSAGE><br><br>Matsakaicin amsar tsari : <AVG_TIME> ms<br>Samuwar tsari: <AVAILABILITY><br>Jimillar Bincike Tun Sharewa: <TOT_POLL><br>Jimillar Binciken da Ya Gaza: <FAIL_POLL><br>Ranar Ƙarshe da Aka Bincika a ƘASA : <LAST_FAIL><br>Tsawon Lokacin da Na'urori Suka Yi a SAMA: <DOWNTIME><br>LURA: <NOTES>"
+
+#: includes/settings.php
+msgid "(actions)"
+msgstr "(ayyuka)"
+
+#: includes/settings.php
+msgid "(edit)"
+msgstr "(gyara)"
+
+#: includes/settings.php
+msgid "(save)"
+msgstr "(ajiye)"
+
+#: includes/settings.php
+msgid "(add)"
+msgstr "(ƙara)"
+
+#: includes/settings.php
+msgid "Threshold Logs"
+msgstr "Rajistocin Iyaka"
+
+#: includes/settings.php
+msgid "Thresholds - Failures"
+msgstr "Iyakoki - Gazawa"
+
+#: includes/settings.php
+msgid "Thresholds - Normal"
+msgstr "Iyakoki - Na al'ada"
+
+#: includes/settings.php
+msgid "Thresholds - Recovering"
+msgstr "Iyakoki - Suna farfaɗowa"
+
+#: includes/settings.php
+msgid "Recent Thresholds"
+msgstr "Iyakoki na baya-bayan nan"
+
+#: includes/settings.php
+msgid "Recent Device Failures"
+msgstr "Gazawar Na'ura na baya-bayan nan"
+
+#: includes/settings.php thold_templates.php
+msgid "Threshold Templates"
+msgstr "Samfuran Iyaka"
+
+#: includes/settings.php
+msgid "Threshold Template Import"
+msgstr "Shigo da Samfurin Iyaka"
+
+#: includes/settings.php notify_lists.php
+msgid "Notification Lists"
+msgstr "Jerukan Sanarwa"
+
+#: includes/settings.php
+msgid "Notification Lists (edit)"
+msgstr "Jerukan Sanarwa (gyara)"
+
+#: includes/settings.php
+msgid "Notification Queue"
+msgstr "Layin Jiran Sanarwa"
+
+#: includes/settings.php
+msgid "Management"
+msgstr "Gudanarwa"
+
+#: includes/settings.php notify_lists.php thold_templates.php
+msgid "Templates"
+msgstr "Samfura"
+
+#: includes/settings.php thold_graph.php
+msgid "Threshold"
+msgstr "Iyaka"
+
+#: includes/settings.php
+msgid "A template with that Data Source already exists!"
+msgstr "Samfuri mai wannan Tushen Bayanai yana nan tuni!"
+
+#: includes/settings.php
+msgid "Configure Thresholds"
+msgstr "Saita Iyakoki"
+
+#: includes/settings.php
+msgid "Configure Threshold Templates"
+msgstr "Saita Samfuran Iyaka"
+
+#: includes/settings.php
+msgid "Manage Notification Lists"
+msgstr "Sarrafa Jerin Sanarwa"
+
+#: includes/settings.php
+msgid "View Thresholds"
+msgstr "Duba Iyakoki"
+
+#: includes/settings.php
+msgid "Normal User"
+msgstr "Mai Amfani na Yau da Kullum"
+
+#: includes/settings.php
+msgid "Template Editor"
+msgstr "Mai Gyaran Samfuri"
+
+#: includes/settings.php
+msgid "General Administration"
+msgstr "Gudanarwa ta Gabaɗaya"
+
+#: includes/settings.php
+msgid "Device Up/Down Notification Settings"
+msgstr "Saitunan Sanarwar Tashi/Faɗuwar Na'ura"
+
+#: includes/settings.php
+msgid "Threshold Up/Down Email Notification"
+msgstr "Sanarwar Imel ta Sama/Ƙasa ta Iyaka"
+
+#: includes/settings.php notify_lists.php
+msgid "Global List"
+msgstr "Jerin Gabaɗaya"
+
+#: includes/settings.php
+msgid "List Below"
+msgstr "Jeri a Ƙasa"
+
+#: includes/settings.php
+msgid "Global and List Below"
+msgstr "Gabaɗaya da Jerin da Ke Ƙasa"
+
+#: includes/settings.php
+msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
+msgstr "Wane Irin Jerin Sanarwa ya kamata a yi amfani da shi don al'amuran Tashi/Faduwar Na'ura?"
+
+#: includes/settings.php notify_queue.php
+msgid "Notification List"
+msgstr "Jerin Sanarwa"
+
+#: includes/settings.php
+msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
+msgstr "Waɗanne Jerin Sanarwa ya kamata a sanar da su game da al'amuran Tashi/Faduwar Na'ura?"
+
+#: includes/settings.php
+msgid "Host Failure Count"
+msgstr "Adadin Gazawar Mai Masauki"
+
+#: includes/settings.php
+msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
+msgstr "Adadin Tazarar Tattara Bayanai da wannan Mai Masauki dole ne ya kasance a Kashe kafin Thold ya rubuta kuskure kuma ya ba da rahoton Mai Masauki a matsayin A Kashe. Tsohuwar ƙima ita ce 0 (yi amfani da saitin Cacti)"
+
+#: includes/settings.php
+msgid "Use Cacti Setting"
+msgstr "Yi amfani da Saitin Cacti"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Interval"
+msgstr "Tazarar Tattara Bayanai %d"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Polling Intervals"
+msgstr "Tazarorin Tattara Bayanai %d"
+
+#: includes/settings.php
+msgid "Alerting/Thold"
+msgstr "Faɗakarwa/Thold"
+
+#: includes/settings.php notify_lists.php
+msgid "General"
+msgstr "Gabaɗaya"
+
+#: includes/settings.php
+msgid "Disable All Thresholds"
+msgstr "Kashe Duk Iyakoki"
+
+#: includes/settings.php
+msgid "Checking this box will disable Alerting on all Thresholds.  This can be used when it is necessary to perform maintenance on your network."
+msgstr "Yin alama a wannan akwatin zai kashe Faɗakarwa a kan dukkan Iyakoki. Ana iya amfani da wannan lokacin da ya zama dole a yi gyara a kan hanyar sadarwarka."
+
+#: includes/settings.php
+msgid "Auto Create Thresholds"
+msgstr "Ƙirƙiri Iyakoki da Kansa"
+
+#: includes/settings.php
+msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
+msgstr "Idan aka zaɓa, yayin gudanar da sarrafa kai tsaye, ko yayin ƙirƙira/ajiye Na'ura, za a ƙirƙiri dukkan Iyakoki da ke da alaƙa da Samfurin Na'ura."
+
+#: includes/settings.php
+msgid "Consider Unknown Data as Zero"
+msgstr "Ɗauki Bayanan da Ba a Sani Ba a Matsayin Sifili"
+
+#: includes/settings.php
+msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
+msgstr "Lokacin duba Iyakoki, idan Tushen Bayanai ya dawo da Bayanan da ba a sani ba ('U'), ɗauki ƙimar a matsayin sifili don duba Iyaka. Haka kuma za ka iya kunna rubuta wannan matsalar a rajista."
+
+#: includes/settings.php
+msgid "Default Management Status"
+msgstr "Matsayin Gudanarwa na Asali"
+
+#: includes/settings.php
+msgid "Default Threshold management filter status."
+msgstr "Matsayin tacewar gudanar da Iyaka na asali."
+
+#: includes/settings.php notify_lists.php thold.php
+msgid "Any"
+msgstr "Kowane"
+
+#: includes/settings.php thold.php thold_graph.php
+msgid "Breached or Triggered"
+msgstr "An Keta ko An Tada"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Breached"
+msgstr "An Keta Iyaka"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+msgid "Triggered"
+msgstr "An tada"
+
+#: includes/settings.php notify_lists.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Enabled"
+msgstr "An kunna"
+
+#: includes/settings.php
+msgid "Empty ifHighSpeed Default"
+msgstr "Tsohuwar Ƙimar ifHighSpeed idan Babu Komai"
+
+#: includes/settings.php
+msgid "When calculating Expression Thresholds, if the ifHighSpeed and ifSpeed come back as zero, use the following ifHighSpeed setting instead.  Default ifHighSpeed will be 10000 for 10GE interfaces."
+msgstr "Lokacin da ake lissafin Iyakokin Furci, idan ifHighSpeed da ifSpeed suka dawo a matsayin sifili, yi amfani da wannan saitin ifHighSpeed a madadinsa. Tsohon ifHighSpeed zai zama 10000 don musayar 10GE."
+
+#: includes/settings.php
+msgid "Notification Preferences"
+msgstr "Zaɓuɓɓukan Sanarwa"
+
+#: includes/settings.php
+msgid "Disable Legacy Notifications"
+msgstr "Kashe Tsofaffin Sanarwa"
+
+#: includes/settings.php
+msgid "Checking this box will disable Legacy Alerting on all Thresholds.  Legacy Alerting is defined as any Specific Email Alerts not associated with a Notification List."
+msgstr "Yin alama a wannan akwatin zai kashe Tsohuwar Faɗakarwa a kan dukkan Iyakoki. Ana bayyana Tsohuwar Faɗakarwa a matsayin duk wata Keɓantacciyar Faɗakarwar Imel da ba ta da alaƙa da Jerin Sanarwa."
+
+#: includes/settings.php
+msgid "Threshold Notification Templated"
+msgstr "Sanarwar Iyaka Mai Samfuri"
+
+#: includes/settings.php
+msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
+msgstr "Idan aka zaɓa, yayin ƙirƙirar Samfurin Iyaka, Samfurin Iyaka ne zai mallaki Saitunan Sanarwa nasa ta tsoho."
+
+#: includes/settings.php
+msgid "Enable Command Execution"
+msgstr "Kunna Aiwatar da Umarni"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
+msgstr "Yin alama a wannan akwatin zai kunna ikon gudanar da umarnai lokacin ketare Iyaka da lokutan dawowa daidai."
+
+#: includes/settings.php
+msgid "Enable Per Thold Notification"
+msgstr "Kunna Sanarwa ga Kowane Thold"
+
+#: includes/settings.php
+msgid "Checking this box will enable the ability to maintain custom Email bodies for Thresholds."
+msgstr "Yin alama a wannan akwatin zai kunna ikon kiyaye rubutun Imel na musamman don Iyakoki."
+
+#: includes/settings.php
+msgid "Enable Notification Queue"
+msgstr "Kunna Layin Jiran Sanarwa"
+
+#: includes/settings.php
+msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
+msgstr "Yin alama a wannan akwatin zai mayar da Thold daga yin Sanarwa kai tsaye zuwa amfani da ko dai Notification Daemon, ko sanarwoyin da Mai Tattara Bayanai na Sanarwa ke yi a waje."
+
+#: includes/settings.php
+msgid "Enable Sending Alert Emails to Warning Notification Lists"
+msgstr "Kunna Aika Imel ɗin Faɗakarwa zuwa Jerin Sanarwoyin Gargaɗi"
+
+#: includes/settings.php
+msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
+msgstr "Yi alama a wannan akwatin idan kana son masu karɓa a Jerin Sanarwar Gargaɗi su karɓi Imel na Faɗakarwa ƙari ga masu karɓa a jerin Sanarwar Faɗakarwa. Wannan ya shafi lokacin da Sanarwar Gargaɗi ke zuwa ga Masu Gudanarwa kuma Sanarwar Faɗakarwa ke zuwa ga Hukumar Gudanarwa."
+
+#: includes/settings.php
+msgid "Threshold Daemon"
+msgstr "Daemon na Iyaka"
+
+#: includes/settings.php
+msgid "Enable Threshold Daemon"
+msgstr "Kunna Daemon na Iyaka"
+
+#: includes/settings.php
+msgid "Checking this box will enable the use of a dedicated Threshold daemon. This can be used to increase system performance and/or to distribute Threshold monitoring to a separate server."
+msgstr "Yin alama a wannan akwatin zai kunna amfani da keɓantaccen Threshold daemon. Ana iya amfani da wannan don ƙara ƙarfin aikin tsarin da/ko raba kulawar Iyaka zuwa wata sabar daban."
+
+#: includes/settings.php
+msgid "Force Threshold Daemon Debug"
+msgstr "Tilasta Binciken Kuskure na Daemon ɗin Iyaka"
+
+#: includes/settings.php
+msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
+msgstr "Yin alama a wannan akwatin zai kunna binciken kuskure na Threshold Daemon lokacin da yake aiki daga SystemD ko ta layin umarni. Wannan sauyi yana aiki nan take kuma zai fara aiki da zarar zagayen Iyaka na gaba ya fara."
+
+#: includes/settings.php
+msgid "Daemon Down Notification Frequency"
+msgstr "Yawan Sanarwar Faɗuwar Daemon"
+
+#: includes/settings.php
+msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
+msgstr "Idan an gano Thold Daemon ya daina aiki, a aika sanarwar Imel a wannan mitar lokaci."
+
+#: includes/settings.php
+#, php-format
+msgid "Every %d Hour"
+msgstr "Kowace Sa'a %d"
+
+#: includes/settings.php
+msgid "Daemon Threads"
+msgstr "Zaruruwan Daemon"
+
+#: includes/settings.php
+msgid "The number of daemon threads to be handled by the Threshold Daemon."
+msgstr "Adadin zaren aikin daemon da Threshold Daemon zai sarrafa."
+
+#: includes/settings.php
+msgid "1 Process"
+msgstr "Aiki 1"
+
+#: includes/settings.php
+#, php-format
+msgid "%d Processes"
+msgstr "Ayyuka %d"
+
+#: includes/settings.php
+msgid "Logging"
+msgstr "Rajista"
+
+#: includes/settings.php
+msgid "Log Threshold Breaches"
+msgstr "Yi Rajistar Ketare Iyaka"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold failures to the Cacti Log."
+msgstr "Kunna adana rajistar duk gazawar Iyaka zuwa Rajistar Cacti."
+
+#: includes/settings.php
+msgid "Show Data Source in Log"
+msgstr "Nuna Tushen Bayanai a cikin Rajista"
+
+#: includes/settings.php
+msgid "Show the Data Source name in the Log if not present."
+msgstr "Nuna sunan Tushen Bayanai a cikin Rajista idan ba ya nan."
+
+#: includes/settings.php
+msgid "Log Threshold Changes"
+msgstr "Yi Rajistar Sauye-sauyen Iyaka"
+
+#: includes/settings.php
+msgid "Enable logging of all Threshold changes to the Cacti Log."
+msgstr "Kunna adana rajistar duk sauye-sauyen Iyaka zuwa Rajistar Cacti."
+
+#: includes/settings.php
+msgid "Debug Log"
+msgstr "Rajistar Gano Kuskure"
+
+#: includes/settings.php
+msgid "Enable logging of debug messages with Threshold"
+msgstr "Kunna adana rajistar saƙonnin gyaran kuskure tare da Iyaka"
+
+#: includes/settings.php
+msgid "Alert Log Retention"
+msgstr "Adana Rajistar Faɗakarwa"
+
+#: includes/settings.php
+msgid "Keep Threshold Logs for this number of days."
+msgstr "Ajiye Rajistan Iyaka na wannan adadin kwanaki."
+
+#: includes/settings.php
+msgid "Log action Consider Unknown Data as Zero"
+msgstr "Yi rajistar matakin ɗaukar bayanan da ba a sani ba a matsayin sifili"
+
+#: includes/settings.php
+msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
+msgstr "Lokacin da aka kunna 'Ɗauki Bayanan da Ba a Sani Ba a Matsayin Sifili', a rubuta lokacin da hakan ya faru"
+
+#: includes/settings.php thold.php thold_templates.php
+msgid "Syslog Settings"
+msgstr "Saitunan Syslog"
+
+#: includes/settings.php
+msgid "Syslog Enabled"
+msgstr "An kunna Syslog"
+
+#: includes/settings.php
+msgid "If checked, when creating a new Threshold, by default new Threshold events will be sent to your local syslog.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Idan aka zaɓa, yayin ƙirƙirar sabuwar Iyaka, ta tsoho za a aika sabbin abubuwan da suka faru na Iyaka zuwa syslog na gida. Wannan saitin saiti ne na farko. Saitunan Iyaka ne ke ƙayyade ainihin sarrafa syslog."
+
+#: includes/settings.php
+msgid "Default Priority/Level"
+msgstr "Fifiko/Mataki na Asali"
+
+#: includes/settings.php
+msgid "This is the default Priority/Level that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Wannan shine Fifiko/Mataki na asali da Thold zai yi amfani da shi don aika saƙonnin syslog. Wannan saitin tsohon saiti ne. Saitunan Iyaka su ne ke ƙayyade ainihin sarrafa syslog."
+
+#: includes/settings.php
+msgid "Default Facility"
+msgstr "Sashe na Asali"
+
+#: includes/settings.php
+msgid "This is the default Facility that Thold will use to send syslog messages.  This setting is a preset.  Threshold settings dictate actual syslog control."
+msgstr "Wannan shine Rukunin (Facility) na asali da Thold zai yi amfani da shi don aika saƙonnin syslog. Wannan saitin tsohon saiti ne. Saitunan Iyaka su ne ke ƙayyade ainihin sarrafa syslog."
+
+#: includes/settings.php
+msgid "Alert Presets"
+msgstr "Saitunan Farko na Faɗakarwa"
+
+#: includes/settings.php
+msgid "Weekend exemptions"
+msgstr "Keɓancewar ƙarshen mako"
+
+#: includes/settings.php
+msgid "If this is checked, Thold will not run on weekends."
+msgstr "Idan an zaɓi wannan, Thold ba zai yi aiki a ƙarshen mako ba."
+
+#: includes/settings.php
+msgid "Default Trigger Count"
+msgstr "Adadin Tada Faɗakarwa na Asali"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the Threshold for an Alert to be raised."
+msgstr "Adadin lokuta a jere na asali da Tushen Bayanai dole ya karya Iyaka kafin a tada Faɗakarwa."
+
+#: includes/settings.php
+msgid "Re-Alerting"
+msgstr "Sake faɗakarwa"
+
+#: includes/settings.php
+msgid "Repeat Alert after specified number of poller cycles."
+msgstr "Maimaita Faɗakarwa bayan ƙayyadadden adadin zagayen mai tattara bayanai."
+
+#: includes/settings.php
+msgid "Baseline Presets"
+msgstr "Zaɓuɓɓukan Ma'aunin Asali"
+
+#: includes/settings.php
+msgid "Baseline Time Range Default"
+msgstr "Tsohon Tsawon Lokacin Ma'aunin Asali"
+
+#: includes/settings.php
+msgid "This is the default value used in creating Thresholds or templates."
+msgstr "Wannan shine tsohuwar ƙimar da ake amfani da ita wajen ƙirƙirar Iyakoki ko samfura."
+
+#: includes/settings.php
+msgid "Baseline Trigger Count"
+msgstr "Adadin Kunna Ma'aunin Asali"
+
+#: includes/settings.php
+msgid "Default number of consecutive times the Data Source must be in breach of the calculated Baseline Threshold for an Alert to be raised."
+msgstr "Adadin lokuta a jere na asali da Tushen Bayanai dole ya karya Iyakar Tushe da aka lissafa kafin a tada Faɗakarwa."
+
+#: includes/settings.php
+msgid "Baseline Deviation Percentage"
+msgstr "Kashi na Karkatar Ma'aunin Asali"
+
+#: includes/settings.php
+msgid "SNMP Notification Options"
+msgstr "Zaɓuɓɓukan Sanarwar SNMP"
+
+#: includes/settings.php
+msgid "SNMP Notifications"
+msgstr "Sanarwoyin SNMP"
+
+#: includes/settings.php
+msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
+msgstr "Za a aika saƙonnin matsayin iyaka (informs/traps) zuwa ga masu karɓar sanarwar SNMP. Wannan ya haɗa da Faɗakarwa, Gargaɗi da tarkon Maido da Matsayi ta tsohuwa. Lura: Wannan fasalin yana buƙatar ƙarin manhajar Cacti SNMPAgent."
+
+#: includes/settings.php
+msgid "Disable Warning Notifications"
+msgstr "Kashe Sanarwar Gargaɗi"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when a warning Threshold has been breached."
+msgstr "Idan an zaɓi wannan, Iyaka ba za ta aika sanarwa ba lokacin da aka keta Iyakar gargaɗi."
+
+#: includes/settings.php
+msgid "Disable Restoration Notifications"
+msgstr "Kashe Sanarwar Dawo da Aiki"
+
+#: includes/settings.php
+msgid "If this is checked, Threshold will not send a notification when the Threshold has returned to normal status."
+msgstr "Idan an zaɓi wannan, Iyaka ba za ta aika sanarwa ba lokacin da Iyaka ta koma matsayi na al'ada."
+
+#: includes/settings.php
+msgid "Emailing Options"
+msgstr "Zaɓuɓɓukan Aika Imel"
+
+#: includes/settings.php
+msgid "Send Emails with Urgent Priority"
+msgstr "Aika Imel da Fifiko na Gaggawa"
+
+#: includes/settings.php
+msgid "Allows you to set Emails with urgent priority"
+msgstr "Yana ba ka damar saita Imel da fifikon gaggawa"
+
+#: includes/settings.php
+msgid "Send Alerts as Text"
+msgstr "Aika Faɗakarwa a Matsayin Rubutu"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Alerts to be sent as plain text Emails with no graph.  The default is HTML Emails with the graph embedded in the Email."
+msgstr "Idan aka zaɓa, wannan zai sa a aika dukkan Faɗakarwa a matsayin Imel na rubutu tsantsa ba tare da jadawali ba. Tsoffin saituna sune Imel na HTML tare da jadawali a ciki."
+
+#: includes/settings.php
+msgid "Send Email separately for each address"
+msgstr "Aika Imel daban-daban ga kowane adireshi"
+
+#: includes/settings.php
+msgid "If checked, this will cause all Emails to be sent separately for each address."
+msgstr "Idan aka zaɓa, wannan zai sa a aika dukkan Imel daban-daban ga kowane adireshi."
+
+#: includes/settings.php
+msgid "From Email Address"
+msgstr "Adireshin Imel na Mai Aikawa"
+
+#: includes/settings.php
+msgid "This is the Email address that the Threshold will appear from."
+msgstr "Wannan shine adireshin Imel da Iyaka za ta bayyana kamar daga gare shi ne."
+
+#: includes/settings.php
+msgid "From Name"
+msgstr "Sunan Mai Aikawa"
+
+#: includes/settings.php
+msgid "This is the actual name that the Threshold will appear from."
+msgstr "Wannan shine ainihin sunan da Iyaka za ta bayyana kamar daga gare shi ne."
+
+#: includes/settings.php
+msgid "Device Notification Options"
+msgstr "Zaɓuɓɓukan Sanarwar Na'ura"
+
+#: includes/settings.php
+msgid "Enable Notifications"
+msgstr "Kunna Sanarwoyi"
+
+#: includes/settings.php
+msgid "Enable Dead/Recovering host notification"
+msgstr "Kunna sanarwar mai masauki da ya mutu/ke farfaɗowa"
+
+#: includes/settings.php
+msgid "Single Email Notification"
+msgstr "Sanarwar Imel Ɗaya"
+
+#: includes/settings.php
+msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
+msgstr "Ana goyon baya don Jerin Sanarwa da Layin Sanarwa kaɗai.  Idan akwai Sanarwar Na'ura da Ta Tsaya a cikin zagaye guda na sarrafawa.  Aika Imel guda ɗaya kawai ga masu karɓar Jerin Sanarwa don dukkan Na'urori."
+
+#: includes/settings.php
+msgid "Single Email Notification Subject"
+msgstr "Taken Sanarwar Imel Ɗaya"
+
+#: includes/settings.php
+msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
+msgstr "Wannan shine Batun Imel da za a yi amfani da shi don dukkan Imel na Sanarwar Imel Guda Ɗaya don duka Na'urori masu Aiki da Waɗanda Ba Su Aiki."
+
+#: includes/settings.php
+msgid "Device Notification Delay Options"
+msgstr "Zaɓuɓɓukan Jinkirin Sanarwar Na'ura"
+
+#: includes/settings.php
+msgid "Notification Delay"
+msgstr "Jinkirin Sanarwa"
+
+#: includes/settings.php
+msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
+msgstr "Idan saƙonnin Sanarwar Na'ura da Ta Sauka suka zo da yawa lokaci guda, Cacti za ta iya dakatar da aika waɗannan Sanarwoyin na wani ɗan lokaci don ganin ko matsalar ta wucin gadi ce kafin ta aika su.  Zaɓi iyakar Sanarwar Na'ura da Ta Sauka kafin a Fara Dakatarwar."
+
+#: includes/settings.php
+msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
+msgstr "Idan ka zaɓi jinkirta Sanarwa don yawan ambaliyar Sanarwar Na'urorin da Suka Sauka, tsawon wane lokaci za ka jira kafin a bar a sarrafa sanarwar?"
+
+#: includes/settings.php
+msgid "Device Notification Email Options"
+msgstr "Zaɓuɓɓukan Imel ɗin Sanarwar Na'ura"
+
+#: includes/settings.php
+msgid "Global Notification Email"
+msgstr "Imel na Sanarwa na Gabaɗaya"
+
+#: includes/settings.php
+msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
+msgstr "Wannan shine Adireshin Imel da za a aika Sanarwar Na'ura da Ta Mutu idan an zaɓi Jerin Sanarwa na Duniya."
+
+#: includes/settings.php
+msgid "Down Subject"
+msgstr "Taken Daina Aiki"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
+msgstr "Wannan shine batun Imel da za a yi amfani da shi don Saƙonnin Na'ura Da Ta Tsaya. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (tsawon lokacin aiki na ƙarshe idan saƙon tsayawa ne) &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
+msgstr "Kuskuren Na'ura: <DESCRIPTION> (<HOSTNAME>) ta daina aiki"
+
+#: includes/settings.php
+msgid "Down Message"
+msgstr "Saƙon Daina Aiki"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Wannan shine saƙon da za a nuna a matsayin jikin saƙo na dukkan Saƙonnin Na'ura Mai Aiki / Da Ta Tsaya (Haruffa 1024 IYA). An yarda da HTML, amma za a cire shi don Imel na rubutu kaɗai. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (tsawon lokacin aiki na ƙarshe idan saƙon tsayawa ne) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
+msgstr "Kuskuren Tsari : <DESCRIPTION> (<HOSTNAME>) yana <DOWN/UP><br><br>Wuri: <SITE><br>Mazauni: <LOCATION><br>Dalili: <MESSAGE><br>Matsakaicin amsar tsari: <AVG_TIME> ms<br>Samuwar tsari: <AVAILABILITY><br>Jimillar Bincike Tun Sharewa: <TOT_POLL><br>Jimillar Binciken da Ya Gaza: <FAIL_POLL><br>Ranar Ƙarshe da Aka Bincika a ƘASA : <LAST_FAIL><br>Tsawon Lokacin da Na'ura Ta Yi a SAMA: <DOWNTIME><br>BAYANAN KULA: <NOTES><br>BAYANAN KULA na Na'ura: <DNOTES>"
+
+#: includes/settings.php
+msgid "Recovering Subject"
+msgstr "Jigon farfaɗowa"
+
+#: includes/settings.php
+msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+msgstr "Wannan shine batun Imel da za a yi amfani da shi don Saƙonnin Na'ura Da Ke Farfaɗowa. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
+msgstr "Sanarwar Na'ura: <DESCRIPTION> (<HOSTNAME>) ta dawo daga yanayin daina aiki"
+
+#: includes/settings.php
+msgid "Recovering Message"
+msgstr "Saƙon farfaɗowa"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Wannan shine saƙon da za a nuna a matsayin jikin saƙo na dukkan Saƙonnin Na'ura Mai Aiki / Da Ta Tsaya (Haruffa 1024 IYA). An yarda da HTML, amma za a cire shi don Imel na rubutu kaɗai. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+
+#: includes/settings.php
+msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
+msgstr "<br>Matsayin tsarin <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Wuri: <SITE><br>Muhalli: <LOCATION><br>Martanin ping na yanzu: <CUR_TIME> ms<br>Matsakaicin martanin tsarin: <AVG_TIME> ms<br>Samuwar tsarin: <AVAILABILITY><br>Jimillar bincike tun lokacin sharewa: <TOT_POLL><br>Jimillar binciken da suka kasa: <FAIL_POLL><br>Ranar bincike ta ƙarshe da yake AIKI: <LAST_FAIL><br>Na'ura da ta taɓa KASANCEWA A KASHE na tsawon: <DOWNTIME><br><br>Bayanin SNMP:<br>Suna - <SNMP_HOSTNAME><br>Muhalli - <SNMP_LOCATION><br>Lokacin aiki - <UPTIMETEXT> (<UPTIME> ms)<br>Tsari - <SNMP_SYSTEM><br><br>LURA: <NOTES><br>Bayanin Na'ura: <DNOTES>"
+
+#: includes/settings.php
+msgid "Status Change Command"
+msgstr "Umarnin Canza Matsayi"
+
+#: includes/settings.php
+msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+msgstr "Lokacin da Na'ura ta canza yanayi daga hangen Cacti (UP zuwa DOWN ko DOWN zuwa RECOVERING/UP), gudanar da wannan umarnin. Wannan umarnin BAI KAMATA ya ƙunshi hujjojin layin umarni ba. Duk da haka, ana iya ɗaukar waɗannan masu canji daga muhallin rubutun:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
+
+#: includes/settings.php
+msgid "Alert/Warning Message Defaults"
+msgstr "Tsoffin Saƙonnin Faɗakarwa/Gargaɗi"
+
+#: includes/settings.php
+msgid "Threshold Alert Message"
+msgstr "Saƙon Faɗakarwar Iyaka"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Wannan shi ne saƙon da za a nuna a saman duk Faɗakarwar Iyaka (Iyakar Haruffa 1024). Ana iya amfani da HTML, amma za a cire shi ga Imel na rubutu kaɗai. Akwai alamomin maye gurbi da dama na yau da kullum da za a iya amfani da su waɗanda suka haɗa da:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
+
+#: includes/settings.php
+msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "An fitar da Faɗakarwa da ke buƙatar kulawarka. <br><br><strong>Na'ura</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Saƙo</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Warning Message"
+msgstr "Saƙon Gargaɗin Iyaka"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Wannan shi ne saƙon da za a nuna a saman duk gargaɗin Iyaka (Iyakar Haruffa 1024). Ana iya amfani da HTML, amma za a cire shi ga Imel na rubutu kaɗai. Akwai alamomin maye gurbi da dama na yau da kullum da za a iya amfani da su waɗanda suka haɗa da:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#062 &#60DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "An fitar da Gargaɗi da ke buƙatar kulawarku. <br><br><strong>Na'ura</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Saƙo</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/settings.php
+msgid "Threshold Restoral Message"
+msgstr "Saƙon Dawowar Iyaka zuwa Daidai"
+
+#: includes/settings.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Wannan shi ne saƙon da za a nuna a saman duk sanarwar dawowar Iyaka zuwa daidai (Iyakar Haruffa 1024). Ana iya amfani da HTML, amma za a cire shi ga Imel na rubutu kaɗai. Akwai alamomin maye gurbi da dama na yau da kullum da za a iya amfani da su waɗanda suka haɗa da:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#062 &#60DNOTES&#062"
+
+#: includes/settings.php
+msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
+msgstr "Wata Iyaka ta koma matsayi na yau da kullun. <br><br><strong>Na'ura</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Saƙo</strong>: <SUBJECT><br><br><GRAPH>"
+
+#: includes/tab.php
+msgid "Thold"
+msgstr "Thold"
+
+#: includes/webapi.php
+msgid "Threshold(s) Already Exists - No Thresholds Created"
+msgstr "Iyaka/Iyakoki Sun Rigaya Sun Wanzu - Ba a Ƙirƙiri Wata Iyaka ba"
+
+#: includes/webapi.php setup.php
+msgid "Create Threshold from Template"
+msgstr "Ƙirƙiri Iyaka daga Samfuri"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Type ]"
+msgstr "Jagoran Ƙirƙirar Iyaka [ Zaɓi Nau'in Iyaka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Jagoran Ƙirƙirar Iyaka [ Shigar da Bayanai na Musamman kuma danna 'Ƙirƙira' don Ƙirƙirar Iyakarka da Jadawali ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
+msgstr "Jagoran Ƙirƙirar Iyaka [ Zaɓi Layukan Tambayar Bayanai da Suke Akwai ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Device ]"
+msgstr "Jagoran Ƙirƙirar Iyaka [ Zaɓi Na'ura ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph Template ]"
+msgstr "Jagoran Ƙirƙirar Iyaka [ Zaɓi Samfurin Jadawali ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Threshold Template ]"
+msgstr "Jagoran Ƙirƙirar Iyaka [ Zaɓi Samfurin Iyaka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Press 'Create' to Create your Threshold ]"
+msgstr "Jagoran Ƙirƙirar Iyaka [ Danna 'Ƙirƙira' don Ƙirƙirar Iyakarka ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Data Source ]"
+msgstr "Jagoran Ƙirƙirar Iyaka [ Zaɓi Tushen Bayanai ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Wizard [ Select a Graph ]"
+msgstr "Jagoran Ƙirƙirar Iyaka [ Zaɓi Jadawali ]"
+
+#: includes/webapi.php
+msgid "Threshold Creation Criteria"
+msgstr "Sharuddan Ƙirƙirar Iyaka"
+
+#: includes/webapi.php
+msgid "Create Type"
+msgstr "Nau'in Ƙirƙira"
+
+#: includes/webapi.php
+msgid "Select a Threshold Type to use for creating this Threshold."
+msgstr "Zaɓi Nau'in Iyaka da za a yi amfani da shi wajen ƙirƙirar wannan Iyakar."
+
+#: includes/webapi.php
+msgid "Select a Threshold Type"
+msgstr "Zaɓi Nau'in Iyaka"
+
+#: includes/webapi.php
+msgid "Non Templated"
+msgstr "Ba Tare da Samfuri Ba"
+
+#: includes/webapi.php
+msgid "Threshold Template"
+msgstr "Samfurin Iyaka"
+
+#: includes/webapi.php
+msgid "Select a Threshold Template that the Graph and Threshold will be based upon."
+msgstr "Zaɓi Samfurin Iyaka wanda za a gina Jadawali da Iyaka a kansa."
+
+#: includes/webapi.php setup.php
+msgid "Select a Threshold Template"
+msgstr "Zaɓi Samfurin Iyaka"
+
+#: includes/webapi.php
+msgid "Graph Template"
+msgstr "Samfurin Jadawali"
+
+#: includes/webapi.php
+msgid "Select a Graph Template to use for the Graph to be created."
+msgstr "Zaɓi Samfurin Jadawali da za a yi amfani da shi don ƙirƙirar Jadawalin."
+
+#: includes/webapi.php
+msgid "Select a Graph Template"
+msgstr "Zaɓi Samfurin Jadawali"
+
+#: includes/webapi.php thold_graph.php
+msgid "Device"
+msgstr "Na'ura"
+
+#: includes/webapi.php
+msgid "Select a Device to use for the Threshold and Graph to be created."
+msgstr "Zaɓi Na'ura da za a yi amfani da ita don Iyaka da Jadawali da za a ƙirƙira."
+
+#: includes/webapi.php
+msgid "Select a Device"
+msgstr "Zaɓi Na'ura"
+
+#: includes/webapi.php
+msgid "Select an Available Item"
+msgstr "Zaɓi Abin Da Ake Da Shi"
+
+#: includes/webapi.php
+msgid "Data Query Item"
+msgstr "Abun Tambayar Bayanai"
+
+#: includes/webapi.php
+msgid "Select the applicable row from the Data Query for the Graph and Threshold."
+msgstr "Zaɓi layin da ya dace daga Binciken Bayanai don Jadawali da Iyaka."
+
+#: includes/webapi.php
+msgid "Creation Notes"
+msgstr "Bayanan Ƙirƙira"
+
+#: includes/webapi.php
+msgid "Important Note:"
+msgstr "Muhimmin Bayani:"
+
+#: includes/webapi.php
+msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
+msgstr "Wannan Iyaka za ta kasance da Samfuri. Lokacin amfani da zaɓin Samfurin Iyaka, za a nemi ku bayar da Samfurin Iyaka, Samfurin Jadawali, Na'ura da kuma wataƙila bayanin Abin Tambayar Bayanai kafin ku sami umarnin 'Ƙirƙira', inda a wannan lokacin, idan an yarda da duk wani bayanin Jadawali ko Tushen Bayanai da za a iya maye gurbinsa a matakin Samfurin Jadawali da Tushen Bayanai, za a nemi ku shigar da shi. Sannan, ta hanyar danna maɓallin 'Ƙirƙira', za a ƙirƙiri Jadawali da Iyaka a lokaci guda."
+
+#: includes/webapi.php
+msgid "Graph"
+msgstr "Jadawali"
+
+#: includes/webapi.php
+msgid "Select the Graph for the Threshold."
+msgstr "Zaɓi Jadawalin don Iyakar."
+
+#: includes/webapi.php
+msgid "Select a Graph"
+msgstr "Zaɓi Jadawali"
+
+#: includes/webapi.php thold_templates.php
+msgid "Data Source"
+msgstr "Tushen Bayanai"
+
+#: includes/webapi.php
+msgid "Select a Data Source for the Threshold."
+msgstr "Zaɓi Tushen Bayanai don Iyaka."
+
+#: includes/webapi.php
+msgid "Select a Data Source"
+msgstr "Zaɓi Tushen Bayanai"
+
+#: includes/webapi.php thold_templates.php
+msgid "Create"
+msgstr "Ƙirƙira"
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
+msgstr "Wannan Iyaka <b>BA</b> za ta kasance da Samfuri ba kuma za ta yi aiki ne kawai akan Jadawalai da ke akwai. Idan kuna son Ƙirƙirar Jadawali da Iyaka a lokaci guda, zaɓi Samfurin Iyaka daga jerin zaɓuɓɓuka kuma ku ci gaba har sai maɓallin 'Ƙirƙira' ya bayyana."
+
+#: includes/webapi.php
+msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
+msgstr "Wannan Iyaka <b>BA</b> za ta kasance da Samfuri ba. Za ku iya zaɓar ko dai Ta Jadawali inda za ku zaɓi Na'ura, Jadawali da Tushen Bayanai da ke akwai kafin ƙirƙirar Iyakarku, ko kuma za ku iya zaɓar Samfurin Iyaka wanda zai ba ku damar ƙirƙirar Iyaka Mara Samfuri da Jadawali daidai a lokaci guda"
+
+#: includes/webapi.php
+msgid "Selected Graph"
+msgstr "Jadawalin Da Aka Zaɓa"
+
+#: includes/webapi.php
+#, php-format
+msgid "Created graph: %s"
+msgstr "An ƙirƙiri zane: %s"
+
+#: notify_lists.php
+msgid "Duplicate"
+msgstr "Maimaituwa"
+
+#: notify_lists.php
+msgid "Associate"
+msgstr "Alaƙanta"
+
+#: notify_lists.php
+msgid "Disassociate"
+msgstr "Cire alaƙa"
+
+#: notify_lists.php thold_graph.php
+msgid "Devices"
+msgstr "Na'urori"
+
+#: notify_lists.php
+#, php-format
+msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
+msgstr "KUSKURE: Ba za ka iya sanya Imel ɗinka a layukan Zuwa da BCC duka biyu ba. Imel ɗin da ke ƙasa ba shi da inganci!<br><br>%s"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
+msgstr "Danna 'Ci gaba' don Share Jerin Sanarwa.  Duk wata Na'ura(ori) ko Iyaka(oki) da ke haɗe da Jerin za a mayar da ita zuwa tsohuwar saiti."
+
+#: notify_lists.php
+msgid "Delete Notification List(s)"
+msgstr "Share Jerin Sanarwa"
+
+#: notify_lists.php
+msgid "Click 'Continue' to Duplicate the following Notification List(s)."
+msgstr "Danna 'Ci gaba' don Kwafa waɗannan Jerin Sanarwa na gaba."
+
+#: notify_lists.php
+msgid "New List Name"
+msgstr "Sabon Sunan Jeri"
+
+#: notify_lists.php
+msgid "New Notification List"
+msgstr "Sabon Jerin Sanarwa"
+
+#: notify_lists.php
+msgid "Duplicate Notification List(s)"
+msgstr "Kwafin Jerin Sanarwa"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold Template(s)"
+msgstr "Samfurin/Samfuran Iyaka %s"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Association the Notification List '%s' with the Threshold Template(s) below."
+msgstr "Danna 'Ci gaba' don Haɗa Jerin Sanarwa '%s' da Samfurin/Samfuran Iyaka da ke ƙasa."
+
+#: notify_lists.php
+msgid "Warning Membership:"
+msgstr "Mambobin Gargaɗi:"
+
+#: notify_lists.php
+msgid "No Change"
+msgstr "Babu Canji"
+
+#: notify_lists.php
+msgid "Notification List Only"
+msgstr "Jerin Sanarwa Kaɗai"
+
+#: notify_lists.php
+msgid "Notification List, Retain Other Settings"
+msgstr "Jerin Sanarwa, Riƙe Sauran Saituna"
+
+#: notify_lists.php
+msgid "Alert Membership:"
+msgstr "Membobin Faɗakarwa:"
+
+#: notify_lists.php
+msgid "Associate Notification List(s)"
+msgstr "Alaƙanta Jerin Sanarwa"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds Template(s) below."
+msgstr "Danna 'Ci gaba' don Cire haɗin Jerin Sanarwa '%s' daga Samfurin/Samfuran Iyakoki da ke ƙasa."
+
+#: notify_lists.php
+msgid "Remove List"
+msgstr "Cire Jeri"
+
+#: notify_lists.php
+msgid "Disassociate Notification List(s)"
+msgstr "Cire Alaƙar Jerin Sanarwa"
+
+#: notify_lists.php
+#, php-format
+msgid "%s Threshold(s)"
+msgstr "Iyaka/Iyakoki %s"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Threshold(s) below."
+msgstr "Danna 'Ci gaba' don Haɗa Jerin Sanarwa '%s' da Iyaka(oki) da ke ƙasa."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Thresholds(s) below."
+msgstr "Danna 'Ci gaba' don Cire haɗin Jerin Sanarwa '%s' daga Iyaka(oki) da ke ƙasa."
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Associate the Notification List '%s' with the Device(s) below."
+msgstr "Danna 'Ci gaba' don Haɗa Jerin Sanarwa '%s' da Na'ura(ori) da ke ƙasa."
+
+#: notify_lists.php
+msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Za ka iya haɗa Iyakokin Na'urori su ma. Duk da haka, waɗannan Iyakokin Na'ura za su ba da damar a maye gurbin Jerin Sanarwar Iyaka."
+
+#: notify_lists.php
+msgid "Resulting Membership:"
+msgstr "Sakamakon Memba:"
+
+#: notify_lists.php
+msgid "Notification and Global Lists"
+msgstr "Jerukan Sanarwa da na Gaba ɗaya"
+
+#: notify_lists.php
+msgid "Device Threshold Warning Membership:"
+msgstr "Kasancewa cikin Gargaɗin Iyakar Na'ura:"
+
+#: notify_lists.php
+msgid "Device Threshold Alert Membership:"
+msgstr "Kasancewa cikin Faɗakarwar Iyakar Na'ura:"
+
+#: notify_lists.php
+#, php-format
+msgid "Click 'Continue' to Disassociate the Notification List '%s' from the Device(s) below."
+msgstr "Danna 'Ci gaba' don Cire haɗin Jerin Sanarwa '%s' daga Na'ura(ori) da ke ƙasa."
+
+#: notify_lists.php
+msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
+msgstr "Za ka iya raba Iyakokin Na'urori su ma. Duk da haka, waɗannan Iyakokin Na'ura za su ba da damar a maye gurbin Jerin Sanarwar Iyaka."
+
+#: notify_lists.php
+#, php-format
+msgid "[edit: %s]"
+msgstr "[gyara: %s]"
+
+#: notify_lists.php
+msgid "[new]"
+msgstr "[sabo]"
+
+#: notify_lists.php
+msgid "List General Settings"
+msgstr "Saitunan Gabaɗaya na Jeri"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "Name"
+msgstr "Suna"
+
+#: notify_lists.php
+msgid "Enter a name for this Notification List."
+msgstr "Shigar da suna don wannan Jerin Sanarwa."
+
+#: notify_lists.php thold_graph.php
+msgid "Description"
+msgstr "Bayani"
+
+#: notify_lists.php
+msgid "Enter a description for this Notification List."
+msgstr "Shigar da bayani don wannan Jerin Sanarwa."
+
+#: notify_lists.php
+msgid "To disable all notifications from this Notification List, you can simply disable it here."
+msgstr "Don kashe duk sanarwa daga wannan Jerin Sanarwa, za ka iya kashe shi anan kawai."
+
+#: notify_lists.php
+msgid "To Email Addresses"
+msgstr "Zuwa Adiresoshin Imel"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List."
+msgstr "Shigar da jerin adiresoshin Imel da aka raba da waƙafi don wannan Jerin Sanarwa."
+
+#: notify_lists.php
+msgid "BCC Email Addresses"
+msgstr "Adiresoshin Imel na BCC"
+
+#: notify_lists.php
+msgid "Enter a comma separated list of Email addresses for this Notification List to be blind copied."
+msgstr "Shigar da jerin adiresoshin Imel da aka raba da waƙafi don wannan Jerin Sanarwa da za a yi musu kwafin ɓoye (BCC)."
+
+#: notify_lists.php
+msgid "Email Style/Format File"
+msgstr "Fayil ɗin Salo/Tsarin Imel"
+
+#: notify_lists.php thold.php thold_templates.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Zaɓi fayil ɗin murfin html da CSS na musamman da za a yi amfani da shi. Wannan fayil ɗin yana ƙunshe da html da CSS don kewaye rahotonku. Idan ya ƙunshi fiye da CSS kawai, kuna buƙatar sanya alamar <REPORT> ta musamman a cikin fayil ɗin. Za a maye gurbin wannan alamar tsarin da abun cikin rahoton. Waɗannan fayilolin suna cikin kundin 'formats'."
+
+#: notify_lists.php
+msgid "Associated Devices"
+msgstr "Na'urori Masu Alaƙa"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Search"
+msgstr "Bincika"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Site"
+msgstr "Wuri"
+
+#: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
+msgid "None"
+msgstr "Babu"
+
+#: notify_lists.php
+msgid "Device Template"
+msgstr "Samfurin Na'ura"
+
+#: notify_lists.php
+msgid "Associated"
+msgstr "Mai Alaƙa"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Go"
+msgstr "Tafi"
+
+#: notify_lists.php notify_queue.php
+msgid "Set/Refresh Filters"
+msgstr "Saita/Sabunta Matatu"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Clear"
+msgstr "Share"
+
+#: notify_lists.php notify_queue.php
+msgid "Clear Filters"
+msgstr "Share Matatu"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "ID"
+msgstr "Lambar ID"
+
+#: notify_lists.php setup.php thold.php thold_graph.php
+msgid "Status"
+msgstr "Matsayi"
+
+#: notify_lists.php
+msgid "Associated Lists"
+msgstr "Jeruka Masu Alaƙa"
+
+#: notify_lists.php thold_graph.php
+msgid "Graphs"
+msgstr "Jadawalai"
+
+#: notify_lists.php thold_graph.php
+msgid "Data Sources"
+msgstr "Tusoshin Bayanai"
+
+#: notify_lists.php notify_queue.php thold_graph.php
+msgid "Hostname"
+msgstr "Sunan Mai Masauki"
+
+#: notify_lists.php
+msgid "Current List Only"
+msgstr "Jerin Yanzu Kaɗai"
+
+#: notify_lists.php
+msgid "Current and Global List(s)"
+msgstr "Jerin Yanzu da na Gabaɗaya"
+
+#: notify_lists.php
+msgid "No Associated Devices Found"
+msgstr "Ba a Sami Na'urori Masu Alaƙa ba"
+
+#: notify_lists.php
+msgid "Associated Thresholds"
+msgstr "Iyakoki Masu Alaƙa"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "Template"
+msgstr "Samfuri"
+
+#: notify_lists.php
+msgid "State"
+msgstr "Jiha"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "All"
+msgstr "Duka"
+
+#: notify_lists.php
+msgid "Warning Lists"
+msgstr "Jerin Gargaɗi"
+
+#: notify_lists.php
+msgid "Alert Lists"
+msgstr "Jerin Faɗakarwa"
+
+#: notify_lists.php thold.php thold_graph.php thold_templates.php
+msgid "Type"
+msgstr "Nau'i"
+
+#: notify_lists.php thold.php
+msgid "Templated"
+msgstr "An saita da Samfuri"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "No"
+msgstr "A'a"
+
+#: notify_lists.php notify_queue.php thold.php thold_graph.php
+#: thold_templates.php
+msgid "Yes"
+msgstr "Eh"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-LOW"
+msgstr "tushen-ƘASA"
+
+#: notify_lists.php thold.php thold_graph.php
+msgid "baseline-HIGH"
+msgstr "tushen-SAMA"
+
+#: notify_lists.php
+msgid "Select Users"
+msgstr "Zaɓi Masu Amfani"
+
+#: notify_lists.php
+msgid "Specific Emails"
+msgstr "Takamaiman Imel"
+
+#: notify_lists.php
+msgid "Current List"
+msgstr "Jerin Yanzu"
+
+#: notify_lists.php
+msgid "Unknown Threshold"
+msgstr "Iyaka da Ba a Sani Ba"
+
+#: notify_lists.php
+msgid "Log Only"
+msgstr "Rajista Kawai"
+
+#: notify_lists.php
+msgid "Editable"
+msgstr "Ana iya gyarawa"
+
+#: notify_lists.php
+msgid "Read Only"
+msgstr "Na Karatu Kawai"
+
+#: notify_lists.php
+msgid "No Thresholds Found"
+msgstr "Ba a Samu Iyakoki ba"
+
+#: notify_lists.php
+msgid "Associated Templates"
+msgstr "Samfura Masu Alaƙa"
+
+#: notify_lists.php notify_queue.php
+msgid "Rows"
+msgstr "Layuka"
+
+#: notify_lists.php
+msgid "Unknown Template"
+msgstr "Samfurin da Ba A Sani Ba"
+
+#: notify_lists.php thold_templates.php
+msgid "No Threshold Templates"
+msgstr "Babu Samfuran Iyaka"
+
+#: notify_lists.php
+msgid "Lists"
+msgstr "Jeruka"
+
+#: notify_lists.php
+msgid "List Name"
+msgstr "Sunan Jeri"
+
+#: notify_lists.php
+msgid "Emails"
+msgstr "Saƙonnin Imel"
+
+#: notify_lists.php
+msgid "No Notification Lists"
+msgstr "Babu Jerin Sanarwa"
+
+#: notify_queue.php
+msgid "Notification has been Suspended.  Press the Resume button to resume it"
+msgstr "An Dakatar da Sanarwa. Danna maɓallin Ci gaba don ci gaba da ita"
+
+#: notify_queue.php
+msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
+msgstr "An Ci gaba da Sanarwa. Danna maɓallin Dakatarwa don dakatar da ita"
+
+#: notify_queue.php
+msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
+msgstr "An cire Sanarwar da ke Jira daga rumbun adana bayanai. Sanarwar da aka riga aka aika waɗanda ba a share ba za su ci gaba da kasancewa har sai wa'adinsu ya ƙare."
+
+#: notify_queue.php
+msgid "Click 'Continue' to delete the following Notification."
+msgid_plural "Click 'Continue' to delete all following Notifications."
+msgstr[0] "Danna 'Ci gaba' don share Sanarwa mai zuwa."
+msgstr[1] "Danna 'Ci gaba' don share dukkan Sanarwoyi masu zuwa."
+
+#: notify_queue.php
+msgid "Delete Notification"
+msgid_plural "Delete Notifications"
+msgstr[0] "Share Sanarwa"
+msgstr[1] "Share Sanarwoyi"
+
+#: notify_queue.php
+#, php-format
+msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
+msgstr "Sanarwar Lamari [ Mai Amfani ya Dakatar da Sanarwa: %s, %s da suka wuce ]"
+
+#: notify_queue.php
+msgid "Event Notifications"
+msgstr "Sanarwar Lamari"
+
+#: notify_queue.php
+msgid "Topic"
+msgstr "Batu"
+
+#: notify_queue.php
+msgid "Processed"
+msgstr "An sarrafa"
+
+#: notify_queue.php
+msgid "Suspend"
+msgstr "Dakatar na ɗan lokaci"
+
+#: notify_queue.php
+msgid "Suspend Notification Processing"
+msgstr "Dakatar da Sarrafa Sanarwa na Ɗan Lokaci"
+
+#: notify_queue.php
+msgid "Resume"
+msgstr "Ci gaba"
+
+#: notify_queue.php
+msgid "Resume Notification Processing"
+msgstr "Ci gaba da Sarrafa Sanarwa"
+
+#: notify_queue.php
+msgid "Purge"
+msgstr "Sharewa Gaba Ɗaya"
+
+#: notify_queue.php
+msgid "Purge Notification Queue"
+msgstr "Share Jerin Sanarwa"
+
+#: notify_queue.php
+msgid "Notifications"
+msgstr "Sanarwowi"
+
+#: notify_queue.php
+msgid "The supported notification topic."
+msgstr "Batun sanarwa da ake goyon baya."
+
+#: notify_queue.php thold_graph.php
+msgid "Event Description"
+msgstr "Bayanin Lamari"
+
+#: notify_queue.php
+msgid "The name of the object as defined by the caller."
+msgstr "Sunan abin kamar yadda mai kira ya ayyana."
+
+#: notify_queue.php
+msgid "The hostname that was the source of this event."
+msgstr "Sunan mai masauki wanda ya kasance tushen wannan lamari."
+
+#: notify_queue.php
+msgid "The Notification List used if any."
+msgstr "Jerin Sanarwar da aka yi amfani da shi idan akwai."
+
+#: notify_queue.php
+msgid "Object ID"
+msgstr "ID na Abu"
+
+#: notify_queue.php
+msgid "The Object ID defined by the caller.  Generally its unique 'id'."
+msgstr "Object ID da mai kira ya ayyana.  Yawanci 'id' ɗinsa na musamman."
+
+#: notify_queue.php
+msgid "Event Time"
+msgstr "Lokacin Lamari"
+
+#: notify_queue.php
+msgid "The time of the event as defined by the caller."
+msgstr "Lokacin taron kamar yadda mai kira ya bayyana."
+
+#: notify_queue.php
+msgid "Has the Notification Event been processed."
+msgstr "Shin an sarrafa Abin da Ya Faru na Sanarwa."
+
+#: notify_queue.php
+msgid "Errors"
+msgstr "Kurakurai"
+
+#: notify_queue.php
+msgid "Did this notification result in an error.  Hover on the error column for details."
+msgstr "Shin wannan sanarwar ta haifar da kuskure ne.  Ajiye linzami a kan ginshiƙin kuskure don ƙarin bayani."
+
+#: notify_queue.php
+msgid "Attempts"
+msgstr "Yunƙuri"
+
+#: notify_queue.php
+msgid "The number of delivery attempts made for this notification."
+msgstr "Adadin yunƙurin isarwa da aka yi don wannan sanarwa."
+
+#: notify_queue.php
+msgid "Next Attempt"
+msgstr "Gwaji na Gaba"
+
+#: notify_queue.php
+msgid "When a failed notification is eligible for its next retry."
+msgstr "Lokacin da sanarwar da ta gaza ta cancanci sake gwadawa ta gaba."
+
+#: notify_queue.php
+msgid "Run Time"
+msgstr "Lokacin Gudana"
+
+#: notify_queue.php
+msgid "The time in seconds it took to process the event."
+msgstr "Lokacin da ya ɗauka a daƙiƙu don sarrafa taron."
+
+#: notify_queue.php
+msgid "Not Specified"
+msgstr "Ba a Bayyana Ba"
+
+#: notify_queue.php
+msgid "No Notifications"
+msgstr "Babu Sanarwa"
+
+#: setup.php
+msgid "Toggle Threshold VRULES Off"
+msgstr "Kashe VRULES na Iyaka"
+
+#: setup.php
+msgid "Toggle Threshold VRULES On"
+msgstr "Kunna VRULES na Iyaka"
+
+#: setup.php
+msgid "Create Threshold"
+msgstr "Ƙirƙiri Iyaka"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s)"
+msgstr "Faɗakarwar Sama ga %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s)"
+msgstr "Faɗakarwar Ƙasa ga %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s)"
+msgstr "Gargaɗin Sama ga %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s)"
+msgstr "Gargaɗin Ƙasa ga %s (%s)"
+
+#: setup.php
+#, php-format
+msgid "Alert Hi for %s (%s %%)"
+msgstr "Faɗakarwar Sama ga %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Alert Low for %s (%s %%)"
+msgstr "Faɗakarwar Ƙasa ga %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Hi for %s (%s %%)"
+msgstr "Gargaɗin Sama ga %s (%s %%)"
+
+#: setup.php
+#, php-format
+msgid "Warning Low for %s (%s %%)"
+msgstr "Gargaɗin Ƙasa ga %s (%s %%)"
+
+#: setup.php
+msgid "Threshold Alert/Warning Values"
+msgstr "Ƙimomin Faɗakarwa/Gargaɗi na Iyaka"
+
+#: setup.php
+msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
+msgstr "Danna 'Ci gaba' don sanya dukkan Iyakokin da suka dace ga waɗannan Na'ura/Na'urori."
+
+#: setup.php
+msgid "Create Threshold from Data Source"
+msgstr "Ƙirƙiri Iyaka daga Tushen Bayanai"
+
+#: setup.php
+msgid "Auto-create Thresholds"
+msgstr "Ƙirƙiri Iyakoki da Kansa"
+
+#: setup.php
+#, php-format
+msgid "Created %s thresholds"
+msgstr "An ƙirƙiri iyakoki %s"
+
+#: setup.php
+msgid "No Threshold(s) Created.  Threshold(s) Template not found."
+msgstr "Ba a Ƙirƙiri Iyaka/Iyakoki ba. Ba a samu Samfurin Iyaka/Iyakoki ba."
+
+#: setup.php
+msgid "The following Data Sources have no Threshold Templates associated with them"
+msgstr "Waɗannan Tusoshin Bayanai ba su da Samfuran Iyaka da ke da alaƙa da su"
+
+#: setup.php
+msgid "Click 'Continue' to create Thresholds for these Data Sources?"
+msgstr "Danna 'Ci gaba' don ƙirƙirar Iyakoki don waɗannan Tusoshin Bayanai?"
+
+#: setup.php
+msgid "Available Threshold Templates"
+msgstr "Samfuran Iyaka da Ake da Su"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Data Sources"
+msgstr "Babu Samfuran Iyaka da ke da alaƙa da waɗannan Tusoshin Bayanai"
+
+#: setup.php
+msgid "The following Graphs have no Threshold Templates associated with them"
+msgstr "Waɗannan Jadawalai ba su da Samfuran Iyaka da ke da alaƙa da su"
+
+#: setup.php
+msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
+msgstr "Danna 'Ci gaba' idan kuna son ƙirƙirar Iyaka (ko Iyakoki) don waɗannan Jadawali (ko Jadawalai)"
+
+#: setup.php
+msgid "There are no Threshold Templates associated with the following Graphs"
+msgstr "Babu Samfuran Iyaka da ke da alaƙa da waɗannan Jadawalai"
+
+#: setup.php
+msgid "Associated Threshold Templates"
+msgstr "Samfuran Iyaka masu Alaƙa"
+
+#: setup.php
+msgid "Threshold Exists"
+msgstr "Iyaka Tana Wanzuwa"
+
+#: setup.php
+msgid "Threshold Does Not Exist"
+msgstr "Iyaka Ba Ta Wanzu Ba"
+
+#: setup.php
+msgid "Delete Threshold Template Association"
+msgstr "Share Haɗin Samfurin Iyaka"
+
+#: setup.php
+msgid "No Associated Threshold Templates."
+msgstr "Babu Samfuran Iyaka Masu Alaƙa."
+
+#: setup.php
+msgid "Add Threshold Template"
+msgstr "Ƙara Samfurin Iyaka"
+
+#: setup.php
+msgid "Add"
+msgstr "Ƙara"
+
+#: setup.php
+msgid "Add Threshold Template to Device"
+msgstr "Ƙara Samfurin Iyaka zuwa Na'ura"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device."
+msgstr "Danna 'Ci gaba' don Share Samfurin Iyaka na gaba da za a cire haɗinsa daga Na'ura."
+
+#: setup.php
+#, php-format
+msgid "Threshold Template Name: %s"
+msgstr "Sunan Samfurin Iyaka: %s"
+
+#: setup.php
+msgid "Remove Threshold Template"
+msgstr "Cire Samfurin Iyaka"
+
+#: setup.php
+msgid "Add Threshold Template to Device Template"
+msgstr "Ƙara Samfurin Iyaka zuwa Samfurin Na'ura"
+
+#: setup.php
+msgid "Click 'Continue' to Delete the following Threshold Template will be disassociated from the Device Template."
+msgstr "Danna 'Ci gaba' don Share Samfurin Iyaka na gaba da za a cire haɗinsa daga Samfurin Na'ura."
+
+#: thold.php
+msgid "Either No Templates or Threshold(s) Already Exists - No Thresholds were created."
+msgstr "Ko dai Babu Samfura ko kuma Iyaka(oki) Sun Rigaya Sun Wanzu - Ba a ƙirƙiri wasu Iyakoki ba."
+
+#: thold.php
+msgid "You are not authorized to modify one or more of the Thresholds selected"
+msgstr "Ba ka da izinin gyara ɗaya ko fiye daga cikin Iyakokin da aka zaɓa"
+
+#: thold.php
+msgid "Click 'Delete' to delete the following Threshold(s)."
+msgstr "Danna 'Share' don share Iyaka/Iyakoki masu zuwa."
+
+#: thold.php
+msgid "Delete Threshold(s)"
+msgstr "Share Iyaka/Iyakoki"
+
+#: thold.php
+msgid "Click 'Continue' to enable the following Threshold(s)."
+msgstr "Danna 'Ci gaba' don kunna Iyaka/Iyakoki masu zuwa."
+
+#: thold.php
+msgid "Enable Threshold(s)"
+msgstr "Kunna Iyaka/Iyakoki"
+
+#: thold.php
+msgid "Click 'Continue' to disable the following Threshold(s)."
+msgstr "Danna 'Ci gaba' don kashe Iyaka/Iyakoki masu zuwa."
+
+#: thold.php
+msgid "Disable Threshold(s)"
+msgstr "Kashe Iyaka/Iyakoki"
+
+#: thold.php
+msgid "Click 'Continue' to reapply Suggested Name(s) to the following Threshold(s)."
+msgstr "Danna 'Ci gaba' don sake sanya Sunan/Sunayen da aka Ba da Shawara ga Iyaka/Iyakoki masu zuwa."
+
+#: thold.php
+msgid "Apply Suggestion"
+msgstr "Aiwatar da Shawara"
+
+#: thold.php
+msgid "Click 'Continue' to update the following Threshold(s) with their associate Template's details."
+msgstr "Danna 'Ci gaba' don sabunta Iyaka/Iyakoki masu zuwa tare da cikakkun bayanai na Samfurinsu mai alaƙa."
+
+#: thold.php
+msgid "Reapply Template"
+msgstr "Sake amfani da Samfuri"
+
+#: thold.php
+msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
+msgstr "Danna 'Ci gaba' don Amincewa da waɗannan Iyaka(oki) na gaba.  Za a yi watsi da Iyakoki da ba su yarda da wannan ba, ko waɗanda ba a tada su ba."
+
+#: thold.php
+msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Danna 'Ci gaba' don Ci gaba da Sanarwa don Iyaka/Iyakoki masu zuwa. Za a yi watsi da Iyakokin da ba sa ba da damar hakan, ko waɗanda ba a tayar da su ba."
+
+#: thold.php
+msgid "Resume Notifications for Threshold(s)"
+msgstr "Ci gaba da Sanarwa don Iyaka(oki)"
+
+#: thold.php
+msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
+msgstr "Danna 'Ci gaba' don Dakatar da Sanarwa na ɗan lokaci don Iyaka/Iyakoki masu zuwa. Za a yi watsi da Iyakokin da ba sa ba da damar hakan, ko waɗanda ba a tayar da su ba."
+
+#: thold.php
+msgid "Suspend Notification for Threshold(s)"
+msgstr "Dakatar da Sanarwa na Ɗan Lokaci don Iyaka(oki)"
+
+#: thold.php thold_templates.php
+msgid "Invalid action detected, can not proceed"
+msgstr "An gano aikin da ba daidai ba, ba za a iya ci gaba ba"
+
+#: thold.php
+msgid "Threshold Management"
+msgstr "Gudanar da Iyaka"
+
+#: thold.php
+msgid "Apply Filters"
+msgstr "Aiwatar da Tacewa"
+
+#: thold.php
+msgid "Return to Defaults"
+msgstr "Koma zuwa Tsoffin Saituna"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Data Template"
+msgstr "Samfurin Bayanai"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Template"
+msgstr "An kashe a Samfuri"
+
+#: thold.php thold_graph.php
+msgid "Disabled at Threshold"
+msgstr "An kashe a Iyaka"
+
+#: thold.php thold_graph.php
+msgid "Ack Required"
+msgstr "Ana Buƙatar Tabbatarwa"
+
+#: thold.php thold_graph.php
+msgid "By Status"
+msgstr "Ta Matsayi"
+
+#: thold.php thold_graph.php
+msgid "The current threshold status. Click a status pill to filter the list to that status."
+msgstr "Matsayin iyaka na yanzu. Danna alamar matsayi don tace jerin zuwa wannan matsayin."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "External ID"
+msgstr "ID na Waje"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
+msgstr "Nau'in Iyaka.  Don Nau'ikan Tushe: [TIP] yana nufin Lokaci A Baya tare da MIN, MAX, AVG, da LAST daga lokacin da bai wuce kwana ɗaya ba daga wannan lokacin.  [AOT] yana nufin Matsakaici a cikin dukkan Lokacin.  Idan akwai alamar colon sai MIN, MAX, AVG, LAST suka biyo baya, Ƙimar ta fito ne daga wannan Aikin Haɗawa."
+
+#: thold.php
+msgid "DSName"
+msgstr "Sunan DS"
+
+#: thold.php thold_graph.php
+msgid "Current"
+msgstr "Na Yanzu"
+
+#: thold.php thold_graph.php
+msgid "The last measured value for the Data Source"
+msgstr "Ƙimar da aka auna ta ƙarshe don Tushen Bayanai"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "High"
+msgstr "Mai Yawa"
+
+#: thold.php thold_graph.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Ƙimar Gargaɗi / Faɗakarwa Mai Yawa. LURA: Ƙimar Baseline kashi ne (percent), duk sauran ƙimomi ƙimomin nuni ne da cdef zai iya gyarawa."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Low"
+msgstr "Ƙasa"
+
+#: thold.php thold_graph.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
+msgstr "Ƙimar Gargaɗi / Faɗakarwa Ƙasa. LURA: Ƙimar Baseline kashi ne (percent), duk sauran ƙimomi ƙimomin nuni ne da cdef zai iya gyarawa."
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Trigger"
+msgstr "Mai Tada Aiki"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Duration"
+msgstr "Tsawon Lokaci"
+
+#: thold.php thold_graph.php thold_templates.php
+msgid "Repeat"
+msgstr "Maimaita"
+
+#: thold.php thold_graph.php
+msgid "In State"
+msgstr "A Cikin Yanayi"
+
+#: thold.php thold_graph.php
+msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
+msgstr "Adadin lokacin da ya wuce tun lokacin da aka Karya Iyaka ko aka Kunna ta"
+
+#: thold.php thold_graph.php
+msgid "Acknowledgment required for this Threshold"
+msgstr "Ana buƙatar tabbatarwa don wannan Iyaka"
+
+#: thold.php thold_graph.php
+msgid "No [Template:Thold]"
+msgstr "A'a [Samfuri:Thold]"
+
+#: thold.php thold_graph.php
+msgid "No [Template]"
+msgstr "A'a [Samfuri]"
+
+#: thold.php thold_graph.php
+msgid "No [Thold]"
+msgstr "A'a [Thold]"
+
+#: thold.php thold_graph.php
+#, php-format
+msgid "%d Triggers"
+msgstr "Abubuwan tayarwa %d"
+
+#: thold.php thold_graph.php
+msgid "No Thresholds"
+msgstr "Babu Iyakoki"
+
+#: thold.php
+msgid "Threshold Deleted, can not Edit!"
+msgstr "An Share Iyaka, ba za a iya Gyara ba!"
+
+#: thold.php
+msgid "Graph Data"
+msgstr "Bayanan Jadawali"
+
+#: thold.php
+msgid "Edit Threshold Template"
+msgstr "Gyara Samfurin Iyaka"
+
+#: thold.php
+msgid "Data Source Description:"
+msgstr "Kwatancin Tushen Bayanai:"
+
+#: thold.php
+msgid "Associated Graph (Graphs using this RRD):"
+msgstr "Jadawali Mai Alaƙa (Jadawalai masu amfani da wannan RRD):"
+
+#: thold.php
+msgid "Last:"
+msgstr "Na ƙarshe:"
+
+#: thold.php
+msgid "WHi:"
+msgstr "WHi:"
+
+#: thold.php
+msgid "WLo:"
+msgstr "WLo:"
+
+#: thold.php
+msgid "AHi:"
+msgstr "ASama:"
+
+#: thold.php
+msgid "ALo:"
+msgstr "AƘasa:"
+
+#: thold.php
+msgid "BL Up:"
+msgstr "BL Sama:"
+
+#: thold.php
+msgid "BL Down:"
+msgstr "BL Ƙasa:"
+
+#: thold.php
+#, php-format
+msgid "Unknown Template ID %d"
+msgstr "ID na Samfuri da ba a sani ba %d"
+
+#: thold.php
+msgid "Not Templated"
+msgstr "Ba Shi da Samfuri"
+
+#: thold.php
+#, php-format
+msgid "Data Source Item [ %s ] - Current value: [ %s ]"
+msgstr "Abun Tushen Bayanai [ %s ] - Ƙimar yanzu: [ %s ]"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Replacement Fields: %s"
+msgstr "Filayen Sauyawa: %s"
+
+#: thold.php thold_templates.php
+#, php-format
+msgid "Data Sources: %s"
+msgstr "Tusoshin Bayanai: %s"
+
+#: thold.php
+msgid "Template/Enabled Information"
+msgstr "Bayanin Samfuri/An kunna"
+
+#: thold.php
+msgid "Template Propagation Enabled"
+msgstr "An kunna Yaɗa Samfuri"
+
+#: thold.php
+msgid "Whether or not these settings will be propagated from the Threshold template."
+msgstr "Ko za a yaɗa waɗannan saitunan daga samfurin Iyaka ko a'a."
+
+#: thold.php thold_templates.php
+msgid "Template Name"
+msgstr "Sunan Samfuri"
+
+#: thold.php
+msgid "Name of the Threshold Template the Threshold was created from."
+msgstr "Sunan Samfurin Iyaka da aka ƙirƙiri Iyaka daga gare shi."
+
+#: thold.php
+msgid "Enabled at Template Level"
+msgstr "An kunna a Matakin Samfuri"
+
+#: thold.php
+msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
+msgstr "Dole ne a kunna Iyaka a matakin Samfuri da kuma matakin Iyaka duka biyun don a duba ta."
+
+#: thold.php
+msgid "Enabled at Threshold Level"
+msgstr "An kunna a Matakin Iyaka"
+
+#: thold.php thold_templates.php
+msgid "General Settings"
+msgstr "Saitunan Gabaɗaya"
+
+#: thold.php
+msgid "Name (Displayed)"
+msgstr "Suna (Da aka nuna)"
+
+#: thold.php
+msgid "Provide the Thresholds a meaningful name"
+msgstr "Ba wa Iyakokin suna mai ma'ana"
+
+#: thold.php
+msgid "Name (Format)"
+msgstr "Suna (Tsari)"
+
+#: thold.php thold_templates.php
+msgid "Warning HRULE Color"
+msgstr "Launin HRULE na Gargaɗi"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Warning Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Da fatan za a zaɓi Launi don Jadawali HRULE don Iyakokin Gargaɗi.  Zaɓi 'Babu' don Babu HRULE.  Lura: Ana goyan bayan wannan fasalin don nau'ikan Sarrafa Bayanai 'Ainihin Ƙima' da 'Kashi cikin ɗari' kaɗai a halin yanzu."
+
+#: thold.php thold_templates.php
+msgid "Alert HRULE Color"
+msgstr "Launin HRULE na Faɗakarwa"
+
+#: thold.php thold_templates.php
+msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
+msgstr "Da fatan za a zaɓi Launi don Jadawali HRULE don Iyakokin Faɗakarwa.  Zaɓi 'Babu' don Babu HRULE.  Lura: Ana goyan bayan wannan fasalin don nau'ikan Sarrafa Bayanai 'Ainihin Ƙima' da 'Kashi cikin ɗari' kaɗai a halin yanzu."
+
+#: thold.php thold_templates.php
+msgid "Graph Timespan"
+msgstr "Tsawon Lokacin Zane"
+
+#: thold.php thold_templates.php
+msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
+msgstr "Za a saita lokacin Ƙarshen Jadawali a lokacin da aka kunna. Lokacin Fara Jadawali zai zama Lokacin Ƙarshe a cire Tsawon Lokacin Jadawali."
+
+#: thold.php thold_templates.php
+msgid "Skip Scaling on HRULEs"
+msgstr "Tsallake Daidaita Ma'auni akan HRULEs"
+
+#: thold.php thold_templates.php
+msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
+msgstr "Idan An Zaɓa, Ma'aunin da ke kan Jadawali ba zai sami tasiri daga layukan HRULE na Faɗakarwa ko Gargaɗi ba."
+
+#: thold.php thold_templates.php
+msgid "Weekend Exemption"
+msgstr "Keɓe Ƙarshen Mako"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, this Threshold will not alert on weekends."
+msgstr "Idan an zaɓi wannan, wannan Iyaka ba za ta yi faɗakarwa a ƙarshen mako ba."
+
+#: thold.php thold_templates.php
+msgid "Disable Restoration Email"
+msgstr "Kashe Imel na Dawo da Aiki"
+
+#: thold.php thold_templates.php
+msgid "If this is checked, Threshold will not send an alert when the Threshold has returned to normal status."
+msgstr "Idan an zaɓi wannan, Iyaka ba za ta aika faɗakarwa ba lokacin da Iyaka ta koma matsayi na al'ada."
+
+#: thold.php thold_templates.php
+msgid "Acknowledgment Options"
+msgstr "Zaɓuɓɓukan Tabbatarwa"
+
+#: thold.php thold_templates.php
+msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
+msgstr "Akwai matakan Amincewa guda uku da ke sarrafa yadda dole ne ku amsa yanayin karya Iyaka. Su ne:<br><br><ul><li><i>Ba a Buƙata Ba</i> - Idan kun zaɓi wannan zaɓin, ba a buƙatar Amincewa don karya Iyaka.</li><li><i>Sanarwa Mai Dakatarwa</i> - Da wannan zaɓin, da zarar kun Amince ko Dakatar da Sanarwa akan Iyaka, ba za ku sake samun sanarwa ba yayin da aka karya ta. Daga baya za ku iya Ci gaba da Sanarwa yayin da take a karye.</li><li><i>Amincewa Mai Dorewa</i> - Da wannan zaɓin, ko da bayan Iyaka ta dawo daidai, dole ne ku Amince da Iyaka kuma ku bayar da Saƙon Mai Gudanarwa na zaɓi.</li></ul>"
+
+#: thold.php thold_templates.php
+msgid "None Required"
+msgstr "Ba A Buƙatar Komai"
+
+#: thold.php thold_templates.php
+msgid "Suspendible Notification"
+msgstr "Sanarwa Mai Yiwuwar Dakatarwa na Ɗan Lokaci"
+
+#: thold.php thold_templates.php
+msgid "Persistent Acknowledgment"
+msgstr "Amincewa ta Dindindin"
+
+#: thold.php thold_templates.php
+msgid "Threshold Type"
+msgstr "Nau'in Iyaka"
+
+#: thold.php thold_templates.php
+msgid "The type of Threshold that will be monitored."
+msgstr "Nau'in Iyakar da za a sa ido a kanta."
+
+#: thold.php thold_templates.php
+msgid "Re-Alert Cycle"
+msgstr "Zagayen sake faɗakarwa"
+
+#: thold.php
+msgid "Repeat alert after this amount of time has passed since the last alert."
+msgstr "Maimaita faɗakarwa bayan wannan adadin lokaci ya wuce tun daga faɗakarwar ƙarshe."
+
+#: thold.php thold_templates.php
+msgid "Warning - High / Low Settings"
+msgstr "Gargaɗi - Saitunan Sama / Ƙasa"
+
+#: thold.php thold_templates.php
+msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
+msgstr "Ƙimomin lambobi na Babbar Iyaka da Ƙaramar Iyaka za su iya haɗawa da waɗannan haruffan ƙarshe na lambobi da suka fi 1: 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', kuma na lambobi da suka gaza 1: 'm', 'u', 'p', 'f'."
+
+#: thold.php thold_templates.php
+msgid "High Threshold"
+msgstr "Iyaka ta Sama"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Idan an saita kuma ƙimar Tushen Bayanai ta wuce wannan lambar, za a kunna gargaɗi. LURA: Wannan ƙimar dole ne ta kasance lamba TSANTSA (RAW). Ƙimar da aka nuna a kan Jadawali za a iya gyara ta da cdef."
+
+#: thold.php thold_templates.php
+msgid "Low Threshold"
+msgstr "Ƙananan Iyaka"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Idan an saita kuma ƙimar Tushen Bayanai ta yi ƙasa da wannan lambar, za a kunna gargaɗi. LURA: Wannan ƙimar dole ne ta kasance lamba TSANTSA (RAW). Ƙimar da aka nuna a kan Jadawali za a iya gyara ta da cdef."
+
+#: thold.php
+msgid "Breach Duration"
+msgstr "Tsawon Lokacin Keta Iyaka"
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Adadin lokacin da Tushen Bayanai dole ne ya kasance yana karya Iyaka kafin a ta da gargaɗi.  LURA: Wannan ƙimar dole ne ta zama lambar RAW.  Ƙimar da aka nuna a Jadawali na iya canzawa ta hanyar cdef."
+
+#: thold.php thold_templates.php
+msgid "Alert - High / Low Settings"
+msgstr "Faɗakarwa - Saitunan Sama / Ƙasa"
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Idan an saita kuma ƙimar Tushen Bayanai ta wuce wannan lambar, za a kunna faɗakarwa. LURA: Wannan ƙimar dole ne ta kasance lamba TSANTSA (RAW). Ƙimar da aka nuna a kan Jadawali za a iya gyara ta da cdef."
+
+#: thold.php thold_templates.php
+msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
+msgstr "Idan an saita kuma ƙimar Tushen Bayanai ta yi ƙasa da wannan lambar, za a kunna faɗakarwa. LURA: Wannan ƙimar dole ne ta kasance lamba TSANTSA (RAW). Ƙimar da aka nuna a kan Jadawali za a iya gyara ta da cdef."
+
+#: thold.php
+msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
+msgstr "Adadin lokacin da Tushen Bayanai dole ne ya kasance yana karya Iyaka kafin a ta da faɗakarwa."
+
+#: thold.php thold_templates.php
+msgid "Warning - Time Based Settings"
+msgstr "Gargaɗi - Saitunan Tushen Lokaci"
+
+#: thold.php
+msgid "Breach Count"
+msgstr "Adadin Keta Iyaka"
+
+#: thold.php
+msgid "The number of times the Data Source must be in breach of the Threshold."
+msgstr "Adadin lokutan da Tushen Bayanai dole ne ya karya Iyaka."
+
+#: thold.php
+msgid "Breach Window"
+msgstr "Tagar Keta Iyaka"
+
+#: thold.php thold_templates.php
+msgid "The amount of time in the past to check for Threshold breaches."
+msgstr "Adadin lokaci a baya don bincika karya Iyaka."
+
+#: thold.php thold_templates.php
+msgid "Alert - Time Based Settings"
+msgstr "Faɗakarwa - Saitunan da suka Dogara da Lokaci"
+
+#: thold.php
+msgid "Baseline Settings"
+msgstr "Saitunan Ma'aunin Asali"
+
+#: thold.php thold_templates.php
+msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
+msgstr "Nau'in Tushen Ma'auni.  [TIP] shi ne Lokaci a Baya, [AOT] shi ne Matsakaici a Tsawon Lokaci.  Karkatar Kashi Bisa Ɗari darajar kashi ce daga darajar tarihi.  Cikakkiyar Daraja karkata ce ko dai sama ko ƙasa da Tushen Ma'auni a kan waccan darajar tarihi.  Ga Nau'ikan Tushen Ma'auni na [TIP], MIN, MAX, AVG, da LAST za su fito ne daga lokacin da bai wuce kwana ɗaya ba a wancan lokacin."
+
+#: thold.php thold_templates.php
+msgid "Consolidation Function"
+msgstr "Aikin Haɗa Bayanai"
+
+#: thold.php thold_templates.php
+msgid "Average"
+msgstr "Matsakaici"
+
+#: thold.php thold_templates.php
+msgid "Minimum"
+msgstr "Mafi ƙanƙanta"
+
+#: thold.php thold_templates.php
+msgid "Maximum"
+msgstr "Mafi Girma"
+
+#: thold.php thold_templates.php
+msgid "Last"
+msgstr "Ƙarshe"
+
+#: thold.php thold_templates.php
+msgid "The Consolidation function to use for the Baseline Type value calculation."
+msgstr "Aikin Haɗa Bayanai (Consolidation function) da za a yi amfani da shi wajen lissafin ƙimar Nau'in Ma'aunin Asali (Baseline Type)."
+
+#: thold.php thold_templates.php
+msgid "Time Range"
+msgstr "Zangon Lokaci"
+
+#: thold.php thold_templates.php
+msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
+msgstr "Yana ƙayyade lokacin da ya wuce (bisa ƙudurin rrd) da za a yi amfani da shi a matsayin madogara ko tsawon lokacin da za a yi amfani da shi don Matsakaici Mai Motsi lokacin amfani da nau'in Iyaka na Matsakaici Mai Motsi"
+
+#: thold.php thold_templates.php
+msgid "Deviation UP"
+msgstr "Karkata SAMA"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Yana ƙayyade karkatar da aka yarda da ita don Iyaka ta sama. Idan ba a saita ba, ba za a duba Iyaka ta sama ko kaɗan ba.  Ma'aunin aunawa ƙima ce ta gaske don nau'in 'Ƙima ta Gaske', da kuma Kashi don duka '%% Karkata' da '%% Matsakaici Mai Motsi'"
+
+#: thold.php thold_templates.php
+msgid "Deviation DOWN"
+msgstr "Karkata ƘASA"
+
+#: thold.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Yana ƙayyade karkatar da aka yarda da ita don Iyaka ta ƙasa. Idan ba a saita ba, ba za a duba Iyaka ta ƙasa ko kaɗan ba.  Ma'aunin aunawa ƙima ce ta gaske don nau'in 'Ƙima ta Gaske', da kuma Kashi don duka '%% Karkata' da '%% Matsakaici Mai Motsi'"
+
+#: thold.php thold_templates.php
+msgid "Trigger Count"
+msgstr "Adadin Tadawa"
+
+#: thold.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
+msgstr "Adadin lokutan da Tushen Bayanai zai kasance a jere yana keta Iyakar tushe kafin a tayar da faɗakarwa.<br>Bar shi fanko don amfani da ƙimar asali (<b>Asali: zagaye %s</b>)"
+
+#: thold.php thold_templates.php
+msgid "Data Manipulation"
+msgstr "Sarrafa Bayanai"
+
+#: thold.php thold_templates.php
+msgid "Data Type"
+msgstr "Nau'in Bayanai"
+
+#: thold.php thold_templates.php
+msgid "Special formatting for the given data."
+msgstr "Tsari na musamman don bayanan da aka bayar."
+
+#: thold.php thold_templates.php
+msgid "Threshold CDEF"
+msgstr "CDEF na Iyaka"
+
+#: thold.php thold_templates.php
+msgid "Apply this CDEF before returning the data."
+msgstr "Aiwatar da wannan CDEF kafin dawo da bayanan."
+
+#: thold.php
+msgid "Percent Data Source"
+msgstr "Kashi na Tushen Bayanai"
+
+#: thold.php
+msgid "Second Data Source Item to use as total value to calculate percentage from."
+msgstr "Abun Tushen Bayanai na Biyu da za a yi amfani da shi a matsayin jimillar ƙima don ƙididdige kashi dari daga ciki."
+
+#: thold.php thold_templates.php
+msgid "Show Units"
+msgstr "Nuna Raka'o'i"
+
+#: thold.php thold_templates.php
+msgid "Display units for very large or small numbers."
+msgstr "Nuna rukunin awo don lambobi masu yawa ko ƙanana sosai."
+
+#: thold.php thold_templates.php
+msgid "Force Units Suffix"
+msgstr "Tilasta Ƙarin Rukunai"
+
+#: thold.php thold_templates.php
+msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
+msgstr "Idan kana son nuna ƙarin ma'auni na tilas a shafukan Iyaka dabam-dabam da Sanarwa, shigar da shi a nan. An iyakance girman zuwa haruffa da ba su wuce 10 ba."
+
+#: thold.php thold_templates.php
+msgid "Decimal Digits to Display"
+msgstr "Lambobin Goma da Za a Nuna"
+
+#: thold.php thold_templates.php
+msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
+msgstr "Adadin lambobin bayan digo da za a nuna don Iyaka da Ƙimomin Yanzu. Tsohuwar ƙima ita ce ta atomatik ko 2."
+
+#: thold.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Kalaman RPN kalmomi ne na RPN waɗanda suka dace da RRDtool. Tsarin rubutu ya haɗa da duk ayyukan da ke ƙasa tare da kalaman maye na Na'ura da Tambayar Bayanai kamar <span class=\"deviceUp\">|query_ifSpeed|</span>. Domin amfani da Tushen Bayanai a cikin Kalaman RPN, dole ne ka yi amfani da tsarin rubutu: <span class=\"deviceUp\">|ds:dsname|</span>. Misali, <span class=\"deviceUp\">|ds:traffic_in|</span> zai samo ƙimar yanzu ta Tushen Bayanai na traffic_in don fayil(fayilolin) RRD masu alaƙa da Jadawali. Za a iya haɗa kowane Tushen Bayanai na Jadawali.<br><br>Masu Aiki na Lissafi: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Ayyuka: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Masu Aiki na Gudana: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Ayyukan Kwatanta: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold.php thold_templates.php
+msgid "Upper Data Source"
+msgstr "Tushen Bayanai na Sama"
+
+#: thold.php
+msgid "Upper data source to calculate the total value."
+msgstr "Tushen bayanai na sama don lissafa jimlar ƙima."
+
+#: thold.php thold_templates.php
+msgid "Notification Settings"
+msgstr "Saitunan Sanarwa"
+
+#: thold.php
+msgid "Alert Subject"
+msgstr "Taken Faɗakarwa"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Wannan shine batun Imel da za a nuna a cikin Imel (Haruffa 128 IYA). Bar shi fanko don na asali. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Alert Body"
+msgstr "Jikin Faɗakarwa"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Wannan shi ne saƙon da za a nuna a saman duk Faɗakarwar Iyaka (Iyakar Haruffa 1024). Ana iya amfani da HTML, amma za a cire shi ga imel na rubutu kaɗai. Akwai alamomin maye gurbi da dama na yau da kullum da za a iya amfani da su waɗanda suka haɗa da:<br>misali &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Subject"
+msgstr "Taken Gargaɗi"
+
+#: thold.php
+msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Wannan shine batun Imel na Gargaɗi da za a nuna a cikin Imel bayan canzawa zuwa Gargaɗi (Haruffa 128 IYA). Bar shi fanko don na asali. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Body"
+msgstr "Jikin Saƙon Gargaɗi"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Wannan shi ne saƙon da za a nuna a saman duk Gargaɗin Iyaka (Iyakar Haruffa 1024). Ana iya amfani da HTML, amma za a cire shi ga imel na rubutu kaɗai. Akwai alamomin maye gurbi da dama na yau da kullum da za a iya amfani da su waɗanda suka haɗa da:<br>misali &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold.php thold_templates.php
+msgid "Restoral Subject"
+msgstr "Taken Maidowa"
+
+#: thold.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
+msgstr "Wannan shine batun Imel da za a nuna a cikin Imel bayan Komawa Daidai (Haruffa 128 IYA). Bar shi fanko don na asali. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
+
+#: thold.php
+msgid "Restoral Email Body"
+msgstr "Jikin Imel ɗin Maidowa"
+
+#: thold.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Wannan shi ne saƙon da za a nuna a saman duk sanarwar dawowar Iyaka zuwa daidai (Iyakar Haruffa 1024). Ana iya amfani da HTML, amma za a cire shi ga Imel na rubutu kaɗai. Akwai alamomin maye gurbi da dama na yau da kullum da za a iya amfani da su waɗanda suka haɗa da:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#062 &#60DNOTES&#062"
+
+#: thold.php thold_templates.php
+msgid "Warning Notification List"
+msgstr "Jerin Sanarwar Gargaɗi"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
+msgstr "Za ka iya ƙayyade ko zaɓar Jerin Sanarwa don karɓar Gargaɗi game da wannan Tushen Bayanai"
+
+#: thold.php thold_templates.php
+msgid "Alert Notification List"
+msgstr "Jerin Sanarwar Faɗakarwa"
+
+#: thold.php thold_templates.php
+msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
+msgstr "Za ka iya ƙayyade ko zaɓar Jerin Sanarwa don karɓar Faɗakarwa game da wannan Tushen Bayanai"
+
+#: thold.php thold_templates.php
+msgid "Style/Format File"
+msgstr "Fayil ɗin Salo/Tsari"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Event Category"
+msgstr "Sanarwar SNMP - Rukunin Abin da Ya Faru"
+
+#: thold.php thold_templates.php
+msgid "To allow a NMS to categorize different SNMP notifications more easily please fill in the category SNMP notifications for this template should make use of. E.g.: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+msgstr "Don ba da damar NMS ya rarraba sanarwar SNMP daban-daban cikin sauƙi, don Allah cika rukunin da sanarwar SNMP na wannan samfurin ya kamata su yi amfani da shi. Misali: \"disk_usage\", \"link_utilization\", \"ping_test\", \"nokia_firewall_cpu_utilization\" ..."
+
+#: thold.php thold_templates.php
+msgid "SNMP Event Description"
+msgstr "Bayanin Abin da Ya Faru na SNMP"
+
+#: thold.php thold_templates.php
+msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Za ka iya keɓance bayanin abin da ya faru da ake aikawa zuwa masu karɓar sanarwar SNMP ta hanyar amfani da haɗin masu canji. Za a iya amfani da masu canji na Na'ura na asali (|host_*|), Tambayar Bayanai (|query_*|) da kuma waɗannan varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Alert Event Severity"
+msgstr "Sanarwar SNMP - Tsananin Abin Faɗakarwa"
+
+#: thold.php
+msgid "Severity to be used for alerts. (low impact -> critical impact)"
+msgstr "Tsananin da za a yi amfani da shi don faɗakarwa. (ƙaramin tasiri -> tasiri mai tsanani)"
+
+#: thold.php thold_templates.php
+msgid "Medium"
+msgstr "Matsakaici"
+
+#: thold.php thold_templates.php
+msgid "SNMP Notification - Warning Event Severity"
+msgstr "Sanarwar SNMP - Tsananin Abin Gargaɗi"
+
+#: thold.php thold_templates.php
+msgid "Severity to be used for warnings. (Low impact -> Critical impact).<br>Note: The severity of warnings has to be equal or lower than the severity being defined for alerts."
+msgstr "Tsananin da za a yi amfani da shi don gargaɗi. (Ƙaramin tasiri -> Tasiri mai tsanani).<br>Lura: Tsananin gargaɗi dole ne ya zama daidai da ko ƙasa da tsananin da aka ayyana don faɗakarwa."
+
+#: thold.php thold_templates.php
+msgid "Notify accounts"
+msgstr "Asusun sanarwa"
+
+#: thold.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached."
+msgstr "Wannan jerin asusun da za a sanar da su ne idan an karya wannan Iyaka."
+
+#: thold.php thold_templates.php
+msgid "Alert Emails"
+msgstr "Imel ɗin Faɗakarwa"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
+msgstr "Za ka iya ƙayyade ƙarin Imel a nan don karɓar faɗakarwa ga wannan tushen bayanai (a raba da waƙafi)"
+
+#: thold.php thold_templates.php
+msgid "Warning Emails"
+msgstr "Imel ɗin Gargaɗi"
+
+#: thold.php
+msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
+msgstr "Za ka iya ƙayyade ƙarin Imel a nan don karɓar gargaɗi ga wannan tushen bayanai (a raba da waƙafi)"
+
+#: thold.php thold_templates.php
+msgid "If checked, Threshold notification will be sent to your local syslog."
+msgstr "Idan an zaɓa, za a aika sanarwar Iyaka zuwa syslog ɗin ku na gida."
+
+#: thold.php thold_templates.php
+msgid "Priority/Level"
+msgstr "Fifiko/Mataki"
+
+#: thold.php thold_templates.php
+msgid "This is the Priority Level that will be logged into your syslog messages."
+msgstr "Wannan shine Matakin Fifiko da za a rubuta cikin saƙonnin syslog ɗinku."
+
+#: thold.php thold_templates.php
+msgid "Facility"
+msgstr "Cibiya"
+
+#: thold.php thold_templates.php
+msgid "This is the Facility that will be used for this Threshold."
+msgstr "Wannan shine Rukunin (Facility) da za a yi amfani da shi don wannan Iyaka."
+
+#: thold.php thold_templates.php
+msgid "Event Triggering (Shell Command)"
+msgstr "Tada Lamari (Umarnin Shell)"
+
+#: thold.php thold_templates.php
+msgid "High Trigger Command"
+msgstr "Umarnin Tada Iyaka ta Sama"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Idan an saita, kuma idan aka keta Babbar Iyaka, za a gudanar da wannan umarnin. Da fatan za a shigar da ingantaccen umarni. Bugu da ƙari, akwai alamomin maye gurbi da dama da za a iya amfani da su don tura bayanai daga Iyaka zuwa rubutun shirin (script). Za ka iya yin hakan a matsayin hujjoji a kan layin umarni, ko kuma abin da ya fi dacewa, a cikin yanayin rubutun shirin. Dukkan ƙimomin maye gurbi za su bayyana a cikin yanayin rubutun shirin tare da prefix na THOLD_. Don haka, misali CURRENTVALUE zai zama THOLD_CURRENTVALUE, da sauransu. Masu canjin sun haɗa da: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. A ƙarshe, ana iya yin maye gurbin Mai Masauki, Tambayar Bayanai da Shigarwar Bayanai. Misali, idan kana da bayanan shigarwa na musamman mai suna pending, don yin maye gurbin yi amfani da |pending|. Don maye gurbin Tambayar Bayanai da Mai Masauki, yi amfani da ƙa'idodin Cacti |query_xxxx|, da |host_xxxx| bi da bi."
+
+#: thold.php thold_templates.php
+msgid "Low Trigger Command"
+msgstr "Umarnin Tada Na Ƙasa"
+
+#: thold.php thold_templates.php
+msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Idan an saita, kuma idan aka keta Ƙaramar Iyaka, za a gudanar da wannan umarnin. Da fatan za a shigar da ingantaccen umarni. Bugu da ƙari, akwai alamomin maye gurbi da dama da za a iya amfani da su don tura bayanai daga Iyaka zuwa rubutun shirin (script). Za ka iya yin hakan a matsayin hujjoji a kan layin umarni, ko kuma abin da ya fi dacewa, a cikin yanayin rubutun shirin. Dukkan ƙimomin maye gurbi za su bayyana a cikin yanayin rubutun shirin tare da prefix na THOLD_. Don haka, misali CURRENTVALUE zai zama THOLD_CURRENTVALUE, da sauransu. Masu canjin sun haɗa da: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. A ƙarshe, ana iya yin maye gurbin Mai Masauki, Tambayar Bayanai da Shigarwar Bayanai. Misali, idan kana da bayanan shigarwa na musamman mai suna pending, don yin maye gurbin yi amfani da |pending|. Don maye gurbin Tambayar Bayanai da Mai Masauki, yi amfani da ƙa'idodin Cacti |query_xxxx|, da |host_xxxx| bi da bi."
+
+#: thold.php thold_templates.php
+msgid "Norm Trigger Command"
+msgstr "Umarnin Tada Yanayin Al'ada"
+
+#: thold.php thold_templates.php
+msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
+msgstr "Idan an saita, lokacin da iyaka (thold) ta koma ƙima ta al'ada, za a gudanar da wannan umarnin. Da fatan za a shigar da ingantaccen umarni. Bugu da ƙari, akwai alamomin maye gurbi da dama da za a iya amfani da su don tura bayanai daga Iyaka zuwa rubutun shirin (script). Za ka iya yin hakan a matsayin hujjoji a kan layin umarni, ko kuma abin da ya fi dacewa, a cikin yanayin rubutun shirin. Dukkan ƙimomin maye gurbi za su bayyana a cikin yanayin rubutun shirin tare da prefix na THOLD_. Don haka, misali CURRENTVALUE zai zama THOLD_CURRENTVALUE, da sauransu. Masu canjin sun haɗa da: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. A ƙarshe, ana iya yin maye gurbin Mai Masauki, Tambayar Bayanai da Shigarwar Bayanai. Misali, idan kana da bayanan shigarwa na musamman mai suna pending, don yin maye gurbin yi amfani da |pending|. Don maye gurbin Tambayar Bayanai da Mai Masauki, yi amfani da ƙa'idodin Cacti |query_xxxx|, da |host_xxxx| bi da bi."
+
+#: thold.php thold_templates.php
+msgid "Other Settings"
+msgstr "Sauran Saituna"
+
+#: thold.php
+msgid "Enter an Eternal ID for this Threshold."
+msgstr "Shigar da ID na Dindindin don wannan Iyaka."
+
+#: thold.php thold_templates.php
+msgid "Operator Notes"
+msgstr "Bayanan Mai Aiki"
+
+#: thold.php thold_templates.php
+msgid "Enter instructions here for an operator who may be receiving the Threshold message."
+msgstr "Shigar da umarni a nan don mai aiki wanda zai iya karɓar saƙon Iyaka."
+
+#: thold.php
+msgid "Select Users(s)"
+msgstr "Zaɓi Mai Amfani/Masu Amfani"
+
+#: thold.php
+msgid "Users Selected"
+msgstr "Masu Amfani da aka Zaɓa"
+
+#: thold.php
+msgid "All Users Selected"
+msgstr "An Zaɓi Duk Masu Amfani"
+
+#: thold_graph.php
+msgid "The Threshold has been Ascknowledged."
+msgstr "An Tabbatar da Sanin Iyakar."
+
+#: thold_graph.php
+msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
+msgstr "Iyakar ba za ta ƙara samar da Faɗakarwa, Sanarwa, ko aiwatar da umarni ba."
+
+#: thold_graph.php
+msgid "The Threshold will restart generating Alerts."
+msgstr "Iyakar za ta sake fara samar da Faɗakarwa."
+
+#: thold_graph.php
+msgid "Threshold Status"
+msgstr "Matsayin Iyaka"
+
+#: thold_graph.php
+msgid "Actions"
+msgstr "Ayyuka"
+
+#: thold_graph.php
+msgid "Ack Detail"
+msgstr "Cikakken Bayanin Tabbatarwa"
+
+#: thold_graph.php
+msgid "Edit Threshold"
+msgstr "Gyara Iyaka"
+
+#: thold_graph.php
+msgid "Disable Threshold"
+msgstr "Kashe Iyaka"
+
+#: thold_graph.php
+msgid "Enable Threshold"
+msgstr "Kunna Iyaka"
+
+#: thold_graph.php
+msgid "To enable the Threshold, enable the Template first"
+msgstr "Don kunna Iyaka, fara kunna Samfurin tukuna"
+
+#: thold_graph.php
+msgid "View Graph"
+msgstr "Duba Jadawali"
+
+#: thold_graph.php
+msgid "View Threshold History"
+msgstr "Duba Tarihin Iyaka"
+
+#: thold_graph.php
+msgid "Suspend Notifications until the Threshold clears"
+msgstr "Dakatar da Sanarwa na Ɗan Lokaci har sai Iyaka ta wuce"
+
+#: thold_graph.php
+msgid "Resume Notifications for this breached Threshold"
+msgstr "Ci gaba da Sanarwa don wannan Iyaka da aka karya"
+
+#: thold_graph.php
+msgid "Acknowledgement Message"
+msgstr "Saƙon Tabbatarwa"
+
+#: thold_graph.php
+msgid "Date"
+msgstr "Kwanan Wata"
+
+#: thold_graph.php
+msgid "Comment Not Found"
+msgstr "Ba a Sami Sharhi Ba"
+
+#: thold_graph.php
+msgid "Ack History"
+msgstr "Tarihin Tabbatarwa"
+
+#: thold_graph.php
+msgid "No name set"
+msgstr "Ba a saita suna ba"
+
+#: thold_graph.php
+msgid "Hover over icons for help"
+msgstr "Tsaya da linzami kan alamomi don neman taimako"
+
+#: thold_graph.php
+msgid "A description for the Device"
+msgstr "Bayani game da Na'ura"
+
+#: thold_graph.php
+msgid "A Cacti unique identifier for the Device"
+msgstr "Lambar shaida ta musamman ta Cacti don Na'ura"
+
+#: thold_graph.php
+msgid "The number of Graphs for this Device"
+msgstr "Adadin Jadawalai don wannan Na'ura"
+
+#: thold_graph.php
+msgid "The number of Data Sources for this Device"
+msgstr "Adadin Tusoshin Bayanai don wannan Na'ura"
+
+#: thold_graph.php
+msgid "The status for this Device as of the last time it was polled"
+msgstr "Matsayin wannan Na'ura tun daga lokacin ƙarshe da aka tattara bayananta"
+
+#: thold_graph.php
+msgid "The last time Cacti found an issue with this Device.  It can be higher than the Uptime for the Device, if it was rebooted between Cacti polling cycles"
+msgstr "Lokacin ƙarshe da Cacti ya gano matsala game da wannan Na'ura. Yana iya fin Tsawon Lokacin Aikin Na'urar, idan an sake kunna ta tsakanin zagayowar tattara bayanai na Cacti"
+
+#: thold_graph.php
+msgid "Uptime"
+msgstr "Lokacin Aiki"
+
+#: thold_graph.php
+msgid "The official uptime of the Device as reported by SNMP"
+msgstr "Lokacin aiki na hukuma na Na'ura kamar yadda SNMP ya ruwaito"
+
+#: thold_graph.php
+msgid "The official hostname for this Device"
+msgstr "Sunan mai masauki na hukuma don wannan Na'ura"
+
+#: thold_graph.php
+msgid "Current (ms)"
+msgstr "Na Yanzu (ms)"
+
+#: thold_graph.php
+msgid "The current response time for the Cacti Availability check"
+msgstr "Lokacin amsa na yanzu don binciken Samuwa na Cacti"
+
+#: thold_graph.php
+msgid "Average (ms)"
+msgstr "Matsakaici (ms)"
+
+#: thold_graph.php
+msgid "The average response time for the Cacti Availability check"
+msgstr "Matsakaicin lokacin amsa don binciken Samuwa na Cacti"
+
+#: thold_graph.php
+msgid "Availability"
+msgstr "Samuwa"
+
+#: thold_graph.php
+msgid "The overall Availability of this Device since the last counter reset in Cacti"
+msgstr "Jimillar Samuwa ta wannan Na'ura tun bayan sake saitin ma'auni na ƙarshe a Cacti"
+
+#: thold_graph.php
+msgid "Edit Device"
+msgstr "Gyara Na'ura"
+
+#: thold_graph.php
+msgid "View Graphs"
+msgstr "Duba Jadawali"
+
+#: thold_graph.php
+msgid "No Devices"
+msgstr "Babu Na'urori"
+
+#: thold_graph.php
+msgid "Not Up"
+msgstr "Ba Ya Aiki"
+
+#: thold_graph.php
+msgid "No Export Rows Found."
+msgstr "Ba a Samu Layukan Fitarwa ba."
+
+#: thold_graph.php
+#, php-format
+msgid "Threshold Log for [ %s ]"
+msgstr "Rajistan Iyaka na [ %s ]"
+
+#: thold_graph.php
+msgid "Log Entries"
+msgstr "Shigarwar Rajista"
+
+#: thold_graph.php
+msgid "Time"
+msgstr "Lokaci"
+
+#: thold_graph.php
+msgid "Alert Value"
+msgstr "Ƙimar Faɗakarwa"
+
+#: thold_graph.php
+msgid "Measured Value"
+msgstr "Ƙimar da Aka Auna"
+
+#: thold_graph.php
+msgid "No Threshold Logs Found"
+msgstr "Ba a Samu Bayanan Rajistar Iyaka ba"
+
+#: thold_graph.php
+msgid "Entries"
+msgstr "Shigarwa"
+
+#: thold_templates.php
+msgid "You are not authorised to modify one or more of the Thresholds selected"
+msgstr "Ba ka da izinin gyara ɗaya ko fiye daga cikin Iyakokin da aka zaɓa"
+
+#: thold_templates.php
+#, php-format
+msgid "%s (%d Thresholds)"
+msgstr "%s (Iyakoki %d)"
+
+#: thold_templates.php
+msgid "Click 'Continue' to export the following Threshold Template(s)."
+msgstr "Danna 'Ci gaba' don fitar da Samfurin/Samfuran Iyaka masu zuwa."
+
+#: thold_templates.php
+msgid "Export Template(s)"
+msgstr "Fitar da Samfuri/Samfura"
+
+#: thold_templates.php
+msgid "Click 'Continue' to delete the following Threshold Template(s)."
+msgstr "Danna 'Ci gaba' don share Samfurin/Samfuran Iyaka masu zuwa."
+
+#: thold_templates.php
+msgid "Delete Template(s)"
+msgstr "Share Samfuri/Samfura"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Reapply Suggested Names to Thresholds of the following Threshold Template(s)."
+msgstr "Danna 'Ci gaba' don Sake sanya Sunayen da aka Ba da Shawara ga Iyakoki na Samfurin/Samfuran Iyaka masu zuwa."
+
+#: thold_templates.php
+msgid "Reapply Suggested Names to Template(s)"
+msgstr "Sake amfani da sunayen da aka ba da shawara ga Samfuri/Samfura"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
+msgstr "Danna 'Ci gaba' don Kunna zaɓaɓɓun Samfuri/Samfura da Iyaka/Iyakoki."
+
+#: thold_templates.php
+msgid "Enable Template(s)"
+msgstr "Kunna Samfuri/Samfura"
+
+#: thold_templates.php
+msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
+msgstr "Danna 'Ci gaba' don Kashe Samfuri(a) da Iyaka(oki) da aka zaɓa."
+
+#: thold_templates.php
+msgid "Disable Template(s)"
+msgstr "Kashe Samfuri/Samfura"
+
+#: thold_templates.php
+msgid "Threshold Template Creation Wizard"
+msgstr "Mai Taimakon Ƙirƙirar Samfurin Iyaka"
+
+#: thold_templates.php
+msgid "Please select a Data Template"
+msgstr "Da fatan za a zaɓi Samfurin Bayanai"
+
+#: thold_templates.php
+msgid "Please select a Data Source"
+msgstr "Da fatan za a zaɓi Tushen Bayanai"
+
+#: thold_templates.php
+msgid "Please press 'Create' to create your Threshold Template"
+msgstr "Da fatan za a danna 'Ƙirƙira' don ƙirƙirar Samfurin Iyaka naka"
+
+#: thold_templates.php
+msgid "The Threshold Template requested can not be found"
+msgstr "Ba a iya samun Samfurin Iyaka da aka nema ba"
+
+#: thold_templates.php
+msgid "Provide the Threshold Template a meaningful name."
+msgstr "Ba wa Samfurin Iyaka suna mai ma'ana."
+
+#: thold_templates.php
+msgid "Suggested Threshold Name"
+msgstr "Sunan Iyaka da Aka Ba da Shawara"
+
+#: thold_templates.php
+msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
+msgstr "Bayar da sunan da aka ba da shawarar ga Iyaka da aka ƙirƙira ta amfani da wannan Samfuri. Ana iya amfani da ma'aunin maye na Na'ura (|host_*|), Tambayar Bayanai (|query_*|) da Shigarwa (|input_*|) da kuma |graph_title| don Taken Jadawali."
+
+#: thold_templates.php
+msgid "Data Template that you are using. (This cannot be changed)"
+msgstr "Samfurin Bayanai da kake amfani da shi. (Ba za a iya canza wannan ba)"
+
+#: thold_templates.php
+msgid "Data Field"
+msgstr "Filin Bayanai"
+
+#: thold_templates.php
+msgid "Data Field that you are using. (This cannot be changed)"
+msgstr "Filin Bayanai da kake amfani da shi. (Ba za a iya canza wannan ba)"
+
+#: thold_templates.php
+msgid "Whether or not this Threshold will be checked and alerted upon."
+msgstr "Ko za a duba wannan Iyaka kuma a yi faɗakarwa akai ko a'a."
+
+#: thold_templates.php
+msgid "Repeat alert after this amount of time has pasted since the last alert."
+msgstr "Maimaita faɗakarwa bayan wannan adadin lokaci ya wuce tun daga faɗakarwar ƙarshe."
+
+#: thold_templates.php
+msgid "Min Trigger Duration"
+msgstr "Mafi Ƙarancin Tsawon Lokacin Kunna Faɗakarwa"
+
+#: thold_templates.php
+msgid "The amount of time the Data Source must be in a breach condition for an alert to be raised."
+msgstr "Adadin lokacin da Tushen Bayanai dole ne ya kasance cikin yanayin karya iyaka kafin a ta da faɗakarwa."
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing a warning."
+msgstr "Adadin lokutan da Tushen Bayanai dole ne ya kasance cikin yanayin karya iyaka kafin a ba da gargaɗi."
+
+#: thold_templates.php
+msgid "Time Period Length"
+msgstr "Tsawon Zangon Lokaci"
+
+#: thold_templates.php
+msgid "The number of times the Data Source must be in breach condition prior to issuing an alert."
+msgstr "Adadin lokutan da Tushen Bayanai dole ne ya kasance cikin yanayin karya iyaka kafin a ba da faɗakarwa."
+
+#: thold_templates.php
+msgid "Baseline Monitoring"
+msgstr "Sa Idon Ma'aunin Asali"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Yana ƙayyade karkatar da aka yarda da ita don Iyaka ta sama. Idan ba a saita ba, ba za a duba Iyaka ta sama ko kaɗan ba.  Ma'aunin aunawa ƙima ce ta gaske don nau'in 'Ƙima ta Gaske', da kuma Kashi don duka '%% Karkata' da '%% Matsakaici Mai Motsi'"
+
+#: thold_templates.php
+#, php-format
+msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
+msgstr "Yana ƙayyade karkatar da aka yarda da ita don Iyaka ta ƙasa. Idan ba a saita ba, ba za a duba Iyaka ta ƙasa ko kaɗan ba.  Ma'aunin aunawa ƙima ce ta gaske don nau'in 'Ƙima ta Gaske', da kuma Kashi don duka '%% Karkata' da '%% Matsakaici Mai Motsi'"
+
+#: thold_templates.php
+#, php-format
+msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
+msgstr "Adadin lokutan da Tushen Bayanai zai kasance a jere cikin yanayin keta iyaka kafin a tayar da faɗakarwa.<br>Bar shi fanko don amfani da ƙimar asali (Asali: zagaye %s"
+
+#: thold_templates.php
+msgid "Percent Datasource"
+msgstr "Kashi na Tushen Bayanai"
+
+#: thold_templates.php
+msgid "Second Datasource Item to use as total value to calculate percentage from."
+msgstr "Abun Tushen Bayanai na Biyu da za a yi amfani da shi a matsayin jimillar ƙima don ƙididdige kashi dari daga ciki."
+
+#: thold_templates.php
+#, php-format
+msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Kalaman RPN kalmomi ne na RPN waɗanda suka dace da RRDtool. Tsarin rubutu ya haɗa da duk ayyukan da ke ƙasa tare da kalaman maye na Na'ura da Tambayar Bayanai kamar <span style=\"color:blue;\">|query_ifSpeed|</span>. Domin amfani da Tushen Bayanai a cikin Kalaman RPN, dole ne ka yi amfani da tsarin rubutu: <span style=\"color:blue;\">|ds:dsname|</span>. Misali, <span style=\"color:blue;\">|ds:traffic_in|</span> zai samo ƙimar yanzu ta Tushen Bayanai na traffic_in don fayil(fayilolin) RRD masu alaƙa da Jadawali. Za a iya haɗa kowane Tushen Bayanai na Jadawali.<br>Masu Aiki na Lissafi: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Ayyuka: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Masu Aiki na Gudana: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Ayyukan Kwatanta: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+
+#: thold_templates.php
+msgid "Upper data source to use to calculate the total value."
+msgstr "Tushen bayanai na sama da za a yi amfani da shi don lissafa jimlar ƙima."
+
+#: thold_templates.php
+msgid "Alert Email Subject"
+msgstr "Taken Imel na Faɗakarwa"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Wannan shine batun Imel da za a nuna a cikin Imel (Haruffa 128 IYA). Bar shi fanko don na asali. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Alert Email Body"
+msgstr "Jikin Imel na Faɗakarwa"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Wannan shi ne saƙon da za a nuna a saman duk Faɗakarwar Iyaka (Iyakar Haruffa 1024). Ana iya amfani da HTML, amma za a cire shi ga imel na rubutu kaɗai. Akwai alamomin maye gurbi da dama na yau da kullum da za a iya amfani da su waɗanda suka haɗa da:<br>misali &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Wannan shine batun Gargaɗi da za a nuna a cikin Imel (Haruffa 128 IYA). Bar shi fanko don na asali. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Wannan shi ne saƙon da za a nuna a saman duk Gargaɗin Iyaka (Iyakar Haruffa 1024). Ana iya amfani da HTML, amma za a cire shi ga imel na rubutu kaɗai. Akwai alamomin maye gurbi da dama na yau da kullum da za a iya amfani da su waɗanda suka haɗa da:<br>misali &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+
+#: thold_templates.php
+msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
+msgstr "Wannan shine batun Imel da za a nuna a cikin Imel bayan Komawa Daidai (Haruffa 128 IYA). Bar shi fanko don na asali. Akwai alamomin maye gurbi da yawa da aka saba amfani da su da suka haɗa da:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062"
+
+#: thold_templates.php
+msgid "Restoral Body"
+msgstr "Jikin Saƙon Maidowa"
+
+#: thold_templates.php
+msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Wannan shi ne saƙon da za a nuna a saman duk sanarwar dawowar Iyaka zuwa daidai (Iyakar Haruffa 1024). Ana iya amfani da HTML, amma za a cire shi ga Imel na rubutu kaɗai. Akwai alamomin maye gurbi da dama na yau da kullum da za a iya amfani da su waɗanda suka haɗa da:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#062 &#60DNOTES&#062"
+
+#: thold_templates.php
+msgid "Notification List Read Only"
+msgstr "Jerin Sanarwa na Karatu Kaɗai"
+
+#: thold_templates.php
+msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
+msgstr "Idan an zaɓa, Jerin Sanarwar Iyaka a cikin Samfuri zai maye gurbin na Iyakar."
+
+#: thold_templates.php
+msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
+msgstr "Tsananin da za a yi amfani da shi don faɗakarwa. (Ƙaramin tasiri -> Tasiri mai tsanani)"
+
+#: thold_templates.php
+msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
+msgstr "Wannan jerin asusun da za a sanar da su ne idan an karya wannan Iyaka.<br><br><br><br>"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
+msgstr "Za ka iya ƙayyade ƙarin Imel a nan don karɓar faɗakarwa ga wannan Tushen Bayanai (a raba da waƙafi)"
+
+#: thold_templates.php
+msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
+msgstr "Za ka iya ƙayyade ƙarin Imel a nan don karɓar gargaɗi ga wannan Tushen Bayanai (a raba da waƙafi)"
+
+#: thold_templates.php
+msgid "Enter an Eternal ID for this Thold Template."
+msgstr "Shigar da ID na Dindindin don wannan Samfurin Thold."
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d Watanni, %d Kwanaki, %d Awanni, %d Mintuna, %d Daƙiƙoƙi (Matsakaici)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d Watanni, %d Kwanaki, %d Awanni, %d Mintuna, %d Daƙiƙoƙi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d Kwanaki, %d Awanni, %d Mintuna, %d Daƙiƙoƙi (Matsakaici)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
+msgstr "%d Kwanaki, %d Awanni, %d Mintuna, %d Daƙiƙoƙi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds (Average)"
+msgstr "%d Awanni, %d Mintuna, %d Daƙiƙoƙi (Matsakaici)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Hours, %d Minutes, %d Seconds"
+msgstr "%d Awanni, %d Mintuna, %d Daƙiƙoƙi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds (Average)"
+msgstr "%d Mintuna, %d Daƙiƙoƙi (Matsakaici)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Minutes, %d Seconds"
+msgstr "%d Mintuna, %d Daƙiƙoƙi"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds (Average)"
+msgstr "Daƙiƙa %d (Matsakaici)"
+
+#: thold_templates.php
+#, php-format
+msgid "%d Seconds"
+msgstr "Daƙiƙa %d"
+
+#: thold_templates.php
+msgid "DS Name"
+msgstr "Sunan DS"
+
+#: thold_templates.php
+msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Ƙimar Gargaɗi / Faɗakarwa Mai Yawa. LURA: Ƙimar Baseline kashi ne (percent), duk sauran ƙimomi ɗanyun ƙimomi ne (RAW) da cdef bai gyara ba."
+
+#: thold_templates.php
+msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
+msgstr "Ƙimar Gargaɗi / Faɗakarwa Ƙasa. LURA: Ƙimar Baseline kashi ne (percent), duk sauran ƙimomi ɗanyun ƙimomi ne (RAW) da cdef bai gyara ba."
+
+#: thold_templates.php
+msgid "Import Template from Local File"
+msgstr "Shigo da Samfuri daga Fayil na Cikin Gida"
+
+#: thold_templates.php
+msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
+msgstr "Idan fayil ɗin XML mai ɗauke da bayanan Samfurin Iyaka yana kan na'urarka ta gida, zaɓe shi a nan."
+
+#: thold_templates.php
+msgid "Import Template from Text"
+msgstr "Shigo da Samfuri daga Rubutu"
+
+#: thold_templates.php
+msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
+msgstr "Idan kana da fayil ɗin XML mai ɗauke da bayanan Samfurin Iyaka a matsayin rubutu, za ka iya liƙa shi a cikin wannan akwati don shigo da shi."
+
+#: thold_templates.php
+msgid "Import Results"
+msgstr "Sakamakon Shigo da Bayanai"
+
+#: thold_templates.php
+msgid "Cacti has imported the following items:"
+msgstr "Cacti ya shigo da waɗannan abubuwan:"
+
+#: thold_templates.php
+msgid "Import Threshold Templates"
+msgstr "Shigo da Samfuran Iyaka"
+
+#: thold_templates.php
+msgid "The file is too big."
+msgstr "Fayil ɗin ya yi girma da yawa."
+
+#: thold_templates.php
+msgid "Incomplete file transfer."
+msgstr "Canja wurin fayil bai cika ba."
+
+#: thold_templates.php
+msgid "No file uploaded."
+msgstr "Ba a ɗora wani fayil ba."
+
+#: thold_templates.php
+msgid "Temporary folder missing."
+msgstr "Babban fayil na wucin gadi ya ɓace."
+
+#: thold_templates.php
+msgid "Failed to write file to disk"
+msgstr "An kasa rubuta fayil zuwa diski"
+
+#: thold_templates.php
+msgid "File upload stopped by extension"
+msgstr "Wani ƙarin tsari ya dakatar da ɗora fayil"
+
+#: thold_templates.php
+msgid "Invalid file extension."
+msgstr "Ƙarin sunan fayil bai dace ba."
+
+#: thold_templates.php
+msgid "NOTE:"
+msgstr "LURA:"
+
+#: thold_templates.php
+msgid "ERROR:"
+msgstr "KUSKURE:"
+
