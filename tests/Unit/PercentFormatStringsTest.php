@@ -64,8 +64,18 @@ it('renders percentage HRULE graph legends for hi/low and time-based thresholds'
 		'time_warning_low' => '15',
 	]);
 
+	$alertOnly = array_merge($baseRow, [
+		'id'                  => 3,
+		'thold_type'          => '0',
+		'thold_hi'            => '75',
+		'thold_low'           => '',
+		'thold_warning_hi'    => '',
+		'thold_warning_low'   => '',
+		'thold_hrule_warning' => 0,
+	]);
+
 	CactiStubs::$matchedReturns['db_fetch_assoc_prepared'] = [
-		['FROM thold_data', [$hiLow, $timeBased]],
+		['FROM thold_data', [$hiLow, $timeBased, $alertOnly]],
 	];
 	CactiStubs::$matchedReturns['db_fetch_cell_prepared'] = [
 		['FROM graph_templates_graph', 1000],
