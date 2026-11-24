@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2024-01-31 14:27+0000\n"
-"Last-Translator: Edwin Lankamp <edwin.lankamp@gmail.com>\n"
-"Language-Team: Dutch <http://translate.cacti.net/projects/cacti/thold/nl/>\n"
-"Language: nl-NL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/thold/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -495,8 +483,9 @@ msgid "> %d Devices"
 msgstr "> %d Apparaten"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "> %d Apparaten"
 
 #: includes/arrays.php
@@ -505,8 +494,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d Apparaten op een site"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "> %d Apparaten op een site"
 
 #: includes/functions.php
@@ -586,7 +576,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Abs Val [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "%%% Dev [AOT:%s]"
 
 #: includes/functions.php
@@ -662,7 +654,7 @@ msgstr "U moet ofwel 'Baseline Deviation UP' of 'Baseline Deviation DOWN' of bei
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "Onmogelijke drempels: 'High Threshold' kleiner dan of gelijk aan 'Low Threshold'<br>RECORD NOT UPDATED!"
+msgstr "Onmogelijke drempel: 'High Alert Threshold' kleiner dan de 'Low Alert Threshold'"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -686,7 +678,7 @@ msgstr "Onmogelijke drempels: 'Hoge Waarschuwingsdrempel' kleiner dan of gelijk 
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "Onbekende drempel"
+msgstr "Onbekend drempeltype!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -2268,19 +2260,27 @@ msgid "Warning Low for %s (%s)"
 msgstr "Waarschuwing laag for %s (%s)"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "Waarschuwing Hallo voor%s (%s %%)"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "Waarschuwing laag voor%s (%s %%)"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "Waarschuwing Hallo voor%s (%s %%)"
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "Waarschuwing laag voor%s (%s %%)"
 
 #: setup.php
@@ -3616,7 +3616,7 @@ msgstr "U kunt hier extra E-mails specificeren om waarschuwingen te ontvangen vo
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "De Graph Creation is mislukt voor Threshold Template"
+msgstr "De Graph Creation is mislukt voor Threshold Template."
 
 #: thold_templates.php
 #, php-format
