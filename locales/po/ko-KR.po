@@ -4,18 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2020-09-13 15:02-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: ko_KR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Korean <https://translate.cacti.net/projects/cacti/thold/ko/>\nLanguage: ko-KR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -24,27 +13,27 @@ msgstr "무기한으로"
 #: includes/arrays.php
 #, php-format
 msgid "%d Month"
-msgstr "% d 개월"
+msgstr "%d 개월"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Months"
-msgstr "개월 % d 개월"
+msgstr "%d 개월"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Year"
-msgstr "% d 년"
+msgstr "%d 년"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "% d 시간마다"
+msgstr "%d 시간마다"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "% d 시간마다"
+msgstr "%d 시간마다"
 
 #: includes/arrays.php
 #, php-format
@@ -54,32 +43,32 @@ msgstr ""
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "매 % d 일"
+msgstr "매 %d 일"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "% d주의"
+msgstr "%d주의"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "% d 주마다"
+msgstr "%d 주마다"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "% d 개월"
+msgstr "%d 개월"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "개월 % d 개월"
+msgstr "개월 %d 개월"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "% d 년"
+msgstr "%d 년"
 
 #: includes/arrays.php
 #, php-format
@@ -255,7 +244,7 @@ msgstr "매시간"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "% d 시간마다"
+msgstr "%d 시간마다"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -264,7 +253,7 @@ msgstr "매일"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "매 % d 일"
+msgstr "매 %d 일"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -273,7 +262,7 @@ msgstr "매주"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "% d 주마다"
+msgstr "%d 주마다"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -282,7 +271,7 @@ msgstr "매월"
 #: includes/arrays.php
 #, php-format
 msgid "%d Minute"
-msgstr "% d 분"
+msgstr "%d 분"
 
 #: includes/arrays.php
 #, php-format
@@ -292,17 +281,17 @@ msgstr "%d 분"
 #: includes/arrays.php
 #, php-format
 msgid "%d Hour"
-msgstr "% d 시간"
+msgstr "%d 시간"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Hours"
-msgstr "% d 시간"
+msgstr "%d 시간"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Day"
-msgstr "% d 일"
+msgstr "%d 일"
 
 #: includes/arrays.php thold_graph.php
 #, php-format
@@ -312,17 +301,17 @@ msgstr "%d일"
 #: includes/arrays.php
 #, php-format
 msgid "%d Week"
-msgstr "% d주의"
+msgstr "%d주의"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Weeks"
-msgstr "% d 주"
+msgstr "%d 주"
 
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "% 0.1f 시간"
+msgstr "%0.1f 시간"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -331,17 +320,17 @@ msgstr "모든 폴링"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "% d마다 설문 조사"
+msgstr "%d마다 설문 조사"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "폴링 % d 개"
+msgstr "폴링 %d 개"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "% d 개의 투표"
+msgstr "%d 개의 투표"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -491,21 +480,23 @@ msgstr "%d일"
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices"
-msgstr "장치"
+msgstr "> %d개 장치"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices Globally"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices Globally"
+msgid "> %d %% of Devices Globally"
 msgstr "장치"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "장치"
+msgstr "사이트당 > %d개 장치"
 
 #: includes/arrays.php
-#, php-format
-msgid "> %d %%% of Devices in a Site"
+#, fuzzy, php-format
+#| msgid "> %d %%% of Devices in a Site"
+msgid "> %d %% of Devices in a Site"
 msgstr "장치"
 
 #: includes/functions.php
@@ -539,7 +530,7 @@ msgstr "회원:"
 
 #: includes/functions.php
 msgid "System:"
-msgstr "시스템"
+msgstr "시스템:"
 
 #: includes/functions.php
 msgid "Swaps:"
@@ -577,33 +568,35 @@ msgstr "주의가 필요한 경고가 발행되었습니다. <br><br> <strong>�
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "편차 UP"
+msgstr "%% 편차 [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "알림 값"
+msgstr "절댓값 [TIP:%s]"
 
 #: includes/functions.php
-msgid "%%% Dev [AOT:%s]"
+#, fuzzy, php-format
+#| msgid "%%% Dev [AOT:%s]"
+msgid "%% Dev [AOT:%s]"
 msgstr "편차 UP"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "알림 값"
+msgstr "절댓값 [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
-msgstr "그래프 및 임계 값을 만들려고 시도하는 동안 장치 ID가 설정되지 않았습니다."
+msgstr "그래프 및 임계 값을 만들려고 시도하는 동안 장치 ID가 설정되지 않았습니다"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
+msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
-msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다."
+msgstr "그래프 및 임계 값을 생성하는 동안 임계 값 템플릿 ID가 설정되지 않았습니다"
 
 #: includes/functions.php
 msgid "The Graph Creation failed for Threshold Template"
@@ -611,11 +604,11 @@ msgstr "임계 값 템플릿에 대한 그래프 작성 실패"
 
 #: includes/functions.php
 msgid "Threshold was Autocreated due to Device Template mapping"
-msgstr "장치 템플릿 매핑으로 인해 임계 값이 자동 생성되었습니다."
+msgstr "장치 템플릿 매핑으로 인해 임계 값이 자동 생성되었습니다"
 
 #: includes/functions.php
 msgid "Permission Denied"
-msgstr "사용 권한이 거부되었습니다."
+msgstr "사용 권한이 거부되었습니다"
 
 #: includes/functions.php
 msgid "Record Updated"
@@ -624,12 +617,12 @@ msgstr "레코드 업데이트 됨"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "임계 값 '% d'에서 연결된 그래프 템플릿 항목 '% d'을 (를) 찾지 못했습니다."
+msgstr "임계 값 '%d'에서 연결된 그래프 템플릿 항목 '%d'을 (를) 찾지 못했습니다"
 
 #: includes/functions.php
 #, php-format
 msgid "Created Threshold: %s"
-msgstr "생성 된 임계 값 :  %s"
+msgstr "생성 된 임계 값 : %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
@@ -661,7 +654,7 @@ msgstr "'Baseline Deviation UP'또는 'Baseline Deviation DOWN'또는 둘 다를
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "불가능한 문턱 값 : '높은 문턱 값'이 '낮은 문턱 값'보다 작거나 같음 <br> 기록이 업데이트되지 않았습니다!"
+msgstr "불가능한 임계값: '높은 경고 임계값'이 '낮은 경고 임계값'보다 작음"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
@@ -685,7 +678,7 @@ msgstr "가능한 한계 값 : '높은 경고 한계 값'보다 작거나 같은
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
-msgstr "알 수없는 임계 값"
+msgstr "알 수 없는 임계값 유형!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
@@ -751,7 +744,7 @@ msgstr "임계 값 템플릿 종속 데이터 소스를 찾을 수 없습니다!
 
 #: includes/functions.php
 msgid "Threshold Template import columns do not match the database schema"
-msgstr "임계 값 템플릿 가져 오기 열이 데이터베이스 스키마와 일치하지 않습니다."
+msgstr "임계 값 템플릿 가져 오기 열이 데이터베이스 스키마와 일치하지 않습니다"
 
 #: includes/functions.php
 msgid "Imported"
@@ -785,7 +778,7 @@ msgstr "임계 값 템플릿 데이터를 가져 오는 동안 오류가 발생�
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "임계 값 템플릿 종속 데이터 템플릿을 찾을 수 없습니다!"
+msgstr "임계값 템플릿 가져오기 데이터가 XML 데이터가 아닙니다."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
@@ -959,7 +952,7 @@ msgstr "호스트 실패 수"
 
 #: includes/settings.php
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
-msgstr "이 호스트에서 폴링 간격의 수는 Thold가 오류를 기록하고 호스트를 중단으로보고하기 전에 중단되어야합니다. 기본값은 0 (Cacti 설정 사용)입니다."
+msgstr "이 호스트에서 폴링 간격의 수는 Thold가 오류를 기록하고 호스트를 중단으로보고하기 전에 중단되어야합니다. 기본값은 0 (Cacti 설정 사용)입니다"
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
@@ -968,12 +961,12 @@ msgstr "기준선 설정"
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "폴링 % d 개"
+msgstr "폴링 %d 개"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "% d 개의 투표"
+msgstr "%d 개의 투표"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1127,7 +1120,7 @@ msgstr "Thold 데몬이 다운 된 것으로 확인되면이 빈도로 이메일
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "% d 시간마다"
+msgstr "%d 시간마다"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1135,7 +1128,7 @@ msgstr ""
 
 #: includes/settings.php
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
-msgstr "Threshold Daemon이 처리 할 동시 프로세스의 최대 수"
+msgstr "Threshold Daemon이 처리 할 동시 프로세스의 최대 수."
 
 #: includes/settings.php
 msgid "1 Process"
@@ -1144,7 +1137,7 @@ msgstr ""
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr ""
+msgstr "프로세스 %d 개"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1316,7 +1309,7 @@ msgstr "긴급한 우선 순위로 이메일 보내기"
 
 #: includes/settings.php
 msgid "Allows you to set Emails with urgent priority"
-msgstr "긴급한 우선 순위로 이메일을 설정할 수 있습니다."
+msgstr "긴급한 우선 순위로 이메일을 설정할 수 있습니다"
 
 #: includes/settings.php
 msgid "Send Alerts as Text"
@@ -1685,7 +1678,7 @@ msgstr "선택된 그래프"
 #: includes/webapi.php
 #, php-format
 msgid "Created graph: %s"
-msgstr "그래프 생성 :  %s"
+msgstr "그래프 생성 : %s"
 
 #: notify_lists.php
 msgid "Duplicate"
@@ -1817,7 +1810,7 @@ msgstr "경고 회원 :"
 
 #: notify_lists.php
 msgid "Device Threshold Alert Membership:"
-msgstr "임계 값 경고 메시지"
+msgstr "임계 값 경고 메시지:"
 
 #: notify_lists.php
 #, php-format
@@ -1831,7 +1824,7 @@ msgstr "또한 장치 임계 값을 분리 할 수도 있습니다. 그러나 �
 #: notify_lists.php
 #, php-format
 msgid "[edit: %s]"
-msgstr "[편집 :  %s]"
+msgstr "[편집 : %s]"
 
 #: notify_lists.php
 msgid "[new]"
@@ -1942,7 +1935,7 @@ msgstr "관련 목록"
 
 #: notify_lists.php thold_graph.php
 msgid "Graphs"
-msgstr "그래프 "
+msgstr "그래프"
 
 #: notify_lists.php thold_graph.php
 msgid "Data Sources"
@@ -1962,7 +1955,7 @@ msgstr "현재 및 전체 목록"
 
 #: notify_lists.php
 msgid "No Associated Devices Found"
-msgstr "연결된 장치가 없습니다."
+msgstr "연결된 장치가 없습니다"
 
 #: notify_lists.php
 msgid "Associated Thresholds"
@@ -2045,7 +2038,7 @@ msgstr "읽기 전용"
 
 #: notify_lists.php
 msgid "No Thresholds Found"
-msgstr "임계 값 로그가 없습니다."
+msgstr "임계 값 로그가 없습니다"
 
 #: notify_lists.php
 msgid "Associated Templates"
@@ -2150,7 +2143,7 @@ msgstr "알림 목록"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "임계 값 템플릿"
+msgstr "임계 값 템플릿."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2162,11 +2155,11 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "이 장치의 데이터 소스 수"
+msgstr "이 장치의 데이터 소스 수."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "알림 목록 만"
+msgstr "알림 목록 만."
 
 #: notify_queue.php
 msgid "Object ID"
@@ -2182,7 +2175,7 @@ msgstr ""
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "SNMP에 의해보고 된 장치의 공식 가동 시간"
+msgstr "SNMP에 의해보고 된 장치의 공식 가동 시간."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2259,27 +2252,35 @@ msgstr "%s (%s)에 대한 경고 낮음"
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "경고 목록"
+msgstr "%s (%s)의 경고 상한"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "경고 목록"
+msgstr "%s (%s)의 경고 하한"
 
 #: setup.php
-msgid "Alert Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Hi for %s (%s %%%)"
+msgid "Alert Hi for %s (%s %%)"
 msgstr "%s (%s %%)에 대한 Hi 경고"
 
 #: setup.php
-msgid "Alert Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Alert Low for %s (%s %%%)"
+msgid "Alert Low for %s (%s %%)"
 msgstr "%s (%s %%)에 대한 경고 낮음"
 
 #: setup.php
-msgid "Warning Hi for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Hi for %s (%s %%%)"
+msgid "Warning Hi for %s (%s %%)"
 msgstr "%s (%s %%)에 대해 안녕하세요."
 
 #: setup.php
-msgid "Warning Low for %s (%s %%%)"
+#, fuzzy, php-format
+#| msgid "Warning Low for %s (%s %%%)"
+msgid "Warning Low for %s (%s %%)"
 msgstr "%s (%s %%)에 대해 낮음 경고"
 
 #: setup.php
@@ -2301,7 +2302,7 @@ msgstr "임계 값 자동 생성"
 #: setup.php
 #, php-format
 msgid "Created %s thresholds"
-msgstr "생성 된 임계 값 :  %s"
+msgstr "생성 된 임계 값 : %s"
 
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
@@ -2309,7 +2310,7 @@ msgstr "생성 된 임계 값 없음. 임계 값 템플릿을 찾을 수 없습�
 
 #: setup.php
 msgid "The following Data Sources have no Threshold Templates associated with them"
-msgstr "다음 데이터 소스에는 임계 값 템플릿이 연결되어 있지 않습니다."
+msgstr "다음 데이터 소스에는 임계 값 템플릿이 연결되어 있지 않습니다"
 
 #: setup.php
 msgid "Click 'Continue' to create Thresholds for these Data Sources?"
@@ -2321,19 +2322,19 @@ msgstr "사용 가능한 임계 값 템플릿"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Data Sources"
-msgstr "다음 데이터 소스와 연관된 임계 값 템플리트가 없습니다."
+msgstr "다음 데이터 소스와 연관된 임계 값 템플리트가 없습니다"
 
 #: setup.php
 msgid "The following Graphs have no Threshold Templates associated with them"
-msgstr "다음 그래프에는 연관된 임계 값 템플릿이 없습니다."
+msgstr "다음 그래프에는 연관된 임계 값 템플릿이 없습니다"
 
 #: setup.php
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr "이 그래프에 대한 임계 값을 만들려면 '계속'을 누르십시오."
+msgstr "이 그래프에 대한 임계 값을 만들려면 '계속'을 누르십시오"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Graphs"
-msgstr "다음 그래프와 연관된 임계 값 템플릿이 없습니다."
+msgstr "다음 그래프와 연관된 임계 값 템플릿이 없습니다"
 
 #: setup.php
 msgid "Associated Threshold Templates"
@@ -2374,7 +2375,7 @@ msgstr "다음 임계 값 템플릿을 삭제하려면 '계속'을 클릭하고 
 #: setup.php
 #, php-format
 msgid "Threshold Template Name: %s"
-msgstr "임계 값 템플릿 이름 :  %s"
+msgstr "임계 값 템플릿 이름 : %s"
 
 #: setup.php
 msgid "Remove Threshold Template"
@@ -2458,7 +2459,7 @@ msgstr "중복 된 알림 목록"
 
 #: thold.php thold_templates.php
 msgid "Invalid action detected, can not proceed"
-msgstr "잘못된 동작이 감지되었습니다. 계속할 수 없습니다."
+msgstr "잘못된 동작이 감지되었습니다. 계속할 수 없습니다"
 
 #: thold.php
 msgid "Threshold Management"
@@ -2552,7 +2553,7 @@ msgstr "주"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "경고를 발생시키기 위해 데이터 소스가 임계 값을 위반해야하는 시간입니다."
+msgstr "경고를 발생시키기 위해 데이터 소스가 임계 값을 위반해야하는 시간입니다"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2573,7 +2574,7 @@ msgstr "임계 값 없음"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "% d 트리거"
+msgstr "%d 트리거"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2581,7 +2582,7 @@ msgstr "임계 값 없음"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
-msgstr "임계 값이 존재하지 않음"
+msgstr "임계값이 삭제되어 편집할 수 없습니다!"
 
 #: thold.php
 msgid "Graph Data"
@@ -2630,7 +2631,7 @@ msgstr "BL 다운 :"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "알 수없는 템플릿 ID % d"
+msgstr "알 수없는 템플릿 ID %d"
 
 #: thold.php
 msgid "Not Templated"
@@ -2644,12 +2645,12 @@ msgstr "데이터 소스 항목 [ %s] - 현재 값 : [ %s]"
 #: thold.php thold_templates.php
 #, php-format
 msgid "Replacement Fields: %s"
-msgstr "대체 필드 :  %s"
+msgstr "대체 필드 : %s"
 
 #: thold.php thold_templates.php
 #, php-format
 msgid "Data Sources: %s"
-msgstr "데이터 출처 :  %s"
+msgstr "데이터 출처 : %s"
 
 #: thold.php
 msgid "Template/Enabled Information"
@@ -2693,7 +2694,7 @@ msgstr "이름 (표시됨)"
 
 #: thold.php
 msgid "Provide the Thresholds a meaningful name"
-msgstr "임계 값에 의미있는 이름을 제공하십시오."
+msgstr "임계 값에 의미있는 이름을 제공하십시오"
 
 #: thold.php
 msgid "Name (Format)"
@@ -2893,7 +2894,7 @@ msgstr "시간 범위"
 
 #: thold.php thold_templates.php
 msgid "Specifies the point in the past (based on rrd resolution) that will be used as a reference or the duration to use for the Floating Average when using the Floating Average type Threshold"
-msgstr "참조로 사용할 과거 (rrd 해상도 기준) 지점을 지정합니다."
+msgstr "참조로 사용할 과거 (rrd 해상도 기준) 지점을 지정합니다"
 
 #: thold.php thold_templates.php
 msgid "Deviation UP"
@@ -2902,7 +2903,7 @@ msgstr "편차 UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "상한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 상한 임계 값이 전혀 점검되지 않습니다."
+msgstr "상한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 상한 임계 값이 전혀 점검되지 않습니다"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2911,7 +2912,7 @@ msgstr "편차 감소"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "하한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 하한 임계 값은 전혀 점검되지 않습니다."
+msgstr "하한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 하한 임계 값은 전혀 점검되지 않습니다"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2920,7 +2921,7 @@ msgstr "트리거 수"
 #: thold.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in breach of the baseline Threshold for an alert to be raised.<br>Leave empty to use default value (<b>Default: %s cycles</b>)"
-msgstr "경고가 발생하는 기준 임계 값을 위반 한 데이터 소스의 연속 횟수입니다. <br> 기본값을 사용하려면 비워 두십시오 ( <b>기본값 :  %s주기</b> )."
+msgstr "경고가 발생하는 기준 임계 값을 위반 한 데이터 소스의 연속 횟수입니다. <br> 기본값을 사용하려면 비워 두십시오 ( <b>기본값 : %s주기</b> )"
 
 #: thold.php thold_templates.php
 msgid "Data Manipulation"
@@ -2977,7 +2978,7 @@ msgstr ""
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN 표현식은 RRDtool 호환 RPN 표현식입니다. 구문에는 다음과 같은 장치 및 데이터 쿼리 대체 표현식 외에도 모든 함수가 포함됩니다. <span class=\"deviceUp\">| query_ifSpeed |</span> . RPN 표현식에서 데이터 소스를 사용하려면 다음 구문을 사용해야합니다. <span class=\"deviceUp\">| ds : dsname |</span> . 예를 들어, <span class=\"deviceUp\">| ds : traffic_in |</span> 그래프와 연관된 RRD 파일에 대한 traffic_in 데이터 소스의 현재 값을 가져옵니다. 그래프의 모든 데이터 소스를 포함 할 수 있습니다. <br><br> 수학 연산자 : <span class=\"deviceUp\">+, -, /, *, %, ^</span> <br> 함수 : <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, 바닥, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> 흐름 운영자 : <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> 비교 함수 : <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s  %s"
+msgstr "RPN 표현식은 RRDtool 호환 RPN 표현식입니다. 구문에는 <span class=\"deviceUp\">|query_ifSpeed|</span>와 같은 장치 및 데이터 쿼리 대체 표현식 외에도 아래의 모든 함수가 포함됩니다. RPN 표현식에서 데이터 소스를 사용하려면 <span class=\"deviceUp\">|ds:dsname|</span> 구문을 사용해야 합니다. 예를 들어 <span class=\"deviceUp\">|ds:traffic_in|</span>은 그래프와 연결된 RRD 파일의 traffic_in 데이터 소스 현재 값을 가져옵니다. 그래프의 모든 데이터 소스를 포함할 수 있습니다.<br><br>산술 연산자: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>함수: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>흐름 연산자: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>비교 함수: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -3065,7 +3066,7 @@ msgstr "알림 알림 목록"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
-msgstr "알림 목록을 선택하여이 데이터 소스에 대한 알림을 수신하도록 지정할 수 있습니다."
+msgstr "알림 목록을 선택하여이 데이터 소스에 대한 알림을 수신하도록 지정할 수 있습니다"
 
 #: thold.php thold_templates.php
 msgid "Style/Format File"
@@ -3121,7 +3122,7 @@ msgstr "알림 이메일"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
-msgstr "이 데이터 소스에 대한 경고를 수신하려면 추가 이메일을 여기에서 지정할 수 있습니다 (쉼표로 구분)."
+msgstr "이 데이터 소스에 대한 경고를 수신하려면 추가 이메일을 여기에서 지정할 수 있습니다 (쉼표로 구분)"
 
 #: thold.php thold_templates.php
 msgid "Warning Emails"
@@ -3129,7 +3130,7 @@ msgstr "경고 이메일"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
-msgstr "이 데이터 소스 (쉼표로 구분)에 대한 경고를 받으려면 여기서 추가 이메일을 지정할 수 있습니다."
+msgstr "이 데이터 소스 (쉼표로 구분)에 대한 경고를 받으려면 여기서 추가 이메일을 지정할 수 있습니다"
 
 #: thold.php thold_templates.php
 msgid "If checked, Threshold notification will be sent to your local syslog."
@@ -3217,7 +3218,7 @@ msgstr "임계 값은 더 이상 경고, 알림을 생성하거나 명령을 실
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "경고 / 경고에 대한 높은 임계 값"
+msgstr "경고 / 경고에 대한 높은 임계 값."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3281,11 +3282,11 @@ msgstr ""
 
 #: thold_graph.php
 msgid "No name set"
-msgstr "이름이 설정되지 않았습니다."
+msgstr "이름이 설정되지 않았습니다"
 
 #: thold_graph.php
 msgid "Hover over icons for help"
-msgstr "도움말 아이콘 위로 마우스를 이동하십시오."
+msgstr "도움말 아이콘 위로 마우스를 이동하십시오"
 
 #: thold_graph.php
 msgid "A description for the Device"
@@ -3353,7 +3354,7 @@ msgstr "장치 편집"
 
 #: thold_graph.php
 msgid "View Graphs"
-msgstr "그래프보기"
+msgstr "그래프"
 
 #: thold_graph.php
 msgid "No Devices"
@@ -3390,7 +3391,7 @@ msgstr "측정 된 가치"
 
 #: thold_graph.php
 msgid "No Threshold Logs Found"
-msgstr "임계 값 로그가 없습니다."
+msgstr "임계 값 로그가 없습니다"
 
 #: thold_graph.php
 msgid "Entries"
@@ -3403,7 +3404,7 @@ msgstr "선택한 임계 값 중 하나 이상을 수정할 수있는 권한이 
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (% d 개 임계 값)"
+msgstr "%s (%d 개 임계 값)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3427,7 +3428,7 @@ msgstr "제안 된 이름을 다음 임계 값 템플리트의 임계 값에 다
 
 #: thold_templates.php
 msgid "Reapply Suggested Names to Template(s)"
-msgstr "제안 된 이름을 템플릿에 다시 적용하십시오."
+msgstr "제안 된 이름을 템플릿에 다시 적용하십시오"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Enable the selected Template(s) and Threshold(s)."
@@ -3451,15 +3452,15 @@ msgstr "임계 값 템플릿 생성 마법사"
 
 #: thold_templates.php
 msgid "Please select a Data Template"
-msgstr "데이터 템플릿을 선택하십시오."
+msgstr "데이터 템플릿을 선택하십시오"
 
 #: thold_templates.php
 msgid "Please select a Data Source"
-msgstr "데이터 소스를 선택하십시오."
+msgstr "데이터 소스를 선택하십시오"
 
 #: thold_templates.php
 msgid "Please press 'Create' to create your Threshold Template"
-msgstr "'생성'을 눌러 임계 템플릿을 만드십시오."
+msgstr "'생성'을 눌러 임계 템플릿을 만드십시오"
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
@@ -3524,17 +3525,17 @@ msgstr "기준선 모니터링"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "상한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 상한 임계 값이 전혀 점검되지 않습니다."
+msgstr "상한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 상한 임계 값이 전혀 점검되지 않습니다"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "하한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 하한 임계 값은 전혀 점검되지 않습니다."
+msgstr "하한 임계 값의 백분율로 허용되는 편차를 지정합니다. 설정하지 않으면 하한 임계 값은 전혀 점검되지 않습니다"
 
 #: thold_templates.php
 #, php-format
 msgid "Number of consecutive times the Data Source must be in a breached condition for an alert to be raised.<br>Leave empty to use default value (Default: %s cycles"
-msgstr "경고를 발생시키기 위해 데이터 소스가 위반 조건에 있어야하는 연속 횟수. <br> 기본값을 사용하려면 비워 둡니다 (기본값 :  %s cycles"
+msgstr "경고를 발생시키기 위해 데이터 소스가 위반 조건에 있어야하는 연속 횟수. <br> 기본값을 사용하려면 비워 둡니다 (기본값 : %s cycles"
 
 #: thold_templates.php
 msgid "Percent Datasource"
@@ -3547,7 +3548,7 @@ msgstr "두 번째 데이터 소스에서 백분율을 계산하기 위해 총 �
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN 표현식은 RRDtool 호환 RPN 표현식입니다. 구문에는 다음과 같은 장치 및 데이터 쿼리 대체 표현식 외에도 모든 함수가 포함됩니다. <span style=\"color:blue;\">| query_ifSpeed |</span> . RPN 표현식에서 데이터 소스를 사용하려면 다음 구문을 사용해야합니다. <span style=\"color:blue;\">| ds : dsname |</span> . 예를 들어, <span style=\"color:blue;\">| ds : traffic_in |</span> 그래프와 연관된 RRD 파일에 대한 traffic_in 데이터 소스의 현재 값을 가져옵니다. 그래프의 모든 데이터 소스를 포함 할 수 있습니다. <br> 수학 연산자 : <span style=\"color:blue;\">+, -, /, *, %, ^</span> <br> 함수 : <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, 바닥, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span> <br> 흐름 운영자 : <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span> <br> 비교 함수 : <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>  %s  %s"
+msgstr "RPN 표현식은 RRDtool 호환 RPN 표현식입니다. 구문에는 <span style=\"color:blue;\">|query_ifSpeed|</span>와 같은 장치 및 데이터 쿼리 대체 표현식 외에도 아래의 모든 함수가 포함됩니다. RPN 표현식에서 데이터 소스를 사용하려면 <span style=\"color:blue;\">|ds:dsname|</span> 구문을 사용해야 합니다. 예를 들어 <span style=\"color:blue;\">|ds:traffic_in|</span>은 그래프와 연결된 RRD 파일의 traffic_in 데이터 소스 현재 값을 가져옵니다. 그래프의 모든 데이터 소스를 포함할 수 있습니다.<br>산술 연산자: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>함수: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>흐름 연산자: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>비교 함수: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3607,60 +3608,60 @@ msgstr "이 임계 값이 위반되었을 때 알림을받을 계정 목록입�
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
-msgstr "이 데이터 소스에 대한 경고를 수신하려면 추가 이메일을 여기에서 지정할 수 있습니다 (쉼표로 구분)."
+msgstr "이 데이터 소스에 대한 경고를 수신하려면 추가 이메일을 여기에서 지정할 수 있습니다 (쉼표로 구분)"
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
-msgstr "이 데이터 소스 (쉼표로 구분)에 대한 경고를 받으려면 여기서 추가 이메일을 지정할 수 있습니다."
+msgstr "이 데이터 소스 (쉼표로 구분)에 대한 경고를 받으려면 여기서 추가 이메일을 지정할 수 있습니다"
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "임계 값 템플릿에 대한 그래프 작성 실패"
+msgstr "임계 값 템플릿에 대한 그래프 작성 실패."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d 개월, % d 일, % d 시간, % d 분, % d 초 (평균)"
+msgstr "%d 개월, %d 일, %d 시간, %d 분, %d 초 (평균)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d 개월, % d 일, % d 시간, % d 분, % d 초"
+msgstr "%d 개월, %d 일, %d 시간, %d 분, %d 초"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d 일, % d 시간, % d 분, % d 초 (평균)"
+msgstr "%d 일, %d 시간, %d 분, %d 초 (평균)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "% d 일, % d 시간, % d 분, % d 초"
+msgstr "%d 일, %d 시간, %d 분, %d 초"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "% d 시간, % d 분, % d 초 (평균)"
+msgstr "%d 시간, %d 분, %d 초 (평균)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "% d 시간, % d 분, % d 초"
+msgstr "%d 시간, %d 분, %d 초"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "% d 분, % d 초 (평균)"
+msgstr "%d 분, %d 초 (평균)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "% d 분, % d 초"
+msgstr "%d 분, %d 초"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "% d 초 (평균)"
+msgstr "%d 초 (평균)"
 
 #: thold_templates.php
 #, php-format
@@ -3737,7 +3738,7 @@ msgstr "잘못된 파일 확장자."
 
 #: thold_templates.php
 msgid "NOTE:"
-msgstr "노트: "
+msgstr "노트:"
 
 #: thold_templates.php
 msgid "ERROR:"
