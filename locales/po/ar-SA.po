@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/thold/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/thold/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
-msgstr "إلى ما لا نهاية"
+msgstr "إلى أجل غير مسمى"
 
 #: includes/arrays.php
 #, php-format
@@ -77,7 +77,7 @@ msgstr "منذ %d سنوات"
 
 #: includes/arrays.php thold_graph.php
 msgid "Down"
-msgstr "متوقف"
+msgstr "معطل"
 
 #: includes/arrays.php thold_graph.php
 msgid "Error"
@@ -102,7 +102,7 @@ msgstr "معطل"
 
 #: includes/arrays.php thold_graph.php
 msgid "Not Monitored"
-msgstr "مراقبة"
+msgstr "غير مراقب"
 
 #: includes/arrays.php
 msgid "Notify - Alert"
@@ -244,7 +244,7 @@ msgstr "كل ساعة"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "كل %d ساعة"
+msgstr "كل %d ساعات"
 
 #: includes/arrays.php
 msgid "Every Day"
@@ -271,7 +271,7 @@ msgstr "شهريًا"
 #: includes/arrays.php
 #, php-format
 msgid "%d Minute"
-msgstr "دقيقة %d"
+msgstr "%d دقيقة"
 
 #: includes/arrays.php
 #, php-format
@@ -286,17 +286,17 @@ msgstr "%d ساعة"
 #: includes/arrays.php
 #, php-format
 msgid "%d Hours"
-msgstr "%d ساعات"
+msgstr "%d د ساعات"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Day"
-msgstr "يوم %d"
+msgstr "%d يوم"
 
 #: includes/arrays.php thold_graph.php
 #, php-format
 msgid "%d Days"
-msgstr "%d من الأيام"
+msgstr "%d أيام"
 
 #: includes/arrays.php
 #, php-format
@@ -483,9 +483,9 @@ msgid "> %d Devices"
 msgstr "أجهزة > %d"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %% of Devices Globally"
-msgstr "> %d %% الأجهزة على مستوى العالم"
+msgstr "> %d %% من الأجهزة على مستوى النظام"
 
 #: includes/arrays.php
 #, php-format
@@ -493,9 +493,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d الأجهزة في الموقع"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %% of Devices in a Site"
-msgstr "> %d %% الأجهزة في الموقع"
+msgstr "> %d %% من الأجهزة في الموقع"
 
 #: includes/functions.php
 msgid "< 1 Minute"
@@ -549,7 +549,7 @@ msgstr "الافتراضي"
 
 #: includes/functions.php
 msgid "Link to Graph in Cacti"
-msgstr "رابط إلى الرسم البياني في الصبار"
+msgstr "رابط الرسم البياني في Cacti"
 
 #: includes/functions.php
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
@@ -574,9 +574,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "عبس فال [نصيحة:%s]"
 
 #: includes/functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "%% Dev [AOT:%s]"
-msgstr "%% ديف [AOT:%s]"
+msgstr "%% انحراف [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -745,7 +745,7 @@ msgstr "لا تتطابق أعمدة استيراد قالب العتبة مع �
 
 #: includes/functions.php
 msgid "Imported"
-msgstr "تم الاستيراد"
+msgstr "استيراد"
 
 #: includes/functions.php
 #, php-format
@@ -754,7 +754,7 @@ msgstr "نموذج العتبة \"%s\" %s!"
 
 #: includes/functions.php
 msgid "Updated"
-msgstr "تم التحديث"
+msgstr "تحديث"
 
 #: includes/functions.php thold_templates.php
 msgid "Import"
@@ -763,7 +763,7 @@ msgstr "استيراد"
 #: includes/functions.php
 #, php-format
 msgid "Threshold Template '%s' %s Failed!"
-msgstr "%s فشل قالب العتبة \"%s\"!"
+msgstr "قالب الحد (العتبة) '%s': فشل %s!"
 
 #: includes/functions.php
 msgid "Update"
@@ -791,7 +791,7 @@ msgstr "إشعار الأجهزة: <DESCRIPTION> (<HOSTNAME>) تم إرجاعه�
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr "<br><DESCRIPTION> حالة النظام <HOSTNAME>() :<DOWN p=\"\"><br><br>موقع: <SITE><br>مكان: <LOCATION><br>استجابة بينغ الحالية: <CUR_TIME> مللي ثانية<br>متوسط استجابة النظام: <AVG_TIME> مللي ثانية<br>توفر النظام: <AVAILABILITY><br>إجمالي الشيكات منذ الوضوح: <TOT_POLL><br>إجمالي عمليات التحقق الفاشلة: <FAIL_POLL><br>آخر موعد تم فحصه: <LAST_FAIL><br>الأجهزة التي كانت معطلة سابقا من أجل: <DOWNTIME><br><br>معلومات SNMP:<br>اسم- <SNMP_HOSTNAME><br>مكان- <SNMP_LOCATION><br>الجهوزية - <UPTIMETEXT> (<UPTIME> مللي ثانية)<br>نظام- <SNMP_SYSTEM><br><br>ملاحظه: <NOTES></SNMP_SYSTEM></UPTIME></UPTIMETEXT></SNMP_LOCATION></SNMP_HOSTNAME></DOWNTIME></LAST_FAIL></FAIL_POLL></TOT_POLL></AVAILABILITY></AVG_TIME></CUR_TIME></LOCATION></SITE></DOWN></HOSTNAME></DESCRIPTION>"
+msgstr "<br>حالة النظام <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>الموقع: <SITE><br>المكان: <LOCATION><br>استجابة ping الحالية: <CUR_TIME> مللي ثانية<br>متوسط استجابة النظام : <AVG_TIME> مللي ثانية<br>توفر النظام: <AVAILABILITY><br>إجمالي عمليات الفحص منذ إعادة التعيين: <TOT_POLL><br>إجمالي عمليات الفحص الفاشلة: <FAIL_POLL><br>آخر تاريخ تم فيه الفحص بحالة UP: <LAST_FAIL><br>الأجهزة التي كانت متوقفة (DOWN) سابقًا لمدة: <DOWNTIME><br><br>معلومات SNMP:<br>الاسم - <SNMP_HOSTNAME><br>المكان - <SNMP_LOCATION><br>مدة التشغيل - <UPTIMETEXT> (<UPTIME> مللي ثانية)<br>النظام - <SNMP_SYSTEM><br><br>ملاحظة: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -799,15 +799,15 @@ msgstr "خطأ في الأجهزة: <DESCRIPTION> (<HOSTNAME>) لأسفل</HOSTN
 
 #: includes/polling.php
 msgid "DOWN"
-msgstr "متوقف"
+msgstr "معطل"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr "خطأ في النظام: <DESCRIPTION> (<HOSTNAME>) هو <DOWN p=\"\"><br>موقع: <SITE><br>مكان: <LOCATION><br>سبب: <MESSAGE><br><br>متوسط استجابة النظام: <AVG_TIME> مللي ثانية<br>توفر النظام: <AVAILABILITY><br>إجمالي الشيكات منذ الوضوح: <TOT_POLL><br>إجمالي عمليات التحقق الفاشلة: <FAIL_POLL><br>آخر تاريخ تم التحقق منه : <LAST_FAIL><br>الأجهزة التي سبق أن تم تشغيلها من أجل: <DOWNTIME><br>ملاحظه: <NOTES></DOWNTIME></LAST_FAIL></FAIL_POLL></TOT_POLL></AVAILABILITY></AVG_TIME></MESSAGE></LOCATION></SITE></DOWN></HOSTNAME></DESCRIPTION>"
+msgstr "خطأ في النظام : <DESCRIPTION> (<HOSTNAME>) في حالة <DOWN/UP><br>الموقع: <SITE><br>المكان: <LOCATION><br>السبب: <MESSAGE><br><br>متوسط استجابة النظام : <AVG_TIME> مللي ثانية<br>توافر النظام: <AVAILABILITY><br>إجمالي عمليات الفحص منذ المسح: <TOT_POLL><br>إجمالي عمليات الفحص الفاشلة: <FAIL_POLL><br>آخر تاريخ فحص بحالة توقف (DOWN) : <LAST_FAIL><br>كانت الأجهزة تعمل سابقًا لمدة: <DOWNTIME><br>ملاحظة: <NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
-msgstr "أفعال"
+msgstr "(إجراءات)"
 
 #: includes/settings.php
 msgid "(edit)"
@@ -930,14 +930,12 @@ msgid "Global and List Below"
 msgstr "العالمية والقائمة أدناه"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr "ما هي قائمة (قوائم) الإشعارات التي يجب إخطارها بأحداث صعود / هبوط الجهاز؟"
+msgstr "ما نوع قوائم الإشعارات التي يجب استخدامها لأحداث متصل/متوقف للجهاز؟"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
-msgstr "قائمة الإخطارات"
+msgstr "قائمة الإشعارات"
 
 #: includes/settings.php
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
@@ -949,11 +947,11 @@ msgstr "عدد فشل المضيف"
 
 #: includes/settings.php
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
-msgstr "يجب أن يكون عدد فترات الاستقصاء في هذا المضيف لأسفل قبل تسجيل Thold لخطأ والإبلاغ عن المضيف على أنه معطل. الافتراضي هو 0 (استخدم إعداد الصبار)"
+msgstr "عدد فترات الاستطلاع التي يجب أن يكون فيها هذا المضيف متوقفاً قبل أن يسجل Thold خطأً ويُبلغ عن المضيف كمتوقف. القيمة الافتراضية هي 0 (استخدام إعداد Cacti)"
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
-msgstr "استخدام إعداد الصبار"
+msgstr "استخدام إعداد Cacti"
 
 #: includes/settings.php
 #, php-format
@@ -1015,11 +1013,11 @@ msgstr "تم اختراقه أو تشغيله"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Breached"
-msgstr "خرق"
+msgstr "تم تجاوزها"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Triggered"
-msgstr "تشغيل"
+msgstr "تم الإطلاق"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1108,7 +1106,7 @@ msgstr "سيؤدي تحديد هذا المربع إلى تمكين تصحيح �
 
 #: includes/settings.php
 msgid "Daemon Down Notification Frequency"
-msgstr "الشيطان أسفل تردد الإخطار"
+msgstr "تكرار إشعارات توقف الخدمة الخلفية (Daemon)"
 
 #: includes/settings.php
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
@@ -1121,7 +1119,7 @@ msgstr "كل %d ساعة"
 
 #: includes/settings.php
 msgid "Daemon Threads"
-msgstr "خيوط الشيطان"
+msgstr "خيوط المعالجة للخدمة الخلفية (Daemon)"
 
 #: includes/settings.php
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
@@ -1134,7 +1132,7 @@ msgstr "1 عملية"
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr "العمليات %d"
+msgstr "%d عمليات"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1146,7 +1144,7 @@ msgstr "خروقات عتبة السجل"
 
 #: includes/settings.php
 msgid "Enable logging of all Threshold failures to the Cacti Log."
-msgstr "تمكين تسجيل جميع حالات فشل العتبة إلى سجل الصبار."
+msgstr "تمكين تسجيل جميع إخفاقات العتبات في سجل Cacti."
 
 #: includes/settings.php
 msgid "Show Data Source in Log"
@@ -1162,7 +1160,7 @@ msgstr "تغييرات عتبة السجل"
 
 #: includes/settings.php
 msgid "Enable logging of all Threshold changes to the Cacti Log."
-msgstr "تمكين تسجيل جميع تغييرات العتبة إلى سجل الصبار."
+msgstr "تمكين تسجيل جميع تغييرات العتبات في سجل Cacti."
 
 #: includes/settings.php
 msgid "Debug Log"
@@ -1274,7 +1272,7 @@ msgstr "خيارات إعلام SNMP"
 
 #: includes/settings.php
 msgid "SNMP Notifications"
-msgstr "لا إشعارات SNMP"
+msgstr "إشعارات SNMP"
 
 #: includes/settings.php
 msgid "Threshold status messages (informs/traps) will be sent to SNMP notification receivers. This includes Alerts, Warnings and Restoration traps per default. Note: This feature requires the Cacti SNMPAgent plugin."
@@ -1318,11 +1316,11 @@ msgstr "إذا تم تحديده ، فسيؤدي ذلك إلى إرسال جمي
 
 #: includes/settings.php
 msgid "Send Email separately for each address"
-msgstr "إرسال بريد إلكتروني بشكل منفصل لكل عنوان"
+msgstr "إرسال البريد الإلكتروني بشكل منفصل لكل عنوان"
 
 #: includes/settings.php
 msgid "If checked, this will cause all Emails to be sent separately for each address."
-msgstr "إذا تم تحديده ، فسيؤدي ذلك إلى إرسال جميع رسائل البريد الإلكتروني بشكل منفصل لكل عنوان."
+msgstr "عند التحديد، سيؤدي ذلك إلى إرسال جميع رسائل البريد الإلكتروني بشكل منفصل لكل عنوان."
 
 #: includes/settings.php
 msgid "From Email Address"
@@ -1353,24 +1351,20 @@ msgid "Enable Dead/Recovering host notification"
 msgstr "تمكين إعلام المضيف الميت / المسترد"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notifications"
 msgid "Single Email Notification"
-msgstr "تمكين الإشعارات"
+msgstr "إشعار بريد إلكتروني واحد"
 
 #: includes/settings.php
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
 msgstr "مدعوم لقوائم الإعلامات وقائمة انتظار الإشعارات فقط.  إذا كانت هناك إشعارات جهاز داون في دورة معالجة واحدة.  أرسل بريدا إلكترونيا واحدا فقط إلى قائمة الإشعارات لجميع الأجهزة."
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notification Queue"
 msgid "Single Email Notification Subject"
-msgstr "تمكين قائمة انتظار الإشعارات"
+msgstr "موضوع إشعار البريد الإلكتروني الواحد"
 
 #: includes/settings.php
 msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
-msgstr ""
+msgstr "هذا هو موضوع البريد الإلكتروني المراد استخدامه لجميع رسائل إشعارات البريد الإلكتروني الفردية لكل من الأجهزة المتصلة والمتوقفة."
 
 #: includes/settings.php
 msgid "Device Notification Delay Options"
@@ -1405,10 +1399,8 @@ msgid "Down Subject"
 msgstr "أسفل الموضوع"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
-msgstr "هذا هو موضوع البريد الإلكتروني الذي سيتم عرضه في البريد الإلكتروني (128 حرف كحد أقصى).  اتركه فارغا للإعداد الافتراضي.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME>"
+msgstr "هذا هو موضوع البريد الإلكتروني الذي سيتم استخدامه لرسائل توقف الأجهزة. هناك عدة وسوم استبدال شائعة يمكن استخدامها وتشمل:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (مدة الحالة المتصلة الأخيرة في حال رسالة التوقف) &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -1419,24 +1411,20 @@ msgid "Down Message"
 msgstr "أسفل الرسالة"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "هذه هي الرسالة التي سيتم عرضها كنص رسالة لجميع رسائل الجهاز لأعلى / لأسفل (1024 Char MAX).  HTML مسموح به ، ولكن ستتم إزالته لرسائل البريد الإلكتروني النصية فقط.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &&#060MESSAGE#062 &#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME& #062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "هذه هي الرسالة التي سيتم عرضها كمتن رسالة لجميع رسائل اتصال / توقف الأجهزة (بحد أقصى 1024 حرفاً). يُسمح باستخدام HTML، ولكن ستتم إزالته في رسائل البريد الإلكتروني النصية فقط. هناك عدة وسوم استبدال شائعة يمكن استخدامها وتشمل:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (مدة الحالة المتصلة الأخيرة في حال رسالة التوقف) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr "خطأ في النظام: <DESCRIPTION> (<HOSTNAME>) هو <DOWN p=\"\"><br><br>موقع: <SITE><br>مكان: <LOCATION><br>سبب: <MESSAGE><br>متوسط استجابة النظام: <AVG_TIME> مللي ثانية<br>توفر النظام: <AVAILABILITY><br>إجمالي الشيكات منذ الوضوح: <TOT_POLL><br>إجمالي عمليات التحقق الفاشلة: <FAIL_POLL><br>آخر تاريخ تم التحقق منه : <LAST_FAIL><br>الجهاز سابقا UP ل: <DOWNTIME><br>تلاحظ: <NOTES><br>ملاحظات الجهاز: <DNOTES></NOTES></DOWNTIME></LAST_FAIL></FAIL_POLL></TOT_POLL></AVAILABILITY></AVG_TIME></MESSAGE></LOCATION></SITE></DOWN></HOSTNAME></DESCRIPTION>"
+msgstr "خطأ في النظام : <DESCRIPTION> (<HOSTNAME>) في حالة <DOWN/UP><br><br>الموقع: <SITE><br>المكان: <LOCATION><br>السبب: <MESSAGE><br>متوسط استجابة النظام: <AVG_TIME> مللي ثانية<br>توافر النظام: <AVAILABILITY><br>إجمالي عمليات الفحص منذ المسح: <TOT_POLL><br>إجمالي عمليات الفحص الفاشلة: <FAIL_POLL><br>آخر تاريخ فحص بحالة توقف (DOWN) : <LAST_FAIL><br>كان الجهاز يعمل سابقًا لمدة: <DOWNTIME><br>ملاحظات: <NOTES><br>ملاحظات الجهاز: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
 msgstr "استعادة الموضوع"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
-msgstr "هذا هو موضوع البريد الإلكتروني الذي سيتم عرضه في البريد الإلكتروني (128 حرف كحد أقصى).  اتركه فارغا للإعداد الافتراضي.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME>"
+msgstr "هذا هو موضوع البريد الإلكتروني الذي سيتم استخدامه لرسائل تعافي الأجهزة. هناك عدة وسوم استبدال شائعة يمكن استخدامها وتشمل:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -1448,11 +1436,11 @@ msgstr "استعادة الرسالة"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "هذه هي الرسالة التي سيتم عرضها كنص رسالة لجميع رسائل الجهاز لأعلى / لأسفل (1024 Char MAX).  HTML مسموح به ، ولكن ستتم إزالته لرسائل البريد الإلكتروني النصية فقط.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &&#060MESSAGE#062 &#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME& #062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "هذه هي الرسالة التي سيتم عرضها كنص رسالة لجميع رسائل الجهاز لأعلى / لأسفل (1024 حرف كحد أقصى). HTML مسموح به، ولكن ستتم إزالته لرسائل البريد الإلكتروني النصية فقط. هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها بما في ذلك:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
-msgstr "<br><DESCRIPTION> حالة النظام <HOSTNAME>() :<DOWN p=\"\"><br><br>موقع: <SITE><br>مكان: <LOCATION><br>استجابة بينغ الحالية: <CUR_TIME> مللي ثانية<br>متوسط استجابة النظام: <AVG_TIME> مللي ثانية<br>توفر النظام: <AVAILABILITY><br>إجمالي الشيكات منذ الوضوح: <TOT_POLL><br>إجمالي عمليات التحقق الفاشلة: <FAIL_POLL><br>آخر موعد تم فحصه: <LAST_FAIL><br>الجهاز سابقا DOWN ل: <DOWNTIME><br><br>معلومات SNMP:<br>اسم- <SNMP_HOSTNAME><br>مكان- <SNMP_LOCATION><br>الجهوزية - <UPTIMETEXT> (<UPTIME> مللي ثانية)<br>نظام- <SNMP_SYSTEM><br><br>ملاحظه: <NOTES><br>ملاحظات الجهاز: <DNOTES></NOTES></SNMP_SYSTEM></UPTIME></UPTIMETEXT></SNMP_LOCATION></SNMP_HOSTNAME></DOWNTIME></LAST_FAIL></FAIL_POLL></TOT_POLL></AVAILABILITY></AVG_TIME></CUR_TIME></LOCATION></SITE></DOWN></HOSTNAME></DESCRIPTION>"
+msgstr "<br>حالة النظام <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>الموقع: <SITE><br>المكان: <LOCATION><br>استجابة ping الحالية: <CUR_TIME> مللي ثانية<br>متوسط استجابة النظام: <AVG_TIME> مللي ثانية<br>توفر النظام: <AVAILABILITY><br>إجمالي عمليات الفحص منذ إعادة التعيين: <TOT_POLL><br>إجمالي عمليات الفحص الفاشلة: <FAIL_POLL><br>آخر تاريخ تم فيه الفحص بحالة UP: <LAST_FAIL><br>الجهاز الذي كان متوقفًا (DOWN) سابقًا لمدة: <DOWNTIME><br><br>معلومات SNMP:<br>الاسم - <SNMP_HOSTNAME><br>المكان - <SNMP_LOCATION><br>مدة التشغيل - <UPTIMETEXT> (<UPTIME> مللي ثانية)<br>النظام - <SNMP_SYSTEM><br><br>ملاحظة: <NOTES><br>ملاحظات الجهاز: <DNOTES>"
 
 #: includes/settings.php
 msgid "Status Change Command"
@@ -1476,7 +1464,7 @@ msgstr "هذه هي الرسالة التي سيتم عرضها في الجزء 
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "تم إصدار تنبيه يتطلب انتباهك. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>رسالة</strong>: <SUBJECT><br><br><GRAPH></SUBJECT></URL></HOSTNAME></DESCRIPTION>"
+msgstr "تم إصدار تنبيه يتطلب انتباهك. <br><br><strong>الجهاز</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>الرابط</strong>: <URL><br><strong>الرسالة</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Warning Message"
@@ -1568,7 +1556,7 @@ msgstr "حدد نوع العتبة"
 
 #: includes/webapi.php
 msgid "Non Templated"
-msgstr "غير نموذجي"
+msgstr "بدون قالب"
 
 #: includes/webapi.php
 msgid "Threshold Template"
@@ -1607,10 +1595,8 @@ msgid "Select a Device"
 msgstr "حدد قالب الجهاز الذي سيتم مطابقة الأجهزة به"
 
 #: includes/webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
 msgid "Select an Available Item"
-msgstr "حدد العنصر المتاح"
+msgstr "حدد عنصرًا متاحًا"
 
 #: includes/webapi.php
 msgid "Data Query Item"
@@ -1670,7 +1656,7 @@ msgstr "<b>لن</b> يتم وضع قالب لهذا الحد.  يمكنك تحد
 
 #: includes/webapi.php
 msgid "Selected Graph"
-msgstr "تغيير حجم قالب محدد (ق)"
+msgstr "الرسم البياني المحدد"
 
 #: includes/webapi.php
 #, php-format
@@ -1687,7 +1673,7 @@ msgstr "شريك"
 
 #: notify_lists.php
 msgid "Disassociate"
-msgstr "الناي"
+msgstr "فك الارتباط"
 
 #: notify_lists.php thold_graph.php
 msgid "Devices"
@@ -1696,7 +1682,7 @@ msgstr "الأجهزة"
 #: notify_lists.php
 #, php-format
 msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
-msgstr ""
+msgstr "خطأ: لا يمكنك وضع بريدك الإلكتروني في كل من سطري \"إلى\" (To) و\"نسخة مخفية\" (BCC). البريد الإلكتروني أدناه غير صالح!<br><br>%s"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
@@ -1738,7 +1724,7 @@ msgstr "عضوية تحذيرية:"
 
 #: notify_lists.php
 msgid "No Change"
-msgstr "لا تغيير"
+msgstr "لا يوجد تغيير"
 
 #: notify_lists.php
 msgid "Notification List Only"
@@ -1821,7 +1807,7 @@ msgstr "يمكنك أيضا إلغاء ربط عتبات الأجهزة أيضا
 #: notify_lists.php
 #, php-format
 msgid "[edit: %s]"
-msgstr "[عدل: %s]"
+msgstr "[تعديل: %s]"
 
 #: notify_lists.php
 msgid "[new]"
@@ -1903,7 +1889,7 @@ msgstr "مربوط بسلعة، إعلان مربوط بسلعة"
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
 msgid "Go"
-msgstr "انتقال"
+msgstr "أذهب"
 
 #: notify_lists.php notify_queue.php
 msgid "Set/Refresh Filters"
@@ -1920,7 +1906,7 @@ msgstr "مسح الفلتر"
 
 #: notify_lists.php thold.php thold_graph.php thold_templates.php
 msgid "ID"
-msgstr "الهویة الشخصیة"
+msgstr "المعرف"
 
 #: notify_lists.php setup.php thold.php thold_graph.php
 msgid "Status"
@@ -1985,7 +1971,7 @@ msgstr "النوع"
 
 #: notify_lists.php thold.php
 msgid "Templated"
-msgstr "غير معبد"
+msgstr "مبني على قالب"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -2084,12 +2070,12 @@ msgstr "تمت إزالة الإخطارات المعلقة من قاعدة ال
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "انقر فوق \"متابعة\" لحذف جميع الإشعارات التالية."
-msgstr[1] "انقر فوق \"متابعة\" لحذف الإشعار التالي."
-msgstr[2] "انقر فوق \"متابعة\" لحذف الإشعارين التاليين."
-msgstr[3] "انقر فوق \"متابعة\" لحذف جميع الإشعارات التالية."
-msgstr[4] "انقر فوق \"متابعة\" لحذف جميع الإشعارات التالية."
-msgstr[5] "انقر فوق \"متابعة\" لحذف جميع الإشعارات التالية."
+msgstr[0] "انقر فوق 'متابعة' لحذف جميع الإشعارات التالية."
+msgstr[1] "انقر فوق 'متابعة' لحذف الإشعار التالي."
+msgstr[2] "انقر فوق 'متابعة' لحذف الإشعارين التاليين."
+msgstr[3] "انقر فوق 'متابعة' لحذف جميع الإشعارات التالية."
+msgstr[4] "انقر فوق 'متابعة' لحذف جميع الإشعارات التالية."
+msgstr[5] "انقر فوق 'متابعة' لحذف جميع الإشعارات التالية."
 
 #: notify_queue.php
 msgid "Delete Notification"
@@ -2196,21 +2182,19 @@ msgstr "هل أدى هذا الإشعار إلى حدوث خطأ.  مرر مؤش
 
 #: notify_queue.php
 msgid "Attempts"
-msgstr ""
+msgstr "المحاولات"
 
 #: notify_queue.php
-#, fuzzy
-#| msgid "The number of Graphs for this Device"
 msgid "The number of delivery attempts made for this notification."
-msgstr "عدد الرسوم البيانية لهذا الجهاز"
+msgstr "عدد محاولات التسليم التي أُجريت لهذا الإشعار."
 
 #: notify_queue.php
 msgid "Next Attempt"
-msgstr ""
+msgstr "المحاولة التالية"
 
 #: notify_queue.php
 msgid "When a failed notification is eligible for its next retry."
-msgstr ""
+msgstr "الوقت الذي يصبح فيه الإشعار الفاشل مؤهلاً لإعادة المحاولة التالية."
 
 #: notify_queue.php
 msgid "Run Time"
@@ -2222,23 +2206,19 @@ msgstr "الوقت بالثواني الذي استغرقته معالجة ال�
 
 #: notify_queue.php
 msgid "Not Specified"
-msgstr "فشل في تطبيق الفاصل الزمني cron المحدد"
+msgstr "غير محدد"
 
 #: notify_queue.php
 msgid "No Notifications"
-msgstr "تنبيهات"
+msgstr "لا توجد إشعارات"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES Off"
-msgstr "تبديل عتبة VRULES %s"
+msgstr "إيقاف تشغيل خطوط VRULES للعتبة"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES On"
-msgstr "تبديل عتبة VRULES %s"
+msgstr "تشغيل خطوط VRULES للعتبة"
 
 #: setup.php
 msgid "Create Threshold"
@@ -2265,24 +2245,24 @@ msgid "Warning Low for %s (%s)"
 msgstr "تحذير منخفض ل %s (%s)"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Alert Hi for %s (%s %%)"
-msgstr "تنبيه مرحبا %s (%s %%)"
+msgstr "تنبيه الحد الأعلى لـ %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Alert Low for %s (%s %%)"
-msgstr "تنبيه منخفض ل %s (%s %%)"
+msgstr "تنبيه الحد الأدنى لـ %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Warning Hi for %s (%s %%)"
-msgstr "تحذير مرحبا %s (%s %%)"
+msgstr "تحذير الحد الأعلى لـ %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Warning Low for %s (%s %%)"
-msgstr "انخفاض التحذير ل %s (%s %%)"
+msgstr "تحذير الحد الأدنى لـ %s (%s %%)"
 
 #: setup.php
 msgid "Threshold Alert/Warning Values"
@@ -2491,14 +2471,12 @@ msgid "Ack Required"
 msgstr "مطلوب"
 
 #: thold.php thold_graph.php
-#, fuzzy
-#| msgid "Status"
 msgid "By Status"
-msgstr "الحالة"
+msgstr "حسب الحالة"
 
 #: thold.php thold_graph.php
 msgid "The current threshold status. Click a status pill to filter the list to that status."
-msgstr ""
+msgstr "حالة العتبة الحالية. انقر على شارة الحالة لتصفية القائمة حسب تلك الحالة."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
@@ -2514,7 +2492,7 @@ msgstr "DSName"
 
 #: thold.php thold_graph.php
 msgid "Current"
-msgstr "بريدك الإلكتروني الحالي غير مسموح"
+msgstr "الحالي"
 
 #: thold.php thold_graph.php
 msgid "The last measured value for the Data Source"
@@ -2719,7 +2697,7 @@ msgstr "الرجاء اختيار لون للرسم البياني HRULE لعت�
 
 #: thold.php thold_templates.php
 msgid "Graph Timespan"
-msgstr "الرسم البياني Timespan"
+msgstr "النطاق الزمني للرسم البياني"
 
 #: thold.php thold_templates.php
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
@@ -2879,7 +2857,7 @@ msgstr "الحد الأدنى"
 
 #: thold.php thold_templates.php
 msgid "Maximum"
-msgstr "الحد أقصى"
+msgstr "الحد الأقصى"
 
 #: thold.php thold_templates.php
 msgid "Last"
@@ -2904,7 +2882,7 @@ msgstr "الانحراف لأعلى"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "يحدد الانحراف المسموح به لعتبة الحد الأعلى. إذا لم يتم تعيينها ، فلن يتم التحقق من عتبة الحد الأعلى على الإطلاق.  وحدة القياس هي قيم مطلقة لنوع \"القيمة المطلقة\" ، ونسبة مئوية لكل من \"انحراف %%\" و \"%% المتوسط العائم\""
+msgstr "يحدد الانحراف المسموح به لعتبة الحد الأعلى. إذا لم يُعيَّن، فلن يتم التحقق من عتبة الحد الأعلى على الإطلاق. وحدة القياس هي قيمة مطلقة لنوع 'القيمة المطلقة'، ونسبة مئوية لكل من 'انحراف %%' و'المتوسط المتحرك %%'"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2913,7 +2891,7 @@ msgstr "الانحراف لأسفل"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "يحدد الانحراف المسموح به لعتبة الحد الأدنى. إذا لم يتم تعيينها ، فلن يتم التحقق من الحد الأدنى على الإطلاق.  وحدة القياس هي قيم مطلقة لنوع \"القيمة المطلقة\" ، ونسبة مئوية لكل من \"انحراف %%\" و \"%% المتوسط العائم\""
+msgstr "يحدد الانحراف المسموح به لعتبة الحد الأدنى. إذا لم يُعيَّن، فلن يتم التحقق من عتبة الحد الأدنى على الإطلاق. وحدة القياس هي قيمة مطلقة لنوع 'القيمة المطلقة'، ونسبة مئوية لكل من 'انحراف %%' و'المتوسط المتحرك %%'"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2979,7 +2957,7 @@ msgstr "عدد الأرقام العشرية المراد عرضها لقيم ا
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "تعبير RPN هو تعبير RPN متوافق مع RRDtool.  يتضمن بناء الجملة جميع الوظائف أدناه بالإضافة إلى تعبيرات استبدال الجهاز واستعلام البيانات مثل <span class=\"deviceUp\">|query_ifSpeed|</span>.  لاستخدام مصدر بيانات في تعبير RPN، يجب استخدام بناء الجملة: <span class=\"deviceUp\">|ds:dsname|</span>.  على سبيل المثال، <span class=\"deviceUp\">سيحصل |ds:traffic_in|</span> على القيمة الحالية لمصدر بيانات traffic_in لملف (ملفات) RRD المقترن بالرسم البياني. يمكن تضمين أي مصدر بيانات للرسم البياني.<br><br>عوامل تشغيل الرياضيات: <span class=\"deviceUp\">+، -، /، *، ٪</span> ^<br>وظائف: <span class=\"deviceUp\">الخطيئة ، كوس ، تان ، آتان ، SQRT ، الكلمة ، CEIL ، DEG2RAD ، RAD2DEG ، ABS ، إكسب ، سجل ، آتان ، عدنان</span><br>عوامل التدفق: <span class=\"deviceUp\">الأمم المتحدة ، ISINF ، IF ، LT ، LE ، GT ، GE ، EQ ، NE</span><br>وظائف المقارنة: <span class=\"deviceUp\">ماكس ، مين ، INF ، نيجنف ، نان ، أونكن ، عد ، السابق</span>%s %s"
+msgstr "تعبير RPN هو تعبير RPN متوافق مع RRDtool. يتضمن بناء الجملة جميع الدوال أدناه بالإضافة إلى تعبيرات استبدال الجهاز واستعلام البيانات مثل <span class=\"deviceUp\">|query_ifSpeed|</span>. لاستخدام مصدر بيانات في تعبير RPN، يجب استخدام الصيغة: <span class=\"deviceUp\">|ds:dsname|</span>. على سبيل المثال، سيحصل <span class=\"deviceUp\">|ds:traffic_in|</span> على القيمة الحالية لمصدر البيانات traffic_in لملف (ملفات) RRD المقترن بالرسم البياني. يمكن تضمين أي مصدر بيانات للرسم البياني.<br><br>العوامل الرياضية: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>الدوال: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>عوامل التدفق: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>دوال المقارنة: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -2998,60 +2976,48 @@ msgid "Alert Subject"
 msgstr "موضوع التنبيه"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "هذا هو موضوع البريد الإلكتروني الذي سيتم عرضه في البريد الإلكتروني (128 حرف كحد أقصى).  اتركه فارغا للإعداد الافتراضي.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME>"
+msgstr "هذا هو موضوع البريد الإلكتروني الذي سيتم عرضه في رسالة البريد الإلكتروني (بحد أقصى 128 حرفاً). اتركه فارغاً لاستخدام القيمة الافتراضية. هناك عدة وسوم استبدال شائعة يمكن استخدامها وتشمل:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Alert Body"
 msgstr "هيئة التنبيه"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "هذه هي الرسالة التي سيتم عرضها في الجزء العلوي من جميع تنبيهات العتبة (1024 حرف كحد أقصى).  HTML مسموح به ، ولكن ستتم إزالته لرسائل البريد الإلكتروني النصية فقط.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>مثل. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "هذه هي الرسالة التي سيتم عرضها في أعلى جميع تنبيهات العتبات (بحد أقصى 1024 حرفاً). يُسمح باستخدام HTML، ولكن ستتم إزالته في رسائل البريد الإلكتروني النصية فقط. هناك عدة وسوم استبدال شائعة يمكن استخدامها وتشمل:<br>مثل &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Subject"
 msgstr "موضوع التحذير"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "هذا هو موضوع البريد الإلكتروني التحذيري الذي سيتم عرضه في البريد الإلكتروني بعد التغيير إلى تحذير (128 حرف كحد أقصى).  اتركه فارغا للإعداد الافتراضي.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME>"
+msgstr "هذا هو موضوع البريد الإلكتروني التحذيري الذي سيتم عرضه في رسالة البريد الإلكتروني بعد التغيير إلى حالة التحذير (بحد أقصى 128 حرفاً). اتركه فارغاً لاستخدام القيمة الافتراضية. هناك عدة وسوم استبدال شائعة يمكن استخدامها وتشمل:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Body"
 msgstr "هيئة التحذير"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "هذه هي الرسالة التي سيتم عرضها في الجزء العلوي من جميع تحذيرات العتبة (1024 حرف MAX).  HTML مسموح به ، ولكن ستتم إزالته لرسائل البريد الإلكتروني النصية فقط.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>مثل. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "هذه هي الرسالة التي سيتم عرضها في أعلى جميع تحذيرات العتبات (بحد أقصى 1024 حرفاً). يُسمح باستخدام HTML، ولكن ستتم إزالته في رسائل البريد الإلكتروني النصية فقط. هناك عدة وسوم استبدال شائعة يمكن استخدامها وتشمل:<br>مثل &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
 msgstr "موضوع إعادة التأهيل"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "هذا هو موضوع البريد الإلكتروني الذي سيتم عرضه في البريد الإلكتروني بعد إعادة التعيين إلى عادي (128 حرفا كحد أقصى).  اتركه فارغا للإعداد الافتراضي.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME>"
+msgstr "هذا هو موضوع البريد الإلكتروني الذي سيتم عرضه في رسالة البريد الإلكتروني بعد الاستعادة إلى الوضع الطبيعي (بحد أقصى 128 حرفاً). اتركه فارغاً لاستخدام القيمة الافتراضية. هناك عدة وسوم استبدال شائعة يمكن استخدامها وتشمل:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Restoral Email Body"
 msgstr "نص البريد الإلكتروني Restoral"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "هذه هي الرسالة التي سيتم عرضها في الجزء العلوي من جميع إشعارات إعادة تأهيل العتبة (1024 حرفا كحد أقصى).  HTML مسموح به ، ولكن ستتم إزالته لرسائل البريد الإلكتروني النصية فقط.  هناك العديد من علامات الاستبدال الشائعة التي يمكن استخدامها في تشمل:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES> &#060DNOTES&#062"
+msgstr "هذه هي الرسالة التي سيتم عرضها في أعلى جميع إشعارات استعادة العتبات (بحد أقصى 1024 حرفاً). يُسمح باستخدام HTML، ولكن ستتم إزالته في رسائل البريد الإلكتروني النصية فقط. هناك عدة وسوم استبدال شائعة يمكن استخدامها وتشمل:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#062 &#060DNOTES&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Notification List"
@@ -3087,7 +3053,7 @@ msgstr "وصف حدث SNMP"
 
 #: thold.php thold_templates.php
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr "يمكنك تخصيص وصف الحدث الذي يتم إرساله إلى مستقبلات إعلام SNMP باستخدام روابط متغيرة. يمكن استخدام متغيرات استبدال الجهاز القياسي (|host_*|) ، استعلام البيانات (|query_*|) بالإضافة إلى varbinds التالية:<br><THRESHOLDNAME><HOSTNAME> <HOSTIP> <TEMPLATE_ID> <TEMPLATE_NAME> <THR_TYPE> <DS_NAME> <HI> <LOW> <EVENT_CATEGORY> <FAIL_COUNT> <FAIL_DURATION></FAIL_COUNT></EVENT_CATEGORY></LOW></HI></DS_NAME></THR_TYPE></TEMPLATE_NAME></TEMPLATE_ID></HOSTIP></HOSTNAME></THRESHOLDNAME>"
+msgstr "يمكنك تخصيص وصف الحدث المُرسل إلى مستقبلي إشعارات SNMP باستخدام ارتباطات المتغيرات (varbinds). يمكن استخدام متغيرات الاستبدال القياسية للجهاز (|host_*|) واستعلام البيانات (|query_*|) بالإضافة إلى ارتباطات المتغيرات التالية:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Alert Event Severity"
@@ -3111,7 +3077,7 @@ msgstr "الخطورة لاستخدامها في التحذيرات. (تأثير
 
 #: thold.php thold_templates.php
 msgid "Notify accounts"
-msgstr "إخطار الحسابات"
+msgstr "حسابات الإشعار"
 
 #: thold.php
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
@@ -3163,7 +3129,7 @@ msgstr "أمر الزناد العالي"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "إذا تم التعيين ، وإذا تم اختراق عتبة عالية ، تشغيل هذا الأمر.  الرجاء إدخال أمر صالح.  بالإضافة إلى ذلك ، هناك العديد من علامات الاستبدال المتاحة التي يمكن استخدامها لتمرير المعلومات من العتبة إلى البرنامج النصي.  يمكنك القيام بذلك كوسيطات في سطر الأوامر ، أو يفضل ، في بيئة البرنامج النصي.  ستظهر جميع قيم الاستبدال في بيئة البرنامج النصي مسبوقة ب THOLD_.  لذلك ، على سبيل المثال ، ستصبح CURRENTVALUE THOLD_CURRENTVALUE ، وهكذا.  تشمل المتغيرات: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  أخيرا ، يمكن إجراء استبدال المضيف والاستعلام عن البيانات وإدخال البيانات.  على سبيل المثال، إذا كان لديك إدخال بيانات مخصصة تسمى معلقة، لتنفيذ استخدام الاستبدال |معلق|.  بالنسبة إلى استعلام البيانات واستبدال المضيف ، استخدم اصطلاحات Cacti |query_xxxx| و |host_xxxx| على التوالي."
+msgstr "في حال تعيينه، وإذا تم تجاوز العتبة العليا، سيتم تشغيل هذا الأمر. يرجى إدخال أمر صالح. بالإضافة إلى ذلك، تتوفر عدة وسوم استبدال يمكن استخدامها لتمرير المعلومات من العتبة إلى السكربت. يمكنك تمريرها كوسيطات في سطر الأوامر، أو يُفضّل في بيئة السكربت. ستظهر جميع قيم الاستبدال في بيئة السكربت مسبوقة بـ THOLD_. فعلى سبيل المثال، ستصبح CURRENTVALUE هي THOLD_CURRENTVALUE، وهكذا. تشمل المتغيرات: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. وأخيراً، يمكن إجراء استبدال للمضيف واستعلام البيانات وإدخال البيانات. على سبيل المثال، إذا كان لديك حقل إدخال بيانات مخصص باسم pending، فاستخدم |pending| لإجراء الاستبدال. أما لاستبدال استعلام البيانات والمضيف، فاستخدم اصطلاحات Cacti وهي |query_xxxx| و |host_xxxx| على التوالي."
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
@@ -3171,7 +3137,7 @@ msgstr "أمر الزناد المنخفض"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "إذا تم التعيين ، وإذا تم اختراق عتبة منخفضة ، تشغيل هذا الأمر. الرجاء إدخال أمر صالح.  بالإضافة إلى ذلك ، هناك العديد من علامات الاستبدال المتاحة التي يمكن استخدامها لتمرير المعلومات من العتبة إلى البرنامج النصي.  يمكنك القيام بذلك كوسيطات في سطر الأوامر ، أو يفضل ، في بيئة البرنامج النصي.  ستظهر جميع قيم الاستبدال في بيئة البرنامج النصي مسبوقة ب THOLD_.  لذلك ، على سبيل المثال ، ستصبح CURRENTVALUE THOLD_CURRENTVALUE ، وهكذا.  تشمل المتغيرات: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  أخيرا ، يمكن إجراء استبدال المضيف والاستعلام عن البيانات وإدخال البيانات.  على سبيل المثال، إذا كان لديك إدخال بيانات مخصصة تسمى معلقة، لتنفيذ استخدام الاستبدال |معلق|.  بالنسبة إلى استعلام البيانات واستبدال المضيف ، استخدم اصطلاحات Cacti |query_xxxx| و |host_xxxx| على التوالي."
+msgstr "في حال تعيينه، وإذا تم تجاوز العتبة الدنيا، سيتم تشغيل هذا الأمر. يرجى إدخال أمر صالح. بالإضافة إلى ذلك، تتوفر عدة وسوم استبدال يمكن استخدامها لتمرير المعلومات من العتبة إلى السكربت. يمكنك تمريرها كوسيطات في سطر الأوامر، أو يُفضّل في بيئة السكربت. ستظهر جميع قيم الاستبدال في بيئة السكربت مسبوقة بـ THOLD_. فعلى سبيل المثال، ستصبح CURRENTVALUE هي THOLD_CURRENTVALUE، وهكذا. تشمل المتغيرات: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. وأخيراً، يمكن إجراء استبدال للمضيف واستعلام البيانات وإدخال البيانات. على سبيل المثال، إذا كان لديك حقل إدخال بيانات مخصص باسم pending، فاستخدم |pending| لإجراء الاستبدال. أما لاستبدال استعلام البيانات والمضيف، فاستخدم اصطلاحات Cacti وهي |query_xxxx| و |host_xxxx| على التوالي."
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
@@ -3179,7 +3145,7 @@ msgstr "أمر الزناد المعياري"
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "إذا تم تعيينه ، عندما يعود thold إلى قيمة عادية ، سيتم تشغيل هذا الأمر.  الرجاء إدخال أمر صالح.  بالإضافة إلى ذلك ، هناك العديد من علامات الاستبدال المتاحة التي يمكن استخدامها لتمرير المعلومات من العتبة إلى البرنامج النصي.  يمكنك القيام بذلك كوسيطات في سطر الأوامر ، أو يفضل ، في بيئة البرنامج النصي.  ستظهر جميع قيم الاستبدال في بيئة البرنامج النصي مسبوقة ب THOLD_.  لذلك ، على سبيل المثال ، ستصبح CURRENTVALUE THOLD_CURRENTVALUE ، وهكذا.  تشمل المتغيرات: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  أخيرا ، يمكن إجراء استبدال المضيف والاستعلام عن البيانات وإدخال البيانات.  على سبيل المثال، إذا كان لديك إدخال بيانات مخصصة تسمى معلقة، لتنفيذ استخدام الاستبدال |معلق|.  بالنسبة إلى استعلام البيانات واستبدال المضيف ، استخدم اصطلاحات Cacti |query_xxxx| و |host_xxxx| على التوالي."
+msgstr "في حال تعيينه، وعند عودة عتبة Thold إلى قيمة طبيعية، سيتم تشغيل هذا الأمر. يرجى إدخال أمر صالح. بالإضافة إلى ذلك، تتوفر عدة وسوم استبدال يمكن استخدامها لتمرير المعلومات من العتبة إلى السكربت. يمكنك تمريرها كوسيطات في سطر الأوامر، أو يُفضّل في بيئة السكربت. ستظهر جميع قيم الاستبدال في بيئة السكربت مسبوقة بـ THOLD_. فعلى سبيل المثال، ستصبح CURRENTVALUE هي THOLD_CURRENTVALUE، وهكذا. تشمل المتغيرات: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. وأخيراً، يمكن إجراء استبدال للمضيف واستعلام البيانات وإدخال البيانات. على سبيل المثال، إذا كان لديك حقل إدخال بيانات مخصص باسم pending، فاستخدم |pending| لإجراء الاستبدال. أما لاستبدال استعلام البيانات والمضيف، فاستخدم اصطلاحات Cacti وهي |query_xxxx| و |host_xxxx| على التوالي."
 
 #: thold.php thold_templates.php
 msgid "Other Settings"
@@ -3295,7 +3261,7 @@ msgstr "وصف للجهاز"
 
 #: thold_graph.php
 msgid "A Cacti unique identifier for the Device"
-msgstr "معرف الصبار الفريد للجهاز"
+msgstr "معرّف Cacti الفريد للجهاز"
 
 #: thold_graph.php
 msgid "The number of Graphs for this Device"
@@ -3327,11 +3293,11 @@ msgstr "اسم المضيف الرسمي لهذا الجهاز"
 
 #: thold_graph.php
 msgid "Current (ms)"
-msgstr "الحالي (بالثانية)"
+msgstr "الحالي (مللي ثانية)"
 
 #: thold_graph.php
 msgid "The current response time for the Cacti Availability check"
-msgstr "وقت الاستجابة الحالي للتحقق من توفر الصبار"
+msgstr "زمن الاستجابة الحالي لفحص توفر Cacti"
 
 #: thold_graph.php
 msgid "Average (ms)"
@@ -3339,7 +3305,7 @@ msgstr "المتوسط (بالميلي ثانية)"
 
 #: thold_graph.php
 msgid "The average response time for the Cacti Availability check"
-msgstr "متوسط وقت الاستجابة للتحقق من توفر الصبار"
+msgstr "متوسط زمن الاستجابة لفحص توفر Cacti"
 
 #: thold_graph.php
 msgid "Availability"
@@ -3359,7 +3325,7 @@ msgstr "عرض الرسوم البيانية"
 
 #: thold_graph.php
 msgid "No Devices"
-msgstr "الأجهزة"
+msgstr "لا توجد أجهزة"
 
 #: thold_graph.php
 msgid "Not Up"
@@ -3526,12 +3492,12 @@ msgstr "رصد خط الأساس"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "يحدد الانحراف المسموح به لعتبة الحد الأعلى. إذا لم يتم تعيينها ، فلن يتم التحقق من عتبة الحد الأعلى على الإطلاق.  وحدة القياس هي قيم مطلقة لنوع \"القيمة المطلقة\" ، ونسبة مئوية لكل من \"انحراف %%\" و \"%% المتوسط العائم\""
+msgstr "يحدد الانحراف المسموح به لعتبة الحد الأعلى. إذا لم يُعيَّن، فلن يتم التحقق من عتبة الحد الأعلى على الإطلاق. وحدة القياس هي قيمة مطلقة لنوع 'القيمة المطلقة'، ونسبة مئوية لكل من 'انحراف %%' و'المتوسط المتحرك %%'"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "يحدد الانحراف المسموح به لعتبة الحد الأدنى. إذا لم يتم تعيينها ، فلن يتم التحقق من عتبة الحد الأدنى على الإطلاق.  وحدة القياس هي قيم مطلقة لنوع \"القيمة المطلقة\" ، ونسبة مئوية لكل من \"انحراف %%\" و \"%% المتوسط العائم\""
+msgstr "يحدد الانحراف المسموح به لعتبة الحد الأدنى. إذا لم يُعيَّن، فلن يتم التحقق من عتبة الحد الأدنى على الإطلاق. وحدة القياس هي قيمة مطلقة لنوع 'القيمة المطلقة'، ونسبة مئوية لكل من 'انحراف %%' و'المتوسط المتحرك %%'"
 
 #: thold_templates.php
 #, php-format
@@ -3549,7 +3515,7 @@ msgstr "عنصر مصدر البيانات الثاني لاستخدامه كق�
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "تعبير RPN هو تعبير RPN متوافق مع RRDtool.  يتضمن بناء الجملة جميع الوظائف أدناه بالإضافة إلى تعبيرات استبدال الجهاز واستعلام البيانات مثل <span style=\"color:blue;\">|query_ifSpeed|</span>.  لاستخدام مصدر بيانات في تعبير RPN، يجب استخدام بناء الجملة: <span style=\"color:blue;\">|ds:dsname|</span>.  على سبيل المثال، <span style=\"color:blue;\">سيحصل |ds:traffic_in|</span> على القيمة الحالية لمصدر بيانات traffic_in لملف (ملفات) RRD المقترن بالرسم البياني. يمكن تضمين أي مصدر بيانات للرسم البياني.<br>عوامل تشغيل الرياضيات: <span style=\"color:blue;\">+، -، /، *، ٪</span> ^<br>وظائف: <span style=\"color:blue;\">الخطيئة ، كوس ، تان ، آتان ، SQRT ، الكلمة ، CEIL ، DEG2RAD ، RAD2DEG ، ABS ، إكسب ، سجل ، آتان ، عدنان</span><br>عوامل التدفق: <span style=\"color:blue;\">الأمم المتحدة ، ISINF ، IF ، LT ، LE ، GT ، GE ، EQ ، NE</span><br>وظائف المقارنة: <span style=\"color:blue;\">ماكس ، مين ، INF ، نيجنف ، نان ، أونكن ، عد ، السابق</span>%s %s"
+msgstr "تعبير RPN هو تعبير RPN متوافق مع RRDtool. يتضمن بناء الجملة جميع الدوال أدناه بالإضافة إلى تعبيرات استبدال الجهاز واستعلام البيانات مثل <span style=\"color:blue;\">|query_ifSpeed|</span>. لاستخدام مصدر بيانات في تعبير RPN، يجب استخدام الصيغة: <span style=\"color:blue;\">|ds:dsname|</span>. على سبيل المثال، سيحصل <span style=\"color:blue;\">|ds:traffic_in|</span> على القيمة الحالية لمصدر البيانات traffic_in لملف (ملفات) RRD المقترن بالرسم البياني. يمكن تضمين أي مصدر بيانات للرسم البياني.<br>العوامل الرياضية: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>الدوال: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>عوامل التدفق: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>دوال المقارنة: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3719,7 +3685,7 @@ msgstr "نقل الملفات غير مكتمل."
 
 #: thold_templates.php
 msgid "No file uploaded."
-msgstr "لم يتم تحميل أي ملف."
+msgstr "لم يتم رفع أي ملف."
 
 #: thold_templates.php
 msgid "Temporary folder missing."
