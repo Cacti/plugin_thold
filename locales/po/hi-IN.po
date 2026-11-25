@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hindi <https://translate.cacti.net/projects/cacti/thold/hi/>\nLanguage: hi-IN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hindi <https://translate.cacti.net/projects/cacti/thold/hi/>\nLanguage: hi-IN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
-msgstr "अनिश्चित काल के लिए"
+msgstr "अनिश्चित काल तक"
 
 #: includes/arrays.php
 #, php-format
@@ -18,7 +18,7 @@ msgstr "%d महीना"
 #: includes/arrays.php
 #, php-format
 msgid "%d Months"
-msgstr "%d माह"
+msgstr "%d महीने"
 
 #: includes/arrays.php
 #, php-format
@@ -38,7 +38,7 @@ msgstr "%d घंटे पहले से"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Day Ago"
-msgstr ""
+msgstr "%d दिन पहले से"
 
 #: includes/arrays.php
 #, php-format
@@ -48,7 +48,7 @@ msgstr "%d दिन पहले से"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "%d वीक"
+msgstr "%d सप्ताह पहले से"
 
 #: includes/arrays.php
 #, php-format
@@ -58,22 +58,22 @@ msgstr "%d सप्ताह पहले से"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "%d महीना"
+msgstr "%d महीना पहले से"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "%d माह"
+msgstr "%d महीने पहले से"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d वष"
+msgstr "%d वर्ष पहले से"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Years Ago"
-msgstr ""
+msgstr "%d वर्ष पहले से"
 
 #: includes/arrays.php thold_graph.php
 msgid "Down"
@@ -142,7 +142,7 @@ msgstr "सूचित करें - पुनर्स्थापना"
 
 #: includes/arrays.php
 msgid "Restoral"
-msgstr "Restoral"
+msgstr "पुनर्स्थापना"
 
 #: includes/arrays.php
 msgid "Event - Alert Trigger"
@@ -150,7 +150,7 @@ msgstr "घटना - अलर्ट ट्रिगर"
 
 #: includes/arrays.php
 msgid "Alert Event"
-msgstr "अलर्ट प्रीसेट"
+msgstr "अलर्ट इवेंट"
 
 #: includes/arrays.php
 msgid "Event - Warning Trigger"
@@ -162,11 +162,11 @@ msgstr "चेतावनी"
 
 #: includes/arrays.php
 msgid "Event - Restoral"
-msgstr "घटना - आराम"
+msgstr "इवेंट - बहाली"
 
 #: includes/arrays.php thold_graph.php
 msgid "Restoral Event"
-msgstr "रेस्टॉरेंट इवेंट"
+msgstr "पुनर्स्थापना इवेंट"
 
 #: includes/arrays.php
 msgid "Event - Acknowledge"
@@ -206,7 +206,7 @@ msgstr "सूचना"
 
 #: includes/arrays.php thold.php thold_graph.php
 msgid "Ok"
-msgstr "ठीक"
+msgstr "ठीक है"
 
 #: includes/arrays.php
 msgid "Emergency"
@@ -235,7 +235,7 @@ msgstr "हर मिनट"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Minutes"
-msgstr "प्रत्येक%d मिनट"
+msgstr "प्रत्येक %d मिनट"
 
 #: includes/arrays.php
 msgid "Every Hour"
@@ -244,16 +244,16 @@ msgstr "प्रत्येक घंटे"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "हर %d घंटे"
+msgstr "प्रत्येक %d घंटे"
 
 #: includes/arrays.php
 msgid "Every Day"
-msgstr "हर दिन"
+msgstr "हर रोज"
 
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "हर %d दिन"
+msgstr "प्रत्येक %d दिन"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -262,7 +262,7 @@ msgstr "प्रति सप्ताह"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "हर %d सप्ताह"
+msgstr "प्रत्येक %d सप्ताह"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -301,7 +301,7 @@ msgstr "%d दिन"
 #: includes/arrays.php
 #, php-format
 msgid "%d Week"
-msgstr "%d वीक"
+msgstr "%d सप्ताह"
 
 #: includes/arrays.php
 #, php-format
@@ -320,17 +320,17 @@ msgstr "हर मतदान"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "हर %d पोलिंग"
+msgstr "प्रत्येक %d पोलिंग"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "%d मतदान"
+msgstr "%d पोलिंग"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "%d मतदान"
+msgstr "%d पोलिंग"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -347,38 +347,38 @@ msgstr "समय पर आधारित"
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation Min/Max [TIP]"
-msgstr "विचलन यूपी"
+msgstr "%% विचलन न्यूनतम/अधिकतम [TIP]"
 
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation CF [TIP]"
-msgstr "विचलन यूपी"
+msgstr "%% विचलन CF [TIP]"
 
 #: includes/arrays.php
 msgid "Absolute Val Min/Max [TIP]"
-msgstr "अलर्ट वैल्यू"
+msgstr "निरपेक्ष मान न्यूनतम/अधिकतम [TIP]"
 
 #: includes/arrays.php
 msgid "Absolute Val of CF [TIP]"
-msgstr "अलर्ट वैल्यू"
+msgstr "CF का निरपेक्ष मान [TIP]"
 
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation Avg [AOT]"
-msgstr "विचलन यूपी"
+msgstr "%% विचलन औसत [AOT]"
 
 #: includes/arrays.php
 #, php-format
 msgid "%% Deviation Avg of CF [AOT]"
-msgstr "विचलन यूपी"
+msgstr "%% CF का औसत विचलन [AOT]"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg [AOT]"
-msgstr "अलर्ट वैल्यू"
+msgstr "निरपेक्ष मान औसत [AOT]"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg of CF [AOT]"
-msgstr "अलर्ट वैल्यू"
+msgstr "CF का निरपेक्ष मान औसत [AOT]"
 
 #: includes/arrays.php
 msgid "Exact Value"
@@ -398,19 +398,19 @@ msgstr "RPN अभिव्यक्ति"
 
 #: includes/arrays.php
 msgid "Upper + Lower bytes"
-msgstr ""
+msgstr "ऊपरी + निचले बाइट्स"
 
 #: includes/arrays.php
 msgid "Acknowledge"
-msgstr "स्वीकार करते हैं"
+msgstr "स्वीकार करें"
 
 #: includes/arrays.php
 msgid "Suspend Notifications"
-msgstr "SNMP अधिसूचनाएं"
+msgstr "अधिसूचनाएं निलंबित करें"
 
 #: includes/arrays.php
 msgid "Resume Notifications"
-msgstr "SNMP अधिसूचनाएं"
+msgstr "अधिसूचनाएं फिर से शुरू करें"
 
 #: includes/arrays.php notify_lists.php notify_queue.php setup.php
 msgid "Delete"
@@ -422,7 +422,7 @@ msgstr "सक्षम करें"
 
 #: includes/arrays.php
 msgid "Disable"
-msgstr "अक्षम"
+msgstr "अक्षम करें"
 
 #: includes/arrays.php
 msgid "Reapply Suggested Names"
@@ -438,39 +438,39 @@ msgstr "निर्यात"
 
 #: includes/arrays.php
 msgid "Threshold Mail"
-msgstr "द्वार"
+msgstr "थ्रेशोल्ड मेल"
 
 #: includes/arrays.php
 msgid "Down Host Mail"
-msgstr ""
+msgstr "डाउन होस्ट मेल"
 
 #: includes/arrays.php
 msgid "Up Host Mail"
-msgstr ""
+msgstr "सक्रिय होस्ट मेल"
 
 #: includes/arrays.php
 msgid "Threshold Cmd"
-msgstr "द्वार"
+msgstr "थ्रेशोल्ड कमांड"
 
 #: includes/arrays.php
 msgid "Down Host Cmd"
-msgstr ""
+msgstr "डाउन होस्ट कमांड"
 
 #: includes/arrays.php
 msgid "Up Host Cmd"
-msgstr ""
+msgstr "सक्रिय होस्ट कमांड"
 
 #: includes/arrays.php
 msgid "Auto"
-msgstr ""
+msgstr "आपही"
 
 #: includes/arrays.php
 msgid "0 Digits"
-msgstr ""
+msgstr "0 अंक"
 
 #: includes/arrays.php
 msgid "1 Digit"
-msgstr ""
+msgstr "1 अंक"
 
 #: includes/arrays.php
 #, php-format
@@ -483,23 +483,23 @@ msgid "> %d Devices"
 msgstr "> %d डिवाइस"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %% of Devices Globally"
-msgstr "उपकरण"
+msgstr "वैश्विक स्तर पर > %d %% डिवाइस"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "एक साइट में > %d डिवाइस"
+msgstr "> किसी साइट में %d डिवाइस"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %% of Devices in a Site"
-msgstr "उपकरण"
+msgstr "किसी साइट में > %d %% डिवाइस"
 
 #: includes/functions.php
 msgid "< 1 Minute"
-msgstr "% d मिनट"
+msgstr "< 1 मिनट"
 
 #: includes/functions.php
 msgid "Since Created"
@@ -508,7 +508,7 @@ msgstr "सर्जन करना"
 #: includes/functions.php includes/settings.php notify_lists.php thold.php
 #: thold_graph.php thold_templates.php
 msgid "Thresholds"
-msgstr "सीमारेखा"
+msgstr "थ्रेशहोल्ड"
 
 #: includes/functions.php
 msgid "Log"
@@ -516,7 +516,7 @@ msgstr "लॉग"
 
 #: includes/functions.php includes/settings.php thold_graph.php
 msgid "Device Status"
-msgstr "उपकरण की स्थिति"
+msgstr "डिवाइस स्थिति"
 
 #: includes/functions.php
 msgid "Time:"
@@ -540,7 +540,7 @@ msgstr "पन्ने:"
 
 #: includes/functions.php
 msgid "Only logging, maint device"
-msgstr ""
+msgstr "केवल लॉगिंग, रखरखाव (maint) डिवाइस"
 
 #: includes/functions.php notify_lists.php notify_queue.php thold.php
 #: thold_graph.php thold_templates.php
@@ -561,7 +561,7 @@ msgstr "<html><body> एक चेतावनी जारी की गई ह
 
 #: includes/functions.php
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "एक अलर्ट जारी किया गया है जिसे आपके ध्यान की आवश्यकता है। <br><br> <strong>डिवाइस</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>संदेश</strong> : <SUBJECT><br><br><GRAPH>"
+msgstr "<html><body>एक थ्रेशोल्ड सामान्य स्थिति में लौट आया है। <br><br><strong>डिवाइस</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>संदेश</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 #, php-format
@@ -574,10 +574,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "निरपेक्ष मान [TIP:%s]"
 
 #: includes/functions.php
-#, fuzzy, php-format
-#| msgid "%%% Dev [AOT:%s]"
+#, php-format
 msgid "%% Dev [AOT:%s]"
-msgstr "विचलन यूपी"
+msgstr "%% विचलन [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -615,7 +614,7 @@ msgstr "रिकॉर्ड अपडेट किया गया"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "लिंक किए गए ग्राफ़ टेम्प्लेट आइटम '%d' को थ्रेशोल्ड '%d' पर खोजने में विफल"
+msgstr "थ्रेशोल्ड '%2$d' पर लिंक किया गया ग्राफ़ टेम्पलेट आइटम '%1$d' खोजने में विफल"
 
 #: includes/functions.php
 #, php-format
@@ -624,55 +623,55 @@ msgstr "बनाया गया सीमा: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "आपको या तो 'हाई अलर्ट थ्रेशोल्ड' या 'लो अलर्ट थ्रेशोल्ड' या दोनों को निर्दिष्ट करना होगा! <br> अद्यतन नहीं किया गया!"
+msgstr "आपको या तो 'उच्च अलर्ट थ्रेशोल्ड' या 'निम्न अलर्ट थ्रेशोल्ड' या दोनों को निर्दिष्ट करना होगा!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई थ्रेशोल्ड' 'लो थ्रेशोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+msgstr "असंभव थ्रेशोल्ड: 'उच्च अलर्ट थ्रेशोल्ड' 'निम्न अलर्ट थ्रेशोल्ड' से छोटा है!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' smaller than the 'Low Warning Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+msgstr "असंभव थ्रेशोल्ड: 'उच्च चेतावनी थ्रेशोल्ड' 'निम्न चेतावनी थ्रेशोल्ड' से छोटा है!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+msgstr "असंभव थ्रेशोल्ड: 'उच्च चेतावनी थ्रेशोल्ड' 'उच्च अलर्ट थ्रेशोल्ड' से बड़ा है!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+msgstr "असंभव थ्रेशोल्ड: 'निम्न अलर्ट थ्रेशोल्ड' 'निम्न चेतावनी थ्रेशोल्ड' से बड़ा है!"
 
 #: includes/functions.php
 msgid "Time reference in the past must be set to positive integer value!"
-msgstr "' %s' को धनात्मक पूर्णांक मान पर सेट किया जाना चाहिए! <br> अद्यतन नहीं किया गया!"
+msgstr "अतीत का समय संदर्भ एक धनात्मक पूर्णांक मान पर सेट होना चाहिए!"
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "आपको 'आधारभूत विचलन उत्तर प्रदेश' या 'आधारभूत विचलन डाउनलोड' या दोनों निर्दिष्ट करना होगा! <br> अद्यतन नहीं किया गया!"
+msgstr "आपको 'Baseline Deviation UP' या 'Baseline Deviation DOWN' या दोनों में से कोई एक निर्दिष्ट करना होगा!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
-msgstr "असंभव थ्रेशोल्ड: 'उच्च चेतावनी थ्रेशोल्ड' 'निम्न चेतावनी थ्रेशोल्ड' से छोटा है"
+msgstr "असंभव थ्रेशोल्ड: 'उच्च अलर्ट थ्रेशोल्ड' 'निम्न अलर्ट थ्रेशोल्ड' से छोटा है"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "असंभव थ्रेशोल्ड: अलर्ट ट्रिगर संख्या 1 से अधिक या उसके बराबर होनी चाहिए!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
+msgstr "असंभव थ्रेशोल्ड: अलर्ट ट्रिगर संख्या, ट्रिगर संख्या से कम या उसके बराबर या 1 के बराबर होनी चाहिए!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "असंभव थ्रेशोल्ड: चेतावनी ट्रिगर संख्या 1 से अधिक या उसके बराबर होनी चाहिए!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+msgstr "असंभव थ्रेशोल्ड: चेतावनी ट्रिगर गणना, ट्रिगर गणना से कम या उसके बराबर होनी चाहिए या इसका मूल्यांकन 1 होना चाहिए!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "असंभव थ्रेसहोल्ड: 'हाई वार्निंग थ्रेशोल्ड' 'लो वार्निंग थ्रेसहोल्ड' की तुलना में छोटा या बराबर <br> अद्यतन नहीं किया गया!"
+msgstr "असंभव थ्रेशोल्ड: 'निम्न चेतावनी थ्रेशोल्ड' 'निम्न अलर्ट थ्रेशोल्ड' से छोटा है!"
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
@@ -684,19 +683,19 @@ msgstr "डिवाइस के टेम्प्लेट से जुड�
 
 #: includes/functions.php setup.php
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
-msgstr "नो थ्रेशोल्ड (ओं) को बनाया गया। वे या तो पहले से ही मौजूद थे, या वहाँ मेल मिलाप नहीं मिला।"
+msgstr "कोई थ्रेशोल्ड नहीं बनाया गया। या तो वे पहले से मौजूद हैं, या कोई उपयुक्त मिलान नहीं मिला।"
 
 #: includes/functions.php
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "मेलर त्रुटि: कोई सेट <b>को</b> संबोधित <b>करने के</b> !! <br> यदि <i>टेस्ट मेल</i> लिंक का उपयोग कर रहे हैं, तो कृपया <b>अलर्ट ईमेल</b> सेटिंग सेट करें।"
+msgstr "मेलर त्रुटि: कोई <b>TO</b> पता सेट नहीं है!!<br>यदि <i>टेस्ट मेल</i> लिंक का उपयोग कर रहे हैं, तो कृपया <b>अलर्ट ईमेल</b> सेटिंग सेट करें।"
 
 #: includes/functions.php
 msgid "Done"
-msgstr ""
+msgstr "पूर्ण"
 
 #: includes/functions.php
 msgid "Pending"
-msgstr ""
+msgstr "लंबित"
 
 #: includes/functions.php
 msgid "Errored"
@@ -704,15 +703,15 @@ msgstr "त्रुटि"
 
 #: includes/functions.php includes/polling.php thold.php thold_graph.php
 msgid "N/A"
-msgstr "एन / ए"
+msgstr "लागू नहीं"
 
 #: includes/functions.php
 msgid "Success"
-msgstr ""
+msgstr "सफलता"
 
 #: includes/functions.php thold_graph.php
 msgid "Acknowledge Threshold"
-msgstr "अज्ञात थ्रेसहोल्ड"
+msgstr "थ्रेशोल्ड स्वीकार करें"
 
 #: includes/functions.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
@@ -720,7 +719,7 @@ msgstr "निम्न थ्रेसहोल्ड (ओं) को स्व
 
 #: includes/functions.php thold.php
 msgid "Acknowledge Threshold(s)"
-msgstr "टेम्पलेट स्वीकार करें"
+msgstr "थ्रेशोल्ड स्वीकार करें"
 
 #: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
 #: thold_templates.php
@@ -742,7 +741,7 @@ msgstr "थ्रेशोल्ड टेम्पलेट अधीनस्�
 
 #: includes/functions.php
 msgid "Threshold Template import columns do not match the database schema"
-msgstr ""
+msgstr "थ्रेशोल्ड टेम्पलेट आयात कॉलम डेटाबेस स्कीमा से मेल नहीं खाते"
 
 #: includes/functions.php
 msgid "Imported"
@@ -772,15 +771,15 @@ msgstr "अपडेट करें"
 
 #: includes/functions.php
 msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr ""
+msgstr "थ्रेशोल्ड टेम्पलेट डेटा आयात करने का प्रयास करते समय त्रुटियां हुईं।"
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "थ्रेशोल्ड टेम्पलेट आयात डेटा XML डेटा के रूप में नहीं मिला।"
+msgstr "थ्रेशोल्ड टेम्पलेट आयात डेटा XML डेटा के रूप में नहीं पाया गया।"
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "ग्राफ़ और थ्रेशोल्ड बनाने के लिए थ्रेशोल्ड टेम्प्लेट आईडी सेट नहीं की गई थी।"
+msgstr "थ्रेशोल्ड टेम्पलेट आयात करते समय थ्रेशोल्ड टेम्पलेट आयात डेटा सही नहीं था।"
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -792,7 +791,7 @@ msgstr "उपकरण सूचना: <DESCRIPTION> ( <HOSTNAME> ) DOWN र�
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr "<br> प्रणाली <DESCRIPTION> ( <HOSTNAME> ) स्थिति: <DOWN/UP><br><br> वर्तमान पिंग प्रतिक्रिया: <CUR_TIME> सुश्री <br> औसत सिस्टम प्रतिक्रिया: <AVG_TIME> सुश्री <br> प्रणाली की उपलब्धता: <AVAILABILITY><br> कुल चेक क्लियर: <TOT_POLL><br> कुल विफल चेक: <FAIL_POLL><br> अंतिम तिथि: <LAST_FAIL><br> इससे पहले के लिए डिवाइस: <DOWNTIME><br><br> SNMP जानकारी: <br> नाम - <SNMP_HOSTNAME><br> स्थान - <SNMP_LOCATION><br> अपटाइम - <UPTIMETEXT> ( <UPTIME> सुश्री) <br> सिस्टम - <SNMP_SYSTEM><br><br> ध्यान दें: <NOTES>"
+msgstr "<br>सिस्टम <DESCRIPTION> (<HOSTNAME>) स्थिति: <DOWN/UP><br><br>साइट: <SITE><br>स्थान: <LOCATION><br>वर्तमान पिंग प्रतिक्रिया: <CUR_TIME> ms<br>औसत सिस्टम प्रतिक्रिया: <AVG_TIME> ms<br>सिस्टम उपलब्धता: <AVAILABILITY><br>साफ़ करने के बाद कुल जांच: <TOT_POLL><br>कुल विफल जांच: <FAIL_POLL><br>अंतिम बार UP जांच की दिनांक: <LAST_FAIL><br>डिवाइस पहले DOWN रहने की अवधि: <DOWNTIME><br><br>SNMP जानकारी:<br>नाम - <SNMP_HOSTNAME><br>स्थान - <SNMP_LOCATION><br>अपटाइम - <UPTIMETEXT> (<UPTIME> ms)<br>सिस्टम - <SNMP_SYSTEM><br><br>नोट: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -804,15 +803,15 @@ msgstr "नीचे"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr "सिस्टम में गड़बड़ी : <DESCRIPTION> ( <HOSTNAME> ) है <DOWN/UP><br> कारण: <MESSAGE><br><br> औसत सिस्टम प्रतिक्रिया: <AVG_TIME> सुश्री <br> प्रणाली की उपलब्धता: <AVAILABILITY><br> कुल चेक क्लियर: <TOT_POLL><br> कुल विफल चेक: <FAIL_POLL><br> अंतिम तिथि जाँच की गई: <LAST_FAIL><br> इसके लिए पहले वाले उपकरण: <DOWNTIME><br> ध्यान दें: <NOTES>"
+msgstr "सिस्टम त्रुटि : <DESCRIPTION> (<HOSTNAME>) <DOWN/UP> है<br>साइट: <SITE><br>स्थान: <LOCATION><br>कारण: <MESSAGE><br><br>औसत सिस्टम प्रतिक्रिया : <AVG_TIME> ms<br>सिस्टम उपलब्धता: <AVAILABILITY><br>साफ़ करने के बाद कुल जांच: <TOT_POLL><br>कुल विफल जांच: <FAIL_POLL><br>अंतिम बार DOWN जांच की तिथि : <LAST_FAIL><br>डिवाइस पहले UP रहे: <DOWNTIME><br>टिप्पणी: <NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
-msgstr "कार्रवाइयाँ"
+msgstr "(कार्रवाइयाँ)"
 
 #: includes/settings.php
 msgid "(edit)"
-msgstr "संपादित करें"
+msgstr "(संपादित करें)"
 
 #: includes/settings.php
 msgid "(save)"
@@ -864,7 +863,7 @@ msgstr "अधिसूचना सूची (संपादित करे�
 
 #: includes/settings.php
 msgid "Notification Queue"
-msgstr "अधिसूचना सूची"
+msgstr "अधिसूचना कतार"
 
 #: includes/settings.php
 msgid "Management"
@@ -900,15 +899,15 @@ msgstr "थ्रेसहोल्ड देखें"
 
 #: includes/settings.php
 msgid "Normal User"
-msgstr ""
+msgstr "सामान्य उपयोगकर्ता"
 
 #: includes/settings.php
 msgid "Template Editor"
-msgstr "टेम्प्लेट की गई"
+msgstr "टेम्पलेट संपादक"
 
 #: includes/settings.php
 msgid "General Administration"
-msgstr "सामान्य सेटिंग्स"
+msgstr "सामान्य प्रशासन"
 
 #: includes/settings.php
 msgid "Device Up/Down Notification Settings"
@@ -931,14 +930,12 @@ msgid "Global and List Below"
 msgstr "ग्लोबल और सूची नीचे"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr "डिवाइस अप / डाउन घटनाओं के बारे में कौन सी अधिसूचना सूची (ओं) को अधिसूचित किया जाना चाहिए?"
+msgstr "डिवाइस सक्रिय/निष्क्रिय (अप/डाउन) घटनाओं के लिए किस प्रकार की अधिसूचना सूची (सूचियों) का उपयोग किया जाना चाहिए?"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
-msgstr "अधिसूचना सूची"
+msgstr "सूचना सूची"
 
 #: includes/settings.php
 msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
@@ -946,25 +943,25 @@ msgstr "डिवाइस अप / डाउन घटनाओं के ब�
 
 #: includes/settings.php
 msgid "Host Failure Count"
-msgstr ""
+msgstr "होस्ट विफलता गणना"
 
 #: includes/settings.php
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
-msgstr ""
+msgstr "Thold द्वारा त्रुटि लॉग करने और होस्ट को निष्क्रिय (Down) रिपोर्ट करने से पहले इस होस्ट के निष्क्रिय रहने वाले पोलिंग अंतरालों की संख्या। डिफ़ॉल्ट 0 है (Cacti सेटिंग का उपयोग करें)"
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
-msgstr "बेसलाइन सेटिंग्स"
+msgstr "Cacti सेटिंग का उपयोग करें"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "%d मतदान"
+msgstr "%d पोलिंग अंतराल"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "%d मतदान"
+msgstr "%d पोलिंग अंतराल"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -992,11 +989,11 @@ msgstr "यदि चयनित है, तो या तो स्वचा�
 
 #: includes/settings.php
 msgid "Consider Unknown Data as Zero"
-msgstr ""
+msgstr "अज्ञात डेटा को शून्य मानें"
 
 #: includes/settings.php
 msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
-msgstr ""
+msgstr "थ्रेशोल्ड की जांच करते समय, यदि कोई डेटा स्रोत अज्ञात डेटा ('U') लौटाता है, तो थ्रेशोल्ड जांच के लिए मान को शून्य मानें। आप इस समस्या को लॉग करना भी सक्षम कर सकते हैं।"
 
 #: includes/settings.php
 msgid "Default Management Status"
@@ -1012,7 +1009,7 @@ msgstr "कोई भी"
 
 #: includes/settings.php thold.php thold_graph.php
 msgid "Breached or Triggered"
-msgstr "वार्न ट्रिगर"
+msgstr "उल्लंघित या ट्रिगर किया गया"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Breached"
@@ -1020,7 +1017,7 @@ msgstr "का उल्लंघन"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Triggered"
-msgstr "उत्प्रेरित"
+msgstr "ट्रिगर किया गया"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1037,7 +1034,7 @@ msgstr "अभिव्यक्ति थ्रेसहोल्ड की ग
 
 #: includes/settings.php
 msgid "Notification Preferences"
-msgstr "SNMP अधिसूचना प्रीसेट"
+msgstr "अधिसूचना प्राथमिकताएं"
 
 #: includes/settings.php
 msgid "Disable Legacy Notifications"
@@ -1053,7 +1050,7 @@ msgstr "थ्रेशोल्ड टेम्पलेट"
 
 #: includes/settings.php
 msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
-msgstr ""
+msgstr "यदि चयनित है, तो थ्रेशोल्ड टेम्पलेट बनाते समय उसकी सूचना सेटिंग्स डिफ़ॉल्ट रूप से थ्रेशोल्ड टेम्पलेट के स्वामित्व में होंगी।"
 
 #: includes/settings.php
 msgid "Enable Command Execution"
@@ -1073,19 +1070,19 @@ msgstr "इस बॉक्स की जाँच करने से थ्र
 
 #: includes/settings.php
 msgid "Enable Notification Queue"
-msgstr "प्रति सूचना को सक्षम करें"
+msgstr "सूचना कतार सक्षम करें"
 
 #: includes/settings.php
 msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
-msgstr ""
+msgstr "इस बॉक्स को चेक करने से Thold इनलाइन सूचना देने के बजाय या तो नोटिफिकेशन डीमन (Notification Daemon) का उपयोग करेगा, या नोटिफिकेशन पोलर (Poller) द्वारा आउट-ऑफ़-बैंड भेजी जाने वाली सूचनाओं का उपयोग करेगा।"
 
 #: includes/settings.php
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
-msgstr "चेतावनी अधिसूचना सूची"
+msgstr "चेतावनी सूचना सूचियों को अलर्ट ईमेल भेजना सक्षम करें"
 
 #: includes/settings.php
 msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
-msgstr ""
+msgstr "यदि आप चाहते हैं कि चेतावनी सूचना सूची (Warning Notification List) के प्राप्तकर्ताओं को अलर्ट सूचना सूची के प्राप्तकर्ताओं के अतिरिक्त अलर्ट ईमेल भी मिलें, तो इस बॉक्स को चेक करें। यह स्थिति तब लागू होती है जब चेतावनी सूचनाएँ प्रशासकों को और अलर्ट सूचनाएँ प्रबंधन को भेजी जाती हैं।"
 
 #: includes/settings.php
 msgid "Threshold Daemon"
@@ -1105,24 +1102,24 @@ msgstr "थ्रेसहोल्ड डेमॉन"
 
 #: includes/settings.php
 msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
-msgstr ""
+msgstr "इस बॉक्स को चेक करने से SystemD से या कमांड लाइन के माध्यम से संचालन करते समय थ्रेशोल्ड डीमन (Threshold Daemon) डीबग सक्षम हो जाएगा। यह परिवर्तन गतिशील है और अगला थ्रेशोल्ड लूप शुरू होते ही प्रभावी होगा।"
 
 #: includes/settings.php
 msgid "Daemon Down Notification Frequency"
-msgstr "डिवाइस अप / डाउन अधिसूचना सेटिंग्स"
+msgstr "डेमन डाउन अधिसूचना आवृत्ति"
 
 #: includes/settings.php
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
-msgstr ""
+msgstr "यदि Thold डेमन निष्क्रिय (डाउन) पाया जाता है, तो इस आवृत्ति पर ईमेल सूचना भेजें।"
 
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "हर %d घंटा"
+msgstr "प्रत्येक %d घंटा"
 
 #: includes/settings.php
 msgid "Daemon Threads"
-msgstr ""
+msgstr "डेमन थ्रेड"
 
 #: includes/settings.php
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
@@ -1130,12 +1127,12 @@ msgstr "थ्रेसहोल्ड डेमन द्वारा संभ
 
 #: includes/settings.php
 msgid "1 Process"
-msgstr ""
+msgstr "1 प्रक्रिया"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr "%d प्रक्रियाएं"
+msgstr "%d प्रक्रियाएँ"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1183,11 +1180,11 @@ msgstr "इस दिनों के लिए थ्रेसहोल्ड �
 
 #: includes/settings.php
 msgid "Log action Consider Unknown Data as Zero"
-msgstr ""
+msgstr "लॉग कार्रवाई: अज्ञात डेटा को शून्य मानें"
 
 #: includes/settings.php
 msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
-msgstr ""
+msgstr "जब 'अज्ञात डेटा को शून्य मानें' सक्षम हो, तो ऐसा होने पर लॉग करें"
 
 #: includes/settings.php thold.php thold_templates.php
 msgid "Syslog Settings"
@@ -1319,11 +1316,11 @@ msgstr "यदि जाँच की जाती है, तो इससे �
 
 #: includes/settings.php
 msgid "Send Email separately for each address"
-msgstr ""
+msgstr "प्रत्येक पते के लिए अलग से ईमेल भेजें"
 
 #: includes/settings.php
 msgid "If checked, this will cause all Emails to be sent separately for each address."
-msgstr ""
+msgstr "यदि चयनित है, तो प्रत्येक पते के लिए सभी ईमेल अलग-अलग भेजे जाएंगे।"
 
 #: includes/settings.php
 msgid "From Email Address"
@@ -1354,24 +1351,20 @@ msgid "Enable Dead/Recovering host notification"
 msgstr "डेड / रिकवरिंग होस्ट नोटिफिकेशन सक्षम करें"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notifications"
 msgid "Single Email Notification"
-msgstr "प्रति सूचना को सक्षम करें"
+msgstr "एकल ईमेल सूचना"
 
 #: includes/settings.php
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
-msgstr ""
+msgstr "केवल अधिसूचना सूचियों और अधिसूचना कतार के लिए समर्थित। यदि एक ही प्रोसेसिंग चक्र में निष्क्रिय डिवाइस अधिसूचनाएं हैं, तो सभी डिवाइस के लिए अधिसूचना सूची प्राप्तकर्ताओं को केवल एक ईमेल भेजें।"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notification Queue"
 msgid "Single Email Notification Subject"
-msgstr "प्रति सूचना को सक्षम करें"
+msgstr "एकल ईमेल सूचना विषय"
 
 #: includes/settings.php
 msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
-msgstr ""
+msgstr "यह सक्रिय और निष्क्रिय दोनों डिवाइसों के लिए सभी एकल ईमेल अधिसूचना ईमेल हेतु उपयोग किया जाने वाला ईमेल विषय है।"
 
 #: includes/settings.php
 msgid "Device Notification Delay Options"
@@ -1379,15 +1372,15 @@ msgstr "डिवाइस अधिसूचना विकल्प"
 
 #: includes/settings.php
 msgid "Notification Delay"
-msgstr "अधिसूचना सूची"
+msgstr "अधिसूचना विलंब"
 
 #: includes/settings.php
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
-msgstr ""
+msgstr "यदि बड़ी संख्या में 'निष्क्रिय डिवाइस सूचनाएं' आती हैं, तो Cacti उन्हें भेजने से पहले यह देखने के लिए एक निश्चित अवधि तक उन सूचनाओं को भेजना रोक सकता है कि क्या समस्या अस्थायी है। रोक (Pause) ट्रिगर होने से पहले 'निष्क्रिय डिवाइस सूचनाओं' की सीमा चुनें।"
 
 #: includes/settings.php
 msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
-msgstr ""
+msgstr "यदि आप बड़ी संख्या में आने वाली 'निष्क्रिय डिवाइस सूचनाओं' को विलंबित करने का विकल्प चुनते हैं, तो सूचनाओं को संसाधित करने की अनुमति देने से पहले आप कितने समय तक प्रतीक्षा करना चाहते हैं?"
 
 #: includes/settings.php
 msgid "Device Notification Email Options"
@@ -1395,7 +1388,7 @@ msgstr "डिवाइस अधिसूचना विकल्प"
 
 #: includes/settings.php
 msgid "Global Notification Email"
-msgstr "डेड डिवाइस अधिसूचना ईमेल"
+msgstr "वैश्विक अधिसूचना ईमेल"
 
 #: includes/settings.php
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
@@ -1406,10 +1399,8 @@ msgid "Down Subject"
 msgstr "डाउन डिवाइस विषय"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह ईमेल विषय है जिसका उपयोग डाउन डिवाइस संदेशों के लिए किया जाएगा। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (डाउन संदेश के मामले में अंतिम अप स्थिति की अवधि) &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -1420,24 +1411,20 @@ msgid "Down Message"
 msgstr "डिवाइस संदेश नीचे"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "यह वह संदेश है जो सभी यूपी / डाउन डिवाइस मैसेज (255 Char MAX) के संदेश निकाय के रूप में प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;HOSTNAME&gt; &lt;DESTRIPTION&gt; &lt;UPTIME&gt; &lt;UPTET &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
+msgstr "यह वह संदेश है जो सभी UP / Down डिवाइस संदेशों के मुख्य भाग (message body) के रूप में प्रदर्शित होगा (अधिकतम 1024 वर्ण)। HTML की अनुमति है, लेकिन केवल-टेक्स्ट ईमेल के लिए इसे हटा दिया जाएगा। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (डाउन संदेश के मामले में अंतिम अप स्थिति की अवधि) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr "सिस्टम में गड़बड़ी : <DESCRIPTION> ( <HOSTNAME> ) है <DOWN/UP><br> कारण: <MESSAGE><br><br> औसत सिस्टम प्रतिक्रिया: <AVG_TIME> सुश्री <br> प्रणाली की उपलब्धता: <AVAILABILITY><br> कुल चेक क्लियर: <TOT_POLL><br> कुल विफल चेक: <FAIL_POLL><br> अंतिम तिथि जाँच की गई: <LAST_FAIL><br> डिवाइस के लिए पहले यूपी: <DOWNTIME><br> टिप्पणियाँ: <NOTES><br> डिवाइस नोट: <DNOTES>"
+msgstr "सिस्टम त्रुटि : <DESCRIPTION> (<HOSTNAME>) <DOWN/UP> है<br><br>साइट: <SITE><br>स्थान: <LOCATION><br>कारण: <MESSAGE><br>औसत सिस्टम प्रतिक्रिया: <AVG_TIME> ms<br>सिस्टम उपलब्धता: <AVAILABILITY><br>साफ़ करने के बाद कुल जांच: <TOT_POLL><br>कुल विफल जांच: <FAIL_POLL><br>अंतिम बार DOWN जांच की तिथि : <LAST_FAIL><br>डिवाइस पहले UP रहा: <DOWNTIME><br>टिप्पणियाँ: <NOTES><br>डिवाइस टिप्पणियाँ: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
 msgstr "डिवाइस विषय पुनर्प्राप्त"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह ईमेल विषय है जिसका उपयोग रिकवर हो रहे डिवाइस संदेशों के लिए किया जाएगा। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -1449,23 +1436,23 @@ msgstr "डिवाइस संदेश पुनर्प्राप्त 
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "यह वह संदेश है जो सभी यूपी / डाउन डिवाइस मैसेज (255 Char MAX) के संदेश निकाय के रूप में प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;HOSTNAME&gt; &lt;DESTRIPTION&gt; &lt;UPTIME&gt; &lt;UPTET &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
+msgstr "यह वह संदेश है जो सभी UP / Down डिवाइस संदेशों के मुख्य भाग (message body) के रूप में प्रदर्शित होगा (अधिकतम 1024 वर्ण)। HTML की अनुमति है, लेकिन केवल-टेक्स्ट ईमेल के लिए इसे हटा दिया जाएगा। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
-msgstr "<br> प्रणाली <DESCRIPTION> ( <HOSTNAME> ) स्थिति: <DOWN/UP><br><br> वर्तमान पिंग प्रतिक्रिया: <CUR_TIME> सुश्री <br> औसत सिस्टम प्रतिक्रिया: <AVG_TIME> सुश्री <br> प्रणाली की उपलब्धता: <AVAILABILITY><br> कुल चेक क्लियर: <TOT_POLL><br> कुल विफल चेक: <FAIL_POLL><br> अंतिम तिथि: <LAST_FAIL><br> इससे पहले के लिए डिवाइस: <DOWNTIME><br><br> Snmp जानकारी: <br> नाम - <SNMP_HOSTNAME><br> स्थान - <SNMP_LOCATION><br> अपटाइम - <UPTIMETEXT> ( <UPTIME> सुश्री) <br> सिस्टम - <SNMP_SYSTEM><br><br> ध्यान दें: <NOTES><br> डिवाइस नोट: <DNOTES>"
+msgstr "<br>सिस्टम <DESCRIPTION> (<HOSTNAME>) स्थिति: <DOWN/UP><br><br>साइट: <SITE><br>स्थान: <LOCATION><br>वर्तमान पिंग प्रतिक्रिया: <CUR_TIME> ms<br>औसत सिस्टम प्रतिक्रिया: <AVG_TIME> ms<br>सिस्टम उपलब्धता: <AVAILABILITY><br>साफ़ करने के बाद कुल जांच: <TOT_POLL><br>कुल विफल जांच: <FAIL_POLL><br>अंतिम बार UP जांच की दिनांक: <LAST_FAIL><br>डिवाइस पहले DOWN रहने की अवधि: <DOWNTIME><br><br>SNMP जानकारी:<br>नाम - <SNMP_HOSTNAME><br>स्थान - <SNMP_LOCATION><br>अपटाइम - <UPTIMETEXT> (<UPTIME> ms)<br>सिस्टम - <SNMP_SYSTEM><br><br>नोट: <NOTES><br>डिवाइस नोट्स: <DNOTES>"
 
 #: includes/settings.php
 msgid "Status Change Command"
-msgstr ""
+msgstr "स्थिति परिवर्तन कमांड"
 
 #: includes/settings.php
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
-msgstr "यह वह संदेश है जो सभी यूपी / डाउन डिवाइस मैसेज (255 Char MAX) के संदेश निकाय के रूप में प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;HOSTNAME&gt; &lt;DESTRIPTION&gt; &lt;UPTIME&gt; &lt;UPTET &lt;AVAILABILITY&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;NOTES&gt;"
+msgstr "जब Cacti के दृष्टिकोण से कोई डिवाइस अपनी स्थिति बदलता है (UP से DOWN या DOWN से RECOVERING/UP), तो निम्न कमांड चलाएं। इस कमांड में कमांड लाइन आर्गुमेंट शामिल नहीं होने चाहिए। हालांकि, स्क्रिप्ट के एनवायरनमेंट से निम्न वेरिएबल प्राप्त किए जा सकते हैं:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 
 #: includes/settings.php
 msgid "Alert/Warning Message Defaults"
-msgstr "अलर्ट / चेतावनी संदेश की कमी"
+msgstr "अलर्ट/चेतावनी संदेश डिफ़ॉल्ट"
 
 #: includes/settings.php
 msgid "Threshold Alert Message"
@@ -1473,7 +1460,7 @@ msgstr "थ्रेसहोल्ड अलर्ट संदेश"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड अलर्ट (255 Char MAX) के शीर्ष पर प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह वह संदेश है जो सभी थ्रेशोल्ड अलर्ट के शीर्ष पर प्रदर्शित होगा (अधिकतम 1024 वर्ण)। HTML की अनुमति है, लेकिन केवल-टेक्स्ट ईमेल के लिए इसे हटा दिया जाएगा। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1485,7 +1472,7 @@ msgstr "थ्रेसहोल्ड चेतावनी संदेश"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह वह संदेश है जो सभी थ्रेशोल्ड चेतावनियों के शीर्ष पर प्रदर्शित किया जाएगा (अधिकतम 1024 अक्षर)। HTML की अनुमति है, लेकिन केवल टेक्स्ट वाले ईमेल के लिए इसे हटा दिया जाएगा। इसमें उपयोग किए जा सकने वाले कई सामान्य प्रतिस्थापन टैग शामिल हैं:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
@@ -1493,15 +1480,15 @@ msgstr "एक चेतावनी जारी की गई है जिस
 
 #: includes/settings.php
 msgid "Threshold Restoral Message"
-msgstr "थ्रेसहोल्ड अलर्ट संदेश"
+msgstr "थ्रेशोल्ड बहाली संदेश"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह वह संदेश है जो सभी थ्रेशोल्ड बहाली सूचनाओं के शीर्ष पर प्रदर्शित किया जाएगा (अधिकतम 1024 अक्षर)। HTML की अनुमति है, लेकिन केवल टेक्स्ट वाले ईमेल के लिए इसे हटा दिया जाएगा। इसमें उपयोग किए जा सकने वाले कई सामान्य प्रतिस्थापन टैग शामिल हैं:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "एक अलर्ट जारी किया गया है जिसे आपके ध्यान की आवश्यकता है। <br><br> <strong>डिवाइस</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>संदेश</strong> : <SUBJECT><br><br><GRAPH>"
+msgstr "एक थ्रेशोल्ड सामान्य स्थिति में लौट आया है। <br><br><strong>डिवाइस</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>संदेश</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php
 msgid "Thold"
@@ -1521,7 +1508,7 @@ msgstr "थ्रेशोल्ड क्रिएशन विज़ार्�
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "थ्रेशोल्ड क्रिएशन जादूगर"
+msgstr "थ्रेशोल्ड निर्माण विज़ार्ड [ अपना थ्रेशोल्ड और ग्राफ़ बनाने के लिए कस्टम डेटा दर्ज करें और 'बनाएं' दबाएं ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
@@ -1608,10 +1595,8 @@ msgid "Select a Device"
 msgstr "एक उपकरण का चयन करें"
 
 #: includes/webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
 msgid "Select an Available Item"
-msgstr "आइटम का चयन करें और उपलब्ध"
+msgstr "एक उपलब्ध आइटम चुनें"
 
 #: includes/webapi.php
 msgid "Data Query Item"
@@ -1631,7 +1616,7 @@ msgstr "महत्वपूर्ण लेख:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "यह थ्रेसहोल्ड टेम्पलेटेड <b>नहीं</b> होगा। थ्रेशोल्ड टेम्प्लेट विकल्प का उपयोग करते समय, आपको थ्रेशोल्ड टेम्प्लेट, ग्राफ़ टेम्प्लेट, डिवाइस और संभवतः डेटा क्वेरी आइटम की जानकारी के लिए संकेत दिया जाएगा कि किस समय पर 'क्रिएट ’प्रॉम्प्ट प्राप्त करने से पहले, यदि कोई भी ओवररिएबल ग्राफ़ या डेटा स्रोत की जानकारी ग्राफ़ पर दी गई है और डेटा स्रोत टेम्प्लेट स्तर, आपको इसके लिए संकेत दिया जाएगा। फिर, 'क्रिएट ’बटन दबाकर, ग्राफ़ और थ्रेशोल्ड दोनों एक साथ बनाए जाएंगे।"
+msgstr "यह थ्रेशोल्ड टेम्पलेट-आधारित होगा। थ्रेशोल्ड टेम्पलेट विकल्प का उपयोग करते समय, 'Create' प्रॉम्प्ट प्राप्त होने से पहले आपसे थ्रेशोल्ड टेम्पलेट, ग्राफ़ टेम्पलेट, डिवाइस और संभवतः डेटा क्वेरी आइटम की जानकारी माँगी जाएगी, जिस समय यदि ग्राफ़ और डेटा स्रोत टेम्पलेट स्तर पर कोई ओवरराइड करने योग्य ग्राफ़ या डेटा स्रोत जानकारी अनुमत है, तो आपसे उसके लिए पूछा जाएगा। फिर, 'Create' बटन दबाने पर, ग्राफ़ और थ्रेशोल्ड दोनों एक साथ बनाए जाएंगे।"
 
 #: includes/webapi.php
 msgid "Graph"
@@ -1684,11 +1669,11 @@ msgstr "प्रतिलिपि"
 
 #: notify_lists.php
 msgid "Associate"
-msgstr "साथी"
+msgstr "संबद्ध करें"
 
 #: notify_lists.php
 msgid "Disassociate"
-msgstr "अलग"
+msgstr "असंबद्ध करें"
 
 #: notify_lists.php thold_graph.php
 msgid "Devices"
@@ -1697,7 +1682,7 @@ msgstr "उपकरण"
 #: notify_lists.php
 #, php-format
 msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
-msgstr ""
+msgstr "त्रुटि: आप अपना ईमेल To और BCC दोनों पंक्तियों में नहीं रख सकते। नीचे दिया गया ईमेल अमान्य है!<br><br>%s"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
@@ -1739,7 +1724,7 @@ msgstr "चेतावनी सदस्यता:"
 
 #: notify_lists.php
 msgid "No Change"
-msgstr "कोई परिवर्तन नहीं होता है"
+msgstr "कोई परिवर्तन नहीं"
 
 #: notify_lists.php
 msgid "Notification List Only"
@@ -1792,7 +1777,7 @@ msgstr "नीचे दिए गए डिवाइस के साथ अध
 
 #: notify_lists.php
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
-msgstr ""
+msgstr "आप डिवाइस थ्रेशोल्ड को भी संबद्ध कर सकते हैं। हालाँकि, ये डिवाइस थ्रेशोल्ड थ्रेशोल्ड अधिसूचना सूची को अधिलेखित करने की अनुमति देंगे।"
 
 #: notify_lists.php
 msgid "Resulting Membership:"
@@ -1817,7 +1802,7 @@ msgstr "नीचे दी गई डिवाइस से अधिसूच�
 
 #: notify_lists.php
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
-msgstr ""
+msgstr "आप डिवाइस थ्रेशोल्ड को असंबद्ध भी कर सकते हैं। हालाँकि, ये डिवाइस थ्रेशोल्ड थ्रेशोल्ड अधिसूचना सूची को अधिलेखित करने की अनुमति देंगे।"
 
 #: notify_lists.php
 #, php-format
@@ -1850,7 +1835,7 @@ msgstr "इस अधिसूचना सूची के लिए एक व
 
 #: notify_lists.php
 msgid "To disable all notifications from this Notification List, you can simply disable it here."
-msgstr ""
+msgstr "इस अधिसूचना सूची से सभी अधिसूचनाओं को अक्षम करने के लिए, आप इसे बस यहाँ अक्षम कर सकते हैं।"
 
 #: notify_lists.php
 msgid "To Email Addresses"
@@ -1870,11 +1855,11 @@ msgstr "इस अधिसूचना सूची के लिए ईमे�
 
 #: notify_lists.php
 msgid "Email Style/Format File"
-msgstr ""
+msgstr "ईमेल शैली/प्रारूप फ़ाइल"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr ""
+msgstr "उपयोग करने के लिए कस्टम HTML आवरण और सीएसएस फ़ाइल चुनें। इस फ़ाइल में HTML और CSS दोनों शामिल हैं जो आपकी रिपोर्ट के आसपास हैं। यदि इसमें बस CSS से अधिक है, तो आपको एक विशेष स्थान रखने की आवश्यकता है <REPORT> फ़ाइल के अंदर टैग। इस प्रारूप टैग को रिपोर्ट सामग्री द्वारा बदल दिया जाएगा। ये फाइलें &#39;फॉर्मेट&#39; डायरेक्टरी में स्थित हैं।"
 
 #: notify_lists.php
 msgid "Associated Devices"
@@ -1891,7 +1876,7 @@ msgstr "साइट"
 
 #: notify_lists.php setup.php thold.php thold_graph.php thold_templates.php
 msgid "None"
-msgstr "कोई नहीं"
+msgstr "कुछ भी नहीं"
 
 #: notify_lists.php
 msgid "Device Template"
@@ -1899,7 +1884,7 @@ msgstr "डिवाइस टेम्पलेट"
 
 #: notify_lists.php
 msgid "Associated"
-msgstr "एसोसिएटेड"
+msgstr "संबद्ध"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1913,7 +1898,7 @@ msgstr "सेट / फ़िल्टर ताज़ा करें"
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
 msgid "Clear"
-msgstr "明确"
+msgstr "साफ़ करें"
 
 #: notify_lists.php notify_queue.php
 msgid "Clear Filters"
@@ -1921,11 +1906,11 @@ msgstr "साफ फिल्टर"
 
 #: notify_lists.php thold.php thold_graph.php thold_templates.php
 msgid "ID"
-msgstr "आईडी"
+msgstr "ID"
 
 #: notify_lists.php setup.php thold.php thold_graph.php
 msgid "Status"
-msgstr "ऑर्डर स्थिति"
+msgstr "स्थिति"
 
 #: notify_lists.php
 msgid "Associated Lists"
@@ -1941,7 +1926,7 @@ msgstr "डाटा के स्रोत"
 
 #: notify_lists.php notify_queue.php thold_graph.php
 msgid "Hostname"
-msgstr "होस्ट का नाम"
+msgstr "होस्टनाम"
 
 #: notify_lists.php
 msgid "Current List Only"
@@ -1953,7 +1938,7 @@ msgstr "वर्तमान और वैश्विक सूची"
 
 #: notify_lists.php
 msgid "No Associated Devices Found"
-msgstr "कोई एसोसिएटेड डिवाइस नहीं मिला"
+msgstr "कोई संबद्ध डिवाइस नहीं मिला"
 
 #: notify_lists.php
 msgid "Associated Thresholds"
@@ -1970,7 +1955,7 @@ msgstr "राज्य"
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
 msgid "All"
-msgstr "所有"
+msgstr "सभी"
 
 #: notify_lists.php
 msgid "Warning Lists"
@@ -2032,7 +2017,7 @@ msgstr "सक्षम करें"
 
 #: notify_lists.php
 msgid "Read Only"
-msgstr ""
+msgstr "सिर्फ पढ़ने के लिए"
 
 #: notify_lists.php
 msgid "No Thresholds Found"
@@ -2072,21 +2057,21 @@ msgstr "कोई अधिसूचना सूची नहीं"
 
 #: notify_queue.php
 msgid "Notification has been Suspended.  Press the Resume button to resume it"
-msgstr ""
+msgstr "सूचना निलंबित कर दी गई है। इसे फिर से शुरू करने के लिए फिर से शुरू करें (Resume) बटन दबाएं"
 
 #: notify_queue.php
 msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
-msgstr ""
+msgstr "सूचना फिर से शुरू कर दी गई है। इसे निलंबित करने के लिए निलंबित करें (Suspend) बटन दबाएं"
 
 #: notify_queue.php
 msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
-msgstr ""
+msgstr "लंबित सूचनाएं डेटाबेस से हटा दी गई हैं। पहले भेजी गई सूचनाएं जो साफ़ नहीं की गई हैं, वे अपनी अवधि समाप्त होने तक बनी रहेंगी।"
 
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "निम्नलिखित अधिसूचना को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
-msgstr[1] "निम्नलिखित सभी अधिसूचनाओं को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
+msgstr[0] "निम्नलिखित नोटिफ़िकेशन को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
+msgstr[1] "निम्नलिखित सभी नोटिफ़िकेशन्स को हटाने के लिए 'जारी रखें' पर क्लिक करें।"
 
 #: notify_queue.php
 msgid "Delete Notification"
@@ -2097,43 +2082,43 @@ msgstr[1] "अधिसूचनाएं हटाएं"
 #: notify_queue.php
 #, php-format
 msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
-msgstr ""
+msgstr "ईवेंट सूचनाएं [ उपयोगकर्ता द्वारा सूचनाएं निलंबित: %s, %s पहले ]"
 
 #: notify_queue.php
 msgid "Event Notifications"
-msgstr "डेड डिवाइस अधिसूचनाएं"
+msgstr "इवेंट अधिसूचनाएं"
 
 #: notify_queue.php
 msgid "Topic"
-msgstr ""
+msgstr "विषय (Topic)"
 
 #: notify_queue.php
 msgid "Processed"
-msgstr ""
+msgstr "संसाधित"
 
 #: notify_queue.php
 msgid "Suspend"
-msgstr ""
+msgstr "निलंबित करें"
 
 #: notify_queue.php
 msgid "Suspend Notification Processing"
-msgstr "SNMP अधिसूचनाएं"
+msgstr "अधिसूचना प्रोसेसिंग निलंबित करें"
 
 #: notify_queue.php
 msgid "Resume"
-msgstr ""
+msgstr "फिर से शुरू करें"
 
 #: notify_queue.php
 msgid "Resume Notification Processing"
-msgstr "SNMP अधिसूचनाएं"
+msgstr "अधिसूचना प्रोसेसिंग फिर से शुरू करें"
 
 #: notify_queue.php
 msgid "Purge"
-msgstr ""
+msgstr "सफाई"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
-msgstr "SNMP अधिसूचना प्रीसेट"
+msgstr "सूचना कतार पर्ज करें"
 
 #: notify_queue.php
 msgid "Notifications"
@@ -2141,7 +2126,7 @@ msgstr "अधिसूचना सूची"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "थ्रेशोल्ड टेम्पलेट।"
+msgstr "समर्थित सूचना विषय।"
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2149,11 +2134,11 @@ msgstr "घटना विवरण"
 
 #: notify_queue.php
 msgid "The name of the object as defined by the caller."
-msgstr ""
+msgstr "कॉलर द्वारा परिभाषित ऑब्जेक्ट का नाम।"
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "इस उपकरण के लिए डेटा स्रोतों की संख्या।"
+msgstr "वह होस्टनाम जो इस इवेंट का स्रोत था।"
 
 #: notify_queue.php
 msgid "The Notification List used if any."
@@ -2161,23 +2146,23 @@ msgstr "केवल अधिसूचना सूची।"
 
 #: notify_queue.php
 msgid "Object ID"
-msgstr ""
+msgstr "ऑब्जेक्ट ID"
 
 #: notify_queue.php
 msgid "The Object ID defined by the caller.  Generally its unique 'id'."
-msgstr ""
+msgstr "कॉलर द्वारा परिभाषित ऑब्जेक्ट ID। सामान्यतः इसका अद्वितीय 'id'।"
 
 #: notify_queue.php
 msgid "Event Time"
-msgstr ""
+msgstr "ईवेंट समय"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "SNMP द्वारा रिपोर्ट किए गए अनुसार डिवाइस का आधिकारिक समय।"
+msgstr "कॉलर द्वारा परिभाषित ईवेंट का समय।"
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
-msgstr ""
+msgstr "क्या सूचना ईवेंट संसाधित हो चुका है।"
 
 #: notify_queue.php
 msgid "Errors"
@@ -2185,25 +2170,23 @@ msgstr "त्रुटि"
 
 #: notify_queue.php
 msgid "Did this notification result in an error.  Hover on the error column for details."
-msgstr ""
+msgstr "क्या इस सूचना के परिणामस्वरूप कोई त्रुटि हुई। विवरण के लिए त्रुटि कॉलम पर माउस ले जाएँ।"
 
 #: notify_queue.php
 msgid "Attempts"
-msgstr ""
+msgstr "प्रयास"
 
 #: notify_queue.php
-#, fuzzy
-#| msgid "The number of Graphs for this Device"
 msgid "The number of delivery attempts made for this notification."
-msgstr "इस उपकरण के लिए ग्राफ़ की संख्या"
+msgstr "इस सूचना (नोटिफ़िकेशन) के लिए किए गए डिलीवरी प्रयासों की संख्या।"
 
 #: notify_queue.php
 msgid "Next Attempt"
-msgstr ""
+msgstr "अगला प्रयास"
 
 #: notify_queue.php
 msgid "When a failed notification is eligible for its next retry."
-msgstr ""
+msgstr "जब कोई विफल अधिसूचना अपने अगले पुनः प्रयास के लिए पात्र होती है।"
 
 #: notify_queue.php
 msgid "Run Time"
@@ -2211,27 +2194,23 @@ msgstr "समय"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
-msgstr ""
+msgstr "इवेंट को संसाधित करने में लगा समय सेकंड में।"
 
 #: notify_queue.php
 msgid "Not Specified"
-msgstr ""
+msgstr "निर्दिष्ट नहीं"
 
 #: notify_queue.php
 msgid "No Notifications"
-msgstr "SNMP अधिसूचनाएं"
+msgstr "कोई अधिसूचनाएं नहीं"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES Off"
-msgstr "टॉगल थ्रेशोल्ड VRULES %s"
+msgstr "थ्रेशोल्ड VRULES को बंद पर टॉगल करें"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES On"
-msgstr "टॉगल थ्रेशोल्ड VRULES %s"
+msgstr "थ्रेशोल्ड VRULES को चालू पर टॉगल करें"
 
 #: setup.php
 msgid "Create Threshold"
@@ -2240,46 +2219,42 @@ msgstr "थ्रेशोल्ड बनाएँ"
 #: setup.php
 #, php-format
 msgid "Alert Hi for %s (%s)"
-msgstr ""
+msgstr "%s के लिए उच्च अलर्ट (%s)"
 
 #: setup.php
 #, php-format
 msgid "Alert Low for %s (%s)"
-msgstr ""
+msgstr "%s के लिए निम्न अलर्ट (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "%s (%s) के लिए उच्च चेतावनी"
+msgstr "%1$s के लिए उच्च चेतावनी (%2$s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "%s (%s) के लिए निम्न चेतावनी"
+msgstr "%1$s के लिए निम्न चेतावनी (%2$s)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Hi for %s (%s %%%)"
+#, php-format
 msgid "Alert Hi for %s (%s %%)"
-msgstr "चेतावनी सूची"
+msgstr "%s के लिए उच्च अलर्ट (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Low for %s (%s %%%)"
+#, php-format
 msgid "Alert Low for %s (%s %%)"
-msgstr "चेतावनी सूची"
+msgstr "%s के लिए निम्न अलर्ट (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Hi for %s (%s %%%)"
+#, php-format
 msgid "Warning Hi for %s (%s %%)"
-msgstr "चेतावनी सूची"
+msgstr "%s के लिए उच्च चेतावनी (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Low for %s (%s %%%)"
+#, php-format
 msgid "Warning Low for %s (%s %%)"
-msgstr "चेतावनी सूची"
+msgstr "%s के लिए निम्न चेतावनी (%s %%)"
 
 #: setup.php
 msgid "Threshold Alert/Warning Values"
@@ -2304,7 +2279,7 @@ msgstr "बनाया गया सीमा: %s"
 
 #: setup.php
 msgid "No Threshold(s) Created.  Threshold(s) Template not found."
-msgstr "नो थ्रेशोल्ड (ओं) को बनाया गया। थ्रेशोल्ड (s) टेम्पलेट नहीं मिला।"
+msgstr "कोई थ्रेशोल्ड नहीं बनाया गया। थ्रेशोल्ड टेम्पलेट नहीं मिला।"
 
 #: setup.php
 msgid "The following Data Sources have no Threshold Templates associated with them"
@@ -2344,11 +2319,11 @@ msgstr "थ्रेसहोल्ड मौजूद हैं"
 
 #: setup.php
 msgid "Threshold Does Not Exist"
-msgstr "थ्रेशोल्ड क्या नहीं होता है"
+msgstr "थ्रेशोल्ड मौजूद नहीं है"
 
 #: setup.php
 msgid "Delete Threshold Template Association"
-msgstr "एक थ्रेशोल्ड टेम्पलेट का चयन करें"
+msgstr "थ्रेशोल्ड टेम्पलेट संबद्धता हटाएं"
 
 #: setup.php
 msgid "No Associated Threshold Templates."
@@ -2437,23 +2412,23 @@ msgstr "फिर से टेम्पलेट"
 
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
-msgstr ""
+msgstr "निम्नलिखित थ्रेशोल्ड को स्वीकार (Acknowledge) करने के लिए 'जारी रखें' पर क्लिक करें। जो थ्रेशोल्ड इसकी अनुमति नहीं देते या ट्रिगर नहीं हुए हैं, उन्हें अनदेखा कर दिया जाएगा।"
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
-msgstr ""
+msgstr "निम्नलिखित थ्रेशोल्ड के लिए सूचनाएं फिर से शुरू करने के लिए 'जारी रखें' पर क्लिक करें। जो थ्रेशोल्ड इसकी अनुमति नहीं देते या ट्रिगर नहीं हुए हैं, उन्हें अनदेखा कर दिया जाएगा।"
 
 #: thold.php
 msgid "Resume Notifications for Threshold(s)"
-msgstr "अधिसूचना सूची हटाएं"
+msgstr "थ्रेशोल्ड के लिए अधिसूचनाएं फिर से शुरू करें"
 
 #: thold.php
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
-msgstr ""
+msgstr "निम्नलिखित थ्रेशोल्ड के लिए सूचनाएं निलंबित करने के लिए 'जारी रखें' पर क्लिक करें। जो थ्रेशोल्ड इसकी अनुमति नहीं देते या ट्रिगर नहीं हुए हैं, उन्हें अनदेखा कर दिया जाएगा।"
 
 #: thold.php
 msgid "Suspend Notification for Threshold(s)"
-msgstr "डुप्लीकेट अधिसूचना सूची"
+msgstr "थ्रेशोल्ड के लिए अधिसूचना निलंबित करें"
 
 #: thold.php thold_templates.php
 msgid "Invalid action detected, can not proceed"
@@ -2477,33 +2452,31 @@ msgstr "डेटा टेम्प्लेट"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Template"
-msgstr "डेटा टेम्प्लेट"
+msgstr "टेम्पलेट पर अक्षम"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Threshold"
-msgstr "थ्रेसहोल्ड अक्षम करें"
+msgstr "थ्रेशोल्ड पर अक्षम"
 
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "एक आवश्यक है"
 
 #: thold.php thold_graph.php
-#, fuzzy
-#| msgid "Status"
 msgid "By Status"
-msgstr "ऑर्डर स्थिति"
+msgstr "स्थिति के अनुसार"
 
 #: thold.php thold_graph.php
 msgid "The current threshold status. Click a status pill to filter the list to that status."
-msgstr ""
+msgstr "वर्तमान थ्रेशोल्ड स्थिति। सूची को उस स्थिति के अनुसार फ़िल्टर करने के लिए किसी स्थिति पिल पर क्लिक करें।"
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
-msgstr ""
+msgstr "बाहरी आईडी"
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
-msgstr ""
+msgstr "थ्रेशोल्ड प्रकार। बेसलाइन प्रकारों के लिए: [TIP] का अर्थ है अतीत का समय (Time In the Past), जिसमें उस अवधि से एक दिन से अधिक पुराने न होने वाले MIN, MAX, AVG और LAST शामिल हैं। [AOT] का अर्थ है संपूर्ण समय अवधि का औसत (Average over the entire Time period)। यदि कोलन के बाद MIN, MAX, AVG, LAST है, तो मान उस समेकन फ़ंक्शन से आया है।"
 
 #: thold.php
 msgid "DSName"
@@ -2523,7 +2496,7 @@ msgstr "उच्च"
 
 #: thold.php thold_graph.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr ""
+msgstr "उच्च चेतावनी / अलर्ट मान। नोट: बेसलाइन मान प्रतिशत में होते हैं, अन्य सभी मान प्रदर्शन मान होते हैं जिन्हें CDEF द्वारा संशोधित किया जा सकता है।"
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Low"
@@ -2531,7 +2504,7 @@ msgstr "कम"
 
 #: thold.php thold_graph.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr ""
+msgstr "निम्न चेतावनी / अलर्ट मान। नोट: बेसलाइन मान प्रतिशत में होते हैं, अन्य सभी मान प्रदर्शन मान होते हैं जिन्हें CDEF द्वारा संशोधित किया जा सकता है।"
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Trigger"
@@ -2551,7 +2524,7 @@ msgstr "राज्य में"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "एक चेतावनी के लिए डेटा स्रोत की मात्रा को थ्रेसहोल्ड के उल्लंघन में होना चाहिए"
+msgstr "थ्रेशोल्ड के उल्लंघन या ट्रिगर होने के बाद बीता हुआ समय"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2559,11 +2532,11 @@ msgstr "इस थ्रेसहोल्ड के लिए आवश्य�
 
 #: thold.php thold_graph.php
 msgid "No [Template:Thold]"
-msgstr "अस्थायी नहीं है"
+msgstr "नहीं [टेम्पलेट:Thold]"
 
 #: thold.php thold_graph.php
 msgid "No [Template]"
-msgstr "टेम्पलेट्स"
+msgstr "नहीं [टेम्पलेट]"
 
 #: thold.php thold_graph.php
 msgid "No [Thold]"
@@ -2572,7 +2545,7 @@ msgstr "कोई थ्रेसहोल्ड नहीं"
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "%d ट्रिगर"
+msgstr "%d ट्रिगर्स"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
@@ -2629,7 +2602,7 @@ msgstr "बीएल नीचे:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "अज्ञात टेम्पलेट ID%d"
+msgstr "अज्ञात टेम्पलेट ID %d"
 
 #: thold.php
 msgid "Not Templated"
@@ -2672,11 +2645,11 @@ msgstr "थ्रेशोल्ड टेम्पलेट का नाम �
 
 #: thold.php
 msgid "Enabled at Template Level"
-msgstr ""
+msgstr "टेम्पलेट स्तर पर सक्षम"
 
 #: thold.php
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
-msgstr ""
+msgstr "जांच किए जाने के लिए थ्रेशोल्ड को टेम्पलेट स्तर और थ्रेशोल्ड स्तर दोनों पर सक्षम किया जाना आवश्यक है।"
 
 #: thold.php
 msgid "Enabled at Threshold Level"
@@ -2688,7 +2661,7 @@ msgstr "सामान्य सेटिंग्स"
 
 #: thold.php
 msgid "Name (Displayed)"
-msgstr ""
+msgstr "नाम (प्रदर्शित)"
 
 #: thold.php
 msgid "Provide the Thresholds a meaningful name"
@@ -2696,7 +2669,7 @@ msgstr "थ्रेसहोल्ड को एक सार्थक ना�
 
 #: thold.php
 msgid "Name (Format)"
-msgstr ""
+msgstr "नाम (प्रारूप)"
 
 #: thold.php thold_templates.php
 msgid "Warning HRULE Color"
@@ -2720,15 +2693,15 @@ msgstr "ग्राफ टेम्पलेट"
 
 #: thold.php thold_templates.php
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
-msgstr ""
+msgstr "ग्राफ़ का समाप्ति समय ट्रिगर होने के समय पर सेट किया जाएगा। ग्राफ़ का प्रारंभ समय, समाप्ति समय में से ग्राफ़ समय-अवधि घटाकर निर्धारित होगा।"
 
 #: thold.php thold_templates.php
 msgid "Skip Scaling on HRULEs"
-msgstr ""
+msgstr "HRULEs पर स्केलिंग छोड़ें"
 
 #: thold.php thold_templates.php
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
-msgstr ""
+msgstr "यदि चयनित है, तो ग्राफ़ का स्केल अलर्ट या चेतावनी HRULE से प्रभावित नहीं होगा।"
 
 #: thold.php thold_templates.php
 msgid "Weekend Exemption"
@@ -2752,7 +2725,7 @@ msgstr "पावती विकल्प"
 
 #: thold.php thold_templates.php
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
-msgstr "तीन प्रशंसा स्तर हैं जो नियंत्रित करते हैं कि आपको थ्रेशोल्ड ब्रीच स्थिति का जवाब कैसे देना चाहिए। वो हैं: <br><br><ul><li> <i>कोई भी आवश्यक नहीं</i> - जब आप इस विकल्प का चयन करते हैं, तो थ्रेशोल्ड ब्रीच के लिए कोई पावती की आवश्यकता नहीं होती है। </li><li> <i>रीसेट रीसेट करें</i> - इस विकल्प के साथ, एक बार जब आप थ्रेसहोल्ड को स्वीकार कर लेते हैं, तो आप अब अधिसूचनाएँ प्राप्त नहीं करेंगे जबकि यह भंग हो गई है। </li><li> <i>Persist Acknowledgment</i> - इस विकल्प के साथ, थ्रेशोल्ड सामान्य होने के बाद भी, आपको थ्रेसहोल्ड को स्वीकार करना होगा और एक वैकल्पिक ऑपरेटर संदेश प्रदान करना होगा। </li></ul>"
+msgstr "पावती (Acknowledgment) के तीन स्तर हैं जो यह नियंत्रित करते हैं कि आपको थ्रेशोल्ड उल्लंघन की स्थिति में कैसे प्रतिक्रिया देनी होगी। वे हैं:<br><br><ul><li><i>कोई आवश्यकता नहीं (None Required)</i> - जब आप इस विकल्प को चुनते हैं, तो थ्रेशोल्ड उल्लंघन के लिए किसी पावती की आवश्यकता नहीं होती है।</li><li><i>निलंबन योग्य सूचना (Suspendible Notification)</i> - इस विकल्प के साथ, एक बार जब आप थ्रेशोल्ड पर सूचनाओं को स्वीकार (Acknowledge) या निलंबित कर देते हैं, तो उल्लंघन की स्थिति बने रहने तक आपको आगे सूचनाएँ नहीं मिलेंगी। इसके बाद उल्लंघन की स्थिति में आप सूचनाओं को फिर से शुरू कर सकते हैं।</li><li><i>स्थायी पावती (Persistent Acknowledgment)</i> - इस विकल्प के साथ, थ्रेशोल्ड के सामान्य होने के बाद भी, आपको थ्रेशोल्ड को स्वीकार करना होगा और एक वैकल्पिक ऑपरेटर संदेश प्रदान करना होगा।</li></ul>"
 
 #: thold.php thold_templates.php
 msgid "None Required"
@@ -2760,7 +2733,7 @@ msgstr "कोई आवश्यकता नहीं"
 
 #: thold.php thold_templates.php
 msgid "Suspendible Notification"
-msgstr "SNMP अधिसूचनाएं"
+msgstr "निलंबित करने योग्य अधिसूचना"
 
 #: thold.php thold_templates.php
 msgid "Persistent Acknowledgment"
@@ -2788,7 +2761,7 @@ msgstr "चेतावनी - उच्च / निम्न सेटिं�
 
 #: thold.php thold_templates.php
 msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
-msgstr ""
+msgstr "उच्च और निम्न थ्रेशोल्ड के संख्यात्मक मानों में 1 से बड़ी संख्याओं के लिए 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y' और 1 से छोटी संख्याओं के लिए 'm', 'u', 'p', 'f' प्रत्यय शामिल हो सकते हैं।"
 
 #: thold.php thold_templates.php
 msgid "High Threshold"
@@ -2796,7 +2769,7 @@ msgstr "उच्च थ्रेसहोल्ड"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "यदि सेट है और डेटा स्रोत का मान इस संख्या से ऊपर जाता है, तो चेतावनी ट्रिगर होगी। नोट: यह मान एक कच्ची (RAW) संख्या होनी चाहिए। ग्राफ़ पर प्रदर्शित मान को CDEF द्वारा संशोधित किया जा सकता है।"
 
 #: thold.php thold_templates.php
 msgid "Low Threshold"
@@ -2804,7 +2777,7 @@ msgstr "कम दहलीज"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "यदि सेट है और डेटा स्रोत का मान इस संख्या से नीचे जाता है, तो चेतावनी ट्रिगर होगी। नोट: यह मान एक कच्ची (RAW) संख्या होनी चाहिए। ग्राफ़ पर प्रदर्शित मान को CDEF द्वारा संशोधित किया जा सकता है।"
 
 #: thold.php
 msgid "Breach Duration"
@@ -2812,7 +2785,7 @@ msgstr "ब्रीच अवधि"
 
 #: thold.php
 msgid "The amount of time the Data Source must be in breach of the Threshold for a warning to be raised.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr "एक चेतावनी के लिए डेटा स्रोत की मात्रा को थ्रेसहोल्ड के उल्लंघन में होना चाहिए।"
+msgstr "चेतावनी जारी होने के लिए डेटा स्रोत को थ्रेशोल्ड के उल्लंघन में बने रहने की आवश्यक समय अवधि। नोट: यह मान एक RAW संख्या होना चाहिए। ग्राफ़ पर प्रदर्शित मान को cdef द्वारा संशोधित किया जा सकता है।"
 
 #: thold.php thold_templates.php
 msgid "Alert - High / Low Settings"
@@ -2820,11 +2793,11 @@ msgstr "चेतावनी - उच्च / निम्न सेटिं�
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "यदि सेट है और डेटा स्रोत का मान इस संख्या से ऊपर जाता है, तो अलर्ट ट्रिगर होगा। नोट: यह मान एक कच्ची (RAW) संख्या होनी चाहिए। ग्राफ़ पर प्रदर्शित मान को CDEF द्वारा संशोधित किया जा सकता है।"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "यदि सेट है और डेटा स्रोत का मान इस संख्या से नीचे जाता है, तो अलर्ट ट्रिगर होगा। नोट: यह मान एक कच्ची (RAW) संख्या होनी चाहिए। ग्राफ़ पर प्रदर्शित मान को CDEF द्वारा संशोधित किया जा सकता है।"
 
 #: thold.php
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
@@ -2860,11 +2833,11 @@ msgstr "बेसलाइन सेटिंग्स"
 
 #: thold.php thold_templates.php
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
-msgstr ""
+msgstr "बेसलाइन का प्रकार। [TIP] अतीत में समय (Time in Past) है, [AOT] समय के साथ औसत (Average over Time) है। प्रतिशत विचलन ऐतिहासिक मान से प्रतिशत मान है। निरपेक्ष मान उस ऐतिहासिक मान पर बेसलाइन के ऊपर या नीचे का विचलन है। [TIP] बेसलाइन प्रकारों के लिए, MIN, MAX, AVG और LAST उस समय बिंदु पर अधिकतम एक दिन की समयावधि से आएंगे।"
 
 #: thold.php thold_templates.php
 msgid "Consolidation Function"
-msgstr ""
+msgstr "समेकन फ़ंक्शन"
 
 #: thold.php thold_templates.php
 msgid "Average"
@@ -2872,19 +2845,19 @@ msgstr "औसत (एमएस)"
 
 #: thold.php thold_templates.php
 msgid "Minimum"
-msgstr ""
+msgstr "न्यूनतम"
 
 #: thold.php thold_templates.php
 msgid "Maximum"
-msgstr ""
+msgstr "अधिकतम रिकॉर्ड"
 
 #: thold.php thold_templates.php
 msgid "Last"
-msgstr "लास्ट"
+msgstr "अंतिम"
 
 #: thold.php thold_templates.php
 msgid "The Consolidation function to use for the Baseline Type value calculation."
-msgstr ""
+msgstr "बेसलाइन प्रकार के मान की गणना के लिए उपयोग किया जाने वाला समेकन फ़ंक्शन।"
 
 #: thold.php thold_templates.php
 msgid "Time Range"
@@ -2901,7 +2874,7 @@ msgstr "विचलन यूपी"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "निर्दिष्ट करता है कि ऊपरी बाध्य थ्रेसहोल्ड के लिए प्रतिशत में विचलन की अनुमति है। यदि सेट नहीं किया गया है, तो ऊपरी बाध्य थ्रेसहोल्ड की जांच बिल्कुल नहीं की जाएगी"
+msgstr "ऊपरी सीमा थ्रेशोल्ड के लिए अनुमत विचलन निर्दिष्ट करता है। यदि सेट नहीं है, तो ऊपरी सीमा थ्रेशोल्ड की बिल्कुल भी जांच नहीं की जाएगी। माप की इकाई 'Absolute Value' प्रकार के लिए निरपेक्ष मान है, और '%% Deviation' व '%% Floating Average' दोनों के लिए प्रतिशत है"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2910,7 +2883,7 @@ msgstr "विचलन"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "निर्दिष्ट बाउंड थ्रेशोल्ड के लिए प्रतिशत में विचलन की अनुमति देता है। यदि सेट नहीं किया जाता है, तो निचले बाउंड थ्रेशोल्ड की जाँच बिल्कुल नहीं की जाएगी"
+msgstr "निचली सीमा थ्रेशोल्ड के लिए अनुमत विचलन निर्दिष्ट करता है। यदि सेट नहीं है, तो निचली सीमा थ्रेशोल्ड की बिल्कुल भी जांच नहीं की जाएगी। माप की इकाई 'Absolute Value' प्रकार के लिए निरपेक्ष मान है, और '%% Deviation' व '%% Floating Average' दोनों के लिए प्रतिशत है"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2951,32 +2924,32 @@ msgstr "प्रतिशत की गणना करने के लिए 
 
 #: thold.php thold_templates.php
 msgid "Show Units"
-msgstr ""
+msgstr "इकाइयाँ दिखाएं"
 
 #: thold.php thold_templates.php
 msgid "Display units for very large or small numbers."
-msgstr ""
+msgstr "बहुत बड़ी या छोटी संख्याओं के लिए इकाइयाँ प्रदर्शित करें।"
 
 #: thold.php thold_templates.php
 msgid "Force Units Suffix"
-msgstr ""
+msgstr "इकाई प्रत्यय बाध्य करें"
 
 #: thold.php thold_templates.php
 msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
-msgstr ""
+msgstr "यदि आप विभिन्न थ्रेशोल्ड पृष्ठों और सूचनाओं पर एक बाध्य इकाई प्रत्यय प्रदर्शित करना चाहते हैं, तो उसे यहाँ दर्ज करें। आकार 10 वर्णों से अधिक नहीं होना चाहिए।"
 
 #: thold.php thold_templates.php
 msgid "Decimal Digits to Display"
-msgstr ""
+msgstr "प्रदर्शित करने के लिए दशमलव अंक"
 
 #: thold.php thold_templates.php
 msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
-msgstr ""
+msgstr "थ्रेशोल्ड और वर्तमान मानों के लिए प्रदर्शित किए जाने वाले दशमलव अंकों की संख्या। डिफ़ॉल्ट auto या 2 है।"
 
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN अभिव्यक्ति एक RRDtool-संगत RPN अभिव्यक्ति है। सिंटैक्स में <span class=\"deviceUp\">|query_ifSpeed|</span> जैसे डिवाइस और डेटा क्वेरी प्रतिस्थापन अभिव्यक्तियों के अतिरिक्त नीचे दिए गए सभी फ़ंक्शन शामिल हैं। RPN अभिव्यक्ति में डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span class=\"deviceUp\">|ds:dsname|</span>। उदाहरण के लिए, <span class=\"deviceUp\">|ds:traffic_in|</span> ग्राफ़ से संबद्ध RRDfile(s) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के लिए कोई भी डेटा स्रोत शामिल किया जा सकता है।<br><br>गणितीय ऑपरेटर: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "RPN एक्सप्रेशन एक RRDtool संगत RPN एक्सप्रेशन है। इसके सिंटैक्स में नीचे दिए गए सभी फ़ंक्शन के साथ-साथ डिवाइस और डेटा क्वेरी प्रतिस्थापन एक्सप्रेशन जैसे <span class=\"deviceUp\">|query_ifSpeed|</span> भी शामिल हैं। RPN एक्सप्रेशन में किसी डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span class=\"deviceUp\">|ds:dsname|</span>। उदाहरण के लिए, <span class=\"deviceUp\">|ds:traffic_in|</span> ग्राफ़ से जुड़ी RRD फ़ाइल(फ़ाइलों) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के किसी भी डेटा स्रोत को शामिल किया जा सकता है।<br><br>गणितीय ऑपरेटर: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%1$s %2$s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -2984,7 +2957,7 @@ msgstr "डेटा स्रोत"
 
 #: thold.php
 msgid "Upper data source to calculate the total value."
-msgstr ""
+msgstr "कुल मान की गणना करने के लिए ऊपरी डेटा स्रोत।"
 
 #: thold.php thold_templates.php
 msgid "Notification Settings"
@@ -2992,63 +2965,51 @@ msgstr "अधिसूचना सेटिंग"
 
 #: thold.php
 msgid "Alert Subject"
-msgstr "अलर्ट प्रीसेट"
+msgstr "अलर्ट विषय"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह ईमेल विषय है जो ईमेल में प्रदर्शित होगा (अधिकतम 128 वर्ण)। डिफ़ॉल्ट के लिए खाली छोड़ दें। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
 
 #: thold.php
 msgid "Alert Body"
 msgstr "अलर्ट ईमेल बॉडी"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड अलर्ट (255 Char MAX) के शीर्ष पर प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल ईमेल के लिए पाठ को हटा दिया जाएगा। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> जैसे। &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;&gt; GRAPH&gt; &lt;HI&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;विवरण&gt; &gt;"
+msgstr "यह वह संदेश है जो सभी थ्रेशोल्ड अलर्ट के शीर्ष पर प्रदर्शित होगा (अधिकतम 1024 वर्ण)। HTML की अनुमति है, लेकिन केवल-टेक्स्ट ईमेल के लिए इसे हटा दिया जाएगा। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>उदा. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Subject"
-msgstr "डिवाइस विषय पुनर्प्राप्त"
+msgstr "चेतावनी विषय"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह चेतावनी ईमेल विषय है जो चेतावनी स्थिति में बदलने के बाद ईमेल में प्रदर्शित होगा (अधिकतम 128 वर्ण)। डिफ़ॉल्ट के लिए खाली छोड़ दें। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
 
 #: thold.php thold_templates.php
 msgid "Warning Body"
 msgstr "चेतावनी ईमेल बॉडी"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल ईमेल के लिए पाठ को हटा दिया जाएगा। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> जैसे। &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;&gt; GRAPH&gt; &lt;HI&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;विवरण&gt; &gt;"
+msgstr "यह वह संदेश है जो सभी थ्रेशोल्ड चेतावनियों के शीर्ष पर प्रदर्शित किया जाएगा (अधिकतम 1024 अक्षर)। HTML की अनुमति है, लेकिन केवल टेक्स्ट वाले ईमेल के लिए इसे हटा दिया जाएगा। इसमें उपयोग किए जा सकने वाले कई सामान्य प्रतिस्थापन टैग शामिल हैं:<br>जैसे &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
-msgstr "रेस्टॉरेंट इवेंट"
+msgstr "पुनर्स्थापना विषय"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह ईमेल विषय है जो सामान्य स्थिति में बहाल होने के बाद ईमेल में प्रदर्शित होगा (अधिकतम 128 वर्ण)। डिफ़ॉल्ट के लिए खाली छोड़ दें। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
 
 #: thold.php
 msgid "Restoral Email Body"
 msgstr "अलर्ट ईमेल बॉडी"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह वह संदेश है जो सभी थ्रेशोल्ड बहाली सूचनाओं के शीर्ष पर प्रदर्शित किया जाएगा (अधिकतम 1024 अक्षर)। HTML की अनुमति है, लेकिन केवल टेक्स्ट वाले ईमेल के लिए इसे हटा दिया जाएगा। इसमें उपयोग किए जा सकने वाले कई सामान्य प्रतिस्थापन टैग शामिल हैं:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Notification List"
@@ -3068,7 +3029,7 @@ msgstr "आप इस डेटा स्रोत के लिए अलर्
 
 #: thold.php thold_templates.php
 msgid "Style/Format File"
-msgstr ""
+msgstr "शैली/प्रारूप फ़ाइल"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Event Category"
@@ -3160,7 +3121,7 @@ msgstr "हाई ट्रिगर कमांड"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "यदि सेट किया गया है, और यदि एक उच्च थ्रेसहोल्ड का उल्लंघन होता है, तो यह कमांड चलाया जाएगा। कृपया एक मान्य कमांड दर्ज करें। इसके अलावा, कई रिप्लेसमेंट टैग उपलब्ध हैं जिनका उपयोग थ्रेशोल्ड से स्क्रिप्ट को जानकारी देने के लिए किया जा सकता है। वे शामिल हैं: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;GRUBH&gt; &lt;GR&gt; &lt;&lt;&gt;&gt; &lt;TR&gt;&gt; विवरण&gt; &lt;TRIGGER&gt; विवरण &gt; &lt;BREACHED_ITEMS&gt;। अंत में, Host, Data Query और Data Input प्रतिस्थापन किया जा सकता है। उदाहरण के लिए, यदि आपके पास कोई डेटा इनपुट कस्टम डेटा है, जिसे प्रतिस्थापन उपयोग करने के लिए लंबित कहा जाता है। डेटा क्वेरी के लिए, और होस्ट प्रतिस्थापन Cacti सम्मेलनों का उपयोग करें | query_xxxx |, and | host_xxxx | क्रमशः।"
+msgstr "यदि सेट किया गया है, और यदि उच्च थ्रेशोल्ड का उल्लंघन होता है, तो यह कमांड चलाया जाएगा। कृपया एक मान्य कमांड दर्ज करें। इसके अलावा, थ्रेशोल्ड से स्क्रिप्ट में जानकारी भेजने के लिए कई प्रतिस्थापन टैग उपलब्ध हैं। आप इन्हें कमांड लाइन पर तर्क के रूप में, या बेहतर होगा कि स्क्रिप्ट के एनवायरनमेंट में उपयोग करें। सभी प्रतिस्थापन मान स्क्रिप्ट के एनवायरनमेंट में THOLD_ उपसर्ग के साथ दिखाई देंगे। उदाहरण के लिए, CURRENTVALUE बदलकर THOLD_CURRENTVALUE हो जाएगा, इत्यादि। इन वेरिएबल्स में शामिल हैं: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062। अंत में, होस्ट, डेटा क्वेरी और डेटा इनपुट प्रतिस्थापन भी किए जा सकते हैं। उदाहरण के लिए, यदि आपके पास pending नामक डेटा इनपुट कस्टम डेटा है, तो प्रतिस्थापन करने के लिए |pending| का उपयोग करें। डेटा क्वेरी और होस्ट प्रतिस्थापन के लिए क्रमशः Cacti के पारंपरिक प्रारूप |query_xxxx| और |host_xxxx| का उपयोग करें।"
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
@@ -3168,7 +3129,7 @@ msgstr "लो ट्रिगर कमांड"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "यदि सेट किया गया है, और यदि कम थ्रेसहोल्ड का उल्लंघन होता है, तो यह कमांड चलाया जाएगा। कृपया एक मान्य कमांड दर्ज करें। इसके अलावा, कई रिप्लेसमेंट टैग उपलब्ध हैं जिनका उपयोग थ्रेशोल्ड से स्क्रिप्ट को जानकारी देने के लिए किया जा सकता है। वे शामिल हैं: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;GRUBH&gt; &lt;GR&gt; &lt;&lt;&gt;&gt; &lt;TR&gt;&gt; विवरण&gt; &lt;TRIGGER&gt; विवरण &gt; &lt;BREACHED_ITEMS&gt;। अंत में, होस्ट, डेटा क्वेरी और डेटा इनपुट प्रतिस्थापन बनाया जा सकता है। उदाहरण के लिए, यदि आपके पास कोई डेटा इनपुट कस्टम डेटा है, जिसे प्रतिस्थापन उपयोग करने के लिए लंबित कहा जाता है। डेटा क्वेरी के लिए, और होस्ट प्रतिस्थापन Cacti सम्मेलनों का उपयोग करें | query_xxxx |, and | host_xxxx | क्रमशः।"
+msgstr "यदि सेट किया गया है, और यदि निम्न थ्रेशोल्ड का उल्लंघन होता है, तो यह कमांड चलाया जाएगा। कृपया एक मान्य कमांड दर्ज करें। इसके अलावा, थ्रेशोल्ड से स्क्रिप्ट में जानकारी भेजने के लिए कई प्रतिस्थापन टैग उपलब्ध हैं। आप इन्हें कमांड लाइन पर तर्क के रूप में, या बेहतर होगा कि स्क्रिप्ट के एनवायरनमेंट में उपयोग करें। सभी प्रतिस्थापन मान स्क्रिप्ट के एनवायरनमेंट में THOLD_ उपसर्ग के साथ दिखाई देंगे। उदाहरण के लिए, CURRENTVALUE बदलकर THOLD_CURRENTVALUE हो जाएगा, इत्यादि। इन वेरिएबल्स में शामिल हैं: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062। अंत में, होस्ट, डेटा क्वेरी और डेटा इनपुट प्रतिस्थापन भी किए जा सकते हैं। उदाहरण के लिए, यदि आपके पास pending नामक डेटा इनपुट कस्टम डेटा है, तो प्रतिस्थापन करने के लिए |pending| का उपयोग करें। डेटा क्वेरी और होस्ट प्रतिस्थापन के लिए क्रमशः Cacti के पारंपरिक प्रारूप |query_xxxx| और |host_xxxx| का उपयोग करें।"
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
@@ -3176,7 +3137,7 @@ msgstr "नॉर्मल ट्रिगर कमांड"
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "यदि सेट किया जाता है, जब एक थ्रेड वापस सामान्य मूल्य पर आता है, तो यह कमांड चलाया जाएगा कृपया एक मान्य कमांड दर्ज करें। इसके अलावा, कई रिप्लेसमेंट टैग उपलब्ध हैं जिनका उपयोग थ्रेशोल्ड से स्क्रिप्ट को जानकारी देने के लिए किया जा सकता है। वे शामिल हैं: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;GRUBH&gt; &lt;GR&gt; &lt;&lt;&gt;&gt; &lt;TR&gt;&gt; विवरण&gt; &lt;TRIGGER&gt; विवरण &gt; &lt;BREACHED_ITEMS&gt;। अंत में, होस्ट, डेटा क्वेरी और डेटा इनपुट प्रतिस्थापन बनाया जा सकता है। उदाहरण के लिए, यदि आपके पास कोई डेटा इनपुट कस्टम डेटा है, जिसे प्रतिस्थापन उपयोग करने के लिए लंबित कहा जाता है। डेटा क्वेरी के लिए, और होस्ट प्रतिस्थापन Cacti सम्मेलनों का उपयोग करें | query_xxxx |, and | host_xxxx | क्रमशः।"
+msgstr "यदि सेट किया गया है, तो जब कोई थ्रेशोल्ड वापस सामान्य मान पर लौटता है, तो यह कमांड चलाया जाएगा। कृपया एक मान्य कमांड दर्ज करें। इसके अलावा, थ्रेशोल्ड से स्क्रिप्ट में जानकारी भेजने के लिए कई प्रतिस्थापन टैग उपलब्ध हैं। आप इन्हें कमांड लाइन पर तर्क के रूप में, या बेहतर होगा कि स्क्रिप्ट के एनवायरनमेंट में उपयोग करें। सभी प्रतिस्थापन मान स्क्रिप्ट के एनवायरनमेंट में THOLD_ उपसर्ग के साथ दिखाई देंगे। उदाहरण के लिए, CURRENTVALUE बदलकर THOLD_CURRENTVALUE हो जाएगा, इत्यादि। इन वेरिएबल्स में शामिल हैं: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062। अंत में, होस्ट, डेटा क्वेरी और डेटा इनपुट प्रतिस्थापन भी किए जा सकते हैं। उदाहरण के लिए, यदि आपके पास pending नामक डेटा इनपुट कस्टम डेटा है, तो प्रतिस्थापन करने के लिए |pending| का उपयोग करें। डेटा क्वेरी और होस्ट प्रतिस्थापन के लिए क्रमशः Cacti के पारंपरिक प्रारूप |query_xxxx| और |host_xxxx| का उपयोग करें।"
 
 #: thold.php thold_templates.php
 msgid "Other Settings"
@@ -3184,7 +3145,7 @@ msgstr "अन्य सेटिंग"
 
 #: thold.php
 msgid "Enter an Eternal ID for this Threshold."
-msgstr "थ्रेसहोल्ड के लिए ग्राफ़ का चयन करें।"
+msgstr "इस थ्रेशोल्ड के लिए एक Eternal ID दर्ज करें।"
 
 #: thold.php thold_templates.php
 msgid "Operator Notes"
@@ -3208,15 +3169,15 @@ msgstr "सभी उपयोगकर्ता चयनित"
 
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
-msgstr "थ्रेशोल्ड का प्रकार जिसे मॉनिटर किया जाएगा।"
+msgstr "थ्रेशोल्ड को स्वीकार कर लिया गया है।"
 
 #: thold_graph.php
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
-msgstr ""
+msgstr "थ्रेशोल्ड अब अलर्ट, सूचनाएं उत्पन्न नहीं करेगा या कमांड निष्पादित नहीं करेगा।"
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "चेतावनी / चेतावनी के लिए उच्च थ्रेसहोल्ड मान।"
+msgstr "थ्रेशोल्ड फिर से अलर्ट जनरेट करना शुरू कर देगा।"
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3228,7 +3189,7 @@ msgstr "कार्रवाइयाँ"
 
 #: thold_graph.php
 msgid "Ack Detail"
-msgstr ""
+msgstr "स्वीकृति (Ack) विवरण"
 
 #: thold_graph.php
 msgid "Edit Threshold"
@@ -3244,7 +3205,7 @@ msgstr "थ्रेशोल्ड सक्षम करें"
 
 #: thold_graph.php
 msgid "To enable the Threshold, enable the Template first"
-msgstr "एक थ्रेशोल्ड टेम्पलेट का चयन करें"
+msgstr "थ्रेशोल्ड को सक्षम करने के लिए, पहले टेम्पलेट को सक्षम करें"
 
 #: thold_graph.php
 msgid "View Graph"
@@ -3256,11 +3217,11 @@ msgstr "थ्रेसहोल्ड इतिहास देखें"
 
 #: thold_graph.php
 msgid "Suspend Notifications until the Threshold clears"
-msgstr "डुप्लीकेट अधिसूचना सूची"
+msgstr "थ्रेशोल्ड साफ़ होने तक अधिसूचनाएं निलंबित करें"
 
 #: thold_graph.php
 msgid "Resume Notifications for this breached Threshold"
-msgstr "अधिसूचना सूची हटाएं"
+msgstr "इस उल्लंघन किए गए थ्रेशोल्ड के लिए अधिसूचनाएं फिर से शुरू करें"
 
 #: thold_graph.php
 msgid "Acknowledgement Message"
@@ -3268,15 +3229,15 @@ msgstr "स्वीकार करते हैं"
 
 #: thold_graph.php
 msgid "Date"
-msgstr ""
+msgstr "दिनांक"
 
 #: thold_graph.php
 msgid "Comment Not Found"
-msgstr ""
+msgstr "टिप्पणी नहीं मिली"
 
 #: thold_graph.php
 msgid "Ack History"
-msgstr ""
+msgstr "स्वीकृति (Ack) इतिहास"
 
 #: thold_graph.php
 msgid "No name set"
@@ -3312,7 +3273,7 @@ msgstr "पिछली बार Cacti को इस डिवाइस के 
 
 #: thold_graph.php
 msgid "Uptime"
-msgstr "अपटाइम"
+msgstr "चालू रहने का समय"
 
 #: thold_graph.php
 msgid "The official uptime of the Device as reported by SNMP"
@@ -3364,7 +3325,7 @@ msgstr "उठा नहीं"
 
 #: thold_graph.php
 msgid "No Export Rows Found."
-msgstr ""
+msgstr "कोई निर्यात पंक्ति नहीं मिली।"
 
 #: thold_graph.php
 #, php-format
@@ -3373,7 +3334,7 @@ msgstr "थ्रेसहोल्ड लॉग [ %s] के लिए"
 
 #: thold_graph.php
 msgid "Log Entries"
-msgstr "लॉग इन करें"
+msgstr "लॉग प्रविष्टियाँ"
 
 #: thold_graph.php
 msgid "Time"
@@ -3402,7 +3363,7 @@ msgstr "आप चयनित थ्रेसहोल्ड में से �
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (%d थ्रेसहोल्ड)"
+msgstr "%1$s (%2$d थ्रेशोल्ड)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3434,7 +3395,7 @@ msgstr "निम्न थ्रेसहोल्ड (ओं) को सक्
 
 #: thold_templates.php
 msgid "Enable Template(s)"
-msgstr "टेम्पलेट हटाएं"
+msgstr "टेम्पलेट/टेम्पलेट्स सक्षम करें"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
@@ -3442,7 +3403,7 @@ msgstr "निम्नलिखित थ्रेसहोल्ड (ओं) �
 
 #: thold_templates.php
 msgid "Disable Template(s)"
-msgstr "टेम्पलेट हटाएं"
+msgstr "टेम्पलेट(स) अक्षम करें"
 
 #: thold_templates.php
 msgid "Threshold Template Creation Wizard"
@@ -3462,7 +3423,7 @@ msgstr "कृपया अपने थ्रेशोल्ड टेम्प
 
 #: thold_templates.php
 msgid "The Threshold Template requested can not be found"
-msgstr "थ्रेशोल्ड क्या नहीं होता है"
+msgstr "अनुरोधित थ्रेशोल्ड टेम्पलेट नहीं मिल सका"
 
 #: thold_templates.php
 msgid "Provide the Threshold Template a meaningful name."
@@ -3474,7 +3435,7 @@ msgstr "सुझाया नाम"
 
 #: thold_templates.php
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
-msgstr "इस टेम्पलेट का उपयोग करके बनाए गए थ्रेसहोल्ड के लिए सुझाए गए नाम प्रदान करें। मानक डिवाइस (| host_ * |), डेटा क्वेरी (| क्वेरी_ * |) और इनपुट (! इनपुट_ =) प्रतिस्थापन चर का उपयोग किया जा सकता है। ग्राफ शीर्षक के लिए।"
+msgstr "इस टेम्पलेट का उपयोग करके बनाए गए थ्रेशोल्ड के लिए सुझाया गया नाम प्रदान करें। ग्राफ़ शीर्षक के लिए |graph_title| के साथ-साथ मानक डिवाइस (|host_*|), डेटा क्वेरी (|query_*|) और इनपुट (|input_*|) प्रतिस्थापन वेरिएबल्स का उपयोग किया जा सकता है।"
 
 #: thold_templates.php
 msgid "Data Template that you are using. (This cannot be changed)"
@@ -3523,12 +3484,12 @@ msgstr "बेसलाइन मॉनिटरिंग"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "निर्दिष्ट करता है कि ऊपरी बाध्य थ्रेसहोल्ड के लिए प्रतिशत में विचलन की अनुमति है। यदि सेट नहीं किया गया है, तो ऊपरी बाध्य थ्रेसहोल्ड की जांच बिल्कुल नहीं की जाएगी"
+msgstr "ऊपरी सीमा थ्रेशोल्ड के लिए अनुमत विचलन निर्दिष्ट करता है। यदि सेट नहीं है, तो ऊपरी सीमा थ्रेशोल्ड की बिल्कुल भी जांच नहीं की जाएगी। माप की इकाई 'Absolute Value' प्रकार के लिए निरपेक्ष मान है, और '%% Deviation' व '%% Floating Average' दोनों के लिए प्रतिशत है"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "निर्दिष्ट बाउंड थ्रेशोल्ड के लिए प्रतिशत में विचलन की अनुमति देता है। यदि सेट नहीं किया जाता है, तो निचले बाउंड थ्रेशोल्ड की जाँच बिल्कुल नहीं की जाएगी"
+msgstr "निचली सीमा थ्रेशोल्ड के लिए अनुमत विचलन निर्दिष्ट करता है। यदि सेट नहीं है, तो निचली सीमा थ्रेशोल्ड की बिल्कुल भी जांच नहीं की जाएगी। माप की इकाई 'Absolute Value' प्रकार के लिए निरपेक्ष मान है, और '%% Deviation' व '%% Floating Average' दोनों के लिए प्रतिशत है"
 
 #: thold_templates.php
 #, php-format
@@ -3546,11 +3507,11 @@ msgstr "प्रतिशत से गणना करने के लिए 
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "RPN अभिव्यक्ति एक RRDtool-संगत RPN अभिव्यक्ति है। सिंटैक्स में <span style=\"color:blue;\">|query_ifSpeed|</span> जैसे डिवाइस और डेटा क्वेरी प्रतिस्थापन अभिव्यक्तियों के अतिरिक्त नीचे दिए गए सभी फ़ंक्शन शामिल हैं। RPN अभिव्यक्ति में डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span style=\"color:blue;\">|ds:dsname|</span>। उदाहरण के लिए, <span style=\"color:blue;\">|ds:traffic_in|</span> ग्राफ़ से संबद्ध RRDfile(s) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के लिए कोई भी डेटा स्रोत शामिल किया जा सकता है।<br>गणितीय ऑपरेटर: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "RPN एक्सप्रेशन एक RRDtool संगत RPN एक्सप्रेशन है। इसके सिंटैक्स में नीचे दिए गए सभी फ़ंक्शन के साथ-साथ डिवाइस और डेटा क्वेरी प्रतिस्थापन एक्सप्रेशन जैसे <span style=\"color:blue;\">|query_ifSpeed|</span> भी शामिल हैं। RPN एक्सप्रेशन में किसी डेटा स्रोत का उपयोग करने के लिए, आपको इस सिंटैक्स का उपयोग करना होगा: <span style=\"color:blue;\">|ds:dsname|</span>। उदाहरण के लिए, <span style=\"color:blue;\">|ds:traffic_in|</span> ग्राफ़ से जुड़ी RRD फ़ाइल(फ़ाइलों) के लिए traffic_in डेटा स्रोत का वर्तमान मान प्राप्त करेगा। ग्राफ़ के किसी भी डेटा स्रोत को शामिल किया जा सकता है।<br>गणितीय ऑपरेटर: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>फ़ंक्शन: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>फ़्लो ऑपरेटर: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>तुलना फ़ंक्शन: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%1$s %2$s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
-msgstr ""
+msgstr "कुल मान की गणना करने हेतु उपयोग के लिए ऊपरी डेटा स्रोत।"
 
 #: thold_templates.php
 msgid "Alert Email Subject"
@@ -3558,7 +3519,7 @@ msgstr "अलर्ट ईमेल"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह ईमेल विषय है जो ईमेल में प्रदर्शित होगा (अधिकतम 128 वर्ण)। डिफ़ॉल्ट के लिए खाली छोड़ दें। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Alert Email Body"
@@ -3566,19 +3527,19 @@ msgstr "अलर्ट ईमेल बॉडी"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड अलर्ट (255 Char MAX) के शीर्ष पर प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल ईमेल के लिए पाठ को हटा दिया जाएगा। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> जैसे। &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;&gt; GRAPH&gt; &lt;HI&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;विवरण&gt; &gt;"
+msgstr "यह वह संदेश है जो सभी थ्रेशोल्ड अलर्ट के शीर्ष पर प्रदर्शित होगा (अधिकतम 1024 वर्ण)। HTML की अनुमति है, लेकिन केवल-टेक्स्ट ईमेल के लिए इसे हटा दिया जाएगा। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>उदा. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह चेतावनी विषय है जो ईमेल में प्रदर्शित होगा (अधिकतम 128 वर्ण)। डिफ़ॉल्ट के लिए खाली छोड़ दें। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित किया जाएगा। HTML की अनुमति है, लेकिन केवल ईमेल के लिए पाठ को हटा दिया जाएगा। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> जैसे। &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;&gt; GRAPH&gt; &lt;HI&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;विवरण&gt; &gt;"
+msgstr "यह वह संदेश है जो सभी थ्रेशोल्ड चेतावनियों के शीर्ष पर प्रदर्शित किया जाएगा (अधिकतम 1024 अक्षर)। HTML की अनुमति है, लेकिन केवल टेक्स्ट वाले ईमेल के लिए इसे हटा दिया जाएगा। इसमें उपयोग किए जा सकने वाले कई सामान्य प्रतिस्थापन टैग शामिल हैं:<br>जैसे &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह ईमेल विषय है जो सामान्य स्थिति में बहाल होने के बाद ईमेल में प्रदर्शित होगा (अधिकतम 128 वर्ण)। डिफ़ॉल्ट के लिए खाली छोड़ दें। कई सामान्य प्रतिस्थापन टैग हैं जिनका उपयोग किया जा सकता है, जिनमें शामिल हैं:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Restoral Body"
@@ -3586,15 +3547,15 @@ msgstr "अलर्ट ईमेल बॉडी"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "यह वह संदेश है जो सभी थ्रेसहोल्ड चेतावनियों (255 Char MAX) के शीर्ष पर प्रदर्शित होगा। HTML की अनुमति है, लेकिन केवल पाठ के लिए हटा दिया जाएगा ईमेल। कई वर्णनकर्ता हैं जिनका उपयोग किया जा सकता है। <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;उपदेश&gt; &lt;नोट&gt;"
+msgstr "यह वह संदेश है जो सभी थ्रेशोल्ड बहाली सूचनाओं के शीर्ष पर प्रदर्शित किया जाएगा (अधिकतम 1024 अक्षर)। HTML की अनुमति है, लेकिन केवल टेक्स्ट वाले ईमेल के लिए इसे हटा दिया जाएगा। इसमें उपयोग किए जा सकने वाले कई सामान्य प्रतिस्थापन टैग शामिल हैं:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold_templates.php
 msgid "Notification List Read Only"
-msgstr "केवल अधिसूचना सूची"
+msgstr "अधिसूचना सूची केवल पढ़ने योग्य"
 
 #: thold_templates.php
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
-msgstr "यदि जाँच की जाती है, तो थ्रेसहोल्ड अधिसूचना आपके स्थानीय सिसलॉग को भेजी जाएगी।"
+msgstr "यदि चेक किया गया है, तो टेम्पलेट में मौजूद थ्रेशोल्ड अधिसूचना सूचियां थ्रेशोल्ड की सूचियों को ओवरराइट कर देंगी।"
 
 #: thold_templates.php
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
@@ -3614,47 +3575,47 @@ msgstr "आप इस डेटा स्रोत के लिए चेता
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "थ्रेशोल्ड टेम्पलेट के लिए ग्राफ़ निर्माण विफल रहा।"
+msgstr "इस Thold टेम्पलेट के लिए एक Eternal ID दर्ज करें।"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d महीने,%d दिन,%d घंटे,%d मिनट,%d सेकंड (औसत)"
+msgstr "%1$d महीने, %2$d दिन, %3$d घंटे, %4$d मिनट, %5$d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d माह,%d दिन,%d घंटे,%d मिनट,%d सेकंड"
+msgstr "%1$d महीने, %2$d दिन, %3$d घंटे, %4$d मिनट, %5$d सेकंड"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d दिन,%d घंटे,%d मिनट,%d सेकंड (औसत)"
+msgstr "%1$d दिन, %2$d घंटे, %3$d मिनट, %4$d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d दिन,%d घंटे,%d मिनट,%d सेकंड"
+msgstr "%1$d दिन, %2$d घंटे, %3$d मिनट, %4$d सेकंड"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d घंटे,%d मिनट,%d सेकंड (औसत)"
+msgstr "%1$d घंटे, %2$d मिनट, %3$d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "%d घंटे,%d मिनट,%d सेकंड"
+msgstr "%1$d घंटे, %2$d मिनट, %3$d सेकंड"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "%d मिनट,%d सेकंड (औसत)"
+msgstr "%1$d मिनट, %2$d सेकंड (औसत)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "%d मिनट,%d सेकंड्स"
+msgstr "%1$d मिनट, %2$d सेकंड"
 
 #: thold_templates.php
 #, php-format
@@ -3664,7 +3625,7 @@ msgstr "%d सेकंड (औसत)"
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds"
-msgstr "%d सेकंड्स"
+msgstr "%d सेकंड"
 
 #: thold_templates.php
 msgid "DS Name"
@@ -3672,11 +3633,11 @@ msgstr "डीएस नाम"
 
 #: thold_templates.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr ""
+msgstr "उच्च चेतावनी / अलर्ट मान। नोट: बेसलाइन मान प्रतिशत में होते हैं, अन्य सभी मान RAW मान होते हैं जिन्हें CDEF द्वारा संशोधित नहीं किया गया है।"
 
 #: thold_templates.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr ""
+msgstr "निम्न चेतावनी / अलर्ट मान। नोट: बेसलाइन मान प्रतिशत में होते हैं, अन्य सभी मान RAW मान होते हैं जिन्हें CDEF द्वारा संशोधित नहीं किया गया है।"
 
 #: thold_templates.php
 msgid "Import Template from Local File"
@@ -3708,31 +3669,31 @@ msgstr "थ्रेशोल्ड टेम्पलेट्स आयात 
 
 #: thold_templates.php
 msgid "The file is too big."
-msgstr ""
+msgstr "फ़ाइल बहुत बड़ी है।"
 
 #: thold_templates.php
 msgid "Incomplete file transfer."
-msgstr ""
+msgstr "फ़ाइल ट्रांसफ़र अधूरा है।"
 
 #: thold_templates.php
 msgid "No file uploaded."
-msgstr ""
+msgstr "कोई फ़ाइल अपलोड नहीं की गई।"
 
 #: thold_templates.php
 msgid "Temporary folder missing."
-msgstr ""
+msgstr "अस्थायी फ़ोल्डर मौजूद नहीं है।"
 
 #: thold_templates.php
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "डिस्क पर फ़ाइल लिखने में विफल"
 
 #: thold_templates.php
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "फ़ाइल अपलोड एक्सटेंशन द्वारा रोक दिया गया"
 
 #: thold_templates.php
 msgid "Invalid file extension."
-msgstr ""
+msgstr "अमान्य फ़ाइल एक्सटेंशन।"
 
 #: thold_templates.php
 msgid "NOTE:"
