@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Portugal) <https://translate.cacti.net/projects/cacti/thold/pt_PT/>\nLanguage: pt-PT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Portugal) <https://translate.cacti.net/projects/cacti/thold/pt_PT/>\nLanguage: pt-PT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -38,7 +38,7 @@ msgstr "Cada %d Horas"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Day Ago"
-msgstr ""
+msgstr "De há %d dia"
 
 #: includes/arrays.php
 #, php-format
@@ -73,11 +73,11 @@ msgstr "%d Ano"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Years Ago"
-msgstr ""
+msgstr "De há %d anos"
 
 #: includes/arrays.php thold_graph.php
 msgid "Down"
-msgstr "Widget movido para baixo"
+msgstr "Inativo"
 
 #: includes/arrays.php thold_graph.php
 msgid "Error"
@@ -89,7 +89,7 @@ msgstr "Recuperando"
 
 #: includes/arrays.php thold_graph.php
 msgid "Up"
-msgstr "Procure"
+msgstr "Ativo"
 
 #: includes/arrays.php thold_graph.php
 msgid "Unknown"
@@ -276,7 +276,7 @@ msgstr "%d Minuto"
 #: includes/arrays.php
 #, php-format
 msgid "%d Minutes"
-msgstr "A cada %d minutos"
+msgstr "%d minutos"
 
 #: includes/arrays.php
 #, php-format
@@ -356,11 +356,11 @@ msgstr "Desvio UP"
 
 #: includes/arrays.php
 msgid "Absolute Val Min/Max [TIP]"
-msgstr "Valor de alerta"
+msgstr "Valor absoluto Mín/Máx [TIP]"
 
 #: includes/arrays.php
 msgid "Absolute Val of CF [TIP]"
-msgstr "Valor de alerta"
+msgstr "Valor absoluto de CF [TIP]"
 
 #: includes/arrays.php
 #, php-format
@@ -374,11 +374,11 @@ msgstr "Desvio UP"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg [AOT]"
-msgstr "Valor de alerta"
+msgstr "Valor absoluto médio [AOT]"
 
 #: includes/arrays.php
 msgid "Absolute Val Avg of CF [AOT]"
-msgstr "Valor de alerta"
+msgstr "Valor absoluto médio de CF [AOT]"
 
 #: includes/arrays.php
 msgid "Exact Value"
@@ -398,19 +398,19 @@ msgstr "Expressão RPN"
 
 #: includes/arrays.php
 msgid "Upper + Lower bytes"
-msgstr ""
+msgstr "Bytes superiores + inferiores"
 
 #: includes/arrays.php
 msgid "Acknowledge"
-msgstr "Reconhecimento"
+msgstr "Reconhecer"
 
 #: includes/arrays.php
 msgid "Suspend Notifications"
-msgstr "Notificações SNMP"
+msgstr "Suspender notificações"
 
 #: includes/arrays.php
 msgid "Resume Notifications"
-msgstr "Notificações SNMP"
+msgstr "Retomar notificações"
 
 #: includes/arrays.php notify_lists.php notify_queue.php setup.php
 msgid "Delete"
@@ -442,11 +442,11 @@ msgstr "Limiar"
 
 #: includes/arrays.php
 msgid "Down Host Mail"
-msgstr ""
+msgstr "E-mail de anfitrião inativo"
 
 #: includes/arrays.php
 msgid "Up Host Mail"
-msgstr ""
+msgstr "E-mail de anfitrião ativo"
 
 #: includes/arrays.php
 msgid "Threshold Cmd"
@@ -454,28 +454,28 @@ msgstr "Limiar"
 
 #: includes/arrays.php
 msgid "Down Host Cmd"
-msgstr ""
+msgstr "Comando de anfitrião inativo"
 
 #: includes/arrays.php
 msgid "Up Host Cmd"
-msgstr ""
+msgstr "Comando de anfitrião ativo"
 
 #: includes/arrays.php
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: includes/arrays.php
 msgid "0 Digits"
-msgstr ""
+msgstr "0 Dígitos"
 
 #: includes/arrays.php
 msgid "1 Digit"
-msgstr ""
+msgstr "1 Dígito"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Digits"
-msgstr "%d Dias"
+msgstr "%d dígitos"
 
 #: includes/arrays.php
 #, php-format
@@ -483,10 +483,9 @@ msgid "> %d Devices"
 msgstr "> %d Dispositivos"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices Globally"
+#, php-format
 msgid "> %d %% of Devices Globally"
-msgstr "Dispositivos"
+msgstr "> %d %% (dispositivos globalmente)"
 
 #: includes/arrays.php
 #, php-format
@@ -494,14 +493,13 @@ msgid "> %d Devices in a Site"
 msgstr "> %d Dispositivos num Site"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices in a Site"
+#, php-format
 msgid "> %d %% of Devices in a Site"
-msgstr "Dispositivos"
+msgstr "> %d %% (dispositivos num local)"
 
 #: includes/functions.php
 msgid "< 1 Minute"
-msgstr "%d Minuto"
+msgstr "< 1 Minuto"
 
 #: includes/functions.php
 msgid "Since Created"
@@ -542,7 +540,7 @@ msgstr "Páginas:"
 
 #: includes/functions.php
 msgid "Only logging, maint device"
-msgstr ""
+msgstr "Apenas registo, dispositivo em manutenção"
 
 #: includes/functions.php notify_lists.php notify_queue.php thold.php
 #: thold_graph.php thold_templates.php
@@ -555,36 +553,35 @@ msgstr "Link para Gráfico em Cacti"
 
 #: includes/functions.php
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<Foi emitido um alerta que requer a sua atenção: <(<HOSTNAME>)<br><b>b>URL</b>: <URL><br>b>b>Mensagem</b>: <SUBJECT><br><br><br><GRAPH></body></html>"
+msgstr "<html><body>Foi emitido um alerta que requer a sua atenção.<br><br><b>Dispositivo</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Mensagem</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 msgid "<html><body>A warning has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "<Foi emitido um aviso que requer a sua atenção: <(<HOSTNAME>)<br><b>b>URL</b>: <URL><br>b>b>Mensagem</b>: <SUBJECT><br><br><br><GRAPH></body></html>"
+msgstr "<html><body>Foi emitido um aviso que requer a sua atenção.<br><br><b>Dispositivo</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Mensagem</b>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Foi emitido um alerta que requer a sua atenção. <br><br><br>>Força>Dispositivo</sforça>: <(<HOSTNAME>)<br><trong>URL</strong>: <URL><br>>strong>Mensagem</strong>: SUBJECT><br><br><br><GRAPH>"
+msgstr "<html><body>Um limiar regressou ao estado normal. <br><br><strong>Dispositivo</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Mensagem</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "%% Desv. [TIP:%s]"
+msgstr "%% Desvio [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Val. Abs. [TIP:%s]"
+msgstr "Valor abs. [TIP:%s]"
 
 #: includes/functions.php
-#, fuzzy, php-format
-#| msgid "%%% Dev [AOT:%s]"
+#, php-format
 msgid "%% Dev [AOT:%s]"
-msgstr "Desvio UP"
+msgstr "%% Disp [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Val. Abs. [AOT:%s]"
+msgstr "Valor abs. [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -626,7 +623,7 @@ msgstr "Limiar criado: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Você deve especificar o 'Limiar de alerta alto' ou 'Limiar de alerta baixo' ou ambos!<br>RECORD NÃO ATUALIZADO!"
+msgstr "Deve especificar 'Limiar de alerta alto' ou 'Limiar de alerta baixo' ou ambos!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
@@ -638,19 +635,19 @@ msgstr "Limiares impossíveis: 'Limiar de advertência alto' menor ou igual a 'L
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Limiares impossíveis: 'Limiar de advertência alto' menor ou igual a 'Limiar de advertência baixo'<br>RECORD NÃO ATUALIZADO!"
+msgstr "Limiar impossível: 'Limiar de aviso alto' maior do que o 'Limiar de alerta alto'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Limiares impossíveis: 'Limiar de advertência alto' menor ou igual a 'Limiar de advertência baixo'<br>RECORD NÃO ATUALIZADO!"
+msgstr "Limiar impossível: 'Limiar de alerta baixo' maior do que o 'Limiar de aviso baixo'!"
 
 #: includes/functions.php
 msgid "Time reference in the past must be set to positive integer value!"
-msgstr "'%s' deve ser definido para valor inteiro positivo!<br>RECORD NÃO ATUALIZADO!"
+msgstr "A referência temporal no passado tem de ser definida para um valor inteiro positivo!"
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
-msgstr "Você deve especificar 'Baseline Deviation UP' ou 'Baseline Deviation DOWN' ou ambos!<br>RECORD NÃO ATUALIZADO!"
+msgstr "Deve especificar 'Desvio de linha de base ACIMA' ou 'Desvio de linha de base ABAIXO' ou ambos!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'"
@@ -658,23 +655,23 @@ msgstr "Limiar impossível: 'Limiar de alerta alto' menor que 'Limiar de alerta 
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Limiar impossível: a contagem de acionamento de alerta tem de ser superior ou igual a 1!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Alert Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr ""
+msgstr "Limiar impossível: a contagem de acionamento de alerta tem de ser inferior ou igual à contagem de acionamento ou igual a 1!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be greater or eval to 1!"
-msgstr ""
+msgstr "Limiar impossível: a contagem de acionamento de aviso tem de ser superior ou igual a 1!"
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Limiares impossíveis: 'Limiar de advertência alto' menor ou igual a 'Limiar de advertência baixo'<br>RECORD NÃO ATUALIZADO!"
+msgstr "Limiar impossível: a contagem de acionamento de aviso deve ser menor ou igual à contagem de acionamento ou ser avaliada como 1!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Limiares impossíveis: 'Limiar de advertência alto' menor ou igual a 'Limiar de advertência baixo'<br>RECORD NÃO ATUALIZADO!"
+msgstr "Limiar impossível: 'Limiar de aviso baixo' menor do que o 'Limiar de alerta baixo'!"
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
@@ -682,7 +679,7 @@ msgstr "Tipo de limiar desconhecido!"
 
 #: includes/functions.php
 msgid "No Thresholds Templates associated with the Device's Template."
-msgstr "No Thresholds Templates associados ao Template do dispositivo."
+msgstr "Sem modelos de limiares associados ao modelo do dispositivo."
 
 #: includes/functions.php setup.php
 msgid "No Threshold(s) Created.  Either they already exist, or no suitable matches found."
@@ -694,11 +691,11 @@ msgstr "Erro de Mailer: Não <b>TO</b>conjunto de endereços!!<br>Se estiver usa
 
 #: includes/functions.php
 msgid "Done"
-msgstr ""
+msgstr "Concluído"
 
 #: includes/functions.php
 msgid "Pending"
-msgstr ""
+msgstr "Pendente"
 
 #: includes/functions.php
 msgid "Errored"
@@ -710,11 +707,11 @@ msgstr "N/D"
 
 #: includes/functions.php
 msgid "Success"
-msgstr ""
+msgstr "Sucesso"
 
 #: includes/functions.php thold_graph.php
 msgid "Acknowledge Threshold"
-msgstr "Desconhecido Limiar"
+msgstr "Reconhecer limiar"
 
 #: includes/functions.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s)."
@@ -722,7 +719,7 @@ msgstr "Clique em 'Continuar' para reconhecer o(s) seguinte(s) Limiar(s)."
 
 #: includes/functions.php thold.php
 msgid "Acknowledge Threshold(s)"
-msgstr "Modelo(s) de agradecimento"
+msgstr "Reconhecer limiar(es)"
 
 #: includes/functions.php notify_lists.php notify_queue.php setup.php thold.php
 #: thold_templates.php
@@ -744,7 +741,7 @@ msgstr "Modelo de Limiar Modelo de Limiar Fonte de Dados Subordinada Não Encont
 
 #: includes/functions.php
 msgid "Threshold Template import columns do not match the database schema"
-msgstr ""
+msgstr "As colunas de importação do Modelo de Limiar não correspondem ao esquema da base de dados"
 
 #: includes/functions.php
 msgid "Imported"
@@ -774,7 +771,7 @@ msgstr "Atualizar"
 
 #: includes/functions.php
 msgid "Errors encountered while attempting to import Threshold Template data."
-msgstr ""
+msgstr "Foram encontrados erros ao tentar importar os dados do modelo de limiar."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
@@ -782,7 +779,7 @@ msgstr "Os dados de importação do modelo de limiar não foram identificados co
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "O ID do modelo Threshold não foi definido ao tentar criar Graph e Threshold."
+msgstr "Os dados de importação do modelo de limiar não estavam corretos ao importar o modelo de limiar."
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -790,27 +787,27 @@ msgstr "SNMP não está em uso"
 
 #: includes/polling.php
 msgid "Devices Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
-msgstr "Aviso de Dispositivos: <(<HOSTNAME>) retornado do estado DOWN"
+msgstr "Aviso de dispositivos: <DESCRIPTION> (<HOSTNAME>) regressou do estado DOWN"
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr "status <br>Sistema <DESCRIPTION> (<HOSTNAME>): <DWN/UP><br>>br>Current ping response: <CUR_TIME> ms<br>Resposta média do sistema: <AVG_TIME> ms<br>Disponibilidade do sistema: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br><br>NMP Info:<br>Nome - <SNMP_HOSTNAME><br>>Local - <SNMP_LOCATION><br>Aptime - <UPTIMETEXT> (<UPTIMEME> ms)<br>System - <SNMP_SYSTEM><br><br>NNOTE: <NOTES>."
+msgstr "<br>Estado do sistema <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Site: <SITE><br>Localização: <LOCATION><br>Resposta de ping atual: <CUR_TIME> ms<br>Resposta média do sistema: <AVG_TIME> ms<br>Disponibilidade do sistema: <AVAILABILITY><br>Total de verificações desde a limpeza: <TOT_POLL><br>Total de verificações falhadas: <FAIL_POLL><br>Última data de verificação UP: <LAST_FAIL><br>Dispositivos anteriormente DOWN durante: <DOWNTIME><br><br>Informação SNMP:<br>Nome - <SNMP_HOSTNAME><br>Localização - <SNMP_LOCATION><br>Tempo de atividade - <UPTIMETEXT> (<UPTIME> ms)<br>Sistema - <SNMP_SYSTEM><br><br>NOTA: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
-msgstr "Erro de dispositivos: <(<HOSTNAME>) está BAIXO"
+msgstr "Erro de dispositivos: <DESCRIPTION> (<HOSTNAME>) está DOWN"
 
 #: includes/polling.php
 msgid "DOWN"
-msgstr "Widget movido para baixo"
+msgstr "Inativo"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr "Erro de sistema : <(<HOSTNAME>) é <DOWN/UP><br>Reason: <MESSAGEM><br><br>Resposta média do sistema: <AVG_TIME> ms<br>Disponibilidade do sistema: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DWNTIME><br>NOTE: <NOTES>"
+msgstr "Erro de sistema : <DESCRIPTION> (<HOSTNAME>) está <DOWN/UP><br>Site: <SITE><br>Localização: <LOCATION><br>Motivo: <MESSAGE><br><br>Tempo médio de resposta do sistema : <AVG_TIME> ms<br>Disponibilidade do sistema: <AVAILABILITY><br>Total de verificações desde a limpeza: <TOT_POLL><br>Total de verificações falhadas: <FAIL_POLL><br>Última data verificada como DOWN : <LAST_FAIL><br>Dispositivos anteriormente UP durante: <DOWNTIME><br>NOTA: <NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
-msgstr "Acções"
+msgstr "(ações)"
 
 #: includes/settings.php
 msgid "(edit)"
@@ -902,7 +899,7 @@ msgstr "Ver Limiares"
 
 #: includes/settings.php
 msgid "Normal User"
-msgstr ""
+msgstr "Utilizador normal"
 
 #: includes/settings.php
 msgid "Template Editor"
@@ -933,10 +930,8 @@ msgid "Global and List Below"
 msgstr "Global e lista abaixo"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr "Qual Lista(s) de Notificação deve(m) ser notificada(s) sobre eventos Device Up/Down?"
+msgstr "Que tipo de lista(s) de notificação deve(m) ser utilizada(s) para eventos de dispositivo Ativo/Inativo?"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
@@ -948,15 +943,15 @@ msgstr "Qual Lista(s) de Notificação deve(m) ser notificada(s) sobre eventos D
 
 #: includes/settings.php
 msgid "Host Failure Count"
-msgstr ""
+msgstr "Contagem de falhas de anfitrião"
 
 #: includes/settings.php
 msgid "The number of Polling Intervals at this Host must be Down before Thold logging an error and reporting Host as Down. Default is 0 (use Cacti setting)"
-msgstr ""
+msgstr "O número de intervalos de recolha em que este anfitrião tem de estar Inativo antes de o Thold registar um erro e comunicar o anfitrião como Inativo. A predefinição é 0 (usar a definição do Cacti)"
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
-msgstr "Opções de baseline"
+msgstr "Utilizar definição do Cacti"
 
 #: includes/settings.php
 #, php-format
@@ -990,15 +985,15 @@ msgstr "Auto Criar Limiares"
 
 #: includes/settings.php
 msgid "If selected, when running either automation, or when creating/saving a Device, all Thresholds associated with the Device Template will be created."
-msgstr "Se selecionado, ao executar a automação ou ao criar/salvar um dispositivo, todos os Limiares associados ao Modelo do dispositivo serão criados."
+msgstr "Se selecionado, ao executar a automatização ou ao criar/guardar um dispositivo, todos os limiares associados ao modelo de dispositivo serão criados."
 
 #: includes/settings.php
 msgid "Consider Unknown Data as Zero"
-msgstr ""
+msgstr "Considerar dados desconhecidos como zero"
 
 #: includes/settings.php
 msgid "When checking Thresholds, if a Data Source returns Unknown Data ('U'), consider the value as zero for the Threshold check. You can also enable log this issue."
-msgstr ""
+msgstr "Ao verificar os Limiares, se uma Fonte de dados devolver Dados desconhecidos ('U'), considerar o valor como zero para a verificação do Limiar. Também pode ativar o registo deste problema."
 
 #: includes/settings.php
 msgid "Default Management Status"
@@ -1055,7 +1050,7 @@ msgstr "Modelo de limiar"
 
 #: includes/settings.php
 msgid "If checked, when creating at Threshold Template, its Notification Settings will, by default be owned by the Threshold Template."
-msgstr ""
+msgstr "Se marcado, ao criar um modelo de limiar, as respetivas definições de notificação pertencerão, por predefinição, ao modelo de limiar."
 
 #: includes/settings.php
 msgid "Enable Command Execution"
@@ -1079,15 +1074,15 @@ msgstr "Habilitar notificação por Thold"
 
 #: includes/settings.php
 msgid "Checking this box will switch Thold from performing inline Notification to using either the Notification Daemon, or notifications performed out of band by the Notification poller."
-msgstr ""
+msgstr "Marcar esta caixa fará com que o Thold deixe de executar notificações em linha e passe a utilizar o daemon de notificações ou notificações efetuadas fora de banda pelo poller de notificações."
 
 #: includes/settings.php
 msgid "Enable Sending Alert Emails to Warning Notification Lists"
-msgstr "Lista de notas de advertência"
+msgstr "Ativar envio de e-mails de alerta para listas de notificação de aviso"
 
 #: includes/settings.php
 msgid "Check this box if you wish Warning Notification List recipients to receive Alert Emails in addition to the Alert Notification list receivers.  This case is applicable when Warning Notifications goes to Administrators and Alert Notifications go to Management."
-msgstr ""
+msgstr "Marque esta caixa se pretender que os destinatários da lista de notificações de aviso recebam e-mails de alerta além dos destinatários da lista de notificações de alerta.  Isto aplica-se quando as notificações de aviso são enviadas para os administradores e as notificações de alerta para a gestão."
 
 #: includes/settings.php
 msgid "Threshold Daemon"
@@ -1107,7 +1102,7 @@ msgstr "Limiar Daemon"
 
 #: includes/settings.php
 msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
-msgstr ""
+msgstr "Marcar esta caixa ativará a depuração do daemon de limiares ao operar a partir do SystemD ou através da linha de comandos.  Esta alteração é dinâmica e entrará em vigor assim que o próximo ciclo de limiares começar."
 
 #: includes/settings.php
 msgid "Daemon Down Notification Frequency"
@@ -1115,7 +1110,7 @@ msgstr "Configurações de notificação para cima/para baixo do dispositivo"
 
 #: includes/settings.php
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
-msgstr ""
+msgstr "Se for detetado que o daemon do Thold está inativo, enviar uma notificação por e-mail com esta frequência."
 
 #: includes/settings.php
 #, php-format
@@ -1124,7 +1119,7 @@ msgstr "Cada %d Horas"
 
 #: includes/settings.php
 msgid "Daemon Threads"
-msgstr ""
+msgstr "Threads do daemon"
 
 #: includes/settings.php
 msgid "The number of daemon threads to be handled by the Threshold Daemon."
@@ -1132,12 +1127,12 @@ msgstr "O número máximo de processos simultâneos a serem tratados pelo Limiar
 
 #: includes/settings.php
 msgid "1 Process"
-msgstr ""
+msgstr "1 Processo"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr ""
+msgstr "%d Processos"
 
 #: includes/settings.php
 msgid "Logging"
@@ -1185,11 +1180,11 @@ msgstr "Mantenha os registos de limiar para este número de dias."
 
 #: includes/settings.php
 msgid "Log action Consider Unknown Data as Zero"
-msgstr ""
+msgstr "Registar ação «Considerar dados desconhecidos como zero»"
 
 #: includes/settings.php
 msgid "When 'Consider Unknown Data as Zero' is enabled, log when it occurs"
-msgstr ""
+msgstr "Quando 'Considerar dados desconhecidos como zero' estiver ativado, registar quando ocorrer"
 
 #: includes/settings.php thold.php thold_templates.php
 msgid "Syslog Settings"
@@ -1241,7 +1236,7 @@ msgstr "Número por defeito de vezes consecutivas que a Fonte de Dados tem de es
 
 #: includes/settings.php
 msgid "Re-Alerting"
-msgstr "Re-Alimentação"
+msgstr "Re-alerta"
 
 #: includes/settings.php
 msgid "Repeat Alert after specified number of poller cycles."
@@ -1321,11 +1316,11 @@ msgstr "Se marcada, isso fará com que todos os Alertas sejam enviados como e-ma
 
 #: includes/settings.php
 msgid "Send Email separately for each address"
-msgstr ""
+msgstr "Enviar e-mail separadamente para cada endereço"
 
 #: includes/settings.php
 msgid "If checked, this will cause all Emails to be sent separately for each address."
-msgstr ""
+msgstr "Se marcado, isto fará com que todos os e-mails sejam enviados separadamente para cada endereço."
 
 #: includes/settings.php
 msgid "From Email Address"
@@ -1356,24 +1351,20 @@ msgid "Enable Dead/Recovering host notification"
 msgstr "Habilitar notificação de hosts mortos/recuperados"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notifications"
 msgid "Single Email Notification"
-msgstr "Habilitar notificação por Thold"
+msgstr "Notificação por e-mail único"
 
 #: includes/settings.php
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
-msgstr ""
+msgstr "Suportado apenas para listas de notificação e para a fila de notificações. Se existirem notificações de dispositivos inativos num único ciclo de processamento, envia apenas um e-mail aos destinatários da lista de notificação para todos os dispositivos."
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notification Queue"
 msgid "Single Email Notification Subject"
-msgstr "Habilitar notificação por Thold"
+msgstr "Assunto da notificação por e-mail único"
 
 #: includes/settings.php
 msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
-msgstr ""
+msgstr "Este é o Assunto de E-mail a utilizar para todos os e-mails de Notificação por E-mail Único para dispositivos Ativos e Inativos."
 
 #: includes/settings.php
 msgid "Device Notification Delay Options"
@@ -1385,11 +1376,11 @@ msgstr "Lista de notas"
 
 #: includes/settings.php
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
-msgstr ""
+msgstr "Se ocorrer um grande volume de notificações de dispositivos inativos, o Cacti pode colocar em pausa o envio dessas notificações durante um determinado período de tempo para verificar se o problema é transitório antes de as enviar. Selecione o limiar de notificações de dispositivos inativos antes de a pausa ser acionada."
 
 #: includes/settings.php
 msgid "If you choose to delay Notifications for a large Down Devices Notification inrush, how long are you willing to wait before allowing the notifications to be processed?"
-msgstr ""
+msgstr "Se optar por atrasar as notificações perante um grande volume de notificações de dispositivos inativos, quanto tempo está disposto a aguardar antes de permitir que as notificações sejam processadas?"
 
 #: includes/settings.php
 msgid "Device Notification Email Options"
@@ -1397,7 +1388,7 @@ msgstr "Opções de notificação de dispositivos"
 
 #: includes/settings.php
 msgid "Global Notification Email"
-msgstr "Email de Notificações de Dispositivo Morto"
+msgstr "E-mail de notificação global"
 
 #: includes/settings.php
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
@@ -1408,42 +1399,36 @@ msgid "Down Subject"
 msgstr "Assunto do Dispositivo Down"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Este é o assunto do e-mail que será utilizado para mensagens de dispositivos inativos. Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (duração do último estado ativo no caso de mensagem de inatividade) &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
-msgstr "Erro de dispositivo: <(<HOSTNAME>) está BAIXO"
+msgstr "Erro do dispositivo: <DESCRIPTION> (<HOSTNAME>) está DOWN"
 
 #: includes/settings.php
 msgid "Down Message"
 msgstr "Mensagem do Dispositivo Down"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Esta é a mensagem que será exibida como o corpo da mensagem de todas as mensagens do dispositivo UP / Down (255 caracteres MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 060TIME&#062 &#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 060DISPONIBILIDADE&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Esta é a mensagem que será apresentada como corpo da mensagem de todas as mensagens de dispositivo Ativo/Inativo (máx. 1024 caracteres). HTML é permitido, mas será removido para e-mails apenas de texto. Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (duração do último estado ativo no caso de mensagem de inatividade) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr "Erro de sistema : <(<HOSTNAME>) é <DOWN/UP><br>Reason: MENSAGEM><br><br><br>Resposta média do sistema: <AVG_TIME> ms<br>Disponibilidade do sistema: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DWNTIME NOTES: <NOTAS DO DISPOSITIVO: <NÃO..."
+msgstr "Erro de sistema : <DESCRIPTION> (<HOSTNAME>) está <DOWN/UP><br><br>Site: <SITE><br>Localização: <LOCATION><br>Motivo: <MESSAGE><br>Tempo médio de resposta do sistema: <AVG_TIME> ms<br>Disponibilidade do sistema: <AVAILABILITY><br>Total de verificações desde a limpeza: <TOT_POLL><br>Total de verificações falhadas: <FAIL_POLL><br>Última data verificada como DOWN : <LAST_FAIL><br>Dispositivo anteriormente UP durante: <DOWNTIME><br>NOTAS: <NOTES><br>NOTAS do dispositivo: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
 msgstr "Recuperando o Assunto do Dispositivo"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Este é o assunto do e-mail que será utilizado para mensagens de recuperação de dispositivos. Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
-msgstr "Aviso de dispositivo: <(<HOSTNAME>) retornado do estado DOWN"
+msgstr "Aviso do dispositivo: <DESCRIPTION> (<HOSTNAME>) regressou do estado DOWN"
 
 #: includes/settings.php
 msgid "Recovering Message"
@@ -1451,19 +1436,19 @@ msgstr "Mensagem de recuperação de dispositivo"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Esta é a mensagem que será exibida como o corpo da mensagem de todas as mensagens do dispositivo UP / Down (255 caracteres MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 060TIME&#062 &#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 060DISPONIBILIDADE&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Esta é a mensagem que será apresentada como corpo da mensagem de todas as mensagens de dispositivo UP / Down (MÁX. 1024 caracteres).  HTML é permitido, mas será removido para e-mails apenas de texto.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
-msgstr "status <br>Sistema <DESCRIPTION> (<HOSTNAME>): <DWN/UP><br>>br>Current ping response: <CUR_TIME> ms<br>Resposta média do sistema: <AVG_TIME> ms<br>Disponibilidade do sistema: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Anteriormente DOWN para: <DOWNTIME><br><br>br>Nome - <SNMP_HOSTNAME><br>>Localização - <SNMP_LOCATION><br>Aptime - <UPTIMETEXT> (<UPTIMEME> ms)<br>System - <SNMP_SYSTEM><br><br>br>NOTES>br>Device Notes: <NÃO..."
+msgstr "<br>Estado do sistema <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Site: <SITE><br>Localização: <LOCATION><br>Resposta de ping atual: <CUR_TIME> ms<br>Resposta média do sistema: <AVG_TIME> ms<br>Disponibilidade do sistema: <AVAILABILITY><br>Total de verificações desde a limpeza: <TOT_POLL><br>Total de verificações falhadas: <FAIL_POLL><br>Última data de verificação UP: <LAST_FAIL><br>Dispositivo anteriormente DOWN durante: <DOWNTIME><br><br>Informação SNMP:<br>Nome - <SNMP_HOSTNAME><br>Localização - <SNMP_LOCATION><br>Tempo de atividade - <UPTIMETEXT> (<UPTIME> ms)<br>Sistema - <SNMP_SYSTEM><br><br>NOTA: <NOTES><br>Notas do dispositivo: <DNOTES>"
 
 #: includes/settings.php
 msgid "Status Change Command"
-msgstr ""
+msgstr "Comando de alteração de estado"
 
 #: includes/settings.php
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
-msgstr "Esta é a mensagem que será exibida como o corpo da mensagem de todas as mensagens do dispositivo UP / Down (255 caracteres MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 060TIME&#062 &#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 060DISPONIBILIDADE&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
+msgstr "Quando um dispositivo muda de estado na perspetiva do Cacti (UP para DOWN ou DOWN para RECOVERING/UP), execute o seguinte comando.  Este comando NÃO pode incluir argumentos de linha de comandos.  No entanto, as seguintes variáveis podem ser obtidas a partir do ambiente do script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 
 #: includes/settings.php
 msgid "Alert/Warning Message Defaults"
@@ -1475,11 +1460,11 @@ msgstr "Mensagem de Alerta de Limiar"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os Alertas de Limiar (255 caracteres MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Esta é a mensagem que será apresentada no topo de todos os alertas de limiar (MÁX. 1024 caracteres).  HTML é permitido, mas será removido para e-mails apenas de texto.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "An Alert has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Foi emitido um alerta que requer a sua atenção. <br><br><br>>Força>Dispositivo</sforça>: <(<HOSTNAME>)<br><trong>URL</strong>: <URL><br>>strong>Mensagem</strong>: SUBJECT><br><br><br><GRAPH>"
+msgstr "Foi emitido um alerta que requer a sua atenção. <br><br><strong>Dispositivo</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Mensagem</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Warning Message"
@@ -1487,23 +1472,23 @@ msgstr "Mensagem de aviso de limiar"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Esta é a mensagem que será apresentada no topo de todos os avisos de limiar (MÁX. 1024 caracteres).  HTML é permitido, mas será removido para e-mails apenas de texto.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Warning has been issued that requires your attention. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Foi emitido um aviso que requer a vossa atenção. <br><br><br>>Força>Dispositivo</sforça>: <(<HOSTNAME>)<br><trong>URL</strong>: <URL><br>>strong>Mensagem</strong>: SUBJECT><br><br><br><GRAPH>"
+msgstr "Foi emitido um aviso que requer a sua atenção. <br><br><strong>Dispositivo</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Mensagem</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/settings.php
 msgid "Threshold Restoral Message"
-msgstr "Mensagem de Alerta de Limiar"
+msgstr "Mensagem de restauro de limiar"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Esta é a mensagem que será apresentada no topo de todas as notificações de restauro de limiar (MÁX. 1024 caracteres).  HTML é permitido, mas será removido para e-mails apenas de texto.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Foi emitido um alerta que requer a sua atenção. <br><br><br>>Força>Dispositivo</sforça>: <(<HOSTNAME>)<br><trong>URL</strong>: <URL><br>>strong>Mensagem</strong>: SUBJECT><br><br><br><GRAPH>"
+msgstr "Um limiar regressou ao estado normal. <br><br><strong>Dispositivo</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Mensagem</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php
 msgid "Thold"
@@ -1523,7 +1508,7 @@ msgstr "Assistente de criação de limites [ Selecione um tipo de limite]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
-msgstr "Threshold Creation Wizard [ Enter Custom Data and press 'Create' to Create your Threshold and Graph ]"
+msgstr "Assistente de criação de limiar [ Introduza os dados personalizados e prima 'Criar' para criar o seu limiar e gráfico ]"
 
 #: includes/webapi.php
 msgid "Threshold Creation Wizard [ Select Available Data Query Rows ]"
@@ -1610,10 +1595,8 @@ msgid "Select a Device"
 msgstr "Selecione um dispositivo"
 
 #: includes/webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
 msgid "Select an Available Item"
-msgstr "Selecionar e item disponível"
+msgstr "Selecionar um item disponível"
 
 #: includes/webapi.php
 msgid "Data Query Item"
@@ -1633,7 +1616,7 @@ msgstr "Nota importante:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Este Limiar irá <b>NÃO</b>ser Gabaritado.  Ao usar a opção Modelo Limiar, você será solicitado a fornecer um Modelo Limiar, Modelo de Gráfico, Dispositivo e possivelmente informações de item de consulta de dados antes de receber o prompt 'Criar', e nesse momento, se qualquer informação de Gráficos ou Fonte de Dados substituível for permitida no nível do Modelo de Gráfico e Fonte de Dados, você será solicitado a fazê-lo.  Em seguida, ao pressionar o botão \"Criar\", tanto o Gráfico como o Limiar serão criados simultaneamente."
+msgstr "Este Limiar será baseado em modelo.  Ao utilizar a opção Modelo de Limiar, ser-lhe-ão solicitadas informações sobre o modelo de Limiar, modelo de gráfico, dispositivo e possivelmente item de consulta de dados antes de surgir o pedido 'Criar', altura em que, caso seja permitida alguma informação substituível de gráfico ou Fonte de dados ao nível do modelo de gráfico e de Fonte de dados, esta será solicitada.  De seguida, ao premir o botão 'Criar', o gráfico e o Limiar serão criados simultaneamente."
 
 #: includes/webapi.php
 msgid "Graph"
@@ -1665,11 +1648,11 @@ msgstr "Criar"
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Este Limiar <b>NÃO</b> será Templado e só funcionará em Gráficos existentes.  Se você deseja criar o gráfico e o limiar simultaneamente, selecione Modelo de limiar no menu suspenso e continue até que o botão 'Criar' apareça."
+msgstr "Este Limiar <b>NÃO</b> será baseado em modelo e apenas funcionará em gráficos existentes.  Se pretender criar o gráfico e o Limiar simultaneamente, selecione Modelo de Limiar na lista pendente e continue até aparecer o botão 'Criar'."
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Este Limiar irá <b>NÃO</b>ser Gabaritado.  Você pode selecionar Por Gráfico onde você selecionará um Dispositivo, Gráfico e Fonte de Dados existentes antes de criar seu Limiar, ou você pode selecionar Modelo de Limiar que permitirá que você crie um Limiar Não Modelado e o Gráfico correspondente simultaneamente"
+msgstr "Este Limiar <b>NÃO</b> será baseado em modelo.  Pode selecionar Por gráfico, onde irá selecionar um dispositivo, gráfico e Fonte de dados existentes antes de criar o seu Limiar, ou pode selecionar Modelo de Limiar, o que lhe permitirá criar simultaneamente um Limiar sem modelo e o gráfico correspondente"
 
 #: includes/webapi.php
 msgid "Selected Graph"
@@ -1686,7 +1669,7 @@ msgstr "Duplicar"
 
 #: notify_lists.php
 msgid "Associate"
-msgstr "Associado"
+msgstr "Associar"
 
 #: notify_lists.php
 msgid "Disassociate"
@@ -1699,7 +1682,7 @@ msgstr "Dispositivos"
 #: notify_lists.php
 #, php-format
 msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
-msgstr ""
+msgstr "ERRO: Não pode ter o seu e-mail tanto na linha Para como na linha BCC. O e-mail abaixo é inválido!<br><br>%s"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
@@ -1719,7 +1702,7 @@ msgstr "Novo nome da lista"
 
 #: notify_lists.php
 msgid "New Notification List"
-msgstr "Nova lista de notas"
+msgstr "Nova lista de notificações"
 
 #: notify_lists.php
 msgid "Duplicate Notification List(s)"
@@ -1741,7 +1724,7 @@ msgstr "Aviso de Inscrição:"
 
 #: notify_lists.php
 msgid "No Change"
-msgstr "Não alterar"
+msgstr "Sem alterações"
 
 #: notify_lists.php
 msgid "Notification List Only"
@@ -1794,7 +1777,7 @@ msgstr "Clique em 'Continuar' para associar a lista de notificação '%s' com o(
 
 #: notify_lists.php
 msgid "You may also Associate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
-msgstr ""
+msgstr "Também pode associar os limiares dos dispositivos. No entanto, estes limiares de dispositivo permitirão que a lista de notificações de limiar seja substituída."
 
 #: notify_lists.php
 msgid "Resulting Membership:"
@@ -1819,7 +1802,7 @@ msgstr "Clique em 'Continuar' para Desassociar a Lista de Notificações '%s' do
 
 #: notify_lists.php
 msgid "You may also Disassociate the Devices Thresholds as well. However, these Device Thresholds will allow the Threshold Notification List to be overwritten."
-msgstr ""
+msgstr "Também pode desassociar os limiares dos dispositivos. No entanto, estes limiares de dispositivo permitirão que a lista de notificações de limiar seja substituída."
 
 #: notify_lists.php
 #, php-format
@@ -1852,7 +1835,7 @@ msgstr "Entrar uma descrição para esta Lista de notas."
 
 #: notify_lists.php
 msgid "To disable all notifications from this Notification List, you can simply disable it here."
-msgstr ""
+msgstr "Para desativar todas as notificações desta Lista de Notificações, pode simplesmente desativá-la aqui."
 
 #: notify_lists.php
 msgid "To Email Addresses"
@@ -1872,11 +1855,11 @@ msgstr "Introduza uma lista separada por vírgulas de endereços de e-mail para 
 
 #: notify_lists.php
 msgid "Email Style/Format File"
-msgstr ""
+msgstr "Ficheiro de estilo/formato de e-mail"
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr ""
+msgstr "Escolha o invólucro HTML personalizado e o ficheiro CSS a utilizar. Este ficheiro contém HTML e CSS para envolver o relatório. Se contiver mais do que simplesmente CSS, tem de colocar uma etiqueta especial <REPORT> dentro do ficheiro. Esta etiqueta de formato será substituída pelo conteúdo do relatório. Estes ficheiros encontram-se no diretório 'formats'."
 
 #: notify_lists.php
 msgid "Associated Devices"
@@ -1897,11 +1880,11 @@ msgstr "Nenhum"
 
 #: notify_lists.php
 msgid "Device Template"
-msgstr "Eliminar modelo(s)"
+msgstr "Modelo de dispositivo"
 
 #: notify_lists.php
 msgid "Associated"
-msgstr "Associados"
+msgstr "Associado"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -2010,7 +1993,7 @@ msgstr "Baseline-HIGH"
 
 #: notify_lists.php
 msgid "Select Users"
-msgstr "Selecionar usuários"
+msgstr "Selecionar utilizadores"
 
 #: notify_lists.php
 msgid "Specific Emails"
@@ -2034,7 +2017,7 @@ msgstr "Ativar"
 
 #: notify_lists.php
 msgid "Read Only"
-msgstr ""
+msgstr "Somente leitura"
 
 #: notify_lists.php
 msgid "No Thresholds Found"
@@ -2070,25 +2053,25 @@ msgstr "E-mails"
 
 #: notify_lists.php
 msgid "No Notification Lists"
-msgstr "Listas de notas"
+msgstr "Sem listas de notificações"
 
 #: notify_queue.php
 msgid "Notification has been Suspended.  Press the Resume button to resume it"
-msgstr ""
+msgstr "A notificação foi suspensa. Prima o botão Retomar para a retomar"
 
 #: notify_queue.php
 msgid "Notification has been Resumed.  Press the Suspend button to suspend it"
-msgstr ""
+msgstr "A notificação foi retomada. Prima o botão Suspender para a suspender"
 
 #: notify_queue.php
 msgid "Pending Notifications have been removed from the database.  Previously sent notification not purged will remain until they age out."
-msgstr ""
+msgstr "As notificações pendentes foram removidas da base de dados. As notificações enviadas anteriormente e não eliminadas permanecerão até expirarem."
 
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Clique em 'Continuar' para eliminar a seguinte Notificação."
-msgstr[1] "Clique em 'Continuar' para eliminar todas as seguintes Notificações."
+msgstr[0] "Clique em 'Continuar' para eliminar a seguinte notificação."
+msgstr[1] "Clique em 'Continuar' para eliminar todas as seguintes notificações."
 
 #: notify_queue.php
 msgid "Delete Notification"
@@ -2099,43 +2082,43 @@ msgstr[1] "Eliminar Notificações"
 #: notify_queue.php
 #, php-format
 msgid "Event Notifications [ Notifications Suspended by User: %s, %s ago ]"
-msgstr ""
+msgstr "Notificações de eventos [ Notificações suspensas pelo utilizador: %s, há %s ]"
 
 #: notify_queue.php
 msgid "Event Notifications"
-msgstr "Notificações de dispositivos mortos"
+msgstr "Notificações de eventos"
 
 #: notify_queue.php
 msgid "Topic"
-msgstr ""
+msgstr "Tópico"
 
 #: notify_queue.php
 msgid "Processed"
-msgstr ""
+msgstr "Processado"
 
 #: notify_queue.php
 msgid "Suspend"
-msgstr ""
+msgstr "Suspender"
 
 #: notify_queue.php
 msgid "Suspend Notification Processing"
-msgstr "Notificações SNMP"
+msgstr "Suspender processamento de notificações"
 
 #: notify_queue.php
 msgid "Resume"
-msgstr ""
+msgstr "Retomar"
 
 #: notify_queue.php
 msgid "Resume Notification Processing"
-msgstr "Notificações SNMP"
+msgstr "Retomar processamento de notificações"
 
 #: notify_queue.php
 msgid "Purge"
-msgstr ""
+msgstr "Limpar"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
-msgstr "Predefinições de notificação SNMP"
+msgstr "Purgar fila de notificações"
 
 #: notify_queue.php
 msgid "Notifications"
@@ -2151,27 +2134,27 @@ msgstr "Descrição do evento"
 
 #: notify_queue.php
 msgid "The name of the object as defined by the caller."
-msgstr ""
+msgstr "O nome do objeto conforme definido pelo chamador."
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "O número de fontes de dados para este dispositivo."
+msgstr "O nome do host que originou este evento."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
-msgstr "Apenas lista de notas."
+msgstr "A lista de notificações utilizada, se existir."
 
 #: notify_queue.php
 msgid "Object ID"
-msgstr ""
+msgstr "ID do objeto"
 
 #: notify_queue.php
 msgid "The Object ID defined by the caller.  Generally its unique 'id'."
-msgstr ""
+msgstr "O ID do objeto definido pelo chamador. Geralmente o seu 'id' único."
 
 #: notify_queue.php
 msgid "Event Time"
-msgstr ""
+msgstr "Hora do evento"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
@@ -2179,7 +2162,7 @@ msgstr "O tempo de atividade oficial do Dispositivo conforme relatado pelo SNMP.
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
-msgstr ""
+msgstr "Indica se o evento de notificação foi processado."
 
 #: notify_queue.php
 msgid "Errors"
@@ -2187,25 +2170,23 @@ msgstr "Erro"
 
 #: notify_queue.php
 msgid "Did this notification result in an error.  Hover on the error column for details."
-msgstr ""
+msgstr "Se esta notificação resultou num erro. Passe o rato sobre a coluna de erro para ver os detalhes."
 
 #: notify_queue.php
 msgid "Attempts"
-msgstr ""
+msgstr "Tentativas"
 
 #: notify_queue.php
-#, fuzzy
-#| msgid "The number of Graphs for this Device"
 msgid "The number of delivery attempts made for this notification."
-msgstr "O número de Gráficos para este Dispositivo"
+msgstr "O número de tentativas de entrega efetuadas para esta notificação."
 
 #: notify_queue.php
 msgid "Next Attempt"
-msgstr ""
+msgstr "Próxima tentativa"
 
 #: notify_queue.php
 msgid "When a failed notification is eligible for its next retry."
-msgstr ""
+msgstr "Quando uma notificação falhada é elegível para a próxima nova tentativa."
 
 #: notify_queue.php
 msgid "Run Time"
@@ -2213,27 +2194,23 @@ msgstr "Tempo"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
-msgstr ""
+msgstr "O tempo em segundos que demorou a processar o evento."
 
 #: notify_queue.php
 msgid "Not Specified"
-msgstr ""
+msgstr "Não especificado"
 
 #: notify_queue.php
 msgid "No Notifications"
-msgstr "Notificações SNMP"
+msgstr "Sem notificações"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES Off"
-msgstr "Alternar entre VRULES de Limiar %s"
+msgstr "Desativar VRULES de Limiar"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES On"
-msgstr "Alternar entre VRULES de Limiar %s"
+msgstr "Ativar VRULES de Limiar"
 
 #: setup.php
 msgid "Create Threshold"
@@ -2242,46 +2219,42 @@ msgstr "Criar limiar"
 #: setup.php
 #, php-format
 msgid "Alert Hi for %s (%s)"
-msgstr ""
+msgstr "Alerta Alto para %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Alert Low for %s (%s)"
-msgstr ""
+msgstr "Alerta Baixo para %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Aviso Superior para %s (%s)"
+msgstr "Aviso alto para %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "Aviso Inferior para %s (%s)"
+msgstr "Aviso baixo para %s (%s)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Hi for %s (%s %%%)"
+#, php-format
 msgid "Alert Hi for %s (%s %%)"
-msgstr "Listas de advertência"
+msgstr "Alerta Alto para %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Low for %s (%s %%%)"
+#, php-format
 msgid "Alert Low for %s (%s %%)"
-msgstr "Listas de advertência"
+msgstr "Alerta Baixo para %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Hi for %s (%s %%%)"
+#, php-format
 msgid "Warning Hi for %s (%s %%)"
-msgstr "Listas de advertência"
+msgstr "Aviso alto para %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Low for %s (%s %%%)"
+#, php-format
 msgid "Warning Low for %s (%s %%)"
-msgstr "Listas de advertência"
+msgstr "Aviso baixo para %s (%s %%)"
 
 #: setup.php
 msgid "Threshold Alert/Warning Values"
@@ -2330,7 +2303,7 @@ msgstr "Os seguintes Gráficos não têm Templates de Limiar associados a eles"
 
 #: setup.php
 msgid "Press 'Continue' if you wish to create Threshold(s) for these Graph(s)"
-msgstr "Pressione 'Continuar' se você deseja criar Limiar(s) para este(s) Gráfico(s)"
+msgstr "Prima 'Continuar' se pretender criar Limiar(es) para este(s) Gráfico(s)"
 
 #: setup.php
 msgid "There are no Threshold Templates associated with the following Graphs"
@@ -2350,7 +2323,7 @@ msgstr "O limiar não existe"
 
 #: setup.php
 msgid "Delete Threshold Template Association"
-msgstr "Selecione um modelo de limiar"
+msgstr "Eliminar associação de modelo de limiar"
 
 #: setup.php
 msgid "No Associated Threshold Templates."
@@ -2439,23 +2412,23 @@ msgstr "Reaplicar modelo"
 
 #: thold.php
 msgid "Click 'Continue' to Acknowledge the following Threshold(s).  Thresholds that do not allows this, or that are not triggered, will be ignored."
-msgstr ""
+msgstr "Clique em 'Continuar' para confirmar a receção do(s) seguinte(s) limiar(es).  Os limiares que não o permitam, ou que não estejam acionados, serão ignorados."
 
 #: thold.php
 msgid "Click 'Continue' to Resume Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
-msgstr ""
+msgstr "Clique em 'Continuar' para retomar as notificações para o(s) seguinte(s) limiar(es).  Os limiares que não o permitam, ou que não estejam acionados, serão ignorados."
 
 #: thold.php
 msgid "Resume Notifications for Threshold(s)"
-msgstr "Eliminar lista(s) de notas"
+msgstr "Retomar notificações para o(s) limiar(es)"
 
 #: thold.php
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
-msgstr ""
+msgstr "Clique em 'Continuar' para suspender as notificações para o(s) seguinte(s) limiar(es).  Os limiares que não o permitam, ou que não estejam acionados, serão ignorados."
 
 #: thold.php
 msgid "Suspend Notification for Threshold(s)"
-msgstr "Lista(s) de notificação duplicada(s)"
+msgstr "Suspender notificação para o(s) limiar(es)"
 
 #: thold.php thold_templates.php
 msgid "Invalid action detected, can not proceed"
@@ -2479,33 +2452,31 @@ msgstr "Modelo de dados"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Template"
-msgstr "Modelo de dados"
+msgstr "Desativado no modelo"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Threshold"
-msgstr "Desativar Limiar"
+msgstr "Desativado no limiar"
 
 #: thold.php thold_graph.php
 msgid "Ack Required"
 msgstr "Ack Necessário"
 
 #: thold.php thold_graph.php
-#, fuzzy
-#| msgid "Status"
 msgid "By Status"
-msgstr "Estado"
+msgstr "Por estado"
 
 #: thold.php thold_graph.php
 msgid "The current threshold status. Click a status pill to filter the list to that status."
-msgstr ""
+msgstr "O estado atual do limiar. Clique num indicador de estado para filtrar a lista por esse estado."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
-msgstr ""
+msgstr "Identificação externa"
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "The Threshold Type.  For Baseline Types: [TIP] refers to the Time In the Past with MIN, MAX, AVG, and LAST from no more than a day in time from that period.  [AOT] refers to the Average over the entire Time period.  If there is a colon followed by MIN, MAX, AVG, LAST, the Value came from that Consolidation Function."
-msgstr ""
+msgstr "O tipo de limiar. Para tipos de linha de base: [TIP] refere-se ao tempo no passado (Time In the Past) com MIN, MAX, AVG e LAST de não mais de um dia desse período. [AOT] refere-se à média durante todo o período de tempo (Average Over Time). Se existir um sinal de dois pontos seguido de MIN, MAX, AVG, LAST, o valor provém dessa função de consolidação."
 
 #: thold.php
 msgid "DSName"
@@ -2525,7 +2496,7 @@ msgstr "Alta"
 
 #: thold.php thold_graph.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr ""
+msgstr "Os valores de aviso/alerta alto. NOTA: Os valores de linha de base são uma percentagem; todos os outros valores são valores de apresentação que podem ser modificados por um cdef."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Low"
@@ -2533,7 +2504,7 @@ msgstr "Baixa"
 
 #: thold.php thold_graph.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are display values that may be modified by a cdef."
-msgstr ""
+msgstr "Os valores de aviso/alerta baixo. NOTA: Os valores de linha de base são uma percentagem; todos os outros valores são valores de apresentação que podem ser modificados por um cdef."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "Trigger"
@@ -2553,7 +2524,7 @@ msgstr "Estado"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "A quantidade de tempo que a fonte de dados deve estar violando o Limiar para que um aviso seja exibido"
+msgstr "A quantidade de tempo decorrida desde que o limiar foi violado ou acionado"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2565,7 +2536,7 @@ msgstr "Não Template"
 
 #: thold.php thold_graph.php
 msgid "No [Template]"
-msgstr "Modelos"
+msgstr "Sem [Modelo]"
 
 #: thold.php thold_graph.php
 msgid "No [Thold]"
@@ -2590,7 +2561,7 @@ msgstr "Dados do gráfico"
 
 #: thold.php
 msgid "Edit Threshold Template"
-msgstr "Adicionar modelo de limiar"
+msgstr "Editar modelo de limiar"
 
 #: thold.php
 msgid "Data Source Description:"
@@ -2614,11 +2585,11 @@ msgstr "WLo:"
 
 #: thold.php
 msgid "AHi:"
-msgstr "Olá:"
+msgstr "Alarme Alto:"
 
 #: thold.php
 msgid "ALo:"
-msgstr "Olá:"
+msgstr "Alarme Baixo:"
 
 #: thold.php
 msgid "BL Up:"
@@ -2674,11 +2645,11 @@ msgstr "Nome do Modelo do Limiar do qual o Limiar foi criado."
 
 #: thold.php
 msgid "Enabled at Template Level"
-msgstr ""
+msgstr "Ativado ao nível do modelo"
 
 #: thold.php
 msgid "A Threshold must be enabled both at the Template Level and the Threshold level to be checked."
-msgstr ""
+msgstr "Um Limiar tem de estar ativado tanto ao nível do modelo como ao nível do limiar para ser verificado."
 
 #: thold.php
 msgid "Enabled at Threshold Level"
@@ -2690,7 +2661,7 @@ msgstr "Configurações Gerais"
 
 #: thold.php
 msgid "Name (Displayed)"
-msgstr ""
+msgstr "Nome (apresentado)"
 
 #: thold.php
 msgid "Provide the Thresholds a meaningful name"
@@ -2698,7 +2669,7 @@ msgstr "Fornecer aos Limiares um nome significativo"
 
 #: thold.php
 msgid "Name (Format)"
-msgstr ""
+msgstr "Nome (formato)"
 
 #: thold.php thold_templates.php
 msgid "Warning HRULE Color"
@@ -2718,19 +2689,19 @@ msgstr "Escolha uma Cor para o Gráfico HRULE para os Limiares de Alerta.  Selec
 
 #: thold.php thold_templates.php
 msgid "Graph Timespan"
-msgstr "Modelo de gráfico"
+msgstr "Intervalo de tempo do gráfico"
 
 #: thold.php thold_templates.php
 msgid "The Graph End time will be set at the time of triggering.  The Graph Start time will be the End Time minus the Graph Timespan."
-msgstr ""
+msgstr "A hora de fim do gráfico será definida no momento do disparo. A hora de início do gráfico será a hora de fim menos o intervalo de tempo do gráfico."
 
 #: thold.php thold_templates.php
 msgid "Skip Scaling on HRULEs"
-msgstr ""
+msgstr "Ignorar escala em HRULEs"
 
 #: thold.php thold_templates.php
 msgid "If Checked, the Scale on the Graph will not be impacted by either the Alert or Warning HRULEs."
-msgstr ""
+msgstr "Se marcado, a escala no gráfico não será afetada pelas linhas HRULE de alerta nem de aviso."
 
 #: thold.php thold_templates.php
 msgid "Weekend Exemption"
@@ -2754,7 +2725,7 @@ msgstr "Opções de confirmação"
 
 #: thold.php thold_templates.php
 msgid "There are three Acknowledgment levels that control how you must respond to a Threshold breach condition.  They are:<br><br><ul><li><i>None Required</i> - When you select this option, no Acknowledgment is required for a Threshold breach.</li><li><i>Suspendible Notification</i> - With this option, once you Acknowledge or Suspend Notifications on the Threshold, you will no longer receive notifications while it is breached.  You may subsequently, Resume Notifications while its breached.</li><li><i>Persistent Acknowledgment</i> - With this option, even after the Threshold has returned to normal, you must Acknowledge the Threshold and provide an optional Operator Message.</li></ul>"
-msgstr "Há três níveis de confirmação que controlam como você deve responder a uma condição de violação de limite.  Eles são:<br><br><br><ul><li><i>>Nenhuma Necessária</i> - Quando você seleciona esta opção, não é necessário Reconhecimento para uma violação do Limite.</li><li><li><i>>Resetar Reconhecimento</i> - Com esta opção, após reconhecer o Limiar, você não receberá mais Notificações enquanto ele for violado.</li><li><li><i> Reconhecimento do Permisso</i> - Com esta opção, mesmo após o Limiar ter retornado ao normal, você deve Reconhecer o Limiar e fornecer uma Mensagem do Operador opcional.</li></ul>"
+msgstr "Existem três níveis de confirmação que controlam a forma como deve responder a uma condição de violação de Limiar.  São:<br><br><ul><li><i>Não requerida</i> - Quando seleciona esta opção, não é necessária qualquer confirmação para uma violação de Limiar.</li><li><i>Notificação suspendível</i> - Com esta opção, depois de confirmar ou suspender as notificações no Limiar, deixará de receber notificações enquanto este estiver violado.  Pode posteriormente retomar as notificações enquanto estiver violado.</li><li><i>Confirmação persistente</i> - Com esta opção, mesmo após o Limiar regressar ao normal, tem de confirmar o Limiar e fornecer uma mensagem de operador opcional.</li></ul>"
 
 #: thold.php thold_templates.php
 msgid "None Required"
@@ -2762,7 +2733,7 @@ msgstr "Nenhum Necessário"
 
 #: thold.php thold_templates.php
 msgid "Suspendible Notification"
-msgstr "Notificações SNMP"
+msgstr "Notificação suspendível"
 
 #: thold.php thold_templates.php
 msgid "Persistent Acknowledgment"
@@ -2790,7 +2761,7 @@ msgstr "Aviso - Definições Alto / Baixo"
 
 #: thold.php thold_templates.php
 msgid "Numeric values for High and Low Thresholds can include the following suffixes for numbers greater than 1 to 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', and for numbers less than 1 'm', 'u', 'p', 'f'."
-msgstr ""
+msgstr "Os valores numéricos para Limiares Superior e Inferior podem incluir os seguintes sufixos para números maiores que 1: 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y', e para números menores que 1: 'm', 'u', 'p', 'f'."
 
 #: thold.php thold_templates.php
 msgid "High Threshold"
@@ -2798,7 +2769,7 @@ msgstr "Limiar Alto"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "Se definido e o valor da fonte de dados ultrapassar este número, será acionado um aviso. NOTA: Este valor tem de ser um número em bruto (RAW). O valor apresentado no gráfico pode ser modificado por uma CDEF."
 
 #: thold.php thold_templates.php
 msgid "Low Threshold"
@@ -2806,7 +2777,7 @@ msgstr "Limiar Baixo"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, warning will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "Se definido e o valor da fonte de dados descer abaixo deste número, será acionado um aviso. NOTA: Este valor tem de ser um número em bruto (RAW). O valor apresentado no gráfico pode ser modificado por uma CDEF."
 
 #: thold.php
 msgid "Breach Duration"
@@ -2822,11 +2793,11 @@ msgstr "Alerta - Definições Alto / Baixo"
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes above this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "Se definido e o valor da fonte de dados ultrapassar este número, será acionado um alerta. NOTA: Este valor tem de ser um número em bruto (RAW). O valor apresentado no gráfico pode ser modificado por uma CDEF."
 
 #: thold.php thold_templates.php
 msgid "If set and Data Source value goes below this number, alert will be triggered.  NOTE: This value must be a RAW number.  The value displayed on the Graph may be modified by a cdef."
-msgstr ""
+msgstr "Se definido e o valor da fonte de dados descer abaixo deste número, será acionado um alerta. NOTA: Este valor tem de ser um número em bruto (RAW). O valor apresentado no gráfico pode ser modificado por uma CDEF."
 
 #: thold.php
 msgid "The amount of time the Data Source must be in breach of the Threshold for an alert to be raised."
@@ -2862,11 +2833,11 @@ msgstr "Opções de baseline"
 
 #: thold.php thold_templates.php
 msgid "The type of Baseline.  [TIP] is the Time in Past, [AOT] is the Average over Time.  Percentage Deviation is a percentage value from the historical value.  Absolute Value is a deviation either above or below the Baseline over that historical value.  For the [TIP] Baseline Types, the MIN, MAX, AVG, and LAST will come from no more than a one day time period at that point in time."
-msgstr ""
+msgstr "O tipo de Linha de Base. [TIP] é Tempo no Passado, [AOT] é Média ao Longo do Tempo. Desvio Percentual é um valor percentual em relação ao valor histórico. Valor Absoluto é um desvio acima ou abaixo da Linha de Base sobre esse valor histórico. Para os tipos de Linha de Base [TIP], os valores MIN, MAX, AVG e LAST provêm de um período não superior a um dia nesse momento."
 
 #: thold.php thold_templates.php
 msgid "Consolidation Function"
-msgstr ""
+msgstr "Função de consolidação"
 
 #: thold.php thold_templates.php
 msgid "Average"
@@ -2874,11 +2845,11 @@ msgstr "Média (ms)"
 
 #: thold.php thold_templates.php
 msgid "Minimum"
-msgstr ""
+msgstr "Mínimo"
 
 #: thold.php thold_templates.php
 msgid "Maximum"
-msgstr ""
+msgstr "Máximo"
 
 #: thold.php thold_templates.php
 msgid "Last"
@@ -2886,7 +2857,7 @@ msgstr "Último"
 
 #: thold.php thold_templates.php
 msgid "The Consolidation function to use for the Baseline Type value calculation."
-msgstr ""
+msgstr "A função de consolidação a utilizar para o cálculo do valor do tipo de linha de base."
 
 #: thold.php thold_templates.php
 msgid "Time Range"
@@ -2903,7 +2874,7 @@ msgstr "Desvio UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica o desvio permitido em porcentagem para o limite superior Limiar. Se não estiver definido, o Limiar superior não será verificado"
+msgstr "Especifica o desvio permitido para o Limiar do limite superior. Se não estiver definido, o Limiar do limite superior não será verificado.  A unidade de medida é um valor absoluto para o tipo 'Valor absoluto' e uma percentagem para '%% Desvio' e '%% Média flutuante'"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2912,7 +2883,7 @@ msgstr "Desvio para BAIXO"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica o desvio permitido em porcentagem para o limite inferior Limiar. Se não estiver definido, o limite inferior Limiar não será verificado"
+msgstr "Especifica o desvio permitido para o Limiar do limite inferior. Se não estiver definido, o Limiar do limite inferior não será verificado.  A unidade de medida é um valor absoluto para o tipo 'Valor absoluto' e uma percentagem para '%% Desvio' e '%% Média flutuante'"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2953,32 +2924,32 @@ msgstr "Segundo item de origem de dados a ser usado como valor total para calcul
 
 #: thold.php thold_templates.php
 msgid "Show Units"
-msgstr ""
+msgstr "Mostrar unidades"
 
 #: thold.php thold_templates.php
 msgid "Display units for very large or small numbers."
-msgstr ""
+msgstr "Unidades de apresentação para números muito grandes ou muito pequenos."
 
 #: thold.php thold_templates.php
 msgid "Force Units Suffix"
-msgstr ""
+msgstr "Forçar sufixo de unidades"
 
 #: thold.php thold_templates.php
 msgid "If you wish to display a forced unit suffix on the various Threshold pages and Notifications, enter it here.  The size is limited to no more than 10 characters."
-msgstr ""
+msgstr "Se pretender apresentar um sufixo de unidade forçado nas várias páginas de limiares e notificações, introduza-o aqui. O tamanho está limitado a um máximo de 10 caracteres."
 
 #: thold.php thold_templates.php
 msgid "Decimal Digits to Display"
-msgstr ""
+msgstr "Dígitos decimais a apresentar"
 
 #: thold.php thold_templates.php
 msgid "The number of decimal digits to display for Threshold and Current Values.  The default is auto or 2."
-msgstr ""
+msgstr "O número de casas decimais a apresentar para os valores do Limiar e Atual. A predefinição é automático ou 2."
 
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Uma expressão RPN é uma expressão RPN compatível com RRDtool.  A sintaxe inclui todas as funções abaixo, além das expressões de substituição Device e Data Query, como <span class=\"deviceUp\">|query_ifSpeed|</span>.  Para utilizar uma fonte de dados na expressão RPN, é necessário utilizar a sintaxe: <span class=\"deviceUp\">|ds:dsname|</span>.  Por exemplo, <span class=\"deviceUp\">|ds:traffic_in|</span> obterá o valor atual do tráfego_na Fonte de Dados para os arquivos RRD associados ao Gráfico. Qualquer Fonte de Dados para um Gráfico pode ser incluída.<br><br>br>Operadores Matemáticos: <span class=\"deviceUp\">+, -, -, /, *, &#37;, ^</span><br>Funções: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operadores: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Funções de comparação: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Uma expressão RPN é uma expressão RPN compatível com RRDtool.  A sintaxe inclui todas as funções abaixo, além das expressões de substituição de Dispositivo e Consulta de Dados, tais como <span class=\"deviceUp\">|query_ifSpeed|</span>.  Para utilizar uma Fonte de dados na expressão RPN, deve utilizar a sintaxe: <span class=\"deviceUp\">|ds:dsname|</span>.  Por exemplo, <span class=\"deviceUp\">|ds:traffic_in|</span> obterá o valor atual da Fonte de dados traffic_in para o(s) ficheiro(s) RRD associado(s) ao Gráfico. Qualquer Fonte de dados de um Gráfico pode ser incluída.<br><br>Operadores matemáticos: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Funções: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Operadores de fluxo: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Funções de comparação: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -2986,7 +2957,7 @@ msgstr "Origem dos dados"
 
 #: thold.php
 msgid "Upper data source to calculate the total value."
-msgstr ""
+msgstr "Fonte de dados superior para calcular o valor total."
 
 #: thold.php thold_templates.php
 msgid "Notification Settings"
@@ -2997,60 +2968,48 @@ msgid "Alert Subject"
 msgstr "Predefinições de Alerta"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Este é o assunto do e-mail que será apresentado no e-mail (máx. 128 caracteres). Deixe em branco para usar a predefinição. Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
 
 #: thold.php
 msgid "Alert Body"
 msgstr "Alerta Corpo do Email"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os Alertas de Limiar (255 caracteres MAX).  HTML é permitido, mas será removido apenas para e-mails com texto.  Existem vários descritores que podem ser usados.<br>eg. 060DESCRIÇÃO&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#062 &#060DSNAME&#062 060SUBJETIVO&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Esta é a mensagem que será apresentada no topo de todos os alertas de limiar (máx. 1024 caracteres). HTML é permitido, mas será removido para e-mails apenas de texto. Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>ex.: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Subject"
 msgstr "Recuperando o Assunto do Dispositivo"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Este é o assunto do e-mail de aviso que será apresentado no e-mail após a mudança para Aviso (máx. 128 caracteres). Deixe em branco para usar a predefinição. Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
 
 #: thold.php thold_templates.php
 msgid "Warning Body"
 msgstr "Corpo do e-mail de aviso"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os Avisos de Limiar (255 caracteres MAX).  HTML é permitido, mas será removido apenas para e-mails com texto.  Existem vários descritores que podem ser usados.<br>eg. 060DESCRIÇÃO&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#062 &#060DSNAME&#062 060SUBJETIVO&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Esta é a mensagem que será apresentada no topo de todos os avisos de limiar (máx. 1024 caracteres). HTML é permitido, mas será removido para e-mails apenas de texto. Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>ex.: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
 msgstr "Evento Restaurador"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Este é o assunto do e-mail que será apresentado no e-mail após o restabelecimento para o estado normal (máx. 128 caracteres). Deixe em branco para usar a predefinição. Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
 
 #: thold.php
 msgid "Restoral Email Body"
 msgstr "Alerta Corpo do Email"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Esta é a mensagem que será apresentada no topo de todas as notificações de restabelecimento de limiar (máx. 1024 caracteres). HTML é permitido, mas será removido para e-mails apenas de texto. Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#60DNOTES&#62"
 
 #: thold.php thold_templates.php
 msgid "Warning Notification List"
@@ -3058,7 +3017,7 @@ msgstr "Lista de notas de advertência"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Warnings for this Data Source"
-msgstr "Você pode especificar escolher uma Lista de Notificações para receber Avisos para esta Fonte de Dados"
+msgstr "Pode escolher uma Lista de notificações para receber avisos desta Fonte de dados"
 
 #: thold.php thold_templates.php
 msgid "Alert Notification List"
@@ -3066,11 +3025,11 @@ msgstr "Lista de Notificações de Alerta"
 
 #: thold.php thold_templates.php
 msgid "You may specify choose a Notification List to receive Alerts for this Data Source"
-msgstr "Você pode especificar escolher uma Lista de Notificações para receber Alertas para esta Fonte de Dados"
+msgstr "Pode escolher uma Lista de notificações para receber alertas desta Fonte de dados"
 
 #: thold.php thold_templates.php
 msgid "Style/Format File"
-msgstr ""
+msgstr "Ficheiro de estilo/formato"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Event Category"
@@ -3086,7 +3045,7 @@ msgstr "Descrição do evento SNMP"
 
 #: thold.php thold_templates.php
 msgid "You can customize the event description being sent out to the SNMP notification receivers by using variable bindings. Standard Device (|host_*|), Data Query (|query_*|) substitution variables can be used as well as following varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
-msgstr "Você pode personalizar a descrição do evento que está sendo enviado para os receptores de notificação SNMP usando varbinds adicionais. As seguintes ligações variáveis serão suportadas:<THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;TEMPLATE_NAME&#062; &#60;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
+msgstr "Pode personalizar a descrição do evento enviada aos recetores de notificações SNMP utilizando associações de variáveis. Podem ser utilizadas variáveis de substituição padrão de Dispositivo (|host_*|) e Consulta de dados (|query_*|), bem como os seguintes varbinds:<br>&#060;THRESHOLDNAME&#062; &#060;HOSTNAME&#062; &#060;HOSTIP&#062; &#060;TEMPLATE_ID&#062; &#060;TEMPLATE_NAME&#062; &#060;THR_TYPE&#062; &#060;DS_NAME&#062; &#060;HI&#062; &#060;LOW&#062; &#060;EVENT_CATEGORY&#062; &#060;FAIL_COUNT&#062; &#060;FAIL_DURATION&#062;"
 
 #: thold.php thold_templates.php
 msgid "SNMP Notification - Alert Event Severity"
@@ -3122,7 +3081,7 @@ msgstr "Emails de Alerta"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive alerts for this data source (comma separated)"
-msgstr "Você pode especificar aqui Emails extras para receber alertas para esta fonte de dados (separados por vírgulas)"
+msgstr "Pode especificar aqui e-mails adicionais para receber alertas desta fonte de dados (separados por vírgulas)"
 
 #: thold.php thold_templates.php
 msgid "Warning Emails"
@@ -3130,7 +3089,7 @@ msgstr "Emails de aviso"
 
 #: thold.php
 msgid "You may specify here extra Emails to receive warnings for this data source (comma separated)"
-msgstr "Você pode especificar aqui Emails extras para receber avisos para esta fonte de dados (separados por vírgulas)"
+msgstr "Pode especificar aqui e-mails adicionais para receber avisos desta fonte de dados (separados por vírgulas)"
 
 #: thold.php thold_templates.php
 msgid "If checked, Threshold notification will be sent to your local syslog."
@@ -3162,7 +3121,7 @@ msgstr "Alto comando de disparo"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Se definido, e se um Limiar Superior for violado, este comando será executado.  Por favor, introduza um comando válido.  Além disso, existem várias tags de substituição disponíveis que podem ser usadas para passar informações do Limiar para o script.  Incluem: 060DESCRIÇÃO&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#062 &#060DSNAME&#062 060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finalmente, a substituição de Host, Data Query e Data Input pode ser feita.  Por exemplo, se você tiver uma entrada de dados com dados personalizados chamada pendente, para realizar a substituição use |pendendo|.  Para Data Query, e Host replacement use as convenções Cacti |query_xxxxxx|, e |host_xxxxxx| respectivamente."
+msgstr "Se definido, e se um limiar superior for violado, este comando será executado.  Por favor, introduza um comando válido.  Além disso, estão disponíveis várias etiquetas de substituição que podem ser utilizadas para passar informações do limiar para o script.  Pode fazê-lo como argumentos na linha de comandos ou, de preferência, no ambiente do script.  Todos os valores de substituição aparecerão no ambiente do script com o prefixo THOLD_.  Assim, por exemplo, CURRENTVALUE passará a THOLD_CURRENTVALUE, e assim por diante.  As variáveis incluem: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Por fim, podem ser efetuadas substituições de Host, Consulta de Dados e Entrada de Dados.  Por exemplo, se tiver um campo de dados personalizado de entrada de dados chamado pending, para efetuar a substituição utilize |pending|.  Para substituições de Consulta de Dados e Host, utilize as convenções do Cacti |query_xxxx| e |host_xxxx|, respetivamente."
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
@@ -3170,7 +3129,7 @@ msgstr "Comando Low Trigger"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Se definido, e se um Limiar Inferior for violado, este comando será executado. Por favor, introduza um comando válido.  Além disso, existem várias tags de substituição disponíveis que podem ser usadas para passar informações do Limiar para o script.  Incluem: 060DESCRIÇÃO&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#062 &#060DSNAME&#062 060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finalmente, a substituição de Host, Data Query e Data input pode ser feita.  Por exemplo, se você tiver uma entrada de dados com dados personalizados chamada pendente, para realizar a substituição use |pendendo|.  Para Data Query, e Host replacement use as convenções Cacti |query_xxxxxx|, e |host_xxxxxx| respectivamente."
+msgstr "Se definido, e se um limiar inferior for violado, este comando será executado. Por favor, introduza um comando válido.  Além disso, estão disponíveis várias etiquetas de substituição que podem ser utilizadas para passar informações do limiar para o script.  Pode fazê-lo como argumentos na linha de comandos ou, de preferência, no ambiente do script.  Todos os valores de substituição aparecerão no ambiente do script com o prefixo THOLD_.  Assim, por exemplo, CURRENTVALUE passará a THOLD_CURRENTVALUE, e assim por diante.  As variáveis incluem: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Por fim, podem ser efetuadas substituições de Host, Consulta de Dados e Entrada de Dados.  Por exemplo, se tiver um campo de dados personalizado de entrada de dados chamado pending, para efetuar a substituição utilize |pending|.  Para substituições de Consulta de Dados e Host, utilize as convenções do Cacti |query_xxxx| e |host_xxxx|, respetivamente."
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
@@ -3178,7 +3137,7 @@ msgstr "Comando Norm Trigger"
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Se definido, quando um thold cai para um valor normal, este comando será executado.  Por favor, introduza um comando válido.  Além disso, existem várias tags de substituição disponíveis que podem ser usadas para passar informações do Limiar para o script.  Incluem: 060DESCRIÇÃO&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#062 &#060DSNAME&#062 060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finalmente, a substituição de Host, Data Query e Data input pode ser feita.  Por exemplo, se você tiver uma entrada de dados com dados personalizados chamada pendente, para realizar a substituição use |pendendo|.  Para Data Query, e Host replacement use as convenções Cacti |query_xxxxxx|, e |host_xxxxxx| respectivamente."
+msgstr "Se definido, quando um limiar regressar a um valor normal, este comando será executado.  Por favor, introduza um comando válido.  Além disso, estão disponíveis várias etiquetas de substituição que podem ser utilizadas para passar informações do limiar para o script.  Pode fazê-lo como argumentos na linha de comandos ou, de preferência, no ambiente do script.  Todos os valores de substituição aparecerão no ambiente do script com o prefixo THOLD_.  Assim, por exemplo, CURRENTVALUE passará a THOLD_CURRENTVALUE, e assim por diante.  As variáveis incluem: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Por fim, podem ser efetuadas substituições de Host, Consulta de Dados e Entrada de Dados.  Por exemplo, se tiver um campo de dados personalizado de entrada de dados chamado pending, para efetuar a substituição utilize |pending|.  Para substituições de Consulta de Dados e Host, utilize as convenções do Cacti |query_xxxx| e |host_xxxx|, respetivamente."
 
 #: thold.php thold_templates.php
 msgid "Other Settings"
@@ -3186,7 +3145,7 @@ msgstr "Outras Definições"
 
 #: thold.php
 msgid "Enter an Eternal ID for this Threshold."
-msgstr "Selecione o Gráfico para o Limiar."
+msgstr "Introduza um ID externo para este limiar."
 
 #: thold.php thold_templates.php
 msgid "Operator Notes"
@@ -3198,27 +3157,27 @@ msgstr "Introduza aqui as instruções para um operador que possa estar a recebe
 
 #: thold.php
 msgid "Select Users(s)"
-msgstr "Selecione Usuários(as)"
+msgstr "Selecionar utilizador(es)"
 
 #: thold.php
 msgid "Users Selected"
-msgstr "Usuários selecionados"
+msgstr "Utilizadores selecionados"
 
 #: thold.php
 msgid "All Users Selected"
-msgstr "Todos os usuários selecionados"
+msgstr "Todos os utilizadores selecionados"
 
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
-msgstr "O tipo de Limiar que será monitorado."
+msgstr "O limiar foi reconhecido."
 
 #: thold_graph.php
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
-msgstr ""
+msgstr "O limiar deixará de gerar alertas, notificações ou executar comandos."
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Valores limiares elevados para aviso/alerta."
+msgstr "O limiar voltará a gerar alertas."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3230,7 +3189,7 @@ msgstr "Acções"
 
 #: thold_graph.php
 msgid "Ack Detail"
-msgstr ""
+msgstr "Detalhe da confirmação"
 
 #: thold_graph.php
 msgid "Edit Threshold"
@@ -3246,7 +3205,7 @@ msgstr "Habilitar Limiar"
 
 #: thold_graph.php
 msgid "To enable the Threshold, enable the Template first"
-msgstr "Selecione um modelo de limiar"
+msgstr "Para ativar o limiar, ative primeiro o modelo"
 
 #: thold_graph.php
 msgid "View Graph"
@@ -3258,11 +3217,11 @@ msgstr "Ver Histórico do Limiar"
 
 #: thold_graph.php
 msgid "Suspend Notifications until the Threshold clears"
-msgstr "Lista(s) de notificação duplicada(s)"
+msgstr "Suspender notificações até o limiar ser reposto"
 
 #: thold_graph.php
 msgid "Resume Notifications for this breached Threshold"
-msgstr "Eliminar lista(s) de notas"
+msgstr "Retomar notificações para este limiar violado"
 
 #: thold_graph.php
 msgid "Acknowledgement Message"
@@ -3270,15 +3229,15 @@ msgstr "Reconhecimento"
 
 #: thold_graph.php
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: thold_graph.php
 msgid "Comment Not Found"
-msgstr ""
+msgstr "Comentário não encontrado"
 
 #: thold_graph.php
 msgid "Ack History"
-msgstr ""
+msgstr "Histórico de confirmações"
 
 #: thold_graph.php
 msgid "No name set"
@@ -3358,7 +3317,7 @@ msgstr "Ver gráficos"
 
 #: thold_graph.php
 msgid "No Devices"
-msgstr "Dispositivos"
+msgstr "Sem dispositivos"
 
 #: thold_graph.php
 msgid "Not Up"
@@ -3366,7 +3325,7 @@ msgstr "Não Up"
 
 #: thold_graph.php
 msgid "No Export Rows Found."
-msgstr ""
+msgstr "Não foram encontradas linhas para exportação."
 
 #: thold_graph.php
 #, php-format
@@ -3436,7 +3395,7 @@ msgstr "Clique em 'Continuar' para ativar o(s) seguinte(s) Limiar(s)."
 
 #: thold_templates.php
 msgid "Enable Template(s)"
-msgstr "Eliminar modelo(s)"
+msgstr "Ativar modelo(s)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
@@ -3444,7 +3403,7 @@ msgstr "Clique em 'Continuar' para desativar o(s) seguinte(s) Limiar(s)."
 
 #: thold_templates.php
 msgid "Disable Template(s)"
-msgstr "Eliminar modelo(s)"
+msgstr "Desativar modelo(s)"
 
 #: thold_templates.php
 msgid "Threshold Template Creation Wizard"
@@ -3488,7 +3447,7 @@ msgstr "Campo de dados"
 
 #: thold_templates.php
 msgid "Data Field that you are using. (This cannot be changed)"
-msgstr "Campo de dados que você está usando. (Isso não pode ser modificado)"
+msgstr "Campo de dados que está a utilizar. (Não pode ser alterado)"
 
 #: thold_templates.php
 msgid "Whether or not this Threshold will be checked and alerted upon."
@@ -3525,12 +3484,12 @@ msgstr "Monitoramento de linha de base"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica o desvio permitido em porcentagem para o limite superior Limiar. Se não estiver definido, o Limiar superior não será verificado"
+msgstr "Especifica o desvio permitido para o Limiar do limite superior. Se não estiver definido, o Limiar do limite superior não será verificado.  A unidade de medida é um valor absoluto para o tipo 'Valor absoluto' e uma percentagem para '%% Desvio' e '%% Média flutuante'"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Especifica o desvio permitido em porcentagem para o limite inferior Limiar. Se não estiver definido, o limite inferior Limiar não será verificado"
+msgstr "Especifica o desvio permitido para o Limiar do limite inferior. Se não estiver definido, o Limiar do limite inferior não será verificado.  A unidade de medida é um valor absoluto para o tipo 'Valor absoluto' e uma percentagem para '%% Desvio' e '%% Média flutuante'"
 
 #: thold_templates.php
 #, php-format
@@ -3548,11 +3507,11 @@ msgstr "Segundo item de origem de dados a ser utilizado como valor total para ca
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Uma expressão RPN é uma expressão RPN compatível com RRDtool.  A sintaxe inclui todas as funções abaixo, além das expressões de substituição Device e Data Query, como <span style=\"color:blue;\">|query_ifSpeed|</span>.  Para utilizar uma fonte de dados na expressão RPN, é necessário utilizar a sintaxe: <span style=\"color:blue;\">ds:dsname|</span>.  Por exemplo, <span style=\"color:blue;\">|ds:traffic_in|</span> obterá o valor atual do tráfego_na Fonte de Dados para os arquivos RRD associados ao Gráfico. Qualquer Fonte de Dados para um Gráfico pode ser incluída.<br>Operadores Matemáticos: <span style=\"color:blue;\">+, -, -, /, *, &#37;, ^</span><br>Funções: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operadores: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Funções de comparação: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Uma expressão RPN é uma expressão RPN compatível com RRDtool.  A sintaxe inclui todas as funções abaixo, além das expressões de substituição de Dispositivo e Consulta de Dados, tais como <span style=\"color:blue;\">|query_ifSpeed|</span>.  Para utilizar uma Fonte de dados na expressão RPN, deve utilizar a sintaxe: <span style=\"color:blue;\">|ds:dsname|</span>.  Por exemplo, <span style=\"color:blue;\">|ds:traffic_in|</span> obterá o valor atual da Fonte de dados traffic_in para o(s) ficheiro(s) RRD associado(s) ao Gráfico. Qualquer Fonte de dados de um Gráfico pode ser incluída.<br>Operadores matemáticos: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Funções: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Operadores de fluxo: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Funções de comparação: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
-msgstr ""
+msgstr "Fonte de dados superior a utilizar para calcular o valor total."
 
 #: thold_templates.php
 msgid "Alert Email Subject"
@@ -3560,7 +3519,7 @@ msgstr "Emails de Alerta"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Este é o assunto do e-mail que será apresentado no e-mail (MÁX. 128 caracteres).  Deixe em branco para usar a predefinição.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Alert Email Body"
@@ -3568,19 +3527,19 @@ msgstr "Alerta Corpo do Email"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os Alertas de Limiar (255 caracteres MAX).  HTML é permitido, mas será removido apenas para e-mails com texto.  Existem vários descritores que podem ser usados.<br>eg. 060DESCRIÇÃO&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#062 &#060DSNAME&#062 060SUBJETIVO&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Esta é a mensagem que será apresentada no topo de todos os alertas de limiar (MÁX. 1024 caracteres).  HTML é permitido, mas será removido para e-mails apenas de texto.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>por ex., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Este é o assunto de aviso que será apresentado no e-mail (MÁX. 128 caracteres).  Deixe em branco para usar a predefinição.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os Avisos de Limiar (255 caracteres MAX).  HTML é permitido, mas será removido apenas para e-mails com texto.  Existem vários descritores que podem ser usados.<br>eg. 060DESCRIÇÃO&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060URL&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#062 &#060DSNAME&#062 060SUBJETIVO&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
+msgstr "Esta é a mensagem que será apresentada no topo de todos os avisos de limiar (MÁX. 1024 caracteres).  HTML é permitido, mas será removido para e-mails apenas de texto.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>por ex., &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Este é o assunto do e-mail que será apresentado no e-mail após um restauro para o estado normal (MÁX. 128 caracteres).  Deixe em branco para usar a predefinição.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Restoral Body"
@@ -3588,7 +3547,7 @@ msgstr "Alerta Corpo do Email"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Esta é a mensagem que será exibida no topo de todos os avisos de Limiar (255 Char MAX).  HTML é permitido, mas será removido apenas para Emails de texto.  Existem vários descritores que podem ser usados.<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060URL&#062 &#060GRAPHID&#062 060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#062 &#60NOTES&#62 &#060DNOTES&#062"
+msgstr "Esta é a mensagem que será apresentada no topo de todas as notificações de restauro de limiar (MÁX. 1024 caracteres).  HTML é permitido, mas será removido para e-mails apenas de texto.  Existem várias etiquetas de substituição comuns que podem ser utilizadas, incluindo:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060NOTES&#062 &#060DNOTES&#062"
 
 #: thold_templates.php
 msgid "Notification List Read Only"
@@ -3596,7 +3555,7 @@ msgstr "Apenas lista de notas"
 
 #: thold_templates.php
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
-msgstr "Se marcada, a notificação de Limiar será enviada para o seu syslog local."
+msgstr "Se marcado, as listas de notificação de limiar no modelo irão substituir as do limiar."
 
 #: thold_templates.php
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
@@ -3604,19 +3563,19 @@ msgstr "Gravidade a utilizar para os alertas. (Baixo impacto -> Impacto crítico
 
 #: thold_templates.php
 msgid "This is a listing of accounts that will be notified when this Threshold is breached.<br><br><br><br>"
-msgstr "Esta é uma lista de contas que serão notificadas quando este Limiar for violado.<br><br><br><br><br><br>"
+msgstr "Esta é uma lista das contas que serão notificadas quando este Limiar for violado.<br><br><br><br>"
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive alerts for this Data Source (comma separated)"
-msgstr "Você pode especificar aqui Emails extras para receber alertas para esta fonte de dados (separados por vírgulas)"
+msgstr "Pode especificar aqui e-mails adicionais para receber alertas desta Fonte de dados (separados por vírgulas)"
 
 #: thold_templates.php
 msgid "You may specify here extra Emails to receive warnings for this Data Source (comma separated)"
-msgstr "Você pode especificar aqui Emails extras para receber avisos para esta fonte de dados (separados por vírgulas)"
+msgstr "Pode especificar aqui e-mails adicionais para receber avisos desta Fonte de dados (separados por vírgulas)"
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "A criação do gráfico falhou para o modelo de limiar."
+msgstr "Introduza um ID externo para este modelo Thold."
 
 #: thold_templates.php
 #, php-format
@@ -3674,15 +3633,15 @@ msgstr "Nome DS"
 
 #: thold_templates.php
 msgid "The High Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr ""
+msgstr "Os valores de aviso/alerta alto. NOTA: Os valores de linha de base são uma percentagem; todos os outros valores são valores em bruto (RAW) não modificados por um cdef."
 
 #: thold_templates.php
 msgid "The Low Warning / Alert values.  NOTE: Baseline values are a percent, all other values are RAW values not modified by a cdef."
-msgstr ""
+msgstr "Os valores de aviso/alerta baixo. NOTA: Os valores de linha de base são uma percentagem; todos os outros valores são valores em bruto (RAW) não modificados por um cdef."
 
 #: thold_templates.php
 msgid "Import Template from Local File"
-msgstr "Importar modelo do arquivo local"
+msgstr "Importar modelo a partir de ficheiro local"
 
 #: thold_templates.php
 msgid "If the XML file containing Threshold Template data is located on your local machine, select it here."
@@ -3694,7 +3653,7 @@ msgstr "Importar modelo do texto"
 
 #: thold_templates.php
 msgid "If you have the XML file containing Threshold Template data as text, you can paste it into this box to import it."
-msgstr "Se você tiver o arquivo XML contendo dados do Modelo Limite como texto, você pode colá-lo nesta caixa para importá-lo."
+msgstr "Se tiver o ficheiro XML com os dados do modelo de limiar em formato de texto, pode colá-lo nesta caixa para o importar."
 
 #: thold_templates.php
 msgid "Import Results"
@@ -3710,31 +3669,31 @@ msgstr "Importar modelos de limiar"
 
 #: thold_templates.php
 msgid "The file is too big."
-msgstr ""
+msgstr "O ficheiro é demasiado grande."
 
 #: thold_templates.php
 msgid "Incomplete file transfer."
-msgstr ""
+msgstr "Transferência de ficheiro incompleta."
 
 #: thold_templates.php
 msgid "No file uploaded."
-msgstr ""
+msgstr "Nenhum ficheiro carregado."
 
 #: thold_templates.php
 msgid "Temporary folder missing."
-msgstr ""
+msgstr "Pasta temporária em falta."
 
 #: thold_templates.php
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Falha ao escrever o ficheiro no disco"
 
 #: thold_templates.php
 msgid "File upload stopped by extension"
-msgstr ""
+msgstr "Carregamento do ficheiro interrompido pela extensão"
 
 #: thold_templates.php
 msgid "Invalid file extension."
-msgstr ""
+msgstr "Extensão de ficheiro inválida."
 
 #: thold_templates.php
 msgid "NOTE:"
