@@ -4,21 +4,21 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-24 13:55+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/thold/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/thold/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
-msgstr "Απεριόριστη"
+msgstr "Επ' αόριστον"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Month"
-msgstr "%d Μήνα"
+msgstr "%d Μήνας"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Months"
-msgstr "%d Μήνας"
+msgstr "%d Μήνες"
 
 #: includes/arrays.php
 #, php-format
@@ -28,12 +28,12 @@ msgstr "%d Έτος"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hour Ago"
-msgstr "Κάθε%d Ώρες"
+msgstr "Από %d ώρα πριν"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Hours Ago"
-msgstr "Κάθε%d Ώρες"
+msgstr "Από %d ώρες πριν"
 
 #: includes/arrays.php
 #, php-format
@@ -43,32 +43,32 @@ msgstr "Από %d ημέρα πριν"
 #: includes/arrays.php
 #, php-format
 msgid "From %d Days Ago"
-msgstr "Κάθε%d ημέρες"
+msgstr "Από %d ημέρες πριν"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Week Ago"
-msgstr "%d Εβδομάδα"
+msgstr "Από %d εβδομάδα πριν"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Weeks Ago"
-msgstr "Κάθε%d εβδομάδες"
+msgstr "Από %d εβδομάδες πριν"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Month Ago"
-msgstr "%d Μήνα"
+msgstr "Από %d μήνα πριν"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Months Ago"
-msgstr "%d Μήνας"
+msgstr "Από %d μήνες πριν"
 
 #: includes/arrays.php
 #, php-format
 msgid "From %d Year Ago"
-msgstr "%d Έτος"
+msgstr "Από %d έτος πριν"
 
 #: includes/arrays.php
 #, php-format
@@ -130,7 +130,7 @@ msgstr "Προσοχή"
 
 #: includes/arrays.php
 msgid "Notify - Re-Trigger"
-msgstr "Ειδοποίηση - Επαναφορά"
+msgstr "Ειδοποίηση - Επανενεργοποίηση"
 
 #: includes/arrays.php
 msgid "Re-Trigger"
@@ -150,7 +150,7 @@ msgstr "Εκδήλωση - ενεργοποίηση ειδοποίησης"
 
 #: includes/arrays.php
 msgid "Alert Event"
-msgstr "Προεπιλογές ειδοποίησης"
+msgstr "Συμβάν ειδοποίησης"
 
 #: includes/arrays.php
 msgid "Event - Warning Trigger"
@@ -244,16 +244,16 @@ msgstr "Κάθε ώρα"
 #: includes/arrays.php includes/settings.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Κάθε%d Ώρες"
+msgstr "Κάθε %d ώρες"
 
 #: includes/arrays.php
 msgid "Every Day"
-msgstr "Καθημερινά"
+msgstr "Κάθε μέρα"
 
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Days"
-msgstr "Κάθε%d ημέρες"
+msgstr "Κάθε %d ημέρες"
 
 #: includes/arrays.php
 msgid "Every Week"
@@ -262,7 +262,7 @@ msgstr "Κάθε Εβδομάδα"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Weeks"
-msgstr "Κάθε%d εβδομάδες"
+msgstr "Κάθε %d εβδομάδες"
 
 #: includes/arrays.php
 msgid "Every Month"
@@ -271,7 +271,7 @@ msgstr "Κάθε Μήνα"
 #: includes/arrays.php
 #, php-format
 msgid "%d Minute"
-msgstr "%d λεπτά"
+msgstr "%d Λεπτό"
 
 #: includes/arrays.php
 #, php-format
@@ -306,12 +306,12 @@ msgstr "%d Εβδομάδα"
 #: includes/arrays.php
 #, php-format
 msgid "%d Weeks"
-msgstr "%d εβδομάδες"
+msgstr "%d Εβδομάδες"
 
 #: includes/arrays.php
 #, php-format
 msgid "%0.1f Hours"
-msgstr "%0.1f Ώρες"
+msgstr "%0.1f ώρες"
 
 #: includes/arrays.php
 msgid "Every Polling"
@@ -320,17 +320,17 @@ msgstr "Κάθε ψηφοφορία"
 #: includes/arrays.php
 #, php-format
 msgid "Every %d Pollings"
-msgstr "Κάθε%d Δημοσκοπήσεις"
+msgstr "Κάθε %d κύκλους Poller"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Polling"
-msgstr "%d Δημοσκόπηση"
+msgstr "%d κύκλος Poller"
 
 #: includes/arrays.php
 #, php-format
 msgid "%d Pollings"
-msgstr "%d Δημοσκοπήσεις"
+msgstr "%d κύκλοι Poller"
 
 #: includes/arrays.php
 msgid "High / Low"
@@ -406,11 +406,11 @@ msgstr "Αναγνώριση"
 
 #: includes/arrays.php
 msgid "Suspend Notifications"
-msgstr "Ειδοποιήσεις SNMP"
+msgstr "Αναστολή ειδοποιήσεων"
 
 #: includes/arrays.php
 msgid "Resume Notifications"
-msgstr "Ειδοποιήσεις SNMP"
+msgstr "Συνέχιση ειδοποιήσεων"
 
 #: includes/arrays.php notify_lists.php notify_queue.php setup.php
 msgid "Delete"
@@ -475,7 +475,7 @@ msgstr "1 ψηφίο"
 #: includes/arrays.php
 #, php-format
 msgid "%d Digits"
-msgstr "%d Ημέρες"
+msgstr "%d ψηφία"
 
 #: includes/arrays.php
 #, php-format
@@ -483,19 +483,19 @@ msgid "> %d Devices"
 msgstr "> %d συσκευές"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %% of Devices Globally"
-msgstr "> %d%%% συσκευών παγκοσμίως"
+msgstr "> %d %% των συσκευών καθολικά"
 
 #: includes/arrays.php
 #, php-format
 msgid "> %d Devices in a Site"
-msgstr "> %d συσκευές σε τοποθεσία"
+msgstr "> %d συσκευές σε μία τοποθεσία"
 
 #: includes/arrays.php
-#, fuzzy, php-format
+#, php-format
 msgid "> %d %% of Devices in a Site"
-msgstr "> %d%%% συσκευών σε μια τοποθεσία"
+msgstr "> %d %% των συσκευών σε μια τοποθεσία"
 
 #: includes/functions.php
 msgid "< 1 Minute"
@@ -508,7 +508,7 @@ msgstr "Δημιουργία"
 #: includes/functions.php includes/settings.php notify_lists.php thold.php
 #: thold_graph.php thold_templates.php
 msgid "Thresholds"
-msgstr "Κατώφλια/'Ορια"
+msgstr "Όρια"
 
 #: includes/functions.php
 msgid "Log"
@@ -516,7 +516,7 @@ msgstr "Αρχείο Καταγραφής"
 
 #: includes/functions.php includes/settings.php thold_graph.php
 msgid "Device Status"
-msgstr "Κατάσταση συσκευών"
+msgstr "Κατάσταση συσκευής"
 
 #: includes/functions.php
 msgid "Time:"
@@ -549,7 +549,7 @@ msgstr "Προεπιλογή"
 
 #: includes/functions.php
 msgid "Link to Graph in Cacti"
-msgstr "Σύνδεση με το γράφημα σε κάκτους"
+msgstr "Σύνδεση με γράφημα στο Cacti"
 
 #: includes/functions.php
 msgid "<html><body>An alert has been issued that requires your attention.<br><br><b>Device</b>: <DESCRIPTION> (<HOSTNAME>)<br><b>URL</b>: <URL><br><b>Message</b>: <SUBJECT><br><br><GRAPH></body></html>"
@@ -561,28 +561,27 @@ msgstr "<html><body> Έχει εκδοθεί μια προειδοποίηση �
 
 #: includes/functions.php
 msgid "<html><body>A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH></body></html>"
-msgstr "Έχει εκδοθεί μια ειδοποίηση που απαιτεί την προσοχή σας. <br><br> <strong>Συσκευή</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Μήνυμα</strong> : <SUBJECT><br><br><GRAPH>"
+msgstr "<html><body>Ένα κατώφλι επανήλθε σε κανονική κατάσταση. <br><br><strong>Συσκευή</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Μήνυμα</strong>: <SUBJECT><br><br><GRAPH></body></html>"
 
 #: includes/functions.php
 #, php-format
 msgid "%% Dev [TIP:%s]"
-msgstr "%% Απόκλ. [TIP:%s]"
+msgstr "%% Απόκλιση [TIP:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [TIP:%s]"
-msgstr "Απόλ. τιμή [TIP:%s]"
+msgstr "Απόλυτη τιμή [TIP:%s]"
 
 #: includes/functions.php
-#, fuzzy, php-format
-#| msgid "%%% Dev [AOT:%s]"
+#, php-format
 msgid "%% Dev [AOT:%s]"
-msgstr "Απόκλιση UP"
+msgstr "%% Απόκλ. [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
 msgid "Abs Val [AOT:%s]"
-msgstr "Απόλ. τιμή [AOT:%s]"
+msgstr "Απόλυτη τιμή [AOT:%s]"
 
 #: includes/functions.php
 msgid "The Device ID was not set while trying to create Graph and Threshold"
@@ -590,7 +589,7 @@ msgstr "Το αναγνωριστικό συσκευής δεν έχει ορι�
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not found while trying to create Graph and Threshold"
-msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
+msgstr "Το αναγνωριστικό προτύπου κατωφλίου δεν βρέθηκε κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου"
 
 #: includes/functions.php
 msgid "The Threshold Template ID was not set while trying to create Graph and Threshold"
@@ -615,7 +614,7 @@ msgstr "Εγγραφή ενημερωμένη"
 #: includes/functions.php
 #, php-format
 msgid "Failed to find linked Graph Template Item '%d' on Threshold '%d'"
-msgstr "Αποτυχία εύρεσης συνδεδεμένου στοιχείου πρότυπου γραφήματος '%d' στο κατώφλι '%d'"
+msgstr "Αποτυχία εύρεσης συνδεδεμένου στοιχείου προτύπου γραφήματος '%d' στο όριο '%d'"
 
 #: includes/functions.php
 #, php-format
@@ -624,7 +623,7 @@ msgstr "Δημιουργήθηκε όριο: %s"
 
 #: includes/functions.php
 msgid "You must specify either 'High Alert Threshold' or 'Low Alert Threshold' or both!"
-msgstr "Πρέπει να ορίσετε είτε το \"Κατώτατο όριο ειδοποίησης\" είτε το κατώτατο όριο ειδοποίησης ή και τα δύο! <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Πρέπει να καθορίσετε είτε το 'Ανώτατο όριο ειδοποίησης' είτε το 'Κατώτατο όριο ειδοποίησης' είτε και τα δύο!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Alert Threshold' smaller than the 'Low Alert Threshold'!"
@@ -636,15 +635,15 @@ msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προ
 
 #: includes/functions.php
 msgid "Impossible threshold: 'High Warning Threshold' larger than the 'High Alert Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Αδύνατο κατώφλι: Το 'Υψηλό όριο προειδοποίησης' είναι μεγαλύτερο από το 'Υψηλό όριο συναγερμού'!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Alert Threshold' larger than the 'Low Warning Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Αδύνατο κατώφλι: Το 'Χαμηλό όριο συναγερμού' είναι μεγαλύτερο από το 'Χαμηλό όριο προειδοποίησης'!"
 
 #: includes/functions.php
 msgid "Time reference in the past must be set to positive integer value!"
-msgstr "Το ' %s' πρέπει να ρυθμιστεί σε θετική ακέραια τιμή! <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Η χρονική αναφορά στο παρελθόν πρέπει να οριστεί σε θετική ακέραια τιμή!"
 
 #: includes/functions.php
 msgid "You must specify either 'Baseline Deviation UP' or 'Baseline Deviation DOWN' or both!"
@@ -668,11 +667,11 @@ msgstr "Αδύνατο όριο: Ο αριθμός προειδοποιητικ�
 
 #: includes/functions.php
 msgid "Impossible threshold: The Warning Trigger Count must be less than or equal to the Trigger Count or eval to 1!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Αδύνατο κατώφλι: Ο μετρητής ενεργοποίησης προειδοποίησης πρέπει να είναι μικρότερος ή ίσος με τον μετρητή ενεργοποίησης ή να αποτιμάται σε 1!"
 
 #: includes/functions.php
 msgid "Impossible threshold: 'Low Warning Threshold' smaller than the 'Low Alert Threshold'!"
-msgstr "Αδύνατα κατώτατα όρια: «Όριο υψηλής προειδοποίησης» μικρότερο ή ίσο με το «χαμηλό όριο προειδοποίησης» <br> Η εγγραφή δεν ενημερώθηκε!"
+msgstr "Αδύνατο κατώφλι: Το 'Χαμηλό όριο προειδοποίησης' είναι μικρότερο από το 'Χαμηλό όριο συναγερμού'!"
 
 #: includes/functions.php
 msgid "Unknown Threshold Type!"
@@ -688,7 +687,7 @@ msgstr "Δεν δημιουργήθηκαν κατώτατα όρια. Αυτά 
 
 #: includes/functions.php
 msgid "Mailer Error: No <b>TO</b> address set!!<br>If using the <i>Test Mail</i> link, please set the <b>Alert Email</b> setting."
-msgstr "Mailer Σφάλμα: Δεν <b>Για την</b> αντιμετώπιση που !! <br> Εάν χρησιμοποιείτε το σύνδεσμο <i>Δοκιμή αλληλογραφίας</i> , ορίστε τη ρύθμιση <b>Email alert</b> ."
+msgstr "Σφάλμα προγράμματος αλληλογραφίας: Δεν έχει οριστεί διεύθυνση <b>ΠΡΟΣ</b>!!<br>Εάν χρησιμοποιείτε τον σύνδεσμο <i>Δοκιμή αλληλογραφίας</i>, ορίστε τη ρύθμιση <b>Email ειδοποίησης</b>."
 
 #: includes/functions.php
 msgid "Done"
@@ -696,7 +695,7 @@ msgstr "Ολοκληρώθηκε"
 
 #: includes/functions.php
 msgid "Pending"
-msgstr "Εκκρεμεί"
+msgstr "Σε εκκρεμότητα"
 
 #: includes/functions.php
 msgid "Errored"
@@ -776,11 +775,11 @@ msgstr "Παρουσιάστηκαν σφάλματα κατά την προσπ
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not found to be XML data."
-msgstr "Τα δεδομένα εισαγωγής προτύπου κατωφλίου δεν βρέθηκαν να είναι δεδομένα XML."
+msgstr "Δεν διαπιστώθηκε ότι τα δεδομένα εισαγωγής του προτύπου κατωφλίου είναι δεδομένα XML."
 
 #: includes/functions.php
 msgid "Threshold Template Import data was not correct while importing Threshold Template."
-msgstr "Το αναγνωριστικό προτύπου ουράς δεν έχει οριστεί κατά την προσπάθεια δημιουργίας γραφήματος και κατωφλίου."
+msgstr "Τα δεδομένα εισαγωγής του προτύπου κατωφλίου δεν ήταν σωστά κατά την εισαγωγή του προτύπου κατωφλίου."
 
 #: includes/polling.php
 msgid "SNMP not in use"
@@ -792,7 +791,7 @@ msgstr "Συσκευές Σημείωση: <DESCRIPTION> ( <HOSTNAME> ) επέσ
 
 #: includes/polling.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Devices Previously DOWN for: <DOWNTIME><br><br>SNMP Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES>"
-msgstr "<br> Σύστημα <DESCRIPTION> ( <HOSTNAME> ) κατάσταση: <DOWN/UP><br><br> Τρέχουσα απόκριση ping: <CUR_TIME> Κυρία <br> Μέση απόκριση συστήματος: <AVG_TIME> Κυρία <br> Διαθεσιμότητα συστήματος: <AVAILABILITY><br> Συνολικές Επιταγές: <TOT_POLL><br> Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br> Τελευταία ημερομηνία ελέγχου: <LAST_FAIL><br> Συσκευές προηγουμένως ΚΑΤΩ για: <DOWNTIME><br><br> Πληροφορίες SNMP: <br> Ονομα - <SNMP_HOSTNAME><br> Τοποθεσία - <SNMP_LOCATION><br> Uptime - <UPTIMETEXT> ( <UPTIME> Κυρία) <br> Σύστημα - <SNMP_SYSTEM><br><br> ΣΗΜΕΙΩΣΗ: <NOTES>"
+msgstr "<br>Κατάσταση συστήματος <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Εγκατάσταση: <SITE><br>Τοποθεσία: <LOCATION><br>Τρέχουσα απόκριση ping: <CUR_TIME> ms<br>Μέση απόκριση συστήματος: <AVG_TIME> ms<br>Διαθεσιμότητα συστήματος: <AVAILABILITY><br>Συνολικοί έλεγχοι από την εκκαθάριση: <TOT_POLL><br>Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br>Τελευταία ημερομηνία ελέγχου σε κατάσταση UP: <LAST_FAIL><br>Οι συσκευές ήταν προηγουμένως εκτός λειτουργίας για: <DOWNTIME><br><br>Πληροφορίες SNMP:<br>Όνομα - <SNMP_HOSTNAME><br>Τοποθεσία - <SNMP_LOCATION><br>Χρόνος λειτουργίας - <UPTIMETEXT> (<UPTIME> ms)<br>Σύστημα - <SNMP_SYSTEM><br><br>ΣΗΜΕΙΩΣΗ: <NOTES>"
 
 #: includes/polling.php
 msgid "Devices Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -804,11 +803,11 @@ msgstr "ΚΑΤΩ"
 
 #: includes/polling.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br><br>Average system response : <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Devices Previously UP for: <DOWNTIME><br>NOTE: <NOTES>"
-msgstr "Σφάλμα συστήματος : <DESCRIPTION> ( <HOSTNAME> ) είναι <DOWN/UP><br> Λόγος: <MESSAGE><br><br> Μέση απόκριση συστήματος: <AVG_TIME> Κυρία <br> Διαθεσιμότητα συστήματος: <AVAILABILITY><br> Συνολικές Επιταγές: <TOT_POLL><br> Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br> Τελευταία ημερομηνία που έχει ελεγχθεί ΚΑΤΩ: <LAST_FAIL><br> Προηγούμενες συσκευές για: <DOWNTIME><br> ΣΗΜΕΙΩΣΗ: <NOTES>"
+msgstr "Σφάλμα συστήματος : <DESCRIPTION> (<HOSTNAME>) είναι <DOWN/UP><br>Ιστότοπος: <SITE><br>Τοποθεσία: <LOCATION><br>Αιτία: <MESSAGE><br><br>Μέση απόκριση συστήματος : <AVG_TIME> ms<br>Διαθεσιμότητα συστήματος: <AVAILABILITY><br>Συνολικοί έλεγχοι από την εκκαθάριση: <TOT_POLL><br>Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br>Τελευταία ημερομηνία ελέγχου DOWN : <LAST_FAIL><br>Οι συσκευές ήταν προηγουμένως UP για: <DOWNTIME><br>ΣΗΜΕΙΩΣΗ: <NOTES>"
 
 #: includes/settings.php
 msgid "(actions)"
-msgstr "Ενέργειες"
+msgstr "(ενέργειες)"
 
 #: includes/settings.php
 msgid "(edit)"
@@ -908,7 +907,7 @@ msgstr "Πρόγραμμα επεξεργασίας προτύπων"
 
 #: includes/settings.php
 msgid "General Administration"
-msgstr "Γενικές Ρυθμίσεις"
+msgstr "Γενική διαχείριση"
 
 #: includes/settings.php
 msgid "Device Up/Down Notification Settings"
@@ -931,10 +930,8 @@ msgid "Global and List Below"
 msgstr "Παγκόσμια και λίστα παρακάτω"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Which Notification List(s) of should be notified about Device Up/Down events?"
 msgid "Which Type of Notification List(s) should be used for Device Up/Down events?"
-msgstr "Ποιες λίστες ειδοποιήσεων πρέπει να ενημερώνονται σχετικά με τα συμβάντα Συσκευές προς τα πάνω / κάτω;"
+msgstr "Ποιος τύπος λιστών ειδοποιήσεων θα πρέπει να χρησιμοποιείται για συμβάντα Ενεργό/Ανενεργό συσκευής;"
 
 #: includes/settings.php notify_queue.php
 msgid "Notification List"
@@ -954,17 +951,17 @@ msgstr "Ο αριθμός των διαστημάτων ψηφοφορίας σ�
 
 #: includes/settings.php
 msgid "Use Cacti Setting"
-msgstr "Ρυθμίσεις γραμμής βάσης"
+msgstr "Χρήση ρύθμισης Cacti"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Interval"
-msgstr "%d Δημοσκόπηση"
+msgstr "%d διάστημα Poller"
 
 #: includes/settings.php
 #, php-format
 msgid "%d Polling Intervals"
-msgstr "%d Δημοσκοπήσεις"
+msgstr "%d διαστήματα Poller"
 
 #: includes/settings.php
 msgid "Alerting/Thold"
@@ -1016,11 +1013,11 @@ msgstr "Προειδοποίηση Trigger"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Breached"
-msgstr "Παραβιάστηκε"
+msgstr "Παραβιασμένα"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 msgid "Triggered"
-msgstr "Ξεκίνησε"
+msgstr "Ενεργοποιημένο"
 
 #: includes/settings.php notify_lists.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1037,7 +1034,7 @@ msgstr "Κατά τον υπολογισμό των ορίων έκφρασης,
 
 #: includes/settings.php
 msgid "Notification Preferences"
-msgstr "Επιλογές Ειδοποιήσεων"
+msgstr "Προτιμήσεις ειδοποιήσεων"
 
 #: includes/settings.php
 msgid "Disable Legacy Notifications"
@@ -1057,7 +1054,7 @@ msgstr "Εάν επιλεγεί, κατά τη δημιουργία στο Thres
 
 #: includes/settings.php
 msgid "Enable Command Execution"
-msgstr "Ενεργοποιήστε την εκτέλεση εντολών"
+msgstr "Ενεργοποίηση εκτέλεσης εντολών"
 
 #: includes/settings.php
 msgid "Checking this box will enable the ability to run commands on Threshold breach and restoral events."
@@ -1101,7 +1098,7 @@ msgstr "Ο έλεγχος αυτού του πλαισίου θα επιτρέψ
 
 #: includes/settings.php
 msgid "Force Threshold Daemon Debug"
-msgstr "Δαίμονας κατωφλίου"
+msgstr "Επιβολή αποσφαλμάτωσης δαίμονα κατωφλίου"
 
 #: includes/settings.php
 msgid "Checking this box will enable Threshold Daemon debug when operating from SystemD or through the command line.  This change is dynamic and will take effect as soon as the next Threshold loop commences."
@@ -1109,7 +1106,7 @@ msgstr "Επιλέγοντας αυτό το πλαίσιο θα ενεργοπ�
 
 #: includes/settings.php
 msgid "Daemon Down Notification Frequency"
-msgstr "Ρυθμίσεις ειδοποίησης επάνω / κάτω συσκευής"
+msgstr "Συχνότητα ειδοποίησης διακοπής δαίμονα"
 
 #: includes/settings.php
 msgid "If the Thold Daemon is found to be down, send out an Email notification at this frequency."
@@ -1118,7 +1115,7 @@ msgstr "Εάν το Thold Daemon βρίσκεται εκτός λειτουργ�
 #: includes/settings.php
 #, php-format
 msgid "Every %d Hour"
-msgstr "Κάθε%d Ώρες"
+msgstr "Κάθε %d ώρα"
 
 #: includes/settings.php
 msgid "Daemon Threads"
@@ -1135,11 +1132,11 @@ msgstr "1 Διαδικασία"
 #: includes/settings.php
 #, php-format
 msgid "%d Processes"
-msgstr "%d Διαδικασίες"
+msgstr "%d Διεργασίες"
 
 #: includes/settings.php
 msgid "Logging"
-msgstr "Υλοτομία"
+msgstr "Καταγραφή"
 
 #: includes/settings.php
 msgid "Log Threshold Breaches"
@@ -1319,11 +1316,11 @@ msgstr "Εάν είναι επιλεγμένο, αυτό θα προκαλέσε
 
 #: includes/settings.php
 msgid "Send Email separately for each address"
-msgstr "Στείλτε email ξεχωριστά για κάθε διεύθυνση"
+msgstr "Αποστολή email ξεχωριστά για κάθε διεύθυνση"
 
 #: includes/settings.php
 msgid "If checked, this will cause all Emails to be sent separately for each address."
-msgstr "Εάν επιλεγεί, αυτό θα προκαλέσει την αποστολή ξεχωριστών μηνυμάτων για κάθε διεύθυνση."
+msgstr "Εάν επιλεγεί, όλα τα email θα αποστέλλονται ξεχωριστά για κάθε διεύθυνση."
 
 #: includes/settings.php
 msgid "From Email Address"
@@ -1354,24 +1351,20 @@ msgid "Enable Dead/Recovering host notification"
 msgstr "Ενεργοποίηση ειδοποίησης υποδοχής Dead / Recovering"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notifications"
 msgid "Single Email Notification"
-msgstr "Ενεργοποίηση ανά ειδοποίηση"
+msgstr "Ενιαία ειδοποίηση email"
 
 #: includes/settings.php
 msgid "Supported for Notification Lists and the Notification Queue only.  If there are Down Device Notifications in a single processing cycle.  Send only one Email to Notification List repipients for all Devices."
 msgstr "Υποστηρίζεται μόνο για λίστες ειδοποιήσεων και ουρά ειδοποιήσεων.  Εάν υπάρχουν ειδοποιήσεις εκτός συσκευής σε έναν μόνο κύκλο επεξεργασίας.  Στείλτε μόνο ένα μήνυμα ηλεκτρονικού ταχυδρομείου στη λίστα ειδοποιήσεων για όλες τις συσκευές."
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "Enable Notification Queue"
 msgid "Single Email Notification Subject"
-msgstr "Ενεργοποίηση ανά ειδοποίηση"
+msgstr "Θέμα ενιαίας ειδοποίησης email"
 
 #: includes/settings.php
 msgid "This is the Email Subject to be used for all Single Email Notification Emails for both Up and Down Devices."
-msgstr ""
+msgstr "Αυτό είναι το θέμα email που θα χρησιμοποιείται για όλα τα μεμονωμένα email ειδοποίησης, τόσο για Ενεργές όσο και για Ανενεργές συσκευές."
 
 #: includes/settings.php
 msgid "Device Notification Delay Options"
@@ -1379,7 +1372,7 @@ msgstr "Επιλογές ειδοποίησης συσκευής"
 
 #: includes/settings.php
 msgid "Notification Delay"
-msgstr "Λίστα ειδοποιήσεων"
+msgstr "Καθυστέρηση ειδοποίησης"
 
 #: includes/settings.php
 msgid "If a large influx of Down Device Notifications come in, Cacti can pause sending out those Notifications for a certain period of time to see if the issue is transient before sending them out.  Select the threshold Down Device Notifications before the Pause is Triggered."
@@ -1395,7 +1388,7 @@ msgstr "Επιλογές ειδοποίησης συσκευής"
 
 #: includes/settings.php
 msgid "Global Notification Email"
-msgstr "E-mail ειδοποιήσεων νεκρών συσκευών"
+msgstr "Καθολικό email ειδοποιήσεων"
 
 #: includes/settings.php
 msgid "This is the Email Address that the Dead Device Notifications will be sent to if the Global Notification List is selected."
@@ -1406,10 +1399,8 @@ msgid "Down Subject"
 msgstr "Κάτω θέμα συσκευής"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Down Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060NOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το θέμα του Email που θα χρησιμοποιείται για μηνύματα ανενεργής συσκευής. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 (διάρκεια τελευταίας ενεργής κατάστασης σε περίπτωση μηνύματος διακοπής) &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Error: <DESCRIPTION> (<HOSTNAME>) is DOWN"
@@ -1420,24 +1411,20 @@ msgid "Down Message"
 msgstr "Μήνυμα συσκευής κάτω"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (last state up duration in case down message) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται ως το σώμα μηνυμάτων όλων των μηνυμάτων συσκευών UP / Down (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;HOSTNAME&gt; &lt;ΠΕΡΙΓΡΑΦΗ&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;SNMP_SYSTEM&gt; &lt;SNMP_CONTACT&gt; &lt;ΔΙΑΘΕΣΙΜΟΤΗΤΑ&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;ΣΗΜΕΙΩΣΕΙΣ&gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται ως κυρίως σώμα όλων των μηνυμάτων Ενεργής / Ανενεργής συσκευής (μέγιστο 1024 χαρακτήρες). Η HTML επιτρέπεται, αλλά θα αφαιρεθεί για Email μόνο κειμένου. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 (διάρκεια τελευταίας ενεργής κατάστασης σε περίπτωση μηνύματος διακοπής) &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062 &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "System Error : <DESCRIPTION> (<HOSTNAME>) is <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Reason: <MESSAGE><br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked DOWN : <LAST_FAIL><br>Device Previously UP for: <DOWNTIME><br>NOTES: <NOTES><br>Device NOTES: <DNOTES>"
-msgstr "Σφάλμα συστήματος : <DESCRIPTION> ( <HOSTNAME> ) είναι <DOWN/UP><br> Λόγος: <MESSAGE><br><br> Μέση απόκριση συστήματος: <AVG_TIME> Κυρία <br> Διαθεσιμότητα συστήματος: <AVAILABILITY><br> Συνολικές Επιταγές: <TOT_POLL><br> Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br> Τελευταία ημερομηνία που έχει ελεγχθεί ΚΑΤΩ: <LAST_FAIL><br> Συσκευή προηγούμενη UP για: <DOWNTIME><br> ΣΗΜΕΙΩΣΕΙΣ: <NOTES><br> Συσκευές ΣΗΜΕΙΩΣΕΙΣ: <DNOTES>"
+msgstr "Σφάλμα συστήματος : <DESCRIPTION> (<HOSTNAME>) είναι <DOWN/UP><br><br>Ιστότοπος: <SITE><br>Τοποθεσία: <LOCATION><br>Αιτία: <MESSAGE><br>Μέση απόκριση συστήματος: <AVG_TIME> ms<br>Διαθεσιμότητα συστήματος: <AVAILABILITY><br>Συνολικοί έλεγχοι από την εκκαθάριση: <TOT_POLL><br>Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br>Τελευταία ημερομηνία ελέγχου DOWN : <LAST_FAIL><br>Η συσκευή ήταν προηγουμένως UP για: <DOWNTIME><br>ΣΗΜΕΙΩΣΕΙΣ: <NOTES><br>ΣΗΜΕΙΩΣΕΙΣ συσκευής: <DNOTES>"
 
 #: includes/settings.php
 msgid "Recovering Subject"
 msgstr "Ανάκτηση αντικειμένου συσκευής"
 
 #: includes/settings.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be used for Recovering Device Messages. There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το θέμα του Email που θα χρησιμοποιείται για μηνύματα ανάκαμψης συσκευής. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>&#060HOSTNAME&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060DOWN/UP&#062 &#060DOWNTIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "Device Notice: <DESCRIPTION> (<HOSTNAME>) returned from DOWN state"
@@ -1449,11 +1436,11 @@ msgstr "Ανάκτηση μηνύματος συσκευής"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται ως το σώμα μηνυμάτων όλων των μηνυμάτων συσκευών UP / Down (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;HOSTNAME&gt; &lt;ΠΕΡΙΓΡΑΦΗ&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;SNMP_SYSTEM&gt; &lt;SNMP_CONTACT&gt; &lt;ΔΙΑΘΕΣΙΜΟΤΗΤΑ&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;ΣΗΜΕΙΩΣΕΙΣ&gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται ως το κυρίως κείμενο όλων των μηνυμάτων συσκευών UP / Down (μέγιστο 1024 χαρακτήρες). Η HTML επιτρέπεται, αλλά θα αφαιρείται για email μόνο με κείμενο. Υπάρχουν διάφορες κοινές ετικέτες αντικατάστασης που μπορούν να συμπεριληφθούν:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
-msgstr "<br> Σύστημα <DESCRIPTION> ( <HOSTNAME> ) κατάσταση: <DOWN/UP><br><br> Τρέχουσα απόκριση ping: <CUR_TIME> Κυρία <br> Μέση απόκριση συστήματος: <AVG_TIME> Κυρία <br> Διαθεσιμότητα συστήματος: <AVAILABILITY><br> Συνολικές Επιταγές: <TOT_POLL><br> Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br> Τελευταία ημερομηνία ελέγχου: <LAST_FAIL><br> Συσκευή προηγουμένως ΚΑΤΩ για: <DOWNTIME><br><br> Πληροφορίες Snmp: <br> Ονομα - <SNMP_HOSTNAME><br> Τοποθεσία - <SNMP_LOCATION><br> Uptime - <UPTIMETEXT> ( <UPTIME> Κυρία) <br> Σύστημα - <SNMP_SYSTEM><br><br> ΣΗΜΕΙΩΣΗ: <NOTES><br> Σημειώσεις συσκευής: <DNOTES>"
+msgstr "<br>Κατάσταση συστήματος <DESCRIPTION> (<HOSTNAME>): <DOWN/UP><br><br>Εγκατάσταση: <SITE><br>Τοποθεσία: <LOCATION><br>Τρέχουσα απόκριση ping: <CUR_TIME> ms<br>Μέση απόκριση συστήματος: <AVG_TIME> ms<br>Διαθεσιμότητα συστήματος: <AVAILABILITY><br>Συνολικοί έλεγχοι από την εκκαθάριση: <TOT_POLL><br>Συνολικοί αποτυχημένοι έλεγχοι: <FAIL_POLL><br>Τελευταία ημερομηνία ελέγχου σε κατάσταση UP: <LAST_FAIL><br>Η συσκευή ήταν προηγουμένως εκτός λειτουργίας για: <DOWNTIME><br><br>Πληροφορίες SNMP:<br>Όνομα - <SNMP_HOSTNAME><br>Τοποθεσία - <SNMP_LOCATION><br>Χρόνος λειτουργίας - <UPTIMETEXT> (<UPTIME> ms)<br>Σύστημα - <SNMP_SYSTEM><br><br>ΣΗΜΕΙΩΣΗ: <NOTES><br>Σημειώσεις συσκευής: <DNOTES>"
 
 #: includes/settings.php
 msgid "Status Change Command"
@@ -1461,7 +1448,7 @@ msgstr "Εντολή αλλαγής κατάστασης"
 
 #: includes/settings.php
 msgid "When a Device changes state from a Cacti perspective (UP to DOWN or DOWN to RECOVERING/UP), run the following command.  This command must NOT include command line arguments.  However, the following variables can be pulled from the environment of the script:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται ως το σώμα μηνυμάτων όλων των μηνυμάτων συσκευών UP / Down (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;HOSTNAME&gt; &lt;ΠΕΡΙΓΡΑΦΗ&gt; &lt;UPTIME&gt; &lt;UPTIMETEXT&gt; &lt;DOWNTIME&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;ΗΜΕΡΟΜΗΝΙΑ&gt; &lt;DATE_RFC822&gt; &lt;MESSAGE&gt; &lt;SUBJECT&gt; &lt;SNMP_SYSTEM&gt; &lt;SNMP_CONTACT&gt; &lt;ΔΙΑΘΕΣΙΜΟΤΗΤΑ&gt; &lt;TOT_POLL&gt; &lt;FAIL_POLL&gt; &lt;CUR_TIME&gt; &lt;AVG_TIME&gt; &lt;ΣΗΜΕΙΩΣΕΙΣ&gt;"
+msgstr "Όταν μια συσκευή αλλάζει κατάσταση από την οπτική του Cacti (από UP σε DOWN ή από DOWN σε RECOVERING/UP), εκτελέστε την ακόλουθη εντολή. Αυτή η εντολή ΔΕΝ πρέπει να περιλαμβάνει ορίσματα γραμμής εντολών. Ωστόσο, οι ακόλουθες μεταβλητές μπορούν να ανακτηθούν από το περιβάλλον του σεναρίου:<br>&#060THOLD_HOSTNAME&#062 &#060THOLD_SITE&#062 &#060THOLD_LOCATION&#062 &#060THOLD_HOST_ID&#062 &#060THOLD_DESCRIPTION&#062 &#060THOLD_UPTIME&#062 &#060THOLD_UPTIMETEXT&#062 &#060THOLD_DOWNTIME&#062 &#060THOLD_TIME&#062 &#060THOLD_DATE&#062 &#060THOLD_DATE_RFC822&#062 &#060THOLD_BREACHED_ITEMS&#062 &#060THOLD_MESSAGE&#062 &#060THOLD_SUBJECT&#062 &#060THOLD_DOWNUP&#062 &#060THOLD_SNMP_HOSTNAME&#062 &#060THOLD_SNMP_LOCATION&#062 &#060THOLD_SNMP_CONTACT&#062 &#060THOLD_SNMP_SYSTEM&#062 &#060THOLD_LAST_FAIL&#062 &#060THOLD_AVAILABILITY&#062 &#060THOLD_TOT_POLL&#062 &#060THOLD_FAIL_POLL&#062 &#060THOLD_CUR_TIME&#062 &#060THOLD_AVG_TIME&#062 &#060THOLD_NOTES&#062"
 
 #: includes/settings.php
 msgid "Alert/Warning Message Defaults"
@@ -1497,15 +1484,15 @@ msgstr "Μήνυμα ειδοποίησης κατωφλίου"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων επαναφοράς κατωφλίου (μέγιστο 1024 χαρακτήρες). Η HTML επιτρέπεται, αλλά θα αφαιρείται για email μόνο με κείμενο. Υπάρχουν διάφορες κοινές ετικέτες αντικατάστασης που μπορούν να συμπεριληφθούν:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#062 &#060DNOTES&#062"
 
 #: includes/settings.php
 msgid "A Threshold has returned to normal status. <br><br><strong>Device</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Message</strong>: <SUBJECT><br><br><GRAPH>"
-msgstr "Έχει εκδοθεί μια ειδοποίηση που απαιτεί την προσοχή σας. <br><br> <strong>Συσκευή</strong> : <DESCRIPTION> ( <HOSTNAME> ) <br> <strong>URL</strong> : <URL><br> <strong>Μήνυμα</strong> : <SUBJECT><br><br><GRAPH>"
+msgstr "Ένα κατώφλι επανήλθε σε κανονική κατάσταση. <br><br><strong>Συσκευή</strong>: <DESCRIPTION> (<HOSTNAME>)<br><strong>URL</strong>: <URL><br><strong>Μήνυμα</strong>: <SUBJECT><br><br><GRAPH>"
 
 #: includes/tab.php
 msgid "Thold"
-msgstr "Πάμε"
+msgstr "Thold"
 
 #: includes/webapi.php
 msgid "Threshold(s) Already Exists - No Thresholds Created"
@@ -1569,7 +1556,7 @@ msgstr "Επιλέξτε έναν τύπο κατώτατου ορίου"
 
 #: includes/webapi.php
 msgid "Non Templated"
-msgstr "Μη προτυποποιημένο"
+msgstr "Χωρίς πρότυπο"
 
 #: includes/webapi.php
 msgid "Threshold Template"
@@ -1608,10 +1595,8 @@ msgid "Select a Device"
 msgstr "Επιλέξτε μια συσκευή"
 
 #: includes/webapi.php
-#, fuzzy
-#| msgid "Select and Available Item"
 msgid "Select an Available Item"
-msgstr "Επιλέξτε και Διαθέσιμο στοιχείο"
+msgstr "Επιλέξτε ένα διαθέσιμο στοιχείο"
 
 #: includes/webapi.php
 msgid "Data Query Item"
@@ -1631,7 +1616,7 @@ msgstr "Σημαντική σημείωση:"
 
 #: includes/webapi.php
 msgid "This Threshold will be Templated.  When using the Threshold Template option, you will be prompted for a Threshold Template, Graph Template, Device and possibly Data Query Item information before receiving the 'Create' prompt at which time, if any overridable Graph or Data Source information is allowed at the Graph and Data Source Template level, you will be prompted for it.  Then, by pressing the 'Create' button, both the Graph and Threshold will be created simultaneously."
-msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί. Όταν χρησιμοποιείτε την επιλογή Template Template, θα σας ζητηθεί να λάβετε πληροφορίες σχετικά με το πρότυπο Threshold Template, Template Template, Device και ενδεχομένως Data Query Data πριν λάβετε την εντολή 'Create', οπότε επιτρέπονται τυχόν επικαλυπτόμενες πληροφορίες Graf ή Data Source στο Graph και επίπεδο προτύπου πηγής δεδομένων, θα σας ζητηθεί. Στη συνέχεια, πατώντας το κουμπί \"Δημιουργία\", θα δημιουργηθούν ταυτόχρονα το γράφημα και το κατώφλι."
+msgstr "Αυτό το κατώφλι θα προτυποποιηθεί. Όταν χρησιμοποιείτε την επιλογή Πρότυπο κατωφλίου, θα σας ζητηθούν πληροφορίες για Πρότυπο κατωφλίου, Πρότυπο γραφήματος, Συσκευή και ενδεχομένως Στοιχείο ερωτήματος δεδομένων προτού λάβετε την προτροπή 'Δημιουργία', οπότε, εάν επιτρέπονται πληροφορίες Γραφήματος ή Πηγής δεδομένων που μπορούν να παρακαμφθούν στο επίπεδο Προτύπου γραφήματος και Προτύπου πηγής δεδομένων, θα σας ζητηθούν. Στη συνέχεια, πατώντας το κουμπί 'Δημιουργία', θα δημιουργηθούν ταυτόχρονα τόσο το Γράφημα όσο και το Κατώφλι."
 
 #: includes/webapi.php
 msgid "Graph"
@@ -1663,11 +1648,11 @@ msgstr "Δημιουργία"
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated and will only work on existing Graphs.  If you wish to both Create the Graph and the Threshold simultaneously, select Threshold Template from the drop down and continue until the 'Create' button appears."
-msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί και θα λειτουργεί μόνο σε υπάρχοντες Γράφημα. Αν θέλετε ταυτόχρονα να δημιουργήσετε το Γράφημα και το Κατώφλι, επιλέξτε Template Template από το αναπτυσσόμενο μενού και συνεχίστε μέχρι να εμφανιστεί το κουμπί 'Δημιουργία'."
+msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί και θα λειτουργεί μόνο σε υπάρχοντα Γραφήματα. Αν θέλετε ταυτόχρονα να δημιουργήσετε το Γράφημα και το Κατώφλι, επιλέξτε Πρότυπο Κατωφλίου από το αναπτυσσόμενο μενού και συνεχίστε μέχρι να εμφανιστεί το κουμπί 'Δημιουργία'."
 
 #: includes/webapi.php
 msgid "This Threshold will <b>NOT</b> be Templated.  You can select either By Graph where you will then select an existing Device, Graph and Data Source before creating your Threshold, or you can select Threshold Template which will allow you to create a Non Templated Threshold and corresponding Graph simultaneously"
-msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί. Μπορείτε να επιλέξετε είτε με γράφημα όπου θα επιλέξετε μια υπάρχουσα συσκευή, γράφημα και πηγή δεδομένων πριν δημιουργήσετε το κατώφλι σας, είτε μπορείτε να επιλέξετε Template Template που θα σας επιτρέψει να δημιουργήσετε ένα μη προτυποποιημένο κατώφλι και αντίστοιχο Graph ταυτόχρονα"
+msgstr "Αυτό το κατώφλι <b>ΔΕΝ</b> θα προτυποποιηθεί. Μπορείτε να επιλέξετε είτε με γράφημα όπου θα επιλέξετε μια υπάρχουσα συσκευή, γράφημα και πηγή δεδομένων πριν δημιουργήσετε το κατώφλι σας, είτε μπορείτε να επιλέξετε Πρότυπο Κατωφλίου που θα σας επιτρέψει να δημιουργήσετε ένα μη προτυποποιημένο κατώφλι και αντίστοιχο γράφημα ταυτόχρονα"
 
 #: includes/webapi.php
 msgid "Selected Graph"
@@ -1688,7 +1673,7 @@ msgstr "Συνάδελφος"
 
 #: notify_lists.php
 msgid "Disassociate"
-msgstr "διαχωρίσει"
+msgstr "Αποσύνδεση"
 
 #: notify_lists.php thold_graph.php
 msgid "Devices"
@@ -1697,7 +1682,7 @@ msgstr "Συσκευές"
 #: notify_lists.php
 #, php-format
 msgid "ERROR: You can not have your Email in both the To and BCC lines. The Email below is invalid!<br><br>%s"
-msgstr ""
+msgstr "ΣΦΑΛΜΑ: Δεν μπορείτε να έχετε τη διεύθυνση email σας τόσο στη γραμμή Προς όσο και στη γραμμή BCC. Το παρακάτω email δεν είναι έγκυρο!<br><br>%s"
 
 #: notify_lists.php
 msgid "Click 'Continue' to Delete Notification Lists(s).  Any Device(s) or Threshold(s) associated with the List(s) will be reverted to the default."
@@ -1874,7 +1859,7 @@ msgstr "Αρχείο στυλ / μορφής ηλεκτρονικού ταχυδ
 
 #: notify_lists.php thold.php thold_templates.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Επιλέξτε το προσαρμοσμένο πρόγραμμα περιτυλίγματος html και το αρχείο CSS που θα χρησιμοποιήσετε.  Αυτό το αρχείο περιέχει html και CSS για να τυλίξετε γύρω από την αναφορά σας.  Εάν περιέχει περισσότερα από απλά CSS, πρέπει να τοποθετήσετε μια ειδική <REPORT> ετικέτα μέσα στο αρχείο.  Αυτή η ετικέτα μορφής θα αντικατασταθεί από το περιεχόμενο της αναφοράς.  Αυτά τα αρχεία βρίσκονται στον κατάλογο «μορφές».</REPORT>"
+msgstr "Επιλέξτε το προσαρμοσμένο περιτύλιγμα html και το αρχείο CSS που θα χρησιμοποιήσετε.  Αυτό το αρχείο περιέχει html και CSS για να ολοκληρώσετε την αναφορά σας.  Εάν περιέχει περισσότερα από απλά CSS, πρέπει να τοποθετήσετε μια ειδική <REPORT> ετικέτα μέσα στο αρχείο.  Αυτή η ετικέτα μορφής θα αντικατασταθεί από το περιεχόμενο της αναφοράς.  Αυτά τα αρχεία βρίσκονται στον κατάλογο \"μορφές\"."
 
 #: notify_lists.php
 msgid "Associated Devices"
@@ -1895,11 +1880,11 @@ msgstr "Κανένα"
 
 #: notify_lists.php
 msgid "Device Template"
-msgstr "Διαγραφή προτύπου"
+msgstr "Πρότυπο συσκευής"
 
 #: notify_lists.php
 msgid "Associated"
-msgstr "Συσχετισμός"
+msgstr "Συσχετισμένα"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1908,7 +1893,7 @@ msgstr "Πήγαινε"
 
 #: notify_lists.php notify_queue.php
 msgid "Set/Refresh Filters"
-msgstr "Ρύθμιση / Ανανέωση φίλτρων"
+msgstr "Ορισμός/Ανανέωση φίλτρων"
 
 #: notify_lists.php notify_queue.php thold.php thold_graph.php
 #: thold_templates.php
@@ -1937,7 +1922,7 @@ msgstr "Γραφήματα"
 
 #: notify_lists.php thold_graph.php
 msgid "Data Sources"
-msgstr "Πηγές δεδομένων"
+msgstr "Data Sources"
 
 #: notify_lists.php notify_queue.php thold_graph.php
 msgid "Hostname"
@@ -2085,8 +2070,8 @@ msgstr "Οι εκκρεμείς ειδοποιήσεις έχουν καταργ
 #: notify_queue.php
 msgid "Click 'Continue' to delete the following Notification."
 msgid_plural "Click 'Continue' to delete all following Notifications."
-msgstr[0] "Κάντε κλικ στο κουμπί 'Συνέχεια' για να διαγράψετε την ακόλουθη ειδοποίηση."
-msgstr[1] "Κάντε κλικ στο κουμπί 'Συνέχεια' για να διαγράψετε όλες τις ακόλουθες ειδοποιήσεις."
+msgstr[0] "Κάντε κλικ στο 'Συνέχεια' για να διαγράψετε την ακόλουθη ειδοποίηση."
+msgstr[1] "Κάντε κλικ στο 'Συνέχεια' για να διαγράψετε όλες τις ακόλουθες ειδοποιήσεις."
 
 #: notify_queue.php
 msgid "Delete Notification"
@@ -2101,7 +2086,7 @@ msgstr "Ειδοποιήσεις συμβάντων [ Ειδοποιήσεις �
 
 #: notify_queue.php
 msgid "Event Notifications"
-msgstr "Ειδοποιήσεις Νεκτής Συσκευής"
+msgstr "Ειδοποιήσεις συμβάντων"
 
 #: notify_queue.php
 msgid "Topic"
@@ -2117,15 +2102,15 @@ msgstr "Αναστολή"
 
 #: notify_queue.php
 msgid "Suspend Notification Processing"
-msgstr "Ειδοποιήσεις SNMP"
+msgstr "Αναστολή επεξεργασίας ειδοποιήσεων"
 
 #: notify_queue.php
 msgid "Resume"
-msgstr "Βιογραφικό"
+msgstr "Συνέχιση"
 
 #: notify_queue.php
 msgid "Resume Notification Processing"
-msgstr "Ειδοποιήσεις SNMP"
+msgstr "Συνέχιση επεξεργασίας ειδοποιήσεων"
 
 #: notify_queue.php
 msgid "Purge"
@@ -2133,7 +2118,7 @@ msgstr "Διαγραφή"
 
 #: notify_queue.php
 msgid "Purge Notification Queue"
-msgstr "Προεπιλογές ειδοποίησης SNMP"
+msgstr "Εκκαθάριση ουράς ειδοποιήσεων"
 
 #: notify_queue.php
 msgid "Notifications"
@@ -2141,7 +2126,7 @@ msgstr "Ειδοποιήσεις"
 
 #: notify_queue.php
 msgid "The supported notification topic."
-msgstr "Πρότυπο κατωφλίου."
+msgstr "Το υποστηριζόμενο θέμα ειδοποίησης."
 
 #: notify_queue.php thold_graph.php
 msgid "Event Description"
@@ -2153,7 +2138,7 @@ msgstr "Το όνομα του αντικειμένου όπως ορίζετα�
 
 #: notify_queue.php
 msgid "The hostname that was the source of this event."
-msgstr "Ο αριθμός των πηγών δεδομένων για αυτήν τη συσκευή."
+msgstr "Το όνομα κεντρικού υπολογιστή που αποτέλεσε την πηγή αυτού του συμβάντος."
 
 #: notify_queue.php
 msgid "The Notification List used if any."
@@ -2173,7 +2158,7 @@ msgstr "Ώρα Εκδήλωσης"
 
 #: notify_queue.php
 msgid "The time of the event as defined by the caller."
-msgstr "Ο επίσημος χρόνος λειτουργίας της συσκευής όπως αναφέρθηκε από το SNMP."
+msgstr "Η ώρα του συμβάντος όπως ορίστηκε από τον καλούντα."
 
 #: notify_queue.php
 msgid "Has the Notification Event been processed."
@@ -2189,25 +2174,23 @@ msgstr "Αυτή η ειδοποίηση οδήγησε σε σφάλμα.  Το
 
 #: notify_queue.php
 msgid "Attempts"
-msgstr ""
+msgstr "Προσπάθειες"
 
 #: notify_queue.php
-#, fuzzy
-#| msgid "The number of Graphs for this Device"
 msgid "The number of delivery attempts made for this notification."
-msgstr "Ο αριθμός των γραφημάτων για αυτήν τη συσκευή"
+msgstr "Ο αριθμός των προσπαθειών παράδοσης που πραγματοποιήθηκαν για αυτήν την ειδοποίηση."
 
 #: notify_queue.php
 msgid "Next Attempt"
-msgstr ""
+msgstr "Επόμενη προσπάθεια"
 
 #: notify_queue.php
 msgid "When a failed notification is eligible for its next retry."
-msgstr ""
+msgstr "Πότε μια αποτυχημένη ειδοποίηση είναι επιλέξιμη για την επόμενη επανάληψη."
 
 #: notify_queue.php
 msgid "Run Time"
-msgstr "Ώρα"
+msgstr "Διάρκεια"
 
 #: notify_queue.php
 msgid "The time in seconds it took to process the event."
@@ -2215,23 +2198,19 @@ msgstr "Ο χρόνος σε δευτερόλεπτα που χρειάστηκ�
 
 #: notify_queue.php
 msgid "Not Specified"
-msgstr "Δεν προσδιορίζεται"
+msgstr "Δεν καθορίστηκε"
 
 #: notify_queue.php
 msgid "No Notifications"
 msgstr "Δεν υπάρχουν ειδοποιήσεις"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES Off"
-msgstr "Εναλλαγή τιμής κατωφλίου VRULES %s"
+msgstr "Απενεργοποίηση VRULES ορίου"
 
 #: setup.php
-#, fuzzy
-#| msgid "Toggle Threshold VRULES %s"
 msgid "Toggle Threshold VRULES On"
-msgstr "Εναλλαγή τιμής κατωφλίου VRULES %s"
+msgstr "Ενεργοποίηση VRULES ορίου"
 
 #: setup.php
 msgid "Create Threshold"
@@ -2240,7 +2219,7 @@ msgstr "Δημιουργία κατώτατου ορίου"
 #: setup.php
 #, php-format
 msgid "Alert Hi for %s (%s)"
-msgstr "Γεια ειδοποίησης για %s ( %s)"
+msgstr "Ειδοποίηση υψηλού ορίου για %s (%s)"
 
 #: setup.php
 #, php-format
@@ -2250,40 +2229,36 @@ msgstr "Χαμηλή ειδοποίηση για %s ( %s)"
 #: setup.php
 #, php-format
 msgid "Warning Hi for %s (%s)"
-msgstr "Υψηλή προειδοποίηση για %s (%s)"
+msgstr "Άνω προειδοποίηση για %s (%s)"
 
 #: setup.php
 #, php-format
 msgid "Warning Low for %s (%s)"
-msgstr "Χαμηλή προειδοποίηση για %s (%s)"
+msgstr "Κάτω προειδοποίηση για %s (%s)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Hi for %s (%s %%%)"
+#, php-format
 msgid "Alert Hi for %s (%s %%)"
-msgstr "Γεια ειδοποίησης για %s ( %s %%)"
+msgstr "Ανώτατη ειδοποίηση για %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Low for %s (%s %%%)"
+#, php-format
 msgid "Alert Low for %s (%s %%)"
-msgstr "Χαμηλή ειδοποίηση για %s ( %s %%)"
+msgstr "Κατώτατη ειδοποίηση για %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Hi for %s (%s %%%)"
+#, php-format
 msgid "Warning Hi for %s (%s %%)"
-msgstr "Προειδοποίηση Γεια για %s ( %s %%)"
+msgstr "Ανώτατη προειδοποίηση για %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Low for %s (%s %%%)"
+#, php-format
 msgid "Warning Low for %s (%s %%)"
-msgstr "Χαμηλή προειδοποίηση για %s ( %s %%)"
+msgstr "Κατώτατη προειδοποίηση για %s (%s %%)"
 
 #: setup.php
 msgid "Threshold Alert/Warning Values"
-msgstr "Τιμές προειδοποίησης / προειδοποίησης κατωφλίου"
+msgstr "Τιμές ειδοποίησης / προειδοποίησης κατωφλίου"
 
 #: setup.php
 msgid "Click 'Continue' to apply all appropriate Thresholds to these Device(s)."
@@ -2336,7 +2311,7 @@ msgstr "Δεν υπάρχουν πρότυπα κατωφλιών που να σ
 
 #: setup.php
 msgid "Associated Threshold Templates"
-msgstr "Συσχετισμένα πρότυπα ορίων"
+msgstr "Συσχετισμένα πρότυπα κατωφλίων"
 
 #: setup.php
 msgid "Threshold Exists"
@@ -2348,7 +2323,7 @@ msgstr "Το όριο δεν υπάρχει"
 
 #: setup.php
 msgid "Delete Threshold Template Association"
-msgstr "Επιλέξτε ένα πρότυπο ορίου"
+msgstr "Διαγραφή συσχέτισης προτύπου κατωφλίου"
 
 #: setup.php
 msgid "No Associated Threshold Templates."
@@ -2377,7 +2352,7 @@ msgstr "Όνομα προτύπου ορίου: %s"
 
 #: setup.php
 msgid "Remove Threshold Template"
-msgstr "Κατάργηση πρότυπου ορίου"
+msgstr "Αφαίρεση προτύπου κατωφλίου"
 
 #: setup.php
 msgid "Add Threshold Template to Device Template"
@@ -2445,7 +2420,7 @@ msgstr "Κάντε κλικ στην επιλογή \"Συνέχεια\" για 
 
 #: thold.php
 msgid "Resume Notifications for Threshold(s)"
-msgstr "Διαγραφή λίστας ειδοποιήσεων"
+msgstr "Συνέχιση ειδοποιήσεων για κατώφλι(α)"
 
 #: thold.php
 msgid "Click 'Continue' to Suspend Notifications for the following Threshold(s).  Thresholds that do not allows this, or that are not triggered will be ignored."
@@ -2453,7 +2428,7 @@ msgstr "Κάντε κλικ στην επιλογή \"Συνέχεια\" για 
 
 #: thold.php
 msgid "Suspend Notification for Threshold(s)"
-msgstr "Διπλή λίστα ειδοποιήσεων"
+msgstr "Αναστολή ειδοποίησης για κατώφλι(α)"
 
 #: thold.php thold_templates.php
 msgid "Invalid action detected, can not proceed"
@@ -2477,7 +2452,7 @@ msgstr "Πρότυπο δεδομένων"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Template"
-msgstr "Πρότυπο δεδομένων"
+msgstr "Απενεργοποιημένο στο πρότυπο"
 
 #: thold.php thold_graph.php
 msgid "Disabled at Threshold"
@@ -2488,14 +2463,12 @@ msgid "Ack Required"
 msgstr "Απαιτείται"
 
 #: thold.php thold_graph.php
-#, fuzzy
-#| msgid "Status"
 msgid "By Status"
-msgstr "Κατάσταση"
+msgstr "Ανά κατάσταση"
 
 #: thold.php thold_graph.php
 msgid "The current threshold status. Click a status pill to filter the list to that status."
-msgstr ""
+msgstr "Η τρέχουσα κατάσταση ορίου. Κάντε κλικ σε ένα εικονίδιο κατάστασης για να φιλτράρετε τη λίστα σε αυτήν την κατάσταση."
 
 #: thold.php thold_graph.php thold_templates.php
 msgid "External ID"
@@ -2547,11 +2520,11 @@ msgstr "Επανάληψη"
 
 #: thold.php thold_graph.php
 msgid "In State"
-msgstr "Νομός"
+msgstr "Σε κατάσταση"
 
 #: thold.php thold_graph.php
 msgid "The amount of time that has passed since the Threshold either Breached or was Triggered"
-msgstr "Ο χρόνος που η πηγή δεδομένων πρέπει να παραβιάζει το όριο για μια προειδοποίηση που πρέπει να εγείρεται"
+msgstr "Ο χρόνος που έχει παρέλθει από τη στιγμή που το κατώφλι είτε παραβιάστηκε είτε ενεργοποιήθηκε"
 
 #: thold.php thold_graph.php
 msgid "Acknowledgment required for this Threshold"
@@ -2559,24 +2532,24 @@ msgstr "Απαιτείται επιβεβαίωση για αυτό το κατ�
 
 #: thold.php thold_graph.php
 msgid "No [Template:Thold]"
-msgstr "Δεν προτύπωνε"
+msgstr "Όχι [Πρότυπο:Thold]"
 
 #: thold.php thold_graph.php
 msgid "No [Template]"
-msgstr "Πρότυπο"
+msgstr "Όχι [Πρότυπο]"
 
 #: thold.php thold_graph.php
 msgid "No [Thold]"
-msgstr "Κατώφλια/'Ορια"
+msgstr "Όχι [Thold]"
 
 #: thold.php thold_graph.php
 #, php-format
 msgid "%d Triggers"
-msgstr "%dΑνεργοποιητές"
+msgstr "%d εναύσματα"
 
 #: thold.php thold_graph.php
 msgid "No Thresholds"
-msgstr "Κατώφλια/'Ορια"
+msgstr "Δεν υπάρχουν κατώφλια"
 
 #: thold.php
 msgid "Threshold Deleted, can not Edit!"
@@ -2588,7 +2561,7 @@ msgstr "Δεδομένα γραφήματος"
 
 #: thold.php
 msgid "Edit Threshold Template"
-msgstr "Προσθήκη πρότυπου ουδού"
+msgstr "Επεξεργασία προτύπου κατωφλίου"
 
 #: thold.php
 msgid "Data Source Description:"
@@ -2629,11 +2602,11 @@ msgstr "BL Κάτω:"
 #: thold.php
 #, php-format
 msgid "Unknown Template ID %d"
-msgstr "Άγνωστο αναγνωριστικό προτύπου%d"
+msgstr "Άγνωστο αναγνωριστικό προτύπου %d"
 
 #: thold.php
 msgid "Not Templated"
-msgstr "Δεν προτύπωνε"
+msgstr "Χωρίς πρότυπο"
 
 #: thold.php
 #, php-format
@@ -2708,7 +2681,7 @@ msgstr "Επιλέξτε ένα χρώμα για το γράφημα HRULE γι
 
 #: thold.php thold_templates.php
 msgid "Alert HRULE Color"
-msgstr "Προειδοποίηση ΧΡΩΜΑ ΧΡΩΜΑ"
+msgstr "Χρώμα HRULE ειδοποίησης"
 
 #: thold.php thold_templates.php
 msgid "Please choose a Color for the Graph HRULE for the Alert Thresholds.  Choose 'None' for No HRULE.  Note: This features is supported for Data Manipulation types 'Exact Value' and 'Percentage' only at this time."
@@ -2760,7 +2733,7 @@ msgstr "Δεν απαιτείται"
 
 #: thold.php thold_templates.php
 msgid "Suspendible Notification"
-msgstr "Ειδοποιήσεις SNMP"
+msgstr "Ειδοποίηση με δυνατότητα αναστολής"
 
 #: thold.php thold_templates.php
 msgid "Persistent Acknowledgment"
@@ -2901,7 +2874,7 @@ msgstr "Απόκλιση UP"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το ανώτατο οριακό όριο. Εάν δεν έχει οριστεί, το άνω όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου"
+msgstr "Καθορίζει την επιτρεπόμενη απόκλιση για το άνω Όριο. Εάν δεν οριστεί, το άνω Όριο δεν θα ελέγχεται καθόλου. Η μονάδα μέτρησης είναι απόλυτη τιμή για τον τύπο 'Απόλυτη τιμή' και ποσοστό τόσο για το '%% Απόκλιση' όσο και για το '%% Κινητός μέσος όρος'"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2910,7 +2883,7 @@ msgstr "Απόκλιση προς τα κάτω"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το κάτω όριο Κατώφλι. Εάν δεν έχει οριστεί, το κατώτατο όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου"
+msgstr "Καθορίζει την επιτρεπόμενη απόκλιση για το κάτω Όριο. Εάν δεν οριστεί, το κάτω Όριο δεν θα ελέγχεται καθόλου. Η μονάδα μέτρησης είναι απόλυτη τιμή για τον τύπο 'Απόλυτη τιμή' και ποσοστό τόσο για το '%% Απόκλιση' όσο και για το '%% Κινητός μέσος όρος'"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -2976,7 +2949,7 @@ msgstr "Ο αριθμός των δεκαδικών ψηφίων που θα ε�
 #: thold.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span class=\"deviceUp\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span class=\"deviceUp\">|ds:dsname|</span>.  For example, <span class=\"deviceUp\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br><br>Math Operators: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Functions: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Μια έκφραση RPN είναι μια έκφραση RPN συμβατή με το RRDtool.  Η σύνταξη περιλαμβάνει όλες τις παρακάτω συναρτήσεις, καθώς και εκφράσεις αντικατάστασης συσκευής και ερωτήματος δεδομένων, όπως <span class=\"deviceUp\">|query_ifSpeed|</span>.  Για να χρησιμοποιήσετε μια προέλευση δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span class=\"deviceUp\">|ds:dsname|</span>.  Για παράδειγμα, η έκφραση <span class=\"deviceUp\">|ds:traffic_in|</span> θα ανακτήσει την τρέχουσα τιμή της προέλευσης δεδομένων traffic_in για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε προέλευση δεδομένων ενός γραφήματος.<br><br>Μαθηματικοί τελεστές: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Συναρτήσεις: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Τελεστές ροής: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Συναρτήσεις σύγκρισης: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Μια έκφραση RPN είναι μια έκφραση RPN συμβατή με το RRDtool. Η σύνταξη περιλαμβάνει όλες τις παρακάτω συναρτήσεις εκτός από τις εκφράσεις αντικατάστασης συσκευής και ερωτήματος δεδομένων, όπως <span class=\"deviceUp\">|query_ifSpeed|</span>. Για να χρησιμοποιήσετε μια Πηγή δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span class=\"deviceUp\">|ds:dsname|</span>. Για παράδειγμα, το <span class=\"deviceUp\">|ds:traffic_in|</span> θα λάβει την τρέχουσα τιμή της Πηγής δεδομένων traffic_in για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε Πηγή δεδομένων για ένα γράφημα.<br><br>Μαθηματικοί τελεστές: <span class=\"deviceUp\">+, -, /, *, &#37;, ^</span><br>Συναρτήσεις: <span class=\"deviceUp\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Τελεστές ροής: <span class=\"deviceUp\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Συναρτήσεις σύγκρισης: <span class=\"deviceUp\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold.php thold_templates.php
 msgid "Upper Data Source"
@@ -2992,63 +2965,51 @@ msgstr "Ρυθμίσεις ειδοποιήσεων"
 
 #: thold.php
 msgid "Alert Subject"
-msgstr "Προεπιλογές ειδοποίησης"
+msgstr "Θέμα ειδοποίησης"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το θέμα του Email που θα εμφανίζεται στο Email (μέγιστο 128 χαρακτήρες). Αφήστε κενό για το προεπιλεγμένο. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Alert Body"
 msgstr "Φόρμα ηλεκτρονικού ταχυδρομείου ειδοποίησης"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων κατωφλίου (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί για μηνύματα ηλεκτρονικού ταχυδρομείου μόνο σε κείμενο. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> π.χ. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &lt;&lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στην κορυφή όλων των ειδοποιήσεων Ορίου (μέγιστο 1024 χαρακτήρες). Η HTML επιτρέπεται, αλλά θα αφαιρεθεί για email μόνο κειμένου. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>π.χ. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Subject"
-msgstr "Ανάκτηση αντικειμένου συσκευής"
+msgstr "Θέμα προειδοποίησης"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Warning Email subject that will be displayed in the Email after change to Warning (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το θέμα του Email προειδοποίησης που θα εμφανίζεται στο Email μετά από αλλαγή σε Προειδοποίηση (μέγιστο 128 χαρακτήρες). Αφήστε κενό για το προεπιλεγμένο. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Body"
 msgstr "Προειδοποιητικό σώμα ηλεκτρονικού ταχυδρομείου"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στην κορυφή όλων των Προειδοποιήσεων Κατωφλίου (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί για μηνύματα ηλεκτρονικού ταχυδρομείου μόνο σε κείμενο. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> π.χ. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &lt;&lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στην κορυφή όλων των προειδοποιήσεων Ορίου (μέγιστο 1024 χαρακτήρες). Η HTML επιτρέπεται, αλλά θα αφαιρεθεί για email μόνο κειμένου. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>π.χ. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold.php thold_templates.php
 msgid "Restoral Subject"
-msgstr "Εκδήλωση αναπαλαίωσης"
+msgstr "Θέμα επαναφοράς"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62 &#60LOCATION&#62 &#60SITE&#62"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το θέμα του Email που θα εμφανίζεται στο Email μετά από επαναφορά στο κανονικό (μέγιστο 128 χαρακτήρες). Αφήστε κενό για το προεπιλεγμένο. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062"
 
 #: thold.php
 msgid "Restoral Email Body"
 msgstr "Φόρμα ηλεκτρονικού ταχυδρομείου ειδοποίησης"
 
 #: thold.php
-#, fuzzy
-#| msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στην κορυφή όλων των ειδοποιήσεων επαναφοράς Ορίου (μέγιστο 1024 χαρακτήρες). Η HTML επιτρέπεται, αλλά θα αφαιρεθεί για Email μόνο κειμένου. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060LOCATION&#062 &#060SITE&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
 
 #: thold.php thold_templates.php
 msgid "Warning Notification List"
@@ -3108,7 +3069,7 @@ msgstr "Σοβαρότητα που πρέπει να χρησιμοποιείτ
 
 #: thold.php thold_templates.php
 msgid "Notify accounts"
-msgstr "Ειδοποιήστε τους λογαριασμούς"
+msgstr "Λογαριασμοί ειδοποίησης"
 
 #: thold.php
 msgid "This is a listing of accounts that will be notified when this Threshold is breached."
@@ -3160,7 +3121,7 @@ msgstr "Εντολή υψηλής εκκίνησης"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a High Threshold is breached, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data Input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Εάν έχει οριστεί και αν παραβιαστεί ένα υψηλό όριο, αυτή η εντολή θα εκτελεστεί. Εισαγάγετε μια έγκυρη εντολή. Επιπλέον, υπάρχουν διαθέσιμες αρκετές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν για τη μετάδοση πληροφοριών από το Κατώτατο όριο στο σενάριο. Περιλαμβάνουν: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATA_RFC822 &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt; &lt;BREACHED_ITEMS&gt;. Τέλος, μπορείτε να πραγματοποιήσετε αντικατάσταση Host, Data Query και Data Input. Για παράδειγμα, αν έχετε προσαρμοσμένα δεδομένα εισαγωγής δεδομένων που καλούνται εκκρεμή, για να εκτελέσετε τη χρήση αντικατάστασης | εκκρεμής |. Για την ερώτηση δεδομένων και την αντικατάσταση κεντρικού υπολογιστή χρησιμοποιήστε τις συμβάσεις Cacti | query_xxxx |, and | host_xxxx | αντίστοιχα."
+msgstr "Εάν έχει οριστεί και παραβιαστεί ένα υψηλό Όριο, θα εκτελεστεί αυτή η εντολή. Εισαγάγετε μια έγκυρη εντολή. Επιπλέον, υπάρχουν διαθέσιμες διάφορες ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν για τη μεταβίβαση πληροφοριών από το Όριο στο σενάριο. Μπορείτε να το κάνετε αυτό ως ορίσματα στη γραμμή εντολών ή, κατά προτίμηση, στο περιβάλλον του σεναρίου. Όλες οι τιμές αντικατάστασης θα εμφανίζονται στο περιβάλλον του σεναρίου με πρόθεμα THOLD_. Έτσι, για παράδειγμα, το CURRENTVALUE θα γίνει THOLD_CURRENTVALUE κ.ο.κ. Οι μεταβλητές περιλαμβάνουν: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Τέλος, μπορεί να γίνει αντικατάσταση Host, Data Query και Data Input. Για παράδειγμα, εάν έχετε ένα προσαρμοσμένο πεδίο εισαγωγής δεδομένων με όνομα pending, για να εκτελέσετε την αντικατάσταση χρησιμοποιήστε |pending|. Για αντικατάσταση Data Query και Host χρησιμοποιήστε τις συμβάσεις του Cacti |query_xxxx| και |host_xxxx| αντίστοιχα."
 
 #: thold.php thold_templates.php
 msgid "Low Trigger Command"
@@ -3168,7 +3129,7 @@ msgstr "Εντολή χαμηλής σκανδάλισης"
 
 #: thold.php thold_templates.php
 msgid "If set, and if a Low Threshold is breached, this command will be run. Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Εάν έχει οριστεί και αν παραβιαστεί ένα χαμηλό όριο, θα εκτελεστεί αυτή η εντολή. Εισαγάγετε μια έγκυρη εντολή. Επιπλέον, υπάρχουν διαθέσιμες αρκετές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν για τη μετάδοση πληροφοριών από το Κατώτατο όριο στο σενάριο. Περιλαμβάνουν: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATA_RFC822 &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt; &lt;BREACHED_ITEMS&gt;. Τέλος, μπορείτε να πραγματοποιήσετε αντικατάσταση Host, Data Query και εισαγωγής δεδομένων. Για παράδειγμα, αν έχετε προσαρμοσμένα δεδομένα εισαγωγής δεδομένων που καλούνται εκκρεμή, για να εκτελέσετε τη χρήση αντικατάστασης | εκκρεμής |. Για την ερώτηση δεδομένων και την αντικατάσταση κεντρικού υπολογιστή χρησιμοποιήστε τις συμβάσεις Cacti | query_xxxx |, and | host_xxxx | αντίστοιχα."
+msgstr "Εάν έχει οριστεί και παραβιαστεί ένα χαμηλό Όριο, θα εκτελεστεί αυτή η εντολή. Εισαγάγετε μια έγκυρη εντολή. Επιπλέον, υπάρχουν διαθέσιμες διάφορες ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν για τη μεταβίβαση πληροφοριών από το Όριο στο σενάριο. Μπορείτε να το κάνετε αυτό ως ορίσματα στη γραμμή εντολών ή, κατά προτίμηση, στο περιβάλλον του σεναρίου. Όλες οι τιμές αντικατάστασης θα εμφανίζονται στο περιβάλλον του σεναρίου με πρόθεμα THOLD_. Έτσι, για παράδειγμα, το CURRENTVALUE θα γίνει THOLD_CURRENTVALUE κ.ο.κ. Οι μεταβλητές περιλαμβάνουν: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Τέλος, μπορεί να γίνει αντικατάσταση Host, Data Query και Data Input. Για παράδειγμα, εάν έχετε ένα προσαρμοσμένο πεδίο εισαγωγής δεδομένων με όνομα pending, για να εκτελέσετε την αντικατάσταση χρησιμοποιήστε |pending|. Για αντικατάσταση Data Query και Host χρησιμοποιήστε τις συμβάσεις του Cacti |query_xxxx| και |host_xxxx| αντίστοιχα."
 
 #: thold.php thold_templates.php
 msgid "Norm Trigger Command"
@@ -3176,7 +3137,7 @@ msgstr "Κανονική εντολή ενεργοποίησης"
 
 #: thold.php thold_templates.php
 msgid "If set, when a thold falls back to a normal value, this command will be run.  Please enter a valid command.  In addition, there are several replacement tags available that can be used to pass information from the Threshold to the script.  You can do this as arguments on the command line, or preferably, in the environment of the script.  All replacement values will appear in the environment of the script prefixed with THOLD_.  So, for example CURRENTVALUE will become THOLD_CURRENTVALUE, and so on.  The variables include: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062.  Finally, Host, Data Query and Data input replacement can be made.  For example, if you have a data input custom data called pending, to perform the replacement use |pending|.  For Data Query, and Host replacement use Cacti conventions |query_xxxx|, and |host_xxxx| respectively."
-msgstr "Εάν οριστεί, όταν ένα thold πέσει πίσω σε μια κανονική τιμή, αυτή η εντολή θα τρέξει. Εισαγάγετε μια έγκυρη εντολή. Επιπλέον, υπάρχουν διαθέσιμες αρκετές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν για τη μετάδοση πληροφοριών από το Κατώτατο όριο στο σενάριο. Περιλαμβάνουν: &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATA_RFC822 &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt; &lt;BREACHED_ITEMS&gt;. Τέλος, μπορείτε να πραγματοποιήσετε αντικατάσταση Host, Data Query και εισαγωγής δεδομένων. Για παράδειγμα, αν έχετε προσαρμοσμένα δεδομένα εισαγωγής δεδομένων που καλούνται εκκρεμή, για να εκτελέσετε τη χρήση αντικατάστασης | εκκρεμής |. Για την ερώτηση δεδομένων και την αντικατάσταση κεντρικού υπολογιστή χρησιμοποιήστε τις συμβάσεις Cacti | query_xxxx |, and | host_xxxx | αντίστοιχα."
+msgstr "Εάν έχει οριστεί, όταν ένα Thold επανέλθει σε κανονική τιμή, θα εκτελεστεί αυτή η εντολή. Εισαγάγετε μια έγκυρη εντολή. Επιπλέον, υπάρχουν διαθέσιμες διάφορες ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν για τη μεταβίβαση πληροφοριών από το Όριο στο σενάριο. Μπορείτε να το κάνετε αυτό ως ορίσματα στη γραμμή εντολών ή, κατά προτίμηση, στο περιβάλλον του σεναρίου. Όλες οι τιμές αντικατάστασης θα εμφανίζονται στο περιβάλλον του σεναρίου με πρόθεμα THOLD_. Έτσι, για παράδειγμα, το CURRENTVALUE θα γίνει THOLD_CURRENTVALUE κ.ο.κ. Οι μεταβλητές περιλαμβουν: &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062. Τέλος, μπορεί να γίνει αντικατάσταση Host, Data Query και Data Input. Για παράδειγμα, εάν έχετε ένα προσαρμοσμένο πεδίο εισαγωγής δεδομένων με όνομα pending, για να εκτελέσετε την αντικατάσταση χρησιμοποιήστε |pending|. Για αντικατάσταση Data Query και Host χρησιμοποιήστε τις συμβάσεις του Cacti |query_xxxx| και |host_xxxx| αντίστοιχα."
 
 #: thold.php thold_templates.php
 msgid "Other Settings"
@@ -3184,7 +3145,7 @@ msgstr "Άλλες Ρυθμίσεις"
 
 #: thold.php
 msgid "Enter an Eternal ID for this Threshold."
-msgstr "Επιλέξτε το γράφημα για το κατώφλι."
+msgstr "Εισαγάγετε ένα Eternal ID για αυτό το κατώφλι."
 
 #: thold.php thold_templates.php
 msgid "Operator Notes"
@@ -3200,7 +3161,7 @@ msgstr "Επιλέξτε χρήστες"
 
 #: thold.php
 msgid "Users Selected"
-msgstr "Οι χρήστες επιλέχθηκαν"
+msgstr "Επιλεγμένοι χρήστες"
 
 #: thold.php
 msgid "All Users Selected"
@@ -3208,7 +3169,7 @@ msgstr "Όλοι οι χρήστες έχουν επιλεγεί"
 
 #: thold_graph.php
 msgid "The Threshold has been Ascknowledged."
-msgstr "Ο τύπος του κατώτατου ορίου που θα παρακολουθείται."
+msgstr "Το κατώφλι έχει επιβεβαιωθεί."
 
 #: thold_graph.php
 msgid "The Threshold will no longer generate Alerts, Notifications, or execute commands."
@@ -3216,7 +3177,7 @@ msgstr "Το όριο δεν θα δημιουργεί πλέον ειδοποι
 
 #: thold_graph.php
 msgid "The Threshold will restart generating Alerts."
-msgstr "Υψηλές τιμές κατωφλίου για προειδοποίηση / ειδοποίηση."
+msgstr "Το κατώφλι θα ξεκινήσει ξανά να δημιουργεί ειδοποιήσεις."
 
 #: thold_graph.php
 msgid "Threshold Status"
@@ -3244,7 +3205,7 @@ msgstr "Ενεργοποίηση κατώτατου ορίου"
 
 #: thold_graph.php
 msgid "To enable the Threshold, enable the Template first"
-msgstr "Επιλέξτε ένα πρότυπο ορίου"
+msgstr "Για να ενεργοποιήσετε το κατώφλι, ενεργοποιήστε πρώτα το πρότυπο"
 
 #: thold_graph.php
 msgid "View Graph"
@@ -3256,11 +3217,11 @@ msgstr "Προβολή ιστορικού κατωφλίου"
 
 #: thold_graph.php
 msgid "Suspend Notifications until the Threshold clears"
-msgstr "Διπλή λίστα ειδοποιήσεων"
+msgstr "Αναστολή ειδοποιήσεων έως ότου εκκαθαριστεί το κατώφλι"
 
 #: thold_graph.php
 msgid "Resume Notifications for this breached Threshold"
-msgstr "Διαγραφή λίστας ειδοποιήσεων"
+msgstr "Συνέχιση ειδοποιήσεων για αυτό το παραβιασμένο κατώφλι"
 
 #: thold_graph.php
 msgid "Acknowledgement Message"
@@ -3356,7 +3317,7 @@ msgstr "Προβολή γραφημάτων"
 
 #: thold_graph.php
 msgid "No Devices"
-msgstr "Τύπος Συσκευής"
+msgstr "Καμία συσκευή"
 
 #: thold_graph.php
 msgid "Not Up"
@@ -3402,7 +3363,7 @@ msgstr "Δεν έχετε εξουσιοδότηση να τροποποιήσε
 #: thold_templates.php
 #, php-format
 msgid "%s (%d Thresholds)"
-msgstr "%s (%d Κατώτατα όρια)"
+msgstr "%s (%d όρια)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to export the following Threshold Template(s)."
@@ -3434,7 +3395,7 @@ msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να
 
 #: thold_templates.php
 msgid "Enable Template(s)"
-msgstr "Διαγραφή προτύπου"
+msgstr "Ενεργοποίηση προτύπου(-ων)"
 
 #: thold_templates.php
 msgid "Click 'Continue' to Disable the selected Template(s) and Threshold(s)."
@@ -3442,7 +3403,7 @@ msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να
 
 #: thold_templates.php
 msgid "Disable Template(s)"
-msgstr "Διαγραφή προτύπου"
+msgstr "Απενεργοποίηση προτύπου(-ων)"
 
 #: thold_templates.php
 msgid "Threshold Template Creation Wizard"
@@ -3474,7 +3435,7 @@ msgstr "Προτεινόμενο όριο ορίου"
 
 #: thold_templates.php
 msgid "Provide the suggested name for a Threshold created using this Template.  Standard Device (|host_*|), Data Query (|query_*|) and Input (|input_*|) substitution variables can be used as well as |graph_title| for the Graph Title."
-msgstr "Παρέχετε το προτεινόμενο όνομα για ένα κατώφλι που δημιουργήθηκε χρησιμοποιώντας αυτό το Πρότυπο. Μπορούν να χρησιμοποιηθούν τυπικές συσκευές (| host_ * |), μεταβλητές αντικατάστασης δεδομένων Query (| query_ * |) και input (| input_ * |), καθώς και | graph_title | για τον τίτλο γραφήματος."
+msgstr "Δώστε το προτεινόμενο όνομα για ένα Όριο που δημιουργείται με αυτό το Πρότυπο. Μπορούν να χρησιμοποιηθούν τυπικές μεταβλητές αντικατάστασης συσκευής (|host_*|), ερωτήματος δεδομένων (|query_*|) και εισόδου (|input_*|), καθώς και |graph_title| για τον τίτλο του γραφήματος."
 
 #: thold_templates.php
 msgid "Data Template that you are using. (This cannot be changed)"
@@ -3523,12 +3484,12 @@ msgstr "Παρακολούθηση βάσης"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το ανώτατο οριακό όριο. Εάν δεν έχει οριστεί, το άνω όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου"
+msgstr "Καθορίζει την επιτρεπόμενη απόκλιση για το άνω Όριο. Εάν δεν οριστεί, το άνω Όριο δεν θα ελέγχεται καθόλου. Η μονάδα μέτρησης είναι απόλυτη τιμή για τον τύπο 'Απόλυτη τιμή' και ποσοστό τόσο για το '%% Απόκλιση' όσο και για το '%% Κινητός μέσος όρος'"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Καθορίζει επιτρεπόμενη απόκλιση σε ποσοστό για το κάτω όριο Κατώφλι. Εάν δεν έχει οριστεί, το κατώτατο όριο Κατώτατο όριο δεν θα ελέγχεται καθόλου"
+msgstr "Καθορίζει την επιτρεπόμενη απόκλιση για το κάτω Όριο. Εάν δεν οριστεί, το κάτω Όριο δεν θα ελέγχεται καθόλου. Η μονάδα μέτρησης είναι απόλυτη τιμή για τον τύπο 'Απόλυτη τιμή' και ποσοστό τόσο για το '%% Απόκλιση' όσο και για το '%% Κινητός μέσος όρος'"
 
 #: thold_templates.php
 #, php-format
@@ -3546,7 +3507,7 @@ msgstr "Δεύτερο στοιχείο προέλευσης δεδομένων 
 #: thold_templates.php
 #, php-format
 msgid "An RPN Expression is an RRDtool Compatible RPN Expression.  Syntax includes all functions below in addition to both Device and Data Query replacement expressions such as <span style=\"color:blue;\">|query_ifSpeed|</span>.  To use a Data Source in the RPN Expression, you must use the syntax: <span style=\"color:blue;\">|ds:dsname|</span>.  For example, <span style=\"color:blue;\">|ds:traffic_in|</span> will get the current value of the traffic_in Data Source for the RRDfile(s) associated with the Graph. Any Data Source for a Graph can be included.<br>Math Operators: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Functions: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Flow Operators: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Comparison Functions: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
-msgstr "Μια έκφραση RPN είναι μια έκφραση RPN συμβατή με το RRDtool.  Η σύνταξη περιλαμβάνει όλες τις παρακάτω συναρτήσεις, καθώς και εκφράσεις αντικατάστασης συσκευής και ερωτήματος δεδομένων, όπως <span style=\"color:blue;\">|query_ifSpeed|</span>.  Για να χρησιμοποιήσετε μια προέλευση δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span style=\"color:blue;\">|ds:dsname|</span>.  Για παράδειγμα, η έκφραση <span style=\"color:blue;\">|ds:traffic_in|</span> θα ανακτήσει την τρέχουσα τιμή της προέλευσης δεδομένων traffic_in για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε προέλευση δεδομένων ενός γραφήματος.<br>Μαθηματικοί τελεστές: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Συναρτήσεις: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Τελεστές ροής: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Συναρτήσεις σύγκρισης: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
+msgstr "Μια έκφραση RPN είναι μια έκφραση RPN συμβατή με το RRDtool. Η σύνταξη περιλαμβάνει όλες τις παρακάτω συναρτήσεις εκτός από τις εκφράσεις αντικατάστασης συσκευής και ερωτήματος δεδομένων, όπως <span style=\"color:blue;\">|query_ifSpeed|</span>. Για να χρησιμοποιήσετε μια Πηγή δεδομένων στην έκφραση RPN, πρέπει να χρησιμοποιήσετε τη σύνταξη: <span style=\"color:blue;\">|ds:dsname|</span>. Για παράδειγμα, το <span style=\"color:blue;\">|ds:traffic_in|</span> θα λάβει την τρέχουσα τιμή της Πηγής δεδομένων traffic_in για τα αρχεία RRD που σχετίζονται με το γράφημα. Μπορεί να συμπεριληφθεί οποιαδήποτε Πηγή δεδομένων για ένα γράφημα.<br>Μαθηματικοί τελεστές: <span style=\"color:blue;\">+, -, /, *, &#37;, ^</span><br>Συναρτήσεις: <span style=\"color:blue;\">SIN, COS, TAN, ATAN, SQRT, FLOOR, CEIL, DEG2RAD, RAD2DEG, ABS, EXP, LOG, ATAN, ADNAN</span><br>Τελεστές ροής: <span style=\"color:blue;\">UN, ISINF, IF, LT, LE, GT, GE, EQ, NE</span><br>Συναρτήσεις σύγκρισης: <span style=\"color:blue;\">MAX, MIN, INF, NEGINF, NAN, UNKN, COUNT, PREV</span>%s %s"
 
 #: thold_templates.php
 msgid "Upper data source to use to calculate the total value."
@@ -3558,7 +3519,7 @@ msgstr "Ειδοποίηση θέματος του email"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το θέμα του email που θα εμφανίζεται στο email (μέγιστο 128 χαρακτήρες). Αφήστε το κενό για την προεπιλογή. Υπάρχουν διάφορες κοινές ετικέτες αντικατάστασης που μπορούν να συμπεριληφθούν:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Alert Email Body"
@@ -3566,19 +3527,19 @@ msgstr "Φόρμα ηλεκτρονικού ταχυδρομείου ειδοπ�
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Alerts (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων κατωφλίου (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί για μηνύματα ηλεκτρονικού ταχυδρομείου μόνο σε κείμενο. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> π.χ. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &lt;&lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων κατωφλίου (1024 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί για μηνύματα ηλεκτρονικού ταχυδρομείου μόνο σε κείμενο. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>π.χ. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Warning subject that will be displayed in the Email (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το θέμα προειδοποίησης που θα εμφανίζεται στο email (μέγιστο 128 χαρακτήρες). Αφήστε το κενό για την προεπιλογή. Υπάρχουν διάφορες κοινές ετικέτες αντικατάστασης που μπορούν να συμπεριληφθούν:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold Warnings (1024 Char MAX).  HTML is allowed, but will be removed for text only emails.  There are several common replacement tags that may be used in include:<br>eg. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στην κορυφή όλων των Προειδοποιήσεων Κατωφλίου (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί για μηνύματα ηλεκτρονικού ταχυδρομείου μόνο σε κείμενο. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> π.χ. &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt; &lt;DATE_RFC822&gt; &lt;BREACHED_ITEMS &lt;&lt;HI&gt; &lt;LOW&gt; &lt;DURATION&gt; &lt;TRIGGER&gt; &lt;DETAILS_URL&gt; &gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των προειδοποιήσεων κατωφλίου (1024 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί για μηνύματα ηλεκτρονικού ταχυδρομείου μόνο σε κείμενο. Υπάρχουν αρκετές κοινές ετικέτες αντικατάστασης που μπορούν να χρησιμοποιηθούν, όπως:<br>π.χ. &#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060TIME&#062 &#060DATE&#062 &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#060HI&#062 &#060LOW&#062 &#060DURATION&#062 &#060TRIGGER&#062 &#060DETAILS_URL&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062"
 
 #: thold_templates.php
 msgid "This is the Email subject that will be displayed in the Email after a Restoral to Normal (128 Char MAX).  Leave blank for the default.  There are several common replacement tags that may be used in include:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το θέμα του email που θα εμφανίζεται στο email μετά από επαναφορά στο κανονικό (μέγιστο 128 χαρακτήρες). Αφήστε το κενό για την προεπιλογή. Υπάρχουν διάφορες κοινές ετικέτες αντικατάστασης που μπορούν να συμπεριληφθούν:<br>&#060PHASE&#062 &#060THRESHOLDVALUE&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062 &#060DSNAME&#062 &#060BREACHUP&#062 &#060REALERT&#062 &#60HOSTNAME&#62"
 
 #: thold_templates.php
 msgid "Restoral Body"
@@ -3586,7 +3547,7 @@ msgstr "Φόρμα ηλεκτρονικού ταχυδρομείου ειδοπ�
 
 #: thold_templates.php
 msgid "This is the message that will be displayed at the top of all Threshold restoral notifications (1024 Chars MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#62 &#060DNOTES&#062"
-msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί στο επάνω μέρος όλων των προειδοποιήσεων Threshold (255 Char MAX). Η HTML επιτρέπεται, αλλά θα καταργηθεί μόνο για μηνύματα ηλεκτρονικού ταχυδρομείου κειμένου. Υπάρχουν αρκετοί περιγραφείς που μπορούν να χρησιμοποιηθούν. <br> &lt;DESCRIPTION&gt; &lt;HOSTNAME&gt; &lt;TIME&gt; &lt;DATE&gt; &lt;DATE_RFC822&gt; &lt;URL&gt; &lt;GRAPHID&gt; &lt;CURRENTVALUE&gt; &lt;THRESHOLDNAME&gt; &lt;DSNAME&gt; &lt;SUBJECT&gt;"
+msgstr "Αυτό είναι το μήνυμα που θα εμφανίζεται στο επάνω μέρος όλων των ειδοποιήσεων επαναφοράς κατωφλίου (μέγιστο 1024 χαρακτήρες). Η HTML επιτρέπεται, αλλά θα αφαιρείται για email μόνο με κείμενο. Υπάρχουν διάφορες κοινές ετικέτες αντικατάστασης που μπορούν να συμπεριληφθούν:<br>&#060DESCRIPTION&#062 &#060HOSTNAME&#062 &#060HOST_ID&#062 &#060SITE&#062 &#060LOCATION&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060URL&#062 &#060GRAPHID&#062 &#060THOLD_ID&#062 &#060CURRENTVALUE&#062 &#060THRESHOLDNAME&#062  &#060DSNAME&#062 &#060SUBJECT&#062 &#060GRAPH&#062 &#60NOTES&#062 &#060DNOTES&#062"
 
 #: thold_templates.php
 msgid "Notification List Read Only"
@@ -3594,7 +3555,7 @@ msgstr "Μόνο λίστα ειδοποιήσεων"
 
 #: thold_templates.php
 msgid "If checked, Threshold Notification Lists in the Template will overwrite those of the Threshold."
-msgstr "Εάν είναι επιλεγμένο, η κοινοποίηση κατωφλίου θα αποσταλεί στο τοπικό syslog."
+msgstr "Εάν επιλεγεί, οι λίστες ειδοποιήσεων κατωφλίου στο πρότυπο θα αντικαταστήσουν εκείνες του κατωφλίου."
 
 #: thold_templates.php
 msgid "Severity to be used for alerts. (Low impact -> Critical impact)"
@@ -3614,52 +3575,52 @@ msgstr "Μπορείτε να ορίσετε εδώ επιπλέον μηνύμ�
 
 #: thold_templates.php
 msgid "Enter an Eternal ID for this Thold Template."
-msgstr "Η δημιουργία γραφήματος απέτυχε για το πρότυπο κατωφλίου."
+msgstr "Εισαγάγετε ένα Eternal ID για αυτό το πρότυπο Thold."
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d Μήνες,%d Ημέρες,%d Ώρες,%d Λεπτά,%d Δευτερόλεπτα (Μέσος όρος)"
+msgstr "%d μήνες, %d ημέρες, %d ώρες, %d λεπτά, %d δευτερόλεπτα (μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Months, %d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d Μήνες,%d Ημέρες,%d Ώρες,%d Λεπτά,%d Δευτερόλεπτα"
+msgstr "%d μήνες, %d ημέρες, %d ώρες, %d λεπτά, %d δευτερόλεπτα"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d ημέρες,%d ώρες,%d λεπτά,%d δευτερόλεπτα (μέσος όρος)"
+msgstr "%d ημέρες, %d ώρες, %d λεπτά, %d δευτερόλεπτα (μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Days, %d Hours, %d Minutes, %d Seconds"
-msgstr "%d ημέρες,%d ώρες,%d λεπτά,%d δευτερόλεπτα"
+msgstr "%d ημέρες, %d ώρες, %d λεπτά, %d δευτερόλεπτα"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds (Average)"
-msgstr "%d Ώρες,%d Λεπτά,%d Δευτερόλεπτα (Μέσος όρος)"
+msgstr "%d ώρες, %d λεπτά, %d δευτερόλεπτα (μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Hours, %d Minutes, %d Seconds"
-msgstr "%d ώρες,%d λεπτά,%d δευτερόλεπτα"
+msgstr "%d ώρες, %d λεπτά, %d δευτερόλεπτα"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds (Average)"
-msgstr "%d Λεπτά,%d Δευτερόλεπτα (Μέσος όρος)"
+msgstr "%d λεπτά, %d δευτερόλεπτα (μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Minutes, %d Seconds"
-msgstr "%d Λεπτά,%d Δευτερόλεπτα"
+msgstr "%d λεπτά, %d δευτερόλεπτα"
 
 #: thold_templates.php
 #, php-format
 msgid "%d Seconds (Average)"
-msgstr "%d Δευτερόλεπτα (Μέσος όρος)"
+msgstr "%d δευτερόλεπτα (μέσος όρος)"
 
 #: thold_templates.php
 #, php-format
