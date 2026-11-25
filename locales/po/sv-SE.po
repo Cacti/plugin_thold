@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-13 09:23-0400\n"
-"PO-Revision-Date: 2026-11-16 08:18+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-13 09:23-0400\nPO-Revision-Date: 2026-11-25 17:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/thold/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/arrays.php
 msgid "Indefinitely"
@@ -495,10 +483,9 @@ msgid "> %d Devices"
 msgstr "> %d enheter"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices Globally"
+#, php-format
 msgid "> %d %% of Devices Globally"
-msgstr "> %d %%% av alla enheter"
+msgstr "> %d %% av enheterna globalt"
 
 #: includes/arrays.php
 #, php-format
@@ -506,10 +493,9 @@ msgid "> %d Devices in a Site"
 msgstr "> %d enheter på en plats"
 
 #: includes/arrays.php
-#, fuzzy, php-format
-#| msgid "> %d %%% of Devices in a Site"
+#, php-format
 msgid "> %d %% of Devices in a Site"
-msgstr "> %d %%% av enheterna på en plats"
+msgstr "> %d %% av enheterna på en plats"
 
 #: includes/functions.php
 msgid "< 1 Minute"
@@ -588,10 +574,9 @@ msgid "Abs Val [TIP:%s]"
 msgstr "Absolut värde [TIP:%s]"
 
 #: includes/functions.php
-#, fuzzy, php-format
-#| msgid "%%% Dev [AOT:%s]"
+#, php-format
 msgid "%% Dev [AOT:%s]"
-msgstr "%%%-avvikelse [AOT:%s]"
+msgstr "%% Avv [AOT:%s]"
 
 #: includes/functions.php
 #, php-format
@@ -1451,7 +1436,7 @@ msgstr "Meddelande när enheten återhämtar sig"
 
 #: includes/settings.php
 msgid "This is the message that will be displayed as the message body of all UP / Down Device Messages (1024 Char MAX).  HTML is allowed, but will be removed for text only Emails.  There are several common replacement tags that may be used in include:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
-msgstr "Detta är det meddelande som kommer att visas som meddelandetexten i alla UP / Down Device-meddelanden (1024 Char MAX).  HTML är tillåtet, men kommer att tas bort för e-postmeddelanden med enbart text.  Det finns flera vanliga ersättningstaggar som kan användas i include:<br>&amp;#060HOSTNAME&amp;#062 &amp;#060HOST_ID&amp;#062 &amp;#060DESCRIPTION&amp;#062 &amp;#060SITE&amp;#062 &amp;#060LOCATION&amp;#062 &amp;#060UPTIME&amp;#062 &amp;#060UPTIMETEXT&amp;#062 &amp;#060NEDTID&amp;#062 &amp;#060TID&amp;#062 &amp;#060DATUM&amp;#062 &amp;#060DATUM_RFC822&amp;#062 &amp;#060BREACHED_ITEMS&amp;#062 &amp;#060MEDDELANDE&amp;#062 &amp;#060SUBJECT&amp;#062 &amp;#060DOWN/UP&amp;#062 &amp;#060SNMP_HOSTNAME&amp;#062 &amp;#060SNMP_LOCATION&amp;#062 &amp;#060SNMP_CONTACT&amp;#062 &amp;#060SNMP_SYSTEM&amp;#062 &amp;#060LAST_FAIL&amp;#062 &amp;#060AVAILABILITY&amp;#062 &amp;#060TOT_POLL&amp;#062 &amp;#060FAIL_POLL&amp;#062 &amp;#060CUR_TIME&amp;#062 &amp;#060AVG_TIME&amp;#062 &amp;#060NOTES&amp;#062"
+msgstr "Detta är det meddelande som kommer att visas som meddelandetext i alla enhetsmeddelanden för Upp / Ner (max 1024 tecken).  HTML är tillåtet, men tas bort i e-postmeddelanden med endast text.  Det finns flera vanliga ersättningstaggar som kan användas, inklusive:<br>&#060HOSTNAME&#062 &#060HOST_ID&#062 &#060DESCRIPTION&#062 &#060SITE&#062 &#060LOCATION&#062 &#060UPTIME&#062 &#060UPTIMETEXT&#062 &#060DOWNTIME&#062 &#060TIME&#062 &#060DATE&#062 &#060DATE_RFC822&#062 &#060BREACHED_ITEMS&#062  &#060MESSAGE&#062 &#060SUBJECT&#062 &#060DOWN/UP&#062 &#060SNMP_HOSTNAME&#062 &#060SNMP_LOCATION&#062 &#060SNMP_CONTACT&#062 &#060SNMP_SYSTEM&#062 &#060LAST_FAIL&#062 &#060AVAILABILITY&#062 &#060TOT_POLL&#062 &#060FAIL_POLL&#062 &#060CUR_TIME&#062 &#060AVG_TIME&#062 &#060NOTES&#062"
 
 #: includes/settings.php
 msgid "<br>System <DESCRIPTION> (<HOSTNAME>) status: <DOWN/UP><br><br>Site: <SITE><br>Location: <LOCATION><br>Current ping response: <CUR_TIME> ms<br>Average system response: <AVG_TIME> ms<br>System availability: <AVAILABILITY><br>Total Checks Since Clear: <TOT_POLL><br>Total Failed Checks: <FAIL_POLL><br>Last Date Checked UP: <LAST_FAIL><br>Device Previously DOWN for: <DOWNTIME><br><br>Snmp Info:<br>Name - <SNMP_HOSTNAME><br>Location - <SNMP_LOCATION><br>Uptime - <UPTIMETEXT> (<UPTIME> ms)<br>System - <SNMP_SYSTEM><br><br>NOTE: <NOTES><br>Device Notes: <DNOTES>"
@@ -2213,7 +2198,7 @@ msgstr "Den tid i sekunder som det tog att bearbeta händelsen."
 
 #: notify_queue.php
 msgid "Not Specified"
-msgstr "Inte angivet"
+msgstr "Ej angivet"
 
 #: notify_queue.php
 msgid "No Notifications"
@@ -2252,28 +2237,24 @@ msgid "Warning Low for %s (%s)"
 msgstr "Låg varning för %s (%s)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Hi for %s (%s %%%)"
+#, php-format
 msgid "Alert Hi for %s (%s %%)"
-msgstr "Högt larm för %s (%s %%%)"
+msgstr "Höglarm för %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Alert Low for %s (%s %%%)"
+#, php-format
 msgid "Alert Low for %s (%s %%)"
-msgstr "Lågt larm för %s (%s %%%)"
+msgstr "Låglarm för %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Hi for %s (%s %%%)"
+#, php-format
 msgid "Warning Hi for %s (%s %%)"
-msgstr "Hög varning för %s (%s %%%)"
+msgstr "Varning hög för %s (%s %%)"
 
 #: setup.php
-#, fuzzy, php-format
-#| msgid "Warning Low for %s (%s %%%)"
+#, php-format
 msgid "Warning Low for %s (%s %%)"
-msgstr "Låg varning för %s (%s %%%)"
+msgstr "Varning låg för %s (%s %%)"
 
 #: setup.php
 msgid "Threshold Alert/Warning Values"
@@ -2893,7 +2874,7 @@ msgstr "Avvikelse uppåt"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, the upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåten avvikelse för den övre tröskelgränsen. Om detta inte anges kontrolleras den övre tröskelgränsen inte alls.  Måttenheten utgörs av ett absolut värde för typen ”Absolut värde” och av en procentsats för både ”%% avvikelse” och ”%% glidande medelvärde”"
+msgstr "Anger tillåten avvikelse för det övre tröskelvärdet. Om detta inte anges kontrolleras det övre tröskelvärdet inte alls. Måttenheten utgörs av ett absolut värde för typen 'Absolut värde' och av en procentsats för både '%% avvikelse' och '%% glidande medelvärde'"
 
 #: thold.php thold_templates.php
 msgid "Deviation DOWN"
@@ -2902,7 +2883,7 @@ msgstr "Avvikelse nedåt"
 #: thold.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, the lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåten avvikelse för det nedre tröskelvärdet. Om detta inte anges kontrolleras det nedre tröskelvärdet inte alls.  Måttenheten utgörs av ett absolut värde när typen är ”Absolut värde” och av en procentsats när typen är ”%% avvikelse” eller ”%% glidande medelvärde”"
+msgstr "Anger tillåten avvikelse för det nedre tröskelvärdet. Om detta inte anges kontrolleras det nedre tröskelvärdet inte alls. Måttenheten utgörs av ett absolut värde för typen 'Absolut värde' och av en procentsats för både '%% avvikelse' och '%% glidande medelvärde'"
 
 #: thold.php thold_templates.php
 msgid "Trigger Count"
@@ -3503,12 +3484,12 @@ msgstr "Baslinjeövervakning"
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the upper bound Threshold. If not set, upper bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåten avvikelse för den övre tröskelgränsen. Om detta inte anges kontrolleras den övre tröskelgränsen inte alls.  Måttenheten utgörs av ett absolut värde när typen är ”Absolut värde” och av en procentsats när typen är antingen ”%% avvikelse” eller ”%% glidande medelvärde”"
+msgstr "Anger tillåten avvikelse för det övre tröskelvärdet. Om detta inte anges kontrolleras det övre tröskelvärdet inte alls. Måttenheten utgörs av ett absolut värde för typen 'Absolut värde' och av en procentsats för både '%% avvikelse' och '%% glidande medelvärde'"
 
 #: thold_templates.php
 #, php-format
 msgid "Specifies allowed deviation for the lower bound Threshold. If not set, lower bound Threshold will not be checked at all.  The unit of measure is an absolute values for 'Absolute Value' Type, and a Percentable for both '%% Deviation' and '%% Floating Average'"
-msgstr "Anger tillåten avvikelse för den nedre tröskelgränsen. Om detta inte anges kontrolleras den nedre tröskelgränsen inte alls. Måttenheten utgörs av ett absolut värde för typen ”Absolut värde” och av en procentsats för både ”%% avvikelse” och ”%% glidande medelvärde”"
+msgstr "Anger tillåten avvikelse för det nedre tröskelvärdet. Om detta inte anges kontrolleras det nedre tröskelvärdet inte alls. Måttenheten utgörs av ett absolut värde för typen 'Absolut värde' och av en procentsats för både '%% avvikelse' och '%% glidande medelvärde'"
 
 #: thold_templates.php
 #, php-format
